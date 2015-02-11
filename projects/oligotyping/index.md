@@ -13,11 +13,11 @@ Oligotyping is a novel computational method that can help microbial ecologists t
 
 # Important posts
 
-<a href="{% post_url oligotyping/2014-08-16-installing-the-oligotyping-pipeline %}" class="btn btn-warning">Installation</a>
+<p style="text-align: left;"><a href="{% post_url oligotyping/2014-08-16-installing-the-oligotyping-pipeline %}" class="btn btn-warning">Installation</a>
 <a href="{% post_url oligotyping/2014-09-02-virtualbox %}" class="btn btn-warning">Virtual Box</a>
 <a href="{% post_url oligotyping/2012-05-11-oligotyping-pipeline-explained %}" class="btn btn-success">Pipeline Explained</a>
 <a href="{% post_url oligotyping/2013-11-04-oligotyping-best-practices %}" class="btn btn-success">Best Practices</a>
-<a href="{% post_url oligotyping/2014-09-14-oligotyping-and-alignment %}" class="btn btn-success">Alignment</a>
+<a href="{% post_url oligotyping/2014-09-14-oligotyping-and-alignment %}" class="btn btn-success">Alignment</a></p>
 
 
 # All posts oligotyping
