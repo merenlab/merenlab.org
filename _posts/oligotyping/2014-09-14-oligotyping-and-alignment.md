@@ -7,7 +7,7 @@ tags: [alignment]
 categories: [oligotyping]
 comments: true
 image:
-  feature: eel-pond.jpg
+  feature: header.jpg
   thumb: header.jpg
 ---
 
