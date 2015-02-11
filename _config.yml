@@ -2,8 +2,7 @@
 
 title:            Meren on Microbial Ecology and Bioinformatics
 locale:           en_US
-#url:              //meren.github.io
-url:              //127.0.0.1:4000
+url:              //meren.github.io
 
 
 # Jekyll configuration
