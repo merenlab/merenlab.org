@@ -17,7 +17,7 @@ image:
 
 This is what [I had said]({% post_url oligotyping/2013-12-12-oligotyping-frontiers %}) on these pages about a year ago. Today, the research topic [New insights into microbial ecology through subtle nucleotide variation](http://journal.frontiersin.org/ResearchTopic/2427) is almost concluded, and contains 8 publications.
 
-I thought it is a good time to offer a glimpse of what has been published in this collection so far.
+I thought this would be a good time to offer a glimpse of what has been published in this collection so far.
 
 
 ## Gut microbiomes of cheetahs and jackals
@@ -124,7 +124,7 @@ Victor T. Schmidt, Julie Reveillaud, Erik Zettler, Tracy J. Mincer, Leslie Murph
 
 ## Final Words
 
-The diversity of environments studied in these publications, and the rate of the recovery of ecologically meaningful findings show that there is a great potential for highly resolved depictions of microbiomes. I am very thankful for everyone who contributed (or attempted to contribute) to this collection.
+The diversity of environments studied in these publications, and the rate of the recovery of ecologically meaningful findings show that there is a great potential for highly resolved depictions of microbiomes. I am very thankful for everyone who contributed to this collection.
 
 [Oligotyping]({{ site.url }}/projects/oligotyping/) and [minimum entropy decomposition]({{ site.url }}/projects/med/) provided a framework for researchers to explore these dimensions of their datasets at levels of single nucleotide resolution. I am sure there will be many approaches going forward, and a lot of research to make results accurate.
 
@@ -136,7 +136,7 @@ This has been a great experience on many levels, and I am very thankful to [Fron
 
 I think research topics in Frontiers provide a great framework to create a coherent collection of work that aims to contribute to a particular and well-defined issue.
 
-If you think you have a study that would fit well into this collection, please send me or `microbiology.researchtopics at frontiersin dot org`.
+If you think you have a study that would fit well into this collection, please send me or `microbiology.researchtopics at frontiersin dot org` an e-mail.
 
 
 
