@@ -25,16 +25,20 @@ image:
 
 >A novel, information theory-based clustering algorithm for sensitive partitioning of high-throughput marker gene sequences. The source code is distributed through the oligotyping pipeline.
 
-## Post-assembly Metagenomics Pipeline
+## PaPi
 
-<a href="{{ site.url }}/projects/papi/"><img src="{{ site.url }}/images/papi-logo.png" style="border: none;"></a>
-
->A novel framework for visualization of metagenomic data, interactive genome binning and annotation (coming soon).
+*(coming soon).*
 
 ## Illumina Utilities Library
 
-A lightweighted and high-performance library to analyze raw Illumina data. It contains programs for demultiplexing, quality filtering, merge partially or fully overlapping reads. Illumina utils has been a core component of the sequencing operations at the MBL.
+A lightweighted and high-performance library to analyze raw Illumina data. It contains programs for demultiplexing, quality filtering, and mergeing partially or fully overlapping reads. Illumina utils has been a core component of the sequencing operations at the MBL. The source code, installation instructions and examples are available through its GitHub repository:
+
+[https://github.com/meren/illumina-utils](https://github.com/meren/illumina-utils)
 
 ## BLAST Filtering Pipeline.
 
-A metagenomic short read filtering software that uses a flexible configuration format. It allows users to define a chain of genomic filters, each of which perform on the output data provided by the previous filter, to filter reads out from sequencing data. It can exploit Sun Grid Engine and distribute individual processes. Please visit https://github.com/meren/BLAST-filtering-pipeline for the source code.
+A metagenomic short read filtering software that uses a flexible configuration format. It allows users to define a chain of genomic filters, each of which perform on the output data provided by the previous filter, to filter reads out from sequencing data. It can exploit Sun Grid Engine and distribute individual processes. The source code is available through its GitHub repository:
+
+[https://github.com/meren/BLAST-filtering-pipeline](https://github.com/meren/BLAST-filtering-pipeline)
+
+Don't hesitate to send me an e-mail if you have questions.
