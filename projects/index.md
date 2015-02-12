@@ -12,19 +12,24 @@ image:
 
 {% include _toc.html %}
 
-## PaPi
+## Oligotyping
 
-A novel framework for visualization of metagenomic data, interactive genome binning, and annotation (the source code will be available soon).
+<a href="{{ site.url }}/projects/oligotyping/"><img src="{{ site.url }}/images/oligotyping-logo.png" style="border: none;"></a>
+
+>Oligotyping is a computational method that aims to be useful in the domain of microbial ecology to answer some specific questions. The method makes it possible to decompose very closely related taxa based on high-throughput sequencing analysis of phylogenetically informative genes amplified from environmental samples (such as 16S rRNA gene).
 
 
 ## Minimum Entropy Decomposition
 
-A novel, information theory-based clustering algorithm for sensitive partitioning of high-throughput marker gene sequences. The source code is distributed through the oligotyping pipeline.
+<a href="{{ site.url }}/projects/med/"><img src="{{ site.url }}/images/med-logo.png" style="border: none;"></a>
 
-## Oligotyping
+>A novel, information theory-based clustering algorithm for sensitive partitioning of high-throughput marker gene sequences. The source code is distributed through the oligotyping pipeline.
 
-Oligotyping is a computational method that aims to be useful in the domain of microbial ecology to answer some specific questions. The method makes it possible to decompose very closely related taxa based on high-throughput sequencing analysis of phylogenetically informative genes amplified from environmental samples (such as 16S rRNA gene).
+## Post-assembly Metagenomics Pipeline
 
+<a href="{{ site.url }}/projects/papi/"><img src="{{ site.url }}/images/papi-logo.png" style="border: none;"></a>
+
+>A novel framework for visualization of metagenomic data, interactive genome binning and annotation (coming soon).
 
 ## Illumina Utilities Library
 
