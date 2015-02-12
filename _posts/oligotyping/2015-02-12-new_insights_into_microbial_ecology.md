@@ -37,7 +37,7 @@ Being sympatric, and having somewhat similar diets, these animals seem to have s
 The figure shows that *Blautia* group is more abundant in cheetah samples in general, which is how it contributes to the separation of cheetah samples from jackal samples in an ordination. But with oligotypes, beyond separation, there are specific markers for each group from organisms that seem to occur in guts of more species than the other. *Blautia* is especially interesting to me because this group seems to be a great marker for different host species, as we had shown in our [2014 ISMEJ publication](http://www.nature.com/ismej/journal/v9/n1/full/ismej201497a.html). But *Blautia* is not the only genus the oligotype distribution differ between the groups drastically. Here, *Slackia*:
 
 <figure>
-	<a href="{{ site.url }}/images/oligotyping/menke_et_al_Slackia.png"><img src="{{ site.url }}/images/oligotyping/menke_et_al_Slackia.png"></a>
+	<a href="{{ site.url }}/images/oligotyping/menke_et_al_slackia.png"><img src="{{ site.url }}/images/oligotyping/menke_et_al_slackia.png"></a>
 </figure>
 
 You can read the study here: [doi:10.3389/fmicb.2014.00526](http://journal.frontiersin.org/Journal/10.3389/fmicb.2014.00526/full)
