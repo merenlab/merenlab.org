@@ -15,7 +15,9 @@ image:
 
 >I am very pleased to announce that Frontiers in Microbiology is now hosting a research topic on oligotyping, which is open for submissions! 
 
-This is what [I had said]({% post_url oligotyping/2013-12-12-oligotyping-frontiers %}) on these pages about a year ago. Today, the research topic [New insights into microbial ecology through subtle nucleotide variation](http://journal.frontiersin.org/ResearchTopic/2427) is almost concluded, and contains 8 publications. I thought it is a good time to offer a glimpse of what is published in this collection so far.
+This is what [I had said]({% post_url oligotyping/2013-12-12-oligotyping-frontiers %}) on these pages about a year ago. Today, the research topic [New insights into microbial ecology through subtle nucleotide variation](http://journal.frontiersin.org/ResearchTopic/2427) is almost concluded, and contains 8 publications.
+
+I thought it is a good time to offer a glimpse of what has been published in this collection so far.
 
 
 ## Gut microbiomes of cheetahs and jackals
