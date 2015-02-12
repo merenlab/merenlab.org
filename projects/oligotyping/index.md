@@ -9,7 +9,7 @@ image:
 
 # In a nutshell
 
-Oligotyping is a novel computational method that can help microbial ecologists to investigate concealed diversity at an extremely precise level within their closely related organisms by utilizing very subtle variations among 16S Ribosomal RNA gene pyro-tag sequences.
+Oligotyping is a computational method that helps microbial ecologists to investigate concealed diversity within their operational taxonomic units at an extremely precise level by utilizing very subtle variations among 16S Ribosomal RNA gene sequences. A key article to quickly understand its ecological implications is [here](http://www.pnas.org/content/111/28/E2875.full).
 
 # Important posts
 
