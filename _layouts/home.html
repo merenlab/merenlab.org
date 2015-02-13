@@ -36,8 +36,8 @@
 
   <div id="articlecontent"><p>I am an Assistant Research Scientist at the Marine Biological Laboratory, Woods Hole, studying microbial ecology with my expertise in computer science and bioinformatics. My personal web page is <a href="http://meren.org/">here</a>. This web site is where I talk about my <a href="{{ site.url }}/projects">projects</a> and science in general.</p></div> 
 
-    <h3><a href="{{ site.url}}/posts/">Recent Posts</a></h3>
-    {% for post in site.posts limit:10 %}    
+    <h3>Recent posts from the blog</h3>
+    {% for post in site.posts limit:50 %}    
     <article>
       {% if post.link %}
         <h2 class="link-post"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></h2>
