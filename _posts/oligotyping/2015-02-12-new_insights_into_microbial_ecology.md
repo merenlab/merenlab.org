@@ -126,17 +126,19 @@ Victor T. Schmidt, Julie Reveillaud, Erik Zettler, Tracy J. Mincer, Leslie Murph
 
 ## Final Words
 
-The diversity of environments studied in these publications, and the rate of the recovery of ecologically meaningful findings show that there is a great potential for highly resolved depictions of microbiomes. I am very thankful for everyone who contributed to this collection.
+I am very thankful for everyone who contributed to this collection.
 
-[Oligotyping]({{ site.url }}/projects/oligotyping/) and [minimum entropy decomposition]({{ site.url }}/projects/med/) provided a framework for researchers to explore these dimensions of their datasets at levels of single nucleotide resolution. I am sure there will be many approaches going forward, and a lot of research to make results accurate.
+The diversity of environments studied in these publications, and the rate of the recovery of ecologically meaningful findings show that there is a great potential for highly resolved depictions of microbiomes. 
 
-It is just getting the mindset of microbial ecology out of the local minimum called "3%". The rest will follow very quickly. 
+[Oligotyping]({{ site.url }}/projects/oligotyping/) and [minimum entropy decomposition]({{ site.url }}/projects/med/) provided a framework for researchers to explore these dimensions of their datasets at levels of single-nucleotide resolution. I am sure there will be many similar approaches going forward, and a lot of research will take place to make these results more accurate, and to utilize them in searching for answers to outstanding questions in microbial ecology.
+
+It is just about getting the mindset of microbial ecology out of the local minimum it stuck called "3%". The rest will come very quickly.
 
 ---
 
 This has been a great experience on many levels, and I am very thankful to [Frontiers in Systems Microbiology](http://www.frontiersin.org/systems_microbiology) and the great team behind it for this opportunity.
 
-I think research topics in Frontiers provide a great framework to create a coherent collection of work that aims to contribute to a particular and well-defined issue.
+I think research topics in Frontiers provide a great framework to create coherent collections of work that aim to contribute to a particular, well-defined issue.
 
 If you think you have a study that would fit well into this collection, please send me or `microbiology.researchtopics at frontiersin dot org` an e-mail.
 
