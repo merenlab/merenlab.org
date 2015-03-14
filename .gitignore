@@ -1,3 +1,6 @@
+# the local changes shall not show up in the status list
+_config.yml
+
 # platform dependent python byte code files.
 *.pyc
 
