@@ -31,11 +31,16 @@ Here is a list of speakers and their presentations (you can download the meeting
 * **[Jeremiah J. Faith](http://www.mountsinai.org/profiles/jeremiah-faith)** (The Mount Sinai Hospital)<br />“*Experimental advances for improving microbiome strain-tracking resolution and the computational opportunities they present*”* **[Jessica L. Mark Welch](http://www.mbl.edu/jbpc/staff/markwelchj/)** (Marine Biological Laboratory)<br />“*Connecting high-resolution informatics to spatial organization through imaging*”* **[Christopher Quince](http://search.warwick.ac.uk/profile?id=MTM3NTAzOGYxODJlYmU%3D)** (University of Warwick)<br />“*Reconstruction of genomes from metagenomes using coverage and composition*”
 
 
+
+Yes, marker gene-related talks take a good portion of the schedule. And yes, the need for methods that can deliver highly resolved depictions of microbial ecosystems through sequencing data is not limited to marker gene analyses. However, there are multiple published alternative methods available today for the analysis of marker gene data that can compete or complement the canonical ones, and this is a good time to discuss how can we improve them and make them more accessible.
+
+I hope we will all be convinced at the end of this meeting that we should do this again, and agree that the next schedule should cover more base in the context of metagenomics, and imaging.
+
 ---
 
-I am hoping to recap everything and post it online shortly after the meeting.
+I am planning to recap everything and post it online shortly after the meeting.
 
-Meanwhile, in case you have suggestions for us to discuss during this meeting, or you know methods that are not yet widely-known, please send me an e-mail and let me know, and I will do my best to include them and their developers into our future conversations.
+Meanwhile, in case you have suggestions for us to discuss during this meeting, or you know methods that are not yet widely-known, please send me an e-mail and let me know, so I can do my best to include them and their developers into our future conversations.
 
 As a separate note, this is Woods Hole just a week ago:
 
