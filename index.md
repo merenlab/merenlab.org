@@ -1,7 +1,7 @@
 ---
 layout: home
-excerpt: "Meren's musings on microbial ecology and bioinformatics"
-tags: [Meren, A. Murat Eren, bioinformatics, microbial ecology, metagenomics, 16S, oligotyping, minimium entropy decomposition]
+excerpt: "On microbial ecology, and bioinformatics"
+tags: [Meren, A. Murat Eren, Tom Delmont, bioinformatics, microbial ecology, microbiome, pipeline, metagenomics, 16S, oligotyping, minimium entropy decomposition, OTU clustering]
 image:
   feature: header.jpg
 ---
