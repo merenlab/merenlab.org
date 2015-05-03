@@ -12,6 +12,40 @@ body {
    Header
    ========================================================================== */
 
+thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  font-family: monospace;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+th, td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
 .category-box {
     margin-bottom: 20px;
     width: 100%;
