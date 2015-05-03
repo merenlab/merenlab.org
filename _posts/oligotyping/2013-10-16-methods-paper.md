@@ -6,9 +6,6 @@ modified: 2013-10-16
 tags: [pubs]
 categories: [oligotyping]
 comments: true
-image:
-  feature: header.jpg
-  thumb: header.jpg
 ---
 
 The [methods paper](http://onlinelibrary.wiley.com/doi/10.1111/2041-210X.12114/abstract) for oligotyping appeared in [Methods in Ecology and Evolution](http://www.methodsinecologyandevolution.org/):

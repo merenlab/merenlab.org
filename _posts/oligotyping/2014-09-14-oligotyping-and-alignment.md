@@ -6,9 +6,6 @@ modified: 2014-09-14
 tags: [alignment]
 categories: [oligotyping]
 comments: true
-image:
-  feature: header.jpg
-  thumb: header.jpg
 ---
 
 Probably because the underlying logic behind oligotyping is remarkably different from the canonical approaches to demarcate high-throughput sequencing datasets, certain things about oligotyping sounds counter intuitive at first. This may be why I and others who are familiar with oligotyping hear similar questions from different audiences.

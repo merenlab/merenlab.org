@@ -6,9 +6,6 @@ modified: 2014-10-16
 tags: [qiime]
 categories: [oligotyping]
 comments: true
-image:
-  feature: header.jpg
-  thumb: header.jpg
 ---
 
 <img src="{{ site.url }}/images/oligotyping/james.meadow-240x300.jpg" width="150" style="float: right; margin-left: 20px;">

@@ -29,17 +29,12 @@ h6 {
 }
 
 #articlecontent h2 {
-	margin-left: -8px;
-	margin-right: -8px;
     margin-top: 2em;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     padding-left: 0.5em;
-    border-bottom: 5px solid #DDD;
-    background: -webkit-linear-gradient(#EEE, #FFF); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#EEE, #FFF); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#EEE, #FFF); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#EEE, #FFF); /* Standard syntax */
+    border-bottom: 1px solid #AAA;
+    background: url('../../images/fractal.jpg') center center scroll;
 }
 
 #articlecontent h3 {
@@ -148,9 +143,12 @@ figcaption {
    ========================================================================== */
 
 blockquote {
-	margin-left: -28px;
-	padding-left: 20px;
+	margin-left: 20px;
+	padding: 20px;
+    border-radius: 10px;
+    background-color: #FEFFFA;
 	border-left: 8px solid $border-color;
+	border-right: 8px solid $border-color;
 	font-family: $alt-font;
 	font-style: italic;
 }

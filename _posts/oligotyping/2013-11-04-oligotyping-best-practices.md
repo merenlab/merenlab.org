@@ -6,9 +6,6 @@ modified: 2013-11-04
 tags: [tutorial]
 categories: [oligotyping]
 comments: true
-image:
-  feature: header.jpg
-  thumb: header.jpg
 ---
 
 {% include _toc.html %}

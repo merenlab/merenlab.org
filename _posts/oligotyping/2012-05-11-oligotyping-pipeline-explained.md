@@ -6,11 +6,6 @@ modified: 2015-01-11
 tags: [tutorial]
 categories: [oligotyping]
 comments: true
-image:
-  feature: header.jpg
-  thumb: header.jpg
-  credit: Meren
-  creditlink: http://meren.org
 ---
 
 {% include _toc.html %}

@@ -6,9 +6,6 @@ modified: 2014-09-02
 tags: [virtual, installation]
 categories: [oligotyping]
 comments: true
-image:
-  feature: header.jpg
-  thumb: header.jpg
 ---
 
 {% include _toc.html %}

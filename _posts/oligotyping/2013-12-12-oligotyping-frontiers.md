@@ -6,9 +6,6 @@ modified: 2013-12-12
 tags: [frontiers, pubs]
 categories: [oligotyping]
 comments: true
-image:
-  feature: header.jpg
-  thumb: header.jpg
 ---
 
 I am very pleased to announce that Frontiers in Microbiology is now hosting a research topic on oligotyping, which is open for submissions! Please visit the research topic page, “[New insights into microbial ecology through subtle nucleotide variation](http://www.frontiersin.org/systems_microbiology/researchtopics/new_insights_into_microbial_ec/2427)“, for more information.

@@ -6,9 +6,6 @@ modified: 2013-03-29
 tags: [network, gephi, oral]
 categories: [oligotyping]
 comments: true
-image:
-  feature: header.jpg
-  thumb: header.jpg
 ---
 
 

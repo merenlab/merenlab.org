@@ -6,9 +6,6 @@ modified: 2015-03-14
 tags: [high-resolution]
 categories: [oligotyping, med]
 comments: true
-image:
-  feature: header.jpg
-  thumb: header.jpg
 ---
 
 I believe there is now a broad understanding among microbial ecologists that the analysis of high-throughput sequencing of marker gene amplicons from microbiomes with 3% OTUs is somewhat limiting, and we can all benefit from more advanced tools that go beyond the apparent limitations of OTU clustering.

@@ -4,8 +4,6 @@ title: "Selected Publications"
 tags: [faq]
 modified: 2015-02-02T20:53:07.573882-04:00
 comments: true
-image:
-  feature: header.jpg
 ---
 
 ### Selected Publications

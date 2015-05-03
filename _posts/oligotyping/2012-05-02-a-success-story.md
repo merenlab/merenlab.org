@@ -6,9 +6,6 @@ modified: 2012-05-02
 tags: [pubs, gardnerella]
 categories: [oligotyping]
 comments: true
-image:
-  feature: header.jpg
-  thumb: header.jpg
 ---
 
 {% include _toc.html %}

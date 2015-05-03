@@ -6,9 +6,6 @@ date: 2015-02-12 10:17:05
 tags: [pubs, frontiers]
 categories: [oligotyping]
 comments: true
-image:
-  feature: header.jpg
-  thumb: header.jpg
 ---
 
 {% include _toc.html %}

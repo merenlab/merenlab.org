@@ -6,9 +6,6 @@ modified: 2014-08-16
 tags: [pip]
 categories: [oligotyping]
 comments: true
-image:
-  feature: header.jpg
-  thumb: header.jpg
 ---
 
 {% include _toc.html %}

@@ -6,9 +6,6 @@ modified: 2013-02-28
 tags: [pubs, lachnos]
 categories: [oligotyping]
 comments: true
-image:
-  feature: header.jpg
-  thumb: header.jpg
 ---
 
 

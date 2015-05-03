@@ -6,9 +6,6 @@ modified: 2013-02-04
 tags: [mapping, pipeline]
 categories: [oligotyping]
 comments: true
-image:
-  feature: header.jpg
-  thumb: header.jpg
 ---
 
 Oligotyping pipeline generates all necessary files the user may need to investigate the distribution of the recovered oligotypes among their samples in other analysis environments (such as R).
