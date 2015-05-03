@@ -1,0 +1,30 @@
+- name: A. Murat Eren (Meren)
+  role: Assistant Research Scientist
+  twitter: merenbey
+  github: meren
+  web: http://meren.org
+  avatar: bio-meren.jpg
+  email: a.murat.eren@gmail.com
+  twitter: merenbey
+  github: meren
+  linkedin: meren
+  phone: +1-508-286-7112
+  fax: +1-508-457-4727
+  skype: a.murat.eren
+  address: Marine Biological Laboratory, JBPC (L-326), 7 MBL Street, Woods Hole, MA 02543 USA
+  bio: "I am a computer scientist with a deep appreciation for the complexity of life. I design algorithms and experiments to better understand microbes and their ecology."
+
+- name: Tom O. Delmont
+  role: Post-doctoral Scientist
+  email: tdelmont@mbl.edu
+  avatar: bio-tom.png
+  bio: "I am a microbial ecologist who seeks to understand small and large-scale ecological patterns in the microbial world. My most recent investigations focused on humans, pristine soils, and the Southern Ocean."
+
+- name: Özcan C. Esen
+  role: Undergraduate Student
+  email: ozcanesen@gmail.com
+  twitter: ozcanesen
+  avatar: bio-ozcan.png
+  github: ozcanesen
+  web: http://blog.ozcanesen.com/
+  bio: "Currently a computer engineering undergrad from Turkey, I strive to utilize my expertise in computation to study challenges in other fields."

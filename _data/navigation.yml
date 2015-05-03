@@ -1,13 +1,16 @@
 # Site navigation links
 
-- title: Home
-  url: /
+- title: Research Interests
+  url: /research/
 
-- title: About
-  url: /about/
+- title: People
+  url: /people/
 
 - title: Projects
   url: /projects/
+
+- title: Publications
+  url: /publications/
 
 - title: Posts by Category
   url: /posts/

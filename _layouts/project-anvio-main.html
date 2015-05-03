@@ -30,16 +30,16 @@
 
 <div id="main" role="main">
   <div class="article-author-side">
-    {% include _author-bio.html %}
+    {% include _left-panel.html %}
 </div>
 
 <div id="index">
     <div class="article-wrap">
-    {% include _project-papi-links.html %}
+    {% include _project-anvio-links.html %}
      <div id="articlecontent">{{ content }}</div> 
     </div><!-- /.article-wrap -->
 {% for post in site.posts %}
-  {% if post.categories contains "papi" %}
+  {% if post.categories contains "anvio" %}
         {% if post.title %}
             <article>
                 <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <small>({{ post.date | date: "%a, %b %d, %Y" }})</small></h2>

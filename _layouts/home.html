@@ -29,25 +29,27 @@
 {% endif %}
 
 <div id="main" role="main"> 
-  <div class="article-author-side">
-    {% include _author-bio.html %}
-  </div>
-  <div id="index">
+    <div class="article-author-side">
+      {% include _left-panel.html %}
+    </div>
 
-  <div id="articlecontent"><p>I am an Assistant Research Scientist at the Marine Biological Laboratory, Woods Hole, studying microbial ecology with my expertise in computer science and bioinformatics. My personal web page is <a href="http://meren.org/">here</a>. This web site is where I talk about my <a href="{{ site.url }}/projects">projects</a> and science in general.</p></div> 
+    <div id="index">
+        <div id="articlecontent">
+          {% include _mission.html %}
+        </div>
 
-    <h3>Recent posts from the blog</h3>
-    {% for post in site.posts limit:50 %}    
-    <article>
-      {% if post.link %}
-        <h2 class="link-post"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></h2>
-      {% else %}
-        <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
-        <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
-      {% endif %}
-    </article>
-    {% endfor %}
-  </div><!-- /#index -->
+        <h3>Recent posts from the blog</h3>
+        {% for post in site.posts limit:5 %}    
+        <article>
+            {% if post.link %}
+                <h2 class="link-post"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></h2>
+            {% else %}
+                <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
+                <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
+            {% endif %}
+        </article>
+        {% endfor %}
+    </div><!-- /#index -->
 </div><!-- /#main -->
 
 <div class="footer-wrap">
