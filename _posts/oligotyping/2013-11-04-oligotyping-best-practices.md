@@ -1,5 +1,6 @@
 ---
 layout: post
+author: meren
 title: "How to olitoype: Best practices"
 excerpt: "Flowchart of oligotyping..."
 modified: 2013-11-04 

@@ -92,6 +92,15 @@ th, td {
 	}
 }
 
+.page-author-social-box {
+	border-radius: 0.2em;
+    background-color: #FAFAFA;
+    border: 1px solid #EFEFEF;
+    padding: 3px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+
 .social-box {
 	border-radius: 0.2em;
     background-color: #FAFAFA;
@@ -144,6 +153,30 @@ th, td {
   font-size: small;
 }
 
+.page-author {
+  margin-left: 5%;
+  margin-bottom: 10px;
+}
+
+.authored {
+  margin-bottom: 0px;
+  line-height: 0px;
+}
+
+.page-author-info {
+	h3 {
+		margin-bottom: 0;
+        color: rgb(98, 98, 98);
+	}
+	p {
+		font-size: 90%;
+		font-style: italic;
+	}
+	a, a:hover {
+		font-size: 80%;
+		border-bottom: 0 solid transparent;
+	}
+}
 
 .person {
     min-height: 150px;
