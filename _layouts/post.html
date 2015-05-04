@@ -35,13 +35,18 @@
   <article class="post">
     <div class="headline-wrap">
       {% if page.link %}
-        <h1><a href="{{ page.link }}">{{ page.title }}</a></h1>
+        <h1 {% if page.author %}class="authored"{% endif %}><a href="{{ page.link }}">{{ page.title }}</a></h1>
       {% else %}
-        <h1><a href="{{ site.url }}{{ page.url }}" rel="bookmark" title="{{ page.title }}">{{ page.title }}</a></h1>
+        <h1 {% if page.author %}class="authored"{% endif %}><a href="{{ site.url }}{{ page.url }}" rel="bookmark" title="{{ page.title }}">{{ page.title }}</a></h1>
       {% endif %}
     </div><!--/ .headline-wrap -->
     <div class="article-wrap">
-     <div id="articlecontent">{{ content }}</div> 
+
+    {% if page.author %}
+        {% include _author-info.html %}
+    {% endif %}
+
+    <div id="articlecontent">{{ content }}</div> 
       <hr />
       <footer role="contentinfo">
         {% if page.share != false %}{% include _social-share.html %}{% endif %}

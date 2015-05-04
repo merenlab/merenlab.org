@@ -1,4 +1,5 @@
-- name: A. Murat Eren (Meren)
+- alias: meren
+  name: A. Murat Eren (Meren)
   role: Assistant Research Scientist
   twitter: merenbey
   github: meren
@@ -14,13 +15,15 @@
   address: Marine Biological Laboratory, JBPC (L-326), 7 MBL Street, Woods Hole, MA 02543 USA
   bio: "I am a computer scientist with a deep appreciation for the complexity of life. I design algorithms and experiments to better understand microbes and their ecology."
 
-- name: Tom O. Delmont
+- alias: tom
+  name: Tom O. Delmont
   role: Post-doctoral Scientist
   email: tdelmont@mbl.edu
   avatar: bio-tom.png
   bio: "I am a microbial ecologist who seeks to understand small and large-scale ecological patterns in the microbial world. My most recent investigations focused on humans, pristine soils, and the Southern Ocean."
 
-- name: Özcan C. Esen
+- alias: ozcan
+  name: Özcan C. Esen
   role: Undergraduate Student
   email: ozcanesen@gmail.com
   twitter: ozcanesen
