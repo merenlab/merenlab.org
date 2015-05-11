@@ -26,7 +26,7 @@ One way to analyze this dataset is to rely on CONCOCT. For instance, you can pro
 
 Although resulting merged profile would be missing all the trees that are used by `anvi-interactive`, it would contain clustering results from CONCOCT, therefore you would still have your genome bins identified. Which means, you can now run `anvi-summary` on the merged data, and take a look at what's up:
 
-    $ anvi-summary -p MERGED_PROFILE/PROFILE.db -a annotation_db -c CONCOCT -o MERGED_SUMMARY
+    $ anvi-summarize -p MERGED_PROFILE/PROFILE.db -a annotation_db -c CONCOCT -o MERGED_SUMMARY
 
 Big data is all about trade-offs. Relying on fully-automated genome binning means;
 
@@ -47,7 +47,7 @@ Fortunately, there aren't 200,000 contigs in `Group_6`, which means we can analy
 
 <blockquote>I would suggest you to take a backup of your original profile database just in case if things go bad.</blockquote>
 
-   $ anvi-refine -p MERGED_PROFILE/PROFILE.db -a annotation.db -c CONCOCT -b Group_6
+    $ anvi-refine -p MERGED_PROFILE/PROFILE.db -a annotation.db -c CONCOCT -b Group_6
 
 With this command, anvi'o will take all contigs that were put in `Group_6` in the CONCOCT collection, along with the data associated with them stored in the annotation and profile databases, and run a hierarchical clustering on this subset, just to present you with the interactive interface so you can _refine_ this highly contaminated bin.
 
