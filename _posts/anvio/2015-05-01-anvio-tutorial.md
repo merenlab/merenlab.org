@@ -35,7 +35,7 @@ If you exported your FASTA file and BAM files using CLC, type these two commands
     sed -i 's/_contig_/contig/g' contigs.fa
 
 
-# Programs to analyze contigs
+# Programs to analyze contigs FASTA
 
 Following sections will describe each program you will frequently use while walking you through an example analysis. To see a complete list of programs that are distributed with the platform, type `anvi-` in your terminal, and then press the `TAB` key twice.
 
@@ -128,9 +128,16 @@ Once you know what you `-M` is, you can, again, profile multiple samples using t
 
     for sample in `cat SAMPLE_IDs`; do anvi-profile -i $sample.bam -M YOUR_M_VALUE -a annotation.db; done
 
+__Note__: If you are planning to work with and visualize single profiles (without merging), use `--cluster-contigs` flag (more explanation on this will come later). You don't need to use this flag if you are planning to merge multiple profiles (i.e., if you have more than one BAM files to work with).
+
+
+# Programs to work with anvi'o profiles
+
 ## anvi-merge
 
-The next step is to merge all the profiles that should be analyzed together. It goes without saying that every profiling step must have used the same parameters for analysis. If profiles have been generated with different annotation databases or with different parameters will not get merged, and you will get angry error messages from anvio.
+Once you have your BAM files profiled, the next logical step is to merge all the profiles that should be analyzed together.
+
+It goes without saying that every profiling step must have used the same parameters for analysis. If profiles have been generated with different annotation databases or with different parameters will not get merged, and you will get angry error messages from anvio.
 
 In an ideal case, this should be enough to merge your stuff:
 
@@ -140,18 +147,48 @@ Or alternatively you can run this:
 
     anvi-merge */RUNINFO.cp -o XY-MERGED -a annotation.db
 
-When merging is done, you can export necessary files for unsupervised binning of splits using CONCOCT (to get the necessary input file for _Storing CONCOCT results_ section. For CONCOCT you need a coverages file, and splits file. You can get both running this on your merged profile:
+Before you run these commands in your real-world data, you must understand the details of clustering.
 
-    anvi-export-splits-and-coverages annotation.db XY-MERGED/PROFILE.db
+### Clustering during merging
 
-This command will give you two files you will use for running CONCOCT (this part is going to be much better very soon).
+A default step in the merging process is to generate a hierarchical clustering of all splits using anvi'o's default _clustering configurations_. One of these clustering configurations clusters contigs using only k-mer frequencies (if you generated your annotation database with default parameters, the k is 4, and your k-mer frequencies will be 'tetranucleotide frequencies'), another one of them mixes k-mer frequencies with distribution patterns across samples for clustering, etc. The hierarchical clustering result is necessary for __visualization__, and __supervised binning__. Therefore, by default, anvi'o will attempt to cluster your contigs using these configurations. However, if you have, say, more than 25,000 splits, clustering step will be very time consuming (multiple hours to even days), and visualization of this data will be very challenging. There are other solutions to this problem that will be discussed later, but if you would like to skip hierarchical clustering, you can use `--skip-hierarchical-clustering` flag.
+
+During merging, anvi'o will also use [CONCOCT](http://www.nature.com/nmeth/journal/v11/n11/full/nmeth.3103.html) for unsupervised binning. CONCOCT can deal with hundreds of thousands of splits. Which means, regardless of the number of splits you have, and even if you skip the hierarchical clustering step, there will be a collection in the merged profile database (collection id of which will be 'CONCOCT') with genome bins identified by CONCOCT in an unsupervised manner, from which you can generate a summary. But if you would like to skip CONCOCT clustering, you can use `--skip-concoct-binning` flag. 
 
 ## anvi-interactive
 
-Once the merging is done you can finally run the interactive interface:
+Interactive interface is good for a couple of things: it allows you to browse your data in an intuitive way, shows you multiple aspects of your data, visualize the results of unsupervised binning, and most importantly, it allows you to perform supervised binning. In order to run the interactive interface on a run, hierarchical clustering must have been performed, and stored in the profile database (otherwise you will hear anvi'o complaining about that).
+
+ Once the merging is done you can finally run the interactive interface:
 
     anvi-interactive -r XY-MERGED/RUNINFO.cp -a annotation.db
 
+If you had too many contigs and had to skip the hierarchical clustering step during merging, and if you only have unsupervised binning done by CONCOCT, don't be worried and keep reading on.
+
+## anvi-summarize
+
+Once you have a collection, it is time for you to summarize your results.
+
+Collection could be genome bins identified by CONCOCT in an unsupervised manner during anvi-merge, or it could be genome bins you identified through anvi-interactive. anvi-summary will take the collection id as a parameter, and generate a static HTML output for you, during which, among other things,
+
+* All your splits will be merged back to contigs and stored as FASTA files,
+* Completion and contamination scores for your genome bins will be computed and stored into files,
+* Matrix files will be generated for your genome bins across your samples with respect to their mean coverage, variability, etc.
+
+You can run this to summarize the bins saved under the collection id 'CONCOCT' into MY_SUMMARY directory:
+
+    anvi-summarize -p XY-MERGED/PROFILE.db -a annotation.db -o XY-MERGED-SUMMARY -c CONCOCT
+
+If you are not sure which collections are available to you, you can always see a list of them by running this command:
+
+    anvi-summarize -p XY-MERGED/PROFILE.db -a annotation.db -o XY-MERGED-SUMMARY --list-collections
+
+
+## anvi-refine
+
+After running anvi-summarize, you may realize that you are  not happy with one or more of your bins. This often is the case when you are working with very large datasets and when you are forced to skip the supervised clustering step. anvi-summarize gives you the ability to make finer adjustements in a bin that is not complete.
+
+Please read [this article]({% post_url anvio/2015-05-11-anvi-refine %}) for a comprehensive introduction to refinement capacity of anvi'o.
 
 ---
 
