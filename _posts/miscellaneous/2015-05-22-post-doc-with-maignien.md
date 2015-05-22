@@ -12,7 +12,7 @@ comments: true
 
 The successful candidate will be co-adviced by me and Loïs, and will travel to the US often to work with me and my group, get trained in the state-of-the-art tools we are developing to analyze marker gene data (i.e., oligotyping and minimum entropy decomposition), and for the analysis of shotgun metagenomes (i.e., anvi'o).
 
-The project is pretty cool: <b>"Life at the extremes: microbial EcoGenomics of deep-sea extremophiles"</b>. Loïs will be using novel and recent approaches both from molecular microbiology, but also from the bioinformatics to study the ecology of life in places filled with question marks. I think this is a great opportunity to get trained in multiple fronts at once if you have intrest in deep-sea microbiology, or if you are a bioinformatician who wants to get trained in microbial ecology.
+The project is pretty cool: <b>"Life at the extremes: microbial EcoGenomics of deep-sea extremophiles"</b>. Loïs uses novel approaches both from the fields of molecular microbiology and bioinformatics to study the ecology of life in places filled with question marks. I think this is a great opportunity to get trained in multiple fronts at once if you have intrest in deep-sea microbiology, or if you are a bioinformatician who wants to get trained in microbial ecology.
 
 Here is the more detailed advertisement:
 
