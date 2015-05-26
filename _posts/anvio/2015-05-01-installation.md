@@ -58,5 +58,9 @@ If you want to update your installation, you are going to need to run these comm
     cd tests
     ./run_mini_test.sh
 
+If you are not on a server where there is no access to a GUI, your browser should popup upon the successful completion of `run_mini_test.sh`, and when you click that 'Draw' button, you should see this:
+
+<img src="{{ site.url }}/images/anvio/misc/mini-test-screenshot.png" />
+
 All fine? Perfect!
 
