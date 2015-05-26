@@ -165,6 +165,12 @@ Interactive interface is good for a couple of things: it allows you to browse yo
 
 If you had too many contigs and had to skip the hierarchical clustering step during merging, and if you only have unsupervised binning done by CONCOCT, don't be worried and keep reading on.
 
+But just to give you an idea, here is a screenshot from the interactive interface (taken while we were analyzing a random interface with anvi'o version 0.8.1):
+
+<div class="centerimg">
+<a href="{{ site.url }}/images/anvio/misc/infant-gut-screenshot.png"><img src="{{ site.url }}/images/anvio/misc/infant-gut-screenshot.png" width="50%" /></a>
+</div>
+
 ## anvi-summarize
 
 Once you have a collection, it is time for you to summarize your results.

@@ -19,7 +19,9 @@ But what if you do not want to use a large `--min-contig-length` value and lose 
 
 Here is an example project with more 250,000 splits:
 
+<div class="centerimg">
 <img src="{{ site.url }}/images/anvio/refine/annotationdb.png" />
+</div>
 
 One way to analyze this dataset is to rely on CONCOCT. For instance, you can profile each of your sample with `--min-contig-length` of 2500, and skip the hierarchical clustering during `anvi-merge`:
 
@@ -60,15 +62,21 @@ This tree shows every contig that was in `Group_6`, however, they are this time 
 
 You can immediately see why CONCOCT had hard time with them and ended up putting all them together: all these contigs are coming from genomes that are occurred *mostly* in sample `OS C`. As CONCOCT relies on differential distribution of genomes across samples, great similarity in the distribution of these genomes makes it very hard to confidently pull them apart. Which is not surprising. However, when we focus on this bin with anvi'o, we can see some tiny differences in distribution:
 
+<div class="centerimg">
 <img src="{{ site.url }}/images/anvio/refine/group_6_detail.png" />
+</div>
 
 When anvi'o focuses only one CONCOCT group, these tiny differences become large enough to have three, very clear clusters as you can see from the tree:
 
+<div class="centerimg">
 <img src="{{ site.url }}/images/anvio/refine/group_6_tree_detail.png" />
+</div>
 
 We know when we select all of them, the predicted contamination is about 170%. But if I click those branches to add them into separate groups:
 
+<div class="centerimg">
 <img src="{{ site.url }}/images/anvio/refine/group_6_tree_selections.png" />
+</div>
 
 The contamination drops down to much better levels:
 
