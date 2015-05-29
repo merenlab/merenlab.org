@@ -17,7 +17,7 @@ Marker genes amplified from environmental samples are indispensable tools for de
 
 ### Metagenomics
 
-Although marker genes are indispensable for the characterization of the community structure, they cannot answer questions about microbial communities regarding what they are capable of doing with respect to their total genomic content with confidence. Although there are challenges, metagenomic approaches that utilize shotgun sequencing of environmental DNA is key to understand the overall functional potential of a microbial community and we are currently developing tools and approaches to better-exploid metagenomic datasets to search for answers marker gene analyses cannot provide.
+Although marker genes are indispensable for the characterization of the community structure, they cannot answer questions about microbial communities regarding what they are capable of doing with respect to their total genomic content with confidence. Although there are challenges, metagenomic approaches that utilize shotgun sequencing of environmental DNA is key to understand the overall functional potential of a microbial community and we are currently developing a platform to better-exploit metagenomic datasets to search for answers marker gene analyses cannot provide.
 
 ### Quality Filtering
 
