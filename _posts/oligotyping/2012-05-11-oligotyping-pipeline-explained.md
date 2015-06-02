@@ -15,7 +15,7 @@ comments: true
 
 My goal in this document is to demonstrate the components of the oligotyping pipeline, so you feel familiar with it. If you would like to learn about how to oligotype, Best Practices would be a better article to read.
 
-I came up with a mock problem to solve by using the pipeline, but I would strongly suggest you to read some of the studies that used oligotyping to get a better sense. A list can be found [here](http://oligotyping.org/about-oligotyping/).
+I came up with a mock problem to solve by using the pipeline, but I would strongly suggest you to read some of the studies that used oligotyping to get a better sense. A short but comprehensive list can be found [here]({{ site.url }}/projects/oligotyping/pubs.html).
 
 ### Mock example
 
@@ -40,11 +40,11 @@ At this point you know everything about the content of this FASTA file. If you a
 
 For installation instructions, please refer to this post:
 
-<p style="padding-left:30px">http://oligotyping.org/2014/08/16/installing-the-oligotyping-pipeline/</p>
+<p style="padding-left:30px"><a href="{% post_url oligotyping/2014-08-16-installing-the-oligotyping-pipeline %}">{% post_url oligotyping/2014-08-16-installing-the-oligotyping-pipeline %}</a></p>
 
 Alternatively you may acquire the virtual machine and get the pipeline running without an installation:
 
-<p style="padding-left:30px">http://oligotyping.org/2014/09/02/oligotyping-in-virtualbox/</p>
+<p style="padding-left:30px"><a href="{% post_url oligotyping/2014-09-02-virtualbox %}">{% post_url oligotyping/2014-09-02-virtualbox %}</a></p>
 
 ### Preparing the FASTA file
 
@@ -107,7 +107,7 @@ Once the entropy analysis is finished, you are going to see an entropy distribut
 
 If you recall the explanation of the nature of these sequences from the Introduction section, this figure will make much more sense. We had two types of Pelagibacter that differ from each other by two nucleotides. Entropy analysis shows, along with all the random sequencing errors down below, these two nucleotide positions are the ones that offer the most relevant information to separate these reads from each other. This means, if we use only nucleotides from these two positions, instead of using the entirety of our reads, we can generate distribution profiles for different types.
 
-From the figure, it is easy to say that there are two nucleotide positions in this alignment that show high variation. Then, we can assume that using the top two components for oligotyping analysis will be sufficient to decompose those different types from each other. Even though usually it is not this clear cut, real world data present similar stories. Obviously the number of entropy peaks and their volume changes depending on the taxonomic depth you have used to isolate your ‘closely related taxa‘ at the beginning of the analysis. For instance, the following figure shows a real-world case where ~65K pyrotag reads from V3-V5 amplicons that were classified as *Gardnerella vaginalis* with 99+% identity to a group of known *G. vaginalis* sequences ([click here](http://oligotyping.org/2012/05/02/a-success-story-gardnerella-vaginalis-profiles-among-sexual-partners/) for more information on *G. vaginalis* study, which was published recently):
+From the figure, it is easy to say that there are two nucleotide positions in this alignment that show high variation. Then, we can assume that using the top two components for oligotyping analysis will be sufficient to decompose those different types from each other. Even though usually it is not this clear cut, real world data present similar stories. Obviously the number of entropy peaks and their volume changes depending on the taxonomic depth you have used to isolate your ‘closely related taxa‘ at the beginning of the analysis. For instance, the following figure shows a real-world case where ~65K pyrotag reads from V3-V5 amplicons that were classified as *Gardnerella vaginalis* with 99+% identity to a group of known *G. vaginalis* sequences ([click here]({% post_url oligotyping/2012-05-02-a-success-story %}) for more information on *G. vaginalis* study, which was published recently):
 
 <figure>
 	<a href="{{ site.url }}/images/oligotyping/Gvag.fa-ENTROPY.png"><img src="{{ site.url }}/images/oligotyping/Gvag.fa-ENTROPY.png"></a>
@@ -175,9 +175,9 @@ This is an important result, showing that we managed to identify 2 different str
 
 Let’s go back to the contents of the output directory.
 
-One of the most important files in this output is the [`MATRIX-COUNT.txt`](http://oligotyping.org/sample-run/mock-env-aligned-c2-s1-a1.0-A0/MATRIX-COUNT.txt) file. This file is a TAB delimited file that contains a contingency table that shows the actual number of reads per oligotype / sample pair. Third party analysis environments such as EXCEL can be used to make more sense of this data.
+One of the most important files in this output is the [`MATRIX-COUNT.txt`](http://oligotyping.org/sample-run/v0.96/mock-env-aligned-c2-s1-a1.0-A0-M0/MATRIX-COUNT.txt) file. This file is a TAB delimited file that contains a contingency table that shows the actual number of reads per oligotype / sample pair. Third party analysis environments such as EXCEL can be used to make more sense of this data.
 
-Even though we use a fraction of the available information in our reads to identify oligotypes (which essentially diminishes the impact of random sequencing errors), the probability of having random errors in these positions of interest that define oligotypes is not zero. Certain information about the run, such as the number of raw oligotypes and number of discarded reads due to different noise filtering steps can be found in [RUNINFO](http://oligotyping.org/sample-run/mock-env-aligned-c2-s1-a1.0-A0/RUNINFO) file after each run.
+Even though we use a fraction of the available information in our reads to identify oligotypes (which essentially diminishes the impact of random sequencing errors), the probability of having random errors in these positions of interest that define oligotypes is not zero. Certain information about the run, such as the number of raw oligotypes and number of discarded reads due to different noise filtering steps can be found in [RUNINFO](http://oligotyping.org/sample-run/v0.96/mock-env-aligned-c2-s1-a1.0-A0-M0/RUNINFO) file after each run.
 
 ### A More Realistic Analysis
 
@@ -225,7 +225,7 @@ These are some of the files for each oligotype and what are they useful for (for
 - ***.cPickle** files: These files contain a variety of information about each oligotype in the form of serialized Python objects. They are being used by the pipeline itself to make figures and charts (see the next section).
 
 {: .notice}
-You may also want to use a mapping file to visually investigate the similarities or dissimilarities among your samples with respect to the oligotyping resuls. Please see [this article on mapping](http://oligotyping.org/2013/02/04/basic-sample-mapping-with-oligotyping/) for instructions.
+You may also want to use a mapping file to visually investigate the similarities or dissimilarities among your samples with respect to the oligotyping resuls. Please see [this article on mapping]({% post_url oligotyping/2013-02-04-basic-sample-mapping-with-oligotyping %}) for instructions.
 
 ### HTML Output
 
