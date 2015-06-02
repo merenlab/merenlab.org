@@ -40,11 +40,11 @@ At this point you know everything about the content of this FASTA file. If you a
 
 For installation instructions, please refer to this post:
 
-<p style="padding-left:30px"><a href="{% post_url oligotyping/2014-08-16-installing-the-oligotyping-pipeline %}">{% post_url oligotyping/2014-08-16-installing-the-oligotyping-pipeline %}</a></p>
+<p style="padding-left:30px"><a href="{% post_url oligotyping/2014-08-16-installing-the-oligotyping-pipeline %}">{{ site.url | remove_first:'//'  }}{% post_url oligotyping/2014-08-16-installing-the-oligotyping-pipeline %}</a></p>
 
 Alternatively you may acquire the virtual machine and get the pipeline running without an installation:
 
-<p style="padding-left:30px"><a href="{% post_url oligotyping/2014-09-02-virtualbox %}">{% post_url oligotyping/2014-09-02-virtualbox %}</a></p>
+<p style="padding-left:30px"><a href="{% post_url oligotyping/2014-09-02-virtualbox %}">{{ site.url | remove_first:'//'  }}{% post_url oligotyping/2014-09-02-virtualbox %}</a></p>
 
 ### Preparing the FASTA file
 
