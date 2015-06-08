@@ -12,7 +12,7 @@ comments: true
 
 This article describes basics steps of installing Anvi'o. If you run into any issues, please post a comment down below, or open an <a href="https://github.com/meren/anvio/issues">issue</a>.
 
-### Dependencies
+## Dependencies
 
 anvi'o has some dependencies, some of which will be taken care of the installer. There are two you need to make sure you have installed:
 
@@ -34,9 +34,27 @@ sudo cp prodigal /usr/bin/
 
 * [MyRAST](http://blog.theseed.org/servers/) (this one is optional, but it is very useful, if you type `svr_assign_to_dna_using_figfams` and if it doesn't give you an error, you have it (press `CTRL+C` to quit)).
 
-### Installation
+## Installation
 
-First get the codebase:
+You can either install a stable release of anvi'o, or you can get a copy of the latest snapshot from the repository (it is always safer to with the stable release).
+
+### Installing the latest stable release
+
+Go here, and download the latest release:
+
+<p style="padding-left: 30px"><a href="http://merenlab.org/projects/anvio/downloads/" target="_blank">http://merenlab.org/projects/anvio/downloads/</a></p>
+
+Install it by typing these commands:
+
+    tar -zxvf anvio-0.8.5.tar.gz
+    cd anvio-0.8.5
+    sudo python setup.py install
+
+If there are no errors, you are golden. Do not forget to run the mini test.
+
+### Installing or updating from the current codebase
+
+If this is your first time with the codebase, get a fresh copy:
 
     git clone https://github.com/meren/anvio.git
 
@@ -45,13 +63,15 @@ Then go into the anvio directory, and then run the installation:
     cd anvio
     sudo python setup.py install
 
-If you want to update your installation, you are going to need to run these commands from within the anvio directory:
+If you already have the codebase, and if your purpose is to _update_ your already existing installation, you are going to need to run these commands from within the anvio directory instead of the ones above:
 
     git pull
     sudo python setup.py install
 
+No errors? Perfect. Run the mini test!
 
-### Running the "Mini Test"
+
+## Running the "Mini Test"
 
 "Mini test" is a minimum test set that runs almost everything in the codebase. If you have a proper installation, you shouldn't get any errors from running this test. To run it go to your anvio installation directory, and type these:
 
