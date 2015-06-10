@@ -12,9 +12,11 @@ comments: true
 
 This article describes basics steps of installing Anvi'o. If you run into any issues, please post a comment down below, or open an <a href="https://github.com/meren/anvio/issues">issue</a>.
 
+Here I would like to thank Inés Martínez, Rika Anderson, and Sharon Grim for helping me a lot by volunteering themselves to test the installation.
+
 ## Dependencies
 
-anvi'o has some dependencies, some of which will be taken care of the installer. There are two you need to make sure you have installed:
+anvi'o has some dependencies, some of which will be taken care of the installer. However, you first need to make sure your system does have the following software (it is not as scary as it looks, you will be fine):
 
 * [Chrome Web Browser](https://www.google.com/chrome/browser/desktop/). Chrome should be not only installed on your system, but unfortunately it should also be the default browser (otherwise everytime interactive interface pops up, you will need to copy-paste the address to a Chrome window). anvi'o does not support any other browser, and it will not perform optimally on others.
 
@@ -34,6 +36,31 @@ sudo cp prodigal /usr/bin/
 
 * [MyRAST](http://blog.theseed.org/servers/) (this one is optional, but it is very useful, if you type `svr_assign_to_dna_using_figfams` and if it doesn't give you an error, you have it (press `CTRL+C` to quit)).
 
+* [GSL](http://www.gnu.org/software/gsl/), which is the GNU Scientific Library. It is quite straightforward. If you are using MacPorts, you can install `gsl`, `gsl-devel`, and `py27-gsl` packages from the terminal using `port install` (Rika tells me homebrew on Mac works, too). Otherwise, try these commands and you should be OK:
+
+<div style="padding-left:30px">
+<pre>
+wget ftp://ftp.gnu.org/gnu/gsl/gsl-latest.tar.gz
+tar -zxvf gsl-latest.tar.gz
+cd gsl-*
+./configure && make && sudo make install
+</pre>
+</div>
+
+### Important notes you should go through:
+
+* Please make sure your pysam version is 0.7.7, and nothing else. Although the installer is supposed to make sure you have the right version, more than once people run into trouble with pysam. You can learn your pysam version by typing `python` in your terminal, and then copy-pasting this line: `import pysam; pysam.__version__`. Does it say `0.7.7`? If it does, you are OK. If it doesn't, you need to install the right version. You can run these two commands to do that (after the intallation don't forget to chek whether you see the right version in your python terminal):
+
+<div style="padding-left:30px">
+<pre>
+sudo pip uninstall pysam
+pip install pysam==0.7.7
+</pre>
+</div>
+
+
+
+
 ## Installation
 
 You can either install a stable release of anvi'o, or you can get a copy of the latest snapshot from the repository (it is always safer to with the stable release).
@@ -51,6 +78,7 @@ Install it by typing these commands:
     sudo python setup.py install
 
 If there are no errors, you are golden. Do not forget to run the mini test.
+
 
 ### Installing or updating from the current codebase
 
@@ -70,6 +98,26 @@ If you already have the codebase, and if your purpose is to _update_ your alread
 
 No errors? Perfect. Run the mini test!
 
+### Pro installation for developers
+
+If you are planning to do this you need no introduction, but I will give one anyway. Clone the codebase into a `$DIR` you like:
+
+
+    cd $DIR
+    git clone https://github.com/meren/anvio.git
+
+Then edit your `~/.bashrc` or `~/.bash_profile` files depending on your system configuration to update your `PATH` and `PYTHONPATH` environment variables:
+
+    export PYTHONPATH=$PYTHONPATH:$DIR/anvio/
+    export PATH=$PATH:$DIR/anvio/bin:$DIR/anvio/sandbox
+
+This is not enough, though. Because you didn't run build, your C extensions will not be compiled. Here is what you will do put them in the right place:
+
+    cd $DIR/anvio
+    python setup.py build
+    cp build/lib.*/anvio/*so anvio/
+
+That's it. After sourcing your .bashrc (or .bash_profile) and get the new environment variables set, you should be able run the 'mini test'. Now you can edit the codebase without re-installing anvi'o over and over again.
 
 ## Running the "Mini Test"
 
