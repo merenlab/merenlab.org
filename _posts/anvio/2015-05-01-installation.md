@@ -47,7 +47,7 @@ cd gsl-*
 </pre>
 </div>
 
-### Important notes you should go through:
+### Other installation notes
 
 * Please make sure your pysam version is 0.7.7, and nothing else. Although the installer is supposed to make sure you have the right version, more than once people run into trouble with pysam. You can learn your pysam version by typing `python` in your terminal, and then copy-pasting this line: `import pysam; pysam.__version__`. Does it say `0.7.7`? If it does, you are OK. If it doesn't, you need to install the right version. You can run these two commands to do that (after the intallation don't forget to chek whether you see the right version in your python terminal):
 
@@ -58,8 +58,7 @@ pip install pysam==0.7.7
 </pre>
 </div>
 
-
-
+* Anvi'o uses SQLite to create self-contained databases to store information. There are many bindings for many programming languages to access to these database files and explore them, and it is also possible to use `sqlite3` program from the terminal to play witht them. [DB Browser for SQLite](http://sqlitebrowser.org/) is a very easy-to-install open-source software that does what `sqlite3` is doing with a nice graphical interface. I urge you to stick with the terminal as much as possible, but in case you insist on using a GUI, this is the one you should give a chance.
 
 ## Installation
 
