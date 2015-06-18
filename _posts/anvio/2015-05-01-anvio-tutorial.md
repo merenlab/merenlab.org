@@ -10,29 +10,33 @@ comments: true
 
 {% include _toc.html %}
 
-This article explains basic components of Anvi'o. If you run into any issues, please post a comment down below, or open an <a href="https://github.com/meren/anvio/issues">issue</a>.
+This article gives a brief overview of anvi'o metagenomic worklow. If you run into any issues, please post a comment down below, or open an <a href="https://github.com/meren/anvio/issues">issue</a>.
 
-If you are here, you are assume to have installed the platform, and have [run the "mini test"]({% post_url anvio/2015-05-01-installation %}) succesfully.
+If you are here, you must have already installed the platform, and have [run the "mini test"]({% post_url anvio/2015-05-01-installation %}) succesfully.
 
 
 # Preparation
 
-To run anvio you need these files:
+To run anvio, you need these files (_at least_):
 
 * __A FASTA file__ of your contigs. I will call it `contigs.fa` throughout this manual.
 * And __BAM files__ for your samples. Let's say, for the sake of brevity, you have two samples in your analysis, `X` and `Y`, and the BAM files for these samples are named `X-raw.bam` and `Y-raw.bam`.
 
-Contig names in `contigs.fa` must match names found in your bam files. To make sure that is the case, do this:
+Contig names in `contigs.fa` must match names found in your BAM files. This is very important. To make sure that is the case, please run these two commands in your terminal:
 
-    grep '>' contigs.fa | head
-    anvi-profile -i X-raw.bam --list-contigs | head
+{% highlight bash %}
+grep '>' contigs.fa | head
+anvi-profile -i X-raw.bam --list-contigs | head
+{% endhighlight %}
 
 Do they look identical? They better be. If they don't you need to fix that before going forward.
 
 If you exported your FASTA file and BAM files using CLC, type these two commands, and you are going to be fine:
 
-    sed -i 's/ .*$//g' contigs.fa
-    sed -i 's/_contig_/contig/g' contigs.fa
+{% highlight bash %}
+sed -i 's/ .*$//g' contigs.fa
+sed -i 's/_contig_/contig/g' contigs.fa
+{% endhighlight %}
 
 
 # Programs to analyze contigs FASTA
@@ -57,8 +61,10 @@ The program makes populates relevant tables in the annotation database with info
 
 If you have MyRAST installed, you can run these two commands to store the annotation of your contigs in the annotation database (the first line will query RAST server, which may take a while depending on the number of contigs you have), the second line will incorporate the returning info into anvio's annotation database:
 
-    svr_assign_to_dna_using_figfams < contigs.fa > svr_assign_to_dna_using_figfams.txt 
-    anvi-populate-genes-table annotation.db -p myrast_cmdline_dont_use -i svr_assign_to_dna_using_figfams.txt
+{% highlight bash %}
+svr_assign_to_dna_using_figfams < contigs.fa > svr_assign_to_dna_using_figfams.txt 
+anvi-populate-genes-table annotation.db -p myrast_cmdline_dont_use -i svr_assign_to_dna_using_figfams.txt
+{% endhighlight %}
 
 Once you have RAST annotations, I suggest you to run the following command to export the information from the table into a more native matrix form and store it separately (if you take a look at the exported matrix, you will see that it is a simpler, and more standard form of what we got from RAST):
 
@@ -100,13 +106,17 @@ But of course it is not fun to do every BAM file you have one by one. So what to
 
 A slightly better way to do would require you to do it in a `for` loop. First create a file called, say, `SAMPLE_IDs`. For your samples (`X` and `Y`) it will look like this:
 
-    $ cat SAMPLE_IDs
-    X
-    Y
+{% highlight bash %}
+$ cat SAMPLE_IDs
+X
+Y
+{% endhighlight %}
 
 Then, you can run `anvi-init-bam` on all of them by typing this:
 
-    for sample in `cat SAMPLE_IDs`; do anvi-init-bam $sample-raw.bam -o $sample; done
+{% highlight bash %}
+for sample in `cat SAMPLE_IDs`; do anvi-init-bam $sample-raw.bam -o $sample; done
+{% endhighlight %}
 
 Good.
 
