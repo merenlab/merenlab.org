@@ -171,7 +171,7 @@ Interactive interface is good for a couple of things: it allows you to browse yo
 
  Once the merging is done you can finally run the interactive interface:
 
-    anvi-interactive -r XY-MERGED/RUNINFO.cp -a annotation.db
+    anvi-interactive -p XY-MERGED/PROFILE.db -a annotation.db
 
 If you had too many contigs and had to skip the hierarchical clustering step during merging, and if you only have unsupervised binning done by CONCOCT, don't be worried and keep reading on.
 
@@ -218,6 +218,3 @@ It is Tom's. But you can always enter a [bug report](https://github.com/meren/an
 
 This is great. That's exactly why you have accesss to this codebase. Either file an [issue](https://github.com/meren/anvio/issues), or send an e-mail (a.murat.eren@gmail.com).
 
-### Do I have permission to change the codebase?
-
-Yes. Don't forget run `run_mini_test.sh` to make sure everything is running, and don't be worried. I will make sure you didn't break anything :)
