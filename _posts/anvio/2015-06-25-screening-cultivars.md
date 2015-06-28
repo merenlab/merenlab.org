@@ -26,7 +26,7 @@ Great tools have been developed to estimate the level of completion of a given b
 
 In general, it is important to access completion and contamination levels before going deeper into phylogeny, taxonomy and/or functionality of newly recovered genomes. This is obviously a critical moment for microbiologist who put all that effort into growing their culture (or into acquiring their single-cell genome). Optimally, your genome completion and contamination levels will verge around 100% and 0%, respectively. Note that a perfect 100% / 0% score is quite unlikely due to the imperfections of the approaches we rely on, however, a completion level of 90+% with <10% contamination is to be expected for a well-covered (i.e., deeply sequenced), and uncontaminated genome. 
 
-Unfortunately, your genome can be contaminated for multiple reasons. In general, the next step after detecting a problem is to fix it, right? But how fast, or how straightforward will it be to tease apart the genome of interest from the contamination? Eventually, you will realize that although they are very useful to estimate the level of contamination and completion, tools such as CheckM and others do not necessarily provide an easy-to-use interfaces to manipulate, edit, and/or curate sreened genomes. This requires much more that simply screening for genes markers, and a platform dedicated to the processing and visualization of genomes using contextual information may be very helpful to explore your assembly, screen for unwanted contigs, and refine your genomes...
+Unfortunately, your genome can be contaminated for multiple reasons. In general, the next step after detecting a problem is to fix it, right? But how fast, or how straightforward will it be to tease apart the genome of interest from the contamination? Eventually, you will realize that although they are very useful to estimate the level of contamination and completion, tools such as CheckM do not necessarily provide easy-to-use interfaces to manipulate, edit, and/or curate sreened genomes. This requires much more that simply screening for genes markers, and a platform dedicated to the processing and visualization of genomes using contextual information may be very helpful to explore your assembly, screen for unwanted contigs, and refine your genomes...
 
 Well, not to brag about it, but this is exactly what [anvi'o]({{site_url}}/projects/anvio/) is designed for!
 
@@ -68,15 +68,13 @@ Yet, one particular location of the genome looks intriguing... Do you see it too
 
 In general, when anvi'o detects variability and a stable coverage (compared to the rest of the genome), the variability is usually due to the natural polymorphism in a population. In metagenomic datasets we employ this information in an attempt to recover subtle, otherwise-missed ecological patterns. On the other hand, bumps in both variability and coverage suggest nothing but bad assembly of duplicate genes from a single "genotype". Fortunately we can inspect these contigs to get a more detailed understanding using the interactive interface (by simply right-clicking on a split).
 
-Here is what inspecting this region shows (the figure below shows multiple splits as I simply put multiple inspection screenshots in one page for brevity):
+Let's take a look at the variable, high-coverage region more closely. It is covered by 4 splits originating from the contig number 8. Splits are number 107, 108, 109 and 110. Here is what inspecting this region shows (the figure below shows multiple splits as I simply put multiple inspection screenshots in one page for brevity):
 
 <div class="centerimg">
 <a href="{{ site.url }}/images/anvio/cultivars/splits-bfrag.png"><img src="{{ site.url }}/images/anvio/cultivars/splits-bfrag.png" width="90%" /></a>
 </div>
 
-We can see that coverage is stable in both splits, but with a difference of 5 fold. Interestingly, we can also see 10 nucleic acid positions with nucleotide variation in the second split. This explains the bump in the variability layer from the interface view.
-
-Let's take a look at the variable, high-coverage region more closely. It is covered by 4 splits originating from the contig number 8. Splits are number 107, 108, 109 and 110:
+We can see that coverage is stable in both splits, but with a difference of about 6 fold compared to the rest of the genome. Interestingly, we can also see various nucleic acid positions with nucleotide variation in these splits. This explains the bump in the variability layer from the interface view.
 
 When I BLAST searched these splits, I recovered that split 108 harbors most of the 16S rRNA gene, while splits 109 and 110 harbor the 23S rRNA gene! So, we learn two things from this: (I) there is about 6 copies of the 16S-23S rRNA operon in this genome that were misassembled into a single contig, (II) and these copies are not identical as indicated by multiple nucleotide variation positions in both the 16S rRNA gene and the 23S rRNA gene. 
 
