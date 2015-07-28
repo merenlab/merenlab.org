@@ -57,15 +57,6 @@ cd gsl-*
 
 ### Other installation notes
 
-* Please make sure your pysam version is 0.7.7, and nothing else. Although the installer is supposed to make sure you have the right version, more than once people run into trouble with pysam. You can learn your pysam version by typing `python` in your terminal, and then copy-pasting this line: `import pysam; pysam.__version__`. Does it say `0.7.7`? If it does, you are OK. If it doesn't, you need to install the right version. You can run these two commands to do that (after the intallation don't forget to chek whether you see the right version in your python terminal):
-
-<div style="padding-left:30px">
-<pre>
-sudo pip uninstall pysam
-pip install pysam==0.7.7
-</pre>
-</div>
-
 * Anvi'o uses SQLite to create self-contained databases to store information. There are many bindings for many programming languages to access to these database files and explore them, and it is also possible to use `sqlite3` program from the terminal to play witht them. [DB Browser for SQLite](http://sqlitebrowser.org/) is a very easy-to-install open-source software that does what `sqlite3` is doing with a nice graphical interface. I urge you to stick with the terminal as much as possible, but in case you insist on using a GUI, this is the one you should give a chance.
 
 ## Installation
@@ -89,9 +80,9 @@ If there are no errors, you are golden. Do not forget to run the mini test.
 
 ### Installing or updating from the current codebase
 
-If this is your first time with the codebase, get a fresh copy:
+If this is your first time with the codebase, get a fresh copy (with all the submodules necessary):
 
-    git clone https://github.com/meren/anvio.git
+    git clone --recursive https://github.com/meren/anvio.git
 
 Then go into the anvio directory, and then run the installation:
 
@@ -101,6 +92,7 @@ Then go into the anvio directory, and then run the installation:
 If you already have the codebase, and if your purpose is to _update_ your already existing installation, you are going to need to run these commands from within the anvio directory instead of the ones above:
 
     git pull
+    git submodule update --init --recursive
     sudo python setup.py install
 
 No errors? Perfect. Run the mini test!
