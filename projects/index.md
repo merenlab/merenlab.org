@@ -10,7 +10,7 @@ comments: true
 
 ## Anvi'o
 
->(coming soon)
+><a href="{{ site.url }}/projects/anvio/">Anvi'o</a> is an analysis and visualization platfrom for 'omics data. The codebase of anvi'o will be available very soon.
 
 ## Oligotyping
 
