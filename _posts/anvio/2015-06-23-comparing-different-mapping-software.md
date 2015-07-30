@@ -1,7 +1,7 @@
 ---
 layout: post
 author: meren
-title: "Comparing different mapping software using Anvi'o"
+title: "Comparing different mapping software using anvi'o"
 excerpt: "Bowtie, Bowtie2, BWA, CLC, GSNAP, BBMap, Novoalign, and SMALT."
 modified: 2015-06-23
 tags: []

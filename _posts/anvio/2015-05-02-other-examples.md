@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Going Deeper with Anvi'o"
+title: "Going Deeper with anvi'o"
 excerpt: "Anvi'o makes it easier for pro-users to access raw information."
 modified: 2015-05-02
 tags: []

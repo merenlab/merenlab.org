@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Installing Anvi'o"
+title: "Installing anvi'o"
 excerpt: "Instructions to install the platform."
 modified: 2015-05-01 
 tags: []

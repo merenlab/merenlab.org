@@ -1,7 +1,7 @@
 ---
 layout: post
 author: meren
-title: "Refining a bin using Anvi'o"
+title: "Refining a bin using anvi'o"
 excerpt: "Dealing with heavily contaminated bins identified in an unsupervised manner."
 modified: 2015-05-11
 tags: []
@@ -11,7 +11,7 @@ comments: true
 
 {% include _toc.html %}
 
-As you know, hierarchical clustering in Anvi'o (that is necessary to represent a merged dataset as a nice looking tree) requires the maximum number of splits to be around 20,000.
+As you know, hierarchical clustering in anvi'o (that is necessary to represent a merged dataset as a nice looking tree) requires the maximum number of splits to be around 20,000.
 
 If you have more, one way to do it is to profile your dataset with an `--min-contig-length` value that eliminates enough short contigs from your analysis so you can merge everything without any issues.
 
