@@ -12,7 +12,7 @@ This page serves the publicly available data mentioned in our publications. Plea
 
 ## Anvi'o Methods Paper (submitted to Genome Biology on July 30, 2015)
 
-_We are waiting for the pre-print service to update the following link:_
+<p class="notice">We are waiting for the pre-print service to update the following link.</p>
 
 The non-peer reviewed pre-print of our mansucript is available here: [Anvi'o: An advanced analysis and visualization platform for 'omics data](#).
 
