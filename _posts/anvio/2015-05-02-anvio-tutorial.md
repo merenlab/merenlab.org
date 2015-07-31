@@ -2,7 +2,7 @@
 layout: post
 title: "Anvi'o User Manual"
 excerpt: "Sweets for people who managed to install the platform."
-modified: 2015-05-01 
+modified: 2015-05-02 
 tags: []
 categories: [anvio]
 comments: true

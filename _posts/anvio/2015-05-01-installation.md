@@ -16,9 +16,9 @@ Here I would like to thank Inés Martínez, Rika Anderson, and Sharon Grim for h
 
 ## Dependencies
 
-anvi'o has some dependencies, some of which will be taken care of the installer. However, you first need to make sure your system does have the following software (it is not as scary as it looks, you will be fine):
+anvi'o has some dependencies, some of which will be taken care of the installer. However, you first need to make sure your system does have all the following software (it is not as scary as it looks, you will be fine):
 
-* [Chrome Web Browser](https://www.google.com/chrome/browser/desktop/). Chrome should be not only installed on your system, but unfortunately it should also be the default browser (otherwise everytime interactive interface pops up, you will need to copy-paste the address to a Chrome window). anvi'o does not support any other browser, and it will not perform optimally on others.
+* [Chrome Web Browser](https://www.google.com/chrome/browser/desktop/). Chrome should be not only installed on your system, but unfortunately it should also be the default browser (otherwise everytime interactive interface pops up, you will need to copy-paste the address to a Chrome window). anvi'o does not support any other browser, and __it will not perform optimally__ on others.
 
 * [Prodigal](http://prodigal.ornl.gov/) (go to your terminal, type `prodigal` if you get an error, you need to install it). Here is a quick way to install it (the first line will not work if you don't have wget, but you can get wget installed esily typing `sudo port install wget` if you are using MacPorts system on your Mac computer):
 
@@ -38,8 +38,6 @@ sudo cp prodigal /usr/bin/
 </pre>
 </div>
 
-
-
 * [SQLite](http://www.tutorialspoint.com/sqlite/sqlite_installation.htm) (go to your terminal, type sqlite3, if it gives you an error, you need to install this one). There is installation instructions on the web page if you follow the link. Or you can install it by typing `sudo port install sqlite3` if you are using the port system on your Mac.
 
 * [MyRAST](http://blog.theseed.org/servers/) (this one is optional, but it is very useful, if you type `svr_assign_to_dna_using_figfams` and if it doesn't give you an error, you have it (press `CTRL+C` to quit)).
@@ -55,30 +53,42 @@ cd gsl-*
 </pre>
 </div>
 
+* [numpy](http://www.numpy.org/). You don't need to install numpy if you get no complaints back when you type `python -c "import numpy"` in your terminal. If you do get an import error, then you need to install numpy. You can try this:
+
+<div style="padding-left:30px">
+<pre>
+sudo pip install numpy
+</pre>
+</div>
+
+* [Cython](http://cython.org/). Similar to the numpy case. Test whether you are good to go by typing `python -c "import Cython"` in your terminal, and install it by running this if there is an import error:
+
+<div style="padding-left:30px">
+<pre>
+sudo pip install numpy
+</pre>
+</div>
+
 ### Other installation notes
 
 * Anvi'o uses SQLite to create self-contained databases to store information. There are many bindings for many programming languages to access to these database files and explore them, and it is also possible to use `sqlite3` program from the terminal to play witht them. [DB Browser for SQLite](http://sqlitebrowser.org/) is a very easy-to-install open-source software that does what `sqlite3` is doing with a nice graphical interface. I urge you to stick with the terminal as much as possible, but in case you insist on using a GUI, this is the one you should give a chance.
 
 ## Installation
 
-You can either install a stable release of anvi'o, or you can get a copy of the latest snapshot from the repository (it is always safer to with the stable release).
+You can either install a stable release of anvi'o, or you can get a copy of the latest snapshot from the repository (clearly, it is always safer to go with the stable release).
 
-### Installing the latest stable release
+### Installing the latest stable release (safe mode)
 
-Go here, and download the latest release:
+The best way to install stable release is to do it through pip. If you are have your dependencies sorted, tyr running this on your terminal:
 
-<p style="padding-left: 30px"><a href="http://merenlab.org/projects/anvio/downloads/" target="_blank">http://merenlab.org/projects/anvio/downloads/</a></p>
+    sudo pip install anvio
 
-Install it by typing these commands:
+If there are no errors, you are golden.
 
-    tar -zxvf anvio-0.8.5.tar.gz
-    cd anvio-0.8.5
-    sudo python setup.py install
-
-If there are no errors, you are golden. Do not forget to run the mini test.
+If you want to make sure everything is working, you can run the "mini test" (explained down below).
 
 
-### Installing or updating from the current codebase
+### Installing or updating from the current codebase (semi-pro)
 
 If this is your first time with the codebase, get a fresh copy (with all the submodules necessary):
 
@@ -97,39 +107,54 @@ If you already have the codebase, and if your purpose is to _update_ your alread
 
 No errors? Perfect. Run the mini test!
 
-### Pro installation for developers
+### Installation for developers (you're a wizard, ary)
 
 If you are planning to do this you need no introduction, but I will give one anyway. Clone the codebase into a `$DIR` you like:
 
 
     cd $DIR
-    git clone https://github.com/meren/anvio.git
+    git clone --recursive https://github.com/meren/anvio.git
 
 Then edit your `~/.bashrc` or `~/.bash_profile` files depending on your system configuration to update your `PATH` and `PYTHONPATH` environment variables:
 
     export PYTHONPATH=$PYTHONPATH:$DIR/anvio/
     export PATH=$PATH:$DIR/anvio/bin:$DIR/anvio/sandbox
 
-This is not enough, though. Because you didn't run build, your C extensions will not be compiled. Here is what you will do put them in the right place:
+Because you didn't run "build", your C extensions will not be compiled. This is the fast way to get them compiled and put in the right place:
 
     cd $DIR/anvio
     python setup.py build
     cp build/lib.*/anvio/*so anvio/
 
-That's it. After sourcing your .bashrc (or .bash_profile) and get the new environment variables set, you should be able run the 'mini test'. Now you can edit the codebase without re-installing anvi'o over and over again.
+That's it.
+
+After sourcing your `.bashrc` (or `.bash_profile`) and get the new environment variables set, you should be able run the 'mini test'.
+
+Now you can edit the codebase, and test it, without re-installing anvi'o over and over again.
 
 ## Running the "Mini Test"
 
-"Mini test" is a minimum test set that runs almost everything in the codebase. If you have a proper installation, you shouldn't get any errors from running this test. To run it go to your anvio installation directory, and type these:
+"Mini test" is [a tiny shell script](https://github.com/meren/anvio/blob/master/tests/run_mini_test.sh) that runs almost everything implemented in anvi'o on a very small dtaset.
+
+If you have a proper installation, you shouldn't get any errors when you run it.
+
+If you installed anvi'o via pip (following the safe mode), you can go to an empty directory, and type these:
+
+    git clone --recursive https://github.com/meren/anvio.git
+    cd anvio/tests
+    ./run_mini_test.sh
+
+If you installed anvi'o from the codebase, you can go to the anvi'o source code directory, and simply type these:
 
     cd tests
     ./run_mini_test.sh
 
-If you are not on a server where there is no access to a GUI, your browser should popup upon the successful completion of `run_mini_test.sh`, and when you click that 'Draw' button, you should see this:
+Upon the successful completion of the mini test run, your browser should popup to take you to the interactive interface. When you click that 'Draw' button, you should see something like this (this is the old version of the anvi'o interface, and it shall stay here so we remember where we came from):
 
 <div class="centerimg">
 <a href="{{ site.url }}/images/anvio/misc/mini-test-screenshot.png"><img src="{{ site.url }}/images/anvio/misc/mini-test-screenshot.png" width="50%" /></a>
 </div>
 
-All fine? Perfect!
+All fine? Perfect! You have a running installation of anvi'o.
 
+Maybe you would like to continue with [other posts on the platform]({{ site.url }}/projects/anvio).
