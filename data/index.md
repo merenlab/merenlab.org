@@ -12,9 +12,7 @@ This page serves the publicly available data mentioned in our publications. Plea
 
 ## Anvi'o Methods Paper (submitted to Genome Biology on July 30, 2015)
 
-<p class="notice">We are waiting for the pre-print service to update the following link.</p>
-
-The non-peer reviewed pre-print of our mansucript is available here: [Anvi'o: An advanced analysis and visualization platform for 'omics data](#).
+The pre-print of our mansucript is available here: [Anvi'o: An advanced analysis and visualization platform for 'omics data](https://peerj.com/preprints/1275/).
 
 ### Daily Infant Gut Samples by Sharon _et al._
 
@@ -22,7 +20,7 @@ _Raw data and anvi'o results for the section on supervised binning and the analy
 
 * Visit [this address](http://umkk2268fc06.merenbey.koding.io:8080) to **try the anvi'o interactive interface** on the infant gut data, which provides the basis for **Figure 2**.
 * You can [view the summary of the 13 bins](http://anvio.org/data/INFANT-CLC-SUMMARY-SUPERVISED), or you can [download the browsable output](http://anvio.org/data/INFANT-CLC-SUMMARY-SUPERVISED.tar.gz).
-* [This article](http://merenlab.org/2015/07/20/analyzing-variability/) describes the variability analysis done on the three genome bins, and [this Github repository](https://github.com/meren/anvio-methods-paper-analyses) gives access to the code that generates **Figure 3** (see the [relevant](https://github.com/meren/anvio-methods-paper-analyses/tree/master/SHARON_et_al/VARIABILITY_REPORTS) directory).
+* [This Github repository](https://github.com/meren/anvio-methods-paper-analyses) gives access to the code that generates **Figure 3** (see the [relevant](https://github.com/meren/anvio-methods-paper-analyses/tree/master/SHARON_et_al/VARIABILITY_REPORTS) directory).
 * You can download the output of `anvi-merge` (the merged profile db, and the annotation db) for the infant gut metagenomes [from here](http://figshare.com/preview/_url/1499236/project/4736).
 
 ### Pensacola Beach Samples by Overholt _et al._ and Rodriguez-R _et al._
