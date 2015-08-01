@@ -272,9 +272,9 @@ So I visualzed each mapping result through the interactive interface, and loaded
 
 The question here is this: if I didn't know these bins, could I have identified them in different mapping results. For some of them, the answer is a straight yes. For some others, the answer is just a partial yes.
 
-As you can see, they all did well with bacterial genomes. Both bacterial genomes that are well assembled and covered reasonably is together, and form two distinct clusters in trees generated based on each mapping result. On the other hand, the performance of mappers change when you look at the third organism we identified, which is neither well-assembled, nor well covered: *T. vaginalis*. There is an OK sign for every mapping software that provided the clustering algorithm with accurate information so it managed to keep *T. vaginalis* contigs somewhat together. Others, didn't do as well, and *T. vaginalis* contigs were scattered around the tree and was mixed with host contamination.
+As you can see, they all did well with bacterial genomes. Both bacterial genomes that are well assembled and covered reasonably are together, and they form two distinct clusters in trees generated for each mapping result. On the other hand, the performance of mappers change when you look at the third organism we identified, which is neither well-assembled, nor well covered: *T. vaginalis*. There is an OK sign for every mapping software that provided the clustering algorithm with accurate information so it managed to keep *T. vaginalis* contigs somewhat together. Others, didn't do as well, and *T. vaginalis* contigs were scattered around the tree and was mixed with host contamination.
 
-You may say "why do I care? when I do mapping, I do it to find out about the bacterial genomes anyway". Fair enough. But you must consider that *T. vaginalis* in this can be seen as a poorly-assembled bacterial genome with poor coverage in a more complex dataset (which is like every other metagenomic dataset that doesn't come from the vaginal environment), so it **is** important to keep *T. vaginalis* together.
+You may wonder "why do I care? When I do mapping, I do it to find out about the bacterial genomes anyway". Fair enough. But you must consider that *T. vaginalis* in this case can be seen as a poorly-assembled bacterial genome with poor coverage in a more complex dataset (which is like every other metagenomic dataset that doesn't come from the vaginal environment), so it **is** important to keep *T. vaginalis* together.
 
 # Putting all mapping results together
 
@@ -286,17 +286,17 @@ Well, this also is an easy task for anvi'o. The very last line of my BASH script
 <a href="{{ site.url }}/images/anvio/comparing-mapping-software/all-mean-coverage.png"><img src="{{ site.url }}/images/anvio/comparing-mapping-software/all-mean-coverage.png" width="90%" /></a>
 </div>
 
-So this is a busy figure. Sorry abou that. But what it shows is pretty simple. Each sample is colored differently, and identified as a block. In each sample block, you see 8 mappers, and the mean coverage value estimated for a given split in that sample based on how many reads they mapped to that split. So when you pick a hypothetical leaf of the tree in the center, and follow its line towards the most outer circle, you all the bars should be about equal in size within each sample block. Clearly it is not the case. For the bacterial part it is working pretty well, but once you get out the oasis of beautifully assembled genomes, you see that our 4 mapping software creating very very high number of reads maped in contigs.
+So this is a busy figure, but what it shows is pretty simple. Each sample is colored differently, and identified as a block of 8 layers. In each sample block, you see 8 mappers, and the mean coverage value estimated for a given split in that sample based on how many reads they mapped to that split. So when you pick a hypothetical leaf of the tree in the center, and follow its line towards the most outer circle, all bars you cross should have an equal size _within each sample block_. Because we know that the relative abundance of a given contig does not change from one layer to the other within a sample block in reality, if it seems it is changing, the only reason for it is because different mapping software do not operate on it similarly. For the bacterial part things are working pretty well, but once you get out the oasis of beautifully assembled genomes, you see a lot of disagreement between mappers.
 
-Although now we know that the first group of mappers that map more reads to these contigs are the ones that are bad for us (simply because clustering based on their numbers split a cluster that should be one piece into multiple pieces), we still don't know what is it that they do wrong.
+Although now we know that the first group of mappers that map more reads to these contigs are the ones that have done poorly (simply because clustering based on their numbers split a cluster that should be one piece into multiple pieces), but we still don't know what is it that they do wrong.
 
-One of the natural outcomes of mapping reads on a contig as a mistake is the dramatic increase in variability at nucleotide positions. This screenshot is the same with the previous one, but it shows the "variability" view instead of the "mean coverage" view:
+One of the natural outcomes of mapping reads on a contig as a mistake is the dramatic increase in variability at nucleotide positions. Because if you map a lot of reads to a position when they shouldn't map there, what you get back is a lot of SNPs. Anvi'o is very helpful at exploring these variability patterns. For instance, this screenshot is the same with the previous one, but it shows the "variability" view instead of the "mean coverage" view:
 
 <div class="centerimg">
 <a href="{{ site.url }}/images/anvio/comparing-mapping-software/all-variation-density.png"><img src="{{ site.url }}/images/anvio/comparing-mapping-software/all-variation-density.png" width="90%" /></a>
 </div>
 
-The previous view was showing the average number of reads mapped to each split. In contrast, in this one, each bar represents the number of SNPs identified in a given split. The amount of discrepancy is just mind blowing.
+The previous view displayed the average number of reads mapped to each split. In contrast, in this one, each bar represents the number of SNPs identified in a given split. The amount of discrepancy is just mind blowing.
 
 To better understand the coverage patterns, I zoomed to a random region of the tree with a lot of SNPs reported:
 
