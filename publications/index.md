@@ -13,9 +13,15 @@ comments: false
 <h1>2015</h1>
 
 <div class="pub">
+    <h3><a href="https://peerj.com/preprints/1275/" target="_new">Anvi’o: An advanced analysis and visualization platform for ‘omics data.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Eren, A. M</span>., <span class="pub-member-author">Esen, Ö. C.</span>, Quince, C., Vineis, J. H., Sogin, M. L., and <span class="pub-member-author">Delmont, T. O.</span></span>
+    <span class="pub-journal"><i>PeerJ (non-peer reviewed pre-print)</i>.</span>
+</div>
+
+<div class="pub">
     <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Reconstructing+Rare+Soil+Microbial+Genomes+using+in+situ+Enrichments+and+Metagenomics." target="_new">Reconstructing Rare Soil Microbial Genomes using in situ Enrichments and Metagenomics.</a></h3>
     <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Eren, A. M</span>., Maccario, L., Prestat, E., <span class="pub-member-author">Esen, Ö. C.</span>, Pelletier, E., LePaslier, D., Simonet, P., and Vogel, T.</span>
-    <span class="pub-journal"><i>Front Microbiol</i>. <b>6</b></span>
+    <span class="pub-journal"><i>Front Microbiol</i>. <b>6, 358</b></span>
 </div>
 
 <div class="pub">
