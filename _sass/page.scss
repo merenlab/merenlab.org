@@ -78,6 +78,18 @@ th, td {
     background: url('../../images/fractal.jpg') center center scroll;
 }
 
+.quotable {
+    margin-left: 40px;
+    margin-bottom: 20px;
+    text-align: justify;
+    font-variant: small-caps;
+    border-left: 7px solid #828282;
+    padding: 8px;
+    padding-left: 10px;
+    background: url('../../images/fractal.jpg') center center scroll;
+    color: #464646;
+}
+
 .people {
 	@include grid(12,12);
 	@include prefix(12,0);
