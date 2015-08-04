@@ -10,7 +10,7 @@ comments: true
 
 This page serves the publicly available data mentioned in our publications. Please do not hesitate to get in touch if something is missing.
 
-## Anvi'o Methods Paper (submitted to Genome Biology on July 30, 2015)
+## Anvi'o Methods Paper (soon to be submitted)
 
 The pre-print of our mansucript is available here: [Anvi'o: An advanced analysis and visualization platform for 'omics data](https://peerj.com/preprints/1275/).
 
