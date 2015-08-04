@@ -31,12 +31,6 @@ comments: false
 </div>
 
 <div class="pub">
-    <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=The+Gut+Microbiota+of+Rural+Papua+New+Guineans:+Composition,+Diversity+Patterns,+and+Ecological+Processes." target="_new">The Gut Microbiota of Rural Papua New Guineans: Composition, Diversity Patterns, and Ecological Processes.</a></h3>
-    <span class="pub-authors">Martínez, I., Stegen, James C., Maldonado-Gómez, Maria X., <span class="pub-member-author">Eren, A. M</span>., Siba, Peter M., Greenhill, Andrew R., and Walter, J.</span>
-    <span class="pub-journal"><i>Cell Reports</i>. <b>10.1016/j.celrep.2015.03.049</b></span>
-</div>
-
-<div class="pub">
     <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Sewage+reflects+the+microbiomes+of+human+populations." target="_new">Sewage reflects the microbiomes of human populations.</a></h3>
     <span class="pub-authors">Newton, R. J., McLellan, S. L., Dila, D. K., Vineis, J. H., Morrison, H. G., <span class="pub-member-author">Eren, A. M</span>., and Sogin, M. L.</span>
     <span class="pub-journal"><i>MBio</i>. <b>6(2)</b></span>
