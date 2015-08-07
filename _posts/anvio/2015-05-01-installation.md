@@ -20,12 +20,12 @@ anvi'o has some dependencies, some of which will be taken care of the installer.
 
 * [Chrome Web Browser](https://www.google.com/chrome/browser/desktop/). Chrome should be not only installed on your system, but unfortunately it should also be the default browser (otherwise everytime interactive interface pops up, you will need to copy-paste the address to a Chrome window). anvi'o does not support any other browser, and __it will not perform optimally__ on others.
 
-* [Prodigal](http://prodigal.ornl.gov/) (go to your terminal, type `prodigal` if you get an error, you need to install it). Here is a quick way to install it (the first line will not work if you don't have wget, but you can get wget installed esily typing `sudo port install wget` if you are using MacPorts system on your Mac computer):
+* [Prodigal](http://prodigal.ornl.gov/) (go to your terminal, type `prodigal -v` if you get an error, you need to install it, __if the version number is smaller than 2.6.2__, you need to update it). Here is a quick way to install the 2.6.2 version, but feel free to do visit the [latest releases page](https://github.com/hyattpd/prodigal/releases/) and do it yourself (the first line will not work if you don't have wget, but you can get wget installed esily typing `sudo port install wget` if you are using MacPorts system on your Mac computer):
 
 <div style="padding-left:30px">
 <pre>
-wget http://prodigal.ornl.gov/zips/prodigal.v2_50.tar.gz
-tar -zxvf prodigal.v2_50.tar.gz && cd prodigal.v2_50 && make
+wget https://github.com/hyattpd/Prodigal/archive/v2.6.2.tar.gz
+tar -zxvf v2.6.2.tar.gz && cd Prodigal-2.6.2/ && make
 sudo cp prodigal /usr/bin/
 </pre>
 </div>
