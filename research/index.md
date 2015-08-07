@@ -37,7 +37,7 @@ We believe in holistic approaches, and hyptothesis-driven science.
 
 We spend a lot of effort to identify best practices to better understand microbes and their interactions with the environment.
 
-We appreciate the importance of cultivation, imaging, and reliance of model systems. Whether it is related to human health and medicine, or environmental remediation and protection, we strive to design our experiments and form our collaborations to achieve a multifaceted perspective to approach challenging questions.
+We appreciate the importance of cultivation, imaging, and reliance on model systems. Whether it is related to human health and medicine, or environmental remediation and protection, we strive to design our experiments and form our collaborations to achieve multifaceted perspectives to address challenging questions.
 
 Please don't hesitate to [write to us]({{site.url}}/people/) for more information.
 
