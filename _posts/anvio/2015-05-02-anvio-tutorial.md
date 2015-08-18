@@ -65,7 +65,7 @@ Following sections will describe each program you will frequently use while walk
 
 ## anvi-gen-annotation-db
 
-Annotation database will be the essential ingredient everything you will do with anvio. It will process `contigs.fa`, and store it in a better formatted way. You can decorate your annotation database, but the one command you have to run is this:
+Annotation database will be the essential ingredient everything you will do with anvi'o. It will process `contigs.fa`, and store it in a better formatted way. You can decorate your annotation database, but the one command you have to run is this:
 
     anvi-gen-annotation-database -f contigs.fa -o annotation.db
 
@@ -79,7 +79,7 @@ Once you have the annotation database, you can decorate it with stuff that would
 
 The program makes populates relevant tables in the annotation database with information on annotation. I will give an example using RAST annotation.
 
-If you have MyRAST installed, you can run these two commands to store the annotation of your contigs in the annotation database (the first line will query RAST server, which may take a while depending on the number of contigs you have), the second line will incorporate the returning info into anvio's annotation database:
+If you have MyRAST installed, you can run these two commands to store the annotation of your contigs in the annotation database (the first line will query RAST server, which may take a while depending on the number of contigs you have), the second line will incorporate the returning info into anvi'o's annotation database:
 
 {% highlight bash %}
 svr_assign_to_dna_using_figfams < contigs.fa > svr_assign_to_dna_using_figfams.txt 
@@ -118,7 +118,9 @@ In this case `concoct.txt` is the clustering.csv file CONCOCT generates. To see 
 
 ## anvi-init-bam
 
-anvio likes BAM files when they are sorted and indexed. This is why I named your BAM file for sample X you got from CLC or Bowtie as `X-raw.bam` instead of `X.bam`. To initialize this BAM file you can run this command:
+Anvi'o requires BAM files to be sorted and indexed. This is why I named the example BAM file for Sample X CLC or Bowtie generated as `X-raw.bam`, instead of `X.bam`.
+
+If your BAM files already sorted and indexed (i.e., for each sample there is a `.bam` and `.bam.bai` file in your working directory), you can skip this step. Otherwise, to initialize the BAM file for Sample X you can run this command (note that the output file name is only the sample prefix, and it is not `X.bam` but only `X` without an extension):
 
     anvi-init-bam X-raw.bam -o X
 
@@ -148,11 +150,11 @@ The minimal command to profile a BAM file looks like this:
 
 anvi-profile -i X.bam -a annotation.db
 
-But I encourage you to take a look at the default paramers. One of the most critical parameter is `-M` (`--min-contig-length`) parameter. The default is 10,000. Which means the profiling step will take into consideration only the contigs that are longer than 10Kb. This may be too large for your analysis. But clustering and visualization steps in anvio have some limitations, so you can't really say `-M 0` in most cases. The rule of thumb is to keep the number of contigs anvio will deal to a maximum of 20,000. How can you know how many contigs are there for a given `-M` value? Well, one thing to find that out is this:
+But I encourage you to take a look at the default paramers. One of the most critical parameter is `-M` (`--min-contig-length`) parameter. The default is 10,000. Which means the profiling step will take into consideration only the contigs that are longer than 10Kb. This may be too large for your analysis. But clustering and visualization steps in anvi'o have some limitations, so you can't really say `-M 0` in most cases. The rule of thumb is to keep the number of contigs anvi'o will deal to a maximum of 20,000. How can you know how many contigs are there for a given `-M` value? Well, one thing to find that out is this:
 
     sqlite3 annotation.db 'select count(*) from contigs_basic_info where length > 10000;'
 
-This command will print out the number of contigs longer than 10Kb in your dataset. You can try different values until the output is about 20,000, and use that value for `-M`. But I will not recommend you to go below 1Kb. The main reason to that is the fact that anvio relies on k-mer frequencies to better cluster contigs, and tetra-nucleotides (the default way for anvio to make sense of the sequence composotion) become very unstable very quickly.
+This command will print out the number of contigs longer than 10Kb in your dataset. You can try different values until the output is about 20,000, and use that value for `-M`. But I will not recommend you to go below 1Kb. The main reason to that is the fact that anvi'o relies on k-mer frequencies to better cluster contigs, and tetra-nucleotides (the default way for anvi'o to make sense of the sequence composotion) become very unstable very quickly.
 
 Once you know what you `-M` is, you can, again, profile multiple samples using the similar approach we used for initializing BAM files:
 
@@ -167,7 +169,7 @@ __Note__: If you are planning to work with and visualize single profiles (withou
 
 Once you have your BAM files profiled, the next logical step is to merge all the profiles that should be analyzed together.
 
-It goes without saying that every profiling step must have used the same parameters for analysis. If profiles have been generated with different annotation databases or with different parameters will not get merged, and you will get angry error messages from anvio.
+It goes without saying that every profiling step must have used the same parameters for analysis. If profiles have been generated with different annotation databases or with different parameters will not get merged, and you will get angry error messages from anvi'o.
 
 In an ideal case, this should be enough to merge your stuff:
 
@@ -183,7 +185,7 @@ Before you run these commands in your real-world data, you must understand the d
 
 A default step in the merging process is to generate a hierarchical clustering of all splits using anvi'o's default _clustering configurations_. One of these clustering configurations clusters contigs using only k-mer frequencies (if you generated your annotation database with default parameters, the k is 4, and your k-mer frequencies will be 'tetranucleotide frequencies'), another one of them mixes k-mer frequencies with distribution patterns across samples for clustering, etc. The hierarchical clustering result is necessary for __visualization__, and __supervised binning__. Therefore, by default, anvi'o will attempt to cluster your contigs using these configurations. However, if you have, say, more than 25,000 splits, clustering step will be very time consuming (multiple hours to even days), and visualization of this data will be very challenging. There are other solutions to this problem that will be discussed later, but if you would like to skip hierarchical clustering, you can use `--skip-hierarchical-clustering` flag.
 
-During merging, anvi'o will also use [CONCOCT](http://www.nature.com/nmeth/journal/v11/n11/full/nmeth.3103.html) for unsupervised binning. CONCOCT can deal with hundreds of thousands of splits. Which means, regardless of the number of splits you have, and even if you skip the hierarchical clustering step, there will be a collection in the merged profile database (collection id of which will be 'CONCOCT') with genome bins identified by CONCOCT in an unsupervised manner, from which you can generate a summary. But if you would like to skip CONCOCT clustering, you can use `--skip-concoct-binning` flag. 
+During merging, anvi'o will also use [CONCOCT](http://www.nature.com/nmeth/journal/v11/n11/full/nmeth.3103.html) for automatic binning. CONCOCT can deal with hundreds of thousands of splits. Which means, regardless of the number of splits you have, and even if you skip the hierarchical clustering step, there will be a collection in the merged profile database (collection id of which will be 'CONCOCT') with genome bins identified by CONCOCT in an unsupervised manner, from which you can generate a summary. But if you would like to skip CONCOCT clustering, you can use `--skip-concoct-binning` flag. 
 
 ## anvi-interactive
 
