@@ -14,6 +14,9 @@ This article describes basics steps of installing Anvi'o. If you run into any is
 
 Here I would like to thank Inés Martínez, Rika Anderson, and Sharon Grim for helping me a lot by volunteering themselves to test the installation.
 
+{: .notice}
+Are you using Mac OS X? Then you really should see this one first: <a href="../../../../2015/08/20/installation-on-mac/">OS X installer for anvi'o</a>
+
 ## Dependencies
 
 anvi'o has some dependencies, some of which will be taken care of the installer. However, you first need to make sure your system does have all the following software (it is not as scary as it looks, you will be fine):
