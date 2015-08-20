@@ -11,9 +11,7 @@ author: meren
 
 {% include _toc.html %}
 
-One of our highest priorities with [anvi'o]({{ site.url }}/projects/anvio) has always been creating a metagenomics platform that everyone can use. Installation is the most critical part of it.
-
-[Installing anvi'o]({% post_url anvio/2015-05-01-installation %}) is not terribly hard, however, there is still room for improvement.
+One of our highest priorities with [anvi'o]({{ site.url }}/projects/anvio) has always been the ease of use. Pain-free installation is clearly an important requirement to achieve that. [Installing anvi'o]({% post_url anvio/2015-05-01-installation %}) is not terribly hard, however, there is still room for improvement.
 
 We now have a new installer, and if you are using Mac OS X (version 10.9+, i.e., Maverick or Yosemite), you are pretty much covered!
 
