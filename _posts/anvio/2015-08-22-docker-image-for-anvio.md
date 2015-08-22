@@ -87,7 +87,7 @@ $ sudo docker run --rm -v /home/merenbey/my_data:/my_data -it meren/anvio:1.0.2
 X.bam  Y.bam  contigs.fa
 {% endhighlight %}
 
-## Building the anvi'o docker image
+## Rebuilding the anvi'o docker image
 
 If you would like to rebuild the Docker image for anvi'o on your own server, you can simply clone the anvi'o repository:
 

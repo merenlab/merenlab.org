@@ -10,18 +10,30 @@ comments: true
 
 {% include _toc.html %}
 
-This article describes basics steps of installing Anvi'o. If you run into any issues, please post a comment down below, or open an <a href="https://github.com/meren/anvio/issues">issue</a>.
+There are multiple ways to install anvi'o.
+
+This article explains basic steps of installing anvi'o using rather conventional methods. You may also be intersted in these posts if you think they would serve you better:
+
+* [OS X installer for anvi'o]({% post_url anvio/2015-08-20-installation-on-mac %}) (for Maverick and Yosemite).
+* [Docker image for anvi'o]({% post_url anvio/2015-08-22-docker-image-for-anvio %}) (for an instant, and painless installation of anvi'o on a server system).
+
+**Regardless** of which installation method you'd like to go with, you should take a look at these anvi'o requirements before going any further:
+
+* [Chrome Web Browser](https://www.google.com/chrome/browser/desktop/). Chrome should be not only installed on your system, but unfortunately it should also be the default browser (otherwise everytime interactive interface pops up, you will need to copy-paste the address to a Chrome window). Anvi'o does not support any other browser, and __it will not perform optimally__ on others.
+
+* [DB Browser for SQLite](http://sqlitebrowser.org/). Anvi'o uses SQLite to create self-contained databases to store information. There are many bindings for many programming languages to access to these database files and explore them, and it is also possible to use `sqlite3` program from the terminal to play witht them. DB Browser for SQLite is a very easy-to-install open-source software that does what `sqlite3` is doing with a nice graphical interface. I urge you to stick with the terminal as much as possible, but having a GUI option is always a nice thing.
+
+* [MyRAST](http://blog.theseed.org/servers/). This is optional, and it is useful only if you are planning to do metagenomics with a focus on bacteria. In that case MyRAST can be quite useful, at least to get a broad idea about what is going on in your data. If you type `svr_assign_to_dna_using_figfams` on your terminal and and do not get an error, you have it (press `CTRL+C` to quit). You need to know that your annotations with MyRAST will be *OK* for human gut, but you shouldn't expect too much from it if you are working with other environments.
+
+
+Please post a comment down below if you have any questions about installation. You may want to consider opening an <a href="https://github.com/meren/anvio/issues">issue</a> for more technical problems.
 
 Here I would like to thank Inés Martínez, Rika Anderson, and Sharon Grim for helping me a lot by volunteering themselves to test the installation.
 
-{: .notice}
-Are you using Mac OS X? Then you really should see this one first: <a href="../../../../2015/08/20/installation-on-mac/">OS X installer for anvi'o</a>
 
-## Dependencies
+## An overview of anvi'o dependencies
 
-anvi'o has some dependencies, some of which will be taken care of the installer. However, you first need to make sure your system does have all the following software (it is not as scary as it looks, you will be fine):
-
-* [Chrome Web Browser](https://www.google.com/chrome/browser/desktop/). Chrome should be not only installed on your system, but unfortunately it should also be the default browser (otherwise everytime interactive interface pops up, you will need to copy-paste the address to a Chrome window). anvi'o does not support any other browser, and __it will not perform optimally__ on others.
+You need to make sure your system does have all the following software if you are going to follow the installation instructions on this page (it is not as scary as it looks, you will be fine):
 
 * [Prodigal](http://prodigal.ornl.gov/) (go to your terminal, type `prodigal -v` if you get an error, you need to install it, __if the version number is smaller than 2.6.2__, you need to update it). Here is a quick way to install the 2.6.2 version, but feel free to do visit the [latest releases page](https://github.com/hyattpd/prodigal/releases/) and do it yourself (the first line will not work if you don't have wget, but you can get wget installed esily typing `sudo port install wget` if you are using MacPorts system on your Mac computer):
 
@@ -42,8 +54,6 @@ sudo cp prodigal /usr/bin/
 </div>
 
 * [SQLite](http://www.tutorialspoint.com/sqlite/sqlite_installation.htm) (go to your terminal, type sqlite3, if it gives you an error, you need to install this one). There is installation instructions on the web page if you follow the link. Or you can install it by typing `sudo port install sqlite3` if you are using the port system on your Mac.
-
-* [MyRAST](http://blog.theseed.org/servers/) (this one is optional, but it is very useful, if you type `svr_assign_to_dna_using_figfams` and if it doesn't give you an error, you have it (press `CTRL+C` to quit)).
 
 * [GSL](http://www.gnu.org/software/gsl/), which is the GNU Scientific Library. It is quite straightforward. If you are using MacPorts, you can install `gsl`, `gsl-devel`, and `py27-gsl` packages from the terminal using `port install` (Rika tells me homebrew on Mac works, too). Otherwise, try these commands and you should be OK:
 
@@ -68,13 +78,9 @@ sudo pip install numpy
 
 <div style="padding-left:30px">
 <pre>
-sudo pip install numpy
+sudo pip install Cython
 </pre>
 </div>
-
-### Other installation notes
-
-* Anvi'o uses SQLite to create self-contained databases to store information. There are many bindings for many programming languages to access to these database files and explore them, and it is also possible to use `sqlite3` program from the terminal to play witht them. [DB Browser for SQLite](http://sqlitebrowser.org/) is a very easy-to-install open-source software that does what `sqlite3` is doing with a nice graphical interface. I urge you to stick with the terminal as much as possible, but in case you insist on using a GUI, this is the one you should give a chance.
 
 ## Installation
 
@@ -82,13 +88,13 @@ You can either install a stable release of anvi'o, or you can get a copy of the 
 
 ### Installing the latest stable release (safe mode)
 
-The best way to install stable release is to do it through pip. If you are have your dependencies sorted, tyr running this on your terminal:
+The best way to install stable release is to do it through pip. If you are have your dependencies sorted, try running this on your terminal:
 
     sudo pip install anvio
 
 If there are no errors, you are golden.
 
-If you want to make sure everything is working, you can run the "mini test" (explained down below).
+If you want to make sure everything is working, you can run the "mini test" (explained very down below).
 
 
 ### Installing or updating from the current codebase (semi-pro)
@@ -110,9 +116,9 @@ If you already have the codebase, and if your purpose is to _update_ your alread
 
 No errors? Perfect. Run the mini test!
 
-### Installation for developers (you're a wizard, ary)
+### Installation for developers (you're a wizard, arry)
 
-If you are planning to do this you need no introduction, but I will give one anyway. Clone the codebase into a `$DIR` you like:
+If you are planning to do this you need no introduction, but I will give you one anyway. Clone the codebase into a `$DIR` you like:
 
 
     cd $DIR
@@ -141,7 +147,7 @@ Now you can edit the codebase, and test it, without re-installing anvi'o over an
 
 If you have a proper installation, you shouldn't get any errors when you run it.
 
-If you installed anvi'o via pip (following the safe mode), you can go to an empty directory, and type these:
+If you installed anvi'o via `pip` (following the safe mode), you can go to an empty directory, and type these:
 
     git clone --recursive https://github.com/meren/anvio.git
     cd anvio/tests
@@ -158,6 +164,6 @@ Upon the successful completion of the mini test run, your browser should popup t
 <a href="{{ site.url }}/images/anvio/misc/mini-test-screenshot.png"><img src="{{ site.url }}/images/anvio/misc/mini-test-screenshot.png" width="50%" /></a>
 </div>
 
-All fine? Perfect! You have a running installation of anvi'o.
+All fine? Perfect! Now you have a running installation of anvi'o!
 
-Maybe you would like to continue with [other posts on the platform]({{ site.url }}/projects/anvio).
+Maybe you would like to continue with the [other posts on the platform]({{ site.url }}/projects/anvio)?
