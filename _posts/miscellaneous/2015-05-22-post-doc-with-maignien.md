@@ -8,6 +8,9 @@ categories: [miscellaneous]
 comments: true
 ---
 
+{: .notice}
+This position has been filled! Thank you very much for your interest. I will keep the post here for archival reasons.
+
 [Loïs Maignien](http://pagesperso.univ-brest.fr/~maignien/) is looking for a post-doc to join his group in Brest, France.
 
 The successful candidate will be co-adviced by me and Loïs, and will travel to the US often to work with me and my group, get trained in the state-of-the-art tools we are developing to analyze marker gene data (i.e., oligotyping and minimum entropy decomposition), and for the analysis of shotgun metagenomes (i.e., anvi'o).
