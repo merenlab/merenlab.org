@@ -1,7 +1,7 @@
 ---
 layout: post
 author: meren
-title: "How to olitoype: Best practices"
+title: "How to oligotype: Best practices"
 excerpt: "Flowchart of oligotyping..."
 modified: 2013-11-04 
 tags: [tutorial]
@@ -78,7 +78,7 @@ The pipeline’s output for oligotype C ([http://goo.gl/50Ihp](http://goo.gl/50I
 
 Oligotype G’s entropy profile ([http://goo.gl/ps0LS](http://goo.gl/ps0LS)) reveals that the 48th, 56th, 57th, 76th, 80th, 81st, 91st, 92nd, 93rd and 97th positions exhibit variation and hence information content that can further explain the diversity confined in this oligotype. Similar to the case of oligotype C, the 48th position (closest to the beginning of the alignment) might further partition oligotype G. However, the candidate sites in both oligotypes C and G include the 57th position (see Fig. S8). By using this site, the analysis will require only two positions (10th and 57th), instead of three (10th, 51st and 48th) in the second round of oligotyping. To obtain further resolution using the 10th and 57th positions to partition the sequence alignment mock.fa, the second round of oligotyping in this example run by this command:
 
-    oligotype mock.fa mock.fa-ENTROPY –C 10,57 -M 50 --gen-html
+    oligotype mock.fa mock.fa-ENTROPY -C 10,57 -M 50 --gen-html
 
 Note the use of `-C` followed by the comma separated list of chosen locations, instead of `-c` used in the first round followed by the number of maximum entropy locations.
 
