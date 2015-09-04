@@ -10,7 +10,10 @@ comments: true
 
 {% include _toc.html %}
 
-This article gives a brief overview of anvi'o metagenomic worklow. If you run into any issues, please post a comment down below, or open an <a href="https://github.com/meren/anvio/issues">issue</a>.
+{: .notice}
+This tutorial covers anvi'o v1.1.0. Please update your installation first if you have an earlier version installed. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal.
+
+This tutorial gives a brief overview of anvi'o metagenomic worklow. If you run into any issues, please post a comment down below, or open an <a href="https://github.com/meren/anvio/issues">issue</a>.
 
 If you are here, you must have already installed the platform, and have [run the "mini test"]({% post_url anvio/2015-05-01-installation %}) succesfully.
 
@@ -63,56 +66,46 @@ What you need to may differ, and please don't hesitate to contact us if you need
 
 Following sections will describe each program you will frequently use while walking you through an example analysis. To see a complete list of programs that are distributed with the platform, type `anvi-` in your terminal, and then press the `TAB` key twice.
 
-## anvi-gen-annotation-db
+## anvi-gen-contigs-db
 
-Annotation database will be the essential ingredient everything you will do with anvi'o. It will process `contigs.fa`, and store it in a better formatted way. You can decorate your annotation database, but the one command you have to run is this:
+Contigs database will be the essential ingredient everything you will do with anvi'o. It will process `contigs.fa`, and store it in a better formatted way. You can decorate your contigs database, but the one command you have to run is this:
 
-    anvi-gen-annotation-database -f contigs.fa -o annotation.db
+    anvi-gen-contigs-database -f contigs.fa -o contigs.db
 
 Each anvi-* program has a help menu that explains available parameters. Don't forget to check them for everything you run. If something is not clearly explained, let me know:
 
-    anvi-gen-annotation-database --help
+    anvi-gen-contigs-database --help
 
-Once you have the annotation database, you can decorate it with stuff that would be very useful later.
+Once you have the contigs database, you can decorate it with stuff that would be very useful later.
 
 ## anvi-populate-genes-table
 
-The program makes populates relevant tables in the annotation database with information on annotation. I will give an example using RAST annotation.
+This program populates relevant tables in the contigs database with functional information on contigs. I will give an example using RAST annotation.
 
-If you have MyRAST installed, you can run these two commands to store the annotation of your contigs in the annotation database (the first line will query RAST server, which may take a while depending on the number of contigs you have), the second line will incorporate the returning info into anvi'o's annotation database:
+If you have MyRAST installed, you can run these two commands to store the annotation of your contigs in the contigs database (the first line will query RAST server, which may take a while depending on the number of contigs you have), the second line will incorporate the returning info into anvi'o's contigs database:
 
 {% highlight bash %}
 svr_assign_to_dna_using_figfams < contigs.fa > svr_assign_to_dna_using_figfams.txt 
-anvi-populate-genes-table annotation.db -p myrast_cmdline_dont_use -i svr_assign_to_dna_using_figfams.txt
+anvi-populate-genes-table contigs.db -p myrast_cmdline_dont_use -i svr_assign_to_dna_using_figfams.txt
 {% endhighlight %}
 
 Once you have RAST annotations, I suggest you to run the following command to export the information from the table into a more native matrix form and store it separately (if you take a look at the exported matrix, you will see that it is a simpler, and more standard form of what we got from RAST):
 
-    anvi-export-genes-table annotation.db -o rast_annotation.txt
+    anvi-export-genes-table contigs.db -o rast_annotation.txt
 
-If you have to re-create the annotation database for some reason, you can now use this newly generated file (`rast_annotation.txt`) to repopulate the annotation database instead of querying RAST again using the following command:
+If you have to re-create the contigs database for some reason, you can now use this newly generated file (`rast_annotation.txt`) to repopulate the contigs database instead of querying RAST again using the following command:
 
-    anvi-populate-genes-table annotation.db -p default_matrix -i rast_annotation.txt
+    anvi-populate-genes-table contigs.db -p default_matrix -i rast_annotation.txt
 
 ## anvi-populate-search-table
 
-The program populates tables that holds HMM search results in the annotation database.
+The program populates tables that holds HMM search results in the contigs database.
 
-Anvi'o can do wonders with HMM models. To decorate your annotation database with hits from HMM models that ship with the platform (which, at this point, constitute published single-copy gene collections), run this command:
+Anvi'o can do wonders with HMM models. To decorate your contigs database with hits from HMM models that ship with the platform (which, at this point, constitute published single-copy gene collections), run this command:
 
-    anvi-populate-search-table annotation.db
+    anvi-populate-search-table contigs.db
 
-
-## anvi-populate-collections-table
-
-This program populates tables that holds information about different organizations of contigs (collection of bins).
-
-For instance, if you have some CONCOCT results for your merged profile (which you DON'T have at this point if you are reading this tutorial the first time, but you will have them later if you keep reading), you can add them into the annotation database like this:
-
-    anvi-populate-collections-table annotation.db --parser concoct -i concoct.txt
-
-In this case `concoct.txt` is the clustering.csv file CONCOCT generates. To see the format you can take a look at [`anvio/tests/mini_test/concoct.txt`](https://github.com/meren/anvio/blob/master/tests/mini_test/concoct.txt)
-
+If you are here, you are pretty much done with your contigs database!
 
 # Programs to analyze BAM files
 
@@ -144,21 +137,21 @@ Good.
 
 ## anvi-profile
 
-Profiling step makes sense of each BAM file separately by utilizing the information stored in the annotation database. The result of the profiling step is a special file that describes the run (`RUNONFO.cp`), and a profile database (`PROFILE.db`).
+Profiling step makes sense of each BAM file separately by utilizing the information stored in the contigs database. The result of the profiling step is a special file that describes the run (`RUNONFO.cp`), and a profile database (`PROFILE.db`).
 
 The minimal command to profile a BAM file looks like this:
 
-anvi-profile -i X.bam -a annotation.db
+anvi-profile -i X.bam -c contigs.db
 
 But I encourage you to take a look at the default paramers. One of the most critical parameter is `-M` (`--min-contig-length`) parameter. The default is 10,000. Which means the profiling step will take into consideration only the contigs that are longer than 10Kb. This may be too large for your analysis. But clustering and visualization steps in anvi'o have some limitations, so you can't really say `-M 0` in most cases. The rule of thumb is to keep the number of contigs anvi'o will deal to a maximum of 20,000. How can you know how many contigs are there for a given `-M` value? Well, one thing to find that out is this:
 
-    sqlite3 annotation.db 'select count(*) from contigs_basic_info where length > 10000;'
+    sqlite3 contigs.db 'select count(*) from contigs_basic_info where length > 10000;'
 
 This command will print out the number of contigs longer than 10Kb in your dataset. You can try different values until the output is about 20,000, and use that value for `-M`. But I will not recommend you to go below 1Kb. The main reason to that is the fact that anvi'o relies on k-mer frequencies to better cluster contigs, and tetra-nucleotides (the default way for anvi'o to make sense of the sequence composotion) become very unstable very quickly.
 
 Once you know what you `-M` is, you can, again, profile multiple samples using the similar approach we used for initializing BAM files:
 
-    for sample in `cat SAMPLE_IDs`; do anvi-profile -i $sample.bam -M YOUR_M_VALUE -a annotation.db; done
+    for sample in `cat SAMPLE_IDs`; do anvi-profile -i $sample.bam -M YOUR_M_VALUE -c contigs.db; done
 
 __Note__: If you are planning to work with and visualize single profiles (without merging), use `--cluster-contigs` flag (more explanation on this will come later). You don't need to use this flag if you are planning to merge multiple profiles (i.e., if you have more than one BAM files to work with).
 
@@ -169,23 +162,37 @@ __Note__: If you are planning to work with and visualize single profiles (withou
 
 Once you have your BAM files profiled, the next logical step is to merge all the profiles that should be analyzed together.
 
-It goes without saying that every profiling step must have used the same parameters for analysis. If profiles have been generated with different annotation databases or with different parameters will not get merged, and you will get angry error messages from anvi'o.
+It goes without saying that every profiling step must have used the same parameters for analysis. If profiles have been generated with different contigs databases or with different parameters will not get merged, and you will get angry error messages from anvi'o.
 
 In an ideal case, this should be enough to merge your stuff:
 
-    anvi-merge X/RUNINFO.cp Y/RUNINFO.cp -o XY-MERGED -a annotation.db
+    anvi-merge X/RUNINFO.cp Y/RUNINFO.cp -o XY-MERGED -c contigs.db
 
 Or alternatively you can run this:
 
-    anvi-merge */RUNINFO.cp -o XY-MERGED -a annotation.db
+    anvi-merge */RUNINFO.cp -o XY-MERGED -c contigs.db
 
 Before you run these commands in your real-world data, you must understand the details of clustering.
 
 ### Clustering during merging
 
-A default step in the merging process is to generate a hierarchical clustering of all splits using anvi'o's default _clustering configurations_. One of these clustering configurations clusters contigs using only k-mer frequencies (if you generated your annotation database with default parameters, the k is 4, and your k-mer frequencies will be 'tetranucleotide frequencies'), another one of them mixes k-mer frequencies with distribution patterns across samples for clustering, etc. The hierarchical clustering result is necessary for __visualization__, and __supervised binning__. Therefore, by default, anvi'o will attempt to cluster your contigs using these configurations. However, if you have, say, more than 25,000 splits, clustering step will be very time consuming (multiple hours to even days), and visualization of this data will be very challenging. There are other solutions to this problem that will be discussed later, but if you would like to skip hierarchical clustering, you can use `--skip-hierarchical-clustering` flag.
+A default step in the merging process is to generate a hierarchical clustering of all splits using anvi'o's default _clustering configurations_. One of these clustering configurations clusters contigs using only k-mer frequencies (if you generated your contigs database with default parameters, the k is 4, and your k-mer frequencies will be 'tetranucleotide frequencies'), another one of them mixes k-mer frequencies with distribution patterns across samples for clustering, etc. The hierarchical clustering result is necessary for __visualization__, and __supervised binning__. Therefore, by default, anvi'o will attempt to cluster your contigs using these configurations. However, if you have, say, more than 25,000 splits, clustering step will be very time consuming (multiple hours to even days), and visualization of this data will be very challenging. There are other solutions to this problem that will be discussed later, but if you would like to skip hierarchical clustering, you can use `--skip-hierarchical-clustering` flag.
 
 During merging, anvi'o will also use [CONCOCT](http://www.nature.com/nmeth/journal/v11/n11/full/nmeth.3103.html) for automatic binning. CONCOCT can deal with hundreds of thousands of splits. Which means, regardless of the number of splits you have, and even if you skip the hierarchical clustering step, there will be a collection in the merged profile database (collection id of which will be 'CONCOCT') with genome bins identified by CONCOCT in an unsupervised manner, from which you can generate a summary. But if you would like to skip CONCOCT clustering, you can use `--skip-concoct-binning` flag. 
+
+
+## anvi-import-collections
+
+Here is a completely optional step: using this program you can add your external binning results into your merged profile database.
+
+For instance, if you have some CONCOCT, MetaBat, or ESOM results for your contigs, you can let anvi'o know about them like this:
+
+    anvi-import-collection external_binning_of_splits.txt -p XY-MERGED/PROFILE.db -c contigs.db --source-identifier "MY_EXTERNAL_BINNING"
+
+If you have a `colors` file, you can add it into the mix to have some specific visual identifiers for your bins by adding `--colors colors.txt`
+
+You can find example files to learn about the format of these simple files here: [example_files_for_external_binning_results](https://github.com/meren/anvio/tree/master/tests/sandbox/example_files_for_external_binning_results).
+
 
 ## anvi-interactive
 
@@ -193,7 +200,7 @@ Interactive interface is good for a couple of things: it allows you to browse yo
 
  Once the merging is done you can finally run the interactive interface:
 
-    anvi-interactive -p XY-MERGED/PROFILE.db -a annotation.db
+    anvi-interactive -p XY-MERGED/PROFILE.db -c contigs.db
 
 If you had too many contigs and had to skip the hierarchical clustering step during merging, and if you only have unsupervised binning done by CONCOCT, don't be worried and keep reading on.
 
@@ -215,11 +222,11 @@ Collection could be genome bins identified by CONCOCT in an unsupervised manner 
 
 You can run this to summarize the bins saved under the collection id 'CONCOCT' into MY_SUMMARY directory:
 
-    anvi-summarize -p XY-MERGED/PROFILE.db -a annotation.db -o XY-MERGED-SUMMARY -c CONCOCT
+    anvi-summarize -p XY-MERGED/PROFILE.db -c contigs.db -o XY-MERGED-SUMMARY -c CONCOCT
 
 If you are not sure which collections are available to you, you can always see a list of them by running this command:
 
-    anvi-summarize -p XY-MERGED/PROFILE.db -a annotation.db -o XY-MERGED-SUMMARY --list-collections
+    anvi-summarize -p XY-MERGED/PROFILE.db -c contigs.db -o XY-MERGED-SUMMARY --list-collections
 
 
 ## anvi-refine

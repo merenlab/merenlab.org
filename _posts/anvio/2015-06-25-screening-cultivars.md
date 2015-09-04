@@ -40,11 +40,11 @@ In this post I will describe two examples of assembled genomes from lab cultures
 
 ## Example 1: axenic, uncontaminated culture
 
-Here, I have an assembly ouput from an axenic, uncontaminated *Bacteroides fragilis* culture. This genome was sequenced on a HiSeq platfrom and a total of 33 contigs > 1kbp were generated, which totalled around 5 Mbp. I have processed the FASTA file of 33 contigs along with the BAM file of mapped short reads using anvi'o by (1) creating an annotation database using a split size of 2,000 nts (`-L 2000`), (2) running HMM profiles for single-copy genes, and (3) profiling the BAM file with an additional `--cluster-contigs` parameter (see [the user tutorial]({% post_url anvio/2015-05-02-anvio-tutorial %}) for details of each step).
+Here, I have an assembly ouput from an axenic, uncontaminated *Bacteroides fragilis* culture. This genome was sequenced on a HiSeq platfrom and a total of 33 contigs > 1kbp were generated, which totalled around 5 Mbp. I have processed the FASTA file of 33 contigs along with the BAM file of mapped short reads using anvi'o by (1) creating an contigs database using a split size of 2,000 nts (`-L 2000`), (2) running HMM profiles for single-copy genes, and (3) profiling the BAM file with an additional `--cluster-contigs` parameter (see [the user tutorial]({% post_url anvio/2015-05-02-anvio-tutorial %}) for details of each step).
 
 Once the profiling was complete, I started the interactive interface by typing:
 
-    anvi-interactive -p Example1/PROFILE.db -a annotation.db
+    anvi-interactive -p Example1/PROFILE.db -c contigs.db
 
 If you are familiar with anvi'o you know that the interactive interface will start following this command. The most left panel in the figure below shows the initial, unedited tree of contigs in "mean coverage" view:
 
@@ -110,3 +110,4 @@ Sequence composition is very useful but some manual editing was required in this
 ## Concluding remarks
 
 Scrutinizing genomes using FASTA files and associated mapped reads (raw sequences or BAM files) is a straightforward proccess with anvi'o. Such efforts may improve removing contaminants from genomic projects, and refine the tree of life.
+contigs

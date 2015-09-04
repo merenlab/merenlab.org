@@ -86,7 +86,7 @@ rm  $sample.smalt.sam
 
 The result of this script was 8 BAM files for each sample, where identical short reads were mapped to identical contigs.
 
-When Bing sent me the total of 32 BAM files for HUZ63 along with the contigs, I used anvi'o to (1) generate an annotation database and annotate contigs using myRAST, (2) run HMM profiles for single-copy gene collections on this database, (3) profile each BAM file with `-M 2000`, (4) merge the ones that are coming from the same mapper first, (5) and finally merge everything together using ([the user tutorial]({% post_url anvio/2015-05-02-anvio-tutorial %}) details these standard steps of the metagenomic workflow we implemented in anvio).
+When Bing sent me the total of 32 BAM files for HUZ63 along with the contigs, I used anvi'o to (1) generate an contigs database and annotate contigs using myRAST, (2) run HMM profiles for single-copy gene collections on this database, (3) profile each BAM file with `-M 2000`, (4) merge the ones that are coming from the same mapper first, (5) and finally merge everything together using ([the user tutorial]({% post_url anvio/2015-05-02-anvio-tutorial %}) details these standard steps of the metagenomic workflow we implemented in anvio).
 
 Here is the the shell script I used for all these steps, again, for people who may want to do a similar analysis in the future (or for the ones who want to familiarize themselves how does anvi'o look like in the command line (of course it is simplified, since each step was sent to clusters in the original one)):
 
@@ -136,17 +136,17 @@ done
  
  
 ######################################################################################################################
-# ANNOTATION
+# CONTIGS
 ######################################################################################################################
  
-# GEN ANNOTATION FOR ALL
-anvi-gen-annotation-database -f contigs.fa -o annotation.db
+# GEN CONTIGS FOR ALL
+anvi-gen-contigs-database -f contigs.fa -o contigs.db
  
 # ANNOTATE WITH RAST
-anvi-populate-genes-table annotation.db -p myrast_cmdline_dont_use -i svr_assign_to_dna_using_figfams.txt
+anvi-populate-genes-table contigs.db -p myrast_cmdline_dont_use -i svr_assign_to_dna_using_figfams.txt
  
 # POPULATE SEARCH TABLES
-anvi-populate-search-table annotation.db
+anvi-populate-search-table contigs.db
  
  
 ######################################################################################################################
@@ -157,7 +157,7 @@ for mapper in $mappers
 do
     for sample in $samples
     do
-        anvi-profile -i $sample.$mapper.bam -o $sample.$mapper -a annotation.db -M 2000
+        anvi-profile -i $sample.$mapper.bam -o $sample.$mapper -c contigs.db -M 2000
     done
 done
  
@@ -168,7 +168,7 @@ done
  
 for mapper in $mappers
 do
-    anvi-merge *.$mapper/RUNINFO.cp -o $mapper-MERGED -a annotation.db
+    anvi-merge *.$mapper/RUNINFO.cp -o $mapper-MERGED -c contigs.db
 done
  
  
@@ -176,7 +176,7 @@ done
 # MERGE EVERYTHING
 ######################################################################################################################
  
-anvi-merge */RUNINFO.cp -o ALL-MERGED -a annotation.db
+anvi-merge */RUNINFO.cp -o ALL-MERGED -c contigs.db
 {% endhighlight %}
 
 When this script was done running, I had 9 merged anvi'o profiles (one for each mapper + one for all):
@@ -194,7 +194,7 @@ Having read [this FAQ](http://bowtie-bio.sourceforge.net/bowtie2/faq.shtml), I k
 
 I run `anvi-interactive` from the terminal to start the interactive interface:
 
-    anvi-interactive -a annotation.db -p bt1-MERGED/PROFILE.db
+    anvi-interactive -c contigs.db -p bt1-MERGED/PROFILE.db
 
 And did some quick supervised binning (which took about four mouse clicks). Here is a screenshot from the interactive interface that shows my selections:
 
@@ -202,7 +202,7 @@ And did some quick supervised binning (which took about four mouse clicks). Here
 <a href="{{ site.url }}/images/anvio/comparing-mapping-software/HUZ63-mean_coverage.png"><img src="{{ site.url }}/images/anvio/comparing-mapping-software/HUZ63-mean_coverage.png" width="50%" /></a>
 </div>
 
-<blockquote>In case you are not familiar with this view here is a crash course: the tree in the center shows the organization of contigs based on their sequence composition and their coverage across samples (which is one of anvi'o's multiple default clustering algorithms). Every bar in each black layer shows the coverage of a given contig, in a given sample. There are some extra layers betwen the tree and samples in this particular screenshot: parent (if a contig was too long and soft-broken into multiple splits this layer will show gray bars connecting the ones that are coming from the same mother contig), taxonomy (the consensus taxonomy for proteins identified in a given split, contributed by myRAST annotation), and GC-content (computed directly from the contigs themselves during the creation of the annotation database). The most outer layer describes my selections (when I click on a branch, it adds them to a bin, later I change the color; and clicking a branch is something like [this](http://g.recordit.co/kyupW8Yyu7.gif)).</blockquote>
+<blockquote>In case you are not familiar with this view here is a crash course: the tree in the center shows the organization of contigs based on their sequence composition and their coverage across samples (which is one of anvi'o's multiple default clustering algorithms). Every bar in each black layer shows the coverage of a given contig, in a given sample. There are some extra layers betwen the tree and samples in this particular screenshot: parent (if a contig was too long and soft-broken into multiple splits this layer will show gray bars connecting the ones that are coming from the same mother contig), taxonomy (the consensus taxonomy for proteins identified in a given split, contributed by myRAST annotation), and GC-content (computed directly from the contigs themselves during the creation of the contigs database). The most outer layer describes my selections (when I click on a branch, it adds them to a bin, later I change the color; and clicking a branch is something like [this](http://g.recordit.co/kyupW8Yyu7.gif)).</blockquote>
 
 The RAST taxonomy (the second most inner circle) already identifies every single bacterial contig in this very simple community. They are also clustered very nicely into separate clusters, so binning them is quite straighforward. The remaning contigs are coming from two sources. The first source is *Trichomonas vaginalis* (represented by the orange selection), a protozoan that causes [trichomoniasis](https://en.wikipedia.org/wiki/Trichomoniasis). Although it was a pretty obvious cluster (note the change in coverage across time points), there was no evidence from myRAST regarding taxonomy. Yet, when I BLAST-searched multiple contigs from that group randomly, all of them hit *T. vaginalis* genomes on NCBI with very high accuracy. The distribution patterns of these contigs are identical, so they are very likely to be coming from one genome. Although within the cluster there are multiple "levels" of stable coverage, which I didn't try to find an explanation for. There may be multiple *T. vaginalis* organisms at different abundances, or there may have been other reasons that I can't think of right at the moment that are affected different parts of this eukaryotic genome differently and made them more or less present in the sequencing results due to some biases occured during the extraction or sequencing.. The second source for the remaning non-bacterial contigs was the host genome (the gray selection). Which is quite clear as the coverage does not change across time points for these contigs (it is nice to see that in a weird way, because it gives me a bit more confidence in DNA extraction and sequencing technologies that in general I am extremely sceptical about (*so how about the irregularity with *T. vaginalis*?* (well, OK, except that))).
 
@@ -319,3 +319,4 @@ It is almost certain that by optimizing parameters of BBMAP, SMALT, GSNAP, and N
 The parameter search for best mapping must be well-guided. Because the unsupervised genome binning approaches that pay attention to the coverage of contigs (i.e., CONCOCT, ESOMs, or GroupM), as well as the supervised ones, will benefit from accurate coverage estimates for contigs. This quick comparison also shows why it is crucial to go back and check mapping results very carefuly. I saw some irregular mapping results with Bowtie2 occasionally while inspecting splits, but it seems Bowtie, BWA and CLC overall did a good job with their default parameters for metagenomic mapping as the comparative analysis of this small -yet somewhat challenging- dataset suggests.
 
 I thank Bing Ma for working with me on this. I also thank Jacques Ravel and Pawel Gajer for putting us in touch.
+contigs

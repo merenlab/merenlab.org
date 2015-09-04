@@ -26,7 +26,7 @@ You co-assembled your metagenomic data, and get your contigs. Then, you mapped y
 * Env-B-Metagenome.bam
 * Env-B-Metatranscriptome.bam
 
-You created your annotation database, and you profiled each of your BAM file  the way it is described in the standard metagenomic workflow. So far so good.
+You created your contigs database, and you profiled each of your BAM file  the way it is described in the standard metagenomic workflow. So far so good.
 
 And it is time to merge.
 
@@ -35,7 +35,7 @@ And it is time to merge.
 Normally you would have merged all your profiles by typing,
 
 {% highlight bash %}
-anvi-merge */RUNINFO.cp -a annotation.db -o MERGED/
+anvi-merge */RUNINFO.cp -c contigs.db -o MERGED/
 {% endhighlight %}
 
 Merging process creates multiple clusterings. Two of the default clusterings takes into account the distribution of each contig across samples. This means, if you merge your metagenome and metatranscriptomes, the clustering of each split will not only depend on their coverage in metagenomic samples, but also in metatranscriptomes. Which is not the most appropriate way to cluster contigs if we want to see an organization that reflect genome bins.
@@ -43,7 +43,7 @@ Merging process creates multiple clusterings. Two of the default clusterings tak
 Therefore, we run our merging without any clustering, by adding these two parameters:
 
 {% highlight bash %}
-anvi-merge */RUNINFO.cp -a annotation.db -o MERGED \
+anvi-merge */RUNINFO.cp -c contigs.db -o MERGED \
            --skip-hierarchical-clustering \
            --skip-concoct-binning
 {% endhighlight %}
@@ -63,7 +63,7 @@ This file is the default clustering configuration anvi'o uses for clustering con
 {% highlight ini %}
 [general]
 
-[TNF !ANNOTATION.db::kmer_contigs]
+[TNF !CONTIGS.db::kmer_contigs]
 
 [Coverage PROFILE.db::mean_coverage_contigs]
 
@@ -71,7 +71,7 @@ This file is the default clustering configuration anvi'o uses for clustering con
 normalize = False
 log = True
 
-[GC_content !ANNOTATION.db::splits_basic_info]
+[GC_content !CONTIGS.db::splits_basic_info]
 columns_to_use = gc_content_parent,gc_content_parent,gc_content_parent
 normalize = False
 {% endhighlight %}
@@ -105,7 +105,7 @@ Now, I really know which sample names are relevant, so I can edit my fresh clust
 {% highlight ini %}
 [general]
 
-[TNF !ANNOTATION.db::kmer_contigs]
+[TNF !CONTIGS.db::kmer_contigs]
 
 [Coverage PROFILE.db::mean_coverage_contigs]
 columns_to_use = Env_A_Metagenome,Env_B_Metagenome
@@ -115,7 +115,7 @@ columns_to_use = Env_A_Metagenome,Env_B_Metagenome
 normalize = False
 log = True
 
-[GC_content !ANNOTATION.db::splits_basic_info]
+[GC_content !CONTIGS.db::splits_basic_info]
 columns_to_use = gc_content_parent,gc_content_parent,gc_content_parent
 normalize = False
 {% endhighlight %}
@@ -129,7 +129,7 @@ And here how I run it:
 {% highlight bash %}
 anvi-experimental-organization my_cluster_config.ini \
                                -i MERGED/            \
-                               -a annotation.db      \
+                               -c contigs.db      \
                                -p MERGED/PROFILE.db  \
                                -o new_newick_tree.txt
 {% endhighlight %}
@@ -151,7 +151,7 @@ The result of `anvi-experimental-organization` is this new file: `new_newick_tre
 Here is how I start the interactive interface using this file:
 
 {% highlight bash %}
-anvi-interactive -a annotation.db -p MERGED/PROFILE.db -t new_newick_tree.txt
+anvi-interactive -c contigs.db -p MERGED/PROFILE.db -t new_newick_tree.txt
 {% endhighlight %}
 
-Voilà!
+Voilà!-c

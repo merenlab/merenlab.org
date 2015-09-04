@@ -25,11 +25,11 @@ Here is an example project with more 250,000 splits:
 
 One way to analyze this dataset is to rely on CONCOCT. For instance, you can profile each of your sample with `--min-contig-length` of 2500, and skip the hierarchical clustering during `anvi-merge`:
 
-    $ anvi-merge */RUNINFO.cp -a annotation.db -o MERGED_PROFILE --skip-hierarchical-clustering
+    $ anvi-merge */RUNINFO.cp -c contigs.db -o MERGED_PROFILE --skip-hierarchical-clustering
 
 Although resulting merged profile would be missing all the trees that are used by `anvi-interactive`, it would contain clustering results from CONCOCT, therefore you would still have your genome bins identified. Which means, you can now run `anvi-summary` on the merged data, and take a look at what's up:
 
-    $ anvi-summarize -p MERGED_PROFILE/PROFILE.db -a annotation_db -c CONCOCT -o MERGED_SUMMARY
+    $ anvi-summarize -p MERGED_PROFILE/PROFILE.db -c contigs.contigsdb -c CONCOCT -o MERGED_SUMMARY
 
 Big data is all about trade-offs. Relying on fully-automated genome binning means;
 
@@ -50,9 +50,9 @@ Fortunately, there aren't 200,000 contigs in `Group_6`, which means we can analy
 
 <blockquote>I would suggest you to take a backup of your original profile database just in case if things go bad.</blockquote>
 
-    $ anvi-refine -p MERGED_PROFILE/PROFILE.db -a annotation.db -c CONCOCT -b Group_6
+    $ anvi-refine -p MERGED_PROFILE/PROFILE.db -c contigs.db -c CONCOCT -b Group_6
 
-With this command, anvi'o will take all contigs that were put in `Group_6` in the CONCOCT collection, along with the data associated with them stored in the annotation and profile databases, and run a hierarchical clustering on this subset, just to present you with the interactive interface so you can _refine_ this highly contaminated bin.
+With this command, anvi'o will take all contigs that were put in `Group_6` in the CONCOCT collection, along with the data associated with them stored in the contigs and profile databases, and run a hierarchical clustering on this subset, just to present you with the interactive interface so you can _refine_ this highly contaminated bin.
 
 After a short wait while anvi'o gets everything sorted out, you are welcomed with the interactive interface:
 
@@ -86,7 +86,7 @@ The contamination drops down to much better levels:
 
 When you click 'save', the interface will gracefully remove `Group_6` from the database, and add these new three groups instead. It is essential to give proper names to newly created groups if you would like to recognize them in the output. Once you are done, of course the next step is to re-run the summary:
 
-    $ anvi-summary -p MERGED_PROFILE/PROFILE.db -a annotation_db -c CONCOCT -o MERGED_SUMMARY
+    $ anvi-summary -p MERGED_PROFILE/PROFILE.db -c contigs.dbcontigs -c CONCOCT -o MERGED_SUMMARY
 
 When you look at the output, you will see that this is not there anymore:
 
@@ -97,3 +97,4 @@ And instead, you have this:
 <a href="{{ site.url }}/images/anvio/refine/group_6_refined.png"><img src="{{ site.url }}/images/anvio/refine/group_6_refined.png" width="100%" /></a>
 
 Yay!
+contigs
