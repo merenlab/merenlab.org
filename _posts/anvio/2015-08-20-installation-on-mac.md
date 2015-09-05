@@ -25,7 +25,7 @@ The **only** thing you need to do is to download the installer on your MAC compu
 
 You can download the latest version of the installer using the download link:
 
-<iframe src="http://wl.figshare.com/articles/1513854/embed?show_title=1" width="100%" height="140" frameborder="0"></iframe>
+<iframe src="http://wl.figshare.com/articles/1535533/embed?show_title=1" width="100%" height="140" frameborder="0"></iframe>
 
 ## Install anvi'o
 
@@ -58,6 +58,9 @@ Do you see it? Now you can follow the [user tutorial]({% post_url anvio/2015-05-
 
 Thank you for giving it a try.
 
+## Older versions
+
+<iframe src="http://wl.figshare.com/articles/1513854/embed?show_title=1" width="100%" height="140" frameborder="0"></iframe>
 
 ## FAQ
 
