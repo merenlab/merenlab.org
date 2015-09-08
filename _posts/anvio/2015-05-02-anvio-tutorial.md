@@ -11,7 +11,7 @@ comments: true
 {% include _toc.html %}
 
 {: .notice}
-This tutorial covers anvi'o v1.1.0. Please update your installation first if you have an earlier version installed. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal.
+This tutorial is tailored for anvi'o versions 1.1.0 or later. Please update your installation first if you have an earlier version installed. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal.
 
 This tutorial gives a brief overview of anvi'o metagenomic worklow. If you run into any issues, please post a comment down below, or open an <a href="https://github.com/meren/anvio/issues">issue</a>.
 
@@ -44,6 +44,9 @@ GOOD defilnes
 {% endhighlight %}
 
 If you are already done with your mapping, and want to make sure you are not going to run into any issues later on, please run these two commands in your terminal:
+
+{: .notice }
+Unfortunately there is a little bug that affects the following command in anvi'o v1.1.0 ([detailed here](https://github.com/meren/anvio/issues/200)). To avoid that you will first need to generate an anvi'o contigs database (the first step in the next section), and come back here. Sorry for the inconvenience!
 
 {% highlight bash %}
 grep '>' contigs.fa | head
@@ -103,7 +106,7 @@ The program populates tables that holds HMM search results in the contigs databa
 
 Anvi'o can do wonders with HMM models. To decorate your contigs database with hits from HMM models that ship with the platform (which, at this point, constitute published single-copy gene collections), run this command:
 
-    anvi-populate-search-table contigs.db
+    anvi-populate-search-table -c contigs.db
 
 If you are here, you are pretty much done with your contigs database!
 
