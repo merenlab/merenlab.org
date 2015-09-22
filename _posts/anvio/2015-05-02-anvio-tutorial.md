@@ -100,7 +100,7 @@ Once you have RAST annotations, I suggest you to run the following command to ex
 
 If you have to re-create the contigs database for some reason, you can now use this newly generated file (`rast_annotation.txt`) to repopulate the contigs database instead of querying RAST again using the following command:
 
-    anvi-populate-genes-table contigs.db -p default_matrix -i rast_annotation.txt
+    anvi-populate-genes-table -c contigs.db -p default_matrix -i rast_annotation.txt
 
 ## anvi-populate-search-table
 
