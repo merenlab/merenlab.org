@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 # an ugly hack to convert some stuff into other stuff...
 
+import sys
+
 # people who have links
 author_links = {}
 
-bpc_people = ['Eren, A. M', 'Delmont, T. O.', 'Esen, Ö. C.']
+my_people = ['Eren, A. M', 'Delmont, T. O.', 'Esen, Ö. C.']
 
 keep_pubs_after = 2009
 
@@ -18,9 +20,10 @@ recent_authors_list = []
 # Winterberg, K. M., and Reznikoff, W. S. (2007). "Screening transposon mutant libraries using full-genome oligonucleotide microarrays." Methods Enzymol, 421, 110-25.
 #
 f = open('pubs.txt')
+bad_entries = []
 
 def get_author_links(authors_str):
-    for author in bpc_people:
+    for author in my_people:
         authors_str = authors_str.replace(author, '<span class="pub-member-author">%s</span>' % (author))
 
     return authors_str
@@ -28,41 +31,47 @@ def get_author_links(authors_str):
 
 for line in [l.strip() for l in f.readlines()]:
     if line.find('(ed.)') > 0 or line.find('(eds.)') > 0:
+        bad_entries.append((line, 'ed/eds. found...'), )
         continue
     p_s = line.find(' (')
     p_e = p_s + 6
     if not p_s > 0:
+        bad_entries.append((line, 'p_s <= 0...'), )
         continue
     if not line[p_e] == ')':
+        bad_entries.append((line, 'p_e != )...'), )
         continue
 
     year = int(line[p_s + 2:p_e])
 
     if year < keep_pubs_after:
+        bad_entries.append((line, 'year >= keep_pubs_after...'), )
         continue
 
     authors = line[0: p_s]
 
     q_s = line.find(' "', p_e)
     if not q_s > 0:
+        bad_entries.append((line, 'q_s <= 0...'), )
         continue
     q_e = line.find('."', q_s)
 
     if not q_e > 0:
         q_e = line.find('?"', q_s)
         if not q_e > 0:
+            bad_entries.append((line, 'q_e <= 0...'), )
             continue
 
     title = line[q_s + 2:q_e + 1]
 
     c = line.find(', ', q_e + 2)
     if not c > 0:
+        bad_entries.append((line, 'c <= 0...'), )
         continue
 
     journal = line[q_e + 3:c]
 
     issue = line[c + 2:-1]
-
 
     # ad hoc fixes for journal names
     journal = journal.replace('The ISME journal', 'ISME J')
@@ -89,6 +98,16 @@ for line in [l.strip() for l in f.readlines()]:
             authors_list.append(author)
             if year > 2004:
                 recent_authors_list.append(author)
+
+
+# check for failed entries
+if len(bad_entries):
+    print "Some entries failed. Quitting."
+    print
+    for tpl in bad_entries:
+        print ' - Failed (reason: "%s"): %s' % (tpl[1], tpl[0])
+
+    sys.exit()
 
 
 years = ''.join(['<a href="#%s"><span class="category-item">%s <small>(%d)</small></span></a>' % (y, y, len(pubs_dict[y])) for y in sorted(pubs_dict.keys(), reverse=True)])
