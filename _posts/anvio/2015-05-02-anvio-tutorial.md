@@ -100,7 +100,7 @@ Once you have RAST annotations, I suggest you to run the following command to ex
 
 If you have to re-create the contigs database for some reason, you can now use this newly generated file (`rast_annotation.txt`) to repopulate the contigs database instead of querying RAST again using the following command:
 
-    anvi-populate-genes-table contigs.db -p default_matrix -i rast_annotation.txt
+    anvi-populate-genes-table -c contigs.db -p default_matrix -i rast_annotation.txt
 
 ## anvi-populate-search-table
 
@@ -120,7 +120,7 @@ Anvi'o requires BAM files to be sorted and indexed. This is why I named the exam
 
 If your BAM files already sorted and indexed (i.e., for each sample there is a `.bam` and `.bam.bai` file in your working directory), you can skip this step. Otherwise, to initialize the BAM file for Sample X you can run this command (note that the output file name is only the sample prefix, and it is not `X.bam` but only `X` without an extension):
 
-    anvi-init-bam X-raw.bam -o X
+    anvi-init-bam X-raw.bam -O X
 
 But of course it is not fun to do every BAM file you have one by one. So what to do?
 
