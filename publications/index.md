@@ -6,22 +6,34 @@ comments: false
 
 
 <div class="category-box">
-<a href="#2015"><span class="category-item">2015 <small>(5)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a><a href="#2011"><span class="category-item">2011 <small>(1)</small></span></a>
+<a href="#2015"><span class="category-item">2015 <small>(7)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a><a href="#2011"><span class="category-item">2011 <small>(1)</small></span></a>
 </div>
 
 <a name="2015">&nbsp;</a>
 <h1>2015</h1>
 
 <div class="pub">
-    <h3><a href="https://peerj.com/preprints/1275/" target="_new">Anvi’o: An advanced analysis and visualization platform for ‘omics data.</a></h3>
-    <span class="pub-authors"><span class="pub-member-author">Eren, A. M</span>., <span class="pub-member-author">Esen, Ö. C.</span>, Quince, C., Vineis, J. H., Sogin, M. L., and <span class="pub-member-author">Delmont, T. O.</span></span>
-    <span class="pub-journal"><i>PeerJ (non-peer reviewed pre-print)</i>.</span>
+    <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Genome+reconstructions+indicate+the+partitioning+of+ecological+functions+inside+a+phytoplankton+bloom+in+the+Amundsen+Sea,+Antarctica." target="_new">Genome reconstructions indicate the partitioning of ecological functions inside a phytoplankton bloom in the Amundsen Sea, Antarctica.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Eren, A. M</span>., Vineis, J. H., and Post, A. F.</span>
+    <span class="pub-journal"><i>Front Microbiol</i>. <b>in press</b></span>
+</div>
+
+<div class="pub">
+    <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Anvi’o:+An+advanced+analysis+and+visualization+platform+for+‘omics+data." target="_new">Anvi’o: An advanced analysis and visualization platform for ‘omics data.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Eren, A. M</span>., <span class="pub-member-author">Esen, Ö. C.</span>, Quince, C., Vineis, J. H., Morrison, H. G., Sogin, M. L., and <span class="pub-member-author">Delmont, T. O.</span></span>
+    <span class="pub-journal"><i>PeerJ</i>. <b>in press</b></span>
+</div>
+
+<div class="pub">
+    <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Comparison+of+sewage+and+animal+fecal+microbiomes+using+oligotyping+reveals+potential+human+fecal+indicators+in+multiple+taxonomic+groups." target="_new">Comparison of sewage and animal fecal microbiomes using oligotyping reveals potential human fecal indicators in multiple taxonomic groups.</a></h3>
+    <span class="pub-authors">Fisher, J. C., <span class="pub-member-author">Eren, A. M</span>., Green, H. C., Shanks, O. C., Morrison, H. G., Vineis, J. H., Sogin, M. L., and McLellan, S. L.</span>
+    <span class="pub-journal"><i>Appl Environ Microbiol</i>. <b>81, 7023–7033</b></span>
 </div>
 
 <div class="pub">
     <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Reconstructing+Rare+Soil+Microbial+Genomes+using+in+situ+Enrichments+and+Metagenomics." target="_new">Reconstructing Rare Soil Microbial Genomes using in situ Enrichments and Metagenomics.</a></h3>
     <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Eren, A. M</span>., Maccario, L., Prestat, E., <span class="pub-member-author">Esen, Ö. C.</span>, Pelletier, E., LePaslier, D., Simonet, P., and Vogel, T.</span>
-    <span class="pub-journal"><i>Front Microbiol</i>. <b>6, 358</b></span>
+    <span class="pub-journal"><i>Front Microbiol</i>. <b>6</b></span>
 </div>
 
 <div class="pub">
@@ -31,38 +43,20 @@ comments: false
 </div>
 
 <div class="pub">
-    <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Sewage+reflects+the+microbiomes+of+human+populations." target="_new">Sewage reflects the microbiomes of human populations.</a></h3>
-    <span class="pub-authors">Newton, R. J., McLellan, S. L., Dila, D. K., Vineis, J. H., Morrison, H. G., <span class="pub-member-author">Eren, A. M</span>., and Sogin, M. L.</span>
-    <span class="pub-journal"><i>MBio</i>. <b>6(2)</b></span>
-</div>
-
-<div class="pub">
     <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Minimum+entropy+decomposition:+Unsupervised+oligotyping+for+sensitive+partitioning+of+high-throughput+marker+gene+sequences." target="_new">Minimum entropy decomposition: Unsupervised oligotyping for sensitive partitioning of high-throughput marker gene sequences.</a></h3>
     <span class="pub-authors"><span class="pub-member-author">Eren, A. M</span>., Morrison, H. G., Lescault, P. J., Reveillaud, J., Vineis, J. H., and Sogin, M. L.</span>
     <span class="pub-journal"><i>ISME J</i>. <b>9, 968-79</b></span>
 </div>
 
+<div class="pub">
+    <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Sewage+reflects+the+microbiomes+of+human+populations." target="_new">Sewage reflects the microbiomes of human populations.</a></h3>
+    <span class="pub-authors">Newton, R. J., McLellan, S. L., Dila, D. K., Vineis, J. H., Morrison, H. G., <span class="pub-member-author">Eren, A. M</span>., and Sogin, M. L.</span>
+    <span class="pub-journal"><i>MBio</i>. <b>6(2)</b></span>
+</div>
+
 
 <a name="2014">&nbsp;</a>
 <h1>2014</h1>
-
-<div class="pub">
-    <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Ecological+succession+and+stochastic+variation+in+the+assembly+of+Arabidopsis+thaliana+phyllosphere+communities." target="_new">Ecological succession and stochastic variation in the assembly of Arabidopsis thaliana phyllosphere communities.</a></h3>
-    <span class="pub-authors">Maignien, L., DeForce, E. A., Chafee, M. E., <span class="pub-member-author">Eren, A. M</span>., and Simmons, S. L.</span>
-    <span class="pub-journal"><i>MBio</i>. <b>5(1), e00682-13</b></span>
-</div>
-
-<div class="pub">
-    <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Dynamics+of+tongue+microbial+communities+with+single-nucleotide+resolution+using+oligotyping." target="_new">Dynamics of tongue microbial communities with single-nucleotide resolution using oligotyping.</a></h3>
-    <span class="pub-authors">Mark Welch, J. L., Utter, D. R., Rossetti, B. J., Mark Welch, D. B., <span class="pub-member-author">Eren, A. M</span>., and Borisy, G. G.</span>
-    <span class="pub-journal"><i>Front Microbiol</i>. <b>5, 568</b></span>
-</div>
-
-<div class="pub">
-    <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Humpback+whale+populations+share+a+core+skin+bacterial+community:+towards+a+health+index+for+marine+mammals?" target="_new">Humpback whale populations share a core skin bacterial community: towards a health index for marine mammals?</a></h3>
-    <span class="pub-authors">Apprill, A., Robbins, J., <span class="pub-member-author">Eren, A. M</span>., Pack, A. A., Reveillaud, J., Mattila, D., Moore, M., Niemeyer, M., Moore, K. M., and Mincer, T. J.</span>
-    <span class="pub-journal"><i>PLoS One</i>. <b>9(3), e90785</b></span>
-</div>
 
 <div class="pub">
     <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Oligotyping+analysis+of+the+human+oral+microbiome." target="_new">Oligotyping analysis of the human oral microbiome.</a></h3>
@@ -74,6 +68,18 @@ comments: false
     <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=DRISEE+overestimates+errors+in+metagenomic+sequencing+data." target="_new">DRISEE overestimates errors in metagenomic sequencing data.</a></h3>
     <span class="pub-authors"><span class="pub-member-author">Eren, A. M</span>., Morrison, H. G., Huse, S. M., and Sogin, M. L.</span>
     <span class="pub-journal"><i>Brief Bioinform</i>. <b>15(5), 783-7</b></span>
+</div>
+
+<div class="pub">
+    <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Humpback+whale+populations+share+a+core+skin+bacterial+community:+towards+a+health+index+for+marine+mammals?" target="_new">Humpback whale populations share a core skin bacterial community: towards a health index for marine mammals?</a></h3>
+    <span class="pub-authors">Apprill, A., Robbins, J., <span class="pub-member-author">Eren, A. M</span>., Pack, A. A., Reveillaud, J., Mattila, D., Moore, M., Niemeyer, M., Moore, K. M., and Mincer, T. J.</span>
+    <span class="pub-journal"><i>PLoS One</i>. <b>9(3), e90785</b></span>
+</div>
+
+<div class="pub">
+    <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Ecological+succession+and+stochastic+variation+in+the+assembly+of+Arabidopsis+thaliana+phyllosphere+communities." target="_new">Ecological succession and stochastic variation in the assembly of Arabidopsis thaliana phyllosphere communities.</a></h3>
+    <span class="pub-authors">Maignien, L., DeForce, E. A., Chafee, M. E., <span class="pub-member-author">Eren, A. M</span>., and Simmons, S. L.</span>
+    <span class="pub-journal"><i>MBio</i>. <b>5(1), e00682-13</b></span>
 </div>
 
 <div class="pub">
@@ -104,6 +110,12 @@ comments: false
     <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Host-specificity+among+abundant+and+rare+taxa+in+the+sponge+microbiome." target="_new">Host-specificity among abundant and rare taxa in the sponge microbiome.</a></h3>
     <span class="pub-authors">Reveillaud, J., Maignien, L., <span class="pub-member-author">Eren, A. M</span>., Huber, J. A., Apprill, A., Sogin, M. L., and Vanreusel, A.</span>
     <span class="pub-journal"><i>ISME J</i>. <b>8(6), 1198-209</b></span>
+</div>
+
+<div class="pub">
+    <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Dynamics+of+tongue+microbial+communities+with+single-nucleotide+resolution+using+oligotyping." target="_new">Dynamics of tongue microbial communities with single-nucleotide resolution using oligotyping.</a></h3>
+    <span class="pub-authors">Mark Welch, J. L., Utter, D. R., Rossetti, B. J., Mark Welch, D. B., <span class="pub-member-author">Eren, A. M</span>., and Borisy, G. G.</span>
+    <span class="pub-journal"><i>Front Microbiol</i>. <b>5, 568</b></span>
 </div>
 
 
