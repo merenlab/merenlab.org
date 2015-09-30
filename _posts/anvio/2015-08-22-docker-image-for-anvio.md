@@ -48,7 +48,7 @@ meren/anvio         1.0.2               f3c1998acc63        5 weeks ago         
 {% endhighlight %}
 
 {:.notice}
-Although we intent to do our best to keep this post up-to-date, please remember that there may be a newer docker image at any given time. In that case, please use the most recent docker image and make sure the user tutorial matches to the version you are using.
+Although we will do our best to keep this post up-to-date, please remember that there may be a newer docker image at any given time. In that case, please use the most recent docker image and make sure the user tutorial matches to the version you are using.
 
 Now you can simply type this to get the version you are interested in running:
 
