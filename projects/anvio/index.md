@@ -5,7 +5,7 @@ excerpt: "Anvi'o Project Page"
 ---
 # In a nutshell
 
-Anvi'o is an analysis and visualization platform for 'omics data. You can find the pre-print of the methods paper here: [https://peerj.com/preprints/1275/](https://peerj.com/preprints/1275/) 
+Anvi'o is an analysis and visualization platform for 'omics data. Pleasea find the methods paper here: [https://peerj.com/articles/1319/](https://peerj.com/articles/1319/) 
 
 # Important posts
 
