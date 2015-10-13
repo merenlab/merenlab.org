@@ -106,15 +106,15 @@ The best way to install stable release is to do it through pip. If you are have 
 
     sudo pip install anvio
 
-If there are no errors, you are golden.
+Pleaes keep an eye on the output to make sure there are no errors.
 
-Just to make sure, try running this in your terminal:
+If the installation finishes properly, run this in your terminal:
 
-    anvi-profile -v
+    anvi-profile --version
 
-Do you get a '*command not found*' error? Well, this means the directory where your anvi'o programs are is not in your `PATH`, and you need to fix that first. Please [take a look at this post]({{ site_url }}/projects/issues/missing-binaries.html).
+If everything looks alright, you are golden. Now you can run `mini test` if you would like to make sure everything else works as expected.
 
-If you want to make sure everything is working, you can run the "mini test" (explained very down below).
+If you get a '*command not found*' error despite a successful installation, this would mean that the directory where your anvi'o programs live is not listed in your `PATH` variable. Please [follow this post]({{ site_url }}/projects/issues/missing-binaries.html) to fix that first (and once you are done with it you can try running the `mini test`).
 
 
 ### Installing or updating from the current codebase (semi-pro)
