@@ -35,6 +35,9 @@ Here I would like to thank Inés Martínez, Rika Anderson, and Sharon Grim for h
 
 You need to make sure your system does have all the following software if you are going to follow the installation instructions on this page (it is not as scary as it looks, you will be fine):
 
+{: .notice}
+If you are using Ubuntu, there is a little recipe here to install anvi'o with all of its dependencies: https://gist.github.com/meren/f1e674f774a30a209d82
+
 * [Prodigal](http://prodigal.ornl.gov/) (go to your terminal, type `prodigal -v` if you get an error, you need to install it, __if the version number is smaller than 2.6.2__, you need to update it). Here is a quick way to install the 2.6.2 version, but feel free to do visit the [latest releases page](https://github.com/hyattpd/prodigal/releases/) and do it yourself (the first line will not work if you don't have wget, but you can get wget installed esily typing `sudo port install wget` if you are using MacPorts system on your Mac computer):
 
 <div style="padding-left:30px">
@@ -79,6 +82,17 @@ sudo pip install numpy
 <div style="padding-left:30px">
 <pre>
 sudo pip install Cython
+</pre>
+</div>
+
+* [HDF5](https://www.hdfgroup.org/HDF5/). If you are not sure what it is, you probably don't have it. If you are using macports on your Mac, you can get away with `sudo port install hdf5`, otherwise you can run these commands on your terminal:
+
+<div style="padding-left:30px">
+<pre>
+wget http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.8.15-patch1.tar.gz
+tar -zxvf hdf5-1.8.15-patch1.tar.gz
+cd hdf5-1.8.15-patch1
+./configure && make && sudo make install
 </pre>
 </div>
 
