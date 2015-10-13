@@ -10,9 +10,9 @@ comments: true
 
 This page serves the publicly available data mentioned in our publications. Please do not hesitate to get in touch if something is missing.
 
-## Anvi'o Methods Paper (soon to be submitted)
+## Anvi'o Methods Paper
 
-The pre-print of our mansucript is available here: [Anvi'o: An advanced analysis and visualization platform for 'omics data](https://peerj.com/preprints/1275/).
+The manuscript, published on 2015-10-08: [Anvi'o: An advanced analysis and visualization platform for 'omics data](https://peerj.com/articles/1319/).
 
 ### Daily Infant Gut Samples by Sharon _et al._
 
