@@ -114,7 +114,7 @@ If the installation finishes properly, run this in your terminal:
 
 If everything looks alright, you are golden. Now you can run `mini test` if you would like to make sure everything else works as expected.
 
-If you get a '*command not found*' error despite a successful installation, this would mean that the directory where your anvi'o programs live is not listed in your `PATH` variable. Please [follow this post]({{ site_url }}/projects/issues/missing-binaries.html) to fix that first (and once you are done with it you can try running the `mini test`).
+If you get a '*command not found*' error despite a successful installation, this would mean that the directory where your anvi'o programs live is not listed in your `PATH` variable. Please [follow this post]({{ site_url }}/projects/anvio/issues/missing-binaries.html) to fix that first (and once you are done with it you can try running the `mini test`).
 
 
 ### Installing or updating from the current codebase (semi-pro)
