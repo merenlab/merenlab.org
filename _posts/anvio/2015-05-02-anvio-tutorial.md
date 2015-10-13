@@ -11,7 +11,7 @@ comments: true
 {% include _toc.html %}
 
 {: .notice}
-This tutorial is tailored for anvi'o versions 1.1.0 or later. Please update your installation first if you have an earlier version installed. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal.
+This tutorial is tailored for anvi'o <b>version 1.2.0 or later</b>. Please update your installation first if you have an earlier version installed. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal.
 
 This tutorial gives a brief overview of anvi'o metagenomic worklow. If you run into any issues, please post a comment down below, or open an <a href="https://github.com/meren/anvio/issues">issue</a>. When you post a comment or an issue, please mention the anvi'o version, the operating system you are using.
 
@@ -46,9 +46,6 @@ GOOD defilnes
 {% endhighlight %}
 
 If you are already done with your mapping, and want to make sure you are not going to run into any issues later on, please run these two commands in your terminal:
-
-{: .notice }
-Unfortunately there is a little bug that affects the following command in anvi'o v1.1.0 ([detailed here](https://github.com/meren/anvio/issues/200)). To avoid that you will first need to generate an anvi'o contigs database (the first step in the next section), and come back here. Sorry for the inconvenience!
 
 {% highlight bash %}
 grep '>' contigs.fa | head
