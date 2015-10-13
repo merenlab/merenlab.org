@@ -108,6 +108,12 @@ The best way to install stable release is to do it through pip. If you are have 
 
 If there are no errors, you are golden.
 
+Just to make sure, try running this in your terminal:
+
+    anvi-profile -v
+
+Do you get a '*command not found*' error? Well, this means the directory where your anvi'o programs are is not in your `PATH`, and you need to fix that first. Please [take a look at this post]({{ site_url }}/projects/issues/missing-binaries.html).
+
 If you want to make sure everything is working, you can run the "mini test" (explained very down below).
 
 
@@ -161,11 +167,13 @@ Now you can edit the codebase, and test it, without re-installing anvi'o over an
 
 If you have a proper installation, you shouldn't get any errors when you run it.
 
-If you installed anvi'o via `pip` (following the safe mode), you can go to an empty directory, and type these:
+If you installed anvi'o via `pip` (following the safe mode), you can go to an empty directory, and type these (don't forget to replace the version number (which is 1.2.0 in this example) with whatever version you have installed. If you are not sure, type `anvi-profile -v`):
 
-    git clone --recursive https://github.com/meren/anvio.git
+    git clone -b v1.2.0 --depth=1 https://github.com/meren/anvio.git
     cd anvio/tests
     ./run_mini_test.sh
+
+
 
 If you installed anvi'o from the codebase, you can go to the anvi'o source code directory, and simply type these:
 

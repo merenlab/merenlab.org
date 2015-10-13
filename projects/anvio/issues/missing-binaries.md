@@ -23,7 +23,7 @@ I could give you a single line of command to solve this issue, however, the dire
 
 ## Finding where the anvi'o programs are
 
-In order to add the proper directory into your PATH variable, first we need to find out where anvi'o programs are. We will ask pip.
+In order to add the proper directory into your `PATH` variable, first we need to find out where anvi'o programs are. We will ask pip.
 
 If you type this, you will get a list of file paths for each file that is installed on your system for anvi'o:
 
@@ -71,7 +71,7 @@ Please note that the directory names on my computer and yours may differ.
 
 ## Updating the PATH variable
 
-Now you know which directory is missing from your PATH variable, it is time to make sure it will always be there. The best way to do it is to add this line into your `~/.bash_profile`, a special file that is read to update all environmental variables every time you start a new terminal:
+Now you know which directory is missing from your `PATH` variable, it is time to make sure it will always be there. The best way to do it is to add this line into your `~/.bash_profile`, a special file that is read to update all environmental variables every time you start a new terminal:
 
     export PATH="/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 
@@ -83,7 +83,7 @@ $ echo 'PATH="/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin:${
 
 ## Testing if everything works
 
-Open a new terminal and type this to make sure the PATH you just added is somewhere in the output:
+Open a new terminal and type this to make sure the directory you just added is somewhere in the output:
 
 {% highlight bash %}
 $ echo $PATH
