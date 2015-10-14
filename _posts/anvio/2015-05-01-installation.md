@@ -20,7 +20,13 @@ This article explains basic steps of installing anvi'o using rather conventional
 
 **Regardless** of whether you decided to go one of the alternative installation methods above, or you will continue with the more conventional method down below, you should take a look at these anvi'o requirements before going any further:
 
-* [Chrome Web Browser](https://www.google.com/chrome/browser/desktop/). Chrome should be not only installed, but unfortunately it also should be the default browser on your system (otherwise everytime interactive interface pops up, you will need to copy-paste the address to a Chrome window). Anvi'o does not support any other browser, and __it will not perform optimally__ on others. You can test whether it is the default or not by pasting this to your temrinal: `python -c 'import webbrowser; webbrowser.open_new("http://merenlab.org")'`.
+* [Chrome Web Browser](https://www.google.com/chrome/browser/desktop/). Chrome should be not only installed, but unfortunately it also should be the default browser on your system (otherwise everytime interactive interface pops up, you will need to copy-paste the address to a Chrome window). Anvi'o does not support any other browser, and __it will not perform optimally__ on others. You can test whether it is the default or not by pasting this to your terminal:
+
+<div style="padding-left:50px">
+{% highlight bash %}
+python -c 'import webbrowser as w; w.open_new("http://")'
+{% endhighlight %}
+</div>
 
 * [DB Browser for SQLite](http://sqlitebrowser.org/). Anvi'o uses SQLite to create self-contained databases to store information. There are many bindings for many programming languages to access to these database files and explore them, and it is also possible to use `sqlite3` program from the terminal to play witht them. DB Browser for SQLite is a very easy-to-install open-source software that does what `sqlite3` is doing with a nice graphical interface. I urge you to stick with the terminal as much as possible, but having a GUI option is always a nice thing.
 
@@ -39,19 +45,19 @@ You need to make sure your system does have all the following software if you ar
 * [Prodigal](http://prodigal.ornl.gov/) (go to your terminal, type `prodigal -v` if you get an error, you need to install it, __if the version number is smaller than 2.6.2__, you need to update it). Here is a quick way to install the 2.6.2 version, but feel free to do visit the [latest releases page](https://github.com/hyattpd/prodigal/releases/) and do it yourself (the first line will not work if you don't have wget, but you can get wget installed esily typing `sudo port install wget` if you are using MacPorts system on your Mac computer):
 
 <div style="padding-left:30px">
-<pre>
+{% highlight bash %}
 wget https://github.com/hyattpd/Prodigal/archive/v2.6.2.tar.gz
 tar -zxvf v2.6.2.tar.gz && cd Prodigal-2.6.2/ && make
 sudo cp prodigal /usr/bin/
-</pre>
+{% endhighlight %}
 </div>
 
 * [HMMer](http://hmmer.janelia.org/) (go to your terminal, type `hmmscan`, if you get an error, you need to install this one). It is quite easy to install. Go to the downloads page, [http://hmmer.janelia.org/download.html](http://hmmer.janelia.org/download.html), download the *source* for the latest version, unpack it, go into that directory with your terminal, and then type (don't forget to check whether it is installed properly by typing `hmmscan` again after installation):
 
 <div style="padding-left:30px">
-<pre>
+{% highlight bash %}
 ./configure && make && sudo make install
-</pre>
+{% endhighlight %}
 </div>
 
 * [SQLite](http://www.tutorialspoint.com/sqlite/sqlite_installation.htm) (go to your terminal, type sqlite3, if it gives you an error, you need to install this one). There is installation instructions on the web page if you follow the link. Or you can install it by typing `sudo port install sqlite3` if you are using the port system on your Mac.
@@ -59,39 +65,39 @@ sudo cp prodigal /usr/bin/
 * [GSL](http://www.gnu.org/software/gsl/), which is the GNU Scientific Library. It is quite straightforward. If you are using MacPorts, you can install `gsl`, `gsl-devel`, and `py27-gsl` packages from the terminal using `port install` (Rika tells me homebrew on Mac works, too). Otherwise, try these commands and you should be OK:
 
 <div style="padding-left:30px">
-<pre>
+{% highlight bash %}
 wget ftp://ftp.gnu.org/gnu/gsl/gsl-latest.tar.gz
 tar -zxvf gsl-latest.tar.gz
 cd gsl-*
 ./configure && make && sudo make install
-</pre>
+{% endhighlight %}
 </div>
 
 * [numpy](http://www.numpy.org/). You don't need to install numpy if you get no complaints back when you type `python -c "import numpy"` in your terminal. If you do get an import error, then you need to install numpy. You can try this:
 
 <div style="padding-left:30px">
-<pre>
+{% highlight bash %}
 sudo pip install numpy
-</pre>
+{% endhighlight %}
 </div>
 
 * [Cython](http://cython.org/). Similar to the numpy case. Test whether you are good to go by typing `python -c "import Cython"` in your terminal, and install it by running this if there is an import error:
 
 <div style="padding-left:30px">
-<pre>
+{% highlight bash %}
 sudo pip install Cython
-</pre>
+{% endhighlight %}
 </div>
 
 * [HDF5](https://www.hdfgroup.org/HDF5/). If you are not sure what it is, you probably don't have it. If you are using macports on your Mac, you can get away with `sudo port install hdf5`, otherwise you can run these commands on your terminal:
 
 <div style="padding-left:30px">
-<pre>
+{% highlight bash %}
 wget http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.8.15-patch1.tar.gz
 tar -zxvf hdf5-1.8.15-patch1.tar.gz
 cd hdf5-1.8.15-patch1
 ./configure && make && sudo make install
-</pre>
+{% endhighlight %}
 </div>
 
 ## Installation
@@ -102,13 +108,17 @@ You can either install a stable release of anvi'o, or you can get a copy of the 
 
 The best way to install stable release is to do it through pip. If you are have your dependencies sorted, try running this on your terminal:
 
-    sudo pip install anvio
+{% highlight bash %}
+sudo pip install anvio
+{% endhighlight %}
 
 Pleaes keep an eye on the output to make sure there are no errors.
 
 If the installation finishes properly, run this in your terminal:
 
-    anvi-profile --version
+{% highlight bash %}
+anvi-profile --version
+{% endhighlight %}
 
 If everything looks alright, you are golden. Now you can run `mini test` if you would like to make sure everything else works as expected.
 
@@ -119,18 +129,24 @@ If you get a '*command not found*' error despite a successful installation, this
 
 If this is your first time with the codebase, get a fresh copy (with all the submodules necessary):
 
-    git clone --recursive https://github.com/meren/anvio.git
+{% highlight bash %}
+git clone --recursive https://github.com/meren/anvio.git
+{% endhighlight %}
 
 Then go into the anvio directory, and then run the installation:
 
-    cd anvio
-    sudo python setup.py install
+{% highlight bash %}
+cd anvio
+sudo python setup.py install
+{% endhighlight %}
 
 If you already have the codebase, and if your purpose is to _update_ your already existing installation, you are going to need to run these commands from within the anvio directory instead of the ones above:
 
-    git pull
-    git submodule update --init --recursive
-    sudo python setup.py install
+{% highlight bash %}
+git pull
+git submodule update --init --recursive
+sudo python setup.py install
+{% endhighlight %}
 
 No errors? Perfect. Run the mini test!
 
@@ -138,20 +154,25 @@ No errors? Perfect. Run the mini test!
 
 If you are planning to do this you need no introduction, but I will give you one anyway. Clone the codebase into a `$DIR` you like:
 
-
-    cd $DIR
-    git clone --recursive https://github.com/meren/anvio.git
+{% highlight bash %}
+cd $DIR
+git clone --recursive https://github.com/meren/anvio.git
+{% endhighlight %}
 
 Then edit your `~/.bashrc` or `~/.bash_profile` files depending on your system configuration to update your `PATH` and `PYTHONPATH` environment variables:
 
-    export PYTHONPATH=$PYTHONPATH:$DIR/anvio/
-    export PATH=$PATH:$DIR/anvio/bin:$DIR/anvio/sandbox
+{% highlight bash %}
+export PYTHONPATH=$PYTHONPATH:$DIR/anvio/
+export PATH=$PATH:$DIR/anvio/bin:$DIR/anvio/sandbox
+{% endhighlight %}
 
 Because you didn't run "build", your C extensions will not be compiled. This is the fast way to get them compiled and put in the right place:
 
-    cd $DIR/anvio
-    python setup.py build
-    cp build/lib.*/anvio/*so anvio/
+{% highlight bash %}
+cd $DIR/anvio
+python setup.py build
+cp build/lib.*/anvio/*so anvio/
+{% endhighlight %}
 
 That's it.
 
@@ -167,16 +188,18 @@ If you have a proper installation, you shouldn't get any errors when you run it.
 
 If you installed anvi'o via `pip` (following the safe mode), you can go to an empty directory, and type these (don't forget to replace the version number (which is 1.2.0 in this example) with whatever version you have installed. If you are not sure, type `anvi-profile -v`):
 
-    git clone -b v1.2.0 --depth=1 https://github.com/meren/anvio.git
-    cd anvio/tests
-    ./run_mini_test.sh
-
-
+{% highlight bash %}
+git clone -b v1.2.0 --depth=1 https://github.com/meren/anvio.git
+cd anvio/tests
+./run_mini_test.sh
+{% endhighlight %}
 
 If you installed anvi'o from the codebase, you can go to the anvi'o source code directory, and simply type these:
 
-    cd tests
-    ./run_mini_test.sh
+{% highlight bash %}
+cd tests
+./run_mini_test.sh
+{% endhighlight %}
 
 Upon the successful completion of the mini test run, your browser should popup to take you to the interactive interface. When you click that 'Draw' button, you should see something like this (this is the old version of the anvi'o interface, and it shall stay here so we remember where we came from):
 
