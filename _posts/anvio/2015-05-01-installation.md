@@ -12,14 +12,15 @@ comments: true
 
 There are multiple ways to install anvi'o.
 
-This article explains basic steps of installing anvi'o using rather conventional methods. You may also be intersted in these posts if you think they would serve you better:
+This article explains basic steps of installing anvi'o using rather conventional methods. But before we start, you should also know about these alternatives:
 
 * [OS X installer for anvi'o]({% post_url anvio/2015-08-20-installation-on-mac %}) (for Maverick and Yosemite).
 * [Docker image for anvi'o]({% post_url anvio/2015-08-22-docker-image-for-anvio %}) (for an instant, and painless installation of anvi'o on a server system).
+* We also have [a recipe for Ubuntu / Debian users](https://gist.github.com/meren/f1e674f774a30a209d82).
 
-**Regardless** of which installation method you'd like to go with, you should take a look at these anvi'o requirements before going any further:
+**Regardless** of whether you decided to go one of the alternative installation methods above, or you will continue with the more conventional method down below, you should take a look at these anvi'o requirements before going any further:
 
-* [Chrome Web Browser](https://www.google.com/chrome/browser/desktop/). Chrome should be not only installed on your system, but unfortunately it should also be the default browser (otherwise everytime interactive interface pops up, you will need to copy-paste the address to a Chrome window). Anvi'o does not support any other browser, and __it will not perform optimally__ on others.
+* [Chrome Web Browser](https://www.google.com/chrome/browser/desktop/). Chrome should be not only installed, but unfortunately it also should be the default browser on your system (otherwise everytime interactive interface pops up, you will need to copy-paste the address to a Chrome window). Anvi'o does not support any other browser, and __it will not perform optimally__ on others. You can test whether it is the default or not by pasting this to your temrinal: `python -c 'import webbrowser; webbrowser.open_new("http://merenlab.org")'`.
 
 * [DB Browser for SQLite](http://sqlitebrowser.org/). Anvi'o uses SQLite to create self-contained databases to store information. There are many bindings for many programming languages to access to these database files and explore them, and it is also possible to use `sqlite3` program from the terminal to play witht them. DB Browser for SQLite is a very easy-to-install open-source software that does what `sqlite3` is doing with a nice graphical interface. I urge you to stick with the terminal as much as possible, but having a GUI option is always a nice thing.
 
@@ -34,9 +35,6 @@ Here I would like to thank Inés Martínez, Rika Anderson, and Sharon Grim for h
 ## An overview of anvi'o dependencies
 
 You need to make sure your system does have all the following software if you are going to follow the installation instructions on this page (it is not as scary as it looks, you will be fine):
-
-{: .notice}
-If you are using Ubuntu, there is a little recipe here to install anvi'o with all of its dependencies: https://gist.github.com/meren/f1e674f774a30a209d82
 
 * [Prodigal](http://prodigal.ornl.gov/) (go to your terminal, type `prodigal -v` if you get an error, you need to install it, __if the version number is smaller than 2.6.2__, you need to update it). Here is a quick way to install the 2.6.2 version, but feel free to do visit the [latest releases page](https://github.com/hyattpd/prodigal/releases/) and do it yourself (the first line will not work if you don't have wget, but you can get wget installed esily typing `sudo port install wget` if you are using MacPorts system on your Mac computer):
 
