@@ -17,3 +17,7 @@
 
 - title: Posts by Category
   url: /posts/
+
+- title: Opportunities
+  url: /opportunities/
+  style: "color: #FF4E4E;"
