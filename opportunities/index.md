@@ -37,6 +37,6 @@ We are especially interested in computational peope who wish to learn microbiolo
 
 If you are an undergraduate student or an intern who is looking for a challenging but potentially fruitful project related to the human microbiome and/or bioinformatics, please send an e-mail to meren at uchicago.edu.
 
-Do you have another suggestions? Please don't hesitate to [write to us]({{site.url}}/people/) to start a conversation.
+Do you have other suggestions? Please don't hesitate to [write to us]({{site.url}}/people/) to start a conversation.
 
 <div style="clear:both"></div>
