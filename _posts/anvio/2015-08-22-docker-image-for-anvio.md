@@ -23,7 +23,9 @@ After reading our [oldschool installation manual]({% post_url anvio/2015-05-01-i
 
 I have to admit that my introduction to Docker was similar to meeting someone you know you will not get along well simply because (1) everyone talks about them non-stop, and (2) you are a person who learned to not trust what is popular. But then, after playing with it for just two days I can see that Docker does deserve to be talked about, plus, beyond the hype that surrounds the technology, it seems it is the perfect solution to get anvi'o running on a server system with 0 pain.
 
-## Running the anvi'o docker image
+First chapter is for Linux users. If you are a Mac OSX or Windows user, you still can use the docker image. The next chapter is going to explain how you can run anvi'o in a couple of minutes on your OSX or Windows installation (I'd like to thank [Cameron MacPherson](https://www.linkedin.com/pub/cameron-macpherson/3/279/219) for [suggesting](https://github.com/meren/anvio/issues/213#issuecomment-148481913) this).
+
+## Running the anvi'o docker image (for Linux users)
 
 I assume the server you are working on has Docker installed, and the docker service is up and running. I run these commands on my Ubuntu Linux box to install Docker, and running it: 
 
@@ -63,7 +65,7 @@ This will give you a new prompt in your terminal that will look like this:
 :: anvi`o ::  / >>>
 {% endhighlight %}
 
-If you would like to run the mini test, you can type these commands:
+Once you have the anvi'o prompt, you can type these commands to run the `mini_test`:
 
 {% highlight bash %}
 :: anvi`o ::  / >>> cd anvio-tests/
@@ -72,9 +74,42 @@ If you would like to run the mini test, you can type these commands:
 
 You can press CTRL+D to go back to your host terminal.
 
-### How about my files?
 
-You will soon realize that this new virtual environment in which you run anvi'o does not have access to the rest of your disk. Let's assume the data you would like to analyze using anvi'o is in a directory at `/home/meren/my_data`. To have access to this directory from within the docker image, you can _bind_ it to a directory in the virtual environment. Let's assume, we want to have access to the content of `/home/meren/my_data`, from `/my_data` directory from within the docker image:
+## Running the anvi'o docker image (for Mac OSX / Windows users)
+
+First, you will need to install the [Docker Toolbox](https://www.docker.com/toolbox). Once you have it installed, run 'Docker Quickstart Terminal' application. At the end, this is what you want to see:
+
+<div class="centerimg">
+<a href="{{ site.url }}/images/anvio/2015-08-22-docker-image-for-anvio/docker-terminal.png"><img src="{{ site.url }}/images/anvio/2015-08-22-docker-image-for-anvio/docker-terminal.png" /></a>
+</div>
+
+Note the IP address (which is `192.168.99.100` in my case), becasue you will need it later. At this point, all you need to do is to run this command (note that you may need to change the version number):
+
+{% highlight bash %}
+docker run -p 8080:8080 -it meren/anvio:1.2.0
+{% endhighlight %}
+
+Docker will download all the necessary images, and will finally give you an anvi'o prompt which will look like this:
+
+{% highlight bash %}
+:: anvi`o ::  / >>>
+{% endhighlight %}
+
+Once you see this, you can run the `mini_test`:
+
+{% highlight bash %}
+:: anvi`o ::  / >>> cd anvio-tests/
+:: anvi`o ::  /anvio-tests >>> ./run_mini_test.sh 
+{% endhighlight %}
+
+Now you can open your Chrome browser, type the IP address you noted with a ":8080" at the end (which looks like this for me 192.168.99.100:8080), and press enter... Surprise!
+
+
+## How about my files?
+
+You will soon realize that this new virtual environment in which you run anvi'o does not have access to the rest of your disk.
+
+Let's assume the data you would like to analyze using anvi'o is in a directory at `/home/meren/my_data`. To have access to this directory from within the docker image, you can _bind_ it to a directory in the virtual environment. Let's assume, we want to have access to the content of `/home/meren/my_data`, from `/my_data` directory from within the docker image:
 
 {% highlight bash %}
 $ sudo docker run --rm -v /home/merenbey/my_data:/my_data -it meren/anvio:1.2.0
@@ -92,7 +127,8 @@ $ sudo docker run --rm -v /home/merenbey/my_data:/my_data -it meren/anvio:1.2.0
 X.bam  Y.bam  contigs.fa
 {% endhighlight %}
 
-## Rebuilding the anvi'o docker image
+
+## Rebuilding the anvi'o docker image (for hackers)
 
 If you would like to rebuild the Docker image for anvi'o on your own server, you can simply clone the anvi'o repository:
 
@@ -112,7 +148,7 @@ Add/remove things you want, do your changes in the code, and build the new docke
 docker build -t meren/anvio:1.2.0 .
 {% endhighlight %}
 
-And optionally, push it to your account on the hub to allow other people run it easily:
+And optionally, push it to your account on the hub to allow other people run it easily (i.e., this is what I do to push the new images to my account):
 
 {% highlight bash %}
 docker push meren/anvio
