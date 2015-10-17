@@ -11,7 +11,7 @@ author: meren
 
 {% include _toc.html %}
 
-We are very happy to see early responses from the community to anvi'o since the the [anvi'o paper](https://peerj.com/articles/1319/) is published in PeerJ.
+We are very happy to see early responses from the community to anvi'o since the publication of the [anvi'o paper](https://peerj.com/articles/1319/) in PeerJ. We hope it continues!
 
 We decided that this might be a good time to start an e-mail list where people can ask questions if they run into issues during installation, or later while using the platform. Also an e-mail list can be very useful to send release notes, or other news regarding the platform.
 
