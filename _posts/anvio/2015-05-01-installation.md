@@ -18,6 +18,8 @@ This article explains basic steps of installing anvi'o using rather conventional
 * [Docker image for anvi'o]({% post_url anvio/2015-08-22-docker-image-for-anvio %}) (for an instant, and painless installation of anvi'o on a server system).
 * We also have [a recipe for Ubuntu / Debian users](https://gist.github.com/meren/f1e674f774a30a209d82).
 
+Please consider joining [the anvi'o discussion group]({% post_url anvio/2015-10-14-anvio-discussion-group %}) if you have any questions about how to install or how to use anvi'o.
+
 **Regardless** of whether you decided to go one of the alternative installation methods above, or you will continue with the more conventional method down below, you should take a look at these anvi'o requirements before going any further:
 
 * [Chrome Web Browser](https://www.google.com/chrome/browser/desktop/). Chrome should be not only installed, but unfortunately it also should be the default browser on your system (otherwise everytime interactive interface pops up, you will need to copy-paste the address to a Chrome window). Anvi'o does not support any other browser, and __it will not perform optimally__ on others. You can test whether it is the default or not by pasting this to your terminal:

@@ -19,6 +19,7 @@ If you are here, you must have already installed the platform, and have [run the
 
 Finally, please stick with stable versions of the platform, unless you like living at the edge, as the snapshots from [the codebase](http://github.com/meren/anvio) can be very unstable and/or broken.
 
+Please consider joining [the anvi'o discussion group]({% post_url anvio/2015-10-14-anvio-discussion-group %}) if you have any questions about how to install or how to use anvi'o.
 
 # Preparation
 
@@ -243,9 +244,6 @@ Please read [this article]({% post_url anvio/2015-05-11-anvi-refine %}) for a co
 
 ### I run into an issue, who's fault is it?
 
-It is Tom's. But you can always enter a [bug report](https://github.com/meren/anvio/issues), and it would be very useful for us to remember to fix that. The codebase is young, and there will be issues.
+It is Tom's. But you can always enter a [bug report](https://github.com/meren/anvio/issues) if you are certain that it needs to be fixed in the anvi'o code base. If you are not sure, please come to [the anvi'o discussion group]({% post_url anvio/2015-10-14-anvio-discussion-group %}), and let's talk about it!
 
-### I have suggestions!
-
-This is great. That's exactly why you have accesss to this codebase. Either file an [issue](https://github.com/meren/anvio/issues), or send an e-mail (a.murat.eren@gmail.com).
 
