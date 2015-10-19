@@ -133,7 +133,7 @@ Y
 Then, you can run `anvi-init-bam` on all of them by typing this:
 
 {% highlight bash %}
-for sample in `cat SAMPLE_IDs`; do anvi-init-bam $sample-raw.bam -o $sample; done
+for sample in `cat SAMPLE_IDs`; do anvi-init-bam $sample-raw.bam -O $sample; done
 {% endhighlight %}
 
 Good.
