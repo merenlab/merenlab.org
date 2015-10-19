@@ -15,7 +15,7 @@ comments: false
 
 There are multiple projects and positions available in the lab, and we are looking forward to working with post-doctoral scientists who are interested in the human microbiome, and microbial ecology in general.
 
-We are especially interested in computational people who wish to learn microbiology, or microbiologists who wish to advance in bioinformatics and computation. If some of these keywords apply to you, please consider sending a CV along with a very short description of your background and research interests to meren at uchicago.edu to start a conversation: `human microbiome`, `host-microbe interactions`, `IBD`, `metagenomics`, `metatranscriptomics`, `information theory`, `game theory`, `cryptography`, `Python`, `Javascript`, `C`, `R`, `scientific visualization`, `software design`, `cultivation`, `biostatistics`.
+We are especially interested in computational people who wish to learn microbiology, or microbiologists who wish to advance in bioinformatics and computation. If some of these keywords apply to you, please consider sending a CV along with a very short description of your background and research interests to meren at uchicago.edu to start a conversation: `human microbiome`, `host-microbe interactions`, `IBD`, `metagenomics`, `metatranscriptomics`, `information theory`, `game theory`, `cryptography`, `network theory`, `Python`, `Javascript`, `C`, `go`, `R`, `scientific visualization`, `software design`, `cultivation`, `biostatistics`.
 
 <div style="clear:both"></div>
 
