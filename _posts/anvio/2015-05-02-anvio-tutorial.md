@@ -55,14 +55,22 @@ anvi-profile -i X-raw.bam --list-contigs | head
 
 If they do not look identical, you must fix your FASTA file to match contig names you see in your BAM file. In some cases you may realize that there is no way but redoing the mapping.
 
-For instance we always run into this issue when we export our contigs and BAM files using CLC, and end up having to run these two commands before we begin our analysis with anvi'o:
+---
+
+For instance we always run into a ticky issue when we export our contigs and BAM files using **CLC**, and end up having to run these two commands before we begin our analysis with anvi'o:
 
 {% highlight bash %}
 sed -i 's/ .*$//g' contigs.fa
 sed -i 's/_contig_/contig/g' contigs.fa
 {% endhighlight %}
 
-What you need to may differ, and please don't hesitate to contact us if you need help to identify what needs to be done.
+**<a href="http://www.ncbi.nlm.nih.gov/pubmed/25609793">MEGAHIT</a>**, one of our favorite assemblers, also requires some fixing. To fix your deflines in the your MEGAHIT outputs, you can simply run this command in your Linux terminal:
+
+{% highlight bash %}
+sed -i 's/ .*$//g' contigs.fa
+{% endhighlight %}
+
+What you need to do to fix *your* deflines may differ, if you are using some other assembler and are not sure what to do to fix your deflines before mapping, please drop us a note and we will update these instructions for your assembler.
 
 
 # Programs to analyze contigs FASTA
