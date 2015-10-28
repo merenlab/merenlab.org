@@ -15,13 +15,13 @@ comments: false
 <div class="pub">
     <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Genome+reconstructions+indicate+the+partitioning+of+ecological+functions+inside+a+phytoplankton+bloom+in+the+Amundsen+Sea,+Antarctica." target="_new">Genome reconstructions indicate the partitioning of ecological functions inside a phytoplankton bloom in the Amundsen Sea, Antarctica.</a></h3>
     <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Eren, A. M</span>., Vineis, J. H., and Post, A. F.</span>
-    <span class="pub-journal"><i>Front Microbiol</i>. <b>in press</b></span>
+    <span class="pub-journal"><i>Front Microbiol</i>. <b>6:1090</b></span>
 </div>
 
 <div class="pub">
     <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Anvi’o:+An+advanced+analysis+and+visualization+platform+for+‘omics+data." target="_new">Anvi’o: An advanced analysis and visualization platform for ‘omics data.</a></h3>
     <span class="pub-authors"><span class="pub-member-author">Eren, A. M</span>., <span class="pub-member-author">Esen, Ö. C.</span>, Quince, C., Vineis, J. H., Morrison, H. G., Sogin, M. L., and <span class="pub-member-author">Delmont, T. O.</span></span>
-    <span class="pub-journal"><i>PeerJ</i>. <b>in press</b></span>
+    <span class="pub-journal"><i>PeerJ</i>. <b>6:358</b></span>
 </div>
 
 <div class="pub">
@@ -33,7 +33,7 @@ comments: false
 <div class="pub">
     <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Reconstructing+Rare+Soil+Microbial+Genomes+using+in+situ+Enrichments+and+Metagenomics." target="_new">Reconstructing Rare Soil Microbial Genomes using in situ Enrichments and Metagenomics.</a></h3>
     <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Eren, A. M</span>., Maccario, L., Prestat, E., <span class="pub-member-author">Esen, Ö. C.</span>, Pelletier, E., LePaslier, D., Simonet, P., and Vogel, T.</span>
-    <span class="pub-journal"><i>Front Microbiol</i>. <b>6</b></span>
+    <span class="pub-journal"><i>Front Microbiol</i>. <b>6:358</b></span>
 </div>
 
 <div class="pub">
@@ -115,7 +115,7 @@ comments: false
 <div class="pub">
     <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Dynamics+of+tongue+microbial+communities+with+single-nucleotide+resolution+using+oligotyping." target="_new">Dynamics of tongue microbial communities with single-nucleotide resolution using oligotyping.</a></h3>
     <span class="pub-authors">Mark Welch, J. L., Utter, D. R., Rossetti, B. J., Mark Welch, D. B., <span class="pub-member-author">Eren, A. M</span>., and Borisy, G. G.</span>
-    <span class="pub-journal"><i>Front Microbiol</i>. <b>5, 568</b></span>
+    <span class="pub-journal"><i>Front Microbiol</i>. <b>5:568</b></span>
 </div>
 
 
