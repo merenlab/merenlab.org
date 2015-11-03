@@ -6,7 +6,7 @@ comments: false
 
 
 <div class="category-box">
-<a href="#2015"><span class="category-item">2015 <small>(7)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a><a href="#2011"><span class="category-item">2011 <small>(1)</small></span></a>
+<a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a><a href="#2011"><span class="category-item">2011 <small>(1)</small></span></a>
 </div>
 
 <a name="2015">&nbsp;</a>
@@ -52,6 +52,12 @@ comments: false
     <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Sewage+reflects+the+microbiomes+of+human+populations." target="_new">Sewage reflects the microbiomes of human populations.</a></h3>
     <span class="pub-authors">Newton, R. J., McLellan, S. L., Dila, D. K., Vineis, J. H., Morrison, H. G., <span class="pub-member-author">Eren, A. M</span>., and Sogin, M. L.</span>
     <span class="pub-journal"><i>MBio</i>. <b>6(2)</b></span>
+</div>
+
+<div class="pub">
+    <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Extensive+Modulation+of+the+Fecal+Metagenome+in+Children+With+Crohn's+Disease+During+Exclusive+Enteral+Nutrition." target="_new">Extensive Modulation of the Fecal Metagenome in Children With Crohn's Disease During Exclusive Enteral Nutrition.</a></h3>
+    <span class="pub-authors">Quince, C., Ijaz, U. Z., Loman, N., <span class="pub-member-author">Eren, A. M</span>., Saulnier, D., Russell, J., Haig, S. J., Calus, S. T., Quick, J., Barclay, A., Bertz, M., Hansen, R., McGrogan, P., Russel, K. R., Edwards, C. A., and Gerasimidis, K.</span>
+    <span class="pub-journal"><i>Am J Gastroenterol</i>. <b>(in press)</b></span>
 </div>
 
 
