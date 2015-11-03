@@ -97,7 +97,7 @@ If you have MyRAST installed, you can run these two commands to store the annota
 
 {% highlight bash %}
 svr_assign_to_dna_using_figfams < contigs.fa > svr_assign_to_dna_using_figfams.txt 
-anvi-populate-genes-table contigs.db -p myrast_cmdline_dont_use -i svr_assign_to_dna_using_figfams.txt
+anvi-populate-genes-table -c contigs.db -p myrast_cmdline_dont_use -i svr_assign_to_dna_using_figfams.txt
 {% endhighlight %}
 
 Once you have RAST annotations, I suggest you to run the following command to export the information from the table into a more native matrix form and store it separately (if you take a look at the exported matrix, you will see that it is a simpler, and more standard form of what we got from RAST):
