@@ -19,9 +19,9 @@ Here is how you can subscribe to it.
 
 ## Joining the mail list
 
-The e-mail list is served by Google Groups, and its web interface is here. But I suggest you send an empty e-mail to the following address and follow the instructions to complete your subscription (don't forget to check your SPAM folder for the auto-response):
+The e-mail list is served by Google Groups. It is pretty easy to join using this web interface:
 
-    anvio+subscribe@googlegroups.com
+[https://groups.google.com/forum/#!forum/anvio/join](https://groups.google.com/forum/#!forum/anvio/join)
 
 You do not need to have a GMail account to subscribe to the list.
 
@@ -37,6 +37,6 @@ After joining to the list, don't hesitate to send an e-mail to the list to say h
 
 ## Leaving the list
 
-All you need to do is to send an e-mail to this address, and follow the instructions in the response e-mail:
+Every e-mail from the group will have enough information in its footer to help you leave the group. Alternatively you can send an e-mail to this address, and follow the instructions in the response e-mail:
 
     anvio+unsubscribe@googlegroups.com
