@@ -25,6 +25,9 @@ The e-mail list is served by Google Groups. It is pretty easy to join using this
 
 You do not need to have a GMail account to subscribe to the list.
 
+{:.notice}
+For some silly reason, Google Groups sets the "no e-mail" option for new members by default. Please change it to "all e-mail" (otherwise you will not get any e-mails from the group). 
+
 Messages from the group will have the word `[anvio]` in their subjects, based on which you can filter them in a directory in your e-mail client so they don't clutter your inbox. 
 
 ## Sending e-mails to the list

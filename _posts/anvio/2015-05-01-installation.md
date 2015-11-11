@@ -184,9 +184,9 @@ Now you can edit the codebase, and test it, without re-installing anvi'o over an
 
 ## Running the "Mini Test"
 
-"Mini test" is [a tiny shell script](https://github.com/meren/anvio/blob/master/tests/run_mini_test.sh) that runs almost everything implemented in anvi'o on a very small dtaset.
+`mini_test` is [a tiny shell script](https://github.com/meren/anvio/blob/master/tests/run_mini_test.sh) that runs almost everything implemented in anvi'o on a very small dataset. 
 
-If you have a proper installation, you shouldn't get any errors when you run it.
+If you have a proper installation, you shouldn't get any errors when you run the `mini_test`
 
 If you installed anvi'o via `pip` (following the safe mode), you can go to an empty directory, and type these (don't forget to replace the version number (which is 1.2.0 in this example) with whatever version you have installed. If you are not sure, type `anvi-profile -v`):
 

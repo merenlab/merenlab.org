@@ -122,3 +122,5 @@ For instance, if you select a tree-based order from the combo box, and click 'Dr
 </div>
 
 Please do not hesitate to ask if you run into any issues with the samples database!
+
+You can visit [http://anvio.org/demo](http://anvio.org/demo) to play with the anvi'o interactive interface running the `mini_test` with a samples database generated using the two files mentioned in this post.
