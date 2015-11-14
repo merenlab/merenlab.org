@@ -1,6 +1,6 @@
 ---
 layout: post
-author: meren
+authors: [meren]
 title: "Oligotyping and alignment"
 excerpt: "Answers to some of the questions that have been asked frequently"
 modified: 2014-09-14

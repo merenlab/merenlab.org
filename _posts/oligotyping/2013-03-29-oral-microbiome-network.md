@@ -1,6 +1,6 @@
 ---
 layout: post
-author: meren
+authors: [meren]
 title: "Network analysis of the human oral microbiota using oligotypes"
 excerpt: "The oligotyping pipline generates Gephi-compatible network descriptions."
 modified: 2013-03-29 

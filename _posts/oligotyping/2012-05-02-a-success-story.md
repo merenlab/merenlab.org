@@ -1,6 +1,6 @@
 ---
 layout: post
-author: meren
+authors: [meren]
 title: "A Success Story: Gardnerella Vaginalis Profiles Among Sexual Partners"
 excerpt: "The first story we recovered using oligotyping"
 modified: 2012-05-02

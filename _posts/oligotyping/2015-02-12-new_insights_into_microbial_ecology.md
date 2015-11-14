@@ -1,6 +1,6 @@
 ---
 layout: post
-author: meren
+authors: [meren]
 title: New insights into microbial ecology through subtle nucleotide variation
 excerpt: "A summary of the oligotyping special topic in Frontiers In Microbiology"
 date: 2015-02-12 10:17:05

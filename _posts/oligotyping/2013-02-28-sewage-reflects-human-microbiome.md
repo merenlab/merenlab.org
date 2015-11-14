@@ -1,6 +1,6 @@
 ---
 layout: post
-author: meren
+authors: [meren]
 title: "Sewage reflects the distribution of human faecal Lachnospiraceae"
 excerpt: "A study that shows the connection between human microbiome and the sewage"
 modified: 2013-02-28

@@ -1,6 +1,6 @@
 ---
 layout: post
-author: meren
+authors: [meren]
 title: "Frontiers in Microbiology Special Topic"
 excerpt: "A special topic for oligotyping"
 modified: 2013-12-12

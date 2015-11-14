@@ -1,6 +1,6 @@
 ---
 layout: post
-author: meren
+authors: [meren]
 title: "How to oligotype: Best practices"
 excerpt: "Flowchart of oligotyping..."
 modified: 2013-11-04 

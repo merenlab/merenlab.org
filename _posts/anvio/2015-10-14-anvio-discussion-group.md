@@ -6,7 +6,7 @@ modified: 2015-10-17
 tags: []
 categories: [anvio]
 comments: true
-author: meren
+authors: [meren]
 ---
 
 {% include _toc.html %}

@@ -1,6 +1,6 @@
 ---
 layout: post
-author: meren
+authors: [meren]
 title: "Post-doc opportunity in France at LM2E"
 excerpt: "Life at the extremes: microbial EcoGenomics of deep-sea extremophiles"
 modified: 2015-05-22 

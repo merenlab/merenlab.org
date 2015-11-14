@@ -1,6 +1,6 @@
 ---
 layout: post
-author: meren
+authors: [meren]
 title: Oligotyping Pipeline Explained
 excerpt: "How to install, and how to start using the oligotyping pipeline"
 modified: 2015-01-11

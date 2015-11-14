@@ -1,6 +1,6 @@
 ---
 layout: post
-author: meren
+authors: [meren]
 title: "Analyzing variability with anvi'o"
 excerpt: "Exploring variability patterns using anvi'o for deeper insights"
 modified: 2015-07-20

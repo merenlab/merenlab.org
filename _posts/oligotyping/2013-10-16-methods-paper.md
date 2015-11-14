@@ -1,6 +1,6 @@
 ---
 layout: post
-author: meren
+authors: [meren]
 title: "Methods paper for oligotyping is out!"
 excerpt: "It is published in Methods in Ecology and Evolution..."
 modified: 2013-10-16 

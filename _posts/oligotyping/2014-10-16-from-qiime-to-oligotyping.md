@@ -1,6 +1,6 @@
 ---
 layout: post
-author: meren
+authors: [meren]
 title: "From QIIME to Oligotyping"
 excerpt: "A solution by James Meadow"
 modified: 2014-10-16

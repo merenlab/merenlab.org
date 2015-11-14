@@ -1,6 +1,6 @@
 ---
 layout: post
-author: meren
+authors: [meren]
 title: "Oligotyping in a virtual box"
 excerpt: "For people who does not want to install the pipeline"
 modified: 2014-09-02
