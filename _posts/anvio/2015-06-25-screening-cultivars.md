@@ -28,7 +28,7 @@ In general, it is important to access completion and contamination levels before
 
 Unfortunately, your genome can be contaminated for multiple reasons. In general, the next step after detecting a problem is to fix it, right? But how fast, or how straightforward will it be to tease apart the genome of interest from the contamination? Eventually, you will realize that although they are very useful to estimate the level of contamination and completion, tools such as CheckM do not necessarily provide easy-to-use interfaces to manipulate, edit, and/or curate sreened genomes. This requires much more that simply screening for genes markers, and a platform dedicated to the processing and visualization of genomes using contextual information may be very helpful to explore your assembly, screen for unwanted contigs, and refine your genomes...
 
-Well, not to brag about it, but this is exactly what [anvi'o]({{site_url}}/projects/anvio/) is designed for!
+Well, not to brag about it, but this is exactly what [anvi'o](https://peerj.com/articles/1319/) is designed for!
 
 ## Using anvi'o to screen for possible contaminants and to curate individual genomes
 
@@ -40,7 +40,7 @@ In this post I will describe two examples of assembled genomes from lab cultures
 
 ## Example 1: axenic, uncontaminated culture
 
-Here, I have an assembly ouput from an axenic, uncontaminated *Bacteroides fragilis* culture. This genome was sequenced on a HiSeq platfrom and a total of 33 contigs > 1kbp were generated, which totalled around 5 Mbp. I have processed the FASTA file of 33 contigs along with the BAM file of mapped short reads using anvi'o by (1) creating an contigs database using a split size of 2,000 nts (`-L 2000`), (2) running HMM profiles for single-copy genes, and (3) profiling the BAM file with an additional `--cluster-contigs` parameter (see [the user tutorial]({% post_url anvio/2015-05-02-anvio-tutorial %}) for details of each step).
+Here, I have an assembly ouput from an axenic, uncontaminated *Bacteroides fragilis* culture. This genome was sequenced on a HiSeq platfrom and a total of 33 contigs > 1kbp were generated, which totalled around 5 Mbp. I have processed the FASTA file of 33 contigs along with the BAM file of mapped short reads using anvi'o by (1) creating an contigs database using a split size of 2,000 nts (`-L 2000`), (2) running HMM profiles for single-copy genes, and (3) profiling the BAM file with an additional `--cluster-contigs` parameter (see [the user tutorial]({http://merenlab.org/2015/05/02/anvio-tutorial/) for details of each step).
 
 Once the profiling was complete, I started the interactive interface by typing:
 
