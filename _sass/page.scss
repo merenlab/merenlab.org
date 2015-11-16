@@ -41,6 +41,10 @@ table tr {
   border-top: 1px solid #ccc;
 }
 
+table.js-file-line-container tr {
+    border: 0px;
+}
+
 th, td {
   padding: 6px 13px;
   border: 1px solid #ddd;
