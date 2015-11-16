@@ -26,7 +26,7 @@ You will find all files metnioned in this section in `01-ECOLI-PANGENOME/` direc
 {:.notice}
 If you would like to repeat this analysis on your collection of genomes, you can use prodigal to identify open reading frames, and use the resulting genbank files instead.
 
-We clustered amino acid sequences for 47,415 open reading frames in these genomes using [ITEP](https://price.systemsbiology.org/research/itep/) ("Integrated Toolkit for Exploration of Pan-genomes", a useful tool we were introduced by our colleague [Rika Anderson](https://twitter.com/RikaEAnderson?lang=fr)). ITEP identified a total of 7,795 protein clusters in our collection, where each cluster contained 1 to 102 proteins. 
+We clustered amino acid sequences for 47,415 open reading frames in these genomes using [ITEP](https://price.systemsbiology.org/research/itep/) ("Integrated Toolkit for Exploration of Pan-genomes", a useful tool we were introduced by our colleague [Rika Anderson](https://twitter.com/RikaEAnderson)). ITEP identified a total of 7,795 protein clusters in our collection, where each cluster contained 1 to 102 proteins. 
 
 The main purpose of this step is to create a basic matrix to connect genomes and protein clusters. Although we used ITEP, any other solution to cluster protein sequences could have been used to acquire this essential input file.
 
