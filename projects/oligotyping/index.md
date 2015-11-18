@@ -4,6 +4,7 @@ title: "Oligotyping"
 excerpt: "Oligotyping Project Page"
 ---
 
+{% include _project-oligotyping-images.html %}
 
 # In a nutshell
 

@@ -3,6 +3,9 @@ layout: project-anvio-main
 title: "An analysis and visualization platform for 'omics data"
 excerpt: "Anvi'o Project Page"
 ---
+
+{% include _project-anvio-images.html %}
+
 # In a nutshell
 
 Anvi'o is an analysis and visualization platform for 'omics data.
