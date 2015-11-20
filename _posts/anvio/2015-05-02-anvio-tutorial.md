@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Anvi'o User Manual"
+title: "Anvi'o Metagenomic Workflow User Manual"
 excerpt: "Sweets for people who managed to install the platform."
 modified: 2015-05-02 
 tags: []
