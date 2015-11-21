@@ -23,7 +23,7 @@ Marker genes amplified from environmental samples have been primary tools for de
 <img src="images/omics.png" style="border:none;" />
 </div>
 
-Although marker genes are useful for the characterization of the community structure, they cannot answer questions about microbial communities regarding what they are capable of doing with respect to their total genomic content with confidence, or what genes are being expressed at a given condition. Although there are challenges, metagenomic approaches that utilize shotgun sequencing of environmental DNA and/or RNA is key to understand the overall functional potential and/or acitivity of a naturally occurring microbial community. We have been developing [anvi'o]({{ site.url  }}/projects/anvio/), an advanced software platform with analytical tools and ivisualization capabilities to better-exploit metagenomic and metatranscriptomic datasets.
+Although marker genes are useful for the characterization of the community structure, they cannot answer questions about microbial communities regarding what they are capable of doing with respect to their total genomic content with confidence, or what genes are being expressed at a given condition. Although there are challenges, metagenomic approaches that utilize shotgun sequencing of environmental DNA and/or RNA is key to understand the overall functional potential and/or acitivity of a naturally occurring microbial community. We have been developing [anvi'o]({{ site.url  }}/projects/anvio/), an advanced software platform with analytical tools and visualization capabilities to better-exploit metagenomic and metatranscriptomic datasets.
 
 <div style="clear:both"></div>
 
