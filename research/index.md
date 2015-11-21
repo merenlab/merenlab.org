@@ -27,6 +27,16 @@ Although marker genes are useful for the characterization of the community struc
 
 <div style="clear:both"></div>
 
+## Comparative Genomics
+
+<div style="height: 155px; width: 175px; float: left;">
+<img src="images/omics.png" style="border:none;" />
+</div>
+
+Thanks to [anvi'o]({{ site.url  }}/projects/anvio/), we are rapidly acquiring large high-quality genomic collections from various systems (marine, coastal, soil, human body, etc.). We are now developping new tools and concepts in order to compare genomes and link them to environmental data. This is a recent research interest for our group but will likely become a main venue of research in the coming years.
+
+<div style="clear:both"></div>
+
 ## And More...
 
 <div style="height: 350px; width: 300px; float: left; padding-right: 20px;">
