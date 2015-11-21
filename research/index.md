@@ -17,24 +17,15 @@ Marker genes amplified from environmental samples have been primary tools for de
 
 <div style="clear:both"></div>
 
-## Metagenomics & Metatranscriptomics
+## Metagenomics, Metatranscriptomics, and Comparative Genomics
 
 <div style="height: 155px; width: 175px; float: left;">
 <img src="images/omics.png" style="border:none;" />
 </div>
 
-Although marker genes are useful for the characterization of the community structure, they cannot answer questions about microbial communities regarding what they are capable of doing with respect to their total genomic content with confidence, or what genes are being expressed at a given condition. Although there are challenges, metagenomic approaches that utilize shotgun sequencing of environmental DNA and/or RNA is key to understand the overall functional potential and/or acitivity of a naturally occurring microbial community. We have been developing [anvi'o]({{ site.url  }}/projects/anvio/), an advanced software platform with analytical tools and visualization capabilities to better-exploit metagenomic and metatranscriptomic datasets.
+Although marker genes are useful for the characterization of the community structure, they cannot answer questions about microbial communities regarding what they are capable of doing with respect to their total genomic content with confidence, or what genes are being expressed at a given condition. Although there are challenges, metagenomic approaches that utilize shotgun sequencing of environmental DNA and/or RNA is key to understand the overall functional potential and/or acitivity of a naturally occurring microbial community.
 
-<div style="clear:both"></div>
-
-## Comparative Genomics
-
-<div style="height: 155px; width: 175px; float: left;">
-<img src="images/omics.png" style="border:none;" />
-</div>
-
-Thanks to [anvi'o]({{ site.url  }}/projects/anvio/), we are rapidly acquiring large high-quality genomic collections from various systems (marine, coastal, soil, human body, etc.). We are now developping new tools and concepts in order to compare genomes and link them to environmental data. This is a recent research interest for our group but will likely become a main venue of research in the coming years.
-
+We have been developing [anvi'o]({{ site.url }}/projects/anvio/), an advanced software platform with analytical tools and powerful visualization strategies to better-exploit metagenomic and metatranscriptomic datasets. Thanks to anvi'o, we generate and work with high-quality genomic collections from various systems (marine, coastal, soil, human body, etc.) and exploring new concepts to compare genomes and link their occurrence with functional and environmental data. 
 <div style="clear:both"></div>
 
 ## And More...
