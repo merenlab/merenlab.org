@@ -45,9 +45,12 @@ We stored this information as a matrix of protein clusters and their occurrences
 |9|9|3|0|10|4|1|1|0|9|9|
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 |7795|0|0|0|0|0|0|0|0|0|1|
-If you are using ITEP, you should be creating this file from the output file ITEP reports and stores in `flatclusters/` directory. This may be a bit challening, and if you like, you can use this script here to convert the ITEP output into our `data.txt`: `anvi-script-itep-to-data-txt`. This script may already be available to you with your latest anvi'o installation (just copy paste it in your terminal to see whether it is the case). If not, download it from here: [anvi-script-itep-to-data-txt](https://github.com/meren/anvio/blob/master/sandbox/anvi-script-itep-to-data-txt).
+If you are using ITEP, you should be creating this file from the output file ITEP reports and stores in `flatclusters/` directory. This may be a bit challening, and if you like, you can use this script here to convert the ITEP output into a proper `data.txt` file: [`anvi-script-itep-to-data-txt`](https://github.com/meren/anvio/blob/master/sandbox/anvi-script-itep-to-data-txt)
 
-When you have this script, you can run this command to get the `data.txt` (if you didn't have the script and ended up downloading it, put "python" at the beginning of the following command):
+{:.notice}
+`anvi-script-itep-to-data-txt` may already be available to you with your latest anvi'o installation (just copy-paste the name in your terminal to see whether it is the case). If not, follow [this link](https://github.com/meren/anvio/blob/master/sandbox/anvi-script-itep-to-data-txt) to download it somewhere on your computer.
+
+Run the following command to get the `data.txt` from your ITEP result (if you didn't have the script and ended up downloading it, don't forget to put "python" at the beginning of the following command):
 
 {% highlight bash %}$ anvi-script-itep-to-data-txt flatclusters/all_I_2.0_c_0.5_m_maxbit
 Num genomes ..................................: 10
