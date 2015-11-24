@@ -24,7 +24,7 @@ You will find all files metnioned in this section in `01-ECOLI-PANGENOME/` direc
 ### Generating protein clusters for the data matrixFor our analysis of ten *Escherichia coli* (EC) genomes, we downloaded genbank files from [ftp://ftp.ncbi.nlm.nih.gov/genomes/Bacteria/](ftp://ftp.ncbi.nlm.nih.gov/genomes/Bacteria/).
 
 {:.notice}
-If you would like to repeat this analysis on your collection of genomes, you can use prodigal to identify open reading frames, and use the resulting genbank files instead.
+If you would like to repeat this analysis on your collection of genomes, you can use any gene finder that reports proper genbank files for open reading frames identified, and use those genbank files instead (we thought prodigal would work, but the genbank files prodigal generates does not seem to be compatible with genbank file format ITEP expects. Why? Because <a href="https://twitter.com/merenbey/status/662373313826693120">reasons</a>).
 
 We clustered amino acid sequences for 47,415 open reading frames in these genomes using [ITEP](https://price.systemsbiology.org/research/itep/) ("Integrated Toolkit for Exploration of Pan-genomes", a useful tool we were introduced by our colleague [Rika Anderson](https://twitter.com/RikaEAnderson)). ITEP identified a total of 7,795 protein clusters in our collection, where each cluster contained 1 to 102 proteins. 
 
@@ -45,7 +45,14 @@ We stored this information as a matrix of protein clusters and their occurrences
 |9|9|3|0|10|4|1|1|0|9|9|
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 |7795|0|0|0|0|0|0|0|0|0|1|
-### Creating a tree of protein clustersWe created a tree based on the distribution of protein clusters across genomes (`tree.newick`). This tree will be used as the centerpiece in the interactive interface you will see very soon:
+If you are using ITEP, you should be creating this file from the output file ITEP reports and stores in `flatclusters/` directory. This may be a bit challening, and if you like, you can use this script here to convert the ITEP output into our `data.txt`: `anvi-script-itep-to-data-txt`. This script may already be available to you with your latest anvi'o installation (just copy paste it in your terminal to see whether it is the case). If not, download it from here: [anvi-script-itep-to-data-txt](https://github.com/meren/anvio/blob/master/sandbox/anvi-script-itep-to-data-txt).
+
+When you have this script, you can run this command to get the `data.txt` (if you didn't have the script and ended up downloading it, put "python" at the beginning of the following command):
+
+{% highlight bash %}$ anvi-script-itep-to-data-txt flatclusters/all_I_2.0_c_0.5_m_maxbit
+Num genomes ..................................: 10
+Num protein clusters .........................: 7,795
+Data file is generated .......................: data.txt{% endhighlight %}### Creating a tree of protein clustersWe created a tree based on the distribution of protein clusters across genomes (`tree.newick`). This tree will be used as the centerpiece in the interactive interface you will see very soon:
 {% highlight bash %}anvi-matrix-to-newick data.txt -o tree.newick{% endhighlight %}{:.notice}The creation of tree.newick will be quite challenging if your data.txt contains more than 30,000 protein clusters, in this case removing protein clusters that are detected only in one genome may help.### Creating a samples database
 We created another tree from the same data:
 
