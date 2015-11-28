@@ -168,7 +168,10 @@ export PYTHONPATH=$PYTHONPATH:$DIR/anvio/
 export PATH=$PATH:$DIR/anvio/bin:$DIR/anvio/sandbox
 {% endhighlight %}
 
-Because you didn't run "build", your C extensions will not be compiled. This is the fast way to get them compiled and put in the right place:
+{:.notice}
+Of course this approach will not help you install all dependencies through pip. To avoid further headaches, I suggest running `sudo pip install anvio` once, so all necessary python modules are automatically installed, and then removing the anvio installation by running `sudo pip uninstall anvio`.
+
+Finally, because you didn't actually run the proper `build`, your C extensions will not be compiled. This is the fast way to get them compiled and put in the right place:
 
 {% highlight bash %}
 cd $DIR/anvio
