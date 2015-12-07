@@ -19,7 +19,7 @@ How many bacterial genomes should I <em>expect</em> to find in these contigs I a
 <div class="blockquote-author">Your Name</div>
 </blockquote>
 
-Anvi'o has been very practical for us to answer this, and here you will find the workflow to try on your own dataset.
+Anvi'o has been very practical for us to answer this, and here you will find the workflow to try it on your own FASTA file of contigs.
 
 ## The workflow
 
