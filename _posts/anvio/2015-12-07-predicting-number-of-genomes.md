@@ -38,7 +38,7 @@ $ anvi-gen-contigs-database -f contigs.fa -o contigs.db
 And this is how this goes on my screen:
 
 {% highlight bash %}
-$ anvi-interactive -f contigs.fa -o contigs.db
+$ anvi-gen-contigs-database -f contigs.fa -o contigs.db
 Contigs database .............................: A new database, new-contigs.db, has been created.
 Number of contigs ............................: 4,189
 Number of splits .............................: 4,861
