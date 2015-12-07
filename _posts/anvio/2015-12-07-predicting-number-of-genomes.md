@@ -123,7 +123,7 @@ So far so good.
 
 ### Visualizing the results
 
-Now we have a contigs database with everything we need. It is time to visualize the results. For now this is a two step process. First we need to generate essential input files for the R program that will do the visualization:
+Now we have a contigs database with everything we need. It is time to visualize the results. For now this is a two-step process. First we need to generate essential input files for the R program that will do the visualization:
 
 {% highlight bash %}
 $ anvi-script-gen_stats_for_single_copy_genes.py contigs.db
