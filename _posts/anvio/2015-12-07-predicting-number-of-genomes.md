@@ -11,7 +11,7 @@ authors: [meren]
 
 {% include _toc.html %}
 
-Your ability to identify genomes appropriately from an assembly will depend on many factors, such as the number of samples you have to exploit the differential coverage patterns of genomes, or the algorithm you use to tease apart that information. But even before doing any of the real binning, you may have a rough answer to this question by just taking a quick look for your contigs:
+Your ability to identify genomes appropriately from an assembly will depend on many factors, such as the number of samples you have to exploit the differential coverage patterns of genomes, or the algorithm you use to tease apart that information. But even before doing any of the real binning, you may have a rough answer to this question by just taking a quick look from your contigs:
 
 <blockquote>
 How many bacterial genomes should I <em>expect</em> to find in these contigs I assembled from my metagenome?
