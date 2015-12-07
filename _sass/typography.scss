@@ -142,15 +142,76 @@ figcaption {
    Blockquotes
    ========================================================================== */
 
-blockquote {
-	margin-left: 20px;
-	padding: 20px;
-    border-radius: 10px;
-    background-color: #FEFFFA;
-	border-left: 8px solid $border-color;
-	border-right: 8px solid $border-color;
-	font-family: $alt-font;
-	font-style: italic;
+blockquote{
+  display:block;
+  background: #f5f5f5;
+  padding: 20px 20px 0px 60px;
+  margin: 0 0 20px;
+  position: relative;
+  
+  /*Font*/
+  font-size: 16px;
+  line-height: 1.2;
+  color: #101010;
+  text-align: justify;
+  
+  /*Borders - (Optional)*/
+  border-left: 15px solid #929292;
+  border-right: 2px solid #929292;
+  
+  /*Box Shadow - (Optional)*/
+  -moz-box-shadow: 2px 2px 15px #ccc;
+  -webkit-box-shadow: 2px 2px 15px #ccc;
+  box-shadow: 2px 2px 15px #ccc;
+}
+
+blockquote::before{
+  content: "\201C"; /*Unicode for Left Double Quote*/
+  
+  /*Font*/
+  font-family: Georgia, serif;
+  font-size: 90px;
+  font-weight: bold;
+  color: #999;
+  
+  /*Positioning*/
+  position: absolute;
+  left: 5px;
+  top: 0px;
+}
+
+blockquote::after{
+  /*Reset to make sure*/
+  content: "";
+}
+
+blockquote a{
+  text-decoration: none;
+  background: #eee;
+  cursor: pointer;
+  padding: 0 3px;
+  color: #c76c0c;
+}
+
+blockquote a:hover{
+ color: #666;
+}
+
+blockquote em{
+  font-style: italic;
+}
+
+.blockquote-author {
+    text-align: right;
+    font-size: larger;
+    display: block;
+    border-top: 1px #BFBFBF solid;
+    margin-top: 30px;
+    padding-top: 10px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    font-variant: small-caps;
+    color: #222;
 }
 
 /* 
