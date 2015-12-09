@@ -125,7 +125,7 @@ The top one is [this](https://www.ncbi.nlm.nih.gov/protein/952976782?report=genb
 
 The other two in the top three are [this one](https://www.ncbi.nlm.nih.gov/protein/953251357?report=genbank&log$=protalign&blast_rank=2&RID=6CA4CVDA015) and [this one](https://www.ncbi.nlm.nih.gov/protein/953251357?report=genbank&log$=protalign&blast_rank=2&RID=6CA4CVDA015) with 60%+ identity and 90%+ query coverage for both! Both of these hits are coming from enrichments done by the other group --who did not publish their raw data, and therefore shall not be mentioned here any further.
 
-So yes, this gene is not chimeric, but according to the mapping, there is something weird going on with it. This is not a unique example, and the presence of these sudden drops in coverage may be suggesting that the genome needs more work to be considered final.
+So yes, this gene is not chimeric, but according to the mapping, there is something weird going on with it. This is not a unique example, and the presence of these sudden drops in coverage may be suggesting that the genome needs more work to be considered "final final". Although, it may also be the case that this genome is already the best genome that could be generated from this dataset.
 
 Because I tend to get obsessed with things, I also did something rather time-consuming: I took all short reads from the three ENR4 samples, and one ENR6 sample, trimmed them to 150nts to avoid poor quality ends of both reads in each pair, and co-assembled them using [MEGAHIT](https://github.com/voutcn/megahit). Then I BLAST'ed each split in Wagner's Nitrospira genome against the resulting contigs from the assembly. Then I wrote a Python script to make sense of the BLAST result. A total of 2,187,422 nts from the assembly matched to the Nitrospira final genome. In other words, my quick assembly recovered about 66% of the genome. And the average nucleotide identity between the matching 66% was 98.9%. It is normal that my assembly recovered only two-thirds of the genome since I didn't use longer reads as Wagner's group did, but the difference in nucleotide identity was surprising to me. On the other hand, although I am not sure which assembly is less right, 1% divergence may not be too concerning. I simply don't know.
 
@@ -192,7 +192,7 @@ $ anvi-interactive -p PROFILE.db -c CONTIGS.db -A CRISPR-SPLITS.txt
 <a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/crisprs.png"><img src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/crisprs.png" /></a>
 </div>
 
-Now we have an extra layer in all anvi'o views for splits with CRISPR hits. Not every occurrence of a CRISPR-associated protein indicates a locus, but it seems there are two clusters of CRISPR-associated proteins right around a very highly variable region. This is what inspeciton shows for a split right in the middle of the most variable region:
+Now we have an extra layer in all anvi'o views for splits with CRISPR hits. Not every occurrence of a CRISPR-associated protein indicates a locus, but it seems there are two clusters of CRISPR-associated proteins right around a very highly variable region. This is what inspection shows for a split right in the middle of the most variable region:
 
 <div class="centerimg">
 <a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/crispr-split.png"><img src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/crispr-split.png" /></a>
@@ -202,7 +202,7 @@ Now we have an extra layer in all anvi'o views for splits with CRISPR hits. Not 
 <a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/crispr-split-zoom.png"><img src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/crispr-split-zoom.png" /></a>
 </div>
 
-### Breaking news: CRISPRs break your contigs ...I also took multiple short reads Bowtie2 mapped to this crazy variable region, and BLASTed them against the genome. The result was quite scary: each read was broken into multiple alignments, and aligned to slightly different parts of this repeat region. This is *exactly* why your de brujin graph resolving assembler will never be able to recover itself from seeing a CRISPR region, and will end up braking up your contigs during the reconstruction. Wagner's group overcame this limitation of the assembly by using MinION reads.
+### Breaking news: CRISPRs break your contigs ...I also took multiple short reads Bowtie2 mapped to this crazy variable region, and BLASTed them against the genome. The result was quite scary: each read was broken into multiple alignments, and aligned to slightly different parts of this repeat region. This is *exactly* why your de brujin graph resolving assembler using short reads will never be able to recover itself from seeing a CRISPR region, and will end up braking up your contigs during the reconstruction. Wagner's group overcame this limitation of the assembly by using MinION reads.
 
 While looking at this data I also realized that every CRISPR-associated protein I find in a contig collection from any metagenomic assembly *should be* at the very end of contigs in which they are identified. Of course repeats in CRISPR spacer region is only one of the issues that fragment our otherwise beautiful contigs, but it is something that is easier to test since the spacer region follows the well-described Cas operons we can look for. I took one of the assemblies Tom created from an ocean sample, and searched for CRISPR-associated proteins, and look what I've found:
 |Contig|Contig length|Gene name|Gene start|Gene end|
@@ -595,7 +595,6 @@ $ awk '{print $2}' output.b6 | awk 'BEGIN{FS="|"}{print $1}' | sort | uniq -c
 {% endhighlight %}
 
 So it goes.
-
 
 
 ## Final words
