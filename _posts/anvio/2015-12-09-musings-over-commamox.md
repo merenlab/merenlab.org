@@ -2,7 +2,7 @@
 layout: post
 title: "A bioinformaticians journey in a metagenomic dataset"
 excerpt: "Musings over a *Nitrospira* genome that can do complete nitrification"
-modified: 2015-12-03
+modified: 2015-12-09
 tags: [othersdata]
 categories: [anvio]
 comments: true
