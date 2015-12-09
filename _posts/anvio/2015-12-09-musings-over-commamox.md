@@ -89,24 +89,29 @@ In general the first thing we do after profiling and merging multiple metagenomi
 
 {:.notice}
 Each bar in the following figures represents a 2,000 nt long split from the genome.
-<div class="centerimg">
-<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/portion_covered.png"><img src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/portion_covered.png" /></a>
-</div>
-Blue selections indicate the three loci that are key for nitrification. If you go clockwise, they correspond to **hao**, **amo**, and **nxr**, respectively (see the loci figure above).
-The second thing we generally do is to take a look at the mean coverage of each split:<div class="centerimg">
-<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/mean_coverage.png"><img src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/mean_coverage.png" /></a>
+
+<div class="centerimg">
+<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/portion_covered.png"><img width="80%" src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/portion_covered.png" /></a>
+</div>
+
+Blue selections indicate the three loci that are key for nitrification. If you go clockwise, they correspond to **hao**, **amo**, and **nxr**, respectively (see the loci figure above).
+
+The second thing we generally do is to take a look at the mean coverage of each split:
+
+<div class="centerimg">
+<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/mean_coverage.png"><img width="80%" src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/mean_coverage.png" /></a>
 </div>
 
 Among multiple sections with inconsistent coverage across the genome, one is pretty striking. But before going into the details of that section, I want to see a better view of inconsistent coverage to identify parts that really stick out. The standard deviation around coverage view is perfect for this:
 
 <div class="centerimg">
-<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/standard_deviation.png"><img src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/standard_deviation.png" /></a>
+<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/standard_deviation.png"><img width="80%" src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/standard_deviation.png" /></a>
 </div>
 
 Inspecting the split with highest standard deviation (the one around 10:30 o'clock in the figure above) shows some evidence for potentially faulty assembly since this is not something you expect to see from a circular / complete genome:
 
 <div class="centerimg">
-<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/highest_std_split.png"><img src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/highest_std_split.png" /></a>
+<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/highest_std_split.png"><img width="80%" src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/highest_std_split.png" /></a>
 </div>
 
 One explanation for this drop could be two contigs that are put together when they shouldn't have been put together. On the other hand the gene caller identifies a gene that goes right across this region [with some functional annotation, too]({{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/gene_call_in_highest_std_split.png). Puzzling.
@@ -132,7 +137,7 @@ Because I tend to get obsessed with things, I also did something rather time-con
 OK, enough of this. Let's finally take a look from the [variability view]({% post_url anvio/2015-07-20-analyzing-variability %}), which shows the summary of the density of variation at each nucleotide position for each split based on mapped short reads:
 
 <div class="centerimg">
-<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/variability.png"><img src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/variability.png" /></a>
+<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/variability.png"><img width="80%" src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/variability.png" /></a>
 </div>
 
 This is getting interesting! There are multiple regions in the genome that shows remarkable variation when short reads are mapped back. According to our experience, these regions often indicate heterogeneity in the source community, and we really like them as they have the potential to provide deeper insights into the ecology we are going after (and sometimes they are there as by products of bad assembly, or bad mapping). The true power of metagenomics come from co-assemblies and understanding community heterogeneity through these often-quite-subtle variations.
@@ -140,7 +145,7 @@ This is getting interesting! There are multiple regions in the genome that shows
 One of the highly variable regions across the genome overlap with the region that showed remarkable decrease in the mean coverage we saw in the mean coverage view:
 
 <div class="centerimg">
-<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/section_with_low_coverage.png"><img src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/section_with_low_coverage.png" width="60%" /></a>
+<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/section_with_low_coverage.png"><img width="80%" src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/section_with_low_coverage.png" width="60%" /></a>
 </div>
 
 A quick inspection indicates the presence of CRISPR-associated proteins, so I decide to highlight all CRISPR-associated genes on this view. I go back to my terminal, and type this to search for all functions that contains the term "CRISPR":
@@ -195,16 +200,21 @@ $ anvi-interactive -p PROFILE.db -c CONTIGS.db -A CRISPR-SPLITS.txt
 Now we have an extra layer in all anvi'o views for splits with CRISPR hits. Not every occurrence of a CRISPR-associated protein indicates a locus, but it seems there are two clusters of CRISPR-associated proteins right around a very highly variable region. This is what inspection shows for a split right in the middle of the most variable region:
 
 <div class="centerimg">
-<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/crispr-split.png"><img src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/crispr-split.png" /></a>
-</div>This view is probably not very surprising to people who study CRISPRs. Seeing the tremendous amount of diversity within the spacer / repeat region that follow Cas operons even within a rather homogeneous population of Nitrospira coming from an enrichment is still striking to me. It is a mess, but fortunately not a random one either; usually competing nucleotide identities at variable positions match across four samples:
-
-<div class="centerimg">
-<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/crispr-split-zoom.png"><img src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/crispr-split-zoom.png" /></a>
+<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/crispr-split.png"><img width="80%" src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/crispr-split.png" /></a>
 </div>
 
-### Breaking news: CRISPRs break your contigs ...I also took multiple short reads Bowtie2 mapped to this crazy variable region, and BLASTed them against the genome. The result was quite scary: each read was broken into multiple alignments, and aligned to slightly different parts of this repeat region. This is *exactly* why your de brujin graph resolving assembler using short reads will never be able to recover itself from seeing a CRISPR region, and will end up braking up your contigs during the reconstruction. Wagner's group overcame this limitation of the assembly by using MinION reads.
+This view is probably not very surprising to people who study CRISPRs. Seeing the tremendous amount of diversity within the spacer / repeat region that follow Cas operons even within a rather homogeneous population of Nitrospira coming from an enrichment is still striking to me. It is a mess, but fortunately not a random one either; usually competing nucleotide identities at variable positions match across four samples:
 
-While looking at this data I also realized that every CRISPR-associated protein I find in a contig collection from any metagenomic assembly *should be* at the very end of contigs in which they are identified. Of course repeats in CRISPR spacer region is only one of the issues that fragment our otherwise beautiful contigs, but it is something that is easier to test since the spacer region follows the well-described Cas operons we can look for. I took one of the assemblies Tom created from an ocean sample, and searched for CRISPR-associated proteins, and look what I've found:
+<div class="centerimg">
+<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/crispr-split-zoom.png"><img width="80%" src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/crispr-split-zoom.png" /></a>
+</div>
+
+### Breaking news: CRISPRs break your contigs ...
+
+I also took multiple short reads Bowtie2 mapped to this crazy variable region, and BLASTed them against the genome. The result was quite scary: each read was broken into multiple alignments, and aligned to slightly different parts of this repeat region. This is *exactly* why your de brujin graph resolving assembler using short reads will never be able to recover itself from seeing a CRISPR region, and will end up braking up your contigs during the reconstruction. Wagner's group overcame this limitation of the assembly by using MinION reads.
+
+While looking at this data I also realized that every CRISPR-associated protein I find in a contig collection from any metagenomic assembly *should be* at the very end of contigs in which they are identified. Of course repeats in CRISPR spacer region is only one of the issues that fragment our otherwise beautiful contigs, but it is something that is easier to test since the spacer region follows the well-described Cas operons we can look for. I took one of the assemblies Tom created from an ocean sample, and searched for CRISPR-associated proteins, and look what I've found:
+
 |Contig|Contig length|Gene name|Gene start|Gene end|
 |:--|:--:|:--:|:--:|:--:|
 |contig_x|**5305**|CRISPR-associated protein, Csy3 family|3319|**4323**|
@@ -214,7 +224,8 @@ While looking at this data I also realized that every CRISPR-associated protein 
 |contig_n|**12451**|CRISPR-associated protein, Csd1 family|12064|**12393**|
 
 They are truly towards the end of each contig. Scars of a nightmare the assembler run into.
-### What if we tried a different mapping software?
+
+### What if we tried a different mapping software?
 
 The two screenshots from the CRISPR region is clearly concerning. That shows how many mismatches Bowtie2 allows by its default parameters. Just to see whether the story changes at all, I mapped all short reads from ENR4-A back to the genome using both Bowtie2 *and* BWA (aln and mem), and by using multiple values for number of mismatches allowed for aln (via *n*) and different seed lengths for mem (via *K*). The overall pattern of variability within these genomes did not change:
 
@@ -225,13 +236,13 @@ The two screenshots from the CRISPR region is clearly concerning. That shows how
 However, the mean coverage for highly-variable splits **did** change from one mapping to another. For instance, this is how these different mapping software compare to each other at the variable region in split 499 (see the figure above):
 
 <div class="centerimg">
-<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/crispr-split-multiple-mappers.png"><img src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/crispr-split-multiple-mappers.png" /></a>
+<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/crispr-split-multiple-mappers.png"><img width="80%" src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/crispr-split-multiple-mappers.png" /></a>
 </div>
 
 Bowtie2 does a great job mapping anything and everything to the best context it can find. But when I made mapping a bit more stringent by playing BWA's parameters, a sharp decline in coverage in the spacer / repeat region has emerged. Here, it is much more clear at the very beginning of the spacer / split region, right after Cas operons:
 
 <div class="centerimg">
-<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/crispr-beginning-of-repeat.png"><img src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/crispr-beginning-of-repeat.png" /></a>
+<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/crispr-beginning-of-repeat.png"><img width="80%" src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/crispr-beginning-of-repeat.png" /></a>
 </div>
 
 While the coverage with BWA MEM K200 drops almost 70%, it only drops about 20% with Bowtie2. The reads Bowtie2 manage to map indeed results in lots and lots of variable positions due to *non-specific* mapping.
@@ -258,19 +269,19 @@ Then I continued.
 Decrease in the coverage around CRISPR operons is interesting, but I guess it is somewhat expected. On the other hand, a quick inspection of the 'amo' locus does show a clear decrease in the coverage of one of the genes in all four samples as well:
 
 <div class="centerimg">
-<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/subunit-C.png"><img src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/subunit-C.png" style="border: None;" /></a>
+<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/subunit-C.png"><img width="80%" src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/subunit-C.png" style="border: None;" /></a>
 </div>
 
 The annotation indicates that this gene is AmoC:
 
 <div class="centerimg">
-<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/subunit-C-w-annotation.png"><img src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/subunit-C-w-annotation.png" style="border: None;" /></a>
+<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/subunit-C-w-annotation.png"><img width="80%" src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/subunit-C-w-annotation.png" style="border: None;" /></a>
 </div>
 
 And mapping with BWA confirms the trend is not specific to Bowtie2:
 
 <div class="centerimg">
-<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/AmoC-different-mappers.png"><img src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/AmoC-different-mappers.png" style="border: None;" /></a>
+<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/AmoC-different-mappers.png"><img width="80%" src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/AmoC-different-mappers.png" style="border: None;" /></a>
 </div>
 
 The paper mentions that there are three copies of this gene in the genome.
@@ -299,7 +310,7 @@ One of the output files, `AmoC-report.txt` shows the IDs of these three genes in
 Inspecting splits 368, 606, and 895 showed that the drop in coverage for AmoC is common to all (sorry for the poor screenshot work for split 606, the gene was cut right in the middle, and the scales between the two splits differed):
 
 <div class="centerimg">
-<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/AmoC-in-different-contexts.png"><img src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/AmoC-in-different-contexts.png" style="border: None;" /></a>
+<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/AmoC-in-different-contexts.png"><img width="80%" src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/AmoC-in-different-contexts.png" style="border: None;" /></a>
 </div>
 
 To see which of the two are identical, I asked anvi'o to give me back the sequences for all these three AmoC genes from the genome:
@@ -412,7 +423,7 @@ One question worth going after is this: are the low frequency nucleotides at var
 Let's focus on these three nucleotide positions in AmoC-1735-in-split-895:
 
 <div class="centerimg">
-<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/subunit-C-high-variability.png"><img src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/subunit-C-high-variability.png" style="border: None;" /></a>
+<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/subunit-C-high-variability.png"><img width="80%" src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/subunit-C-high-variability.png" style="border: None;" /></a>
 </div>
 
 If you look at the alignment of three AmoC genes, you will realize that the variable positions in this figure correspond to the following positions where two unique AmoC differ in this genome:
@@ -533,7 +544,7 @@ Here is our answer:
 It seems the variation is not random, and it mostly is created by two read families. Here is a simple visualization of this matrix to make it even more obvious:
 
 <div class="centerimg">
-<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/AmoC-oligotypes-with-three-locations.png"><img src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/AmoC-oligotypes-with-three-locations.png" width="40%" /></a>
+<a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/AmoC-oligotypes-with-three-locations.png"><img width="80%" src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/AmoC-oligotypes-with-three-locations.png" width="40%" /></a>
 </div>
 
 And by the way, yes, ENR3 samples and ENR6 do group separately based on the oligotypes (this is an MDS ordination generated by `metaMDS` in `vegan`):
