@@ -13,7 +13,7 @@ authors: [meren]
 
 There is no clear "*take home message*" in this post. But if you are in the mood for some serious procrastination, please go ahead and read it at your own risk. You will find some insights into a metagenomic dataset, and at the end you may end up finding yourself inspired to look into the details of your own metagenomes in similar ways.
 
-The reason there is no clear take home message is probably because even the simplest meatgenome is too complex to make *complete* sense of it. This is partially due to the complexity of microbial life really, but the rest of the complexity is just the noise and bias we introduce way before we start seeing figures from our data. Even a single thread of questioning that involves a fraction of the picture can go too deep to reach its end in a reasonable amount of time and effort. I think that's what happened here as well, and I believe this post will provide a glimpse into that, too.
+The reason there is no clear take home message is probably because even the simplest meatgenome is too complex to make *complete* sense of it. This is partially due to the complexity of microbial life really, but the rest of it is just the noise and bias we introduce way before we start seeing figures from our data. Even a single thread of questioning that involves a fraction of the picture can go too deep to reach its end in a reasonable amount of time and effort. I think that's what happened here as well, and I believe this post will provide a glimpse into that, too.
 
 I always see people who write well start their pieces with an insightful and fitting quote from an inspirational person. So here is mine:
 
@@ -49,13 +49,15 @@ Before I continue with the data, I would like to have a monologue with all the c
 <a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/raw-data.png"><img src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/raw-data.png" width="40%" /></a>
 </div>
 
-If you are an editor, and don't see a "data availability" section in a manuscript, do science a favor and **don't send it out for review**. If you are a reviewer who is asked to review a paper without any reported raw data, **don't review it**, and send back an immediate correspondence to the editor to remind them that what they sent out for review is better classified as fiction in its current form. Yes, you may not have the time, the expertise, or the interest to go through all the data to make sure the critical claims in the manuscript are safe and sound. But if you at least pursue the authors publish their raw data together with their manuscript, the community can identify if there is an outstanding problem. [Here is a paper](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002541) that was not properly reviewed, and [here is a review](http://bib.oxfordjournals.org/content/early/2013/05/22/bib.bbt010.full) that was done by the community to fix the error. So this really works when you don't shoot us in the foot by not making sure the raw data is available.
+If you are an editor, and don't see a "data availability" section in a manuscript, do science a favor and **don't send it out for review**. If you are a reviewer who is asked to review a paper without any reported raw data, **don't review it**, and send back an immediate correspondence to the editor to remind them that what they sent out for review is better classified as fiction in its current form. Yes, you may not have the time, the expertise, or the interest to go through all the data to make sure the critical claims in the manuscript are safe and sound. But if you at least pursue the authors to make their raw data available together with their manuscript, the community can identify if there is an outstanding problem. [Here is a paper](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002541) that was not properly reviewed, and [here is a review](http://bib.oxfordjournals.org/content/early/2013/05/22/bib.bbt010.full) that was done by the community to fix the error. So this really works when you don't shoot us in the foot by not making sure the raw data is published.
 
 So, do your job.
 
 ---
 
-OK. Going back on track: The study done by Wagner's group is a very elaborate one. If you have read the paper, this post probably will make more sense to you, but if you didn't, here is a quick and unfair recap of what they did:
+OK.
+
+The study done by Wagner's group is a very elaborate one. If you have read the paper, this post probably will make more sense to you, but if you didn't, here is a quick and unfair recap of what they did:
 
 * They sampled a microbial biofilm from a pipe used in a deep oil exploration well.
 * They incubated the sample in specific conditions to enrich the ammonia-oxidizing microbes.
@@ -72,9 +74,9 @@ Overall, there is nothing alarming with their analyses, and if you are one of th
 
 That being said, there *are* some interesting things about this genome that puzzled me.
 
-In the following sections I will write about my journey in this dataset while I will point out things that I couldn't fully answer. As I will jump from one random thing to another, I hope the reader will be inspired by the potential uses of the platform we are working on, and see how easily one can go after challenging questions with it. If you don't have much experience with metagenomes, you may also appreciate the challenges of working with metagenomic data (especially if you want to be meticulous), and see how easy it is to get lost in metagenomes forever and ever.
+In the following sections I will write about my journey in this dataset while I will point out things that I couldn't fully answer. As I will jump from one random thing to another, I hope the reader will be inspired by the potential uses of the platform we are working on, and see how easily one can go after challenging questions with it. If you don't have much experience with metagenomes, you may also appreciate the challenges of working with metagenomic data (especially if you want to be meticulous).
 
-I used the v2 clade of anvi'o for all these analyses, which is not available as a stable distribution yet, but you can install the unstable version through [our github repository](https://github.com/meren/anvio/) following the [installation instructions]({% post_url anvio/2015-05-01-installation %}) for "semi-pro" mode. You can find the essential anvi'o files [here](http://dx.doi.org/10.6084/m9.figshare.1621535) if you would like to reproduce any of the command lines in this text. For instance you can start with this one, which will start the interactive anvi'o environment:
+I used the v2 clade of anvi'o for all these analyses, which is not available as a stable distribution yet, but you still can install it through [our github repository](https://github.com/meren/anvio/) following the [installation instructions]({% post_url anvio/2015-05-01-installation %}) for "semi-pro" mode. You can find the essential anvi'o files [here](http://dx.doi.org/10.6084/m9.figshare.1621535) if you would like to reproduce any of the command lines in this text. For instance you can start with this one, which will start the interactive anvi'o environment:
 
 {% highlight bash %}
 $ anvi-interactive -p PROFILE.db -c CONTIGS.db --state state
@@ -94,7 +96,7 @@ Each bar in the following figures represents a 2,000 nt long split from the geno
 <a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/portion_covered.png"><img width="80%" src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/portion_covered.png" /></a>
 </div>
 
-Blue selections indicate the three loci that are key for nitrification. If you go clockwise, they correspond to **hao**, **amo**, and **nxr**, respectively (see the loci figure above).
+Blue selections indicate the three loci that are key for nitrification. If you go clockwise, they correspond to **hao**, **nxr**, and **amo**, respectively (see the loci figure above).
 
 The second thing we generally do is to take a look at the mean coverage of each split:
 
@@ -108,7 +110,7 @@ Among multiple sections with inconsistent coverage across the genome, one is pre
 <a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/standard_deviation.png"><img width="80%" src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/standard_deviation.png" /></a>
 </div>
 
-Inspecting the split with highest standard deviation (the one around 10:30 o'clock in the figure above) shows some evidence for potentially faulty assembly since this is not something you expect to see from a circular / complete genome:
+Inspecting the split with the highest standard deviation (the one around 10:30 o'clock in the figure above) shows some evidence for potentially faulty assembly since this is not something you expect to see from a circular / complete genome:
 
 <div class="centerimg">
 <a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/highest_std_split.png"><img width="80%" src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/highest_std_split.png" /></a>
@@ -132,7 +134,7 @@ The other two in the top three are [this one](https://www.ncbi.nlm.nih.gov/prote
 
 So yes, this gene is not chimeric, but according to the mapping, there is something weird going on with it. This is not a unique example, and the presence of these sudden drops in coverage may be suggesting that the genome needs more work to be considered "final final". Although, it may also be the case that this genome is already the best genome that could be generated from this dataset.
 
-Because I tend to get obsessed with things, I also did something rather time-consuming: I took all short reads from the three ENR4 samples, and one ENR6 sample, trimmed them to 150nts to avoid poor quality ends of both reads in each pair, and co-assembled them using [MEGAHIT](https://github.com/voutcn/megahit). Then I BLAST'ed each split in Wagner's Nitrospira genome against the resulting contigs from the assembly. Then I wrote a Python script to make sense of the BLAST result. A total of 2,187,422 nts from the assembly matched to the Nitrospira final genome. In other words, my quick assembly recovered about 66% of the genome. And the average nucleotide identity between the matching 66% was 98.9%. It is normal that my assembly recovered only two-thirds of the genome since I didn't use longer reads as Wagner's group did, but the difference in nucleotide identity was surprising to me. On the other hand, although I am not sure which assembly is less right, 1% divergence may not be too concerning. I simply don't know.
+I also did an alternative assembly: I took all short reads from the three ENR4 samples, and one ENR6 sample, trimmed them to 150nts to avoid poor quality ends of both reads in each pair, and co-assembled them using [MEGAHIT](https://github.com/voutcn/megahit). Then I BLAST'ed each split in Wagner's Nitrospira genome against the resulting contigs from the assembly. Then I wrote a Python script to make sense of the BLAST result. A total of 2,187,422 nts from the assembly matched to the Nitrospira final genome. In other words, my assembly of their data recovered about 66% of the *Ca.* N. inopinata genome. And the average nucleotide identity between the matching 66% was 98.9%. It is normal that my assembly recovered only two-thirds of the genome since I didn't use longer reads as Wagner's group did, but the difference in nucleotide identity was surprising to me. On the other hand, although I am not sure which assembly is less right, 1% divergence may not be too concerning. I simply don't know.
 
 OK, enough of this. Let's finally take a look from the [variability view]({% post_url anvio/2015-07-20-analyzing-variability %}), which shows the summary of the density of variation at each nucleotide position for each split based on mapped short reads:
 
