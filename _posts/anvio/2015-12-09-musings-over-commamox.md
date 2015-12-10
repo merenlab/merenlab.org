@@ -35,7 +35,7 @@ The story is quite a fascinating one even if you are not a microbiologist, and t
 <blockquote class="twitter-tweet tw-align-center" lang="en" style="width: 100%;"><p lang="en" dir="ltr">I can&#39;t believe there is no raw data for the complete nitrification paper. <a href="https://twitter.com/nature">@Nature</a>, how do your reviewers even review these submissions?</p>&mdash; A. Murat Eren (@merenbey) <a href="https://twitter.com/merenbey/status/670319871666872320">November 27, 2015</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-But in return, I heard from [Michael Wagner](https://microbial-ecology.net), the senior and corresponding author of another study on the same subject with a very similar title, which was even to appear in the same issue of Nature:
+But in return, I heard from [Michael Wagner](http://www.microbial-ecology.net/), the senior and corresponding author of another study on the same subject with a very similar title, which was even to appear in the same issue of Nature:
 
 * [Complete nitrification by *Nitrospira* bacteria](http://www.nature.com/nature/journal/vnfv/ncurrent/full/nature16461.html)
 
@@ -616,4 +616,4 @@ Here where I keep my promise I made at the very beginning: There are no final wo
 
 I am learning to accept to fact that we are going to be missing a great deal of things, and left great deal of questions unanswered even when we do our best with our data, and that's OK. Because at some point one has to stop analyzing, and write the study. But making sure the raw data is available is critical. Even the simplest metagenomes are too complex to fully describe, and I have so much respect for people who got us all this far.
 
-I also thank [Michael Wagner](https://microbial-ecology.net) and his colleagues for their contribution.
+I also thank [Michael Wagner](http://www.microbial-ecology.net/) and his colleagues for their contribution.
