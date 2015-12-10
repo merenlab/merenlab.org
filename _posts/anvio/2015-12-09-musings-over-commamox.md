@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A bioinformaticians journey in a metagenomic dataset"
+title: "A short journey into a metagenomic dataset"
 excerpt: "Musings over a *Nitrospira* genome that can do complete nitrification"
 modified: 2015-12-09
 tags: [othersdata]
