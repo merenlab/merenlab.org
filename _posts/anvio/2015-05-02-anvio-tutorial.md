@@ -102,7 +102,7 @@ anvi-populate-genes-table -c contigs.db -p myrast_cmdline_dont_use -i svr_assign
 
 Once you have RAST annotations, I suggest you to run the following command to export the information from the table into a more native matrix form and store it separately (if you take a look at the exported matrix, you will see that it is a simpler, and more standard form of what we got from RAST):
 
-    anvi-export-genes-table contigs.db -o rast_annotation.txt
+    anvi-export-genes-table -c contigs.db -o rast_annotation.txt
 
 If you have to re-create the contigs database for some reason, you can now use this newly generated file (`rast_annotation.txt`) to repopulate the contigs database instead of querying RAST again using the following command:
 
@@ -250,7 +250,7 @@ Please read [this article]({% post_url anvio/2015-05-11-anvi-refine %}) for a co
 
 # FAQ
 
-### I run into an issue, who's fault is it?
+### I run into an issue, whose fault is it?
 
 It is Tom's. But you can always enter a [bug report](https://github.com/meren/anvio/issues) if you are certain that it needs to be fixed in the anvi'o code base. If you are not sure, please come to [the anvi'o discussion group]({% post_url anvio/2015-10-14-anvio-discussion-group %}), and let's talk about it!
 
