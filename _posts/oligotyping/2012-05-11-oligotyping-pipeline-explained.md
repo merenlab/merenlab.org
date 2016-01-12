@@ -66,7 +66,7 @@ It is not complicated, but it is a requirement for running the pipeline properly
 ## The Alignment
 
 {: .notice}
-**Note**: Please, please read this article to better undersatnd what alignment means for the oligotyping.
+**Note**: Please, please read <a href="{% post_url oligotyping/2014-09-14-oligotyping-and-alignment %}">this article</a> to better undersatnd what alignment means for the oligotyping.
 
 Because we are working with amplicon sequences, our reads are already aligned in a sense (since, thanks to our primers, they are all coming from an evolutionarily homologous region of all genomes we found in our samples). I will try to give a practical recap here, but please read the “Materials and methods” section of the [oligotyping methods paper](http://onlinelibrary.wiley.com/doi/10.1111/2041-210X.12114/abstract) for a much better description of why and when alignment is necessary.
 
