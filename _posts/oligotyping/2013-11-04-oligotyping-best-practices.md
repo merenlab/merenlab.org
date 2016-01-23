@@ -54,9 +54,9 @@ Figure below shows the output of the previous command. Most positions are highly
 
 The initial round of oligotyping in this analysis set `n=1` (which corresponds to Box 2 in the flowchart figure). The oligotyping pipeline will use the location of the highest entropy peak (which happens to be position 10) to generate the first round of oligotypes. The exact command to perform this operation is this:
 
-    oligotype mock.fa mock.fa-ENTROPY -c 1 -M 50 --gen-html
+    oligotype mock.fa mock.fa-ENTROPY -c 1 -M 50
 
-where `mock.fa-ENTROPY` is the file that was generated after the initial entropy analysis. The `--gen-html` flag generates output that is required for further supervision. `-M` is the minimum substantive abundance parameter. You may see the Methods section in the oligotyping manuscript for the detailed explanation for it, but In briefly, it is for noise removal and tells the pipeline to eliminate any oligotype in which the frequency of the most abundant unique sequence is below `-M`.
+where `mock.fa-ENTROPY` is the file that was generated after the initial entropy analysis. `-M` is the minimum substantive abundance parameter. You may see the Methods section in the oligotyping manuscript for the detailed explanation for it, but In briefly, it is for noise removal and tells the pipeline to eliminate any oligotype in which the frequency of the most abundant unique sequence is below `-M`.
 
 Oligotyping analysis of mock.fa using the highest entropy location, position 10, identifies 3 oligotypes: `C` (383,788 reads), `G` (297,937 reads) and `T` (177,577 reads). The HTML output for this analysis can be viewed using the web address [http://goo.gl/oY8dD](http://goo.gl/oY8dD) (please visit this link and follow the steps described here using the analysis results provided). Figure below shows the distribution profiles of these oligotypes among three samples:
 
@@ -78,7 +78,7 @@ The pipeline’s output for oligotype C ([http://goo.gl/50Ihp](http://goo.gl/50I
 
 Oligotype G’s entropy profile ([http://goo.gl/ps0LS](http://goo.gl/ps0LS)) reveals that the 48th, 56th, 57th, 76th, 80th, 81st, 91st, 92nd, 93rd and 97th positions exhibit variation and hence information content that can further explain the diversity confined in this oligotype. Similar to the case of oligotype C, the 48th position (closest to the beginning of the alignment) might further partition oligotype G. However, the candidate sites in both oligotypes C and G include the 57th position (see Fig. S8). By using this site, the analysis will require only two positions (10th and 57th), instead of three (10th, 51st and 48th) in the second round of oligotyping. To obtain further resolution using the 10th and 57th positions to partition the sequence alignment mock.fa, the second round of oligotyping in this example run by this command:
 
-    oligotype mock.fa mock.fa-ENTROPY -C 10,57 -M 50 --gen-html
+    oligotype mock.fa mock.fa-ENTROPY -C 10,57 -M 50
 
 Note the use of `-C` followed by the comma separated list of chosen locations, instead of `-c` used in the first round followed by the number of maximum entropy locations.
 

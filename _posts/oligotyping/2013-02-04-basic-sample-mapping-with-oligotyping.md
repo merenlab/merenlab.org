@@ -48,7 +48,7 @@ If you wish, you can create a mapping file by first running your oligotyping ana
 
 ### Letting the pipeline know that you have a mapping file
 
-Once you have your mapping file ready, all you need to do is to add `-E mapping.txt` to your parameters when you run oligotyping, and you will see new sections included in your HTML-OUTPUT (which, also requires you to add `--gen-html` flag to your command). 
+Once you have your mapping file ready, all you need to do is to add `-E mapping.txt` to your parameters when you run oligotyping, and you will see new sections included in your HTML-OUTPUT. 
 
 Each variable defined in the mapping file becomes a subsection in the Exclusive Analyses section of your HTML output, under which NMDS plots with 5 different distance metrics will be shown. Samples are being colored depending on which category they belong to, and dispersion ellipses are being drawn to visually explain the similarity or dissimilarities of different groups.
 
