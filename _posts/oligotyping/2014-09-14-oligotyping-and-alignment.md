@@ -31,11 +31,11 @@ For the lazy, here is a copy-paste from that post to address common cases. First
 
 Second, for people who work with 454 data:
 
-* Case 4: "**I have 454 data, my reads are not aligned, but they are equal in length**": Align them using PyNAST (because someone trimmed them in a meaningless way), then trim from the end of the alignment to have a nice rectangle filled with nucleotides (so it doesn’t look like this) before the oligotyping / MED analysis.
+* Case 4: "**I have 454 data, my reads are not aligned, but they are equal in length**": Align them using PyNAST, because someone trimmed your reads in a meaningless way. Follow the instructions in Case 5.
 
-- Case 5: **"I have 454 data, the quality filtering I used trimmed them from random locations**":  Remove 10% of the shortest reads from your dataset, trim the remaining reads to the shortest one left in the dataset, align them using PyNAST, then RE-TRIM the aligned reads to a have a nice rectangle filled with nucleotides before the oligotyping / MED analysis.
+- Case 5: **"I have 454 data, the quality filtering I used trimmed them from random locations**": Align them using PyNAST against GreenGenes template, use `o-trim-uninformative-columns-from-alignment` script to remove columns of gap characters without any nucleotide information, then *RE-TRIM* the resulting alignment using `o-smart-trim` program with `--from-end` (if you have your forward primer intact) or `--from-start` (if your reverse primer intact) to a have a nicely trimmed dataset before the oligotyping / MED analysis. If you are not sure whether you are doing the right thing, send an e-mail to Meren.
 
-* Case 6: "**I have 454 data, all my reads reach to the distal primer, and I trimmed them all from the primer location**": Align your reads using PyNAST, and you are ready to go.
+* Case 6: "**I have 454 data, all my reads reach to the distal primer, and I trimmed them all from the primer location**": Align your reads using PyNAST, use `o-trim-uninformative-columns-from-alignment` script to remove columns of gap characters without any nucleotide information, and you are ready to go.
 
 ---
 
