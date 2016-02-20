@@ -54,7 +54,7 @@ sudo cp prodigal /usr/bin/
 {% endhighlight %}
 </div>
 
-* [HMMer](http://hmmer.janelia.org/) (go to your terminal, type `hmmscan`, if you get an error, you need to install this one). It is quite easy to install. Go to the downloads page, [http://hmmer.janelia.org/download.html](http://hmmer.janelia.org/download.html), download the *source* for the latest version, unpack it, go into that directory with your terminal, and then type (don't forget to check whether it is installed properly by typing `hmmscan` again after installation):
+* [HMMer](http://hmmer.org/) (go to your terminal, type `hmmscan`, if you get an error, you need to install this one). It is quite easy to install. Go to the downloads page, [http://hmmer.org/download.html](http://hmmer.org/download.html), download the *source* for the latest version, unpack it, go into that directory with your terminal, and then type (don't forget to check whether it is installed properly by typing `hmmscan` again after installation):
 
 <div style="padding-left:30px">
 {% highlight bash %}
