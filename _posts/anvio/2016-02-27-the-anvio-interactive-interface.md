@@ -1,0 +1,237 @@
+---
+layout: post
+title: "The anvi'o interactive interface"
+excerpt: "Data types, usage tips, and other stuff about the interface"
+modified: 2016-02-27
+tags: [interactive]
+categories: [anvio]
+comments: true
+authors: [meren, ozcan]
+---
+
+{% include _toc.html %}
+
+<p style="text-align: right; font-style: italic; color: #AAAAAA;">This document last updated on March 1<sup>st</sup>, 2016.</p>
+
+Anvi'o is a comprehensive 'omics platform with a large codebase to perform [wide range of tasks](https://github.com/meren/anvio/tree/master/bin){:target="_blank"}, and [in-depth analyses]({% post_url anvio/2015-12-09-musings-over-commamox %}){:target="_blank"} of large datasets.
+
+With anvi'o you can do [metagenomic binning](https://peerj.com/articles/1319/){:target="_blank"}, characterize [single-nucleotide variation]({% post_url anvio/2015-07-20-analyzing-variability %}){:target="_blank"}, study [bacterial pangenomes]({% post_url anvio/2015-11-14-pangenomics %}){:target="_blank"}, [benchmark]({% post_url anvio/2015-06-23-comparing-different-mapping-software %}){:target="_blank"} software tools, predict [number of bacterial genomes in a metagenomic assembly](2015-12-07-predicting-number-of-genomes){:target="_blank"}, or even [remove contamination from eukaryotic assembly projects](https://peerj.com/preprints/1695/){:target="_blank"}. Anvi'o's 'versatility' partly comes from its integrated visualization framework that allows the user to *see* all these different types of data, and *interact* with them.
+
+<div class="centerimg">
+<img src="http://i.imgur.com/d1c7bUY.png?1" style="margin: 3px;" />
+<img src="http://i.imgur.com/tIG2ZMJ.png?1" style="margin: 3px;" />
+<img src="http://i.imgur.com/ILhiAbP.png?1" style="margin: 3px;" />
+<img src="http://i.imgur.com/T36nS6D.png?1" style="margin: 3px;" />
+<img src="http://i.imgur.com/iGuCRnu.jpg?1" style="margin: 3px;" />
+</div>
+
+The anvi'o interactive interface is a fully customizable visualization environment that is accessible through an intuitive interface to efficiently visualize complex data. It can handle large datasets, and it's [source code](http://github.com/meren/anvio){:target="_blank"} is freely available within the anvi'o platfrom.
+
+Although it is fully integrated with core anvi'o operations detailed in [the metagenomic workflow tutorial]({% post_url anvio/2015-05-02-anvio-tutorial %}){:target="_blank"}, the visualization environment can be initiated in an *ad hoc* manner by using the `anvi-interactive` program with `--manual-mode` flag, or through anvi'server, without an anvi'o installation. In summary, if you have a matrix file, anvi'o may be useful to you to generate high-quality, publication-ready figures with mouse clicks.
+
+**The purpose** of this article is to provide a more detailed description of the interface by demonstrating the data types the interface can work with, and later details of the user interface. 
+
+---
+
+<h3>A little note on our ongoing project, anvi'server</h3>
+
+To make the anvi'o interactive interface more accessible, we teamed up with [Tobias Paczian](https://github.com/paczian){:target="_blank"}, and with his remarkable efforts created a web service. This new service, which we call **anvi'server**, is now running at [http://anvi-server.org](http://anvi-server.org){:target="_blank"}. Through anvi'server, you can perform anvi'o visualizations by uploading your data through a simple interface:
+
+<div class="centerimg">
+<a href="{{ site.url }}/images/anvio/2016-02-27-the-anvio-interactive-interface/upload-project.png"><img src="{{ site.url }}/images/anvio/2016-02-27-the-anvio-interactive-interface/upload-project.png" width="30%" /></a>
+</div>
+
+Topics covered for the remainder of this article are directly applicable to the interactive interface whether it is accessed through local anvi'o installations, or through the anvi'server.
+
+{:.notice}
+Please note that the anvi'server is under active development, and your testing efforts will be greatly appreciated. Please don't hesitate to get in touch with us if you have any questions.
+
+---
+
+# 1. Data types the interactive interface works with
+
+ 
+
+The purpose of this section is to provide examples for each of the data type the interactive interface can work with. For this, I will start with a simple tree, and add layers step by step to describe different data types.
+
+You can follow these examples in two ways:
+
+* **Using anvi-interactive in your terminal**: For each data type I will either provide a link to the files used in the example command line, or give an example file structure so you can try them on your own files.
+* **Using [http://anvi-server.org](http://anvi-server.org){:target="_blank"}**: The other option is to use our new anvi'server without installing anvi'o. If your only purpose with the interactive interface is to do an *ad hoc* visualization, I think this would be the best way to go. Otherwise you can read about the [ways to install the platform]({% post_url anvio/2015-05-01-installation %}) on your own server or laptop.
+
+{:.notice}
+Command lines mentioned in this article are run on anvi'o version 2 or later. You can check your verison using `anvi-profile -v`.
+
+OK. Let's start.
+
+## 1.1 Newick tree
+
+The least you can do with the anvi'o interactive interface would be to visualize a newick-formatted tree. The [tree file](https://github.com/meren/anvio/blob/master/tests/sandbox/files_for_manual_interactive/tree.txt){:target="_blank"} I use for this example contains 300 leaves. This is how I run the interactive interface from the command line:
+
+{% highlight bash %}
+anvi-interactive -t tree.txt -p profile.db --title 'Interface Demo I' --manual
+{% endhighlight %}
+
+Which gives me this:
+
+<div class="centerimg">
+<a href="{{ site.url }}/images/anvio/2016-02-27-the-anvio-interactive-interface/01.png"><img src="{{ site.url }}/images/anvio/2016-02-27-the-anvio-interactive-interface/01.png" width="50%" /></a>
+</div>
+
+{:.notice}
+Here is the anvi'server link for this visualization: [http://anvi-server.org/public/meren/interface_demo_I](http://anvi-server.org/public/meren/interface_demo_I){:target="_blank"}
+
+
+## 1.2 Numerical
+
+Let's assume you for each item you have in the previous tree, you have multiple numerical values you want to overlay on the tree in a TAB-delimited matrix file that looks [like this](https://github.com/meren/anvio/blob/master/tests/sandbox/files_for_manual_interactive/view_data.txt){:target="_blank"}:
+
+|contig|c1|c2|c3|
+|:--|:--:|:--:|:--:|
+|cathetus|13.66596066|9.590942918|46.01477372|
+|centrist|11.32571669|10.08709331|36.11828559|
+|cascaded|10.82858312|6.312884813|34.50972839|
+|crocking|12.46382532|6.595503878|42.43493547|
+|cinchona|12.78031823|8.77463282|30.56242617|
+|couchant|11.90769144|4.366432391|46.86065633|
+|creviced|12.88691388|9.368377696|42.06930372|
+|clovered|10.51030592|8.200407215|27.51057477|
+|contempt|11.25596871|7.310381191|28.93509622|
+|(...)|(...)|(...)|(...)|
+
+This data can be visualized along with the tree this way:
+
+{% highlight bash %}
+anvi-interactive -t tree.txt -d view_data.txt -p profile.db --title 'Interface Demo II' --manual
+{% endhighlight %}
+
+<div class="centerimg">
+<a href="{{ site.url }}/images/anvio/2016-02-27-the-anvio-interactive-interface/02.png"><img src="{{ site.url }}/images/anvio/2016-02-27-the-anvio-interactive-interface/02.png" width="50%" /></a>
+</div>
+
+{:.notice}
+Here is the anvi'server link for this visualization: [http://anvi-server.org/public/meren/interface_demo_II](http://anvi-server.org/public/meren/interface_demo_II){:target="_blank"}
+
+*If you only have this matrix file but not the tree file, you can run this command to get the tree file:*
+
+{% highlight bash %}
+anvi-matrix-to-newick view_data.txt -o tree.txt
+{% endhighlight %}
+
+## 1.3 Text
+
+Adding a text layer is as simple as adding a column of text values in your matrix file:
+
+|contig|c1|c2|c3|text|
+|:--|:--:|:--:|:--:|:--|
+|backrest|11.68762604|31.81211217|16.14890468|nmwje|
+|backward|8.383113248|36.27705135|12.26495265|bqmyujrpsrddoefhi|
+|backwind|14.30588649|33.19818058|13.90379515|hkferlchpmzix|
+|backyard|12.98490431|35.1528258|14.2861336|advoebfkyhmg|
+|bacteria|6.655636411|34.45757002|13.67026608|lqmcwnhywco|
+|bacterin|7.664397508|35.28860294|16.85214201|vxqdmn|
+|baetylus|13.72179583|32.81162715|14.83756192|fkgpydiowgyhfxxwlpj|
+|bagpiped|9.095058043|33.0406183|13.48649074|ijmnur|
+|balconet|10.94823472|33.03846226|16.87202682|ecizgs|
+|(...)|(...)|(...)|(...)|(...)|
+
+Now I can run the same command on this updated matrix file:
+
+{% highlight bash %}
+anvi-interactive -t tree.txt -d view_data.txt -p profile.db --title 'Interface Demo III' --manual
+{% endhighlight %}
+
+And here is the result:
+
+<div class="centerimg">
+<a href="{{ site.url }}/images/anvio/2016-02-27-the-anvio-interactive-interface/03.png"><img src="{{ site.url }}/images/anvio/2016-02-27-the-anvio-interactive-interface/03.png" width="50%" /></a>
+</div>
+
+{:.notice}
+Anvi'server link: [http://anvi-server.org/public/meren/interface_demo_III](http://anvi-server.org/public/meren/interface_demo_III){:target="_blank"}
+
+Please note that when I first visualized only the tree file, there were labels for each leaf. However, when I visualized the tree file along with the data, labels disappeared. Anvi'o is designed to visualize trees with thousands of items, where having labels rarely is useful. Therefore the default behavior of the visualization interface is to omit labels when there is data, and labels are shown only when the user wants to visualize a single tree. If you would like to show labels, you can simply use the text data type to duplicate the first column in your matrix file:
+
+|contig|labels|c1|c2|c3|text|
+|:--|:--|:--:|:--:|:--:|:--|
+|backrest|backrest|11.68762604|31.81211217|16.14890468|nmwje|
+|backward|backward|8.383113248|36.27705135|12.26495265|bqmyujrpsrddoefhi|
+|backwind|backwind|14.30588649|33.19818058|13.90379515|hkferlchpmzix|
+|backyard|backyard|12.98490431|35.1528258|14.2861336|advoebfkyhmg|
+|bacteria|bacteria|6.655636411|34.45757002|13.67026608|lqmcwnhywco|
+|bacterin|bacterin|7.664397508|35.28860294|16.85214201|vxqdmn|
+|baetylus|baetylus|13.72179583|32.81162715|14.83756192|fkgpydiowgyhfxxwlpj|
+|bagpiped|bagpiped|9.095058043|33.0406183|13.48649074|ijmnur|
+|balconet|balconet|10.94823472|33.03846226|16.87202682|ecizgs|
+|(...)|(...)|(...)|(...)|(...)|(...)|
+
+
+## 1.4 Categorical
+
+Here I am adding a column of categorical data in the same file:
+
+|contig|c1|c2|c3|categorical|text|
+|:--|:--:|:--:|:--:|:--:|:--|
+|backrest|11.68762604|31.81211217|16.14890468|a|nmwje|
+|backward|8.383113248|36.27705135|12.26495265|a|bqmyujrpsrddoefhi|
+|backwind|14.30588649|33.19818058|13.90379515|b|hkferlchpmzix|
+|backyard|12.98490431|35.1528258|14.2861336|b|advoebfkyhmg|
+|bacteria|6.655636411|34.45757002|13.67026608|b|lqmcwnhywco|
+|bacterin|7.664397508|35.28860294|16.85214201|c|vxqdmn|
+|baetylus|13.72179583|32.81162715|14.83756192|c|fkgpydiowgyhfxxwlpj|
+|bagpiped|9.095058043|33.0406183|13.48649074|c|ijmnur|
+|balconet|10.94823472|33.03846226|16.87202682|c|ecizgs|
+|(...)|(...)|(...)|(...)|(...)|(...)|
+
+The same command line for the matrix file above:
+
+{% highlight bash %}
+anvi-interactive -t tree.txt -d view_data.txt -p profile.db --title 'Interface Demo IV' --manual
+{% endhighlight %}
+
+Produces this:
+
+<div class="centerimg">
+<a href="{{ site.url }}/images/anvio/2016-02-27-the-anvio-interactive-interface/04.png"><img src="{{ site.url }}/images/anvio/2016-02-27-the-anvio-interactive-interface/04.png" width="50%" /></a>
+</div>
+
+{:.notice}
+Anvi'server link: [http://anvi-server.org/public/meren/interface_demo_IV](http://anvi-server.org/public/meren/interface_demo_IV){:target="_blank"}
+
+Some of you are probably asking themselves '*what is the difference between text and categorical data?*'. Very good question! Essentially they are both the same. If the unique number of items in a given dataset of non-integer values more than 12, the interacitve interface assumes that this is a text layer, and instaed of assigning random colors to each item, it shows it as such. In contrast, if there are 12 or less unique values, the interface by default treats it as a categorical data layer, and assigns random colors. Of course these colors can be changed quite easily through the interface, or programmaticaly by processing the 'state' file (more on this later).
+
+## 1.5 Stacked bars
+
+Stacked bars are a bit tricky compared to the other data types, but nothing too compicated. Here is an example addition to our data file:
+
+|contig|c1|c2|c3|categorical|bars!A;B;C|text|
+|:--|:--:|:--:|:--:|:--:|:--:|:--|
+|backrest|11.68762604|31.81211217|16.14890468|b|278;23;1|nmwje|
+|backward|8.383113248|36.27705135|12.26495265|b|249;52;2|bqmyujrpsrddoefhi|
+|backwind|14.30588649|33.19818058|13.90379515|b|269;32;3|hkferlchpmzix|
+|backyard|12.98490431|35.1528258|14.2861336|b|205;96;4|advoebfkyhmg|
+|bacteria|6.655636411|34.45757002|13.67026608|b|263;38;5|lqmcwnhywco|
+|bacterin|7.664397508|35.28860294|16.85214201|b|298;3;6|vxqdmn|
+|baetylus|13.72179583|32.81162715|14.83756192|b|219;82;7|fkgpydiowgyhfxxwlpj|
+|bagpiped|9.095058043|33.0406183|13.48649074|b|212;89;8|ijmnur|
+|balconet|10.94823472|33.03846226|16.87202682|b|289;12;9|ecizgs|
+|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
+
+As you can see, the header field contains multipart information. What is before the exclamation mark is the 'name' of this data, which will appear in the interface as a label. The column separated values after the exclamation mark are subsets of the data. This header notation indicates that there will be three numerical values will be present in each following field.
+
+The command line for this matrix:
+
+{% highlight bash %}
+anvi-interactive -t tree.txt -d view_data.txt -p profile.db --title 'Interface Demo V' --manual
+{% endhighlight %}
+
+Produces this:
+
+<div class="centerimg">
+<a href="{{ site.url }}/images/anvio/2016-02-27-the-anvio-interactive-interface/05.png"><img src="{{ site.url }}/images/anvio/2016-02-27-the-anvio-interactive-interface/05.png" width="50%" /></a>
+</div>
+
+{:.notice}
+Anvi'server link: [http://anvi-server.org/public/meren/interface_demo_V](http://anvi-server.org/public/meren/interface_demo_V){:target="_blank"}
+
+
