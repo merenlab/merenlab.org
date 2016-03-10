@@ -12,7 +12,7 @@ Oligotyping is a computational method that helps microbial ecologists to investi
 
 ---
 
-For [mothur](http://www.mothur.org/) users (courtesy of [Michelle Berry](https://www.lsa.umich.edu/eeb/people/ci.berrymichelle_ci.detail)): [mothur2oligo](https://github.com/DenefLab/MicrobeMiseq/tree/master/mothur2oligo)
+For [mothur](http://www.mothur.org/) users (courtesy of [Michelle Berry](http://michberr.github.io/)): [mothur2oligo](https://github.com/DenefLab/MicrobeMiseq/tree/master/mothur2oligo)
 
 For [QIIME](http://qiime.org/) users (courtesy of [James Meadow](https://twitter.com/jamesmeadow)): [qiime2oligo](https://github.com/jfmeadow/q2oligo)
 
