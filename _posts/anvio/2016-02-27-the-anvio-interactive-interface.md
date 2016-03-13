@@ -11,7 +11,7 @@ authors: [meren, ozcan]
 
 {% include _toc.html %}
 
-<p style="text-align: right; font-style: italic; color: #AAAAAA;">This document last updated on March 1<sup>st</sup>, 2016.</p>
+<p style="text-align: right; font-style: italic; color: #AAAAAA;">This document last updated on March 13<sup>th</sup>, 2016.</p>
 
 Anvi'o is a comprehensive 'omics platform with a large codebase to perform [wide range of tasks](https://github.com/meren/anvio/tree/master/bin){:target="_blank"}, and [in-depth analyses]({% post_url anvio/2015-12-09-musings-over-commamox %}){:target="_blank"} of large datasets.
 
