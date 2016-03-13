@@ -24,9 +24,9 @@ The date and place is the only certainty at this point, but we wanted to start p
 
 We will be putting a lot of thinking into this, but if you are planning to attend, please don't hesitate to guide us. Here is a couple of bullet points we currently have in mind:
 
-* The focus of the workshop will be on the recovery and curation of environmental genomes through assembly-based binning practices using anvi'o.
+* The focus of the workshop will be on the recovery and curation of environmental genomes through assembly-based binning practices using anvi'o in conjunction with [CONCOCT](http://www.nature.com/nmeth/journal/v11/n11/full/nmeth.3103.html), or [MetaBAT](https://peerj.com/articles/1165/).
 
-* Besides that, we are hoping this workshop to hold extensive discussions on pitfalls and opportunities regarding the experimental design, library preparation and sequencing, assembly, mapping, binning, strain deconvolution, and the characterization of genome bins to infer ecology through shotgun metagenomics.
+* Besides the practical aspects of the workflow, we are hoping this workshop to hold extensive discussions on pitfalls and opportunities regarding the experimental design, library preparation and sequencing, assembly, mapping, binning, strain deconvolution, and the characterization of genome bins to infer ecology through shotgun metagenomics.
 
 * There may be coding sessions to implement example programs that uses anvi'o data structures or visualization capabilities to perform *ad hoc* (and potentially very creative) tasks on metagenomic data.
 
@@ -55,7 +55,7 @@ Once you are in Montréal, you can take the **Blue Line metro station Édouard-M
 
 ## Attendees
 
-Here is an incomplete likely list of people who are going to be there (we will keep this list up-to-date as things get clearer):
+Here is an incomplete list of people who are likely going to be at the workshop (we will keep this list up-to-date as things get clearer):
 
 |Name|Affiliation|Info|
 |:--|:--|:--:|
