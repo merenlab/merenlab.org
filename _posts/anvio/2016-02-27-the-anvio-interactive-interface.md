@@ -48,11 +48,10 @@ Please note that the anvi'server is under active development, and your testing e
 
 ---
 
-# 1. Data types the interactive interface works with
+# 1. Data types and input files
 
  
-
-The purpose of this section is to provide examples for each of the data type the interactive interface can work with. For this, I will start with a simple tree, and add layers step by step to describe different data types.
+The purpose of this section is to provide examples for each of the data type (and input files) the interactive interface can work with. For this, I will start with a simple tree, and add layers step by step to describe different data types.
 
 You can follow these examples in two ways:
 
@@ -234,4 +233,89 @@ Produces this:
 {:.notice}
 Anvi'server link: [http://anvi-server.org/public/meren/interface_demo_V](http://anvi-server.org/public/meren/interface_demo_V){:target="_blank"}
 
+## 1.6 Samples information
 
+The *samples information* file contains one or more data types (numerical, categorical, or stacked-bar data) to provide **contextual data for layers of interest**. *Layers of interest* are, in most cases, also correspond to samples in the study. In our test case, these layers correspond to `c1`, `c2` and `c3` (see the previous matrix file).
+
+Here is an example *samples information* file for the view data matrix file we have been using in previous steps for visualization:
+
+|samples|numerical_01|numerical_02|categorical|stacked_bar!X;Y;Z|
+|:--|:--:|:--:|:--:|:--:|
+|c1|100|5|A|1;2;3|
+|c2|200|4|B|2;3;1|
+|c3|300|3|B|3;1;2|
+
+Please note that this time the first column is composed of layer names that appeared as rows in the data matrix file. If you are using the interactive interface via the command line, you first need to crate a samples database using this file, if you are using anvi'server, you can simply provide the TAB-delimited file via the new project window. Here is the command line (assuming the view data is identical to the one used in the previous example):
+
+{% highlight bash %}
+anvi-gen-samples-info-database --samples-information samples-information.txt -o samples.db
+anvi-interactive -t tree.txt -d view_data.txt -p new_profile.db --title 'Interface Demo VI' --manual -s samples.db
+{% endhighlight %}
+
+Which produces this:
+
+{:.notice}
+Please consider reading [this article]({% post_url anvio/2015-11-10-samples-db %}) if you are interested in learning more about the samples database.
+
+<div class="centerimg">
+<a href="{{ site.url }}/images/anvio/2016-02-27-the-anvio-interactive-interface/06.png"><img src="{{ site.url }}/images/anvio/2016-02-27-the-anvio-interactive-interface/06.png" width="50%" /></a>
+</div>
+
+{:.notice}
+Anvi'server link: [http://anvi-server.org/public/meren/interface_demo_VI](http://anvi-server.org/public/meren/interface_demo_VI){:target="_blank"}
+
+## 1.7 Samples order
+
+The *samples order* file contains information about different *orderings* of samples, so the user can access to this information from the interface to arrange **layers of interest**. An order can be a comma separated list of sample names, or it can be a newick tree for the organization of samples.
+
+A *samples order* file can be used with or without a *samples information* file (see `anvi-gen-samples-db -h` for help if you are following these examles from your terminal). Here is an example *samples order* file for the data matrix file we have been using:
+
+|attributes|basic|newick|
+|:--|:--:|:--:|
+|test_tree||(c2:0.0370199,(c1:0.0227268,c3:0.0227268)Int3:0.0370199);|
+|test_list|c3,c1,c2||
+
+There can be as many lines as you like for different orderings, however, there has to be only two columns, both of which should contain all names for layers of interest.
+
+Similar to the utilization of *samples information* file, you need to create a samples database for this file as well. To make things simpler, I will use the previous *samples information* file, along with this new order file to create a new samples database prior to calling anvi-interactive:
+
+{% highlight bash %}
+anvi-gen-samples-info-database -D samples-information.txt -R samples-order.txt -o samples.db
+anvi-interactive -t tree.txt -d view_data.txt -p new_profile.db --title 'Interface Demo VII' --manual -s samples.db
+{% endhighlight %}
+
+In this new display you will find out that the two orderings (`test_tree` and `test_list`) appears in the '**Sample order**' combo box under in the '**Samples**' tab on the left panel, along with all the orderings autmoatically generated based on the samples information file:
+
+<div class="centerimg">
+<a href="{{ site.url }}/images/anvio/2016-02-27-the-anvio-interactive-interface/07-left.png"><img src="{{ site.url }}/images/anvio/2016-02-27-the-anvio-interactive-interface/07-left.png" /></a>
+</div>
+
+Selecting the `test_tree` order, and re-drawing the tree will result in a tiny dendrogram for the layers of interst:
+
+<div class="centerimg">
+<a href="{{ site.url }}/images/anvio/2016-02-27-the-anvio-interactive-interface/07.png"><img src="{{ site.url }}/images/anvio/2016-02-27-the-anvio-interactive-interface/07.png" width="50%" /></a>
+</div>
+
+{:.notice}
+Anvi'server link (don't forget to play with the Samples order combo box): [http://anvi-server.org/public/meren/interface_demo_VII](http://anvi-server.org/public/meren/interface_demo_VII){:target="_blank"}
+
+# 2. Using the anvi'o interactive interface
+
+(*To be continued...*)
+
+## 2.1 An overview of the display
+
+## 2.2 The left panel
+
+### 2.2.1 Layers
+
+### 2.2.2 Samples
+
+### 2.2.3 Bins
+
+### 2.2.4 Mouse
+
+### 2.2.5 Search
+
+
+## Tips and tricks 
