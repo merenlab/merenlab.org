@@ -16,7 +16,7 @@ comments: true
 
 ISME conference takes place between **21-26 August 2016** (ending on a Friday), and the workshop will be on **29-30 August 2016** (starting on a Monday).
 
-The date and place is the only certainty at this point, but we wanted to start publicizing it in case you are planning to go for ISME, and the idea of extending your stay to spend a weekend in Montréal, and then attending to a free workshop sounds appealing to you. We keep updating this post as the schedule starts to take shape.
+The date and place is the only certainty at this point, but we wanted to start publicizing it in case you are planning to go for ISME, **actively working on shotgun metagenomic data**, the idea of extending your stay to spend a weekend in Montréal, and then attending to a free workshop sounds appealing to you. We keep updating this post as the schedule starts to take shape.
 
 **We are planning to limit the number of attendees to 15**. Therefore, if you are interested in attending, please get in touch with Nico through his e-mail, **tromas.nicolas [AT] gmail [DOT] com**.
 
