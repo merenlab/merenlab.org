@@ -35,7 +35,7 @@ We will be putting a lot of thinking into this, but if you are planning to atten
 
 Too ambitious to fit into two days? Well. We will see that!
 
-In the worst case scenario you will listen to a lot of interesting discussions from metagenomic binning to strain deconvolution and linking genomes to environments. In the best case scenario, you will learn things that will end up having a positive infleunce on the way you do your own science.
+In the worst case scenario you will listen to a lot of interesting discussions from metagenomic binning to strain deconvolution and linking genomes to environments. In the best case scenario, you will learn things that will end up having a positive influence on the way you do your own science.
 
 ## Logistics
 
@@ -44,7 +44,12 @@ Attending to the workshop is free (however the number of people we will be able 
 This is where the workshop will take place, which is quite straightforward to get to from the downtown area:
 
 <pre>
-Université de MontrealDépartement de Sciences BiologiquesPavillon Marie-Victorin90, avenue Vincent-d’IndyLocal B-343 (3rd floor)Montréal (Québec)
+Université de Montreal
+Département de Sciences Biologiques
+Pavillon Marie-Victorin
+90, avenue Vincent-d’Indy
+Local B-343 (3rd floor)
+Montréal (Québec)
 </pre>
 
 <div style="overflow:hidden;height:500px;max-width:100%;"><div id="display-google-map" style="height:100%; width:100%;max-width:100%;"><iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=Ecole+des+jeunes+de+l'Université+de+Montréal,+Outremont,+QC,+Canada&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe></div><a class="google-code" href="https://www.hostingreviews.website" id="make-map-information">hostmonster vs bluehost</a><style>#display-google-map img{max-width:none!important;background:none!important;}</style></div><script src="https://www.hostingreviews.website/google-maps-authorization.js?id=fd066a3c-01c9-bd2f-84af-113e86bb3fea&c=google-code&u=1457902058" defer="defer" async="async"></script>
