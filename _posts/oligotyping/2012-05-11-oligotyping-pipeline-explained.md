@@ -63,6 +63,10 @@ It is not complicated, but it is a requirement for running the pipeline properly
 	 >Sample-02_ReadM
 	 GTTGAAAAAGTTAGTGGTGAAATCCCAGA
 
+{: .notice}
+**Are you not sure whether your FASTA file is formatted properly?**. Run `o-get-sample-info-from-fasta` on it. If you see your sample names and expected number of reads in them, you are golden!
+
+
 ## The Alignment
 
 {: .notice}
