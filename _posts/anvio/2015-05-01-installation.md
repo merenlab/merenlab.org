@@ -194,8 +194,10 @@ If you have a proper installation, you shouldn't get any errors when you run the
 If you installed anvi'o via `pip` (following the safe mode), you can go to an empty directory, and type these (don't forget to replace the version number (which is 1.2.2 in this example) with whatever version you have installed. If you are not sure, type `anvi-profile -v`):
 
 {% highlight bash %}
-git clone -b v1.2.2 --depth=1 https://github.com/meren/anvio.git
-cd anvio/tests
+git clone https://github.com/meren/anvio.git
+cd anvio/
+git checkout tags/v1.2.2
+cd tests/
 ./run_mini_test.sh
 {% endhighlight %}
 
