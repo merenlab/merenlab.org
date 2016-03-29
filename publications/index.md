@@ -6,8 +6,18 @@ comments: false
 
 
 <div class="category-box">
-<a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a><a href="#2011"><span class="category-item">2011 <small>(1)</small></span></a>
+<a href="#2016"><span class="category-item">2016 <small>(1)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a><a href="#2011"><span class="category-item">2011 <small>(1)</small></span></a>
 </div>
+
+<a name="2016">&nbsp;</a>
+<h1>2016</h1>
+
+<div class="pub">
+    <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Identifying+contamination+with+advanced+visualization+and+analysis+practices:+metagenomic+approaches+for+eukaryotic+genome+assemblies." target="_new">Identifying contamination with advanced visualization and analysis practices: metagenomic approaches for eukaryotic genome assemblies.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <span class="pub-journal"><i>PeerJ</i>. <b>4:e1839</b></span>
+</div>
+
 
 <a name="2015">&nbsp;</a>
 <h1>2015</h1>
