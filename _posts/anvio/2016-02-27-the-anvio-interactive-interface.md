@@ -11,7 +11,7 @@ authors: [meren, ozcan]
 
 {% include _toc.html %}
 
-<p style="text-align: right; font-style: italic; color: #AAAAAA;">This document last updated on March 13<sup>th</sup>, 2016.</p>
+<p style="text-align: right; font-style: italic; color: #AAAAAA;">This document last updated on April 1<sup>st</sup>, 2016.</p>
 
 Anvi'o is a comprehensive 'omics platform with a large codebase to perform [wide range of tasks](https://github.com/meren/anvio/tree/master/bin){:target="_blank"}, and [in-depth analyses]({% post_url anvio/2015-12-09-musings-over-commamox %}){:target="_blank"} of large datasets.
 
@@ -301,21 +301,66 @@ Anvi'server link (don't forget to play with the Samples order combo box): [http:
 
 # 2. Using the anvi'o interactive interface
 
-(*To be continued...*)
+We tried our best to make anvi'o interface intuitive, easy-to-learn, and easy-to-use. In an ideal world, you shouldn't need a tutorial to start using it, and learn it through trial and error. But here is a very general overview of the major components of the interface.
+
+If you happen to realize there is something missing, or it would have been helpful to you if something was better explained in this document, please do not hesitate to drop us a line.
 
 ## 2.1 An overview of the display
 
+The interactive interface has two major areas of interaction: the space for visualization on the right, and the left panel. The left panel gives access to various controls to work with the data visualized, and improve the presentataion of it.
+
 ## 2.2 The left panel
 
-### 2.2.1 Layers
+At the bottom of the layers tab there is a section with tiny controls that are available in all tabs. Through these controls you can,
 
-### 2.2.2 Samples
+* **Create** or **refresh** the display when necessary using the draw button (some changes require you to do that),
+* **Zoom in, zoom out, and center** the display.
+* **Download your display as an SVG file**. 
 
-### 2.2.3 Bins
+### 2.2.1 Layers tab
 
-### 2.2.4 Mouse
+Through the layers tab you can,
 
-### 2.2.5 Search
+* **Change general settings for the tree** (i.e., switching between circle or rectengular displays, changing tree radius or width), **and layers** (i.e., editing layer margins, or activating custom layer margins).
+* **Load or save states** to store all visual settings, or load a previously saved state.
+* **Customize individual layers** by switching between different **display modes** depending on the layer type (i.e., 'text' or 'color' mode for categorical layers, or 'bar' or 'intensity' mode for numerical layers), **set normalization** (i.e., 'square-root', or 'log' normalization), **minimum, and maximum** cutoff values for numerical layers, or set **layer height**, and **layer margin** (i.e., its distance from the previous layer).
+* Use the **multi-selector** at the bottom to change settings for multiple layers at once.
 
+
+### 2.2.2 Samples tab
+
+Samples tab is for the additional data you provide the interface through a samples database (see samples order and samples infomration sections above). Through this layer you can,
+
+* **Change the order of layers** using automatically-generated or user-provided orders of layers using the Sample order combo box,
+* **Customize individual samples information entries**.
+
+Changes in this tab can be reflected to the current display without re-drawing the entire tree unless the sample order is changed.
+
+### 2.2.3 Bins tab
+
+Anvi'o allows you to create selections of items shown in the display (whether they are metagenomic contigs, 16S rRNA tags, or any other type of information). Bins tab allow you to maintain these selections. Any selection on the tree will be added to active bin in this tab (the state radio button next to a bin defines its activity). Through this tab you can,
+
+* **Create or delete bins**, **set bin names**, **change the color of a given bin**, or sort bins based on their name, the number of units they carry, or completion and contamination estimates (completion / contamination estimates are only computed for genomic or metagenomic analyses).
+* View **the number of selected units** in a given bin, and see the **list of names in the selection** by clicking the button that shows the number of units described in the bin.
+* **Store a collection of bins**, or **load a previouly stored collection**.
+
+### 2.2.4 Mouse tab
+
+The mouse tab displays the value of items underneath the mouse pointer while the user browse the tree.
+
+Displaying the numerical or categorical value of an item shown on the tree is not an easy task. We originally thought that displaying pop-up windows would solve it, but besides the great overhead, it often became a nuisence while browsing parts of the tree. We could show those pop-up displays only when use clicks on the tree, however click-behavior is much more appropriate to add or remove individual items from a bin, hence, it wasn't the best solution either. So we came up with the 'mouse tab'. You have a better idea? I am not surprised! We would love to try imporove your experience: please enter an issue, and let's discuss.
+
+### 2.2.5 Search tab
+
+It does what the name suggests. Using this tab you can,
+
+* **Build expressions to search items** visualized in the main display.
+* **Highlight matches**, and **append** them to, or **remove** them from the **selected bin** in the Bins tab.  
 
 ## Tips and tricks 
+
+Here are some small conveniences that may help the interface serve you better (we are happy to expand these little tricks with your suggestions).
+
+* You can zoom to a section of the tree by making a selection **while the pressing shift button**.
+* You can click an entire branch to add items into the selected bin, and remove them by **right-clicking** a branch.
+* If you click a branch **while pressing the Command or CTRL button**, it will create a new bin, and add the content of the selection into that bin.
