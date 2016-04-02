@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Publicly available data for Delmont et al. 2016 (under review)
+title: Publicly available data for Delmont and Eren, 2016
 modified: 2015-07-30
 excerpt: "Identifying contamination with advanced visualization and analysis practices: metagenomic approaches for eukaryotic genome assemblies"
 comments: true
@@ -8,7 +8,7 @@ image:
   feature: http://i.imgur.com/QGd3Zab.png
 ---
 
-*The manuscript is under peer-review.*
+The paper: [Identifying contamination with advanced visualization and analysis practices: metagenomic approaches for eukaryotic genome assemblies](https://peerj.com/articles/1839/).
 
 * [This link](https://ndownloader.figshare.com/files/3677700) will download the archive file for anvi'o profile for merged datasets (221 Mb). The run script in this archive will automatically start the anvi'o interactive interface, and draw **Figure 1** (compatible with anvi'o v1.2.2, for which a [docker container]({% post_url anvio/2015-08-22-docker-image-for-anvio %}) is available).
 
