@@ -10,7 +10,10 @@ comments: true
 
 {% include _toc.html %}
 
-<p style="text-align: right; font-style: italic; color: #AAAAAA;">This document was last updated on March 13<sup>th</sup>, 2016.</p>
+<p style="text-align: right; font-style: italic; color: #AAAAAA;">This document was last updated on April 8<sup>th</sup>, 2016.</p>
+
+{:.notice}
+Thanks to Nico's efforts, career-wise the youngest PhD student who is attending to the workshop from outside of Québec will receive a $400CA travel award. We are thankful to [Illumina](http://www.illumina.com/) and [Eppendorf](https://www.eppendorf.com/CA-en/) for their support.
 
 [Nicolas Tromas](https://www.researchgate.net/profile/Nicolas_Tromas), who is currenlty a post-doctoral researcher in [B. Jesse Shapiro's group](http://www.shapirolab.ca/peoplepersonel.html) at [the University of Montréal](http://www.umontreal.ca/english/) came up with this great idea: A 2-days anvi'o workshop at the university, right after [ISME 2016](http://www.isme-microbes.org/isme16).
 
