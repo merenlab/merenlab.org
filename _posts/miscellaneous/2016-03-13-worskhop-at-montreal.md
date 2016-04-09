@@ -4,7 +4,7 @@ title: "An anvi'o workshop in Montréal (August 29 and 30, 2016)"
 excerpt: "In case you would like to stick around a bit longer after ISME"
 modified: 2016-03-13
 tags: [workshop]
-categories: [anvio]
+categories: [miscellaneous]
 comments: true
 ---
 
