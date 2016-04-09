@@ -9,7 +9,7 @@ categories: [miscellaneous]
 comments: true
 ---
 
-I never really planned to become a scientist (I rarely plan for things anyway (and it is even [rarer](https://www.quora.com/Which-is-correct-rarer-or-more-rare) that things I plan for go as planned)). Nevertheless, I am very glad that I run into science, and now it is a thing in my life. Thanks to science, I get to spend time with a lot of very interesting people.
+I never really planned to become a scientist (I rarely plan for things anyway (and it is even [rarer](https://www.quora.com/Which-is-correct-rarer-or-more-rare) that things I plan for go as planned)). Nevertheless, I am very glad that I run into science, and now it is a thing in my life. Because thanks to it, I get to spend time with a lot of very interesting people.
 
 Most likely interesting people are distributed evenly across all professions, and science does not necessarily have more interesting people than any other profession. But science *is* a bit different with its interesting people, and how reachable they are. For instance, going to someone's institution, giving a talk, and having 6 meetings in a row with people you mostly know in "*Lastname et al*" form is not common to most professions (I was a musician, a photographer, and an engineer before science, and I also managed a very successful sunflower seed selling business in front of our apartment when I was four years old: I speak from experience). 
 
