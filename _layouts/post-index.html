@@ -35,37 +35,28 @@
 
 <div id="index">
 
-<div class="category-box">
-    {% assign tags_list = site.categories %}  
-      {% if tags_list.first[0] == null %}
-        {% for tag in tags_list %} 
-          <a href="#{{ tag }}"><span class="category-item">{{ tag | capitalize }} ({{ site.tags[tag].size }})</span></a></li>
-        {% endfor %}
-      {% else %}
-        {% for tag in tags_list %} 
-          <a href="#{{ tag[0] }}"><span class="category-item">{{ tag[0] | capitalize }} ({{ tag[1].size }})</span></a></li>
-        {% endfor %}
-      {% endif %}
-    {% assign tags_list = nil %}
-</div>
+<h3>All posts (ordered by date, newest first).</h3>
 
-{% for tag in site.categories %} 
-{% assign t = tag | first %}  
-    <a name="{{ tag | first }}">&nbsp;</a>
-    <h3>{{ tag | first | capitalize }} <small><a href="#top">[top]</a></small></h3>
-    {% assign pages_list = tag[1] %}  
-    {% for post in pages_list %}
-      {% if post.title != null %}
-      {% if group == null or group == post.group %}
+{% for post in site.posts %}
       <article>
-          <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <small>({{ post.date | date: "%a, %b %d, %Y" }})</small></h2>
-          <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
+          {% assign p = post.authors[0] %}
+          {% for e in site.data.people %}
+            {% if e.alias == p %}
+                {% assign author = e %}
+            {% endif %}
+          {% endfor %}
+          {% if author %}
+            <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <small>({{ post.date | date: "%a, %b %d, %Y" }}, by <span style="color: gray;">{{ author.alias }}</span>)</small></h2>
+          {% else %}
+            <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <small>({{ post.date | date: "%a, %b %d, %Y" }})</small></h2>
+          {% endif %}
+          <p>{{ post.excerpt | strip_html | truncate: 160 }}
+          {% for category in site.data.categories %}
+            {% if category.name == post.categories[0] %}
+                <span class="lbl" style="background-color: {{category.color}}">{{ category.name }}</span>
+            {% endif %}
+          {% endfor %}
       </article>
-      {% endif %}
-      {% endif %}
-    {% endfor %}
-    {% assign pages_list = nil %}
-    {% assign group = nil %}
 {% endfor %}
 
   </div><!-- /#index -->
