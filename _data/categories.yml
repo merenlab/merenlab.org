@@ -1,0 +1,8 @@
+- name: miscellaneous
+  color: purple
+- name: anvio
+  color: red
+- name: oligotyping
+  color: orange
+- name: med
+  color: blue
