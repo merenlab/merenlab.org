@@ -39,6 +39,7 @@
 
 {% for post in site.posts %}
       <article>
+          {% assign author = None %}
           {% assign p = post.authors[0] %}
           {% for e in site.data.people %}
             {% if e.alias == p %}
