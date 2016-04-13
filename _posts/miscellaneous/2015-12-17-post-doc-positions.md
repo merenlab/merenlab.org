@@ -8,7 +8,7 @@ comments: false
 ---
 
 {:.notice}
-This post is also [available as a PDF file](http://www.isme-microbes.org/sites/isme-microbes.org/files/2015-Job-Posting.pdf) at the [ISME job listings](http://www.isme-microbes.org/jobs) web page.
+One of these positions is now filled, and we are now interested in a computational scientist!
 
 There are multiple post-doc positions available in our new lab at the Department of Medicine to study
 the ecology of gut microbes and their interactions with their hosts. Areas of focus include, but are not

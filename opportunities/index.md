@@ -13,9 +13,7 @@ comments: false
 <img src="images/post-docs.png" style="border:none;" />
 </div>
 
-There are multiple projects and positions available in the lab, and we are looking forward to working with post-doctoral scientists who are fascinated by the human microbiome, and microbial ecology in general. You can find out more about us in our [research interests]({{site.url}}/research/) page.
-
-We are especially interested in computational people who wish to learn microbiology, or microbiologists who wish to advance in bioinformatics and computation. If some of these keywords apply to you, please consider sending a CV along with a very short description of your background and research interests to meren at uchicago.edu to start a conversation: `human microbiome` `host-microbe interactions` `IBD` `metagenomics` `metatranscriptomics` `information theory` `game theory` `cryptography` `network theory` `Python` `Javascript` `C` `go` `R` `scientific visualization` `software design` `cultivation` `biostatistics`
+Currently we are interested in computational people who wish to learn microbiology. If some of these keywords apply to you, please consider sending a CV along with a very short description of your background and research interests to meren at uchicago.edu to start a conversation: `human microbiome` `host-microbe interactions` `IBD` `metagenomics` `metatranscriptomics` `information theory` `game theory` `cryptography` `network theory` `Python` `Javascript` `C` `go` `R` `scientific visualization` `software design` `cultivation` `biostatistics`
 
 
 <div style="clear:both"></div>
@@ -26,7 +24,7 @@ We are especially interested in computational people who wish to learn microbiol
 <img src="images/phd-students.png" style="border:none;" />
 </div>
 
-*(soon)...*
+If you are interested in doing a rotation in our lab, please don't hesitate to get in touch.
 
 <div style="clear:both"></div>
 
@@ -38,6 +36,6 @@ We are especially interested in computational people who wish to learn microbiol
 
 If you are an undergraduate student or an intern who is looking for a challenging but potentially fruitful project related to the human microbiome and/or bioinformatics, please send an e-mail to meren at uchicago.edu.
 
-Do you have other suggestions? Please don't hesitate to [write to us]({{site.url}}/people/) to start a conversation.
+Do you have other suggestions? Write to [us]({{site.url}}/people/)!
 
 <div style="clear:both"></div>
