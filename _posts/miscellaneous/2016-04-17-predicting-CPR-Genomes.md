@@ -17,7 +17,7 @@ The study [Hug](https://twitter.com/LAHug_) et al. published last week puts the 
 <a href="{{ site.url }}/images/miscellaneous/2016-04-14/tree-of-life.jpg"><img src="{{ site.url }}/images/miscellaneous/2016-04-14/tree-of-life.jpg" width="40%" /></a>
 </div>
 
-The significance of this tree has been covered broadly by many, including [Ed Yong](http://www.theatlantic.com/science/archive/2016/04/the-tree-of-life-just-got-a-lot-weirder/477729/), and [Carl Zimmer](http://www.nytimes.com/2016/04/12/science/scientists-unveil-new-tree-of-life.html), so I will save you from another attempt, that will definitely not match to their's.
+The significance of this tree has been covered broadly by many, including [Ed Yong](http://www.theatlantic.com/science/archive/2016/04/the-tree-of-life-just-got-a-lot-weirder/477729/), and [Carl Zimmer](http://www.nytimes.com/2016/04/12/science/scientists-unveil-new-tree-of-life.html), so I will save you from another attempt that will definitely not match to their's.
 
 Briefly, the tree includes a total of 3,083 genomes, 1,011 of which are the *unusual* genomes authors identified from various environments using assembly-based shotgun metagenomics and binning. The phylogenetic inference in the figure is based on 16 ribosomal proteins from each organism, and so on.
 
