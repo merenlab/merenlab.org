@@ -2,7 +2,7 @@
 layout: post
 title: "Predicting CPR genomes in metagenomes"
 excerpt: "A second look at the genomes published by Brown CT. et al"
-modified: 2016-04-14
+modified: 2016-04-17
 tags: [reanalysis]
 authors: [meren, tom]
 categories: [miscellaneous]
