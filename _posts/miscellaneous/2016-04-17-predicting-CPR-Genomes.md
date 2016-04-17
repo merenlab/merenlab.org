@@ -11,19 +11,23 @@ comments: true
 
 {% include _toc.html %}
 
-The study published by [Hug](https://twitter.com/LAHug_) et al. puts the genomic discoveries made by the [Banfield group](http://geomicrobiology.berkeley.edu/) during the last years into a striking contex with a beautiful title, ["A new view of the tree of life"](http://www.nature.com/articles/nmicrobiol201648):
+The study [Hug](https://twitter.com/LAHug_) et al. published last week puts the genomic discoveries [Banfield group](http://geomicrobiology.berkeley.edu/) made during the last years into a striking contex with a beautiful title, ["A new view of the tree of life"](http://www.nature.com/articles/nmicrobiol201648):
 
 <div class="centerimg">
 <a href="{{ site.url }}/images/miscellaneous/2016-04-14/tree-of-life.jpg"><img src="{{ site.url }}/images/miscellaneous/2016-04-14/tree-of-life.jpg" width="40%" /></a>
 </div>
 
-The significance of this tree has been covered broadly by many, including [Ed Yong](http://www.theatlantic.com/science/archive/2016/04/the-tree-of-life-just-got-a-lot-weirder/477729/), and [Carl Zimmer](http://www.nytimes.com/2016/04/12/science/scientists-unveil-new-tree-of-life.html). Hence, I am skipping the details. Briefly, the tree includes a total of 3,083 genomes, 1,011 of which are the *unusual* genomes authors identified from various environments using assembly-based shotgun metagenomics and binning. The phylogenetic inference in the figure is based on 16 ribosomal proteins from each organism, and so on.
+The significance of this tree has been covered broadly by many, including [Ed Yong](http://www.theatlantic.com/science/archive/2016/04/the-tree-of-life-just-got-a-lot-weirder/477729/), and [Carl Zimmer](http://www.nytimes.com/2016/04/12/science/scientists-unveil-new-tree-of-life.html), so I will save you from another attempt, that will definitely not match to their's.
 
-A large fraction of genomes in Hug et al.'s study comes from another publication from the Banfield group that appeared in Nature less than a year ago: [Unusual biology across a group comprising more than 15% of domain Bacteria](http://www.nature.com/nature/journal/v523/n7559/full/nature14486.html). Brown et al. study describes 797 tiny genomes most of which lack various pathways, which makes them very hard to cultivate, and contain quirky 16S rRNA genes, which renders 16S rRNA gene-based surveys unable to detect them. In their paper, Brown et al. describes this group, which contains more than 35 new phyla, as the "candidate phyla radiation" (CPR). I will mostly focus on these genomes in this post, to make a point about the rest of CPR.
+Briefly, the tree includes a total of 3,083 genomes, 1,011 of which are the *unusual* genomes authors identified from various environments using assembly-based shotgun metagenomics and binning. The phylogenetic inference in the figure is based on 16 ribosomal proteins from each organism, and so on.
+
+A large fraction of the genomes in Hug et al.'s study comes from another publication from the Banfield group which appeared in Nature less than a year ago: [Unusual biology across a group comprising more than 15% of domain Bacteria](http://www.nature.com/nature/journal/v523/n7559/full/nature14486.html). This study describes 797 tiny genomes, most of which lack various pathways, which makes them very hard to cultivate, and contain quirky ribosomal operons, which renders 16S rRNA gene-based surveys unable to detect them. In their paper Brown et al. describes this group of more than 35 new phyla as the "candidate phyla radiation" (CPR). I will mostly focus on these genomes in this post, to make a point about the rest of CPR.
 
 ## Distribution of bacterial single-copy genes in CPR 
 
-The use of bacterial single-copy genes is quite a common technique to get a ballpark estimation of how much of a genome is captured a metagenomic bin. They are quite useful. In fact, they can even be used to [estimate the number of bacterial genomes in an assembly](https://peerj.com/articles/1839/){:target="_blank"}. The 2015 Brown et al. study employs 43 bacterial single-copy genes to estimate the level of completeness of their CPR genomes. Here re-analyzed these 797 genomes by extending the number of single-copy genes to 139, by using [Campbell et al.](http://www.pnas.org/content/110/14/5540.full){:target="_blank"}'s bacterial single-copy gene collection (details of which is in the [supplementary table 2](http://www.pnas.org/content/suppl/2013/03/13/1303090110.DCSupplemental/pnas.201303090SI.pdf){:target="_blank"} of Campbell et al's study, and we have them nicely organized in [our codebase](https://github.com/meren/anvio/tree/master/anvio/data/hmm/Campbell_et_al){:target="_blank"}). Briefly, Campbell et al. analyzed the occurrence of protein families in 1,516 complete bacterial genomes distributed around bacterial tree of life, and identified protein families that occurred only once in *at least* 90% of all genomes. For the bacterial life we *knew* about, it works beautifully well. But how well are these genes represented in Brown et al's collection? Here is an anvi'o figure to answer that question visually:
+The use of bacterial single-copy genes is quite a common technique to get a ballpark estimation of how much of a genome is captured a metagenomic bin. They are quite useful. In fact, they can even be used to [estimate the number of bacterial genomes in an assembly](https://peerj.com/articles/1839/){:target="_blank"}. The 2015 Brown et al. study employs **43** bacterial single-copy genes to estimate the level of completeness of their CPR genomes. Here re-analyzed these 797 genomes by extending the number of single-copy genes to **139**, by using [Campbell et al.](http://www.pnas.org/content/110/14/5540.full){:target="_blank"}'s bacterial single-copy gene collection (details of which is in the [supplementary table 2](http://www.pnas.org/content/suppl/2013/03/13/1303090110.DCSupplemental/pnas.201303090SI.pdf){:target="_blank"}, and we have them nicely organized in [our codebase](https://github.com/meren/anvio/tree/master/anvio/data/hmm/Campbell_et_al){:target="_blank"}). To create this collection, Campbell et al. analyzed the occurrence of protein families in 1,516 complete bacterial genomes distributed around bacterial tree of life, and identified protein families that occurred only once in *at least* 90% of all genomes. For the bacterial life we *knew* about, it works beautifully well. But how well are these genes represented in Brown et al's collection?
+
+Here is an anvi'o figure to answer that question visually:
 
 <div class="centerimg">
 <a href="{{ site.url }}/images/miscellaneous/2016-04-14/cpr-01.png"><img src="{{ site.url }}/images/miscellaneous/2016-04-14/cpr-01.png" width="80%" /></a>
@@ -31,33 +35,30 @@ The use of bacterial single-copy genes is quite a common technique to get a ball
 
 In this figure, each radial layer represents one of the 797 genomes, each tip of the tree represents a bacterial single-copy gene, and each black bar indicates whether a given single-copy gene was present (based on HMM profile matches beyond model noise cut-off identified by Campbell et al.).
 
-Long story short, this display agrees with Brown et al.'s findings, and extends the number of single-copy genes CPR genomes lack.
+The good news: This display agrees with Brown et al.'s findings. The not-yet-good-or-bad news: it also extends the list of single-copy genes CPR genomes lack.
 
-The taxonomy -as identified by Brown et al.- has a pretty striking signal with respect to how certain groups of genomes lack certain bacterial single-copy genes completely: a small set of ribosmal proteins does contain enough signal for a phylogenetic analysis to organize genomes in a manner that is coherent with the rest of the genome. This is a simple, but very convincing boost in confidence. Because if one thinks careful enough, they may realize that it may not have been the case at all.
+The taxonomy Brown et al. identified has a pretty striking signal with respect to how certain groups of genomes lack certain bacterial single-copy genes completely: a small set of ribosmal proteins does contain enough signal for a phylogenetic analysis to organize genomes in a manner that is coherent with the rest of the genome. This is a simple, but very convincing boost in confidence. Because if one thinks careful enough, they may realize that it may not have been the case at all.
 
-It also is important to remember that these single-copy genes occur in more than 90% percent of bacterial genomes, but patterns emerge from their presence across CPR genomes. The non-uniform presence/absence patterns of these core genes between groups of CPR genomes suggests an even richer level of diversity in this clade we had not seen before. What we have seen so far is probably the tip of the iceberg.
+I find this even more striking: these single-copy genes occur in more than 90% percent of bacterial genomes, **yet** patterns emerge from their presence/absence across CPR genomes. The non-uniform presence/absence patterns of these core genes between groups of CPR genomes suggests an even richer level of diversity in this clade we had not seen before... What we have seen so far is probably the tip of the iceberg.
 
-Can this information be useful?
-
+OK. Can this information be useful?
 
 ## Training a classifier to predict CPR genomes
 
-Clearly these genomes represent quite a large fraction of life on the planet ("comprising more than 15% of domain Bacteria", as the authors put it). Then people who do metagenomic binning must have been recovering them, too.
+Clearly these genomes represent quite a large fraction of the diversity of life on the planet ("*comprising more than 15% of domain Bacteria*", as the authors put it). Then, people who do metagenomic binning must have been recovering them, too.
 
-That being said, their small size and low completion scores in general do not make them "interesting" targets in the conventional sense of the word. It is easy to discard them as poorly identified bacterial genomes from your metagenomic binning results if you are not looking for them specifically. Hence, maybe they were hidden in plain sight, even for researchers who are dedicated to characterize bacterial life in their system beyond 16S surveys or annotation of short metagenomic reads.
+That being said, their small size and low completion scores in general do not make them "interesting" targets in the conventional sense of the word, making them easy to discard as poorly identified bacterial genomes from metagenomic binning results unless the researcher has not been looking for them specifically. Nevertheless, probably they were hidden in plain sight, even for researchers who are dedicated to characterize bacterial life in their system beyond 16S surveys or annotation of short metagenomic reads.
 
-On the other hand, if there *was* a way to recognize CPR genomes rapidly, maybe it would have been useful to understand the extent of their distribution among metagenomic bins, and help people to focus on the ones that look interesting.
+If there *was* a way to recognize CPR genomes rapidly, maybe it would have been useful to understand the extent of their distribution among metagenomic bins, and help people to focus on the ones that look interesting. And this is exactly what we will explore here using those single-copy gene patterns.
 
-And that's what we will explore here. Using those single-copy gene patterns.
-
-Essentially we want to say "if these single-copy genes are lacking from a genome, and others are present, it *may* be a CPR genome". But then things are always noisy, so you can't work with absolute presence and absence counts, then you would have to look at ratios and percentages, and eventually end up coming up with biologically irrelevant cut-offs. Although we microbial ecologists are pretty awesome at not losing sleep over making meaningless cutoffs as pillars of our science, one *should* avoid cut-offs whenever they can. A better way to make sense of these presence absence patterns to predict CPR genomes is to train a 'classifier'. I wrote this entire paragraph to find a way to lead you to this video: [a *very* friendly 7 minutes to understand the concept behind a classifier](https://www.youtube.com/watch?v=cKxRvEZd3Mw){:target="_blank"} from Google, in case you are not familiar with the concept, and tired of it.
+Essentially we want to say "*if these single-copy genes are lacking from a genome, and those single-copy genes are present, then it may be a CPR genome*". But then things are always noisy, metagenomic bins are initially incomplete and/or contaminated, so you can't work with absolute presence and absence counts. Then you would have to look at ratios and percentages, and eventually end up coming up with biologically irrelevant cut-offs. Although we microbial ecologists are pretty awesome at not losing sleep over making meaningless cutoffs as pillars of our science, we also know one *should* avoid cut-offs whenever they can. Aaaand a better way to make sense of these presence absence patterns to predict CPR genomes is to train a 'classifier'. Here I confess that I wrote this entire paragraph to find a way to lead you to this video: [a *very* friendly 7 minutes to understand the concept behind a classifier](https://www.youtube.com/watch?v=cKxRvEZd3Mw){:target="_blank"} from Google, in case you are not familiar with the concept, and tired of not being familiar with it.
 
 OK. I used the data you see in the anvi'o figure above to train a random forest classifier using [scikit learn](http://scikit-learn.org/stable/) library. The logic is very simple: train a classifier with the distribution of single-copy genes across known CPR genomes, and ask it whether it thinks an unknown genome may be coming from CPR or not. In fact, I added a [learning module](https://github.com/meren/anvio/blob/master/anvio/learning.py){:target="_blank"} in anvi'o to be able to do these kinds of things in a much rapid manner in the future, so beware! I also implemented two draft scripts, [anvi-script-gen-CPR-model](https://github.com/meren/anvio/blob/master/sandbox/anvi-script-gen-CPR-model){:target="_blank"} to crete a model, and [anvi-script-predict-CPR-genomes](https://github.com/meren/anvio/blob/master/sandbox/anvi-script-predict-CPR-genomes){:target="_blank"} for prediction.
 
 {:.notice}
 Everything here uses anvi'o v2 branch from the [GitHub master](https://github.com/meren/anvio), which is not officially released yet, but you can install and use.
 
-Using these programs, and the [Brown_et_al-CPR-Campbell_et_al_BSCG.txt](https://github.com/meren/anvio/blob/master/tests/sandbox/Brown_et_al-CPR-Campbell_et_al_BSCG.txt){:target="_blank"} file, first I generated a model:
+Using these programs, and the [Brown_et_al-CPR-Campbell_et_al_BSCG.txt](https://github.com/meren/anvio/blob/master/tests/sandbox/Brown_et_al-CPR-Campbell_et_al_BSCG.txt){:target="_blank"} file, I first generated a classifier:
 
 {% highlight bash %}
 $ anvi-script-gen-CPR-classifier Brown_et_al-CPR-Campbell_et_al_BSCG.txt -o cpr-bscg.classifier
@@ -112,13 +113,13 @@ Genome in "E_coli-K12-MG1655-half.db"
 E_coli-K12-MG1655-half .......................: NOT CPR (Confidence: 97%, Size: 2,239,920, Completion: 30%)
 {% endhighlight %}
 
-Although the genome is only 30% complete, the classifier is 97% confident that this is not a CPR genome.
+Although the genome is only 30% complete, the classifier is 97% confident that it is not a CPR genome.
 
-Good job, classifier. You may have just proven yourself to be not an absolute joke. *For now*.
+Good job, classifier. You may have just proven yourself to be not an absolute joke. For now.
 
 ### A published CPR genome
 
-How about a known CPR genome? For this, I decided to use one of the genomes ([this one](https://www.ncbi.nlm.nih.gov/nuccore/LMZU00000000.1), to be specific) [Daan Speth](https://twitter.com/daanspeth) and his colleagues released from a wastewater treatment system in their [recent publication](http://www.nature.com/ncomms/2016/160331/ncomms11172/full/ncomms11172.html).was not in Brown et al.'s study, hence was not used to train the classifier, and coming from another group? I used one of the CPR genomes  
+How about a known CPR genome? For this, I decided to use one of the genomes ([this one](https://www.ncbi.nlm.nih.gov/nuccore/LMZU00000000.1), to be specific) [Daan Speth](https://twitter.com/daanspeth) and his colleagues released from a wastewater treatment system in their [recent publication](http://www.nature.com/ncomms/2016/160331/ncomms11172/full/ncomms11172.html). Their genomes were not used in Brown et al.'s study, therefore I did not use them to train the classifier. Another group with another set of genomes: perfect test case: 
 
 {% highlight bash %}
 wget http://www.ncbi.nlm.nih.gov/Traces/wgs/?download=LMZU01.1.fsa_nt.gz -O LMZU01.1.fsa_nt.gz
@@ -140,7 +141,7 @@ OP11-2 .......................................: CPR (Confidence: 94%, Size: 906,
 
 It classifies a genome it has never seen before as CPR. So far so good.
 
-But then I thought it would be more fair to classify *all genomes* listed in the [Table 1](http://www.nature.com/ncomms/2016/160331/ncomms11172/fig_tab/ncomms11172_T1.html){:target="_blank"}. Only the last five genomes in this table represents CPR genomes. Just for future references, I wrote this little script to download and characterize all genomes with the accession numbers listed in the table:
+But then I thought that it would be more fair to classify *all genomes* listed in the [Table 1](http://www.nature.com/ncomms/2016/160331/ncomms11172/fig_tab/ncomms11172_T1.html){:target="_blank"} (I guess you already figured that I am doing these experiments as I write this post). I know that only the last five genomes in this table represents CPR genomes, and the test is to identify them properly. Just for future references, I wrote this little script to download and characterize all genomes with the accession numbers listed in the table:
 
 {% highlight bash %}
 #!/bin/bash
@@ -157,7 +158,7 @@ Which I called this way for each genome from within another script:
 $ ./download.sh JZEK Planctomycetes_AMX
 {% endhighlight %}
 
-And then classified each contigs database (in the order of genomes in [Table 1](http://www.nature.com/ncomms/2016/160331/ncomms11172/fig_tab/ncomms11172_T1.html)):
+And then classified each contigs database (the following list is in the same order with [Table 1](http://www.nature.com/ncomms/2016/160331/ncomms11172/fig_tab/ncomms11172_T1.html)):
 
 {% highlight bash %}
 Planctomycetes_AMX ...........................: NOT CPR (Confidence: 92%, Size: 3,895,767, Completion: 93%)
@@ -189,11 +190,11 @@ Knowing nothing about a genome except its sequence, we seem to be able to predic
 
 ### Screening an entire anvi'o project
 
-Of course it is easy to screen individual genomes, or genomes well curated and finalized to perfection. But how about draft metagenomic bins? Since here in our lab we are obsessed with convenience, we made sure we will be able to screen any anvi'o bin collection rapildly with this approach.
+Of course it is easy to screen individual genomes, or genomes well curated and finalized to perfection. But how about draft metagenomic bins? Since here in our lab we are obsessed with convenience, we made sure we will be able to screen any anvi'o bin collection rapildly with this new approach.
 
-There is a project we are working on together with [Ryan Bartelme](https://twitter.com/MicrobialBart) and [Ryan Newton](https://twitter.com/aqcrobial). Just a week ago we had analyzed 1.4 Gb assembly generated from shotgun samples coming from a biofilter Ryan and Ryan have been studying in Milwaukee. [Refining](https://twitter.com/merenbey/status/719971147106947072) initial CONCOCT results with anvi'o had generated 253 bins with varius levels of completion. I though that would be a great test case.
+There is work-in-progress project we are working on together with [Ryan Bartelme](https://twitter.com/MicrobialBart) and [Ryan Newton](https://twitter.com/aqcrobial). Just a week ago we had analyzed 1.4 Gb assembly generated from shotgun samples coming from a biofilter Ryan and Ryan have been studying in Milwaukee. [Refining](https://twitter.com/merenbey/status/719971147106947072) initial CONCOCT results with anvi'o had generated 253 bins with varius levels of completion. I though these results would be a great test case.
 
-This is how I screened the entire collection for CPR genomes (this is a severely cut output, I removed many many 90%+ complete and large draft genome bins from it to keep a smaller subset):
+This is how I screened the entire collection for CPR genomes in our bins (this is a severely cut output, I removed many many 90%+ complete and large draft genome bins from it to keep a smaller subset):
 
 {% highlight bash %}
 $ anvi-script-predict-CPR-genomes cpr-bscg.classifier -c CONTIGS.db -p PROFILE.db -C CONCOCT_REFINED
@@ -246,7 +247,7 @@ Result .......................................: 129 genes for 1 source(s)
 Output .......................................: Bin_1_14-genes.fa
 {% endhighlight %}
 
-The result is a FASTA file with every sequence matching to HMM profiles from Campbell et al.'s collection. Here is RecA from that file, a phylogenetically relevant marker that may tell us what this genome bin is really from:
+The result is a FASTA file with every sequence matching to HMM profiles from Campbell et al.'s collection, and here is the RecA from that file, a phylogenetically relevant marker that may tell us what this genome bin is really from:
 
 {% highlight bash %}
 >RecA___7bd46ef7|bin_id:Bin_1_14|source:Campbell_et_al|e_value:6e-165|contig:k99_9268241|start:168214|stop:169330|length:1116
@@ -262,7 +263,7 @@ CGAGCTATGGAAAAAGATGTGCTTGAATATGTAGCCAACGCAAAAAAAGCTGAAGAAGTAAAAAACGAAAACTATATTCA
 GCTAAAGCAGCCAAGTCAGCAAAAGATGAAGACTAA
 {% endhighlight %}
 
-And voilà, top hits from blastx are coming from bacteria from CPR (I removed two hypothetical hits):
+And voilà, top hits from blastx are coming from bacteria from CPR (I removed two hypothetical hits from this list):
 
 |Description|Max score|Total score|Query cove|E value| Ident|Accession|
 |:--|:--:|:--:|:--:|:--:|:--:|:--:|
@@ -274,12 +275,12 @@ And voilà, top hits from blastx are coming from bacteria from CPR (I removed tw
 |Protein RecA [Candidatus Peregrinibacteria bacterium GW2011_GWA2_33_10]|387|387|88%|6e-129|75%|KKP37897.1|
 |recA protein, recombination protein RecA [Candidatus Peregrinibacteria bacterium GW2011_GWF2_38_29]|382|382|84%|2e-127|77%|KKQ68511.1|
 
-I will leave the rest of the fun to [Ryan Bartelme](https://twitter.com/MicrobialBart){:target="_blank"} to explore these bins deeper.
+I could have gone further, because I am not good at knowing when to stop, but I realized I should leave the rest of the fun to [Ryan Bartelme](https://twitter.com/MicrobialBart){:target="_blank"} to explore these bins deeper.
 
 {:.notice}
-I am not going into the details here right now, but if you did your binning using another tool, you can still use anvi'o to do what is described here by generating a contigs database for your FASTA file, and using `anvi-import-collection` program.
+I am not going into the details here right now, but if you did your metagenomic binning using another tool, you can still use anvi'o to do what is described here by generating a contigs database for your FASTA file, and using `anvi-import-collection` program.
 
-## Final Words (tl;dr.)
+## Final Words (tl;dr)
 
 ---
 
@@ -291,12 +292,12 @@ Blogs are blogs, Meren .. people don't even read papers.
 <div class="blockquote-author">Tom O. Delmont</div>
 </blockquote>
 
-If you just clicked a link and jumped to the end, here are a couple of points from this post:
+If you just clicked a link to get here and jumped to the end, here are a couple of points I made in this post:
 
-* **The phylogeny of CPR genomes show something extraordinary**. They are truly unusual, and deserve all the buzz.
+* **The phylogeny of CPR genomes shows something extraordinary**. They are truly unusual, and deserve all the buzz.
 * **What we have seen so far is the tip of the iceberg**, and it is safe to assume we will see much more soon.
 * It seems **we can predict CPR genomes among draft genome bins from shotgun metagenomes almost instantly** using single-copy genes.
-* **They are not specific to systems Banfield studied, and their recovery is not limited to her group**. Daan Speth found them. I saw on Twitter that [Jen Biddle](https://twitter.com/subsurface_life){:target="_blank"} has found them, too. Although we didn't know it before, thanks to our new classifier, we learned that Ryan Bartelme and Ryan Newton's biofilter has them as well! Now everyone knows that they do exist, more people will be looking for them, and that clade will light up fast, and we will humbled by the extent of diversity life managed to create on this planet.
+* **They are not specific to systems Banfield studied, and their recovery is not limited to her group**. [Daan Speth](https://twitter.com/daanspeth) found them. I saw on Twitter that [Jen Biddle](https://twitter.com/subsurface_life){:target="_blank"} has found them, too. Although we didn't know it before, thanks to our new classifier, we learned that Ryan Bartelme and Ryan Newton's biofilter has them as well! Now everyone knows that they do exist, more people will be looking for them, and that clade will light up fast, and we will humbled by the extent of diversity life managed to create on this planet.
 
 These are definitely exciting times.
 
@@ -305,4 +306,4 @@ If you have a list of genomes you would like to see how anvi'o will classify the
 
 ---
 
-From [the discovery of a bacterium from the genus Nitrospira that is capable of complete nitrification](http://www.nature.com/nature/journal/vnfv/ncurrent/full/nature16461.html){:target="_blank"} to [the first description of switching of viral lifestyles based on the success of their target hosts](http://www.nature.com/nature/journal/v531/n7595/full/nature17193.html){:target="_blank"}, microbiology has been making a great use of assembly-based shotgun metagenomics. The discovery and the initial placement of some CPR genomes on the tree of life is another ground breaking discovery that took place just within the last months. This is a good moment to stop and think about the relevance, and importance of assembly-based metagenomic approaches to the most important questions we *can* go after.
+From [the discovery of a bacterium from the genus Nitrospira that is capable of complete nitrification](http://www.nature.com/nature/journal/vnfv/ncurrent/full/nature16461.html){:target="_blank"} to [the first description of switching of viral lifestyles based on the success of the target host](http://www.nature.com/nature/journal/v531/n7595/full/nature17193.html){:target="_blank"}, microbiology has been making a great use of assembly-based shotgun metagenomics. The discovery and the initial placement of some CPR genomes on the tree of life is another ground breaking discovery that took place just within the last months. This is a good moment to stop and think about the relevance, and importance of assembly-based metagenomic approaches to the most important questions we *can* go after.
