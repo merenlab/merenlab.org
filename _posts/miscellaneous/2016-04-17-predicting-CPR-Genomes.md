@@ -283,7 +283,7 @@ I am not going into the details here right now, but if you did your binning usin
 
 ---
 
-Tom, [again]({% post_url anvio/2015-12-09-musings-over-commamox %}), was very supportive of my decision to write this, and I thank him for that: 
+Tom, [again]({% post_url anvio/2015-12-09-musings-over-commamox %}), was very supportive of my decision to write this, and I thank him for making sure my expectations are set properly: 
 
 <blockquote>
 Blogs are blogs, Meren .. people don't even read papers.
