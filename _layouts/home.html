@@ -39,14 +39,26 @@
         </div>
 
         <h3>Recent posts from the blog</h3>
-        {% for post in site.posts limit:10 %}    
+        {% for post in site.posts limit: 10 %}
         <article>
-            {% if post.link %}
-                <h2 class="link-post"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></h2>
+            {% assign author = None %}
+            {% assign p = post.authors[0] %}
+            {% for e in site.data.people %}
+              {% if e.alias == p %}
+                  {% assign author = e %}
+              {% endif %}
+            {% endfor %}
+            {% if author %}
+              <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <small>({{ post.date | date: "%a, %b %d, %Y" }}, by <span style="color: gray;">{{ author.alias }}</span>)</small></h2>
             {% else %}
-                <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
-                <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
+              <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <small>({{ post.date | date: "%a, %b %d, %Y" }})</small></h2>
             {% endif %}
+            <p>{{ post.excerpt | strip_html | truncate: 160 }}
+            {% for category in site.data.categories %}
+              {% if category.name == post.categories[0] %}
+                  <span class="lbl" style="background-color: {{category.color}}">{{ category.name }}</span>
+              {% endif %}
+            {% endfor %}
         </article>
         {% endfor %}
     </div><!-- /#index -->
