@@ -122,11 +122,11 @@ Good job, classifier. You may have just proven yourself to be not an absolute jo
 How about a known CPR genome? For this, I decided to use one of the genomes ([this one](https://www.ncbi.nlm.nih.gov/nuccore/LMZU00000000.1), to be specific) [Daan Speth](https://twitter.com/daanspeth) and his colleagues released from a wastewater treatment system in their [recent publication](http://www.nature.com/ncomms/2016/160331/ncomms11172/full/ncomms11172.html). Their genomes were not used in Brown et al.'s study, therefore I did not use them to train the classifier. Another group with another set of genomes; the best test case: 
 
 {% highlight bash %}
-wget http://www.ncbi.nlm.nih.gov/Traces/wgs/?download=LMZU01.1.fsa_nt.gz -O LMZU01.1.fsa_nt.gz
-gzip -d LMZU01.1.fsa_nt.gz
-anvi-script-remove-short-contigs-from-fasta LMZU01.1.fsa_nt --simplify-names -o OP11-2.fa -l 0
-anvi-gen-contigs-database -f OP11-2.fa -o OP11-2.db
-anvi-populate-search-table -c OP11-2.db
+$ wget http://www.ncbi.nlm.nih.gov/Traces/wgs/?download=LMZU01.1.fsa_nt.gz -O LMZU01.1.fsa_nt.gz
+$ gzip -d LMZU01.1.fsa_nt.gz
+$ anvi-script-remove-short-contigs-from-fasta LMZU01.1.fsa_nt --simplify-names -o OP11-2.fa -l 0
+$ anvi-gen-contigs-database -f OP11-2.fa -o OP11-2.db
+$ anvi-populate-search-table -c OP11-2.db
 {% endhighlight %}
 
 The moment of truth:
