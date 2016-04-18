@@ -25,7 +25,7 @@ A large fraction of the genomes in Hug et al.'s study comes from another publica
 
 ## Distribution of bacterial single-copy genes in CPR 
 
-The use of bacterial single-copy genes is quite a common technique to get a ballpark estimation of how much of a genome is captured a metagenomic bin. They are quite useful. In fact, they can even be used to [estimate the number of bacterial genomes in an assembly](https://peerj.com/articles/1839/){:target="_blank"}. The 2015 Brown et al. study employs **43** bacterial single-copy genes to estimate the level of completeness of their CPR genomes. Here re-analyzed these 797 genomes by extending the number of single-copy genes to **139**, by using [Campbell et al.](http://www.pnas.org/content/110/14/5540.full){:target="_blank"}'s bacterial single-copy gene collection (details of which is in the [supplementary table 2](http://www.pnas.org/content/suppl/2013/03/13/1303090110.DCSupplemental/pnas.201303090SI.pdf){:target="_blank"}, and we have them nicely organized in [our codebase](https://github.com/meren/anvio/tree/master/anvio/data/hmm/Campbell_et_al){:target="_blank"}). To create this collection, Campbell et al. analyzed the occurrence of protein families in 1,516 complete bacterial genomes distributed around bacterial tree of life, and identified protein families that occurred only once in *at least* 90% of all genomes. For the bacterial life we *knew* about, it works beautifully well. But how well are these genes represented in Brown et al's collection?
+The use of bacterial single-copy genes is quite a common technique to get a ballpark estimation of how much of a genome is captured in a metagenomic bin. They are quite useful. In fact, they can even be used to [estimate the number of bacterial genomes in an assembly](https://peerj.com/articles/1839/){:target="_blank"}. The 2015 Brown et al. study employs **43** bacterial single-copy genes to estimate the level of completeness of their CPR genomes. Here re-analyzed these 797 genomes by extending the number of single-copy genes to **139**, by using [Campbell et al.](http://www.pnas.org/content/110/14/5540.full){:target="_blank"}'s bacterial single-copy gene collection (details of which is in the [supplementary table 2](http://www.pnas.org/content/suppl/2013/03/13/1303090110.DCSupplemental/pnas.201303090SI.pdf){:target="_blank"}, and we have them nicely organized in [our codebase](https://github.com/meren/anvio/tree/master/anvio/data/hmm/Campbell_et_al){:target="_blank"}). To create this collection, Campbell et al. analyzed the occurrence of protein families in 1,516 complete bacterial genomes distributed around bacterial tree of life, and identified protein families that occurred only once in *at least* 90% of all genomes. For the bacterial life we *knew* about, it works beautifully well. But how well are these genes represented in Brown et al's collection?
 
 Here is an anvi'o figure to answer that question visually:
 
@@ -51,14 +51,14 @@ That being said, their small size and low completion scores in general do not ma
 
 If there *was* a way to recognize CPR genomes rapidly, maybe it would have been useful to understand the extent of their distribution among metagenomic bins, and help people to focus on the ones that look interesting. And this is exactly what we will explore here using those single-copy gene patterns.
 
-Essentially we want to say "*if these single-copy genes are lacking from a genome, and those single-copy genes are present, then it may be a CPR genome*". But then things are always noisy, metagenomic bins are initially incomplete and/or contaminated, so you can't work with absolute presence and absence counts. Then you would have to look at ratios and percentages, and eventually end up coming up with biologically irrelevant cut-offs. Although we microbial ecologists are pretty awesome at not losing sleep over making meaningless cutoffs as pillars of our science, we also know one *should* avoid cut-offs whenever they can. Aaaand a better way to make sense of these presence absence patterns to predict CPR genomes is to train a 'classifier'. Here I confess that I wrote this entire paragraph to find a way to lead you to this video: [a *very* friendly 7 minutes to understand the concept behind a classifier](https://www.youtube.com/watch?v=cKxRvEZd3Mw){:target="_blank"} from Google, in case you are not familiar with the concept, and tired of not being familiar with it.
+Essentially we want to say "*if these single-copy genes are lacking from a genome, and those single-copy genes are present, then it may be a CPR genome*". Sounds straightforward enough. But then things are always noisy, and metagenomic bins are often incomplete and/or contaminated at least initially, hence you can't go far with absolute presence and absence counts. Then you would have to look at ratios and percentages of those group of genes to each other, and eventually end up having to come up with biologically irrelevant cut-offs. Although we microbial ecologists are pretty awesome at not losing sleep over making meaningless cutoffs as pillars of our science, we also know one *should* avoid cut-offs whenever they can. One of the better ways to approach to problems of this sort is to train a 'classifier'. Here I confess that I wrote this entire paragraph to find a way to lead you to this video: [a *very* friendly 7 minutes to understand the concept behind classification in machine learning](https://www.youtube.com/watch?v=cKxRvEZd3Mw){:target="_blank"} from Google, in case you are not familiar with the concept, and tired of not being familiar with it.
 
-OK. I used the data you see in the anvi'o figure above to train a random forest classifier using [scikit learn](http://scikit-learn.org/stable/) library. The logic is very simple: train a classifier with the distribution of single-copy genes across known CPR genomes, and ask it whether it thinks an unknown genome may be coming from CPR or not. In fact, I added a [learning module](https://github.com/meren/anvio/blob/master/anvio/learning.py){:target="_blank"} in anvi'o to be able to do these kinds of things in a much rapid manner in the future, so beware! I also implemented two draft scripts, [anvi-script-gen-CPR-model](https://github.com/meren/anvio/blob/master/sandbox/anvi-script-gen-CPR-model){:target="_blank"} to crete a model, and [anvi-script-predict-CPR-genomes](https://github.com/meren/anvio/blob/master/sandbox/anvi-script-predict-CPR-genomes){:target="_blank"} for prediction.
+OK. I used the data you see in the anvi'o figure above to train a random forest classifier using [scikit learn](http://scikit-learn.org/stable/) library. The logic is very simple: tell the computer about the distribution of single-copy genes across known CPR genomes, and ask it whether it thinks an unknown genome may be coming from CPR or not. In fact, I added a [learning module](https://github.com/meren/anvio/blob/master/anvio/learning.py){:target="_blank"} in anvi'o to be able to do these kinds of things in a much rapid manner in the future, so beware! I also implemented two draft scripts, [anvi-script-gen-CPR-classifier](https://github.com/meren/anvio/blob/master/sandbox/anvi-script-gen-CPR-classifier){:target="_blank"} for the training part, and [anvi-script-predict-CPR-genomes](https://github.com/meren/anvio/blob/master/sandbox/anvi-script-predict-CPR-genomes){:target="_blank"} for the prediction part.
 
 {:.notice}
-Everything here uses anvi'o v2 branch from the [GitHub master](https://github.com/meren/anvio), which is not officially released yet, but you can install and use.
+Everything here uses anvi'o v2 branch, which is not officially released yet, but you can install and use directly from the [GitHub master repository](https://github.com/meren/anvio).
 
-Using these programs, and the [Brown_et_al-CPR-Campbell_et_al_BSCG.txt](https://github.com/meren/anvio/blob/master/tests/sandbox/Brown_et_al-CPR-Campbell_et_al_BSCG.txt){:target="_blank"} file, I first generated a classifier:
+Now using the first programs, along with the [Brown_et_al-CPR-Campbell_et_al_BSCG.txt](https://github.com/meren/anvio/blob/master/tests/sandbox/Brown_et_al-CPR-Campbell_et_al_BSCG.txt){:target="_blank"} file, I can create a classifier:
 
 {% highlight bash %}
 $ anvi-script-gen-CPR-classifier Brown_et_al-CPR-Campbell_et_al_BSCG.txt -o cpr-bscg.classifier
@@ -72,7 +72,7 @@ We have a classifier! So far so good. But does it classify?
 
 Let's start with something we all know that is not coming from CPR: *E. coli* ([this one](https://www.ncbi.nlm.nih.gov/nuccore/NC_000913.3), to be specific).
 
-First, the standard steps of generating an anvi'o contigs database from a given FASTA file of contigs, and populating HMM search results:
+First, the standard steps of generating an anvi'o contigs database from a given FASTA file of contigs, and populating HMM search results in it:
 
 {% highlight bash %}
 $ anvi-gen-contigs-database -f E_coli-K12-MG1655.fa -o E_coli-K12-MG1655.db
@@ -91,7 +91,7 @@ E_coli-K12-MG1655 ............................: NOT CPR (Confidence: 100%, Size:
 
 *Phew.*
 
-But of course, this is a complete genome (as anvi'o also predicts and states that: *Completion: 100%*), and we know genomes from CPR miss a lot of single-copy genes. Would the classifier work if it was not as complete? Here I keep only the first half of the genome from the FASTA file, and create another anvi'o contigs database:
+But of course, this is a complete genome (as anvi'o also predicts and states it in its output: *Completion: 100%*), and we know genomes from CPR miss a lot of single-copy genes. Would the classifier work if it was not as complete? Here I create another FASTA file with only the second half of the genome:
 
 {% highlight bash %}
 $ head -n `wc -l E_coli-K12-MG1655.fa | awk '{print $1 / 2}'` E_coli-K12-MG1655.fa > E_coli-K12-MG1655-half.fa
@@ -101,7 +101,7 @@ $ wc -l E_coli-K12-MG1655-half.fa
    29011 E_coli-K12-MG1655-half.fa
 {% endhighlight %}
 
-Repeat the process on this incomplete genome:
+Then repeat the process on this incomplete genome:
 
 {% highlight bash %}
 $ anvi-gen-contigs-database -f E_coli-K12-MG1655-half.fa -o E_coli-K12-MG1655-half.db
@@ -113,13 +113,13 @@ Genome in "E_coli-K12-MG1655-half.db"
 E_coli-K12-MG1655-half .......................: NOT CPR (Confidence: 97%, Size: 2,239,920, Completion: 30%)
 {% endhighlight %}
 
-Although the genome is only 30% complete, the classifier is 97% confident that it is not a CPR genome.
+Although the genome is now only 30% complete, the classifier says it is not a CPR genome with 97% confidence.
 
 Good job, classifier. You may have just proven yourself to be not an absolute joke. For now.
 
 ### A published CPR genome
 
-How about a known CPR genome? For this, I decided to use one of the genomes ([this one](https://www.ncbi.nlm.nih.gov/nuccore/LMZU00000000.1), to be specific) [Daan Speth](https://twitter.com/daanspeth) and his colleagues released from a wastewater treatment system in their [recent publication](http://www.nature.com/ncomms/2016/160331/ncomms11172/full/ncomms11172.html). Their genomes were not used in Brown et al.'s study, therefore I did not use them to train the classifier. Another group with another set of genomes: perfect test case: 
+How about a known CPR genome? For this, I decided to use one of the genomes ([this one](https://www.ncbi.nlm.nih.gov/nuccore/LMZU00000000.1), to be specific) [Daan Speth](https://twitter.com/daanspeth) and his colleagues released from a wastewater treatment system in their [recent publication](http://www.nature.com/ncomms/2016/160331/ncomms11172/full/ncomms11172.html). Their genomes were not used in Brown et al.'s study, therefore I did not use them to train the classifier. Another group with another set of genomes; the best test case: 
 
 {% highlight bash %}
 wget http://www.ncbi.nlm.nih.gov/Traces/wgs/?download=LMZU01.1.fsa_nt.gz -O LMZU01.1.fsa_nt.gz
@@ -139,9 +139,9 @@ Genome in "OP11-2.db"
 OP11-2 .......................................: CPR (Confidence: 94%, Size: 906,719, Completion: 66%)
 {% endhighlight %}
 
-It classifies a genome it has never seen before as CPR. So far so good.
+It classifies a genome it has never seen before as CPR. So far so good!
 
-But then I thought that it would be more fair to classify *all genomes* listed in the [Table 1](http://www.nature.com/ncomms/2016/160331/ncomms11172/fig_tab/ncomms11172_T1.html){:target="_blank"} (I guess you already figured that I am doing these experiments as I write this post). I know that only the last five genomes in this table represents CPR genomes, and the test is to identify them properly. Just for future references, I wrote this little script to download and characterize all genomes with the accession numbers listed in the table:
+But then I thought that it would be more fair to classify *all genomes* listed in the [Table 1](http://www.nature.com/ncomms/2016/160331/ncomms11172/fig_tab/ncomms11172_T1.html){:target="_blank"} (I guess you already figured that I am doing these experiments as I write this post). I know that only the last five genomes in this table represents CPR genomes, and the test is to identify them properly. Just for future references, I wrote this little script to download and characterize all genomes with the accession numbers listed in Table 1:
 
 {% highlight bash %}
 #!/bin/bash
@@ -192,9 +192,9 @@ Knowing nothing about a genome except its sequence, we seem to be able to predic
 
 Of course it is easy to screen individual genomes, or genomes well curated and finalized to perfection. But how about draft metagenomic bins? Since here in our lab we are obsessed with convenience, we made sure we will be able to screen any anvi'o bin collection rapildly with this new approach.
 
-There is work-in-progress project we are working on together with [Ryan Bartelme](https://twitter.com/MicrobialBart) and [Ryan Newton](https://twitter.com/aqcrobial). Just a week ago we had analyzed 1.4 Gb assembly generated from shotgun samples coming from a biofilter Ryan and Ryan have been studying in Milwaukee. [Refining](https://twitter.com/merenbey/status/719971147106947072) initial CONCOCT results with anvi'o had generated 253 bins with varius levels of completion. I though these results would be a great test case.
+There is a work-in-progress project we are working on together with [Ryan Bartelme](https://twitter.com/MicrobialBart) and [Ryan Newton](https://twitter.com/aqcrobial). Just a week ago we had analyzed 1.4 Gb assembly generated from shotgun samples coming from a biofilter Ryan and Ryan have been studying in Milwaukee. [Refining](https://twitter.com/merenbey/status/719971147106947072) initial CONCOCT bins with anvi'o had generated 253 bins with varius levels of completion. I though these results would be a great test case.
 
-This is how I screened the entire collection for CPR genomes in our bins (this is a severely cut output, I removed many many 90%+ complete and large draft genome bins from it to keep a smaller subset):
+This is how I screened the entire collection of bins in this analysis for CPR genomes (this is a severely cut output, I removed many many 90%+ complete and large draft genome bins from it to keep a smaller subset):
 
 {% highlight bash %}
 $ anvi-script-predict-CPR-genomes cpr-bscg.classifier -c CONTIGS.db -p PROFILE.db -C CONCOCT_REFINED
@@ -275,10 +275,10 @@ And voilà, top hits from blastx are coming from bacteria from CPR (I removed tw
 |Protein RecA [Candidatus Peregrinibacteria bacterium GW2011_GWA2_33_10]|387|387|88%|6e-129|75%|KKP37897.1|
 |recA protein, recombination protein RecA [Candidatus Peregrinibacteria bacterium GW2011_GWF2_38_29]|382|382|84%|2e-127|77%|KKQ68511.1|
 
-I could have gone further, because I am not good at knowing when to stop, but I realized I should leave the rest of the fun to [Ryan Bartelme](https://twitter.com/MicrobialBart){:target="_blank"} to explore these bins deeper.
+I could have gone further (because I am not good at knowing when to stop), but I realized I should leave the rest of the fun to [Ryan Bartelme](https://twitter.com/MicrobialBart){:target="_blank"} to explore these bins deeper.
 
 {:.notice}
-I am not going into the details here right now, but if you did your metagenomic binning using another tool, you can still use anvi'o to do what is described here by generating a contigs database for your FASTA file, and using `anvi-import-collection` program.
+I am not going into the details here right now, but if you did your metagenomic binning using another tool, you still can use anvi'o to do what is described here by generating a contigs database for your FASTA file, and using `anvi-import-collection` program to create a collection in it, and link contig names to bin IDs.
 
 ## Final Words (tl;dr)
 
@@ -292,17 +292,17 @@ Blogs are blogs, Meren .. people don't even read papers.
 <div class="blockquote-author">Tom O. Delmont</div>
 </blockquote>
 
-If you just clicked a link to get here and jumped to the end, here are a couple of points I made in this post:
+I understand if you just clicked a link to get here and jumped to the end because you are as busy as the scientist next to you. So here are a couple of points I made in this post:
 
 * **The phylogeny of CPR genomes shows something extraordinary**. They are truly unusual, and deserve all the buzz.
-* **What we have seen so far is the tip of the iceberg**, and it is safe to assume we will see much more soon.
+* **What we have seen so far is likely the tip of the iceberg**, and it is safe to assume we will see much more soon.
 * It seems **we can predict CPR genomes among draft genome bins from shotgun metagenomes almost instantly** using single-copy genes.
-* **They are not specific to systems Banfield studied, and their recovery is not limited to her group**. [Daan Speth](https://twitter.com/daanspeth) found them. I saw on Twitter that [Jen Biddle](https://twitter.com/subsurface_life){:target="_blank"} has found them, too. Although we didn't know it before, thanks to our new classifier, we learned that Ryan Bartelme and Ryan Newton's biofilter has them as well! Now everyone knows that they do exist, more people will be looking for them, and that clade will light up fast, and we will humbled by the extent of diversity life managed to create on this planet.
+* **They are not specific to systems Banfield studied, and their recovery is not limited to her group**. [Daan Speth](https://twitter.com/daanspeth) and his colleagues have found them. I saw on Twitter that [Jen Biddle](https://twitter.com/subsurface_life){:target="_blank"} has found them, too. Although we didn't know it before, our new classifier showed us that Ryan Bartelme and Ryan Newton's biofilter has them as well! Now everyone knows that they do exist, more people will be looking for them. I think more light will be shed on these new clades pretty fast, and we will be humbled even further by the extent of diversity life managed to create on this planet.
 
 These are definitely exciting times.
 
 {:.notice}
-If you have a list of genomes you would like to see how anvi'o will classify them, but you don't have time to install anvi'o, feel free to send me an e-mail. I will ask you to give me FASTA files, and return you back the predictions.
+If you have a list of genomes you are curious to see how anvi'o would classify, but you don't have time / interest to explore it yourelf, feel free to send me an e-mail. I will ask you to give me FASTA files, and return you back the predictions.
 
 ---
 
