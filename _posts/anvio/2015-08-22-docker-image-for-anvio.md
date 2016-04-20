@@ -43,14 +43,15 @@ $ sudo docker pull meren/anvio
 Here are the available tags as of today:
 
 {% highlight bash %}
-$ sudo docker images               
-REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
-meren/anvio         1.2.2               f597b22dec4c        About an hour ago   599.5 MB
-meren/anvio         latest              f597b22dec4c        About an hour ago   599.5 MB
-meren/anvio         1.2.1               ae6a2ef96b16        9 days ago          593.7 MB
-meren/anvio         1.2.0               110b749e53d1        6 weeks ago         599.2 MB
-meren/anvio         1.1.0               71a85f4a8a68        11 weeks ago        482.6 MB
-meren/anvio         1.0.2               f3c1998acc63        3 months ago        481.3 MB
+$ sudo docker images
+REPOSITORY          TAG                 IMAGE ID
+meren/anvio         1.2.3               88a60781b241
+meren/anvio         latest              88a60781b241
+meren/anvio         1.2.2               f597b22dec4c
+meren/anvio         1.2.1               ae6a2ef96b16
+meren/anvio         1.2.0               110b749e53d1
+meren/anvio         1.1.0               71a85f4a8a68
+meren/anvio         1.0.2               f3c1998acc63
 {% endhighlight %}
 
 {:.notice}
@@ -59,7 +60,7 @@ Although we will do our best to keep this post up-to-date, please remember that 
 Now you can simply type this to get the version you are interested in running:
 
 {% highlight bash %}
-$ sudo docker run --rm -it meren/anvio:1.2.2
+$ sudo docker run --rm -it meren/anvio:1.2.3
 {% endhighlight %}
 
 This will give you a new prompt in your terminal that will look like this:
@@ -89,7 +90,7 @@ First, you will need to install the [Docker Toolbox](https://www.docker.com/tool
 Note the IP address (which is `192.168.99.100` in my case), becasue you will need it later. At this point, all you need to do is to run this command (note that you may need to change the version number):
 
 {% highlight bash %}
-docker run -p 8080:8080 -it meren/anvio:1.2.2
+docker run -p 8080:8080 -it meren/anvio:1.2.3
 {% endhighlight %}
 
 Docker will download all the necessary images, and will finally give you an anvi'o prompt which will look like this:
@@ -115,7 +116,7 @@ You will soon realize that this new virtual environment in which you run anvi'o 
 Let's assume the data you would like to analyze using anvi'o is in a directory at `/home/meren/my_data`. To have access to this directory from within the docker image, you can _bind_ it to a directory in the virtual environment. Let's assume, we want to have access to the content of `/home/meren/my_data`, from `/my_data` directory from within the docker image:
 
 {% highlight bash %}
-$ sudo docker run --rm -v /home/merenbey/my_data:/my_data -it meren/anvio:1.2.2
+$ sudo docker run --rm -v /home/merenbey/my_data:/my_data -it meren/anvio:1.2.3
 {% endhighlight %}
 
 That's it. Here is a longer story:
@@ -125,7 +126,7 @@ $ pwd
 /home/meren
 $ ls my_data/
 X.bam  Y.bam  contigs.fa
-$ sudo docker run --rm -v /home/merenbey/my_data:/my_data -it meren/anvio:1.2.2                                      
+$ sudo docker run --rm -v /home/merenbey/my_data:/my_data -it meren/anvio:1.2.3                                      
 :: anvi`o ::  / >>> ls /my_data/
 X.bam  Y.bam  contigs.fa
 {% endhighlight %}
@@ -142,13 +143,13 @@ $ git clone --recursive https://github.com/meren/anvio.git
 Switch to a particular tag (here is [a complete list of available releases and tags](https://github.com/meren/anvio/releases)):
 
 {% highlight bash %}
-git checkout tags/v1.2.2
+git checkout tags/v1.2.3
 {% endhighlight %}
 
 Add/remove things you want, do your changes in the code, and build the new docker image (replace the username and tag with your preferences):
 
 {% highlight bash %}
-docker build -t meren/anvio:1.2.2 .
+docker build -t meren/anvio:1.2.3.
 {% endhighlight %}
 
 And optionally, push it to your account on the hub to allow other people run it easily (i.e., this is what I do to push the new images to my account):

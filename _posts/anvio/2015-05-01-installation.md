@@ -191,12 +191,12 @@ Now you can edit the codebase, and test it, without re-installing anvi'o over an
 
 If you have a proper installation, you shouldn't get any errors when you run the `mini_test`
 
-If you installed anvi'o via `pip` (following the safe mode), you can go to an empty directory, and type these (don't forget to replace the version number (which is 1.2.2 in this example) with whatever version you have installed. If you are not sure, type `anvi-profile -v`):
+If you installed anvi'o via `pip` (following the safe mode), you can go to an empty directory, and type these (don't forget to replace the version number (which is 1.2.3 in this example) with whatever version you have installed. If you are not sure, type `anvi-profile -v`):
 
 {% highlight bash %}
 git clone https://github.com/meren/anvio.git
 cd anvio/
-git checkout tags/v1.2.2
+git checkout tags/v1.2.3
 cd tests/
 ./run_mini_test.sh
 {% endhighlight %}
