@@ -17,6 +17,7 @@ This article explains basic steps of installing anvi'o using rather conventional
 * [OS X installer for anvi'o]({% post_url anvio/2015-08-20-installation-on-mac %}) (for Maverick and Yosemite).
 * [Docker image for anvi'o]({% post_url anvio/2015-08-22-docker-image-for-anvio %}) (for an instant, and painless installation of anvi'o on a server system).
 * We also have [a recipe for Ubuntu / Debian users](https://gist.github.com/meren/f1e674f774a30a209d82).
+* Finally, Canberk Koç & Çağrı Ulaş kindly prepared [this recipe for Arch Linux users](https://gist.github.com/meren/f2f247f78a6402e3370ea929de1d3510).
 
 Please consider joining [the anvi'o discussion group]({% post_url anvio/2015-10-14-anvio-discussion-group %}) if you have any questions about how to install or how to use anvi'o.
 
