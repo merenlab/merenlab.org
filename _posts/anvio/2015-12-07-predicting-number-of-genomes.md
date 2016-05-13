@@ -11,6 +11,10 @@ authors: [meren]
 
 {% include _toc.html %}
 
+
+{:.notice}
+We have a citable version, and a more formal description of this workflow in our recent paper "[Identifying contamination with advanced visualization and analysis practices: metagenomic approaches for eukaryotic genome assemblies](https://peerj.com/articles/1839/)" (see [the supplementary material](https://doi.org/10.7717/peerj.1839/supp-1)).
+
 Your ability to identify genomes appropriately from an assembly will depend on many factors, such as the number of samples you have to exploit the differential coverage patterns of genomes, or the algorithm you use to tease apart that information. But even before doing any of the real binning, you may have a rough answer to this question by just taking a quick look from your contigs:
 
 <blockquote>
