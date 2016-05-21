@@ -1,5 +1,6 @@
 <div class="people">
 {% for person in site.data.people %}
+{% if person.official %}
 <div class="person">
     <div class="person-photo">
     {% if person.avatar contains 'http' %}
@@ -29,5 +30,6 @@
     </div>
 
 </div>
+{% endif %}
 {% endfor %}
 </div>

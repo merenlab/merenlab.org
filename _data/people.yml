@@ -1,4 +1,5 @@
 - alias: meren
+  official: True
   name: A. Murat Eren (Meren)
   role: Assistant Professor
   twitter: merenbey
@@ -16,6 +17,7 @@
   bio: "I am a computer scientist with a deep appreciation for the complexity of life. I design algorithms and experiments to better understand microbes and their ecology."
 
 - alias: tom
+  official: True
   name: Tom O. Delmont
   role: Post-doctoral Scientist
   email: tom.o.delmont@gmail.com
@@ -26,6 +28,7 @@
   bio: "I am a microbial ecologist who seeks to understand small and large-scale ecological patterns in the microbial world. My most recent investigations focused on humans, pristine soils, and the Southern Ocean."
 
 - alias: ozcan
+  official: True
   name: Özcan C. Esen
   role: Visiting Undergraduate Student
   email: ozcanesen@gmail.com
@@ -34,3 +37,8 @@
   github: ozcanesen
   web: http://blog.ozcanesen.com/
   bio: "Currently a computer engineering undergrad from Turkey, I strive to utilize my expertise in computation to study challenges in other fields."
+
+- alias: mike
+  name: Mike Lee
+  role: Contributing hero
+  twitter: AstrobioMike
