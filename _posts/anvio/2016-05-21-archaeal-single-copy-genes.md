@@ -18,7 +18,7 @@ One of the major strengths of anvi'o is the capability of manually curating your
 $ anvi-populate-search-table -c contigs.db
 {% endhighlight %}
 
-As of today, when `anvi-populate-search-table` is run without providing any further arguments, it automatically utilizes [the four HMM profiles included in anvi'o codebase](https://github.com/meren/anvio/tree/master/anvio/data/hmm). These profiles are quite useful and convenient for bacterial genomes. However, if you are purposely trying to refine archaeal bins, or perhaps if you are working with a lab that has spent some time and effort to build their own single-copy gene collections, ability to change the underlying HMM single-copy gene collections would certainly help. Fortunately, anvi'o has an easy way to specify which collection(s) to consider when working in the interactive mode.
+As of today, when `anvi-populate-search-table` is run without providing any further arguments, it automatically utilizes [the four HMM profiles included in anvi'o codebase](https://github.com/meren/anvio/tree/master/anvio/data/hmm). These profiles are quite useful and convenient for bacterial genomes. However, if you are purposely trying to refine archaeal bins, or perhaps if you are working with a lab that has spent some time and effort to build their own single-copy gene collections, the ability to change the underlying HMM single-copy gene collections would certainly help. Fortunately, anvi'o has an easy way to specify which collection(s) to consider when working in the interactive mode.
 
 As noted above, running the `anvi-populate-search-table` program with no additional arguments other than your contigs database will scan for the four preloaded bacterial single-copy gene collections. If you would like to use another collection, you need only to add the location of the directory that contains your HMM profiles:
 
@@ -30,14 +30,14 @@ Anvi'o will expect the directory denoted by the `-H` flag above to contain four 
 
 |File Name|Content and Purpose|
 |:---|:---|
-|*genes.hmm.gz*|A gzip of concatenated HMM profiles|
+|*genes.hmm.gz*|A gzip of concatenated HMM profiles.|
 |*genes.txt*|A TAB-delimited file containing three columns; gene name, accession number, and source of HMM profiles listed in genes.hmm.gz.|
-|*kind.txt*|A flat text file which contains a single word identifying what type of profile the directory contains. If this word is 'singlecopy', the profile is used to calculate percent completeness and contamination. Otherwise it will only be used to visualize contigs with HMM hits without utilizing to estimate completeness.|
+|*kind.txt*|A flat text file which contains a single word identifying what type of profile the directory contains. If this word is 'singlecopy', the profile is used to calculate percent completeness and contamination. Otherwise it will only be used to visualize contigs with HMM hits without being utilized to estimate completeness.|
 |*reference.txt*|A file containing source information for this profile to cite it properly.|
 
 Examples of each file can be found [here](https://github.com/meren/anvio/tree/master/anvio/data/hmm/Campbell_et_al), and if you'd like to jump right in using the archaeal single-copy gene collection by [Rinke et al.](http://www.nature.com/nature/journal/v499/n7459/full/nature12352.html), please help yourself to the directory located [here]({{ site.url }}/files/Rinke_archaeal_HMM.tar.gz).
 
-The following figure compares the completeness and contamination estimates for 5 archaeal and 3 bacterial genomes I pulled from [IMG](https://img.jgi.doe.gov/){:target="_blank"}. For each genome, the figure displsy the estimations based on the defaul bacterial single-copy gene collections distributed with anvi'o, and Rinke et al.'s archaeal gene collection I added to my contigs database:
+The following figure compares the completeness and contamination estimates for 5 archaeal and 3 bacterial genomes I pulled from [IMG](https://img.jgi.doe.gov/){:target="_blank"}. For each genome, the figure displays the estimations based on the default bacterial single-copy gene collections distributed with anvi'o, and Rinke et al.'s archaeal gene collection I added to my contigs database:
 
 <div class="centerimg">
 <a href="{{ site.url }}/images/anvio/2016-05-21-archaeal-single-copy-genes/archaea-anvio.png"><img src="{{ site.url }}/images/anvio/2016-05-21-archaeal-single-copy-genes/archaea-anvio.png" width="80%" /></a>
