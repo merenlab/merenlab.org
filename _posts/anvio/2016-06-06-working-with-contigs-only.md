@@ -88,7 +88,7 @@ Once this is done, we can populate the single-copy gene hit tables in it:
 anvi-populate-search-table -c Bacillus_subtilis.db
 {% endhighlight %}
 
-If you hapenned to read [this post]({% post_url anvio/2015-12-07-predicting-number-of-genomes}) before, you know that at this point we can take a look at the distribuiton of bacterial single-copy genes in this contigs database and predict the number of genomes in it:
+If you hapenned to read [this post]({% post_url anvio/2015-12-07-predicting-number-of-genomes %}) before, you know that at this point we can take a look at the distribuiton of bacterial single-copy genes in this contigs database and predict the number of genomes in it:
 
 {% highlight bash %}
 $ anvi-script-gen_stats_for_single_copy_genes.py Bacillus_subtilis.db
