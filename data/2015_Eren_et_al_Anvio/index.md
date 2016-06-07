@@ -12,6 +12,9 @@ image:
 
 The manuscript, published on 2015-10-08: [Anvi'o: An advanced analysis and visualization platform for 'omics data](https://peerj.com/articles/1319/).
 
+{:.notice}
+The anvi'o profiles here will run with a much earlier version of anvi'o. If you would like to work with them, please checkout your anvi'o codebase to [this commit](https://github.com/meren/anvio/commit/265318856301ab4f7a71911aeaefb524339efbb3). Please don't hesitate to write us if you need assistance.
+
 ### Daily Infant Gut Samples by Sharon _et al._
 
 _Raw data and anvi'o results for the section on supervised binning and the analysis of the variability in genome bins_.
