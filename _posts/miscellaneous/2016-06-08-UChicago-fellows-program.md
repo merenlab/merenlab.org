@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Chicago Fellows Program"
-excerpt: "A postdoc opportunity at a great department"
+excerpt: "A prestigious post-doc opportunity at a great university environment"
 modified: 2016-06-08
 tags: [reanalysis]
 authors: [meren]
