@@ -24,8 +24,18 @@
   twitter: tomodelmont
   avatar: bio-tom.jpg
   skype: tom.o.delmont
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9118, Chicago, IL 60637 USA
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
   bio: "I am a microbial ecologist who seeks to understand small and large-scale ecological patterns in the microbial world. My most recent investigations focused on humans, pristine soils, and the Southern Ocean."
+
+- alias: sonny
+  official: True
+  name: Sonny T. M. Lee
+  role: Post-doctoral Scientist
+  email: leet1@uchicago.edu
+  avatar: bio-sonny.jpg
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  bio: "I am a microbiologist studying the most interesting inhabitants of humans, coral reefs, and the ocean, and using big data to answer vexing problems of our future."
+
 
 - alias: ozcan
   official: True
