@@ -21,20 +21,20 @@ Every time you [select a bunch of contigs into a genome bin]({{ site.url }}/imag
 Although we find it extremely helpful to have real-time estimates available to us while working with our metagenomic bins, it usually is a struggle to make sure these bins are coherent, i.e., they have as many BSCGs as necessary, but not more. However, one thing you quickly learn when you start working with metagenomes is that nothing ever is ideal in these complex data, and [Murphy](https://en.wikipedia.org/wiki/Murphy%27s_law) here is not a wise old guy, but a supervillian who really sticks with his evil-er motto. 
 
 <blockquote>
-Anything that can go wrong, will go wrong, and then some other perfectly OK stuff will go wrong, too. As a matter of fact there is nothing much you can do about it either. Yes. That's true. Now go cry somewhere else.
+Anything that can go wrong, will go wrong, and then some other perfectly OK stuff will go wrong, too. And there is nothing much you can do about it either. Yes. Yikes.
 
 <div class="blockquote-author">Murphy of Metagenomes</div>
 </blockquote>
 
-When it is clear that pretty much everything can go wrong, it becomes even more critical to be scrupulous with the binning step. Binning is the first step in the metagenomic workflow after sampling where everything is (or *should be*) under your control.
+When it is clear that pretty much everything can go wrong, it becomes even more critical to be scrupulous with the binning step. Because binning is the first step in the metagenomic workflow after sampling where everything is (or *can be*) under your control.
 
-Due to numerous issues related to the assembly process, metagenome-assembled genomes MAGs are rarely 100% "complete" with respect to the occurrence of BSCGs out-of-the-box. Due to some additional issues related to mapping and automatic binning steps, as well as occasional non-specific hits to shorter BSCGs, our MAGs rarely have only one copy of every BSCG. So 100% completion and 0% redundancy with respect to BSCGs is not realistic. But what is realistic, then? When is it OK to stop refining a bin, and when is it *not* OK to say "*well, this is the genome bin I will call final, analyze, and publish*"?
+Due to numerous issues related to the assembly process, metagenome-assembled genomes (MAGs) are rarely 100% "complete" with respect to the occurrence of BSCGs out-of-the-box. Due to some additional issues related to mapping and automatic binning steps, as well as occasional non-specific hits to shorter BSCGs, our MAGs rarely have only one copy of every BSCG. So 100% completion and 0% redundancy with respect to BSCGs is not realistic. But what is realistic, then? When is it OK to stop refining a bin, and when is it *not* OK to say "*well, this is the genome bin I will call final, analyze, and publish*"?
 
 ## > 90% completion + < 10% redundancy ~= Golden 
 
 We usually suggest that in order to report a MAG it should meet both of these minimal criteria:
 
-- More than 70% complete, or more than 2Mb in size<sup>1</sup>.
+- More than 50% complete, or more than 2Mb in size<sup>1</sup>.
 - Less than 10% redundant based on Campbell et al.'s BSCGs<sup>2</sup>.
 
 <i><small><sup>**1**</sup> Our <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4415585/">observations</a> indicate that the presence of closely related organisms cause dramatic underestimations of completion, probably because contigs tend to break up around relatively more conserved BSCGs across multiple genomes. <sup>**2**</sup> This clearly will only work properly for bacterial genomes --you should check [this post]({% post_url anvio/2016-05-21-archaeal-single-copy-genes %}){:target="_blank"} by Mike Lee for an archael collection.</small></i>
