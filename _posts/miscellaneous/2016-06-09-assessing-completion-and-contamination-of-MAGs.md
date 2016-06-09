@@ -13,7 +13,7 @@ comments: true
 
 ## Completion and redundancy
 
-Every time you [select a bunch of contigs into a genome bin]({{ site.url }}/images/anvio/2016-06-06-working-with-contigs-only/selections.gif) through the [interactive interface]({% post_url anvio/2016-02-27-the-anvio-interactive-interface %}), anvi'o tells you in real time about the estimated level of completion and redundancy of your bin. To do that, anvi'o averages matches from four previously published bacterial single-copy gene collections (BSGCs). Although, we started to be very fond of the collection by [Campbell et al](http://www.pnas.org/content/110/14/5540.full), which contains 139 BSCGs.
+Every time you [select a bunch of contigs into a genome bin]({{ site.url }}/images/anvio/2016-06-06-working-with-contigs-only/selections.gif) through the [interactive interface]({% post_url anvio/2016-02-27-the-anvio-interactive-interface %}){:target="_blank"}, anvi'o tells you in real time about the estimated level of completion and redundancy of your bin. To do that, anvi'o averages matches from four previously published bacterial single-copy gene collections (BSGCs). Although, we started to be very fond of the collection by [Campbell et al](http://www.pnas.org/content/110/14/5540.full), which contains 139 BSCGs.
 
 {:.notice}
 **Why do we call it redundancy and not contamination?** So there are a number of genes that occur once in *most* bacterial genomes that we managed to isolate. If we find multiple copies of those genes in a bin, we start to feel a bit uneasy. The term 'redundancy' and the term 'contamination' is inherently linked, but they are very different: level of redundancy of BSCGs in a genome bin is a result of an objective observation, contamination, on the other hand, is a suggestion we make (in most cases go untested). If a bacterial genome that did not end up in our cultivars has multiple copies of one of those many so called single copy genes, it wouldn't mean it is 'contaminated'. Therefore we avoid using the term 'contamination' until there is more evidence --and this post is partially about udentifying the cutoff for that evidence.
@@ -37,7 +37,7 @@ We usually suggest that in order to report a MAG it should meet both of these mi
 - More than 70% complete, or more than 2Mb in size<sup>1</sup>.
 - Less than 10% redundant based on Campbell et al.'s BSCGs<sup>2</sup>.
 
-<i><small><sup>**1**</sup> Our <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4415585/">observations</a> indicate that the presence of closely related organisms cause dramatic underestimations of completion, probably because contigs tend to break up around relatively more conserved BSCGs across multiple genomes. <sup>**2**</sup> This clearly will only work properly for bacterial genomes --you should check [this post]({% post_url anvio/2016-05-21-archaeal-single-copy-genes %}) by Mike Lee for an archael collection.</small></i>
+<i><small><sup>**1**</sup> Our <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4415585/">observations</a> indicate that the presence of closely related organisms cause dramatic underestimations of completion, probably because contigs tend to break up around relatively more conserved BSCGs across multiple genomes. <sup>**2**</sup> This clearly will only work properly for bacterial genomes --you should check [this post]({% post_url anvio/2016-05-21-archaeal-single-copy-genes %}){:target="_blank"} by Mike Lee for an archael collection.</small></i>
 
 Although both points are important, I think the second point is a bit *more* important: making sure MAGs are more than 10% redundant. It would be *sad* to over-split an otherwhise fine MAG, but it can be detrimental if a MAG describes a collection of contigs that clearly originate from different genomes. And if your bacterial MAG has less than 10% redundancy, you can be almost certain that your bin is a crappy one and it contains contigs that originate from more than one genome. You can either refine it, or discard it, but you really should consider not contaminating public databases with it.
 
@@ -45,9 +45,9 @@ Although both points are important, I think the second point is a bit *more* imp
 
 Here is some justification for these numbers, especially for the '*max 10% redundancy*' suggestion.
 
-To see how well anvi'o is doing with Campbell et al's collection, I downloaded **4,022 closed genomes** from the NCBI. Then I removed one *Bacillus subtilis* genome from this collection, because it was 100%+ redundant. In fact I mentioned this particular and rather lovely genome in [this post]({% post_url anvio/2016-06-06-working-with-contigs-only %}), but you shouldn't spend more time on this because you have so many other things to do.
+To see how well anvi'o is doing with Campbell et al's collection, I downloaded **4,022 closed genomes** from the NCBI. Then I removed one *Bacillus subtilis* genome from this collection, because it was 100%+ redundant. In fact I mentioned this particular and rather lovely genome in [this post]({% post_url anvio/2016-06-06-working-with-contigs-only %}){:target="_blank"}, but you shouldn't spend more time on this because you have so many other things to do.
 
-I analyzed the rest of the 4,021 genomes the same way I described [here]({% post_url anvio/2016-06-06-working-with-contigs-only %}), and recovered BSCG hits for each one of them.
+I analyzed the rest of the 4,021 genomes the same way I described [here]({% post_url anvio/2016-06-06-working-with-contigs-only %}){:target="_blank"}, and recovered BSCG hits for each one of them.
 
 The following figure shows the completion, redundancy, genome size, and the number of genomes included in this analysis per phylum: 
 
@@ -55,7 +55,7 @@ The following figure shows the completion, redundancy, genome size, and the numb
 <a href="{{ site.url }}/images/anvio/2016-06-09-NCBI-complete-genomes/phyla.png"><img src="{{ site.url }}/images/anvio/2016-06-09-NCBI-complete-genomes/phyla.png" width="80%" /></a>
 </div>
 
-As you can see, there is a great drop in completion estimates for CPR genomes. Which is not surprising. I had already analyzed them with the same 139 BSCGs in the post "[Predicting CPR genomes]({% post_url miscellaneous/2016-04-17-predicting-CPR-Genomes %})", and was expecting to see that. Apart from CPR's, the phlum Nitrospira, and Tenericutes have lower completion estimates based on Campbell et al.'s BSCGs. There is a clear taxonomical signal, and some complete genomes that belong to certain taxa miss more BSCGs compared to others. Not very surprising, and not very concerning either. Just a good reminder that lack of completion does not always mean the genome is not quite well put together, since all BSCGs are originating from isolates, and we know all the biases associated with cultivation. 
+As you can see, there is a great drop in completion estimates for CPR genomes. Which is not surprising. I had already analyzed them with the same 139 BSCGs in the post "[Predicting CPR genomes]({% post_url miscellaneous/2016-04-17-predicting-CPR-Genomes %}){:target="_blank"}", and was expecting to see that. Apart from CPR's, the phlum Nitrospira, and Tenericutes have lower completion estimates based on Campbell et al.'s BSCGs. There is a clear taxonomical signal, and some complete genomes that belong to certain taxa miss more BSCGs compared to others. Not very surprising, and not very concerning either. Just a good reminder that lack of completion does not always mean the genome is not quite well put together, since all BSCGs are originating from isolates, and we know all the biases associated with cultivation. 
 
 On the other hand, regardless of genome size or completion estimates, redundancy estimates remain below 10% in general. In fact the vast majority of the genomes have less than 5% redundancy. I will later look into these much more carefully to maybe suggest some updates to the collection. But for now, here is a better way to represent what is going on for everything:
 
@@ -81,9 +81,9 @@ One can identify contamination in multiple ways. However, dealing with it is a d
 
 Anvi'o has been very helpful for us to better understand what is happening in our MAGs, and [allowed us to report](https://peerj.com/articles/1319/) coherent genome bins. Here are three other blog posts in which we demonstrated how to do these things with anvi'o:
 
-* [Refining a bin using anvi'o]({% post_url anvio/2015-05-11-anvi-refine %})
-* [Removing contaminants from cultivars with anvi'o]({% post_url anvio/2015-06-25-screening-cultivars %})
-* [Binning without mapping]({% post_url anvio/2016-06-06-working-with-contigs-only %})
+* [Refining a bin using anvi'o]({% post_url anvio/2015-05-11-anvi-refine %}){:target="_blank"}
+* [Removing contaminants from cultivars with anvi'o]({% post_url anvio/2015-06-25-screening-cultivars %}){:target="_blank"}
+* [Binning without mapping]({% post_url anvio/2016-06-06-working-with-contigs-only %}){:target="_blank"}
 
 
 
@@ -118,7 +118,7 @@ It is very critical that you don't play this game. BSCGs should not be the drive
 Great! Please write it down at the comments section, or send us an e-mail and we will see what we can do!
 
 
-BSCGs are great tools to shed light on the plethora of unknown, they should be used wisely. They shouldn't be given too much credit when they suggest lower completion estimates because they may be wrong (see [CPR genomes]({% post_url miscellaneous/2016-04-17-predicting-CPR-Genomes %})). But they should't be ignored when they suggest high redundancy, because 95% of the time they will be correct.
+BSCGs are great tools to shed light on the plethora of unknown, they should be used wisely. They shouldn't be given too much credit when they suggest lower completion estimates because they may be wrong (see [CPR genomes]({% post_url miscellaneous/2016-04-17-predicting-CPR-Genomes %})){:target="_blank"}. But they should't be ignored when they suggest high redundancy, because 95% of the time they will be correct.
 
 <p>&nbsp;
 
