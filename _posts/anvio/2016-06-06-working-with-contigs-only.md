@@ -153,13 +153,4 @@ The result of this summary is a static HTML output. I copied that directory here
 
 [http://anvio.org/data/Bacillus_subtilis_summary/](http://anvio.org/data/Bacillus_subtilis_summary/)
 
-Mission accomplished.
-
----
-
-All these aside, as of today, we managed to address one of the most sorely missed need of every software platfrom for anvi'o:
-
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">We heard that <a href="https://twitter.com/hashtag/anvio?src=hash">#anvio</a> will not be taken seriously unless it has a sticker. Well, we got that covered: <a href="https://t.co/24IVCDQqrC">pic.twitter.com/24IVCDQqrC</a></p>&mdash; A. Murat Eren (@merenbey) <a href="https://twitter.com/merenbey/status/739833021055012866">June 6, 2016</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-Just so you know.
+Mission accomplished!
