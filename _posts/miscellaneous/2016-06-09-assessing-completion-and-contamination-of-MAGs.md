@@ -118,11 +118,13 @@ It is very critical that you don't play this game. BSCGs should not be the drive
 Great! Please write it down at the comments section, or send us an e-mail and we will see what we can do!
 
 
-BSCGs are great tools to shed light on the plethora of unknown, they should be used wisely. They shouldn't be given too much credit when they suggest lower completion estimates because they may be wrong (see [CPR genomes]({% post_url miscellaneous/2016-04-17-predicting-CPR-Genomes %})){:target="_blank"}. But they should't be ignored when they suggest high redundancy, because 95% of the time they will be correct.
+BSCGs are great tools to shed light on the plethora of unknown, they should be used wisely. They shouldn't be given too much credit when they suggest lower completion estimates because they may be wrong (see [CPR genomes]({% post_url miscellaneous/2016-04-17-predicting-CPR-Genomes %}){:target="_blank"}). But they should't be ignored when they suggest high redundancy, because 95% of the time they will be correct.
 
-<p>&nbsp;
+<p>&nbsp;</p>
+
 
 ---
+
 
 All these aside, we recently managed to address one of the most sorely missed need of every software platfrom for anvi'o:
 
