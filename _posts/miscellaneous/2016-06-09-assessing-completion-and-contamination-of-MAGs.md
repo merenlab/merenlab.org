@@ -70,7 +70,7 @@ A lower completion score may be due to underestimation, but a higher redundancy 
 <br /><br />
 </blockquote>
 
-This should be the golden rule, and maximum 10% redundancy is a way to make sure you are not shooting yourself in the foot.
+This can be your golden rule, and maximum 10% redundancy would be a way to make sure you are not shooting yourself in the foot.
 
 
 ## Identifying contamination is one thing, dealing with it is another
