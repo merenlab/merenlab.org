@@ -63,7 +63,7 @@ On the other hand, regardless of genome size or completion estimates, redundancy
 <a href="{{ site.url }}/images/anvio/2016-06-09-NCBI-complete-genomes/all-ncbi-genomes.png"><img src="{{ site.url }}/images/anvio/2016-06-09-NCBI-complete-genomes/all-ncbi-genomes.png" width="80%" /></a>
 </div>
 
-Every dot in this figure represents one of the 4,022 genomes in this analysis. So 94% of all complete genomes (not isolates, complete, closed genomes) in NCBI has redundancy way less than 10% based on this BSCG.
+Every dot in this figure represents one of the 4,022 genomes in this analysis. So 94% of all closed genomes in the NCBI has redundancy way less than 10% based on this BSCG collection.
 
 <blockquote>
 A lower completion score may be due to underestimation, but a higher redundancy will almost never be due to overestimation. You must try to clean it up.
