@@ -6,16 +6,28 @@ comments: false
 
 
 <div class="category-box">
-<a href="#2016"><span class="category-item">2016 <small>(1)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a><a href="#2011"><span class="category-item">2011 <small>(1)</small></span></a>
+<a href="#2016"><span class="category-item">2016 <small>(3)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a><a href="#2011"><span class="category-item">2011 <small>(1)</small></span></a>
 </div>
 
 <a name="2016">&nbsp;</a>
 <h1>2016</h1>
 
 <div class="pub">
+    <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Linking+comparative+genomics+and+environmental+distribution+patterns+of+microbial+populations+through+metagenomics." target="_new">Linking comparative genomics and environmental distribution patterns of microbial populations through metagenomics.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <span class="pub-journal"><i>BioRxiv</i>. <b>pre-print</b></span>
+</div>
+
+<div class="pub">
     <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Identifying+contamination+with+advanced+visualization+and+analysis+practices:+metagenomic+approaches+for+eukaryotic+genome+assemblies." target="_new">Identifying contamination with advanced visualization and analysis practices: metagenomic approaches for eukaryotic genome assemblies.</a></h3>
     <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, and <span class="pub-member-author">Eren, A. M</span>.</span>
     <span class="pub-journal"><i>PeerJ</i>. <b>4:e1839</b></span>
+</div>
+
+<div class="pub">
+    <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Bacterial+communities+in+penile+skin,+male+urethra,+and+vaginas+of+heterosexual+couples+with+and+without+bacterial+vaginosis." target="_new">Bacterial communities in penile skin, male urethra, and vaginas of heterosexual couples with and without bacterial vaginosis.</a></h3>
+    <span class="pub-authors">Zozaya, M., Ferris, M. J., Siren, J. D., Lillis, R., Myers, L., Nsuami, M. J., <span class="pub-member-author">Eren, A. M</span>., Brown, J., Taylor, C. M., and Martin, D. H.</span>
+    <span class="pub-journal"><i>Microbiome</i>. <b>4:16</b></span>
 </div>
 
 
@@ -61,13 +73,13 @@ comments: false
 <div class="pub">
     <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Sewage+reflects+the+microbiomes+of+human+populations." target="_new">Sewage reflects the microbiomes of human populations.</a></h3>
     <span class="pub-authors">Newton, R. J., McLellan, S. L., Dila, D. K., Vineis, J. H., Morrison, H. G., <span class="pub-member-author">Eren, A. M</span>., and Sogin, M. L.</span>
-    <span class="pub-journal"><i>MBio</i>. <b>6(2)</b></span>
+    <span class="pub-journal"><i>mBio</i>. <b>6:2</b></span>
 </div>
 
 <div class="pub">
     <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Extensive+Modulation+of+the+Fecal+Metagenome+in+Children+With+Crohn's+Disease+During+Exclusive+Enteral+Nutrition." target="_new">Extensive Modulation of the Fecal Metagenome in Children With Crohn's Disease During Exclusive Enteral Nutrition.</a></h3>
     <span class="pub-authors">Quince, C., Ijaz, U. Z., Loman, N., <span class="pub-member-author">Eren, A. M</span>., Saulnier, D., Russell, J., Haig, S. J., Calus, S. T., Quick, J., Barclay, A., Bertz, M., Hansen, R., McGrogan, P., Russel, K. R., Edwards, C. A., and Gerasimidis, K.</span>
-    <span class="pub-journal"><i>Am J Gastroenterol</i>. <b>(in press)</b></span>
+    <span class="pub-journal"><i>Am J Gastroenterol</i>. <b>110:1718–1729</b></span>
 </div>
 
 
