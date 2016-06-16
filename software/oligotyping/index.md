@@ -1,6 +1,7 @@
 ---
 layout: project-oligotyping-main
 title: "Oligotyping"
+redirect_from: /projects/oligotyping/
 excerpt: "Oligotyping Project Page"
 ---
 

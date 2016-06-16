@@ -2,7 +2,8 @@
 layout: page
 title: Software
 modified: 2015-02-05
-excerpt: "Projects"
+excerpt: "Software we develop"
+redirect_from: /projects/
 comments: true
 ---
 

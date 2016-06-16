@@ -1,6 +1,7 @@
 ---
 layout: project-anvio-main
 title: "An analysis and visualization platform for 'omics data"
+redirect_from: /projects/anvio/
 excerpt: "Anvi'o Project Page"
 ---
 

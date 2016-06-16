@@ -1,6 +1,7 @@
 ---
 layout: project-med-main
 title: "Minimum Entropy Decomposition"
+redirect_from: /projects/med/
 excerpt: "MED Project Page"
 ---
 
