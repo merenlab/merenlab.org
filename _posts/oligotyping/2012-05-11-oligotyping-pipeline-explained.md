@@ -15,7 +15,7 @@ comments: true
 
 My goal in this document is to demonstrate the components of the oligotyping pipeline, so you feel familiar with it. If you would like to learn about how to oligotype, Best Practices would be a better article to read.
 
-I came up with a mock problem to solve by using the pipeline, but I would strongly suggest you to read some of the studies that used oligotyping to get a better sense. A short but comprehensive list can be found [here]({{ site.url }}/projects/oligotyping/pubs.html).
+I came up with a mock problem to solve by using the pipeline, but I would strongly suggest you to read some of the studies that used oligotyping to get a better sense. A short but comprehensive list can be found [here]({{ site.url }}/software/oligotyping/pubs.html).
 
 ### Mock example
 

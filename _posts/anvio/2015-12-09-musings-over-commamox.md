@@ -441,7 +441,7 @@ If you look at the alignment of three AmoC genes, you will realize that the vari
 (...)
 </pre>
 
-It is as if reads that must have been mapped to the context of AmoC-709-in-split-368, ended up being mapped to the context of AmoC-1735-in-split-895. But is it the case? We can easily get our answer by [oligotyping]({{ site.url }}/projects/oligotyping) this region!
+It is as if reads that must have been mapped to the context of AmoC-709-in-split-368, ended up being mapped to the context of AmoC-1735-in-split-895. But is it the case? We can easily get our answer by [oligotyping]({{ site.url }}/software/oligotyping) this region!
 
 For an oligotyping analysis one can ask anvi'o to report back all short reads in a BAM file that cover each nucleotide position of interest (of course the maximum distance of these nucleotide positions should be smaller than the length of the short reads). For this I created a TAB-delimited file with the contig name I am interested in, and the nucleotide positions I recovered using the gene start position (see the figure above):
 

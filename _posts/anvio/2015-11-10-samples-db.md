@@ -96,7 +96,7 @@ anvi-gen-samples-info-database -D samples-information.txt -R samples-order.txt -
 Anvi'o will tell you if it doesn't like your file(s) for some reason.
 
 {:.notice}
-<b>IMPORTANT NOTE for MAC users</b>: When you export a TAB-delimited text file from EXCEL, it will not work properly with the pipeline, since EXCEL fails to insert proper "newline" characters into these files. There are many ways to fix the file, but if you are not familiar with this issue, I would suggest you to download this <a href="http://sourceforge.net/projects/dos2unix/">little command line tool</a> to correct EXCEL's failure to perform one of the simplest tasks imaginable.
+<b>IMPORTANT NOTE for MAC users</b>: When you export a TAB-delimited text file from EXCEL, it will not work properly with the pipeline, since EXCEL fails to insert proper "newline" characters into these files. There are many ways to fix the file, but if you are not familiar with this issue, I would suggest you to download this <a href="http://sourceforge.net/software/dos2unix/">little command line tool</a> to correct EXCEL's failure to perform one of the simplest tasks imaginable.
 
 ## Samples tab
 

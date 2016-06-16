@@ -158,4 +158,4 @@ And optionally, push it to your account on the hub to allow other people run it 
 docker push meren/anvio
 {% endhighlight %}
 
-Don't hesitate to get in touch if you have any questions, and check out the [anvi'o project page]({{ site.url }}/projects/anvio).
+Don't hesitate to get in touch if you have any questions, and check out the [anvi'o project page]({{ site.url }}/software/anvio).

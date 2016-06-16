@@ -2,22 +2,24 @@
 
 - title: Research Interests
   url: /research/
+  style: "color: #9e161a;"
 
 - title: People
   url: /people/
 
-- title: Projects
-  url: /projects/
-
-- title: Opportunities
-  url: /opportunities/
-  style: "color: #FF4E4E;"
-
 - title: Publications
   url: /publications/
+
+- title: Software
+  url: /software/
 
 - title: Data
   url: /data/
 
-- title: Posts
+- title: Opportunities
+  url: /opportunities/
+  style: "color: #ab5ba3;"
+
+- title: Blog
   url: /posts/
+  style: "color: #5bab87;"

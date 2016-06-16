@@ -13,7 +13,7 @@ comments: true
 
 >I am very pleased to announce that Frontiers in Microbiology is now hosting a research topic on oligotyping, which is open for submissions! 
 
-This is what [I had said]({% post_url oligotyping/2013-12-12-oligotyping-frontiers %}) on these pages about a year ago. Today, the research topic [New insights into microbial ecology through subtle nucleotide variation](http://journal.frontiersin.org/ResearchTopic/2427) is almost concluded, and contains 8 publications. The common theme among all these publications is that they use [oligotyping]({{ site.url }}/projects/oligotyping/).
+This is what [I had said]({% post_url oligotyping/2013-12-12-oligotyping-frontiers %}) on these pages about a year ago. Today, the research topic [New insights into microbial ecology through subtle nucleotide variation](http://journal.frontiersin.org/ResearchTopic/2427) is almost concluded, and contains 8 publications. The common theme among all these publications is that they use [oligotyping]({{ site.url }}/software/oligotyping/).
 
 I thought this would be a good time to offer a glimpse of what has been published in this collection so far.
 
@@ -26,7 +26,7 @@ I thought this would be a good time to offer a glimpse of what has been publishe
 
 [In their study](http://journal.frontiersin.org/Journal/10.3389/fmicb.2014.00526/full) Menke *et al*. compare the gut microbiomes of two sympatric mammalian carnivores, cheetah and black-backed jackal, by sequencing the V4 region of the 16S rRNA gene. They amplified the material for sequencing from fecal samples of **free-ranging** animals, too!
 
-Being sympatric, and having somewhat similar diets, these animals seem to have similar gut microbiomes in the big picture, yet their microbiomes are different enough at lower levels of taxonomy for them to separate from each other on an ordination. The authors show that even genera that seem to be shared among the two species are in fact composed of different [oligotypes]({{ site.url }}/projects/oligotyping/faq.html#what-is-an-oligotype). For instance *Blautia* is pretty abundant microbial genus in both cheetah and jackal group, yet *Blautia* oligotypes differ dramatically between the two (cheetah samples are on the left) (Figure 6 from Menke *et al*.):
+Being sympatric, and having somewhat similar diets, these animals seem to have similar gut microbiomes in the big picture, yet their microbiomes are different enough at lower levels of taxonomy for them to separate from each other on an ordination. The authors show that even genera that seem to be shared among the two species are in fact composed of different [oligotypes]({{ site.url }}/software/oligotyping/faq.html#what-is-an-oligotype). For instance *Blautia* is pretty abundant microbial genus in both cheetah and jackal group, yet *Blautia* oligotypes differ dramatically between the two (cheetah samples are on the left) (Figure 6 from Menke *et al*.):
 
 <figure>
 	<a href="{{ site.url }}/images/oligotyping/menke_et_al_blautia.png"><img src="{{ site.url }}/images/oligotyping/menke_et_al_blautia.png"></a>
@@ -128,7 +128,7 @@ I am very thankful for everyone who contributed to this collection.
 
 The diversity of environments studied in these publications, and the rate of the recovery of ecologically meaningful findings show that there is a great potential for highly resolved depictions of microbiomes. 
 
-[Oligotyping]({{ site.url }}/projects/oligotyping/) and [minimum entropy decomposition]({{ site.url }}/projects/med/) provided a framework for researchers to explore these dimensions of their datasets at levels of single-nucleotide resolution. I am sure there will be many similar approaches going forward, and a lot of research will take place to make these results more accurate, and to utilize them in searching for answers to outstanding questions in microbial ecology.
+[Oligotyping]({{ site.url }}/software/oligotyping/) and [minimum entropy decomposition]({{ site.url }}/software/med/) provided a framework for researchers to explore these dimensions of their datasets at levels of single-nucleotide resolution. I am sure there will be many similar approaches going forward, and a lot of research will take place to make these results more accurate, and to utilize them in searching for answers to outstanding questions in microbial ecology.
 
 It is just about getting the mindset of microbial ecology out of the local minimum it stuck called "3%". The rest will come very quickly.
 

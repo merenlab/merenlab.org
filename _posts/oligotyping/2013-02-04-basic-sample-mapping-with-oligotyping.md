@@ -42,7 +42,7 @@ The first row of the first column must be ‘samples’ (and sample names listed
 Every entry in every row must be separated by a TAB character (so, it is supposed to be a TAB delimited file, which can be exported from R or EXCEL easily).
 
 {: .notice}
-**IMPORTANT NOTE for MAC users**: When you export a TAB-delimited text file from EXCEL, it will not work properly with the pipeline, since EXCEL fails to insert proper “newline” characters into these files. There are many ways to fix the file, but you are not familiar with this issue, I would suggest you to download [dos2unix](http://sourceforge.net/projects/dos2unix/) program, which is a tiny command line tool that fixes this issue masterfully (or find something equivalent by asking your bioinformatician friends).
+**IMPORTANT NOTE for MAC users**: When you export a TAB-delimited text file from EXCEL, it will not work properly with the pipeline, since EXCEL fails to insert proper “newline” characters into these files. There are many ways to fix the file, but you are not familiar with this issue, I would suggest you to download [dos2unix](http://sourceforge.net/software/dos2unix/) program, which is a tiny command line tool that fixes this issue masterfully (or find something equivalent by asking your bioinformatician friends).
 
 If you wish, you can create a mapping file by first running your oligotyping analysis without a mapping file, and then using the `matrix-counts.txt` file as a template removing all columnts but the first one.
 
