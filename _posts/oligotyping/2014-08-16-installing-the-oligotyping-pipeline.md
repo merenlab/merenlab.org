@@ -22,7 +22,9 @@ The oligotyping pipeline is now very easy to install on a MAC computer (I am not
 I will first provide instructions to install the **latest stable pipeline**, then I will add some information for the ones who wish to use the **latest unstable snapshot** that is being developed on [GitHub code repository for oligotyping](https://github.com/meren/oligotyping).
 
 {: .notice}
-**Note for MAC users**: I assume that you already have [XCode and XCode Command Line Tools](https://developer.apple.com/xcode/downloads/) are installed on your system. Without them your MAC can’t compile things, so please install them first. I stumbled upon a case where missing XCode or XCode Command Line Tools did cause issues.
+**Note for MAC users**: I assume that you already have [XCode and XCode Command Line Tools](https://developer.apple.com/xcode/downloads/) are installed on your system. Without them your MAC can’t compile things, so please install them first. I stumbled upon a case where missing XCode or XCode Command Line Tools did cause issues. You should also make sure you accept the XCode license agreement, as is mentioned [here](http://apple.stackexchange.com/questions/175069/how-to-accept-xcode-license/), you can do that by running this in your terminal:
+    
+    sudo xcodebuild -license
 
 {: .notice}
 **Another note for MAC users**: To avoid conflicts during multithreading, you should run this command in your terminal to tell matplotlib to use the Agg backend: ```echo "backend: Agg" >> ~/.matplotlib/matplotlibrc```. You will get an error if you don't have the directory ```~/.matplotlib/``` in place. In that case you should first create it (hint: ```mkdir ~/.matplotlib/```), and then run the same command again.
