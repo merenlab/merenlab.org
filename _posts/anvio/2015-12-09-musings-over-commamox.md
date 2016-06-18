@@ -318,7 +318,7 @@ Inspecting splits 368, 606, and 895 showed that the drop in coverage for AmoC is
 To see which of the two are identical, I asked anvi'o to give me back the sequences for all these three AmoC genes from the genome:
  
 {% highlight bash %}
-$ anvi-get-sequences-for-gene-calls -c CONTIGS.db -o AmoC-sequences.fa --gene-caller-ids 709,1735,1184 --wrap 0
+$ anvi-get-dna-sequences-for-gene-calls -c CONTIGS.db -o AmoC-sequences.fa --gene-caller-ids 709,1735,1184 --wrap 0
 Contigs DB ...................................: Initialized: CONTIGS.db (v. 4)
 Output .......................................: AmoC-sequences.fa
 {% endhighlight %}
@@ -585,7 +585,7 @@ output_file ..................................: ENR4-A-reads-mapping-to-1735.fa
 There I have the 1,384 reads that maps to this gene. Next, I created a FASTA file with only the two unique sequences of three AmoC:
 
 {% highlight bash %}
-$ anvi-get-sequences-for-gene-calls -c CONTIGS.db -o AmoC-unique-sequences.fa --gene-caller-ids 709,1735
+$ anvi-get-dna-sequences-for-gene-calls -c CONTIGS.db -o AmoC-unique-sequences.fa --gene-caller-ids 709,1735
 {% endhighlight %}
 
 Then used blastn to BLAST all 1,384 reads Bowtie2 aligned to the context of AmoC-1735-in-split-895 against the two competing AmoC sequences by asking a minimum of 99.25% sequence identity. I hope it is clear that if Bowtie2 made a mistake, almost half of these reads should best match to AmoC-709-in-split-368. 
