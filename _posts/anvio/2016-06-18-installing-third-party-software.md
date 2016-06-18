@@ -15,6 +15,93 @@ As an apology, we will do our best to keep this article up-to-date, so installin
 
 {% include _toc.html %}
 
+## Prodigal
+
+[Prodigal](http://prodigal.ornl.gov/) is a bacterial and archaeal gene finding program developed at Oak Ridge National Laboratory and the University of Tennessee. Everytime you create a contigs database in anvi'o with `anvi-gen-profile-database`, you use it.
+
+**Citation**: [http://www.biomedcentral.com/1471-2105/11/119](http://www.biomedcentral.com/1471-2105/11/119)
+
+Go to your terminal, and type `prodigal -v` if you get an error, you need to install it, __if the version number is smaller than 2.6.2__, you need to update it.
+
+Here is how to install v2.6.2 (the first line will not work if you don't have wget, but you can get wget installed esily typing `sudo port install wget` if you are using MacPorts system on your Mac computer):
+
+{% highlight bash %}
+wget https://github.com/hyattpd/Prodigal/archive/v2.6.2.tar.gz
+tar -zxvf v2.6.2.tar.gz && cd Prodigal-2.6.2/ && make
+sudo cp prodigal /usr/bin/
+{% endhighlight %}
+
+Type `prodigal -v` again to make sure everything is alright, and you get the proper version number.
+
+## HMMER
+
+[HMMER](http://hmmer.org/) uses hidden Markov models to perform sequence search and alignments. Everytime you run `anvi-populate-search-tables` program, you use it.
+
+**Citation**: [http://hmmer.org/](http://hmmer.org/)
+
+Go to your terminal, adn type `hmmscan -h`, if you get an error, you need to install HMMER, if the version number is less than 3.1, you ned to update it.
+
+Here is how to install v3.1b2:
+
+{% highlight bash %}
+$ wget http://eddylab.org/software/hmmer3/3.1b2/hmmer-3.1b2.tar.gz
+$ tar -zxvf hmmer-3.1b2.tar.gz
+$ cd hmmer-3.1b2
+$ ./configure && make && sudo make install
+{% endhighlight %}
+
+Type `hmmscan -h` again to make sure everything is alright, and you get the proper version number.
+
+## SQLite
+
+[SQLite](http://www.tutorialspoint.com/sqlite/sqlite_installation.htm) is a software library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine. Anvi'o uses SQLite pretty much all the time.
+
+**Citation**: [https://www.sqlite.org/](https://www.sqlite.org/)
+
+Go to your terminal, type `sqlite3 --version`, if you get an error, you need to install it. Extensive installation instructions are [here](http://www.tutorialspoint.com/sqlite/sqlite_installation.htm). Or you can install it by typing `sudo port install sqlite3` if you are using the port system on a Mac OSX computer.
+
+## GNU Scientific Library
+
+[GSL](http://www.gnu.org/software/gsl/) is a widely used C library for scientific computation. The only thing depends on GSL is the CONCOCT extension in the codebase. The installation is quite straightforward on most systems. If you are using MacPorts, you can type this on your terminal: `port install gsl gsl-devel py27-gsl` (Rika tells me homebrew on Mac works, too). Otherwise, try these commands and you should be OK:
+
+{% highlight bash %}
+wget ftp://ftp.gnu.org/gnu/gsl/gsl-latest.tar.gz
+tar -zxvf gsl-latest.tar.gz
+cd gsl-*
+./configure && make && sudo make install
+{% endhighlight %}
+
+## NumPY
+
+[NumPY](http://www.numpy.org/) is the fundamental package for scientific computing with Python. Anvi'o uses numpy quite often, and probably not in the best way possible.
+
+**Citation**: [https://arxiv.org/abs/1102.1523](https://arxiv.org/abs/1102.1523)
+
+You don't need to install numpy if you get no complaints back when you type `python -c "import numpy"` in your terminal. If you do get an import error, then you need to install numpy. You can try this:
+
+{% highlight bash %}
+sudo pip install numpy
+{% endhighlight %}
+
+## Cython
+
+[Cython](http://cython.org/) is "*an optimising static compiler for both the Python programming language and the extended Cython programming language*". If `python -c "import Cython"` in your terminal does not complain, you are golden. Otherwise, install it by running this:
+
+{% highlight bash %}
+sudo pip install Cython
+{% endhighlight %}
+
+## HDF5
+
+[HDF5](https://www.hdfgroup.org/HDF5/) is "*a data model, library, and file format for storing and managing data*". If you are not sure what it is, you probably don't have it, but we are a big fan of HD5 here in anvi'o development side. If you are using macports on your Mac, you can get away with `sudo port install hdf5`, otherwise you can run these commands on your terminal (these are for version 1.8.16, feel free to check whether there is a newer release of HDF5 from [here](https://www.hdfgroup.org/ftp/HDF5/current/src/), and install the most curent tar.bz2 file in that directory instead):
+
+{% highlight bash %}
+wget https://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8.16/src/hdf5-1.8.16.tar.bz2
+tar -jxvf hdf5-1.8.16.tar.bz2
+cd hdf5-1.8.16
+./configure && make && sudo make install
+{% endhighlight %}
+
 ## Centrifuge
 
 [Centrifuge](http://www.ccb.jhu.edu/software/centrifuge/) is a "*classification engine that enables rapid, accurate and sensitive labeling of reads and quantification of species on desktop computers*".

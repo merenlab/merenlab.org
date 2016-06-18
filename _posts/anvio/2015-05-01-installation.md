@@ -43,65 +43,15 @@ Here I would like to thank Inés Martínez, Rika Anderson, and Sharon Grim for h
 
 ## An overview of anvi'o dependencies
 
-You need to make sure your system does have all the following software if you are going to follow the installation instructions on this page (it is not as scary as it looks, you will be fine):
+You need to make sure your system does have all the following software if you are going to follow the installation instructions on this page. It is not as scary as it looks, you will be fine. Just follow the links for simple installation instructions:
 
-* [Prodigal](http://prodigal.ornl.gov/) (go to your terminal, type `prodigal -v` if you get an error, you need to install it, __if the version number is smaller than 2.6.2__, you need to update it). Here is a quick way to install the 2.6.2 version, but feel free to do visit the [latest releases page](https://github.com/hyattpd/prodigal/releases/) and do it yourself (the first line will not work if you don't have wget, but you can get wget installed esily typing `sudo port install wget` if you are using MacPorts system on your Mac computer):
-
-<div style="padding-left:30px">
-{% highlight bash %}
-wget https://github.com/hyattpd/Prodigal/archive/v2.6.2.tar.gz
-tar -zxvf v2.6.2.tar.gz && cd Prodigal-2.6.2/ && make
-sudo cp prodigal /usr/bin/
-{% endhighlight %}
-</div>
-
-* [HMMer](http://hmmer.org/) (go to your terminal, type `hmmscan`, if you get an error, you need to install this one). It is quite easy to install. Go to the downloads page, [http://hmmer.org/download.html](http://hmmer.org/download.html), download the *source* for the latest version, unpack it, go into that directory with your terminal, and then type (don't forget to check whether it is installed properly by typing `hmmscan` again after installation):
-
-<div style="padding-left:30px">
-{% highlight bash %}
-./configure && make && sudo make install
-{% endhighlight %}
-</div>
-
-* [SQLite](http://www.tutorialspoint.com/sqlite/sqlite_installation.htm) (go to your terminal, type sqlite3, if it gives you an error, you need to install this one). There is installation instructions on the web page if you follow the link. Or you can install it by typing `sudo port install sqlite3` if you are using the port system on your Mac.
-
-* [GSL](http://www.gnu.org/software/gsl/), which is the GNU Scientific Library. It is quite straightforward. If you are using MacPorts, you can install `gsl`, `gsl-devel`, and `py27-gsl` packages from the terminal using `port install` (Rika tells me homebrew on Mac works, too). Otherwise, try these commands and you should be OK:
-
-<div style="padding-left:30px">
-{% highlight bash %}
-wget ftp://ftp.gnu.org/gnu/gsl/gsl-latest.tar.gz
-tar -zxvf gsl-latest.tar.gz
-cd gsl-*
-./configure && make && sudo make install
-{% endhighlight %}
-</div>
-
-* [numpy](http://www.numpy.org/). You don't need to install numpy if you get no complaints back when you type `python -c "import numpy"` in your terminal. If you do get an import error, then you need to install numpy. You can try this:
-
-<div style="padding-left:30px">
-{% highlight bash %}
-sudo pip install numpy
-{% endhighlight %}
-</div>
-
-* [Cython](http://cython.org/). Similar to the numpy case. Test whether you are good to go by typing `python -c "import Cython"` in your terminal, and install it by running this if there is an import error:
-
-<div style="padding-left:30px">
-{% highlight bash %}
-sudo pip install Cython
-{% endhighlight %}
-</div>
-
-* [HDF5](https://www.hdfgroup.org/HDF5/). If you are not sure what it is, you probably don't have it. If you are using macports on your Mac, you can get away with `sudo port install hdf5`, otherwise you can run these commands on your terminal (these are for version 1.8.16, feel free to check whether there is a newer release of HDF5 from [here](https://www.hdfgroup.org/ftp/HDF5/current/src/), and install the most curent tar.bz2 file in that directory instead):
-
-<div style="padding-left:30px">
-{% highlight bash %}
-wget https://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8.16/src/hdf5-1.8.16.tar.bz2
-tar -jxvf hdf5-1.8.16.tar.bz2
-cd hdf5-1.8.16
-./configure && make && sudo make install
-{% endhighlight %}
-</div>
+* [Prodigal]({% post_url anvio/2016-06-18-installing-third-party-software %}#prodigal){:target="_blank"}
+* [HMMER]({% post_url anvio/2016-06-18-installing-third-party-software %}#hmmer){:target="_blank"}
+* [SQLite]({% post_url anvio/2016-06-18-installing-third-party-software %}#sqlite){:target="_blank"}
+* [GSL]({% post_url anvio/2016-06-18-installing-third-party-software %}#gnu-scientific-library){:target="_blank"}
+* [NumPY]({% post_url anvio/2016-06-18-installing-third-party-software %}#numpy){:target="_blank"}
+* [Cython]({% post_url anvio/2016-06-18-installing-third-party-software %}#cython){:target="_blank"}
+* [HDF5]({% post_url anvio/2016-06-18-installing-third-party-software %}#hdf5){:target="_blank"}
 
 ## Installation
 

@@ -52,12 +52,15 @@ $ anvi-get-dna-sequences-for-gene-calls -c CONTIGS.db -o gene-calls.fa
 Then you will run the following command:
 
 {% highlight bash %}
-$ centrifuge -f -x $CENTRIFUGE/b+h+v/b+h+v gene-calls.fa -S centrifuge_hits.tsv
+$ centrifuge -f -x $CENTRIFUGE_BASE/b+h+v/b+h+v gene-calls.fa -S centrifuge_hits.tsv
 {% endhighlight %}
 
-This takes about one minute on my laptop for 40,000 genes. If everything worked alright, at this point you have everything you need to update your contigs database! If you get a **command not found** error, you need to go back to the setup phase, and run those two `export` commands in your terminal. 
+{:.notice}
+If the environment variable `$CENTRIFUGE_BASE` is not properly set, you will get an error. See the export instructions [here]({% post_url anvio/2016-06-18-installing-third-party-software %}#centrifuge) to try again.
 
-When centrifuge is done, you should find two files in your work directory, which you will import into anvi'o. These files are `centrifuge_report.tsv`, and `centrifuge_hits.tsv`. Just to make sure, they are not empty, feel free to run this command:
+This step takes about one minute on my laptop for 40,000 genes.
+
+When centrifuge is done running, you should find two files in your work directory, which you will import into anvi'o. These files are `centrifuge_report.tsv`, and `centrifuge_hits.tsv`. Just to make sure that they are not empty, feel free to run this command:
 
 {% highlight bash %}
 $ wc -l centrifuge_report.tsv centrifuge_hits.tsv
@@ -66,7 +69,7 @@ $ wc -l centrifuge_report.tsv centrifuge_hits.tsv
   220291 total
 {% endhighlight %}
 
-Fine. It is time to import these results! We will use the program `anvi-import-taxonomy-from-gene-annotations` with the parser for centrifuge for that, and here is your command line to do it:
+Fine. It is time to import these results! To do this, you will use the program `anvi-import-taxonomy` with the parser for `centrifuge`:
 
 
 {% highlight bash %}
