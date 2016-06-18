@@ -27,12 +27,15 @@ To install centrifuge, you need to first decide where you want to put all its fi
 $ export CENTRIFUGE="/path/to/a/directory"
 {% endhighlight %}
 
-You *should* also put this line in your `~/.bashrc` or `~/.bash_profile` to make sure it is set in your environment everytime you start a new terminal.
+{:.notice}
+Do not forget to make sure your version of `/path/to/a/directory` is a full path, and starts with a `/` character.
+
+You *should* put this line in your `~/.bashrc` or `~/.bash_profile` (whichever one is being used on your system) to make sure it is set in your environment everytime you start a new terminal.
 
 Then you will get the code, and compile it:
 
 {% highlight bash %}
-$ cd $CENTFIGURE
+$ cd $CENTRIFUGE
 $ git clone https://github.com/infphilo/centrifuge
 $ cd centrifuge && make
 {% endhighlight %}
