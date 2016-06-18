@@ -30,7 +30,7 @@ $ export CENTRIFUGE_BASE="/path/to/a/directory"
 Do not forget to make sure your version of `/path/to/a/directory` is a full path, and starts with a `/` character.
 
 {:.notice}
-More on the "**full path**" thingy: Let's say I want to put all centrifuge related stuff in a directory called `software` in my home. Here is what I do: First, in my terminal I type `cd` to makes ure I am in my home directory. Then I type `mkdir -p software` to make sure the directory `software` exists in it. Then I type `cd software` to go into it. Finally I type `pwd` to get the full path, and replace that entire string with `/path/to/a/directory` in the command above (keeping it in quote marks) before running it.
+More on the "**full path**" thingy: Let's say I want to put all centrifuge related stuff in a directory called `CENTRIFUGE` in my home. Here is what I do: First, in my terminal I type `cd` to makes ure I am in my home directory. Then I type `mkdir -p CENTRIFUGE` to make sure the directory `CENTRIFUGE` exists in my home. Then I type `cd CENTRIFUGE` to go into it. Finally I type `pwd` to get the full path, and replace that entire string with `/path/to/a/directory` in the command above (still keeping it in double quotes) before running the export command.
 
 You *should* put this line in your 
 
