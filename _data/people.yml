@@ -48,6 +48,14 @@
   web: http://blog.ozcanesen.com/
   bio: "Currently a computer engineering undergrad from Turkey, I strive to utilize my expertise in computation to study challenges in other fields."
 
+- alias: steven
+  name: Steven Cui
+  official: True
+  role: Summer Student
+  avatar: bio-steven.png
+  email: stevencui729@gmail.com
+  bio: "I am an undergraduate student at UChicago studying computer science. I look forward to tackling new and exciting computational problems in the field of bionformatics."
+
 - alias: mike
   name: Mike Lee
   role: Contributing hero
