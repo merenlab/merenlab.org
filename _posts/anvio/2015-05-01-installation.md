@@ -57,6 +57,9 @@ You need to make sure your system does have all the following software if you ar
 
 You can either install a stable release of anvi'o, or you can get a copy of the latest snapshot from the repository (clearly, it is always safer to go with the stable release).
 
+{:.notice}
+The following steps will collect some of the remaining software dependencies automatically for you. We heard that the [installation of hcluster can cause minor issues](https://groups.google.com/d/msg/anvio/0FTYbXq9vsw/q0Avvo_IDQAJ). In which case you should separately install hcluster. Although we are planning to replace hcluster with a better and more up-to-date solution soon.
+
 ### Installing the latest stable release (safe mode)
 
 The best way to install stable release is to do it through pip. If you are have your dependencies sorted, try running this on your terminal:
@@ -138,7 +141,7 @@ Now you can edit the codebase, and test it, without re-installing anvi'o over an
 
 ## Running the "Mini Test"
 
-`mini_test` is [a tiny shell script](https://github.com/meren/anvio/blob/master/tests/run_mini_test.sh) that runs almost everything implemented in anvi'o on a very small dataset. 
+What we call `mini_test` is [a tiny shell script](https://github.com/meren/anvio/blob/master/tests/run_mini_test.sh) that runs a pretty modest anvi'o workflow on a small mock dataset to make sure things are working properly (we also have [another shell script](https://github.com/meren/anvio/blob/master/tests/run_all_tests.sh) that runs almost everything implemented in anvi'o on the same dataset, in case you would like to take a look). 
 
 If you have a proper installation, you shouldn't get any errors when you run the `mini_test`
 
