@@ -9,12 +9,12 @@ comments: true
 
 This article describes various ways to import taxonomy into anvi'o.
 
-Please feel free to suggest new ones, [by entering an issue](http://github.com/meren/anvio), and we will be happy to try to do our best to write a parser for it.
+If what you find here does not solve your problem, please feel free to suggest new ways to deal with taxonomy, [by entering an issue](http://github.com/meren/anvio).
 
-Anvi'o accepts taxonomic annotation at the gene-level. Annotations in your files should correspond to open reading frames in your contigs, hence, taxonomical annotation should be done *after* exporting DNA or AA sequences from the contigs database to maintain the link. The basic workflow goes like this: (1) generate your contigs database, (2) export your gene sequences and annotate them with taxonomy, and (3) import results back into the same contigs database. This article describes the third step.
+Anvi'o accepts taxonomic annotation at the gene level. Annotations in your files should correspond to open reading frames in your contigs, hence, taxonomical annotations should be done on FASTA files exported from the anvi'o contigs database. The basic workflow goes like this: (1) generate your contigs database, (2) export your gene sequences, (3) annotate them with taxonomy, and (4) import results back into your contigs database using `anvi-import-taxonomy` program.
 
 {:.notice}
-**Important note**: There are many ways to have your genes annotated with taxonomy. But, there is only one way to make sure the gene IDs in your taxonomy files correspond to the gene caller IDs in the database: export your DNA or AA sequences from the anvi'o contigs database you wish to annotate using anvi'o programs `anvi-get-dna-sequences-for-gene-calls` or `anvi-get-aa-sequences-for-gene-calls`. 
+**Important note**: There are many ways to have your genes annotated with taxonomy. But, there is **only one way** to make sure the gene IDs in your taxonomy files correspond to the gene caller IDs in the database: export your DNA or AA sequences from the anvi'o contigs database you wish to annotate using anvi'o programs `anvi-get-dna-sequences-for-gene-calls` or `anvi-get-aa-sequences-for-gene-calls`. 
 
 {% include _toc.html %}
 
@@ -31,13 +31,15 @@ This is the simplest way to get the taxonomical annotation of genes into the con
 |7||||||Bifidobacterium longum|
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 
-Not every gene call has to be in the matrix, and not every level of taxonomy has to be present.
+Not every gene call has to be in the matrix, and not every level of taxonomy has to be present, anvi'o will find a way to deal with that, but the more the merrier.
 
 Once you have your matrix ready, this is the command line to import it using the parser `default_matrix`:
 
 {% highlight bash %}
 $ anvi-import-taxonomy -c CONTIGS.db -i input_matrix.txt -p default_matrix
 {% endhighlight %}
+
+That's it!
 
 ## Centrifuge Output
 

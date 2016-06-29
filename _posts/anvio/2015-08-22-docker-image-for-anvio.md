@@ -19,7 +19,7 @@ An open platform for distributed applications for developers and sysadmins.
 
 I have known about Docker for a long time, however I never really had a chance to use it. As so many of you already know, being a researcher and not keeping up with the latest developments outside of your immediate field is _disturbingly_ easy.
 
-After reading our [oldschool installation manual]({% post_url anvio/2015-05-01-installation %}), my good friend [Çağlar Onur](https://twitter.com/caglar10ur) sent me [a pull request](https://github.com/meren/anvio/pull/191) with an initial recepie to build Docker images for anvi'o. Following his contribution, we will maintain [anvi'o docker images online](https://hub.docker.com/r/meren/anvio/tags/).
+After reading our [oldschool installation manual]({% post_url anvio/2016-06-26-installation-v2 %}), my good friend [Çağlar Onur](https://twitter.com/caglar10ur) sent me [a pull request](https://github.com/meren/anvio/pull/191) with an initial recepie to build Docker images for anvi'o. Following his contribution, we will maintain [anvi'o docker images online](https://hub.docker.com/r/meren/anvio/tags/).
 
 I have to admit that my introduction to Docker was similar to meeting someone you know you will not get along well simply because (1) everyone talks about them non-stop, and (2) you are a person who learned to not trust what is popular. But then, after playing with it for just two days I can see that Docker does deserve to be talked about, plus, beyond the hype that surrounds the technology, it seems it is the perfect solution to get anvi'o running on a server system with 0 pain.
 

@@ -76,7 +76,7 @@ First, the standard steps of generating an anvi'o contigs database from a given 
 
 {% highlight bash %}
 $ anvi-gen-contigs-database -f E_coli-K12-MG1655.fa -o E_coli-K12-MG1655.db
-$ anvi-populate-search-table -c E_coli-K12-MG1655.db
+$ anvi-run-hmms -c E_coli-K12-MG1655.db
 {% endhighlight %}
 
 Then, the moment of truth:
@@ -105,7 +105,7 @@ Then repeat the process on this incomplete genome:
 
 {% highlight bash %}
 $ anvi-gen-contigs-database -f E_coli-K12-MG1655-half.fa -o E_coli-K12-MG1655-half.db
-$ anvi-populate-search-table -c E_coli-K12-MG1655-half.db
+$ anvi-run-hmms -c E_coli-K12-MG1655-half.db
 $ anvi-script-predict-CPR-genomes cpr-bscg.classifier -c Genomes_NCBI/E_coli-K12-MG1655-half.db --min-percent-completion 0
 
 Genome in "E_coli-K12-MG1655-half.db"
@@ -126,7 +126,7 @@ $ wget http://www.ncbi.nlm.nih.gov/Traces/wgs/?download=LMZU01.1.fsa_nt.gz -O LM
 $ gzip -d LMZU01.1.fsa_nt.gz
 $ anvi-script-remove-short-contigs-from-fasta LMZU01.1.fsa_nt --simplify-names -o OP11-2.fa -l 0
 $ anvi-gen-contigs-database -f OP11-2.fa -o OP11-2.db
-$ anvi-populate-search-table -c OP11-2.db
+$ anvi-run-hmms -c OP11-2.db
 {% endhighlight %}
 
 The moment of truth:
@@ -149,7 +149,7 @@ wget http://www.ncbi.nlm.nih.gov/Traces/wgs/?download="$1"01.1.fsa_nt.gz -O "$1"
 gzip -d "$1"01.1.fsa_nt.gz
 anvi-script-remove-short-contigs-from-fasta "$1"01.1.fsa_nt --simplify-names -o $2.fa -l 0
 anvi-gen-contigs-database -f $2.fa -o $2.db
-anvi-populate-search-table -c $2.db
+anvi-run-hmms -c $2.db
 {% endhighlight %}
 
 Which I called this way for each genome from within another script:
@@ -241,7 +241,7 @@ Bin_1_14 .....................................: CPR (Confidence: 95%, Size: 1,52
 Here I ask anvi'o to bring me back all sequences from this bin that match Campbell et al. HMM profiles:
 
 {% highlight bash %}
-$ anvi-get-sequences-for-hmm-hits -c CONTIGS.db -p PROFILE.db -C CONCOCT -b Bin_1_14 --hmm-source Campbell_et_al -o Bin_1_14.fa
+$ anvi-get-dna-sequences-for-hmm-hits -c CONTIGS.db -p PROFILE.db -C CONCOCT -b Bin_1_14 --hmm-source Campbell_et_al -o Bin_1_14.fa
 Init .........................................: 71 splits in 1 bin(s)
 Result .......................................: 129 genes for 1 source(s)
 Output .......................................: Bin_1_14-genes.fa

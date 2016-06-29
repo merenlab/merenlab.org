@@ -27,7 +27,7 @@ With anvi'o you can do [metagenomic binning](https://peerj.com/articles/1319/){:
 
 The anvi'o interactive interface is a fully customizable visualization environment that is accessible through an intuitive interface to efficiently visualize complex data. It can handle large datasets, and it's [source code](http://github.com/meren/anvio){:target="_blank"} is freely available within the anvi'o platfrom.
 
-Although it is fully integrated with core anvi'o operations detailed in [the metagenomic workflow tutorial]({% post_url anvio/2015-05-02-anvio-tutorial %}){:target="_blank"}, the visualization environment can be initiated in an *ad hoc* manner by using the `anvi-interactive` program with `--manual-mode` flag, or through anvi'server, without an anvi'o installation. In summary, if you have a matrix file, anvi'o may be useful to you to generate high-quality, publication-ready figures with mouse clicks.
+Although it is fully integrated with core anvi'o operations detailed in [the metagenomic workflow tutorial]({% post_url anvio/2016-07-22-anvio-tutorial-v2 %}){:target="_blank"}, the visualization environment can be initiated in an *ad hoc* manner by using the `anvi-interactive` program with `--manual-mode` flag, or through anvi'server, without an anvi'o installation. In summary, if you have a matrix file, anvi'o may be useful to you to generate high-quality, publication-ready figures with mouse clicks.
 
 **The purpose** of this article is to provide a more detailed description of the interface by demonstrating the data types the interface can work with, and later details of the user interface. 
 
@@ -56,7 +56,7 @@ The purpose of this section is to provide examples for each of the data type (an
 You can follow these examples in two ways:
 
 * **Using anvi-interactive in your terminal**: For each data type I will either provide a link to the files used in the example command line, or give an example file structure so you can try them on your own files.
-* **Using [http://anvi-server.org](http://anvi-server.org){:target="_blank"}**: The other option is to use our new anvi'server without installing anvi'o. If your only purpose with the interactive interface is to do an *ad hoc* visualization, I think this would be the best way to go. Otherwise you can read about the [ways to install the platform]({% post_url anvio/2015-05-01-installation %}) on your own server or laptop.
+* **Using [http://anvi-server.org](http://anvi-server.org){:target="_blank"}**: The other option is to use our new anvi'server without installing anvi'o. If your only purpose with the interactive interface is to do an *ad hoc* visualization, I think this would be the best way to go. Otherwise you can read about the [ways to install the platform]({% post_url anvio/2016-06-26-installation-v2 %}) on your own server or laptop.
 
 {:.notice}
 Command lines mentioned in this article are run on anvi'o version 2 or later. You can check your verison using `anvi-profile -v`.
@@ -362,5 +362,7 @@ It does what the name suggests. Using this tab you can,
 Here are some small conveniences that may help the interface serve you better (we are happy to expand these little tricks with your suggestions).
 
 * You can zoom to a section of the tree by making a selection **while the pressing shift button**.
+
 * You can click an entire branch to add items into the selected bin, and remove them by **right-clicking** a branch.
+
 * If you click a branch **while pressing the Command or CTRL button**, it will create a new bin, and add the content of the selection into that bin.

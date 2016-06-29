@@ -17,9 +17,4 @@ For [mothur](http://www.mothur.org/) users (courtesy of [Michelle Berry](http://
 
 For [QIIME](http://qiime.org/) users (courtesy of [James Meadow](https://twitter.com/jamesmeadow)): [qiime2oligo](https://github.com/jfmeadow/q2oligo)
 
-
-# Important posts
-
-{% include _project-oligotyping-buttons.html %}
-
 # All posts oligotyping

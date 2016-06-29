@@ -11,7 +11,7 @@ authors: [meren]
 
 {% include _toc.html %}
 
-[The anvi'o metagenomics workflow]({% post_url anvio/2015-05-02-anvio-tutorial %}) is quite straighforward. But what if you have multiple sources of data that are mapped to the same contigs? If you have metagenomic, metatranscriptomic data from the same environment, and if you want to do a combined analysis, continue reading.
+[The anvi'o metagenomics workflow]({% post_url anvio/2016-07-22-anvio-tutorial-v2 %}) is quite straighforward. But what if you have multiple sources of data that are mapped to the same contigs? If you have metagenomic, metatranscriptomic data from the same environment, and if you want to do a combined analysis, continue reading.
 
 _.. and please do not hesitate to get in touch if this recipe does not work for you .._
 
@@ -135,14 +135,15 @@ anvi-experimental-organization my_cluster_config.ini \
 {% endhighlight %}
 
 
-I know that this process can take a while depending on the number of splits I have (that's why it is always a good idea to run this in a screen session on a server somewhere instead of doing it on my laptop):
+This process will take some time depending on the number of splits. Check the number of splits you have:
 
 {% highlight bash %}
 $ sqlite3 MERGED/PROFILE.db 'select value from self where key="num_splits";'
     22155
 {% endhighlight %}
 
-22,155... Sigh. Right at the edge. As you know, we never really want to go beyond 20,000 splits with the hirarchical clustering in anvi'o. CONCOCT is the only way to go if you have more splits than 20,000 - 25,000. There shall be another post to describe that in the future, but meanwhile, you set your `-M` during profiling appropriately to avoid too many splits.
+And make sure you have less than 25,000. If you have more, either you can profile your files with a higher `-M` value, or you can push us by entering an issue to the GitHub page so we can try to sort this out in a better way.
+ 
 
 ## Calling interactive interface with the new clustering
 
@@ -154,4 +155,4 @@ Here is how I start the interactive interface using this file:
 anvi-interactive -c contigs.db -p MERGED/PROFILE.db -t new_newick_tree.txt
 {% endhighlight %}
 
-Voilà!-c
+Voilà!

@@ -19,8 +19,4 @@ Anvi'o would not have been possible without the help of many people who directly
 We thank <a href="https://www.linkedin.com/in/farukuzun" target="_blank">Faruk Uzun</a>, <a href="https://twitter.com/dcankilment" target="_blank">Doğan Can Kilment</a>, <a href="https://github.com/gokmen" target="_blank">Gökmen Göksel</a>, <a href="https://github.com/caglar10ur" target="_blank">S. Çağlar Onur</a>, and <a href="https://github.com/gkmngrgn" target="_blank">Gökmen Görgen</a> for their contributions to the code base, and <a href="http://www.richfox.org/me/" target="_blank">Rich Fox</a> for administering our servers. We thank <b>Inés Martínez</b> for testing anvi’o, and for her valuable suggestions throughout the development of the platform. We thank <a href="https://twitter.com/phyllosphere" target="_blank">Sheri Simmons</a> for suggesting the application of oligotyping to the metagenomic data to characterize single-nucleotide variation. We also thank <a href="https://www.linkedin.com/pub/itai-sharon/0/8a1/93b" target="_blank">Itai Sharon</a>, <a href="https://scholar.google.com/citations?user=NflBi1cAAAAJ" target="_blank">Luis M. Rodridugez-R</a>, <a href="https://scholar.google.com/citations?user=ljGGBFwAAAAJ&hl=en" target="_blank">Will A. Overholt</a>, <a href="http://eoas.fsu.edu/people/faculty/dr-olivia-mason" target="_blank">Olivia U. Mason</a>, <a href="http://www.microbialecology.ca/" target="_blank">Etienne Yergeau</a>, and their colleagues for making valuable datasets available to the science community and for answering our questions.
 </div>
 
-# Important posts
-
-{% include _project-anvio-buttons.html %}
-
 # All posts anvi'o

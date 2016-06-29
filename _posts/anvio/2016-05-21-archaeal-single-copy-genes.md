@@ -11,19 +11,19 @@ authors: [mike]
 {:.notice}
 **Meren's note**: The following post is kindly contributed by [Mike Lee](https://twitter.com/AstrobioMike), who is a molecular biologist and a bioinformatician and currently a PhD student at the [University of Southern California](http://www.usc.edu/) working with Hutchins and Webb labs. His research spans from studying basalts in the marine deep biosphere to investigating photoautotroph-heterotroph associations at the ocean surfaces. Mike's post made me realize that there could be some improvements in the codebase to make better use of the archaeal single-copy gene collection he used for his project, and I promise to improve the [anvi'o codebase](https://github.com/meren/anvio/) to be less biased towards bacteria in the future ;) I thank Mike for sharing his experience with everyone through this post, and for his very kind words about anvi'o.
 
-One of the major strengths of anvi'o is the capability of manually curating your genome bins with real-time updates of percent completeness and contamination estimates. The information necessary to estimate completeness comes from the scanning of your contigs using previously published bacterial single-copy gene collections. When you run the following command following the [standard metagenomic workflow]({% post_url anvio/2015-05-02-anvio-tutorial %}), the occurrence of bacterial single-copy genes across your contigs is all added to your contigs database:
+One of the major strengths of anvi'o is the capability of manually curating your genome bins with real-time updates of percent completeness and contamination estimates. The information necessary to estimate completeness comes from the scanning of your contigs using previously published bacterial single-copy gene collections. When you run the following command following the [standard metagenomic workflow]({% post_url anvio/2016-07-22-anvio-tutorial-v2 %}), the occurrence of bacterial single-copy genes across your contigs is all added to your contigs database:
 
 
 {% highlight bash %}
-$ anvi-populate-search-table -c contigs.db
+$ anvi-run-hmms -c contigs.db
 {% endhighlight %}
 
-As of today, when `anvi-populate-search-table` is run without providing any further arguments, it automatically utilizes [the four HMM profiles included in anvi'o codebase](https://github.com/meren/anvio/tree/master/anvio/data/hmm). These profiles are quite useful and convenient for bacterial genomes. However, if you are purposely trying to refine archaeal bins, or perhaps if you are working with a lab that has spent some time and effort to build their own single-copy gene collections, the ability to change the underlying HMM single-copy gene collections would certainly help. Fortunately, anvi'o has an easy way to specify which collection(s) to consider when working in the interactive mode.
+As of today, when `anvi-run-hmms` is run without providing any further arguments, it automatically utilizes [the four HMM profiles included in anvi'o codebase](https://github.com/meren/anvio/tree/master/anvio/data/hmm). These profiles are quite useful and convenient for bacterial genomes. However, if you are purposely trying to refine archaeal bins, or perhaps if you are working with a lab that has spent some time and effort to build their own single-copy gene collections, the ability to change the underlying HMM single-copy gene collections would certainly help. Fortunately, anvi'o has an easy way to specify which collection(s) to consider when working in the interactive mode.
 
-As noted above, running the `anvi-populate-search-table` program with no additional arguments other than your contigs database will scan for the four preloaded bacterial single-copy gene collections. If you would like to use another collection, you need only to add the location of the directory that contains your HMM profiles:
+As noted above, running the `anvi-run-hmms` program with no additional arguments other than your contigs database will scan for the four preloaded bacterial single-copy gene collections. If you would like to use another collection, you need only to add the location of the directory that contains your HMM profiles:
 
 {% highlight bash %}
-$ anvi-populate-search-table -c contigs.db -H Rinke_archaeal_HMM/
+$ anvi-run-hmms -c contigs.db -H Rinke_archaeal_HMM/
 {% endhighlight %}
 
 Anvi'o will expect the directory denoted by the `-H` flag above to contain four special files:

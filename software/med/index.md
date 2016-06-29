@@ -11,8 +11,4 @@ excerpt: "MED Project Page"
 
 Minimum Entropy Decomposition is a novel, information theory-based clustering algorithm for sensitive partitioning of high-throughput marker gene sequences.
 
-# Important posts
-
-{% include _project-med-buttons.html %}
-
 # All posts minimum entropy decomposition

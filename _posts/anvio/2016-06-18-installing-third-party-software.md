@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Installing third-party software"
-excerpt: "Recipes to install varius software tools anvi'o uses"
+excerpt: "Recipes to install various software tools anvi'o uses"
 modified: 2016-06-18
 categories: [anvio]
 comments: true
@@ -35,7 +35,7 @@ Type `prodigal -v` again to make sure everything is alright, and you get the pro
 
 ## HMMER
 
-[HMMER](http://hmmer.org/) uses hidden Markov models to perform sequence search and alignments. Everytime you run `anvi-populate-search-tables` program, you use it.
+[HMMER](http://hmmer.org/) uses hidden Markov models to perform sequence search and alignments. Everytime you run `anvi-run-hmmss` program, you use it.
 
 **Citation**: [http://hmmer.org/](http://hmmer.org/)
 
@@ -59,6 +59,10 @@ Type `hmmscan -h` again to make sure everything is alright, and you get the prop
 **Citation**: [https://www.sqlite.org/](https://www.sqlite.org/)
 
 Go to your terminal, type `sqlite3 --version`, if you get an error, you need to install it. Extensive installation instructions are [here](http://www.tutorialspoint.com/sqlite/sqlite_installation.htm). Or you can install it by typing `sudo port install sqlite3` if you are using the port system on a Mac OSX computer.
+
+{:.notice}
+Note: Althouhg this is completely optional, you may also want to consider installing [DB Browser for SQLite](http://sqlitebrowser.org/). It is a lightweight, open-source database browser a nice graphical interface that is very easy-to-install. You probably will never need it or use it, but it may be handy at some point.
+
 
 ## GNU Scientific Library
 
@@ -101,6 +105,7 @@ tar -jxvf hdf5-1.8.16.tar.bz2
 cd hdf5-1.8.16
 ./configure && make && sudo make install
 {% endhighlight %}
+
 
 ## Centrifuge
 

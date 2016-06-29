@@ -19,7 +19,7 @@ This article will cover everything about this optional feature, **the samples da
 
 ## The samples database: with and wihtout
 
-Here are two screenshots from the infamous [`mini_test`]({% post_url anvio/2015-05-01-installation %}#running-the-mini-test) just to give a very quick idea about what does the samples database add to an anvi'o analysis.
+Here are two screenshots from the infamous [`mini_test`]({% post_url anvio/2016-06-26-installation-v2 %}#running-the-mini-test) just to give a very quick idea about what does the samples database add to an anvi'o analysis.
 
 When you invoke the interactive interface on `mini_test` without a samples database, this is what you see:
 

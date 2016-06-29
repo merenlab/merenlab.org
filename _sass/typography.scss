@@ -17,9 +17,14 @@ h2 {
 }
 h3 {
 	@include font-size(24);
+    font-size: 1.6em;
+    line-height: 1.0833;
+    margin-bottom: 0.5em;
+    margin-top: 1.5em;
 }
 h4 {
 	@include font-size(18);
+  font-size: 1.3em;
 }
 h5 {
 	@include font-size(16);
@@ -252,11 +257,10 @@ p,
 li { 
 	code {
 		@include font-rem(12);
-		line-height: 1.5;
 		white-space: nowrap;
 		margin: 0 2px;
-		padding: 0 5px;
-		border: 1px solid lighten($black, 90);
+		padding: 0 2px;
+		border: 1px solid #969696;
 		background-color: #efefef;
 		@include rounded(3px);
 	}
@@ -269,6 +273,6 @@ pre {
     margin-bottom: 40px;
     padding: 20px;
     border: 1px solid #DDD;
-    border-left: 5px solid #BBB;
+    border-left: 5px solid #dc5252;
     border-radius: 5px;
 }

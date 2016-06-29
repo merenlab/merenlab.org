@@ -36,7 +36,7 @@ comments: true
 ## Illumina Utilities Library
 
 <div class="quotable">
-A lightweighted and high-performance library to analyze raw Illumina data. It contains programs for demultiplexing, quality filtering, and mergeing partially or fully overlapping reads. Illumina utils has been a core component of the sequencing operations at the MBL. The source code, installation instructions and examples are available through its GitHub repository:
+A lightweight and high-performance library to analyze raw Illumina data. It contains programs for demultiplexing, quality filtering, and mergeing partially or fully overlapping reads. Illumina utils has been a core component of the sequencing operations at the MBL. The source code, installation instructions and examples are available through its GitHub repository:
 <br />
 <br />
 <a href="https://github.com/meren/illumina-utils">https://github.com/meren/illumina-utils</a>

@@ -34,9 +34,11 @@
 </div>
 
 <div id="index">
+    {% include _project-anvio-navigation.html %}
     <div class="article-wrap">
-    {% include _project-anvio-links.html %}
-     <div id="articlecontent">{{ content }}</div> 
+     <div id="articlecontent">
+        {{ content }}
+      </div> 
     </div><!-- /.article-wrap -->
 {% for post in site.posts %}
   {% if post.categories contains "anvio" %}

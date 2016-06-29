@@ -82,14 +82,19 @@ If the **accession** information is not available to you, it is OK to leave it b
 Anvi'o has a parser for [InterProScan](http://www.ebi.ac.uk/interpro/download.html). To use InterProScan you should first export AA sequences for all your gene calls:
 
 {% highlight bash %}
-$ anvi-get-aa-sequences-for-gene-calls -c CONTIGS.db -o gene-calls.fa
+$ anvi-get-aa-sequences-for-gene-calls -c CONTIGS.db -o protein-sequences.fa
 {% endhighlight %}
 
-After running InterProScan on this file, you can import results into the database:
-
+After running InterProScan on this file like this (assuming you have it [downloaded](http://www.ebi.ac.uk/interpro/download.html)):
 
 {% highlight bash %}
-$ anvi-import-functions -c contigs.db -i interpro_output.tsv -p interproscan
+$ ./interproscan.sh -i protein-sequences.fa -f tsv -o interpro-output.tsv
+{% endhighlight %}
+
+You can import results into the database:
+
+{% highlight bash %}
+$ anvi-import-functions -c contigs.db -i interpro-output.tsv -p interproscan
 {% endhighlight %}
 
 That's it!

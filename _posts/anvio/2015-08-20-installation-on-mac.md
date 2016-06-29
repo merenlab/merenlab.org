@@ -11,7 +11,7 @@ authors: [meren]
 
 {% include _toc.html %}
 
-One of our highest priorities with [anvi'o]({{ site.url }}/software/anvio) has always been the ease of use. Pain-free installation is clearly an important requirement to achieve that. [Installing anvi'o]({% post_url anvio/2015-05-01-installation %}) is not terribly hard, however, there is still room for improvement.
+One of our highest priorities with [anvi'o]({{ site.url }}/software/anvio) has always been the ease of use. Pain-free installation is clearly an important requirement to achieve that. [Installing anvi'o]({% post_url anvio/2016-06-26-installation-v2 %}) is not terribly hard, however, there is still room for improvement.
 
 We now have a new installer, and if you are using Mac OS X (version 10.9+, i.e., Maverick or Yosemite), you are pretty much covered!
 
@@ -54,7 +54,7 @@ This should do a bunch of things, and if everything is in order, your browser sh
 <a href="{{ site.url }}/images/anvio/2015-08-20-installation-on-mac/test-screen.png"><img src="{{ site.url }}/images/anvio/2015-08-20-installation-on-mac/test-screen.png" style="width: 80%;" /></a>
 </div>
 
-Do you see it? Now you can follow the [user tutorial]({% post_url anvio/2015-05-02-anvio-tutorial %}) if you like.
+Do you see it? Now you can follow the [user tutorial]({% post_url anvio/2016-07-22-anvio-tutorial-v2 %}) if you like.
 
 Thank you for giving it a try.
 
@@ -78,7 +78,7 @@ source /Applications/Anvio.app/Contents/Resources/Scripts/activate.sh
 
 ### Now it is installed on my MAC, am I good to go with my analyses?
 
-Yes you can do that, but I would urge you to get your system administrator to have it installed on your server as well --everything they may need to install anvi'o on a server system is explained [here]({% post_url anvio/2015-05-01-installation %}), and we would be very interested to answer any further questions. If you have anvi'o installed on your personal computer as well as on your server computer, you can do compute-intensive tasks (such as profiling, merging multiple profiles, or automatic genome binning) on the server, and download the results and visualize them, or perform human-guided genome binning on your computer using the interactive interface.
+Yes you can do that, but I would urge you to get your system administrator to have it installed on your server as well --everything they may need to install anvi'o on a server system is explained [here]({% post_url anvio/2016-06-26-installation-v2 %}), and we would be very interested to answer any further questions. If you have anvi'o installed on your personal computer as well as on your server computer, you can do compute-intensive tasks (such as profiling, merging multiple profiles, or automatic genome binning) on the server, and download the results and visualize them, or perform human-guided genome binning on your computer using the interactive interface.
 
 ### Who is responsible for this installer?
 

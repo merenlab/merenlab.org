@@ -34,8 +34,8 @@
 </div>
 
 <div id="index">
+    {% include _project-med-navigation.html %}
     <div class="article-wrap">
-    {% include _project-med-links.html %}
      <div id="articlecontent">{{ content }}</div> 
     </div><!-- /.article-wrap -->
 {% for post in site.posts %}

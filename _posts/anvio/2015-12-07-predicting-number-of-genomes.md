@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How many bacterial genomes you have in that assembly?"
+title: "How many bacterial genomes do you have in that assembly?"
 excerpt: "A quick way to get an insight into the number of genomes your contigs represent."
 modified: 2015-12-07
 tags: []
@@ -67,13 +67,13 @@ Now we have the contigs database, the next thing we will do is to look for bacte
 All you need to do is to run this command for HMM hits for thoese gene collections to be added to the database you just created:
 
 {% highlight bash %}
-$ anvi-populate-search-table -c contigs.db
+$ anvi-run-hmms -c contigs.db
 {% endhighlight %}
 
 And this is how this step goes on my screen as anvi'o goes through each single-copy gene collection:
 
 {% highlight bash %}
-$ anvi-populate-search-table -c contigs.db
+$ anvi-run-hmms -c contigs.db
 HMM profiles .................................: 4 sources have been loaded: Alneberg_et_al (34 genes), Dupont_et_al (111 genes), Campbell_et_al (139 genes), Creevey_et_al (40 genes)
 Sequences ....................................: 32265 sequences reported.
 FASTA ........................................: /var/folders/nm/jmps9l7j7w1dr8rbpv119zgr0000gn/T/tmpU2EHjX/sequences.fa

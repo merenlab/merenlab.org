@@ -37,7 +37,7 @@ What you see is the coverage and base frequencies in reported variable positions
 
 Anvi'o gives access to variable nucleotide information in two steps.
 
-The first step is to identify variable nucleotide positions and reporting them _for each sample separately_ (which takes place during the profiling step of the analysis (see [the tutorial]({% post_url anvio/2015-05-02-anvio-tutorial %}) if you are not familiar with the metagenomic workflow of anvi'o)).
+The first step is to identify variable nucleotide positions and reporting them _for each sample separately_ (which takes place during the profiling step of the analysis (see [the tutorial]({% post_url anvio/2016-07-22-anvio-tutorial-v2 %}) if you are not familiar with the metagenomic workflow of anvi'o)).
 
 The second step is to interpret the ecological significance of sample-specific variable positions _across samples_. The first step is agnostic to the experimental design, and/or the variable nucleotide positions in other samples: it simply does its best to find and report variation. The second step is where the user's input about the experimental design, and their questions come into the play.
 
