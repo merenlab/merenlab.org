@@ -14,7 +14,7 @@ authors: [meren, tom]
 
 Overlapping and differing functions among the genomes of closely related organisms led to the introduction of a new concept, "pangenomics" [(Tettelin et al., 2005)](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1216834/), where genes across genomes are segregated into distinct groups: (1) the core-genome, (2) genes detected in multiple yet not in all genomes, and finally (3) isolate-specific genes that are detected only in a single genome. Pangenomic investigations are now widely used to dissect the functional traits of microorganisms, and to uncover environmentally- and clinically-important clusters of genes or functions.Although [multiple bioinformatics software](http://omictools.com/pangenomics-c1590-p1.html) are available to generate and/or visualize pangenomes, these solutions do not necessary offer flexible work environments, and hence limit the user's ability to interact with their data. 
 
-In this post we will demonstrate the [anvi'o](https://peerj.com/articles/1319/) workflow for pangenomics using a simple dataset. Although we are still [working](http://github.com/meren/anvio) on the pan-genomic workflow, using [v2 and higher versions of anvi'o]({% post_url anvio/2016-06-26-installation-v2 %}) you can,
+In this post we will demonstrate the [anvi'o](https://peerj.com/articles/1319/) workflow for pangenomics using a simple dataset. Although we are still [working](http://github.com/meren/anvio) on the pan-genomic workflow, using the [v2 version of anvi'o]({% post_url anvio/2016-06-26-installation-v2 %}) you can,
 
 * **Identify protein clusters**,
 * **Visualize** the distribution of protein clusters across your genomes,
