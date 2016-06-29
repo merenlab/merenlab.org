@@ -93,9 +93,9 @@ Let's see some examples.
 
 Assume you have three FASTA files for three *E. coli* strains you want to analyze with `anvi-pan-genome` (you can download these genomes and play with them if you click those links):
 
-* [Escherichia_coli_BL21.gz](https://github.com/meren/anvio/raw/master/tests/sandbox/anvi_pangenome_files/Escherichia_coli_BL21.gz)
-* [Escherichia_coli_B_REL606.gz](https://github.com/meren/anvio/blob/master/tests/sandbox/anvi_pangenome_files/Escherichia_coli_B_REL606.gz)
-* [Escherichia_coli_O111.gz](https://github.com/meren/anvio/blob/master/tests/sandbox/anvi_pangenome_files/Escherichia_coli_O111.gz)
+* [E_coli_BL21.fa.gz](https://github.com/meren/anvio/raw/master/tests/sandbox/anvi_pangenome_files/E_coli_BL21.fa.gz)
+* [E_coli_B_REL606.fa.gz](https://github.com/meren/anvio/blob/master/tests/sandbox/anvi_pangenome_files/E_coli_B_REL606.fa.gz)
+* [E_coli_O111.fa.gz](https://github.com/meren/anvio/blob/master/tests/sandbox/anvi_pangenome_files/E_coli_O111.fa.gz)
 
 Let's assume you downloaded each one of them, and now your work directory looks like this:
 
