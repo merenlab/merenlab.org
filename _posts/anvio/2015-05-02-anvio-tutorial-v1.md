@@ -14,7 +14,7 @@ comments: true
 This tutorial is tailored for anvi'o <b>v1 branch</b>, and <b>version 1.2.0 or later</b>. Please update your installation first if you have an earlier version installed. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal.
 
 {: .notice}
-You should really consider upgrading your anvi'o to <b>[v2]({% post_url anvio/2016-07-22-anvio-tutorial-v2 %})</b>.
+You should really consider upgrading your anvi'o to <b>[v2]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %})</b>.
 
 This tutorial gives a brief overview of anvi'o metagenomic worklow. If you run into any issues, please post a comment down below, or open an <a href="https://github.com/meren/anvio/issues">issue</a>. When you post a comment or an issue, please mention the anvi'o version, the operating system you are using.
 

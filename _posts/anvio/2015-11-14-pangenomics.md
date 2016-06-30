@@ -34,7 +34,7 @@ You can run `anvi-pan-genome` on *external genomes*, *internal genomes*, or usin
 
 * **External genomes**: Anything you have in a FASTA file format (i.e., a genome you downloaded from NCBI, or any other resource).
 
-* **Internal genomes**: Any genome bin you stored in an anvi'o collection (you can create an anvi'o collection by importing automatic binning results, or by using anvi'o to do human guided binning; if you would like to lear more about this please take a look at [the metagenomic workflow]({% post_url anvio/2016-07-22-anvio-tutorial-v2 %})). 
+* **Internal genomes**: Any genome bin you stored in an anvi'o collection (you can create an anvi'o collection by importing automatic binning results, or by using anvi'o to do human guided binning; if you would like to lear more about this please take a look at [the metagenomic workflow]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %})). 
 
 File formats for external genome and internal genome descriptions differ slightly. This is an example `--external-genomes` file:
 
@@ -115,7 +115,7 @@ $ anvi-run-hmms -c E_coli_BL21.db
 {% endhighlight %}
 
 {:.notice}
-If you haven't created an anvi'o contigs database before, please read [this section from the metagenomics tutorial]({% post_url anvio/2016-07-22-anvio-tutorial-v2 %}/#creating-an-anvio-contigs-database) to learn the details of this step.
+If you haven't created an anvi'o contigs database before, please read [this section from the metagenomics tutorial]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}/#creating-an-anvio-contigs-database) to learn the details of this step.
 
 Doing the same thing above for all genomes in a serial manner would have looked like this, in case you are a work-in-progress BASH scripting guru:
 

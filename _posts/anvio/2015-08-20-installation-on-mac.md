@@ -54,7 +54,7 @@ This should do a bunch of things, and if everything is in order, your browser sh
 <a href="{{ site.url }}/images/anvio/2015-08-20-installation-on-mac/test-screen.png"><img src="{{ site.url }}/images/anvio/2015-08-20-installation-on-mac/test-screen.png" style="width: 80%;" /></a>
 </div>
 
-Do you see it? Now you can follow the [user tutorial]({% post_url anvio/2016-07-22-anvio-tutorial-v2 %}) if you like.
+Do you see it? Now you can follow the [user tutorial]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}) if you like.
 
 Thank you for giving it a try.
 

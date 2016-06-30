@@ -133,4 +133,4 @@ Upon the successful completion of all the tests, your browser should popup to ta
 
 All fine? Perfect! Now you have a running installation of anvi'o!
 
-It is time to go through the [tutorial]({% post_url anvio/2016-07-22-anvio-tutorial-v2 %}), or take a look at [all the other posts on the platform]({{ site.url }}/software/anvio).
+It is time to go through the [tutorial]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}), or take a look at [all the other posts on the platform]({{ site.url }}/software/anvio).

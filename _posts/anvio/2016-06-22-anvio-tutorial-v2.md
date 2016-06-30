@@ -2,7 +2,7 @@
 layout: post
 title: "Anvi'o User Tutorial for Metagenomic Workflow"
 excerpt: "Sweets for people who managed to install the platform and want to do genome-resolved metagenomics."
-modified: 2016-07-22
+modified: 2016-06-22
 tags: []
 categories: [anvio]
 comments: true

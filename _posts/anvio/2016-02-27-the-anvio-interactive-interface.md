@@ -27,7 +27,7 @@ With anvi'o you can do [metagenomic binning](https://peerj.com/articles/1319/){:
 
 The anvi'o interactive interface is a fully customizable visualization environment that is accessible through an intuitive interface to efficiently visualize complex data. It can handle large datasets, and it's [source code](http://github.com/meren/anvio){:target="_blank"} is freely available within the anvi'o platfrom.
 
-Although it is fully integrated with core anvi'o operations detailed in [the metagenomic workflow tutorial]({% post_url anvio/2016-07-22-anvio-tutorial-v2 %}){:target="_blank"}, the visualization environment can be initiated in an *ad hoc* manner by using the `anvi-interactive` program with `--manual-mode` flag, or through anvi'server, without an anvi'o installation. In summary, if you have a matrix file, anvi'o may be useful to you to generate high-quality, publication-ready figures with mouse clicks.
+Although it is fully integrated with core anvi'o operations detailed in [the metagenomic workflow tutorial]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}){:target="_blank"}, the visualization environment can be initiated in an *ad hoc* manner by using the `anvi-interactive` program with `--manual-mode` flag, or through anvi'server, without an anvi'o installation. In summary, if you have a matrix file, anvi'o may be useful to you to generate high-quality, publication-ready figures with mouse clicks.
 
 **The purpose** of this article is to provide a more detailed description of the interface by demonstrating the data types the interface can work with, and later details of the user interface. 
 

@@ -86,7 +86,7 @@ rm  $sample.smalt.sam
 
 The result of this script was 8 BAM files for each sample, where identical short reads were mapped to identical contigs.
 
-When Bing sent me the total of 32 BAM files for HUZ63 along with the contigs, I used anvi'o to (1) generate an contigs database and annotate contigs using myRAST, (2) run HMM profiles for single-copy gene collections on this database, (3) profile each BAM file with `-M 2000`, (4) merge the ones that are coming from the same mapper first, (5) and finally merge everything together using ([the user tutorial]({% post_url anvio/2016-07-22-anvio-tutorial-v2 %}) details these standard steps of the metagenomic workflow we implemented in anvio).
+When Bing sent me the total of 32 BAM files for HUZ63 along with the contigs, I used anvi'o to (1) generate an contigs database and annotate contigs using myRAST, (2) run HMM profiles for single-copy gene collections on this database, (3) profile each BAM file with `-M 2000`, (4) merge the ones that are coming from the same mapper first, (5) and finally merge everything together using ([the user tutorial]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}) details these standard steps of the metagenomic workflow we implemented in anvio).
 
 Here is the the shell script I used for all these steps, again, for people who may want to do a similar analysis in the future (or for the ones who want to familiarize themselves how does anvi'o look like in the command line (of course it is simplified, since each step was sent to clusters in the original one)):
 
