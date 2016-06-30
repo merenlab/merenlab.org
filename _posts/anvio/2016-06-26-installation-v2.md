@@ -11,6 +11,8 @@ comments: true
 
 {% include _toc.html %}
 
+{% include _project-anvio-version.html %}
+
 This article explains basic steps of installing anvi'o using rather conventional methods.
 
 {:.notice}

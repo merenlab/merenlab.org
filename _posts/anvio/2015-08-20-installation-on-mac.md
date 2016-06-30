@@ -9,6 +9,8 @@ comments: true
 authors: [meren]
 ---
 
+{% include _project-anvio-version.html %}
+
 {:.notice}
 An OS X installer for anvi'o v2 is not yet available. We are working on it!
 

@@ -10,6 +10,8 @@ comments: true
 
 {% include _toc.html %}
 
+{% include _project-anvio-version.html %}
+
 {: .notice}
 This tutorial is tailored for anvi'o <b>version 2.0.0, or later</b>. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal. The tutorial for older anvi'o releases from v1 family is [here]({% post_url anvio/2015-05-02-anvio-tutorial-v1 %}) (but **v1** is so 2015, and you should never use it ever again).
 
