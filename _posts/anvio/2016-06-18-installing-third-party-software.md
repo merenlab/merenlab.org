@@ -61,7 +61,7 @@ Type `hmmscan -h` again to make sure everything is alright, and you get the prop
 Go to your terminal, type `sqlite3 --version`, if you get an error, you need to install it. Extensive installation instructions are [here](http://www.tutorialspoint.com/sqlite/sqlite_installation.htm). Or you can install it by typing `sudo port install sqlite3` if you are using the port system on a Mac OSX computer.
 
 {:.notice}
-Note: Althouhg this is completely optional, you may also want to consider installing [DB Browser for SQLite](http://sqlitebrowser.org/). It is a lightweight, open-source database browser a nice graphical interface that is very easy-to-install. You probably will never need it or use it, but it may be handy at some point.
+Note: Although this is completely optional, you may also want to consider installing [DB Browser for SQLite](http://sqlitebrowser.org/). It is a lightweight, open-source database browser a nice graphical interface that is very easy-to-install. You probably will never need it or use it, but it may be handy at some point.
 
 
 ## GNU Scientific Library
@@ -122,7 +122,7 @@ $ export CENTRIFUGE_BASE="/path/to/a/directory"
 Do not forget to make sure your version of `/path/to/a/directory` is a full path, and starts with a `/` character.
 
 {:.notice}
-More on the "**full path**" thingy: Let's say I want to put all centrifuge related stuff in a directory called `CENTRIFUGE` in my home. Here is what I do: First, in my terminal I type `cd` to makes ure I am in my home directory. Then I type `mkdir -p CENTRIFUGE` to make sure the directory `CENTRIFUGE` exists in my home. Then I type `cd CENTRIFUGE` to go into it. Finally I type `pwd` to get the full path, and replace that entire string with `/path/to/a/directory` in the command above (still keeping it in double quotes) before running the export command.
+More on the "**full path**" thingy: Let's say I want to put all centrifuge related stuff in a directory called `CENTRIFUGE` in my home. Here is what I do: First, in my terminal I type `cd` to makes sure I am in my home directory. Then I type `mkdir -p CENTRIFUGE` to make sure the directory `CENTRIFUGE` exists in my home. Then I type `cd CENTRIFUGE` to go into it. Finally I type `pwd` to get the full path, and replace that entire string with `/path/to/a/directory` in the command above (still keeping it in double quotes) before running the export command.
 
 Then you will get the code, and compile it:
 
@@ -145,7 +145,7 @@ $ centrifuge --version | head -n 1
 centrifuge-class version v1.0.1-beta-27-g30e3f06ec3
 {% endhighlight %}
 
-Good? Good. If it does not work, it means you made a mistake with your path variables. If it worked, it means you are golden, and now you should add those two lines in your `~/.bashrc` or `~/.bash_profile` file (whichever one is being used on your system, most likely `~/.bash_profile` will work) to make sure it is set in your environment everytime you start a new terminal (clearly with the right full path):
+Good? Good. If it does not work, it means you made a mistake with your path variables. If it worked, it means you are golden, and now you should add those two lines in your `~/.bashrc` or `~/.bash_profile` file (whichever one is being used on your system, most likely `~/.bash_profile` will work) to make sure it is set in your environment every time you start a new terminal (clearly with the right full path):
 
 {% highlight bash %}
 export CENTRIFUGE_BASE="/path/to/a/directory"

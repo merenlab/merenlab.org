@@ -56,11 +56,11 @@ The file format to describe internal genomes of interest is slightly more comple
 |Name_03|Bin_id_03|Collection_B|/path/to/another_profile.db|/path/to/another/contigs.db|
 |(...)|(...)|(...)|(...)|(...)|
 
-Any genome bin in any anvi'o collection can be included in the analysis (and you can combine these genome bins with cultivar genomes you have downloaded from elsewhere). Let's talk about the paramters, and output files before we start with examples.
+Any genome bin in any anvi'o collection can be included in the analysis (and you can combine these genome bins with cultivar genomes you have downloaded from elsewhere). Let's talk about the parameters, and output files before we start with examples.
 
 ## Parameters
 
-When you run `anvi-pan-genome` with `--external-genomes`, or `--internal-genomes`, or both paramters, the program will
+When you run `anvi-pan-genome` with `--external-genomes`, or `--internal-genomes`, or both parameters, the program will
 
 * Use [DIAMOND](http://ab.inf.uni-tuebingen.de/software/diamond/) ([Buchnfink et al., 2015](http://www.nature.com/nmeth/journal/v12/n1/abs/nmeth.3176.html)) in 'fast' mode (you can ask DIAMOND to be 'sensitive' by using the flag `--sensitive`) by default to calculate similarities of each protein in every genome against every other protein (which clearly requires you to have DIAMOND installed). Alternatively you could use the flag `--use-ncbi-blast` to use NCBI's `blastp` for protein search.
 
@@ -69,20 +69,20 @@ When you run `anvi-pan-genome` with `--external-genomes`, or `--internal-genomes
 
 * Use every gene call, whether they are complete or not. Although this is not a big concern for complete genomes, metagenome-assembled genomes (MAGs) will have many incomplete gene calls at the end and at the beginning of contigs. They shouldn't cause much issues, but if you want to exclude them, you can use the `--exclude-partial-gene-calls` flag.
 
-* Use the *maxbit heuristic* that was originally implemented in ITEP ([Benedict et al, 2014](http://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-15-8)) to eliminate weak matches between two protein seqeunces (you see, the pangenomic workflow first identifies proteins that are somewhat similar by doing similarity searches, and then resolves clusters based on those similarities. In this scenario, weak similarities can connect protein clusters that should not be connected). Here is a definition of maxbit: If you have two protein sequences `A` and `B`, the maxbit is defined as `BITSCORE(A, B) / MIN(BITSCORE(A, A), BITSCORE(B, B))`. Therefore, the maxbit score of two sequences goes to `1` if they are very similar over their entire length, and it goes to `0` if they match over a very short stretch compared to their entire length (regardless of how similar they are at the aligned region), or their sequence identity is low. The default maxbit is `0.5`, but you can change it using the parameter `--maxbit`.
+* Use the *maxbit heuristic* that was originally implemented in ITEP ([Benedict et al, 2014](http://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-15-8)) to eliminate weak matches between two protein sequences (you see, the pangenomic workflow first identifies proteins that are somewhat similar by doing similarity searches, and then resolves clusters based on those similarities. In this scenario, weak similarities can connect protein clusters that should not be connected). Here is a definition of maxbit: If you have two protein sequences `A` and `B`, the maxbit is defined as `BITSCORE(A, B) / MIN(BITSCORE(A, A), BITSCORE(B, B))`. Therefore, the maxbit score of two sequences goes to `1` if they are very similar over their entire length, and it goes to `0` if they match over a very short stretch compared to their entire length (regardless of how similar they are at the aligned region), or their sequence identity is low. The default maxbit is `0.5`, but you can change it using the parameter `--maxbit`.
 
 * Use the [MCL](http://micans.org/mcl/) algorithm ([van Dongen and Abreu-Goodger, 2012](http://www.ncbi.nlm.nih.gov/pubmed/22144159)) to identify clusters in protein similarity search results. We use `2` as the *MCL inflation parameter* by default. This parameter defines the sensitivity of the algorithm during the identification of the protein clusters. More sensitivity means more clusters, but of course more clusters does not mean better inference of evolutionary relationships. More information on this parameter and it's effect on cluster granularity is here [http://micans.org/mcl/man/mclfaq.html#faq7.2](http://micans.org/mcl/man/mclfaq.html#faq7.2), but clearly, we, the metagenomics people will need to talk much more about this.
 
-* Utilize every protein cluster, even if they occur in only one genome in your analyses. Of course, the importance of singletons or doubletons will depend on the number of genomes in your analysis, or the qeustion you have in mind. However, if you would like to define a cut-off, you can use the parameter `--min-occurrence`, which is 1, by default. Increasing this cut-off will improve the clustering speed and make the visualization much more manageable, but again, this parameter should be considered in the context of each study.
+* Utilize every protein cluster, even if they occur in only one genome in your analyses. Of course, the importance of singletons or doubletons will depend on the number of genomes in your analysis, or the question you have in mind. However, if you would like to define a cut-off, you can use the parameter `--min-occurrence`, which is 1, by default. Increasing this cut-off will improve the clustering speed and make the visualization much more manageable, but again, this parameter should be considered in the context of each study.
 
 * Use only one CPU. If you have multiple cores, you should consider increasing that number using the `--num-threads` parameter. The more threads, the merrier the time required for computation.
 
 * Utilze previous search results if there is already a directory. This way you can play with the `--maxbit`, `--mcl-inflation`, or `--min-occurrence` parameters without having to re-do the protein search. However, if you have changed the input protein sequences, either you need to remove the output directory, or use the `--overwrite-output-destinations` flag to redo the search.
 
 {:.notice}
-You need another parameter? Well, of course you do! Let us know, and let's have a discussion. We love paramters.
+You need another parameter? Well, of course you do! Let us know, and let's have a discussion. We love parameters.
 
-Once `anvi-pan-genome` is done, it will generate an output directory that will be called `pan-output` by default (and you should change it to a more meaningful one using the `--output-dir` paramter). This directory will include essential files such as search results and protein clusters, and another special directory with all the necessary files to invoke an anvi'o interactive interface using this command:
+Once `anvi-pan-genome` is done, it will generate an output directory that will be called `pan-output` by default (and you should change it to a more meaningful one using the `--output-dir` parameter). This directory will include essential files such as search results and protein clusters, and another special directory with all the necessary files to invoke an anvi'o interactive interface using this command:
 
 {% highlight bash %}
 anvi-interactive -s samples.db -p profile.db -t tree.txt -d view_data.txt -A additional_view_data.txt --manual --title "My Pangenome"

@@ -29,7 +29,7 @@ You should also feel free to contact us if you are not sure whether anvi'o is th
 
 ---
 
-If you are here, you must have already [installed]({% post_url anvio/2016-06-26-installation-v2 %}) the platform (hopefully without much trouble), and have run the infamous ["mini test"]({% post_url anvio/2016-06-26-installation-v2 %}#running-the-mini-test) succesfully.
+If you are here, you must have already [installed]({% post_url anvio/2016-06-26-installation-v2 %}) the platform (hopefully without much trouble), and have run the infamous ["mini test"]({% post_url anvio/2016-06-26-installation-v2 %}#running-the-mini-test) successfully.
 
 It is always a good idea to stick with stable versions of the platform, as the snapshots from [the codebase](http://github.com/meren/anvio) can be very unstable and/or broken. However we also need people who like to live at the edge, and who would follow the development, test new features, join discussions, and push us to do better.
 
@@ -108,7 +108,7 @@ When you run this command, `anvi-gen-contigs-database` will,
 
 * **Soft-split contigs** longer than 20,000 kbp into smaller ones (you can change the split size using the `--split-length`). When gene calling step is not skipped, the process splitting contigs will consider where genes are and avoid cutting genes in the middle. For very very large assemblies this process can take a while, and you can skip it with `--skip-mindful-splitting` flag.
 
-* **Identify open reading frames** using [Prodigal](http://prodigal.ornl.gov/), the bacterial and arhaeal gene finding program developed at Oak Ridge National Laboratory and the University of Tennessee. If you don't want gene calling to be done, you can use the flag `--skip-gene-calling` to skip it. If you have your *own* gene calls, you can provide them to be used to identify where genes are in your contigs. All you need to do is to use the parameter `--external-gene-calls`. The TAB-delimited input file you provide for `--external-gene-calls` must follow this format:
+* **Identify open reading frames** using [Prodigal](http://prodigal.ornl.gov/), the bacterial and archaeal gene finding program developed at Oak Ridge National Laboratory and the University of Tennessee. If you don't want gene calling to be done, you can use the flag `--skip-gene-calling` to skip it. If you have your *own* gene calls, you can provide them to be used to identify where genes are in your contigs. All you need to do is to use the parameter `--external-gene-calls`. The TAB-delimited input file you provide for `--external-gene-calls` must follow this format:
 
 |gene_callers_id|contig|start|stop|direction|partial|source|version|
 |:---:|:---|:---:|:---:|:---:|:---:|:---:|
@@ -129,7 +129,7 @@ When you run this command, `anvi-gen-contigs-database` will,
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 
 
-Despite the general tendency in bioinformatics, almost each anvi'o program has a help menu that explains available parameters in detail. Don't forget to check them for everything you run. If something is not clearly explained, please let us know so we can fix that:
+Almost every anvi'o program comes with a help menu that explains available parameters in detail. Don't forget to check them once in a while. If something is not clearly explained, please let us know so we can fix that:
 
 {% highlight bash %}
 $ anvi-gen-contigs-database --help
@@ -213,15 +213,15 @@ $ anvi-profile -i SAMPLE-01.bam -c contigs.db
 
 When you run `anvi-profile` it will,
 
-* Process each contig that is longer than `2,500 nts` by default. You can change this value by using `--min-contig-length` flag. But you should remember that the minimum contig length should be long enough for tetra-nucleotide frequencies to have enough meaningful signal. There is no way to define a golden number for minumum length that would be applicable to genomes found in all environments. We empirically chose the default to be 2,500, and have been happy with it. You are welcome to experiment, but we advise you to never go below 1,000. You also should remember that the lower you go, the more time it will take to analyze all contigs. You can use --list-contigs parameter to have an idea how many contigs would be discarded for a given `--min-contig-length ` parameter. If you have an arbitrary list of contigs you want to profile, you can use the flag `--contigs-of-interest` to ignore the rest.
+* Process each contig that is longer than `2,500 nts` by default. You can change this value by using `--min-contig-length` flag. But you should remember that the minimum contig length should be long enough for tetra-nucleotide frequencies to have enough meaningful signal. There is no way to define a golden number for minimum length that would be applicable to genomes found in all environments. We empirically chose the default to be 2,500, and have been happy with it. You are welcome to experiment, but we advise you to never go below 1,000. You also should remember that the lower you go, the more time it will take to analyze all contigs. You can use --list-contigs parameter to have an idea how many contigs would be discarded for a given `--min-contig-length ` parameter. If you have an arbitrary list of contigs you want to profile, you can use the flag `--contigs-of-interest` to ignore the rest.
 
-* Make up some crappy output directory, and sample names for you. We encourage you to use `--output-dir` parameter to tell anvi'o where to store your output files, and `--sample-name` parameter to give a meaningful, preferrably not-so-long sample name to be stored in the profile database. This name will appear almost everywhere, and changing it later will be a pain.
+* Make up some crappy output directory, and sample names for you. We encourage you to use `--output-dir` parameter to tell anvi'o where to store your output files, and `--sample-name` parameter to give a meaningful, preferably not-so-long sample name to be stored in the profile database. This name will appear almost everywhere, and changing it later will be a pain.
 
 Processing of contigs will include,
 
-* The recovery of mean coverage, standard devaition of coverage, and the average coverage for the inner quartiles (Q1 and Q3) for a given contig. Profiling will also create an HD5 file where the coverage value for *each nucleotide position* will be kept for each contig for later use. While the profiling recovers all the coverage information, it can discard some contigs with very low coverage declared by `--min-mean-coverage` parameter (the default is 0, so everything is kept).
+* The recovery of mean coverage, standard deviation of coverage, and the average coverage for the inner quartiles (Q1 and Q3) for a given contig. Profiling will also create an HD5 file where the coverage value for *each nucleotide position* will be kept for each contig for later use. While the profiling recovers all the coverage information, it can discard some contigs with very low coverage declared by `--min-mean-coverage` parameter (the default is 0, so everything is kept).
 
-* The characterization of single-nucleotide variants (SNVs) for every nucleotide position, unless you use `--skip-SNV-profiling` flag to skip it altogether (you will definitely gain a lot of time if you do that, but then, you know, maybe you shouldn't). By default, the profiler will not pay attention to any nucleotie position with less than `10X` coverage. You can change this behavior via `--min-coverage-for-variability` flag. Anvi'o uses a conservative heuristic to not report every position with variation: i.e., if you have 200X coverage in a position, and only one of the bases diagree with the reference or consensus nucleotide, it is very likely that this is due to a mapping or seqeuncing error, and anvi'o tries to avoid those positions. If you want anvi'o to report everything, you can use `--report-variability-full` flag. We encourage you to experiement with it, maybe with a small set of contigs, but in general you should refrain reporting everything (it will make your databases grow larger and larger, and everything will take longer for -99% of the time- no good reason). 
+* The characterization of single-nucleotide variants (SNVs) for every nucleotide position, unless you use `--skip-SNV-profiling` flag to skip it altogether (you will definitely gain a lot of time if you do that, but then, you know, maybe you shouldn't). By default, the profiler will not pay attention to any nucleotide position with less than `10X` coverage. You can change this behavior via `--min-coverage-for-variability` flag. Anvi'o uses a conservative heuristic to not report every position with variation: i.e., if you have 200X coverage in a position, and only one of the bases disagree with the reference or consensus nucleotide, it is very likely that this is due to a mapping or sequencing error, and anvi'o tries to avoid those positions. If you want anvi'o to report everything, you can use `--report-variability-full` flag. We encourage you to experiment with it, maybe with a small set of contigs, but in general you should refrain reporting everything (it will make your databases grow larger and larger, and everything will take longer for -99% of the time- no good reason). 
 
 * Finally, because single profiles are rarely used for genome binning or visualization, and since clustering step increases the profiling runtime for no good reason, the default behavior of profiling is to *not cluster*. However, if you are planning to visualize single profiles (without merging), you can use `--cluster-contigs` flag (more explanation on this will come later) to. You don't need to use this flag if you are planning to merge multiple profiles (i.e., if you have more than one BAM files to work with, which will be the case for most people).
 
@@ -258,7 +258,7 @@ When you run `anvi-merge`,
 
 * It will attempt to create multiple clusterings of your splits using the default _clustering configurations_ (if you like, you can take a quick look at these [configurations for merged profiles](https://github.com/meren/anvio/tree/master/anvio/data/clusterconfigs/merged) --they are pretty easy to understand). Hierarchical clustering results are necessary for comprehensive visualization, and human guided binning, therefore, by default, anvi'o attempts to cluster your contigs using default configurations. You can skip this step by using `--skip-hierarchical-clustering` flag. But even if you don't skip it, anvi'o will skip it for you if you have more than 20,000 splits, since the computational complexity of this process will get less and less feasible with increasing number of splits. That's OK, though. There are many ways to recover from this. On the other hand, if you want to teach everyone who is the boss, you can force anvi'o try to cluster your splits regardless of how many of them are there by using `--enforce-hierarchical-clustering` flag. You have the power.
 
-* It will attempt to run [CONCOCT](http://www.nature.com/nmeth/journal/v11/n11/full/nmeth.3103.html) to bin your splits automatically. CONCOCT can deal with hundreds of thousands of splits. Which means, regardless of the number of splits you have, and even if you skip the hierarchical clustering step, there will be a collection in the merged profile database (which whill be called `CONCOCT`) with genome bins identified by CONCOCT in an automatic manner. From which you can generate a summary, or run the interactive interface with `--collection-name CONCOCT` parameter (more later on these). But if you would like to skip default CONCOCT clustering, you can use `--skip-concoct-binning` flag. 
+* It will attempt to run [CONCOCT](http://www.nature.com/nmeth/journal/v11/n11/full/nmeth.3103.html) to bin your splits automatically. CONCOCT can deal with hundreds of thousands of splits. Which means, regardless of the number of splits you have, and even if you skip the hierarchical clustering step, there will be a collection in the merged profile database (which will be called `CONCOCT`) with genome bins identified by CONCOCT in an automatic manner. From which you can generate a summary, or run the interactive interface with `--collection-name CONCOCT` parameter (more later on these). But if you would like to skip default CONCOCT clustering, you can use `--skip-concoct-binning` flag. 
 
 
 ### anvi-import-collections
@@ -274,7 +274,7 @@ $ anvi-import-collection binning_results.txt -p SAMPLES-MERGED/PROFILE.db -c con
 If you have a `colors` file, you can add it into the mix to have some specific visual identifiers for your bins by adding `--colors colors.txt`
 
 You can find example files to learn about the format of these simple files [here](https://github.com/meren/anvio/tree/master/tests/sandbox/example_files_for_external_binning_results).
-
+a
 ### anvi-interactive
 
 Anvi'o interactive is one of the most sophisticated parts of anvi'o.
@@ -285,7 +285,7 @@ In the context of the metagenomic workflow, the interactive interface allows you
 The interactive interface of anvi'o is written from scratch, and can do much more than what is mentioned above. In fact, you don't even need anvi'o profiles to visualize your data using the interactive interface. But since this is a tutorial for the metagenomic workflow, we will save you from these details. If you are intersted to learn more, we have other resources that provide **detailed descriptions of [the anvi'o interactive interface and data formats it works with]({% post_url anvio/2016-02-27-the-anvio-interactive-interface %})**.
 
 {:.notice}
-Most things you did so far (creating a contigs database, profiling your BAM files, merging them, etc) required you to work on a server. But anvi-interactive will require you to download the merged directory, and your contigs databases to your own computer, because `anvi-interactive` uses a browser to interact with you. If you don't want to download anything, you can use dig an SSH tunnel to use your server to run `anvi-interactive`, and the browser on your computer to interact with it. See the post on **[visualizing from a server]({% post_url anvio/2015-11-28-visualizing-from-a-server %})**.
+Most things you did so far (creating a contigs database, profiling your BAM files, merging them, etc) required you to work on a server. But `anvi-interactive` will require you to download the merged directory, and your contigs databases to your own computer, because `anvi-interactive` uses a browser to interact with you. If you don't want to download anything, you can use dig an SSH tunnel to use your server to run `anvi-interactive`, and the browser on your computer to interact with it. See the post on **[visualizing from a server]({% post_url anvio/2015-11-28-visualizing-from-a-server %})**.
 
 This is the simplest way to run the interactive interface on your merge anvi'o profile: 
 
@@ -293,7 +293,7 @@ This is the simplest way to run the interactive interface on your merge anvi'o p
 $ anvi-interactive -p SAMPLES-MERGED/PROFILE.db -c contigs.db
 {% endhighlight %}
 
-This will work perfectly if your merged profile has its trees (i.e., the hierarchical clustering mentioned in the `anvi-merge` section was *done*). Alternatively, you can use this notation to visualilze a collection; this time each leaf of the tree will be a bin, along with completion and redundancy estimates, and distribution of it across samples:
+This will work perfectly if your merged profile has its trees (i.e., the hierarchical clustering mentioned in the `anvi-merge` section was *done*). Alternatively, you can use this notation to visualize a collection; this time each leaf of the tree will be a bin, along with completion and redundancy estimates, and distribution of it across samples:
 
 {% highlight bash %}
 $ anvi-interactive -p SAMPLES-MERGED/PROFILE.db -c contigs.db -C CONCOCT

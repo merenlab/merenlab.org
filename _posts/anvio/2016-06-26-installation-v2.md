@@ -31,7 +31,7 @@ You need to make sure your system does have all the following software if you ar
 * [Cython]({% post_url anvio/2016-06-18-installing-third-party-software %}#cython){:target="_blank"}
 * [HDF5]({% post_url anvio/2016-06-18-installing-third-party-software %}#hdf5){:target="_blank"}
 
-Here is a very final note about the [Chrome Web Browser](https://www.google.com/chrome/browser/desktop/).  Currenlty, Chrome has the most efficient SVG engine among all browsers. For instance, Safari can run the anvi'o interactive interface, however it takes orders of magnitude more time and memory compared to Chrome. Firefox, on the other hand, doesn't even bother drawing anything at all. Long story short, the anvi'o interactive interface __will not perform optimally__ with anything but Chrome. So you need Chrome. Moreover, if Chrome is not your default browser, everytime interactive interface pops up, you will need to copy-paste the address bar into a Chrome window. You can learn what is your default browser by running this command in your terminal:
+Here is a very final note about the [Chrome Web Browser](https://www.google.com/chrome/browser/desktop/).  Currently, Chrome has the most efficient SVG engine among all browsers. For instance, Safari can run the anvi'o interactive interface, however it takes orders of magnitude more time and memory compared to Chrome. Firefox, on the other hand, doesn't even bother drawing anything at all. Long story short, the anvi'o interactive interface __will not perform optimally__ with anything but Chrome. So you need Chrome. Moreover, if Chrome is not your default browser, every time interactive interface pops up, you will need to copy-paste the address bar into a Chrome window. You can learn what is your default browser by running this command in your terminal:
 
 <div style="padding-left:50px">
 {% highlight bash %}
@@ -51,7 +51,7 @@ The best way to install stable release is to do it through `pip`. If you have yo
 sudo pip install anvio
 {% endhighlight %}
 
-Pleaes keep an eye on the output to make sure there are no errors.
+Please keep an eye on the output to make sure there are no errors.
 
 If the installation finishes properly, run this in your terminal:
 
@@ -72,7 +72,7 @@ If this is your first time with the codebase, get a fresh copy (with all the sub
 git clone --recursive https://github.com/meren/anvio.git
 {% endhighlight %}
 
-Then go into the anvio directory, and then run the installation:
+Then go into the `anvio` directory, and then run the installation:
 
 {% highlight bash %}
 cd anvio
@@ -106,7 +106,7 @@ export PATH=$PATH:$DIR/anvio/bin:$DIR/anvio/sandbox
 {% endhighlight %}
 
 {:.notice}
-Of course this approach will not help you install all dependencies through pip. To avoid further headaches, I suggest running `sudo pip install anvio` once, so all necessary python modules are automatically installed, and then removing the anvio installation by running `sudo pip uninstall anvio`.
+Of course this approach will not help you install all dependencies through pip. To avoid further headaches, I suggest running `sudo pip install anvio` once, so all necessary python modules are automatically installed, and then removing the anvi'o installation by running `sudo pip uninstall anvio`.
 
 Finally, because you didn't actually run the proper `build`, your C extensions will not be compiled. This is the fast way to get them compiled and put in the right place:
 
@@ -120,7 +120,7 @@ That's it.
 
 After sourcing your `.bashrc` (or `.bash_profile`) and get the new environment variables set, you should be able run `anvi-self-test`.
 
-Now you can edit the codebase, and test it without re-installing anvi'o over and over again. Plus, everytime you run `git pull` you can get the very latest improvements in the `master` repository.
+Now you can edit the codebase, and test it without re-installing anvi'o over and over again. Plus, every time you run `git pull` you can get the very latest improvements in the `master` repository.
 
 ## Running the "Mini Test"
 
