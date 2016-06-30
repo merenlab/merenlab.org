@@ -6,7 +6,7 @@ comments: false
 
 
 <div class="category-box">
-<a href="#2016"><span class="category-item">2016 <small>(3)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a><a href="#2011"><span class="category-item">2011 <small>(1)</small></span></a>
+<a href="#2016"><span class="category-item">2016 <small>(4)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a><a href="#2011"><span class="category-item">2011 <small>(1)</small></span></a>
 </div>
 
 <a name="2016">&nbsp;</a>
@@ -16,6 +16,12 @@ comments: false
     <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Linking+comparative+genomics+and+environmental+distribution+patterns+of+microbial+populations+through+metagenomics." target="_new">Linking comparative genomics and environmental distribution patterns of microbial populations through metagenomics.</a></h3>
     <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, and <span class="pub-member-author">Eren, A. M</span>.</span>
     <span class="pub-journal"><i>BioRxiv</i>. <b>pre-print</b></span>
+</div>
+
+<div class="pub">
+    <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Millions+of+reads,+thousands+of+taxa:+microbial+community+structure+and+associations+analyzed+via+marker+genes." target="_new">Millions of reads, thousands of taxa: microbial community structure and associations analyzed via marker genes.</a></h3>
+    <span class="pub-authors">Bálint, M., Bahram, M., <span class="pub-member-author">Eren, A. M</span>., Faust, K., Fuhrman, J. A., Lindahl, B., O'Hara, R. B., Öpik, M., Sogin, M. L., Unterseher, M., and Tedersoo, L.</span>
+    <span class="pub-journal"><i>FEMS Microbiology Reviews</i>. <b>doi:10.1093/femsre/fuw01</b></span>
 </div>
 
 <div class="pub">
