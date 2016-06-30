@@ -13,19 +13,15 @@ comments: true
 {: .notice}
 This tutorial is tailored for anvi'o <b>version 2.0.0, or later</b>. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal. The tutorial for older anvi'o releases from v1 family is [here]({% post_url anvio/2015-05-02-anvio-tutorial-v1 %}) (but **v1** is so 2015, and you should never use it ever again).
 
-Anvi'o is an advance platform to play with complex data.
+Anvi'o is a software platform with advanced visualization capabilities that is designed for scientists who work on complex metagenomic data. With its [large codebase](http://github.com/meren/anvio), anvi'o brings together many aspects of today's cutting-edge genomic and metagenomic analysis practices to address a wide array of needs.
 
-It is designed to provide a solid framework with advanced visualization capabilities to give freedom to scientists who know their questions. 
+The goal of this tutorial is to provide a brief overview of the anvi'o workflow for the analysis of assembly-based shotgun metagenomic data. Throughout this tutorial you will primarily learn about the following topics:
 
-Anvi'o has more than 25,000 lines of code, and brings together many aspects of today's genomic and metagenomic analysis practices to address a wide array of needs to make sense of complex data. Although we have used anvi'o to combine data of different nature, remove contamination from eukaryotic genome asemblies, and even to study pangenomes, the goal of this tutorial is to give you a brief overview of the anvi'o workflow for the analysis of assembly-based shotgun metagenomic data. However, if you get used to the basics of the platform, anvi'o will likely serve you well for other tasks, too.
-
-In this tutorial you will learn how to
-
-* Create an anvi'o contigs database from your contigs,
+* Process your contigs,
 
 * Profile your metagenomic samples and merge them, 
 
-* Visuaize your data, bin your contigs interactively, and create summaries of your results.
+* Visualize your data, identify and/or refine genome bins interactively, and create summaries of your results.
 
 If we are missing things, or parts of the tutorial is not clear, please let us know, and we will do our best to improve it.
 
