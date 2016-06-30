@@ -66,14 +66,14 @@ This will give you a new prompt in your terminal that will look like this:
 :: anvi`o ::  / >>>
 {% endhighlight %}
 
-Once you have the anvi'o prompt, you can type these commands to run the `mini_test`:
+Once you have the anvi'o prompt, you can run a small test:
 
 {% highlight bash %}
-:: anvi`o ::  / >>> cd anvio-tests/
-:: anvi`o ::  /anvio-tests >>> ./run_mini_test.sh 
+:: anvi`o ::  / >>> anvi-self-test 
 {% endhighlight %}
 
-You can press CTRL+D to go back to your host terminal.
+
+At the end of the test you can press `CTRL`+`C` to kill the server, and press `CTRL`+`D` to go back to your host terminal.
 
 
 ## Running the anvi'o docker image (for Mac OSX / Windows users)
@@ -96,11 +96,10 @@ Docker will download all the necessary images, and will finally give you an anvi
 :: anvi`o ::  / >>>
 {% endhighlight %}
 
-Once you see this, you can run the `mini_test`:
+Once you see this, you can run the self-test:
 
 {% highlight bash %}
-:: anvi`o ::  / >>> cd anvio-tests/
-:: anvi`o ::  /anvio-tests >>> ./run_mini_test.sh 
+:: anvi`o ::  / >>> anvi-self-test 
 {% endhighlight %}
 
 Now you can open your Chrome browser, type the IP address you noted with a ":8080" at the end (which looks like this for me 192.168.99.100:8080), and press enter... Surprise!
