@@ -9,6 +9,9 @@ comments: true
 authors: [meren]
 ---
 
+{:.notice}
+A docker image for anvi'o v2 is not yet available. We are working on it!
+
 {% include _toc.html %}
 
 If you are reading this, you probably already know what [Docker](https://www.docker.com/https://www.docker.com/) is. If you don't know, here is a quote from their web site:

@@ -9,6 +9,9 @@ comments: true
 authors: [meren]
 ---
 
+{:.notice}
+An OS X installer for anvi'o v2 is not yet available. We are working on it!
+
 {% include _toc.html %}
 
 One of our highest priorities with [anvi'o]({{ site.url }}/software/anvio) has always been the ease of use. Pain-free installation is clearly an important requirement to achieve that. [Installing anvi'o]({% post_url anvio/2016-06-26-installation-v2 %}) is not terribly hard, however, there is still room for improvement.
