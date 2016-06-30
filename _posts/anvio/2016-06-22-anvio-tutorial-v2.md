@@ -13,8 +13,6 @@ comments: true
 {: .notice}
 This tutorial is tailored for anvi'o <b>version 2.0.0, or later</b>. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal. The tutorial for older anvi'o releases from v1 family is [here]({% post_url anvio/2015-05-02-anvio-tutorial-v1 %}) (but **v1** is so 2015, and you should never use it ever again).
 
-Anvi'o is a software platform with advanced visualization capabilities that is designed for scientists who work on complex metagenomic data. With its [large codebase](http://github.com/meren/anvio), anvi'o brings together many aspects of today's cutting-edge genomic and metagenomic analysis practices to address a wide array of needs.
-
 The goal of this tutorial is to provide a brief overview of the anvi'o workflow for the analysis of assembly-based shotgun metagenomic data. Throughout this tutorial you will primarily learn about the following topics:
 
 * Process your contigs,
