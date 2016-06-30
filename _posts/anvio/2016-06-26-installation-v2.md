@@ -5,6 +5,7 @@ excerpt: "Instructions to install the v2 branch of the platform."
 modified: 2016-06-26 
 tags: []
 categories: [anvio]
+redirect_from: /2015/05/01/installation/
 comments: true
 ---
 
