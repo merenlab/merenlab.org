@@ -128,6 +128,18 @@ When you run this command, `anvi-gen-contigs-database` will,
 |16|contig_03|5720|6233|f|0|program|v1.0|
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 
+**Note on the importing gene calls**: Anvi'o follows the convention of string indexing and splicing that is identical the way one does it in Python or C, which means, the index of the first nucleotide in any contig is `0` (i.e., we start counting from `0`, and not from `1`). Hence, your `start` and `stop` positions in the input file must comply with this. Just to give an example, for a gene call like this one:
+
+{% highlight bash %}
+                 1         2         3
+nt pos: 12345678901234567890123456789012 (...)
+contig: NNNATGNNNNNNNNNNNNNNNNNTAGAAAAAA (...)
+           |______ gene X _______|
+{% endhighlight %}
+
+The `start` and `stop` positions should be `3` and `26`, respectively. If you think we should change this, please let us know (here is a [relevant issue](https://github.com/meren/anvio/issues/374)).
+
+---
 
 Almost every anvi'o program comes with a help menu that explains available parameters in detail. Don't forget to check them once in a while. If something is not clearly explained, please let us know so we can fix that:
 
@@ -149,7 +161,7 @@ When you run this command (without any other parameters),
 
 * It will utilize multiple default bacterial single-copy core gene collections and identify hits among your genes to those collections using HMMER. If you have already run this once, and now would like to add an HMM profile of your own, that is easy. You can use `--hmm-profile-dir` parameter to declare where should anvi'o look for it.
 
-* Note that the program will use only one CPU by default, especially if you have multiple of them available to you, you should use the `--num-threads` parameter. It significanlty improves the runtime, since [HMMER](http://hmmer.org/) is truly an awesome software.
+* Note that the program will use only one CPU by default, especially if you have multiple of them available to you, you should use the `--num-threads` parameter. It significantly improves the runtime, since [HMMER](http://hmmer.org/) is truly an awesome software.
 
 ### anvi-import-taxonomy
 
