@@ -108,7 +108,19 @@ When you run this command, `anvi-gen-contigs-database` will,
 
 * **Soft-split contigs** longer than 20,000 kbp into smaller ones (you can change the split size using the `--split-length`). When gene calling step is not skipped, the process splitting contigs will consider where genes are and avoid cutting genes in the middle. For very very large assemblies this process can take a while, and you can skip it with `--skip-mindful-splitting` flag.
 
-* **Identify open reading frames** using [Prodigal](http://prodigal.ornl.gov/), the bacterial and archaeal gene finding program developed at Oak Ridge National Laboratory and the University of Tennessee. If you don't want gene calling to be done, you can use the flag `--skip-gene-calling` to skip it. If you have your *own* gene calls, you can provide them to be used to identify where genes are in your contigs. All you need to do is to use the parameter `--external-gene-calls`. The TAB-delimited input file you provide for `--external-gene-calls` must follow this format:
+* **Identify open reading frames** using [Prodigal](http://prodigal.ornl.gov/), the bacterial and archaeal gene finding program developed at Oak Ridge National Laboratory and the University of Tennessee. If you don't want gene calling to be done, you can use the flag `--skip-gene-calling` to skip it. If you have your *own* gene calls, you can provide them to be used to identify where genes are in your contigs. All you need to do is to use the parameter `--external-gene-calls` (see down below for the format).
+
+Almost every anvi'o program comes with a help menu that explains available parameters in detail. Don't forget to check them once in a while. If something is not clearly explained, please let us know so we can fix that:
+
+{% highlight bash %}
+$ anvi-gen-contigs-database --help
+{% endhighlight %}
+
+Once you have your contigs database, you can start importing things into it, or directly go to the profiling step.
+
+---
+
+<b><a name="external-gene-calls" style="color: black;">The</a> TAB-delimited file for `--external-gene-calls`</b> should follow this format:
 
 |gene_callers_id|contig|start|stop|direction|partial|source|version|
 |:---:|:---|:---:|:---:|:---:|:---:|:---:|
@@ -128,7 +140,10 @@ When you run this command, `anvi-gen-contigs-database` will,
 |16|contig_03|5720|6233|f|0|program|v1.0|
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 
-**Note on the importing gene calls**: Anvi'o follows the convention of string indexing and splicing that is identical the way one does it in Python or C, which means, the index of the first nucleotide in any contig is `0` (i.e., we start counting from `0`, and not from `1`). Hence, your `start` and `stop` positions in the input file must comply with this. Just to give an example, for a gene call like this one:
+{:.notice}
+**Please note**: anvi'o follows the convention of string indexing and splicing that is identical the way one does it in Python or C.
+
+The statement above means that the index of the first nucleotide in any contig should be `0`. In other words, we start counting from `0`, not from `1`. The `start` and `stop` positions in the input file should comply with this. Here is an example gene in a contig:
 
 {% highlight bash %}
                  1         2         3
@@ -137,17 +152,8 @@ contig: NNNATGNNNNNNNNNNNNNNNNNTAGAAAAAA (...)
            |______ gene X _______|
 {% endhighlight %}
 
-The `start` and `stop` positions should be `3` and `26`, respectively. If you think we should change this, please let us know (here is a [relevant issue](https://github.com/meren/anvio/issues/374)).
+The `start` and `stop` positions in the input file for this gene should be `3` and `26`, respectively. If you think we should change this behavior, please let us know (here is a [relevant issue](https://github.com/meren/anvio/issues/374)). Thanks for your patience!
 
----
-
-Almost every anvi'o program comes with a help menu that explains available parameters in detail. Don't forget to check them once in a while. If something is not clearly explained, please let us know so we can fix that:
-
-{% highlight bash %}
-$ anvi-gen-contigs-database --help
-{% endhighlight %}
-
-Once you have your contigs database, you can start importing things into it, or directly go to the profiling step.
 
 ### anvi-run-hmms
 
