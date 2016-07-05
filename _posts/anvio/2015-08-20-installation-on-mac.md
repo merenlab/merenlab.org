@@ -11,9 +11,6 @@ authors: [meren]
 
 {% include _project-anvio-version.html %}
 
-{:.notice}
-An OS X installer for anvi'o v2 is not yet available. We are working on it!
-
 {% include _toc.html %}
 
 One of our highest priorities with [anvi'o]({{ site.url }}/software/anvio) has always been the ease of use. Pain-free installation is clearly an important requirement to achieve that. [Installing anvi'o]({% post_url anvio/2016-06-26-installation-v2 %}) is not terribly hard, however, there is still room for improvement.
@@ -26,11 +23,11 @@ The **only** thing you need to do is to download the installer on your MAC compu
 **Note**: If you are seeing this note on this page it means we still need people to test our brand new installer. If you would like to help, please follow the instructions in this article, and write a comment below to share the version of your OS X ( > About This Mac), and whether it worked for you or not (and what was the error if it didn't). Thank you very much for your help in advance!
 
 
-## Download the installer (v1.2.2)
+## Download the installer (v2.0.1)
 
-You can download the latest version of the installer using the download link:
+You can download the latest version of the installer using the download link (it is on the bottom right corner):
 
-<iframe src="http://wl.figshare.com/articles/1613293/embed?show_title=1" width="100%" height="140" frameborder="0"></iframe>
+<iframe src="https://widgets.figshare.com/articles/3471440/embed?show_title=1" width="100%" height="140" frameborder="0"></iframe>
 
 ## Install anvi'o
 
@@ -47,7 +44,12 @@ Drag the anvi'o logo into the Applications folder.
 {: .notice}
 Before I continue, I would first like to invite you to install [iTerm 2](https://www.iterm2.com/) on your Mac if you are not already using it. It is a Terminal replacement, and it is much more talented than the default terminal application on OS X systems. If iTerm 2 is installed on your computer, anvi'o will happily start in an iTerm 2 window (otherwise it will fall back to the ugly Terminal). Please see FAQ down below if you have a different terminal application.
 
-Once the installation is completed, click the anvi'o logo in your Applications folder. This should open a terminal window. To run the default test, simply type this command:
+Once the installation is completed, click the anvi'o logo in your Applications folder. This should open a terminal window.
+
+{:.notice}
+If your MAC does not open the application due to your security settings, you may need to do the following just for once: open your Applications folder, find anvi'o icon (right-click on it), and select `Open` from the right-click menu. Once you have done it, you can start anvi'o just like any other application.
+
+To run the default test, simply type this command:
 
 {% highlight bash %}
 anvi-self-test
@@ -65,9 +67,17 @@ Thank you for giving it a try.
 
 ## Older versions
 
+<iframe src="http://wl.figshare.com/articles/1613293/embed?show_title=1" width="100%" height="140" frameborder="0"></iframe>
+
+---
+
 <iframe src="http://wl.figshare.com/articles/1574141/embed?show_title=1" width="100%" height="140" frameborder="0"></iframe>
 
+---
+
 <iframe src="http://wl.figshare.com/articles/1535533/embed?show_title=1" width="100%" height="140" frameborder="0"></iframe>
+
+---
 
 <iframe src="http://wl.figshare.com/articles/1513854/embed?show_title=1" width="100%" height="140" frameborder="0"></iframe>
 
@@ -79,6 +89,12 @@ Yes! Just copy-paste this line into any terminal window you are working in:
 
 {% highlight bash %}
 source /Applications/Anvio.app/Contents/Resources/Scripts/activate.sh
+{% endhighlight %}
+
+Even better, you can add an `anvio` alias in your shell, so you can invoke the platform anytime from your terminal by typing `anvio`. Run this command line on your terminal, and start a new terminal to test whether `anvio` alias is working for you:
+
+{% highlight bash %}
+echo 'alias anvio="source /Applications/Anvio.app/Contents/Resources/Scripts/activate.sh"' >> ~/.bash_profile
 {% endhighlight %}
 
 ### Now it is installed on my MAC, am I good to go with my analyses?
