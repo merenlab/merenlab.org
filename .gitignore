@@ -11,8 +11,5 @@ _config.yml
 *DS_Store
 *ignore*
 *~
-
-# eclipse stuff
-.project
-.pydevproject
-.settings/
+.sass-cache
+_site
