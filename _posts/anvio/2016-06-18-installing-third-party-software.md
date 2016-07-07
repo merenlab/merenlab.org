@@ -129,7 +129,9 @@ Then you will get the code, and compile it:
 {% highlight bash %}
 $ cd $CENTRIFUGE_BASE
 $ git clone https://github.com/infphilo/centrifuge
-$ cd centrifuge && make
+$ cd centrifuge
+$ git checkout 0e951dc0cd9154b06175200e3c787f2dfff93b04
+$ make
 {% endhighlight %}
 
 This compiles everything, but does not install anything. To make sure binary files are available directly, you can run this:
