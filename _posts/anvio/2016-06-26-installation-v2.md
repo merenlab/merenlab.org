@@ -63,7 +63,7 @@ anvi-profile --version
 
 If everything looks alright, you are golden. Now you can run `anvi-self-test` to make sure everything else works as expected.
 
-If you get a '*command not found*' error despite a successful installation, this would mean that the directory where your anvi'o programs live is not listed in your `PATH` variable. Please [follow this post]({{ site_url }}/software/anvio/issues/missing-binaries.html) to fix that first.
+If you get a '*command not found*' error despite a successful installation, this would mean that the directory where your anvi'o programs live is not listed in your `PATH` variable. Please [follow this post]({{ site_url }}/software/anvio/issues/missing-binaries/) to fix that first.
 
 
 ### Installing or updating from the current codebase (semi-pro)
