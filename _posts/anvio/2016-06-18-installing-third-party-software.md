@@ -130,7 +130,7 @@ Then you will get the code, and compile it:
 $ cd $CENTRIFUGE_BASE
 $ git clone https://github.com/infphilo/centrifuge
 $ cd centrifuge
-$ git checkout 0e951dc0cd9154b06175200e3c787f2dfff93b04
+$ git checkout 30e3f06ec35bc83e430b49a052f551a1e3edef42
 $ make
 {% endhighlight %}
 
