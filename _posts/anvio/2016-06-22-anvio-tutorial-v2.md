@@ -5,6 +5,7 @@ excerpt: "Sweets for people who managed to install the platform and want to do g
 modified: 2016-06-22
 tags: []
 categories: [anvio]
+redirect_from: /2015/05/01/anvio-tutorial/
 comments: true
 ---
 
