@@ -62,7 +62,7 @@ $linkcolorfocus 	: darken($linkcolorvisited, 10);
    Breakpoints
    ========================================================================== */
    
-$micro            : "only screen and (min-width: 30em)";
+$micro            : "only screen and (min-width: 1em)";
 $small            : "only screen and (min-width: 37.5em)";
 $medium           : "only screen and (min-width: 48em)";
 $large            : "only screen and (min-width: 62em)";

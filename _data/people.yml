@@ -1,7 +1,7 @@
 - alias: meren
   official: True
   name: A. Murat Eren (Meren)
-  role: Assistant Professor
+  role: PI
   twitter: merenbey
   github: meren
   web: http://meren.org
@@ -15,6 +15,13 @@
   skype: a.murat.eren
   address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9118, Chicago, IL 60637 USA
   bio: "I am a computer scientist with a deep appreciation for the complexity of life. I design algorithms and experiments to better understand microbes and their ecology."
+  affiliations:
+    - title: Assistant Professor
+      inst: The Department of Medicine at the University of Chicago
+      inst_link: http://medicine.uchicago.edu/
+    - title: Committee on Microbiology
+      inst: The Biomedical Sciences Cluster at the University of Chicago
+      inst_link: https://biomedsciences.uchicago.edu/
 
 - alias: tom
   official: True
@@ -26,6 +33,10 @@
   skype: tom.o.delmont
   address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
   bio: "I am a microbial ecologist who seeks to understand small and large-scale ecological patterns in the microbial world. My most recent investigations focused on humans, pristine soils, and the Southern Ocean."
+  affiliations:
+    - title: Post-doctoral Scientist
+      inst: The Department of Medicine at the University of Chicago
+      inst_link: http://medicine.uchicago.edu/
 
 - alias: sonny
   official: True
@@ -35,12 +46,30 @@
   avatar: bio-sonny.jpg
   address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
   bio: "I am a microbiologist studying the most interesting inhabitants of humans, coral reefs, and the ocean, and using big data to answer vexing problems of our future."
+  affiliations:
+    - title: Post-doctoral Scientist
+      inst: The Department of Medicine at the University of Chicago
+      inst_link: http://medicine.uchicago.edu/
 
+- alias: alon
+  official: True
+  name: Alon Shaiber
+  role: Graduate Student
+  email: alon.shaiber@gmail.com
+  github: ShaiberAlon
+  skype: alon.shaiber
+  avatar: bio-alon.jpg
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  bio: "I'm a graduate student at the Bio Physical Sciences Program at UChicago. I'm fascinated by the complexity of microbial ecology and interested in applying and developing computational tools to explore it."
+  affiliations:
+    - title: Graduate Student
+      inst: The Biophysical Sciences Program at the University of Chicago
+      inst_link: http://biophysics.uchicago.edu/
 
 - alias: ozcan
   official: True
   name: Özcan C. Esen
-  role: Visiting Undergraduate Student
+  role: Remote Hacker
   email: ozcanesen@gmail.com
   twitter: ozcanesen
   avatar: bio-ozcan.png
@@ -55,6 +84,10 @@
   avatar: bio-steven.png
   email: stevencui729@gmail.com
   bio: "I am an undergraduate student at UChicago studying computer science. I look forward to tackling new and exciting computational problems in the field of bionformatics."
+  affiliations:
+    - title: Undergraduate Student
+      inst: The Department of Computer Science at the University of Chicago
+      inst_link: https://www.cs.uchicago.edu/
 
 - alias: mike
   name: Mike Lee
