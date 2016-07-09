@@ -346,7 +346,7 @@ The result of `anvi-summary` is a static HTML output you can browse in your brow
 
 You can run this to summarize the bins saved under the collection id 'CONCOCT' into MY_SUMMARY directory:
 
-    anvi-summarize -p SAMPLES-MERGED/PROFILE.db -c contigs.db -o SAMPLES-SUMMARY -c CONCOCT
+    anvi-summarize -p SAMPLES-MERGED/PROFILE.db -c contigs.db -o SAMPLES-SUMMARY -C CONCOCT
 
 If you are not sure which collections are available to you, you can always see a list of them by running this command:
 
