@@ -293,12 +293,10 @@ $ anvi-import-collection binning_results.txt -p SAMPLES-MERGED/PROFILE.db -c con
 If you have a `colors` file, you can add it into the mix to have some specific visual identifiers for your bins by adding `--colors colors.txt`
 
 You can find example files to learn about the format of these simple files [here](https://github.com/meren/anvio/tree/master/tests/sandbox/example_files_for_external_binning_results).
-a
+
 ### anvi-interactive
 
-Anvi'o interactive is one of the most sophisticated parts of anvi'o.
-
-In the context of the metagenomic workflow, the interactive interface allows you to browse your data in an intuitive way as it shows multiple aspects of your data, visualize the results of unsupervised binning, perform supervised binning, or refine existing bins.
+Anvi'o interactive interface is one of the most sophisticated parts of anvi'o. In the context of the metagenomic workflow, the interactive interface allows you to browse your data in an intuitive way as it shows multiple aspects of your data, visualize the results of unsupervised binning, perform supervised binning, or refine existing bins.
 
 {:.notice}
 The interactive interface of anvi'o is written from scratch, and can do much more than what is mentioned above. In fact, you don't even need anvi'o profiles to visualize your data using the interactive interface. But since this is a tutorial for the metagenomic workflow, we will save you from these details. If you are intersted to learn more, we have other resources that provide **detailed descriptions of [the anvi'o interactive interface and data formats it works with]({% post_url anvio/2016-02-27-the-anvio-interactive-interface %})**.
@@ -306,7 +304,7 @@ The interactive interface of anvi'o is written from scratch, and can do much mor
 {:.notice}
 Most things you did so far (creating a contigs database, profiling your BAM files, merging them, etc) required you to work on a server. But `anvi-interactive` will require you to download the merged directory, and your contigs databases to your own computer, because `anvi-interactive` uses a browser to interact with you. If you don't want to download anything, you can use dig an SSH tunnel to use your server to run `anvi-interactive`, and the browser on your computer to interact with it. See the post on **[visualizing from a server]({% post_url anvio/2015-11-28-visualizing-from-a-server %})**.
 
-This is the simplest way to run the interactive interface on your merge anvi'o profile: 
+This is the simplest way to run the interactive interface on your merged anvi'o profile: 
 
 {% highlight bash %}
 $ anvi-interactive -p SAMPLES-MERGED/PROFILE.db -c contigs.db
@@ -318,11 +316,7 @@ This will work perfectly if your merged profile has its trees (i.e., the hierarc
 $ anvi-interactive -p SAMPLES-MERGED/PROFILE.db -c contigs.db -C CONCOCT
 {% endhighlight %}
 
-Just to make this article a little less boring, here is a screenshot from the interactive interface taken while we were analyzing the infant gut dataset with anvi'o version 0.8.1:
-
-<div class="centerimg">
-<a href="{{ site.url }}/images/anvio/misc/infant-gut-screenshot.png"><img src="{{ site.url }}/images/anvio/misc/infant-gut-screenshot.png" width="50%" /></a>
-</div>
+When you run `anvi-interactive` with a collection name, it will on the fly compute various characteristics of each bin, i.e., their mean coverage, variability, completion and redundancy estimates, and generate anvi'o views for them to display their distribution across your samples in the interactive interface. Briefly, each *leaf* of the anvi'o central dendrogram will represent a "bin" in your collection, instead of a "contig" in your metagenomic assembly. Here is the big advantage: if you have run `anvi-merge` with `--skip-hierarchical-clustering` parameter due to the large number of contigs you had, but if you have binning results available to you from an external resource, you can import those bins as described in the previous section, and run the interactive interface with the collection id.
 
 
 ### anvi-gen-samples-info-database
@@ -356,12 +350,15 @@ The summary process can take a lot of time. If you want to take a quick look to 
 
 ### anvi-refine
 
-After running `anvi-summarize`, you may realize that you are not happy with one or more of your bins. This often is the case when you are working with very large datasets and when you are forced to skip the human guided binning step. `anvi-summarize` gives you the ability to make finer adjustements to a bin that may be contaminated.
+After running `anvi-summarize`, you may realize that you are not happy with one or more of your bins. This often is the case when you are working with very large datasets and when you are forced to skip the human guided binning step. `anvi-summarize` gives you the ability to make finer adjustments to a bin that may be contaminated.
+
+After you refine bins that needs attention, you can re-generate your static summary.
 
 {:.notice}
 Speaking of which, please take a look at this post where Meren talks about [assessing completion and contamination of metagenome-assembled genomes]({% post_url miscellaneous/2016-06-09-assessing-completion-and-contamination-of-MAGs %}).
 
 Please read **[this article]({% post_url anvio/2015-05-11-anvi-refine %})** for a comprehensive introduction to refinement capacity of anvi'o.
+
 
 ---
 
