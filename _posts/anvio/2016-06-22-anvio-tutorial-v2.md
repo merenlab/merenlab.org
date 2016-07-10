@@ -282,17 +282,23 @@ When you run `anvi-merge`,
 
 ### anvi-import-collections
 
-An optional step!
-
-If you have your own binnig of your contigs, you can easily import those results into the merged profile database as a collection:
+If you have your own binning of your contigs, you can easily import those results into the merged profile database as a collection:
 
 {% highlight bash %}
 $ anvi-import-collection binning_results.txt -p SAMPLES-MERGED/PROFILE.db -c contigs.db --source "SOURCE_NAME"
 {% endhighlight %}
 
-If you have a `colors` file, you can add it into the mix to have some specific visual identifiers for your bins by adding `--colors colors.txt`
+Two points:
 
-You can find example files to learn about the format of these simple files [here](https://github.com/meren/anvio/tree/master/tests/sandbox/example_files_for_external_binning_results).
+* It is common that we use `anvi-export-splits-and-coverages` to export coverage and sequence composition information to bin our contigs with software that can work with coverage and sequence composition information. In this case, our `binning_results.txt` contains *split names*. But if you have contig names, you can import them using `anvi-import-collection` with the flag `--contigs-mode`. 
+
+* You can also use an information file with the `--bins-info` parameter to describe the source of your bins (and even assign them some colors to have some specific visual identifiers for any type of visualization downstream).
+
+There are example files [here](https://github.com/meren/anvio/tree/master/tests/sandbox/example_files_for_external_binning_results) that show the difference between input files for splits and contigs, and demonstrate the structure of the optional bins information file.
+
+{:.notice}
+You can use `anvi-export-collection` to export collection information and import into other profiles. It becomes very handy when you are doing [benchmarking between different approaches](% post_url anvio/2015-06-23-comparing-different-mapping-software %).
+
 
 ### anvi-interactive
 
