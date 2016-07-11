@@ -16,6 +16,9 @@
   address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9118, Chicago, IL 60637 USA
   bio: "I am a computer scientist with a deep appreciation for the complexity of life. I design algorithms and experiments to better understand microbes and their ecology."
   affiliations:
+    - title: MBL Fellow
+      inst: Marine Biological Laboratory
+      inst_link: http://www.mbl.edu/research/mbl-fellows/a-murat-eren/
     - title: Assistant Professor
       inst: The Department of Medicine at the University of Chicago
       inst_link: http://medicine.uchicago.edu/
