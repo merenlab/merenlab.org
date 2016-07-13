@@ -28,7 +28,7 @@ Here is how to install v2.6.2 (the first line will not work if you don't have wg
 {% highlight bash %}
 wget https://github.com/hyattpd/Prodigal/archive/v2.6.2.tar.gz
 tar -zxvf v2.6.2.tar.gz && cd Prodigal-2.6.2/ && make
-sudo cp prodigal /usr/bin/
+sudo cp prodigal /usr/local/bin/
 {% endhighlight %}
 
 Type `prodigal -v` again to make sure everything is alright, and you get the proper version number.
