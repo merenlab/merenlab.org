@@ -18,12 +18,9 @@ This is our **very initial attempt** to put together a comprehensive tutorial. I
 
 Assembly and mapping is one of the first steps of genome-resolved metagenomic analysis, and there are many ways to accomplish them. That's why, the [anvi'o metagenomic workflow]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}) only starts once you have your contigs and BAM files available. We thought we could create this resource to explain the metagenomic workflow [we]({{site.url}}/people/) have been using in our lab.
 
-This tutorial will take you from notes on sampling and library preparation considerations for sequencing to assembled contigs and BAM files, at which point you will be ready to follow the anvi'o metagenomic workflow.
+This tutorial will take you from notes on sampling and library preparation considerations for sequencing to assembled contigs and BAM files, at which point you will be ready to follow the anvi'o metagenomic workflow, or any other platform to make sense of your data.
 
-To make things very simple, let's assume you have two samples, `Sample_01` and `Sample_02`. 
-
-{:.notice}
-For the Demultiplexing and Quality filtering steps of this tutorial will require you to have [illumina-utils](https://github.com/meren/illumina-utils) library installed on your system.
+If you have some familiarity with the UNIX shell environment, most of these things should make sense quickly (if you have no familiarity with the UNIX shell environment, you will have to wait a little longer as we are hoping to help you, too). To make things very simple who wish to follow this tutorial, we will assume you have two samples, `Sample_01` and `Sample_02`.
 
 Just to make sure we are mostly on the same page and you have all the software you need installed on your system, here are a couple of commands, and their outputs:
 
@@ -35,17 +32,20 @@ Illumina-utils v1.4.6
 meren SSH://MBL ~ $ samtools --version
 samtools 1.3
 Using htslib 1.3
-Copyright (C) 2015 Genome Research Ltd.
 meren SSH://MBL ~ $ megahit -v
 MEGAHIT v1.0.6
 meren SSH://MBL ~ $ anvi-init-bam -v
-Anvio version ...............................: 2.0.1
+Anvio version ................................: 2.0.1
 Profile DB version ...........................: 16
 Contigs DB version ...........................: 6
 Samples information DB version ...............: 2
 Auxiliary HDF5 DB version ....................: 1
 Users DB version (for anvi-server) ...........: 1
 {% endhighlight %}
+
+If you are lacking some of these software, don't despair. You can install anvi'o using methods described in [this article]({% post_url anvio/2016-06-26-installation-v2 %}), or you can take a look at the article that gives [recipes to install third-party software]({% post_url anvio/2016-06-18-installing-third-party-software %}) (what you are looking for may not be covered in that article if it is very simple to install).
+
+Let's start.
 
 ## Sampling
 
@@ -148,11 +148,31 @@ Sample_02-READ_IDs.cPickle.z
 Sample_02-STATS.txt
 {% endhighlight %}
 
-You should definitely take a quick look at `*_STATS.txt` files to see whether things went alright. This could be a simple start:
+You should definitely take a quick look at `*_STATS.txt` files to see whether things went alright. A STATS file will look like this, and you can find more information about it here:
+
+{% highlight bash %}
+meren SSH://MBL ~ $ cat 01_QC/Sample_01-STATS.txt
+number of pairs analyzed      : 122929
+total pairs passed            : 109041 (%88.70 of all pairs)
+  total pair_1 trimmed        : 6476 (%5.94 of all passed pairs)
+  total pair_2 trimmed        : 9059 (%8.31 of all passed pairs)
+total pairs failed            : 13888 (%11.30 of all pairs)
+  pairs failed due to pair_1  : 815 (%5.87 of all failed pairs)
+  pairs failed due to pair_2  : 12193 (%87.80 of all failed pairs)
+  pairs failed due to both    : 880 (%6.34 of all failed pairs)
+  FAILED_REASON_P             : 12223 (%88.01 of all failed pairs)
+  FAILED_REASON_N             : 38 (%0.27 of all failed pairs)
+  FAILED_REASON_C33           : 1627 (%11.72 of all failed pairs)
+{% endhighlight %}
+
+You can take a quick look at all samples by running commands like this:
 
 {% highlight bash %}
 meren SSH://MBL ~ $ grep 'total pairs passed' 01_QC/*STATS.txt
 {% endhighlight %}
+
+{:.notice}
+You can find more information about the options, and ways to visualize the quality filtering results [here](https://github.com/meren/illumina-utils/blob/master/README.md).
 
 If all looks good, you are ready for a co-assembly.
 
