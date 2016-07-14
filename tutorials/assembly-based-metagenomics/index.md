@@ -11,14 +11,14 @@ image:
 {% include _toc.html %}
 
 {:.notice}
-The version number of this tutorial is `1.0`, and for now it is tailored for Illumina paired-end reads with large inserts (i.e., no substantial overlap between two reads in a given pair).
+The version number of this tutorial is `1.0`, and for now it is tailored for Illumina paired-end shotgun sequencing with large inserts (i.e., no substantial overlap between two reads in a given pair).
 
 {:.notice}
 This is our **very initial attempt** to put together a comprehensive tutorial. If you are reading this notice, it means we still do not feel comfortable with it, and acknowledge things may need to be done better. Please let us know if you can think of any improvements.
 
-Assembly and mapping is one of the first steps of genome-resolved metagenomic analysis. There are multiple ways to do it, but in this tutorial you will find a workflow [Meren Lab]({{site.url}}/people/) has been using for some time.
+Assembly and mapping is one of the first steps of genome-resolved metagenomic analysis, and there are many ways to accomplish them. That's why, the [anvi'o metagenomic workflow]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}) only starts once you have your contigs and BAM files available. We thought we could create this resource to explain the metagenomic workflow [we]({{site.url}}/people/) have been using in our lab.
 
-This tutorial will take you from raw Illumina reads to assembled contigs and BAM files, at which point you will be ready to follow the anvi'o metagenomic workflow.
+This tutorial will take you from notes on sampling and library preparation considerations for sequencing to assembled contigs and BAM files, at which point you will be ready to follow the anvi'o metagenomic workflow.
 
 To make things very simple, let's assume you have two samples, `Sample_01` and `Sample_02`. 
 
