@@ -15,7 +15,7 @@ Fortunately, you can connect to a server by creating an SSH tunnel with local an
 For this, you should connect to your server in a specific way:
 
 {% highlight bash %}
-local ~ $ ssh -L 8000:localhost:8080 meren@server.university.edu
+local ~ $ ssh -L 8080:localhost:8080 meren@server.university.edu
 {% endhighlight %}
 
 If you care, the translation of this line is this: "*forward any connection request goes to my local port `8080`, to the port `8080` on `localhost` of the server `server.university.edu`*". Of course nothing is listening to the port `8080` on the server at this moment, but we will tell anvi'o to serve from there. For this, go to your data directory: 
@@ -42,7 +42,7 @@ CTRL+C to terminate the server.
 {:.notice}
 Notice the `--server-only` and `-P 8080` flags. If port `8080` is not available, you can re-connect to the server with a differnt forwarding request via SSH, and try that port number for anvi'o to serve.
 
-All good on the server side. Now you can start a browser on your laptop computer, and type the address `http://localhost:8000` to stream your results from the server to your browser like a pro:
+All good on the server side. Now you can start a browser on your laptop computer, and type the address `http://localhost:8080` to stream your results from the server to your browser like a pro:
 
 <div class="centerimg" style="margin-bottom: 100px;">
 <a href="{{ site.url }}/images/anvio/2015-11-28-visualizing-from-a-server/browser.png"><img src="{{ site.url }}/images/anvio/2015-11-28-visualizing-from-a-server/browser.png" /></a>
