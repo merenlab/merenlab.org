@@ -378,4 +378,6 @@ Please read **[this article]({% post_url anvio/2015-05-11-anvi-refine %})** for 
 
 It is Tom's. But you can always enter a [bug report](https://github.com/meren/anvio/issues) if you are certain that it needs to be fixed in the anvi'o code base. If you are not sure, please come to [the anvi'o discussion group]({% post_url anvio/2015-10-14-anvio-discussion-group %}), and let's talk about it!
 
+### There is something in this tutorial I want to fix
 
+We make a lot of typos, and sometimes parameters slightly change, and we fail to update the tutorial in time. If you would like to change something on this page, you can directly [edit its source code](https://github.com/meren/meren.github.io/blob/master/_posts/anvio/2016-06-22-anvio-tutorial-v2.md) by clicking _"Edit this file"_ icon on the right top corner, and send us a pull request through GitHub. We will be very thankful. You will need to login to GitHub to see that icon.
