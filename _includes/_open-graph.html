@@ -5,10 +5,12 @@
 {% if author.twitter %}<meta name="twitter:creator" content="@{{ author.twitter }}">{% endif %}
 {% if page.image.feature %}
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="{{ site.url }}/images/{{ page.image.feature }}">
+{% capture text %}{{ page.image.feature | slice: 0, 4 }}{% endcapture %}
+<meta name="twitter:image" content="{% if text == 'http' %}{{ page.image.feature }}{% else %}{{ site.url }}/images/{{ page.image.feature }}{% endif %}">
 {% else %}
+{% capture text %}{{ page.image.thumb | slice: 0, 4 }}{% endcapture %}
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="{% if page.image.thumb %}{{ site.url }}/images/{{ page.image.thumb }}{% else %}{{ site.url }}/images/uchicago-mbl.png{% endif %}">
+<meta name="twitter:image" content="{% if page.image.thumb %}{% if text == 'http'%}{{ page.image.thumb }}{% else %}{{ site.url }}/images/{{ page.image.thumb }}{% endif %}{% else %}{{ site.url }}/images/uchicago-mbl.png{% endif %}">
 {% endif %}
 <!-- Open Graph -->
 <meta property="og:locale" content="{{ site.locale }}">
