@@ -141,6 +141,10 @@ Once you have your contigs database, you can start importing things into it, or 
 |16|contig_03|5720|6233|f|0|program|v1.0|
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 
+
+{:.notice}
+**Please note**: For a complete gene call where the value of `partial` is `0`, the number of nucleotides, i.e. the value of `stop - start`, must be divided by three **without** any remainder. Any other gene call is not a complete gene call, and must be identified as such by setting the value of `partial` to `1` so anvi'o does not try to translate their sequence. Otherwise anvi'o will be upset, and then frustrate you.
+
 {:.notice}
 **Please note**: anvi'o follows the convention of string indexing and splicing that is identical the way one does it in Python or C.
 
