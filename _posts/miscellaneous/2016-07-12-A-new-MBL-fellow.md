@@ -7,6 +7,8 @@ tags: []
 authors: [meren]
 categories: [miscellaneous]
 comments: false
+image:
+    feature: miscellaneous/2016-07-11/mbl-01.jpg
 ---
 
 <blockquote>
