@@ -9,7 +9,7 @@ excerpt: "Anvi'o Project Page"
 
 # In a nutshell
 
-Anvi'o is an analysis and visualization platform for 'omics data. With its [large codebase](http://github.com/meren/anvio), anvi'o brings together many aspects of today's cutting-edge genomic and metagenomic analysis practices to address a wide array of needs.
+Anvi'o is an analysis and visualization platform for 'omics data. With its [large codebase](http://github.com/meren/anvio), anvi'o brings together many aspects of today's cutting-edge genomic, metagenomic, and metatranscriptomic analysis practices to address a wide array of needs.
 
 Please find the **methods paper** here: [https://peerj.com/articles/1319/](https://peerj.com/articles/1319/) 
 
