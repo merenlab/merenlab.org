@@ -203,6 +203,13 @@ th, td {
   margin-bottom: 1em;
 }
 
+.center-img {
+  margin: 0 auto;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  display: block;
+}
+
 
 .page-author-info {
 	h3 {
@@ -586,7 +593,6 @@ $button-size: 1.5rem;
 /* Large feature header image */
 .image-wrap {
 	position: relative;
-	margin-bottom: 2em;
 	@include clearfix;
 	&:after {
 		content: " ";
@@ -610,6 +616,7 @@ $button-size: 1.5rem;
 	img {
 		width: 100%;
 		height: auto;
+    border-bottom: 1px solid #dedede;
 		-ms-interpolation-mode: bicubic;
 	}
 	.headline-wrap {
