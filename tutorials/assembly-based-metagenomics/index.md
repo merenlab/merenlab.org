@@ -16,11 +16,13 @@ The version number of this tutorial is `1.0`, and for now it is tailored for Ill
 {:.notice}
 This is our **very initial attempt** to put together a comprehensive tutorial. If you are reading this notice, it means we still do not feel comfortable with it, and acknowledge things may need to be done better. Please let us know if you can think of any improvements.
 
-Assembly and mapping is one of the first steps of genome-resolved metagenomic analysis, and there are many ways to accomplish them. That's why, the [anvi'o metagenomic workflow]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}) only starts once you have your contigs and BAM files available. We thought we could create this resource to explain the metagenomic workflow [we]({{site.url}}/people/) have been using in our lab.
+**Assembly** and **mapping** are key steps for most genome-resolved metagenomic analyses, and there are many ways to accomplish each. That's why, the [anvi'o metagenomic workflow]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}) only starts once you have your contigs and BAM files available. Despite the various ways to get your contigs and BAM files, we thought we could create a resource to explain the metagenomic workflow [we]({{site.url}}/people/) have been using in our lab.
 
-This tutorial will take you from notes on sampling and library preparation considerations for sequencing to assembled contigs and BAM files, at which point you will be ready to follow the anvi'o metagenomic workflow, or any other platform to make sense of your data.
+This tutorial will take you from notes on sampling and library preparation considerations for sequencing, to assembled contigs and BAM files, at which point you will be ready to follow the anvi'o metagenomic workflow, or any other platform to make sense of your data.
 
-If you have some familiarity with the UNIX shell environment, most of these things should make sense quickly (if you have no familiarity with the UNIX shell environment, you will have to wait a little longer as we are hoping to help you, too). To make things very simple who wish to follow this tutorial, we will assume you have two samples, `Sample_01` and `Sample_02`.
+If you have some familiarity with the UNIX shell environment, you will have no trouble following the tutorial with your own data. We are working on a more automated workflow which should help people who have no familiarity with the UNIX shell environment, but we need a bit more time for that.
+
+To make things very simple, we will assume you have two samples throughout this tutorial, `Sample_01` and `Sample_02`.
 
 Just to make sure we are mostly on the same page and you have all the software you need installed on your system, here are a couple of commands, and their outputs:
 
@@ -43,7 +45,7 @@ Auxiliary HDF5 DB version ....................: 1
 Users DB version (for anvi-server) ...........: 1
 {% endhighlight %}
 
-If you are lacking some of these software, don't despair. You can install anvi'o using methods described in [this article]({% post_url anvio/2016-06-26-installation-v2 %}), or you can take a look at the article that gives [recipes to install third-party software]({% post_url anvio/2016-06-18-installing-third-party-software %}) (what you are looking for may not be covered in that article if it is very simple to install).
+You may be lacking some of these software. You can install anvi'o using methods described in [this article]({% post_url anvio/2016-06-26-installation-v2 %}), or you can take a look at the article that gives [recipes to install third-party software]({% post_url anvio/2016-06-18-installing-third-party-software %}) (what you are looking for may not be covered in that article if it is very simple to install, in which case Google will help you find out how to install those on your system).
 
 Let's start.
 
