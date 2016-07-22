@@ -45,6 +45,8 @@ and execute the `anvi-interactive` command on these files,
  $ anvi-interactive -p PROFILE.db -c CONTIGS.db 
 {% endhighlight %}
 
+The anvi'o interactive interface should pop up with this display:
+
 [![Infant gut merged](images/infant-gut-merged.png)](images/infant-gut-merged.png){:.center-img .width-50}
 
 Once the interactive interface is up and running, you can start binning:
