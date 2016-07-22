@@ -13,8 +13,9 @@ This tutorial is tailored for anvi'o `v2.0.1`. If you do not have this version a
 
 The purpose of this tutorial is to demonstrate some of the anvi'o capabilities using the Infant Gut dataset, which was generated, analyzed, and published by [Sharon et al. (2013)](http://www.ncbi.nlm.nih.gov/pubmed/22936250), and was re-analyzed in the [anvi'o methods paper](https://peerj.com/articles/1319/). If you are reading this tutorial, you are assumed to have access to the infant gut data pack, which contains some raw and intermediate metagenomic data from the infant gut dataset.
 
-While this tutorial will take you through various aspects of anvi'o using a real dataset, you can access to a more general, comprehensive, but more abstract tutorial on the metagenomics workflow of anvi'o by clicking [here]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}).
+While this tutorial will take you through a simple analysis of a real dataset, you can access to a more comprehensive, yet more abstract tutorial [here]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}).
 
+{% include _toc.html %}
 
 ## BAM files and contigs FASTA for the Infant Gut data
 
@@ -45,6 +46,11 @@ and execute the `anvi-interactive` command on these files,
 {% endhighlight %}
 
 [![Infant gut merged](images/infant-gut-merged.png)](images/infant-gut-merged.png){:.center-img .width-50}
+
+Once the interactive interface is up and running, you can start binning:
+
+[![Infant gut merged](images/infant-gut-merged.gif)](images/infant-gut-merged.gif){:.center-img .width-50}
+
 
 When you are tired of the interactive interface, you can go back to the terminal and press `CTRL + C` to kill the server.
 
@@ -81,7 +87,23 @@ The directory `03_EXTERNAL_BINNING_RESULTS` contains number of files describe th
 * [CONCOCT.txt](files/CONCOCT.txt)
 * [SHARON_et_al.txt](files/SHARON_et_al.txt)
 
-The first three files are courtesy of Elaina Graham, who used [GroopM](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4183954/) (v0.3.5), [MetaBat](https://peerj.com/articles/1165/) (v0.26.3), and [MaxBin](https://microbiomejournal.biomedcentral.com/articles/10.1186/2049-2618-2-26) (v2.1.1) to bin contigs using BAM files and the contigs FASTA in `01_ANVIO_MERGED_PROFILE`. [CONCOCT](http://www.nature.com/nmeth/journal/v11/n11/full/nmeth.3103.html) results come from the CONCOCT module embedded within anvi'o. Finally, I generated Sharon et al. results by BLAST searching sequences in bins identified by the authors of the study (see [http://ggkbase.berkeley.edu/carrol](http://ggkbase.berkeley.edu/carrol)) to our contigs to have matching names.
+The first three files are courtesy of Elaina Graham, who used [GroopM](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4183954/) (v0.3.5), [MetaBat](https://peerj.com/articles/1165/) (v0.26.3), and [MaxBin](https://microbiomejournal.biomedcentral.com/articles/10.1186/2049-2618-2-26) (v2.1.1) to bin contigs using BAM files and the contigs FASTA in `01_ANVIO_MERGED_PROFILE`. For future references, here are the parameters Elaina used for each approach:
+
+{% highlight bash %}
+ # GroopM v0.3.5 (followed the general workflow on their manual)
+ $ groopm parse groopm.db contigs.fa [list of bam files]
+ $ groopm core groopm.db -c 1000 -s 10 -b 1000000
+ $ groopm recruit groopm.db -c 500 -s 200
+ $ groopm extract groopm.db contigs.fa 
+
+ # MetaBat v0.26.3 (used jgi_summarize_bam_contig_depths to get a depth file from BAM files).
+ $ metabat -i contigs.fa -a depth.txt -o bin
+
+ # MaxBin v2.1.1
+ $ run_MaxBin.pl -contig contigs.fa -out maxbin_IGM -abund_list [list of all coverage files in associated format]
+{% endhighlight %}
+
+[CONCOCT](http://www.nature.com/nmeth/journal/v11/n11/full/nmeth.3103.html) results come from the CONCOCT module embedded within anvi'o. Finally, I generated Sharon et al. results by BLAST searching sequences in bins identified by the authors of the study (see [http://ggkbase.berkeley.edu/carrol](http://ggkbase.berkeley.edu/carrol)) to our contigs to have matching names.
 
 You can import any of these files into your profile database, and see how they group contigs. For instance, let's import CONCOCT results:
 
@@ -160,6 +182,8 @@ Now you can rerun the interactive interface, and click `Bins > Load bin collecti
 Much better! Now we can discuss about the efficacy of different approaches, and investigate the taxonomy of contigs where methods disagree:
 
 [![Infant gut merged](images/infant-gut-split.png)](images/infant-gut-split.png){:.center-img .width-50}
+
+
 
 ## Profiling single-nucleotide variants
 
