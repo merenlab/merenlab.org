@@ -350,11 +350,15 @@ The result of `anvi-summary` is a static HTML output you can browse in your brow
 
 You can run this to summarize the bins saved under the collection id 'CONCOCT' into MY_SUMMARY directory:
 
-    anvi-summarize -p SAMPLES-MERGED/PROFILE.db -c contigs.db -o SAMPLES-SUMMARY -C CONCOCT
+{% highlight bash %}
+anvi-summarize -p SAMPLES-MERGED/PROFILE.db -c contigs.db -o SAMPLES-SUMMARY -C CONCOCT
+{% endhighlight %}
 
 If you are not sure which collections are available to you, you can always see a list of them by running this command:
 
-    anvi-summarize -p SAMPLES-MERGED/PROFILE.db -c contigs.db --list-collections
+{% highlight bash %}
+anvi-summarize -p SAMPLES-MERGED/PROFILE.db -c contigs.db --list-collections
+{% endhighlight %}
 
 The summary process can take a lot of time. If you want to take a quick look to identify which bins need to be refined, you can run `anvi-summarize` with `--quick-summary` flag.
 

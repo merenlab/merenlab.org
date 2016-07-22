@@ -5,7 +5,7 @@ modified: 2016-07-13
 excerpt: "By Meren Lab and anvi'o developers"
 comments: true
 image:
-  feature: http://i.imgur.com/QGd3Zab.png
+  feature: feature-infant-gut-tutorial.png
 ---
 
 {% include _toc.html %}
@@ -14,11 +14,42 @@ image:
 The version number of this tutorial is `1.0`, and for now it is tailored for Illumina paired-end shotgun sequencing with large inserts (i.e., no substantial overlap between two reads in a given pair).
 
 {:.notice}
-This is our **very initial attempt** to put together a comprehensive tutorial. If you are reading this notice, it means we still do not feel comfortable with it, and acknowledge things may need to be done better. Please let us know if you can think of any improvements.
+This is our **very initial attempt** to put together a comprehensive tutorial. If you would like to change something on this page, you can directly **[edit its source code](https://github.com/meren/meren.github.io/blob/master/tutorials/assembly-based-metagenomics/index.md)** by clicking the _"Edit this file"_ icon on the right top corner of the page, and send us a pull request through GitHub. We will be very thankful. You will need to login to GitHub to see that icon.
 
-**Assembly** and **mapping** are key steps for most genome-resolved metagenomic analyses, and there are many ways to accomplish each. That's why, the [anvi'o metagenomic workflow]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}) only starts once you have your contigs and BAM files available. Despite the various ways to get your contigs and BAM files, we thought we could create a resource to explain the metagenomic workflow [we]({{site.url}}/people/) have been using in our lab.
+**Assembly** and **mapping** are key steps for most **assembly-based, genome-resolved metagenomic studies**, and there are many ways to accomplish each of these steps. That's why, the [anvi'o metagenomic workflow]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}) only starts once you have your contigs and BAM files available.
+
+But a metagenomic study starts much earlier than assembly and mapping. Experimental design, sampling and storage strategies, library preparation, and sequencing are all critical steps that should be given considerable thought, especially if the purpose is to recover metagenome-assembled genomes.
+
+Despite the diversity of ways to get your contigs and BAM files, or preparing your libraries and perform your sequencing, we thought we could create a resource to explain the metagenomic workflow [we]({{site.url}}/people/) and our colleagues have been using in our lab and at the [MBL](http://mbl.edu).
 
 This tutorial will take you from notes on sampling and library preparation considerations for sequencing, to assembled contigs and BAM files, at which point you will be ready to follow the anvi'o metagenomic workflow, or any other platform to make sense of your data.
+
+
+# Before Sequencing
+
+{:.notice}
+You have the question.
+
+This section mostly deals with the field and wet-lab aspect of the workflow.
+
+## Sampling
+
+Storage? Replicates?
+
+## Library preparation
+
+DNA extraction? Size selection?
+
+## Sequencing
+
+Which sequencing platform? How many samples per lane?
+
+# After Sequencing
+
+{:.notice}
+You have your sequences.
+
+This section mostly deals with the computational aspect of the workflow.
 
 If you have some familiarity with the UNIX shell environment, you will have no trouble following the tutorial with your own data. We are working on a more automated workflow which should help people who have no familiarity with the UNIX shell environment, but we need a bit more time for that.
 
@@ -49,17 +80,6 @@ You may be lacking some of these software. You can install anvi'o using methods 
 
 Let's start.
 
-## Sampling
-
-To be written.
-
-## Library preparation
-
-To be written.
-
-## Sequencing
-
-To be written.
 
 ## Demultiplexing
 
