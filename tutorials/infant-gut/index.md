@@ -79,6 +79,8 @@ In the Layers tab find the `Taxonomy` layer, set its height to `200`, and click 
 
 ## Binning
 
+### External binning results
+
 The directory `03_EXTERNAL_BINNING_RESULTS` contains number of files describe the binning of contigs in the infant gut data based on various binning approaches:
 
 * [GROOPM.txt](files/GROOPM.txt)
@@ -105,7 +107,9 @@ The first three files are courtesy of Elaina Graham, who used [GroopM](http://ww
 
 [CONCOCT](http://www.nature.com/nmeth/journal/v11/n11/full/nmeth.3103.html) results come from the CONCOCT module embedded within anvi'o. Finally, I generated Sharon et al. results by BLAST searching sequences in bins identified by the authors of the study (see [http://ggkbase.berkeley.edu/carrol](http://ggkbase.berkeley.edu/carrol)) to our contigs to have matching names.
 
-You can import any of these files into your profile database, and see how they group contigs. For instance, let's import CONCOCT results:
+### Comparing binning results
+
+You can import a file that describes the results of an external binning effort into your profile database, and see how they group contigs. For instance, let's import the CONCOCT collection:
 
 {% highlight bash %}
  $ anvi-import-collection -c CONTIGS.db -p PROFILE.db -C CONCOCT --contigs-mode ../03_EXTERNAL_BINNING_RESULTS/CONCOCT.txt
