@@ -105,7 +105,11 @@ The first three files are courtesy of Elaina Graham, who used [GroopM](http://ww
  $ run_MaxBin.pl -contig contigs.fa -out maxbin_IGM -abund_list [list of all coverage files in associated format]
 {% endhighlight %}
 
-[CONCOCT](http://www.nature.com/nmeth/journal/v11/n11/full/nmeth.3103.html) results come from the CONCOCT module embedded within anvi'o. Finally, I generated Sharon et al. results by BLAST searching sequences in bins identified by the authors of the study (see [http://ggkbase.berkeley.edu/carrol](http://ggkbase.berkeley.edu/carrol)) to our contigs to have matching names.
+[CONCOCT](http://www.nature.com/nmeth/journal/v11/n11/full/nmeth.3103.html) results come from the CONCOCT module embedded within anvi'o. 
+
+Finally, I generated Sharon et al. results by BLAST searching sequences in bins identified by the authors of the study (see [http://ggkbase.berkeley.edu/carrol](http://ggkbase.berkeley.edu/carrol)) to our contigs to have matching names.
+
+OK. Moving on.
 
 ### Comparing binning results
 
