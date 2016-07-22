@@ -189,10 +189,13 @@ Now you can rerun the interactive interface, and click `Bins > Load bin collecti
 
 [![Infant gut merged](images/infant-gut-collections-final-w-merens.png)](images/infant-gut-collections-final-w-merens.png){:.center-img .width-50}
 
-Much better! Now we can discuss about the efficacy of different approaches, and investigate the taxonomy of contigs where methods disagree:
+Much better!
+
+All was for this moment: Now we can discuss about the efficacy of different approaches, and how while everyone is doing a pretty decent job with well-covered genomes, most approaches fall apart resolving low-abundance genomes.
+
+As a reminder, you can in fact investigate the taxonomy of contigs by BLASTing them against NCBI's collection using the right-click menu to have a second opinion about what do public databases think they are:
 
 [![Infant gut merged](images/infant-gut-split.png)](images/infant-gut-split.png){:.center-img .width-50}
-
 
 
 ## Profiling single-nucleotide variants
@@ -202,3 +205,30 @@ To be written. The relevant directory is `04_VARIABILITY_ANALYSIS`.
 ## Pangenomic analysis of _E. facealis_ bin
 
 To be written. The relevant directory is `05_PANGENOMICS`.
+
+{% highlight bash %}
+ $ cd ../05_PANGENOMICS/
+ $ sed -i 's/03_ANVIO_MERGED_PROFILE/01_ANVIO_MERGED_PROFILE/g' internal-genomes.txt
+{% endhighlight %}
+
+{% highlight bash %}
+ $ anvi-pan-genome -i internal-genomes.txt -e external-genomes.txt -o enterococcus_pan_genome -T 4
+{% endhighlight %}
+
+{% highlight bash %}
+ $ cd enterococcus_pan_genome/enterococcus_pan_genome/
+ $ anvi-interactive -t tree.txt -d view_data.txt -s samples.db -A additional_view_data.txt --manual -p profile.db --title "Enterococcus Pan"
+{% endhighlight %}
+
+[![E. facealis pan](images/e-faecalis-pan.png)](images/e-faecalis-pan.png){:.center-img .width-50}
+
+Kill the server.
+
+{% highlight bash %}
+ $ wget http://merenlab.org/tutorials/infant-gut/files/pan-state.json 
+ $ anvi-import-state -p profile.db --state pan-state.json --name default
+ $ anvi-interactive -t tree.txt -d view_data.txt -s samples.db -A additional_view_data.txt --manual -p profile.db --title "Enterococcus Pan"
+{% endhighlight %}
+
+[![E. facealis pan](images/e-faecalis-pan-state.png)](e-faecalis-pan-state.png){:.center-img .width-50}
+
