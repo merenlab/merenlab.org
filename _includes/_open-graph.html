@@ -6,12 +6,17 @@
 {% if page.image.feature %}
 <meta name="twitter:card" content="summary_large_image">
 {% capture text %}{{ page.image.feature | slice: 0, 4 }}{% endcapture %}
-<meta name="twitter:image" content="{% if text == 'http' %}{{ page.image.feature }}{% else %}{{ site.url }}/images/{{ page.image.feature }}{% endif %}">
+{% capture link %}{% if text == 'http' %}{{ page.image.feature }}{% else %}{{ site.url }}/images/{{ page.image.feature }}{% endif %}{% endcapture %}
+<meta name="twitter:image" content="{{ link }}">
+<meta property="og:image" content="{{ link }}">
 {% else %}
 {% capture text %}{{ page.image.thumb | slice: 0, 4 }}{% endcapture %}
+{% capture link %}{% if page.image.thumb %}{% if text == 'http'%}{{ page.image.thumb }}{% else %}{{ site.url }}/images/{{ page.image.thumb }}{% endif %}{% else %}{{ site.url }}/images/uchicago-mbl.png{% endif %}{% endcapture %}
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="{% if page.image.thumb %}{% if text == 'http'%}{{ page.image.thumb }}{% else %}{{ site.url }}/images/{{ page.image.thumb }}{% endif %}{% else %}{{ site.url }}/images/uchicago-mbl.png{% endif %}">
+<meta name="twitter:image" content="{{ link }}">
+<meta property="og:image" content="{{ link }}">
 {% endif %}
+
 <!-- Open Graph -->
 <meta property="og:locale" content="{{ site.locale }}">
 <meta property="og:type" content="article">
