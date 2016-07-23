@@ -3,6 +3,7 @@ layout: page
 title: Research
 modified: 2015-02-02T20:53:07.573882-04:00
 comments: false
+excerpt: "Research interests and directions..."
 image:
    thumb: holistic-flow.png
 ---
