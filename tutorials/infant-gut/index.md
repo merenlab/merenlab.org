@@ -58,7 +58,7 @@ When you are tired of the interactive interface, you can go back to the terminal
 
 ## Importing taxonomy
 
-[Centrifuge](https://github.com/infphilo/centrifuge) is [one of the options]({% post_url anvio/2016-06-18-importing-taxonomy %}#centrifuge-output) to [import taxonomic annotations]({% post_url anvio/2016-06-18-importing-taxonomy %}) into an anvi'o contigs database. Files for the infant gut data are already in the directory `02_CENTRIFUGE_FILES`.
+Centrifuge ([code](https://github.com/infphilo/centrifuge), [pre-print](http://biorxiv.org/content/early/2016/05/25/054965.article-info)) is [one of the options]({% post_url anvio/2016-06-18-importing-taxonomy %}#centrifuge-output) to [import taxonomic annotations]({% post_url anvio/2016-06-18-importing-taxonomy %}) into an anvi'o contigs database. Files for the infant gut data are already in the directory `02_CENTRIFUGE_FILES`.
 
 If you import these files into the contigs database the following way,
 
@@ -191,7 +191,7 @@ Now you can rerun the interactive interface, and click `Bins > Load bin collecti
 
 Much better!
 
-All was for this moment: Now we can discuss about the efficacy of different approaches, and how while everyone is doing a pretty decent job with well-covered genomes, most approaches fall apart resolving low-abundance genomes.
+Now we can discuss about the efficacy of different approaches.
 
 As a reminder, you can in fact investigate the taxonomy of contigs by BLASTing them against NCBI's collection using the right-click menu to have a second opinion about what do public databases think they are:
 
@@ -245,4 +245,4 @@ It will look much more reasonable:
 
 [![E. facealis pan](images/e-faecalis-pan-state.png)](images/e-faecalis-pan-state.png){:.center-img .width-50}
 
-N
+Now not only we can see how our E. facealis genome to what is available, we can also see that it is not missing or carrying a great number of proteins compared to other genomes. The clustering of genomes based on protein clusters indicate that it is most similar to the genome `Enterococcus faecalis 6250`, which, according to the `00_INFO_ABOUT_EXTERNAL_GENOMES.txt` under `05_PANGENOMICS` directory, corresponds to the assembly ID [ASM28119v1](https://www.ncbi.nlm.nih.gov/gquery/?term=ASM28119v1) if you were to be interested in exploring further.
