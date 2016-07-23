@@ -58,7 +58,7 @@ When you are tired of the interactive interface, you can go back to the terminal
 
 ## Importing taxonomy
 
-Centrifuge ([code](https://github.com/infphilo/centrifuge), [pre-print](http://biorxiv.org/content/early/2016/05/25/054965.article-info)) is [one of the options]({% post_url anvio/2016-06-18-importing-taxonomy %}#centrifuge-output) to [import taxonomic annotations]({% post_url anvio/2016-06-18-importing-taxonomy %}) into an anvi'o contigs database. Files for the infant gut data are already in the directory `02_CENTRIFUGE_FILES`.
+Centrifuge ([code](https://github.com/infphilo/centrifuge), [pre-print](http://biorxiv.org/content/early/2016/05/25/054965.article-info)) is [one of the options]({% post_url anvio/2016-06-18-importing-taxonomy %}#centrifuge-output) to [import taxonomic annotations]({% post_url anvio/2016-06-18-importing-taxonomy %}) into an anvi'o contigs database. Centrifuge files for the infant gut data are already in the directory `02_CENTRIFUGE_FILES` of your data pack.
 
 If you import these files into the contigs database the following way,
 
@@ -66,7 +66,7 @@ If you import these files into the contigs database the following way,
  $ anvi-import-taxonomy -c CONTIGS.db -i ../02_CENTRIFUGE_FILES/*.tsv -p centrifuge 
 {% endhighlight %}
 
-And run the interactive again,
+And run the interactive interface again,
 
 {% highlight bash %}
  $ anvi-interactive -p PROFILE.db -c CONTIGS.db 
@@ -78,6 +78,7 @@ You will see an additional layer with taxonomy:
 In the Layers tab find the `Taxonomy` layer, set its height to `200`, and click `Draw` again. Then click `Save State` button, and overwrite the `default` state. This will make sure anvi'o remembers to make the height of that layer 200px the next time you run the interactive interface!
 
 [![Infant gut merged](images/infant-gut-with-tax.png)](images/infant-gut-with-tax.png){:.center-img .width-50}
+
 
 ## Binning
 
