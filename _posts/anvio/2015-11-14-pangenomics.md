@@ -26,6 +26,9 @@ In this post we will demonstrate the [anvi'o](https://peerj.com/articles/1319/) 
 {:.notice}
 You can use anvi'o for pangenomic analysis of your genomes even if you haven't done any metagenomic work with anvi'o. All you need is an anvi'o installation and a FASTA file for each of your genomes.
 
+{:.notice}
+Pangenomic workflow uses MCL, which is not a global dependency for anvi'o, hence you may not have it on your system even if you have anvi'o up and running. You can install it using [this recipe]({% post_url anvio/2016-06-18-installing-third-party-software %}#mcl).
+
 ## Introduction
 
 The program `anvi-pan-genome` is the main entry to the pangenomic workflow. Next chapters will demonstrate how it is used, but first, a brief understanding of what it does.

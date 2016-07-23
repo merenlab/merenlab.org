@@ -174,3 +174,15 @@ $ ls -lh $CENTRIFUGE_BASE/b+h+v/*cf
 {% endhighlight %}
 
 Good? Good! See? You are totally doing this!
+
+## MCL
+
+[MCL](http://www.micans.org/mcl/index.html?sec_software) is "*a fast and scalable unsupervised cluster algorithm for graphs based on simulation of (stochastic) flow in graphs*", developed by [Stijn van Dongen](http://micans.org/stijn/). If when you type `mcl --version` in your terminal, if you are seeing `mcl 14-137` as an output, you are golden. Otherwise you can install it the following way:
+
+{% highlight bash %}
+ $ wget http://www.micans.org/mcl/src/mcl-14-137.tar.gz
+ $ tar -zxvf mcl-14-137.tar.gz && cd mcl-14-137
+ $ ./configure && make && sudo make install
+{% endhighlight %}
+
+Once you are done, you should get a simple usage statement instead of a command not found error when you type `mcl` in your terminal. If that is the case, you are done.
