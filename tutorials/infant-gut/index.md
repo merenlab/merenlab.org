@@ -204,25 +204,36 @@ To be written. The relevant directory is `04_VARIABILITY_ANALYSIS`.
 
 ## Pangenomic analysis of _E. facealis_ bin
 
-To be written. The relevant directory is `05_PANGENOMICS`.
+Using anvi'o we could easily do a pangenomic analysis. To demonstrate the pangenomic workflow, I downloaded 6 *E. facealis*, and 5 *E. faecium* genomes into the folder `05_PANGENOMICS`, to analyze them together with our *E. facealis* bin.
+
+{:.notice}
+You can find a comprehensive tutorial on the anvi'o pangenomic workflow [here]({% post_url anvio/2015-11-14-pangenomics %}).
+
+There is one thing for ECOGEO people to fix first:
 
 {% highlight bash %}
  $ cd ../05_PANGENOMICS/
  $ sed -i 's/03_ANVIO_MERGED_PROFILE/01_ANVIO_MERGED_PROFILE/g' internal-genomes.txt
 {% endhighlight %}
 
+Then you can run `anvi-pan-genome` program the following way:
+
 {% highlight bash %}
  $ anvi-pan-genome -i internal-genomes.txt -e external-genomes.txt -o enterococcus_pan_genome -T 4
 {% endhighlight %}
+
+This will generate many output files in the output directory, including a sub-directory that contains all the files to run the anvi'o interactive interface to visualize results. You can initiate the interactive interface the following way,
 
 {% highlight bash %}
  $ cd enterococcus_pan_genome/enterococcus_pan_genome/
  $ anvi-interactive -t tree.txt -d view_data.txt -s samples.db -A additional_view_data.txt --manual -p profile.db --title "Enterococcus Pan"
 {% endhighlight %}
 
+To get this ugly looking display:
+
 [![E. facealis pan](images/e-faecalis-pan.png)](images/e-faecalis-pan.png){:.center-img .width-50}
 
-Kill the server.
+I did it prettier for you. If you kill the server, and import the state file the following way, and re-run the server,
 
 {% highlight bash %}
  $ wget http://merenlab.org/tutorials/infant-gut/files/pan-state.json 
@@ -230,5 +241,8 @@ Kill the server.
  $ anvi-interactive -t tree.txt -d view_data.txt -s samples.db -A additional_view_data.txt --manual -p profile.db --title "Enterococcus Pan"
 {% endhighlight %}
 
-[![E. facealis pan](images/e-faecalis-pan-state.png)](e-faecalis-pan-state.png){:.center-img .width-50}
+It will look much more reasonable:
 
+[![E. facealis pan](images/e-faecalis-pan-state.png)](images/e-faecalis-pan-state.png){:.center-img .width-50}
+
+N
