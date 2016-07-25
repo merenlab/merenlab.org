@@ -189,7 +189,7 @@ Anvi'o can make good use of functional annotations of genes. Please see the foll
 
 ## Profiling BAM files
 
-If you are here, you must be done with your contigs database, and have your BAM files ready. Good!
+If you are here, you must be done with your contigs database, and have your BAM files ready. Good! It is time to initialize your BAM file, and create an *anvi'o profile* for your sample.
 
 ### anvi-init-bam
 
@@ -226,7 +226,9 @@ OK. Good.
 
 ### anvi-profile
 
-Profiling step makes sense of each BAM file separately by utilizing the information stored in the contigs database, and it is one of the most critical (and also complex and computationally demanding) steps of the metagenomic workflow.
+In contrast to the contigs database, an anvi'o profile database stores sample-specific information about contigs. Profiling a BAM file with anvi'o using `anvi-profile` creates a single profile that reports properties for each contig in a single sample based on mapping results. Each profile database links to a contigs database, and anvi’o can merge single profiles that link to the same contigs database into merged profiles (which will be covered later).
+
+In other words, the profiling step makes sense of each BAM file separately by utilizing the information stored in the contigs database. It is one of the most critical (and also most complex and computationally demanding) steps of the metagenomic workflow.
 
 The simplest form of the command that starts the profiling looks like this:
 
