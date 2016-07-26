@@ -110,7 +110,11 @@ The first three files are courtesy of Elaina Graham, who used [GroopM](http://ww
 
 [CONCOCT](http://www.nature.com/nmeth/journal/v11/n11/full/nmeth.3103.html) results come from the CONCOCT module embedded within anvi'o. 
 
-Finally, I generated Sharon et al. results by BLAST searching sequences in bins identified by the authors of the study (see [http://ggkbase.berkeley.edu/carrol](http://ggkbase.berkeley.edu/carrol)) to our contigs to have matching names.
+Finally, I generated Sharon et al. results by BLAST searching sequences in bins identified by the authors of the study (see [http://ggkbase.berkeley.edu/carrol](http://ggkbase.berkeley.edu/carrol)) to our contigs to have matching names, and you should download it the following way:
+
+{% highlight bash %}
+ $ wget http://merenlab.org/tutorials/infant-gut/files/SHARON_et_al.txt -O ../03_EXTERNAL_BINNING_RESULTS/SHARON_et_al.txt
+{% endhighlight %}
 
 OK. Moving on.
 
