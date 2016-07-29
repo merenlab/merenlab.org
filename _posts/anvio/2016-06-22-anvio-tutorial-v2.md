@@ -55,7 +55,7 @@ For the contigs and BAM files for your *real data*, there is one more thing you 
 
 ### Take a look at your FASTA file
 
-**Your FASTA file must have simple deflines**, and if it doesn't have simple deflines, **you must fix your FASTA file prior to mapping**. This is necessary, because the names in `contigs.fa` **must** match the names in your BAM files. Unfortunately, different mapping software behave differently when they find a space character, or say a `|` character in your FASTA file, and they proceed to change those characters arbitrary ways. Therefore it is essential to keep the sequence IDs in your FASTA file **as simple as possible** before mapping. To avoid any problems later, take a look at your deflines prior to mapping now, and remove anything that is not a digit, an ASCII letter, an underscore, or a dash character. Here are some bad deflines:
+**Your FASTA file must have simple deflines**, and if it doesn't have simple deflines, **you must fix your FASTA file prior to mapping**. This is necessary, because the names in `contigs.fa` **must** match the names in your BAM files. Unfortunately, different mapping software behave differently when they find a space character, or say a `|` character in your FASTA file, and they proceed to change those characters in arbitrary ways. Therefore it is essential to keep the sequence IDs in your FASTA file **as simple as possible** before mapping. To avoid any problems later, take a look at your deflines prior to mapping now, and remove anything that is not a digit, an ASCII letter, an underscore, or a dash character. Here are some bad deflines:
 
 {% highlight bash %}
 >Contig-123 length:4567 
