@@ -25,7 +25,7 @@ With anvi'o you can do [metagenomic binning](https://peerj.com/articles/1319/){:
 <img src="http://i.imgur.com/iGuCRnu.jpg?1" style="margin: 3px;" />
 </div>
 
-The anvi'o interactive interface is a fully customizable visualization environment that is accessible through an intuitive interface to efficiently visualize complex data. It can handle large datasets, and it's [source code](http://github.com/meren/anvio){:target="_blank"} is freely available within the anvi'o platfrom.
+The anvi'o interactive interface is a fully customizable visualization environment that is accessible through an intuitive interface to efficiently visualize complex data. It can handle large datasets, and it's [source code](http://github.com/meren/anvio){:target="_blank"} is freely available within the anvi'o platform.
 
 Although it is fully integrated with core anvi'o operations detailed in [the metagenomic workflow tutorial]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}){:target="_blank"}, the visualization environment can be initiated in an *ad hoc* manner by using the `anvi-interactive` program with `--manual-mode` flag, or through anvi'server, without an anvi'o installation. In summary, if you have a matrix file, anvi'o may be useful to you to generate high-quality, publication-ready figures with mouse clicks.
 
@@ -197,11 +197,11 @@ Produces this:
 {:.notice}
 Anvi'server link: [http://anvi-server.org/public/meren/interface_demo_IV](http://anvi-server.org/public/meren/interface_demo_IV){:target="_blank"}
 
-Some of you are probably asking themselves '*what is the difference between text and categorical data?*'. Very good question! Essentially they are both the same. If the unique number of items in a given dataset of non-integer values more than 12, the interacitve interface assumes that this is a text layer, and instaed of assigning random colors to each item, it shows it as such. In contrast, if there are 12 or less unique values, the interface by default treats it as a categorical data layer, and assigns random colors. Of course these colors can be changed quite easily through the interface, or programmaticaly by processing the 'state' file (more on this later).
+Some of you are probably asking themselves '*what is the difference between text and categorical data?*'. Very good question! Essentially they are both the same. If the unique number of items in a given dataset of non-integer values more than 12, the interactive interface assumes that this is a text layer, and instead of assigning random colors to each item, it shows it as such. In contrast, if there are 12 or less unique values, the interface by default treats it as a categorical data layer, and assigns random colors. Of course these colors can be changed quite easily through the interface, or programmatically by processing the 'state' file (more on this later).
 
 ## 1.5 Stacked bars
 
-Stacked bars are a bit tricky compared to the other data types, but nothing too compicated. Here is an example addition to our data file:
+Stacked bars are a bit tricky compared to the other data types, but nothing too complicated. Here is an example addition to our data file:
 
 |contig|c1|c2|c3|categorical|bars!A;B;C|text|
 |:--|:--:|:--:|:--:|:--:|:--:|:--|
@@ -342,13 +342,13 @@ Anvi'o allows you to create selections of items shown in the display (whether th
 
 * **Create or delete bins**, **set bin names**, **change the color of a given bin**, or sort bins based on their name, the number of units they carry, or completion and contamination estimates (completion / contamination estimates are only computed for genomic or metagenomic analyses).
 * View **the number of selected units** in a given bin, and see the **list of names in the selection** by clicking the button that shows the number of units described in the bin.
-* **Store a collection of bins**, or **load a previouly stored collection**.
+* **Store a collection of bins**, or **load a previously stored collection**.
 
 ### 2.2.4 Mouse tab
 
 The mouse tab displays the value of items underneath the mouse pointer while the user browse the tree.
 
-Displaying the numerical or categorical value of an item shown on the tree is not an easy task. We originally thought that displaying pop-up windows would solve it, but besides the great overhead, it often became a nuisence while browsing parts of the tree. We could show those pop-up displays only when use clicks on the tree, however click-behavior is much more appropriate to add or remove individual items from a bin, hence, it wasn't the best solution either. So we came up with the 'mouse tab'. You have a better idea? I am not surprised! We would love to try imporove your experience: please enter an issue, and let's discuss.
+Displaying the numerical or categorical value of an item shown on the tree is not an easy task. We originally thought that displaying pop-up windows would solve it, but besides the great overhead, it often became a nuisance while browsing parts of the tree. We could show those pop-up displays only when use clicks on the tree, however click-behavior is much more appropriate to add or remove individual items from a bin, hence, it wasn't the best solution either. So we came up with the 'mouse tab'. You have a better idea? I am not surprised! We would love to try improve your experience: please enter an issue, and let's discuss.
 
 ### 2.2.5 Search tab
 
@@ -361,8 +361,10 @@ It does what the name suggests. Using this tab you can,
 
 Here are some small conveniences that may help the interface serve you better (we are happy to expand these little tricks with your suggestions).
 
-* You can zoom to a section of the tree by making a selection **while the pressing shift button**.
+* You can zoom to a section of the display by making a rectangular selection of the area **while the pressing the `shift` button**.
 
 * You can click an entire branch to add items into the selected bin, and remove them by **right-clicking** a branch.
 
-* If you click a branch **while pressing the Command or CTRL button**, it will create a new bin, and add the content of the selection into that bin.
+* If you click a branch **while pressing the `Command` or `CTRL` button**, it will create a new bin, and add the content of the selection into that bin.
+
+* By pressing `1`, `2`, `3`, `4`, and `5`, you can go between Layers, Bins, Samples, Mouse, and Search tabs!
