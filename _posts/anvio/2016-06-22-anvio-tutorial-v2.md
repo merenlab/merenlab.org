@@ -183,8 +183,6 @@ Annotating genes with taxonomy makes things downstream much more meaningful, and
 
 - [**Importing taxonomy into anvi'o**]({% post_url anvio/2016-06-18-importing-taxonomy %}).
 
-{:.notice}
-When taxonomy information is available in an anvi'o contigs database, anvi'o interactive interfaces and output files will start utilizing it automatically. By default they will focus on the genus names, however, you will be able to change that behavior using the `--taxonomic-level` flag whenever it is appropriate.
 
 ### anvi-import-functions
 
@@ -334,7 +332,16 @@ This will work perfectly if your merged profile has its trees (i.e., the hierarc
 $ anvi-interactive -p SAMPLES-MERGED/PROFILE.db -c contigs.db -C CONCOCT
 {% endhighlight %}
 
-When you run `anvi-interactive` with a collection name, it will on the fly compute various characteristics of each bin, i.e., their mean coverage, variability, completion and redundancy estimates, and generate anvi'o views for them to display their distribution across your samples in the interactive interface. Briefly, each *leaf* of the anvi'o central dendrogram will represent a "bin" in your collection, instead of a "contig" in your metagenomic assembly. Here is the big advantage: if you have run `anvi-merge` with `--skip-hierarchical-clustering` parameter due to the large number of contigs you had, but if you have binning results available to you from an external resource, you can import those bins as described in the previous section, and run the interactive interface with the collection id.
+When you run `anvi-interactive` with a collection name, it will on the fly compute various characteristics of each bin, i.e., their mean coverage, variability, completion and redundancy estimates, and generate anvi'o views for them to display their distribution across your samples in the interactive interface. Briefly, each *leaf* of the anvi'o central dendrogram will represent a "bin" in your collection, instead of a "contig" in your metagenomic assembly. A dendrogram for bins will be generated for each view using euclidean distance and ward linkage automatically. When running the interactive interface in collection mode, you can change those defaults using the `--distance` and/or `--linkage` parameters. If you have run `anvi-merge` with `--skip-hierarchical-clustering` parameter due to the large number of contigs you had, but if you have binning results available to you from an external resource, you can import those bins as described in the previous section, and run the interactive interface with that collection id to immediately see the distribution of bins across your samples.
+
+Here is some additional information about the interactive interface (please see a full list of other options by typing `anvi-interactive -h`):
+
+- **Storing visual settings**. The interactive interface allows you to tweak your presentation of data remarkably, and store these settings in profile databases as "*states*". If there is a state stored with the name `default`, or if you specify a state when you are running the program via `--state` parameter, the interactive interface will load it, and proceeds to visualize the data automatically (without waiting for you to click the Draw button). States are simply JSON formatted data, and you can export them from or import them into an anvi'o profile database using `anvi-export-state` and `anvi-import-state` programs. This way you can programmatically edit state files if necessary, and/or use the same state file for multiple projects.
+
+- **Using additional data files**. When you need to display more than what is stored in anvi'o databases for a project, you can pass additional data files to the interactive interface. If you have a newick tree as an alternative organization of your contigs, you can pass it using the `--tree` parameter, and it would be added to the relevant combo box. If you have extra layers to show around the tree (see [Figure 1 in this publication](https://peerj.com/articles/1839/) as an example), you can use the `--additional-layers` parameter. Similarly, you can pass an extra view using the `--additional-view` parameter. Files for both additional layers and additional view is expected to be TAB-delimited text files and information to be provided at the split-level (if you hate this the way we do please let us know, and we will be like "*alright alright*" and finally fix it). Please see the help menu for more information about the expected format for these files.
+
+- **Setting a taxonomic level**. When information about taxonomy is available in an anvi'o contigs database, anvi'o interactive interface will start utilizing it automatically and you will see a taxonomy layer in the interface for each of your contigs. By default the genus names will be used, however, you can change that behavior using the `--taxonomic-level` flag.
+
 
 
 ### anvi-gen-samples-info-database
