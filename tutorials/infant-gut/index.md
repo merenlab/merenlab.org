@@ -59,7 +59,7 @@ Centrifuge ([code](https://github.com/infphilo/centrifuge), [pre-print](http://b
 If you import these files into the contigs database the following way,
 
 {% highlight bash %}
- $ anvi-import-taxonomy -c CONTIGS.db -i ../additional-files/centrifuge-files/*.tsv -p centrifuge 
+ $ anvi-import-taxonomy -c CONTIGS.db -i additional-files/centrifuge-files/*.tsv -p centrifuge 
 {% endhighlight %}
 
 And run the interactive interface again,
@@ -135,7 +135,7 @@ To compare binning results, we could import each collection into the profile dat
 Anvi'o has a script to merge multiple files for external binning results into a single merged file (don't ask why):
 
 {% highlight bash %}
- $ python anvi-script-merge-collections -c CONTIGS.db -i additional-files/external-binning-results/*.txt -o collections.tsv
+ $ anvi-script-merge-collections -c CONTIGS.db -i additional-files/external-binning-results/*.txt -o collections.tsv
 {% endhighlight %}
 
 If you take a look at this file, you will realize that it has a very simple format:
@@ -157,7 +157,7 @@ Day17a_QCcontig1008_split_00001  Bin_2    db_bin_1   maxbin.009  metabat_igm.7  
 Good. Now you can run the interactive interface to display all collections of bins stored in `collections.tsv` as 'additional layers':
 
 {% highlight bash %}
- $ anvi-interactive -p PROFILE.db -c CONTIGS.db -A collections.tsv -Y genus
+ $ anvi-interactive -p PROFILE.db -c CONTIGS.db -A collections.tsv --taxonomic-level t_genus
 {% endhighlight %}
 
 At this point you should be seeing a display similar to this (after setting the height of each additional layer to 200px):
@@ -167,13 +167,13 @@ At this point you should be seeing a display similar to this (after setting the 
 To emphasize relationships between bins visually. If you import it the following way, 
 
 {% highlight bash %}
- $ python anvi-import-state --state state.json --name default -p PROFILE.db
+ $ anvi-import-state --state additional-files/state-files/state-merged.json --name default -p PROFILE.db
 {% endhighlight %}
 
 and run the interactive interface again,
 
 {% highlight bash %}
- $ anvi-interactive -p PROFILE.db -c CONTIGS.db -A collections.tsv -Y genus
+ $ anvi-interactive -p PROFILE.db -c CONTIGS.db -A collections.tsv --taxonomic-level t_genus
 {% endhighlight %}
 
 this time you should get this display:
