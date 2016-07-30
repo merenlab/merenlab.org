@@ -157,7 +157,7 @@ Day17a_QCcontig1008_split_00001  Bin_2    db_bin_1   maxbin.009  metabat_igm.7  
 Good. Now you can run the interactive interface to display all collections of bins stored in `collections.tsv` as 'additional layers':
 
 {% highlight bash %}
- $ anvi-interactive -p PROFILE.db -c CONTIGS.db -A collections.tsv
+ $ anvi-interactive -p PROFILE.db -c CONTIGS.db -A collections.tsv --taxonomic-level t_genus
 {% endhighlight %}
 
 At this point you should be seeing a display similar to this (after setting the height of each additional layer to 200px):
@@ -173,7 +173,7 @@ To emphasize relationships between bins visually. If you import it the following
 and run the interactive interface again,
 
 {% highlight bash %}
- $ anvi-interactive -p PROFILE.db -c CONTIGS.db -A collections.tsv -Y genus
+ $ anvi-interactive -p PROFILE.db -c CONTIGS.db -A collections.tsv --taxonomic-level t_genus
 {% endhighlight %}
 
 this time you should get this display:
