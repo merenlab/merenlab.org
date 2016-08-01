@@ -1,201 +1,181 @@
 ---
 layout: post
-authors: [meren]
-title: "Analyzing variability with anvi'o"
-excerpt: "Exploring variability patterns using anvi'o for deeper insights"
-modified: 2015-07-20
+authors: [meren,tom]
+title: "Analyzing single nucleotide variations (SNVs) with anvi'o"
+excerpt: "Exploring micro-diversity patterns using for deeper insights into ecology"
+modified: 2016-07-21
 tags: []
 categories: [anvio]
 comments: true
 ---
 
+{:.notice}
+This is more of a theoretical tutorial. For a more practical one on the same topic, please visit [http://merenlab.org/tutorials/infant-gut/#profiling-snvs-in-a-bin]({{ site.url }}/tutorials/infant-gut/#profiling-snvs-in-a-bin)
+
 {% include _toc.html %}
 
-*De novo* characterization of variable nucleotide sites in a given genome bin (or in a given contig, or even in a given gene) is one of the most powerful aspects of anvi'o. This ability opens doors to the use of subtle differences across environments. Through simple programs anvi'o installs, it is possible to focus on a small number of nucleotide positions, and utilize them to infer ecology at a very highly resolved manner.
+We use the term "**microbial clouds**" to describe an assemblage of co-existing microbial genomes in an environment that are similar enough to map to the context of the same reference genome (this concept is widely defined as "microbial populations", although the definition of the term [population](https://en.wikipedia.org/wiki/Population) makes it somewhat irrelevant to microbiology).
 
-# What is variation? Why don't we call them SNPs?
+Cells within a microbial cloud (i.e., all cells that would have classified as the same "species" or "strain" for whatever these terms mean to you) will share the vast majority of their genomes in the sequence space. Hence, a consensus contig obtained through the assembly of metagenomic reads from this environment, or a contig that originates from an isolate cultured from this environment, will recruit short reads through mapping from many other member cells in a given cloud.
 
-I would like to define variation as the extent of disagreement between the aligned nucleotides from short reads that map to the same context.
+Metagenomic short reads from a cloud mapping to the same context can have nucleotide positions that systematically differ from the reference context depending on, 
 
-I do acknowledge that it would be much easier to communicate this entire thing if we called them SNPs. But the term 'SNP' [has a very specific and well-established definition](https://en.wikipedia.org/wiki/Single-nucleotide_polymorphism), and I think it is being a bit overused, especially in microbiology, and even more specifically in metagenomics, where the origin of variation is not always quite clear to us due to the overwhelming complexity of what we sequence, and the bioinformatics approaches we employ to make sense of this data. I do not want to lose you early on, so let's postpone this discussion for another time.
+* The heterogeneity of the microbial cloud,
+* the fraction of the cloud that can be targeted by the reference genome through mapping, 
+* and/or the stringency of mapping.
 
-Depending on the complexity in a community, short reads in a metagenomic dataset that map to a contig can generate one or more mismatches if the mapping does not require a 100% sequence identity. The source of a mismatch may be artificial, such as stochastic sequencing or PCR errors, while others may represent ecologically informative variation.
+Since one of the mechanisms for the diversification of genomes operates at the single-nucleotide level, ability to characterize the heterogeneity of a microbial cloud nucleotide by nucleotide can be very critical for a more complete understanding of the environmental forces that affect communities, and adaptive strategies microbes rely on to survive in environments they reside. Anvi'o can *de novo* characterize single nucleotide variations (SNVs) in a given microbial cloud using mapping results, and allow researchers to delineate subtle ecological niche and ecotypes, and quantify the level of heterogeneity in a microbial cloud.
 
-Although the importance of it is probably almost common sense to anyone who understands the steps we follow to recover our contigs for a given environment, and although many amazing studies exist including the ones from Jill Banfield's lab that made use of SNP patterns in metagenomic settings such as [this one](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.0060177), working with subtle nucleotide variaiton in metagenomic bins hasn't been so practical to access and/or utilize them to make better sense of the ecology of microbes. There are **many** challenges to address if one wants to focus on "subtle" things in these complex datasets, and in order to set the stage with reasonable expectations I would like to clarify that anvi'o will not exactly offer you a magical wand. However, anvi'o _will_ empower you to work with this aspect of your datasets by making the recovery and query of this information more or less 'straightforward'. I hope at the end of this post it will be clear to you how does it do it.
+This article will describe some key aspects of the anvi'o workflow for the recovery, profiling, and characterization of SNVs for high-resolution genomics using easy-to-use anvi'o programs.
+
+# Defining "*single nucleotide variation*"
+
+Depending on the complexity of a microbial cloud (i.e., the extent of monoclonality in it, or the lack thereof), metagenomic short reads that map to a reference context (i.e., a contig from a MAG or a cultivar genome) can generate one or more mismatches (unless the mapping software does not require a 100% sequence identity for alignment).
+
+Here we define 'variation' as the extent of disagreement between the aligned nucleotides that map to the same context. While the source of a mismatch can be artificial (i.e., due to random sequencing or PCR errors, or non-specific mapping of local alignments), it may also represent ecologically informative variation. The context is a single nucleotide position from the reference sequence. This disagreement is used to differentiate SNVs (generally in a minority of positions) from stable nucleotide positions upon 'base frequencies'. Note that SNVs are generally dominated by two nucleotides (e.g., 60% of `A` and 40% of `T`) but can also represent three or four nucleotides in relatively high proportions.
+
+Although the importance of it is probably almost common sense to anyone who understands the steps we follow to recover our contigs for a given environment, and although many amazing studies exist including the ones from Jill Banfield's lab that made use of SNV patterns in metagenomic settings such as [this one](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.0060177), working with subtle nucleotide variation in cultivar genomes or metagenomic assembly outputs hasn't been so practical to access. There are **many** challenges to address if one wants to focus on subtle things in complex environmental sequencing datasets, and in order to set the stage with reasonable expectations we would like to clarify that anvi'o will not exactly offer you a magical wand. However, anvi'o _will_ empower you to work with this aspect of your datasets by making the recovery and query of this information more or less straightforward. We hope that at the end of this post it will be clear to you how this can be done.
 
 ---
 
-Just so you have a mental picture of how anvi'o visualizes these varaible nucleotide positions, here is a polished screenshot from the interface:
+Just so you have a mental picture of how anvi'o visualizes SNVs, here is a polished screenshot from the interface:
 
 <div class="centerimg">
 <a href="{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/example.png"><img src="{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/example.png" style="border: none; width: 100%;" /></a>
 </div>
 
-What you see is the coverage and base frequencies in reported variable positions in a single contig accross two samples. Where these samples are coming from are not really relevant to the rest of this post. But usually, just like it is the case in this example, variable nucleotide positions and their base frequencies do not seem to be random, and they can be extremely reproducible if the population structures are really similar in different environments.
+What you see is the coverage and base frequencies in reported SNVs in a single contig across two samples. Where these samples are coming from are not really relevant to the rest of this post. But usually, just like it is the case in this example, SNVs and their base frequencies do not seem to be random, and they can be extremely reproducible if the population structures are really similar in multiple samples (i.e., in biological replicates).
 
 # The anvi'o way
 
-Anvi'o gives access to variable nucleotide information in two steps.
+Anvi'o gives access to information about single nucleotide variants in two steps.
 
-The first step is to identify variable nucleotide positions and reporting them _for each sample separately_ (which takes place during the profiling step of the analysis (see [the tutorial]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}) if you are not familiar with the metagenomic workflow of anvi'o)).
+The first step is to identify SNVs and reporting them _for each sample separately_. This step takes place during the profiling of a given BAM file with the program `anvi-profile`. 
 
-The second step is to interpret the ecological significance of sample-specific variable positions _across samples_. The first step is agnostic to the experimental design, and/or the variable nucleotide positions in other samples: it simply does its best to find and report variation. The second step is where the user's input about the experimental design, and their questions come into the play.
+The second step is to interpret the ecological significance of sample-specific SNVs _across samples_ using the program `anvi-gen-variability-profile`. The first step is agnostic to the experimental design, and/or the SNVs in other samples: it simply does its best to find and report variation. The second step is where the user's input about the experimental design, and their questions come into the play.
 
-Next two chapters in this article will detail these two steps, and the third chapter will explain the analysis of variability in the infant gut time-series dataset [from this study](http://genome.cshlp.org/content/23/1/111.long).
+The following two chapters in this article will detail these two steps, and the third chapter will explain the analysis of variability using the Infant Gut Dataset that is first appeared in [this study](http://genome.cshlp.org/content/23/1/111.long).
 
-Everything you might need to replicate this analysis and to re-generate the third figure in the anvi'o paper is [here]({{ site.url }}/data/). I hope I will manage to give enough details that you will be able to modify my recipe and start exploring patterns in your own datasets if you wish.
+Everything you might need to replicate this analysis and to re-generate the third figure in the anvi'o paper is [here]({{ site.url }}/data/). We hope that we will manage to give enough details that you will be able to modify the recipe and start exploring patterns in your own datasets if you wish.
 
 Please do not hesitate to ask questions, make suggestions, and/or start discussions regarding this topic here in the comments section down below, or at [the issues section of the anvi'o repository on Github](https://github.com/meren/anvio/issues), or by directly contacting [us]({{ site.url }}/people/).
 
-# *De novo* characterization and reporting of nucleotide variation
+# *De novo* characterization and reporting of SNVs
 
-During the profiling step that should be done for each sample separately, anvi’o checks the composition of nucleotides that map to the same nucleotide position in a given contig, and keeps track of variation in the form of 'base frequencies'.
+During the profiling step that should be done for each sample separately, anvi'o checks the composition of nucleotides that map to each reference position, and keeps track of variation in the form of 'base frequencies'.
 
-Profiler stores this information in the 'profile database' for each sample. and when samples are merged with `anvi-merge`, all reported variable positions from individual samples are also merged into one table. This table is called `variable_positions`, and the structure of it is identical in single and merged profiles. Here is a quick look into a `variable_positions` table (in this example I am showing only the top 30 most highly covered nucleotide positions in the merged infant gut data, which I am going to detail in the last chapter):
+Note that the reporting of these base frequencies is a little tricky: If you report base frequencies for each position when there is any variation at all, then the number of reported positions would be enormous. For instance, if you have a nucleotide position with 500X coverage, you can safely assume that there will always be _some_ nucleotides that do not match to the consensus nucleotide for that position --whether it is due to biology, or random sequencing errors, or other types of relevant or irrelevant sources of variation. For the sake of better management of available resources, and to be very quick, anvi'o (with its default settings) ___does not___ report variation in every single nucleotide position during profiling.
 
- <table id="table_layers">
-     <thead>
-         <tr>
-             <th>entry_id</th>
-             <th>sample_id</th>
-             <th>split_name</th>
-             <th>pos</th>
-             <th>coverage</th>
-             <th>n2n1ratio</th>
-             <th>competing_nts</th>
-             <th>consensus</th>
-             <th>A</th>
-             <th>T</th>
-             <th>C</th>
-             <th>G</th>
-             <th>N</th>
-         </tr>
-     </thead>
-     <tbody>
-        <tr><td>24165</td><td>DAY_19</td><td>Day17a_QCcontig25_split_00001</td><td>577</td><td>5664</td><td>0.990838618745596</td><td>GC</td><td>G</td><td>7</td><td>7</td><td>2812</td><td>2838</td><td>0</td></tr>
-        <tr><td>24909</td><td>DAY_19</td><td>Day17a_QCcontig14_split_00001</td><td>27562</td><td>5599</td><td>0.929509329647547</td><td>TC</td><td>T</td><td>5</td><td>2894</td><td>2690</td><td>10</td><td>0</td></tr>
-        <tr><td>24167</td><td>DAY_19</td><td>Day17a_QCcontig25_split_00001</td><td>808</td><td>5389</td><td>0.799732530926112</td><td>TG</td><td>T</td><td>3</td><td>2991</td><td>3</td><td>2392</td><td>0</td></tr>
-        <tr><td>24170</td><td>DAY_19</td><td>Day17a_QCcontig25_split_00001</td><td>1145</td><td>5307</td><td>0.635352286773795</td><td>AT</td><td>A</td><td>3236</td><td>2056</td><td>7</td><td>8</td><td>0</td></tr>
-        <tr><td>24166</td><td>DAY_19</td><td>Day17a_QCcontig25_split_00001</td><td>835</td><td>5202</td><td>0.805429864253394</td><td>CT</td><td>C</td><td>5</td><td>2314</td><td>2873</td><td>10</td><td>0</td></tr>
-        <tr><td>37483</td><td>DAY_22A</td><td>Day17a_QCcontig25_split_00001</td><td>1145</td><td>5162</td><td>0.625590923416325</td><td>AT</td><td>A</td><td>3173</td><td>1985</td><td>2</td><td>2</td><td>0</td></tr>
-        <tr><td>37476</td><td>DAY_22A</td><td>Day17a_QCcontig25_split_00001</td><td>808</td><td>5007</td><td>0.922367409684858</td><td>TG</td><td>T</td><td>1</td><td>2602</td><td>4</td><td>2400</td><td>0</td></tr>
-        <tr><td>39469</td><td>DAY_22A</td><td>Day17a_QCcontig14_split_00001</td><td>27562</td><td>4981</td><td>0.984455958549223</td><td>TC</td><td>T</td><td>1</td><td>2509</td><td>2470</td><td>1</td><td>0</td></tr>
-        <tr><td>37472</td><td>DAY_22A</td><td>Day17a_QCcontig25_split_00001</td><td>835</td><td>4922</td><td>0.940828402366864</td><td>CT</td><td>C</td><td>2</td><td>2385</td><td>2535</td><td>0</td><td>0</td></tr>
-        <tr><td>17042</td><td>DAY_18</td><td>Day17a_QCcontig25_split_00001</td><td>808</td><td>4738</td><td>0.987830465799412</td><td>TG</td><td>T</td><td>1</td><td>2383</td><td>0</td><td>2354</td><td>0</td></tr>
-        <tr><td>37471</td><td>DAY_22A</td><td>Day17a_QCcontig25_split_00001</td><td>577</td><td>4688</td><td>0.982233502538071</td><td>CG</td><td>C</td><td>0</td><td>2</td><td>2364</td><td>2322</td><td>0</td></tr>
-        <tr><td>17049</td><td>DAY_18</td><td>Day17a_QCcontig25_split_00001</td><td>1145</td><td>4643</td><td>0.562815762883126</td><td>AT</td><td>A</td><td>2969</td><td>1671</td><td>2</td><td>1</td><td>0</td></tr>
-        <tr><td>17038</td><td>DAY_18</td><td>Day17a_QCcontig25_split_00001</td><td>835</td><td>4557</td><td>0.973570190641248</td><td>CT</td><td>C</td><td>2</td><td>2247</td><td>2308</td><td>0</td><td>0</td></tr>
-        <tr><td>18021</td><td>DAY_18</td><td>Day17a_QCcontig14_split_00001</td><td>27562</td><td>4461</td><td>0.965182899955928</td><td>CT</td><td>C</td><td>1</td><td>2190</td><td>2269</td><td>1</td><td>0</td></tr>
-        <tr><td>17037</td><td>DAY_18</td><td>Day17a_QCcontig25_split_00001</td><td>577</td><td>4400</td><td>0.890658631080499</td><td>CG</td><td>C</td><td>7</td><td>1</td><td>2323</td><td>2069</td><td>0</td></tr>
-        <tr><td>52211</td><td>DAY_16</td><td>Day17a_QCcontig14_split_00001</td><td>27562</td><td>4057</td><td>0.913597733711048</td><td>TC</td><td>T</td><td>1</td><td>2118</td><td>1935</td><td>3</td><td>0</td></tr>
-        <tr><td>51254</td><td>DAY_16</td><td>Day17a_QCcontig25_split_00001</td><td>808</td><td>3929</td><td>0.908560311284047</td><td>TG</td><td>T</td><td>4</td><td>2056</td><td>1</td><td>1868</td><td>0</td></tr>
-        <tr><td>24168</td><td>DAY_19</td><td>Day17a_QCcontig25_split_00001</td><td>15856</td><td>3825</td><td>0.0774011299435028</td><td>GT</td><td>G</td><td>6</td><td>274</td><td>5</td><td>3540</td><td>0</td></tr>
-        <tr><td>51261</td><td>DAY_16</td><td>Day17a_QCcontig25_split_00001</td><td>1145</td><td>3765</td><td>0.595672464997879</td><td>AT</td><td>A</td><td>2357</td><td>1404</td><td>3</td><td>1</td><td>0</td></tr>
-        <tr><td>17046</td><td>DAY_18</td><td>Day17a_QCcontig25_split_00001</td><td>15856</td><td>3734</td><td>0.0739355581127733</td><td>GT</td><td>G</td><td>0</td><td>257</td><td>1</td><td>3476</td><td>0</td></tr>
-        <tr><td>51250</td><td>DAY_16</td><td>Day17a_QCcontig25_split_00001</td><td>835</td><td>3699</td><td>0.922557172557173</td><td>CT</td><td>C</td><td>0</td><td>1775</td><td>1924</td><td>0</td><td>0</td></tr>
-        <tr><td>51249</td><td>DAY_16</td><td>Day17a_QCcontig25_split_00001</td><td>577</td><td>3648</td><td>0.955984970477724</td><td>GC</td><td>G</td><td>2</td><td>2</td><td>1781</td><td>1863</td><td>0</td></tr>
-        <tr><td>51258</td><td>DAY_16</td><td>Day17a_QCcontig25_split_00001</td><td>15856</td><td>3222</td><td>0.0745071834279987</td><td>GT</td><td>G</td><td>4</td><td>223</td><td>2</td><td>2993</td><td>0</td></tr>
-        <tr><td>30612</td><td>DAY_15B</td><td>Day17a_QCcontig14_split_00001</td><td>27562</td><td>3179</td><td>0.763333333333333</td><td>TC</td><td>T</td><td>2</td><td>1800</td><td>1374</td><td>3</td><td>0</td></tr>
-        <tr><td>37480</td><td>DAY_22A</td><td>Day17a_QCcontig25_split_00001</td><td>15856</td><td>3148</td><td>0.0726466575716235</td><td>GT</td><td>G</td><td>0</td><td>213</td><td>3</td><td>2932</td><td>0</td></tr>
-        <tr><td>77430</td><td>DAY_24</td><td>Day17a_QCcontig25_split_00001</td><td>835</td><td>3046</td><td>0.831528279181709</td><td>CT</td><td>C</td><td>1</td><td>1382</td><td>1662</td><td>1</td><td>0</td></tr>
-        <tr><td>29463</td><td>DAY_15B</td><td>Day17a_QCcontig25_split_00001</td><td>808</td><td>3022</td><td>0.729621125143513</td><td>TG</td><td>T</td><td>5</td><td>1742</td><td>4</td><td>1271</td><td>0</td></tr>
-        <tr><td>77442</td><td>DAY_24</td><td>Day17a_QCcontig25_split_00001</td><td>1145</td><td>3021</td><td>0.661529994496423</td><td>AT</td><td>A</td><td>1817</td><td>1202</td><td>2</td><td>0</td><td>0</td></tr>
-        <tr><td>77435</td><td>DAY_24</td><td>Day17a_QCcontig25_split_00001</td><td>808</td><td>3014</td><td>0.838827838827839</td><td>TG</td><td>T</td><td>1</td><td>1638</td><td>1</td><td>1374</td><td>0</td></tr>
-        <tr><td>29467</td><td>DAY_15B</td><td>Day17a_QCcontig25_split_00001</td><td>577</td><td>3009</td><td>0.959424083769634</td><td>GC</td><td>G</td><td>10</td><td>5</td><td>1466</td><td>1528</td><td>0</td></tr>
-     </tbody>
-</table>
-
-And this is the command line that generated this output (by the way, you can download the PROFILE.db file used in this example [from here](http://figshare.com/articles/Sharon_et_al_metagenome/1499236)):
-
-{% highlight bash %}
-    sqlite3  PROFILE.db 'select * from variable_positions;' | sed 's/|/      /g' | sort -nrk 5 | head -n 30
-{% endhighlight %}
-
-## Variable positions table
-
-Essentially, each line in this table simply reports the base frequencies and coverage information of a single nucleotide position, a single sample maps to. A given line of information has no idea about how many other lines there are coming from the same sample, or how many samples there are in total. So, so far, it is only 'reporting'.
-
-But the reporting itself is a little tricky: If you report base frequencies for each position when there is any variation at all, then the number of reported positions would be enormous. For instance, if you have a nucleotie position with 500X coverage, you can safely assume that there will always be _some_ nucleotides that do not match to the consensus nucleotide for that position --whether it is due to biology, or random sequencing errors, or other types of relevant or irrelevant sources of variation. For the sake of better management of available resources, and to be very quick, anvi'o (with its default settings) ___does not___ report variation in every single nucleotie position during profiling.
-
-Instead, it relies on the following conservative heuristic to determine whether to report the variation at a nucleotide position:
+Instead, it relies on the following conservative heuristic to identify SNVs and report the variation only at these nucleotide positions:
  
-<div class="centerimg">
-<a href="https://www.desmos.com/calculator/qwocua4zi5"><img src="{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/function.png" style="border: none; width: 200px;" /></a>
+<div class='centerimg'>
+<a href='https://www.desmos.com/calculator/qwocua4zi5'><img src='{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/function.png' style='border: none; width: 200px;' /></a>
 </div>
 
-where, `x` represents the coverage, and `b`, `m`, and `c` represent the model parameters equal to 3, 1.45, and 0.05, respectively. Assuming `n1` and `n2` represent the frequency of the most frequent and the second most frequent bases in a given nucleotide position (see the table), base frequencies are reported only if `n2/n1 > y` criterion is satisfied for a given coverage of `x`. It is this simple (and ugly, in a sense). But briefly, this approach sets a dynamic baseline for minimum variation required for reporting _as a function of coverage depth_. According to this heuristic, `y` would be 0.29 for 20X coverage (`x`), 0.13 for 50X coverage, 0.08 for 100X coverage, and ~0.05 for very large values of coverage as `y` approaches to `c`. The goal here is to lessen the impact of sequencing and mapping errors in reported frequencies, and it does it's boring job.
+where, `x` represents the coverage, and `b`, `m`, and `c` represent the model parameters equal to 3, 1.45, and 0.05, respectively. Assuming `n1` and `n2` represent the frequency of the most frequent and the second most frequent bases in a given nucleotide position (see the table), base frequencies are reported only if `n2/n1 > y` criterion is satisfied for a given coverage of `x`. It is this simple (and ugly, in a sense). But briefly, this approach sets a dynamic baseline for minimum variation required for reporting _as a function of coverage depth_. According to this heuristic, `y` would be 0.29 for 20X coverage, 0.13 for 50X coverage, 0.08 for 100X coverage, and ~0.05 for very large values of coverage as `y` approaches to `c`. The goal here is to lessen the impact of sequencing and mapping errors in reported frequencies, and it does it's boring job.
 
-This computation- and storage-efficient strategy reports a rather short list of sample-specific variable nucleotide positions that one can really trust. However, the user has always the option to instruct the profiler to store _all observed frequencies_ by declaring this intention with `--report-variability-full` flag for more statistically appropriate downstream analyses. I am of course talking about the type of analyses Christopher Quince-like people would like to do.
-
-And that's that for "reporting". The next is what we do with what is reported.
+This computation- and storage-efficient strategy reports a relatively short list of sample-specific SNVs that one can really trust. However, the user has always the option to instruct the profiler to store _all observed frequencies_ by declaring this intention with `--report-variability-full` flag for more statistically appropriate downstream analyses. We are of course talking about the type of analyses Christopher Quince-like people would like to do.
 
 
-# Profiling variability
+# Generating a SNV profile
 
-Say we profiled our samples one by one, and merged a bunch of them. Result is a nicely populated `variable_positions` table in the merged database that contains a list ofunconnected nucleotide positions from every sample. The question is how to make sense of them.
+Once SNVs are stored in a single or merged anvi'o profile database, it is time to decide how to process that information, and export a scrutinized table to make sense of them. To interpret the ecological significance of sample-specific variable positions across samples, anvi'o installs a helper program called `anvi-gen-variability-profile`.
 
-To interpret the ecological significance of sample-specific variable positions across samples, anvi’o installs a helper program called `anvi-gen-variability-profile` (AGVP). This program allows the researcher to specify _filters_ that take the experimental design into consideration, so they can generate a refined variability profile that can answer more specific questions.
+In this section will first describe the output file structure for SNV profiles, and then describe the parameters of `anvi-gen-variability-profile`.
 
-A very simple command line for AGVP looks like this:
+## The output matrix
 
-{% highlight bash %}
-    anvi-gen-variability-profile -a ANNOTATION.db -p PROFILE.db -c MY_COLLECTION -b MY_BIN
-{% endhighlight %}
+The output generated by `anvi-gen-variability-profile` contains 24 to 26 columns per nucleotide position (2 columns are optional). Each line in the output file represents one nucleotide position. Here is the first 10 lines of an example SNV profile for the *E. facealis* bin in the Infant Gut Dataset so you have an idea of the file format, followed by the description of each column:
 
-If you type `anvi-gen-variability-profile --help` in your terminal you will see that AGVP can process variable positions in a genome bin based on multiple user-defined, optional filters, including the max number of variable positions to use from each split (`-n`; default: 0, which means "use everything"), minimum ratio of the competing nucleotides at a reported variable position (`-r`; default: 0), minimum number of samples in which a nucleotide position is reported as a variable position (`-x`; default: 1), and the minimum _scattering power_ of a variable nucleotide position across samples (`-m`; default: 0).
+|entry_id|unique_pos_identifier|sample_id|pos|pos_in_contig|corresponding_gene_call|in_partial_gene_call|in_complete_gene_call|base_pos_in_codon|codon_order_in_gene|coverage|cov_outlier_in_split|cov_outlier_in_contig|departure_from_reference|competing_nts|reference|A|T|C|G|N|consensus|departure_from_consensus|n2n1ratio|
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+|365|0|DAY_17A|1600|1600|-1|0|0|0|-1|42|0|0|0.428571428571|CT|T|0|24|14|4|0|T|0.428571428571|0.583333333333|
+|366|1|DAY_17A|1602|1602|-1|0|0|0|-1|38|0|0|0.210526315789|CT|T|0|30|8|0|0|T|0.210526315789|0.266666666667|
+|367|2|DAY_17A|1603|1603|-1|0|0|0|-1|36|0|0|0.277777777778|AG|G|10|0|0|26|0|G|0.277777777778|0.384615384615|
+|368|3|DAY_17A|1606|1606|-1|0|0|0|-1|28|0|0|0.142857142857|AT|A|24|4|0|0|0|A|0.142857142857|0.166666666667|
+|369|4|DAY_17A|1596|1596|-1|0|0|0|-1|52|0|0|0.153846153846|AT|A|44|4|0|4|0|A|0.153846153846|0.0909090909091|
+|370|5|DAY_17A|624|624|11188|0|1|2|88|324|0|0|0.104938271605|AG|A|290|0|2|32|0|A|0.104938271605|0.110344827586|
+|371|6|DAY_17A|627|627|11188|0|1|2|89|326|0|0|0.539877300613|AG|G|176|0|0|150|0|A|0.460122699387|0.852272727273|
+|372|7|DAY_17A|821|821|11188|0|1|1|154|104|0|0|0.0961538461538|CT|C|0|10|94|0|0|C|0.0961538461538|0.106382978723|
+|373|8|DAY_17A|470|470|11188|0|1|1|37|184|0|0|0.184782608696|AG|G|34|0|0|150|0|G|0.184782608696|0.226666666667|
+|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 
-'Scattering power' needs a bit more explanation. This property belongs to a nucleotide position, and it can give a brief idea about the relevance of a given nucleotide position to infer the ecology. OK. Here is an attempt to explain it further: samples in a merged profile can be organized into one or more groups (`g`) based on the nucleotide identity of the competing bases (`b`) at a given variable position, `p`. Scattering power then represents _the number of samples in the second largest group_. That's it. For instance, at one extreme `b` would be identical in all samples at position `p`, in which case `g` would be 1, and scattering power of `p` would be 0. At the other extreme, `p` would harbor a different `b` in every sample, in which case `g` would equal to the number of samples, and the scattering power of `p` would equal to 1. A value for `g` between these two extremes would yield a scattering power of `>1`. The user can employ scattering power to query only those nucleotide positions that vary _consistently_ across samples, and discard positions that show stochastic behavior that are more likely to result from sequencing or PCR errors, or mapping inconsistencies that are not of interest. Please let me know through private e-mail or public means if this is not clear. I would like to improve it if I can identify which part seems to be confusing.
+1. **entry_id** refers to the unique id for the line in the output file. It is the only column that contains a unique id for each line.
 
-So we have AGVP to _sample_ a shorter list of variable positions, and start using them.
+2. **unique_pos_identifier** refers to the unique identifier for a given nucleotide position. Since each sample in the profile database can report variability for every nucleotide position, a **unique_pos_identifier** can appear in the file as many times as the number of the samples in the analysis. This column can be used to pull frequencies of nucleotides for a given nucleotide position from all samples.
 
-# An example with the *E. facealis* population in an infant's gut
+3. **sample_id** corresponds to the sample name a given particular line is reported from. This column allows the linking SNVs and the sample(s) they were identified from.
 
-So, what can we learn by focusing on subtle nucleotide variation?
+4. **pos** refers to the nucleotide position in the split.
 
-Here I will briefly go through one of the interesting things we have encountered while testing out our approach: the curious case of *E. faecalis*.
+5. **pos_in_contig** refers to the nucleotide position in the contig (why is this called *pos_in_contig*, and the one before is not called *pos_in_split*? Well, we have been wondering about that for a long time, too).
 
-You can read the full story on this in our paper. But here is a *ver* brief background: We re-analyzed the metagenomic data [Sharon *et al.* publihsed with a very meticulous analysis](http://genome.cshlp.org/content/23/1/111.long). Agreeing with their findings, *E. facealis* was the most covered genome bin throughout the sampling period in our re-analysis as well. Here is the Figure 2 panel A from the paper; *E. facealis* bin is the red one around 12 o'clock:
+6. **corresponding_gene_call** refers to a unique gene caller id (`-1`, if the position falls out of a gene call).
 
-<div class="centerimg">
-<a href="{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/infant-gut.png"><img src="{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/infant-gut.png" style="width: 50%;" /></a>
-</div>
+7. **in_partial_gene_call** indicates whether the gene call is incomplete (i.e., starts with a start codon, stops with a stop codon, etc). `1` if incomplete, `0` if both start and stop positions are detected, or if the position is not in a gene.
 
-So we have a genome bin, that appears to be very abundant in every sample. This is the coverage of each split in this genome bin across samples:
+8. **in_complete_gene_call** indicates the gene completion status. `1` for complete, `0` if incomplete, or if the position is not in a gene.
 
-<div class="centerimg">
-<a href="{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/coverage.png"><img src="{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/coverage.png" style="width: 50%;" /></a>
-</div>
+9. **base_pos_in_codon** refers to the position of the nucleotide in a codon. `1`, `2` or `3` for codon positions, `-1` if the position is not in a detected gene.
 
-Clearly, we have no way of knowing the extent of variation through this perspective. But for our paper, we wrote a bunch of scripts to analyze the variation in this genome bin. This quite reproducible analysis is stored [in this Github repository](https://github.com/meren/anvio-methods-paper-analyses/tree/master/SHARON_et_al/VARIABILITY_REPORTS). Please take a look at the shell script that runs the same analysis for three genome bins.
+10. **codon_order_in_gene** refers to the order of the codon in the gene call, starting from the start position. `-1` if the position is not in a called gene.
 
-If we were to do it just for *E. faecalis* bin, the command line for AGVP would have looked like this:
+11. **coverage** refers to the coverage, the number of recruited reads mapping to this position.
 
-{% highlight bash %}
-anvi-gen-variability-profile -p PROFILE.db \
-                             -a ANNOTATION.db \
-                             -c SUPERVISED \
-                             -b E_faecalis \
-                             -n 5 \
-                             -o PROFILE_E_faecalis.txt \
-                             -m 3 \
-                             --quince
-{% endhighlight %}
+12. **cov_outlier_in_split** indicates whether the coverage of this position is marked as an outlier compared to all other positions in the split. `1` if outlier, and `0` if not.
 
-This command requests AGVP to report base frequencies at variable nucleotide positions that have a minimum scattering power of 3 (`-m 3`), for E_faecalis. To do a more even sampling, we also request only up to 5 nucleotide positions from each split (`-m 3`).
+13. **cov_outlier_in_contig** has the same purpose wit the one above, except it is at the contig-level.
 
-So these filters create an even more scrutinized list of nucleotide positions. The output file is very similar to the structure of `variable_positions` table. To visualize what is reported, [we have an R script](https://github.com/meren/anvio-methods-paper-analyses/blob/master/SHARON_et_al/VARIABILITY_REPORTS/02_GEN_FIGURE_SUMMARY.R), which gives us the non-polished version of the following figure for the *E. faecalis* bin in this dataset:
+14. **departure_from_reference** refers to the ratio of nucleotides in a given position that diverge from the reference nucleotide. If a position with a coverage of 100X has the nucleotide `A` in the reference, the departure from reference would be `0.2` if the frequency of mapping nucleotides are as follows: `A: 80X`, `T: 0X`, `C: 12X`, and `G: 8X`. Note that the departure from reference can dramatically change across samples, revealing subtle differences at the single nucleotide level.
 
-<div class="centerimg">
-<a href="{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/E_faecalis.png"><img src="{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/E_faecalis.png" style="width: 50%;" /></a>
-</div>
+15. **competing_nts** refers to the two most represented nucleotides. Note that if competing nucleotides are stored as `CT`, it does not necessarily mean that `C` occurs more than `T`, since they are ordered alphabetically. For positions positions that does not have any variation, competing nucleotides will contain two identical nucleotides. I hope here you are asking yourself here "*why would a position without any variation would appear in this table?*". The answer is `--quince-mode`. See below.
 
-Through this figure, we now have a more complete picture of whatis going on within this bin, and it is quite interesting. First, slightly edited version of the figure caption from the paper:
+16. **reference** refers to the reference nucleotide in the mapping context.
 
-<div class="quotable">
-The figure displays for the E. faecalis bin in each sample (from top to bottom), (1) average coverage values for all splits, (2) variation density (number of variable positions reported during the profiling step per kilo base pairs), (3) heatmap of variable nucleotide positions, (4) ratio of variable nucleotide identities, and finally (5) the ratio of transitions (mutations that occur from A to G, or T to C, and vice versa) versus transversions. In the heatmap, each row represents a unique variable nucleotide position, where the color of each tile represents the nucleotide identity, and the shade of each tile represents the square root-normalized ratio of the most frequent two bases at that position (i.e., the more variation in a nucleotide position, the less pale the tile is).
-</div>
+17. **A** refers to the number of mapped reads covering this position with a `A`.
 
+18. **T** refers to the number of mapped reads covering this position with a `T`.
 
-The figure shows that the variation density changes quite dramatically from one day to another, despite the rather stable coverage. Plus, the emergence of this pattern is not random: the heatmap shows that the nucleotide positions that show variation re-occur, and competing base identities remains the same.
+19. **C** refers to the number of mapped reads covering this position with a `C`.
 
-Investigating what causes this, is of course when things start to get exciting. However, I will not go there. Instead, I would like to leave you with this thought: By using patterns of variability, we can start characterizing changes in microbial population structures across environments, and generate better-informed hypotheses to investigate mechanisms that drive these shifts.
+20. **G** refers to the number of mapped reads covering this position with a `G`.
+
+21. **N** refers to the number of mapped reads covering this position with an ambiguous base.
+
+22. **consensus** refers to the most frequent nucleotide mapping to this. This column is used to define the **departure_from_consensus** ratio.
+
+23. **departure_from_consensus** refers to the ratio of nucleotides in a given position that diverge from the most frequent nucleotide. The departure from reference would be `0.5` if the frequency of mapping nucleotides for this position is `A: 10X`, `T: 20X`, `C: 30X`, and `G: 70X`. Compared to the **departure from reference**, this column relies less on the reference sequence and thus might better reflect variation in environmental samples.
+
+24. **n2n1ratio** refers to the ratio of the second most frequent nucleotide to the consensus nucleotide. This value would be `0.42` if the frequency of mapping nucleotides for this position is `A: 10X`, `T: 20X`, `C: 30X`, and `G: 70X`.
+
+25. **contig_name** refers to the contig name as it appears in the contigs database.
+
+26. **split_name** refers to the split name.
+
+So this is the output format. The following section will detail filters to scrutinize it.
+
+## Parameters to filter the output
+
+This program allows the researcher to specify _filters_ and refine reported variable nucleotide positions with a rich array of parameters:
+
+- With `anvi-gen-variability-profile` you can request all variable positions identified in a genome bin stored in a collection using the `--collection-name` and `--bin-id` parameters. Or alternatively you can focus on an arbitrary list of splits using `--splits-of-interest` parameter. You can also focus on a specific gene calls using the `--genes-of-interest` parameter.
+
+- By default, the program will report SNVs from every sample found in the profile database. You can use the `--samples-of-interest` parameter to define which samples should be reported.
+
+- The output file will not have columns to display in which split or contig a given SNV was identified. But you can change that behavior using the `--include-contig-names` and/or `--include-split-names` flags.
+
+- You can use the `--num-positions-from-each-split` to define a maximum number of SNVs to be reported from each split. IF a given split has more SNVs than this number, the program will randomly select a matching number of them.
+
+- Using the `--min-scatter` parameter you can eliminate some SNV positions based on how they partition samples. This one is a bit tricky, but Meren wants to keep it in the code base. If you skip this you will not lose anything, but for the nerd kind, this is how it goes: If you have `N` samples in your dataset, a given variable position `x` in one of your splits can split your `N` samples into `t` groups based on the identity of the variation they harbor at position `x`. For instance, `t` would have been 1, if all samples had the same type of variation at position `x` (which would not be very interesting, because in this case position `x `would have zero contribution to a deeper understanding of how these samples differ based on variability. When `t` > 1, it would mean that identities at position `x` across samples *do* differ. But how much scattering occurs based on position `x` when `t > 1`? If `t=2`, how many samples would end up in each group? Obviously, the even distribution of samples across groups may tell us something different than uneven distribution of samples across groups. So, this parameter filters out any `x` if 'the number of samples in the second largest group' (=scatter) is less than the value you choose. Here is an example: lets assume you have 7 samples. While 5 of those have `AG`, 2 of them have `TC` at position x. This would mean the scatter of `x` is 2. If you set `-m` to 2, this position would not be reported in your output matrix. The default value for `-m` is 0, which means every `x` found in the database and survived previous filtering criteria will be reported. Naturally, `-m` can not be more than half of the number of samples.
+
+- You can set a minimum coverage value for each SNV using the parameter `--min-coverage-in-each-sample`. Any SNV that is covered less than this value would be omitted from the output.
+
+- You can filter nucleotide positions using parameters `--min-departure-from-reference`, `--max-departure-from-reference`, `--min-departure-from-consensus`, or `--max-departure-from-consensus`.
+
+- You can remove nucleotide positions from the final report that show variation in less than any number of samples using the `--min-occurrence` parameter.
+
+- One of the very important flags is the flag `--quince-mode`. If you read the previous section you know that the base frequencies reported for a given nucleotide position in a sample *only* if that position has variation. But it doesn't work well when you want to be able to say "give me back SNVs only if the nucleotide position they occur is covered more than X in every sample". But not every sample will be in the variability profile, hence, the program will not have access to the coverage scores for nucleotide positions for samples with 0 variation at those positions. When you use the `--quince-mode` flag, the program goes back to the auxiliary files generated during profiling, and recovers coverage values for nucleotide positions in sampels for each **unique_pos_identifier**. In other words, if there are 10 samples in a dataset, and a given position has been reported as a variable site during the profiling of only one of those samples, there will be no information stored in the database for the remaining 9. When this flag is used, base frequencies will be recovered. It will take considerably longer to report when this flag is on, and the use of it will increase the file size dramatically, however, it may be necessary to use for some statistical approaches (as well as for some beautiful visualizations).
+
+We certainly hope SNV characterization framework in anvi'o would be useful to you. Please don't hesitate get in touch with us with questions, or suggestions.
+
+If you are interested, you can find an easy-to-follow tutorial here, demonstrating a SNV analysis on the Infant Gut Dataset: [http://merenlab.org/tutorials/infant-gut/#profiling-snvs-in-a-bin]({{ site.url }}/tutorials/infant-gut/#profiling-snvs-in-a-bin).
