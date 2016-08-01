@@ -522,6 +522,7 @@ If you run the interactive interface on these results the following way,
                     -s e_faecalis_snvs/samples.db \
                     -t e_faecalis_snvs/tree.txt \
                     -p e_faecalis_snvs/profile.db \
+                    -A e_faecalis_snvs/additional_view_data.txt \
                     --title "SNV Profile for the E. faecalis bin" \
                     --manual
 {% endhighlight %}
@@ -538,6 +539,7 @@ This view can definitely be improved. I prepared a state file to match colors of
                     -s e_faecalis_snvs/samples.db \
                     -t e_faecalis_snvs/tree.txt \
                     -p e_faecalis_snvs/profile.db \
+                    -A e_faecalis_snvs/additional_view_data.txt \
                     --title "SNV Profile for the E. faecalis bin" \
                     --manual
 {% endhighlight %}
@@ -592,35 +594,114 @@ There are many directions you can go once you have the gene caller IDs associate
 
 Here I will stop, but still we have a lot to talk about!
 
-<div style="display: none">
-## Pangenomic analysis of _E. facealis_ bin
+## A pangenomic analysis
+
+You can also use anvi'o to perform pangenomic analyses, and here I will give a small demo using the now infamous *E. faecalis* bin.
 
 {:.notice}
-STOP here. You don't have the necessary files to go through this, but you will have them very soon!
+**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD available to you. Before you continue, please [click here](#the-contigs-database--anvio-merged-profile-for-the-infant-gut-dataset), do everything mentioned there, and come back here on this page when you are asked to **go back**.
 
-Using anvi'o we could easily do a pangenomic analysis. To demonstrate the pangenomic workflow, I downloaded 6 *E. facealis*, and 5 *E. faecium* genomes into the folder `05_PANGENOMICS`, to analyze them together with our *E. facealis* bin.
+Please run following commands in the IGD dir. They will set the stage for us to take a look at the *E. faecalis* bin:
+
+{% highlight bash %}
+ $ anvi-import-collection additional-files/collections/e-faecalis.txt \
+                          -p PROFILE.db \
+                          -c CONTIGS.db \
+                          -C E_faecalis \
+                          --bins-info additional-files/collections/e-faecalis-info.txt
+{% endhighlight %}
+
+---
+
+For this example I downloaded 6 *E. facealis*, and 5 *E. faecium* genomes to analyze them together with our *E. facealis* bin. For each of these 11 *external genomes*, I generated anvi'o contigs databases. You can find all of them in the additional files directory:
+
+{% highlight bash %}
+ $ ls -lh additional-files/pangenomics/external-genomes/
+total 185984
+-rw-r--r--  1 meren  staff   2.6K Jul 31 23:56 00_INFO_ABOUT_EXTERNAL_GENOMES.txt
+-rw-r--r--  1 meren  staff   4.7M Jul 31 23:56 Enterococcus_faecalis_6240.db
+-rw-r--r--  1 meren  staff   859K Jul 31 23:56 Enterococcus_faecalis_6240.fa.gz
+-rw-r--r--  1 meren  staff   2.9M Jul 31 23:56 Enterococcus_faecalis_6240.h5
+-rw-r--r--  1 meren  staff   4.7M Jul 31 23:56 Enterococcus_faecalis_6250.db
+-rw-r--r--  1 meren  staff   863K Jul 31 23:56 Enterococcus_faecalis_6250.fa.gz
+-rw-r--r--  1 meren  staff   2.9M Jul 31 23:56 Enterococcus_faecalis_6250.h5
+-rw-r--r--  1 meren  staff   4.5M Jul 31 23:56 Enterococcus_faecalis_6255.db
+-rw-r--r--  1 meren  staff   835K Jul 31 23:56 Enterococcus_faecalis_6255.fa.gz
+-rw-r--r--  1 meren  staff   2.8M Jul 31 23:56 Enterococcus_faecalis_6255.h5
+-rw-r--r--  1 meren  staff   4.2M Jul 31 23:56 Enterococcus_faecalis_6512.db
+-rw-r--r--  1 meren  staff   772K Jul 31 23:56 Enterococcus_faecalis_6512.fa.gz
+-rw-r--r--  1 meren  staff   2.6M Jul 31 23:56 Enterococcus_faecalis_6512.h5
+-rw-r--r--  1 meren  staff   5.1M Jul 31 23:56 Enterococcus_faecalis_6557.db
+-rw-r--r--  1 meren  staff   946K Jul 31 23:56 Enterococcus_faecalis_6557.fa.gz
+-rw-r--r--  1 meren  staff   3.2M Jul 31 23:56 Enterococcus_faecalis_6557.h5
+-rw-r--r--  1 meren  staff   4.3M Jul 31 23:56 Enterococcus_faecalis_6563.db
+-rw-r--r--  1 meren  staff   793K Jul 31 23:56 Enterococcus_faecalis_6563.fa.gz
+-rw-r--r--  1 meren  staff   2.7M Jul 31 23:56 Enterococcus_faecalis_6563.h5
+-rw-r--r--  1 meren  staff   4.6M Jul 31 23:56 Enterococcus_faecium_6589.db
+-rw-r--r--  1 meren  staff   852K Jul 31 23:56 Enterococcus_faecium_6589.fa.gz
+-rw-r--r--  1 meren  staff   2.9M Jul 31 23:56 Enterococcus_faecium_6589.h5
+-rw-r--r--  1 meren  staff   4.9M Jul 31 23:56 Enterococcus_faecium_6590.db
+-rw-r--r--  1 meren  staff   915K Jul 31 23:56 Enterococcus_faecium_6590.fa.gz
+-rw-r--r--  1 meren  staff   3.1M Jul 31 23:56 Enterococcus_faecium_6590.h5
+-rw-r--r--  1 meren  staff   4.6M Jul 31 23:56 Enterococcus_faecium_6601.db
+-rw-r--r--  1 meren  staff   860K Jul 31 23:56 Enterococcus_faecium_6601.fa.gz
+-rw-r--r--  1 meren  staff   2.9M Jul 31 23:56 Enterococcus_faecium_6601.h5
+-rw-r--r--  1 meren  staff   4.3M Jul 31 23:56 Enterococcus_faecium_6778.db
+-rw-r--r--  1 meren  staff   806K Jul 31 23:56 Enterococcus_faecium_6778.fa.gz
+-rw-r--r--  1 meren  staff   2.7M Jul 31 23:56 Enterococcus_faecium_6778.h5
+-rw-r--r--  1 meren  staff   4.2M Jul 31 23:56 Enterococcus_faecium_6798.db
+-rw-r--r--  1 meren  staff   773K Jul 31 23:56 Enterococcus_faecium_6798.fa.gz
+-rw-r--r--  1 meren  staff   2.6M Jul 31 23:56 Enterococcus_faecium_6798.h5
+{% endhighlight %}
+
+There also are two files in the `additional-files/pangenomics` directory to describe how to access to the external genomes:
+
+|name|contigs_db_path|
+|:--|:--|
+|E_faecalis_6240|external-genomes/Enterococcus_faecalis_6240.db|
+|E_faecalis_6250|external-genomes/Enterococcus_faecalis_6250.db|
+|E_faecalis_6255|external-genomes/Enterococcus_faecalis_6255.db|
+|E_faecalis_6512|external-genomes/Enterococcus_faecalis_6512.db|
+|E_faecalis_6557|external-genomes/Enterococcus_faecalis_6557.db|
+|E_faecalis_6563|external-genomes/Enterococcus_faecalis_6563.db|
+|E_faecium_6589|external-genomes/Enterococcus_faecium_6589.db|
+|E_faecium_6590|external-genomes/Enterococcus_faecium_6590.db|
+|E_faecium_6601|external-genomes/Enterococcus_faecium_6601.db|
+|E_faecium_6778|external-genomes/Enterococcus_faecium_6778.db|
+|E_faecium_6798|external-genomes/Enterococcus_faecium_6798.db|
+
+and the internal one:
+
+|name|bin_id|collection_id|profile_db_path|contigs_db_path|
+|:--|:--:|:--:|:--|:--|
+|E_faecalis_SHARON|E_faecalis|E_faecalis|../../PROFILE.db|../../CONTIGS.db|
+
+It is this simple to combine MAGs and isolates.
 
 {:.notice}
 You can find a comprehensive tutorial on the anvi'o pangenomic workflow [here]({% post_url anvio/2015-11-14-pangenomics %}).
 
-There is one thing for ECOGEO people to fix first:
+So everything is ready for an analysis. To start the pangenomic workflow, you can run `anvi-pan-genome` program the following way (which takes about 5 minutes on my laptop):
 
 {% highlight bash %}
- $ cd ../05_PANGENOMICS/
- $ sed -i 's/03_ANVIO_MERGED_PROFILE/01_ANVIO_MERGED_PROFILE/g' internal-genomes.txt
+ $ anvi-pan-genome -i additional-files/pangenomics/internal-genomes.txt \
+                   -e additional-files/pangenomics/external-genomes.txt \
+                   --num-threads 4 \
+                   -o pan
 {% endhighlight %}
 
-Then you can run `anvi-pan-genome` program the following way:
+This will generate an output directory with many files, including a sub-directory that contains all the files to run the anvi'o interactive interface to visualize results.
+
+If you initiate the the interactive interface the following way,
 
 {% highlight bash %}
- $ anvi-pan-genome -i internal-genomes.txt -e external-genomes.txt -o enterococcus_pan_genome -T 4
-{% endhighlight %}
-
-This will generate many output files in the output directory, including a sub-directory that contains all the files to run the anvi'o interactive interface to visualize results. You can initiate the interactive interface the following way,
-
-{% highlight bash %}
- $ cd enterococcus_pan_genome/enterococcus_pan_genome/
- $ anvi-interactive -t tree.txt -d view_data.txt -s samples.db -A additional_view_data.txt --manual -p profile.db --title "Enterococcus Pan"
+ $ anvi-interactive -t pan/pan/tree.txt \
+                    -d pan/pan/view_data.txt \
+                    -s pan/pan/samples.db \
+                    -A pan/pan/additional_view_data.txt \
+                    -p pan/pan/profile.db \
+                    --title "Enterococcus Pan" \
+                    --manual
 {% endhighlight %}
 
 To get this ugly looking display:
@@ -630,14 +711,19 @@ To get this ugly looking display:
 I did it prettier for you. If you kill the server, and import the state file the following way, and re-run the server,
 
 {% highlight bash %}
- $ wget http://merenlab.org/tutorials/infant-gut/files/pan-state.json 
- $ anvi-import-state -p profile.db --state pan-state.json --name default
- $ anvi-interactive -t tree.txt -d view_data.txt -s samples.db -A additional_view_data.txt --manual -p profile.db --title "Enterococcus Pan"
+ $ anvi-import-state -p pan/pan/profile.db --state additional-files/state-files/state-pan.json --name default
+ $ anvi-interactive -t pan/pan/tree.txt \
+                    -d pan/pan/view_data.txt \
+                    -s pan/pan/samples.db \
+                    -A pan/pan/additional_view_data.txt \
+                    -p pan/pan/profile.db \
+                    --title "Enterococcus Pan" \
+                    --manual
 {% endhighlight %}
 
 It will look much more reasonable:
 
-[![E. facealis pan](images/e-faecalis-pan-state.png)](images/e-faecalis-pan-state.png){:.center-img .width-50}
+[![E. facealis pan](images/e-faecalis-pan-state.png)](images/e-faecalis-pan-state.png){:.center-img .width-70}
 
 Now not only we can see how our E. facealis genome to what is available, we can also see that it is not missing or carrying a great number of proteins compared to other genomes. The clustering of genomes based on protein clusters indicate that it is most similar to the genome `Enterococcus faecalis 6250`, which, according to the `00_INFO_ABOUT_EXTERNAL_GENOMES.txt` under `05_PANGENOMICS` directory, corresponds to the assembly ID [ASM28119v1](https://www.ncbi.nlm.nih.gov/gquery/?term=ASM28119v1) if you were to be interested in exploring further.
-</div>
+
