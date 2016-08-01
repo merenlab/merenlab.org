@@ -33,6 +33,9 @@ While in that directory, run this command to unpack the additional files directo
  $ tar -zxvf additional-files.tar.gz
 {% endhighlight %}
 
+{:.notice}
+If you were sent here somewhere from down below, now you can **go back**. If you have no idea what this means, ignore this notice, and continue reading. You're OK :)
+
 ### Taking a quick look at the merged profile
 
 If you run the following command using `anvi-interactive`,
@@ -135,7 +138,7 @@ To compare binning results, we could import each collection into the profile dat
 Anvi'o has a script to merge multiple files for external binning results into a single merged file (don't ask why):
 
 {% highlight bash %}
- $ python anvi-script-merge-collections -c CONTIGS.db -i additional-files/external-binning-results/*.txt -o collections.tsv
+ $ anvi-script-merge-collections -c CONTIGS.db -i additional-files/external-binning-results/*.txt -o collections.tsv
 {% endhighlight %}
 
 If you take a look at this file, you will realize that it has a very simple format:
@@ -157,7 +160,7 @@ Day17a_QCcontig1008_split_00001  Bin_2    db_bin_1   maxbin.009  metabat_igm.7  
 Good. Now you can run the interactive interface to display all collections of bins stored in `collections.tsv` as 'additional layers':
 
 {% highlight bash %}
- $ anvi-interactive -p PROFILE.db -c CONTIGS.db -A collections.tsv -Y genus
+ $ anvi-interactive -p PROFILE.db -c CONTIGS.db -A collections.tsv
 {% endhighlight %}
 
 At this point you should be seeing a display similar to this (after setting the height of each additional layer to 200px):
@@ -167,13 +170,13 @@ At this point you should be seeing a display similar to this (after setting the 
 To emphasize relationships between bins visually. If you import it the following way, 
 
 {% highlight bash %}
- $ python anvi-import-state --state state.json --name default -p PROFILE.db
+ $ anvi-import-state --state additional-files/state-files/state-merged.json --name default -p PROFILE.db
 {% endhighlight %}
 
 and run the interactive interface again,
 
 {% highlight bash %}
- $ anvi-interactive -p PROFILE.db -c CONTIGS.db -A collections.tsv -Y genus
+ $ anvi-interactive -p PROFILE.db -c CONTIGS.db -A collections.tsv
 {% endhighlight %}
 
 this time you should get this display:
@@ -185,11 +188,11 @@ So far so good?
 Let's also import the collection we published in the [anvi'o methods paper](https://peerj.com/articles/1319/) with the proper colors:
 
 {% highlight bash %}
- $ anvi-import-collection additional-files/previous-binning-results/merens.txt \
+ $ anvi-import-collection additional-files/collections/merens.txt \
                           -p PROFILE.db \
                           -c CONTIGS.db \
                           -C merens \
-                          --bins-info additional-files/previous-binning-results/merens-info.txt
+                          --bins-info additional-files/collections/merens-info.txt
 {% endhighlight %}
 
 Now you can rerun the interactive interface, and click `Bins > Load bin collection > merens > Load` to display our collection in comparison:
@@ -298,7 +301,7 @@ In most cases it is absolutely doable, especially when there is a decent assembl
 
 The IGD is one of the most friendly metagenomic datasets available to play with (since an astonishing fraction of nucleotides map back to the assembly), and it comes from a well-implemented experimental design (because that's what [Banfield group]((http://geomicrobiology.berkeley.edu/)) does). Yet, you now have seen the extent of disagreement between multiple binning approaches even for this dataset.
 
-You should reming yourself that each of these approaches are implemented by people who are well-trained scientists working with groups of people who are experts in their fields. These tools are benchmarked against others and showed improvements. So each one of them provides the *best result* compared to all others in *at least* one metagenomic dataset. I think understanding what this means is important. There is no silver bullet in the common bioinformatics toolkit that will take care of every dataset when you fire it. In fact, depending on the dataset, even the best tools we managed to come up with with every definition of the word may look like sticks and stones against the Death Star. Computational people are working very hard to improve things, but they would be the first ones to suggest that their tools should never make users feel free from the fact that it is their own responsibility to make sure the results are meaningful and appropriate.
+You should reming yourself that each of these approaches are implemented by people who are well-trained scientists working with groups of people who are experts in their fields. These tools are benchmarked against others and showed improvements. So each one of them provides the *best result* compared to all others in *at least* one metagenomic dataset. I think understanding what this means is important. There is no silver bullet in the common bioinformatics toolkit that will take care of every dataset when you fire it. In fact, depending on the dataset, even the best tools we have may be as efficient as sticks and stones against the Death Star. Computational people are working very hard to improve things, but they would be the first ones to suggest that their tools should never make users feel free from the fact that it is their own responsibility to make sure the results are meaningful and appropriate.
 
 So which one to choose? How to get out of this situation easily and move on? I know how much desire there is to outsource everything we do to fully automated computational solutions. I also acknowledge that the ability to do that is important to perform large-scale and reproducible analyses without going through too much pain. But we are not at a stage yet with metagenomics where you can rely on any of the available automated binning tools, and expect your MAGs to be safe and sound.
 
@@ -359,6 +362,235 @@ Then it is time to increase the depth of sequencing, implement a different assem
 
 We all just have to continue working, and enjoy this revolution.
 
+
+## Profiling SNVs in a Bin
+
+Here we will profile the single-nucleotide variations (SNVs) in the *E. faecalis* bin found in Sharon et al.'s Infant Gut Dataset (IGD).
+
+{:.notice}
+This is more of a practical tutorial for hands on experience to recover and make sense of SNVs. For a more theoretical one on the same topic, please consider first reading the tutorial [Analyzing single nucleotide variations (SNVs) with anvi'o]({% post_url anvio/2015-07-20-analyzing-variability %}).
+
+{:.notice}
+**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD available to you. Before you continue, please [click here](#the-contigs-database--anvio-merged-profile-for-the-infant-gut-dataset), do everything mentioned there, and come back here on this page when you are asked to **go back**.
+
+Please run following commands in the IGD dir. They will set the stage for us to take a look at the *E. faecalis* bin:
+
+{% highlight bash %}
+ $ anvi-import-taxonomy -c CONTIGS.db -i ../additional-files/centrifuge-files/*.tsv -p centrifuge
+ $ anvi-import-state --state additional-files/state-files/state-merged.json --name default -p PROFILE.db
+ $ anvi-import-collection additional-files/collections/e-faecalis.txt \
+                          -p PROFILE.db \
+                          -c CONTIGS.db \
+                          -C E_faecalis \
+                          --bins-info additional-files/collections/e-faecalis-info.txt
+{% endhighlight %}
+
+OK. Let's first see where this *E. faecalis* bin again. If you now run the interactive interface the following way,
+
+{% highlight bash %}
+ $ anvi-interactive -p PROFILE.db -c CONTIGS.db
+{% endhighlight %}
+
+And then click `Bins > Load bin collection > E_faecalis > Load`, you will see this:
+
+[![E. faecalis bin](images/e-faecalis-bin.png)](images/e-faecalis-bin.png){:.center-img .width-50}
+
+The red selection in the most outer layer represents the *E. faecalis* bin, which is very abundant in every sample.
+
+Here is a different representation of the coverage of this bin across samples (which is a screenshot from our paper):
+
+<div class='centerimg'>
+<a href='{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/coverage.png'><img src='{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/coverage.png' style='width: 50%;' /></a>
+</div>
+
+See, it *really* is abundant (every dot here is the coverage of a nucleotide position that was reported as a variable position).
+
+OK. Clearly, we have no way of knowing the extent of variation within this bin through this perspective. But `anvi-gen-variability-profile` is exactly for that purpose, and that's what we will do here using two different methods to visualize its report (using R, and using anvi'o).
+
+Let's first generate the SNV profile output file, [details of which were described extensively here]({% post_url anvio/2015-07-20-analyzing-variability %}#the-output-matrix). Here it is:
+
+{% highlight bash %}
+$ anvi-gen-variability-profile -c CONTIGs.db \
+                              -p PROFILE.db \
+                              -C E_faecalis \
+                              -b E_faecalis \
+                              --samples-of-interest additional-files/samples.txt \
+                              --min-coverage-in-each-sample 20 \
+                              --include-split-names \
+                              --min-scatter 3 \
+                              --quince-mode \
+                              -o E-faecalis-SNVs.txt
+{% endhighlight %}
+
+This command simply requests `anvi-gen-variability-profile` to select all *E. faecalis* **nucleotide positions** that were identified as 'variable' in at least one sample, and (1) covered by more than 20X in **all** 8 samples of interest (2) and display a minimum scattering power of 3 (minimum scattering power is a very simple attribute of a nucleotide position, and described [here]({% post_url anvio/2015-07-20-analyzing-variability %}#parameters-to-filter-the-output)). Instead of `--min-scatter 3` you could use `--min-occurrence 3`, however, in that case the program would have returned every SNV position that was reported in more than 3 samples, which would have included nucleotide positions that were variable in every sample. Finally we also used the `--samples-of-interest` parameter with the following file:
+
+{% highlight bash %}
+ $ cat additional-files/samples.txt
+DAY_15B
+DAY_16
+DAY_17B
+DAY_18
+DAY_19
+DAY_22A
+DAY_23
+DAY_24
+{% endhighlight %}
+
+which contains only the sample names with larger number of reads for every duplicate day to simplify things.
+
+OK. Our beloved `anvi-gen-variability-profile` will kindly store results from 466 nucleotide positions in the output file, `E-faecalis-SNVs.txt`. Because we used the flag `--quince-mode`, there will be a total of 3,728 entries in the file (=466 x 8).
+
+At this point we now know that the *E. faecalis* is not a monoclonal bin, and does maintain some level of heterogeneity. What we don't know is whether it is just noise, or if there is any signal that may tell us something about the nature of this variability.
+
+Now we will visualize the information two different ways.
+
+### Visualizing SNV profiles using R
+
+First, we will use R to recapitulate what we did in our [paper](https://peerj.com/articles/1319/). Of course, please feel absolutely free to look at the Figure 3 behind that link if you are fine with RUINING THE SURPRISE :( 
+
+For this step we will need [this R script](https://github.com/meren/anvio-methods-paper-analyses/blob/master/SHARON_et_al/VARIABILITY_REPORTS/02_GEN_FIGURE_SUMMARY.R) Meren had written before. You can download it the following way:
+
+{% highlight bash %}
+ $ wget https://raw.githubusercontent.com/meren/anvio-methods-paper-analyses/master/SHARON_et_al/VARIABILITY_REPORTS/02_GEN_FIGURE_SUMMARY.R \
+        -O visualize-SNVs.R
+ $ chmod +x visualize-SNVs.R
+{% endhighlight %}
+
+Here is an extra step, and why we need it: `E-faecalis-SNVs.txt` contains filtered SNVs, but we also want to know about each sample's *variation density*, the number of nucleotide positions reported as a variable position for each 1,000 nts. The R script can already do it, but we need another file that reports ALL SNVs for every sample, without any filters to get the raw counts. Let's first create that the following way:
+
+{% highlight bash %}
+$ anvi-gen-variability-profile -c CONTIGs.db \
+                               -p PROFILE.db \
+                               -C E_faecalis \
+                               -b E_faecalis \
+                               --samples-of-interest additional-files/samples.txt \
+                               -o E-faecalis-SNV-density.txt
+{% endhighlight %}
+
+Now we can use the R script to visualize this information the following way,
+
+{:.notice}
+This R script will require some libraries to be installed. You can install all of them by typing `R` in your terminal, and then entering this command: "install.packages(c('ggplot2', 'reshape2', 'reshape', 'gridExtra', 'grid', 'plyr', 'gtools'))". Finally, my R version that worked with this script was `v3.2.2`.
+
+{% highlight bash %}
+$ ./visualize-SNVs.R E-faecalis-SNVs.txt E-faecalis-SNV-density.txt 150 2870000
+{% endhighlight %}
+
+where `150` is the number of random positions we want to show in the heatmap, and `2780000` is the genome size to calculate the SNV density per sample. If you have all necessary R libraries installed, you should see a new PDF file in the directory that looks like this:
+
+[![E. faecalis bin](images/e-faecalis-SNVs-R.png)](images/e-faecalis-SNVs-R.png){:.center-img .width-40}
+
+<div class='quotable'>
+The figure displays for the E. faecalis bin in each sample (from top to bottom), (1) average coverage values for all splits, (2) variation density (number of variable positions reported during the profiling step per kilo base pairs), (3) heatmap of variable nucleotide positions, (4) ratio of variable nucleotide identities, and finally (5) the ratio of transitions (mutations that occur from A to G, or T to C, and vice versa) versus transversions. In the heatmap, each row represents a unique variable nucleotide position, where the color of each tile represents the nucleotide identity, and the shade of each tile represents the square root-normalized ratio of the most frequent two bases at that position (i.e., the more variation in a nucleotide position, the less pale the tile is).
+</div>
+
+
+With some rearrangement and polishing using Inkscape, you can see how this output fit into our [Figure 3](https://peerj.com/articles/1319/#fig-3):
+
+[![Eren et al., Figure 3](images/eren_et_al_fig_3.png)](images/eren_et_al_fig_3.png){:.center-img .width-70}
+
+The figure shows that the variation density changes quite dramatically from one day to another, despite the rather stable coverage. Plus, the emergence of this pattern is not random: the heatmap shows that the nucleotide positions that show variation re-occur, and competing base identities remains the same.
+
+Investigating what causes this, is of course when things start to get exciting. However, we will not go there. Instead, we would like to leave you with this thought: by using patterns of variability, we can start characterizing changes in microbial population structures across environments, and generate better-informed hypotheses to investigate mechanisms that drive these shifts.
+
+
+### Visualizing SNV profiles using anvi'o
+
+R visualization is useful, but the heatmap in that figure can't effectively visualize more than a couple hundred positions. That's why there is a random subsampling step. But we can use the anvi'o interactive interface to display up to 25,000 nucleotide positions easily.
+
+For this, I wrote a little program to create an *anvi'o interactive interface-compatible* output. Although this is very preliminary now, probably it will do much more in the future versions of anvi'o depending on your or our needs. Please download the script first:
+
+{% highlight bash %}
+ $ wget https://raw.githubusercontent.com/meren/anvio/master/sandbox/anvi-script-snvs-to-interactive
+{% endhighlight %}
+
+When you run this script the following way,
+
+{% highlight bash %}
+ $ python anvi-script-snvs-to-interactive E-faecalis-SNVs.txt -o e_faecalis_snvs
+{% endhighlight %}
+
+it will do its magic, and create an output directory with material that can directly be used with `anvi-interactive` with the `--manual` flag.
+
+{:.notice}
+A little note for people who are interested in programming: Feel free to take a look at the [relevant line of the source code](https://github.com/meren/anvio/blob/master/sandbox/anvi-script-snvs-to-interactive#L68) of this script to see how easy it is to generate an anvi'o-compatible visualizable output from any TAB-delimited matrix file.
+
+If you run the interactive interface on these results the following way,
+
+{% highlight bash %}
+ $ anvi-interactive -d e_faecalis_snvs/view_data.txt \
+                    -s e_faecalis_snvs/samples.db \
+                    -t e_faecalis_snvs/tree.txt \
+                    -p e_faecalis_snvs/profile.db \
+                    --title "SNV Profile for the E. faecalis bin" \
+                    --manual
+{% endhighlight %}
+
+You will get this view:
+
+[![E. faecalis SNVs](images/e-faecalis-SNVs-anvio.png)](images/e-faecalis-SNVs-anvio.png){:.center-img .width-50}
+
+This view can definitely be improved. I prepared a state file to match colors of competing nucleotides to the R results. If you import that state file and run the interactive interface the following way,
+
+{% highlight bash %}
+ $ anvi-import-state -p e_faecalis_snvs/profile.db --state additional-files/state-files/state-snvs.json --name default
+ $ anvi-interactive -d e_faecalis_snvs/view_data.txt \
+                    -s e_faecalis_snvs/samples.db \
+                    -t e_faecalis_snvs/tree.txt \
+                    -p e_faecalis_snvs/profile.db \
+                    --title "SNV Profile for the E. faecalis bin" \
+                    --manual
+{% endhighlight %}
+
+This time you will get this display:
+
+[![E. faecalis SNVs](images/e-faecalis-SNVs-anvio-state.png)](images/e-faecalis-SNVs-anvio-state.png){:.center-img .width-50}
+
+As we've seen before, occurrence of SNVs follow a bi-daily fashion. Not that it needs any further convincing, but just to show off here, if you were to click `Samples > Sample order > view_data > Draw`, you can see that even days and odd days nicely separate from each other:
+
+[![E. faecalis SNVs](images/e-faecalis-SNVs-anvio-state-clustered.png)](images/e-faecalis-SNVs-anvio-state-clustered.png){:.center-img .width-50}
+
+For instance while I was on this page, I selected two SNV positions that showed different patterns:
+
+[![E. faecalis SNVs](images/e-faecalis-SNVs-anvio-state-clustered-selected.png)](images/e-faecalis-SNVs-anvio-state-clustered-selected.png){:.center-img .width-50}
+
+Position 80 (the selection towards the right) shows variability only in odd days, position 686 shows variability only in even days. This will probably at some point will become a right-click menu function, but even now we can do some tricks to explore the context of these SNVs. Because that is what anvi'o is all about. Exploring, sometimes to disturbing depths. Well, here are two tiny AWK one-liner to get some specific information about these positions from our files. This is for the one on the left:
+
+{% highlight bash %}
+ $ awk '{if(NR == 1 || $2 == 686) print $2 " " $3 " " $4 " " $6 " " $14 " " $15 " " $25}' E-faecalis-SNVs.txt | column -t
+unique_pos  sample_id  pos   gene_call  departure_from_ref  competing_nts  split_name
+686         DAY_18     6333  1826       0.0617647058824     CT             Day17a_QCcontig4_split_00022
+686         DAY_22A    6333  1826       0.0697674418605     CT             Day17a_QCcontig4_split_00022
+686         DAY_16     6333  1826       0.0805369127517     CT             Day17a_QCcontig4_split_00022
+686         DAY_24     6333  1826       0.0863636363636     CT             Day17a_QCcontig4_split_00022
+686         DAY_17B    6333  1826       0                   CC             Day17a_QCcontig4_split_00022
+686         DAY_19     6333  1826       0                   CC             Day17a_QCcontig4_split_00022
+686         DAY_15B    6333  1826       0                   CC             Day17a_QCcontig4_split_00022
+686         DAY_23     6333  1826       0                   CC             Day17a_QCcontig4_split_00022
+{% endhighlight %}
+
+And this is for the one on the right:
+
+{% highlight bash %}
+ $ awk '{if(NR == 1 || $2 == 80) print $2 " " $3 " " $4 " " $6 " " $14 " " $15 " " $25}' E-faecalis-SNVs.txt | column -t
+unique_pos  sample_id  pos   gene_call  departure_from_ref  competing_nts  split_name
+80          DAY_17B    7955  233        0.122591943958      GT             Day17a_QCcontig1_split_00012
+80          DAY_19     7955  233        0.0752688172043     GT             Day17a_QCcontig1_split_00012
+80          DAY_15B    7955  233        0.109271523179      GT             Day17a_QCcontig1_split_00012
+80          DAY_23     7955  233        0.11377245509       GT             Day17a_QCcontig1_split_00012
+80          DAY_18     7955  233        0                   TT             Day17a_QCcontig1_split_00012
+80          DAY_22A    7955  233        0                   TT             Day17a_QCcontig1_split_00012
+80          DAY_16     7955  233        0                   TT             Day17a_QCcontig1_split_00012
+80          DAY_24     7955  233        0                   TT             Day17a_QCcontig1_split_00012
+{% endhighlight %}
+
+Good, everything checks out. Now since we know the split names and positions in splits, we can in fact see where they actually are using the interactive interface to visualize the merged profile database again, and look at the wider context using the 'inspect' option. Which I have already done for you:
+
+[![E. faecalis SNVs](images/e-faecalis-SNV-context.gif)](images/e-faecalis-SNV-context.gif){:.center-img .width-50}
+
+There are many directions you can go once you have the gene caller IDs associated with a question you have. Just take a look at this post and see some of the hidden talents of anvi'o: [Musings over a *Nitrospira* genome that can do complete nitrification]({% post_url anvio/2015-12-09-musings-over-commamox %}).
+
+Here I will stop, but still we have a lot to talk about!
 
 <div style="display: none">
 ## Pangenomic analysis of _E. facealis_ bin
