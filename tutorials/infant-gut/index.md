@@ -62,7 +62,7 @@ Centrifuge ([code](https://github.com/infphilo/centrifuge), [pre-print](http://b
 If you import these files into the contigs database the following way,
 
 {% highlight bash %}
- $ anvi-import-taxonomy -c CONTIGS.db -i ../additional-files/centrifuge-files/*.tsv -p centrifuge 
+ $ anvi-import-taxonomy -c CONTIGS.db -i additional-files/centrifuge-files/*.tsv -p centrifuge 
 {% endhighlight %}
 
 And run the interactive interface again,
@@ -376,7 +376,7 @@ This is more of a practical tutorial for hands on experience to recover and make
 Please run following commands in the IGD dir. They will set the stage for us to take a look at the *E. faecalis* bin:
 
 {% highlight bash %}
- $ anvi-import-taxonomy -c CONTIGS.db -i ../additional-files/centrifuge-files/*.tsv -p centrifuge
+ $ anvi-import-taxonomy -c CONTIGS.db -i additional-files/centrifuge-files/*.tsv -p centrifuge
  $ anvi-import-state --state additional-files/state-files/state-merged.json --name default -p PROFILE.db
  $ anvi-import-collection additional-files/collections/e-faecalis.txt \
                           -p PROFILE.db \
@@ -593,6 +593,16 @@ Good, everything checks out. Now since we know the split names and positions in 
 There are many directions you can go once you have the gene caller IDs associated with a question you have. Just take a look at this post and see some of the hidden talents of anvi'o: [Musings over a *Nitrospira* genome that can do complete nitrification]({% post_url anvio/2015-12-09-musings-over-commamox %}).
 
 Here I will stop, but still we have a lot to talk about!
+
+
+### Visualizing SNV profiles using Gephi
+
+[Gephi](https://gephi.org/).
+
+anvi-gen-variability-network -i E-faecalis-SNVs.txt -o E-faecalis-SNVs.gexf
+
+[![E. faecalis SNVs network](images/network.png)](images/network.png){:.center-img .width-100}
+
 
 ## A pangenomic analysis
 
