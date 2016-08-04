@@ -13,7 +13,7 @@ comments: true
 <p style="text-align: right; font-style: italic; color: #AAAAAA;">This document was last updated on June 7<sup>th</sup>, 2016.</p>
 
 {:.notice}
-We are thankful to [Illumina](http://www.illumina.com/), [Eppendorf](https://www.eppendorf.com/CA-en/), and [FRQNT](http://www.frqnt.gouv.qc.ca/en/accueil) for their support.
+We are thankful to [Illumina](http://www.illumina.com/), [FAS](http://fas.umontreal.ca/accueil/), [Eppendorf](https://www.eppendorf.com/CA-en/), [FRQNT](http://www.frqnt.gouv.qc.ca/en/accueil) and [GRIL](http://www.gril.uqam.ca/Accueil.html) for their support.
 
 ---
 
@@ -49,11 +49,11 @@ Attending to the workshop is free (however the number of people we will be able 
 This is where the workshop will take place, which is quite straightforward to get to from the downtown area:
 
 <pre>
-Université de Montreal
-Département de Sciences Biologiques
+Université de Montréal
+Département des Sciences Biologiques
 Pavillon Marie-Victorin
 90, avenue Vincent-d’Indy
-Local A-220 (3rd floor)
+Local A-220 (2nd floor, street level)
 Montréal (Québec)
 </pre>
 
