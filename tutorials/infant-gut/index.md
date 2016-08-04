@@ -252,7 +252,7 @@ Luckily anvi'o allows the refinement of bins. So in fact you can focus only thos
 
 {% highlight bash %}
  $ python -c 'print("maxbin.007\nmaxbin.008")' > maxbin-bins-to-refine.txt
- $ cat maxbin-bins-to-refine
+ $ cat maxbin-bins-to-refine.txt
 maxbin.007
 maxbin.008
 {% endhighlight %}
@@ -263,7 +263,7 @@ Normally we can give a bin name to `anvi-refine` using the `-b` parameter. But s
 Good. Now we can call `anvi-refine`:
 
 {% highlight bash %}
- $ anvi-refine -p PROFILE.db -c CONTIGS.db -C MAXBIN -B maxbin-bins-to-refine
+ $ anvi-refine -p PROFILE.db -c CONTIGS.db -C MAXBIN -B maxbin-bins-to-refine.txt
 {% endhighlight %}
 
 Which would give us this:
