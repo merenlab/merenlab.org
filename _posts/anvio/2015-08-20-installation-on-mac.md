@@ -19,9 +19,6 @@ We now have a new installer, and if you are using Mac OS X (version 10.9+, i.e.,
 
 The **only** thing you need to do is to download the installer on your MAC computer, and install anvi'o with one double-click and one drag gesture with your mouse.
 
-{: .notice}
-**Note**: If you are seeing this note on this page it means we still need people to test our brand new installer. If you would like to help, please follow the instructions in this article, and write a comment below to share the version of your OS X ( > About This Mac), and whether it worked for you or not (and what was the error if it didn't). Thank you very much for your help in advance!
-
 
 ## Download the installer (v2.0.2)
 
