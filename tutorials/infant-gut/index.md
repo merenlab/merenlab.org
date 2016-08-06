@@ -594,16 +594,6 @@ There are many directions you can go once you have the gene caller IDs associate
 
 Here I will stop, but still we have a lot to talk about!
 
-
-### Visualizing SNV profiles using Gephi
-
-[Gephi](https://gephi.org/).
-
-anvi-gen-variability-network -i E-faecalis-SNVs.txt -o E-faecalis-SNVs.gexf
-
-[![E. faecalis SNVs network](images/network.png)](images/network.png){:.center-img .width-100}
-
-
 ## A pangenomic analysis
 
 You can also use anvi'o to perform pangenomic analyses, and here I will give a small demo using the now infamous *E. faecalis* bin.
