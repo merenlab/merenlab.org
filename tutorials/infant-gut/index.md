@@ -307,15 +307,15 @@ So which one to choose? How to get out of this situation easily and move on? I k
 
 For instance, I think CONCOCT is doing a pretty awesome job identifying MAGs in the IGD, even with the low-abundance organisms. However, it is not perfect, either. In fact if you look carefully, you can see that it creates two bins for one *Candida albicans* genome. Hierarchical clustering will always get you closest to the best organization of contigs with simple distance metrics and linkage algorithms. But there are major challenges associated with that approach, including the fact that it is simply an exploratory method and can't give you "bins" out-of-the-box. Even more importantly, it has tremendous limitations come from its computational complexity (~*O*(*m*<sup>2</sup> log *m*), where *m* is the number of data points). So in most cases it is not even a remote possibility to organize contigs using a hierarchical clustering approach in an assembly in reasonable amount of time (and there is no way to visualize that even if you were to get a dendrogram for 200,000 contigs (you can create simple 2D ordinations with that number of items, but you really shouldn't, but that's another discussion)). Except assemblies with rather smaller number of contigs like the IGD, we are always going to use automated ways to identify bins, at least *initially*, knowing that resulting bins may be, and in most cases will be, crappy. That's why in anvi'o we implemented ways to quickly look into automatically identified bins (i.e., the `collection` mode of `anvi-interactive`), and even refine those with poor redundancy scores to improve final results (i.e., `anvi-refine`).
 
-So we can fix crappy bins to an extent since [we know more or less how things should look like]({% post_url anvio/2016-06-09-assessing-completion-and-contamination-of-MAGs %}), and [we have tools to do that]({% post_url anvio/2015-05-11-anvi-refine %}). That being said, there is one more consideration that is very easy to miss. Although it is somewhat possible to recover from bins that are heavily contaminated through refinement of a single bin, it is much harder to recover from the situation where parts of a single genome is described in multiple bins. You can see examples of this case if you take a careful look from this figure (i.e., CONCOCT bins between 9:30 and 12:00 o'clock, or MaxBin bins between 5:00 and 7:00 o'clock):
+So we can fix crappy bins to an extent since [we know more or less how things should look like]({% post_url anvio/2016-06-09-assessing-completion-and-contamination-of-MAGs %}), and [we have tools to do that]({% post_url anvio/2015-05-11-anvi-refine %}). That being said, there is one more consideration that is very easy to miss. Although it is somewhat possible to recover from **conflation error** (i.e., more than one genome ends up in one bin), it is much harder to recover from the **fragmentation error** (i.e., one genome is split into multiple bins). You can see an example for fragmentation error if you take a careful look from this figure (i.e., CONCOCT bins between 9:30 and 12:00 o'clock, or MaxBin bins between 5:00 and 7:00 o'clock):
 
 [![Infant gut merged](images/infant-gut-collections-final.png)](images/infant-gut-collections-final.png){:.center-img .width-50}
 
-This is a problem that likely happens quite often, and very hard to deal with once the bins are identified. But we can even recover from that.
+This is a problem that likely happens quite often, and very hard to deal with once the bins are identified. But we *can* recover from that.
 
-#### A Meren Lab Heuristic
+#### From fragmentation to conflation error: A Meren Lab Heuristic to fight back
 
-One of the heuristics we recently started using in our lab to avoid over-split bins is to confine CONCOCT's clustering space to a much smaller number of clusters than the expected number of bacterial genomes in a given dataset, and then curate resulting contaminated bins manually. Let's say we expect to find `n` bacterial genomes, so we run CONCOCT with a maximum number of clusters of about `n/2` (no judging! I told you it was a heuristic!).
+One of the heuristics we recently started using in our lab to avoid fragmentation error is to confine CONCOCT's clustering space to a much smaller number of clusters than the expected number of bacterial genomes in a given dataset, and then curate resulting contaminated bins manually. Let's say we expect to find `n` bacterial genomes, so we run CONCOCT with a maximum number of clusters of about `n/2` (no judging! I told you it was a heuristic!).
 
 <blockquote>
 Well, how do you even know how many bacterial genomes you should expect to find in a metagenome?
@@ -348,7 +348,7 @@ and you would see this after loading the new `CONCOCT_C5` collection from the `B
 
 [![CONCOCT w/ 5 clusters](images/concoct-5-clusters.png)](images/concoct-5-clusters.png){:.center-img .width-50}
 
-As you can see, there aren't any over-split bins, and in fact CONCOCT did an amazing job to identify general patterns in the dataset. Now refining these bins would be much more easier. If you would like to try, here is an example:
+As you can see, there aren't fragmentation error anymore, and in fact CONCOCT did an amazing job to identify general patterns in the dataset. Now refining these bins to fix all the conflation errors would be much more easier. If you would like to try, here is an example:
 
 {% highlight bash %}
  $ anvi-refine -p PROFILE.db -c CONTIGS.db -C CONCOCT_C5 -b Bin_1
@@ -593,6 +593,16 @@ Good, everything checks out. Now since we know the split names and positions in 
 There are many directions you can go once you have the gene caller IDs associated with a question you have. Just take a look at this post and see some of the hidden talents of anvi'o: [Musings over a *Nitrospira* genome that can do complete nitrification]({% post_url anvio/2015-12-09-musings-over-commamox %}).
 
 Here I will stop, but still we have a lot to talk about!
+
+
+### Visualizing SNV profiles using Gephi
+
+[Gephi](https://gephi.org/).
+
+anvi-gen-variability-network -i E-faecalis-SNVs.txt -o E-faecalis-SNVs.gexf
+
+[![E. faecalis SNVs network](images/network.png)](images/network.png){:.center-img .width-100}
+
 
 ## A pangenomic analysis
 
