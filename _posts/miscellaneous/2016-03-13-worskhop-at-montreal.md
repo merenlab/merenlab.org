@@ -13,7 +13,7 @@ comments: true
 <p style="text-align: right; font-style: italic; color: #AAAAAA;">This document was last updated on June 7<sup>th</sup>, 2016.</p>
 
 {:.notice}
-We are thankful to [Illumina](http://www.illumina.com/), [FAS](http://fas.umontreal.ca/accueil/), [Eppendorf](https://www.eppendorf.com/CA-en/), [FRQNT](http://www.frqnt.gouv.qc.ca/en/accueil) and [GRIL](http://www.gril.uqam.ca/Accueil.html) for their support.
+We are thankful to [Illumina](http://www.illumina.com/), [FAS](http://fas.umontreal.ca/accueil/), [Eppendorf](https://www.eppendorf.com/CA-en/), [FRQNT](http://www.frqnt.gouv.qc.ca/en/accueil) and [GRIL](https://oraprdnt.uqtr.uquebec.ca/pls/public/gscw031?owa_no_site=1272) for their support.
 
 ---
 
