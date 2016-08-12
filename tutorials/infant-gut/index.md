@@ -595,11 +595,15 @@ There are many directions you can go once you have the gene caller IDs associate
 Here I will stop, but still we have a lot to talk about!
 
 
-### Visualizing SNV profiles using Gephi
+### Visualizing SNV profiles as a network
 
-[Gephi](https://gephi.org/).
+Finally, you can generate an XML description of the SNV profiles you have generated using `anvi-gen-variability-profile` program, using the program `anvi-gen-variability-network`:
 
 anvi-gen-variability-network -i E-faecalis-SNVs.txt -o E-faecalis-SNVs.gexf
+
+You can use [Gephi](https://gephi.org/) to play with the resulting file to visualize or to analyze the network properties of nucleotide positions further.
+
+Here is a screenshot from Gephi for SNV profiles in the E. faecalis genome bin:
 
 [![E. faecalis SNVs network](images/network.png)](images/network.png){:.center-img .width-100}
 
