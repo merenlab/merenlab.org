@@ -10,6 +10,8 @@ authors: [meren, tom]
 ---
 
 {% include _toc.html %}
+
+{% capture images %}{{site.url}}/images/anvio/2015-11-14-pan-genomics{% endcapture %}
 Cultivation of closely related microorganisms, and the subsequent recovery of their genomes, revealed that not all isolates share the same functional traits for a given population. On the other hand, individual isolates do not fully echo the functional complexity of naturally occurring microbial populations either. Large genomic collections is the only way to get closer to a more realistic picture of the pool of functions in a given clade of bacterial tree.
 
 Overlapping and differing functions among the genomes of closely related organisms led to the introduction of a new concept, "pangenomics" [(Tettelin et al., 2005)](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1216834/), where genes across genomes are segregated into distinct groups: (1) the core-genome, (2) genes detected in multiple yet not in all genomes, and finally (3) isolate-specific genes that are detected only in a single genome. Pangenomic investigations are now widely used to dissect the functional traits of microorganisms, and to uncover environmentally- and clinically-important clusters of genes or functions.Although [multiple bioinformatics software](http://omictools.com/pangenomics-c1590-p1.html) are available to generate and/or visualize pangenomes, these solutions do not necessary offer flexible work environments, and hence limit the user's ability to interact with their data. 
@@ -166,17 +168,11 @@ $ cd pan-output/pan-output
 $ anvi-interactive -s samples.db -p profile.db -t tree.txt -d view_data.txt -A additional_view_data.txt --manual --title "Pangenome of three E. coli's"
 {% endhighlight %}
 
-And this is what pops up in my browser:
+If you click `Draw`, you will get a pangenomic display. But if you do it after selecting `protein_clusters` from the `Samples > Sample order` menu, this time you will get a display of your pangenome along with the organization of your genomes based on protein clusters they share (see the tiny tree on the right side):
 
-<div class="centerimg">
-<a href="{{ site.url }}/images/anvio/2015-11-14-pan-genomics/e-coli-pan.png"><img src="{{ site.url }}/images/anvio/2015-11-14-pan-genomics/e-coli-pan.png" width="80%" /></a>
-</div>
+[![E. coli pan]({{site.url}}/images/anvio/2015-11-14-pan-genomics/e-coli-pan.png)]({{site.url}}/images/anvio/2015-11-14-pan-genomics/e-coli-pan.png){:.center-img .width-80}
 
-This doesn't look too fancy, but your genomes will look be much more informative and interesting than three random *E. coli*'s. Additionally, the output directory will contain two files, `additional_view_data.txt` and `anvio-samples-order.txt`. You can edit these fies to add more contextual information about your genomes, and generate an updated `samples.db` for your interactive interface ([more information on anvi'o samples databases]({% post_url anvio/2015-11-10-samples-db %})). For instance, here is a slightly more rich analysis one with 30 genomes:
-
-<div class="centerimg">
-<a href="{{ site.url }}/images/anvio/2015-11-14-pan-genomics/pan-genome-2.png"><img src="{{ site.url }}/images/anvio/2015-11-14-pan-genomics/pan-genome-2.png" width="80%" /></a>
-</div>
+Alright. This doesn't look quite fancy. But let's hope your actual genomes will look be much more informative and interesting than three random *E. coli*'s. To find out ways to enrich your display by including more information about your genomes, continue reading.
 
 ## Case II: *I want to work with my genome bins in anvi'o collections*
 
@@ -203,6 +199,150 @@ You are lucky! Just mix your internal and external genomes in the same command l
 {% highlight bash %}
 $ anvi-pan-genome --internal internal_genomes.txt --external external_genomes.txt -o pan-output --num-threads 20
 {% endhighlight %}
+
+
+## Accessing protein clusters
+
+{:.notice}
+We are currently planning to advance pangenomic workflow in anvi'o with improved interactivity and integrated functionality to query data. We will continue to update this post as we progress. For now please bear with us as we explain some *not-so-elegant* ways to take care of certain things. For instance, we added this section after Alex asked about this (see the comment section below). If you need help getting things done, please just ask!
+
+Every protein cluster in your analysis results contains one or more gene calls that originate from one or more genomes. It is also common to find protein clusters that contain more than one gene call from a single genome is also common (i.e., all multi-copy genes in a given genome will end up in the same protein cluster).
+
+Sooner or later you will start getting curious about some of the protein clusters, and want to learn more about them.
+
+### Taking a quick look into a protein cluster
+
+One of the key output files to investigate the protein clusters you see in the pangenomic display is the file `protein-clusters.txt`, which looks like this:
+
+|entry_id|gene_caller_id|protein_cluster_id|genome_name|sequence|
+|:--:|:--:|:--:|:--:|:--|
+|0|3685|PC_00001990|E_coli_BL21|MATTQQSGFAPAASPLASTIVQTPDDAIVAGFTSIPSQ(...)|
+|1|3735|PC_00001990|E_coli_B_REL606|MATTQQSGFAPAASPLASTIVQTPDDAIVAGFTSI(...)|
+|2|4590|PC_00001990|E_coli_O111|MATTQQSGFAPAASPLASTIVQTPDDAIVAGFTSIPSQGD(...)|
+|3|3076|PC_00001859|E_coli_BL21|MKPIFSRGPSLQIRLILAVLVALGIIIADSRLGTFSQIR(...)|
+|4|3126|PC_00001859|E_coli_B_REL606|MKPIFSRGPSLQIRLILAVLVALGIIIADSRLGTFSQ(...)|
+|5|3998|PC_00001859|E_coli_O111|MKPIFSRGPSLQIRLILAVLVALGIIIADSRLGTFSQIRT(...)|
+|6|763|PC_00001992|E_coli_BL21|MAETKIVVGPQPFSVGEEYPWLAERDEDGAVVTFTGKVRN(...)|
+|7|756|PC_00001992|E_coli_B_REL606|MAETKIVVGPQPFSVGEEYPWLAERDEDGAVVTFT(...)|
+|8|832|PC_00001992|E_coli_O111|MAETKIVVGPQPFSVGEEYPWLAERDEDGAVVTFTGKVRN(...)|
+|(...)|(...)|(...)|(...)|(...)|
+
+As you probably already know, the `Mouse` tab in the interactive interface allows you to see the information underneath your cursor while you brows the interactive interface. If you are curious to know a bit more about a given protein cluster, you can go back to your terminal and use `grep`:
+
+{% highlight bash %}
+$ grep 'PC_00000914' ../protein-clusters.txt
+13544	2554	PC_00000914	E_coli_BL21	MCIGVPGQIRTIDGNQAKVDVCGIQRDVDLTLVGSCDEN(...)
+13545	2592	PC_00000914	E_coli_B_REL606	MCIGVPGQIRTIDGNQAKVDVCGIQRDVDLTLVGSCDEN(...)
+13546	3378	PC_00000914	E_coli_O111	MCIGVPGQIRTIDGNQAKVDVCGIQRDVDLTLVGSCDEN(...)
+{% endhighlight %}
+
+### Making selections on the display
+
+Alternatively, you may want to focus on groups of protein clusters. Using the anvi'o interactive interface you can *bin* your protein clusters, and store them as *collections* to process them further.
+
+Just as an example let's assume you are interested in gene calls that are unique to the *E. coli* genome O111 in our mock analysis on this page. You can select all protein clusters the following way:
+
+[![E. coli protein clusters]({{images}}/e-coli-pan-selection.png)]({{images}}/e-coli-pan-selection.png){:.center-img .width-80}
+
+And then you can store them as a collection. Let's assume you clicked `Bins > Store bin collection`, and typed in `PCs` in the input box as a collection name, and finally clicked `Store` to create a collection (clearly you can choose any name as far as you promise you will later remember it later). Now you can go back to the terminal, and export bins in the `PCs` collection (we have only one bin this time, but of course there is no limit how many bins you select):
+
+{:.notice}
+In order to use the following program, you must have the latest version of the repository from the master. But if you are using anvi'o `v2.0.2`, and really want to be able to use this functionality without with installing a new version from the repository, send Meren an e-mail via **meren** at **uchicago**, and you will get a recipe for a workaround. 
+
+{% highlight bash %}
+$ anvi-script-PCs-to-gene-calls ../protein-clusters.txt -p profile.db -C PCs
+Collection "PCs" .............................: 1 protein cluster bins describes 946 PCs.
+Protein clusters .............................: 13,775 entries are read into the memory.
+Genomes found (3) ............................: E_coli_BL21, E_coli_B_REL606, E_coli_O111.
+
+* Storing gene caller ids:
+
+Gene calls (0) [E_coli_BL21/Bin_1] ...........: gene-caller-ids_for-PCs-E_coli_BL21-Bin_1.txt
+Gene calls (0) [E_coli_B_REL606/Bin_1] .......: gene-caller-ids_for-PCs-E_coli_B_REL606-Bin_1.txt
+Gene calls (1,251) [E_coli_O111/Bin_1] .......: gene-caller-ids_for-PCs-E_coli_O111-Bin_1.txt
+{% endhighlight %}
+
+OK. Each of these three files that are just created in your work directory contains gene caller ids for protein clusters matching the red selection for each genome. Expectedly, there are 0 calls for `E_coli_BL21` and `E_coli_B_REL606`, since the protein clusters in that particular selection are unique to `E_coli_O111`.
+
+Since we have a handle on the gene calls for the given section of the pangenome, we can export gene sequences for the gene calls using the anvi'o contigs database for `E_coli_O111`:
+
+
+{% highlight bash %}
+$ anvi-get-dna-sequences-for-gene-calls -c ../../E_coli_O111.db \
+                                        --gene-caller-ids gene-caller-ids_for-PCs-E_coli_O111-Bin_1.txt \
+                                        -o gene-caller-ids_for-PCs-E_coli_O111-Bin_1.fa
+{% endhighlight %}
+
+Resulting FASTA file will have sequences that are unique to `E_coli_O111` genome:
+
+{% highlight bash %}
+$ head -n 100 gene-caller-ids_for-PCs-E_coli_O111-Bin_1.fa
+>259|contig:260866153|start:294792|stop:297237|direction:r|rev_compd:True|length:2445
+ATGCCAACACCAACCATCATCAAAACACTCGCCACCCACCGCGAAAAACCGTTTGTCAGCGTCGTCACGCCAACCTGGAACCGCGGCGCATTCCTGCCGTACCTGCTCTATATGTACCGC
+TATCAGGATTACCCGGCAGACCGCCGCGAACTCATCATCCTCGACGATTCCCCACAAAGCCATCAACACATCATCGACCGCCTGACCAATGGCACGCCGGAAGCCTTTAACATCCGCTAC
+ATCCATCACCCGGAAAAACTGCCGCTGGGCAAAAAACGCAACATGCTCAACGAACTGGCGCGCGGCGAATACATCCTCTGCATGGATGATGACGACTACTATCCGGCAGATAAAATCTCT
+(...)
+>3514|contig:260866153|start:3563822|stop:3564260|direction:f|rev_compd:False|length:438
+ATGAAGCCACGAAATATTAATAATAGCCTACCACTGCAACCATTAGTTCCTGATCAGGAGAACAAAAATAAGAAAAATGAAGAGAAATCCGTTAATCCAGTTAAAATCACAATGGGGTCT
+GGTTTAAATTATATTGAACAAGAATCTCTTGGAGGAAAATATCTAACACATGATTTGTCAATAAAGATAGCGGATATTTCTGAAGAGATAATTCAGCAAGCAATATTATCTGCTATGAGC
+ATATATAAATTTTCGATAACAGATGATTTAATGAGTATGGCTGTAAATGAACTCATAAAACTGACCAAAATAGAGAATAATGTAGACCTGAATAAATTCACTACTATATGCACAGACGTT
+(...)
+>3675|contig:260866153|start:3728029|stop:3730837|direction:r|rev_compd:True|length:2808
+ATGATTACTCATGGTTTTTATGCCCGGACCCGGCACAAGCATAAGCTAAAAAAAACATTTATTATGCTTAGCGCTGGTTTAGGATTGTTTTTTTATGTTAACCAGAACTCATTTGCAAAC
+GGTGAAAATTATTTTAAATTGAGTTCAGATTCAAAACTGTTAACTCAAAATGTTGCTCAGGATCGCCTTTTTTATACGTTGAAAACAGGTGAAACTGTTTCCAGTATTTCTAAATCACAA
+GGTATCAGTTTATCCGTAATTTGGTCACTGAATAAACATTTATACAGTTCCGAAAGCGAAATGCTGAAGGCTGCGCCTGGCCAGCAGATCATTTTGCCACTCAAAAAACTGTCTGTTGAA
+(...)
+>5104|contig:260866153|start:5263671|stop:5264277|direction:r|rev_compd:True|length:606
+ATGATTAAAAATGACAAGGCATGGATAGGAGACTTGCTGGGCGGGCCGCTCATGAGCAGGGAAAGCCGCGTCATTGCCGAGCTGTTGCTAACCGATCCCGATGAACAGACATGGCAAGAG
+CAAATTGTTGGCCACAACATTTTACAAGCCTCTTCTCCTAATACCGCAAAACGTTACGCGGCAACAATCAGGCTTCGCCTGAACACGCTTGATAAAAGCGCGTGGACATTAATTGCCGAA
+GGTAGCGAGCGGGAACGCCAGCAACTTCTGTTTGTGGCTCTGACGCTACATTCGCCGGTAGTTAAGGATTTTCTGGCTGAAGTGGTGAACGATCTGCGCAGGCAGTTCAAGGAAAAGTTG
+(...)
+>2606|contig:260866153|start:2621068|stop:2622004|direction:r|rev_compd:True|length:936
+GTGAATAGTATAGCAATTTTAGAAGCAGTGAACACCTCTTATGTACCATTCAACGGTCAGCAAATTATCACCGCCATGGCTGCCGGAGTTGCATATGTTGCGATGAAGCCAATCGTTGAA
+AACCTTGGAATGAGCTGGTCAACGCAGCAAACAAAACTCATGAAGCAGATTAGCAAATTCAACTGTGTTCATATGAACATGGTTGCCGCTGATGGGAAGCTTCGTAAGCTACTCTGCCTT
+CCTTTGAAGAAGTTAAATGGATGGCTGTTCAGCATCAACCCTGAGAAAGTTCGTGCTGACATCCGTGATAAACTGATTCAGTACCAGGAAGAATGCTTTAGCGTGCTGCATGACTACTGG
+(...)
+>1585|contig:260866153|start:1632818|stop:1633127|direction:f|rev_compd:False|length:309
+ATGGGGAGAGCCGACTGGCGCGCCATGCTTGCCGGGATGACATCCACCGAATATGCCGACTGGCGACGTTTTTACTGCACGCATTATTTTCAGGATACCCAGCTGGATATGCATTTTTCC
+GGGCTGATGTACGCCGTACTCAGCCTGTTTTTTTGCGATCCGGATATGCATCCGGCGGATTTCAGCCTGTTCGCTCCGGAGGCAGAGGAAGGACAGGCGGAGACGCCGGACGAAAATGAT
+GTACTGATGCAGAAGGCGGCGGGCCTCGCCGGTGGAGTCCGTTTCGGGGAGGAGGGAAGGAGGTTGTGA
+>264|contig:260866153|start:300090|stop:300426|direction:f|rev_compd:False|length:336
+ATGGGGATCAGTTTTCAGCAGGCATTGGGAGTACATCCGCAGGCAGTGAAGTTACGTCTTGAGAGGACCGAGCTACTGACTGCGAATCTGGCGAACGTCGATACGCCAAATTTCAAGGCT
+AAAGATATTGATTTTGCCAGGGAGATGCAACGGGCAAATAACGCGGCGGTGGATGTCCAGTACCGCGTGCCGATGCAGCCGTCGGAAGATGGCAACACCGTGGAACTGAACAGCGAGCAG
+GCGCGGTTTTCACAAAATAGTATGGATTATCAAAGCAGTTTGACCTTTCTGAATCTGCAAATCAGCGGCATCAGAGAGGCCATTGAAGGGAAATAA
+>2462|contig:260866153|start:2499185|stop:2499857|direction:f|rev_compd:False|length:672
+ATGTGTGGACGCTTTGCCCAATCCCAAACGCGTGAAGATTACCTTGCGCTTCTCGCGGAAGATATTGAACGCGATATTCCCTACGATCCCGAACCCATTGGCAGATACAACGTCGCGCCG
+GGAACCAAAGTTCTTCTGCTCAGTGAACGTGATGAACACCTTCATCTGGATCCGGTTTTCTGGGGATATGCTCCCGGATGGTGGGATAAACCGCCGCTGATTAACGCCCGCGTAGAAACT
+GCGGCCACCAGTCGTATGTTTAAACCGCTCTGGCAACATGGTCGGGCAATCTGTTTTGCCGATGGCTGGTTTGAGTGGAAAAAAGAAGGCGACAAAAAACAGCCTTATTTTATCTATCGC
+(...)
+>2469|contig:260866153|start:2506868|stop:2507864|direction:f|rev_compd:False|length:996
+ATGAGTAACCTGACAGGCACCGATAAAAGCGTCATCCTGCTGATGACCATTGGCGAAGACCGGGCGGCAGAGGTGTTCAAGCACCTCTCCCAGCGCGAAGTGCAAACCCTGAGCGCTGCA
+ATGGCGAACGTCACGCAGATCTCCAACAAGCAGCTAACCGATGTGCTGGCGGAGTTTGAGCAAGAAGCTGAACAGTTTGCCGCACTGAATATCAACGCCAACGATTATCTGCGTTCGGTA
+TTGGTCAAAGCTCTGGGTGAGGAACGTGCCGCCAGCCTGCTGGAAGATATTCTCGAAACTCGCGATACCGCCAGCGGTATTGAAACGCTCAACTTTATGGAGCCGCAGAGCGCCGCCGAT
+(...)
+>2470|contig:260866153|start:2507856|stop:2508543|direction:f|rev_compd:False|length:687
+ATGTCTGATAATCTGCCGTGGAAAACCTGGACGCCGGACGATCTCGCGCCACCACAGGCAGAGTTTGTGCCCATGGTCGAGCCGGAAGAAACCATCATTGAAGAGGCCGAACCCAGCCTT
+GAGCAGCAACTGGCGCAACTGCAAATGCAGGCCCATGAGCAAGGTTATCAGGCGGGGATTGCCGAAGGTCGCCAGCAAGGTCATGAGCAGGGCTATCAGGAAGGACTGGCCCAGGGGCTG
+GAGCAAGGTCTGGCAGAGGCGAAGTCTCAACAAGCGCCAATTCATGCCCGGATGCAGCAACTGGTCAGCGAATTTCAAACTACCCTTGATGCACTTGATAGTGTGATTGCTTCGCGCCTG
+(...)
+{% endhighlight %}
+
+
+### Highlighting certain protein clusters on the display
+
+{:.notice}
+Doing this in an elegant way requires some changes in the `anvi-import-collection` program, and on August 12, Meren felt committed to make those changes ASAP. Time will tell how S is that S in that ASAP. But for now, you can edit the `additional_view_data.txt` file for this purpose.
+
+
+## Enriching the pangenomic display with additional information
+
+The output directory of a pangenomic analysis will contain two files, `additional_view_data.txt` and `anvio_samples_info.txt` with some default information. You can certainly add more contextual information about your genomes to increase the number of layers by adding more columns to the `additional_view_data.txt`, and re-generating the `samples.db` after adding more columns to the `anvio_samples_info.txt` file ([more information on anvi'o samples databases]({% post_url anvio/2015-11-10-samples-db %})).
+
+For instance, here is a slightly richer analysis of 30 genomes:
+
+[![A better looking pangenome]({{images}}/pan-genome-2.png)]({{images}}/pan-genome-2.png){:.center-img .width-80}
+
+The rest is up to your inner artist.
 
 
 ## Final words
