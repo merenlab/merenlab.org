@@ -331,12 +331,32 @@ GAGCAAGGTCTGGCAGAGGCGAAGTCTCAACAAGCGCCAATTCATGCCCGGATGCAGCAACTGGTCAGCGAATTTCAAAC
 ### Highlighting certain protein clusters on the display
 
 {:.notice}
-Doing this in an elegant way requires some changes in the `anvi-import-collection` program, and on August 12, Meren felt committed to make those changes ASAP. Time will tell how S is that S in that ASAP. But for now, you can edit the `additional_view_data.txt` file for this purpose.
+In order to use the following program, you must have the latest version of the repository from the master. But if you are using anvi'o `v2.0.2`, and really want to be able to use this functionality without with installing a new version from the repository, send Meren an e-mail via **meren** at **uchicago**, and you will get a recipe for a workaround. 
 
+It is also possible to show a particular group of protein clusters in the pangenomic display. If you have a list of protein clusters, you can import them into the profile database as a collection. To demonstrate it using the mock example, let's assume what you want to do is to identify protein clusters that contain at least one gene, translated amino acid sequence of which has more than 500 residues. This `awk` one-liner will give me a TAB-delimited file that can be used to import into the profile database using `anvi-import-collection`:
+
+{% highlight bash %}
+$ awk '{if (length($5) > 500) print $3 "\t LONG_PCs"}' ../protein-clusters.txt \
+		| uniq > test-collection.txt
+{% endhighlight %}
+
+Although in this case there is only one bin, LONG_PCs, of course you may have as many as you want for a real-world application. If you import this file into the profile database as a collection the following way,
+
+{% highlight bash %}
+$ anvi-import-collection test-collection.txt -p profile.db -C LONG_PCs
+{% endhighlight %}
+
+This is what you should see after running the interactive interface again, and loading the collection `LONG_PCs`:
+
+[![E. coli long PCs]({{images}}/e-coli-pan-collection.png)]({{images}}/e-coli-pan-collection.png){:.center-img .width-80}
+
+Interesting! The proportion of the longer genes vs. shorter ones seem to be much higher for the core, compared to the what is specific to `E_coli_O111` (Meren: when I was coming up with this example I didn't expect to see this, now I wonder if it is a methodological artifact or a biologically relevant or expected outcome).
+
+Of course adding new collections to the profile database is not the only way to highlight PCs of interest on the display. You can add as many columns as you like to the file `additional_view_data.txt`.
 
 ## Enriching the pangenomic display with additional information
 
-The output directory of a pangenomic analysis will contain two files, `additional_view_data.txt` and `anvio_samples_info.txt` with some default information. You can certainly add more contextual information about your genomes to increase the number of layers by adding more columns to the `additional_view_data.txt`, and re-generating the `samples.db` after adding more columns to the `anvio_samples_info.txt` file ([more information on anvi'o samples databases]({% post_url anvio/2015-11-10-samples-db %})).
+The output directory of a pangenomic analysis will contain two files, `additional_view_data.txt` and `anvio_samples_info.txt`, both of which will contain some default information about genomes and PCs. You can certainly add more contextual information about your genomes to increase the number of layers by adding more columns to the `additional_view_data.txt`, and re-generating the `samples.db` after adding more columns to the `anvio_samples_info.txt` file ([more information on anvi'o samples databases]({% post_url anvio/2015-11-10-samples-db %})).
 
 For instance, here is a slightly richer analysis of 30 genomes:
 
