@@ -106,7 +106,9 @@ cd hdf5-1.8.16
 ./configure && make && sudo make install
 {% endhighlight %}
 
-
+{:.notice}
+Depending on your operating system and version, you may need to install `libhdf5-dev` package separately to avoid fatal `No such file or directory` errors for various header files (we heard complaints from Debian and Ubuntu users).
+ 
 ## Centrifuge
 
 [Centrifuge](http://www.ccb.jhu.edu/software/centrifuge/) is a "*classification engine that enables rapid, accurate and sensitive labeling of reads and quantification of species on desktop computers*".
