@@ -7,7 +7,7 @@ excerpt: "Anvi'o Project Page"
 
 {% include _project-anvio-images.html %}
 
-# In a nutshell
+# Anvi'o in a nutshell
 
 Anvi'o is an analysis and visualization platform for 'omics data. It brings together many aspects of today's cutting-edge genomic, metagenomic, and metatranscriptomic analysis practices to address a wide array of needs.
 
