@@ -14,7 +14,7 @@ Anvi'o is an analysis and visualization platform for 'omics data. It brings toge
 Please see the "**Tutorials**" pull-down menu on this page for some example workflows with anvi'o. Anvi'o is a community-driven, GPL-licensed open-source project. You can browse its codebase by clicking [here](http://github.com/meren/anvio), and you can find our methods paper for anvi'o by clicking [here](https://peerj.com/articles/1319/). 
 
 {:.notice}
-Click here to download our poster from the ISME conference in Montreal: [eren-isme-poster-72dpi.png](../../images/files/eren-isme-poster-72dpi.png)
+Click here to download our poster from the ISME conference in Montreal: [eren-isme-poster-72dpi.png](../../files/eren-isme-poster-72dpi.png)
 
 Anvi'o would not have been possible without the help of many people who directly or indirectly contributed to its development. Here is the acknowledgements section of our [methods paper](https://peerj.com/articles/1319/), where we had the chance to name some of the individuals who helped us:
 
