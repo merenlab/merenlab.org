@@ -74,10 +74,10 @@ comments: false
 </div>
 
 <div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="None"></div>
-    <h3><a href="http://scholar.google.com/scholar?hl=en&q=http://scholar.google.com/scholar?hl=en&q=Reconstructing+Rare+Soil+Microbial+Genomes+using+in+situ+Enrichments+and+Metagenomics." target="_new">Reconstructing Rare Soil Microbial Genomes using in situ Enrichments and Metagenomics.</a></h3>
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.3389/fmicb.2015.00358."></div>
+    <h3><a href=" https://doi.org/10.3389/fmicb.2015.00358." target="_new">Reconstructing Rare Soil Microbial Genomes using in situ Enrichments and Metagenomics.</a></h3>
     <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Eren, A. M</span>., Maccario, L., Prestat, E., <span class="pub-member-author">Esen, Ö. C.</span>, Pelletier, E., LePaslier, D., Simonet, P., and Vogel, T.</span>
-    <span class="pub-journal"><i>Front Microbiol</i>. <b>6:358. doi: 10.3389/fmicb.2015.00358</b></span>
+    <span class="pub-journal"><i>Front Microbiol</i>. <b>6:358</b></span>
 </div>
 
 <div class="pub">
