@@ -33,6 +33,7 @@ for line in [l.strip() for l in f.readlines()]:
     if line.find('(ed.)') > 0 or line.find('(eds.)') > 0:
         bad_entries.append((line, 'ed/eds. found...'), )
         continue
+
     p_s = line.find(' (')
     p_e = p_s + 6
     if not p_s > 0:
@@ -41,6 +42,11 @@ for line in [l.strip() for l in f.readlines()]:
     if not line[p_e] == ')':
         bad_entries.append((line, 'p_e != )...'), )
         continue
+
+    doi = None
+    if line.split()[-1].strip().startswith('doi:'):
+        doi = line.split('doi:')[1].strip()
+        line = line.split('doi:')[0].strip()
 
     year = int(line[p_s + 2:p_e])
 
@@ -84,10 +90,9 @@ for line in [l.strip() for l in f.readlines()]:
     authors = authors.replace('Murat Eren, A.,', 'Eren, A. M.,')
 
     if not pubs_dict.has_key(year):
-        pubs_dict[year] = [{'authors': authors, 'title': title, 'journal': journal, 'issue': issue}]
+        pubs_dict[year] = [{'authors': authors, 'title': title, 'journal': journal, 'issue': issue, 'doi': doi}]
     else:
-        pubs_dict[year].append({'authors': authors, 'title': title, 'journal': journal, 'issue': issue})
-
+        pubs_dict[year].append({'authors': authors, 'title': title, 'journal': journal, 'issue': issue, 'doi': doi})
 
     if authors.count(',') == 1:
         authors_list.append(authors)
@@ -120,6 +125,7 @@ modified: 2015-02-05
 comments: false
 ---
 
+<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 """
 # print "<h1>Journals</h1>"
 # print top_journals
@@ -135,7 +141,11 @@ for year in sorted(pubs_dict.keys(), reverse=True):
     print
     for pub in pubs_dict[year]:
         print '<div class="pub">'
-        print '    <h3><a href="http://scholar.google.com/scholar?hl=en&q=%s" target="_new">%s</a></h3>' % ('http://scholar.google.com/scholar?hl=en&q=%s' % (pub['title'].replace(' ', '+')), pub['title'])
+        print '''<div class='altmetric-embed' data-badge-type='donut' data-doi="%s"></div>''' % pub['doi']
+        if pub['doi']:
+            print '    <h3><a href="%s" target="_new">%s</a></h3>' % (' https://doi.org/%s' % (pub['doi']), pub['title'])
+        else:
+            print '    <h3><a href="http://scholar.google.com/scholar?hl=en&q=%s" target="_new">%s</a></h3>' % ('http://scholar.google.com/scholar?hl=en&q=%s' % (pub['title'].replace(' ', '+')), pub['title'])
         print '    <span class="pub-authors">%s</span>' % get_author_links(pub['authors'])
         print '    <span class="pub-journal"><i>%s</i>. <b>%s</b></span>' % (pub['journal'], pub['issue'])
         print '</div>'
