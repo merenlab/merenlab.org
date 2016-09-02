@@ -599,13 +599,19 @@ Here I will stop, but still we have a lot to talk about!
 
 Finally, you can generate an XML description of the SNV profiles you have generated using `anvi-gen-variability-profile` program, using the program `anvi-gen-variability-network`:
 
-anvi-gen-variability-network -i E-faecalis-SNVs.txt -o E-faecalis-SNVs.gexf
+{% highlight bash %}
+ $ anvi-gen-variability-network -i E-faecalis-SNVs.txt -o E-faecalis-SNVs.gexf
+{% endhighlight %}
 
 You can use [Gephi](https://gephi.org/) to play with the resulting file to visualize or to analyze the network properties of nucleotide positions further.
 
-Here is a screenshot from Gephi for SNV profiles in the E. faecalis genome bin:
+Here is a screenshot from Gephi for SNV profiles in the *E. faecalis* genome bin:
 
 [![E. faecalis SNVs network](images/network.png)](images/network.png){:.center-img .width-100}
+
+OK.
+
+You just read about three different ways to visualize the single-nucleotide variability profiles. We are done here!
 
 
 ## A pangenomic analysis
