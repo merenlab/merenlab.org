@@ -410,7 +410,7 @@ OK. Clearly, we have no way of knowing the extent of variation within this bin t
 Let's first generate the SNV profile output file, [details of which were described extensively here]({% post_url anvio/2015-07-20-analyzing-variability %}#the-output-matrix). Here it is:
 
 {% highlight bash %}
-$ anvi-gen-variability-profile -c CONTIGs.db \
+$ anvi-gen-variability-profile -c CONTIGS.db \
                               -p PROFILE.db \
                               -C E_faecalis \
                               -b E_faecalis \
@@ -459,7 +459,7 @@ For this step we will need [this R script](https://github.com/meren/anvio-method
 Here is an extra step, and why we need it: `E-faecalis-SNVs.txt` contains filtered SNVs, but we also want to know about each sample's *variation density*, the number of nucleotide positions reported as a variable position for each 1,000 nts. The R script can already do it, but we need another file that reports ALL SNVs for every sample, without any filters to get the raw counts. Let's first create that the following way:
 
 {% highlight bash %}
-$ anvi-gen-variability-profile -c CONTIGs.db \
+$ anvi-gen-variability-profile -c CONTIGS.db \
                                -p PROFILE.db \
                                -C E_faecalis \
                                -b E_faecalis \
