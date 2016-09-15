@@ -48,6 +48,7 @@ $ wget http://eddylab.org/software/hmmer3/3.1b2/hmmer-3.1b2.tar.gz
 $ tar -zxvf hmmer-3.1b2.tar.gz
 $ cd hmmer-3.1b2
 $ ./configure && make && sudo make install
+$ cd easel && make check && sudo make install
 {% endhighlight %}
 
 Type `hmmscan -h` again to make sure everything is alright, and you get the proper version number.
