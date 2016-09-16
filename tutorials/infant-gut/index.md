@@ -27,7 +27,7 @@ If you are following this tutorial, you will need the anvi'o merged profile data
 When you click the link, it will start downloading a 134 Mb tar.gz file automatically. Once it is done, go to the relevant directory that contains this file using your terminal, and unpack it the following way:
 
 {% highlight bash %}
- $ tar -zxvf INFANT-GUT-TUTORIAL.tar.gz
+ $ tar -zxvf INFANTGUTTUTORIALv2.tar.gz && cd INFANT-GUT-TUTORIAL
 {% endhighlight %}
 
 {:.notice}
