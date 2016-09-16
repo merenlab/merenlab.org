@@ -20,18 +20,19 @@ While this tutorial will take you through a simple analysis of a real dataset, t
 
 A typical anvi'o metagenomic workflow [starts with BAM files and a FASTA file]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#preparation) of contigs. There are many ways to get your contigs and BAM files for your metagenomes. But we have started implementing a tutorial that describes the workflow _we_ use to generate these files regularly: "[A tutorial on assembly-based metagenomics]({{ site.url }}/tutorials/assembly-based-metagenomics/)". Please feel free to take a look at that one, as well.
 
-## The contigs database & anvi'o merged profile for the Infant Gut Dataset
+## Downloading the pre-packaged Infant Gut Dataset
 
-If you are following this tutorial, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD. You can download them using this link: [https://ndownloader.figshare.com/files/5984790](https://ndownloader.figshare.com/files/5984790) (click the 'Download all', and unzip the resulting directory, and go into it using your terminal).
+If you are following this tutorial, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD. You can download them using this link: [https://ndownloader.figshare.com/files/5984790](https://ndownloader.figshare.com/files/5984790).
 
-{:.notice}
-Some crash course on anvi'o databases: An **anvi’o contigs database** keeps all the information related to your contigs: positions of open reading frames, k-mer frequencies for each contig, where splits start and end, functional and taxonomic annotation of genes, etc. The contigs database is an essential component of everything related to anvi’o metagenomic workflow. In contrast to the contigs database, an **anvi'o profile database** stores sample-specific information about contigs. Profiling a BAM file with anvi'o creates a single profile that reports properties for each contig in a single sample based on mapping results. Each profile database automatically links to a contigs database, and anvi’o can merge single profiles that link to the same contigs database into **anvi'o merged profile**s (which is what you have in this directory). If you would like to learn more about these, here are some direct links: [creating an anvi'o contigs database]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#creating-an-anvio-contigs-database), [creating single anvi'o profiles]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#profiling-bam-files), and [merging anvi'o profiles]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#working-with-anvio-profiles)
-
-While in that directory, run this command to unpack the additional files directory,
+When you click the link, it will start downloading a 134 Mb tar.gz file automatically. Once it is done, go to the relevant directory that contains this file using your terminal, and unpack it the following way:
 
 {% highlight bash %}
- $ tar -zxvf additional-files.tar.gz
+ $ tar -zxvf INFANT-GUT-TUTORIAL.tar.gz
 {% endhighlight %}
+
+{:.notice}
+Some crash course on anvi'o databases: An **anvi’o contigs database** keeps all the information related to your contigs: positions of open reading frames, k-mer frequencies for each contig, where splits start and end, functional and taxonomic annotation of genes, etc. The contigs database is an essential component of everything related to anvi’o metagenomic workflow. In contrast to the contigs database, an **anvi'o profile database** stores sample-specific information about contigs. Profiling a BAM file with anvi'o creates a single profile that reports properties for each contig in a single sample based on mapping results. Each profile database automatically links to a contigs database, and anvi’o can merge single profiles that link to the same contigs database into **anvi'o merged profile**s (which is what you have in this directory). If you would like to learn more about these, here are some direct links: [creating an anvi'o contigs database]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#creating-an-anvio-contigs-database), [creating single anvi'o profiles]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#profiling-bam-files), and [merging anvi'o profiles]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#working-with-anvio-profiles).
+
 
 {:.notice}
 If you were sent here somewhere from down below, now you can **go back**. If you have no idea what this means, ignore this notice, and continue reading. You're OK :)
