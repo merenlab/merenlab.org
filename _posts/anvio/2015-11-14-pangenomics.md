@@ -12,9 +12,12 @@ authors: [meren, tom]
 {% include _toc.html %}
 
 {% capture images %}{{site.url}}/images/anvio/2015-11-14-pan-genomics{% endcapture %}
-Cultivation of closely related microorganisms, and the subsequent recovery of their genomes, revealed that not all isolates share the same functional traits for a given population. On the other hand, individual isolates do not fully echo the functional complexity of naturally occurring microbial populations either. Large genomic collections is the only way to get closer to a more realistic picture of the pool of functions in a given clade of bacterial tree.
 
-Overlapping and differing functions among the genomes of closely related organisms led to the introduction of a new concept, "pangenomics" [(Tettelin et al., 2005)](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1216834/), where genes across genomes are segregated into distinct groups: (1) the core-genome, (2) genes detected in multiple yet not in all genomes, and finally (3) isolate-specific genes that are detected only in a single genome. Pangenomic investigations are now widely used to dissect the functional traits of microorganisms, and to uncover environmentally- and clinically-important clusters of genes or functions.Although [multiple bioinformatics software](http://omictools.com/pangenomics-c1590-p1.html) are available to generate and/or visualize pangenomes, these solutions do not necessary offer flexible work environments, and hence limit the user's ability to interact with their data. 
+Cultivation of closely related microorganisms, and the subsequent recovery of their genomes, revealed that not all isolates share the same functional traits for a given population. On the other hand, individual isolates do not fully echo the functional complexity of naturally occurring microbial populations either. Large genomic collections is the only way to get closer to a more realistic picture of the pool of functions in a given clade of bacterial tree.
+
+Overlapping and differing functions among the genomes of closely related organisms led to the introduction of a new concept, "pangenomics" [(Tettelin et al., 2005)](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1216834/), where genes across genomes are segregated into distinct groups: (1) the core-genome, (2) genes detected in multiple yet not in all genomes, and finally (3) isolate-specific genes that are detected only in a single genome. Pangenomic investigations are now widely used to dissect the functional traits of microorganisms, and to uncover environmentally- and clinically-important clusters of genes or functions.
+
+Although [multiple bioinformatics software](http://omictools.com/pangenomics-c1590-p1.html) are available to generate and/or visualize pangenomes, these solutions do not necessary offer flexible work environments, and hence limit the user's ability to interact with their data. 
 
 In this post we will demonstrate the [anvi'o](https://peerj.com/articles/1319/) workflow for pangenomics using a simple dataset. Although we are still [working](http://github.com/meren/anvio) on the pan-genomic workflow, using the [v2 version of anvi'o]({% post_url anvio/2016-06-26-installation-v2 %}) you can,
 
@@ -94,7 +97,8 @@ anvi-interactive -s samples.db -p profile.db -t tree.txt -d view_data.txt -A add
 {% endhighlight %}
 
 Let's see some examples.
-## Case I: *All I have is a bunch of FASTA files*
+
+## Case I: *All I have is a bunch of FASTA files*
 
 Assume you have three FASTA files for three *E. coli* strains you want to analyze with `anvi-pan-genome` (you can download these genomes and play with them if you click those links):
 
@@ -115,7 +119,7 @@ The first thing is to generate an anvi'o contigs database for each one of them, 
 
 {% highlight bash %}
 $ gzip -d E_coli_BL21.fa.gz
-$ anvi-gen-contigs-database -i E_coli_BL21.fa -o E_coli_BL21.db --split-length -1
+$ anvi-gen-contigs-database -f E_coli_BL21.fa -o E_coli_BL21.db --split-length -1
 $ anvi-run-hmms -c E_coli_BL21.db
 {% endhighlight %}
 
