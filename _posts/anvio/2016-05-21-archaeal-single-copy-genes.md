@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Making anvi'o use your own single-copy gene collection"
+title: "Making anvi'o use your own HMM collection"
 excerpt: "Mike Lee demonstrates how to use a custom HMM single-copy gene profile for archaeal genomes"
 modified: 2016-05-21
 categories: [anvio]
@@ -9,7 +9,10 @@ authors: [mike]
 ---
 
 {:.notice}
-**Meren's note**: The following post is kindly contributed by [Mike Lee](https://twitter.com/AstrobioMike), who is a molecular biologist and a bioinformatician and currently a PhD student at the [University of Southern California](http://www.usc.edu/) working with Hutchins and Webb labs. His research spans from studying basalts in the marine deep biosphere to investigating photoautotroph-heterotroph associations at the ocean surfaces. Mike's post made me realize that there could be some improvements in the codebase to make better use of the archaeal single-copy gene collection he used for his project, and I promise to improve the [anvi'o codebase](https://github.com/meren/anvio/) to be less biased towards bacteria in the future ;) I thank Mike for sharing his experience with everyone through this post, and for his very kind words about anvi'o.
+**Meren's note on September 2016**: Starting from `v2.0.3`, the archaeal single-copy core core gene collection released by [Rinke et al.](http://www.nature.com/nature/journal/v499/n7459/full/nature12352.html), and described in this post by [Mike Lee](https://twitter.com/AstrobioMike), is included in anvi'o. Details of this transition can be viewed [here](https://github.com/meren/anvio/pull/401). We thank Mike for helping us to improve anvi'o.
+
+{:.notice}
+**Meren's note on May 2016**: The following post is kindly contributed by [Mike Lee](https://twitter.com/AstrobioMike), who is a molecular biologist and a bioinformatician and currently a PhD student at the [University of Southern California](http://www.usc.edu/) working with Hutchins and Webb labs. His research spans from studying basalts in the marine deep biosphere to investigating photoautotroph-heterotroph associations at the ocean surfaces. Mike's post made me realize that there could be some improvements in the codebase to make better use of the archaeal single-copy gene collection he used for his project, and I promise to improve the [anvi'o codebase](https://github.com/meren/anvio/) to be less biased towards bacteria in the future ;) I thank Mike for sharing his experience with everyone through this post, and for his very kind words about anvi'o.
 
 One of the major strengths of anvi'o is the capability of manually curating your genome bins with real-time updates of percent completeness and contamination estimates. The information necessary to estimate completeness comes from the scanning of your contigs using previously published bacterial single-copy gene collections. When you run the following command following the [standard metagenomic workflow]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}), the occurrence of bacterial single-copy genes across your contigs is all added to your contigs database:
 
@@ -34,6 +37,7 @@ Anvi'o will expect the directory denoted by the `-H` flag above to contain four 
 |*genes.txt*|A TAB-delimited file containing three columns; gene name, accession number, and source of HMM profiles listed in genes.hmm.gz.|
 |*kind.txt*|A flat text file which contains a single word identifying what type of profile the directory contains. If this word is 'singlecopy', the profile is used to calculate percent completeness and contamination. Otherwise it will only be used to visualize contigs with HMM hits without being utilized to estimate completeness.|
 |*reference.txt*|A file containing source information for this profile to cite it properly.|
+|*target.txt*|A file containing the target alphabet and context. See [this](https://github.com/meren/anvio/pull/402) for more details. For this particular collection the target will be `AA:GENE` (because it was prepared using amino acid alignments, and we want them to be searched within gene calls stored in contigs databases), however, the the target term could be any combination of `AA`, `DNA`, or `RNA` for the alphabet part, and `GENE` or `CONTIG` for the context part (well, except `AA:CONTIG`, because we can't translate contigs).|
 
 Examples of each file can be found [here](https://github.com/meren/anvio/tree/master/anvio/data/hmm/Campbell_et_al), and if you'd like to jump right in using the archaeal single-copy gene collection by [Rinke et al.](http://www.nature.com/nature/journal/v499/n7459/full/nature12352.html), please help yourself to the directory located [here]({{ site.url }}/files/Rinke_archaeal_HMM.tar.gz).
 
