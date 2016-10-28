@@ -54,6 +54,6 @@ If everything goes alright, this command will generate the file `output.png`, wh
 
 ## How to thank Inkscape developers
 
-If would have been quite a simple and fair way to support them and show your gratitude if you were to [donate a small amount to the project](https://inkscape.org/en/support-us/donate/) every time you publish a figure that is finalized with Inkscape. Even a small donation means a lot to most open-source projects.
+It would have been quite a simple and fair way to support them and show your gratitude if you were to [donate a small amount to the project](https://inkscape.org/en/support-us/donate/) every time you publish a figure that is finalized with Inkscape. Even a small donation means a lot to most open-source projects.
 
 Although there is nothing to cite for Inkscape, it would also be nice to add a sentence like this one to the appropriate place in the methods section: "*We used Inkscape version `your version` (available from https://inkscape.org/) to finalize our figures for publication*".
