@@ -7,6 +7,7 @@ tags: []
 categories: [anvio]
 comments: true
 authors: [meren]
+thumb: http://merenlab.org/files/eren-isme-poster-72dpi.png
 ---
 
 {% capture images %}{{site.url}}/images/anvio/2016-10-27-high-resolution-figures{% endcapture %}
