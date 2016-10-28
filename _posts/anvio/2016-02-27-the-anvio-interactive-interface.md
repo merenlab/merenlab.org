@@ -317,6 +317,9 @@ At the bottom of the layers tab there is a section with tiny controls that are a
 * **Zoom in, zoom out, and center** the display.
 * **Download your display as an SVG file**. 
 
+{:.notice}
+See the post "[Working with SVG files anvi'o generate]({% post_url anvio/2016-10-27-high-resolution-figures %})" for tips about how to work with large SVG files using Inkscape.
+
 ### 2.2.1 Layers tab
 
 Through the layers tab you can,
