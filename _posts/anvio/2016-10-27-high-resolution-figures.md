@@ -16,11 +16,11 @@ authors: [meren]
 Preparing publication-quality figures is not an easy task. Although the [anvi'o interactive interface]({% post_url anvio/2016-02-27-the-anvio-interactive-interface %}) allows you to work with your display extensively and fine-tune your story, you will still need to finalize your figure using an editor.
 
 {:.notice}
-I know among you there are some who think that they can get away by taking screenshots of their browser window and using it in their publications. Well, you are not really getting away: perfectionists take notice, and your name ends up in a list somewhere.
+I know among you there are some who think that they can get away with by taking screenshots of their browser window and using it in their publications or presentations. Well, you are not really getting away: perfectionists take notice, and your name ends up in a list somewhere.
 
 ## Saving an anvi'o display
 
-It is pretty easy to download what you see in an anvi'o display as an SVG file. You simply click [the save button on the bottom-left corner of the interface](http://anvi-server.org/public/meren/demo):
+Download what you see in an anvi'o display on your disk as an SVG file is simple. You click [the save button on the bottom-left corner of the interface](http://anvi-server.org/public/meren/demo), and you get the file:
 
 [![Save button]({{images}}/save-button.png)]({{images}}/save-button.png){:.center-img .width-50}
 
