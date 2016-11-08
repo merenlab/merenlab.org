@@ -15,6 +15,9 @@ As an apology, we will do our best to keep this article up-to-date, so installin
 
 {% include _toc.html %}
 
+{:.notice}
+{% include _fixthispage.html source="anvio/2016-06-18-installing-third-party-software.md" %}
+
 ## Prodigal
 
 [Prodigal](http://prodigal.ornl.gov/) is a bacterial and archaeal gene finding program developed at Oak Ridge National Laboratory and the University of Tennessee. Everytime you create a contigs database in anvi'o with `anvi-gen-profile-database`, you use it.
@@ -189,3 +192,74 @@ Good? Good! See? You are totally doing this!
 {% endhighlight %}
 
 Once you are done, you should get a simple usage statement instead of a command not found error when you type `mcl` in your terminal. If that is the case, you are done.
+
+
+## egnogg-mapper
+
+[eggnog-mapper](https://github.com/jhcepas/eggnog-mapper) _is a tool for fast functional annotation of novel sequences (genes or proteins) using precomputed eggNOG-based orthology assignments_.
+
+**Citation**: [http://biorxiv.org/content/early/2016/09/22/076331](http://biorxiv.org/content/early/2016/09/22/076331)
+
+The official codebase for `eggnog-mapper` is [here](https://github.com/jhcepas/eggnog-mapper), and a pre-print by [Jaime Huerta-Cepas](http://big.crg.cat/people/jaime_huerta_cepas) and his colleagues describing the work is [here](http://biorxiv.org/content/early/2016/09/22/076331). If you follow this recipe, you should remember that you will be using `eggNOG` databases with `eggnog-mapper`, and in your writings you should cite the `eggNOG` release, too:
+
+**Citation**: [https://www.ncbi.nlm.nih.gov/pubmed/26582926](https://www.ncbi.nlm.nih.gov/pubmed/26582926)
+
+{:.notice}
+`eggnogg-mapper` has online [documentation](https://github.com/jhcepas/eggnog-mapper/wiki) for you to read and set it up on your system yourself, and learn about the details of working with it. This is a recipe for the lazy. If you have a systems administrator, it may be better for them to set it up as a module for everyone. Otherwise, this recipe will tell you how you can you do it within your own space (note that you will need lots of disk space depending on databases you want to download).
+
+To install `eggnog-mapper` you first need to get the source code, and then you will need to collect the precomputed database files. 
+
+First, you need to decide where do you want to put `eggnog-mapper` and its databases (you will need to change that `/path/to/a/directory` line to wherever you want on your disk):
+
+{% highlight bash %}
+$ export EGGNOG_MAPPER_BASE="/path/to/a/directory"
+{% endhighlight %}
+
+Here is how you get the code:
+
+{% highlight bash %}
+$ cd $EGGNOG_MAPPER_BASE
+$ git clone https://github.com/jhcepas/eggnog-mapper.git
+$ cd eggnog-mapper/
+$ git checkout tags/0.12.6
+$ export PATH=$PATH:$EGGNOG_MAPPER_BASE/eggnog-mapper
+{% endhighlight %}
+
+At this point if you run this command, you should get the following output:
+
+{% highlight bash %}
+$ emapper.py --version
+emapper-0.12.6
+{% endhighlight %}
+
+If all is good, now you can download the databases. Which databases you are going to be downloading is up to you (which will not only affect the disk space you need, but also the runtime to screen your genes). Here I will download everything (because I have time _and_ space):
+
+{% highlight bash %}
+$ download_eggnog_data.py euk bact arch viruses -y
+{% endhighlight %}
+
+This will take a long *very* long time mostly due to large I/O overhead to decompress some of the databases with large numbers of smaller files (so do not forget to start the process in a `screen`), but fortunately you will not do it again.
+
+If you are here, you have the basic setup done. Congratulations.
+
+As a very final step, you should add these two lines in your `~/.bashrc` or `~/.bash_profile` file (whichever one is being used on your system, most likely `~/.bash_profile` will work) to make sure they are set in your environment every time you start a new terminal (don't forget to update the directory name):
+
+{% highlight bash %}
+export EGGNOG_MAPPER_BASE="/path/to/a/directory"
+export PATH=$PATH:$EGGNOG_MAPPER_BASE/eggnog-mapper
+{% endhighlight %}
+
+## muscle
+
+[muscle](http://drive5.com/muscle/) _is one of the best-performing multiple alignment programs_.
+
+**Citation**: [https://www.ncbi.nlm.nih.gov/pubmed/15034147](https://www.ncbi.nlm.nih.gov/pubmed/15034147)
+
+Anvi'o uses muscle to align amino acid sequences within each protein cluster while running the pangenomic workflow in `v2.1.0` and later versions of anvi'o. Installation is rather easy: go to the [downloads page](http://www.drive5.com/muscle/downloads.htm) for `muscle`, grab the one that matches to your operating system, rename the unzipped binary to 'muscle', and move it into `/usr/local/bin` or whichever directory seems to be working.
+
+If you were successful, this is what you should see when you type `muscle` in your terminal:
+
+{% highlight bash %}
+$ muscle -version
+MUSCLE v3.8.31 by Robert C. Edgar
+{% endhighlight %}
