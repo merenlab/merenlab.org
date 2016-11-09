@@ -9,12 +9,15 @@ comments: true
 
 This article describes how to import functional annotations of genes into anvi'o.
 
+Anvi'o also provides a simpler way to annotate your genes using NCBI COGs. If you would like to explore that option, please read [this article]({% post_url anvio/2016-10-25-cog-annotation %}).
+
+{:.notice}
 Have you been struggling with importing your functions into anvi'o? You want to use XXX to annotate your funcitons because everyone says it is awesome, but the output from XXX is not compatible with anvi'o? Let us know, and we will see what we can do!
 
 Anvi'o accepts functional annotation at the gene-level. Gene IDs in your input files should correspond to gene IDs in the contigs database, hence, functional annotation should be done *after* exporting genes from the contigs database. The basic workflow goes like this: (1) generate your contigs database, (2) export your gene sequences, (3) assign functions to them, and (4) import results back into your contigs database.
 
 {:.notice}
-**Important note**: There are many ways to have your genes annotated with functions, but, there is only one way to make sure the gene IDs in your functiontaxonomy files correspond to the gene caller IDs in the database: export your DNA or AA sequences from the anvi'o contigs database you wish to annotate using anvi'o programs `anvi-get-dna-sequences-for-gene-calls` or `anvi-get-aa-sequences-for-gene-calls`. 
+**Important note**: There are many ways to have your genes annotated with functions, but, there is only one way to make sure the gene IDs in the files you generate using external tools correspond to the gene IDs in the database: export your DNA or AA sequences from the anvi'o contigs database you wish to annotate using anvi'o programs `anvi-get-dna-sequences-for-gene-calls` or `anvi-get-aa-sequences-for-gene-calls`.
 
 {% include _toc.html %}
 

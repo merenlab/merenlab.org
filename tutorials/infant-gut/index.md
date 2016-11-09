@@ -700,7 +700,7 @@ and the internal one:
 It is this simple to combine MAGs and isolates.
 
 {:.notice}
-You can find a comprehensive tutorial on the anvi'o pangenomic workflow [here]({% post_url anvio/2015-11-14-pangenomics %}).
+You can find a comprehensive tutorial on the anvi'o pangenomic workflow [here]({% post_url anvio/2016-11-08-pangenomics-v2 %}).
 
 So everything is ready for an analysis. To start the pangenomic workflow, you can run `anvi-pan-genome` program the following way (which takes about 5 minutes on my laptop):
 
