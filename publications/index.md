@@ -15,7 +15,7 @@ comments: false
 
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1128/mBio.01713-16"></div>
-    <h3><a href=" https://doi.org/10.1128/mBio.01713-16" target="_new">Patient-specific bacteroides genome variants in pouchitis.</a></h3>
+    <h3><a href=" https://doi.org/10.1128/mBio.01713-16" target="_new">Patient-specific <i>Bacteroides</i> genome variants in pouchitis.</a></h3>
     <span class="pub-authors">Vineis, J. H., Ringus, D. L., Morrison, H. G., <span class="pub-member-author">Delmont, T. O.</span>, Dalal, S., Raffals, L. H., Atonopoulos, D. A., Rubin, D. T., <span class="pub-member-author">Eren, A. M</span>., Chang, E. B., and Sogin, M. L</span>
     <span class="pub-journal"><i>mBio</i>. <b>7(6):e01713-16</b></span>
 </div>
