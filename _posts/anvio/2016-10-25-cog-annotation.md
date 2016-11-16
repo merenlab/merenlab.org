@@ -8,6 +8,9 @@ comments: true
 authors: [meren]
 ---
 
+{: .notice}
+The COG workflow is for `2.1.0` and later versions of anvi'o. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal.
+
 This article describes how to setup COGs on your system, and how to annotate your gene calls in an anvi'o contigs database with COGs.
 
 This is different than [importing functions into anvi'o]({{ post_url anvio/2016-06-18-importing-functions }}), because this workflow is run by anvi'o programs that use blastp or DIAMOND to search NCBI's now-quite-outdated-and-not-maintained-but-still-awesome COG database, and provides a one-step-solution for the functional annotation problem.
