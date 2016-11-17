@@ -210,6 +210,22 @@ th, td {
   display: block;
 }
 
+.extra-info {
+    width: 90%;
+    margin: 25px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    background: aliceblue;
+}
+
+.extra-info-header {
+    border-bottom: 1px solid gray;
+    display: block;
+    margin-bottom: 10px;
+    font-variant: small-caps;
+    font-weight: bold;
+}
 
 .page-author-info {
 	h3 {
