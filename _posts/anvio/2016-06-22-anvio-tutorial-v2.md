@@ -326,13 +326,30 @@ This is the simplest way to run the interactive interface on your merged anvi'o 
 $ anvi-interactive -p SAMPLES-MERGED/PROFILE.db -c contigs.db
 {% endhighlight %}
 
-This will work perfectly if your merged profile has its trees (i.e., the hierarchical clustering mentioned in the `anvi-merge` section was *done*). Alternatively, you can use this notation to visualize a collection; this time each leaf of the tree will be a bin, along with completion and redundancy estimates, and distribution of it across samples:
+This will work perfectly **if your merged profile has its own trees** (i.e., the hierarchical clustering mentioned in the `anvi-merge` section was done).
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Collection mode</span>
+
+If there are no clusterings available in your profile database `anvi-interactive` will complain about the fact that it can't visualize our profile. But if you have an anvi'o collection stored in your profile database you can run the interactive interface in **collection mode**. If you are not sure whether you have a collection or not, you can see all available collections using this command:
+
+{% highlight bash %}
+$ anvi-script-get-collection-info -p SAMPLES-MERGED/PROFILE.db -c contigs.db --list-collections
+{% endhighlight %}
+
+Once you know the collection you want to work with, you can use this notation to visualize it:
 
 {% highlight bash %}
 $ anvi-interactive -p SAMPLES-MERGED/PROFILE.db -c contigs.db -C CONCOCT
 {% endhighlight %}
 
-When you run `anvi-interactive` with a collection name, it will on the fly compute various characteristics of each bin, i.e., their mean coverage, variability, completion and redundancy estimates, and generate anvi'o views for them to display their distribution across your samples in the interactive interface. Briefly, each *leaf* of the anvi'o central dendrogram will represent a "bin" in your collection, instead of a "contig" in your metagenomic assembly. A dendrogram for bins will be generated for each view using euclidean distance and ward linkage automatically. When running the interactive interface in collection mode, you can change those defaults using the `--distance` and/or `--linkage` parameters. If you have run `anvi-merge` with `--skip-hierarchical-clustering` parameter due to the large number of contigs you had, but if you have binning results available to you from an external resource, you can import those bins as described in the previous section, and run the interactive interface with that collection id to immediately see the distribution of bins across your samples.
+When you run `anvi-interactive` with a collection name, it will compute various characteristics of each bin on-the-fly, i.e., their mean coverage, variability, completion and redundancy estimates, and generate anvi'o views for them to display their distribution across your samples in the interactive interface. Briefly, each *leaf* of the anvi'o central dendrogram will represent a "bin" in your collection, instead of a "contig" in your metagenomic assembly. A dendrogram for bins will be generated for each view using euclidean distance and ward linkage automatically. When running the interactive interface in collection mode, you can change those defaults using the `--distance` and/or `--linkage` parameters. If you have run `anvi-merge` with `--skip-hierarchical-clustering` parameter due to the large number of contigs you had, but if you have binning results available to you from an external resource, you can import those bins as described in the previous section, and run the interactive interface with that collection id to immediately see the distribution of bins across your samples.
+
+{:.notice}
+In this mode each leaf of the tree will be a bin, along with the distribution of each bin across samples with their completion and redundancy estimates in the most outer layers. In this mode, the interface runs in reduced functionality, and selections will not have completion and contamination estimates. If you are interested in visualizing a specific bin with, say, high redundancy, then you can use the program `anvi-refine` with that bin.
+
+</div>
 
 Here is some additional information about the interactive interface (please see a full list of other options by typing `anvi-interactive -h`):
 
