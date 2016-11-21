@@ -137,7 +137,7 @@ Once your analysis is done, you will use the program `anvi-display-pan` to displ
 This is the simplest form of this command:
 
 {% highlight bash %}
-$ anvi-pan-genome -p PROJECT-PAN.db -s PROJECT-PAN-SAMPLES.db -g PROJECT-PAN-GENOMES.h5
+$ anvi-display-pan -p PROJECT-PAN.db -s PROJECT-PAN-SAMPLES.db -g PROJECT-PAN-GENOMES.h5
 {% endhighlight %}
 
 The program `anvi-display-pan` is very similar to the program `anvi-interactive`, and the interface that will welcome you is nothing but the standard [anvi'o interactive interface]({% post_url anvio/2016-02-27-the-anvio-interactive-interface %}/#using-the-anvio-interactive-interface) with slight adjustments for pangenomic analyses. Of course `anvi-display-pan` will allow you to set the IP address and port number to serve, add additional view data, additional layers, and/or additional trees, and more. Please familiarize yourself with it by running `anvi-display-pan -h` in your terminal.
