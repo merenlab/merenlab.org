@@ -240,6 +240,9 @@ Bin_1_14 .....................................: CPR (Confidence: 95%, Size: 1,52
 
 Here I ask anvi'o to bring me back all sequences from this bin that match Campbell et al. HMM profiles:
 
+{:.notice}
+The program `anvi-get-dna-sequences-for-hmm-hits` is renamed to `anvi-get-sequences-for-hmm-hits` after anvi'o `v2.1.0`.
+
 {% highlight bash %}
 $ anvi-get-dna-sequences-for-hmm-hits -c CONTIGS.db -p PROFILE.db -C CONCOCT -b Bin_1_14 --hmm-source Campbell_et_al -o Bin_1_14.fa
 Init .........................................: 71 splits in 1 bin(s)
