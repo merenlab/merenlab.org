@@ -8,7 +8,7 @@ categories: [miscellaneous]
 comments: true
 authors: [meren]
 image:
-  feature: http://merenlab.org/images/miscellaneous/2016-11-21-bacteroides-genome-variants/p214.png
+  thumb: http://merenlab.org/images/miscellaneous/2016-11-21-bacteroides-genome-variants/p214.png
 ---
 
 {% capture images %}{{site.url}}/images/miscellaneous/2016-11-21-bacteroides-genome-variants{% endcapture %}
