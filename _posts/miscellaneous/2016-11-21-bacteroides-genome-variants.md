@@ -20,7 +20,7 @@ image:
 
 [![Abstract]({{images}}/abstract.png)]({{images}}/abstract.png){:.center-img .width-60}
 
-This was a collaboration between the [University of Chicago](http://www.uchicago.edu), [Argonne National Laboratory](http://www.anl.gov/), and the [Marine Biological Laboratory](http://www.mbl.edu).
+This was a collaboration between the [University of Chicago](http://www.uchicago.edu), [Argonne National Laboratory](http://www.anl.gov/), [Mayo Clinic](http://www.mayoclinic.org/), and the [Marine Biological Laboratory](http://www.mbl.edu).
 
 {:.notice}
 I am writing this post primarily to show how metagenomes for each of the patients in this study can be displayed, and if you like, you can [jump directly to the relevant section](#displaying-a-patient-metagenome-from-vineis-et-al) without losing any time!
