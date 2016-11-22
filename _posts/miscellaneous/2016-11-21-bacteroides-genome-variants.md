@@ -1,25 +1,27 @@
 ---
 layout: post
 title: "Bacteroides Genome Variants, and a 'reproducible data' exercise with anvi'o"
-excerpt: "The way we wanted to make sure everyone has access to the genomes we recovered"
+excerpt: "The way we made sure everyone has access to the genomes we recovered"
 modified: 2016-11-21
 tags: []
 categories: [miscellaneous]
 comments: true
 authors: [meren]
+image:
+  feature: http://merenlab.org/images/miscellaneous/2016-11-21-bacteroides-genome-variants/p214.png
 ---
 
 {% capture images %}{{site.url}}/images/miscellaneous/2016-11-21-bacteroides-genome-variants{% endcapture %}
 
 {% include _toc.html %}
 
-[Here is a study](http://mbio.asm.org/content/7/6/e01713-16.full){:target="_blank"} from our group that came out just a couple days ago:
+[Here is a study](http://mbio.asm.org/content/7/6/e01713-16.full){:target="_blank"} that came out just a couple of days ago:
 
 [![Abstract]({{images}}/abstract.png)]({{images}}/abstract.png){:.center-img .width-60}
 
 Clearly I can't claim to be objective about it since I am one of the authors, but I really like this one.
 
-## My learnings from this study
+## My learnings from the Vineis *et al.* study
 
 The published version of our study already says what we wanted to say as a group, but here I would like to share my 2 cents on what I think makes this study interesting:
 
