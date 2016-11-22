@@ -13,7 +13,7 @@
 
 {% include _navigation.html %}
 
-{% if page.image.feature %}
+{% if page.image.feature and page.image.display %}
   <div class="image-wrap">
   <img src=
     {% if page.image.feature contains 'http' %}
