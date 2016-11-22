@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Bacteroides Genome Variants, and a 'reproducible data' exercise with anvi'o"
+title: "Bacteroides Genome Variants, and a reproducible science exercise with anvi'o"
 excerpt: "The way we made sure everyone has access to the genomes we recovered"
 modified: 2016-11-21
 tags: []
