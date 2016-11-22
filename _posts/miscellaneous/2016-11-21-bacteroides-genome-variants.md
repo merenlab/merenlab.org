@@ -35,9 +35,9 @@ The published version of the study already says what we wanted to say as a group
 
 We look at the same landscape, and see different things, and here is a list of things *I* saw through this one:
 
-* I think one of the reasons we know so little about IBDs is because experimental and computational approaches widely relied upon lack proper resolution to facilitate proper investigations of the host-microbe interactions (this study does not address this limitation either).
+* I think one of the main reasons we know so little about IBDs is because the experimental and computational approaches we widely rely upon lack proper resolution to facilitate proper investigations of host-microbe interactions (our study does not address this limitation either).
 
-* Identifying potential links between these genomic islands and their relevance (or lack thereof) to the progress of disease will not be easy, and definitely requires much more work at the bench side. But seeing the difference between the biopsy and lumen samples is the first step. Which would have not been possible through marker genes profiles, or the use of reference genomes. This is yet another evidence that reconstructing genomes from metagenomes is key.
+* Identifying the potential links between these genomic islands and their relevance to the occurrence or progress of disease (or lack thereof) is the real work here, and will not be easy as it will require much more work at the bench side. But *seeing* the difference between populations of bacteria that harbor lumen and mucosa is the first basic step --which would have not been possible through the use of marker genes profiles, or by mapping shotgun metagenomic data against reference genomes. This is yet another evidence that reconstructing genomes from metagenomes is key.
 
 * Although I am not negating the importance of looking at every question from every perspective imaginable, this study convinced me that host-microbe interactions are far too complex to be resolved without proper experimentation that also takes the host side into serious consideration.
 
@@ -45,7 +45,7 @@ We look at the same landscape, and see different things, and here is a list of t
 
 * We are not going to win over the complexity of IDBs by playing the numbers game when we are so far from understanding the inner workings of even a single person's gut ecosystem.
 
-* Cultivation efforts, and a stronger focus on time-series sampling is critical. Without these, I can't see how there can be real progress.
+* Cultivation efforts, and a stronger focus on time-series sampling, are critical. Without these, I can't see how there can be real progress towards understanding mechanisms.
 
 So there.
 
