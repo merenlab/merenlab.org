@@ -8,7 +8,8 @@ categories: [miscellaneous]
 comments: true
 authors: [meren]
 image:
-  thumb: http://merenlab.org/images/miscellaneous/2016-11-21-bacteroides-genome-variants/p214.png
+  feature: http://merenlab.org/images/miscellaneous/2016-11-21-bacteroides-genome-variants/p214.png
+  display: false
 ---
 
 {% capture images %}{{site.url}}/images/miscellaneous/2016-11-21-bacteroides-genome-variants{% endcapture %}
@@ -19,29 +20,31 @@ image:
 
 [![Abstract]({{images}}/abstract.png)]({{images}}/abstract.png){:.center-img .width-60}
 
-Clearly I can't claim to be objective about it since I am one of the authors, but I really like this one.
+I am one of the authors, so I can't be objective about it.
 
 ## My learnings from the Vineis *et al.* study
 
-The published version of our study already says what we wanted to say as a group, but here I would like to share my 2 cents on what I think makes this study interesting:
+The published version of the study already says what we wanted to say as a group of collaborators, but here I would like to share my 2 cents on what *I* think makes this study interesting:
 
-* We used metagenomic binning to recover the genomic context of populations that showed epidemiological relevance, and then utilized this high-resolution information to guide cultivation efforts to isolate them. So we managed to cultivate what we saw in the metagenomic data. 
+* We used metagenomic binning to recover the genomic context of populations that showed epidemiological relevance, and then utilized this high-resolution information to guide cultivation efforts to isolate strains of interest. We managed to cultivate what we saw in the metagenomic data. 
 
-* We identified *B. fragilis* populations that were highly abundant in multiple of our patients during inflammation. These populations occurred in the lumen and mucosal samples, and they were virtually isogenic except a small number of genomic loci, which included capsular polysaccharide biosynthesis pathways.
+* We identified *B. fragilis* populations that were highly abundant in multiple of our pouchitis patients during inflammation. These populations occurred in the lumen and mucosal samples, and they were virtually isogenic except a small number of genomic loci, which included capsular polysaccharide biosynthesis pathways.
 
-* Identifying potential links between these genomic islands and their relevance (or lack thereof) to the progress of disease will not be easy, and definitely requires much more work at the bench side. But, seeing the difference between the biopsy and lumen samples is the first step to design those experiments. Which would have not been possible through marker genes profiles, or the use of reference genomes. This is yet another evidence that reconstructing genomes from metagenomes is key.
+We look at the same landscape, and see different things, and here is a list of things *I* saw through this one:
 
-I'm sure every study teaches something else to everyone, here is a list of things *I* learned from this one:
+* I think one of the reasons we know so little about IBDs is because experimental and computational approaches widely relied upon lack proper resolution to facilitate proper investigations of the host-microbe interactions (this study does not address this limitation either).
 
-* I think one of the reasons we know so little about IBDs is partly because experimental and computational approaches we have widely relied upon lacked proper resolution to explore the host-microbe interface. This study convinced me that cultivation is key to get anywhere with these questions. 
+* Identifying potential links between these genomic islands and their relevance (or lack thereof) to the progress of disease will not be easy, and definitely requires much more work at the bench side. But seeing the difference between the biopsy and lumen samples is the first step. Which would have not been possible through marker genes profiles, or the use of reference genomes. This is yet another evidence that reconstructing genomes from metagenomes is key.
 
-* The focus on time-series data is also very critical.
-
-* Although I am not negating the importance of looking at every question from every perspective imaginable, this study also convinced me that host-microbe interactions are too complex to be resolved without proper experimentation that also takes the host side into serious consideration.
+* Although I am not negating the importance of looking at every question from every perspective imaginable, this study convinced me that host-microbe interactions are far too complex to be resolved without proper experimentation that also takes the host side into serious consideration.
 
 * Recruiting larger and larger cohorts into cross-sectional studies without any real plan may not be the most efficient use of our scarce resources.
 
-* We are not going to win over the complexity of IDBs by playing the numbers game when we are so far from understanding the inner workings of even a single person's gut ecosystem. So there.
+* We are not going to win over the complexity of IDBs by playing the numbers game when we are so far from understanding the inner workings of even a single person's gut ecosystem.
+
+* Cultivation efforts, and a stronger focus on time-series sampling is critical. Without these, I can't see how there can be real progress.
+
+So there.
 
 Before I continue with the data, I will have another 2 cents on the topic of data availability. This what happens when I don't write blogs regularly. There is just too much to talk about :/
 
@@ -59,7 +62,7 @@ Going back to [the Vineis et al. paper](http://mbio.asm.org/content/7/6/e01713-1
 
 But one of the purposes of anvi'o was this from the get go. And we did make our anvi'o merged profiles for each patient available, so anyone can visualize a patient's metagenome, inspect Joe's binning effort, repurpose the data for their own study, or simply play with it.
 
-If you are reading these, and using anvi'o for anything, I hope you will consider doing the same for your next study.
+If you are reading these, and using anvi'o for data analysis, I hope you will consider doing the same for your next study.
 
 ## Displaying a patient metagenome from Vineis *et al*.
 
