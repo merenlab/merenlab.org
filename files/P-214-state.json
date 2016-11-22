@@ -1,0 +1,598 @@
+{
+    "version": "0.2.1",
+    "tree-type": "circlephylogram",
+    "order-by": "tnf-cov:euclidean:ward",
+    "current-view": "max_normalized_ratio",
+    "angle-min": "0",
+    "angle-max": "270",
+    "tree-radius": "2000",
+    "tree-height": "0",
+    "tree-width": "0",
+    "layer-margin": "15",
+    "outer-ring-height": "120",
+    "edge-normalization": false,
+    "custom-layer-margin": true,
+    "show-grid-for-bins": false,
+    "grid-color": "#FFFFFF",
+    "grid-width": "1",
+    "samples-order": "custom",
+    "max-font-size": "60",
+    "optimize-speed": true,
+    "layer-order": [
+        "__parent__",
+        "num_genes",
+        "avg_gene_length",
+        "ratio_coding",
+        "length",
+        "gc_content",
+        "s214_5M",
+        "s214_6M",
+        "s214_7M",
+        "s214_8GG",
+        "s214_8M",
+        "s214_12M",
+        "hmmx_virulence_Caps_synth",
+        "hmmx_virulence_NTP_transferase",
+        "hmmx_virulence_NeuB",
+        "hmmx_virulence_PAP2",
+        "hmmx_virulence_Reprolysin_3",
+        "hmmx_virulence_UpxZ",
+        "hmmx_virulence_fragilysinNterm"
+    ],
+    "categorical_data_colors": {},
+    "stack_bar_colors": {},
+    "layers": {
+        "num_genes": {
+            "color": "#414141",
+            "height": "0",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "avg_gene_length": {
+            "color": "#414141",
+            "height": "0",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "ratio_coding": {
+            "color": "#414141",
+            "height": "0",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "length": {
+            "color": "#414141",
+            "height": "80",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "gc_content": {
+            "color": "#004a0f",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "s214_12M": {
+            "color": "#002742",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "s214_5M": {
+            "color": "#002742",
+            "height": "180",
+            "margin": "60",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "s214_6M": {
+            "color": "#002742",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "s214_7M": {
+            "color": "#002742",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "s214_8GG": {
+            "color": "#7a0000",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "s214_8M": {
+            "color": "#7a0000",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "__parent__": {
+            "height": "50",
+            "margin": "15"
+        },
+        "hmmx_virulence_Caps_synth": {
+            "color": "#7d0070",
+            "height": "90",
+            "margin": "60",
+            "type": "intensity",
+            "color-start": "#ebebeb"
+        },
+        "hmmx_virulence_NTP_transferase": {
+            "color": "#7d0070",
+            "height": "0",
+            "margin": "0",
+            "type": "intensity",
+            "color-start": "#ebebeb"
+        },
+        "hmmx_virulence_NeuB": {
+            "color": "#7d0070",
+            "height": "90",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#ebebeb"
+        },
+        "hmmx_virulence_PAP2": {
+            "color": "#7d0070",
+            "height": "0",
+            "margin": "0",
+            "type": "intensity",
+            "color-start": "#ebebeb"
+        },
+        "hmmx_virulence_Reprolysin_3": {
+            "color": "#7d0070",
+            "height": "0",
+            "margin": "0",
+            "type": "intensity",
+            "color-start": "#ebebeb"
+        },
+        "hmmx_virulence_UpxZ": {
+            "color": "#7d0070",
+            "height": "90",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#ebebeb"
+        },
+        "hmmx_virulence_fragilysinNterm": {
+            "color": "#7d0070",
+            "height": "0",
+            "margin": "0",
+            "type": "intensity",
+            "color-start": "#ebebeb"
+        }
+    },
+    "views": {
+        "mean_coverage": {
+            "num_genes": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "67",
+                    "disabled": false
+                }
+            },
+            "avg_gene_length": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "9457.5",
+                    "disabled": false
+                }
+            },
+            "ratio_coding": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0109378636257855",
+                    "disabled": false
+                }
+            },
+            "length": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "39919",
+                    "disabled": false
+                }
+            },
+            "gc_content": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.6875248311481923",
+                    "disabled": false
+                }
+            },
+            "s214_12M": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3",
+                    "disabled": false
+                }
+            },
+            "s214_5M": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3",
+                    "disabled": false
+                }
+            },
+            "s214_6M": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3",
+                    "disabled": false
+                }
+            },
+            "s214_7M": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3",
+                    "disabled": false
+                }
+            },
+            "s214_8GG": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3",
+                    "disabled": false
+                }
+            },
+            "s214_8M": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3",
+                    "disabled": false
+                }
+            },
+            "__parent__": {
+                "min": {
+                    "disabled": false
+                },
+                "max": {
+                    "disabled": false
+                }
+            },
+            "hmmx_virulence_Caps_synth": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1",
+                    "disabled": false
+                }
+            },
+            "hmmx_virulence_NTP_transferase": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1",
+                    "disabled": false
+                }
+            },
+            "hmmx_virulence_NeuB": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1",
+                    "disabled": false
+                }
+            },
+            "hmmx_virulence_PAP2": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1",
+                    "disabled": false
+                }
+            },
+            "hmmx_virulence_Reprolysin_3": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1",
+                    "disabled": false
+                }
+            },
+            "hmmx_virulence_UpxZ": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1",
+                    "disabled": false
+                }
+            },
+            "hmmx_virulence_fragilysinNterm": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": false
+                }
+            }
+        },
+        "max_normalized_ratio": {
+            "num_genes": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "67",
+                    "disabled": false
+                }
+            },
+            "avg_gene_length": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "9457.5",
+                    "disabled": false
+                }
+            },
+            "ratio_coding": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0109378636257855",
+                    "disabled": false
+                }
+            },
+            "length": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "39919",
+                    "disabled": false
+                }
+            },
+            "gc_content": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.6875248311481923",
+                    "disabled": false
+                }
+            },
+            "s214_12M": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1",
+                    "disabled": false
+                }
+            },
+            "s214_5M": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1",
+                    "disabled": false
+                }
+            },
+            "s214_6M": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1",
+                    "disabled": false
+                }
+            },
+            "s214_7M": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1",
+                    "disabled": false
+                }
+            },
+            "s214_8GG": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1",
+                    "disabled": false
+                }
+            },
+            "s214_8M": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1",
+                    "disabled": false
+                }
+            },
+            "__parent__": {
+                "min": {
+                    "disabled": false
+                },
+                "max": {
+                    "disabled": false
+                }
+            },
+            "hmmx_virulence_Caps_synth": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1",
+                    "disabled": false
+                }
+            },
+            "hmmx_virulence_NTP_transferase": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1",
+                    "disabled": false
+                }
+            },
+            "hmmx_virulence_NeuB": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1",
+                    "disabled": false
+                }
+            },
+            "hmmx_virulence_PAP2": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1",
+                    "disabled": false
+                }
+            },
+            "hmmx_virulence_Reprolysin_3": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1",
+                    "disabled": false
+                }
+            },
+            "hmmx_virulence_UpxZ": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1",
+                    "disabled": false
+                }
+            },
+            "hmmx_virulence_fragilysinNterm": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": false
+                }
+            }
+        }
+    },
+    "samples-categorical-colors": {},
+    "samples-stack-bar-colors": {},
+    "samples-layer-order": [],
+    "samples-layers": {}
+}
