@@ -56,7 +56,7 @@ This is something you will do only once (unless you have to do it again later fo
 Luckily, all you need to do is to run `anvi-setup-ncbi-cogs`. Here is an example:
 
 {:.notice}
-Depending on your installation, you may have to run the following command with superuser privileges! If you want to avoid that, you can use the `--cogs-data-dir` parameter to set up a different path.
+Depending on your installation, you may have to run the following command with superuser privileges! If you want to avoid that, you can use the `--cog-data-dir` parameter to set up a different path.
 
 {% highlight bash %}
 $ anvi-setup-ncbi-cogs --num-threads 20
