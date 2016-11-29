@@ -372,7 +372,7 @@ This is an optional database purely to improve visualization. Please see this ar
 
 A *collection* represents one or more bins with one or more contigs. Collections are stored in anvi'o databases can be imported from the results of external binning software, or saved through the anvi-interactive interface after a human-guided binning effort. Once you have a collection, you can *summarize* it using `anvi-summarize`.
 
-The result of `anvi-summary` is a static HTML output you can browse in your browser, send to your colleagues, put it on your web page (an example from one of our papers is [here](http://anvio.org/data/INFANT-CLC-SUMMARY-SUPERVISED/)), or attach it to your submission as a supplementary data for review. When you run `anvi-summarize`,
+The result of `anvi-summarize` is a static HTML output you can browse in your browser, send to your colleagues, put it on your web page (an example from one of our papers is [here](http://anvio.org/data/INFANT-CLC-SUMMARY-SUPERVISED/)), or attach it to your submission as a supplementary data for review. When you run `anvi-summarize`,
 
 * All your splits will be merged back to contigs and stored as FASTA files,
 

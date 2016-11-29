@@ -27,7 +27,7 @@ One way to analyze this dataset is to rely on CONCOCT. For instance, you can pro
 
     $ anvi-merge */RUNINFO.cp -c contigs.db -o MERGED_PROFILE --skip-hierarchical-clustering
 
-Although resulting merged profile would be missing all the trees that are used by `anvi-interactive`, it would contain clustering results from CONCOCT, therefore you would still have your genome bins identified. Which means, you can now run `anvi-summary` on the merged data, and take a look at what's up:
+Although resulting merged profile would be missing all the trees that are used by `anvi-interactive`, it would contain clustering results from CONCOCT, therefore you would still have your genome bins identified. Which means, you can now run `anvi-summarize` on the merged data, and take a look at what's up:
 
     $ anvi-summarize -p MERGED_PROFILE/PROFILE.db -c contigs.contigsdb -C CONCOCT -o MERGED_SUMMARY
 
@@ -86,7 +86,7 @@ The contamination drops down to much better levels:
 
 When you click 'save', the interface will gracefully remove `Group_6` from the database, and add these new three groups instead. It is essential to give proper names to newly created groups if you would like to recognize them in the output. Once you are done, of course the next step is to re-run the summary:
 
-    $ anvi-summary -p MERGED_PROFILE/PROFILE.db -c contigs.db -C CONCOCT -o MERGED_SUMMARY
+    $ anvi-summarize -p MERGED_PROFILE/PROFILE.db -c contigs.db -C CONCOCT -o MERGED_SUMMARY
 
 When you look at the output, you will see that this is not there anymore:
 
