@@ -7,16 +7,30 @@ comments: false
 <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 
 <div class="category-box">
-<a href="#2016"><span class="category-item">2016 <small>(7)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a><a href="#2011"><span class="category-item">2011 <small>(1)</small></span></a>
+<a href="#2016"><span class="category-item">2016 <small>(8)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a><a href="#2011"><span class="category-item">2011 <small>(1)</small></span></a>
 </div>
 
 <a name="2016">&nbsp;</a>
 <h1>2016</h1>
 
 <div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/090993"></div>
+    <h3><a href=" https://doi.org/10.1101/090993" target="_new">High-resolution tracking of microbial colonization in Fecal Microbiota Transplantation experiments via metagenome-assembled genomes.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Lee, S. T. M.</span>, Kahn, S. A., <span class="pub-member-author">Delmont, T. O.</span>, Hubert, N. A., Morrison, H. G., Antonopoulos, D. A., Rubin, D. T., and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <span class="pub-journal"><i>BioRxiv</i>. <b>pre-print</b></span>
+</div>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/058750"></div>
+    <h3><a href=" https://doi.org/10.1101/058750" target="_new">Linking comparative genomics and environmental distribution patterns of microbial populations through metagenomics.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <span class="pub-journal"><i>BioRxiv</i>. <b>pre-print</b></span>
+</div>
+
+<div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1128/mBio.01713-16"></div>
     <h3><a href=" https://doi.org/10.1128/mBio.01713-16" target="_new">Patient-specific <i>Bacteroides</i> genome variants in pouchitis.</a></h3>
-    <span class="pub-authors">Vineis, J. H., Ringus, D. L., Morrison, H. G., <span class="pub-member-author">Delmont, T. O.</span>, Dalal, S., Raffals, L. H., Atonopoulos, D. A., Rubin, D. T., <span class="pub-member-author">Eren, A. M</span>., Chang, E. B., and Sogin, M. L</span>
+    <span class="pub-authors">Vineis, J. H., Ringus, D. L., Morrison, H. G., <span class="pub-member-author">Delmont, T. O.</span>, Dalal, S., Raffals, L. H., Antonopoulos, D. A., Rubin, D. T., <span class="pub-member-author">Eren, A. M</span>., Chang, E. B., and Sogin, M. L</span>
     <span class="pub-journal"><i>mBio</i>. <b>7(6):e01713-16</b></span>
 </div>
 
@@ -32,13 +46,6 @@ comments: false
     <h3><a href=" https://doi.org/10.3389/fmicb.2016.01318" target="_new">New insights into microbial ecology through subtle nucleotide variation.</a></h3>
     <span class="pub-authors"><span class="pub-member-author">Eren, A. M</span>., Sogin, M. L., and Maignien, L.</span>
     <span class="pub-journal"><i>Front Microbiol</i>. <b>7:1318</b></span>
-</div>
-
-<div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/058750"></div>
-    <h3><a href=" https://doi.org/10.1101/058750" target="_new">Linking comparative genomics and environmental distribution patterns of microbial populations through metagenomics.</a></h3>
-    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, and <span class="pub-member-author">Eren, A. M</span>.</span>
-    <span class="pub-journal"><i>BioRxiv</i>. <b>pre-print</b></span>
 </div>
 
 <div class="pub">

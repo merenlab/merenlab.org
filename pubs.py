@@ -6,7 +6,7 @@ import sys
 # people who have links
 author_links = {}
 
-my_people = ['Eren, A. M', 'Delmont, T. O.', 'Esen, Ö. C.']
+my_people = ['Eren, A. M', 'Delmont, T. O.', 'Esen, Ö. C.', 'Lee, S. T. M.']
 
 keep_pubs_after = 2009
 
