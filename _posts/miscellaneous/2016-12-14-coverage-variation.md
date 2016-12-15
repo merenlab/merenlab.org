@@ -166,7 +166,7 @@ Deterministic factors include things that are irrelevant to ecology of populatio
 
 Non-specific mapping is the worst. We hate it. The amount of non-specific mapping differs from environment to environment, or due to changes in the complexity of a community over time. Maybe we can model the non-specific mapping patterns in an attempt to better understand something about the ecology of the environments we are studying. But we shall not. Because we hate non-specific mapping.
 
-GC-content. We love GC-content. But it is also very sad that there is such a bias with it. This bias no only diminishes the efficacy of contig abundances for binning, but also limits our ability to recover single-nucleotide variants from GC-poor regions of population genomes we study. But if the GC-content bias is so reproducible, maybe binning tools can exploit this to normalize coverages.
+GC-content. We love GC-content. But it is also very sad that there is such a strong bias with it. This bias not only diminishes the efficacy of contig abundances for binning, but also limits our ability to recover single-nucleotide variants from GC-poor regions of population genomes we study. But if the GC-content bias is so reproducible, maybe binning tools can exploit this to normalize coverages.
 
 Now you have all my 2 cents.
 
