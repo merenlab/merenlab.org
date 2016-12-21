@@ -105,8 +105,8 @@ sudo pip install Cython
 
 {% highlight bash %}
 wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8.17/src/hdf5-1.8.17.tar.bz2 
-tar -jxvf hdf5-1.8.16.tar.bz2
-cd hdf5-1.8.16
+tar -jxvf hdf5-1.8.17.tar.bz2
+cd hdf5-1.8.17
 ./configure && make && sudo make install
 {% endhighlight %}
 
