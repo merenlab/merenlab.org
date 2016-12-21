@@ -47,11 +47,11 @@ Go to your terminal, adn type `hmmscan -h`, if you get an error, you need to ins
 Here is how to install v3.1b2:
 
 {% highlight bash %}
-$ wget http://eddylab.org/software/hmmer3/3.1b2/hmmer-3.1b2.tar.gz
-$ tar -zxvf hmmer-3.1b2.tar.gz
-$ cd hmmer-3.1b2
-$ ./configure && make && sudo make install
-$ cd easel && make check && sudo make install
+wget http://eddylab.org/software/hmmer3/3.1b2/hmmer-3.1b2.tar.gz
+tar -zxvf hmmer-3.1b2.tar.gz
+cd hmmer-3.1b2
+./configure && make && sudo make install
+cd easel && make check && sudo make install
 {% endhighlight %}
 
 Type `hmmscan -h` again to make sure everything is alright, and you get the proper version number.
@@ -133,11 +133,11 @@ More on the "**full path**" thingy: Let's say I want to put all centrifuge relat
 Then you will get the code, and compile it:
 
 {% highlight bash %}
-$ cd $CENTRIFUGE_BASE
-$ git clone https://github.com/infphilo/centrifuge
-$ cd centrifuge
-$ git checkout 30e3f06ec35bc83e430b49a052f551a1e3edef42
-$ make
+cd $CENTRIFUGE_BASE
+git clone https://github.com/infphilo/centrifuge
+cd centrifuge
+git checkout 30e3f06ec35bc83e430b49a052f551a1e3edef42
+make
 {% endhighlight %}
 
 This compiles everything, but does not install anything. To make sure binary files are available directly, you can run this:
