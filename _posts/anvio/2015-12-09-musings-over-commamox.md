@@ -87,7 +87,7 @@ $ anvi-interactive -p PROFILE.db -c CONTIGS.db --state state
 
 Briefly, we downloaded the raw metagenomic data for three samples for ENR4 enrichment, and one sample for ENR6 enrichment, and using Bowtie2 with default parameters, we mapped the short reads back to the *Candidatus* Nitrospira inopinata genome (which will be shamelessly called "Wagner's Nitrospira" in my figures, for which I apologize .. when I first started this I didn't think I'd be writing about it).
 
-In general the first thing we do after profiling and merging multiple metagenomic samples using anvi'o is to look at the "portion covered" view to see whether there are any segments that are not covered in any of the environments. Nothing surprising here as the entirety of the genome is covered in all four samples completely:
+In general the first thing we do after profiling and merging multiple metagenomic samples using anvi'o is to look at the "detection" view to see whether there are any segments that are not covered in any of the environments. Nothing surprising here as the entirety of the genome is covered in all four samples completely:
 
 {:.notice}
 Each bar in the following figures represents a 2,000 nt long split from the genome.
