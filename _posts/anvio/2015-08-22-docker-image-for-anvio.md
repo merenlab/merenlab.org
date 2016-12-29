@@ -27,47 +27,48 @@ If you want to quickly run anvi'o on a server or a desktop system with 0 pain, t
 
 I assume the server you are working on has Docker installed, and the docker service is up and running. I run these commands on my Ubuntu Linux box to install Docker, and running it: 
 
-{% highlight bash %}
+``` bash
 $ sudo apt-get install docker.io
 $ sudo service docker.io start
-{% endhighlight %}
+```
 
 Now you can simply type this to get all the anvi'o tags available to you:
 
-{% highlight bash %}
+``` bash
 $ sudo docker pull meren/anvio
-{% endhighlight %}
+```
 
 Here are the available tags as of today:
 
-{% highlight bash %}
+``` bash
 $ sudo docker images
 REPOSITORY          TAG        IMAGE ID     CREATED    SIZE
+meren/anvio         2.1.0      (...)        (...)      667.4 MB
 meren/anvio         2.0.2      (...)        (...)      672.0 MB
 meren/anvio         2.0.1      (...)        (...)      671.9 MB
 meren/anvio         1.2.3      (...)        (...)      595.2 MB
-{% endhighlight %}
+```
 
 {:.notice}
 Although we will do our best to keep this post up-to-date, please remember that there may be a newer docker image at any given time. In that case, please use the most recent docker image and make sure the user tutorial matches to the version you are using.
 
 Now you can simply type this to get the latest version running (or you can replace `latest` with the version number you see in the list of TAGs):
 
-{% highlight bash %}
+``` bash
 $ sudo docker run --rm -it meren/anvio:latest
-{% endhighlight %}
+```
 
 This will give you a new prompt in your terminal that will look like this:
 
-{% highlight bash %}
+``` bash
 :: anvi`o ::  / >>>
-{% endhighlight %}
+```
 
 Once you have the anvi'o prompt, you can run a small test:
 
-{% highlight bash %}
-:: anvi`o ::  / >>> anvi-self-test 
-{% endhighlight %}
+``` bash
+:: anvi`o ::  / >>> anvi-self-test --suite mini
+```
 
 
 At the end of the test you can press `CTRL`+`C` to kill the server, and press `CTRL`+`D` to go back to your host terminal.
@@ -83,21 +84,21 @@ First, you will need to install the [Docker Toolbox](https://www.docker.com/tool
 
 Note the IP address (which is `192.168.99.100` in my case), becasue you will need it later. At this point, all you need to do is to run this command (note that you may need to change the version number):
 
-{% highlight bash %}
+``` bash
 docker run -p 8080:8080 -it meren/anvio:latest
-{% endhighlight %}
+```
 
 Docker will download all the necessary images, and will finally give you an anvi'o prompt which will look like this:
 
-{% highlight bash %}
+``` bash
 :: anvi`o ::  / >>>
-{% endhighlight %}
+```
 
 Once you see this, you can run the self-test:
 
-{% highlight bash %}
+``` bash
 :: anvi`o ::  / >>> anvi-self-test 
-{% endhighlight %}
+```
 
 Now you can open your Chrome browser, type the IP address you noted with a ":8080" at the end (which looks like this for me 192.168.99.100:8080), and press enter... Surprise!
 
@@ -114,7 +115,7 @@ $ sudo docker run --rm -v /home/merenbey/my_data:/my_data -it meren/anvio:latest
 
 That's it. Here is a longer story:
 
-{% highlight bash %}
+``` bash
 $ pwd
 /home/meren
 $ ls my_data/
@@ -122,33 +123,31 @@ X.bam  Y.bam  contigs.fa
 $ sudo docker run --rm -v /home/merenbey/my_data:/my_data -it meren/anvio:latest                                      
 :: anvi`o ::  / >>> ls /my_data/
 X.bam  Y.bam  contigs.fa
-{% endhighlight %}
+```
 
 
 ## Rebuilding the anvi'o docker image (for hackers)
 
 If you would like to rebuild the Docker image for anvi'o on your own server, you can simply clone the anvi'o repository:
 
-{% highlight bash %}
-$ git clone --recursive https://github.com/meren/anvio.git
-{% endhighlight %}
-
-Switch to a particular tag (here is [a complete list of available releases and tags](https://github.com/meren/anvio/releases)):
-
-{% highlight bash %}
-git checkout tags/v2.0.2
-{% endhighlight %}
+``` bash
+git clone --recursive https://github.com/meren/anvio.git
+cd anvio
+git checkout tags/v2.1.0
+rm Dockerfile
+https://raw.githubusercontent.com/merenlab/anvio/d5b17712a989fab1e50d0e1acaee7e963444cec3/Dockerfile
+```
 
 Add/remove things you want, do your changes in the code, and build the new docker image (replace the username and tag with your preferences):
 
-{% highlight bash %}
-docker build -t meren/anvio:2.0.2.
-{% endhighlight %}
+``` bash
+docker build -t meren/anvio:2.1.0.
+```
 
 And optionally, push it to your account on the hub to allow other people run it easily (i.e., this is what I do to push the new images to my account):
 
-{% highlight bash %}
+``` bash
 docker push meren/anvio
-{% endhighlight %}
+```
 
 Don't hesitate to get in touch if you have any questions, and check out the [anvi'o project page]({{ site.url }}/software/anvio).
