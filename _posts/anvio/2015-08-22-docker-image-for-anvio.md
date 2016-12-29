@@ -135,7 +135,7 @@ git clone --recursive https://github.com/meren/anvio.git
 cd anvio
 git checkout tags/v2.1.0
 rm Dockerfile
-https://raw.githubusercontent.com/merenlab/anvio/d5b17712a989fab1e50d0e1acaee7e963444cec3/Dockerfile
+wget https://raw.githubusercontent.com/merenlab/anvio/c2ba24448247506ad848543f4d4e0a802a2b0692/Dockerfile
 ```
 
 Add/remove things you want, do your changes in the code, and build the new docker image (replace the username and tag with your preferences):
