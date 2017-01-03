@@ -11,7 +11,14 @@ excerpt: "Anvi'o Project Page"
 
 Anvi'o is an analysis and visualization platform for 'omics data. It brings together many aspects of today's cutting-edge genomic, metagenomic, and metatranscriptomic analysis practices to address a wide array of needs.
 
-Please see the "**Tutorials**" pull-down menu on this page for some example workflows with anvi'o. Anvi'o is a community-driven, GPL-licensed open-source project. You can browse its codebase by clicking [here](http://github.com/meren/anvio), and you can find our methods paper for anvi'o by clicking [here](https://peerj.com/articles/1319/). 
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Citation</span>
+
+Eren AM, Esen ÖC, Quince C, Vineis JH, Morrison HG, Sogin ML, Delmont TO. (2015) [Anvi’o: an advanced analysis and visualization platform for ‘omics data](https://peerj.com/articles/1319/). *PeerJ* **3**:e1319
+</div>
+
+Please see the "**Tutorials**" pull-down menu on this page for some example workflows with anvi'o. Anvi'o is a community-driven, GPL-licensed open-source project. You can browse its codebase by clicking [here](http://github.com/meren/anvio).
 
 {:.notice}
 Click here to download our poster from the ISME conference in Montreal: [eren-isme-poster-72dpi.png](../../files/eren-isme-poster-72dpi.png)
