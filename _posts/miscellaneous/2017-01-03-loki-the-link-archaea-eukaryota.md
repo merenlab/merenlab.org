@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Inspecting "the genomic link" between Archaea and Eukaryota'
+title: 'Inspecting the genomic link between Archaea and Eukaryota'
 excerpt: "Curating the composite metagenome-assembled genome <i>Lokiarchaeum</i> sp. GC14_75 with anvi'o"
 modified: 2016-12-14
 tags: []
