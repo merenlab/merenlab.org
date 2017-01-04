@@ -42,7 +42,7 @@ Type `prodigal -v` again to make sure everything is alright, and you get the pro
 
 **Citation**: [http://hmmer.org/](http://hmmer.org/)
 
-Go to your terminal, adn type `hmmscan -h`, if you get an error, you need to install HMMER, if the version number is less than 3.1, you ned to update it.
+Go to your terminal, and type `hmmscan -h`, if you get an error, you need to install HMMER, if the version number is less than 3.1, you need to update it.
 
 Here is how to install v3.1b2:
 
