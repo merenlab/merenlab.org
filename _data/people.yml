@@ -72,13 +72,18 @@
 - alias: ozcan
   official: True
   name: Özcan C. Esen
-  role: Remote Hacker
+  role: Software guru, local hacker
   email: ozcanesen@gmail.com
   twitter: ozcanesen
   avatar: bio-ozcan.png
   github: ozcanesen
   web: http://blog.ozcanesen.com/
-  bio: "Currently a computer engineering undergrad from Turkey, I strive to utilize my expertise in computation to study challenges in other fields."
+  bio: "As a computer engineer I strive to utilize my expertise to investigate challenges in microbial ecology, metagenomics, and visualization of complex data."
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  affiliations:
+    - title: Programmer
+      inst: The Department of Medicine at the University of Chicago
+      inst_link: http://medicine.uchicago.edu/
 
 - alias: steven
   name: Steven Cui
