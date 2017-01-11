@@ -1,7 +1,16 @@
 # -*- coding: utf-8 -*-
 # an ugly hack to convert some stuff into other stuff...
 
+import os
 import sys
+
+try:
+    import anvio.utils as u
+    utils_found = True
+except:
+    sys.stderr.write("no anvi'o is found, so pubs info will not be taken into consideration\n")
+    utils_found = False
+    pubs_info = None
 
 # people who have links
 author_links = {}
@@ -9,6 +18,8 @@ author_links = {}
 my_people = ['Eren, A. M', 'Delmont, T. O.', 'Esen, Ö. C.', 'Lee, S. T. M.']
 
 keep_pubs_after = 2009
+
+pubs_info_dict = {}
 
 pubs_dict = {}
 journals_list = []
@@ -28,6 +39,8 @@ def get_author_links(authors_str):
 
     return authors_str
 
+if utils_found and os.path.exists("pubs_info.txt"):
+    pubs_info = u.get_TAB_delimited_file_as_dictionary('pubs_info.txt')
 
 for line in [l.strip() for l in f.readlines()]:
     if line.find('(ed.)') > 0 or line.find('(eds.)') > 0:
@@ -147,6 +160,23 @@ for year in sorted(pubs_dict.keys(), reverse=True):
         else:
             print '    <h3><a href="http://scholar.google.com/scholar?hl=en&q=%s" target="_new">%s</a></h3>' % ('http://scholar.google.com/scholar?hl=en&q=%s' % (pub['title'].replace(' ', '+')), pub['title'])
         print '    <span class="pub-authors">%s</span>' % get_author_links(pub['authors'])
+
+        if pubs_info and pubs_info.has_key(pub['doi']):
+            info = pubs_info[pub['doi']]
+            print '    <div class="%s">' % ('pub-info' if info['featured_image'] else 'pub-info-no-image')
+
+            if info['featured_image']:
+                print '    <div class="pub-featured-image">'
+                print '    <a href="%s"><img src="%s" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%%);"/></a>' % (info['featured_image'], info['featured_image'])
+                print '    </div>'
+
+            highlights = info['highlights'].split(';') if info['highlights'] else None
+            if highlights:
+                print '    <div class="%s">' % ('pub-highlights' if info['featured_image'] else 'pub-highlights-no-image')
+                print '    %s' % '<br>'.join(['<span style="display: inline-block; padding-bottom: 5px;">- %s</span>' % h for h in highlights])
+                print '    </div>'
+
+            print '    </div>'
         print '    <span class="pub-journal"><i>%s</i>. <b>%s</b></span>' % (pub['journal'], pub['issue'])
         print '</div>'
         print

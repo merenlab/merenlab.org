@@ -17,6 +17,14 @@ comments: false
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/090993"></div>
     <h3><a href=" https://doi.org/10.1101/090993" target="_new">High-resolution tracking of microbial colonization in Fecal Microbiota Transplantation experiments via metagenome-assembled genomes.</a></h3>
     <span class="pub-authors"><span class="pub-member-author">Lee, S. T. M.</span>, Kahn, S. A., <span class="pub-member-author">Delmont, T. O.</span>, Hubert, N. A., Morrison, H. G., Antonopoulos, D. A., Rubin, D. T., and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="https://pbs.twimg.com/media/CytPL3kVIAA-UJX.jpg"><img src="https://pbs.twimg.com/media/CytPL3kVIAA-UJX.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- An FMT study with metagenome-assembled genomes (MAGs). Bacteroidales: high-colonization rate, Clostridiales: low colonization rate.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Colonization success is negatively correlated with the number of genes related to sporulation.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  MAGs with the same taxonomy showed different colonization properties, highlighting the limitation of low-resolution approaches.</span>
+    </div>
+    </div>
     <span class="pub-journal"><i>BioRxiv</i>. <b>pre-print</b></span>
 </div>
 
@@ -84,6 +92,14 @@ comments: false
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.7717/peerj.1319"></div>
     <h3><a href=" https://doi.org/10.7717/peerj.1319" target="_new">Anvi’o: An advanced analysis and visualization platform for ‘omics data.</a></h3>
     <span class="pub-authors"><span class="pub-member-author">Eren, A. M</span>., <span class="pub-member-author">Esen, Ö. C.</span>, Quince, C., Vineis, J. H., Morrison, H. G., Sogin, M. L., and <span class="pub-member-author">Delmont, T. O.</span></span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="http://i.imgur.com/d1c7bUY.png"><img src="http://i.imgur.com/d1c7bUY.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- The methods paper for <a href="http://merenlab.org/software/anvio/" target="_blank">anvi'o</a>.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Binning, and single-nucleotide variant analysis of a human gut time series metagenome.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Re-analysis of cultivar genomes, metagenomes, and metatranscriptomes associated with the Deepwater Horizon oil spill.</span>
+    </div>
+    </div>
     <span class="pub-journal"><i>PeerJ</i>. <b>6:358</b></span>
 </div>
 
