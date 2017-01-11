@@ -166,17 +166,17 @@ Now you have a working centrifuge installation. But not databases to do anything
 
 {% highlight bash %}
 $ cd $CENTRIFUGE_BASE
-$ wget ftp://ftp.ccb.jhu.edu/pub/infphilo/centrifuge/data/b+h+v.tar.gz
-$ tar -zxvf b+h+v.tar.gz && rm -rf b+h+v.tar.gz
+$ wget ftp://ftp.ccb.jhu.edu/pub/infphilo/centrifuge/data/p+h+v.tar.gz
+$ tar -zxvf p+h+v.tar.gz && rm -rf p+h+v.tar.gz
 {% endhighlight %}
 
 If everything went alright, you should see something similar to this when you run the following command:
 
 {% highlight bash %}
-$ ls -lh $CENTRIFUGE_BASE/b+h+v/*cf
--rw-r--r--   6.5G Feb 15 13:18 $CENTRIFUGE_BASE/b+h+v/b+h+v.1.cf
--rw-r--r--   2.3G Feb 15 13:18 $CENTRIFUGE_BASE/b+h+v/b+h+v.2.cf
--rw-r--r--   1.4M Feb 15 13:18 $CENTRIFUGE_BASE/b+h+v/b+h+v.3.cf
+$ ls -lh $CENTRIFUGE_BASE/p+h+v/*cf
+-rw-r--r--   6.5G Feb 15 13:18 $CENTRIFUGE_BASE/p+h+v/p+h+v.1.cf
+-rw-r--r--   2.3G Feb 15 13:18 $CENTRIFUGE_BASE/p+h+v/p+h+v.2.cf
+-rw-r--r--   1.4M Feb 15 13:18 $CENTRIFUGE_BASE/p+h+v/p+h+v.3.cf
 {% endhighlight %}
 
 Good? Good! See? You are totally doing this!
