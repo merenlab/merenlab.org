@@ -128,7 +128,7 @@ The ecologically relevant processes to the variation in coverage is mostly manif
 
 Most metagenomic assemblies will recover only a subset of genomes that occur in the actual sample. During the mapping,the short reads from viral, bacterial, archaeal, or eukaryotic genomes that are *not* represented in the assembly will end up being mapped to some of the available target contigs whenever there is enough sequence conservancy.
 
-Non-specific mapping occurs when short reads map to a context from which they do not originate. You can imagine that the coverage around regions that are conserved across multiple populations would have a higher coverage in general. This is a more complex problem than it sounds, but regardless of to extent we can explain it in detail, the rate of non-specific mapping in a project **does** tie back to the ecology.
+Non-specific mapping occurs when short reads map to a context from which they do not originate. You can imagine that the coverage around regions that are conserved across multiple populations would have a higher coverage in general. This is a more complex problem than it sounds, but regardless of the extent to which we can explain it in detail, the rate of non-specific mapping in a project **does** tie back to the ecology.
 
 We have seen during the last two years that in some cases the variation of coverage looks like ripples on a lake, in other cases it resembles choppy waters in the ocean, and sometimes the structures in the Grand Canyon.
 
