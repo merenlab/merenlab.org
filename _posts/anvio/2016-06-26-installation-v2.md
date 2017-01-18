@@ -93,7 +93,9 @@ Make sure your paths look alright. Yours should look similar to this:
 Now you can do the installation:
 
 ``` bash
-pip install numpy scipy anvio
+pip install numpy
+pip install scipy
+pip install anvio
 ```
 
 If all looks good, now you should be able to run `anvi-self-test`:
