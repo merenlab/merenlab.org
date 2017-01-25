@@ -39,6 +39,22 @@ brew install anvio
 
 *Well, the only problem is that it will not work this time. We are on it. Give us a couple of days.*
 
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">A temporary workaround</span>
+
+If you are reading this, it means the anvi'o recipe is still not in the official Homebrew repository (the [PR is here](https://github.com/Homebrew/homebrew-science/pull/4775){:target="_blank"} if you are curious). We thank the Homebrew developers for their efforts to make this resource available. While waiting for anvi'o to get into Homebrew, you can follow these steps to get it installed from our repository:
+
+``` bash
+brew tap homebrew/homebrew-science
+brew install wget
+wget https://raw.githubusercontent.com/ozcan/homebrew-science/eda73cbcf0d7eabed8eba258ce13540ff1d3a648/anvio.rb -O /usr/local/Homebrew/Library/Taps/homebrew/homebrew-science/anvio.rb
+brew install anvio
+```
+
+Özcan says "*compiling of some libraries (numpy, scipy etc.) may take time but in total it should be completed in 5-10 minutes*". If you run into any trouble with this step, please let us know by sending an e-mail to the [Anvi'o Google Group]({% post_url anvio/2015-10-14-anvio-discussion-group %}) or writing a comment down below!
+</div>
+
 If you are installing anvi'o on another operating system (or if you an OS X user who does not like Homebrew for some reason) please continue reading.
 
 
@@ -130,6 +146,9 @@ Auxiliary data storage version ...............: 3
 Anvi server users data storage version .......: 1
 (anvio) meren ~ $ 
 ```
+
+{:.notice}
+If you get an error from `cherrypy` when the interactive interface is run, please see [this e-mail](https://groups.google.com/d/msg/anvio/56KI_ulAJr8/3xLpRk0qBAAJ) to fix it.
 
 ### Installing or updating from the active codebase (because why not)
 
