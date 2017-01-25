@@ -67,6 +67,14 @@ comments: false
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.7717/peerj.1839"></div>
     <h3><a href=" https://doi.org/10.7717/peerj.1839" target="_new">Identifying contamination with advanced visualization and analysis practices: metagenomic approaches for eukaryotic genome assemblies.</a></h3>
     <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="../images/pubs/delmont_tardigrade.png"><img src="../images/pubs/delmont_tardigrade.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A holistic approach to visualize and curate genomic and metagenomic assemblies.</span><br><span style="display: inline-block; padding-bottom: 5px;">- A re-analysis of the first released Tardigrade genome reveals a likely symbiont among other contaminants.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  A practical approach to estimate the number bacterial genomes in an assembly.</span>
+    </div>
+    </div>
     <span class="pub-journal"><i>PeerJ</i>. <b>4:e1839</b></span>
 </div>
 
@@ -111,9 +119,17 @@ comments: false
 </div>
 
 <div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.3389/fmicb.2015.00358."></div>
-    <h3><a href=" https://doi.org/10.3389/fmicb.2015.00358." target="_new">Reconstructing Rare Soil Microbial Genomes using in situ Enrichments and Metagenomics.</a></h3>
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.3389/fmicb.2015.00358"></div>
+    <h3><a href=" https://doi.org/10.3389/fmicb.2015.00358" target="_new">Reconstructing Rare Soil Microbial Genomes using in situ Enrichments and Metagenomics.</a></h3>
     <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Eren, A. M</span>., Maccario, L., Prestat, E., <span class="pub-member-author">Esen, Ö. C.</span>, Pelletier, E., LePaslier, D., Simonet, P., and Vogel, T.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="../images/pubs/delmont_rare_soil_genomes.png"><img src="../images/pubs/delmont_rare_soil_genomes.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">-  Application of <i>in situ</i> enrichments to shape the diversity of complex metagenomes prior to sequencing.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  The first successful attempt to assemble multiple near-complete bacterial genomes directly from a soil sample.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  The abundance of reconstructed genomes ranged from rare (<0.0001%) to relatively abundant (>0.01%) in pristine soil metagenomes.</span>
+    </div>
+    </div>
     <span class="pub-journal"><i>Front Microbiol</i>. <b>6:358</b></span>
 </div>
 
