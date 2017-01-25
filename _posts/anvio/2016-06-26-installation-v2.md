@@ -148,7 +148,7 @@ Anvi server users data storage version .......: 1
 ```
 
 {:.notice}
-If you get an error from `cherrypy` when the interactive interface is run, please see [this e-mail](https://groups.google.com/d/msg/anvio/56KI_ulAJr8/3xLpRk0qBAAJ) to fix it.
+If you get an error from `cherrypy` when the interactive interface is run, or you see a "This site can’t be reached / 0.0.0.0 refused to connect" error in your Chrome browser, please see [this e-mail](https://groups.google.com/d/msg/anvio/56KI_ulAJr8/3xLpRk0qBAAJ) to fix it.
 
 ### Installing or updating from the active codebase (because why not)
 
