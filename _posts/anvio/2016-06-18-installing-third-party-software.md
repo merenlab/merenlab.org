@@ -18,6 +18,25 @@ As an apology, we will do our best to keep this article up-to-date, so installin
 {:.notice}
 {% include _fixthispage.html source="anvio/2016-06-18-installing-third-party-software.md" %}
 
+## samtools
+
+[samtools](http://www.htslib.org/download/) is a high-performance program to manipulate SAM and BAM files.
+
+**Citation**: [https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/btp352](https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/btp352)
+
+Go to your terminal, and type `samtools --version` if you get an error, you need to install it, __if the version number is smaller than 1.3.1__, you probably need to update it.
+
+You can update samtools and/or install it on your system the following way:
+
+``` bash
+wget https://github.com/samtools/samtools/releases/download/1.3.1/samtools-1.3.1.tar.bz2
+tar -jxvf samtools-1.3.1.tar.bz2 && cd samtools-1.3.1
+make && sudo make install
+```
+
+Don't forget to type `samtools --version` again to confirm that it is all good!
+
+
 ## Prodigal
 
 [Prodigal](http://prodigal.ornl.gov/) is a bacterial and archaeal gene finding program developed at Oak Ridge National Laboratory and the University of Tennessee. Everytime you create a contigs database in anvi'o with `anvi-gen-profile-database`, you use it.

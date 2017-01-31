@@ -65,6 +65,7 @@ We also other installation options for [Arch Linux](https://gist.github.com/mere
 
 First things first. You need to make sure your system does have all the following software if you are going to follow any of the following installation instructions. It is not as scary as it looks. If you just follow these links, you will most probably be golden:
 
+* [samtools]({% post_url anvio/2016-06-18-installing-third-party-software %}#samtools){:target="_blank"}
 * [Prodigal]({% post_url anvio/2016-06-18-installing-third-party-software %}#prodigal){:target="_blank"}
 * [HMMER]({% post_url anvio/2016-06-18-installing-third-party-software %}#hmmer){:target="_blank"}
 * [SQLite]({% post_url anvio/2016-06-18-installing-third-party-software %}#sqlite){:target="_blank"}
