@@ -18,7 +18,7 @@ There is a cool pre-print out there:
 
 [![Zhou]({{images}}/zhou_pre_print.png)](http://biorxiv.org/content/early/2017/02/03/105759){:.center-img .width-90}{:target="_blank"}
 
-The people who are responsible for this work include [Mark Achtman](https://scholar.google.com/citations?user=a5VMuFUAAAAJ&hl=en), [M. Thomas P. Gilbert](https://scholar.google.com/citations?user=3LFRpqYAAAAJ&hl=en), [Zhemin Zhou](https://scholar.google.com/citations?user=nrS93pMAAAAJ&hl=en). 
+The people who are responsible for this work include [Mark Achtman](https://scholar.google.com/citations?user=a5VMuFUAAAAJ&hl=en), [M. Thomas P. Gilbert](https://scholar.google.com/citations?user=3LFRpqYAAAAJ&hl=en), and [Zhemin Zhou](https://scholar.google.com/citations?user=nrS93pMAAAAJ&hl=en).
  
 Briefly, the authors used shotgun metagenomics to recover a *Salmonella enterica* genome from a 800-year-old skeleton (already quite cool). They call this genome **Ragna genome** in the context of their study. After analyzing it with respect to 50,000+ modern *S. enterica* genomes in [Enterobase](https://enterobase.warwick.ac.uk/){:target="_blank"} as well as 100+ genomes they sequenced and assembled from the Institut Pasteur's pathogen collection for better phylogeny, the authors suggest that the lineage to which **Ragna genome** belongs has been around as a human pathogen for at least one millennium, and it originated from a lineage of swine pathogens.
 
@@ -52,7 +52,7 @@ Of course, just like everything in science, the reliance on deamination patterns
 And [here is a blog post](https://blogs.warwick.ac.uk/microbialunderground/entry/thermal_age_cytosine/){:target="_blank"} from one of the members of the Group 1, where he, in my opinion, rightfully complains about the journal *eLife*. Just in case you needed some side stories to intensify your procrastination.
 </div>
 
-So, Zhemin and his colleagues used deamination rate in genomic fragments in their CONCOCT bins to set aside 9 of the 11 genomes as contamination. One thing that I didn't get was the big difference between the estimated DNA damage for human contigs (0.47) and the estimated DNA damage for Ragna genome (0.9). Could it be due to the fact that chromosomes in eukaryotic cells are more protected from environmental stress compared to non-eukaryotic cells? Am I not making any sense? FINE...
+So, Zhemin and his colleagues determined (via [mapDamage](https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/btt193){:target="_blank"} by Jónsson et al.) the deamination rate in genomic fragments of their 11 CONCOCT bins and the Ragna genome to set aside 9 of the 11 genomes as contamination. One thing that I didn't get was the big difference between the estimated DNA damage for human contigs (0.47) and the estimated DNA damage for Ragna genome (0.9). Could it be due to the fact that chromosomes in eukaryotic cells are more protected from environmental stress compared to non-eukaryotic cells? Am I not making any sense? FINE...
 
 ## A quick look at genome bins
 
@@ -136,6 +136,8 @@ mv DatabaseS8-MAGs_from_CONCOCT Zhou_MAGs
 tar -zcf Zhou_MAGs.tar.gz Zhou_MAGs/
 ```
 
+Ragna genome is not among these bins, but it is available via Enterobase. You can go to the [Salmonella section](https://enterobase.warwick.ac.uk/species/index/senterica){:target="_blank"} in the Entorobase web site, and search for Ragna through the [Search Strains](https://enterobase.warwick.ac.uk/species/senterica/search_strains){:target="_blank"} link.
+
 ---
 
 Of course without mapping, these analyses are not complete. But for these metagenome-assembled genomes, based on what I'm seeing so far, I am putting my 2 cents on the 'approve' button.
@@ -146,11 +148,19 @@ As of this beautiful Sunday evening, I am in the process of downloading the meta
 
 ## A lovely anvi'o figure
 
-The rest of the pre-print is filled with very impressive stuff. Especially if you have been working with 16S data, and now slowly transitioning into metagenomics and/or comparative genomics, **please do yourself a favor and carefully read this great work**. Computational folk, relatively younger generation, and people who learned about the microbial world through marker genes have missed all these, and it is truly mind opening to see how much has already been done in microbiology before we came into it. I am fine assuming I am the only ignorant around here, but unfortunately I know I am not.
+The rest of the pre-print is filled with very impressive stuff. Especially if you have been working with 16S data, and now slowly transitioning into metagenomics and/or comparative genomics, **please do yourself a favor and carefully read this great work**. Computational folk, relatively younger generation, and people who learned about the microbial world through marker genes have missed all these, and it is truly mind opening to see how much has already been done in microbiology before we came into it. I would have been happy to assume I am the only ignorant around here, but unfortunately I know that I am not.
 
-I am definitely looking forward to reading this work in its full form. But the real reason I decided to take a better look at this work and started writing this blog post was this gorgeous figure:
+I am definitely looking forward to reading this work in its published form.
+
+{:.notice}
+**A self-correction ~2 hours after posting this online:** I wrote the sentence above, posted the blog online. Then [Aaron Darling](http://darlinglab.org/){:target="_blank"} appeared in my mind out of nowhere, and said "*it is already published, Meren, pre-prints **are** publications*". Yes, it is so true. Thanks, Aaron. But isn't it funny how much we shoot ourselves in the foot by assuming that the status *'published'* is some holy and magical designation that can only be assigned by journals *we* created by submitting our best work? Yes. No. This work is already published. *Well, but it is not peer-reviewed, Meren*. Fine, it is not yet peer-reviewed, but you know what, when I really think about it, I feel much better about it than I feel about some of the peer-reviewed work out there without any raw data. So that's that. Here I apologize for unintentionally making it sound as if pre-prints are any lesser publications, and punish myself with ten push-ups. *Proceeds to pay his debt*.
+
+The real reason I decided to take a better look at this study by writing a blog post was this gorgeous figure:
 
 [![Zhemin_et_al_anvio]({{images}}/zhemin_et_al_anvio.png)]({{images}}/zhemin_et_al_anvio.png){:.center-img .width-60}
+
+{:.notice}
+[Nabil-Fareed Alikhan](https://www2.warwick.ac.uk/fac/med/staff/nfalikhan/) reminds me in the comments section under this post that they also have an interactive version of this figure on their own deployment of [anvi'server](http://anvi-server.org/){:target="_blank"} under Enterobase: [https://enterobase.warwick.ac.uk/anvio/public/zhemin/ParaC_pangenome](https://enterobase.warwick.ac.uk/anvio/public/zhemin/ParaC_pangenome){:target="_blank"}.
 
 The figure at the top shows the maximum-likelihood phylogeny of 50,000+ *S. enterica* genomes in the Enterobase, and at the bottom it shows the pangenome of Para C Lineage and mapping statistics of reads that likely belong to the Ragna genome. The story is already very interesting, but I can't take my eyes from the figure.
 
@@ -159,6 +169,7 @@ Maybe you are familiar with the types of figures our lab generates with anvi'o. 
 [![delmont_tardigrade_anvio]({{images}}/delmont_tardigrade.png)]({{images}}/delmont_tardigrade.png){:.center-img .width-60}
 
 Regardless of the functionality of these figures, you probably can feel the sudden drop in aesthetics when you stop looking at Zhemin's figure and start looking at ours.
+
 
 But this is exactly what we were hoping for! From the visualization strategy to the analytical approaches we keep building into the platform, we wanted anvi'o to be free from boilerplate analysis practices. We hoped that its flexibility would allow people to use it in ways and for things we haven't envisioned. This figure is a great example. I am looking at it, and although I know every corner of the [codebase](https://github.com/merenlab/anvio){:target="_blank"}, I have no idea where would I start to generate this figure .. which makes me feel both jealous, and excited.
 
