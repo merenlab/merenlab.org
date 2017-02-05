@@ -163,3 +163,8 @@ Regardless of the functionality of these figures, you probably can feel the sudd
 But this is exactly what we were hoping for! From the visualization strategy to the analytical approaches we keep building into the platform, we wanted anvi'o to be free from boilerplate analysis practices. We hoped that its flexibility would allow people to use it in ways and for things we haven't envisioned. This figure is a great example. I am looking at it, and although I know every corner of the [codebase](https://github.com/merenlab/anvio){:target="_blank"}, I have no idea where would I start to generate this figure .. which makes me feel both jealous, and excited.
 
 Every time I give a workshop, I tell people (and hear back from them) that anvi'o *does* have a somewhat steep learning curve. It is true. But once someone is familiar with it, anvi'o is as good in their hands as their understanding of their own research and data.
+
+---
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">A pre-print from Mark Achtman, M. Thomas P. Gilbert, Zhemin Zhou et al, and my 2 cents on it: <a href="https://t.co/CY7Ppp8YW3">https://t.co/CY7Ppp8YW3</a></p>&mdash; A. Murat Eren (@merenbey) <a href="https://twitter.com/merenbey/status/828356392742424577">February 5, 2017</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
