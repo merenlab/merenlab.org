@@ -181,3 +181,8 @@ Anvi'o can and should do a better job visualizing these patterns across contigs,
 Now you have all my 2 cents.
 
 Over and out.
+
+---
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Have you also been curious about wavy coverage patterns in mapping results? Good! Here is a blog post on that: <a href="https://t.co/ZspVAjhtUS">https://t.co/ZspVAjhtUS</a></p>&mdash; A. Murat Eren (@merenbey) <a href="https://twitter.com/merenbey/status/809374274842689536">December 15, 2016</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>

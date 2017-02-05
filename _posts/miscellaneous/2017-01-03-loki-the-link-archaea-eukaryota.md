@@ -113,3 +113,8 @@ All the files used here to analyze, inspect and curate the composite MAG *Lokiar
 * **Static HTML summary**: [Download](http://anvio.org/data/Lokiarchaeum_SELECTIONS_SUMMARY.tar.gz) the archive, unpack it, double-click `index.html` file to access the FASTA files for the two curated *Lokiarchaeum* MAGs, `Lokiarchaeum_01` and `Lokiarchaeum_02`.
 
 Although writing the blog post took forever, the entire analysis (starting from the download of the genome and SRA files from NCBI to anvi'o profiling and selections) took about 4 hours.
+
+---
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Curating Loki archaea: <a href="https://t.co/J9yAEOrqIf">https://t.co/J9yAEOrqIf</a>. An insightful inspection effort with videos by <a href="https://twitter.com/tomodelmont">@tomodelmont</a>.</p>&mdash; A. Murat Eren (@merenbey) <a href="https://twitter.com/merenbey/status/816349602299387904">January 3, 2017</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>

@@ -241,3 +241,8 @@ Are you curious whether one can find these genes anywhere else but our patient's
 I don't want to ruin it for you, but probably you already know the answer, and here is my 2 cents on that: 
 
 I am not a naive person, but I find the uniqueness of the genes in these loci absolutely fascinating. Although this particular *B. fragilis* population we access through mapping metagenomic short reads from the mucosal biopsy sample is virtually isogenic with the population that originates from the lumen, there are these crazy loci that have nothing to do with the ones in lumen, and here is one of them, right in front of you.
+
+---
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">A reproducible science exercise with anvi&#39;o: <a href="https://t.co/AYVnjcaQxf">https://t.co/AYVnjcaQxf</a> <a href="https://twitter.com/hashtag/anvio?src=hash">#anvio</a> <a href="https://twitter.com/hashtag/metagenomics?src=hash">#metagenomics</a> <a href="https://twitter.com/hashtag/openscience?src=hash">#openscience</a></p>&mdash; A. Murat Eren (@merenbey) <a href="https://twitter.com/merenbey/status/801063848673316864">November 22, 2016</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
