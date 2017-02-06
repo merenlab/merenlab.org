@@ -25,13 +25,13 @@ Briefly, the authors used shotgun metagenomics to recover a *Salmonella enterica
 
 The study has everything. An exciting set of novel (from the corpse and from the Institut Pasteur collection) and publicly available (from Enterobase) data, an array of impressive methods to connect everything, and very interesting findings. Plus, it comes out as a pre-print first, and releases all of its data openly. 
 
-The methods section is [here](http://biorxiv.org/content/biorxiv/suppl/2017/02/03/105759.DC1/105759-1.pdf){:target="_blank"} as a separate file, and everything in the pre-print is really neatly available. Including the [supplementary data](http://wrap.warwick.ac.uk/85593/), representative genomes used for the pangenomic analysis, and **most importantly the metagenomic short reads**, from which they recovered 11 bacterial genomes, as well as the Ragna genome through read recruitment (for which they used modern relatives of Paratyphi C to identify sequences specific to the Ragna genome). Research groups that release the entire data behind their claims like champions, even when they can clearly get away [without doing it](http://www.nature.com/nature/journal/v541/n7637/full/nature21031.html), indeed deserve a bigger thanks from the community. So on behalf of the science community, I hereby thank Zhou and his colleagues *bigly*.
+The methods section is [here](http://biorxiv.org/content/biorxiv/suppl/2017/02/03/105759.DC1/105759-1.pdf){:target="_blank"} as a separate file, and everything in the pre-print is really neatly available. Including the [supplementary data](http://wrap.warwick.ac.uk/85593/), representative genomes used for the pangenomic analysis, and **most importantly the metagenomic short reads**, from which they recovered 11 bacterial genomes, as well as the Ragna genome through read recruitment (for which they used modern relatives of Paratyphi C to identify sequences specific to the Ragna genome). Research groups that release the entire data behind their claims like champions, even when they can clearly get away [without doing it](http://www.nature.com/nature/journal/v541/n7637/full/nature21031.html), indeed deserve a bigger thanks from the community. So on behalf of the science community, I hereby thank Zhemin and his colleagues *bigly*.
 
 ## One of the few impressive approaches in the study
 
 If you are interested in metagenomics, pangenomics, or phylogenomics, you should consider going through this study. I also think it would make such a great journal club material. There are a number of very cool approaches in it, but one of the coolest things in this study from my subjective perspective is the fact that the authors have used DNA damage estimates to tease apart contaminant metagenomic bins from the ones they are interested in.
 
-Probably it is quite well-known among the people who study ancient DNA, but I was utterly impressed by this technique thanks to my ignorance. So here is a bit more context for the ones who know about ancient DNA as much as I did until 15 minutes ago: The authors recover 11 near-complete bacterial genomes through metagenomic sequencing of the material from the corpse, assembling the resulting short reads into contigs, and finally organizing contigs into genome bins with CONCOCT. When you take a sample from a body that's been buried for the last 800 years it is conceivable to have *some* environmental contamination in it. But how to determine which genomes are contaminants from the surrounding soil, and which ones are endogenous to the body? How can one learn about that? If you think about it this is quite a challenging question. But it seems there is a very smart way of solving this puzzle: deamination (which is a hydrolysis reaction that removes an [amine group](https://en.wikipedia.org/wiki/Amine){:target="_blank"} from cytosine and turns it into uracil). It turns out the passing of time takes its toll on DNA molecules through deamination. Which, in the context of this study, makes endogenous DNA contain *more* deaminated cytosines towards the end of each fragment, compared to the DNA fragments that comes from relatively recent day organisms. Isn't this absolutely brilliant? No? You are not surprised? Well, the beauty of being a computational person in life sciences is that you get to enjoy things life scientists learned when they were undergrads. Yeah. It is like all of a sudden you realize there is a thing called a "movie", and people made many of them for years and years, there is even a top 250 list for them on IMDB, and you haven't yet seen any of them. OK. While I was trying to better understand this phenomenon, I run into [this lovely paper](http://www.pnas.org/content/104/37/14616){:target="_blank"}, in which the relationship between ancient DNA and deamination was probably shown for the first time. Here is a very good sentence from its abstract:
+Probably it is quite well-known among the people who study ancient DNA, but I was utterly impressed by this technique thanks to my ignorance. So here is a bit more context for the ones who know about ancient DNA as much as I did until 15 minutes ago: The authors recover 11 near-complete bacterial genomes through metagenomic sequencing of the material from the corpse, assembling the resulting short reads into contigs, and finally organizing contigs into genome bins with CONCOCT. When you take a sample from a body that's been buried for the last 800 years it is conceivable to have *some* environmental contamination in it. But how to determine which genomes are contaminants from the surrounding soil, and which ones are endogenous to the body? How can one learn about that? If you think about it this is quite a challenging question. But it seems there is a very smart way of solving this puzzle: deamination (which is a hydrolysis reaction that removes an [amine group](https://en.wikipedia.org/wiki/Amine){:target="_blank"} from cytosine and turns it into uracil). It turns out the passing of time takes its toll on DNA molecules through deamination. Which, in the context of this study, makes endogenous DNA contain *more* deaminated cytosines towards the end of each fragment, compared to the DNA fragments that comes from relatively recent day organisms. Isn't this absolutely brilliant? No? You are not surprised? Well, the beauty of being a computational person in life sciences is that you get to enjoy things life scientists have learned probably when they were undergrads. While I was trying to better understand this phenomenon, I run into [this lovely paper](http://www.pnas.org/content/104/37/14616){:target="_blank"}, in which the relationship between ancient DNA and deamination was probably shown for the first time. Here is a very good sentence from its abstract:
 
 <blockquote>
 (...) Here we analyze DNA sequences determined from a Neandertal, a mammoth, and a cave bear. We show that purines are overrepresented at positions adjacent to the breaks in the ancient DNA, suggesting that depurination has contributed to its degradation. We furthermore show that substitutions resulting from miscoding cytosine residues are vastly overrepresented in the DNA sequences and drastically clustered in the ends of the molecules, whereas other substitutions are rare (...)
@@ -57,7 +57,7 @@ So, Zhemin and his colleagues determined (via [mapDamage](https://academic.oup.c
 
 ## A quick look at genome bins
 
-As a small 'thank you' for releasing the data in an easily accessible form, and in the spirit of respecting pre-prints for community to share their 2 cents, I decided to volunteer myself for an independent review of the genome bins the authors released.
+As a small 'thank you' for releasing the data in an easily accessible form, I decided to volunteer myself for an independent review of the genome bins the authors released.
 
 First I got the data (took about 1 minute):
 
@@ -65,12 +65,12 @@ First I got the data (took about 1 minute):
 wget http://wrap.warwick.ac.uk/85593/8/DatabaseS8-MAGs_from_CONCOCT.zip
 unzip DatabaseS8-MAGs_from_CONCOCT.zip
 ls *fa > bins.txt
+sed -i '' 's/.fa$//g' bins.txt
 ```
 
 Then I generated anvi'o contig databases for each bin, and run HMMs on them (took about 5 minutes):
 
 ``` bash
-sed -i '' 's/.fa$//g' bins.txt
 for bin in `cat bins.txt`
 > do
 > anvi-gen-contigs.database -f $bin.fa -o $bin.db
@@ -125,11 +125,11 @@ Which displayed each contig in each CONCOCT bin one by one (the min/max boundari
 
 [![Clusters]({{images}}/clusters.png)]({{images}}/clusters.png){:.center-img .width-60}
 
-Of course without the mapping data it is a very coarse look. But things seem to be in order. I am always pleasantly surprise with the accuracy of CONCOCT (it does make mistakes, of course, but much less so than others). The only bin that somewhat looked as if it may have some contamination was `Cluster 40`, but a quick check in the interactive interface convinced me that it was probably OK, too:
+Of course without the mapping data it is a very coarse look. But things seem to be in order. I am always pleasantly surprised with the accuracy of CONCOCT (it does make mistakes, of course, but much less so than others). The only bin that somewhat looked as if it may have some contamination was `Cluster 40`, but a quick check in the interactive interface convinced me that it was probably OK, too:
 
 [![Cluster_40]({{images}}/cluster-40.png)]({{images}}/cluster-40.png){:.center-img .width-60}
 
-And then I did this, so you can download this entire directory from [here](http://anvio.org/data/Zhou_MAGs.tar.gz), and play with it using your anvi'o `v2.1.0`:
+And then I did this, so you can download this entire directory from [here](http://anvio.org/data/Zhou_MAGs.tar.gz), and play with it if you have anvi'o `v2.1.0` or later:
 
 ``` bash
 cd ..
@@ -137,7 +137,7 @@ mv DatabaseS8-MAGs_from_CONCOCT Zhou_MAGs
 tar -zcf Zhou_MAGs.tar.gz Zhou_MAGs/
 ```
 
-Ragna genome is not among these bins, but it is available via Enterobase. You can go to the [Salmonella section](https://enterobase.warwick.ac.uk/species/index/senterica){:target="_blank"} in the Entorobase web site, and search for Ragna through the [Search Strains](https://enterobase.warwick.ac.uk/species/senterica/search_strains){:target="_blank"} link.
+The Ragna genome is not among these bins, but it is available via Enterobase. You can go to the [Salmonella section](https://enterobase.warwick.ac.uk/species/index/senterica){:target="_blank"} in the Entorobase web site, and search for Ragna through the [Search Strains](https://enterobase.warwick.ac.uk/species/senterica/search_strains){:target="_blank"} link.
 
 ---
 
@@ -156,7 +156,7 @@ I am definitely looking forward to reading this work in its published form.
 {:.notice}
 **A self-correction ~2 hours after posting this online:** I wrote the sentence above, posted the blog online. Then [Aaron Darling](http://darlinglab.org/){:target="_blank"} appeared in my mind out of nowhere, and said "*it is already published, Meren, pre-prints **are** publications*". Yes, it is so true. Thanks, Aaron. But isn't it funny how much we shoot ourselves in the foot by assuming that the status *'published'* is some holy and magical designation that can only be assigned by journals *we* created by submitting our best work? Yes. No. This work is already published. *Well, but it is not peer-reviewed, Meren*. Fine, it is not yet peer-reviewed, but you know what, when I really think about it, I feel much better about it than I feel about some of the peer-reviewed work out there without any raw data. So that's that. Here I apologize for unintentionally making it sound as if pre-prints are any lesser publications, and punish myself with ten push-ups. *Proceeds to pay his debt*.
 
-The real reason I decided to take a better look at this study by writing a blog post was this gorgeous figure:
+Well, the real reason I decided to take a better look at this study by writing a blog post was in fact this gorgeous figure:
 
 [![Zhemin_et_al_anvio]({{images}}/zhemin_et_al_anvio.png)]({{images}}/zhemin_et_al_anvio.png){:.center-img .width-60}
 
