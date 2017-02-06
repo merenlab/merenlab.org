@@ -2,17 +2,18 @@
 layout: post
 title: "An 800-years-old <i>Salmonella</i> genome, and a lovely anvi'o figure"
 excerpt: "From the paper 'Millennia of genomic stability within the invasive Para C Lineage of <i>Salmonella enterica</i>'"
-modified: 2017-03-05
+modified: 2017-02-05
 tags: []
 categories: [miscellaneous]
 comments: true
+redirect_from: /2017/03/05/zhou-salmonella/
 authors: [meren]
 image:
-  feature: http://merenlab.org/images/miscellaneous/2017-03-05-zhou-salmonella/featured.png
+  feature: http://merenlab.org/images/miscellaneous/2017-02-05-zhou-salmonella/featured.png
   display: false
 ---
 
-{% capture images %}{{site.url}}/images/miscellaneous/2017-03-05-zhou-salmonella{% endcapture %}
+{% capture images %}{{site.url}}/images/miscellaneous/2017-02-05-zhou-salmonella{% endcapture %}
 
 There is a cool pre-print out there:
 
