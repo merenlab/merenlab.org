@@ -670,7 +670,7 @@ You just read about three different ways to visualize the single-nucleotide vari
 You can also use anvi'o to perform pangenomic analyses, and here I will give a small demo using the now infamous *E. faecalis* bin.
 
 {:.notice}
-**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD available to you. Before you continue, please [click here](#the-contigs-database--anvio-merged-profile-for-the-infant-gut-dataset){:target="_blank"}, do everything mentioned there, and come back here on this page when you are asked to **go back**.
+**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back here on this page when you are asked to **go back**.
 
 Please run following commands in the IGD dir. They will set the stage for us to take a look at the *E. faecalis* bin:
 
@@ -687,42 +687,18 @@ Please run following commands in the IGD dir. They will set the stage for us to 
 For this example I downloaded 6 *E. facealis*, and 5 *E. faecium* genomes to analyze them together with our *E. facealis* bin. For each of these 11 *external genomes*, I generated anvi'o contigs databases. You can find all of them in the additional files directory:
 
 ``` bash
- $ ls -lh additional-files/pangenomics/external-genomes/
-total 185984
--rw-r--r--  1 meren  staff   2.6K Jul 31 23:56 00_INFO_ABOUT_EXTERNAL_GENOMES.txt
--rw-r--r--  1 meren  staff   4.7M Jul 31 23:56 Enterococcus_faecalis_6240.db
--rw-r--r--  1 meren  staff   859K Jul 31 23:56 Enterococcus_faecalis_6240.fa.gz
--rw-r--r--  1 meren  staff   2.9M Jul 31 23:56 Enterococcus_faecalis_6240.h5
--rw-r--r--  1 meren  staff   4.7M Jul 31 23:56 Enterococcus_faecalis_6250.db
--rw-r--r--  1 meren  staff   863K Jul 31 23:56 Enterococcus_faecalis_6250.fa.gz
--rw-r--r--  1 meren  staff   2.9M Jul 31 23:56 Enterococcus_faecalis_6250.h5
--rw-r--r--  1 meren  staff   4.5M Jul 31 23:56 Enterococcus_faecalis_6255.db
--rw-r--r--  1 meren  staff   835K Jul 31 23:56 Enterococcus_faecalis_6255.fa.gz
--rw-r--r--  1 meren  staff   2.8M Jul 31 23:56 Enterococcus_faecalis_6255.h5
--rw-r--r--  1 meren  staff   4.2M Jul 31 23:56 Enterococcus_faecalis_6512.db
--rw-r--r--  1 meren  staff   772K Jul 31 23:56 Enterococcus_faecalis_6512.fa.gz
--rw-r--r--  1 meren  staff   2.6M Jul 31 23:56 Enterococcus_faecalis_6512.h5
--rw-r--r--  1 meren  staff   5.1M Jul 31 23:56 Enterococcus_faecalis_6557.db
--rw-r--r--  1 meren  staff   946K Jul 31 23:56 Enterococcus_faecalis_6557.fa.gz
--rw-r--r--  1 meren  staff   3.2M Jul 31 23:56 Enterococcus_faecalis_6557.h5
--rw-r--r--  1 meren  staff   4.3M Jul 31 23:56 Enterococcus_faecalis_6563.db
--rw-r--r--  1 meren  staff   793K Jul 31 23:56 Enterococcus_faecalis_6563.fa.gz
--rw-r--r--  1 meren  staff   2.7M Jul 31 23:56 Enterococcus_faecalis_6563.h5
--rw-r--r--  1 meren  staff   4.6M Jul 31 23:56 Enterococcus_faecium_6589.db
--rw-r--r--  1 meren  staff   852K Jul 31 23:56 Enterococcus_faecium_6589.fa.gz
--rw-r--r--  1 meren  staff   2.9M Jul 31 23:56 Enterococcus_faecium_6589.h5
--rw-r--r--  1 meren  staff   4.9M Jul 31 23:56 Enterococcus_faecium_6590.db
--rw-r--r--  1 meren  staff   915K Jul 31 23:56 Enterococcus_faecium_6590.fa.gz
--rw-r--r--  1 meren  staff   3.1M Jul 31 23:56 Enterococcus_faecium_6590.h5
--rw-r--r--  1 meren  staff   4.6M Jul 31 23:56 Enterococcus_faecium_6601.db
--rw-r--r--  1 meren  staff   860K Jul 31 23:56 Enterococcus_faecium_6601.fa.gz
--rw-r--r--  1 meren  staff   2.9M Jul 31 23:56 Enterococcus_faecium_6601.h5
--rw-r--r--  1 meren  staff   4.3M Jul 31 23:56 Enterococcus_faecium_6778.db
--rw-r--r--  1 meren  staff   806K Jul 31 23:56 Enterococcus_faecium_6778.fa.gz
--rw-r--r--  1 meren  staff   2.7M Jul 31 23:56 Enterococcus_faecium_6778.h5
--rw-r--r--  1 meren  staff   4.2M Jul 31 23:56 Enterococcus_faecium_6798.db
--rw-r--r--  1 meren  staff   773K Jul 31 23:56 Enterococcus_faecium_6798.fa.gz
--rw-r--r--  1 meren  staff   2.6M Jul 31 23:56 Enterococcus_faecium_6798.h5
+ $ ls additional-files/pangenomics/external-genomes/*db
+additional-files/pangenomics/external-genomes/Enterococcus_faecalis_6240.db
+additional-files/pangenomics/external-genomes/Enterococcus_faecalis_6250.db
+additional-files/pangenomics/external-genomes/Enterococcus_faecalis_6255.db
+additional-files/pangenomics/external-genomes/Enterococcus_faecalis_6512.db
+additional-files/pangenomics/external-genomes/Enterococcus_faecalis_6557.db
+additional-files/pangenomics/external-genomes/Enterococcus_faecalis_6563.db
+additional-files/pangenomics/external-genomes/Enterococcus_faecium_6589.db
+additional-files/pangenomics/external-genomes/Enterococcus_faecium_6590.db
+additional-files/pangenomics/external-genomes/Enterococcus_faecium_6601.db
+additional-files/pangenomics/external-genomes/Enterococcus_faecium_6778.db
+additional-files/pangenomics/external-genomes/Enterococcus_faecium_6798.db
 ```
 
 There also are two files in the `additional-files/pangenomics` directory to describe how to access to the external genomes:
@@ -814,11 +790,86 @@ It will look much more reasonable:
 
 Now not only we can see how our E. facealis genome to what is available, we can also see that it is not missing or carrying a great number of proteins compared to other genomes. The clustering of genomes based on protein clusters indicate that it is most similar to the genome `Enterococcus faecalis 6250`, which, according to the `00_INFO_ABOUT_EXTERNAL_GENOMES.txt` under `05_PANGENOMICS` directory, corresponds to the assembly ID [ASM28119v1](https://www.ncbi.nlm.nih.gov/gquery/?term=ASM28119v1){:target="_blank"} if you were to be interested in exploring further.
 
-From this display you can make selections of protein clusters, and store them as a collection:
+From this display you can make selections of protein clusters. I already made some selections and stored them. If you import them the following way,
+
+``` bash
+ $ anvi-import-collection additional-files/pangenomics/pan-collection.txt \
+                          --bins-info additional-files/pangenomics/pan-collection-info.txt \
+                          -p PAN/Enterococcus-PAN.db \
+                          -C default   
+```
+
+and re-run the interactive interface,
+
+``` bash
+name default
+ $ anvi-display-pan -g Enterococcus-GENOMES.h5 \
+                    -p PAN/Enterococcus-PAN.db \
+                    -s PAN/Enterococcus-SAMPLES.db \
+                    --title "Enterococccus Pan"
+```
+
+you will see the following selections:
 
 [![E. facealis pan](images/e-faecalis-pan-selections.png)](images/e-faecalis-pan-selections.png){:.center-img .width-70}
 
-Once you have a collection, you can summarize it, and start looking into your protein clusters in a much more detailed way!
+We used collections to store bins of contigs in the first section (and that's how we identified that *E. faecalis* population from the Sharon et al. metagenomes anyway), and now the same concept serves us as a way to store bins of protein clusters.
+
+If you right-click on any of the protein clusters, you will see a menu,
+
+![E. facealis pan](images/pan-right-click.png){:.center-img .width-100}
+
+which, among other things, will give you access to the inspection page:
+
+[![E. facealis pan](images/pan-inspect.png)](images/pan-inspect.png){:.center-img .width-50}
+
+Inspecting protein clusters can be a lot of fun and very depressing at the same time. But of course it is hard to get a comprehensive understanding by going through things one by one. But can we summarize the pangenome?
+
+For instance, in my tentative selection above, there is a bin called `CORE ALL`, which describes all protein clusters that seems to be in all genomes in this analysis. You can in fact summarize the collection `default` to access all the information about each gene described in each protein cluster selected as `CORE ALL`.
+
+You can summarize the pangenome using the collection we have the following way:
+
+``` bash
+ $ anvi-summarize -p PAN/Enterococcus-PAN.db -g Enterococcus-GENOMES.h5 -C default -o PAN_SUMMARY
+```
+
+If you run the the following command on a Mac system (or simply open the index.html file in your browser),
+
+``` bash
+ $ open PAN_SUMMARY/index.html
+```
+
+You will see a web page with some information about your pangenome:
+
+[![E. facealis pan](images/pan-summary.png)](images/pan-summary.png){:.center-img .width-50}
+
+The most important part of this output is this one:
+
+[![E. facealis pan](images/pan-summary-pcs.png)](images/pan-summary-pcs.png){:.center-img .width-50}
+
+You can unzip this file,
+
+``` bash
+ $ gzip -d PAN_SUMMARY/Enterococcus_protein_clusters_summary.txt.gz
+```
+
+And play with it to see how it will solve all your problems. You can import it into R, or open it in EXCEL to have a quick look at its contents. But here is a quick look at the first 10 lines of this file that contains 35,192 gene entries:
+
+|unique_id|protein_cluster_id|bin_name|genome_name|gene_callers_id|COG_CATEGORY_ACC|COG_CATEGORY|COG_FUNCTION_ACC|COG_FUNCTION|aa_sequence|
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--|:--|
+|1|PC_00001990|CORE_FAECALIS|E_faecalis_6240|743|T|T|COG3920|Two-component sensor histidine kinase, HisKA and HATPase domains|MKRLEQLCHQYTNLSESDIKELQRTARYLSSTTLYQSADVFIDVYKEMSQQALVVYHKPPAKTTSLYSGDVVGMEALLKNEPGVLRTMQTSLNSIGLLAVTQENRLIKQNIYPIRNEHRTIGVIIVEIAADEEIQADLQKEELNNCQLAKVAKSTSQVDALFIDQLAEAVLIFDAAGHLLITNHNAQELYRKLGYRDNIIGMSYDNLSIDYTTFEYVLYQMKYKMSNQPIESKTTYLNYYFKVRKVWLASEEQLIMIIQDNTEFKEKEAEIISKSVAIREIHHRVKNNLQSVVSLLRIQERRTQSPEAKKVLHESVNRIMAIAATHELLSKQVKDDVALRQTLEAVMYNFRHLFQGAQPIEMMMDVDPAIMVSSEQMVTISLVVNELLQNIFDHAFEPQTSGVVKLSGTLDNKMITITVTDNGKGYDVHQSNETSLGLMIVKSYVRDKLKGKITIESNKQGTKTCFYFEQNTSDVVH|
+|2|PC_00001990|CORE_FAECALIS|E_faecalis_6512|1338|T|T|COG3920|Two-component sensor histidine kinase, HisKA and HATPase domains|MKRLEQLCHQYTNLSESDIKELQRTARYLSSTTLYQSADVFIDVYKEMSQQALVVYHKPPAKTTSLYSGDVVGMEALLKNEPGVLRTMQTSLNSIGLLAVTQENRLIKQNIYPIRNEHRTIGVIIVEIAADEEIQADLQKEELNNCQLAKVAKSTSQVDALFIDQLAEAVLIFDAAGHLLITNHNAQELYRKLGYRDNIIGMNYDNLSIDYTTFEYVLYQMKYKMSNQPIESKTTYLNYYFKVRKVWLASEEQLIMIIQDNTEFKEKEAEIISKSVAIREIHHRVKNNLQSVVSLLRIQERRTQSPEAKKVLHESVNRIMAIAATHELLSKQVKDDVALRQTLEAVMYNFRHLFQGAQPIEMMMDVDPAIMVSSEQMVTISLVVNELLQNIFDHAFEPQTSGVVKLSGTLDNKMITITVTDNGKGYDVHQSNETSLGLMIVKSYVKDKLKGKITIESNKQGTKTCFYFEQNTSDVVH|
+|3|PC_00001990|CORE_FAECALIS|E_faecalis_6250|1487|T|T|COG3920|Two-component sensor histidine kinase, HisKA and HATPase domains|MKRLEQLCHQYTNLSESDIKELQRTARYLSSTTLYQSADVFIDVYKEMSQQALVVYHKPPAKTTSLYSGDVVGMEALLKNEPGVLRTMQTSLNSIGLLAVTQENRLIKQNIYPIRNEHRTIGVIIVEIAADEEIQADLQKEELNNCQLAKVAKSTSQVDALFIDQLAEAVLIFDAAGHLLITNHNAQELYRKLGYRDNIIGMSYDNLSIDYTTFEYVLYQMKYKMSNQPIESKTTYLNYYFKVRKVWLASEEQLIMIIQDNTEFKEKEAEIISKSVAIREIHHRVKNNLQSVVSLLRIQERRTQSPEAKKVLHESVNRIMAIAATHELLSKQVKDDVALRQTLEAVMYNFRHLFQGAQPIEMMMDVDPAIMVSSEQMVTISLVVNELLQNIFDHAFEPQTSGVVKLSGTLDNKMITITVTDNGKGYDVHQSNETSLGLMIVKSYVKDKLKGKITIESNKQGTKTCFYFEQNTSDVVH|
+|4|PC_00001990|CORE_FAECALIS|E_faecalis_6255|1635|T|T|COG3920|Two-component sensor histidine kinase, HisKA and HATPase domains|MKRLEQLCHQYTNLSESDIKELQRTARYLSSTTLYQSADVFIDVYKEMSQQALVVYHKPPAKTTSLYSGDVVGMEALLKNEPGVLRTMQTSLNSIGLLAVTQENRLIKQNIYPIRNEHRTIGVIIVEIAADEEIQADLQKEELNNCQLAKVAKSTSQVDALFIDQLAEAVLIFDAAGHLLITNHNAQELYRKLGYRDNIIGMSYDNLSIDYTTFEYVLYQMKYKMSNQPIESKTTYLNYYFKVRKVWLASEEQLIMIIQDNTEFKEKEAEIISKSVAIREIHHRVKNNLQSVVSLLRIQERRTQSPEAKKVLHESVNRIMAIAATHELLSKQVKDDVALRQTLEAVMYNFRHLFQGAQPIEMMMDVDPAIMVSSEQMVTISLVVNELLQNIFDHAFEPQTSGVVKLSGTLDNKMITITVTDNGKGYDVHQSNETSLGLMIVKSYVRDKLKGKITIESNKQGTKTCFYFEQNTSDVVH|
+|5|PC_00001990|CORE_FAECALIS|E_faecalis_6563|1393|T|T|COG3920|Two-component sensor histidine kinase, HisKA and HATPase domains|MKRLEQLCHQYTNLSESDIKELQRTARYLSSTTLYQSADVFIDVYKEMSQQALVVYHKPPAKTTSLYSGDVVGMEALLKNEPGVLRTMQTSLNSIGLLAVTQENRLIKQNIYPIRNEHRTIGVIIVEIAADEEIQADLQKEELNNCQLAKVAKSTSQVDALFIDQLAEAVLIFDAAGHLLITNHNAQELYRKLGYRDNIIGMSYDNLSIDYTTFEYVLYQMKYKMSNQPIESKTTYLNYYFKVRKVWLASEEQLIMIIQDNTEFKEKEAEIISKSVAIREIHHRVKNNLQSVVSLLRIQERRTQSPEAKKVLHESVNRIMAIAATHELLSKQVKDDVALRQTLEAVMYNFRHLFQGAQPIEMMMDVDPAIMVSSEQMVTISLVVNELLQNIFDHAFEPQTSGVVKLSGTLDNKMITITVTDNGKGYDVHQSNETSLGLMIVKSYVRDKLKGKITIESNKQGTKTCFYFEQNTSDVVH|
+|6|PC_00001990|CORE_FAECALIS|E_faecalis_6557|1730|T|T|COG3920|Two-component sensor histidine kinase, HisKA and HATPase domains|MKRLEQLCHQYTNLSESDIKELQRTARYLSSTTLYQSADVFIDVYKEMSQQALVVYHKPPAKTTSLYSGDVVGMEALLKNEPGVLRTMQTSLNSIGLLAVTQENRLIKQNIYPIRNEHRTIGVIIVEIAADEEIQADLQKEELNNCQLAKVAKSTSQVDALFIDQLAEAVLIFDAAGHLLITNHNAQELYRKLGYRDNIIGMSYDNLSIDYTTFEYVLYQMKYKMSNQPIESKTTYLNYYFKVRKVWLASEEQLIMIIQDNTEFKEKEAEIISKSVAIREIHHRVKNNLQSVVSLLRIQERRTQSPEAKKVLHESVNRIMAIAATHELLSKQVKDDVALRQTLEAVMYNFRHLFQGAQPIEMMMDVDPAIMVSSEQMVTISLVVNELLQNIFDHAFEPQTSGVVKLSGTLDNKMITITVTDNGKGYDVHQSNETSLGLMIVKSYVKDKLKGKITIESNKQGTKTCFYFEQNTSDVVH|
+|7|PC_00001990|CORE_FAECALIS|E_faecalis_SHARON|895|T|T|COG3920|Two-component sensor histidine kinase, HisKA and HATPase domains|MKRLEQLCQQYTNLSESDIKELQRTARYLSSTTLYQSADVFIDVYKEMSQQALVVYHKPPAKTTSLYSGDVVGMEALLKNEPGVLRTMQTSLNSIGLLAVTQENRLIKQNIYPIRNEHRTIGVIIVEIAADEEIQADLQKEELNNCQLAKVAKSTSQVDALFIDQLAEAVLIFDAAGHLLITNHNAQELYRKLGYRDNIIGMSYDNLSIDYTTFEYVLYQMKYKMSNQPIESKTTYLNYYFKVRKVWLASEEQLIMIIQDNTEFKEKEAEIISKSVAIREIHHRVKNNLQSVVSLLRIQERRTQSPEAKKVLHESVNRIMAIAATHELLSKQVKDDVALRQTLEAVMYNFRHLFQGAQPIEMMMDVDPAIMVSSEQMVTISLVVNELLQNIFDHAFEPQTSGVVKLSGTLDNKMITITVTDNGKGYDVHQSNETSLGLMIVKSYVKDKLKGKITIESNKQGTKTCFYFEQNTSDVVH|
+|8|PC_00001991|CORE_FAECALIS|E_faecalis_6240|1602|G|G|COG4468|Galactose-1-phosphate uridylyltransferase|MTTSQMIADFTTLAIQAGGWMELDRLYLQNRLLSMIGEQELGEVDIRPVATPAADLAEQLCQVASANQLVKTEQQKEQFMVQLMDLLTPPPSVVNAFFAQHYAKEPQEATEYFYQLCQKNGTVIEQEEPVVFSTVYGDFLANKVHSEASKATLSAQSYPRCEWCMATEGYQGSQQFPATTNHRVIRMNLDGESWGFSFVKQAQYQQQGVIAFEKHQSAKRSIKTFQQLLKIVEVFPHYFAGIDADFEQNEHVYYQTGLQQFPLAEASISEYVELANYPLINAGMVNWPVATFRLEGPNASEVAQAANDIFEQWQMLKLPTDEIQIVARRKELLYVMDLIFSRPQAKPSLTLAEVQGLTTWNNQKTQALETVASAYQQRLKEASAFAETSEGKAAFLAMVAPVTH|
+|9|PC_00001991|CORE_FAECALIS|E_faecalis_6512|2126|G|G|COG4468|Galactose-1-phosphate uridylyltransferase|MTTSQMIADFTTLAIQAGGWMELDRLYLQNRLLSMIGEQELGEVDIRPVATPAADLAEQLCQVASANQLVKTEQQKEQFMVQLMDLLTPPPSVVNAFFAQHYAKEPQEATEYFYQLCQKNGTVIEQEEPVVFSTVYGDFLANKVHSEASKATLSAQSYPRCEWCMATEGYQGSQQFPATTNHRVIRMNLDGESWGFSFVKQAQYQQQGVIAFEKHQAAKRSIKTFQQLLKIVEVFPHYFAGIDADFEQNEHVYYQTGLQQFPLAEASISEYVELANYPLINAGMVNWPVATFRLEGPNASEVAQAANDIFEQWQMLKLPTDEIQIVARRKELLYVMDLIFSRPQAKPSLTLAEVQGLTTWNNQKTQALETVASAYQQRLKEASAFAETSEGKAAFLAMVAPVTH|
+
+
+I'm sure you need no help to know what to do with this file.
+
 
 ## Final words
 
