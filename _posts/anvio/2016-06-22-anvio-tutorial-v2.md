@@ -298,13 +298,14 @@ If you have your own binning of your contigs, you can easily import those result
 $ anvi-import-collection binning_results.txt -p SAMPLES-MERGED/PROFILE.db -c contigs.db --source "SOURCE_NAME"
 {% endhighlight %}
 
+The file format for `binning_results.txt` is very simple. This is supposed to be a TAB-delimited file that contains information about which contig belongs to what bin. So each line of this TAB-delimited file should contain a contig name (or split name, see below), and the bin name they belong to. If you would like to see some example files, you can find them [here](https://github.com/meren/anvio/tree/master/tests/sandbox/example_files_for_external_binning_results). They will help you see the difference between input files for splits and contigs after reading the following bullet points, and demonstrate the structure of the optional "bins information" file.
+
+
 Two points:
 
 * It is common that we use `anvi-export-splits-and-coverages` to export coverage and sequence composition information to bin our contigs with software that can work with coverage and sequence composition information. In this case, our `binning_results.txt` contains *split names*. But if you have contig names, you can import them using `anvi-import-collection` with the flag `--contigs-mode`. 
 
 * You can also use an information file with the `--bins-info` parameter to describe the source of your bins (and even assign them some colors to have some specific visual identifiers for any type of visualization downstream).
-
-There are example files [here](https://github.com/meren/anvio/tree/master/tests/sandbox/example_files_for_external_binning_results) that show the difference between input files for splits and contigs, and demonstrate the structure of the optional bins information file.
 
 {:.notice}
 You can use `anvi-export-collection` to export collection information and import into other profiles. It becomes very handy when you are doing [benchmarking between different approaches](% post_url anvio/2015-06-23-comparing-different-mapping-software %).
