@@ -226,9 +226,9 @@ meren SSH://MBL ~ $ R2s=`ls 01_QC/*QUALITY_PASSED_R2* | python -c 'import sys; p
 They will look like this:
 
 {% highlight bash %}
-meren SSH://MBL ~ $ echo $R1
+meren SSH://MBL ~ $ echo $R1s
 01_QC/Sample_01-QUALITY_PASSED_R1.fastq,01_QC/Sample_02-QUALITY_PASSED_R1.fastq
-meren SSH://MBL ~ $ echo $R2
+meren SSH://MBL ~ $ echo $R2s
 01_QC/Sample_01-QUALITY_PASSED_R2.fastq,01_QC/Sample_02-QUALITY_PASSED_R2.fastq
 {% endhighlight %}
 
