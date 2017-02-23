@@ -34,7 +34,7 @@ python -c 'import webbrowser as w; w.open_new("http://")'
 If you are using Mac and have [Homebrew](http://brew.sh/) installed on your computer, all you need to do is to run this to have anvi'o installed on your system, and skip the rest of this page:
 
 ``` bash
-brew install anvio
+brew install homebrew/science/anvio
 ```
 
 If you are installing anvi'o on another operating system (or if you an OS X user who does not like Homebrew for some reason) please continue reading.
