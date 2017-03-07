@@ -11,6 +11,9 @@ authors: [meren]
 
 {% include _project-anvio-version.html %}
 
+{:.notice}
+Are you using this? Let us know. Because we are planning to drop Docker support. Although we would have continued to provide Docker images if there were users of it.
+
 {% include _toc.html %}
 
 If you are reading this, you probably already know what [Docker](https://www.docker.com/https://www.docker.com/) is. If you don't know, here is a quote from their web site:
