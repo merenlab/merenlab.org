@@ -31,7 +31,10 @@ python -c 'import webbrowser as w; w.open_new("http://")'
 
 ## Painless installation with Homebrew
 
-If you are using Mac and have [Homebrew](http://brew.sh/) installed on your computer, all you need to do is to run this to have anvi'o installed on your system, and skip the rest of this page:
+{:.notice}
+**IMPORTANT NOTE:** If you are reading this, it means the Homebrew method does not cover the [latest release](https://github.com/merenlab/anvio/releases/tag/v2.2.0) of anvi'o `v2.2.0`. It will just take a couple of days to get it ready!
+
+If you are using Mac and have [Homebrew](http://brew.sh/) installed on your computer, all you need to do is to run this to have anvi'o installed on your system, and skip the rest of this page (although we suggest you to run `brew doctor` in your terminal first to make sure everything is good to go):
 
 ``` bash
 brew install homebrew/science/anvio
@@ -41,9 +44,6 @@ If you are installing anvi'o on another operating system (or if you an OS X user
 
 
 ## Installation (with varying levels of pain)
-
-{:.notice}
-We also other installation options for [Arch Linux](https://gist.github.com/meren/f2f247f78a6402e3370ea929de1d3510) users, and [Docker]({% post_url anvio/2015-08-22-docker-image-for-anvio %}) enthusiasts, too.
 
 First things first. You need to make sure your system does have all the following software if you are going to follow any of the following installation instructions. It is not as scary as it looks. If you just follow these links, you will most probably be golden:
 
@@ -60,7 +60,12 @@ Finally you will need `virtualenv`. This should work for most:
 pip install virtualenv
 ```
 
-If you don't have `pip`, you will need to visit [this web page](https://pip.pypa.io/en/stable/installing/) to get it installed. Don't forget, anvi'o still uses Python 2.7. If you run into any trouble, send an e-mail to [Google Groups for anvi'o](https://groups.google.com/forum/#!forum/anvio).
+{:.notice}
+**Please note**, since the version `2.2.0`, anvi'o uses Python 3.
+
+If you don't have `pip`, you will need to visit [this web page](https://pip.pypa.io/en/stable/installing/) to get it installed.
+
+If you run into any trouble, send an e-mail to [Google Groups for anvi'o](https://groups.google.com/forum/#!forum/anvio).
 
 OK. If you are still here, you may have gone through the most painful part already. Anvi'o developers are very proud of you.
 
@@ -75,18 +80,23 @@ We first need to create a new virtual environment for anvi'o. Since it is easier
 mkdir ~/virtual-envs/
 ```
 
-Then create a new virtual environment for anvi'o under that directory, and activate it:
+Then create a new virtual environment for anvi'o under that directory, to activate it, and to check the Python version in it:
 
 ``` bash
-virtualenv ~/virtual-envs/anvio
-source ~/virtual-envs/anvio/bin/activate
+virtualenv ~/virtual-envs/anvio-{% include _project-anvio-version-number.html %}
+source ~/virtual-envs/anvio-{% include _project-anvio-version-number.html %}/bin/activate
+python --version
 ```
+
+{:.notice}
+The output of the last command must start with `Python 3`. If not, remove the virtual environment with `rm -rf ~/virtual-envs/anvio`, and find out how can you create a virtual environment for Python 3 on your system. You can try `-p python3` as a parameter to your `virtualenv` command. Or you can type `virtualenv` and _without pressing the space character_ press `TAB` key twice quickly to see if there is an alternative binary such as `virtualenv-3.5` or `virtualenv-3.5`. If not, it means Python 3 is not installed on your system.
+
 
 Make sure your paths look alright. Yours should look similar to this:
 
 ``` bash
-(anvio) meren ~ $ which pip
-/Users/meren/virtual-envs/anvio/bin/pip
+(anvio-{% include _project-anvio-version-number.html %}) meren ~ $ which pip
+/Users/meren/virtual-envs/anvio-{% include _project-anvio-version-number.html %}/bin/pip
 ```
 
 Now you can do the installation:
@@ -109,7 +119,7 @@ If this runs successfully, a browser window will popup. Don't forget to go back 
 Now every time you want to use anvi'o, you will need to activate the virtual environment. If you like things to be convenient as much as we do, you may want to run the following command so you have a new command, `anvi-activate` that activates your anvi'o installation:
 
 ``` bash
-echo 'alias anvi-activate="source ~/virtual-envs/anvio/bin/activate"' >> ~/.bash_profile
+echo 'alias anvi-activate-v{% include _project-anvio-version-number.html %}="source ~/virtual-envs/anvio-{% include _project-anvio-version-number.html %}/bin/activate"' >> ~/.bash_profile
 ```
 
 When I open a new terminal, things look like this:
@@ -117,16 +127,16 @@ When I open a new terminal, things look like this:
 ``` bash
 meren ~ $ anvi-interactive -v
 -bash: anvi-interactive: command not found
-meren ~ $ anvi-activate
+meren ~ $ anvi-activate-v{% include _project-anvio-version-number.html %}
 (anvio) meren ~ $ anvi-interactive -v
-Anvio version ................................: 2.1.0
-Profile DB version ...........................: 17
+Anvi'o version ...............................: 2.2.0
+Profile DB version ...........................: 20
 Contigs DB version ...........................: 8
-Pan DB version ...............................: 4
+Pan DB version ...............................: 5
 Samples information DB version ...............: 2
 Genome data storage version ..................: 1
 Auxiliary data storage version ...............: 3
-Anvi server users data storage version .......: 1
+Anvi'server users data storage version .......: 1
 (anvio) meren ~ $ 
 ```
 
@@ -142,7 +152,10 @@ Let's setup a new virtual environment and activate it:
 ``` bash
 virtualenv ~/virtual-envs/anvio-dev
 source ~/virtual-envs/anvio-dev/bin/activate
+python --version
 ```
+
+Don't forget to make sure the output of the last command starts with `Python 3`.
 
 ### I need to get the codebase
 
@@ -200,6 +213,7 @@ Create a virtual environment (`master` to remind you that you are following the 
 ``` bash
 virtualenv ~/virtual-envs/anvio-master
 source ~/virtual-envs/anvio-master/bin/activate
+python --version # make sure the output starts with `Python 3`.
 cd $DIR/anvio # don't forget to update the $DIR with the real path
 pip install -r requirements.txt
 python setup.py build
