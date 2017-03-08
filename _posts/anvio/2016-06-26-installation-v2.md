@@ -31,8 +31,7 @@ python -c 'import webbrowser as w; w.open_new("http://")'
 
 ## Painless installation with Homebrew
 
-{:.notice}
-**IMPORTANT NOTE:** If you are reading this, it means the Homebrew method does not cover the [latest release](https://github.com/merenlab/anvio/releases/tag/v2.2.0) of anvi'o `v2.2.0`. It will just take a couple of days to get it ready!
+{% include _project-anvio-homebrew-not-ready.html %}
 
 If you are using Mac and have [Homebrew](http://brew.sh/) installed on your computer, all you need to do is to run this to have anvi'o installed on your system, and skip the rest of this page (although we suggest you to run `brew doctor` in your terminal first to make sure everything is good to go):
 
