@@ -78,4 +78,7 @@ Fine. It is time to import these results! To do this, you will use the program `
 $ anvi-import-taxonomy -c CONTIGS.db -i centrifuge_report.tsv centrifuge_hits.tsv -p centrifuge
 {% endhighlight %}
 
+{:.notice}
+You can use any file name you like, however, the order of input files is important: following the parameter `-i`, you should first declare the `report` file, and then the `hits` file.
+
 This is it. If everything went alright, the interactive interface and anvi'o summary results should contain taxonomy information.
