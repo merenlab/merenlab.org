@@ -12,6 +12,10 @@ comments: true
 {:.notice}
 This is more of a theoretical tutorial. For a more practical one on the same topic, please visit [http://merenlab.org/tutorials/infant-gut/#profiling-snvs-in-a-bin]({{ site.url }}/tutorials/infant-gut/#profiling-snvs-in-a-bin)
 
+{:.notice}
+We thank [Rika Anderson](https://twitter.com/RikaEAnderson) for carefully reading this tutorial, and embarrassing us by fixing our mistakes multiple times.
+
+
 {% include _toc.html %}
 
 We use the term "**microbial clouds**" to describe an assemblage of co-existing microbial genomes in an environment that are similar enough to map to the context of the same reference genome (this concept is widely defined as "microbial populations", although the definition of the term [population](https://en.wikipedia.org/wiki/Population) makes it somewhat irrelevant to microbiology).
