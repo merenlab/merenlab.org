@@ -269,13 +269,13 @@ The next step in the workflow is to to merge all anvi'o profiles.
 This is the simplest form of the `anvi-merge` command:
 
 {% highlight bash %}
-$ anvi-merge SAMPLE-01/RUNINFO.cp SAMPLE-02/RUNINFO.cp SAMPLE-03/RUNINFO.cp -o SAMPLES-MERGED -c contigs.db
+$ anvi-merge SAMPLE-01/PROFILE.db SAMPLE-02/PROFILE.db SAMPLE-03/PROFILE.db -o SAMPLES-MERGED -c contigs.db
 {% endhighlight %}
 
 Or alternatively you can run it like this (if your work directory contains multiple samples to be merged):
 
 {% highlight bash %}
-$ anvi-merge */RUNINFO.cp -o SAMPLES-MERGED -c contigs.db
+$ anvi-merge */PROFILE.db -o SAMPLES-MERGED -c contigs.db
 {% endhighlight %}
 
 {:.notice}
