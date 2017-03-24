@@ -19,9 +19,9 @@ If you *are* certainly planning to come, **please let us know by sending an e-ma
 
 During the last year we traveled to [many places]({% post_url anvio/2016-08-18-events %}) to talk about [anvi'o](http://merenlab.org/software/anvio), and now we are inviting you to come to us.
 
-We thank the [Department of Medicine](http://medicine.uchicago.edu/), [Section of Gastroenterology, Hepatology, and Nutrition](http://medicine.uchicago.edu/gast/index.html), as well as [the Digestive Diseases Research Core Center (DDRCC)](http://www.uchicagoddrcc.org/) at the [University of Chicago](http://www.uchicago.edu) for their support.
+This was possible thanks to the [Department of Medicine](http://medicine.uchicago.edu/), [Section of Gastroenterology, Hepatology, and Nutrition](http://medicine.uchicago.edu/gast/index.html), as well as [the Digestive Diseases Research Core Center (DDRCC)](http://www.uchicagoddrcc.org/) at the [University of Chicago](http://www.uchicago.edu). We are thankful for their support.
 
-![Zhou]({{images}}/workshop.png)
+![Worshop]({{images}}/workshop.png)
 
 We will run a two-days anvi'o workshop at the University of Chicago on the **26<sup>th</sup> and 27<sup>th</sup> of April, 2017**. **As of today this is almost only a month away, so if you are planning to attend, you should act quickly**.
 
@@ -38,6 +38,8 @@ Here are some quick information for people who are still reading this page:
 * We are hoping this will be an opportunity to learn from each other in a friendly environment. Although we will keep things as simple and as clear as possible, **we encourage you to consider attending this workshop if you are a software developer or a power user** (because we won't hold back and will be ready to dive into the code whenever it is relevant).
 
 * You are a perfect candidate to attend to this **if you have genomic / metagenomic / metatranscriptomic data, and you explore best ways to analyze them**. This workshop wouldn't be the best use of your time if your current endeavors exclusively revolve around marker gene amplicon data.
+
+* Although we are located in the Department of Medicine, we have interest in exploring the microbial life not only in mammalian guts or only in the context of health and disease, but also in oceans, soils, and other ecosystems. Do not feel that your environments or questions may be irrelevant. Ecology is happening everywhere, we are not afraid of anything, and you should just _bring it on_.
 
 This will likely be a lot of fun. Or it will be "*just OK*". Talk to your supervisor, and show them a couple of anvi'o figures. Are you the supervisor? Well, then you know the right thing to do.
 
