@@ -19,6 +19,8 @@ If you *are* certainly planning to come, **please let us know by sending an e-ma
 
 During the last year we traveled to [many places]({% post_url anvio/2016-08-18-events %}) to talk about [anvi'o](http://merenlab.org/software/anvio), and now we are inviting you to come to us.
 
+We thank the [Department of Medicine](http://medicine.uchicago.edu/), [Section of Gastroenterology, Hepatology, and Nutrition](http://medicine.uchicago.edu/gast/index.html), as well as [the Digestive Diseases Research Core Center (DDRCC)](http://www.uchicagoddrcc.org/) at the [University of Chicago](http://www.uchicago.edu) for their support.
+
 ![Zhou]({{images}}/workshop.png)
 
 We will run a two-days anvi'o workshop at the University of Chicago on the **26<sup>th</sup> and 27<sup>th</sup> of April, 2017**. **As of today this is almost only a month away, so if you are planning to attend, you should act quickly**.
