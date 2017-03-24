@@ -15,7 +15,8 @@ image:
 {% capture images %}{{site.url}}/images/miscellaneous/2017-03-23-anvio-workshop-at-uchicago{% endcapture %}
 
 {:.notice}
-If you *are* certainly planning to come, **please let us know by sending an e-mail to meren [at] uchicago.edu** (please mention the lab you are affiliated with, the environment you are studying, and the type of data you have, and feel free to ask questions at the comments section).
+If you are certainly planning to come, **please let us know by sending an e-mail to meren [at] uchicago.edu**. In your e-mail please mention (1) the lab you are affiliated with (including the department and the university), (2) the environment you are studying, (3) the type of data you have, and (4) what do you expect to learn/discuss while you are at the workshop. Please feel free to ask questions at the comments section).
+
 
 During the last year we traveled to [many places]({% post_url anvio/2016-08-18-events %}) to talk about [anvi'o](http://merenlab.org/software/anvio), and now we are inviting you to come to us.
 
