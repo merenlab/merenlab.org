@@ -35,7 +35,7 @@ Here are some quick information for people who are still reading this page:
 
 * If you end up coming, in a cozy room with a great view, we will tell you about how to **visualize complex data** using anvi'o, as well as **working with genomes, metagenomes, metatranscriptomes, and pangenomes** in anvi'o. You will also hear about other things including **single-nucleotide variant detection and profiling, or refining of metagenome-assembled genomes**. Depending on the interest, there may be spontaneous discussions about any set of issues regarding 'omics data analysis and visualization.
 
-* We are hoping this to be an opportunity to learn from each other in a friendly environment. Although we will keep things as simple and as clear as possible, **we encourage you to consider attending to this if you are a software developer or a power user** (because we won't hold back and will be ready to dive into the code whenever it is relevant).
+* We are hoping this will be an opportunity to learn from each other in a friendly environment. Although we will keep things as simple and as clear as possible, **we encourage you to consider attending this workshop if you are a software developer or a power user** (because we won't hold back and will be ready to dive into the code whenever it is relevant).
 
 * You are a perfect candidate to attend to this **if you have genomic / metagenomic / metatranscriptomic data, and you explore best ways to analyze them**. This workshop wouldn't be the best use of your time if your current endeavors exclusively revolve around marker gene amplicon data.
 
