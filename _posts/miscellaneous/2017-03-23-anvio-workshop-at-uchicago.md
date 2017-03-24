@@ -25,22 +25,24 @@ We thank the [Department of Medicine](http://medicine.uchicago.edu/), [Section o
 
 We will run a two-days anvi'o workshop at the University of Chicago on the **26<sup>th</sup> and 27<sup>th</sup> of April, 2017**. **As of today this is almost only a month away, so if you are planning to attend, you should act quickly**.
 
-Here are some quick information for people who are interested in:
+Here are some quick information for people who are still reading this page:
 
 * **The workshop is free, but the space is limited** (if you are reading this, it means there is space, and if you are interested in coming, please send an e-mail). **We are planning to host about 30 people**.
 
 * We will offer you lunch, snacks, water, tea, coffee, internet, and electricity (we also have chairs, desks, and restrooms), but you will need to take care of your travel (if you are coming from outside of Chicago).
 
-* **Yes**, we strategically planned this event to take place right after the [2017 Microbiome Center Research Symposium](https://www.eventbrite.com/e/2017-microbiome-center-research-symposium-registration-31297813603), so you can plan accordingly if you want and feel much better about your spectacular pragmatism.
+* **Yes**, we indeed strategically planned this event to take place right after the [2017 Microbiome Center Research Symposium](https://www.eventbrite.com/e/2017-microbiome-center-research-symposium-registration-31297813603), so you can plan accordingly if you want and feel much better about your spectacular pragmatism.
 
-* If you end up coming, in a cozy room with a great view, we will tell you about **visualization of complex data** using anvi'o, as well as **working with genomes, metagenomes, metatranscriptomes, and pangenomes** in anvi'o. You will also hear about **single-nucleotide variant detection and profiling, refining of metagenome-assembled genomes, and more**.
+* If you end up coming, in a cozy room with a great view, we will tell you about how to **visualize complex data** using anvi'o, as well as **working with genomes, metagenomes, metatranscriptomes, and pangenomes** in anvi'o. You will also hear about other things including **single-nucleotide variant detection and profiling, or refining of metagenome-assembled genomes**. Depending on the interest, there may be spontaneous discussions about any set of issues regarding 'omics data analysis and visualization.
 
-* We are hoping this to be an opportunity to learn from each other in a friendly environment. Although we keep things as simple and clear as possible, **we encourage you to consider attending to this if you are a software developer, or a power user** (because while we will be nice, we won't hold back and dive into the code whenever it is relevant).
+* We are hoping this to be an opportunity to learn from each other in a friendly environment. Although we will keep things as simple and as clear as possible, **we encourage you to consider attending to this if you are a software developer or a power user** (because we won't hold back and will be ready to dive into the code whenever it is relevant).
 
-* **We are inviting people who already have their genomic / metagenomic / metatranscriptomic data **and** questions**. You are more than welcome to bring datasets and questions to pick our and others' brain regarding how to analyze a dataset to investigate a particular question.
+* You are a perfect candidate to attend to this **if you have genomic / metagenomic / metatranscriptomic data, and you explore best ways to analyze them**. This workshop wouldn't be the best use of your time if your current endeavors exclusively revolve around marker gene amplicon data.
 
-This will likely be a lot of fun. Or it will be "*just OK*". But for instance I'd totally go. Talk to your supervisor, and show them a couple of anvi'o figures. Are you the supervisor? Well, then you know what you must do.
+This will likely be a lot of fun. Or it will be "*just OK*". Talk to your supervisor, and show them a couple of anvi'o figures. Are you the supervisor? Well, then you know the right thing to do.
+
+---
 
 We will keep this page up-to-date as things progress, but please use the comments section to ask questions.
 
-Thank you!
+Thank you, and see you soon!
