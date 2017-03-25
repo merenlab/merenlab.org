@@ -49,3 +49,6 @@ This will likely be a lot of fun. Or it will be "*just OK*". Talk to your superv
 We will keep this page up-to-date as things progress, but please use the comments section to ask questions.
 
 Thank you, and see you soon!
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">We just decided to do a 2-day <a href="https://twitter.com/hashtag/anvio?src=hash">#anvio</a> workshop next month in Chicago: <a href="https://t.co/x4BfJmuGQr">https://t.co/x4BfJmuGQr</a>. Please let your colleagues know.</p>&mdash; A. Murat Eren (@merenbey) <a href="https://twitter.com/merenbey/status/845258630173769731">March 24, 2017</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
