@@ -110,7 +110,7 @@ But none of that works if you don't short reads to map, and the next step will e
 To visualize a contigs database, we need an anvi'o profile database. But what does one do if there is no mapping data to create a profile database? Well, they run anvi-profile with `--blank-profile` parameter!
 
 {% highlight bash %}
-$ anvi-profile -c Bacillus_subtilis.db -o Bacillus_subtilis --blank-profile
+$ anvi-profile -c Bacillus_subtilis.db -o Bacillus_subtilis -S Bacillus_subtilis --blank-profile
 {% endhighlight %}
 
 Thanks to the resulting blank profile database, now I will be able to visualize what this contigs database holds in it by using `anvi-interactive`. Now I can do binning with real time completion / contamination estimates, store and load states, create collections, and summarize them.
