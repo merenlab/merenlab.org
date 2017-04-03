@@ -75,7 +75,7 @@ Centrifuge ([code](https://github.com/infphilo/centrifuge){:target="_blank"}, [p
 If you import these files into the contigs database the following way,
 
 ``` bash
- $ anvi-import-taxonomy -c CONTIGS.db -i additional-files/centrifuge-files/*.tsv -p centrifuge 
+ $ anvi-import-taxonomy -c CONTIGS.db -i additional-files/centrifuge-files/centrifuge_report.tsv additional-files/centrifuge-files/centrifuge_hits.tsv -p centrifuge 
 ```
 
 And run the interactive interface again,
@@ -431,7 +431,7 @@ This is more of a practical tutorial for hands on experience to recover and make
 Please run following commands in the IGD dir. They will set the stage for us to take a look at the *E. faecalis* bin:
 
 ``` bash
- $ anvi-import-taxonomy -c CONTIGS.db -i additional-files/centrifuge-files/*.tsv -p centrifuge
+ $ anvi-import-taxonomy -c CONTIGS.db -i additional-files/centrifuge-files/centrifuge_report.tsv additional-files/centrifuge-files/centrifuge_hits.tsv -p centrifuge
  $ anvi-import-state --state additional-files/state-files/state-merged.json --name default -p PROFILE.db
  $ anvi-import-collection additional-files/collections/e-faecalis.txt \
                           -p PROFILE.db \
