@@ -14,6 +14,13 @@ image:
 
 {% capture images %}{{site.url}}/images/miscellaneous/2017-03-23-anvio-workshop-at-uchicago{% endcapture %}
 
+
+## Update (April 3rd)
+
+Thank you very much for your interest! We no longer have any seats available for this workshop. If you are interested in attending to another one in the future, please keep an eye on the blog, [follow us](http://merenlab.org/people/) on Twitter, or subscribe to the anvi'o [discussion group]({% post_url anvio/2015-10-14-anvio-discussion-group %}) to stay up to date.
+
+## The first anvi'o workshop at the UChicago
+
 {:.notice}
 If you are certainly planning to come, **please let us know by sending an e-mail to meren [at] uchicago.edu**. In your e-mail please mention (1) the lab you are affiliated with (including the department and the university), (2) the environment you are studying, (3) the type of data you have, and (4) what do you expect to learn/discuss while you are at the workshop. Please feel free to ask questions at the comments section).
 
