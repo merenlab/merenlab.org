@@ -14,7 +14,7 @@ comments: true
 {% include _project-anvio-version.html %}
 
 {: .notice}
-This tutorial is tailored for anvi'o <b>version 2.0.0, or later</b>. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal. The tutorial for older anvi'o releases from v1 family is [here]({% post_url anvio/2015-05-02-anvio-tutorial-v1 %}) (but **v1** is so 2015, and you should never use it ever again).
+This tutorial is tailored for anvi'o <b>version 2.2.2, or later</b>. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal. The tutorial for older anvi'o releases from v1 family is [here]({% post_url anvio/2015-05-02-anvio-tutorial-v1 %}) (but **v1** is so 2015, and you should never use it ever again).
 
 The goal of this tutorial is to provide a brief overview of the anvi'o workflow for the analysis of assembly-based shotgun metagenomic data. Throughout this tutorial you will primarily learn about the following topics:
 
