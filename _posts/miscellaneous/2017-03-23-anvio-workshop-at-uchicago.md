@@ -42,7 +42,7 @@ image:
 |13|Richard Kevorkian|[Lloyd Lab](http://lloydlab.utk.edu), Microbiology, **University of Tennessee**|
 |14|Joy Buongiorno|[Lloyd Lab](http://lloydlab.utk.edu), Microbiology, **University of Tennessee**|
 |15|Linnea Kop|[Lücker Lab](http://www.ru.nl/microbiology/department/people/sebastian-lucker-dr/), Ecological Microbiology, **Radboud University Nijmegen**|
-|16|Sarah Stevens|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
+|16|[Sarah Stevens](http://sarahlrstevens.info)|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
 |17|Benjamin Peterson|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
 |18|Elizabeth McDaniel|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
 |19|Brooke Weigel|[Pfister Lab](http://pfisterlab.uchicago.edu), Ecology and Evolution, **University of Chicago**|
@@ -51,7 +51,7 @@ image:
 |22|Pawel Gajer|[Ravel Lab](http://ravel-lab.org), School of Medicine, **University of Maryland**|
 |23|Bruno Gomez-Gil Rodriguez Sala|[Sala Lab](http://www.ciad.mx/coordinaciones/unidad-mazatlan/personal/dr-bruno-gomez-gil-rodriguez-sala.html), Aquaculture, **Unidad Mazatlán en Acuicultura y Manejo Ambiental**|
 |24|Bryan Merrill|[Sonnenburg Lab](http://sonnenburglab.stanford.edu), Microbiology and Immunology, **Stanford University**|
-|25|Hervé Tettelin|[Tetellin Lab](http://www.medschool.umaryland.edu/profiles/Tettelin-Herve/), Microbiology and Immunology, **University of Maryland**|
+|25|Hervé Tettelin|[Tettelin Lab](http://www.medschool.umaryland.edu/profiles/Tettelin-Herve/), Microbiology and Immunology, **University of Maryland**|
 |26|Evan Kiefl|[Unaffiliated Grad Student](http://biophysics.uchicago.edu), Biophysical Sciences, **University of Chicago**|
 |27|Veronika Kivenson|[Valentine Lab](https://me.ucsb.edu/valentinelab/), Mechanical Engineering, **UC Santa Barbara**|
 |28|Devin Doud|[Woyke Lab](http://jgi.doe.gov/our-science/scientists-jgi/single-cells/), **Joint Genome Institute**|
