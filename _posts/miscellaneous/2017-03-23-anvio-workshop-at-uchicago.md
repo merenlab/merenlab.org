@@ -31,7 +31,7 @@ image:
 |02|Sharon Grim|[Dick Lab](http://www.earth.lsa.umich.edu/geomicrobiology/), Earth and Environmental Sciences, **University of Michigan**|
 |03|Sean Jungbluth|[Eloe-Fadrosh Lab](http://jgi.doe.gov/about-us/organization/prokaryote-super-program/emiley-eloe-fadrosh/), **Joint Genome Institute**|
 |04|Ibrahim Farag|[Elshahed Lab](https://microbiology.okstate.edu/faculty/mostafa/elshahed.html), Microbiology and Molecular Genetic, **Oklahoma State University**|
-|05|Alyson Yee|[Gilbert Lab, Surgery](https://biomedsciences.uchicago.edu/page/jack-gilbert), **University of Chicago**|
+|05|Alyson Yee|[Gilbert Lab](https://biomedsciences.uchicago.edu/page/jack-gilbert), Surgery, **University of Chicago**|
 |06|Cesar Cardona|[Gilbert Lab](https://biomedsciences.uchicago.edu/page/jack-gilbert), Surgery, **University of Chicago**|
 |07|Melissa Dsouza|[Gilbert Lab](https://biomedsciences.uchicago.edu/page/jack-gilbert), Surgery, **University of Chicago**|
 |08|Tito David Peña Montenegro|[Joye Lab](http://joyeresearchgroup.uga.edu), Marine Sciences, **University of Georgia**|
@@ -46,9 +46,9 @@ image:
 |17|Benjamin Peterson|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
 |18|Elizabeth McDaniel|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
 |19|Brooke Weigel|[Pfister Lab](http://pfisterlab.uchicago.edu), Ecology and Evolution, **University of Chicago**|
-|20|Bing Ma|[Ravel Lab](http://ravel-lab.org), Shoold of Medicine, **University of Maryland**|
-|21|Johanna Holm|[Ravel Lab](http://ravel-lab.org), Shoold of Medicine, **University of Maryland**|
-|22|Pawel Gajer|[Ravel Lab](http://ravel-lab.org), Shoold of Medicine, **University of Maryland**|
+|20|Bing Ma|[Ravel Lab](http://ravel-lab.org), School of Medicine, **University of Maryland**|
+|21|Johanna Holm|[Ravel Lab](http://ravel-lab.org), School of Medicine, **University of Maryland**|
+|22|Pawel Gajer|[Ravel Lab](http://ravel-lab.org), School of Medicine, **University of Maryland**|
 |23|Bruno Gomez-Gil Rodriguez Sala|[Sala Lab](http://www.ciad.mx/coordinaciones/unidad-mazatlan/personal/dr-bruno-gomez-gil-rodriguez-sala.html), Aquaculture, **Unidad Mazatlán en Acuicultura y Manejo Ambiental**|
 |24|Bryan Merrill|[Sonnenburg Lab](http://sonnenburglab.stanford.edu), Microbiology and Immunology, **Stanford University**|
 |25|Hervé Tettelin|[Tetellin Lab](http://www.medschool.umaryland.edu/profiles/Tettelin-Herve/), Microbiology and Immunology, **University of Maryland**|
