@@ -50,7 +50,7 @@ image:
 |21|Pawel Gajer|[Ravel Lab](http://ravel-lab.org), School of Medicine, **University of Maryland**|
 |22|Bruno Gomez-Gil Rodriguez Sala|[Sala Lab](http://www.ciad.mx/coordinaciones/unidad-mazatlan/personal/dr-bruno-gomez-gil-rodriguez-sala.html), Aquaculture, **Unidad Mazatlán en Acuicultura y Manejo Ambiental**|
 |23|Bryan Merrill|[Sonnenburg Lab](http://sonnenburglab.stanford.edu), Microbiology and Immunology, **Stanford University**|
-|24|Ann Gregory|[Sullivan Lab](http://u.osu.edu/viruslab  ), Civil, Environmental and Geodetic Engineering, **Ohio State University**|
+|24|Ann Gregory|[Sullivan Lab](http://u.osu.edu/viruslab), Civil, Env., and Geodetic Eng., **Ohio State University**|
 |25|Hervé Tettelin|[Tettelin Lab](http://www.medschool.umaryland.edu/profiles/Tettelin-Herve/), Microbiology and Immunology, **University of Maryland**|
 |26|Evan Kiefl|[Unaffiliated Grad Student](http://biophysics.uchicago.edu), Biophysical Sciences, **University of Chicago**|
 |27|Veronika Kivenson|[Valentine Lab](https://me.ucsb.edu/valentinelab/), Mechanical Engineering, **UC Santa Barbara**|
