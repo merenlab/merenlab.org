@@ -29,35 +29,34 @@ image:
 |:--:|:--|:--|
 |01|Nate Hubert|[Chang Lab](http://changlab.uchicago.edu/), Medicine, **University of Chicago**|
 |02|Sharon Grim|[Dick Lab](http://www.earth.lsa.umich.edu/geomicrobiology/), Earth and Environmental Sciences, **University of Michigan**|
-|03|Sean Jungbluth|[Eloe-Fadrosh Lab](http://jgi.doe.gov/about-us/organization/prokaryote-super-program/emiley-eloe-fadrosh/), **Joint Genome Institute**|
-|04|Ibrahim Farag|[Elshahed Lab](https://microbiology.okstate.edu/faculty/mostafa/elshahed.html), Microbiology and Molecular Genetic, **Oklahoma State University**|
-|05|Alyson Yee|[Gilbert Lab](https://biomedsciences.uchicago.edu/page/jack-gilbert), Surgery, **University of Chicago**|
-|06|Cesar Cardona|[Gilbert Lab](https://biomedsciences.uchicago.edu/page/jack-gilbert), Surgery, **University of Chicago**|
-|07|Melissa Dsouza|[Gilbert Lab](https://biomedsciences.uchicago.edu/page/jack-gilbert), Surgery, **University of Chicago**|
-|08|Tito David Peña Montenegro|[Joye Lab](http://joyeresearchgroup.uga.edu), Marine Sciences, **University of Georgia**|
-|09|John Kelly|[Kelly Lab](http://kellymicroecolab1.wixsite.com/kelly), Microbiology, **Loyola University of Chicago**|
-|10|Orlando DeLeon|[Kirby Lab](http://www.mcw.edu/Microbiology/John-Kirby-PhD.htm), Microbiology and Immunology, **Medical College of Wisconsin**|
-|11|Samantha Atkinson|[Kirby Lab](http://www.mcw.edu/Microbiology/John-Kirby-PhD.htm), Microbiology and Immunology, **Medical College of Wisconsin**|
-|12|Jason Koval|[Antonopoulos Lab](http://www.igsb.org/labs/dionysios-antonopoulos), Biosciences Division, **Argonne National Laboratory**|
-|13|Richard Kevorkian|[Lloyd Lab](http://lloydlab.utk.edu), Microbiology, **University of Tennessee**|
-|14|Joy Buongiorno|[Lloyd Lab](http://lloydlab.utk.edu), Microbiology, **University of Tennessee**|
-|15|Linnea Kop|[Lücker Lab](http://www.ru.nl/microbiology/department/people/sebastian-lucker-dr/), Ecological Microbiology, **Radboud University Nijmegen**|
-|16|[Sarah Stevens](http://sarahlrstevens.info)|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
-|17|Benjamin Peterson|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
-|18|Elizabeth McDaniel|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
-|19|Brooke Weigel|[Pfister Lab](http://pfisterlab.uchicago.edu), Ecology and Evolution, **University of Chicago**|
-|20|Bing Ma|[Ravel Lab](http://ravel-lab.org), School of Medicine, **University of Maryland**|
-|21|Johanna Holm|[Ravel Lab](http://ravel-lab.org), School of Medicine, **University of Maryland**|
-|22|Pawel Gajer|[Ravel Lab](http://ravel-lab.org), School of Medicine, **University of Maryland**|
-|23|Bruno Gomez-Gil Rodriguez Sala|[Sala Lab](http://www.ciad.mx/coordinaciones/unidad-mazatlan/personal/dr-bruno-gomez-gil-rodriguez-sala.html), Aquaculture, **Unidad Mazatlán en Acuicultura y Manejo Ambiental**|
-|24|Bryan Merrill|[Sonnenburg Lab](http://sonnenburglab.stanford.edu), Microbiology and Immunology, **Stanford University**|
+|03|Ibrahim Farag|[Elshahed Lab](https://microbiology.okstate.edu/faculty/mostafa/elshahed.html), Microbiology and Molecular Genetic, **Oklahoma State University**|
+|04|Alyson Yee|[Gilbert Lab](https://biomedsciences.uchicago.edu/page/jack-gilbert), Surgery, **University of Chicago**|
+|05|Cesar Cardona|[Gilbert Lab](https://biomedsciences.uchicago.edu/page/jack-gilbert), Surgery, **University of Chicago**|
+|06|Melissa Dsouza|[Gilbert Lab](https://biomedsciences.uchicago.edu/page/jack-gilbert), Surgery, **University of Chicago**|
+|07|Tito David Peña Montenegro|[Joye Lab](http://joyeresearchgroup.uga.edu), Marine Sciences, **University of Georgia**|
+|08|John Kelly|[Kelly Lab](http://kellymicroecolab1.wixsite.com/kelly), Microbiology, **Loyola University of Chicago**|
+|09|Orlando DeLeon|[Kirby Lab](http://www.mcw.edu/Microbiology/John-Kirby-PhD.htm), Microbiology and Immunology, **Medical College of Wisconsin**|
+|10|Samantha Atkinson|[Kirby Lab](http://www.mcw.edu/Microbiology/John-Kirby-PhD.htm), Microbiology and Immunology, **Medical College of Wisconsin**|
+|11|Jason Koval|[Antonopoulos Lab](http://www.igsb.org/labs/dionysios-antonopoulos), Biosciences Division, **Argonne National Laboratory**|
+|12|Richard Kevorkian|[Lloyd Lab](http://lloydlab.utk.edu), Microbiology, **University of Tennessee**|
+|13|Joy Buongiorno|[Lloyd Lab](http://lloydlab.utk.edu), Microbiology, **University of Tennessee**|
+|14|Linnea Kop|[Lücker Lab](http://www.ru.nl/microbiology/department/people/sebastian-lucker-dr/), Ecological Microbiology, **Radboud University Nijmegen**|
+|15|[Sarah Stevens](http://sarahlrstevens.info)|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
+|16|Benjamin Peterson|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
+|17|Elizabeth McDaniel|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
+|18|Brooke Weigel|[Pfister Lab](http://pfisterlab.uchicago.edu), Ecology and Evolution, **University of Chicago**|
+|19|Bing Ma|[Ravel Lab](http://ravel-lab.org), School of Medicine, **University of Maryland**|
+|20|Johanna Holm|[Ravel Lab](http://ravel-lab.org), School of Medicine, **University of Maryland**|
+|21|Pawel Gajer|[Ravel Lab](http://ravel-lab.org), School of Medicine, **University of Maryland**|
+|22|Bruno Gomez-Gil Rodriguez Sala|[Sala Lab](http://www.ciad.mx/coordinaciones/unidad-mazatlan/personal/dr-bruno-gomez-gil-rodriguez-sala.html), Aquaculture, **Unidad Mazatlán en Acuicultura y Manejo Ambiental**|
+|23|Bryan Merrill|[Sonnenburg Lab](http://sonnenburglab.stanford.edu), Microbiology and Immunology, **Stanford University**|
+|24|Ann Gregory|[Sullivan Lab](http://u.osu.edu/viruslab  ), Civil, Environmental and Geodetic Engineering, **Ohio State University**|
 |25|Hervé Tettelin|[Tettelin Lab](http://www.medschool.umaryland.edu/profiles/Tettelin-Herve/), Microbiology and Immunology, **University of Maryland**|
 |26|Evan Kiefl|[Unaffiliated Grad Student](http://biophysics.uchicago.edu), Biophysical Sciences, **University of Chicago**|
 |27|Veronika Kivenson|[Valentine Lab](https://me.ucsb.edu/valentinelab/), Mechanical Engineering, **UC Santa Barbara**|
 |28|Devin Doud|[Woyke Lab](http://jgi.doe.gov/our-science/scientists-jgi/single-cells/), **Joint Genome Institute**|
 |29|Robert Bowers|[Woyke Lab](http://jgi.doe.gov/our-science/scientists-jgi/single-cells/), **Joint Genome Institute**|
 |30|Michael Dills|[Young Lab](http://plantsciences.montana.edu/facultyorstaff/faculty/young/), Microbiology and Immunology, **Montana State University**|
-
 
 ## The first anvi'o workshop at the UChicago
 
