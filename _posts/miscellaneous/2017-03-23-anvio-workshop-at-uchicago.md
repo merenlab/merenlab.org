@@ -12,24 +12,58 @@ image:
   display: false
 ---
 
+{% include _toc.html %}
+
 {% capture images %}{{site.url}}/images/miscellaneous/2017-03-23-anvio-workshop-at-uchicago{% endcapture %}
 
 
-## Update (April 3rd)
+**Thank you very much for your interest! We no longer have any seats available for this workshop. If you are interested in attending to another one in the future, please keep an eye on the blog, [follow us](http://merenlab.org/people/) on Twitter, or subscribe to the anvi'o [discussion group]({% post_url anvio/2015-10-14-anvio-discussion-group %}) to stay up to date.**
 
-Thank you very much for your interest! We no longer have any seats available for this workshop. If you are interested in attending to another one in the future, please keep an eye on the blog, [follow us](http://merenlab.org/people/) on Twitter, or subscribe to the anvi'o [discussion group]({% post_url anvio/2015-10-14-anvio-discussion-group %}) to stay up to date.
+
+![Worshop]({{images}}/workshop.png)
+
+
+## Attendees
+
+||Person|Affiliation|
+|:--:|:--|:--|
+|01|Nate Hubert|[Chang Lab](http://changlab.uchicago.edu/), Medicine, **University of Chicago**|
+|02|Sharon Grim|[Dick Lab](http://www.earth.lsa.umich.edu/geomicrobiology/), Earth and Environmental Sciences, **University of Michigan**|
+|03|Sean Jungbluth|[Eloe-Fadrosh Lab](http://jgi.doe.gov/about-us/organization/prokaryote-super-program/emiley-eloe-fadrosh/), **Joint Genome Institute**|
+|04|Ibrahim Farag|[Elshahed Lab](https://microbiology.okstate.edu/faculty/mostafa/elshahed.html), Microbiology and Molecular Genetic, **Oklahoma State University**|
+|05|Alyson Yee|[Gilbert Lab, Surgery](https://biomedsciences.uchicago.edu/page/jack-gilbert), **University of Chicago**|
+|06|Cesar Cardona|[Gilbert Lab](https://biomedsciences.uchicago.edu/page/jack-gilbert), Surgery, **University of Chicago**|
+|07|Melissa Dsouza|[Gilbert Lab](https://biomedsciences.uchicago.edu/page/jack-gilbert), Surgery, **University of Chicago**|
+|08|Tito David Peña Montenegro|[Joye Lab](http://joyeresearchgroup.uga.edu), Marine Sciences, **University of Georgia**|
+|09|John Kelly|[Kelly Lab](http://kellymicroecolab1.wixsite.com/kelly), Microbiology, **Loyola University of Chicago**|
+|10|Orlando DeLeon|[Kirby Lab](http://www.mcw.edu/Microbiology/John-Kirby-PhD.htm), Microbiology and Immunology, **Medical College of Wisconsin**|
+|11|Samantha Atkinson|[Kirby Lab](http://www.mcw.edu/Microbiology/John-Kirby-PhD.htm), Microbiology and Immunology, **Medical College of Wisconsin**|
+|12|Jason Koval|[Antonopoulos Lab](http://www.igsb.org/labs/dionysios-antonopoulos), Biosciences Division, **Argonne National Laboratory**|
+|13|Richard Kevorkian|[Lloyd Lab](http://lloydlab.utk.edu), Microbiology, **University of Tennessee**|
+|14|Joy Buongiorno|[Lloyd Lab](http://lloydlab.utk.edu), Microbiology, **University of Tennessee**|
+|15|Linnea Kop|[Lücker Lab](http://www.ru.nl/microbiology/department/people/sebastian-lucker-dr/), Ecological Microbiology, **Radboud University Nijmegen**|
+|16|Sarah Stevens|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
+|17|Benjamin Peterson|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
+|18|Elizabeth McDaniel|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
+|19|Brooke Weigel|[Pfister Lab](http://pfisterlab.uchicago.edu), Ecology and Evolution, **University of Chicago**|
+|20|Bing Ma|[Ravel Lab](http://ravel-lab.org), Shoold of Medicine, **University of Maryland**|
+|21|Johanna Holm|[Ravel Lab](http://ravel-lab.org), Shoold of Medicine, **University of Maryland**|
+|22|Pawel Gajer|[Ravel Lab](http://ravel-lab.org), Shoold of Medicine, **University of Maryland**|
+|23|Bruno Gomez-Gil Rodriguez Sala|[Sala Lab](http://www.ciad.mx/coordinaciones/unidad-mazatlan/personal/dr-bruno-gomez-gil-rodriguez-sala.html), Aquaculture, **Unidad Mazatlán en Acuicultura y Manejo Ambiental**|
+|24|Bryan Merrill|[Sonnenburg Lab](http://sonnenburglab.stanford.edu), Microbiology and Immunology, **Stanford University**|
+|25|Hervé Tettelin|[Tetellin Lab](http://www.medschool.umaryland.edu/profiles/Tettelin-Herve/), Microbiology and Immunology, **University of Maryland**|
+|26|Evan Kiefl|[Unaffiliated Grad Student](http://biophysics.uchicago.edu), Biophysical Sciences, **University of Chicago**|
+|27|Veronika Kivenson|[Valentine Lab](https://me.ucsb.edu/valentinelab/), Mechanical Engineering, **UC Santa Barbara**|
+|28|Devin Doud|[Woyke Lab](http://jgi.doe.gov/our-science/scientists-jgi/single-cells/), **Joint Genome Institute**|
+|29|Robert Bowers|[Woyke Lab](http://jgi.doe.gov/our-science/scientists-jgi/single-cells/), **Joint Genome Institute**|
+|30|Michael Dills|[Young Lab](http://plantsciences.montana.edu/facultyorstaff/faculty/young/), Microbiology and Immunology, **Montana State University**|
+
 
 ## The first anvi'o workshop at the UChicago
-
-{:.notice}
-If you are certainly planning to come, **please let us know by sending an e-mail to meren [at] uchicago.edu**. In your e-mail please mention (1) the lab you are affiliated with (including the department and the university), (2) the environment you are studying, (3) the type of data you have, and (4) what do you expect to learn/discuss while you are at the workshop. Please feel free to ask questions at the comments section).
-
 
 During the last year we traveled to [many places]({% post_url anvio/2016-08-18-events %}) to talk about [anvi'o](http://merenlab.org/software/anvio), and now we are inviting you to come to us.
 
 This was possible thanks to the [Department of Medicine](http://medicine.uchicago.edu/), [Section of Gastroenterology, Hepatology, and Nutrition](http://medicine.uchicago.edu/gast/index.html), as well as [the Digestive Diseases Research Core Center (DDRCC)](http://www.uchicagoddrcc.org/) at the [University of Chicago](http://www.uchicago.edu). We are thankful for their support.
-
-![Worshop]({{images}}/workshop.png)
 
 We will run a two-days anvi'o workshop at the University of Chicago on the **26<sup>th</sup> and 27<sup>th</sup> of April, 2017**. **As of today this is almost only a month away, so if you are planning to attend, you should act quickly**.
 
