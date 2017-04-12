@@ -40,7 +40,7 @@ image:
 |11|Jason Koval|[Antonopoulos Lab](http://www.igsb.org/labs/dionysios-antonopoulos), Biosciences Division, **Argonne National Laboratory**|
 |12|Richard Kevorkian|[Lloyd Lab](http://lloydlab.utk.edu), Microbiology, **University of Tennessee**|
 |13|Joy Buongiorno|[Lloyd Lab](http://lloydlab.utk.edu), Microbiology, **University of Tennessee**|
-|14|Linnea Kop|[Lücker Lab](http://www.ru.nl/microbiology/department/people/sebastian-lucker-dr/), Ecological Microbiology, **Radboud University Nijmegen**|
+|14|Linnea Kop|[Jetten Lab](https://scholar.google.com/citations?user=iXjCKTgAAAAJ), Ecological Microbiology, **Radboud University Nijmegen**|
 |15|[Sarah Stevens](http://sarahlrstevens.info)|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
 |16|Benjamin Peterson|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
 |17|Elizabeth McDaniel|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
