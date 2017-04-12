@@ -34,7 +34,7 @@ image:
 |05|Cesar Cardona|[Gilbert Lab](https://biomedsciences.uchicago.edu/page/jack-gilbert), Surgery, **University of Chicago**|
 |06|Melissa Dsouza|[Gilbert Lab](https://biomedsciences.uchicago.edu/page/jack-gilbert), Surgery, **University of Chicago**|
 |07|Tito David Peña Montenegro|[Joye Lab](http://joyeresearchgroup.uga.edu), Marine Sciences, **University of Georgia**|
-|08|John Kelly|[Kelly Lab](http://kellymicroecolab1.wixsite.com/kelly), Microbiology, **Loyola University of Chicago**|
+|08|[John Kelly](https://twitter.com/johnkellymicro)|[Kelly Lab](http://kellymicroecolab1.wixsite.com/kelly), Microbiology, **Loyola University of Chicago**|
 |09|Orlando DeLeon|[Kirby Lab](http://www.mcw.edu/Microbiology/John-Kirby-PhD.htm), Microbiology and Immunology, **Medical College of Wisconsin**|
 |10|Samantha Atkinson|[Kirby Lab](http://www.mcw.edu/Microbiology/John-Kirby-PhD.htm), Microbiology and Immunology, **Medical College of Wisconsin**|
 |11|Jason Koval|[Antonopoulos Lab](http://www.igsb.org/labs/dionysios-antonopoulos), Biosciences Division, **Argonne National Laboratory**|
