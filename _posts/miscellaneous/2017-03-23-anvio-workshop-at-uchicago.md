@@ -28,7 +28,7 @@ image:
 ||Person|Affiliation|
 |:--:|:--|:--|
 |01|Nate Hubert|[Chang Lab](http://changlab.uchicago.edu/), Medicine, **University of Chicago**|
-|02|Sharon Grim|[Dick Lab](http://www.earth.lsa.umich.edu/geomicrobiology/), Earth and Environmental Sciences, **University of Michigan**|
+|02|[Sharon Grim](https://twitter.com/microgrim)|[Dick Lab](http://www.earth.lsa.umich.edu/geomicrobiology/), Earth and Environmental Sciences, **University of Michigan**|
 |03|Ibrahim Farag|[Elshahed Lab](https://microbiology.okstate.edu/faculty/mostafa/elshahed.html), Microbiology and Molecular Genetic, **Oklahoma State University**|
 |04|Alyson Yee|[Gilbert Lab](https://biomedsciences.uchicago.edu/page/jack-gilbert), Surgery, **University of Chicago**|
 |05|Cesar Cardona|[Gilbert Lab](https://biomedsciences.uchicago.edu/page/jack-gilbert), Surgery, **University of Chicago**|
