@@ -126,7 +126,7 @@ meren ~ $ anvi-interactive -v
 -bash: anvi-interactive: command not found
 meren ~ $ anvi-activate-v{% include _project-anvio-version-number.html %}
 (anvio) meren ~ $ anvi-interactive -v
-Anvi'o version ...............................: 2.2.2
+Anvi'o version ...............................: {% include _project-anvio-version-number.html %}
 Profile DB version ...........................: 20
 Contigs DB version ...........................: 8
 Pan DB version ...............................: 5
