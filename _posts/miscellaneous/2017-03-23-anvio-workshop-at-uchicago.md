@@ -53,7 +53,7 @@ image:
 |24|Ann Gregory|[Sullivan Lab](http://u.osu.edu/viruslab), Civil, Env., and Geodetic Eng., **Ohio State University**|
 |25|Hervé Tettelin|[Tettelin Lab](http://www.medschool.umaryland.edu/profiles/Tettelin-Herve/), Microbiology and Immunology, **University of Maryland**|
 |26|Evan Kiefl|[Unaffiliated Grad Student](http://biophysics.uchicago.edu), Biophysical Sciences, **University of Chicago**|
-|27|Veronika Kivenson|[Valentine Lab](https://me.ucsb.edu/valentinelab/), Mechanical Engineering, **UC Santa Barbara**|
+|27|Veronika Kivenson|[Valentine Lab](http://methane.geol.ucsb.edu/Home.html), Earth Science, **UC Santa Barbara**|
 |28|Devin Doud|[Woyke Lab](http://jgi.doe.gov/our-science/scientists-jgi/single-cells/), **Joint Genome Institute**|
 |29|Robert Bowers|[Woyke Lab](http://jgi.doe.gov/our-science/scientists-jgi/single-cells/), **Joint Genome Institute**|
 |30|Michael Dills|[Young Lab](http://plantsciences.montana.edu/facultyorstaff/faculty/young/), Microbiology and Immunology, **Montana State University**|
