@@ -34,13 +34,13 @@ image:
 |05|Cesar Cardona|[Gilbert Lab](https://biomedsciences.uchicago.edu/page/jack-gilbert), Surgery, **University of Chicago**|
 |06|Melissa Dsouza|[Gilbert Lab](https://biomedsciences.uchicago.edu/page/jack-gilbert), Surgery, **University of Chicago**|
 |07|Tito David Peña Montenegro|[Joye Lab](http://joyeresearchgroup.uga.edu), Marine Sciences, **University of Georgia**|
-|08|[John Kelly](https://twitter.com/johnkellymicro)|[Kelly Lab](http://kellymicroecolab1.wixsite.com/kelly), Microbiology, **Loyola University of Chicago**|
-|09|Orlando DeLeon|[Kirby Lab](http://www.mcw.edu/Microbiology/John-Kirby-PhD.htm), Microbiology and Immunology, **Medical College of Wisconsin**|
-|10|Samantha Atkinson|[Kirby Lab](http://www.mcw.edu/Microbiology/John-Kirby-PhD.htm), Microbiology and Immunology, **Medical College of Wisconsin**|
-|11|Jason Koval|[Antonopoulos Lab](http://www.igsb.org/labs/dionysios-antonopoulos), Biosciences Division, **Argonne National Laboratory**|
-|12|Richard Kevorkian|[Lloyd Lab](http://lloydlab.utk.edu), Microbiology, **University of Tennessee**|
-|13|Joy Buongiorno|[Lloyd Lab](http://lloydlab.utk.edu), Microbiology, **University of Tennessee**|
-|14|Linnea Kop|[Jetten Lab](https://scholar.google.com/citations?user=iXjCKTgAAAAJ), Ecological Microbiology, **Radboud University Nijmegen**|
+|08|Orlando DeLeon|[Kirby Lab](http://www.mcw.edu/Microbiology/John-Kirby-PhD.htm), Microbiology and Immunology, **Medical College of Wisconsin**|
+|09|Samantha Atkinson|[Kirby Lab](http://www.mcw.edu/Microbiology/John-Kirby-PhD.htm), Microbiology and Immunology, **Medical College of Wisconsin**|
+|10|Jason Koval|[Antonopoulos Lab](http://www.igsb.org/labs/dionysios-antonopoulos), Biosciences Division, **Argonne National Laboratory**|
+|11|Richard Kevorkian|[Lloyd Lab](http://lloydlab.utk.edu), Microbiology, **University of Tennessee**|
+|12|Joy Buongiorno|[Lloyd Lab](http://lloydlab.utk.edu), Microbiology, **University of Tennessee**|
+|13|Linnea Kop|[Jetten Lab](https://scholar.google.com/citations?user=iXjCKTgAAAAJ), Ecological Microbiology, **Radboud University Nijmegen**|
+|14|Jessica Mark Welch|[Mark Welch Lab](http://www.mbl.edu/jbpc/staff/jmarkwelch/), **Marine Biological Laboratory**|
 |15|[Sarah Stevens](http://sarahlrstevens.info)|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
 |16|Benjamin Peterson|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
 |17|Elizabeth McDaniel|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
