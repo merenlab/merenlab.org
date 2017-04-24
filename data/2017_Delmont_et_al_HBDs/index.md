@@ -758,7 +758,7 @@ AUXILIARY-DATA.h5.gz  CONTIGS.db  CONTIGS.h5  PROFILE.db
 ```
 
 {:.notice}
-We are in the process of making publicly available the individual non-redundant MAGs in `NON-REDUNDANT-MAGs-SPLIT`.
+We made publicly available ([doi:10.6084/m9.figshare.4902941](https://doi.org/10.6084/m9.figshare.4902941)) the individual non-redundant MAGs in `NON-REDUNDANT-MAGs-SPLIT`.
 
 ## Identification of Candidate Phyla Radiation MAGsTo finally identify MAGs that likely belonged to the Candidate Phyla Radiation in our collection of non-redundant MAGs, first we generated a classifier object,
 
