@@ -9,7 +9,7 @@ image:
 ---
 
 {:.notice}
-This tutorial is tailored for anvi'o `v2.1.0` or later. You can learn the version of your installation by typing `anvi-interactive -v`. If you have an older version, some things will not work the way they should.
+This tutorial is tailored for anvi'o `v2.3.0` or later. You can learn the version of your installation by typing `anvi-interactive -v`. If you have an older version, some things will not work the way they should.
 
 The purpose of this tutorial is to have a conversation about metagenomic binning (while demonstrating some of the anvi'o capabilities) using the Infant Gut Dataset (IGD), which was generated, analyzed, and published by [Sharon et al. (2013)](http://www.ncbi.nlm.nih.gov/pubmed/22936250){:target="_blank"}, and was re-analyzed in the [anvi'o methods paper](https://peerj.com/articles/1319/){:target="_blank"}.
 
@@ -139,7 +139,11 @@ Now you have the background information about where these files are coming. Movi
 In the anvi'o *lingo*, a 'collection' is something that describes one or more bins, each of which describe one or more contigs. You can create a collection by using the interactive interface, or you can import external binning results into your profile database as a collection and see how that collection groups contigs. For instance, let's import the CONCOCT collection:
 
 ``` bash
- $ anvi-import-collection -c CONTIGS.db -p PROFILE.db -C CONCOCT --contigs-mode additional-files/external-binning-results/CONCOCT.txt
+ $ anvi-import-collection -c CONTIGS.db \
+                          -p PROFILE.db \
+                          -C CONCOCT \
+                          --contigs-mode \
+                          additional-files/external-binning-results/CONCOCT.txt
 ```
 
 And run the interactive again with that collection name:
@@ -168,7 +172,9 @@ To compare binning results, we could import each collection into the profile dat
 Anvi'o has a script to merge multiple files for external binning results into a single merged file (don't ask why):
 
 ``` bash
- $ anvi-script-merge-collections -c CONTIGS.db -i additional-files/external-binning-results/*.txt -o collections.tsv
+ $ anvi-script-merge-collections -c CONTIGS.db \
+                                 -i additional-files/external-binning-results/*.txt \
+                                 -o collections.tsv
 ```
 
 If you take a look at this file, you will realize that it has a very simple format:
@@ -200,7 +206,9 @@ At this point you should be seeing a display similar to this (after setting the 
 To emphasize relationships between bins visually. If you import it the following way, 
 
 ``` bash
- $ anvi-import-state --state additional-files/state-files/state-merged.json --name default -p PROFILE.db
+ $ anvi-import-state --state additional-files/state-files/state-merged.json \
+                     --name default \
+                     -p PROFILE.db
 ```
 
 and run the interactive interface again,
@@ -374,10 +382,7 @@ Thanks for the great question. Although this may sound like a challenging proble
 
 ``` bash
  $ anvi-script-gen_stats_for_single_copy_genes.py CONTIGS.db
- # due to a bug we have to download a fixed version of the next script first:
- $ wget https://raw.githubusercontent.com/merenlab/anvio/c9eb5f0ee414e592761eb45dc4ed087f1d953023/sandbox/anvi-script-gen_stats_for_single_copy_genes.R
- $ chmod +x anvi-script-gen_stats_for_single_copy_genes.R
- $ ./anvi-script-gen_stats_for_single_copy_genes.R CONTIGS.db.hits CONTIGS.db.genes
+ $ anvi-script-gen_stats_for_single_copy_genes.R CONTIGS.db.hits CONTIGS.db.genes
 ```
 
 If you take a look at the resulting PDF file `contigs.db.hits_e_1_new.pdf`, you can see that one should expect to find about 10 near-complete genomes in this dataset:
@@ -390,13 +395,18 @@ We have a citable version, and a more formal description of this workflow in our
 Fine. Using `anvi-cluster-with-concoct` program, we ask CONCOCT to naively identify 5 clusters in this dataset, and store the results in the profile database as a collection:
 
 ``` bash
- $ anvi-cluster-with-concoct -p PROFILE.db -c CONTIGS.db --num-clusters 5 -C CONCOCT_C5
+ $ anvi-cluster-with-concoct -p PROFILE.db \
+                             -c CONTIGS.db \
+                             --num-clusters 5 \
+                             -C CONCOCT_C5
 ```
 
 Now you can run the interface again,
 
 ``` bash
- $ anvi-interactive -p PROFILE.db -c CONTIGS.db --title 'Infant Gut Time Series by Sharon et al. [w/ 5 CONCOCT clusters]'
+ $ anvi-interactive -p PROFILE.db \
+                    -c CONTIGS.db \
+                    --title 'Infant Gut Time Series by Sharon et al. [w/ 5 CONCOCT clusters]'
 ```
 
 and you would see this after loading the new `CONCOCT_C5` collection from the `Bins` tab:
@@ -431,26 +441,56 @@ This is more of a practical tutorial for hands on experience to recover and make
 Please run following commands in the IGD dir. They will set the stage for us to take a look at the *E. faecalis* bin:
 
 ``` bash
- $ anvi-import-taxonomy -c CONTIGS.db -i additional-files/centrifuge-files/centrifuge_report.tsv additional-files/centrifuge-files/centrifuge_hits.tsv -p centrifuge
- $ anvi-import-state --state additional-files/state-files/state-merged.json --name default -p PROFILE.db
- $ anvi-import-collection additional-files/collections/e-faecalis.txt \
-                          -p PROFILE.db \
-                          -c CONTIGS.db \
-                          -C E_faecalis \
-                          --bins-info additional-files/collections/e-faecalis-info.txt
+# importing taxonomy for gene calls
+$ anvi-import-taxonomy -c CONTIGS.db \
+                       -i additional-files/centrifuge-files/centrifuge_report.tsv \
+                           additional-files/centrifuge-files/centrifuge_hits.tsv \
+                       -p centrifuge
+
+# importing the state file so things look pretty
+$ anvi-import-state --state additional-files/state-files/state-merged.json \
+                    --name default \
+                    -p PROFILE.db
 ```
 
-OK. Let's first see where this *E. faecalis* bin again. If you now run the interactive interface the following way (note the `--collection-autoload` flag),
+OK. Let's first see where this  bin again.
 
-``` bash
- $ anvi-interactive -p PROFILE.db -c CONTIGS.db --collection-autoload E_faecalis
-```
-
-You will see this:
+You remember the *E. faecalis* bin from previous sections of this tutorial (if you don't take a quick look at the binning section up and come back). Here is a reminder, this is where it is:
 
 [![E. faecalis bin](images/e-faecalis-bin.png)](images/e-faecalis-bin.png){:.center-img .width-50}
 
-The red selection in the most outer layer represents the *E. faecalis* bin, which is very abundant in every sample.
+The red selection in the most outer layer represents the *E. faecalis* bin, which is very abundant in every sample, and it is stored in the collection `merens` under the bin name `E_facealis` (yes, the name has a typo, we know, it is all Tom's fault). Going forward, we will focus on this bin, and in fact we don't really need the rest of this metagenome.
+
+Luckily, we can in fact 'split' that bin out of this profile database, and create a self-contained anvi'o profile that *only* describes this single bin. This is also a great way to share your research with others. Here is how we can get that bin out of this metagenome:
+
+``` bash
+$ anvi-split -p PROFILE.db \
+             -c CONTIGS.db \
+             -C merens \
+             -b E_facealis -o MAGs
+```
+
+Once it is done, this is what you will see in the resulting directory:
+
+``` bash
+$ ls MAGs/
+E_facealis
+$ ls MAGs/E_facealis/
+AUXILIARY-DATA.h5 CONTIGS.db        CONTIGS.h5        PROFILE.db
+```
+
+Looks familiar? The program `anvi-split` splits this bin, and generates a collection (called `DEFAULT`), with a single bin (called `ALL_SPLITS`) that contains all the contigs in this MAG, so we can access its contents from all anvi'o programs. You can start by visualizing it:
+
+``` bash
+$ anvi-interactive -p MAGs/E_facealis/PROFILE.db \
+                   -c MAGs/E_facealis/CONTIGS.db
+```
+
+Which should give you this:
+
+[![E. faecalis bin](images/e-faecalis-split.png)](images/e-faecalis-split.png){:.center-img .width-50}
+
+Alright. Now we can move on to study it.
 
 Here is a different representation of the coverage of this bin across samples (which is a screenshot from our paper):
 
@@ -465,16 +505,16 @@ OK. Clearly, we have no way of knowing the extent of variation within this bin t
 Let's first generate the SNV profile output file, [details of which were described extensively here]({% post_url anvio/2015-07-20-analyzing-variability %}#the-output-matrix). Here it is:
 
 ``` bash
-$ anvi-gen-variability-profile -c CONTIGS.db \
-                              -p PROFILE.db \
-                              -C E_faecalis \
-                              -b E_faecalis \
-                              --samples-of-interest additional-files/samples.txt \
-                              --min-coverage-in-each-sample 20 \
-                              --include-split-names \
-                              --min-scatter 3 \
-                              --quince-mode \
-                              -o E-faecalis-SNVs.txt
+$ anvi-gen-variability-profile -c MAGs/E_facealis/CONTIGS.db \
+                               -p MAGs/E_facealis/PROFILE.db \
+                               -C DEFAULT \
+                               -b ALL_SPLITS \
+                               --samples-of-interest additional-files/samples.txt \
+                               --min-coverage-in-each-sample 20 \
+                               --include-split-names \
+                               --min-scatter 3 \
+                               --quince-mode \
+                               -o E-faecalis-SNVs.txt
 ```
 
 This command simply requests `anvi-gen-variability-profile` to select all *E. faecalis* **nucleotide positions** that were identified as 'variable' in at least one sample, and (1) covered by more than 20X in **all** 8 samples of interest (2) and display a minimum scattering power of 3 (minimum scattering power is a very simple attribute of a nucleotide position, and described [here]({% post_url anvio/2015-07-20-analyzing-variability %}#parameters-to-filter-the-output){:target="_blank"}). Instead of `--min-scatter 3` you could use `--min-occurrence 3`, however, in that case the program would have returned every SNV position that was reported in more than 3 samples, which would have included nucleotide positions that were variable in every sample. Finally we also used the `--samples-of-interest` parameter with the following file:
@@ -514,10 +554,10 @@ For this step we will need [this R script](https://github.com/meren/anvio-method
 Here is an extra step, and why we need it: `E-faecalis-SNVs.txt` contains filtered SNVs, but we also want to know about each sample's *variation density*, the number of nucleotide positions reported as a variable position for each 1,000 nts. The R script can already do it, but we need another file that reports ALL SNVs for every sample, without any filters to get the raw counts. Let's first create that the following way:
 
 ``` bash
-$ anvi-gen-variability-profile -c CONTIGS.db \
-                               -p PROFILE.db \
-                               -C E_faecalis \
-                               -b E_faecalis \
+$ anvi-gen-variability-profile -c MAGs/E_facealis/CONTIGS.db \
+                               -p MAGs/E_facealis/PROFILE.db \
+                               -C DEFAULT \
+                               -b ALL_SPLITS \
                                --samples-of-interest additional-files/samples.txt \
                                -o E-faecalis-SNV-density.txt
 ```
