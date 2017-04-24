@@ -42,7 +42,7 @@ image:
 |13|Linnea Kop|[Jetten Lab](https://scholar.google.com/citations?user=iXjCKTgAAAAJ), Ecological Microbiology, **Radboud University Nijmegen**|
 |14|Jessica Mark Welch|[Mark Welch Lab](http://www.mbl.edu/jbpc/staff/jmarkwelch/), **Marine Biological Laboratory**|
 |15|[Sarah Stevens](http://sarahlrstevens.info)|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
-|16|Benjamin Peterson|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
+|16|[Benjamin Peterson](https://twitter.com/BigMicrobeBen)|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
 |17|Elizabeth McDaniel|[McMahon Lab](https://mcmahonlab.wisc.edu), Bacteriology, **University of Wisconsin-Madison**|
 |18|Brooke Weigel|[Pfister Lab](http://pfisterlab.uchicago.edu), Ecology and Evolution, **University of Chicago**|
 |19|Bing Ma|[Ravel Lab](http://ravel-lab.org), School of Medicine, **University of Maryland**|
