@@ -1,0 +1,1221 @@
+{
+    "version": "0.2.1",
+    "tree-type": "phylogram",
+    "order-by": "tree:unknown:unknown",
+    "current-view": "single",
+    "angle-min": "0",
+    "angle-max": "270",
+    "tree-radius": "12000",
+    "tree-height": "2500",
+    "tree-width": "30000",
+    "layer-margin": "15",
+    "outer-ring-height": "900",
+    "outer-ring-margin": "220",
+    "edge-normalization": false,
+    "custom-layer-margin": true,
+    "show-grid-for-bins": true,
+    "grid-color": "#FFFFFF",
+    "grid-width": "1",
+    "samples-order": "tree",
+    "max-font-size": "60",
+    "optimize-speed": true,
+    "show-bin-labels": true,
+    "bin-labels-font-size": "1200",
+    "autorotate-bin-labels": true,
+    "bin-labels-angle": "0",
+    "background-opacity": "0.1",
+    "layer-order": [
+        "Lactobacillus_gasseri",
+        "Prevotella_copri",
+        "Dialister_invisus",
+        "Ruminococcus_bromii",
+        "Bacteroides_ovatus",
+        "Bacteroides_caccae",
+        "Eubacterium_rectale",
+        "Faecalibacterium_prausnitzii",
+        "Bacteroides_stercoris",
+        "Bacteroides_vulgatus",
+        "Bacteroides_unclassified",
+        "Bacteroides_xylanisolvens",
+        "Parabacteroides_merdae",
+        "Alistipes_putredinis",
+        "Alistipes_shahii",
+        "Lactobacillus_jensenii",
+        "Staphylococcus_aureus",
+        "Lactobacillus_iners",
+        "Rothia_dentocariosa",
+        "Streptococcus_sanguinis",
+        "Actinomyces_viscosus",
+        "Actinomyces_oris",
+        "Veillonella_parvula",
+        "Corynebacterium_matruchotii",
+        "Capnocytophaga_gingivalis",
+        "Capnocytophaga_sputigena",
+        "Neisseria_mucosa",
+        "Neisseria_sicca",
+        "Lautropia_mirabilis",
+        "Neisseria_elongata",
+        "Haemophilus_influenzae",
+        "Streptococcus_mitis",
+        "Gemella_haemolysans",
+        "Streptococcus_parasanguinis",
+        "Streptococcus_salivarius",
+        "Prevotella_melaninogenica",
+        "Campylobacter_concisus",
+        "Veillonella_atypica",
+        "Veillonella_dispar",
+        "Neisseria_flavescens",
+        "Streptococcus_australis",
+        "Rothia_mucilaginosa",
+        "Haemophilus_parainfluenzae",
+        "Veillonella_unclassified",
+        "Streptococcus_infantis",
+        "Lactobacillus_crispatus",
+        "Corynebacterium_accolens",
+        "Staphylococcus_epidermidis",
+        "Propionibacterium_acnes",
+        "Propionibacterium_unclassified",
+        "Body_Site",
+        "Body_Subsite",
+        "Host_Gender"
+    ],
+    "categorical_data_colors": {
+        "Body_Site": {
+            "Oral": "#c73284",
+            "Airways": "#3592d4",
+            "GastrointestinalTract": "#695400",
+            "Skin": "#d1c7a5",
+            "UrogenitalTract": "#f0d402"
+        },
+        "Body_Subsite": {
+            "Supragingival_plaque": "#575757",
+            "Buccal_mucosa": "#9c9c9c",
+            "Tongue_dorsum": "#d1d1d1",
+            "Nares": "#FFFFFF",
+            "Stool": "#FFFFFF",
+            "Throat": "#FFFFFF",
+            "Attached_Keratinized_gingiva": "#FFFFFF",
+            "Retroauricular_crease": "#FFFFFF",
+            "Posterior_fornix": "#FFFFFF",
+            "Subgingival_plaque": "#545454",
+            "Vaginal_introitus": "#FFFFFF",
+            "Palatine_tonsils": "#FFFFFF",
+            "Mid_Vagina": "#FFFFFF",
+            "Saliva": "#FFFFFF"
+        },
+        "Host_Gender": {
+            "Male": "#6cb3e6",
+            "Female": "#f57676"
+        }
+    },
+    "stack_bar_colors": {},
+    "layers": {
+        "Streptococcus_mitis": {
+            "color": "#4a0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Propionibacterium_acnes": {
+            "color": "#030059",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Haemophilus_parainfluenzae": {
+            "color": "#4a0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Lactobacillus_crispatus": {
+            "color": "#d60000",
+            "height": "420",
+            "margin": "100",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Bacteroides_unclassified": {
+            "color": "#574f00",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Corynebacterium_matruchotii": {
+            "color": "#4f0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Corynebacterium_accolens": {
+            "color": "#030059",
+            "height": "180",
+            "margin": "100",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Rothia_dentocariosa": {
+            "color": "#4f0000",
+            "height": "180",
+            "margin": "100",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Prevotella_melaninogenica": {
+            "color": "#4a0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Staphylococcus_epidermidis": {
+            "color": "#030059",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Bacteroides_vulgatus": {
+            "color": "#574f00",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Alistipes_putredinis": {
+            "color": "#574f00",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Neisseria_flavescens": {
+            "color": "#4a0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Streptococcus_parasanguinis": {
+            "color": "#4a0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Rothia_mucilaginosa": {
+            "color": "#4a0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Lactobacillus_iners": {
+            "color": "#d60000",
+            "height": "420",
+            "margin": "100",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Lactobacillus_jensenii": {
+            "color": "#d60000",
+            "height": "420",
+            "margin": "100",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Streptococcus_sanguinis": {
+            "color": "#4f0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Veillonella_unclassified": {
+            "color": "#4a0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Prevotella_copri": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "100",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Streptococcus_salivarius": {
+            "color": "#4a0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Veillonella_parvula": {
+            "color": "#4f0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Neisseria_mucosa": {
+            "color": "#4f0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Bacteroides_ovatus": {
+            "color": "#574f00",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Veillonella_atypica": {
+            "color": "#4a0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Streptococcus_infantis": {
+            "color": "#4a0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Eubacterium_rectale": {
+            "color": "#574f00",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Gemella_haemolysans": {
+            "color": "#4a0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Campylobacter_concisus": {
+            "color": "#4a0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Bacteroides_stercoris": {
+            "color": "#574f00",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Capnocytophaga_gingivalis": {
+            "color": "#4f0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Parabacteroides_merdae": {
+            "color": "#574f00",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Capnocytophaga_sputigena": {
+            "color": "#4f0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Actinomyces_viscosus": {
+            "color": "#4f0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Lactobacillus_gasseri": {
+            "color": "#d60000",
+            "height": "420",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Neisseria_sicca": {
+            "color": "#4f0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Haemophilus_influenzae": {
+            "color": "#4a0000",
+            "height": "180",
+            "margin": "100",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Veillonella_dispar": {
+            "color": "#4a0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Bacteroides_caccae": {
+            "color": "#574f00",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Streptococcus_australis": {
+            "color": "#4a0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Staphylococcus_aureus": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "100",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Bacteroides_xylanisolvens": {
+            "color": "#574f00",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Faecalibacterium_prausnitzii": {
+            "color": "#574f00",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Lautropia_mirabilis": {
+            "color": "#4f0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Actinomyces_oris": {
+            "color": "#4f0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Dialister_invisus": {
+            "color": "#574f00",
+            "height": "180",
+            "margin": "100",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Propionibacterium_unclassified": {
+            "color": "#030059",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Neisseria_elongata": {
+            "color": "#4f0000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Alistipes_shahii": {
+            "color": "#574f00",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Ruminococcus_bromii": {
+            "color": "#574f00",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#f2f2f2"
+        },
+        "Body_Site": {
+            "color": "#000000",
+            "height": "800",
+            "margin": "100",
+            "type": "color",
+            "color-start": "#DDDDDD"
+        },
+        "Body_Subsite": {
+            "color": "#000000",
+            "height": "800",
+            "margin": "100",
+            "type": "color",
+            "color-start": "#DDDDDD"
+        },
+        "Host_Gender": {
+            "color": "#000000",
+            "height": "800",
+            "margin": "100",
+            "type": "color",
+            "color-start": "#DDDDDD"
+        }
+    },
+    "views": {
+        "single": {
+            "Streptococcus_mitis": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.9367416872516237",
+                    "disabled": false
+                }
+            },
+            "Propionibacterium_acnes": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.002491898029061",
+                    "disabled": false
+                }
+            },
+            "Haemophilus_parainfluenzae": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.805206335199959",
+                    "disabled": false
+                }
+            },
+            "Lactobacillus_crispatus": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.0043213737826426",
+                    "disabled": false
+                }
+            },
+            "Bacteroides_unclassified": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.8147411586150148",
+                    "disabled": false
+                }
+            },
+            "Corynebacterium_matruchotii": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.6804361420217013",
+                    "disabled": false
+                }
+            },
+            "Corynebacterium_accolens": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.9401042574443161",
+                    "disabled": false
+                }
+            },
+            "Rothia_dentocariosa": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.8545811090795985",
+                    "disabled": false
+                }
+            },
+            "Prevotella_melaninogenica": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.5166842115809722",
+                    "disabled": false
+                }
+            },
+            "Staphylococcus_epidermidis": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.9240384443649827",
+                    "disabled": false
+                }
+            },
+            "Bacteroides_vulgatus": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.8017405178018746",
+                    "disabled": false
+                }
+            },
+            "Alistipes_putredinis": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.7208450297635682",
+                    "disabled": false
+                }
+            },
+            "Neisseria_flavescens": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.8276865410960579",
+                    "disabled": false
+                }
+            },
+            "Streptococcus_parasanguinis": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.6495938001838746",
+                    "disabled": false
+                }
+            },
+            "Rothia_mucilaginosa": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.6603450560004553",
+                    "disabled": false
+                }
+            },
+            "Lactobacillus_iners": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.0035747348180846",
+                    "disabled": false
+                }
+            },
+            "Lactobacillus_jensenii": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.0043213737826426",
+                    "disabled": false
+                }
+            },
+            "Streptococcus_sanguinis": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.3523724080452084",
+                    "disabled": false
+                }
+            },
+            "Veillonella_unclassified": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.248077042982125",
+                    "disabled": false
+                }
+            },
+            "Prevotella_copri": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.8995523494759328",
+                    "disabled": false
+                }
+            },
+            "Streptococcus_salivarius": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.3454043163620284",
+                    "disabled": false
+                }
+            },
+            "Veillonella_parvula": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.3270667858789649",
+                    "disabled": false
+                }
+            },
+            "Neisseria_mucosa": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.5624767759949503",
+                    "disabled": false
+                }
+            },
+            "Bacteroides_ovatus": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.7426518526542338",
+                    "disabled": false
+                }
+            },
+            "Veillonella_atypica": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.355358597604136",
+                    "disabled": false
+                }
+            },
+            "Streptococcus_infantis": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.112289554356075",
+                    "disabled": false
+                }
+            },
+            "Eubacterium_rectale": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.7383701624057817",
+                    "disabled": false
+                }
+            },
+            "Gemella_haemolysans": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.4262240766346068",
+                    "disabled": false
+                }
+            },
+            "Campylobacter_concisus": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.314896921045474",
+                    "disabled": false
+                }
+            },
+            "Bacteroides_stercoris": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.6674296964982462",
+                    "disabled": false
+                }
+            },
+            "Capnocytophaga_gingivalis": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.2556634354109093",
+                    "disabled": false
+                }
+            },
+            "Parabacteroides_merdae": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.5082293122467105",
+                    "disabled": false
+                }
+            },
+            "Capnocytophaga_sputigena": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.1267176500265315",
+                    "disabled": false
+                }
+            },
+            "Actinomyces_viscosus": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.264145089909691",
+                    "disabled": false
+                }
+            },
+            "Lactobacillus_gasseri": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.0043213737826426",
+                    "disabled": false
+                }
+            },
+            "Neisseria_sicca": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.4104662852983765",
+                    "disabled": false
+                }
+            },
+            "Haemophilus_influenzae": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.4672637889028428",
+                    "disabled": false
+                }
+            },
+            "Veillonella_dispar": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.1871076627014043",
+                    "disabled": false
+                }
+            },
+            "Bacteroides_caccae": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.6600501739807325",
+                    "disabled": false
+                }
+            },
+            "Streptococcus_australis": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.2872665913366217",
+                    "disabled": false
+                }
+            },
+            "Staphylococcus_aureus": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.932489796747624",
+                    "disabled": false
+                }
+            },
+            "Bacteroides_xylanisolvens": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.3921680932392049",
+                    "disabled": false
+                }
+            },
+            "Faecalibacterium_prausnitzii": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.4817459553617383",
+                    "disabled": false
+                }
+            },
+            "Lautropia_mirabilis": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.2996476100243872",
+                    "disabled": false
+                }
+            },
+            "Actinomyces_oris": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.1163971863019284",
+                    "disabled": false
+                }
+            },
+            "Dialister_invisus": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.6733562263344202",
+                    "disabled": false
+                }
+            },
+            "Propionibacterium_unclassified": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.2935366796229513",
+                    "disabled": false
+                }
+            },
+            "Neisseria_elongata": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.2010131913017348",
+                    "disabled": false
+                }
+            },
+            "Alistipes_shahii": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.3524873823188561",
+                    "disabled": false
+                }
+            },
+            "Ruminococcus_bromii": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.3774998551543298",
+                    "disabled": false
+                }
+            },
+            "Body_Site": {
+                "min": {
+                    "disabled": false
+                },
+                "max": {
+                    "disabled": false
+                }
+            },
+            "Body_Subsite": {
+                "min": {
+                    "disabled": false
+                },
+                "max": {
+                    "disabled": false
+                }
+            },
+            "Host_Gender": {
+                "min": {
+                    "disabled": false
+                },
+                "max": {
+                    "disabled": false
+                }
+            }
+        }
+    },
+    "samples-categorical-colors": {
+        "family": {
+            "Chromobacteriaceae": "#99aa14",
+            "Micrococcaceae": "#04e01e",
+            "Flavobacteriaceae": "#f9a9ad",
+            "None": "#FFFFFF",
+            "Streptococcaceae": "#f2b271",
+            "Corynebacteriaceae": "#fcffbf",
+            "Prevotellaceae": "#2cc949",
+            "Campylobacteraceae": "#7ee1ea",
+            "Lactobacillaceae": "#bf0f99",
+            "Pasteurellaceae": "#cece1a",
+            "Eubacteriaceae": "#8e0422",
+            "Bacteroidaceae": "#63c944",
+            "Porphyromonadaceae": "#a5bae5",
+            "Staphylococcaceae": "#caf25e",
+            "Veillonellaceae": "#7322c9",
+            "Rikenellaceae": "#95ff77",
+            "Propionibacteriaceae": "#ffddc9",
+            "Ruminococcaceae": "#a999f7"
+        },
+        "order": {
+            "Betaproteobacteria": "#d37263",
+            "Actinobacteria": "#a4fcb7",
+            "Flavobacteriia": "#c8f791",
+            "None": "#FFFFFF",
+            "Bacilli": "#6a5fe8",
+            "Bacteroidia": "#65bc36",
+            "Epsilonproteobacteria": "#79dd21",
+            "Gammaproteobacteria": "#f2809c",
+            "Clostridia": "#a7e053",
+            "Negativicutes": "#7c3cc4"
+        },
+        "class": {
+            "Neisseriales": "#000570",
+            "Micrococcales": "#f47c3f",
+            "Flavobacteriales": "#46a6e2",
+            "None": "#FFFFFF",
+            "Lactobacillales": "#bfdd71",
+            "Corynebacteriales": "#f9c3b3",
+            "Bacteroidales": "#cc950c",
+            "Campylobacterales": "#ed8e5e",
+            "Pasteurellales": "#a5f29d",
+            "Clostridiales": "#9ad7ed",
+            "Bacillales": "#676def",
+            "Veillonellales": "#e88fa7",
+            "Propionibacteriales": "#f981f9"
+        },
+        "phylum": {
+            "Proteobacteria": "#404094",
+            "Actinobacteria": "#c77c32",
+            "Bacteroidetes": "#914c4c",
+            "None": "#FFFFFF",
+            "Firmicutes": "#4ea665"
+        },
+        "genus": {
+            "Neisseria": "#b2e3f4",
+            "Rothia": "#FFFFFF",
+            "Capnocytophaga": "#FFFFFF",
+            "Actinomyces": "#FFFFFF",
+            "Streptococcus": "#b55413",
+            "Corynebacterium": "#FFFFFF",
+            "Prevotella": "#FFFFFF",
+            "Campylobacter": "#FFFFFF",
+            "Lautropia": "#FFFFFF",
+            "Lactobacillus": "#18e0ae",
+            "Haemophilus": "#FFFFFF",
+            "Eubacterium": "#FFFFFF",
+            "Bacteroides": "#6ee5cb",
+            "Gemella": "#FFFFFF",
+            "Parabacteroides": "#FFFFFF",
+            "Staphylococcus": "#FFFFFF",
+            "Veillonella": "#b0f9a4",
+            "Dialister": "#FFFFFF",
+            "Alistipes": "#FFFFFF",
+            "Faecalibacterium": "#FFFFFF",
+            "Propionibacterium": "#FFFFFF",
+            "Ruminococcus": "#FFFFFF"
+        }
+    },
+    "samples-stack-bar-colors": {},
+    "samples-edge-length-normalization": true,
+    "samples-ignore-branch-length": false,
+    "samples-tree-height": "1000",
+    "samples-layer-order": [
+        "genus",
+        "family",
+        "order",
+        "class",
+        "phylum"
+    ],
+    "samples-layers": {
+        "genus": {
+            "data-type": "categorical",
+            "height": 600,
+            "margin": 200,
+            "min": {
+                "value": null,
+                "disabled": false
+            },
+            "max": {
+                "value": null,
+                "disabled": false
+            }
+        },
+        "family": {
+            "data-type": "categorical",
+            "height": 0,
+            "margin": 0,
+            "min": {
+                "value": null,
+                "disabled": false
+            },
+            "max": {
+                "value": null,
+                "disabled": false
+            }
+        },
+        "order": {
+            "data-type": "categorical",
+            "height": 0,
+            "margin": 0,
+            "min": {
+                "value": null,
+                "disabled": false
+            },
+            "max": {
+                "value": null,
+                "disabled": false
+            }
+        },
+        "class": {
+            "data-type": "categorical",
+            "height": 0,
+            "margin": 0,
+            "min": {
+                "value": null,
+                "disabled": false
+            },
+            "max": {
+                "value": null,
+                "disabled": false
+            }
+        },
+        "phylum": {
+            "data-type": "categorical",
+            "height": 600,
+            "margin": 100,
+            "min": {
+                "value": null,
+                "disabled": false
+            },
+            "max": {
+                "value": null,
+                "disabled": false
+            }
+        }
+    }
+}
