@@ -65,7 +65,7 @@ $ anvi-interactive -d data.txt \
 
 [![manual](images/data-raw.png)](images/data-raw.png){:.center-img .width-50}
 
-Because we haven't provided any specific organization, anvi'o organizes all samples alphabetically (very smart, anvi'o, really, thanks). But we will recover that. While we are here, though, click "save state" and save a default state so we don't have to press draw every time we run the interface going forward (later we will update that state).
+Because we haven't provided any specific organization, anvi'o organizes all samples alphabetically (very smart, anvi'o, really, thanks). But we will recover that.
 
 {:.notice}
 If you press `m` on your keyboard, you can toggle the information window on 
@@ -92,7 +92,7 @@ We can do a quick hierarchical clustering on the data using the program `anvi-ma
 
 [![manual](images/data-w-tree.png)](images/data-w-tree.png){:.center-img .width-50}
 
-A bit better! Although the program `anvi-matrix-to-newick` uses Euclidean distance and ward linkage by default to organize things, other distance metric and linkage options are available:
+A bit better! While we are here, though, click "save state" and save a default state so we don't have to press draw every time we run the interface going forward (later we will update that state). Although the program `anvi-matrix-to-newick` uses Euclidean distance and ward linkage by default to organize things, other distance metric and linkage options are available:
 
 ``` bash
  $ anvi-matrix-to-newick data.txt \
