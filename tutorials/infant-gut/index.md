@@ -22,9 +22,9 @@ A typical anvi'o metagenomic workflow [starts with BAM files and a FASTA file]({
 
 ## Downloading the pre-packaged Infant Gut Dataset
 
-If you are following this tutorial, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD. You can download them using this link: [https://ndownloader.figshare.com/files/7532140](https://ndownloader.figshare.com/files/7532140).
+If you are following this tutorial, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD. You can download them using this link: [https://ndownloader.figshare.com/files/8252861](https://ndownloader.figshare.com/files/8252861).
 
-When you click the link, it will start downloading a **136 Mb** compressed file automatically. Once it is done, go to the relevant directory that contains this file using your terminal, and unpack it the following way:
+When you click the link, it will start downloading a **131 Mb** compressed file automatically. Once it is done, go to the relevant directory that contains this file using your terminal, and unpack it the following way:
 
 ``` bash
  $ tar -zxvf INFANTGUTTUTORIAL.tar.gz && cd INFANT-GUT-TUTORIAL
@@ -455,13 +455,13 @@ $ anvi-import-state --state additional-files/state-files/state-merged.json \
 
 OK. Let's first see where this  bin again.
 
-You remember the *E. faecalis* bin from previous sections of this tutorial (if you don't take a quick look at the binning section up and come back). Here is a reminder, this is where it is:
+You remember the *E. faecalis* bin from previous sections of this tutorial:
 
 [![E. faecalis bin](images/e-faecalis-bin.png)](images/e-faecalis-bin.png){:.center-img .width-50}
 
-The red selection in the most outer layer represents the *E. faecalis* bin, which is very abundant in every sample, and it is stored in the collection `merens` under the bin name `E_facealis` (yes, the name has a typo, we know, it is all Tom's fault). Going forward, we will focus on this bin, and in fact we don't really need the rest of this metagenome.
+The red selection in the most outer layer represents the *E. faecalis* bin, which is very abundant in every sample, and it is stored in the collection `merens` under the bin name `E_facealis` (yes, the name has a typo, we know, it is all Tom's fault). In this section we will focus on this bin, and in fact we don't really need the rest of this metagenome.
 
-Luckily, we can in fact 'split' that bin out of this profile database, and create a self-contained anvi'o profile that *only* describes this single bin. This is also a great way to share your research with others. Here is how we can get that bin out of this metagenome:
+Since we have identified the genome bin of focus, we can set aside the rest of the metagenome, and 'split' that bin out of this profile database to create a self-contained anvi'o profile that *only* describes this single bin. This is also a great way to share your research with others. Here is how we can get that bin out of this metagenome:
 
 ``` bash
 $ anvi-split -p PROFILE.db \
@@ -479,14 +479,31 @@ $ ls MAGs/E_facealis/
 AUXILIARY-DATA.h5 CONTIGS.db        CONTIGS.h5        PROFILE.db
 ```
 
-Looks familiar? The program `anvi-split` splits this bin, and generates a collection (called `DEFAULT`), with a single bin (called `ALL_SPLITS`) that contains all the contigs in this MAG, so we can access its contents from all anvi'o programs. You can start by visualizing it:
+Looks familiar? While the program `anvi-split` does its magic, it also adds into the resulting profile database a collection (called `DEFAULT`), with a single bin in it (called `ALL_SPLITS`) that contains all the contigs in this MAG. This way we can access to its contents from all anvi'o programs. Here is an example:
+
+``` bash
+$ anvi-script-get-collection-info -p MAGs/E_facealis/PROFILE.db \
+                                  -c MAGs/E_facealis/CONTIGS.db \
+                                  -C DEFAULT
+Auxiliary Data ...............................: Found: MAGs/E_facealis/CONTIGS.h5 (v. 1)
+Contigs DB ...................................: Initialized: MAGs/E_facealis/CONTIGS.db (v. 8)
+
+* Completion and redundancy estimates
+
+
+Bins in collection "DEFAULT"
+===============================================
+ALL_SPLITS :: PC: 100.00%, PR: 3.60%, N: 140, S: 2,865,861, D: bacteria (1.04)
+```
+
+OK. If you were to visualize this bin,
 
 ``` bash
 $ anvi-interactive -p MAGs/E_facealis/PROFILE.db \
                    -c MAGs/E_facealis/CONTIGS.db
 ```
 
-Which should give you this:
+this is what you should get:
 
 [![E. faecalis bin](images/e-faecalis-split.png)](images/e-faecalis-split.png){:.center-img .width-50}
 
@@ -609,13 +626,13 @@ A little note for people who are interested in programming: Feel free to take a 
 If you run the interactive interface on these results the following way,
 
 ``` bash
- $ anvi-interactive -d e_faecalis_snvs/view_data.txt \
-                    -s e_faecalis_snvs/samples.db \
-                    -t e_faecalis_snvs/tree.txt \
-                    -p e_faecalis_snvs/profile.db \
-                    -A e_faecalis_snvs/additional_view_data.txt \
-                    --title "SNV Profile for the E. faecalis bin" \
-                    --manual
+$ anvi-interactive -d e_faecalis_snvs/view_data.txt \
+                   -s e_faecalis_snvs/samples.db \
+                   -t e_faecalis_snvs/tree.txt \
+                   -p e_faecalis_snvs/profile.db \
+                   -A e_faecalis_snvs/additional_view_data.txt \
+                   --title "SNV Profile for the E. faecalis bin" \
+                   --manual
 ```
 
 You will get this view:
@@ -625,14 +642,17 @@ You will get this view:
 This view can definitely be improved. I prepared a state file to match colors of competing nucleotides to the R results. If you import that state file and run the interactive interface the following way,
 
 ``` bash
- $ anvi-import-state -p e_faecalis_snvs/profile.db --state additional-files/state-files/state-snvs.json --name default
- $ anvi-interactive -d e_faecalis_snvs/view_data.txt \
-                    -s e_faecalis_snvs/samples.db \
-                    -t e_faecalis_snvs/tree.txt \
-                    -p e_faecalis_snvs/profile.db \
-                    -A e_faecalis_snvs/additional_view_data.txt \
-                    --title "SNV Profile for the E. faecalis bin" \
-                    --manual
+$ anvi-import-state -p e_faecalis_snvs/profile.db \
+                    --state additional-files/state-files/state-snvs.json \
+                    --name default
+
+$ anvi-interactive -d e_faecalis_snvs/view_data.txt \
+                   -s e_faecalis_snvs/samples.db \
+                   -t e_faecalis_snvs/tree.txt \
+                   -p e_faecalis_snvs/profile.db \
+                   -A e_faecalis_snvs/additional_view_data.txt \
+                   --title "SNV Profile for the E. faecalis bin" \
+                   --manual
 ```
 
 This time you will get this display:
@@ -691,7 +711,8 @@ Here I will stop, but still we have a lot to talk about!
 Finally, you can generate an XML description of the SNV profiles you have generated using `anvi-gen-variability-profile` program, using the program `anvi-gen-variability-network`:
 
 ``` bash
- $ anvi-gen-variability-network -i E-faecalis-SNVs.txt -o E-faecalis-SNVs.gexf
+ $ anvi-gen-variability-network -i E-faecalis-SNVs.txt \
+                                -o E-faecalis-SNVs.gexf
 ```
 
 You can use [Gephi](https://gephi.org/){:target="_blank"} to play with the resulting file to visualize or to analyze the network properties of nucleotide positions further.
