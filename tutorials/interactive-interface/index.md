@@ -282,7 +282,11 @@ Now you can re-run your interface, and you will have it, too:
 
 ## Sharing anvi'o displays interactively
 
-TBD
+*[If it wasn't so late, Meren was going to write a paragraph here that first would talk about how important it is to give our peers access to our interactive displays, and then would introduce our ongoing project, [anvi'server](http://anvi-server.org)].*
+
+Here, you can view the same figure interactively on anvi'server:
+
+[https://anvi-server.org/merenlab/hmp_metagenomes](https://anvi-server.org/merenlab/hmp_metagenomes)
 
 ## Final words
 
