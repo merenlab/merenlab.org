@@ -251,15 +251,18 @@ I guess we can all agree that this figure looks *unbearably* ugly, and quite use
 
 I had started this section by saying "prettification is clearly not a real word, but it absolutely should should have been". Then I Google'd it just for fun, and there it was! It *is* a real word, which means there is no reason for you to not do it:
 
-[![manual](images/final-all.png)](images/final-all.png){:.center-img .width-80}
+[![manual](images/prettification.png)](https://en.wiktionary.org/wiki/prettification){:.center-img .width-70}
 
-One of the most powerful aspects of anvi'o is its ability to give you so much power to communicate your results as best as possible.
+One of the most powerful aspects of anvi'o is its ability to give you so much power to communicate your results as best as possible. Prettification is working with the anvi'o display above and not letting it go until it starts to look like something that helps you convey your message.
 
-Let's step by step prettify this display, to get this image:
+{:.notice}
+Working with large SVG files can be challenging. We have some [suggestions here](http://merenlab.org/2016/10/27/high-resolution-figures/) to ameliorate that burden.
+
+Let's step by step prettify this display, to get to here:
 
 [![manual](images/final-pretty.png)](images/final-pretty.png){:.center-img .width-80}
 
-And this is the circular version:
+And this is the circular version, if you are curious AND not stubborn (hehe):
 
 [![manual](images/final-pretty-circle.png)](images/final-pretty-circle.png){:.center-img .width-60}
 
