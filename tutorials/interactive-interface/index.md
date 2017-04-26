@@ -4,6 +4,8 @@ title: A tutorial on the anvi'o interactive interface
 modified: 2017-04-25
 excerpt: "Visualizing taxonomic profiles of 690 human gut metagenomes using metaphlan results"
 comments: true
+image:
+  feature: feature-interactive-tutorial.png
 ---
 
 {:.notice}
