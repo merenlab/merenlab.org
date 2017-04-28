@@ -582,7 +582,7 @@ $ anvi-gen-variability-profile -c MAGs/E_facealis/CONTIGS.db \
 Now we can use the R script to visualize this information the following way,
 
 {:.notice}
-This R script will require some libraries to be installed. You can install all of them by typing `R` in your terminal, and then entering this command: "install.packages(c('ggplot2', 'reshape2', 'reshape', 'gridExtra', 'grid', 'plyr', 'gtools'))". Finally, my R version that worked with this script was `v3.2.2`.
+This R script will require some libraries to be installed. You can install all of them by typing `R` in your terminal, and then entering this command: ```install.packages(c('ggplot2', 'reshape2', 'reshape', 'gridExtra', 'grid', 'plyr', 'gtools'))```. Finally, my R version that worked with this script was `v3.2.2`.
 
 ``` bash
 $ ./visualize-SNVs.R E-faecalis-SNVs.txt E-faecalis-SNV-density.txt 150 2870000
