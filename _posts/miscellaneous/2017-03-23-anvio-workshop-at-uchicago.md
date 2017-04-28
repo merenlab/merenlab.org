@@ -16,12 +16,19 @@ image:
 
 {% capture images %}{{site.url}}/images/miscellaneous/2017-03-23-anvio-workshop-at-uchicago{% endcapture %}
 
+![Workshop]({{images}}/workshop.png)
 
-**Thank you very much for your interest! We no longer have any seats available for this workshop. If you are interested in attending to another one in the future, please keep an eye on the blog, [follow us](http://merenlab.org/people/) on Twitter, or subscribe to the anvi'o [discussion group]({% post_url anvio/2015-10-14-anvio-discussion-group %}) to stay up to date.**
+## Aftermath
 
+On behalf of our lab, I thank everyone who took their time to come all the way here to attend to the workshop. During the two days we tried to cover a wide range of topics that spanned from metagenomic binning to the refinement of MAGs, reporting and analysis of single-nucleotide variants, and pangenomic analyses in anvi'o. Although how well we did to go through these topics is open to discussion, we probably were most successful at making the most out of the cozy space that was available to us:
 
-![Worshop]({{images}}/workshop.png)
+![Workshop]({{images}}/first-day.jpg)
 
+We all owe a big thanks to the Section of Gastroenterology, Hepatology, and Nutrition at the Department of Medicine for their support, and to our colleagues on the 9th floor of the KCBD for their patience with us -- not only we took the entire conference room for two full days, but we also occupied their lunch area on both days:
+
+![Workshop]({{images}}/lunch.jpg)
+
+If we do this again, we probably will try to do it in a bigger room, run it for more than two days, be more determined to stick with the schedule, and include more down time for data analyses and social interactions.
 
 ## Attendees
 
