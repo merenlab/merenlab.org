@@ -7,11 +7,26 @@ comments: false
 <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 
 <div class="category-box">
-<a href="#2017"><span class="category-item">2017 <small>(2)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(8)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a><a href="#2011"><span class="category-item">2011 <small>(1)</small></span></a>
+<a href="#2017"><span class="category-item">2017 <small>(3)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(8)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a><a href="#2011"><span class="category-item">2011 <small>(1)</small></span></a>
 </div>
 
 <a name="2017">&nbsp;</a>
 <h1>2017</h1>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/129791"></div>
+    <h3><a href=" https://doi.org/10.1101/129791" target="_new">Nitrogen-fixing populations of Planctomycetes and Proteobacteria are abundant in the surface ocean.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, Quince, C., Shaiber, A., <span class="pub-member-author">Esen, Ö. C.</span>, <span class="pub-member-author">Lee, S. T. M.</span>, Lücker, S., and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="http://i.imgur.com/oFRefc4.jpg"><img src="http://i.imgur.com/oFRefc4.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- Novel nitrogen-fixing populations.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  ~1,000 non-redundant population genomes from TARA Oceans metagenomes.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Extensive description of <a href="http://merenlab.org/data/2017_Delmont_et_al_HBDs/" target="_blank">bioinformatics approaches</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>BioRxiv</i>. <b>pre-print</b></span>
+</div>
 
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1097/MIB.0000000000001027"></div>
