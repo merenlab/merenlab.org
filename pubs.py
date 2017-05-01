@@ -102,7 +102,7 @@ for line in [l.strip() for l in f.readlines()]:
     authors = authors.replace('Esen, Ö.,', 'Esen, Ö. C.,')
     authors = authors.replace('Murat Eren, A.,', 'Eren, A. M.,')
 
-    if not pubs_dict.has_key(year):
+    if year not in pubs_dict:
         pubs_dict[year] = [{'authors': authors, 'title': title, 'journal': journal, 'issue': issue, 'doi': doi}]
     else:
         pubs_dict[year].append({'authors': authors, 'title': title, 'journal': journal, 'issue': issue, 'doi': doi})
@@ -120,65 +120,65 @@ for line in [l.strip() for l in f.readlines()]:
 
 # check for failed entries
 if len(bad_entries):
-    print "Some entries failed. Quitting."
-    print
+    print("Some entries failed. Quitting.")
+    print()
     for tpl in bad_entries:
-        print ' - Failed (reason: "%s"): %s' % (tpl[1], tpl[0])
+        print(' - Failed (reason: "%s"): %s' % (tpl[1], tpl[0]))
 
     sys.exit()
 
 
-years = ''.join(['<a href="#%s"><span class="category-item">%s <small>(%d)</small></span></a>' % (y, y, len(pubs_dict[y])) for y in sorted(pubs_dict.keys(), reverse=True)])
+years = ''.join(['<a href="#%s"><span class="category-item">%s <small>(%d)</small></span></a>' % (y, y, len(pubs_dict[y])) for y in sorted(list(pubs_dict.keys()), reverse=True)])
 
 top_journals = ", ".join(['<b>%s</b> (<i>%d</i>)' % (x[1], x[0]) for x in sorted([(journals_list.count(journal), journal) for journal in set(journals_list)], reverse = True)[0:25]])
 
-print """---
+print("""---
 layout: publications
 modified: 2015-02-05
 comments: false
 ---
 
 <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
-"""
+""")
 # print "<h1>Journals</h1>"
 # print top_journals
 # print
-print '<div class="category-box">'
-print years
-print '</div>'
-print
+print('<div class="category-box">')
+print(years)
+print('</div>')
+print()
 
-for year in sorted(pubs_dict.keys(), reverse=True):
-    print '<a name="%s">&nbsp;</a>' % year
-    print '<h1>%s</h1>' % year
-    print
+for year in sorted(list(pubs_dict.keys()), reverse=True):
+    print('<a name="%s">&nbsp;</a>' % year)
+    print('<h1>%s</h1>' % year)
+    print()
     for pub in pubs_dict[year]:
-        print '<div class="pub">'
-        print '''<div class='altmetric-embed' data-badge-type='donut' data-doi="%s"></div>''' % pub['doi']
+        print('<div class="pub">')
+        print('''<div class='altmetric-embed' data-badge-type='donut' data-doi="%s"></div>''' % pub['doi'])
         if pub['doi']:
-            print '    <h3><a href="%s" target="_new">%s</a></h3>' % (' https://doi.org/%s' % (pub['doi']), pub['title'])
+            print('    <h3><a href="%s" target="_new">%s</a></h3>' % (' https://doi.org/%s' % (pub['doi']), pub['title']))
         else:
-            print '    <h3><a href="http://scholar.google.com/scholar?hl=en&q=%s" target="_new">%s</a></h3>' % ('http://scholar.google.com/scholar?hl=en&q=%s' % (pub['title'].replace(' ', '+')), pub['title'])
-        print '    <span class="pub-authors">%s</span>' % get_author_links(pub['authors'])
+            print('    <h3><a href="http://scholar.google.com/scholar?hl=en&q=%s" target="_new">%s</a></h3>' % ('http://scholar.google.com/scholar?hl=en&q=%s' % (pub['title'].replace(' ', '+')), pub['title']))
+        print('    <span class="pub-authors">%s</span>' % get_author_links(pub['authors']))
 
-        if pubs_info and pubs_info.has_key(pub['doi']):
+        if pubs_info and pub['doi'] in pubs_info:
             info = pubs_info[pub['doi']]
-            print '    <div class="%s">' % ('pub-info' if info['featured_image'] else 'pub-info-no-image')
+            print('    <div class="%s">' % ('pub-info' if info['featured_image'] else 'pub-info-no-image'))
 
             if info['featured_image']:
-                print '    <div class="pub-featured-image">'
-                print '    <a href="%s"><img src="%s" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%%);"/></a>' % (info['featured_image'], info['featured_image'])
-                print '    </div>'
+                print('    <div class="pub-featured-image">')
+                print('    <a href="%s"><img src="%s" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%%);"/></a>' % (info['featured_image'], info['featured_image']))
+                print('    </div>')
 
             highlights = info['highlights'].split(';') if info['highlights'] else None
             if highlights:
-                print '    <div class="%s">' % ('pub-highlights' if info['featured_image'] else 'pub-highlights-no-image')
-                print '    %s' % '<br>'.join(['<span style="display: inline-block; padding-bottom: 5px;">- %s</span>' % h for h in highlights])
-                print '    </div>'
+                print('    <div class="%s">' % ('pub-highlights' if info['featured_image'] else 'pub-highlights-no-image'))
+                print('    %s' % '<br>'.join(['<span style="display: inline-block; padding-bottom: 5px;">- %s</span>' % h for h in highlights]))
+                print('    </div>')
 
-            print '    </div>'
-        print '    <span class="pub-journal"><i>%s</i>. <b>%s</b></span>' % (pub['journal'], pub['issue'])
-        print '</div>'
-        print
-    print
+            print('    </div>')
+        print('    <span class="pub-journal"><i>%s</i>. <b>%s</b></span>' % (pub['journal'], pub['issue']))
+        print('</div>')
+        print()
+    print()
 
