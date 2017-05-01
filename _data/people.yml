@@ -1,6 +1,7 @@
 - alias: meren
   official: True
   name: A. Murat Eren (Meren)
+  tenure_start: 10/2015
   role: PI
   twitter: merenbey
   github: meren
@@ -29,6 +30,7 @@
 - alias: tom
   official: True
   name: Tom O. Delmont
+  tenure_start: 10/2015
   role: Post-doctoral Scientist
   email: tom.o.delmont@gmail.com
   twitter: tomodelmont
@@ -44,6 +46,7 @@
 - alias: sonny
   official: True
   name: Sonny T. M. Lee
+  tenure_start: 05/2016
   role: Post-doctoral Scientist
   email: leet1@uchicago.edu
   avatar: bio-sonny.jpg
@@ -57,6 +60,7 @@
 - alias: alon
   official: True
   name: Alon Shaiber
+  tenure_start: 10/2016
   role: Graduate Student
   email: alon.shaiber@gmail.com
   github: ShaiberAlon
@@ -72,6 +76,7 @@
 - alias: ozcan
   official: True
   name: Özcan C. Esen
+  tenure_start: 02/2016
   role: Software guru, local hacker
   email: ozcanesen@gmail.com
   twitter: ozcanesen
@@ -87,6 +92,10 @@
 
 - alias: steven
   name: Steven Cui
+  nick_name: Steven
+  tenure_start: 07/2016
+  tenure_end: 10/2016
+  current_info: an undergraduate student studying computer science at the <a href="https://www.cs.uchicago.edu/">Department of Computer Science at the University of Chicago</a>
   official: True
   role: Summer Student
   avatar: bio-steven.png
