@@ -1,49 +1,79 @@
 <div class="people">
-{% for person in site.data.people %}
-{% if person.official %}
-<div class="person">
-    <div class="person-photo">
-    {% if person.avatar contains 'http' %}
-    	<img src="{{ person.avatar }}" class="person-photo-img" alt="{{ person.name }} bio photo">
-    {% else %}
-    	<img src="{{ site.url }}/images/{{ person.avatar }}" class="person-photo-img" alt="{{ person.name }} bio photo">
-    {% endif %}
-    </div>
 
-    <div class="person-info">
-      <h3>{{ person.name }} <span class="person-role"> :: {{ person.role  }}</span></h3>
-        <div class="social-box">
-          {% if person.web %}<a href="{{ person.web }}" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i> Web</a>{% endif %}
-          {% if person.email %}<a href="mailto:{{ person.email }}" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a>{% endif %}
-          {% if person.twitter %}<a href="http://twitter.com/{{ person.twitter }}" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i> Twitter</a>{% endif %}
-          {% if person.google.plus %}<a href="http://plus.google.com/+{{ person.google.plus }}" class="person-social" target="_blank"><i class="fa fa-fw fa-google-plus-square"></i> Google+</a>{% endif %}
-          {% if person.linkedin %}<a href="http://linkedin.com/in/{{ person.linkedin }}" class="person-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a>{% endif %}
-          {% if person.github %}<a href="http://github.com/{{ person.github }}" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>{% endif %}
-          {% if person.stackoverflow %}<a href="http://stackoverflow.com/users/{{ person.stackoverflow }}" class="person-social" target="_blank"><i class="fa fa-fw fa-stack-overflow"></i> Stackoverflow</a>{% endif %}
-          {% if person.youtube %}<a href="https://youtube.com/user/{{ person.youtube }}" class="person-social" target="_blank"><i class="fa fa-fw fa-youtube-square"></i> Youtube</a>{% endif %}
-          {% if person.address %}<br /><span class="person-social"><i class="fa fa-fw fa-map-marker"></i>Adress: {{ person.address  }}</span>{% endif %}
-          {% if person.phone %}<br /><span class="person-social"><i class="fa fa-fw fa-phone"></i>Phone: {{ person.phone }}</span>{% endif %}
-          {% if person.fax %}<span class="person-social"><i class="fa fa-fw fa-fax"></i>Fax: {{ person.fax }}</span>{% endif %}
+<p class="people-title">Current members (sorted by name)</p>
 
+{% assign people_sorted = site.data.people | sort:"name" %}
+
+{% for person in people_sorted %}
+    {% if person.official and person.tenure_end == nil %}
+    <div class="person">
+        <div class="person-photo">
+        {% if person.avatar contains 'http' %}
+        	<img src="{{ person.avatar }}" class="person-photo-img" alt="{{ person.name }} bio photo">
+        {% else %}
+        	<img src="{{ site.url }}/images/{{ person.avatar }}" class="person-photo-img" alt="{{ person.name }} bio photo">
+        {% endif %}
         </div>
-
-      <p>{{ person.bio }}</p>
-
-      {% if person.affiliations %}
-      <ul class="person-affiliations">
-      {% for affiliation in person.affiliations %}
-      <li>{% if affiliation.title_link %}<a id="aff-link" target="_blank" href="{{ affiliation.title_link }}">{% endif %}{{ affiliation.title }}{% if affiliation.title_link %}</a>{% endif %}{% if affiliation.inst %}, <a href="{{ affiliation.inst_link }}" id="aff-link" target="_blank">{{ affiliation.inst }}</a>{% endif %}.</li>
-      {% endfor %}
-      </ul>
-      {% endif %}
-
+    
+        <div class="person-info">
+          <h3>{{ person.name }} <span class="person-role"> ({{ person.role }})</span></h3>
+            <div class="social-box">
+              {% if person.web %}<a href="{{ person.web }}" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i> Web</a>{% endif %}
+              {% if person.email %}<a href="mailto:{{ person.email }}" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a>{% endif %}
+              {% if person.twitter %}<a href="http://twitter.com/{{ person.twitter }}" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i> Twitter</a>{% endif %}
+              {% if person.google.plus %}<a href="http://plus.google.com/+{{ person.google.plus }}" class="person-social" target="_blank"><i class="fa fa-fw fa-google-plus-square"></i> Google+</a>{% endif %}
+              {% if person.linkedin %}<a href="http://linkedin.com/in/{{ person.linkedin }}" class="person-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a>{% endif %}
+              {% if person.github %}<a href="http://github.com/{{ person.github }}" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>{% endif %}
+              {% if person.stackoverflow %}<a href="http://stackoverflow.com/users/{{ person.stackoverflow }}" class="person-social" target="_blank"><i class="fa fa-fw fa-stack-overflow"></i> Stackoverflow</a>{% endif %}
+              {% if person.youtube %}<a href="https://youtube.com/user/{{ person.youtube }}" class="person-social" target="_blank"><i class="fa fa-fw fa-youtube-square"></i> Youtube</a>{% endif %}
+              {% if person.address %}<br /><span class="person-social"><i class="fa fa-fw fa-map-marker"></i>Adress: {{ person.address  }}</span>{% endif %}
+              {% if person.phone %}<br /><span class="person-social"><i class="fa fa-fw fa-phone"></i>Phone: {{ person.phone }}</span>{% endif %}
+              {% if person.fax %}<span class="person-social"><i class="fa fa-fw fa-fax"></i>Fax: {{ person.fax }}</span>{% endif %}
+    
+            </div>
+    
+          <p>{{ person.bio }}</p>
+    
+          {% if person.affiliations %}
+          <ul class="person-affiliations">
+          {% for affiliation in person.affiliations %}
+          <li>{% if affiliation.title_link %}<a id="aff-link" target="_blank" href="{{ affiliation.title_link }}">{% endif %}{{ affiliation.title }}{% if affiliation.title_link %}</a>{% endif %}{% if affiliation.inst %}, <a href="{{ affiliation.inst_link }}" id="aff-link" target="_blank">{{ affiliation.inst }}</a>{% endif %}.</li>
+          {% endfor %}
+          </ul>
+          {% endif %}
+    
+        </div>
     </div>
-
-</div>
-{% endif %}
+    {% endif %}
 {% endfor %}
 
-<p class="notice">
+<div class="alumni">
+
+<p class="people-title">Previous members
+
+{% for person in site.data.people %}
+    {% if person.official and person.tenure_end %}
+    <div class="alumnus">
+        <div class="person-photo">
+        {% if person.avatar contains 'http' %}
+        	<img src="{{ person.avatar }}" class="person-photo-img" alt="{{ person.name }} bio photo">
+        {% else %}
+        	<img src="{{ site.url }}/images/{{ person.avatar }}" class="person-photo-img" alt="{{ person.name }} bio photo">
+        {% endif %}
+        </div>
+    
+        <div class="person-info">
+          <h3>{{ person.name }} ({{person.tenure_start}} - {{person.tenure_end}})</h3>
+    
+          <p>{{ person.nick_name }} was a {{ person.role }} with us. The last time we checked, {{ person.nick_name }} was {{ person.current_info }}.</p>
+    
+        </div>
+    </div>
+    {% endif %}
+{% endfor %}
+</div>
+
+<p class="notice" style="margin-top: 200px;">
 <b>Meren's note on our struggle with the lack of gender diversity in the lab</b>: This is something we are quite aware and upset about, and I finally decided to put a note about the issue on this page
 to make sure it is clear to everyone. I see the gender imbalance in our lab as my failure, and I am looking forward to fixing it. I advertised only one postdoc position so far, which was the only time
 I had the opportunity to ameliorate the lack of diversity, however, I wasn't lucky enough to get enough number of applications from women. When I mentioned our struggle with
@@ -55,4 +85,4 @@ political practices that make people feel comfortable with the lack of diversity
 with where we are in our lab. If you are a woman, or any other poorly represented part of the society in science considering applying to our lab, please don't let the current situation stop you
 from doing it. Thank you!
 </p>
-</div>
+
