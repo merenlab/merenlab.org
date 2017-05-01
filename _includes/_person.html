@@ -1,6 +1,6 @@
 <div class="people">
 
-<p class="people-title">Current members (sorted by name)</p>
+<p class="persons-title">Current members (sorted by name)</p>
 
 {% assign people_sorted = site.data.people | sort:"name" %}
 
@@ -49,7 +49,7 @@
 
 <div class="alumni">
 
-<p class="people-title">Previous members
+<p class="persons-title">Previous members
 
 {% for person in site.data.people %}
     {% if person.official and person.tenure_end %}
