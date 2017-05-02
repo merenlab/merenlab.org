@@ -109,12 +109,12 @@
 - alias: kota
   official: True
   name: Kota Bear
-  web: http://merenlab.org
+  web: https://en.wikipedia.org/wiki/Poodle
   tenure_start: 01/2017
   role: Dog
   avatar: bio-kota.png
   address: Chicago, IL
-  bio: "I focus on members of the family Sciuridae and Leporidae to study stress-induced behavioral changes in mammalian hosts."
+  bio: "I focus on members of the family Sciuridae and Leporidae to study stress-induced behavioral changes in mammals."
   affiliations:
     - title: Honorary Member
 
