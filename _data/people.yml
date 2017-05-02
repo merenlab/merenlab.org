@@ -106,6 +106,18 @@
       inst: The Department of Computer Science at the University of Chicago
       inst_link: https://www.cs.uchicago.edu/
 
+- alias: kota
+  official: True
+  name: Kota Bear
+  web: http://merenlab.org
+  tenure_start: 01/2017
+  role: Dog
+  avatar: bio-kota.png
+  address: Chicago, IL
+  bio: "I focus on members of the family Sciuridae and Leporidae to study stress-induced behavioral changes in mammalian hosts."
+  affiliations:
+    - title: Honorary Member
+
 - alias: mike
   name: Mike Lee
   role: Contributing hero
