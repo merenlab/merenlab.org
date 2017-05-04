@@ -7,11 +7,26 @@ comments: false
 <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 
 <div class="category-box">
-<a href="#2017"><span class="category-item">2017 <small>(3)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(8)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a><a href="#2011"><span class="category-item">2011 <small>(1)</small></span></a>
+<a href="#2017"><span class="category-item">2017 <small>(4)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(7)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a><a href="#2011"><span class="category-item">2011 <small>(1)</small></span></a>
 </div>
 
 <a name="2017">&nbsp;</a>
 <h1>2017</h1>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s40168-017-0270-x"></div>
+    <h3><a href=" https://doi.org/10.1186/s40168-017-0270-x" target="_new">Tracking microbial colonization in fecal microbiota transplantation experiments via genome-resolved metagenomics.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Lee, S. T. M.</span>, Kahn, S. A., <span class="pub-member-author">Delmont, T. O.</span>, Shaiber, A., <span class="pub-member-author">Esen, Ö. C.</span>, Hubert, N. A., Morrison, H. G., Antonopoulos, D. A., Rubin, D. T., and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="http://i.imgur.com/4e4Ic4u.jpg"><img src="http://i.imgur.com/4e4Ic4u.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- An FMT study with metagenome-assembled genomes (MAGs). Bacteroidales: high-colonization rate, Clostridiales: low colonization rate.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Colonization success is negatively correlated with the number of genes related to sporulation.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  MAGs with the same taxonomy showed different colonization properties, highlighting the limitation of low-resolution approaches.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  MAGs colonized both recipients were also prevalent in the HMP cohort (and the ones that did not, distribute sporadically across the HMP cohort)</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>Microbiome</i>. <b>5:50</b></span>
+</div>
 
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/129791"></div>
@@ -22,7 +37,7 @@ comments: false
     <a href="http://i.imgur.com/oFRefc4.jpg"><img src="http://i.imgur.com/oFRefc4.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
     </div>
     <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- Novel nitrogen-fixing populations.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  ~1,000 non-redundant population genomes from TARA Oceans metagenomes.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Extensive description of <a href="http://merenlab.org/data/2017_Delmont_et_al_HBDs/" target="_blank">bioinformatics approaches</a>.</span>
+    <span style="display: inline-block; padding-bottom: 5px;">- Novel nitrogen-fixing populations.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Nearly 1,000 non-redundant and high-quality bacterial, archaeal, and eukaryotic population genomes from TARA Oceans metagenomes.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Extensive description of <a href="http://merenlab.org/data/2017_Delmont_et_al_HBDs/" target="_blank">bioinformatics approaches</a>.</span>
     </div>
     </div>
     <span class="pub-journal"><i>BioRxiv</i>. <b>pre-print</b></span>
@@ -45,21 +60,6 @@ comments: false
 
 <a name="2016">&nbsp;</a>
 <h1>2016</h1>
-
-<div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/090993"></div>
-    <h3><a href=" https://doi.org/10.1101/090993" target="_new">High-resolution tracking of microbial colonization in Fecal Microbiota Transplantation experiments via metagenome-assembled genomes.</a></h3>
-    <span class="pub-authors"><span class="pub-member-author">Lee, S. T. M.</span>, Kahn, S. A., <span class="pub-member-author">Delmont, T. O.</span>, Hubert, N. A., Morrison, H. G., Antonopoulos, D. A., Rubin, D. T., and <span class="pub-member-author">Eren, A. M</span>.</span>
-    <div class="pub-info">
-    <div class="pub-featured-image">
-    <a href="https://pbs.twimg.com/media/CytPL3kVIAA-UJX.jpg"><img src="https://pbs.twimg.com/media/CytPL3kVIAA-UJX.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
-    </div>
-    <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- An FMT study with metagenome-assembled genomes (MAGs). Bacteroidales: high-colonization rate, Clostridiales: low colonization rate.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Colonization success is negatively correlated with the number of genes related to sporulation.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  MAGs with the same taxonomy showed different colonization properties, highlighting the limitation of low-resolution approaches.</span>
-    </div>
-    </div>
-    <span class="pub-journal"><i>BioRxiv</i>. <b>pre-print</b></span>
-</div>
 
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/058750"></div>
