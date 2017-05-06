@@ -16,7 +16,7 @@ comments: false
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s40168-017-0270-x"></div>
     <h3><a href=" https://doi.org/10.1186/s40168-017-0270-x" target="_new">Tracking microbial colonization in fecal microbiota transplantation experiments via genome-resolved metagenomics.</a></h3>
-    <span class="pub-authors"><span class="pub-member-author">Lee, S. T. M.</span>, Kahn, S. A., <span class="pub-member-author">Delmont, T. O.</span>, Shaiber, A., <span class="pub-member-author">Esen, Ö. C.</span>, Hubert, N. A., Morrison, H. G., Antonopoulos, D. A., Rubin, D. T., and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <span class="pub-authors"><span class="pub-member-author">Lee, S. T. M.</span>, Kahn, S. A., <span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Shaiber, A.</span>, <span class="pub-member-author">Esen, Ö. C.</span>, Hubert, N. A., Morrison, H. G., Antonopoulos, D. A., Rubin, D. T., and <span class="pub-member-author">Eren, A. M</span>.</span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="http://i.imgur.com/4e4Ic4u.jpg"><img src="http://i.imgur.com/4e4Ic4u.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -31,7 +31,7 @@ comments: false
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/129791"></div>
     <h3><a href=" https://doi.org/10.1101/129791" target="_new">Nitrogen-fixing populations of Planctomycetes and Proteobacteria are abundant in the surface ocean.</a></h3>
-    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, Quince, C., Shaiber, A., <span class="pub-member-author">Esen, Ö. C.</span>, <span class="pub-member-author">Lee, S. T. M.</span>, Lücker, S., and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, Quince, C., <span class="pub-member-author">Shaiber, A.</span>, <span class="pub-member-author">Esen, Ö. C.</span>, <span class="pub-member-author">Lee, S. T. M.</span>, Lücker, S., and <span class="pub-member-author">Eren, A. M</span>.</span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="http://i.imgur.com/oFRefc4.jpg"><img src="http://i.imgur.com/oFRefc4.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>

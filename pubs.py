@@ -15,7 +15,7 @@ except:
 # people who have links
 author_links = {}
 
-my_people = ['Eren, A. M', 'Delmont, T. O.', 'Esen, Ö. C.', 'Lee, S. T. M.']
+my_people = ['Eren, A. M', 'Delmont, T. O.', 'Esen, Ö. C.', 'Lee, S. T. M.', 'Shaiber, A.', 'Kiefl, E.']
 
 keep_pubs_after = 2009
 
