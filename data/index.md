@@ -19,9 +19,9 @@ This page serves the publicly available data mentioned in our publications, or i
 
 **Public data items for the study:**
 
-* [This FigShare collection](https://figshare.com/projects/Data_for_the_FMT_study_by_Lee_and_Khan_et_al_2017_/17516){:target="_blank"} lists all public data items in this project.
+* While the accession ID [**SRP093449**](https://www.ncbi.nlm.nih.gov/sra/?term=SRP093449){:target="_blank"} serves serves the raw shotgun metagenomic data through NCBI's Short Read Archive, [this FigShare collection](https://figshare.com/projects/Data_for_the_FMT_study_by_Lee_and_Khan_et_al_2017_/17516){:target="_blank"} gives access to all public data items detailed below.
 
-* [https://doi.org/10.6084/m9.figshare.4792633](https://doi.org/10.6084/m9.figshare.4792633): Files for anvi'o manual interactive for a quick visualization of the distribution of 92 donor MAGs from Lee and Khan et al study (**panel a** in the figure above). Follow these steps for a quick interactive visualization:
+* [https://doi.org/10.6084/m9.figshare.4792633](https://doi.org/10.6084/m9.figshare.4792633){:target="_blank"}: Files for anvi'o manual interactive for a quick visualization of the distribution of 92 donor MAGs from Lee and Khan et al study (**panel a** in the figure above). Follow these steps for a quick interactive visualization:
 
 <div style="margin-left:50px;" markdown="1">
 ``` bash
@@ -45,10 +45,10 @@ anvi-interactive -p profile.db \
 </div>
 
 
-* [https://doi.org/10.6084/m9.figshare.4792627](https://doi.org/10.6084/m9.figshare.4792627): A static HTML output for the anvi'o merged profile database for the 92 donor MAGs. This static web site contains FASTA files for MAGs, coverage and detection values, functional annotations, and other essential information.
+* [https://doi.org/10.6084/m9.figshare.4792627](https://doi.org/10.6084/m9.figshare.4792627){:target="_blank"}: A static HTML output for the anvi'o merged profile database for the 92 donor MAGs. This static web site contains FASTA files for MAGs, coverage and detection values, functional annotations, and other essential information.
 
 
-* [https://doi.org/10.6084/m9.figshare.4792621](https://doi.org/10.6084/m9.figshare.4792621): The full anvi'o merged profile and contigs databases for the 92 donor MAGs (for each MAG gives access to the detailed information shown in **panel b** and **panel c** in the figure above). Among many other things you can do with these anvi'o files, you can use the program `anvi-refine` to study any MAG in the study in detail. MAGs are described in a collection named `MAGs`. Here is a quick example:
+* [https://doi.org/10.6084/m9.figshare.4792621](https://doi.org/10.6084/m9.figshare.4792621){:target="_blank"}: The full anvi'o merged profile and contigs databases for the 92 donor MAGs (for each MAG gives access to the detailed information shown in **panel b** and **panel c** in the figure above). Among many other things you can do with these anvi'o files, you can use the program `anvi-refine` to study any MAG in the study in detail. MAGs are described in a collection named `MAGs`. Here is a quick example:
 
 <div style="margin-left:50px;" markdown="1">
 ```bash
@@ -79,9 +79,9 @@ anvi-refine -p PROFILE.db -c CONTIGS.db -C MAGs -b FMT-Donor_MAG_00054
 ```
 </div>
 
-* [https://doi.org/10.6084/m9.figshare.4793761](https://doi.org/10.6084/m9.figshare.4793761): Individual anvi'o profiles for the occurrence of each the FMT donor MAG across 151 HMP gut metagenomes (for each MAG gives access to the information shown in **panel d** in the figure above).
+* [https://doi.org/10.6084/m9.figshare.4793761](https://doi.org/10.6084/m9.figshare.4793761){:target="_blank"}: Individual anvi'o profiles for the occurrence of each the FMT donor MAG across 151 HMP gut metagenomes (for each MAG gives access to the information shown in **panel d** in the figure above).
 
-* [https://doi.org/10.6084/m9.figshare.4792645](https://doi.org/10.6084/m9.figshare.4792645): Individual figures that show the detection of 92 donor MAGs in 151 HMP gut metagenomes.
+* [https://doi.org/10.6084/m9.figshare.4792645](https://doi.org/10.6084/m9.figshare.4792645){:target="_blank"}: Individual figures that show the detection of 92 donor MAGs in 151 HMP gut metagenomes.
 
 
 
