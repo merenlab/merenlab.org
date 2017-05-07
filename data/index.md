@@ -10,6 +10,81 @@ This page serves the publicly available data mentioned in our publications, or i
 
 {% include _toc.html %}
 
+## Lee et al. (2017)
+
+{:.notice}
+**The paper itself is here:** [Tracking microbial colonization in fecal microbiota transplantation experiments via genome-resolved metagenomics](https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-017-0270-x){:target="_blank"}.
+
+[![MAGs](2017_Lee_et_al_FMT/figure-01.png)](2017_Lee_et_al_FMT/figure-01.png){:.center-img .width-50}
+
+**Public data items for the study:**
+
+* [This FigShare collection](https://figshare.com/projects/Data_for_the_FMT_study_by_Lee_and_Khan_et_al_2017_/17516){:target="_blank"} lists all public data items in this project.
+
+* [https://doi.org/10.6084/m9.figshare.4792633](https://doi.org/10.6084/m9.figshare.4792633): Files for anvi'o manual interactive for a quick visualization of the distribution of 92 donor MAGs from Lee and Khan et al study (**panel a** in the figure above). Follow these steps for a quick interactive visualization:
+
+<div style="margin-left:50px;" markdown="1">
+``` bash
+# download the file
+wget https://ndownloader.figshare.com/files/7879036 -O ANVIO-FMT-D-R01-R02-QUICK-VISUALIZATION.tar.gz
+
+# unpack
+tar -zxvf ANVIO-FMT-D-R01-R02-QUICK-VISUALIZATION.tar.gz
+
+# go into the directory
+cd ANVIO-FMT-D-R01-R02-QUICK-VISUALIZATION
+
+# run anvi-interacive
+anvi-interactive -p profile.db \
+                 -s samples.db \
+                 -t tree.txt \
+                 -d data.txt \
+                 --manual \
+                 --title "The distribution of 92 donor MAGs"
+```
+</div>
+
+
+* [https://doi.org/10.6084/m9.figshare.4792627](https://doi.org/10.6084/m9.figshare.4792627): A static HTML output for the anvi'o merged profile database for the 92 donor MAGs. This static web site contains FASTA files for MAGs, coverage and detection values, functional annotations, and other essential information.
+
+
+* [https://doi.org/10.6084/m9.figshare.4792621](https://doi.org/10.6084/m9.figshare.4792621): The full anvi'o merged profile and contigs databases for the 92 donor MAGs (for each MAG gives access to the detailed information shown in **panel b** and **panel c** in the figure above). Among many other things you can do with these anvi'o files, you can use the program `anvi-refine` to study any MAG in the study in detail. MAGs are described in a collection named `MAGs`. Here is a quick example:
+
+<div style="margin-left:50px;" markdown="1">
+```bash
+# download the data
+wget https://ndownloader.figshare.com/files/7879024 -O ANVIO-FMT-D-R01-R02-MERGED-PROFILE.tar.gz
+
+# unpack it and get into the directory
+tar -zxvf ANVIO-FMT-D-R01-R02-MERGED-PROFILE.tar.gz && cd ANVIO-FMT-D-R01-R02-MERGED-PROFILE
+
+# take a look at what's in the MAGs collection
+anvi-script-get-collection-info -p PROFILE.db -c CONTIGS.db -C MAGs
+Auxiliary Data ...............................: Found: CONTIGS.h5 (v. 1)
+Contigs DB ...................................: Initialized: CONTIGS.db (v. 8)
+
+Bins in collection "MAGs"
+===============================================
+FMT-Donor_MAG_00027 :: PC: 95.98%, PR: 3.30%, N: 129, S: 1,914,574, D: bacteria (0.99)
+FMT-Donor_MAG_00069 :: PC: 82.93%, PR: 7.68%, N: 154, S: 1,168,783, D: bacteria (0.91)
+FMT-Donor_MAG_00025 :: PC: 96.34%, PR: 3.99%, N: 139, S: 2,740,980, D: bacteria (1.00)
+FMT-Donor_MAG_00068 :: PC: 76.07%, PR: 0.72%, N: 109, S: 1,012,764, D: bacteria (0.77)
+FMT-Donor_MAG_00041 :: PC: 89.80%, PR: 3.63%, N: 282, S: 2,471,626, D: bacteria (0.93)
+FMT-Donor_MAG_00010 :: PC: 100.00%, PR: 4.38%, N: 224, S: 3,125,246, D: bacteria (1.04)
+(...)
+
+# visualize and study one bin:
+anvi-refine -p PROFILE.db -c CONTIGS.db -C MAGs -b FMT-Donor_MAG_00054
+
+```
+</div>
+
+* [https://doi.org/10.6084/m9.figshare.4793761](https://doi.org/10.6084/m9.figshare.4793761): Individual anvi'o profiles for the occurrence of each the FMT donor MAG across 151 HMP gut metagenomes (for each MAG gives access to the information shown in **panel d** in the figure above).
+
+* [https://doi.org/10.6084/m9.figshare.4792645](https://doi.org/10.6084/m9.figshare.4792645): Individual figures that show the detection of 92 donor MAGs in 151 HMP gut metagenomes.
+
+
+
 ## Vineis et al. (2016)
 
 {:.notice}
@@ -20,17 +95,15 @@ This page serves the publicly available data mentioned in our publications, or i
 
 Data for the paper:
 
-* Anvi'o profiles: [https://dx.doi.org/10.6084/m9.figshare.3851364.v1](https://dx.doi.org/10.6084/m9.figshare.3851364.v1){:target="_blank"}
+* Anvi'o profiles: [https://dx.doi.org/10.6084/m9.figshare.3851364](https://dx.doi.org/10.6084/m9.figshare.3851364){:target="_blank"}
 
 * Primary and supplementary figures: [https://dx.doi.org/10.6084/m9.figshare.3851481.v2](https://dx.doi.org/10.6084/m9.figshare.3851481.v2){:target="_blank"}
 
 * Supplementary tables: [https://dx.doi.org/10.6084/m9.figshare.3851478.v2](https://dx.doi.org/10.6084/m9.figshare.3851478.v2){:target="_blank"}
 
----
-
 The anvi'o profiles article in this data collection contains 22 items:
 
-[![Abstract]({{site.url}}/images/miscellaneous/2016-11-21-bacteroides-genome-variants/profiles.png)]({{site.url}}/images/miscellaneous/2016-11-21-bacteroides-genome-variants/profiles.png){:.center-img .width-60}
+<iframe src="https://widgets.figshare.com/articles/3851364/embed?show_title=1" width="100%" height="300" frameborder="0"></iframe>
 
 For an example on how to re-analyze these anvi'o profiles, please [click here]({% post_url miscellaneous/2016-11-21-bacteroides-genome-variants %}/#displaying-a-patient-metagenome-from-vineis-et-al){:target="_blank"}.
 
@@ -85,8 +158,11 @@ The anvi'o profiles here will run with a much earlier version of anvi'o. If you 
 **Daily Infant Gut Samples by Sharon _et al._**. Raw data and anvi'o results for the section on supervised binning and the analysis of the variability in genome bins.
 
 * Visit [this address](http://umkk2268fc06.merenbey.koding.io:8080) to **try the anvi'o interactive interface** on the infant gut data, which provides the basis for **Figure 2**.
+
 * You can [view the summary of the 13 bins](http://anvio.org/data/INFANT-CLC-SUMMARY-SUPERVISED), or you can [download the browsable output](http://anvio.org/data/INFANT-CLC-SUMMARY-SUPERVISED.tar.gz).
+
 * [This Github repository](https://github.com/meren/anvio-methods-paper-analyses) gives access to the code that generates **Figure 3** (see the [relevant](https://github.com/meren/anvio-methods-paper-analyses/tree/master/SHARON_et_al/VARIABILITY_REPORTS) directory).
+
 * You can download the output of `anvi-merge` (the merged profile db, and the annotation db) for the infant gut metagenomes [from here](http://dx.doi.org/10.6084/m9.figshare.1499236).
 
 ---
@@ -94,6 +170,7 @@ The anvi'o profiles here will run with a much earlier version of anvi'o. If you 
 **Pensacola Beach Samples by Overholt _et al._ and Rodriguez-R _et al._**. Raw data and anvi'o results for the section on linking cultivar genomes with metagenomes.
 
 * While [this address](http://anvio.org/data/OVERHOLT-CULTIVARS-SUMMARY) gives access to the anvi'o summary of the ten cultivar genomes ([download](http://anvio.org/data/OVERHOLT-CULTIVARS-SUMMARY.tar.gz)), [this one](http://anvio.org/data/RODRIGUEZ-R-MG-SUMMARY) serves the 56 metagenomic bins ([download](http://anvio.org/data/RODRIGUEZ-R-MG-SUMMARY.tar.gz)) shown in **Figure 4**.
+
 * You can download the output of `anvi-merge` for the mapping of metagenomes to Overholt cultivars [from here](http://dx.doi.org/10.6084/m9.figshare.1499234), and the output for `anvi-merge` for metagenomic bins is available [here](http://dx.doi.org/10.6084/m9.figshare.1499248).
 
 ---
@@ -101,8 +178,11 @@ The anvi'o profiles here will run with a much earlier version of anvi'o. If you 
 **Gulf of Mexico Samples by Mason _et al._, and Yergeau _et al._**. Results for the section on linking metagenomes, metatranscriptomes, and single-cell genomes.
 
 * You can [view the summary of the two bins](http://anvio.org/data/MASON-SAGs-SUMMARY-SUPERVISED) identified in the assembly of the single-cell genomes ([download](http://anvio.org/data/MASON-SAGs-SUMMARY-SUPERVISED.tar.gz)) (**Figure 5 panel A**).
+
 * You can [view the summary of the three bins](http://anvio.org/data/MASON-YERGEAU-MG-SUMMARY-SUPERVISED) identified in the metagenomic assembly ([download](http://anvio.org/data/MASON-YERGEAU-MG-SUMMARY-SUPERVISED.tar.gz)) (**Figure 5 panel B**).
+
 * [This Github repository](https://github.com/meren/anvio-methods-paper-analyses) also gives access to the code that generates **Figure 5 panel C** (see the [relevant](https://github.com/meren/anvio-methods-paper-analyses/tree/master/MASON_et_al/SCATTER_PLOTS) directory).
+
 * You can download the output of `anvi-merge` for the mapping of all samples against the assembly of SAGs [from here](http://dx.doi.org/10.6084/m9.figshare.1499235), and the output for `anvi-merge` for mapping to metagenomic contigs is available [here](http://dx.doi.org/10.6084/m9.figshare.1499246).
 
 ---
@@ -110,5 +190,7 @@ The anvi'o profiles here will run with a much earlier version of anvi'o. If you 
 **Media and Supplementary files**.
 
 * Tables: [Additional file 1](http://dx.doi.org/10.6084/m9.figshare.1499237), [Additional file 2](http://dx.doi.org/10.6084/m9.figshare.1499238), [Additional file 3](http://dx.doi.org/10.6084/m9.figshare.1499239).
+
 * Figures: [Figure 1](http://dx.doi.org/10.6084/m9.figshare.1499240), [Figure 2](http://dx.doi.org/10.6084/m9.figshare.1499241), [Figure 3](http://dx.doi.org/10.6084/m9.figshare.1499242), [Figure 4](http://dx.doi.org/10.6084/m9.figshare.1499243), [Figure 5](http://dx.doi.org/10.6084/m9.figshare.1499244), [Figure S1](http://dx.doi.org/10.6084/m9.figshare.1499245), [Figure S2](http://dx.doi.org/10.6084/m9.figshare.1499247).
 
+<div style="height:100px;">&nbsp;</div>
