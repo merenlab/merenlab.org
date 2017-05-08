@@ -47,11 +47,11 @@ Go to your terminal, and type `prodigal -v` if you get an error, you need to ins
 
 Here is how to install v2.6.2 (the first line will not work if you don't have wget, but you can get wget installed esily typing `sudo port install wget` if you are using MacPorts system on your Mac computer):
 
-{% highlight bash %}
+``` bash
 wget https://github.com/hyattpd/Prodigal/archive/v2.6.2.tar.gz
 tar -zxvf v2.6.2.tar.gz && cd Prodigal-2.6.2/ && make
 sudo cp prodigal /usr/local/bin/
-{% endhighlight %}
+```
 
 Type `prodigal -v` again to make sure everything is alright, and you get the proper version number.
 
@@ -65,13 +65,13 @@ Go to your terminal, and type `hmmscan -h`, if you get an error, you need to ins
 
 Here is how to install v3.1b2:
 
-{% highlight bash %}
+``` bash
 wget http://eddylab.org/software/hmmer3/3.1b2/hmmer-3.1b2.tar.gz
 tar -zxvf hmmer-3.1b2.tar.gz
 cd hmmer-3.1b2
 ./configure && make && sudo make install
 cd easel && make check && sudo make install
-{% endhighlight %}
+```
 
 Type `hmmscan -h` again to make sure everything is alright, and you get the proper version number.
 
@@ -91,12 +91,12 @@ Note: Although this is completely optional, you may also want to consider instal
 
 [GSL](http://www.gnu.org/software/gsl/) is a widely used C library for scientific computation. The only thing depends on GSL is the CONCOCT extension in the codebase. The installation is quite straightforward on most systems. If you are using MacPorts, you can type this on your terminal: `port install gsl gsl-devel py27-gsl` (Rika tells me homebrew on Mac works, too). Otherwise, try these commands and you should be OK:
 
-{% highlight bash %}
+``` bash
 wget ftp://ftp.gnu.org/gnu/gsl/gsl-latest.tar.gz
 tar -zxvf gsl-latest.tar.gz
 cd gsl-*
 ./configure && make && sudo make install
-{% endhighlight %}
+```
 
 ## NumPY
 
@@ -106,28 +106,64 @@ cd gsl-*
 
 You don't need to install numpy if you get no complaints back when you type `python -c "import numpy"` in your terminal. If you do get an import error, then you need to install numpy. You can try this:
 
-{% highlight bash %}
+``` bash
 sudo pip install numpy
-{% endhighlight %}
+```
 
 ## Cython
 
 [Cython](http://cython.org/) is "*an optimising static compiler for both the Python programming language and the extended Cython programming language*". If `python -c "import Cython"` in your terminal does not complain, you are golden. Otherwise, install it by running this:
 
-{% highlight bash %}
+``` bash
 sudo pip install Cython
-{% endhighlight %}
+```
+
+## FastTree
+
+[FastTree](http://www.microbesonline.org/fasttree/) *infers approximately-maximum-likelihood phylogenetic trees from alignments of nucleotide or protein sequences*. To install FastTree, first visit this page and follow the instructions to compile it:
+
+[http://www.microbesonline.org/fasttree/#Install](http://www.microbesonline.org/fasttree/#Install)
+
+If you feel lazy, you can try these commands for a quick installation, too:
+
+``` bash
+wget http://www.microbesonline.org/fasttree/FastTree.c
+gcc -DNO_SSE -O3 -finline-functions -funroll-loops -Wall -o FastTree FastTree.c -lm
+```
+
+Regardless of how you compiled it, run this command to make sure it is in your PATH:
+
+``` bash
+sudo mv FastTree /usr/local/bin
+```
+
+If everything is OK, this is the output you should see when you run FastTree on your system:
+
+``` bash
+$ FastTree
+Usage for FastTree version 2.1.10 No SSE3:
+  FastTree protein_alignment > tree
+  FastTree < protein_alignment > tree
+  FastTree -out tree protein_alignment
+  FastTree -nt nucleotide_alignment > tree
+  FastTree -nt -gtr < nucleotide_alignment > tree
+  FastTree < nucleotide_alignment > tree
+FastTree accepts alignments in fasta or phylip interleaved formats
+
+(...)
+```
+
 
 ## HDF5
 
 [HDF5](https://www.hdfgroup.org/HDF5/) is "*a data model, library, and file format for storing and managing data*". If you are not sure what it is, you probably don't have it, but we are a big fan of HD5 here in anvi'o development side. If you are using macports on your Mac, you can get away with `sudo port install hdf5`, otherwise you can run these commands on your terminal (these are for version 1.8.16, feel free to check whether there is a newer release of HDF5 from [here](https://www.hdfgroup.org/ftp/HDF5/current/src/), and install the most curent tar.bz2 file in that directory instead):
 
-{% highlight bash %}
+``` bash
 wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8.17/src/hdf5-1.8.17.tar.bz2 
 tar -jxvf hdf5-1.8.17.tar.bz2
 cd hdf5-1.8.17
 ./configure && make && sudo make install
-{% endhighlight %}
+```
 
 {:.notice}
 Depending on your operating system and version, you may need to install `libhdf5-dev` package separately to avoid fatal `No such file or directory` errors for various header files (we heard complaints from Debian and Ubuntu users).
@@ -140,9 +176,9 @@ Depending on your operating system and version, you may need to install `libhdf5
 
 To install centrifuge, you need to first decide where you want to put all its files on your disk. It could be a directory under `/opt`, or `/usr/local`, or somewhere under your user directory, in case you don't have superuser access on the machine you are working on. Once you know where, open a terminal and set an environment variable to point the base directory you want to keep all centrifuge files:
 
-{% highlight bash %}
+``` bash
 $ export CENTRIFUGE_BASE="/path/to/a/directory"
-{% endhighlight %}
+```
 
 Do not forget to make sure your version of `/path/to/a/directory` is a full path, and starts with a `/` character.
 
@@ -151,52 +187,52 @@ More on the "**full path**" thingy: Let's say I want to put all centrifuge relat
 
 Then you will get the code, and compile it:
 
-{% highlight bash %}
+``` bash
 cd $CENTRIFUGE_BASE
 git clone https://github.com/infphilo/centrifuge
 cd centrifuge
 git checkout 30e3f06ec35bc83e430b49a052f551a1e3edef42
 make
-{% endhighlight %}
+```
 
 This compiles everything, but does not install anything. To make sure binary files are available directly, you can run this:
 
-{% highlight bash %}
+``` bash
 $ export PATH=$PATH:$CENTRIFUGE_BASE/centrifuge
-{% endhighlight %}
+```
 
 If everything is alright so far, this is what you should see if you run the following command:
 
-{% highlight bash %}
+``` bash
 $ centrifuge --version | head -n 1
 centrifuge-class version v1.0.1-beta-27-g30e3f06ec3
-{% endhighlight %}
+```
 
 Good? Good. If it does not work, it means you made a mistake with your path variables. If it worked, it means you are golden, and now you should add those two lines in your `~/.bashrc` or `~/.bash_profile` file (whichever one is being used on your system, most likely `~/.bash_profile` will work) to make sure it is set in your environment every time you start a new terminal (clearly with the right full path):
 
-{% highlight bash %}
+``` bash
 export CENTRIFUGE_BASE="/path/to/a/directory"
 export PATH=$PATH:$CENTRIFUGE_BASE/centrifuge
-{% endhighlight %}
+```
 
 You can test whether you managed to do this right by opening a new terminal, and typing `centrifuge --version`. Did it work? Good. Then you set your environment variables right.
 
 Now you have a working centrifuge installation. But not databases to do anything with. For that, you will need to download pre-computed indexes (unless you want to go full Voldemort and compile your own indexes). The compressed indexes for Bacteria, Viruses, Human genome is 6.3 Gb, and it will take about 9 Gb on your disk uncompressed. You will download this data and unpack it only for once:
 
-{% highlight bash %}
+``` bash
 $ cd $CENTRIFUGE_BASE
 $ wget ftp://ftp.ccb.jhu.edu/pub/infphilo/centrifuge/data/p+h+v.tar.gz
 $ tar -zxvf p+h+v.tar.gz && rm -rf p+h+v.tar.gz
-{% endhighlight %}
+```
 
 If everything went alright, you should see something similar to this when you run the following command:
 
-{% highlight bash %}
+``` bash
 $ ls -lh $CENTRIFUGE_BASE/p+h+v/*cf
 -rw-r--r--   6.5G Feb 15 13:18 $CENTRIFUGE_BASE/p+h+v/p+h+v.1.cf
 -rw-r--r--   2.3G Feb 15 13:18 $CENTRIFUGE_BASE/p+h+v/p+h+v.2.cf
 -rw-r--r--   1.4M Feb 15 13:18 $CENTRIFUGE_BASE/p+h+v/p+h+v.3.cf
-{% endhighlight %}
+```
 
 Good? Good! See? You are totally doing this!
 
@@ -204,11 +240,11 @@ Good? Good! See? You are totally doing this!
 
 [MCL](http://www.micans.org/mcl/index.html?sec_software) is "*a fast and scalable unsupervised cluster algorithm for graphs based on simulation of (stochastic) flow in graphs*", developed by [Stijn van Dongen](http://micans.org/stijn/). If when you type `mcl --version` in your terminal, if you are seeing `mcl 14-137` as an output, you are golden. Otherwise you can install it the following way:
 
-{% highlight bash %}
+``` bash
  $ wget http://www.micans.org/mcl/src/mcl-14-137.tar.gz
  $ tar -zxvf mcl-14-137.tar.gz && cd mcl-14-137
  $ ./configure && make && sudo make install
-{% endhighlight %}
+```
 
 Once you are done, you should get a simple usage statement instead of a command not found error when you type `mcl` in your terminal. If that is the case, you are done.
 
@@ -230,32 +266,32 @@ To install `eggnog-mapper` you first need to get the source code, and then you w
 
 First, you need to decide where do you want to put `eggnog-mapper` and its databases (you will need to change that `/path/to/a/directory` line to wherever you want on your disk):
 
-{% highlight bash %}
+``` bash
 $ export EGGNOG_MAPPER_BASE="/path/to/a/directory"
-{% endhighlight %}
+```
 
 Here is how you get the code:
 
-{% highlight bash %}
+``` bash
 $ cd $EGGNOG_MAPPER_BASE
 $ git clone https://github.com/jhcepas/eggnog-mapper.git
 $ cd eggnog-mapper/
 $ git checkout tags/0.12.6
 $ export PATH=$PATH:$EGGNOG_MAPPER_BASE/eggnog-mapper
-{% endhighlight %}
+```
 
 At this point if you run this command, you should get the following output:
 
-{% highlight bash %}
+``` bash
 $ emapper.py --version
 emapper-0.12.6
-{% endhighlight %}
+```
 
 If all is good, now you can download the databases. Which databases you are going to be downloading is up to you (which will not only affect the disk space you need, but also the runtime to screen your genes). Here I will download everything (because I have time _and_ space):
 
-{% highlight bash %}
+``` bash
 $ download_eggnog_data.py euk bact arch viruses -y
-{% endhighlight %}
+```
 
 This will take a long *very* long time mostly due to large I/O overhead to decompress some of the databases with large numbers of smaller files (so do not forget to start the process in a `screen`), but fortunately you will not do it again.
 
@@ -263,10 +299,10 @@ If you are here, you have the basic setup done. Congratulations.
 
 As a very final step, you should add these two lines in your `~/.bashrc` or `~/.bash_profile` file (whichever one is being used on your system, most likely `~/.bash_profile` will work) to make sure they are set in your environment every time you start a new terminal (don't forget to update the directory name):
 
-{% highlight bash %}
+``` bash
 export EGGNOG_MAPPER_BASE="/path/to/a/directory"
 export PATH=$PATH:$EGGNOG_MAPPER_BASE/eggnog-mapper
-{% endhighlight %}
+```
 
 ## muscle
 
@@ -278,7 +314,7 @@ Anvi'o uses muscle to align amino acid sequences within each protein cluster whi
 
 If you were successful, this is what you should see when you type `muscle` in your terminal:
 
-{% highlight bash %}
+``` bash
 $ muscle -version
 MUSCLE v3.8.31 by Robert C. Edgar
-{% endhighlight %}
+```
