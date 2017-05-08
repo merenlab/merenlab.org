@@ -110,7 +110,7 @@ When you run this command, `anvi-gen-contigs-database` will,
 
 * **Compute k-mer frequencies** for each contig (the default is `4`, but you can change it using `--kmer-size` parameter if you feel adventurous).
 
-* **Soft-split contigs** longer than 20,000 kbp into smaller ones (you can change the split size using the `--split-length`). When gene calling step is not skipped, the process splitting contigs will consider where genes are and avoid cutting genes in the middle. For very very large assemblies this process can take a while, and you can skip it with `--skip-mindful-splitting` flag.
+* **Soft-split contigs** longer than 20,000 bp into smaller ones (you can change the split size using the `--split-length`). When gene calling step is not skipped, the process splitting contigs will consider where genes are and avoid cutting genes in the middle. For very very large assemblies this process can take a while, and you can skip it with `--skip-mindful-splitting` flag.
 
 * **Identify open reading frames** using [Prodigal](http://prodigal.ornl.gov/), the bacterial and archaeal gene finding program developed at Oak Ridge National Laboratory and the University of Tennessee. If you don't want gene calling to be done, you can use the flag `--skip-gene-calling` to skip it. If you have your *own* gene calls, you can provide them to be used to identify where genes are in your contigs. All you need to do is to use the parameter `--external-gene-calls` (see down below for the format).
 
