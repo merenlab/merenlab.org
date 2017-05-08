@@ -23,7 +23,10 @@ Sure there are some pretty safe ones that you can rationalize to yourself with s
 
 I've certainly sent my fair share of emails to the team asking to clarify a view I thought I had pinned down, and in some cases it turned out I was slightly (or completely) wrong. So the last time I was in the same city as Meren, I made sure he went over these with me, several times, in painstakingly repetitive detail for him I'm sure :). But I convinced him it was worth his time to do so by saying I'd make a blog post about it to hopefully help others too.
 
-So first here's a quick reference table, and after that I'll try to highlight some of the nuances in more detail and give examples where each can be particularly useful:
+So first here's a quick reference table, and after that I'll try to highlight some of the nuances in more detail and give examples where each can be particularly useful.
+
+{:.notice}
+For contigs larger than a certain size (20,000 bp by default), anvi'o splits these into smaller fragments it aptly identifies as 'splits' – for reasons discussed in the [original paper](https://peerj.com/articles/1319/). Technically, all of the interactive 'views' act on the 'split' level if a contig was split, and the contig level if it wasn't split. For simplicity's sake within this document, you will see 'contig', but that's referring to whatever the leaf you are looking at happens to be. 
 
 |View|Value|
 |:---|:---|
