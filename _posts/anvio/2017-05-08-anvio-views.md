@@ -13,7 +13,7 @@ authors: [mike]
 {% capture images %}{{site.url}}/images/anvio/2017-05-06-anvio-views{% endcapture %}
 
 
-![Workshop]({{images}}/views.png)
+![views]({{images}}/views.png)
 
 ## Mike's preface
 
@@ -56,7 +56,7 @@ Calculated the same as mean coverage, except only incorporating those nucleotide
 
 Detection gives you an idea of how much of the contig actually recruited reads to it. The utility of this is most clearly demonstrated with the following figure. Sample_1 and Sample_2 may have the same mean coverage (say ~50x). However, Sample_1's detection would be 1.0 (as all nucleotides in the contig are covered by at least one read), while Sample_2's detection would be ~0.5. From the main interactive interface, mean coverage would appear to be consistent between these contigs. But the detection view would show you at a glance that something funny is going on that probably needs a closer look. 
 
-![Workshop]({{images}}/detection.png){:.center-img .width-80}
+![detection]({{images}}/detection.png){:.center-img .width-80}
 
 ### Abundance
 
