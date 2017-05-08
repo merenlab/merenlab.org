@@ -54,7 +54,7 @@ $ anvi-get-dna-sequences-for-gene-calls -c CONTIGS.db -o gene-calls.fa
 Then you will run the following command:
 
 {% highlight bash %}
-$ centrifuge -f -x $CENTRIFUGE_BASE/b+h+v/b+h+v gene-calls.fa -S centrifuge_hits.tsv
+$ centrifuge -f -x $CENTRIFUGE_BASE/p+h+v/p+h+v gene-calls.fa -S centrifuge_hits.tsv
 {% endhighlight %}
 
 {:.notice}
