@@ -52,13 +52,13 @@ anvi-interactive -p profile.db \
 
 <div style="margin-left:50px;" markdown="1">
 ```bash
-# download the data
+# download the merged anvi'o profile for the study
 wget https://ndownloader.figshare.com/files/7879024 -O ANVIO-FMT-D-R01-R02-MERGED-PROFILE.tar.gz
 
-# unpack it and get into the directory
+# unpack the archive, and get into the directory
 tar -zxvf ANVIO-FMT-D-R01-R02-MERGED-PROFILE.tar.gz && cd ANVIO-FMT-D-R01-R02-MERGED-PROFILE
 
-# take a look at what's in the MAGs collection
+# take a look at the MAGs stored in the profile
 anvi-script-get-collection-info -p PROFILE.db -c CONTIGS.db -C MAGs
 Auxiliary Data ...............................: Found: CONTIGS.h5 (v. 1)
 Contigs DB ...................................: Initialized: CONTIGS.db (v. 8)
@@ -73,10 +73,18 @@ FMT-Donor_MAG_00041 :: PC: 89.80%, PR: 3.63%, N: 282, S: 2,471,626, D: bacteria 
 FMT-Donor_MAG_00010 :: PC: 100.00%, PR: 4.38%, N: 224, S: 3,125,246, D: bacteria (1.04)
 (...)
 
-# visualize and study one bin:
+# pick one, and visualize it interactively
 anvi-refine -p PROFILE.db -c CONTIGS.db -C MAGs -b FMT-Donor_MAG_00054
 
+# which should play out just like in the following video
 ```
+</div>
+
+<div style="margin-left:50px;" markdown="1">
+
+This is what you should see after entering the last command in your terminal:
+
+<div style="position:relative;height:0;padding-bottom:75.0%"><iframe src="https://www.youtube.com/embed/DCQIIPjT8Bo?ecver=2" width="480" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
 </div>
 
 * [https://doi.org/10.6084/m9.figshare.4793761](https://doi.org/10.6084/m9.figshare.4793761){:target="_blank"}: Individual anvi'o profiles for the occurrence of each the FMT donor MAG across 151 HMP gut metagenomes (for each MAG gives access to the information shown in **panel d** in the figure above).
