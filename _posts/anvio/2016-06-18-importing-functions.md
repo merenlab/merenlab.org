@@ -34,7 +34,7 @@ When you import your gene calls you get more comprehensive outputs during summar
 
 ## Simple matrix
 
-This is the simplest way to get the functional annotation of genes into avni'o. The TAB-delimited input matrix should follow this format:
+This is the simplest way to get the functional annotation of genes into anvi'o. The TAB-delimited input matrix should follow this format:
 
 |gene_callers_id|source|accession|function|e_value|
 |:--|:--:|:--:|:--|:--:|
