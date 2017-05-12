@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Notes on Genome Refinement"
+title: "Notes on genome refinement with anvi'o"
 excerpt: "More than just completion and redundancy estimates"
 modified: 2017-05-11
 tags: [refinement]
