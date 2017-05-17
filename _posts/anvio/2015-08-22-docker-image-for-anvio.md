@@ -141,7 +141,7 @@ If you would like to rebuild the Docker image for anvi'o on your own server, you
 git clone --recursive https://github.com/meren/anvio.git
 cd anvio
 git checkout tags/v2.3.2
-wget https://gist.githubusercontent.com/meren/65b1f1bfea1b53e87e10f025d1e4c29a/raw/7dbead7a7a3ae2083668075b6d4c1e99598412ff/Dockerfile_v2.3.2.sh -O Dockerfile
+wget https://gist.githubusercontent.com/meren/65b1f1bfea1b53e87e10f025d1e4c29a/raw/20994a6f0d47d64170f351f2c861c48d9be43fc1/Dockerfile_v2.3.2.sh -O Dockerfile
 ```
 
 Add/remove things you want, do your changes in the code, and build the new docker image (replace the username and tag with your preferences):
