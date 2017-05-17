@@ -8,7 +8,7 @@ categories: [miscellaneous]
 comments: true
 authors: [meren]
 image:
-  feature: http://merenlab.org/mages/miscellaneous/2017-05-17-anvio-workshop-at-jgi/flyer.png
+  feature: http://merenlab.org/images/miscellaneous/2017-05-17-anvio-workshop-at-jgi/flyer.png
   display: false
 ---
 
