@@ -9,7 +9,7 @@ comments: true
 authors: [antti]
 ---
 
-{% capture images %}{{site.url}}/images/2017-05-17-working-with-prokka{% endcapture %}
+{% capture images %}{{site.url}}/images/2017-05-18-working-with-prokka{% endcapture %}
 
 {% include _toc.html %}
 
