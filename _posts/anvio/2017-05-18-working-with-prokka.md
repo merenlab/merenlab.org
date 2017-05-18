@@ -74,7 +74,7 @@ Next step is the parsing.
 From within your anvi'o virtual environment, you can run the following command line to generate the two output files, `gene_calls.txt` and `gene_annot.txt`:
 
 ``` bash
- $ python2 gff_parser.py PROKKA/PROKKA.gff \
+ $ python gff_parser.py PROKKA/PROKKA.gff \
                          --gene-calls gene_calls.txt \
                          --annotation gene_annot.txt
 ```
