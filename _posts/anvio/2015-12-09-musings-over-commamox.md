@@ -453,7 +453,7 @@ Nitrospira-Wagner	1788424,1788451,1788457
 Then I called `anvi-report-linkmers`:
 
 {% highlight bash %}
-$ anvi-report-linkmers -P AmoC-1735-variable-pos.txt -i BAMs/*.bam -o AmoC-1735-linkmers.txt --only-complete-links
+$ anvi-report-linkmers --contigs-and-positions AmoC-1735-variable-pos.txt -i BAMs/*.bam -o AmoC-1735-linkmers.txt --only-complete-links
 
 Working on 'ENR4-A'
 =====================================
