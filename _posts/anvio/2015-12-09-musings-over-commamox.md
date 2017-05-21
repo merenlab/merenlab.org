@@ -78,9 +78,9 @@ In the following sections I will write about my journey in this dataset while I 
 
 I used the v2 clade of anvi'o for all these analyses, which is not available as a stable distribution yet, but you still can install it through [our github repository](https://github.com/meren/anvio/) following the [installation instructions]({% post_url anvio/2016-06-26-installation-v2 %}) for "semi-pro" mode. You can find the essential anvi'o files [here](http://dx.doi.org/10.6084/m9.figshare.1621535) if you would like to reproduce any of the command lines in this text. For instance you can start with this one, which will start the interactive anvi'o environment:
 
-{% highlight bash %}
+``` bash
 $ anvi-interactive -p PROFILE.db -c CONTIGS.db --state state
-{% endhighlight %}
+```
 
 
 ## A quick look at the assembled *Nitrospira* genome
@@ -152,8 +152,12 @@ One of the highly variable regions across the genome overlap with the region tha
 
 A quick inspection indicates the presence of CRISPR-associated proteins, so I decide to highlight all CRISPR-associated genes on this view. I go back to my terminal, and type this to search for all functions that contains the term "CRISPR":
 
-{% highlight bash %}
-$ anvi-search-functions-in-splits -c CONTIGS.db -o CRISPR-SPLITS.txt --verbose --search CRISPR
+``` bash
+$ anvi-search-functions-in-splits -c CONTIGS.db \
+                                  -o CRISPR-SPLITS.txt \
+                                  --verbose \
+                                  --search CRISPR
+
 Contigs DB ...................................: Initialized: CONTIGS.db (v. 4)
 Search terms .................................: 1 found
 Matches ......................................: 25 unique gene calls contained the search term "CRISPR"
@@ -187,13 +191,13 @@ TIGR02619: putative CRISPR-associated protein, APE2256 family
 CRISPR-associated protein (Cas_Csd1)
 
 Additional metadata compatible output ........: CRISPR-SPLITS.txt
-{% endhighlight %}
+```
 
 This search generates a matrix file that shows where are all these CRISPR-associeated genes. I restart the interactive interface with this additional information:
 
-{% highlight bash %}
+``` bash
 $ anvi-interactive -p PROFILE.db -c CONTIGS.db -A CRISPR-SPLITS.txt
-{% endhighlight %}
+```
 
 <div class="centerimg">
 <a href="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/crisprs.png"><img src="{{ site.url }}/images/anvio/2015-12-03-musings-over-commamox/crisprs.png" /></a>
@@ -292,14 +296,19 @@ The critical question is this: Where did the reads that did not map here go? Cou
 
 To identify which regions of the genome I should be looking for those other copies, I did a quick search using `anvi-search-functions-in-splits`:
 
-{% highlight bash %}
-$ anvi-search-functions-in-splits -c CONTIGS.db --search-terms "CH4_NH3mon_ox_C" -o AmoC-hits.txt --delimiter '!' --full-report AmoC-report.txt
+``` bash
+$ anvi-search-functions-in-splits -c CONTIGS.db \
+                                  --search-terms "CH4_NH3mon_ox_C" \
+                                  -o AmoC-hits.txt \
+                                  --delimiter '!' \
+                                  --full-report AmoC-report.txt
+
 Contigs DB ...................................: Initialized: CONTIGS.db (v. 4)
 Search terms .................................: 1 found
 Matches ......................................: 3 unique gene calls contained the search term "CH4_NH3mon_ox_C"
 Full report ..................................: AmoC-report.txt
 Additional metadata compatible output ........: AmoC-hits.txt
-{% endhighlight %}
+```
 
 One of the output files, `AmoC-report.txt` shows the IDs of these three genes in the anvi'o contigs database for *Candidatus* Nitrospira inopinata, and split IDs that carry the gene:
 
@@ -317,22 +326,25 @@ Inspecting splits 368, 606, and 895 showed that the drop in coverage for AmoC is
 
 To see which of the two are identical, I asked anvi'o to give me back the sequences for all these three AmoC genes from the genome:
  
-{% highlight bash %}
-$ anvi-get-dna-sequences-for-gene-calls -c CONTIGS.db -o AmoC-sequences.fa --gene-caller-ids 709,1735,1184 --wrap 0
+``` bash
+$ anvi-get-dna-sequences-for-gene-calls -c CONTIGS.db \
+                                        -o AmoC-sequences.fa \
+                                        --gene-caller-ids 709,1735,1184 \
+                                        --wrap 0
 Contigs DB ...................................: Initialized: CONTIGS.db (v. 4)
 Output .......................................: AmoC-sequences.fa
-{% endhighlight %}
+```
 
 The output file is a simple FASTA file:
 
-{% highlight bash %}
+``` bash
 >709|contig:Nitrospira-Wagner|start:734744|stop:735554|direction:r|rev_compd:True|length:810
 ATGGCGGCAGAGCGGGGGTATGACATTTCGCAGTGGTATGATTCGCGGCCGTGGAAGATTGGGTGGTTTGCGATGTTGGCGATTGG (...)
 >1735|contig:Nitrospira-Wagner|start:1788101|stop:1788911|direction:f|rev_compd:False|length:810
 ATGGCGGCAGAGCGGGGCTATGACATTTCGCAGTGGTATGATTCGCGGCCGTGGAAGATTGGGTGGTTTGCGATGTTGGCGATTGG (...)
 >1184|contig:Nitrospira-Wagner|start:1211671|stop:1212481|direction:f|rev_compd:False|length:810
 ATGGCGGCAGAGCGGGGCTATGACATTTCGCAGTGGTATGATTCGCGGCCGTGGAAGATTGGGTGGTTTGCGATGTTGGCGATTGG (...)
-{% endhighlight %}
+```
 
 Just to make sure we are on the right track, here is the alignment of all three:
 
@@ -445,15 +457,18 @@ It is as if reads that must have been mapped to the context of AmoC-709-in-split
 
 For an oligotyping analysis one can ask anvi'o to report back all short reads in a BAM file that cover each nucleotide position of interest (of course the maximum distance of these nucleotide positions should be smaller than the length of the short reads). For this I created a TAB-delimited file with the contig name I am interested in, and the nucleotide positions I recovered using the gene start position (see the figure above):
 
-{% highlight bash %}
+``` bash
 $ cat AmoC-1735-variable-pos.txt
 Nitrospira-Wagner	1788424,1788451,1788457
-{% endhighlight %}
+```
 
 Then I called `anvi-report-linkmers`:
 
-{% highlight bash %}
-$ anvi-report-linkmers --contigs-and-positions AmoC-1735-variable-pos.txt -i BAMs/*.bam -o AmoC-1735-linkmers.txt --only-complete-links
+``` bash
+$ anvi-report-linkmers --contigs-and-positions AmoC-1735-variable-pos.txt \
+                       -i BAMs/*.bam \
+                       -o AmoC-1735-linkmers.txt \
+                       --only-complete-links
 
 Working on 'ENR4-A'
 =====================================
@@ -491,7 +506,7 @@ num_contigs_in_bam .................: 1
 data ...............................: 715 entries identified mapping at least one of the nucleotide positions for "Nitrospira-Wagner"
 data ...............................: 214 unique reads that covered all positions were kept
 output_file ........................: AmoC-1735-linkmers.txt
-{% endhighlight %}
+```
 
 This program returns a very elaborate description of each nucleotide for each position coming from reads that are mapping to all positions described in the input file. Here is a small snippet from my result:
 
@@ -526,13 +541,13 @@ This program returns a very elaborate description of each nucleotide for each po
 
 Although it is not so easy to make sense of this rich output, luckily there is another program to process this information:
 
-{% highlight bash %}
+``` bash
 $ anvi-oligotype-linkmers -i AmoC-1735-linkmers.txt
 
 Oligotyping outputs per request
 ===============================================
 Output .......................................: oligotype-counts-001.txt
-{% endhighlight %}
+```
 
 Here is our answer:
 
@@ -561,8 +576,12 @@ It is clear that reads identified by oligotype CCG seem to be more fitting to Am
 
 To test this, I asked anvi'o to give me all the short reads from ENR4-A.bam that are mapped to AmoC-1735-in-split-895:
 
-{% highlight bash %}
-$ anvi-get-short-reads-mapping-to-a-gene --gene-caller-id 1735 -c CONTIGS.db -i BAMs/ENR4-A.bam -o ENR4-A-reads-mapping-to-1735.fa
+``` bash
+$ anvi-get-short-reads-mapping-to-a-gene --gene-caller-id 1735 \
+                                         -c CONTIGS.db \
+                                         -i BAMs/ENR4-A.bam \
+                                         -o ENR4-A-reads-mapping-to-1735.fa
+                                         
 Contigs DB ...................................: Initialized: CONTIGS.db (v. 4)
 Contig .......................................: Nitrospira-Wagner
 Gene id ......................................: 1,735
@@ -580,32 +599,38 @@ total_reads_mapped ...........................: 6,634,027
 num_contigs_in_bam ...........................: 1
 data .........................................: 1384 reads identified mapping between positions 1788202 and 1788811 in "Nitrospira-Wagner"
 output_file ..................................: ENR4-A-reads-mapping-to-1735.fa
-{% endhighlight %}
+```
 
 There I have the 1,384 reads that maps to this gene. Next, I created a FASTA file with only the two unique sequences of three AmoC:
 
-{% highlight bash %}
-$ anvi-get-dna-sequences-for-gene-calls -c CONTIGS.db -o AmoC-unique-sequences.fa --gene-caller-ids 709,1735
-{% endhighlight %}
+``` bash
+$ anvi-get-dna-sequences-for-gene-calls -c CONTIGS.db \
+                                        -o AmoC-unique-sequences.fa \
+                                        --gene-caller-ids 709,1735
+```
 
 Then used blastn to BLAST all 1,384 reads Bowtie2 aligned to the context of AmoC-1735-in-split-895 against the two competing AmoC sequences by asking a minimum of 99.25% sequence identity. I hope it is clear that if Bowtie2 made a mistake, almost half of these reads should best match to AmoC-709-in-split-368. 
 
-{% highlight bash %}
+``` bash
 $ makeblastdb -in AmoC-unique-sequences.fa -dbtype nucl
-$ blastn -query ENR4-A-reads-mapping-to-1735.fa -db AmoC-unique-sequences.fa -out output.b6 -outfmt '6' -perc_identity 99.25
+$ blastn -query ENR4-A-reads-mapping-to-1735.fa \
+         -db AmoC-unique-sequences.fa \
+         -out output.b6 \
+         -outfmt '6' \
+         -perc_identity 99.25
 $ wc -l output.b6
      378 output.b6
-{% endhighlight %}
+```
 
 BLASTing gave back 378 unique hits (I made sure manually that they're all unique). The rest of the reads hit below 99.25% most probably due to sequencing errors, which is not surprising given the 300 nts length of these reads I used for this step.
 
 When I took a look at the distribution of best hits, it was clear that Bowtie2 did a good job at finding the best position for almost all of them, as blastn agreed that the vast majority of reads ended up in the context of AmoC-1735-in-split-895 because there really was no other place for them to go:
 
-{% highlight bash %}
+``` bash
 $ awk '{print $2}' output.b6 | awk 'BEGIN{FS="|"}{print $1}' | sort | uniq -c
  373 1735
    5 709
-{% endhighlight %}
+```
 
 So it goes.
 
