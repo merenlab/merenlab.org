@@ -7,6 +7,9 @@ modified: 2017-05-21
 tags: [tara, binning]
 categories: [miscellaneous]
 comments: true
+image:
+  feature: http://merenlab.org/images/miscellaneous/2017-05-21-thousand-genomes-from-tara/Figure_03.png
+  display: false
 ---
 
 {% include _toc.html %}
