@@ -21,7 +21,11 @@ I dedicate this post to (1) all persons involved in the TARA Oceans project, arg
 
 It is time to disclose some aspects of a bioinformatics journey that started as a little side project and was completed 20 months later with __the characterization of more than a [thousand population-level microbial genomes](http://biorxiv.org/content/early/2017/04/23/129791) from the surface of oceans and seas without the need for cultivation__. The fact that microbial populations in the surface ocean play a critical role in climate but for the most part remain uncultured suggests __this database might be relevant to microbial oceanography__. Besides, this journey has influenced our metagenomic binning workflow, and we now have better ways to [handle "very" large metagenomic assembly outputs](http://merenlab.org/data/2017_Delmont_et_al_HBDs/).
 
-The topic of this blog post behind fully introduced, you can either relive this bioinformatics journey on my side, or watch this cute video of [a research vessel expedition across Antarctica](https://www.youtube.com/watch?v=Y8_CR1ypw0A). This is a early way out for the procrastinators :)
+Here is a __word cloud of the blog__:
+
+[![image]({{images}}/Figure_00.png)]({{images}}/Figure_00.png){:.center-img .width-60}
+
+With the topic of this blog post now introduced, you can either continue reading and relive this bioinformatics journey as viewed from my perspective, or watch this cute video of [a research vessel expedition across Antarctica](https://www.youtube.com/watch?v=Y8_CR1ypw0A). This is a early way out for the procrastinators :)
 
 ## The TARA Oceans project provided a challenging dataset for metagenomic binning
 
@@ -35,13 +39,16 @@ At the time, the analysis and visualization platform [anvi'o](http://merenlab.or
 
 We downloaded 93 TARA Oceans metagenomes, which after quality control provided a total of __30.9 billion reads of 100 nucleotides__. They cover the surface of the Mediterranean Sea, Red Sea, Atlantic Ocean, Indian Ocean, Pacific Ocean and Southern Ocean. Note that we released a [document](http://merenlab.org/data/2017_Delmont_et_al_HBDs/) describing our entire bioinformatics workflow, starting from the download of these metagenomes.
 
-How can one take best advantage of nearly 31 billion reads from the surface ocean? A single metagenomic co-assembly using the entire dataset is a very memory consuming option, even on a large server. In addition, it would lead to a highly complex puzzle to solve, with the mixing of closely related genomes that might not overlap in their niche partitioning. Thus, we decided to __perform 12 independent co-assemblies__ based on the geographic coordinates of metagenomes. The rationale of doing this was that metagenomes originating from the same geographic region (e.g., the Mediterranean Sea) were more likely to overlap in the sequence space, increasing the mean coverage (and hence the extent of reconstruction) of microbial genomes during the co-assembly.
+How can one best take advantage of nearly 31 billion reads from the surface ocean? A single metagenomic co-assembly using the entire dataset is a very memory consuming option, even on a large server. In addition, it would lead to a highly complex puzzle to solve, with the mixing of closely related genomes that might not overlap in their niche partitioning. Thus, we decided to __perform 12 independent co-assemblies__ based on the geographic coordinates of metagenomes. The rationale of doing this was that metagenomes originating from the same geographic region (e.g., the Mediterranean Sea) were more likely to overlap in the sequence space, increasing the mean coverage (and hence the extent of reconstruction) of microbial genomes during the co-assembly.
 
 Here are the 12 geographic regions we used:
 
 [![image]({{images}}/Figure_01.png)]({{images}}/Figure_01.png){:.center-img .width-60}
 
-__We generated 2.6 million scaffolds >2.5 kbp__ from the 12 geographically bound co-assemblies. In the following months, our failures and few successes at processing these scaffolds have pushed the boundaries of anvi'o and shaped our binning workflow in many ways. In particular, __we have dramatically improved the [efficiency of profiling](http://merenlab.org/2017/03/07/the-new-anvio-profiler/)__ to cope with large assembly outputs, and minimized steps during manual binning for an optimal user experience. In addition, we also developed a strategy to __combine binning results from multiple co-assemblies while removing genomic redundancies__ (thanks, Alon!). Finally, Meren found enough time and energy to create a long awaited program (lacking inspiration, he called it `anvi-split`) to generate self-contained anvi'o files focused on individual bins for targeted analyses, visualizations and sharing of genomic data. 
+
+__We generated 2.6 million scaffolds >2.5 kbp__ from the 12 geographically bound co-assemblies. Note that the assemblies were performed on a large server Christopher Quince granted us access to. One easy way to deal with these scaffolds would be to run an automatic binning algorithm in order to generate bins. Automatic binning is trendy and has been used to support the analysis of many metagenomic surveys in the past few years. However, while these algorithms are often described as highly accurate, we found that they all make evident mistakes, even when running on very simple metagenomic datasets. You can visit this [anvi'o tutorial](http://merenlab.org/tutorials/infant-gut/) to learn more about this problem. As a result, we had no choice but to take the hard road of manually binning these 12 large metagenomic assembly outputs...
+
+In the following months, our failures and few successes at processing these scaffolds have pushed the boundaries of anvi'o and shaped our manual binning workflow in many ways. In particular, __we have dramatically improved the [efficiency of scaffolds profiling](http://merenlab.org/2017/03/07/the-new-anvio-profiler/)__ to cope with large assembly outputs and minimized steps during manual binning for an optimal user experience. In addition, we also developed a strategy to __combine binning results from multiple co-assemblies while removing genomic redundancies__ (thanks, Alon!). Finally, Meren found enough time and energy to create a long awaited program (lacking inspiration, he called it `anvi-split`) to generate self-contained anvi'o files focused on individual bins for targeted analyses, visualizations and sharing of genomic data. 
 
 Eventually, I manually characterized 30,244 bins with minimal redundancy in single-copy genes. This describes pretty well how I felt when starting the manual binning for the first geographic region (it was the Mediterranean Sea), and after completion of the binning and curation effort nearly one year later:
 
@@ -50,9 +57,9 @@ Eventually, I manually characterized 30,244 bins with minimal redundancy in sing
 
 ## We characterized and curated more than one thousand MAGs
 
-While most of the bins were relatively small, a subset appeared to represent high-completion microbial genomes. Overall, we determined and curated a database of 1,077 metagenome-assembled genomes (MAGs) from the pool of bins. This is the first time we reached to the symbolic number of 1,000 genomes in a single project, but we anticipate this to become more and more common in the years to come.
+While most of the bins were relatively small, a subset appeared to represent large pieces of microbial genomes. Overall, I identified and curated a database of 1,077 metagenome-assembled genomes (MAGs) from the pool of bins. Note that although a labor-intensive step, we consider curation to be critical to the binning workflow, and recommend people not to skip it. For this project (and many others), I used the anvi'o program `anvi-refine`, which offers an holistic interactive interface to visualize and manipulate scaffolds in the context of various layers of information, as described in this [blog](http://merenlab.org/2015/05/11/anvi-refine/), this [blog](http://merenlab.org/2015/06/25/screening-cultivars/), this [blog](http://merenlab.org/2017/05/11/anvi-refine-by-veronika/), ah, and also this [blog](http://merenlab.org/2017/01/03/loki-the-link-archaea-eukaryota/)! Yes, we like blogs very much. This is the first time we have reached the iconic number of 1,000 high-quality MAGs in a single project, and we anticipate this to become more and more common in the years to come.
 
-We analyzed the MAGs and soon realized that some of them where highly similar (with an Average Nucleotide Identity reaching in some cases to 99.99% over most of the genomic length). Of course, this occurred only between MAGs characterized from different co-assemblies, as this level of redundancy collapses within each co-assembly. After the identification of redundant MAGs (>99% ANI over 50% of the genomic length), we built a final __non-redundant database of 957 MAGs__ (120 MAGs defined as redundant were then only used as genomic replicates). In our first preprint describing this database, the Figure 1 displays the number of non-redundant MAGs we characterized for each of the 12 geographic region:
+We analyzed the MAGs and soon realized that some of them where highly similar (with an Average Nucleotide Identity reaching in some cases to 99.99% over most of the genomic length). Of course, this occurred only between MAGs characterized from different co-assemblies, as this level of redundancy collapses within each co-assembly. After the identification of redundant MAGs (requirement: >99% ANI over 50% of the genomic length and Pearson correlation >0.9), we built a final __non-redundant database of 957 MAGs__ (120 MAGs defined as redundant were then only used as genomic replicates). In our first preprint describing this database, Figure 1 displays the number of non-redundant MAGs we characterized for each of the 12 geographic regions:
  
 [![image]({{images}}/Figure_03.png)]({{images}}/Figure_03.png){:.center-img .width-60}
 
@@ -63,9 +70,10 @@ This [non-redundant database](https://figshare.com/articles/TARA-NON-REDUNDANT-M
 
 From the recruitment of reads we could determine the relative distribution of each non-redundant MAG in the 93 metagenomes, which provided assess to the niche partitioning of about a thousand microbial populations inhabiting the surface ocean. 
 
-To exemplify the results, here I displayed the geographic distribution of the five most abundant MAGs in the TARA Oceans metagenomes:
+To exemplify the results, here's a display of the geographic distribution for the five most abundant MAGs in the TARA Oceans metagenomes:
 
 [![image]({{images}}/Figure_04.png)]({{images}}/Figure_04.png){:.center-img .width-60}
+
 
 Distribution patterns offered some valuable perspectives, and indicated that many genomes were widespread and occurred in multiple regions (explaining why we identified a non-negligible number of redundant MAGs). These results (1) stress the need to minimize the importance of the coordinates marine microbial cultures are isolated from (especially for the naming of new species), and (2) suggest that in many cases dispersal limitation does not seem to play a major role in the niche partitioning of microbes in the surface of oceans and seas. 
 
@@ -73,7 +81,7 @@ Some have suggested that temperature can explain to a large extent the  communit
 
 ## Our first in depth analysis focused on nitrogen fixation
 
-In our first in depth analysis of the database, we focused on [10 non-redundant MAGs](https://www.dropbox.com/s/4ufmyg3r5n0gxw6/15_NITROGEN_FIXING_MAGs.tar.gz?dl=0) containing all the genes required to perform nitrogen fixation. Here is a brief introduction of the study:
+In our first [in depth analysis of the database](http://biorxiv.org/content/early/2017/04/23/129791), we focused on [10 non-redundant MAGs](https://www.dropbox.com/s/4ufmyg3r5n0gxw6/15_NITROGEN_FIXING_MAGs.tar.gz?dl=0) containing all the genes required to perform nitrogen fixation. Here is a brief introduction of the study:
 
 Nitrogen fixation impacts the global climate by regulating the microbial primary productivity and the sequestration of carbon through the biological pump. The current dogma is that (1) a few cyanobacterial populations are the main suppliers of the bio-available nitrogen in the surface ocean (multiple culture isolates are available), and (2) non-cyanobacterial populations able to fix nitrogen are rare but diverse (this as only been demonstrated using molecular surveys of the nitrogenase reductase gene, without genomic evidence to substantiate these observations). 
 
@@ -89,5 +97,10 @@ Overall, our analysis conflicted with past molecular surveys that relied on PCR 
 Nitrogen-fixing genomes are not the only MAGs that have catch our eyes in this database. For instance, we are now in the process of describing a new phylum ('Candidatus Tarascapha') prevalent in the surface ocean, as well as new Archaeal lineages and SAR11 clades. We also have a few other observations that might be worth exploring in greater details. However, we are trying to motivate researchers to explore various aspects of the database, with or without our help. It might take years to fully appreciate the genomic information this database entails, and we have no interest in doing so alone!
 
 All our analyses are fully available. They include the functional potential, taxonomy and geographic distribution of all the MAGs. One might be tempted to focus on a particular functional family (e.g., Proteorhodopsin), a lineage of particular interest (e.g., Micromonas), or use the entire database to develop exciting bioinformatics tools.
+
+Here is a taxonomic cloud of the database, for the curious:
+
+[![image]({{images}}/Figure_06.png)]({{images}}/Figure_06.png){:.center-img .width-60}
+
 
 Now, I have made my little contribution to the TARA Oceans project, and can move on to my other projects. You know, the ones I would have completed months ago if I did not have pursue this little side project...
