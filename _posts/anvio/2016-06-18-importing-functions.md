@@ -68,9 +68,9 @@ This is the simplest way to get the functional annotation of genes into anvi'o. 
 
 Once you have your matrix ready, this is the command line to import it:
 
-{% highlight bash %}
+``` bash
 $ anvi-import-functions -c contigs.db -i input_matrix.txt
-{% endhighlight %}
+```
 
 As you can see,
 
@@ -84,22 +84,30 @@ If the **accession** information is not available to you, it is OK to leave it b
 
 Anvi'o has a parser for [InterProScan](http://www.ebi.ac.uk/interpro/download.html). To use InterProScan you should first export AA sequences for all your gene calls:
 
-{% highlight bash %}
+``` bash
 $ anvi-get-aa-sequences-for-gene-calls -c CONTIGS.db -o protein-sequences.fa
-{% endhighlight %}
+```
 
 After running InterProScan on this file like this (assuming you have it [downloaded](http://www.ebi.ac.uk/interpro/download.html)):
 
-{% highlight bash %}
+``` bash
 $ ./interproscan.sh -i protein-sequences.fa -f tsv -o interpro-output.tsv
-{% endhighlight %}
+```
 
 You can import results into the database:
 
-{% highlight bash %}
+``` bash
 $ anvi-import-functions -c contigs.db -i interpro-output.tsv -p interproscan
-{% endhighlight %}
+```
 
 That's it!
+
+## Prokka
+
+You can use annotations produced by [Prokka](https://github.com/tseemann/prokka) with anvi'o, however, in order to do that you will need to create a new contigs database, since Prokka has to run on your contigs, and does not have a workaround to work only with gene calls. 
+
+A recipe to work with Prokka by Antti Karkman is [available here]({% post_url anvio/2017-05-18-working-with-prokka %}).
+
+## A better way?
 
 You have better / faster / more accurate ways to do it? Let us know!
