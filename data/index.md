@@ -10,7 +10,42 @@ This page serves the publicly available data mentioned in our publications, or i
 
 {% include _toc.html %}
 
-## Lee et al. (2017)
+## Delmont et al. (2017) / TARA binning
+
+{:.notice}
+**The paper itself is here:** [Nitrogen-fixing populations of Planctomycetes and Proteobacteria are abundant in the surface ocean](http://biorxiv.org/content/early/2017/04/23/129791){:target="_blank"}.
+
+{:.notice}
+[http://merenlab.org/data/2017_Delmont_et_al_HBDs/](http://merenlab.org/data/2017_Delmont_et_al_HBDs/) gives access to our **complete bioinformatics workflow**.
+
+[![MAGs](2017_Delmont_et_al_HBDs/images/Figure_01.png)](2017_Delmont_et_al_HBDs/images/Figure_01.png){:.center-img .width-50}
+
+**Public data items for the study:**
+
+* The original **TARA Oceans metagenomes** are available through the European Bioinformatics Institute ([ERP001736](https://www.ebi.ac.uk/metagenomics/projects/ERP001736)) and NCBI ([PRJEB1787](https://www.ncbi.nlm.nih.gov/sra/?term=PRJEB1787)).
+
+* [https://doi.org/10.6084/m9.figshare.4902920](https://doi.org/10.6084/m9.figshare.4902920): Our **raw assembly** outputs per region.
+
+<iframe src="https://widgets.figshare.com/articles/4902920/embed?show_title=0" width="80%" height="200" style="margin-left: 100px" frameborder="0"></iframe>
+
+* [https://doi.org/10.6084/m9.figshare.4902917](https://doi.org/10.6084/m9.figshare.4902917): All **amino acid sequences** in our raw assemblies.
+
+* [https://doi.org/10.6084/m9.figshare.4902923](https://doi.org/10.6084/m9.figshare.4902923): **FASTA files** for 957 non-redundant metagenome-assembled genomes.
+
+<iframe src="https://widgets.figshare.com/articles/4902923/embed?show_title=0" width="80%" height="200" style="margin-left: 100px" frameborder="0"></iframe>
+
+* [https://doi.org/10.6084/m9.figshare.4902941](https://doi.org/10.6084/m9.figshare.4902941): **Self contained anvi'o profiles** for each non-redundant MAG (each of which can be visualized interactively through the program `anvi-interactive` offline).
+
+<iframe src="https://widgets.figshare.com/articles/4902941/embed?show_title=0" width="80%" height="200" style="margin-left: 100px" frameborder="0"></iframe>
+
+* [https://doi.org/10.6084/m9.figshare.4902926](https://doi.org/10.6084/m9.figshare.4902926): A **static HTML output** for the anvi'o merged profile database for non-redundant MAGs (double-click the index.html file after download).
+
+* An interactive visualization for the phylogenomic analysis of 432 Proteobacteria and 43 Planctomycetes metagenome-assembled genomes from our database of 957 non-redundant MAGs is also available:
+
+[![MAGs](2017_Delmont_et_al_HBDs/images/Figure_02.png)](https://anvi-server.org/merenlab/tara_hbds){:.center-img .width-50}
+
+
+## Lee et al. (2017) / Fecal Transplants
 
 {:.notice}
 **The paper itself is here:** [Tracking microbial colonization in fecal microbiota transplantation experiments via genome-resolved metagenomics](https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-017-0270-x){:target="_blank"}.
@@ -93,7 +128,7 @@ This is what you should see after entering the last command in your terminal:
 
 
 
-## Vineis et al. (2016)
+## Vineis et al. (2016) / Pouchitis
 
 {:.notice}
 **The paper itself is here:** [Patient-Specific *Bacteroides* Genome Variants in Pouchitis](http://mbio.asm.org/content/7/6/e01713-16.full).
@@ -116,7 +151,7 @@ The anvi'o profiles article in this data collection contains 22 items:
 For an example on how to re-analyze these anvi'o profiles, please [click here]({% post_url miscellaneous/2016-11-21-bacteroides-genome-variants %}/#displaying-a-patient-metagenome-from-vineis-et-al){:target="_blank"}.
 
 
-## Delmont & Eren (2016)
+## Delmont & Eren (2016) / Tardigrade re-analysis
 
 {:.notice}
 **The paper itself is here:** [Identifying contamination with advanced visualization and analysis practices: metagenomic approaches for eukaryotic genome assemblies](https://peerj.com/articles/1839/).
@@ -153,7 +188,7 @@ For an example on how to re-analyze these anvi'o profiles, please [click here]({
 *Everything mentioned on this page can be cited using doi [10.6084/m9.figshare.2067057](https://dx.doi.org/10.6084/m9.figshare.2067057).*
 
 
-## Eren et al. (2015)
+## Eren et al. (2015) / Anvi'o
 
 {:.notice}
 **The paper itself is here:** [Anvi’o: an advanced analysis and visualization platform for ‘omics data](https://peerj.com/articles/1319/).
