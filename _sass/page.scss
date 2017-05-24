@@ -823,6 +823,8 @@ $button-size: 1.5rem;
 
 /* Table of contents */
 .toc {
+    max-height: calc(100% - 4em);
+    overflow-y: auto;
     font-size: 95%;
     box-shadow: 6px 12px 34px 7px #909090;
     margin-bottom: 40px;
