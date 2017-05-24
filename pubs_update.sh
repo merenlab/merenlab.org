@@ -1,1 +1,1 @@
-python pubs.py > publications/index.md
+python pubs.py
