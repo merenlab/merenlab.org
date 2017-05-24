@@ -7,18 +7,19 @@
 - title: People
   url: /people/
 
-- title: Publications
+- title: Pubs
   url: /publications/
 
-- title: Software
+- title: 101010
   url: /software/
+  style: "color: #d64231;"
 
 - title: Data
   url: /data/
-
-- title: Opportunities
-  url: /opportunities/
   style: "color: #ab5ba3;"
+
+#- title: Opportunities
+#  url: /opportunities/
 
 - title: Blog
   url: /posts/
