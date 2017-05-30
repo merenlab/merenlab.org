@@ -60,6 +60,10 @@ pip install virtualenv
 {:.notice}
 **Please note**, since the version `2.2.0`, anvi'o uses Python 3.
 
+{:.notice}
+**If you are using `matplotlib`** you might [run into some issues](https://matplotlib.org/faq/virtualenv_faq.html). A simple [solution](https://matplotlib.org/faq/osx_framework.html#short-version) is to use [venv](https://docs.python.org/3/library/venv.html) (which comes built-in in python 3) instead of `virtualenv`. 
+
+
 If you don't have `pip`, you will need to visit [this web page](https://pip.pypa.io/en/stable/installing/) to get it installed.
 
 If you run into any trouble, send an e-mail to [Google Groups for anvi'o](https://groups.google.com/forum/#!forum/anvio).
@@ -84,6 +88,9 @@ virtualenv ~/virtual-envs/anvio-{% include _project-anvio-version-number.html %}
 source ~/virtual-envs/anvio-{% include _project-anvio-version-number.html %}/bin/activate
 python --version
 ```
+
+{:.notice}
+If using venv, run `python3 -m venv ~/virtual-envs/anvio-{% include _project-anvio-version-number.html %}`
 
 {:.notice}
 The output of the last command must start with `Python 3`. If not, remove the virtual environment with `rm -rf ~/virtual-envs/anvio`, and find out how can you create a virtual environment for Python 3 on your system. You can try `-p python3` as a parameter to your `virtualenv` command. Or you can type `virtualenv` and _without pressing the space character_ press `TAB` key twice quickly to see if there is an alternative binary such as `virtualenv-3.5` or `virtualenv-3.5`. If not, it means Python 3 is not installed on your system.
