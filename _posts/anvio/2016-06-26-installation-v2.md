@@ -216,7 +216,7 @@ rm -rf anvio.egg-info build dist
 deactivate
 ```
 
-Then update your activation batch to add necessary environment variables (keep in mind that you need to update the `$DIR` variable with whatever it shows in your system):
+Then update your activation batch to add necessary environment variables (keep in mind that **you need to update** the `$DIR` variable with whatever it shows in your system **before running the following lines in your terminal**):
 
 
 ``` bash
@@ -234,7 +234,7 @@ source ~/.bash_profile
 Finally, if you would like to pull the latest commits from GitHub every time you switch to the `master`, add these to your activation batch (you will need to update `$DIR` once again):
 
 ``` bash
-echo 'cd $DIR && git pull && cd -' >> ~/virtual-envs/anvio-master/bin/activate
+echo 'cd $DIR/anvio && git pull && cd -' >> ~/virtual-envs/anvio-master/bin/activate
 ```
 
 You are golden.
