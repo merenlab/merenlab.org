@@ -81,7 +81,7 @@
   email: selewa@uchicago.edu
   avatar: bio-alan.jpg
   address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  bio: ""
+  bio: "I'm a graduate student in the Biophysical Sciences at UChicago. I am currently developing graphical models for assembly of genomic loci that contain hypervariable regions."
   affiliations:
     - title: Graduate Student
       inst: The Biophysical Sciences Program at the University of Chicago
@@ -91,11 +91,14 @@
   official: True
   name: Evan Kiefl
   tenure_start: 04/2017
-  role: Rotating Graduate Student
+  role: Graduate Student
+  twitter: ecneicScience
+  github: ekiefl
+  linkedin: evan-kiefl-825985b7
   email: kiefl.evan@gmail.com
   avatar: bio-evan.jpg
   address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  bio: ""
+  bio: "I am interested in uncovering how single nucleotide variants map to functional variation in the genes of naturally-occuring microbial populations."
   affiliations:
     - title: Graduate Student
       inst: The Biophysical Sciences Program at the University of Chicago
