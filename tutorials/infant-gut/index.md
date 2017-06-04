@@ -427,6 +427,249 @@ Then it is time to increase the depth of sequencing, implement a different assem
 
 We all just have to continue working, and enjoy this revolution.
 
+## Phylogenomics (MAGs)
+
+{:.notice}
+**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
+
+Please run the following command in the IGD dir, so you have everything you have the collection `merens` in most pristine condition:
+
+``` bash
+anvi-import-collection additional-files/collections/merens.txt \
+                          -p PROFILE.db \
+                          -c CONTIGS.db \
+                          -C merens \
+                          --bins-info additional-files/collections/merens-info.txt
+```
+
+At this point, you have in your anvi'o profile database a collection with multiple bins:
+
+``` bash
+$ anvi-show-collections-and-bins -p PROFILE.db
+
+Collection: "merens"
+===============================================
+Collection ID ................................: merens
+Number of bins ...............................: 13
+Number of splits described ...................: 4,451
+Bin names ....................................: Aneorococcus_sp, C_albicans, E_facealis, F_magna, L_citreum, P_acnes, P_avidum, P_rhinitidis, S_aureus, S_epidermidis, S_hominis, S_lugdunensis, Streptococcus
+```
+
+Putting genomes in a phylogenomic context is one of the common ways to compare them to each other. The common practice is to concatenate aligned sequences for single-copy core genes for each genome of interest, and generate a phylogenomic tree by analyzing the resulting alignment. For instance [PhyloSift](https://phylosift.wordpress.com/) is one of the programs that automatically does this for you when you have a bunch of genomes. While PhyloSift is very convenient and will address the needs for the majority of scientists as it automatically identifies all marker genes in genomes of interest, anvi'o offers a full control over the phylogenomic workflow by letting *you* pick the genes for a phylogenomic analysis (so there is more room for activities and losing our mental health altogether).
+
+Let's assume we want to run a phylogenomic analysis on all genome bins we have in the collection `merens` in the IGD (you may have your own collections somewhere, that is fine too).
+
+First, we need a FASTA file of concatenated genes. We will primarily use the program `anvi-get-sequences-for-hmm-hits` to get the sequences back.
+
+### Selecting genes from an HMM Profile
+
+First we need to identify an HMM profile, and then some genes described in this profile to play with.
+
+Let's start by looking at what HMM profiles available to us:
+
+``` bash
+ $ anvi-get-sequences-for-hmm-hits -c CONTIGS.db \
+                                   -p PROFILE.db \
+                                   -o seqs-for-phylogenomics.fa \
+                                   --list-hmm-sources
+                                   
+* Campbell_et_al [type: singlecopy] [num genes: 139]
+* Rinke_et_al [type: singlecopy] [num genes: 162]
+```
+
+{:.notice}
+As you know, you can use `anvi-run-hmms` program with custom made HMM profiles to add your own HMMs into the contigs database.
+
+Alright. We have two. Let's see what genes do we have in `Campbell_et_al`:
+
+``` bash
+ $ anvi-get-sequences-for-hmm-hits -c CONTIGS.db -p PROFILE.db -o seqs-for-phylogenomics.fa --hmm-source Campbell_et_al --list-available-gene-names
+ 
+* Campbell_et_al [type: singlecopy]: Arg_tRNA_synt_N, B5, CTP_synth_N, CoaE,
+Competence, Cons_hypoth95, Cytidylate_kin, DNA_pol3_beta, DNA_pol3_beta_2,
+DNA_pol3_beta_3, EF_TS, Enolase_N, FAD_syn, FDX-ACB, Flavokinase, GAD,
+GMP_synt_C, GTP1_OBG, GidB, GrpE, IF-2, IF2_N, IF3_C, IF3_N, IPPT, LepA_C,
+Methyltransf_5, MurB_C, NusA_N, Oligomerisation, PGK, PNPase, Pept_tRNA_hydro,
+Peptidase_A8, Phe_tRNA-synt_N, PseudoU_synth_1, RBFA, RNA_pol_A_CTD,
+RNA_pol_A_bac, RNA_pol_L, RNA_pol_Rpb1_1, RNA_pol_Rpb1_2, RNA_pol_Rpb1_3,
+RNA_pol_Rpb1_4, RNA_pol_Rpb1_5, RNA_pol_Rpb2_1, RNA_pol_Rpb2_2, RNA_pol_Rpb2_3,
+RNA_pol_Rpb2_45, RNA_pol_Rpb2_6, RNA_pol_Rpb2_7, RRF, RecA, RecR,
+Ribonuclease_P, Ribosom_S12_S23, Ribosomal_L1, Ribosomal_L10, Ribosomal_L11,
+Ribosomal_L11_N, Ribosomal_L12, Ribosomal_L13, Ribosomal_L14, Ribosomal_L16,
+Ribosomal_L17, Ribosomal_L18e, Ribosomal_L18p, Ribosomal_L19, Ribosomal_L2,
+Ribosomal_L20, Ribosomal_L21p, Ribosomal_L22, Ribosomal_L23, Ribosomal_L27,
+Ribosomal_L28, Ribosomal_L29, Ribosomal_L2_C, Ribosomal_L3, Ribosomal_L32p,
+Ribosomal_L35p, Ribosomal_L4, Ribosomal_L5, Ribosomal_L5_C, Ribosomal_L6,
+Ribosomal_L9_C, Ribosomal_L9_N, Ribosomal_S10, Ribosomal_S11, Ribosomal_S13,
+Ribosomal_S15, Ribosomal_S16, Ribosomal_S17, Ribosomal_S18, Ribosomal_S19,
+Ribosomal_S2, Ribosomal_S20p, Ribosomal_S3_C, Ribosomal_S4, Ribosomal_S5,
+Ribosomal_S5_C, Ribosomal_S6, Ribosomal_S7, Ribosomal_S8, Ribosomal_S9, RimM,
+RuvA_C, RuvA_N, RuvB_C, S-AdoMet_synt_C, S-AdoMet_synt_M, SRP_SPB, SecE, SecG,
+SecY, Seryl_tRNA_N, SmpB, THF_DHG_CYH, THF_DHG_CYH_C, TIM, TRCF, Toprim_N,
+Trigger_C, Trigger_N, TruB_N, UBA, UPF0054, UPF0079, UPF0081, UvrB, UvrC_HhH_N,
+Val_tRNA-synt_C, YchF-GTPase_C, dsrm, eIF-1a, tRNA-synt_1d, tRNA-synt_2d,
+tRNA_m1G_MT, zf-C4_ClpX, Enolase_C
+```
+
+OK. A lot. Good for you, Campbell et al. Let's assume I want to use the following genes for my phylogenomic analysis: `Ribosomal_L1`, `Ribosomal_L2`, `Ribosomal_L3`, `Ribosomal_L4`, `Ribosomal_L5`, `Ribosomal_L6`. The following command will give me all these genes from all bins described in the collection `merens`:
+
+``` bash
+ $ anvi-get-sequences-for-hmm-hits -c CONTIGS.db \
+                                   -p PROFILE.db \
+                                   -o seqs-for-phylogenomics.fa \
+                                   --hmm-source Campbell_et_al \
+                                   -C merens \
+                                   --gene-names Ribosomal_L1,Ribosomal_L2,Ribosomal_L3,Ribosomal_L4,Ribosomal_L5,Ribosomal_L6
+                                   
+Init .........................................: 4451 splits in 13 bin(s)
+Hits .........................................: 1358 hits for 1 source(s)
+Filtered hits ................................: 65 hits remain after filtering for 6 gene(s)
+Mode .........................................: DNA seqeunces
+Genes are concatenated .......................: False
+Output .......................................: seqs-for-phylogenomics.fa
+```
+
+If you look at the resulting FASTA file, you will realize that it doesn't look like an alignment (I trimmed the output, you will see the full output when you look at this file): 
+
+``` bash
+ $ less seqs-for-phylogenomics.fa
+>Ribosomal_L1___Campbell_et_al___3fa0f|bin_id:S_epidermidis|source:Campbell_et_al|e_value:2.2e-54|contig:Day17a_QCcontig126|gene_callers_id:9864|start:4107|stop:4803|length:696
+ATGGCTAAAAAAGGTAAAAAGTATCAAGAAGCAGCTAGTAAAGTTGACCGCACTCAATACTATAGTGTTGAAGAAGCAATCAAATTAGCTAAAGAAACTAGCGTTGCTAATTTCGACGCT
+(...)
+>Ribosomal_L1___Campbell_et_al___b951485a8ed00f92d337846ef702c968d4f6b2f0be5ddd541d3f45c0|bin_id:C_albicans|source:Campbell_et_al|e_value:5.4e-21|contig:Day17a_QCcontig2188|gene_callers_id:26054|start:241|stop:997|length:756
+TCAANNAGCTTTTAGTTTTGAAGTTTCGAGAAGTATTGGTTTTGCCATTTGAATTAAAAATGGTAATTTTTTATTCTTATAATAAAATAATTCACCTAATACATTTGGTAAGAATTTCAT
+(...)
+>Ribosomal_L4___Campbell_et_al___67a14|bin_id:E_facealis|source:Campbell_et_al|e_value:6.1e-71|contig:Day17a_QCcontig16|gene_callers_id:3081|start:230590|stop:231214|length:624
+ATGCCGAATGTAGCATTATTCAAACAAGATGGAACTCAAAACGGTGAAATCACTTTAAATGAAGAAATCTTCGGAATCGAACCTAATGAAAGTGTTGTCTATGATGCAATCATCATGCAA
+(...)
+>Ribosomal_L3___Campbell_et_al___96d7f|bin_id:P_rhinitidis|source:Campbell_et_al|e_value:1.7e-47|contig:Day17a_QCcontig21|gene_callers_id:3313|start:54724|stop:55357|length:633
+TTATTTAGTTAGTTTTACAGTGCTTTTAATTTTAACAGTTCCCTTCTTAGGTCCTGGAATTGCACCCTTTACTAAAATTAAATTTTTATCTGTATCTATTCTAACAATTTCAAGGTTTTG
+(...)
+>Ribosomal_L2___Campbell_et_al___2d391|bin_id:P_avidum|source:Campbell_et_al|e_value:6.2e-37|contig:Day17a_QCcontig125|gene_callers_id:9799|start:218568|stop:219405|length:837
+TCAGCGCTTCTTGCCGGACTTGCGGCGACGCACGATGAGACGGCTGCTCGCCTTGTTCTTGTTACGGGTACGACCCTCGGGCTTGCCCCAGGGGCTCACCGGGTGACGACCACCAGAGGT
+(...)
+>Ribosomal_L1___Campbell_et_al___9f829|bin_id:C_albicans|source:Campbell_et_al|e_value:4.5e-21|contig:Day17a_QCcontig1415|gene_callers_id:22235|start:838|stop:1648|length:810
+ATGTTCAAGTATATCCCTGCCAGGTCTATCCTCCCATATAGAACCTCAATCCGTACTGCCGTCACCTCCAAAGACTTGAAAACCCACCTTCAAAAAGAAAAAGACAAGGAGAAAAAGAGA
+(...)
+>Ribosomal_L4___Campbell_et_al___67fad|bin_id:C_albicans|source:Campbell_et_al|e_value:4.1e-37|contig:Day17a_QCcontig1871|gene_callers_id:24399|start:10367|stop:11204|length:837
+ATGTTCAAACAATCCATACGTAGTCTAGCTACCAAGTCACCAATTTCAAGTGCTGCTGCCACGACCACCACCGCTAGTACCACCAGCACTACCACCACAGCTTCCTTGAATTTTGCAAAA
+(...)
+>Ribosomal_L4___Campbell_et_al___70dad|bin_id:C_albicans|source:Campbell_et_al|e_value:1.8e-46|contig:Day17a_QCcontig1334|gene_callers_id:21752|start:71560|stop:72652|length:1092
+ATGTCATCAAGACCACAAGTTTCTGTTATTTCCGTTAAAGGTGAACAAGGTTCATCCCAATTACCATTACCAGCTGTTTTCGCTGCTCCAGTCAGACCAGACTTAGTCCACTCTGTCTTT
+(...)
+>Ribosomal_L6___Campbell_et_al___651aa|bin_id:S_epidermidis|source:Campbell_et_al|e_value:1.1e-45|contig:Day17a_QCcontig7|gene_callers_id:2325|start:13243|stop:13780|length:537
+TTATTTACCAGTTTTACCTTCTTTACGGCGTACATATTCACCTTGGTAGCGAATACCTTTACCTTTATAAGGTTCTGGAGGTCTTACAGAACGAATGTTAGAAGCAATCGCACCAACTTG
+(...)
+>Ribosomal_L1___Campbell_et_al___5cc06|bin_id:F_magna|source:Campbell_et_al|e_value:2e-23|contig:Day17a_QCcontig2501|gene_callers_id:27379|start:485|stop:962|length:477
+ATGGCAAAAAAAGGTAAAAGATATCAAGAAAGTGCAAAATTAATTGATAGAACAGTTGAATATAAATTAGACGAAGCAAGCAAATTAGTTGTAGAAACAGCTAAAGCTAAATTTGACGAA
+(...)
+>Ribosomal_L2___Campbell_et_al___1fdbd|bin_id:E_facealis|source:Campbell_et_al|e_value:5e-39|contig:Day17a_QCcontig16|gene_callers_id:3083|start:231543|stop:232374|length:831
+GTGGCGATTAAAAAGTACAAACCTACCACAAATGGCCGTCGTAACATGACAAGTTCTGATTTCGCTGAAATCACAACTTCAACACCAGAAAAATCATTGTTACAGCCATTAAAAAACAAT
+(...)
+```
+
+Hmm.
+
+### Concatenating genes
+
+{:.notice}
+We thank [Luke McKay](https://twitter.com/lukejustinmckay) for [asking anvi'o to generate concatenated genes](https://groups.google.com/d/msg/anvio/AEQ7STAmxdI/twk966woAgAJ) for HMM hits in genomes from metagenomes.
+
+Although you can see how and why the previous output could be very useful for other purposes, it is kinda useless for a phylogenomic analysis since we need a single concatenated gene sequence alignments per genome.
+
+If you look at the help menu, you will see that there is a flag, `--concatenate-genes`, to get your genes of interest to be concatenated. Let's do that:
+
+``` bash
+ $ anvi-get-sequences-for-hmm-hits -c CONTIGS.db \
+                                   -p PROFILE.db \
+                                   -o seqs-for-phylogenomics.fa \
+                                   --hmm-source Campbell_et_al \
+                                   -C merens \
+                                   --gene-names Ribosomal_L1,Ribosomal_L2,Ribosomal_L3,Ribosomal_L4,Ribosomal_L5,Ribosomal_L6 \
+                                   --concatenate-genes
+
+
+Config Error: If you want your genes to be concatenated into a multi-alignment file, you must
+              also ask for the best hit (using the `--return-best-hit`) flag to avoid issues
+              if there are more than one hit for a gene in a given genome. Anvio could have
+              set this flag on your behalf, but it just is not that kind of a platform :/
+
+```
+
+Well. That didn't go well.
+
+The reason why it didn't go so well is because even in most complete genomes, there may be multiple HMM hits for a given 'single-copy gene'. [Here is a evidence for that]({% post_url anvio/2016-06-09-assessing-completion-and-contamination-of-MAGs %}) for skeptics. As a solution to this problem, anvi'o asks you to use the `--return-best-hit` flag, which will return the most significant HMM hit if there are more than one gene that matches to the HMM of a given gene in a given genome. Let's do that:
+
+``` bash
+anvi-get-sequences-for-hmm-hits -c CONTIGS.db \
+                                -p PROFILE.db \
+                                -o seqs-for-phylogenomics.fa \
+                                --hmm-source Campbell_et_al \
+                                -C merens \
+                                --gene-names Ribosomal_L1,Ribosomal_L2,Ribosomal_L3,Ribosomal_L4,Ribosomal_L5,Ribosomal_L6 \
+                                --concatenate-genes \
+                                --return-best-hit
+```
+
+If you take a look at the output file, you can see that we are getting somewhere. But the output is in `DNA` alphabet, which may not be the best option for phylogenomic analyses, especially if the genomes you have are coming from distant clades (which is the case for IGD). Fortunately, you can easily switch to `AA` alphabet with an additional flag `--get-aa-sequences` (and no, there is no end to anvi'o flags, and you are going to have to read that help menu one way or another!).
+
+``` bash
+anvi-get-sequences-for-hmm-hits -c CONTIGS.db \
+                                -p PROFILE.db \
+                                -o seqs-for-phylogenomics.fa \
+                                --hmm-source Campbell_et_al \
+                                -C merens \
+                                --gene-names Ribosomal_L1,Ribosomal_L2,Ribosomal_L3,Ribosomal_L4,Ribosomal_L5,Ribosomal_L6 \
+                                --concatenate-genes \
+                                --return-best-hit \
+                                --get-aa-sequences
+```
+
+If you look again at the resulting file, you will find out that everything looks just so lovely.
+
+### Computing the phylogenomic tree
+
+Once you have your concatenated genes, which you have them in `seqs-for-phylogenomics.fa` if you followed the previous section, it is time to perform the phylogenomic analysis.
+
+There are multiple ways to do this. Here we will use the program `anvi-gen-phylogenomic-tree`, which accepts a FASTA file and uses one of the programs it knows about to compute the tree. Currently the only option is [FastTree](http://www.microbesonline.org/fasttree/), which infers approximately-maximum-likelihood phylogenetic trees from FASTA files that look like yours. Send us your favorite, and we will happily consider expanding the collection of available tools for this analysis.
+
+Nothing is actually simple at all, but computing a phylogenomic tree from our FASTA file is as simple as this:
+
+``` bash
+ $ anvi-gen-phylogenomic-tree -f seqs-for-phylogenomics.fa \
+                              -o phylogenomic-tree.txt
+```
+
+The resulting file `phylogenomic-tree.txt` is a proper newick tree. If you want, you can visualize it immediately with `anvi-interactive` in manual mode:
+
+``` bash
+anvi-interactive --tree phylogenomic-tree.newick \
+                 -p temp-profile.db \
+                 --title "Pylogenomics of IGD Bins" \
+                 --manual
+```
+
+Which should give you this:
+
+[![phylogenomics](images/phylogenomics-manual-mode.png)](images/phylogenomics-manual-mode.png){:.center-img .width-50}
+
+
+We could do much more with this phylogenomic tree for our bins than visualizing it in manual mode. For instance, we could use it immediately to organize our bins in collection `merens` while showing their distribution across samples! 
+
+``` bash
+ anvi-interactive -p PROFILE.db \
+                  -c CONTIGS.db \
+                  -C merens \
+                  --tree phylogenomic-tree.txt
+```
+
+Which would give you this display after selection the Phylogenomic tree from the 'orders' combo box:
+
+[![phylogenomics](images/phylogenomics-collection-mode.png)](images/phylogenomics-collection-mode.png){:.center-img .width-50}
+
+
+The tree in the middle shows the phylogenomic organization of bins we identified in the IGD.
+ 
 
 ## Profiling SNVs in a Bin
 
@@ -436,7 +679,7 @@ Here we will profile the single-nucleotide variations (SNVs) in the *E. faecalis
 This is more of a practical tutorial for hands on experience to recover and make sense of SNVs. For a more theoretical one on the same topic, please consider first reading the tutorial [Analyzing single nucleotide variations (SNVs) with anvi'o]({% post_url anvio/2015-07-20-analyzing-variability %}){:target="_blank"}.
 
 {:.notice}
-**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD available to you. Before you continue, please [click here](#the-contigs-database--anvio-merged-profile-for-the-infant-gut-dataset), do everything mentioned there, and come back here on this page when you are asked to **go back**.
+**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
 
 Please run following commands in the IGD dir. They will set the stage for us to take a look at the *E. faecalis* bin:
 
@@ -731,7 +974,7 @@ You just read about three different ways to visualize the single-nucleotide vari
 You can also use anvi'o to perform pangenomic analyses, and here I will give a small demo using the now infamous *E. faecalis* bin.
 
 {:.notice}
-**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back here on this page when you are asked to **go back**.
+**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
 
 Please run following commands in the IGD dir. They will set the stage for us to take a look at the *E. faecalis* bin:
 
