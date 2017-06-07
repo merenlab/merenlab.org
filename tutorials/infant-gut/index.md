@@ -633,7 +633,7 @@ Computing a phylogenomic tree from our FASTA file is as simple as this:
 The resulting file `phylogenomic-tree.txt` is a proper newick tree. If you want, you can visualize it immediately with `anvi-interactive` in manual mode:
 
 ``` bash
-anvi-interactive --tree phylogenomic-tree.newick \
+anvi-interactive --tree phylogenomic-tree.txt \
                  -p temp-profile.db \
                  --title "Pylogenomics of IGD Bins" \
                  --manual
