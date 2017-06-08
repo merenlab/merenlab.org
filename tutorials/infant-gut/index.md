@@ -430,6 +430,9 @@ We all just have to continue working, and enjoy this revolution.
 ## Phylogenomics (MAGs)
 
 {:.notice}
+This is more of a practical tutorial to do phylogenomic analyses on metagenome-assembled genomes described in anvi'o collections. For a more abstract tutorial on phylogenomics, please consider first reading '[An anvi'o workflow for phylogenomics]({% post_url anvio/2017-06-07-phylogenomics %}){:target="_blank"}'.
+
+{:.notice}
 **If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
 
 Please run the following command in the IGD dir, so you have everything you need. We will simply import our previously generated collection of bins in the IGD dataset as the `default` collection:
@@ -456,8 +459,6 @@ Bin names ....................................: Aneorococcus_sp, C_albicans, E_f
 ```
 
 Putting genomes in a phylogenomic context is one of the common ways to compare them to each other. The common practice is to concatenate aligned sequences of single-copy core genes for each genome of interest, and generate a phylogenomic tree by analyzing the resulting alignment.
-
-For instance [PhyloSift](https://phylosift.wordpress.com/) is one of the programs that will do this for you when you have a bunch of genomes you want to analyze. While PhyloSift is very convenient and will be enough for the vast majority of scientists as it automatically identifies a set of marker genes in genomes of interest, anvi'o offers a full control over the phylogenomic workflow by letting *you* pick the genes for a phylogenomic analysis (so there is more room for 'fancy activities', or 'losing our mental health altogether' .. depending on where you stand).
 
 Let's assume we want to run a phylogenomic analysis on all genome bins we have in the collection `merens` in the IGD (you may have your own collections somewhere, that is fine too).
 
@@ -559,9 +560,6 @@ Concatenated we stand divided we fall.
 
 
 ### Concatenating genes
-
-{:.notice}
-We thank [Luke McKay](https://twitter.com/lukejustinmckay) for [asking anvi'o to generate concatenated genes](https://groups.google.com/d/msg/anvio/AEQ7STAmxdI/twk966woAgAJ) for HMM hits in genomes from metagenomes.
 
 Although you can see how and why the previous output could be very useful for many other purposes, it is kinda useless for a phylogenomic analysis since we need a single concatenated alignment of gene sequences per genome.
 
