@@ -157,15 +157,15 @@ figcaption {
 blockquote{
   display:block;
   background: #f5f5f5;
-  padding: 20px 20px 0px 60px;
-  margin: 0 0 20px;
+  padding: 20px 20px 0px 70px;
+  margin: 0 0 40px 40px;
   position: relative;
   
   /*Font*/
-  font-size: 16px;
-  line-height: 1.2;
+  line-height: 1.5;
   color: #101010;
   text-align: justify;
+  font-style: italic;
   
   /*Borders - (Optional)*/
   border-left: 15px solid #929292;
@@ -224,6 +224,7 @@ blockquote em{
     padding-bottom: 10px;
     font-variant: small-caps;
     color: #222;
+    font-style: normal;
 }
 
 /* 
