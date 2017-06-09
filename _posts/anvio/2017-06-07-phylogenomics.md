@@ -20,34 +20,35 @@ This tutorial is tailored for anvi'o <b>`v2.3.3` or later</b>. You can learn whi
 
 **The goal of this tutorial** is to walk you through some of the anvi'o capabilities that can help you study your data with phylogenomics. With the current anvi'o phylogenomics workflow,
 
-* You can run phylogenomic analyses on a bunch of **FASTA files**, on your **[metagenome-assembled genomes]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}) stored in an anvi'o collection**, or on a combination of the two by **combining your MAGs with genomes** from other resources.
+* You can run phylogenomic analyses on a bunch of **FASTA files**, on your **[metagenome-assembled genomes]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}){:target="_blank"} stored in an anvi'o collection**, or on a combination of the two by **combining your MAGs with genomes** from other resources.
 
-* You can use **any set of genes to create concatenated proteins**. While you can use genes in one of the default HMM profiles anvi'o uses for bacterial and archaeal single-copy core genes (such as a set of commonly used ribosomal proteins), you can also **go rogue and use a set of genes in your [custom HMM profile]({% post_url anvio/2016-05-21-archaeal-single-copy-genes %})**.
+* You can use **any set of genes to create concatenated proteins**. While you can use genes in one of the default HMM profiles anvi'o uses for bacterial and archaeal single-copy core genes (such as a set of commonly used ribosomal proteins), you can also **go rogue and use a set of genes in your [custom HMM profile]({% post_url anvio/2016-05-21-archaeal-single-copy-genes %}){:target="_blank"}**.
 
-* You can **combine [pangenomics]({% post_url anvio/2016-11-08-pangenomics-v2 %}) and phylogenomics** to investigate relationships between very closely related genomes using protein clusters beyond universal single-copy core genes.
+* You can **combine [pangenomics]({% post_url anvio/2016-11-08-pangenomics-v2 %}){:target="_blank"} and phylogenomics** to investigate relationships between very closely related genomes using protein clusters beyond universal single-copy core genes.
 
-* You can **interactively visualize your phylogenomic trees** using the [anvi'o interactive interface]({{ site_url }}/tutorials/interactive-interface/}) (by optionally extending them with additional data), or **[share them with your colleagues](https://anvi-server.org/merenlab/tara_hbds)** through [anvi'server](http://anvi-server.org).
+* You can **interactively visualize your phylogenomic trees** using the [anvi'o interactive interface]({{ site_url }}/tutorials/interactive-interface/}){:target="_blank"} (by optionally extending them with additional data), or **[share them with your colleagues](https://anvi-server.org/merenlab/tara_hbds)** through [anvi'server](http://anvi-server.org){:target="_blank"}.
 
+
+{:.notice}
+Please consider reading the entire document even if you are planning to use only anvi'o / phylogenomics only for your pangenomes, or only for your MAGs. There are notes that apply to both, yet mentioned only once throughout the document to minimize redundancy.
 
 
 ## Preface
 
 What is phylogenomics?
 
-Well, maybe to some people it is [a guy on Twitter](https://twitter.com/phylogenomics) (*cough* who happened to write [this seminal paper](http://genome.cshlp.org/content/8/3/163.long) and coined the term *cough*), while maybe to some others it is a way to make all those already-unreliable trees even worse by putting the concept of phylogenetics on steroids. But I personally quite like [the Wikipedia definition on it](https://en.wikipedia.org/wiki/Phylogenomics):
+Well, maybe to some people it is [a guy on Twitter](https://twitter.com/phylogenomics){:target="_blank"} (*cough* who happened to write [this seminal paper](http://genome.cshlp.org/content/8/3/163.long){:target="_blank"} and coined the term *cough*), while maybe to some others it is a way to make all those already-unreliable trees even worse by putting the concept of phylogenetics on steroids. But I personally quite like [the Wikipedia definition on it](https://en.wikipedia.org/wiki/Phylogenomics){:target="_blank"}:
 
+
+<div markdown="1">
 <blockquote>
-Phylogenomics is the intersection of the fields of evolution and genomics. The term has been used in multiple ways to refer to analysis that involves genome data and evolutionary reconstructions. It is a group of techniques within the larger fields of phylogenetics and genomics. Phylogenomics draws information by comparing entire genomes, or at least large portions of genomes. Phylogenetics compares and analyzes the sequences of single genes, or a small number of genes, as well as many other types of data.
-
-<div class="blockquote-author" markdown="1">
-Wikipedia on Phylogenomics
-</div>
-
+Phylogenomics is the intersection of the fields of evolution and genomics. The term has been used in multiple ways to refer to analysis that involves genome data and evolutionary reconstructions. It is a group of techniques within the larger fields of phylogenetics and genomics. Phylogenomics draws information by comparing entire genomes, or at least large portions of genomes. Phylogenetics compares and analyzes the sequences of single genes, or a small number of genes, as well as many other types of data. <span class="blockquote-author">Wikipedia on Phylogenomics</span>
 </blockquote>
+</div>
 
 Phylogenomics is not only useful to make sense of the diversity of life ([as Hug et al. beautifully did it here](https://www.nature.com/articles/nmicrobiol201648)), but it is also quite relevant to much more practical needs of the age of high-throughput recovery of single-cell, isolate, and metagenome-assembled genomes.
 
-If you want to infer the phylogenomic relationships between multiple genomes you could use [PhyloSift](https://phylogenomics.me/software/phylosift/), which is a program by [Darling et al.](https://peerj.com/articles/243/). While PhyloSift is very convenient, and will be enough for the vast majority of scientists as it automatically identifies a set of marker genes in genomes of interest, anvi'o offers a full control over the phylogenomic workflow by letting *you* pick the genes for a phylogenomic analysis (so there is more room for 'activities', which may include 'losing our mental health altogether' depending on where you stand and how you do this science thing).
+The anvi'o solution explained in this tutorial to address this theoretical and practical need is neither the first nor the only convenient solution. For instance, you could use [PhyloSift](https://phylogenomics.me/software/phylosift/) to infer phylogenomic relationships between multiple genomes, which is a developed by [Darling and his colleagues](https://peerj.com/articles/243/). Aaron Darling is [cool like this](http://darlinglab.org/blog/2015/03/23/not-so-fast-fasttree.html), and we have been using PhyloSift in our lab happily. So all good. While PhyloSift is very convenient, and will be enough for the vast majority of scientists as it automatically identifies a set of marker genes in genomes of interest, anvi'o gives you full control over the phylogenomic workflow by letting *you* pick the genes for your analysis, offering more room for activities (which may quickly turn into a 'losing our mental health rapidly' experience depending on how you do the science thing, and how deep you are willing to dive into your data).
 
 ## Example data pack
 
@@ -234,11 +235,12 @@ anvi-gen-phylogenomic-tree -f concatenated-proteins.fa \
 
 to get a newick-formatted tree for our genomes!
 
+{:.notice}
+**Important note**: At the time of writing, FastTree was the only option available in the program `anvi-gen-phylogenomic-tree` (please see the `--help` menu). We are hoping to include more ways to deal with alignments based on your suggestions so you can try other options via the `--program` parameter. On the other hand, although `anvi-gen-phylogenomic-tree` is available to you as an anvi'o program to make sure you have a quick and easy way to perform your phylogenomic analyses, you have the freedom  (or responsibility, depending on how you see things) to try other means to get your newick trees, as the other steps in anvi'o will not care how you generated your newick tree. Some of the options we are familiar with (and not yet represented in `anvi-gen-phylogenomic-tree`) include [MrBayes](http://mrbayes.sourceforge.net/), [MEGA](http://www.megasoftware.net/), and PHYLIP, [among many others](http://evolution.genetics.washington.edu/phylip/software.html#methods). Luckily, almost all of them are going to be happy to work with the concatenated amino acid sequences you will get from anvi'o. Phylogenetics has tremendous challenges, investigated by hundreds of brilliant scientists over decades. And here we are, reducing years of research into a single command line. We are doing this, because at some point we have to stop and practical, but serious questions and good data always deserve more. You *can* get away by using one algorithm to generate your tree, but you should consider exploring other options. If you happen to know a good written resource, or if *you* are a good resource, please write to us, and help us think about what would be the best strategy to provide useful insights to researchers who may be interested in learning more about the details of phylogenetics and/or phylogenomics.
+
 ---
 
-Now you can do anything you usually do with your newick trees. If you want, you can use the anvi'o interactive interface to immediately visualize this new tree.
-
-For instance, this is the output I get when I run `anvi-interactive` the following way,
+Now you have a newick tree that shows you how your genomes relate to each other, and you can use the anvi'o interactive interface to immediately visualize this new tree:
 
 ``` bash
 anvi-interactive -p phylogenomic-profile.db \
@@ -250,6 +252,9 @@ anvi-interactive -p phylogenomic-profile.db \
 and play with the settings a bit (here is [an interactive version](https://anvi-server.org/merenlab/pylogenomics_tutorial)):
 
 [![phylo]({{images}}/phylogenomics-01.png)]({{images}}/phylogenomics-01.png){:.center-img .width-70}
+
+{:.notice}
+You can learn much more about the `--manual` mode of the `anvi-interactive` here: [A tutorial on the anvi'o interactive interface]({{ site_url}}/tutorials/interactive-interface){:target="_blank"}.
 
 ---
 
