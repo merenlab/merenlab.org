@@ -46,9 +46,9 @@ Phylogenomics is the intersection of the fields of evolution and genomics. The t
 </blockquote>
 </div>
 
-Phylogenomics is not only useful to make sense of the diversity of life ([as Hug et al. beautifully did it here](https://www.nature.com/articles/nmicrobiol201648)), but it is also quite relevant to much more practical needs of the age of high-throughput recovery of single-cell, isolate, and metagenome-assembled genomes.
+Phylogenomics is not only useful to make sense of the diversity of life ([as Hug et al. beautifully did it here](https://www.nature.com/articles/nmicrobiol201648){:target="_blank"}), but it is also quite relevant to much more practical needs of the age of high-throughput recovery of single-cell, isolate, and metagenome-assembled genomes.
 
-The anvi'o solution explained in this tutorial to address this theoretical and practical need is neither the first nor the only convenient solution. For instance, you could use [PhyloSift](https://phylogenomics.me/software/phylosift/) to infer phylogenomic relationships between multiple genomes, which is a developed by [Darling and his colleagues](https://peerj.com/articles/243/). Aaron Darling is [cool like this](http://darlinglab.org/blog/2015/03/23/not-so-fast-fasttree.html), and we have been using PhyloSift in our lab happily. So all good. While PhyloSift is very convenient, and will be enough for the vast majority of scientists as it automatically identifies a set of marker genes in genomes of interest, anvi'o gives you full control over the phylogenomic workflow by letting *you* pick the genes for your analysis, offering more room for activities (which may quickly turn into a 'losing our mental health rapidly' experience depending on how you do the science thing, and how deep you are willing to dive into your data).
+The anvi'o solution explained in this tutorial to address this theoretical and practical need is neither the first nor the only convenient solution. For instance, you could use [PhyloSift](https://phylogenomics.me/software/phylosift/){:target="_blank"} to infer phylogenomic relationships between multiple genomes, which is a developed by [Darling and his colleagues](https://peerj.com/articles/243/){:target="_blank"}. Aaron Darling is [cool like this](http://darlinglab.org/blog/2015/03/23/not-so-fast-fasttree.html){:target="_blank"}, and we have been using PhyloSift in our lab happily. So all good. While PhyloSift is very convenient, and will be enough for the vast majority of scientists as it automatically identifies a set of marker genes in genomes of interest, anvi'o gives you full control over the phylogenomic workflow by letting *you* pick the genes for your analysis, offering more room for activities (which may quickly turn into a 'losing our mental health rapidly' experience depending on how you do the science thing, and how deep you are willing to dive into your data).
 
 ## Example data pack
 
@@ -73,7 +73,7 @@ Now we can start.
 
 ## Working with metagenome-assembled genomes stored in anvi'o collections
 
-Indeed the phylogenomic workflow natively integrated with everything else in anvi'o, and you can use it to work with your bins in collections stored in anvi'o profiles. But to keep this tutorial as abstract as possible, I will outsource examples using anvi'o profiles to [the anvi'o tutorial on the Infant Gut Dataset]({{ site_url }}/tutorials/infant-gut/), in which the use of phylogenomics is demonstrated in detail right at [this section]({{ site_url }}/tutorials/infant-gut/#phylogenomics-mags). Please don't hesitate to ask for help if you are here and need more information. We will happily expand this section if necessary.
+Indeed the phylogenomic workflow natively integrated with everything else in anvi'o, and you can use it to work with your bins in collections stored in anvi'o profiles. But to keep this tutorial as abstract as possible, I will outsource examples using anvi'o profiles to [the anvi'o tutorial on the Infant Gut Dataset]({{ site_url }}/tutorials/infant-gut/){:target="_blank"}, in which the use of phylogenomics is demonstrated in detail right at [this section]({{ site_url }}/tutorials/infant-gut/#phylogenomics-mags){:target="_blank"}. Please don't hesitate to ask for help if you are here and need more information. We will happily expand this section if necessary.
 
 ## Working with FASTA files
 
@@ -92,7 +92,7 @@ Escherichia_coli_9038.fa       Prevotella_denticola_19594.fa
 Salmonella_enterica_21806.fa   Salmonella_enterica_22289.fa
 ```
 
-The first thing we need to do is to generate an anvi'o contigs database for each one of them ([read more about anvi'o contigs databases here]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}/#creating-an-anvio-contigs-database)).
+The first thing we need to do is to generate an anvi'o contigs database for each one of them ([read more about anvi'o contigs databases here]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}/#creating-an-anvio-contigs-database){:target="_blank"}).
 
 Anvi'o has a script to do it in one step, and we can do it for every FASTA file in our work directory this way:
 
@@ -249,16 +249,19 @@ anvi-interactive -p phylogenomic-profile.db \
                  --manual
 ```
 
-and play with the settings a bit (here is [an interactive version](https://anvi-server.org/merenlab/pylogenomics_tutorial)):
+and play with the settings a bit (here is [an interactive version](https://anvi-server.org/merenlab/pylogenomics_tutorial){:target="_blank"}):
 
 [![phylo]({{images}}/phylogenomics-01.png)]({{images}}/phylogenomics-01.png){:.center-img .width-70}
 
 {:.notice}
 You can learn much more about the `--manual` mode of the `anvi-interactive` here: [A tutorial on the anvi'o interactive interface]({{ site_url}}/tutorials/interactive-interface){:target="_blank"}.
 
+{:.notice}
+The trees you will get from FastTree will not be rooted (including the tree you see in the figure above), and you should consider rooting them. [FigTree](http://tree.bio.ed.ac.uk/software/figtree/) is a great software for this and other tree operations. After rooting your tree, you can come back to anvi'o with the new newick file, or go somewhere else (in which case we you are not allowed to use anvi'o ever again, of course, and thankyouverymuch (Anvi'o developers hope that you read the last sentence in Frank Underwood's voice)).
+
 ---
 
-It is also possible to extend the display with additional information. For instance, we did this for the [phylogenomics of some of the MAGs we recovered from TARA Oceans](https://anvi-server.org/merenlab/tara_hbds). Let's first assume these additional data for the 12 genomes we have:
+It is also possible to extend the display with additional information. For instance, we did this for the [phylogenomics of some of the MAGs we recovered from TARA Oceans](https://anvi-server.org/merenlab/tara_hbds){:target="_blank"}. Let's first assume these additional data for the 12 genomes we have:
 
 |genome_id|genome|phylum|genus|
 |:--|:--|:--:|:--:|
@@ -291,12 +294,95 @@ anvi-interactive -p phylogenomic-profile.db \
                  --manual
 ```
 
-This is my ([interactive](http://anvi-server.org/merenlab/phylogenomics_tutorial_example_2?view_key=C5a1YrP4oGSmp5dM)) version after a bit of tinkering with colors:
+This is my ([interactive](http://anvi-server.org/merenlab/phylogenomics_tutorial_example_2?view_key=C5a1YrP4oGSmp5dM){:target="_blank"}) version after a bit of tinkering with colors:
 
 [![phylo]({{images}}/phylogenomics-02.png)]({{images}}/phylogenomics-02.png){:.center-img .width-70}
 
+---
 
-Please ask any questions you might have down below and help us expand this tutorial.
+`anvi-get-sequences-for-hmm-hits` will also accept the gene names of interest in a file if you provide a file path to the parameter `--gene-names`.
+
+For instance, instead of the 6 ribosomal proteins we used so far in this tutorial, one could have used all the ribosomal proteins described in Cambell et al.'s collection, which would have been very unpleasant to try to fit into a single command line as comma-separated names.
+
+To demonstrate that, I put all those 49 ribosomal proteins into a file:
+
+```bash
+$ cat gene-names.txt
+Ribosomal_L1
+Ribosomal_L10
+Ribosomal_L11
+Ribosomal_L11_N
+Ribosomal_L12
+Ribosomal_L13
+Ribosomal_L14
+Ribosomal_L16
+Ribosomal_L17
+Ribosomal_L18e
+Ribosomal_L18p
+Ribosomal_L19
+Ribosomal_L2
+Ribosomal_L20
+Ribosomal_L21p
+Ribosomal_L22
+Ribosomal_L23
+Ribosomal_L27
+Ribosomal_L28
+Ribosomal_L29
+Ribosomal_L2_C
+Ribosomal_L3
+Ribosomal_L32p
+Ribosomal_L35p
+Ribosomal_L4
+Ribosomal_L5
+Ribosomal_L5_C
+Ribosomal_L6
+Ribosomal_L9_C
+Ribosomal_L9_N
+Ribosomal_S10
+Ribosomal_S11
+Ribosomal_S13
+Ribosomal_S15
+Ribosomal_S16
+Ribosomal_S17
+Ribosomal_S18
+Ribosomal_S19
+Ribosomal_S2
+Ribosomal_S20p
+Ribosomal_S3_C
+Ribosomal_S4
+Ribosomal_S5
+Ribosomal_S5_C
+Ribosomal_S6
+Ribosomal_S7
+Ribosomal_S8
+Ribosomal_S9
+Ribosom_S12_S23
+```
+
+And re-run the anvi'o analysis with this file:
+
+``` bash
+# get the gene sequences using the file
+anvi-get-sequences-for-hmm-hits --external-genomes external-genomes.txt \
+                                -o concatenated-ribosomal-proteins.fa \
+                                --hmm-source Campbell_et_al \
+                                --gene-names gene-names.txt \
+                                --return-best-hit \
+                                --get-aa-sequences \
+                                --concatenate
+                                
+# compute the phylogenomic tree
+anvi-gen-phylogenomic-tree -f concatenated-ribosomal-proteins.fa \
+                           -o phylogenomic-ribosomal-tree.txt
+```
+
+So now we have a new tree.
+
+While we are at it, Tom also run PhyloSift on these genomes just to make sure the results from our workflow does make sense:
+
+[![phylo]({{images}}/phylogenomics-comparison.gif)]({{images}}/phylogenomics-comparison.gif){:.center-img .width-70}
+
+Both tree structures are very comparable, and small differences are likely coming from the fact that we didn't use the same set of genes PhyloSift uses.
 
 ## Working with protein clusters in anvi'o pangenomes
 
@@ -357,7 +443,7 @@ What makes single-copy core genes powerful for some applications of phylogenomic
 For instance, let's quickly run the first method:
 
 ``` bash
-# get the genes
+# get the gene sequences
 anvi-get-sequences-for-hmm-hits --external-genomes external-genomes.txt \
                                 -o concatenated-proteins.fa \
                                 --hmm-source Campbell_et_al \
@@ -441,7 +527,7 @@ anvi-export-pc-alignments -g Salmonella-GENOMES.h5 \
 
 <span class="extra-info-header">Special Thanks</span>
 
-Until very recently, the program `anvi-export-pc-alignments ` did not have a `--concatenate` flag either :) We thank [Ryan Bartelme](https://twitter.com/MicrobialBart) for asking for it, and being our beta tester.
+Until very recently, the program `anvi-export-pc-alignments ` did not have a `--concatenate` flag either :) We thank [Ryan Bartelme](https://twitter.com/MicrobialBart){:target="_blank"} for asking for it, and being our beta tester.
 </div>
 
 
