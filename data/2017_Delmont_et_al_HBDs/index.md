@@ -15,6 +15,9 @@ comments: true
 The URL [http://biorxiv.org/content/early/2017/04/23/129791](http://biorxiv.org/content/early/2017/04/23/129791) serves the pre-print of the study described in this document.
 
 {:.notice}
+The URL [http://merenlab.org/data/#delmont-et-al-2017--tara-binning](http://merenlab.org/data/#delmont-et-al-2017--tara-binning) serves all public data items used and produced by this study.
+
+{:.notice}
 The URL [http://merenlab.org/data/2017_Delmont_et_al_HBDs/](http://merenlab.org/data/2017_Delmont_et_al_HBDs/) serves the most up-to-date version of this document.
 
 This document describes the reproducible bioinformatics workflow we used to recover and characterize metagenome-assembled genomes (MAGs) from the TARA Oceans metagenomic co-assemblies, some of which are described in the study "*Nitrogen-fixing populations of Planctomycetes and Proteobacteria are abundant in the surface ocean*" by Delmont et al.
