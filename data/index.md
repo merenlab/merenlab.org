@@ -26,19 +26,15 @@ This page serves the publicly available data mentioned in our publications, or i
 
 * [https://doi.org/10.6084/m9.figshare.4902920](https://doi.org/10.6084/m9.figshare.4902920): Our **raw assembly** outputs per region.
 
-<iframe src="https://widgets.figshare.com/articles/4902920/embed?show_title=0" width="80%" height="200" style="margin-left: 100px" frameborder="0"></iframe>
-
 * [https://doi.org/10.6084/m9.figshare.4902917](https://doi.org/10.6084/m9.figshare.4902917): All **amino acid sequences** in our raw assemblies.
 
 * [https://doi.org/10.6084/m9.figshare.4902923](https://doi.org/10.6084/m9.figshare.4902923): **FASTA files** for 957 non-redundant metagenome-assembled genomes.
 
-<iframe src="https://widgets.figshare.com/articles/4902923/embed?show_title=0" width="80%" height="200" style="margin-left: 100px" frameborder="0"></iframe>
-
 * [https://doi.org/10.6084/m9.figshare.4902941](https://doi.org/10.6084/m9.figshare.4902941): **Self contained anvi'o profiles** for each non-redundant MAG (each of which can be visualized interactively through the program `anvi-interactive` offline).
 
-<iframe src="https://widgets.figshare.com/articles/4902941/embed?show_title=0" width="80%" height="200" style="margin-left: 100px" frameborder="0"></iframe>
-
 * [https://doi.org/10.6084/m9.figshare.4902926](https://doi.org/10.6084/m9.figshare.4902926): A **static HTML output** for the anvi'o merged profile database for non-redundant MAGs (double-click the index.html file after download).
+
+* [https://doi.org/10.6084/m9.figshare.4902938](https://doi.org/10.6084/m9.figshare.4902938): Main and Supplementary Tables and Figures. Which includes **Figure 1** (geographically bounded metagenomic co-assemblies), **Figure 2** (the nexus between phylogeny and function of HBDs), **Figure 3** (Phylogeny of nitrogen fixation genes), **Figure 4** (the abundance of nitrogen-fixing populations of Planctomycetes and Proteobacteria across oceans), **Supplementary Figure 1** (phylogenetic analysis of nifH genes), **Supplementary Table 1** (the summary of the 93 metagenomes from TARA Oceans, and the twelve geographic regions they represent), **Supplementary Table 2** (the summary of the co-assembly and binning outputs for each metagenomic set), **Supplementary Table 3** (genomic features of 957 MAGs from the non-redundant genomic database including the taxonomy for each MAG, the mean coverage, relative distribution, detection and number of recruited reads for each MAG across the 93 metagenomes, etc), **Supplementary Table 4** (the 16S rRNA gene sequence identified in HBD-09), **Supplementary Table 5** (genomic features, Pearson correlation (based on the relative distribution in 93 metagenomes), **Supplementary Table 6** (RAST subsystems and KEGG modules for the nine HBDs), **Supplementary Table 7** (nifH gene sequences in MAGs, orphan scaffolds, as well as the reference sequence γ-24774A11, along with their mean coverage across the 93 metagenomes), **Supplementary Table 8** (Genomic features of 30,244 bins manually characterized from the 12 metagenomic sets. Completion and redundancy estimates are based on the average of four bacterial single-copy gene collections), **Supplementary Table 9** (KEGG annotation for 1,077 MAGs), and **Supplementary Table 10** (Relative distribution of 1,077 MAGs across the 93 metagenomes).
 
 * An interactive visualization for the phylogenomic analysis of 432 Proteobacteria and 43 Planctomycetes metagenome-assembled genomes from our database of 957 non-redundant MAGs is also available:
 
@@ -234,6 +230,6 @@ The anvi'o profiles here will run with a much earlier version of anvi'o. If you 
 
 * Tables: [Additional file 1](http://dx.doi.org/10.6084/m9.figshare.1499237), [Additional file 2](http://dx.doi.org/10.6084/m9.figshare.1499238), [Additional file 3](http://dx.doi.org/10.6084/m9.figshare.1499239).
 
-* Figures: [Figure 1](http://dx.doi.org/10.6084/m9.figshare.1499240), [Figure 2](http://dx.doi.org/10.6084/m9.figshare.1499241), [Figure 3](http://dx.doi.org/10.6084/m9.figshare.1499242), [Figure 4](http://dx.doi.org/10.6084/m9.figshare.1499243), [Figure 5](http://dx.doi.org/10.6084/m9.figshare.1499244), [Figure S1](http://dx.doi.org/10.6084/m9.figshare.1499245), [Figure S2](http://dx.doi.org/10.6084/m9.figshare.1499247).
+* Figures: [Figure 1](http://dx.doi.org/10.6084/m9.figshare.1499240), [Figure 2](http://dx.doi.org/10.6084/m9.figshare.1499241), [Figure 3](http://dx.doi.org/10.6084/m9.figshare.1499242), [Figure 4](http://dx.doi.org/10.6084/m9.figshare.1499243), [Figure 5](http://dx.doi.org/10.6084/m9.figshare.1499244), [Supplementary Figure 1](http://dx.doi.org/10.6084/m9.figshare.1499245), [Supplementary Figure 2](http://dx.doi.org/10.6084/m9.figshare.1499247).
 
 <div style="height:100px;">&nbsp;</div>
