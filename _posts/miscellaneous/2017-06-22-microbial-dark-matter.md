@@ -52,18 +52,18 @@ The dark matter in physics takes you into an intricate and elaborate domain of s
 
 After hundreds of mentions of "dark matter" in research publications, maybe it is simply naive to expect a blog post that doesn't even offer a fancy alternative to this term to appeal to anyone's consideration. If you think one is not enough, but two may have done it, [here is another one](http://bytesizebio.net/2015/11/27/the-dark-matter-metaphor-in-biology/) from [Iddo Friedberg](https://twitter.com/iddux) on the same subject.
 
-"Dark matter" is definitely a catchy term. You may suggest that *you already know that the dark matter in physics is not the dark matter in microbiology, yet this is a good way to cultivate public interest*. I see the opportunity, yet I don't think we should piggy back on it. Because people who know these uses are not relevant and yet proceed to use it anyway to communicate the importance of studying microbial life to "the public", inadvertently rely on the ignorance of their audience. It is the opposite of the purpose of communicating science.
+"Dark matter" is definitely a catchy term. You may suggest that *you already know that the dark matter in physics is not the dark matter in microbiology, yet this is a good way to cultivate public interest*. I see the opportunity, yet I don't think we should piggy back on it. Because people who know that the term is not relevant to microbiology and yet use it to communicate the importance of studying the microbial life to the public anyway, inadvertently rely on the ignorance of their audience. It is the opposite of the purpose of communicating science.
 
 But even though it is not appropriate, one may still argue that the use of "dark matter" has value when speaking to the public. OK, regardless of its validity, there *is* an argument for that part. Meanwhile, I can't think of any argument to explain why *scientists* use it to communicate their findings to *other scientists* in peer-reviewed articles. Because there is absolutely no reason why one can't simply say what they mean by "dark matter" in an article instead of saying "dark matter" without any scientific basis.
 
-Overall, I think we can all benefit from being more explicit. Especially for a field that is growing so fast that even the terms we all commonly use mean different things to different groups, cutting corners with poor analogies like "dark matter" reflects badly on us, and hinders our ability to develop a robust and responsible vocabulary.
+Overall, I think we can all benefit from being more explicit. Especially in a field that is growing so fast that even the terms we all commonly use mean different things to different groups, cutting corners with poor analogies like "dark matter" reflects badly on us, and hinders our ability to develop a robust and responsible vocabulary.
 
 ---
 
-On a lighter note, I was talking to [Antonio Fernandez-Guerra](https://scholar.google.com/citations?user=wA7Hrk8AAAAJ) of the Max Planck Institute for Marine Microbiology on this topic, and he showed me one of his slides for his talks:
+On a lighter note, I was talking to [Antonio Fernandez-Guerra](https://scholar.google.com/citations?user=wA7Hrk8AAAAJ) of the Max Planck Institute on this topic, and he showed me one of his slides for his talks:
 
 [![DSOTM]({{images}}/dark-side-of-metagenomes.png)]({{images}}/dark-side-of-metagenomes.png){:.center-img .width-70}
 
-I love it. I guess we can all agree that *the dark side is the best side* as the many secrets of the microbial life hide in the dark corners of complex metagenomes for us to continue.
+I love it. I guess we can all agree that *the dark side is the best side* as the many secrets of the microbial life hide in the dark corners of complex metagenomes for us to continue exploring.
 
 OK. The rant is over. You can now back to work. But maybe put your headphones on, and [let this play](https://www.youtube.com/watch?v=YI67GAQYsRc) in the background.
