@@ -28,7 +28,7 @@ There is no critique in science (...). You can't actually say, "This doesn't mea
 <div class="blockquote-author">Ford Doolittle</div>
 </blockquote>
 
-This is a quote from [The Philosophical Approach: An Interview with Ford Doolittle](http://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1005173) by Jane Gitschier that I largely agree with. We mostly complain about things in our labs to people we work with, and the criticism rarely exceeds the boundaries of those safe spaces even when it has to for everyone's sake. I decided to write this post partially to not do that, and put this out somewhere. Hey, I still like you and am excited about your science --let's say this is just me trying to be responsible in a way.
+This is a quote from [The Philosophical Approach: An Interview with Ford Doolittle](http://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1005173) by Jane Gitschier that I largely agree with. We mostly complain about things in our labs to people we work with, and the criticism rarely exceeds the boundaries of those safe spaces even when it should for everyone's sake. I decided to write this post partially to not do that, and put this out somewhere. Hey, I still like you and am excited about your science --let's say this is just me trying to be responsible in a way.
 
 The other reason is purely practical. I have been seeing the term "dark matter" in the field a bit too often recently. In fact it came to a point where a soil microbiologist colleague of mine sent me a paper to edit, and the title of the draft had "dark matter" in it. I thought I could post this out in the open, so my friends and colleagues who may care can know where I stand.
 
@@ -36,7 +36,7 @@ The other reason is purely practical. I have been seeing the term "dark matter" 
 
 The use of this term implies that there are parallels between the challenges microbiologists face as they study the microbial life, and the challenges physicists face when they study the fabric of the universe. But the implied parallels are simply inappropriate.
 
-It seems the term was first coined in a [PNAS paper](http://www.pnas.org/content/104/29/11889.full):
+It seems the term was first appeared in a [PNAS paper](http://www.pnas.org/content/104/29/11889.full):
 
 <blockquote>
 (...) It has been estimated that <1% of bacterial species have been axenically cultured, and fewer than half of the recognized bacterial phyla include cultivated representatives (1). This can be viewed as biology's "dark matter" problem: just as astronomers can only indirectly infer the existence of a large amount of as-yet-undetected mass in the universe, microbiologists can only estimate microbial diversity by using techniques such as comparative 16S ribosomal RNA (rRNA) gene analysis (2), community DNA hybridization efficiency (3), and metagenomic gene inventories (4, 5) (...)
