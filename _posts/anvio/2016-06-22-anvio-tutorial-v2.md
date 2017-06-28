@@ -219,7 +219,7 @@ SAMPLE-03
 Then, you can run `anvi-init-bam` on all of them by typing this:
 
 {% highlight bash %}
-for sample in `cat SAMPLE_IDs`; do anvi-init-bam $sample-raw.bam -o $sample.bam; done
+for sample in `cat SAMPLE_IDs`; do anvi-init-bam $sample-RAW.bam -o $sample.bam; done
 {% endhighlight %}
 
 Of course if you have a way to cluster your runs, you already know what to do.
