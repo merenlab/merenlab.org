@@ -28,7 +28,7 @@ There is no critique in science (...). You can't actually say, "This doesn't mea
 <div class="blockquote-author">Ford Doolittle</div>
 </blockquote>
 
-This is a quote from [The Philosophical Approach: An Interview with Ford Doolittle](http://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1005173) by Jane Gitschier that I largely agree with. We mostly complain about things in our labs to people we work with, and the criticism rarely exceeds the boundaries of those safe spaces even when it has to for everyone's sake. I decided to write this post partially to not do that, and put this out somewhere. Hey, I still like you and am excited about your science --let's say this is just me trying to be responsible in a way.
+This is a quote from [The Philosophical Approach: An Interview with Ford Doolittle](http://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1005173) by Jane Gitschier that I largely agree with. We mostly complain about things in our labs to people we work with, and the criticism rarely exceeds the boundaries of those safe spaces even when it should for everyone's sake. I decided to write this post partially to not do that, and put this out somewhere. Hey, I still like you and am excited about your science --let's say this is just me trying to be responsible in a way.
 
 The other reason is purely practical. I have been seeing the term "dark matter" in the field a bit too often recently. In fact it came to a point where a soil microbiologist colleague of mine sent me a paper to edit, and the title of the draft had "dark matter" in it. I thought I could post this out in the open, so my friends and colleagues who may care can know where I stand.
 
@@ -36,7 +36,7 @@ The other reason is purely practical. I have been seeing the term "dark matter" 
 
 The use of this term implies that there are parallels between the challenges microbiologists face as they study the microbial life, and the challenges physicists face when they study the fabric of the universe. But the implied parallels are simply inappropriate.
 
-It seems the term was first coined in a [PNAS paper](http://www.pnas.org/content/104/29/11889.full):
+It seems the term was first appeared in a [PNAS paper](http://www.pnas.org/content/104/29/11889.full):
 
 <blockquote>
 (...) It has been estimated that <1% of bacterial species have been axenically cultured, and fewer than half of the recognized bacterial phyla include cultivated representatives (1). This can be viewed as biology's "dark matter" problem: just as astronomers can only indirectly infer the existence of a large amount of as-yet-undetected mass in the universe, microbiologists can only estimate microbial diversity by using techniques such as comparative 16S ribosomal RNA (rRNA) gene analysis (2), community DNA hybridization efficiency (3), and metagenomic gene inventories (4, 5) (...)
@@ -52,19 +52,19 @@ The dark matter in physics takes you into an intricate and elaborate domain of s
 
 After hundreds of mentions of "dark matter" in research publications, maybe it is simply naive to expect a blog post that doesn't even offer a fancy alternative to this term to appeal to anyone's consideration. If you think one is not enough, but two may have done it, [here is another one](http://bytesizebio.net/2015/11/27/the-dark-matter-metaphor-in-biology/) from [Iddo Friedberg](https://twitter.com/iddux) on the same subject.
 
-"Dark matter" is definitely a catchy term. You may suggest that *you already know that the dark matter in physics is not the dark matter in microbiology, yet this is a good way to cultivate public interest*. I see the opportunity, yet I don't think we should piggy back on it. Because people who know these uses are not relevant and yet proceed to use it anyway to communicate the importance of studying microbial life to "the public", inadvertently rely on the ignorance of their audience. It is the opposite of the purpose of communicating science.
+"Dark matter" is definitely a catchy term. You may suggest that *you already know that the dark matter in physics is not the dark matter in microbiology, yet this is a good way to cultivate public interest*. I see the opportunity, yet I don't think we should piggy back on it. Because people who know that the term is not relevant to microbiology and yet use it to communicate the importance of studying the microbial life to the public anyway, inadvertently rely on the ignorance of their audience. It is the opposite of the purpose of communicating science.
 
 But even though it is not appropriate, one may still argue that the use of "dark matter" has value when speaking to the public. OK, regardless of its validity, there *is* an argument for that part. Meanwhile, I can't think of any argument to explain why *scientists* use it to communicate their findings to *other scientists* in peer-reviewed articles. Because there is absolutely no reason why one can't simply say what they mean by "dark matter" in an article instead of saying "dark matter" without any scientific basis.
 
-Overall, I think we can all benefit from being more explicit. Especially for a field that is growing so fast that even the terms we all commonly use mean different things to different groups, cutting corners with poor analogies like "dark matter" reflects badly on us, and hinders our ability to develop a robust and responsible vocabulary.
+Overall, I think we can all benefit from being more explicit. Especially in a field that is growing so fast that even the terms we all commonly use mean different things to different groups, cutting corners with poor analogies like "dark matter" reflects badly on us, and hinders our ability to develop a robust and responsible vocabulary.
 
 ---
 
-On a lighter note, I was talking to [Antonio Fernandez-Guerra](https://scholar.google.com/citations?user=wA7Hrk8AAAAJ) of the Max Planck Institute for Marine Microbiology on this topic, and he showed me one of his slides for his talks:
+On a lighter note, I was talking to [Antonio Fernandez-Guerra](https://scholar.google.com/citations?user=wA7Hrk8AAAAJ) of the Max Planck Institute on this topic, and he showed me one of his slides for his talks:
 
 [![DSOTM]({{images}}/dark-side-of-metagenomes.png)]({{images}}/dark-side-of-metagenomes.png){:.center-img .width-70}
 
-I love it. I guess we can all agree that *the dark side is the best side* as the many secrets of the microbial life hide in the dark corners of complex metagenomes for us to continue.
+I love it. I guess we can all agree that *the dark side is the best side* as the many secrets of the microbial life hide in the dark corners of complex metagenomes for us to continue exploring.
 
 OK. The rant is over. You can now back to work. But maybe put your headphones on, and [let this play](https://www.youtube.com/watch?v=YI67GAQYsRc) in the background.
 
