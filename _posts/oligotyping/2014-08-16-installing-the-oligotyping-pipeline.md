@@ -33,6 +33,7 @@ When the installation is done, you can refer to [this post]({% post_url oligotyp
 
 If you have questions, please send them to the [discussion forum](https://groups.google.com/forum/#!forum/oligotyping).
 
+
 ## Installing the latest stable version using pip (suggested method)
 
 Install [macports](https://www.macports.org/) if you haven’t. You can download it from [here](https://www.macports.org/install.php) (this is the only installer you will download). Macports provides an easy access to thousands of open-source software. Once you have it installed, open a terminal and type this:
@@ -128,6 +129,48 @@ Then type these commands to install the pipeline:
 
     cd oligotyping
     sudo python setup.py install
+
+
+## Using the oligtyping pipeline from directly the master repo without installation (Meren's way)
+
+This is for command line gurus. See the next section if you don't feel comfortable with this one. Keep in mind that you will need to change the directory names to adapt this recipe for your system:
+
+``` bash
+# setup a virtual environment with Python 2.7, and activate it
+mkdir -p ~/virtual-envs/
+virtualenv -p python2.7 ~/virtual-envs/oligotyping-master
+source ~/virtual-envs/oligotyping-master/bin/activate
+
+# get the source code, and install requirements
+mkdir -p ~/github/
+cd ~/github/
+git clone git@github.com:merenlab/oligotyping.git
+cd oligotyping
+pip install -p requirements.txt
+deactivate
+
+# setup init scripts for easy use
+echo 'export PYTHONPATH=$PYTHONPATH:~/github/oligotyping' >> ~/virtual-envs/oligotyping-master/bin/activate
+echo 'export PATH=$PATH:~/github/oligotyping/bin' >> ~/virtual-envs/oligotyping-master/bin/activate
+echo 'alias oligotyping-activate-master="source ~/virtual-envs/oligotyping-master/bin/activate"' >> ~/.bash_profile
+echo 'cd ~/github/oligotyping/ && git pull && cd -' >> ~/virtual-envs/oligotyping-master/bin/activate
+source ~/.bash_profile
+
+# setup matplotlib so it works from within the virtualenv
+mkdir -p ~/.matplotlib
+echo 'backend: Agg' >> ~/.matplotlib/matplotlibrc
+```
+
+Now you can activate the oligotyping pipeline with the latest additions by typing this in your command line:
+
+``` bash
+oligotyping-activate-master
+```
+
+You will still need to setup other dependencies such as R, for which you can see the instructions in the 'suggested method' section.
+
+---
+
 
 I thank Les Dethlefsen very much for sharing his experience with the installation and helping me improve the document.
 
