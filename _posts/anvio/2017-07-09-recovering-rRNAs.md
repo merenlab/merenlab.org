@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Recovering ribiosomal RNA gene sequences"
-excerpt: "Use anvi'o to get rRNA genes out of single-cells, clultivars, metagenome-assembled genomes, or from entire metagenomic assemblies."
+title: "Recovering ribiosomal RNA gene sequences with anvi'o"
+excerpt: "Use anvi'o to get rRNA genes out of single-cells, clultivars, metagenome-assembled genomes, or even from entire metagenomic assemblies because why not."
 modified: 2017-07-09
 tags: [16S]
 categories: [anvio]
@@ -28,7 +28,7 @@ anvi-script-FASTA-to-contigs-db GENOME.fa
 anvi-get-sequences-for-hmm-hits -c GENOME.db --hmm-source Ribosomal_RNAs
 ```
 
-So you can spend more time on Twitter.
+So you can spend more time on the next thing on your bottomless TODO list.
 
 
 ## Preface
