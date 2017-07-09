@@ -40,6 +40,17 @@ brew install homebrew/science/anvio
 If you are installing anvi'o on another operating system (or if you an OS X user who does not like Homebrew for some reason) please continue reading.
 
 
+## Painless installation with Conda
+
+In case you have been working with [Anaconda](https://www.continuum.io/downloads) and would like to continue to so, there is a way to install anvi'o along with all Python and non-Python dependencies thanks to [John Eppley](https://scholar.google.com/citations?user=4S2q_9cAAAAJ&hl=en):
+
+``` bash
+conda create -n anvio232 -c bioconda -c conda-forge gsl anvio
+```
+
+Note that the most up-to-date conda-available anvi'o version, which is currently `v2.3.2`, may differ from the most up-to-date stable anvi'o version, which is `v{% include _project-anvio-version-number.html %}`.
+
+
 ## Installation (with varying levels of pain)
 
 First things first. You need to make sure your system does have all the following software if you are going to follow any of the following installation instructions. It is not as scary as it looks. If you just follow these links, you will most probably be golden:
