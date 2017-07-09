@@ -8,7 +8,7 @@ categories: [anvio]
 comments: true
 authors: [meren]
 image:
-    feature: http://merenlab.org/images/anvio/2017-07-08-recovering-rRNAs/16S.png
+    feature: http://merenlab.org/images/anvio/2017-07-09-recovering-rRNAs/16S.png
     display: false
 ---
 
