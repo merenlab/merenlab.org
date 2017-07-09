@@ -42,7 +42,7 @@ If you are installing anvi'o on another operating system (or if you an OS X user
 
 ## Painless installation with Conda
 
-In case you have been working with [Anaconda](https://www.continuum.io/downloads) and would like to continue to so, there is a way to install anvi'o along with all Python and non-Python dependencies thanks to [John Eppley](https://scholar.google.com/citations?user=4S2q_9cAAAAJ&hl=en):
+If you have been working with [Anaconda](https://www.continuum.io/downloads), and would like to continue to do so, there is a way to install anvi'o along with all its Python and non-Python dependencies thanks to [John Eppley](https://scholar.google.com/citations?user=4S2q_9cAAAAJ&hl=en):
 
 ``` bash
 conda create -n anvio232 -c bioconda -c conda-forge gsl anvio
