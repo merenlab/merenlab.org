@@ -194,22 +194,7 @@ We hope this is useful to you, and please feel free to send any questions to our
 
 ## Under the hood
 
-I have a small rant first, then I will talk about the technical stuff for archival purposes. You clearly don't need to read this if you are not interested.
-
-<div class="extra-info" markdown="1">
-
-<span class="extra-info-header">A small rant on something small</span>
-
-Recently one of our papers got rejected from a journal, probably partially because one of our reviewers suggested that the novel anvi'o module we developed was "*just adding a bunch of scripts to an already existing program*". I understand that it is not easy for most microbiologists to asses bioinformatics challenges, but maybe we need to improve this. Because that comment is not much different than trivializing a new molecular biology experiment with "*this seems to be just pipetting in a bunch of liquids to already existing liquids*", and for some reason the probability of hearing this from a computational biologist sounds very very slim to me.
-
-Every time a software platform makes a 'new thing' possible (especially without breaking other 'things' it previously offered), it is safe to assume that a lot has happened behind the scenes. In fact, in this ever-changing computational landscape, it still requires someone somewhere to spend effort to keep a software alive and relevant. So if the software you are using is not dead yet, it means someone is still working on it once in awhile. If we are talking about the people who do this for science, we should also factor in the fact that most likely they are doing this without a significant financial reason. Given how scarce the skills for software development as of today, they probably could have done much less work for much more income in the industry if they didn't care about science.
-
-We shoot ourselves by dismissing all the effort that goes into software development. Yes, a lot of work can be put into software that solves a stupid question, and there are different ways to criticize that without making software development efforts look trivial.
-
-OK. I feel much better now. Back to the topic.
-
-</div>
-
+Here are some technical stuff for archival purposes. You clearly don't need to read this if you are not interested.
 
 ### Why not before?
 
