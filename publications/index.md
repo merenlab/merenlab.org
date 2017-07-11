@@ -7,11 +7,26 @@ comments: false
 <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 
 <div class="category-box">
-<a href="#2017"><span class="category-item">2017 <small>(4)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(7)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a><a href="#2011"><span class="category-item">2011 <small>(1)</small></span></a>
+<a href="#2017"><span class="category-item">2017 <small>(5)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(7)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a><a href="#2011"><span class="category-item">2011 <small>(1)</small></span></a>
 </div>
 
 <a name="2017">&nbsp;</a>
 <h1>2017</h1>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1016/j.celrep.2017.06.060"></div>
+    <h3><a href=" https://doi.org/10.1016/j.celrep.2017.06.060" target="_new">Peripartum Antibiotics Promote Gut Dysbiosis, Loss of Immune Tolerance, and Inflammatory Bowel Disease in Genetically Prone Offspring.</a></h3>
+    <span class="pub-authors">Miyoshi, J., Bobe, A. M., Miyoshi, S., Huang, Y., Hubert, N., <span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Eren, A. M</span>., Leone, V., and Chang, E. B.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="http://i.imgur.com/jvmaUfV.png"><img src="http://i.imgur.com/jvmaUfV.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- Antibiotics during pregnancy promote offspring gut dysbiosis, immune dysfunction, and IBD.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Antibiotics given after the developmental period do not increase IBD.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Antibiotic-perturbed maternal microbiota likely contribute to neonatal gut dysbiosis.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  <a href="https://sciencelife.uchospitals.edu/2017/07/11/antibiotics-taken-late-in-pregnancy-can-increase-risk-for-inflammatory-bowel-diseases-in-offspring/" target="_blank">Press release</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>Cell Reports</i>. <b>20:2</b></span>
+</div>
 
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s40168-017-0270-x"></div>
