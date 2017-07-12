@@ -150,7 +150,7 @@ CAAGCTTTCTTCCTGATGCCCCTCGACTTGCATGTGTTAAGCCTGTAGCTAGCGTTCATCCTGAGCCAGGATCAAACTCT
 
 And a BLAST search indicates that it matches 100% over its entire lenght to the 'Bacteroides fragilis strain NCTC 9343 16S ribosomal RNA gene, complete sequence'.
 
-As you can see, even with in bioinformatics, things sometimes do work.
+As you can see, things may occasionally work even when you are dealing with bioinformatics.
 
 
 ## Working with anvi'o standard files
