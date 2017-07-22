@@ -18,13 +18,18 @@ Preparing publication-quality figures is not an easy task. Although the [anvi'o 
 {:.notice}
 I know among you there are some who think that they can get away with by taking screenshots of their browser window and using it in their publications or presentations. Well, you are not really getting away: perfectionists take notice, and your name ends up in a list somewhere.
 
-## Saving an anvi'o display
+## Saving an anvi'o display manually
 
 Downloading what you see in an anvi'o display on your disk as an SVG file is as easy as clicking [that save button on the bottom-left corner of the interface](http://anvi-server.org/public/meren/demo):
 
 [![Save button]({{images}}/save-button.png)]({{images}}/save-button.png){:.center-img .width-50}
 
 This will give you a standard SVG file, and you will be able to import it into your favorite vector graphics editor to finalize your figure.
+
+## Saving an anvi'o display automatically
+
+If you have an anvi'o state named `default` stored in your profile database, you can instruct `anvi-interactive` to automatically save your display as an SVG file by adding `--export-svg FILE_NAME.svg` parameter. In this case anvi'o would use selenium and chromedriver to load the interactive interface, draw the image, and save it into the output file before closing the browser window and terminating the server. It is especially useful if you have tens of images to generate. You can put together a batch file to store all visualizations.
+
 
 ## Working with very large SVG files
 
@@ -35,6 +40,9 @@ Although Inkscape can handle pretty large files, working with files that contain
 {% highlight bash %}
 $ inkscape --without-gui -f input.svg --export-png output.png -d 300 -D
 {% endhighlight %}
+
+{:.notice}
+Depending on the system you are using, you may need to provide full paths for the SVG file and for the output PNG file. If you get a "file not found" error, try providing full paths.
 
 The parameter `-d 300` here is the way you tell Inkscape what should be the resolution of the resulting PNG file (i.e., it is going to be 300 dpi in this example). You can increase this value the way you see fit. 
 
