@@ -11,7 +11,6 @@ authors: [meren]
 
 {% include _project-anvio-version.html %}
 
-
 {% include _toc.html %}
 
 If you are reading this, you probably already know what [Docker](https://www.docker.com/https://www.docker.com/) is. If you don't know, here is a quote from their web site:
@@ -26,7 +25,7 @@ If you want to quickly run anvi'o on a server or a desktop system with 0 pain, t
 
 ## Running the anvi'o docker image (for Linux users)
 
-I assume the server you are working on has Docker installed, and the docker service is up and running. I run these commands on my Ubuntu Linux box to install Docker, and running it: 
+I assume the server you are working on has Docker installed, and the docker service is up and running. I run these commands on my Ubuntu Linux box to install Docker, and running it:
 
 ``` bash
 $ sudo apt-get install docker.io
@@ -44,7 +43,8 @@ Here are the available tags as of today:
 ``` bash
 $ sudo docker images
 REPOSITORY          TAG        IMAGE ID     CREATED    SIZE
-meren/anvio         2.3.2      (...)        (...)      800.0 MB
+meren/anvio         2.4.0      (...)        (...)      822.0 MB
+meren/anvio         2.3.2      (...)        (...)      806.0 MB
 meren/anvio         2.3.0      (...)        (...)      804.7 MB
 meren/anvio         2.1.0      (...)        (...)      667.4 MB
 meren/anvio         2.0.2      (...)        (...)      672.0 MB
@@ -100,7 +100,7 @@ Docker will download all the necessary images, and will finally give you an anvi
 Once you see this, you can run the self-test:
 
 ``` bash
-:: anvi`o ::  / >>> anvi-self-test 
+:: anvi`o ::  / >>> anvi-self-test
 ```
 
 Now you can open your Chrome browser, type the IP address you noted with a ":8080" at the end (which looks like this for me 192.168.99.100:8080), and press enter... Surprise!
@@ -123,7 +123,7 @@ $ pwd
 /home/meren
 $ ls my_data/
 X.bam  Y.bam  contigs.fa
-$ sudo docker run --rm -v /home/merenbey/my_data:/my_data -it meren/anvio:latest                                      
+$ sudo docker run --rm -v /home/merenbey/my_data:/my_data -it meren/anvio:latest
 :: anvi`o ::  / >>> ls /my_data/
 X.bam  Y.bam  contigs.fa
 ```
@@ -131,7 +131,7 @@ X.bam  Y.bam  contigs.fa
 
 ## Rebuilding the anvi'o docker image (for hackers)
 
-For your reference, We keep our Docker files for each anvi'o version since v2.3.2 here:
+For your reference, We keep our Docker files for each anvi'o version since v2.4.0 here:
 
 [https://gist.github.com/meren/65b1f1bfea1b53e87e10f025d1e4c29a](https://gist.github.com/meren/65b1f1bfea1b53e87e10f025d1e4c29a)
 
@@ -140,14 +140,14 @@ If you would like to rebuild the Docker image for anvi'o on your own server, you
 ``` bash
 git clone --recursive https://github.com/meren/anvio.git
 cd anvio
-git checkout tags/v2.3.2
-wget https://gist.githubusercontent.com/meren/65b1f1bfea1b53e87e10f025d1e4c29a/raw/20994a6f0d47d64170f351f2c861c48d9be43fc1/Dockerfile_v2.3.2.sh -O Dockerfile
+git checkout tags/v2.4.0
+wget https://gist.githubusercontent.com/meren/65b1f1bfea1b53e87e10f025d1e4c29a/raw/864badba94e96947015bd32a7ef53d7db982dfc8/Dockerfile_v2.4.0.sh -O Dockerfile
 ```
 
 Add/remove things you want, do your changes in the code, and build the new docker image (replace the username and tag with your preferences):
 
 ``` bash
-docker build -t meren/anvio:2.3.2 .
+docker build -t meren/anvio:2.4.0 .
 ```
 
 And optionally, push it to your account on the hub to allow other people run it easily (i.e., this is what I do to push the new images to my account):
