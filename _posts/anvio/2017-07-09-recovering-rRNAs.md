@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Recovering ribiosomal RNA gene sequences with anvi'o"
+title: "Recovering ribosomal RNA gene sequences with anvi'o"
 excerpt: "Use anvi'o to get rRNA genes out of single-cells, clultivars, metagenome-assembled genomes, or even from entire metagenomic assemblies because why not."
 modified: 2017-07-09
 tags: [16S]
