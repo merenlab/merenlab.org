@@ -4,6 +4,7 @@ title: A tutorial on assembly-based metagenomics
 modified: 2016-07-13
 excerpt: "By Meren Lab and anvi'o developers"
 comments: true
+categories: [anvio]
 image:
   feature: feature-infant-gut-tutorial.png
 ---

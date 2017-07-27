@@ -3,6 +3,7 @@ layout: page
 title: An anvi'o tutorial using the Infant Gut Dataset by Sharon <em>et al.</em>
 modified: 2017-02-06
 excerpt: "Binning, benchmarking binning approaches, refining poorly identified bins, and other Anvi'o tutorial for metagenomics using the Infant Gut Dataset by Sharon *et al*"
+categories: [anvio]
 comments: true
 image:
   feature: feature-infant-gut-tutorial.png
