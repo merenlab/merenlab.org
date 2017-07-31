@@ -7,11 +7,26 @@ comments: false
 <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 
 <div class="category-box">
-<a href="#2017"><span class="category-item">2017 <small>(5)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(7)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a><a href="#2011"><span class="category-item">2011 <small>(1)</small></span></a>
+<a href="#2017"><span class="category-item">2017 <small>(6)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(7)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a><a href="#2011"><span class="category-item">2011 <small>(1)</small></span></a>
 </div>
 
 <a name="2017">&nbsp;</a>
 <h1>2017</h1>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/170639"></div>
+    <h3><a href=" https://doi.org/10.1101/170639" target="_new">The global biogeography of amino acid variants within a single SAR11 population is governed by natural selection.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Kiefl, E.</span>, Kilinc, O., <span class="pub-member-author">Esen, Ö. C.</span>, Uysal, I., Rappé, M. S., Giovannoni, S., and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="http://i.imgur.com/HrlXPOF.jpg"><img src="http://i.imgur.com/HrlXPOF.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- Using single-amino acid variants to investigate genome variation within a single SAR11 population across large geographies.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Application of a novel Deep Learning algorithm to resolve relationships between metagenomes through complex SAAV data.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Partitioning of SAAVs suggests natural selection, rather than neutral evolution, is the main driver of the evolution of SAR11.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>BioRxiv</i>. <b>pre-print</b></span>
+</div>
 
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1016/j.celrep.2017.06.060"></div>
