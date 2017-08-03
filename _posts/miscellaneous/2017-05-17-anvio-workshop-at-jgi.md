@@ -16,6 +16,9 @@ image:
 
 {% capture images %}{{site.url}}/images/miscellaneous/2017-05-17-anvio-workshop-at-jgi{% endcapture %}
 
+{:.notice}
+Applications for this workshop is now closed. Thank you very much for your interest, and we hope to see you in another workshop.
+
 Soon after [the anvi'o workshop at the University of Chicago]({% post_url miscellaneous/2017-03-23-anvio-workshop-at-uchicago %}), we are happy to announce another 2-day workshop at the [Joint Genome Institute](http://jgi.doe.gov/). The details of the workshop and the schedule will be here, but here are some quick facts.
 
 ![Workshop]({{images}}/flyer.png){:.center-img .width-60}
