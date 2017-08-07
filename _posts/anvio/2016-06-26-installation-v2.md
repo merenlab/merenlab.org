@@ -31,19 +31,6 @@ python -c 'import webbrowser as w; w.open_new("http://")'
 
 ## Painless installation with Homebrew
 
-**Temporary Notice: We will remove this notice when Homebrew repository is synchronized with the new version**
-
-Until then, you can install anvi'o using brew the following way:
-
-``` bash
-brew uninstall anvio
-brew install https://raw.githubusercontent.com/ozcan/homebrew-science/e43b03bb99521327bfedc1fa2139fed713009f01/anvio.rb
-```
-
-This will take a bit time since everything will be compiled from the source, but you should be OK if you are not in a rush. You will be able to do what is described down below once Homebrew is ready, which shouldn't take more than 24 hours.
-
----
-
 If you are using Mac and have [Homebrew](http://brew.sh/) installed on your computer, all you need to do is to run this to have anvi'o installed on your system, and skip the rest of this page (although we suggest you to run `brew doctor` in your terminal first to make sure everything is good to go):
 
 ``` bash
