@@ -1033,7 +1033,7 @@ So everything is ready for an analysis, and the first step in the pangenomic wor
 Now we have the genomes storage, we can characterize the pangenome:
 
 ``` bash
- $ anvi-pan-genome -g Enterococcus-GENOMES.h5 -J Enterococcus -o PAN --num-threads 6 --skip-align
+ $ anvi-pan-genome -g Enterococcus-GENOMES.h5 -n Enterococcus -o PAN --num-threads 6 --skip-align
 ```
 
 {:.notice}
