@@ -66,7 +66,7 @@ On a lighter note, I was talking to [Antonio Fernandez-Guerra](https://scholar.g
 
 I love it. I guess we can all agree that *the dark side is the best side* as the many secrets of the microbial life hide in the dark corners of complex metagenomes for us to continue exploring.
 
-OK. The rant is over. You can now back to work. But maybe put your headphones on, and [let this play](https://www.youtube.com/watch?v=YI67GAQYsRc) in the background.
+OK. The rant is over. You can now back to work. But maybe put your headphones on, and [let this play](https://www.youtube.com/watch?v=1vw1pdjydp0) in the background.
 
 ---
 
