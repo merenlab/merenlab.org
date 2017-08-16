@@ -11,6 +11,9 @@ comments: true
 
 {% include _toc.html %}
 
+{:.notice}
+There is also a [docker image for oligotyping]({% post_url oligotyping/2014-09-02-virtualbox %}) if you are interested in a painless run.
+
 Installing the oligotyping pipeline on a MAC or a Linux computer is as easy as writing this command in the terminal window (assuming you already have [pip](https://pypi.python.org/pypi/pip)):
 
     sudo pip install oligotyping
