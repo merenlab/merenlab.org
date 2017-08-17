@@ -272,3 +272,23 @@ Upon the successful completion of all the tests, your browser should popup to ta
 All fine? Perfect! Now you have a running installation of anvi'o!
 
 It is time to go through the [tutorial]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}), or take a look at [all the other posts on the platform]({{ site.url }}/software/anvio).
+
+
+## Known issues
+
+### CherryPY problem with v2.1.0
+
+If you have installed anvi'o v2.1.0 recently and getting this error when you run the interactive interface:
+
+``` bash
+(...)
+    from cherrypy import wsgiserver
+ImportError: cannot import name wsgiserver
+```
+
+You can solve it by downgrading cherrypy the following way:
+
+```
+pip uninstall cherrypy
+pip install "cherrypy>=3.0.8,<9.0"
+```
