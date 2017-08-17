@@ -20,10 +20,10 @@ All anvi'o analyses in this document are performed using the anvi'o version `v2.
 The URL [http://www.biorxiv.org/content/early/2017/07/31/170639](http://www.biorxiv.org/content/early/2017/07/31/170639){:target="_blank"} serves the pre-print of the study described in this document.
 
 {:.notice}
-The URL [http://merenlab.org/data/#XXX](http://merenlab.org/data/#XXX) serves all public data items used and produced by this study.
+The URL [http://merenlab.org/data/#XXX](http://merenlab.org/data/#XXX){:target="_blank"} serves all public data items used and produced by this study.
 
 {:.notice}
-The URL [http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/](http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/) serves the most up-to-date version of this document.
+The URL [http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/](http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/){:target="_blank"} serves the most up-to-date version of this document.
 
 
 <div class="extra-info" markdown="1">
@@ -66,18 +66,13 @@ gzip -d SAR11-isolates.fa.gz
 
 ### Downloading the TARA Oceans and Ocean Sampling Day metagenomes
 
-The following file contains FTP URLs for each raw data file for 103 samples:
-
-{:.notice}
-[http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/ftp-links-for-raw-data-files.txt](http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/ftp-links-for-raw-data-files.txt)
-
-You can get a copy of this file into your work directory, 
+[This file](http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/ftp-links-for-raw-data-files.txt){:target="_blank"} contains URLs for FTP access for each raw data file for 103 samples, and you can get a copy of it into your work directory, 
 
 ``` bash
 wget http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/ftp-links-for-raw-data-files.txt
 ``` 
 
-and download each of the raw sequencing data file from the EMBL servers:
+and download each of the raw sequencing data file from the EMBL servers this way:
 
 ``` bash
 for url in `cat ftp-links-for-raw-data-files.txt`
@@ -86,46 +81,20 @@ do
 done
 ```
 
+This may take quite a while.
+
+
 ### Defining metagenomic sets, setting sample names, and linking those with the raw data
 
 We defined 12 'metagenomic sets' for geographically bound locations TARA Oceans samples originated from, consistent with our previous [work flow to reconstruct ~1,000 population genomes](http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/). We defined an additional metagenomic set for the 10 Ocean Sampling Day metagenomes that cover high-latitudes of the north hemisphere. 
 
-We tailored our sample naming schema for convenience and reproducibility. The following address contains a file with three-letter identifiers for each of the 13 metagenomic sets, which will become prefixes for each sample name for direct access to all samples from a given metagenomic set:
-
-{:.notice}
-[http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/sets.txt](http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/sets.txt)
-
-This file will be referred to as `sets.txt` throughout the document, and you can get a copy of this file into your work directory:
+We tailored our sample naming schema for convenience and reproducibility. [This file](http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/sets.txt){:target="_blank"}{:target="_blank"} contains the three-letter identifiers for each of the 13 metagenomic sets, which will become prefixes for each sample name for direct access to all samples from a given metagenomic set. This file will be referred to as `sets.txt` throughout the document, and you can get a copy of this file into your work directory:
 
 ``` bash
-wget http://merenlab.org/data/2017_Delmont_et_al_SAR11/files/sets.txt
+wget http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/sets.txt
 ``` 
 
-The content of the TARA Oceans and Ocean Sampling day sets file should look like this:
-
-``` bash
-$ cat sets.txt
-ANE
-ANW
-ASE
-ASW
-ION
-IOS
-MED
-PON
-PSE
-PSW
-RED
-SOC
-OSD
-``` 
-
-We used these three-letter prefixes to name each of the 103 samples, and to associate them with metagenomic sets with which they were affiliated. Sample names, and which raw data files are associated with each sample is explained in the following TAB-delimited file:
-
-{:.notice}
-[http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/samples.txt](http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/samples.txt)
-
-This file will be referred to as `samples.txt` throughout the document, and you can get a copy of this file into your work directory:
+We used these three-letter prefixes to name each of the 103 samples, and to associate them with metagenomic sets with which they were affiliated. [This file](http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/samples.txt){:target="_blank"} contains sample names, and explaines which raw data files are associated with each sample. It will be referred to as `samples.txt` throughout the document, and you can get a copy of this file into your work directory:
 
 ``` bash
 wget http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/samples.txt
@@ -154,9 +123,9 @@ This file above also represents the standard input for `illumina-utils` library 
 
 ### Quality-filtering of raw reads 
 
-We used the [illumina-utils library](https://github.com/meren/illumina-utils) `v1.4.1` (Eren et al., 2013) to remove noise from raw reads prior to mapping.
+We used the [illumina-utils library](https://github.com/meren/illumina-utils){:target="_blank"} `v1.4.1` (Eren et al., 2013) to remove noise from raw reads prior to mapping.
 
-To produce the configuration files [illumina utils requires](https://github.com/merenlab/illumina-utils#config-file-format), we first run the program `iu-gen-configs` on the file `samples.txt`:
+To produce the configuration files [illumina utils requires](https://github.com/merenlab/illumina-utils#config-file-format){:target="_blank"}, we first run the program `iu-gen-configs` on the file `samples.txt`:
 
 ``` bash
 iu-gen-configs samples.txt
@@ -205,7 +174,7 @@ anvi-gen-contigs-database -f SAR11-isolates.fa \
 ```
 
 {:.notice}
-[doi:10.5281/zenodo.835218](https://doi.org/10.5281/zenodo.835218) serves the resulting contigs database.
+[doi:10.5281/zenodo.835218](https://doi.org/10.5281/zenodo.835218){:target="_blank"} serves the resulting contigs database.
 
 
 ### Identifying single-copy core genes
@@ -217,7 +186,7 @@ anvi-run-hmms -c SAR11-CONTIGS.db \
               --num-threads 20
 ```
 
-This step uses HMMER `v3.1b2` (Eddy, 2011) to match genes to [previously determined HMM profiles](https://github.com/merenlab/anvio/tree/v2.4.0/anvio/data/hmm) for bacterial and archaeal SCGs by [Campbell et al](http://www.pnas.org/content/110/14/5540.short) and [Rinke et al](http://www.nature.com/nature/journal/v499/n7459/full/nature12352.html).
+This step uses HMMER `v3.1b2` (Eddy, 2011) to match genes to [previously determined HMM profiles](https://github.com/merenlab/anvio/tree/v2.4.0/anvio/data/hmm){:target="_blank"} for bacterial and archaeal SCGs by [Campbell et al](http://www.pnas.org/content/110/14/5540.short){:target="_blank"} and [Rinke et al](http://www.nature.com/nature/journal/v499/n7459/full/nature12352.html){:target="_blank"}.
 
 
 ### Inferring functions with COGs
@@ -309,7 +278,7 @@ done
 The resulting profile database describes the coverage and detection statistics, as well as SNVs and SAAVs for each scaffold across all 103 metagenomes.
 
 {:.notice}
-[doi:10.5281/zenodo.835218](https://doi.org/10.5281/zenodo.835218) serves the merged anvi'o profile.
+[doi:10.5281/zenodo.835218](https://doi.org/10.5281/zenodo.835218){:target="_blank"} serves the merged anvi'o profile.
 
 
 ### Generating a genomic collection
@@ -372,7 +341,7 @@ anvi-summarize -c SAR11-CONTIGS.db \
 This summary contains all key information regarding the occurrence of isolate genomes in metagenomes (i.e., their coverage at the gene, scaffold, and genome-level, functional annotations per gene, etc.)
 
 {:.notice}
-[doi:10.6084/m9.figshare.5248453](https://doi.org/10.6084/m9.figshare.5248453) serves the summary output. This is a static HTML web page and you can display the output without an anvi'o installation.
+[doi:10.6084/m9.figshare.5248453](https://doi.org/10.6084/m9.figshare.5248453){:target="_blank"} serves the summary output. This is a static HTML web page and you can display the output without an anvi'o installation.
 
 ## SAR11 metapangenome
 
@@ -442,7 +411,7 @@ The resulting summary folder contains a file that links each gene to protein clu
 
 ### Linking the pangenome to the environment
 
-From the anvi'o metagenomic summary output described in the previous section, we determined the relative distribution of each genome across the 103 metagenomes. We created a text file, `SAR11-PAN-samples-information.txt` (avilable [here]({{ site.url }}/data/2017_Delmont_et_al_SAR11_SAAVs/files/SAR11-PAN-samples-information.txt)) to link the pangenome to the environment using genomic coverage values across samples, as well as to display other information such as gneme lengths and clade information. From this file we generated an anvi'o [samples database](http://merenlab.org/2015/11/10/samples-db/), `SAR11-PAN-SAMPLES.db`. In addition, we used the summary output of the SAR11 pangenome to identify protein clusters containing a list of HIMB83 genes of interest (the 799 core S-LLPA genes), and created the file `S-LLPA-CORE-GENES.txt` (avilable [here]({{ site.url }}/data/2017_Delmont_et_al_SAR11_SAAVs/files/S-LLPA-CORE-GENES.txt)), the contents of which looked like this:
+From the anvi'o metagenomic summary output described in the previous section, we determined the relative distribution of each genome across the 103 metagenomes. We created a text file, `SAR11-PAN-samples-information.txt` (avilable [here]({{ site.url }}/data/2017_Delmont_et_al_SAR11_SAAVs/files/SAR11-PAN-samples-information.txt)) to link the pangenome to the environment using genomic coverage values across samples, as well as to display other information such as gneme lengths and clade information. From this file we generated an anvi'o [samples database](http://merenlab.org/2015/11/10/samples-db/){:target="_blank"}, `SAR11-PAN-SAMPLES.db`. In addition, we used the summary output of the SAR11 pangenome to identify protein clusters containing a list of HIMB83 genes of interest (the 799 core S-LLPA genes), and created the file `S-LLPA-CORE-GENES.txt` (avilable [here]({{ site.url }}/data/2017_Delmont_et_al_SAR11_SAAVs/files/S-LLPA-CORE-GENES.txt)), the contents of which looked like this:
 
 ``` bash
 $ head S-LLPA-CORE-GENES.txt
@@ -469,10 +438,10 @@ anvi-display-pan -p SAR11-PAN-PAN.db \
 
 This resulting display is publicly available on the anvi-server just so you can play with it interactively in case you read it all the way here:
 
-[https://anvi-server.org/merenlab/SAR11_metapangenome](https://anvi-server.org/merenlab/SAR11_metapangenome)
+[https://anvi-server.org/merenlab/SAR11_metapangenome](https://anvi-server.org/merenlab/SAR11_metapangenome){:target="_blank"}
 
 {:.notice}
-[doi:10.6084/m9.figshare.5248459](https://doi.org/10.6084/m9.figshare.5248459) serves the anvi'o files for the SAR11 metapangenome.
+[doi:10.6084/m9.figshare.5248459](https://doi.org/10.6084/m9.figshare.5248459){:target="_blank"} serves the anvi'o files for the SAR11 metapangenome.
 
 
 ## Creating a self-contained profile for HIMB83
@@ -506,7 +475,7 @@ anvi-interactive -c NON-REDUNDANT-MAGs-SPLIT/HIMB083/CONTIGS.db \
 ```
 
 {:.notice}
-[doi:10.6084/m9.figshare.5248435](https://doi.org/10.6084/m9.figshare.5248435) serves the self-contained anvi'o profile for HIMB83 across all metagenomes.
+[doi:10.6084/m9.figshare.5248435](https://doi.org/10.6084/m9.figshare.5248435){:target="_blank"} serves the self-contained anvi'o profile for HIMB83 across all metagenomes.
 
 
 ## Generating genomic variation data for HIMB83
@@ -577,7 +546,7 @@ anvi-gen-variability-profile -c SAR11-CONTIGS.db \
 These reports were the key data to compare the differential occurrence of variants across metagenomes to study the evolutionary forces operating on this population at large scale.
 
 {:.notice}
-[doi:10.6084/m9.figshare.5248447](https://doi.org/10.6084/m9.figshare.5248447) serves the anvi'o variability tables described in this section.
+[doi:10.6084/m9.figshare.5248447](https://doi.org/10.6084/m9.figshare.5248447){:target="_blank"} serves the anvi'o variability tables described in this section.
 
 ## Application of Deep Learning to SAAVs
 
@@ -614,13 +583,13 @@ EOF
 
 The rest of this section does two things: explaining the approach, and linking those explanations to Python code snippets, which you can run in a Python terminal (type `ipython` to start one). Alternatively, all steps are summarized in a single Python program at the end of this section, which you can run after making sure the path to the SAAVs table is correct. We are planning to implement this approach in anvi'o to streamline the application of this algorithm, but until then, you can use the following recipe.
 
-These methods are adopted by our collaborators [Ozsel Kilinc](https://www.linkedin.com/in/%C3%B6zsel-k%C4%B1l%C4%B1n%C3%A7-44b01092/) and [Ismail Uysal](https://www.researchgate.net/profile/Ismail_Uysal3). We thank them for their help with these analyses and for their patience :)
+These methods are adopted by our collaborators [Ozsel Kilinc](https://www.linkedin.com/in/%C3%B6zsel-k%C4%B1l%C4%B1n%C3%A7-44b01092/){:target="_blank"} and [Ismail Uysal](https://www.researchgate.net/profile/Ismail_Uysal3){:target="_blank"}. We thank them for their help with these analyses and for their patience :)
 
 ### The approach
 
-This approach builds upon a previous study on learning of latent annotations on neural networks using [auto-clustering output layer](https://arxiv.org/abs/1702.08648) (ACOL) when a coarse level of supervision is available for all observations (i.e. parent-class labels), but the model has to learn a deeper level of latent annotations (i.e. sub-classes, under each one of parents).
+This approach builds upon a previous study on learning of latent annotations on neural networks using [auto-clustering output layer](https://arxiv.org/abs/1702.08648){:target="_blank"} (ACOL) when a coarse level of supervision is available for all observations (i.e. parent-class labels), but the model has to learn a deeper level of latent annotations (i.e. sub-classes, under each one of parents).
 
-ACOL is a novel output layer modification for deep neural networks to allow simultaneous supervised classification (per provided parent-classes) and unsupervised clustering (within each parent) where clustering is performed with a recently proposed [Graph-based Activity Regularization](https://arxiv.org/abs/1705.07219) (GAR) technique. More specifically, as ACOL duplicates the softmax nodes at the output layer for each class, GAR allows for competitive learning between these duplicates on a traditional error-correction learning framework. 
+ACOL is a novel output layer modification for deep neural networks to allow simultaneous supervised classification (per provided parent-classes) and unsupervised clustering (within each parent) where clustering is performed with a recently proposed [Graph-based Activity Regularization](https://arxiv.org/abs/1705.07219){:target="_blank"} (GAR) technique. More specifically, as ACOL duplicates the softmax nodes at the output layer for each class, GAR allows for competitive learning between these duplicates on a traditional error-correction learning framework. 
 
 To study SAAVs, we modified ACOL to learn latent annotations in a fully unsupervised setup by substituting the real, yet unavailable, parent-class information with a pseudo one (i.e. randomly generated pseudo parent-classes). To generate examples for a pseudo parent-class, we choose a domain specific transformation to be applied to every sample in the dataset. The transformed dataset constitutes the examples of that pseudo parent-class and every new transformation (i.e. the random sampling of codon positions) generates a new pseudo parent-class. Naturally, the main classification task performed over these pseudo parent-classes does not represent any meaningful knowledge about the data by itself. However, frequent and random selection of these pseudo parent-classes allow the ACOL neural network to learn sub-classes of these pseudo parents without bias. While each sub-class corresponds to a latent annotation which may or may not be meaningful, the combination of these annotations learned through abundant and concurrent clusterings reveals an unbiased and robust similarity metric between different metagenomes.
 
@@ -691,7 +660,7 @@ The following describes the algorithm for sampling and pseudo parent-class gener
 
 Neural networks define a family of functions parameterized by weights and biases which define the relation between inputs and outputs. In multi-class categorization tasks, outputs correspond to class labels, hence in a typical output layer structure there exists an individual output node for each class. An activation function, such as softmax is then used to calculate normalized exponentials to convert the previous hidden layer's activations, i.e. scores, into probabilities.
 
-Unlike traditional output layer structure, ACOL defines more than one softmax node ($$k$$ duplicates) per class (in this particular case, we prefer to use "pseudo parent-class" term to emphasize that these classes are not expert-defined but automatically generated depending on random sampling). Outputs of $$k$$ duplicated softmax nodes that belong to the same pseudo parent are then combined in a subsequent pooling layer for the final prediction. Training is performed in the configuration shown in figure below. This might look like a classifier with redundant softmax nodes. However, duplicated softmax nodes of each pseudo parent are specialized due to [dropout](http://jmlr.org/papers/v15/srivastava14a.html) and the unsupervised regularization applied throughout the training in a way that each one of $$n=n_\psi k$$ softmax nodes represents an individual sub-class of a pseudo parent, i.e. latent annotation.
+Unlike traditional output layer structure, ACOL defines more than one softmax node ($$k$$ duplicates) per class (in this particular case, we prefer to use "pseudo parent-class" term to emphasize that these classes are not expert-defined but automatically generated depending on random sampling). Outputs of $$k$$ duplicated softmax nodes that belong to the same pseudo parent are then combined in a subsequent pooling layer for the final prediction. Training is performed in the configuration shown in figure below. This might look like a classifier with redundant softmax nodes. However, duplicated softmax nodes of each pseudo parent are specialized due to [dropout](http://jmlr.org/papers/v15/srivastava14a.html){:target="_blank"} and the unsupervised regularization applied throughout the training in a way that each one of $$n=n_\psi k$$ softmax nodes represents an individual sub-class of a pseudo parent, i.e. latent annotation.
 
 [![SAR11]({{images}}/schema_acol.png)]({{images}}/schema_acol.png){:.center-img .width-70}
 
@@ -785,7 +754,7 @@ Training of the newwork is performed according to simultaneous supervised and un
 sgd = SGD(lr=0.01, decay=1e-6, momentum=0.95, nesterov=True)   
 ```
 
-Algorithm 2 below describes the entire training procedure. Along with unsupervised regularization, it also applies [dropout method](http://jmlr.org/papers/v15/srivastava14a.html) to the augmented softmax layer to distribute examples across the duplicated softmax nodes. For each mini-batch, an $$1 \times n$$ row vector $$\boldsymbol{r}$$ of independent Bernoulli random variables is sampled and multiplied element-wise with the output of the augmented softmax layer. This operation corresponds to dropping out each one of the $$n$$ softmax nodes with the probability of $$p$$ for that batch.  
+Algorithm 2 below describes the entire training procedure. Along with unsupervised regularization, it also applies [dropout method](http://jmlr.org/papers/v15/srivastava14a.html){:target="_blank"} to the augmented softmax layer to distribute examples across the duplicated softmax nodes. For each mini-batch, an $$1 \times n$$ row vector $$\boldsymbol{r}$$ of independent Bernoulli random variables is sampled and multiplied element-wise with the output of the augmented softmax layer. This operation corresponds to dropping out each one of the $$n$$ softmax nodes with the probability of $$p$$ for that batch.  
 
 [![SAR11]({{images}}/algorithm2.png)]({{images}}/algorithm2.png){:.center-img .width-100}
 
@@ -1005,7 +974,7 @@ python ACOL_Pseudo_SAR11.py
 
 The output file `S-LLPA-DEEP-LEARNING-DIST-MAT.csv` will contain deep learning estimated distances. 
 
-The output file the code above generated when we run it on xx is [available here]({{ site.url }}/data/2017_Delmont_et_al_SAR11_SAAVs/files/S-LLPA-DEEP-LEARNING-DIST-MAT.csv)).
+The output file the code above generated when we run it on xx is [available here]({{ site.url }}/data/2017_Delmont_et_al_SAR11_SAAVs/files/S-LLPA-DEEP-LEARNING-DIST-MAT.csv)){:target="_blank"}.
 
 ### Identifying proteotypes from Deep Learning-estimated distances
 
@@ -1042,6 +1011,7 @@ which suggested that 'six' was an appropriate number to divide our dendrogram:
 ## SAAVs on protein structures
 
 *(soon)*
+
 
 ## References
 
