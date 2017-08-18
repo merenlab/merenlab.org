@@ -692,7 +692,7 @@ f\big(\boldsymbol{X}\big) =
 h^{(L)}\bigg(h^{(L-1)}\big(\boldsymbol{Z}\big)\boldsymbol{W}^{(L)} + \boldsymbol{b}^{(L)}\bigg)
 $$
 
-where $$\boldsymbol{Y}$$ is an $$m \times n_\psi$$ matrix in which $$Y_{ij}$$ is the probability of the $$i^{th}$$ example belonging to the $$j^{th}$$ pseudo parent. Since $$h^{(L-1)}(.)$$ and $$h^{(L)}(.)$$ respectively correspond to softmax and linear activation functions and $$boldsymbol{b}^{(L)} = \boldsymbol{0}$$, then this expression further simplifies into 
+where $$\boldsymbol{Y}$$ is an $$m \times n_\psi$$ matrix in which $$Y_{ij}$$ is the probability of the $$i^{th}$$ example belonging to the $$j^{th}$$ pseudo parent. Since $$h^{(L-1)}(.)$$ and $$h^{(L)}(.)$$ respectively correspond to softmax and linear activation functions and $$\boldsymbol{b}^{(L)} = \boldsymbol{0}$$, then this expression further simplifies into 
 
 $$
 f\big(\boldsymbol{X}\big) = 
