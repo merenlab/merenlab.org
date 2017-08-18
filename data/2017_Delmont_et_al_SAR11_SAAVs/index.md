@@ -30,22 +30,22 @@ The URL [http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/](http://merenl
 
 <span class="extra-info-header">Summary</span>
 
-In this study we,
+In this study,
 
-* Characterized the metapangenome of 21 SAR11 isolate genomes,
+* We characterized the metapangenome of 21 SAR11 isolate genomes using TARA Oceans metagenomes,
 
-* Identified single nucleotide variants (SNVs) and single amino acid variants (SAAVs) within a remarkably abundant and widespread SAR11 population,
+* Identified single-nucleotide variants (SNVs) and single-amino acid variants (SAAVs) within a single remarkably abundant and widespread SAR11 population,
 
 * Estimated distances between metagenomes based on SAAVs using Deep Learning,
 
-* We linked SAAVs to predicted tertiary structures of S-LLPA proteins.
+* Linked SAAVs to predicted tertiary structures of S-LLPA proteins.
 
 Sections in this document will detail all the steps of downlaoding and processing SAR11 genomes and metagenomes, mapping metagenomic reads onto the SAR11 genomes, identifying and processing genomic variability to explore the amino acid diversification traits of a single population.
 
 </div>
 
 
-Please feel free to leave a comments, or send an e-mail to us if you have any questions.
+Please feel free to leave a comment, or send an e-mail to [us]({{ site.url }}/people/) if you have any questions.
 
 
 ## Setting the stage
