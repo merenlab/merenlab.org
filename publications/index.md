@@ -7,7 +7,7 @@ comments: false
 <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 
 <div class="category-box">
-<a href="#2017"><span class="category-item">2017 <small>(7)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(7)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a><a href="#2011"><span class="category-item">2011 <small>(1)</small></span></a>
+<a href="#2017"><span class="category-item">2017 <small>(7)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(7)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a>
 </div>
 
 <a name="2017">&nbsp;</a>
@@ -342,17 +342,6 @@ comments: false
     <h3><a href=" https://doi.org/10.1186/2049-2618-1-9" target="_new">Multiphasic analysis of the temporal development of the distal gut microbiota in patients following ileal pouch anal anastomosis.</a></h3>
     <span class="pub-authors">Young, V. B., Raffals, L. H., Huse, S. M., Vital, M., Dai, D., Schloss, P. D., Brulc, J. M., Antonopoulos, D. A., Arrieta, R. L., Kwon, J. H., Reddy, K. G., Hubert, N. A., Grim, S. L., Vineis, J. H., Dalal, S., Morrison, H. G., <span class="pub-member-author">Eren, A. M</span>., Meyer, F., Schmidt, T. M., Tiedje, J. M., Chang, E. B., and Sogin, M. L.</span>
     <span class="pub-journal"><i>Microbiome</i>. <b>1(1), 9</b></span>
-</div>
-
-
-<a name="2011">&nbsp;</a>
-<h1>2011</h1>
-
-<div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1371/journal.pone.0026732"></div>
-    <h3><a href=" https://doi.org/10.1371/journal.pone.0026732" target="_new">Exploring the diversity of Gardnerella vaginalis in the genitourinary tract microbiota of monogamous couples through subtle nucleotide variation.</a></h3>
-    <span class="pub-authors"><span class="pub-member-author">Eren, A. M</span>., Zozaya, M., Taylor, C. M., Dowd, S. E., Martin, D. H., and Ferris, M. J.</span>
-    <span class="pub-journal"><i>PLoS One</i>. <b>6(10), e26732</b></span>
 </div>
 
 
