@@ -1070,7 +1070,7 @@ blastp -query CORE-S-LLPA-GENE-AA-SEQUENCES.fa \
        -out CORE-S-LLPA-GENE-AA-SEQUENCES-vs-PDB-BLAST.fa
 ```
 
-Next, we filtered out sequences with insufficient matches to the PDB. We accomplished this by considering only the PDB hit with the highest bitscore for each core S-LLPA gene, and by calculating `proper_pident`, which is the percentage of the query amino acids that were identical to an entry in the database given the entire lenght of the query sequence (so `proper_pident` is avoids teh inflation of identity scores due to partial good matches). We filtered out genes in `CORE-S-LLPA-GENE-AA-SEQUENCES.fa` that had less than 30% `proper_pident` using the program `anvi-script-filter-fasta-by-blast`:
+Next, we filtered out sequences with insufficient matches to the PDB. We accomplished this by considering only the PDB hit with the highest bitscore for each core S-LLPA gene, and by calculating `proper_pident`, which is the percentage of the query amino acids that were identical to an entry in the database given the entire lenght of the query sequence (so `proper_pident` helps us avoid the inflation of identity scores due to partial good matches). We filtered out genes in `CORE-S-LLPA-GENE-AA-SEQUENCES.fa` that had less than 30% `proper_pident` using the program `anvi-script-filter-fasta-by-blast`:
 
 ``` bash
 wget https://raw.githubusercontent.com/merenlab/anvio/master/sandbox/anvi-script-filter-fasta-by-blast -O anvi-script-filter-fasta-by-blast
