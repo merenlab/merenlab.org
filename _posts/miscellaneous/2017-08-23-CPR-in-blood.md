@@ -16,21 +16,21 @@ image:
 
 {% capture images %}{{site.url}}/images/miscellaneous/2017-08-23-CPR-in-blood{% endcapture %}
 
-Twitter is bad. I mostly follow scientists, and end up running into interesting findings from other groups, and end up wanting to take a quick look at their data. Although most of these sessions of procrastination don't end up on the blog, sometimes they do: [1](http://merenlab.org/2015/12/09/musings-over-commamox/){:target="_blank"}, [2](http://merenlab.org/2017/01/03/loki-the-link-archaea-eukaryota/){:target="_blank"}, [3](http://merenlab.org/2017/02/05/zhou-salmonella/){:target="_blank"}). Well, today I run into another interesting paper:
+Twitter is bad. I mostly follow scientists, and oftrn end up running into interesting findings from other groups that make me want to take a quick look at their data. Although most of our procrastinations don't end up on the blog, sometimes they do: [1](http://merenlab.org/2015/12/09/musings-over-commamox/){:target="_blank"}, [2](http://merenlab.org/2017/01/03/loki-the-link-archaea-eukaryota/){:target="_blank"}, [3](http://merenlab.org/2017/02/05/zhou-salmonella/){:target="_blank"}). Well, today was one of those days.
 
 [![BLOOD]({{images}}/Kowarsky_et_al.png)](http://www.pnas.org/content/early/2017/08/21/1707009114.full){:target="_blank"}{:.center-img .width-70}
 
-A very interesting finding that has the potential to start some debates about contamination.
+The study above reveals microbisl findings from the human blood with a potential to start some debates about contamination.
 
-Simply Kowarsky et al. takes hundres of blood samples collected from tens of patients, and use shotgun seqeuncing assembly strategies to recover contigs for cell-free DNA. They remove sequences that match to human genome, and they look into what is there. The authors also validate some of their findings by performing independent bench experiments.
+Briefly, Kowarsky et al. take hundreds of blood samples collected from tens of patients, and use shotgun seqeuncing and assembly strategies to recover contigs from cell-free DNA. They remove sequences that match to the human genome, and investigate what is there in the remaining contigs. The authors also validate some of their findings by performing independent bench experiments, which is very nice to see since unfortunately 'omics findings are rarely validated by additional experiments.
 
-While people were asking each other on Twitter whether or not the findings were driven by contamination, I was looking at the authors' use of the term "*dark matter*" in their manucript and was asking myself [when should I move to the countryside and raise chickens](http://merenlab.org/2017/06/22/microbial-dark-matter/){:target="_blank"}. But that's me.
+While you may be asking yourself whether or not the findings were driven by contamination, I am looking at the authors' use of the term "*dark matter*" in their manucript and ask myself [when should I move to the countryside and raise chickens](http://merenlab.org/2017/06/22/microbial-dark-matter/){:target="_blank"}. But that's just me.
 
-Since the findings are so interesting, I wanted to take a quick look at their contigs. I was very glad to learn that the authors did make available not only the short reads for metagenomes, but also their assembly results. I thank them very much for their observance of open science practices!
+Interesting findings in this study that are summarized in its title intrigued me to take a another look at their contigs. I was very glad to learn that the authors did make available not only the short reads for metagenomes, but also their assembly results. I thank them very much for their observance of open science practices (which is something that is also not as common as it should be).
 
 ## Downloading and characterizing Kowarsky et al.  contigs
 
-I first downloaded the assembled contigs and created an anvi'o contigs database. Everything took about 2-3 minutes:
+I started by downloading the assembled contigs, and created an anvi'o contigs database. Everything took about 2-3 minutes:
 
 ``` bash
 # download the assembled contigs
@@ -44,9 +44,9 @@ anvi-gen-contigs-database -f Kowarsky_et_al.fa -o Kowarsky_et_al.db
 anvi-run-hmms -c Kowarsky_et_al.db -T 10
 ```
 
-As the authors mentioned in their study, the output from the `anvi-run-hmms` showed 0 rRNA gene hits. But the same output indicated that there were some bacterial single-copy core genes in the assembly.
+The output from the `anvi-run-hmms` step showed 0 rRNA gene hits, which was in agreement with the authors' statement in the paper. But the same output indicated that there were some bacterial single-copy core genes in the assembly.
 
-Whenever there is a new contigs database, I take a quick look at the occurrence of the number bacterial and archaeal single-copy core genes, since this is a great way to roughly estimate [the number of bacterial or archaeal genomes one should expect to find in an assembly]({% post_url anvio/2015-12-07-predicting-number-of-genomes %}).
+Whenever there is a new contigs database, I take a quick look at the occurrence of the number bacterial and archaeal single-copy core genes, since this is a great way to roughly estimate [the number of genomes one should expect to find in an assembly]({% post_url anvio/2015-12-07-predicting-number-of-genomes %}).
 
 Running these two commands,
 
@@ -55,17 +55,17 @@ anvi-script-gen_stats_for_single_copy_genes.py Kowarsky_et_al.db
 anvi-script-gen_stats_for_single_copy_genes.R Kowarsky_et_al.db.hits Kowarsky_et_al.db.genes
 ```
 
-tells me that the assembly does not explain any highly complete bacterial genome:
+tells me that the assembly does not explain any highly complete bacterial genomes:
 
 [![BLOOD]({{images}}/scgs.png)]({{images}}/scgs.png){:.center-img .width-70}
 
 Fine.
 
-But a closer inspection via good'ol [squinting the eyes technique](https://www.google.com/search?tbm=isch&sa=1&q=trump+looking+at+the+eclipse+without+protection), reveals the occurrence of a good number of Ribosomal proteins occurring in the assembly (which is also pointed out by the authors in their paper).
+But a closer inspection via thr good'ol [squinting the eyes technique](https://www.google.com/search?tbm=isch&sa=1&q=trump+looking+at+the+eclipse+without+protection), reveals the occurrence of a good number of Ribosomal proteins in these contigs (which is also pointed out by the authors in their paper).
 
 ## Sequences of ribosomal proteins 
 
-Next, I ask anvi'o to give me amino acid sequences of all ribosomal proteins:
+Next, I ask anvi'o to give me the amino acid sequences of all ribosomal proteins:
 
 ``` bash
 # first list all the available gene names in Campbell et al.
@@ -92,7 +92,7 @@ anvi-get-sequences-for-hmm-hits -c Kowarsky_et_al.db \
                                               Ribosomal_S6, Ribosomal_S7"
 ```
 
-The resulting FASTA file is [here]({{ site.url }}/files/Kowarsky_et_al_SCG_hits.fa). But I summarized the output for you a bit:
+The resulting FASTA file is [here]({{ site.url }}/files/Kowarsky_et_al_SCG_hits.fa). But I summarized the output for you a tiny bit:
 
 |Found in the assembly|*e*-value|Contig|Hit start|Hit stop|
 |:--|:--:|:--:|:--:|:--:|
@@ -115,13 +115,13 @@ The resulting FASTA file is [here]({{ site.url }}/files/Kowarsky_et_al_SCG_hits.
 |Ribosomal_L14|5.1e-30|HT_node_2492|11|407|
 |Ribosomal_S13|2.9e-25|LT_node_1007|1|250|
 
-Authors mention that they found ribosomal proteins in 14 contigs, which perfectly matches to the table above: there are 14 distinct contigs that carry ribosomal proteins in this analysis as well (it is always a great feeling to find perfect agreement with published stuff).
+Authors mention that they found ribosomal proteins in 14 contigs, which perfectly matches to the table above: there are 14 distinct contigs that carry ribosomal proteins in my results as well (it is always a great feeling to find perfect agreement with published material).
 
 As you can see from this output, multiple of these hits are occurring in the same contig (i.e., PR_node_260 contains two ribosomal proteins one after another, etc), however, we don't know whether any of these distinct contigs are coming from the same population.
 
-The [supplementary methods](http://www.pnas.org/content/suppl/2017/08/21/1707009114.DCSupplemental/pnas.1707009114.sapp.pdf) suggest that these contigs are assembled independently from each dataset. As a final note on this, in Kowarsky et al.'s notation in the study PR, HT, and LT stand for samples originate from 'preagnent', 'heart transplant', and 'lung transplant' individuals.
+The [supplementary methods](http://www.pnas.org/content/suppl/2017/08/21/1707009114.DCSupplemental/pnas.1707009114.sapp.pdf) suggest that these contigs are assembled independently from each dataset. As a final note on this, in Kowarsky et al.'s notation in the study PR, HT, and LT stand for samples originate from 'pregnant', 'heart transplant', and 'lung transplant' individuals.
 
-So one can say most of the contigs with ribosomal proteins are coming from blood samples of preganent individuals.
+So one can say most of the contigs with ribosomal proteins are coming from blood samples of pregnant individuals.
 
 Fine.
 
@@ -129,11 +129,11 @@ Since there isn't much information on the taxonomic origins of these bacterial h
 
 ## Searching ribosomal proteins in NCBI's nr database
 
-I simply took the FASTA file of amino acid sequences, went to NCBI and used `blastp` to search these amino acid seqeunces in the NCBI's database of non-redundant protein sequences.
+I simply went to thr NCBI and used `blastp` to search those amino acid seqeunces in the database of non-redundant protein sequences.
 
 Once the serach was done, I clicked the `Download` menu, and selected `Multiple-file JSON` option.
 
-I had never tried to make sense of JSON files form NCBI BLAST output, so I quickly (and dirtily) wrote the following Python program to get the best hit for each query sequence:
+I had never tried to make sense of JSON files form NCBI BLAST output befire, so I quickly (and dirtily) wrote the following Python program to get the best hit for each query sequence:
 
 
 ``` python
@@ -206,7 +206,7 @@ When it is run in a directory of JSON files downloaded form the NCBI, this progr
 
 This is a bit crazy.
 
-Amino acid sequences of these ribosomal proteins have reasaonable hits in the NCBI, and most of these hits are most closely related to Candidate Phyla Radiation genomes released in [Christopher T. Brown et al.'s 2015 paper](https://www.nature.com/nature/journal/v523/n7559/full/nature14486.html){:target="_blank"} and [Karthik Anantharaman](https://twitter.com/KarthikGeomicro) et al.'s [recent publication](https://www.nature.com/articles/ncomms13219){:target="_blank"}. Another interesting things is that except the last two lines in this table, all these genes are coming from contigs found in assemblies of pregnant samples.
+Amino acid sequences of these ribosomal proteins have reasaonable hits in the NCBI, and most of these hits are most closely related to Candidate Phyla Radiation genomes released in [Christopher T. Brown et al.'s 2015 paper](https://www.nature.com/nature/journal/v523/n7559/full/nature14486.html){:target="_blank"} and [Karthik Anantharaman](https://twitter.com/KarthikGeomicro) et al.'s [recent publication](https://www.nature.com/articles/ncomms13219){:target="_blank"}. Another interesting thing is that except the last two lines in this table, all these genes are coming from contigs found in assemblies of pregnant samples.
 
 ---
 
@@ -214,9 +214,9 @@ Before making any suggestions, here are some points to take into consideration:
 
 * All these contigs may be coming from a **single microbial population**. In fact, in my opinion, it is very likely since there are only a small number of ribosomal proteins that occur only once.
 
-* If this is truly a single population, why do taxonomic annotations spread all over the place and not a single hit? The likely explanation could be that it is so distant from any member of the CPR described so far by the Banfield group and others, the most close hits vary a lot for no good reason (I'm sure there is a good name for this phenomenon).
+* If this is truly a single population, why do taxonomic annotations are spread all over the place a instead of a single hit? The likely explanation could be that ithis population is so distant from any other member of the CPR described so far by the Banfield group and others, the most close hits vary a lot for no good reason (I'm sure there is a good name for this phenomenon).
 
-* Just like the fact that there may be a single population, this population may be in a single individual. Becasue CPR genomes are often quite lonley in the sequence space, in our experience, they get assembled very nicely even in very complex samples, or even when they are not quite abundant (i.e., [our recovery of CPRs form TARA Oceans metagenomes](http://merenlab.org/data/2017_Delmont_et_al_HBDs/){:target="_blank"}). The next very important step is to map all metagenomes to these contigs to see whether they recruit reads from multiple individuals. If you would like to do that, you can get all metagenomic short reads from 'pregnant' data set, and map those to the contigs PR_node_60, PR_node_48, PR_node_444, PR_node_340, PR_node_296, PR_node_287, PR_node_260, PR_node_199, PR_node_197, PR_node_1290, PR_node_1285, and PR_node_1196 you will find in [this file](http://www.pnas.org/content/suppl/2017/08/21/1707009114.DCSupplemental/pnas.1707009114.sd05.txt){:target="_blank"}. If there is a single individual, it may be possible for someone to go back to that sample, and sequence it deeper to recover a good CPR genome bin.
+* Just like the fact that there may be a single population, this population may be occurring in a **single individual**. Becasue CPR genomes are often quite lonley in the sequence space, in our experience, they get assembled very nicely even in very complex samples, or even when they are not quite abundant (i.e., [our recovery of CPRs form TARA Oceans metagenomes](http://merenlab.org/data/2017_Delmont_et_al_HBDs/){:target="_blank"}). The next very important step is to map all metagenomes to these contigs to see whether they recruit reads from multiple individuals. If you would like to do that, you can get all metagenomic short reads from 'pregnant' data set, and map those to the contigs PR_node_60, PR_node_48, PR_node_444, PR_node_340, PR_node_296, PR_node_287, PR_node_260, PR_node_199, PR_node_197, PR_node_1290, PR_node_1285, and PR_node_1196 you will find in [this file](http://www.pnas.org/content/suppl/2017/08/21/1707009114.DCSupplemental/pnas.1707009114.sd05.txt){:target="_blank"}. If there is a single individual, it may be possible for someone to go back to that sample, and sequence it deeper to recover a good CPR genome bin.
 
 
 But regardless, considering that nothing went wrong with the experimental procedures, sampling, library preparation, sequencing, and assembly steps, and even if we are in fact talking about one microbial population in a single pregnant woman, it is probably safe to say for the first time "**CPR in human blood!**".
