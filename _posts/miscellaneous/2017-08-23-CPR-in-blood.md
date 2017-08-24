@@ -208,17 +208,80 @@ This is a bit crazy.
 
 Amino acid sequences of these ribosomal proteins have reasaonable hits in the NCBI, and most of these hits are most closely related to Candidate Phyla Radiation genomes released in [Christopher T. Brown et al.'s 2015 paper](https://www.nature.com/nature/journal/v523/n7559/full/nature14486.html){:target="_blank"} and [Karthik Anantharaman](https://twitter.com/KarthikGeomicro) et al.'s [recent publication](https://www.nature.com/articles/ncomms13219){:target="_blank"}. Another interesting thing is that except the last two lines in this table, all these genes are coming from contigs found in assemblies of pregnant samples.
 
----
+## Some speculations
 
-Before making any suggestions, here are some points to take into consideration:
+Before making any suggestions, there are two points that we should take into consideration.
 
-* All these contigs may be coming from a **single microbial population**. In fact, in my opinion, it is very likely since there are only a small number of ribosomal proteins that occur only once.
+### Is it a single population?
 
-* If this is truly a single population, why do taxonomic annotations are spread all over the place instead of a single hit? The likely explanation could be that this population is so distant from any other member of the CPR described so far by the Banfield group and others, the most close hits vary a lot for no good reason (I'm sure there is a good name for this phenomenon).
+The first point is that **all these contigs may be coming from a single microbial population**.
 
-* Just like the fact that there may be a single population, this population may be occurring in a **single individual**. Becasue CPR genomes are often quite lonley in the sequence space, in our experience, they get assembled very nicely even in very complex samples, or even when they are not quite abundant (i.e., [our recovery of CPRs form TARA Oceans metagenomes](http://merenlab.org/data/2017_Delmont_et_al_HBDs/){:target="_blank"}). The next very important step is to map all metagenomes to these contigs to see whether they recruit reads from multiple individuals. If you would like to do that, you can get all metagenomic short reads from 'pregnant' data set, and map those to the contigs PR_node_60, PR_node_48, PR_node_444, PR_node_340, PR_node_296, PR_node_287, PR_node_260, PR_node_199, PR_node_197, PR_node_1290, PR_node_1285, and PR_node_1196 you will find in [this file](http://www.pnas.org/content/suppl/2017/08/21/1707009114.DCSupplemental/pnas.1707009114.sd05.txt){:target="_blank"}. If there is a single individual, it may be possible for someone to go back to that sample, and sequence it deeper to recover a good CPR genome bin.
+In fact, in my opinion, it is very likely since there are only a small number of ribosomal proteins that occur only once.
 
+To test this I did something very quick and dirty with anvi'o. You know, [using some very basic characteristics of metagenomic data](https://twitter.com/merenbey/status/894931243674021889), we can get genomes from metagenomes rather rapidly. However, these methods work best when 'coverage' data is available (see [this](https://twitter.com/merenbey/status/894931243674021889) for why). But even with sequence composition alone, we can see the emergence of bins. Using only this contigs database, I created a blank profile with anvi'o:
 
-But regardless, considering that nothing went wrong with the experimental procedures, sampling, library preparation, sequencing, and assembly steps, and even if we are in fact talking about one microbial population in a single pregnant woman, it is probably safe to say for the first time "**CPR in human blood!**".
+``` bash
+anvi-profile -c Kowarsky_et_al.db \
+             -o PROFILE \
+             -S Kowarsky_et_al \
+             --blank
+```
+
+Then I created a simple text file to identify contigs with ribosomal protein hits:
+
+```
+$ cat ribosomal-protein-hits.txt
+contig	Ribosomal_P
+PR_node_60_split_00001	DETECTED
+PR_node_48_split_00001	DETECTED
+PR_node_444_split_00001	DETECTED
+PR_node_340_split_00001	DETECTED
+PR_node_296_split_00001	DETECTED
+PR_node_287_split_00001	DETECTED
+PR_node_260_split_00001	DETECTED
+PR_node_199_split_00001	DETECTED
+PR_node_197_split_00001	DETECTED
+PR_node_1290_split_00001	DETECTED
+PR_node_1285_split_00001	DETECTED
+PR_node_1196_split_00001	DETECTED
+```
+
+Then I run the `anvi-interactive` on these:
+
+``` bash
+anvi-interactive -c Kowarsky_et_al.db \
+                 -p PROFILE/PROFILE.db \
+                 --additional-layers ribosomal-protein-hits.txt
+```
+
+When I hit the draw button, this is what I had in my browser:
+
+[![BLOOD]({{images}}/contigs.png)]({{images}}/contigs.png){:.center-img .width-80}
+
+As you can see, all contigs with ribosomal protein hits are nicely together in a rather good looking cluster. I made a selection here:
+
+[![BLOOD]({{images}}/cprbin.png)]({{images}}/cprbin.png){:.center-img .width-80}
+
+This bin is only 20% complete according to the bacterial single-copy core genes from Campbell et al.:
+
+[![BLOOD]({{images}}/comp.png)]({{images}}/comp.png){:.center-img .width-80}
+
+Yet, it is 517K in length, so it is very close to the average size of most CPR genomes.
+
+So at this point I am convinced this is a single population, and this is the anvi'o-reported FASTA file for it if you would like to play more: [CPR_Bin-from-Kowarsky-et-al.fa]({{ site.url }}/files/CPR_Bin-from-Kowarsky-et-al.fa)
+
+Remember that this bin is recovered from very weak data, and it is very likely contains some noisy bits and pieces.
+
+### Is it in a sinle individual?
+
+**The second point is about its prevalence, and the quick answer is "*we don't know because Meren is lazy*"**.
+
+Just like the fact that this seems to be a single population in the dataset, it may be occurring in a **single individual**. Becasue CPR genomes are often quite lonley in the sequence space, in our experience, they get assembled very nicely even in very complex samples, or even when they are not quite abundant (i.e., [our recovery of CPRs form TARA Oceans metagenomes](http://merenlab.org/data/2017_Delmont_et_al_HBDs/){:target="_blank"}). The next very important step is to map all metagenomes to this bin to see whether all contigs in it recruits reads from multiple individuals. If you would like to do that, you can get all metagenomic short reads from 'pregnant' data sets, and map those to the contigs in [this file]({{ site.url }}/files/CPR_Bin-from-Kowarsky-et-al.fa).
+
+If there is a single individual, it may be possible for someone to go back to that sample, and sequence it deeper to recover a good CPR genome bin.
+
+## Let's say it
+
+Regardless of all these, considering that nothing went wrong with the sampling, library preparation, and sequencing procedures, and even if we are in fact talking about one microbial population in a single pregnant woman, it is probably safe to say for the first time "**CPR in human blood!**".
 
 There you have it.
