@@ -280,8 +280,16 @@ Just like the fact that this seems to be a single population in the dataset, it 
 
 If there is a single individual, it may be possible for someone to go back to that sample, and sequence it deeper to recover a good CPR genome bin.
 
-## Let's say it
+### Could oral cavity be the actual reservoir for this CPR?
 
-Regardless of all these, considering that nothing went wrong with the sampling, library preparation, and sequencing procedures, and even if we are in fact talking about one microbial population in a single pregnant woman, it is probably safe to say for the first time "**CPR in human blood!**".
+A very reasonable hypothesis [came from Clifford Beall](https://twitter.com/cliffbeall/status/900702050497048576)‏ on Twitter this morning: "*Blood bacteria sometimes come from the oral cavity and some CPR are there, could be one of those*".
 
-There you have it.
+Although in our -limited- experience in the lab, CPRs we find in the oral cavity consistently hits to TM7 (a.k.a Parcubacteria) with rather high identities. Genes in this bin also has hits to some Parcubacteria, yet identities are too low compared to what we had been seeing.
+
+Probably if we understand its prevalence (which requires some mapping), we could have a better idea about its origin. The next thing to od is to map all HMP oral metagenomes to this bin. If you do that, feel free to send me the BAM files or let me know about your findings!
+
+## Can we say it though?
+
+Regardless of all these, considering that nothing went wrong with the sampling, library preparation, and sequencing procedures, and even if we are in fact talking about one microbial population in a single pregnant woman, and even if it is 'dead' and just sweeping into the blood stream from the oral cavity or something, it is probably safe to say for the first time "**CPR in human blood!**".
+
+There you have it ;)
