@@ -227,23 +227,12 @@ anvi-profile -c Kowarsky_et_al.db \
              --blank
 ```
 
-Then I created a simple text file to identify contigs with ribosomal protein hits:
+Then I created a simple text file to identify contigs with ribosomal protein hits, **as well as** contigs that originate from the assemblies of pregnant data sets. Here is the file, and one could download it into their work directory this way:
+
+
 
 ```
-$ cat ribosomal-protein-hits.txt
-contig	Ribosomal_P
-PR_node_60_split_00001	DETECTED
-PR_node_48_split_00001	DETECTED
-PR_node_444_split_00001	DETECTED
-PR_node_340_split_00001	DETECTED
-PR_node_296_split_00001	DETECTED
-PR_node_287_split_00001	DETECTED
-PR_node_260_split_00001	DETECTED
-PR_node_199_split_00001	DETECTED
-PR_node_197_split_00001	DETECTED
-PR_node_1290_split_00001	DETECTED
-PR_node_1285_split_00001	DETECTED
-PR_node_1196_split_00001	DETECTED
+wget http://merenlab.org/files/Kowarsky_et_al_additional_data.txt
 ```
 
 Then I run the `anvi-interactive` on these:
@@ -251,14 +240,16 @@ Then I run the `anvi-interactive` on these:
 ``` bash
 anvi-interactive -c Kowarsky_et_al.db \
                  -p PROFILE/PROFILE.db \
-                 --additional-layers ribosomal-protein-hits.txt
+                 --additional-layers Kowarsky_et_al_additional_data.txt
 ```
 
 When I hit the draw button, this is what I had in my browser:
 
 [![BLOOD]({{images}}/contigs.png)]({{images}}/contigs.png){:.center-img .width-80}
 
-As you can see, all contigs with ribosomal protein hits are nicely together in a rather good looking cluster. I made a selection here:
+The 'Ribosomal P' layer marks contigs with ribosomal protein hits, and 'PR origin' layer indicates marks contigs from blood samples from pregnant women.
+
+As you can see, all contigs with ribosomal protein hits are nicely together in a rather good looking cluster. But more importantly, there is a group of contigs that overlap with that section that are identified as 'PR origin' (the ones in closer brances are all from heart transplant, and lung transplant samples). So I made a very conservative selection here to minimize contamination:
 
 [![BLOOD]({{images}}/cprbin.png)]({{images}}/cprbin.png){:.center-img .width-80}
 
@@ -266,13 +257,13 @@ This bin is only 20% complete according to the bacterial single-copy core genes 
 
 [![BLOOD]({{images}}/comp.png)]({{images}}/comp.png){:.center-img .width-80}
 
-Yet, it is 517K in length, so it is very close to the average size of most CPR genomes.
+It is about 160K in length (about 1/5<sup>th</sup> of an average CPR genome), but it is infinite times larger than zero, and it probably has very minimal contamination if any. So far so good!
 
-So at this point I am convinced this is a single population, and this is the anvi'o-reported FASTA file for it if you would like to play more: [CPR_Bin-from-Kowarsky-et-al.fa]({{ site.url }}/files/CPR_Bin-from-Kowarsky-et-al.fa)
+So at this point I am convinced this is a single population, and this is the anvi'o-reported FASTA file for it if you would like to play with it more: [CPR_Bin-from-Kowarsky-et-al.fa]({{ site.url }}/files/CPR_Bin-from-Kowarsky-et-al.fa)
 
-Remember that this bin is recovered from very weak data, and it is very likely contains some noisy bits and pieces.
+Remember that this bin is recovered from very weak data, and it is very likely contains some noisy bits and pieces despite best efforts.
 
-### Is it in a sinle individual?
+### Is it in a single individual?
 
 **The second point is about its prevalence, and the quick answer is "*we don't know because Meren is lazy*"**.
 
