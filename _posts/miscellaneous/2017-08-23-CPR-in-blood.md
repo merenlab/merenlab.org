@@ -273,14 +273,25 @@ If there is a single individual, it may be possible for someone to go back to th
 
 ### Could oral cavity be the actual reservoir for this CPR?
 
-A very reasonable hypothesis [came from Clifford Beall](https://twitter.com/cliffbeall/status/900702050497048576)‏ on Twitter this morning: "*Blood bacteria sometimes come from the oral cavity and some CPR are there, could be one of those*".
+A very reasonable hypothesis [came from Clifford Beall](https://twitter.com/cliffbeall/status/900702050497048576){:target="_blank"} on Twitter this morning: "*Blood bacteria sometimes come from the oral cavity and some CPR are there, could be one of those*".
 
-Although in our -limited- experience in the lab, CPRs we find in the oral cavity consistently hits to TM7 (a.k.a Parcubacteria) with rather high identities. Genes in this bin also has hits to some Parcubacteria, yet identities are too low compared to what we had been seeing.
+Although in our -limited- experience in our lab, CPRs we find in the oral cavity consistently hits to TM7 (a.k.a Saccharibacteria) with rather high identities. However, sequence identities are too low for genes in this bin compared to what we had been seeing. That being said, probably if we understand its prevalence (which requires some mapping), we could have a better idea about its origin. The next thing to do is to map some oral metagenomes to this bin. If you do that, feel free to send me the BAM files or let me know about your findings!
 
-Probably if we understand its prevalence (which requires some mapping), we could have a better idea about its origin. The next thing to od is to map all HMP oral metagenomes to this bin. If you do that, feel free to send me the BAM files or let me know about your findings!
+---
+
+**Update: [Clifford Beall reported on Twitter](https://twitter.com/cliffbeall/status/900802974892601346){:target="_blank"} that his mapping of 20 saliva metagenomes with 68M paired-end reads didn't yield any mapping that looked real to him.**
+
+Indeed, more mapping experiments would be necessary to say something conclusive.
+
 
 ## Can we say it though?
 
 Regardless of all these, (1) assuming that nothing went wrong with the sampling, library preparation, and sequencing procedures, and (2) after taking into consideration that we may be talking about a single microbial population observed in a single pregnant woman, and (3) after reminding ourselves that this population may not even be active and simply just sweeping into the blood stream from the oral cavity of a single individual or something, it still is *probably* safe to say for the first time "**CPR in human blood!**".
 
 There you have it ;)
+
+
+---
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">New blog post. Investigating some of the microbial contigs assembled from human blood metagenomes by Kowarsky et al. <a href="https://t.co/9wd60xd1nh">https://t.co/9wd60xd1nh</a></p>&mdash; A. Murat Eren (@merenbey) <a href="https://twitter.com/merenbey/status/900561484178239489">August 24, 2017</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
