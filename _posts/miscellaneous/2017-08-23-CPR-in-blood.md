@@ -8,7 +8,7 @@ categories: [miscellaneous]
 comments: true
 authors: [meren]
 image:
-  thumb: http://merenlab.org/images/miscellaneous/2017-08-23-CPR-in-blood/Kowarsky_et_al.png
+  feature: http://merenlab.org/images/miscellaneous/2017-08-23-CPR-in-blood/Kowarsky_et_al.png
   display: false
 ---
 
