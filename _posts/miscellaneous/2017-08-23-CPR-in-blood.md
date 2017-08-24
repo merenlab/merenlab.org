@@ -16,7 +16,7 @@ image:
 
 {% capture images %}{{site.url}}/images/miscellaneous/2017-08-23-CPR-in-blood{% endcapture %}
 
-Twitter is bad. I mostly follow scientists, and often end up running into interesting findings from other groups that make me want to take a quick look at their data. Although most of our procrastinations don't end up on the blog, sometimes they do: [1](http://merenlab.org/2015/12/09/musings-over-commamox/){:target="_blank"}, [2](http://merenlab.org/2017/01/03/loki-the-link-archaea-eukaryota/){:target="_blank"}, [3](http://merenlab.org/2017/02/05/zhou-salmonella/){:target="_blank"}). Well, today was one of those days.
+Twitter is bad. I mostly follow scientists, and often end up running into interesting findings from other groups that make me want to take a quick look at their data. Although most of our procrastinations don't end up on the blog, sometimes they do: [1](http://merenlab.org/2015/12/09/musings-over-commamox/){:target="_blank"}, [2](http://merenlab.org/2017/01/03/loki-the-link-archaea-eukaryota/){:target="_blank"}, [3](http://merenlab.org/2017/02/05/zhou-salmonella/){:target="_blank"}. Well, today was one of those days.
 
 [![BLOOD]({{images}}/Kowarsky_et_al.png)](http://www.pnas.org/content/early/2017/08/21/1707009114.full){:target="_blank"}{:.center-img .width-70}
 
@@ -24,9 +24,9 @@ The study above reveals microbial findings from the human blood with a potential
 
 Briefly, Kowarsky et al. take hundreds of blood samples collected from tens of patients, and use shotgun seqeuncing and assembly strategies to recover contigs from cell-free DNA. They remove sequences that match to the human genome, and investigate what is there in the remaining contigs. The authors also validate some of their findings by performing independent bench experiments, which is very nice to see since unfortunately 'omics findings are rarely validated by additional experiments.
 
-While you may be asking yourself whether or not the findings were driven by contamination, I am looking at the authors' use of the term "*dark matter*" in their manucript and ask myself [when should I move to the countryside and raise chickens](http://merenlab.org/2017/06/22/microbial-dark-matter/){:target="_blank"}. But that's just me.
+While you may be asking yourself whether some of the findings may have been driven by [contamination](https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-016-0172-3){:target="_blank"}, I am looking at the authors' use of the term "*dark matter*" in their manucript and ask myself [when should I move to the countryside and raise chickens](http://merenlab.org/2017/06/22/microbial-dark-matter/){:target="_blank"}. But that's just me.
 
-Interesting findings in this study that are summarized in its title intrigued me to take another look at their contigs. I was very glad to learn that the authors did make available not only the short reads for metagenomes, but also their assembly results. I thank them very much for their observance of open science practices (which is something that is also not as common as it should be).
+Interesting findings in this study that are summarized in its title intrigued me to take another look at their assembly. I was very glad to learn that the authors did make available not only the short reads for metagenomes, but also their assembly results. I thank them very much for their observance of open science practices (which is something that is also not as common as it should be).
 
 ## Downloading and characterizing Kowarsky et al. contigs
 
@@ -290,6 +290,6 @@ Probably if we understand its prevalence (which requires some mapping), we could
 
 ## Can we say it though?
 
-Regardless of all these, considering that nothing went wrong with the sampling, library preparation, and sequencing procedures, and even if we are in fact talking about one microbial population in a single pregnant woman, and even if it is 'dead' and just sweeping into the blood stream from the oral cavity or something, it is probably safe to say for the first time "**CPR in human blood!**".
+Regardless of all these, (1) assuming that nothing went wrong with the sampling, library preparation, and sequencing procedures, and (2) after taking into consideration that we may be talking about a single microbial population observed in a single pregnant woman, and (3) after reminding ourselves that this population may not even be active and simply just sweeping into the blood stream from the oral cavity of a single individual or something, it still is *probably* safe to say for the first time "**CPR in human blood!**".
 
 There you have it ;)
