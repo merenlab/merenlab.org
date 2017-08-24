@@ -245,17 +245,17 @@ anvi-interactive -c Kowarsky_et_al.db \
 
 When I hit the draw button, this is what I had in my browser:
 
-[![BLOOD]({{images}}/contigs.png)]({{images}}/contigs.png){:.center-img .width-80}
+[![BLOOD]({{images}}/contigsx.png)]({{images}}/contigsx.png){:.center-img .width-80}
 
 The 'Ribosomal P' layer marks contigs with ribosomal protein hits, and 'PR origin' layer indicates marks contigs from blood samples from pregnant women.
 
 As you can see, all contigs with ribosomal protein hits are nicely together in a rather good looking cluster. But more importantly, there is a group of contigs that overlap with that section that are identified as 'PR origin' (the ones in closer brances are all from heart transplant, and lung transplant samples). So I made a very conservative selection here to minimize contamination:
 
-[![BLOOD]({{images}}/cprbin.png)]({{images}}/cprbin.png){:.center-img .width-80}
+[![BLOOD]({{images}}/cprbinx.png)]({{images}}/cprbinx.png){:.center-img .width-80}
 
 This bin is only 20% complete according to the bacterial single-copy core genes from Campbell et al.:
 
-[![BLOOD]({{images}}/comp.png)]({{images}}/comp.png){:.center-img .width-80}
+[![BLOOD]({{images}}/compx.png)]({{images}}/compx.png){:.center-img .width-80}
 
 It is about 160K in length (about 1/5<sup>th</sup> of an average CPR genome), but it is infinite times larger than zero, and it probably has very minimal contamination if any. So far so good!
 
