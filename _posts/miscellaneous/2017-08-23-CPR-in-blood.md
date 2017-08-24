@@ -26,7 +26,7 @@ Briefly, Kowarsky et al. take hundreds of blood samples collected from tens of p
 
 While you may be asking yourself whether or not the findings were driven by contamination, I am looking at the authors' use of the term "*dark matter*" in their manucript and ask myself [when should I move to the countryside and raise chickens](http://merenlab.org/2017/06/22/microbial-dark-matter/){:target="_blank"}. But that's just me.
 
-Interesting findings in this study that are summarized in its title intrigued me to take a another look at their contigs. I was very glad to learn that the authors did make available not only the short reads for metagenomes, but also their assembly results. I thank them very much for their observance of open science practices (which is something that is also not as common as it should be).
+Interesting findings in this study that are summarized in its title intrigued me to take another look at their contigs. I was very glad to learn that the authors did make available not only the short reads for metagenomes, but also their assembly results. I thank them very much for their observance of open science practices (which is something that is also not as common as it should be).
 
 ## Downloading and characterizing Kowarsky et al.  contigs
 
