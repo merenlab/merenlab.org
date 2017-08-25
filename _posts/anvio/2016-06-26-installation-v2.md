@@ -46,7 +46,6 @@ anvi-self-test --suite mini
 
 That's it!
 
-<!--
 
 ## Painless installation with Conda
 
@@ -54,12 +53,11 @@ That's it!
 If you have been working with [Anaconda](https://www.continuum.io/downloads), and would like to continue to do so, there is a way to install anvi'o along with all its Python and non-Python dependencies thanks to [John Eppley](https://scholar.google.com/citations?user=4S2q_9cAAAAJ&hl=en):
 
 ``` bash
-conda create -n anvio240 -c bioconda -c conda-forge gsl anvio
+conda create -n anvio240 -c bioconda -c conda-forge python=3.5.4 gsl anvio
 ```
 
 Note that the most up-to-date conda-available anvi'o version, which is currently `v2.4.0`, may differ from the most up-to-date stable anvi'o version, which is `v{% include _project-anvio-version-number.html %}`.
 
--->
 
 ## Installation (with varying levels of pain)
 
