@@ -37,8 +37,16 @@ If you are using Mac and have [Homebrew](http://brew.sh/) installed on your comp
 brew install homebrew/science/anvio
 ```
 
-If you are installing anvi'o on another operating system (or if you an OS X user who does not like Homebrew for some reason) please continue reading.
+Once the installation is complete, test anvi'o quickly to make sure everything is in order:
 
+
+``` bash
+anvi-self-test --suite mini
+```
+
+That's it!
+
+<!--
 
 ## Painless installation with Conda
 
@@ -51,6 +59,7 @@ conda create -n anvio240 -c bioconda -c conda-forge gsl anvio
 
 Note that the most up-to-date conda-available anvi'o version, which is currently `v2.4.0`, may differ from the most up-to-date stable anvi'o version, which is `v{% include _project-anvio-version-number.html %}`.
 
+-->
 
 ## Installation (with varying levels of pain)
 
