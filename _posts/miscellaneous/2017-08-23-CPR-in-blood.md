@@ -311,7 +311,7 @@ So, to test the workflow, I downloaded a random isolate genome that I know occur
 
 I'm a bit more curious now.
 
-## Functions suggest that this guy can 
+## Functions 
 
 Since this is a tiny, incomplete CPR bin with only 203 genes, it is clear that mit would be very unlikely to be able to make any conclusive statements regarding its role. But I thought it still wouldn't hurt to take a look at its functions (since it is very easy with anvi'o (*shameless plugs all over*)). 
 
