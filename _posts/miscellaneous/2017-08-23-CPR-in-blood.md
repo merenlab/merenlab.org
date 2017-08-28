@@ -208,6 +208,7 @@ This is a bit crazy.
 
 Amino acid sequences of these ribosomal proteins have reasaonable hits in the NCBI, and most of these hits are most closely related to Candidate Phyla Radiation genomes released in [Christopher T. Brown et al.'s 2015 paper](https://www.nature.com/nature/journal/v523/n7559/full/nature14486.html){:target="_blank"} and [Karthik Anantharaman](https://twitter.com/KarthikGeomicro) et al.'s [recent publication](https://www.nature.com/articles/ncomms13219){:target="_blank"}. Another interesting thing is that except the last two lines in this table, all these genes are coming from contigs found in assemblies of pregnant samples.
 
+
 ## Some speculations
 
 Before making any suggestions, there are two points that we should take into consideration.
@@ -271,22 +272,85 @@ Just like the fact that this seems to be a single population in the dataset, it 
 
 If there is a single individual, it may be possible for someone to go back to that sample, and sequence it deeper to recover a good CPR genome bin.
 
-### Could oral cavity be the actual reservoir for this CPR?
+## Hypothesis: Oral cavity may be the actual reservoir for this CPR (Concluision: Not likely)
 
-A very reasonable hypothesis [came from Clifford Beall](https://twitter.com/cliffbeall/status/900702050497048576){:target="_blank"} on Twitter this morning: "*Blood bacteria sometimes come from the oral cavity and some CPR are there, could be one of those*".
+A very reasonable hypothesis [came from Clifford Beall](https://twitter.com/cliffbeall/status/900702050497048576){:target="_blank"} on Twitter after this post appeared online: "*Blood bacteria sometimes come from the oral cavity and some CPR are there, could be one of those*".
 
-Although in our -limited- experience in our lab, CPRs we find in the oral cavity consistently hits to TM7 (a.k.a Saccharibacteria) with rather high identities. However, sequence identities are too low for genes in this bin compared to what we had been seeing. That being said, probably if we understand its prevalence (which requires some mapping), we could have a better idea about its origin. The next thing to do is to map some oral metagenomes to this bin. If you do that, feel free to send me the BAM files or let me know about your findings!
+In our -limited- experience in our lab, CPRs we find in the oral cavity consistently hits to TM7 (a.k.a Saccharibacteria) with rather high identities. However, sequence identities are too low for genes in this bin compared to what we had been seeing. That being said, probably if we understand its prevalence (which requires some mapping), we could have a better idea about its origin. The next thing to do is to map some oral metagenomes to this bin. If you do that, feel free to send me the BAM files or let me know about your findings!
+
+### Clifford Beall reports back: no hits from 20 saliva metagenomes
+
+[Clifford Beall reported on Twitter](https://twitter.com/cliffbeall/status/900802974892601346){:target="_blank"} that his mapping of 20 saliva metagenomes with 68M paired-end reads didn't yield any mapping that looked real to him.
+
+### Meren confirms: no hits from 14 plaque and tongue metagenomes
+
+So, I also tried to recruit read using this bin from our plaque and tongue metagenomes that contains 587 million quality filtered reads in total. From these half a billion reads, the CPR bin recruited one read. Seriously. One as in one. Since it is only a single read, I will just put it there:
+
+```
+GCTCCGTCCATTTGAGCGGCACCAGTGATCATGTTTTTAACGTAGTCCGCGTGTCCTGGAGCGTCGATGTGAGCGTAGTGACG
+```
+
+The lucky contig is the 4,442 nt long *PR_node_96*. This contig does not really have a good match on the NCBI, yet the read from the metagenome matches 100% to multple *Streptococcus* isolates on the NCBI, including usual suspects of oral cavity like *S. gordonii*, *S. mitis*, *S. sanguins*. But the read does not match so perfectly to the contig (but Bowtie2 is so awesome, it managed to find it for us):
+
+```
+Score             Expect      Identities      Gaps         Strand
+109 bits(120)	  3e-28       74/83(89%)      0/83(0%)     Plus/Plus
+
+Query  1     GCTCCGTCCATTTGAGCGGCACCAGTGATCATGTTTTTAACGTAGTCCGCGTGTCCTGGA  60
+             || |||||||| ||||||||||||||||||||||| || |  ||||| ||||| ||||||
+PR_96  4342  GCACCGTCCATCTGAGCGGCACCAGTGATCATGTTCTTGATATAGTCAGCGTGACCTGGA  4401
+
+Query  61    GCGTCGATGTGAGCGTAGTGACG  83
+             |||||||||||||||||||| ||
+PR_96  4402  GCGTCGATGTGAGCGTAGTGGCG  4424
+```
+
+I was so surprised by the fact that only one out of half a billion reads were recruited, I started to doubt that there may have been a mistake with the workflow.
+
+So, to test the workflow, I downloaded a random isolate genome that I know occurs a lot in the oral cavity (which happened to be *Streptococcus mitis* B6 [FN568063.1](https://www.ncbi.nlm.nih.gov/genome/?term=FN568063.1){:target="_blank"}), and used the same exact workflow to map the same metagenomes to that genome, instead of the CPR bin. Instead of one, *S. mitis* recruited 687,973 reads. So, the workflow seems to be working well, but **this CPR bin (1) is nowhere to be found in our oral metagenomes, and (2) does not carry any genes that have any reasonable resemblance to anything in our oral metagenomes**.
+
+I'm a bit more curious now.
+
+## Functions suggest that this guy can 
+
+Since this is a tiny, incomplete CPR bin with only 203 genes, it is clear that mit would be very unlikely to be able to make any conclusive statements regarding its role. But I thought it still wouldn't hurt to take a look at its functions (since it is very easy with anvi'o (*shameless plugs all over*)). 
+
+I first run NCBI COGs on it:
+
+``` bash
+anvi-run-ncbi-cogs -c Kowarsky_CPR-contigs.db \
+                   --num-threads 10
+```
+
+And created a summary (from which I could get all the gene sequences and functions for the CPR bin):
+
+``` bash
+anvi-summarize -c Kowarsky_CPR-contigs.db \
+               -p PROFILE/PROFILE.db \
+               -C default \
+               -o SUMMARY
+```
+
+From that output, this is the most important file that contains all gene calls and COG functions in the CPR bin: [CPR_Bin-from-Kowarsky-et-al-functions.txt]({{ site.url }}/files/CPR_Bin-from-Kowarsky-et-al-functions.txt)
 
 ---
 
-**Update: [Clifford Beall reported on Twitter](https://twitter.com/cliffbeall/status/900802974892601346){:target="_blank"} that his mapping of 20 saliva metagenomes with 68M paired-end reads didn't yield any mapping that looked real to him.**
+I gazed through functions quickly and recognized some that are common to many bacterial genomes such as histidine kinases, tRNA synthetases, cell division proteins, ABC transporters, etc. Good that this thing really looks like a bacterial genome. One of the first thing that caught my eye was the transketolase genes.
 
-Indeed, more mapping experiments would be necessary to say something conclusive.
+Besides multiple genes for transketolase subunits, one of the contigs carried in a row genes for **Transketolase**, **Pentose-5-phosphate-3-epimerase**, **Ribose 5-phosphate isomerase**, and **Glyceraldehyde-3-phosphate dehydrogenase**. When my Google search for 'transketolase' returned these two papers in the first page, I started to think that someone might be playing a trick on me to waste weeks of my life on something I know very little about:
+
+* [***Red blood cell transketolase activity** and the effect of thiamine supplementation in patients with chronic liver disease*](https://www.ncbi.nlm.nih.gov/pubmed/635453).
+
+* [***Red Blood Cell-Transketolase Activity** in Malnourished Alcoholics with Cirrhosis*](http://ajcn.nutrition.org/content/20/9/946.extract).
+
+So, in all seriousness, transketolase is an "[*important enzyme in the breakdown of glucose through a biochemical pathway called the pentose phosphate pathway*](https://pubs.niaaa.nih.gov/publications/arh27-2/134-142.htm){:target="_blank"}". And the pentose phosphate pathway is a "[*metabolic pathway parallel to glycolysis*](https://en.wikipedia.org/wiki/Pentose_phosphate_pathway){:target="_blank"}". The occurrence of these genes in such a lovely synteny suggests that this bin has some sort of pentose phosphate pathway, and it can use products of glycolysis towards the generation of nicotinamide adenine dinucleotide phosphate (NADPH), [which is an essential electron donor for anabolic reactions in all domains of life](http://journal.frontiersin.org/article/10.3389/fmicb.2015.00742/full){:target="_blank"}.
+
+If I had no shame, I would have insinuated that this CPR bin may suggest the existence of parasitic bacterial populations that can live in mamallian blood by relying on excess glucose and free amino acids in blood and have been eluding cultivation and marker gene surveys.
 
 
 ## Can we say it though?
 
-Regardless of all these, (1) assuming that nothing went wrong with the sampling, library preparation, and sequencing procedures, and (2) after taking into consideration that we may be talking about a single microbial population observed in a single pregnant woman, and (3) after reminding ourselves that this population may not even be active and simply just sweeping into the blood stream from the oral cavity of a single individual or something, it still is *probably* safe to say for the first time "**CPR in human blood!**".
+Regardless of all these, (1) assuming that nothing went wrong with the sampling, library preparation, and sequencing procedures, and (2) after taking into consideration that we may be talking about a single microbial population observed in a single pregnant woman, and (3) after reminding ourselves that this population may not even be active ~~and simply just sweeping into the blood stream from the oral cavity of an individual~~, it still is *probably* safe to say for the first time "**CPR in human blood!**".
 
 There you have it ;)
 
