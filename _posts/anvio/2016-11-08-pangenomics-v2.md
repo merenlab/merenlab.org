@@ -99,7 +99,7 @@ Thanks to these two files, genome bins in anvi'o collections and cultivar genome
 Once you have your genomes storage ready, you can use the program `anvi-pan-genome` to run the actual pangenomic analysis. This is the simplest form of this command:
 
 {% highlight bash %}
-$ anvi-pan-genome -g MY-GENOMES.h5 -J PROJECT_NAME
+$ anvi-pan-genome -g MY-GENOMES.h5 -n PROJECT_NAME
 {% endhighlight %}
 
 When you run it, `anvi-pan-genome`,
