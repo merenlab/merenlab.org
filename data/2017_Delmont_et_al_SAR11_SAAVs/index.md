@@ -386,7 +386,7 @@ Computed the pangenome,
 ``` bash
 anvi-pan-genome -g SAR11-PAN-GENOMES.h5 \
                 --use-ncbi-blast \
-                --maxbit 0.5 \
+                --minbit 0.5 \
                 --mcl-inflation 2 \
                 -J SAR11-METAPANGENOME \
                 -o SAR11-METAPANGENOME -T 20
