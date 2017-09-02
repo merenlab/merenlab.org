@@ -287,7 +287,7 @@ The resulting profile database describes the coverage and detection statistics, 
 
 ### Generating a genomic collection
 
-At this point anvi'o still doesn't know how to link scaffolds to each isolate genome. In anvi'o, this kind of knowledge is maintained through 'collections'. In orer to link scaffolds to genomes of origin, we used the program `anvi-import-collection` to create an anvi'o collection in our merged profile database.
+At this point anvi'o still doesn't know how to link scaffolds to each isolate genome. In anvi'o, this kind of knowledge is maintained through 'collections'. In order to link scaffolds to genomes of origin, we used the program `anvi-import-collection` to create an anvi'o collection in our merged profile database.
 
 We first generated a 2-columns, TAB-delimited collections file:
 
