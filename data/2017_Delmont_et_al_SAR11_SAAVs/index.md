@@ -243,7 +243,7 @@ do
 done
 ```
 
-This process has resulted in 103 sorted and indexed BAM files that describe the mapping of more than one 30 billion short reads to scaffolds contained in the FASTA file `SAR11-isolates.fa`.
+This process has resulted in 103 sorted and indexed BAM files that describe the mapping of more than 30 billion short reads to scaffolds contained in the FASTA file `SAR11-isolates.fa`.
 
 
 ### Profiling the mapping results with anvi'o 
