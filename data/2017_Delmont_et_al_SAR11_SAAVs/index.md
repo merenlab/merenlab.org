@@ -98,7 +98,7 @@ We tailored our sample naming schema for convenience and reproducibility. [This 
 wget http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/sets.txt
 ``` 
 
-We used these three-letter prefixes to name each of the 103 samples, and to associate them with metagenomic sets with which they were affiliated. [This file](http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/samples.txt){:target="_blank"} contains sample names, and explaines which raw data files are associated with each sample. It will be referred to as `samples.txt` throughout the document, and you can get a copy of this file into your work directory:
+We used these three-letter prefixes to name each of the 103 samples, and to associate them with metagenomic sets with which they were affiliated. [This file](http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/samples.txt){:target="_blank"} contains sample names, and explains which raw data files are associated with each sample. It will be referred to as `samples.txt` throughout the document, and you can get a copy of this file into your work directory:
 
 ``` bash
 wget http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/samples.txt
