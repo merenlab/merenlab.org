@@ -11,7 +11,7 @@ comments: true
 
 {% capture images %}{{site.url}}/data/2017_Delmont_et_al_SAR11_SAAVs/images{% endcapture %}
 
-This document describes the reproducible bioinformatics workflow for our study titled "*The large scale biogeography of amino acid variants within a single SAR11 population is governed by natural selection*". Here you will find program names and exact parameters we used throughout every step of the analysis of SAR11 genomes and TARA Oceans metagenomes, which relied predominantly on the open-source analysis platform [anvi’o](http://merenlab.org/software/anvio) (Eren et al., 2015).
+This document describes the reproducible bioinformatics workflow for our study titled "*The large scale biogeography of amino acid variants within a single SAR11 population is governed by natural selection*". Here you will find program names and exact parameters we used throughout every step of the analysis of SAR11 genomes and metagenomes from the TARA Oceans and Ocean Sampling Day projects, which relied predominantly on the open-source analysis platform [anvi’o](http://merenlab.org/software/anvio) (Eren et al., 2015).
 
 {:.notice}
 All anvi'o analyses in this document are performed using the anvi'o version `v2.4.0`. Please see [the installation notes]({% post_url anvio/2016-06-26-installation-v2 %}) to download the appropriate version through PyPI, Docker, or GitHub.
@@ -36,7 +36,7 @@ The URL [http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/](http://merenl
 
 In this study,
 
-* We characterized the metapangenome of 21 SAR11 isolate genomes using TARA Oceans metagenomes,
+* We characterized the metapangenome of 21 SAR11 isolate genomes using metagenomes from the TARA Oceans and Ocean Sampling Day projects,
 
 * Identified single-nucleotide variants (SNVs) and single-amino acid variants (SAAVs) within a single remarkably abundant and widespread SAR11 population,
 
