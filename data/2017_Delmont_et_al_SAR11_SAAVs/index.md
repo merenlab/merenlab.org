@@ -166,7 +166,7 @@ This step also generated FASTQ files for each sample that contain quality-filter
 
 ## Mapping metagenomic reads to SAR11 genomes
 
-This section explains various steps to charaterize the occurrence of each SAR11 isolate genome in metagenomes.
+This section explains various steps to characterize the occurrence of each SAR11 isolate genome in metagenomes.
 
 ### Generating an anvi'o CONTIGS database
 
