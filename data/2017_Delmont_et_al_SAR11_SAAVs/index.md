@@ -44,7 +44,7 @@ In this study,
 
 * Linked SAAVs to predicted tertiary structures of S-LLPA proteins.
 
-Sections in this document will detail all the steps of downlaoding and processing SAR11 genomes and metagenomes, mapping metagenomic reads onto the SAR11 genomes, identifying and processing genomic variability to explore the amino acid diversification traits of a single population.
+Sections in this document will detail all the steps of downloading and processing SAR11 genomes and metagenomes, mapping metagenomic reads onto the SAR11 genomes, identifying and processing genomic variability to explore the amino acid diversification traits of a single population.
 
 </div>
 
