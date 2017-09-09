@@ -538,6 +538,9 @@ This step provides a convenient naming schema for all scaffolds. For instance, a
 
 ### Taxonomical inference of the redundant MAGs using CheckM.
 
+{:.notice}
+You have a bunch of MAGs, SAGs, and/or reference genomes, and you are interested in inferring their relationships to one another using phylogenomics? See [this anvi'o workflow for phylogenomics](http://merenlab.org/2017/06/07/phylogenomics/) instead.
+
 We used CheckM (Parks et al., 2015) to infer the taxonomy of the 1,077 redundant MAGs based on the proximity of 43 single-copy gene markers within a reference genomic tree.  
 
 In the folder `REDUNDANT-MAGs` we used the command,
