@@ -144,7 +144,9 @@ First, we need to identify an HMM profile to use, and then select some gene name
 
 
 ``` bash
- $ anvi-get-sequences-for-hmm-hits --external-genomes external-genomes.txt --list-hmm-sources
+ $ anvi-get-sequences-for-hmm-hits --external-genomes external-genomes.txt \
+                                   --list-hmm-sources
+
 Internal genomes .............................: 0 have been initialized.
 External genomes .............................: 12 found.
 
@@ -161,7 +163,10 @@ For the remainder of this tutorial we will use the collection from Campbell et a
 We will use the [Campbell et al. collection](http://www.pnas.org/content/108/31/12776.short), but which genes should we pick from it? Let's take a look and see which genes are described in this collection:
 
 ``` bash
- $ anvi-get-sequences-for-hmm-hits --external-genomes external-genomes.txt --hmm-source Campbell_et_al --list-available-gene-names
+ $ anvi-get-sequences-for-hmm-hits --external-genomes external-genomes.txt \
+                                   --hmm-source Campbell_et_al \
+                                   --list-available-gene-names
+
 Internal genomes .............................: 0 have been initialized.
 External genomes .............................: 12 found.
 
