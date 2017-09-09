@@ -11,7 +11,7 @@ comments: true
 
 {% capture images %}{{site.url}}/data/2017_Delmont_et_al_SAR11_SAAVs/images{% endcapture %}
 
-This document describes the reproducible bioinformatics workflow for our study titled "*The large scale biogeography of amino acid variants within a single SAR11 population is governed by natural selection*". Here you will find program names and exact parameters we used throughout every step of the analysis of SAR11 genomes and TARA Oceans metagenomes, which relied predominantly on the open-source analysis platform [anvi’o](http://merenlab.org/software/anvio) (Eren et al., 2015).
+This document describes the reproducible bioinformatics workflow for our study titled "*The large scale biogeography of amino acid variants within a single SAR11 population is governed by natural selection*". Here you will find program names and exact parameters we used throughout every step of the analysis of SAR11 genomes and metagenomes from the TARA Oceans and Ocean Sampling Day projects, which relied predominantly on the open-source analysis platform [anvi’o](http://merenlab.org/software/anvio) (Eren et al., 2015).
 
 {:.notice}
 All anvi'o analyses in this document are performed using the anvi'o version `v2.4.0`. Please see [the installation notes]({% post_url anvio/2016-06-26-installation-v2 %}) to download the appropriate version through PyPI, Docker, or GitHub.
@@ -36,7 +36,7 @@ The URL [http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/](http://merenl
 
 In this study,
 
-* We characterized the metapangenome of 21 SAR11 isolate genomes using TARA Oceans metagenomes,
+* We characterized the metapangenome of 21 SAR11 isolate genomes using metagenomes from the TARA Oceans and Ocean Sampling Day projects,
 
 * Identified single-nucleotide variants (SNVs) and single-amino acid variants (SAAVs) within a single remarkably abundant and widespread SAR11 population,
 
@@ -44,7 +44,7 @@ In this study,
 
 * Linked SAAVs to predicted tertiary structures of S-LLPA proteins.
 
-Sections in this document will detail all the steps of downlaoding and processing SAR11 genomes and metagenomes, mapping metagenomic reads onto the SAR11 genomes, identifying and processing genomic variability to explore the amino acid diversification traits of a single population.
+Sections in this document will detail all the steps of downloading and processing SAR11 genomes and metagenomes, mapping metagenomic reads onto the SAR11 genomes, identifying and processing genomic variability to explore the amino acid diversification traits of a single population.
 
 </div>
 
@@ -98,7 +98,7 @@ We tailored our sample naming schema for convenience and reproducibility. [This 
 wget http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/sets.txt
 ``` 
 
-We used these three-letter prefixes to name each of the 103 samples, and to associate them with metagenomic sets with which they were affiliated. [This file](http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/samples.txt){:target="_blank"} contains sample names, and explaines which raw data files are associated with each sample. It will be referred to as `samples.txt` throughout the document, and you can get a copy of this file into your work directory:
+We used these three-letter prefixes to name each of the 103 samples, and to associate them with metagenomic sets with which they were affiliated. [This file](http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/samples.txt){:target="_blank"} contains sample names, and explains which raw data files are associated with each sample. It will be referred to as `samples.txt` throughout the document, and you can get a copy of this file into your work directory:
 
 ``` bash
 wget http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/samples.txt
@@ -166,7 +166,7 @@ This step also generated FASTQ files for each sample that contain quality-filter
 
 ## Mapping metagenomic reads to SAR11 genomes
 
-This section explains various steps to charaterize the occurrence of each SAR11 isolate genome in metagenomes.
+This section explains various steps to characterize the occurrence of each SAR11 isolate genome in metagenomes.
 
 ### Generating an anvi'o CONTIGS database
 
@@ -243,7 +243,7 @@ do
 done
 ```
 
-This process has resulted in 103 sorted and indexed BAM files that describe the mapping of more than one 30 billion short reads to scaffolds contained in the FASTA file `SAR11-isolates.fa`.
+This process has resulted in 103 sorted and indexed BAM files that describe the mapping of more than 30 billion short reads to scaffolds contained in the FASTA file `SAR11-isolates.fa`.
 
 
 ### Profiling the mapping results with anvi'o 
@@ -287,7 +287,7 @@ The resulting profile database describes the coverage and detection statistics, 
 
 ### Generating a genomic collection
 
-At this point anvi'o still doesn't know how to link scaffolds to each isolate genome. In anvi'o, this kind of knowledge is maintained through 'collections'. In orer to link scaffolds to genomes of origin, we used the program `anvi-import-collection` to create an anvi'o collection in our merged profile database.
+At this point anvi'o still doesn't know how to link scaffolds to each isolate genome. In anvi'o, this kind of knowledge is maintained through 'collections'. In order to link scaffolds to genomes of origin, we used the program `anvi-import-collection` to create an anvi'o collection in our merged profile database.
 
 We first generated a 2-columns, TAB-delimited collections file:
 
