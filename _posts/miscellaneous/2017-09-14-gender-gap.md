@@ -11,7 +11,7 @@ authors: [meren]
 
 {% include _toc.html %}
 
-[Elisabeth Bik](https://microbiomedigest.com) recently mentioned [this conference](http://bioinformatics.gatech.edu/2017/) on Twitter to highlighting its serious gender imbalance:
+[Elisabeth Bik](https://microbiomedigest.com) recently mentioned [this conference](http://bioinformatics.gatech.edu/2017/) on Twitter to highlight its serious gender imbalance:
 
 <center>
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Another very male Microbiome conference, HT <a href="https://twitter.com/torstenseemann">@torstenseemann</a> <br>10/11 speakers are male, <a href="https://twitter.com/JulieSegre">@JulieSegre</a>&#39;s name misspelled <a href="https://t.co/4K1GFwLiYn">https://t.co/4K1GFwLiYn</a> <a href="https://t.co/zTi1RVfc1x">pic.twitter.com/zTi1RVfc1x</a></p>&mdash; Elisabeth Bik (@MicrobiomDigest) <a href="https://twitter.com/MicrobiomDigest/status/889728646323126272">July 25, 2017</a></blockquote>
