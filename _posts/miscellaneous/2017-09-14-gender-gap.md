@@ -98,7 +98,7 @@ Clearly asking high-profile women to accept more invitations is a terrible idea.
 
 Maybe by changing the mindset just slightly, conferences that don't have any budget to hire people to assure a diverse array of speakers could get away without much extra work. Here are three suggestions inspired by points made by others:
 
-* **Start with a diverse organizational committee**. Regardless of its size.
+* **Start with a diverse organizational committee**. Regardless of its size. It turns out this is a suggestion that can be supported with a citation --See [Casadevall and Handelsman, 2014](http://mbio.asm.org/content/5/1/e00846-13.full) (I thank [Jennifer Glass](https://twitter.com/methanoJen) for pointing it out).
 
 * **Admit that junior scientists are OK to invite**. Post-docs, and senior PhD students can deliver as much as their high-profile mentors, and one can argue that it is a bigger responsibility for conferences to show their commitment to diversity than bringing all the senior people together. If this sounds reasonable, things will only get better because this will simply become a possibility: *Dr. Jane Doe, we would be happy to have you, but we are going to be equally happy to invite one of your women colleagues from your lab who can share your science*. Done. Options tripled.
 
