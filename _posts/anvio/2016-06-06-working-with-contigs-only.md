@@ -14,7 +14,7 @@ This need was brought up by one of our early users, and there has been an [open 
 
 The key is to create a *blank anvi'o profile database* to go with the contigs database, and this is what I will demonstrate here. But before I start, let me put this here so you know what version I am using:
 
-{% highlight bash %}
+``` bash
 $ anvi-profile -v
 Anvi'o version ...............................: 2.0.0
 Profile DB version ...........................: 15
@@ -22,7 +22,7 @@ Contigs DB version ...........................: 5
 Samples information DB version ...............: 2
 Auxiliary HDF5 DB version ....................: 1
 Users DB version (for anvi-server) ...........: 1
-{% endhighlight %}
+```
 
 ## Preparing the FASTA file
 
@@ -34,23 +34,23 @@ OK. The reason I will use this genome is simple: it is a chimeric genome, and it
 
 This is how I downloaded the genome:
 
-{% highlight bash %}
+``` bash
 $ wget ftp://ftp.ensemblgenomes.org/pub/current/bacteria/fasta/bacteria_25_collection/bacillus_subtilis_best7613/dna/Bacillus_subtilis_best7613.ASM32874v1.31.dna.genome.fa.gz -O Bacillus_subtilis.fa.gz
 $ gzip -d Bacillus_subtilis.fa.gz
 $ ls -lh Bacillus_subtilis.fa
       -rw-r--r-- 7.4M Jun  6 14:42 Bacillus_subtilis.fa
-{% endhighlight %}
+```
 
 Simple. As you may know, [anvi'o requires simple deflines in FASTA files]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}/#preparation){:target="_blank"}), and this FASTA file *does not* conform that requiremenet at all:
 
-{% highlight bash %}
+``` bash
 $ head -n 1 Bacillus_subtilis.fa
 >Chromosome dna:chromosome chromosome:ASM32874v1:Chromosome:1:7585470:1
-{% endhighlight %}
+```
 
 So I need to fix that first before I generate the contigs database. For this purpose I use `anvi-script-remove-short-contigs-from-fasta` with a minimum length of `0` and `--simplify` flag. This way the script will not remove anything from the FASTA file while converting deflines to simpler ones:
 
-{% highlight bash %}
+``` bash
 $ anvi-script-remove-short-contigs-from-fasta Bacillus_subtilis.fa --min-len 0 --simplify-names -o fixed.fa
 Input ........................................: Bacillus_subtilis.fa
 Output .......................................: fixed.fa
@@ -61,14 +61,14 @@ Contigs removed ..............................: 0 (0.00% of all)
 Nucleotides removed ..........................: 0 (0.00% of all)
 Deflines simplified ..........................: True
 $ mv fixed.fa Bacillus_subtilis.fa
-{% endhighlight %}
+```
 
 Now it looks much better:
 
-{% highlight bash %}
+``` bash
 $ head -n 1 Bacillus_subtilis.fa
 >c_000000000001
-{% endhighlight %}
+```
 
 So this is my FASTA file, and you have your's. We are golden. The next step is to create an anvi'o contigs database.
 
@@ -76,22 +76,26 @@ So this is my FASTA file, and you have your's. We are golden. The next step is t
 
 Creating a contigs database is not much different for this workflow than any other. However, (1) I will set a shorter split size than default (since I want to see a more highly resolved depiction of the genome), and (2) I will skip *mindful splitting*, so anvi'o does not lose time with something that is not useful in this context:
 
-{% highlight bash %}
-anvi-gen-contigs-database -f Bacillus_subtilis.fa -o Bacillus_subtilis.db -L 5000 --skip-mindful-splitting
-{% endhighlight %}
+``` bash
+anvi-gen-contigs-database -f Bacillus_subtilis.fa \
+                          -o Bacillus_subtilis.db \
+                          -L 5000 \
+                          --skip-mindful-splitting \
+                          --name 'B. subtilis'
+```
 
 Next, I populate the single-copy gene hit tables in this newly generated contigs database:
 
-{% highlight bash %}
+``` bash
 anvi-run-hmms -c Bacillus_subtilis.db
-{% endhighlight %}
+```
 
 If you hapenned to read [this post]({% post_url anvio/2015-12-07-predicting-number-of-genomes %}), you already know that at this point we can take a look at the distribuiton of bacterial single-copy genes in this contigs database and predict the number of genomes in it:
 
-{% highlight bash %}
+``` bash
 $ anvi-script-gen_stats_for_single_copy_genes.py Bacillus_subtilis.db
 $ anvi-script-gen_stats_for_single_copy_genes.R Bacillus_subtilis.db.hits Bacillus_subtilis.db.genes
-{% endhighlight %}
+```
 
 Which gives me back this PDF image:
 
@@ -109,9 +113,9 @@ But none of that works if you don't short reads to map, and the next step will e
 
 To visualize a contigs database, we need an anvi'o profile database. But what does one do if there is no mapping data to create a profile database? Well, they run anvi-profile with `--blank-profile` parameter!
 
-{% highlight bash %}
+``` bash
 $ anvi-profile -c Bacillus_subtilis.db -o Bacillus_subtilis -S Bacillus_subtilis --blank-profile
-{% endhighlight %}
+```
 
 Thanks to the resulting blank profile database, now I will be able to visualize what this contigs database holds in it by using `anvi-interactive`. Now I can do binning with real time completion / contamination estimates, store and load states, create collections, and summarize them.
 
@@ -119,9 +123,9 @@ Thanks to the resulting blank profile database, now I will be able to visualize 
 
 OK. Everything is ready to simply start the anvi'o interactive interface for a better look:
 
-{% highlight bash %}
+``` bash
 anvi-interactive -c Bacillus_subtilis.db -p Bacillus_subtilis/PROFILE.db
-{% endhighlight %}
+```
 
 Which gives me this view in the opening window:
 
@@ -145,9 +149,9 @@ As you can see, completion / redundancy estimates look much better when they are
 
 Now I can summarize the collection I stored in the blank profile database:
 
-{% highlight bash %}
+``` bash
 anvi-summarize -c Bacillus_subtilis.db -p Bacillus_subtilis/PROFILE.db -C merens -o Bacillus_subtilis_summary
-{% endhighlight %}
+```
 
 The result of this summary is a static HTML output. I copied that directory here for your viewing pleasure:
 

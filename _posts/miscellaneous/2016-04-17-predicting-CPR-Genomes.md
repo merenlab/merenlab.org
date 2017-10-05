@@ -60,11 +60,11 @@ Everything here uses anvi'o v2 branch, which is not officially released yet, but
 
 Now using the first programs, along with the [Brown_et_al-CPR-Campbell_et_al_BSCG.txt](https://github.com/meren/anvio/blob/master/tests/sandbox/Brown_et_al-CPR-Campbell_et_al_BSCG.txt){:target="_blank"} file, I can create a classifier:
 
-{% highlight bash %}
+``` bash
 $ anvi-script-gen-CPR-classifier Brown_et_al-CPR-Campbell_et_al_BSCG.txt -o cpr-bscg.classifier
 RF Train .....................................: 2391 observations with 139 features grouped into 2 classes.
 Classifier output ............................: cpr-bscg.classifier
-{% endhighlight %}
+```
 
 We have a classifier! So far so good. But does it classify?
 
@@ -74,44 +74,44 @@ Let's start with something we all know that is not coming from CPR: *E. coli* ([
 
 First, the standard steps of generating an anvi'o contigs database from a given FASTA file of contigs, and populating HMM search results in it:
 
-{% highlight bash %}
-$ anvi-gen-contigs-database -f E_coli-K12-MG1655.fa -o E_coli-K12-MG1655.db
+``` bash
+$ anvi-gen-contigs-database -f E_coli-K12-MG1655.fa -o E_coli-K12-MG1655.db -n 'E._coli'
 $ anvi-run-hmms -c E_coli-K12-MG1655.db
-{% endhighlight %}
+```
 
 Then, the moment of truth:
 
-{% highlight bash %}
+``` bash
 $ anvi-script-predict-CPR-genomes cpr-bscg.classifier -c E_coli-K12-MG1655.db
 
 Genome in "E_coli-K12-MG1655.db"
 ===============================================
 E_coli-K12-MG1655 ............................: NOT CPR (Confidence: 100%, Size: 4,641,652, Completion: 100%)
-{% endhighlight %}
+```
 
 *Phew.*
 
 But of course, this is a complete genome (as anvi'o also predicts and states it in its output: *Completion: 100%*), and we know genomes from CPR miss a lot of single-copy genes. Would the classifier work if it was not as complete? Here I create another FASTA file with only the first half of the genome:
 
-{% highlight bash %}
+``` bash
 $ head -n `wc -l E_coli-K12-MG1655.fa | awk '{print $1 / 2}'` E_coli-K12-MG1655.fa > E_coli-K12-MG1655-half.fa
 $ wc -l E_coli-K12-MG1655.fa 
    58022 E_coli-K12-MG1655.fa
 $ wc -l E_coli-K12-MG1655-half.fa
    29011 E_coli-K12-MG1655-half.fa
-{% endhighlight %}
+```
 
 Then repeat the process on this incomplete genome:
 
-{% highlight bash %}
-$ anvi-gen-contigs-database -f E_coli-K12-MG1655-half.fa -o E_coli-K12-MG1655-half.db
+``` bash
+$ anvi-gen-contigs-database -f E_coli-K12-MG1655-half.fa -o E_coli-K12-MG1655-half.db -n 'Half of an E. coli'
 $ anvi-run-hmms -c E_coli-K12-MG1655-half.db
 $ anvi-script-predict-CPR-genomes cpr-bscg.classifier -c Genomes_NCBI/E_coli-K12-MG1655-half.db --min-percent-completion 0
 
 Genome in "E_coli-K12-MG1655-half.db"
 ===============================================
 E_coli-K12-MG1655-half .......................: NOT CPR (Confidence: 97%, Size: 2,239,920, Completion: 30%)
-{% endhighlight %}
+```
 
 Although the genome is now only 30% complete, the classifier says it is not a CPR genome with 97% confidence.
 
@@ -121,46 +121,46 @@ Good job, classifier. You may have just proven yourself to be not an absolute jo
 
 How about a known CPR genome? For this, I decided to use one of the genomes ([this one](https://www.ncbi.nlm.nih.gov/nuccore/LMZU00000000.1), to be specific) [Daan Speth](https://twitter.com/daanspeth) and his colleagues released from a wastewater treatment system in their [recent publication](http://www.nature.com/ncomms/2016/160331/ncomms11172/full/ncomms11172.html). Their genomes were not used in Brown et al.'s study, therefore I did not use them to train the classifier. Another group with another set of genomes; the best test case: 
 
-{% highlight bash %}
+``` bash
 $ wget http://www.ncbi.nlm.nih.gov/Traces/wgs/?download=LMZU01.1.fsa_nt.gz -O LMZU01.1.fsa_nt.gz
 $ gzip -d LMZU01.1.fsa_nt.gz
 $ anvi-script-remove-short-contigs-from-fasta LMZU01.1.fsa_nt --simplify-names -o OP11-2.fa -l 0
-$ anvi-gen-contigs-database -f OP11-2.fa -o OP11-2.db
+$ anvi-gen-contigs-database -f OP11-2.fa -o OP11-2.db -n 'OP11'
 $ anvi-run-hmms -c OP11-2.db
-{% endhighlight %}
+```
 
 The moment of truth:
 
-{% highlight bash %}
+``` bash
 $ anvi-script-predict-CPR-genomes cpr-bscg.classifier -c Genomes_Speth/OP11-2.db
 
 Genome in "OP11-2.db"
 ===============================================
 OP11-2 .......................................: CPR (Confidence: 94%, Size: 906,719, Completion: 66%)
-{% endhighlight %}
+```
 
 It classifies a genome it has never seen before as CPR. So far so good!
 
 But then I thought that it would be more fair to classify *all genomes* listed in the [Table 1](http://www.nature.com/ncomms/2016/160331/ncomms11172/fig_tab/ncomms11172_T1.html){:target="_blank"} (I guess you already figured that I am doing these experiments as I write this post). I know that only the last five genomes in this table represent CPR genomes, and the test is to identify them properly. Just for future references, I wrote this little script to download and characterize all genomes with the accession numbers listed in Table 1:
 
-{% highlight bash %}
+``` bash
 #!/bin/bash
 wget http://www.ncbi.nlm.nih.gov/Traces/wgs/?download="$1"01.1.fsa_nt.gz -O "$1"01.1.fsa_nt.gz
 gzip -d "$1"01.1.fsa_nt.gz
 anvi-script-remove-short-contigs-from-fasta "$1"01.1.fsa_nt --simplify-names -o $2.fa -l 0
-anvi-gen-contigs-database -f $2.fa -o $2.db
+anvi-gen-contigs-database -f $2.fa -o $2.db -n "$2"
 anvi-run-hmms -c $2.db
-{% endhighlight %}
+```
 
 Which I called this way for each genome from within another script:
 
-{% highlight bash %}
+``` bash
 $ ./download.sh JZEK Planctomycetes_AMX
-{% endhighlight %}
+```
 
 And then classified each contigs database (the following list is in the same order with [Table 1](http://www.nature.com/ncomms/2016/160331/ncomms11172/fig_tab/ncomms11172_T1.html)):
 
-{% highlight bash %}
+``` bash
 Planctomycetes_AMX ...........................: NOT CPR (Confidence: 92%, Size: 3,895,767, Completion: 93%)
 Proteobacteria_AOB ...........................: NOT CPR (Confidence: 100%, Size: 2,610,123, Completion: 99%)
 Nitrospirae_NOB ..............................: NOT CPR (Confidence: 100%, Size: 3,754,263, Completion: 91%)
@@ -184,7 +184,7 @@ WS6_WS6-1 ....................................: CPR (Confidence: 94%, Size: 1,45
 WS6_WS6-2 ....................................: CPR (Confidence: 86%, Size: 1,050,508, Completion: 73%)
 Microgenomates_OP11-1 ........................: CPR (Confidence: 100%, Size: 957,550, Completion: 64%)
 Microgenomates_OP11-2 ........................: CPR (Confidence: 94%, Size: 906,719, Completion: 66%)
-{% endhighlight %}
+```
 
 Knowing nothing about a genome except its sequence, we seem to be able to predict whether it is a member of CPR.
 
@@ -196,7 +196,7 @@ There is a work-in-progress project we are working on together with [Ryan Bartel
 
 This is how I screened the entire collection of bins in this analysis for CPR genomes (this is a severely cut output, I removed many many 90%+ complete and large draft genome bins from it to keep a smaller subset):
 
-{% highlight bash %}
+``` bash
 $ anvi-script-predict-CPR-genomes cpr-bscg.classifier -c CONTIGS.db -p PROFILE.db -C CONCOCT_REFINED
 Auxiliary Data ...............................: Found: CONTIGS.h5 (v. 1)
 Contigs DB ...................................: Initialized: CONTIGS.db (v. 5)
@@ -228,31 +228,31 @@ Bin_6_12 .....................................: CPR (Confidence: 88%, Size: 796,
 Bin_16_1_6_1 .................................: NOT CPR (Confidence: 95%, Size: 1,486,735, Completion: 57%)
 Bin_27_6 .....................................: NOT CPR (Confidence: 95%, Size: 1,601,108, Completion: 89%)
 (...)
-{% endhighlight %}
+```
 
 From 253 bins, the classifier identified 6 likely CPR bins. 
 
 To go just a little futher, I decided to focus on `Bin_1_14`:
 
-{% highlight bash %}
+``` bash
 Bin_1_14 .....................................: CPR (Confidence: 95%, Size: 1,527,872, Completion: 91%)
-{% endhighlight %}
+```
 
 Here I ask anvi'o to bring me back all sequences from this bin that match Campbell et al. HMM profiles:
 
 {:.notice}
 The program `anvi-get-dna-sequences-for-hmm-hits` is renamed to `anvi-get-sequences-for-hmm-hits` after anvi'o `v2.1.0`.
 
-{% highlight bash %}
+``` bash
 $ anvi-get-dna-sequences-for-hmm-hits -c CONTIGS.db -p PROFILE.db -C CONCOCT -b Bin_1_14 --hmm-source Campbell_et_al -o Bin_1_14.fa
 Init .........................................: 71 splits in 1 bin(s)
 Result .......................................: 129 genes for 1 source(s)
 Output .......................................: Bin_1_14-genes.fa
-{% endhighlight %}
+```
 
 The result is a FASTA file with every sequence matching to HMM profiles from Campbell et al.'s collection, and here is the RecA from that file, a phylogenetically relevant marker that may tell us what this genome bin is really from:
 
-{% highlight bash %}
+``` bash
 >RecA___7bd46ef7|bin_id:Bin_1_14|source:Campbell_et_al|e_value:6e-165|contig:k99_9268241|start:168214|stop:169330|length:1116
 ATGTCGACTCTCACCGAAAAACAGAAAGCTGTAGAACTCGCGCTTTCACAAATCGAAAGAAACTTTGGCAAAGGTGCCATCATGAAACTTGGTGAATCTCAAAAGGTTGCTATCGAAACA
 ATCCCTACAGGCTGTATGTCACTTGATATCGCTATCGGAGGTGGTATCCCACGTGGACGTATTATCGAAATCTTTGGACCAGAAAGCTCTGGTAAAACAACTCTCACACTTCATATCGTT
@@ -264,7 +264,7 @@ GTAATCGGTAATCGCGTTCGTGTAAAAGTAGTAAAAAATAAAATCGCTCCTCCATTCAAAATGGCTGAGTTCGACATCAT
 CTCTCAACAAAATACGAAATCACCAGAAAGAGCGGAGCCTTCTATACATATAAAGATCTCAAACTTGGCCAAGGTCGCGAAAATGCCAAAGAGTTCCTTTCAACAAATGAAAAAGTTCTC
 CGAGCTATGGAAAAAGATGTGCTTGAATATGTAGCCAACGCAAAAAAAGCTGAAGAAGTAAAAAACGAAAACTATATTCAACAGCAACAACCTCAGCAACCAAAGGCAGTTCCAGTAGCC
 GCTAAAGCAGCCAAGTCAGCAAAAGATGAAGACTAA
-{% endhighlight %}
+```
 
 And voilà, top hits from blastx are coming from bacteria from CPR (I removed two hypothetical hits from this list):
 

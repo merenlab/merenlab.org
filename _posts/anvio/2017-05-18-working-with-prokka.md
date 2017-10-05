@@ -90,7 +90,8 @@ Generate a new anvi'o contigs database from your assembled contigs, and use `--e
 ``` bash
  $ anvi-gen-contigs-database -f contigs.fa \
                              -o contigs.db \
-                             --external-gene-calls gene_calls.txt
+                             --external-gene-calls gene_calls.txt \
+                             --name 'Example contigs database'
 ```
 
 Then import the functional annotations:

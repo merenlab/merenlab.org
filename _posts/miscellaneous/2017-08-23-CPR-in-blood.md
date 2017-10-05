@@ -37,7 +37,9 @@ I started by downloading the assembled contigs, and created an anvi'o contigs da
 wget http://www.pnas.org/content/suppl/2017/08/21/1707009114.DCSupplemental/pnas.1707009114.sd05.txt -O Kowarsky_et_al.fa
 
 # generate an anvi'o contigs database
-anvi-gen-contigs-database -f Kowarsky_et_al.fa -o Kowarsky_et_al.db
+anvi-gen-contigs-database -f Kowarsky_et_al.fa \
+                          -o Kowarsky_et_al.db \
+                          --name 'Kowarsky et al contigs'
 
 # run anvi'o's default HMM profiles on this contigs database
 # using 10 cores

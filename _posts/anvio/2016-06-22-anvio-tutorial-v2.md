@@ -103,7 +103,7 @@ An anvi'o contigs database will keep all the information related to your contigs
 The following is the simplest way of creating a contigs database:
 
 {% highlight bash %}
-$ anvi-gen-contigs-database -f contigs.fa -o contigs.db
+$ anvi-gen-contigs-database -f contigs.fa -o contigs.db -n 'An example contigs datbase'
 {% endhighlight %}
 
 When you run this command, `anvi-gen-contigs-database` will,

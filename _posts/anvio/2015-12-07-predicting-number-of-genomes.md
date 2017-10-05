@@ -35,14 +35,14 @@ As a reminder, Sharon et al. identified 12 bacterial draft genomes in this datas
 
 First, you will need to introduce anvi'o to your contigs by generating a contigs database --one of the essential files of the anvi'o workflow.
 
-{% highlight bash %}
-$ anvi-gen-contigs-database -f contigs.fa -o contigs.db
-{% endhighlight %}
+``` bash
+$ anvi-gen-contigs-database -f contigs.fa -o contigs.db -n 'My contigs db'
+```
 
 And this is how this goes on my screen:
 
-{% highlight bash %}
-$ anvi-gen-contigs-database -f contigs.fa -o contigs.db
+``` bash
+$ anvi-gen-contigs-database -f contigs.fa -o contigs.db -n 'My contigs db'
 Contigs database .............................: A new database, new-contigs.db, has been created.
 Number of contigs ............................: 4,189
 Number of splits .............................: 4,861
@@ -58,7 +58,7 @@ Result .......................................: Prodigal (v2.6.2) has identified
 
 Contigs with at least one gene call ..........: 4174 of 4189 (99.6%)
 
-{% endhighlight %}
+```
 
 ### Looking for single-copy genes
 
@@ -66,13 +66,13 @@ Now we have the contigs database, the next thing we will do is to look for bacte
 
 All you need to do is to run this command for HMM hits for thoese gene collections to be added to the database you just created:
 
-{% highlight bash %}
+``` bash
 $ anvi-run-hmms -c contigs.db
-{% endhighlight %}
+```
 
 And this is how this step goes on my screen as anvi'o goes through each single-copy gene collection:
 
-{% highlight bash %}
+``` bash
 $ anvi-run-hmms -c contigs.db
 HMM profiles .................................: 4 sources have been loaded: Alneberg_et_al (34 genes), Dupont_et_al (111 genes), Campbell_et_al (139 genes), Creevey_et_al (40 genes)
 Sequences ....................................: 32265 sequences reported.
@@ -121,7 +121,7 @@ HMM scan output ..............................: /var/folders/nm/jmps9l7j7w1dr8rb
 HMM scan hits ................................: /var/folders/nm/jmps9l7j7w1dr8rbpv119zgr0000gn/T/tmp2GoYlD/hmm.hits
 Log file .....................................: /var/folders/nm/jmps9l7j7w1dr8rbpv119zgr0000gn/T/tmp2GoYlD/00_log.txt
 Number of raw hits ...........................: 432
-{% endhighlight %}
+```
 
 So far so good.
 
@@ -129,33 +129,33 @@ So far so good.
 
 Now we have a contigs database with everything we need. It is time to visualize the results. For now this is a two-step process. First we need to generate essential input files for the R program that will do the visualization:
 
-{% highlight bash %}
+``` bash
 $ anvi-script-gen_stats_for_single_copy_genes.py contigs.db
-{% endhighlight %}
+```
 
 This should generate two new files in the directory:
 
-{% highlight bash %}
+``` bash
 $ ls
 contigs.db  contigs.db.genes  contigs.db.genes
-{% endhighlight %}
+```
 
 And the final step is to visualize the information reported in those files:
 
-{% highlight bash %}
+``` bash
 $ anvi-script-gen_stats_for_single_copy_genes.R contigs.db.hits contigs.db.genes
 [1] "Alneberg_et_al"
 [1] "Creevey_et_al"
 [1] "Campbell_et_al"
 [1] "Dupont_et_al"
-{% endhighlight %}
+```
 
 Which should generate a PDF file in the same directory if you have a proper R installation:
 
-{% highlight bash %}
+``` bash
 $ ls
 contigs.db  contigs.db.genes  contigs.db.genes  contigs.db.hits_e_1_new.pdf
-{% endhighlight %}
+```
 
 Here is the result:
 
