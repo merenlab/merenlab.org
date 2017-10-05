@@ -43,6 +43,7 @@ Here are the available tags as of today:
 ``` bash
 $ sudo docker images
 REPOSITORY          TAG        IMAGE ID     CREATED    SIZE
+meren/anvio         3          (...)        (...)      932.0 MB
 meren/anvio         2.4.0      (...)        (...)      822.0 MB
 meren/anvio         2.3.2      (...)        (...)      806.0 MB
 meren/anvio         2.3.0      (...)        (...)      804.7 MB
@@ -131,7 +132,7 @@ X.bam  Y.bam  contigs.fa
 
 ## Rebuilding the anvi'o docker image (for hackers)
 
-For your reference, We keep our Docker files for each anvi'o version since v2.4.0 here:
+For your reference, We keep our Docker files for each anvi'o version here:
 
 [https://gist.github.com/meren/65b1f1bfea1b53e87e10f025d1e4c29a](https://gist.github.com/meren/65b1f1bfea1b53e87e10f025d1e4c29a)
 
@@ -140,14 +141,14 @@ If you would like to rebuild the Docker image for anvi'o on your own server, you
 ``` bash
 git clone --recursive https://github.com/meren/anvio.git
 cd anvio
-git checkout tags/v2.4.0
-wget https://gist.githubusercontent.com/meren/65b1f1bfea1b53e87e10f025d1e4c29a/raw/864badba94e96947015bd32a7ef53d7db982dfc8/Dockerfile_v2.4.0.sh -O Dockerfile
+git checkout tags/v3
+wget https://gist.githubusercontent.com/meren/65b1f1bfea1b53e87e10f025d1e4c29a/raw/19c1d9fbdd2909da44e0958b1cdd37a5ce75a9d7/Dockerfile_v3.sh -O Dockerfile
 ```
 
 Add/remove things you want, do your changes in the code, and build the new docker image (replace the username and tag with your preferences):
 
 ``` bash
-docker build -t meren/anvio:2.4.0 .
+docker build -t meren/anvio:3 .
 ```
 
 And optionally, push it to your account on the hub to allow other people run it easily (i.e., this is what I do to push the new images to my account):
