@@ -31,7 +31,7 @@ python -c 'import webbrowser as w; w.open_new("http://")'
 
 ## Painless installation with Homebrew
 
-If you are using Mac and have [Homebrew](http://brew.sh/) installed on your computer, all you need to do is to run this to have anvi'o installed on your system, and skip the rest of this page (although we suggest you to run `brew doctor` in your terminal first to make sure everything is good to go):
+If you have [Homebrew](http://brew.sh/) installed on your computer, all you need to do is to run this to have anvi'o installed, and skip the rest of this page (although we suggest you to run `brew doctor` in your terminal first to make sure everything is good to go):
 
 {:.notice}
 Homebrew will take a couple of days to update with `v3`, and we will remove this message as soon as it does!
@@ -53,18 +53,27 @@ That's it!
 ## Painless installation with Conda
 
 
-If you have been working with [Anaconda](https://www.continuum.io/downloads), and would like to continue to do so, there is a way to install anvi'o along with all its Python and non-Python dependencies thanks to [John Eppley](https://scholar.google.com/citations?user=4S2q_9cAAAAJ&hl=en):
+If you have [Anaconda](https://www.continuum.io/downloads), it is also possible to install anvi'o along with its all Python and non-Python dependencies thanks to [John Eppley](https://scholar.google.com/citations?user=4S2q_9cAAAAJ&hl=en):
 
 ``` bash
-conda create -n anvio240 -c bioconda -c conda-forge python=3.5.4 gsl anvio
+conda create -n anvio3 -c bioconda -c conda-forge python=3.5.4 gsl anvio
 ```
 
-Note that the most up-to-date conda-available anvi'o version, which is currently `v2.4.0`, may differ from the most up-to-date stable anvi'o version, which is `v{% include _project-anvio-version-number.html %}`.
+Once the installation is complete, test anvi'o quickly to make sure everything is in order:
+
+``` bash
+anvi-self-test --suite mini
+```
+
+{:.notice}
+Note that the most up-to-date conda-available anvi'o version, which is currently `v3`, may differ from the most up-to-date stable anvi'o version, which is `v{% include _project-anvio-version-number.html %}`.
 
 
 ## Installation (with varying levels of pain)
 
-First things first. You need to make sure your system does have all the following software if you are going to follow any of the following installation instructions. It is not as scary as it looks. If you just follow these links, you will most probably be golden:
+First things first: nothing here is as scary as it looks, and you can do it.
+
+Firs, you will need to make sure your system does have all the following software if you are going to follow any of the following installation instructions. If you just follow these links, you will most probably be golden:
 
 * [samtools]({% post_url anvio/2016-06-18-installing-third-party-software %}#samtools){:target="_blank"}
 * [Prodigal]({% post_url anvio/2016-06-18-installing-third-party-software %}#prodigal){:target="_blank"}
@@ -79,23 +88,24 @@ Finally you will need `virtualenv`. This should work for most:
 pip install virtualenv
 ```
 
-{:.notice}
-**Please note**, since the version `2.2.0`, anvi'o uses Python 3.
+If you don't have `pip`, you will need to visit [this web page](https://pip.pypa.io/en/stable/installing/) to have it installed.
 
 {:.notice}
-**If you are using `matplotlib`** you might [run into some issues](https://matplotlib.org/faq/virtualenv_faq.html). A simple [solution](https://matplotlib.org/faq/osx_framework.html#short-version) is to use [venv](https://docs.python.org/3/library/venv.html) (which comes built-in in python 3) instead of `virtualenv`. 
+**Please note**, anvi'o uses Python 3 exclusively.
 
-
-If you don't have `pip`, you will need to visit [this web page](https://pip.pypa.io/en/stable/installing/) to get it installed.
+{:.notice}
+You may [run into some issues](https://matplotlib.org/faq/virtualenv_faq.html) **eith `matplotlib` in the virtual environment**. A simple [solution](https://matplotlib.org/faq/osx_framework.html#short-version) is to use [venv](https://docs.python.org/3/library/venv.html) (which comes built-in in python 3) instead of `virtualenv`. 
 
 If you run into any trouble, send an e-mail to [Google Groups for anvi'o](https://groups.google.com/forum/#!forum/anvio).
 
-OK. If you are still here, you may have gone through the most painful part already. Anvi'o developers are very proud of you.
+OK. If made through the section above, you may have gone through the most painful part already, and anvi'o developers are very proud of you.
 
 
 ### Installing the latest stable release (safe mode)
 
-This is the best way to install the stable release. You will do everything in a Python virtual environment. If you are not experienced with computer stuff, do not worry. If you have taken care of your dependencies mentioned above, the rest is very simple.
+This is the best way to install the stable release (but not the best way if you would like to synchronize your anvi'o to the development version, for which you should jump to the 'active codebase' section).
+
+You will do everything in a Python virtual environment. If you are not experienced with computer thingies, do not worry. If you have taken care of your dependencies mentioned above, the rest should be very simple.
 
 We first need to create a new virtual environment for anvi'o. Since it is easier to keep all virtual environments in one place, I will first create a directory in my home:
 
@@ -103,7 +113,7 @@ We first need to create a new virtual environment for anvi'o. Since it is easier
 mkdir ~/virtual-envs/
 ```
 
-Then create a new virtual environment for anvi'o under that directory, to activate it, and to check the Python version in it:
+Then we will create a new virtual environment for anvi'o under that directory, to activate it, and to check the Python version in it to make sure the version starts with `3`:
 
 ``` bash
 virtualenv ~/virtual-envs/anvio-{% include _project-anvio-version-number.html %}
@@ -223,6 +233,9 @@ echo 'alias anvi-activate-dev="source ~/virtual-envs/anvio-dev/bin/activate"' >>
 ```
 
 ### Installation for developers (you're a wizard, arry)
+
+{:.notice}
+This is the best option to keep up-to-date with day-to-day updates from anvi'o developers.
 
 If you are planning to do this, you really need no introductions, but I will give you one anyway. Clone the codebase into a `$DIR` you like:
 
