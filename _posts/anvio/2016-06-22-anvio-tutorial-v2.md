@@ -204,6 +204,7 @@ Anvi'o also can make good use of functional annotations you already have for you
 
 - [**Importing functions into anvi'o**]({% post_url anvio/2016-06-18-importing-functions %}).
 
+
 ### anvi-import-taxonomy
 
 Annotating genes with taxonomy can make things downstream more meaningful, and in some cases may improve the human guided binning and refinement steps. Please see this post to find out different ways to achieve that:
