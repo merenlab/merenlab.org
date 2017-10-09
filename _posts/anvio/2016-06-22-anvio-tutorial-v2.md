@@ -57,19 +57,19 @@ For the contigs and BAM files for your *real data*, there is one more thing you 
 
 **Your FASTA file must have simple deflines**, and if it doesn't have simple deflines, **you must fix your FASTA file prior to mapping**. This is necessary, because the names in `contigs.fa` **must** match the names in your BAM files. Unfortunately, different mapping software behave differently when they find a space character, or say a `|` character in your FASTA file, and they proceed to change those characters in arbitrary ways. Therefore it is essential to keep the sequence IDs in your FASTA file **as simple as possible** before mapping. To avoid any problems later, take a look at your deflines prior to mapping now, and remove anything that is not a digit, an ASCII letter, an underscore, or a dash character. Here are some bad deflines:
 
-{% highlight bash %}
+``` bash
 >Contig-123 length:4567 
 >Another defline 42
 >gi|478446819|gb|JN117275.2|
-{% endhighlight %}
+```
 
 And here are some OK ones:
 
-{% highlight bash %}
+``` bash
 >Contig-123
 >Another_defline_42
 >gi_478446819_gb_JN117275_2
-{% endhighlight %}
+```
 
 If you have bad deflines, you need to reformat your FASTA file, and do the mapping again (if you have done you mapping already, you can convert your BAM files into SAM files, edit the SAM file to correct deflines, and re-generate your BAM files with proper names, but these kind of error-prone hacks require a lot of attention to make sure you did not introduce a bug early on to your precious data).
 
@@ -77,21 +77,21 @@ If you have bad deflines, you need to reformat your FASTA file, and do the mappi
 
 You can use the following anvi'o script to fix your deflines:
 
-{% highlight bash %}
+``` bash
 $ anvi-script-reformat-fasta contigs.fa -o contigs-fixed.fa -l 0 --simplify-names
-{% endhighlight %}
+```
 
 This script will give you your FASTA file with simplified deflines. If you use the flag `--report-file`, it will also create a TAB-delimited file for you to keep track of which defline in the new file corresponds to which defline in the original file. While you are here, it may also be a good idea to remove some very short contigs from your contigs file for a clean start. If you like that idea, you can run the same command this way to also remove sequences that are shorter than 1,000 nts:
 
-{% highlight bash %}
+``` bash
 $ anvi-script-reformat-fasta contigs.fa -o contigs-fixed.fa -l 1000 --simplify-names
-{% endhighlight %}
+```
 
 Let's just overwrite the `contigs.fa` with `contigs-fixed.fa` here to make things simpler:
 
-{% highlight bash %}
+``` bash
 $ mv contigs-fixed.fa contigs.fa
-{% endhighlight %}
+```
 
 
 ## Creating an anvi'o contigs database
@@ -102,9 +102,9 @@ An anvi'o contigs database will keep all the information related to your contigs
 
 The following is the simplest way of creating a contigs database:
 
-{% highlight bash %}
+``` bash
 $ anvi-gen-contigs-database -f contigs.fa -o contigs.db -n 'An example contigs datbase'
-{% endhighlight %}
+```
 
 When you run this command, `anvi-gen-contigs-database` will,
 
@@ -116,9 +116,9 @@ When you run this command, `anvi-gen-contigs-database` will,
 
 Almost every anvi'o program comes with a help menu that explains available parameters in detail. Don't forget to check them once in a while. If something is not clearly explained, please let us know so we can fix that:
 
-{% highlight bash %}
+``` bash
 $ anvi-gen-contigs-database --help
-{% endhighlight %}
+```
 
 Once you have your contigs database, you can start importing things into it, or directly go to the profiling step.
 
@@ -153,23 +153,22 @@ Once you have your contigs database, you can start importing things into it, or 
 
 The statement above means that the index of the first nucleotide in any contig should be `0`. In other words, we start counting from `0`, not from `1`. The `start` and `stop` positions in the input file should comply with this. Here is an example gene in a contig:
 
-{% highlight bash %}
+``` bash
                  1         2         3
 nt pos: 12345678901234567890123456789012 (...)
 contig: NNNATGNNNNNNNNNNNNNNNNNTAGAAAAAA (...)
            |______ gene X _______|
-{% endhighlight %}
+```
 
 The `start` and `stop` positions in the input file for this gene should be `3` and `26`, respectively. If you think we should change this behavior, please let us know (here is a [relevant issue](https://github.com/meren/anvio/issues/374)). Thanks for your patience!
-
 
 ### anvi-run-hmms
 
 Although this is absolutely optional, you shouldn't skip this step. Anvi'o can do a lot with hidden Markov models ([HMMs](https://en.wikipedia.org/wiki/Hidden_Markov_model) provide statistical means to model complex data in probabilistic terms that can be used to search for patterns, which works beautifully in bioinformatics where we create models from known sequences, and then search for those patterns rapidly in a pool of unknown sequences to recover hits). To decorate your contigs database with hits from HMM models that ship with the platform (which, at this point, constitute multiple published bacterial single-copy gene collections), run this command:
 
-{% highlight bash %}
+``` bash
 $ anvi-run-hmms -c contigs.db
-{% endhighlight %}
+```
 
 When you run this command (without any other parameters),
 
@@ -177,19 +176,41 @@ When you run this command (without any other parameters),
 
 * Note that the program will use only one CPU by default, especially if you have multiple of them available to you, you should use the `--num-threads` parameter. It significantly improves the runtime, since [HMMER](http://hmmer.org/) is truly an awesome software.
 
-### anvi-import-taxonomy
+### anvi-display-contigs-stats
 
-Annotating genes with taxonomy makes things downstream much more meaningful, and improves the human guided binning and refinement steps later on. Please see this post to find out different ways to achieve that:
+Once you have your contigs database ready, and optionally your HMMs are run, you can take a quick look at it using the program `anvi-display-contigs-stats` program. 
 
-- [**Importing taxonomy into anvi'o**]({% post_url anvio/2016-06-18-importing-taxonomy %}).
+``` bash
+$ anvi-display-contigs-stats contigs.db
+```
 
+This program show you simple stats of your contigs database that may help you not only assess your assembly output, but also estimate the number of bacterial and archaeal genomes to recover.
+
+{:.notice}
+This program accepts multiple anvi'o contigs databases to compare to each other. You can find some screenshots to how it looks like in [release notes for anvi'o `v3`](https://github.com/merenlab/anvio/releases/tag/v3).
+
+### anvi-run-ncbi-cogs
+
+Yet another optional steps is to run the program `anvi-run-ncbi-cogs` to annotate genes in your contigs database with functions from the NCBI's [Clusters of Orthologus Groups](https://www.ncbi.nlm.nih.gov/COG/). You will be that you did it later!
+
+Do not forget to use `--num-threads` to specify how many cores you wish to use for that. See the help menu for other available options.
+
+{:.notice}
+If you are running COGs for the first time, you will need to set them up on your computer using `anvi-setup-ncbi-cogs`. Simply run it on a machine with an internet connection, and let it do its magic.
 
 ### anvi-import-functions
 
-Anvi'o can make good use of functional annotations of genes. Please see the following post to see how to import functions into anvi'o:
+Anvi'o also can make good use of functional annotations you already have for your genes. Please see the following post to see how to import functions into anvi'o:
 
 - [**Importing functions into anvi'o**]({% post_url anvio/2016-06-18-importing-functions %}).
 
+### anvi-import-taxonomy
+
+Annotating genes with taxonomy can make things downstream more meaningful, and in some cases may improve the human guided binning and refinement steps. Please see this post to find out different ways to achieve that:
+
+- [**Importing taxonomy into anvi'o**]({% post_url anvio/2016-06-18-importing-taxonomy %}).
+
+Although, gene-level taxonomy is not reliable to make sense of the taxonomy of the resulting metagenome-assembled genomes.
 
 ## Profiling BAM files
 
@@ -201,26 +222,26 @@ Anvi'o requires BAM files to be sorted and indexed. In most cases the BAM file y
 
 If your BAM files already sorted and indexed (i.e., for each `.bam` file you have there also is a `.bam.bai` file in the same directory), you can skip this step. Otherwise, you need to initialize your BAM files:
 
-{% highlight bash %}
+``` bash
 $ anvi-init-bam SAMPLE-01-RAW.bam -o SAMPLE-01.bam
-{% endhighlight %}
+```
 
 But of course it is not fun to do every BAM file you have one by one. So what to do?
 
 A slightly better way to do would require you to do it in a `for` loop. First create a file called, say, `SAMPLE_IDs`. For your samples (`X` and `Y`) it will look like this:
 
-{% highlight bash %}
+``` bash
 $ cat SAMPLE_IDs
 SAMPLE-01
 SAMPLE-02
 SAMPLE-03
-{% endhighlight %}
+```
 
 Then, you can run `anvi-init-bam` on all of them by typing this:
 
-{% highlight bash %}
+``` bash
 for sample in `cat SAMPLE_IDs`; do anvi-init-bam $sample-RAW.bam -o $sample.bam; done
-{% endhighlight %}
+```
 
 Of course if you have a way to cluster your runs, you already know what to do.
 
@@ -236,9 +257,9 @@ In other words, the profiling step makes sense of each BAM file separately by ut
 
 The simplest form of the command that starts the profiling looks like this:
 
-{% highlight bash %}
+``` bash
 $ anvi-profile -i SAMPLE-01.bam -c contigs.db
-{% endhighlight %}
+```
 
 When you run `anvi-profile` it will,
 
@@ -268,15 +289,15 @@ The next step in the workflow is to to merge all anvi'o profiles.
 
 This is the simplest form of the `anvi-merge` command:
 
-{% highlight bash %}
+``` bash
 $ anvi-merge SAMPLE-01/PROFILE.db SAMPLE-02/PROFILE.db SAMPLE-03/PROFILE.db -o SAMPLES-MERGED -c contigs.db
-{% endhighlight %}
+```
 
 Or alternatively you can run it like this (if your work directory contains multiple samples to be merged):
 
-{% highlight bash %}
+``` bash
 $ anvi-merge */PROFILE.db -o SAMPLES-MERGED -c contigs.db
-{% endhighlight %}
+```
 
 {:.notice}
 Please don't forget to give a short, simple, and descriptive sample name using `--sample-name` parameter, because it will appear in a lot of places later.
@@ -294,9 +315,9 @@ When you run `anvi-merge`,
 
 If you have your own binning of your contigs, you can easily import those results into the merged profile database as a collection:
 
-{% highlight bash %}
+``` bash
 $ anvi-import-collection binning_results.txt -p SAMPLES-MERGED/PROFILE.db -c contigs.db --source "SOURCE_NAME"
-{% endhighlight %}
+```
 
 The file format for `binning_results.txt` is very simple. This is supposed to be a TAB-delimited file that contains information about which contig belongs to what bin. So each line of this TAB-delimited file should contain a contig name (or split name, see below), and the bin name they belong to. If you would like to see some example files, you can find them [here](https://github.com/meren/anvio/tree/master/tests/sandbox/example_files_for_external_binning_results). They will help you see the difference between input files for splits and contigs after reading the following bullet points, and demonstrate the structure of the optional "bins information" file.
 
@@ -309,6 +330,12 @@ Two points:
 
 {:.notice}
 You can use `anvi-export-collection` to export collection information and import into other profiles. It becomes very handy when you are doing [benchmarking between different approaches](% post_url anvio/2015-06-23-comparing-different-mapping-software %).
+
+{:.notice}
+You can use `anvi-show-collections-and-bins` to see all available collections and bins in an anvi'o profile or pan database.
+
+{:.notice}
+You can use `anvi-script-get-collection-info` to see completion and redundancy estimates for all bins in a given anvi'o collection.
 
 
 ### anvi-interactive
@@ -323,9 +350,9 @@ Most things you did so far (creating a contigs database, profiling your BAM file
 
 This is the simplest way to run the interactive interface on your merged anvi'o profile: 
 
-{% highlight bash %}
+``` bash
 $ anvi-interactive -p SAMPLES-MERGED/PROFILE.db -c contigs.db
-{% endhighlight %}
+```
 
 This will work perfectly **if your merged profile has its own trees** (i.e., the hierarchical clustering mentioned in the `anvi-merge` section was done).
 
@@ -335,15 +362,15 @@ This will work perfectly **if your merged profile has its own trees** (i.e., the
 
 If there are no clusterings available in your profile database `anvi-interactive` will complain about the fact that it can't visualize our profile. But if you have an anvi'o collection stored in your profile database you can run the interactive interface in **collection mode**. If you are not sure whether you have a collection or not, you can see all available collections using this command:
 
-{% highlight bash %}
+``` bash
 $ anvi-script-get-collection-info -p SAMPLES-MERGED/PROFILE.db -c contigs.db --list-collections
-{% endhighlight %}
+```
 
 Once you know the collection you want to work with, you can use this notation to visualize it:
 
-{% highlight bash %}
+``` bash
 $ anvi-interactive -p SAMPLES-MERGED/PROFILE.db -c contigs.db -C CONCOCT
-{% endhighlight %}
+```
 
 When you run `anvi-interactive` with a collection name, it will compute various characteristics of each bin on-the-fly, i.e., their mean coverage, variability, completion and redundancy estimates, and generate anvi'o views for them to display their distribution across your samples in the interactive interface. Briefly, each *leaf* of the anvi'o central dendrogram will represent a "bin" in your collection, instead of a "contig" in your metagenomic assembly. A dendrogram for bins will be generated for each view using euclidean distance and ward linkage automatically. When running the interactive interface in collection mode, you can change those defaults using the `--distance` and/or `--linkage` parameters. If you have run `anvi-merge` with `--skip-hierarchical-clustering` parameter due to the large number of contigs you had, but if you have binning results available to you from an external resource, you can import those bins as described in the previous section, and run the interactive interface with that collection id to immediately see the distribution of bins across your samples.
 
@@ -383,15 +410,15 @@ The result of `anvi-summarize` is a static HTML output you can browse in your br
 
 You can run this to summarize the bins saved under the collection id 'CONCOCT' into MY_SUMMARY directory:
 
-{% highlight bash %}
+``` bash
 anvi-summarize -p SAMPLES-MERGED/PROFILE.db -c contigs.db -o SAMPLES-SUMMARY -C CONCOCT
-{% endhighlight %}
+```
 
 If you are not sure which collections are available to you, you can always see a list of them by running this command:
 
-{% highlight bash %}
+``` bash
 anvi-summarize -p SAMPLES-MERGED/PROFILE.db -c contigs.db --list-collections
-{% endhighlight %}
+```
 
 The summary process can take a lot of time. If you want to take a quick look to identify which bins need to be refined, you can run `anvi-summarize` with `--quick-summary` flag.
 
