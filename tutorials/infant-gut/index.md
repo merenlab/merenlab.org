@@ -10,7 +10,7 @@ image:
 ---
 
 {:.notice}
-This tutorial is tailored for anvi'o `v2.3.0` or later. You can learn the version of your installation by typing `anvi-interactive -v`. If you have an older version, some things will not work the way they should.
+This tutorial is tailored for anvi'o `v3` or later. You can learn the version of your installation by typing `anvi-interactive -v`. If you have an older version, some things will not work the way they should.
 
 The purpose of this tutorial is to have a conversation about metagenomic binning (while demonstrating some of the anvi'o capabilities) using the Infant Gut Dataset (IGD), which was generated, analyzed, and published by [Sharon et al. (2013)](http://www.ncbi.nlm.nih.gov/pubmed/22936250){:target="_blank"}, and was re-analyzed in the [anvi'o methods paper](https://peerj.com/articles/1319/){:target="_blank"}.
 
@@ -23,7 +23,7 @@ A typical anvi'o metagenomic workflow [starts with BAM files and a FASTA file]({
 
 ## Downloading the pre-packaged Infant Gut Dataset
 
-If you are following this tutorial, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD. You can download them using this link: [https://ndownloader.figshare.com/files/8252861](https://ndownloader.figshare.com/files/8252861).
+If you are following this tutorial, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD. You can download them using this link: [https://ndownloader.figshare.com/files/9492385](https://ndownloader.figshare.com/files/9492385).
 
 When you click the link, it will start downloading a **131 Mb** compressed file automatically. Once it is done, go to the relevant directory that contains this file using your terminal, and unpack it the following way:
 
