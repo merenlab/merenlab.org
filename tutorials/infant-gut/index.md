@@ -252,15 +252,21 @@ As a reminder, you can in fact investigate the taxonomy of contigs by BLASTing t
 OK. Let's assume, we didn't see the interactive interface, and we have no idea about the dataset. We didn't do any of the things we did up to this point. We just had profiled and merged the IGD, and we did binning of this dataset using MaxBin. Let's start by importing MaxBin results into the profile database as a collection:
 
 ``` bash
- $ anvi-import-collection additional-files/external-binning-results/MAXBIN.txt\
-                          -c CONTIGS.db -p PROFILE.db -C MAXBIN --contigs-mode
+ $ anvi-import-collection additional-files/external-binning-results/MAXBIN.txt \
+                          -c CONTIGS.db \
+                          -p PROFILE.db \
+                          -C MAXBIN \
+                          --contigs-mode
  					
 ```
 
 From here, there are two things we can do very quickly. First, we can create a summary of our new collection (which would generate a comprehensive static output for all the bins that are identified):
 
 ``` bash
- $ anvi-summarize -c CONTIGS.db -p PROFILE.db -C MAXBIN -o MAXBIN-SUMMARY
+ $ anvi-summarize -c CONTIGS.db \
+                  -p PROFILE.db \
+                  -C MAXBIN \
+                  -o MAXBIN-SUMMARY
 ```
 
 {:.notice}
@@ -269,7 +275,9 @@ You can learn more about `anvi-summarize` [here]({% post_url anvio/2016-06-22-an
 Second, we can take a very quick look at the binning results by initiating the interactive interface in the `collection` mode:
 
 ``` bash
- $ anvi-interactive -p PROFILE.db -c CONTIGS.db -C MAXBIN
+ $ anvi-interactive -p PROFILE.db \
+                    -c CONTIGS.db \
+                    -C MAXBIN
 ```
 
 This command should give you a display similar to this:
@@ -303,7 +311,10 @@ Normally we can give a bin name to `anvi-refine` using the `-b` parameter. But s
 Good. Now we can call `anvi-refine`:
 
 ``` bash
- $ anvi-refine -p PROFILE.db -c CONTIGS.db -C MAXBIN -B maxbin-bins-to-refine.txt
+ $ anvi-refine -p PROFILE.db \
+               -c CONTIGS.db \
+               -C MAXBIN \
+               -B maxbin-bins-to-refine.txt
 ```
 
 Which would give us this:
@@ -319,7 +330,9 @@ Once you are satisfied, you can store new selections to the database from the `B
 If you run the interactive interface for the collection `MAXBIN` again,:
 
 ``` bash
- $ anvi-interactive -p PROFILE.db -c CONTIGS.db -C MAXBIN 
+ $ anvi-interactive -p PROFILE.db \
+                    -c CONTIGS.db \
+                    -C MAXBIN 
 ```
 
 things will look much better:
@@ -390,7 +403,7 @@ Thanks for the great question. Although this may sound like a challenging proble
 
 If you take a look at the resulting interactive graph, you can see that one should expect to find about 10 near-complete genomes in this dataset:
 
-[![SCGs](images/scgs.png)](images/scgs.png){:.center-img .width-100}
+[![SCGs](images/scgs.png)](images/scgs.png){:.center-img .width-50}
 
 {:.notice}
 We have a citable version, and a more formal description of this workflow in our recent paper “[Identifying contamination with advanced visualization and analysis practices: metagenomic approaches for eukaryotic genome assemblies](https://peerj.com/articles/1839/){:target="_blank"}” (see the [supplementary material](https://doi.org/10.7717/peerj.1839/supp-1)).
@@ -419,7 +432,10 @@ and you would see this after loading the new `CONCOCT_C5` collection from the `B
 As you can see, there aren't any fragmentation errors anymore, and in fact CONCOCT did an amazing job to identify general patterns in the dataset. Now refining these bins to fix all the conflation errors would be much more easier. If you would like to try, here is an example:
 
 ``` bash
- $ anvi-refine -p PROFILE.db -c CONTIGS.db -C CONCOCT_C5 -b Bin_1
+ $ anvi-refine -p PROFILE.db \
+               -c CONTIGS.db \
+               -C CONCOCT_C5 \
+               -b Bin_1
 ```
 
 ---
@@ -442,10 +458,10 @@ Please run the following command in the IGD dir, so you have everything you need
 
 ``` bash
 anvi-import-collection additional-files/collections/merens.txt \
-                          -p PROFILE.db \
-                          -c CONTIGS.db \
-                          -C default \
-                          --bins-info additional-files/collections/merens-info.txt
+                       -p PROFILE.db \
+                       -c CONTIGS.db \
+                       -C default \
+                       --bins-info additional-files/collections/merens-info.txt
 ```
 
 At this point, you have in your anvi'o profile database a collection with multiple bins:
@@ -1146,7 +1162,10 @@ For instance, in my tentative selection above, there is a bin called `CORE ALL`,
 You can summarize the pangenome using the collection we have the following way:
 
 ``` bash
- $ anvi-summarize -p PAN/Enterococcus-PAN.db -g Enterococcus-GENOMES.h5 -C default -o PAN_SUMMARY
+ $ anvi-summarize -p PAN/Enterococcus-PAN.db \
+                  -g Enterococcus-GENOMES.h5 \
+                  -C default \
+                  tutorials/infant-gut/images/scgs.png-o PAN_SUMMARY
 ```
 
 If you run the the following command on a Mac system (or simply open the index.html file in your browser),
