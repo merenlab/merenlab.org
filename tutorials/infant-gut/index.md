@@ -19,13 +19,13 @@ While this tutorial will take you through a simple analysis of a real dataset, t
 
 {% include _toc.html %}
 
-A typical anvi'o metagenomic workflow [starts with BAM files and a FASTA file]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#preparation){:target="_blank"} of contigs. There are many ways to get your contigs and BAM files for your metagenomes. But we have started implementing a tutorial that describes the workflow _we_ use to generate these files regularly: "[A tutorial on assembly-based metagenomics]({{ site.url }}/tutorials/assembly-based-metagenomics/){:target="_blank"}". Please feel free to take a look at that one, as well.
+A typical anvi'o metagenomic workflow [starts with BAM files and a FASTA file]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#preparation){:target="_blank"} of contigs. There are many ways to get your contigs and BAM files for your metagenomes and we have started implementing a tutorial that describes the workflow _we_ regularly use to generate these files: "[A tutorial on assembly-based metagenomics]({{ site.url }}/tutorials/assembly-based-metagenomics/){:target="_blank"}". The following tutorial jumps in from a point in the workflow when you have used your BAM and FASTA files to generate anvi'o contigs and profile databases.
 
 ## Downloading the pre-packaged Infant Gut Dataset
 
 If you are following this tutorial, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD. You can download them using this link: [https://ndownloader.figshare.com/files/9492385](https://ndownloader.figshare.com/files/9492385).
 
-When you click the link, it will start downloading a **131 Mb** compressed file automatically. Once it is done, go to the relevant directory that contains this file using your terminal, and unpack it the following way:
+When you click the link, it will start downloading a **132 Mb** compressed file automatically. Once it is done, go to the relevant directory that contains this file using your terminal, and unpack it the following way:
 
 ``` bash
  $ tar -zxvf INFANTGUTTUTORIAL.tar.gz && cd INFANT-GUT-TUTORIAL
@@ -42,7 +42,7 @@ An **anvi’o contigs database** keeps all the information related to your conti
 
 In contrast to the contigs database, an **anvi'o profile database** stores sample-specific information about contigs. Profiling a BAM file with anvi'o creates a single profile that reports properties for each contig in a single sample based on mapping results. Each profile database automatically links to a contigs database, and anvi’o can merge single profiles that link to the same contigs database into **anvi'o merged profile**s (which is what you have in this directory).
 
-If you would like to learn more about these, here are some direct links:
+If you're asking yourself, "How do I generate profile and contigs databases for my own data?", or would like to learn more, here are some direct links:
 
 * [Creating an anvi'o contigs database]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#creating-an-anvio-contigs-database){:target="_blank"}
 * [Creating an anvi'o profile database]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#profiling-bam-files){:target="_blank"}
@@ -66,6 +66,7 @@ Once the interactive interface is up and running, you can start binning:
 
 [![Infant gut merged](images/infant-gut-merged.gif)](images/infant-gut-merged.gif){:.center-img .width-50}
 
+Make contig selections by hovering your mouse over the tree in the center of the anvi'o figure. To add the highlighted selection to your current bin, left click. To remove the highlighted selection from your current bin, right click. To create a new bin, click "New bin" under the `Bins` tab in `Settings`. To change to a different bin, click the blue dot next to the bin name you're interested in. We'll talk more about saving bin "collections" soon.
 
 When you are tired of the interactive interface, you can go back to the terminal and press `CTRL + C` to kill the server.
 
@@ -156,7 +157,7 @@ And run the interactive again with that collection name:
 {:.notice}
 Alternatively you could load the interface without the `--collection-autoload ` flag, and click `Bins > Load bin collection > CONCOCT > Load` to load the CONCOCT collection.
 
-And you should see something like this.
+To turn off text annotation, go to `Main > Display > Additional Settings > Selections` and then uncheck `Show names`. You will then see something like this:
 
 [![Infant gut merged](images/infant-gut-concoct.png)](images/infant-gut-concoct.png){:.center-img .width-50}
 
@@ -200,11 +201,11 @@ Good. Now you can run the interactive interface to display all collections of bi
  $ anvi-interactive -p PROFILE.db -c CONTIGS.db -A collections.tsv
 ```
 
-At this point you should be seeing a display similar to this (after setting the height of each additional layer to 200px):
+At this point you should be seeing a display similar to this (after setting the height of each additional layer to 200px) in Settings:
 
 [![Infant gut merged](images/infant-gut-collections.png)](images/infant-gut-collections.png){:.center-img .width-50}
 
-To emphasize relationships between bins visually. If you import it the following way, 
+The legends for each of the bin collections are available in the `Legends` tab of `Settings`. To visually emphasize relationships between bins, you can change the color of each bin manually by clicking on the colored boxes in the legends. Or, if you're not a masochist you can import an anvi'o state where we did that for you:
 
 ``` bash
  $ anvi-import-state --state additional-files/state-files/state-merged.json \
@@ -212,7 +213,7 @@ To emphasize relationships between bins visually. If you import it the following
                      -p PROFILE.db
 ```
 
-and run the interactive interface again,
+and run the interactive interface again with the same command line,
 
 ``` bash
  $ anvi-interactive -p PROFILE.db -c CONTIGS.db -A collections.tsv
@@ -244,7 +245,7 @@ Now we can discuss about the efficacy of different approaches.
 
 As a reminder, you can in fact investigate the taxonomy of contigs by BLASTing them against NCBI's collection using the right-click menu to have a second opinion about what do public databases think they are:
 
-[![Infant gut merged](images/infant-gut-split.png)](images/infant-gut-split.png){:.center-img .width-50}
+[![Infant gut merged](images/infant-gut-split.gif)](images/infant-gut-split.gif){:.center-img .width-50}
 
 ### Refining automatically identified bins
 
@@ -275,7 +276,7 @@ This command should give you a display similar to this:
 
 [![MaxBin results in collection mode](images/maxbin-collection.png)](images/maxbin-collection.png){:.center-img .width-50}
 
-All previous interactive displays were at the contig-level. However, this display is at the *bin-level*. Instead of contigs, this display shows us the distribution of *bins* MaxBin identified. We also have completion and redundancy estimates for each bin, which helps us make some early sense of what is going on.
+All previous interactive displays were at the contig-level (each leaf in the center tree was a contig). However, this display is at the *bin-level*. Instead of contigs, this display shows us the distribution of *bins* MaxBin identified. We also have completion and redundancy estimates for each bin, which helps us make some early sense of what is going on.
 
 {:.notice}
 Please read this post to learn more about completion and redundancy estimates: [Assessing completion and contamination of metagenome-assembled genomes]({% post_url anvio/2016-06-09-assessing-completion-and-contamination-of-MAGs %}){:target="_blank"}
@@ -324,6 +325,8 @@ If you run the interactive interface for the collection `MAXBIN` again,:
 things will look much better:
 
 [![MaxBin results in collection mode](images/maxbin-collection-refined.png)](images/maxbin-collection-refined.png){:.center-img .width-50}
+
+By investigating the `Legends` tab you can see that the `source` layer indicates which of the bins has been generated with `anvi-refine`.
 
 As you can see, even if the initial results from an automatic binning approach contain poorly identified bins, it is possible to improve the final results through refinement steps.
 
@@ -379,14 +382,13 @@ Well, how do you even know how many bacterial genomes you should expect to find 
 <div class="blockquote-author">You</div>
 </blockquote>
 
-Thanks for the great question. Although this may sound like a challenging problem to some, we have a very simple way to resolve it (which I described in this [blog post]({% post_url anvio/2015-12-07-predicting-number-of-genomes %}){:target="_blank"}). If you still have access to the IGD, you can run these commands:
+Thanks for the great question. Although this may sound like a challenging problem to some, we have a very simple way to resolve it (which I described in this [blog post]({% post_url anvio/2015-12-07-predicting-number-of-genomes %}){:target="_blank"}). If you still have access to the IGD, you can run this simple command:
 
 ``` bash
- $ anvi-script-gen_stats_for_single_copy_genes.py CONTIGS.db
- $ anvi-script-gen_stats_for_single_copy_genes.R CONTIGS.db.hits CONTIGS.db.genes
+ $ anvi-display-contigs-stats CONTIGS.db
 ```
 
-If you take a look at the resulting PDF file `contigs.db.hits_e_1_new.pdf`, you can see that one should expect to find about 10 near-complete genomes in this dataset:
+If you take a look at the resulting interactive graph, you can see that one should expect to find about 10 near-complete genomes in this dataset:
 
 [![SCGs](images/scgs.png)](images/scgs.png){:.center-img .width-100}
 
@@ -555,6 +557,8 @@ ATGCCGAATGTAGCATTATTCAAACAAGATGGAACTCAAAACGGTGAAATCACTTTAAATGAAGAAATCTTCGGAATCGA
 (...)
 ```
 
+To exit `less` mode, press `q`.
+
 Every sequence for every HMM hit is for itself :/ Hmm.
 
 Concatenated we stand divided we fall.
@@ -629,6 +633,9 @@ Computing a phylogenomic tree from our FASTA file is as simple as this:
                               -o phylogenomic-tree.txt
 ```
 
+{:.notice}
+If anvi'o complains that you don't have `FastTree`, you need to do two things. First, feel ashamed. Second, get FastTree: [click me](http://merenlab.org/2016/06/18/installing-third-party-software/#fasttree). (If you are using a mac and have `brew`, quietly type `brew install fasttree` and pretend it never happened).
+
 The resulting file `phylogenomic-tree.txt` is a proper newick tree. If you want, you can visualize it immediately with `anvi-interactive` in manual mode:
 
 ``` bash
@@ -638,11 +645,15 @@ anvi-interactive --tree phylogenomic-tree.txt \
                  --manual
 ```
 
-Which should give you this:
+Which should give you this (after clicking `Draw`):
 
 [![phylogenomics](images/phylogenomics-manual-mode.png)](images/phylogenomics-manual-mode.png){:.center-img .width-50}
 
-We could do much more with this phylogenomic tree for our bins than visualizing it in manual mode.
+You can replace the colors with the bin names by selecting `Text` from `Main > Layers > bin_name` and re-clicking `Draw`:
+
+[![phylogenomics](images/phylogenomics-manual-mode-text.png)](images/phylogenomics-manual-mode-text.png){:.center-img .width-50}
+
+We can do much more with this phylogenomic tree of our bins than visualizing it in manual mode.
 
 For instance, we could use it immediately to organize our bins in our collection while showing their distribution across samples. 
 
@@ -669,7 +680,17 @@ Here we will profile the single-nucleotide variations (SNVs) in the *E. faecalis
 This is more of a practical tutorial for hands on experience to recover and make sense of SNVs. For a more theoretical one on the same topic, please consider first reading the tutorial [Analyzing single nucleotide variations (SNVs) with anvi'o]({% post_url anvio/2015-07-20-analyzing-variability %}){:target="_blank"}.
 
 {:.notice}
-**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
+**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
+
+First of all, if you haven't already, run this command to load the collection containing the *E. faecalis* bin (no harm done running it twice):
+
+``` bash
+ $ anvi-import-collection additional-files/collections/merens.txt \
+                          -p PROFILE.db \
+                          -c CONTIGS.db \
+                          -C merens \
+                          --bins-info additional-files/collections/merens-info.txt
+```
 
 Please run following commands in the IGD dir. They will set the stage for us to take a look at the *E. faecalis* bin:
 
@@ -686,7 +707,7 @@ $ anvi-import-state --state additional-files/state-files/state-merged.json \
                     -p PROFILE.db
 ```
 
-OK. Let's first see where this  bin again.
+OK. Let's first remind ourselves where this bin is.
 
 You remember the *E. faecalis* bin from previous sections of this tutorial:
 
@@ -712,21 +733,23 @@ $ ls MAGs/E_facealis/
 AUXILIARY-DATA.h5 CONTIGS.db        CONTIGS.h5        PROFILE.db
 ```
 
-Looks familiar? While the program `anvi-split` does its magic, it also adds into the resulting profile database a collection (called `DEFAULT`), with a single bin in it (called `ALL_SPLITS`) that contains all the contigs in this MAG. This way we can access to its contents from all anvi'o programs. Here is an example:
+Look familiar? This generated a new anvi'o profile database and anvi'o contigs database that pertains only to the `E_facealis` bin. While the program `anvi-split` does its magic, it also adds into the resulting profile database a collection (called `DEFAULT`), with a single bin in it (called `ALL_SPLITS`) that contains all the contigs in this MAG. This way we can access to its contents from all anvi'o programs. Here is an example:
 
 ``` bash
 $ anvi-script-get-collection-info -p MAGs/E_facealis/PROFILE.db \
                                   -c MAGs/E_facealis/CONTIGS.db \
                                   -C DEFAULT
 Auxiliary Data ...............................: Found: MAGs/E_facealis/CONTIGS.h5 (v. 1)
-Contigs DB ...................................: Initialized: MAGs/E_facealis/CONTIGS.db (v. 8)
+Contigs DB ...................................: Initialized: MAGs/E_facealis/CONTIGS.db (v. 9)
 
-* Completion and redundancy estimates
+* Completion and redundancy estimates. PC: Percent completion; PR: Percent
+redundancy; N: Number of splits; L: Length (total number of nucleotides); D:
+Domain for single-copy core genes; C: Domain confidence.
 
 
 Bins in collection "DEFAULT"
 ===============================================
-ALL_SPLITS :: PC: 100.00%, PR: 3.60%, N: 140, S: 2,865,861, D: bacteria (1.04)
+ALL_SPLITS :: PC: 100.00%, PR: 3.60%, N: 140, L: 2,865,861, D: bacteria (C: 1.04)
 ```
 
 OK. If you were to visualize this bin,
@@ -815,7 +838,7 @@ $ anvi-gen-variability-profile -c MAGs/E_facealis/CONTIGS.db \
 Now we can use the R script to visualize this information the following way,
 
 {:.notice}
-This R script will require some libraries to be installed. You can install all of them by typing `R` in your terminal, and then entering this command: ```install.packages(c('ggplot2', 'reshape2', 'reshape', 'gridExtra', 'grid', 'plyr', 'gtools'))```. Finally, my R version that worked with this script was `v3.2.2`.
+This R script will require some libraries to be installed. You can install all of them by typing `R` in your terminal, and then entering this command: ```install.packages(c('ggplot2', 'reshape2', 'reshape', 'gridExtra', 'grid', 'plyr', 'gtools'))```. After everything installs, exit `R` by typing `q()`. My R version that worked with this script was `v3.2.2`.
 
 ``` bash
 $ ./visualize-SNVs.R E-faecalis-SNVs.txt E-faecalis-SNV-density.txt 150 2870000
@@ -964,6 +987,9 @@ You just read about three different ways to visualize the single-nucleotide vari
 You can also use anvi'o to perform pangenomic analyses, and here I will give a small demo using the now infamous *E. faecalis* bin.
 
 {:.notice}
+You can find a comprehensive tutorial on the anvi'o pangenomic workflow [here]({% post_url anvio/2016-11-08-pangenomics-v2 %}){:target="_blank"}.
+
+{:.notice}
 **If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
 
 Please run following commands in the IGD dir. They will set the stage for us to take a look at the *E. faecalis* bin:
@@ -1019,9 +1045,6 @@ and the internal one:
 
 It is this simple to combine MAGs and isolates.
 
-{:.notice}
-You can find a comprehensive tutorial on the anvi'o pangenomic workflow [here]({% post_url anvio/2016-11-08-pangenomics-v2 %}){:target="_blank"}.
-
 So everything is ready for an analysis, and the first step in the pangenomic workflow is to generate an [anvi'o genomes storage]({% post_url anvio/2016-11-08-pangenomics-v2 %}/#generating-an-anvio-genomes-storage){:target="_blank"}.
 
 ``` bash
@@ -1068,7 +1091,7 @@ I am not arguing that every figure should look like that one, but I would like y
 </div>
 
 
-OK. I did the previous dipslay a bit more prettier for you. If you kill the server, and import the state file the following way, and re-run the server,
+OK. I made the previous display a bit prettier for you. If you kill the server, and import the state file the following way, and re-run the server,
 
 ``` bash
  $ anvi-import-state -p PAN/Enterococcus-PAN.db --state additional-files/state-files/state-pan.json --name default
@@ -1082,7 +1105,7 @@ It will look much more reasonable:
 
 [![E. facealis pan](images/e-faecalis-pan-state.png)](images/e-faecalis-pan-state.png){:.center-img .width-70}
 
-Now not only we can see how our E. facealis genome to what is available, we can also see that it is not missing or carrying a great number of proteins compared to other genomes. The clustering of genomes based on protein clusters indicate that it is most similar to the genome `Enterococcus faecalis 6250`, which, according to the `00_INFO_ABOUT_EXTERNAL_GENOMES.txt` under `05_PANGENOMICS` directory, corresponds to the assembly ID [ASM28119v1](https://www.ncbi.nlm.nih.gov/gquery/?term=ASM28119v1){:target="_blank"} if you were to be interested in exploring further.
+Now not only can we see how our E. faecalis genome looks like compared to available genomes, we can also see that it is not missing or carrying a great number of proteins compared to other genomes. The clustering of genomes based on protein clusters indicate that it is most similar to the genome `Enterococcus faecalis 6512`, which, according to the `00_INFO_ABOUT_EXTERNAL_GENOMES.txt` under `additional-files/pangenomics/external-genomes` directory, corresponds to the assembly ID [ASM17257v2](https://www.ncbi.nlm.nih.gov/gquery/?term=ASM17257v2){:target="_blank"} if you were to be interested in exploring further.
 
 From this display you can make selections of protein clusters. I already made some selections and stored them. If you import them the following way,
 
@@ -1096,7 +1119,6 @@ From this display you can make selections of protein clusters. I already made so
 and re-run the interactive interface,
 
 ``` bash
-name default
  $ anvi-display-pan -g Enterococcus-GENOMES.h5 \
                     -p PAN/Enterococcus-PAN.db \
                     -s PAN/Enterococcus-SAMPLES.db \
@@ -1147,19 +1169,19 @@ You can unzip this file,
  $ gzip -d PAN_SUMMARY/Enterococcus_protein_clusters_summary.txt.gz
 ```
 
-And play with it to see how it will solve all your problems. You can import it into R, or open it in EXCEL to have a quick look at its contents. But here is a quick look at the first 10 lines of this file that contains 35,192 gene entries:
+And play with it to see how it will solve all your problems. You can import it into R, or open it in EXCEL to have a quick look at its contents. But here is a quick look at the first 10 lines of this file that contains 35,175 gene entries:
 
-|unique_id|protein_cluster_id|bin_name|genome_name|gene_callers_id|COG_CATEGORY_ACC|COG_CATEGORY|COG_FUNCTION_ACC|COG_FUNCTION|aa_sequence|
-|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--|:--|
-|1|PC_00001990|CORE_FAECALIS|E_faecalis_6240|743|T|T|COG3920|Two-component sensor histidine kinase, HisKA and HATPase domains|MKRLEQLCHQYTNLSESDIKELQRTARYLSSTTLYQSADVFIDVYKEMSQQALVVYHKPPAKTTSLYSGDVVGMEALLKNEPGVLRTMQTSLNSIGLLAVTQENRLIKQNIYPIRNEHRTIGVIIVEIAADEEIQADLQKEELNNCQLAKVAKSTSQVDALFIDQLAEAVLIFDAAGHLLITNHNAQELYRKLGYRDNIIGMSYDNLSIDYTTFEYVLYQMKYKMSNQPIESKTTYLNYYFKVRKVWLASEEQLIMIIQDNTEFKEKEAEIISKSVAIREIHHRVKNNLQSVVSLLRIQERRTQSPEAKKVLHESVNRIMAIAATHELLSKQVKDDVALRQTLEAVMYNFRHLFQGAQPIEMMMDVDPAIMVSSEQMVTISLVVNELLQNIFDHAFEPQTSGVVKLSGTLDNKMITITVTDNGKGYDVHQSNETSLGLMIVKSYVRDKLKGKITIESNKQGTKTCFYFEQNTSDVVH|
-|2|PC_00001990|CORE_FAECALIS|E_faecalis_6512|1338|T|T|COG3920|Two-component sensor histidine kinase, HisKA and HATPase domains|MKRLEQLCHQYTNLSESDIKELQRTARYLSSTTLYQSADVFIDVYKEMSQQALVVYHKPPAKTTSLYSGDVVGMEALLKNEPGVLRTMQTSLNSIGLLAVTQENRLIKQNIYPIRNEHRTIGVIIVEIAADEEIQADLQKEELNNCQLAKVAKSTSQVDALFIDQLAEAVLIFDAAGHLLITNHNAQELYRKLGYRDNIIGMNYDNLSIDYTTFEYVLYQMKYKMSNQPIESKTTYLNYYFKVRKVWLASEEQLIMIIQDNTEFKEKEAEIISKSVAIREIHHRVKNNLQSVVSLLRIQERRTQSPEAKKVLHESVNRIMAIAATHELLSKQVKDDVALRQTLEAVMYNFRHLFQGAQPIEMMMDVDPAIMVSSEQMVTISLVVNELLQNIFDHAFEPQTSGVVKLSGTLDNKMITITVTDNGKGYDVHQSNETSLGLMIVKSYVKDKLKGKITIESNKQGTKTCFYFEQNTSDVVH|
-|3|PC_00001990|CORE_FAECALIS|E_faecalis_6250|1487|T|T|COG3920|Two-component sensor histidine kinase, HisKA and HATPase domains|MKRLEQLCHQYTNLSESDIKELQRTARYLSSTTLYQSADVFIDVYKEMSQQALVVYHKPPAKTTSLYSGDVVGMEALLKNEPGVLRTMQTSLNSIGLLAVTQENRLIKQNIYPIRNEHRTIGVIIVEIAADEEIQADLQKEELNNCQLAKVAKSTSQVDALFIDQLAEAVLIFDAAGHLLITNHNAQELYRKLGYRDNIIGMSYDNLSIDYTTFEYVLYQMKYKMSNQPIESKTTYLNYYFKVRKVWLASEEQLIMIIQDNTEFKEKEAEIISKSVAIREIHHRVKNNLQSVVSLLRIQERRTQSPEAKKVLHESVNRIMAIAATHELLSKQVKDDVALRQTLEAVMYNFRHLFQGAQPIEMMMDVDPAIMVSSEQMVTISLVVNELLQNIFDHAFEPQTSGVVKLSGTLDNKMITITVTDNGKGYDVHQSNETSLGLMIVKSYVKDKLKGKITIESNKQGTKTCFYFEQNTSDVVH|
-|4|PC_00001990|CORE_FAECALIS|E_faecalis_6255|1635|T|T|COG3920|Two-component sensor histidine kinase, HisKA and HATPase domains|MKRLEQLCHQYTNLSESDIKELQRTARYLSSTTLYQSADVFIDVYKEMSQQALVVYHKPPAKTTSLYSGDVVGMEALLKNEPGVLRTMQTSLNSIGLLAVTQENRLIKQNIYPIRNEHRTIGVIIVEIAADEEIQADLQKEELNNCQLAKVAKSTSQVDALFIDQLAEAVLIFDAAGHLLITNHNAQELYRKLGYRDNIIGMSYDNLSIDYTTFEYVLYQMKYKMSNQPIESKTTYLNYYFKVRKVWLASEEQLIMIIQDNTEFKEKEAEIISKSVAIREIHHRVKNNLQSVVSLLRIQERRTQSPEAKKVLHESVNRIMAIAATHELLSKQVKDDVALRQTLEAVMYNFRHLFQGAQPIEMMMDVDPAIMVSSEQMVTISLVVNELLQNIFDHAFEPQTSGVVKLSGTLDNKMITITVTDNGKGYDVHQSNETSLGLMIVKSYVRDKLKGKITIESNKQGTKTCFYFEQNTSDVVH|
-|5|PC_00001990|CORE_FAECALIS|E_faecalis_6563|1393|T|T|COG3920|Two-component sensor histidine kinase, HisKA and HATPase domains|MKRLEQLCHQYTNLSESDIKELQRTARYLSSTTLYQSADVFIDVYKEMSQQALVVYHKPPAKTTSLYSGDVVGMEALLKNEPGVLRTMQTSLNSIGLLAVTQENRLIKQNIYPIRNEHRTIGVIIVEIAADEEIQADLQKEELNNCQLAKVAKSTSQVDALFIDQLAEAVLIFDAAGHLLITNHNAQELYRKLGYRDNIIGMSYDNLSIDYTTFEYVLYQMKYKMSNQPIESKTTYLNYYFKVRKVWLASEEQLIMIIQDNTEFKEKEAEIISKSVAIREIHHRVKNNLQSVVSLLRIQERRTQSPEAKKVLHESVNRIMAIAATHELLSKQVKDDVALRQTLEAVMYNFRHLFQGAQPIEMMMDVDPAIMVSSEQMVTISLVVNELLQNIFDHAFEPQTSGVVKLSGTLDNKMITITVTDNGKGYDVHQSNETSLGLMIVKSYVRDKLKGKITIESNKQGTKTCFYFEQNTSDVVH|
-|6|PC_00001990|CORE_FAECALIS|E_faecalis_6557|1730|T|T|COG3920|Two-component sensor histidine kinase, HisKA and HATPase domains|MKRLEQLCHQYTNLSESDIKELQRTARYLSSTTLYQSADVFIDVYKEMSQQALVVYHKPPAKTTSLYSGDVVGMEALLKNEPGVLRTMQTSLNSIGLLAVTQENRLIKQNIYPIRNEHRTIGVIIVEIAADEEIQADLQKEELNNCQLAKVAKSTSQVDALFIDQLAEAVLIFDAAGHLLITNHNAQELYRKLGYRDNIIGMSYDNLSIDYTTFEYVLYQMKYKMSNQPIESKTTYLNYYFKVRKVWLASEEQLIMIIQDNTEFKEKEAEIISKSVAIREIHHRVKNNLQSVVSLLRIQERRTQSPEAKKVLHESVNRIMAIAATHELLSKQVKDDVALRQTLEAVMYNFRHLFQGAQPIEMMMDVDPAIMVSSEQMVTISLVVNELLQNIFDHAFEPQTSGVVKLSGTLDNKMITITVTDNGKGYDVHQSNETSLGLMIVKSYVKDKLKGKITIESNKQGTKTCFYFEQNTSDVVH|
-|7|PC_00001990|CORE_FAECALIS|E_faecalis_SHARON|895|T|T|COG3920|Two-component sensor histidine kinase, HisKA and HATPase domains|MKRLEQLCQQYTNLSESDIKELQRTARYLSSTTLYQSADVFIDVYKEMSQQALVVYHKPPAKTTSLYSGDVVGMEALLKNEPGVLRTMQTSLNSIGLLAVTQENRLIKQNIYPIRNEHRTIGVIIVEIAADEEIQADLQKEELNNCQLAKVAKSTSQVDALFIDQLAEAVLIFDAAGHLLITNHNAQELYRKLGYRDNIIGMSYDNLSIDYTTFEYVLYQMKYKMSNQPIESKTTYLNYYFKVRKVWLASEEQLIMIIQDNTEFKEKEAEIISKSVAIREIHHRVKNNLQSVVSLLRIQERRTQSPEAKKVLHESVNRIMAIAATHELLSKQVKDDVALRQTLEAVMYNFRHLFQGAQPIEMMMDVDPAIMVSSEQMVTISLVVNELLQNIFDHAFEPQTSGVVKLSGTLDNKMITITVTDNGKGYDVHQSNETSLGLMIVKSYVKDKLKGKITIESNKQGTKTCFYFEQNTSDVVH|
-|8|PC_00001991|CORE_FAECALIS|E_faecalis_6240|1602|G|G|COG4468|Galactose-1-phosphate uridylyltransferase|MTTSQMIADFTTLAIQAGGWMELDRLYLQNRLLSMIGEQELGEVDIRPVATPAADLAEQLCQVASANQLVKTEQQKEQFMVQLMDLLTPPPSVVNAFFAQHYAKEPQEATEYFYQLCQKNGTVIEQEEPVVFSTVYGDFLANKVHSEASKATLSAQSYPRCEWCMATEGYQGSQQFPATTNHRVIRMNLDGESWGFSFVKQAQYQQQGVIAFEKHQSAKRSIKTFQQLLKIVEVFPHYFAGIDADFEQNEHVYYQTGLQQFPLAEASISEYVELANYPLINAGMVNWPVATFRLEGPNASEVAQAANDIFEQWQMLKLPTDEIQIVARRKELLYVMDLIFSRPQAKPSLTLAEVQGLTTWNNQKTQALETVASAYQQRLKEASAFAETSEGKAAFLAMVAPVTH|
-|9|PC_00001991|CORE_FAECALIS|E_faecalis_6512|2126|G|G|COG4468|Galactose-1-phosphate uridylyltransferase|MTTSQMIADFTTLAIQAGGWMELDRLYLQNRLLSMIGEQELGEVDIRPVATPAADLAEQLCQVASANQLVKTEQQKEQFMVQLMDLLTPPPSVVNAFFAQHYAKEPQEATEYFYQLCQKNGTVIEQEEPVVFSTVYGDFLANKVHSEASKATLSAQSYPRCEWCMATEGYQGSQQFPATTNHRVIRMNLDGESWGFSFVKQAQYQQQGVIAFEKHQAAKRSIKTFQQLLKIVEVFPHYFAGIDADFEQNEHVYYQTGLQQFPLAEASISEYVELANYPLINAGMVNWPVATFRLEGPNASEVAQAANDIFEQWQMLKLPTDEIQIVARRKELLYVMDLIFSRPQAKPSLTLAEVQGLTTWNNQKTQALETVASAYQQRLKEASAFAETSEGKAAFLAMVAPVTH|
+unique_id  |  protein_cluster_id  |  bin_name  |  genome_name      |  gene_callers_id  |  COG_CATEGORY_ACC  |  COG_CATEGORY  |  COG_FUNCTION_ACC  |  COG_FUNCTION                             |  aa_sequence   |
+-----------|----------------------|------------|-------------------|-------------------|--------------------|----------------|--------------------|-------------------------------------------|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1          |  PC_00000001         |            |  E_faecalis_6240  |  26               |  X                 |  X             |  COG2826           |  Transposase and inactivated derivatives  |   IS30 family  |  MTYKHLTIDELTMIESYYLQHNKPVEIANRMGRAIQTIYNVVNKFKQGKTALDYWHQYKENKKKCGRKVIQLPAHEVDYIKEKVTLGWTPDVIIGRKERPVSCGMRTLYRLFSKGIFDIDTLPMKGKRKPNGHQEKRGKQQYQRSIHDRPDNYPDFNSEFGHLEGDTIVGIHHKSAVITLVERLSKVIITIKPNGRKALDIETALNQWFSRFPKNFFKSITFDCGKEFSNWKAISNQHDIDIYFADPGTPSQRPLNENSNGILRRNGLPKSMDFREVNQTFISSVSNQRNHIPRKSLNYRTPIEIFLSYVQEAFYSNLI
+2          |  PC_00000001         |            |  E_faecalis_6240  |  615              |  X                 |  X             |  COG2826           |  Transposase and inactivated derivatives  |   IS30 family  |  MTYKHLTIDELTMIESYYLQHNKPVEIANRMGRAIQTIYNVVNKFKQGKTALDYWHQYKENKKKCGRKVIQLPAHEVDYIKEKVTLGWTPDVIIGRKERPVSCGMRTLYRLFSKGIFDIDTLPMKGKRKPNGHQEKRGKQQYQRSIHDRPDNYPDFNSEFGHLEGDTIVGIHHKSAVITLVERLSKVIITIKPNGRKALDIETALNQWFSRFPKNFFKSITFDCGKEFSNWKAISNQHDIDIYFADPGTPSQRPLNENSNGILRRNGLPKSMDFREVNQTFISSVSNQRNHIPRKSLNYRTPIEIFLSYVQEAFYSNLI
+3          |  PC_00000001         |            |  E_faecalis_6240  |  2032             |  X                 |  X             |  COG2826           |  Transposase and inactivated derivatives  |   IS30 family  |  MTYKHLTIDELTMIESYYLQHNKPVEIANRMGRAIQTIYNVVNKFKQGKTALDYWHQYKENKKKCGRKVIQLPAHEVDYIKEKVTLGWTPDVIIGRKERPVSCGMRTLYRLFSKGIFDIDTLPMKGKRKPNGHQEKRGKQQYQRSIHDRPDNYPDFNSEFGHLEGDTIVGIHHKSAVITLVERLSKVIITIKPNGRKALDIETALNQWFSRFPKNFFKSITFDCGKEFSNWKAISNQHDIDIYFADPGTPSQRPLNENSNGILRRNGLPKSMDFREVNQTFISSVSNQRNHIPRKSLNYRTPIEIFLSYVQEAFYSNLI
+4          |  PC_00000001         |            |  E_faecalis_6240  |  2200             |  X                 |  X             |  COG2826           |  Transposase and inactivated derivatives  |   IS30 family  |  MTYKHLTIDELTMIESYYLQHNKPVEIANRMGRAIQTIYNVVNKFKQGKTALDYWHQYKENKKKCGRKVIQLPAHEVDYIKEKVTLGWTPDVIIGRKERPVSCGMRTLYRLFSKGIFDIDTLPMKGKRKPNGHQEKRGKQQYQRSIHDRPDNYPDFNSEFGHLEGDTIVGIHHKSAVITLVERLSKVIITIKPNGRKALDIETALNQWFSRFPKNFFKSITFDCGKEFSNWKAISNQHDIDIYFADPGTPSQRPLNENSNGILRRNGLPKSMDFREVNQTFISSVSNQRNHIPRKSLNYRTPIEIFLSYVQEAFYSNLI
+5          |  PC_00000001         |            |  E_faecalis_6240  |  2747             |  X                 |  X             |  COG2826           |  Transposase and inactivated derivatives  |   IS30 family  |  MTYKHLTIDELTMIESYYLQHNKPVEIANRMGRAIQTIYNVVNKFKQGKTALDYWHQYKENKKKCGRKVIQLPAHEVDYIKEKVTLGWTPDVIIGRKERPVSCGMRTLYRLFSKGIFDIDTLPMKGKRKPNGHQEKRGKQQYQRSIHDRPDNYPDFNSEFGHLEGDTIVGIHHKSAVITLVERLSKVIITIKPNGRKALDIETALNQWFSRFPKNFFKSITFDCGKEFSNWKAISNQHDIDIYFADPGTPSQRPLNENSNGILRRNGLPKSMDFREVNQTFISSVSNQRNHIPRKSLNYRTPIEIFLSYVQEAFYSNLI
+6          |  PC_00000001         |            |  E_faecalis_6240  |  2925             |  X                 |  X             |  COG2826           |  Transposase and inactivated derivatives  |   IS30 family  |  MTYKHLTIDELTMIESYYLQHNKPVEIANRMGRAIQTIYNVVNKFKQGKTALDYWHQYKENKKKCGRKVIQLPAHEVDYIKEKVTLGWTPDVIIGRKERPVSCGMRTLYRLFSKGIFDIDTLPMKGKRKPNGHQEKRGKQQYQRSIHDRPDNYPDFNSEFGHLEGDTIVGIHHKSAVITLVERLSKVIITIKPNGRKALDIETALNQWFSRFPKNFFKSITFDCGKEFSNWKAISNQHDIDIYFADPGTLSQRPLNENSNGILRHNGLPKSMDFREVNQTFISSVSNQRNHIPRKSLNYRTPIEIFLSYVQEAFYSNLI
+7          |  PC_00000001         |            |  E_faecalis_6240  |  2902             |  X                 |  X             |  COG2826           |  Transposase and inactivated derivatives  |   IS30 family  |  MTYKHLTIDELTMIESYYLQHNKPVEIANRMGRAIQTIYNVVNKFKQGKTALDYWHQYKENKKKCGRKVIQLPAHEVDYIKEKVTLGWTPDVIIGRKERPVSCGMRTLYRLFSKGIFDIDTLPMKGKRKPNGHQEKRGKQQYQRSIHDRPDNYPDFNSEFGHLGGDTIVGIHHKSAVITLVERLSKVIITIKPNGRKALDIETALNQWFSRFPKNFFKSITFDCGKEFSNWKAISNQHDIDIYFADPGTLSQRPLNENSNGILRHNGLPKSMDFREVNQTFISSVSNQRNHIPRKSLNYRTPIEIFLSYVQEAFYSNLI
+8          |  PC_00000001         |            |  E_faecalis_6240  |  2674             |  X                 |  X             |  COG2826           |  Transposase and inactivated derivatives  |   IS30 family  |  MTYKHLTIDELTMIESYYLQHNKPVEIANRMGRAIQTIYNVVNKFKQGKTALDYWHQYKENKKKCDRKVIQLPAHEVDYIKEKVTLGWTPDVIIGRKERPVSCGMRTLYRLFSKGIFDIDTLPMKGKRKPNGHQEKRGKQQYQRSIHDRPDNYPDFNSEFGHLGGDTIVGIHHKSAVITLVERLSKVIITIKPNGRKALDIETALNQWFSRFPKNFFKSITFDCGKEFSNWKAISNQHDIDIYFADPGTLSQRPLNENSNGILRHNGLPKSMDFREVNQTFISSVSNQRNHIPRKSLNYRTPIEIFLSYVQEAFYSNLI
+9          |  PC_00000001         |            |  E_faecalis_6240  |  25               |  X                 |  X             |  COG2826           |  Transposase and inactivated derivatives  |   IS30 family  |  MTYTHLTSNELAMIEAYYNNHQSVAKTAVLLNRSRQTIHKVYQFFKTGHNALDYFNQYKKNKTRCGRRPIVLSDEQTEYIQKRVVQGWTPDVIVGRAEFSISCSMRTLYRMFKQGVFEVTHLPMKGKRKANGHKETRGKQSFRRSLRDRGNDYSKFNQEFGHLEGDTIVGKKHKSAVITLVERLSKVIITLQPEGRRAIDIENRLNQWMQSVPKHLFKSMTFDCGKEFSNWKSISNINDIDIYFADPGTPSQRGLNENSNGLLRKDGLPKQMDFNEVDESFIQSIASKRNNIPRKSLNYKTPIEVFLSHICKEELSNLI
 
 
 I'm sure you need no help to know what to do with this file.
