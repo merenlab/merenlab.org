@@ -34,7 +34,8 @@ python -c 'import webbrowser as w; w.open_new("http://")'
 If you have [Homebrew](http://brew.sh/) installed on your computer, all you need to do is to run this to have anvi'o installed, and skip the rest of this page (although we suggest you to run `brew doctor` in your terminal first to make sure everything is good to go):
 
 ``` bash
-brew install homebrew/science/anvio
+brew tap homebrew/science
+brew install anvio
 ```
 
 Once the installation is complete, test anvi'o quickly to make sure everything is in order:
