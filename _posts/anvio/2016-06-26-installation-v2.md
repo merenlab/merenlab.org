@@ -47,6 +47,9 @@ anvi-self-test --suite mini
 
 That's it!
 
+{:.notice}
+You may see warning messages during self-test runs. Don't be concerned.
+
 
 ## Painless installation with Conda
 
@@ -147,6 +150,9 @@ If all looks good, now you should be able to run `anvi-self-test`:
 ``` bash
 anvi-self-test --suite mini
 ```
+
+{:.notice}
+You may see warning messages during self-test runs. Don't be concerned.
 
 If this runs successfully, a browser window will popup. Don't forget to go back to your terminal and press `CTRL+C` to kill the server. To leave the virtual environment, you can run the command `deactivate`.
 
@@ -282,7 +288,7 @@ You are golden.
 
 ## Running the "Mini Test"
 
-You can make anvi'o test itself by running the program `anvi-self-test`.
+You can make anvi'o test itself by running the program `anvi-self-test`. It is absolutely normal to see 'warning' messages. In most cases anvi'o is talkative, and would like to keep you informed. You should read those warning messages, but they often don't require any action.
 
 Upon the successful completion of all the tests, your browser should popup to take you to the interactive interface. When you click that 'Draw' button, you should see something like this (this is one of the older version of [the anvi'o interactive interface]({% post_url anvio/2016-02-27-the-anvio-interactive-interface %}), and it shall stay here so we remember where we came from):
 
