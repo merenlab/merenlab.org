@@ -1165,7 +1165,7 @@ You can summarize the pangenome using the collection we have the following way:
  $ anvi-summarize -p PAN/Enterococcus-PAN.db \
                   -g Enterococcus-GENOMES.h5 \
                   -C default \
-                  tutorials/infant-gut/images/scgs.png-o PAN_SUMMARY
+                  -o PAN_SUMMARY
 ```
 
 If you run the the following command on a Mac system (or simply open the index.html file in your browser),
