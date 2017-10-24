@@ -7,7 +7,7 @@ comments: false
 <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 
 <div class="category-box">
-<a href="#2017"><span class="category-item">2017 <small>(9)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(6)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a>
+<a href="#2017"><span class="category-item">2017 <small>(10)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(6)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a>
 </div>
 
 <a name="2017">&nbsp;</a>
@@ -56,6 +56,13 @@ comments: false
     </div>
     </div>
     <span class="pub-journal"><i>Proc Natl Acad Sci U S A</i>. <b>Published online before print</b></span>
+</div>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41467-017-01228-6"></div>
+    <h3><a href=" https://doi.org/10.1038/s41467-017-01228-6" target="_new">Genomic variation in microbial populations inhabiting the marine subseafloor at deep-sea hydrothermal vents.</a></h3>
+    <span class="pub-authors">Anderson, R. E., Reveillaud, J., Reddington, E., <span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Eren, A. M</span>., McDermott, J. M., Seewald, J. S., and Huber, J. A.</span>
+    <span class="pub-journal"><i>Nature Communications</i>. <b>8:1114</b></span>
 </div>
 
 <div class="pub">
