@@ -341,7 +341,7 @@ and run the following two commands:
 
 ``` bash
 chmod +x famsa
-sudo mv famsa /usr/bin/famsa
+sudo mv famsa /usr/local/bin/famsa
 ```
 
 You are golden if you are seeing this when you type `famsa` in your terminal:
