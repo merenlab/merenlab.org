@@ -306,7 +306,7 @@ export PATH=$PATH:$EGGNOG_MAPPER_BASE/eggnog-mapper
 
 ## muscle
 
-[muscle](http://drive5.com/muscle/) _is one of the best-performing multiple alignment programs_.
+[muscle](http://drive5.com/muscle/) _is a widely used multiple sequence alignment program_.
 
 **Citation**: [https://www.ncbi.nlm.nih.gov/pubmed/15034147](https://www.ncbi.nlm.nih.gov/pubmed/15034147)
 
@@ -317,4 +317,39 @@ If you were successful, this is what you should see when you type `muscle` in yo
 ``` bash
 $ muscle -version
 MUSCLE v3.8.31 by Robert C. Edgar
+```
+
+## FAMSA
+
+[FAMSA](https://www.nature.com/articles/srep33964) _is a fast and accurate multiple seqeunce alignment program for protein sequences_.
+
+**Citation**: [https://www.nature.com/articles/srep33964](https://www.nature.com/articles/srep33964)
+
+Use the following commands to download the proper versio of FAMSA on your Linux operating system,
+
+``` bash
+wget https://github.com/refresh-bio/FAMSA/releases/download/v1.2.1/famsa-1.2.1-linux -O famsa
+```
+
+Or on your Mac OSX computer,
+
+``` bash
+wget https://github.com/refresh-bio/FAMSA/releases/download/v1.2.1/famsa-1.2.1-osx -O famsa
+```
+
+and run the following two commands:
+
+``` bash
+chmod +x famsa
+sudo mv famsa /usr/bin/famsa
+```
+
+You are golden if you are seeing this when you type `famsa` in your terminal:
+
+```
+$ famsa
+FAMSA (Fast and Accurate Multiple Sequence Alignment) ver. 1.2 CPU
+  by S. Deorowicz, A. Debudaj-Grabysz, A. Gudys (2017-02-05)
+
+(...)
 ```
