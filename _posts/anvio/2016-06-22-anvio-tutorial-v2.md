@@ -425,7 +425,7 @@ The summary process can take a lot of time. If you want to take a quick look to 
 
 ### anvi-refine
 
-After running `anvi-summarize`, you may realize that you are not happy with one or more of your bins. This often is the case when you are working with very large datasets and when you are forced to skip the human guided binning step. `anvi-summarize` gives you the ability to make finer adjustments to a bin that may be contaminated.
+After running `anvi-summarize`, you may realize that you are not happy with one or more of your bins. This often is the case when you are working with very large datasets and when you are forced to skip the human guided binning step. `anvi-refine` gives you the ability to make finer adjustments to a bin that may be contaminated.
 
 After you refine bins that needs attention, you can re-generate your static summary.
 
