@@ -475,9 +475,7 @@ As you can see, 9 of the genomes have a flat line in the phylogenomic tree, whic
 ### Pangenomic + Phylogenomics
 
 {:.notice}
-Here I will not go through the details of pangenomic workflow, but if you are interested in learning more, please read the article "[An anvi'o workflow for microbial pangenomics
-
-]({% post_url anvio/2016-11-08-pangenomics-v2 %})", and the [pangenomic example we used in the Infant Gut Tutorial]({{ site_url }}/tutorials/infant-gut/#a-pangenomic-analysis) if you are feeling *particularly* procrastinative today.
+Here I will not go through the details of pangenomic workflow, but if you are interested in learning more, please read the article "[An anvi'o workflow for microbial pangenomics]({% post_url anvio/2016-11-08-pangenomics-v2 %})", and the [pangenomic example we used in the Infant Gut Tutorial]({{ site_url }}/tutorials/infant-gut/#a-pangenomic-analysis) if you are feeling *particularly* procrastinative today.
 
 Here is the pangenomic analysis:
 
