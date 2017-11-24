@@ -10,7 +10,32 @@ This page serves the publicly available data mentioned in our publications, or i
 
 {% include _toc.html %}
 
-## Delmont et al. (2017) / TARA binning
+## Delmont and Eren (201?) / Metapangenomics
+
+{:.notice}
+[http://merenlab.org/data/2017_Delmont_and_Eren_Metapangenomics/](http://merenlab.org/data/2017_Delmont_and_Eren_Metapangenomics/) gives access to our **complete bioinformatics workflow**.
+
+**Public data items for the study:**
+
+<div style="width: 200px; float: right; padding-left: 20px;">
+<a href="2017_Delmont_and_Eren_Metapangenomics/images/genes-in-two-genomes.png" target="_blank"><img src="2017_Delmont_and_Eren_Metapangenomics/images/genes-in-two-genomes.png" style="border:none;" /></a>
+</div>
+
+* The original **TARA Oceans metagenomes** are available through the European Bioinformatics Institute ([ERP001736](https://www.ebi.ac.uk/metagenomics/projects/ERP001736)) and NCBI ([PRJEB1787](https://www.ncbi.nlm.nih.gov/sra/?term=PRJEB1787)).
+
+* [doi:10.6084/m9.figshare.5447221](https://doi.org/10.6084/m9.figshare.5447221): 31 isolate genomes and 74 single-amplified genomes for *Prochlorococcus* we used in this study.
+
+* [doi:10.6084/m9.figshare.5447224](https://doi.org/10.6084/m9.figshare.5447224): The anvi’o merged profile database and the static HTML summary output for *Prochlorococcus* isolate genomes across 93 TARA Oceans Project surface ocean metagenomes.
+
+* [doi:10.6084/m9.figshare.5447227](https://doi.org/10.6084/m9.figshare.5447227): The metapangenome of *Prochlorococcus* isolates.
+
+* [doi:10.6084/m9.figshare.5447233](https://doi.org/10.6084/m9.figshare.5447233): The metapangenome of *Prochlorococcus* single-amplified genomes.
+
+* [doi:10.6084/m9.figshare.5447233](https://doi.org/10.6084/m9.figshare.5447233): Extended pangenome of *Prochlorococcus* isolate and single-amplified genomes.
+
+
+
+## Delmont et al. (2017) / TARA Binning
 
 {:.notice}
 **The paper itself is here:** [Nitrogen-fixing populations of Planctomycetes and Proteobacteria are abundant in the surface ocean](http://biorxiv.org/content/early/2017/04/23/129791){:target="_blank"}.
@@ -18,27 +43,27 @@ This page serves the publicly available data mentioned in our publications, or i
 {:.notice}
 [http://merenlab.org/data/2017_Delmont_et_al_HBDs/](http://merenlab.org/data/2017_Delmont_et_al_HBDs/) gives access to our **complete bioinformatics workflow**.
 
-[![MAGs](2017_Delmont_et_al_HBDs/images/Figure_01.png)](2017_Delmont_et_al_HBDs/images/Figure_01.png){:.center-img .width-50}
-
 **Public data items for the study:**
+
+<div style="width: 200px; float: right; padding-left: 20px;">
+<a href="https://anvi-server.org/merenlab/tara_hbds" target="_blank"><img src="2017_Delmont_et_al_HBDs/images/Figure_02.png" style="border:none;" /></a>
+</div>
 
 * The original **TARA Oceans metagenomes** are available through the European Bioinformatics Institute ([ERP001736](https://www.ebi.ac.uk/metagenomics/projects/ERP001736)) and NCBI ([PRJEB1787](https://www.ncbi.nlm.nih.gov/sra/?term=PRJEB1787)).
 
-* [https://doi.org/10.6084/m9.figshare.4902920](https://doi.org/10.6084/m9.figshare.4902920): Our **raw assembly** outputs per region.
+* [doi:10.6084/m9.figshare.4902920](https://doi.org/10.6084/m9.figshare.4902920): Our **raw assembly** outputs per region.
 
-* [https://doi.org/10.6084/m9.figshare.4902917](https://doi.org/10.6084/m9.figshare.4902917): All **amino acid sequences** in our raw assemblies.
+* [doi:10.6084/m9.figshare.4902917](https://doi.org/10.6084/m9.figshare.4902917): All **amino acid sequences** in our raw assemblies.
 
-* [https://doi.org/10.6084/m9.figshare.4902923](https://doi.org/10.6084/m9.figshare.4902923): **FASTA files** for 957 non-redundant metagenome-assembled genomes.
+* [doi:10.6084/m9.figshare.4902923](https://doi.org/10.6084/m9.figshare.4902923): **FASTA files** for 957 non-redundant metagenome-assembled genomes.
 
-* [https://doi.org/10.6084/m9.figshare.4902941](https://doi.org/10.6084/m9.figshare.4902941): **Self contained anvi'o profiles** for each non-redundant MAG (each of which can be visualized interactively through the program `anvi-interactive` offline).
+* [doi:10.6084/m9.figshare.4902941](https://doi.org/10.6084/m9.figshare.4902941): **Self contained anvi'o profiles** for each non-redundant MAG (each of which can be visualized interactively through the program `anvi-interactive` offline).
 
-* [https://doi.org/10.6084/m9.figshare.4902926](https://doi.org/10.6084/m9.figshare.4902926): A **static HTML output** for the anvi'o merged profile database for non-redundant MAGs (double-click the index.html file after download).
+* [doi:10.6084/m9.figshare.4902926](https://doi.org/10.6084/m9.figshare.4902926): A **static HTML output** for the anvi'o merged profile database for non-redundant MAGs (double-click the index.html file after download).
 
-* [https://doi.org/10.6084/m9.figshare.4902938](https://doi.org/10.6084/m9.figshare.4902938): Main and Supplementary Tables and Figures. Which includes **Figure 1** (geographically bounded metagenomic co-assemblies), **Figure 2** (the nexus between phylogeny and function of HBDs), **Figure 3** (Phylogeny of nitrogen fixation genes), **Figure 4** (the abundance of nitrogen-fixing populations of Planctomycetes and Proteobacteria across oceans), **Supplementary Figure 1** (phylogenetic analysis of nifH genes), **Supplementary Table 1** (the summary of the 93 metagenomes from TARA Oceans, and the twelve geographic regions they represent), **Supplementary Table 2** (the summary of the co-assembly and binning outputs for each metagenomic set), **Supplementary Table 3** (genomic features of 957 MAGs from the non-redundant genomic database including the taxonomy for each MAG, the mean coverage, relative distribution, detection and number of recruited reads for each MAG across the 93 metagenomes, etc), **Supplementary Table 4** (the 16S rRNA gene sequence identified in HBD-09), **Supplementary Table 5** (genomic features, Pearson correlation (based on the relative distribution in 93 metagenomes), **Supplementary Table 6** (RAST subsystems and KEGG modules for the nine HBDs), **Supplementary Table 7** (nifH gene sequences in MAGs, orphan scaffolds, as well as the reference sequence γ-24774A11, along with their mean coverage across the 93 metagenomes), **Supplementary Table 8** (Genomic features of 30,244 bins manually characterized from the 12 metagenomic sets. Completion and redundancy estimates are based on the average of four bacterial single-copy gene collections), **Supplementary Table 9** (KEGG annotation for 1,077 MAGs), and **Supplementary Table 10** (Relative distribution of 1,077 MAGs across the 93 metagenomes).
+* [doi:10.6084/m9.figshare.4902938](https://doi.org/10.6084/m9.figshare.4902938): Main and Supplementary Tables and Figures. Which includes **Figure 1** (geographically bounded metagenomic co-assemblies), **Figure 2** (the nexus between phylogeny and function of HBDs), **Figure 3** (Phylogeny of nitrogen fixation genes), **Figure 4** (the abundance of nitrogen-fixing populations of Planctomycetes and Proteobacteria across oceans), **Supplementary Figure 1** (phylogenetic analysis of nifH genes), **Supplementary Table 1** (the summary of the 93 metagenomes from TARA Oceans, and the twelve geographic regions they represent), **Supplementary Table 2** (the summary of the co-assembly and binning outputs for each metagenomic set), **Supplementary Table 3** (genomic features of 957 MAGs from the non-redundant genomic database including the taxonomy for each MAG, the mean coverage, relative distribution, detection and number of recruited reads for each MAG across the 93 metagenomes, etc), **Supplementary Table 4** (the 16S rRNA gene sequence identified in HBD-09), **Supplementary Table 5** (genomic features, Pearson correlation (based on the relative distribution in 93 metagenomes), **Supplementary Table 6** (RAST subsystems and KEGG modules for the nine HBDs), **Supplementary Table 7** (nifH gene sequences in MAGs, orphan scaffolds, as well as the reference sequence γ-24774A11, along with their mean coverage across the 93 metagenomes), **Supplementary Table 8** (Genomic features of 30,244 bins manually characterized from the 12 metagenomic sets. Completion and redundancy estimates are based on the average of four bacterial single-copy gene collections), **Supplementary Table 9** (KEGG annotation for 1,077 MAGs), and **Supplementary Table 10** (Relative distribution of 1,077 MAGs across the 93 metagenomes).
 
-* An interactive visualization for the phylogenomic analysis of 432 Proteobacteria and 43 Planctomycetes metagenome-assembled genomes from our database of 957 non-redundant MAGs is also available:
-
-[![MAGs](2017_Delmont_et_al_HBDs/images/Figure_02.png)](https://anvi-server.org/merenlab/tara_hbds){:.center-img .width-50}
+* An interactive visualization for the phylogenomic analysis of 432 Proteobacteria and 43 Planctomycetes metagenome-assembled genomes from our database of 957 non-redundant MAGs is also available: [here](https://anvi-server.org/merenlab/tara_hbds).
 
 
 ## Lee et al. (2017) / Fecal Transplants
@@ -46,13 +71,15 @@ This page serves the publicly available data mentioned in our publications, or i
 {:.notice}
 **The paper itself is here:** [Tracking microbial colonization in fecal microbiota transplantation experiments via genome-resolved metagenomics](https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-017-0270-x){:target="_blank"}.
 
-[![MAGs](2017_Lee_et_al_FMT/figure-01.png)](2017_Lee_et_al_FMT/figure-01.png){:.center-img .width-50}
+<div style="width: 200px; float: right; padding-left: 20px;">
+<a href="2017_Lee_et_al_FMT/figure-01.png"><img src="2017_Lee_et_al_FMT/figure-01.png" style="border:none;" /></a>
+</div>
 
 **Public data items for the study:**
 
 * While the accession ID [**SRP093449**](https://www.ncbi.nlm.nih.gov/sra/?term=SRP093449){:target="_blank"} serves serves the raw shotgun metagenomic data through NCBI's Short Read Archive, [this FigShare collection](https://figshare.com/projects/Data_for_the_FMT_study_by_Lee_and_Khan_et_al_2017_/17516){:target="_blank"} gives access to all public data items detailed below.
 
-* [https://doi.org/10.6084/m9.figshare.4792633](https://doi.org/10.6084/m9.figshare.4792633){:target="_blank"}: Files for anvi'o manual interactive for a quick visualization of the distribution of 92 donor MAGs from Lee and Khan et al study (**panel a** in the figure above). Follow these steps for a quick interactive visualization:
+* [doi:10.6084/m9.figshare.4792633](https://doi.org/10.6084/m9.figshare.4792633){:target="_blank"}: Files for anvi'o manual interactive for a quick visualization of the distribution of 92 donor MAGs from Lee and Khan et al study (**panel a** in the figure above). Follow these steps for a quick interactive visualization:
 
 <div style="margin-left:50px;" markdown="1">
 ``` bash
@@ -76,10 +103,10 @@ anvi-interactive -p profile.db \
 </div>
 
 
-* [https://doi.org/10.6084/m9.figshare.4792627](https://doi.org/10.6084/m9.figshare.4792627){:target="_blank"}: A static HTML output for the anvi'o merged profile database for the 92 donor MAGs. This static web site contains FASTA files for MAGs, coverage and detection values, functional annotations, and other essential information.
+* [doi:10.6084/m9.figshare.4792627](https://doi.org/10.6084/m9.figshare.4792627){:target="_blank"}: A static HTML output for the anvi'o merged profile database for the 92 donor MAGs. This static web site contains FASTA files for MAGs, coverage and detection values, functional annotations, and other essential information.
 
 
-* [https://doi.org/10.6084/m9.figshare.4792621](https://doi.org/10.6084/m9.figshare.4792621){:target="_blank"}: The full anvi'o merged profile and contigs databases for the 92 donor MAGs (for each MAG gives access to the detailed information shown in **panel b** and **panel c** in the figure above). Among many other things you can do with these anvi'o files, you can use the program `anvi-refine` to study any MAG in the study in detail. MAGs are described in a collection named `MAGs`. Here is a quick example:
+* [doi:10.6084/m9.figshare.4792621](https://doi.org/10.6084/m9.figshare.4792621){:target="_blank"}: The full anvi'o merged profile and contigs databases for the 92 donor MAGs (for each MAG gives access to the detailed information shown in **panel b** and **panel c** in the figure above). Among many other things you can do with these anvi'o files, you can use the program `anvi-refine` to study any MAG in the study in detail. MAGs are described in a collection named `MAGs`. Here is a quick example:
 
 <div style="margin-left:50px;" markdown="1">
 ```bash
@@ -118,9 +145,9 @@ This is what you should see after entering the last command in your terminal:
 <div style="position:relative;height:0;padding-bottom:75.0%"><iframe src="https://www.youtube.com/embed/DCQIIPjT8Bo?ecver=2" width="480" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
 </div>
 
-* [https://doi.org/10.6084/m9.figshare.4793761](https://doi.org/10.6084/m9.figshare.4793761){:target="_blank"}: Individual anvi'o profiles for the occurrence of each the FMT donor MAG across 151 HMP gut metagenomes (for each MAG gives access to the information shown in **panel d** in the figure above).
+* [doi:10.6084/m9.figshare.4793761](https://doi.org/10.6084/m9.figshare.4793761){:target="_blank"}: Individual anvi'o profiles for the occurrence of each the FMT donor MAG across 151 HMP gut metagenomes (for each MAG gives access to the information shown in **panel d** in the figure above).
 
-* [https://doi.org/10.6084/m9.figshare.4792645](https://doi.org/10.6084/m9.figshare.4792645){:target="_blank"}: Individual figures that show the detection of 92 donor MAGs in 151 HMP gut metagenomes.
+* [doi:10.6084/m9.figshare.4792645](https://doi.org/10.6084/m9.figshare.4792645){:target="_blank"}: Individual figures that show the detection of 92 donor MAGs in 151 HMP gut metagenomes.
 
 
 
