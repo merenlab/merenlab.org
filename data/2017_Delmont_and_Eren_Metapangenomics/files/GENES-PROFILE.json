@@ -1,0 +1,2024 @@
+{
+    "version": "0.2.1",
+    "tree-type": "circlephylogram",
+    "order-by": "<> Alphabetical:none:none",
+    "current-view": "single",
+    "angle-min": "0",
+    "angle-max": "270",
+    "tree-radius": "10000",
+    "tree-height": "0",
+    "tree-width": "50000",
+    "layer-margin": "15",
+    "outer-ring-height": "60",
+    "outer-ring-margin": "30",
+    "edge-normalization": false,
+    "custom-layer-margin": true,
+    "show-grid-for-bins": true,
+    "grid-color": "#FFFFFF",
+    "grid-width": "1",
+    "samples-order": "custom",
+    "max-font-size": "60",
+    "optimize-speed": true,
+    "show-bin-labels": true,
+    "bin-labels-font-size": "128",
+    "autorotate-bin-labels": true,
+    "bin-labels-angle": "0",
+    "background-opacity": "0.3",
+    "max-font-size-label": "120",
+    "draw-guide-lines": "no",
+    "layer-order": [
+        "P_MARINUS_SOC_85_90M",
+        "P_MARINUS_SOC_85_05M",
+        "P_MARINUS_SOC_84_05M",
+        "P_MARINUS_PSW_128_40M",
+        "P_MARINUS_PSW_128_05M",
+        "P_MARINUS_PSW_125_05M",
+        "P_MARINUS_PSW_124_05M",
+        "P_MARINUS_PSW_123_05M",
+        "P_MARINUS_PSW_122_05M",
+        "P_MARINUS_PSW_112_05M",
+        "P_MARINUS_PSE_111_90M",
+        "P_MARINUS_PSE_111_05M",
+        "P_MARINUS_PSE_110_50M",
+        "P_MARINUS_PSE_110_05M",
+        "P_MARINUS_PSE_109_30M",
+        "P_MARINUS_PSE_109_05M",
+        "P_MARINUS_PSE_102_40M",
+        "P_MARINUS_PSE_102_05M",
+        "P_MARINUS_PSE_100_50M",
+        "P_MARINUS_PSE_100_05M",
+        "P_MARINUS_PSE_99_05M",
+        "P_MARINUS_PSE_98_05M",
+        "P_MARINUS_PSE_96_05M",
+        "P_MARINUS_PSE_94_05M",
+        "P_MARINUS_PSE_93_35M",
+        "P_MARINUS_PSE_93_05M",
+        "P_MARINUS_PON_140_05M",
+        "P_MARINUS_PON_138_60M",
+        "P_MARINUS_PON_138_05M",
+        "P_MARINUS_PON_137_40M",
+        "P_MARINUS_PON_137_05M",
+        "P_MARINUS_PON_133_45M",
+        "P_MARINUS_PON_133_05M",
+        "P_MARINUS_PON_132_05M",
+        "P_MARINUS_IOS_65_30M",
+        "P_MARINUS_IOS_65_05M",
+        "P_MARINUS_IOS_64_65M",
+        "P_MARINUS_IOS_64_05M",
+        "P_MARINUS_IOS_62_05M",
+        "P_MARINUS_IOS_58_66M",
+        "P_MARINUS_IOS_57_05M",
+        "P_MARINUS_IOS_56_05M",
+        "P_MARINUS_IOS_52_75M",
+        "P_MARINUS_IOS_52_05M",
+        "P_MARINUS_ION_48_05M",
+        "P_MARINUS_ION_45_05M",
+        "P_MARINUS_ION_42_80M",
+        "P_MARINUS_ION_42_05M",
+        "P_MARINUS_ION_41_60M",
+        "P_MARINUS_ION_41_05M",
+        "P_MARINUS_ION_39_25M",
+        "P_MARINUS_ION_38_25M",
+        "P_MARINUS_ION_38_05M",
+        "P_MARINUS_ION_36_17M",
+        "P_MARINUS_ION_36_05M",
+        "P_MARINUS_RED_34_60M",
+        "P_MARINUS_RED_34_05M",
+        "P_MARINUS_RED_33_05M",
+        "P_MARINUS_RED_32_80M",
+        "P_MARINUS_RED_32_05M",
+        "P_MARINUS_RED_31_05M",
+        "P_MARINUS_ASW_82_40M",
+        "P_MARINUS_ASW_82_05M",
+        "P_MARINUS_ASW_78_05M",
+        "P_MARINUS_ASW_76_05M",
+        "P_MARINUS_ASW_72_100M",
+        "P_MARINUS_ASW_72_05M",
+        "P_MARINUS_ANW_149_05M",
+        "P_MARINUS_ANW_148_05M",
+        "P_MARINUS_ANW_146_05M",
+        "P_MARINUS_ANW_145_05M",
+        "P_MARINUS_ANW_142_05M",
+        "P_MARINUS_ANW_141_05M",
+        "P_MARINUS_ASE_70_05M",
+        "P_MARINUS_ASE_68_50M",
+        "P_MARINUS_ASE_68_05M",
+        "P_MARINUS_ASE_67_05M",
+        "P_MARINUS_ASE_66_30M",
+        "P_MARINUS_ASE_66_05M",
+        "P_MARINUS_ANE_152_05M",
+        "P_MARINUS_ANE_151_80M",
+        "P_MARINUS_ANE_151_05M",
+        "P_MARINUS_ANE_150_40M",
+        "P_MARINUS_ANE_150_05M",
+        "P_MARINUS_ANE_004_40M",
+        "P_MARINUS_ANE_004_05M",
+        "P_MARINUS_MED_30_70M",
+        "P_MARINUS_MED_30_05M",
+        "P_MARINUS_MED_25_50M",
+        "P_MARINUS_MED_25_05M",
+        "P_MARINUS_MED_23_05M",
+        "P_MARINUS_MED_18_60M",
+        "P_MARINUS_MED_18_05M",
+        "P_MARINUS_OSD_80",
+        "P_MARINUS_OSD_20",
+        "P_MARINUS_OSD_163",
+        "P_MARINUS_OSD_155",
+        "P_MARINUS_OSD_152",
+        "P_MARINUS_OSD_146",
+        "P_MARINUS_OSD_127",
+        "P_MARINUS_OSD_126",
+        "P_MARINUS_OSD_106",
+        "P_MARINUS_OSD_105",
+        "detection"
+    ],
+    "categorical_data_colors": {
+        "detection": {
+            "DETECTED": "#29f500",
+            "NOT DETECTED": "#ff0000"
+        }
+    },
+    "stack_bar_colors": {},
+    "layers": {
+        "P_MARINUS_ANE_004_05M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ANE_004_40M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ANE_150_05M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ANE_150_40M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ANE_151_05M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ANE_151_80M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ANE_152_05M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "500",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ANW_141_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ANW_142_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ANW_145_05M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ANW_146_05M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ANW_148_05M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ANW_149_05M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "500",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ASE_66_05M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ASE_66_30M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ASE_67_05M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ASE_68_05M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ASE_68_50M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ASE_70_05M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "500",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ASW_72_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ASW_72_100M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ASW_76_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ASW_78_05M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ASW_82_05M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ASW_82_40M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "500",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ION_36_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ION_36_17M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ION_38_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ION_38_25M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ION_39_25M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ION_41_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ION_41_60M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ION_42_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ION_42_80M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ION_45_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_ION_48_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "500",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_IOS_52_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_IOS_52_75M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_IOS_56_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_IOS_57_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_IOS_58_66M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_IOS_62_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_IOS_64_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_IOS_64_65M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_IOS_65_05M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_IOS_65_30M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "500",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_MED_18_05M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_MED_18_60M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_MED_23_05M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_MED_25_05M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_MED_25_50M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_MED_30_05M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_MED_30_70M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "500",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_OSD_105": {
+            "color": "#483e37",
+            "height": "0",
+            "margin": "0",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_OSD_106": {
+            "color": "#483e37",
+            "height": "0",
+            "margin": "0",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_OSD_126": {
+            "color": "#483e37",
+            "height": "0",
+            "margin": "0",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_OSD_127": {
+            "color": "#483e37",
+            "height": "0",
+            "margin": "0",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_OSD_146": {
+            "color": "#483e37",
+            "height": "0",
+            "margin": "0",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_OSD_152": {
+            "color": "#483e37",
+            "height": "0",
+            "margin": "0",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_OSD_155": {
+            "color": "#483e37",
+            "height": "0",
+            "margin": "0",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_OSD_163": {
+            "color": "#483e37",
+            "height": "0",
+            "margin": "0",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_OSD_20": {
+            "color": "#483e37",
+            "height": "0",
+            "margin": "0",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_OSD_80": {
+            "color": "#483e37",
+            "height": "0",
+            "margin": "0",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PON_132_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PON_133_05M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PON_133_45M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PON_137_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PON_137_40M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PON_138_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PON_138_60M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PON_140_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "500",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PSE_100_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PSE_100_50M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PSE_102_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PSE_102_40M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PSE_109_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PSE_109_30M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PSE_110_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PSE_110_50M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PSE_111_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PSE_111_90M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "500",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PSE_93_05M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PSE_93_35M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PSE_94_05M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PSE_96_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PSE_98_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PSE_99_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PSW_112_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PSW_122_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PSW_123_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PSW_124_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PSW_125_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PSW_128_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_PSW_128_40M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "500",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_RED_31_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_RED_32_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_RED_32_80M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_RED_33_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_RED_34_05M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_RED_34_60M": {
+            "color": "#e7500a",
+            "height": "180",
+            "margin": "500",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_SOC_84_05M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_SOC_85_05M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "P_MARINUS_SOC_85_90M": {
+            "color": "#0065af",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#f2f2f2"
+        },
+        "detection": {
+            "color": "#1ade00",
+            "height": "2000",
+            "margin": "500",
+            "type": "color",
+            "color-start": "#ff0000"
+        }
+    },
+    "views": {
+        "single": {
+            "P_MARINUS_ANE_004_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ANE_004_40M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ANE_150_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ANE_150_40M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ANE_151_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ANE_151_80M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ANE_152_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ANW_141_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ANW_142_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ANW_145_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ANW_146_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ANW_148_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ANW_149_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ASE_66_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ASE_66_30M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ASE_67_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ASE_68_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ASE_68_50M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ASE_70_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ASW_72_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ASW_72_100M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ASW_76_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ASW_78_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ASW_82_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ASW_82_40M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ION_36_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ION_36_17M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ION_38_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ION_38_25M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ION_39_25M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ION_41_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ION_41_60M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ION_42_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ION_42_80M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ION_45_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_ION_48_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_IOS_52_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_IOS_52_75M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_IOS_56_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_IOS_57_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_IOS_58_66M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_IOS_62_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_IOS_64_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_IOS_64_65M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_IOS_65_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_IOS_65_30M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_MED_18_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_MED_18_60M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_MED_23_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_MED_25_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_MED_25_50M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_MED_30_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_MED_30_70M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_OSD_105": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_OSD_106": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_OSD_126": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_OSD_127": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_OSD_146": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_OSD_152": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_OSD_155": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_OSD_163": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_OSD_20": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_OSD_80": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PON_132_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PON_133_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PON_133_45M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PON_137_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PON_137_40M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PON_138_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PON_138_60M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PON_140_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PSE_100_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PSE_100_50M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PSE_102_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PSE_102_40M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PSE_109_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PSE_109_30M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PSE_110_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PSE_110_50M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PSE_111_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PSE_111_90M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PSE_93_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PSE_93_35M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PSE_94_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PSE_96_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PSE_98_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PSE_99_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PSW_112_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PSW_122_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PSW_123_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PSW_124_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PSW_125_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PSW_128_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_PSW_128_40M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_RED_31_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_RED_32_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_RED_32_80M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_RED_33_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_RED_34_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_RED_34_60M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_SOC_84_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_SOC_85_05M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "P_MARINUS_SOC_85_90M": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0.5",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "5",
+                    "disabled": false
+                }
+            },
+            "detection": {
+                "min": {
+                    "disabled": false
+                },
+                "max": {
+                    "disabled": false
+                }
+            }
+        }
+    },
+    "samples-categorical-colors": {},
+    "samples-stack-bar-colors": {},
+    "samples-edge-length-normalization": true,
+    "samples-ignore-branch-length": false,
+    "samples-tree-height": "400",
+    "samples-layer-order": [],
+    "samples-layers": {}
+}
