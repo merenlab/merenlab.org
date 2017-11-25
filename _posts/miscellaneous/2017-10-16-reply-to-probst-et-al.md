@@ -175,7 +175,10 @@ It is correct that '_Ca_ B. macondoprimitus' is a high-quality, high-completion 
 
 Perhaps the purpose of this point was to demonstrate our 'critically flawed' methods authors gracefully mentioned. We are more ready than you can imagine to accept that we are the impostors with all the critically flawed methods, but the logic here is not really working that well: '_Ca_ B. macondoprimitus' is from an *incubation experiment to mimic the oil plume*, and DWH. O desum is from the *oil plume itself*. The rebuttal reads "*B. macondoprimitus showed higher completeness (>99%) and substantially lower fragmentation despite its great abundance in the [simulation]*". While this statement is very correct, it is not relevant to any discussion regarding the superiority of alternative approaches.
 
-But we took their suggestion seriously, and **re-analyzed the oil plume metagenomes** by performing new assemblies with [metaSPAdes](https://www.ncbi.nlm.nih.gov/pubmed/28298430) which was not available in 2015. **We recovered a new population genome of DWH O. desum, except this time it is 2.7 Mbp long, 97.8% complete, 0% redundant**. The Average Nucleotide Identity (ANI) is 99.59% between the new and the original DWH O. desum (which was only 1.07 Mbp long). The bad news for Gary Andersen and his colleagues is that the ANI between the new DWH O. desum population genome and '_Ca_ B. macondoprimitus' is still only 84.32% over less than 1 Mbp of alignment. To clarify all the technical details we will soon share another blog post dedicated to "DWH O. desum v2", or as we like to call it, "_Ca_ Nobermanella desum".
+But we took their suggestion seriously, and **re-analyzed the oil plume metagenomes** by performing new assemblies with [metaSPAdes](https://www.ncbi.nlm.nih.gov/pubmed/28298430) which was not available in 2015. **We recovered a new population genome of DWH O. desum, except this time it is 2.7 Mbp long, 97.8% complete, 0% redundant**. The Average Nucleotide Identity (ANI) is 99.59% between the new and the original DWH O. desum (which was only 1.07 Mbp long). The bad news for Gary Andersen and his colleagues is that the ANI between the new DWH O. desum population genome and '_Ca_ B. macondoprimitus' is still only 84.32% over less than 1 Mbp of alignment.
+
+{:.notice}
+Please feel free to visit [this post]({% post_url miscellaneous/2017-11-25-DWH-O-desum-v2 %}) to read about the technical details of the recovery of "DWH O. desum v2", or as we like to call it "_Ca_ Nobermanella desum", mostly because we are funny.
 
 The authors also suggested that because DWH O. desum recruited only ~15% of the reads from the oil plume metagenomes, it likely did not represent the "abundant population":
 
@@ -286,11 +289,13 @@ Certainly a nice way to finish a note that will not get an official answer, but 
 
 '_Ca_ B. macondoprimitus' was not a significant part of the oil plume. Do you want to see it yourself? Just click [this link](https://anvi-server.org/merenlab/b_macondoprimitus), and then inspect the contig that contains the *alkB* gene (it is the third left-most gene). You will first see that it is very well detected in the simulation, and if you continue scrolling down, you will also see that it recruits literally 0 reads from the environment.
 
-In contrast, we now have a new near-complete population genome reconstructed from the oil plume metagenomes that recruits up to 61% of all metagenomic reads, and still has only 84.32% ANI over less than 1 Mbp of alignment to '_Ca_ B. macondoprimitus'.
+In contrast, we now have a new near-complete population genome reconstructed from the oil plume metagenomes that recruits up to 61% of all metagenomic reads, and still has only 84.32% ANI over less than 1 Mbp of alignment to '_Ca_ B. macondoprimitus'. **Given the environmental data, '*Ca* B. macondoprimitus' is no strain variant of anything that was abundant in the oil plume.**
 
-**Given the environmental data, '*Ca* B. macondoprimitus' is no strain variant of anything that was abundant in the oil plume.**
+So, DWH O. Desum **is** the most covered genome in the *environment*. But '*Ca* B. macondoprimitus' is the most covered genome in the *media*:
 
-<div style="height: 150px;">&nbsp;</div>
+[![Oil spill]({{images}}/media.png)]({{images}}/media.png){:target="_blank"}{:.center-img .width-80}
+
+So everyone gets something at the end.
 
 ## Meren's 2 cents
 
