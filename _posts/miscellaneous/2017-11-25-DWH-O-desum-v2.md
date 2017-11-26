@@ -14,7 +14,7 @@ categories: [miscellaneous]
 
 During the [Deepwater Horizon oil spill](https://en.wikipedia.org/wiki/Deepwater_Horizon_oil_spill){:target="_blank"} in the Gulf of Mexico in 2010, about half of the leaked oil did not reach the surface and instad formed a 'plume' in deep sea. Multiple studies have shown that __microorganisms affiliated to [a single bacterial lineage (within the family Oceanospirillaceae)](https://www.ncbi.nlm.nih.gov/pubmed/20736401){:target="_blank"} dominated the oil plume soon after this major environmental disaster started__.
 
-These microorganisms have not been isolated but three large metagenomes have been generated directly from oil plume samples and the surrounding water by [Mason et al. (2012)](http://www.nature.com/ismej/journal/v6/n9/full/ismej201259a.html?foxtrotcallback=true){:target="_blank"}, providing an opportunity to study the genomic content of popualations dominating this environment.
+These microorganisms have not been isolated but three large metagenomes have been generated directly from oil plume samples and the surrounding water by [Mason et al. (2012)](http://www.nature.com/ismej/journal/v6/n9/full/ismej201259a.html?foxtrotcallback=true){:target="_blank"}, providing an opportunity to study the genomic content of populations dominating this environment.
 
 Using CLC for metagenomic assembly, and anvi'o for binning and curation, we first characterized a __highly fragmented and incomplete population genome from the co-assembly of these metagenomes [(Eren et al., 2015)](https://peerj.com/articles/1319/){:target="_blank"}.__ We named this 1.07 Mbp long and 58.3% complete population genome DWH Oceanospirillaceae Desum (or DWH O. Desum, with an unknwon genus name), and claimed it represented the most abundant bacterial population in the plume.
 
@@ -197,7 +197,7 @@ Here is the view of the assembly and mapped reads from the anvi'o interface (it 
 
 Note that anvi'o produced the tree at the center using both sequence composition and differential coverage. In addition to the taxonomy (determined using [Centrifuge](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5131823/)) and GC-content, three layers display the mean coverage (in log10) of each scaffold across the metagenomes. The selected cluster contains 526 scaffolds (note that all 6,123 scaffolds are displayed in the figure) and corresponds to DWH O. Desum. Let's call it DWH O. Desum v2 to avoid any confusion here.
 
-__Importantly, DWH O. Desum v2 exhibited dramatic improvements compared to DWH O. Desum v1__. As said earlier for the impatients, it is a 2.81 Mbp long, 97.1% complete, 0% redundant population genome, and Average Nucleotide Identity (ANI) when compared to the original population genome (i.e., DWH O. Desum v1) is 99.6%__ over a length of 1.04 Mbp (this represents almost the entire length of DWH O. Desum v1). In other words, we got the same population genome, except this time it is close to completion, providing an extra 1.74 Mbp to explore and learn from.
+__Importantly, DWH O. Desum v2 exhibited dramatic improvements compared to DWH O. Desum v1__. As said earlier for the impatients, it is a 2.81 Mbp long, 97.1% complete, 0% redundant population genome, and Average Nucleotide Identity (ANI) when compared to the original population genome (i.e., DWH O. Desum v1) is 99.6% over a length of 1.04 Mbp (this represents almost the entire length of DWH O. Desum v1). In other words, we got the same population genome, except this time it is close to completion, providing an extra 1.74 Mbp to explore and learn from.
 
 To better understand the remarkable abundance of DWH O. Desum in the oil plume, here is the same visualization using the raw mean coverage values (i.e., not in log view):
 
@@ -260,7 +260,7 @@ CGATGAGTATTTTAAATAATGAAACAT
 
 ## Concluding remarks
 
-Seven years after the disaster, we now have access to the __near-complete genome for the bacterial population that once dominated the Deepwater Horizon oil plume.__. We hope this recovery can contribute to a better characterization of the functional potential, and the contribution of this population to the initial stages of the microbial response to the presence of oil in the environment.
+Seven years after the disaster, we now have access to the __near-complete genome for the bacterial population that once dominated the Deepwater Horizon oil plume.__ We hope this recovery can contribute to a better characterization of the functional potential, and the contribution of this population to the initial stages of the microbial response to the presence of oil in the environment.
 
 ---
 
