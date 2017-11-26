@@ -12,26 +12,34 @@ categories: [miscellaneous]
 
 {% capture images %}{{site.url}}/images/miscellaneous/2017-11-25-DWH-O-desum-v2{% endcapture %}
 
-During the [Deepwater Horizon oil spill](https://en.wikipedia.org/wiki/Deepwater_Horizon_oil_spill) in the Gulf of Mexico in 2010, about half of the leaked oil did not reach the surface and instad formed a 'plume' in deep sea. Multiple studies have shown that __microorganisms affiliated to [a single bacterial lineage (within the family Oceanospirillaceae)](https://www.ncbi.nlm.nih.gov/pubmed/20736401) dominated the oil plume soon after this major environmental disaster started__.
+During the [Deepwater Horizon oil spill](https://en.wikipedia.org/wiki/Deepwater_Horizon_oil_spill){:target="_blank"} in the Gulf of Mexico in 2010, about half of the leaked oil did not reach the surface and instad formed a 'plume' in deep sea. Multiple studies have shown that __microorganisms affiliated to [a single bacterial lineage (within the family Oceanospirillaceae)](https://www.ncbi.nlm.nih.gov/pubmed/20736401){:target="_blank"} dominated the oil plume soon after this major environmental disaster started__.
 
-These microorganisms have not been isolated but three large metagenomes have been generated directly from oil plume samples and the surrounding water by [Mason et al. (2012)](http://www.nature.com/ismej/journal/v6/n9/full/ismej201259a.html?foxtrotcallback=true), providing an opportunity to study the genomic content of popualations dominating this environment.
+These microorganisms have not been isolated but three large metagenomes have been generated directly from oil plume samples and the surrounding water by [Mason et al. (2012)](http://www.nature.com/ismej/journal/v6/n9/full/ismej201259a.html?foxtrotcallback=true){:target="_blank"}, providing an opportunity to study the genomic content of popualations dominating this environment.
 
-Using CLC for metagenomic assembly, and anvi'o for binning and curation, we first characterized a __highly fragmented and incomplete population genome from the co-assembly of these metagenomes [(Eren et al., 2015)](https://peerj.com/articles/1319/).__ We named this 1.07 Mbp long and 58.3% complete population genome DWH Oceanospirillaceae Desum (or DWH O. Desum, with an unknwon genus name), and claimed it represented the most abundant bacterial population in the plume.
+Using CLC for metagenomic assembly, and anvi'o for binning and curation, we first characterized a __highly fragmented and incomplete population genome from the co-assembly of these metagenomes [(Eren et al., 2015)](https://peerj.com/articles/1319/){:target="_blank"}.__ We named this 1.07 Mbp long and 58.3% complete population genome DWH Oceanospirillaceae Desum (or DWH O. Desum, with an unknwon genus name), and claimed it represented the most abundant bacterial population in the plume.
 
-More recently, DWH O. Desum was at the heart of a [little exchange in PNAS](http://merenlab.org/2017/10/16/reply-to-probst-et-al/), which motivated us to get a better population genome using a newer assembly algorithm, since things have changed a lot since 2015. After performing both co-assemblies and single assemblies using multiple metagenomic assemblers, we selected one workflow that allowed us to recover a population genome of DWH O. desum with substantially improved quality: __metaSPAdes assembly of the Distal metagenome, followd by binning and curation with anvi'o__.
+More recently, DWH O. Desum was at the heart of a [little exchange in PNAS](http://merenlab.org/2017/10/16/reply-to-probst-et-al/){:target="_blank"}, which motivated us to get a better population genome using a newer assembly algorithm, since things have changed a lot since 2015. After performing both co-assemblies and single assemblies using multiple metagenomic assemblers, we selected one workflow that allowed us to recover a population genome of DWH O. desum with substantially improved quality: __metaSPAdes assembly of the Distal metagenome, followd by binning and curation with anvi'o__.
 
 The remaining of this blog post will describe our semi-reproducible workflow and general trends of the population genome that once dominated the oil plume.
 
 {:.notice}
 It is only 'semi-reproducible', becaue it assumes you have the metagenomic short reads from distal, proximal, and control sites published in Mason et al. in your work directory. If someone ever needs a fully reproducible version of this workflow, and feel too lazy to download the metagenomes themselves, they should e-mail Meren, and he will make available compressed archives for short reads.
 
-If you have other things to do, here is the quick summary of what we have:
+## Summary and citable DOIs
 
-**DWH O. desum v2 is 2.81 Mbp long, 97.1% complete, 0% redundant**, the **Average Nucleotide Identity (ANI) between DWH O. desum v1 and v2 is 99.6% over a length of 1.04 Mbp**, which represents almost the entire length of DWH O. Desum v1.
+You can download a copy of DWH O. desum v2 (a 2.81 Mbp long, 97.1% complete and 0% redundant near-complete population genome), and cite it in your work through this DOI:
+
+**FASTA file for DWH O. Desum**: [doi:10.6084/m9.figshare.5633344](https://doi.org/10.6084/m9.figshare.5633344){:target="_blank"}
+
+You can download the anvi'o contigs database and the merged profile database here:
+
+**Anvi'o files for DWH O. Desum**: [doi:10.6084/m9.figshare.5633347](https://doi.org/10.6084/m9.figshare.5633347){:target="_blank"}
+
+Contents of the package above is the result of the workflow detailed in the rest of this post. It simply gives you acceess to the read recruitment results from three oil spill metagenomes that are used to recover the population genome among other sweets.
 
 ## Analyzing a metaSPAdes assembly of the Distal metagenome
 
-We analyzed the metaSPAdes assembly output and the mapped reads altogether using the [metagenomic workflow](http://merenlab.org/2016/06/22/anvio-tutorial-v2/) of anvi'o v2.4.0 (the entire analysis took about 2 days).
+We analyzed the metaSPAdes assembly output and the mapped reads altogether using the [metagenomic workflow](http://merenlab.org/2016/06/22/anvio-tutorial-v2/){:target="_blank"} of anvi'o v2.4.0 (the entire analysis took about 2 days).
 
 What follows is a brief summary of our reproducible workflow.
 
@@ -167,13 +175,17 @@ anvi-merge */PROFILE.db \
            -c CONTIGS.db
 ```
 
+{:.notice}
+You can download these results from [doi:10.6084/m9.figshare.5633347](https://doi.org/10.6084/m9.figshare.5633347){:target="_blank"}, and follow the rest of the post on your computer.
+
 ### Manual binning 
 
 We then transferred the anvi'o files we have generated into a laptop, and used this program to invoke the anvi'o interactive interface for manual binning:
 
 ``` bash
 anvi-interactive -c CONTIGS.db \
-                 -p MERGED/PROFILE.db
+                 -p MERGED/PROFILE.db \
+                 -s MERGED/SAMPLES.db
 ```
 
 {:.notice}
@@ -218,7 +230,9 @@ Here are some statistics about this remarkable population genome:
 
 * __Taxonomy__: [CheckM](http://genome.cshlp.org/content/early/2015/05/14/gr.186072.114) links DWH O. Desum v2 to the family Oceanospirillaceae but cannot resolve its taxonomy at the genus level.
 
-* __Similarity to '_Ca_ Bermanella macondoprimitus'__: Average Nucleotide Identity (ANI) between DWH O. Desum v2 and the '_Ca_ B. macondoprimitus' population genome characterized by [Hu et al. (2017)](http://www.pnas.org/content/114/28/7432.full) from an incubation experiment mimicking the oil plume is 84.3% over 0.95 Mbp. Thus, these two high-quality population genomes (one from the oil plume, the other from an incubation experiment) are very different and likely belong to different genera within the family Oceanospirillaceae.
+* __Similarity to DWH O. desum v1__: The Average Nucleotide Identity (ANI) between DWH O. desum v1 and v2 is **99.6% over a length of 1.04 Mbp**, which represents almost the entire length of DWH O. Desum v1.
+
+* __Similarity to '_Ca_ Bermanella macondoprimitus'__: The Average Nucleotide Identity (ANI) between DWH O. Desum v2 and the '_Ca_ B. macondoprimitus' by [Hu et al. (2017)](http://www.pnas.org/content/114/28/7432.full) is **84.3% over 0.95 Mbp**. Thus, these two high-quality population genomes (one from the oil plume, the other from an incubation experiment) are very different and likely belong to different genera within the family Oceanospirillaceae.
 
 * __alkB gene for oil degradation__: DWH O. Desum v2 does not contain the AlkB gene suggested by [Hu et al. (2017)](http://www.pnas.org/content/114/28/7432.full) to represent the key oil degrading capability of the oil plume bacterial population. This is likely a critical ecological difference between the oil plume population, and the incubation population. Note that to demonstrate the absence of this gene in DWH O. Desum v2, we BLAST searched alkB gene from Hu et al., (2017) against its genomic content (this was done through the RAST platform). The best hit had an e-value of 0.011, and a bit score of 38. 
 
