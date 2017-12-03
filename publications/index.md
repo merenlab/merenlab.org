@@ -44,6 +44,21 @@ comments: false
 </div>
 
 <div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s40168-017-0270-x"></div>
+    <h3><a href=" https://doi.org/10.1186/s40168-017-0270-x" target="_new">Tracking microbial colonization in fecal microbiota transplantation experiments via genome-resolved metagenomics.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Lee, S. T. M.</span>, Kahn, S. A., <span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Shaiber, A.</span>, <span class="pub-member-author">Esen, Ö. C.</span>, Hubert, N. A., Morrison, H. G., Antonopoulos, D. A., Rubin, D. T., and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="http://i.imgur.com/4e4Ic4u.jpg"><img src="http://i.imgur.com/4e4Ic4u.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- An FMT study with metagenome-assembled genomes (see <a href="http://merenlab.org/data/#lee-et-al-2017--fecal-transplants" target="_blank">public data</a>).</span><br><span style="display: inline-block; padding-bottom: 5px;">- Bacteroidales: high-colonization rate. Clostridiales: low colonization rate. Colonization success is negatively correlated with the number of genes related to sporulation.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  MAGs with the same taxonomy showed different colonization properties, highlighting the importance of high-resolution analyses.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Populations colonized both recipients were also prevalent in the HMP cohort (and the ones that did not, distribute sporadically across the HMP cohort).</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>Microbiome</i>. <b>5:50</b></span>
+</div>
+
+<div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1073/pnas.1712186114"></div>
     <h3><a href=" https://doi.org/10.1073/pnas.1712186114" target="_new">Simulations predict microbial responses in the environment? This environment disagrees retrospectively.</a></h3>
     <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, and <span class="pub-member-author">Eren, A. M</span>.</span>
@@ -77,21 +92,6 @@ comments: false
     <h3><a href=" https://doi.org/10.1186/s13059-017-1309-9" target="_new">DESMAN: a new tool for de novo extraction of strains from metagenomes.</a></h3>
     <span class="pub-authors">Quince, C., <span class="pub-member-author">Delmont, T. O.</span>, Raguideau, S., Alneberg, J., Darling, A. E., Collins, G., and <span class="pub-member-author">Eren, A. M</span>.</span>
     <span class="pub-journal"><i>Genome Biology</i>. <b>18:181</b></span>
-</div>
-
-<div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s40168-017-0270-x"></div>
-    <h3><a href=" https://doi.org/10.1186/s40168-017-0270-x" target="_new">Tracking microbial colonization in fecal microbiota transplantation experiments via genome-resolved metagenomics.</a></h3>
-    <span class="pub-authors"><span class="pub-member-author">Lee, S. T. M.</span>, Kahn, S. A., <span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Shaiber, A.</span>, <span class="pub-member-author">Esen, Ö. C.</span>, Hubert, N. A., Morrison, H. G., Antonopoulos, D. A., Rubin, D. T., and <span class="pub-member-author">Eren, A. M</span>.</span>
-    <div class="pub-info">
-    <div class="pub-featured-image">
-    <a href="http://i.imgur.com/4e4Ic4u.jpg"><img src="http://i.imgur.com/4e4Ic4u.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
-    </div>
-    <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- An FMT study with metagenome-assembled genomes (see <a href="http://merenlab.org/data/#lee-et-al-2017--fecal-transplants" target="_blank">public data</a>).</span><br><span style="display: inline-block; padding-bottom: 5px;">- Bacteroidales: high-colonization rate. Clostridiales: low colonization rate. Colonization success is negatively correlated with the number of genes related to sporulation.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  MAGs with the same taxonomy showed different colonization properties, highlighting the importance of high-resolution analyses.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Populations colonized both recipients were also prevalent in the HMP cohort (and the ones that did not, distribute sporadically across the HMP cohort).</span>
-    </div>
-    </div>
-    <span class="pub-journal"><i>Microbiome</i>. <b>5:50</b></span>
 </div>
 
 <div class="pub">
