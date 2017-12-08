@@ -247,6 +247,10 @@ to get a newick-formatted tree for our genomes!
 
 Now you have a newick tree that shows you how your genomes relate to each other, and you can use the anvi'o interactive interface to immediately visualize this new tree:
 
+{:.notice}
+In manual mode, anvi'o will automatically generate an empty profile database upon its first initialization. For instance, even though you do not have the profile database `phylogenomic-profile.db` in your work directory if you are following the tutorial, when you run the command below, it will be automatically generated.
+
+
 ``` bash
 anvi-interactive -p phylogenomic-profile.db \
                  -t phylogenomic-tree.txt \
