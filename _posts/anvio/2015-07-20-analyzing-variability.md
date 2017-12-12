@@ -34,7 +34,7 @@ This article will describe some key aspects of the anvi'o workflow for the recov
 
 # Defining "*single nucleotide variation*"
 
-Depending on the complexity of a microbial cloud (i.e., the extent of monoclonality in it, or the lack thereof), metagenomic short reads that map to a reference context (i.e., a contig from a MAG or a cultivar genome) can generate one or more mismatches (unless the mapping software does not require a 100% sequence identity for alignment).
+Depending on the complexity of a microbial cloud (i.e., the extent of monoclonality in it, or the lack thereof), metagenomic short reads that map to a reference context (i.e., a contig from a MAG or a cultivar genome) can generate one or more mismatches (unless the mapping software requires a 100% sequence identity for alignment).
 
 Here we define 'variation' as the extent of disagreement between the aligned nucleotides that map to the same context. While the source of a mismatch can be artificial (i.e., due to random sequencing or PCR errors, or non-specific mapping of local alignments), it may also represent ecologically informative variation. The context is a single nucleotide position from the reference sequence. This disagreement is used to differentiate SNVs (generally in a minority of positions) from stable nucleotide positions upon 'base frequencies'. Note that SNVs are generally dominated by two nucleotides (e.g., 60% of `A` and 40% of `T`) but can also represent three or four nucleotides in relatively high proportions.
 
