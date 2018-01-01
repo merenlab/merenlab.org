@@ -14,7 +14,7 @@ comments: true
 {:.notice}
 We used to have a virtual box, but we no longer serve it.
 
-You can start using oligotyping from within a [Docker](https://www.docker.com/https://www.docker.com/) image without installing anything on your computer.
+You can start using oligotyping from within a [Docker](https://www.docker.com/) image without installing anything on your computer.
 
 ## Running the oligotyping docker image (for Linux users)
 
