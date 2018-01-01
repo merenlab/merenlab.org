@@ -188,17 +188,42 @@ You can create multiple bins with multiple selections, and even give them meanin
 
 [![31 Prochlorococcus collection]({{images}}/pc-collection.png)]({{images}}/pc-collection.png){:.center-img .width-60}
 
-Then you can save your selection as a "collection", and then run the `anvi-summarize` to generate a summary. Which would be as simple as this:
+You can store your selections as a collection in the pan database.
+
+## Advanced access to gene clusters
+
+This is a new feature that is included for the first time in anvi'o `v4`, and this part of the tutorial will need to be improved with good examples, but for now, please take a look at the `ADVANCED FILTERS` section of the output:
 
 ``` bash
-$ anvi-summarize -p PROJECT-PAN.db -g PROJECT-PAN-GENOMES.h5 -C COLLECTION_NAME -o PROJECT-SUMMARY
+anvi-get-sequences-for-gene-clusters --help
+```
+
+Here is [a bit more information on this](https://github.com/merenlab/anvio/issues/668#issuecomment-354195886).
+
+
+## Summarizing an anvi'o pan genome
+
+When you store your selections of gene clusters as a collection, anvi'o will allow you to summarize these results.
+
+{:.notice}
+Even if you want to simply summarize everything in the pan gneome without making any selections in the interface, you still will need a collection in the pan database. But luckily, you can use the program `anvi-script-add-default-collection` to add a default collection that contains every gene cluster.
+
+The summary step gives you two important things: a static HTML web page you can compress and share with your colleagues or add into your publication as a supplementary data file, and a copmrehensive TAB-delimited file in the output directory that describes every gene cluster.
+
+You can summarize a collection using the program `anvi-summarize`, and a generic form of this command looks like this:
+
+``` bash
+$ anvi-summarize -p PROJECT-PAN.db \
+                 -g PROJECT-PAN-GENOMES.h5 \
+                 -C COLLECTION_NAME \
+                 -o PROJECT-SUMMARY
 ```
 
 If you open the `index.html` file in the summary directory, you will see an output with some essential information about the analysis:
 
 [![31 summary]({{images}}/summary.png)]({{images}}/summary.png){:.center-img .width-60}
 
-As well as a TAB-delimited file that describes every gene cluster:
+As well as the TAB-delimited file for gene clusters:
 
 [![31 summary]({{images}}/summary-file.png)]({{images}}/summary-file.png){:.center-img .width-60}
 
@@ -220,7 +245,7 @@ The structure of this file will look like this, and will give you an opportunity
 |5049|PC_00001653||NATL2A|49604|COG1087|UDP-glucose 4-epimerase|M|Cell wall/membrane/envelope biogenesis|MRVLLTGGSGFIGSHVALLL(...)|
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 
-The summary directory is a self-contained, static HTML output you can send to your colleagues, or add to your publications as a supplementary dataset. 
+This file will link each gene from each genome with every selection you've made and named through the interface or through the program `anvi-import-collection`, and will also give you access to the amino acid seqeunce and function of each gene.
 
 
 ## Final words
