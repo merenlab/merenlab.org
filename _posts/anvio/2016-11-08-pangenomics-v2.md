@@ -56,9 +56,9 @@ Even if you have a complete installation of anvi'o, the pangenomic workflow uses
 
 If your system is properly setup, this command should run without any errors:
 
-{% highlight bash %}
+``` bash
 $ anvi-self-test --suite pangenomics
-{% endhighlight %}
+```
 
 ## Generating an anvi'o genomes storage
 
@@ -98,9 +98,9 @@ Thanks to these two files, genome bins in anvi'o collections and cultivar genome
 
 Once you have your genomes storage ready, you can use the program `anvi-pan-genome` to run the actual pangenomic analysis. This is the simplest form of this command:
 
-{% highlight bash %}
+``` bash
 $ anvi-pan-genome -g MY-GENOMES.h5 -n PROJECT_NAME
-{% endhighlight %}
+```
 
 When you run it, `anvi-pan-genome`,
 
@@ -133,15 +133,15 @@ You need another parameter? Well, of course you do! Let us know, and let's have 
 
 Once you are done, a new directory with your analysis results will appear. Among other files, it will contain an anvi'o pan database, and an anvi'o [samples database]({% post_url anvio/2015-11-10-samples-db %}). If you would like to update the samples database, you can edit the `*-samples-information.txt` or `*-samples-order.txt` files and re-create an updated samples database using the program `anvi-gen-samples-database` as explained [here]({% post_url anvio/2015-11-10-samples-db %}/#the-command-line-to-generate-the-database). 
 
-## Displaying and exploring the pan genome
+## Displaying the pan genome
 
 Once your analysis is done, you will use the program `anvi-display-pan` to display your results.
 
 This is the simplest form of this command:
 
-{% highlight bash %}
+``` bash
 $ anvi-display-pan -p PROJECT-PAN.db -s PROJECT-PAN-SAMPLES.db -g PROJECT-PAN-GENOMES.h5
-{% endhighlight %}
+```
 
 The program `anvi-display-pan` is very similar to the program `anvi-interactive`, and the interface that will welcome you is nothing but the standard [anvi'o interactive interface]({% post_url anvio/2016-02-27-the-anvio-interactive-interface %}/#using-the-anvio-interactive-interface) with slight adjustments for pangenomic analyses. Of course `anvi-display-pan` will allow you to set the IP address and port number to serve, add additional view data, additional layers, and/or additional trees, and more. Please familiarize yourself with it by running `anvi-display-pan -h` in your terminal.
 
@@ -165,6 +165,8 @@ Well, this is exactly where you need to start using the interface more efficient
 
 No excuses for bad looking pangenomes.
 
+## Inspecting gene clusters
+
 Every protein cluster in your analysis will contain one or more amino acid sequences that originate from one or more genomes. While there will likely be a 'core' section, in which all protein cluster will appear in every genome, it is also common to find protein clusters that contain more than one gene call from a single genome (i.e., all multi-copy genes in a given genome will end up in the same protein cluster). Sooner or later you will start getting curious about some of the protein clusters, and want to learn more about them. Luckily you can right-click on to any protein cluster, and you would see this menu (or maybe even more depending on when you are reading this article):
 
 [![31 Prochlorococcus final]({{images}}/pc-right-click.png)]({{images}}/pc-right-click.png){:.center-img .width-80}
@@ -185,9 +187,9 @@ You can create multiple bins with multiple selections, and even give them meanin
 
 Then you can save your selection as a "collection", and then run the `anvi-summarize` to generate a summary. Which would be as simple as this:
 
-{% highlight bash %}
+``` bash
 $ anvi-summarize -p PROJECT-PAN.db -g PROJECT-PAN-GENOMES.h5 -C COLLECTION_NAME -o PROJECT-SUMMARY
-{% endhighlight %}
+```
 
 If you open the `index.html` file in the summary directory, you will see an output with some essential information about the analysis:
 
