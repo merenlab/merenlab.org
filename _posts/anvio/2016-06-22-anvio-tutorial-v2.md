@@ -390,12 +390,12 @@ Here is some additional information about the interactive interface (please see 
 
 
 
-### anvi-gen-samples-info-database
+### anvi-[import|export|delete]-misc-data
 
-This is an optional database purely to improve visualization. Please see this article for more information:
+Anvi'o profile databases allow you to add or remove additional data for your items or layers. This is a very important functionality for better data exploration and communication. Please see [this post]({% post_url anvio/2017-12-11-additional-data-tables %}) for more information and to familiarize yourself with it.
 
-- [**Anvi'o samples database**]({% post_url anvio/2015-11-10-samples-db %}).
-
+{:.notice}
+This functionality will not be available to you if you are using anvi'o `v3` or earlier. Please make sure you are using the latest stable version of anvi'o, which is `v{% include _project-anvio-version-number.html %}`.
 
 ### anvi-summarize
 
