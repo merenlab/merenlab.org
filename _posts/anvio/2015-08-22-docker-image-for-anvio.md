@@ -13,7 +13,7 @@ authors: [meren]
 
 {% include _toc.html %}
 
-If you are reading this, you probably already know what [Docker](https://www.docker.com/https://www.docker.com/) is. If you don't know, here is a quote from their web site:
+If you are reading this, you probably already know what [Docker](https://www.docker.com/) is. If you don't know, here is a quote from their web site:
 
 <blockquote>
 An open platform for distributed applications for developers and sysadmins.
