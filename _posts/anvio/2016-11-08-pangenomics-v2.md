@@ -17,18 +17,21 @@ redirect_from: /2015/11/14/pangenomics/
 This pangenomic workflow is for `2.1.0` and later versions of anvi'o. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal. If your anvi'o installation is `v2.0.2` or earlier, you can follow the pangenomic workflow described [here]({% post_url anvio/2015-11-14-pangenomics-v1 %}) (and not read this one to not be upset about what you are missing).
 
 {:.notice}
+With changed all instances of the term '**protein cluster**' in our pangenomic workflow with '**gene cluster**' in anvi'o `v4`. The reason behind this change is detailed [here](https://github.com/merenlab/anvio/issues/644).
+
+{:.notice}
 {% include _fixthispage.html source="anvio/2016-11-08-pangenomics-v2.md" %}
 
 {% capture images %}{{site.url}}/images/anvio/2016-11-08-pan-genomics{% endcapture %}
 
 With the [anvi'o](https://peerj.com/articles/1319/) pangenomic workflow you can,
 
-* **Identify protein clusters**,
-* **Visualize** the distribution of protein clusters across your genomes,
-* **Organize** genomes based on shared protein clusters,
-* Interactively (or programmatically) **bin protein clusters** into collections, and **summarize your bins**,
-* **Annotate** your genes, and **inspect** amino acid alignments within your protein clusters,
-* Extend your pangenome with **contextual information** about your genomes or protein clusters,
+* **Identify gene clusters** among your genomes,
+* **Visualize** the distribution of gene clusters across your genomes,
+* **Estimate relationships** between your genomes based on shared gene clusters,
+* Interactively (or programmatically) **bin gene clusters** into collections, and **summarize your bins**,
+* **Annotate** your genes, and **inspect** amino acid alignments within your gene clusters,
+* Extend your pangenome with **contextual information** about your genomes or gene clusters,
 * **Combine metagenome-assembled genomes** from your anvi'o projects directly **with cultivar genomes** from other sources.
 
 {:.notice}
@@ -42,7 +45,7 @@ The anvi'o pangenomic workflow is composed of three main steps:
 * Generating an anvi'o pan database using the program `anvi-pan-genome` (which requires a genomes storage)
 * Displaying results using the program `anvi-display-pan` (which requires a genomes storage and an anvi'o pan database).
 
-You can then use the interactive interface to bin your protein clusters into collections, or use the program `anvi-import-collection` to import bins for your protein clusters, and finally you can use the program `anvi-summarize` to create a static HTML summary of your results. Easy peasy!
+You can then use the interactive interface to bin your gene clusters into collections, or use the program `anvi-import-collection` to import bins for your gene clusters, and finally you can use the program `anvi-summarize` to create a static HTML summary of your results. Easy peasy!
 
 Following sections will detail each step, and finally an example run will follow, but let's first make sure you have all the dependencies installed and your installation is good to go.
 
@@ -52,7 +55,7 @@ Even if you have a complete installation of anvi'o, the pangenomic workflow uses
 
 * DIAMOND or NCBI's blastp for search.
 * [MCL]({% post_url anvio/2016-06-18-installing-third-party-software %}#mcl) for clustering.
-* [muscle]({% post_url anvio/2016-06-18-installing-third-party-software %}#muscle) for alignment. Which is optional. If you don't have it, amino acid sequences within your protein clusters will not be aligned, and will look ugly.
+* [muscle]({% post_url anvio/2016-06-18-installing-third-party-software %}#muscle) for alignment. Which is optional. If you don't have it, amino acid sequences within your gene clusters will not be aligned, and will look ugly.
 
 If your system is properly setup, this command should run without any errors:
 
@@ -115,16 +118,16 @@ When you run it, `anvi-pan-genome`,
 
 * Will use every gene call, whether they are complete or not. Although this is not a big concern for complete genomes, metagenome-assembled genomes (MAGs) will have many incomplete gene calls at the end and at the beginning of contigs. Our experiments so far suggest that they do not cause major issues, but if you want to exclude them, you can use the `--exclude-partial-gene-calls` flag.
 
-* Will use the *minbit heuristic* that was originally implemented in ITEP ([Benedict et al, 2014](http://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-15-8)) to eliminate weak matches between two protein sequences. You see, the pangenomic workflow first identifies proteins that are somewhat similar by doing similarity searches, and then resolves clusters based on those similarities. In this scenario, weak similarities can connect protein clusters that should not be connected. Although the network partitioning algorithm can recover from these weak connections, it is always better to eliminate as many noise as possible at every step. So the minbit heuristic provides a mean to set a to eliminate weak matches between two protein sequences. We learned it from ITEP (Benedict MN et al, doi:10.1186/1471-2164-15-8), which is another comprehensive analysis workflow for pangenomes, and decided to use it because it makes a lot of sense. Briefly, If you have two protein sequences, `A` and `B`, the minbit is defined as `BITSCORE(A, B) / MIN(BITSCORE(A, A), BITSCORE(B, B))`. So the minbit score between two sequences goes to `1.0` if they are very similar over the entire length of the 'shorter' protein sequence, and goes to `0.0` if (1) they match over a very short stretch compared even to the length of the shorter protein sequence or (2) the match betwen sequence identity is low. The default minbit is `0.5`, but you can change it using the parameter `--minbit`.
+* Will use the *minbit heuristic* that was originally implemented in ITEP ([Benedict et al, 2014](http://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-15-8)) to eliminate weak matches between two protein sequences. You see, the pangenomic workflow first identifies proteins that are somewhat similar by doing similarity searches, and then resolves clusters based on those similarities. In this scenario, weak similarities can connect gene clusters that should not be connected. Although the network partitioning algorithm can recover from these weak connections, it is always better to eliminate as many noise as possible at every step. So the minbit heuristic provides a mean to set a to eliminate weak matches between two protein sequences. We learned it from ITEP (Benedict MN et al, doi:10.1186/1471-2164-15-8), which is another comprehensive analysis workflow for pangenomes, and decided to use it because it makes a lot of sense. Briefly, If you have two protein sequences, `A` and `B`, the minbit is defined as `BITSCORE(A, B) / MIN(BITSCORE(A, A), BITSCORE(B, B))`. So the minbit score between two sequences goes to `1.0` if they are very similar over the entire length of the 'shorter' protein sequence, and goes to `0.0` if (1) they match over a very short stretch compared even to the length of the shorter protein sequence or (2) the match betwen sequence identity is low. The default minbit is `0.5`, but you can change it using the parameter `--minbit`.
 
 {:.notice}
 This parameter has wrongly named as `maxbit` in anvi'o `v2.4.0` and earlier versions. [Please take a look at the relevant issue](https://github.com/merenlab/anvio/issues/581) if you are using an anvi'o version that is impacted by this typo.
 
-* Will use the [MCL](http://micans.org/mcl/) algorithm ([van Dongen and Abreu-Goodger, 2012](http://www.ncbi.nlm.nih.gov/pubmed/22144159)) to identify clusters in protein similarity search results. We use `2` as the *MCL inflation parameter* by default. This parameter defines the sensitivity of the algorithm during the identification of the protein clusters. More sensitivity means more clusters, but of course more clusters does not mean better inference of evolutionary relationships. More information on this parameter and it's effect on cluster granularity is here [http://micans.org/mcl/man/mclfaq.html#faq7.2](http://micans.org/mcl/man/mclfaq.html#faq7.2), but clearly, we, the metagenomics people will need to talk much more about this. So far in the Meren Lab we have been using `2` if we are comparing many distantly related genomes (i.e., genomes classify into different families or farther), and `10` if we are comparing very closely related genomes (i.e., 'strains' of the same 'species' (whatever they mean to you)). You can change it using the parameter `--mcl-inflation`. Please experiment yourself, and consider reporting!
+* Will use the [MCL](http://micans.org/mcl/) algorithm ([van Dongen and Abreu-Goodger, 2012](http://www.ncbi.nlm.nih.gov/pubmed/22144159)) to identify clusters in protein similarity search results. We use `2` as the *MCL inflation parameter* by default. This parameter defines the sensitivity of the algorithm during the identification of the gene clusters. More sensitivity means more clusters, but of course more clusters does not mean better inference of evolutionary relationships. More information on this parameter and it's effect on cluster granularity is here [http://micans.org/mcl/man/mclfaq.html#faq7.2](http://micans.org/mcl/man/mclfaq.html#faq7.2), but clearly, we, the metagenomics people will need to talk much more about this. So far in the Meren Lab we have been using `2` if we are comparing many distantly related genomes (i.e., genomes classify into different families or farther), and `10` if we are comparing very closely related genomes (i.e., 'strains' of the same 'species' (whatever they mean to you)). You can change it using the parameter `--mcl-inflation`. Please experiment yourself, and consider reporting!
 
-* Will utilize every protein cluster, even if they occur in only one genome in your analyses. Of course, the importance of singletons or doubletons will depend on the number of genomes in your analysis, or the question you have in mind. However, if you would like to define a cut-off, you can use the parameter `--min-occurrence`, which is 1, by default. Increasing this cut-off will improve the clustering speed and make the visualization much more manageable, but again, this parameter should be considered in the context of each study.
+* Will utilize every gene cluster, even if they occur in only one genome in your analyses. Of course, the importance of singletons or doubletons will depend on the number of genomes in your analysis, or the question you have in mind. However, if you would like to define a cut-off, you can use the parameter `--min-occurrence`, which is 1, by default. Increasing this cut-off will improve the clustering speed and make the visualization much more manageable, but again, this parameter should be considered in the context of each study.
 
-* Will use `euclidean` distance and `ward` linkage to organize protein clusters and genomes. You can change those using `--distance` and `--linkage` parameters.
+* Will use `euclidean` distance and `ward` linkage to organize gene clusters and genomes. You can change those using `--distance` and `--linkage` parameters.
 
 * Will try to utilize previous search results if there is already a directory. This way you can play with the `--minbit`, `--mcl-inflation`, or `--min-occurrence` parameters without having to re-do the protein search.  However, if you have changed something, either you need to remove the output directory, or use the `--overwrite-output-destinations` flag to redo the search.
 
@@ -149,7 +152,7 @@ Here is an example to show how the pangenomic analysis of 31 *Prochlorococcus* g
 
 [![31 Prochlorococcus raw]({{images}}/prochlorococcus-pangenomics-raw.png)]({{images}}/prochlorococcus-pangenomics-raw.png){:.center-img .width-60}
 
-Looks ugly. But do not despair. For instance, to improve things a little, you may like to organize your genomes based on protein clustering results by selecting the 'PC frequencies' tree from the Samples Tab > Sample Order menu:
+Looks ugly. But do not despair. For instance, to improve things a little, you may like to organize your genomes based on gene clustering results by selecting the 'gene_cluster frequencies' tree from the Samples Tab > Sample Order menu:
 
 [![31 Prochlorococcus samples]({{images}}/prochlorococcus-pangenomics-samples-tab.png)]({{images}}/prochlorococcus-pangenomics-samples-tab.png){:.center-img .width-80}
 
@@ -167,17 +170,17 @@ No excuses for bad looking pangenomes.
 
 ## Inspecting gene clusters
 
-Every protein cluster in your analysis will contain one or more amino acid sequences that originate from one or more genomes. While there will likely be a 'core' section, in which all protein cluster will appear in every genome, it is also common to find protein clusters that contain more than one gene call from a single genome (i.e., all multi-copy genes in a given genome will end up in the same protein cluster). Sooner or later you will start getting curious about some of the protein clusters, and want to learn more about them. Luckily you can right-click on to any protein cluster, and you would see this menu (or maybe even more depending on when you are reading this article):
+Every gene cluster in your analysis will contain one or more amino acid sequence that originate from one or more genomes. While there will likely be a 'core' section, in which all gene cluster will appear in every genome, it is also common to find gene clusters that contain more than one gene call from a single genome (i.e., all multi-copy genes in a given genome will end up in the same gene cluster). Sooner or later you will start getting curious about some of the gene clusters, and want to learn more about them. Luckily you can right-click on to any gene cluster, and you would see this menu (or maybe even more depending on when you are reading this article):
 
 [![31 Prochlorococcus final]({{images}}/pc-right-click.png)]({{images}}/pc-right-click.png){:.center-img .width-80}
 
-For instance, if you click 'Inspect PC', you will see all the amino acid sequences from each genome that went into that protein cluster (with the same order and background colors of genomes as they are arranged in the main display):
+For instance, if you click 'Inspect gene cluster', you will see all the amino acid sequences from each genome that went into that gene cluster (with the same order and background colors of genomes as they are arranged in the main display):
 
 [![31 Prochlorococcus final]({{images}}/pc-inspect.png)]({{images}}/pc-inspect.png){:.center-img .width-60}
 
-It is not only fun but also very educational to go through protein clusters one by one. Fine. But what do you do if you want to make sense of large selections?
+It is not only fun but also very educational to go through gene clusters one by one. Fine. But what do you do if you want to make sense of large selections?
 
-As you already know, the anvi'o interactive interface allows you to make selections from the tree. So you can select groups of protein clusters into bins (don't mind the numbers on the left panel, there clearly is a bug, and will be fixed in your version):
+As you already know, the anvi'o interactive interface allows you to make selections from the tree. So you can select groups of gene clusters into bins (don't mind the numbers on the left panel, there clearly is a bug, and will be fixed in your version):
 
 [![31 Prochlorococcus selection]({{images}}/pc-selection.gif)]({{images}}/pc-selection.gif){:.center-img .width-80}
 
@@ -195,11 +198,11 @@ If you open the `index.html` file in the summary directory, you will see an outp
 
 [![31 summary]({{images}}/summary.png)]({{images}}/summary.png){:.center-img .width-60}
 
-As well as a TAB-delimited file that describes every protein cluster:
+As well as a TAB-delimited file that describes every gene cluster:
 
 [![31 summary]({{images}}/summary-file.png)]({{images}}/summary-file.png){:.center-img .width-60}
 
-The structure of this file will look like this, and will give you an opportunity to investigate your protein clusters in a more detailed manner (you may need to scroll towards right to see more of the table):
+The structure of this file will look like this, and will give you an opportunity to investigate your gene clusters in a more detailed manner (you may need to scroll towards right to see more of the table):
 
 |unique_id|protein_cluster_id|bin_name|genome_name|gene_callers_id|COG_FUNCTION_ACC|COG_FUNCTION|COG_CATEGORY_ACC|COG_CATEGORY|aa_sequence|
 |:--:|:--|:--|:--|:--|:--|:--|:--|:--|:--|
