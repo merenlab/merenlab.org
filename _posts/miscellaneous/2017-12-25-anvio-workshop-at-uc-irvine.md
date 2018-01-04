@@ -14,6 +14,8 @@ image:
 
 {% capture images %}{{site.url}}/images/miscellaneous/2017-12-25-anvio-workshop-at-uc-irvine{% endcapture %}
 
+
+
 {:.notice}
 **[Please fill this form](https://docs.google.com/forms/d/e/1FAIpQLSc7NwT5H502Feict9lkpmb2LTxtz7ny4MMenAMCwQVe_iPSEw/viewform?usp=sf_link){:target="_blank"}** if you are interested in attending to this workshop.
 
@@ -26,6 +28,15 @@ We are are happy to announce a 2-day workshop at the [University of California, 
 
 {:.notice}
 Some quick info on logistics. The even will be held in **Room 3008 Calit2**. **Directions and parking**: [http://goo.gl/2nAdTu](http://goo.gl/2nAdTu). **Visitor parking permits**: [Parking permits](https://www.parking.uci.edu/permits/visitorpermits.cfm).
+
+
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Thanks!</span>
+
+This workshop is hosted by **[UCI Microbiome Initiative](http://microbiome.uci.edu/)**. We thank them for their interest and support!
+</div>
 
 
 * The workshop will take place at the University of California, Irvine, and more specifically in Calit2 Seminar Room 3008 on the **19<sup>th</sup> and 20<sup>th</sup> of March, 2018**.
