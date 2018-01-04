@@ -315,8 +315,8 @@ anvi-pan-genome -g Prochlorococcus-PAN-GENOMES.h5 \
                 --use-ncbi-blast \
                 --minbit 0.5 \
                 --mcl-inflation 10 \
-                -J Prochlorococcus-PAN \
-                -o Prochlorococcus-PAN -T 20
+                --project-name Prochlorococcus-PAN \
+                --num-threads 20
 ```
 
 and visualized it:
