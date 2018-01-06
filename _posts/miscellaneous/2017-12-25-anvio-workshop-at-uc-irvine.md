@@ -24,7 +24,7 @@ Other anvi'o workshops: [http://merenlab.org/2016/08/18/events/](http://merenlab
 
 We are are happy to announce a 2-day workshop at the [University of California, Irvine](https://uci.edu/)! We will keep this page up-to-date with more information as things get clearer. But here are some quick facts.
 
-![Workshop]({{images}}/flyer.png){:.center-img .width-60}
+![Workshop]({{images}}/flyer.png){:.center-img .width-80}
 
 {:.notice}
 Some quick info on logistics. The even will be held in **Room 3008 Calit2**. **Directions and parking**: [http://goo.gl/2nAdTu](http://goo.gl/2nAdTu). **Visitor parking permits**: [Parking permits](https://www.parking.uci.edu/permits/visitorpermits.cfm).
