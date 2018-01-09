@@ -35,7 +35,7 @@ Some quick info on logistics. The even will be held in **Room 3008 Calit2**. **D
 
 <span class="extra-info-header">Thanks!</span>
 
-This workshop is hosted by **[UCI Microbiome Initiative](http://microbiome.uci.edu/)**, and [the Joint SDSU-UCI PhD program](http://www.csrc.sdsu.edu/), which is accepting new applications for Fall 2018 (which includes quantitative biology), will kindly sponsor some of our coffee breaks. We thank them for their interest and support!
+This workshop is hosted by **[UCI Microbiome Initiative](http://microbiome.uci.edu/)**, and [the Joint SDSU-UCI PhD program](http://www.csrc.sdsu.edu/) will kindly sponsor some of our coffee breaks. We thank them for their interest and support!
 </div>
 
 
