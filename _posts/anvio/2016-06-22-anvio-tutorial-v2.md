@@ -439,9 +439,11 @@ Please read **[this article]({% post_url anvio/2015-05-11-anvi-refine %})** for 
 
 ## FAQ
 
+{% include _join-anvio-slack.html %}
+
 ### I run into an issue, whose fault is it?
 
-It is Tom's. But you can always enter a [bug report](https://github.com/meren/anvio/issues) if you are certain that it needs to be fixed in the anvi'o code base. If you are not sure, please come to [the anvi'o discussion group]({% post_url anvio/2015-10-14-anvio-discussion-group %}), and let's talk about it!
+It is Tom's. But you can always enter a [bug report](https://github.com/meren/anvio/issues) if you are certain that it needs to be fixed in the anvi'o code base. If you are not sure, please use the button above to join our Slack group, or come to [the anvi'o discussion group]({% post_url anvio/2015-10-14-anvio-discussion-group %}), and let's talk about it!
 
 ### There is something in this tutorial I want to fix
 

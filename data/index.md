@@ -8,6 +8,8 @@ comments: true
 
 This page serves the publicly available data mentioned in our publications, or in publications our group is involved. Please do not hesitate to get in touch if something is missing.
 
+{% include _join-anvio-slack.html %}
+
 {% include _toc.html %}
 
 ## Delmont and Eren (201?) / Metapangenomics

@@ -11,6 +11,17 @@ authors: [meren]
 
 {% include _toc.html %}
 
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">An alternative: Slack</span>
+
+This post is about joining our e-mail group, but we recognize Slack is a great way to communicate for lots of people.
+
+{% include _join-anvio-slack.html %}
+
+</div>
+
+
 We are very happy to see early responses from the community to anvi'o since the publication of the [anvi'o paper](https://peerj.com/articles/1319/) in PeerJ. We hope it continues!
 
 We decided that this might be a good time to start an e-mail list where people can ask questions if they run into issues during installation, or later while using the platform. Also an e-mail list can be very useful to send release notes, or other news regarding the platform.
