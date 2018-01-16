@@ -16,6 +16,25 @@ p {
    Header
    ========================================================================== */
 
+.slack-button {
+    background-color: #fff9e9;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin: 10px;
+    margin-bottom: 20px;
+    padding: 5px;
+    padding-top: 9px;
+    padding-left: 9px;
+}
+
+.slack-invitation {
+    position: relative;
+    top: -4px;
+    font-family: sans-serif;
+    font-size: medium;
+    font-variant: small-caps;
+}
+
 thead {
   display: table-header-group;
   vertical-align: middle;
