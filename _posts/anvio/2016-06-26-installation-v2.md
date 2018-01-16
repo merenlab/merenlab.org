@@ -15,7 +15,9 @@ comments: true
 
 This article explains basic steps of installing anvi'o using rather conventional methods.
 
-Please post a comment down below if you have any questions about the installation. You may want to consider opening an <a href="https://github.com/meren/anvio/issues">issue</a> for more technical problems.
+Please consider opening an <a href="https://github.com/meren/anvio/issues">issue</a> for technical problems, or join us on Slack if you need help:
+
+{% include _join-anvio-slack.html %}
 
 <div class="extra-info" markdown="1">
 
