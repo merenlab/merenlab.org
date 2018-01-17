@@ -16,7 +16,7 @@ authors: [elaina]
 {:.notice}
 **A note from the Meren Lab**: We are very thankful to Elaina for sharing her expertise on behalf of all anvi’o users who wished to import KEGG annotations into their workflows. Elaina is currently a third-year PhD student at the University of Southern California, where she uses her background in microbiology and molecular biology, and her learnings from genome-resolved metagenomics, to generate testable hypotheses regarding the diversity and functioning of microbial populations. She is the developer of [BinSanity](https://peerj.com/articles/3035/), which is an automated binning algorithm that was recently used in another study she co-authored to recover [more than two thousand metagenome-assembled genomes](https://www.nature.com/articles/sdata2017203) from the TARA Oceans Project.
 
-Genome annotation is a key step in analyzing bioinformatic data, but with a variety of available databases it can be difficult to decide where to start. One useful database is the [Kyoto Encyclopedia of Genes and Genomes (KEGG)](10.1093/nar/gkv1070). KEGG integrates functional information, biological pathways, and sequence similarity. GhostKOALA is an automatic annotation tool to assign KEGG Identifiers to metagenomes. GhostKOALA is a web server though so is it really worth it to annotate your contigs using this service over a program you can run locally, such as interproscan or the NCBI COGs database? Well one reason to use KEGG is that the database contains a variety of well described and environmentally important metabolic pathways with associated pathway maps available. Another is that GhostKOALA can handle metagenomes containing eukaryotes. KEGG is also widely used as a reference so KEGG identifiers can be easily cross linked in published literature. In my own experience using this workflow I found that making initial observations about the functional roles of the MAGs I generated was expedited because of the ability to quickly take KEGG Identifiers and import them into the BRITE mapping function of KEGG or using something like the [KEGG Decoder](https://github.com/bjtully/BioData/tree/master/KEGGDecoder) to get a visualization of functional potential. 
+Genome annotation is a key step in analyzing bioinformatic data, but with a variety of available databases it can be difficult to decide where to start. One useful database is the [Kyoto Encyclopedia of Genes and Genomes (KEGG)](http://doi.org/10.1093/nar/gkv1070). KEGG integrates functional information, biological pathways, and sequence similarity. GhostKOALA is an automatic annotation tool to assign KEGG Identifiers to metagenomes. GhostKOALA is a web server though, so is it really worth it to annotate your contigs using this service over a program you can run locally, such as interproscan or the NCBI COGs database? Well one reason to use KEGG is that the database contains a variety of well described and environmentally important metabolic pathways with associated pathway maps available. Another is that GhostKOALA can handle metagenomes containing eukaryotes. KEGG is also widely used as a reference so KEGG identifiers can be easily cross linked in published literature. In my own experience using this workflow I found that making initial observations about the functional roles of the MAGs I generated was expedited because of the ability to quickly take KEGG Identifiers and import them into the BRITE mapping function of KEGG or using something like the [KEGG Decoder](https://github.com/bjtully/BioData/tree/master/KEGGDecoder) to get a visualization of functional potential. 
 
 This tutorial walks you through annotating your contigs with [GhostKOALA](http://www.kegg.jp/ghostkoala/), and compiling the results into a format easily importable to your anvi'o contigs database using `KEGG-to-anvio`. You can download all of the associated scripts for this workflow [here](https://github.com/edgraham/GhostKoalaParser).
 
@@ -38,7 +38,7 @@ GhostKOALA is one of the few ways I have found to access KEGG gene calls for lar
 
 ### Export Anvio Gene Calls
 
-The first step to this is exporting amino acid sequences from your anvi'o contigs database. 
+The first step to this is exporting amino acid sequences from your anvi'o contigs database.
 
 ``` bash
  $ anvi-get-aa-sequences-for-gene-calls -c CONTIGS.db -o protein-sequences.fa
@@ -65,6 +65,7 @@ TYLRAEELGMGKHVAWAFASAIWLFLVLGLFRPILMGSWSEMVPYGI
 FPHLDWTNLFSLTYGNLFYNPFHALSIVFLYGSALLFAMHGATILAVSRYGGEREIEQIV
 DRGTASERAALFWRWTMGFNATMEGIHRWAWWFAVLTTLTGGIGILLTGTVVDNWFIWAQ
 DHGYAPLN
+(...)
 ```
 
 To remedy this, run this command on your FASTA file to add `genecall_` prefix to every defline in your FASTA file:
@@ -95,7 +96,6 @@ If no action is taken within 24 hours, your request will be deleted.
 ```
 
 Click the link that says 'Submit', and your run will begin processing.
- 
 
 {:.notice}
 The KEGG parser script also has the option to combine your GhostKOALA results with interproscan. If you want to incorporate both annotations from interproscan and KEGG in the same table, follow the tutorial [here](http://merenlab.org/2016/06/18/importing-functions/) to run interproscan, **but run interproscan with the flags** `-f tsv`, `--goterms`, `--iprlookup`, and `--pathways`. 
