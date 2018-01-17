@@ -51,6 +51,8 @@ This basically runs a local server for you to see the changes you've made locall
 
 With the `--incremental` flag every change you will make in any of the files will be reflected to your local website automatically.
 
+If you are not seeing some of the changes you expect to see, press `ctrl-c` to stop the server on your termianl, clean out the static web directory by running the command `rm -rf _site/`, and re-run the server using the command above.
+
 # How to get yourself fired from the lab
 
 It is simple.
