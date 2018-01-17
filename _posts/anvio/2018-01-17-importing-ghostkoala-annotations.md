@@ -14,7 +14,9 @@ authors: [elaina]
 {% include _toc.html %}
 
 {:.notice}
-**A note from the Meren Lab**: We are very thankful to Elaina for sharing her expertise on behalf of all anvi’o users who wished to import KEGG annotations into their workflows. Elaine is currently a third-year PhD student at the University of Southern California, where she uses her background in microbiology and molecular biology, and her learnings from genome-resolved metagenomics, to generate testable hypotheses regarding the diversity and functioning of microbial populations. She is the developer of [BinSanity](https://peerj.com/articles/3035/), which is an automated binning algorithm that was recently used in another study she co-authored to recover [more than two thousand metagenome-assembled genomes](https://www.nature.com/articles/sdata2017203) from the TARA Oceans Project.
+**A note from the Meren Lab**: We are very thankful to Elaina for sharing her expertise on behalf of all anvi’o users who wished to import KEGG annotations into their workflows. Elaina is currently a third-year PhD student at the University of Southern California, where she uses her background in microbiology and molecular biology, and her learnings from genome-resolved metagenomics, to generate testable hypotheses regarding the diversity and functioning of microbial populations. She is the developer of [BinSanity](https://peerj.com/articles/3035/), which is an automated binning algorithm that was recently used in another study she co-authored to recover [more than two thousand metagenome-assembled genomes](https://www.nature.com/articles/sdata2017203) from the TARA Oceans Project.
+
+Genome annotation is a key step in analyzing bioinformatic data, but with a variety of available databases it can be difficult to decide where to start. One useful database is the [Kyoto Encyclopedia of Genes and Genomes (KEGG)](10.1093/nar/gkv1070). KEGG integrates functional information, biological pathways, and sequence similarity. GhostKOALA is an automatic annotation tool to assign KEGG Identifiers to metagenomes. GhostKOALA is a web server though so is it really worth it to annotate your contigs using this service over a program you can run locally, such as interproscan or the NCBI COGs database? Well one reason to use KEGG is that the database contains a variety of well described and environmentally important metabolic pathways with associated pathway maps available. Another is that GhostKOALA can handle metagenomes containing eukaryotes. KEGG is also widely used as a reference so KEGG identifiers can be easily cross linked in published literature. In my own experience using this workflow I found that making initial observations about the functional roles of the MAGs I generated was expedited because of the ability to quickly take KEGG Identifiers and import them into the BRITE mapping function of KEGG or using something like the [KEGG Decoder](https://github.com/bjtully/BioData/tree/master/KEGGDecoder) to get a visualization of functional potential. 
 
 This tutorial walks you through annotating your contigs with [GhostKOALA](http://www.kegg.jp/ghostkoala/), and compiling the results into a format easily importable to your anvi'o contigs database using `KEGG-to-anvio`. You can download all of the associated scripts for this workflow [here](https://github.com/edgraham/GhostKoalaParser).
 
@@ -73,7 +75,7 @@ To remedy this, run this command on your FASTA file to add `genecall_` prefix to
 
 Your FASTA file is now ready to be submitted to GhostKOALA for annotation.
 
-To do this go to the [GhostKOALA webserver](http://www.kegg.jp/ghostkoala/), and click teh "Choose File" button underneath the section that says **Upload query amino acid sequences in FASTA format**. From the menu you will upload your `protein-sequences.fa`, and will be asked to provide an email address.
+To do this go to the [GhostKOALA webserver](http://www.kegg.jp/ghostkoala/), and click the "Choose File" button underneath the section that says **Upload query amino acid sequences in FASTA format**. From the menu you will upload your `protein-sequences.fa`, and will be asked to provide an email address.
 
 {:.notice}
 You can only run one instance of GhostKOALA at a time per email address.
@@ -125,7 +127,7 @@ Because the KEGG database is currently working under a subscription model, I had
 wget 'http://www.genome.jp/kegg-bin/download_htext?htext=ko00000.keg&format=htext&filedir=' -O ko00000.keg
 ```
 
-Once it is finished, you can use this (not-so-beautiful) code snippet to parse that file into the table above. It should work if you simply copy-paste it into your terminal and have the file `ko00001.keg` in your work directory:
+Once it is finished, you can use this (not-so-beautiful) code snippet to parse that file into the table above. It should work if you simply copy-paste it into your terminal and have the file `ko00001.keg` in your working directory:
 
 ``` bash
 kegfile="ko00001.keg"
@@ -151,7 +153,7 @@ Now that you know how I generated the `KO_Orthology_ko00001.txt` lets get back t
 
 Once GhostKOALA has finished running it will send you an email with a link to the results.
 
-Download the annotation file, which will be called `user_ko.txt`, and make sure the results should look like this:
+Download the annotation file, which will be called `user_ko.txt`, and make sure the results look like this:
 
 ``` bash
  $ head user_ko.txt
