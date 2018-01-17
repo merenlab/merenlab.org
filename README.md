@@ -19,6 +19,12 @@ git clone https://github.com/merenlab/web.git
 cd web
 ```
 
+To make sure you have the necesary gems, run:
+
+```
+bundle install
+```
+
 And run the following command in this directory:
 
 ```
