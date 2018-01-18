@@ -176,3 +176,8 @@ Well.
 There are some hits that resolve to the same 'species' name and very likely represent different operons of the same population, and others that resolve to the same 'species' name but closely matching to different references. Clearly abundance plays a critical role here and the number of copies of rRNA genes coming from the same population should have a linear correlation with its abundance in the metagenome. It is funny to think about the fact that we used to get almost none of them with short assembly, now with long-read sequencing we will probably get way too many.
 
 These will get much clearer when we are done with mapping, and start looking at them in the context of the population genomes we generated using the Illumina short reads from the same donor gut.
+
+---
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">New blog post on how to take a quick look at <a href="https://twitter.com/hashtag/MinION?src=hash&amp;ref_src=twsrc%5Etfw">#MinION</a> contigs and recover ribosomal RNA sequences from a run.<br><br>We probably will SPAM you with little bits an pieces of information like this as we start experimenting with nanopore sequencing: <a href="https://t.co/KhZc0gPUbg">https://t.co/KhZc0gPUbg</a> <a href="https://twitter.com/hashtag/anvio?src=hash&amp;ref_src=twsrc%5Etfw">#anvio</a></p>&mdash; A. Murat Eren (@merenbey) <a href="https://twitter.com/merenbey/status/954114492656488448?ref_src=twsrc%5Etfw">January 18, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
