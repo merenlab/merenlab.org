@@ -200,7 +200,7 @@ If you are running COGs for the first time, you will need to set them up on your
 
 ### anvi-import-functions
 
-Anvi'o also can make good use of functional annotations you already have for your genes. Please see the following post to see how to import functions into anvi'o:
+Anvi'o also can make good use of functional annotations you already have for your genes. The following post describes multiple ways to import functions into anvi'o:
 
 - [**Importing functions into anvi'o**]({% post_url anvio/2016-06-18-importing-functions %}).
 
