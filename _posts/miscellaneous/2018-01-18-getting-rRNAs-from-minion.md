@@ -15,13 +15,13 @@ We just started playing with our human gut fecal samples using MinION to get our
 
 Besides all the amazing things long-read sequencers offer, they also come with multiple challenges both at the bench side (such as the difficulties associated with recovering high-molecular weight and high-concentration DNA from samples) and the computational side (such as high rates of substitution errors as well as in/dels that were out of our lives thanks to Illumina). These are particularly serious issues if your focus is genome-resolved metagenomics. Nothing in life seems to just come only with good things. #SAD.
 
-There is not much on our end to talk about yet. Yet with this post we will start simple, and maybe we will have a series of tutorials regarding how to play with MinION data in anvi'o in the long run hopefully with your suggestions and/or questions. Do you have a clear idea what anvi'o could do for you to make sense of you MinION data? Let us know! Also feel free to drop a line if you are curious about the run time, input DNA concentration, size selection, etc.
+There is not much on our end to talk about yet. Yet with this post we will start simple, and maybe we will have a series of tutorials regarding how to play with MinION data in anvi'o in the long run hopefully with your suggestions and/or questions. Do you have a clear idea what anvi'o could do for you to make sense of your MinION data? Let us know! Also feel free to drop a line if you are curious about the run time, input DNA concentration, size selection, etc.
 
 {% include _join-anvio-slack.html %}
 
 ---
 
-Basically, yesterday [Andrea](https://twitter.com/c4vansite) shared with me our very first MinION results from the sequencing of one the donor gut fecal samples from this study:
+Basically, yesterday [Andrea](https://twitter.com/c4vansite) shared with me our very first MinION results from the sequencing of one of the donor gut fecal samples from this study:
 
 * [Tracking microbial colonization in fecal microbiota transplantation experiments via genome-resolved metagenomics](https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-017-0270-x).
 
@@ -89,7 +89,7 @@ This command will open an interactive display:
 
 Most contigs are pretty well sized. Andrea's size selection seems to have worked well.
 
-Usually the number of rRNA genes is a fraction of our assembled metagenomes. But in this case there are as many single-copy core genes as there are rRNA hits as shown under the 'Raw number of HMM Hits' section. This is due to th efact that HMMs to identify ribosomal RNAs use the DNA alphabet, while the HMMs that identify single-copy core genes rely on amino acid seqeunces. Because indels cause many frame-shift errors in the gene context, amino acid sequences of those crippled gene calls become unrecognizeable to any model. DNA models continue to rock because long hair don't care.
+Usually the number of rRNA genes is a fraction of our assembled metagenomes. But in this case there are as many single-copy core genes as there are rRNA hits as shown under the 'Raw number of HMM Hits' section. This is due to the fact that HMMs to identify ribosomal RNAs use the DNA alphabet, while the HMMs that identify single-copy core genes rely on amino acid seqeunces. Because indels cause many frame-shift errors in the gene context, amino acid sequences of those crippled gene calls become unrecognizeable to any model. DNA models continue to rock because long hair don't care.
 
 One of our goals going forward with MinION is to get better at correcting those errors when short read data is available. But that's for later.
 
