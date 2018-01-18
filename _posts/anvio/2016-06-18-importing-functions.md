@@ -108,6 +108,10 @@ You can use annotations produced by [Prokka](https://github.com/tseemann/prokka)
 
 A recipe to work with Prokka by Antti Karkman is [available here]({% post_url anvio/2017-05-18-working-with-prokka %}).
 
+## KEGG Modules
+
+A tutorial on how to import KEGG modules into an anvi'o contigs database by Elaina Graham is [available here]({% post_url anvio/2018-01-17-importing-ghostkoala-annotations %}).
+
 ## A better way?
 
 You have better / faster / more accurate ways to do it? Let us know!
