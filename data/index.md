@@ -15,12 +15,12 @@ This page serves the publicly available data mentioned in our publications, or i
 ## Delmont and Eren (201?) / Metapangenomics
 
 {:.notice}
-[http://merenlab.org/data/2017_Delmont_and_Eren_Metapangenomics/](http://merenlab.org/data/2017_Delmont_and_Eren_Metapangenomics/) gives access to our **complete bioinformatics workflow**.
+[http://merenlab.org/data/2018_Delmont_and_Eren_Metapangenomics/](http://merenlab.org/data/2018_Delmont_and_Eren_Metapangenomics/) gives access to our **complete bioinformatics workflow**.
 
 **Public data items for the study:**
 
 <div style="width: 200px; float: right; padding-left: 20px;">
-<a href="2017_Delmont_and_Eren_Metapangenomics/images/genes-in-two-genomes.png" target="_blank"><img src="2017_Delmont_and_Eren_Metapangenomics/images/genes-in-two-genomes.png" style="border:none;" /></a>
+<a href="2018_Delmont_and_Eren_Metapangenomics/images/genes-in-two-genomes.png" target="_blank"><img src="2018_Delmont_and_Eren_Metapangenomics/images/genes-in-two-genomes.png" style="border:none;" /></a>
 </div>
 
 * The original **TARA Oceans metagenomes** are available through the European Bioinformatics Institute ([ERP001736](https://www.ebi.ac.uk/metagenomics/projects/ERP001736)) and NCBI ([PRJEB1787](https://www.ncbi.nlm.nih.gov/sra/?term=PRJEB1787)).
