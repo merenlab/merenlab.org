@@ -75,7 +75,7 @@ gzip -d Prochlorococcus-isolates.fa.gz
 ### Downloading the 93 TARA Oceans metagenomes
 
 {:.notice}
-We described these steps in [this](http://merenlab.org/data/2018_Delmont_et_al_HBDs/) workflow document for another study. Please click to that link, follow the instructions starting from the section "**Downloading the TARA Oceans metagenomes**", and come back to this document once you reached to the section "**Co-assembling metagenomic sets**" (so all you do is to download metagenomes and perform quality filtering).
+We described these steps in [this](http://merenlab.org/data/2017_Delmont_et_al_HBDs/) workflow document for another study. Please click to that link, follow the instructions starting from the section "**Downloading the TARA Oceans metagenomes**", and come back to this document once you reached to the section "**Co-assembling metagenomic sets**" (so all you do is to download metagenomes and perform quality filtering).
 
 
 ## Generating an anvi'o contigs database
