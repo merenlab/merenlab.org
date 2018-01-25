@@ -11,7 +11,7 @@ comments: true
 
 {% capture images %}{{site.url}}/data/2018_Delmont_and_Eren_Metapangenomics/images{% endcapture %}
 
-This document describes the reproducible bioinformatics workflow for our study "**Linking Pangenomes and Metagenomes: The Prochlorococcus Metapangenome**". Here you will find program names and exact parameters we used throughout every step of the analysis of 31 _Prochlorococcus_ isolate genomes and 93 TARA Oceans metagenomes, which relied predominantly on the open-source analysis platform [anvi'o](http://merenlab.org/software/anvio) (Eren et al., 2015).
+This document describes the reproducible bioinformatics workflow for our study "**Linking Pangenomes and Metagenomes: The Prochlorococcus Metapangenome**". Here you will find program names and exact parameters we used throughout every step of the analysis of 31 _Prochlorococcus_ isolate genomes and 93 TARA Oceans metagenomes, which relied predominantly on the open-source analysis platform [anvi'o](http://merenlab.org/software/anvio).
 
 {:.notice}
 Please find the published study along with its review history here: [https://peerj.com/articles/4320/](https://peerj.com/articles/4320/){:target="_blank"}
