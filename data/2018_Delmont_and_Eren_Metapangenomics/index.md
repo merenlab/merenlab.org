@@ -14,7 +14,7 @@ comments: true
 This document describes the reproducible bioinformatics workflow for our study "**Linking Pangenomes and Metagenomes: The Prochlorococcus Metapangenome**". Here you will find program names and exact parameters we used throughout every step of the analysis of 31 _Prochlorococcus_ isolate genomes and 93 TARA Oceans metagenomes, which relied predominantly on the open-source analysis platform [anvi'o](http://merenlab.org/software/anvio) (Eren et al., 2015).
 
 {:.notice}
-*The URL of the published study will appear here.*
+Please find the published study along with its review history here: [https://peerj.com/articles/4320/](https://peerj.com/articles/4320/){:target="_blank"}
 
 {:.notice}
 All anvi'o analyses in this document are performed using the anvi'o version `v3`. Please see [the installation notes]({% post_url anvio/2016-06-26-installation-v2 %}) to download the appropriate version through PyPI, Docker, or GitHub.
