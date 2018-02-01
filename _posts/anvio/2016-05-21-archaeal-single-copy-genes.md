@@ -17,17 +17,17 @@ authors: [mike]
 One of the major strengths of anvi'o is the capability of manually curating your genome bins with real-time updates of percent completeness and contamination estimates. The information necessary to estimate completeness comes from the scanning of your contigs using previously published bacterial single-copy gene collections. When you run the following command following the [standard metagenomic workflow]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}), the occurrence of bacterial single-copy genes across your contigs is all added to your contigs database:
 
 
-{% highlight bash %}
+``` bash
 $ anvi-run-hmms -c contigs.db
-{% endhighlight %}
+```
 
 As of today, when `anvi-run-hmms` is run without providing any further arguments, it automatically utilizes [the four HMM profiles included in anvi'o codebase](https://github.com/meren/anvio/tree/master/anvio/data/hmm). These profiles are quite useful and convenient for bacterial genomes. However, if you are purposely trying to refine archaeal bins, or perhaps if you are working with a lab that has spent some time and effort to build their own single-copy gene collections, the ability to change the underlying HMM single-copy gene collections would certainly help. Fortunately, anvi'o has an easy way to specify which collection(s) to consider when working in the interactive mode.
 
 As noted above, running the `anvi-run-hmms` program with no additional arguments other than your contigs database will scan for the four preloaded bacterial single-copy gene collections. If you would like to use another collection, you need only to add the location of the directory that contains your HMM profiles:
 
-{% highlight bash %}
+``` bash
 $ anvi-run-hmms -c contigs.db -H Rinke_archaeal_HMM/
-{% endhighlight %}
+```
 
 Anvi'o will expect the directory denoted by the `-H` flag above to contain four special files:
 
@@ -38,6 +38,7 @@ Anvi'o will expect the directory denoted by the `-H` flag above to contain four 
 |*kind.txt*|A flat text file which contains a single word identifying what type of profile the directory contains. If this word is 'singlecopy', the profile is used to calculate percent completeness and contamination. Otherwise it will only be used to visualize contigs with HMM hits without being utilized to estimate completeness.|
 |*reference.txt*|A file containing source information for this profile to cite it properly.|
 |*target.txt*|A file containing the target alphabet and context. See [this](https://github.com/meren/anvio/pull/402) for more details. For this particular collection the target will be `AA:GENE` (because it was prepared using amino acid alignments, and we want them to be searched within gene calls stored in contigs databases), however, the the target term could be any combination of `AA`, `DNA`, or `RNA` for the alphabet part, and `GENE` or `CONTIG` for the context part (well, except `AA:CONTIG`, because we can't translate contigs).|
+|*noise_cutoff_terms.txt*|A file to specify how to deal with noise. [See this comment](https://github.com/merenlab/anvio/issues/498#issuecomment-362115921) for more information on the contents of this file.
 
 Examples of each file can be found [here](https://github.com/meren/anvio/tree/master/anvio/data/hmm/Campbell_et_al), and if you'd like to jump right in using the archaeal single-copy gene collection by [Rinke et al.](http://www.nature.com/nature/journal/v499/n7459/full/nature12352.html), please help yourself to the directory located [here]({{ site.url }}/files/Rinke_archaeal_HMM.tar.gz).
 
