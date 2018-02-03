@@ -12,7 +12,7 @@ This page serves the publicly available data mentioned in our publications, or i
 
 {% include _toc.html %}
 
-## Delmont and Eren (201?) / Metapangenomics
+## Delmont and Eren (2018) / Metapangenomics
 
 {:.notice}
 [http://merenlab.org/data/2018_Delmont_and_Eren_Metapangenomics/](http://merenlab.org/data/2018_Delmont_and_Eren_Metapangenomics/) gives access to our **complete bioinformatics workflow**.
