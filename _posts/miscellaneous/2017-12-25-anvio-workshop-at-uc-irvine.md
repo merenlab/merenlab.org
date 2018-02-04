@@ -17,7 +17,7 @@ image:
 
 
 {:.notice}
-**[Please fill this form](https://docs.google.com/forms/d/e/1FAIpQLSc7NwT5H502Feict9lkpmb2LTxtz7ny4MMenAMCwQVe_iPSEw/viewform?usp=sf_link){:target="_blank"}** if you are interested in attending to this workshop.
+Applications are now closed. Thank you for your interest!
 
 {:.notice}
 Other anvi'o workshops: [http://merenlab.org/2016/08/18/events/](http://merenlab.org/2016/08/18/events/){:target="_blank"}.
