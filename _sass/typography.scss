@@ -150,6 +150,21 @@ figcaption {
     @include rounded(3px);
 }
 
+.warning {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    margin-left: 1.5em;
+    padding: .5em;
+    text-align: justify;
+    text-indent: 0;
+    @include font-rem(14);
+    background-color: #FFCCCC;
+    border: 1px solid darken($body-color,20);
+    @include rounded(3px);
+}
+
+
+
 /* 
    Blockquotes
    ========================================================================== */
