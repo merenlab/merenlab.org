@@ -23,7 +23,7 @@ This tutorial will walk you through the steps needed to (1) use VirSorter to pre
 
 ## A brief introduction to VirSorter
 
-Virsorter was published in [Roux et al (2015)](https://doi.org/10.7717/peerj.985 "VirSorter: mining viral signal from microbial genomic data"), along with its [source code](https://github.com/simroux/VirSorter). The following figure ([Figure 1A](https://doi.org/10.7717/peerj.985/fig-1) in the original study) explains the VirSorter pipeline:
+VirSorter was published in [Roux et al (2015)](https://doi.org/10.7717/peerj.985 "VirSorter: mining viral signal from microbial genomic data"), along with its [source code](https://github.com/simroux/VirSorter). The following figure ([Figure 1A](https://doi.org/10.7717/peerj.985/fig-1) in the original study) explains the VirSorter pipeline:
 
 [![virsorter](https://dfzljdn9uc3pi.cloudfront.net/2015/985/1/fig-1-2x.jpg)](https://dfzljdn9uc3pi.cloudfront.net/2015/985/1/fig-1-2x.jpg){:.center-img .width-50}
 
@@ -66,7 +66,7 @@ make
 ```
 
 {:.notice}
-I have forked the original VirSorter repository to make the original VirSorter faster by parallelizing several steps. These changes are awaiting a pull request, and when they make it in I will update this post to get VirSorter from the original repository. Meanwhile, you should feel free to change th eaddress in the `git clone` command in the recipe above to use the original VirSorter code.
+I have forked the original VirSorter repository to make the original VirSorter faster by parallelizing several steps. These changes are awaiting a pull request, and when they make it in I will update this post to get VirSorter from the original repository. Meanwhile, you should feel free to change the address in the `git clone` command in the recipe above to use the original VirSorter code. Unless you opt to use diamond (see VirSorter usage), the results from running VirSorter from either location should be identical.
 
 Commands above will create everything you need to run VirSorter, but VirSorter commands will not be available to you systemwide. To run VirSorter from any directory, you can make symbolic links to `VirSorter/wrapper_phage_contigs_sorter_iPlant.pl` and `VirSorter/Scripts` and place them in the `bin` folder for your "virsorter" conda environment. An example location of this `bin` folder is `~/miniconda/envs/virsorter/bin`. Substitute this path with the path to the `bin` folder for your newly created "virsorter" environment.
 
@@ -155,18 +155,17 @@ It is _critical_ that VirSorter is run on the _exact same FASTA file_ that was u
 Please note that the `--db` argument can either be `1` or `2`. If set to `1`, then VirSorter will use phage HMMs computed from RefSeq phages published before January 2014. If set to `2`, then Virsorter will use all of the HMMs from option `1`, plus additional HMMs from phage contigs identified in curated virome datasets.
 
 
+## Gathering files needed to run VirSorterParser
+
 VirSorter writes several outputs to a working directory that you specify when run VirSorter. The files we need for importing VirSorter annotations into anvi'o include:
 
 - `VIRSorter_global-phage-signal.csv`: This file contains one line for each phage prediction. Often, this results in one line per contig, though very large contigs might have two or more prophage predictions.
 
 - `Metric_files/VIRSorter_affi-contigs.tab`: This file contains one line per gene and includes any PFAM or phage domain annotations. The lines for all genes for a given contig are preceded by a line containing `>Contig_name`.
 
-
-## Importing everything into anvi'o VirSorterParser
-
 If you have been using anvi'o for your metagenomes, I assume you already have your anvi'o contigs database.
 
-So you can run the following command to generate one of the essential files we will need to import VirSorter annotations into anvi'o:
+Run the following command to generate one of the essential files we will need to visualize VirSorter split-level annotations in anvi'o:
 
 ``` bash
 anvi-export-table CONTIGS.db \
@@ -175,17 +174,23 @@ anvi-export-table CONTIGS.db \
 
 This will generate an output file called `splits_basic_info.txt` file, which we will use alongside with the output files generated VirSorter to import everything into anvi'o.
 
+If you want to also generate gene-level annotations for hallmark genes and import those into anvi'o (think capsid proteins, terminases, etc.) then you'll need to also run this command to export your gene calls from your anvi'o contigs database:
+
+``` bash
+anvi-anvi-export-gene-calls CONTIGS.db \
+                  -o all_gene_calls.txt
+```
+
+
 To make sense of all these files, I implemented a program called `VirSorterParser`.
 
 <div class="extra-info" markdown="1">
 
 <span class="extra-info-header">Rationale for the VirSorterParser</span>
 
-VirSorter uses MetaGeneAnnotator ([Noguchi et al, 2006](https://doi.org/10.1093/nar/gkl723)) and doesn't accept custom gene calls, hence, the predicted genes will likely not line up with what anvi'o has predicted on your contigs database.
+VirSorter uses MetaGeneAnnotator ([Noguchi et al, 2006](https://doi.org/10.1093/nar/gkl723)) and doesn't accept custom gene calls. Some of the predicted genes may not line up with what anvi'o has predicted on your contigs database. However, if you export your anvi'o gene calls and pass that file to the parser, the parser will attempt to get around this by matching up the start/stop positions of hallmark genes predicted by VirSorter with existing gene calls from your anvi'o contigs database. For each hallmark gene in a contig identified as phage or prophage where this matching is successful, the parser will write that gene and the VirSorter-predicted function to a file that can be imported into your contigs database using `anvi-import-functions`. 
 
-At this time, the parser does not convert VirSorter gene annotations into functions to import into an anvi'o contigs database. This isn't as important during the binning process though, as binning focuses on contig splits.
-
-The parser generates an additional data file that can be visualized when running anvi-interactive or anvi-refine. The additional data file my parser will generate follows this structure:
+The parser generates an additional data file that can be visualized when running anvi-interactive or anvi-refine. The additional data file the parser will generate follows this structure:
 
 |split|phage_name|category|num_genes_in_phage|num_phage_hallmark_genes_in_phage|
 |:--|:--|:--|:--|:--|
@@ -209,10 +214,12 @@ For the `phage_name` column, the first phage predicted by VirSorter is named `ph
 
 ### Running the parser
 
-To run the parser you just need the python script `virsorter_to_anvio.py`. You can download it into your work directory the following way:
+To run the parser you just need the python script `virsorter_to_anvio.py`. If you want to import hallmarn gene functions into anvi'o, you'll need two mapping files (one for each VirSorter database). You can download these files into your work directory the following way:
 
 ``` bash
 wget https://raw.githubusercontent.com/brymerr921/VirSorterParser/master/virsorter_to_anvio.py
+wget https://raw.githubusercontent.com/brymerr921/VirSorterParser/master/hallmark_to_function_files/db1_hallmark_functions.txt
+wget https://raw.githubusercontent.com/brymerr921/VirSorterParser/master/hallmark_to_function_files/db2_hallmark_functions.txt
 ```
 
 Arguments are described in the help menu:
@@ -221,7 +228,7 @@ Arguments are described in the help menu:
 python virsorter_to_anvio.py --help
 ```
 
-Briefly, the script takes as input the two output files from VirSorter, `VIRSorter_affi-contigs.tab` and `VIRSorter_global_signal.csv`, and the `splits_basic_info.txt` file from anvi'o. These are required inputs. If you want to test out the parser, samples of each of the required files are provided in the "sample_files" directory of [this repository](https://github.com/brymerr921/VirSorterParser).
+Briefly, the script takes as input the two output files from VirSorter, `VIRSorter_affi-contigs.tab` and `VIRSorter_global_signal.csv`, and the `splits_basic_info.txt` file from anvi'o. It also asks you which VirSorter database you used when you ran VirSorter. These are required inputs. If you want to test out the parser, samples of each of the required files are provided in the "sample_files" directory of [this repository](https://github.com/brymerr921/VirSorterParser). If you run parser on the the sample files, specify "--db 2" on the command line.
 
 You can control which VirSorter predictions are prepared for importing into anvi'o:
 
@@ -230,6 +237,14 @@ You can control which VirSorter predictions are prepared for importing into anvi
 * `--exclude-prophages` will skip over all prophages.
 
 * The `-L` parameter can be used to specify the minimum phage length to report in the output files. For example, `-L 5000` means that all phage predictions shorter than 5000 bp will be not reported in the output files. These flags can be used in any combination with each other.
+
+If you want to import hallmark gene functions from predicted phage or prophage contigs into anvi'o, you'll need to also supply the parser with `--anvio-gene-calls all_gene_calls.txt` and also a mapping file available in the [VirSorterParser repository](https://github.com/brymerr921/VirSorterParser/tree/master/hallmark_to_function_files): `--hallmark-functions hallmark_to_functions_files/db2_hallmark_functions.txt`.
+
+An example command to run the parser is:
+
+``` bash
+./virsorter_to_anvio.py -a VIRSorter_affi-contigs.tab -g VIRSorter_global-phage-signal.csv -s splits_basic_info.txt --db 2 --anvio-gene-calls all_gene_calls.txt --hallmark-functions db2_hallmark_functions.txt --db 2
+```
 
 ### Output files
 
@@ -255,6 +270,15 @@ anvi-import-collection virsorter_collection.txt\
 ```
 
 This will generate a collection where each phage prediction will become a bin containing all of the splits for that phage.
+
+
+If you specified files for `--anvio-gene-calls` and `--hallmark-functions`, you'll also get an output file called "virsorter_annotations.txt" containing gene annotations for all hallmark genes inside all contigs predicted as phage or prophage by VirSorter. You can import it into anvi'o like this:
+
+``` bash
+anvi-import-functions 
+                       -c CONTIGS.db \
+                       -i virsorter_annotations.txt
+```
 
 ## Happy binning!
 
