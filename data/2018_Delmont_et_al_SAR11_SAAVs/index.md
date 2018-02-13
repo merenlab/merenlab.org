@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Single amino acid variants in SAR11
-modified: 2017-04-20
+modified: 2018-02-15
 excerpt: "A complete workflow behind the manuscript 'The large-scale biogeography of amino acid variants within a single SAR11 population is governed by natural selection' by Delmont et al"
 comments: true
 
@@ -9,7 +9,7 @@ comments: true
 
 {% include _toc.html %}
 
-{% capture images %}{{site.url}}/data/2017_Delmont_et_al_SAR11_SAAVs/images{% endcapture %}
+{% capture images %}{{site.url}}/data/2018_Delmont_et_al_SAR11_SAAVs/images{% endcapture %}
 
 This document describes the reproducible bioinformatics workflow for our study titled "*The large scale biogeography of amino acid variants within a single SAR11 population is governed by natural selection*". Here you will find program names and exact parameters we used throughout every step of the analysis of SAR11 genomes and metagenomes from the TARA Oceans and Ocean Sampling Day projects, which relied predominantly on the open-source analysis platform [anvi’o](http://merenlab.org/software/anvio) (Eren et al., 2015).
 
@@ -27,7 +27,7 @@ The URL [http://merenlab.org/data/#XXX](http://merenlab.org/data/#XXX){:target="
 -->
 
 {:.notice}
-The URL [http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/](http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/){:target="_blank"} serves the most up-to-date version of this document.
+The URL [http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/](http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/){:target="_blank"} serves the most up-to-date version of this document.
 
 
 <div class="extra-info" markdown="1">
@@ -64,16 +64,16 @@ The TARA Oceans metagenomes we analyzed are publicly available through the Europ
 You can get a copy of the FASTA file containing all 21 SAR11 cultivar genomes into your work directory using this command line: 
 
 ``` bash
-wget http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/SAR11-isolates.fa.gz
+wget http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/SAR11-isolates.fa.gz
 gzip -d SAR11-isolates.fa.gz
 ``` 
 
 ### Downloading the TARA Oceans and Ocean Sampling Day metagenomes
 
-[This file](http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/ftp-links-for-raw-data-files.txt){:target="_blank"} contains URLs for FTP access for each raw data file for 103 samples, and you can get a copy of it into your work directory, 
+[This file](http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/ftp-links-for-raw-data-files.txt){:target="_blank"} contains URLs for FTP access for each raw data file for 103 samples, and you can get a copy of it into your work directory, 
 
 ``` bash
-wget http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/ftp-links-for-raw-data-files.txt
+wget http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/ftp-links-for-raw-data-files.txt
 ``` 
 
 and download each of the raw sequencing data file from the EMBL servers this way:
@@ -90,18 +90,18 @@ This may take quite a while.
 
 ### Defining metagenomic sets, setting sample names, and linking those with the raw data
 
-We defined 12 'metagenomic sets' for geographically bound locations TARA Oceans samples originated from, consistent with our previous [work flow to reconstruct ~1,000 population genomes](http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/). We defined an additional metagenomic set for the 10 Ocean Sampling Day metagenomes that cover high-latitudes of the north hemisphere. 
+We defined 12 'metagenomic sets' for geographically bound locations TARA Oceans samples originated from, consistent with our previous [work flow to reconstruct ~1,000 population genomes](http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/). We defined an additional metagenomic set for the 10 Ocean Sampling Day metagenomes that cover high-latitudes of the north hemisphere. 
 
-We tailored our sample naming schema for convenience and reproducibility. [This file](http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/sets.txt){:target="_blank"}{:target="_blank"} contains the three-letter identifiers for each of the 13 metagenomic sets, which will become prefixes for each sample name for direct access to all samples from a given metagenomic set. This file will be referred to as `sets.txt` throughout the document, and you can get a copy of this file into your work directory:
+We tailored our sample naming schema for convenience and reproducibility. [This file](http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/sets.txt){:target="_blank"}{:target="_blank"} contains the three-letter identifiers for each of the 13 metagenomic sets, which will become prefixes for each sample name for direct access to all samples from a given metagenomic set. This file will be referred to as `sets.txt` throughout the document, and you can get a copy of this file into your work directory:
 
 ``` bash
-wget http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/sets.txt
+wget http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/sets.txt
 ``` 
 
-We used these three-letter prefixes to name each of the 103 samples, and to associate them with metagenomic sets with which they were affiliated. [This file](http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/samples.txt){:target="_blank"} contains sample names, and explains which raw data files are associated with each sample. It will be referred to as `samples.txt` throughout the document, and you can get a copy of this file into your work directory:
+We used these three-letter prefixes to name each of the 103 samples, and to associate them with metagenomic sets with which they were affiliated. [This file](http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/samples.txt){:target="_blank"} contains sample names, and explains which raw data files are associated with each sample. It will be referred to as `samples.txt` throughout the document, and you can get a copy of this file into your work directory:
 
 ``` bash
-wget http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/samples.txt
+wget http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/samples.txt
 ```
 
 TARA samples file should look like this:
@@ -356,7 +356,7 @@ We used the anvi'o programs `anvi-gen-genomes-storage`, `anvi-pan-genome`, and `
 We first created the file `internal-genomes.txt` that connects genome IDs to the CONTIGS and PROFILE databases ([details the anvi'o pangenomic workflow]({% post_url anvio/2016-11-08-pangenomics-v2 %})). This file can be downloaded using this command:
 
 ``` bash
-wget http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/internal-genomes.txt
+wget http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/internal-genomes.txt
 ```
 
 And here is how it looks like:
@@ -415,7 +415,7 @@ The resulting summary folder contains a file that links each gene to protein clu
 
 ### Linking the pangenome to the environment
 
-From the anvi'o metagenomic summary output described in the previous section, we determined the relative distribution of each genome across the 103 metagenomes. We created a text file, `SAR11-PAN-samples-information.txt` (avilable [here]({{ site.url }}/data/2017_Delmont_et_al_SAR11_SAAVs/files/SAR11-PAN-samples-information.txt)) to link the pangenome to the environment using genomic coverage values across samples, as well as to display other information such as gneme lengths and clade information. From this file we generated an anvi'o [samples database](http://merenlab.org/2015/11/10/samples-db/){:target="_blank"}, `SAR11-PAN-SAMPLES.db`. In addition, we used the summary output of the SAR11 pangenome to identify protein clusters containing a list of HIMB83 genes of interest (the 799 core S-LLPA genes), and created the file `S-LLPA-CORE-GENES.txt` (avilable [here]({{ site.url }}/data/2017_Delmont_et_al_SAR11_SAAVs/files/S-LLPA-CORE-GENES.txt)), the contents of which looked like this:
+From the anvi'o metagenomic summary output described in the previous section, we determined the relative distribution of each genome across the 103 metagenomes. We created a text file, `SAR11-PAN-samples-information.txt` (avilable [here]({{ site.url }}/data/2018_Delmont_et_al_SAR11_SAAVs/files/SAR11-PAN-samples-information.txt)) to link the pangenome to the environment using genomic coverage values across samples, as well as to display other information such as gneme lengths and clade information. From this file we generated an anvi'o [samples database](http://merenlab.org/2015/11/10/samples-db/){:target="_blank"}, `SAR11-PAN-SAMPLES.db`. In addition, we used the summary output of the SAR11 pangenome to identify protein clusters containing a list of HIMB83 genes of interest (the 799 core S-LLPA genes), and created the file `S-LLPA-CORE-GENES.txt` (avilable [here]({{ site.url }}/data/2018_Delmont_et_al_SAR11_SAAVs/files/S-LLPA-CORE-GENES.txt)), the contents of which looked like this:
 
 ``` bash
 $ head S-LLPA-CORE-GENES.txt
@@ -503,8 +503,8 @@ To explore the genomic variability of S-LLPA, the SAR11 population we could acce
 The files `metagenomes-of-interest.txt` and `core-S-LLPA-genes.txt` contain the names of of 74 metagenomes and gene caller id's for 799 core genes, respectively. You can download these files into your work directory the following way:
 
 ``` bash
-wget http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/metagenomes-of-interest.txt
-wget http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/core-S-LLPA-genes.txt
+wget http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/metagenomes-of-interest.txt
+wget http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/core-S-LLPA-genes.txt
 ```
 
 We generated three files to report the variability.
@@ -988,7 +988,7 @@ python ACOL_Pseudo_SAR11.py
 
 The output file `S-LLPA-DEEP-LEARNING-DIST-MAT.csv` will contain deep learning estimated distances. 
 
-The output file the code above generated when we run it on xx is [available here]({{ site.url }}/data/2017_Delmont_et_al_SAR11_SAAVs/files/S-LLPA-DEEP-LEARNING-DIST-MAT.csv)){:target="_blank"}.
+The output file the code above generated when we run it on xx is [available here]({{ site.url }}/data/2018_Delmont_et_al_SAR11_SAAVs/files/S-LLPA-DEEP-LEARNING-DIST-MAT.csv)){:target="_blank"}.
 
 ### Identifying proteotypes from Deep Learning-estimated distances
 
@@ -1093,7 +1093,7 @@ Using the submission form [http://raptorx.uchicago.edu/StructurePrediction/predi
 RaptorX Structure Prediction outputs a zipped folder for each protein prediction named `<sequence_id>.all_in_one.zip`, where `<sequence_id>` is a unique tag generated by RaptorX. We created a new directory `RaptorXProperty`, manually moved all `<sequence_id>.all_in_one.zip` files into it, and unzipped them all. To make things more identifiable, we renamed the `<sequence_id>.all_in_one` folders to `<corresponding_gene_call>.all_in_one`, where `<corresponding_gene_call>` is the gene caller id defined by the SAAV table. To do this we created a python script called `rename_all_in_ones.py`, and executed it the following way:
 
 ``` bash
-wget http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/rename_all_in_ones.py
+wget http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/rename_all_in_ones.py
 cd RaptorXProperty
 python rename_all_in_ones.py
 cd -
@@ -1104,7 +1104,7 @@ Before mapping SAAVs onto the predicted protein structure, we first did some mai
 
 ``` bash
 # downlod the script
-wget http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/curate_SAAV_table.py
+wget http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/curate_SAAV_table.py
 
 # copy HIMB83 gene coverages from the summary dir (if you don't have this directory, the
 # URL https://doi.org/10.6084/m9.figshare.5248435 serves HIMB83 profile with the SUMMARY
@@ -1147,9 +1147,9 @@ There are five inputs for this to work:
 You can get copies of missing files for a full analysis (gene list, samples mapping, and the configuration file) the following way:
 
 ``` bash
-wget http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/genes-of-interest-for-PyMOL.txt
-wget http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/genes-of-interest-for-PyMOL.txt
-wget http://merenlab.org/data/2017_Delmont_et_al_SAR11_SAAVs/files/samples-of-interest-for-PyMOL.txt
+wget http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/genes-of-interest-for-PyMOL.txt
+wget http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/genes-of-interest-for-PyMOL.txt
+wget http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/samples-of-interest-for-PyMOL.txt
 ```
 
 For your information, our configuration file looked like this, and it is highly flexible for advanced users:
