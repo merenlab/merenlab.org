@@ -39,7 +39,7 @@ Briefly:
 
 ## Installing VirSorter locally with conda
 
-If you don't want to install anything, you can run VirSorter on [CyVerse](http://user.cyverse.org/). Alternativaly, you can run VirSorter locally [using Docker](https://github.com/simroux/VirSorter), or by installing the codebase on your computer, but here I will explain how to install VirSorter codebase on your own computer, which is the what I recommend you to consider doing.
+If you don't want to install anything, you can run VirSorter on [CyVerse](http://user.cyverse.org/). Alternatively, you can run VirSorter locally [using Docker](https://github.com/simroux/VirSorter), or by installing the codebase on your computer. Here I will explain how to install the VirSorter codebase on your own computer, which is what I recommend you consider doing.
 
 To manually install the VirSorter codebase you can follow the recipe down below. I have only tested these instructions on Linux (Ubuntu and CentOS), but if you have any questions feel free to contact me or leave a comment down below.
 
@@ -57,9 +57,11 @@ conda create --name virsorter \
                          perl-parallel-forkmanager \
                          perl-list-moreutils
 
-# clone my copy of the VirSorter repository and go into it
-git clone https://github.com/brymerr921/VirSorter.git
-cd VirSorter/Scripts
+# clone the VirSorter repository and go into it
+git clone https://github.com/simroux/VirSorter.git
+cd VirSorter
+git checkout e98d2f8f473b3028793b8a037c91648d1453f7a0 #Checks out version 1.0.5
+cd Scripts
 
 # run make
 make
