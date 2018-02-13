@@ -68,9 +68,9 @@ make
 ```
 
 {:.notice}
-I have forked the original VirSorter repository to make the original VirSorter faster by parallelizing several steps. These changes are awaiting a pull request, and when they make it in I will update this post to get VirSorter from the original repository. Meanwhile, you should feel free to change the address in the `git clone` command in the recipe above to use the original VirSorter code. Unless you opt to use diamond (see VirSorter usage), the results from running VirSorter from either location should be identical.
+VirSorter v.1.0.5 is much faster than previous versions because several steps are now parallelized. Unless you opt to use diamond (see VirSorter usage), the results from running VirSorter v1.0.5 should be identical to running v1.0.3.
 
-Commands above will create everything you need to run VirSorter, but VirSorter commands will not be available to you systemwide. To run VirSorter from any directory, you can make symbolic links to `VirSorter/wrapper_phage_contigs_sorter_iPlant.pl` and `VirSorter/Scripts` and place them in the `bin` folder for your "virsorter" conda environment. An example location of this `bin` folder is `~/miniconda/envs/virsorter/bin`. Substitute this path with the path to the `bin` folder for your newly created "virsorter" environment.
+The commands above will create everything you need to run VirSorter, but VirSorter commands will not be available to you systemwide. To run VirSorter from any directory, you can make symbolic links to `VirSorter/wrapper_phage_contigs_sorter_iPlant.pl` and `VirSorter/Scripts` and place them in the `bin` folder for your "virsorter" conda environment. An example location of this `bin` folder is `~/miniconda/envs/virsorter/bin`. Substitute this path with the path to the `bin` folder for your newly created "virsorter" environment.
 
 ``` bash
 ln -s ~/Applications/VirSorter/wrapper_phage_contigs_sorter_iPlant.pl ~/miniconda/envs/virsorter/bin
