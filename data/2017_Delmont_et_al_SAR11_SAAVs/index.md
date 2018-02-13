@@ -442,7 +442,7 @@ anvi-display-pan -p SAR11-PAN-PAN.db \
 
 This resulting display is publicly available on the anvi-server just so you can play with it interactively in case you read it all the way here:
 
-[https://anvi-server.org/merenlab/SAR11_metapangenome](https://anvi-server.org/merenlab/SAR11_metapangenome){:target="_blank"}
+[https://anvi-server.org/merenlab/sar11_metapangenome](https://anvi-server.org/merenlab/sar11_metapangenome){:target="_blank"}
 
 {:.notice}
 [doi:10.6084/m9.figshare.5248459](https://doi.org/10.6084/m9.figshare.5248459){:target="_blank"} serves the anvi'o files for the SAR11 metapangenome.
