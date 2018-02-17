@@ -6,7 +6,7 @@ modified: 2018-02-13
 tags: [pangenomics]
 categories: [anvio]
 comments: true
-authors: [mahmood]
+authors: [mahmoud]
 ---
 
 {% capture images %}{{site.url}}/images/anvio/2018-02-13-color-coding-aa-alignments{% endcapture %}
@@ -14,7 +14,7 @@ authors: [mahmood]
 {% include _toc.html %}
 
 {:.notice}
-**A note from the Meren Lab**: We are very thankful to Mahmood for not only [implementing this](https://github.com/merenlab/anvio/pull/732) beautiful feature in anvi'o, but also taking the time to explain it in such great clarity. Mahmood is currently a a second year Computer Science major pre-med student at the University of Chicago.
+**A note from the Meren Lab**: We are very thankful to Mahmoud for not only [implementing this](https://github.com/merenlab/anvio/pull/732) beautiful feature in anvi'o, but also taking the time to explain it in such great clarity. Mahmoud is currently a a second year Computer Science major pre-med student at the University of Chicago.
 
 As I'm sure you know, anvi'o is a powerful software that among other things can be used for [pangenomics](http://merenlab.org/2016/11/08/pangenomics-v2/). By inferring similarities between amino acid sequences, anvi'o's pangenomic workflow identifies gene clusters across closely related mirobial genomes, and allows one to investigate how and where these genomes differ.
 
@@ -32,7 +32,7 @@ What determines the structure of a protein? A protein has four levels of structu
 
 * **Tertiary structure**: This is the result of bonding interactions between polar and nonpolar side-chain groups of amino acids. The intricate twisting and bonding of the protein gives it its unique 3D structure, where every amino acid contributes to the function of the protein in some way.
 
-* **Quaternary structure**: This is the result of bonding interactions between different polypeptide chains to form a single protein complex. 
+* **Quaternary structure**: This is the result of bonding interactions between different polypeptide chains to form a single protein complex.
 
 As we can see, all four levels of a protein's structure are determined by the properties that the amino acid residues exhibit in that protein.
 
@@ -210,53 +210,97 @@ The percentage cutoffs are all estimates as to how much an amino acid contribute
 
 ## The user interface
 
-To demonstrate how this new feature looks like in the anvi'o interactive interface, I will be using [the pangenome generated in the Infant Gut Tutorial](http://merenlab.org/tutorials/infant-gut/#a-pangenomic-analysis). You can test it on your own pangenomes, or you an follow these examples after followin the tutorial.
+To demonstrate how this new feature looks like in the anvi'o interactive interface, I will be using [the _Prochlorococcus_ metapangenome](https://doi.org/10.7717/peerj.4320), all data for which, is available [here](http://merenlab.org/data/2018_Delmont_and_Eren_Metapangenomics/). For the sake of reproducibility, here is what I did to download and display the _Prochlorococcus_ metapangenome on my computer to use it with anvi'o `v4`:
 
-Once you have your pangenome ready, you will display it with `anvi-display-pan` command (more instructions regarding the pangenomic workflow is [here](http://merenlab.org/2016/11/08/pangenomics-v2/)). You can right-click any of the gene clusters in the interactive interface that shows up, and click on "inspect gene clusters". A new tab will open showing you the amino acid alignments in that gene cluster (we are using gene cluster 1660 in this example):
+``` bash
+# download the pangenome
+wget https://ndownloader.figshare.com/files/9416623 \
+     -O ANVIO-METAPANGENOME-FOR-PROCHLOROCOCCUS-ISOLATES.tar.gz
+
+# unpack the data
+tar -zxvf ANVIO-METAPANGENOME-FOR-PROCHLOROCOCCUS-ISOLATES.tar.gz
+cd ANVIO-METAPANGENOME-FOR-PROCHLOROCOCCUS-ISOLATES
+
+# this project was generated anvi'o `v3`, but we want to use it with
+# anvi'o `v4`, so we need to upgrade the old databases:
+ANVIO_SAMPLES_DB=Prochlorococcus-METAPAN-SAMPLES.db anvi-migrate-db Prochlorococcus-PAN-PAN.db
+anvi-migrate-db Prochlorococcus-GENOMES.h5
+anvi-import-misc-data ENVIRONMENTAL-CORE.txt -p Prochlorococcus-PAN-PAN.db -t items
+```
+
+Once you have your pangenome ready, you will display it with `anvi-display-pan` command (more instructions regarding the pangenomic workflow is [here](http://merenlab.org/2016/11/08/pangenomics-v2/)).
+
+Here I will display the _Prochlorococcus_ pangenome the following way:
+
+```bash
+anvi-display-pan -g Prochlorococcus-GENOMES.db \
+                 -p Prochlorococcus-PAN-PAN.db
+```
+
+Which gives me this disyplay:
+
+[![pic]({{images}}/prochlorococcus_metapan.png)]({{images}}/prochlorococcus_metapan.png){:.center-img .width-80}
+
+Please take a look at the published study, or read the avni'o pangenomics tutorial if you need to orient yourself to this display.
+
+Those of you who are already familiar with anvi'o interactive displays, know that we can right-click any of the gene clusters in this display, and click on "inspect gene clusters" to see the amino acid sequence alignments. Here, an example with gene cluster 1039:
 
 [![pic]({{images}}/pic_1.png)]({{images}}/pic_1.png){:.center-img .width-80}
 
-If you have used the anvi'o pangenomic workflow before `v4`, you will notice two differences - first, the amino acids are now printed in varying colors. Second, below the controls for wrap and font size are now what we call the "conservation controls". The checkboxes tell us what amino acids are currently being checked for conservation by the algorithm. The two boxes below the checkboxes allow us to either select all or select none for the algorithm.
+If you have used the anvi'o pangenomic workflow before `v4`, you will notice two differences. First, the amino acids are now printed in varying colors. Second, next to the controls for wrap and font size is now a button labelled "color settings".
 
-Are the colors too overwhelming to begin with? Let's turn them all off and pause the algorithm. Click on the "uncheck all" button:
+Click on it, and something else will pop up underneath these controls:
 
 [![pic]({{images}}/pic_2.png)]({{images}}/pic_2.png){:.center-img .width-80}
 
-This turns the font color for all of the amino acids to black. We can be selective as to what amino acids we want the algorithm to check. Let's say we want to check for the conservation of Cysteine. Click on the C checkbox and the algorithm automatically kicks in:
+This is what we call "conservation controls". The checkboxes tell us what amino acids are currently being checked for conservation by the algorithm. The two boxes below the checkboxes allow us to either select all or select none for the algorithm.
+
+Are the colors too overwhelming to begin with? Let's turn them all off and pause the algorithm. Click on the "uncheck all" button:
 
 [![pic]({{images}}/pic_3.png)]({{images}}/pic_3.png){:.center-img .width-80}
 
-Let's look at it - C is conserved in 4 places in this gene cluster. It's colored in hotpink in three of those places and blue in the fourth one. Taking a closer look at it, we see that the one colored in blue is not entirely conserved by C; there is a S residue sticking around there. Let's check for the conservation of S now. While leaving C checked, let's check S:
+This turns the font color for all of the amino acids to black. We can be selective as to what amino acids we want the algorithm to check. Let's say we want to check for the conservation of Cysteine. Click on the C checkbox and the algorithm automatically kicks in:
 
 [![pic]({{images}}/pic_4.png)]({{images}}/pic_4.png){:.center-img .width-80}
 
-Now we see that the one S is now colored in green, meaning that it is conserved throughout these genomes. We can say that the structure of this protein in E_faecalis_6225 (where the S residue is found) is a little different because of the lack of C but is overall conserved relative to the other genomes due to the nonpolar bonding effects.
-
-Play around with different amino acids and check for conservation in this gene cluster. If you want to check all of them, click on "check all" and the algorithm will automatically investigate conservancy for all of the amino acids across all genes.
-
-Let's look at gene cluster 3736 as another example:
+Let's look at it - in our current viewing frame of the gene cluster, there is one place where cysteine is conserved. It's colored in blue, and we notice that some of the genomes have a valine (V) in that residue. Is valine conserved here? Leaving "C" as it is, let's click on "V" to find out:
 
 [![pic]({{images}}/pic_5.png)]({{images}}/pic_5.png){:.center-img .width-80}
 
-Woah! E_faecium_6590 has a bunch of amino acids that aren't conserved relative to the others. Let's take this step by step and first by pass the algorithm by clicking the "uncheck all" button:
+Now we see that the valines are colored in blue, meaning that they are conserved in this residue. Therefore, we can say that all of the proteins in this gene cluster are conserved at this one residue through nonpolar effects.
+
+Leaving everything as it is, scrolling down a little bit through this gene cluster will give us this:
 
 [![pic]({{images}}/pic_6.png)]({{images}}/pic_6.png){:.center-img .width-80}
 
-From here, let's take a look at C again:
+Here, cysteine is colored in pink instead of blue. We can then conclude that all of these genomes are conserved at this residue because of the special sulfide bonding effects of cysteine.
+
+Play around with different amino acids and check for conservation in this gene cluster. If you want to check all of them, click on "check all" and the algorithm will automatically investigate conservancy for all of the amino acids across all genes.
+
+---
+
+Let's look at gene cluster 2786 as another example.
+
+Click on "Color Settings" and then "uncheck all" to bypass the algorithm (our screenshot is scrolled down slightly to capture all of the genomes in this gene cluster):
 
 [![pic]({{images}}/pic_7.png)]({{images}}/pic_7.png){:.center-img .width-80}
 
-E_faecium_6590 doesn't have a C in the residue where the other two genomes do, so the one case of C in the other two genomes are marked as blue. We see that W is in that position instead. Is this conserved relative to C through nonpolar effects? Let's have the algorithm check for W:
+This time, we want to look at polar amino acids and see how they're conserved in this gene cluster. As an example, let's check for aspartate. Click on "D":
 
 [![pic]({{images}}/pic_8.png)]({{images}}/pic_8.png){:.center-img .width-80}
 
-W is colored blue. So it is conserved by nonpolar bonding effects. Let's try a polar amino acid now. Leaving everything else as is, check "E":
+We see that a few aspartates are colored in magenta. But there's two things to notice: firstly, MIT9125 and SB do not have aspartate in the same residue as the rest of the genomes. Secondly, these two genomes have aspartate in the third to last residue which isn't colored in. We'll take a look at these one by one.
+
+To examine the first situation of MIT9125 and SB not having aspartate, we want to check for conservation with respect to the residue that they have. Looking down the line, we see that they both have glutamate "E". Click on "E" to see if it is conserved:
 
 [![pic]({{images}}/pic_9.png)]({{images}}/pic_9.png){:.center-img .width-80}
 
-We're finding E's all over the place! Now this is because we haven't turned on all of the letters yet to see how it compares to all of the other amino acids, but let's focus our attention on the Es next to the Cs we just looked at. We see that it is not conserved in E_faecium_6590, because there is a C in that residue. Therefore, E_faecium_6590 is not conserved in this residue because it has a nonpolar residue while the other two strains have a polar residue.
+We see that both of the glutamates at this residue are colored. Thus, they are conserved because of negatively charged bonding effects (the magenta color).
+Now let's look at the two aspartates that are not colored in. The remaining genomes have a glutamine "Q" in that residue. We'll check for its conservation by clicking on "Q":
 
-Play around with this one and see if you can determine how E_faecium_6590's amino acid sequence is different from the others, and how some residues are still conserved due to different interactions.
+[![pic]({{images}}/pic_final.png)]({{images}}/pic_final.png){:.center-img .width-80}
+
+We notice that the glutamines are colored in green. This means that the glutamines are conserved with respect to nonpolar bonding with polar groups. This also means that aspartate is not conserved in this residue as it has a different bonding effect, telling us something about the conservancy of the protein between MIT9125 and SB compared to the remaining genomes.
 
 ---
 
