@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Prpposed architecture for anvio snakemake workflows
+title: Proposed architecture for anvio snakemake workflows
 modified: 2018-02-15
 excerpt: "Bringing the magic of anvio together with the wonder of snakemake."
 comments: true
@@ -10,7 +10,7 @@ categories: [anvio]
 
 {% include _toc.html %}
 
-# Prpposed architecture for anvi'o snakemake workflows
+# Proposed architecture for anvi'o snakemake workflows
 
 snakemake is a very useful and robust language for creating computational pipelines. Recently we have been using it extensivley and it has been wonderful.
 
