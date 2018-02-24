@@ -172,7 +172,7 @@ $ anvi-run-hmms -c contigs.db
 
 When you run this command (without any other parameters),
 
-* It will utilize multiple default bacterial single-copy core gene collections and identify hits among your genes to those collections using HMMER. If you have already run this once, and now would like to add an HMM profile of your own, that is easy. You can use `--hmm-profile-dir` parameter to declare where should anvi'o look for it.
+* It will utilize multiple default bacterial single-copy core gene collections and identify hits among your genes to those collections using HMMER. If you have already run this once, and now would like to add an HMM profile of your own, that is easy. You can use `--hmm-profile-dir` parameter to declare where should anvi'o look for it. Or you can use the `--installed-hmm-profile` parameter to only run a specific default HMM profile on your contigs database.
 
 * Note that the program will use only one CPU by default, especially if you have multiple of them available to you, you should use the `--num-threads` parameter. It significantly improves the runtime, since [HMMER](http://hmmer.org/) is truly an awesome software.
 
@@ -389,8 +389,7 @@ Here is some additional information about the interactive interface (please see 
 - **Setting a taxonomic level**. When information about taxonomy is available in an anvi'o contigs database, anvi'o interactive interface will start utilizing it automatically and you will see a taxonomy layer in the interface for each of your contigs. By default the genus names will be used, however, you can change that behavior using the `--taxonomic-level` flag.
 
 
-
-### anvi-[import|export|delete]-misc-data
+### anvi-[import|export|show|delete]-misc-data
 
 Anvi'o profile databases allow you to add or remove additional data for your items or layers. This is a very important functionality for better data exploration and communication. Please see [this post]({% post_url anvio/2017-12-11-additional-data-tables %}) for more information and to familiarize yourself with it.
 
@@ -400,6 +399,9 @@ This functionality will not be available to you if you are using anvi'o `v3` or 
 ### anvi-summarize
 
 A *collection* represents one or more bins with one or more contigs. Collections are stored in anvi'o databases can be imported from the results of external binning software, or saved through the anvi-interactive interface after a human-guided binning effort. Once you have a collection, you can *summarize* it using `anvi-summarize`.
+
+{:.notice}
+If you don't know what collections and bins are available in a profile database, you can use the program `anvi-show-collections-and-bins`, and if you would like to get a very quick list of completion estimates for your bins in a collection, you can use the program `anvi-script-get-collection-info`.
 
 The result of `anvi-summarize` is a static HTML output you can browse in your browser, send to your colleagues, put it on your web page (an example from one of our papers is [here](http://anvio.org/data/INFANT-CLC-SUMMARY-SUPERVISED/)), or attach it to your submission as a supplementary data for review. When you run `anvi-summarize`,
 
@@ -423,6 +425,7 @@ anvi-summarize -p SAMPLES-MERGED/PROFILE.db -c contigs.db --list-collections
 
 The summary process can take a lot of time. If you want to take a quick look to identify which bins need to be refined, you can run `anvi-summarize` with `--quick-summary` flag.
 
+
 ### anvi-refine
 
 After running `anvi-summarize`, you may realize that you are not happy with one or more of your bins. This often is the case when you are working with very large datasets and when you are forced to skip the human guided binning step. `anvi-refine` gives you the ability to make finer adjustments to a bin that may be contaminated.
@@ -432,7 +435,10 @@ After you refine bins that needs attention, you can re-generate your static summ
 {:.notice}
 Speaking of which, please take a look at this post where Meren talks about [assessing completion and contamination of metagenome-assembled genomes]({% post_url miscellaneous/2016-06-09-assessing-completion-and-contamination-of-MAGs %}).
 
-Please read **[this article]({% post_url anvio/2015-05-11-anvi-refine %})** for a comprehensive introduction to refinement capacity of anvi'o.
+Please read **[this article]({% post_url anvio/2015-05-11-anvi-refine %})** for a comprehensive introduction to refinement capacity of anvi'o. Pluse there are the following articles from Tom Delmont and Veronika Kivenson you may consider reading:
+
+* [Notes on genome refinement with anvi'o]({% post_url anvio/2017-05-11-anvi-refine-by-veronika %})
+* [Inspecting the genomic link between Archaea and Eukaryota]({% post_url miscellaneous/2017-01-03-loki-the-link-archaea-eukaryota %}) 
 
 
 ---
