@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Proposed architecture for anvio snakemake workflows
+title: Anvi'o snakemake workflows
 modified: 2018-02-15
-excerpt: "Bringing the magic of anvio together with the wonder of snakemake."
+excerpt: "Bringing the magic of anvi'o together with the wonders of snakemake."
 comments: true
 authors: [alon]
 categories: [anvio]
@@ -10,77 +10,112 @@ categories: [anvio]
 
 {% include _toc.html %}
 
-# Proposed architecture for anvi'o snakemake workflows
+[Snakemake](https://snakemake.readthedocs.io/en/stable/) is a very useful and robust language for creating computational workflows. Recently we have been using it extensivley and it has been wonderful.
 
-snakemake is a very useful and robust language for creating computational pipelines. Recently we have been using it extensivley and it has been wonderful.
+In order to let others enjoy anvi'o together with the wonders of snakemake, we embarked on an effort to make "easy-to-use" (well, not *too* easy .. after all this is 'science') snakefiles for some of the commonly used workflows involving anvi'o.
 
-In order to let others enjoy the wonder of anvi'o together with the wonder of snakemake, we embarked on an effort to make "easy-to-use" (well, not TOO easy, after all this is science) snakefiles for some of the commonly used workflows involving anvi'o.
+I wish this post to be useful to understand two things:
 
-In this post I wish to propose an architecture for how these types of workflows should be written. I have been developing workflows according to this architecture in the branch `workflows` of anvi'o. A standard architecture would allow us to automate the writing of new workflows. It would also make it easier to understand and change existing ones. Finally, it would make it easier to develope user friendly warning and error messages so that the user could enjoy all the flexibility of the workflows.
+* How to use snakemake workflows with anvi'o (for all users)
 
-When developing these workflows I made an effort to allow the user to easily configure any configurable parameter that is accessible by the software that are utilized in the workflow. This was not always possible to do (under reasonable effort), as some constraints have to be made for the workflow to, well, work and flow.
+* A proposed architecture of how these workflows should be written (for developers and power users)
 
-## Keeping the workflows up-to-date with anvi'o versions
+ 
+# How to use anvi'o snakemake workflows 
 
-By placing the workflows in the anvi'o repository, and updating them whenever a change is required due to a change in the anvi'o programs, we can guarantee that the user would always have workflows that are compatible with the version of anvi'o.
+The purpose of this section is to help an end user to setup their snakemake workflows in two main sections.
 
-## The `anvio.workflows` package
+## Metagenomics workflow
 
-The `anvio.workflows` package contains modules to help implement the workflows. The main purpose of these modules is to deal with configurable parameters of the rules in the workflow. By dealing, I mean enabling easy access, and sanity checks. For convinience I always include `import anvio.workflows as w` at the head of each snakefile.
+Meren: I guess mostly the content [here](https://github.com/merenlab/anvio/tree/master/workflows/assembly-based-metagenomics-workflow/README.md)?
 
-## The `anvio.workflows.workflowsops` module
+## Pangenomics workflow
 
-Each workflow corresponds to a class in `anvio.workflows.workflowsops`. Each of these classes inherits from `WorkflowSuperClass`, and in addition it inherits from
-any class corresponding to a workflow that is included in the workflow (i.e. if
-there is an `include` statement in the workflow). For example the `pangenome.snake` has the following line:
+Blah.
 
-```
+
+# The architecture for anvi'o snakemake workflows
+
+The purpose of this section is to give developers and power users a deeper understanding of how I designed this system. I hope this section and a clear architecture will be useful for us to 
+
+* Add new workflows in the future with minimal effort,
+
+* Understand and change existing ones with minimal effort,
+
+* Develop user friendly warning and error messages so that the user could enjoy all the flexibility of the workflows.
+
+When developing these workflows I made an effort to allow the user to easily configure any parameter that is accessible by the software that are utilized in the workflow. This was not always possible to do (under reasonable effort), as some constraints have to be made for the workflow to, well, 'work' and 'flow'.
+
+## The anvi'o 'workflows' module
+
+The `anvio.workflows` module contains libraries that help implement workflows. 
+
+{:.notice}
+We decided to maintain our snakemake [workflows](https://github.com/merenlab/anvio/tree/master/workflows/) in the anvi'o repository. This way, updating them whenever a change is required due to a change in the anvi'o programs will be straightforward, and we will be able to guarantee that the user would always have workflows that are compatible with the version of anvi'o they're using.
+
+The main purpose of workflow files is to deal with configurable parameters of the rules in the workflow. By dealing, I mean enabling easy-access, and automated sanity checks. For convinience I always include `import anvio.workflows as w` at the head of each snakefile.
+
+Each workflow corresponds to a class in `anvio.workflows.workflowsops`. Each of these classes inherits from `WorkflowSuperClass`, and in addition it inherits from any class corresponding to a workflow that is included in the workflow (i.e. if there is an `include` statement in the workflow). For example the `pangenome.snake` has the following line:
+
+``` bash
 include: w.get_path_to_workflows_dir() + "/generate_and_annotate_contigs_db.snake"`
 ```
 
-Which means it includes the all the rules from  `generate_and_annotate_contigs_db.snake`, and accordingly the class `PangenomicsWorkflow` inherits from `ContigsDBWorkflow`.
+{:.warning}
+This sentence down below is not clear to me.
 
-An object of `WorkflowSuperClass` has the following attributes:
+Which means it includes all the rules from `generate_and_annotate_contigs_db.snake` file, and accordingly the class `PangenomicsWorkflow` inherits from `ContigsDBWorkflow`.
 
-	rules - a list of all the rules in the workflow
-	config - the config file dictionary
-	acceptable_params_dict - a dictionary with the rule names as keys. Each dictionaty entry is a list of the acceptable patameters for a rule, i.e. the parameters that could be changed via the config file.
-	dirs_dict - see below in "Definitions of directories in the workflow"
-	general_params - other workflow related parameters that could be found in the config file. These are all the parameters that are not related to just one specific rule (hence, "general"), and as such, they will not be nested under a rule name in the config file.
+An instance of the class `WorkflowSuperClass` has the following attributes:
 
+|attribute|purpose|
+|:--|:--|
+|rules|a list of all the rules in the workflow|
+|config|the config file dictionary|
+|acceptable_params_dict|a dictionary with the rule names as keys. Each dictionaty entry is a list of the acceptable patameters for a rule, i.e. the parameters that could be changed via the config file.|
+|dirs_dict|see below in "Definitions of directories in the workflow"|
+|general_params|other workflow related parameters that could be found in the config file. These are all the parameters that are not related to just one specific rule (hence, "general"), and as such, they will not be nested under a rule name in the config file.|
+
+### Sample config files
 	
-This allows us to easily check if the config file contains parameters that are not used in the workflow (and hence raise an error and notify the user). In addition, each instance of `WorkflowSuperClass`, can have an empty config file genearted, which contains all the configurable parameters for the workflow (by running `self.save_empty_config_in_json_format()`. We can later rap this nicely with something like `anvi-gen-empty-config --workflow NAMEOFWORKFLOW --config-file-name CONFIGFILENAME`, and then the user would be able to simply delete the parameters they don't need, and define the parameters they want. If we are truly up to it, then we would make another module `get_default_config`, but for now it was just too much work.
+Each workflow takes a `config` file, which tells the workflow subsystem the specific user needs and requests to run the workflow expectedly. Each workflow class knows their entire list of configuration options, and they can provide an empty config files to be filled by the user. An example for the `PangenomicsWorkflow`:
 
-For example:
-
-The usage of these classes is as follows:
-
-```python
-from anvio.workflows.workflowsops import PangenomicsWorkflow
-p = PangenomicsWorkflow(config)
-p.init()
-p.save_empty_config_in_json_format("empty-config-for-pangenomics.json")
+``` python
+>>> from anvio.workflows.workflowsops import PangenomicsWorkflow
+>>> workflow = PangenomicsWorkflow(config)
+>>> workflow.init()
+>>> workflow.save_empty_config_in_json_format("empty-config-for-pangenomics.json")
 ```
+
+Having an empty file with all possible paramters, the user can delete the ones they don't need, and run the workflow with the resulting config with something like,
+
+``` bash
+anvi-gen-empty-config --workflow WORKFLOW \
+                      --config-file-name CONFIG
+```
+
+{:.notice}
+If we are truly up to it, then we would make another module `get_default_config`, but for now it was just too much work.
 
 ### Definitions of directories in the workflow
 
 In order to allow the user to define the names of directories through the config file, any directory that is expected to be created by the workflow must be defined in the `dirs_dict` in `anvio.workflows`, with a default name. For now this is what we have:
 
-```python
-dirs_dict = {"LOGS_DIR"     : "00_LOGS"         ,\
-             "QC_DIR"       : "01_QC"           ,\
-             "ASSEMBLY_DIR" : "02_ASSEMBLY"     ,\
-             "CONTIGS_DIR"  : "03_CONTIGS"      ,\
-             "MAPPING_DIR"  : "04_MAPPING"      ,\
-             "PROFILE_DIR"  : "05_ANVIO_PROFILE",\
-             "MERGE_DIR"    : "06_MERGED"       ,\
-             "PAN_DIR"      : "07_PAN"          ,\
-             "FASTA_DIR"    : "01_FASTA"        ,\
-             "LOCI_DIR"     : "04_LOCI_FASTAS"   \
+``` python
+dirs_dict = {"LOGS_DIR"     : "00_LOGS",
+             "QC_DIR"       : "01_QC",
+             "ASSEMBLY_DIR" : "02_ASSEMBLY",
+             "CONTIGS_DIR"  : "03_CONTIGS",
+             "MAPPING_DIR"  : "04_MAPPING",
+             "PROFILE_DIR"  : "05_ANVIO_PROFILE",
+             "MERGE_DIR"    : "06_MERGED",
+             "PAN_DIR"      : "07_PAN",
+             "FASTA_DIR"    : "01_FASTA",
+             "LOCI_DIR"     : "04_LOCI_FASTAS"   
 }
 ```
 
-The user-defined names from the config file, are set when the `WorkflowSuperClass.init()` is ran (see `p.init()` in the example above).
+The user-defined names from the config file, are set when the `WorkflowSuperClass.init()` is ran.
 
 ### The number of threads for a rule
 
