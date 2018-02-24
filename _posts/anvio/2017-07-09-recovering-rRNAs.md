@@ -120,7 +120,7 @@ $ anvi-get-sequences-for-hmm-hits -c B_fragilis.db \
                                   --hmm-source Ribosomal_RNAs \
                                   --gene Bacterial_16S_rRNA \
                                   -o sequences.fa
-Auxiliary Data ...............................: Found: B_fragilis.h5 (v. 1)
+Auxiliary Data ...............................: Found: B_fragilis.db (v. 1)
 Contigs DB ...................................: Initialized: B_fragilis.db (v. 8)
 Hits .........................................: 18 hits for 1 source(s)
 Filtered hits ................................: 6 hits remain after filtering for 1 gene(s)
