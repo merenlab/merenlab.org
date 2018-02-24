@@ -31,7 +31,7 @@ And run `anvi-interactive`:
 {% highlight bash %}
 server ~/my_data $ anvi-interactive -p MERGED/PROFILE.db -c CONTIGS.db -s SAMPLES.db --server-only -P 8080
 Contigs DB .........................: Initialized: CONTIGS.db (v. 3)
-Auxiliary Data .....................: Found: MERGED/AUXILIARY-DATA.h5 (v. 1)
+Auxiliary Data .....................: Found: MERGED/AUXILIARY-DATA.db (v. 1)
 Profile DB .........................: Initialized: MERGED/PROFILE.db (v. 6)
 
 * The server is now listening the port number "8080". When you are finished, press

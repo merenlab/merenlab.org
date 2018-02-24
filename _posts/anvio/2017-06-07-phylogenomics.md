@@ -486,17 +486,17 @@ Here is the pangenomic analysis:
 ``` bash
 # generate anvi'o genomes storage
 anvi-gen-genomes-storage -e external-genomes.txt \
-                         -o Salmonella-GENOMES.h5
+                         -o Salmonella-GENOMES.db
 
 # do the pangenomic analysis --this will take about
 # 5 to 10 mins
-anvi-pan-genome -g Salmonella-GENOMES.h5 \
+anvi-pan-genome -g Salmonella-GENOMES.db \
                 --project-name Salmonella \
                 --num-threads 8
 
 
 # display the pangenome
-anvi-display-pan -g Salmonella-GENOMES.h5 \
+anvi-display-pan -g Salmonella-GENOMES.db \
                  -p Salmonella/Salmonella-PAN.db \
                  -s Salmonella/Salmonella-SAMPLES.db
 ```
@@ -522,7 +522,7 @@ One could certainly store all those genes in a collection and work with them. I 
 The program `anvi-export-pc-alignments` is what we will use to export alignments genes in protein clusters. This is also a very capable program, and I urge you to take a look at its help menu and explore other ways to use it for your research. Here, we declare the collection name and the bin id in our anvi'o pan database, and export sequences:
 
 ``` bash
-anvi-export-pc-alignments -g Salmonella-GENOMES.h5 \
+anvi-export-pc-alignments -g Salmonella-GENOMES.db \
                           -p Salmonella/Salmonella-PAN.db \
                           --collection-name default \
                           --bin-id Some_Core_PCs \
@@ -575,7 +575,7 @@ anvi-update-samples-info-database -s Salmonella/Salmonella-SAMPLES.db \
 Run `anvi-display-pan` again,
 
 ``` bash
-anvi-display-pan -g Salmonella-GENOMES.h5 \
+anvi-display-pan -g Salmonella-GENOMES.db \
                  -p Salmonella/Salmonella-PAN.db \
                  -s Salmonella/Salmonella-SAMPLES.db
 ```

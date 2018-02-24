@@ -102,7 +102,7 @@ Thanks to these two files, genome bins in anvi'o collections and cultivar genome
 Once you have your genomes storage ready, you can use the program `anvi-pan-genome` to run the actual pangenomic analysis. This is the simplest form of this command:
 
 ``` bash
-$ anvi-pan-genome -g MY-GENOMES.h5 -n PROJECT_NAME
+$ anvi-pan-genome -g MY-GENOMES.db -n PROJECT_NAME
 ```
 
 When you run it, `anvi-pan-genome`,
@@ -143,7 +143,7 @@ Once your analysis is done, you will use the program `anvi-display-pan` to displ
 This is the simplest form of this command:
 
 ``` bash
-$ anvi-display-pan -p PROJECT-PAN.db -s PROJECT-PAN-SAMPLES.db -g PROJECT-PAN-GENOMES.h5
+$ anvi-display-pan -p PROJECT-PAN.db -s PROJECT-PAN-SAMPLES.db -g PROJECT-PAN-GENOMES.db
 ```
 
 The program `anvi-display-pan` is very similar to the program `anvi-interactive`, and the interface that will welcome you is nothing but the standard [anvi'o interactive interface]({% post_url anvio/2016-02-27-the-anvio-interactive-interface %}/#using-the-anvio-interactive-interface) with slight adjustments for pangenomic analyses. Of course `anvi-display-pan` will allow you to set the IP address and port number to serve, add additional view data, additional layers, and/or additional trees, and more. Please familiarize yourself with it by running `anvi-display-pan -h` in your terminal.
@@ -214,7 +214,7 @@ You can summarize a collection using the program `anvi-summarize`, and a generic
 
 ``` bash
 $ anvi-summarize -p PROJECT-PAN.db \
-                 -g PROJECT-PAN-GENOMES.h5 \
+                 -g PROJECT-PAN-GENOMES.db \
                  -C COLLECTION_NAME \
                  -o PROJECT-SUMMARY
 ```

@@ -198,7 +198,6 @@ This is how I screened the entire collection of bins in this analysis for CPR ge
 
 ``` bash
 $ anvi-script-predict-CPR-genomes cpr-bscg.classifier -c CONTIGS.db -p PROFILE.db -C CONCOCT_REFINED
-Auxiliary Data ...............................: Found: CONTIGS.h5 (v. 1)
 Contigs DB ...................................: Initialized: CONTIGS.db (v. 5)
 Classifier ...................................: Initialized with 139 features grouped into 2 classes.
 Num samples to classify ......................: 253.
