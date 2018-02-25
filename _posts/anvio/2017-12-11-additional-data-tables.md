@@ -6,6 +6,7 @@ excerpt: "Getting additional data in an out of pan and profile databases like a 
 comments: true
 authors: [meren]
 categories: [anvio]
+redirect_from: /2015/11/10/samples-db/
 ---
 
 {% include _toc.html %}
