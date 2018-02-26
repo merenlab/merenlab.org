@@ -254,9 +254,6 @@ anvi-interactive -t tree.txt -d view_data.txt -p new_profile.db --title 'Interfa
 
 Which produces this:
 
-{:.notice}
-Please consider reading [this article]({% post_url anvio/2015-11-10-samples-db %}) if you are interested in learning more about the samples database.
-
 <div class="centerimg">
 <a href="{{ site.url }}/images/anvio/2016-02-27-the-anvio-interactive-interface/06.png"><img src="{{ site.url }}/images/anvio/2016-02-27-the-anvio-interactive-interface/06.png" width="50%" /></a>
 </div>

@@ -27,7 +27,7 @@ While it is helpful to be able to extend any anvi'o display in any direction by 
 That's why, while keeping the *ad hoc* workflow in place, we have extended anvi'o in `v4` with a completely new design to work with additional data.
 
 {:.notice}
-As a part of this design, we ended up killing the [samples database]({% post_url anvio/2015-11-10-samples-db %}){:target="_blank"}. If you are too young to remember those days, that's fine, you will not miss the samples database. If you are stuck with a an anvio'o project that has a samples database, don't worry, `anvi-migrade-db` program will help you to import the data in the samples database into the new tables in the profile database with no effort.
+As a part of this design, we ended up killing the 'anvi'o samples database'. If you are too young to remember those days, that's fine, you are not missing anything. If you are stuck with a an anvio'o project that has a samples database, don't worry, `anvi-migrade-db` program will help you to import the data in the samples database into the new tables in the profile database with no effort.
 
 ## Views, items, layers, orders: some anvi'o terminology 
 

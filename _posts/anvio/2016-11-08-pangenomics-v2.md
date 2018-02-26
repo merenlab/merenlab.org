@@ -134,7 +134,7 @@ This parameter has wrongly named as `maxbit` in anvi'o `v2.4.0` and earlier vers
 {:.notice}
 You need another parameter? Well, of course you do! Let us know, and let's have a discussion. We love parameters.
 
-Once you are done, a new directory with your analysis results will appear. Among other files, it will contain an anvi'o pan database, and an anvi'o [samples database]({% post_url anvio/2015-11-10-samples-db %}). If you would like to update the samples database, you can edit the `*-samples-information.txt` or `*-samples-order.txt` files and re-create an updated samples database using the program `anvi-gen-samples-database` as explained [here]({% post_url anvio/2015-11-10-samples-db %}/#the-command-line-to-generate-the-database). 
+Once you are done, a new directory with your analysis results will appear. You can add or remove additional data items into your pan profile database using anvi'o [additional data tables subsystem]({% post_url anvio/2017-12-11-additional-data-tables %}).
 
 ## Displaying the pan genome
 
@@ -143,7 +143,7 @@ Once your analysis is done, you will use the program `anvi-display-pan` to displ
 This is the simplest form of this command:
 
 ``` bash
-$ anvi-display-pan -p PROJECT-PAN.db -s PROJECT-PAN-SAMPLES.db -g PROJECT-PAN-GENOMES.db
+$ anvi-display-pan -p PROJECT-PAN.db -g PROJECT-PAN-GENOMES.db
 ```
 
 The program `anvi-display-pan` is very similar to the program `anvi-interactive`, and the interface that will welcome you is nothing but the standard [anvi'o interactive interface]({% post_url anvio/2016-02-27-the-anvio-interactive-interface %}/#using-the-anvio-interactive-interface) with slight adjustments for pangenomic analyses. Of course `anvi-display-pan` will allow you to set the IP address and port number to serve, add additional view data, additional layers, and/or additional trees, and more. Please familiarize yourself with it by running `anvi-display-pan -h` in your terminal.
