@@ -886,6 +886,7 @@ $button-size: 1.5rem;
             padding: 10px;
             display: block;
             color: $white;
+            outline:none;
             text-decoration: none;
             background: lighten($black, 30);
             @include opacity(0.7);
@@ -893,6 +894,9 @@ $button-size: 1.5rem;
             &:hover {
                 @include opacity(1);
             }
+        }
+        a.header-active {
+            background-color: #152e44;
         }
         ul {
             margin: 1px 0 0;
