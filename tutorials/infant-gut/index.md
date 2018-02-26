@@ -10,7 +10,7 @@ image:
 ---
 
 {:.notice}
-This tutorial is tailored for anvi'o `v3` or later. You can learn the version of your installation by typing `anvi-interactive -v`. If you have an older version, some things will not work the way they should.
+This tutorial is tailored for anvi'o `v4` or later. You can learn the version of your installation by typing `anvi-interactive -v`. If you have an older version, some things will not work the way they should.
 
 The purpose of this tutorial is to have a conversation about metagenomic binning (while demonstrating some of the anvi'o capabilities) using the Infant Gut Dataset (IGD), which was generated, analyzed, and published by [Sharon et al. (2013)](http://www.ncbi.nlm.nih.gov/pubmed/22936250){:target="_blank"}, and was re-analyzed in the [anvi'o methods paper](https://peerj.com/articles/1319/){:target="_blank"}.
 
@@ -148,10 +148,26 @@ In the anvi'o *lingo*, a 'collection' is something that describes one or more bi
                           additional-files/external-binning-results/CONCOCT.txt
 ```
 
-And run the interactive again with that collection name:
+In fact you can immediately see what collections are available in a given profile database the following way --which in this case it should show us the collection `CONCOCT` only:
 
 ``` bash
- $ anvi-interactive -p PROFILE.db -c CONTIGS.db --collection-autoload CONCOCT
+ $ anvi-show-collections-and-bins -p PROFILE.db
+```
+
+You can also get a quick idea a about the bins in a given collection:
+
+``` bash
+$ anvi-script-get-collection-info -p PROFILE.db \
+                                  -c CONTIGS.db \
+                                  -C CONCOCT
+```
+
+OK. Let's run the interactive interface again with that collection name:
+
+``` bash
+ $ anvi-interactive -p PROFILE.db \
+                    -c CONTIGS.db \
+                    --collection-autoload CONCOCT
 ```
 
 {:.notice}
@@ -201,6 +217,36 @@ Good. Now you can run the interactive interface to display all collections of bi
  $ anvi-interactive -p PROFILE.db -c CONTIGS.db -A collections.tsv
 ```
 
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Dealing with additional data tables like a pro</span>
+
+As you can see, `-A` parameter allows us to add anything to the interface as additional layers as far as the first column of that data matches to our item names. We could alternatively import this additional information into our profile database, and the way to do it is through the use of [additional data tables subsystem of anvi'o]({% post_url anvio/2017-12-11-additional-data-tables %}). There is much more information on how to deal with additional data of all sorts here, but basically we can run the following command to import this data into our database:
+
+``` bash
+ $ anvi-import-misc-data collections.tsv \
+                         -p PROFILE.db \
+                         -t items
+```
+
+Now you can run the interactive interface *without* the `collections.tsv`, and you would get the exact same display, since the additional data now would be read from the additional data tables:
+
+``` bash
+ $ anvi-interactive -p PROFILE.db -c CONTIGS.db
+```
+
+But for now, we will continue without these tables, so let's delete them from the profile database:
+
+``` bash
+ $ anvi-delete-misc-data -p PROFILE.db \
+                         -t items \
+                         --just-do-it
+```
+
+</div>
+
+Fine.
+
 At this point you should be seeing a display similar to this (after setting the height of each additional layer to 200px) in Settings:
 
 [![Infant gut merged](images/infant-gut-collections.png)](images/infant-gut-collections.png){:.center-img .width-50}
@@ -216,7 +262,9 @@ The legends for each of the bin collections are available in the `Legends` tab o
 and run the interactive interface again with the same command line,
 
 ``` bash
- $ anvi-interactive -p PROFILE.db -c CONTIGS.db -A collections.tsv
+ $ anvi-interactive -p PROFILE.db \
+                    -c CONTIGS.db \
+                    -A collections.tsv
 ```
 
 this time you should get this display:
@@ -266,13 +314,22 @@ From here, there are two things we can do very quickly. First, we can create a s
  $ anvi-summarize -c CONTIGS.db \
                   -p PROFILE.db \
                   -C MAXBIN \
-                  -o MAXBIN-SUMMARY
+                  -o MAXBIN-SUMMARY \
+                  --quick
 ```
 
 {:.notice}
 You can learn more about `anvi-summarize` [here]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#anvi-summarize).
 
-Second, we can take a very quick look at the binning results by initiating the interactive interface in the `collection` mode:
+Or, we can take a quick look at the completion / redundancy estimates of bins described by this collection from the command line:
+
+``` bash
+$ anvi-script-get-collection-info -p PROFILE.db \
+                                  -c CONTIGS.db \
+                                  -C MAXBIN
+```
+
+Or, we can take a very quick look at the binning results by initiating the interactive interface in the `collection` mode:
 
 ``` bash
  $ anvi-interactive -p PROFILE.db \
@@ -289,20 +346,20 @@ All previous interactive displays were at the contig-level (each leaf in the cen
 {:.notice}
 Please read this post to learn more about completion and redundancy estimates: [Assessing completion and contamination of metagenome-assembled genomes]({% post_url miscellaneous/2016-06-09-assessing-completion-and-contamination-of-MAGs %}){:target="_blank"}
 
-It is clear that some bins are not as well-resolved as others. For instance, bins `maxbin.007` and `maxbin.008` have redundancy estimates of 90% and 59%, respectively, which suggests each of them describe multiple groups of organisms.
+It is clear that some bins are not as well-resolved as others. For instance, bins `maxbin_007` and `maxbin_008` have redundancy estimates of 90% and 59%, respectively, which suggests each of them describe multiple groups of organisms.
 
 {:.notice}
-"Why not `maxbin.009`, Meren?". Yes, I am cheating. But for a good reason. Does anyone have any idea what that reason might be? Hint: what are bacterial single-copy core genes not good for?
+"Why not `maxbin_009`, Meren?". Yes, I am cheating. But for a good reason. Does anyone have any idea what that reason might be? Hint: what are bacterial single-copy core genes not good for?
 
 Well, clearly we would have preferred those bins to *behave*.
 
 Luckily anvi'o allows the refinement of bins. So in fact you can focus only those two bins, and refine them using the interactive interface. First we need to crete a file with bin names we are interested in to refine:
 
 ``` bash
- $ python -c 'print("maxbin.007\nmaxbin.008")' > maxbin-bins-to-refine.txt
+ $ python -c 'print("maxbin_007\nmaxbin_008")' > maxbin-bins-to-refine.txt
  $ cat maxbin-bins-to-refine.txt
-maxbin.007
-maxbin.008
+maxbin_007
+maxbin_008
 ```
 
 {:.notice}
@@ -321,7 +378,7 @@ Which would give us this:
 
 [![MaxBin refining two bins](images/maxbin-refining.png)](images/maxbin-refining.png){:.center-img .width-50}
 
-Here we see the distribution of each contig originally binned into `maxbin.007` and `maxbin.008` across samples. The hierarchical clustering did pick up some trends, and you can see there are more than two clusters you can identify somewhat easily. Here I made some selections:
+Here we see the distribution of each contig originally binned into `maxbin_007` and `maxbin_008` across samples. The hierarchical clustering did pick up some trends, and you can see there are more than two clusters you can identify somewhat easily. Here I made some selections:
 
 [![MaxBin two bins refined](images/maxbin-refined.png)](images/maxbin-refined.png){:.center-img .width-50}
 
@@ -422,14 +479,15 @@ Now you can run the interface again,
 ``` bash
  $ anvi-interactive -p PROFILE.db \
                     -c CONTIGS.db \
-                    --title 'Infant Gut Time Series by Sharon et al. [w/ 5 CONCOCT clusters]'
+                    --title 'Infant Gut Time Series by Sharon et al. [w/ 5 CONCOCT clusters]' \
+                    --collection-autoload CONCOCT_C5
 ```
 
-and you would see this after loading the new `CONCOCT_C5` collection from the `Bins` tab:
+and you would see this:
 
 [![CONCOCT w/ 5 clusters](images/concoct-5-clusters.png)](images/concoct-5-clusters.png){:.center-img .width-50}
 
-As you can see, there aren't any fragmentation errors anymore, and in fact CONCOCT did an amazing job to identify general patterns in the dataset. Now refining these bins to fix all the conflation errors would be much more easier. If you would like to try, here is an example:
+Well, there aren't any fragmentation errors anymore, and in fact CONCOCT did an amazing job to identify general patterns in the dataset. Now refining these bins to fix all the conflation errors would be much more easier. If you would like to try, here is an example:
 
 ``` bash
  $ anvi-refine -p PROFILE.db \
@@ -801,7 +859,6 @@ $ anvi-gen-variability-profile -c MAGs/E_facealis/CONTIGS.db \
                                --samples-of-interest additional-files/samples.txt \
                                --min-coverage-in-each-sample 20 \
                                --include-split-names \
-                               --min-scatter 3 \
                                --quince-mode \
                                -o E-faecalis-SNVs.txt
 ```
@@ -1066,25 +1123,24 @@ So everything is ready for an analysis, and the first step in the pangenomic wor
 ``` bash
  $ anvi-gen-genomes-storage -i additional-files/pangenomics/internal-genomes.txt \
                             -e additional-files/pangenomics/external-genomes.txt \
-                            -o Enterococcus-GENOMES.h5
+                            -o Enterococcus-GENOMES.db
 ```
 
 Now we have the genomes storage, we can characterize the pangenome:
 
 ``` bash
- $ anvi-pan-genome -g Enterococcus-GENOMES.h5 -n Enterococcus -o PAN --num-threads 6 --skip-align
+ $ anvi-pan-genome -g Enterococcus-GENOMES.db \
+                   -n Enterococcus \
+                   -o PAN \
+                   --num-threads 10
 ```
-
-{:.notice}
-The flag `--skip-alignment` makes anvi'o skip pairwise aligning amino acid sequences in each protein cluster. Why? Because we haven't parallelized that step yet, and it is taking more time than what we can tolerate during a workshop :/ But when you do a real analysis, consider waiting for a bit extra. It will be worthwhile. Meanwhile, we will work on improving this step :)
 
 Now the pangenome is ready to display. This is how you can run it:
 
 
 ``` bash
- $ anvi-display-pan -g Enterococcus-GENOMES.h5 \
+ $ anvi-display-pan -g Enterococcus-GENOMES.db \
                     -p PAN/Enterococcus-PAN.db \
-                    -s PAN/Enterococcus-SAMPLES.db \
                     --title "Enterococccus Pan"
 ```
 
@@ -1110,10 +1166,12 @@ I am not arguing that every figure should look like that one, but I would like y
 OK. I made the previous display a bit prettier for you. If you kill the server, and import the state file the following way, and re-run the server,
 
 ``` bash
- $ anvi-import-state -p PAN/Enterococcus-PAN.db --state additional-files/state-files/state-pan.json --name default
- $ anvi-display-pan -g Enterococcus-GENOMES.h5 \
+ $ anvi-import-state -p PAN/Enterococcus-PAN.db \
+                     --state additional-files/state-files/state-pan.json \
+                     --name default
+ 
+ $ anvi-display-pan -g Enterococcus-GENOMES.db \
                     -p PAN/Enterococcus-PAN.db \
-                    -s PAN/Enterococcus-SAMPLES.db \
                     --title "Enterococccus Pan"
 ```
 
@@ -1135,9 +1193,8 @@ From this display you can make selections of protein clusters. I already made so
 and re-run the interactive interface,
 
 ``` bash
- $ anvi-display-pan -g Enterococcus-GENOMES.h5 \
+ $ anvi-display-pan -g Enterococcus-GENOMES.db \
                     -p PAN/Enterococcus-PAN.db \
-                    -s PAN/Enterococcus-SAMPLES.db \
                     --title "Enterococccus Pan"
 ```
 
@@ -1163,7 +1220,7 @@ You can summarize the pangenome using the collection we have the following way:
 
 ``` bash
  $ anvi-summarize -p PAN/Enterococcus-PAN.db \
-                  -g Enterococcus-GENOMES.h5 \
+                  -g Enterococcus-GENOMES.db \
                   -C default \
                   -o PAN_SUMMARY
 ```
