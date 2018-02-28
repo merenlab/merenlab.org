@@ -98,12 +98,15 @@ $(document).ready(function() {
 
   // this is for smooth scrolling
   $('#markdown-toc a[href^="#"]').on('click', function(event) {
-      var target = $(this.getAttribute('href'));
+      var anchor = this;
+      var target = $(anchor.getAttribute('href'));
       if( target.length ) {
           event.preventDefault();
           $('html, body').stop().animate({
               scrollTop: target.offset().top
-          }, 500);
+          }, 500)
+          .promise()
+          .done(function(){ location.href = anchor.getAttribute('href'); });
       }
   });
 });
