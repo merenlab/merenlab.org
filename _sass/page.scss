@@ -650,12 +650,6 @@ $button-size: 1.5rem;
     }
     @media #{$x-large} {
     }
-    h3 {
-        margin: 0;
-        padding-bottom: .5em;
-        @include font-rem(28);
-        border-bottom: 1px solid lighten($black,70);
-    }
     article {
         h2 {
             margin-bottom: 4px;
@@ -886,6 +880,7 @@ $button-size: 1.5rem;
             padding: 10px;
             display: block;
             color: $white;
+            outline:none;
             text-decoration: none;
             background: lighten($black, 30);
             @include opacity(0.7);
@@ -893,6 +888,9 @@ $button-size: 1.5rem;
             &:hover {
                 @include opacity(1);
             }
+        }
+        a.header-active {
+            background-color: #152e44;
         }
         ul {
             margin: 1px 0 0;
