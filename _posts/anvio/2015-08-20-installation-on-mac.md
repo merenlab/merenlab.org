@@ -9,8 +9,8 @@ comments: true
 authors: [meren]
 ---
 
-{:.notice}
-This is petty old now, and we will not add new OS X installers. If you are an OS X user, please see the current installation instructions and try Homebrew instead.
+{:.warning}
+This is petty old now, and we will not add new OS X installers. Please do not use this, and try Homebrew installation instructions you can find in [this post]({% post_url anvio/2016-06-26-installation-v2 %}).
 
 {% include _project-anvio-version.html %}
 
