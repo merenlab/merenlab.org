@@ -109,7 +109,9 @@ Available **distance metrics** include `braycurtis`, `canberra`, `chebyshev`, `c
 
 ## Organizing layers
 
-We definitely improved the organization of items based on their taxonomic makeup. But layers could have been organized better, as well. The initial step is somewhat similar (but notice that we now add the flag `--transpose`):
+We definitely improved the organization of items based on their taxonomic makeup. But layers could have been organized better, as well (right? RIGHT?).
+
+Doing it with anvi'o is somewhat similar to the initial step of organizing items (but notice that we now add the flag `--transpose`):
 
 ``` bash
  $ anvi-matrix-to-newick data.txt \
@@ -117,21 +119,26 @@ We definitely improved the organization of items based on their taxonomic makeup
                          -o layers-tree.txt
 ```
 
-Now we have a tree file to organize our layers, however, the utilization of this tree file will require a minimal understanding of what we call 'samples database' in anvi'o jargon. A rather comprehensive description of the samples database concept is laid out here:
+Now we have a tree file to organize our layers, however, the utilization of this tree file is not going to be as straightforward as using the `--tree` parameter for the `anvi-interactive` command. 
 
-[http://merenlab.org/2015/11/10/samples-db/](http://merenlab.org/2015/11/10/samples-db/)
+It will require us to add this information into the 'layer orders' table. This table is one of additional data table anvi'o often uses to enrich its displays.
 
-If you read that, you already know about the sample-order file. If you don't want to spend time on it you can download it here:
+A rather comprehensive description of these tables, and how to operate on them is laid out here:
+
+* [Working with anvi'o additional data tables]({% post_url anvio/2017-12-11-additional-data-tables %})
+
+If you read that article, you already know about the simple structure of the input file to add new layers orders into a profile database. If you don't want to spend time on it you can download it here:
 
 ``` bash
- $ wget http://merenlab.org/tutorials/interactive-interface/files/samples-order.txt
+ $ wget http://merenlab.org/tutorials/interactive-interface/files/layer-orders.txt
 ```
 
-Now you can generate a samples database,
+After taking a look at the contents of this file, you can import it in your profile database:
 
 ``` bash
- $ anvi-gen-samples-info-database -R samples-order.txt \
-                                  -o samples.db
+ $ anvi-import-misc-data layer-orders.txt \
+                         --target-data-table layer_orders \
+                         --pan-or-profile-db profile.db
 ```
 
 and re-run the `anvi-interactive`,
@@ -141,7 +148,6 @@ and re-run the `anvi-interactive`,
                     -p profile.db \
                     --title "Taxonomic profiles of 690 gut metagenomes" \
                     --tree tree.txt \
-                    -s samples.db \
                     --manual
 ```
 
@@ -154,7 +160,11 @@ Then, if you click draw again, you will feel that we are getting somewhere.
 [![manual](images/data-w-samples-org.png)](images/data-w-samples-org.png){:.center-img .width-50}
 
 
-## Going all corners
+{:.notice}
+This may be a good time to save your default state by using the buttons down below in your settings panel so you don't have to click Draw every time you start a new interactive interface.
+
+
+## Let's go all corners
 
 We are aware that most people have quite strong feelings against circular plots.
 
@@ -172,10 +182,10 @@ To honor all those who like corners better, we shall continue with the phylogram
 
 Anvi'o can extend any view with additional data. For instance, we have some information about these metagenomes. Such as the sampling site, or the gender of the individual they originate from. We could display that information to improve our understanding of the data.
 
-You can download the pre-prepared additional data file from here:
+You can download the pre-prepared items additional data file from here:
 
 ``` bash
- $ wget http://merenlab.org/tutorials/interactive-interface/files/additional-data.txt
+ $ wget http://merenlab.org/tutorials/interactive-interface/files/additional-items-data.txt
 ```
 
 The first column of the additional data file is pretty much identical to the data file, but there are some other data columns in it:
@@ -193,17 +203,25 @@ The first column of the additional data file is pretty much identical to the dat
 |SRS011152|Oral|Supragingival_plaque|Male|
 |(...)|(...)|(...)|(...)|
 
-Adding these additional information on an anvi'o display as new layers is quite straightforward:
+Careful readers know what's up. We need to add these additional data into the profile database, right? Yes. And it is will go exactly the way you imagine it would (note the change in target data table):
+
+``` bash
+ $ anvi-import-misc-data additional-items-data.txt \
+                         --target-data-table items \
+                         --pan-or-profile-db profile.db
+```
+
+Now you can re-run your interactive interface:
 
 ``` bash
  $ anvi-interactive -d data.txt \
                     -p profile.db \
                     --title "Taxonomic profiles of 690 HMP metagenomes" \
                     --tree tree.txt \
-                    -s samples.db \
-                    -A additional-data.txt \
                     --manual
 ```
+
+to get this one (you will really squint your eyes to see the new layer at the bottom):
 
 [![manual](images/final-raw.png)](images/final-raw.png){:.center-img .width-80}
 
@@ -211,23 +229,26 @@ Just a small tip while we are here: you can always zoom-in to a particular part 
 
 ![manual](images/zoom.gif){:.center-img .width-80}
 
+{:.notice}
+You could have shown your items additonal data in the interactive interface without importing it, but using the `--additional-layers` parameter. But it is always a better practice to import additional data into the profile database to minimize the number of files that need to be carried around for full reproducibility.
+
+
 ## Additional data for the layers
 
-How about extending layers with extra information? At this point we can at least add some taxonomy for these taxa. This information must be included in the samples database, just like the layers order information.
+How about extending layers with extra information? At this point we can at least add some taxonomy for these layers.
 
-Here is one for the lazy:
+Here is a layers additional data file for the lazy:
 
 ``` bash
- $ wget http://merenlab.org/tutorials/interactive-interface/files/samples-information.txt
+ $ wget http://merenlab.org/tutorials/interactive-interface/files/additional-layers-data.txt
 ```
 
-Now you can remove the old samples database, and generate a new one:
+After taking a look at the file, you can import it into the profile database:
 
 ``` bash
- $ rm samples.db
- $ anvi-gen-samples-info-database -R samples-order.txt \
-                                  -D samples-information.txt \
-                                  -o samples.db
+ $ anvi-import-misc-data additional-layers-data.txt \
+                         --target-data-table layers \
+                         --pan-or-profile-db profile.db
 ```
 
 And rerun the interactive interface:
@@ -237,14 +258,12 @@ And rerun the interactive interface:
                     -p profile.db \
                     --title "Taxonomic profiles of 690 HMP metagenomes" \
                     --tree tree.txt \
-                    -s samples.db \
-                    -A additional-data.txt \
                     --manual
 ```
 
 to get this one:
 
-[![manual](images/final-raw.png)](images/final-raw.png){:.center-img .width-80}
+[![manual](images/final-all.png)](images/final-all.png){:.center-img .width-80}
 
 I guess we can all agree that this figure looks *unbearably* ugly, and quite useless :(
 
@@ -281,8 +300,6 @@ Now you can re-run your interface, and you will have it, too:
                     -p profile.db \
                     --title "Taxonomic profiles of 690 HMP metagenomes" \
                     --tree tree.txt \
-                    -s samples.db \
-                    -A additional-data.txt \
                     --manual
 ```
 
