@@ -59,7 +59,7 @@ You may see warning messages during self-test runs. Don't be concerned.
 If you have [Anaconda](https://www.continuum.io/downloads), it is also possible to install anvi'o along with its all Python and non-Python dependencies thanks to [John Eppley](https://scholar.google.com/citations?user=4S2q_9cAAAAJ&hl=en):
 
 ``` bash
-conda create -n anvio4 -c bioconda -c conda-forge python=3.5.4 gsl anvio
+conda create -n anvio4 -c bioconda -c conda-forge anvio
 ```
 
 Once the installation is complete, test anvi'o quickly to make sure everything is in order:
