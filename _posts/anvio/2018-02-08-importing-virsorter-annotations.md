@@ -152,7 +152,7 @@ wrapper_phage_contigs_sorter_iPlant.pl -f assembly.fasta \
 ```
 
 {:.warning}
-It is _critical_ that VirSorter is run on the _exact same FASTA file_ that was used to generate the anvi'o contigs database, map and profile reads, etc. This point can't be overstated!
+It is _critical_ that VirSorter is run on the _exact same FASTA file_ that was used to generate the anvi'o contigs database, map and profile reads, etc. This point can't be overstated! The FASTA headers should only contain letters, numbers, \-, and \_. Take a look at some examples [here](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#take-a-look-at-your-fasta-file).
 
 Please note that the `--db` argument can either be `1` or `2`. If set to `1`, then VirSorter will use phage HMMs computed from RefSeq phages published before January 2014. If set to `2`, then Virsorter will use all of the HMMs from option `1`, plus additional HMMs from phage contigs identified in curated virome datasets.
 
