@@ -39,6 +39,9 @@ For contigs larger than a certain size (20,000 bp by default), anvi'o splits the
 |*Coverage STD*|standard deviation of coverage for a given contig|
 |*Variability*|SNVs per kbp|
 
+{:.notice}
+For those above that are provided as a summary for a bin or MAG, they consider all of the contigs of that bin/MAG as though they were one. For example, "Detection" of an entire bin would be the proportion of all of the bases of that bin that are covered at least 1X. It is *not* an average of all of the individual contigs' detections. 
+
 ## Anvi'o views
 
 ### Mean coverage
