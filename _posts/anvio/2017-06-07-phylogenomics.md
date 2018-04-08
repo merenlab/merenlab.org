@@ -14,7 +14,7 @@ authors: [meren]
 {% include _project-anvio-version.html %}
 
 {: .notice}
-This tutorial is tailored for anvi'o <b>`v2.3.3` or later</b>. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal.
+This tutorial is tailored for anvi'o <b>`v4` or later</b>. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal.
 
 {% include _toc.html %}
 
@@ -497,8 +497,7 @@ anvi-pan-genome -g Salmonella-GENOMES.db \
 
 # display the pangenome
 anvi-display-pan -g Salmonella-GENOMES.db \
-                 -p Salmonella/Salmonella-PAN.db \
-                 -s Salmonella/Salmonella-SAMPLES.db
+                 -p Salmonella/Salmonella-PAN.db
 ```
 
 [![phylo]({{images}}/salmonella-pangenome-01.png)]({{images}}/salmonella-pangenome-01.png){:.center-img .width-70}
@@ -522,12 +521,12 @@ One could certainly store all those genes in a collection and work with them. I 
 The program `anvi-export-pc-alignments` is what we will use to export alignments genes in protein clusters. This is also a very capable program, and I urge you to take a look at its help menu and explore other ways to use it for your research. Here, we declare the collection name and the bin id in our anvi'o pan database, and export sequences:
 
 ``` bash
-anvi-export-pc-alignments -g Salmonella-GENOMES.db \
-                          -p Salmonella/Salmonella-PAN.db \
-                          --collection-name default \
-                          --bin-id Some_Core_PCs \
-                          --concatenate-pcs \
-                          -o concatenated-proteins.fa
+anvi-get-sequences-for-gene-clusters -g Salmonella-GENOMES.db \
+                                     -p Salmonella/Salmonella-PAN.db \
+                                     --collection-name default \
+                                     --bin-id Some_Core_PCs \
+                                     --concatenate-gene-clusters \
+                                     -o concatenated-proteins.fa
 ```
 
 <div class="extra-info" markdown="1">
@@ -564,20 +563,28 @@ Of course, since I randomly selected 100 core PCs (and maximum-likelihood is not
 
 ---
 
-Once you have a tree like this, you can also add it into your pangenome,
+If you want, you can add this organization of your genomes into your pangenome using the [additional data subsystem of anvi'o]({% post_url anvio/2017-12-11-additional-data-tables %}). To add a new genomes order, you will first need to generate a TAB-delimited file like this one as explained [here]({% post_url anvio/2017-12-11-additional-data-tables %}#layer-orders-additional-data-table):
+
+
+|item_name|data_type|data_value|
+|:--|:--:|:--|
+|Phylogenomics_w_100_Core_Genes|newick|((S_enterica_02:0.0,S_enterica_03:0.0,S_enterica_04:0.0,S_enterica_05:0.0,S_enterica_08:0.0,S_enterica_09:0.0):0.00055,(S_enterica_01:0.00126,S_enterica_07:0.00126)0.453:0.00055,(((S_enterica_11:0.0,S_enterica_12:0.0):0.00126,S_enterica_06:0.00254)0.320:0.00055,S_enterica_10:0.00126)0.000:0.00055);|
+
+
+Then you can import into your pan database:
+
 
 ``` bash
-anvi-update-samples-info-database -s Salmonella/Salmonella-SAMPLES.db \
-                                  --single-order-file phylogenomic-tree.txt \
-                                  --order-name Phylogenomics_w_100_Core_Genes
+anvi-import-misc-data -p Salmonella/Salmonella-PAN.db \
+                      -t layer_orders \
+                      additional-layers-data.txt
 ```
 
 Run `anvi-display-pan` again,
 
 ``` bash
 anvi-display-pan -g Salmonella-GENOMES.db \
-                 -p Salmonella/Salmonella-PAN.db \
-                 -s Salmonella/Salmonella-SAMPLES.db
+                 -p Salmonella/Salmonella-PAN.db
 ```
 
 And there you should see your new tree:
