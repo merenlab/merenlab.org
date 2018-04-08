@@ -117,8 +117,11 @@ For a proper setup in our local computers we need two things: creating an alias 
 First, the alias:
 
 ```
-alias barhali="ssh -L 8090:localhost:8090 ozcan@barhal.mbl.edu | tee /dev/tty | python ~/.ssh/run_webbrowser.py"
+alias barhali="ssh -L 8090:localhost:8090 ozcan@barhal.mbl.edu | tee /dev/tty | python3 ~/.ssh/run_webbrowser.py"
 ```
+
+{:.notice}
+The last step of this command uses `python3`, please make sure that you have `python3` on your system. If you see Version 3.x when you run `python` you can also use just `python` instead `python3`.
 
 {:.notice}
 Our server's name is `barhal`, so `barhali` is an alias to open an *interactive* connection. Don't forget to change the name to your own liking, and update the connection protocol to your server, for which I used `ozcan@barhal.mbl.edu`. If you follow [this recipe](http://www.linuxproblem.org/art_9.html), you can setup your SSH for a paswordless login, in which case everything would be even more smoother.
@@ -128,7 +131,7 @@ An important note here is to setup the port numbers right for each user's local 
 You can also repeat this parameter multiple times if you may need to run multiple interactive interfaces simultaneously:
 
 ```
-alias barhali="ssh -L 8090:localhost:8090 8091:localhost:8091 8092:localhost:8092 ozcan@barhal.mbl.edu | tee /dev/tty | python ~/.ssh/run_webbrowser.py"
+alias barhali="ssh -L 8090:localhost:8090 8091:localhost:8091 8092:localhost:8092 ozcan@barhal.mbl.edu | tee /dev/tty | python3 ~/.ssh/run_webbrowser.py"
 ```
 
 One thing you should remember in this case is that when you open the second connection by typing `barhali` in another terminal, the SSH client will print warning messages on the screen mentioning that the port number you're trying to use is already in use. You can ignore those messages. Everything will work.
