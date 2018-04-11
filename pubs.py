@@ -180,6 +180,7 @@ class Publications:
 
         A('<div class="pub">')
         A('''<div class='altmetric-embed' data-badge-type='donut' data-doi="%s"></div>''' % pub['doi'])
+        A('''<div class="__dimensions_badge_embed__" data-doi="%s" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>''' % pub['doi'])
         if pub['doi']:
             A('    <h3><a href="%s" target="_new">%s</a></h3>' % (' https://doi.org/%s' % (pub['doi']), pub['title']))
         else:
@@ -223,6 +224,7 @@ class Publications:
         W('---\n')
 
         W('''<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>\n''')
+        W('''<script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>\n''')
 
         if include_top_journals:
             W("<h1>Journals</h1>\n%s\n" % top_journals)
