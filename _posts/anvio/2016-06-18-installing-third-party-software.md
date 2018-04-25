@@ -359,12 +359,13 @@ FAMSA (Fast and Accurate Multiple Sequence Alignment) ver. 1.2 CPU
 [DSSP](https://swift.cmbi.umcn.nl/gv/dssp/index.html) _(Dictionary of Secondary Structure Prediction) is a program for annotating amino acids in protein structures with structural information, such as secondary structure (alpha, helix, etc.) and solvent accessibility_.
 
 **Citation**: [https://www.ncbi.nlm.nih.gov/pubmed/6667333](https://www.ncbi.nlm.nih.gov/pubmed/6667333)
+
 **Citation**: [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3013697/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3013697/)
 
 Go to your terminal, and type `mkdssp --version`. If you do not get an error, read ahead to make
 sure your DSSP is operational. If you get an error, you need to install DSSP.
 
-On your MAC OSX computer run the following commands:
+To install on your MAC OSX computer run the following commands:
 
 ```bash
 brew tap brewsci/science
