@@ -372,6 +372,14 @@ brew tap brewsci/science
 brew install dssp --build-from-source
 ```
 
+If you received the warning
+
+```
+Warning: brewsci/science/dssp X.X.X is already installed and up-to-date
+```
+
+then you should run `brew reinstall dssp --build-from-source`.
+
 Now you have DSSP. Let's make sure it is operational. We have experienced that some installations of DSSP are faulty. You can test yours by typing the following into your terminal:
 
 ```bash
