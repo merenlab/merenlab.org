@@ -353,3 +353,30 @@ FAMSA (Fast and Accurate Multiple Sequence Alignment) ver. 1.2 CPU
 
 (...)
 ```
+
+## DSSP
+
+[DSSP](https://swift.cmbi.umcn.nl/gv/dssp/index.html) _(Dictionary of Secondary Structure Prediction) is a program for annotating amino acids in protein structures with structural information, such as secondary structure (alpha, helix, etc.) and solvent accessibility_.
+
+**Citation**: [https://www.ncbi.nlm.nih.gov/pubmed/6667333](https://www.ncbi.nlm.nih.gov/pubmed/6667333)
+**Citation**: [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3013697/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3013697/)
+
+Go to your terminal, and type `mkdssp --version`. If you do not get an error, read ahead to make
+sure your DSSP is operational. If you get an error, you need to install DSSP.
+
+On your MAC OSX computer run the following commands:
+
+```bash
+brew tap brewsci/science
+brew install dssp --build-from-source
+```
+
+Now you have DSSP. Let's make sure it is operational. We have experienced that some installations of DSSP are faulty. You can test yours by typing the following into your terminal:
+
+```bash
+wget http://files.rcsb.org/view/1H97.cif #download myoglobin structure
+mkdssp -i 1H97.cif -o myoglobin_DSSP.txt
+```
+
+If no error is produced, DSSP is working (you can open up `myoglobin_DSSP.txt` to see what the output looks like). If you got an error that looks like: `Segmentation fault: 11`, try reinstalling with the above instructions. If the error persists, please contact us.
+
