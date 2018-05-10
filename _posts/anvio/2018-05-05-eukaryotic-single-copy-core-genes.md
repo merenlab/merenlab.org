@@ -176,3 +176,8 @@ With this addition, anvi'o can now estimate the completion and redundancy of mic
 However, please keep in mind that single-copy core gene collections only provide a rough estimation of the completeness and contamination of MAGs. __Visualizing a MAG in the context of recruited reads from metagenomes for instance (the environmental signal) remains essential when it comes to genome-resolved metagenomics__, and this approach very often allows the detection and removal of suspicious contigs that contain no single-copy core genes and hence are invisible from the perceptive of completion / redundancy estimates. Thus, these estimates are only one of multiple parameters one can (and maybe should) use to characterize, manually refine, and assess the biological relevance of eukaryotic MAGs.
 
 Of course, these problems are less relevant if one is working with cultivar genomes and single cell genomes .. Or are they? (smiley)
+
+---
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Estimating the completion of eukaryotic genomes reconstructed from metagenomes hasn&#39;t been quite straightforward.<br><br>But here is a blog post from <a href="https://twitter.com/tomodelmont?ref_src=twsrc%5Etfw">@tomodelmont</a>, extending <a href="https://twitter.com/hashtag/anvio?src=hash&amp;ref_src=twsrc%5Etfw">#anvio</a>&#39;s capabilities towards that direction 🎉<a href="https://t.co/lK43avyi05">https://t.co/lK43avyi05</a></p>&mdash; A. Murat Eren (Meren) (@merenbey) <a href="https://twitter.com/merenbey/status/994578607078039552?ref_src=twsrc%5Etfw">May 10, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
