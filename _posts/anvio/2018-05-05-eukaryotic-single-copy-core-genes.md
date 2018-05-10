@@ -1,11 +1,14 @@
 ---
 layout: post
 title: "Assessing the completion of eukaryotic bins with anvi'o"
-excerpt: "A preliminary set of 83 HMMs to assess the completion and redundancy of eukaryotic population genomes with anvi'o"
+excerpt: "A preliminary set of 83 HMMs to assess the completion of eukaryotic population genomes. -Lol is anvi'o doing picoeuks now fam? -WELL, IT HAS ALWAYS BEEN DOING THAT THO."
 modified: 2018-05-05
 categories: [anvio]
 comments: true
 authors: [tom]
+image:
+  feature: http://merenlab.org/images/anvio/2018-05-05-eukaryotic-single-copy-core-genes/correlation.png
+  display: false
 ---
 
 {% capture images %}{{site.url}}/images/anvio/2018-05-05-eukaryotic-single-copy-core-genes{% endcapture %}
