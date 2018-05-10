@@ -22,80 +22,108 @@ The basic workflow goes like this: (1) generate your contigs database from your 
 ## Kaiju
 
 {:.notice}
-[Jarrod J. Scott](https://scholar.google.com/citations?user=QaUurTgAAAAJ&hl=en),  kindly helped us to develop a parser for Kaiju and add it in anvi'o, and kindly provided the following tutorial to demonstrate how to import Kaiju output into anvi'o. We thank him very much for his patience and help throughout this entire process.
+[Jarrod J. Scott](https://scholar.google.com/citations?user=QaUurTgAAAAJ&hl=en), very kindly helped us to develop [a parser for Kaiju](https://github.com/merenlab/anvio/blob/master/anvio/parsers/kaiju.py) and add it in anvi'o, and kindly provided the following tutorial to demonstrate how to import Kaiju output into anvi'o. We thank him very much for his patience and help throughout this entire process.
 
-Anvi'o has a parser for the `Kaiju` classifier. The approach is described in in Menzel, P. et al. (2016) Fast and sensitive taxonomic classification for metagenomics with Kaiju. Nat. Commun. 7:11257 (open access). (http://www.nature.com/ncomms/2016/160413/ncomms11257/full/ncomms11257.html)
+{:.notice}
+Kaiju parser will be available with anvi'o `v5`.
 
-See the `Kaiju` GitHub page for detailed instructions on installing `Kaiju` as well as obtaining and formatting databases. (https://github.com/bioinformatics-centre/kaiju)
+Anvi'o has a parser for the Kaiju classifier. The approach is described in in Menzel et al., "[Fast and sensitive taxonomic classification for metagenomics with Kaiju](http://www.nature.com/ncomms/2016/160413/ncomms11257/full/ncomms11257.html)" (open access). [GitHub page for Kaiju](https://github.com/bioinformatics-centre/kaiju) includes detailed instructions on installing Kaiju, as well as obtaining and formatting databases.
 
-Assuming you have an `anvi'o` `contigs` database with gene calls, getting the file(s) for `Kaiju` is easy. Simply run:
+Assuming you already have an anvi'o contigs database with gene calls, getting the file(s) for Kaiju is easy. Simply run:
 
-`anvi-get-sequences-for-gene-calls -c CONTIGS.db -o gene_calls.fa`
+``` bash
+anvi-get-sequences-for-gene-calls -c CONTIGS.db -o gene_calls.fa
+```
 
-Sweet, you are now ready to run `Kaiju` on your `fasta` file!
+Sweet, you are now ready to run Kaiju on your FASTA file!
 
-The `Kaiju` package comes with many handy scripts for analyzing the taxonomic content of you samples. For the purpose of the `anvi’o` parser and getting the `kaiju` output into you `contigs` database you will need to run three scripts:
+The Kaiju package comes with many handy scripts for analyzing the taxonomic content of you samples. For the purpose of the anvi'o parser and getting the Kaiju output into you contigs database you will need to run three scripts:
 
-First you need to run `makeDB.sh` to create a reference database.
-Next, run the `kaiju` command to classify you genes.
-Finally run `addTaxonNames` to amend the `kaiju` output with taxon names.  
+* First you need to run `makeDB.sh` to create a reference database.
 
-First, download and format a reference database. You only need to run this once unless  you want multiple databases  or you want to update an existing database. `Kaiju` offers **four** main dbs—`NCBI RefSeq`, `proGenomes`, `NCBI nr`, and `Marine Metagenomic Portal`. See the `Kaiju` documentation or simply type `makeDB.sh -h` for a list of available dbs.
+* Next, run the Kaiju command to classify you genes.
 
-`makeDB.sh -e  -t 20`
+* Finally, run `addTaxonNames` to amend the Kaiju output with taxon names.  
 
-This will download and format the NCBI BLAST non-redundant protein database “nr” with the addition of fungi and microbial eukaryotes using 20 parallel threads. This is the largest db offered by Kaiju and once  downloaded and formatted, is `~65GB`. By contrast the proGenome db is `13GB` and the Marine Portal is `~8GB`. See the `Kaiju` github page for detailed computational requirements for each database. 
 
-Chose a suitable directory to house your database. Once database downloading and formatting is complete, `Kaiju` only needs the files `kaiju_db_nr_euk.fmi`, `nodes.dmp`, and `names.dmp` files. You can erase everything else including the `genome` directory, the `*.bwt` file, and the `*.sa` file.  
+**First, download and format a reference database**. You only need to run this once unless you want multiple databases or you want to update an existing database.
 
-Again. you only need to run `makeDB.sh` once. 
+Kaiju offers **four** main databases: **NCBI's RefSeq**, **proGenomes**, **NCBI's nr**, and the **Marine Metagenomic Portal**. See the Kaiju documentation, or simply type `makeDB.sh -h` for a complete, most up-to-date list.
 
-Now its time to do some classifying. `Kaiju` offers many options to tweak your classification parameters. You can explore these further by typing `kaiju -h` or checking out the documentation. For the purposes of the `anvi’o` parser however you must, must, must enable the verbose output with the `-v` flag. The parser  expects a defined number of columns which are obtained with the `-v` flag   
+The following command will download and format the NCBI's non-redundant protein database 'nr' with the addition of fungi and microbial eukaryotes using 20 parallel threads:
 
-To  run the classifier, `kaiju` needs the location of the `nodes.dmp` file, the database file (`.fmi`), your `fasta` file, and an output filename (PLUS the `-v` option), like so :
+``` bash
+makeDB.sh -e -t 20
+```
 
-`kaiju -t /path/to/nodes.dmp -f /path/to/kaiju_db.fmi -i gene_calls.fa -o gene_calls_nr.out -z 16 -v`
+This is the largest database offered by Kaiju, and once downloaded and formatted it will take about 65 Gb space on your disk. In contrast, proGenome and the Marine Portal database takes up 13 Gb and 8 Gb, respectively. See the Kaiju GitHub page for detailed computational requirements for each database. 
 
-The `-z` option indicates the number of parallel threads. For reference,~250,000 genes took about  3 minutes with 16 threads and 5GB of RAM (80GB total) plus another ~15 minutes to read and load the db. 
+Choose a suitable directory to house your database. Once database downloading and formatting is complete, Kaiju only needs the files `kaiju_db_nr_euk.fmi`, `nodes.dmp`, and `names.dmp`. You can erase everything else including the `genome` directory, as well as the `*.bwt` and `*.sa` files.  
 
-The output is a 7 column tab-delimited file  that contain **1)** whether the read is classified (C) or unclassified (U), **2**) the read ID, **3**) NCBI taxon ID of closest hit, **4**) best match score, **5**) comma-separated list of taxon IDs with best match, **6**) accession numbers of all database sequences with the best match, and **7**) matching amino acid fragment sequence. 
+{:notice}
+Remember that you only need to run `makeDB.sh` once, and now you are done with it.
 
-Cool? Now its time to add taxon names so that the `anvi’o` parser can add the taxonomy to the `contigs` database. The `addTaxonNames` script needs location of the `nodes.dmp` file, location of the `names.dmp` file, the output from the `kaiju` classification step, and an output name. Most importantly you **must** specify the taxonomic ranks to be included in the output as follows using the `-r` flag. **Comma-separated, NO SPACES**. 
+**Now the database is ready, its time to do some classifying.** Kaiju offers many options to tweak your classification parameters. You can explore these further by typing `kaiju -h` or checking out the documentation. For the purposes of the anvi'o parser however, you must, must, must enable the verbose output with the `-v` flag. The parser  expects a defined number of columns which are obtained with the `-v` flag   
 
-`-r superkingdom,phylum,order,class,family,genus,species`
+To run the classifier, Kaiju needs the location of the `nodes.dmp` file, the database file (`.fmi`), your FASTA file, and an output filename (PLUS the `-v` option). Here is an example:
+
+``` bash
+kaiju -t /path/to/nodes.dmp \
+      -f /path/to/kaiju_db.fmi \
+      -i gene_calls.fa \
+      -o gene_calls_nr.out \
+      -z 16 \
+      -v
+```
+
+The `-z` option indicates the number of parallel threads. For reference, on my computer, ~250,000 genes took about 3 minutes with 16 threads and 5GB of RAM (80GB total) plus another ~15 minutes to read and load the db.
+
+The output is a 7-column TAB-delimited file that contains **(1)** whether the read is classified (C) or unclassified (U), **(2)** the read ID, **(3)** NCBI taxon ID of closest hit, **(4)** best match score, **(5)** comma-separated list of taxon IDs with best match, **(6)** accession numbers of all database sequences with the best match, and **(7)** matching amino acid fragment sequence. 
+
+Cool?
+
+Now its time to add taxon names so that the anvi'o parser can add the taxonomy to the contigs database. The `addTaxonNames` script needs location of the `nodes.dmp` file, location of the `names.dmp` file, the output from the Kaiju classification step, and an output name. Most importantly you **must** specify the taxonomic ranks to be included in the output as follows using the `-r` flag. **Comma-separated, NO SPACES**. 
+
+```
+-r superkingdom,phylum,order,class,family,genus,species
+```
 
 So the full command will look something like this:
 
-`addTaxonNames -t path/to/nodes.dmp -n path/to/names.dmp -i  gene_calls_nr.out -o gene_calls_nr.names -r superkingdom,phylum,order,class,family,genus,species`
+``` bash
+addTaxonNames -t /path/to/nodes.dmp \
+              -n /path/to/names.dmp \
+              -i gene_calls_nr.out \
+              -o gene_calls_nr.names \
+              -r superkingdom,phylum,order,class,family,genus,species
+```
 
-Whew. Now you are ready to run the `anvi’o` parser for `kaiju`.
+Whew. **Now you are ready to run the anvi'o parser for Kaiju**.
 
-At this point its not a bad idea to make a copy of your `contigs.db`---just in case. In order to get the `kaiju` taxonomic profile into your `contigs.db` you will run the following with the `-p kaiju` flag (indicating the name of the parser) and the input file, which is the output from the `addTaxonNames` step.
+At this point its not a bad idea to make a copy of your contigs database --just in case. In order to get the Kaiju taxonomic profile into your contigs database you will run the following command with the output file from the `addTaxonNames` step:
 
-`anvi-import-taxonomy-for-genes -p kaiju -i gene_calls_nr.names`
+``` bash
+anvi-import-taxonomy-for-genes -i gene_calls_nr.names \
+                               -c contigs.db \
+                               -p kaiju
+```
 
-`anvi’o` will immediately throw the following error--not because `anvi’o` is mad at you-- but because `anvi’o` is concerned about your well-being and doesn’t want you to ruin a perfectly good `contigs.db`. `Anvi'o` wants to make certain you are giving it a properly formatted input file :
+After this, anvi'o will immediately throw the following error --not because anvi'o is mad at you, but because anvi'o is concerned about your well-being and doesn’t want you to ruin a perfectly good contigs database. anvi'o wants to make certain you are giving it a properly formatted input file:
 
-`Config Error: Anvi'o assumes you used this exact parameter during your kaiju run: '-r        
+```
+Config Error: Anvi'o assumes you used this exact parameter during your kaiju run: '-r        
               superkingdom,phylum,order,class,family,genus,species'. If you haven't, you will
               run into trouble later. If you are positive that you did include that parameter
-              to your run, re-run this program with `--just-do-it` flag`.
+              to your run, re-run this program with `--just-do-it` flag
+```
 
-So lets rerun with the `--just-do-it`` flag                     
+When you re-run the same command by including the `--just-do-it` flag, anvi'o will present you with a message indicating that it scanned your input file and gives you a second chance to back out of the arrangement.
 
-This time anvi’o 
-anvi-import-taxonomy-for-genes -p kaiju -i gene_calls_nr.names --just-do-it`
+If the `phylum` level names anvi'o presents don't look correct, you can kill the who thing with `CTRL+C` --otherwise, the taxonomy will be added to your contigs database.
 
-This time `anvi'o` will present a message indicating that it scanned your input file and gives you a second chance to back out of the arrangement. If the `phylum` level names `anvi'o` presents don't look correct you can `CNTRL C` out of the whole thing--otherwise, the taxonomy will be added to your `contigs.db`
+Thats it!
 
-Thats it! you can make sure everything looks ok by running:
-
- `anvi-export-table CONTIGS.db --table genes_taxonomy -l`
-and hopefully you get something like this:
-
-`Database .....................................: "CONTIGS.db" has been initiated with its 21 tables.`
-`Table ........................................: "genes_taxonomy" has been read with 214509 entries and 2 columns.`
-`Table columns ................................: "gene_callers_id, taxon_id"`
+Now gene-level taxonomy from Kaiju should be available to you whenever it is appropriate in interactive anvi'o interfaces, and summary outputs.
 
 
 ## Centrifuge
