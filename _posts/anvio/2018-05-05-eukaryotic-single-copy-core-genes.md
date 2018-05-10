@@ -21,11 +21,11 @@ This post describes an anvi'o HMM collection of 83 single-copy core genes I cura
 
 ## A brief background: 
 
-While anvi'o comes with reference single-copy core gene collections to assess completion and redundancy of bacterial and archaeal bins, until `v5`, it did not include any collection for viruses and eukaryotes. This is a limiting factor for anvi'o users who are interested in [the genome-resolved metagenomics workflow](http://merenlab.org/2016/06/22/anvio-tutorial-v2/) to study domains of life beyond bacteria and archaea.
+While anvi'o comes with reference single-copy core gene collections to assess completion and redundancy of bacterial and archaeal bins, until `v5`, it did not include any collection for viruses and eukaryotes. This is a limiting factor for anvi'o users who are interested in [the genome-resolved metagenomics workflow](http://merenlab.org/2016/06/22/anvio-tutorial-v2/) to study domains of life beyond Bacteria and Archaea.
 
 Fortunately, it is easy to [incorporate new HMM models](http://merenlab.org/2016/05/21/archaeal-single-copy-genes/) into anvi'o to search for particular gene families of interest.
 
-Here I simply used this opportunity to curate a collection of eukaryotic single-copy core genes for anvi'o using the __BUSCO__ database. This led to a promising (yet preliminary) collection of 83 single-copy core genes for eukaryotes "ready-to-be-used" from within anvi'o (which is currenlty available in the `master` reposotory, and will be included in the `v5` version by default):
+Here I simply used this opportunity to curate a collection of eukaryotic single-copy core genes for anvi'o using the __BUSCO__ database. This led to a promising (yet preliminary) collection of 83 single-copy core genes for eukaryotes "ready-to-be-used" from within anvi'o (which is currently available in the `master` reposotory, and will be included in the `v5` version by default):
 
 [https://github.com/merenlab/anvio/tree/master/anvio/data/hmm/BUSCO_85_Protista/](https://github.com/merenlab/anvio/tree/master/anvio/data/hmm/BUSCO_85_Protista/)
 
@@ -34,7 +34,7 @@ Here I simply used this opportunity to curate a collection of eukaryotic single-
 
 <span class="extra-info-header">Using `BUSCO_83_Protista` with anvi'o `v4`</span>
 
-This collection will be avilable by default in anvi'o `v5`, however, if you would like to use it with anvi'o `v4`, you still can do it. For that, first download and unpack the archive:
+This collection will be available by default in anvi'o `v5`, however, if you would like to use it with anvi'o `v4`, you still can do it. For that, first download and unpack the archive:
 
 ```
 # download
@@ -50,7 +50,7 @@ If you already have an anvi'o contigs database for your project, you can add thi
 anvi-run-hmms -c CONTIGS.db -H /PATH/TO/BUSCO_83_Protista/
 ```
 
-One this is done, the results will be immediately available to you in real-time completion estimates in the interactive interface, and when you use [anvi'o command line programs](http://merenlab.org/software/anvio/vignette/) that to estimate completion/redundancy of genomeb bins:
+Once this is done, the results will be immediately available to you in real-time completion estimates in the interactive interface, and when you use [anvi'o command line programs](http://merenlab.org/software/anvio/vignette/) that estimate completion/redundancy of genome bins:
 
 If you simply have a FASTA file, then you can follow these steps to first create a contigs database, and then estimate completion quickly:
 
@@ -65,7 +65,7 @@ anvi-compute-completeness -c CONTIGS.db --completeness-source BUSCO_83_Protista
 
 ## BUSCO: Benchmarking Universal Single-Copy Orthologs
 
-Single-copy core gene collections dedicated to different lineages of organisms have been created under the label __BUSCO__ for __B__enchmarking __U__niversal __S__ingle-__C__opy __O__rthologs (see the [web page](http://busco.ezlab.org/)). Here are the related articles:
+Single-copy core gene collections dedicated to different lineages of organisms have been created under the label __BUSCO__ for Benchmarking Universal Single-Copy Orthologs (see the [web page](http://busco.ezlab.org/)). Here are the related articles:
 
 * BUSCO applications from quality assessments to gene prediction and phylogenomics. __doi: 10.1093/molbev/msx319__
 
@@ -87,9 +87,9 @@ I followed the [relevant tutorial](http://merenlab.org/2016/05/21/archaeal-singl
 {:.notice}
 BUSCO uses optimized length and e-value cut-offs for each HMM model. This flexibility is not available in anvi'o `v4`, for which a single e-value cut-off must be defined for all HMM models within a collection.
 
-I detected some of the single-copy core genes dozens of times in all four reference eukaryotic genomes, even after increasing decreasing the e-value cut-off from `E-15` to `E-100`. Most others were detected once, as expected. To avoid increased number of false positives, I selected a __fixed e-value of E-25__, and removed genes that occurred multiple times in the four reference genomes, resulting a total of 83 single-copy core genes. I combined them in a new collection of single-copy core genes dedicated to protists named [BUSCO_83_Protista](https://github.com/merenlab/anvio/tree/master/anvio/data/hmm/BUSCO_83_Protista/).
+I detected some of the single-copy core genes dozens of times in all four reference eukaryotic genomes, even after varying the e-value cut-off from `E-15` to `E-100`. Most others were detected once, as expected. To avoid increased number of false positives, I selected a __fixed e-value of E-25__, and removed genes that occurred multiple times or never in each of the four reference genomes, resulting in a total of 83 single-copy core genes. I combined them in a new collection of single-copy core genes dedicated to protists named [BUSCO_83_Protista](https://github.com/merenlab/anvio/tree/master/anvio/data/hmm/BUSCO_83_Protista/).
 
-As expected, here are the anvi'o completion estimates for my referene genomes:
+As expected, here are the anvi'o completion estimates for my reference genomes:
 
 |Genome|Completion|Redundancy|
 |:--|:--:|:--:|
@@ -99,6 +99,8 @@ As expected, here are the anvi'o completion estimates for my referene genomes:
 |Pseudo-nitzschia_multistriata|100.00%|0.00%|
 
 In the following section, __I tested the efficacy of this collection to estimate the completion and redundancy of eukaryotic MAGs__ characterized from different genome-resolved metagenomic projects. 
+
+MAG stands for metagenome-assembled genome.
 
 ## Assessing the completion/redundancy of eukaryotic MAGs from 3 different projects
 
