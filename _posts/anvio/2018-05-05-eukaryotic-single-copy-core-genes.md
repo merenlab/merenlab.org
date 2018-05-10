@@ -17,7 +17,7 @@ Some parts of this article may require anvi'o `v5` or later. You can learn which
 
 {% include _toc.html %}
 
-This post describes an anvi'o HMM collection of 83 single-copy core genes I curated from [BUSCO](http://busco.ezlab.org). This collection can be used to __assess the completion and redundancy of eukaryotic genome bins__ (stay tuned, viruses, you are not forgotten, and your time will come soon). 
+This post describes a collection of 83 single-copy core genes I curated from [BUSCO](http://busco.ezlab.org), so anvi'o can __identify eukaryotic genome bins__ in metagenomic binning efforts (stay tuned, viruses, you are not forgotten, and your time will come soon), and __estimate their level of completion__.
 
 ## A brief background: 
 
@@ -150,7 +150,7 @@ __There is a strong correlation between length and completion estimates (R-scare
 
 The correlation between the genomic length and completion estimates for _Micromonas_ and _Ostreococcus_ MAGs characterized from the surface ocean was quite promising:
 
-[![correlation]({{images}}/correlation-2.png)]({{images}}/correlation-2.png){:.center-img} 
+[![correlation]({{images}}/correlation.png)]({{images}}/correlation.png){:.center-img} 
 
 Overall, __average redundancy estimates for the 45 eukaryotic MAGs went from ~20% with the bacterial single-copy core gene collection to 1.4% with `BUSCO_83_Protista`__. This suggests the eukaryotic MAGs represent individual population genomes with no substantial amounts of contamination. As a result, it seems key information computed by anvi'o (especially differential coverage and sequence composition) is also effective for the characterization of (sometimes near-complete) eukaryotic genomes. Good.
 
