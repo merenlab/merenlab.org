@@ -9,7 +9,7 @@ comments: false
 <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
 
 <div class="category-box">
-<a href="#2018"><span class="category-item">2018 <small>(1)</small></span></a><a href="#2017"><span class="category-item">2017 <small>(11)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(5)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a>
+<a href="#2018"><span class="category-item">2018 <small>(2)</small></span></a><a href="#2017"><span class="category-item">2017 <small>(11)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(5)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a>
 </div>
 
 <a name="2018">&nbsp;</a>
@@ -20,7 +20,28 @@ comments: false
 <div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.4320" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <h3><a href=" https://doi.org/10.7717/peerj.4320" target="_new">Linking pangenomes and metagenomes: the <i>Prochlorococcus</i> metapangenome.</a></h3>
     <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="https://i.imgur.com/gzDpEU5.jpg"><img src="https://i.imgur.com/gzDpEU5.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A big-data study in which a pangenome of 31 <i>Prochlorococcus</i> isolates meets 31 billion Tara Oceans metagenomic sequences.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Metapangenomes reveal to what extent genes that may be linked to the ecology and fitness of microbes are conserved within a phylogenetic clade.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Reproducible bioinformatics workflow: <a href="http://merenlab.org/data/2018_Delmont_and_Eren_Metapangenomics/" target="_blank">http://merenlab.org/data/2018_Delmont_and_Eren_Metapangenomics/</a></span>
+    </div>
+    </div>
     <span class="pub-journal"><i>PeerJ</i>. <b>6:e4320</b></span>
+</div>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41586-018-0125-z"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1038/s41586-018-0125-z" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1038/s41586-018-0125-z" target="_new">Microbial signals drive pre-leukaemic myeloproliferation in a Tet2-deficient host.</a></h3>
+    <span class="pub-authors">Meisel, M., Hinterleitner, R., Pacis, A., Chen, L., Earley, Z. M., Mayassi, T., Pierre, J. F., Ernest, J. D., Galipeau, H. J., Thuille, N., Bouziat, R., Buscarlet, M., Ringus, D. L., Wang, Y., Li, Y., Dinh, V., Kim, S. M., McDonald, B. D., Zurenski, M. A., Musch, M. W., Furtado, G. C., Lira, S. A., Baier, G., Chang, E. B., <span class="pub-member-author">Eren, A. M</span>., Weber, C. R., Busque, L., Godley, L. A., Verdú, E. F., Barreiro, L. B., and Jabri, B.</span>
+    <div class="pub-info-no-image">
+    <div class="pub-highlights-no-image">
+    <span style="display: inline-block; padding-bottom: 5px;">- TET2 deficiency ➡️  deteriorating small intestinal barrier ➡️  bacterial translocation ➡️  incrased IL-6 signalling ➡️  pre-leukemic myeloproliferation (a leukemia precursor).</span><br><span style="display: inline-block; padding-bottom: 5px;">-  ScienceDaily: <a href="https://www.sciencedaily.com/releases/2018/05/180516131226.htm" target="_blank">Under certain conditions, bacterial signals set the stage for leukemia</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>Nature</i>. <b>e-pub ahead of publication</b></span>
 </div>
 
 
