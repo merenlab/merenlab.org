@@ -241,7 +241,7 @@ th, td {
     padding-left: 115px;
 }
 
-.pub-highlights a, .pub-highlights a:hover {
+.pub-highlights a, .pub-highlights-no-image a, .pub-highlights a:hover, .pub-highlights-no-image a:hover {
         font-size: 100%;
         text-decoration: underline;
     }
