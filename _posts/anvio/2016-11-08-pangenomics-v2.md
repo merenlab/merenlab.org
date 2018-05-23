@@ -97,6 +97,31 @@ For names in the first column please use only letters, digits, and the underscor
 
 Thanks to these two files, genome bins in anvi'o collections and cultivar genomes could be combined and analyzed together seamlessly. The most essential need for the coherence of the genomes storage is to make sure each internal and external genome is generated identically with respect to how genes were called, how functions were assigned, etc. Anvi'o will check for some things, but it can't stop you from doing terrible mistakes. For instance, if the version of Prodigal is not identical across all contigs databases, the genes described in genomes storage will not necessarily be comparable. If you are not sure about something, send us an e-mail, and we will be happy to try to clarify.
 
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">A real example for hardcore tutorial readers: A *Prochlorococcus* pangenome</span>
+
+For the sake of reproducibility, the rest of the tutorial will follow a real example.
+
+We will simply create a pangenome of 31 [Prochlorococcus isolate genomes that we used in this study](https://peerj.com/articles/4320/).
+
+If you wish to follow the tutorial on your computer, you can download the Prochlorococcus data pack ([doi:10.6084/m9.figshare.6318833](https://doi.org/10.6084/m9.figshare.6318833)) which contains anvi'o contigs databases for these isolate genomes on your computer:
+
+``` bash
+wget https://ndownloader.figshare.com/files/11568539 -O Prochlorococcus_31_genomes.tar.gz
+tar -zxvf Prochlorococcus_31_genomes.tar.gz
+cd Prochlorococcus_31_genomes
+```
+
+The directory contains anvi'o contigs databases, an external genomes file, and a layer additional data file. You can generate a genomes storage as described in this section the following way:
+
+``` bash
+anvi-gen-genomes-storage -e external-genomes.txt \
+                         -o PROCHLORO-GENOMES.db
+```
+
+</div>
+
 ## Running a pangenome analysis
 
 Once you have your genomes storage ready, you can use the program `anvi-pan-genome` to run the actual pangenomic analysis. This is the simplest form of this command:
@@ -136,6 +161,43 @@ You need another parameter? Well, of course you do! Let us know, and let's have 
 
 Once you are done, a new directory with your analysis results will appear. You can add or remove additional data items into your pan profile database using anvi'o [additional data tables subsystem]({% post_url anvio/2017-12-11-additional-data-tables %}).
 
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">A *Prochlorococcus* pangenome [*continued*]</span>
+
+Let's run the pangenome using the genomes storage we created using the 31 Prochlorococcus isolates:
+
+``` bash
+anvi-pan-genome -g PROCHLORO-GENOMES.db \
+                --project-name "Prochlorococcus_Pan" \
+                --output-dir PROCHLORO \
+                --num-threads 6 \
+                --minbit 0.5 \
+                --mcl-inflation 10 \
+                --use-ncbi-blast
+```
+
+Every parameter after the `--project-name` is optional (yet matches to the way we run the pangenome for our publication).
+
+The directory you have downloaded also contains a file called "layer-additional-data.txt", which summarizes what clade these genomes belong to. Once the pangenome is computed, we can add it into the pan database:
+
+``` bash
+anvi-import-misc-data layer-additional-data.txt \
+                      -p PROCHLORO/Prochlorococcus_Pan-PAN.db \
+                      --target-data-table layers
+
+New layers additional data...
+===============================================
+Data key "clade" .............................: Predicted type: str
+Data key "light" .............................: Predicted type: str
+
+New data added to the db for your layers .....: clade, light.
+```
+
+You can learn more about the items and layers additional data tables [here](http://merenlab.org/2017/12/11/additional-data-tables/).
+
+</div>
+
 ## Displaying the pan genome
 
 Once your analysis is done, you will use the program `anvi-display-pan` to display your results.
@@ -148,13 +210,18 @@ $ anvi-display-pan -p PROJECT-PAN.db -g PROJECT-PAN-GENOMES.db
 
 The program `anvi-display-pan` is very similar to the program `anvi-interactive`, and the interface that will welcome you is nothing but the standard [anvi'o interactive interface]({% post_url anvio/2016-02-27-the-anvio-interactive-interface %}/#using-the-anvio-interactive-interface) with slight adjustments for pangenomic analyses. Of course `anvi-display-pan` will allow you to set the IP address and port number to serve, add additional view data, additional layers, and/or additional trees, and more. Please familiarize yourself with it by running `anvi-display-pan -h` in your terminal.
 
-Here is an example to show how the pangenomic analysis of 31 *Prochlorococcus* genomes we just recently finished looks like when we run `anvi-display-pan` the very first time on it:
+Here is the pangenome for the 31 *Prochlorococcus* isolate genomes we have created in the previous sections of this tutorial:
+
+``` bash
+anvi-display-pan -g PROCHLORO-GENOMES.db \
+                 -p PROCHLORO/Prochlorococcus_Pan-PAN.db
+```
 
 [![31 Prochlorococcus raw]({{images}}/prochlorococcus-pangenomics-raw.png)]({{images}}/prochlorococcus-pangenomics-raw.png){:.center-img .width-60}
 
 Looks ugly. But do not despair. For instance, to improve things a little, you may like to organize your genomes based on gene clustering results by selecting the 'gene_cluster frequencies' tree from the Samples Tab > Sample Order menu:
 
-[![31 Prochlorococcus samples]({{images}}/prochlorococcus-pangenomics-samples-tab.png)]({{images}}/prochlorococcus-pangenomics-samples-tab.png){:.center-img .width-80}
+[![31 Prochlorococcus samples]({{images}}/prochlorococcus-pangenomics-samples-tab.png)]({{images}}/prochlorococcus-pangenomics-samples-tab.png){:.center-img .width-50}
 
 This is what happens when you draw it again (note the tree that appears on the right):
 
@@ -162,9 +229,17 @@ This is what happens when you draw it again (note the tree that appears on the r
 
 Looks more meaningful .. but still ugly.
 
-Well, this is exactly where you need to start using the interface more efficiently. For instance, this is the same pangenome after we are done with it:
+Well, this is exactly where you need to start using the interface more efficiently. For instance, this is the same pangenome after some changes using the additional settings items in the settings panel of the interactive interface:
 
 [![31 Prochlorococcus final]({{images}}/prochlorococcus-pangenomics-final.png)]({{images}}/prochlorococcus-pangenomics-final.png){:.center-img .width-60}
+
+The anvi'o state file for this display is also in your work directory if you have downloaded the Prochlorococcus data pack, and you can import it this way:
+
+``` bash
+anvi-import-state -p PROCHLORO/Prochlorococcus_Pan-PAN.db \
+                  --state pan-state.json \
+                  --name default
+```
 
 No excuses for bad looking pangenomes.
 
@@ -178,6 +253,9 @@ For instance, if you click 'Inspect gene cluster', you will see all the amino ac
 
 [![31 Prochlorococcus final]({{images}}/pc-inspect.png)]({{images}}/pc-inspect.png){:.center-img .width-60}
 
+{:.notice}
+You can learn more about the amino acid color coding algorithm [here](http://merenlab.org/2018/02/13/color-coding-aa-alignments/).
+
 It is not only fun but also very educational to go through gene clusters one by one. Fine. But what do you do if you want to make sense of large selections?
 
 As you already know, the anvi'o interactive interface allows you to make selections from the tree. So you can select groups of gene clusters into bins (don't mind the numbers on the left panel, there clearly is a bug, and will be fixed in your version):
@@ -188,17 +266,20 @@ You can create multiple bins with multiple selections, and even give them meanin
 
 [![31 Prochlorococcus collection]({{images}}/pc-collection.png)]({{images}}/pc-collection.png){:.center-img .width-60}
 
-You can store your selections as a collection in the pan database.
+While selecting gene clusters manually using the dendrogram is an option, it is also possible to identify them using the search interface that allows you to define very specific search criteria:
 
-## Advanced access to gene clusters
+[![31 Prochlorococcus collection]({{images}}/search-gene-clusters.png)]({{images}}/search-gene-clusters.png){:.center-img .width-60}
 
-This is a new feature that is included for the first time in anvi'o `v4`, and this part of the tutorial will need to be improved with good examples, but for now, please take a look at the `ADVANCED FILTERS` section of the output:
+You can highlight these selections in the interface, or you can add them to a collection to summarize them later.
 
-``` bash
-anvi-get-sequences-for-gene-clusters --help
-```
+In addition, you can search gene clusters also based on functions:
 
-Here is [a bit more information on this](https://github.com/merenlab/anvio/issues/668#issuecomment-354195886).
+[![31 Prochlorococcus collection]({{images}}/search-functions.png)]({{images}}/search-functions.png){:.center-img .width-60}
+
+Similarly, you can add these gene clusters into collections with whatever name you like, and summarize those collections later.
+
+{:.warning}
+Advanced access to gene clusters is also possible through the command line through the program `anvi-get-sequences-for-gene-clusters`. For more information see [this issue](https://github.com/merenlab/anvio/issues/668#issuecomment-354195886) or this [vignette](http://merenlab.org/software/anvio/vignette/#anvi-get-sequences-for-gene-clusters).
 
 
 ## Summarizing an anvi'o pan genome
