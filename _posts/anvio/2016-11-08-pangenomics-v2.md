@@ -282,6 +282,73 @@ Similarly, you can add these gene clusters into collections with whatever name y
 Advanced access to gene clusters is also possible through the command line through the program `anvi-get-sequences-for-gene-clusters`. For more information see [this issue](https://github.com/merenlab/anvio/issues/668#issuecomment-354195886) or this [vignette](http://merenlab.org/software/anvio/vignette/#anvi-get-sequences-for-gene-clusters).
 
 
+## Computing the average nucleotide identity for genomes
+
+Anvi'o contains a program, [`anvi-compute-ani`](http://merenlab.org/software/anvio/vignette/#anvi-compute-ani), which uses [PyANI](https://doi.org/10.1039/C5AY02550H) to compute average nucleotide identity across your genomes. It expects you to provide an external genomes file to declare which genomes you are interested in for an ANI analysis, but it also optionally accepts a pan database to add its findings into it as additional layer data.
+
+Here is an example with our *Prochlorococcus* Pan genome:
+
+``` bash
+anvi-compute-ani --external-genomes PROCHLORO-GENOMES.db \
+                 --output-dir ANI \
+                 --num-threads 6 \
+                 --pan-db PROCHLORO/Prochlorococcus_Pan-PAN.db
+```
+
+Once it is complete, we can visualize the pan genome again to see what is new:
+
+``` bash
+anvi-display-pan -g PROCHLORO-GENOMES.db \
+                 -p PROCHLORO/Prochlorococcus_Pan-PAN.db
+```
+
+When you first look at it you will not see anything out of ordinary. But if you go to the 'Layers' tab, you will see the following addition:
+
+
+[![layers]({{images}}/layer-groups-ani.png)]({{images}}/layer-groups-ani.png){:.center-img .width-60}
+
+If you click the checkbox for, say, `ANI_percentage_identity`, you will see a new set of entries will be added into the list of layer data entries. Then, if you click the button 'Draw' or 'Redraw layer data', you should see the ANI added to your display:
+
+[![prochlorococcus-ani]({{images}}/prochlorococcus-ani.png)]({{images}}/prochlorococcus-ani.png){:.center-img .width-60}
+
+Yes. [Magic](https://github.com/merenlab/anvio/pull/822).
+
+{:.notice}
+You may need to change the `min` value from the interface for a better representation of ANI across your genomes in your own pangenome.
+
+{:.notice}
+***A note from Meren***: We have `anvi-compute-ani`, because someone asked for it on GitHub. We thank our proactive users, like [Mike Lee](https://astrobiomike.github.io/), on behalf of the community.
+
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">A little note from Meren on how to order genomes</span>
+
+It has always been a question mark for me how to order genomes with respect to gene clusers. Should one use the gene cluster presence/absence patterns to organize genomes (where one ignores paralogs and works with a binary table to cluster genomes)? Or should one rely on gene cluster frequency data to order things (where one does consider paralogs, so their table is not binary anymore, but contains the frequencies for number of genes from each genome in each gene cluster)? 
+
+Thanks to Özcan’s [new addition](https://github.com/merenlab/anvio/commit/aa007cf902dea2de4bd63524cd49f0566cf2511d) to the codebase while I was working on this section of the tutorial --so the ANI matrix is always ordered based on the order of genomes in the pan display, I made an observation that shed some light on the question of how to order genomes.
+
+This is how ANI matrix looks like when I order *Prochlorococcus* genomes based on gene cluster frequency data: 
+
+[![ani]({{images}}/ani-gc-freqs.png)]({{images}}/ani-gc-freqs.png){:.center-img .width-40}
+
+In contrast, this is how ANI matrix looks like when I order genomes based on gene cluster presence/absence data:
+
+[![ani]({{images}}/ani-gc-preabs.png)]({{images}}/ani-gc-preabs.png){:.center-img .width-40}
+
+There you have it.
+
+If you are working with isolate genomes, maybe you should consider ordering them based on gene cluster frequencies since you *would* expect a proper organization of genomes based on gene clusters should often match with their overall similarity. Here are some small notes:
+
+* In this case it is easy to see that gene cluster presence/absence data is doing a poor job since we know the *Prochlorococcus* clades to see that clearly (i.e., gene cluster presence/absence data is mixing up high-light group II (purple) and high-light group I (poopcolor) genomes. But when you don't know to which clades your genomes belong, gene cluster frequencies can be more accurate to organize them nicely. 
+
+* It is sad to know that MAGs will often lack multi-copy genes, and they will have less paralogs (since assembly of short reads create very complex de Bruijn graphs which obliterate all redundancy in a given genome), hence their proper organization will not truly benefit from gene cluster frequency data, at least not as much as isolate genomes, and the errors we see with gene cluster presence/absence data-based organization will have a larger impact on our pangenomes.
+
+* See the emergence of those sub-clades in high-light group II? If you are interested, please take a look at [our paper on *Prochlorococcus* metapangenome](https://peerj.com/articles/4320/) (especially the section "**The metapangenome reveals closely related isolates with different levels of fitness**"), in which we divided HL-II into multiple subclades and showed that despite small differences between these genomes, those sub-clades displayed remarkably different environmental distribution patterns. Sub-clades we could define in that study based on gene cluster frequencies and environmental distribution patterns match quite well to the groups ANI reveals. This goes back to some of the most fundamental questions in microbiology regarding how to define ecologically relevant units of microbial life. I don't know if we are any close to making any definition, but I can tell you that those 'phylogenetic markers' we are using ... I am not sure if they are really working that well (smiley).
+
+</div>
+
+
 ## Summarizing an anvi'o pan genome
 
 When you store your selections of gene clusters as a collection, anvi'o will allow you to summarize these results.
