@@ -282,6 +282,269 @@ Similarly, you can add these gene clusters into collections with whatever name y
 Advanced access to gene clusters is also possible through the command line through the program `anvi-get-sequences-for-gene-clusters`. For more information see [this issue](https://github.com/merenlab/anvio/issues/668#issuecomment-354195886) or this [vignette](http://merenlab.org/software/anvio/vignette/#anvi-get-sequences-for-gene-clusters).
 
 
+## Making some sense of functions in your pangenome
+
+Once we have our pangenome, one of the critical things that we usually want to do is look at the functions associated with our gene clusters. This is a very crucial and complicated challenge to approach, and there are many ways to address it. Here, we will describe how you can identify functions that are enriched for some of the clades or sub clades that are included in your pangenome. In addition, we will discuss how you can find the functional core of the pangenome. This is done with a new experimental program `anvi-script-get-enriched-functions-per-pan-group`.
+
+This program utilizes information you added to your pan database in the layers additional information, to identify groups within your genomes, and find functions that are enriched for those groups, i.e. functions that are characteristic of these genomes, and predominantly absent from genomes from outside this group. To use this feature you must have at least one additional layer information, and one functional annotation source imported into your pangenome (using `anvi-import-misc-data`, and `anvi-import-functions` respectively).
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Some extra information about how the functional analysis is done</span>
+For those of you who like to dive into the details, here is some information about what goes on behind the scenes.
+
+In order for this analysis to be compatible with everything else relating to the pangenome, we decided that it should be focused on gene clusters, since they are the heart of the pangenomic analysis. This means that the first step of the functional analysis is to try to associate every gene cluster with a function. This is not the default case, since functional annotation in anvi'o is done on an individual gene, but if things go right, then all genes that are members of a single gene cluster should be annotated with one identical function. While this is usually the case, it is not always true. In cases in which there are multiple functions associated with a gene cluster, we chose the most frequent function, i.e. the one that the largest number of genes in the gene cluster matched (if there is a tie of multiple functions, then we simply choose one arbitrarily). If none of the genes in the gene cluster were annotated, then the gene cluster has no function associated to it. After each we associate each gene cluster with up to one function, we could end up with multiple gene clusters associated with the same function. From our experience most functions are associated with a single gene cluster, but there are still plenty of functions that associate with multiple gene clusters. In these cases, in order to find the occurrence of the functions in genomes, we merge the occurrences of all gene clusters that were associated with that same function (for you computational readers, we simply take the "or" product of the presence/absence vectors of the gene clusters).
+
+The careful readers would notice that we distinguish between functional annotation and functional association in the following text. When we mention functional annotation, we refer to the annotation of a single gene with a function by the functional annotation source (i.e. COGS, EGGNOG, etc.), whereas functional association of a gene cluster is the association of gene clusters with a single function as described above.
+
+Ok, so now we have a presence/absence table of functions in genomes, and we can calculate different scores for each function, and also visualize it. See the details below!
+</div>
+
+
+Let's use the Prochlorococcus example to learn what we can do with this.
+First we will compare the low light vs. the high light genomes in order to see if there are any functions that are unique to either group:
+
+```bash
+anvi-script-get-enriched-functions-per-pan-group \
+    -p PROCHLORO/Prochlorococcus_Pan-PAN.db \
+    -g PROCHLORO-GENOMES.db \
+    --category light \
+    --annotation-source COG_FUNCTION \
+    -o PROCHLORO-PAN-enriched-functions-light.txt \
+```
+
+Let's look at the output `PROCHLORO-PAN-enriched-functions-light.txt`:
+
+|category|COG_FUNCTION|enrichment|weighted_enrichment|portion_occurrence_in_group|portion_occurrence_outside_of_group|occurrence_in_group|occurrence_outside_of_group|gene_clusters_ids|core_in_group|core|wilcoxon_p_value|wilcoxon_statistic|wilcoxon_corrected_p_value|
+|:--:|:--|:--|:--|:--|:--|:--|:--:|:--|:--|:--|:--|:--|:--|
+|LL|Ser/Thr protein kinase RdoA involved in Cpx stress response, MazF antagonist|1.00|29.09|1.00|0.00|11.00|0.00|GC_00002783, GC_00003936, GC_00004631, GC_00005468|True|False|0.00|4.54|0.00|
+|LL|3-polyprenyl-4-hydroxybenzoate decarboxylase|1.00|29.09|1.00|0.00|11.00|0.00|GC_00001766, GC_00001810|True|False|0.00|4.54|0.00|
+|LL|Exonuclease VII, large subunit|1.00|29.09|1.00|0.00|11.00|0.00|GC_00001726|True|False|0.00|4.54|0.00|
+|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
+|LL | Periplasmic protein TonB, links inner and   outer membranes | 0.58 | 16.79 | 0.73 | 0.15 | 8 | 3 | GC_00002213, GC_00003430, GC_00005286,   GC_00006014, GC_00006187, GC_00006496, GC_00006928 | FALSE | FALSE | 0.01 | 2.62 | 0.17|
+LL | Gamma-glutamyltranspeptidase | 0.55 | 15.87 | 0.55 | 0 | 6 | 0 | GC_00002294 | FALSE | FALSE | 0.01 | 2.48 | 0.23|
+|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
+|LL | Predicted NAD/FAD-dependent oxidoreductase | -1 | -29.09 | 0 | 1 | 0 | 20 | GC_00000970 | FALSE | FALSE | 0 | -4.54 | 0|
+|LL | ATP-dependent DNA ligase | -1 | -29.09 | 0 | 1 | 0 | 20 | GC_00000992, GC_00001635 | FALSE | FALSE | 0 | -4.54 | 0|
+|HL | Redox-sensitive bicupin YhaK, pirin superfamily | 1 | 29.09 | 1 | 0 | 20 | 0 | GC_00001240 | TRUE | FALSE | 0 | 4.54 | 0|
+|HL | N-acetylglutamate synthase or related acetyltransferase, GNAT family | 1 | 29.09 | 1 | 0 | 20 | 0 | GC_00001298 | TRUE | FALSE | 0 | 4.54 | 0|
+|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
+|HL | 1,6-Anhydro-N-acetylmuramate kinase | -1 | -29.09 | 0 | 1 | 0 | 11 | GC_00001728 | FALSE | FALSE | 0 | -4.54 | 0|
+|HL | Proteasome lid subunit RPN8/RPN11, contains Jab1/MPN domain metalloenzyme   (JAMM) motif | -1 | -29.09 | 0 | 1 | 0 | 11 | GC_00002219, GC_00003850, GC_00004483 | FALSE | FALSE | 0 | -4.54 | 0|
+
+Let's get familiar with the different columns in this table.
+
+1. **category** is the column you chose from your [layers additional data table](http://merenlab.org/2017/12/11/additional-data-tables/#layers-additional-data-table), in order to identify groups within your genomes. In the Prochlorococcus case we have two light groups: low light (LL), and high light (HL). The output table is ordered according to this column first, and within each group, the table is ordered according to the enrichment score.
+
+2. **COG_FUNCTION** this column has the name of the specific function for which enrichment was calculated. In this example we chose to use `COG_FUNCTION` for functional annotation, and hence the column title is `COG_FUNCTION`. You can specify whichever functional annotation source you have in your PAN database using the `--annotation-source`, and then the analysis would be done according to that annotation source. Even if you have multiple functional annotation sources in your genome storage, only one source could be used for a single run of this program. If you wish, you could run it multiple times and each time use a different annotation source. If you don't remember which annotation sources are available in your genomes storage, you can use `--list-annotation-sources`.
+
+3. **enrichment** is a score to measure how much is this function unique to the genomes that belong to a specific group vs. all other genomes in your pangenome. It is simply the output of `portion_occurrence_in_group - portion_occurrence_outside_of_group`. In the comparison above, each genome belongs to one of the two groups (HL, LL), but if the column you chose from your layers additional data table has more than two groups, then when comparing a function for each group, the occurrence is compared between the group members, and the rest of the genomes, i.e. the comparison is not pair-wise between groups (you can see the example below of comparisonbetween clades of Prochlorococcus for more details). When the occurrence of a function in the group is lower than outside the group, then we get negative values (makes sense, right?).
+
+4. **weighted_enrichment** is meant to help you compare between enrichment scores for different groups even if these groups have different sizes. The ides is that if you get a high enrichment score for a group of only two members it is not as impressive as getting high enrichment for a larger group of genomes. In addition, if the comparison is done between groups similar in size, then it is more reliable, i.e. if the number of genomes in a group is similar to the number of genomes outside that group, then the comparison is more valid. To account for these, the weighted enrichment is the output of the following equation:
+[![layers]({{images}}/weighted_enrichment_equation.png)]({{images}}/weighted_enrichment_equation.png){:.center-img .width-90}
+Where N<sub>g</sub> is the total number of genomes in the pangenome, and p<sub>group</sub> is the portion of group members out of all genomes (i.e. the number of genomes that belong to the group divided by the total number of genomes in the pangenome). In other words the weighted enrichment is the product of the enrichment with the total number of genomes in the pangenome, multiplied by the entropy of group membership. If the number of group members is equal to the number of non-members, then the entropy is maximized (and equals 1), and if the groups are not balanced then the entropy is lower.
+
+5. **portion_occurrence_in_group** is the number of genomes in the group that were associated with the function, divided by the total number of genomes in the group
+
+6. **portion_occurrence_outside_of_group** is the number of genomes not in the group that were associated with the function, divided by the total number of genomes not in the group.
+
+7. **occurrence_in_group** is the number of genomes in the group that were associated with the function.
+
+8. **occurrence_outside_of_group** is the number of genomes outside the group that were associated with the function.
+
+9. **gene_clusters_ids** are the gene clusters that were associated with this function. Notice that each gene cluster would be associated with a single function, but a function could be associated with multiple gene clusters.
+
+10. **core_in_group** is "true" if the function occurs in all members of the group.
+
+11. **core** is "true" if the function occurs in all genomes in the pangenome.
+
+12. **wilcoxon_p_value** is the p value for a [Wilcoxon rank-sum test](https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test) to compare the occurrence of the function in the group vs. outside the group (we use [scipy.stats.ranksums](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ranksums.html)).
+
+13. **wilcoxon_statistic** the statistic for the Wilcoxon rank sum test.
+
+14. **wilcoxon_corrected_p_value** a correction for multiple tests using the [Benjamini-Hochberg false discovery rate method](https://en.wikipedia.org/wiki/False_discovery_rate#Benjamini%E2%80%93Hochberg_procedure). This is done using [statsmodels.stats.multitest.multipletests](http://www.statsmodels.org/dev/generated/statsmodels.stats.multitest.multipletests.html#statsmodels.sandbox.stats.multicomp.multipletests).
+
+Now let's search for the top function in the table "Ser/Thr protein kinase RdoA involved in Cpx stress response, MazF antagonist", which is enriched for the members of the LL group, and we can see in the table that it matches four gene clusters.
+
+[![layers]({{images}}/ser_thr_kinase_gene_clusters.png)]({{images}}/ser_thr_kinase_gene_clusters.png){:.center-img .width-60}
+
+In fact, if we look carefuly, then we find that this function matches a gene cluster that is unique for each one of the four low light clades, and is single copy core gene for the low light genomes in our pangenome. Cool!
+
+Let's look at another function from the table: `Exonuclease VII, large subunit` (third line). When we search this function, we should be careful since the name of the function contains a comma, and the function search option in the interactive interface treats the comma as if it is separating multiple functions that are to be searched at the same time. Hence I just searched for `Exonuclease VII`, and here are the results:
+
+
+[![layers]({{images}}/Exonuclease-VII.png)]({{images}}/Exonuclease-VII.png){:.center-img .width-60}
+
+We can see that the search matched hits for both Exonuclease VII, large and small subunits, with a total of 22 hits.
+
+[![layers]({{images}}/Exonuclease-VII-2.png)]({{images}}/Exonuclease-VII-2.png){:.center-img .width-60}
+
+The large subunit matches a single gene cluster which is in the CORE LL, and the small subunit matches a gene cluster in each one of the clade specific cores (similar to what we saw above for the Ser/Thr protein kinase. Both of these genes are also part of the single copy core unique to low light members and absent from high light members.
+
+Next, we will explore whether there are any functions enriched for any of the sub clades. In addition, we will introduce another feature `--functional-occurrence-table-output`. This optional output is a TAB-delimited file with the presence/absence information for functions in genomes.
+
+```bash
+anvi-script-get-enriched-functions-per-pan-group \
+    -p PROCHLORO/Prochlorococcus_Pan-PAN.db \
+    -g PROCHLORO-GENOMES.db \
+    --category clade\
+    --annotation-source COG_FUNCTION \
+    -o PROCHLORO-PAN-enriched-functions-clade.txt \
+    --functional-occurrence-table-output PROCHLORO-functions-occurrence.txt
+```
+
+Let's look at some results. This is how `PROCHLORO-PAN-enriched-functions-clade.txt` looks like:
+
+| category | COG_FUNCTION                                                  | enrichment | weighted_enrichment | portion_occurrence_in_group | portion_occurrence_outside_of_group | occurrence_in_group | occurrence_outside_of_group | gene_clusters_ids        | core_in_group | core  | wilcoxon_p_value | wilcoxon_statistic | wilcoxon_corrected_p_value |
+|----------|---------------------------------------------------------------|------------|---------------------|----------------------------|------------------------------------|--------------------|----------------------------|--------------------------|---------------|-------|------------------|--------------------|----------------------------|
+| LL_II    | Archaeal DNA polymerase II, large subunit                     | 1          | 19.76               | 1                          | 0                                  | 5                  | 0                          | GC_00002540              | TRUE          | FALSE | 0                | 3.49               | 0.06                       |
+| LL_II    | Outer membrane protein assembly factor BamD, BamD/ComL family | 1          | 19.76               | 1                          | 0                                  | 5                  | 0                          | GC_00002403              | TRUE          | FALSE | 0                | 3.49               | 0.06                       |
+| LL_II    | tRNA G37 N-methylase Trm5                                     | 0.96       | 19                  | 1                          | 0.04                               | 5                  | 1                          | GC_00002586, GC_00007078 | TRUE          | FALSE | 0                | 3.36               | 0.06                       |
+|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
+
+And this is how `PROCHLORO-functions-occurrence.txt` looks like:
+
+|| AS9601                                                                                                      | CCMP1375 | EQPAC1 | GP2 | LG | MED4 | MIT9107 | MIT9116 | MIT9123 | MIT9201 | MIT9202 | MIT9211 | MIT9215 | MIT9301 | MIT9302 | MIT9303 | MIT9311 | MIT9312 | MIT9313 | MIT9314 | MIT9321 | MIT9322 | MIT9401 | MIT9515 | NATL1A | NATL2A | PAC1 | SB | SS2 | SS35 | SS51 |
+|-------------------------------------------------------------------------------------------------------------|----------|--------|-----|----|------|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|--------|--------|------|----|-----|------|------|---|
+| 3-deoxy-D-manno-octulosonate 8-phosphate phosphatase KdsC and related HAD superfamily phosphatases          | 0        | 0      | 0   | 0  | 0    | 0       | 0       | 0       | 0       | 0       | 0       | 0       | 0       | 0       | 0       | 1       | 0       | 0       | 1       | 0       | 0       | 0       | 0       | 0      | 0      | 0    | 0  | 0   | 0    | 0    | 0 |
+| Creatinine amidohydrolase/Fe(II)-dependent formamide hydrolase involved in riboflavin and F420 biosynthesis | 1        | 1      | 1   | 1  | 1    | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1      | 1      | 1    | 1  | 1   | 1    | 1    | 1 |
+| RNA recognition motif (RRM) domain                                                                          | 1        | 1      | 1   | 1  | 1    | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1      | 1      | 1    | 1  | 1   | 1    | 1    | 1 |
+|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
+
+Let's use the functional occurrence table for visualization. First we fix the names of functions to get rid of things like commas etc.
+
+```bash
+sed "s/[^[:alnum:]	_]/_/g" PROCHLORO-functions-occurrence.txt | tr -s \_ _ | sed 's/^	/name	/' > PROCHLORO-functions-occurrence-fixed.txt
+```
+
+Then we create trees for the interactive interface:
+
+```bash
+anvi-matrix-to-newick PROCHLORO-functions-occurrence-fixed.txt \
+                        -o PROCHLORO-functions-tree.txt
+
+anvi-matrix-to-newick PROCHLORO-functions-occurrence-fixed.txt \
+                        -o PROCHLORO-functions-layers-tree.txt \
+                        --transpose
+```
+
+We run a quick dry run to create a manual mode profile database.
+
+```bash
+anvi-interactive \
+    --manual \
+    -p PROCHLORO-functions-manual-profile.db \
+    -t PROCHLORO-functions-tree.txt \
+    -d PROCHLORO-functions-occurrence-fixed.txt \
+    --dry-run
+```
+
+We import the tree for the layers order:
+
+```bash
+echo -e "item_name\tdata_type\tdata_value" > PROCHLORO-functions-layers-order.txt
+echo -e "PROCHLORO_functions_tree\tnewick\t`cat PROCHLORO-functions-layers-tree.txt`" >> PROCHLORO-functions-layers-order.txt
+
+anvi-import-misc-data \
+    PROCHLORO-functions-layers-order.txt \
+    -p PROCHLORO-functions-manual-profile.db \
+    -t layer_orders \
+    --just-do-it
+```
+
+We can get some information about the genomes from the PAN database:
+
+```bash
+anvi-export-misc-data \
+    -p PROCHLORO/Prochlorococcus_Pan-PAN.db \
+    -t layers \
+    -o PROCHLORO-layer-additional-data.txt
+```
+
+And then import that into our manual mode profile database:
+
+```bash
+anvi-import-misc-data \
+    PROCHLORO-layer-additional-data.txt \
+    -p PROCHLORO-functions-manual-profile.db \
+    -t layers
+```
+
+The work directory you downloaded includes a nice state that we created for this profile database along with a collection, let's import these:
+
+```bash
+anvi-import-state \
+    -p PROCHLORO-functions-manual-profile.db \
+    -s PROCHLORO-manual-default-state.json \
+    -n default
+    
+anvi-import-collection \
+    -p PROCHLORO-functions-manual-profile.db \
+    -C default \
+    PROCHLORO-functions-collection.txt
+```
+
+And now we can take a look:
+
+```bash
+anvi-interactive \
+    --manual \
+    -p PROCHLORO-functions-manual-profile.db \
+    -t PROCHLORO-functions-tree.txt \
+    -d PROCHLORO-functions-occurrence-fixed.txt \
+    --title "Prochlorococcus Pan - functional occurrence"
+```
+
+[![layers]({{images}}/Functional-occurrence.png)]({{images}}/Functional-occurrence.png){:.center-img .width-60}
+
+A collection of core functions immerges, which includes 869 (note: the screenshot above includes a bug that ozcan is working on fixing, once the bug is fixed in images will be replace. Can you see what's wrong? If you think you do, you can mail us your guess. The contestants who answer correctly would get into a raffle and can win a contestant that did not answer correctly). In addition, we see that the occurrence of functions is recapitulating all four LL clades. In contrast, the two HL clades seem to be mixed together.
+
+We use a little bash trick to get all the gene clusters associated with core functions:
+
+```
+grep LL PROCHLORO-PAN-enriched-functions-light.txt |\
+    awk  -F $'\t' '$11 == "True" { print $9 }' |\
+    tr ',' '\n' |\
+    sed 's/ //g' \
+    > core_functions_gene_clusters.txt
+```
+
+And we get a file with 2613 gene clusters. Now we can compare this to the collection of gene clusters we have [above](#displaying-the-pan-genome). We can find, for example, how many of the gene clusters that are in the CORE_LL are in the functional core of all 31 Prochlorococcus genomes:
+
+```
+for gc in `grep CORE_LL PROCHLORO-PAN-default-collection.txt`; do
+
+ 	grep $gc core_functions_gene_clusters.txt
+ 	
+done > CORE_LL_included_in_functional_core.txt
+```
+
+We find that 103 of the 144 gene clusters are part of the functional core. And for HL it is 294 of 499 that are found to be part of the functional core. An important thing to remember is that gene clusters that have no function associated with them are not included in this analysis.
+
+We can find all the gene clusters that are associated with a function:
+
+```bash
+grep LL PROCHLORO-PAN-enriched-functions-light.txt |
+    awk  -F $'\t' '{ print $9 }' |
+    tr ',' '\n' |
+    sed 's/ //g' \
+    > all_gene_clusters_with_functions.txt
+```
+
+There are 3629 gene clusters with functions. How many gene clusters that belong to the CORE_HL have functions?
+
+```
+for gc in `grep CORE_HL PROCHLORO-PAN-default-collection.txt`; do
+
+   grep $gc all_gene_clusters_with_functions.txt;
+
+done > HL_CORE_GC_with_functions.txt
+
+wc -l all_gene_clusters_with_functions.txt
+```
+
+There are 321 (of a total of 499) gene clusters in CORE_HL that have functions. Hence many of the gene clusters in CORE_HL that were not found to be part of the functional core, simply don't have any functional annotation.
+
 ## Computing the average nucleotide identity for genomes
 
 Anvi'o contains a program, [`anvi-compute-ani`](http://merenlab.org/software/anvio/vignette/#anvi-compute-ani), which uses [PyANI](https://doi.org/10.1039/C5AY02550H) to compute average nucleotide identity across your genomes. It expects you to provide an external genomes file to declare which genomes you are interested in for an ANI analysis, but it also optionally accepts a pan database to add its findings into it as additional layer data.
