@@ -9,7 +9,7 @@ comments: false
 <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
 
 <div class="category-box">
-<a href="#2018"><span class="category-item">2018 <small>(2)</small></span></a><a href="#2017"><span class="category-item">2017 <small>(11)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(5)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a>
+<a href="#2018"><span class="category-item">2018 <small>(3)</small></span></a><a href="#2017"><span class="category-item">2017 <small>(11)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(5)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a>
 </div>
 
 <a name="2018">&nbsp;</a>
@@ -29,6 +29,19 @@ comments: false
     </div>
     </div>
     <span class="pub-journal"><i>PeerJ</i>. <b>6:e4320</b></span>
+</div>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s40168-018-0474-8"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1186/s40168-018-0474-8" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1186/s40168-018-0474-8" target="_new">Gut microbes contribute to variation in solid organ transplant outcomes in mice.</a></h3>
+    <span class="pub-authors">McIntosh, C. M., Chen, L., <span class="pub-member-author">Shaiber, A.</span>, <span class="pub-member-author">Eren, A. M</span>., and Alegre, M. L.</span>
+    <div class="pub-info-no-image">
+    <div class="pub-highlights-no-image">
+    <span style="display: inline-block; padding-bottom: 5px;">- Two groups of genetically identical mice with different microbial community structures differ in their response to skin transplants from genetically identical sources: one group rejects the skin faster than the other.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Transferrin:xag poop from slow-rejecting mice into fast-rejecting mice turns fast-rejecting mice into slow-rejecting mice.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  These suggest that differences in 'resident microbiome' in healthy individuals <i>may</i> contribute to interpersonal variability in graft outcomes, and fecal microbiota transplantation <i>may</i> play a therapeutic role to reverse that phenotype.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Basically, "we do not have a mechanistic understanding, but this is definitely very interesting".</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>Microbiome</i>. <b>6:96</b></span>
 </div>
 
 <div class="pub">
