@@ -49,7 +49,7 @@
 
 <div class="alumni">
 
-<p class="persons-title">Previous members
+<p class="persons-title">Those we miss (sorted by date)
 
 {% for person in site.data.people %}
     {% if person.official and person.tenure_end %}
@@ -63,9 +63,12 @@
         </div>
     
         <div class="person-info">
-          <h3>{{ person.name }} ({{person.tenure_start}} - {{person.tenure_end}})</h3>
+          <h3>{{ person.name }}</h3>
     
-          <p>{{ person.nick_name }} was a {{ person.role }} with us. The last time we checked, {{ person.nick_name }} was {{ person.current_info }}.</p>
+          <p>
+             {{ person.nick_name }} was a {{ person.role }} with us between {{person.tenure_start}} and {{person.tenure_end}}.
+             {{ person.contributions }}. The last time we checked, {{ person.nick_name }} was {{ person.current_info }}.
+          </p>
     
         </div>
     </div>
