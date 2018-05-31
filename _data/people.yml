@@ -27,36 +27,6 @@
       inst: The Biomedical Sciences Cluster at the University of Chicago
       inst_link: https://biomedsciences.uchicago.edu/
 
-- alias: tom
-  official: True
-  name: Tom O. Delmont
-  tenure_start: 10/2015
-  role: Post-doctoral Scientist
-  email: tom.o.delmont@gmail.com
-  twitter: tomodelmont
-  avatar: bio-tom.jpg
-  skype: tom.o.delmont
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  bio: "I am a microbial ecologist who seeks to understand small and large-scale ecological patterns in the microbial world. My most recent investigations focused on humans, pristine soils, and the Southern Ocean."
-  affiliations:
-    - title: Post-doctoral Scientist
-      inst: The Department of Medicine at the University of Chicago
-      inst_link: http://medicine.uchicago.edu/
-
-- alias: sonny
-  official: True
-  name: Sonny T. M. Lee
-  tenure_start: 05/2016
-  role: Post-doctoral Scientist
-  email: leet1@uchicago.edu
-  avatar: bio-sonny.jpg
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  bio: "I am a microbiologist studying the most interesting inhabitants of humans, coral reefs, and the ocean, and using big data to answer vexing problems of our future."
-  affiliations:
-    - title: Post-doctoral Scientist
-      inst: The Department of Medicine at the University of Chicago
-      inst_link: http://medicine.uchicago.edu/
-
 - alias: alon
   official: True
   name: Alon Shaiber
@@ -157,22 +127,9 @@
       inst: Computational and Applied Mathematics
       inst_link: http://collegecatalog.uchicago.edu/thecollege/caam/
 
-
-- alias: steven
-  name: Steven Cui
-  nick_name: Steven
-  tenure_start: 07/2016
-  tenure_end: 10/2016
-  current_info: an undergraduate student studying computer science at the <a href="https://www.cs.uchicago.edu/">Department of Computer Science at the University of Chicago</a>
-  official: True
-  role: Summer Student
-  avatar: bio-steven.png
-  email: stevencui729@gmail.com
-  bio: "I am an undergraduate student at UChicago studying computer science. I look forward to tackling new and exciting computational problems in the field of bionformatics."
-  affiliations:
-    - title: Undergraduate Student
-      inst: The Department of Computer Science at the University of Chicago
-      inst_link: https://www.cs.uchicago.edu/
+####################################################################################
+# Non-member friends
+####################################################################################
 
 - alias: kota
   official: True
@@ -213,3 +170,48 @@
   role: Contributing hero
   github: brymerr921
   email: bmerrill@stanford.edu
+
+####################################################################################
+# Previous members.
+####################################################################################
+
+- alias: sonny
+  official: True
+  name: Sonny T. M. Lee
+  nick_name: Sonny
+  tenure_start: 05/2016
+  tenure_end: 05/2018
+  current_info: a post-dcotoral researcher at Eugene B. Chang's group at the <a href="https://www.uchicago.edu/">Department of Medicine at the University of Chicago</a>
+  contributions: He took the responsibility of leading the Fecal Microbiota Transplantation work in our lab. Sonny also was the driving force behind setting up the wet-lab component of our group
+  role: Post-doctoral Scientist
+  email: leet1@uchicago.edu
+  avatar: bio-sonny.jpg
+  bio: "I am a microbiologist studying the most interesting inhabitants of humans, coral reefs, and the ocean, and using big data to answer vexing problems of our future."
+
+- alias: tom
+  official: True
+  name: Tom O. Delmont
+  nick_name: Tom
+  tenure_start: 10/2015
+  tenure_end: 05/2018
+  current_info: a post-doctoral reseracher studying microbial life at the <a href="http://jacob.cea.fr/drf/ifrancoisjacob/Pages/Departements/Genoscope.aspx">Genoscope</a> in France
+  contributions: He contributed to the development of anvi'o and its application to the ocean and gut metagenomes. Tom was the very first member of our lab, and Meren and Tom have spent lots of time together thinking about new ways to make sense of metagenomic data
+  role: Post-doctoral Scientist
+  email: tom.o.delmont@gmail.com
+  twitter: tomodelmont
+  avatar: bio-tom.jpg
+  skype: tom.o.delmont
+  bio: "I am a microbial ecologist who seeks to understand small and large-scale ecological patterns in the microbial world. My most recent investigations focused on humans, pristine soils, and the Southern Ocean."
+
+- alias: steven
+  name: Steven Cui
+  nick_name: Steven
+  tenure_start: 07/2016
+  tenure_end: 10/2016
+  current_info: an undergraduate student studying computer science at the <a href="https://www.cs.uchicago.edu/">Department of Computer Science at the University of Chicago</a>
+  contributions: He contributed to the development of tRNA-seq tools, a project that bridged Meren's and <a href="https://scholar.google.com/citations?user=R5nkatMAAAAJ&hl=en">Tao Pan</a>'s interests
+  official: True
+  role: Summer Student
+  avatar: bio-steven.png
+  email: stevencui729@gmail.com
+  bio: "I am an undergraduate student at UChicago studying computer science. I look forward to tackling new and exciting computational problems in the field of bionformatics."
