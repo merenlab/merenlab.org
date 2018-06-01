@@ -564,7 +564,7 @@ Anvi'o also contains a program, [`anvi-compute-ani`](http://merenlab.org/softwar
 Here is an example with our *Prochlorococcus* Pan genome:
 
 ``` bash
-anvi-compute-ani --external-genomes PROCHLORO-GENOMES.db \
+anvi-compute-ani --external-genomes external-genomes.txt \
                  --output-dir ANI \
                  --num-threads 6 \
                  --pan-db PROCHLORO/Prochlorococcus_Pan-PAN.db
