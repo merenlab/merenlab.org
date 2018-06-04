@@ -425,12 +425,24 @@ And this is how ***PROCHLORO-functions-occurrence.txt*** looks like:
 | RNA recognition motif (RRM) domain                                                                          | 1        | 1      | 1   | 1  | 1    | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1      | 1      | 1    | 1  | 1   | 1    | 1    | 1 |
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 
-Let's use the functional occurrence table for visualization. First we fix the names of functions to get rid of things like commas etc.
+Let's use the functional occurrence table for visualization. First we fix the names of functions to get rid of things like commas etc. Basically, we only keep alphanumeric characters, and replace any sequence of non-alphanumeric characters by a single `_`.
 
 ```bash
 sed "s/[^[:alnum:]	_]/_/g" PROCHLORO-functions-occurrence.txt |\
             tr -s \_ _ | sed 's/^	/name	/' \
-                > PROCHLORO-functions-occurrence-fixed.txt
+                > PROCHLORO-functions-occurence-fixed-a-little.txt
+```
+
+Unfortunately there could be some functions with very similar names, let's check if there are any duplicate names now:
+
+```
+cut -f 1 PROCHLORO-functions-occurence-fixed-a-little.txt | sort | uniq -d
+```
+
+We can see that `Fatty_acid_desaturase`, and `Protein_tyrosine_phosphatase` are duplicated now. This is because, for example, there are two COG functions `Protein-tyrosine phosphatase` (accession `COG2453`) and `Protein-tyrosine-phosphatase` (accession `COG0394`), which match different gene clusters in our pangenome. Because we cannot create a tree with duplicated nodes, and since we can't really say that these are different functions, we will use a script to merge these duplicated occurences (i.e. merge their occurences with a `logical or`). Your working directory includes the script `fix_functional_occurence_table.py`:
+
+```
+./fix_functional_occurence_table.py PROCHLORO-functions-occurence-fixed-a-little.txt PROCHLORO-functions-occurence-fixed.txt
 ```
 
 Then we create trees for the interactive interface:
@@ -507,7 +519,7 @@ anvi-interactive -p PROCHLORO-functions-manual-profile.db \
 
 [![layers]({{images}}/Functional-occurrence.png)]({{images}}/Functional-occurrence.png){:.center-img .width-60}
 
-A collection of 869 core functions emmerges (note: the screenshot above includes a bug that Ozcan is working on fixing, once the bug is fixed in images will be replace. Can you see what's wrong? If you think you do, you can mail us your guess. The contestants who answer correctly would get into a raffle and can win a contestant that did not answer correctly!).
+A collection of 869 core functions emmerges.
 
 We can also see that the occurrence of functions is recapitulating all four LL clades. In contrast, the two HL clades seem to be mixed together.
 
