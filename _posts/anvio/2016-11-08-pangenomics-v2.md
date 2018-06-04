@@ -113,6 +113,7 @@ If you wish to follow the tutorial on your computer, you can download the Prochl
 wget https://ndownloader.figshare.com/files/11568539 -O Prochlorococcus_31_genomes.tar.gz
 tar -zxvf Prochlorococcus_31_genomes.tar.gz
 cd Prochlorococcus_31_genomes
+anvi-migrate-db *.db
 ```
 
 The directory contains anvi'o contigs databases, an external genomes file, and a layer additional data file. You can generate a genomes storage as described in this section the following way:
