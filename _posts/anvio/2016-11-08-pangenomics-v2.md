@@ -392,7 +392,7 @@ We can see that the search matched hits for both Exonuclease VII, large and smal
 
 [![layers]({{images}}/Exonuclease-VII-2.png)]({{images}}/Exonuclease-VII-2.png){:.center-img .width-60}
 
-The large subunit matches a single gene cluster which is in the CORE LL, and the small subunit matches a gene cluster in each one of the clade specific cores (similar to what we saw above for the Ser/Thr protein kinase. Both of these genes are also part of the single copy core unique to low light members and absent from high light members.
+The large subunit matches a single gene cluster which is in the CORE LL, and the small subunit matches a gene cluster in each one of the clade specific cores (similar to what we saw above for the Ser/Thr protein kinase). Both of these genes are also part of the single copy core unique to low light members and absent from high light members.
 
 ### Creating a quick pangenome with functions
 
