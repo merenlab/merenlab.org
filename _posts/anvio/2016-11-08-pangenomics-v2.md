@@ -317,7 +317,7 @@ anvi-get-enriched-functions-per-pan-group -p PROCHLORO/Prochlorococcus_Pan-PAN.d
                                           -g PROCHLORO-GENOMES.db \
                                           --category light \
                                           --annotation-source COG_FUNCTION \
-                                          -o PROCHLORO-PAN-enriched-functions-light.txt \
+                                          -o PROCHLORO-PAN-enriched-functions-light.txt
 ```
 
 Here is the structure of the output file *PROCHLORO-PAN-enriched-functions-light.txt* (there are more columns, scroll towards right to see them):
