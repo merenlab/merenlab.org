@@ -430,8 +430,8 @@ Let's use the functional occurrence table for visualization. First we fix the na
 
 ```bash
 sed "s/[^[:alnum:]	_]/_/g" PROCHLORO-functions-occurrence.txt |\
-            tr -s \_ _ | sed 's/^	/name	/' \
-                > PROCHLORO-functions-occurence-fixed-a-little.txt
+	tr -s \_ _ | sed 's/^	/name	/' \
+	> PROCHLORO-functions-occurence-fixed-a-little.txt
 ```
 
 Unfortunately there could be some functions with very similar names, let's check if there are any duplicate names now:
