@@ -435,6 +435,9 @@ sed "s/[^[:alnum:]	_]/_/g" PROCHLORO-functions-occurrence.txt | \
 	> PROCHLORO-functions-occurence-fixed-a-little.txt
 ```
 
+{:.warning}
+Notice that if you try to copy and paste the line above then it probably wouldn't work properly, because it includes a tab. in order to fix it you should manually add a tab after `^[:alnum:]`. If you are using a terminal on a mac, then you can manually add a tab by doing ctrl-V and then tab (as explained [here](https://stackoverflow.com/a/2610121/7115450)).
+
 Unfortunately there could be some functions with very similar names, let's check if there are any duplicate names now:
 
 ```
