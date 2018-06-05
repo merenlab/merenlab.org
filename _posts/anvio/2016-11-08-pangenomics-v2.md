@@ -113,6 +113,7 @@ If you wish to follow the tutorial on your computer, you can download the Prochl
 wget https://ndownloader.figshare.com/files/11857577 -O Prochlorococcus_31_genomes.tar.gz
 tar -zxvf Prochlorococcus_31_genomes.tar.gz
 cd Prochlorococcus_31_genomes
+anvi-migrate-db *.db
 ```
 
 The directory contains anvi'o contigs databases, an external genomes file, and a layer additional data file. You can generate a genomes storage as described in this section the following way:
@@ -317,12 +318,12 @@ anvi-get-enriched-functions-per-pan-group -p PROCHLORO/Prochlorococcus_Pan-PAN.d
                                           -g PROCHLORO-GENOMES.db \
                                           --category light \
                                           --annotation-source COG_FUNCTION \
-                                          -o PROCHLORO-PAN-enriched-functions-light.txt \
+                                          -o PROCHLORO-PAN-enriched-functions-light.txt
 ```
 
 Here is the structure of the output file *PROCHLORO-PAN-enriched-functions-light.txt* (there are more columns, scroll towards right to see them):
 
-|category|COG_FUNCTION|enrichment|weighted_enrichment|portion_occurrence_in_group|portion_occurrence_outside_of_group|occurrence_in_group|occurrence_outside_of_group|gene_clusters_ids|core_in_group|core|wilcoxon_p_value|wilcoxon_statistic|wilcoxon_corrected_p_value|
+|category|COG_FUNCTION|enrichment_score|weighted_enrichment_score|portion_occurrence_in_group|portion_occurrence_outside_of_group|occurrence_in_group|occurrence_outside_of_group|gene_clusters_ids|core_in_group|core|wilcoxon_p_value|wilcoxon_statistic|wilcoxon_corrected_p_value|
 |:--:|:--|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
 |LL|Ser/Thr protein kinase RdoA involved in Cpx stress response, MazF antagonist|1.00|29.09|1.00|0.00|11.00|0.00|GC_00002783, GC_00003936, GC_00004631, GC_00005468|True|False|0.00|4.54|0.00|
 |LL|3-polyprenyl-4-hydroxybenzoate decarboxylase|1.00|29.09|1.00|0.00|11.00|0.00|GC_00001766, GC_00001810|True|False|0.00|4.54|0.00|
@@ -345,17 +346,17 @@ The following describes each column:
 
 2. **COG_FUNCTION** this column has the name of the specific function for which enrichment was calculated. In this example we chose to use `COG_FUNCTION` for functional annotation, and hence the column title is `COG_FUNCTION`. You can specify whichever functional annotation source you have in your PAN database using the `--annotation-source`, and then the analysis would be done according to that annotation source. Even if you have multiple functional annotation sources in your genome storage, only one source could be used for a single run of this program. If you wish, you could run it multiple times and each time use a different annotation source. If you don't remember which annotation sources are available in your genomes storage, you can use `--list-annotation-sources`.
 
-3. **enrichment** is a score to measure how much is this function unique to the genomes that belong to a specific group vs. all other genomes in your pangenome. It is simply the output of,<br /><br />
+3. **enrichment_score** is a score to measure how much is this function unique to the genomes that belong to a specific group vs. all other genomes in your pangenome. It is simply the output of,<br /><br />
 $$
 portion\_occurrence\_in\_group -  portion\_occurrence\_outside\_of\_group
 $$
 <br /><br />In the comparison above, each genome belongs to one of the two groups (HL, LL), but if the column you chose from your layers additional data table has more than two groups, then when comparing a function for each group, the occurrence is compared between the group members, and the rest of the genomes, i.e. the comparison is not pair-wise between groups (you can see the example below of comparisonbetween clades of Prochlorococcus for more details). When the occurrence of a function in the group is lower than outside the group, then we get negative values (makes sense, right?).
 
-4. **weighted_enrichment** is meant to help you compare between enrichment scores for different groups even if these groups have different sizes. The ides is that if you get a high enrichment score for a group of only two members it is not as impressive as getting high enrichment for a larger group of genomes. In addition, if the comparison is done between groups similar in size, then it is more reliable, i.e. if the number of genomes in a group is similar to the number of genomes outside that group, then the comparison is more valid. To account for these, the weighted enrichment is the output of the following equation:<br /><br />
+4. **weighted_enrichment_score** is meant to help you compare between enrichment scores for different groups even if these groups have different sizes. The ides is that if you get a high enrichment score for a group of only two members it is not as impressive as getting high enrichment for a larger group of genomes. In addition, if the comparison is done between groups similar in size, then it is more reliable, i.e. if the number of genomes in a group is similar to the number of genomes outside that group, then the comparison is more valid. To account for these, the weighted enrichment is the output of the following equation:<br /><br />
 $$
-weighted\_enrichment = enrihment \times N_{g} \times (p_{group} \times log_{2} (p_{group}) + (1-p_{group}) \times log_{2} (1 - p_{group}))
+weighted\_enrichment\_score = enrihment \times N_{g} \times (p_{group} \times log_{2} (p_{group}) + (1-p_{group}) \times log_{2} (1 - p_{group}))
 $$
-<br /><br />Where $$N_{g}$$ is the total number of genomes in the pangenome, and $$p_{group}$$ is the portion of group members out of all genomes (i.e. the number of genomes that belong to the group divided by the total number of genomes in the pangenome). In other words the weighted enrichment is the product of the enrichment with the total number of genomes in the pangenome, multiplied by the entropy of group membership. If the number of group members is equal to the number of non-members, then the entropy is maximized (and equals 1), and if the groups are not balanced then the entropy is lower.
+<br /><br />Where $$N_{g}$$ is the total number of genomes in the pangenome, and $$p_{group}$$ is the portion of group members out of all genomes (i.e. the number of genomes that belong to the group divided by the total number of genomes in the pangenome). In other words the weighted enrichment score is the product of the enrichment score with the total number of genomes in the pangenome, multiplied by the entropy of group membership. If the number of group members is equal to the number of non-members, then the entropy is maximized (and equals 1), and if the groups are not balanced then the entropy is lower.
 
 5. **portion_occurrence_in_group** is the number of genomes in the group that were associated with the function, divided by the total number of genomes in the group
 
@@ -392,7 +393,7 @@ We can see that the search matched hits for both Exonuclease VII, large and smal
 
 [![layers]({{images}}/Exonuclease-VII-2.png)]({{images}}/Exonuclease-VII-2.png){:.center-img .width-60}
 
-The large subunit matches a single gene cluster which is in the CORE LL, and the small subunit matches a gene cluster in each one of the clade specific cores (similar to what we saw above for the Ser/Thr protein kinase. Both of these genes are also part of the single copy core unique to low light members and absent from high light members.
+The large subunit matches a single gene cluster which is in the CORE LL, and the small subunit matches a gene cluster in each one of the clade specific cores (similar to what we saw above for the Ser/Thr protein kinase). Both of these genes are also part of the single copy core unique to low light members and absent from high light members.
 
 ### Creating a quick pangenome with functions
 
@@ -409,7 +410,7 @@ anvi-get-enriched-functions-per-pan-group -p PROCHLORO/Prochlorococcus_Pan-PAN.d
 
 Let's look at some results. ***This is how PROCHLORO-PAN-enriched-functions-clade.txt*** looks like:
 
-| category | COG_FUNCTION                                                  | enrichment | weighted_enrichment | portion_occurrence_in_group | portion_occurrence_outside_of_group | occurrence_in_group | occurrence_outside_of_group | gene_clusters_ids        | core_in_group | core  | wilcoxon_p_value | wilcoxon_statistic | wilcoxon_corrected_p_value |
+| category | COG_FUNCTION                                                  | enrichment_score | weighted_enrichment_score | portion_occurrence_in_group | portion_occurrence_outside_of_group | occurrence_in_group | occurrence_outside_of_group | gene_clusters_ids        | core_in_group | core  | wilcoxon_p_value | wilcoxon_statistic | wilcoxon_corrected_p_value |
 |----------|---------------------------------------------------------------|------------|---------------------|----------------------------|------------------------------------|--------------------|----------------------------|--------------------------|---------------|-------|------------------|--------------------|----------------------------|
 | LL_II    | Archaeal DNA polymerase II, large subunit                     | 1          | 19.76               | 1                          | 0                                  | 5                  | 0                          | GC_00002540              | TRUE          | FALSE | 0                | 3.49               | 0.06                       |
 | LL_II    | Outer membrane protein assembly factor BamD, BamD/ComL family | 1          | 19.76               | 1                          | 0                                  | 5                  | 0                          | GC_00002403              | TRUE          | FALSE | 0                | 3.49               | 0.06                       |
@@ -425,12 +426,28 @@ And this is how ***PROCHLORO-functions-occurrence.txt*** looks like:
 | RNA recognition motif (RRM) domain                                                                          | 1        | 1      | 1   | 1  | 1    | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1       | 1      | 1      | 1    | 1  | 1   | 1    | 1    | 1 |
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 
-Let's use the functional occurrence table for visualization. First we fix the names of functions to get rid of things like commas etc.
+Let's use the functional occurrence table for visualization. First we fix the names of functions to get rid of things like commas etc. Basically, we only keep alphanumeric characters, and replace any sequence of non-alphanumeric characters by a single `_`.
 
 ```bash
-sed "s/[^[:alnum:]	_]/_/g" PROCHLORO-functions-occurrence.txt |\
-            tr -s \_ _ | sed 's/^	/name	/' \
-                > PROCHLORO-functions-occurrence-fixed.txt
+sed "s/[^[:alnum:]	_]/_/g" PROCHLORO-functions-occurrence.txt | \
+	tr -s \_ _ | \
+	sed 's/^	/name	/' \
+	> PROCHLORO-functions-occurence-fixed-a-little.txt
+```
+
+{:.warning}
+Notice that if you try to copy and paste the line above then it probably wouldn't work properly, because it includes a tab. in order to fix it you should manually add a tab after `^[:alnum:]`. If you are using a terminal on a mac, then you can manually add a tab by doing ctrl-V and then tab (as explained [here](https://stackoverflow.com/a/2610121/7115450)).
+
+Unfortunately there could be some functions with very similar names, let's check if there are any duplicate names now:
+
+```
+cut -f 1 PROCHLORO-functions-occurence-fixed-a-little.txt | sort | uniq -d
+```
+
+We can see that `Fatty_acid_desaturase`, and `Protein_tyrosine_phosphatase` are duplicated now. This is because, for example, there are two COG functions `Protein-tyrosine phosphatase` (accession `COG2453`) and `Protein-tyrosine-phosphatase` (accession `COG0394`), which match different gene clusters in our pangenome. Because we cannot create a tree with duplicated nodes, and since we can't really say that these are different functions, we will use a script to merge these duplicated occurences (i.e. merge their occurences with a `logical or`). Your working directory includes the script `fix_functional_occurence_table.py`:
+
+```
+./fix_functional_occurence_table.py PROCHLORO-functions-occurence-fixed-a-little.txt PROCHLORO-functions-occurence-fixed.txt
 ```
 
 Then we create trees for the interactive interface:
@@ -507,7 +524,7 @@ anvi-interactive -p PROCHLORO-functions-manual-profile.db \
 
 [![layers]({{images}}/Functional-occurrence.png)]({{images}}/Functional-occurrence.png){:.center-img .width-60}
 
-A collection of 869 core functions emmerges (note: the screenshot above includes a bug that Ozcan is working on fixing, once the bug is fixed in images will be replace. Can you see what's wrong? If you think you do, you can mail us your guess. The contestants who answer correctly would get into a raffle and can win a contestant that did not answer correctly!).
+A collection of 869 core functions emmerges.
 
 We can also see that the occurrence of functions is recapitulating all four LL clades. In contrast, the two HL clades seem to be mixed together.
 
@@ -564,7 +581,7 @@ Anvi'o also contains a program, [`anvi-compute-ani`](http://merenlab.org/softwar
 Here is an example with our *Prochlorococcus* Pan genome:
 
 ``` bash
-anvi-compute-ani --external-genomes PROCHLORO-GENOMES.db \
+anvi-compute-ani --external-genomes external-genomes.txt \
                  --output-dir ANI \
                  --num-threads 6 \
                  --pan-db PROCHLORO/Prochlorococcus_Pan-PAN.db
