@@ -429,8 +429,9 @@ And this is how ***PROCHLORO-functions-occurrence.txt*** looks like:
 Let's use the functional occurrence table for visualization. First we fix the names of functions to get rid of things like commas etc. Basically, we only keep alphanumeric characters, and replace any sequence of non-alphanumeric characters by a single `_`.
 
 ```bash
-sed "s/[^[:alnum:]	_]/_/g" PROCHLORO-functions-occurrence.txt |\
-	tr -s \_ _ | sed 's/^	/name	/' \
+sed "s/[^[:alnum:]	_]/_/g" PROCHLORO-functions-occurrence.txt | \
+	tr -s \_ _ | \
+	sed 's/^	/name	/' \
 	> PROCHLORO-functions-occurence-fixed-a-little.txt
 ```
 
