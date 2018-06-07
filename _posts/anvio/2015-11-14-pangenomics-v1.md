@@ -363,7 +363,7 @@ Of course adding new collections to the profile database is not the only way to 
 
 ## Enriching the pangenomic display with additional information
 
-The output directory of a pangenomic analysis will contain two files, `additional_view_data.txt` and `anvio_samples_info.txt`, both of which will contain some default information about genomes and PCs. You can certainly add more contextual information about your genomes to increase the number of layers by adding more columns to the `additional_view_data.txt`, and re-generating the `samples.db` after adding more columns to the `anvio_samples_info.txt` file ([more information on anvi'o samples databases]({% post_url anvio/2015-11-10-samples-db %})).
+The output directory of a pangenomic analysis will contain two files, `additional_view_data.txt` and `anvio_samples_info.txt`, both of which will contain some default information about genomes and PCs. You can certainly add more contextual information about your genomes to increase the number of layers by adding more columns to the `additional_view_data.txt`, and re-generating the `samples.db` after adding more columns to the `anvio_samples_info.txt` file.
 
 For instance, here is a slightly richer analysis of 30 genomes:
 

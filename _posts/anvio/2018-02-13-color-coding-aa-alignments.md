@@ -298,7 +298,7 @@ To examine the first situation of MIT9125 and SB not having aspartate, we want t
 We see that both of the glutamates at this residue are colored. Thus, they are conserved because of negatively charged bonding effects (the magenta color).
 Now let's look at the two aspartates that are not colored in. The remaining genomes have a glutamine "Q" in that residue. We'll check for its conservation by clicking on "Q":
 
-[![pic]({{images}}/pic_final.png)]({{images}}/pic_final.png){:.center-img .width-80}
+[![pic]({{images}}/pic_Final.png)]({{images}}/pic_Final.png){:.center-img .width-80}
 
 We notice that the glutamines are colored in green. This means that the glutamines are conserved with respect to nonpolar bonding with polar groups. This also means that aspartate is not conserved in this residue as it has a different bonding effect, telling us something about the conservancy of the protein between MIT9125 and SB compared to the remaining genomes.
 
