@@ -8,6 +8,8 @@ authors: [alon]
 categories: [anvio]
 ---
 
+{% capture images %}{{site.url}}/images/anvio/2018-02-15-anvio-snakemake-workflows{% endcapture %}
+
 {% include _toc.html %}
 
 {:.notice}
@@ -185,15 +187,123 @@ anvi-run-snakemake-workflow -w metagenomics -c your-config.json --get-workflow-g
 Generating the workflow graph requires the usage of `dot`.
 If you are using MAC OSX, you can use `dot` by installing `graphviz`, simply run `brew install graphviz`.
 
-# Standard usage
+## Setting the stage
 
-All you need is a bunch of FASTQ files, and a `samples.txt` file. A properly formatted `samples.txt` is available [here](/samples.txt).
+TBD (basically instructions to download a tar with all the files needed for this tutorial).
 
-The `samples.txt` file specifies the names of your samples and which group they belong to (if you optionally would like to do multiple co-assemblies as we did when we binned the TARA Oceans project metagenomes). It also describes where to find the pair-end FASTQ files (for now, we do not support single-end FASTQ runs).
+## Standard usage
 
-The defalt name for your samples file is `samples.txt`, but you can use a different name by specifying it in the config file (see below).
 
-[Back to Table of Contents](#contents)
+As mentioned above, the standard usage of this workflow is meant to go through all the steps from raw reads to having a merged profile database (or databases) that are ready for binning.
+
+All you need is a bunch of FASTQ files, and a `samples.txt` file. Here we will go through a mock example with three small metagenomes. These metagenomes were made by choosing a small number of reads from three HMP metagenomes. In your working directory you have the following `samples.txt` file, let's have a look:
+
+```bash
+$ cat samples.txt
+
+sample	group	r1	r2
+sample_01	G01	three_samples_example/sample-01-R1.fastq.gz	three_samples_example/sample-01-R2.fastq.gz
+sample_02	G02	three_samples_example/sample-02-R1.fastq.gz	three_samples_example/sample-02-R2.fastq.gz
+sample_03	G02	three_samples_example/sample-03-R1.fastq.gz	three_samples_example/sample-03-R2.fastq.gz
+```
+
+There are four columns:
+
+sample - a name that you chose to give to each one of your metagenomic samples.
+
+group - Often when we want to bin genomes from metagenomic assemblies we wish to do so by co-assemblies multiple samples  (see for example [Albertsen et al. 2012](https://www.nature.com/articles/nbt.2579) or [this blog post that explains how we binned the TARA Oceans metagenomes](http://merenlab.org/data/2017_Delmont_et_al_HBDs/)). The purpose of this column is to define which samples are going to be co-assembled together. This is an optional column, if this column is not included in the `samples_txt` file, then each sample will be assembled separately. By default, only the samples that were used for the co-assembly would then be mapped to the resulting assembly. If you want you can co-assemble groups of samples, but then map **all** samples to echo assembly (see `all_against_all` option for the config file).
+
+r1, r2 - these two columns hold the path (could be either a relative or an absolute path) to the fastq files that correspnd to the sample. 
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Merging pair-end fastq files</span>
+
+If multiple pair-end reads fastq files correspond to the same samlpes they could be listed separated by a comma (with no space). This could be relevant for example, if one sample was sequenced in multiple runs. Let's take our `samples_txt` from above, but now assume that `sample_01` was sequenced twice. The `samples_txt` file would then look like this:
+
+sample	group	r1	r2
+sample_01	G01	three_samples_example/sample-01a-R1.fastq.gz,three_samples_example/sample-01b-R1.fastq.gz	three_samples_example/sample-01a-R2.fastq.gz,three_samples_example/sample-01b-R1.fastq.gz
+sample_02	G02	three_samples_example/sample-02-R1.fastq.gz	three_samples_example/sample-02-R2.fastq.gz
+sample_03	G02	three_samples_example/sample-03-R1.fastq.gz	three_samples_example/sample-03-R2.fastq.gz
+
+**Notice:** if your fastq files were already QC-ied, and you didn't do it with this workflow, and you wish to skip QC, **AND** from some reason you didn't already merge the fastq files that should be merged together, then you must do so manually, and then provide only one `r1` file and one `r2` file per sample. 
+</div>
+
+
+The defalt name for your `samples_txt` file is `samples.txt`, but you can use a different name by specifying it in the config file (see below).
+
+In your working directory there is a config file `config-idba_ud.json`, let's take a look at it.
+
+```
+{
+    "samples_txt": "samples.txt",
+    "idba_ud": {
+        "--min_contig": 1000,
+        "threads": 11,
+        "run": true
+    }
+}
+```
+
+Very short. Every configurable parameter (and there are a lot of them. We tried to keep things flexible) that is not mentioned here will be assigned a default value. If you wish to see all the configurable parameters and their default values run `anvi-run-snakemake-workflow -w metagenomics --get-default-config NAME-FOR-YOUR-DEFAULT-CONFIG.json`. We usually like to start a default config and then delete every line for which we wish to keep the default (if you don't delete it, then nothing would happen, but why keep garbage in your files?).
+
+So what do we have in the config file?
+
+`samples_txt` - A path for our `samples_txt` (frankly, since we used the default name `samples.txt` then we didn't really have to include this).
+
+`idba_ud` - a few parameters for `idba_ud`. 
+
+ -	`run` - Currently two assembly software are available in the workflow: megahit and idba_ud. We didn't set neither of these as the default software, and hence if you wish to assemble things then you must set the `run` parameter to `true` for one (and only one) if these. 
+	
+ - `--min-contig` - from the help menu of `idba_ud` we learn:
+[![idba_ud_min_contig]({{images}}/idba_ud_min_contig.png)]( {{images}}/idba_ud_min_contig.png){:.center-img .width-50}
+idab_ud has the default as 200, and we want it as 1,000, and hence we include this in the config.
+
+ - `threads` - when you wish to use multi-threads you can specify how many threads to use for each step using this parameter. Here we chose 11.
+
+Ok, so now we have everything we need to start, let's first run a sanity check and create a workflow graph for our workflow:
+
+```
+anvi-run-snakemake-workflow -w metagenomics -c config-idba_ud.json --save-workflow-graph
+```
+
+A file named `workflow.png` was created and should look like this:
+
+[![idba_ud_workflow1]({{images}}/idba_ud_workflow1.png)]( {{images}}/idba_ud_workflow1.png){:.center-img .width-50}
+
+Take a minute to take a look at this image to understand what is going on. From a first look it might seem complicated, but it is fairly straight forward (and also, shouldn't you know what is going on with your data?!?).
+
+If you wish to run this on a cluster (like I am), then you want to be familiar with snakemake's [`--cluster`](http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#job-properties) command. In order to do this we must get familiar with the `--additional-params` option of `anvi-run-snakemake-workflow`. The purpose of `--additional-params` is to allow you to access any configuration that is available through snakemake (i.e. anything that is listed when you look at the help menu of snakemake through `snakemake -h` is fair game as an input for `--additional-params`. For example you can do `anvi-run-snakemake-workflow -w metagenomics -c config-idba_ud.json --additional-params --notemp --ignore-incomplete` in order to use snakemake's `--notemp` and `--ignore-incomplete` options of snakemake (you can read about these in the snakemake help menu to understand what they do). Notice that `--additional-params` has to be the last thing that is passed to `anvi-run-snakemake-workflow` in the command line, and only followed by  arguments of snakemake (i.e. arguments that are listed in the help menu of snakemake). The purpose here is to not limit any of the configuration that snakemake allows the user.
+
+{:.warning}
+Meren, should we add a note here about using screen? I thought of something like this:
+Ok, let's run this. I always start by initiating a [screen](https://www.gnu.org/software/screen/manual/screen.html) session. If you are not familiar with what this is, basically we use it here, because we are running something that requires no user interaction for a long time on a remote machine (like a cluster node).
+
+```
+screen -S mysnakemakeworkflow
+```
+
+This is how we run the workflow on our cluster:
+
+```
+anvi-run-snakemake-workflow -w metagenomics \
+                            -c config-idba_ud.json \
+                            --additional-params \
+                                --cluster 'clusterize -log {log} -n {threads}' \
+                                --jobs 20 \
+                                --resource nodes=40
+```
+
+Let's talk a little more about the additional params. You can read about the `--cluster` parameter in the [snakemake docummentation](http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#threads)
+
+Once you run this, you should see something like this:
+
+[![merged_profile_idba_ud_snakemake_print]({{images}}/merged_profile_idba_ud_snakemake_print.png)]( {{images}}/merged_profile_idba_ud_snakemake_print.png){:.center-img .width-50}
+
+The warning message in red letters is just there to make sure you are using the `--additional-params` argument properly (but you are reading this tutorial, so of course you are!). After that, there are a bunch of things in yellow and green letters that are printed by snakemake, that's good! snakemake is telling us what jobs it's going to run, and which resources were supplied.
+
+[![merged_profile_idba_ud1]({{images}}/merged_profile_idba_ud1.png)]( {{images}}/merged_profile_idba_ud1.png){:.center-img .width-50}
+
 
 # Reference Mode
 ## Estimating occurence of population genomes in metagenomes
