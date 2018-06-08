@@ -37,15 +37,15 @@ about snakemake, please refer to the snakemake docummentation, [here](https://sn
 I will just mention that each step of the analysis (for example running `anvi-gen-contigs-databse`) corresponds to a
 "rule" in the workflow.
 
-## Introducing: `anvi-run-snakemake-workflow`
+## Introducing: `anvi-run-workflow`
 
 In order to make it easier to use these workflows for anvi'o users who are less familiar with snakemake,
-we added a new program, `anvi-run-snakemake-workflow`.
+we added a new program, `anvi-run-workflow`.
 
 ```
-$ anvi-run-snakemake-workflow -h
+$ anvi-run-workflow -h
 
-usage: anvi-run-snakemake-workflow [-h] [-w WORKFLOW]
+usage: anvi-run-workflow [-h] [-w WORKFLOW]
                                    [--get-default-config OUTPUT_FILENAME]
                                    [--list-workflows] [--list-dependencies]
                                    [-c CONFIG_FILE] [--dry-run]
@@ -115,7 +115,7 @@ the workflow.
 If you want to see which workflows are available run:
 
 ```
-$ anvi-run-snakemake-workflow --list-workflows
+$ anvi-run-workflow --list-workflows
 Available workflows ..........................: contigs, metagenomics, pangenomics
 ```
 
@@ -128,7 +128,7 @@ Even if you want to use all the default parameters you still have to supply a co
 you can always start by running:
 
 ```
-anvi-run-snakemake-workflow -w WORKFLOW-NAME --get-default-config OUTPUT_FILENAME
+anvi-run-workflow -w WORKFLOW-NAME --get-default-config OUTPUT_FILENAME
 ```
 
 This will generate a config file with all the parameters that could be configured. For each parameter that you don't plan
@@ -178,7 +178,7 @@ A directed acyclic graph (DAG) describing the workflow for a mock dataset could 
 If you want to create a DAG for your dataset, simply run:
 
 ```
-anvi-run-snakemake-workflow -w metagenomics -c your-config.json --get-workflow-graph
+anvi-run-workflow -w metagenomics -c your-config.json --get-workflow-graph
 ```
 
 
@@ -245,7 +245,7 @@ In your working directory there is a config file `config-idba_ud.json`, let's ta
 }
 ```
 
-Very short. Every configurable parameter (and there are a lot of them. We tried to keep things flexible) that is not mentioned here will be assigned a default value. If you wish to see all the configurable parameters and their default values run `anvi-run-snakemake-workflow -w metagenomics --get-default-config NAME-FOR-YOUR-DEFAULT-CONFIG.json`. We usually like to start a default config and then delete every line for which we wish to keep the default (if you don't delete it, then nothing would happen, but why keep garbage in your files?).
+Very short. Every configurable parameter (and there are a lot of them. We tried to keep things flexible) that is not mentioned here will be assigned a default value. If you wish to see all the configurable parameters and their default values run `anvi-run-workflow -w metagenomics --get-default-config NAME-FOR-YOUR-DEFAULT-CONFIG.json`. We usually like to start a default config and then delete every line for which we wish to keep the default (if you don't delete it, then nothing would happen, but why keep garbage in your files?).
 
 So what do we have in the config file?
 
@@ -264,7 +264,7 @@ idab_ud has the default as 200, and we want it as 1,000, and hence we include th
 Ok, so now we have everything we need to start, let's first run a sanity check and create a workflow graph for our workflow:
 
 ```
-anvi-run-snakemake-workflow -w metagenomics -c config-idba_ud.json --save-workflow-graph
+anvi-run-workflow -w metagenomics -c config-idba_ud.json --save-workflow-graph
 ```
 
 A file named `workflow.png` was created and should look like this:
@@ -273,7 +273,17 @@ A file named `workflow.png` was created and should look like this:
 
 Take a minute to take a look at this image to understand what is going on. From a first look it might seem complicated, but it is fairly straight forward (and also, shouldn't you know what is going on with your data?!?).
 
-If you wish to run this on a cluster (like I am), then you want to be familiar with snakemake's [`--cluster`](http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#job-properties) command. In order to do this we must get familiar with the `--additional-params` option of `anvi-run-snakemake-workflow`. The purpose of `--additional-params` is to allow you to access any configuration that is available through snakemake (i.e. anything that is listed when you look at the help menu of snakemake through `snakemake -h` is fair game as an input for `--additional-params`. For example you can do `anvi-run-snakemake-workflow -w metagenomics -c config-idba_ud.json --additional-params --notemp --ignore-incomplete` in order to use snakemake's `--notemp` and `--ignore-incomplete` options of snakemake (you can read about these in the snakemake help menu to understand what they do). Notice that `--additional-params` has to be the last thing that is passed to `anvi-run-snakemake-workflow` in the command line, and only followed by  arguments of snakemake (i.e. arguments that are listed in the help menu of snakemake). The purpose here is to not limit any of the configuration that snakemake allows the user.
+If you wish to run this on a cluster (like I am), then you want to be familiar with snakemake's [`--cluster`](http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#job-properties) command. In order to do this we must get familiar with the `--additional-params` option of `anvi-run-workflow`. The purpose of `--additional-params` is to allow you to access any configuration that is available through snakemake (i.e. anything that is listed when you look at the help menu of snakemake through `snakemake -h` is fair game as an input for `--additional-params`. For example you can do,
+
+``` bash
+anvi-run-workflow -w metagenomics \
+                            -c config-idba_ud.json \
+                            --additional-params \
+                            --notemp \
+                            --ignore-incomplete
+```
+
+in order to use snakemake's `--notemp` and `--ignore-incomplete` options of snakemake (you can read about these in the snakemake help menu to understand what they do). Notice that `--additional-params` has to be the last thing that is passed to `anvi-run-workflow` in the command line, and only followed by  arguments of snakemake (i.e. arguments that are listed in the help menu of snakemake). The purpose here is to not limit any of the configuration that snakemake allows the user.
 
 {:.warning}
 Meren, should we add a note here about using screen? I thought of something like this:
@@ -286,7 +296,7 @@ screen -S mysnakemakeworkflow
 This is how we run the workflow on our cluster:
 
 ```
-anvi-run-snakemake-workflow -w metagenomics \
+anvi-run-workflow -w metagenomics \
                             -c config-idba_ud.json \
                             --additional-params \
                                 --cluster 'clusterize -log {log} -n {threads}' \
@@ -331,10 +341,10 @@ After properly formatting your `samples.txt` and `fasta.txt`, reference mode is 
 Regardless if you are running in [reference mode](#reference-mode) or not, you can decide you want to only create contigs databases and annotate them with functions, taxonomy, etc. If you want to do that then simply run the following:
 
 ```bash
-anvi-run-snakemake-workflow -w metagenomics -c YOUR-CONFIG.json --additional-params --until annotate_contigs_database
+anvi-run-workflow -w metagenomics -c YOUR-CONFIG.json --additional-params --until annotate_contigs_database
 ```
 
-This would create the contigs databases (and also run assembly if that's what is needed), and would run the annotations that were specified according to your config file. If there is no assembly needed then this would be identicle to using the `contigs` workflow (i.e. `anvi-run-snakemake-workflow -w contigs -c YOUR-CONFIG.json`).
+This would create the contigs databases (and also run assembly if that's what is needed), and would run the annotations that were specified according to your config file. If there is no assembly needed then this would be identicle to using the `contigs` workflow (i.e. `anvi-run-workflow -w contigs -c YOUR-CONFIG.json`).
 
 # Running the workflow on a cluster
 
