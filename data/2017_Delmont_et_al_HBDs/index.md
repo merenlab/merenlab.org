@@ -9,8 +9,6 @@ comments: true
 
 {% include _toc.html %}
 
-{% capture images %}{{site.url}}/data/2017_Delmont_et_al_HBDs/images{% endcapture %}
-
 {:.notice}
 The URL [http://biorxiv.org/content/early/2017/04/23/129791](http://biorxiv.org/content/early/2017/04/23/129791) serves the pre-print of the study described in this document.
 
@@ -28,6 +26,38 @@ The document contains program names and exact parameters used throughout every s
 All anvi'o analyses in this document are performed using the anvi'o version `v2.3.0`. Please see [the installation notes]({% post_url anvio/2016-06-26-installation-v2 %}) to acquire the appropriate version through PyPI, Docker, or GitHub.
 
 The following sections describe steps to download, quality-filter, and co-assemble the raw metagenomic data, followed by the recovery and characterization of a non-redundant database of metagenome-assembled genomes through binning and curation steps.
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Interactively visualize our genomic bins</span>
+
+This workflow describes how did we recover population genomes from Tara Oceans surface ocean metagenomes. If you are not interested in anything but visualizing the coverage of all contigs in a population genome you found in our supplementary data tables, you can simply follow these steps after finding its download link in our [FigShare archive](https://doi.org/10.6084/m9.figshare.4902941):
+
+``` bash
+# download the self contained profile
+wget https://ndownloader.figshare.com/files/8248433 \
+     -O TARA_ANW_MAG_00006.tar.gz
+
+# unpack
+tar -zxvf TARA_ANW_MAG_00006.tar.gz 
+
+# migrate databases in case you have a newer version of
+# anvi'o
+ANVIO_SAMPLES_DB=SKIP anvi-migrate-db TARA_ANW_MAG_00006/PROFILE.db
+anvi-migrate-db TARA_ANW_MAG_00006/CONTIGS.db
+
+# run the interactive interface
+anvi-interactive -p TARA_ANW_MAG_00006/PROFILE.db \
+                 -c TARA_ANW_MAG_00006/CONTIGS.db
+```
+
+This should give you an interactive interface in your browser that shows the coverage of each contig across all Tara Oceans surface ocean samples:
+
+![TARA](images/TARA_ANW_MAG_00006.png){:.center-img .width-70}
+
+Now you can use [any of the anvi'o programs](http://merenlab.org/software/anvio/vignette/) on these self-contained merged profile and contigs database.
+
+</div>
 
 ## Setting the stage
 
@@ -63,7 +93,7 @@ done
 
 We defined 12 'metagenomic sets' for geographically bound locations TARA Oceans samples originated from. These metagenomic sets are described in Figure 1:
 
-![TARA]({{images}}/Figure_01.png){:.center-img .width-70}
+![TARA](images/Figure_01.png){:.center-img .width-70}
 
 We tailored our sample naming schema for convenience and reproducibility. The following address contains a file with three-letter identifiers for each of the 12 metagenomic set, which will become prefixes for each sample name for direct access to all samples from a given metagenomic set:
 
