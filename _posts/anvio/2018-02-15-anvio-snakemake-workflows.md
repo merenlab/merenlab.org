@@ -199,6 +199,8 @@ these are all the steps to annotate your contigs database(s) with functions, HMM
 
 TBD (basically instructions to download a tar with all the files needed for this tutorial).
 
+All the files that are currently needed are here: `/users/ashaiber/sandbox/snakemake_tutorial/metagenomics/WORKFLOW_TUTORIAL_DATA.tar.gz`. I just didn't get the chance to write a nice `wget`, etc. lines for it.
+
 ## Standard usage
 
 
