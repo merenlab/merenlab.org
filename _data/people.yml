@@ -108,8 +108,8 @@
   address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
   affiliations:
      - title: Undergraduate Student
-     - inst: Department of Computer Science at the University of Chicago
-     - inst_link: https://www.cs.uchicago.edu/
+       inst: Department of Computer Science at the University of Chicago
+       inst_link: https://www.cs.uchicago.edu/
 
 - alias: abby
   official: True
