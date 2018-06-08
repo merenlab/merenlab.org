@@ -45,11 +45,16 @@ we added a new program, `anvi-run-workflow`.
 ```
 $ anvi-run-workflow -h
 
+WARNING
+===============================================
+If you publish results from this workflow, please do not forget to cite
+snakemake (doi:10.1038/nmeth.3176)
+
 usage: anvi-run-workflow [-h] [-w WORKFLOW]
-                                   [--get-default-config OUTPUT_FILENAME]
-                                   [--list-workflows] [--list-dependencies]
-                                   [-c CONFIG_FILE] [--dry-run]
-                                   [--save-workflow-graph] [-A ...]
+                         [--get-default-config OUTPUT_FILENAME]
+                         [--list-workflows] [--list-dependencies]
+                         [-c CONFIG_FILE] [--dry-run] [--save-workflow-graph]
+                         [-A ...]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -96,9 +101,9 @@ ADDITIONAL STUFF:
   -A ..., --additional-params ...
                         Additional snakemake parameters to add when running
                         snakemake. NOTICE: --additional-params HAS TO BE THE
-                        LAST ARGUMENT THAT IS PASSED TO anvi-run-snakemake-
-                        workflow, ANYTHING THAT FOLLOWS WILL BE CONSIDERED AS
-                        PART OF THE ADDITIONAL PARAMETERS THAT ARE PASSED TO
+                        LAST ARGUMENT THAT IS PASSED TO anvi-run-workflow,
+                        ANYTHING THAT FOLLOWS WILL BE CONSIDERED AS PART OF
+                        THE ADDITIONAL PARAMETERS THAT ARE PASSED TO
                         SNAKEMAKE. Any parameter that is accepted by snakemake
                         should be fair game here, but it is your
                         responsibility to make sure that whatever you added
@@ -144,10 +149,29 @@ change any parameter that is configurable in the underlying software that are us
 
 3. names for the output directories of the workflows.
 
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">A note regarding rule specific parameters</span>
+To make things consistent, we decided that the way that parameters appear in the config file
+will be identicle to how to appear in the underlying program. If there are multiple ways to use a argument
+then we chose the longer one. For example, while `anvi-run-hmms` allows you to configure the path to the
+HMM profiles directory using either `-H` or `--hmm-profile-dir`, we only allow you to use `--hmm-profile-dir` in the config file. But don't worry, if you use the wrong name, there will be an helpful message to let you know 
+what are the correct arguments you can use.
+</div>
+
 Below you can find example config files for each one of the workflows.
 
+## Step-specific configurations 
 
-## Metagenomics workflow
+The step-specific configurations in the `config.json` file always have the following structure:
+```
+	"step_name":{
+		"configurable_parameter": "value"
+	}
+```
+
+
+# Metagenomics workflow
 
 The majority of the steps used in this pipeline are extensively described in the
 [anvi'o user tutorial for metagenomic workflow](http://merenlab.org/2016/06/22/anvio-tutorial-v2/).
@@ -165,27 +189,11 @@ generating a report of the results of the QC.
 2. (Co-)Assembly of metagenomes using either [megahit](https://github.com/voutcn/megahit) or [idba_ud](https://github.com/loneknightpy/idba).
 3. Generating an anvi'o CONTIGS database using [anvi-gen-contigs-database](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#anvi-gen-contigs-database).
 4. Mapping short reads from metagenomes to the contigs using [bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml).
-6. Profiling individual BAM files using [anvi-profile](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#anvi-profile).
-7. Merging resulting anvi'o profile databases using [anvi-merge](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#anvi-merge).
+5. Profiling individual BAM files using [anvi-profile](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#anvi-profile).
+6. Merging resulting anvi'o profile databases using [anvi-merge](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#anvi-merge).
 
 This pipeline also includes all steps that are included in the `contigs` workflow which is described below. In short,
 these are all the steps to annotate your contigs database(s) with functions, HMMs, and taxonomy.
-
-A directed acyclic graph (DAG) describing the workflow for a mock dataset could be seen below:
-
-![Alt text](mock_files_for_merenlab_metagenomics_pipeline/mock-dag.png?raw=true "mock-dag")
-
-If you want to create a DAG for your dataset, simply run:
-
-```
-anvi-run-workflow -w metagenomics -c your-config.json --get-workflow-graph
-```
-
-
-### Using `dot` on MAC OSX
-
-Generating the workflow graph requires the usage of `dot`.
-If you are using MAC OSX, you can use `dot` by installing `graphviz`, simply run `brew install graphviz`.
 
 ## Setting the stage
 
@@ -196,7 +204,7 @@ TBD (basically instructions to download a tar with all the files needed for this
 
 As mentioned above, the standard usage of this workflow is meant to go through all the steps from raw reads to having a merged profile database (or databases) that are ready for binning.
 
-All you need is a bunch of FASTQ files, and a `samples.txt` file. Here we will go through a mock example with three small metagenomes. These metagenomes were made by choosing a small number of reads from three HMP metagenomes. In your working directory you have the following `samples.txt` file, let's have a look:
+All you need is a bunch of FASTQ files, and a `samples.txt` file. Here, we will go through a mock example with three small metagenomes. These metagenomes were made by choosing a small number of reads from three [HMP](https://www.hmpdacc.org/) metagenomes. In your working directory you have the following `samples.txt` file, let's have a look:
 
 ```bash
 $ cat samples.txt
@@ -211,7 +219,7 @@ There are four columns:
 
 sample - a name that you chose to give to each one of your metagenomic samples.
 
-group - Often when we want to bin genomes from metagenomic assemblies we wish to do so by co-assemblies multiple samples  (see for example [Albertsen et al. 2012](https://www.nature.com/articles/nbt.2579) or [this blog post that explains how we binned the TARA Oceans metagenomes](http://merenlab.org/data/2017_Delmont_et_al_HBDs/)). The purpose of this column is to define which samples are going to be co-assembled together. This is an optional column, if this column is not included in the `samples_txt` file, then each sample will be assembled separately. By default, only the samples that were used for the co-assembly would then be mapped to the resulting assembly. If you want you can co-assemble groups of samples, but then map **all** samples to echo assembly (see `all_against_all` option for the config file).
+group - Often, when we want to bin genomes from metagenomic assemblies we wish to do so by co-assembling multiple samples  (see for example [Albertsen et al. 2012](https://www.nature.com/articles/nbt.2579) or [this blog post that explains how we binned the TARA Oceans metagenomes](http://merenlab.org/data/2017_Delmont_et_al_HBDs/)). The purpose of this column is to define which samples are going to be co-assembled together. This is an optional column, if this column is not included in the `samples_txt` file, then each sample will be assembled separately. By default, only the samples that were used for the co-assembly would then be mapped to the resulting assembly. If you want, you can co-assemble groups of samples, but then map **all** samples to each assembly (see `all_against_all` option for the config file).
 
 r1, r2 - these two columns hold the path (could be either a relative or an absolute path) to the fastq files that correspnd to the sample. 
 
@@ -219,7 +227,7 @@ r1, r2 - these two columns hold the path (could be either a relative or an absol
 
 <span class="extra-info-header">Merging pair-end fastq files</span>
 
-If multiple pair-end reads fastq files correspond to the same samlpes they could be listed separated by a comma (with no space). This could be relevant for example, if one sample was sequenced in multiple runs. Let's take our `samples_txt` from above, but now assume that `sample_01` was sequenced twice. The `samples_txt` file would then look like this:
+If multiple pair-end reads fastq files correspond to the same samlpe, they could be listed separated by a comma (with no space). This could be relevant, for example, if one sample was sequenced in multiple runs. Let's take our `samples_txt` from above, but now assume that `sample_01` was sequenced twice. The `samples_txt` file would then look like this:
 
 sample	group	r1	r2
 sample_01	G01	three_samples_example/sample-01a-R1.fastq.gz,three_samples_example/sample-01b-R1.fastq.gz	three_samples_example/sample-01a-R2.fastq.gz,three_samples_example/sample-01b-R1.fastq.gz
@@ -245,9 +253,15 @@ In your working directory there is a config file `config-idba_ud.json`, let's ta
 }
 ```
 
-Very short. Every configurable parameter (and there are a lot of them. We tried to keep things flexible) that is not mentioned here will be assigned a default value. If you wish to see all the configurable parameters and their default values run `anvi-run-workflow -w metagenomics --get-default-config NAME-FOR-YOUR-DEFAULT-CONFIG.json`. We usually like to start a default config and then delete every line for which we wish to keep the default (if you don't delete it, then nothing would happen, but why keep garbage in your files?).
+Very short. Every configurable parameter (and there are a lot of them. We tried to keep things flexible) that is not mentioned here will be assigned a default value. If you wish to see all the configurable parameters and their default values run:
 
-So what do we have in the config file?
+```
+anvi-run-workflow -w metagenomics --get-default-config NAME-FOR-YOUR-DEFAULT-CONFIG.json
+```
+
+We usually like to start a default config and then delete every line for which we wish to keep the default (if you don't delete it, then nothing would happen, but why keep garbage in your files?).
+
+So what do we have in the our example config file above?
 
 `samples_txt` - A path for our `samples_txt` (frankly, since we used the default name `samples.txt` then we didn't really have to include this).
 
@@ -261,6 +275,49 @@ idab_ud has the default as 200, and we want it as 1,000, and hence we include th
 
  - `threads` - when you wish to use multi-threads you can specify how many threads to use for each step using this parameter. Here we chose 11.
 
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">A note on rule specific parameters</span>
+We suggest that you take a minute to look at the default config file. run:
+
+```bash
+anvi-run-workflow -w metagenomics --get-default-config default-metagenomics-config.json
+```
+
+It is very big, and that's why we didn't paste it here. Like we said, we tried keeping things flexible, and that means having many parameters available for you.
+
+But there are some general things you can notice:
+
+ - **threads** - every rule has the parameter "threads" available to it. This is meant for the case in which you are using multi-threads to run things. To learn more about how snakemake utilizes threads you can refer to the snakemake documentation. We decided to allow to set the number of threads for all rules, including ones that we ourselves never use more than 1 (why? because, why not? maybe you would one day need it for some reason. Don't judge). When **threads** is the only parameter that is available for a rule, it means that there is nothing else that you could configure for this rule. Specifically, it means you don't even get to choose whether this rule is ran or not. But don't worry, snakemake would make sure that steps that are not necessary will not run.
+ 
+ - **run** - some rules have this parameter. The rules that have this parameter are optional rules. Some of these run by default and others don't. You can find out what is the default behaviour by looking at the default config file. As mentioned above, if a rule doesn't have the **run** parameter it means that snakemake will infer whether it needs to run or not (just have some trust please!).
+
+ - **parameters with an empty value (`""`)** - Many of the parameters in the default config file get an empty value. This means that the default parameter that is provided by the underlying program will be used. For example, the rule `anvi_gen_contigs_database` is responsible for running `anvi-gen-contigs-database` (we tried giving intuitive names for rules :-)), which has the parameter `--split-length`. In the default config file will see the configurations:
+
+Meren, I need your help in formatting here. Thank you. basically I want the json below, and the text that follows it to be idented like the text above.
+
+```
+    "anvi_gen_contigs_database": {
+        "--project-name": "{group}",
+        "threads": 5,
+        "--description": "",
+        "--skip-gene-calling": "",
+        "--external-gene-calls": "",
+        "--ignore-internal-stop-codons": "",
+        "--skip-mindful-splitting": "",
+        "--contigs-fasta": "",
+        "--split-length": "",
+        "--kmer-size": ""
+    },
+```
+
+By refering to the help menu of `anvi-gen-contigs-database` you will find that the default for `--split-length` is 20,000.
+You may notice another interesting thing about the value for `--project-name`, which is `"{group}"`, to understand this you may need to be a little more familiar with snakemake, and more specifically with [the snakemake wildcards](http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#wildcards).
+
+
+</div>
+
+
 Ok, so now we have everything we need to start, let's first run a sanity check and create a workflow graph for our workflow:
 
 ```
@@ -270,6 +327,14 @@ anvi-run-workflow -w metagenomics -c config-idba_ud.json --save-workflow-graph
 A file named `workflow.png` was created and should look like this:
 
 [![idba_ud_workflow1]({{images}}/idba_ud_workflow1.png)]( {{images}}/idba_ud_workflow1.png){:.center-img .width-50}
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Using dot on MAC OSX</span>
+
+Generating the workflow graph requires the usage of [dot](https://en.wikipedia.org/wiki/DOT_(graph_description_language)).
+If you are using MAC OSX, you can use [dot](https://en.wikipedia.org/wiki/DOT_(graph_description_language)) by installing [graphviz](http://www.graphviz.org/), simply run `brew install graphviz`.
+</div>
 
 Take a minute to take a look at this image to understand what is going on. From a first look it might seem complicated, but it is fairly straight forward (and also, shouldn't you know what is going on with your data?!?).
 
@@ -314,6 +379,71 @@ The warning message in red letters is just there to make sure you are using the 
 
 [![merged_profile_idba_ud1]({{images}}/merged_profile_idba_ud1.png)]( {{images}}/merged_profile_idba_ud1.png){:.center-img .width-50}
 
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">A note on directory structure</span>
+
+The default directory structure that will appear in the working directory includes these directories: "00\_LOGS", "01\_QC", "02\_FASTA", "03\_CONTIGS", "04\_MAPPING", "05\_ANVIO_PROFILE", "06\_MERGED"
+
+Don't like these names? You can specify what is the name of the folder, by providing the following information in the config file:
+
+```
+    "output_dirs":{
+        "LOGS_DIR" : "00_MY_beAuTiFul_LOGS",
+        "QC_DIR" : "BEST_QC_DIR_EVER",
+        "ASSEMBLY_DIR" : "assemblies",
+        "CONTIGS_DIR" : "/absolute/path/to/my/contigs/dir",
+        "MAPPING_DIR" : "relative/path/to/my/mapping/dir",
+        "PROFILE_DIR": "/I/already/did/my/profiling/and/this/is/where/you/can/find/it/",
+        "MERGE_DIR": "06_Keep_Calm_and_Merge_On"
+    }
+```
+
+You can change all, or just some of the names of these output folders. And you can provide an absolute or a relative path for them.
+</div>
+
+
+## The "all against all" option
+
+The default behaviour for this workflow is to create a contigs database for each _group_ and map (and profile, and merge) the samples that belong to that _group_. If you wish to map all samples to all contigs, use the `all_against_all` option in the config file:
+
+```
+    "all_against_all": true
+```
+
+In your working directory you can find an updated config file `config-idba_ud-all-against-all.json`, that looks like this:
+
+```json
+{
+    "samples_txt": "samples.txt",
+    "idba_ud": {
+        "--min_contig": 1000,
+        "threads": 11,
+        "run": true
+    },
+    "all_against_all": true
+}
+```
+
+And we can generate a new workflow graph:
+
+```bash
+anvi-run-workflow -w metagenomics \
+                  -c config-idba_ud-all-against-all.json \
+                  --save-workflow-graph
+```
+
+An updated DAG for the workflow for our mock data is available below:
+
+[![idba_ud-all-against-all]({{images}}/idba_ud-all-against-all.png)]( {{images}}/idba_ud-all-against-all.png){:.center-img .width-50}
+
+A little more of a mess! But also has a beauty to it :-).
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">A short advertisement for snakemake</span>
+If you are new to **snakemake**, you might be surprised to see how easy it is to switch between modes. All we need to do is tell the **anvi_merge** rule that we want all samples merged for each _group_, and snakemake immediatly infers that it needs to also run the extra mapping, and profiling steps. *Thank you snakemake!* (says everyone).
+</div>
 
 # Reference Mode
 ## Estimating occurence of population genomes in metagenomes
@@ -389,85 +519,7 @@ This note is here mainly for documentation of the code, and for those of you who
 
 [Back to Table of Contents](#contents)
 
-# The config file
 
-To make changes easy and accessible for the user, we tried our best to make all relevant configurations available to the user through a `JSON` formatted config file, and thus avoiding the need to change the Snakefile. An example config file is [here](mock_files_for_merenlab_metagenomics_pipeline/config.json). There are some general configurations, and there are step specific configurations.
-
-## General configurations
-
-### Output directories
-
-The default directory structure that will appear in the output directory include these directories: "00\_LOGS", "01\_QC", "02\_ASSEMBLY", "03\_CONTIGS", "04\_MAPPING", "05\_ANVIO_PROFILE", "06\_MERGED"
-
-Don't like these names? You can specify what is the name of the folder, by providing the following information in the config file:
-
-```
-    "output_dirs":{
-        "LOGS_DIR" : "00_MY_beAuTiFul_LOGS",
-        "QC_DIR" : "BEST_QC_DIR_EVER",
-        "ASSEMBLY_DIR" : "assemblies",
-        "CONTIGS_DIR" : "/absolute/path/to/my/contigs/dir",
-        "MAPPING_DIR" : "relative/path/to/my/mapping/dir",
-        "PROFILE_DIR": "/I/already/did/my/profiling/and/this/is/where/you/can/find/it/",
-        "MERGE_DIR": "06_Keep_Calm_and_Merge_On"
-    }
-```
-
-When using the "reference mode" (see below) the default name for the `ASSEMBLY_DIR` is `02_REFERENCE_FASTA`. You can change the default name the following way:
-
-```
-    "output_dirs":{
-    	"REFERENCES_DIR" : "02_REF"
-    }
-```
-
-You can change all, or just some of the names of these output folders. And you can provide an absolute or a relative path for them.
-
-[Back to Table of Contents](#contents)
-
-### The "all against all" option
-
-The default behaviour for this workflow is to create a contigs database for each _group_ and map (and profile, and merge) the samples that belong to that _group_. If you wish to map all samples to all contigs, use the `all_against_all` option in the config file:
-
-```
-    "all_against_all: "True"
-```
-
-If you are new to `snakemake`, you might be surprised to see how easy it is to switch between modes. All we need to do is tell the `anvi_merge` rule that we want all samples merged for each _group_, and snakemake immediatly infers that it needs to also run the extra mapping, and profiling steps. *Thank you snakemake!* (says everyone).
-
-An updated DAG for the workflow for our mock data is available below:
-
-![alt text](mock_files_for_merenlab_metagenomics_pipeline/mock-dag-all-against-all.png?raw=true "mock-dag-all-against-all")
-
-A little more of a mess! But also has a beauty to it :-).
-
-[Back to Table of Contents](#contents)
-
-### Optional steps
-
-The following steps are only optional:
-
-1. Assigning taxonomy with centrifuge (default is **not** running).
-2. Running hmm profiles on the contigs database (default is **running**).
-3. QC for the input metagenomes (default is **running**, but if you already performed QC, you can skip this step).
-4. Reformating the labels of the fasta files with `anvi-script-reformat-fasta` (default is **running**).
-
-For more details refer to the specific documentation for these steps below.
-
-[Back to Table of Contents](#contents)
-
-## Step-specific configurations 
-
-Some of the steps in the workflow have parameters with defaults that could be changed. We tried to keep things flexible and accessible for the user, but we know we didn't do everything possible. If there is something that you want to have access to and is not possible, please create an issue on [github](https://github.com/merenlab/MerenLab-workflows/issues). Or, better yet, make those changes and send us a pull request. We plan to do a better job to let you access in a flexible form all the parameters of each step, and if this is of special interest to you, you can refer to the note below regarding wrappers.
-
-The step-specific configurations in the `config.json` file always have the following structure:
-```
-	"step_name":{
-		"configurable_parameter": "value"
-	}
-```
-
-Notice that everything has to have quotation marks (to be compatible with the JSON format).
 
 ### qc
 
