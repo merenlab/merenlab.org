@@ -27,38 +27,6 @@ All anvi'o analyses in this document are performed using the anvi'o version `v2.
 
 The following sections describe steps to download, quality-filter, and co-assemble the raw metagenomic data, followed by the recovery and characterization of a non-redundant database of metagenome-assembled genomes through binning and curation steps.
 
-<div class="extra-info" markdown="1">
-
-<span class="extra-info-header">Interactively visualize our genomic bins</span>
-
-This workflow describes how did we recover population genomes from Tara Oceans surface ocean metagenomes. If you are not interested in anything but visualizing the coverage of all contigs in a population genome you found in our supplementary data tables, you can simply follow these steps after finding its download link in our [FigShare archive](https://doi.org/10.6084/m9.figshare.4902941):
-
-``` bash
-# download the self contained profile
-wget https://ndownloader.figshare.com/files/8248433 \
-     -O TARA_ANW_MAG_00006.tar.gz
-
-# unpack
-tar -zxvf TARA_ANW_MAG_00006.tar.gz 
-
-# migrate databases in case you have a newer version of
-# anvi'o
-ANVIO_SAMPLES_DB=SKIP anvi-migrate-db TARA_ANW_MAG_00006/PROFILE.db
-anvi-migrate-db TARA_ANW_MAG_00006/CONTIGS.db
-
-# run the interactive interface
-anvi-interactive -p TARA_ANW_MAG_00006/PROFILE.db \
-                 -c TARA_ANW_MAG_00006/CONTIGS.db
-```
-
-This should give you an interactive interface in your browser that shows the coverage of each contig across all Tara Oceans surface ocean samples:
-
-![TARA](images/TARA_ANW_MAG_00006.png){:.center-img .width-70}
-
-Now you can use [any of the anvi'o programs](http://merenlab.org/software/anvio/vignette/) on these self-contained merged profile and contigs database.
-
-</div>
-
 ## Setting the stage
 
 This section explains how to download short metagenomic reads from the TARA Oceans project (Sunagawa et al., 2015), quality-filtering the raw data, defining metagenomic sets, and generating co-assemblies for each set.
@@ -1093,6 +1061,39 @@ AUXILIARY-DATA.h5.gz  CONTIGS.db  CONTIGS.h5  PROFILE.db
 We made publicly available ([doi:10.6084/m9.figshare.4902941](https://doi.org/10.6084/m9.figshare.4902941)) the individual non-redundant MAGs in `NON-REDUNDANT-MAGs-SPLIT`.
 
 <iframe src="https://widgets.figshare.com/articles/4902941/embed?show_title=1" width="100%" height="400" frameborder="0"></iframe>
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Interactively visualize our genomic bins</span>
+
+You can use the self-contained databases above to visualize the coverage of all contigs in any of our population genomes. The following example shows how to do it for `TARA_ANW_MAG_00006`, which happens to be the **HBD-06** in our study:
+
+``` bash
+# download the self contained profile
+wget https://ndownloader.figshare.com/files/8248433 \
+     -O TARA_ANW_MAG_00006.tar.gz
+
+# unpack
+tar -zxvf TARA_ANW_MAG_00006.tar.gz 
+
+# migrate databases in case you have a newer version of
+# anvi'o
+ANVIO_SAMPLES_DB=SKIP anvi-migrate-db TARA_ANW_MAG_00006/PROFILE.db
+anvi-migrate-db TARA_ANW_MAG_00006/CONTIGS.db
+
+# run the interactive interface
+anvi-interactive -p TARA_ANW_MAG_00006/PROFILE.db \
+                 -c TARA_ANW_MAG_00006/CONTIGS.db
+```
+
+This should give you an interactive interface in your browser that shows the coverage of each contig across all Tara Oceans surface ocean samples:
+
+![TARA](images/TARA_ANW_MAG_00006.png){:.center-img .width-70}
+
+Now you can use [any of the anvi'o programs](http://merenlab.org/software/anvio/vignette/) on these self-contained merged profile and contigs database.
+
+</div>
+
 
 
 ## Identification of Candidate Phyla Radiation MAGs
