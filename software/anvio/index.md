@@ -17,6 +17,10 @@ It brings together many aspects of today's cutting-edge genomic, metagenomic, me
 
 {% include _join-anvio-slack.html %}
 
+# Releases
+
+Find latest anvi'o releases [here](https://github.com/merenlab/anvio/releases).
+
 # Tutorials
 
 See the "**tutorials**" pull-down menu to learn what you can do with anvi'o.
