@@ -161,16 +161,6 @@ what are the correct arguments you can use.
 
 Below you can find example config files for each one of the workflows.
 
-## Step-specific configurations 
-
-The step-specific configurations in the `config.json` file always have the following structure:
-```
-	"step_name":{
-		"configurable_parameter": "value"
-	}
-```
-
-
 # Metagenomics workflow
 
 The majority of the steps used in this pipeline are extensively described in the
@@ -231,10 +221,12 @@ r1, r2 - these two columns hold the path (could be either a relative or an absol
 
 If multiple pair-end reads fastq files correspond to the same samlpe, they could be listed separated by a comma (with no space). This could be relevant, for example, if one sample was sequenced in multiple runs. Let's take our `samples_txt` from above, but now assume that `sample_01` was sequenced twice. The `samples_txt` file would then look like this:
 
+```
 sample	group	r1	r2
 sample_01	G01	three_samples_example/sample-01a-R1.fastq.gz,three_samples_example/sample-01b-R1.fastq.gz	three_samples_example/sample-01a-R2.fastq.gz,three_samples_example/sample-01b-R1.fastq.gz
 sample_02	G02	three_samples_example/sample-02-R1.fastq.gz	three_samples_example/sample-02-R2.fastq.gz
 sample_03	G02	three_samples_example/sample-03-R1.fastq.gz	three_samples_example/sample-03-R2.fastq.gz
+```
 
 **Notice:** if your fastq files were already QC-ied, and you didn't do it with this workflow, and you wish to skip QC, **AND** from some reason you didn't already merge the fastq files that should be merged together, then you must do so manually, and then provide only one `r1` file and one `r2` file per sample. 
 </div>
@@ -255,13 +247,20 @@ In your working directory there is a config file `config-idba_ud.json`, let's ta
 }
 ```
 
-Very short. Every configurable parameter (and there are a lot of them. We tried to keep things flexible) that is not mentioned here will be assigned a default value. If you wish to see all the configurable parameters and their default values run:
+Very short. Every configurable parameter (and there are a lot of them. We tried to keep things flexible) that is not mentioned here will be assigned a default value. 
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Getting a default config</span>
+If you wish to see all the configurable parameters and their default values run:
 
 ```
-anvi-run-workflow -w metagenomics --get-default-config NAME-FOR-YOUR-DEFAULT-CONFIG.json
+anvi-run-workflow -w metagenomics \
+                  --get-default-config NAME-FOR-YOUR-DEFAULT-CONFIG.json
 ```
 
 We usually like to start a default config and then delete every line for which we wish to keep the default (if you don't delete it, then nothing would happen, but why keep garbage in your files?).
+</div>
 
 So what do we have in the our example config file above?
 
@@ -292,7 +291,7 @@ But there are some general things you can notice:
 
  - **threads** - every rule has the parameter "threads" available to it. This is meant for the case in which you are using multi-threads to run things. To learn more about how snakemake utilizes threads you can refer to the snakemake documentation. We decided to allow to set the number of threads for all rules, including ones that we ourselves never use more than 1 (why? because, why not? maybe you would one day need it for some reason. Don't judge). When **threads** is the only parameter that is available for a rule, it means that there is nothing else that you could configure for this rule. Specifically, it means you don't even get to choose whether this rule is ran or not. But don't worry, snakemake would make sure that steps that are not necessary will not run.
  
- - **run** - some rules have this parameter. The rules that have this parameter are optional rules. Some of these run by default and others don't. You can find out what is the default behaviour by looking at the default config file. As mentioned above, if a rule doesn't have the **run** parameter it means that snakemake will infer whether it needs to run or not (just have some trust please!).
+ - **run** - some rules have this parameter. The rules that have this parameter are optional rules. To make sure that an optional rule is ran you need to set the `run` parameter to `true`. IF you wish an optional rule not to run, then you must set `run` to `false` or simply an empty string (`""`). Some of the optional rules run by default and others don't. You can find out what is the default behaviour by looking at the default config file. As mentioned above, if a rule doesn't have the **run** parameter it means that snakemake will infer whether it needs to run or not (just have some trust please!).
 
  - **parameters with an empty value (`""`)** - Many of the parameters in the default config file get an empty value. This means that the default parameter that is provided by the underlying program will be used. For example, the rule `anvi_gen_contigs_database` is responsible for running `anvi-gen-contigs-database` (we tried giving intuitive names for rules :-)), which has the parameter `--split-length`. In the default config file will see the configurations:
 
@@ -314,7 +313,7 @@ Meren, I need your help in formatting here. Thank you. basically I want the json
 ```
 
 By refering to the help menu of `anvi-gen-contigs-database` you will find that the default for `--split-length` is 20,000.
-You may notice another interesting thing about the value for `--project-name`, which is `"{group}"`, to understand this you may need to be a little more familiar with snakemake, and more specifically with [the snakemake wildcards](http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#wildcards).
+You may notice another interesting thing,which is that the value for `--project-name` is `"{group}"`. This is a little magic trick to make it so that the project name in your contigs database would indentical to the group name that you supplied in the config file. If you wish to understand this syntax, you may read about [the snakemake wildcards](http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#wildcards).
 
 
 </div>
@@ -340,7 +339,7 @@ If you are using MAC OSX, you can use [dot](https://en.wikipedia.org/wiki/DOT_(g
 
 Take a minute to take a look at this image to understand what is going on. From a first look it might seem complicated, but it is fairly straight forward (and also, shouldn't you know what is going on with your data?!?).
 
-If you wish to run this on a cluster (like I am), then you want to be familiar with snakemake's [`--cluster`](http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#job-properties) command. In order to do this we must get familiar with the `--additional-params` option of `anvi-run-workflow`. The purpose of `--additional-params` is to allow you to access any configuration that is available through snakemake (i.e. anything that is listed when you look at the help menu of snakemake through `snakemake -h` is fair game as an input for `--additional-params`. For example you can do,
+If you wish to run this on a cluster (like I am), then you want to be familiar with snakemake's [`--cluster`](http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#job-properties) command. In order to do this we must get familiar with the `--additional-params` option of `anvi-run-workflow`. The purpose of `--additional-params` is to allow you to access any configuration that is available through snakemake (i.e. anything that is listed when you look at the help menu of snakemake through `snakemake -h` is fair game as an input for `--additional-params`). For example you can do,
 
 ``` bash
 anvi-run-workflow -w metagenomics \
@@ -371,7 +370,7 @@ anvi-run-workflow -w metagenomics \
                                 --resource nodes=40
 ```
 
-Let's talk a little more about the additional params. You can read about the `--cluster` parameter in the [snakemake docummentation](http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#threads)
+Let's talk a little more about the additional params. You can read about the `--cluster` parameter in the [snakemake docummentation](http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#threads). We use a wrapper for `qsub`, which we called `clusterize` in order to submit jobs to our cluster. The `{log}` and `{threads}` argument are part of snakemake's syntax, and you can learn about them from the snakemake docummentation. Briefly, `{threads}` is a wildcard that for each job submitted to the cluster will be replaced by the number of threads that you supplied in the config file for the specific rule (or the default number of threads that we set for that rule). `{log}` is a wildcard that will be replaced by the name of the log file that we set for each rule, unless you decided to change it, the log files would appear in your working directory under the directory `00_LOGS`.
 
 Once you run this, you should see something like this:
 
@@ -379,7 +378,35 @@ Once you run this, you should see something like this:
 
 The warning message in red letters is just there to make sure you are using the `--additional-params` argument properly (but you are reading this tutorial, so of course you are!). After that, there are a bunch of things in yellow and green letters that are printed by snakemake, that's good! snakemake is telling us what jobs it's going to run, and which resources were supplied.
 
+Once everything finishes running (on our cluster it only takes 6 minutes as these are very small mock metagenomes), we can take a look at one of the merged profile databases:
+
+```
+anvi-interactive -p 06_MERGED/G02/PROFILE.db \
+                 -c 03_CONTIGS/G02-contigs.db
+```
+
+And it should look like this:
+
 [![merged_profile_idba_ud1]({{images}}/merged_profile_idba_ud1.png)]( {{images}}/merged_profile_idba_ud1.png){:.center-img .width-50}
+
+Ok, so this looks like a standard merged profile database with two samples. As a bonus, we also added a step to import the number of short reads in each sample ("Total num reads"), and we also used it to calculate the percent of reads from the sample that have been mapped to the contigs ("Percent Mapped").
+
+If you remember, we had two "groups" in the samples.txt file. Hence, we have two contigs databases and two merged profile databases. Let's take a look at the other profile database, but since this group only included one sample, then there was nothing to merge. What we do in this case, is that we automatically add the `--cluster-contigs` argument to `anvi-profile` (see the the help menu: `anvi-profile -h` for more details). We still create a "fake" merged profile database here: `06_MERGED/G01/PROFILE.db`, but this is just a mock output file, if you look into it you'll see:
+
+```
+$ cat 06_MERGED/G01/PROFILE.db
+Only one file was profiled with G01 so there is nothing to
+merge. But don't worry, you can still use anvi-interacite with
+the single profile database that is here: 05_ANVIO_PROFILE/G01/sample_01/PROFILE.db
+```
+
+
+```bash
+anvi-interactive -p 05_ANVIO_PROFILE/G01/sample_01/PROFILE.db \
+                 -c 03_CONTIGS/G01-contigs.db
+```
+
+[![single_profile_idba_ud]({{images}}/single_profile_idba_ud.png)]( {{images}}/single_profile_idba_ud.png){:.center-img .width-50}
 
 <div class="extra-info" markdown="1">
 
@@ -404,6 +431,13 @@ Don't like these names? You can specify what is the name of the folder, by provi
 You can change all, or just some of the names of these output folders. And you can provide an absolute or a relative path for them.
 </div>
 
+In addition to the merged profile databases and the contigs databases (and all intermediate files), the workflow has another output, the QC report, which you can find here: `01_QC/qc-report.txt`. Let's look at it:
+
+| sample    | number of pairs analyzed | total pairs passed | total pairs passed (percent of all pairs) | total pair_1 trimmed | total pair_1 trimmed (percent of all passed pairs) | total pair_2 trimmed | total pair_2 trimmed (percent of all passed pairs) | total pairs failed | total pairs failed (percent of all pairs) | pairs failed due to pair_1 | pairs failed due to pair_1 (percent of all failed pairs) | pairs failed due to pair_2 | pairs failed due to pair_2 (percent of all failed pairs) | pairs failed due to both | pairs failed due to both (percent of all failed pairs) | FAILED_REASON_P | FAILED_REASON_P (percent of all failed pairs) | FAILED_REASON_N | FAILED_REASON_N (percent of all failed pairs) | FAILED_REASON_C33 | FAILED_REASON_C33 (percent of all failed pairs) |
+|-----------|--------------------------|--------------------|-------------------------------------------|----------------------|----------------------------------------------------|----------------------|----------------------------------------------------|--------------------|-------------------------------------------|----------------------------|----------------------------------------------------------|----------------------------|----------------------------------------------------------|--------------------------|--------------------------------------------------------|-----------------|-----------------------------------------------|-----------------|-----------------------------------------------|-------------------|-------------------------------------------------|
+| sample_01 | 10450                    | 8423               | 80.6                                      | 0                    | 0                                                  | 0                    | 0                                                  | 2027               | 19.4                                      | 982                        | 48.45                                                    | 913                        | 45.04                                                    | 132                      | 6.51                                                   | 0               | 0                                             | 2027            | 100                                           | 0                 | 0                                               |
+| sample_02 | 31350                    | 25550              | 81.5                                      | 0                    | 0                                                  | 0                    | 0                                                  | 5800               | 18.5                                      | 2777                       | 47.88                                                    | 2709                       | 46.71                                                    | 314                      | 5.41                                                   | 0               | 0                                             | 5800            | 100                                           | 0                 | 0                                               |
+| sample_03 | 60420                    | 49190              | 81.41                                     | 0                    | 0                                                  | 0                    | 0                                                  | 11230              | 18.59                                     | 5300                       | 47.2                                                     | 5134                       | 45.72                                                    | 796                      | 7.09                                                   | 0               | 0                                             | 11230           | 100                                           | 0                 | 0                                               |
 
 ## The "all against all" option
 
@@ -447,239 +481,202 @@ A little more of a mess! But also has a beauty to it :-).
 If you are new to **snakemake**, you might be surprised to see how easy it is to switch between modes. All we need to do is tell the **anvi_merge** rule that we want all samples merged for each _group_, and snakemake immediatly infers that it needs to also run the extra mapping, and profiling steps. *Thank you snakemake!* (says everyone).
 </div>
 
-# Reference Mode
-## Estimating occurence of population genomes in metagenomes
+## References Mode - Estimating occurence of population genomes in metagenomes
 
-Along with assembly-based metagenomics, we often use anvi'o to explore the occurence of population genomes accross metagenomes. You can see a nice example of that here: [Please insert a nice example here. Probably the blog about DWH thingy](link-to-nice-example).
-In that case, what you have is a bunch of fastq files (metagenomes) and fasta files (reference genomes), and all you need to do is to let the workflow know where to find these files, using two `.txt` files: `samples.txt`, and `fasta.txt`. 
+Along with assembly-based metagenomics, we often use anvi'o to explore the occurence of population genomes accross metagenomes. A good example of how useful this approach could be is described in this blogpost: [DWH O. desum v2: Most abundant Oceanospirillaceae population in the Deepwater Horizon Oil Plume](http://merenlab.org/2017/11/25/DWH-O-desum-v2/).
+For this mode, what you have is a bunch of fastq files (metagenomes) and fasta files (reference genomes), and all you need to do is to let the workflow know where to find these files, using two `.txt` files: `samples_txt`, and `fasta_txt`. 
 
-`fasta.txt` should be a 2 column tab-separated file, where the first column specifies a reference name and the second column specifies the filepath of the fasta file for that reference. An example `fasta.txt` can be found [here](mock_files_for_merenlab_metagenomics_pipeline/fasta.txt).
+`fasta_txt` should be a 2 column tab-separated file, where the first column specifies a reference name and the second column specifies the filepath of the fasta file for that reference.
 
-
-The `samples.txt` stays as before, but this time the `group` column will specify for each sample, which reference should be used (aka the name of the reference as defined in `fasta.txt`). If the `samples.txt` files doesn't have a `group` column, then an ["all against all"](#the-all-against-all-option) mode would be provoked. Below you can see how the DAG looks like for this mode:
-
-![alt text](mock_files_for_merenlab_metagenomics_pipeline/mock-dag-references-mode.png?raw=true "mock-dag-references-mode")
-
-After properly formatting your `samples.txt` and `fasta.txt`, reference mode is initiated by adding this to your `config.json`:
+After properly formatting your `samples_txt` and `fasta_txt`, reference mode is initiated by adding these to your config file:
 
 ```
-"fasta_txt": "fasta.txt"
+"fasta_txt": "fasta.txt",
+"references_mode": true
 ```
 
-[Back to Table of Contents](#contents)
+The `samples_txt` stays as before, but this time the `group` column will specify for each sample, which reference should be used (aka the name of the reference as defined in the first column of `fasta_txt`). If the `samples_txt` file doesn't have a `group` column, then an ["all against all"](#the-all-against-all-option) mode would be provoked. 
 
-# I only want to create a banch of contigs databases
-
-Regardless if you are running in [reference mode](#reference-mode) or not, you can decide you want to only create contigs databases and annotate them with functions, taxonomy, etc. If you want to do that then simply run the following:
+First let's set up the reference fasta files:
 
 ```bash
-anvi-run-workflow -w metagenomics -c YOUR-CONFIG.json --additional-params --until annotate_contigs_database
+gunzip three_samples_example/*.fa.gz
 ```
 
-This would create the contigs databases (and also run assembly if that's what is needed), and would run the annotations that were specified according to your config file. If there is no assembly needed then this would be identicle to using the `contigs` workflow (i.e. `anvi-run-workflow -w contigs -c YOUR-CONFIG.json`).
+in your directory you can find the following `fasta.txt`, and `config-references-mode.json`:
+
+```bash
+$ cat fasta.txt
+reference       path
+G01     three_samples_example/G01-contigs.fa
+G02     three_samples_example/G02-contigs.fa
+
+$ cat config-references-mode.json
+{
+    "fasta_txt": "fasta.txt",
+    "references_mode": true,
+    "output_dirs": {
+        "FASTA_DIR": "02_FASTA_references_mode",
+        "CONTIGS_DIR": "03_CONTIGS_references_mode",
+        "QC_DIR": "01_QC_references_mode",
+        "MAPPING_DIR": "04_MAPPING_references_mode",
+        "PROFILE_DIR": "05_ANVIO_PROFILE_references_mode",
+        "MERGE_DIR": "06_MERGED_references_mode",
+        "LOGS_DIR": "00_LOGS_references_mode"
+    }
+}
+```
+
+Let's create a workflow graph:
+
+[![dag-references-mode]({{images}}/dag-references-mode.png)]( {{images}}/dag-references-mode.png){:.center-img .width-50}
+
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">A note from Alon on why we need the references_mode flag</span>
+This is a note that is mainly directed at anvi'o developers, so feel free to skip this note.
+
+We could have just invoked "references_mode" if the user supplied a `fasta_txt`, but I decided to have a specific flag for it, to make things more verbose for the user.
+</div>
+
+Now we can run this workflow:
+
+```bash
+anvi-run-workflow -w metagenomics \
+                  -c config-references-mode.json \
+                  --additional-params \
+                      --cluster 'clusterize -log {log} -n {threads}' \
+                      --jobs 20 \
+                      --resources nodes=40
+```
+
+# Contigs workflow
+
+The contigs workflow is meant for cases in which all you want to is to only create contigs databases and annotate them with functions, taxonomy, etc. 
+
+We can use the same fasta files that we used for the example above for references mode. Your working directory includes a config file `config-contigs.json`, let's first look at the workflow graph:
+
+```bash
+anvi-run-workflow -w contigs \
+                  -c config-contigs.json \
+                  --save-workflow-graph
+```
+
+[![DAG-contigs]({{images}}/DAG-contigs.png)]( {{images}}/DAG-contigs.png){:.center-img .width-50}
+
+Now we could run this workflow:
+
+```bash
+anvi-run-workflow -w contigs \
+                  -c config-contigs.json \
+                  --additional-params \
+                      --cluster 'clusterize -log {log} -n {threads}' \
+                      --jobs 20 \
+                      --resources nodes=40
+```
+
+If you want to get a default config file, then you can run:
+
+```
+anvi-run-workflow -w contigs \
+                  --get-default-config CONFIG-NAME.json
+```
+
+# Pangenomics workflow
+
+Running a [pangenomic workflow](http://merenlab.org/2016/11/08/pangenomics-v2/) with anvio is really easy. But now it is even easier. And the beauty of this workflow is that it would inherently include all the steps to annotate your contigs databases with what you wish (functions, hmms, taxonomy, etc.).
+
+## Running the pangenomic workflow with external genomes
+
+All you need are a bunch of fasta files, and a `fasta_txt`, formatted in the same manner that is described [above in references mode](#references-mode---estimating-occurence-of-population-genomes-in-metagenomes). In your working dir you can find the config `config-pangenomics.json`:
+
+```
+{
+    "project_name": "MYPAN",
+    "anvi_gen_genomes_storage": {
+        "--external-genomes": "my-external-genomes.txt"
+    },
+    "fasta_txt": "fasta.txt",
+    "output_dirs": {
+        "FASTA_DIR": "01_FASTA_contigs_workflow",
+        "CONTIGS_DIR": "02_CONTIGS_contigs_workflow",
+        "LOGS_DIR": "00_LOGS_contigs_workflow"
+    }
+}
+```
+
+We can create a workflow graph:
+
+```
+anvi-run-workflow -w pangenomics \
+                  -c config-pangenomics.json
+                  --save-workflow-graph
+```
+
+[![DAG-pangenomics]({{images}}/DAG-pangenomics.png)]( {{images}}/DAG-pangenomics.png){:.center-img .width-50}
+
+Since we used the same directories from the contigs workflow, then some of the steps don't have to be repeated. These steps are inside dashed line, whereas the rules that will be executed are inside a box.
 
 # Running the workflow on a cluster
 
-When submitting to a cluster, you can utilize the [snakemake cluster execution](http://snakemake.readthedocs.io/en/stable/executable.html#cluster-execution). Notice that the number of threads per rule could be changed using the `config.json` file (and not by using the [cluster configuration](http://snakemake.readthedocs.io/en/stable/executable.html#cluster-execution) file). For more details, refer to the documentation of the configuration file below.
+When submitting to a cluster, you can utilize the [snakemake cluster execution](http://snakemake.readthedocs.io/en/stable/executable.html#cluster-execution). Notice that the number of threads per rule could be changed using the `config.json` file (and not by using the [cluster configuration](http://snakemake.readthedocs.io/en/stable/executable.html#cluster-execution) file).
 
 When submitting a workflow to a cluster, snakemake requires you to limit the number of jobs using `--jobs`. If you prefer to limit the number of threads that would be used by your workflow (for example, if you share your cluster with others and you don't want to consume all resources), then you can make use of the snakemake built-in `resources` directive. You can set the number of jobs to your limit (or to a very big number if you dont care), and use `--resources nodes=30`, if you wish to only use 30 threads. We used the word `nodes` so that to not confuse with the reserved word `threads` in snakemake.
 
 Notice: if you don't include `--jobs` (identical to `--cores`) in your command line, then snakemake will only use one node, and will not utilize multiple nodes even if the `threads` parameter for a rule is higher than 1. This is simply the behaviour of snakemake (described [here](http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#threads)).
 
-## Defining the number of threads per rule in a cluster
-
-In order to change the number of threads per rule when running on a cluster, the following structure should be used: 
-
-```
-	"rule_name":
-		"threads": number_of_threads
-```
-
-The following defaults have been set:
-
-**rule**|**threads**
-:-----:|:-----:
-qc|2
-megahit|11
-gen\_contigs\_db|5
-run\_centrifuge|5
-anvi\_run\_hmms|20
-anvi\_run_\ncbi\_cogs|20
-bowtie\_build|4
-bowtie|10
-samtools\_view|4
-anvi\_init\_bam|4
-anvi\_profile|5
-
-All other rules use 1 thread by default.
-
-Notice: if you want to use multiple threads, don't forget to include `--cores` in your snakemake command line. For more information, refer to [this section](http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#threads) of the snakemake documentation.
-
 ## A note on cluster-config
 
 This note is here mainly for documentation of the code, and for those of you who are interested in snakemake. The reason we decided not to use the [cluster configuration](http://snakemake.readthedocs.io/en/stable/executable.html#cluster-execution) file to control the number of threads per rule, is becuase certain software require the number of threads as an input (for example `megahit` and `anvi-profile`), but the cluster config file is not available for shell commands within snakemake rules. To bypass this issue we simply put the threads configuration in the `config.json`, thus available for the user to modify.
 
-[Back to Table of Contents](#contents)
 
 
+# FAQs
 
-### qc
+## Is it possible to just do QC and then stop?
 
-A report with the full results of the QC for each sample is generated. Below you can see an example:
-
-```
-sample	number of pairs analyzed	total pairs passed	total pairs passed (percent of all pairs)	total pair_1 trimmed	total pair_1 trimmed (percent of all passed pairs)	total pair_2 trimmed	total pair_2 trimmed (percent of all passed pairs)	total pairs failed	total pairs failed (percent of all pairs)	pairs failed due to pair_1	pairs failed due to pair_1 (percent of all failed pairs)	pairs failed due to pair_2	pairs failed due to pair_2 (percent of all failed pairs)	pairs failed due to both	pairs failed due to both (percent of all failed pairs)	FAILED_REASON_P	FAILED_REASON_P (percent of all failed pairs)	FAILED_REASON_N	FAILED_REASON_N (percent of all failed pairs)	FAILED_REASON_C33	FAILED_REASON_C33 (percent of all failed pairs)
-01_QC/BM_HC_HMP_S001_01	1787927	1655580	92.60	580936	35.09	453098	27.37	132347	7.40	51935	39.24	49249	37.21	31163	23.55	0	0	30573	23.10	101774	76.90
-01_QC/BM_HC_HMP_S002_01	4718043	4224421	89.54	828338	19.61	687063	16.26	493622	10.46	207050	41.95	197028	39.91	89544	18.14	0	0	277734	56.26	215888	43.74
-01_QC/BM_HC_HMP_S003_01	1483467	1378881	92.95	688143	49.91	1378654	99.98	104586	7.05	22155	21.18	64076	61.27	18355	17.55	0	0	2436	2.33	102150	97.67
-```
-
-If you already performed QC, and so wish to skip qc, then simply add this to your config file:
+If you only want to qc your files and then compress them (and not do anything else), simply invoke the workflow with the following command:
 
 ```
-	"qc": {
-		"run": false
-	}
+anvi-run-workflow -w metagenomics -c config.json --additional-params --until gzip_fastqs
 ```
 
-A nice trick worth knowing: if you only want to qc your files and then compress them (and not do anything else), simply invoke the workflow with the following command:
-
-```
-snakemake --snakefile merenlab-metagenomics-pipeline.snakefile --until gzip_fastqs
-```
-
-To understand this better, refer to the snakemake documentation.
-
-[Back to Table of Contents](#contents)
-
-### reformat_fasta
+## Can I skip anvi-script-reformat-fasta?
 
 In "reference mode", you may choose to skip this step, and keep your contigs names. In order to do so, add this to your config file:
 
-```json
-	"reformat_fasta": {
+```
+	"anvi_script_reformat_fasta": {
 		"run": false
 	}
 ```
 
 In assembly mode, this rule is always excecuted.
 
-[Back to Table of Contents](#contents)
+## What's going on behind the scenes before we run idba_ud?
 
-### megahit
+A note regarding `idba_ud` is that it requires a single fasta as an input. Because of that, what we do is use `fq2fa` to merge the pair of reads of each sample to one fasta, and then we use `cat` to concatenate multiple samples for a co-assembly. The `fasta` file that is created is create as a temporary file, and is deleted once `idba_ud` finishes running. If this is annoying to you, then feel free to contact us or just hack it yourself.
 
-`run` - You must specify this (`run: true`), otherwise you would probably get an error message. Notice that your config file should only include one assembly software, if it includes two, you would get an error message.
+## Can I change the parameters of samtools view?
 
-`memory` (see `-m/--memory` in the megahit documentation) - The default is 0.4.
-
-`min_contig_len` (`--min-contig-len`) - default is 1,000.
-
-[Back to Table of Contents](#contents)
-
-### idba_ud
-
-`run` - You must specify this (`run: true`), otherwise you would probably get an error message. Notice that your config file should only include one assembly software, if it includes two, you would get an error message.
-
-`min_contig` - default is 1,000.
-
-**Important**: if you are using `idba_ud` together, and you are skipping qc, then your fastq files must be uncompressed. This is because you will simply be providing a path to the pair of fastq files, and hence there would be no easy way for us to know that they are compresed or not, and in which format they are.
-
-Another thing to note regarding `idba_ud` is that it requires a single fasta as an input. Because of that, what we do is use `fq2fa` to merge the pair of reads of each sample to one fasta, and then we use `cat` to concatenate multiple samples for a co-assembly. The `fasta` file that is created is create as a temporary file, and is deleted once `idba_ud` finishes running. If this is annoying to you, then feel free to contact us or just hack it yourself.
-
-### run_centrifuge
-
-`run` - could get values of `true` or `false` (all lower case!) - to configure whether to run centrifuge or not. The default is `false`.
-
-`db` - if you choose run centrifuge, you **must** provide the path to the database (for example `$CENTRIFUGE_BASE/p+h+v/p+h+v`).
-
-[Back to Table of Contents](#contents)
-
-### anvi_run_hmms
-
-`run` - could get values of `true` or `false` (all lower case!) - to configure whether to run hmms or not. The default is `true`.
-
-[Back to Table of Contents](#contents)
-
-### anvi_run_ncbi_cogs
-
-`run` - could get values of `true` or `false` (all lower case!) - to configure whether to run hmms or not. The default is `true`.
-
-Additionaly, you can set all the parameters that are available for `anvi-run-ncbi-cogs` (the default setting for all the following parameters is to take the default setting of `anvi-run-ncbi-cogs`):
-
-`cog_data_dir` - path to the cog data directory.
-
-`sensitive` - flag for DIAMOND sensitivity (should be either `true` or `false`. The default is `false`).
-
-`temporary_dir_path` - see `anvi-run-ncbi-cogs` documentation.
-
-`search_with` - see `anvi-run-ncbi-cogs` documentation.
-
-Example:
-
-```JSON
-	"anvi_run_ncbi_cogs":
-		"run": true,
-		"cog_data_dir": "/USER/COG_DIR/",
-		"sensitive": true,
-		"temporary_dir_path": "/USER/MY_TEMP_DIR/",
-		"search_with": "blastp",
-		"threads": 1
-```
-
-[Back to Table of Contents](#contents)
-
-### samtools_view
-
-`s` - the samtools command executed is `samtools view {additional_params} -bS {stuff} -o {stuff}`, where `additional_params` specifies what goes in place of `{additional_params}` and `{stuff}` refers to stuff handled internally by our workflow (and therefore shouldn't be messed with). You can therefore specify all options that aren't `-bS` or `-o` with `additional_params`. For example, you could set `view_flag` to be `-f 2`, or `-f 2 -q 1` (for a full list see the samtools [documentation](http://www.htslib.org/doc/samtools.html)). The default is `-F 4`.
-
-[Back to Table of Contents](#contents)
-
-### bowtie
-
-`additional_params` - the bowtie2 command executed is `bowtie2 --threads {stuff} -x {stuff} -1 {stuff} -2 {stuff} {additional_params} -S {stuff}`, where `additional_params` specifies what goes in place of `{additional_params}` and `{stuff}` refers to stuff handled internally by our workflow (and therefore shouldn't be messed with). You can therefore specify all parameters that aren't `--threads`, `-x`, `-1`, `-2`, or `-S` with `additional_params`. For example, if you don't want gapped alignment (aka the reference does not recruit any reads that contain indels with respect to it), and you don't want to store unmapped reads in the SAM output file, set `additional_params` to be `--rfg 10000,10000 --no-unal` (for a full list of options see the bowtie2 [documentation](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#options)). The default is `--no-unal`.
-
-[Back to Table of Contents](#contents)
-
-### anvi_profile
-
-`min_contig_length` - see anvi-profile docummentation for `--min-contig-length`. The default is going with the default of `anvi-profile` (which is 2,500).
-
-[Back to Table of Contents](#contents)
-
-### anvi_merge
-
-`skip_concoct_binning` - see the `anvi-merge` docummentation for `--skip-concoct-binning`.
-
-[Back to Table of Contents](#contents)
-
-## Example config.json file
-
-So let's say I want to run centrifuge, I don't want to run hmms, and I want my minimum contig length for megahit and anvi-profile to be 500 and and 3,000 respectively. Then my config file would like like this:
+The samtools command executed is:
 
 ```
-{
-	"run_centrifuge":{
-		"run": true,
-		"db": "$CENTRIFUGE_BASE/p+h+v/p+h+v"
-	},
-	"anvi_run_hmms":{
-		"run": false
-	},
-	"anvi_profile:{
-		"min_contig_length": 3000,
-		"threads": 10
-	},
-	"megahit":{
-		"min_contig_len": 500
-	}
-}
+samtools view additional_params -bS INPUT -o OUTPUT
 ```
 
-[Back to Table of Contents](#contents)
-## Pangenomics workflow
+Where `additional_params` refers to any parameters of samtools view that you choose to use (excluding `-bS` or `-o` which are always set by the workflow).For example, you could set it to be `-f 2`, or `-f 2 -q 1` (for a full list see the samtools [documentation](http://www.htslib.org/doc/samtools.html)). The default value for `additional_params` is `-F 4`.
 
-Blah.
+## Can I change the parameters for bowtie2?
 
+similar to [samtools](#can-i-change-the-parameters-of-samtools-view) we use the `additional_params` to configure bowtie2. The bowtie2 command executed is
+
+```
+bowtie2 --threads NUM_THREADS -x PREFIX_OF_BOWTIE_BUILD_OUTPUT -1 R1.FASTQ -2 R2.FASTQ additional_params -S OUTPUT.sam
+```
+
+Where `additional_params`. You can therefore use `additional_params` to specify all parameters that aren't `--threads`, `-x`, `-1`, `-2`, or `-S`. For example, if you don't want gapped alignment (aka the reference does not recruit any reads that contain indels with respect to it), and you don't want to store unmapped reads in the SAM output file, set `additional_params` to be `--rfg 10000,10000 --no-unal` (for a full list of options see the bowtie2 [documentation](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#options)). The default is `--no-unal`.
 
 # The architecture for anvi'o snakemake workflows
 
