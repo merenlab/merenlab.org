@@ -54,7 +54,7 @@ comments: false
     <span style="display: inline-block; padding-bottom: 5px;">- TET2 deficiency ➡️  deteriorating small intestinal barrier ➡️  bacterial translocation ➡️  incrased IL-6 signalling ➡️  pre-leukemic myeloproliferation (a leukemia precursor).</span><br><span style="display: inline-block; padding-bottom: 5px;">-  ScienceDaily: <a href="https://www.sciencedaily.com/releases/2018/05/180516131226.htm" target="_blank">Under certain conditions, bacterial signals set the stage for leukemia</a>.</span>
     </div>
     </div>
-    <span class="pub-journal"><i>Nature</i>. <b>e-pub ahead of publication</b></span>
+    <span class="pub-journal"><i>Nature</i>. <b>557:580–584</b></span>
 </div>
 
 
