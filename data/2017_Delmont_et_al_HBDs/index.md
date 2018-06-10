@@ -425,8 +425,7 @@ This article demonstrates the importance of refinement:
 
 And this video demonstrates the key capabilities of the anvi'o interactive interface for refinement tasks:
 
-{:.notice}
-[https://www.youtube.com/watch?v=vXPKP5vKiBM](https://www.youtube.com/watch?v=vXPKP5vKiBM)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vXPKP5vKiBM?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
 
