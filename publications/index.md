@@ -9,11 +9,27 @@ comments: false
 <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
 
 <div class="category-box">
-<a href="#2018"><span class="category-item">2018 <small>(3)</small></span></a><a href="#2017"><span class="category-item">2017 <small>(11)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(5)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a>
+<a href="#2018"><span class="category-item">2018 <small>(4)</small></span></a><a href="#2017"><span class="category-item">2017 <small>(10)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(5)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a>
 </div>
 
 <a name="2018">&nbsp;</a>
 <h1>2018</h1>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41564-018-0176-9"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1038/s41564-018-0176-9" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1038/s41564-018-0176-9" target="_new">Nitrogen-fixing populations of Planctomycetes and Proteobacteria are abundant in the surface ocean metagenomes.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, Quince, C., <span class="pub-member-author">Shaiber, A.</span>, <span class="pub-member-author">Esen, Ö. C.</span>, <span class="pub-member-author">Lee, S. T. M.</span>, Rappé, M. S., McLellan, S. L., Lücker, S., and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="http://i.imgur.com/oFRefc4.jpg"><img src="http://i.imgur.com/oFRefc4.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- First genomic evidence for abundant and widespread non-cyanobacterial nitrogen-fixing populations in the surface ocean.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Nearly 1,000 non-redundant, high-quality bacterial, archaeal, and eukaryotic population genomes from TARA Oceans metagenomes.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  A "behind the paper" <a href="https://naturemicrobiologycommunity.nature.com/users/113363-a-murat-eren-meren/posts/34040-microbiologists-vs-shotgun-metagenomes-surface-ocean" target="_blank">blog post</a> by Meren, a <a href="http://www.mbl.edu/blog/large-scale-study-indicates-novel-and-abundant-nitrogen-fixing-microbes-in-the-surface-ocean/" target="_blank">press release</a> by the MBL, and an extensive description of <a href="http://merenlab.org/data/2017_Delmont_et_al_HBDs/" target="_blank">the bioinformatics workflow</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>Nature Microbiology</i>. <b>(advanced online publication)</b></span>
+</div>
 
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.7717/peerj.4320"></div>
@@ -62,38 +78,6 @@ comments: false
 <h1>2017</h1>
 
 <div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/170639"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.1101/170639" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <h3><a href=" https://doi.org/10.1101/170639" target="_new">The global biogeography of amino acid variants within a single SAR11 population is governed by natural selection.</a></h3>
-    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Kiefl, E.</span>, Kilinc, O., <span class="pub-member-author">Esen, Ö. C.</span>, Uysal, I., Rappé, M. S., Giovannoni, S., and <span class="pub-member-author">Eren, A. M</span>.</span>
-    <div class="pub-info">
-    <div class="pub-featured-image">
-    <a href="http://i.imgur.com/HrlXPOF.jpg"><img src="http://i.imgur.com/HrlXPOF.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
-    </div>
-    <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- Using single-amino acid variants to investigate genome variation within a single SAR11 population across large geographies.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Application of a novel Deep Learning algorithm to resolve relationships between metagenomes through complex SAAV data.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Partitioning of SAAVs suggests natural selection, rather than neutral evolution, is the main driver of the evolution of SAR11.</span>
-    </div>
-    </div>
-    <span class="pub-journal"><i>BioRxiv</i>. <b>pre-print</b></span>
-</div>
-
-<div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/129791"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.1101/129791" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <h3><a href=" https://doi.org/10.1101/129791" target="_new">Nitrogen-fixing populations of Planctomycetes and Proteobacteria are abundant in the surface ocean.</a></h3>
-    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, Quince, C., <span class="pub-member-author">Shaiber, A.</span>, <span class="pub-member-author">Esen, Ö. C.</span>, <span class="pub-member-author">Lee, S. T. M.</span>, Lücker, S., and <span class="pub-member-author">Eren, A. M</span>.</span>
-    <div class="pub-info">
-    <div class="pub-featured-image">
-    <a href="http://i.imgur.com/oFRefc4.jpg"><img src="http://i.imgur.com/oFRefc4.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
-    </div>
-    <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- Novel nitrogen-fixing populations (see <a href="http://merenlab.org/data/#delmont-et-al-2017--tara-binning" target="_blank">public data</a>).</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Nearly 1,000 non-redundant and high-quality bacterial, archaeal, and eukaryotic population genomes from TARA Oceans metagenomes.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Extensive description of <a href="http://merenlab.org/data/2017_Delmont_et_al_HBDs/" target="_blank">bioinformatics approaches</a>.</span>
-    </div>
-    </div>
-    <span class="pub-journal"><i>BioRxiv</i>. <b>pre-print</b></span>
-</div>
-
-<div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s40168-017-0270-x"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1186/s40168-017-0270-x" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <h3><a href=" https://doi.org/10.1186/s40168-017-0270-x" target="_new">Tracking microbial colonization in fecal microbiota transplantation experiments via genome-resolved metagenomics.</a></h3>
@@ -131,6 +115,22 @@ comments: false
     <h3><a href=" https://doi.org/10.1038/s41467-017-01228-6" target="_new">Genomic variation in microbial populations inhabiting the marine subseafloor at deep-sea hydrothermal vents.</a></h3>
     <span class="pub-authors">Anderson, R. E., Reveillaud, J., Reddington, E., <span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Eren, A. M</span>., McDermott, J. M., Seewald, J. S., and Huber, J. A.</span>
     <span class="pub-journal"><i>Nature Communications</i>. <b>8:1114</b></span>
+</div>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/170639"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1101/170639" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1101/170639" target="_new">The global biogeography of amino acid variants within a single SAR11 population is governed by natural selection.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Kiefl, E.</span>, Kilinc, O., <span class="pub-member-author">Esen, Ö. C.</span>, Uysal, I., Rappé, M. S., Giovannoni, S., and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="http://i.imgur.com/HrlXPOF.jpg"><img src="http://i.imgur.com/HrlXPOF.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- Using single-amino acid variants to investigate genome variation within a single SAR11 population across large geographies.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Application of a novel Deep Learning algorithm to resolve relationships between metagenomes through complex SAAV data.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Partitioning of SAAVs suggests natural selection, rather than neutral evolution, is the main driver of the evolution of SAR11.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>BioRxiv</i>. <b>pre-print</b></span>
 </div>
 
 <div class="pub">
@@ -194,6 +194,22 @@ comments: false
 <h1>2016</h1>
 
 <div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.7717/peerj.1839"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.1839" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.7717/peerj.1839" target="_new">Identifying contamination with advanced visualization and analysis practices: metagenomic approaches for eukaryotic genome assemblies.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="../images/pubs/delmont_tardigrade.png"><img src="../images/pubs/delmont_tardigrade.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A holistic approach to visualize and curate genomic and metagenomic assemblies.</span><br><span style="display: inline-block; padding-bottom: 5px;">- A re-analysis of the first released Tardigrade genome reveals a likely symbiont among other contaminants.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  A practical approach to estimate the number bacterial genomes in an assembly.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>PeerJ</i>. <b>4:e1839</b></span>
+</div>
+
+<div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1128/mBio.01713-16"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1128/mBio.01713-16" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <h3><a href=" https://doi.org/10.1128/mBio.01713-16" target="_new">Patient-specific <i>Bacteroides</i> genome variants in pouchitis.</a></h3>
@@ -218,22 +234,6 @@ comments: false
 </div>
 
 <div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.7717/peerj.1839"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.1839" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <h3><a href=" https://doi.org/10.7717/peerj.1839" target="_new">Identifying contamination with advanced visualization and analysis practices: metagenomic approaches for eukaryotic genome assemblies.</a></h3>
-    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, and <span class="pub-member-author">Eren, A. M</span>.</span>
-    <div class="pub-info">
-    <div class="pub-featured-image">
-    <a href="../images/pubs/delmont_tardigrade.png"><img src="../images/pubs/delmont_tardigrade.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
-    </div>
-    <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- A holistic approach to visualize and curate genomic and metagenomic assemblies.</span><br><span style="display: inline-block; padding-bottom: 5px;">- A re-analysis of the first released Tardigrade genome reveals a likely symbiont among other contaminants.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  A practical approach to estimate the number bacterial genomes in an assembly.</span>
-    </div>
-    </div>
-    <span class="pub-journal"><i>PeerJ</i>. <b>4:e1839</b></span>
-</div>
-
-<div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s40168-016-0161-6"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1186/s40168-016-0161-6" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <h3><a href=" https://doi.org/10.1186/s40168-016-0161-6" target="_new">Bacterial communities in penile skin, male urethra, and vaginas of heterosexual couples with and without bacterial vaginosis.</a></h3>
@@ -244,14 +244,6 @@ comments: false
 
 <a name="2015">&nbsp;</a>
 <h1>2015</h1>
-
-<div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.3389/fmicb.2015.01090"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.3389/fmicb.2015.01090" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <h3><a href=" https://doi.org/10.3389/fmicb.2015.01090" target="_new">Genome reconstructions indicate the partitioning of ecological functions inside a phytoplankton bloom in the Amundsen Sea, Antarctica.</a></h3>
-    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Eren, A. M</span>., Vineis, J. H., and Post, A. F.</span>
-    <span class="pub-journal"><i>Front Microbiol</i>. <b>6:1090</b></span>
-</div>
 
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.7717/peerj.1319"></div>
@@ -267,6 +259,14 @@ comments: false
     </div>
     </div>
     <span class="pub-journal"><i>PeerJ</i>. <b>6:358</b></span>
+</div>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.3389/fmicb.2015.01090"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.3389/fmicb.2015.01090" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.3389/fmicb.2015.01090" target="_new">Genome reconstructions indicate the partitioning of ecological functions inside a phytoplankton bloom in the Amundsen Sea, Antarctica.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Eren, A. M</span>., Vineis, J. H., and Post, A. F.</span>
+    <span class="pub-journal"><i>Front Microbiol</i>. <b>6:1090</b></span>
 </div>
 
 <div class="pub">
