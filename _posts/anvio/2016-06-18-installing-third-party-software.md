@@ -61,12 +61,26 @@ Type `prodigal -v` again to make sure everything is alright, and you get the pro
 
 **Citation**: [http://hmmer.org/](http://hmmer.org/)
 
-Go to your terminal, and type `hmmscan -h`, if you get an error, you need to install HMMER, if the version number is less than 3.1, you need to update it.
+Go to your terminal, and type `hmmscan -h`:
 
-Here is how to install v3.1b2:
+* If you get an error, you need to install HMMER.
+
+* If the version number is less than `v3.1`, you need to update it.
+
+Here is how to install `v3.2` (or update your current installation to it):
 
 ``` bash
-wget http://eddylab.org/software/hmmer3/3.1b2/hmmer-3.1b2.tar.gz
+wget http://eddylab.org/software/hmmer/hmmer-3.2.tar.gz
+tar -zxvf hmmer-3.2.tar.gz
+cd hmmer-3.2
+./configure && make && sudo make install
+cd easel && make check && sudo make install
+```
+
+**If you are using anvi'o `v4` or earler version, you need HMMER `v3.1b2`**. Here is how to install it:
+
+``` bash
+wget http://eddylab.org/software/hmmer/hmmer-3.1b2.tar.gz
 tar -zxvf hmmer-3.1b2.tar.gz
 cd hmmer-3.1b2
 ./configure && make && sudo make install
