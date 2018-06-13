@@ -10,20 +10,20 @@ comments: true
 {% include _toc.html %}
 
 {:.notice}
-The URL [http://biorxiv.org/content/early/2017/04/23/129791](http://biorxiv.org/content/early/2017/04/23/129791) serves the pre-print of the study described in this document.
+The URL [https://www.nature.com/articles/s41564-018-0176-9](https://www.nature.com/articles/s41564-018-0176-9) is where the published version of this study described in this document (before that we had a pre-print [here](http://biorxiv.org/content/early/2017/04/23/129791))
 
 {:.notice}
-The URL [http://merenlab.org/data/#delmont-et-al-2017--tara-binning](http://merenlab.org/data/#delmont-et-al-2017--tara-binning) serves all public data items used and produced by this study.
+The URL [http://merenlab.org/data/#delmont-et-al-2017--tara-binning](http://merenlab.org/data/#delmont-et-al-2017--tara-binning) serves all public data items our study used or produced.
 
 {:.notice}
 The URL [http://merenlab.org/data/2017_Delmont_et_al_HBDs/](http://merenlab.org/data/2017_Delmont_et_al_HBDs/) serves the most up-to-date version of this document.
 
-This document describes the reproducible bioinformatics workflow we used to recover and characterize metagenome-assembled genomes (MAGs) from the TARA Oceans metagenomic co-assemblies, some of which are described in the study "*Nitrogen-fixing populations of Planctomycetes and Proteobacteria are abundant in the surface ocean*" by Delmont et al.
+This document describes the reproducible bioinformatics workflow we used to recover and characterize metagenome-assembled genomes (MAGs) from the TARA Oceans metagenomic co-assemblies, some of which are described in the study "*Nitrogen-fixing populations of Planctomycetes and Proteobacteria are abundant in surface ocean metagenomes*" by Delmont et al.
 
 The document contains program names and exact parameters used throughout every step of the analysis of the TARA Oceans metagenomes, which relied predominantly on the open-source analysis platform, [anvi’o](http://merenlab.org/software/anvio) (Eren et al., 2015).
 
 {:.notice}
-All anvi'o analyses in this document are performed using the anvi'o version `v2.3.0`. Please see [the installation notes]({% post_url anvio/2016-06-26-installation-v2 %}) to acquire the appropriate version through PyPI, Docker, or GitHub.
+All anvi'o analyses in this document are performed using the anvi'o version `v2.3.0`. Please see [the installation notes]({% post_url anvio/2016-06-26-installation-v2 %}) to acquire the appropriate version through PyPI, Docker, or GitHub. Most anvi'o commands should continue to work in most up-to-date anvi'o versions, but some adjustments may be necessary. Please feel free to get in touch with us if you need help.
 
 The following sections describe steps to download, quality-filter, and co-assemble the raw metagenomic data, followed by the recovery and characterization of a non-redundant database of metagenome-assembled genomes through binning and curation steps.
 
