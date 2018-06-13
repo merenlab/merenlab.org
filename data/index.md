@@ -40,7 +40,7 @@ This page serves the publicly available data mentioned in our publications, or i
 ## Delmont et al. (2017) / TARA Binning
 
 {:.notice}
-**The paper itself is here:** [Nitrogen-fixing populations of Planctomycetes and Proteobacteria are abundant in the surface ocean](http://biorxiv.org/content/early/2017/04/23/129791){:target="_blank"}.
+**The paper itself is here:** [Nitrogen-fixing populations of Planctomycetes and Proteobacteria are abundant in surface ocean metagenomes](https://www.nature.com/articles/s41564-018-0176-9){:target="_blank"}.
 
 {:.notice}
 [http://merenlab.org/data/2017_Delmont_et_al_HBDs/](http://merenlab.org/data/2017_Delmont_et_al_HBDs/) gives access to our **complete bioinformatics workflow**.
