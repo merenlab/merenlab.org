@@ -29,7 +29,7 @@ As noted above, running the `anvi-run-hmms` program with no additional arguments
 $ anvi-run-hmms -c contigs.db -H Rinke_archaeal_HMM/
 ```
 
-Anvi'o will expect the directory denoted by the `-H` flag above to contain four special files:
+Anvi'o will expect the directory denoted by the `-H` flag above to contain six special files:
 
 |File Name|Content and Purpose|
 |:---|:---|
