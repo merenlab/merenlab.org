@@ -405,7 +405,7 @@ If no error is produced, DSSP is working (you can open up `myoglobin_DSSP.txt` t
 
 ## MODELLER
 
-[MODELLER](https://salilab.org/modeller/) MODELLER is a program for homology or comparative modeling of protein three-dimensional structures using a reference database.
+[MODELLER](https://salilab.org/modeller/) is a program for homology or comparative modeling of protein three-dimensional structures using a reference database.
 
 **Citation**: [https://www.ncbi.nlm.nih.gov/pubmed/18428767](https://www.ncbi.nlm.nih.gov/pubmed/18428767)
 
