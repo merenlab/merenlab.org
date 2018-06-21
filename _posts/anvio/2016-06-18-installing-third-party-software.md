@@ -403,3 +403,23 @@ mkdssp -i 1H97.cif -o myoglobin_DSSP.txt
 
 If no error is produced, DSSP is working (you can open up `myoglobin_DSSP.txt` to see what the output looks like). If you got an error that looks like: `Segmentation fault: 11`, try reinstalling with the above instructions. If the error persists, please contact us.
 
+## MODELLER
+
+[MODELLER](https://salilab.org/modeller/) MODELLER is a program for homology or comparative modeling of protein three-dimensional structures using a reference database.
+
+**Citation**: [https://www.ncbi.nlm.nih.gov/pubmed/18428767](https://www.ncbi.nlm.nih.gov/pubmed/18428767)
+
+**Citation**: [https://www.ncbi.nlm.nih.gov/pubmed/10940251](https://www.ncbi.nlm.nih.gov/pubmed/10940251)
+
+**Citation**: [https://www.ncbi.nlm.nih.gov/pubmed/8254673](https://www.ncbi.nlm.nih.gov/pubmed/8254673)
+
+Go to your terminal and type `mod` and then attempt to autocomplete the command by pressing the tab key twice. If something like `mod9.xx` pops up, where `xx` is some number, you have MODELLER. If `xx` is lower than `19`, you should reinstall MODELLER using the following instructions.
+
+If you don't have any version of MODELLER, their website has excellent cross-platform [intall instructions](https://salilab.org/modeller/release.html#install). If you are on MAC OSX, you can just run:
+
+```
+brew tap salilab/salilab
+brew install modeller
+```
+
+Along with an installation, you will need a license key (which is free for academic use). You can go ahead and [register for a license key](https://salilab.org/modeller/release.html#install) on their website and put the key where they tell you, **or** you can just pretend you have one and anvi'o will give you precise instructions on how to get one and what to do with it when the time comes.
