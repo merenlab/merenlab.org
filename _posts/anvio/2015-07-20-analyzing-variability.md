@@ -343,8 +343,8 @@ This program allows the researcher to specify _filters_ and refine reported vari
 **Fact**: The answer is "*yes*", if you are asking yourself "*is this 'quince' in `--quince-mode` the 'Quince' in '[Christopher Quince](http://www2.warwick.ac.uk/fac/med/staff/cquince/)'?*". We added this flag because he complained about the fact that this functionality was not available in anvi'o at the time.
 
 {:.notice}
-**Fact**: The answer is "*very very likely*" if you are now asking yourself "*would I get my own flag if I complain about lacking functionality in anvi'o?*". We the anvi'o developers are often a civil bunch of people.
- Note: if you are asking yourself "*is this 'quince' in `--quince-mode` the 'Quince' in '[Christopher Quince](http://www2.warwick.ac.uk/fac/med/staff/cquince/)'?*", the answer is "yes". We added this flag because he complained about the fact that that functionality was not available at the time. If you are now asking yourself "*would I get my own flag if I complain about lacking functionality?*", the answer to that is "yes", too.
+**Fact**: The answer is "*very very likely*", if you are now asking yourself "*would I get my own flag if I complain about a lacking functionality in anvi'o?*". We, the anvi'o developers, are often a civil bunch of people.
+
 ---
 
 We certainly hope the variant characterization framework in anvi'o can be useful for you. Please don't hesitate get in touch with us with questions, or suggestions.
