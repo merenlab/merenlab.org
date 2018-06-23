@@ -1,0 +1,181 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 90,
+      "score": 1,
+      "id": "CONTIGS.db",
+      "type": "square"
+    },
+    {
+      "size": 90,
+      "score": 1,
+      "id": "CONTIGS.fa",
+      "type": "square"
+    },
+    {
+      "size": 90,
+      "score": 0.5,
+      "id": "COLLECTION",
+      "type": "square"
+    },
+    {
+      "size": 90,
+      "score": 0.5,
+      "id": "BIN",
+      "type": "square"
+    },
+    {
+      "size": 90,
+      "score": 1,
+      "id": "INTERACTIVE DISPLAY",
+      "type": "square"
+    },
+    {
+      "size": 90,
+      "score": 0.5,
+      "id": "SVG",
+      "type": "square"
+    },
+    {
+      "size": 90,
+      "score": 0.5,
+      "id": "MERGED-PROFILE.db",
+      "type": "square"
+    },
+    {
+      "size": 90,
+      "score": 0.5,
+      "id": "SINGLE-PROFILE.db",
+      "type": "square"
+    },
+    {
+      "size": 90,
+      "score": 0.5,
+      "id": "DATA.txt",
+      "type": "square"
+    },
+    {
+      "size": 90,
+      "score": 0.5,
+      "id": "DENDROGRAM.newick",
+      "type": "square"
+    },
+    {
+      "size": 90,
+      "score": 0.5,
+      "id": "PHYLOGENY.newick",
+      "type": "square"
+    },
+    {
+      "size": 90,
+      "score": 1,
+      "id": "SAMPLE.bam",
+      "type": "square"
+    },
+    {
+      "size": 80,
+      "score": 0.1,
+      "id": "anvi-gen-contigs-database",
+      "type": "circle"
+    },
+    {
+      "size": 80,
+      "score": 0.1,
+      "id": "anvi-interactive",
+      "type": "circle"
+    },
+    {
+      "size": 80,
+      "score": 0.1,
+      "id": "anvi-merge",
+      "type": "circle"
+    },
+    {
+      "size": 80,
+      "score": 0.1,
+      "id": "anvi-profile",
+      "type": "circle"
+    }
+  ],
+  "links": [
+    {
+      "source": 12,
+      "target": 0
+    },
+    {
+      "target": 13,
+      "source": 0
+    },
+    {
+      "target": 14,
+      "source": 0
+    },
+    {
+      "target": 15,
+      "source": 0
+    },
+    {
+      "target": 12,
+      "source": 1
+    },
+    {
+      "source": 13,
+      "target": 2
+    },
+    {
+      "source": 13,
+      "target": 3
+    },
+    {
+      "target": 13,
+      "source": 3
+    },
+    {
+      "source": 13,
+      "target": 4
+    },
+    {
+      "source": 13,
+      "target": 5
+    },
+    {
+      "target": 13,
+      "source": 6
+    },
+    {
+      "source": 14,
+      "target": 6
+    },
+    {
+      "target": 13,
+      "source": 7
+    },
+    {
+      "target": 14,
+      "source": 7
+    },
+    {
+      "source": 15,
+      "target": 7
+    },
+    {
+      "target": 13,
+      "source": 8
+    },
+    {
+      "target": 13,
+      "source": 9
+    },
+    {
+      "target": 13,
+      "source": 10
+    },
+    {
+      "target": 15,
+      "source": 11
+    }
+  ],
+  "directed": true,
+  "multigraph": false
+}
