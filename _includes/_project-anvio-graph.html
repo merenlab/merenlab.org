@@ -48,7 +48,7 @@ var zoom = d3.behavior.zoom().scaleExtent([min_zoom,max_zoom])
 var g = svg.append("g");
 svg.style("cursor","move");
 
-d3.json("http://127.0.0.1:4000/software/anvio/network/network.json", function(error, graph) {
+d3.json("/software/anvio/network/network.json", function(error, graph) {
 
 var linkedByIndex = {};
 
@@ -118,7 +118,7 @@ var circle = node.append("path")
 
 
 var images =  node.append("svg:image")
-      .attr("xlink:href", "http://127.0.0.1:4000/images/icons/db.svg")
+      .attr("xlink:href", function(d) {return "/images/icons/" + d.type + ".svg";})
       .attr("x", function(d) {return -Math.sqrt(d.size * 500) / 2;})
       .attr("y", function(d) {return -Math.sqrt(d.size * 500) / 2;})
       .attr("width", function(d) { return Math.sqrt(d.size * 500); })
