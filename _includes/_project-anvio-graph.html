@@ -117,12 +117,12 @@ var circle = node.append("path")
     .style(towhite, "white");
 
 
-//var images =  node.append("svg:image")
-//      .attr("xlink:href", "https://cdn3.iconfinder.com/data/icons/linecons-free-vector-icons-pack/32/data-512.png")
-//      .attr("x", function(d) {return -Math.sqrt(d.size * 500) / 2;})
-//      .attr("y", function(d) {return -Math.sqrt(d.size * 500) / 2;})
-//      .attr("width", function(d) { return Math.sqrt(d.size * 500); })
-//      .attr("height", function(d) { return Math.sqrt(d.size * 500); });
+var images =  node.append("svg:image")
+      .attr("xlink:href", "http://127.0.0.1:4000/images/icons/db.svg")
+      .attr("x", function(d) {return -Math.sqrt(d.size * 500) / 2;})
+      .attr("y", function(d) {return -Math.sqrt(d.size * 500) / 2;})
+      .attr("width", function(d) { return Math.sqrt(d.size * 500); })
+      .attr("height", function(d) { return Math.sqrt(d.size * 500); });
 
 
 var text = g.selectAll(".text")
