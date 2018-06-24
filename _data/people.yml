@@ -127,6 +127,21 @@
       inst: Computational and Applied Mathematics
       inst_link: http://collegecatalog.uchicago.edu/thecollege/caam/
 
+- alias: emily
+  official: True
+  name: Emily Fogarty
+  tenure_start: 06/2018
+  role: Graduate Student
+  email: efogarty@uchicago.edu
+  github: efogarty11
+  avatar: bio-emily.jpg
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  bio: "I am interested in developing computational and wet lab strategies to study horizontal gene transfer in the human gut microbiome."
+  affiliations:
+    - title: Graduate Student
+      inst: Committee on Microbiology at the University of Chicago
+      inst_link: https://biomedsciences.uchicago.edu/page/microbiology
+
 ####################################################################################
 # Non-member friends
 ####################################################################################
