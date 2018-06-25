@@ -7,7 +7,7 @@
       "color": "#00AA00",
       "id": "COLLECTION",
       "internal": true,
-      "type": "CONCEPT"
+      "type": "COLLECTION"
     },
     {
       "size": 8,
@@ -15,7 +15,7 @@
       "color": "#00AA00",
       "id": "BIN",
       "internal": true,
-      "type": "CONCEPT"
+      "type": "BIN"
     },
     {
       "size": 17,
@@ -103,7 +103,7 @@
       "color": "#AA0000",
       "id": "STATIC SUMMARY",
       "internal": false,
-      "type": "WEB"
+      "type": "SUMMARY"
     },
     {
       "size": 3,
