@@ -44,9 +44,23 @@ var max_base_node_size = 36;
 var min_zoom = 0.1;
 var max_zoom = 7;
 var svg = d3.select("#svg").append("svg");
+var defs = svg.append('svg:defs');
 var zoom = d3.behavior.zoom().scaleExtent([min_zoom,max_zoom])
 var g = svg.append("g");
 svg.style("cursor","move");
+
+
+defs.append('svg:marker')
+  .attr('id', 'arrow')
+  .attr('markerHeight', 20)
+  .attr('markerWidth', 20)
+  .attr('orient', 'auto')
+  .attr('refX', 30)
+  .attr('refY', 0)
+  .attr("viewBox", "0 -5 10 10")
+  .append('svg:path')
+    .attr('d', 'M0,-2 V2 L2,0 Z')
+    .attr('fill', '#000000');
 
 d3.json("/software/anvio/network/network.json", function(error, graph) {
 
@@ -78,6 +92,7 @@ var link = g.selectAll(".link")
   .data(graph.links)
   .enter().append("line")
   .attr("class", "link")
+  .attr("marker-end", "url(#arrow)")
   .style("stroke-width",nominal_stroke)
   .style("stroke", function(d) {
   if (isNumber(d.score) && d.score>=0) return color(d.score);
