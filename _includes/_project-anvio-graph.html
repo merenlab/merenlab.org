@@ -230,7 +230,12 @@ function set_highlight(d){
         });
 
         link.style("stroke", function(o) {
-            return o.source.index == d.index || o.target.index == d.index ? highlight_color : ((isNumber(o.score) && o.score>=0)?color(o.score):default_link_color);
+          if (o.source.index == d.index)
+            return '#00FF00';
+          if (o.target.index == d.index)
+            return '#FF0000';
+
+          return default_link_color;
         });
     }
 }
