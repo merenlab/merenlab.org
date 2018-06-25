@@ -110,15 +110,15 @@ if (outline) {
 
 var circle = node.append("path")
     .attr("d", d3.svg.symbol()
-    .size(function(d) { return d.size * 250; })
+    .size(function(d) { return 0; })
     .type(function(d) { return d.type; }))
     .style("fill", function(d) {return d.color; })
     .style("stroke-width", nominal_stroke)
     .style(towhite, "white");
 
 
-var images =  node.append("svg:image")
-      .attr("xlink:href", function(d) {return "/images/icons/" + d.type + ".svg";})
+var images = node.append("svg:image")
+      .attr("xlink:href", function(d) {return "/images/icons/" + d.type + ".png";})
       .attr("x", function(d) {return -Math.sqrt(d.size * 500) / 2;})
       .attr("y", function(d) {return -Math.sqrt(d.size * 500) / 2;})
       .attr("width", function(d) { return Math.sqrt(d.size * 500); })
