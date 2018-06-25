@@ -13,3 +13,4 @@ _config.yml
 *~
 .sass-cache
 _site
+.jekyll-metadata
