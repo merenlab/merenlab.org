@@ -7,6 +7,8 @@ tags: []
 categories: [anvio]
 redirect_from: /2015/05/01/installation/
 comments: true
+image:
+  feature: https://github.com/merenlab/anvio/raw/master/anvio/data/interactive/images/logo.png
 ---
 
 {% include _toc.html %}
@@ -290,9 +292,9 @@ You are golden.
 
 ## Running the "Mini Test"
 
-You can make anvi'o test itself by running the program `anvi-self-test`. It is absolutely normal to see 'warning' messages. In most cases anvi'o is talkative, and would like to keep you informed. You should read those warning messages, but they often don't require any action.
+You can make anvi'o test itself by running the program `anvi-self-test`. It is absolutely normal to see 'warning' messages. In most cases anvi'o is talkative, and would like to keep you informed. **You should read those warning messages carefully, but they often don't require any action.**
 
-Upon the successful completion of all the tests, your browser should popup to take you to the interactive interface. When you click that 'Draw' button, you should see something like this (this is one of the older version of [the anvi'o interactive interface]({% post_url anvio/2016-02-27-the-anvio-interactive-interface %}), and it shall stay here so we remember where we came from):
+Upon the successful completion of all the tests, your browser should popup and take you to the interactive interface. When you click that 'Draw' button whenever you see one. One of those interfaces should look something like this (this is one of the older version of [the anvi'o interactive interface]({% post_url anvio/2016-02-27-the-anvio-interactive-interface %}), and it shall stay here so we remember where we came from):
 
 <div class="centerimg">
 <a href="{{ site.url }}/images/anvio/misc/mini-test-screenshot.png"><img src="{{ site.url }}/images/anvio/misc/mini-test-screenshot.png" width="50%" /></a>
@@ -300,24 +302,4 @@ Upon the successful completion of all the tests, your browser should popup to ta
 
 All fine? Perfect! Now you have a running installation of anvi'o!
 
-It is time to go through the [tutorial]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}), or take a look at [all the other posts on the platform]({{ site.url }}/software/anvio).
-
-
-## Known issues
-
-### CherryPY problem with v2.1.0
-
-If you have installed anvi'o v2.1.0 recently and getting this error when you run the interactive interface:
-
-``` bash
-(...)
-    from cherrypy import wsgiserver
-ImportError: cannot import name wsgiserver
-```
-
-You can solve it by downgrading cherrypy the following way:
-
-```
-pip uninstall cherrypy
-pip install "cherrypy>=3.0.8,<9.0"
-```
+It is time to go through some anvi'o tutorials (see the pull-down menu at the top of this page), or take a look at [all the other posts on the platform]({{ site.url }}/software/anvio).

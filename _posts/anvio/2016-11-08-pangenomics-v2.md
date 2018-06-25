@@ -1,5 +1,6 @@
 ---
 layout: post
+authors: [meren,alon,ozcan]
 title: "An anvi'o workflow for microbial pangenomics"
 excerpt: "The user-friendly interface anvi'o provides to work with pangenomes."
 modified: 2016-11-08
