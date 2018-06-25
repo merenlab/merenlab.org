@@ -10,7 +10,7 @@ image:
 ---
 
 {:.notice}
-This tutorial is tailored for anvi'o `v4` or later. You can learn the version of your installation by typing `anvi-interactive -v`. If you have an older version, some things will not work the way they should.
+This tutorial is tailored for anvi'o `v5` or later. You can learn the version of your installation by typing `anvi-interactive -v`. If you have an older version, some things will not work the way they should.
 
 The purpose of this tutorial is to have a conversation about metagenomic binning (while demonstrating some of the anvi'o capabilities) using the Infant Gut Dataset (IGD), which was generated, analyzed, and published by [Sharon et al. (2013)](http://www.ncbi.nlm.nih.gov/pubmed/22936250){:target="_blank"}, and was re-analyzed in the [anvi'o methods paper](https://peerj.com/articles/1319/){:target="_blank"}.
 
@@ -84,7 +84,10 @@ Centrifuge ([code](https://github.com/infphilo/centrifuge){:target="_blank"}, [p
 If you import these files into the contigs database the following way,
 
 ``` bash
- $ anvi-import-taxonomy -c CONTIGS.db -i additional-files/centrifuge-files/centrifuge_report.tsv additional-files/centrifuge-files/centrifuge_hits.tsv -p centrifuge 
+ $ anvi-import-taxonomy-for-genes -c CONTIGS.db \
+                                  -p centrifuge \
+                                  -i additional-files/centrifuge-files/centrifuge_report.tsv \
+                                     additional-files/centrifuge-files/centrifuge_hits.tsv
 ```
 
 And run the interactive interface again,
@@ -777,7 +780,7 @@ Please run following commands in the IGD dir. They will set the stage for us to 
 
 ``` bash
 # importing taxonomy for gene calls
-$ anvi-import-taxonomy -c CONTIGS.db \
+$ anvi-import-taxonomy-for-genes -c CONTIGS.db \
                        -i additional-files/centrifuge-files/centrifuge_report.tsv \
                            additional-files/centrifuge-files/centrifuge_hits.tsv \
                        -p centrifuge
@@ -962,11 +965,9 @@ A little note for people who are interested in programming: Feel free to take a 
 If you run the interactive interface on these results the following way,
 
 ``` bash
-$ anvi-interactive -d e_faecalis_snvs/view_data.txt \
-                   -s e_faecalis_snvs/samples.db \
-                   -t e_faecalis_snvs/tree.txt \
-                   -p e_faecalis_snvs/profile.db \
-                   -A e_faecalis_snvs/additional_view_data.txt \
+$ anvi-interactive --profile e_faecalis_snvs/profile.db \
+                   --tree e_faecalis_snvs/tree.txt \
+                   --view-data e_faecalis_snvs/view.txt \
                    --title "SNV Profile for the E. faecalis bin" \
                    --manual
 ```
@@ -1084,6 +1085,8 @@ Please run following commands in the IGD dir. They will set the stage for us to 
 
 ---
 
+### Generating a genome storage 
+
 For this example I downloaded 6 *E. facealis*, and 5 *E. faecium* genomes to analyze them together with our *E. facealis* bin. For each of these 11 *external genomes*, I generated anvi'o contigs databases. You can find all of them in the additional files directory:
 
 ``` bash
@@ -1132,6 +1135,8 @@ So everything is ready for an analysis, and the first step in the pangenomic wor
                             -e additional-files/pangenomics/external-genomes.txt \
                             -o Enterococcus-GENOMES.db
 ```
+
+### Computing and visualizing the pangenome
 
 Now we have the genomes storage, we can characterize the pangenome:
 
@@ -1186,9 +1191,56 @@ It will look much more reasonable:
 
 [![E. facealis pan](images/e-faecalis-pan-state.png)](images/e-faecalis-pan-state.png){:.center-img .width-70}
 
-Now not only can we see how our E. faecalis genome looks like compared to available genomes, we can also see that it is not missing or carrying a great number of proteins compared to other genomes. The clustering of genomes based on protein clusters indicate that it is most similar to the genome `Enterococcus faecalis 6512`, which, according to the `00_INFO_ABOUT_EXTERNAL_GENOMES.txt` under `additional-files/pangenomics/external-genomes` directory, corresponds to the assembly ID [ASM17257v2](https://www.ncbi.nlm.nih.gov/gquery/?term=ASM17257v2){:target="_blank"} if you were to be interested in exploring further.
+Now not only can we see how our E. faecalis genome looks like compared to available genomes, we can also see that it is not missing or carrying a great number of proteins compared to other genomes. The clustering of genomes based on gene clusters indicate that it is most similar to the genome `Enterococcus faecalis 6512`, which, according to the `00_INFO_ABOUT_EXTERNAL_GENOMES.txt` under `additional-files/pangenomics/external-genomes` directory, corresponds to the assembly ID [ASM17257v2](https://www.ncbi.nlm.nih.gov/gquery/?term=ASM17257v2){:target="_blank"} if you were to be interested in exploring further.
 
-From this display you can make selections of protein clusters. I already made some selections and stored them. If you import them the following way,
+### Adding average nucleotide identity
+
+The pangenome tells us about the similarities and dissimilarities between those genomes given the amino acid sequences of open reading frames we identified within each one of them. We could also compare them to each other by computing the average nucleotide identity between them. Anvi'o comes with a program to do that, which uses [PyANI by Pritchard et al.](https://github.com/widdowquinn/pyani) to pairwise align DNA sequences between genomes to estimate similarities between them. [See this tutorial for details](http://merenlab.org/2016/11/08/pangenomics-v2/#computing-the-average-nucleotide-identity-for-genomes).
+
+We can compute average nucleotide identity among our genomes, and add them to the pan database the following way:
+
+``` bash
+$ anvi-compute-ani -e additional-files/pangenomics/external-genomes.txt \
+                  -i additional-files/pangenomics/internal-genomes.txt \
+                  -o ANI \
+                  -T 8 \
+                  --pan-db PAN/Enterococcus-PAN.db
+
+```
+
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">For people in a rush</span>
+
+Computing ANI can take a long time especially if you don't have many threads to share. Your data pack contains the ANI percent identity file that emerges from the previous command line that you can import into your pan database if you don't want to run the command and move on:
+
+``` bash
+ $ anvi-import-misc-data additional-files/pangenomics/ANI_percentage_identity.txt \
+                         -p PAN/Enterococcus-PAN.db \
+                         --target-data-table layers \
+                         --target-data-group ANI_percentage_identity
+```
+
+</div>
+
+
+If you visualize your pangenome again once you have your ANI results in your database, 
+
+``` bash
+
+ $ anvi-display-pan -g Enterococcus-GENOMES.db \
+                    -p PAN/Enterococcus-PAN.db \
+                    --title "Enterococccus Pan"
+```
+
+And take a careful look at your 'Layers' tab, you can see visualize your pangenome with the new ANI results:
+
+[![E. facealis pan](images/e-faecalis-w-ani.png)](images/e-faecalis-w-ani.png){:.center-img .width-70}
+
+### Binning gene clusters
+
+From this display you can make selections of gene clusters. I already made some selections and stored them. If you import them the following way,
 
 ``` bash
  $ anvi-import-collection additional-files/pangenomics/pan-collection.txt \
@@ -1209,9 +1261,9 @@ you will see the following selections:
 
 [![E. facealis pan](images/e-faecalis-pan-selections.png)](images/e-faecalis-pan-selections.png){:.center-img .width-70}
 
-We used collections to store bins of contigs in the first section (and that's how we identified that *E. faecalis* population from the Sharon et al. metagenomes anyway), and now the same concept serves us as a way to store bins of protein clusters.
+We used collections to store bins of contigs in the first section (and that's how we identified that *E. faecalis* population from the Sharon et al. metagenomes anyway), and now the same concept serves us as a way to store bins of gene clusters.
 
-If you right-click on any of the protein clusters, you will see a menu,
+If you right-click on any of the gene clusters, you will see a menu,
 
 ![E. facealis pan](images/pan-right-click.png){:.center-img .width-100}
 
@@ -1219,9 +1271,13 @@ which, among other things, will give you access to the inspection page:
 
 [![E. facealis pan](images/pan-inspect.png)](images/pan-inspect.png){:.center-img .width-50}
 
-Inspecting protein clusters can be a lot of fun and very depressing at the same time. But of course it is hard to get a comprehensive understanding by going through things one by one. But can we summarize the pangenome?
+Inspecting gene clusters can be a lot of fun and very depressing at the same time. But of course it is hard to get a comprehensive understanding by going through things one by one. But can we summarize the pangenome?
 
-For instance, in my tentative selection above, there is a bin called `CORE ALL`, which describes all protein clusters that seems to be in all genomes in this analysis. You can in fact summarize the collection `default` to access all the information about each gene described in each protein cluster selected as `CORE ALL`.
+Yes we can!
+
+### Summarizing a pangenome
+
+For instance, in my tentative selection above, there is a bin called `CORE ALL`, which describes all gene clusters that seems to be in all genomes in this analysis. You can in fact summarize the collection `default` to access all the information about each gene described in each gene cluster selected as `CORE ALL`.
 
 You can summarize the pangenome using the collection we have the following way:
 
