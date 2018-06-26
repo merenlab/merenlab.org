@@ -1,4 +1,6 @@
 ---
+title: The anvi'o universe
+excerpt: "Inputs, outputs, programs, and concepts. All linked. Just like the way you like them."
 layout: project-anvio-network
 modified: 2018-06-23
 categories: [anvio]
