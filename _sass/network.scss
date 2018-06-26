@@ -1,0 +1,64 @@
+#logo {
+    position: absolute;
+    display: block;
+    top: 95px;
+    left: 5px
+}
+
+#logo img {
+    border: none;
+    border-radius:100px;
+    background-color:rgba(255,255,255,0.75);
+}
+
+#infopanel {
+position: absolute;
+    display: block;
+    top: 360px;
+    margin-left: 5px;
+    left: 5px;
+    width: 239px;
+    padding: 5px;
+    background: rgba(255,255,255,0.90);
+    border: 1px solid lightgray;
+    font-size: 12px;
+    font-family: 'Lora', serif;
+    line-height: 1.5;
+    border-radius: 10px;
+    box-shadow: 5px -5px 26px rgba(179, 179, 179, 0.5);
+    overflow: scroll;
+    bottom: 10px;
+}
+
+#infopanel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  filter: blur(20px);
+  z-index: -1;
+}
+
+#infopanel img {
+    float: left;
+    clear: left;
+    margin: 2px;
+    padding: 3px;
+    marginr-right: 13px;
+    border: none;
+    border-radius: 0px;
+}
+
+.info {
+    padding-right: 10px;
+    min-height: 50px;
+    margin-top: 8px;
+}
+
+.info p {
+    line-height: 14px;
+    padding-left: 40px;
+    padding-top: 3px;
+}
