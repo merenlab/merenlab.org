@@ -28,10 +28,14 @@ var size = d3.scale.pow().exponent(1)
   .range([8,24]);
 
 var force = d3.layout.force()
-  .linkDistance(120)
-  .charge(-1000)
-  .linkStrength(0.5)
-  .size([w,h]);
+    .size([w, h])
+    .linkStrength(0.5)
+    .friction(0.9)
+    .linkDistance(200)
+    .charge(-1000)
+    .gravity(0.1)
+    .theta(0.8)
+    .alpha(0.1);
 
 var default_node_color = "#ccc";
 var default_link_color = "#888";
@@ -146,13 +150,13 @@ var text = g.selectAll(".text")
   .attr("dy", ".35em")
   .style("font-size", nominal_text_size + "px")
   .attr("dx", function(d) {return Math.sqrt(d.size * 500) / 2;})
-  .text(function(d) { return '\u2002' + d.name; });
+  .text(function(d) { return '\u2002' + d.name + ' '; });
 
 text.append('tspan')
   .append("a")
-  .on("mouseover", function(d) { d3.select(this).style("fill", "blue").style("font-weight", "bold").style("text-decoration", "underline"); })                  
+  .on("mouseover", function(d) { d3.select(this).style("fill", "blue").style("font-weight", "bold").style("text-decoration", "underline").style("cursor", "pointer"); })
   .on("mouseout", function(d) { d3.select(this).style("fill", "").style("font-weight", "").style("text-decoration", ""); })
-  .attr("xlink:href", function (d) { return "http://merenlab.org/software/anvio/vignette/#" + d.name; })
+  .attr("xlink:href", function (d) { return "/software/anvio/vignette/#" + d.name; })
   .attr("target", "_blank")
   .html(function (d) { return (d.type == 'PROGRAM') ? '[i]' : ''});
 
@@ -239,9 +243,9 @@ function set_highlight(d){
 
         link.style("stroke", function(o) {
           if (o.source.index == d.index)
-            return '#00FF00';
+            return '#00AA00';
           if (o.target.index == d.index)
-            return '#FF0000';
+            return '#AA0000';
 
           return default_link_color;
         });

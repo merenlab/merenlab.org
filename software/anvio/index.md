@@ -7,9 +7,9 @@ excerpt: "Anvi'o Project Page"
 
 {% include _toc.html %}
 
-{% include _project-anvio-images.html %}
-
 # Anvi'o in a nutshell
+
+<a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 Anvi'o is an [open-source](http://github.com/meren/anvio), community-driven analysis and visualization platform for 'omics data.
 
