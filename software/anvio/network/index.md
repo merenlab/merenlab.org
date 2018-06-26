@@ -2,6 +2,9 @@
 layout: project-anvio-network
 modified: 2018-06-23
 categories: [anvio]
+image:
+  feature: anvio-network.png
+  display: false
 ---
 
 <div id="logo">
