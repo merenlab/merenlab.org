@@ -61,7 +61,7 @@ You may see warning messages during self-test runs. Don't be concerned.
 If you have [Anaconda](https://www.continuum.io/downloads), it is also possible to install anvi'o along with its all Python and non-Python dependencies thanks to [John Eppley](https://scholar.google.com/citations?user=4S2q_9cAAAAJ&hl=en):
 
 ``` bash
-conda create -n anvio4 -c bioconda -c conda-forge python=3 anvio=4
+conda install -c bioconda -c conda-forge anvio diamond bwa
 ```
 
 Once the installation is complete, test anvi'o quickly to make sure everything is in order:
@@ -71,7 +71,7 @@ anvi-self-test --suite mini
 ```
 
 {:.notice}
-Note that the most up-to-date conda-available anvi'o version, which is currently `v4`, may differ from the most up-to-date stable anvi'o version, which is `v{% include _project-anvio-version-number.html %}`.
+Note that the most up-to-date conda-available anvi'o version, which is currently `v5`, may differ from the most up-to-date stable anvi'o version, which is `v{% include _project-anvio-version-number.html %}`.
 
 
 ## Installation (with varying levels of pain)
