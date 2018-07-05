@@ -288,9 +288,8 @@ But there are some general things you can notice:
  
  - **run** - some rules have this parameter. The rules that have this parameter are optional rules. To make sure that an optional rule is ran you need to set the `run` parameter to `true`. If you wish not to run an optional rule, then you must set `run` to `false` or simply an empty string (`""`). Some of the optional rules run by default and others don't. You can find out what is the default behaviour by looking at the default config file. As mentioned above, if a rule doesn't have the **run** parameter it means that snakemake will infer whether it needs to run or not (just have some trust please!).
 
- - **parameters with an empty value (`""`)** - Many of the parameters in the default config file get an empty value. This means that the default parameter that is provided by the underlying program will be used. For example, the rule `anvi_gen_contigs_database` is responsible for running `anvi-gen-contigs-database` (we tried giving intuitive names for rules :-)), which has the parameter `--split-length`. In the default config file will see the configurations:
-
-Meren, I need your help in formatting here. Thank you. basically I want the json below, and the text that follows it to be idented like the text above, but I failed doing it, and google refused to help.
+ - **parameters with an empty value (`""`)** - Many of the parameters in the default config file get an empty value. This means that the default parameter that is provided by the underlying program will be used. For example, the rule `anvi_gen_contigs_database` is responsible for running `anvi-gen-contigs-database` (we tried giving intuitive names for rules :-)). Below you can see all the available configurations for `anvi_gen_contigs_database`. Let's take the parameter `--split-length` as an example. By refering to the help menu of `anvi-gen-contigs-database` you will find that the default for `--split-length` is 20,000, and this default value will be used by `anvi-gen-contigs-database` if nothing was supplied in the config file.
+You may notice another interesting thing, which is that the value for `--project-name` is `"{group}"`. This is a little magic trick to make it so that the project name in your contigs database would be indentical to the group name that you supplied in the config file. If you wish to understand this syntax, you may read about [the snakemake wildcards](http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#wildcards).
 
 ```
     "anvi_gen_contigs_database": {
@@ -307,8 +306,7 @@ Meren, I need your help in formatting here. Thank you. basically I want the json
     },
 ```
 
-By refering to the help menu of `anvi-gen-contigs-database` you will find that the default for `--split-length` is 20,000.
-You may notice another interesting thing, which is that the value for `--project-name` is `"{group}"`. This is a little magic trick to make it so that the project name in your contigs database would be indentical to the group name that you supplied in the config file. If you wish to understand this syntax, you may read about [the snakemake wildcards](http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#wildcards).
+
 
 
 </div>
@@ -365,7 +363,7 @@ anvi-run-workflow -w metagenomics \
                                 --resource nodes=40
 ```
 
-Let's talk a little more about the additional params listed above. You can read about the `--cluster` parameter in the [snakemake docummentation](http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#threads). On our cluster, we use a wrapper for `qsub`, which we called `clusterize` in order to submit jobs (if you are not sure how to submit jobs to your cluster, ask your system admin). The `{log}` and `{threads}` arguments are part of the snakemake syntax, and you can learn about them from the snakemake docummentation. Briefly, `{threads}` is a wildcard that for each job submitted to the cluster will be replaced by the number of threads that you supplied in the config file for the specific rule (or the default number of threads that we set for that rule). `{log}` is a wildcard that will be replaced by the name of the log file that we set for each rule, unless you decided to change it, the log files would appear in your working directory under the directory `00_LOGS`.
+Let's talk a little more about the additional params listed above. You can read about the `--cluster` parameter in the [snakemake docummentation](http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#threads). On our cluster, we use a wrapper for `qsub`, which we called `clusterize` in order to submit jobs (if you are not sure how to submit jobs to your cluster, ask your system admin). The `{log}` and `{threads}` arguments are part of the snakemake syntax, and you can learn about them from the snakemake docummentation. Briefly, `{threads}` is a wildcard that for each job submitted to the cluster will be replaced by the number of threads that you supplied in the config file for the specific rule (or the default number of threads that we set for that rule). `{log}` is a wildcard that will be replaced by the name of the log file that we set for each rule, unless you decided to change it, the log files would appear in your working directory under the directory `00_LOGS`. For more about running the workflows on a cluster refer to [this section](#running-the-workflow-on-a-cluster).
 
 Once you run this, you should see something like this:
 
@@ -548,9 +546,22 @@ anvi-run-workflow -w metagenomics \
 
 # Contigs workflow
 
-The contigs workflow is meant for cases in which all you want to is to only create contigs databases and annotate them with functions, taxonomy, etc. 
+The contigs workflow is meant for cases in which all you want is to create contigs databases and annotate them with functions, taxonomy, etc. 
 
-We can use the same fasta files that we used for the example above for references mode. Your working directory includes a config file `config-contigs.json`, let's first look at the workflow graph:
+We can use the same fasta files that we used for the example above for references mode. Your working directory includes a config file `config-contigs.json`, and it looks like this:
+
+```json
+{
+    "fasta_txt": "fasta.txt",
+    "output_dirs": {
+        "FASTA_DIR": "01_FASTA_contigs_workflow",
+        "CONTIGS_DIR": "02_CONTIGS_contigs_workflow",
+        "LOGS_DIR": "00_LOGS_contigs_workflow"
+    }
+}
+```
+
+Let's look at the workflow graph:
 
 ```bash
 anvi-run-workflow -w contigs \
@@ -577,6 +588,14 @@ If you want to get a default config file, then you can run:
 anvi-run-workflow -w contigs \
                   --get-default-config CONFIG-NAME.json
 ```
+
+To see that things worked as expected we can run:
+
+```
+anvi-display-contigs-stats 02_CONTIGS_contigs_workflow/G01-contigs.db
+```
+
+[![display-contigs]({{images}}/display-contigs.png)]( {{images}}/display-contigs.png){:.center-img .width-50}
 
 # Pangenomics workflow
 
@@ -613,7 +632,7 @@ anvi-run-workflow -w pangenomics \
 
 [![DAG-pangenomics]({{images}}/DAG-pangenomics.png)]( {{images}}/DAG-pangenomics.png){:.center-img .width-50}
 
-Since we used the same directories from the contigs workflow, then some of the steps don't have to be repeated. These steps are inside dashed lines in the workflow graph, whereas the rules that will be executed are inside a box.
+Since we used the same directories from the [contigs workflow above](#contigs-workflow), then some of the steps don't have to be repeated. These steps are inside dashed lines in the workflow graph, whereas the rules that will be executed are inside a box. If we gave the `CONTIGS_DIR` a new name then these steps would be repeated and new contigs databases would be created and annotated.
 
 Now we can run it:
 
@@ -698,6 +717,59 @@ anvi-run-workflow -w pangenomics \
 ```
 
 [![PAN-internal]({{images}}/PAN-internal.png)]( {{images}}/PAN-internal.png){:.center-img .width-50}
+
+## Running the pangenomic workflow with external AND internal genomes
+
+We can use the files from the example above. In your working directory you will find the following config file, `config-pangenomics-internal-external.json`:
+
+```json
+{
+    "project_name": "MYPAN_COMBINED",
+    "anvi_gen_genomes_storage": {
+        "--external-genomes": "my-external-genomes.txt",
+        "--internal-genomes": "my-internal-genomes.txt"
+    },
+    "fasta_txt": "fasta.txt",
+    "output_dirs": {
+        "FASTA_DIR": "01_FASTA_contigs_workflow",
+        "CONTIGS_DIR": "02_CONTIGS_contigs_workflow",
+        "LOGS_DIR": "00_LOGS_pan_workflow",
+        "PAN_DIR": "03_PAN_INTERNAL_EXTERNAL_GENOMES"
+    }
+}
+```
+
+Let's generate a workflow graph:
+
+```bash
+anvi-run-workflow -w pangenomics
+                  -c config-pangenomics-internal-external.json
+                  --save-workflow-graph
+```
+
+[![DAG-internal-external-pan]({{images}}/DAG-internal-external-pan.png)]( {{images}}/DAG-internal-external-pan.png){:.center-img .width-50}
+
+Notice that most steps are in dashed boxes since we are using results from previuous runs.
+
+And now we run it:
+
+```bash
+anvi-run-workflow -w pangenomics
+                  -c config-pangenomics-internal-external.json                   
+                  --additional-params
+                      --cluster 'clusterize -log {log} -n {threads}'
+                      --jobs 10
+                      --resources nodes=30
+```
+
+And finally, we display it:
+
+```bash
+anvi-display-pan -g 03_PAN_INTERNAL_EXTERNAL_GENOMES/MYPAN_COMBINED-GENOMES.db
+                 -p 03_PAN_INTERNAL_EXTERNAL_GENOMES/MYPAN_COMBINED-PAN.db
+```
+
+[![PAN-internal-external]({{images}}/PAN-internal-external.png)]( {{images}}/PAN-internal-external.png){:.center-img .width-50}
 
 # Running the workflow on a cluster
 
