@@ -720,7 +720,7 @@ anvi-run-workflow -w pangenomics \
 
 ## Running the pangenomic workflow with external AND internal genomes
 
-We can use the files from the example above. In your working directory you will find the following config file, `config-pangenomics-internal-external.json`:
+We can use the files from the examples above. In your working directory you will find the following config file, `config-pangenomics-internal-external.json`:
 
 ```json
 {
@@ -733,7 +733,7 @@ We can use the files from the example above. In your working directory you will 
     "output_dirs": {
         "FASTA_DIR": "01_FASTA_contigs_workflow",
         "CONTIGS_DIR": "02_CONTIGS_contigs_workflow",
-        "LOGS_DIR": "00_LOGS_pan_workflow",
+        "LOGS_DIR": "00_LOGS_pan_combined_workflow",
         "PAN_DIR": "03_PAN_INTERNAL_EXTERNAL_GENOMES"
     }
 }
