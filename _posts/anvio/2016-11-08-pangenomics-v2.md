@@ -1,5 +1,6 @@
 ---
 layout: post
+authors: [meren,alon,ozcan]
 title: "An anvi'o workflow for microbial pangenomics"
 excerpt: "The user-friendly interface anvi'o provides to work with pangenomes."
 modified: 2016-11-08
@@ -110,7 +111,7 @@ We will simply create a pangenome of 31 [Prochlorococcus isolate genomes that we
 If you wish to follow the tutorial on your computer, you can download the Prochlorococcus data pack ([doi:10.6084/m9.figshare.6318833](https://doi.org/10.6084/m9.figshare.6318833)) which contains anvi'o contigs databases for these isolate genomes on your computer:
 
 ``` bash
-wget https://ndownloader.figshare.com/files/11568539 -O Prochlorococcus_31_genomes.tar.gz
+wget https://ndownloader.figshare.com/files/11857577 -O Prochlorococcus_31_genomes.tar.gz
 tar -zxvf Prochlorococcus_31_genomes.tar.gz
 cd Prochlorococcus_31_genomes
 anvi-migrate-db *.db

@@ -9,23 +9,21 @@ comments: true
 
 {% include _toc.html %}
 
-{% capture images %}{{site.url}}/data/2017_Delmont_et_al_HBDs/images{% endcapture %}
+{:.notice}
+The URL [https://www.nature.com/articles/s41564-018-0176-9](https://www.nature.com/articles/s41564-018-0176-9) is where the published version of this study described in this document (before that we had a pre-print [here](http://biorxiv.org/content/early/2017/04/23/129791))
 
 {:.notice}
-The URL [http://biorxiv.org/content/early/2017/04/23/129791](http://biorxiv.org/content/early/2017/04/23/129791) serves the pre-print of the study described in this document.
-
-{:.notice}
-The URL [http://merenlab.org/data/#delmont-et-al-2017--tara-binning](http://merenlab.org/data/#delmont-et-al-2017--tara-binning) serves all public data items used and produced by this study.
+The URL [http://merenlab.org/data/#delmont-et-al-2017--tara-binning](http://merenlab.org/data/#delmont-et-al-2017--tara-binning) serves all public data items our study used or produced.
 
 {:.notice}
 The URL [http://merenlab.org/data/2017_Delmont_et_al_HBDs/](http://merenlab.org/data/2017_Delmont_et_al_HBDs/) serves the most up-to-date version of this document.
 
-This document describes the reproducible bioinformatics workflow we used to recover and characterize metagenome-assembled genomes (MAGs) from the TARA Oceans metagenomic co-assemblies, some of which are described in the study "*Nitrogen-fixing populations of Planctomycetes and Proteobacteria are abundant in the surface ocean*" by Delmont et al.
+This document describes the reproducible bioinformatics workflow we used to recover and characterize metagenome-assembled genomes (MAGs) from the TARA Oceans metagenomic co-assemblies, some of which are described in the study "*Nitrogen-fixing populations of Planctomycetes and Proteobacteria are abundant in surface ocean metagenomes*" by Delmont et al.
 
 The document contains program names and exact parameters used throughout every step of the analysis of the TARA Oceans metagenomes, which relied predominantly on the open-source analysis platform, [anvi’o](http://merenlab.org/software/anvio) (Eren et al., 2015).
 
 {:.notice}
-All anvi'o analyses in this document are performed using the anvi'o version `v2.3.0`. Please see [the installation notes]({% post_url anvio/2016-06-26-installation-v2 %}) to acquire the appropriate version through PyPI, Docker, or GitHub.
+All anvi'o analyses in this document are performed using the anvi'o version `v2.3.0`. Please see [the installation notes]({% post_url anvio/2016-06-26-installation-v2 %}) to acquire the appropriate version through PyPI, Docker, or GitHub. Most anvi'o commands should continue to work in most up-to-date anvi'o versions, but some adjustments may be necessary. Please feel free to get in touch with us if you need help.
 
 The following sections describe steps to download, quality-filter, and co-assemble the raw metagenomic data, followed by the recovery and characterization of a non-redundant database of metagenome-assembled genomes through binning and curation steps.
 
@@ -63,7 +61,7 @@ done
 
 We defined 12 'metagenomic sets' for geographically bound locations TARA Oceans samples originated from. These metagenomic sets are described in Figure 1:
 
-![TARA]({{images}}/Figure_01.png){:.center-img .width-70}
+![TARA](images/Figure_01.png){:.center-img .width-70}
 
 We tailored our sample naming schema for convenience and reproducibility. The following address contains a file with three-letter identifiers for each of the 12 metagenomic set, which will become prefixes for each sample name for direct access to all samples from a given metagenomic set:
 
@@ -427,8 +425,7 @@ This article demonstrates the importance of refinement:
 
 And this video demonstrates the key capabilities of the anvi'o interactive interface for refinement tasks:
 
-{:.notice}
-[https://www.youtube.com/watch?v=vXPKP5vKiBM](https://www.youtube.com/watch?v=vXPKP5vKiBM)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vXPKP5vKiBM?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
 
@@ -1063,6 +1060,39 @@ AUXILIARY-DATA.h5.gz  CONTIGS.db  CONTIGS.h5  PROFILE.db
 We made publicly available ([doi:10.6084/m9.figshare.4902941](https://doi.org/10.6084/m9.figshare.4902941)) the individual non-redundant MAGs in `NON-REDUNDANT-MAGs-SPLIT`.
 
 <iframe src="https://widgets.figshare.com/articles/4902941/embed?show_title=1" width="100%" height="400" frameborder="0"></iframe>
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Interactively visualize our genomic bins</span>
+
+You can use the self-contained databases above to visualize the coverage of all contigs in any of our population genomes. The following example shows how to do it for `TARA_ANW_MAG_00006`, which happens to be the **HBD-06** in our study:
+
+``` bash
+# download the self contained profile
+wget https://ndownloader.figshare.com/files/8248433 \
+     -O TARA_ANW_MAG_00006.tar.gz
+
+# unpack
+tar -zxvf TARA_ANW_MAG_00006.tar.gz 
+
+# migrate databases in case you have a newer version of
+# anvi'o
+ANVIO_SAMPLES_DB=SKIP anvi-migrate-db TARA_ANW_MAG_00006/PROFILE.db
+anvi-migrate-db TARA_ANW_MAG_00006/CONTIGS.db
+
+# run the interactive interface
+anvi-interactive -p TARA_ANW_MAG_00006/PROFILE.db \
+                 -c TARA_ANW_MAG_00006/CONTIGS.db
+```
+
+This should give you an interactive interface in your browser that shows the coverage of each contig across all Tara Oceans surface ocean samples:
+
+![TARA](images/TARA_ANW_MAG_00006.png){:.center-img .width-70}
+
+Now you can use [any of the anvi'o programs](http://merenlab.org/software/anvio/vignette/) on these self-contained merged profile and contigs database.
+
+</div>
+
 
 
 ## Identification of Candidate Phyla Radiation MAGs

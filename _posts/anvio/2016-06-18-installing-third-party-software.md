@@ -61,12 +61,26 @@ Type `prodigal -v` again to make sure everything is alright, and you get the pro
 
 **Citation**: [http://hmmer.org/](http://hmmer.org/)
 
-Go to your terminal, and type `hmmscan -h`, if you get an error, you need to install HMMER, if the version number is less than 3.1, you need to update it.
+Go to your terminal, and type `hmmscan -h`:
 
-Here is how to install v3.1b2:
+* If you get an error, you need to install HMMER.
+
+* If the version number is less than `v3.1`, you need to update it.
+
+Here is how to install `v3.2` (or update your current installation to it):
 
 ``` bash
-wget http://eddylab.org/software/hmmer3/3.1b2/hmmer-3.1b2.tar.gz
+wget http://eddylab.org/software/hmmer/hmmer-3.2.tar.gz
+tar -zxvf hmmer-3.2.tar.gz
+cd hmmer-3.2
+./configure && make && sudo make install
+cd easel && make check && sudo make install
+```
+
+**If you are using anvi'o `v4` or earler version, you need HMMER `v3.1b2`**. Here is how to install it:
+
+``` bash
+wget http://eddylab.org/software/hmmer/hmmer-3.1b2.tar.gz
 tar -zxvf hmmer-3.1b2.tar.gz
 cd hmmer-3.1b2
 ./configure && make && sudo make install
@@ -362,8 +376,10 @@ FAMSA (Fast and Accurate Multiple Sequence Alignment) ver. 1.2 CPU
 
 **Citation**: [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3013697/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3013697/)
 
-Go to your terminal, and type `mkdssp --version`. If you do not get an error, read ahead to make
-sure your DSSP is operational. If you get an error, you need to install DSSP.
+{:.notice}
+Normally we like `brew` very much, however the `brew` distribution of DSSP only worked for 2 out of 3 of us. That's not a good ratio. If you are running into installation issues with brew, or you have a Linux or Windows machine, try to install DSSP with `conda` using this command line: `conda install -c salilab dssp`. If you get a `command not found` error, you have to install `conda`, and easy install instructions can be found on [their website](https://conda.io/docs/user-guide/install/index.html#)
+
+Do you already have DSSP? Go to your terminal, and type `mkdssp --version`. If you do not get an error, read ahead to make sure your DSSP is operational. If you get an error, you need to install DSSP.
 
 To install on your MAC OSX computer run the following commands:
 
@@ -380,12 +396,36 @@ Warning: brewsci/science/dssp X.X.X is already installed and up-to-date
 
 then you should run `brew reinstall dssp --build-from-source`.
 
-Now you have DSSP. Let's make sure it is operational. We have experienced that some installations of DSSP are faulty. You can test yours by typing the following into your terminal:
+To install on your Linux or (god forbid) Windows computer, see the above notice for installation via `conda`.
+
+Now you have DSSP. Is it operational? Test yours by typing the following into your terminal:
 
 ```bash
 wget http://files.rcsb.org/view/1H97.cif #download myoglobin structure
 mkdssp -i 1H97.cif -o myoglobin_DSSP.txt
 ```
 
-If no error is produced, DSSP is working (you can open up `myoglobin_DSSP.txt` to see what the output looks like). If you got an error that looks like: `Segmentation fault: 11`, try reinstalling with the above instructions. If the error persists, please contact us.
+If no error is produced, DSSP is working (you can open up `myoglobin_DSSP.txt` to see what the output looks like). If you got an error that looks like: `Segmentation fault: 11`, try reinstalling with `conda`. If the error persists, burn your computer to the ground and then email us.
 
+## MODELLER
+
+[MODELLER](https://salilab.org/modeller/) is a program for homology or comparative modeling of protein three-dimensional structures using a reference database.
+
+**Citation**: [https://www.ncbi.nlm.nih.gov/pubmed/18428767](https://www.ncbi.nlm.nih.gov/pubmed/18428767)
+
+**Citation**: [https://www.ncbi.nlm.nih.gov/pubmed/10940251](https://www.ncbi.nlm.nih.gov/pubmed/10940251)
+
+**Citation**: [https://www.ncbi.nlm.nih.gov/pubmed/8254673](https://www.ncbi.nlm.nih.gov/pubmed/8254673)
+
+Go to your terminal and type `mod` and then attempt to autocomplete the command by pressing the tab key twice. If something like `mod9.xx` pops up, where `xx` is some number, you have MODELLER. If `xx` is lower than `19`, you should reinstall MODELLER using the following instructions.
+
+If you don't have any version of MODELLER, their website has excellent cross-platform [intallation instructions](https://salilab.org/modeller/release.html#install). If you are on MAC OSX, you can just run:
+
+```
+brew tap salilab/salilab
+brew install modeller
+```
+
+Regardless of your method of installation, check it worked by typing `mod` into your terminal and seeing that it autocompletes after pressing the tab key twice.
+
+Along with an installation, you will need a license key (which is free for academic use). You can go ahead and [register for a license key](https://salilab.org/modeller/registration.html) on their website and put the key where they tell you, **or** you can just pretend you have one and anvi'o will give you precise instructions on how to get one and what to do with it when the time comes.

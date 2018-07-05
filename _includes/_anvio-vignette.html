@@ -1,11 +1,12 @@
-Here you will find the current anvi'o programs in the latest stable version of the platform, and their help menu. The contents of this file was last updated on **24 Feb 18 12:58:16**, and then anvi'o looked like this:
+Here you will find the current anvi'o programs in the latest stable version of the platform, and their help menu. The contents of this file was last updated on **24 Jun 18 15:01:23**, and then anvi'o looked like this:
 
 |Key|Value|
 |:--|:--:|
-|Anvi&#39;o version|4|
-|Profile DB version|23|
-|Contigs DB version|10|
-|Pan DB version|8|
+|Anvi&#39;o version|margaret (v5)|
+|Profile DB version|29|
+|Contigs DB version|12|
+|Structure DB version|1|
+|Pan DB version|12|
 |Genome data storage version|6|
 |Auxiliary data storage version|2|
 
@@ -13,11 +14,11 @@ Here you will find the current anvi'o programs in the latest stable version of t
 
 # Summary
 
-**Main anvi'o programs (68)**
-[anvi-cluster-with-concoct](#anvi-cluster-with-concoct), [anvi-compute-completeness](#anvi-compute-completeness), [anvi-delete-collection](#anvi-delete-collection), [anvi-delete-hmms](#anvi-delete-hmms), [anvi-delete-misc-data](#anvi-delete-misc-data), [anvi-delete-state](#anvi-delete-state), [anvi-display-contigs-stats](#anvi-display-contigs-stats), [anvi-display-pan](#anvi-display-pan), [anvi-experimental-organization](#anvi-experimental-organization), [anvi-export-collection](#anvi-export-collection), [anvi-export-contigs](#anvi-export-contigs), [anvi-export-functions](#anvi-export-functions), [anvi-export-gene-calls](#anvi-export-gene-calls), [anvi-export-gene-coverage-and-detection](#anvi-export-gene-coverage-and-detection), [anvi-export-locus](#anvi-export-locus), [anvi-export-misc-data](#anvi-export-misc-data), [anvi-export-splits-and-coverages](#anvi-export-splits-and-coverages), [anvi-export-splits-taxonomy](#anvi-export-splits-taxonomy), [anvi-export-state](#anvi-export-state), [anvi-export-table](#anvi-export-table), [anvi-gen-contigs-database](#anvi-gen-contigs-database), [anvi-gen-gene-consensus-sequences](#anvi-gen-gene-consensus-sequences), [anvi-gen-genomes-storage](#anvi-gen-genomes-storage), [anvi-gen-network](#anvi-gen-network), [anvi-gen-phylogenomic-tree](#anvi-gen-phylogenomic-tree), [anvi-gen-variability-matrix](#anvi-gen-variability-matrix), [anvi-gen-variability-network](#anvi-gen-variability-network), [anvi-gen-variability-profile](#anvi-gen-variability-profile), [anvi-get-aa-counts](#anvi-get-aa-counts), [anvi-get-aa-frequencies](#anvi-get-aa-frequencies), [anvi-get-aa-sequences-for-gene-calls](#anvi-get-aa-sequences-for-gene-calls), [anvi-get-dna-sequences-for-gene-calls](#anvi-get-dna-sequences-for-gene-calls), [anvi-get-sequences-for-gene-clusters](#anvi-get-sequences-for-gene-clusters), [anvi-get-sequences-for-hmm-hits](#anvi-get-sequences-for-hmm-hits), [anvi-get-short-reads-from-bam](#anvi-get-short-reads-from-bam), [anvi-get-short-reads-mapping-to-a-gene](#anvi-get-short-reads-mapping-to-a-gene), [anvi-get-split-coverages](#anvi-get-split-coverages), [anvi-import-collection](#anvi-import-collection), [anvi-import-functions](#anvi-import-functions), [anvi-import-misc-data](#anvi-import-misc-data), [anvi-import-state](#anvi-import-state), [anvi-import-taxonomy](#anvi-import-taxonomy), [anvi-init-bam](#anvi-init-bam), [anvi-interactive](#anvi-interactive), [anvi-matrix-to-newick](#anvi-matrix-to-newick), [anvi-mcg-classifier](#anvi-mcg-classifier), [anvi-merge](#anvi-merge), [anvi-merge-bins](#anvi-merge-bins), [anvi-meta-pan-genome](#anvi-meta-pan-genome), [anvi-migrate-db](#anvi-migrate-db), [anvi-oligotype-linkmers](#anvi-oligotype-linkmers), [anvi-pan-genome](#anvi-pan-genome), [anvi-profile](#anvi-profile), [anvi-push](#anvi-push), [anvi-refine](#anvi-refine), [anvi-rename-bins](#anvi-rename-bins), [anvi-report-linkmers](#anvi-report-linkmers), [anvi-run-hmms](#anvi-run-hmms), [anvi-run-ncbi-cogs](#anvi-run-ncbi-cogs), [anvi-saavs-and-protein-structures-summary](#anvi-saavs-and-protein-structures-summary), [anvi-search-functions](#anvi-search-functions), [anvi-self-test](#anvi-self-test), [anvi-setup-ncbi-cogs](#anvi-setup-ncbi-cogs), [anvi-show-collections-and-bins](#anvi-show-collections-and-bins), [anvi-show-misc-data](#anvi-show-misc-data), [anvi-split](#anvi-split), [anvi-summarize](#anvi-summarize), [anvi-update-db-description](#anvi-update-db-description).
+**Main anvi'o programs (77)**
+[anvi-cluster-with-concoct](#anvi-cluster-with-concoct), [anvi-compute-ani](#anvi-compute-ani), [anvi-compute-completeness](#anvi-compute-completeness), [anvi-db-info](#anvi-db-info), [anvi-delete-collection](#anvi-delete-collection), [anvi-delete-hmms](#anvi-delete-hmms), [anvi-delete-misc-data](#anvi-delete-misc-data), [anvi-delete-state](#anvi-delete-state), [anvi-display-contigs-stats](#anvi-display-contigs-stats), [anvi-display-pan](#anvi-display-pan), [anvi-display-structure](#anvi-display-structure), [anvi-experimental-organization](#anvi-experimental-organization), [anvi-export-collection](#anvi-export-collection), [anvi-export-contigs](#anvi-export-contigs), [anvi-export-functions](#anvi-export-functions), [anvi-export-gene-calls](#anvi-export-gene-calls), [anvi-export-gene-coverage-and-detection](#anvi-export-gene-coverage-and-detection), [anvi-export-locus](#anvi-export-locus), [anvi-export-misc-data](#anvi-export-misc-data), [anvi-export-splits-and-coverages](#anvi-export-splits-and-coverages), [anvi-export-splits-taxonomy](#anvi-export-splits-taxonomy), [anvi-export-state](#anvi-export-state), [anvi-export-table](#anvi-export-table), [anvi-gen-contigs-database](#anvi-gen-contigs-database), [anvi-gen-gene-consensus-sequences](#anvi-gen-gene-consensus-sequences), [anvi-gen-genomes-storage](#anvi-gen-genomes-storage), [anvi-gen-network](#anvi-gen-network), [anvi-gen-phylogenomic-tree](#anvi-gen-phylogenomic-tree), [anvi-gen-structure-database](#anvi-gen-structure-database), [anvi-gen-variability-matrix](#anvi-gen-variability-matrix), [anvi-gen-variability-network](#anvi-gen-variability-network), [anvi-gen-variability-profile](#anvi-gen-variability-profile), [anvi-get-aa-counts](#anvi-get-aa-counts), [anvi-get-codon-frequencies](#anvi-get-codon-frequencies), [anvi-get-enriched-functions-per-pan-group](#anvi-get-enriched-functions-per-pan-group), [anvi-get-sequences-for-gene-calls](#anvi-get-sequences-for-gene-calls), [anvi-get-sequences-for-gene-clusters](#anvi-get-sequences-for-gene-clusters), [anvi-get-sequences-for-hmm-hits](#anvi-get-sequences-for-hmm-hits), [anvi-get-short-reads-from-bam](#anvi-get-short-reads-from-bam), [anvi-get-short-reads-mapping-to-a-gene](#anvi-get-short-reads-mapping-to-a-gene), [anvi-get-split-coverages](#anvi-get-split-coverages), [anvi-import-collection](#anvi-import-collection), [anvi-import-functions](#anvi-import-functions), [anvi-import-misc-data](#anvi-import-misc-data), [anvi-import-state](#anvi-import-state), [anvi-import-taxonomy-for-genes](#anvi-import-taxonomy-for-genes), [anvi-import-taxonomy-for-layers](#anvi-import-taxonomy-for-layers), [anvi-init-bam](#anvi-init-bam), [anvi-interactive](#anvi-interactive), [anvi-matrix-to-newick](#anvi-matrix-to-newick), [anvi-mcg-classifier](#anvi-mcg-classifier), [anvi-merge](#anvi-merge), [anvi-merge-bins](#anvi-merge-bins), [anvi-meta-pan-genome](#anvi-meta-pan-genome), [anvi-migrate-db](#anvi-migrate-db), [anvi-oligotype-linkmers](#anvi-oligotype-linkmers), [anvi-pan-genome](#anvi-pan-genome), [anvi-profile](#anvi-profile), [anvi-push](#anvi-push), [anvi-refine](#anvi-refine), [anvi-rename-bins](#anvi-rename-bins), [anvi-report-linkmers](#anvi-report-linkmers), [anvi-run-hmms](#anvi-run-hmms), [anvi-run-ncbi-cogs](#anvi-run-ncbi-cogs), [anvi-run-pfams](#anvi-run-pfams), [anvi-run-workflow](#anvi-run-workflow), [anvi-saavs-and-protein-structures-summary](#anvi-saavs-and-protein-structures-summary), [anvi-search-functions](#anvi-search-functions), [anvi-self-test](#anvi-self-test), [anvi-setup-ncbi-cogs](#anvi-setup-ncbi-cogs), [anvi-setup-pfams](#anvi-setup-pfams), [anvi-show-collections-and-bins](#anvi-show-collections-and-bins), [anvi-show-misc-data](#anvi-show-misc-data), [anvi-split](#anvi-split), [anvi-summarize](#anvi-summarize), [anvi-update-db-description](#anvi-update-db-description), [anvi-update-genes-in-structure-database](#anvi-update-genes-in-structure-database).
 
-**Ad hoc anvi'o scripts (18)**
-[anvi-script-add-default-collection](#anvi-script-add-default-collection), [anvi-script-checkm-tree-to-interactive](#anvi-script-checkm-tree-to-interactive), [anvi-script-filter-fasta-by-blast](#anvi-script-filter-fasta-by-blast), [anvi-script-gen-CPR-classifier](#anvi-script-gen-CPR-classifier), [anvi-script-gen-distribution-of-genes-in-a-bin](#anvi-script-gen-distribution-of-genes-in-a-bin), [anvi-script-gen-short-reads](#anvi-script-gen-short-reads), [anvi-script-gen-vignette](#anvi-script-gen-vignette), [anvi-script-gen_stats_for_single_copy_genes.py](#anvi-script-gen_stats_for_single_copy_genes.py), [anvi-script-gene-clusters-to-gene-calls](#anvi-script-gene-clusters-to-gene-calls), [anvi-script-get-collection-info](#anvi-script-get-collection-info), [anvi-script-get-collections-as-tab-delimited-matrix.py](#anvi-script-get-collections-as-tab-delimited-matrix.py), [anvi-script-get-prot-sequences.py](#anvi-script-get-prot-sequences.py), [anvi-script-itep-to-data-txt](#anvi-script-itep-to-data-txt), [anvi-script-merge-collections](#anvi-script-merge-collections), [anvi-script-predict-CPR-genomes](#anvi-script-predict-CPR-genomes), [anvi-script-reformat-fasta](#anvi-script-reformat-fasta), [anvi-script-run-eggnog-mapper](#anvi-script-run-eggnog-mapper), [anvi-script-snvs-to-interactive](#anvi-script-snvs-to-interactive).
+**Ad hoc anvi'o scripts (15)**
+[anvi-script-add-default-collection](#anvi-script-add-default-collection), [anvi-script-checkm-tree-to-interactive](#anvi-script-checkm-tree-to-interactive), [anvi-script-filter-fasta-by-blast](#anvi-script-filter-fasta-by-blast), [anvi-script-gen-CPR-classifier](#anvi-script-gen-CPR-classifier), [anvi-script-gen-distribution-of-genes-in-a-bin](#anvi-script-gen-distribution-of-genes-in-a-bin), [anvi-script-gen-hmm-hits-matrix-across-genomes](#anvi-script-gen-hmm-hits-matrix-across-genomes), [anvi-script-gen-short-reads](#anvi-script-gen-short-reads), [anvi-script-gen-vignette](#anvi-script-gen-vignette), [anvi-script-gen_stats_for_single_copy_genes.py](#anvi-script-gen_stats_for_single_copy_genes.py), [anvi-script-get-collection-info](#anvi-script-get-collection-info), [anvi-script-merge-collections](#anvi-script-merge-collections), [anvi-script-predict-CPR-genomes](#anvi-script-predict-CPR-genomes), [anvi-script-reformat-fasta](#anvi-script-reformat-fasta), [anvi-script-run-eggnog-mapper](#anvi-script-run-eggnog-mapper), [anvi-script-snvs-to-interactive](#anvi-script-snvs-to-interactive).
 
 ---
 
@@ -82,6 +83,86 @@ anvi-cluster-with-concoct [-h] -p PROFILE_DB -c CONTIGS_DB
 
 
 
+## anvi-compute-ani
+
+Export sequences from external genomes and compute ANI. If Pan Database is
+given anvi&#39;o will write computed output to misc data tables of Pan Database.
+
+
+
+
+
+**Usage**
+
+```
+anvi-compute-ani [-h] [-i FILE_PATH] [-e FILE_PATH] -o DIR_PATH
+                 [-p PAN_DB] [-T NUM_THREADS] [--log-file FILE_PATH]
+                 [--method {ANIm,ANIb,ANIblastall,TETRA}]
+                 [--distance DISTANCE_METRIC]
+                 [--linkage LINKAGE_METHOD] [--just-do-it]
+```
+
+**Parameters**
+
+
+
+**optional arguments:** 
+
+```
+  -i FILE_PATH, --internal-genomes FILE_PATH
+                        A four-column TAB-delimited flat text file. The header
+                        line must contain thse columns: 'name', 'bin_id',
+                        'collection_id', 'profile_db_path', 'contigs_db_path'.
+                        Each line should list a single entry, where 'name' can
+                        be any name to describe the anvi'o bin identified as
+                        'bin_id' that is stored in a collection.
+  -e FILE_PATH, --external-genomes FILE_PATH
+                        A two-column TAB-delimited flat text file that lists
+                        anvi'o contigs databases. The first item in the header
+                        line should read 'name', and the second should read
+                        'contigs_db_path'. Each line in the file should
+                        describe a single entry, where the first column is the
+                        name of the genome (or MAG), and the second column is
+                        the anvi'o contigs database generated for this genome.
+  -o DIR_PATH, --output-dir DIR_PATH
+                        Directory path for output files
+  -p PAN_DB, --pan-db PAN_DB
+                        Anvi'o pan database
+  -T NUM_THREADS, --num-threads NUM_THREADS
+                        Maximum number of threads to use for multithreading
+                        whenever possible. Very conservatively, the default is
+                        1. It is a good idea to not exceed the number of CPUs
+                        / cores on your system. Plus, please be careful with
+                        this option if you are running your commands on a SGE
+                        --if you are clusterizing your runs, and asking for
+                        multiple threads to use, you may deplete your
+                        resources very fast.
+  --log-file FILE_PATH  File path to store debug/output messages.
+  --method {ANIm,ANIb,ANIblastall,TETRA}
+                        Method for pyANI. The default is ANIb. You must have
+                        the necessary binary in path for whichever method you
+                        choose. According to the pyANI help for v0.2.7 at
+                        https://github.com/widdowquinn/pyani, the method
+                        'ANIm' uses MUMmer (NUCmer) to align the input
+                        sequences. 'ANIb' uses BLASTN+ to align 1020nt
+                        fragments of the input sequences. 'ANIblastall': uses
+                        the legacy BLASTN to align 1020nt fragments Finally,
+                        'TETRA': calculates tetranucleotide frequencies of
+                        each input sequence
+  --distance DISTANCE_METRIC
+                        The distance metric for the hierarchical clustering.
+                        The default is "euclidean".
+  --linkage LINKAGE_METHOD
+                        The linkage method for the hierarchical clustering.
+                        The default is "ward".
+  --just-do-it          Don't bother me with questions or warnings, just do
+                        it.
+```
+
+
+
+
+
 ## anvi-compute-completeness
 
 A script to generate completeness info for a given list of _splits_
@@ -121,6 +202,49 @@ anvi-compute-completeness [-h] [--splits-of-interest FILE] -c
   --completeness-source NAME
                         Single-copy gene source to use to estimate
                         completeness.
+```
+
+
+
+
+
+## anvi-db-info
+
+Access self tables, display values, or set new ones totally on your own risk.
+
+
+
+
+
+**Usage**
+
+```
+anvi-db-info [-h] [--self-key SELF_KEY] [--self-value SELF_VALUE]
+             [--just-do-it]
+             DATABASE_PATH
+```
+
+**Parameters**
+
+
+
+**Input:**   The database path you wish to access.
+
+```
+  DATABASE_PATH         An anvi'o database for pan, profile, contigs, or
+                        auxiliary data
+```
+
+
+
+**Very dangerous zone:**   For power users with extreme self-control and maturity.
+
+```
+  --self-key SELF_KEY   The key you wish to set or change
+  --self-value SELF_VALUE
+                        The value you wish to set for the self key
+  --just-do-it          Don't bother me with questions or warnings, just do
+                        it.
 ```
 
 
@@ -371,10 +495,9 @@ anvi-display-pan [-h] -p PAN_DB [-g GENOMES_STORAGE] [-d VIEW_DATA]
                  [-A ADDITIONAL_LAYERS] [--view NAME] [--title NAME]
                  [--state-autoload NAME] [--collection-autoload NAME]
                  [--export-svg FILE_PATH] [--skip-init-functions]
-                 [--show-views] [--dry-run] [--show-states]
-                 [--list-collections] [--skip-auto-ordering]
-                 [-I IP_ADDR] [-P INT] [--browser-path PATH]
-                 [--read-only] [--server-only]
+                 [--dry-run] [--skip-auto-ordering] [-I IP_ADDR]
+                 [-P INT] [--browser-path PATH] [--read-only]
+                 [--server-only]
 ```
 
 **Parameters**
@@ -462,14 +585,9 @@ anvi-display-pan [-h] -p PAN_DB [-g GENOMES_STORAGE] [-d VIEW_DATA]
                         relevant interfaces or output files). The use of this
                         flag may reduce the memory fingerprint and processing
                         time for large datasets.
-  --show-views          When declared, the program will show a list of
-                        available views, and exit.
   --dry-run             Don't do anything real. Test everything, and stop
                         right before wherever the developer said 'well, this
                         is enough testing', and decided to print out results.
-  --show-states         When declared the program will print all available
-                        states and exit.
-  --list-collections    Show available collections and exit.
   --skip-auto-ordering  When declared, the attempt to include automatically
                         generated orders of items based on additional data is
                         skipped. In case those buggers cause issues with your
@@ -500,6 +618,139 @@ anvi-display-pan [-h] -p PAN_DB [-g GENOMES_STORAGE] [-d VIEW_DATA]
   --read-only           When the interactive interface is started with this
                         flag, all 'database write' operations will be
                         disabled.
+  --server-only         The default behavior is to start the local server, and
+                        fire up a browser that connects to the server. If you
+                        have other plans, and want to start the server without
+                        calling the browser, this is the flag you need.
+```
+
+
+
+
+
+## anvi-display-structure
+
+optional arguments:
+  -h, --help            show this help message and exit
+
+
+
+
+
+**Usage**
+
+```
+anvi-display-structure [-h] -s STRUCTURE_DB [-p PROFILE_DB]
+                       [-c CONTIGS_DB] [-V VARIABILITY_TABLE]
+                       [--splits-of-interest FILE] [-C COLLECTION_NAME]
+                       [-b BIN_NAME] [--samples-of-interest FILE]
+                       [--genes-of-interest FILE]
+                       [--gene-caller-ids GENE_CALLER_IDS] [-j FLOAT]
+                       [--SAAVs-only] [--SCVs-only] [-I IP_ADDR]
+                       [-P INT] [--browser-path PATH] [--server-only]
+```
+
+**Parameters**
+
+
+
+**STRUCTURE:**   Information related to the structure database, which can be created with
+  anvi-gen-structure-database.
+
+```
+  -s STRUCTURE_DB, --structure-db STRUCTURE_DB
+                        Anvi'o structure database.
+```
+
+
+
+**VARIABILITY:**   We can overlay codon and amino acid variability in your metagenomes but we
+  need a data source of this variability. Most simply, anvi&#39;o can learn this
+  information when you provide both your profile (-p) and contigs (-c)
+  databases. Alternatively, you can provide a variability table output (-V)
+  from the program anvi-gen-variability-profile. Finally, you can visualize
+  the structures without overlaying variation by providing the flag --no-
+  variability.
+
+```
+  -p PROFILE_DB, --profile-db PROFILE_DB
+                        Anvi'o profile database
+  -c CONTIGS_DB, --contigs-db CONTIGS_DB
+                        Anvi'o contigs database generated by 'anvi-gen-
+                        contigs'
+  -V VARIABILITY_TABLE, --variability-profile VARIABILITY_TABLE
+                        FIXME
+```
+
+
+
+**REFINING PARAMETERS:**   Which samples, genes, and contigs etc. are you interested in? Define that
+  stuff here.
+
+```
+  --splits-of-interest FILE
+                        A file with split names. There should be only one
+                        column in the file, and each line should correspond to
+                        a unique split name.
+  -C COLLECTION_NAME, --collection-name COLLECTION_NAME
+                        Collection name.
+  -b BIN_NAME, --bin-id BIN_NAME
+                        If provided, any genes found in both your bin and your
+                        structure database will be available for display.
+  --samples-of-interest FILE
+                        A file with samples names. There should be only one
+                        column in the file, and each line should correspond to
+                        a unique sample name (without a column header).
+  --genes-of-interest FILE
+                        A file with anvi'o gene caller IDs. There should be
+                        only one column in the file, and each line should
+                        correspond to a unique gene caller id (without a
+                        column header).
+  --gene-caller-ids GENE_CALLER_IDS
+                        Gene caller ids. Multiple of them can be declared
+                        separated by a delimiter (the default is a comma). In
+                        anvi-gen-variability-profile, if you declare nothing
+                        you will get all genes matching your other filtering
+                        criteria. In other programs, you may get everything,
+                        nothing, or an error. It really depends on the
+                        situation. Fortunately mistakes are cheap, so it's
+                        worth a try.
+  -j FLOAT, --min-departure-from-consensus FLOAT
+                        Takes a value between 0 and 1, where 1 is maximum
+                        divergence from the consensus. it can be an expensive
+                        operation to display every variable position, and so
+                        the default is 0.05. To display every variable
+                        position, set this parameter to 0
+  --SAAVs-only          If provided, variability will be generated for single
+                        amino acid variants (SAAVs) and not for single codon
+                        variants (SCVs). This could save you some time if
+                        you're only interested in SAAVs.
+  --SCVs-only           If provided, variability will be generated for single
+                        codon variants (SCVs) and not for single amino acid
+                        variants (SAAVs). This could save you some time if
+                        you're only interested in SCVs.
+```
+
+
+
+**SERVER CONFIGURATION:**   For power users.
+
+```
+  -I IP_ADDR, --ip-address IP_ADDR
+                        IP address for the HTTP server. The default ip address
+                        (0.0.0.0) should work just fine for most.
+  -P INT, --port-number INT
+                        Port number to use for anvi'o services. If nothing is
+                        declared, anvi'o will try to find a suitable port
+                        number, starting from the default port number, 8080.
+  --browser-path PATH   By default, anvi'o will use your default browser to
+                        launch the interactive interface. If you would like to
+                        use something else than your system default, you can
+                        provide a full path for an alternative browser using
+                        this parameter, and hope for the best. For instance we
+                        are using this parameter to call Google's experimental
+                        browser, Canary, which performs better with demanding
+                        visualizations.
   --server-only         The default behavior is to start the local server, and
                         fire up a browser that connects to the server. If you
                         have other plans, and want to start the server without
@@ -694,8 +945,7 @@ anvi-export-functions [-h] -c CONTIGS_DB [-o FILE_PATH]
                         source_1,source_2,source_3'). The default behavior is
                         to return everything
   -l, --list-annotation-sources
-                        List available sources for annotation in the contigs
-                        database and quit.
+                        List available functional annotation sources.
 ```
 
 
@@ -790,7 +1040,7 @@ anvi-export-locus [-h] -c CONTIGS_DB -n NUM_GENES [-s SEARCH_TERM]
                   [--delimiter CHAR] -O FILENAME_PREFIX
                   [--separate-fasta] [--use-hmm]
                   [--hmm-sources SOURCE NAME] [-l] [-W]
-                  [--remove-partial-hits]
+                  [--remove-partial-hits] [--never-reverse-complement]
 ```
 
 **Parameters**
@@ -836,10 +1086,13 @@ anvi-export-locus [-h] -c CONTIGS_DB -n NUM_GENES [-s SEARCH_TERM]
 ```
   --gene-caller-ids GENE_CALLER_IDS
                         Gene caller ids. Multiple of them can be declared
-                        separated by a delimiter (the default is a comma). If
-                        you declare nothing, you may get everything. Or you
-                        may get an error. Really depends on the situation.
-                        Worth a try.
+                        separated by a delimiter (the default is a comma). In
+                        anvi-gen-variability-profile, if you declare nothing
+                        you will get all genes matching your other filtering
+                        criteria. In other programs, you may get everything,
+                        nothing, or an error. It really depends on the
+                        situation. Fortunately mistakes are cheap, so it's
+                        worth a try.
   --delimiter CHAR      The delimiter to parse multiple input terms. The
                         default is ','.
 ```
@@ -886,6 +1139,12 @@ anvi-export-locus [-h] -c CONTIGS_DB -n NUM_GENES [-s SEARCH_TERM]
                         the gene that matched the search criteria but the
                         search hits the end of the contig before finding the
                         number of genes that you asked.
+  --never-reverse-complement
+                        By default, if a gene that is found by the search
+                        criteria is reverse in it's direction, then the
+                        sequence of the entire locus is reversed before it is
+                        saved to the output. If you wish to prevent this
+                        behavior then use the flag --never-reverse-complement.
 ```
 
 
@@ -904,7 +1163,8 @@ or layers.
 **Usage**
 
 ```
-anvi-export-misc-data [-h] -p PAN_OR_PROFILE_DB -t NAME [-o FILE_PATH]
+anvi-export-misc-data [-h] -p PAN_OR_PROFILE_DB -t NAME [-D NAME]
+                      [-o FILE_PATH]
 ```
 
 **Parameters**
@@ -921,6 +1181,13 @@ anvi-export-misc-data [-h] -p PAN_OR_PROFILE_DB -t NAME [-o FILE_PATH]
                         accessing. Currently it can be 'items','layers', or
                         'layer_orders'. Please see most up-to-date online
                         documentation for more information.
+  -D NAME, --target-data-group NAME
+                        Data group to focus. Anvi'o misc data tables support
+                        associating a set of data keys with a data group. If
+                        you have no idea what this is, then probably you don't
+                        need it, and anvi'o will take care of you. Note: this
+                        flag is IRRELEVANT if you are working with additioanl
+                        order data tables.
   -o FILE_PATH, --output-file FILE_PATH
                         File path to store results.
 ```
@@ -931,7 +1198,7 @@ anvi-export-misc-data [-h] -p PAN_OR_PROFILE_DB -t NAME [-o FILE_PATH]
 
 ## anvi-export-splits-and-coverages
 
-Export sequences and coverages across samples for splits or contigs
+Export sequences and mean coverages across samples for splits or contigs
 
 
 
@@ -943,6 +1210,7 @@ Export sequences and coverages across samples for splits or contigs
 anvi-export-splits-and-coverages [-h] -p PROFILE_DB -c CONTIGS_DB
                                  [-o DIR_PATH] [-O FILENAME_PREFIX]
                                  [--splits-mode] [--report-contigs]
+                                 [--use-Q2Q3-coverages]
 ```
 
 **Parameters**
@@ -970,6 +1238,16 @@ anvi-export-splits-and-coverages [-h] -p PROFILE_DB -c CONTIGS_DB
                         report contig sequences and coverages instead. For
                         obvious reasons, you can't use this flag with
                         `--splits-mode` flag.
+  --use-Q2Q3-coverages  By default this program reports the mean coverage of a
+                        split (or contig, see --report-contigs) for each
+                        sample. By using this flag, you can report the mean
+                        Q2Q3 coverage by excluding 25 percent of the
+                        nucleotide positions with the smallest coverage
+                        values, and 25 percent of the nucleotide positions
+                        with the largest coverage values. The hope is that
+                        this removes 'outlier' positions resulting from non-
+                        specific mapping, etc. that skew the mean coverage
+                        estimate.
 ```
 
 
@@ -1421,8 +1699,7 @@ anvi-gen-network [-h] -p PROFILE_DB -c CONTIGS_DB
                         source. You can use the flag '--list-annotation-
                         sources' to learn about what sources are available.
   -l, --list-annotation-sources
-                        List available sources for annotation in the contigs
-                        database and quit.
+                        List available functional annotation sources.
 ```
 
 
@@ -1448,7 +1725,8 @@ anvi-gen-phylogenomic-tree [-h] -f FASTA -o FILE_PATH
 
 
 
-**INPUT FILES:**   Concatenated aligment files exported using anvi-export-pc-aligments
+**INPUT FILES:**   Concatenated aligment files exported using anvi-get-sequences-for-gene-
+  clusters
 
 ```
   -f FASTA, --fasta-file FASTA
@@ -1472,6 +1750,193 @@ anvi-gen-phylogenomic-tree [-h] -f FASTA -o FILE_PATH
 ```
   --program PROGRAM_NAME
                         Program name.
+```
+
+
+
+
+
+## anvi-gen-structure-database
+
+Identifies genes in your contigs database that encode proteins that are
+homologous to proteins with solved structures. If sufficiently similar
+homologs are identified, they are used as structural templates to predict the
+3D structure of proteins in your contigs database. This means we are at the
+mercy of structural biologists: if they have not solved a structure of a
+protein sufficiently similar in AA sequence to yours, this isn&#39;t going to
+work. But it&#39;s worth a try! The software we are using is MODELLER, more of
+which can be learned about at https://salilab.org/modeller/, or in our
+tutorial, which doesn&#39;t exist yet FIXME
+
+
+
+
+
+**Usage**
+
+```
+anvi-gen-structure-database [-h] -c CONTIGS_DB
+                            [--genes-of-interest FILE]
+                            [--gene-caller-ids GENE_CALLER_IDS]
+                            [-o DB_FILE_PATH] [--dump-dir DUMP_DIR]
+                            [--num-models NUM_MODELS]
+                            [--deviation DEVIATION]
+                            [--modeller-database MODELLER_DATABASE]
+                            [--scoring-method SCORING_METHOD]
+                            [--very-fast]
+                            [--percent-identical-cutoff PERCENT_IDENTICAL_CUTOFF]
+                            [--max-number-templates MAX_NUMBER_TEMPLATES]
+                            [--skip-DSSP]
+                            [--modeller-executable MODELLER_EXECUTABLE]
+```
+
+**Parameters**
+
+
+
+**DATABASES:**   Declaring relevant anvi&#39;o databases. First things first.
+
+```
+  -c CONTIGS_DB, --contigs-db CONTIGS_DB
+                        Anvi'o contigs database generated by 'anvi-gen-
+                        contigs'
+```
+
+
+
+**GENES:**   Specifying which genes you want to be modelled.
+
+```
+  --genes-of-interest FILE
+                        A file with anvi'o gene caller IDs. There should be
+                        only one column in the file, and each line should
+                        correspond to a unique gene caller id (without a
+                        column header).
+  --gene-caller-ids GENE_CALLER_IDS
+                        Gene caller ids. Multiple of them can be declared
+                        separated by a delimiter (the default is a comma). In
+                        anvi-gen-variability-profile, if you declare nothing
+                        you will get all genes matching your other filtering
+                        criteria. In other programs, you may get everything,
+                        nothing, or an error. It really depends on the
+                        situation. Fortunately mistakes are cheap, so it's
+                        worth a try.
+```
+
+
+
+**OUTPUT:**   Output file and output style.
+
+```
+  -o DB_FILE_PATH, --output-db-path DB_FILE_PATH
+                        Output file path for the new database.
+  --dump-dir DUMP_DIR   Modelling and annotating structures requires a lot of
+                        moving parts, each which have their own outputs. The
+                        output of this program is a structure database
+                        containing the pertinent results of this computation,
+                        however a lot of stuff doesn't make the cut. By
+                        providing a directory for this parameter you will get,
+                        in addition to the structure database, a directory
+                        containing the raw output for everything.
+```
+
+
+
+**MODELLER PARAMS:**   Parameters for MODELLER&#39;s homology modeling.
+
+```
+  --num-models NUM_MODELS, -N NUM_MODELS
+                        This parameter determines the number of predicted
+                        structures that are solved for a given protein. The
+                        original atomic positions for each model are perturbed
+                        by an amount defined by --deviation, which leads to
+                        differences between each model. Therefore, whichever
+                        of the N models is chosen to be the "best" model is
+                        more likely to be accurate when --num-models is high,
+                        since more of the solution space is searched. It
+                        should be kept in mind that the largest determinant of
+                        a model's accuracy is determined by the protein
+                        templates used, so no need to go overboard with an
+                        excessively large --num-models. The default is 3.
+  --deviation DEVIATION, -d DEVIATION
+                        Deviation (angstroms)
+  --modeller-database MODELLER_DATABASE, -D MODELLER_DATABASE
+                        Which database do you want to search the structures
+                        of? Default is "pdb_95". If you have your own database
+                        it must have either the extension .bin or .pir. If you
+                        don't have a database or don't know what this means,
+                        don't worry, we will both inform you and take care of
+                        you.
+  --scoring-method SCORING_METHOD, -b SCORING_METHOD
+                        How should the best model be decided? The metric used
+                        could be any of GA341_score, DOPE_score, and molpdf.
+                        GA341 is an absolute measure, where a good model will
+                        have a score near 1.0, whereas anything below 0.6 can
+                        be considered bad. DOPE and molpdf scores are relative
+                        energy measures, where lower scores are better. DOPE
+                        has been generally shown to be a better distinguisher
+                        between good and bad models than molpdf. By default,
+                        DOPE is used. To learn more see the MODELLER tutorial:
+                        https://salilab.org/modeller/tutorial/basic.html.
+  --very-fast           If provided, a very fast optimization is done for each
+                        model at the cost of accuracy. It is recommended to
+                        use a --num-models of 1, since the optimization is so
+                        crude that all models will likely converge to the same
+                        solution.
+  --percent-identical-cutoff PERCENT_IDENTICAL_CUTOFF, -p PERCENT_IDENTICAL_CUTOFF
+                        If a protein in the database has a proper percent
+                        identity to the gene of interest that is greater than
+                        or equal to --percent-identical-cutoff, then it is
+                        used as a template. Otherwise it is not. Here we
+                        define proper percent identity as the percentage of
+                        amino acids in the gene of interest that are identical
+                        to an entry in the database given the sequence length
+                        of the gene of interest. For example, if there is 100%
+                        identity between the gene of interest and the template
+                        over the length of the alignment, but the alignment
+                        length is only half of the gene of interest sequence
+                        length, then the proper percent identical is 50%.
+                        (This helps us avoid the inflation of identity scores
+                        due to only partially good matches). The default is
+                        30.
+  --max-number-templates MAX_NUMBER_TEMPLATES, -T MAX_NUMBER_TEMPLATES
+                        Generally speaking it is best to use as many templates
+                        as possible given that they have high proper percent
+                        identity to the gene of interest. Taken from https://s
+                        alilab.org/modeller/methenz/andras/node4.html: 'The
+                        use of several templates generally increases the model
+                        accuracy. One strength of MODELLER is that it can
+                        combine information from multiple template structures,
+                        in two ways. First, multiple template structures may
+                        be aligned with different domains of the target, with
+                        little overlap between them, in which case the
+                        modeling procedure can construct a homology-based
+                        model of the whole target sequence. Second, the
+                        template structures may be aligned with the same part
+                        of the target, in which case the modeling procedure is
+                        likely to automatically build the model on the locally
+                        best template [43,44]. In general, it is frequently
+                        beneficial to include in the modeling process all the
+                        templates that differ substantially from each other,
+                        if they share approximately the same overall
+                        similarity to the target sequence.' The default is 5.
+```
+
+
+
+**EXTRA:**   Everything else.
+
+```
+  --skip-DSSP           Dictionary of Secondary Structure of Proteins (DSSP)
+                        is a program that takes as its input a protein
+                        structure file and outputs predicted secondary
+                        structure (alpha helix, beta strand, etc.), measures
+                        of solvent accessibility, and hydrogen bonds for each
+                        residue in the protein. If for some reason you don't
+                        want this, provide this flag.
+  --modeller-executable MODELLER_EXECUTABLE
+                        The MODELLER program to use. For example, `mod9.19`.
+                        The default is `mod9.19`
 ```
 
 
@@ -1628,17 +2093,21 @@ Extract information for variable positions
 
 ```
 anvi-gen-variability-profile [-h] [--splits-of-interest FILE]
-                             [-C COLLECTION_NAME] [-b BIN_NAME] -p
-                             PROFILE_DB -c CONTIGS_DB [-o FILE_PATH]
+                             [-C COLLECTION_NAME] [-b BIN_NAME]
+                             [--genes-of-interest FILE]
+                             [--gene-caller-ids GENE_CALLER_IDS] -p
+                             PROFILE_DB -c CONTIGS_DB [-s STRUCTURE_DB]
+                             [-o FILE_PATH]
                              [--samples-of-interest FILE]
                              [--quince-mode] [--include-contig-names]
-                             [--include-split-names] [--engine ENGINE]
+                             [--include-split-names]
+                             [--compute-gene-coverage-stats]
+                             [--engine ENGINE]
                              [--num-positions-from-each-split INT]
-                             [-m INT]
                              [--min-coverage-in-each-sample INT]
                              [-r FLOAT] [-z FLOAT] [-j FLOAT]
                              [-a FLOAT] [-x NUM_SAMPLES]
-                             [--genes-of-interest FILE]
+                             [--only-if-structure]
 ```
 
 **Parameters**
@@ -1653,13 +2122,16 @@ anvi-gen-variability-profile [-h] [--splits-of-interest FILE]
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
                         contigs'
+  -s STRUCTURE_DB, --structure-db STRUCTURE_DB
+                        Anvi'o structure database.
 ```
 
 
 
-**SPLITS:**   Declaring relevant splits for the analysis. There are two ways to do it.
-  One, you can give a file path with split names, or, as an alternative, you
-  can provide a collection id with a bin name.
+**SPLITS:**   Declaring relevant splits for the analysis. There are three ways to do it:
+  1) you can give a file path with split names, 2) you can provide a
+  collection id with a bin name, or 3) you can give a list or a file path
+  containing gene caller ids.
 
 ```
   --splits-of-interest FILE
@@ -1670,6 +2142,20 @@ anvi-gen-variability-profile [-h] [--splits-of-interest FILE]
                         Collection name.
   -b BIN_NAME, --bin-id BIN_NAME
                         Bin name you are interested in.
+  --genes-of-interest FILE
+                        A file with anvi'o gene caller IDs. There should be
+                        only one column in the file, and each line should
+                        correspond to a unique gene caller id (without a
+                        column header).
+  --gene-caller-ids GENE_CALLER_IDS
+                        Gene caller ids. Multiple of them can be declared
+                        separated by a delimiter (the default is a comma). In
+                        anvi-gen-variability-profile, if you declare nothing
+                        you will get all genes matching your other filtering
+                        criteria. In other programs, you may get everything,
+                        nothing, or an error. It really depends on the
+                        situation. Fortunately mistakes are cheap, so it's
+                        worth a try.
 ```
 
 
@@ -1709,6 +2195,12 @@ anvi-gen-variability-profile [-h] [--splits-of-interest FILE]
                         Use this flag if you would like split names for each
                         variable position to be included in the output file as
                         a column.
+  --compute-gene-coverage-stats
+                        If provided, gene coverage statistics will be appended
+                        to the table for each entry. This is very useful
+                        information, but will not be included by default
+                        because it is an expensive opeation, and you a busy
+                        person.
 ```
 
 
@@ -1727,35 +2219,6 @@ anvi-gen-variability-profile [-h] [--splits-of-interest FILE]
                         reported from a split (if the number of SNVs is more
                         than the number you declare using this parameter, the
                         positions will be randomly subsampled).
-  -m INT, --min-scatter INT
-                        This one is tricky. If you have N samples in your
-                        dataset, a given variable position x in one of your
-                        splits can split your N samples into `t` groups based
-                        on the identity of the variation they harbor at
-                        position x. For instance, `t` would have been 1, if
-                        all samples had the same type of variation at position
-                        x (which would not be very interesting, because in
-                        this case position x would have zero contribution to a
-                        deeper understanding of how these samples differ based
-                        on variability. When `t` > 1, it would mean that
-                        identities at position x across samples do differ. But
-                        how much scattering occurs based on position x when t
-                        > 1? If t=2, how many samples ended in each group?
-                        Obviously, even distribution of samples across groups
-                        may tell us something different than uneven
-                        distribution of samples across groups. So, this
-                        parameter filters out any x if 'the number of samples
-                        in the second largest group' (=scatter) is less than
-                        -m. Here is an example: lets assume you have 7
-                        samples. While 5 of those have AG, 2 of them have TC
-                        at position x. This would mean scatter of x is 2. If
-                        you set -m to 2, this position would not be reported
-                        in your output matrix. The default value for -m is 0,
-                        which means every `x` found in the database and
-                        survived previous filtering criteria will be reported.
-                        Naturally, -m can not be more than half of the number
-                        of samples. Please refer to the user documentation if
-                        this is confusing.
   --min-coverage-in-each-sample INT
                         Minimum coverage of a given variable nucleotide
                         position in all samples. If a nucleotide position is
@@ -1786,11 +2249,13 @@ anvi-gen-variability-profile [-h] [--splits-of-interest FILE]
                         will be expected to appear in at least two samples,
                         which will reduce the impact of stochastic, or
                         unintelligeable varaible positions.
-  --genes-of-interest FILE
-                        A file with anvi'o gene caller IDs. There should be
-                        only one column in the file, and each line should
-                        correspond to a unique gene caller id (without a
-                        column header).
+  --only-if-structure   If provided, your genes of interest will be further
+                        subset to only include genes with structures in your
+                        structure database, and therefore must be supplied in
+                        conjunction with a structure database, i.e. `-s
+                        <your_structure_database>`. If you did not specify
+                        genes of interest, ALL genes will be subset to those
+                        that have structures.
 ```
 
 
@@ -1864,17 +2329,20 @@ anvi-get-aa-counts [-h] -c CONTIGS_DB [-o FILE_PATH] [-p PROFILE_DB]
 ```
   --gene-caller-ids GENE_CALLER_IDS
                         Gene caller ids. Multiple of them can be declared
-                        separated by a delimiter (the default is a comma). If
-                        you declare nothing, you may get everything. Or you
-                        may get an error. Really depends on the situation.
-                        Worth a try.
+                        separated by a delimiter (the default is a comma). In
+                        anvi-gen-variability-profile, if you declare nothing
+                        you will get all genes matching your other filtering
+                        criteria. In other programs, you may get everything,
+                        nothing, or an error. It really depends on the
+                        situation. Fortunately mistakes are cheap, so it's
+                        worth a try.
 ```
 
 
 
 
 
-## anvi-get-aa-frequencies
+## anvi-get-codon-frequencies
 
 Frequencies of AA linkmers
 
@@ -1885,10 +2353,10 @@ Frequencies of AA linkmers
 **Usage**
 
 ```
-anvi-get-aa-frequencies [-h] -i INPUT_BAM -c CONTIGS_DB
-                        --gene-caller-id GENE_CALLER_ID
-                        [--return-codon-frequencies-instead] -o
-                        FILE_PATH
+anvi-get-codon-frequencies [-h] -i INPUT_BAM -c CONTIGS_DB
+                           --gene-caller-id GENE_CALLER_ID
+                           [--return-AA-frequencies-instead] -o
+                           FILE_PATH
 ```
 
 **Parameters**
@@ -1905,13 +2373,13 @@ anvi-get-aa-frequencies [-h] -i INPUT_BAM -c CONTIGS_DB
                         contigs'
   --gene-caller-id GENE_CALLER_ID
                         A single gene id.
-  --return-codon-frequencies-instead
-                        By default, anvi'o will return amino acid frequencies
-                        here, however, you can ask for codon frequencies
-                        instead, simply because you always need more data and
-                        more stuff. You're lucky this time, but is there an
-                        end to this? Will you ever be satisfied with what you
-                        have? Anvi'o needs answers.
+  --return-AA-frequencies-instead
+                        By default, anvi'o will return codon frequencies (as
+                        the name suggests), but you can ask for amino acid
+                        frequencies instead, simply because you always need
+                        more data and more stuff. You're lucky this time, but
+                        is there an end to this? Will you ever be satisfied
+                        with what you have? Anvi'o needs answers.
   -o FILE_PATH, --output-file FILE_PATH
                         File path to store results.
 ```
@@ -1920,49 +2388,102 @@ anvi-get-aa-frequencies [-h] -i INPUT_BAM -c CONTIGS_DB
 
 
 
-## anvi-get-aa-sequences-for-gene-calls
+## anvi-get-enriched-functions-per-pan-group
 
-Get amino acid sequences from a contigs database for all gene calls.
+A program that takes a pangenome, and a categorical layer additional data
+item, and reports back the functions enriched in per category.
+
+`pangenomics` `functions` 
 
 
+**Example uses and other resources**
+
+
+* [An example usage of the program in the context of the Prochlorococcus metapangenome from Delmont and Eren 2018 is included in the pangenomics tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/)
 
 
 
 **Usage**
 
 ```
-anvi-get-aa-sequences-for-gene-calls [-h] -c CONTIGS_DB [-o FILE_PATH]
-                                     [--gene-caller-ids GENE_CALLER_IDS]
-                                     [--delimiter CHAR]
+anvi-get-enriched-functions-per-pan-group [-h] -p PAN_DB
+                                          [-g GENOMES_STORAGE]
+                                          [--category-variable CATEGORY]
+                                          [--annotation-source SOURCE NAME]
+                                          [-l] -o FILE_PATH [-F FILE]
+                                          [-E PORTION] [-P PORTION]
 ```
 
 **Parameters**
 
 
 
-**optional arguments:** 
+**INPUT FILES:**   Input files from the pangenome analysis.
 
 ```
-  -c CONTIGS_DB, --contigs-db CONTIGS_DB
-                        Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+  -p PAN_DB, --pan-db PAN_DB
+                        Anvi'o pan database
+  -g GENOMES_STORAGE, --genomes-storage GENOMES_STORAGE
+                        Anvi'o genomes storage file
+```
+
+
+
+**CATEGORY VARIABLE AND FUNCTIONAL ANNOTATION SOURCE:**   This is the additional layer data item in which your genomes are split
+  into multiple groups. So anvi&#39;o can figure out what functions are specific
+  to each group of genomes in your pangenomic analysis. If this is not
+  making any sense, please take a look at the online tutorial for
+  pangenomics (http://merenlab.org/2016/11/08/pangenomics-v2/).
+
+```
+  --category-variable CATEGORY
+                        The additional layers data variable name that divides
+                        layers into multiple categories.
+  --annotation-source SOURCE NAME
+                        Get functional annotations for a specific annotation
+                        source. You can use the flag '--list-annotation-
+                        sources' to learn about what sources are available.
+  -l, --list-annotation-sources
+                        List available functional annotation sources.
+```
+
+
+
+**REPORTING:**   Output and stuff.
+
+```
   -o FILE_PATH, --output-file FILE_PATH
                         File path to store results.
-  --gene-caller-ids GENE_CALLER_IDS
-                        Gene caller ids. Multiple of them can be declared
-                        separated by a delimiter (the default is a comma). If
-                        you declare nothing, you may get everything. Or you
-                        may get an error. Really depends on the situation.
-                        Worth a try.
-  --delimiter CHAR      The delimiter to parse multiple input terms. The
-                        default is ','.
+  -F FILE, --functional-occurrence-table-output FILE
+                        Saves the presence/absence information for functions
+                        in genomes in a TAB-delimited format. A file name must
+                        be provided. To learn more about how the
+                        presence/absence is computed, please refer to the
+                        tutorial.
+```
+
+
+
+**OPTIONAL PARAMETERS:**   Parameters to help you filter the output.
+
+```
+  -E PORTION, --min-function-enrichment PORTION
+                        Takes a value between 0 and 1, where 1 means that the
+                        output will include only functions that occur in all
+                        members of one group and in none of the members of the
+                        other group. Default is 0.0.
+  -P PORTION, --min-portion-occurrence-of-function-in-group PORTION
+                        Takes a value between 0 and 1, where 1 means that only
+                        functions that occur in all members of one of the
+                        compared groups will be included in the output.
+                        Default is 0.0.
 ```
 
 
 
 
 
-## anvi-get-dna-sequences-for-gene-calls
+## anvi-get-sequences-for-gene-calls
 
 A script to get back sequences of a list of genes
 
@@ -1973,11 +2494,12 @@ A script to get back sequences of a list of genes
 **Usage**
 
 ```
-anvi-get-dna-sequences-for-gene-calls [-h] -c CONTIGS_DB
-                                      [--gene-caller-ids GENE_CALLER_IDS]
-                                      -o FILE_PATH [--delimiter CHAR]
-                                      [--report-extended-deflines]
-                                      [--wrap WRAP] [--export-gff3]
+anvi-get-sequences-for-gene-calls [-h] -c CONTIGS_DB
+                                  [--gene-caller-ids GENE_CALLER_IDS]
+                                  -o FILE_PATH [--delimiter CHAR]
+                                  [--report-extended-deflines]
+                                  [--wrap WRAP] [--export-gff3]
+                                  [--get-aa-sequences]
 ```
 
 **Parameters**
@@ -1992,10 +2514,13 @@ anvi-get-dna-sequences-for-gene-calls [-h] -c CONTIGS_DB
                         contigs'
   --gene-caller-ids GENE_CALLER_IDS
                         Gene caller ids. Multiple of them can be declared
-                        separated by a delimiter (the default is a comma). If
-                        you declare nothing, you may get everything. Or you
-                        may get an error. Really depends on the situation.
-                        Worth a try.
+                        separated by a delimiter (the default is a comma). In
+                        anvi-gen-variability-profile, if you declare nothing
+                        you will get all genes matching your other filtering
+                        criteria. In other programs, you may get everything,
+                        nothing, or an error. It really depends on the
+                        situation. Fortunately mistakes are cheap, so it's
+                        worth a try.
   -o FILE_PATH, --output-file FILE_PATH
                         File path to store results.
   --delimiter CHAR      The delimiter to parse multiple input terms. The
@@ -2008,6 +2533,7 @@ anvi-get-dna-sequences-for-gene-calls [-h] -c CONTIGS_DB
                         equivalent to 'do not wrap'.
   --export-gff3         If this is true, the output file will be in GFF3
                         format.
+  --get-aa-sequences    Store amino acid sequences instead.
 ```
 
 
@@ -2040,6 +2566,7 @@ anvi-get-sequences-for-gene-clusters [-h] -p PAN_DB
                                      [--add-into-items-additional-data-table NAME]
                                      [--list-collections] [--list-bins]
                                      [--concatenate-gene-clusters]
+                                     [--separator STRING]
                                      [--align-with ALIGNER]
                                      [--list-aligners] [--just-do-it]
 ```
@@ -2117,7 +2644,7 @@ anvi-get-sequences-for-gene-clusters [-h] -p PAN_DB
                         report. Let's assume you have 100 genomes in your pan
                         genome analysis. You can use this parameter if you
                         want to work only with gene clusters that occur in at
-                        most X number of genomes. If you say '--min-num-
+                        most X number of genomes. If you say '--max-num-
                         genomes-gene-cluster-occurs 1', you will get gene
                         clusters that are singletons. Combining this paramter
                         with --min-num-genomes-gene-cluster-occurs can give
@@ -2186,6 +2713,8 @@ anvi-get-sequences-for-gene-clusters [-h] -p PAN_DB
                         Concatenate output gene clusters in the same order to
                         create a multi-gene alignment output that is suitable
                         for phylogenomic analyses.
+  --separator STRING    Characters to separate things (the default is whatever
+                        is most suitable).
   --align-with ALIGNER  The multiple sequnce alignment program to use when
                         multiple seqeunce alignment is necessary. To see all
                         available optons, use the flag `--list-aligners`.
@@ -2220,6 +2749,7 @@ Get sequences for HMM hits from many inputs.
 anvi-get-sequences-for-hmm-hits [-h] [-c CONTIGS_DB] [-p PROFILE_DB]
                                 [-C COLLECTION_NAME] [-b BIN_NAME]
                                 [-B FILE_PATH] [-e FILE_PATH]
+                                [-i FILE_PATH]
                                 [--hmm-sources SOURCE NAME]
                                 [--gene-names HMM HIT NAME] [-l] [-L]
                                 [-o FILE_PATH] [--get-aa-sequences]
@@ -2281,6 +2811,13 @@ anvi-get-sequences-for-hmm-hits [-h] [-c CONTIGS_DB] [-p PROFILE_DB]
                         describe a single entry, where the first column is the
                         name of the genome (or MAG), and the second column is
                         the anvi'o contigs database generated for this genome.
+  -i FILE_PATH, --internal-genomes FILE_PATH
+                        A four-column TAB-delimited flat text file. The header
+                        line must contain thse columns: 'name', 'bin_id',
+                        'collection_id', 'profile_db_path', 'contigs_db_path'.
+                        Each line should list a single entry, where 'name' can
+                        be any name to describe the anvi'o bin identified as
+                        'bin_id' that is stored in a collection.
 ```
 
 
@@ -2412,6 +2949,7 @@ Get short reads back from a BAM file.
 anvi-get-short-reads-from-bam [-h] -p PROFILE_DB -c CONTIGS_DB
                               [-C COLLECTION_NAME] [-b BIN_NAME]
                               [-B FILE_PATH] [-o FILE_PATH]
+                              [-O FILENAME_PREFIX] [-X] [-Q]
                               BAM FILE[S] [BAM FILE[S] ...]
 ```
 
@@ -2444,6 +2982,15 @@ anvi-get-short-reads-from-bam [-h] -p PROFILE_DB -c CONTIGS_DB
                         id).
   -o FILE_PATH, --output-file FILE_PATH
                         File path to store results.
+  -O FILENAME_PREFIX, --output-file-prefix FILENAME_PREFIX
+                        A prefix to be used while naming the output files (no
+                        file type extensions please; just a prefix).
+  -X, --gzip-output     When declared, output file(s) will be gzip compressed
+                        and the extension `.gz` will be added.
+  -Q, --split-R1-and-R2
+                        When declared, this program outputs 3 FASTA files for
+                        paired-end reads: one for R1, one for R2, and one for
+                        unpaired reads.
 ```
 
 
@@ -2687,7 +3234,7 @@ anvi-import-functions [-h] -c CONTIGS_DB [-p PARSER] -i FILES)
 ## anvi-import-misc-data
 
 Populate additional data or order tables in pan or profile databases for items
-or layers (the swiss army knife level stuff).
+or layers (the Swiss army knife-level serious stuff).
 
 
 
@@ -2696,7 +3243,8 @@ or layers (the swiss army knife level stuff).
 **Usage**
 
 ```
-anvi-import-misc-data [-h] -p PAN_OR_PROFILE_DB -t NAME [--just-do-it]
+anvi-import-misc-data [-h] -p PAN_OR_PROFILE_DB -t NAME [-D NAME]
+                      [--just-do-it]
                       TAB DELIMITED FILE
 ```
 
@@ -2729,6 +3277,13 @@ anvi-import-misc-data [-h] -p PAN_OR_PROFILE_DB -t NAME [--just-do-it]
                         accessing. Currently it can be 'items','layers', or
                         'layer_orders'. Please see most up-to-date online
                         documentation for more information.
+  -D NAME, --target-data-group NAME
+                        Data group to focus. Anvi'o misc data tables support
+                        associating a set of data keys with a data group. If
+                        you have no idea what this is, then probably you don't
+                        need it, and anvi'o will take care of you. Note: this
+                        flag is IRRELEVANT if you are working with additioanl
+                        order data tables.
   --just-do-it          Don't bother me with questions or warnings, just do
                         it.
 ```
@@ -2770,9 +3325,9 @@ anvi-import-state [-h] -p PAN_OR_PROFILE_DB -s STATE_FILE -n STATE_NAME
 
 
 
-## anvi-import-taxonomy
+## anvi-import-taxonomy-for-genes
 
-Import taxonomy information into an anvi&#39;o contigs database.
+Import gene-level taxonomy into an anvi&#39;o contigs database.
 
 
 
@@ -2781,8 +3336,8 @@ Import taxonomy information into an anvi&#39;o contigs database.
 **Usage**
 
 ```
-anvi-import-taxonomy [-h] -c CONTIGS_DB [-p PARSER] -i FILES)
-                     [FILE(S ...]
+anvi-import-taxonomy-for-genes [-h] -c CONTIGS_DB [-p PARSER] -i FILES)
+                               [FILE(S ...] [--just-do-it]
 ```
 
 **Parameters**
@@ -2796,22 +3351,68 @@ anvi-import-taxonomy [-h] -c CONTIGS_DB [-p PARSER] -i FILES)
                         Anvi'o contigs database generated by 'anvi-gen-
                         contigs'
   -p PARSER, --parser PARSER
-                        Parser to make sense of the input files. There are 2
+                        Parser to make sense of the input files. There are 3
                         parsers readily available: ['default_matrix',
-                        'centrifuge']. It is OK if you do not select a parser,
-                        but in that case there will be no additional contigs
-                        available except the identification of single-copy
-                        genes in your contigs for later use. Using a parser
-                        will not prevent the analysis of single-copy genes,
-                        but make anvio more powerful to help you make sense of
-                        your results. Please see the documentation, or get in
-                        touch with the developers if you have any questions
-                        regarding parsers.
+                        'centrifuge', 'kaiju']. It is OK if you do not select
+                        a parser, but in that case there will be no additional
+                        contigs available except the identification of single-
+                        copy genes in your contigs for later use. Using a
+                        parser will not prevent the analysis of single-copy
+                        genes, but make anvio more powerful to help you make
+                        sense of your results. Please see the documentation,
+                        or get in touch with the developers if you have any
+                        questions regarding parsers.
   -i FILE(S) [FILE(S) ...], --input-files FILE(S) [FILE(S) ...]
                         Input file(s) for selected parser. Each parser (except
                         "blank") requires input files to process that you
                         generate before running anvio. Please see the
                         documentation for details.
+  --just-do-it          Don't bother me with questions or warnings, just do
+                        it.
+```
+
+
+
+
+
+## anvi-import-taxonomy-for-layers
+
+Import layers-level taxonomy into an anvi&#39;o additional layer data table in an
+anvi&#39;o single-profile database.
+
+
+
+
+
+**Usage**
+
+```
+anvi-import-taxonomy-for-layers [-h] -p PROFILE_DB [--parser PARSER] -i
+                                FILES) [FILE(S ...]
+                                [--min-abundance PERCENTAGE]
+```
+
+**Parameters**
+
+
+
+**optional arguments:** 
+
+```
+  -p PROFILE_DB, --profile-db PROFILE_DB
+                        Anvi'o profile database
+  --parser PARSER       Parser to make sense of the input files. There are 1
+                        parsers readily available: ['kraken_hll'].
+  -i FILE(S) [FILE(S) ...], --input-files FILE(S) [FILE(S) ...]
+                        Input file(s) for selected parser. Each parser (except
+                        "blank") requires input files to process that you
+                        generate before running anvio. Please see the
+                        documentation for details.
+  --min-abundance PERCENTAGE
+                        Short read-based taxonomy can be extremely noisy.
+                        Therefore, here we have defeault minimum percentage
+                        cutoff of 0.1% to eliminate any taxon that occurs less
+                        than that in a given input file.
 ```
 
 
@@ -3568,7 +4169,8 @@ positional arguments:
 **Usage**
 
 ```
-anvi-migrate-db [-h] [--just-do-it] [-t VERSION] DATABASE
+anvi-migrate-db [-h] [--just-do-it] [-t VERSION]
+                DATABASE [DATABASE ...]
 ```
 
 **Parameters**
@@ -3826,7 +4428,7 @@ Main entry point for Post-Assembly Metagenomics Pipeline
 ```
 anvi-profile [-h] [-i INPUT_BAM] [-c CONTIGS_DB] [--blank-profile]
              [-o DIR_PATH] [-W] [-S NAME] [--report-variability-full]
-             [--skip-SNV-profiling] [--profile-AA-frequencies]
+             [--skip-SNV-profiling] [--profile-SCVs]
              [--description TEXT_FILE] [--cluster-contigs]
              [--skip-hierarchical-clustering]
              [--distance DISTANCE_METRIC] [--linkage LINKAGE_METHOD]
@@ -3897,14 +4499,14 @@ anvi-profile [-h] [-i INPUT_BAM] [-c CONTIGS_DB] [--blank-profile]
                         that parameters and flags must be identical between
                         different profiles using the same contigs database for
                         them to merge properly.
-  --profile-AA-frequencies
-                        Anvi'o can characterize linkmer frequencies for AA
-                        distribution in genes in contigs during profiling.
-                        However, due to its computational complexity, this
-                        feature is by default off. Using this flag you can go
-                        against the authority, and make anvi'o do it. Please
-                        remember that this functionality is available only if
-                        genes calls are present in contigs database.
+  --profile-SCVs        Anvi'o can perform accurate characterization of codon
+                        frequencies in genes during profiling. While having
+                        codon frequencies opens doors to powerful evolutionary
+                        insights in downstream analyses, due to its
+                        computational complexity, this feature comes 'off' by
+                        default. Using this flag you can rise against the
+                        authority as you always should, and make anvi'o
+                        profile codons.
   --description TEXT_FILE
                         A plain text file that contains some description about
                         the project. You can use Markdwon syntax. The
@@ -4053,8 +4655,7 @@ anvi-push [-h] --user USERNAME [--api-url API_URL] -n PROJECT_NAME
           [-t NEWICK] [--items-order FLAT_FILE] [-f FASTA]
           [-d VIEW_DATA] [-A ADDITIONAL_LAYERS] [-s STATE]
           [--description TEXT_FILE] [--bins BINS_DATA]
-          [--bins-info BINS_INFO] [-D FILE] [-R FILE]
-          [--delete-if-exists]
+          [--bins-info BINS_INFO] [--delete-if-exists]
 ```
 
 **Parameters**
@@ -4127,24 +4728,6 @@ anvi-push [-h] --user USERNAME [--api-url API_URL] -n PROJECT_NAME
                         other hand it is, becuse we should also think about
                         people who may end up having to work with what we put
                         together later.
-  -D FILE, --layers-information-file FILE
-                        A TAB-delimited file with information about layers in
-                        your dataset. Each row in this file must correspond to
-                        a sample name. Each column must contain a unique
-                        attribute. Please refer to the documentation to learn
-                        more about the structure and purpose of this file.
-  -R FILE, --layers-order-file FILE
-                        A TAB-delimited file with three columns: 'attribute',
-                        'basic', 'newick'. For each attribute, the order of
-                        samples must be defined either in the 'basic' form or
-                        via a 'newick'-formatted tree structurei that
-                        describes the organization of each sample. Anvi'o will
-                        look for a comma-separated list of sample names for
-                        the 'basic' form. Please refer to the online docs for
-                        more info. Also you shouldn't hesitate to try to find
-                        the right file format until you get it working. There
-                        are stringent checks on this file, and you will not
-                        break anything while trying!.
 ```
 
 
@@ -4344,7 +4927,7 @@ anvi-rename-bins [-h] -c CONTIGS_DB -p PROFILE_DB
                  [--list-collections] [--dry-run] [--call-MAGs]
                  [--min-completion-for-MAG [0-100]]
                  [--max-redundancy-for-MAG [0-100]]
-                 [--size-for-MAG 0.1-10 Mbp]
+                 [--size-for-MAG MEGABASEPAIRS]
 ```
 
 **Parameters**
@@ -4415,11 +4998,12 @@ anvi-rename-bins [-h] -c CONTIGS_DB -p PROFILE_DB
                         their redundancy estimate is below this (the default
                         is 10) and the completion estimate is above --min-
                         completion-for-MAG.
-  --size-for-MAG 0.1-10 Mbp
+  --size-for-MAG MEGABASEPAIRS
                         If --call-MAGs flag is used, call any bin a 'MAG' if
                         their redundancy estimate is less than --max-
-                        redundancy-for-MAG, and the size is larger than this
-                        (the default is 2 Mbp), regarldless of the completion.
+                        redundancy-for-MAG, AND THEIR SIZE IS LARGER THAN THIS
+                        VALUE REGARDLESS OF THE COMPLETION ESTIMATE. The
+                        default behavior is to not care about this at all.
 ```
 
 
@@ -4511,12 +5095,13 @@ anvi-run-hmms [-h] -c CONTIGS_DB [-H HMM PROFILE PATH]
                         directory structure .
   -I HMM PROFILE NAME, --installed-hmm-profile HMM PROFILE NAME
                         When you run this program without any parameter, it
-                        runs all 3 HMM profiles installed on your system. If
+                        runs all 4 HMM profiles installed on your system. If
                         you want only a specific one to run, you can select it
                         by using this parameter. These are the currently
                         available ones: "Rinke_et_al" (type: singlecopy),
-                        "Campbell_et_al" (type: singlecopy), "Ribosomal_RNAs"
-                        (type: Ribosomal_RNAs).
+                        "Campbell_et_al" (type: singlecopy),
+                        "BUSCO_83_Protista" (type: singlecopy),
+                        "Ribosomal_RNAs" (type: Ribosomal_RNAs).
   -T NUM_THREADS, --num-threads NUM_THREADS
                         Maximum number of threads to use for multithreading
                         whenever possible. Very conservatively, the default is
@@ -4545,7 +5130,8 @@ Run NCBI COGs on stuff.
 ```
 anvi-run-ncbi-cogs [-h] -c CONTIGS_DB [--cog-data-dir COG_DATA_DIR]
                    [-T NUM_THREADS] [--sensitive]
-                   [--temporary-dir-path PATH] [--search-with PROGRAM]
+                   [--temporary-dir-path PATH]
+                   [--search-with SEARCH_METHOD]
 ```
 
 **Parameters**
@@ -4584,10 +5170,139 @@ anvi-run-ncbi-cogs [-h] -c CONTIGS_DB [--cog-data-dir COG_DATA_DIR]
                         store intermediate files, and clean it later. If you
                         want to have full control over this, you can use this
                         flag to define one..
-  --search-with PROGRAM
+  --search-with SEARCH_METHOD
                         What program to use for database searching. The
-                        default is 'diamond', but you can also use NCBI's
-                        'blastp' if you like.
+                        default search uses diamond. All available options
+                        include: diamond, blastp.
+```
+
+
+
+
+
+## anvi-run-pfams
+
+Run Pfam on Contigs Database.
+
+
+
+
+
+**Usage**
+
+```
+anvi-run-pfams [-h] -c CONTIGS_DB [--pfam-data-dir PFAM_DATA_DIR]
+               [-T NUM_THREADS]
+```
+
+**Parameters**
+
+
+
+**optional arguments:** 
+
+```
+  -c CONTIGS_DB, --contigs-db CONTIGS_DB
+                        Anvi'o contigs database generated by 'anvi-gen-
+                        contigs'
+  --pfam-data-dir PFAM_DATA_DIR
+                        The directory path for your Pfam setup. Anvi'o will
+                        try to use the default path if you do not specify
+                        anything.
+  -T NUM_THREADS, --num-threads NUM_THREADS
+                        Maximum number of threads to use for multithreading
+                        whenever possible. Very conservatively, the default is
+                        1. It is a good idea to not exceed the number of CPUs
+                        / cores on your system. Plus, please be careful with
+                        this option if you are running your commands on a SGE
+                        --if you are clusterizing your runs, and asking for
+                        multiple threads to use, you may deplete your
+                        resources very fast.
+```
+
+
+
+
+
+## anvi-run-workflow
+
+optional arguments:
+  -h, --help            show this help message and exit
+
+
+
+
+
+**Usage**
+
+```
+anvi-run-workflow [-h] [-w WORKFLOW]
+                  [--get-default-config OUTPUT_FILENAME]
+                  [--list-workflows] [--list-dependencies]
+                  [-c CONFIG_FILE] [--dry-run] [--save-workflow-graph]
+                  [-A ...]
+```
+
+**Parameters**
+
+
+
+**ESSENTIAL INPUTS:**   Things you must provide or this won&#39;t work
+
+```
+  -w WORKFLOW, --workflow WORKFLOW
+                        You must specify a workflow name. To see a list of
+                        available workflows run --list-workflows.
+```
+
+
+
+**ADDITIONAL STUFF:**   additional stuff
+
+```
+  --get-default-config OUTPUT_FILENAME
+                        Store a json formatted config file with all the
+                        default settings of the workflow. This is a good draft
+                        you could use in order to write your own config file.
+                        This config file contains all parameters that could be
+                        configured for this workflow. NOTICE: the config file
+                        is provided with default values only for parameters
+                        that are set by us in the workflow. The values for the
+                        rest of the parameters are determined by the relevant
+                        program.
+  --list-workflows      Print a list of available snakemake workflows
+  --list-dependencies   Print a list of the dependencies of this workflow. You
+                        must provide a workflow name and a config file.
+                        snakemake will figure out which rules need to be run
+                        according to your config file, and according to the
+                        files available on your disk. According to the rules
+                        that need to be run, we will let you know which
+                        programs are going to be used, so that you can make
+                        sure you have all of them installed and loaded.
+  -c CONFIG_FILE, --config-file CONFIG_FILE
+                        TBD
+  --dry-run             Don't do anything real. Test everything, and stop
+                        right before wherever the developer said 'well, this
+                        is enough testing', and decided to print out results.
+  --save-workflow-graph
+                        Save a graph representation of the workflow. If you
+                        are using this flag and if your system is unable to
+                        generate such graph outputs, you will hear anvi'o
+                        complaining (still, totally worth trying).
+  -A ..., --additional-params ...
+                        Additional snakemake parameters to add when running
+                        snakemake. NOTICE: --additional-params HAS TO BE THE
+                        LAST ARGUMENT THAT IS PASSED TO anvi-run-workflow,
+                        ANYTHING THAT FOLLOWS WILL BE CONSIDERED AS PART OF
+                        THE ADDITIONAL PARAMETERS THAT ARE PASSED TO
+                        SNAKEMAKE. Any parameter that is accepted by snakemake
+                        should be fair game here, but it is your
+                        responsibility to make sure that whatever you added
+                        makes sense. To see what parameters are available
+                        please refer to the snakemake documentation. For
+                        example, you could use this to set up cluster
+                        submission using --additional-params --cluster "YOUR-
+                        CLUSTER-SUBMISSION-CMD"
 ```
 
 
@@ -4741,8 +5456,7 @@ anvi-search-functions [-h] [-c CONTIGS_DB] [-p PAN_DB]
                         source_1,source_2,source_3'). The default behavior is
                         to return everything
   -l, --list-annotation-sources
-                        List available sources for annotation in the contigs
-                        database and quit.
+                        List available functional annotation sources.
 ```
 
 
@@ -4857,6 +5571,49 @@ anvi-setup-ncbi-cogs [-h] [--cog-data-dir COG_DATA_DIR] [--reset]
 
 
 
+## anvi-setup-pfams
+
+Download Pfam data from the EBI
+
+
+
+
+
+**Usage**
+
+```
+anvi-setup-pfams [-h] [--pfam-data-dir PFAM_DATA_DIR] [--reset]
+```
+
+**Parameters**
+
+
+
+**optional arguments:** 
+
+```
+  --pfam-data-dir PFAM_DATA_DIR
+                        The directory for Pfam data to be stored. If you leave
+                        it as is without specifying anything, the default
+                        destination for the data directory will be used to set
+                        things up. The advantage of it is that everyone will
+                        be using a single data directory, but then you may
+                        need superuser privileges to do it. Using this
+                        parameter you can choose the location of the data
+                        directory somewhere you like. However, when it is time
+                        to run Pfam, you will need to remember that path and
+                        provide it to the program.
+  --reset               This program by default attempts to use previously
+                        downloaded files in your Pfam data directory if there
+                        are any. If something is wrong for some reason you can
+                        use this to tell anvi'o to remove everything, and
+                        start over.
+```
+
+
+
+
+
 ## anvi-show-collections-and-bins
 
 A script to display collections stored in an anvi&#39;o profile or pan database.
@@ -4897,7 +5654,7 @@ Show all misc data keys in all misc data tables
 **Usage**
 
 ```
-anvi-show-misc-data [-h] -p PAN_OR_PROFILE_DB
+anvi-show-misc-data [-h] -p PAN_OR_PROFILE_DB [-t NAME] [-D NAME]
 ```
 
 **Parameters**
@@ -4909,6 +5666,18 @@ anvi-show-misc-data [-h] -p PAN_OR_PROFILE_DB
 ```
   -p PAN_OR_PROFILE_DB, --pan-or-profile-db PAN_OR_PROFILE_DB
                         Anvi'o pan or profile database
+  -t NAME, --target-data-table NAME
+                        The target table is the table you are interested in
+                        accessing. Currently it can be 'items','layers', or
+                        'layer_orders'. Please see most up-to-date online
+                        documentation for more information.
+  -D NAME, --target-data-group NAME
+                        Data group to focus. Anvi'o misc data tables support
+                        associating a set of data keys with a data group. If
+                        you have no idea what this is, then probably you don't
+                        need it, and anvi'o will take care of you. Note: this
+                        flag is IRRELEVANT if you are working with additioanl
+                        order data tables.
 ```
 
 
@@ -4932,7 +5701,8 @@ anvi&#39;o profiles.
 ```
 anvi-split [-h] -p PROFILE_DB -c CONTIGS_DB [-C COLLECTION_NAME]
            [-b BIN_NAME] [-o DIR_PATH] [--list-collections]
-           [--skip-hierarchical-clustering] [--compress-auxiliary-data]
+           [--skip-hierarchical-clustering] [--skip-variability-tables]
+           [--compress-auxiliary-data]
            [--enforce-hierarchical-clustering]
            [--distance DISTANCE_METRIC] [--linkage LINKAGE_METHOD]
 ```
@@ -4988,6 +5758,10 @@ anvi-split [-h] -p PROFILE_DB -c CONTIGS_DB [-C COLLECTION_NAME]
                         hierarchical clustering of your items are preformed
                         based on default clustering recipes matching to your
                         database type.
+  --skip-variability-tables
+                        Processing variability tables in profile databse might
+                        take a very very long time. With this flag you will be
+                        asking anvi'o to skip them.
   --compress-auxiliary-data
                         When declared, the auxiliary data file in the
                         resulting output will be compressed. This saves space,
@@ -5156,6 +5930,96 @@ anvi-update-db-description [-h] --description TEXT_FILE DB
 
 
 
+## anvi-update-genes-in-structure-database
+
+Add or remove genes from an already existing structure database. All settings
+used to generate your database will be used in this program.
+
+
+
+
+
+**Usage**
+
+```
+anvi-update-genes-in-structure-database [-h] -c CONTIGS_DB -s
+                                        STRUCTURE_DB
+                                        [--genes-to-remove GENES_TO_REMOVE]
+                                        [--genes-to-remove-file GENES_TO_REMOVE_FILE]
+                                        [--genes-to-add GENES_TO_ADD]
+                                        [--genes-to-add-file GENES_TO_ADD_FILE]
+                                        [--dump-dir DUMP_DIR]
+                                        [--modeller-executable MODELLER_EXECUTABLE]
+```
+
+**Parameters**
+
+
+
+**DATABASES:**   Declaring relevant anvi&#39;o databases. First things first.
+
+```
+  -c CONTIGS_DB, --contigs-db CONTIGS_DB
+                        Anvi'o contigs database generated by 'anvi-gen-
+                        contigs'
+  -s STRUCTURE_DB, --structure-db STRUCTURE_DB
+                        Anvi'o structure database.
+```
+
+
+
+**GENES:**   Specifying which genes you want to be modelled.
+
+```
+  --genes-to-remove GENES_TO_REMOVE, -r GENES_TO_REMOVE
+                        Gene caller ids to remove from your structure
+                        database. Multiple of them can be declared by
+                        separating with comma (e.g. --genes-to-remove
+                        2,4,5,6).
+  --genes-to-remove-file GENES_TO_REMOVE_FILE, -R GENES_TO_REMOVE_FILE
+                        A file of gene caller ids to remove from your
+                        structure database. Each line in the file should be a
+                        gene caller id.
+  --genes-to-add GENES_TO_ADD, -a GENES_TO_ADD
+                        Gene caller ids to remove from your structure
+                        database. Multiple of them can be declared by
+                        separating with comma (e.g. --genes-to-remove
+                        2,4,5,6).
+  --genes-to-add-file GENES_TO_ADD_FILE, -A GENES_TO_ADD_FILE
+                        A file of gene caller ids to remove from your
+                        structure database. Each line in the file should be a
+                        gene caller id.
+```
+
+
+
+**OUTPUT:**   Output file and output style.
+
+```
+  --dump-dir DUMP_DIR   Modelling and annotating structures requires a lot of
+                        moving parts, each which have their own outputs. The
+                        output of this program is a structure database
+                        containing the pertinent results of this computation,
+                        however a lot of stuff doesn't make the cut. By
+                        providing a directory for this parameter you will get,
+                        in addition to the structure database, a directory
+                        containing the raw output for everything.
+```
+
+
+
+**MODELLER EXECUTABLE:**   Which executable program to use for MODELLER, e.g. mod9.19
+
+```
+  --modeller-executable MODELLER_EXECUTABLE
+                        The MODELLER program to use. For example, `mod9.19`.
+                        The default is `mod9.19`
+```
+
+
+
+
+
 ## anvi-script-add-default-collection
 
 A script to add a &#39;DEFAULT&#39; collection in an anvi&#39;o pan or profile database
@@ -5170,6 +6034,7 @@ profile databse.
 
 ```
 anvi-script-add-default-collection [-h] -p PAN_OR_PROFILE_DB
+                                   [-c CONTIGS_DB]
 ```
 
 **Parameters**
@@ -5181,6 +6046,9 @@ anvi-script-add-default-collection [-h] -p PAN_OR_PROFILE_DB
 ```
   -p PAN_OR_PROFILE_DB, --pan-or-profile-db PAN_OR_PROFILE_DB
                         Anvi'o pan or profile database
+  -c CONTIGS_DB, --contigs-db CONTIGS_DB
+                        Anvi'o contigs database generated by 'anvi-gen-
+                        contigs'
 ```
 
 
@@ -5397,6 +6265,51 @@ anvi-script-gen-distribution-of-genes-in-a-bin [-h] -c CONTIGS_DB
 
 
 
+## anvi-script-gen-hmm-hits-matrix-across-genomes
+
+A simple script to generate a TAB-delimited file for the presence or absence
+of HMM hits in a given set of contigs databases and an HMM source.
+
+
+
+
+
+**Usage**
+
+```
+anvi-script-gen-hmm-hits-matrix-across-genomes [-h] [--list-sources]
+                                               [--source SOURCE] -o
+                                               FILE_PATH
+                                               CONTIG DATABASES)
+                                               [CONTIG DATABASE(S ...]
+```
+
+**Parameters**
+
+
+
+**positional arguments:** 
+
+```
+  CONTIG DATABASE(S)    One or more anvi'o contigs databases.
+```
+
+
+
+**optional arguments:** 
+
+```
+  --list-sources        Show available single-copy gene sources and exit.
+  --source SOURCE       A single HMM source to focus on. This HMM source
+                        should be found in all contigs databases.
+  -o FILE_PATH, --output-file FILE_PATH
+                        File path to store results.
+```
+
+
+
+
+
 ## anvi-script-gen-short-reads
 
 Generate short reads from contigs
@@ -5508,52 +6421,6 @@ anvi-script-gen_stats_for_single_copy_genes.py [-h] [--list-sources]
 
 
 
-## anvi-script-gene-clusters-to-gene-calls
-
-Export gene caller ids per genome for a given gene cluster bin. For details,
-See the pangenomic workflow and an example usage at the URL
-http://merenlab.org/2015/11/14/pangenomics/
-
-
-
-
-
-**Usage**
-
-```
-anvi-script-gene-clusters-to-gene-calls [-h] [-p PROFILE_DB]
-                                        [-C COLLECTION_NAME]
-                                        [--list-collections]
-                                        gene_clusters
-```
-
-**Parameters**
-
-
-
-**positional arguments:** 
-
-```
-  gene_clusters         gene-clusters.txt file (one of the key output files of
-                        anvi-pan-genome)
-```
-
-
-
-**optional arguments:** 
-
-```
-  -p PROFILE_DB, --profile-db PROFILE_DB
-                        Anvi'o profile database
-  -C COLLECTION_NAME, --collection-name COLLECTION_NAME
-                        Collection name.
-  --list-collections    Show available collections and exit.
-```
-
-
-
-
-
 ## anvi-script-get-collection-info
 
 Provides information about each bin in a given collection.
@@ -5587,110 +6454,6 @@ anvi-script-get-collection-info [-h] -c CONTIGS_DB [-p PROFILE_DB]
   --list-collections    Show available collections and exit.
   -o FILE_PATH, --output-file FILE_PATH
                         File path to store results.
-```
-
-
-
-
-
-## anvi-script-get-collections-as-tab-delimited-matrix.py
-
-A simple script to generate info from search tables
-
-
-
-
-
-**Usage**
-
-```
-anvi-script-get-collections-as-tab-delimited-matrix.py
-[-h] [-p PROFILE_DB] [-c CONTIGS_DB] [-o FILE_PATH]
-```
-
-**Parameters**
-
-
-
-**optional arguments:** 
-
-```
-  -p PROFILE_DB, --profile-db PROFILE_DB
-                        Anvi'o profile database
-  -c CONTIGS_DB, --contigs-db CONTIGS_DB
-                        Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
-  -o FILE_PATH, --output-file FILE_PATH
-                        File path to store results.
-```
-
-
-
-
-
-## anvi-script-get-prot-sequences.py
-
-A simple script to print out sequences for a given list of contigs database
-protein ids
-
-
-
-
-
-**Usage**
-
-```
-anvi-script-get-prot-sequences.py [-h] CONTIGS_DB PROT_IDs
-```
-
-**Parameters**
-
-
-
-**positional arguments:** 
-
-```
-  CONTIGS_DB  Contigs database to read from.
-  PROT_IDs    Protein IDs.
-```
-
-
-
-
-
-## anvi-script-itep-to-data-txt
-
-A simple script to convert ITEP output into data.txt
-
-
-
-
-
-**Usage**
-
-```
-anvi-script-itep-to-data-txt [-h] [-o OUTPUT_FILE] ITEP_CLUSTERS
-```
-
-**Parameters**
-
-
-
-**positional arguments:** 
-
-```
-  ITEP_CLUSTERS         This is the ITEP output file you should find in
-                        "flatclusters" directory
-```
-
-
-
-**optional arguments:** 
-
-```
-  -o OUTPUT_FILE, --output-file OUTPUT_FILE
-                        Where to store the information. The default is
-                        "data.txt".
 ```
 
 

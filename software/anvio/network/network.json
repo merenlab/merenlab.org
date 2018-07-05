@@ -1,0 +1,1571 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 6,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "collection",
+      "name": "COLLECTION",
+      "internal": true,
+      "type": "COLLECTION"
+    },
+    {
+      "size": 8,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "bin",
+      "name": "BIN",
+      "internal": true,
+      "type": "BIN"
+    },
+    {
+      "size": 16,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "profile-db",
+      "name": "PROFILE",
+      "internal": true,
+      "type": "DB"
+    },
+    {
+      "size": 28,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "contigs-db",
+      "name": "CONTIGS",
+      "internal": true,
+      "type": "DB"
+    },
+    {
+      "size": 2,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "ani",
+      "name": "ANI ESTIMATES",
+      "internal": false,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 3,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "external-genomes",
+      "name": "EXTERNAL GENOMES",
+      "internal": false,
+      "type": "TXT"
+    },
+    {
+      "size": 4,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "internal-genomes",
+      "name": "INTERNAL GENOMES",
+      "internal": false,
+      "type": "TXT"
+    },
+    {
+      "size": 12,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "pan-db",
+      "name": "PAN",
+      "internal": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "contigs-stats",
+      "name": "CONTIGS STATS",
+      "internal": false,
+      "type": "STATS"
+    },
+    {
+      "size": 4,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "interactive",
+      "name": "INTERACTIVE DISPLAY",
+      "internal": true,
+      "type": "DISPLAY"
+    },
+    {
+      "size": 3,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "svg",
+      "name": "SVG",
+      "internal": false,
+      "type": "SVG"
+    },
+    {
+      "size": 8,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "genomes-storage-db",
+      "name": "GENOMES STORAGE",
+      "internal": true,
+      "type": "DB"
+    },
+    {
+      "size": 2,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "summary",
+      "name": "STATIC SUMMARY",
+      "internal": false,
+      "type": "SUMMARY"
+    },
+    {
+      "size": 3,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "structure-db",
+      "name": "STRUCTURE",
+      "internal": true,
+      "type": "DB"
+    },
+    {
+      "size": 2,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "variability-profile",
+      "name": "VARIABILITY PROFILE",
+      "internal": false,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 2,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "collection-txt",
+      "name": "COLLECTION",
+      "internal": false,
+      "type": "TXT"
+    },
+    {
+      "size": 2,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "contigs-fasta",
+      "name": "CONTIGS",
+      "internal": false,
+      "type": "FASTA"
+    },
+    {
+      "size": 3,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "functions-txt",
+      "name": "GENE FUNCTIONS",
+      "internal": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "gene-calls-txt",
+      "name": "GENE CALLS",
+      "internal": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "locus-fasta",
+      "name": "LOCUS",
+      "internal": false,
+      "type": "FASTA"
+    },
+    {
+      "size": 2,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "misc-data-items-txt",
+      "name": "ITEMS DATA",
+      "internal": false,
+      "type": "TXT"
+    },
+    {
+      "size": 2,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "misc-data-layers-txt",
+      "name": "LAYERS DATA",
+      "internal": false,
+      "type": "TXT"
+    },
+    {
+      "size": 2,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "misc-data-layer-orders-txt",
+      "name": "LAYER ORDERS DATA",
+      "internal": false,
+      "type": "TXT"
+    },
+    {
+      "size": 2,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "state-json",
+      "name": "INTERACTIVE STATE",
+      "internal": false,
+      "type": "JSON"
+    },
+    {
+      "size": 3,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "phylogeny",
+      "name": "PHYLOGENY",
+      "internal": false,
+      "type": "NEWICK"
+    },
+    {
+      "size": 3,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "concatenated-gene-alignment-fasta",
+      "name": "CONCATENATED GENE ALIGNMENT",
+      "internal": false,
+      "type": "FASTA"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "codon-frequencies-txt",
+      "name": "CODON FREQUENCIES",
+      "internal": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "aa-frequencies-txt",
+      "name": "AA FREQUENCIES",
+      "internal": false,
+      "type": "TXT"
+    },
+    {
+      "size": 6,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "bam-file",
+      "name": "BAM FILE",
+      "internal": false,
+      "type": "BAM"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "functional-enrichment-txt",
+      "name": "ENRICHED FUNCTIONS",
+      "internal": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "misc-data-layers-category",
+      "name": "LAYERS DATA CATEGORY",
+      "internal": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 3,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "genes-fasta",
+      "name": "GENES",
+      "internal": false,
+      "type": "FASTA"
+    },
+    {
+      "size": 2,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "hmm-profile",
+      "name": "HMM PROFILE",
+      "internal": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 2,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "short-reads-fasta",
+      "name": "SHORT READS",
+      "internal": false,
+      "type": "FASTA"
+    },
+    {
+      "size": 3,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "functions",
+      "name": "GENE FUNCTIONS",
+      "internal": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "misc-data-items",
+      "name": "ITEMS DATA",
+      "internal": false,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "misc-data-layers",
+      "name": "LAYERS DATA",
+      "internal": false,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "misc-data-layer-orders",
+      "name": "LAYER ORDERS DATA",
+      "internal": false,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 3,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "dendrogram",
+      "name": "DENDROGRAM",
+      "internal": false,
+      "type": "NEWICK"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "state",
+      "name": "INTERACTIVE STATE",
+      "internal": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "gene-taxonomy",
+      "name": "GENE TAXONOMY",
+      "internal": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "gene-taxonomy-txt",
+      "name": "GENE TAXONOMY",
+      "internal": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "layer-taxonomy",
+      "name": "LAYER TAXONOMY",
+      "internal": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 4,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "single-profile-db",
+      "name": "SINGLE PROFILE",
+      "internal": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "layer-taxonomy-txt",
+      "name": "LAYER TAXONOMY",
+      "internal": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "raw-bam-file",
+      "name": "RAW BAM FILE",
+      "internal": false,
+      "type": "BAM"
+    },
+    {
+      "size": 2,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "view-data",
+      "name": "VIEW DATA",
+      "internal": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "metapangenome",
+      "name": "METAPANGENOME",
+      "internal": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "oligotypes",
+      "name": "OLIGOTYPES",
+      "internal": false,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 2,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "linkmers-txt",
+      "name": "LINKMERS",
+      "internal": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "hmm-source",
+      "name": "HMM SOURCE",
+      "internal": false,
+      "type": "HMM"
+    },
+    {
+      "size": 2,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "cogs-data",
+      "name": "COGs DATA",
+      "internal": true,
+      "type": "DATA"
+    },
+    {
+      "size": 2,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "pfams-data",
+      "name": "PFAMs DATA",
+      "internal": true,
+      "type": "DATA"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "split-bins",
+      "name": "SPLIT BINS",
+      "internal": false,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 6,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-cluster-with-concoct",
+      "name": "anvi-cluster-with-concoct",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 5,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-compute-ani",
+      "name": "anvi-compute-ani",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 5,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-display-contigs-stats",
+      "name": "anvi-display-contigs-stats",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 7,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-display-pan",
+      "name": "anvi-display-pan",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 7,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-display-structure",
+      "name": "anvi-display-structure",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 3,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-export-collection",
+      "name": "anvi-export-collection",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 4,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-export-contigs",
+      "name": "anvi-export-contigs",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 4,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-export-functions",
+      "name": "anvi-export-functions",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 3,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-export-gene-calls",
+      "name": "anvi-export-gene-calls",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 3,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-export-locus",
+      "name": "anvi-export-locus",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 8,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-export-misc-data",
+      "name": "anvi-export-misc-data",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 4,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-export-state",
+      "name": "anvi-export-state",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 4,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-gen-contigs-database",
+      "name": "anvi-gen-contigs-database",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 3,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-gen-genomes-storage",
+      "name": "anvi-gen-genomes-storage",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 2,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-gen-phylogenomic-tree",
+      "name": "anvi-gen-phylogenomic-tree",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 3,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-gen-structure-database",
+      "name": "anvi-gen-structure-database",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 6,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-gen-variability-profile",
+      "name": "anvi-gen-variability-profile",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 5,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-get-codon-frequencies",
+      "name": "anvi-get-codon-frequencies",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 4,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-get-enriched-functions-per-pan-group",
+      "name": "anvi-get-enriched-functions-per-pan-group",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 3,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-get-sequences-for-gene-calls",
+      "name": "anvi-get-sequences-for-gene-calls",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 4,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-get-sequences-for-gene-clusters",
+      "name": "anvi-get-sequences-for-gene-clusters",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 8,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-get-sequences-for-hmm-hits",
+      "name": "anvi-get-sequences-for-hmm-hits",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 6,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-get-short-reads-from-bam",
+      "name": "anvi-get-short-reads-from-bam",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 4,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-get-short-reads-mapping-to-a-gene",
+      "name": "anvi-get-short-reads-mapping-to-a-gene",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 8,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-import-collection",
+      "name": "anvi-import-collection",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 6,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-import-functions",
+      "name": "anvi-import-functions",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 16,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-import-misc-data",
+      "name": "anvi-import-misc-data",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 6,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-import-state",
+      "name": "anvi-import-state",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 6,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-import-taxonomy-for-genes",
+      "name": "anvi-import-taxonomy-for-genes",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 5,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-import-taxonomy-for-layers",
+      "name": "anvi-import-taxonomy-for-layers",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 2,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-init-bam",
+      "name": "anvi-init-bam",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 13,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-interactive",
+      "name": "anvi-interactive",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 2,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-matrix-to-newick",
+      "name": "anvi-matrix-to-newick",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 4,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-merge",
+      "name": "anvi-merge",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 4,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-meta-pan-genome",
+      "name": "anvi-meta-pan-genome",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 2,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-oligotype-linkmers",
+      "name": "anvi-oligotype-linkmers",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 2,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-pan-genome",
+      "name": "anvi-pan-genome",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 4,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-profile",
+      "name": "anvi-profile",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 5,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-refine",
+      "name": "anvi-refine",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 2,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-report-linkmers",
+      "name": "anvi-report-linkmers",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 4,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-run-hmms",
+      "name": "anvi-run-hmms",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 5,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-run-ncbi-cogs",
+      "name": "anvi-run-ncbi-cogs",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 5,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-run-pfams",
+      "name": "anvi-run-pfams",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 5,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-search-functions",
+      "name": "anvi-search-functions",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 1,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-setup-ncbi-cogs",
+      "name": "anvi-setup-ncbi-cogs",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 1,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-setup-pfams",
+      "name": "anvi-setup-pfams",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 6,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-split",
+      "name": "anvi-split",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 8,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-summarize",
+      "name": "anvi-summarize",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "source": 54,
+      "target": 0
+    },
+    {
+      "source": 57,
+      "target": 0
+    },
+    {
+      "source": 78,
+      "target": 0
+    },
+    {
+      "source": 85,
+      "target": 0
+    },
+    {
+      "target": 100,
+      "source": 0
+    },
+    {
+      "target": 101,
+      "source": 0
+    },
+    {
+      "source": 54,
+      "target": 1
+    },
+    {
+      "source": 57,
+      "target": 1
+    },
+    {
+      "target": 70,
+      "source": 1
+    },
+    {
+      "target": 76,
+      "source": 1
+    },
+    {
+      "source": 85,
+      "target": 1
+    },
+    {
+      "target": 85,
+      "source": 1
+    },
+    {
+      "source": 92,
+      "target": 1
+    },
+    {
+      "target": 92,
+      "source": 1
+    },
+    {
+      "target": 54,
+      "source": 2
+    },
+    {
+      "target": 58,
+      "source": 2
+    },
+    {
+      "target": 59,
+      "source": 2
+    },
+    {
+      "target": 64,
+      "source": 2
+    },
+    {
+      "target": 65,
+      "source": 2
+    },
+    {
+      "target": 70,
+      "source": 2
+    },
+    {
+      "target": 75,
+      "source": 2
+    },
+    {
+      "target": 76,
+      "source": 2
+    },
+    {
+      "target": 78,
+      "source": 2
+    },
+    {
+      "target": 80,
+      "source": 2
+    },
+    {
+      "target": 81,
+      "source": 2
+    },
+    {
+      "target": 85,
+      "source": 2
+    },
+    {
+      "source": 87,
+      "target": 2
+    },
+    {
+      "target": 92,
+      "source": 2
+    },
+    {
+      "target": 100,
+      "source": 2
+    },
+    {
+      "target": 101,
+      "source": 2
+    },
+    {
+      "target": 54,
+      "source": 3
+    },
+    {
+      "target": 56,
+      "source": 3
+    },
+    {
+      "target": 58,
+      "source": 3
+    },
+    {
+      "target": 60,
+      "source": 3
+    },
+    {
+      "target": 61,
+      "source": 3
+    },
+    {
+      "target": 62,
+      "source": 3
+    },
+    {
+      "target": 63,
+      "source": 3
+    },
+    {
+      "source": 66,
+      "target": 3
+    },
+    {
+      "target": 69,
+      "source": 3
+    },
+    {
+      "target": 70,
+      "source": 3
+    },
+    {
+      "target": 71,
+      "source": 3
+    },
+    {
+      "target": 73,
+      "source": 3
+    },
+    {
+      "target": 75,
+      "source": 3
+    },
+    {
+      "target": 76,
+      "source": 3
+    },
+    {
+      "target": 77,
+      "source": 3
+    },
+    {
+      "target": 78,
+      "source": 3
+    },
+    {
+      "target": 79,
+      "source": 3
+    },
+    {
+      "target": 82,
+      "source": 3
+    },
+    {
+      "target": 85,
+      "source": 3
+    },
+    {
+      "target": 87,
+      "source": 3
+    },
+    {
+      "target": 91,
+      "source": 3
+    },
+    {
+      "target": 92,
+      "source": 3
+    },
+    {
+      "target": 94,
+      "source": 3
+    },
+    {
+      "target": 95,
+      "source": 3
+    },
+    {
+      "target": 96,
+      "source": 3
+    },
+    {
+      "target": 97,
+      "source": 3
+    },
+    {
+      "target": 100,
+      "source": 3
+    },
+    {
+      "target": 101,
+      "source": 3
+    },
+    {
+      "source": 55,
+      "target": 4
+    },
+    {
+      "source": 55,
+      "target": 4
+    },
+    {
+      "target": 55,
+      "source": 5
+    },
+    {
+      "target": 67,
+      "source": 5
+    },
+    {
+      "target": 75,
+      "source": 5
+    },
+    {
+      "target": 55,
+      "source": 6
+    },
+    {
+      "target": 67,
+      "source": 6
+    },
+    {
+      "target": 75,
+      "source": 6
+    },
+    {
+      "target": 88,
+      "source": 6
+    },
+    {
+      "target": 55,
+      "source": 7
+    },
+    {
+      "target": 57,
+      "source": 7
+    },
+    {
+      "target": 64,
+      "source": 7
+    },
+    {
+      "target": 65,
+      "source": 7
+    },
+    {
+      "target": 72,
+      "source": 7
+    },
+    {
+      "target": 74,
+      "source": 7
+    },
+    {
+      "target": 78,
+      "source": 7
+    },
+    {
+      "target": 80,
+      "source": 7
+    },
+    {
+      "target": 81,
+      "source": 7
+    },
+    {
+      "target": 88,
+      "source": 7
+    },
+    {
+      "source": 90,
+      "target": 7
+    },
+    {
+      "target": 101,
+      "source": 7
+    },
+    {
+      "source": 56,
+      "target": 8
+    },
+    {
+      "source": 56,
+      "target": 9
+    },
+    {
+      "source": 57,
+      "target": 9
+    },
+    {
+      "source": 58,
+      "target": 9
+    },
+    {
+      "source": 85,
+      "target": 9
+    },
+    {
+      "source": 56,
+      "target": 10
+    },
+    {
+      "source": 57,
+      "target": 10
+    },
+    {
+      "source": 85,
+      "target": 10
+    },
+    {
+      "target": 57,
+      "source": 11
+    },
+    {
+      "source": 67,
+      "target": 11
+    },
+    {
+      "target": 72,
+      "source": 11
+    },
+    {
+      "target": 74,
+      "source": 11
+    },
+    {
+      "target": 88,
+      "source": 11
+    },
+    {
+      "target": 90,
+      "source": 11
+    },
+    {
+      "target": 97,
+      "source": 11
+    },
+    {
+      "target": 101,
+      "source": 11
+    },
+    {
+      "source": 58,
+      "target": 12
+    },
+    {
+      "source": 101,
+      "target": 12
+    },
+    {
+      "target": 58,
+      "source": 13
+    },
+    {
+      "source": 69,
+      "target": 13
+    },
+    {
+      "target": 70,
+      "source": 13
+    },
+    {
+      "target": 58,
+      "source": 14
+    },
+    {
+      "source": 70,
+      "target": 14
+    },
+    {
+      "source": 59,
+      "target": 15
+    },
+    {
+      "target": 78,
+      "source": 15
+    },
+    {
+      "source": 60,
+      "target": 16
+    },
+    {
+      "target": 66,
+      "source": 16
+    },
+    {
+      "source": 61,
+      "target": 17
+    },
+    {
+      "target": 79,
+      "source": 17
+    },
+    {
+      "source": 97,
+      "target": 17
+    },
+    {
+      "source": 62,
+      "target": 18
+    },
+    {
+      "source": 63,
+      "target": 19
+    },
+    {
+      "source": 64,
+      "target": 20
+    },
+    {
+      "target": 80,
+      "source": 20
+    },
+    {
+      "source": 64,
+      "target": 21
+    },
+    {
+      "target": 80,
+      "source": 21
+    },
+    {
+      "source": 64,
+      "target": 22
+    },
+    {
+      "target": 80,
+      "source": 22
+    },
+    {
+      "source": 65,
+      "target": 23
+    },
+    {
+      "target": 81,
+      "source": 23
+    },
+    {
+      "source": 68,
+      "target": 24
+    },
+    {
+      "target": 80,
+      "source": 24
+    },
+    {
+      "target": 85,
+      "source": 24
+    },
+    {
+      "target": 68,
+      "source": 25
+    },
+    {
+      "source": 74,
+      "target": 25
+    },
+    {
+      "source": 75,
+      "target": 25
+    },
+    {
+      "source": 71,
+      "target": 26
+    },
+    {
+      "source": 71,
+      "target": 27
+    },
+    {
+      "target": 71,
+      "source": 28
+    },
+    {
+      "target": 76,
+      "source": 28
+    },
+    {
+      "target": 77,
+      "source": 28
+    },
+    {
+      "source": 84,
+      "target": 28
+    },
+    {
+      "target": 91,
+      "source": 28
+    },
+    {
+      "target": 93,
+      "source": 28
+    },
+    {
+      "source": 72,
+      "target": 29
+    },
+    {
+      "target": 72,
+      "source": 30
+    },
+    {
+      "source": 73,
+      "target": 31
+    },
+    {
+      "source": 74,
+      "target": 31
+    },
+    {
+      "source": 75,
+      "target": 31
+    },
+    {
+      "target": 75,
+      "source": 32
+    },
+    {
+      "source": 94,
+      "target": 32
+    },
+    {
+      "source": 76,
+      "target": 33
+    },
+    {
+      "source": 77,
+      "target": 33
+    },
+    {
+      "source": 79,
+      "target": 34
+    },
+    {
+      "source": 95,
+      "target": 34
+    },
+    {
+      "source": 96,
+      "target": 34
+    },
+    {
+      "source": 80,
+      "target": 35
+    },
+    {
+      "source": 80,
+      "target": 36
+    },
+    {
+      "source": 80,
+      "target": 37
+    },
+    {
+      "target": 80,
+      "source": 38
+    },
+    {
+      "target": 85,
+      "source": 38
+    },
+    {
+      "source": 86,
+      "target": 38
+    },
+    {
+      "source": 81,
+      "target": 39
+    },
+    {
+      "source": 82,
+      "target": 40
+    },
+    {
+      "target": 82,
+      "source": 41
+    },
+    {
+      "source": 83,
+      "target": 42
+    },
+    {
+      "target": 83,
+      "source": 43
+    },
+    {
+      "target": 85,
+      "source": 43
+    },
+    {
+      "target": 87,
+      "source": 43
+    },
+    {
+      "source": 91,
+      "target": 43
+    },
+    {
+      "target": 83,
+      "source": 44
+    },
+    {
+      "target": 84,
+      "source": 45
+    },
+    {
+      "target": 85,
+      "source": 46
+    },
+    {
+      "target": 86,
+      "source": 46
+    },
+    {
+      "source": 88,
+      "target": 47
+    },
+    {
+      "source": 89,
+      "target": 48
+    },
+    {
+      "target": 89,
+      "source": 49
+    },
+    {
+      "source": 93,
+      "target": 49
+    },
+    {
+      "target": 94,
+      "source": 50
+    },
+    {
+      "target": 95,
+      "source": 51
+    },
+    {
+      "source": 98,
+      "target": 51
+    },
+    {
+      "target": 96,
+      "source": 52
+    },
+    {
+      "source": 99,
+      "target": 52
+    },
+    {
+      "source": 100,
+      "target": 53
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}

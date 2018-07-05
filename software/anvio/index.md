@@ -7,15 +7,19 @@ excerpt: "Anvi'o Project Page"
 
 {% include _toc.html %}
 
-{% include _project-anvio-images.html %}
-
 # Anvi'o in a nutshell
+
+<a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 Anvi'o is an [open-source](http://github.com/meren/anvio), community-driven analysis and visualization platform for 'omics data.
 
 It brings together many aspects of today's cutting-edge genomic, metagenomic, metatranscriptomic, pangenomic, and phylogenomic analysis practices to address a wide array of needs.
 
 {% include _join-anvio-slack.html %}
+
+# Releases
+
+Find latest anvi'o releases [here](https://github.com/merenlab/anvio/releases).
 
 # Tutorials
 
