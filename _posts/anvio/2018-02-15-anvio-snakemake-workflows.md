@@ -344,13 +344,27 @@ anvi-run-workflow -w metagenomics \
 
 in order to use snakemake's `--notemp` and `--ignore-incomplete` options of snakemake (you can read about these in the snakemake help menu to understand what they do). Notice that `--additional-params` has to be the last thing that is passed to `anvi-run-workflow` in the command line, and only followed by  arguments of snakemake (i.e. arguments that are listed in the help menu of snakemake). The purpose here is to not limit any of the configuration that snakemake allows the user.
 
-{:.warning}
-Meren, should we add a note here about using screen? I thought of something like this:
-Ok, let's run this. I always start by initiating a [screen](https://www.gnu.org/software/screen/manual/screen.html) session. If you are not familiar with what this is, basically, we use it here because we are running something that requires no user interaction for a long time on a remote machine (e.g. a cluster head node).
+Ok, let's run this.
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Using "screen" to run the workflow</span>
+
+I always start by initiating a [screen](https://www.gnu.org/software/screen/manual/screen.html) session. If you are not familiar with what this is, basically, we use it here because we are running something that requires no user interaction for a long time on a remote machine (e.g. a cluster head node).
 
 ```
 screen -S mysnakemakeworkflow
 ```
+
+After the workflow is running you simply click **ctrl-A** followd by **D** to detach from the screen. If you want to check the status of your workflow, then to reconnect to your screen use:
+
+```
+screen -r mysnakemakeworkflow
+```
+
+And when you want to kill it use **ctrl-D** (while connected to the screen).
+
+</div>
 
 This is how we run the workflow on our cluster:
 
