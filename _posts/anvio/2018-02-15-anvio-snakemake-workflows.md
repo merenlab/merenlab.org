@@ -182,9 +182,17 @@ these are all the steps to annotate your contigs database(s) with functions, HMM
 
 ## Setting the stage
 
-TBD (basically instructions to download a tar with all the files needed for this tutorial).
+We prepared some files to make it easy for you to go through this tutorial. Here are the steps to get things started on your computer:
 
-All the files that are currently needed are here: `/users/ashaiber/sandbox/snakemake_tutorial/metagenomics/WORKFLOW_TUTORIAL_DATA.tar.gz`. I just didn't get the chance to write a nice `wget`, etc. lines for it.
+```bash
+wget http://merenlab.org/files/WORKFLOW_TUTORIAL_DATA.tar.gz
+
+tar -xvzf WORKFLOW_TUTORIAL_DATA.tar.gz
+
+cd WORKFLOW_TUTORIAL_DATA
+```
+
+Now you can follow the steps in this tutorial and run everything on your machine (assuming you have everything installed).
 
 ## Standard usage
 
