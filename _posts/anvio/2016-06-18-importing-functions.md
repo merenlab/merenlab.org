@@ -17,7 +17,7 @@ Have you been struggling with importing your functions into anvi'o? You want to 
 Anvi'o accepts functional annotation at the gene-level. Gene IDs in your input files should correspond to gene IDs in the contigs database, hence, functional annotation should be done *after* exporting genes from the contigs database. The basic workflow goes like this: (1) generate your contigs database, (2) export your gene sequences, (3) assign functions to them, and (4) import results back into your contigs database.
 
 {:.notice}
-**Important note**: There are many ways to have your genes annotated with functions, but, there is only one way to make sure the gene IDs in the files you generate using external tools correspond to the gene IDs in the database: export your DNA or AA sequences from the anvi'o contigs database you wish to annotate using anvi'o programs `anvi-get-dna-sequences-for-gene-calls` or `anvi-get-aa-sequences-for-gene-calls`.
+**Important note**: There are many ways to have your genes annotated with functions, but, there is only one way to make sure the gene IDs in the files you generate using external tools correspond to the gene IDs in the database: export your DNA or AA sequences from the anvi'o contigs database you wish to annotate using anvi'o program `anvi-get-sequences-for-gene-calls`.
 
 {% include _toc.html %}
 
@@ -85,19 +85,25 @@ If the **accession** information is not available to you, it is OK to leave it b
 Anvi'o has a parser for [InterProScan](http://www.ebi.ac.uk/interpro/download.html). To use InterProScan you should first export AA sequences for all your gene calls:
 
 ``` bash
-$ anvi-get-aa-sequences-for-gene-calls -c CONTIGS.db -o protein-sequences.fa
+$ anvi-get-sequences-for-gene-calls -c CONTIGS.db \
+                                    --get-aa-sequences \
+                                    -o amino-acid-sequences.fa
 ```
 
 After running InterProScan on this file like this (assuming you have it [downloaded](http://www.ebi.ac.uk/interpro/download.html)):
 
 ``` bash
-$ ./interproscan.sh -i protein-sequences.fa -f tsv -o interpro-output.tsv
+$ ./interproscan.sh -i amino-acid-sequences.fa \
+                    -f tsv \
+                    -o interpro-output.tsv
 ```
 
 You can import results into the database:
 
 ``` bash
-$ anvi-import-functions -c contigs.db -i interpro-output.tsv -p interproscan
+$ anvi-import-functions -c contigs.db \
+                        -i interpro-output.tsv \
+                        -p interproscan
 ```
 
 That's it!
