@@ -497,7 +497,12 @@ anvi-pan-genome -g Salmonella-GENOMES.db \
 
 # display the pangenome
 anvi-display-pan -g Salmonella-GENOMES.db \
+<<<<<<< HEAD
+                 -p Salmonella/Salmonella-PAN.db \
+                 -s Salmonella/Salmonella-SAMPLES.db
+=======
                  -p Salmonella/Salmonella-PAN.db
+>>>>>>> master
 ```
 
 [![phylo]({{images}}/salmonella-pangenome-01.png)]({{images}}/salmonella-pangenome-01.png){:.center-img .width-70}
@@ -521,12 +526,21 @@ One could certainly store all those genes in a collection and work with them. I 
 The program `anvi-export-pc-alignments` is what we will use to export alignments genes in protein clusters. This is also a very capable program, and I urge you to take a look at its help menu and explore other ways to use it for your research. Here, we declare the collection name and the bin id in our anvi'o pan database, and export sequences:
 
 ``` bash
+<<<<<<< HEAD
+anvi-export-pc-alignments -g Salmonella-GENOMES.db \
+                          -p Salmonella/Salmonella-PAN.db \
+                          --collection-name default \
+                          --bin-id Some_Core_PCs \
+                          --concatenate-pcs \
+                          -o concatenated-proteins.fa
+=======
 anvi-get-sequences-for-gene-clusters -g Salmonella-GENOMES.db \
                                      -p Salmonella/Salmonella-PAN.db \
                                      --collection-name default \
                                      --bin-id Some_Core_PCs \
                                      --concatenate-gene-clusters \
                                      -o concatenated-proteins.fa
+>>>>>>> master
 ```
 
 <div class="extra-info" markdown="1">
@@ -584,7 +598,12 @@ Run `anvi-display-pan` again,
 
 ``` bash
 anvi-display-pan -g Salmonella-GENOMES.db \
+<<<<<<< HEAD
+                 -p Salmonella/Salmonella-PAN.db \
+                 -s Salmonella/Salmonella-SAMPLES.db
+=======
                  -p Salmonella/Salmonella-PAN.db
+>>>>>>> master
 ```
 
 And there you should see your new tree:
