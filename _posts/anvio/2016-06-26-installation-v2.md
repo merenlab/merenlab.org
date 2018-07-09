@@ -64,6 +64,12 @@ If you have [Anaconda](https://www.continuum.io/downloads), it is also possible 
 conda install -c bioconda -c conda-forge anvio diamond bwa
 ```
 
+***Note***: Some users reported that the one above was installing anvio `v4`, if that is also the case for you, uninstall it, and try it with this command:
+
+```
+conda install -n anvio5 -c bioconda -c conda-forge anvio=5.1.0 diamond bwa
+```
+
 Once the installation is complete, test anvi'o quickly to make sure everything is in order:
 
 ``` bash
