@@ -1,14 +1,14 @@
 ---
 layout: post
 title: Anvi'o snakemake workflows
-modified: 2018-02-15
+modified: 2018-07-09
 excerpt: "Bringing the magic of anvi'o together with the wonders of snakemake."
 comments: true
 authors: [alon, meren]
 categories: [anvio]
 ---
 
-{% capture images %}{{site.url}}/images/anvio/2018-02-15-anvio-snakemake-workflows{% endcapture %}
+{% capture images %}{{site.url}}/images/anvio/2018-07-09-anvio-snakemake-workflows{% endcapture %}
 
 {% include _toc.html %}
 
