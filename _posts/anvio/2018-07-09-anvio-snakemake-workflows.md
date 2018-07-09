@@ -15,6 +15,9 @@ categories: [anvio]
 {:.notice}
 The contents of this post will only work with anvi'o `v5` and snakemake `v4` or later.
 
+{:.warning}
+{% include _fixthispage.html source="anvio/2018-07-09-anvio-snakemake-workflows.md" %}
+
 [Snakemake](https://snakemake.readthedocs.io/en/stable/) is a robust language to create computational workflows. We recently have started using it extensivley with our anvi'o workflows, which provided us with better reproducibility and documentation of our work.
 
 In order to let you enjoy anvi'o together with the wonders of snakemake, we embarked on an effort to make some of the commonly used anvi'o workflows more accessible and easy-to-use (well, not *too* easy .. after all this is 'science').
@@ -784,6 +787,9 @@ anvi-run-workflow -w metagenomics \
 
 {:.notice}
 When using the `--additional-params`, a message with red letters will be printed. This message is just there to make sure that you are using this parameter correctly (i.e. putting it at the end of the command).
+
+{:.warning}
+{% include _fixthispage.html source="anvio/2018-07-09-anvio-snakemake-workflows.md" %}
 
 # FAQ
 
