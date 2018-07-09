@@ -132,6 +132,8 @@ Once you have your genomes storage ready, you can use the program `anvi-pan-geno
 
 ``` bash
 $ anvi-pan-genome -g MY-GENOMES.db -n PROJECT_NAME
+<<<<<<< HEAD
+=======
 ```
 
 <div class="extra-info" markdown="1">
@@ -165,6 +167,7 @@ Data key "clade" .............................: Predicted type: str
 Data key "light" .............................: Predicted type: str
 
 New data added to the db for your layers .....: clade, light.
+>>>>>>> master
 ```
 
 We all are looking for ways to enrich our pangenomic displays, and anvi'o's dditional data tables are excellent ways to do that. Please take a moment to learn more about them [here](http://merenlab.org/2017/12/11/additional-data-tables/).
@@ -209,7 +212,11 @@ Once your analysis is done, you will use the program `anvi-display-pan` to displ
 This is the simplest form of this command:
 
 ``` bash
+<<<<<<< HEAD
+$ anvi-display-pan -p PROJECT-PAN.db -s PROJECT-PAN-SAMPLES.db -g PROJECT-PAN-GENOMES.db
+=======
 $ anvi-display-pan -p PROJECT-PAN.db -g PROJECT-PAN-GENOMES.db
+>>>>>>> master
 ```
 
 The program `anvi-display-pan` is very similar to the program `anvi-interactive`, and the interface that will welcome you is nothing but the standard [anvi'o interactive interface]({% post_url anvio/2016-02-27-the-anvio-interactive-interface %}/#using-the-anvio-interactive-interface) with slight adjustments for pangenomic analyses. Of course `anvi-display-pan` will allow you to set the IP address and port number to serve, add additional view data, additional layers, and/or additional trees, and more. Please familiarize yourself with it by running `anvi-display-pan -h` in your terminal.
