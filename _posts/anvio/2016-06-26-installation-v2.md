@@ -70,6 +70,14 @@ conda install -c bioconda -c conda-forge anvio diamond bwa
 conda install -n anvio5 -c bioconda -c conda-forge anvio=5.1.0 diamond bwa
 ```
 
+***Note***: One of our users who has been trying conda installation on an HPC system [reported](https://github.com/merenlab/anvio/issues/895#issuecomment-403656800) the following steps working for them:
+
+```
+conda create -y --name anvio5 python=3.6
+conda install -y --name anvio5 django=2.0.2
+conda install -y --name anvio5 -c bioconda -c conda-forge anvio=5 diamond bwa
+```
+
 Once the installation is complete, test anvi'o quickly to make sure everything is in order:
 
 ``` bash
