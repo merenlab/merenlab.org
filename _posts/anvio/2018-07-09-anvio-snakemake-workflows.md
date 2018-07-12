@@ -411,7 +411,7 @@ If you remember, we had two "groups" in the samples.txt file. Hence, we have two
 ```
 $ cat 06_MERGED/G01/PROFILE.db
 Only one file was profiled with G01 so there is nothing to
-merge. But don't worry, you can still use anvi-interacite with
+merge. But don't worry, you can still use anvi-interactive with
 the single profile database that is here: 05_ANVIO_PROFILE/G01/sample_01/PROFILE.db
 ```
 
