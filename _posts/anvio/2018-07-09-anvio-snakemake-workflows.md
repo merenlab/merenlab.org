@@ -848,3 +848,15 @@ bowtie2 --threads NUM_THREADS \
 Hence, you can use `additional_params` to specify all parameters except `--threads`, `-x`, `-1`, `-2`, or `-S`.
 
 For example, if you don't want gapped alignment (aka the reference does not recruit any reads that contain indels with respect to it), and you don't want to store unmapped reads in the SAM output file, set `additional_params` to be `--rfg 10000,10000 --no-unal` (for a full list of options see the bowtie2 [documentation](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#options)). The default is `--no-unal`.
+
+## How can I restart a failed job?
+If your job fails for some reason you can use  `additional_params` with the original command to restart the workflow where it stopped. For example:
+
+```
+anvi-run-workflow -w metagenomics \
+                  -c config-idba_ud.json \
+		  --additional-params \
+		  --keep-going --rerun-incomplete
+```
+Here using `additional_params` with the `--keep-going` and `--rerun-incomplete` flags will resume the job even if it failed in the middle of a rule, like `anvi_profile`. Of course it is always a good idea to figure out why a workflow failed in the first place.
+
