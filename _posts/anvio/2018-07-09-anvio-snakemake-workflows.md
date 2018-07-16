@@ -18,6 +18,8 @@ The contents of this post will only work with anvi'o `v5` and snakemake `v4` or 
 {:.warning}
 {% include _fixthispage.html source="anvio/2018-07-09-anvio-snakemake-workflows.md" %}
 
+{% include _join-anvio-slack.html %}
+
 [Snakemake](https://snakemake.readthedocs.io/en/stable/) is a robust language to create computational workflows. We recently have started using it extensivley with our anvi'o workflows, which provided us with better reproducibility and documentation of our work.
 
 In order to let you enjoy anvi'o together with the wonders of snakemake, we embarked on an effort to make some of the commonly used anvi'o workflows more accessible and easy-to-use (well, not *too* easy .. after all this is 'science').
@@ -848,3 +850,5 @@ bowtie2 --threads NUM_THREADS \
 Hence, you can use `additional_params` to specify all parameters except `--threads`, `-x`, `-1`, `-2`, or `-S`.
 
 For example, if you don't want gapped alignment (aka the reference does not recruit any reads that contain indels with respect to it), and you don't want to store unmapped reads in the SAM output file, set `additional_params` to be `--rfg 10000,10000 --no-unal` (for a full list of options see the bowtie2 [documentation](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#options)). The default is `--no-unal`.
+
+{% include _join-anvio-slack.html %}
