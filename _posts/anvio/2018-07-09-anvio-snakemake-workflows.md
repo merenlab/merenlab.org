@@ -18,6 +18,8 @@ The contents of this post will only work with anvi'o `v5` and snakemake `v4` or 
 {:.warning}
 {% include _fixthispage.html source="anvio/2018-07-09-anvio-snakemake-workflows.md" %}
 
+{% include _join-anvio-slack.html %}
+
 [Snakemake](https://snakemake.readthedocs.io/en/stable/) is a robust language to create computational workflows. We recently have started using it extensivley with our anvi'o workflows, which provided us with better reproducibility and documentation of our work.
 
 In order to let you enjoy anvi'o together with the wonders of snakemake, we embarked on an effort to make some of the commonly used anvi'o workflows more accessible and easy-to-use (well, not *too* easy .. after all this is 'science').
@@ -411,7 +413,7 @@ If you remember, we had two "groups" in the samples.txt file. Hence, we have two
 ```
 $ cat 06_MERGED/G01/PROFILE.db
 Only one file was profiled with G01 so there is nothing to
-merge. But don't worry, you can still use anvi-interacite with
+merge. But don't worry, you can still use anvi-interactive with
 the single profile database that is here: 05_ANVIO_PROFILE/G01/sample_01/PROFILE.db
 ```
 
@@ -860,3 +862,5 @@ anvi-run-workflow -w metagenomics \
 ```
 Here using `additional_params` with the `--keep-going` and `--rerun-incomplete` flags will resume the job even if it failed in the middle of a rule, like `anvi_profile`. Of course it is always a good idea to figure out why a workflow failed in the first place.
 
+
+{% include _join-anvio-slack.html %}
