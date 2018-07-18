@@ -1126,11 +1126,10 @@ $ anvi-import-state -p e_faecalis_snvs/profile.db \
                     --state additional-files/state-files/state-snvs.json \
                     --name default
 
-$ anvi-interactive -d e_faecalis_snvs/view_data.txt \
+$ anvi-interactive -d e_faecalis_snvs/view.txt \
                    -s e_faecalis_snvs/samples.db \
                    -t e_faecalis_snvs/tree.txt \
                    -p e_faecalis_snvs/profile.db \
-                   -A e_faecalis_snvs/additional_view_data.txt \
                    --title "SNV Profile for the E. faecalis bin" \
                    --manual
 ```
