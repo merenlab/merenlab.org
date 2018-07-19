@@ -1337,16 +1337,16 @@ Now not only can we see how our E. faecalis genome looks like compared to availa
 
 ### Adding average nucleotide identity
 
-The pangenome tells us about the similarities and dissimilarities between those genomes given the amino acid sequences of open reading frames we identified within each one of them. We could also compare them to each other by computing the average nucleotide identity between them. Anvi'o comes with a program to do that, which uses [PyANI by Pritchard et al.](https://github.com/widdowquinn/pyani) to pairwise align DNA sequences between genomes to estimate similarities between them. [See this tutorial for details](http://merenlab.org/2016/11/08/pangenomics-v2/#computing-the-average-nucleotide-identity-for-genomes).
+The pangenome tells us about the similarities and dissimilarities between those genomes given the amino acid sequences of open reading frames we identified within each one of them. We could also compare them to each other by computing the average nucleotide identity between them. Anvi'o comes with a program to do that, which uses [PyANI by Pritchard et al.](https://github.com/widdowquinn/pyani) to pairwise align DNA sequences between genomes to estimate similarities between them. [See this tutorial for details]({% post_url anvio/2016-11-08-pangenomics-v2 %}#computing-the-average-nucleotide-identity-for-genomes).
 
 We can compute average nucleotide identity among our genomes, and add them to the pan database the following way:
 
 ``` bash
 $ anvi-compute-ani -e additional-files/pangenomics/external-genomes.txt \
-                  -i additional-files/pangenomics/internal-genomes.txt \
-                  -o ANI \
-                  -T 8 \
-                  --pan-db PAN/Enterococcus-PAN.db
+                   -i additional-files/pangenomics/internal-genomes.txt \
+                   -o ANI \
+                   -T 8 \
+                   --pan-db PAN/Enterococcus-PAN.db
 
 ```
 
@@ -1370,7 +1370,6 @@ Computing ANI can take a long time especially if you don't have many threads to 
 If you visualize your pangenome again once you have your ANI results in your database, 
 
 ``` bash
-
  $ anvi-display-pan -g Enterococcus-GENOMES.db \
                     -p PAN/Enterococcus-PAN.db \
                     --title "Enterococccus Pan"
@@ -1380,9 +1379,96 @@ And take a careful look at your 'Layers' tab, you can see visualize your pangeno
 
 [![E. facealis pan](images/e-faecalis-w-ani.png)](images/e-faecalis-w-ani.png){:.center-img .width-70}
 
+### Organizing gene clusters based on a forced synteny
+
+
+[![E. facealis pan](images/pan-synteny-box.png)](images/pan-synteny-box.png){:.center-img .width-50}
+
+
+[![E. facealis pan](images/pan-synteny.png)](images/pan-synteny.png){:.center-img .width-70}
+
+
+### Functional enrichment analyses
+
+One of the things we often are interested in is this question: which functions are associated with a particular organization of genomes due to their phylogenomic or pangenomic characteristics.
+
+For instance, genomes in this pangenome are organized into two distinct groups based on differential distribution of gene clusters. That is of course not surprising, since these genomes are classified into two distinct 'species' within the genus Enterococcus. So you can certainly imagine more appropriate or interesting examples where you may be wondering about functional enrichment across groups of genomes that do not have such clear distinctions at the level of taxonomy. The actual tutorial to make sense of functions in pangenomes is [here]({% post_url anvio/2016-11-08-pangenomics-v2 %}/#making-some-sense-of-functions-in-your-pangenome). Here we will make a quick pass to demonstrate its relevance.
+
+First, you need to define how you would like to group your genomes in the pangenome so anvi'o can find out which functions are characteristic of each group. Here is our TAB-delimited file to divide these genomes into two groups:
+
+
+```
+|name|clade|
+|:--|:--:|
+|E_faecalis_6240|faecalis|
+|E_faecalis_6250|faecalis|
+|E_faecalis_6255|faecalis|
+|E_faecalis_6512|faecalis|
+|E_faecalis_6557|faecalis|
+|E_faecalis_6563|faecalis|
+|E_faecalis_SHARON|faecalis|
+|E_faecium_6589|faecium|
+|E_faecium_6590|faecium|
+|E_faecium_6601|faecium|
+|E_faecium_6778|faecium|
+|E_faecium_6798|faecium|
+```
+
+Which is also in your data pack. Let's import it into the pan database as an additional layer data:
+
+``` bash
+ $ anvi-import-misc-data -p PAN/Enterococcus-PAN.db \
+                         --target-data-table layers \
+                         additional-files/pangenomics/additional-layers-data.txt
+```
+
+Once it is imported, we can re-run the pangenome,
+
+``` bash
+ $ anvi-display-pan -g Enterococcus-GENOMES.db \
+                    -p PAN/Enterococcus-PAN.db \
+                    --title "Enterococccus Pan"
+```
+
+and see the new layer there that correspond to our clades:
+
+[![E. facealis pan](images/pan-clades.png)](images/pan-clades.png){:.center-img .width-70}
+
+Now we can ask anvi'o to identify and report functions that are enriched in either of these clades along with the gene clusters they are associated with:
+
+``` bash
+ $ anvi-get-enriched-functions-per-pan-group -p PAN/Enterococcus-PAN.db \
+                                             -g Enterococcus-GENOMES.db \
+                                             --category clade \
+                                             --annotation-source COG_FUNCTION \
+                                             -o functional-enrichment.txt
+```
+
+Which would generate a new file, `functional-enrichment.txt`, in our work directory that is just filled with stuff like this:
+
+|category|COG_FUNCTION|enrichment_score|weighted_enrichment_score|portion_occurrence_in_group|portion_occurrence_outside_of_group|occurrence_in_group|occurrence_outside_of_group|gene_clusters_ids|core_in_group|core|wilcoxon_p_value|wilcoxon_statistic|wilcoxon_corrected_p_value|
+|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
+|faecium|ABC-type sugar transport system|1.00|11.76|1.00|0.00|5.00|0.00|GC_00002611|True|False|0.00|2.84|0.03|
+|faecium|Glutaminase|1.00|11.76|1.00|0.00|5.00|0.00|GC_00002659|True|False|0.00|2.84|0.03|
+|faecium|Nitrogen regulatory protein PII|1.00|11.76|1.00|0.00|5.00|0.00|GC_00002820|True|False|0.00|2.84|0.03|
+|faecium|Threonine dehydrogenase or related Zn-dependent dehydrogenase|1.00|11.76|1.00|0.00|5.00|0.00|GC_00002450, GC_00002769|True|False|0.00|2.84|0.03|
+|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
+|faecalis|Molybdopterin biosynthesis enzyme|1.00|11.76|1.00|0.00|7.00|0.00|GC_00002289, GC_00002305|True|False|0.00|2.84|0.03|
+|faecalis|tRNA Uridine 5-carbamoylmethylation protein Kti12 (Killer toxin insensitivity protein)|1.00|11.76|1.00|0.00|7.00|0.00|GC_00002149|True|False|0.00|2.84|0.03|
+|faecalis|Uncharacterized protein YhaN|1.00|11.76|1.00|0.00|7.00|0.00|GC_00002232|True|False|0.00|2.84|0.03|
+|faecalis|Threonine synthase|1.00|11.76|1.00|0.00|7.00|0.00|GC_00001802|True|False|0.00|2.84|0.03|
+|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
+
+So it turns out *killer toxin insensitivity* protein is only encoded by *E. faecalis*... I am not surprised. One should expect anything from these microbes :(
+
+
 ### Binning gene clusters
 
-From this display you can make selections of gene clusters. I already made some selections and stored them. If you import them the following way,
+There are multiple ways to identify gene clusters that match to a given set of criteria. If you like, you can use a combinations of filters that are available through the interface:
+
+[![E. facealis pan](images/pan-filters.png)](images/pan-filters.png){:.center-img .width-50}
+
+The command line program `anvi-get-sequences-for-gene-clusters` can also give you access to these filters and more to get very precise reports. Another option is the good'ol interactive interface, and using the dendrogram it produces to organize gene clusters based on their distribution across genomes. From this display you can make manual selections of gene clusters. I already made some selections and stored them in a file for your convenience. If you import them the following way,
 
 ``` bash
  $ anvi-import-collection additional-files/pangenomics/pan-collection.txt \
@@ -1411,7 +1497,7 @@ If you right-click on any of the gene clusters, you will see a menu,
 
 which, among other things, will give you access to the inspection page:
 
-[![E. facealis pan](images/pan-inspect.png)](images/pan-inspect.png){:.center-img .width-50}
+[![E. facealis pan](images/pan-inspect.png)](images/pan-inspect.png){:.center-img .width-90}
 
 Inspecting gene clusters can be a lot of fun and very depressing at the same time. But of course it is hard to get a comprehensive understanding by going through things one by one. But can we summarize the pangenome?
 
@@ -1466,6 +1552,148 @@ unique_id  |  protein_cluster_id  |  bin_name  |  genome_name      |  gene_calle
 
 
 I'm sure you need no help to know what to do with this file.
+
+## Putting the E. faecalis genome in the context of HMP gut metagenomes
+
+So. In the previous sections of this tutorial we recovered an E. faecalis genome from an infant's gut. While we did multiple comparative analyses, we never answered one critical question: how does it look like across other gut metagenomes. Increasing availability of shotgun metagenomes offer quite powerful ways to characterize MAGs and isolate genomes with respect to their association with naturally occurring environmental populations. For instance, we could take the E. faecalis genome from Carol's gut, and investigate the occurrence of it in 20 gut metagenomes from another Banfield group study by [Brooks et al](https://www.nature.com/articles/s41467-017-02018-w).
+
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Snakemake workflows to the rescue</span>
+Your datapack already contains an anvi'o contigs database and a merged profile database that puts the E. faecalis genome in the context of 20 gut metagenomes, but here is some extra info for those of you who are curious to know how did we generated these data.
+
+To generate these mapping results and to profile them using anvi'o, we used the anvi'o snakemake workflow for metagenomics.
+
+{:.warning}
+Please [read this](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/) article for an extensive tutorial on anvi'o snakemake workflows.
+
+Basically, this is how our `samples.txt` file looked like:
+
+|sample|r1|r2|
+|:--|:--:|:--:|
+|SRR5405923|SRR5405923_R1.fastq|SRR5405923_R1.fastq|
+|SRR5405692|SRR5405692_R1.fastq|SRR5405692_R1.fastq|
+|SRR5405915|SRR5405915_R1.fastq|SRR5405915_R1.fastq|
+|SRR5405913|SRR5405913_R1.fastq|SRR5405913_R1.fastq|
+|SRR5405912|SRR5405912_R1.fastq|SRR5405912_R1.fastq|
+|SRR5405829|SRR5405829_R1.fastq|SRR5405829_R1.fastq|
+|SRR5405918|SRR5405918_R1.fastq|SRR5405918_R1.fastq|
+|SRR5405707|SRR5405707_R1.fastq|SRR5405707_R1.fastq|
+|SRR5405710|SRR5405710_R1.fastq|SRR5405710_R1.fastq|
+|SRR5405922|SRR5405922_R1.fastq|SRR5405922_R1.fastq|
+|SRR5405920|SRR5405920_R1.fastq|SRR5405920_R1.fastq|
+|SRR5405783|SRR5405783_R1.fastq|SRR5405783_R1.fastq|
+|SRR5405711|SRR5405711_R1.fastq|SRR5405711_R1.fastq|
+|SRR5405693|SRR5405693_R1.fastq|SRR5405693_R1.fastq|
+|SRR5405708|SRR5405708_R1.fastq|SRR5405708_R1.fastq|
+|SRR5405784|SRR5405784_R1.fastq|SRR5405784_R1.fastq|
+|SRR5405958|SRR5405958_R1.fastq|SRR5405958_R1.fastq|
+|SRR5405957|SRR5405957_R1.fastq|SRR5405957_R1.fastq|
+|SRR5405770|SRR5405770_R1.fastq|SRR5405770_R1.fastq|
+|SRR5405712|SRR5405712_R1.fastq|SRR5405712_R1.fastq|
+
+Which simply lists names and paths for 20 metagenomes we downloaded from the study above.
+
+Next, the `fasta.txt` file, which gives the path for our FASTA file for the MAG:
+
+|reference|path|
+|:--|:--:|
+|E_facealis|E_facealis_MAG.fa|
+
+And this is our `config.json`, which describes how to do the read recruitment:
+
+``` json
+{
+    "samples_txt": "samples.txt",
+    "fasta_txt": "fasta.txt",
+    "references_mode": true,
+    "import_percent_of_reads_mapped": {
+        "run": false
+    },
+    "bowtie": {
+        "additional_params": "--no-unal",
+        "threads": 4
+    },
+    "anvi_profile": {
+        "--overwrite-output-destinations": true,
+        "--min-contig-length": 0,
+        "--profile-SCVs": true,
+        "--skip-SNV-profiling": false,
+        "threads": 4
+    },
+    "anvi_script_reformat_fasta": {
+        "run": true
+    },
+    "anvi_run_ncbi_cogs": {
+        "run": true,
+        "threads": 15
+    },
+    "output_dirs": {
+        "FASTA_DIR": "02_FASTA",
+        "LOGS_DIR": "00_LOGS",
+        "QC_DIR": "01_QC",
+        "PROFILE_DIR": "05_ANVIO_PROFILE",
+        "MERGE_DIR": "06_MERGED",
+        "MAPPING_DIR": "04_MAPPING",
+        "CONTIGS_DIR": "03_CONTIGS"
+    },
+    "anvi_run_hmms": {
+        "run": false
+    },
+    "iu_filter_quality_minoche": {
+        "run": false
+    },
+    "anvi_merge": {
+        "--skip-concoct-binning": true
+    }
+}
+```
+
+And we run the following command, which gave us the anvi'o output in your data pack:
+
+``` bash
+anvi-run-workflow -w metagenomics \
+                  -c config.json
+```
+
+Magic.
+
+</div>
+
+You can visualize the merged profile in your data pack by typing the following command,
+
+``` bash
+ $ anvi-interactive -p additional-files/e_faeealis_across_hmp/PROFILE.db \
+                    -c additional-files/e_faeealis_across_hmp/CONTIGS.db
+```
+
+[![E. facealis pan](images/e-across-hmp.png)](images/e-across-hmp.png){:.center-img .width-60}
+
+This output simply puts each split in the *E. faecalis* genome we recovered from Sharon et al.'s infant gut in the context of 20 other infant gut metagenomes. Furthermore, one could want to do it per gene basis. Luckily, if you have a collection and a bin in your profile database, anvi'o allows that. The following command,
+
+Gene mode
+
+``` bash
+ $ anvi-interactive -p additional-files/e_faeealis_across_hmp/PROFILE.db \
+                    -c additional-files/e_faeealis_across_hmp/CONTIGS.db \
+                    -C DEFAULT \
+                    -b EVERYTHING \
+                    --gene-mode
+```
+
+should produce the following output, where the coverage of each gene is independently visualized in the context of other metagenomes:
+
+[![E. facealis pan](images/e-across-hmp-gene-view.png)](images/e-across-hmp-gene-view.png){:.center-img .width-60}
+
+If you right click any of the genes, you can see that this menu has more options,
+
+[![E. facealis pan](images/inspect-gene-menu.png)](images/inspect-gene-menu.png){:.center-img .width-40}
+
+Including the inspection of a given gene in its context with upstream and downstream coverage information:
+
+[![E. facealis pan](images/gene-inspection.png)](images/gene-inspection.png){:.center-img .width-80}
+
 
 
 ## Final words
