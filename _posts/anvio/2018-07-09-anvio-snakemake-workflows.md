@@ -862,5 +862,7 @@ anvi-run-workflow -w metagenomics \
 ```
 Here using `additional_params` with the `--keep-going` and `--rerun-incomplete` flags will resume the job even if it failed in the middle of a rule, like `anvi_profile`. Of course it is always a good idea to figure out why a workflow failed in the first place.
 
+{:.notice}
+When a workflow fails, then you would need to unlock the working directory before rerunning. This means you would have to run the full command with the `--unlock` flag once, and then run the command again without the `--unlock` flag. Please refer to the snakemake docummentation for [more details regarding how snakemake locks the working directory](https://snakemake.readthedocs.io/en/stable/project_info/faq.html#how-does-snakemake-lock-the-working-directory).
 
 {% include _join-anvio-slack.html %}
