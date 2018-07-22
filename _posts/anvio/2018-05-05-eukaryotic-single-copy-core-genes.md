@@ -18,6 +18,9 @@ image:
 {: .notice}
 Some parts of this article may require anvi'o `v5` or later. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal.
 
+{: .notice}
+Guy Leonard has made a script to download any of the BUSCO HMM collections and automatically convert them into Anvi'o ready versions. The script and an example of usage can be found [here](https://github.com/guyleonard/busco_hmms_for_anvio).  
+
 {% include _toc.html %}
 
 This post describes a collection of 83 single-copy core genes I curated from [BUSCO](http://busco.ezlab.org), so anvi'o can __identify eukaryotic genome bins__ in metagenomic binning efforts (stay tuned, viruses, you are not forgotten, and your time will come soon), and __estimate their level of completion__.
