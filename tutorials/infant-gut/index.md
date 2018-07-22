@@ -1555,8 +1555,11 @@ I'm sure you need no help to know what to do with this file.
 
 ## Putting the E. faecalis genome in the context of HMP gut metagenomes
 
-So. In the previous sections of this tutorial we recovered an E. faecalis genome from an infant's gut. While we did multiple comparative analyses, we never answered one critical question: how does it look like across other gut metagenomes. Increasing availability of shotgun metagenomes offer quite powerful ways to characterize MAGs and isolate genomes with respect to their association with naturally occurring environmental populations. For instance, we could take the E. faecalis genome from Carol's gut, and investigate the occurrence of it in 20 gut metagenomes from another Banfield group study by [Brooks et al](https://www.nature.com/articles/s41467-017-02018-w).
+In the previous sections of this tutorial we recovered an *E. faecalis* genome from an infant gut metagenome.
 
+Increasing availability of shotgun metagenomes offer quite powerful ways to characterize MAGs and isolate genomes across different systems. Harnessing the power of available metagenomes, in fact we could ask the question "*how does our E. faecalis MAG look like in other infant gut metagenomes*". To provide a preliminary answer to this question, and how similar questions can be answered using in anvi'o, here we will use [another Banfield group study](https://www.nature.com/articles/s41467-017-02018-w) by Brooks et al.
+
+In your data pack you have a merged anvi'o profile that describes the read recruitment statistics of our E. faecalis MAG across 20 gut metagenomes from the Brooks et al. study.
 
 <div class="extra-info" markdown="1">
 
@@ -1670,9 +1673,14 @@ You can visualize the merged profile in your data pack by typing the following c
 
 [![E. facealis pan](images/e-across-hmp.png)](images/e-across-hmp.png){:.center-img .width-60}
 
-This output simply puts each split in the *E. faecalis* genome we recovered from Sharon et al.'s infant gut in the context of 20 other infant gut metagenomes. Furthermore, one could want to do it per gene basis. Luckily, if you have a collection and a bin in your profile database, anvi'o allows that. The following command,
+This output simply puts each split in the *E. faecalis* genome we recovered from Sharon et al.'s infant gut in the context of 20 other infant gut metagenomes.
 
-Gene mode
+Furthermore, one could want to do it per gene basis for a more higly resolved understanding of distribution patterns. Luckily, if you have a collection and a bin in your profile database, anvi'o allows that.
+
+{:.notice}
+If you don't have a collection, `anvi-script-add-default-collection` will help you add one. 
+
+The 'gene mode' can be invoked using the following command:
 
 ``` bash
  $ anvi-interactive -p additional-files/e_faeealis_across_hmp/PROFILE.db \
@@ -1682,7 +1690,7 @@ Gene mode
                     --gene-mode
 ```
 
-should produce the following output, where the coverage of each gene is independently visualized in the context of other metagenomes:
+which should produce the following output, where the coverage of each gene is independently visualized in the context of other metagenomes:
 
 [![E. facealis pan](images/e-across-hmp-gene-view.png)](images/e-across-hmp-gene-view.png){:.center-img .width-60}
 
@@ -1693,7 +1701,6 @@ If you right click any of the genes, you can see that this menu has more options
 Including the inspection of a given gene in its context with upstream and downstream coverage information:
 
 [![E. facealis pan](images/gene-inspection.png)](images/gene-inspection.png){:.center-img .width-80}
-
 
 
 ## Final words
