@@ -865,7 +865,7 @@ Here using `additional_params` with the `--keep-going` and `--rerun-incomplete` 
 {:.notice}
 When a workflow fails, then you would need to unlock the working directory before rerunning. This means you would have to run the full command with the `--unlock` flag once, and then run the command again without the `--unlock` flag. Please refer to the snakemake docummentation for [more details regarding how snakemake locks the working directory](https://snakemake.readthedocs.io/en/stable/project_info/faq.html#how-does-snakemake-lock-the-working-directory).
 
-## I skipped importing "percent reads mapped" to my progiles, is there an easy way to recover this?
+## I skipped importing "percent reads mapped" to my profiles, is there an easy way to recover this?
 
 I'm glad you asked! All you need to do is to force the workflow to execute the step of importing this information to each single profile database, and then repeat the merging step. To do so, update your config so that it includes:
 
