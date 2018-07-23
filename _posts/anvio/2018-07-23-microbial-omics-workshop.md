@@ -17,4 +17,13 @@ categories: [anvio]
 {:.notice}
 This workshop was developed as part of the BRI class for the University of Chicago Biophysical Sciences Graduate Program first year students in the fall quarter of 2018. The workshop was planned for 20 hours in-class, and the students were expected to do additional work on assignment outside of class hours.
 
-The purpose of this workshop is to introduce the students to some basic questions of microbial ecology, and learn how these questions are addressed using 'omics approahces through the example of [crassphage](). Additionaly, the students will learn how workflow managment tools help us 
+The general goals of this workshop are:
+1. Introduce the students to some of the microbial ecology and microbial omics type of work that is being done in the Meren Lab.
+2. Learn a new practical tool (snakemake) through some hands-on experience.
+
+The specific goals of this workshop are:
+1. Get familiar with some basic questions of microbial ecology.
+2. Learn how questions of microbial ecology are addressed using 'omics approahces through the example of [crassphage](https://en.wikipedia.org/wiki/CrAssphage).
+3. Learn, through the example of [snakemake](https://snakemake.readthedocs.io/en/stable/), how workflow managment tools help us streamline the analysis of large collection of genomic samples.
+4.  Learn how large datasets could serve as an input to machine learning algorithms, and help us address questions of microbial ecology.
+
