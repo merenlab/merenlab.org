@@ -245,6 +245,8 @@ The workflow includes the following steps:
 
 1. Quality control of metagenomic short reads using [illumina-utils](https://github.com/merenlab/illumina-utils/), and generating a comprehensive final report for the results of this step (so you have your Supplementary Table 1 ready).
 
+2. Taxonomical profiling of short reads using [krakenhll](https://github.com/fbreitwieser/krakenhll). These provide relative abundance of taxons in each metagenome. These profiles are also imported into individual profile databases, and are available in the merged profile database (for more details about this, refer to the [release notes of anvi'o version 5.1](https://github.com/merenlab/anvio/releases/tag/v5.1)). THIS IS ONLY AVAILABLE IN THE `master` version on github, and it will be available in the next release of anvi'o.
+
 2. Individual or combined assembly of quality filtered metagenomic reads using either [megahit](https://github.com/voutcn/megahit) or [idba_ud](https://github.com/loneknightpy/idba).
 
 3. Generating an anvi'o contigs database from assembled contigs using [anvi-gen-contigs-database](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#anvi-gen-contigs-database). This part of the metagenomics workflow is inherited from the contigs workflow, so you know this step also includes the annotation of your contigs database(s) with functions, HMMs, and taxonomy.
@@ -864,5 +866,27 @@ Here using `additional_params` with the `--keep-going` and `--rerun-incomplete` 
 
 {:.notice}
 When a workflow fails, then you would need to unlock the working directory before rerunning. This means you would have to run the full command with the `--unlock` flag once, and then run the command again without the `--unlock` flag. Please refer to the snakemake docummentation for [more details regarding how snakemake locks the working directory](https://snakemake.readthedocs.io/en/stable/project_info/faq.html#how-does-snakemake-lock-the-working-directory).
+
+## Can I use results from previuous runs of krakenhll?
+
+If you already ran krakenhll on your metagenomes, and you also already used `krakenhll-mpa-report` to generate the `tax` files, then you can use the `kraken_txt` option in the config file to provide a path to a TAB-delimited file with the paths to the `tax` file for each of your metegenomic samples. Notice that the `kraken_txt` file must have the following format (i.e. two columns with the headers "sample" and "path"):
+
+```bash
+sample	path
+s01	/path/to/s01-kraken.tax
+s02	/path/to/s02-kraken.tax
+```
+
+The sample names must be identical to the sample names that are provided in the `samples.txt` file, and it should include all the samples in `samples.txt`.
+
+Once you have such a file, and let's say you named it `kraken.txt`, simply add this to your config file:
+
+```
+    "krakenhll": {
+        "run": true,
+        "--db": "/path/to/your/kraken/database/"
+    },
+    "kraken_txt": "kraken.txt"
+```
 
 {% include _join-anvio-slack.html %}
