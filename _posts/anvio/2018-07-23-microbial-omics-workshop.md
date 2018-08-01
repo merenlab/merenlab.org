@@ -27,3 +27,18 @@ The specific goals of this workshop are:
 3. Learn, through the example of [snakemake](https://snakemake.readthedocs.io/en/stable/), how workflow managment tools help us streamline the analysis of large collection of genomic samples.
 4.  Learn how large datasets could serve as an input to machine learning algorithms, and help us address questions of microbial ecology.
 
+## Introduction to microbial ecology
+
+The introduction will include a lecture by Dr. Eren. Slides are available [here]().
+
+## Crassphage
+
+Slides for the introduction to crassphage could be found [here]().
+
+The background includes review of these crassphage related papers:
+
+[![crassphage_paper]({{images}}/crassphage_paper.png)]( {{images}}/crassphage_paper.png){:.center-img .width-120}
+
+
+
+### Assesing the occurence of crassphage 
