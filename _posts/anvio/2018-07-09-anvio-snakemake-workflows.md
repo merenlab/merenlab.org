@@ -50,13 +50,13 @@ $ anvi-run-workflow --list-workflows
 Available workflows ....: contigs, metagenomics, pangenomics
 ```
 
-You should consult with your own installation to see what workflows available to you in case we failed to keep this page up-to-date.
+You should consult with your own installation to see what workflows are available to you in case we failed to keep this page up-to-date.
 
 While anvi'o workflows provide a standard canvas for basic operations, you fill this canvas by telling anvi'o where to find files, what parameters to use while working on them, and where to store output files. Following sections in this chapter describe some of those essential files that are commonly used in one or more workflows.
 
 ## config.json
 
-Once you know with which workflow you want to work, the config file gives you a great degree of flexibility to modify parameters and order of steps associated with that workflow. The config file is a mandatory input of all workflows, even if you are fine with all default parameters. You should always take a look at the config file since you should not escape from the complexity of anything that will impact your findings. Preparing a config file from scratch for a given workflow could be quite a streneous task. But do not worry, we got you covered:
+Once you know with which workflow you want to work, the config file gives you a great degree of flexibility to modify parameters and order of steps associated with that workflow. The config file is a mandatory input of all workflows, even if you are fine with all default parameters. You should always take a look at the config file since you should not escape from the complexity of anything that will impact your findings. Preparing a config file from scratch for a given workflow could be quite a strenuous task. But do not worry, we got you covered:
 
 ```
 anvi-run-workflow -w WORKFLOW-NAME \
@@ -470,7 +470,7 @@ In addition to the merged profile databases and the contigs databases (and all i
 
 ### All against all mode
 
-The default behaviour for this workflow is to create a contigs database for each _group_ and map (and profile, and merge) the samples that belong to that _group_. If you wish to map all samples to all contigs, use the `all_against_all` option in the config file:
+The default behavior for this workflow is to create a contigs database for each _group_ and map (and profile, and merge) the samples that belong to that _group_. If you wish to map all samples to all contigs, use the `all_against_all` option in the config file:
 
 ```
     "all_against_all": true
@@ -723,7 +723,7 @@ anvi-run-workflow -w pangenomics
 
 [![DAG-internal-external-pan]({{images}}/DAG-internal-external-pan.png)]( {{images}}/DAG-internal-external-pan.png){:.center-img .width-50}
 
-Notice that most steps are in dashed boxes since we are using results from previuous runs.
+Notice that most steps are in dashed boxes since we are using results from previous runs.
 
 And now we run it:
 
@@ -749,7 +749,7 @@ The `{log}` and `{threads}` arguments are part of the snakemake syntax, and you 
 
 When submitting a workflow to a cluster, snakemake requires you to limit the number of jobs that will be submitted in parallel by using the argument `--jobs`. If you prefer to limit the number of threads that would be used by your workflow (for example, if you share your cluster with others and you don't want to consume all resources), then you can make use of the snakemake built-in `resources` directive. You can set the number of jobs to your limit (or to a very big number if you don't care), and use `--resources nodes=30`, if you wish to only use 30 threads. We used the word `nodes` so that to not confuse with the reserved word `threads` in snakemake.
 
-For instance, if you were working with our servers, the command to run the contigs workflow, described above under the [Contigs workflow section of the turtorial](#contigs-workflow), would look like this:
+For instance, if you were working with our servers, the command to run the contigs workflow, described above under the [Contigs workflow section of the tutorial](#contigs-workflow), would look like this:
 
 ```bash
 anvi-run-workflow -w contigs \
@@ -760,9 +760,9 @@ anvi-run-workflow -w contigs \
                       --resources nodes=40
 ```
 
-The main difference from the first command is the parameter list described under `--additional-params`. Without these, this command would be ran on a single computer, but with these additions, it would utilze a server system and limit itself to 40 nodes while not keeping more than 20 jobs in the queue.
+The main difference from the first command is the parameter list described under `--additional-params`. Without these, this command would be run on a single computer, but with these additions, it would utilize a server system and limit itself to 40 nodes while not keeping more than 20 jobs in the queue.
 
-**This will not run on your cluster system**, because on our cluster, we use a wrapper for `qsub`, which we call `clusterize` in order to submit jobs to our cluster. If you are not sure how to submit jobs to your cluster, ask your system admin. Please consult with the [snakemake docummentation](http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#threads) to learn more about the `--cluster` parameter.
+**This will not run on your cluster system**, because on our cluster, we use a wrapper for `qsub`, which we call `clusterize` in order to submit jobs to our cluster. If you are not sure how to submit jobs to your cluster, ask your system admin. Please consult the [snakemake documentation](http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#threads) to learn more about the `--cluster` parameter.
 
 Notice: if you don't include `--jobs` (identical to `--cores`) in your command line, then snakemake will only use one node, and will not utilize multiple nodes even if the `threads` parameter for a rule is higher than 1. This is simply the behaviour of snakemake (described [here](http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#threads)).
 
@@ -770,14 +770,14 @@ Notice: if you don't include `--jobs` (identical to `--cores`) in your command l
 
 <span class="extra-info-header">A note on cluster-config</span>
 
-This note is here mainly for documentation of the code, and for those of you who are interested in snakemake. The reason we decided not to use the [cluster configuration](http://snakemake.readthedocs.io/en/stable/executable.html#cluster-execution) file to control the number of threads per rule, is becuase certain software require the number of threads as an input (for example `megahit` and `anvi-profile`), but the cluster config file is not available for shell commands within snakemake rules. To bypass this issue we simply put the threads configuration in the `config.json`, thus available for the user to modify.
+This note is here mainly for documentation of the code, and for those of you who are interested in snakemake. The reason we decided not to use the [cluster configuration](http://snakemake.readthedocs.io/en/stable/executable.html#cluster-execution) file to control the number of threads per rule, is because certain software requires the number of threads as an input (for example `megahit` and `anvi-profile`), but the cluster config file is not available for shell commands within snakemake rules. To bypass this issue we simply put the threads configuration in the `config.json`, thus available for the user to modify.
 
 </div>
 
 # The ADDITIONAL PARAMS option
 
 
-To use the `--cluster` argument of snakemake above, we used the `--additional-params` option of `anvi-run-workflow`, let's understand it better. The purpose of `--additional-params` is to allow you to access any configuration that is available through snakemake (i.e. anything that is listed when you look at the help menu of snakemake through `snakemake -h` is fair game as an input for `--additional-params`). For example you can do the following,
+To use the `--cluster` argument of snakemake above, we used the `--additional-params` option of `anvi-run-workflow`. Let's understand it better. The purpose of `--additional-params` is to allow you to access any configuration that is available through snakemake (i.e. anything that is listed when you look at the help menu of snakemake through `snakemake -h` is fair game as an input for `--additional-params`). For example you can do the following,
 
 ``` bash
 anvi-run-workflow -w metagenomics \
@@ -820,7 +820,7 @@ Yes! In "reference mode", you may choose to skip this step, and keep your origin
 	}
 ```
 
-In assembly mode, this rule is always excecuted.
+In assembly mode, this rule is always executed.
 
 ## What's going on behind the scenes before we run idba_ud?
 
@@ -851,7 +851,7 @@ bowtie2 --threads NUM_THREADS \
 
 Hence, you can use `additional_params` to specify all parameters except `--threads`, `-x`, `-1`, `-2`, or `-S`.
 
-For example, if you don't want gapped alignment (aka the reference does not recruit any reads that contain indels with respect to it), and you don't want to store unmapped reads in the SAM output file, set `additional_params` to be `--rfg 10000,10000 --no-unal` (for a full list of options see the bowtie2 [documentation](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#options)). The default is `--no-unal`.
+For example, if you don't want gapped alignment (aka the reference does not recruit any reads that contain indels with respect to it), and you don't want to store unmapped reads in the SAM output file, set `additional_params` to be `--rfg 10000,10000 --no-unal` (for a full list of options see the bowtie2 [documentation](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#options)). 
 
 ## How can I restart a failed job?
 If your job fails for some reason you can use  `additional_params` with the original command to restart the workflow where it stopped. For example:
@@ -867,9 +867,9 @@ Here using `additional_params` with the `--keep-going` and `--rerun-incomplete` 
 {:.notice}
 When a workflow fails, then you would need to unlock the working directory before rerunning. This means you would have to run the full command with the `--unlock` flag once, and then run the command again without the `--unlock` flag. Please refer to the snakemake docummentation for [more details regarding how snakemake locks the working directory](https://snakemake.readthedocs.io/en/stable/project_info/faq.html#how-does-snakemake-lock-the-working-directory).
 
-## Can I use results from previuous runs of krakenhll?
+## Can I use results from previous runs of krakenhll?
 
-If you already ran krakenhll on your metagenomes, and you also already used `krakenhll-mpa-report` to generate the `tax` files, then you can use the `kraken_txt` option in the config file to provide a path to a TAB-delimited file with the paths to the `tax` file for each of your metegenomic samples. Notice that the `kraken_txt` file must have the following format (i.e. two columns with the headers "sample" and "path"):
+If you already ran krakenhll on your metagenomes, and you also already used `krakenhll-mpa-report` to generate the `tax` files, then you can use the `kraken_txt` option in the config file to provide a path to a TAB-delimited file with the paths to the `tax` file for each of your metagenomic samples. Notice that the `kraken_txt` file must have the following format (i.e. two columns with the headers "sample" and "path"):
 
 ```bash
 sample	path
