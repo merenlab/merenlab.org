@@ -151,7 +151,7 @@ and re-run the `anvi-interactive`,
                     --manual
 ```
 
-You will be surprised to see that nothing has really changed. Why? Because you need to instruct anvi'o to use the new organization to order layers. This can be done from the "samples" tab (which clearly should be called 'layers' at this point):
+You will be surprised to see that nothing has really changed. Why? Because you need to instruct anvi'o to use the new organization to order layers. This can be done from the "layers" tab:
 
 [![manual](images/samples-org.png)](images/samples-org.png){:.center-img .width-90}
 
