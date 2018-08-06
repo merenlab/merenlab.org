@@ -34,7 +34,7 @@ When you click the link, it will start downloading a **144 Mb** compressed file 
 Alternatively in your terminal you can go into a directory you wish to work, and type these:
 
 ``` bash
- $ wget https://ndownloader.figshare.com/files/10781669 -O INFANT-GUT-TUTORIAL.tar.gz
+ $ wget https://ndownloader.figshare.com/files/12547991 -O INFANT-GUT-TUTORIAL.tar.gz
  $ tar -zxvf INFANT-GUT-TUTORIAL.tar.gz && cd INFANT-GUT-TUTORIAL
 ```
 
