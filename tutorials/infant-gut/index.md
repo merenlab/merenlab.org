@@ -1127,7 +1127,6 @@ $ anvi-import-state -p e_faecalis_snvs/profile.db \
                     --name default
 
 $ anvi-interactive -d e_faecalis_snvs/view.txt \
-                   -s e_faecalis_snvs/samples.db \
                    -t e_faecalis_snvs/tree.txt \
                    -p e_faecalis_snvs/profile.db \
                    --title "SNV Profile for the E. faecalis bin" \
