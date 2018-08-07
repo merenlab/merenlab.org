@@ -1137,7 +1137,7 @@ This time you will get this display:
 
 [![E. faecalis SNVs](images/e-faecalis-SNVs-anvio-state.png)](images/e-faecalis-SNVs-anvio-state.png){:.center-img .width-50}
 
-As we've seen before, occurrence of SNVs follow a bi-daily fashion. Not that it needs any further convincing, but just to show off here, if you were to click `Samples > Sample order > view_data > Draw`, you can see that even days and odd days nicely separate from each other:
+As we've seen before, occurrence of SNVs follow a bi-daily fashion. Not that it needs any further convincing, but just to show off here, if you were to click `Layers > Order by > default(tree) > Draw`, you can see that even days and odd days nicely separate from each other:
 
 [![E. faecalis SNVs](images/e-faecalis-SNVs-anvio-state-clustered.png)](images/e-faecalis-SNVs-anvio-state-clustered.png){:.center-img .width-50}
 
@@ -1532,7 +1532,7 @@ The most important part of this output is this one:
 You can unzip this file,
 
 ``` bash
- $ gzip -d PAN_SUMMARY/Enterococcus_protein_clusters_summary.txt.gz
+ $ gzip -d PAN_SUMMARY/Enterococcus_gene_clusters_summary.txt.gz
 ```
 
 And play with it to see how it will solve all your problems. You can import it into R, or open it in EXCEL to have a quick look at its contents. But here is a quick look at the first 10 lines of this file that contains 35,175 gene entries:
