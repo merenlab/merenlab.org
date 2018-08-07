@@ -23,7 +23,7 @@ A typical anvi'o metagenomic workflow [starts with BAM files and a FASTA file]({
 
 ## Downloading the pre-packaged Infant Gut Dataset
 
-If you are following this tutorial, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD. You can download them using this link: [https://ndownloader.figshare.com/files/12547991](https://ndownloader.figshare.com/files/12547991).
+If you are following this tutorial, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD. You can download them using this link: [https://ndownloader.figshare.com/files/12724010](https://ndownloader.figshare.com/files/12724010).
 
 When you click the link, it will start downloading a **144 Mb** compressed file automatically. Once it is done, go to the relevant directory that contains this file using your terminal, and unpack it the following way:
 
@@ -34,7 +34,7 @@ When you click the link, it will start downloading a **144 Mb** compressed file 
 Alternatively in your terminal you can go into a directory you wish to work, and type these:
 
 ``` bash
- $ wget https://ndownloader.figshare.com/files/12547991 -O INFANT-GUT-TUTORIAL.tar.gz
+ $ wget https://ndownloader.figshare.com/files/12724010 -O INFANT-GUT-TUTORIAL.tar.gz
  $ tar -zxvf INFANT-GUT-TUTORIAL.tar.gz && cd INFANT-GUT-TUTORIAL
 ```
 
