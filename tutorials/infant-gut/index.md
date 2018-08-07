@@ -1712,7 +1712,8 @@ This is a brief demonstration to showcase protein structure visualization and vi
 
 In the previous sections of this tutorial we used single-nucleotide variants (SNVs) to explore sequence heterogeneity of an E. faecalis population. In this section of the tutorial we explore in what ways these variants alter the encoded protein synthesized downstream, and how such variation is shaped by principles of protein evolution. When analyzing sequence variation in the context of proteins, it makes a lot more sense to characterize sequence variation with single codon variants (SCVs) or single amino acid variants (SAAVS) rather than SNVs. If you are unfamiliar with these concepts, or want to learn more, [click me](http://merenlab.org/2015/07/20/analyzing-variability/#single-nucleotide-variants).
 
-Disclaimer: We think it's worth noting that this E. faecalis MAG recruits reads from populations with relatively low amounts of intra-population diversity. In more diverse microbial environments such as oceanic or soil ecosystems, visual patterns of variants on protein structures become much more striking. However, we wanted you to be aware of these features in the infant gut tutorial even though it is perhaps not the best tool for the job. As noted above, you should check out our dedicated tutorial on the subject for a more in-depth look.
+{:notice}
+**Evan's disclaimer**: It's worth noting that this *E. faecalis* MAG recruits reads from populations with relatively low amounts of intra-population diversity. In more diverse microbial environments such as marine or soil ecosystems, visual patterns of variants on protein structures become much more striking. While the infant gut tutorial is a good medium to get you familiarized with various features of anvi'o, you should check out our dedicated tutorial on the subject for a more in-depth look.
 
 ### The structure database
 
@@ -1750,7 +1751,7 @@ After running the above command, you should see the following view.
 
 [![E. facealis struct](images/structure-interactive-default.png)](images/structure-interactive-default.png){:.center-img .width-90}
 
-This is the predicted structure for gene 58. It's a 4-methyl-5-(beta-hydroxyethyl)thiazole kinase, and [the template protein](https://www.rcsb.org/structure/3DZV) used to model the structure was crystallized from an E. Faecalis isolate by the Joint Center for Structural Genomics. The template shares 96.5% sequence identity with our gene, and so we are very confident in the accuracy of the predicted structure. Each red sphere indicates the position of a SAAV that occurred in at least one of the metagenomes. You can learn more about each SAAV by hovering the mouse above it.
+This is the predicted structure for `gene 58`. It's a 4-methyl-5-(beta-hydroxyethyl)thiazole kinase, and [the template protein](https://www.rcsb.org/structure/3DZV) used to model the structure was crystallized from an *E. faecalis* isolate by the Joint Center for Structural Genomics. The template shares 96.5% sequence identity with our gene, and so we are very confident in the accuracy of the predicted structure. Each red sphere indicates the position of a SAAV that occurred in at least one of the metagenomes. You can learn more about each SAAV by hovering the mouse above it.
 
 [![E. facealis struct](images/SAAV-hover.png)](images/SAAV-hover.png){:.center-img .width-90}
 
@@ -1758,7 +1759,7 @@ Under 'Reference info' you can see that the MAG had an asparagine at this positi
 
 [![E. facealis struct](images/structure-filter-dfc.gif)](images/structure-filter-dfc.gif){:.center-img .width-90}
 
-To get a better idea of the characteristics of each SAAV, you can set the color and size for each according to various metrics of interest in the Perspectives tab. In the animation below, we color each SAAV according to its entropy to quantify the degree of variation at each site (click [here](http://merenlab.org/2015/07/20/analyzing-variability/#the-output-matrix/) and search for 'entropy' for an explanation):
+To get a better idea of the characteristics of each SAAV, you can set the color and size for each according to various metrics of interest in the Perspectives tab. In the animation below, we color each SAAV according to its entropy to quantify the degree of variation at each site (click [here](http://merenlab.org/2015/07/20/analyzing-variability/#the-output-matrix) and search for 'entropy' for an explanation):
 
 [![E. facealis struct](images/structure-color-entropy.gif)](images/structure-color-entropy.gif){:.center-img .width-90}
 
@@ -1782,7 +1783,7 @@ If you inspect enough of these genes, you'll start to notice that SCVs at solven
 
 ### Case study: sequence variation within a kinase binding pocket
 
-Since gene 58 is a kinase, it may not surprise you it has a binding pocket for ADP. Unfortunately there is currently no way to visualize ligands, but we can get a sense for the binding pocket by adding a translucent surface to the protein in the Perspectives tab. The binding pocket is pointed out in the animation below, and if you are up for the challenge, you can try and find this pocket in your own interface.
+Since `gene 58` is a kinase, it may not surprise you it has a binding pocket for ADP. Unfortunately there is currently no way to visualize ligands, but we can get a sense for the binding pocket by adding a translucent surface to the protein in the Perspectives tab. The binding pocket is pointed out in the animation below, and if you are up for the challenge, you can try and find this pocket in your own interface.
 
 [![E. facealis struct](images/structure-zoom-in-ADP.gif)](images/structure-zoom-in-ADP.gif){:.center-img .width-80}
 
@@ -1802,19 +1803,19 @@ Click [here](https://www.rcsb.org/3d-view/3DZV?preset=ligandInteraction&sele=ADP
 
 ### Grouping metagenomes
 
-You now know the basics. Let's talk about how to get the most out of this interface. Sometimes it is desirable to partition the metagenomes into groups based on metagenomes. For example, these 20 metagenomes are from 7 infants, and it would be useful to group which metagenomes belong to which infant. Unless the user provides custom categories for groupings, only two are by default available: `merged` and `samples`. Currently you are using the `merged` category, which is why you see all variant data merged onto a single protein view. Go to the Main tab and select `samples` from within the Category dropdown menu. You should see this:
+You now know the basics. Let's talk about how to get the most out of this interface. Sometimes it is desirable to partition metagenomes into groups based on the experimental design. For example, these 20 metagenomes are from 7 infants, and it would be useful to group which metagenomes belong to which infant. Unless the user provides custom categories for groupings, only two are by default available: `merged` and `samples`. Currently you are using the `merged` category, which is why you see all variant data merged onto a single protein view. Go to the Main tab and select `samples` from within the Category dropdown menu. You should see this:
 
 [![E. facealis struct](images/structure-samples-category.png)](images/structure-samples-category.png){:.center-img .width-100}
 
-Now you can visualize each metagenome's variants individually. Let's import some metadata so we can create our own custom groupings. Return to your terminal and import the metadata table `additional-files/e_faeealis_across_hmp/additional_layers_table.txt`:
+Now you can visualize each metagenome's variants individually. Let's import some metadata so we can create our own custom groupings. Return to your terminal and import the additional data table into the profile database:
 
 ``` bash
 $ anvi-import-misc-data additional-files/e_faeealis_across_hmp/additional_layers_table.txt \
-                        -p additional-files/e_faeealis_across_hmp/PROFILE.d\
+                        -p additional-files/e_faeealis_across_hmp/PROFILE.db \
                         -t layers
 ```
 
-There is nothing magic about this file, it's just a tab-delimited table:
+This is just a TAB-delimited table that is compatible with anvi'o misc data table inputs:
 
 samples     |  dol  |  cohort  |  location  |  infant  |  cohort_infant  |  birth_date_matched_to_study_day  |  gestational_age_weeks  |  sex  |  birth_mode  |  birth_weight_grams  |  hospital      |  day_of_life_range
 ------------|-------|----------|------------|----------|-----------------|-----------------------------------|-------------------------|-------|--------------|----------------------|----------------|-------------------
@@ -1856,9 +1857,10 @@ Now, there are many more grouping categories available to us.
 
 [![E. facealis struct](images/structure-dramatic-zoom.gif)](images/structure-dramatic-zoom.gif){:.center-img .width-90}
 
-### Structural biology is hard
+We hope this tutorial give you enough motivation to explore your own data with this framework! Feel free to click on the other 4 genes in the Main tab and further explore, or better yet, do it with your own metagenomes.
 
-Let's face it: it is a lot easier to live in a world of A, C, T, and G. But in this restricted space we can't explore the biochemical consequences of our sequences, and we therefore can't understand why DNA sequences are the way they are. This branch of anvi'o has been designed to help make this undertaking more accessible, but it is only in its infancy. If you have suggestions, please let us know. Feel free to click on the other 4 genes in the Main tab and further explore, or better yet, do it with your own metagenomes.
+Let's face it: it is a lot easier to live in a world of A, C, T, and G. But in this restricted space we can't explore the biochemical consequences of our sequences, and we therefore can't understand why DNA sequences are the way they are. This branch of anvi'o has been designed to help make this undertaking more accessible, but it is only in its infancy. If you have suggestions, please let us know.
+
 
 ## Final words
 
