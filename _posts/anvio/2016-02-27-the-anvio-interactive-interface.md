@@ -239,11 +239,11 @@ The *samples information* file contains one or more data types (numerical, categ
 
 Here is an example *samples information* file for the view data matrix file we have been using in previous steps for visualization:
 
-|samples|numerical_01|numerical_02|categorical|stacked_bar!X;Y;Z|
-|:--|:--:|:--:|:--:|:--:|
-|c1|100|5|A|1;2;3|
-|c2|200|4|B|2;3;1|
-|c3|300|3|B|3;1;2|
+|samples|numerical_01|numerical_02|categorical|stacked_bar!X|stacked_bar!Y|stacked_bar!Z|
+|:--|:--:|:--:|:--:|:--:|:--:|:--:|
+|c1|100|5|A|1|2|3|
+|c2|200|4|B|2|3|1|
+|c3|300|3|B|3|1|2|
 
 Please note that this time the first column is composed of layer names that appeared as rows in the data matrix file. If you are using the interactive interface via the command line, you first need to crate a samples database using this file, if you are using anvi'server, you can simply provide the TAB-delimited file via the new project window. Here is the command line (assuming the view data is identical to the one used in the previous example):
 

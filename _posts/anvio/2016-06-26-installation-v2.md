@@ -39,7 +39,7 @@ If you have [Homebrew](http://brew.sh/) installed on your computer, all you need
 
 ``` bash
 brew tap merenlab/anvio
-brew install anvio
+brew install merenlab/anvio/anvio
 ```
 
 Once the installation is complete, test anvi'o quickly to make sure everything is in order:
