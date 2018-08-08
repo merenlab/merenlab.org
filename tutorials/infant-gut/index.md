@@ -23,7 +23,7 @@ A typical anvi'o metagenomic workflow [starts with BAM files and a FASTA file]({
 
 ## Downloading the pre-packaged Infant Gut Dataset
 
-If you are following this tutorial, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD. You can download them using this link: [https://ndownloader.figshare.com/files/10781669](https://ndownloader.figshare.com/files/10781669).
+If you are following this tutorial, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD. You can download them using this link: [https://ndownloader.figshare.com/files/12724010](https://ndownloader.figshare.com/files/12724010).
 
 When you click the link, it will start downloading a **144 Mb** compressed file automatically. Once it is done, go to the relevant directory that contains this file using your terminal, and unpack it the following way:
 
@@ -34,7 +34,7 @@ When you click the link, it will start downloading a **144 Mb** compressed file 
 Alternatively in your terminal you can go into a directory you wish to work, and type these:
 
 ``` bash
- $ wget https://ndownloader.figshare.com/files/10781669 -O INFANT-GUT-TUTORIAL.tar.gz
+ $ wget https://ndownloader.figshare.com/files/12724010 -O INFANT-GUT-TUTORIAL.tar.gz
  $ tar -zxvf INFANT-GUT-TUTORIAL.tar.gz && cd INFANT-GUT-TUTORIAL
 ```
 
@@ -866,7 +866,7 @@ The tree in the middle shows the phylogenomic organization of bins we identified
 Here we will profile the single-nucleotide variations (SNVs) in the *E. faecalis* bin found in Sharon et al.'s Infant Gut Dataset (IGD).
 
 {:.notice}
-This is more of a practical tutorial for hands on experience to recover and make sense of SNVs. For a more theoretical one on the same topic, please consider first reading the tutorial [Analyzing single nucleotide variations (SNVs) with anvi'o]({% post_url anvio/2015-07-20-analyzing-variability %}){:target="_blank"}.
+This is more of a practical tutorial for hands on experience to recover and make sense of SNVs. For a more theoretical one on the same topic, please consider first reading the tutorial [Analyzing sequence variants with anvi'o]({% post_url anvio/2015-07-20-analyzing-variability %}){:target="_blank"}.
 
 {:.notice}
 **If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
@@ -881,7 +881,7 @@ First of all, if you haven't already, run this command to load the collection co
                           --bins-info additional-files/collections/merens-info.txt
 ```
 
-Please run following commands in the IGD dir. They will set the stage for us to take a look at the *E. faecalis* bin:
+Please run the following commands in the IGD dir. They will set the stage for us to take a look at the *E. faecalis* bin:
 
 ``` bash
 # importing taxonomy for gene calls
@@ -1127,7 +1127,6 @@ $ anvi-import-state -p e_faecalis_snvs/profile.db \
                     --name default
 
 $ anvi-interactive -d e_faecalis_snvs/view.txt \
-                   -s e_faecalis_snvs/samples.db \
                    -t e_faecalis_snvs/tree.txt \
                    -p e_faecalis_snvs/profile.db \
                    --title "SNV Profile for the E. faecalis bin" \
@@ -1138,7 +1137,7 @@ This time you will get this display:
 
 [![E. faecalis SNVs](images/e-faecalis-SNVs-anvio-state.png)](images/e-faecalis-SNVs-anvio-state.png){:.center-img .width-50}
 
-As we've seen before, occurrence of SNVs follow a bi-daily fashion. Not that it needs any further convincing, but just to show off here, if you were to click `Samples > Sample order > view_data > Draw`, you can see that even days and odd days nicely separate from each other:
+As we've seen before, occurrence of SNVs follow a bi-daily fashion. Not that it needs any further convincing, but just to show off here, if you were to click `Layers > Order by > default(tree) > Draw`, you can see that even days and odd days nicely separate from each other:
 
 [![E. faecalis SNVs](images/e-faecalis-SNVs-anvio-state-clustered.png)](images/e-faecalis-SNVs-anvio-state-clustered.png){:.center-img .width-50}
 
@@ -1533,7 +1532,7 @@ The most important part of this output is this one:
 You can unzip this file,
 
 ``` bash
- $ gzip -d PAN_SUMMARY/Enterococcus_protein_clusters_summary.txt.gz
+ $ gzip -d PAN_SUMMARY/Enterococcus_gene_clusters_summary.txt.gz
 ```
 
 And play with it to see how it will solve all your problems. You can import it into R, or open it in EXCEL to have a quick look at its contents. But here is a quick look at the first 10 lines of this file that contains 35,175 gene entries:
@@ -1701,6 +1700,165 @@ If you right click any of the genes, you can see that this menu has more options
 Including the inspection of a given gene in its context with upstream and downstream coverage information:
 
 [![E. facealis pan](images/gene-inspection.png)](images/gene-inspection.png){:.center-img .width-80}
+
+## Visualizing sequence variation in the context of protein structures
+
+{:.notice}
+This section of the tutorial uses the data described in the above section [Putting the E. faecalis genome in the context of HMP gut metagenomes](#downloading-the-pre-packaged-infant-gut-dataset). You already have this data, but if you're wondering "where did this come from?", you should read that section and then come back.
+
+{:.notice}
+This is a brief demonstration to showcase protein structure visualization and visualization that can be carried out by anvi'o. For a more detailed and in depth tutorial dedicated to this topic, you will have to sit tight for now, as it's currently in preparation. When it's released we will tweet about it and update this message. Thanks for your patience.
+
+In the previous sections of this tutorial we used single-nucleotide variants (SNVs) to explore sequence heterogeneity of an E. faecalis population. In this section of the tutorial we explore in what ways these variants alter the encoded protein synthesized downstream, and how such variation is shaped by principles of protein evolution. When analyzing sequence variation in the context of proteins, it makes a lot more sense to characterize sequence variation with single codon variants (SCVs) or single amino acid variants (SAAVS) rather than SNVs. If you are unfamiliar with these concepts, or want to learn more, [click me](http://merenlab.org/2015/07/20/analyzing-variability/#single-nucleotide-variants).
+
+{:notice}
+**Evan's disclaimer**: It's worth noting that this *E. faecalis* MAG recruits reads from populations with relatively low amounts of intra-population diversity. In more diverse microbial environments such as marine or soil ecosystems, visual patterns of variants on protein structures become much more striking. While the infant gut tutorial is a good medium to get you familiarized with various features of anvi'o, you should check out our dedicated tutorial on the subject for a more in-depth look.
+
+### The structure database
+
+To analyze and visualize where nucleotide-level variation occurs in the three-dimensional structure of the encoded protein, you need a protein structure. For this, anvi'o has a dedicated structure database that stores all structural information requested by the user. Users can create their own structure database by providing a contigs database, and a list of gene IDs in the contigs database they want to predict structures for. (Too briefly, structures are predicted using [MODELLER](http://merenlab.org/2016/06/18/installing-third-party-software/#modeller), which attempts to find homologous proteins with experimentally solved structures. If any exist, they are used as templates to model your proteins of interest). You already have a structure database in the data packet downloaded, and you can make sure it exists with the following command:
+
+``` bash
+$ ls additional-files/e_faeealis_across_hmp/STRUCTURE.db
+```
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Make your own structure database</span>
+For your information, you can re-create this structure database with the following command, although you will have to install some dependencies (anvi'o will tell you what to do if you try but don't have the dependencies):
+
+``` bash
+$ anvi-gen-structure-database -c additional-files/e_faeealis_across_hmp/CONTIGS.db \
+                              --max-number-templates 1 \
+                              --gene-caller-ids 58,620,2105,2371,2602 \
+                              -o additional-files/e_faeealis_across_hmp/STRUCTURE_NEW.db
+```
+</div>
+
+### Visualizing proteins with anvi-display-structure
+
+With a structure database in hand, you are ready to visualize SAAVs and SCVs on protein structures.
+
+``` bash
+$ anvi-display-structure -s additional-files/e_faeealis_across_hmp/STRUCTURE.db \
+                         -p additional-files/e_faeealis_across_hmp/PROFILE.db \
+                         -c additional-files/e_faeealis_across_hmp/CONTIGS.db \
+                         --min-departure-from-consensus 0
+```
+
+After running the above command, you should see the following view.
+
+[![E. facealis struct](images/structure-interactive-default.png)](images/structure-interactive-default.png){:.center-img .width-90}
+
+This is the predicted structure for `gene 58`. It's a 4-methyl-5-(beta-hydroxyethyl)thiazole kinase, and [the template protein](https://www.rcsb.org/structure/3DZV) used to model the structure was crystallized from an *E. faecalis* isolate by the Joint Center for Structural Genomics. The template shares 96.5% sequence identity with our gene, and so we are very confident in the accuracy of the predicted structure. Each red sphere indicates the position of a SAAV that occurred in at least one of the metagenomes. You can learn more about each SAAV by hovering the mouse above it.
+
+[![E. facealis struct](images/SAAV-hover.png)](images/SAAV-hover.png){:.center-img .width-90}
+
+Under 'Reference info' you can see that the MAG had an asparagine at this position, however under 'Variant frequencies', 88% of reads were threonine within the infants sampled. If you inspect the amino acid frequencies of more of these SAAVs, you will notice that most of them have insignificant levels of variation. These may be true biological variation in the environment, but they are at such low frequencies they are indistinguishable from sequencing error. To avoid fooling ourselves, we can filter out these reads by going to the Filters tab, and conservatively setting the minimum departure from reference value to 0.05:
+
+[![E. facealis struct](images/structure-filter-dfc.gif)](images/structure-filter-dfc.gif){:.center-img .width-90}
+
+To get a better idea of the characteristics of each SAAV, you can set the color and size for each according to various metrics of interest in the Perspectives tab. In the animation below, we color each SAAV according to its entropy to quantify the degree of variation at each site (click [here](http://merenlab.org/2015/07/20/analyzing-variability/#the-output-matrix) and search for 'entropy' for an explanation):
+
+[![E. facealis struct](images/structure-color-entropy.gif)](images/structure-color-entropy.gif){:.center-img .width-90}
+
+The 4 white-ish spheres are sites in which the metagenomes disagree with the MAG, but where there is little to no variation within the environment. In contrast, the 3 red-ish spheres indicate sites in which the environment has a mixed population of 2 or more amino acids. Verify this for yourself by looking at the variant frequencies and comparing their identities to the reference residue.
+
+### SAAVs and SCVs
+
+So far we've focused exclusively on SAAVs, however we can also study variation with [single codon variants (SCVs)](http://merenlab.org/2015/07/20/analyzing-variability/#single-codon-variants). You can visualize SCVs by clicking `CDN` (read: codon) in the Main tab:
+
+[![E. facealis struct](images/structure-engine-select.png)](images/structure-engine-select.png){:.center-img .width-70}
+
+In this view, the first thing you will notice is that there are many more SCVs than SAAVs. That's because unlike SAAVs, SCVs also report on synonymous variation. For example, this residue is completely synonymous, but impressively houses 4 of the 6 arginine codons:
+
+[![E. facealis struct](images/structure-synonymous-hover.png)](images/structure-synonymous-hover.png){:.center-img .width-50}
+
+In the situation below, there exists both synonymous and non-synonymous transitions. Note that the synonymity correspondingly deviates from 1.
+
+[![E. facealis struct](images/structure-non-synonymous-hover.png)](images/structure-non-synonymous-hover.png){:.center-img .width-50}
+
+If you inspect enough of these genes, you'll start to notice that SCVs at solvent inaccessible residues (relative solvent accessibility = 0) are almost always entirely synonymous (synonymity = 1). Do you have any explanation for why?
+
+### Case study: sequence variation within a kinase binding pocket
+
+Since `gene 58` is a kinase, it may not surprise you it has a binding pocket for ADP. Unfortunately there is currently no way to visualize ligands, but we can get a sense for the binding pocket by adding a translucent surface to the protein in the Perspectives tab. The binding pocket is pointed out in the animation below, and if you are up for the challenge, you can try and find this pocket in your own interface.
+
+[![E. facealis struct](images/structure-zoom-in-ADP.gif)](images/structure-zoom-in-ADP.gif){:.center-img .width-80}
+
+Since binding pockets are meticulously constrained to maintain optimal binding kinetics, they are under extreme purifying selection, which is why we don't see any SAAVs in the binding pocket:
+
+[![E. facealis struct](images/structure-adp-saavs.png)](images/structure-adp-saavs.png){:.center-img .width-90}
+
+However, when we switch to a view of SCVs, the pocket lights up like a Christmas tree. 
+
+[![E. facealis struct](images/structure-adp-scvs.png)](images/structure-adp-scvs.png){:.center-img .width-90}
+
+Although visually convincing that these SCVs form part of the binding pocket, to prove we are not fooling ourselves, here are the residues determined crystallographically from the template protein to be in direct contact with ADP:
+
+[![E. facealis struct](images/structure-adp-contacts.png)](images/structure-adp-contacts.png){:.center-img .width-90}
+
+Click [here](https://www.rcsb.org/3d-view/3DZV?preset=ligandInteraction&sele=ADP) to investigate for yourself. Of these residues, G190, V191, and G120 are SCVs in the infant guts, which confirms that mutations are occuring in the region of DNA encoding the binding pocket. Hovering the mouse over of each of these 3 SCVs, you can verify that these residues have synonymity values of 1, which is to say they are completely synonymous sites. This is a fine example of how non-synonymous sequence evolution is usually more highly constrained than synonymous sequence evolution due to fitness-decreasing alterations in the biophysical properties of the encoded protein. Since these synonymous SCVs do not influence the binding site, they have no fitness effect on the protein's ability to function. It's impossible to know without conducting fitness experiments, but most likely they are neutral mutations, and have entered the population through drift and/or draft.
+
+### Grouping metagenomes
+
+You now know the basics. Let's talk about how to get the most out of this interface. Sometimes it is desirable to partition metagenomes into groups based on the experimental design. For example, these 20 metagenomes are from 7 infants, and it would be useful to group which metagenomes belong to which infant. Unless the user provides custom categories for groupings, only two are by default available: `merged` and `samples`. Currently you are using the `merged` category, which is why you see all variant data merged onto a single protein view. Go to the Main tab and select `samples` from within the Category dropdown menu. You should see this:
+
+[![E. facealis struct](images/structure-samples-category.png)](images/structure-samples-category.png){:.center-img .width-100}
+
+Now you can visualize each metagenome's variants individually. Let's import some metadata so we can create our own custom groupings. Return to your terminal and import the additional data table into the profile database:
+
+``` bash
+$ anvi-import-misc-data additional-files/e_faeealis_across_hmp/additional_layers_table.txt \
+                        -p additional-files/e_faeealis_across_hmp/PROFILE.db \
+                        -t layers
+```
+
+This is just a TAB-delimited table that is compatible with anvi'o misc data table inputs:
+
+samples     |  dol  |  cohort  |  location  |  infant  |  cohort_infant  |  birth_date_matched_to_study_day  |  gestational_age_weeks  |  sex  |  birth_mode  |  birth_weight_grams  |  hospital      |  day_of_life_range
+------------|-------|----------|------------|----------|-----------------|-----------------------------------|-------------------------|-------|--------------|----------------------|----------------|-------------------
+SRR5405958  |  7    |  NIHY2   |  Gut       |  61      |  NIHY2_61       |  303.0                            |  28.0                   |  M    |  Vaginal     |  1184.0              |  Magee-Womens  |  00-10
+SRR5405957  |  8    |  NIHY2   |  Gut       |  61      |  NIHY2_61       |  303.0                            |  28.0                   |  M    |  Vaginal     |  1184.0              |  Magee-Womens  |  00-10
+SRR5405923  |  15   |  NIHY2   |  Gut       |  66      |  NIHY2_66       |  330.0                            |  28.0                   |  F    |  Vaginal     |  1028.0              |  Magee-Womens  |  10-20
+SRR5405922  |  17   |  NIHY2   |  Gut       |  66      |  NIHY2_66       |  330.0                            |  28.0                   |  F    |  Vaginal     |  1028.0              |  Magee-Womens  |  10-20
+SRR5405920  |  21   |  NIHY2   |  Gut       |  66      |  NIHY2_66       |  330.0                            |  28.0                   |  F    |  Vaginal     |  1028.0              |  Magee-Womens  |  20-30
+SRR5405918  |  31   |  NIHY2   |  Gut       |  66      |  NIHY2_66       |  330.0                            |  28.0                   |  F    |  Vaginal     |  1028.0              |  Magee-Womens  |  30-40
+SRR5405915  |  48   |  NIHY2   |  Gut       |  66      |  NIHY2_66       |  330.0                            |  28.0                   |  F    |  Vaginal     |  1028.0              |  Magee-Womens  |  40-50
+SRR5405913  |  60   |  NIHY2   |  Gut       |  66      |  NIHY2_66       |  330.0                            |  28.0                   |  F    |  Vaginal     |  1028.0              |  Magee-Womens  |  60-70
+SRR5405912  |  64   |  NIHY2   |  Gut       |  66      |  NIHY2_66       |  330.0                            |  28.0                   |  F    |  Vaginal     |  1028.0              |  Magee-Womens  |  60-70
+SRR5405829  |  6    |  Sloan2  |  Gut       |  4       |  Sloan2_4       |  805.0                            |  30.0                   |  M    |  C-section   |  1138.0              |  Magee-Womens  |  00-10
+SRR5405784  |  11   |  Sloan2  |  Gut       |  8       |  Sloan2_8       |  891.0                            |  27.0                   |  M    |  Vaginal     |  1023.0              |  Magee-Womens  |  10-20
+SRR5405783  |  12   |  Sloan2  |  Gut       |  8       |  Sloan2_8       |  891.0                            |  27.0                   |  M    |  Vaginal     |  1023.0              |  Magee-Womens  |  10-20
+SRR5405770  |  10   |  Sloan2  |  Gut       |  9       |  Sloan2_9       |  912.0                            |  25.0                   |  F    |  Vaginal     |  930.0               |  Magee-Womens  |  10-20
+SRR5405712  |  10   |  Sloan2  |  Gut       |  12      |  Sloan2_12      |  986.0                            |  29.0                   |  F    |  C-section   |  1210.0              |  Magee-Womens  |  10-20
+SRR5405711  |  11   |  Sloan2  |  Gut       |  12      |  Sloan2_12      |  986.0                            |  29.0                   |  F    |  C-section   |  1210.0              |  Magee-Womens  |  10-20
+SRR5405710  |  12   |  Sloan2  |  Gut       |  12      |  Sloan2_12      |  986.0                            |  29.0                   |  F    |  C-section   |  1210.0              |  Magee-Womens  |  10-20
+SRR5405708  |  14   |  Sloan2  |  Gut       |  12      |  Sloan2_12      |  986.0                            |  29.0                   |  F    |  C-section   |  1210.0              |  Magee-Womens  |  10-20
+SRR5405707  |  15   |  Sloan2  |  Gut       |  12      |  Sloan2_12      |  986.0                            |  29.0                   |  F    |  C-section   |  1210.0              |  Magee-Womens  |  10-20
+SRR5405693  |  9    |  Sloan2  |  Gut       |  14      |  Sloan2_14      |  1009.0                           |  30.0                   |  M    |  C-section   |  1200.0              |  Magee-Womens  |  00-10
+SRR5405692  |  10   |  Sloan2  |  Gut       |  14      |  Sloan2_14      |  1009.0                           |  30.0                   |  M    |  C-section   |  1200.0              |  Magee-Womens  |  10-20
+
+Afterwards, we can rerun the interactive display:
+
+``` bash
+$ anvi-display-structure -s additional-files/e_faeealis_across_hmp/STRUCTURE.db \
+                         -p additional-files/e_faeealis_across_hmp/PROFILE.db \
+                         -c additional-files/e_faeealis_across_hmp/CONTIGS.db \
+                         --min-departure-from-consensus 0
+```
+
+Now, there are many more grouping categories available to us. 
+
+[![E. facealis struct](images/structure-category-pulldown.png)](images/structure-category-pulldown.png){:.center-img .width-60}
+
+`cohort_infant` categorizes metagenomes into the infants from which they were sampled. Select it to reveal one protein view for each of the 7 infants. Now the display can inform us about subtle differences in SAAVs between each infant.
+
+[![E. facealis struct](images/structure-dramatic-zoom.gif)](images/structure-dramatic-zoom.gif){:.center-img .width-90}
+
+We hope this tutorial give you enough motivation to explore your own data with this framework! Feel free to click on the other 4 genes in the Main tab and further explore, or better yet, do it with your own metagenomes.
+
+Let's face it: it is a lot easier to live in a world of A, C, T, and G. But in this restricted space we can't explore the biochemical consequences of our sequences, and we therefore can't understand why DNA sequences are the way they are. This branch of anvi'o has been designed to help make this undertaking more accessible, but it is only in its infancy. If you have suggestions, please let us know.
 
 
 ## Final words
