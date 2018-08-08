@@ -1,0 +1,124 @@
+# Your tabular data
+matrix = config['data']
+# The name of your project (this will be used as the name for output files of this workflow)
+name = config["project_name"]
+# If you have a file with information regarding your layers supply it here
+# Things might break if you don't have such a file at all, but you will figure it out, we believe in you
+metadata = config.get('metadata', None)
+# If you need the input matrix to be transposed then set this to True
+transpose = config.get('transpose', False)
+print(transpose)
+# If the row labels are numeric (e.g. gene_callers_ids) then we need to first add some letter as a prefix
+# setting this to True will make it so that each row will have "i" added at the beginning.
+fix_item_names = config.get('fix_item_names', False)
+print(fix_item_names)
+
+matrix_untransposed = matrix
+if transpose:
+    matrix = matrix + "-transposed"
+matrix_post_transposed = matrix
+
+matrix_pre_fix = matrix
+if fix_item_names:
+    matrix = matrix + "-item-names-fixed"
+
+dir_list = ["LOGS_DIR", "DATA_DIR", "INTERACTIVE_DIR"]
+dir_names = ["00_LOGS", ".", "00_ANVIO_FIGURE"]
+dirs_dict = dict(zip(dir_list,dir_names))
+
+rule all:
+    input: dirs_dict["INTERACTIVE_DIR"] + "/00_run.sh"
+
+rule transpose_data:
+    version: 1.0
+    log: dirs_dict["LOGS_DIR"] + "/transpose_data.log"
+    input: dirs_dict["DATA_DIR"] + "/" + matrix_untransposed
+    output: dirs_dict["DATA_DIR"] + "/" + matrix_post_transposed
+    run:
+        import pandas as pd
+        A = pd.read_table(input[0], index_col=0).transpose()
+        print(A)
+        pd.DataFrame.to_csv(A, output[0], sep='\t', index_label='sample')
+
+rule fix_item_names:
+    version: 1.0
+    log: dirs_dict["LOGS_DIR"] + "/transpose_data.log"
+    input: dirs_dict["DATA_DIR"] + "/" + matrix_pre_fix
+    output: dirs_dict["DATA_DIR"] + "/" + matrix
+    shell:
+        """
+            sed 's/^[0-9]/i&/' {input} > {output}
+        """
+
+rule matrix_to_newick:
+    version: 1.0
+    log: dirs_dict["LOGS_DIR"] + "/matrix_to_newick.log"
+    input: dirs_dict["DATA_DIR"] + "/" + matrix
+    output: dirs_dict["INTERACTIVE_DIR"] + "/" + name + ".newick"
+    params:
+        distance = "braycurtis",
+        linkage = "average"
+    shell: "anvi-matrix-to-newick -o {output} {input} --distance {params.distance} --linkage {params.linkage}"
+
+
+rule matrix_to_newick_transpose:
+    version: 1.0
+    log: dirs_dict["LOGS_DIR"] + "/matrix_to_newick_transpose.log"
+    input: dirs_dict["DATA_DIR"] + "/" + matrix
+    output: dirs_dict["INTERACTIVE_DIR"] + "/" + name + "-layers-order.newick"
+    params:
+        distance = "braycurtis",
+        linkage = "average"
+    shell: "anvi-matrix-to-newick -o {output} {input} --transpose --distance {params.distance} --linkage {params.linkage}"
+
+rule interactive_dry_run:
+    version: 1.0
+    log: dirs_dict["LOGS_DIR"] + "/dry_run.log"
+    input:
+        tree=rules.matrix_to_newick.output,
+        data=dirs_dict["DATA_DIR"] + "/" + matrix
+    output: profile=dirs_dict["INTERACTIVE_DIR"] + "/PROFILE.db"
+    params: title=name
+    shell: "anvi-interactive --dry-run --manual -p {output} -t {input.tree} -d {input.data}"
+
+rule gen_layers_order_file:
+    version: 1.0
+    log: dirs_dict["LOGS_DIR"]
+    input: rules.matrix_to_newick_transpose.output
+    output: dirs_dict["INTERACTIVE_DIR"] + "/layers-order.txt"
+    run:
+        with open(output[0], "w") as f:
+            f.write("item_name\tdata_type\tdata_value\n")
+            with open(input[0], "r") as fr:
+                f.write(name + "_tree\tnewick\t" + fr.read())
+
+rule import_layers_order:
+    version: 1.0
+    log: dirs_dict["LOGS_DIR"] + "/import_layers_order.log"
+    input:
+        profile=ancient(rules.interactive_dry_run.output.profile),
+        order_file = rules.gen_layers_order_file.output
+    output: touch(dirs_dict["INTERACTIVE_DIR"] + "/import_layers_order.done")
+    shell: "anvi-import-misc-data {input.order_file} -t layer_orders -p {input.profile} --just-do-it"
+
+rule import_metadata:
+    version: 1.0
+    log: dirs_dict["LOGS_DIR"] + "/import_metadata.log"
+    input:
+        metadata_file = metadata if metadata else ancient(rules.interactive_dry_run.output.profile),
+        profile = ancient(rules.interactive_dry_run.output.profile)
+    output: touch(dirs_dict["INTERACTIVE_DIR"] + "/import_metadata.done")
+    shell: "anvi-import-misc-data {input.metadata_file} -t layers -p {input.profile} --just-do-it"
+
+rule create_run_sh:
+    log: dirs_dict["LOGS_DIR"] + "/create_run_sh.log"
+    input:
+        tree=rules.matrix_to_newick.output,
+        profile=ancient(rules.interactive_dry_run.output.profile),
+        import_layers_order_done=rules.import_layers_order.output,
+        import_metadata_done=rules.import_metadata.output if metadata else ancient(rules.interactive_dry_run.output.profile),
+        data=dirs_dict["DATA_DIR"] + "/" + matrix
+    output: dirs_dict["INTERACTIVE_DIR"] + "/00_run.sh"
+    params:
+        name=name
+    shell: "echo anvi-interactive --manual -d {input.data} -p {input.profile} -t {input.tree} --title {params.name} > {output}"
