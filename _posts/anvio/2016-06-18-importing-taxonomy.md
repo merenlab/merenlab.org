@@ -160,7 +160,7 @@ Fine. It is time to import these results! To do this, you will use the program `
 
 
 {% highlight bash %}
-$ anvi-import-taxonomy -c CONTIGS.db -i centrifuge_report.tsv centrifuge_hits.tsv -p centrifuge
+$ anvi-import-taxonomy-for-genes -c CONTIGS.db -i centrifuge_report.tsv centrifuge_hits.tsv -p centrifuge
 {% endhighlight %}
 
 {:.notice}
