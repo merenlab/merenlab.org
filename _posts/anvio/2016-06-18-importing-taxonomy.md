@@ -11,7 +11,7 @@ This article describes various ways to import *gene-level* taxonomy into anvi'o 
 
 This post describes ways to import gene-level taxonomy data. We have some parsers to make sense of the output of some programs, but you can also import raw taxonomy for your genes you curated. If what you find here does not solve your problem, please feel free to suggest new ways to deal with gene-level taxonomy, [by entering an issue](http://github.com/meren/anvio).
 
-The basic workflow goes like this: (1) generate your contigs database from your FASTA file, (2) export your gene sequences, (3) annotate them with taxonomy, and (4) import results back into your contigs database using `anvi-import-taxonomy` program.
+The basic workflow goes like this: (1) generate your contigs database from your FASTA file, (2) export your gene sequences, (3) annotate them with taxonomy, and (4) import results back into your contigs database using `anvi-import-taxonomy-for-genes` program.
 
 {:.notice}
 **Important note**: There are many ways to have your genes annotated with taxonomy. But, there is **only one way** to make sure the gene IDs in your taxonomy files correspond to the gene caller IDs in the database: export your DNA or AA sequences from the anvi'o contigs database you wish to annotate using the anvi'o program `anvi-get-sequences-for-gene-calls`. 
@@ -156,11 +156,11 @@ $ wc -l centrifuge_report.tsv centrifuge_hits.tsv
   220291 total
 {% endhighlight %}
 
-Fine. It is time to import these results! To do this, you will use the program `anvi-import-taxonomy` with the parser for `centrifuge`:
+Fine. It is time to import these results! To do this, you will use the program `anvi-import-taxonomy-for-genes` with the parser for `centrifuge`:
 
 
 {% highlight bash %}
-$ anvi-import-taxonomy -c CONTIGS.db -i centrifuge_report.tsv centrifuge_hits.tsv -p centrifuge
+$ anvi-import-taxonomy-for-genes -c CONTIGS.db -i centrifuge_report.tsv centrifuge_hits.tsv -p centrifuge
 {% endhighlight %}
 
 {:.notice}
@@ -188,7 +188,7 @@ Basically first you can create The TAB-delimited input matrix that follows this 
 And then you can use the following command to import it using the parser `default_matrix`:
 
 {% highlight bash %}
-$ anvi-import-taxonomy -c CONTIGS.db -i input_matrix.txt -p default_matrix
+$ anvi-import-taxonomy-for-genes -c CONTIGS.db -i input_matrix.txt -p default_matrix
 {% endhighlight %}
 
 {:notice}
