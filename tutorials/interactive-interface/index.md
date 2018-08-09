@@ -309,7 +309,7 @@ Now you can re-run your interface, and you will have it, too:
 
 Here, you can view the same figure interactively on anvi'server:
 
-[https://anvi-server.org/merenlab/hmp_metagenomes](https://anvi-server.org/merenlab/hmp_metagenomes)
+[http://anvi-server.org/merenlab/hmp_metagenomes](http://anvi-server.org/merenlab/hmp_metagenomes)
 
 ## Final words
 
