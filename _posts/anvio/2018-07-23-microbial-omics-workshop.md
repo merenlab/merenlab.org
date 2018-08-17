@@ -27,6 +27,32 @@ The specific goals of this workshop are:
 3. Learn, through the example of [snakemake](https://snakemake.readthedocs.io/en/stable/), how workflow managment tools help us streamline the analysis of large collection of genomic samples.
 4.  Learn how large datasets could serve as an input to machine learning algorithms, and help us address questions of microbial ecology.
 
+## Prepare your Mac
+
+For this workshop you are required to install the following things:
+
+### brew
+
+For more details refer to [https://brew.sh/](https://brew.sh/)
+
+### anvi'o dependencies
+
+samtools: [http://localhost:4000/2016/06/18/installing-third-party-software/#samtools](http://localhost:4000/2016/06/18/installing-third-party-software/#samtools)
+
+prodigal: [http://localhost:4000/2016/06/18/installing-third-party-software/#prodigal](http://localhost:4000/2016/06/18/installing-third-party-software/#prodigal)
+
+HMMER: [http://localhost:4000/2016/06/18/installing-third-party-software/#hmmer](http://localhost:4000/2016/06/18/installing-third-party-software/#hmmer)
+
+GSL: [http://localhost:4000/2016/06/18/installing-third-party-software/#gnu-scientific-library](http://localhost:4000/2016/06/18/installing-third-party-software/#gnu-scientific-library)
+
+Numpy: [http://localhost:4000/2016/06/18/installing-third-party-software/#numpy](http://localhost:4000/2016/06/18/installing-third-party-software/#numpy)
+
+Cython: [http://localhost:4000/2016/06/18/installing-third-party-software/#cython](http://localhost:4000/2016/06/18/installing-third-party-software/#cython)
+
+
+
+Refer to: [http://localhost:4000/2016/06/26/installation-v2/#painless-installation-with-homebrew](http://localhost:4000/2016/06/26/installation-v2/#painless-installation-with-homebrew)
+
 ## Introduction to microbial ecology
 
 The introduction will include a lecture by Dr. Eren. Slides are available [here]().
