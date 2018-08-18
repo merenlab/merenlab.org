@@ -142,6 +142,22 @@
       inst: Committee on Microbiology at the University of Chicago
       inst_link: https://biomedsciences.uchicago.edu/page/microbiology
 
+- alias: karen
+  official: True
+  name: Karen Lolans
+  tenure_start: 07/2018
+  role: Senior Research Technician
+  email: klolans@medicine.bsd.uchicago.edu
+  linkedin: karen-lolans-b39ab0
+  avatar: bio-karen.jpg
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  bio: "As a molecular microbiologist, I am interested in the potential that interwoven wet lab and computational strategies play in elucidating complex microbial interactions and processes."
+  affiliations:
+    - title: Senior Research Technician
+      inst: The University of Chicago Section of Gastroenterology, Hepatology and Nutrition
+      inst_link: https://medicine.uchicago.edu/sections/gastroenterology-hepatology-nutrition/
+
+
 ####################################################################################
 # Non-member friends
 ####################################################################################
