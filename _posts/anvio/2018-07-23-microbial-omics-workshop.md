@@ -33,9 +33,12 @@ For this workshop you are required to install the following things:
 
 ### brew
 
-For more details refer to [https://brew.sh/](https://brew.sh/)
+I recommend installing homebrew.
+For more details on homebrew, refer to [https://brew.sh/](https://brew.sh/). There are many ways to install anvi'o, but using the `brew` command is the easiest.
 
-### anvi'o dependencies
+### anvi'o
+
+Before we install anvi'o, we need to install the following third party software:
 
 samtools: [http://localhost:4000/2016/06/18/installing-third-party-software/#samtools](http://localhost:4000/2016/06/18/installing-third-party-software/#samtools)
 
@@ -49,7 +52,7 @@ Numpy: [http://localhost:4000/2016/06/18/installing-third-party-software/#numpy]
 
 Cython: [http://localhost:4000/2016/06/18/installing-third-party-software/#cython](http://localhost:4000/2016/06/18/installing-third-party-software/#cython)
 
-
+After we have all of the above, we can install anvi'o:
 
 Refer to: [http://localhost:4000/2016/06/26/installation-v2/#painless-installation-with-homebrew](http://localhost:4000/2016/06/26/installation-v2/#painless-installation-with-homebrew)
 
