@@ -74,7 +74,11 @@ The background includes review of these crassphage related papers:
 [![crassphage_paper]({{images}}/crassphage_paper.png)]( {{images}}/crassphage_paper.png){:.center-img .width-120}
 
 
+## Using a mapping approach to asses the occurence of crassphage in metagenomes
 
+Following a similar approach to the one in Dutilh et al., we will use read recruitment to quantify the occurence of crassphage in gut metagenomes.
+
+We will use metagenomes from the following studies: [The Human Microbiome Project Consortium](https://www.nature.com/articles/nature11234) (USA), [Rampelli et al.](https://www.sciencedirect.com/science/article/pii/S0960982215005370) (Tanzania), [Qin et al.](https://www.nature.com/articles/nature11450) (China), and [Brito et al.](https://www.nature.com/articles/nature18927) (Fiji).
 
 
 # Running a random forest regression to predict the host of crassphage
