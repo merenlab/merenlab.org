@@ -286,6 +286,7 @@ Then update your activation batch to add necessary environment variables (keep i
 ``` bash
 echo 'export PYTHONPATH=$PYTHONPATH:$DIR/anvio/' >> ~/virtual-envs/anvio-master/bin/activate
 echo 'export PATH=$PATH:$DIR/anvio/bin:$DIR/anvio/sandbox' >> ~/virtual-envs/anvio-master/bin/activate
+echo 'export PATH=$PATH:$DIR/anvio/bin:$DIR/anvio/bin' >> ~/virtual-envs/anvio-master/bin/activate
 ```
 
 That's it. If you like, add an alias to your `~/.bash_profile` to activate this quickly:
