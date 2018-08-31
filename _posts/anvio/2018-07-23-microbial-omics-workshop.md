@@ -36,7 +36,11 @@ For this workshop you are required to install the following things:
 I recommend installing homebrew.
 For more details on homebrew, refer to [https://brew.sh/](https://brew.sh/). There are many ways to install anvi'o, but using the `brew` command is the easiest.
 
-### anvi'o
+### python
+
+Your Mac already came with python, but I would recommend isntalling a different python with brew.
+
+### anvi'o (and some dependencies)
 
 Before we install anvi'o, we need to install the following third party software:
 
@@ -63,22 +67,81 @@ Before we install anvi'o, we need to install the following third party software:
 
 ## Introduction to microbial ecology
 
-The introduction will include a lecture by Dr. Eren. Slides are available [here]().
+The introduction will include a lecture by Dr. Eren. Slides will be available [here]() as soon as possible.
 
 ## Crassphage
 
-Slides for the introduction to crassphage could be found [here]().
+Slides for the introduction to crassphage and the workshop plan could be downloaded [here](https://github.com/ShaiberAlon/2018_microbial_omics_workshop/raw/master/Presentation/Crassphage_presentation.pptx).
 
 The background includes review of these crassphage related papers:
 
-[![crassphage_paper]({{images}}/crassphage_paper.png)]( {{images}}/crassphage_paper.png){:.center-img .width-120}
+[![crassphage_paper]({{images}}/crassphage_paper.png)]( https://www.nature.com/articles/ncomms5498){:.center-img .width-60}
+
+[![Yutin_et_al]({{images}}/Yutin_et_al.png)]( https://www.nature.com/articles/s41564-017-0053-y){:.center-img .width-60}
+
+[![Shkoporov_et_al]({{images}}/Shkoporov_et_al.png)]( https://www.biorxiv.org/content/early/2018/06/26/354837){:.center-img .width-60}
 
 
 ## Using a mapping approach to asses the occurence of crassphage in metagenomes
 
 Following a similar approach to the one in Dutilh et al., we will use read recruitment to quantify the occurence of crassphage in gut metagenomes.
 
-We will use metagenomes from the following studies: [The Human Microbiome Project Consortium](https://www.nature.com/articles/nature11234) (USA), [Rampelli et al.](https://www.sciencedirect.com/science/article/pii/S0960982215005370) (Tanzania), [Qin et al.](https://www.nature.com/articles/nature11450) (China), and [Brito et al.](https://www.nature.com/articles/nature18927) (Fiji).
+We will use metagenomes from the following studies: [The Human Microbiome Project Consortium 2012](https://www.nature.com/articles/nature11234) (USA), [Rampelli et al. 2015](https://www.sciencedirect.com/science/article/pii/S0960982215005370) (Tanzania), [Qin et al. 2012](https://www.nature.com/articles/nature11450) (China), and [Brito et al. 2016](https://www.nature.com/articles/nature18927) (Fiji). This will allow us to get some minimal understanding of the global distribution of crassphge.
+
+{:.notice}
+In this workshop we will use a total of 481 metagenomes, in this section of the workshop we will only analyze a small portion of these metagenomes. The purpose is to understand what are the steps that are required for this analysis, and to understand that to do each step manually is not a good idea. Hence, later, we will use a snakefile to analyze the rest of the samples. Notice that I directly shared files with the students, so if you are not a student of the workshop, but interested in getting these files, please contact me.
+
+<div class="extra-info" markdown="1">
+<span class="extra-info-header">Assignment - check for crassphage in samples</span>
+
+I provided you with 8 bam files. Each student will pick two samples, and go through the following steps in order to view these bam files with anvio. To keep things simple, I provide you with bam files, and hence, you are spared from taking many of the analysis steps (e.g. quality filtering of the metagenomes, mapping of short reads to reference genome, formatting of mapping results, etc.)
+
+**generate a contigs database**
+
+This step proccesses the reference fasta file that we are using. In this case, it is the genome of crassphage (which could be downloaded [here](https://www.ncbi.nlm.nih.gov/nuccore/674660337?report=fasta)). You can learn more by reffering to the help menu or the [this section of the anvio metagenomics tutorial](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#creating-an-anvio-contigs-database). To generate the database run:
+
+```bash
+anvi-gen-contigs-database -f crassphage.fasta -c crassphage-contigs.db -n crassphage
+```
+
+**profile the bam file**
+
+The bam file contains the alignment information for the short reads against the reference genome. `anvi-profile` computes variouos stats from the alignment, and paves the way to the visualization of this information. This step is performed for each sample separately. For more information refer to the help menu and to [this section of the anvio metagenomics tutorial](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#anvi-profile).
+
+To run `anvi-profile` for a bam file:
+
+```bash
+anvi-profile -i PATH/TO/BAM_FILE.bam -c crassphage-contigs.db
+```
+
+**merge the bam files**
+
+After all the individual profiling steps are done, we merge these profiles together so that we can visualize them. For more information refer to the help menu, or to [this section of the anvio metagenomics tutorial](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#anvi-merge).
+
+```bash
+anvi-merge */PROFILE.db -o SAMPLES-MERGED -c crassphage-contigs.db --skip-concoct-binning
+```
+
+Notice that I added the flag `--skip-concoct-binning`, since we are not interested in binning in this case. If you don't know what binning is, that's ok, it's not important for this workshop.
+
+After these steps are done. use `anvi-interactive` to view the results. Do you see any trend in the global distribution of crassphage?
+
+In class, we will also use the `--gene-mode` of anvi-interactive to look at the occurence of the crassphage genes.
+
+We will also use the `inspect` option of the interface to look at SNVs.
+</div>
+
+## Using snakemake to run the analysis steps
+
+Since bioinformatics tends to include many steps of analysis, it is becoming more and more popular to use workflow management tools to perform analysis. Two popular tools are [nextflow](https://www.nextflow.io) and [snakemake](http://snakemake.readthedocs.io/en/stable/index.html). Here we will get familiar with snakemake and write a simple workflow to run the steps from above.
+
+We will go through this introduction to snakemake from Johannes Koester (the developer of snakemake). But the best way to become familiar with snakemake is to refer to the [online docummentation](http://snakemake.readthedocs.io/en/stable/index.html).
+
+<div class="extra-info" markdown="1">
+<span class="extra-info-header">Assignment - write a snakefile to excecute the same steps from earlier</span>
+
+We will write a snakefile that accepts a list of bam-files with the path to each bam file, and a name for each sample. We will then use this snakefile to run these steps for all the 481 samples from the global studies.
+</div>
 
 
 # Running a random forest regression to predict the host of crassphage
@@ -326,3 +389,12 @@ merged_df.to_csv(tax_level + '-matrix.txt', sep='\t', index_label = 'sample')
 ```
 
 Now we leave the python notebook and go back to the command line.
+
+## Glosary of terms
+
+**Taxonomy** 
+
+Just to give you an idea of how broad a phylum could be, consider the fact that humans and sea squirts are in the same phylum (the phylum Chordata).
+
+**phylogeny**
+
