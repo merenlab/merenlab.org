@@ -324,22 +324,24 @@ anvi-get-enriched-functions-per-pan-group -p PROCHLORO/Prochlorococcus_Pan-PAN.d
 
 Here is the structure of the output file *PROCHLORO-PAN-enriched-functions-light.txt* (there are more columns, scroll towards right to see them):
 
-|category|COG_FUNCTION|enrichment_score|weighted_enrichment_score|portion_occurrence_in_group|portion_occurrence_outside_of_group|occurrence_in_group|occurrence_outside_of_group|gene_clusters_ids|core_in_group|core|wilcoxon_p_value|wilcoxon_statistic|wilcoxon_corrected_p_value|
-|:--:|:--|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-|LL|Ser/Thr protein kinase RdoA involved in Cpx stress response, MazF antagonist|1.00|29.09|1.00|0.00|11.00|0.00|GC_00002783, GC_00003936, GC_00004631, GC_00005468|True|False|0.00|4.54|0.00|
-|LL|3-polyprenyl-4-hydroxybenzoate decarboxylase|1.00|29.09|1.00|0.00|11.00|0.00|GC_00001766, GC_00001810|True|False|0.00|4.54|0.00|
-|LL|Exonuclease VII, large subunit|1.00|29.09|1.00|0.00|11.00|0.00|GC_00001726|True|False|0.00|4.54|0.00|
-|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
-|LL | Periplasmic protein TonB, links inner and   outer membranes | 0.58 | 16.79 | 0.73 | 0.15 | 8 | 3 | GC_00002213, GC_00003430, GC_00005286,   GC_00006014, GC_00006187, GC_00006496, GC_00006928 | FALSE | FALSE | 0.01 | 2.62 | 0.17|
-LL | Gamma-glutamyltranspeptidase | 0.55 | 15.87 | 0.55 | 0 | 6 | 0 | GC_00002294 | FALSE | FALSE | 0.01 | 2.48 | 0.23|
-|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
-|LL | Predicted NAD/FAD-dependent oxidoreductase | -1 | -29.09 | 0 | 1 | 0 | 20 | GC_00000970 | FALSE | FALSE | 0 | -4.54 | 0|
-|LL | ATP-dependent DNA ligase | -1 | -29.09 | 0 | 1 | 0 | 20 | GC_00000992, GC_00001635 | FALSE | FALSE | 0 | -4.54 | 0|
-|HL | Redox-sensitive bicupin YhaK, pirin superfamily | 1 | 29.09 | 1 | 0 | 20 | 0 | GC_00001240 | TRUE | FALSE | 0 | 4.54 | 0|
-|HL | N-acetylglutamate synthase or related acetyltransferase, GNAT family | 1 | 29.09 | 1 | 0 | 20 | 0 | GC_00001298 | TRUE | FALSE | 0 | 4.54 | 0|
-|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
-|HL | 1,6-Anhydro-N-acetylmuramate kinase | -1 | -29.09 | 0 | 1 | 0 | 11 | GC_00001728 | FALSE | FALSE | 0 | -4.54 | 0|
-|HL | Proteasome lid subunit RPN8/RPN11, contains Jab1/MPN domain metalloenzyme   (JAMM) motif | -1 | -29.09 | 0 | 1 | 0 | 11 | GC_00002219, GC_00003850, GC_00004483 | FALSE | FALSE | 0 | -4.54 | 0|
+
+|category | COG_FUNCTION | enrichment_score | p_value | portion_occurrence_in_group | portion_occurrence_outside_of_group | occurrence_in_group | occurrence_outside_of_group | gene_clusters_ids | core_in_group | core | corrected_p_value|
+|-- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | --|
+|LL | Proteasome lid subunit RPN8/RPN11, contains Jab1/MPN domain metalloenzyme   (JAMM) motif | 4.78 | 0 | 1 | 0 | 11 | 0 | GC_00002219, GC_00003850, GC_00004483 | TRUE | FALSE | 0|
+|LL | 1,6-Anhydro-N-acetylmuramate kinase | 4.78 | 0 | 1 | 0 | 11 | 0 | GC_00001728 | TRUE | FALSE | 0|
+|LL | L-amino acid N-acyltransferase YncA | 4.78 | 0 | 0.91 | 0 | 10 | 0 | GC_00001902 | FALSE | FALSE | 0|
+|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
+|LL | Secreted protein containing bacterial Ig-like   domain and vWFA domain | 1.19 | 0.23 | 0.18 | 0 | 2 | 0 | GC_00004324 | FALSE | FALSE | 0.68|
+|LL | Exopolysaccharide biosynthesis protein related to   N-acetylglucosamine-1-phosphodiester alpha-N-acety... | 1.19 | 0.23 | 0.18 | 0 | 2 | 0 | GC_00004835 | FALSE | FALSE | 0.68|
+|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
+|LL | Hydroxymethylpyrimidine/phosphomethylpyrimidine   kinase | -4.78 | 0 | 0 | 1 | 0 | 20 | GC_00001251 | FALSE | FALSE | 0|
+|LL | Uncharacterized conserved protein, DUF697 family | -4.78 | 0 | 0 | 1 | 0 | 20 | GC_00001393 | FALSE | FALSE | 0|
+|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
+|HL | Chromatin remodeling complex protein RSC6,   contains SWIB domain | 4.78 | 0 | 1 | 0 | 20 | 0 | GC_00001035 | TRUE | FALSE | 0|
+|HL | Metallophosphoesterase superfamily enzyme | 4.78 | 0 | 0.95 | 0 | 19 | 0 | GC_00001533 | FALSE | FALSE | 0|
+|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
+|HL | N-acetylglucosamine-6-phosphate deacetylase | -4.78 | 0 | 0 | 1 | 0 | 11 | GC_00001770 | FALSE | FALSE | 0|
+|HL | Exonuclease VII, large subunit | -4.78 | 0 | 0 | 1 | 0 | 11 | GC_00001726 | FALSE | FALSE | 0|
 
 The following describes each column:
 
@@ -347,17 +349,7 @@ The following describes each column:
 
 2. **COG_FUNCTION** this column has the name of the specific function for which enrichment was calculated. In this example we chose to use `COG_FUNCTION` for functional annotation, and hence the column title is `COG_FUNCTION`. You can specify whichever functional annotation source you have in your PAN database using the `--annotation-source`, and then the analysis would be done according to that annotation source. Even if you have multiple functional annotation sources in your genome storage, only one source could be used for a single run of this program. If you wish, you could run it multiple times and each time use a different annotation source. If you don't remember which annotation sources are available in your genomes storage, you can use `--list-annotation-sources`.
 
-3. **enrichment_score** is a score to measure how much is this function unique to the genomes that belong to a specific group vs. all other genomes in your pangenome. It is simply the output of,<br /><br />
-$$
-portion\_occurrence\_in\_group -  portion\_occurrence\_outside\_of\_group
-$$
-<br /><br />In the comparison above, each genome belongs to one of the two groups (HL, LL), but if the column you chose from your layers additional data table has more than two groups, then when comparing a function for each group, the occurrence is compared between the group members, and the rest of the genomes, i.e. the comparison is not pair-wise between groups (you can see the example below of comparisonbetween clades of Prochlorococcus for more details). When the occurrence of a function in the group is lower than outside the group, then we get negative values (makes sense, right?).
-
-4. **weighted_enrichment_score** is meant to help you compare between enrichment scores for different groups even if these groups have different sizes. The ides is that if you get a high enrichment score for a group of only two members it is not as impressive as getting high enrichment for a larger group of genomes. In addition, if the comparison is done between groups similar in size, then it is more reliable, i.e. if the number of genomes in a group is similar to the number of genomes outside that group, then the comparison is more valid. To account for these, the weighted enrichment is the output of the following equation:<br /><br />
-$$
-weighted\_enrichment\_score = enrihment \times N_{g} \times (p_{group} \times log_{2} (p_{group}) + (1-p_{group}) \times log_{2} (1 - p_{group}))
-$$
-<br /><br />Where $$N_{g}$$ is the total number of genomes in the pangenome, and $$p_{group}$$ is the portion of group members out of all genomes (i.e. the number of genomes that belong to the group divided by the total number of genomes in the pangenome). In other words the weighted enrichment score is the product of the enrichment score with the total number of genomes in the pangenome, multiplied by the entropy of group membership. If the number of group members is equal to the number of non-members, then the entropy is maximized (and equals 1), and if the groups are not balanced then the entropy is lower.
+3. **enrichment_score** is a score to measure how much is this function unique to the genomes that belong to a specific group vs. all other genomes in your pangenome. This score was developed by [Amy Willis](https://github.com/adw96). For more details about how we generate this score, see the note from Amy below. Notice that in the comparison above, each genome belongs to one of the two groups (HL, LL), but if the column you chose from your layers additional data table has more than two groups, then when comparing a function for each group, the occurrence is compared between the group members, and the rest of the genomes, i.e. the comparison is not pair-wise between groups (you can see the example below of comparison between clades of Prochlorococcus for more details). When the occurrence of a function in the group is lower than outside the group, then we get a negative enrichment score.
 
 5. **portion_occurrence_in_group** is the number of genomes in the group that were associated with the function, divided by the total number of genomes in the group
 
@@ -373,11 +365,16 @@ $$
 
 11. **core** is "true" if the function occurs in all genomes in the pangenome.
 
-12. **wilcoxon_p_value** is the p value for a [Wilcoxon rank-sum test](https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test) to compare the occurrence of the function in the group vs. outside the group (we use [scipy.stats.ranksums](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ranksums.html)).
+12. **p_value** is the p value for the enrichment score.
 
-13. **wilcoxon_statistic** the statistic for the Wilcoxon rank sum test.
+14. **corrected_p_value** a correction for multiple tests using the [Benjamini-Hochberg false discovery rate method](https://en.wikipedia.org/wiki/False_discovery_rate#Benjamini%E2%80%93Hochberg_procedure). This is done using [statsmodels.stats.multitest.multipletests](http://www.statsmodels.org/dev/generated/statsmodels.stats.multitest.multipletests.html#statsmodels.sandbox.stats.multicomp.multipletests).
 
-14. **wilcoxon_corrected_p_value** a correction for multiple tests using the [Benjamini-Hochberg false discovery rate method](https://en.wikipedia.org/wiki/False_discovery_rate#Benjamini%E2%80%93Hochberg_procedure). This is done using [statsmodels.stats.multitest.multipletests](http://www.statsmodels.org/dev/generated/statsmodels.stats.multitest.multipletests.html#statsmodels.sandbox.stats.multicomp.multipletests).
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">A note from Amy Willis regarding the functional enrichment score</span>
+The enrichment score proposed here is the test statistic for a two sample Z-test for proportions. It takes the proportion of times the function is observed in the group, subtracts the proportion of times the function is observed outside the group, and re-scales this difference to reflect the number of samples observed in each group. The adjustment for group size means that larger scores are given when groups are larger -- essentially, a difference between groups can be considered more robust when there are more representatives of each group. While this scoring system is motivated by a formal statistical hypothesis test, by default anvi'o applies this to many functions, and so the test statistics cannot be used to perform a real hypothesis test. (By real hypothesis test, I mean one that has a 5% probability of returning a p value less than 5% when there is no underlying difference between the groups.) Therefore, it should be considered a method to help you order and sort through your data, and not as a formal statistical test for differences between groups.
+</div>
 
 Now let's search for the top function in the table "Ser/Thr protein kinase RdoA involved in Cpx stress response, MazF antagonist", which is enriched for the members of the LL group, and we can see in the table that it matches four gene clusters.
 
@@ -411,12 +408,11 @@ anvi-get-enriched-functions-per-pan-group -p PROCHLORO/Prochlorococcus_Pan-PAN.d
 
 Let's look at some results. ***This is how PROCHLORO-PAN-enriched-functions-clade.txt*** looks like:
 
-| category | COG_FUNCTION                                                  | enrichment_score | weighted_enrichment_score | portion_occurrence_in_group | portion_occurrence_outside_of_group | occurrence_in_group | occurrence_outside_of_group | gene_clusters_ids        | core_in_group | core  | wilcoxon_p_value | wilcoxon_statistic | wilcoxon_corrected_p_value |
-|----------|---------------------------------------------------------------|------------|---------------------|----------------------------|------------------------------------|--------------------|----------------------------|--------------------------|---------------|-------|------------------|--------------------|----------------------------|
-| LL_II    | Archaeal DNA polymerase II, large subunit                     | 1          | 19.76               | 1                          | 0                                  | 5                  | 0                          | GC_00002540              | TRUE          | FALSE | 0                | 3.49               | 0.06                       |
-| LL_II    | Outer membrane protein assembly factor BamD, BamD/ComL family | 1          | 19.76               | 1                          | 0                                  | 5                  | 0                          | GC_00002403              | TRUE          | FALSE | 0                | 3.49               | 0.06                       |
-| LL_II    | tRNA G37 N-methylase Trm5                                     | 0.96       | 19                  | 1                          | 0.04                               | 5                  | 1                          | GC_00002586, GC_00007078 | TRUE          | FALSE | 0                | 3.36               | 0.06                       |
-|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
+|category | COG_FUNCTION | enrichment_score | p_value | portion_occurrence_in_group | portion_occurrence_outside_of_group | occurrence_in_group | occurrence_outside_of_group | gene_clusters_ids | core_in_group | core | corrected_p_value|
+|-- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | --|
+|LL_IV | Cephalosporin hydroxylase | 2.59 | 0.01 | 0 | 0.03 | 0 | 1 | GC_00007377 | FALSE | FALSE | 0.01|
+|LL_IV | Serine/threonine protein phosphatase PrpC | 2.59 | 0.01 | 0.5 | 0 | 1 | 0 | GC_00005695 | FALSE | FALSE | 0.01|
+|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 
 And this is how ***PROCHLORO-functions-occurrence.txt*** looks like:
 
