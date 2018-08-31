@@ -157,6 +157,20 @@
       inst: The University of Chicago Section of Gastroenterology, Hepatology and Nutrition
       inst_link: https://medicine.uchicago.edu/sections/gastroenterology-hepatology-nutrition/
 
+- alias: joe
+  official: True
+  name: Joe Runde
+  tenure_start: 07/2018
+  role: Physician Researcher, Gastroenterology Fellow
+  email: joseph.runde@uchospitals.edu
+  github: jrunde1
+  avatar: bio-joe.jpg
+  address: The University of Chicago, 5841 S. Maryland Ave., Rm C-474, MC 4065, Chicago, IL 60637 USA
+  bio: "I am interested in genome-resolved investigations of gut metagenomes of children with inflammatory bowel disease."
+  affiliations:
+    - title: Pediatric Gastroenterology Fellow
+      inst: Section of Pediatric Gastroenterology, Hepatology and Nutrition at the University of Chicago
+      inst_link: http://pediatrics.uchicago.edu/education/fellowship/gastroenterology
 
 ####################################################################################
 # Non-member friends
