@@ -716,8 +716,8 @@ We can use the files from the examples above. In your working directory you will
 Let's generate a workflow graph:
 
 ```bash
-anvi-run-workflow -w pangenomics
-                  -c config-pangenomics-internal-external.json
+anvi-run-workflow -w pangenomics \
+                  -c config-pangenomics-internal-external.json \
                   --save-workflow-graph
 ```
 
