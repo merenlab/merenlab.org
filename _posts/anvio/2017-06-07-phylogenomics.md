@@ -10,7 +10,7 @@ authors: [meren]
 ---
 
 {:.warning}
-If you are using the phylogenomics workflow with anvi'o version `v5.1` with internal genomes, you must read this report as this will significanlty impact your findings: [https://github.com/merenlab/anvio/issues/955](https://github.com/merenlab/anvio/issues/955)
+If you are using the phylogenomics workflow with anvi'o version `v5.1` with internal genomes, you must read [this issue report](https://github.com/merenlab/anvio/issues/955) as this will have a significant impact your findings.
 
 {% capture images %}{{site.url}}/images/anvio/2017-06-07-phylogenomics{% endcapture %}
 
