@@ -1763,7 +1763,7 @@ Including the inspection of a given gene in its context with upstream and downst
 This section of the tutorial uses the data described in the above section [Putting the E. faecalis genome in the context of HMP gut metagenomes](#downloading-the-pre-packaged-infant-gut-dataset). You already have this data, but if you're wondering "where did this come from?", you should read that section and then come back.
 
 {:.notice}
-This is a brief demonstration to showcase protein structure visualization and visualization that can be carried out by anvi'o. For a more detailed and in depth tutorial dedicated to this topic, you will have to sit tight for now, as it's currently in preparation. When it's released we will tweet about it and update this message. Thanks for your patience.
+This is a brief demonstration to showcase protein structure visualization that can be carried out by anvi'o. For a more detailed and in depth tutorial dedicated to this topic, [click me](http://merenlab.org/2018/09/04/structural-biology-with-anvio/)
 
 In the previous sections of this tutorial we used single-nucleotide variants (SNVs) to explore sequence heterogeneity of an E. faecalis population. In this section of the tutorial we explore in what ways these variants alter the encoded protein synthesized downstream, and how such variation is shaped by principles of protein evolution. When analyzing sequence variation in the context of proteins, it makes a lot more sense to characterize sequence variation with single codon variants (SCVs) or single amino acid variants (SAAVS) rather than SNVs. If you are unfamiliar with these concepts, or want to learn more, [click me](http://merenlab.org/2015/07/20/analyzing-variability/#single-nucleotide-variants).
 
