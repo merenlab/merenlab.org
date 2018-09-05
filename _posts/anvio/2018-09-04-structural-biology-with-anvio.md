@@ -34,22 +34,34 @@ This workflow depends heavily on three dependencies, MODELLER, DSSP, and NGL. If
 
 ## MODELLER
 
-{:.warning}
-**Citation**: [doi:10.1002/0471250953.bi0506s15](https://doi.org/10.1002/0471250953.bi0506s15), [doi:10.1146/annurev.biophys.29.1.291](https://doi.org/10.1146/annurev.biophys.29.1.291), [doi:10.1006/jmbi.1993.1626](https://doi.org/10.1006/jmbi.1993.1626)
+{:.notice}
+**Citation**: [doi:10.1002/0471250953.bi0506s15](https://doi.org/10.1002/0471250953.bi0506s15)
+
+{:.notice}
+**Citation**: [doi:10.1146/annurev.biophys.29.1.291](https://doi.org/10.1146/annurev.biophys.29.1.291)
+
+{:.notice}
+**Citation**: [doi:10.1006/jmbi.1993.1626](https://doi.org/10.1006/jmbi.1993.1626)
 
 MODELLER is the program anvi'o uses to predict protein structure based on experimentally solved structures in the Protein Data Bank. We'll talk more specifically about how it accomplishes this in the following section, but for now you need to make sure it's installed on your computer. For that, check out these instructions to see if you have it installed ([click me](http://merenlab.org/2016/06/18/installing-third-party-software/#modeller)), and how to install it if you don't. We've tried to make it as simple for you as possible.
 
 ## DSSP
 
-{:.warning}
-**Citation**: [doi:10.1002/bip.360221211](http://doi.org/10.1002/bip.360221211), [doi:10.1093/nar/gkq1105](https://doi.org/10.1093/nar/gkq1105)
+{:.notice}
+**Citation**: [doi:10.1002/bip.360221211](http://doi.org/10.1002/bip.360221211),
+
+{:.notice}
+**Citation**: [doi:10.1093/nar/gkq1105](https://doi.org/10.1093/nar/gkq1105)
 
 DSSP (Dictionary of Secondary Structure Prediction) is the program anvi'o uses to assign secondary structure and other useful biophysical and biochemical characteristics for each residue in the predicted structure of MODELLER. It is not a strict requirement for the workflow, although you will be missing out if you don't install. Check out these instructions to see if you have it installed, and how to install it if you don't ([click me](http://merenlab.org/2016/06/18/installing-third-party-software/#dssp)).
 
 ## NGL
 
-{:.warning}
-**Citation**: [doi:10.1093/nar/gkv402](http://doi.org/10.1093/nar/gkv402), [doi:10.1093/bioinformatics/bty419](https://doi.org/10.1093/bioinformatics/bty419)
+{:.notice}
+**Citation**: [doi:10.1093/nar/gkv402](http://doi.org/10.1093/nar/gkv402)
+
+{:.notice}
+**Citation**: [doi:10.1093/bioinformatics/bty419](https://doi.org/10.1093/bioinformatics/bty419)
 
 NGL (NGL) is an open-source project for visualizing biomolecules. This browser-based solution to visualization means you don't have to install anything, and you can thank them for that. We are continually being impressed with NGL's excellent code and documentation, as well as to their open-source approach to science.
 
