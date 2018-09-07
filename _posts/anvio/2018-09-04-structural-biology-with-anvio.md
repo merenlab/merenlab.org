@@ -53,7 +53,7 @@ MODELLER is the program anvi'o uses to predict protein structure based on experi
 {:.notice}
 **Citation**: [doi:10.1093/nar/gkq1105](https://doi.org/10.1093/nar/gkq1105)
 
-DSSP (Dictionary of Secondary Structure Prediction) is the program anvi'o uses to assign secondary structure and other useful biophysical and biochemical characteristics for each residue in the predicted structure of MODELLER. It is not a strict requirement for the workflow, although you will be missing out if you don't install. Check out these instructions to see if you have it installed, and how to install it if you don't ([click me](http://merenlab.org/2016/06/18/installing-third-party-software/#dssp)).
+DSSP (Dictionary of Secondary Structure Prediction) is the program anvi'o uses to assign secondary structure and other useful biophysical and biochemical characteristics for each residue in the predicted structure of MODELLER. It is not a strict requirement for the workflow, although you will be missing out if you don't install it. Check out these instructions to see if you have it installed, and how to install it if you don't ([click me](http://merenlab.org/2016/06/18/installing-third-party-software/#dssp)).
 
 ## NGL
 
@@ -150,9 +150,9 @@ Okay so you know how to make a vanilla structure database, but MODELLER has many
 
 6. **`--max-number-templates`**. Generally speaking it is best to use as many templates as possible given that they have high proper percent identity to the protein of interest. Here ([click me](https://salilab.org/modeller/methenz/andras/node4.html)) is an excerpt from the Sali Lab: 'The use of several templates generally increases the model accuracy. One strength of MODELLER is that it can combine information from multiple template structures, in two ways. First, multiple template structures may be aligned with different domains of the target, with little overlap between them, in which case the modeling procedure can construct a homology-based model of the whole target sequence. Second, the template structures may be aligned with the same part of the target, in which case the modeling procedure is likely to automatically build the model on the locally best template [43,44]. In general, it is frequently beneficial to include in the modeling process all the templates that differ substantially from each other, if they share approximately the same overall similarity to the target sequence.' The default is 5, but if only X candidate templates are found to pass the `--percent-identical-cutoff` threshold, then only X will be used.
 
-7. **`--very-fast`**. Use this option if you're impatient and want only the roughest predicted structures. It's fast because the step size of the simulation his very large and a very low quality requirement is established for reaching equilibrium. Not recommended, but we're not going to the be the ones to deny you of freewill.
+7. **`--very-fast`**. Use this option if you're impatient and want only the roughest predicted structures. It's fast because the step size of the simulation is very large and a very low quality requirement is established for reaching equilibrium. Not recommended, but we're not going to be the ones to deny you of freewill.
 
-8. **`--dump-dir`**. Modelling structures requires a lot of moving parts, each which have their own outputs. The output of this program is a structure database containing the pertinent results of this computation, however a lot of stuff doesn't make the cut. By providing a directory for this parameter you will get, in addition to the structure database, a directory containing the raw output for everything produced by MODELLER.
+8. **`--dump-dir`**. Modelling structures requires a lot of moving parts, each of which have their own outputs. The output of this program is a structure database containing the pertinent results of this computation, however a lot of stuff doesn't make the cut. By providing a directory for this parameter you will get, in addition to the structure database, a directory containing the raw output for everything produced by MODELLER.
 
 ## A quick case study on the importance of key parameters
 
