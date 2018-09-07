@@ -10,6 +10,8 @@ categories: [anvio]
 
 {% capture images %}{{site.url}}/images/anvio/2018-07-23-microbial-omics-workshop{% endcapture %}
 
+{% capture files %}{{site.url}}/files/2018_BPHS_WORKSHOP{% endcapture %}
+
 {% include _toc.html %}
 
 {% include _join-anvio-slack.html %}
@@ -38,7 +40,9 @@ For more details on homebrew, refer to [https://brew.sh/](https://brew.sh/). The
 
 ### python
 
-Your Mac already came with python, but I would recommend isntalling a different python with brew.
+Your Mac already came with python, but I would recommend isntalling a different python with brew. 
+
+I also recommend installing the [jupyter notebook](). You can do that by running this
 
 ### anvi'o (and some dependencies)
 
@@ -71,7 +75,7 @@ The introduction will include a lecture by Dr. Eren. Slides will be available [h
 
 ## Crassphage
 
-Slides for the introduction to crassphage and the workshop plan could be downloaded [here](https://github.com/ShaiberAlon/2018_microbial_omics_workshop/raw/master/Presentation/Crassphage_presentation.pptx).
+Slides for the introduction to crassphage and the workshop plan could be downloaded [here](https://github.com/ShaiberAlon/2018_microbial_omics_workshop/raw/master/Presentations/Crassphage_presentation.pptx).
 
 The background includes review of these crassphage related papers:
 
@@ -143,14 +147,11 @@ We will go through this introduction to snakemake from Johannes Koester (the dev
 We will write a snakefile that accepts a list of bam-files with the path to each bam file, and a name for each sample. We will then use this snakefile to run these steps for all the 481 samples from the global studies.
 </div>
 
+## Predicting a host for crassphage
 
-# Running a random forest regression to predict the host of crassphage
+Similar to the approach in Dutilh et al., we will use the abundance of crassphage in metagenomes along with the abundance of various taxons, to try to predict a host for crassphage. In order to asses the occurence of various bacteria in our collection of metagenomes, I ran [krakenHLL](https://www.biorxiv.org/content/early/2018/06/06/262956). And the results for the species and genus levels are provided in [samples-species-taxonomy.txt]({{files}}/samples-species-taxonomy.txt), and [samples-genus-taxonomy.txt]({{files}}/samples-genus-taxonomy.txt), respectively. We will now examine two alternative approaches to predicting a host for crassphage. Both of these approaches rely on the idea that the host of crassphage should have a positively correlating occurence with crassphage. A [jupyter notebook](http://jupyter.org/) with all the steps for this part of the workshop is available [here]({{files}}/BPHS_WORKSHOP_RF.ipynb)
 
-At this point of the workshop we should already have three tables: `crassphage-samples-information.txt`, `samples-species-taxonomy.txt`, and `samples-genus-taxonomy.txt`. We will use each one of the taxonomy tables to train a Random Forrest regression model, and see if we can predict possible hosts for crassphage.
-In preparing this tutorial, I advised [this blog post](https://www.blopig.com/blog/2017/07/using-random-forests-in-python-with-scikit-learn/) by Fergus Boyles.
-
-## Load the data
-
+### Loading the data
 
 ```python
 import pandas as pd
@@ -159,20 +160,22 @@ tax_level = 'species'
 data_file = 'samples-'+ tax_level + '-taxonomy.txt'
 target_file = 'crassphage-samples-information.txt'
 
-raw_data = pd.DataFrame.from_csv(data_file, sep='\t')
-target = pd.DataFrame.from_csv(target_file, sep='\t')
+raw_data = pd.read_csv(data_file, sep='\t', index_col=0)
+raw_target = pd.read_csv(target_file, sep='\t', index_col=0)
 ```
 
-## Pre-process the data
+But before we try to predict anything from the data, we will pre-process the data.
+
+### Pre-processing the data
 
 First we remove all the samples that don't have crassphage (crassphage negative samples).
 
 
 ```python
 all_samples = raw_data.index
-crassphage_positive_samples = target.index[target['presence']==True]
+crassphage_positive_samples = raw_target.index[raw_target['presence']==True]
 print('The number of samples in which crassphage was detected: %s' % len(crassphage_positive_samples))
-crassphage_negative_samples = target.index[target['presence']==False]
+crassphage_negative_samples = raw_target.index[raw_target['presence']==False]
 print("The number of samples in which crassphage wasn't detected: %s" % len(crassphage_negative_samples))
 # Keep only positive samples
 samples = crassphage_positive_samples
@@ -180,8 +183,6 @@ samples = crassphage_positive_samples
 
     The number of samples in which crassphage was detected: 80
     The number of samples in which crassphage wasn't detected: 240
-    The number of taxons is 273
-    The number of qualifying taxons is 69
 
 
 Ok, so there a lot more negative samples than positive samples.
@@ -203,25 +204,69 @@ for o in ['USA', 'CHI', 'FIJ', 'TAN']:
     The number of crassphage positive samples from TAN is 0 out of total 8 (0%)
 
 
-We can see that crassphage is most prevalent in the US cohort, but also quite common in the Chinese cohort. Whereas it is nearly absent from the Fiji cohort, and completely absent from the eight hunter gatherers from Tanzania. Now we remove the taxons that don't occur in at least 3 of the crassphage positive samples.
+We can see that crassphage is most prevalent in the US cohort, but also quite common in the Chinese cohort. Whereas it is nearly absent from the Fiji cohort, and completely absent from the eight hunter gatherers from Tanzania.
+
+#### Normalizing the data
+The krakenhll output is in counts, so we will normalize this output to portion values, so that the sum of all taxons in a sample will be 1.
+We will also normalize the crassphage values, but since we don't have the needed information to translated these values to portion of the microbial community, we will just make sure that the values are between zero and one, by deviding by the largest values.
 
 
 ```python
-occurence_in_positive_samples = raw_data.loc[crassphage_positive_samples,]
-qualifying_taxons = raw_data.columns[(occurence_in_positive_samples>0).sum()>3]
-portion = len(qualifying_taxons)/len(raw_data.columns) * 100
+normalized_data = raw_data.div(raw_data.sum(axis=1), axis=0)
+normalized_target = raw_target['non_outlier_mean_coverage']/raw_target['non_outlier_mean_coverage'].max()
+```
+
+#### Removing rare taxons
+We will remove the taxons that don't occur in at least 3 of the crassphage positive samples. The reasoning here is that a taxon that occurs so uncommonly is more likely to be an outcome of spuriuous misclassification, and would anyway contribute very little to a successful classifier.
+
+
+```python
+occurence_in_positive_samples = normalized_data.loc[crassphage_positive_samples,]
+qualifying_taxons = normalized_data.columns[(occurence_in_positive_samples>0).sum()>3]
+portion = len(qualifying_taxons)/len(normalized_data.columns) * 100
 print('The number of qualifying taxons is %s out of total %s (%0.f%%)' % (len(qualifying_taxons), \
-                                                                         len(raw_data.columns), \
+                                                                         len(normalized_data.columns), \
                                                                          portion))
 
-data = raw_data.loc[samples, qualifying_taxons]
+data = normalized_data.loc[samples, qualifying_taxons]
+target = normalized_target[samples]
 ```
 
     The number of qualifying taxons is 69 out of total 273 (25%)
 
 
-## Train model
-We now train a Random Forrest regression model on the clean data. The input data for the model are the abundances from KrakenHLL, and the target data for prediction is the non-outlier mean coverage of crassphage.
+### A clustering approach to identifying a host
+We will try a hierarchical clustering approach similar to what was done in the crassphage paper.
+
+First we will merge the data together (i.e. add the crassphage coverage as a column to the kraken table):
+
+
+```python
+# add the crassphage column
+merged_df = pd.concat([data, target], axis=1)
+# Changing the name of the crassphage column
+merged_df.columns = list(merged_df.columns[:-1]) + ['crassphage']
+# Write as TAB-delimited
+
+# anvi'o doesn't like charachters that are not alphanumeric or '_'
+# so we will fix index and column labels
+import re
+f = lambda x: x if x.isalnum() else '_'
+merged_df.columns = [re.sub('\_+', '_', ''.join([f(ch) for ch in s])) for s in list(merged_df.columns)]
+merged_df.index = [re.sub('\_+', '_', ''.join([f(ch) for ch in s])) for s in list(merged_df.index)]
+
+# Save data to a TAB-delimited file
+merged_df.to_csv(tax_level + '-matrix.txt', sep='\t', index_label = 'sample')
+```
+
+Now we leave the python notebook and go back to the command line.
+
+### Training a random forest regression model
+
+Similar to the clustering approach, we will use each one of the taxonomy tables to train a Random Forrest regression model, and see if we can predict possible hosts for crassphage.
+In preparing this part of the tutorial, I advised [this blog post](https://www.blopig.com/blog/2017/07/using-random-forests-in-python-with-scikit-learn/) by Fergus Boyles.
+
+We now train a Random Forrest regression model on the clean data. The input data for the model are the normalized abundances from KrakenHLL, and the target data for prediction is the normalized non-outlier mean coverage of crassphage.
 
 
 ```python
@@ -246,7 +291,7 @@ RF.fit(data,target.loc[samples,'non_outlier_mean_coverage'])
 
 
 
-## Model Results
+### Model Results
 
 The model finished, let's check the oob value (a kind of R^2 estimation for the model. For more details refer to [this part of the scikit-learn docummentation](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html#sklearn.ensemble.RandomForestRegressor.score).
 
@@ -254,9 +299,6 @@ The model finished, let's check the oob value (a kind of R^2 estimation for the 
 ```python
 RF.oob_score_
 ```
-
-
-
 
     0.10409841701423317
 
@@ -268,10 +310,8 @@ Let's look at the importance of the features:
 ```python
 import numpy as np
 features_according_to_order_of_importance = data.columns[np.argsort(-RF.feature_importances_)]
-```
 
 
-```python
 from matplotlib import pyplot as plt
 g = features_according_to_order_of_importance[0:10]
 for f in g:
@@ -282,47 +322,30 @@ for f in g:
     plt.show()
 ```
 
+[![crassphage_paper]({{images}}/crassphage_paper.png)]( https://www.nature.com/articles/ncomms5498){:.center-img .width-60}
 
-[![output_14_0]({{images}}/jupyter/output_14_0.png)]( {{images}}/jupyter/output_14_0.png){:.center-img .width-120}
+[![output_14_0]({{images}}/jupyter/output_14_0.png)]( {{images}}/jupyter/output_14_0.png){:.center-img .width-40}
 
+[![output_14_1]({{images}}/jupyter/output_14_1.png)]( {{images}}/jupyter/output_14_1.png){:.center-img .width-40}
 
+[![output_14_2]({{images}}/jupyter/output_14_2.png)]( {{images}}/jupyter/output_14_2.png){:.center-img .width-40}
 
-[![output_14_1]({{images}}/jupyter/output_14_1.png)]( {{images}}/jupyter/output_14_1.png){:.center-img .width-120}
+[![output_14_3]({{images}}/jupyter/output_14_3.png)]( {{images}}/jupyter/output_14_3.png){:.center-img .width-40}
 
+[![output_14_4]({{images}}/jupyter/output_14_4.png)]( {{images}}/jupyter/output_14_4.png){:.center-img .width-40}
 
+[![output_14_5]({{images}}/jupyter/output_14_5.png)]( {{images}}/jupyter/output_14_5.png){:.center-img .width-40}
 
-[![output_14_2]({{images}}/jupyter/output_14_2.png)]( {{images}}/jupyter/output_14_2.png){:.center-img .width-120}
+[![output_14_6]({{images}}/jupyter/output_14_6.png)]( {{images}}/jupyter/output_14_6.png){:.center-img .width-40}
 
+[![output_14_7]({{images}}/jupyter/output_14_7.png)]( {{images}}/jupyter/output_14_7.png){:.center-img .width-40}
 
+[![output_14_8]({{images}}/jupyter/output_14_8.png)]( {{images}}/jupyter/output_14_8.png){:.center-img .width-40}
 
-[![output_14_3]({{images}}/jupyter/output_14_3.png)]( {{images}}/jupyter/output_14_3.png){:.center-img .width-120}
-
-
-
-[![output_14_4]({{images}}/jupyter/output_14_4.png)]( {{images}}/jupyter/output_14_4.png){:.center-img .width-120}
-
-
-
-[![output_14_5]({{images}}/jupyter/output_14_5.png)]( {{images}}/jupyter/output_14_5.png){:.center-img .width-120}
-
+[![output_14_9]({{images}}/jupyter/output_14_9.png)]( {{images}}/jupyter/output_14_9.png){:.center-img .width-40}
 
 
-[![output_14_6]({{images}}/jupyter/output_14_6.png)]( {{images}}/jupyter/output_14_6.png){:.center-img .width-120}
-
-
-
-[![output_14_7]({{images}}/jupyter/output_14_7.png)]( {{images}}/jupyter/output_14_7.png){:.center-img .width-120}
-
-
-
-[![output_14_8]({{images}}/jupyter/output_14_8.png)]( {{images}}/jupyter/output_14_8.png){:.center-img .width-120}
-
-
-
-[![output_14_9]({{images}}/jupyter/output_14_9.png)]( {{images}}/jupyter/output_14_9.png){:.center-img .width-120}
-
-
-We can see that a lot of members and close relatives of the _Bacteroides_ genus are included, which is encouraging. In addition, a few other things are included, but we need to remember that in a regression model things that anti-correlate could also count as important features.
+We can see that this list is dominated by members and close relatives of the _Bacteroides_ genus, which is encouraging. In addition, a few other things are included, but we need to remember that in a regression model things that anti-correlate could also count as important features.
 
 ## Does this model actually have predictive stretgh?
 So far we created a model with all of our data and estimated how good it fits the data. Now let's we will train a regression model on a subset of the samples and test it on a test subset.
