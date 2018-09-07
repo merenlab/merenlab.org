@@ -208,7 +208,7 @@ We can see that crassphage is most prevalent in the US cohort, but also quite co
 
 #### Normalizing the data
 The krakenhll output is in counts, so we will normalize this output to portion values, so that the sum of all taxons in a sample will be 1.
-We will also normalize the crassphage values, but since we don't have the needed information to translated these values to portion of the microbial community, we will just make sure that the values are between zero and one, by deviding by the largest values.
+We will also normalize the crassphage values, but since we don't have the needed information to translate these values to portion of the microbial community, we will just make sure that the values are between zero and one, by deviding by the largest values.
 
 
 ```python
@@ -261,6 +261,48 @@ merged_df.to_csv(tax_level + '-matrix.txt', sep='\t', index_label = 'sample')
 
 Now we leave the python notebook and go back to the command line.
 
+There are a few steps needed to be done in order to visualize this data with anvio (described [here](http://merenlab.org/tutorials/interactive-interface/)), but we will use a [snakefile]({{files}}/snakemake_to_generate_manual_interactive_interface_for_tabular_data.snake) I wrote to streamline thie process. This snakefile requires a config file, which is available [here]({{files}}/config.json).
+
+{:.notice}
+If you try to use this snakefile on your own data, beware that this snakefile is not highly robust, and might not work for your case of interest.
+
+```bash
+snakemake -s snakemake_to_generate_manual_interactive_interface_for_tabular_data.snake --configfile config.json
+```
+
+I also created a slightly nicer view of the data which we could import to the manual profile database (the state file is available [here]({{files}}/crassphage-host-predict-default-state.json):
+
+```bash
+anvi-import-state -p 00_ANVIO_FIGURE/PROFILE.db \
+                  -s crassphage-host-predict-default-state.json \
+                  -n default
+```
+
+I also made some selections in the interface to highlight the potential hosts. Let's load the collection I created (available here: [collection file]({{files}}/crassphage-host-predict-default-collection.txt), and [collection info file]({{files}}/crassphage-host-predict-default-collection-info.txt))
+
+```bash
+anvi-import-collection -p 00_ANVIO_FIGURE/PROFILE.db \
+                       -C default \
+                       --bins-info crassphage-host-predict-default-collection-info.txt \
+                       crassphage-host-predict-default-collection.txt
+```
+
+Now we can view the results:
+
+```bash
+anvi-interactive --manual \
+                 -d species-matrix.txt-transposed-item-names-fixed \
+                 -p 00_ANVIO_FIGURE/PROFILE.db \
+                 -t 00_ANVIO_FIGURE/crassphage_species.newick \
+                 --title crassphage_species
+```
+
+This is it what it looks like:
+
+[![host_clustering]({{images}}/host_clustering.png)]( {{images}}/host_clustering.png)){:.center-img .width-60}
+
+We can see that this includes members and close relatives of the *Bacteroides* genus, hence we get a similar result to Dutilh et al.
+
 ### Training a random forest regression model
 
 Similar to the clustering approach, we will use each one of the taxonomy tables to train a Random Forrest regression model, and see if we can predict possible hosts for crassphage.
@@ -276,11 +318,8 @@ RF = ensemble.RandomForestRegressor(n_trees, \
                                     oob_score=True, \
                                     random_state=1)
 
-RF.fit(data,target.loc[samples,'non_outlier_mean_coverage'])
+RF.fit(data,target)
 ```
-
-
-
 
     RandomForestRegressor(bootstrap=True, criterion='mse', max_depth=None,
                max_features='auto', max_leaf_nodes=None,
@@ -289,22 +328,18 @@ RF.fit(data,target.loc[samples,'non_outlier_mean_coverage'])
                min_weight_fraction_leaf=0.0, n_estimators=64, n_jobs=1,
                oob_score=True, random_state=1, verbose=0, warm_start=False)
 
-
-
 ### Model Results
 
-The model finished, let's check the oob value (a kind of R^2 estimation for the model. For more details refer to [this part of the scikit-learn docummentation](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html#sklearn.ensemble.RandomForestRegressor.score).
+The model finished, let's check the oob value (a kind of R^2 estimation for the model. For more details refer to [this part of the scikit-learn docummentation](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html#sklearn.ensemble.RandomForestRegressor.score)).
 
 
 ```python
 RF.oob_score_
 ```
 
-    0.10409841701423317
+    -0.029949172312407013
 
-
-
-Let's look at the importance of the features:
+This doesn't look great (to understand why, you can refer to [this question on stats.stackexchange.com](https://stats.stackexchange.com/questions/133406/is-a-negative-oob-score-possible-with-scikit-learns-randomforestregressor). In essence, this means that the model has no prediction power. Despite this, let's look at the importance of the features. We will take the 10 most important features according to the model, and plot the abundance of crassphage against the abundance of each of the most important taxa:
 
 
 ```python
@@ -321,8 +356,6 @@ for f in g:
     plt.title(f)
     plt.show()
 ```
-
-[![crassphage_paper]({{images}}/crassphage_paper.png)]( https://www.nature.com/articles/ncomms5498){:.center-img .width-60}
 
 [![output_14_0]({{images}}/jupyter/output_14_0.png)]( {{images}}/jupyter/output_14_0.png){:.center-img .width-40}
 
@@ -346,78 +379,3 @@ for f in g:
 
 
 We can see that this list is dominated by members and close relatives of the _Bacteroides_ genus, which is encouraging. In addition, a few other things are included, but we need to remember that in a regression model things that anti-correlate could also count as important features.
-
-## Does this model actually have predictive stretgh?
-So far we created a model with all of our data and estimated how good it fits the data. Now let's we will train a regression model on a subset of the samples and test it on a test subset.
-
-We first create the subsets of the samples:
-
-
-```python
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(data, \
-                                                    target.loc[samples,'non_outlier_mean_coverage'], \
-                                                    train_size=0.8, \
-                                                    random_state=42)
-
-RF = ensemble.RandomForestRegressor(n_trees, oob_score=True, random_state=1)
-RF.fit(X_train, y_train)
-from sklearn.metrics import r2_score
-from scipy.stats import spearmanr, pearsonr
-predicted_train = RF.predict(X_train)
-predicted_test = RF.predict(X_test)
-test_score = r2_score(y_test, predicted_test)
-spearman = spearmanr(y_test, predicted_test)
-pearson = pearsonr(y_test, predicted_test)
-print(f'Out-of-bag R-2 score estimate: {RF.oob_score_:>5.3}')
-print(f'Test data R-2 score: {test_score:>5.3}')
-print(f'Test data Spearman correlation: {spearman[0]:.3}')
-print(f'Test data Pearson correlation: {pearson[0]:.3}')
-```
-
-    Out-of-bag R-2 score estimate: 0.0855
-    Test data R-2 score: 0.129
-    Test data Spearman correlation: 0.341
-    Test data Pearson correlation: 0.46
-
-
-    /Users/alonshaiber/virtual-envs/anvio-dev/lib/python3.6/site-packages/sklearn/model_selection/_split.py:2026: FutureWarning: From version 0.21, test_size will always complement train_size unless both are specified.
-      FutureWarning)
-
-
-Ok, so we can see that this model doesn't really have predictive stregth, and yet it did a pretty good job finding the important taxons.
-
-## Trying another approach
-We will try a hierarchical clustering approach similar to what was done in the crassphage paper.
-
-First we will merge the data together (i.e. add the crassphage coverage as a column to the kraken table):
-
-
-```python
-# add the crassphage column
-merged_df = pd.concat([data, target.loc[samples,"non_outlier_mean_coverage"]], axis=1)
-# Changing the name of the crassphage column
-merged_df.columns = list(merged_df.columns[:-1]) + ['crassphage']
-# Write as TAB-delimited
-
-# anvi'o doesn't like charachters that are not alphanumeric or '_'
-# so we will fix index and column labels
-import re
-f = lambda x: x if x.isalnum() else '_'
-merged_df.columns = [re.sub('\_+', '_', ''.join([f(ch) for ch in s])) for s in list(merged_df.columns)]
-merged_df.index = [re.sub('\_+', '_', ''.join([f(ch) for ch in s])) for s in list(merged_df.index)]
-
-# Save data to a TAB-delimited file
-merged_df.to_csv(tax_level + '-matrix.txt', sep='\t', index_label = 'sample')
-```
-
-Now we leave the python notebook and go back to the command line.
-
-## Glosary of terms
-
-**Taxonomy** 
-
-Just to give you an idea of how broad a phylum could be, consider the fact that humans and sea squirts are in the same phylum (the phylum Chordata).
-
-**phylogeny**
-
