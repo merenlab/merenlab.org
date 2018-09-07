@@ -10,7 +10,7 @@ comments: true
 ---
 
 {:.notice}
-This is a theoretical tutorial describing how to characterize SNVs, SCVs and SAAVs with anvi'o, and how to interpret the output. For a more practical tutorial on the same topic, please visit [http://merenlab.org/tutorials/infant-gut/#profiling-snvs-in-a-bin]({{ site.url }}/tutorials/infant-gut/#profiling-snvs-in-a-bin) for a tutorial on profiling SNVs, SCVs, and SAAVs, and check out [FIXME](asdfasd) for a tutorial on visualizing SCVs and SAAVs directly on the protein structure they encode for. Also check out our [reproducible workflow on oceanic SAR11]({{ site.url }}/data/2018_Delmont_et_al_SAR11_SAAVs/), which leverages the concepts in this tutorial to gain insight into ecologically-linked patterns of micro-diversity on a global scale.
+This is a theoretical tutorial describing how to characterize SNVs, SCVs and SAAVs with anvi'o, and how to interpret the output. For a more practical tutorial on the same topic, please visit [http://merenlab.org/tutorials/infant-gut/#profiling-snvs-in-a-bin]({{ site.url }}/tutorials/infant-gut/#profiling-snvs-in-a-bin) for a tutorial on profiling SNVs, SCVs, and SAAVs, and check out [http://merenlab.org/2018/09/04/structural-biology-with-anvio/](http://merenlab.org/2018/09/04/structural-biology-with-anvio/) for a tutorial on visualizing SCVs and SAAVs directly on the protein structure they encode for. Also check out our [reproducible workflow on oceanic SAR11]({{ site.url }}/data/2018_Delmont_et_al_SAR11_SAAVs/), which leverages the concepts in this tutorial to gain insight into ecologically-linked patterns of micro-diversity on a global scale.
 
 {:.notice}
 We thank [Rika Anderson](https://twitter.com/RikaEAnderson) for carefully reading this tutorial, and embarrassing us by fixing our mistakes multiple times.
@@ -84,7 +84,9 @@ Maybe you're only interested in positions that actually change the structure of 
 ## Summary bullet points
 
 1. Use SNVs if you are interested in single nucleotide positions or non-coding regions
+
 2. Use SCVs if you want to resolve codon variants or related concepts like synonymity
+
 3. Use SAAVs if you are interested in variation that leads to structural differences in the encoded protein.
 
 
@@ -102,27 +104,9 @@ Just so you have a mental picture of how anvi'o visualizes SNVs, here is a polis
 
 What you see is the coverage and base frequencies in reported SNVs in a single contig across two samples. Where these samples are coming from are not really relevant to the rest of this post. But usually, just like it is the case in this example, SNVs and their base frequencies do not seem to be random, and they can be extremely reproducible if the population structures are really similar in multiple samples (i.e., in biological replicates).
 
-And while we're at it, just so you have a mental picture of how anvi'o can visualize SCVs and SAAVs directly on protein structures, here is a snapshot from the interface:
+{:.notice}
+Do you want to visualize variants directly onto protein structure? Good news, because anvi'o does that! Check out our tutorial on the anvi'o structure database for details on how ([click me](http://merenlab.org/2018/09/04/structural-biology-with-anvio)).
 
-<div class="centerimg">
-<a href="{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/example.png"><img src="{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/example_structure1.png" style="border: none; width: 100%;" /></a>
-</div>
-
-This is a protein from a reference SAR11 genome called HIMB83. Each of the 4 views correspond to groups of TARA ocean metagenomes organized by the user. Each sphere on the structure corresponds to a SCV that occurred in at least one of the metagenomes of the group. The size of each sphere relates to the solvent accessibility of the residue (aka how exposed to water it is) and the color of each sphere corresponds to the SCV's synonymity. The trend demonstrates that solvent inaccessible residues are under high purifying selection against non-synonymous mutations, but readily permit synonymous mutations as they do not compromise protein stability.
-
-<div class="centerimg">
-<a href="{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/example.png"><img src="{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/example_structure2.png" style="border: none; width: 100%;" /></a>
-</div>
-
-Above is a merged view of all TARA ocean metagenomes for the same protein. The size of the spheres refer to the fraction of metagenomes in which the position was a SCV (e.g. the smallest spheres occur in only one metagenome). We see that one region of this protein is significantly more variable than the other. The color refers to the coverage of that site normalized by the average gene coverage for a metagenome. This indicates that the hypervariable region is also recruiting much more reads than the others.
-
-<div class="centerimg">
-<a href="{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/example.png"><img src="{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/example_structure3.png" style="border: none; width: 100%;" /></a>
-</div>
-
-These proteins views are interactive with many visualization options. For example, above we have zoomed in to a specific region and visualized the side chains of SCVs that are in close proximity to one another.
-
-You are probably peeing your pants right now knowing that all of this is possible. The good news is that you too can explore proteins like this with own metagenomes. Check out [this tutorial]({{ site.url }}/tutorials/infant-gut/#profiling-snvs-in-a-bin) for details on how you can create these visualizations for your own data (it's incredibly easy).
 
 ## How to generate variability tables
 
