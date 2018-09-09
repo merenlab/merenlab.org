@@ -1,14 +1,14 @@
 ---
 layout: post
 title: Microbial 'Omics Workshop
-modified: 2018-07-23
+modified: 2018-09-09
 excerpt: "A light introduction to questions of microbial ecology and microbial omics through the story of crassphage"
 comments: true
 authors: [alon]
 categories: [anvio]
 ---
 
-{% capture images %}{{site.url}}/images/anvio/2018-07-23-microbial-omics-workshop{% endcapture %}
+{% capture images %}{{site.url}}/images/anvio/2018-09-09-microbial-omics-workshop{% endcapture %}
 
 {% capture files %}{{site.url}}/files/2018_BPHS_WORKSHOP{% endcapture %}
 
