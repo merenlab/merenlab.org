@@ -1,0 +1,6 @@
+{
+    "data": "species-matrix.txt",
+    "project_name": "crassphage_species",
+    "transpose": true,
+    "fix_item_names": true
+}

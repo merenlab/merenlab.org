@@ -1,0 +1,3331 @@
+{
+    "version": "3",
+    "tree-type": "circlephylogram",
+    "order-by": "crassphage_species:unknown:unknown",
+    "current-view": "single",
+    "angle-min": "0",
+    "angle-max": "270",
+    "tree-radius": "50000",
+    "tree-height": "0",
+    "tree-width": "0",
+    "layer-margin": "15",
+    "outer-ring-height": "600",
+    "outer-ring-margin": "300",
+    "edge-normalization": false,
+    "custom-layer-margin": false,
+    "show-grid-for-bins": true,
+    "grid-color": "#FFFFFF",
+    "grid-width": "1",
+    "samples-order": "custom",
+    "max-font-size": "60",
+    "optimize-speed": true,
+    "show-bin-labels": true,
+    "bin-labels-font-size": "1280",
+    "autorotate-bin-labels": true,
+    "bin-labels-angle": "0",
+    "background-opacity": "0.3",
+    "max-font-size-label": "120",
+    "draw-guide-lines": "no",
+    "layer-order": [
+        "CHI0003",
+        "CHI0014",
+        "CHI0017",
+        "CHI0018",
+        "CHI0022",
+        "CHI0023",
+        "CHI0024",
+        "CHI0030",
+        "CHI0032",
+        "CHI0034",
+        "CHI0036",
+        "CHI0041",
+        "CHI0055",
+        "CHI0056",
+        "CHI0066",
+        "CHI0068",
+        "FIJ0019",
+        "FIJ0037",
+        "FIJ0042",
+        "FIJ0058",
+        "FIJ0091",
+        "FIJ0094",
+        "FIJ0097",
+        "FIJ0113",
+        "FIJ0141",
+        "FIJ0154",
+        "FIJ0155",
+        "USA0001",
+        "USA0004",
+        "USA0007",
+        "USA0008",
+        "USA0009",
+        "USA0012",
+        "USA0020",
+        "USA0021",
+        "USA0025",
+        "USA0034",
+        "USA0035",
+        "USA0037",
+        "USA0038",
+        "USA0040",
+        "USA0043",
+        "USA0044",
+        "USA0047",
+        "USA0048",
+        "USA0050",
+        "USA0052",
+        "USA0056",
+        "USA0057",
+        "USA0059",
+        "USA0060",
+        "USA0063",
+        "USA0067",
+        "USA0068",
+        "USA0069",
+        "USA0071",
+        "USA0073",
+        "USA0076",
+        "USA0086",
+        "USA0088",
+        "USA0097",
+        "USA0098",
+        "USA0100",
+        "USA0107",
+        "USA0111",
+        "USA0112",
+        "USA0113",
+        "USA0115",
+        "USA0116",
+        "USA0119",
+        "USA0129",
+        "USA0130",
+        "USA0131",
+        "USA0133",
+        "USA0136",
+        "USA0142",
+        "USA0143",
+        "USA0149",
+        "USA0150",
+        "USA0151"
+    ],
+    "categorical_data_colors": {},
+    "stack_bar_colors": {},
+    "layers": {
+        "FIJ0042": {
+            "color": "#9a7cbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0060": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "CHI0030": {
+            "color": "#bf7c9c",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0129": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0057": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "FIJ0019": {
+            "color": "#9a7cbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0113": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "CHI0018": {
+            "color": "#bf7c9c",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0044": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0107": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0047": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0040": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "CHI0056": {
+            "color": "#bf7c9c",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0052": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "CHI0066": {
+            "color": "#bf7c9c",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0043": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "CHI0055": {
+            "color": "#bf7c9c",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "CHI0034": {
+            "color": "#bf7c9c",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "FIJ0058": {
+            "color": "#9a7cbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "CHI0041": {
+            "color": "#bf7c9c",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0007": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "CHI0014": {
+            "color": "#bf7c9c",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0100": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0035": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0038": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0076": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "CHI0022": {
+            "color": "#bf7c9c",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "FIJ0154": {
+            "color": "#9a7cbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0068": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "CHI0017": {
+            "color": "#bf7c9c",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "CHI0024": {
+            "color": "#bf7c9c",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0133": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0059": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0149": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0116": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0004": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0073": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "FIJ0097": {
+            "color": "#9a7cbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0021": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0111": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0056": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0143": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "FIJ0141": {
+            "color": "#9a7cbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0048": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0009": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "CHI0003": {
+            "color": "#bf7c9c",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "CHI0032": {
+            "color": "#bf7c9c",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0050": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "FIJ0113": {
+            "color": "#9a7cbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0150": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "CHI0068": {
+            "color": "#bf7c9c",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "FIJ0155": {
+            "color": "#9a7cbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "FIJ0091": {
+            "color": "#9a7cbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0142": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0112": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0071": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0012": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0130": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "FIJ0094": {
+            "color": "#9a7cbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0025": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0086": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0037": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "CHI0036": {
+            "color": "#bf7c9c",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "CHI0023": {
+            "color": "#bf7c9c",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0067": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0001": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0008": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0069": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0098": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0151": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0097": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0063": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0115": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0088": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0119": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "FIJ0037": {
+            "color": "#9a7cbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0131": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0034": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0020": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "USA0136": {
+            "color": "#7c8fbf",
+            "height": "180",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        }
+    },
+    "views": {
+        "mean_coverage": {
+            "FIJ0042": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.319838744223579",
+                    "disabled": false
+                }
+            },
+            "USA0060": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.7339073637904203",
+                    "disabled": false
+                }
+            },
+            "CHI0030": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.1092836798045203",
+                    "disabled": false
+                }
+            },
+            "USA0129": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.8338121899290853",
+                    "disabled": false
+                }
+            },
+            "USA0057": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.0829983064691526",
+                    "disabled": false
+                }
+            },
+            "FIJ0019": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.4646639718281596",
+                    "disabled": false
+                }
+            },
+            "USA0113": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.370973450959269",
+                    "disabled": false
+                }
+            },
+            "CHI0018": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.8879601481559924",
+                    "disabled": false
+                }
+            },
+            "USA0044": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.7549056065073371",
+                    "disabled": false
+                }
+            },
+            "USA0107": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.5650881234683415",
+                    "disabled": false
+                }
+            },
+            "USA0047": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.7286392844229672",
+                    "disabled": false
+                }
+            },
+            "USA0040": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.8845570329768733",
+                    "disabled": false
+                }
+            },
+            "CHI0056": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.1093358408453486",
+                    "disabled": false
+                }
+            },
+            "USA0052": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.4618212155619417",
+                    "disabled": false
+                }
+            },
+            "CHI0066": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.9295967225005577",
+                    "disabled": false
+                }
+            },
+            "USA0043": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.776375134896654",
+                    "disabled": false
+                }
+            },
+            "CHI0055": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.973411916400698",
+                    "disabled": false
+                }
+            },
+            "CHI0034": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.0510863665937693",
+                    "disabled": false
+                }
+            },
+            "FIJ0058": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.7041554656698854",
+                    "disabled": false
+                }
+            },
+            "CHI0041": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.9846665727415551",
+                    "disabled": false
+                }
+            },
+            "USA0007": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.6758602198108132",
+                    "disabled": false
+                }
+            },
+            "CHI0014": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.5993291390084208",
+                    "disabled": false
+                }
+            },
+            "USA0100": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.4465601130512904",
+                    "disabled": false
+                }
+            },
+            "USA0035": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.0199384062239525",
+                    "disabled": false
+                }
+            },
+            "USA0038": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.798630829890534",
+                    "disabled": false
+                }
+            },
+            "USA0076": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.497926756090929",
+                    "disabled": false
+                }
+            },
+            "CHI0022": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.1843071367161424",
+                    "disabled": false
+                }
+            },
+            "FIJ0154": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.9823546167330767",
+                    "disabled": false
+                }
+            },
+            "USA0068": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.100383809295346",
+                    "disabled": false
+                }
+            },
+            "CHI0017": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.8253283013949988",
+                    "disabled": false
+                }
+            },
+            "CHI0024": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.1472010020064243",
+                    "disabled": false
+                }
+            },
+            "USA0133": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.22087697434792",
+                    "disabled": false
+                }
+            },
+            "USA0059": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.5018547369055897",
+                    "disabled": false
+                }
+            },
+            "USA0149": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.475028681406491",
+                    "disabled": false
+                }
+            },
+            "USA0116": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.894049695385575",
+                    "disabled": false
+                }
+            },
+            "USA0004": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.9051528778311296",
+                    "disabled": false
+                }
+            },
+            "USA0073": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.008373264756837",
+                    "disabled": false
+                }
+            },
+            "FIJ0097": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.41091368991757327",
+                    "disabled": false
+                }
+            },
+            "USA0021": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.8906630819164993",
+                    "disabled": false
+                }
+            },
+            "USA0111": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.79259744141821",
+                    "disabled": false
+                }
+            },
+            "USA0056": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.7088665590079404",
+                    "disabled": false
+                }
+            },
+            "USA0143": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.8932587420708455",
+                    "disabled": false
+                }
+            },
+            "FIJ0141": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.6936070795168576",
+                    "disabled": false
+                }
+            },
+            "USA0048": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.8616239268918484",
+                    "disabled": false
+                }
+            },
+            "USA0009": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.0988302931849234",
+                    "disabled": false
+                }
+            },
+            "CHI0003": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.2986235570247129",
+                    "disabled": false
+                }
+            },
+            "CHI0032": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.2323912411302786",
+                    "disabled": false
+                }
+            },
+            "USA0050": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.6146465196527977",
+                    "disabled": false
+                }
+            },
+            "FIJ0113": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.29305597199913574",
+                    "disabled": false
+                }
+            },
+            "USA0150": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.8819114935732415",
+                    "disabled": false
+                }
+            },
+            "CHI0068": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.9062590585178512",
+                    "disabled": false
+                }
+            },
+            "FIJ0155": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.1650295535795956",
+                    "disabled": false
+                }
+            },
+            "FIJ0091": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.7612757179975629",
+                    "disabled": false
+                }
+            },
+            "USA0142": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.4226370846014773",
+                    "disabled": false
+                }
+            },
+            "USA0112": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.4534867050891926",
+                    "disabled": false
+                }
+            },
+            "USA0071": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.3521466832331949",
+                    "disabled": false
+                }
+            },
+            "USA0012": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.3110901318790864",
+                    "disabled": false
+                }
+            },
+            "USA0130": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.5382154276968243",
+                    "disabled": false
+                }
+            },
+            "FIJ0094": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.7865928086921146",
+                    "disabled": false
+                }
+            },
+            "USA0025": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.8401009405573867",
+                    "disabled": false
+                }
+            },
+            "USA0086": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.5534764517233732",
+                    "disabled": false
+                }
+            },
+            "USA0037": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.2591859128395635",
+                    "disabled": false
+                }
+            },
+            "CHI0036": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.2477815886190107",
+                    "disabled": false
+                }
+            },
+            "CHI0023": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.132919410661273",
+                    "disabled": false
+                }
+            },
+            "USA0067": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.8568160145873196",
+                    "disabled": false
+                }
+            },
+            "USA0001": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.6386222490068456",
+                    "disabled": false
+                }
+            },
+            "USA0008": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.4110100049986274",
+                    "disabled": false
+                }
+            },
+            "USA0069": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.140524981744965",
+                    "disabled": false
+                }
+            },
+            "USA0098": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.0427327010969814",
+                    "disabled": false
+                }
+            },
+            "USA0151": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.1830123888959663",
+                    "disabled": false
+                }
+            },
+            "USA0097": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.2549661374304586",
+                    "disabled": false
+                }
+            },
+            "USA0063": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.9722102404995342",
+                    "disabled": false
+                }
+            },
+            "USA0115": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.9516006214299795",
+                    "disabled": false
+                }
+            },
+            "USA0088": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.4745780829956907",
+                    "disabled": false
+                }
+            },
+            "USA0119": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.674552648273139",
+                    "disabled": false
+                }
+            },
+            "FIJ0037": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.7463487298442466",
+                    "disabled": false
+                }
+            },
+            "USA0131": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.233570595618926",
+                    "disabled": false
+                }
+            },
+            "USA0034": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.3314716474851738",
+                    "disabled": false
+                }
+            },
+            "USA0020": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.9672538728802347",
+                    "disabled": false
+                }
+            },
+            "USA0136": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.334478473736555",
+                    "disabled": false
+                }
+            }
+        },
+        "detection": {
+            "FIJ0042": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0060": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0030": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0129": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0057": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "FIJ0019": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0113": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0018": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0044": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0107": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0047": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0040": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0056": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0052": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0066": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0043": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0055": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0034": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "FIJ0058": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0041": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0007": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0014": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0100": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0035": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0038": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0076": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0022": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "FIJ0154": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0068": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0017": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0024": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0133": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0059": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0149": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0116": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0004": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0073": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "FIJ0097": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0021": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0111": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0056": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0143": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "FIJ0141": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0048": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0009": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0003": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0032": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0050": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "FIJ0113": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0150": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0068": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "FIJ0155": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "FIJ0091": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0142": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0112": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0071": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0012": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0130": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "FIJ0094": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0025": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0086": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0037": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0036": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0023": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0067": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0001": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0008": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0069": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0098": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0151": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0097": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0063": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0115": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0088": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0119": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "FIJ0037": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0131": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0034": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0020": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0136": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            }
+        },
+        "single": {
+            "FIJ0042": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0060": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0030": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0129": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0057": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "FIJ0019": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0113": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0018": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0044": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0107": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0047": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0040": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0056": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0052": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0066": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0043": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0055": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0034": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "FIJ0058": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0041": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0007": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0014": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0100": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0035": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0038": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0076": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0022": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "FIJ0154": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0068": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0017": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0024": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0133": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0059": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0149": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0116": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0004": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0073": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "FIJ0097": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0021": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0111": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0056": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0143": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "FIJ0141": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0048": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0009": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0003": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0032": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0050": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "FIJ0113": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0150": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0068": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "FIJ0155": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "FIJ0091": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0142": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0112": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0071": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0012": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0130": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "FIJ0094": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0025": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0086": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0037": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0036": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "CHI0023": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0067": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0001": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0008": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0069": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0098": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0151": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0097": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0063": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0115": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0088": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0119": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "FIJ0037": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0131": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0034": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0020": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            },
+            "USA0136": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0",
+                    "disabled": false
+                }
+            }
+        }
+    },
+    "samples-categorical-colors": {},
+    "samples-stack-bar-colors": {},
+    "samples-edge-length-normalization": true,
+    "samples-ignore-branch-length": false,
+    "samples-tree-height": "0",
+    "samples-layer-order": [],
+    "samples-layers": {},
+    "samples-groups": {}
+}

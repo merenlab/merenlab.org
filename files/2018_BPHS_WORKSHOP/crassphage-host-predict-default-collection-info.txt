@@ -1,0 +1,9 @@
+crassphage	anvi-interactive	#d9ce00
+Bacteroides_fragilis	anvi-interactive	#098751
+Unknown_t_genus_Parabacteroides	anvi-interactive	#098751
+Odoribacter_splanchnicus	anvi-interactive	#098751
+Unknown_t_phylum_Bacteroidetes	anvi-interactive	#098751
+Unknown_t_order_Bacteroidales	anvi-interactive	#098751
+Unknown_t_genus_Bacteroides	anvi-interactive	#098751
+Bacteroides_thetaiotaomicron	anvi-interactive	#098751
+Bacteroides_ovatus	anvi-interactive	#098751
