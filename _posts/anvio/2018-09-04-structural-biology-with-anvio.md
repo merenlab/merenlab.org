@@ -63,7 +63,7 @@ DSSP (Dictionary of Secondary Structure Prediction) is the program anvi'o uses t
 {:.notice}
 **Citation**: [doi:10.1093/bioinformatics/bty419](https://doi.org/10.1093/bioinformatics/bty419)
 
-NGL (NGL) is an open-source project for visualizing biomolecules. This browser-based solution to visualization means you don't have to install anything, and you can thank them for that. We are continually being impressed with NGL's excellent code and documentation, as well as with their open-source approach to science.
+NGL (NGL) is an open-source project for visualizing biomolecules. This browser-based solution to visualization means you don't have to install anything, and you can thank them for that. Özcan has been the mastermind behind incorporating NGL's visualizations into anvi'o, and says he continues to be impressed with their excellent code, documentation, and open-source approach to science.
 
 # The structure database
 
@@ -228,7 +228,7 @@ The output of `anvi-gen-variability-profile` is a table where each row correspon
 {:.notice}
 The anvi'o program `anvi-display-structure` described below visualizes variability from metagenomic sequence data onto a reference 3D structures. The structures are predicted either from a MAG or a reference genome with `anvi-gen-structure-database`. This program does not predict the impact of environmental variants on the structure.
 
-There are many comprehensive software packages and web services to visualize protein structures. But we created `anvi-display-structure` with the very specific purpose of interactively visualizing, filtering, and clustering metagenomic sequence variants directly on protein strucures. Existing solutions were not incapable of doing these tasks, however, the lack of automation, scalability, and just the straight up time required for a single protein and the lack of integration convinced us that the community could benefit from a tool that was designed specifically for this purpose.
+There are many comprehensive software packages and web services to visualize protein structures. But Özcan and I wanted to create `anvi-display-structure` with the very specific purpose of interactively visualizing, filtering, and clustering metagenomic sequence variants directly on protein strucures. Existing solutions were not incapable of doing these tasks, however, the lack of automation, scalability, and just the straight up time required for a single protein and the lack of integration convinced us that the community could benefit from a tool that was designed specifically for this purpose.
 
 ## Examples
 
