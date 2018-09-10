@@ -235,7 +235,13 @@ There are many comprehensive software packages and web services to visualize pro
 
 ## Examples
 
-Details describing the interface itself are provided in [a hands-on demonstration within the infant gut tutorial](http://merenlab.org/tutorials/infant-gut/#chapter-vii-linking-genomic-heterogeneity-to-protein-structures), which I highly recommend you to follow either with the tutorial data or your own. But the tutorial you're currently reading wouldn't be complete if we didn't at least showcase some images and movies from the interface. With this in mind, check out this [video demonstration](https://www.youtube.com/watch?v=kHHk1qUOYoE) of some of the features of the interface. As well, feel free to view the screenshots below with their accompanying descriptions.
+Details describing the interface itself are provided in [a hands-on demonstration within the infant gut tutorial](http://merenlab.org/tutorials/infant-gut/#chapter-vii-linking-genomic-heterogeneity-to-protein-structures), which I highly recommend you to follow either with the tutorial data or your own. But the tutorial you're currently reading wouldn't be complete if we didn't at least showcase some images and movies from the interface. With this in mind, check out this video demonstration below of some of the features of the interface. 
+
+<div class="centerimg">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kHHk1qUOYoE" frameborder="0" allow="encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+</div>
+
+As well, feel free to view the screenshots below with their accompanying descriptions.
 
 <div class="centerimg">
 <a href="{{ site.url }}/images/anvio/2018-09-04-structural-biology-with-anvio/example.png"><img src="{{ site.url }}/images/anvio/2018-09-04-structural-biology-with-anvio/example_structure1.png" style="border: none; width: 100%;" /></a>
