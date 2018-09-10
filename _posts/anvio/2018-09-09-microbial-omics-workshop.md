@@ -35,39 +35,26 @@ For this workshop you are required to install the following things:
 
 ### brew
 
-I recommend installing homebrew.
-For more details on homebrew, refer to [https://brew.sh/](https://brew.sh/). There are many ways to install anvi'o, but using the `brew` command is the easiest.
+I recommend installing [homebrew](https://brew.sh/). There are many ways to install anvi'o, but using the `brew` command is the easiest.
 
 ### python
 
-Your Mac already came with python, but I would recommend isntalling a different python with brew. 
+Your Mac already came with python, but I would recommend isntalling a different python with brew (specifically, you would need python3).
 
 I also recommend installing the [jupyter notebook](http://jupyter.org/). You can refer to the [jupyter installation instructions page](http://jupyter.org/install).
 
 ### anvi'o (and some dependencies)
 
+{:.notice}
 Before we install anvi'o, we need to install the following third party software:
+[samtools](http://merenlab.org/2016/06/18/installing-third-party-software/#samtools),
+[prodigal](http://merenlab.org/2016/06/18/installing-third-party-software/#prodigal),
+[HMMER](http://merenlab.org/2016/06/18/installing-third-party-software/#hmmer),
+[GSL](http://merenlab.org/2016/06/18/installing-third-party-software/#gnu-scientific-library),
+[Numpy](http://merenlab.org/2016/06/18/installing-third-party-software/#numpy), and
+[Cython](http://merenlab.org/2016/06/18/installing-third-party-software/#cython).
 
-**samtools**:
-* [http://localhost:4000/2016/06/18/installing-third-party-software/#samtools](http://localhost:4000/2016/06/18/installing-third-party-software/#samtools)
-
-**prodigal**:
-* [http://localhost:4000/2016/06/18/installing-third-party-software/#prodigal](http://localhost:4000/2016/06/18/installing-third-party-software/#prodigal)
-
-**HMMER**:
-* [http://localhost:4000/2016/06/18/installing-third-party-software/#hmmer](http://localhost:4000/2016/06/18/installing-third-party-software/#hmmer)
-
-**GSL**:
-* [http://localhost:4000/2016/06/18/installing-third-party-software/#gnu-scientific-library](http://localhost:4000/2016/06/18/installing-third-party-software/#gnu-scientific-library)
-
-**Numpy**:
-* [http://localhost:4000/2016/06/18/installing-third-party-software/#numpy](http://localhost:4000/2016/06/18/installing-third-party-software/#numpy)
-
-**Cython**:
-* [http://localhost:4000/2016/06/18/installing-third-party-software/#cython](http://localhost:4000/2016/06/18/installing-third-party-software/#cython)
-
-**After we have all of the above, we can install anvi'o**:
-* [http://localhost:4000/2016/06/26/installation-v2/#painless-installation-with-homebrew](http://localhost:4000/2016/06/26/installation-v2/#painless-installation-with-homebrew)
+After we have all of the dependencies, we can [install anvi'o](http://merenlab.org/2016/06/26/installation-v2/#painless-installation-with-homebrew)
 
 ## Introduction to microbial ecology
 
