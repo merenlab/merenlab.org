@@ -6,6 +6,9 @@ excerpt: "Combining metagenomic sequence data with modelled protein structures"
 comments: true
 authors: [evan]
 categories: [anvio]
+image:
+  feature: http://merenlab.org/images/anvio/2018-09-04-structural-biology-with-anvio/hidden.png
+  display: false
 ---
 
 {% capture images %}{{site.url}}/images/anvio/2018-09-04-structural-biology-with-anvio{% endcapture %}
