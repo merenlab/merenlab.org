@@ -463,7 +463,7 @@ We run a quick dry run to create a manual mode profile database.
 ```bash
 anvi-interactive -p PROCHLORO-functions-manual-profile.db \
                  --tree PROCHLORO-functions-tree.txt \
-                 --data PROCHLORO-functions-occurrence-fixed.txt \
+                 -d PROCHLORO-functions-occurrence-fixed.txt \
                  --manual \
                  --dry-run
 ```
