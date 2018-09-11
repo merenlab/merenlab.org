@@ -429,22 +429,22 @@ Let's use the functional occurrence table for visualization. First we fix the na
 sed "s/[^[:alnum:]	_]/_/g" PROCHLORO-functions-occurrence.txt | \
 	tr -s \_ _ | \
 	sed 's/^	/name	/' \
-	> PROCHLORO-functions-occurence-fixed-a-little.txt
+	> PROCHLORO-functions-occurrence-fixed-a-little.txt
 ```
 
 {:.warning}
-Notice that if you try to copy and paste the line above then it probably wouldn't work properly, because it includes a tab. in order to fix it you should manually add a tab after `^[:alnum:]`. If you are using a terminal on a mac, then you can manually add a tab by doing ctrl-V and then tab (as explained [here](https://stackoverflow.com/a/2610121/7115450)).
+Notice that if you try to copy and paste the line above then it probably wouldn't work properly, because it includes tabs. In order to fix it you should manually add tabs after `^[:alnum:]`, `s/^`, and `/name`. If you are using a terminal on a mac, then you can manually add a tab by doing ctrl-V and then tab (as explained [here](https://stackoverflow.com/a/2610121/7115450)).
 
 Unfortunately there could be some functions with very similar names, let's check if there are any duplicate names now:
 
 ```
-cut -f 1 PROCHLORO-functions-occurence-fixed-a-little.txt | sort | uniq -d
+cut -f 1 PROCHLORO-functions-occurrence-fixed-a-little.txt | sort | uniq -d
 ```
 
-We can see that `Fatty_acid_desaturase`, and `Protein_tyrosine_phosphatase` are duplicated now. This is because, for example, there are two COG functions `Protein-tyrosine phosphatase` (accession `COG2453`) and `Protein-tyrosine-phosphatase` (accession `COG0394`), which match different gene clusters in our pangenome. Because we cannot create a tree with duplicated nodes, and since we can't really say that these are different functions, we will use a script to merge these duplicated occurences (i.e. merge their occurences with a `logical or`). Your working directory includes the script `fix_functional_occurence_table.py`:
+We can see that `Fatty_acid_desaturase`, and `Protein_tyrosine_phosphatase` are duplicated now. This is because, for example, there are two COG functions `Protein-tyrosine phosphatase` (accession `COG2453`) and `Protein-tyrosine-phosphatase` (accession `COG0394`), which match different gene clusters in our pangenome. Because we cannot create a tree with duplicated nodes, and since we can't really say that these are different functions, we will use a script to merge these duplicated occurrences (i.e. merge their occurrences with a `logical or`). Your working directory includes the script `fix_functional_occurrence_table.py`:
 
 ```
-./fix_functional_occurence_table.py PROCHLORO-functions-occurence-fixed-a-little.txt PROCHLORO-functions-occurence-fixed.txt
+./fix_functional_occurrence_table.py PROCHLORO-functions-occurrence-fixed-a-little.txt PROCHLORO-functions-occurrence-fixed.txt
 ```
 
 Then we create trees for the interactive interface:
