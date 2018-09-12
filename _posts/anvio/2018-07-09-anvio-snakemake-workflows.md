@@ -912,5 +912,12 @@ This is what you need to do:
 MAPPING_DIR/group_name/sample_name.bam
 ```
     Where `MAPPING_DIR` is `04_MAPPING` by default but you can set it in the config file. `group_name` is the name you gave the reference in your `fasta.txt` file. And `sample_name` is the name you gave the sample in the `samples.txt` file.
+5. You must skip `import_percent_of_reads_mapped`. Currently, we use the log files of bowtie2 to find out how many reads were in the (Qc-ied) fastq files, but since you already did you're mapping elsewhere, we don't know how to get that information, and hence you must skip this step. This is pretty easy to do manually later on, so no big deal. In order to skip `import_percent_of_reads_mapped`, include this in your config file:
+
+```
+"import_percent_of_reads_mapped": {
+        "run": false
+    }
+```
 
 {% include _join-anvio-slack.html %}
