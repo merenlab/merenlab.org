@@ -889,4 +889,28 @@ Once you have such a file, and let's say you named it `kraken.txt`, simply add t
     "kraken_txt": "kraken.txt"
 ```
 
+## How do I skip the QC of the fastq files?
+
+If you already ran quality filtering for your fastq files, then just make sure that this is included in your config file:
+
+```
+"iu_filter_quality_minoche": {
+        "run": false
+    }
+```
+
+## Can I use BAM files as input for the metagenomics workflow?
+
+In short, yes. If you already did mapping, and you have a bunch of bam files, and now you want to run additional steps from the workflow (e.g. generate contigs databases, annotate them, profile the bam files, etc.), then it might not be entirely straight forward, but it is possible (and I wish to extend my thanks to [Even Sannes Riiser](https://twitter.com/evensriiser?lang=en) for troubleshooting this process).
+
+This is what you need to do:
+1. Make sure you have a [samples.txt](#samplestxt) file. The first column is, as usual, the name of your sample. As for the other two columns `r1`, and `r2`, in your case you should no longer need the fastq files, and hence this two column could have any arbitrary word, but you still have to have *something* there (if you still have access to your fastq files, and you want to run something like krakenHLL, then in that case, you should put the path to the fastq files, just as in the normal case of a `samples.txt` file)
+2. You should tell the workflow to [skip QC](#how-do-i-skip-the-qc-of-the-fastq-files). If you don't do this, then the workflow by default would look for your fastq files, and QC them, and run everything else, including mapping.
+3. You should use [references mode](#references-mode).
+4. You need to make sure your bam files have names compatible with what the snakemake workflow expects. The way we expect to find the bam file is this:
+```
+MAPPING_DIR/group_name/sample_name.bam
+```
+    Where `MAPPING_DIR` is `04_MAPPING` by default but you can set it in the config file. `group_name` is the name you gave the reference in your `fasta.txt` file. And `sample_name` is the name you gave the sample in the `samples.txt` file.
+
 {% include _join-anvio-slack.html %}
