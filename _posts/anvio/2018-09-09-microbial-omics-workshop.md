@@ -83,7 +83,7 @@ Following a similar approach to the one in Dutilh et al., we will use read recru
 We will use metagenomes from the following studies: [The Human Microbiome Project Consortium 2012](https://www.nature.com/articles/nature11234) (USA), [Rampelli et al. 2015](https://www.sciencedirect.com/science/article/pii/S0960982215005370) (Tanzania), [Qin et al. 2012](https://www.nature.com/articles/nature11450) (China), and [Brito et al. 2016](https://www.nature.com/articles/nature18927) (Fiji). This will allow us to get some minimal understanding of the global distribution of crassphge.
 
 {:.notice}
-In this workshop we will use a total of 481 metagenomes, in this section of the workshop we will only analyze a small portion of these metagenomes. The purpose is to understand what are the steps that are required for this analysis, and to understand that to do each step manually is not a good idea. Hence, later, we will use a snakefile to analyze the rest of the samples. Notice that I directly shared files with the students, so if you are not a student of the workshop, but interested in getting these files, please contact me.
+In this workshop we will use a total of 434 metagenomes, in this section of the workshop we will only analyze a small portion of these metagenomes. The purpose is to understand what are the steps that are required for this analysis, and to understand that to do each step manually is not a good idea. Hence, later, we will use a snakefile to analyze the rest of the samples. Notice that I directly shared files with the students, so if you are not a student of the workshop, but interested in getting these files, please contact me.
 In addition, in this workshop we also use the sequence of phicrass001, which I obtained directly from Andrey Shkoporov, and hence I will not make it available here.
 
 <div class="extra-info" markdown="1">
@@ -135,7 +135,7 @@ We will go through [this introduction to snakemake](http://slides.com/johannesko
 <div class="extra-info" markdown="1">
 <span class="extra-info-header">Assignment - write a snakefile to excecute the same steps from earlier</span>
 
-We will write a snakefile that accepts a list of bam-files with the path to each bam file, and a name for each sample. We will then use this snakefile to run these steps for all the 481 samples from the global studies.
+We will write a snakefile that accepts a list of bam-files with the path to each bam file, and a name for each sample. We will then use this snakefile to run these steps for all the 434 samples from the global studies.
 
 Feel free to go about this in any way you want. I recommend using [pandas](https://pandas.pydata.org/) to read a tab-delimited file with a name for each sample, and the path to the bam file.
 
