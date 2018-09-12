@@ -142,6 +142,34 @@ Feel free to go about this in any way you want. I recommend using [pandas](https
 In addition, in this section of the workshop, we will learn to work with a computer cluster. We will use [Midway](https://rcc.uchicago.edu/docs/using-midway/index.html).
 </div>
 
+<div class="extra-info" markdown="1">
+<span class="extra-info-header">Using "screen" to run stuff</span>
+
+We always start our work by initiating a [screen](https://www.gnu.org/software/screen/manual/screen.html) session. If you are not familiar with what this is, basically, we use it here because we are running something that requires no user interaction for a long time on a remote machine (e.g. a cluster head node).
+
+```
+screen -S mysnakemakeworkflow
+```
+
+After the workflow is running you simply click **ctrl-A** followd by **D** to detach from the screen. If you want to check the status of your workflow, then to reconnect to your screen use:
+
+```
+screen -r mysnakemakeworkflow
+```
+
+And when you want to kill it use **ctrl-D** (while connected to the screen).
+
+At any given time you can see a list of all your screens this way:
+
+```
+screen -ls
+```
+
+Simple, but extremely efficient.
+
+</div>
+
+
 ## Predicting a host for crassphage
 
 Similar to the approach in Dutilh et al., we will use the abundance of crassphage in metagenomes along with the abundance of various taxons, to try to predict a host for crassphage. In order to asses the occurence of various bacteria in our collection of metagenomes, I ran [krakenHLL](https://www.biorxiv.org/content/early/2018/06/06/262956). And the results for the species and genus levels are provided in [samples-species-taxonomy.txt]({{files}}/samples-species-taxonomy.txt), and [samples-genus-taxonomy.txt]({{files}}/samples-genus-taxonomy.txt), respectively. We will now examine two alternative approaches to predicting a host for crassphage. Both of these approaches rely on the idea that the host of crassphage should have a positively correlating occurence with crassphage. A [jupyter notebook](http://jupyter.org/) with all the steps for this part of the workshop is available [here]({{files}}/BPHS_WORKSHOP_RF.ipynb).
