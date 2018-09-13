@@ -96,7 +96,7 @@ I provided you with 12 bam files (3 from each country). Each student will pick t
 This step proccesses the reference fasta file that we are using. In this case, it is the genome of crassphage (which could be downloaded [here](https://www.ncbi.nlm.nih.gov/nuccore/674660337?report=fasta)). You can learn more by reffering to the help menu or to [this section of the anvio metagenomics tutorial](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#creating-an-anvio-contigs-database). To generate the database run:
 
 ```bash
-anvi-gen-contigs-database -f crassphage.fasta -c crassphage-contigs.db -n crassphage
+anvi-gen-contigs-database -f crassphage.fasta -o crassphage-contigs.db -n crassphage
 ```
 
 **profile the bam file**
