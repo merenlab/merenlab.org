@@ -475,5 +475,7 @@ Now repeat the profiling this time with the bam files that correspond to phicras
 
 Once it is done, download the results to your local host, and use the interactive interface to examine the global distribution of phicrass001. How does it compare to the distribution of crassphage?
 
+Try to examine the mapping results in "gene mode", what can you say about the distribution of the phicrass genes?
+
 Use the krakenHLL results to examine the distribution of the phicrass host *Bacteroides intestinalis*. How does it compare to the distribution of phicrass? and to that of crassphage?
 </div>
