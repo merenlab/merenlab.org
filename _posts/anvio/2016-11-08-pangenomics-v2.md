@@ -1,6 +1,6 @@
 ---
 layout: post
-authors: [meren,alon,ozcan]
+authors: [meren,alon,mahmoud,ozcan]
 title: "An anvi'o workflow for microbial pangenomics"
 excerpt: "The user-friendly interface anvi'o provides to work with pangenomes."
 modified: 2016-11-08
@@ -30,12 +30,17 @@ With the [anvi'o](https://peerj.com/articles/1319/) pangenomic workflow you can,
 * **Identify gene clusters** among your genomes,
 * **Combine metagenome-assembled genomes** from your anvi'o projects directly **with cultivar genomes** from other sources.
 * **Visualize** the distribution of gene clusters across your genomes,
-* **Estimate relationships** between your genomes based on shared gene clusters,
+* **Estimate relationships** between your genomes based on gene clusters,
 * Interactively (or programmatically) **bin gene clusters** into collections, and **summarize your bins**,
+* **Perform phylogenomic analyses** on-the-fly given a set of gene clusters,
 * **Annotate** your genes, and **inspect** amino acid alignments within your gene clusters,
 * Extend your pangenome with **contextual information** about your genomes or gene clusters,
+* Quantify **geometric and biochemical homogeneity** of your gene clusters,
 * Perform **functional enrichment analyses** on groups of genomes in your pangenome,
 * Compute and visualize **average nucleotide identity** scores between you genomes.
+
+{:.warning}
+**Citation**: If you use the anvi'o pangenomic workflow for your research, please consider citing [this work](https://peerj.com/articles/4320/) (which details the pangeomic workflows in anvi'o) in addition to [this one](https://peerj.com/articles/1319/) (which introduces the platform). Thank you for your consideration.
 
 {:.notice}
 You can use anvi'o for pangenomic workflow even if you haven't done any metagenomic work with anvi'o. All you need is an anvi'o installation, and a FASTA file for each of your genomes.
@@ -45,7 +50,9 @@ You can use anvi'o for pangenomic workflow even if you haven't done any metageno
 The anvi'o pangenomic workflow is composed of three main steps:
 
 * Generating an anvi'o genomes storage using the program `anvi-gen-genomes-storage`.
+
 * Generating an anvi'o pan database using the program `anvi-pan-genome` (which requires a genomes storage)
+
 * Displaying results using the program `anvi-display-pan` (which requires a genomes storage and an anvi'o pan database).
 
 You can then use the interactive interface to bin your gene clusters into collections, or use the program `anvi-import-collection` to import bins for your gene clusters, and finally you can use the program `anvi-summarize` to create a static HTML summary of your results. Easy peasy!
@@ -286,7 +293,118 @@ Similarly, you can add these gene clusters into collections with whatever name y
 Advanced access to gene clusters is also possible through the command line through the program `anvi-get-sequences-for-gene-clusters`. For more information see [this issue](https://github.com/merenlab/anvio/issues/668#issuecomment-354195886) or this [vignette](http://merenlab.org/software/anvio/vignette/#anvi-get-sequences-for-gene-clusters).
 
 
-## Making some sense of functions in your pangenome
+## Inferring the homogeneity of gene clusters
+
+{:.notice}
+This functionality is available since anvi'o `v5.2` (here is the original contribution from Mahmoud Yousef).
+
+Gene clusters are good, but not all gene clusters are created equal. By simply inspecting them you can have see differing levels of disagreements between amino acid sequences across different genomes in each gene cluster.
+
+### Concept of homogeneity
+
+A gene cluster may contain amino acid seqeunces from different genomes that are almost identical, which would be a highly homogeneous gene cluster. Another gene cluster may contain highly divergent amino acid sequnces from different genomes, which would then be a highly non-homogeneous one, and so on.
+
+One could infer the nature of sequence homogeneity within a gene cluster by focusing on two primary attributes of sequence alignments: functional homogeneity (i.e., how conserved aligned amino acid residues across genes), and geometric homogeneity (i.e., how does the gap / residue distribution look like within a gene cluster regardless of the identity of amino acids. While it is rather straightforward to have an idea about the homogeneity of gene clusters through manually inspecting aligned sequences within them, it has not been possible to quantify this information automatically. But anvi'o has you covered.
+
+Indeed, understanding within gene cluster homogeneity could yield detailed ecological or evolutionary insights regarding the forces that shape the genomic context across closely related taxa, or help scrutinize gene clusters further for downstream analyses manually or programmatically. The purpose of this sectio of the tutorial is to show you how we solved this problem in anvi'o and demonstrate its efficacy.
+
+### Functional and geometric homogeneity estimates in anvi'o
+
+Thanks to Mahmoud Yousef's code, anvi'o pangenomes contains two layers that summarize homogeneity indices for each gene cluster.
+
+{:.notice}
+If you are working with a pangenome that was generated prior to anvi'o `v5.2`, you can use the program `anvi-compute-gene-cluster-homogeneity` to add homogeneity estimates to the existing anvi'o pan database. Please see the help menu of this program, and let us know if you are lost.
+
+Here is an example in the context of our *Prochlorococcus* pangenome (see the most outer two additional layers):
+
+[![31 Prochlorococcus collection]({{images}}/homogeneity-indices-main.png)]({{images}}/homogeneity-indices-main.png){:.center-img .width-70}
+
+#### Geometric homogeneity index
+
+The **geometric homogeneity index** indicates the degree of geometric configuration between the genes of a gene cluster. Specifically, we look for the gap/residue patterns of the gene cluster that have been determined by the aligment. The alignment process by definition aligns similar sections of genes to each other, and denote missing residues (or different structural configurations of gene contexts) throu gap characters. If gap/residue distribution patterns are mostly uniform throughout the gene cluster, then this gene cluster will have a high geometric homogeneity, and will reach to its maximum value of 1.0 if there are no gaps in the alignment.
+
+Anvi'o computes the geometric homogeneity index by combining analysis of the gene cluster content in two levels: the site-level analyses (i.e., vertically aligned positions) and the gene-level analyses (i.e., horizontally aligned positions because they are in the same gene). We convert the information in a gene cluster into a binary matrix, where gaps and residues are simply represented by 1s and 0s, and we utilize the logical operator `xor` to identify and enumerate all comparisons that have a different pattern. In site-level homogeneity checks, the algorithm sweeps from left to right and identifies these differences across aligned columns. In gene-level homogeneity checks, the algorithm sweeps from one gene to the next and identifies all differences in a gene where the pattern is not the same, effectively checking for the spread of gaps across the gene cluster. It is possible to skip the gene-level geometric homogeneity caluclations with the flag `--quick-homogeneity`. While this will not be as accurate or comprehensive as the default appraoch, it may save you some time, depending on the number of genomes you are working with.
+
+#### Functional homogeneity index
+
+In contrast, the **functional homogeneity index** considers aligned residues (by ignoring gaps), and attempts to quantify differences across residues in a site by considering the biochemical properties of differing residues (which could affect the functional conservation of genes at the protein-level). To do this, we divided amino acids into seven different "conserved groups" based on their biochemical properties. These groups are: nonpolar, aromatic, polar uncharged, both polar and nonpolar characteristics (these amino acids also lie in groups besides this one), acidic, basic, and mostly nonpolar (but contain some polar characteristics) (for more information please see [this article]({% post_url anvio/2018-02-13-color-coding-aa-alignments %})). Then, the algorithm goes through the entire gene cluster and assigns a similarity score between `0` and `3` to every pair of amino acids at the same position across genes based on how close the biochemical properties of the amino acid residues are to each other. The sum of all assigned similarity scores is indicative of the functional homogeneity index of the gene cluster, and will reach to its maximum value of 1.0 if all residues are identical.
+
+Both indices are on a scale of 0 to 1, where 1 is completely homogeneous and 0 is completely heterogeneous. If the algorithm is interrupted by a runtime error (due to unexpected issues such as not all genes being the same length for whatever reason, etc.), it will default to error values of -1 for the indices. So **if you see a -1 in your summary outputs**, it means we failed to make sense of the alignments in that gene cluster for some reason :/
+
+{:.warning}
+The complex processes influence protein folding and intricate chemical interactions between amino acid residues in reality should remind us that these assessments of similarity are only mere numerical suggestions, and do not necessarily reflect accurate biochemical insights, which is not the goal of these homogeneity indices.
+
+### Using homogeneity indices in pangenomes
+
+Given all of that, let’s look at our pangenome again. What are they good for? Well, there is a lot one could do with these homogeneity indices, and it would be unfair to expect this tutorial to cover all of them. Nevertheless, here is an attempt to highlight some aspects of it.
+
+To get a quick idea about some of the least homogeneous gene clusters, one could order gene clusetrs based on increasing or decreasing homogeneity. Let's say we want to order it by increasing functional homogeneity (as you likely know already, this can be done through the "Items order" combo box in the main settings panel): 
+
+[![Prochlorococcus pan]({{images}}/hi-order-01.png)]({{images}}/hi-order-01.png){:.center-img .width-70}
+
+If you open the "Mouse" panel on the right side of your display, you can actually hover over the layer and see the exact value of the index for all gene clusters. The gene cluster shown underneath the cursor in the figure above has a relatively low functional homogeneity estimate, but a higher geometric homogeneity. We can inspect the gene cluster to take a look for ourselves:
+
+[![Prochlorococcus pan]({{images}}/hi-inspect-01.png)]({{images}}/hi-inspect-01.png){:.center-img .width-70}
+
+As you can see why the relatively higher geometric homogeneity score makes sense. Three of these genes have the same gap/residue pattern, and the gaps at the end of the other gene throw things off slightly, making the geometric score close to 0.75. On the other hand, [the color coding]({% post_url anvio/2018-02-13-color-coding-aa-alignments %}) of the aligned amino acids also gives us a hint regarding the lack of functional homogeneity across them. We can do the same for the geometric homogeneity index. Try it yourself: order the pangenome based on the geometric homogeneity index, and inspect a gene cluster with a relatively low score.
+
+So, what can we do for more in depth analyses of our gene clusters?
+
+Anvi'o offers quite a powerful way to filter gene clusters both through the command line program `anvi-get-sequences-for-gene-clusters`, and through the interface for interactive exploration of the data:
+
+[![Prochlorococcus pan]({{images}}/hi-search-pane-01.png)]({{images}}/hi-search-pane-01.png){:.center-img .width-70}
+
+#### Exploratory analyses
+
+Let's assume you wish to find a gene cluster that represents a single-copy core gene with very high discrepancy between its geometric homogeneity versus its functional homogeneity. As in, you want something that is highly conserved across all genomes, it is under structural constraints that keeps its alignment homogeneous, but it has lots of room to diversify in a way that impacts its functional heterogeneity. You want a lot. But could anvi'o deliver? 
+
+Well, for this very specific set of constraints you could first order all gene clusters based on decreasing geometric homogeneity index, then enter the following values to set up a filter before applying it and highlighting the matching gene clusters:
+
+[![Prochlorococcus pan]({{images}}/hi-search-pane-02.png)]({{images}}/hi-search-pane-02.png){:.center-img .width-70}
+
+The first gene cluster in counter-clockwise order is the one that best matches to the listed criteria. Upon closer inspection,
+
+[![Prochlorococcus pan]({{images}}/hi-search-pane-03.png)]({{images}}/hi-search-pane-03.png){:.center-img .width-70}
+
+One could see that there is tremendous amount of functional variability among aligned residues across genomes, despite the geometric homogeneity of the sequences in the gene cluster (only a portion of the alignment is shown here):
+
+[![Prochlorococcus pan]({{images}}/hi-search-pane-03-inspect.png)]({{images}}/hi-search-pane-03-inspect.png){:.center-img .width-70}
+
+Those of you who read [our study on the topic](https://peerj.com/articles/4320/), would perhaps not be surprised to learn that the COG functional annotation of this particular gene cluster resoves to an [enzyme](https://en.wikipedia.org/wiki/N-acetylmuramoyl-L-alanine_amidase) that is related to cell wall/membrane/envelop biogenesis. It is always good when things check out.
+
+#### Scrutinizing phylogenomics
+
+Here is another example usage of gomogeneitcy indices. We often use single-copy core gene clusters for phylogenomic analyses to estimate evolutionary relationships between our genomes. Identifying single-copy core gene clusters is easy either through advanced filters, or through manual binning of gene clusters:
+
+
+[![Prochlorococcus pan]({{images}}/hi-core-01.png)]({{images}}/hi-core-01.png){:.center-img .width-70}
+
+But single-copy core gene clusters will contain lots of poorly aligned gene clusters that you may not want to use for a phylogenomic analysis to minimize the influence of noise that stems bioinformatics decisions regarding where to place gaps. On the other hand there will be many gene clusters that are near-identical in this collection, hence rather useless to infer phylogenomic relationships. Luckily, you could use homogeneity indices and advanced search options to identify those that are geometrically perfect, but functionally diverse:
+
+[![Prochlorococcus pan]({{images}}/hi-core-02.png)]({{images}}/hi-core-02.png){:.center-img .width-70}
+
+You could easily append those that match to these criteria to a separate bin:
+
+[![Prochlorococcus pan]({{images}}/hi-core-03.png)]({{images}}/hi-core-03.png){:.center-img .width-70}
+
+And perform a quick-and dirty analysis on-the-fly to see how they would organize your genomes directly on the interface:
+
+[![Prochlorococcus pan]({{images}}/hi-core-04.png)]({{images}}/hi-core-04.png){:.center-img .width-70}
+
+Or you could get the FASTA file with aligned and concatenated amino acid sequences for these gene clusters to do a more appropriate phylogenomic analysis:
+
+``` bash
+$ anvi-get-sequences-for-gene-clusters -p PROCHLORO/Prochlorococcus_Pan-PAN.db \
+                                       -g PROCHLORO-GENOMES.db \
+                                       -C default -b Better_core \
+                                       --concatenate-gene-clusters \
+                                       -o better_core.fa
+```
+
+Needless to say, estimates for homogeneity indices per gene cluster will also appear in your summary files from `anvi-summarize` to satisfy the statistician in you.
+
+
+## Making sense of functions in your pangenome
 
 Once we have our pangenome, one of the critical things that we usually want to do is look at the functions associated with our gene clusters. This is a crucial yet complicated challenge with multiple ways to approach. Here, we will describe how you can identify functions that are enriched for some of the clades or sub clades that are included in your pangenome. In addition, we will discuss how you can find the functional core of the pangenome. This is done with our new program `anvi-get-enriched-functions-per-pan-group`.
 
