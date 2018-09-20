@@ -203,20 +203,20 @@ Some of you are probably asking themselves '*what is the difference between text
 
 Stacked bars are a bit tricky compared to the other data types, but nothing too complicated. Here is an example addition to our data file:
 
-|contig|c1|c2|c3|categorical|bars!A;B;C|text|
+|contig|c1|c2|c3|categorical|bars!A|bars!B|bars!C|text|
 |:--|:--:|:--:|:--:|:--:|:--:|:--|
-|backrest|11.68762604|31.81211217|16.14890468|b|278;23;1|nmwje|
-|backward|8.383113248|36.27705135|12.26495265|b|249;52;2|bqmyujrpsrddoefhi|
-|backwind|14.30588649|33.19818058|13.90379515|b|269;32;3|hkferlchpmzix|
-|backyard|12.98490431|35.1528258|14.2861336|b|205;96;4|advoebfkyhmg|
-|bacteria|6.655636411|34.45757002|13.67026608|b|263;38;5|lqmcwnhywco|
-|bacterin|7.664397508|35.28860294|16.85214201|b|298;3;6|vxqdmn|
-|baetylus|13.72179583|32.81162715|14.83756192|b|219;82;7|fkgpydiowgyhfxxwlpj|
-|bagpiped|9.095058043|33.0406183|13.48649074|b|212;89;8|ijmnur|
-|balconet|10.94823472|33.03846226|16.87202682|b|289;12;9|ecizgs|
-|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
+|backrest|11.68762604|31.81211217|16.14890468|b|278|23|1|nmwje|
+|backward|8.383113248|36.27705135|12.26495265|b|249|52|2|bqmyujrpsrddoefhi|
+|backwind|14.30588649|33.19818058|13.90379515|b|269|32|3|hkferlchpmzix|
+|backyard|12.98490431|35.1528258|14.2861336|b|205|96|4|advoebfkyhmg|
+|bacteria|6.655636411|34.45757002|13.67026608|b|263|38|5|lqmcwnhywco|
+|bacterin|7.664397508|35.28860294|16.85214201|b|298|3|6|vxqdmn|
+|baetylus|13.72179583|32.81162715|14.83756192|b|219|82|7|fkgpydiowgyhfxxwlpj|
+|bagpiped|9.095058043|33.0406183|13.48649074|b|212|89|8|ijmnur|
+|balconet|10.94823472|33.03846226|16.87202682|b|289|12|9|ecizgs|
+|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 
-As you can see, the header field contains multipart information. What is before the exclamation mark is the 'name' of this data, which will appear in the interface as a label. The column separated values after the exclamation mark are subsets of the data. This header notation indicates that there will be three numerical values will be present in each following field.
+As you can see, the header field contains multipart information. Columns that sharing same label before exclamation mark will be grouped and will appear as a single stacked bar.
 
 The command line for this matrix:
 
@@ -229,6 +229,13 @@ Produces this:
 <div class="centerimg">
 <a href="{{ site.url }}/images/anvio/2016-02-27-the-anvio-interactive-interface/05.png"><img src="{{ site.url }}/images/anvio/2016-02-27-the-anvio-interactive-interface/05.png" width="50%" /></a>
 </div>
+
+And you will be able to view the values of individual bars in mouse panel with their assigned color when you hover an item.
+
+<div class="centerimg">
+<a href="{{ site.url }}/images/anvio/2016-02-27-the-anvio-interactive-interface/08.png"><img src="{{ site.url }}/images/anvio/2016-02-27-the-anvio-interactive-interface/08.png" /></a>
+</div>
+
 
 {:.notice}
 Anvi'server link: [http://anvi-server.org/public/meren/interface_demo_V](http://anvi-server.org/public/meren/interface_demo_V){:target="_blank"}

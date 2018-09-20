@@ -6,6 +6,9 @@ excerpt: "Combining metagenomic sequence data with modelled protein structures"
 comments: true
 authors: [evan]
 categories: [anvio]
+image:
+  feature: http://merenlab.org/images/anvio/2018-09-04-structural-biology-with-anvio/hidden.png
+  display: false
 ---
 
 {% capture images %}{{site.url}}/images/anvio/2018-09-04-structural-biology-with-anvio{% endcapture %}
@@ -63,7 +66,7 @@ DSSP (Dictionary of Secondary Structure Prediction) is the program anvi'o uses t
 {:.notice}
 **Citation**: [doi:10.1093/bioinformatics/bty419](https://doi.org/10.1093/bioinformatics/bty419)
 
-NGL (NGL) is an open-source project for visualizing biomolecules. This browser-based solution to visualization means you don't have to install anything, and you can thank them for that. We are continually being impressed with NGL's excellent code and documentation, as well as with their open-source approach to science.
+NGL (NGL) is an open-source project for visualizing biomolecules. This browser-based solution to visualization means you don't have to install anything, and you can thank them for that. Özcan has been the mastermind behind incorporating NGL's visualizations into anvi'o, and says he continues to be impressed with their excellent code, documentation, and open-source approach to science.
 
 # The structure database
 
@@ -228,11 +231,17 @@ The output of `anvi-gen-variability-profile` is a table where each row correspon
 {:.notice}
 The anvi'o program `anvi-display-structure` described below visualizes variability from metagenomic sequence data onto a reference 3D structures. The structures are predicted either from a MAG or a reference genome with `anvi-gen-structure-database`. This program does not predict the impact of environmental variants on the structure.
 
-There are many comprehensive software packages and web services to visualize protein structures. But we created `anvi-display-structure` with the very specific purpose of interactively visualizing, filtering, and clustering metagenomic sequence variants directly on protein strucures. Existing solutions were not incapable of doing these tasks, however, the lack of automation, scalability, and just the straight up time required for a single protein and the lack of integration convinced us that the community could benefit from a tool that was designed specifically for this purpose.
+There are many comprehensive software packages and web services to visualize protein structures. But Özcan and I wanted to create `anvi-display-structure` with the very specific purpose of interactively visualizing, filtering, and clustering metagenomic sequence variants directly on protein strucures. Existing solutions were not incapable of doing these tasks, however, the lack of automation, scalability, and just the straight up time required for a single protein and the lack of integration convinced us that the community could benefit from a tool that was designed specifically for this purpose.
 
 ## Examples
 
-Details describing the interface itself are provided in [a hands-on demonstration within the infant gut tutorial](http://merenlab.org/tutorials/infant-gut/#chapter-vii-linking-genomic-heterogeneity-to-protein-structures), which I highly recommend you to follow either with the tutorial data or your own. But the tutorial you're currently reading wouldn't be complete if we didn't at least showcase some images and movies from the interface. With this in mind, check out this [video demonstration](https://www.youtube.com/watch?v=kHHk1qUOYoE) of some of the features of the interface. As well, feel free to view the screenshots below with their accompanying descriptions.
+Details describing the interface itself are provided in [a hands-on demonstration within the infant gut tutorial](http://merenlab.org/tutorials/infant-gut/#chapter-vii-linking-genomic-heterogeneity-to-protein-structures), which I highly recommend you to follow either with the tutorial data or your own. But the tutorial you're currently reading wouldn't be complete if we didn't at least showcase some images and movies from the interface. With this in mind, check out this video demonstration below of some of the features of the interface. 
+
+<div class="centerimg">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kHHk1qUOYoE" frameborder="0" allow="encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+</div>
+
+As well, feel free to view the screenshots below with their accompanying descriptions.
 
 <div class="centerimg">
 <a href="{{ site.url }}/images/anvio/2018-09-04-structural-biology-with-anvio/example.png"><img src="{{ site.url }}/images/anvio/2018-09-04-structural-biology-with-anvio/example_structure1.png" style="border: none; width: 100%;" /></a>
