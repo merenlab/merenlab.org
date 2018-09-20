@@ -35,39 +35,26 @@ For this workshop you are required to install the following things:
 
 ### brew
 
-I recommend installing homebrew.
-For more details on homebrew, refer to [https://brew.sh/](https://brew.sh/). There are many ways to install anvi'o, but using the `brew` command is the easiest.
+I recommend installing [homebrew](https://brew.sh/). There are many ways to install anvi'o, but using the `brew` command is the easiest.
 
 ### python
 
-Your Mac already came with python, but I would recommend isntalling a different python with brew. 
+Your Mac already came with python, but I would recommend isntalling a different python with brew (specifically, you would need python3).
 
 I also recommend installing the [jupyter notebook](http://jupyter.org/). You can refer to the [jupyter installation instructions page](http://jupyter.org/install).
 
 ### anvi'o (and some dependencies)
 
+{:.notice}
 Before we install anvi'o, we need to install the following third party software:
+[samtools](http://merenlab.org/2016/06/18/installing-third-party-software/#samtools),
+[prodigal](http://merenlab.org/2016/06/18/installing-third-party-software/#prodigal),
+[HMMER](http://merenlab.org/2016/06/18/installing-third-party-software/#hmmer),
+[GSL](http://merenlab.org/2016/06/18/installing-third-party-software/#gnu-scientific-library),
+[Numpy](http://merenlab.org/2016/06/18/installing-third-party-software/#numpy), and
+[Cython](http://merenlab.org/2016/06/18/installing-third-party-software/#cython).
 
-**samtools**:
-* [http://localhost:4000/2016/06/18/installing-third-party-software/#samtools](http://localhost:4000/2016/06/18/installing-third-party-software/#samtools)
-
-**prodigal**:
-* [http://localhost:4000/2016/06/18/installing-third-party-software/#prodigal](http://localhost:4000/2016/06/18/installing-third-party-software/#prodigal)
-
-**HMMER**:
-* [http://localhost:4000/2016/06/18/installing-third-party-software/#hmmer](http://localhost:4000/2016/06/18/installing-third-party-software/#hmmer)
-
-**GSL**:
-* [http://localhost:4000/2016/06/18/installing-third-party-software/#gnu-scientific-library](http://localhost:4000/2016/06/18/installing-third-party-software/#gnu-scientific-library)
-
-**Numpy**:
-* [http://localhost:4000/2016/06/18/installing-third-party-software/#numpy](http://localhost:4000/2016/06/18/installing-third-party-software/#numpy)
-
-**Cython**:
-* [http://localhost:4000/2016/06/18/installing-third-party-software/#cython](http://localhost:4000/2016/06/18/installing-third-party-software/#cython)
-
-**After we have all of the above, we can install anvi'o**:
-* [http://localhost:4000/2016/06/26/installation-v2/#painless-installation-with-homebrew](http://localhost:4000/2016/06/26/installation-v2/#painless-installation-with-homebrew)
+After we have all of the dependencies, we can [install anvi'o](http://merenlab.org/2016/06/26/installation-v2/#painless-installation-with-homebrew)
 
 ## Introduction to microbial ecology
 
@@ -96,7 +83,7 @@ Following a similar approach to the one in Dutilh et al., we will use read recru
 We will use metagenomes from the following studies: [The Human Microbiome Project Consortium 2012](https://www.nature.com/articles/nature11234) (USA), [Rampelli et al. 2015](https://www.sciencedirect.com/science/article/pii/S0960982215005370) (Tanzania), [Qin et al. 2012](https://www.nature.com/articles/nature11450) (China), and [Brito et al. 2016](https://www.nature.com/articles/nature18927) (Fiji). This will allow us to get some minimal understanding of the global distribution of crassphge.
 
 {:.notice}
-In this workshop we will use a total of 481 metagenomes, in this section of the workshop we will only analyze a small portion of these metagenomes. The purpose is to understand what are the steps that are required for this analysis, and to understand that to do each step manually is not a good idea. Hence, later, we will use a snakefile to analyze the rest of the samples. Notice that I directly shared files with the students, so if you are not a student of the workshop, but interested in getting these files, please contact me.
+In this workshop we will use a total of 434 metagenomes, in this section of the workshop we will only analyze a small portion of these metagenomes. The purpose is to understand what are the steps that are required for this analysis, and to understand that to do each step manually is not a good idea. Hence, later, we will use a snakefile to analyze the rest of the samples. Notice that I directly shared files with the students, so if you are not a student of the workshop, but interested in getting these files, please contact me.
 In addition, in this workshop we also use the sequence of phicrass001, which I obtained directly from Andrey Shkoporov, and hence I will not make it available here.
 
 <div class="extra-info" markdown="1">
@@ -109,7 +96,7 @@ I provided you with 12 bam files (3 from each country). Each student will pick t
 This step proccesses the reference fasta file that we are using. In this case, it is the genome of crassphage (which could be downloaded [here](https://www.ncbi.nlm.nih.gov/nuccore/674660337?report=fasta)). You can learn more by reffering to the help menu or to [this section of the anvio metagenomics tutorial](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#creating-an-anvio-contigs-database). To generate the database run:
 
 ```bash
-anvi-gen-contigs-database -f crassphage.fasta -c crassphage-contigs.db -n crassphage
+anvi-gen-contigs-database -f crassphage.fasta -o crassphage-contigs.db -n crassphage
 ```
 
 **profile the bam file**
@@ -139,6 +126,36 @@ In class, we will also use the `--gene-mode` of anvi-interactive to look at the 
 We will also use the `inspect` option of the interface to look at SNVs.
 </div>
 
+## Working on the University of Chicago's midway computer cluster
+
+Bioinformatic analysis often are done on a cluster of computers (aka supercomputer) in order to allow for a faster computation, and since you don't usually want to leave something running on your computer for days. In order to perform our analysis we will get familiar with the following things:
+
+1. Connecting to a remote host using `ssh` and transfering files using `scp`.
+2. Understand the concept of queue managing software, and learn to use slurm (the queue managing software used on midway).
+3. In a later section we will also learn things related to running snakemake on a cluster:
+	1. work with `screen`.
+	2. learn how to configure snakemake to submit jobs to the queue.
+
+### Working with a remote host
+
+Typically, a cluster computer is configure so that it is accessed through a head node. The headnode is just a normal computer, and it is only used for accessing purposose, so we connect to it using `ssh`, and we submit our jobs to queue. In other words, we don't want to actually run anything on it.
+
+In order to connect midway, you can read the details on the [RCC website](https://rcc.uchicago.edu/docs/using-midway/index.html), but basically you run (we will use midway2):
+
+```
+ssh YOUR_CNET_ID@midway2.rcc.uchicago.edu
+```
+
+And then you enter your password.
+
+<div class="extra-info" markdown="1">
+<span class="extra-info-header">Making your life a little easier when working with a remote host</span>
+
+There are a few things we can do to make our life easier when working on a remote host.
+
+The first thing is use an RSA key to avoid having to insert our password every time we connect. Simply follow the instructions here: 
+</div>
+
 ## Using snakemake to run the analysis steps
 
 Since bioinformatics tends to include many steps of analysis, it is becoming more and more popular to use workflow management tools to perform analysis. Two popular tools are [nextflow](https://www.nextflow.io) and [snakemake](http://snakemake.readthedocs.io/en/stable/index.html). Here we will get familiar with snakemake and write a simple workflow to run the steps from above.
@@ -148,12 +165,40 @@ We will go through [this introduction to snakemake](http://slides.com/johannesko
 <div class="extra-info" markdown="1">
 <span class="extra-info-header">Assignment - write a snakefile to excecute the same steps from earlier</span>
 
-We will write a snakefile that accepts a list of bam-files with the path to each bam file, and a name for each sample. We will then use this snakefile to run these steps for all the 481 samples from the global studies.
+We will write a snakefile that accepts a list of bam-files with the path to each bam file, and a name for each sample. We will then use this snakefile to run these steps for all the 434 samples from the global studies.
 
 Feel free to go about this in any way you want. I recommend using [pandas](https://pandas.pydata.org/) to read a tab-delimited file with a name for each sample, and the path to the bam file.
 
 In addition, in this section of the workshop, we will learn to work with a computer cluster. We will use [Midway](https://rcc.uchicago.edu/docs/using-midway/index.html).
 </div>
+
+<div class="extra-info" markdown="1">
+<span class="extra-info-header">Using "screen" to run stuff</span>
+
+We always start our work by initiating a [screen](https://www.gnu.org/software/screen/manual/screen.html) session. If you are not familiar with what this is, basically, we use it here because we are running something that requires no user interaction for a long time on a remote machine (e.g. a cluster head node).
+
+```
+screen -S mysnakemakeworkflow
+```
+
+After the workflow is running you simply click **ctrl-A** followd by **D** to detach from the screen. If you want to check the status of your workflow, then to reconnect to your screen use:
+
+```
+screen -r mysnakemakeworkflow
+```
+
+And when you want to kill it use **ctrl-D** (while connected to the screen).
+
+At any given time you can see a list of all your screens this way:
+
+```
+screen -ls
+```
+
+Simple, but extremely efficient.
+
+</div>
+
 
 ## Predicting a host for crassphage
 
@@ -387,3 +432,50 @@ for f in g:
 
 
 We can see that this list is dominated by members and close relatives of the _Bacteroides_ genus, which is encouraging. In addition, a few other things are included, but we need to remember that in a regression model things that anti-correlate could also count as important features.
+
+## Exploring the mapping results with "gene mode"
+
+We go back to anvi'o now, and dig a little bit more into the merged profile that we created using our snakemake.
+
+Earlier, we used the interactive interface and saw the coverage and detection of "splits" across metagenomes. Our splits were approximately 20,000 nucleotide in size, and had no special biological significance. Now, we want to look at things in a higher resolution and with more biological significance, so we will look at the coverage and detection of genes across metagenomes. For that, we will use "gene mode".
+
+In order to use the anvi'o interactive interface in "gene mode", we have to first create a collection. This is just a technical requirement, and we do this very easily by running this command:
+
+```bash
+anvi-script-add-default-collection -p PROFILE.db -c crAssphage-contigs.db
+```
+
+Now we can run the interactive interface in "gene mode":
+
+{:.notice}
+It might take a few minutes to load, because all the gene level statistics are calculated on-the-fly.
+
+```bash
+anvi-interactive -c crAssphage-contigs.db -p PROFILE.db --gene-mode -C DEFAULT -b EVERYTHING
+```
+
+<div class="extra-info" markdown="1">
+<span class="extra-info-header">Examining the mapping results in "gene mode"</span>
+
+Take some time to look at the results in the gene level. Do you see any interesting patterns?
+
+Try to compare the results from one geographical location to the other, is there any difference?
+
+Use right click on any gene (i.e. any radial portion of the figure), and click "inspect gene", to look at single nucleotide variants (SNVs). Choose to inspect one gene that occurs in all samples (a "core" gene), and one gene that occurs in only some of the samples (an "accessory" gene). Do you see anything interesting in the SNV pattern?
+</div>
+
+## The global distribution of phicrass001
+
+<div class="extra-info" markdown="1">
+<span class="extra-info-header">Repeating the analysis with a different reference genome</span>
+
+It should now be easy to adapt our snakefile to work with a different reference genome. In fact, your snakefile shouldn't include any details about the reference genome nor the locations of the bam files. These should be accepted as input from the user. To learn how to allow input from the user when running a snakefile, refere to the snakemake docummentation regarding [the config file](https://snakemake.readthedocs.io/en/stable/snakefiles/configuration.html#configuration).
+
+Now repeat the profiling this time with the bam files that correspond to phicrass, and the phicrass fasta file.
+
+Once it is done, download the results to your local host, and use the interactive interface to examine the global distribution of phicrass001. How does it compare to the distribution of crassphage?
+
+Try to examine the mapping results in "gene mode", what can you say about the distribution of the phicrass genes?
+
+Use the krakenHLL results to examine the distribution of the phicrass host *Bacteroides intestinalis*. How does it compare to the distribution of phicrass? and to that of crassphage?
+</div>
