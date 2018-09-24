@@ -15,10 +15,10 @@ redirect_from: /2015/11/14/pangenomics/
 {% include _project-anvio-version.html %}
 
 {: .notice}
-This pangenomic workflow is for `2.1.0` and later versions of anvi'o. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal. If your anvi'o installation is `v2.0.2` or earlier, you can follow the pangenomic workflow described [here]({% post_url anvio/2015-11-14-pangenomics-v1 %}) (and not read this one to not be upset about what you are missing).
+This pangenomic workflow is for anvi'o version `2.1.0` and later versions of anvi'o. You can identify which version you have on your computer by typing `anvi-profile --version` in your terminal. If your anvi'o installation is `v2.0.2` or earlier, you can follow the pangenomic workflow described [here]({% post_url anvio/2015-11-14-pangenomics-v1 %}) (so as not to read this one and be upset about what you are missing).
 
 {:.notice}
-With changed all instances of the term '**protein cluster**' in our pangenomic workflow with '**gene cluster**' in anvi'o `v4`. The reason behind this change is detailed [here](https://github.com/merenlab/anvio/issues/644).
+We have changed all instances of the term '**protein cluster**' in our pangenomic workflow to '**gene cluster**' in anvi'o `v4`. The reason behind this change is detailed [here](https://github.com/merenlab/anvio/issues/644).
 
 {:.notice}
 {% include _fixthispage.html source="anvio/2016-11-08-pangenomics-v2.md" %}
