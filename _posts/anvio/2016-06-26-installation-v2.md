@@ -122,6 +122,9 @@ OK. If made through the section above, you may have gone through the most painfu
 
 ### Installing the latest stable release (safe mode)
 
+
+{% include _join-anvio-slack.html %}
+
 This is the best way to install the stable release (but not the best way if you would like to synchronize your anvi'o to the development version, for which you should jump to the 'active codebase' section).
 
 You will do everything in a Python virtual environment. If you are not experienced with computer thingies, do not worry. If you have taken care of your dependencies mentioned above, the rest should be very simple.
@@ -153,6 +156,40 @@ Make sure your paths look alright. Yours should look similar to this:
 (anvio-{% include _project-anvio-version-number.html %}) meren ~ $ which pip
 /Users/meren/virtual-envs/anvio-{% include _project-anvio-version-number.html %}/bin/pip
 ```
+
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">A note on Python 3.7</span>
+
+This box is only relevant to you if you are using Python version 3.7. In that case some dependencies will fail to install as their latest stable release is not compatible with this Python version. For these dependencies you need to install development versions.
+
+**scikit-learn**
+
+``` bash
+pip install https://github.com/scikit-learn/scikit-learn/archive/4035e60a6f0a0a2546bf0442ab603961c6a9cc4a.zip
+```
+
+**Datrie (Dependency of snakemake)**
+
+```
+pip install https://github.com/ozcan/datrie/releases/download/0.7.1/datrie-0.7.1.tar.gz
+```
+
+Or from original source:
+
+```
+wget https://github.com/pytries/datrie/archive/0.7.1.tar.gz
+tar xf 0.7.1.tar.gz
+cd datrie-0.7.1
+./update_c.sh
+python3.7 setup.py build
+python3.7 setup.py install
+```
+
+After installing these dependencies you should be able to install anvi'o. But when you run `anvi-profile --version`. The anvi'o version may show up as `vunknown`. This happens when the version of an anvi'o depenceny does not match to what anvi'o expects. You can always check the actual version of anvi'o with `pip show anvio` or  `pip list | grep anvio`.
+
+</div>
 
 Now you can do the installation:
 
