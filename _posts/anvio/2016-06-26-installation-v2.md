@@ -67,7 +67,7 @@ conda install -c bioconda -c conda-forge anvio diamond bwa
 ***Note***: Some users reported that the one above was installing anvio `v4`, if that is also the case for you, uninstall it, and try it with this command:
 
 ```
-conda install -n anvio5 -c bioconda -c conda-forge anvio=5.1.0 diamond bwa
+conda install -n anvio5 -c bioconda -c conda-forge anvio=5.2.0 diamond bwa
 ```
 
 ***Note***: One of our users who has been trying conda installation on an HPC system [reported](https://github.com/merenlab/anvio/issues/895#issuecomment-403656800) the following steps working for them:
