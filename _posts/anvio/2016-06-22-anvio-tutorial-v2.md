@@ -151,7 +151,7 @@ Once you have your contigs database, you can start importing things into it, or 
 {:.notice}
 **Please note**: anvi'o follows the convention of string indexing and splicing that is identical the way one does it in Python or C.
 
-The statement above means that the index of the first nucleotide in any contig should be `0`. In other words, we start counting from `0`, not from `1`. The `start` and `stop` positions in the input file should comply with this. Here is an example gene in a contig:
+The statement above means that the index of the first nucleotide in any contig should be `0`. In other words, for a gene call that start at the position `x`th position and ends at position `y`th position, we start counting from `x-1`, and not from `x` (but we still end at `y`. The `start` and `stop` positions in the input file should comply with this. Here is an example gene in a contig:
 
 ``` bash
                  1         2         3
@@ -160,7 +160,12 @@ contig: NNNATGNNNNNNNNNNNNNNNNNTAGAAAAAA (...)
            |______ gene X _______|
 ```
 
-The `start` and `stop` positions in the input file for this gene should be `3` and `26`, respectively. In other words, if you are trying to generate an external gene calls file from gene calls produced by a gene caller that reports start/stop positions starting with the index of `1` rather than `0`, you basically need to substract one from the start position of every gene call for a matching anvi'o external gene calls file. You can read the previous discussions regarding about this behavior in [this issue](https://github.com/meren/anvio/issues/374)). Thanks for your patience!
+The `start` and `stop` positions in the input file for this gene should be `3` and `26`, respectively. Which means, if you are trying to generate an external gene calls file from gene calls produced by a gene caller that reports start/stop positions starting with the index of `1` rather than `0`, you basically need to substract one from the start position of every gene call for a matching anvi'o external gene calls file
+
+Gene `start` and `stop` positions do not care about the direction of the gene as they simply address how the gene sequence should be sliced out from a longer sequence. Whether a gene is forward or reverse is defined in the column `direction`.
+
+{:.notice}
+You can read the previous discussions regarding about this behavior in [this issue](https://github.com/meren/anvio/issues/374)). Thanks for your patience!
 
 ### anvi-run-hmms
 
