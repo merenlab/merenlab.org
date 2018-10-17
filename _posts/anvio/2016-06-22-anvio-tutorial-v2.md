@@ -160,7 +160,7 @@ contig: NNNATGNNNNNNNNNNNNNNNNNTAGAAAAAA (...)
            |______ gene X _______|
 ```
 
-The `start` and `stop` positions in the input file for this gene should be `3` and `26`, respectively. If you think we should change this behavior, please let us know (here is a [relevant issue](https://github.com/meren/anvio/issues/374)). Thanks for your patience!
+The `start` and `stop` positions in the input file for this gene should be `3` and `26`, respectively. In other words, if you are trying to generate an external gene calls file from gene calls produced by a gene caller that reports start/stop positions starting with the index of `1` rather than `0`, you basically need to substract one from the start position of every gene call for a matching anvi'o external gene calls file. You can read the previous discussions regarding about this behavior in [this issue](https://github.com/meren/anvio/issues/374)). Thanks for your patience!
 
 ### anvi-run-hmms
 
