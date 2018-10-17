@@ -920,4 +920,65 @@ MAPPING_DIR/group_name/sample_name.bam
     }
 ```
 
+## What to do when submitting jobs with a SLURM system
+
+If you want to work with any cluster managing software (such as SLURM) you just need to use the `--cluster` argument of `snakemake`. Here is what the snakemake help menu tells us:
+
+```
+  --cluster CMD, -c CMD
+                        Execute snakemake rules with the given submit command,
+                        e.g. qsub. Snakemake compiles jobs into scripts that
+                        are submitted to the cluster with the given command,
+                        once all input files for a particular job are present.
+                        The submit command can be decorated to make it aware
+                        of certain job properties (input, output, params,
+                        wildcards, log, threads and dependencies (see the
+                        argument below)), e.g.: $ snakemake --cluster 'qsub
+                        -pe threaded {threads}'.
+```
+
+But, just in case, here is an example of how to use SLURM with `anvi-run-workflow`:
+
+```bash
+anvi-run-workflow -w metagenomics \
+                  -c config.json \
+                  --additional-params \
+                      --cores 48 \
+                      --cluster \
+                          '--job-name=CHOOSE_A_NICE_JOB_NAME \
+                          --account=YOUR_ACCOUNT \
+                          --output={log} \
+                          --error={log} \
+                          --nodes={threads}'
+```
+
+Notice that when you use `--cluster`, snakemake also requires you to include the `--cores / --jobs`. From the `snakemake` help menu:
+
+```
+--cores [N], --jobs [N], -j [N]
+                        Use at most N cores in parallel (default: 1). If N is
+                        omitted, the limit is set to the number of available
+                        cores.
+```
+
+We use `qsub` on our system, and we have found the behaviour a little funny in this case, where if we choose `--cores N`, then snakemake would submit `N` jobs, regardless of the number of threads each job is requesting. And hence we added the option to use the resources argument, so the command from above would look like this:
+
+
+```bash
+anvi-run-workflow -w metagenomics \
+                  -c config.json \
+                      --additional-params \
+                          --cores 10 \
+                          --resources nodes=48 \
+                          --cluster \
+                              '--job-name=CHOOSE_A_NICE_JOB_NAME \
+                              --account=YOUR_ACCOUNT \
+                              --output={log} \
+                              --error={log} \
+                              --nodes={threads}'
+```
+
+Now, at most 10 jobs would be submitted to the queue in parallel, but only as long as the total number of threads (nodes) that is requested by the submitted jobs doesn't go above 48. So if we have 3 `anvi-run-hmms` jobs and each require 20 threads, then only two would run in parallel.
+
+
 {% include _join-anvio-slack.html %}
