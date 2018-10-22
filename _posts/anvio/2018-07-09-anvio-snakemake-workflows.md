@@ -247,7 +247,7 @@ The workflow includes the following steps:
 
 2. Taxonomical profiling of short reads using [krakenhll](https://github.com/fbreitwieser/krakenhll). These provide relative abundance of taxons in each metagenome. These profiles are also imported into individual profile databases, and are available in the merged profile database (for more details about this, refer to the [release notes of anvi'o version 5.1](https://github.com/merenlab/anvio/releases/tag/v5.1)). THIS IS ONLY AVAILABLE IN THE `master` version on github, and it will be available in the next release of anvi'o.
 
-2. Individual or combined assembly of quality filtered metagenomic reads using either [megahit](https://github.com/voutcn/megahit) or [idba_ud](https://github.com/loneknightpy/idba).
+2. Individual or combined assembly of quality filtered metagenomic reads using either [megahit](https://github.com/voutcn/megahit), [metaspades](http://cab.spbu.ru/software/spades/), or [idba_ud](https://github.com/loneknightpy/idba).
 
 3. Generating an anvi'o contigs database from assembled contigs using [anvi-gen-contigs-database](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#anvi-gen-contigs-database). This part of the metagenomics workflow is inherited from the contigs workflow, so you know this step also includes the annotation of your contigs database(s) with functions, HMMs, and taxonomy.
 
@@ -824,7 +824,7 @@ In assembly mode, this rule is always executed.
 
 ## What's going on behind the scenes before we run idba_ud?
 
-A note regarding `idba_ud` is that it requires a single fasta as an input. Because of that, what we do is use `fq2fa` to merge the pair of reads of each sample to one fasta, and then we use `cat` to concatenate multiple samples for a co-assembly. The `fasta` file that is created is create as a temporary file, and is deleted once `idba_ud` finishes running. If this is annoying to you, then feel free to contact us or just hack it yourself.
+A note regarding `idba_ud` is that it requires a single fasta as an input. Because of that, what we do is use `fq2fa` to merge the pair of reads of each sample to one fasta, and then we use `cat` to concatenate multiple samples for a co-assembly. The `fasta` file that is created as a temporary file, and is deleted once `idba_ud` finishes running. If this is annoying to you, then feel free to contact us or just hack it yourself. We tried to minimize memory usage by deleting each individual fasta file after it was concatenated to the merged fasta file ([see this issue for details](https://github.com/merenlab/anvio/issues/954)).
 
 ## Can I change the parameters of samtools view?
 
@@ -979,6 +979,23 @@ anvi-run-workflow -w metagenomics \
 ```
 
 Now, at most 10 jobs would be submitted to the queue in parallel, but only as long as the total number of threads (nodes) that is requested by the submitted jobs doesn't go above 48. So if we have 3 `anvi-run-hmms` jobs and each require 20 threads, then only two would run in parallel.
+
+## How to use metaspades for assembly
+
+As of anvi'o v5.3 metaspades has been added to the metagenomics workflow. By default, these are the parameters for metaspades:
+
+```
+    "metaspades": {
+        "additional_params": "--only-assembler",
+        "threads": 11,
+        "run": "",
+        "use_scaffolds": ""
+    },
+```
+
+`additional_params` works in the same way to how it works as is explained [above for samtools](#can-i-change-the-parameters-of-samtools-view), and allows to specify anything that metaspades accepts. By default it is set to `--only-assembler`, Since QC is done using `iu-filter-quality-minoche`, and we see no reason to have metaspades do another step of QC. If you want to specify more parameters then you probably want it to still include `--only-assembler`.
+
+metaspades has two outputs `contigs.fasta`, and `scaffolds.fasta`. By default anvi'o will use `contigs.fasta` for the rest of the workflow, but if you want to use `scaffolds.fasta`, then set `use_scaffolds: true` in your config file. In any case anvi'o will save the one you don't use as well (i.e. by default you will find in your `02_FASTA` directory the `scaffold.fasta` filem and you choose to use the scaffolds, then you will still find `contigs.fasta`).
 
 
 {% include _join-anvio-slack.html %}
