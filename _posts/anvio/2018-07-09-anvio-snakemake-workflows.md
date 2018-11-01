@@ -829,12 +829,6 @@ anvi-display-pan -g 03_PAN_INTERNAL_EXTERNAL_GENOMES/MYPAN_COMBINED-GENOMES.db
 
 [![PAN-internal-external]({{images}}/PAN-internal-external.png)]( {{images}}/PAN-internal-external.png){:.center-img .width-50}
 
-## Phylogenomics workflow
-
-Similar to what is describe in the anvi'o [phylogenomics tutorial]({{site.url}}/2017/06/07/phylogenomics/#working-with-fasta-files), this workflow uses a collection of internal and external genomes (i.e. a bunch of fasta files and/or genomic bins), and a collection of genes to compute a phylogenomic tree. Specifically, the genes are exported and aligned using `anvi-get-sequences-for-hmm-hits`. At the time of writing this tutorial, the only available pipeline included the trimming of sequences using trimal, followed by tree computation by `iq-tree`.
-
-In order to use this program you would need either a `fasta.txt` file, or an `internal-genomes.txt` file (or both).
-
 # Running workflows on a cluster
 
 When submitting to a cluster, you can utilize the [snakemake cluster execution](http://snakemake.readthedocs.io/en/stable/executable.html#cluster-execution). Notice that the number of threads per rule could be changed using the `config.json` file (and not by using the [cluster configuration](http://snakemake.readthedocs.io/en/stable/executable.html#cluster-execution) file).
