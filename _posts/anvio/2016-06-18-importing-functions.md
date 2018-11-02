@@ -108,6 +108,67 @@ $ anvi-import-functions -c contigs.db \
 
 That's it!
 
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Xabier Vázquez-Campos to the rescue</span>
+
+
+### It doesn't work?
+
+If the InterProScan parser within `anvi-import-functions` is not working for you, chances are that you used the `--iprlookup`, `--goterms` and/or the `--pathways` options when you ran InterProScan. This happens because the parser expects a table with 11 columns, and you have 15. Columns 12 and 13 are the InterPro integrated annotations, while 14 and 15 correspond to the GOterms and pathway annotations respectively.
+
+Fortunately, there are ways around it. The easiest way it is to remove these extra columns and keep going:
+
+```
+cut -f 1-11 interpro-output.tsv > interpro-output_fix.tsv
+anvi-import-functions -c contigs.db \
+                        -i interpro-output_fix.tsv \
+                        -p interproscan
+```
+
+Although this doesn't handle your _precious_ GOterm annotations or the InterPro cross-references (IPR numbers).
+
+Alternatively, you can use the _standard import_. Although, you'll likely have redundant annotations (some protein domains can appear more than once in a single protein).
+
+```
+echo -e "gene_callers_id\tsource\taccession\tfunction\te_value" > table_to_import.tsv
+cut -f 1,4-6,9 interpro-output.tsv >> table_to_import.tsv
+anvi-import-functions -c contigs.db \
+                        -i table_to_import.tsv
+```
+
+And, unfortunately, this may not work in some cases. E.g. if you got TMHMM or Phobius annotations, the e-value column will be always a dash `-`, not a number and the standard `anvi-import-functions` doesn't like it.
+
+#### The final solution
+
+To avoid any and all of these problems I created [`iprs2anvio.sh`](https://github.com/xvazquezc/stuff/blob/master/iprs2anvio.sh), a little BASH script that handles:
+
+* InterPro cross-referenced annotations (the 12th and 13th columns) (`-r` or `--ipr` option).
+* Dereplicates multiple matches of the same motif profile to a single protein, keeping the lowest e-value.
+  + Also handles score-based annotations: ProSiteProfiles and HAMAP, and keeps the annotation with the higher score.
+* Handles the dashes `-` in the e-value column.
+* Allows to specify the annotation databases of interest and even split the output, i.e. a single file per database (`-s` or `--split`).
+* Can extract optional annotations from columns 14 and 15:
+  + GOterms (`-g` or `--go_terms`).
+  + Pathways (`-p` or `--pathways`).
+
+```
+iprs2anvio.sh -i interpro-output.tsv -o interpro-output -g -p -r
+anvi-import-functions -c contigs.db \
+                      -i interpro-output_iprs2anvio.tsv
+```
+
+It is not the most efficient script in the world, but does the job.
+
+{:.notice}
+Note that `iprs2anvio.sh` has been developed on Linux and it hasn't been tested in Mac yet. It requires GNU [`getopt`](https://www.gnu.org/software/libc/manual/html_node/Getopt.html) to handle options, likely in your system already if you use Linux. For Mac, you can install it easily using [MacPorts](https://www.macports.org/install.php) with `sudo port install getopt`
+
+
+[Xabier Vázquez-Campos](https://twitter.com/XabiVC).
+</div>
+
+
 ## Prokka
 
 You can use annotations produced by [Prokka](https://github.com/tseemann/prokka) with anvi'o, however, in order to do that you will need to create a new contigs database, since Prokka has to run on your contigs, and does not have a workaround to work only with gene calls. 
