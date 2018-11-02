@@ -41,7 +41,9 @@ GhostKOALA is one of the few ways I have found to access KEGG gene calls for lar
 The first step to this is exporting amino acid sequences from your anvi'o contigs database.
 
 ``` bash
- $ anvi-get-aa-sequences-for-gene-calls -c CONTIGS.db -o protein-sequences.fa
+ $ anvi-get-sequences-for-gene-calls -c CONTIGS.db \
+                                     --get-aa-sequences \
+                                     -o protein-sequences.fa
 ```
 
 This will make sure anvi'o will be able associate annotations back to the genes described in the contigs database.
