@@ -76,7 +76,7 @@ The background includes review of these crassphage related papers:
 
 In this workshop we will be working with pair-end short reads that were produced by an [Illumina](https://www.illumina.com/techniques/sequencing.html) sequencer. If you are not familiar with it, I recommend reffering to [this 5 minutues video by Illumina that explains the sequencing process](https://www.youtube.com/watch?annotation_id=annotation_228575861&feature=iv&src_vid=womKfikWlxM&v=fCd6B5HRaZ8). In class, we will also go over [this short presentation](https://github.com/ShaiberAlon/2018_microbial_omics_workshop/blob/master/Presentations/intro_metagenomics.pptx).
 
-## Using a mapping approach to asses the occurence of crassphage in metagenomes
+## Using a mapping approach to assess the occurence of crassphage in metagenomes
 
 Following a similar approach to the one in Dutilh et al., we will use read recruitment to quantify the occurence of crassphage in gut metagenomes.
 
