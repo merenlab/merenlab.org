@@ -581,8 +581,6 @@ anvi-run-workflow -w metagenomics \
 
 ### Reference-based short read removal
 
-I'm updating the WORKFLOW_TUTORIAL_DATA in web/files/ and I will compress it when I'm done.
-
 As of anvi'o v5.3, we added a feature for removing short reads based on mapping to reference fasta files.
 The purpose of this feature is to allow you to filter reads that match certain reference genomes. As you will see below, you can also use this feature to just quantify the reads that match these reference fasta, without removing these reads from the fastq files (see `dont_remove_just_map`).
 
