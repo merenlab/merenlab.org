@@ -125,8 +125,11 @@ To see how this file is used, you can take a look at the metagenomics workflow i
 ```bash
 name	path
 A_NAME_YOU_CHOSE	/absolute/path/fasta_01.fa
-ANOTHER_NAME	relative/path/fasta_02.fa
+ANOTHER_NAME	relative/path/fasta_02.fa.gz
 ```
+
+{:.notice}
+Notice that one of the files above has a `.gz` suffix. The files could either be compressed or not, and the workflow will deal with that for you, so that you could keep your fasta files compressed and hence take less storage room on your machine.
 
 # Mock Data
 
