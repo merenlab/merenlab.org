@@ -662,7 +662,7 @@ And then use the following `references_for_removal_txt`:
 
 ```
 reference	path
-HUMAN		mock_ref_for_removal1.fa
+HUMAN		GRCh38_latest_genomic.fna.gz
 ```
 
 </div>
