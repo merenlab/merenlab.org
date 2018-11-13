@@ -604,13 +604,13 @@ Let's go over the parameters of this rule:
 
 `references_for_removal_txt` - This is a table similar to the `fasta.txt` file, with two columns: `reference` and `path`. This rule is performed if and only if a table text file was supplied using this parameter.
 
-`dont_remove_just_map` - If you set this parameter to `true`, then the mapping will be performed in order to count the number of reads in each sample that matched the references in your `references_for_removal_txt`, but that's it (i.e. these reads will not be removed from your fastq files). The reason we decided to add this feature is to let you asses the number of reads that probably match these references, without risking losing reads that actually matter to you. More specifically, this way the assembly step has access to all the reads that were in the fastq file. You can see the note by Brian Bushnell [here](http://seqanswers.com/forums/showthread.php?t=42552) for an example as to why you wouldn't want to remove short reads (in the method we use for removing them) before your assembly.
+`dont_remove_just_map` - If you set this parameter to `true`, then the mapping will be performed in order to count the number of reads in each sample that matched the references in your `references_for_removal_txt`, but that's it (i.e. these reads will not be removed from your fastq files). The reason we decided to add this feature is to let you assess the number of reads that probably match these references, without risking losing reads that actually matter to you. More specifically, this way the assembly step has access to all the reads that were in the fastq file. You can see the note by Brian Bushnell [here](http://seqanswers.com/forums/showthread.php?t=42552) for an example as to why you wouldn't want to remove short reads (in the method we use for removing them) before your assembly.
 
 `delimiter-for-iu-remove-ids-from-fastq` - this allows you to set the `--delimiter` for `iu-remove-ids-from-fastq`, which is the program we use for the removal of short reads. Refer to the manual (by running `iu-remove-ids-from-fastq -h`) to better understand this feature. By default we set the `--delimiter` to a single space `" "` (we found it to be useful sometimes and harmless in other cases).
 
 The `bam` files that are created during mapping are saved in `MAPPING_DIR/REF_NAME`, where `REF_NAME` is the name you gave to the particular reference in the `references_for_removal_txt` file.
 
-In your working directory you can find the file `mock_ref_for_removal.txt`, which look like this:
+In your working directory you can find the file `mock_ref_for_removal.txt`, which looks like this:
 
 ```
 reference	path
@@ -650,7 +650,7 @@ anvi-run-workflow -w metagenomics -c config-references-mode-with-short-read-remo
 <div class="extra-info" markdown="1">
 
 <span class="extra-info-header"> Removing Human DNA from a metagenome</span>
-A common usecase for the reference based short read removal is to filter human DNA from a metagenome.
+A common use-case for the reference based short read removal is to filter human DNA from a metagenome.
 
 You can download the human genome from here:
 
@@ -662,7 +662,7 @@ And then use the following `references_for_removal_txt`:
 
 ```
 reference	path
-HUMAN		mock_ref_for_removal1.fa
+HUMAN		GRCh38_latest_genomic.fna.gz
 ```
 
 </div>
@@ -723,7 +723,7 @@ anvi-display-pan -g 03_PAN/MYPAN-GENOMES.db \
 
 ### With internal genomes
 
-We will use the profile databases that we created earlier to run this example. If you haven't gone through the metagenomics part of this tutorial you have to go back there and run the steps descreibed in the [standard usage](#standard-usage) section.
+We will use the profile databases that we created earlier to run this example. If you haven't gone through the metagenomics part of this tutorial you have to go back there and run the steps described in the [standard usage](#standard-usage) section.
 
 After we have profile databases ready, we create collections. In this mock example we will just create default collections using `anvi-script-add-default-collection`:
 
@@ -954,7 +954,7 @@ anvi-run-workflow -w metagenomics \
 Here using `additional_params` with the `--keep-going` and `--rerun-incomplete` flags will resume the job even if it failed in the middle of a rule, like `anvi_profile`. Of course it is always a good idea to figure out why a workflow failed in the first place.
 
 {:.notice}
-When a workflow fails, then you would need to unlock the working directory before rerunning. This means you would have to run the full command with the `--unlock` flag once, and then run the command again without the `--unlock` flag. Please refer to the snakemake docummentation for [more details regarding how snakemake locks the working directory](https://snakemake.readthedocs.io/en/stable/project_info/faq.html#how-does-snakemake-lock-the-working-directory).
+When a workflow fails, then you would need to unlock the working directory before rerunning. This means you would have to run the full command with the `--unlock` flag once, and then run the command again without the `--unlock` flag. Please refer to the snakemake documentation for [more details regarding how snakemake locks the working directory](https://snakemake.readthedocs.io/en/stable/project_info/faq.html#how-does-snakemake-lock-the-working-directory).
 
 ## Can I use results from previous runs of krakenhll?
 
@@ -1084,7 +1084,7 @@ As of anvi'o v5.3 metaspades has been added to the metagenomics workflow. By def
 
 `additional_params` works in the same way to how it works as is explained [above for samtools](#can-i-change-the-parameters-of-samtools-view), and allows to specify anything that metaspades accepts. By default it is set to `--only-assembler`, Since QC is done using `iu-filter-quality-minoche`, and we see no reason to have metaspades do another step of QC. If you want to specify more parameters then you probably want it to still include `--only-assembler`.
 
-metaspades has two outputs `contigs.fasta`, and `scaffolds.fasta`. By default anvi'o will use `contigs.fasta` for the rest of the workflow, but if you want to use `scaffolds.fasta`, then set `use_scaffolds: true` in your config file. In any case anvi'o will save the one you don't use as well (i.e. by default you will find in your `02_FASTA` directory the `scaffold.fasta` filem and you choose to use the scaffolds, then you will still find `contigs.fasta`).
+metaspades has two outputs `contigs.fasta`, and `scaffolds.fasta`. By default anvi'o will use `contigs.fasta` for the rest of the workflow, but if you want to use `scaffolds.fasta`, then set `use_scaffolds: true` in your config file. In any case anvi'o will save the one you don't use as well (i.e. by default you will find in your `02_FASTA` directory the `scaffold.fasta` file and you choose to use the scaffolds, then you will still find `contigs.fasta`).
 
 
 {% include _join-anvio-slack.html %}
