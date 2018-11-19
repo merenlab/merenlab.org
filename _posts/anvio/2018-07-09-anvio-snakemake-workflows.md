@@ -518,7 +518,7 @@ If you are new to **snakemake**, you might be surprised to see how easy it is to
 {:.warning}
 This mode is used when you have one or more genomes, and one or more metagenomes from which you wish to recruit reads using your genomes.
 
-Along with assembly-based metagenomics, we often use anvi'o to explore the occurence of population genomes accross metagenomes. A good example of how useful this approach could be is described in this blogpost: [DWH O. desum v2: Most abundant Oceanospirillaceae population in the Deepwater Horizon Oil Plume](http://merenlab.org/2017/11/25/DWH-O-desum-v2/).
+Along with assembly-based metagenomics, we often use anvi'o to explore the occurrence of population genomes accross metagenomes. A good example of how useful this approach could be is described in this blogpost: [DWH O. desum v2: Most abundant Oceanospirillaceae population in the Deepwater Horizon Oil Plume](http://merenlab.org/2017/11/25/DWH-O-desum-v2/).
 For this mode, what you have is a bunch of fastq files (metagenomes) and fasta files (reference genomes), and all you need to do is to let the workflow know where to find these files, using two `.txt` files: `samples_txt`, and `fasta_txt`. 
 
 `fasta_txt` should be a 2 column tab-separated file, where the first column specifies a reference name and the second column specifies the filepath of the fasta file for that reference.
@@ -679,9 +679,7 @@ All you need are a bunch of fasta files, and a `fasta_txt`, formatted in the sam
 ```
 {
     "project_name": "MYPAN",
-    "anvi_gen_genomes_storage": {
-        "--external-genomes": "my-external-genomes.txt"
-    },
+    "external_genomes": "my-external-genomes.txt",
     "fasta_txt": "fasta.txt",
     "output_dirs": {
         "FASTA_DIR": "01_FASTA_contigs_workflow",
@@ -740,9 +738,7 @@ In your working directory you have a config file `config-pangenomics-internal-ge
 ```json
 {
     "project_name": "MYPAN-INTERNAL",
-    "anvi_gen_genomes_storage": {
-        "--internal-genomes": "my-internal-genomes.txt"
-    },
+    "internal_genomes": "my-internal-genomes.txt",
     "output_dirs": {
         "FASTA_DIR": "01_FASTA_contigs_workflow",
         "CONTIGS_DIR": "02_CONTIGS_contigs_workflow",
@@ -788,10 +784,8 @@ We can use the files from the examples above. In your working directory you will
 ```json
 {
     "project_name": "MYPAN_COMBINED",
-    "anvi_gen_genomes_storage": {
-        "--external-genomes": "my-external-genomes.txt",
-        "--internal-genomes": "my-internal-genomes.txt"
-    },
+    "external_genomes": "my-external-genomes.txt",
+    "internal_genomes": "my-internal-genomes.txt",
     "fasta_txt": "fasta.txt",
     "output_dirs": {
         "FASTA_DIR": "01_FASTA_contigs_workflow",
@@ -829,6 +823,93 @@ anvi-display-pan -g 03_PAN_INTERNAL_EXTERNAL_GENOMES/MYPAN_COMBINED-GENOMES.db
 ```
 
 [![PAN-internal-external]({{images}}/PAN-internal-external.png)]( {{images}}/PAN-internal-external.png){:.center-img .width-50}
+
+## Phylogenomics workflow
+
+Similar to what is describe in the anvi'o [phylogenomics tutorial]({{site.url}}/2017/06/07/phylogenomics/), this workflow uses a collection of internal and external genomes (i.e. a bunch of fasta files and/or genomic bins), and a collection of genes to compute a phylogenomic tree. Specifically, the genes are exported and aligned using `anvi-get-sequences-for-hmm-hits`. At the time of writing this tutorial, the only available pipeline included the trimming of sequences using trimal, followed by tree computation by `iq-tree`.
+
+In order to use this program you would need either a `fasta.txt` file, or an `internal-genomes.txt` file (or both).
+
+You can generate a default config file by running:
+
+```
+anvi-run-workflow -w phylogenomics --get-default-config phylo-default-config.json
+```
+
+In your working directory you will find the following mock config file `config-phylo.json`:
+
+```json
+{
+    "anvi_get_sequences_for_hmm_hits": {
+        "--return-best-hit": true,
+        "--align-with": "famsa",
+        "--concatenate-genes": true,
+        "--get-aa-sequences": true,
+        "--hmm-sources": "Campbell_et_al",
+        "--gene-names": "CoaE,FAD_syn,Flavokinase,Methyltransf_5,Peptidase_A8,Ribosomal_S20p"
+    },
+    "anvi_run_ncbi_cogs": {
+        "run": false
+    },
+    "trimal": {
+        "-gt": 0.5
+    },
+    "iqtree": {
+        "threads": 8,
+        "-m": "WAG",
+        "-bb": 1000,
+        "additional_params": ""
+    },
+    "project_name": "TEST",
+    "internal_genomes": "",
+    "external_genomes": "external-genomes-phylo.txt",
+    "fasta_txt": "fasta-phylo.txt",
+    "output_dirs": {
+        "PHYLO_DIR": "03_PHYLOGENOMICS",
+        "CONTIGS_DIR": "02_CONTIGS_PHYLO",
+        "FASTA_DIT": "01_FASTA_PHYLO",
+        "LOGS_DIR": "00_LOGS_PHYLO"
+    }
+}
+```
+
+Most of the values above are the defaults from the default config file, but certain things had to be changed:
+
+ - `--gene-names` - this parameter of rule `anvi_get_sequences_for_hmm_hits` has to be defined. You must choose the genes that you wish to use. By default the HMM collection that is used is `Campbell_et_al`, but you can change that. It is highly recommended to verify that you are using genes that are present in most of your genomes, and that you exclude genomes that are missing many of the genes that you use. If you are only using external genomes, you can generate a table with the occurrence of HMMs in your genomes by using the script: `anvi-script-gen-hmm-hits-matrix-across-genomes`.
+
+ - Similarly to the [pangenomics workflow](#pangenomics-workflow), you must define either an internal-genomes files or an external-genomes file.
+
+ - `fasta_txt` - also similar to the [pangenomics workflow](#pangenomics-workflow) if you provide a `fasta_txt` file, AND you provide a name for your external genomes file (you MUST specify a **path** for this file, and then if the file doesn't exist, that's ok, we will create it for you using the information in your `fasta_txt` file). So to further clarify, in the example of this tutorial, notice that before running the workflow, the file `external-genomes-phylo.txt` doesn't exist, but after you run the workflow it will be created.
+
+ - `project_name` - you must provide a `project_name`. This will be used as a prefix to files that will be generated by the workflow.
+
+Let's take a quick look at `fasta-phylo.txt`:
+
+```
+name	path
+s01	s01-phylo.fa
+s02	s02-phylo.fa
+s03	s03-phylo.fa
+s04	s04-phylo.fa
+s05	s05-phylo.fa
+```
+
+We have a total of 5 genomes. These genomes are very small mock genomes that only include the 6 genes that we will use for phylogeny. We have manually added some SNPs to these genes so that they would actually be distinct phylogenetically.
+
+We can run the workflow:
+
+ ```bash
+anvi-run-workflow -w phylogenomics -c config-phylo.json
+ ```
+And now we can visualize the final tree which in our case would be `03_PHYLOGENOMICS/TEST-proteins_GAPS_REMOVED.fa.contree`:
+
+```
+anvi-interactive -t 03_PHYLOGENOMICS/TEST-proteins_GAPS_REMOVED.fa.contree --manual -p manual-phylo-profile.db --title 'phylogenetic tree for mock genomes'
+```
+
+And it should look more or less like this:
+
+[![phylo-tree]({{images}}/phylo-tree.png)]( {{images}}/phylo-tree.png){:.center-img .width-50}
 
 # Running workflows on a cluster
 
