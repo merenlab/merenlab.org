@@ -58,7 +58,7 @@ OK. I used the data you see in the anvi'o figure above to train a random forest 
 {:.notice}
 Everything here uses anvi'o v2 branch, which is not officially released yet, but you can install and use directly from the [GitHub master repository](https://github.com/meren/anvio).
 
-Now using the first programs, along with the [Brown_et_al-CPR-Campbell_et_al_BSCG.txt](https://github.com/meren/anvio/blob/master/tests/sandbox/Brown_et_al-CPR-Campbell_et_al_BSCG.txt){:target="_blank"} file, I can create a classifier:
+Now using the first programs, along with the [Brown_et_al-CPR-Campbell_et_al_BSCG.txt](https://github.com/meren/anvio/blob/master/anvio/tests/sandbox/Brown_et_al-CPR-Campbell_et_al_BSCG.txt){:target="_blank"} file, I can create a classifier:
 
 ``` bash
 $ anvi-script-gen-CPR-classifier Brown_et_al-CPR-Campbell_et_al_BSCG.txt -o cpr-bscg.classifier
