@@ -826,17 +826,17 @@ anvi-display-pan -g 03_PAN_INTERNAL_EXTERNAL_GENOMES/MYPAN_COMBINED-GENOMES.db
 
 ## Phylogenomics workflow
 
-Similar to what is describe in the anvi'o [phylogenomics tutorial]({{site.url}}/2017/06/07/phylogenomics/), this workflow uses a collection of internal and external genomes (i.e. a bunch of fasta files and/or genomic bins), and a collection of genes to compute a phylogenomic tree. Specifically, the genes are exported and aligned using `anvi-get-sequences-for-hmm-hits`. At the time of writing this tutorial, the only available pipeline included the trimming of sequences using trimal, followed by tree computation by `iq-tree`.
+Similar to what is describe in the anvi'o [phylogenomics tutorial]({{site.url}}/2017/06/07/phylogenomics/), this workflow uses a collection of internal and external genomes (i.e. a bunch of FASTA files and/or genomic bins), and a collection of genes to compute a phylogenomic tree. Specifically, the genes are exported and aligned using `anvi-get-sequences-for-hmm-hits`. At the time of writing this tutorial, the only available pipeline included the trimming of sequences using trimal, followed by tree computation by `iq-tree`.
 
 In order to use this program you would need either a `fasta.txt` file, or an `internal-genomes.txt` file (or both).
 
 You can generate a default config file by running:
 
 ```
-anvi-run-workflow -w phylogenomics --get-default-config phylo-default-config.json
+anvi-run-workflow -w phylogenomics --get-default-config config-phylo.json
 ```
 
-In your working directory you will find the following mock config file `config-phylo.json`:
+In your working directory you will find the following mock config file `config-phylo.json` that contains these critical sections you can edit:
 
 ```json
 {
@@ -867,7 +867,7 @@ In your working directory you will find the following mock config file `config-p
     "output_dirs": {
         "PHYLO_DIR": "03_PHYLOGENOMICS",
         "CONTIGS_DIR": "02_CONTIGS_PHYLO",
-        "FASTA_DIT": "01_FASTA_PHYLO",
+        "FASTA_DIR": "01_FASTA_PHYLO",
         "LOGS_DIR": "00_LOGS_PHYLO"
     }
 }
@@ -875,13 +875,13 @@ In your working directory you will find the following mock config file `config-p
 
 Most of the values above are the defaults from the default config file, but certain things had to be changed:
 
- - `--gene-names` - this parameter of rule `anvi_get_sequences_for_hmm_hits` has to be defined. You must choose the genes that you wish to use. By default the HMM collection that is used is `Campbell_et_al`, but you can change that. It is highly recommended to verify that you are using genes that are present in most of your genomes, and that you exclude genomes that are missing many of the genes that you use. If you are only using external genomes, you can generate a table with the occurrence of HMMs in your genomes by using the script: `anvi-script-gen-hmm-hits-matrix-across-genomes`.
+ - `--gene-names`: This parameter in the rule `anvi_get_sequences_for_hmm_hits` will allow you to choose the genes that you wish to use. By default the HMM collection that is used is `Campbell_et_al`, but you can change that, as well. It is highly recommended to verify that you are using genes that are present in most of your genomes, and that you exclude genomes that are missing many of the genes that you use. If you are only using external genomes, you can generate a table with the occurrence of HMMs in your genomes by using the script: `anvi-script-gen-hmm-hits-matrix-across-genomes`.
 
- - Similarly to the [pangenomics workflow](#pangenomics-workflow), you must define either an internal-genomes files or an external-genomes file.
+ - Similar to the [pangenomics workflow](#pangenomics-workflow), you must also define internal and/or external genomes through    `internal_genomes` and `external_genomes` parameters.
 
- - `fasta_txt` - also similar to the [pangenomics workflow](#pangenomics-workflow) if you provide a `fasta_txt` file, AND you provide a name for your external genomes file (you MUST specify a **path** for this file, and then if the file doesn't exist, that's ok, we will create it for you using the information in your `fasta_txt` file). So to further clarify, in the example of this tutorial, notice that before running the workflow, the file `external-genomes-phylo.txt` doesn't exist, but after you run the workflow it will be created.
+ - `fasta_txt`: also similar to the [pangenomics workflow](#pangenomics-workflow), if you provide a `fasta_txt` file, then you must provide a name for your external genomes file. Please note that you only need to specify a **path**, a file at which will then be created automatically using the information in `fasta_txt` file. For instanc, if you are following this example you will realize that before running the workflow, the file `external-genomes-phylo.txt` doesn't exist, but it will get created automatically during run time.
 
- - `project_name` - you must provide a `project_name`. This will be used as a prefix to files that will be generated by the workflow.
+ - `project_name`: you must provide a `project_name`. This will be used as a prefix to files that will be generated by the workflow.
 
 Let's take a quick look at `fasta-phylo.txt`:
 
@@ -901,15 +901,22 @@ We can run the workflow:
  ```bash
 anvi-run-workflow -w phylogenomics -c config-phylo.json
  ```
+
 And now we can visualize the final tree which in our case would be `03_PHYLOGENOMICS/TEST-proteins_GAPS_REMOVED.fa.contree`:
 
 ```
-anvi-interactive -t 03_PHYLOGENOMICS/TEST-proteins_GAPS_REMOVED.fa.contree --manual -p manual-phylo-profile.db --title 'phylogenetic tree for mock genomes'
+anvi-interactive -t 03_PHYLOGENOMICS/TEST-proteins_GAPS_REMOVED.fa.contree \
+                 --manual \
+                 -p manual-phylo-profile.db \
+                 --title 'phylogenetic tree for mock genomes'
 ```
 
 And it should look more or less like this:
 
 [![phylo-tree]({{images}}/phylo-tree.png)]( {{images}}/phylo-tree.png){:.center-img .width-50}
+
+Yes, this mock example for the sake of our little demonstration looks pretty ugly, but you know where to go from here. You can take the phylogenomic tree that emerges from this workflow and do anything you usually do with your phylogenomic trees.
+
 
 # Running workflows on a cluster
 
