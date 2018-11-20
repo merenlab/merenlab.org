@@ -777,7 +777,7 @@ anvi-run-workflow -w pangenomics \
 
 [![PAN-internal]({{images}}/PAN-internal.png)]( {{images}}/PAN-internal.png){:.center-img .width-50}
 
-## With external AND internal genomes
+### With external AND internal genomes
 
 We can use the files from the examples above. In your working directory you will find the following config file, `config-pangenomics-internal-external.json`:
 
@@ -1150,9 +1150,9 @@ anvi-run-workflow -w metagenomics \
 
 Now, at most 10 jobs would be submitted to the queue in parallel, but only as long as the total number of threads (nodes) that is requested by the submitted jobs doesn't go above 48. So if we have 3 `anvi-run-hmms` jobs and each require 20 threads, then only two would run in parallel.
 
-## How to use metaspades for assembly
+## How to use metaSPAdes for assembly
 
-As of anvi'o v5.3 metaspades has been added to the metagenomics workflow. By default, these are the parameters for metaspades:
+As of anvi'o `v5.3` [metaSPAdes](http://cab.spbu.ru/software/spades/) has been added to the metagenomics workflow. By default, these are the parameters for metaspades:
 
 ```
     "metaspades": {
