@@ -1,21 +1,22 @@
-Here you will find the current anvi'o programs in the latest stable version of the platform, and their help menu. The contents of this file was last updated on **21 Sep 18 14:34:07**, and then anvi'o looked like this:
+Here you will find the current anvi'o programs in the latest stable version of the platform, and their help menu. The contents of this file was last updated on **21 Nov 18 12:08:21**, and then anvi'o looked like this:
 
 |Key|Value|
 |:--|:--:|
-|Anvi&#39;o version|margaret (v5.2)|
+|Anvi&#39;o version|margaret (v5.2-master)|
 |Profile DB version|30|
 |Contigs DB version|12|
-|Structure DB version|1|
+|Genes DB version|3|
+|Auxiliary data storage version|2|
 |Pan DB version|12|
 |Genome data storage version|6|
-|Auxiliary data storage version|2|
+|Structure DB version|1|
 
 ---
 
 # Summary
 
-**Main anvi'o programs (78)**
-[anvi-cluster-with-concoct](#anvi-cluster-with-concoct), [anvi-compute-ani](#anvi-compute-ani), [anvi-compute-completeness](#anvi-compute-completeness), [anvi-compute-gene-cluster-homogeneity](#anvi-compute-gene-cluster-homogeneity), [anvi-db-info](#anvi-db-info), [anvi-delete-collection](#anvi-delete-collection), [anvi-delete-hmms](#anvi-delete-hmms), [anvi-delete-misc-data](#anvi-delete-misc-data), [anvi-delete-state](#anvi-delete-state), [anvi-display-contigs-stats](#anvi-display-contigs-stats), [anvi-display-pan](#anvi-display-pan), [anvi-display-structure](#anvi-display-structure), [anvi-experimental-organization](#anvi-experimental-organization), [anvi-export-collection](#anvi-export-collection), [anvi-export-contigs](#anvi-export-contigs), [anvi-export-functions](#anvi-export-functions), [anvi-export-gene-calls](#anvi-export-gene-calls), [anvi-export-gene-coverage-and-detection](#anvi-export-gene-coverage-and-detection), [anvi-export-locus](#anvi-export-locus), [anvi-export-misc-data](#anvi-export-misc-data), [anvi-export-splits-and-coverages](#anvi-export-splits-and-coverages), [anvi-export-splits-taxonomy](#anvi-export-splits-taxonomy), [anvi-export-state](#anvi-export-state), [anvi-export-table](#anvi-export-table), [anvi-gen-contigs-database](#anvi-gen-contigs-database), [anvi-gen-gene-consensus-sequences](#anvi-gen-gene-consensus-sequences), [anvi-gen-genomes-storage](#anvi-gen-genomes-storage), [anvi-gen-network](#anvi-gen-network), [anvi-gen-phylogenomic-tree](#anvi-gen-phylogenomic-tree), [anvi-gen-structure-database](#anvi-gen-structure-database), [anvi-gen-variability-matrix](#anvi-gen-variability-matrix), [anvi-gen-variability-network](#anvi-gen-variability-network), [anvi-gen-variability-profile](#anvi-gen-variability-profile), [anvi-get-aa-counts](#anvi-get-aa-counts), [anvi-get-codon-frequencies](#anvi-get-codon-frequencies), [anvi-get-enriched-functions-per-pan-group](#anvi-get-enriched-functions-per-pan-group), [anvi-get-sequences-for-gene-calls](#anvi-get-sequences-for-gene-calls), [anvi-get-sequences-for-gene-clusters](#anvi-get-sequences-for-gene-clusters), [anvi-get-sequences-for-hmm-hits](#anvi-get-sequences-for-hmm-hits), [anvi-get-short-reads-from-bam](#anvi-get-short-reads-from-bam), [anvi-get-short-reads-mapping-to-a-gene](#anvi-get-short-reads-mapping-to-a-gene), [anvi-get-split-coverages](#anvi-get-split-coverages), [anvi-import-collection](#anvi-import-collection), [anvi-import-functions](#anvi-import-functions), [anvi-import-misc-data](#anvi-import-misc-data), [anvi-import-state](#anvi-import-state), [anvi-import-taxonomy-for-genes](#anvi-import-taxonomy-for-genes), [anvi-import-taxonomy-for-layers](#anvi-import-taxonomy-for-layers), [anvi-init-bam](#anvi-init-bam), [anvi-interactive](#anvi-interactive), [anvi-matrix-to-newick](#anvi-matrix-to-newick), [anvi-mcg-classifier](#anvi-mcg-classifier), [anvi-merge](#anvi-merge), [anvi-merge-bins](#anvi-merge-bins), [anvi-meta-pan-genome](#anvi-meta-pan-genome), [anvi-migrate-db](#anvi-migrate-db), [anvi-oligotype-linkmers](#anvi-oligotype-linkmers), [anvi-pan-genome](#anvi-pan-genome), [anvi-profile](#anvi-profile), [anvi-push](#anvi-push), [anvi-refine](#anvi-refine), [anvi-rename-bins](#anvi-rename-bins), [anvi-report-linkmers](#anvi-report-linkmers), [anvi-run-hmms](#anvi-run-hmms), [anvi-run-ncbi-cogs](#anvi-run-ncbi-cogs), [anvi-run-pfams](#anvi-run-pfams), [anvi-run-workflow](#anvi-run-workflow), [anvi-saavs-and-protein-structures-summary](#anvi-saavs-and-protein-structures-summary), [anvi-search-functions](#anvi-search-functions), [anvi-self-test](#anvi-self-test), [anvi-setup-ncbi-cogs](#anvi-setup-ncbi-cogs), [anvi-setup-pfams](#anvi-setup-pfams), [anvi-show-collections-and-bins](#anvi-show-collections-and-bins), [anvi-show-misc-data](#anvi-show-misc-data), [anvi-split](#anvi-split), [anvi-summarize](#anvi-summarize), [anvi-update-db-description](#anvi-update-db-description), [anvi-update-genes-in-structure-database](#anvi-update-genes-in-structure-database).
+**Main anvi'o programs (79)**
+[anvi-cluster-with-concoct](#anvi-cluster-with-concoct), [anvi-compute-ani](#anvi-compute-ani), [anvi-compute-completeness](#anvi-compute-completeness), [anvi-compute-gene-cluster-homogeneity](#anvi-compute-gene-cluster-homogeneity), [anvi-db-info](#anvi-db-info), [anvi-delete-collection](#anvi-delete-collection), [anvi-delete-hmms](#anvi-delete-hmms), [anvi-delete-misc-data](#anvi-delete-misc-data), [anvi-delete-state](#anvi-delete-state), [anvi-display-contigs-stats](#anvi-display-contigs-stats), [anvi-display-pan](#anvi-display-pan), [anvi-display-structure](#anvi-display-structure), [anvi-experimental-organization](#anvi-experimental-organization), [anvi-export-collection](#anvi-export-collection), [anvi-export-contigs](#anvi-export-contigs), [anvi-export-functions](#anvi-export-functions), [anvi-export-gene-calls](#anvi-export-gene-calls), [anvi-export-gene-coverage-and-detection](#anvi-export-gene-coverage-and-detection), [anvi-export-locus](#anvi-export-locus), [anvi-export-misc-data](#anvi-export-misc-data), [anvi-export-splits-and-coverages](#anvi-export-splits-and-coverages), [anvi-export-splits-taxonomy](#anvi-export-splits-taxonomy), [anvi-export-state](#anvi-export-state), [anvi-export-table](#anvi-export-table), [anvi-gen-contigs-database](#anvi-gen-contigs-database), [anvi-gen-gene-consensus-sequences](#anvi-gen-gene-consensus-sequences), [anvi-gen-gene-level-stats-databases](#anvi-gen-gene-level-stats-databases), [anvi-gen-genomes-storage](#anvi-gen-genomes-storage), [anvi-gen-network](#anvi-gen-network), [anvi-gen-phylogenomic-tree](#anvi-gen-phylogenomic-tree), [anvi-gen-structure-database](#anvi-gen-structure-database), [anvi-gen-variability-matrix](#anvi-gen-variability-matrix), [anvi-gen-variability-network](#anvi-gen-variability-network), [anvi-gen-variability-profile](#anvi-gen-variability-profile), [anvi-get-aa-counts](#anvi-get-aa-counts), [anvi-get-codon-frequencies](#anvi-get-codon-frequencies), [anvi-get-enriched-functions-per-pan-group](#anvi-get-enriched-functions-per-pan-group), [anvi-get-sequences-for-gene-calls](#anvi-get-sequences-for-gene-calls), [anvi-get-sequences-for-gene-clusters](#anvi-get-sequences-for-gene-clusters), [anvi-get-sequences-for-hmm-hits](#anvi-get-sequences-for-hmm-hits), [anvi-get-short-reads-from-bam](#anvi-get-short-reads-from-bam), [anvi-get-short-reads-mapping-to-a-gene](#anvi-get-short-reads-mapping-to-a-gene), [anvi-get-split-coverages](#anvi-get-split-coverages), [anvi-import-collection](#anvi-import-collection), [anvi-import-functions](#anvi-import-functions), [anvi-import-misc-data](#anvi-import-misc-data), [anvi-import-state](#anvi-import-state), [anvi-import-taxonomy-for-genes](#anvi-import-taxonomy-for-genes), [anvi-import-taxonomy-for-layers](#anvi-import-taxonomy-for-layers), [anvi-init-bam](#anvi-init-bam), [anvi-interactive](#anvi-interactive), [anvi-matrix-to-newick](#anvi-matrix-to-newick), [anvi-mcg-classifier](#anvi-mcg-classifier), [anvi-merge](#anvi-merge), [anvi-merge-bins](#anvi-merge-bins), [anvi-meta-pan-genome](#anvi-meta-pan-genome), [anvi-migrate-db](#anvi-migrate-db), [anvi-oligotype-linkmers](#anvi-oligotype-linkmers), [anvi-pan-genome](#anvi-pan-genome), [anvi-profile](#anvi-profile), [anvi-push](#anvi-push), [anvi-refine](#anvi-refine), [anvi-rename-bins](#anvi-rename-bins), [anvi-report-linkmers](#anvi-report-linkmers), [anvi-run-hmms](#anvi-run-hmms), [anvi-run-ncbi-cogs](#anvi-run-ncbi-cogs), [anvi-run-pfams](#anvi-run-pfams), [anvi-run-workflow](#anvi-run-workflow), [anvi-saavs-and-protein-structures-summary](#anvi-saavs-and-protein-structures-summary), [anvi-search-functions](#anvi-search-functions), [anvi-self-test](#anvi-self-test), [anvi-setup-ncbi-cogs](#anvi-setup-ncbi-cogs), [anvi-setup-pfams](#anvi-setup-pfams), [anvi-show-collections-and-bins](#anvi-show-collections-and-bins), [anvi-show-misc-data](#anvi-show-misc-data), [anvi-split](#anvi-split), [anvi-summarize](#anvi-summarize), [anvi-update-db-description](#anvi-update-db-description), [anvi-update-genes-in-structure-database](#anvi-update-genes-in-structure-database).
 
 **Ad hoc anvi'o scripts (20)**
 [anvi-script-add-default-collection](#anvi-script-add-default-collection), [anvi-script-calculate-pn-ps-ratio](#anvi-script-calculate-pn-ps-ratio), [anvi-script-checkm-tree-to-interactive](#anvi-script-checkm-tree-to-interactive), [anvi-script-compute-ani-for-fasta](#anvi-script-compute-ani-for-fasta), [anvi-script-filter-fasta-by-blast](#anvi-script-filter-fasta-by-blast), [anvi-script-gen-CPR-classifier](#anvi-script-gen-CPR-classifier), [anvi-script-gen-distribution-of-genes-in-a-bin](#anvi-script-gen-distribution-of-genes-in-a-bin), [anvi-script-gen-hmm-hits-matrix-across-genomes](#anvi-script-gen-hmm-hits-matrix-across-genomes), [anvi-script-gen-programs-network](#anvi-script-gen-programs-network), [anvi-script-gen-programs-vignette](#anvi-script-gen-programs-vignette), [anvi-script-gen-short-reads](#anvi-script-gen-short-reads), [anvi-script-gen_stats_for_single_copy_genes.py](#anvi-script-gen_stats_for_single_copy_genes.py), [anvi-script-genbank-to-external-gene-calls](#anvi-script-genbank-to-external-gene-calls), [anvi-script-get-collection-info](#anvi-script-get-collection-info), [anvi-script-merge-collections](#anvi-script-merge-collections), [anvi-script-predict-CPR-genomes](#anvi-script-predict-CPR-genomes), [anvi-script-reformat-fasta](#anvi-script-reformat-fasta), [anvi-script-run-eggnog-mapper](#anvi-script-run-eggnog-mapper), [anvi-script-snvs-to-interactive](#anvi-script-snvs-to-interactive), [anvi-script-transpose-matrix](#anvi-script-transpose-matrix).
@@ -34,7 +35,17 @@ optionally creating a collection in the profile database. This is especially
 useful if you need to have more control over the number of clusters to work
 with if you are planning to refine them manually later.
 
+`profile_db` `clustering` `collections` 
 
+
+**Example uses and other resources**
+
+
+* [Original CONCOCT paper by Alneberg et al.](https://www.nature.com/articles/nmeth.3103)
+
+* [An example usage of the program in the context of the Infant Gut Dataset by Sharon et al.](http://merenlab.org/tutorials/infant-gut/#from-fragmentation-to-conflation-error-a-meren-lab-heuristic-to-fight-back)
+
+* [The use of this program in the context of initial binning of TARA population genomes](http://merenlab.org/data/2017_Delmont_et_al_HBDs/#initial-automated-binning-with-concoct)
 
 
 
@@ -86,21 +97,24 @@ given anvi&#39;o will write computed output to misc data tables of Pan Database.
 
 ```
 anvi-compute-ani [-h] [-i FILE_PATH] [-e FILE_PATH] -o DIR_PATH
-                 [-p PAN_DB] [-T NUM_THREADS] [--log-file FILE_PATH]
+                 [-p PAN_DB]
+                 [--min-alignment-fraction MIN_ALIGNMENT_FRACTION]
+                 [--significant-alignment-length SIGNIFICANT_ALIGNMENT_LENGTH]
                  [--method {ANIm,ANIb,ANIblastall,TETRA}]
                  [--distance DISTANCE_METRIC]
-                 [--linkage LINKAGE_METHOD] [--just-do-it]
+                 [--linkage LINKAGE_METHOD] [-T NUM_THREADS]
+                 [--just-do-it] [--log-file FILE_PATH]
 ```
 
 **Parameters**
 
 
 
-**optional arguments:** 
+**INPUT OPTIONS:**   Tell anvi&#39;o what you want.
 
 ```
   -i FILE_PATH, --internal-genomes FILE_PATH
-                        A four-column TAB-delimited flat text file. The header
+                        A five-column TAB-delimited flat text file. The header
                         line must contain thse columns: 'name', 'bin_id',
                         'collection_id', 'profile_db_path', 'contigs_db_path'.
                         Each line should list a single entry, where 'name' can
@@ -114,20 +128,68 @@ anvi-compute-ani [-h] [-i FILE_PATH] [-e FILE_PATH] -o DIR_PATH
                         describe a single entry, where the first column is the
                         name of the genome (or MAG), and the second column is
                         the anvi'o contigs database generated for this genome.
+```
+
+
+
+**OUTPUT OPTIONS:**   Tell anvi&#39;o where to store your results.
+
+```
   -o DIR_PATH, --output-dir DIR_PATH
                         Directory path for output files
   -p PAN_DB, --pan-db PAN_DB
-                        Anvi'o pan database
-  -T NUM_THREADS, --num-threads NUM_THREADS
-                        Maximum number of threads to use for multithreading
-                        whenever possible. Very conservatively, the default is
-                        1. It is a good idea to not exceed the number of CPUs
-                        / cores on your system. Plus, please be careful with
-                        this option if you are running your commands on a SGE
-                        --if you are clusterizing your runs, and asking for
-                        multiple threads to use, you may deplete your
-                        resources very fast.
-  --log-file FILE_PATH  File path to store debug/output messages.
+                        This is totally ooptional, but very useful when
+                        applicable. If you are running ANI for genomes for
+                        which you already have an anvi'o pangeome, then you
+                        can show where the pan database is and anvi'o would
+                        automatically add the results into the misc data
+                        tables of your pangenome. Those data can then be shown
+                        as ANI heatmaps on the pan interactive interface
+                        through the 'layers' tab.
+```
+
+
+
+**FILTERING HITS:**   These filters can save lives. Ask Luke.
+
+```
+  --min-alignment-fraction MIN_ALIGNMENT_FRACTION
+                        In some cases you may get high raw ANI estimates
+                        between two genomes that have nothing to do with each
+                        other simply because only a small fraction of their
+                        content may be aligned. This filter will eliminate ANI
+                        scores between two genomes if the alignment fraction
+                        is less than you deem trustable. When you set a value,
+                        anvi'o will go through the ANI results, and set
+                        percent identity scores between two genomes to 0 if
+                        the alignment fraction *between either of them* is
+                        less than the parameter described here. The default is
+                        0.0, so every hit is reported, but you can go rebel,
+                        and choose any value between 0.0 and 1.0.
+  --significant-alignment-length SIGNIFICANT_ALIGNMENT_LENGTH
+                        So --min-alignmnet-fraction discards any hit that is
+                        coming from alignments that represent shorter
+                        fractions of genomes, but what if you still don't want
+                        to miss an alignment that is longer than an X number
+                        of nucleotides regardless of what fraction of the
+                        genome it represents? Well, this parameter is to
+                        recover things that may be lost due to --min-
+                        alignment-fraction parameter. Let's say, if you set
+                        --min-alignment-fraction to '0.05', and this parameter
+                        to '5000', anvi'o will keep hits from alignments that
+                        are longer than 5000 nts, EVEN IF THEY REPRESENT less
+                        than 5% of a given genome pair. Basically if --min-
+                        alignment-fraction is your shield to protect yourself
+                        from incoming garbage, --significant-alignment-length
+                        is your chopstick to pick out those that may be
+                        interesting, and you are a true warrior here.
+```
+
+
+
+**pyANI METHOD:**   Tell anvi&#39;o to tell pyANI what method you wish to use.
+
+```
   --method {ANIm,ANIb,ANIblastall,TETRA}
                         Method for pyANI. The default is ANIb. You must have
                         the necessary binary in path for whichever method you
@@ -139,14 +201,42 @@ anvi-compute-ani [-h] [-i FILE_PATH] [-e FILE_PATH] -o DIR_PATH
                         the legacy BLASTN to align 1020nt fragments Finally,
                         'TETRA': calculates tetranucleotide frequencies of
                         each input sequence
+```
+
+
+
+**HIERARCHICAL CLUSTERING:**   Once pyANI is done with its magic, it reports ANI between genomes as
+  distance matrix files, which can be clustered into nice looking
+  dendrograms to display the relationships between genomes nicely (in the
+  anvi&#39;o interface and elsewhere). Here you can set the distance metric and
+  the linkage algorithm for that.
+
+```
   --distance DISTANCE_METRIC
                         The distance metric for the hierarchical clustering.
                         The default is "euclidean".
   --linkage LINKAGE_METHOD
                         The linkage method for the hierarchical clustering.
                         The default is "ward".
+```
+
+
+
+**OTHER IMPORTANT STUFF:**   Yes. You&#39;re almost done.
+
+```
+  -T NUM_THREADS, --num-threads NUM_THREADS
+                        Maximum number of threads to use for multithreading
+                        whenever possible. Very conservatively, the default is
+                        1. It is a good idea to not exceed the number of CPUs
+                        / cores on your system. Plus, please be careful with
+                        this option if you are running your commands on a SGE
+                        --if you are clusterizing your runs, and asking for
+                        multiple threads to use, you may deplete your
+                        resources very fast.
   --just-do-it          Don't bother me with questions or warnings, just do
                         it.
+  --log-file FILE_PATH  File path to store debug/output messages.
 ```
 
 
@@ -435,7 +525,8 @@ anvi-delete-misc-data [-h] -p PAN_OR_PROFILE_DB -t NAME
 
 ```
   -p PAN_OR_PROFILE_DB, --pan-or-profile-db PAN_OR_PROFILE_DB
-                        Anvi'o pan or profile database
+                        Anvi'o pan or profile database (and even genes
+                        database in appropriate contexts).
   -t NAME, --target-data-table NAME
                         The target table is the table you are interested in
                         accessing. Currently it can be 'items','layers', or
@@ -481,7 +572,8 @@ anvi-delete-state [-h] -p PAN_OR_PROFILE_DB [-s STATE_NAME]
 
 ```
   -p PAN_OR_PROFILE_DB, --pan-or-profile-db PAN_OR_PROFILE_DB
-                        Anvi'o pan or profile database
+                        Anvi'o pan or profile database (and even genes
+                        database in appropriate contexts).
   -s STATE_NAME, --state STATE_NAME
                         The state name to ... delete :(
   --list-states         Show available states and exit.
@@ -505,7 +597,7 @@ statistics
 ```
 anvi-display-contigs-stats [-h] [--report-as-text] [-o FILE_PATH]
                            [-I IP_ADDR] [-P INT] [--browser-path PATH]
-                           [--server-only]
+                           [--server-only] [--password-protected]
                            CONTIG DATABASES) [CONTIG DATABASE(S ...]
 ```
 
@@ -559,6 +651,12 @@ anvi-display-contigs-stats [-h] [--report-as-text] [-o FILE_PATH]
                         fire up a browser that connects to the server. If you
                         have other plans, and want to start the server without
                         calling the browser, this is the flag you need.
+  --password-protected  If this flag is set, command line tool will ask you to
+                        enter a password and interactive interface will be
+                        only accessible after entering same password. This
+                        option is recommended for shared machines like
+                        clusters or shared networks where computers are not
+                        isolated.
 ```
 
 
@@ -583,7 +681,7 @@ anvi-display-pan [-h] -p PAN_DB [-g GENOMES_STORAGE] [-d VIEW_DATA]
                  [--export-svg FILE_PATH] [--skip-init-functions]
                  [--dry-run] [--skip-auto-ordering] [-I IP_ADDR]
                  [-P INT] [--browser-path PATH] [--read-only]
-                 [--server-only]
+                 [--server-only] [--password-protected]
 ```
 
 **Parameters**
@@ -708,6 +806,12 @@ anvi-display-pan [-h] -p PAN_DB [-g GENOMES_STORAGE] [-d VIEW_DATA]
                         fire up a browser that connects to the server. If you
                         have other plans, and want to start the server without
                         calling the browser, this is the flag you need.
+  --password-protected  If this flag is set, command line tool will ask you to
+                        enter a password and interactive interface will be
+                        only accessible after entering same password. This
+                        option is recommended for shared machines like
+                        clusters or shared networks where computers are not
+                        isolated.
 ```
 
 
@@ -734,6 +838,7 @@ anvi-display-structure [-h] -s STRUCTURE_DB [-p PROFILE_DB]
                        [--gene-caller-ids GENE_CALLER_IDS] [-j FLOAT]
                        [--SAAVs-only] [--SCVs-only] [-I IP_ADDR]
                        [-P INT] [--browser-path PATH] [--server-only]
+                       [--password-protected]
 ```
 
 **Parameters**
@@ -841,6 +946,12 @@ anvi-display-structure [-h] -s STRUCTURE_DB [-p PROFILE_DB]
                         fire up a browser that connects to the server. If you
                         have other plans, and want to start the server without
                         calling the browser, this is the flag you need.
+  --password-protected  If this flag is set, command line tool will ask you to
+                        enter a password and interactive interface will be
+                        only accessible after entering same password. This
+                        option is recommended for shared machines like
+                        clusters or shared networks where computers are not
+                        isolated.
 ```
 
 
@@ -945,7 +1056,8 @@ anvi-export-collection [-h] -p PAN_OR_PROFILE_DB [-C COLLECTION_NAME]
 
 ```
   -p PAN_OR_PROFILE_DB, --pan-or-profile-db PAN_OR_PROFILE_DB
-                        Anvi'o pan or profile database
+                        Anvi'o pan or profile database (and even genes
+                        database in appropriate contexts).
   -C COLLECTION_NAME, --collection-name COLLECTION_NAME
                         Collection name.
   -O FILENAME_PREFIX, --output-file-prefix FILENAME_PREFIX
@@ -1108,11 +1220,14 @@ anvi-export-gene-coverage-and-detection [-h] -p PROFILE_DB -c
 
 ## anvi-export-locus
 
-Search for a function or HMM hit and for each matching gene get the sequence
-including a block of genes the around the match. The output will be written to
-a fasta file (or multiple files, see --separate-fasta option below. The
-headers of the sequences in the fasta file hold some information about the
-gene.)
+This program helps you cut a &#39;locus&#39; from a larger context. Anvi&#39;o does this
+by starting from one gene, and extending its selection based on how many genes
+you want from its upstream or downstream in the contig its found. The first
+gene anvi&#39;o focuses on is defined by you: you can either use a function name
+in any of the functional annotation databases or default or user-defined HMMs,
+or use a gene callers ID. If everything goes alright, you will get a separate
+contigs database for every matching gene anvi&#39;o found in your master contigs
+database. Enjoy your mini contigs databases.
 
 
 
@@ -1123,7 +1238,7 @@ gene.)
 ```
 anvi-export-locus [-h] -c CONTIGS_DB -n NUM_GENES [-s SEARCH_TERM]
                   [--gene-caller-ids GENE_CALLER_IDS]
-                  [--delimiter CHAR] -O FILENAME_PREFIX
+                  [--delimiter CHAR] [-o DIR_PATH] -O FILENAME_PREFIX
                   [--separate-fasta] [--use-hmm]
                   [--hmm-sources SOURCE NAME] [-l] [-W]
                   [--remove-partial-hits] [--never-reverse-complement]
@@ -1189,6 +1304,8 @@ anvi-export-locus [-h] -c CONTIGS_DB -n NUM_GENES [-s SEARCH_TERM]
   one FASTA per match (see --separate-fasta)
 
 ```
+  -o DIR_PATH, --output-dir DIR_PATH
+                        Directory path for output files
   -O FILENAME_PREFIX, --output-file-prefix FILENAME_PREFIX
                         A prefix to be used while naming the output files (no
                         file type extensions please; just a prefix).
@@ -1261,7 +1378,8 @@ anvi-export-misc-data [-h] -p PAN_OR_PROFILE_DB -t NAME [-D NAME]
 
 ```
   -p PAN_OR_PROFILE_DB, --pan-or-profile-db PAN_OR_PROFILE_DB
-                        Anvi'o pan or profile database
+                        Anvi'o pan or profile database (and even genes
+                        database in appropriate contexts).
   -t NAME, --target-data-table NAME
                         The target table is the table you are interested in
                         accessing. Currently it can be 'items','layers', or
@@ -1395,7 +1513,8 @@ anvi-export-state [-h] -p PAN_OR_PROFILE_DB [-o FILE_PATH]
 
 ```
   -p PAN_OR_PROFILE_DB, --pan-or-profile-db PAN_OR_PROFILE_DB
-                        Anvi'o pan or profile database
+                        Anvi'o pan or profile database (and even genes
+                        database in appropriate contexts).
   -o FILE_PATH, --output-file FILE_PATH
                         File path to store results.
   -s STATE_NAME, --state STATE_NAME
@@ -1695,6 +1814,97 @@ anvi-gen-gene-consensus-sequences [-h] -p PROFILE_DB -c CONTIGS_DB
 
 
 
+## anvi-gen-gene-level-stats-databases
+
+A program to compute genes databases for a ginen set of bins stored in an
+anvi&#39;o collection. Genes databases store gene-level coverage and detection
+statistics, and they are usually computed and generated automatically when
+they are required (such as running anvi-interactive with `--gene-mode` flag).
+This program allows you to pre-compute them if you don&#39;t want them to be done
+all at once.
+
+
+
+
+
+**Usage**
+
+```
+anvi-gen-gene-level-stats-databases [-h] -c CONTIGS_DB -p PROFILE_DB
+                                    [-C COLLECTION_NAME] [-b BIN_NAME]
+                                    [-B FILE_PATH]
+                                    [--zeros-are-outliers]
+                                    [--outliers-threshold NUM]
+                                    [--just-do-it]
+```
+
+**Parameters**
+
+
+
+**INPUT DATABASES:**   Which anvi&#39;o databases do you wish to work today?
+
+```
+  -c CONTIGS_DB, --contigs-db CONTIGS_DB
+                        Anvi'o contigs database generated by 'anvi-gen-
+                        contigs'
+  -p PROFILE_DB, --profile-db PROFILE_DB
+                        Anvi'o profile database
+```
+
+
+
+**BIN(S) AND COLLECTION:**   You can select a bin, multiple bins, or you can simply focus on every bin
+  in a collection by providing only a collection name. Once you are done
+  with your selection, anvi&#39;o will generate an individual genes database for
+  each of the bin it finds.
+
+```
+  -C COLLECTION_NAME, --collection-name COLLECTION_NAME
+                        Collection name.
+  -b BIN_NAME, --bin-id BIN_NAME
+                        Bin name you are interested in.
+  -B FILE_PATH, --bin-ids-file FILE_PATH
+                        Text file for bins (each line should be a unique bin
+                        id).
+```
+
+
+
+**ADDITIONAL PARAMETERS:**   These parameters are those that are critical to identify outlier
+  nucleotide positions and how to define what should be included in those
+  calculations. In most cases you can leave them as is, and things are going
+  to be alright.
+
+```
+  --zeros-are-outliers  If you want all zero coverage positions to be treated
+                        like outliers then use this flag. The reason to treat
+                        zero coverage as outliers is because when mapping
+                        reads to a reference we could get many zero positions
+                        due to accessory genes. These positions then skew the
+                        average values that we compute.
+  --outliers-threshold NUM
+                        Threshold to use for the outlier detection. The
+                        default value is '1.5'. Absolute deviation around the
+                        median is used. To read more about the method please
+                        refer to: 'How to Detect and Handle Outliers' by Boris
+                        Iglewicz and David Hoaglin
+                        (doi:10.1016/j.jesp.2013.03.013).
+```
+
+
+
+**PARAMETERS OF CONVENIENCE:**   They say they save lives.
+
+```
+  --just-do-it          Don't bother me with questions or warnings, just do
+                        it.
+```
+
+
+
+
+
 ## anvi-gen-genomes-storage
 
 Create a genome storage from internal or external genomes for a pan genome
@@ -1736,7 +1946,7 @@ anvi-gen-genomes-storage [-h] [-e FILE_PATH] [-i FILE_PATH]
 
 ```
   -i FILE_PATH, --internal-genomes FILE_PATH
-                        A four-column TAB-delimited flat text file. The header
+                        A five-column TAB-delimited flat text file. The header
                         line must contain thse columns: 'name', 'bin_id',
                         'collection_id', 'profile_db_path', 'contigs_db_path'.
                         Each line should list a single entry, where 'name' can
@@ -2505,7 +2715,13 @@ anvi-get-codon-frequencies [-h] -i INPUT_BAM -c CONTIGS_DB
 A program that takes a pangenome, and a categorical layer additional data
 item, and reports back the functions enriched in per category.
 
+`pangenomics` `functions` 
 
+
+**Example uses and other resources**
+
+
+* [An example usage of the program in the context of the Prochlorococcus metapangenome from Delmont and Eren 2018 is included in the pangenomics tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/)
 
 
 
@@ -2964,7 +3180,7 @@ anvi-get-sequences-for-hmm-hits [-h] [-c CONTIGS_DB] [-p PROFILE_DB]
                         name of the genome (or MAG), and the second column is
                         the anvi'o contigs database generated for this genome.
   -i FILE_PATH, --internal-genomes FILE_PATH
-                        A four-column TAB-delimited flat text file. The header
+                        A five-column TAB-delimited flat text file. The header
                         line must contain thse columns: 'name', 'bin_id',
                         'collection_id', 'profile_db_path', 'contigs_db_path'.
                         Each line should list a single entry, where 'name' can
@@ -3301,7 +3517,8 @@ anvi-import-collection [-h] [-c CONTIGS_DB] [-p PAN_OR_PROFILE_DB] -C
                         Anvi'o contigs database generated by 'anvi-gen-
                         contigs'
   -p PAN_OR_PROFILE_DB, --pan-or-profile-db PAN_OR_PROFILE_DB
-                        Anvi'o pan or profile database
+                        Anvi'o pan or profile database (and even genes
+                        database in appropriate contexts).
   -C COLLECTION_NAME, --collection-name COLLECTION_NAME
                         Collection name.
   --bins-info BINS_INFO
@@ -3423,7 +3640,8 @@ anvi-import-misc-data [-h] -p PAN_OR_PROFILE_DB -t NAME [-D NAME]
 
 ```
   -p PAN_OR_PROFILE_DB, --pan-or-profile-db PAN_OR_PROFILE_DB
-                        Anvi'o pan or profile database
+                        Anvi'o pan or profile database (and even genes
+                        database in appropriate contexts).
   -t NAME, --target-data-table NAME
                         The target table is the table you are interested in
                         accessing. Currently it can be 'items','layers', or
@@ -3467,7 +3685,8 @@ anvi-import-state [-h] -p PAN_OR_PROFILE_DB -s STATE_FILE -n STATE_NAME
 
 ```
   -p PAN_OR_PROFILE_DB, --pan-or-profile-db PAN_OR_PROFILE_DB
-                        Anvi'o pan or profile database
+                        Anvi'o pan or profile database (and even genes
+                        database in appropriate contexts).
   -s STATE_FILE, --state STATE_FILE
                         JSON serializable anvi'o state file.
   -n STATE_NAME, --name STATE_NAME
@@ -3635,6 +3854,7 @@ anvi-interactive [-h] [-p PROFILE_DB] [-c CONTIGS_DB]
                  [--distance DISTANCE_METRIC]
                  [--linkage LINKAGE_METHOD] [-I IP_ADDR] [-P INT]
                  [--browser-path PATH] [--read-only] [--server-only]
+                 [--password-protected]
 ```
 
 **Parameters**
@@ -3891,6 +4111,12 @@ anvi-interactive [-h] [-p PROFILE_DB] [-c CONTIGS_DB]
                         fire up a browser that connects to the server. If you
                         have other plans, and want to start the server without
                         calling the browser, this is the flag you need.
+  --password-protected  If this flag is set, command line tool will ask you to
+                        enter a password and interactive interface will be
+                        only accessible after entering same password. This
+                        option is recommended for shared machines like
+                        clusters or shared networks where computers are not
+                        isolated.
 ```
 
 
@@ -4058,14 +4284,11 @@ anvi-mcg-classifier [-h] -p PROFILE_DB -c CONTIGS_DB
                         the genome).
   --outliers-threshold NUM
                         Threshold to use for the outlier detection. The
-                        default value is 2.5. Absolute deviation around the
+                        default value is '1.5'. Absolute deviation around the
                         median is used. To read more about the method please
-                        refer to: Boris Iglewicz and David Hoaglin (1993),
-                        "Volume 16: How to Detect and Handle Outliers", The
-                        ASQC Basic References in Quality Control: Statistical
-                        Techniques, Edward F. Mykytka, Ph.D., Editor. Or to: h
-                        ttp://www.sciencedirect.com/science/article/pii/S00221
-                        03113000668
+                        refer to: 'How to Detect and Handle Outliers' by Boris
+                        Iglewicz and David Hoaglin
+                        (doi:10.1016/j.jesp.2013.03.013).
   --zeros-are-outliers  If you want all zero coverage positions to be treated
                         like outliers then use this flag. The reason to treat
                         zero coverage as outliers is because when mapping
@@ -4200,7 +4423,8 @@ anvi-merge-bins [-h] -p PAN_OR_PROFILE_DB [-C COLLECTION_NAME]
 
 ```
   -p PAN_OR_PROFILE_DB, --pan-or-profile-db PAN_OR_PROFILE_DB
-                        Anvi'o pan or profile database
+                        Anvi'o pan or profile database (and even genes
+                        database in appropriate contexts).
   -C COLLECTION_NAME, --collection-name COLLECTION_NAME
                         Collection name.
 ```
@@ -4579,7 +4803,13 @@ anvi-pan-genome [-h] -g GENOMES_STORAGE [-G GENOME_NAMES]
 
 Main entry point for Post-Assembly Metagenomics Pipeline
 
+`metagenomics` `profile_db` `contigs_db` `bam` `variability` `clustering` 
 
+
+**Example uses and other resources**
+
+
+* [The usage of the profiler in metagenomics workflow](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#anvi-profile)
 
 
 
@@ -4927,7 +5157,7 @@ anvi-refine [-h] -p PROFILE_DB -c CONTIGS_DB [-C COLLECTION_NAME]
             [--export-svg FILE_PATH] [--dry-run]
             [--skip-init-functions] [--skip-auto-ordering] [-I IP_ADDR]
             [-P INT] [--browser-path PATH] [--read-only]
-            [--server-only]
+            [--server-only] [--password-protected]
 ```
 
 **Parameters**
@@ -5069,6 +5299,12 @@ anvi-refine [-h] -p PROFILE_DB -c CONTIGS_DB [-C COLLECTION_NAME]
                         fire up a browser that connects to the server. If you
                         have other plans, and want to start the server without
                         calling the browser, this is the flag you need.
+  --password-protected  If this flag is set, command line tool will ask you to
+                        enter a password and interactive interface will be
+                        only accessible after entering same password. This
+                        option is recommended for shared machines like
+                        clusters or shared networks where computers are not
+                        isolated.
 ```
 
 
@@ -5395,7 +5631,13 @@ anvi-run-pfams [-h] -c CONTIGS_DB [--pfam-data-dir PFAM_DATA_DIR]
 optional arguments:
   -h, --help            show this help message and exit
 
+`metagenomics` `phylogenomics` `contigs` `pangenomics` `metapangenomics` 
 
+
+**Example uses and other resources**
+
+
+* [Tutorial](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/)
 
 
 
@@ -5802,7 +6044,8 @@ anvi-show-collections-and-bins [-h] -p PAN_OR_PROFILE_DB
 
 ```
   -p PAN_OR_PROFILE_DB, --pan-or-profile-db PAN_OR_PROFILE_DB
-                        Anvi'o pan or profile database
+                        Anvi'o pan or profile database (and even genes
+                        database in appropriate contexts).
 ```
 
 
@@ -5831,7 +6074,8 @@ anvi-show-misc-data [-h] -p PAN_OR_PROFILE_DB [-t NAME] [-D NAME]
 
 ```
   -p PAN_OR_PROFILE_DB, --pan-or-profile-db PAN_OR_PROFILE_DB
-                        Anvi'o pan or profile database
+                        Anvi'o pan or profile database (and even genes
+                        database in appropriate contexts).
   -t NAME, --target-data-table NAME
                         The target table is the table you are interested in
                         accessing. Currently it can be 'items','layers', or
@@ -5988,7 +6232,8 @@ anvi-summarize [-h] -p PAN_OR_PROFILE_DB [-c CONTIGS_DB]
 
 ```
   -p PAN_OR_PROFILE_DB, --pan-or-profile-db PAN_OR_PROFILE_DB
-                        Anvi'o pan or profile database
+                        Anvi'o pan or profile database (and even genes
+                        database in appropriate contexts).
 ```
 
 
@@ -6230,7 +6475,8 @@ anvi-script-add-default-collection [-h] -p PAN_OR_PROFILE_DB
 
 ```
   -p PAN_OR_PROFILE_DB, --pan-or-profile-db PAN_OR_PROFILE_DB
-                        Anvi'o pan or profile database
+                        Anvi'o pan or profile database (and even genes
+                        database in appropriate contexts).
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
                         contigs'
@@ -6322,6 +6568,12 @@ Reformat FASTA file (remove contigs based on length, or based on a given list
 of deflines, and/or generate an output with simpler names)
 
 
+
+
+**Example uses and other resources**
+
+
+* [The context in which the script was conceived](https://anvio.slack.com/archives/C8SFMGYF3/p1518192776000335)
 
 
 
