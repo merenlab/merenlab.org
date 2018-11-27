@@ -80,6 +80,32 @@ As you can see,
 
 If the **accession** information is not available to you, it is OK to leave it blank. If you have no e-values associated with your annotations, it is OK to put `0` for every entry. If there are multiple annotations from a single source for a single gene call, anvi'o uses e-values to use only the most significant one to show in interfaces.
 
+## EggNOG database + emapper
+
+Anvi'o has a parser for emapper output for [EggNOG database](http://eggnogdb.embl.de). After exporting your amino acid seqeunces from your contigs database,
+
+``` bash
+$ anvi-get-sequences-for-gene-calls -c CONTIGS.db \
+                                    --get-aa-sequences \
+                                    -o amino-acid-sequences.fa
+```
+
+You can either do it online, through the [interface on EggNOG](http://eggnogdb.embl.de/#/app/emapper), or locally by following the relevant [tutorial on emapper](https://github.com/jhcepas/eggnog-mapper).
+
+Once you have your output file, say `amino-acid-sequences.fa.emapper.annotations`, you can import it back into the contigs database from which you exported the amino acid sequences:
+
+``` bash
+anvi-script-run-eggnog-mapper -c CONTIGS.db \
+                              --annotation amino-acid-sequences.fa.emapper.annotations \
+                              --use-version 1.0.3
+```
+
+{:.notice}
+The script is called 'run' eggnog mapper, but what it does is to import its results. Well, historically, this script could run `emapper` on a given contigs database automatically and import results back into it seamlessly without leaving any room for user errors. However, due to the `SIGINT` and `SIGTERM` calls in the [emapper server code](https://github.com/jhcepas/eggnog-mapper/blob/master/eggnogmapper/server.py), the software is not quite software friendly and can't be called from within other software in a straightforward manner. Hence the `--annotation` flag as a workaround, so you can import your own results, and the weird name for the anvi'o script. Becasue bioinformatics.
+
+The version in the command line above is the version number of `emapper` you used for annotation (because the number of fields change from one version to the other, and anvi'o needs to know exactly which version you used).
+
+
 ## InterProScan
 
 Anvi'o has a parser for [InterProScan](http://www.ebi.ac.uk/interpro/download.html). To use InterProScan you should first export AA sequences for all your gene calls:
