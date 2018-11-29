@@ -1126,10 +1126,6 @@ The sample names must be identical to the sample names that are provided in the 
 Once you have such a file, and let's say you named it `kraken.txt`, simply add this to your config file:
 
 ```
-    "krakenhll": {
-        "run": true,
-        "--db": "/path/to/your/kraken/database/"
-    },
     "kraken_txt": "kraken.txt"
 ```
 
