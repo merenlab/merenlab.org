@@ -1,6 +1,24 @@
+{% assign current = 0 %}
+{% assign past = 0 %}
+{% assign forever = 0 %}
+
+{% for person in site.data.people %}
+    {% if person.official and person.tenure_end == nil %}{% assign current = current | plus: 1 %}{% endif %}
+    {% if person.official and person.tenure_end %}{% assign past = past | plus: 1 %}{% endif %}
+    {% if person.contributor %}{% assign forever = forever | plus: 1 %}{% endif %}
+{% endfor %}
+
 <div class="people">
 
-<p class="persons-title">Current members (sorted by name)</p>
+<div class="category-box" style="margin-top:50px">
+    <a href="#current"><span class="category-item">Current ({{ current }})</span></a>
+    <a href="#past"><span class="category-item">Past ({{ past }})</span></a>
+    <a href="#forever"><span class="category-item">Forever ({{ forever }})</span></a>
+</div>
+
+<p class="persons-title" href="current">Current members (sorted by name)<a name="current">&nbsp;</a></p>
+
+
 
 {% assign people_sorted = site.data.people | sort:"name" %}
 
@@ -50,7 +68,7 @@
 
 <div class="alumni">
 
-<p class="persons-title">Those we miss (sorted by date)
+<p class="persons-title">Those we miss (sorted by date)<a name="past">&nbsp;</a></p>
 
 {% for person in site.data.people %}
     {% if person.official and person.tenure_end %}
@@ -79,7 +97,7 @@
 
 <div class="heroes">
 
-<p class="persons-title">Contributing heroes
+<p class="persons-title">Contributing heroes<a name="forever">&nbsp;</a></p>
 
 {% for person in site.data.people %}
     {% if person.contributor %}
