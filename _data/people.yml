@@ -192,8 +192,20 @@
 
 - alias: mike
   name: Mike Lee
+  avatar: bio-mike.jpg
+  email: michael.lee0517@gmail.com
+  github: AstrobioMike
+  web: https://astrobiomike.github.io
   role: Contributing hero
   twitter: AstrobioMike
+  linkedin: AstrobioMike
+  affiliations:
+    - title: NASA Space Biology Fellow
+      inst: NASA Ames Research Center
+      inst_link: https://www.nasa.gov/ames
+    - title: JCVI Research Fellow
+      inst: J. Craig Venter Institute
+      inst_link: https://www.jcvi.org/
 
 - alias: veronika
   name: Veronika Kivenson
