@@ -174,10 +174,6 @@
       inst: Section of Pediatric Gastroenterology, Hepatology and Nutrition at the University of Chicago
       inst_link: http://pediatrics.uchicago.edu/education/fellowship/gastroenterology
 
-####################################################################################
-# Non-member friends
-####################################################################################
-
 - alias: kota
   official: True
   name: Kota Bear
@@ -190,7 +186,12 @@
   affiliations:
     - title: Honorary Member
 
+####################################################################################
+# Non-member friends
+####################################################################################
+
 - alias: mike
+  contributor: True
   name: Mike Lee
   avatar: bio-mike.jpg
   email: michael.lee0517@gmail.com
@@ -208,23 +209,31 @@
       inst_link: https://www.jcvi.org/
 
 - alias: veronika
+  avatar: bio-veronika.jpg
+  contributor: True
   name: Veronika Kivenson
   role: Contributing hero
   web: http://methane.geol.ucsb.edu/Home.html
   twitter: v_kivenson
 
 - alias: antti
+  contributor: True
+  avatar: bio-anonymous.jpg
   name: Antti Karkman
   role: Contributing hero
   github: karkman
 
 - alias: elaina
+  contributor: True
+  avatar: bio-elaina.jpg
   name: Elaina Graham
   role: Contributing hero
   github: edgraham
-  twitter: perilous_unkown
+  twitter: perilousUnknown
 
 - alias: bryan
+  contributor: True
+  avatar: bio-anonymous.jpg
   name: Bryan Merrill
   role: Contributing hero
   github: brymerr921
