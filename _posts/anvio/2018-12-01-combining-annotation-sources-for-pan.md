@@ -10,31 +10,33 @@ authors: [mike]
 
 {% include _toc.html %}
 
+{% capture images %}{{site.url}}/images/anvio/2018-12-01-combining-annotation-sources-for-pan{% endcapture %}
+
 {:.notice}
 This tutorial was written using anvi'o `v5.2`.  
 
 
 ## Introduction
 
-When doing a [pangenomic analysis with anvi'o](/2016/11/08/pangenomics-v2/), we will often want to integrate some newly recovered genomes with available reference genomes. Currently, it is fairly straightforward as all you need is FASTA files for each genome to call genes and annotate them with functions all n anvi'o. However, this doesn't take advantage of the existing annotations for publically available reference genomes, and depending on your purposes, you may want this.
+When doing a [pangenomic analysis with anvi'o](/2016/11/08/pangenomics-v2/), we will often want to integrate some newly recovered genomes with available reference genomes. Currently, it is fairly straightforward as all you need is FASTA files for each genome to call genes and annotate them with functions all in anvi'o. However, this doesn't take advantage of the existing annotations for publically available reference genomes, and depending on your purposes, you may want this.
 
 It is also possible that you may have already annotated your new isolate or metagenome-assembled genomes (MAGs) with [NCBI's PGAP (Prokaryotic Genome Annotation Pipeline)](https://www.ncbi.nlm.nih.gov/genome/annotation_prok/), and may want to use those annotations within anvi'o. 
 
-The purpose of this post is to demonstrate a way to incorporate new genomes with reference genomes with accession IDs from NCBI, while maintaining their vetted reference-genome annotations.
+The purpose of this post is to demonstrate a way to incorporate new genomes with reference genomes from NCBI, while maintaining their vetted reference-genome annotations.
 
 {:.warning}
-The contents of this post is a little hacky, but it's the only way I've figured out how to do it so far – plus it's fun because we get to play with bash 😃
+The contents of this post is a little hacky, but it's the only way I've figured out how to do it so far – plus it's fun because we get to play with BASH 😃
 
 ## Data
 
 To make it easier for you to follow this post with your own data, I will go through it by using some of the *Prochlorococcus* genomes incorporated in the recent [Delmont and Eren study](https://peerj.com/articles/4320/).
 
-This study included both isolate and single amplified genomes (SAGs) from [Kashtan et al. 2014](http://science.sciencemag.org/content/344/6182/416)), and is also used as example data in the stellar [pangenomics workflow page](/2016/11/08/pangenomics-v2/) (seriously, if you haven't yet, read through that page sometime if you do or plan to do microbial pangenomics, it's ever-growing and shows a lot of anvi'o's pan-functionality). None of these genomes are *new* genomes in this case, but since isolate genomes are annotated by [NCBI's PGAP](https://www.ncbi.nlm.nih.gov/genome/annotation_prok/) when archived in NCBI, and SAGs are not, the SAGs can serve as 'newly recovered genomes' to fullfil our purpose here. We will use FASTA files for SAGs, so they will be treated the same way you would have treated your newly recoverd genomes. Here's the summary of what we'll be using:
+This study included both isolate and single-cell amplified genomes (SAGs) from [Kashtan et al. 2014](http://science.sciencemag.org/content/344/6182/416)), and is also used as example data in the stellar [pangenomics workflow page](/2016/11/08/pangenomics-v2/) (seriously, if you haven't yet, read through that page sometime if you do or plan to do microbial pangenomics, it's ever-growing and shows a lot of anvi'o's pan-functionality). None of these genomes are *new* genomes in this case, but since isolate genomes are annotated by [NCBI's PGAP](https://www.ncbi.nlm.nih.gov/genome/annotation_prok/) when archived in NCBI, and SAGs are not, the SAGs can serve as 'newly recovered genomes' to fullfil our purpose here. We will use FASTA files for SAGs, so they will be treated the same way we would treat newly recovered genomes. Here's the summary of what we'll be using:
 
 |Genome|Assembly accession|Status|NCBI annotations?|Starting file type|
 |:------:|:------:|:-----:|:----:|:-----:|
-|MIT9301|GCA_000015965.1|Reference isolate genome|Yes|Genbank|
-|MIT9314|GCA_000760035.1|Reference isolate genome|Yes|Genbank|
+|MIT9301|GCA_000015965.1|Reference isolate genome|Yes|GenBank|
+|MIT9314|GCA_000760035.1|Reference isolate genome|Yes|GenBank|
 |JFNU01|GCA_000634515.1|"Newly recovered" genome|No|Fasta|
 |JFMG01|GCA_000635555.1|"Newly recovered" genome|No|Fasta|
 
@@ -56,60 +58,39 @@ gunzip *.gz
 
 ## The process
 
-As I mentioned before, we need to get a little hacky to do this. If you have questions, please feel free to send a comment down below.
+As I mentioned before, we need to get a little hacky to do this. If you have questions or ways to improve things, please feel free to send a comment down below.
 
-For things to work with the infrastructure currently in place in anvi'o, we need two things: (1) the same gene caller needs to be used for all genomes, and (2) the same type of functional annotations need to have been employed on each individual genome we are integrating. Because otherwise the pangenomci workflow will complain about the fact that you are trying to combine genomes, genes in which have been identified with different gene callers. A valid concern on anvi'o's part, but here we will trick it as we know what we are doing.
+For things to work with the infrastructure currently in place in anvi'o, the same gene caller needs to be used for all genomes. This is because otherwise the pangenomic workflow will complain about the fact that we are trying to combine genomes whose genes have been identified with different gene callers. A valid concern on anvi'o's part, but here we will trick it as we know what we are doing.
 
-To meet these criteria (or more accurately to make anvi'o think we do), I've found it easiest to make one contigs database holding all genomes, put them into bins in a collection, and then send them into `anvi-pan-genome` as ["internal genomes"](/2016/11/08/pangenomics-v2/#generating-an-anvio-genomes-storage).
+To meet this criterion (or more accurately to make anvi'o think we do), I've found it easiest to make one contigs database holding all genomes, put them into bins in a collection, and then send them into `anvi-pan-genome` as ["internal genomes"](/2016/11/08/pangenomics-v2/#generating-an-anvio-genomes-storage).
 
 Here's how I will do this throughout this post:
 
-1. Create genbank files for the newly recovered genomes
+1. Combine all reference genbank files together and parse for anvi'o
 
-2. Combine all genbank files together and parse for anvi'o
+2. Call genes for the newly recovered genomes and combine them with the reference files
 
-3. Call genes for the newly recovered genomes and combine them with the full external gene calls file
+3. Generate the "master" contigs database and import functions
 
-4. Generate the "master" contigs database
+4. Add genome/bin info
 
-5. Add genome/bin info
+5. Create the internal genomes file
 
-6. Create the internal genomes file
-
-7. Pangenomification
-
-Looks like a lot, but please bear with me and you will see it is not as complex as it looks.
+6. Pangenomification
 
 
-### Creating genbank files for the newly recovered genomes
-Creating the files for generating the "master" contigs database seems to be most straightforward when starting with one genbank file that holds everything. Nicely, genbank files can just be stuck together, but we need to convert our starting fasta files (for the newly recovered genomes) into genbank format first. I've put together a script to do this that can be grabbed with this command: 
-
-```
-curl https://raw.githubusercontent.com/AstrobioMike/bioinf_tools/master/bit-fasta-to-genbank \
-     -o fasta-to-genbank.py
-```
-
-And running here on the newly recovered genomes with a loop – if you are new to bash and/or loops and want to learn their awesome power, check out [this page here](https://astrobiomike.github.io/bash/for_loops) :)
+### Combining GenBank files and parsing for anvi'o
+Here we are going to combine the reference GenBank files (that hold annotations and sequences) together: 
 
 ``` bash
-for genome in $(ls *.fna | cut -f1 -d ".")
-do
-  python fasta-to-genbank.py -i "$genome".fna -o "$genome".gbff
-done
-```
-
-### Combining genbank files and parsing for anvi'o
-Now we are going to combine all genbank files together, the reference ones (that hold annotations and sequences) and the new ones (that only hold sequences):
-
-``` bash
-cat *.gbff > all_genomes.gbffx
+cat *_ref.gbff > all_refs.gbff
 ```
 
 And now we need to parse this GenBank file into the needed files for generating our contigs database. 
 
 Fortunately, some incredible person, [ahem](https://media.giphy.com/media/3o7bu5EmEyJr15fTK8/giphy.gif), already wrote an anvi'o program to do just that: `anvi-script-genbank-to-external-gene-calls`.
 
-But unfortunately, because that same incredible person is an amateur, he just discovered some bugs in his code, so unless you're using the [active codebase](/2016/06/26/installation-v2/#installing-or-updating-from-the-active-codebase-because-why-not), the copy you have in your anvi'o `v5.2` will won't work properly at the moment :( So you should just download the fixed version of the same script for now:
+Unfortunately, because that same incredible person is an amateur, he just discovered some bugs in his code, so unless you're using the [active codebase](/2016/06/26/installation-v2/#installing-or-updating-from-the-active-codebase-because-why-not), the copy you have in your anvi'o `v5.2` will won't work properly at the moment :( So you should just download the fixed version of the same script for now:
 
 ``` bash
 curl -O https://raw.githubusercontent.com/AstrobioMike/bioinf_tools/master/anvi-script-genbank-to-external-gene-calls-v2.py
@@ -118,45 +99,60 @@ curl -O https://raw.githubusercontent.com/AstrobioMike/bioinf_tools/master/anvi-
 Because anvi'o expects the gene-calling annotation source of all genomes being incorporated into a pangenome analysis to be the same, we are going to specify the `--gene_call_source` as "prodigal", even though the NCBI PGAP annotations were [done a little more extensively](https://www.ncbi.nlm.nih.gov/genome/annotation_prok/process/): 
 
 ``` bash
-python anvi-script-genbank-to-external-gene-calls-v2.py -i all_genomes.gbffx \
-                                                        -o all_genomes_gene_calls.tmp \
-                                                        -a all_genomes_functions.tsv \
-                                                        -f all_genomes.fa \
+python anvi-script-genbank-to-external-gene-calls-v2.py -i all_refs.gbff \
+                                                        -o all_refs_gene_calls.tsv \
+                                                        -a all_refs_functions.tsv \
+                                                        -f all_refs.fa \
                                                         --gene_call_source prodigal
 ```
 
-### Calling genes for the newly recovered genomes
-Because our new genomes had no gene calls, there are currently no gene calls described for them in the `all_genomes_gene_calls.tsv` file we just created. So we are going to run gene calling with `prodigal` on our own, and then add them ourselves. 
+This output 3 files: 1) an external gene calls file, `all_refs_gene_calls.tsv`; 2) a FASTA file, `all_refs.fa`; and 3) a functional annotation file, `all_refs_functions.tsv`. Files 1 and 2 are needed for to create our contigs database, and file 3 right after that to import our functional annotations. But right now they all just hold the reference genomes. That's fine for the annotations file (3) at this point because the reference genomes have no annotations yet. But we need to add gene calls and sequences for our new genomes in order to be able to create our contigs database. 
 
-So here's starting with `prodigal` (v2.6.3):
+### Calling genes for the newly recovered genomes and combining with reference files
+First we're going to clean the headers of our new genome FASTA files with `anvi-script-reformat-fasta`, and explicitly add the genome identifier. This will help us with creating our collection later.
+
+Then we're going to call genes on our new genomes so we can add them to the `all_refs_gene_calls.tsv` file we just created. We will do this with `prodigal` (v2.6.3 here) on our own, and then add them ourselves.
+
+We'll run these here in a loop – if you are new to BASH and/or loops and want to learn their awesome power, check out [this page here](https://astrobiomike.github.io/bash/for_loops) :)
 
 ``` bash
 for genome in $(ls *.fna | cut -f1 -d ".")
 do
+
+  anvi-script-reformat-fasta -o "$genome"_clean.fa \
+                             --prefix "$genome" \
+                             --simplify-names \
+                             "$genome".fna
   prodigal -f gff \
            -c \
-           -i "$genome".gbff \
+           -i "$genome"_clean.fa \
            -o "$genome".gff
 done
+```
+
+Now we are going to concatenate the "cleaned" FASTA files with our references:
+
+``` bash
+cat all_refs.fa *_clean.fa > all_genomes.fa
 ```
 
 {:.notice}
 Here is where the command-line stuff is going to start getting a little heavy. If you aren't comfortable with BASH yet, and want to get better acquainted, a good place to start is [here](https://astrobiomike.github.io/bash/basics) :) 
 
-Here we are basically putting everything together and formatting properly to match the anvi'o external gene calls file:
+Here we are going to parse the gff files from `prodigal` to match the formatting for the anvi'o external gene calls file:
 
 ``` bash
 # getting all gene-call lines only
-grep -hv "#" *.gff > all_new_genomes.gffx
+grep -hv "#" *.gff > all_new_genomes.gff.tmp
 
 # building columns for external gene calls file
-cut -f1 all_new_genomes.gffx > contig.tmp
+cut -f1 all_new_genomes.gff.tmp > contig.tmp
 
 # subtracting 1 to match the 0-based counting used in
 # anvi'o (it's closed end, so don't need to modify stops)
-cut -f4 all_new_genomes.gffx | awk '{print $1-1}' > start.tmp
-cut -f5 all_new_genomes.gffx > stop.tmp
-cut -f7 all_new_genomes.gffx > initial_direction.tmp
+cut -f4 all_new_genomes.gff.tmp | awk '{print $1-1}' > start.tmp
+cut -f5 all_new_genomes.gff.tmp > stop.tmp
+cut -f7 all_new_genomes.gff.tmp > initial_direction.tmp
 
 # determining the direction of the gene call
 for i in $(cat initial_direction.tmp)
@@ -181,13 +177,13 @@ Now we need a column with unique `gene_callers_id` numbers for the new gene call
 ``` bash
 # this counts the header, but that's ok because we want to
 # start 1 higher than already exists anyway :)
-start_count=$(wc -l all_genomes_gene_calls.tmp | awk '{print $1}')
+start_count=$(wc -l all_refs_gene_calls.tsv | awk '{print $1}')
 
 # no header in this file
 new_genes=$(wc -l direction.tmp | awk '{print $1}')
 
 # getting final gene call position
-stop_count=$(echo "$start_count + $new_genes" | bc)
+stop_count=$(echo "$start_count + $new_genes" -1 | bc)
 
 # spanning range to create new gene caller ids
 for i in $(seq $start_count $stop_count)
@@ -210,11 +206,11 @@ paste gene_callers_id.tmp \
       version.tmp > adding_gene_calls.tmp
   
 # combining with the rest
-cat all_genomes_gene_calls.tmp \
+cat all_refs_gene_calls.tsv \
     adding_gene_calls.tmp > all_genomes_gene_calls.tsv 
 
 # deleting intermediate files
-rm *.tmp *.gffx
+rm *.tmp
 ```
 
 ### Creating the "master" contigs database
@@ -233,7 +229,7 @@ And importing our functional annotations (for the reference genomes, there are n
 
 ``` bash
 anvi-import-functions -c contigs.db \
-                      -i all_genomes_functions.tsv
+                      -i all_refs_functions.tsv
 ```
 
 At this point we can also scan for single-copy genes with `anvi-run-hmms` and annotate all genomes with `anvi-run-ncbi-cogs` and/or `anvi-run-pfams` (though I'm skipping `anvi-run-pfams` here for time as well): 
@@ -249,7 +245,7 @@ anvi-run-ncbi-cogs -c contigs.db \
 ```
 
 ### Adding genome/bin info
-Now all our genomes in a single contigs database. To access to each genome separately, we need to [import a collection](/2016/06/22/anvio-tutorial-v2/#anvi-import-collection), which is a 2-column tab-delimited (headerless) file holding inormation regarding which contig belongs to which bin (or genome in our case).
+Now all our genomes are in a single contigs database. To access to each genome separately, we need to [import a collection](/2016/06/22/anvio-tutorial-v2/#anvi-import-collection), which is a 2-column tab-delimited (headerless) file holding inormation regarding which contig belongs to which bin (or genome in our case).
 
 This requires being able to identify your genomes based on their contig identifiers as we're going to do here, if you have trouble with this with your own data, feel free to [message me](https://twitter.com/AstrobioMike) and I will try to help out :)
 
@@ -257,9 +253,9 @@ Here's one way to make that file with the current situation:
 
 ``` bash
   # looping through the "non-reference" genome fasta files:
-for genome in $(ls *.fna | cut -f1 -d ".")
+for genome in $(ls *_clean.fa | sed 's/_clean.fa//')
 do 
-  grep ">" "$genome".fna | cut -f1 -d " " | tr -d ">" > "$genome"_contigs.tmp
+  grep ">" "$genome"_clean.fa | cut -f1 -d " " | tr -d ">" > "$genome"_contigs.tmp
   for contig in $(cat "$genome"_contigs.tmp)
   do
     echo "$genome"
@@ -307,9 +303,9 @@ anvi-profile -c contigs.db \
 
 # now we can import our collection
 anvi-import-collection collection.tsv \
-							     -c contigs.db \
+                       -c contigs.db \
                        -p profile/PROFILE.db \
-                       -C GENOMES \
+                       -C Pro_genomes \
                        --contigs-mode
 ```
 
@@ -322,7 +318,6 @@ Here is how I put this one together:
 ``` bash
 echo -e "name\tbin_id\tcollection_id\tprofile_db_path\tcontigs_db_path" > header.tmp
 
-cut -f2 collection.tsv | uniq > name.tmp
 cut -f2 collection.tsv | uniq > name_and_bin_id.tmp
 
 for i in $(cat name_and_bin_id.tmp); do echo "Pro_genomes"; done > collection_id.tmp
@@ -351,6 +346,18 @@ anvi-pan-genome -g Prochlorococcus-GENOMES.db \
                 --num-threads 4
 ```
 
-And that's pretty much it... for getting the processing done anyway...
+Now NCBI's PGAP annotations are a part of our pangenome. This means, for example, if we are interested in an iron-sulfur ATP-binding protein, "ChlL", we know to be in our reference genome MIT9314 under its protein accession "KGG03723.1", we can search for that accession in our pangenome and see if our new genomes have genes in that cluster:
+
+![accession search]({{images}}/search.png)
+
+If we inspect that cluster, we can see the two new genomes do possess genes in it:
+
+![inspect cluster]({{images}}/cluster_inspect.png)
+
+And of course when we summarize the pangenome with `anvi-summarize`, these annotations are present in there as well, giving us more room for parsing gene clusters as we'd like.
+
+---
+
+Well that's pretty much it... for getting the processing done anyway...
 
 But as we know, this is actually just the beginning. Again, do look over the [pangenomic workflow page](/2016/11/08/pangenomics-v2/) if you haven't yet, or haven't in a while. The anvi'o team keeps adding more and more awesome functionality – like the new [homogeneity indices](/2016/11/08/pangenomics-v2/#inferring-the-homogeneity-of-gene-clusters) for gene clusters, for instance. 
