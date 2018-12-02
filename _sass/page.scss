@@ -328,6 +328,28 @@ th, td {
     color: #1111AA;
 }
 
+.person-contributions {
+  list-style-type: none;
+  margin-left: 0px;
+  padding-left: 20px;
+  padding: 5px;
+  font-size: 1em;
+  font-family: "PT Sans Narrow",sans-serif;
+  border: 1px dashed #e4e4e4;
+  border-radius: 5px;
+  margin-left: 10px;
+  background-color: #f1fbfb;
+}
+
+.person-contributions li:before {
+    content: "✍️";
+    padding-right: 5px;
+}
+
+#contrib-link {
+    font-size: 1.25em;
+    color: #333332;
+}
 
 .person {
     min-height: 150px;
