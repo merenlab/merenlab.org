@@ -110,7 +110,7 @@ anvi-run-ncbi-cogs -c Prochlorococcus-CONTIGS.db \
 Results of this step is used to display gene clusters with known functions in the interactive interface for our downstream pangenomic analysis, and the summary outputs.
 
 {:.notice}
-[doi:10.6084/m9.figshare.5447224](http://doi.org/10.6084/m9.figshare.5447224){:target="_blank"} serves the resulting anvi'o contigs database.
+[doi:10.6084/m9.figshare.5447224](https://doi.org/10.6084/m9.figshare.5447224){:target="_blank"} serves the resulting anvi'o contigs database.
 
 
 ## Recruiting and profiling reads form metagenomes
@@ -194,7 +194,7 @@ The resulting merged profile database describes the coverage and detection stati
 
 
 {:.notice}
-[doi:10.6084/m9.figshare.5447224](http://doi.org/10.6084/m9.figshare.5447224){:target="_blank"} serves the merged anvi'o merged profile.
+[doi:10.6084/m9.figshare.5447224](https://doi.org/10.6084/m9.figshare.5447224){:target="_blank"} serves the merged anvi'o merged profile.
 
 
 ### Generating a collection
@@ -275,7 +275,7 @@ anvi-summarize -c Prochlorococcus-CONTIGS.db \
 This summary contains all key information regarding the occurrence of genomes in metagenomes that will be relevant to investigate the niche partitioning of genomes.
 
 {:.notice}
-You can find the summary output directory (which is a static HTML output that can be displayed without an anvi'o installation by double-clicking the `index.html` file) in the archive served at the url [doi:10.6084/m9.figshare.5447224](http://doi.org/10.6084/m9.figshare.5447224){:target="_blank"}.
+You can find the summary output directory (which is a static HTML output that can be displayed without an anvi'o installation by double-clicking the `index.html` file) in the archive served at the url [doi:10.6084/m9.figshare.5447224](https://doi.org/10.6084/m9.figshare.5447224){:target="_blank"}.
 
 
 ## Computing the *Prochlorococcus* pangenome
@@ -498,7 +498,7 @@ In fact, the resulting display is publicly available on the anvi'server and you 
 [https://anvi-server.org/merenlab/prochlorococcus_metapangenome](https://anvi-server.org/merenlab/prochlorococcus_metapangenome){:target="_blank"}
 
 {:.notice}
-[doi:10.6084/m9.figshare.5447227](http://doi.org/10.6084/m9.figshare.5447227){:target="_blank"} serves the anvi'o files for the _Prochlorococcus_ metapangenome.
+[doi:10.6084/m9.figshare.5447227](https://doi.org/10.6084/m9.figshare.5447227){:target="_blank"} serves the anvi'o files for the _Prochlorococcus_ metapangenome.
 
 If you've gone through the entire document, we thank you for your time and interest. If you have any questions, or if you would like any part of this document to be clarified, please leave a comment.
 
