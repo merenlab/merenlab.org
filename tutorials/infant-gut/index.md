@@ -668,7 +668,7 @@ Well, there aren't any fragmentation errors anymore, and in fact CONCOCT did an 
 
 There are more ways to improve bins and binning results. But although we have seen major improvements in our research by exploring these directions, there are also many other cases nothing is quite enough.
 
-Then it is time to increase the depth of sequencing, implement a different assembly strategy, rethink the sampling strategy, or change the experimental approach to do what seems to be undoable. Here is an example from Tom Delmont et al. to that last point with soil metagenomics: [doi:10.3389/fmicb.2015.00358](http://dx.doi.org/10.3389/fmicb.2015.00358){:target="_blank"}.
+Then it is time to increase the depth of sequencing, implement a different assembly strategy, rethink the sampling strategy, or change the experimental approach to do what seems to be undoable. Here is an example from Tom Delmont et al. to that last point with soil metagenomics: [doi:10.3389/fmicb.2015.00358](https://doi.org/10.3389/fmicb.2015.00358){:target="_blank"}.
 
 We all just have to continue working, and enjoy this revolution.
 
