@@ -73,9 +73,9 @@ anvi-compute-completeness -c CONTIGS.db --completeness-source BUSCO_83_Protista
 
 Single-copy core gene collections dedicated to different lineages of organisms have been created under the label __BUSCO__ for Benchmarking Universal Single-Copy Orthologs (see the [web page](http://busco.ezlab.org/)). Here are the related articles:
 
-* BUSCO applications from quality assessments to gene prediction and phylogenomics. [doi:10.1093/molbev/msx319](http://doi.org/10.1093/molbev/msx319)
+* BUSCO applications from quality assessments to gene prediction and phylogenomics. [doi:10.1093/molbev/msx319](https://doi.org/10.1093/molbev/msx319)
 
-* BUSCO: assessing genome assembly and annotation completeness with single-copy orthologs. [doi:10.1093/bioinformatics/btv351](http://doi.org/10.1093/bioinformatics/btv351)
+* BUSCO: assessing genome assembly and annotation completeness with single-copy orthologs. [doi:10.1093/bioinformatics/btv351](https://doi.org/10.1093/bioinformatics/btv351)
 
 The following sections describe the incorporation of a BUSCO collection of single-copy core genes dedicated to __Protists__ into anvi'o and its subsequent testing using reference genomes and eukaryotic MAGs recovered from three distinct genome-resolved metagenomic projects. 
 

@@ -44,7 +44,7 @@ The paper: [Identifying contamination with advanced visualization and analysis p
 
 ---
 
-*Everything mentioned on this page can be cited using doi [10.6084/m9.figshare.2067057](https://dx.doi.org/10.6084/m9.figshare.2067057).*
+*Everything mentioned on this page can be cited using doi [10.6084/m9.figshare.2067057](https://doi.org/10.6084/m9.figshare.2067057).*
 
 
 <div style="display: block; height: 200px;">&nbsp;</div>
