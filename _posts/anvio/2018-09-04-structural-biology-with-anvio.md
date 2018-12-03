@@ -51,7 +51,7 @@ MODELLER is the program anvi'o uses to predict protein structure based on experi
 ## DSSP
 
 {:.notice}
-**Citation**: [doi:10.1002/bip.360221211](http://doi.org/10.1002/bip.360221211),
+**Citation**: [doi:10.1002/bip.360221211](https://doi.org/10.1002/bip.360221211),
 
 {:.notice}
 **Citation**: [doi:10.1093/nar/gkq1105](https://doi.org/10.1093/nar/gkq1105)
@@ -61,7 +61,7 @@ DSSP (Dictionary of Secondary Structure Prediction) is the program anvi'o uses t
 ## NGL
 
 {:.notice}
-**Citation**: [doi:10.1093/nar/gkv402](http://doi.org/10.1093/nar/gkv402)
+**Citation**: [doi:10.1093/nar/gkv402](https://doi.org/10.1093/nar/gkv402)
 
 {:.notice}
 **Citation**: [doi:10.1093/bioinformatics/bty419](https://doi.org/10.1093/bioinformatics/bty419)

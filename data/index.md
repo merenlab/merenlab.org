@@ -163,11 +163,11 @@ This is what you should see after entering the last command in your terminal:
 
 Data for the paper:
 
-* Anvi'o profiles: [https://dx.doi.org/10.6084/m9.figshare.3851364](https://dx.doi.org/10.6084/m9.figshare.3851364){:target="_blank"}
+* Anvi'o profiles: [https://doi.org/10.6084/m9.figshare.3851364](https://doi.org/10.6084/m9.figshare.3851364){:target="_blank"}
 
-* Primary and supplementary figures: [https://dx.doi.org/10.6084/m9.figshare.3851481.v2](https://dx.doi.org/10.6084/m9.figshare.3851481.v2){:target="_blank"}
+* Primary and supplementary figures: [https://doi.org/10.6084/m9.figshare.3851481.v2](https://doi.org/10.6084/m9.figshare.3851481.v2){:target="_blank"}
 
-* Supplementary tables: [https://dx.doi.org/10.6084/m9.figshare.3851478.v2](https://dx.doi.org/10.6084/m9.figshare.3851478.v2){:target="_blank"}
+* Supplementary tables: [https://doi.org/10.6084/m9.figshare.3851478.v2](https://doi.org/10.6084/m9.figshare.3851478.v2){:target="_blank"}
 
 The anvi'o profiles article in this data collection contains 22 items:
 
@@ -210,7 +210,7 @@ For an example on how to re-analyze these anvi'o profiles, please [click here]({
   - [**Supplementary Table 3**](https://ndownloader.figshare.com/files/3677724). *Summary of HMM hits for each bacterial single-copy gene (collection of 139 from Campbell et al. (2013)) identified in 1) the raw assembly by Boothby et al. (2015), 2) the raw assembly by Koutsovoulos et al. (2015), 3) the curated draft genome of Hypsibius dujardini  from Boothby et al. assembly in this study, and 4) the curated draft genome of H. dujardini from Koutsovoulos et al. (2015).*
 
 
-*Everything mentioned on this page can be cited using doi [10.6084/m9.figshare.2067057](https://dx.doi.org/10.6084/m9.figshare.2067057).*
+*Everything mentioned on this page can be cited using doi [10.6084/m9.figshare.2067057](https://doi.org/10.6084/m9.figshare.2067057).*
 
 
 ## Eren et al. (2015) / Anvi'o
@@ -231,7 +231,7 @@ The anvi'o profiles here will run with a much earlier version of anvi'o. If you 
 
 * [This Github repository](https://github.com/meren/anvio-methods-paper-analyses) gives access to the code that generates **Figure 3** (see the [relevant](https://github.com/meren/anvio-methods-paper-analyses/tree/master/SHARON_et_al/VARIABILITY_REPORTS) directory).
 
-* You can download the output of `anvi-merge` (the merged profile db, and the annotation db) for the infant gut metagenomes [from here](http://dx.doi.org/10.6084/m9.figshare.1499236).
+* You can download the output of `anvi-merge` (the merged profile db, and the annotation db) for the infant gut metagenomes [from here](https://doi.org/10.6084/m9.figshare.1499236).
 
 ---
 
@@ -239,7 +239,7 @@ The anvi'o profiles here will run with a much earlier version of anvi'o. If you 
 
 * While [this address](http://anvio.org/data/OVERHOLT-CULTIVARS-SUMMARY) gives access to the anvi'o summary of the ten cultivar genomes ([download](http://anvio.org/data/OVERHOLT-CULTIVARS-SUMMARY.tar.gz)), [this one](http://anvio.org/data/RODRIGUEZ-R-MG-SUMMARY) serves the 56 metagenomic bins ([download](http://anvio.org/data/RODRIGUEZ-R-MG-SUMMARY.tar.gz)) shown in **Figure 4**.
 
-* You can download the output of `anvi-merge` for the mapping of metagenomes to Overholt cultivars [from here](http://dx.doi.org/10.6084/m9.figshare.1499234), and the output for `anvi-merge` for metagenomic bins is available [here](http://dx.doi.org/10.6084/m9.figshare.1499248).
+* You can download the output of `anvi-merge` for the mapping of metagenomes to Overholt cultivars [from here](https://doi.org/10.6084/m9.figshare.1499234), and the output for `anvi-merge` for metagenomic bins is available [here](https://doi.org/10.6084/m9.figshare.1499248).
 
 ---
 
@@ -251,14 +251,14 @@ The anvi'o profiles here will run with a much earlier version of anvi'o. If you 
 
 * [This Github repository](https://github.com/meren/anvio-methods-paper-analyses) also gives access to the code that generates **Figure 5 panel C** (see the [relevant](https://github.com/meren/anvio-methods-paper-analyses/tree/master/MASON_et_al/SCATTER_PLOTS) directory).
 
-* You can download the output of `anvi-merge` for the mapping of all samples against the assembly of SAGs [from here](http://dx.doi.org/10.6084/m9.figshare.1499235), and the output for `anvi-merge` for mapping to metagenomic contigs is available [here](http://dx.doi.org/10.6084/m9.figshare.1499246).
+* You can download the output of `anvi-merge` for the mapping of all samples against the assembly of SAGs [from here](https://doi.org/10.6084/m9.figshare.1499235), and the output for `anvi-merge` for mapping to metagenomic contigs is available [here](https://doi.org/10.6084/m9.figshare.1499246).
 
 ---
 
 **Media and Supplementary files**.
 
-* Tables: [Additional file 1](http://dx.doi.org/10.6084/m9.figshare.1499237), [Additional file 2](http://dx.doi.org/10.6084/m9.figshare.1499238), [Additional file 3](http://dx.doi.org/10.6084/m9.figshare.1499239).
+* Tables: [Additional file 1](https://doi.org/10.6084/m9.figshare.1499237), [Additional file 2](https://doi.org/10.6084/m9.figshare.1499238), [Additional file 3](https://doi.org/10.6084/m9.figshare.1499239).
 
-* Figures: [Figure 1](http://dx.doi.org/10.6084/m9.figshare.1499240), [Figure 2](http://dx.doi.org/10.6084/m9.figshare.1499241), [Figure 3](http://dx.doi.org/10.6084/m9.figshare.1499242), [Figure 4](http://dx.doi.org/10.6084/m9.figshare.1499243), [Figure 5](http://dx.doi.org/10.6084/m9.figshare.1499244), [Supplementary Figure 1](http://dx.doi.org/10.6084/m9.figshare.1499245), [Supplementary Figure 2](http://dx.doi.org/10.6084/m9.figshare.1499247).
+* Figures: [Figure 1](https://doi.org/10.6084/m9.figshare.1499240), [Figure 2](https://doi.org/10.6084/m9.figshare.1499241), [Figure 3](https://doi.org/10.6084/m9.figshare.1499242), [Figure 4](https://doi.org/10.6084/m9.figshare.1499243), [Figure 5](https://doi.org/10.6084/m9.figshare.1499244), [Supplementary Figure 1](https://doi.org/10.6084/m9.figshare.1499245), [Supplementary Figure 2](https://doi.org/10.6084/m9.figshare.1499247).
 
 <div style="height:100px;">&nbsp;</div>
