@@ -215,6 +215,9 @@
   role: Contributing hero
   web: http://methane.geol.ucsb.edu/Home.html
   twitter: v_kivenson
+    - title: Graduate Student
+      inst: Earth Science, UC Santa Barbara
+      inst_link: http://www.geol.ucsb.edu/
 
 - alias: antti
   contributor: True
@@ -226,6 +229,7 @@
   affiliations:
     - title: Postdoctoral researcher
       inst: University of Helsinki
+      inst_link: https://www.helsinki.fi/en
 
 - alias: elaina
   contributor: True
@@ -234,6 +238,9 @@
   role: Contributing hero
   github: edgraham
   twitter: perilousUnknown
+    - title: Graduate Student
+      inst: University of Southern California
+      inst_link: https://www.usc.edu/
 
 - alias: bryan
   contributor: True
@@ -242,6 +249,9 @@
   role: Contributing hero
   github: brymerr921
   email: bmerrill@stanford.edu
+    - title: Graduate Student
+      inst: Department of Microbiology & Immunology, Stanford University
+      inst_link: http://med.stanford.edu/microimmuno.html
 
 ####################################################################################
 # Previous members.
