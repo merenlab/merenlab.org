@@ -215,6 +215,7 @@
   role: Contributing hero
   web: http://methane.geol.ucsb.edu/Home.html
   twitter: v_kivenson
+  affiliations:
     - title: Graduate Student
       inst: Earth Science, UC Santa Barbara
       inst_link: http://www.geol.ucsb.edu/
@@ -238,6 +239,7 @@
   role: Contributing hero
   github: edgraham
   twitter: perilousUnknown
+  affiliations:
     - title: Graduate Student
       inst: University of Southern California
       inst_link: https://www.usc.edu/
@@ -249,6 +251,7 @@
   role: Contributing hero
   github: brymerr921
   email: bmerrill@stanford.edu
+  affiliations:
     - title: Graduate Student
       inst: Department of Microbiology & Immunology, Stanford University
       inst_link: http://med.stanford.edu/microimmuno.html
