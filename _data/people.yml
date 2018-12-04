@@ -218,13 +218,13 @@
 
 - alias: antti
   contributor: True
-  avatar: bio-anonymous.jpg
   email: antti.karkman@helsinki.fi
+  avatar: bio-antti.png
   name: Antti Karkman
   role: Contributing hero
   github: karkman
   affiliations:
-    - title: Postdoctoral researcher 
+    - title: Postdoctoral researcher
       inst: University of Helsinki
 
 - alias: elaina
