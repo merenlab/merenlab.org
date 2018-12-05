@@ -242,8 +242,9 @@ python GhostKOALA-taxonomy-to-anvio user.out.top KeggTaxonomy.txt
 Which then can be imported into your anvi'o contigs database this way:
 
 ``` bash
-anvi-import-taxonomy -c CONTIGS.db \
-                     -i KeggTaxonomy.txt
+anvi-import-taxonomy-for-genes -c CONTIGS.db \
+                               -i KeggTaxonomy.txt \
+                               -p default_matrix
 ```
 </div>
 
