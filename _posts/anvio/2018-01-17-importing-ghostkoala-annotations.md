@@ -171,12 +171,6 @@ Download the annotation file, which will be called `user_ko.txt`, and make sure 
 (...)
 ```
 
-Now run this command on your terminal to add the necessary header line to this file:
-
-```
-echo -e "contig\taccession_id" > .temp && cat user_ko.txt >> .temp && mv .temp user_ko.txt
-```
-
 Now your file is ready to be imported!
 
 For this, we will use the program `KEGG-to-anvio` (which is in the directory you clone from GitHub early on).
