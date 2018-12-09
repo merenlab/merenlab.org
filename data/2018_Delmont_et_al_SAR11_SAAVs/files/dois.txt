@@ -1,7 +1,0 @@
-S-LLPA-SAAVs HTML Output .......................... 10.6084/m9.figshare.5248432
-S-LLPA-SAAVs raw output with PyMOL images ......... 10.5281/zenodo.835218
-SAR11 Metapangenome ............................... 10.6084/m9.figshare.5248459
-HIMB83 split anvi'o profile ....................... 10.6084/m9.figshare.5248435
-S-LLPA SNVs and SAAvs tables ...................... 10.6084/m9.figshare.5248447
-SAR11 Isolates in TARA anvi'o summary ............. 10.6084/m9.figshare.5248453
-Anvi'o merged profile for SAR11 isolates in TARA .. 10.5281/zenodo.835218
