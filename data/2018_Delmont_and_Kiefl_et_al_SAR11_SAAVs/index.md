@@ -38,11 +38,11 @@ In this study,
 
 * We characterized the metapangenome of 21 SAR11 isolate genomes using metagenomes from the TARA Oceans and Ocean Sampling Day projects,
 
-* Identified single-nucleotide variants (SNVs) and single-amino acid variants (SAAVs) within a single remarkably abundant and widespread SAR11 population,
+* Identified a remarkably abundant and widespread SAR11 lineage with considerable yet cohesive levels of variation, as measured by the alignment quality of recruited reads.
+
+* Analysed single-nucleotide variants (SNVs) and single-amino acid variants (SAAVs), and linked SAAVs to predicted tertiary structures of core proteins
 
 * Estimated distances between metagenomes based on SAAVs using Deep Learning,
-
-* Linked SAAVs to predicted tertiary structures of S-LLPA proteins.
 
 Sections in this document will detail all the steps of downloading and processing SAR11 genomes and metagenomes, mapping metagenomic reads onto the SAR11 genomes, identifying and processing genomic variability to explore the amino acid diversification traits of a single population.
 
