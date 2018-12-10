@@ -44,7 +44,7 @@ In this study,
 
 * Estimated distances between metagenomes based on SAAVs using Deep Learning,
 
-Sections in this document will detail all the steps of downloading and processing SAR11 genomes and metagenomes, mapping metagenomic reads onto the SAR11 genomes, identifying and processing genomic variability to explore the amino acid diversification traits of a single population.
+Sections in this document will detail all the steps of downloading and processing SAR11 genomes and metagenomes, mapping metagenomic reads onto the SAR11 genomes, identifying and processing genomic variability to explore the amino acid diversification traits of a finely resolved SAR11 lineage.
 
 </div>
 
@@ -636,7 +636,7 @@ anvi-gen-variability-profile -c SAR11-CONTIGS.db \
 ```
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-These reports were the key data to compare the differential occurrence of variants across metagenomes to study the evolutionary forces operating on this population at large scale.
+These reports were the key data to compare the differential occurrence of variants across metagenomes to study the evolutionary forces operating on this lineage at large scale.
 
 {:.notice}
 [doi:10.6084/m9.figshare.5248447](https://doi.org/10.6084/m9.figshare.5248447){:target="_blank"} serves the anvi'o variability tables described in this section.
