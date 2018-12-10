@@ -9,7 +9,7 @@ comments: true
 
 {% include _toc.html %}
 
-{% capture images %}{{site.url}}/data/2018_Delmont_et_al_SAR11_SAAVs/images{% endcapture %}
+{% capture images %}{{site.url}}/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/images{% endcapture %}
 
 This document describes the reproducible bioinformatics workflow for our study titled "*The large scale biogeography of amino acid variants within a single SAR11 population is governed by natural selection*". Here you will find program names and exact parameters we used throughout every step of the analysis of SAR11 genomes and metagenomes from the TARA Oceans and Ocean Sampling Day projects, which relied predominantly on the open-source analysis platform [anvi’o](http://merenlab.org/software/anvio) (Eren et al., 2015).
 
@@ -27,7 +27,7 @@ The URL [http://merenlab.org/data/#XXX](http://merenlab.org/data/#XXX){:target="
 -->
 
 {:.notice}
-The URL [http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/](http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/){:target="_blank"} serves the most up-to-date version of this document.
+The URL [http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/](http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/){:target="_blank"} serves the most up-to-date version of this document.
 
 
 <div class="extra-info" markdown="1">
@@ -38,13 +38,13 @@ In this study,
 
 * We characterized the metapangenome of 21 SAR11 isolate genomes using metagenomes from the TARA Oceans and Ocean Sampling Day projects,
 
-* Identified single-nucleotide variants (SNVs) and single-amino acid variants (SAAVs) within a single remarkably abundant and widespread SAR11 population,
+* Identified a remarkably abundant and widespread SAR11 lineage with considerable yet cohesive levels of variation, as measured by the alignment quality of recruited reads.
+
+* Analysed single-nucleotide variants (SNVs) and single-amino acid variants (SAAVs), and linked SAAVs to predicted tertiary structures of core proteins
 
 * Estimated distances between metagenomes based on SAAVs using Deep Learning,
 
-* Linked SAAVs to predicted tertiary structures of S-LLPA proteins.
-
-Sections in this document will detail all the steps of downloading and processing SAR11 genomes and metagenomes, mapping metagenomic reads onto the SAR11 genomes, identifying and processing genomic variability to explore the amino acid diversification traits of a single population.
+Sections in this document will detail all the steps of downloading and processing SAR11 genomes and metagenomes, mapping metagenomic reads onto the SAR11 genomes, identifying and processing genomic variability to explore the amino acid diversification traits of a finely resolved SAR11 lineage.
 
 </div>
 
@@ -64,16 +64,16 @@ The TARA Oceans metagenomes we analyzed are publicly available through the Europ
 You can get a copy of the FASTA file containing all 21 SAR11 cultivar genomes into your work directory using this command line: 
 
 ``` bash
-wget http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/SAR11-isolates.fa.gz
+wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/SAR11-isolates.fa.gz
 gzip -d SAR11-isolates.fa.gz
 ``` 
 
 ### Downloading the TARA Oceans and Ocean Sampling Day metagenomes
 
-[This file](http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/ftp-links-for-raw-data-files.txt){:target="_blank"} contains URLs for FTP access for each raw data file for 103 samples, and you can get a copy of it into your work directory, 
+[This file](http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/ftp-links-for-raw-data-files.txt){:target="_blank"} contains URLs for FTP access for each raw data file for 103 samples, and you can get a copy of it into your work directory, 
 
 ``` bash
-wget http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/ftp-links-for-raw-data-files.txt
+wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/ftp-links-for-raw-data-files.txt
 ``` 
 
 and download each of the raw sequencing data file from the EMBL servers this way:
@@ -90,18 +90,18 @@ This may take quite a while.
 
 ### Defining metagenomic sets, setting sample names, and linking those with the raw data
 
-We defined 12 'metagenomic sets' for geographically bound locations TARA Oceans samples originated from, consistent with our previous [work flow to reconstruct ~1,000 population genomes](http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/). We defined an additional metagenomic set for the 10 Ocean Sampling Day metagenomes that cover high-latitudes of the north hemisphere. 
+We defined 12 'metagenomic sets' for geographically bound locations TARA Oceans samples originated from, consistent with our previous [work flow to reconstruct ~1,000 population genomes](http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/). We defined an additional metagenomic set for the 10 Ocean Sampling Day metagenomes that cover high-latitudes of the north hemisphere. 
 
-We tailored our sample naming schema for convenience and reproducibility. [This file](http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/sets.txt){:target="_blank"}{:target="_blank"} contains the three-letter identifiers for each of the 13 metagenomic sets, which will become prefixes for each sample name for direct access to all samples from a given metagenomic set. This file will be referred to as `sets.txt` throughout the document, and you can get a copy of this file into your work directory:
+We tailored our sample naming schema for convenience and reproducibility. [This file](http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/sets.txt){:target="_blank"}{:target="_blank"} contains the three-letter identifiers for each of the 13 metagenomic sets, which will become prefixes for each sample name for direct access to all samples from a given metagenomic set. This file will be referred to as `sets.txt` throughout the document, and you can get a copy of this file into your work directory:
 
 ``` bash
-wget http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/sets.txt
+wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/sets.txt
 ``` 
 
-We used these three-letter prefixes to name each of the 103 samples, and to associate them with metagenomic sets with which they were affiliated. [This file](http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/samples.txt){:target="_blank"} contains sample names, and explains which raw data files are associated with each sample. It will be referred to as `samples.txt` throughout the document, and you can get a copy of this file into your work directory:
+We used these three-letter prefixes to name each of the 103 samples, and to associate them with metagenomic sets with which they were affiliated. [This file](http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/samples.txt){:target="_blank"} contains sample names, and explains which raw data files are associated with each sample. It will be referred to as `samples.txt` throughout the document, and you can get a copy of this file into your work directory:
 
 ``` bash
-wget http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/samples.txt
+wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/samples.txt
 ```
 
 TARA samples file should look like this:
@@ -175,6 +175,13 @@ We used the program `anvi-gen-contigs-database` with default parameters to profi
 ``` bash
 anvi-gen-contigs-database -f SAR11-isolates.fa \
                           -o SAR11-CONTIGS.db
+```
+
+The open reading frames identified by Prodigal can be exported with the following command:
+ 
+``` bash
+anvi-export-gene-calls -c SAR11-CONTIGS.db \
+                       -o gene_calls_summary.txt
 ```
 
 {:.notice}
@@ -275,8 +282,7 @@ Once the individual PROFILE databases were generated, we used the program `anvi-
 
 
 ``` bash
-    anvi-merge */PROFILE.db -o SAR11-MERGED -c SAR11-CONTIGS.db 
-done
+anvi-merge */PROFILE.db -o SAR11-MERGED -c SAR11-CONTIGS.db 
 ```
 
 The resulting profile database describes the coverage and detection statistics, as well as SNVs and SAAVs for each scaffold across all 103 metagenomes.
@@ -356,7 +362,7 @@ We used the anvi'o programs `anvi-gen-genomes-storage`, `anvi-pan-genome`, and `
 We first created the file `internal-genomes.txt` that connects genome IDs to the CONTIGS and PROFILE databases ([details the anvi'o pangenomic workflow]({% post_url anvio/2016-11-08-pangenomics-v2 %})). This file can be downloaded using this command:
 
 ``` bash
-wget http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/internal-genomes.txt
+wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/internal-genomes.txt
 ```
 
 And here is how it looks like:
@@ -415,7 +421,7 @@ The resulting summary folder contains a file that links each gene to protein clu
 
 ### Linking the pangenome to the environment
 
-From the anvi'o metagenomic summary output described in the previous section, we determined the relative distribution of each genome across the 103 metagenomes. We created a text file, `SAR11-PAN-samples-information.txt` (avilable [here]({{ site.url }}/data/2018_Delmont_et_al_SAR11_SAAVs/files/SAR11-PAN-samples-information.txt)) to link the pangenome to the environment using genomic coverage values across samples, as well as to display other information such as gneme lengths and clade information. From this file we generated an anvi'o [samples database](http://merenlab.org/2015/11/10/samples-db/){:target="_blank"}, `SAR11-PAN-SAMPLES.db`. In addition, we used the summary output of the SAR11 pangenome to identify protein clusters containing a list of HIMB83 genes of interest (the 799 core S-LLPA genes), and created the file `S-LLPA-CORE-GENES.txt` (avilable [here]({{ site.url }}/data/2018_Delmont_et_al_SAR11_SAAVs/files/S-LLPA-CORE-GENES.txt)), the contents of which looked like this:
+From the anvi'o metagenomic summary output described in the previous section, we determined the relative distribution of each genome across the 103 metagenomes. We created a text file, `SAR11-PAN-samples-information.txt` (avilable [here]({{ site.url }}/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/SAR11-PAN-samples-information.txt)) to link the pangenome to the environment using genomic coverage values across samples, as well as to display other information such as gneme lengths and clade information. From this file we generated an anvi'o [samples database](http://merenlab.org/2015/11/10/samples-db/){:target="_blank"}, `SAR11-PAN-SAMPLES.db`. In addition, we used the summary output of the SAR11 pangenome to identify protein clusters containing a list of HIMB83 genes of interest (the 799 core S-LLPA genes), and created the file `S-LLPA-CORE-GENES.txt` (avilable [here]({{ site.url }}/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/S-LLPA-CORE-GENES.txt)), the contents of which looked like this:
 
 ``` bash
 $ head S-LLPA-CORE-GENES.txt
@@ -450,7 +456,7 @@ This resulting display is publicly available on the anvi-server just so you can 
 
 ## Creating a self-contained profile for HIMB83
 
-The 21 SAR11 genomes recruited more than one billion metagenomics reads, however we determined that one of these isolate genomes, HIMB83, was remarkably abundant and widespread across metagenomes and was of particular interest to study the genomic variability of a single population across geographies. To isolate HIMB83 from the rest of the data we used `anvi-split`, and created a self-contained anvi'o profile database for this genome.
+The 21 SAR11 genomes recruited more than one billion metagenomics reads, however we determined that one of these isolate genomes, HIMB83, was remarkably abundant and widespread across metagenomes and was of particular interest to study the genomic variability within the lineage represented by HIMB83 across geographies. To isolate HIMB83 from the rest of the data we used `anvi-split`, and created a self-contained anvi'o profile database for this genome.
 
 Briefly, the program `anvi-split` creates a PROFILE subset of the merged PROFILE database so genomes of interest can be downloaded independently, and visualized interactively:
 
@@ -491,21 +497,94 @@ anvi-summarize -p NON-REDUNDANT-MAGs-SPLIT/HIMB083/PROFILE.db \
 {:.notice}
 [doi:10.6084/m9.figshare.5248435](https://doi.org/10.6084/m9.figshare.5248435){:target="_blank"} serves the self-contained anvi'o profile for HIMB83 across all metagenomes.
 
-
-## Generating genomic variation data for HIMB83
-
-To explore the genomic variability of S-LLPA, the SAR11 population we could access through HIMB83, we characterized SNVs and SAAVs for a set of HIMB83 genes across across metagenomes. Both for SNVs and SAAVs, we only considered positions of nucletides or codons that met a minimum coverage expectation. Controlling the minimum coverage of nucleotide or codon positions across metagenomes improves the confidence in variability analyses. 
-
-`anvi-summary` allowed us to identity a list of 74 metagenomes where the mean coverage of HIMB83 was `>50x`. We then manually identified 799 HIMB83 genes that systematically occurred in all 74 metagenomes (i.e. genes that were detected when HIMB83 was detected). Please see the methods section in [our study](http://www.biorxiv.org/content/early/2017/07/31/170639){:target="_blank"} for a more detailed description of these steps. But just to give a visual idea here, this shows the HIMB83 genes that systemmatically detected across metagenomes: 
+`anvi-summarize` allowed us to identity a list of 74 metagenomes where the mean coverage of HIMB83 was `>50x`. It is in these 74 metagenomes that we confidently detect HIMB83. We then identified 799 HIMB83 genes that systematically occurred in all 74 metagenomes (i.e. genes that were detected when HIMB83 was detected). Please see the methods section in [our study](http://www.biorxiv.org/content/early/2017/07/31/170639){:target="_blank"} for a more detailed description of these steps. But just to give a visual idea here, this shows the HIMB83 genes that systemmatically detected across metagenomes: 
 
 [![SAR11]({{images}}/s-llpa-core.png)]({{images}}/s-llpa-core.png){:.center-img .width-70}
 
 The files `metagenomes-of-interest.txt` and `core-S-LLPA-genes.txt` contain the names of of 74 metagenomes and gene caller id's for 799 core genes, respectively. You can download these files into your work directory the following way:
 
 ``` bash
-wget http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/metagenomes-of-interest.txt
-wget http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/core-S-LLPA-genes.txt
+wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/metagenomes-of-interest.txt
+wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/core-S-LLPA-genes.txt
 ```
+
+## Quantifying the alignment quality of short reads to HIMB83 (and others)
+
+It was of critical importance to quantify how well reads were mapping to HIMB83, as this gives some indication of what level of taxonomical group HIMB83 provides access to through read recruitment. The metric used to assess alignment quality was percent identity. A percent identity of 95% would mean that, for example, a 100 nucleotide-long read matched at 95 out of its 100 nucleotide positions to the reference sequence it aligned to. By calculating this for each read in a metagenome, the resulting histogram gives perspective on how similar the reads are to the reference. 
+
+To do this we wrote a python script that calculates a histogram for the percent identity of reads mapping to a reference genome. You should download the script:
+
+``` bash
+wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/p-get_percent_identity.py
+```
+
+We used this script in a couple of different ways.
+
+First, we calculated the percent identity histograms for each of the 21 isolates (over the whole genomes), where a metagenome was included for the isolate if the isolate's coverage was >50X in that metagenome. A small directory outlining this information should be downloaded below:
+
+``` bash
+wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/ALL_ISOLATES.zip
+unzip ALL_ISOLATES.zip; rm ALL_ISOLATES.zip
+```
+
+The python script is then ran for each of these isolates. Please note that to simplify visualization of these distributions, only reads with lengths equal to the median read length were included and bins were defined so that each contains only one unique value. For example, if the median length was 100, the bins were defined like `bin1 = (99%, 100%]`, `bin2 = (98%, 99%]`, `bin3 = (97%, 98%]`, etc. We allowed ourselves this freedom because we did not perform any statistical calculations with these distributions, as they were only generated for the purpose of visualization as a supplemental figure.
+
+``` bash
+ls ALL_ISOLATES | while read isolate
+do
+    python p-get_percent_identity.py \
+           -B ALL_ISOLATES/${isolate}/samples_with_greater_than_50_cov \
+           -p \
+           -R ALL_ISOLATES/${isolate}/contigs \
+           -o PERCENT_IDENTITY_WHOLE_GENOME_${isolate}.txt \
+           -range 65,100 \
+           -autobin \
+           -m \
+           -melted \
+           -interpolate 70,100,150
+done
+```
+
+If you open up the script you'll notice that it's an absolute spaghetti monster, however it can accomplish a lot. If you want to see what the parameters do and change them for your own needs, pull up the help for the script:
+
+```
+python p-get_percent_identity.py -h 
+```
+
+Second, we calculated the percent identity histograms for the 74 metagenomes in which HIMB83 recruited at least 50X coverage. Unlike in the previous command, in this case we focused to look only at the 799 core genes. We generated two outputs, one for visualization (which considers only reads with lengths equal to the median lengths and coarse bin sizes), and another that is statistically accurate (which takes into account all read lengths and has finely resolved bin sizes).
+
+``` bash
+# Visualization purposes
+python p-get_percent_identity.py \
+       -B ALL_ISOLATES/HIMB083/samples_with_greater_than_50_cov \
+       -p \
+       -o PERCENT_IDENTITY_CORE_GENES_HIMB083_MEDIAN_LENGTH_ONLY.txt \
+       -range 65,100 \
+       -melted \
+       -m \
+       -autobin \
+       -G core-S-LLPA-genes.txt \
+       -a gene_calls_summary.txt \
+       -interpolate 70,100,400 \
+       -x 
+
+# Statistically rigourous
+python p-get_percent_identity.py \
+       -B ALL_ISOLATES/HIMB083/samples_with_greater_than_50_cov \
+       -p \
+       -o PERCENT_IDENTITY_CORE_GENES_HIMB083.txt \
+       -range 65,100 \
+       -numbins 4000 \
+       -G core-S-LLPA-genes.txt \
+       -a gene_calls_summary.txt \
+       -x
+```
+
+Visualization of these distributions (for example Figure 2, Figure 4) reveal virtually all mapped reads share >88% read identity to HIMB83, which is significantly higher than the average nucleotide identity (ANI) between HIMB83 and HIMB122 (HIMB83's closest isolated relative), ~82.5%.
+
+## Generating genomic variation data for HIMB83
+
+To explore the genomic variability of 1a.3.V, the lineage recruited by HIMB83, we characterized SNVs and SAAVs for a set of HIMB83 genes across across metagenomes. Both for SNVs and SAAVs, we only considered positions of nucletides or codons that met a minimum coverage expectation. Controlling the minimum coverage of nucleotide or codon positions across metagenomes improves the confidence in variability analyses. 
 
 We generated three files to report the variability.
 
@@ -557,7 +636,7 @@ anvi-gen-variability-profile -c SAR11-CONTIGS.db \
 ```
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-These reports were the key data to compare the differential occurrence of variants across metagenomes to study the evolutionary forces operating on this population at large scale.
+These reports were the key data to compare the differential occurrence of variants across metagenomes to study the evolutionary forces operating on this lineage at large scale.
 
 {:.notice}
 [doi:10.6084/m9.figshare.5248447](https://doi.org/10.6084/m9.figshare.5248447){:target="_blank"} serves the anvi'o variability tables described in this section.
@@ -988,7 +1067,7 @@ python ACOL_Pseudo_SAR11.py
 
 The output file `S-LLPA-DEEP-LEARNING-DIST-MAT.csv` will contain deep learning estimated distances. 
 
-The output file the code above generated when we run it on xx is [available here]({{ site.url }}/data/2018_Delmont_et_al_SAR11_SAAVs/files/S-LLPA-DEEP-LEARNING-DIST-MAT.csv)){:target="_blank"}.
+The output file the code above generated when we run it on xx is [available here]({{ site.url }}/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/S-LLPA-DEEP-LEARNING-DIST-MAT.csv)){:target="_blank"}.
 
 ### Identifying proteotypes from Deep Learning-estimated distances
 
@@ -1023,6 +1102,9 @@ which suggested that 'six' was an appropriate number to divide our dendrogram:
 
 
 ## SAAVs on protein structures
+
+{:.notice}
+The workflow described below is now completely outdated and we highly recommend you use the workflow in this tutorial instead ([http://merenlab.org/2018/09/04/structural-biology-with-anvio/](http://merenlab.org/2018/09/04/structural-biology-with-anvio/)) if you're interested in protein structure prediction, as it simplifies things into just 2 anvi'o commands. For example, the entirety of what's shown below could be accomplished with `anvi-gen-structure-database -c SAR11-CONTIGS.db --genes-of-interest core-S-LLPA-genes.txt -o STRUCTURE.db` followed by `anvi-display-structure -p SAR11-MERGED/PROFILE.db -c SAR11-CONTIGS.db -s STRUCTURE.db`.
 
 The starting point for this section of the workflow is the SAAVs table for the core S-LLPA genes, which was generated in the "**Generating genomic variation data for HIMB83**" section as `S-LLPA_SAAVs_20x_10percent_departure.txt`.
 
@@ -1093,7 +1175,7 @@ Using the submission form [http://raptorx.uchicago.edu/StructurePrediction/predi
 RaptorX Structure Prediction outputs a zipped folder for each protein prediction named `<sequence_id>.all_in_one.zip`, where `<sequence_id>` is a unique tag generated by RaptorX. We created a new directory `RaptorXProperty`, manually moved all `<sequence_id>.all_in_one.zip` files into it, and unzipped them all. To make things more identifiable, we renamed the `<sequence_id>.all_in_one` folders to `<corresponding_gene_call>.all_in_one`, where `<corresponding_gene_call>` is the gene caller id defined by the SAAV table. To do this we created a python script called `rename_all_in_ones.py`, and executed it the following way:
 
 ``` bash
-wget http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/rename_all_in_ones.py
+wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/rename_all_in_ones.py
 cd RaptorXProperty
 python rename_all_in_ones.py
 cd -
@@ -1104,7 +1186,7 @@ Before mapping SAAVs onto the predicted protein structure, we first did some mai
 
 ``` bash
 # downlod the script
-wget http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/curate_SAAV_table.py
+wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/curate_SAAV_table.py
 
 # copy HIMB83 gene coverages from the summary dir (if you don't have this directory, the
 # URL https://doi.org/10.6084/m9.figshare.5248435 serves HIMB83 profile with the SUMMARY
@@ -1147,9 +1229,9 @@ There are five inputs for this to work:
 You can get copies of missing files for a full analysis (gene list, samples mapping, and the configuration file) the following way:
 
 ``` bash
-wget http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/genes-of-interest-for-PyMOL.txt
-wget http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/genes-of-interest-for-PyMOL.txt
-wget http://merenlab.org/data/2018_Delmont_et_al_SAR11_SAAVs/files/samples-of-interest-for-PyMOL.txt
+wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/genes-of-interest-for-PyMOL.txt
+wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/genes-of-interest-for-PyMOL.txt
+wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/samples-of-interest-for-PyMOL.txt
 ```
 
 For your information, our configuration file looked like this, and it is highly flexible for advanced users:
