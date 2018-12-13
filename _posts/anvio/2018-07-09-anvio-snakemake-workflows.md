@@ -1185,11 +1185,11 @@ anvi-run-workflow -w metagenomics \
                   --additional-params \
                       --cores 48 \
                       --cluster \
-                          '--job-name=CHOOSE_A_NICE_JOB_NAME \
-                          --account=YOUR_ACCOUNT \
-                          --output={log} \
-                          --error={log} \
-                          --nodes={threads}'
+                          'sbatch --job-name=CHOOSE_A_NICE_JOB_NAME \
+                                  --account=YOUR_ACCOUNT \
+                                  --output={log} \
+                                  --error={log} \
+                                  --nodes={threads}'
 ```
 
 Notice that when you use `--cluster`, snakemake also requires you to include the `--cores / --jobs`. From the `snakemake` help menu:
@@ -1211,11 +1211,11 @@ anvi-run-workflow -w metagenomics \
                           --cores 10 \
                           --resources nodes=48 \
                           --cluster \
-                              '--job-name=CHOOSE_A_NICE_JOB_NAME \
-                              --account=YOUR_ACCOUNT \
-                              --output={log} \
-                              --error={log} \
-                              --nodes={threads}'
+                              'sbatch --job-name=CHOOSE_A_NICE_JOB_NAME \
+                                      --account=YOUR_ACCOUNT \
+                                      --output={log} \
+                                      --error={log} \
+                                      --nodes={threads}'
 ```
 
 Now, at most 10 jobs would be submitted to the queue in parallel, but only as long as the total number of threads (nodes) that is requested by the submitted jobs doesn't go above 48. So if we have 3 `anvi-run-hmms` jobs and each require 20 threads, then only two would run in parallel.
