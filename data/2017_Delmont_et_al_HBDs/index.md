@@ -858,7 +858,7 @@ bash NUCMER_JOBS_TO_RUN.sh
 After running each job in the previous step, we run the second script to generate the `REDUNDANT-MAGs-ANI.txt` file:
 
 ``` bash
-wget https://goo.gl/TtY3wO -O 02-estimate-similarity.py
+wget http://goo.gl/QYLzpE -O 02-estimate-similarity.py
 python 02-estimate-similarity.py REDUNDANT-MAGs-LENGTH.txt REDUNDANT-MAGs-ANI.txt
 ```
 
