@@ -67,3 +67,9 @@ There are few things that can go against this ideal more than celebrating a publ
 I am not trying to romanticize scientific endeavor. Our literature is filled with [garbage](http://retractionwatch.com/). But we collectively work to make science better by keeping it accurate, objective, and progressive. Many of us do it by taking risks that could damage our careers in return.
 
 We must not let this toxic climate derail us from following simple yet powerful ideals of science.
+
+---
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Following my defeat on Twitter, I retreated to my pillow fort.<a href="https://t.co/YbIy0mwkny">https://t.co/YbIy0mwkny</a></p>&mdash; A. Murat Eren (Meren) (@merenbey) <a href="https://twitter.com/merenbey/status/1074569086955335680?ref_src=twsrc%5Etfw">December 17, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
