@@ -20,6 +20,14 @@ comments: false
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41467-018-07675-z" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <h3><a href=" https://doi.org/10.1038/s41467-018-07675-z" target="_new">Microbiome characterization by high-throughput transfer RNA sequencing and modification analysis.</a></h3>
     <span class="pub-authors">Schwartz, M. H., Wang, H., Pan, J. N., Clark. W. C., <span class="pub-member-author">Cui, S.</span>, Eckwahl, M. J., Pan, D. W., Parisien, M., Owens, S. M., Cheng, B. L., Martinez, K., Xu, J., Chang, E. B., Pan, T., and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="../images/pubs/schwartz_et_al_trna_seq.png"><img src="../images/pubs/schwartz_et_al_trna_seq.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- First application of tRNA sequencing to microbiomes (<a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-018-07675-z/MediaObjects/41467_2018_7675_MOESM2_ESM.pdf">Peer reviews and responses</a>).</span><br><span style="display: inline-block; padding-bottom: 5px;">-  tRNA-seq distinguishes high-fat- and low-fat-fed mice in a comparable fashion to 16S rRNA gene amplicons, reveals taxon- and diet-dependent variations in tRNA modifications, and provides in situ insights into tRNA gene expression dynamics and post-transcriptional modifications.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  "<a href="https://www.uchicagomedicine.org/forefront/microbiome-articles/2018/december/new-rna-sequencing-strategy-provides-insight-into-microbiomes">New RNA sequencing strategy provides insight into microbiomes</a>", by <b>Matt Wood</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  "<a href="https://www.news-medical.net/news/20181217/RNA-sequencing-offers-novel-insights-into-the-microbiome.aspx">RNA sequencing offers novel insights into the microbiome</a>", by <b>Liji Thomas</b>, MD, and <b>Kate Anderton</b>, B.Sc.</span>
+    </div>
+    </div>
     <span class="pub-journal"><i>Nature Communications</i>. <b>9:5353</b></span>
 </div>
 
