@@ -3,12 +3,13 @@
 
 
 # EDIT THESE #####################################################################
-names_to_highlight = ['Eren, A. M', 
+names_to_highlight = ['Eren, A. M',
                       'Delmont, T. O.',
                       'Esen, Ö. C.',
                       'Lee, S. T. M.',
                       'Shaiber, A.',
-                      'Kiefl, E.']
+                      'Kiefl, E.',
+                      'Cui, S.']
 
 journal_name_fixes = [('The ISME journal', 'ISME J'),
                       ('Proceedings of the National Academy of Sciences of the United States of America', 'Proc Natl Acad Sci U S A'),
