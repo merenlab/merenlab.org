@@ -57,7 +57,7 @@ comments: false
     <a href="https://i.imgur.com/gzDpEU5.jpg"><img src="https://i.imgur.com/gzDpEU5.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
     </div>
     <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- A big-data study in which a pangenome of 31 <i>Prochlorococcus</i> isolates meets 31 billion Tara Oceans metagenomic sequences.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Metapangenomes reveal to what extent genes that may be linked to the ecology and fitness of microbes are conserved within a phylogenetic clade.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Reproducible bioinformatics workflow: <a href="http://merenlab.org/data/2018_Delmont_and_Eren_Metapangenomics/" target="_blank">http://merenlab.org/data/2018_Delmont_and_Eren_Metapangenomics/</a></span>
+    <span style="display: inline-block; padding-bottom: 5px;">- A big-data study in which a pangenome of 31 <i>Prochlorococcus</i> isolates meets 31 billion Tara Oceans metagenomic sequences (<a href="https://peerj.com/articles/4320/reviews/">Peer-review history</a>).</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Metapangenomes reveal to what extent genes that may be linked to the ecology and fitness of microbes are conserved within a phylogenetic clade.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  <a href="http://merenlab.org/data/2018_Delmont_and_Eren_Metapangenomics/" target="_blank">Reproducible bioinformatics workflow</a>.</span>
     </div>
     </div>
     <span class="pub-journal"><i>PeerJ</i>. <b>6:e4320</b></span>
