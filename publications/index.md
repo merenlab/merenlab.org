@@ -9,7 +9,7 @@ comments: false
 <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
 
 <div class="category-box">
-<a href="#2018"><span class="category-item">2018 <small>(5)</small></span></a><a href="#2017"><span class="category-item">2017 <small>(10)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(5)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a>
+<a href="#2018"><span class="category-item">2018 <small>(6)</small></span></a><a href="#2017"><span class="category-item">2017 <small>(10)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(5)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a>
 </div>
 
 <a name="2018">&nbsp;</a>
@@ -61,6 +61,22 @@ comments: false
     </div>
     </div>
     <span class="pub-journal"><i>PeerJ</i>. <b>6:e4320</b></span>
+</div>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41422-018-0127-2"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1038/s41422-018-0127-2" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1038/s41422-018-0127-2" target="_new">Transcriptome-wide reprogramming of N<sup>6</sup>-methyladenosine modification by the mouse microbiome.</a></h3>
+    <span class="pub-authors">Wang, X., Li, Y., Chen, W., Shi, H., <span class="pub-member-author">Eren, A. M</span>., Morozov, A., He, C., Luo, G. Z., and Pan, T.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="../images/pubs/wang_et_al_m6A.png"><img src="../images/pubs/wang_et_al_m6A.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">-  N<sup>6</sup>-methyladenosine (m<sup>6</sup>A) is the most abundant mesenger RNA modification in mammalian cells, occurring at ~3 modified adenosine residues per transcript.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Using liquid chromatography/mass spectrometry, this study shows differential occurrence of m<sup>6</sup>A modifications in brain, liver, and intestinal cells between germ-free and conventional mice, demonstrating that the microbiome has a strong effect on host m<sup>6</sup>A mRNA modification.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>Cell Research</i>. <b>0:1-4</b></span>
 </div>
 
 <div class="pub">
@@ -122,7 +138,7 @@ comments: false
     <span style="display: inline-block; padding-bottom: 5px;">- A letter that re-analyzes some of the findings published in <a href="http://www.pnas.org/content/114/28/7432.abstract" target="_blank">Hu et al.</a></span><br><span style="display: inline-block; padding-bottom: 5px;">-  Here is a <a href="http://www.pnas.org/content/early/2017/10/09/1712466114.extract" target="_blank">rebuttal from Probst et al.</a> challenging our findings in this letter.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Here is <a href="http://merenlab.org/2017/10/16/reply-to-probst-et-al/" target="_blank">our response to Probst et al.</a>, and <a href="http://merenlab.org/2017/11/25/DWH-O-desum-v2/" target="_blank">the recovery of DWH O. Desum v2</a>.</span>
     </div>
     </div>
-    <span class="pub-journal"><i>Proc Natl Acad Sci U S A</i>. <b>published online before print</b></span>
+    <span class="pub-journal"><i>Proc Natl Acad Sci U S A</i>. <b>114(43):E8947-E8949</b></span>
 </div>
 
 <div class="pub">
