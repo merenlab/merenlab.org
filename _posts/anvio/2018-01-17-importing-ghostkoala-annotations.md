@@ -73,7 +73,7 @@ DHGYAPLN
 To remedy this, run this command on your FASTA file to add `genecall_` prefix to every defline in your FASTA file:
 
 ```bash
- $ sed -i '' '%s/\>/\>genecall_/g' test.fa
+ $ sed -i 's/>/>genecall_/' test.fa
 ```
 
 Your FASTA file is now ready to be submitted to GhostKOALA for annotation.
