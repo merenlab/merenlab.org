@@ -641,6 +641,229 @@ These reports were the key data to compare the differential occurrence of varian
 {:.notice}
 [doi:10.6084/m9.figshare.5248447](https://doi.org/10.6084/m9.figshare.5248447){:target="_blank"} serves the anvi'o variability tables described in this section.
 
+## Calculating allele frequency trajectories with respect to temperature
+
+This brief section outlines how we made use of the SAAV table `S-LLPA_SAAVs_20x_10percent_departure.txt` to calculate allele frequency trajectories (illustrated in Figure S7) for each codon position that contained at least one SAAV. Allele frequency trajectories were calculated for each of such positions for the two amino acids comprising the most common AAST at that position. For example, if at some position, 40 of the 74 metagenomes had the AAST 'alanine/serine', and the remaining 34 metagenomes had the AAST 'alanine/valine', the trajectories of alanine and serine would be calculated. If in any of the metagenomes the coverage of both amino acids were 0, the position was discarded. For the remaining positions, the allele frequencies were correlated with in situ temperature with the script that can be downloaded like so:
+
+```bash
+wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/frequency_trajectories_dataset.py
+
+# also download this guy
+wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/TARA_metadata.txt
+```
+
+A table summarizing the results of a linear regression to temperature for each of these positions, i.e. Table S11, can then be generated with the command: 
+
+```bash
+python frequency_trajectories_dataset.py --variability S-LLPA_SAAVs_20x_10percent_departure.txt -o allele_frequency_trajectory_summary.txt
+```
+
+## SAAVs on protein structures
+
+{:.notice}
+The workflow described below is now completely outdated and we highly recommend you use the workflow in this tutorial instead ([http://merenlab.org/2018/09/04/structural-biology-with-anvio/](http://merenlab.org/2018/09/04/structural-biology-with-anvio/)) if you're interested in protein structure prediction, as it simplifies things into just 2 anvi'o commands. For example, the entirety of what's shown below could be accomplished with `anvi-gen-structure-database -c SAR11-CONTIGS.db --genes-of-interest core-S-LLPA-genes.txt -o STRUCTURE.db` followed by `anvi-display-structure -p SAR11-MERGED/PROFILE.db -c SAR11-CONTIGS.db -s STRUCTURE.db`.
+
+The starting point for this section of the workflow is the SAAVs table for the core S-LLPA genes, which was generated in the "**Generating genomic variation data for HIMB83**" section as `S-LLPA_SAAVs_20x_10percent_departure.txt`.
+
+### Finding core S-LLPA genes with PDB matches
+
+First, we BLAST searched 799 core S-LLPA genes against the Protein Data Bank (PDB) to determine which of them had sufficiently similar homologues with solved tertiary structure.
+
+To do so we first created a FASTA file with amono acid sequences of the 799 genes,
+
+``` bash
+# get all AA sequences in the contigs db
+anvi-get-aa-sequences-for-gene-calls -c SAR11-CONTIGS.db -o SAR11-GENE-AA-SEQUENCES.fa
+
+# subsample the core genes from it:
+anvi-script-reformat-fasta SAR11-GENE-AA-SEQUENCES.fa
+                           -I core-S-LLPA-genes.txt
+                           -o CORE-S-LLPA-GENE-AA-SEQUENCES.fa
+```
+
+downloaded the PDB database as a single FASTA file,
+
+
+``` bash
+wget ftp://ftp.wwpdb.org/pub/pdb/derived_data/pdb_seqres.txt.gz
+gzip -d pdb_seqres.txt.gz
+```
+
+{:.notice}
+At the time of download for our study, the `pdb_seqres.txt` file was `125,199,982` bytes of data, although as of August 17th we note this has increased to `128,517,512` bytes. Since there is no version control with PDB data, new additions may yield slightly different results if you run our entire workflow, although we belive it is unlikely that the newly added protein sequences may influence the BLAST results.
+
+created a BLAST database for PDB seqeunces,
+
+``` bash
+makeblastdb -in pdb_seqres.fasta
+            -dbtype prot
+            -out pdb_seqres.fasta
+```
+
+and ran BLAST on the 799 genes:
+
+``` bash
+blastp -query CORE-S-LLPA-GENE-AA-SEQUENCES.fa \
+       -db pdb_seqres.fasta \
+       -outfmt "6 qseqid sseqid pident qlen length mismatch gapopen qstart qend sstart send evalue bitscore" \
+       -out CORE-S-LLPA-GENE-AA-SEQUENCES-vs-PDB-BLAST.fa
+```
+
+Next, we filtered out sequences with insufficient matches to the PDB. We accomplished this by considering only the PDB hit with the highest bitscore for each core S-LLPA gene, and by calculating `proper_pident`, which is the percentage of the query amino acids that were identical to an entry in the database given the entire lenght of the query sequence (so `proper_pident` helps us avoid the inflation of identity scores due to partial good matches). We filtered out genes in `CORE-S-LLPA-GENE-AA-SEQUENCES.fa` that had less than 30% `proper_pident` using the program `anvi-script-filter-fasta-by-blast`:
+
+``` bash
+wget https://raw.githubusercontent.com/merenlab/anvio/master/sandbox/anvi-script-filter-fasta-by-blast -O anvi-script-filter-fasta-by-blast
+chmod +x anvi-script-filter-fasta-by-blast
+./anvi-script-filter-fasta-by-blast CORE-S-LLPA-GENE-AA-SEQUENCES.fa \
+                                  --blast CORE-S-LLPA-GENE-AA-SEQUENCES-vs-PDB-BLAST.fa \
+                                  --threshold 30 \
+                                  --output-fasta CORE-S-LLPA-GENE-AA-SEQUENCES-W-PDB-MATCHES.fa \
+                                  --outfmt "qseqid sseqid pident qlen length mismatch gapopen qstart qend sstart send evalue bitscore"
+```
+
+436 genes matched to these criteria are stored in `CORE-S-LLPA-GENE-AA-SEQUENCES-W-PDB-MATCHES.fa` for downstream analyses.
+
+### Protein structure prediction 
+
+We computationally predicted the protein structures of these 436 genes using a template-based tertiary structure prediction algorithm called [RaptorX Structure Prediction](http://raptorx.uchicago.edu/). In short, RaptorX aligns query sequences to a database of solved protein structures, e.g. the PDB, and then uses the solved structures as templates to determine the conformation of the query sequence.
+
+Using the submission form [http://raptorx.uchicago.edu/StructurePrediction/predict/](http://raptorx.uchicago.edu/StructurePrediction/predict/), we submitted protein structure prediction jobs in batches of 20 sequences (the limit imposed by RaptorX) by subdividing `CORE-S-LLPA-GENE-AA-SEQUENCES-W-PDB-MATCHES.fa` into 22 FASTA files.
+
+RaptorX Structure Prediction outputs a zipped folder for each protein prediction named `<sequence_id>.all_in_one.zip`, where `<sequence_id>` is a unique tag generated by RaptorX. We created a new directory `RaptorXProperty`, manually moved all `<sequence_id>.all_in_one.zip` files into it, and unzipped them all. To make things more identifiable, we renamed the `<sequence_id>.all_in_one` folders to `<corresponding_gene_call>.all_in_one`, where `<corresponding_gene_call>` is the gene caller id defined by the SAAV table. To do this we created a python script called `rename_all_in_ones.py`, and executed it the following way:
+
+``` bash
+wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/rename_all_in_ones.py
+cd RaptorXProperty
+python rename_all_in_ones.py
+cd -
+```
+
+Before mapping SAAVs onto the predicted protein structure, we first did some maintenance on the SAAV table with the Python script `curate_SAAV_table.py`, which reads the original SAAV table `S-LLPA_SAAVs_20x_10percent_departure.txt`, and the `ALL_SPLITS-gene_non_outlier_coverages.txt` file that is generated when we summarized `HIMB83` in the section "**Creating a self-contained profile for HIMB83**".
+
+
+``` bash
+# downlod the script
+wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/curate_SAAV_table.py
+
+# copy HIMB83 gene coverages from the summary dir (if you don't have this directory, the
+# URL https://doi.org/10.6084/m9.figshare.5248435 serves HIMB83 profile with the SUMMARY
+# output directory 
+cp NON-REDUNDANT-MAGs-SPLIT/HIMB083/SUMMARY/bin_by_bin/ALL_SPLITS/ALL_SPLITS-gene_non_outlier_coverages.txt . 
+
+# make sure the file S-LLPA_SAAVs_20x_10percent_departure.txt is also in this directory.
+# if you don't have it, you may download the archive file that contains this and other files
+# from the URL https://doi.org/10.6084/m9.figshare.5248447
+
+# run the script
+python curate_SAAV_table.py
+```
+
+Running this script will update the SAAV table with additional information, and create a new file called `S-LLPA_SAAVs_20x_10percent_departure_curated.txt` in the work directory.
+
+### Structural mapping of SAAVs
+
+To map SAAVs onto protein structures, we developed a tool called SAAV-structural-mapping ([https://github.com/merenlab/SAAV-structural-mapping](https://github.com/merenlab/SAAV-structural-mapping)) that visualizes SAAVs as spheres with different colors, sizes, and opacities. Each user-defined "perspective" defines how these three variables are controlled. Please visit the github page for instructions on how to install.
+
+{:.notice}
+Unfortunately due to the limitations of PyMOL, SAAV-structural-mapping requires Python version 2, thus is not in the anvi'o codebase. We hope things will get better, and this step will be a part of the anvi'o codebase.
+
+{:.notice}
+SAAV-structural-mapping depends on [PyMOL](https://pymol.org/), a molecular visualization package written in Python. For full functionality, a licensed version is required, however partial functionality is possible either with the free open-source version or the educational version (best alternative).
+
+There are five inputs for this to work: 
+
+* A gene list specifying the genes we are interested in visualizing. In the past we have visualized all of the 436 genes in the FASTA file (`CORE-S-LLPA-GENE-AA-SEQUENCES-W-PDB-MATCHES.fa`), however the images require a lot of storage space and the script takes a very long time to run. To create the interface available at [http://anvio.org/data/S-LLPA-SAAVs/](http://anvio.org/data/S-LLPA-SAAVs/), we subselected genes that looked visually interesting to us. If you have your own list of genes you're interested in looking at, we encourage you to create your own gene list and let us know what you find! You can get a copy of ours this way:
+
+
+* A TAB-delimited file with the first column specifying the samples we are interested in visualizing. We chose to only consider surface samples at a depth of 5m. The additional columns define how samples group together for the creation of multi-sample images. We grouped our samples based on region, main groups, and proteotypes. You can get a copy of our sample groups the following way:
+
+* A SAAV table. We used `S-LLPA_SAAVs_20x_10percent_departure_curated.txt`.
+
+* A collection of structure predictions for all the genes in `genes-of-interest-for-PyMOL.txt`. We already created this: its the `RaptorXProperty` directory.
+
+* A configuration file specifying how to visualize the SAAVs. Below is the configuration file we used (`structural-mapping-of-SAAVs-config.ini`). For a complete description of how you can define your own config file please visit the help documentation of the `anvi-map-saavs-to-structure` script in SAAV-structural-mapping. 
+
+You can get copies of missing files for a full analysis (gene list, samples mapping, and the configuration file) the following way:
+
+``` bash
+wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/genes-of-interest-for-PyMOL.txt
+wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/genes-of-interest-for-PyMOL.txt
+wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/samples-of-interest-for-PyMOL.txt
+```
+
+For your information, our configuration file looked like this, and it is highly flexible for advanced users:
+
+``` ini
+[BLOSUM90]
+color_var = BLOSUM90
+color_scheme = darkred_to_darkblue
+merged_sphere_size_var = prevalence
+
+[BLOSUM90_weighted]
+color_var = BLOSUM90_weighted
+color_scheme = darkred_to_darkblue
+merged_sphere_size_var = prevalence
+
+[solvent_accessibility]
+color_var = solvent_acc
+color_scheme = solvent_acc_cmap
+merged_sphere_size_var = prevalence
+
+[secondary_structure]
+color_var = ss3
+color_scheme = ss3_cmap
+merged_sphere_size_var = prevalence
+
+[AASTs]
+color_var = competing_aas
+color_scheme = competing_aas
+merged_sphere_size_var = prevalence
+
+[coverage_deviation]
+color_var = rel_diff_from_mean_gene_cov
+color_scheme = (#b6c7ee,#e8edf9,#ffffff,#fcf5f4,#7c0b03);(-0.94,-0.45,0.04,0.54,3.00)
+merged_sphere_size_var = prevalence
+```
+
+With all of these pieces together, and assuming you did configure `anvi-map-saavs-to-structure` to be in your PATH, you can run the following command to generate output images:
+
+``` bash
+pymol -r anvi-map-saavs-to-structure -- \
+      --gene-list genes-of-interest-for-PyMOL.txt \
+      --sample-groups samples-of-interest-for-PyMOL.txt \
+      --saav-table S-LLPA_SAAVs_20x_10percent_departure_curated.txt \
+      --input-dir RaptorXProperty \
+      --pymol-config structural-mapping-of-SAAVs-config.ini \
+      --ray 1 \
+      --res 1200 \
+      --output-dir SAR11-S-LLPA-SAAVs-ON-STRUCTURE
+```
+
+{:.notice}
+This will take some time. If you would like to speed it up, you can cut down on the number of perspectives in `structural-mapping-of-SAAVs-config.ini` and/or the number of genes in `genes-of-interest-for-PyMOL.txt`, and/or set `--ray 0` and `--res 600` for lower quality images.
+
+{:.notice}
+The URL [doi:10.5281/zenodo.835218](https://doi.org/10.5281/zenodo.835218){:target="_blank"} serves the output diretory, `SAR11-S-LLPA-SAAVs-ON-STRUCTURE`.
+
+
+The output `SAR11-S-LLPA-SAAVs-ON-STRUCTURE` contains both PNG images for all the SAAV structure visualizations, as well as PyMOL files that can be opened to manipulate the structures.
+
+### Generating an interactive output
+
+The resulting images with SAAVs mapped onto predicted tertiary structures of proteins can be neatly organized with functional annotation in an interactive interface with the following anvi'o command:
+
+``` bash
+anvi-saavs-and-protein-structures-summary -i SAR11-S-LLPA-SAAVs-ON-STRUCTURE \
+                                          -c SAR11-CONTIGS.db \
+                                          -o S-LLPA-SAAVs \
+                                          --soft-link-images \
+                                          --perspectives 'AASTs,BLOSUM90,solvent_accessibility'
+```
+
+[http://anvio.org/data/S-LLPA-SAAVs/](http://anvio.org/data/S-LLPA-SAAVs/){:target="_blank"} serves our `S-LLPA-SAAVs` output directory, which contains an interactive web page to explore 58 proteins across 49 samples with 3 perspectives in our config file.
+
+The same output is also archived at [doi:10.6084/m9.figshare.5248432](https://doi.org/10.6084/m9.figshare.5248432){:target="_blank"}.
+
 ## Application of Deep Learning to SAAVs
 
 This section describes our use of deep learning to estimate distances between TARA metagnomes based on SAAVs identified in core S-LLPA genes. We used the resulting distance matrix to identify the main groups, and proteotypes displayed in Figure 3 in our study.
@@ -1099,214 +1322,6 @@ dev.off()
 which suggested that 'six' was an appropriate number to divide our dendrogram:
 
 [![SAR11]({{images}}/kmeans.png)]({{images}}/kmeans.png){:.center-img .width-70}
-
-
-## SAAVs on protein structures
-
-{:.notice}
-The workflow described below is now completely outdated and we highly recommend you use the workflow in this tutorial instead ([http://merenlab.org/2018/09/04/structural-biology-with-anvio/](http://merenlab.org/2018/09/04/structural-biology-with-anvio/)) if you're interested in protein structure prediction, as it simplifies things into just 2 anvi'o commands. For example, the entirety of what's shown below could be accomplished with `anvi-gen-structure-database -c SAR11-CONTIGS.db --genes-of-interest core-S-LLPA-genes.txt -o STRUCTURE.db` followed by `anvi-display-structure -p SAR11-MERGED/PROFILE.db -c SAR11-CONTIGS.db -s STRUCTURE.db`.
-
-The starting point for this section of the workflow is the SAAVs table for the core S-LLPA genes, which was generated in the "**Generating genomic variation data for HIMB83**" section as `S-LLPA_SAAVs_20x_10percent_departure.txt`.
-
-### Finding core S-LLPA genes with PDB matches
-
-First, we BLAST searched 799 core S-LLPA genes against the Protein Data Bank (PDB) to determine which of them had sufficiently similar homologues with solved tertiary structure.
-
-To do so we first created a FASTA file with amono acid sequences of the 799 genes,
-
-``` bash
-# get all AA sequences in the contigs db
-anvi-get-aa-sequences-for-gene-calls -c SAR11-CONTIGS.db -o SAR11-GENE-AA-SEQUENCES.fa
-
-# subsample the core genes from it:
-anvi-script-reformat-fasta SAR11-GENE-AA-SEQUENCES.fa
-                           -I core-S-LLPA-genes.txt
-                           -o CORE-S-LLPA-GENE-AA-SEQUENCES.fa
-```
-
-downloaded the PDB database as a single FASTA file,
-
-
-``` bash
-wget ftp://ftp.wwpdb.org/pub/pdb/derived_data/pdb_seqres.txt.gz
-gzip -d pdb_seqres.txt.gz
-```
-
-{:.notice}
-At the time of download for our study, the `pdb_seqres.txt` file was `125,199,982` bytes of data, although as of August 17th we note this has increased to `128,517,512` bytes. Since there is no version control with PDB data, new additions may yield slightly different results if you run our entire workflow, although we belive it is unlikely that the newly added protein sequences may influence the BLAST results.
-
-created a BLAST database for PDB seqeunces,
-
-``` bash
-makeblastdb -in pdb_seqres.fasta
-            -dbtype prot
-            -out pdb_seqres.fasta
-```
-
-and ran BLAST on the 799 genes:
-
-``` bash
-blastp -query CORE-S-LLPA-GENE-AA-SEQUENCES.fa \
-       -db pdb_seqres.fasta \
-       -outfmt "6 qseqid sseqid pident qlen length mismatch gapopen qstart qend sstart send evalue bitscore" \
-       -out CORE-S-LLPA-GENE-AA-SEQUENCES-vs-PDB-BLAST.fa
-```
-
-Next, we filtered out sequences with insufficient matches to the PDB. We accomplished this by considering only the PDB hit with the highest bitscore for each core S-LLPA gene, and by calculating `proper_pident`, which is the percentage of the query amino acids that were identical to an entry in the database given the entire lenght of the query sequence (so `proper_pident` helps us avoid the inflation of identity scores due to partial good matches). We filtered out genes in `CORE-S-LLPA-GENE-AA-SEQUENCES.fa` that had less than 30% `proper_pident` using the program `anvi-script-filter-fasta-by-blast`:
-
-``` bash
-wget https://raw.githubusercontent.com/merenlab/anvio/master/sandbox/anvi-script-filter-fasta-by-blast -O anvi-script-filter-fasta-by-blast
-chmod +x anvi-script-filter-fasta-by-blast
-./anvi-script-filter-fasta-by-blast CORE-S-LLPA-GENE-AA-SEQUENCES.fa \
-                                  --blast CORE-S-LLPA-GENE-AA-SEQUENCES-vs-PDB-BLAST.fa \
-                                  --threshold 30 \
-                                  --output-fasta CORE-S-LLPA-GENE-AA-SEQUENCES-W-PDB-MATCHES.fa \
-                                  --outfmt "qseqid sseqid pident qlen length mismatch gapopen qstart qend sstart send evalue bitscore"
-```
-
-436 genes matched to these criteria are stored in `CORE-S-LLPA-GENE-AA-SEQUENCES-W-PDB-MATCHES.fa` for downstream analyses.
-
-### Protein structure prediction 
-
-We computationally predicted the protein structures of these 436 genes using a template-based tertiary structure prediction algorithm called [RaptorX Structure Prediction](http://raptorx.uchicago.edu/). In short, RaptorX aligns query sequences to a database of solved protein structures, e.g. the PDB, and then uses the solved structures as templates to determine the conformation of the query sequence.
-
-Using the submission form [http://raptorx.uchicago.edu/StructurePrediction/predict/](http://raptorx.uchicago.edu/StructurePrediction/predict/), we submitted protein structure prediction jobs in batches of 20 sequences (the limit imposed by RaptorX) by subdividing `CORE-S-LLPA-GENE-AA-SEQUENCES-W-PDB-MATCHES.fa` into 22 FASTA files.
-
-RaptorX Structure Prediction outputs a zipped folder for each protein prediction named `<sequence_id>.all_in_one.zip`, where `<sequence_id>` is a unique tag generated by RaptorX. We created a new directory `RaptorXProperty`, manually moved all `<sequence_id>.all_in_one.zip` files into it, and unzipped them all. To make things more identifiable, we renamed the `<sequence_id>.all_in_one` folders to `<corresponding_gene_call>.all_in_one`, where `<corresponding_gene_call>` is the gene caller id defined by the SAAV table. To do this we created a python script called `rename_all_in_ones.py`, and executed it the following way:
-
-``` bash
-wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/rename_all_in_ones.py
-cd RaptorXProperty
-python rename_all_in_ones.py
-cd -
-```
-
-Before mapping SAAVs onto the predicted protein structure, we first did some maintenance on the SAAV table with the Python script `curate_SAAV_table.py`, which reads the original SAAV table `S-LLPA_SAAVs_20x_10percent_departure.txt`, and the `ALL_SPLITS-gene_non_outlier_coverages.txt` file that is generated when we summarized `HIMB83` in the section "**Creating a self-contained profile for HIMB83**".
-
-
-``` bash
-# downlod the script
-wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/curate_SAAV_table.py
-
-# copy HIMB83 gene coverages from the summary dir (if you don't have this directory, the
-# URL https://doi.org/10.6084/m9.figshare.5248435 serves HIMB83 profile with the SUMMARY
-# output directory 
-cp NON-REDUNDANT-MAGs-SPLIT/HIMB083/SUMMARY/bin_by_bin/ALL_SPLITS/ALL_SPLITS-gene_non_outlier_coverages.txt . 
-
-# make sure the file S-LLPA_SAAVs_20x_10percent_departure.txt is also in this directory.
-# if you don't have it, you may download the archive file that contains this and other files
-# from the URL https://doi.org/10.6084/m9.figshare.5248447
-
-# run the script
-python curate_SAAV_table.py
-```
-
-Running this script will update the SAAV table with additional information, and create a new file called `S-LLPA_SAAVs_20x_10percent_departure_curated.txt` in the work directory.
-
-### Structural mapping of SAAVs
-
-To map SAAVs onto protein structures, we developed a tool called SAAV-structural-mapping ([https://github.com/merenlab/SAAV-structural-mapping](https://github.com/merenlab/SAAV-structural-mapping)) that visualizes SAAVs as spheres with different colors, sizes, and opacities. Each user-defined "perspective" defines how these three variables are controlled. Please visit the github page for instructions on how to install.
-
-{:.notice}
-Unfortunately due to the limitations of PyMOL, SAAV-structural-mapping requires Python version 2, thus is not in the anvi'o codebase. We hope things will get better, and this step will be a part of the anvi'o codebase.
-
-{:.notice}
-SAAV-structural-mapping depends on [PyMOL](https://pymol.org/), a molecular visualization package written in Python. For full functionality, a licensed version is required, however partial functionality is possible either with the free open-source version or the educational version (best alternative).
-
-There are five inputs for this to work: 
-
-* A gene list specifying the genes we are interested in visualizing. In the past we have visualized all of the 436 genes in the FASTA file (`CORE-S-LLPA-GENE-AA-SEQUENCES-W-PDB-MATCHES.fa`), however the images require a lot of storage space and the script takes a very long time to run. To create the interface available at [http://anvio.org/data/S-LLPA-SAAVs/](http://anvio.org/data/S-LLPA-SAAVs/), we subselected genes that looked visually interesting to us. If you have your own list of genes you're interested in looking at, we encourage you to create your own gene list and let us know what you find! You can get a copy of ours this way:
-
-
-* A TAB-delimited file with the first column specifying the samples we are interested in visualizing. We chose to only consider surface samples at a depth of 5m. The additional columns define how samples group together for the creation of multi-sample images. We grouped our samples based on region, main groups, and proteotypes. You can get a copy of our sample groups the following way:
-
-* A SAAV table. We used `S-LLPA_SAAVs_20x_10percent_departure_curated.txt`.
-
-* A collection of structure predictions for all the genes in `genes-of-interest-for-PyMOL.txt`. We already created this: its the `RaptorXProperty` directory.
-
-* A configuration file specifying how to visualize the SAAVs. Below is the configuration file we used (`structural-mapping-of-SAAVs-config.ini`). For a complete description of how you can define your own config file please visit the help documentation of the `anvi-map-saavs-to-structure` script in SAAV-structural-mapping. 
-
-You can get copies of missing files for a full analysis (gene list, samples mapping, and the configuration file) the following way:
-
-``` bash
-wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/genes-of-interest-for-PyMOL.txt
-wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/genes-of-interest-for-PyMOL.txt
-wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/samples-of-interest-for-PyMOL.txt
-```
-
-For your information, our configuration file looked like this, and it is highly flexible for advanced users:
-
-``` ini
-[BLOSUM90]
-color_var = BLOSUM90
-color_scheme = darkred_to_darkblue
-merged_sphere_size_var = prevalence
-
-[BLOSUM90_weighted]
-color_var = BLOSUM90_weighted
-color_scheme = darkred_to_darkblue
-merged_sphere_size_var = prevalence
-
-[solvent_accessibility]
-color_var = solvent_acc
-color_scheme = solvent_acc_cmap
-merged_sphere_size_var = prevalence
-
-[secondary_structure]
-color_var = ss3
-color_scheme = ss3_cmap
-merged_sphere_size_var = prevalence
-
-[AASTs]
-color_var = competing_aas
-color_scheme = competing_aas
-merged_sphere_size_var = prevalence
-
-[coverage_deviation]
-color_var = rel_diff_from_mean_gene_cov
-color_scheme = (#b6c7ee,#e8edf9,#ffffff,#fcf5f4,#7c0b03);(-0.94,-0.45,0.04,0.54,3.00)
-merged_sphere_size_var = prevalence
-```
-
-With all of these pieces together, and assuming you did configure `anvi-map-saavs-to-structure` to be in your PATH, you can run the following command to generate output images:
-
-``` bash
-pymol -r anvi-map-saavs-to-structure -- \
-      --gene-list genes-of-interest-for-PyMOL.txt \
-      --sample-groups samples-of-interest-for-PyMOL.txt \
-      --saav-table S-LLPA_SAAVs_20x_10percent_departure_curated.txt \
-      --input-dir RaptorXProperty \
-      --pymol-config structural-mapping-of-SAAVs-config.ini \
-      --ray 1 \
-      --res 1200 \
-      --output-dir SAR11-S-LLPA-SAAVs-ON-STRUCTURE
-```
-
-{:.notice}
-This will take some time. If you would like to speed it up, you can cut down on the number of perspectives in `structural-mapping-of-SAAVs-config.ini` and/or the number of genes in `genes-of-interest-for-PyMOL.txt`, and/or set `--ray 0` and `--res 600` for lower quality images.
-
-{:.notice}
-The URL [doi:10.5281/zenodo.835218](https://doi.org/10.5281/zenodo.835218){:target="_blank"} serves the output diretory, `SAR11-S-LLPA-SAAVs-ON-STRUCTURE`.
-
-
-The output `SAR11-S-LLPA-SAAVs-ON-STRUCTURE` contains both PNG images for all the SAAV structure visualizations, as well as PyMOL files that can be opened to manipulate the structures.
-
-### Generating an interactive output
-
-The resulting images with SAAVs mapped onto predicted tertiary structures of proteins can be neatly organized with functional annotation in an interactive interface with the following anvi'o command:
-
-``` bash
-anvi-saavs-and-protein-structures-summary -i SAR11-S-LLPA-SAAVs-ON-STRUCTURE \
-                                          -c SAR11-CONTIGS.db \
-                                          -o S-LLPA-SAAVs \
-                                          --soft-link-images \
-                                          --perspectives 'AASTs,BLOSUM90,solvent_accessibility'
-```
-
-[http://anvio.org/data/S-LLPA-SAAVs/](http://anvio.org/data/S-LLPA-SAAVs/){:target="_blank"} serves our `S-LLPA-SAAVs` output directory, which contains an interactive web page to explore 58 proteins across 49 samples with 3 perspectives in our config file.
-
-The same output is also archived at [doi:10.6084/m9.figshare.5248432](https://doi.org/10.6084/m9.figshare.5248432){:target="_blank"}.
-
 
 ## References
 
