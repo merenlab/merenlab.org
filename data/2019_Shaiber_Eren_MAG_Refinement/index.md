@@ -576,21 +576,21 @@ TM7_MAG_IIIC_1   None        772299        440          2432   53.05687702932150
 
 ## FASTA files for refined MAGs
 
-* [GN02_MAG_IV_A_1](http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/GN02_MAG_IV_A_1.fa); GN02 _MAG IV.A in the original study.
+* [GN02_MAG_IV_A_1](http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/GN02_MAG_IV_A_1-contigs.fa); GN02 _MAG IV.A in the original study.
 
-* [GN02_MAG_IV_A_2](http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/GN02_MAG_IV_A_2.fa); GN02 _MAG IV.A in the original study.
+* [GN02_MAG_IV_A_2](http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/GN02_MAG_IV_A_2-contigs.fa); GN02 _MAG IV.A in the original study.
 
-* [GN02_MAG_IV_B_1](http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/GN02_MAG_IV_B_1.fa); GN02 _MAG IV.B in the original study.
+* [GN02_MAG_IV_B_1](http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/GN02_MAG_IV_B_1-contigs.fa); GN02 _MAG IV.B in the original study.
 
-* [GN02_MAG_IV_B_2](http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/GN02_MAG_IV_B_2.fa); GN02 _MAG IV.B in the original study.
+* [GN02_MAG_IV_B_2](http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/GN02_MAG_IV_B_2-contigs.fa); GN02 _MAG IV.B in the original study.
 
-* [TM7_MAG_III_A_1](http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/TM7_MAG_III_A_1.fa); TM7 MAG III.A in the original study.
+* [TM7_MAG_III_A_1](http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/TM7_MAG_III_A_1-contigs.fa); TM7 MAG III.A in the original study.
 
-* [TM7_MAG_III_A_2](http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/TM7_MAG_III_A_2.fa); TM7 MAG III.A in the original study.
+* [TM7_MAG_III_A_2](http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/TM7_MAG_III_A_2-contigs.fa); TM7 MAG III.A in the original study.
 
-* [TM7_MAG_III_B_1](http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/TM7_MAG_III_B_1.fa); TM7 MAG III.B in the original study.
+* [TM7_MAG_III_B_1](http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/TM7_MAG_III_B_1-contigs.fa); TM7 MAG III.B in the original study.
 
-* [TM7_MAG_III_C_1](http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/TM7_MAG_III_C_1.fa); TM7 MAG III.C in the original study.
+* [TM7_MAG_III_C_1](http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/TM7_MAG_III_C_1-contigs.fa); TM7 MAG III.C in the original study.
 
 <div style="display: block; height: 200px;">&nbsp;</div>
 
