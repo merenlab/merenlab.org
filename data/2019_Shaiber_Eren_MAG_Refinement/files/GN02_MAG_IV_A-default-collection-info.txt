@@ -1,0 +1,2 @@
+GN02_MAG_IV_A_2	anvi-interactive	#ff0000
+GN02_MAG_IV_A_1	anvi-interactive	#ff0000

@@ -1,0 +1,2816 @@
+{
+    "version": "3",
+    "tree-type": "circlephylogram",
+    "order-by": "tnf-cov:euclidean:ward",
+    "current-view": "mean_coverage_Q2Q3",
+    "angle-min": "0",
+    "angle-max": "360",
+    "tree-radius": "15000",
+    "tree-height": "0",
+    "tree-width": "0",
+    "layer-margin": "15",
+    "outer-ring-height": "800",
+    "outer-ring-margin": "200",
+    "edge-normalization": false,
+    "custom-layer-margin": false,
+    "show-grid-for-bins": true,
+    "grid-color": "#FFFFFF",
+    "grid-width": "1",
+    "samples-order": "custom",
+    "max-font-size": "60",
+    "optimize-speed": true,
+    "show-bin-labels": true,
+    "bin-labels-font-size": "600",
+    "autorotate-bin-labels": true,
+    "bin-labels-angle": "0",
+    "background-opacity": "0.3",
+    "max-font-size-label": "120",
+    "draw-guide-lines": "no",
+    "layer-order": [
+        "__parent__",
+        "length",
+        "gc_content",
+        "Espinoza_0001",
+        "Espinoza_0002",
+        "Espinoza_0003",
+        "Espinoza_0004",
+        "Espinoza_0005",
+        "Espinoza_0006",
+        "Espinoza_0007",
+        "Espinoza_0008",
+        "Espinoza_0009",
+        "Espinoza_0010",
+        "Espinoza_0011",
+        "Espinoza_0012",
+        "Espinoza_0013",
+        "Espinoza_0014",
+        "Espinoza_0015",
+        "Espinoza_0016",
+        "Espinoza_0017",
+        "Espinoza_0018",
+        "Espinoza_0019",
+        "Espinoza_0020",
+        "Espinoza_0021",
+        "Espinoza_0022",
+        "Espinoza_0023",
+        "Espinoza_0024",
+        "Espinoza_0025",
+        "Espinoza_0026",
+        "Espinoza_0027",
+        "Espinoza_0028",
+        "Espinoza_0029",
+        "Espinoza_0030",
+        "Espinoza_0031",
+        "Espinoza_0032",
+        "Espinoza_0033",
+        "Espinoza_0034",
+        "Espinoza_0035",
+        "Espinoza_0036",
+        "Espinoza_0037",
+        "Espinoza_0038",
+        "Espinoza_0039",
+        "Espinoza_0040",
+        "Espinoza_0041",
+        "Espinoza_0042",
+        "Espinoza_0043",
+        "Espinoza_0044",
+        "Espinoza_0045",
+        "Espinoza_0046",
+        "Espinoza_0047",
+        "Espinoza_0048",
+        "Espinoza_0049",
+        "Espinoza_0050",
+        "Espinoza_0051",
+        "Espinoza_0052",
+        "Espinoza_0053",
+        "Espinoza_0054",
+        "Espinoza_0055",
+        "Espinoza_0056",
+        "Espinoza_0057",
+        "Espinoza_0058",
+        "Espinoza_0059",
+        "Espinoza_0060",
+        "Espinoza_0061",
+        "Espinoza_0062",
+        "Espinoza_0063",
+        "Espinoza_0064",
+        "Espinoza_0065",
+        "Espinoza_0066",
+        "Espinoza_0067",
+        "Espinoza_0068",
+        "Espinoza_0069",
+        "Espinoza_0070",
+        "Espinoza_0071",
+        "Espinoza_0072",
+        "Espinoza_0073",
+        "Espinoza_0074",
+        "Espinoza_0075",
+        "Espinoza_0076",
+        "Espinoza_0077",
+        "Espinoza_0078",
+        "Espinoza_0079",
+        "Espinoza_0080",
+        "Espinoza_0081",
+        "Espinoza_0082",
+        "Espinoza_0083",
+        "Espinoza_0084",
+        "Espinoza_0085",
+        "Espinoza_0086",
+        "Espinoza_0087",
+        "Espinoza_0088",
+        "taxonomy"
+    ],
+    "categorical_data_colors": {
+        "taxonomy": {
+            "None": "#FFFFFF",
+            "Torulaspora": "#4ac952",
+            "Clostridium": "#07af01",
+            "Streptococcus": "#86efde",
+            "candidate": "#8a8cdb",
+            "Lactobacillus": "#dab3f2",
+            "Acetohalobium": "#eaffb2",
+            "Sulfolobus": "#f9beb8",
+            "Homo": "#88e585",
+            "Monodelphis": "#179bd3",
+            "Prochlorococcus": "#ce0659",
+            "Dictyoglomus": "#c611b1",
+            "Haemophilus": "#d6d026",
+            "Calothrix": "#9623dd",
+            "Chitinophaga": "#132e84",
+            "Capnocytophaga": "#19499e",
+            "Mycoplasma": "#f200a1",
+            "Bacillus": "#a270ff",
+            "Sulfurospirillum": "#a4eef2"
+        }
+    },
+    "stack_bar_colors": {},
+    "layers": {
+        "length": {
+            "color": "#414141",
+            "height": "0",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "gc_content": {
+            "color": "#004a0f",
+            "height": "0",
+            "margin": "15",
+            "type": "bar",
+            "color-start": "#FFFFFF"
+        },
+        "Espinoza_0001": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0002": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0003": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0004": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0005": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0006": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0007": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0008": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0009": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0010": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0011": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0012": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0013": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0014": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0015": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0016": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0017": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0018": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0019": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0020": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0021": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0022": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0023": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0024": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0025": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0026": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0027": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0028": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0029": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0030": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0031": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0032": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0033": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0034": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0035": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0036": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0037": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0038": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0039": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0040": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0041": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0042": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0043": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0044": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0045": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0046": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0047": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0048": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0049": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0050": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0051": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0052": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0053": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0054": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0055": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0056": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0057": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0058": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0059": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0060": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0061": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0062": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0063": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0064": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0065": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0066": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0067": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0068": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0069": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0070": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0071": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0072": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0073": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0074": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0075": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0076": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0077": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0078": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0079": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0080": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0081": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0082": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0083": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0084": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0085": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0086": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0087": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "Espinoza_0088": {
+            "color": "#000000",
+            "height": "180",
+            "margin": "15",
+            "type": "intensity",
+            "color-start": "#e0e0e0"
+        },
+        "__parent__": {
+            "height": "0",
+            "margin": "15"
+        },
+        "taxonomy": {
+            "color": "#000000",
+            "height": "0",
+            "margin": "15",
+            "type": "color",
+            "color-start": "#DDDDDD"
+        }
+    },
+    "views": {
+        "mean_coverage": {
+            "length": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "gc_content": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0001": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0002": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0003": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0004": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0005": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0006": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0007": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0008": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0009": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0010": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0011": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0012": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0013": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0014": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0015": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0016": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0017": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0018": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0019": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0020": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0021": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0022": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0023": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0024": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0025": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0026": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0027": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0028": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0029": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0030": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0031": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0032": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0033": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0034": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0035": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0036": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0037": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0038": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0039": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0040": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0041": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0042": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0043": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0044": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0045": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0046": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0047": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0048": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0049": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0050": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0051": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0052": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0053": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0054": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0055": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0056": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0057": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0058": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0059": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0060": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0061": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0062": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0063": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0064": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0065": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0066": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0067": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0068": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0069": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0070": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0071": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0072": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0073": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0074": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0075": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0076": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0077": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0078": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0079": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0080": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0081": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0082": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0083": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0084": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0085": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0086": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0087": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "Espinoza_0088": {
+                "normalization": "log",
+                "min": {
+                    "value": "0",
+                    "disabled": true
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": true
+                }
+            },
+            "__parent__": {
+                "min": {
+                    "disabled": false
+                },
+                "max": {
+                    "disabled": false
+                }
+            },
+            "taxonomy": {
+                "min": {
+                    "disabled": false
+                },
+                "max": {
+                    "disabled": false
+                }
+            }
+        },
+        "mean_coverage_Q2Q3": {
+            "length": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "22771",
+                    "disabled": false
+                }
+            },
+            "gc_content": {
+                "normalization": "none",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.4423265867557477",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0001": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0002": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.2004587258080797",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0003": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.1214168527250505",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0004": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.8263073779072064",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0005": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.512044564289533",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0006": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0357312331961832",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0007": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.974817991845101",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0008": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.5979206949998951",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0009": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.101669285073889",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0010": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.3849179918590857",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0011": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0239365553928794",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0012": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.7329063397095005",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0013": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.720048964994486",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0014": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.5364719583666242",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0015": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.1386556970993456",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0016": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.1036420393737099",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0017": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.1744294997046238",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0018": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.752323834409274",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0019": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.793964843344186",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0020": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.8936436365867039",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0021": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.4476078911478807",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0022": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.9909538790871504",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0023": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.0570801995470234",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0024": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0025": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.365573582738474",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0026": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.176867694589507",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0027": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0028": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.7825799922316672",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0029": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.4383626076812597",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0030": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.5929972220606012",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0031": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.0628050239977185",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0032": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.7370054085835801",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0033": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.049847042631742",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0034": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.3318026371623048",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0035": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.244824735973411",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0036": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.4465712732183824",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0037": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.272632522883648",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0038": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.8507353861412421",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0039": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.4836746013127828",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0040": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.390758974918296",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0041": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.4130546557108865",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0042": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.4276946623356632",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0043": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0044": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.9020557060337286",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0045": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.186754352182215",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0046": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0669967310015729",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0047": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.8124589954948156",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0048": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.7550369941490899",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0049": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.51593621011722",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0050": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.7863975156570492",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0051": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.8239401326674867",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0052": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.4182095199030156",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0053": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.7328843258113333",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0054": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.087908494348462",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0055": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0056": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.0827251289958335",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0057": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.182018442129378",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0058": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0059": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.7737932363454494",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0060": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.0510154613637805",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0061": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.1602219767431838",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0062": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.7939616579937191",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0063": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.6428842714293234",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0064": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.0542636584231961",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0065": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.9914354969960326",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0066": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.738369344457878",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0067": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.946644144079879",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0068": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.392437582594012",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0069": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0070": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0071": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.4878869081944922",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0072": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.8490473644458258",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0073": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "3.0953199489862397",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0074": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.2214538354098523",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0075": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.7762934876368398",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0076": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.6073316539505902",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0077": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0078": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.9832701950622198",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0079": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.1962497360557414",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0080": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.9135536197324987",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0081": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.441562812737829",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0082": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0083": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.3371952244534924",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0084": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.8495281709322812",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0085": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "2.843258724012611",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0086": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "1.1109711638706654",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0087": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0.6270032274321244",
+                    "disabled": false
+                }
+            },
+            "Espinoza_0088": {
+                "normalization": "sqrt",
+                "min": {
+                    "value": "0",
+                    "disabled": false
+                },
+                "max": {
+                    "value": "0",
+                    "disabled": false
+                }
+            },
+            "__parent__": {
+                "min": {
+                    "disabled": false
+                },
+                "max": {
+                    "disabled": false
+                }
+            },
+            "taxonomy": {
+                "min": {
+                    "disabled": false
+                },
+                "max": {
+                    "disabled": false
+                }
+            }
+        }
+    },
+    "samples-categorical-colors": {},
+    "samples-stack-bar-colors": {},
+    "samples-edge-length-normalization": true,
+    "samples-ignore-branch-length": false,
+    "samples-tree-height": "400",
+    "samples-layer-order": [],
+    "samples-layers": {},
+    "samples-groups": {}
+}
