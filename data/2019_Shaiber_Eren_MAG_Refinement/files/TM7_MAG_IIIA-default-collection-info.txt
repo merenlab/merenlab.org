@@ -1,0 +1,6 @@
+TM7_MAG_IIIA_1	anvi-interactive	#ff0000
+TM7_MAG_IIIA_2	anvi-interactive	#ff0000
+TM7_MAG_IIIA_3	anvi-interactive	#ff0000
+TM7_MAG_IIIA_4	anvi-interactive	#ff0000
+TM7_MAG_IIIA_5	anvi-interactive	#ff0000
+TM7_MAG_IIIA_6	anvi-interactive	#ff0000
