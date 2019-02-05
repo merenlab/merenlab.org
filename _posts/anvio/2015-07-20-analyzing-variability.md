@@ -49,33 +49,36 @@ SNV positions are a minority compared to stable frequencies, where the extent of
 
 ## Single codon variants
 
-Single codon variants (SCVs) are just like SNVs, however they focus on explaining the frequencies of codons instead of nucleotides. A SCV can be fully characterized by both _1)_ its position in the reference sequence, and _2)_, a _frequency vector_ that quantifies the frequency of codon identities that mapped onto that codon position. The frequency vector for a SCV has a length of 64 because there are 64 codons. 
+Single codon variants (SCVs) are just like single nucleotide variants (SNVs), however they focus on explaining the frequencies of *codons* instead of *nucleotides*.
 
-You may be asking why you would want to look at SCVs instead of the canonical SNVs. There's 64 codons and only 4 nucleotides, so it seems like more of a headache than anything else. Not to mention SCVs are only defined in coding regions of the reference (did I just say _not_ to mention?). The primary reason for using SCVs is if you are interested in codons or concepts related to codons, such determing whether a variant is synonymous or non-synonymous. As will be shown in the demo below, SNVs cannot be used to construct the corresponding codon variant, except in cases where the number of SNVs is so low  that the probability of 2 SNVs occurring in the same codon is fleetingly small (for example the human genome). Otherwise, it is necessary to consider the identity of nucleotides over the full codon for each read.
+A SCV can be uniquely and fully characterized by both (1) its unique position in the reference sequence, and (2) the _frequency vector_ that quantifies the frequency of codons that mapped onto that codon position. The frequency vector for a SCV has a length (as there are 64 codons). 
 
-To make all of this concrete, consider the following example:
+Why looking at SCVs instead of the canonical SNVs when there are 64 codons (instead of 4 nucleotides) and SCVs can only recovered from coding regions of the reference (instead of nucleotides, which can convey information about environmental variability independent of coding regions)? The primary reason for using SCVs is to be able to accurately determine whether an environmental variant is synonymous or non-synonymous. SNVs can only give reliable access to the corresponding codon variant *if and only if* number of SNVs in a given codon position does not exceed one (which is often the case for eukaryotic genomes such as the human genome, studies of which gave rise to lots of approaches for population genetics (with rather limited applicability to microbial world)). Please consider the following example:
 
 <div class="centerimg">
 <a href="{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/SCV_demo1.png"><img src="{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/SCV_demo1.png" style="border: none; width: 100%;" /></a>
 </div>
 
-The top row is the reference sequence that contains the codon `TCC`, which encodes the amino acid serine. Each row below shows the reads that mapped at least partially to this codon. the first position in the codon is a SNV (let's call it SNV 1) and we can characterize this SNV with a frequency vector shown in red, i.e. 37% of reads are `A` and 63% are `T`. If we ignore the other positions this SNV leads to the variants, `TTC` (serine) and `ATC` (isoleucine). likewise, the second position in the codon is also a SNV (SNV 2) with the frequency vector shown in red:
+The top row is the reference sequence that contains the codon `TCC`, which encodes the amino acid serine. Each row below shows the reads that mapped at least partially to this codon. the first position in the codon is a SNV (let's call it SNV 1) and we can characterize this SNV with a frequency vector shown in red, i.e. 37% of reads are `A` and 63% are `T`. If we ignore the other positions **this SNV leads to the variants, `TTC` (serine) and `ATC` (isoleucine)**. Likewise, the second position in the codon is also a SNV (SNV 2) with the frequency vector shown in red:
 
 <div class="centerimg">
 <a href="{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/SCV_demo3.png"><img src="{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/SCV_demo2.png" style="border: none; width: 100%;" /></a>
 </div>
 
-If we ignore again the other positions, SNV 2 leads to the variants,`TCC` (serine) and `TGC` (cysteine). However, this time we know we are fooling ourselves because we already identified that the first position is a SNV and therefore we can't ignore the other positions. So to get out of this mess and resolve the true codon variants, we should combine the information from the frequency vectors of SNV 1 and SNV 2... right? Rhetorical question, much? The problem with that is that even when equipped with the frequency vectors for SNV 1: `<A=0.37, C=0.0, G=0.0, T=0.67>` and for SNV 2: `<A=0.0, C=0.5, G=0.5, T=0.0>`, we can't, for example, learn whether `A`s from position 1 go with `C`s or `G`s from position 2. in fact, there are 4 possible codon variants (`ACC`, `AGC`, `TGC`, `TCC`) and knowing the frequency vectors of SNV 1 and SNV 2 do not help us learn which are present and in what frequencies.
+If we ignore again the other positions, **this SNV leads to the variants,`TCC` (serine) and `TGC` (cysteine)**.
 
-The solution to this problem is SCVs: Rather than counting `A`s, `C`s, `G`s, and `T`s mapping onto nucleotide positions in the reference, we can instead count codons mapping onto _codon_ positions in the reference:
+We can not combine the independent nucleotide variants when we are working with such nucleotide pileups to resolve the true codon variants. Our implementation of SCVs addresses this issue by **working only with short reads that fully cover a given codon position**, so the linkage between nucleotides is no longer hidden:
  
  <div class="centerimg">
 <a href="{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/SCV_demo3.png"><img src="{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/SCV_demo3.png" style="border: none; width: 100%;" /></a>
 </div>
 
-Since some reads will map on to some but not all of a codon position, we can't resolve the codon's identity so we ignore such reads (those crossed out in red). in our toy example 4 (33%) of our reads suffer this fate, but in general, the expected fraction of those to be excluded is only 4 / (2 + L) where L is the length of your short reads. Of those remaining the frequencies of codons can be read directly, and leads to the frequency vector shown in red. Now, the short reads provide a linkage between the identity of nucleotides between nucleotide positions. The resulting SCV is characterized as 50% `TCC` and 50% `AGC`. These are both codons of serine, and thus the **SCV is 100% synonymous**. If we had treated the nucleotide positions independently, SNV 1 would have been labelled a non-synonymous variant between `TCC` (serine) and `ACC` (isoleucine), and SNV 2 would have been labelled a non-synonymous variant between `TCC` (serine) and `AGC` (cysteine).
+{:.notice}
+Indeed this approach reduces the number of short reads we can work with. For instance, in our toy example 4 (33%) of the reads suffer this fate. But in a hypothetical scenario where [variation in coverage in recruitment results](http://merenlab.org/2016/12/14/coverage-variation/) is non-existent, the expected fraction of those to be excluded should be equivalent to `4 / (2 + L)` where `L` is the length of your short reads.
 
-The moral of this story is that if you want to talk nucleotides, use SNVs, and if you want to talk codons (and related concepts like snynonmity), use SCVs.
+The frequencies of remaining codons can now be read directly, which would yield the frequency vector shown in red. The resulting SCV is characterized as 50% `TCC` and 50% `AGC`, which are both codons of serine, and thus the **SCV is 100% synonymous**. The use of SNVs rather than SCVs would have overestimated non-synonymous variants.
+
+In summary, the use of SCVs will avoid over- or under-estimation of non-synonymous variants in metagenomic read recruitment studies where the occurrence of multiple SNVs within single codons is likely.
 
 ## Single amino acid variants
 
@@ -87,7 +90,7 @@ Maybe you're only interested in positions that actually change the structure of 
 
 2. Use SCVs if you want to resolve codon variants or related concepts like synonymity
 
-3. Use SAAVs if you are interested in variation that leads to structural differences in the encoded protein.
+3. Use SAAVs if you are interested in variation that likely leads to structural differences in the encoded protein.
 
 
 # The anvi'o way
