@@ -43,6 +43,7 @@ Here are the available tags as of today:
 ``` bash
 $ sudo docker images
 REPOSITORY          TAG        IMAGE ID     CREATED    SIZE
+meren/anvio         5.3        (...)        (...)      1.36GB
 meren/anvio         5.2        (...)        (...)      1.36GB
 meren/anvio         5.1        (...)        (...)      1.45GB
 meren/anvio         5          (...)        (...)      1.45GB
@@ -145,14 +146,14 @@ If you would like to rebuild the Docker image for anvi'o on your own server, you
 ``` bash
 git clone --recursive https://github.com/meren/anvio.git
 cd anvio
-git checkout tags/v5.2
-wget https://gist.githubusercontent.com/meren/65b1f1bfea1b53e87e10f025d1e4c29a/raw/1420760c392590b28eb3e2e3fe12dc3d4146003d/Dockerfile_v5.2.sh -O Dockerfile
+git checkout tags/v5.3
+wgethttps://gist.githubusercontent.com/meren/65b1f1bfea1b53e87e10f025d1e4c29a/raw/0d1ce12ee981d9dd247ba927816dade17100d506/Dockerfile_v5.3.sh -O Dockerfile
 ```
 
 Add/remove things you want, do your changes in the code, and build the new docker image (replace the username and tag with your preferences):
 
 ``` bash
-docker build -t meren/anvio:5.2 .
+docker build -t meren/anvio:5.3 .
 ```
 
 And optionally, push it to your account on the hub to allow other people run it easily (i.e., this is what I do to push the new images to my account):
