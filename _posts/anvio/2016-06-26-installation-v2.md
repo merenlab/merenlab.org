@@ -326,7 +326,10 @@ rm -rf anvio.egg-info build dist
 deactivate
 ```
 
-Then update your activation batch to add necessary environment variables (keep in mind that **you need to update** the `$DIR` variable with whatever it shows in your system **before running the following lines in your terminal**):
+Then update your activation batch to add necessary environment variables:
+
+{:.warning}
+Please note that **you need to update** the `$DIR` variable to whichever directory you cloned the codebase on your system **before running the following lines in your terminal**.
 
 
 ``` bash
