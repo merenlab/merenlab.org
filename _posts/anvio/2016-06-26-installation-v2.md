@@ -251,7 +251,7 @@ python --version
 ```
 
 {:.notice}
-If using conda, run `python3 -m virtualenv ~/virtual-envs/anvio-{% include _project-anvio-version-number.html %}`
+If using conda, run `python3 -m virtualenv ~/virtual-envs/anvio-dev`
 
 Don't forget to make sure the output of the last command starts with `Python 3`.
 
