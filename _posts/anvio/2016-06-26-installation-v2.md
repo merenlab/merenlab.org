@@ -147,6 +147,9 @@ python --version
 If using venv, run `python3 -m venv ~/virtual-envs/anvio-{% include _project-anvio-version-number.html %}`
 
 {:.notice}
+If using conda, run `python3 -m virtualenv ~/virtual-envs/anvio-{% include _project-anvio-version-number.html %}`
+
+{:.notice}
 The output of the last command must start with `Python 3`. If not, remove the virtual environment with `rm -rf ~/virtual-envs/anvio`, and find out how can you create a virtual environment for Python 3 on your system. You can try `-p python3` as a parameter to your `virtualenv` command. Or you can type `virtualenv` and _without pressing the space character_ press `TAB` key twice quickly to see if there is an alternative binary such as `virtualenv-3.5` or `virtualenv-3.5`. If not, it means Python 3 is not installed on your system.
 
 
@@ -247,6 +250,9 @@ source ~/virtual-envs/anvio-dev/bin/activate
 python --version
 ```
 
+{:.notice}
+If using conda, run `python3 -m virtualenv ~/virtual-envs/anvio-{% include _project-anvio-version-number.html %}`
+
 Don't forget to make sure the output of the last command starts with `Python 3`.
 
 ### I need to get the codebase
@@ -304,6 +310,9 @@ git clone --recursive https://github.com/meren/anvio.git
 {% endhighlight %}
 
 Create a virtual environment (`master` to remind you that you are following the GitHub `master`), and do the initial setup, and leave it:
+
+{:.notice}
+If using conda, run `python3 -m virtualenv ~/virtual-envs/anvio-master` instead of the line that starts wth `virtualenv` down below.
 
 ``` bash
 virtualenv ~/virtual-envs/anvio-master
