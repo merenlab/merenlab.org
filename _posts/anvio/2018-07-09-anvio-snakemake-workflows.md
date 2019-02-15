@@ -594,21 +594,26 @@ In order for the workflow to import a collection into a merged profile database 
 
 This is the format for the `collections.txt` file:
 
-name | collection_name | collection_file | bins_info | contigs_mode
--- | -- | -- | -- | --
+name | collection_name | collection_file | bins_info | contigs_mode | default_collection
+-- | -- | -- | -- | -- | --
 G01 | MOCK | MOCK-collection.txt | MOCK-collection-info.txt
+G02 |  |  |  |  | 1
 
 Where:
  - name: is the name of the group to which the collection corresponds (this should match the names of groups in your `samples_txt` (if you supplied these), or the names of references in your `fasta_txt` (in references mode). In default mode (AKA assembly mode), if you didn't supply group names, then the group names are identical to the sample names in your `samples_txt`
- - The rest of the columns (`collection_name`, `collection_file`, `bins_info`, `contigs_mode`) correspond to parameters of `anvi-import-collections`. Only `collection_name`, and `collection_file` are mandatory, and the rest of the columns are optional.
+ - The four following columns (`collection_name`, `collection_file`, `bins_info`, `contigs_mode`) correspond to parameters of `anvi-import-collections`. Only `collection_name`, and `collection_file` are mandatory, and the rest of the columns are optional.
  - `collection_name`: the name for the collection - you must provide a value.
  - `collection_file`: a path to your collection file (i.e. the file that specifies the bin for each split/contig).
  - `bins_info`: (optional) a path to your bins-info txt file
  - `contigs_mode`: (optional) if your collection file include contigs names (instead of splits) set this column to `1`.
+ - The last column (`default_collection`) is a optional column to specify if you want a default collection to be imported using `anvi-script-add-default-collection`. If you want the default collection, then set the value in this column to `1`.
+
+{:.notice}
+If you specify you want a default_collection for a group then you can't specify a collection file for this group (these options are mutually exclusive). In addition, `anvi_split` will not run for a group with a default collection (a default collection includes a single bin with all the contigs, so there is nothing to split).
 
 Your `collections_txt` could include only some of your groups, and then collections would be imported only to the merged profile databases that correspond to these group names.
 
-`anvi_summarize` and/or `anvi_split` (whichever you configured to run)will run for each group that is specified in your `collections.txt`.
+`anvi_summarize` and/or `anvi_split` (whichever you configured to run) will run for each group that is specified in your `collections.txt`.
 
 Let's run a mock example. We can update the config file for [references mode](#references-mode) in the following manner to run these steps:
 
