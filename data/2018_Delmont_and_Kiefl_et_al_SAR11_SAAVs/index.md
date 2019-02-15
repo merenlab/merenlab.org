@@ -188,16 +188,80 @@ anvi-export-gene-calls -c SAR11-CONTIGS.db \
 [doi:10.5281/zenodo.835218](https://doi.org/10.5281/zenodo.835218){:target="_blank"} serves the resulting contigs database.
 
 
-### Identifying single-copy core genes
+### Estimating distances between isolate genomes based on full-length 16S ribosomal RNA gene sequences
 
-We used the program `anvi-run-hmms` to identify archaeal and bacterial single-copy core genes (SCGs) in SAR11 isolate contigs:
+Although this is not a part of the metagenomic read recruitment workflow, we wanted to estimate distances between 21 isolate genomes at the level of full-length 16S rRNA gene seqeunces since we just generated a contigs database for all of them. To do this we first run the HMM collection for ribosomal RNAs on our newly generated contigs database for SAR11 genomes:
 
-``` bash
+```
 anvi-run-hmms -c SAR11-CONTIGS.db \
-              --num-threads 20
+              -I Ribosomal_RNAs
 ```
 
-This step uses HMMER `v3.1b2` (Eddy, 2011) to match genes to [previously determined HMM profiles](https://github.com/merenlab/anvio/tree/v2.4.0/anvio/data/hmm){:target="_blank"} for bacterial and archaeal SCGs by [Campbell et al](http://www.pnas.org/content/110/14/5540.short){:target="_blank"} and [Rinke et al](http://www.nature.com/nature/journal/v499/n7459/full/nature12352.html){:target="_blank"}.
+Then we got back the 16S ribosomal RNA gene sequences,
+
+```
+anvi-get-sequences-for-hmm-hits -c SAR11-CONTIGS.db \
+                                --hmm-source Ribosomal_RNAs \
+                                --gene-name Bacterial_16S_rRNA \
+                                -o SAR11-rRNAs.fa
+```
+
+and cleaned up the resulting file a bit to simplify deflines:
+
+```
+sed -i '' 's/>.*contig:/>/g' SAR11-rRNAs.fa
+sed -i '' 's/|.*$//g' SAR11-rRNAs.fa
+
+anvi-script-reformat-fasta SAR11-rRNAs.fa \
+                           -o temp && mv temp SAR11-rRNAs.fa
+
+```
+
+We then created a new directory, and split every 16S rRNA gene sequence into their own FASTA file:
+
+``` bash
+mkdir rRNAs
+
+grep '>' SAR11-rRNAs.fa > deflines.txt
+
+for i in `cat deflines.txt`
+do
+    grep -A 1 "$i$" SAR11-rRNAs.fa > rRNAs/$i.fa
+    echo ''
+done
+
+cd rRNAs
+```
+
+And generated simple contigs databases for each FASTA file, and described them in an external genomes file:
+
+``` bash
+for i in *.fa
+do
+    anvi-gen-contigs-database -f $i \
+                              -o $i.db \
+                              --skip-gene-calling \
+                              --skip-mindful-splitting
+done
+
+# generate an external genomes file
+echo -e "name\tcontigs_db_path" > external-genomes.txt
+
+for i in *.db
+do
+    echo $i | awk 'BEGIN{FS="."}{print $1 "\t" $0}'
+done >> external-genomes.txt
+```
+
+We finally used the program `anvi-compute-ani` to compute distances between each sequence, which employs the library [PyANI](https://github.com/widdowquinn/pyani):
+
+```
+anvi-compute-ani -e external-genomes.txt \
+                 -o ani \
+                 -T 6
+```
+
+We reported the resulting distance matrix `ani/ANIb_percentage_identity.txt` reported as a supplementary table (a TAB-delimited copy of which is [here](files/16S-distance-matrix.txt)).
 
 
 ### Inferring functions with COGs
