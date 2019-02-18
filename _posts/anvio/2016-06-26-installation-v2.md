@@ -39,21 +39,20 @@ python -c 'import webbrowser as w; w.open_new("http://")'
 If you have [Anaconda](https://www.continuum.io/downloads), it is also possible to install anvi'o along with its all Python and non-Python dependencies thanks to [John Eppley](https://scholar.google.com/citations?user=4S2q_9cAAAAJ&hl=en):
 
 ``` bash
-conda install -c bioconda -c conda-forge anvio diamond bwa
+conda install -c bioconda -c conda-forge anvio
 ```
 
 ***Note***: Some users reported that the one above was installing anvio `v4`, if that is also the case for you, uninstall it, and try it with this command:
 
 ```
-conda install -n anvio5 -c bioconda -c conda-forge anvio=5.1.0 diamond bwa
+conda install -n anvio5 -c bioconda -c conda-forge anvio=5.3.0
 ```
 
 ***Note***: One of our users who has been trying conda installation on an HPC system [reported](https://github.com/merenlab/anvio/issues/895#issuecomment-403656800) the following steps working for them:
 
 ```
 conda create -y --name anvio5 python=3.6
-conda install -y --name anvio5 django=2.0.2
-conda install -y --name anvio5 -c bioconda -c conda-forge anvio=5 diamond bwa
+conda install -y --name anvio5 -c bioconda -c conda-forge anvio=5.3.0
 ```
 
 Once the installation is complete, test anvi'o quickly to make sure everything is in order:
@@ -63,7 +62,7 @@ anvi-self-test --suite mini
 ```
 
 {:.notice}
-Note that the most up-to-date conda-available anvi'o version, which is currently `v5`, may differ from the most up-to-date stable anvi'o version, which is `v{% include _project-anvio-version-number.html %}`.
+Note that the most up-to-date conda-available anvi'o version, which is currently `v5.3`, may differ from the most up-to-date stable anvi'o version, which is `v{% include _project-anvio-version-number.html %}`.
 
 
 ## Installation (with varying levels of pain)
