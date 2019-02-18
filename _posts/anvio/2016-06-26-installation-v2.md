@@ -33,28 +33,6 @@ python -c 'import webbrowser as w; w.open_new("http://")'
 
 </div>
 
-## Painless installation with Homebrew
-
-If you have [Homebrew](http://brew.sh/) installed on your computer, all you need to do is to run this to have anvi'o installed, and skip the rest of this page (although we suggest you to run `brew doctor` in your terminal first to make sure everything is good to go):
-
-``` bash
-brew tap merenlab/anvio
-brew install merenlab/anvio/anvio
-```
-
-Once the installation is complete, test anvi'o quickly to make sure everything is in order:
-
-
-``` bash
-anvi-self-test --suite mini
-```
-
-That's it!
-
-{:.notice}
-You may see warning messages during self-test runs. Don't be concerned.
-
-
 ## Painless installation with Conda
 
 
