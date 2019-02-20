@@ -308,7 +308,7 @@ The content of which should look like this:
     "anvi_script_reformat_fasta": {
         "run": false
     },
-    "samples_txt": "ESPINOZA_ET_AL_FASTQ_SAMPLES.txt",
+    "samples_txt": "samples.txt",
     "iu_filter_quality_minoche": {
         "run": true,
         "--ignore-deflines": true
