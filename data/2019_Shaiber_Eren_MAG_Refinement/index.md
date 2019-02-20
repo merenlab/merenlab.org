@@ -127,7 +127,7 @@ In addition, we used the following config file CONTIGS-CONFIG.json:
     "anvi_run_ncbi_cogs": {
         "run": false
     },
-    "fasta_txt": "ESPINOZA_ET_AL_MAGS_FASTA.txt"
+    "fasta_txt": "ESPINOZA-MAGS-FASTA.txt"
 }
 ```
 
@@ -185,7 +185,7 @@ So first we had to generate a `fasta_txt` for the newly generated reformated FAS
 
 ```bash
 echo name > MAG-NAMES.txt
-cut -f 1 ESPINOZA_ET_AL_MAGS_FASTA.txt | tail -n +2 | sort >> MAG-NAMES.txt
+cut -f 1 ESPINOZA-MAGS-FASTA.txt | tail -n +2 | sort >> MAG-NAMES.txt
 
 echo path > REFORMATTED-FASTAS.txt
 ls 01_FASTA/*/*fa | sort >> REFORMATTED-FASTAS.txt
