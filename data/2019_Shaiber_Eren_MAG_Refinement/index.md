@@ -349,6 +349,20 @@ The content of which should look like this:
 
 Note that in order for this config file to work for you, the path to the centrifuge database must be fixed to match the path on your machine (or simply set centrifuge not to run by setting the "run" parameter to `false`).
 
+We will also need the collections file ESPINOZA_ET_AL_COLLECTIONS_FILE.txt:
+
+```bash
+wget http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/ESPINOZA_ET_AL_COLLECTIONS_FILE.txt
+```
+
+This file specifies the details that are required in order to import the collection that was generated above. This is what the file looks like:
+
+```bash
+$ cat ESPINOZA_ET_AL_COLLECTIONS_FILE.txt
+name    collection_name collection_file contigs_mode
+ESPINOZA        ORIGINAL_MAGS   ESPINOZA-MAGS-COLLECTION.txt    1
+```
+
 Just to make sure things look alright, we run the following command to generate a visual summary of the workflow:
 
 ``` bash
