@@ -59,17 +59,17 @@ In our reanalysis we only focused on some of the key MAGs that represented under
 ```bash
 mkdir -p 01_FASTA
 
-# TM7_MAG_IIIA (bin_8)
+# TM7_MAG_III_A (bin_8)
 wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/638/965/GCA_003638965.1_ASM363896v1/GCA_003638965.1_ASM363896v1_genomic.fna.gz \
-    -O 01_FASTA/TM7_MAG_IIIA.fa.gz
+    -O 01_FASTA/TM7_MAG_III_A.fa.gz
 
-# TM7_MAG_IIIB (bin_9)
+# TM7_MAG_III_B (bin_9)
 wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/638/935/GCA_003638935.1_ASM363893v1/GCA_003638935.1_ASM363893v1_genomic.fna.gz \
-    -O 01_FASTA/TM7_MAG_IIIB.fa.gz
+    -O 01_FASTA/TM7_MAG_III_B.fa.gz
 
-# TM7_MAG_IIIC (bin_10)
+# TM7_MAG_III_C (bin_10)
 wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/638/915/GCA_003638915.1_ASM363891v1/GCA_003638915.1_ASM363891v1_genomic.fna.gz \
-    -O 01_FASTA/TM7_MAG_IIIC.fa.gz
+    -O 01_FASTA/TM7_MAG_III_C.fa.gz
 
 # Alloprevotella_MAG_II_A (bin_3)
 wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/639/005/GCA_003639005.1_ASM363900v1/GCA_003639005.1_ASM363900v1_genomic.fna.gz \
@@ -111,9 +111,9 @@ Here is a look into this file:
 ```bash
 $ column -t ESPINOZA-MAGS-FASTA.txt
 name                     path
-TM7_MAG_III_A            01_FASTA/TM7_MAG_IIIA.fa.gz
-TM7_MAG_III_B            01_FASTA/TM7_MAG_IIIB.fa.gz
-TM7_MAG_III_C            01_FASTA/TM7_MAG_IIIC.fa.gz
+TM7_MAG_III_A            01_FASTA/TM7_MAG_III_A.fa.gz
+TM7_MAG_III_B            01_FASTA/TM7_MAG_III_B.fa.gz
+TM7_MAG_III_C            01_FASTA/TM7_MAG_III_C.fa.gz
 Alloprevotella_MAG_II_A  01_FASTA/Alloprevotella_MAG_II_A.fa.gz
 Alloprevotella_MAG_II_B  01_FASTA/Alloprevotella_MAG_II_B.fa.gz
 GN02_MAG_IV_A            01_FASTA/GN02_MAG_IV_A.fa.gz
@@ -203,9 +203,9 @@ Alloprevotella_MAG_II_A	01_FASTA/Alloprevotella_MAG_II_A/Alloprevotella_MAG_II_A
 Alloprevotella_MAG_II_B	01_FASTA/Alloprevotella_MAG_II_B/Alloprevotella_MAG_II_B-contigs-prefix-formatted-only.fa
 GN02_MAG_IV_A	01_FASTA/GN02_MAG_IV_A/GN02_MAG_IV_A-contigs-prefix-formatted-only.fa
 GN02_MAG_IV_B	01_FASTA/GN02_MAG_IV_B/GN02_MAG_IV_B-contigs-prefix-formatted-only.fa
-TM7_MAG_IIIA	01_FASTA/TM7_MAG_IIIA/TM7_MAG_IIIA-contigs-prefix-formatted-only.fa
-TM7_MAG_IIIB	01_FASTA/TM7_MAG_IIIB/TM7_MAG_IIIB-contigs-prefix-formatted-only.fa
-TM7_MAG_IIIC	01_FASTA/TM7_MAG_IIIC/TM7_MAG_IIIC-contigs-prefix-formatted-only.fa
+TM7_MAG_III_A	01_FASTA/TM7_MAG_III_A/TM7_MAG_III_A-contigs-prefix-formatted-only.fa
+TM7_MAG_III_B	01_FASTA/TM7_MAG_III_B/TM7_MAG_III_B-contigs-prefix-formatted-only.fa
+TM7_MAG_III_C	01_FASTA/TM7_MAG_III_C/TM7_MAG_III_C-contigs-prefix-formatted-only.fa
 ```
 
 Now we can generate the collection file:
@@ -406,9 +406,9 @@ AUXILIARY-DATA.db	PROFILE.db		RUNLOG.txt		collection-import.done
 ```bash
 # For each bin a folder is generated inside 07_SPLIT
 ls 07_SPLIT/
-Alloprevotella_MAG_II_A		GN02_MAG_IV_B			TM7_MAG_IIIC
-Alloprevotella_MAG_II_B		TM7_MAG_IIIA			GN02_MAG_IV_A
-TM7_MAG_IIIB
+Alloprevotella_MAG_II_A		GN02_MAG_IV_B			TM7_MAG_III_C
+Alloprevotella_MAG_II_B		TM7_MAG_III_A			GN02_MAG_IV_A
+TM7_MAG_III_B
 
 # Here is an example for one of the split bins:
 ls 07_SPLIT/Alloprevotella_MAG_II_A/
@@ -440,7 +440,7 @@ databases prettier.
 You can get the collection files in the following way:
 
 ```bash
-for g in GN02_MAG_IV_A GN02_MAG_IV_B TM7_MAG_IIIA TM7_MAG_IIIB TM7_MAG_IIIC; do
+for g in GN02_MAG_IV_A GN02_MAG_IV_B TM7_MAG_III_A TM7_MAG_III_B TM7_MAG_III_C; do
     wget http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/$g-default-collection.txt
     wget http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/$g-default-collection-info.txt
 done
@@ -449,7 +449,7 @@ done
 Now we can import these collections:
 
 ```bash
-for g in GN02_MAG_IV_A GN02_MAG_IV_B TM7_MAG_IIIA TM7_MAG_IIIB TM7_MAG_IIIC; do
+for g in GN02_MAG_IV_A GN02_MAG_IV_B TM7_MAG_III_A TM7_MAG_III_B TM7_MAG_III_C; do
     anvi-import-collection -c 07_SPLIT/$g/CONTIGS.db \
                            -p 07_SPLIT/$g/PROFILE.db \
                            $g-default-collection.txt \
@@ -462,14 +462,14 @@ done
 You can download the default states in the following way:
 
 ```bash
-for g in GN02_MAG_IV_A GN02_MAG_IV_B TM7_MAG_IIIA TM7_MAG_IIIB TM7_MAG_IIIC; do
+for g in GN02_MAG_IV_A GN02_MAG_IV_B TM7_MAG_III_A TM7_MAG_III_B TM7_MAG_III_C; do
     wget http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/$g-default-state.json
 done
 ```
 
 And now we can import these as default states to each profile database:
 ```bash
-for g in GN02_MAG_IV_A GN02_MAG_IV_B TM7_MAG_IIIA TM7_MAG_IIIB TM7_MAG_IIIC; do
+for g in GN02_MAG_IV_A GN02_MAG_IV_B TM7_MAG_III_A TM7_MAG_III_B TM7_MAG_III_C; do
     anvi-import-state -p 07_SPLIT/$g/PROFILE.db \
                       -n default \
                       -s $g-default-state.json
@@ -496,7 +496,7 @@ After we finished the refine process, we generated a summary for the collections
 To generate a summary directory for each profile database we run the following command:
 
 ```bash
-for g in GN02_MAG_IV_A GN02_MAG_IV_B TM7_MAG_IIIA TM7_MAG_IIIB TM7_MAG_IIIC; do
+for g in GN02_MAG_IV_A GN02_MAG_IV_B TM7_MAG_III_A TM7_MAG_III_B TM7_MAG_III_C; do
     anvi-summarize -p 07_SPLIT/$g/PROFILE.db \
                       -c 07_SPLIT/$g/CONTIGS.db \
                       -C default \
@@ -522,7 +522,7 @@ Since TM7 MAG III.A had a particularly high ammount of redundancy, anvi'o wasn't
 To bypass this issue, we used the another file that is available in the summary folder:
 
 ```bash
-08_SUMMARY/bin_by_bin/TM7_MAG_IIIA/TM7_MAG_III_A-Campbell_et_al-hmm-sequences.txt
+08_SUMMARY/bin_by_bin/TM7_MAG_III_A/TM7_MAG_III_A-Campbell_et_al-hmm-sequences.txt
 ```
 
 This file includes the sequences for all the genes that matched the single copy core genes from [Campbell _et al_](https://www.pnas.org/content/110/14/5540).
@@ -550,7 +550,7 @@ To generate a table with the details for our refined MAGs, we ran the following 
 ```bash
 head -n 1 07_SPLIT/GN02_MAG_IV_A/SUMMARY/bins_summary.txt > bins_summary_combined.txt
 
-for g in GN02_MAG_IV_A GN02_MAG_IV_B TM7_MAG_IIIA TM7_MAG_IIIB TM7_MAG_IIIC; do
+for g in GN02_MAG_IV_A GN02_MAG_IV_B TM7_MAG_III_A TM7_MAG_III_B TM7_MAG_III_C; do
     tail -n +2 07_SPLIT/$g/SUMMARY/bins_summary.txt >> bins_summary_combined.txt
 done
 ```
@@ -564,14 +564,14 @@ GN02_MAG_IV_A_1  None        656014        130          5758   35.67587284936812
 GN02_MAG_IV_A_2  None        840154        133          7956   38.33379540838725   66.90647482014388   4.316546762589928
 GN02_MAG_IV_B_1  None        934609        119          10886  25.10850812472708   78.41726618705036   0.0
 GN02_MAG_IV_B_2  None        1012757       109          12715  24.99647116647001   80.57553956834532   0.7194244604316546
-TM7_MAG_IIIA_1   None        910899        90           14382  47.36125683516097   79.85611510791367   0.0
-TM7_MAG_IIIA_2   None        445398        99           5809   48.98771936204964   57.55395683453237   0.0
-TM7_MAG_IIIA_3   None        223971        64           3436   47.962761305917525  22.302158273381295  0.0
-TM7_MAG_IIIA_4   None        156413        59           2858   46.00378865630705   13.66906474820144   0.7194244604316546
-TM7_MAG_IIIA_5   None        150222        68           2250   47.400770761670294  15.107913669064748  0.0
-TM7_MAG_IIIA_6   Candidatus  138985        48           3031   44.220410307583954  10.79136690647482   0.7194244604316546
-TM7_MAG_IIIB_1   None        534277        233          2931   35.16218616929297   77.6978417266187    5.755395683453237
-TM7_MAG_IIIC_1   None        772299        440          2432   53.056877029321505  67.62589928057554   4.316546762589928
+TM7_MAG_III_A_1   None        910899        90           14382  47.36125683516097   79.85611510791367   0.0
+TM7_MAG_III_A_2   None        445398        99           5809   48.98771936204964   57.55395683453237   0.0
+TM7_MAG_III_A_3   None        223971        64           3436   47.962761305917525  22.302158273381295  0.0
+TM7_MAG_III_A_4   None        156413        59           2858   46.00378865630705   13.66906474820144   0.7194244604316546
+TM7_MAG_III_A_5   None        150222        68           2250   47.400770761670294  15.107913669064748  0.0
+TM7_MAG_III_A_6   Candidatus  138985        48           3031   44.220410307583954  10.79136690647482   0.7194244604316546
+TM7_MAG_III_B_1   None        534277        233          2931   35.16218616929297   77.6978417266187    5.755395683453237
+TM7_MAG_III_C_1   None        772299        440          2432   53.056877029321505  67.62589928057554   4.316546762589928
 ```
 
 ## FASTA files for refined MAGs
