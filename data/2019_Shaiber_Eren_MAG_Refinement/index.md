@@ -467,6 +467,7 @@ for g in GN02_MAG_IV_A GN02_MAG_IV_B TM7_MAG_III_A TM7_MAG_III_B TM7_MAG_III_C; 
     anvi-import-collection -c 07_SPLIT/$g/CONTIGS.db \
                            -p 07_SPLIT/$g/PROFILE.db \
                            $g-default-collection.txt \
+                           -C default \
                            --bins-info $g-default-collection-info.txt
 done
 ```
