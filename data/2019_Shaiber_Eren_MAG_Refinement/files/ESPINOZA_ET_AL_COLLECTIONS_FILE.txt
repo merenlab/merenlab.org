@@ -1,0 +1,2 @@
+name	collection_name	collection_file	contigs_mode
+ESPINOZA	ORIGINAL_MAGS	ESPINOZA-MAGS-COLLECTION.txt	1
