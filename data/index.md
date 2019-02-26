@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Public Data
+title: Public Data and Reproducible Bioinformatics
 modified: 2015-07-30
 excerpt: "Publicly available data and other information on publications from our lab"
 comments: true
 ---
 
-This page serves the publicly available data mentioned in our publications, or in publications our group is involved. Please do not hesitate to get in touch if something is missing.
+This page serves the publicly available data items mentioned in our publications. Please do not hesitate to get in touch if something is missing.
 
 {% include _join-anvio-slack.html %}
 
