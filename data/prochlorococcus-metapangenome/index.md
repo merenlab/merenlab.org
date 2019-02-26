@@ -4,14 +4,32 @@ title: The Prochlorococcus metapangenome
 modified: 2017-04-20
 excerpt: "A complete bioinformatics workflow behind the study 'Linking Pangenomes and Metagenomes: The Prochlorococcus Metapangenome'"
 comments: true
+redirect_from: /data/2018_Delmont_and_Eren_Metapangenomics
 
 ---
 
 {% include _toc.html %}
 
-{% capture images %}{{site.url}}/data/2018_Delmont_and_Eren_Metapangenomics/images{% endcapture %}
+{% capture images %}{{site.url}}/data/prochlorococcus-metapangenome/images{% endcapture %}
 
-This document describes the reproducible bioinformatics workflow for our study "**Linking Pangenomes and Metagenomes: The Prochlorococcus Metapangenome**". Here you will find program names and exact parameters we used throughout every step of the analysis of 31 _Prochlorococcus_ isolate genomes and 93 TARA Oceans metagenomes, which relied predominantly on the open-source analysis platform [anvi'o](http://merenlab.org/software/anvio).
+This reproducible bioinformatics workflow  describes program names and exact parameters we used throughout every step of the analysis of 31 _Prochlorococcus_ isolate genomes and 93 TARA Oceans metagenomes, which relied predominantly on the open-source analysis platform [anvi'o](http://merenlab.org/software/anvio) in the following study:
+
+<div class="pub_float">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.7717/peerj.4320"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.4320" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.7717/peerj.4320" target="_new">Linking pangenomes and metagenomes: the <i>Prochlorococcus</i> metapangenome.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="https://i.imgur.com/gzDpEU5.jpg"><img src="https://i.imgur.com/gzDpEU5.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A big-data study in which a pangenome of 31 <i>Prochlorococcus</i> isolates meets 31 billion Tara Oceans metagenomic sequences (<a href="https://peerj.com/articles/4320/reviews/">Peer-review history</a>).</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Metapangenomes reveal to what extent genes that may be linked to the ecology and fitness of microbes are conserved within a phylogenetic clade.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  <a href="http://merenlab.org/data/prochlorococcus-metapangenome" target="_blank">Reproducible bioinformatics workflow</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>PeerJ</i>. <b>6:e4320</b></span>
+</div>
+
 
 {% include _join-anvio-slack.html %}
 
@@ -25,7 +43,7 @@ All anvi'o analyses in this document are performed using the anvi'o version `v3`
 The URL [AAA](AAA){:target="_blank"} serves the publication.
 -->
 
-{:.notice} 
+{:.notice}
 All public data items used and produced by this study is deposited [here](https://figshare.com/projects/Data_for_Metapangenomics_by_Delmont_and_Eren_2018_/25231){:target="_blank"}.
 
 {:.notice}
@@ -33,7 +51,7 @@ While our study was in review, we decided to stop using 'protein clusters' and s
 
 
 {:.notice}
-The URL [http://merenlab.org/data/2018_Delmont_and_Eren_Metapangenomics/](http://merenlab.org/data/2018_Delmont_and_Eren_Metapangenomics/){:target="_blank"} serves the most up-to-date version of this document.
+The URL [http://merenlab.org/data/prochlorococcus-metapangenome](prochlorococcus-metapangenome){:target="_blank"} serves the most up-to-date version of this document.
 
 
 <div class="extra-info" markdown="1">
@@ -46,7 +64,7 @@ In this study,
 
 * Using isolate genomes recruited reads from TARA Oceans Project metagenomes and profiled recruitment results,
 
-* Characterized the pangenome of the isolates genomes, 
+* Characterized the pangenome of the isolates genomes,
 
 * Linked the pangenome with metagenomes.
 
@@ -67,17 +85,17 @@ The TARA Oceans metagenomes we analyzed are publicly available through the Europ
 
 ### Downloading the 31 Prochlorococcus isolate genomes
 
-You can get a copy of the FASTA file containing all 31 _Prochlorococcus_ isolate genomes (and the 74 _Prochlorococcus_ SAGs incorporated in the study) into your working directory using these commands: 
+You can get a copy of the FASTA file containing all 31 _Prochlorococcus_ isolate genomes (and the 74 _Prochlorococcus_ SAGs incorporated in the study) into your working directory using these commands:
 
 ``` bash
 curl -L https://ndownloader.figshare.com/files/9416614 -o PROCHLOROCOCCUS-FASTA-FILES.tar.gz
 tar -xzvf PROCHLOROCOCCUS-FASTA-FILES.tar.gz
-``` 
+```
 
 ### Downloading the 93 TARA Oceans metagenomes
 
 {:.notice}
-We described these steps in [this](http://merenlab.org/data/2017_Delmont_et_al_HBDs/) workflow document for another study. Please click to that link, follow the instructions starting from the section "**Downloading the TARA Oceans metagenomes**", and come back to this document once you reached to the section "**Co-assembling metagenomic sets**" (so all you do is to download metagenomes and perform quality filtering).
+We described these steps in [this](http://merenlab.org/data/tara-oceans-mags/) workflow document for another study. Please click to that link, follow the instructions starting from the section "**Downloading the TARA Oceans metagenomes**", and come back to this document once you reached to the section "**Co-assembling metagenomic sets**" (so all you do is to download metagenomes and perform quality filtering).
 
 
 ## Generating an anvi'o contigs database
@@ -134,7 +152,7 @@ We then mapped each metagenome against the contigs contained in `Prochlorococcus
 ``` bash
 for sample in `awk '{print $1}' samples.txt`
 do
-    if [ "$sample" == "sample" ]; then continue; fi    
+    if [ "$sample" == "sample" ]; then continue; fi
     # do the bowtie mapping to get the SAM file:
     bowtie2 --threads 20 \
             -x Prochlorococcus-isolates \
@@ -142,7 +160,7 @@ do
             -2 $sample-QUALITY_PASSED_R2.fastq.gz \
             --no-unal \
             -S $sample.sam
-    
+
     # covert the resulting SAM file to a BAM file:
     samtools view -F 4 -bS $sample.sam > $sample-RAW.bam
 
@@ -157,7 +175,7 @@ done
 
 This process has resulted in 93 sorted and indexed BAM files that describe the mapping of more than 30 billion short reads to contigs contained in the FASTA file `Prochlorococcus-isolates.fa`.
 
-### Profiling the mapping results with anvi'o 
+### Profiling the mapping results with anvi'o
 
 After recruiting metagenomic short reads using contigs stored in the anvi'o contigs database for Prochlorococcus genomes, we used the program `anvi-profile` to process the BAM files and to generate [anvi'o profile database]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#anvi-profile)s that contain the coverage and detection statistics of each _Prochlorococcus_ contig in a given metagenome:
 
@@ -165,7 +183,7 @@ After recruiting metagenomic short reads using contigs stored in the anvi'o cont
 for sample in `awk '{print $1}' samples.txt`
 do
     if [ "$sample" == "sample" ]; then continue; fi
-    
+
     anvi-profile -c Prochlorococcus-CONTIGS.db \
                  -i $sample.bam \
                  -M 100 \
@@ -187,7 +205,7 @@ Once the individual PROFILE databases were generated, we used the program `anvi-
 ``` bash
 anvi-merge */PROFILE.db \
            -o Prochlorococcus-MERGED \
-           -c Prochlorococcus-CONTIGS.db 
+           -c Prochlorococcus-CONTIGS.db
 ```
 
 The resulting merged profile database describes the coverage and detection statistics for each contig across all 93 metagenomes.
@@ -209,7 +227,7 @@ do
     # in this loop $split_name looks like this AS9601-00000001_split_00001, form which
     # we can extract the genome name the split belongs to:
     GENOME=`echo $split_name | awk 'BEGIN{FS="-"}{print $1}'`
-    
+
     # print it out with a TAB character
     echo -e "$split_name\t$GENOME"
 done > Prochlorococcus-GENOME-COLLECTION.txt
@@ -235,7 +253,7 @@ AS9601-00000001_split_00010 AS9601
 So each contig name is listed in the first column, and the genome they belonged is listed in the second.
 
 {:.notice}
-The file `Prochlorococcus-GENOME-COLLECTION.txt` is also available [here](http://merenlab.org/data/2018_Delmont_and_Eren_Metapangenomics/files/Prochlorococcus-GENOME-COLLECTION.txt).
+The file `Prochlorococcus-GENOME-COLLECTION.txt` is also available [here](http://merenlab.org/data/prochlorococcus-metapangenome/files/Prochlorococcus-GENOME-COLLECTION.txt).
 
 We then used the program `anvi-import-collection` to import this collection into the anvi'o profile database by naming this collection `Genomes`, so anvi'o knows about this:
 
@@ -285,7 +303,7 @@ To generate the *Prochlorococcus* pangenome, and to visuaize it, we used the anv
 We first created the file `internal-genomes.txt` so the pangenomic workflow can access to all the genomes the information about which are stored in the `Genomes` collection in the merged profile database individually (details of the anvi'o pangenomic workflow are [here]({% post_url anvio/2016-11-08-pangenomics-v2 %})). The internal genomes file can be downloaded using this command:
 
 ``` bash
-wget http://merenlab.org/data/2018_Delmont_and_Eren_Metapangenomics/files/internal-genomes.txt
+wget http://merenlab.org/data/prochlorococcus-metapangenome/files/internal-genomes.txt
 ```
 
 And here is how it looks like:
@@ -362,7 +380,7 @@ Just to make sure we are on the same page, here is a definition: we define 'meta
 
 The anvi'o metagenomic summary output described in the previous section contains infomration to identify relative distribution of each genome across the 93 metagenomes.
 
-We created a text file, `Prochlorococcus-METAGENOME-samples-information.txt` (available [here]({{ site.url }}/data/2018_Delmont_and_Eren_Metapangenomics/files/Prochlorococcus-METAGENOME-samples-information.txt)) to display the relative abundance of genomes across samples, and we extended this file with various information such as the phlogenetic clade membership of each genome. Using this file together with the file `Prochlorococcus-PAN-samples-order.txt` (one of the default outputs of `anvi-pan-genome` step), we generated an anvi'o [samples database](http://merenlab.org/2015/11/10/samples-db/){:target="_blank"}:
+We created a text file, `Prochlorococcus-METAGENOME-samples-information.txt` (available [here]({{ site.url }}/data/prochlorococcus-metapangenome/files/Prochlorococcus-METAGENOME-samples-information.txt)) to display the relative abundance of genomes across samples, and we extended this file with various information such as the phlogenetic clade membership of each genome. Using this file together with the file `Prochlorococcus-PAN-samples-order.txt` (one of the default outputs of `anvi-pan-genome` step), we generated an anvi'o [samples database](http://merenlab.org/2015/11/10/samples-db/){:target="_blank"}:
 
 ``` bash
 anvi-gen-samples-info-database -D Prochlorococcus-METAGENOME-samples-information.txt \
@@ -414,8 +432,8 @@ These will generate multiple output files for both bins. The file that ends with
 For instance, you can download the output files for `MIT9314` the following way:
 
 ```bash
-wget http://merenlab.org/data/2018_Delmont_et_al_Prochlorococcus/files/MIT9314-GENE-COVs.txt
-wget http://merenlab.org/data/2018_Delmont_et_al_Prochlorococcus/files/MIT9314-ENV-DETECTION.txt
+wget http://merenlab.org/data/prochlorococcus-metapangenome/files/MIT9314-GENE-COVs.txt
+wget http://merenlab.org/data/prochlorococcus-metapangenome/files/MIT9314-ENV-DETECTION.txt
 ```
 
 And run the interactive interace to display the distribution of genes that appears in the first panel in the figure above:
@@ -432,7 +450,7 @@ If you run the command above successfully, and clicked 'Draw' in the interace, y
 
 ``` bash
 # download the state file:
-wget http://merenlab.org/data/2018_Delmont_et_al_Prochlorococcus/files/GENES-PROFILE.json
+wget http://merenlab.org/data/prochlorococcus-metapangenome/files/GENES-PROFILE.json
 
 # import it into the db
 anvi-import-state -s GENES-PROFILE.json \

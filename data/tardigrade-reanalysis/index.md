@@ -1,9 +1,10 @@
 ---
 layout: page
-title: Publicly available data for Delmont and Eren, 2016
+title: Tardigrade contamination re-analysis
 modified: 2015-07-30
 excerpt: "Identifying contamination with advanced visualization and analysis practices: metagenomic approaches for eukaryotic genome assemblies"
 comments: true
+redirect_from: /data/2016_Delmont_et_al_Tardigrade
 image:
   feature: http://i.imgur.com/QGd3Zab.png
 ---

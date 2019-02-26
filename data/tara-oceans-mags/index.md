@@ -4,21 +4,35 @@ title: Recovering Micorbial Genomes from TARA Oceans Metagenomes
 modified: 2017-04-20
 excerpt: "A complete workflow behind the manuscript 'Nitrogen-fixing populations of Planctomycetes and Proteobacteria are abundant in the surface ocean' by Delmont et al"
 comments: true
+redirect_from: /data/2017_Delmont_et_al_HBDs
 
 ---
 
 {% include _toc.html %}
 
-{:.notice}
-The URL [https://www.nature.com/articles/s41564-018-0176-9](https://www.nature.com/articles/s41564-018-0176-9) is where the published version of this study described in this document (before that we had a pre-print [here](http://biorxiv.org/content/early/2017/04/23/129791))
+This document describes the reproducible bioinformatics workflow we used to recover and characterize metagenome-assembled genomes (MAGs) from the TARA Oceans metagenomic co-assemblies, some of which are described in the following study:
+
+<div class="pub_float">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41564-018-0176-9"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1038/s41564-018-0176-9" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1038/s41564-018-0176-9" target="_new">Nitrogen-fixing populations of Planctomycetes and Proteobacteria are abundant in the surface ocean metagenomes.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, Quince, C., <span class="pub-member-author">Shaiber, A.</span>, <span class="pub-member-author">Esen, Ö. C.</span>, <span class="pub-member-author">Lee, S. T. M.</span>, Rappé, M. S., McLellan, S. L., Lücker, S., and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="http://i.imgur.com/oFRefc4.jpg"><img src="http://i.imgur.com/oFRefc4.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- First genomic evidence for abundant and widespread non-cyanobacterial nitrogen-fixing populations in the surface ocean.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Nearly 1,000 non-redundant, high-quality bacterial, archaeal, and eukaryotic population genomes from TARA Oceans metagenomes.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  A "behind the paper" <a href="https://naturemicrobiologycommunity.nature.com/users/113363-a-murat-eren-meren/posts/34040-microbiologists-vs-shotgun-metagenomes-surface-ocean" target="_blank">blog post</a> by Meren, a <a href="http://www.mbl.edu/blog/large-scale-study-indicates-novel-and-abundant-nitrogen-fixing-microbes-in-the-surface-ocean/" target="_blank">press release</a> by the MBL, and an extensive description of <a href="http://merenlab.org/data/tara-oceans-mags/" target="_blank">the bioinformatics workflow</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>Nature Microbiology</i>. <b>3:804–813</b></span>
+</div>
 
 {:.notice}
-The URL [http://merenlab.org/data/#delmont-et-al-2017--tara-binning](http://merenlab.org/data/#delmont-et-al-2017--tara-binning) serves all public data items our study used or produced.
+The URL [http://merenlab.org/data/#genomes-from-tara-oceans-metagenomes](http://merenlab.org/data/#genomes-from-tara-oceans-metagenomes) serves all public data items our study used or produced.
 
 {:.notice}
-The URL [http://merenlab.org/data/2017_Delmont_et_al_HBDs/](http://merenlab.org/data/2017_Delmont_et_al_HBDs/) serves the most up-to-date version of this document.
-
-This document describes the reproducible bioinformatics workflow we used to recover and characterize metagenome-assembled genomes (MAGs) from the TARA Oceans metagenomic co-assemblies, some of which are described in the study "*Nitrogen-fixing populations of Planctomycetes and Proteobacteria are abundant in surface ocean metagenomes*" by Delmont et al.
+The URL [http://merenlab.org/data/tara-oceans-mags/](http://merenlab.org/data/tara-oceans-mags/) serves the most up-to-date version of this document.
 
 The document contains final and intermediate data products, as well as program names and exact parameters used throughout every step of the analysis of the TARA Oceans metagenomes, which relied predominantly on the open-source analysis platform, [anvi’o](http://merenlab.org/software/anvio) (Eren et al., 2015).
 
@@ -65,13 +79,13 @@ The TARA Oceans metagenomes we analyzed are publicly available through the __Eur
 The following file contains FTP URLs for each raw data file for 93 samples:
 
 {:.notice}
-[http://merenlab.org/data/2017_Delmont_et_al_HBDs/files/ftp-links-for-raw-data-files.txt](http://merenlab.org/data/2017_Delmont_et_al_HBDs/files/ftp-links-for-raw-data-files.txt)
+[http://merenlab.org/data/tara-oceans-mags/files/ftp-links-for-raw-data-files.txt](http://merenlab.org/data/tara-oceans-mags/files/ftp-links-for-raw-data-files.txt)
 
-You can get a copy of this file into your work directory, 
+You can get a copy of this file into your work directory,
 
 ``` bash
-wget http://merenlab.org/data/2017_Delmont_et_al_HBDs/files/ftp-links-for-raw-data-files.txt
-``` 
+wget http://merenlab.org/data/tara-oceans-mags/files/ftp-links-for-raw-data-files.txt
+```
 
 
 and download each of the raw sequencing data file from the EMBL servers:
@@ -92,13 +106,13 @@ We defined 12 'metagenomic sets' for geographically bound locations TARA Oceans 
 We tailored our sample naming schema for convenience and reproducibility. The following address contains a file with three-letter identifiers for each of the 12 metagenomic set, which will become prefixes for each sample name for direct access to all samples from a given metagenomic set:
 
 {:.notice}
-[http://merenlab.org/data/2017_Delmont_et_al_HBDs/files/sets.txt](http://merenlab.org/data/2017_Delmont_et_al_HBDs/files/sets.txt)
+[http://merenlab.org/data/tara-oceans-mags/files/sets.txt](http://merenlab.org/data/tara-oceans-mags/files/sets.txt)
 
 This file will be referred to as `sets.txt` throughout the document, and you can get a copy of this file into your work directory:
 
 ``` bash
-wget http://merenlab.org/data/2017_Delmont_et_al_HBDs/files/sets.txt
-``` 
+wget http://merenlab.org/data/tara-oceans-mags/files/sets.txt
+```
 
 The contents of the TARA sets file should look like this:
 
@@ -116,17 +130,17 @@ PSE
 PSW
 RED
 SOC
-``` 
+```
 
 We used these three-letter prefixes to name each of the 93 samples, and to associate them with metagenomic sets with which they were affiliated. Sample names, and which raw data files are associated with each sample is explained in the following TAB-delimited file:
 
 {:.notice}
-[http://merenlab.org/data/2017_Delmont_et_al_HBDs/files/samples.txt](http://merenlab.org/data/2017_Delmont_et_al_HBDs/files/samples.txt)
+[http://merenlab.org/data/tara-oceans-mags/files/samples.txt](http://merenlab.org/data/tara-oceans-mags/files/samples.txt)
 
 This file will be referred to as `samples.txt` throughout the document, and you can get a copy of this file into your work directory:
 
 ``` bash
-wget http://merenlab.org/data/2017_Delmont_et_al_HBDs/files/samples.txt
+wget http://merenlab.org/data/tara-oceans-mags/files/samples.txt
 ```
 
 TARA samples file should look like this:
@@ -147,10 +161,10 @@ RED_34_05M ERR598959_1.gz,ERR598991_1.gz ERR598959_2.gz,ERR598991_2.gz
 ION_36_05M ERR599143_1.gz,ERR598966_1.gz ERR599143_2.gz,ERR598966_2.gz
 ```
 
-This file above also represents the standard input for illumina-utils library for processing the raw metagenomic data for each sample. 
+This file above also represents the standard input for illumina-utils library for processing the raw metagenomic data for each sample.
 
 
-### Quality-filtering of raw reads 
+### Quality-filtering of raw reads
 
 We used the [illumina-utils library](https://github.com/meren/illumina-utils) v1.4.1 (Eren et al., 2013)  to remove noise from raw reads prior to assembly.
 
@@ -160,7 +174,7 @@ To produce the configuration files [illumina utils requires](https://github.com/
 iu-gen-configs samples.txt
 ```
 
-This step should generate 93 config files with the extension of '.ini' in the working directory. 
+This step should generate 93 config files with the extension of '.ini' in the working directory.
 
 To perform the quality filtering on samples ini files describe, we used the program `iu-filter-quality-minoche` with default parameters, which implements the approach detailed in Minoche et al. (Minoche et al., 2011):
 
@@ -186,7 +200,7 @@ total pairs failed            : 18064853 (%8.13 of all pairs)
   FAILED_REASON_C33           : 17762128 (%98.32 of all failed pairs)
 ```
 
-as well as the FASTQ files for each sample that contain quality-filtered reads for downstream analyses. 
+as well as the FASTQ files for each sample that contain quality-filtered reads for downstream analyses.
 
 The resulting `*-QUALITY_PASSED_R*.fastq.gz` files in the work directory represent the main inputs for all co-assembly and mapping steps.
 
@@ -249,7 +263,7 @@ for SET in `cat sets.txt`
 do
     # skip the Southern Ocean set
     if [ "$SET" == "SOC" ]; then continue; fi
-    
+
     anvi-script-reformat-fasta $SET-RAW.fa –-min-len 2500 --simplify-names -o $SET.fa
     anvi-gen-contigs-database -f $SET.fa -o $SET-CONTIGS.db
 done
@@ -287,7 +301,7 @@ We assigned taxonomy to genes in scaffolds for each metagenomic set in three ste
 
 The URL [http://merenlab.org/2016/06/18/importing-taxonomy](http://merenlab.org/2016/06/18/importing-taxonomy) serves a detailed description of these steps.
 
-### Recruitment of metagenomic reads. 
+### Recruitment of metagenomic reads.
 
 The recruitment of metagenomic reads is commonly used to assess the coverage of scaffolds across metagenomes, which provides the essential differential coverage information that is employed by anvi'o and other binning approaches to improve metagenomic binning.
 
@@ -308,10 +322,10 @@ We then mapped each sample against the scaffolds recovered from the correspondin
 for sample in `awk '{print $1}' samples.txt`
 do
     if [ "$sample" == "sample" ]; then continue; fi
-    
+
     # determine which metagenomic set the $sample belongs to:
     SET=`echo $sample | awk 'BEGIN {FS="_"}{print $1}'`
-    
+
     # do the bowtie mapping to get the SAM file:
     bowtie2 --threads 20 \
             -x $SET \
@@ -319,7 +333,7 @@ do
             -2 $sample-QUALITY_PASSED_R2.fastq.gz \
             --no-unal \
             -S $sample.sam
-    
+
     # covert the resulting SAM file to a BAM file:
     samtools view -F 4 -bS $sample.sam > $sample-RAW.bam
 
@@ -335,7 +349,7 @@ done
 
 This process resulted in sorted and indexed BAM files for each sample that describe the mapping of short reads to scaffolds in their corresponding metagenomic sets.
 
-### Profiling the mapping results with anvi'o 
+### Profiling the mapping results with anvi'o
 
 After recruiting metagenomic short reads using scaffolds stored in anvi'o contigs databases, we used the program `anvi-profile` to process the BAM files and __generate anvi'o profile databases that contain the coverage and detection statistics of each scaffold__ in a given metagenome:
 
@@ -343,10 +357,10 @@ After recruiting metagenomic short reads using scaffolds stored in anvi'o contig
 for sample in `awk '{print $1}' samples.txt`
 do
     if [ "$sample" == "sample" ]; then continue; fi
-    
+
     # determine which metagenomic set the $sample bleongs to:
     SET=`echo $sample | awk 'BEGIN {FS="_"}{print $1}'`
-    
+
     anvi-profile -c $SET-CONTIGS.db \
                  -i $sample.bam \
                  --skip-SNV-profiling \
@@ -371,7 +385,7 @@ We generated merged anvi'o profiles for each metagenomic set the following way:
 ``` bash
 for SET in `cat sets.txt`
 do
-    anvi-merge $SET*/PROFILE.db -o $SET-MERGED -c $SET-CONTIGS.db 
+    anvi-merge $SET*/PROFILE.db -o $SET-MERGED -c $SET-CONTIGS.db
 done
 ```
 
@@ -481,7 +495,7 @@ For the TARA Oceans project we used the parameter `--max-redundancy-for-MAG 100`
 
 This process renamed all bins in the collection `CONCOCT`, and stored them in the new collection `FINAL`, which resulted in 1,077 MAGs among all bins.
 
-We then used `anvi-refine` one more time to individually inspect and further refine each MAG by removing spurious scaffolds using the anvi'o interactive interface. 
+We then used `anvi-refine` one more time to individually inspect and further refine each MAG by removing spurious scaffolds using the anvi'o interactive interface.
 
 One could invoke anvi'o interactive refinement tasks for each MAG in all metagenomic sets the following way:
 
@@ -489,7 +503,7 @@ One could invoke anvi'o interactive refinement tasks for each MAG in all metagen
 for SET in `cat sets.txt`
 do
     # get each MAG name in the set:
-    MAGs=`anvi-script-get-collection-info -c $SET-CONTIGS.db \ 
+    MAGs=`anvi-script-get-collection-info -c $SET-CONTIGS.db \
                                           -p $SET-MERGED/PROFILE.db \
                                           -C FINAL | \
           grep MAG | \
@@ -507,7 +521,7 @@ done
 ```
 
 
-### Binning summary for each metagenomic set. 
+### Binning summary for each metagenomic set.
 
 After curation of all 1,077 MAGs, we used the program `anvi-summarize` to __summarize the metagenomic binning results__. The folder this program generates contained for each MAG and bin (1) a FASTA file, (2) genomic features including completion and redundancy estimates, and (3) the mean coverage and detection across metagenomes:
 
@@ -536,7 +550,7 @@ mkdir REDUNDANT-MAGs
 for SET in `cat sets.txt`
 do
     # get each MAG name in the set:
-    MAGs=`anvi-script-get-collection-info -c $SET-CONTIGS.db \ 
+    MAGs=`anvi-script-get-collection-info -c $SET-CONTIGS.db \
                                           -p $SET-MERGED/PROFILE.db \
                                           -C FINAL | \
           grep MAG | \
@@ -564,7 +578,7 @@ This step provides a convenient naming schema for all scaffolds. For instance, a
 {:.notice}
 You have a bunch of MAGs, SAGs, and/or reference genomes, and you are interested in inferring their relationships to one another using phylogenomics? See [this anvi'o workflow for phylogenomics](http://merenlab.org/2017/06/07/phylogenomics/) instead.
 
-We used CheckM (Parks et al., 2015) to infer the taxonomy of the 1,077 redundant MAGs based on the proximity of 43 single-copy gene markers within a reference genomic tree.  
+We used CheckM (Parks et al., 2015) to infer the taxonomy of the 1,077 redundant MAGs based on the proximity of 43 single-copy gene markers within a reference genomic tree.
 
 In the folder `REDUNDANT-MAGs` we used the command,
 
@@ -581,7 +595,7 @@ checkm tree_qa `pwd`/REDUNDANT-MAGs-CHECKM-TREE -f REDUNDANT-MAGs-CHECKM.txt
 to store CheckM annotations in the file `REDUNDANT-MAGs-CHECKM.txt` for future use.
 
 
-## Profiling the database of redundant MAGs 
+## Profiling the database of redundant MAGs
 
 
 After completion of the metagenomic binning, curation of the MAGs, and renaming of scaffolds in them, here, we finally start focusing on the distribution and detection of each MAG across all metagenomes regardless of from which metagenomic set they were recovered. As previously explained, we call these MAGs "redundant MAGs" since we assume that some of them correspond to the same population identified from multiple metagenomic sets.
@@ -613,14 +627,14 @@ bowtie2-build REDUNDANT-MAGs.fa REDUNDANT-MAGs
 for sample in `awk '{print $1}' samples.txt`
 do
     if [ "$sample" == "sample" ]; then continue; fi
-    
+
     bowtie2 --threads 20 \
             -x REDUNDANT-MAGs\
             -1 $sample-QUALITY_PASSED_R1.fastq.gz \
             -2 $sample-QUALITY_PASSED_R2.fastq.gz \
             --no-unal \
             -S $sample-in-RMAGs.sam
-    
+
     # covert the resulting SAM file to a BAM file:
     samtools view -F 4 -bS $sample-in-RMAGs.sam > $sample-in-RMAGs-RAW.bam
 
@@ -637,7 +651,7 @@ done
 for sample in `awk '{print $1}' samples.txt`
 do
     if [ "$sample" == "sample" ]; then continue; fi
-        
+    
     anvi-profile -c REDUNDANT-MAGs-CONTIGS.db \
                  -i $sample-in-RMAGs.bam \
                  --skip-SNV-profiling \
@@ -662,7 +676,7 @@ do
     # ANW_MAG_00001_000000000002, ANW_MAG_00001_000000000003, ...; so we can extract
     # the MAG name it belongs to:
     MAG=`echo $split_name | awk 'BEGIN{FS="_"}{print $1"_"$2"_"$3"_"$4}'`
-    
+
     # print it out with a TAB character
     echo -e "$split_name\t$MAG"
 done > REDUNDANT-MAGs-COLLECTION.txt
@@ -881,7 +895,7 @@ The following output represents the first few lines of the file `REDUNDANT-MAGs-
 The full output is also available here:
 
 {:.notice}
-[http://merenlab.org/data/2017_Delmont_et_al_HBDs/files/REDUNDANT-MAGs-ANI.txt](http://merenlab.org/data/2017_Delmont_et_al_HBDs/files/REDUNDANT-MAGs-ANI.txt)
+[http://merenlab.org/data/tara-oceans-mags/files/REDUNDANT-MAGs-ANI.txt](http://merenlab.org/data/tara-oceans-mags/files/REDUNDANT-MAGs-ANI.txt)
 
 ### Determining and collapsing redundancy
 
@@ -955,9 +969,9 @@ We made publicly available ([doi:10.6084/m9.figshare.4902923](https://doi.org/10
 <iframe src="https://widgets.figshare.com/articles/4902923/embed?show_title=1" width="100%" height="400" frameborder="0"></iframe>
 
 
-## Profiling 957 non-redundant MAGs 
+## Profiling 957 non-redundant MAGs
 
-To better estimate the abundance of each non-redundant MAG, we profiled once again all 957 MAGs in this final collection (i.e., without the genomic replicates) to avoid underestimating their abundance and detection across 93 metagenomes due to the competing reference contexts redundant MAGs provided. The following batch is identical to the one used to profile the 1,077 redundant MAGs in the entire metagenomic dataset. 
+To better estimate the abundance of each non-redundant MAG, we profiled once again all 957 MAGs in this final collection (i.e., without the genomic replicates) to avoid underestimating their abundance and detection across 93 metagenomes due to the competing reference contexts redundant MAGs provided. The following batch is identical to the one used to profile the 1,077 redundant MAGs in the entire metagenomic dataset.
 
 The following list of batch operations is conceptually identical to the ones we used for the profiling of the 1,077 redundant MAGs, yet we elected to spell them out here again for clarity:
 
@@ -979,14 +993,14 @@ bowtie2-build NON-REDUNDANT-MAGs.fa NON-REDUNDANT-MAGs
 for sample in `awk '{print $1}' samples.txt`
 do
     if [ "$sample" == "sample" ]; then continue; fi
-    
+
     bowtie2 --threads 20 \
             -x NON-REDUNDANT-MAGs \
             -1 $sample-QUALITY_PASSED_R1.fastq.gz \
             -2 $sample-QUALITY_PASSED_R2.fastq.gz \
             --no-unal \
             -S $sample-in-NRMAGs.sam
-    
+
     # covert the resulting SAM file to a BAM file:
     samtools view -F 4 -bS $sample-in-NRMAGs.sam > $sample-in-NRMAGs-RAW.bam
 
@@ -1003,7 +1017,7 @@ done
 for sample in `awk '{print $1}' samples.txt`
 do
     if [ "$sample" == "sample" ]; then continue; fi
-        
+    
     anvi-profile -c NON-REDUNDANT-MAGs-CONTIGS.db \
                  -i $sample-in-NRMAGs.bam \
                  --skip-SNV-profiling \
@@ -1025,7 +1039,7 @@ do
     # ANW_MAG_00001_000000000002, ANW_MAG_00001_000000000003, ...; so we can extract
     # the MAG name it belongs to:
     MAG=`echo $split_name | awk 'BEGIN{FS="_"}{print $1"_"$2"_"$3"_"$4}'`
-    
+
     # print out the collections line
     echo -e "$split_name\t$MAG"
 done > NON-REDUNDANT-MAGs-COLLECTION.txt
@@ -1099,7 +1113,7 @@ wget https://ndownloader.figshare.com/files/8248433 \
      -O TARA_ANW_MAG_00006.tar.gz
 
 # unpack
-tar -zxvf TARA_ANW_MAG_00006.tar.gz 
+tar -zxvf TARA_ANW_MAG_00006.tar.gz
 
 # migrate databases in case you have a newer version of
 # anvi'o
@@ -1128,7 +1142,7 @@ To finally identify MAGs that likely belonged to the Candidate Phyla Radiation i
 ``` bash
 wget https://goo.gl/KXp3iQ -O Brown_et_al-CPR-Campbell_et_al_BSCG.txt
 anvi-script-gen-CPR-classifier Brown_et_al-CPR-Campbell_et_al_BSCG.txt \
-                               -o cpr-bscg.classifier 
+                               -o cpr-bscg.classifier
 ```
 
 and then used the program `anvi-script-predict-CPR-genomes`:
