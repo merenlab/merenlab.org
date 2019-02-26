@@ -12,7 +12,7 @@ redirect_from:
 
 {% include _toc.html %}
 
-{% capture images %}{{site.url}}/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/images{% endcapture %}
+{% capture images %}{{site.url}}/data/sar11-saavs/images{% endcapture %}
 
 This document describes the reproducible bioinformatics workflow for our study titled "*The large scale biogeography of amino acid variants within a single SAR11 population is governed by natural selection*". Here you will find program names and exact parameters we used throughout every step of the analysis of SAR11 genomes and metagenomes from the TARA Oceans and Ocean Sampling Day projects, which relied predominantly on the open-source analysis platform [anvi’o](http://merenlab.org/software/anvio) (Eren et al., 2015).
 
@@ -48,7 +48,7 @@ The URL [http://merenlab.org/data/#XXX](http://merenlab.org/data/#XXX){:target="
 -->
 
 {:.notice}
-The URL [http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/](http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/){:target="_blank"} serves the most up-to-date version of this document.
+The URL [http://merenlab.org/data/sar11-saavs/](sar11-saavs/){:target="_blank"} serves the most up-to-date version of this document.
 
 
 <div class="extra-info" markdown="1">
@@ -82,20 +82,20 @@ The TARA Oceans metagenomes we analyzed are publicly available through the Europ
 
 ### Downloading the 21 SAR11 cultivar genomes
 
-You can get a copy of the FASTA file containing all 21 SAR11 cultivar genomes into your work directory using this command line: 
+You can get a copy of the FASTA file containing all 21 SAR11 cultivar genomes into your work directory using this command line:
 
 ``` bash
-wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/SAR11-isolates.fa.gz
+wget http://merenlab.org/data/sar11-saavs/files/SAR11-isolates.fa.gz
 gzip -d SAR11-isolates.fa.gz
-``` 
+```
 
 ### Downloading the TARA Oceans and Ocean Sampling Day metagenomes
 
-[This file](http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/ftp-links-for-raw-data-files.txt){:target="_blank"} contains URLs for FTP access for each raw data file for 103 samples, and you can get a copy of it into your work directory, 
+[This file](http://merenlab.org/data/sar11-saavs/files/ftp-links-for-raw-data-files.txt){:target="_blank"} contains URLs for FTP access for each raw data file for 103 samples, and you can get a copy of it into your work directory,
 
 ``` bash
-wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/ftp-links-for-raw-data-files.txt
-``` 
+wget http://merenlab.org/data/sar11-saavs/files/ftp-links-for-raw-data-files.txt
+```
 
 and download each of the raw sequencing data file from the EMBL servers this way:
 
@@ -111,18 +111,18 @@ This may take quite a while.
 
 ### Defining metagenomic sets, setting sample names, and linking those with the raw data
 
-We defined 12 'metagenomic sets' for geographically bound locations TARA Oceans samples originated from, consistent with our previous [work flow to reconstruct ~1,000 population genomes](http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/). We defined an additional metagenomic set for the 10 Ocean Sampling Day metagenomes that cover high-latitudes of the north hemisphere. 
+We defined 12 'metagenomic sets' for geographically bound locations TARA Oceans samples originated from, consistent with our previous [work flow to reconstruct ~1,000 population genomes](http://merenlab.org/data/sar11-saavs/). We defined an additional metagenomic set for the 10 Ocean Sampling Day metagenomes that cover high-latitudes of the north hemisphere.
 
-We tailored our sample naming schema for convenience and reproducibility. [This file](http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/sets.txt){:target="_blank"}{:target="_blank"} contains the three-letter identifiers for each of the 13 metagenomic sets, which will become prefixes for each sample name for direct access to all samples from a given metagenomic set. This file will be referred to as `sets.txt` throughout the document, and you can get a copy of this file into your work directory:
-
-``` bash
-wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/sets.txt
-``` 
-
-We used these three-letter prefixes to name each of the 103 samples, and to associate them with metagenomic sets with which they were affiliated. [This file](http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/samples.txt){:target="_blank"} contains sample names, and explains which raw data files are associated with each sample. It will be referred to as `samples.txt` throughout the document, and you can get a copy of this file into your work directory:
+We tailored our sample naming schema for convenience and reproducibility. [This file](http://merenlab.org/data/sar11-saavs/files/sets.txt){:target="_blank"}{:target="_blank"} contains the three-letter identifiers for each of the 13 metagenomic sets, which will become prefixes for each sample name for direct access to all samples from a given metagenomic set. This file will be referred to as `sets.txt` throughout the document, and you can get a copy of this file into your work directory:
 
 ``` bash
-wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/samples.txt
+wget http://merenlab.org/data/sar11-saavs/files/sets.txt
+```
+
+We used these three-letter prefixes to name each of the 103 samples, and to associate them with metagenomic sets with which they were affiliated. [This file](http://merenlab.org/data/sar11-saavs/files/samples.txt){:target="_blank"} contains sample names, and explains which raw data files are associated with each sample. It will be referred to as `samples.txt` throughout the document, and you can get a copy of this file into your work directory:
+
+``` bash
+wget http://merenlab.org/data/sar11-saavs/files/samples.txt
 ```
 
 TARA samples file should look like this:
@@ -143,10 +143,10 @@ RED_34_05M ERR598959_1.gz,ERR598991_1.gz ERR598959_2.gz,ERR598991_2.gz
 ION_36_05M ERR599143_1.gz,ERR598966_1.gz ERR599143_2.gz,ERR598966_2.gz
 ```
 
-This file above also represents the standard input for `illumina-utils` library for processing the raw metagenomic data for each sample. 
+This file above also represents the standard input for `illumina-utils` library for processing the raw metagenomic data for each sample.
 
 
-### Quality-filtering of raw reads 
+### Quality-filtering of raw reads
 
 We used the [illumina-utils library](https://github.com/meren/illumina-utils){:target="_blank"} `v1.4.1` (Eren et al., 2013) to remove noise from raw reads prior to mapping.
 
@@ -156,7 +156,7 @@ To produce the configuration files [illumina utils requires](https://github.com/
 iu-gen-configs samples.txt
 ```
 
-This step should generate 103 config files with the extension of `.ini` in the working directory. 
+This step should generate 103 config files with the extension of `.ini` in the working directory.
 
 To perform the quality filtering on samples config files describe, we used the program `iu-filter-quality-minoche` with default parameters, which implements the approach detailed in Minoche et al. (Minoche et al., 2011):
 
@@ -199,7 +199,7 @@ anvi-gen-contigs-database -f SAR11-isolates.fa \
 ```
 
 The open reading frames identified by Prodigal can be exported with the following command:
- 
+
 ``` bash
 anvi-export-gene-calls -c SAR11-CONTIGS.db \
                        -o gene_calls_summary.txt
@@ -314,7 +314,7 @@ We then mapped each metagenome against the scaffolds contained in `SAR11-isolate
 ``` bash
 for sample in `awk '{print $1}' samples.txt`
 do
-    if [ "$sample" == "sample" ]; then continue; fi    
+    if [ "$sample" == "sample" ]; then continue; fi
     # do the bowtie mapping to get the SAM file:
     bowtie2 --threads 20 \
             -x SAR11-isolates \
@@ -322,7 +322,7 @@ do
             -2 $sample-QUALITY_PASSED_R2.fastq.gz \
             --no-unal \
             -S $sample.sam
-    
+
     # covert the resulting SAM file to a BAM file:
     samtools view -F 4 -bS $sample.sam > $sample-RAW.bam
 
@@ -338,7 +338,7 @@ done
 This process has resulted in 103 sorted and indexed BAM files that describe the mapping of more than 30 billion short reads to scaffolds contained in the FASTA file `SAR11-isolates.fa`.
 
 
-### Profiling the mapping results with anvi'o 
+### Profiling the mapping results with anvi'o
 
 After recruiting metagenomic short reads using scaffolds stored in the anvi'o CONTIGS database for SAR11 isolates, we used the program `anvi-profile` to process the BAM files and to generate anvi'o PROFILE databases that contain the coverage and detection statistics of each SAR11 scaffold in a given metagenome:
 
@@ -346,7 +346,7 @@ After recruiting metagenomic short reads using scaffolds stored in the anvi'o CO
 for sample in `awk '{print $1}' samples.txt`
 do
     if [ "$sample" == "sample" ]; then continue; fi
-    
+
     anvi-profile -c SAR11-CONTIGS.db \
                  -i $sample.bam \
                  --profile-AA-frequencies \
@@ -367,7 +367,7 @@ Once the individual PROFILE databases were generated, we used the program `anvi-
 
 
 ``` bash
-anvi-merge */PROFILE.db -o SAR11-MERGED -c SAR11-CONTIGS.db 
+anvi-merge */PROFILE.db -o SAR11-MERGED -c SAR11-CONTIGS.db
 ```
 
 The resulting profile database describes the coverage and detection statistics, as well as SNVs and SAAVs for each scaffold across all 103 metagenomes.
@@ -389,7 +389,7 @@ do
     # HIMB058_Contig_0001_split_00002, HIMB058_Contig_0001_split_00003, HIMB058_Contig_0001_split_00003...; so we can extract
     # the genome name it belongs to:
     MAG=`echo $split_name | awk 'BEGIN{FS="_"}{print $1}'`
-    
+
     # print it out with a TAB character
     echo -e "$split_name\t$MAG"
 done > SAR11-GENOME-COLLECTION.txt
@@ -447,7 +447,7 @@ We used the anvi'o programs `anvi-gen-genomes-storage`, `anvi-pan-genome`, and `
 We first created the file `internal-genomes.txt` that connects genome IDs to the CONTIGS and PROFILE databases ([details the anvi'o pangenomic workflow]({% post_url anvio/2016-11-08-pangenomics-v2 %})). This file can be downloaded using this command:
 
 ``` bash
-wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/internal-genomes.txt
+wget http://merenlab.org/data/sar11-saavs/files/internal-genomes.txt
 ```
 
 And here is how it looks like:
@@ -465,7 +465,7 @@ HIMB4	HIMB4	Genomes	SAR11-MERGED/PROFILE.db	SAR11-CONTIGS.db
 HIMB5	HIMB5	Genomes	SAR11-MERGED/PROFILE.db	SAR11-CONTIGS.db
 ```
 
-We generated a genomes storage, 
+We generated a genomes storage,
 
 ``` bash
 anvi-gen-genomes-storage -i internal-genomes.txt \
@@ -506,7 +506,7 @@ The resulting summary folder contains a file that links each gene to protein clu
 
 ### Linking the pangenome to the environment
 
-From the anvi'o metagenomic summary output described in the previous section, we determined the relative distribution of each genome across the 103 metagenomes. We created a text file, `SAR11-PAN-samples-information.txt` (avilable [here]({{ site.url }}/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/SAR11-PAN-samples-information.txt)) to link the pangenome to the environment using genomic coverage values across samples, as well as to display other information such as gneme lengths and clade information. From this file we generated an anvi'o [samples database](http://merenlab.org/2015/11/10/samples-db/){:target="_blank"}, `SAR11-PAN-SAMPLES.db`. In addition, we used the summary output of the SAR11 pangenome to identify protein clusters containing a list of HIMB83 genes of interest (the 799 core S-LLPA genes), and created the file `S-LLPA-CORE-GENES.txt` (avilable [here]({{ site.url }}/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/S-LLPA-CORE-GENES.txt)), the contents of which looked like this:
+From the anvi'o metagenomic summary output described in the previous section, we determined the relative distribution of each genome across the 103 metagenomes. We created a text file, `SAR11-PAN-samples-information.txt` (avilable [here]({{ site.url }}/data/sar11-saavs/files/SAR11-PAN-samples-information.txt)) to link the pangenome to the environment using genomic coverage values across samples, as well as to display other information such as gneme lengths and clade information. From this file we generated an anvi'o [samples database](http://merenlab.org/2015/11/10/samples-db/){:target="_blank"}, `SAR11-PAN-SAMPLES.db`. In addition, we used the summary output of the SAR11 pangenome to identify protein clusters containing a list of HIMB83 genes of interest (the 799 core S-LLPA genes), and created the file `S-LLPA-CORE-GENES.txt` (avilable [here]({{ site.url }}/data/sar11-saavs/files/S-LLPA-CORE-GENES.txt)), the contents of which looked like this:
 
 ``` bash
 $ head S-LLPA-CORE-GENES.txt
@@ -582,25 +582,25 @@ anvi-summarize -p NON-REDUNDANT-MAGs-SPLIT/HIMB083/PROFILE.db \
 {:.notice}
 [doi:10.6084/m9.figshare.5248435](https://doi.org/10.6084/m9.figshare.5248435){:target="_blank"} serves the self-contained anvi'o profile for HIMB83 across all metagenomes.
 
-`anvi-summarize` allowed us to identity a list of 74 metagenomes where the mean coverage of HIMB83 was `>50x`. It is in these 74 metagenomes that we confidently detect HIMB83. We then identified 799 HIMB83 genes that systematically occurred in all 74 metagenomes (i.e. genes that were detected when HIMB83 was detected). Please see the methods section in [our study](http://www.biorxiv.org/content/early/2017/07/31/170639){:target="_blank"} for a more detailed description of these steps. But just to give a visual idea here, this shows the HIMB83 genes that systemmatically detected across metagenomes: 
+`anvi-summarize` allowed us to identity a list of 74 metagenomes where the mean coverage of HIMB83 was `>50x`. It is in these 74 metagenomes that we confidently detect HIMB83. We then identified 799 HIMB83 genes that systematically occurred in all 74 metagenomes (i.e. genes that were detected when HIMB83 was detected). Please see the methods section in [our study](http://www.biorxiv.org/content/early/2017/07/31/170639){:target="_blank"} for a more detailed description of these steps. But just to give a visual idea here, this shows the HIMB83 genes that systemmatically detected across metagenomes:
 
 [![SAR11]({{images}}/s-llpa-core.png)]({{images}}/s-llpa-core.png){:.center-img .width-70}
 
 The files `metagenomes-of-interest.txt` and `core-S-LLPA-genes.txt` contain the names of of 74 metagenomes and gene caller id's for 799 core genes, respectively. You can download these files into your work directory the following way:
 
 ``` bash
-wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/metagenomes-of-interest.txt
-wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/core-S-LLPA-genes.txt
+wget http://merenlab.org/data/sar11-saavs/files/metagenomes-of-interest.txt
+wget http://merenlab.org/data/sar11-saavs/files/core-S-LLPA-genes.txt
 ```
 
 ## Quantifying the alignment quality of short reads to HIMB83 (and others)
 
-It was of critical importance to quantify how well reads were mapping to HIMB83, as this gives some indication of what level of taxonomical group HIMB83 provides access to through read recruitment. The metric used to assess alignment quality was percent identity. A percent identity of 95% would mean that, for example, a 100 nucleotide-long read matched at 95 out of its 100 nucleotide positions to the reference sequence it aligned to. By calculating this for each read in a metagenome, the resulting histogram gives perspective on how similar the reads are to the reference. 
+It was of critical importance to quantify how well reads were mapping to HIMB83, as this gives some indication of what level of taxonomical group HIMB83 provides access to through read recruitment. The metric used to assess alignment quality was percent identity. A percent identity of 95% would mean that, for example, a 100 nucleotide-long read matched at 95 out of its 100 nucleotide positions to the reference sequence it aligned to. By calculating this for each read in a metagenome, the resulting histogram gives perspective on how similar the reads are to the reference.
 
 To do this we wrote a python script that calculates a histogram for the percent identity of reads mapping to a reference genome. You should download the script:
 
 ``` bash
-wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/p-get_percent_identity.py
+wget http://merenlab.org/data/sar11-saavs/files/p-get_percent_identity.py
 ```
 
 We used this script in a couple of different ways.
@@ -608,7 +608,7 @@ We used this script in a couple of different ways.
 First, we calculated the percent identity histograms for each of the 21 isolates (over the whole genomes), where a metagenome was included for the isolate if the isolate's coverage was >50X in that metagenome. A small directory outlining this information should be downloaded below:
 
 ``` bash
-wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/ALL_ISOLATES.zip
+wget http://merenlab.org/data/sar11-saavs/files/ALL_ISOLATES.zip
 unzip ALL_ISOLATES.zip; rm ALL_ISOLATES.zip
 ```
 
@@ -633,7 +633,7 @@ done
 If you open up the script you'll notice that it's an absolute spaghetti monster, however it can accomplish a lot. If you want to see what the parameters do and change them for your own needs, pull up the help for the script:
 
 ```
-python p-get_percent_identity.py -h 
+python p-get_percent_identity.py -h
 ```
 
 Second, we calculated the percent identity histograms for the 74 metagenomes in which HIMB83 recruited at least 50X coverage. Unlike in the previous command, in this case we focused to look only at the 799 core genes. We generated two outputs, one for visualization (which considers only reads with lengths equal to the median lengths and coarse bin sizes), and another that is statistically accurate (which takes into account all read lengths and has finely resolved bin sizes).
@@ -651,7 +651,7 @@ python p-get_percent_identity.py \
        -G core-S-LLPA-genes.txt \
        -a gene_calls_summary.txt \
        -interpolate 70,100,400 \
-       -x 
+       -x
 
 # Statistically rigourous
 python p-get_percent_identity.py \
@@ -669,7 +669,7 @@ Visualization of these distributions (for example Figure 2, Figure 4) reveal vir
 
 ## Generating genomic variation data for HIMB83
 
-To explore the genomic variability of 1a.3.V, the lineage recruited by HIMB83, we characterized SNVs and SAAVs for a set of HIMB83 genes across across metagenomes. Both for SNVs and SAAVs, we only considered positions of nucletides or codons that met a minimum coverage expectation. Controlling the minimum coverage of nucleotide or codon positions across metagenomes improves the confidence in variability analyses. 
+To explore the genomic variability of 1a.3.V, the lineage recruited by HIMB83, we characterized SNVs and SAAVs for a set of HIMB83 genes across across metagenomes. Both for SNVs and SAAVs, we only considered positions of nucletides or codons that met a minimum coverage expectation. Controlling the minimum coverage of nucleotide or codon positions across metagenomes improves the confidence in variability analyses.
 
 We generated three files to report the variability.
 
@@ -731,13 +731,13 @@ These reports were the key data to compare the differential occurrence of varian
 This brief section outlines how we made use of the SAAV table `S-LLPA_SAAVs_20x_10percent_departure.txt` to calculate allele frequency trajectories (illustrated in Figure S7) for each codon position that contained at least one SAAV. Allele frequency trajectories were calculated for each of such positions for the two amino acids comprising the most common AAST at that position. For example, if at some position, 40 of the 74 metagenomes had the AAST 'alanine/serine', and the remaining 34 metagenomes had the AAST 'alanine/valine', the trajectories of alanine and serine would be calculated. If in any of the metagenomes the coverage of both amino acids were 0, the position was discarded. For the remaining positions, the allele frequencies were correlated with in situ temperature with the script that can be downloaded like so:
 
 ```bash
-wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/frequency_trajectories_dataset.py
+wget http://merenlab.org/data/sar11-saavs/files/frequency_trajectories_dataset.py
 
 # also download this guy
-wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/TARA_metadata.txt
+wget http://merenlab.org/data/sar11-saavs/files/TARA_metadata.txt
 ```
 
-A table summarizing the results of a linear regression to temperature for each of these positions, i.e. Table S11, can then be generated with the command: 
+A table summarizing the results of a linear regression to temperature for each of these positions, i.e. Table S11, can then be generated with the command:
 
 ```bash
 python frequency_trajectories_dataset.py --variability S-LLPA_SAAVs_20x_10percent_departure.txt -o allele_frequency_trajectory_summary.txt
@@ -808,7 +808,7 @@ chmod +x anvi-script-filter-fasta-by-blast
 
 436 genes matched to these criteria are stored in `CORE-S-LLPA-GENE-AA-SEQUENCES-W-PDB-MATCHES.fa` for downstream analyses.
 
-### Protein structure prediction 
+### Protein structure prediction
 
 We computationally predicted the protein structures of these 436 genes using a template-based tertiary structure prediction algorithm called [RaptorX Structure Prediction](http://raptorx.uchicago.edu/). In short, RaptorX aligns query sequences to a database of solved protein structures, e.g. the PDB, and then uses the solved structures as templates to determine the conformation of the query sequence.
 
@@ -817,7 +817,7 @@ Using the submission form [http://raptorx.uchicago.edu/StructurePrediction/predi
 RaptorX Structure Prediction outputs a zipped folder for each protein prediction named `<sequence_id>.all_in_one.zip`, where `<sequence_id>` is a unique tag generated by RaptorX. We created a new directory `RaptorXProperty`, manually moved all `<sequence_id>.all_in_one.zip` files into it, and unzipped them all. To make things more identifiable, we renamed the `<sequence_id>.all_in_one` folders to `<corresponding_gene_call>.all_in_one`, where `<corresponding_gene_call>` is the gene caller id defined by the SAAV table. To do this we created a python script called `rename_all_in_ones.py`, and executed it the following way:
 
 ``` bash
-wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/rename_all_in_ones.py
+wget http://merenlab.org/data/sar11-saavs/files/rename_all_in_ones.py
 cd RaptorXProperty
 python rename_all_in_ones.py
 cd -
@@ -828,12 +828,12 @@ Before mapping SAAVs onto the predicted protein structure, we first did some mai
 
 ``` bash
 # downlod the script
-wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/curate_SAAV_table.py
+wget http://merenlab.org/data/sar11-saavs/files/curate_SAAV_table.py
 
 # copy HIMB83 gene coverages from the summary dir (if you don't have this directory, the
 # URL https://doi.org/10.6084/m9.figshare.5248435 serves HIMB83 profile with the SUMMARY
-# output directory 
-cp NON-REDUNDANT-MAGs-SPLIT/HIMB083/SUMMARY/bin_by_bin/ALL_SPLITS/ALL_SPLITS-gene_non_outlier_coverages.txt . 
+# output directory
+cp NON-REDUNDANT-MAGs-SPLIT/HIMB083/SUMMARY/bin_by_bin/ALL_SPLITS/ALL_SPLITS-gene_non_outlier_coverages.txt .
 
 # make sure the file S-LLPA_SAAVs_20x_10percent_departure.txt is also in this directory.
 # if you don't have it, you may download the archive file that contains this and other files
@@ -855,7 +855,7 @@ Unfortunately due to the limitations of PyMOL, SAAV-structural-mapping requires 
 {:.notice}
 SAAV-structural-mapping depends on [PyMOL](https://pymol.org/), a molecular visualization package written in Python. For full functionality, a licensed version is required, however partial functionality is possible either with the free open-source version or the educational version (best alternative).
 
-There are five inputs for this to work: 
+There are five inputs for this to work:
 
 * A gene list specifying the genes we are interested in visualizing. In the past we have visualized all of the 436 genes in the FASTA file (`CORE-S-LLPA-GENE-AA-SEQUENCES-W-PDB-MATCHES.fa`), however the images require a lot of storage space and the script takes a very long time to run. To create the interface available at [http://anvio.org/data/S-LLPA-SAAVs/](http://anvio.org/data/S-LLPA-SAAVs/), we subselected genes that looked visually interesting to us. If you have your own list of genes you're interested in looking at, we encourage you to create your own gene list and let us know what you find! You can get a copy of ours this way:
 
@@ -866,14 +866,14 @@ There are five inputs for this to work:
 
 * A collection of structure predictions for all the genes in `genes-of-interest-for-PyMOL.txt`. We already created this: its the `RaptorXProperty` directory.
 
-* A configuration file specifying how to visualize the SAAVs. Below is the configuration file we used (`structural-mapping-of-SAAVs-config.ini`). For a complete description of how you can define your own config file please visit the help documentation of the `anvi-map-saavs-to-structure` script in SAAV-structural-mapping. 
+* A configuration file specifying how to visualize the SAAVs. Below is the configuration file we used (`structural-mapping-of-SAAVs-config.ini`). For a complete description of how you can define your own config file please visit the help documentation of the `anvi-map-saavs-to-structure` script in SAAV-structural-mapping.
 
 You can get copies of missing files for a full analysis (gene list, samples mapping, and the configuration file) the following way:
 
 ``` bash
-wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/genes-of-interest-for-PyMOL.txt
-wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/genes-of-interest-for-PyMOL.txt
-wget http://merenlab.org/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/samples-of-interest-for-PyMOL.txt
+wget http://merenlab.org/data/sar11-saavs/files/genes-of-interest-for-PyMOL.txt
+wget http://merenlab.org/data/sar11-saavs/files/genes-of-interest-for-PyMOL.txt
+wget http://merenlab.org/data/sar11-saavs/files/samples-of-interest-for-PyMOL.txt
 ```
 
 For your information, our configuration file looked like this, and it is highly flexible for advanced users:
@@ -990,7 +990,7 @@ These methods are adopted by our collaborators [Ozsel Kilinc](https://www.linked
 
 This approach builds upon a previous study on learning of latent annotations on neural networks using [auto-clustering output layer](https://arxiv.org/abs/1702.08648){:target="_blank"} (ACOL) when a coarse level of supervision is available for all observations (i.e. parent-class labels), but the model has to learn a deeper level of latent annotations (i.e. sub-classes, under each one of parents).
 
-ACOL is a novel output layer modification for deep neural networks to allow simultaneous supervised classification (per provided parent-classes) and unsupervised clustering (within each parent) where clustering is performed with a recently proposed [Graph-based Activity Regularization](https://arxiv.org/abs/1705.07219){:target="_blank"} (GAR) technique. More specifically, as ACOL duplicates the softmax nodes at the output layer for each class, GAR allows for competitive learning between these duplicates on a traditional error-correction learning framework. 
+ACOL is a novel output layer modification for deep neural networks to allow simultaneous supervised classification (per provided parent-classes) and unsupervised clustering (within each parent) where clustering is performed with a recently proposed [Graph-based Activity Regularization](https://arxiv.org/abs/1705.07219){:target="_blank"} (GAR) technique. More specifically, as ACOL duplicates the softmax nodes at the output layer for each class, GAR allows for competitive learning between these duplicates on a traditional error-correction learning framework.
 
 To study SAAVs, we modified ACOL to learn latent annotations in a fully unsupervised setup by substituting the real, yet unavailable, parent-class information with a pseudo one (i.e. randomly generated pseudo parent-classes). To generate examples for a pseudo parent-class, we choose a domain specific transformation to be applied to every sample in the dataset. The transformed dataset constitutes the examples of that pseudo parent-class and every new transformation (i.e. the random sampling of codon positions) generates a new pseudo parent-class. Naturally, the main classification task performed over these pseudo parent-classes does not represent any meaningful knowledge about the data by itself. However, frequent and random selection of these pseudo parent-classes allow the ACOL neural network to learn sub-classes of these pseudo parents without bias. While each sub-class corresponds to a latent annotation which may or may not be meaningful, the combination of these annotations learned through abundant and concurrent clusterings reveals an unbiased and robust similarity metric between different metagenomes.
 
@@ -1028,8 +1028,8 @@ df, sample_id_map = load_sar11(loc)
 Consider an $$n_s \times n_p \times n_f$$ metagenomics dataset represented by the 3-D tensor $$\mathbf{D}$$, where $$n_s$$ is the number of metagenomes to be clustered, $$n_p$$ is the number of codon positions per metagenome and $$n_f$$ is the number of features representing each codon position. Specifically, our dataset can be specified by a $$74 \times 37,416 \times 2$$ tensor, as each codon position is represented by the two most frequent amino acids found in this position.
 
 To generate the examples of $$i^{th}$$ pseudo parent-class, we randomly sample $$n_{\acute{p}}$$ positions out of $$n_p$$ with replacement. Resulting $$n_s \times n_{\acute{p}} \times n_f$$ subsets which correspond to $$d=n_{\acute{p}}n_f$$ dimensional $$n_s$$ examples of pseudo parent-class $$i$$. This procedure is repeated for $$n_\psi$$ times, and ultimately we obtain an $$m \times d$$ input matrix $$\boldsymbol{X} = [\boldsymbol{x}_1,...,\boldsymbol{x}_{m}]^T$$ and corresponding pseudo parent-class labels $$\boldsymbol{t}=[t_1,...,t_{m}]^T$$ to train a neural network, where $$n_\psi$$ is the number of the pseudo parents and $$m$$ is the total number of the examples generated in this procedure, such that $$m=n_\psi n_s$$.
- 
-We select $$n_{\acute{p}}=2000$$ and $$n_\psi=1000$$ to produce the results in this article, therefore $$\boldsymbol{X}$$ is  $$74000 \times 4000$$ matrix where each one of 1000 pseudo parents is equally represented by 74 examples sampled from different metagenomes. We also keep track of the metagenome labels $$\boldsymbol{q}=[q_1,...,q_{m}]^T$$, indicating the source metagenome of every example. This information will be used later to produce the similarity matrix. 
+
+We select $$n_{\acute{p}}=2000$$ and $$n_\psi=1000$$ to produce the results in this article, therefore $$\boldsymbol{X}$$ is  $$74000 \times 4000$$ matrix where each one of 1000 pseudo parents is equally represented by 74 examples sampled from different metagenomes. We also keep track of the metagenome labels $$\boldsymbol{q}=[q_1,...,q_{m}]^T$$, indicating the source metagenome of every example. This information will be used later to produce the similarity matrix.
 
 Setting dataset paramters to set the stage for pseudo parent-class generation procedure:
 
@@ -1046,7 +1046,7 @@ n_f = 2
 # number of dimensions of the input
 d = n_p_acute*n_f
 
-# number of pseudo-classes 
+# number of pseudo-classes
 n_psi = 1000
 
 # running the 'Algorithm 1: Pseudo-class generation':
@@ -1068,8 +1068,8 @@ Unlike traditional output layer structure, ACOL defines more than one softmax no
 Consider a neural network with ACOL consisting of $$L-1$$ hidden layers where $$l$$ denotes the individual index for each layer such that $$l \in \{0,...,L\}$$. Let $$\boldsymbol{Y} ^{(l)}$$ denote the output of the nodes at layer $$l$$. $$\boldsymbol{Y} ^{(0)}=\boldsymbol{X}$$ is the input and $$f(\boldsymbol{X})=f^{(L)}(\boldsymbol{X})=\boldsymbol{Y}^{(L)}=\boldsymbol{Y}$$ is the output of the entire network, and $$\boldsymbol{W} ^{(l)}$$ and $$\boldsymbol{b}^{(l)}$$ are the weights and biases of layer $$l$$, respectively. Then, the feedforward operation of the neural network can be written as
 
 $$
-f^{(l)}\big(\boldsymbol{X}\big) = 
-\boldsymbol{Y}^{(l)} = 
+f^{(l)}\big(\boldsymbol{X}\big) =
+\boldsymbol{Y}^{(l)} =
 h^{(l)}\big(\boldsymbol{Y}^{(l-1)}\boldsymbol{W}^{(l)} + \boldsymbol{b}^{(l)}\big)
 $$
 
@@ -1085,19 +1085,19 @@ $$
 g\big(\boldsymbol{X}\big) = \boldsymbol{B} := \max{\big(\boldsymbol{0}, \boldsymbol{Z}\big)}
 $$
 
-both of which correspond to $$m \times n$$ matrices, where $$n=n_\psi k$$, and $$k$$ is the clustering coefficient of ACOL (which we chose as 4 for our SAAVs data). The output of a neural network with ACOL can then be written in terms of $$\boldsymbol{Z}$$ as 
+both of which correspond to $$m \times n$$ matrices, where $$n=n_\psi k$$, and $$k$$ is the clustering coefficient of ACOL (which we chose as 4 for our SAAVs data). The output of a neural network with ACOL can then be written in terms of $$\boldsymbol{Z}$$ as
 
 $$
-f\big(\boldsymbol{X}\big) = 
-\boldsymbol{Y} =  
+f\big(\boldsymbol{X}\big) =
+\boldsymbol{Y} =
 h^{(L)}\bigg(h^{(L-1)}\big(\boldsymbol{Z}\big)\boldsymbol{W}^{(L)} + \boldsymbol{b}^{(L)}\bigg)
 $$
 
-where $$\boldsymbol{Y}$$ is an $$m \times n_\psi$$ matrix in which $$Y_{ij}$$ is the probability of the $$i^{th}$$ example belonging to the $$j^{th}$$ pseudo parent. Since $$h^{(L-1)}(.)$$ and $$h^{(L)}(.)$$ respectively correspond to softmax and linear activation functions and $$\boldsymbol{b}^{(L)} = \boldsymbol{0}$$, then this expression further simplifies into 
+where $$\boldsymbol{Y}$$ is an $$m \times n_\psi$$ matrix in which $$Y_{ij}$$ is the probability of the $$i^{th}$$ example belonging to the $$j^{th}$$ pseudo parent. Since $$h^{(L-1)}(.)$$ and $$h^{(L)}(.)$$ respectively correspond to softmax and linear activation functions and $$\boldsymbol{b}^{(L)} = \boldsymbol{0}$$, then this expression further simplifies into
 
 $$
-f\big(\boldsymbol{X}\big) = 
-\boldsymbol{Y} =  
+f\big(\boldsymbol{X}\big) =
+\boldsymbol{Y} =
 softmax\big(\boldsymbol{Z}\big)\boldsymbol{W}^{(L)}
 $$
 
@@ -1113,24 +1113,24 @@ $$
 \end{bmatrix}
 $$
 
-and simply sums up the output probabilities of the softmax nodes belonging to the same pseudo-class. Since the output of the augmented softmax layer is already normalized, no additional averaging is needed at the pooling layer and summation alone is sufficient to calculate final pseudo-class probabilities. 
+and simply sums up the output probabilities of the softmax nodes belonging to the same pseudo-class. Since the output of the augmented softmax layer is already normalized, no additional averaging is needed at the pooling layer and summation alone is sufficient to calculate final pseudo-class probabilities.
 Also, unsupervised regularization $$\mathcal{U}(.)$$ is applied to $$\boldsymbol{B}$$ to penalize the range of its distribution.
 The overall objective function of the training then becomes
 
 $$
 \mathcal{L}\big(\boldsymbol{Y}, \boldsymbol{t}\big) +
-\mathcal{U}\big(\boldsymbol{B}\big) = 
+\mathcal{U}\big(\boldsymbol{B}\big) =
 \mathcal{L}\big(softmax(\boldsymbol{Z})\boldsymbol{W}^{(L)}, \boldsymbol{t}\big) +
 c_R\sum\limits_{j=1}^{n}\bigg(\max\big(\boldsymbol{B}_{:,j}\big)-\min\big(\boldsymbol{B}_{:,j}\big)\bigg)
 $$
 
-where $$\mathcal{L}(.)$$ is the supervised log loss function, $$\boldsymbol{t}=[t_1,...,t_{m}]^T$$ is the vector of the provided pseudo parent labels such that $$t_i \in \{1,...,n_\psi\}$$, $$\boldsymbol{B}_{:,j}$$ corresponds to $$j^{th}$$ column vector of matrix $$\boldsymbol{B}$$ and $$c_R$$ is the weighting coefficient. 
+where $$\mathcal{L}(.)$$ is the supervised log loss function, $$\boldsymbol{t}=[t_1,...,t_{m}]^T$$ is the vector of the provided pseudo parent labels such that $$t_i \in \{1,...,n_\psi\}$$, $$\boldsymbol{B}_{:,j}$$ corresponds to $$j^{th}$$ column vector of matrix $$\boldsymbol{B}$$ and $$c_R$$ is the weighting coefficient.
 
 We employ a neural network with 3 hidden layers of 2048 nodes,
 
 
 ``` python
-# number of hidden layers, number of nodes per layer 
+# number of hidden layers, number of nodes per layer
 mlp_params =(3, 2048)
 ```
 
@@ -1139,7 +1139,7 @@ and choose ACOL hyperparameters as follows:
 ```python
 # clustering coeffient of ACOL
 k = 4
- 
+
 # dropout ratio to be applied to augmented softmax layer
 p = 0.5
 
@@ -1152,32 +1152,32 @@ Training of the newwork is performed according to simultaneous supervised and un
 
 ```python
 # define optimizer
-sgd = SGD(lr=0.01, decay=1e-6, momentum=0.95, nesterov=True)   
+sgd = SGD(lr=0.01, decay=1e-6, momentum=0.95, nesterov=True)
 ```
 
-Algorithm 2 below describes the entire training procedure. Along with unsupervised regularization, it also applies [dropout method](http://jmlr.org/papers/v15/srivastava14a.html){:target="_blank"} to the augmented softmax layer to distribute examples across the duplicated softmax nodes. For each mini-batch, an $$1 \times n$$ row vector $$\boldsymbol{r}$$ of independent Bernoulli random variables is sampled and multiplied element-wise with the output of the augmented softmax layer. This operation corresponds to dropping out each one of the $$n$$ softmax nodes with the probability of $$p$$ for that batch.  
+Algorithm 2 below describes the entire training procedure. Along with unsupervised regularization, it also applies [dropout method](http://jmlr.org/papers/v15/srivastava14a.html){:target="_blank"} to the augmented softmax layer to distribute examples across the duplicated softmax nodes. For each mini-batch, an $$1 \times n$$ row vector $$\boldsymbol{r}$$ of independent Bernoulli random variables is sampled and multiplied element-wise with the output of the augmented softmax layer. This operation corresponds to dropping out each one of the $$n$$ softmax nodes with the probability of $$p$$ for that batch.
 
 [![SAR11]({{images}}/algorithm2.png)]({{images}}/algorithm2.png){:.center-img .width-100}
 
 
 ```python
 #Algorithm 2: Model training for 100 epochs
-metrics, acti, model = train_with_parents(nb_parents = n_psi, 
+metrics, acti, model = train_with_parents(nb_parents = n_psi,
                                           nb_clusters_per_parent = k,
-                                          define_model = define_mlp, 
-                                          model_params = model_params, 
+                                          define_model = define_mlp,
+                                          model_params = model_params,
                                           optimizer = sgd,
-                                          X_train = X, 
-                                          y_train = None, 
-                                          y_train_parent = t, 
-                                          X_test = X, 
-                                          y_test = None, 
+                                          X_train = X,
+                                          y_train = None,
+                                          y_train_parent = t,
+                                          X_test = X,
+                                          y_test = None,
                                           y_test_parent = t,
-                                          nb_reruns = 1, 
-                                          nb_epoch = 100, 
-                                          nb_dpoints = 10, 
+                                          nb_reruns = 1,
+                                          nb_epoch = 100,
+                                          nb_dpoints = 10,
                                           batch_size = 128,
-                                          test_on_test_set = False, 
+                                          test_on_test_set = False,
                                           update_c3 = None,
                                           return_model = True,
                                           save_after_each_rerun=None,
@@ -1195,7 +1195,7 @@ $$
 y_i :=  argmax_{1\le j \le n}Z_{ij}
 $$
 
-where $$y_i$$ is the annotation assigned to $$i^{th}$$ example. 
+where $$y_i$$ is the annotation assigned to $$i^{th}$$ example.
 
 
 ```python
@@ -1214,16 +1214,16 @@ Using the assigned annotations $$\boldsymbol{y}$$ and the metagenome labels $$\b
 _, S = get_similarity_matrix(q, y, n_psi, k, True)
 ```
 
-Since applying dropout to distribute the examples across the duplicated softmax nodes also introduces a variance to the assigned annotations, we take the average of the similarity matrices obtained during the last 20 epochs of the training. Moreover, to reduce the variance due to the random generation of the pseudo parent-classes, we repeat the entire procedure 100 times with a new selection of pseudo parents for each repetition. 
+Since applying dropout to distribute the examples across the duplicated softmax nodes also introduces a variance to the assigned annotations, we take the average of the similarity matrices obtained during the last 20 epochs of the training. Moreover, to reduce the variance due to the random generation of the pseudo parent-classes, we repeat the entire procedure 100 times with a new selection of pseudo parents for each repetition.
 
 
 ```python
-# Averaging hyperparameters for variance reduction 
+# Averaging hyperparameters for variance reduction
 # number of epochs whose results to be averaged
 n_avg = 20
 
 # number of retrainings
-n_exp = 100      
+n_exp = 100
 ```
 
 ### The entire flow in Python
@@ -1257,12 +1257,12 @@ df, sample_id_map = load_sar11(loc)
 n_s = 74 # num metagenomes
 n_p_acute = 2000 # num positions to be sampled
 n_f = 2 # num features per position
-n_psi = 1000 # num pseudo-classes 
+n_psi = 1000 # num pseudo-classes
 d = n_p_acute*n_f # num dimensions of the input
 #################################################################
 
 # NN hyperparameters ############################################
-mlp_params =(3, 2048) # num hidden layers & num nodes per layer 
+mlp_params =(3, 2048) # num hidden layers & num nodes per layer
 #################################################################
 
 # ACOL hyperparameters ##########################################
@@ -1276,13 +1276,13 @@ acol_params = (k, p, c_R, None, None, None, 0, 'average', False)
 model_params = ((d,), n_psi, mlp_params, (0., 0., 2.), True, acol_params)
 
 # define optimizer
-sgd = SGD(lr=0.01, decay=1e-6, momentum=0.95, nesterov=True)   
+sgd = SGD(lr=0.01, decay=1e-6, momentum=0.95, nesterov=True)
 
 # number of epochs whose results to be averaged
 n_avg = 20
 
 # number of retrainings
-n_exp = 100      
+n_exp = 100
 
 # initialize similarity matrices
 S_avg = np.zeros((n_s, n_s, n_avg))
@@ -1293,22 +1293,22 @@ for exp in range(n_exp):
     X, t, q = get_pseudo_labels_mini(df, n_s, n_p_acute, n_psi)
 
     # Algorithm 2: Model training for 100 epochs
-    metrics, acti, model = train_with_parents(nb_parents = n_psi, 
+    metrics, acti, model = train_with_parents(nb_parents = n_psi,
                                               nb_clusters_per_parent = k,
-                                              define_model = define_mlp, 
-                                              model_params = model_params, 
+                                              define_model = define_mlp,
+                                              model_params = model_params,
                                               optimizer = sgd,
-                                              X_train = X, 
-                                              y_train = None, 
-                                              y_train_parent = t, 
-                                              X_test = X, 
-                                              y_test = None, 
+                                              X_train = X,
+                                              y_train = None,
+                                              y_train_parent = t,
+                                              X_test = X,
+                                              y_test = None,
                                               y_test_parent = t,
-                                              nb_reruns = 1, 
-                                              nb_epoch = 100, 
-                                              nb_dpoints = 10, 
+                                              nb_reruns = 1,
+                                              nb_epoch = 100,
+                                              nb_dpoints = 10,
                                               batch_size = 128,
-                                              test_on_test_set = False, 
+                                              test_on_test_set = False,
                                               update_c3 = None,
                                               return_model = True,
                                               save_after_each_rerun=None,
@@ -1318,22 +1318,22 @@ for exp in range(n_exp):
     # train the model for n_avg more epochs
     for i in range(n_avg):
         # Algorithm 2: Model training for 1 epoch
-        metrics, acti, model = train_with_parents(nb_parents = n_psi, 
+        metrics, acti, model = train_with_parents(nb_parents = n_psi,
                                                   nb_clusters_per_parent = k,
-                                                  define_model = define_mlp, 
-                                                  model_params = model_params, 
+                                                  define_model = define_mlp,
+                                                  model_params = model_params,
                                                   optimizer = sgd,
-                                                  X_train = X, 
-                                                  y_train = None, 
-                                                  y_train_parent = t, 
-                                                  X_test = X, 
-                                                  y_test = None, 
+                                                  X_train = X,
+                                                  y_train = None,
+                                                  y_train_parent = t,
+                                                  X_test = X,
+                                                  y_test = None,
                                                   y_test_parent = t,
-                                                  nb_reruns = 1, 
-                                                  nb_epoch = 1, 
-                                                  nb_dpoints = 1, 
+                                                  nb_reruns = 1,
+                                                  nb_epoch = 1,
+                                                  nb_dpoints = 1,
                                                   batch_size = 128,
-                                                  test_on_test_set = True, 
+                                                  test_on_test_set = True,
                                                   update_c3 = None,
                                                   return_model = True,
                                                   save_after_each_rerun=None,
@@ -1343,15 +1343,15 @@ for exp in range(n_exp):
         # get assigned annotations
         model_truncated = model.get_model_truncated(define_mlp, model_params, n_psi)
         y = model_truncated.predict_classes(X, verbose=0)
-        
+
         # Algorithm 3: Obtaining similarity matrix
         _, S = get_similarity_matrix(q, y, n_psi, k, True)
         S_avg[:,:,i] = S
-        
+
     # take the average of the similarity matrices obtained during last n_avg epochs
     S_all[:,:,exp] = S_avg.mean(axis=-1)
-    
-# take the average of all similarity matrices obtained in n_exp retrainings 
+
+# take the average of all similarity matrices obtained in n_exp retrainings
 S = S_all.mean(axis=-1)
 df_S = pd.DataFrame(S, index=sample_id_map)
 
@@ -1359,7 +1359,7 @@ df_S = pd.DataFrame(S, index=sample_id_map)
 df_S.to_csv('S-LLPA-DEEP-LEARNING-DIST-MAT.csv', header=True, index=True, sep='\t')
 ```
 
-This will run orders of magnitude faster When a cuda enabled GPU is available on the machine. In which case you can run it this way: 
+This will run orders of magnitude faster When a cuda enabled GPU is available on the machine. In which case you can run it this way:
 
 ``` bash
 export THEANO_FLAGS=mode=FAST_RUN,device=gpu,lib.cnmem=0.95,floatX=float32
@@ -1373,9 +1373,8 @@ export THEANO_FLAGS=mode=FAST_RUN,device=cpu,lib.cnmem=0.95,floatX=float32
 python ACOL_Pseudo_SAR11.py
 ```
 
-The output file `S-LLPA-DEEP-LEARNING-DIST-MAT.csv` will contain deep learning estimated distances. 
+Running this code generates the TAB-delimited output file `S-LLPA-DEEP-LEARNING-DIST-MAT.csv` which contains deep learning-estimated distances between metagenomes. A copy of this distance matrix is [available here]({{ site.url }}/data/sar11-saavs/files/S-LLPA-DEEP-LEARNING-DIST-MAT.csv){:target="_blank"}.
 
-The output file the code above generated when we run it on xx is [available here]({{ site.url }}/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/files/S-LLPA-DEEP-LEARNING-DIST-MAT.csv)){:target="_blank"}.
 
 ### Identifying proteotypes from Deep Learning-estimated distances
 
