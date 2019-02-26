@@ -1,0 +1,2 @@
+reference	path
+pWCP_O11	ARTIFICIALLY-CIRCULARIZED-pWCP/pWCP_from_O11.fa

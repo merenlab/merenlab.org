@@ -1,0 +1,5 @@
+metagenome	genome_length
+Culex_O03	1213072
+Culex_O07	1317313
+Culex_O11	1208099
+Culex_O12	1237800
