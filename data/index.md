@@ -12,10 +12,26 @@ This page serves the publicly available data mentioned in our publications, or i
 
 {% include _toc.html %}
 
-## Delmont and Eren (2018) / Metapangenomics
+## The Prochlorococcus Metapangenome
 
-{:.notice}
-[http://merenlab.org/data/2018_Delmont_and_Eren_Metapangenomics/](http://merenlab.org/data/2018_Delmont_and_Eren_Metapangenomics/) gives access to our **complete bioinformatics workflow**.
+<div class="pub_float">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.7717/peerj.4320"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.4320" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.7717/peerj.4320" target="_new">Linking pangenomes and metagenomes: the <i>Prochlorococcus</i> metapangenome.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="https://i.imgur.com/gzDpEU5.jpg"><img src="https://i.imgur.com/gzDpEU5.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A big-data study in which a pangenome of 31 <i>Prochlorococcus</i> isolates meets 31 billion Tara Oceans metagenomic sequences (<a href="https://peerj.com/articles/4320/reviews/">Peer-review history</a>).</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Metapangenomes reveal to what extent genes that may be linked to the ecology and fitness of microbes are conserved within a phylogenetic clade.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  <a href="http://merenlab.org/data/2018_Delmont_and_Eren_Metapangenomics/" target="_blank">Reproducible bioinformatics workflow</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>PeerJ</i>. <b>6:e4320</b></span>
+</div>
+
+{:.warning}
+[http://merenlab.org/data/prochlorococcus-metapangenome](prochlorococcus-metapangenome) gives access to our **complete bioinformatics workflow**.
 
 **Public data items for the study:**
 
@@ -37,18 +53,31 @@ This page serves the publicly available data mentioned in our publications, or i
 
 
 
-## Delmont et al. (2017) / TARA Binning
+## Genomes from Tara Oceans Metagenomes
 
-{:.notice}
-**The paper itself is here:** [Nitrogen-fixing populations of Planctomycetes and Proteobacteria are abundant in surface ocean metagenomes](https://www.nature.com/articles/s41564-018-0176-9){:target="_blank"}.
+<div class="pub_float">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41564-018-0176-9"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1038/s41564-018-0176-9" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1038/s41564-018-0176-9" target="_new">Nitrogen-fixing populations of Planctomycetes and Proteobacteria are abundant in the surface ocean metagenomes.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, Quince, C., <span class="pub-member-author">Shaiber, A.</span>, <span class="pub-member-author">Esen, Ö. C.</span>, <span class="pub-member-author">Lee, S. T. M.</span>, Rappé, M. S., McLellan, S. L., Lücker, S., and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="http://i.imgur.com/oFRefc4.jpg"><img src="http://i.imgur.com/oFRefc4.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- First genomic evidence for abundant and widespread non-cyanobacterial nitrogen-fixing populations in the surface ocean.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Nearly 1,000 non-redundant, high-quality bacterial, archaeal, and eukaryotic population genomes from TARA Oceans metagenomes.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  A "behind the paper" <a href="https://naturemicrobiologycommunity.nature.com/users/113363-a-murat-eren-meren/posts/34040-microbiologists-vs-shotgun-metagenomes-surface-ocean" target="_blank">blog post</a> by Meren, a <a href="http://www.mbl.edu/blog/large-scale-study-indicates-novel-and-abundant-nitrogen-fixing-microbes-in-the-surface-ocean/" target="_blank">press release</a> by the MBL, and an extensive description of <a href="http://merenlab.org/data/tara-oceans-mags/" target="_blank">the bioinformatics workflow</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>Nature Microbiology</i>. <b>3:804–813</b></span>
+</div>
 
-{:.notice}
-[http://merenlab.org/data/2017_Delmont_et_al_HBDs/](http://merenlab.org/data/2017_Delmont_et_al_HBDs/) gives access to our **complete bioinformatics workflow**.
+{:.warning}
+[http://merenlab.org/data/tara-oceans-mags](tara-oceans-mags/) gives access to our **complete bioinformatics workflow**.
 
 **Public data items for the study:**
 
 <div style="width: 200px; float: right; padding-left: 20px;">
-<a href="https://anvi-server.org/merenlab/tara_hbds" target="_blank"><img src="2017_Delmont_et_al_HBDs/images/Figure_02.png" style="border:none;" /></a>
+<a href="https://anvi-server.org/merenlab/tara_hbds" target="_blank"><img src="tara-oceans-mags/images/Figure_02.png" style="border:none;" /></a>
 </div>
 
 * The original **TARA Oceans metagenomes** are available through the European Bioinformatics Institute ([ERP001736](https://www.ebi.ac.uk/metagenomics/projects/ERP001736)) and NCBI ([PRJEB1787](https://www.ncbi.nlm.nih.gov/sra/?term=PRJEB1787)).
@@ -68,13 +97,26 @@ This page serves the publicly available data mentioned in our publications, or i
 * An interactive visualization for the phylogenomic analysis of 432 Proteobacteria and 43 Planctomycetes metagenome-assembled genomes from our database of 957 non-redundant MAGs is also available: [here](https://anvi-server.org/merenlab/tara_hbds).
 
 
-## Lee et al. (2017) / Fecal Transplants
+## Genome-resolved Fecal Microbiota Transplantation
 
-{:.notice}
-**The paper itself is here:** [Tracking microbial colonization in fecal microbiota transplantation experiments via genome-resolved metagenomics](https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-017-0270-x){:target="_blank"}.
+<div class="pub_float">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s40168-017-0270-x"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1186/s40168-017-0270-x" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1186/s40168-017-0270-x" target="_new">Tracking microbial colonization in fecal microbiota transplantation experiments via genome-resolved metagenomics.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Lee, S. T. M.</span>, Kahn, S. A., <span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Shaiber, A.</span>, <span class="pub-member-author">Esen, Ö. C.</span>, Hubert, N. A., Morrison, H. G., Antonopoulos, D. A., Rubin, D. T., and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="http://i.imgur.com/4e4Ic4u.jpg"><img src="http://i.imgur.com/4e4Ic4u.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- An FMT study with metagenome-assembled genomes (see <a href="http://merenlab.org/data/#lee-et-al-2017--fecal-transplants" target="_blank">public data</a>).</span><br><span style="display: inline-block; padding-bottom: 5px;">- Bacteroidales: high-colonization rate. Clostridiales: low colonization rate. Colonization success is negatively correlated with the number of genes related to sporulation.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  MAGs with the same taxonomy showed different colonization properties, highlighting the importance of high-resolution analyses.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Populations colonized both recipients were also prevalent in the HMP cohort (and the ones that did not, distribute sporadically across the HMP cohort).</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>Microbiome</i>. <b>5:50</b></span>
+</div>
 
 <div style="width: 200px; float: right; padding-left: 20px;">
-<a href="2017_Lee_et_al_FMT/figure-01.png"><img src="2017_Lee_et_al_FMT/figure-01.png" style="border:none;" /></a>
+<a href="../images/fmt_figure_01.png"><img src="../images/fmt_figure_01.png" style="border:none;" /></a>
 </div>
 
 **Public data items for the study:**
@@ -153,10 +195,15 @@ This is what you should see after entering the last command in your terminal:
 
 
 
-## Vineis et al. (2016) / Pouchitis
+## Bacteroides in Pouchitis
 
-{:.notice}
-**The paper itself is here:** [Patient-Specific *Bacteroides* Genome Variants in Pouchitis](http://mbio.asm.org/content/7/6/e01713-16.full).
+<div class="pub_float">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1128/mBio.01713-16"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1128/mBio.01713-16" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1128/mBio.01713-16" target="_new">Patient-specific <i>Bacteroides</i> genome variants in pouchitis.</a></h3>
+    <span class="pub-authors">Vineis, J. H., Ringus, D. L., Morrison, H. G., <span class="pub-member-author">Delmont, T. O.</span>, Dalal, S., Raffals, L. H., Antonopoulos, D. A., Rubin, D. T., <span class="pub-member-author">Eren, A. M</span>., Chang, E. B., and Sogin, M. L</span>
+    <span class="pub-journal"><i>mBio</i>. <b>7(6):e01713-16</b></span>
+</div>
 
 {:.notice}
 **Here is a blog post on it:** [*Bacteroides* Genome Variants, and a reproducible science exercise with anvi'o]({% post_url miscellaneous/2016-11-21-bacteroides-genome-variants %}).
@@ -176,20 +223,36 @@ The anvi'o profiles article in this data collection contains 22 items:
 For an example on how to re-analyze these anvi'o profiles, please [click here]({% post_url miscellaneous/2016-11-21-bacteroides-genome-variants %}/#displaying-a-patient-metagenome-from-vineis-et-al){:target="_blank"}.
 
 
-## Delmont & Eren (2016) / Tardigrade re-analysis
+## Tardigrade Assembly Re-analysis
 
-{:.notice}
-**The paper itself is here:** [Identifying contamination with advanced visualization and analysis practices: metagenomic approaches for eukaryotic genome assemblies](https://peerj.com/articles/1839/).
+<div class="pub_float">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.7717/peerj.1839"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.1839" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.7717/peerj.1839" target="_new">Identifying contamination with advanced visualization and analysis practices: metagenomic approaches for eukaryotic genome assemblies.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="../images/pubs/delmont_tardigrade.png"><img src="../images/pubs/delmont_tardigrade.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A holistic approach to visualize and curate genomic and metagenomic assemblies.</span><br><span style="display: inline-block; padding-bottom: 5px;">- A re-analysis of the first released Tardigrade genome reveals a likely symbiont among other contaminants.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  A practical approach to estimate the number bacterial genomes in an assembly.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>PeerJ</i>. <b>4:e1839</b></span>
+</div>
 
 * [This link](https://ndownloader.figshare.com/files/3677700) will download the archive file for anvi'o profile for merged datasets (221 Mb). The run script in this archive will automatically start the anvi'o interactive interface, and draw **Figure 1** (compatible with anvi'o v1.2.2, for which a [docker container]({% post_url anvio/2015-08-22-docker-image-for-anvio %}) is available).
 
 * Visit [this adress](http://anvio.org/data/Delmont_et_al-2016-Tardigrade-Summary/) to view the anvi'o summary for genomic selections in Figure 1. Alternatively, you can use [this address](https://ndownloader.figshare.com/files/3677703) to download this static HTML output to view on your own computer.
 
-* Following links give access to the individual genome files: 
+* Following links give access to the individual genome files:
 
   - [Draft genome for *H. dujardini*](http://anvio.org/data/Delmont_et_al-2016-Tardigrade-Summary/bin_by_bin/Tardigrade_draft_genome_01/Tardigrade_draft_genome_01-contigs.fa)
+
   - [Bacterial draft genome 01](http://anvio.org/data/Delmont_et_al-2016-Tardigrade-Summary/bin_by_bin/Bacterial_draft_genome_01/Bacterial_draft_genome_01-contigs.fa)
+
   - [Bacterial draft genome 02](http://anvio.org/data/Delmont_et_al-2016-Tardigrade-Summary/bin_by_bin/Bacterial_draft_genome_02/Bacterial_draft_genome_02-contigs.fa)
+
   - [Bacterial draft genome 03](http://anvio.org/data/Delmont_et_al-2016-Tardigrade-Summary/bin_by_bin/Bacterial_draft_genome_03/Bacterial_draft_genome_03-contigs.fa)
 
 <div style="display: block; height: 0px;">&nbsp;</div>
@@ -213,10 +276,23 @@ For an example on how to re-analyze these anvi'o profiles, please [click here]({
 *Everything mentioned on this page can be cited using doi [10.6084/m9.figshare.2067057](https://doi.org/10.6084/m9.figshare.2067057).*
 
 
-## Eren et al. (2015) / Anvi'o
+## Anvi'o Methods Paper
 
-{:.notice}
-**The paper itself is here:** [Anvi’o: an advanced analysis and visualization platform for ‘omics data](https://peerj.com/articles/1319/).
+<div class="pub_float">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.7717/peerj.1319"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.1319" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.7717/peerj.1319" target="_new">Anvi’o: An advanced analysis and visualization platform for ‘omics data.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Eren, A. M</span>., <span class="pub-member-author">Esen, Ö. C.</span>, Quince, C., Vineis, J. H., Morrison, H. G., Sogin, M. L., and <span class="pub-member-author">Delmont, T. O.</span></span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="http://i.imgur.com/d1c7bUY.png"><img src="http://i.imgur.com/d1c7bUY.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- The methods paper for <a href="http://merenlab.org/software/anvio/" target="_blank">anvi'o</a>.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Binning, and single-nucleotide variant analysis of a human gut time series metagenome.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Re-analysis of cultivar genomes, metagenomes, and metatranscriptomes associated with the Deepwater Horizon oil spill.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>PeerJ</i>. <b>6:358</b></span>
+</div>
 
 {:.notice}
 The anvi'o profiles here will run with a much earlier version of anvi'o. If you would like to work with them, please checkout your anvi'o codebase to [this commit](https://github.com/meren/anvio/commit/265318856301ab4f7a71911aeaefb524339efbb3). Please don't hesitate to write us if you need assistance.

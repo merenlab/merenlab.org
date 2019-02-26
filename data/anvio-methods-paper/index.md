@@ -4,13 +4,32 @@ title: Publicly available data for Eren et al. 2015 PeerJ
 modified: 2015-07-30
 excerpt: "An advanced analysis and visualization platform for 'omics data"
 comments: true
+redirect_from: /data/2015_Eren_et_al_Anvio
 image:
   feature: http://i.imgur.com/FjNWEGZ.png
 ---
 
 {% include _toc.html %}
 
-The manuscript, published on 2015-10-08: [Anvi'o: An advanced analysis and visualization platform for 'omics data](https://peerj.com/articles/1319/).
+This page serves data items for the manuscript;
+
+<div class="pub_float">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.7717/peerj.1319"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.1319" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.7717/peerj.1319" target="_new">Anvi’o: An advanced analysis and visualization platform for ‘omics data.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Eren, A. M</span>., <span class="pub-member-author">Esen, Ö. C.</span>, Quince, C., Vineis, J. H., Morrison, H. G., Sogin, M. L., and <span class="pub-member-author">Delmont, T. O.</span></span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="http://i.imgur.com/d1c7bUY.png"><img src="http://i.imgur.com/d1c7bUY.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- The methods paper for <a href="http://merenlab.org/software/anvio/" target="_blank">anvi'o</a>.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Binning, and single-nucleotide variant analysis of a human gut time series metagenome.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Re-analysis of cultivar genomes, metagenomes, and metatranscriptomes associated with the Deepwater Horizon oil spill.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>PeerJ</i>. <b>6:358</b></span>
+</div>
+
+
 
 {:.notice}
 The anvi'o profiles here will run with a much earlier version of anvi'o. If you would like to work with them, please checkout your anvi'o codebase to [this commit](https://github.com/meren/anvio/commit/265318856301ab4f7a71911aeaefb524339efbb3). Please don't hesitate to write us if you need assistance.
