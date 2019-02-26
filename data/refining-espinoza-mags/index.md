@@ -4,7 +4,7 @@ title: Refining Metagenome-Assembled Genomes
 modified: 2019-01-15
 excerpt: "Refining oral MAGs from Espinoza et al 2018"
 comments: true
-redirect_from: /data/2019_Shaiber_Eren_MAG_Refinement
+redirect_from: /data/refining-espinoza-mags
 
 ---
 
@@ -36,7 +36,7 @@ This section explains how to download the metagenomes and MAGs from the original
 You can download raw Illumina paired-end seqeuncing data files for the 88 supragingival plaque samples into your work directory the following way:
 
 ``` bash
-wget http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/SRR_list.txt 
+wget http://merenlab.org/data/refining-espinoza-mags/files/SRR_list.txt 
 
 for SRR_accession in `cat SRR_list.txt`; do
     fastq-dump --outdir 01_RAW_FASTQ \
@@ -104,7 +104,7 @@ Although, in order to create a merged FASTA file, we first need to rename the he
 You can download this file by running the following command:
 
 ```bash
-wget http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/ESPINOZA-MAGS-FASTA.txt
+wget http://merenlab.org/data/refining-espinoza-mags/files/ESPINOZA-MAGS-FASTA.txt
 ```
 
 Here is a look into this file:
@@ -135,7 +135,7 @@ In addition, we used the following config file CONTIGS-CONFIG.json:
 You can download this file by running the following command:
 
 ```bash
-wget http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/CONTIGS-CONFIG.json
+wget http://merenlab.org/data/refining-espinoza-mags/files/CONTIGS-CONFIG.json
 ```
 
 We used the contigs workflow to just re-format these FASTA files:
@@ -234,7 +234,7 @@ We named our `collections_txt` ESPINOZA-COLLECTIONS-FILE.txt.
 You can download this file to your work directory:
 
 ```bash
-wget http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/ESPINOZA-COLLECTIONS-FILE.txt
+wget http://merenlab.org/data/refining-espinoza-mags/files/ESPINOZA-COLLECTIONS-FILE.txt
 ```
 
 ```bash
@@ -252,7 +252,7 @@ We used the snakemake-based metagenomics workflow to map the metagenomes to the 
 One of the key input files to start the run is the `samples.txt`. You can downlaod our `samples.txt` file into your work directory:
 
 ``` bash
-wget http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/samples.txt
+wget http://merenlab.org/data/refining-espinoza-mags/files/samples.txt
 ```
 
 Here is a glimpse at its contents:
@@ -285,7 +285,7 @@ And edited it to instruct the workflow manager to,
 You can download our config file `ESPINOZA-METAGENOMICS-CONFIG.json` into your work directory:
 
 ``` bash
-wget http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/ESPINOZA-METAGENOMICS-CONFIG.json
+wget http://merenlab.org/data/refining-espinoza-mags/files/ESPINOZA-METAGENOMICS-CONFIG.json
 ```
 
 The content of which should look like this:
@@ -353,7 +353,7 @@ Note that in order for this config file to work for you, the path to the centrif
 We will also need the collections file ESPINOZA_ET_AL_COLLECTIONS_FILE.txt:
 
 ```bash
-wget http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/ESPINOZA_ET_AL_COLLECTIONS_FILE.txt
+wget http://merenlab.org/data/refining-espinoza-mags/files/ESPINOZA_ET_AL_COLLECTIONS_FILE.txt
 ```
 
 This file specifies the details that are required in order to import the collection that was generated above. This is what the file looks like:
@@ -456,8 +456,8 @@ You can get the collection files in the following way:
 
 ```bash
 for g in GN02_MAG_IV_A GN02_MAG_IV_B TM7_MAG_III_A TM7_MAG_III_B TM7_MAG_III_C; do
-    wget http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/$g-default-collection.txt
-    wget http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/$g-default-collection-info.txt
+    wget http://merenlab.org/data/refining-espinoza-mags/files/$g-default-collection.txt
+    wget http://merenlab.org/data/refining-espinoza-mags/files/$g-default-collection-info.txt
 done
 ```
 
@@ -479,7 +479,7 @@ You can download the default states in the following way:
 
 ```bash
 for g in GN02_MAG_IV_A GN02_MAG_IV_B TM7_MAG_III_A TM7_MAG_III_B TM7_MAG_III_C; do
-    wget http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/$g-default-state.json
+    wget http://merenlab.org/data/refining-espinoza-mags/files/$g-default-state.json
 done
 ```
 
@@ -592,21 +592,21 @@ TM7_MAG_III_C_1   None        772299        440          2432   53.0568770293215
 
 ## FASTA files for refined MAGs
 
-* [GN02_MAG_IV_A_1](http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/GN02_MAG_IV_A_1-contigs.fa); GN02 _MAG IV.A in the original study.
+* [GN02_MAG_IV_A_1](http://merenlab.org/data/refining-espinoza-mags/files/GN02_MAG_IV_A_1-contigs.fa); GN02 _MAG IV.A in the original study.
 
-* [GN02_MAG_IV_A_2](http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/GN02_MAG_IV_A_2-contigs.fa); GN02 _MAG IV.A in the original study.
+* [GN02_MAG_IV_A_2](http://merenlab.org/data/refining-espinoza-mags/files/GN02_MAG_IV_A_2-contigs.fa); GN02 _MAG IV.A in the original study.
 
-* [GN02_MAG_IV_B_1](http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/GN02_MAG_IV_B_1-contigs.fa); GN02 _MAG IV.B in the original study.
+* [GN02_MAG_IV_B_1](http://merenlab.org/data/refining-espinoza-mags/files/GN02_MAG_IV_B_1-contigs.fa); GN02 _MAG IV.B in the original study.
 
-* [GN02_MAG_IV_B_2](http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/GN02_MAG_IV_B_2-contigs.fa); GN02 _MAG IV.B in the original study.
+* [GN02_MAG_IV_B_2](http://merenlab.org/data/refining-espinoza-mags/files/GN02_MAG_IV_B_2-contigs.fa); GN02 _MAG IV.B in the original study.
 
-* [TM7_MAG_III_A_1](http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/TM7_MAG_III_A_1-contigs.fa); TM7 MAG III.A in the original study.
+* [TM7_MAG_III_A_1](http://merenlab.org/data/refining-espinoza-mags/files/TM7_MAG_III_A_1-contigs.fa); TM7 MAG III.A in the original study.
 
-* [TM7_MAG_III_A_2](http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/TM7_MAG_III_A_2-contigs.fa); TM7 MAG III.A in the original study.
+* [TM7_MAG_III_A_2](http://merenlab.org/data/refining-espinoza-mags/files/TM7_MAG_III_A_2-contigs.fa); TM7 MAG III.A in the original study.
 
-* [TM7_MAG_III_B_1](http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/TM7_MAG_III_B_1-contigs.fa); TM7 MAG III.B in the original study.
+* [TM7_MAG_III_B_1](http://merenlab.org/data/refining-espinoza-mags/files/TM7_MAG_III_B_1-contigs.fa); TM7 MAG III.B in the original study.
 
-* [TM7_MAG_III_C_1](http://merenlab.org/data/2019_Shaiber_Eren_MAG_Refinement/files/TM7_MAG_III_C_1-contigs.fa); TM7 MAG III.C in the original study.
+* [TM7_MAG_III_C_1](http://merenlab.org/data/refining-espinoza-mags/files/TM7_MAG_III_C_1-contigs.fa); TM7 MAG III.C in the original study.
 
 <div style="display: block; height: 200px;">&nbsp;</div>
 
