@@ -63,3 +63,8 @@ Having accepted to evaluate a study with sequencing data, you are the ambassador
 These steps could save hundreds of hours of extra work graduate students and post-doctoral researchers invest into mining public data and prevent tremendous amount of waste of our public resources as most of the data that is not shared properly never get to be reanalyzed for additional insights.
 
 Love for data comes naturally, but sharing data appropriately is not so easy. Scientists who generate datasets from valuable samples often let their precious resource go on to their own journey without them, even when they are certain that they have not learned everything that can be learned from those data. Some do it better than others, but those of us who benefit from public data are eternally thankful to all who try.
+
+---
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">New Blog Post: &quot;Fantastic Data and How to Share Them: A Plea to Journal Editors and Reviewers&quot;.<br><br>Or &quot;How to be an Excellent Reviewer and Guarantee the Accessibility of Public Data&quot; 😇<a href="https://t.co/HcgUWkSSU1">https://t.co/HcgUWkSSU1</a> <a href="https://twitter.com/hashtag/OpenData?src=hash&amp;ref_src=twsrc%5Etfw">#OpenData</a> <a href="https://twitter.com/hashtag/OpenScience?src=hash&amp;ref_src=twsrc%5Etfw">#OpenScience</a></p>&mdash; A. Murat Eren (Meren) (@merenbey) <a href="https://twitter.com/merenbey/status/1099859811682959360?ref_src=twsrc%5Etfw">February 25, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
