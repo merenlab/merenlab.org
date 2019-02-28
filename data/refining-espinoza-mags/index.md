@@ -15,11 +15,20 @@ redirect_from: /data/refining-espinoza-mags
 
 <span class="extra-info-header">Summary</span>
 
-The purpose of this document is to demonstrate the process of refining MAGs using anvi'o.
-We demonstrate how the pre-processing steps that are required prior to refinement could
+The purpose of this document is to demonstrate the process of refining Metagenome-Assembled Genomes (MAGs) using anvi'o.
+
+It includes the following steps:
+1. Downloading instructions for the data that accompanies this post.
+2. Demonstration of the use of sequence composition alongside with differential coverage to identify contamination.
+3. Using phylogeny to check that things make sense.
+4. Pangenomic analyses to demonstrate the difference between unrefined and refined MAGs.
+
+In-addition, we demonstrate how the pre-processing steps that are required prior to refinement could
 be streamlined using the snakemake-based anvi'o workflows,
 and provide a reproducible workflow for the refinement of key MAGs from the recent [Espinoza et al](https://mbio.asm.org/content/9/6/e01631-18) publication.
 FASTA files for refined bins are listed at the very end of this document.
+
+While we demonstrate this process using the Espinoza et al. MAGs, the process described here is general and has been similarly applied to [refine the first release of a Tardigrade genome](https://peerj.com/articles/1839/).
 
 </div>
 
@@ -27,9 +36,39 @@ FASTA files for refined bins are listed at the very end of this document.
 Please feel free to leave a comment, or send an e-mail to [us]({{ site.url }}/people/) if you have any questions.
 
 
+## Introduction
+
+Here we will demonstrate steps that could be applied to manually refine MAGs that you suspect are contaminated.
+
+Recent guidlines ([Bowers et al.](https://www.nature.com/articles/nbt.3893)) regarding the information that should be reported when publishing MAGs include the completion and redundancy (C/R) based on a collection of single-copy core genes. Bowers et al. mention tools that could be used to measure these metrics.
+In this post we focus on MAGs that contain high redundancy in single-copy core genes, but it is important to consider that it is not the only way to identify contamination, and even more important, having no redundancy in single copy core genes is not equal to having no contamination, since there could be contigs that originate from another microbial population, but don't include any of the single copy core gene markers that are used for C/R estimation.
+
+{:.notice}
+Redundancy of single-copy core genes is referred to as "contamination" (including by Bowers et al.). Here (and in [anvi'o in general](https://github.com/merenlab/anvio/issues/177)) we use the word redundancy, since it better reflects what is actually being measured.
+
+In fact, we use the method we describe here to examine _every_ MAG that we report and remove contamination.
+
+In order to use the approach described here you need the fasta file/s of the MAG/s you wish to examine, and a collection of metagenomes. Idealy the metagenomes you use represent the time-series that was used to assemble and bin the MAGs you are inspecting, but that doesn't have to be the case. As long as you expect the metagenomes to include microbial populations that are closely related to the ones represented in your MAGs, these metagenomes could provide insight into your MAGs (see for example the use of the HMP metagenomes by [Lee et al.](https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-017-0270-x) and TARA metagenomes by [Delmont and Eren]()https://peerj.com/articles/4320/).
+In this post we use the original metagenomes that Espinoza et al. used for the assembly and binning.
+
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Background to the computational approach</span>
+
+The analysis described here utilizes the anvi'o [contigs](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#creating-an-anvio-contigs-database) and [profile](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#anvi-profile) databases. You can refer to the anvi'o [metagenomic tutorial](http://merenlab.org/2016/06/22/anvio-tutorial-v2/) to learn more about these databases in a general manner or to [this tutorial](http://merenlab.org/tutorials/infant-gut/) to see many of the things that you could do using anvi'o. In this post we will assume a basic familiarity of anvi'o.
+
+We chose to generate a single contigs database that includes all the fasta files of the 7 Espinoza et al. MAGs that we chose to examine. The were two motivations for this decision:
+1. These MAGs originated from the same FASTA file (i.e. the assembly done by Espinoza et al.) and hence we don't expect these MAGs to contain identical sequences that are of the order of the short read length (since the presence of identical sequences would have resulted in fragmentation in the assembly process)
+
+</div>
+
+
 ## Setting the stage
 
-This section explains how to download the metagenomes and MAGs from the original study by Espinoza _et al_
+This section explains how to download the metagenomes and MAGs from the original study by Espinoza _et al.
+Downloading this data would allow you to follow this post step by step and get the final results we got.
+Alternatively, you can skip this part, and apply the approach we describe to your own data._
 
 ### Downloading the Espinoza _et al_ metagenomes
 
