@@ -9,7 +9,9 @@ names_to_highlight = ['Eren, A. M',
                       'Lee, S. T. M.',
                       'Shaiber, A.',
                       'Kiefl, E.',
-                      'Cui, S.']
+                      'Cui, S.',
+                      'Watson, A. R.',
+                      'Lolans, K.']
 
 journal_name_fixes = [('The ISME journal', 'ISME J'),
                       ('Proceedings of the National Academy of Sciences of the United States of America', 'Proc Natl Acad Sci U S A'),
