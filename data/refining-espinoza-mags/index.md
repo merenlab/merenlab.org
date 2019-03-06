@@ -38,30 +38,9 @@ Please feel free to leave a comment, or send an e-mail to [us]({{ site.url }}/pe
 
 ## Introduction
 
-Here we will demonstrate steps that could be applied to manually refine MAGs that you suspect are contaminated.
+So you’ve reconstructed MAGs, and would like to see if there are opportunities for refinement. Great. This tutorial will walk you through an example. We will demonstrate steps that we commonly apply to as we manually refine _every_ MAG that we report.
 
-Recent guidlines ([Bowers et al.](https://www.nature.com/articles/nbt.3893)) regarding the information that should be reported when publishing MAGs include the completion and redundancy (C/R) based on a collection of single-copy core genes. Bowers et al. mention tools that could be used to measure these metrics.
-In this post we focus on MAGs that contain high redundancy in single-copy core genes, but it is important to consider that it is not the only way to identify contamination, and even more important, having no redundancy in single copy core genes is not equal to having no contamination, since there could be contigs that originate from another microbial population, but don't include any of the single copy core gene markers that are used for C/R estimation.
-
-{:.notice}
-Redundancy of single-copy core genes is referred to as "contamination" (including by Bowers et al.). Here (and in [anvi'o in general](https://github.com/merenlab/anvio/issues/177)) we use the word redundancy, since it better reflects what is actually being measured.
-
-In fact, we use the method we describe here to examine _every_ MAG that we report and remove contamination.
-
-In order to use the approach described here you need the fasta file/s of the MAG/s you wish to examine, and a collection of metagenomes. Idealy the metagenomes you use represent the time-series that was used to assemble and bin the MAGs you are inspecting, but that doesn't have to be the case. As long as you expect the metagenomes to include microbial populations that are closely related to the ones represented in your MAGs, these metagenomes could provide insight into your MAGs (see for example the use of the HMP metagenomes by [Lee et al.](https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-017-0270-x) and TARA metagenomes by [Delmont and Eren]()https://peerj.com/articles/4320/).
-In this post we use the original metagenomes that Espinoza et al. used for the assembly and binning.
-
-
-<div class="extra-info" markdown="1">
-
-<span class="extra-info-header">Background to the computational approach</span>
-
-The analysis described here utilizes the anvi'o [contigs](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#creating-an-anvio-contigs-database) and [profile](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#anvi-profile) databases. You can refer to the anvi'o [metagenomic tutorial](http://merenlab.org/2016/06/22/anvio-tutorial-v2/) to learn more about these databases in a general manner or to [this tutorial](http://merenlab.org/tutorials/infant-gut/) to see many of the things that you could do using anvi'o. In this post we will assume a basic familiarity of anvi'o.
-
-We chose to generate a single contigs database that includes all the fasta files of the 7 Espinoza et al. MAGs that we chose to examine. The were two motivations for this decision:
-1. These MAGs originated from the same FASTA file (i.e. the assembly done by Espinoza et al.) and hence we don't expect these MAGs to contain identical sequences that are of the order of the short read length (since the presence of identical sequences would have resulted in fragmentation in the assembly process)
-
-</div>
+We will walk through analyzing a set of specific genomes using a specific set of metagenomes, but you can just replace these with your genomes and metagenomes and go through the same steps. If you don't have your own data to analyze, but still wish to follow the step by step instructions the following sections provides instructions on how to download the data we used here.
 
 
 ## Setting the stage
@@ -129,16 +108,25 @@ wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/638/805/GCA_003638805.1_ASM3
 ```
 
 {:.notice}
-Initially we wanted to take a look at the Alloprevotella MAGs from Espinoza _et al_ But later we decided to focus on the CPR genomes (GN02 and TM7). Hence, while we did not refined the Alloprevotella MAGs, they were included in our workflow, and accordingly, we include them in the following steps so that repeating these steps would give the exact data the we used.
+Initially we wanted to take a look at the Alloprevotella MAGs from Espinoza _et al_ but later we decided to focus on the CPR genomes that Espinoca et al. reported (GN02 and TM7). Hence, while we did not refine the Alloprevotella MAGs, they were included in our workflow, and accordingly, we include them in the following steps so that repeating these steps would give the exact data the we used.
 
+
+## Taking a first look at the contigs databases
+
+Before we go into refining we wish to take a look at the individual fasta files. To do that we use the contigs database, which allows us to annotate each fasta file and compute some basic statistics such as redundancy and completion based on single copy core genes.
+
+To sreamline the contigs database creation and annotation, we used `anvi-run-workflow`. This is a tool that is meant to help streamline the analysis steps. For more details regarding `anvi-run-workflow` and the anvi'o worfklows please read [this tutorial](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/)).
 
 ### Generating a merged FASTA file for the MAGs
 
-We used the `anvi-run-workflow` for the next few steps (for the details of the anvi'o worfklows please read [this tutorial](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/)).
+If you work with your own FASTA file/s and you don't wish to merge them, you can skip this section.
 
+{:.notice}
+When working with multiple FASTA files you can choose between analysing each separately or concatinating them into a single FASTA file. The main advantage of working with a single FASTA file in our case is that mapping short reads to a single large FASTA file is much faster than mapping reads to multiple smaller files. Depending on your specific data you should decide what's better for your case.
+In this case we chose to a single merged FASTA file since the MAGs that we examined originated from an assembly that was done with the exact metagenomes that we use here. all the steps that are done here could be done with multiple fasta files (and hence multiple contigs databases) in the same manner.
 To make things go a little faster, we combined all MAGs into a single FASTA file (so the mapping and profiling steps could be streamlined).
 
-Although, in order to create a merged FASTA file, we first need to rename the headers in each FASTA file to have names that are meaningful and also acceptable for anvi'o. For that, we used the following text file, `ESPINOZA-MAGS-FASTA.txt`, which is in the format of a `fasta_txt` file as accepted by `anvi-run-workflow`.
+In order to create a merged FASTA file, we first wish to rename the headers in each FASTA file to have names that are meaningful (so that we know for each contig, what genome it originated from) and also names that are acceptable for anvi'o (i.e. ASCII and '_'). For that, we used the following text file, `ESPINOZA-MAGS-FASTA.txt`, which is in the format of a `fasta_txt` file as accepted by [`anvi-run-workflow`](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#fastatxt).
 
 You can download this file by running the following command:
 
@@ -211,6 +199,8 @@ ESPINOZA  01_FASTA/ESPINOZA-MAGS-MERGED.fa
 ```
 
 ### Generating a collection file for the merged FASTA file
+
+This step is also necessary only if you are working with a merged FASTA file. A collection is what anvi'o uses to know which contig is associated with which genome.
 
 We generated a collection file that we could later use to import into the anvi'o merged profile database.
 In order to generate this file, we used the following python script: `gen-collection-for-merged-fasta.py`, which you can download in the following way:
@@ -286,7 +276,11 @@ Notice that we set the value in the `contigs_mode` column to `1`, because our co
 
 ### Running the anvi'o metagenomic workflow
 
-We used the snakemake-based metagenomics workflow to map the metagenomes to the merged FASTA file, and to then profile the BAM files. First we will describe all the necesary files for the workflow.
+The analysis described here utilizes the anvi'o [contigs](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#creating-an-anvio-contigs-database) and [profile](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#anvi-profile) databases. You can refer to the anvi'o [metagenomic tutorial](http://merenlab.org/2016/06/22/anvio-tutorial-v2/) to learn more about these databases in a general manner or to [this tutorial](http://merenlab.org/tutorials/infant-gut/) to see many of the things that you could do using anvi'o. In this post we will assume a basic familiarity of anvi'o.
+In order to streamline the process of generating and annotating a contigs database and a merged profile database we used We used the [snakemake-based metagenomics workflow](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#metagenomics-workflow).
+You can either follow the steps here or follow the step-by-step process in the [anvi'o metagenomic tutorial](http://merenlab.org/2016/06/22/anvio-tutorial-v2/).
+
+First we will describe all the necesary files for the workflow.
 
 One of the key input files to start the run is the `samples.txt`. You can downlaod our `samples.txt` file into your work directory:
 
@@ -314,8 +308,12 @@ anvi-run-workflow -w metagenomics \
 
 And edited it to instruct the workflow manager to,
 
-- Quality filter short reads using [illumina-utils](https://github.com/merenlab/illumina-utils),
-- Recruit reads from all samples using the merged FASTA file with [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml),
+- Generate a contigs database.
+- Run anvi-run-hmms.
+- Annotate genes with taxonomy using centrifuge.
+- Annotate genes with functions using anvi-run-ncbi-cogs.
+- Quality filter short reads using [illumina-utils](https://github.com/merenlab/illumina-utils).
+- Recruit reads from all samples using the merged FASTA file with [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml).
 - Profile and merge resulting files using [anvi'o](https://github.com/merenlab/anvio).
 - Import the collection into the anvi'o merged profile database.
 - Summarize the profile database using `anvi-summarize`.
@@ -387,6 +385,7 @@ The content of which should look like this:
 }
 ```
 
+{:.notice}
 Note that in order for this config file to work for you, the path to the centrifuge database must be fixed to match the path on your machine (or simply set centrifuge not to run by setting the "run" parameter to `false`).
 
 We will also need the collections file ESPINOZA_ET_AL_COLLECTIONS_FILE.txt:
@@ -471,11 +470,13 @@ AUXILIARY-DATA.db		PROFILE.db			CONTIGS.db
 
  * `08_SUMMARY`: Anvi'o summary for the merged profile database.
 
-## Refining the Espinoza _et al_ MAGs
+## Taking a first look at your MAG
 
-We used the split profile and contigs databases to manually refine each MAG.
+At this point you should have a contigs and a profile database for each MAG that you wish to refine.
 
-Here is an example way to initiate the interactive interface for one of those:
+The first step is to take a look at the MAG in the interactive interface.
+
+We used the split profile and contigs databases to manually refine each MAG. Here is an example way to initiate the interactive interface for one of those:
 
 ```bash
 anvi-interactive -p 07_SPLIT/GN02_MAG_IV_A/PROFILE.db \
@@ -486,8 +487,37 @@ Which should give you something that looks like this:
 
 [![GN02_MAG_IV_A_initial](images/GN02_MAG_IV_A_initial.png)](images/GN02_MAG_IV_A_initial.png){:.center-img .width-60}
 
-In the following steps we will import a collection and a state to each of the split profile databases. The collection that we import shows our refinement for each of these MAGs. The state is just for cosmetics to make the visualization of these profile 
-databases prettier.
+We have many metagenomes, and so the tree in the middle appears too small, so the first thing we will do is make it bigger.
+
+Looks much better.
+We can already see some interesting patterns, but before we dig into these patters, let's choose all the splits in this MAG. When you click with the left click on any of the branches in the tree at the center of the interface, it will choose all the branches of that tree section and add them to a bin.
+
+You can then move to the "Bins" tab (top left), you can see some real-time stats regarding your MAG:
+
+
+Let's review what we see:
+ - Splits - anvi'o splits long contigs into splits of a maximum of 20,000 nucleotides (this is the default, but the number could be modified in `anvi-gen-contigs-database`). Here we have 313 splits.
+ - Len - the total length of all the splits (contigs) in your MAG.
+ - Comp. - completion based on a collection of single copy core genes. anvi'o has a certain heuristic to determine the domain (bacteria/archea/eukaryota) of the MAG and it would use a dedicated collection of single copy core genes accordingly.
+ - Red. - redundancy of single copy core genes.
+
+We can see that this bin has very high redundancy in single copy core genes. This is a very strong sign to tell us that this bin is highly contaminated. In fact, recent [guidelines set 10% as the highest redundancy that is appropriate to report for a MAG](https://www.nature.com/articles/nbt.3893).
+
+We can click on the redundancy number and see which specific genes are redundany:
+
+
+Moreover, if we click on a specific gene name the splits in which it occurs would be highlighted by a red marker outside the outermost circular section of the interactive interface. Let's click on Ribosomal_L10:
+
+
+We can see that this gene occurs in two sides of the figure that represent very distinct sections of the organizing dendrogram in the middle. This is a good sign.
+
+Ok, so now it is time to talk about that dendrogram in the middle.
+
+
+
+## Getting finalized views and statistics for the genomes we refined
+
+In this section we describe the process of reproducing our final results from refining the Espinoza et al. MAGs, including the final collections, and a state for the interactive view to show the results in a prettier format.
 
 ### Importing default collections
 
@@ -544,7 +574,7 @@ This is what it should look like now:
 
 Much better :-)
 
-## Generating summaries for the refined MAGs
+### Generating summaries for the refined MAGs
 
 After we finished the refine process, we generated a summary for the collections that we made in each profile database. The purpose of the summary is to have various statistics available for each MAG. In addition, during the summary process FASTA files for each of the refined MAGs are generated.
 
@@ -559,7 +589,7 @@ for g in GN02_MAG_IV_A GN02_MAG_IV_B TM7_MAG_III_A TM7_MAG_III_B TM7_MAG_III_C; 
 done
 ```
 
-## Getting the completion and redundancy statistics
+### Getting the completion and redundancy statistics
 
 
 In order to compare between the MAGs from the original Espinoza et al publication and our refined MAGs,
