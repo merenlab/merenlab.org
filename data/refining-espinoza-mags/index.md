@@ -479,21 +479,38 @@ The first step is to take a look at the MAG in the interactive interface.
 We used the split profile and contigs databases to manually refine each MAG. Here is an example way to initiate the interactive interface for one of those:
 
 ```bash
-anvi-interactive -p 07_SPLIT/GN02_MAG_IV_A/PROFILE.db \
-                 -c 07_SPLIT/GN02_MAG_IV_A/CONTIGS.db
+anvi-interactive -p 07_SPLIT/GN02_MAG_IV_B/PROFILE.db \
+                 -c 07_SPLIT/GN02_MAG_IV_B/CONTIGS.db
 ```
 
 Which should give you something that looks like this:
 
-[![GN02_MAG_IV_A_initial](images/GN02_MAG_IV_A_initial.png)](images/GN02_MAG_IV_A_initial.png){:.center-img .width-60}
+[![GN02_MAG_IV_B_initial](images/GN02_MAG_IV_B_initial.png)](images/GN02_MAG_IV_B_initial.png){:.center-img .width-60}
 
 We have many metagenomes, and so the tree in the middle appears too small, so the first thing we will do is make it bigger.
+
+First click on the "Show Additional Settings" button:
+
+[![additional_settings](images/additional_settings.png)](images/additional_settings.png){:.center-img .width-60}
+
+And now we can set the radius (here we chose 15,000):
+
+[![change_radius](images/change_radius.png)](images/change_radius.png){:.center-img .width-60}
+
+And once we hit "Draw" (or use "d" as a keyboard shortcut), we get:
+
+[![bigger_radius](images/bigger_radius.png)](images/bigger_radius.png){:.center-img .width-60}
 
 Looks much better.
 We can already see some interesting patterns, but before we dig into these patters, let's choose all the splits in this MAG. When you click with the left click on any of the branches in the tree at the center of the interface, it will choose all the branches of that tree section and add them to a bin.
 
 You can then move to the "Bins" tab (top left), you can see some real-time stats regarding your MAG:
 
+[![tab_bins](images/tab_bins.png)](images/tab_bins.png){:.center-img .width-60}
+
+Once you click the "Bins" tab and you choose all the splits (just choosing the two branches that come out of the root should do it), you interface should look like this:
+
+[![bins_tab_all_splits](images/bins_tab_all_splits.png)](images/bins_tab_all_splits.png){:.center-img .width-60}
 
 Let's review what we see:
  - Splits - anvi'o splits long contigs into splits of a maximum of 20,000 nucleotides (this is the default, but the number could be modified in `anvi-gen-contigs-database`). Here we have 313 splits.
@@ -503,18 +520,132 @@ Let's review what we see:
 
 We can see that this bin has very high redundancy in single copy core genes. This is a very strong sign to tell us that this bin is highly contaminated. In fact, recent [guidelines set 10% as the highest redundancy that is appropriate to report for a MAG](https://www.nature.com/articles/nbt.3893).
 
-We can click on the redundancy number and see which specific genes are redundany:
+We can click on the redundancy number and see which specific genes are redundant:
 
+[![redundancy_click](images/redundancy_click.png)](images/redundancy_click.png){:.center-img .width-60}
 
-Moreover, if we click on a specific gene name the splits in which it occurs would be highlighted by a red marker outside the outermost circular section of the interactive interface. Let's click on Ribosomal_L10:
+Moreover, if we click on a specific gene name the splits in which it occurs would be highlighted by a red marker outside the outermost circular section of the interactive interface. Let's click on the first one (Ribosomal_S16):
 
+In order to see the highlights better, let's first go back to the "Main" tab (top right of screen), and set some parameters for "Selections". It will make our selections and highlights much more visible:
 
+[![selections](images/selections.png)](images/selections.png){:.center-img .width-60}
+
+And now the interactive interface should look like this:
+
+[![redundant_ribosomal](images/redundant_ribosomal.png)](images/redundant_ribosomal.png){:.center-img .width-60}
 We can see that this gene occurs in two sides of the figure that represent very distinct sections of the organizing dendrogram in the middle. This is a good sign.
 
 Ok, so now it is time to talk about that dendrogram in the middle.
 
+## Refining using sequence composition and differential coverage
+
+The dendrogram in the middle organizes the items of the interactive. In this case the items represent splits.
+
+If you click on the "Items order", you can choose from multiple options of items orders:
+
+[![items_order](images/items_order.png)](images/items_order.png){:.center-img .width-60}
+
+You can read more about each of these options in the ["Infant Gut Tutorial"](http://merenlab.org/tutorials/infant-gut/#chapter-i-genome-resolved-metagenomics).
+By default items are organized by a metric that uses both sequence composition and differential coverage. We can see that the dendrogram separates into two major clusters that appear to have distinct differential coverages.
+Let's make two bins with these distinct clusters (pro tip: on Mac, you can use ⌘ + mouse click on a branch to store it in a new bin):
+
+[![refine1](images/refine1.png)](images/refine1.png){:.center-img .width-60}
+
+(pro tip: right click on a branch removes it from whatever bin it was in)
+
+We can see that these two clusters correspond to two genomes with very high completion and very low redundancy. As we show below, these genomes belong to the candidate phylum Gracillibacteria (formerly GN02), a member of the Candidate Phyla Radiation (CPR) [this completion estimation is an underestimation](http://merenlab.org/2016/04/17/predicting-CPR-Genomes/#distribution-of-bacterial-single-copy-genes-in-cpr).
+
+So here we are, we took just a few fairly easy steps and we have already improved these genomes A LOT!
+
+But what about those splits that now belong to no bin? We will start with the cluster shown below:
+
+[![orphan_cluster1](images/orphan_cluster1.png)](images/orphan_cluster1.png){:.center-img .width-60}
+
+The coverage pattern tell us that these splits are covered in samples in which either of these populations occur, so these are likely largely "shared" sequences of these populations, i.e. sequences that recruit short reads from both of these populations.
+So let's check what happens when we add these splits to each of the bins
+
+If we add it to bin1:
+
+[![orphan2](images/orphan2.png)](images/orphan2.png){:.center-img .width-60}
+
+But if we add it to bin2:
+
+[![orphan3](images/orphan3.png)](images/orphan3.png){:.center-img .width-60}
+
+But the completion and redundancy tell us that these splits fit better in bin2 than in bin1 and hence that is where we decided to put them. These type of choices are common to manual refinement and are never easy to make. The best course of action is to continue to scrutinize the MAGs, as we will show below. But it is also important to remember that getting a "perfect" MAG could be very difficult and maybe even impossible.
+
+What about the remaining splits? When we add these splits to either of the bins, they don't contribute to completion nor to redundancy. The coverage shows that these are sequences that are largely missing from both of these populations, and hence we decided to not add these to either of the bins.
+
+So here are the final bins (now with nicer names too. You can change the names of a bin by clicking on it in the "Bins" tab):
+
+[![refine_final](images/refine_final.png)](images/refine_final.png){:.center-img .width-60}
 
 
+We repeated this refinement process for the rest of the _Espinoza et al_ CPR bins (GN02_MAG_IV_A TM7_MAG_III_A TM7_MAG_III_B TM7_MAG_III_C), to get refined MAGs (to get these refinement results go to [the section below](http://localhost:4000/data/refining-espinoza-mags/#getting-finalized-views-and-statistics-for-the-genomes-we-refined)).
+
+But we don't stop here. Next, we will discuss the various ways in which we scrutinize our MAGs.
+
+## Scrutinizing MAGs with various methods
+
+<blockquote markdown="1">
+_Even though MAGs are powerful tools to discover unknown and unusual things, usually, when you see that a MAG is unusual, you can assume that it is contaminated._
+
+<div class="blockquote-author">Alon Shaiber</div>
+</blockquote>
+
+In this section we discuss how we use various methods (phylogenomics, pangenomics, ANI, taxonomy of genes and genomes, or basically anything we can put our hands on) to identify contaminated MAGs.
+
+### Blasting HMM hits of single copy core genes
+
+One step we often take when working on MAGs is to export the amino-acid sequences of all the _Campbell et al._ HMM hits and blast these on the NCBI nr database.
+
+Let's do this for the two MAGs we refined:
+
+```
+
+```
+
+I DIDN'T DO THIS PART YET.
+
+### Phylogeny with some genomes from NCBI
+
+Blast of some core genes gave us an idea of taxonomy for eahc of these MAGs, but a phylogenetic analysis would provide much more confidence.
+In addition, a phylogenetic analysis is a good way to see things that seem out of the ordinary. For example if your MAG branches far away from other genomes, it could be that there is nothing closely related to it on NCBI, but often it could mean that the sequences you used for phylogeny originate from various populations.
+
+We downloaded some genomes that belong to each of the phyla that these CPR MAGs belong to. Here is a table of these genomes (we also include some metadata for each genome):
+
+name | accession | assembly | reference | title | source | sample_type | study | HOT_designation_according_to_16S_rRNA
+-- | -- | -- | -- | -- | -- | -- | -- | --
+SR1_RAAC1_SR1_1_GCA_000503875_1 | GCA_000503875.1 | ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/503/875/GCA_000503875.1_ASM50387v1/GCA_000503875.1_ASM50387v1_genomic.fna.gz | https://mbio.asm.org/content/4/5/e00708-13.short | Small Genomes and Sparse Metabolisms of Sediment-Associated Bacteria   from Four Candidate Phyla | Environmental | Environmental | Kantor et al. 2013
+SR1_MGEHA_GCA_000350285_1 | GCA_000350285.1 | ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/350/285/GCA_000350285.1_OR1/GCA_000350285.1_OR1_genomic.fna.gz | http://www.pnas.org/cgi/pmidlookup?view=long&pmid=23509275 | UGA is an additional glycine codon in uncultured SR1 bacteria from the   human microbiota | Human oral | subgingival_plaque | Campbell et al. 2013 | 874
+SR1_HOT_345_GCA_003260355_1 | GCA_003260355.1 | ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/260/355/GCA_003260355.1_ASM326035v1/GCA_003260355.1_ASM326035v1_genomic.fna.gz | http://grantome.com/grant/NIH/R01-DE024463-04 | Culturing of the uncultured: reverse genomics and multispecies consortia   in oral | Human oral | saliva | Podar Lab | 345
+GN02_HOT_871_GCA_002761215_1 | GCA_002761215.1 | ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/761/215/GCF_002761215.1_ASM276121v1/GCF_002761215.1_ASM276121v1_genomic.fna.gz | http://grantome.com/grant/NIH/R01-DE024463-04 | Culturing of the uncultured: reverse genomics and multispecies consortia   in oral | Human oral | saliva | Podar Lab | HOT-871
+GN02_872_GCA_003260325_1 | GCA_003260325.1 | ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/260/325/GCA_003260325.1_ASM326032v1/GCA_003260325.1_ASM326032v1_genomic.fna.gz | http://grantome.com/grant/NIH/R01-DE024463-04 | Culturing of the uncultured: reverse genomics and multispecies consortia   in oral | Human oral | saliva | Podar Lab | HOT-872
+GN02_CG1_02_38_174_GCA_001871945_1 | GCA_001871945.1 | ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/001/871/945/GCA_001871945.1_ASM187194v1/GCA_001871945.1_ASM187194v1_genomic.fna.gz | https://onlinelibrary.wiley.com/doi/abs/10.1111/1462-2920.13362 | Genomic resolution of a cold subsurface aquifer community provides   metabolic insights for novel microbes adapted to high CO2 concentrations | Environmental | Probst et al. 2016
+TM7_RAAC3_1_GCA_000503915_1 | GCA_000503915.1 | ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/503/915/GCA_000503915.1_ASM50391v1/GCA_000503915.1_ASM50391v1_genomic.fna.gz | https://mbio.asm.org/content/4/5/e00708-13.short | Small Genomes and Sparse Metabolisms of Sediment-Associated Bacteria   from Four Candidate Phyla | Environmental | Environmental | Kantor et al. 2013
+TM7x_GCA_000803625_1 | GCA_000803625.1 | ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/803/625/GCA_000803625.1_ASM80362v1/GCA_000803625.1_ASM80362v1_genomic.fna.gz | https://www.pnas.org/content/112/1/244 | Cultivation of a human-associated TM7 phylotype reveals a reduced genome and   epibiotic parasitic lifestyle | Human oral | saliva | He et al. 2015 | 952
+
+You can downloade this table:
+
+```bash
+wget
+```
+
+And then to download the genomes simply run:
+
+```bash
+mkdir -p 01_FASTA
+
+while read name accession assembly reference title source sample_type study HOT_designation_according_to_16S_rRNA; do
+    wget $f -O 01_FASTA/$name.fa.gz
+done < ref-genomes.txt
+```
+
+In addition, we included a _Streptococcus pneumoniae_ genomes as an outlier. To download this genome run:
+
+```bash
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/147/095/GCF_000147095.1_ASM14709v1/GCF_000147095.1_ASM14709v1_genomic.fna.gz -O Streptococcus_pneumoniae_36532.fa.gz
+```
 ## Getting finalized views and statistics for the genomes we refined
 
 In this section we describe the process of reproducing our final results from refining the Espinoza et al. MAGs, including the final collections, and a state for the interactive view to show the results in a prettier format.
@@ -564,13 +695,13 @@ done
 We can run the interactive interface again for the same MAG as earlier:
 
 ```bash
-anvi-interactive -p 07_SPLIT/GN02_MAG_IV_A/PROFILE.db \
-                 -c 07_SPLIT/GN02_MAG_IV_A/CONTIGS.db
+anvi-interactive -p 07_SPLIT/GN02_MAG_IV_B/PROFILE.db \
+                 -c 07_SPLIT/GN02_MAG_IV_B/CONTIGS.db
 ```
 
 This is what it should look like now:
 
-[![GN02_MAG_IV_A_final](images/GN02_MAG_IV_A_final.png)](images/GN02_MAG_IV_A_final.png){:.center-img .width-60}
+[![GN02_MAG_IV_B_final](images/GN02_MAG_IV_B_final.png)](images/GN02_MAG_IV_B_final.png){:.center-img .width-60}
 
 Much better :-)
 
