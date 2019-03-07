@@ -533,6 +533,7 @@ In order to see the highlights better, let's first go back to the "Main" tab (to
 And now the interactive interface should look like this:
 
 [![redundant_ribosomal](images/redundant_ribosomal.png)](images/redundant_ribosomal.png){:.center-img .width-60}
+
 We can see that this gene occurs in two sides of the figure that represent very distinct sections of the organizing dendrogram in the middle. This is a good sign.
 
 Ok, so now it is time to talk about that dendrogram in the middle.
@@ -646,6 +647,161 @@ In addition, we included a _Streptococcus pneumoniae_ genomes as an outlier. To 
 ```bash
 wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/147/095/GCF_000147095.1_ASM14709v1/GCF_000147095.1_ASM14709v1_genomic.fna.gz -O Streptococcus_pneumoniae_36532.fa.gz
 ```
+
+In order to compute the phylogeny we used the [snakemake](https://snakemake.readthedocs.io/en/stable/index.html)-based anvi'o [phylogenomics workflow](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#phylogenomics-workflow).
+
+This workflow includes the following steps:
+1. Exporting aligned amino-acid sequences of genes that were selected by the user. Here we used a collection of ribosomal proteins.
+2. Trimming the sequences with trimal.
+3. Copmuting the phylogeny with iqtree.
+
+We used the following config file PHYLOGENY-CONFIG.json:
+
+```json
+{
+    "project_name": "ESPINOZA_CPR_MAGS",
+    "internal_genomes": "INTERNAL-GENOMES-PHYLOGENOMICS.txt",
+    "external_genomes": "EXTERNAL-GENOMES-PHYLOGENOMICS.txt",
+    "anvi_get_sequences_for_hmm_hits": {
+        "--return-best-hit": true,
+        "--align-with": "famsa",
+        "--concatenate-genes": true,
+        "--get-aa-sequences": true,
+        "--hmm-sources": "Campbell_et_al",
+        "--gene-names": "Ribosom_S12_S23,Ribosomal_L1,Ribosomal_L10,Ribosomal_L11,Ribosomal_L11_N,Ribosomal_L13,Ribosomal_L14,Ribosomal_L16,Ribosomal_L18e,Ribosomal_L18p,Ribosomal_L19,Ribosomal_L2,Ribosomal_L21p,Ribosomal_L22,Ribosomal_L23,Ribosomal_L29,Ribosomal_L2_C,Ribosomal_L3,Ribosomal_L32p,Ribosomal_L4,Ribosomal_L5,Ribosomal_L5_C,Ribosomal_L6,Ribosomal_S11,Ribosomal_S13,Ribosomal_S15,Ribosomal_S17,Ribosomal_S19,Ribosomal_S2,Ribosomal_S3_C,Ribosomal_S4,Ribosomal_S5,Ribosomal_S5_C,Ribosomal_S6,Ribosomal_S7,Ribosomal_S8,Ribosomal_S9"
+    },
+    "iqtree": {
+        "additional_params": "-o Streptococcus_pneumoniae_36532",
+        "threads": 3
+    },
+    "output_dirs": {
+        "PHYLO_DIR": "09_PHYLOGENOMICS_WITH_FIRMICUTES",
+        "LOGS_DIR": "00_LOGS"
+    }
+}
+```
+
+You can download it:
+
+```bash
+wget
+```
+
+The external and internal genomes files are used for anvi-get-sequences-for-hmms-hits.
+
+You can download these files:
+
+```bash
+wget
+wget
+```
+
+And this is what they look like:
+
+```
+cat EXTERNAL-GENOMES-PHYLOGENOMICS.txt
+
+cat INTERNAL-GENOMES-PHYLOGENOMICS.txt
+
+```
+
+To run the workflow we ran:
+
+```bash
+anvi-run-workflow -w phylogenomics -c PHYLOGENY-CONFIG.json
+```
+
+And then to take a look at the phylogeny:
+
+```bash
+anvi-interactive --manual \
+                 -p 09_PHYLOGENOMICS_WITH_FIRMICUTES/PHYLOGENY-MANUAL-PROFILE.db \
+                 -t 09_PHYLOGENOMICS_WITH_FIRMICUTES/ESPINOZA_CPR_MAGS-proteins_GAPS_REMOVED.fa.contree
+```
+
+After making some manual changes (mainly changing the "Drawing type" to "Phylogram"), and a few selections to highlight the genomes of _Espinoza et al_ we got:
+
+[![phylogeny](images/phylogeny.png)](images/phylogeny.png){:.center-img .width-60}
+
+The fact that the two GN02 MAGs and two SR1 MAGs each have a very closely related genomes from an independent study is a good sign that these are good quality genomes.
+On the other hand, lack of closely related genomes for the TM7 genomes doesn't necessarily mean anything.
+
+### Comparing pagenomes using refined and unrefined MAGs
+
+To highlight some of the differences between the refined and unrefined MAGs, we computed a pangenome using the [anvi'o pangenomic workflow](http://merenlab.org/2016/11/08/pangenomics-v2/) for each of the three phyla (TM7, GN02, and SR1) using the genomes we used for the phylogeny above.
+
+
+```bash
+mkdir -p 10_PAN
+
+anvi-gen-genomes-storage --external-genomes SR1-EXTERNAL-GENOMES.txt \
+                         --internal-genomes SR1_UNREFINED-GENOMES.txt \
+                         -o 10_PAN/SR1-UNREFINED-GENOMES.db
+
+anvi-gen-genomes-storage --external-genomes SR1-EXTERNAL-GENOMES.txt \
+                         --internal-genomes SR1_REFINED-GENOMES.txt \
+                         -o 10_PAN/SR1-REFINED-GENOMES.db
+
+anvi-pan-genome -g 10_PAN/SR1-UNREFINED-GENOMES.db \
+            -o 10_PAN/SR1_UNREFINED \
+            --project-name SR1_UNREFINED \
+            --skip-homogeneity \
+            --num-threads 2 \
+            --min-occurrence 2
+
+anvi-pan-genome -g 10_PAN/SR1-REFINED-GENOMES.db \
+            -o 10_PAN/SR1_REFINED \
+            --project-name SR1_REFINED \
+            --skip-homogeneity \
+            --num-threads 2 \
+            --min-occurrence 2
+
+anvi-gen-genomes-storage --external-genomes GN02-EXTERNAL-GENOMES.txt \
+                         --internal-genomes GN02_UNREFINED-GENOMES.txt \
+                         -o 10_PAN/GN02-UNREFINED-GENOMES.db
+
+anvi-gen-genomes-storage --external-genomes GN02-EXTERNAL-GENOMES.txt \
+                         --internal-genomes GN02_REFINED-GENOMES.txt \
+                         -o 10_PAN/GN02-REFINED-GENOMES.db
+
+anvi-pan-genome -g 10_PAN/GN02-UNREFINED-GENOMES.db \
+            -o 10_PAN/GN02_UNREFINED \
+            --project-name GN02_UNREFINED \
+            --skip-homogeneity \
+            --num-threads 2 \
+            --min-occurrence 2
+
+anvi-pan-genome -g 10_PAN/GN02-REFINED-GENOMES.db \
+            -o 10_PAN/GN02_REFINED \
+            --project-name GN02_REFINED \
+            --skip-homogeneity \
+            --num-threads 2 \
+            --min-occurrence 2
+
+anvi-gen-genomes-storage --external-genomes TM7-EXTERNAL-GENOMES.txt \
+                         --internal-genomes TM7_UNREFINED-GENOMES.txt \
+                         -o 10_PAN/TM7-UNREFINED-GENOMES.db
+
+anvi-gen-genomes-storage --external-genomes TM7-EXTERNAL-GENOMES.txt \
+                         --internal-genomes TM7_REFINED-GENOMES.txt \
+                         -o 10_PAN/TM7-REFINED-GENOMES.db
+
+anvi-pan-genome -g 10_PAN/TM7-UNREFINED-GENOMES.db \
+            -o 10_PAN/TM7_UNREFINED \
+            --project-name TM7_UNREFINED \
+            --skip-homogeneity \
+            --num-threads 2 \
+            --min-occurrence 2
+
+anvi-pan-genome -g 10_PAN/TM7-REFINED-GENOMES.db \
+            -o 10_PAN/TM7_REFINED \
+            --project-name TM7_REFINED \
+            --skip-homogeneity \
+            --num-threads 2 \
+            --min-occurrence 2
+```
+
+Let's take a look at the 
 ## Getting finalized views and statistics for the genomes we refined
 
 In this section we describe the process of reproducing our final results from refining the Espinoza et al. MAGs, including the final collections, and a state for the interactive view to show the results in a prettier format.
