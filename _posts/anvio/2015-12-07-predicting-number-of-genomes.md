@@ -27,7 +27,7 @@ Anvi'o has been very practical for us to answer this, and here you will find the
 
 ## The workflow
 
-{.warning}
+{:.warning}
 **PLEASE USE `anvi-display-contigs-stats` for this task**. The rest of the post is here for historical reasons, but basically this functionality is now implemented in [this program](http://merenlab.org/software/anvio/vignette/#anvi-display-contigs-stats).
 
 I will describe the three anvi'o steps using [Sharon et al.'s infant gut](http://www.ncbi.nlm.nih.gov/pubmed/22936250) study as an example. The `contigs.fa` file I will use is this section is the co-assembly of all samples in Sharon et al's study.
