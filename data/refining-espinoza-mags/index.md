@@ -17,31 +17,32 @@ redirect_from: /data/refining-espinoza-mags
 
 The purpose of this document is to demonstrate the process of refining Metagenome-Assembled Genomes (MAGs) using anvi'o.
 
-It includes the following steps:
-1. Downloading instructions for the data that accompanies this post.
-2. Demonstration of the use of sequence composition alongside with differential coverage to identify contamination.
-3. Using phylogeny to check that things make sense.
-4. Pangenomic analyses to demonstrate the difference between unrefined and refined MAGs.
+We discuss some steps that we recommend to do in order to examine your MAGs, and provide a practical tutorial that focuses on the use of the anvi'o interactive interface.
 
-In-addition, we demonstrate how the pre-processing steps that are required prior to refinement could
-be streamlined using the snakemake-based anvi'o workflows,
-and provide a reproducible workflow for the refinement of key MAGs from the recent [Espinoza et al](https://mbio.asm.org/content/9/6/e01631-18) publication.
+It includes the following steps:
+1. Demonstration of the use of sequence composition alongside with differential coverage to identify contamination (including some tips on using the interactive interface)
+2. Using phylogeny to check that things make sense.
+3. Pangenomic analyses to demonstrate the difference between unrefined and refined MAGs.
+
+We demonstrate these steps using some key MAGs from the recent [Espinoza et al](https://mbio.asm.org/content/9/6/e01631-18) publication.
+At the bottom of this post you can find a full description of the analysis steps that were taken in order to use the anvi'o interactive interface.
 FASTA files for refined bins are listed at the very end of this document.
 
 While we demonstrate this process using the Espinoza et al. MAGs, the process described here is general and has been similarly applied to [refine the first release of a Tardigrade genome](https://peerj.com/articles/1839/).
 
 </div>
 
-
 Please feel free to leave a comment, or send an e-mail to [us]({{ site.url }}/people/) if you have any questions.
 
 
 ## Introduction
 
-So you’ve reconstructed MAGs, and would like to see if there are opportunities for refinement. Great. This tutorial will walk you through an example. We will demonstrate steps that we commonly apply to as we manually refine _every_ MAG that we report.
+So you’ve constructed MAGs, and would like to see if there are opportunities for refinement.
+Great. This tutorial will walk you through an example.
+We will demonstrate steps that we commonly apply as we manually refine _every_ MAG that we report.
 
-We will walk through analyzing a set of specific genomes using a specific set of metagenomes, but you can just replace these with your genomes and metagenomes and go through the same steps. If you don't have your own data to analyze, but still wish to follow the step by step instructions the following sections provides instructions on how to download the data we used here.
-
+We will walk through analyzing a set of specific genomes using a specific set of metagenomes, but you can just replace these with your genomes and metagenomes and go through the same steps.
+If you don't have your own data to analyze, but still wish to follow the step by step instructions you can find [instructions below](#setting-the-stage) on how to download the data we used here.
 
 ## Taking a first look at your MAG
 
@@ -250,89 +251,96 @@ On the other hand, lack of closely related genomes for the TM7 genomes doesn't n
 
 ### Comparing pagenomes using refined and unrefined MAGs
 
-To highlight some of the differences between the refined and unrefined MAGs, we computed a pangenome using the [anvi'o pangenomic workflow](http://merenlab.org/2016/11/08/pangenomics-v2/) for each of the three phyla (TM7, GN02, and SR1) using the genomes we used for the phylogeny above.
+To highlight some of the differences between the refined and unrefined MAGs, we computed a pangenome using the [anvi'o pangenomic workflow](http://merenlab.org/2016/11/08/pangenomics-v2/)
+for each of the three phyla (TM7, GN02, and SR1) using the genomes we used for the phylogeny above.
 
+Here we will only present and discuss the results for MAG IV.B that we discussed in detail above.
+
+Let's take a look at the pangenome:
 
 ```bash
-mkdir -p 10_PAN
-
-anvi-gen-genomes-storage --external-genomes SR1-EXTERNAL-GENOMES.txt \
-                         --internal-genomes SR1_UNREFINED-GENOMES.txt \
-                         -o 10_PAN/SR1-UNREFINED-GENOMES.db
-
-anvi-gen-genomes-storage --external-genomes SR1-EXTERNAL-GENOMES.txt \
-                         --internal-genomes SR1_REFINED-GENOMES.txt \
-                         -o 10_PAN/SR1-REFINED-GENOMES.db
-
-anvi-pan-genome -g 10_PAN/SR1-UNREFINED-GENOMES.db \
-            -o 10_PAN/SR1_UNREFINED \
-            --project-name SR1_UNREFINED \
-            --skip-homogeneity \
-            --num-threads 2 \
-            --min-occurrence 2
-
-anvi-pan-genome -g 10_PAN/SR1-REFINED-GENOMES.db \
-            -o 10_PAN/SR1_REFINED \
-            --project-name SR1_REFINED \
-            --skip-homogeneity \
-            --num-threads 2 \
-            --min-occurrence 2
-
-anvi-gen-genomes-storage --external-genomes GN02-EXTERNAL-GENOMES.txt \
-                         --internal-genomes GN02_UNREFINED-GENOMES.txt \
-                         -o 10_PAN/GN02-UNREFINED-GENOMES.db
-
-anvi-gen-genomes-storage --external-genomes GN02-EXTERNAL-GENOMES.txt \
-                         --internal-genomes GN02_REFINED-GENOMES.txt \
-                         -o 10_PAN/GN02-REFINED-GENOMES.db
-
-anvi-pan-genome -g 10_PAN/GN02-UNREFINED-GENOMES.db \
-            -o 10_PAN/GN02_UNREFINED \
-            --project-name GN02_UNREFINED \
-            --skip-homogeneity \
-            --num-threads 2 \
-            --min-occurrence 2
-
-anvi-pan-genome -g 10_PAN/GN02-REFINED-GENOMES.db \
-            -o 10_PAN/GN02_REFINED \
-            --project-name GN02_REFINED \
-            --skip-homogeneity \
-            --num-threads 2 \
-            --min-occurrence 2
-
-anvi-gen-genomes-storage --external-genomes TM7-EXTERNAL-GENOMES.txt \
-                         --internal-genomes TM7_UNREFINED-GENOMES.txt \
-                         -o 10_PAN/TM7-UNREFINED-GENOMES.db
-
-anvi-gen-genomes-storage --external-genomes TM7-EXTERNAL-GENOMES.txt \
-                         --internal-genomes TM7_REFINED-GENOMES.txt \
-                         -o 10_PAN/TM7-REFINED-GENOMES.db
-
-anvi-pan-genome -g 10_PAN/TM7-UNREFINED-GENOMES.db \
-            -o 10_PAN/TM7_UNREFINED \
-            --project-name TM7_UNREFINED \
-            --skip-homogeneity \
-            --num-threads 2 \
-            --min-occurrence 2
-
-anvi-pan-genome -g 10_PAN/TM7-REFINED-GENOMES.db \
-            -o 10_PAN/TM7_REFINED \
-            --project-name TM7_REFINED \
-            --skip-homogeneity \
-            --num-threads 2 \
-            --min-occurrence 2
+anvi-display-pan -p 10_PAN/GN02_UNREFINED/GN02_UNREFINED-PAN.db \
+                 -g 10_PAN/GN02-UNREFINED-GENOMES.db
 ```
 
-Let's take a look at the 
+[![pangenome1_raw](images/pangenome1_raw.png)](images/pangenome1_raw.png){:.center-img .width-60}
 
+Ok, there is a lot here, and if you want to learn about all the wonderful information that is presented here, you should refer to the anvi'o [pangenomics tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/).
+We really recommend that you take a look, because there are a lot of things you can learn from a pangenome.
 
-## Setting the stage
+In our case we will focus on just one thing: the single copy core gene clusters.
+So we can first play with the interface to only show things that we are interested in.
+The figure above contains concentric circular section to represent each of the four genomes we used for computing the pangenomes.
+In addition there are 5 additional concentric layers, but we are only interested in the one that is labeled "SCG Clusters".
+So we will remove the rest of the layers from the iterface. To do that, we go to the "Main" tab and set the "Height" to zero for each layer we don't want:
+
+[![height_to_zero](images/height_to_zero.png)](images/height_to_zero.png){:.center-img .width-60}
+
+On the right top corner of the figure above we also have some additional statistics for each of the four genomes.
+We can change what is presented by navigating to the "Layers" tab.
+The first thing we do, is to change the "Order by" in order to organize the genomes according to "gene_cluster frequencies":
+
+[![gc_freq](images/gc_freq.png)](images/gc_freq.png){:.center-img .width-60}
+
+This will change the order of layers so that genomes that contain similar gene clusters will be closer together (it will also add a tree that describes this clustering).
+
+We can also change which information is shown. I changed the values to these:
+
+[![layer_height](images/layer_height.png)](images/layer_height.png){:.center-img .width-60}
+
+We can also change the organization of the gene-clusters (namely the organizing dendrogram at the middle of the figure):
+
+[![pan_items_order](images/pan_items_order.png)](images/pan_items_order.png){:.center-img .width-60}
+
+By default the data the is shown is the presence/absence of each gene cluster in each genome,
+but in this case we want to see how many copies of each gene cluster are in each genome.
+So we change the "View":
+
+[![pan_view](images/pan_view.png)](images/pan_view.png){:.center-img .width-60}
+
+We want the maximum value to be the same for each layer, so we adjust the "Max":
+
+[![pan_max_value](images/pan_max_value.png)](images/pan_max_value.png){:.center-img .width-60}
+
+Lastly, I changed the color of the layer representing our genome of interest to highlight it:
+
+[![layer_color](images/layer_color.png)](images/layer_color.png){:.center-img .width-60}
+
+And now we can take another look:
+
+[![pangenome1](images/pangenome1.png)](images/pangenome1.png){:.center-img .width-60}
+
+I encircled and added an arrow above to emphesize the single copy core gene clusters (SCGCs).
+The SCGCs are important because we can use these for many things.
+For example, these could be great to use for [phylogeny](http://merenlab.org/2016/11/08/pangenomics-v2/#scrutinizing-phylogenomics).
+But in our case the fact that there are only 8 such gene clusters is a pretty alarming sign that something is wrong.
+A closer examination of the figure above reveals that there are many gene clusters that appear as single copy in the other three genomes, appear as multi-copy in MAG IV.B.
+
+Let's now take a look at the pangenome using the refined genomes:
+
+[![pangenome2](images/pangenome2.png)](images/pangenome2.png){:.center-img .width-60}
+
+We can see that there are now many more SCGCs (there are 128 such gene clusters a 1,600% increase compared to earlier).
+
+## Summary
+
+Here we presented some steps you can take if you want to examine some genomes using metagenomes.
+
+There are many more things that could be done, and we will try to extend this tutorial in the future.
+
+The bottom line is that it is that we strongly encourage to explore MAGs in various ways.
+
+## Reproducible workflow
+
+Here you will find all the computational steps that are required to get the results we discussed above.
+
+### Setting the stage
 
 This section explains how to download the metagenomes and MAGs from the original study by Espinoza _et al.
 Downloading this data would allow you to follow this post step by step and get the final results we got.
 Alternatively, you can skip this part, and apply the approach we describe to your own data._
 
-### Downloading the Espinoza _et al_ metagenomes
+#### Downloading the Espinoza _et al_ metagenomes
 
 You can download raw Illumina paired-end seqeuncing data files for the 88 supragingival plaque samples into your work directory the following way:
 
@@ -353,7 +361,7 @@ for SRR_accession in `cat SRR_list.txt`; do
 
 Once the download is finished, you should have 196 FASTQ files in your `01_RAW_FASTQ` directory, representing the paired-end reads of 88 metagenomes.
 
-### Downloading key MAGs from Espinoza _et al_
+#### Downloading key MAGs from Espinoza _et al_
 
 In our reanalysis we only focused on some of the key MAGs that represented understudied lineages in the oral cavity. You can download these FASTA files from the NCBI GenBank in the following way:
 
@@ -997,6 +1005,95 @@ To run the workflow we ran:
 ```bash
 anvi-run-workflow -w phylogenomics -c PHYLOGENY-CONFIG.json
 ```
+
+## Computing the pangenomes
+
+The purpose of this section is to provide the steps to generate the pangenomes that we generated for comparing the refined and unrefined MAGs.
+
+To download the internal and external genomes files that we used:
+
+```bash
+wget 
+```
+In order to generate the pangenomes we ran the following commands
+
+```bash
+mkdir -p 10_PAN
+
+anvi-gen-genomes-storage --external-genomes SR1-EXTERNAL-GENOMES.txt \
+                         --internal-genomes SR1_UNREFINED-GENOMES.txt \
+                         -o 10_PAN/SR1-UNREFINED-GENOMES.db
+
+anvi-gen-genomes-storage --external-genomes SR1-EXTERNAL-GENOMES.txt \
+                         --internal-genomes SR1_REFINED-GENOMES.txt \
+                         -o 10_PAN/SR1-REFINED-GENOMES.db
+
+anvi-pan-genome -g 10_PAN/SR1-UNREFINED-GENOMES.db \
+            -o 10_PAN/SR1_UNREFINED \
+            --project-name SR1_UNREFINED \
+            --skip-homogeneity \
+            --num-threads 2 \
+            --min-occurrence 2
+
+anvi-pan-genome -g 10_PAN/SR1-REFINED-GENOMES.db \
+            -o 10_PAN/SR1_REFINED \
+            --project-name SR1_REFINED \
+            --skip-homogeneity \
+            --num-threads 2 \
+            --min-occurrence 2
+
+anvi-gen-genomes-storage --external-genomes GN02-EXTERNAL-GENOMES.txt \
+                         --internal-genomes GN02_UNREFINED-GENOMES.txt \
+                         -o 10_PAN/GN02-UNREFINED-GENOMES.db
+
+anvi-gen-genomes-storage --external-genomes GN02-EXTERNAL-GENOMES.txt \
+                         --internal-genomes GN02_REFINED-GENOMES.txt \
+                         -o 10_PAN/GN02-REFINED-GENOMES.db
+
+anvi-pan-genome -g 10_PAN/GN02-UNREFINED-GENOMES.db \
+            -o 10_PAN/GN02_UNREFINED \
+            --project-name GN02_UNREFINED \
+            --skip-homogeneity \
+            --num-threads 2 \
+            --min-occurrence 2
+
+anvi-pan-genome -g 10_PAN/GN02-REFINED-GENOMES.db \
+            -o 10_PAN/GN02_REFINED \
+            --project-name GN02_REFINED \
+            --skip-homogeneity \
+            --num-threads 2 \
+            --min-occurrence 2
+
+anvi-gen-genomes-storage --external-genomes TM7-EXTERNAL-GENOMES.txt \
+                         --internal-genomes TM7_UNREFINED-GENOMES.txt \
+                         -o 10_PAN/TM7-UNREFINED-GENOMES.db
+
+anvi-gen-genomes-storage --external-genomes TM7-EXTERNAL-GENOMES.txt \
+                         --internal-genomes TM7_REFINED-GENOMES.txt \
+                         -o 10_PAN/TM7-REFINED-GENOMES.db
+
+anvi-pan-genome -g 10_PAN/TM7-UNREFINED-GENOMES.db \
+            -o 10_PAN/TM7_UNREFINED \
+            --project-name TM7_UNREFINED \
+            --skip-homogeneity \
+            --num-threads 2 \
+            --min-occurrence 2
+
+anvi-pan-genome -g 10_PAN/TM7-REFINED-GENOMES.db \
+            -o 10_PAN/TM7_REFINED \
+            --project-name TM7_REFINED \
+            --skip-homogeneity \
+            --num-threads 2 \
+            --min-occurrence 2
+```
+
+We can now take a look at one of these for example:
+
+```bash
+anvi-display-pan -p 10_PAN/TM7_REFINED/TM7_REFINED-PAN.db \
+                 -g 10_PAN/TM7-REFINED-GENOMES.db
+```
+
 ## FASTA files for refined MAGs
 
 * [GN02_MAG_IV_A_1](http://merenlab.org/data/refining-espinoza-mags/files/GN02_MAG_IV_A_1-contigs.fa); GN02 _MAG IV.A in the original study.
