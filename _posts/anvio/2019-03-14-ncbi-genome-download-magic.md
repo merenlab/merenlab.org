@@ -34,7 +34,7 @@ Here I will show you how.
 
 So imagine you generated a MAG, and taxonomic annotation places it in some phylum/class/order/whatever and you want to compare it to other genomes from this phylum/class/order/whatever from the NCBI, how do you go about it?
 
-For example, let's assume we have a MAG that we resolve to the Candidate phylum Gracilibacteria (formerly [GN02](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1472358/)).
+For example, let's assume we have a MAG that we resolve to the Candidate phylum Gracilibacteria (formerly [GN02](https://aem.asm.org/content/72/5/3685)).
 In order to use `ncbi-genome-download`, we need specific TaxIDs.
 In order to find these we use the helper script.
 First, we download the helper script:
