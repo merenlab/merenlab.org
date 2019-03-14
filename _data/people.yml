@@ -256,6 +256,18 @@
       inst: Department of Microbiology & Immunology, Stanford University
       inst_link: http://med.stanford.edu/microimmuno.html
 
+- alias: julie
+  contributor: True
+  avatar: bio-julie.jpg
+  name: Julie Reveillaud
+  role: Contributing hero and Collaborator
+  web: https://juliereve.wordpress.com
+  twitter: JulieReve
+  affiliations:
+    - title: Research Scientist
+      inst: INRA, ASTRE Unit, Montpellier, France
+      inst_link: https://www.cirad.fr/en/our-research/research-units/animals-health-territories-risks-and-ecosystems
+
 ####################################################################################
 # Previous members.
 ####################################################################################
