@@ -39,7 +39,7 @@ From raw reads or individual genomes to read recruitment analyses and pangenomes
 Anvi'o workflows rely on [snakemake](https://snakemake.readthedocs.io/en/stable/), and gives you the option to make these workflows more specific through config files.
 
 {:.notice}
-If you don't wish to dig into the documentation of snakemake right now, that's fine. The only essential piece of information you may want to keep in mind is that each *step* of the analysis (for example running `anvi-gen-contigs-database`) corresponds to a "rule" in the snakemake workflow.
+If you don't wish to dig into the documentation of snakemake right now, that's fine. The only essential piece of information you may want to keep in mind is that each *step* of the analysis (for example, running `anvi-gen-contigs-database`) corresponds to a "rule" in the snakemake workflow.
 
 Anvi'o allows you to use its workflows through the program `anvi-run-workflow` (see the help menu [here]({{site.url}}/software/anvio/vignette/#anvi-run-workflow)). For a given workflow this program helps you prepare a **config file**, about which we will promptly learn in the next chapter, and then run it.
 
@@ -52,11 +52,11 @@ Available workflows ....: contigs, metagenomics, pangenomics
 
 You should consult with your own installation to see what workflows are available to you in case we failed to keep this page up-to-date.
 
-While anvi'o workflows provide a standard canvas for basic operations, you fill this canvas by telling anvi'o where to find files, what parameters to use while working on them, and where to store output files. Following sections in this chapter describe some of those essential files that are commonly used in one or more workflows.
+While anvi'o workflows provide a standard canvas for basic operations, you fill this canvas by telling anvi'o where to find files, what parameters to use while working on them, and where to store output files. The following sections in this chapter describe some of those essential files that are commonly used in one or more workflows.
 
 ## config.json
 
-Once you know with which workflow you want to work, the config file gives you a great degree of flexibility to modify parameters and order of steps associated with that workflow. The config file is a mandatory input of all workflows, even if you are fine with all default parameters. You should always take a look at the config file since you should not escape from the complexity of anything that will impact your findings. Preparing a config file from scratch for a given workflow could be quite a strenuous task. But do not worry, we got you covered:
+Once you know which workflow you want to work with, the config file gives you a great degree of flexibility to modify parameters and order of steps associated with that workflow. The config file is a mandatory input of all workflows, even if you are fine with all default parameters. You should always take a look at the config file since you should not escape from the complexity of anything that will impact your findings. Preparing a config file from scratch for a given workflow could be quite a strenuous task. But do not worry, we got you covered:
 
 ```
 anvi-run-workflow -w WORKFLOW-NAME \
@@ -90,7 +90,7 @@ So this is the general introduction to the config file. In the next chapter you 
 
 ## samples.txt
 
-`samples.txt` file is the file that groups samples (if necessary), and links sample names to raw sequencing reads. There are supposed to be three or four columns (with the optional `groups` column) in a given `samples.txt` file where each column separated from each other with a TAB character. The header should contain the following column names:
+`samples.txt` is the file that groups samples (if necessary), and links sample names to raw sequencing reads. There are supposed to be three or four columns (with the optional `groups` column) in a given `samples.txt` file where each column is separated from each other with a TAB character. The header should contain the following column names:
 
 * **sample**: A name that you chose to give to each one of your metagenomic samples.
 
@@ -120,7 +120,7 @@ To see how this file is used, you can take a look at the metagenomics workflow i
 
 ## fasta.txt
 
-`fasta.txt` file is a file that holds a name and a path to fasta files that are needed as input for a workflow. You can see an example of how these are used in the [contigs workflow](#contigs-workflow), [pangenomics workflow](#pangenomics-workflow), or the [reference mode](#references-mode) of the metagenomics workflow. Here is an example file:
+`fasta.txt` is a file that holds a name and a path to fasta files that are needed as input for a workflow. You can see an example of how these are used in the [contigs workflow](#contigs-workflow), [pangenomics workflow](#pangenomics-workflow), or the [reference mode](#references-mode) of the metagenomics workflow. Here is an example file:
 
 ```bash
 name	path
@@ -152,7 +152,7 @@ gzip -d three_samples_example/*contigs*.gz
 Now you can follow the steps in this tutorial and run everything on your machine (assuming you have anvi'o and other programs are installed).
 
 {:.warning}
-Examples throughout this tutorial will use simpler forms of `anvi-run-workflow` commands for the sake of clarity, which will result in processes that can run on a single computer with a single thread. This is almost never a good idea (unless you know what you are doing), and you should keep an eye on relevant notes and sections in this document that clarify how to work with clusters, and tailor your additional parameters based on your system's requirements for real-world applications. Do you think you are lost? Please get in touch with your system administrator, they will know what to do it. Are you the system administrator and feeling lost? Please get in touch with us through anvi'o [Slack](https://anvio.slack.com/) or [Google Groups](https://groups.google.com/forum/#!forum/anvio)!
+Examples throughout this tutorial will use simpler forms of `anvi-run-workflow` commands for the sake of clarity, which will result in processes that can run on a single computer with a single thread. This is almost never a good idea (unless you know what you are doing), and you should keep an eye on relevant notes and sections in this document that clarify how to work with clusters, and tailor your additional parameters based on your system's requirements for real-world applications. Do you think you are lost? Please get in touch with your system administrator, they will know what to do. Are you the system administrator and feeling lost? Please get in touch with us through anvi'o [Slack](https://anvio.slack.com/) or [Google Groups](https://groups.google.com/forum/#!forum/anvio)!
 
 
 # Workflows
@@ -261,7 +261,7 @@ The workflow includes the following steps:
 6. Merging resulting single anvi'o profiles using [anvi-merge](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#anvi-merge).
 
 
-The metagenomic workflow is quite talented and can be run in multiple 'modes'. The fullowing sections will detail different use cases.
+The metagenomic workflow is quite talented and can be run in multiple 'modes'. The following sections will detail different use cases.
 
 
 ### Default mode
@@ -300,7 +300,7 @@ We usually like to start with a default config file, and then delete every line 
 
 So what do we have in the example config file above?
 
-* **samples_txt**: Path for our `samples.txt` (since we used the default name `samples.txt` then we didn't really have to include this in the config file).
+* **samples_txt**: Path for our `samples.txt` (since we used the default name `samples.txt` we didn't really have to include this in the config file).
 
 * **idba_ud**: A few parameters for `idba_ud`. 
 
@@ -324,7 +324,7 @@ It is very big, and that's why we didn't paste it here. We keep things flexible 
 
 But there are some general things you can notice:
 
- - **threads** - every rule has the parameter "threads" available to it. This is meant for the case in which you are using multi-threads to run things. To learn more about how snakemake utilizes threads you can refer to the snakemake documentation. We decided to allow the user to set the number of threads for all rules, including ones for which we ourselves never use more than 1 (why? because, why not? maybe someone would one day need it for some reason. Don't judge). When **threads** is the only parameter that is available for a rule, it means that there is nothing else that you can configure for this rule. Specifically, it means you don't even get to choose whether this rule is run or not. But don't worry, snakemake would make sure that steps that are not necessary will not run.
+ - **threads** - every rule has the parameter "threads" available to it. This is meant for the case in which you are using multi-threads to run things. To learn more about how snakemake utilizes threads you can refer to the snakemake documentation. We decided to allow the user to set the number of threads for all rules, including ones for which we ourselves never use more than 1 (why? because, why not? maybe someone would one day need it for some reason. Don't judge). When **threads** is the only parameter that is available for a rule, it means that there is nothing else that you can configure for this rule. Specifically, it means you don't even get to choose whether this rule is run or not. But don't worry, snakemake will make sure that steps that are not necessary will not run.
  
  - **run** - some rules have this parameter. The rules that have this parameter are optional rules. To make sure that an optional rule is run you need to set the `run` parameter to `true`. If you wish not to run an optional rule, then you must set `run` to `false` or simply an empty string (`""`). Some of the optional rules run by default and others don't. You can find out what the default behavior is by looking at the default config file. As mentioned above, if a rule doesn't have the **run** parameter it means that snakemake will infer whether it needs to run or not (just have some trust please!).
 
@@ -349,7 +349,7 @@ You may notice another interesting thing, which is that the value for `--project
 </div>
 
 
-Ok, so now we have everything we need to start, let's first run a sanity check and create a workflow graph for our workflow:
+Ok, so now we have everything we need to start. Let's first run a sanity check and create a workflow graph for our workflow:
 
 ```
 anvi-run-workflow -w metagenomics \
@@ -361,7 +361,7 @@ A file named `workflow.png` was created and should look like this:
 
 [![idba_ud_workflow1]({{images}}/idba_ud_workflow1.png)]( {{images}}/idba_ud_workflow1.png){:.center-img .width-50}
 
-Take a minute to take a look at this image to understand what is going on. From a first look it might seem complicated, but it is fairly straight forward (and also, shouldn't you know what is going on with your data?!?).
+Take a minute to take a look at this image to understand what is going on. From a first look it might seem complicated, but it is fairly straightforward (and also, shouldn't you know what is going on with your data?!?).
 
 Ok, let's run this.
 
@@ -411,9 +411,9 @@ And it should look like this:
 
 [![merged_profile_idba_ud1]({{images}}/merged_profile_idba_ud1.png)]( {{images}}/merged_profile_idba_ud1.png){:.center-img .width-50}
 
-Ok, so this looks like a standard merged profile database with two samples. As a bonus, we also added a step to import the number of short reads in each sample ("Total num reads"), and we also used it to calculate the percent of reads from the sample that have been mapped to the contigs ("Percent Mapped").
+Ok, so this looks like a standard merged profile database with two samples. As a bonus, we also added a step to import the number of short reads in each sample ("Total num reads"), and we also used it to calculate the percentage of reads from the sample that have been mapped to the contigs ("Percent Mapped").
 
-If you remember, we had two "groups" in the samples.txt file. Hence, we have two contigs databases and two merged profile databases. Let's take a look at the other profile database, but since this group only included one sample, then there was nothing to merge. What we do in this case, is that we automatically add the `--cluster-contigs` argument to `anvi-profile` (see the the help menu: `anvi-profile -h` for more details). We still create a "fake" merged profile database here: `06_MERGED/G01/PROFILE.db`, but this is just a mock output file, if you look into it you'll see:
+If you remember, we had two "groups" in the samples.txt file. Hence, we have two contigs databases and two merged profile databases. Let's take a look at the other profile database, but since this group only included one sample, then there was nothing to merge. What we do in this case is that we automatically add the `--cluster-contigs` argument to `anvi-profile` (see the the help menu: `anvi-profile -h` for more details). We still create a "fake" merged profile database here: `06_MERGED/G01/PROFILE.db`, but this is just a mock output file. If you look into it you'll see:
 
 ```
 $ cat 06_MERGED/G01/PROFILE.db
@@ -479,7 +479,7 @@ The default behavior for this workflow is to create a contigs database for each 
     "all_against_all": true
 ```
 
-In your working directory you can find an updated config file `config-idba_ud-all-against-all.json`, that looks like this:
+In your working directory you can find an updated config file `config-idba_ud-all-against-all.json`, which looks like this:
 
 ```json
 {
@@ -510,7 +510,7 @@ A little more of a mess! But also has a beauty to it :-).
 <div class="extra-info" markdown="1">
 
 <span class="extra-info-header">A short advertisement for snakemake</span>
-If you are new to **snakemake**, you might be surprised to see how easy it is to switch between modes. All we need to do is tell the **anvi_merge** rule that we want all samples merged for each _group_, and snakemake immediatly infers that it needs to also run the extra mapping, and profiling steps. *Thank you snakemake!* (says everyone).
+If you are new to **snakemake**, you might be surprised to see how easy it is to switch between modes. All we need to do is tell the **anvi_merge** rule that we want all samples merged for each _group_, and snakemake immediately infers that it needs to also run the extra mapping, and profiling steps. *Thank you snakemake!* (says everyone).
 </div>
 
 ### References Mode
@@ -606,7 +606,7 @@ Where:
  - `collection_file`: a path to your collection file (i.e. the file that specifies the bin for each split/contig).
  - `bins_info`: (optional) a path to your bins-info txt file
  - `contigs_mode`: (optional) if your collection file include contigs names (instead of splits) set this column to `1`.
- - The last column (`default_collection`) is a optional column to specify if you want a default collection to be imported using `anvi-script-add-default-collection`. If you want the default collection, then set the value in this column to `1`.
+ - The last column (`default_collection`) is an optional column to specify if you want a default collection to be imported using `anvi-script-add-default-collection`. If you want the default collection, then set the value in this column to `1`.
 
 {:.notice}
 If you specify you want a default_collection for a group then you can't specify a collection file for this group (these options are mutually exclusive). In addition, `anvi_split` will not run for a group with a default collection (a default collection includes a single bin with all the contigs, so there is nothing to split).
@@ -742,11 +742,11 @@ HUMAN		GRCh38_latest_genomic.fna.gz
 
 ## Pangenomics workflow
 
-Running a [pangenomic workflow](http://merenlab.org/2016/11/08/pangenomics-v2/) with anvio is really easy. But now it is even easier. And the beauty of this workflow is that it would inherently include all the steps to annotate your contigs databases with what you wish (functions, hmms, taxonomy, etc.).
+Running a [pangenomic workflow](http://merenlab.org/2016/11/08/pangenomics-v2/) with anvi'o is really easy. But now it is even easier. And the beauty of this workflow is that it would inherently include all the steps to annotate your contigs databases with what you wish (functions, hmms, taxonomy, etc.).
 
 ### With external genomes
 
-All you need are a bunch of fasta files, and a `fasta_txt`, formatted in the same manner that is described [above in references mode](#references-mode). In your working dir you can find the config `config-pangenomics.json`:
+All you need are a bunch of fasta files, and a `fasta_txt`, formatted in the same manner that is described [above in references mode](#references-mode). In your working directory you can find the config `config-pangenomics.json`:
 
 ```
 {
@@ -761,7 +761,7 @@ All you need are a bunch of fasta files, and a `fasta_txt`, formatted in the sam
 }
 ```
 
-Notice that you must give a name to the external genomes file (including a relative or absolute path). This file doesn't have to exist, it will be created for you during the workflow. We named it above: `my-external-genomes.txt`.
+Notice that you must give a name to the external genomes file (including a relative or absolute path). This file doesn't have to exist; it will be created for you during the workflow. We named it above: `my-external-genomes.txt`.
 
 We can create a workflow graph:
 
@@ -773,7 +773,7 @@ anvi-run-workflow -w pangenomics \
 
 [![DAG-pangenomics]({{images}}/DAG-pangenomics.png)]( {{images}}/DAG-pangenomics.png){:.center-img .width-50}
 
-Since we used the same directories from the [contigs workflow above](#contigs-workflow), then some of the steps don't have to be repeated. These steps are inside dashed lines in the workflow graph, whereas the rules that will be executed are inside a box. If we gave the `CONTIGS_DIR` a new name then these steps would be repeated and new contigs databases would be created and annotated.
+Since we used the same directories from the [contigs workflow above](#contigs-workflow), some of the steps don't have to be repeated. These steps are inside dashed lines in the workflow graph, whereas the rules that will be executed are inside a box. If we gave the `CONTIGS_DIR` a new name then these steps would be repeated and new contigs databases would be created and annotated.
 
 Now we can run it:
 
@@ -820,7 +820,7 @@ In your working directory you have a config file `config-pangenomics-internal-ge
 }
 ```
 
-You can also find in your working directory a file called `my-internal-genomes.txt`, it looks like this:
+You can also find in your working directory a file called `my-internal-genomes.txt`. It looks like this:
 
 | name | bin_id     | collection_id | profile_db_path                           | contigs_db_path           |
 |------|------------|---------------|-------------------------------------------|---------------------------|
@@ -949,9 +949,9 @@ Most of the values above are the defaults from the default config file, but cert
 
  - `--gene-names`: This parameter in the rule `anvi_get_sequences_for_hmm_hits` will allow you to choose the genes that you wish to use. By default the HMM collection that is used is `Campbell_et_al`, but you can change that, as well. It is highly recommended to verify that you are using genes that are present in most of your genomes, and that you exclude genomes that are missing many of the genes that you use. If you are only using external genomes, you can generate a table with the occurrence of HMMs in your genomes by using the script: `anvi-script-gen-hmm-hits-matrix-across-genomes`.
 
- - Similar to the [pangenomics workflow](#pangenomics-workflow), you must also define internal and/or external genomes through    `internal_genomes` and `external_genomes` parameters.
+ - Similar to the [pangenomics workflow](#pangenomics-workflow), you must also define internal and/or external genomes through the   `internal_genomes` and `external_genomes` parameters.
 
- - `fasta_txt`: also similar to the [pangenomics workflow](#pangenomics-workflow), if you provide a `fasta_txt` file, then you must provide a name for your external genomes file. Please note that you only need to specify a **path**, a file at which will then be created automatically using the information in `fasta_txt` file. For instanc, if you are following this example you will realize that before running the workflow, the file `external-genomes-phylo.txt` doesn't exist, but it will get created automatically during run time.
+ - `fasta_txt`: also similar to the [pangenomics workflow](#pangenomics-workflow), if you provide a `fasta_txt` file, then you must provide a name for your external genomes file. Please note that you only need to specify a **path**, at which a file  will then be created automatically using the information in the `fasta_txt` file. For instance, if you are following this example you will realize that before running the workflow, the file `external-genomes-phylo.txt` doesn't exist, but it will get created automatically during run time.
 
  - `project_name`: you must provide a `project_name`. This will be used as a prefix to files that will be generated by the workflow.
 
@@ -994,7 +994,7 @@ Yes, this mock example for the sake of our little demonstration looks pretty ugl
 
 When submitting to a cluster, you can utilize the [snakemake cluster execution](http://snakemake.readthedocs.io/en/stable/executable.html#cluster-execution). Notice that the number of threads per rule could be changed using the `config.json` file (and not by using the [cluster configuration](http://snakemake.readthedocs.io/en/stable/executable.html#cluster-execution) file).
 
-The `{log}` and `{threads}` arguments are part of the snakemake syntax, and you can learn more about them from the snakemake documentation as well. Briefly, `{threads}` is a wildcard that for each job submitted to the cluster will be replaced by the number of threads that you supplied in the config file for the specific rule (or the default number of threads that we set for that rule). Similarly, `{log}` is a wildcard that will be replaced by the name of the log file that we set for each rule, unless you decided to change it, the log files would appear in your working directory under the directory `00_LOGS`.
+The `{log}` and `{threads}` arguments are part of the snakemake syntax, and you can learn more about them from the snakemake documentation as well. Briefly, `{threads}` is a wildcard that for each job submitted to the cluster will be replaced by the number of threads that you supplied in the config file for the specific rule (or the default number of threads that we set for that rule). Similarly, `{log}` is a wildcard that will be replaced by the name of the log file that we set for each rule. Unless you decided to change this, the log files would appear in your working directory under the directory `00_LOGS`.
 
 When submitting a workflow to a cluster, snakemake requires you to limit the number of jobs that will be submitted in parallel by using the argument `--jobs`. If you prefer to limit the number of threads that would be used by your workflow (for example, if you share your cluster with others and you don't want to consume all resources), then you can make use of the snakemake built-in `resources` directive. You can set the number of jobs to your limit (or to a very big number if you don't care), and use `--resources nodes=30`, if you wish to only use 30 threads. We used the word `nodes` so that to not confuse with the reserved word `threads` in snakemake.
 
@@ -1019,14 +1019,14 @@ Notice: if you don't include `--jobs` (identical to `--cores`) in your command l
 
 <span class="extra-info-header">A note on cluster-config</span>
 
-This note is here mainly for documentation of the code, and for those of you who are interested in snakemake. The reason we decided not to use the [cluster configuration](http://snakemake.readthedocs.io/en/stable/executable.html#cluster-execution) file to control the number of threads per rule, is because certain software requires the number of threads as an input (for example `megahit` and `anvi-profile`), but the cluster config file is not available for shell commands within snakemake rules. To bypass this issue we simply put the threads configuration in the `config.json`, thus available for the user to modify.
+This note is here mainly for documentation of the code, and for those of you who are interested in snakemake. The reason we decided not to use the [cluster configuration](http://snakemake.readthedocs.io/en/stable/executable.html#cluster-execution) file to control the number of threads per rule is that certain software requires the number of threads as an input (for example `megahit` and `anvi-profile`), but the cluster config file is not available for shell commands within snakemake rules. To bypass this issue we simply put the threads configuration in the `config.json`, thus available for the user to modify.
 
 </div>
 
 # The ADDITIONAL PARAMS option
 
 
-To use the `--cluster` argument of snakemake above, we used the `--additional-params` option of `anvi-run-workflow`. Let's understand it better. The purpose of `--additional-params` is to allow you to access any configuration that is available through snakemake (i.e. anything that is listed when you look at the help menu of snakemake through `snakemake -h` is fair game as an input for `--additional-params`). For example you can do the following,
+To use the `--cluster` argument of snakemake above, we used the `--additional-params` option of `anvi-run-workflow`. Let's understand it better. The purpose of `--additional-params` is to allow you to access any configuration that is available through snakemake (i.e. anything that is listed when you look at the help menu of snakemake through `snakemake -h` is fair game as an input for `--additional-params`). For example, you can do the following,
 
 ``` bash
 anvi-run-workflow -w metagenomics \
@@ -1073,7 +1073,7 @@ In assembly mode, this rule is always executed.
 
 ## What's going on behind the scenes before we run idba_ud?
 
-A note regarding `idba_ud` is that it requires a single fasta as an input. Because of that, what we do is use `fq2fa` to merge the pair of reads of each sample to one fasta, and then we use `cat` to concatenate multiple samples for a co-assembly. The `fasta` file that is created as a temporary file, and is deleted once `idba_ud` finishes running. If this is annoying to you, then feel free to contact us or just hack it yourself. We tried to minimize memory usage by deleting each individual fasta file after it was concatenated to the merged fasta file ([see this issue for details](https://github.com/merenlab/anvio/issues/954)).
+A note regarding `idba_ud` is that it requires a single fasta as an input. Because of that, what we do is use `fq2fa` to merge the pair of reads of each sample to one fasta, and then we use `cat` to concatenate multiple samples for a co-assembly. The `fasta` file is created as a temporary file, and is deleted once `idba_ud` finishes running. If this is annoying to you, then feel free to contact us or just hack it yourself. We tried to minimize memory usage by deleting each individual fasta file after it was concatenated to the merged fasta file ([see this issue for details](https://github.com/merenlab/anvio/issues/954)).
 
 ## Can I change the parameters of samtools view?
 
@@ -1083,7 +1083,7 @@ The samtools command executed is:
 samtools view additional_params -bS INPUT -o OUTPUT
 ```
 
-Where `additional_params` refers to any parameters of samtools view that you choose to use (excluding `-bS` or `-o` which are always set by the workflow).For example, you could set it to be `-f 2`, or `-f 2 -q 1` (for a full list see the samtools [documentation](http://www.htslib.org/doc/samtools.html)). The default value for `additional_params` is `-F 4`.
+Where `additional_params` refers to any parameters of samtools view that you choose to use (excluding `-bS` or `-o`, which are always set by the workflow).For example, you could set it to be `-f 2`, or `-f 2 -q 1` (for a full list see the samtools [documentation](http://www.htslib.org/doc/samtools.html)). The default value for `additional_params` is `-F 4`.
 
 ## Can I change the parameters for Bowtie2?
 
@@ -1111,7 +1111,7 @@ anvi-run-workflow -w metagenomics \
 		  --additional-params \
 		  --keep-going --rerun-incomplete
 ```
-Here using `additional_params` with the `--keep-going` and `--rerun-incomplete` flags will resume the job even if it failed in the middle of a rule, like `anvi_profile`. Of course it is always a good idea to figure out why a workflow failed in the first place.
+Here using `additional_params` with the `--keep-going` and `--rerun-incomplete` flags will resume the job even if it failed in the middle of a rule, like `anvi_profile`. Of course, it is always a good idea to figure out why a workflow failed in the first place.
 
 {:.notice}
 When a workflow fails, then you would need to unlock the working directory before rerunning. This means you would have to run the full command with the `--unlock` flag once, and then run the command again without the `--unlock` flag. Please refer to the snakemake documentation for [more details regarding how snakemake locks the working directory](https://snakemake.readthedocs.io/en/stable/project_info/faq.html#how-does-snakemake-lock-the-working-directory).
@@ -1146,7 +1146,7 @@ If you already ran quality filtering for your fastq files, then just make sure t
 
 ## Can I use BAM files as input for the metagenomics workflow?
 
-In short, yes. If you already did mapping, and you have a bunch of bam files, and now you want to run additional steps from the workflow (e.g. generate contigs databases, annotate them, profile the bam files, etc.), then it might not be entirely straight forward, but it is possible (and I wish to extend my thanks to [Even Sannes Riiser](https://twitter.com/evensriiser?lang=en) for troubleshooting this process).
+In short, yes. If you already did mapping, and you have a bunch of bam files, and now you want to run additional steps from the workflow (e.g. generate contigs databases, annotate them, profile the bam files, etc.), then it might not be entirely straightforward, but it is possible (and I wish to extend my thanks to [Even Sannes Riiser](https://twitter.com/evensriiser?lang=en) for troubleshooting this process).
 
 This is what you need to do:
 1. Make sure you have a [samples.txt](#samplestxt) file. The first column is, as usual, the name of your sample. As for the other two columns `r1`, and `r2`, in your case you should no longer need the fastq files, and hence this two column could have any arbitrary word, but you still have to have *something* there (if you still have access to your fastq files, and you want to run something like krakenHLL, then in that case, you should put the path to the fastq files, just as in the normal case of a `samples.txt` file)
@@ -1157,7 +1157,7 @@ This is what you need to do:
 MAPPING_DIR/group_name/sample_name.bam
 ```
     Where `MAPPING_DIR` is `04_MAPPING` by default but you can set it in the config file. `group_name` is the name you gave the reference in your `fasta.txt` file. And `sample_name` is the name you gave the sample in the `samples.txt` file.
-5. You must skip `import_percent_of_reads_mapped`. Currently, we use the log files of bowtie2 to find out how many reads were in the (Qc-ied) fastq files, but since you already did you're mapping elsewhere, we don't know how to get that information, and hence you must skip this step. This is pretty easy to do manually later on, so no big deal. In order to skip `import_percent_of_reads_mapped`, include this in your config file:
+5. You must skip `import_percent_of_reads_mapped`. Currently, we use the log files of bowtie2 to find out how many reads were in the (Qc-ied) fastq files, but since you already did your mapping elsewhere, we don't know how to get that information, and hence you must skip this step. This is pretty easy to do manually later on, so no big deal. In order to skip `import_percent_of_reads_mapped`, include this in your config file:
 
 ```
 "import_percent_of_reads_mapped": {
@@ -1206,7 +1206,7 @@ Notice that when you use `--cluster`, snakemake also requires you to include the
                         cores.
 ```
 
-We use `qsub` on our system, and we have found the behaviour a little funny in this case, where if we choose `--cores N`, then snakemake would submit `N` jobs, regardless of the number of threads each job is requesting. And hence we added the option to use the resources argument, so the command from above would look like this:
+We use `qsub` on our system, and we have found the behaviour a little funny in this case, where if we choose `--cores N`, then snakemake would submit `N` jobs, regardless of the number of threads each job is requesting. And hence we added the option to use the `--resources` argument, so the command from above would look like this:
 
 
 ```bash
@@ -1238,9 +1238,9 @@ As of anvi'o `v5.3` [metaSPAdes](http://cab.spbu.ru/software/spades/) has been a
     },
 ```
 
-`additional_params` works in the same way to how it works as is explained [above for samtools](#can-i-change-the-parameters-of-samtools-view), and allows to specify anything that metaspades accepts. By default it is set to `--only-assembler`, Since QC is done using `iu-filter-quality-minoche`, and we see no reason to have metaspades do another step of QC. If you want to specify more parameters then you probably want it to still include `--only-assembler`.
+`additional_params` works in the same way as is explained [above for samtools](#can-i-change-the-parameters-of-samtools-view), and allows you to specify anything that metaSPAdes accepts. By default it is set to `--only-assembler`, since QC is done using `iu-filter-quality-minoche`, and we see no reason to have metaSPAdes do another step of QC. If you want to specify more parameters then you probably want it to still include `--only-assembler`.
 
-metaspades has two outputs `contigs.fasta`, and `scaffolds.fasta`. By default anvi'o will use `contigs.fasta` for the rest of the workflow, but if you want to use `scaffolds.fasta`, then set `use_scaffolds: true` in your config file. In any case anvi'o will save the one you don't use as well (i.e. by default you will find in your `02_FASTA` directory the `scaffold.fasta` file and you choose to use the scaffolds, then you will still find `contigs.fasta`).
+metaSPAdes has two outputs, `contigs.fasta`, and `scaffolds.fasta`. By default anvi'o will use `contigs.fasta` for the rest of the workflow, but if you want to use `scaffolds.fasta`, then set `use_scaffolds: true` in your config file. In any case, anvi'o will save the one you don't use as well (i.e. by default you will find in your `02_FASTA` directory the `scaffold.fasta` file, and if you choose to use the scaffolds, then you will still find `contigs.fasta`).
 
 
 {% include _join-anvio-slack.html %}
