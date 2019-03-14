@@ -27,6 +27,9 @@ Anvi'o has been very practical for us to answer this, and here you will find the
 
 ## The workflow
 
+{:.warning}
+**PLEASE USE `anvi-display-contigs-stats` for this task**. The rest of the post is here for historical reasons, but basically this functionality is now implemented in [this program](http://merenlab.org/software/anvio/vignette/#anvi-display-contigs-stats).
+
 I will describe the three anvi'o steps using [Sharon et al.'s infant gut](http://www.ncbi.nlm.nih.gov/pubmed/22936250) study as an example. The `contigs.fa` file I will use is this section is the co-assembly of all samples in Sharon et al's study.
 
 As a reminder, Sharon et al. identified 12 bacterial draft genomes in this dataset, **8 of which were complete or near-complete**. Our re-analysis of this dataset in the [anvi'o methods paper](https://peerj.com/articles/1319/) also yielded [similar resulted](http://anvio.org/data/INFANT-CLC-SUMMARY-SUPERVISED/) (you can find more about our re-analysis [here]({{ site.url }}/data/#daily-infant-gut-samples-by-sharon-et-al)).

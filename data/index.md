@@ -12,7 +12,49 @@ This page serves the publicly available data items mentioned in our publications
 
 {% include _toc.html %}
 
-## The Prochlorococcus Metapangenome
+## A <i>Wolbachia</i> Plasmid
+
+<div class="pub_float">
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1038/s41467-019-08973-w"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1038/s41467-019-08973-w" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1038/s41467-019-08973-w" target="_new">The <i>Wolbachia</i> mobilome in <i>Culex pipiens</i> includes a putative plasmid.</a></h3>
+    <span class="pub-authors">Reveillaud, R., Bordenstein, S. R., Cruaud, C., <span class="pub-member-author">Shaiber, A.</span>, <span class="pub-member-author">Esen, Ö. C.</span>, O. C., Weill, M., Makoundou, P., <span class="pub-member-author">Lolans, K.</span>, <span class="pub-member-author">Watson, A. R.</span>, Rakotoarivony, I., Bordenstein, S. R., and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="../images/miscellaneous/2019-03-05-wolbachia-plasmid/minion-metagenomics.png"><img src="../images/miscellaneous/2019-03-05-wolbachia-plasmid/minion-metagenomics.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);" /></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- The first report of a <i>Wolbachia</i> plasmid through genome-resolved metagenomics on microsurgically removed individual mosquito ovary samples (<a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-019-08973-w/MediaObjects/41467_2019_8973_MOESM2_ESM.pdf">peer reviews and responses</a>).</span><br /><span style="display: inline-block; padding-bottom: 5px;">-  Yet another application of <a href="https://doi.org/10.7717/peerj.4320">metapangenomics</a> and an applicatoin of minION long-read sequencing on extremely low-biomass samples.</span><br /><span style="display: inline-block; padding-bottom: 5px;">-  <a href="http://merenlab.org/data/wolbachia-plasmid">Reproducible bioinformatics workflow</a> with all data items, and a 'behind the paper' <a href="http://merenlab.org/2019/03/05/wolbachia-plasmid/">blog post</a> by <a href="https://twitter.com/JulieReve">Julie Reveillaud</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>Nature Communications</i>. <b>10:1051</b></span>
+</div>
+
+{:.warning}
+[http://merenlab.org/data/wolbachia-plasmid](wolbachia-plasmid) gives access to our **complete bioinformatics workflow**.
+
+**Public data items for the study:**
+
+<div style="width: 200px; float: right; padding-left: 20px;">
+<a href="../images/miscellaneous/2019-03-05-wolbachia-plasmid/metapangenomics.png" target="_blank"><img src="../images/miscellaneous/2019-03-05-wolbachia-plasmid/metapangenomics.png" style="border:none;" /></a>
+</div>
+
+* The raw sequencing data for shotgun metagenomes are available in the European Nucleotide Archive via accession code [PRJEB26028](https://www.ebi.ac.uk/ena/data/search?query=PRJEB26028).
+
+* [doi:10.6084/m9.figshare.7306784](https://doi.org/10.6084/m9.figshare.7306784): Raw sequencing data for the MinION run for *Wolbachia* ovary samples.
+
+* [doi:10.6084/m9.figshare.6263867](https://doi.org/10.6084/m9.figshare.6263867): FASTA files for individual assemblies of each ovary metagenome.
+
+* [doi:10.6084/m9.figshare.6292040](https://doi.org/10.6084/m9.figshare.6292040): The four metagenome-assembled *Wolbachia* genomes.
+
+* [doi:10.6084/m9.figshare.6380015](https://doi.org/10.6084/m9.figshare.6380015): Artificially circularized individual sequences for the plasmid *p*WCP.
+
+* [doi:10.6084/m9.figshare.6263876](https://doi.org/10.6084/m9.figshare.6263876): The anvi’o merged profile databases for each *Culex pipiens* metagenome.
+
+* [doi:10.6084/m9.figshare.6291650](https://doi.org/10.6084/m9.figshare.6291650): The anvi'o pan database and the genomes storage for the *Wolbachia* metapangenome. 
+
+
+## The <i>Prochlorococcus</i> Metapangenome
 
 <div class="pub_float">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.7717/peerj.4320"></div>
