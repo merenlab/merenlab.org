@@ -35,9 +35,6 @@ Let's start with a simple example and assume that you wish to download all compl
 
 You could download all complete *Bifidobacterium* genomes like this: 
 
-{:.notice}
-Indeed there are many parameters in the help menu you should explore.
-
 ``` bash
 ncbi-genome-download bacteria \
                      --assembly-level chromosome,complete \
@@ -45,7 +42,10 @@ ncbi-genome-download bacteria \
                      --metadata metadata.txt
 ``` 
 
-Then you could ask anvi'o to create for each genome a FASTA file, an external gene calls file, and a functional annotations file:
+{:.notice}
+Indeed there are many parameters in the help menu of this program for you to explore.
+
+A successful completion of this command will result in a directory full of GenBank files. Then you can run this command to ask anvi'o to create from each of those files a FASTA file, an external gene calls file, and a functional annotations file:
 
 ``` bash
 anvi-script-process-genbank-metadata -m metadata.txt \
