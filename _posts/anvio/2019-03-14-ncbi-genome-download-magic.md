@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Easily download and process genomes from the NCBI databases"
-excerpt: "How to combine genomes from NCBI in your pangenomic/phylogenomic analysis"
+title: "Accessing and including NCBI genomes in 'omics analyses in anvi'o"
+excerpt: "How to download, process, and combine genomes from NCBI in your phylogenomic, pangenomic, and/or other 'omics analyses"
 modified: 2019-03-14
 categories: [anvio]
 comments: true
@@ -13,55 +13,140 @@ authors: [alon]
 {:.notice}
 This tutorial was written using anvi'o `v5.4`.
 
-## Introduction
+We often need to mix new genomes (whether they are isolate, single-cell, or metagenome-assembled genomes) with those that are already reported and available through the public repositories to generate better comparative insights through phylogenomics or pangenomics. One common public resource for genomes is the NCBI. However, downloading genomes of interest from the NCBI and incorporating the GenBank-formatted public genomes into anvi'o analyses require extra steps.
 
-Often we find ourselves seeking to compare our genome/s of interest to similar genomes that are available online.
-Here I describe how I have been going about it recently.
+The purpose of this tutorial is to describe a flexible workflow to download genomes from the NCBI and process them with anvi'o. If you have any questions, please get in touch with us and/or other anvians:
 
-In this short post I will cover:
-1. How I download genomes from NCBI (using [ncbi-genome-download](https://github.com/kblin/ncbi-genome-download)).
-2. How I process these genomes (using [anvi-script-process-genbank-metadata](http://merenlab.org/software/anvio/vignette/#anvi-script-process-genbank-metadata)).
-3. Run the [contigs workflow](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#contigs-workflow) to generate a contigs database for each of these genomes (using `anvi-run-workflow`).
+{% include _join-anvio-slack.html %}
 
-There has been a [recent post](http://merenlab.org/2018/12/01/combining-annotation-sources-for-pan/) covering this exact issue by Mike Lee. Here I just present a slightly different approach.
-
-## Downloading the genomes
+The tutorial will primarily walk you through the steps of downloading genomes of interest from the NCBI (using [ncbi-genome-download](https://github.com/kblin/ncbi-genome-download) by [Kai Blin](https://twitter.com/kaiblin)), processing NCBI GenBank files (using [anvi-script-process-genbank-metadata](http://merenlab.org/software/anvio/vignette/#anvi-script-process-genbank-metadata)) to get anvi'o compatible files, and running anvi'o [contigs workflow](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#contigs-workflow) to generate a contigs database for each of these genomes (using [anvi-run-workflow](http://merenlab.org/software/anvio/vignette/#anvi-run-workflow)).
 
 {:.notice}
-Recently, when we want to compare one of our MAGs to similar things on NCBI, we have been loving [ncbi-genome-download](https://github.com/kblin/ncbi-genome-download).
-We also use it in combination with the helper script [gimme_taxa.py](https://github.com/kblin/ncbi-genome-download#contributed-scripts-gimme_taxapy).
-Here I will show you how.
+There is another [blog post](http://merenlab.org/2018/12/01/combining-annotation-sources-for-pan/) by [Mike Lee](https://twitter.com/AstrobioMike) covering a similar topic for pangenomics. If you are interested in quick and large-scale phylogenomics analyses, you may also want to consider [GToTree](https://github.com/AstrobioMike/GToTree/wiki).
 
-So imagine you generated a MAG, and taxonomic annotation places it in some phylum/class/order/whatever and you want to compare it to other genomes from this phylum/class/order/whatever from the NCBI, how do you go about it?
+{:.notice}
+If you have GenBank files from other sources than the NCBI, you may want to take a look at the program `anvi-script-process-genbank` to generate a FASTA file from it along with an external gene calls file and functions that can be imported into anvi'o.
 
-For example, let's assume we have a MAG that we resolve to the Candidate phylum Gracilibacteria (formerly [GN02](https://aem.asm.org/content/72/5/3685)).
-In order to use `ncbi-genome-download`, we need specific TaxIDs.
-In order to find these we use the helper script.
+## A simple example
+
+Let's start with a simple example and assume that you wish to download all complete genomes in the genus *Bifidobacterium* from the NCBI and turn them into anvi'o contigs databases. An anvi'o contigs database can be used in many ways and in many different workflows since it is quite a central piece of [all things anvi'o](http://merenlab.org/software/anvio/network/):
+
+![/images/contigs-db-in-network.png](/images/contigs-db-in-network.png){:.center-img .width-60}
+
+You could download all complete *Bifidobacterium* genomes like this: 
+
+{:.notice}
+Indeed there are many parameters in the help menu you should explore.
+
+``` bash
+ncbi-genome-download bacteria \
+                     --assembly-level chromosome,complete \
+                     --genus Bifidobacterium \
+                     --metadata metadata.txt
+``` 
+
+Then you could ask anvi'o to create for each genome a FASTA file, an external gene calls file, and a functional annotations file:
+
+``` bash
+anvi-script-process-genbank-metadata -m metadata.txt \
+                                     --output-dir Bifidobacteria \
+                                     --output-fasta-txt Bifidobacteria.txt
+```
+
+Once you are here, the resulting `Bifidobacteria.txt` can go into [anvi'o snakemake worklfows](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/) to generate an anvi'o contigs database for each genome. In its simplest form, you would need to create a config file `contigs.json` that looks like this:
+
+```json
+{
+    "fasta_txt": "Bifidobacteria.txt"
+}
+```
+
+And then run the anvi'o [contigs workflow](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#contigs-workflow) the following way:
+
+```bash
+anvi-run-workflow -w contigs \
+                  -c contigs.json
+```
+
+{:.notice}
+Please consider reading the [anvi'o snakemake worklfows](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/) tutorial to see how could you continue with pylogenomic or pangenomic analyses.
+
+{:.warning}
+The remainder of this example is here only for educational purposes so you have an idea about the raw steps to accomplish things in anvi'o so you can take better advantage of its Lego-like architecture. This is basically to delay your inevitable evolution into those people in WALL-E due to the luxurious convenience of anvi'o snakemake workflows.
+
+So if you were to be interested in generating your anvi'o contigs databases without using the snakemake workflows, you could run this batch file:
+
+``` bash
+# first create an empty external genomes file:
+echo -e "name\tcontigs_db_path" > external-genomes.txt
+
+# loop through Bifidobacteria.txt (but skip the first line) and assign each of the four
+# columns in that file to different variable names for each iteration (the human-readable
+# name of the contigs database, the path for the FASTA file, external gene calls file, and
+# external functions file:
+awk '{if(NR!=1){print $0}}' Bifidobacteria.txt | while read -r name fasta ext_genes ext_funcs
+do
+    # generate a contigs database from the FASTA file using the
+    # external gene calls:
+    anvi-gen-contigs-database -f $fasta \
+                              --external-gene-calls $ext_genes \
+                              --project-name $name \
+                              -o Bifidobacteria/$name.db \
+                              --skip-mindful-splitting
+
+    # import the external functions we learned from the GenBank
+    # into the new contigs database:
+    anvi-import-functions -i $ext_funcs \
+                          -c Bifidobacteria/$name.db
+
+    # run default HMMs to identify single-copy core genes and ribosomal
+    # RNAs (using 6 threads):
+    anvi-run-hmms -c Bifidobacteria/$name.db \
+                  --num-threads 6
+
+    # add this new contigs database and its path into the
+    # external genomes file:
+    echo -e "$name\tBifidobacteria/$name.db" >> external-genomes.txt
+done
+```
+
+Once this is done, you have an external genomes file, which is one of the standard inputs for [phylogenmic analyses](http://merenlab.org/2017/06/07/phylogenomics/) and [pangenomic analyses](http://merenlab.org/2016/11/08/pangenomics-v2/) in anvi'o.
+
+
+## A realistic example
+
+The example above covered a simple, but less likely use case. Many of us work with MAGs that often come from understudied branches of life with little taxonomy or complete genomes, and we often want to compare them to other available genomes on NCBI reported by other groups for phylogenomic or pangenomic insights.
+
+### Recovering genome IDs to download
+
+In these more realistic use cases, the helper script [gimme_taxa.py](https://github.com/kblin/ncbi-genome-download#contributed-scripts-gimme_taxapy) contributed by [Joe R. J. Healey](http://orcid.org/0000-0002-9569-6738) becomes handy. This helper script allows us to learn specific taxon identifiers for a set of genomes based on hierarchical taxonomic information (i.e., all genomes that belong to a family, or class, and so on).
+
+Say we have a MAG that we were able to assign to the candidate phylum Gracilibacteria (formerly [GN02](https://aem.asm.org/content/72/5/3685)).
+
+To download all genomes affiliated with Gracilibacteria from the NCBI, we will need a specific TaxID, a unique number that translates to a node in the tree of taxa. In this case the node will be Gracilibacteria, and it will allow us to ask `gimme_taxa.py` to return us all specific IDs for genomes that are under it.
+
 First, we download the helper script:
 
 ```bash
 wget https://raw.githubusercontent.com/kblin/ncbi-genome-download/master/contrib/gimme_taxa.py ./
 ```
 
-We can now use this script to get the TaxID (along with other information):
+One way to do it is to use the name 'Gracilibacteria' as a starting point:
 
 ```bash
 python gimme_taxa.py Gracilibacteria \
                      -o GN02-TaxIDs-for-ngd.txt
 ```
 
-Another equal way to do this, is to first go to NCBI's [Taxonomy browser](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi) and find out the taxon id for Gracilibacteria (by simply searching for the term "Gracilibacteria").
-We find out that it is 363464.
-
-Now we run the helper script to find the specific taxon id for each genome that belongs to taxa ID 363464:
+Another way to do the same thing is to first go to NCBI's [Taxonomy Browser](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi) and find out the *parent TaxID* by simply searching for the taxon name of interest. If you do that for Gracilibacteria, you can see that the parent TaxID for this taxon is `363464`. We can run the helper script also with that number to find all that descend from there:
 
 ```bash
 python gimme_taxa.py 363464 \
                      -o GN02-TaxIDs-for-ngd.txt
 ```
 
-This would give us an identical result.
-The only reason I mention this, is that it sometimes might be better to use the taxa ID from NCBI to guarantee that you get what you want.
+{:.warning}
+**Please note**. These two alternatives will yield identical output files in this particular case. However, using the parent TaxID information explicitly from the NCBI may guarantee that you get exactly what you want. So please pay extra attention to this step and take a careful look at the resulting output file first.
 
 Let's look into the output:
 
@@ -79,7 +164,7 @@ parent_taxid	descendent_taxid	descendent_name
 363464	1226339	Gracilibacteria bacterium oral taxon 872
 ```
 
-In order to run ncbi-genome-download we just need a list of the speicific taxids (the above "descendent_taxid"), so we can run the helper script again like this:
+While this file is important to survey and keep as a report for later, to make it compatible with `ncbi-genome-download` wants, we just need to keep the list of TaxIDs (the descendant taxon ids in this case). For that, you can re-run the helper script this way:
 
 ```bash
 python gimme_taxa.py Gracilibacteria \
@@ -87,27 +172,28 @@ python gimme_taxa.py Gracilibacteria \
                      --just-taxids
 ```
 
-We can now download all of these genomes like this:
+### Downloading genomes from the NCBI
+
+We can now download all of these genomes:
+
+{:.warning}
+Pro tip: if you want to first see a list of what is going to be downloaded use the `-n` flag for a dry run.
 
 ```bash
 ncbi-genome-download -t GN02-TaxIDs-for-ngd-just-IDs.txt \
                      bacteria \
                      -o GN02 \
-                     -m GN02-NCBI-METADATA.txt \
+                     --metadata GN02-NCBI-METADATA.txt \
                      -s genbank
 ```
 
 {:.notice}
-We specified `-s genbank` since there are no Gracilibacteria genomes on RefSeq, only on GenBank.
-To learn more about the parameters, refer to the help menu of ncbi-genome-download:
-`ncbi-genome-download -h`
+We specified `-s genbank` since there are no Gracilibacteria genomes in RefSeq, which is the default database `ncbi-genome-download` considers, but there are in GenBank. To learn more about the parameters, refer to the help menu of ncbi-genome-download: `ncbi-genome-download -h`
 
-{:.warning}
-Pro tip: if you want to first see a list of what is going to be downloaded use the `-n` flag for a dry run.
-
-## Process NCBI genomes and get thing ready for anvi-run-workflow
+### Processing NCBI genomes
 
 And now for the most beautiful part, once you are done downloading the files, a metadata file is also created by ncbi-genome-download.
+
 Here is a glimpse to this metadata file:
 
 ```bash
@@ -185,13 +271,14 @@ Candidatus_Gracilibacteria_bacterium_GCA_002746815.1                            
 We can now use the TXT file `GN02-fasta.txt` in a config file for a [contigs](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#contigs-workflow), [phylogenomics](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#phylogenomics-workflow) or [pangenomics](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#pangenomics-workflow) workflows (if you are not familiar with these workflows refer to the tutorials in the provided links <<).
 
 ### Excluding the gene calls from the fasta.txt file
-When you specify an external gene calls file in your fasta.txt file, then `anvi-run-workflow` will use these gene calls instead of running prodigal.
-In this case the "soucre" for the gene calls will be noted as "PGAP".
-This means that we might end up having some of the genomes with gene calls from PGAP and others with gene calls from prodigal.
-But because of the problem descirbed in this [github issue](https://github.com/merenlab/anvio/issues/565), when we run a pangenomic or phylogenomic analysis with anvi'o,
-all the genomes must contain gene calls from the same source.
 
-In order to bypass this issue, this is how I run `anvi-script-process-genbank-metadata`:
+When you specify an external gene calls file in your fasta.txt file, then `anvi-run-workflow` will use these gene calls instead of running Prodigal.
+
+In this case the "source" for the gene calls will be noted as "PGAP". This means that we might end up having some of the genomes with gene calls from PGAP and others with gene calls from Prodigal.
+
+But because of the problem descirbed in this [github issue](https://github.com/merenlab/anvio/issues/565), when we run a pangenomic or phylogenomic analysis with anvi'o, all the genomes must contain gene calls from the same source.
+
+In order to bypass this issue, this is how you can run `anvi-script-process-genbank-metadata`:
 
 ```bash
 anvi-script-process-genbank-metadata -m GN02-NCBI-METADATA.txt \
@@ -200,7 +287,13 @@ anvi-script-process-genbank-metadata -m GN02-NCBI-METADATA.txt \
                                      --exclude-gene-calls-from-fasta-txt
 ```
 
+{:.notice}
+Alternatively you can go rebel and edit the external gene calls files to replace the source `PGAP` with `prodigal`. But you must realize that in some cases this may yield misleading insights. But we can't stop you from doing that.
+
 The output directory would stay the same, but the TXT file `GN02-fasta.txt` now looks like this:
+
+{:.notice}
+This is a good moment to fix those names to more readable unique names. For instance the first one could be "*Ca_A_pacificus_JGI68*" and would have looked much better in any interface.
 
 ```bash
 $ column -t GN02-fasta.txt | head
@@ -216,13 +309,11 @@ Candidatus_Gracilibacteria_bacterium_CG_4_9_14_0_2_um_filter_38_7_GCA_002788335.
 Candidatus_Gracilibacteria_bacterium_GCA_002746815.1                                           /Users/alonshaiber/Downloads/GN02-NCBI-GENOMES/Candidatus_Gracilibacteria_bacterium_GCA_002746815.1-contigs.fa                                           /Users/alonshaiber/Downloads/GN02-NCBI-GENOMES/Candidatus_Gracilibacteria_bacterium_GCA_002746815.1-external-functions.txt
 ```
 
-By excluding the external gene calls file from the fasta.txt file, we guarantee that `anvi-run-workflow` will use prodigal for gene calls.
+By excluding the external gene calls file from the fasta.txt file, we guarantee that `anvi-run-workflow` will use Prodigal for gene calls and there will be no disagreement on how genes were called between genomes from NCBI and genomes from other sources that are already in anvi'o.
 
-## Running the workflow
+### Running snakemake workflows
 
-The way I go about this, is that I first run the [contigs workflow](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#contigs-workflow) on these file.
-
-The easiest thing would be to use this config file `CONTIGS-CONFIG.json`:
+We generally first run the [contigs workflow](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#contigs-workflow) on these files. You can get a default config file for the contigs workflow as desribed in the anvi'o snakemake tutorial and take a look at all the parameters available to you. But the easiest thing to use would be this config file `CONTIGS-CONFIG.json`:
 
 ```json
 {
@@ -230,12 +321,11 @@ The easiest thing would be to use this config file `CONTIGS-CONFIG.json`:
 }
 ```
 
-And now we can run:
+Now we can run the following, which would create all the contigs databases:
 
 ```bash
 anvi-run-workflow -w contigs \
                   -c CONTIGS-CONFIG.json
 ```
 
-Once this is done, we have generated a contigs database for each of the genomes, and we can add these to an [extrnal genomes file](http://merenlab.org/2016/11/08/pangenomics-v2/#generating-an-anvio-genomes-storage) to use in a pangenomic or phylogenomic analysis.
-
+Once this is done, one can go to any direction with the resulting contigs databases.
