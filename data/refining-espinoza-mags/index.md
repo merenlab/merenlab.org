@@ -15,46 +15,51 @@ redirect_from: /data/refining-espinoza-mags
 
 <span class="extra-info-header">Summary</span>
 
-The purpose of this document is to demonstrate the process of refining Metagenome-Assembled Genomes (MAGs) using anvi'o.
+**The purpose of this tutorial is to discuss key aspects of the refinement of meatgenome-assembled genomes (MAGs)**. We will use anvi'o to demonstrate each step, however, these principles are independent of anvi'o and can be investigated through other means.
 
-We discuss some steps that we recommend to do in order to examine your MAGs, and provide a practical tutorial that focuses on the use of the anvi'o interactive interface.
+The tutorial includes **recommendations to streamline your examination of MAGs**, and provides a practical workflow with examples that clarify details of the anvi'o interactive interface. The tutorial broadly covers the following topics:
 
-It includes the following steps:
-1. Demonstration of the use of sequence composition alongside with differential coverage to identify contamination (including some tips on using the interactive interface)
-2. Using phylogeny to check that things make sense.
-3. Pangenomic analyses to demonstrate the difference between unrefined and refined MAGs.
+1. Using **sequence composition** and **differential coverage** to investigate MAGs in detail to identify contamination (including some tips on using the interactive interface effectively).
+2. Using **phylogenomics** to investigate refinement efforts in an evolutionary context.
+3. Using **pangenomics** to study differences between refined and original MAGs.
 
-We demonstrate these steps using some key MAGs from the recent [Espinoza et al](https://mbio.asm.org/content/9/6/e01631-18) publication.
-At the bottom of this post you can find a full description of the analysis steps that were taken in order to use the anvi'o interactive interface.
-FASTA files for refined bins are listed at the very end of this document.
-
-While we demonstrate this process using the Espinoza et al. MAGs, the process described here is general and has been similarly applied to [refine the first release of a Tardigrade genome](https://peerj.com/articles/1839/).
+While these approaches are independent of any particular dataset or study, to demonstrate their efficacy using a real-world dataset, we will use  use some of the key MAGs published by [Espinoza et al](https://mbio.asm.org/content/9/6/e01631-18) using the public data the authors kindly provided. At the end of this document you will find a full description of the commands we run to reproduce all steps we run on Esponoza et al. data.
 
 </div>
 
-Please feel free to leave a comment, or send an e-mail to [us]({{ site.url }}/people/) if you have any questions.
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Refined MAGs</span>
+
+In addition to demonstrate a step-by-step MAG refinement, we wish to contribute to Espinoza et al.'s study by reporting **cleaned verisons of some of their key MAGs that will likely be of great interest to the oral microbiome community due to their originality**. The following list reports the FASTA files for the refined Espinoza et al. MAGs that belong to candidate phyla radiation:
+
+* **Gracilibacteria (formerly GN02)**: [GN02 MAG.IV.B.1](/data/refining-espinoza-mags/files/GN02_MAG_IV_B_1-contigs.fa) and [GN02 MAG.IV.B.2](/data/refining-espinoza-mags/files/GN02_MAG_IV_B_2-contigs.fa) (*refined from Espinoza et al. MAG IV.B*).
+* **Saccharibacteria (formerly TM7)**: [TM7 MAG.III.A.1](/data/refining-espinoza-mags/files/TM7_MAG_III_A_1-contigs.fa) and [TM7 MAG.III.A.2](/data/refining-espinoza-mags/files/TM7_MAG_III_A_2-contigs.fa) (*refined from Espinoza et al. MAG III.A*); [TM7_MAG_III_B_1](/data/refining-espinoza-mags/files/TM7_MAG_III_B_1-contigs.fa) (*refined from Espinoza et al. MAG III.B*). [TM7 MAG.III.C.1](/data/refining-espinoza-mags/files/TM7_MAG_III_C_1-contigs.fa) (*refined from Espinoza et al. MAG III.C*). 
+* **Absconditabacteria (formerly SR1)**: [SR1 MAG.IV.A.1](/data/refining-espinoza-mags/files/SR1_MAG_IV_A_1-contigs.fa) and [SR1 MAG.IV.A.2](/data/refining-espinoza-mags/files/SR1_MAG_IV_A_2-contigs.fa) (*refined from Espinoza et al. MAG IV.A; **Note:** MAG IV.A was annotated as GN2 although a phylogenomic analysis using ribosomal proteins affiliates it with SR1*).
+
+</div>
+
+
+If you have any questions, please feel free to leave a comment down below, send an e-mail to [us]({{ site.url }}/people/), or get in touch with other anvians through Slack:
+
+{% include _join-anvio-slack.html %}
 
 
 ## Introduction
 
-So you’ve constructed MAGs, and would like to see if there are opportunities for refinement.
-Great. This tutorial will walk you through an example.
-We will demonstrate steps that we commonly apply as we manually refine _every_ MAG that we report.
+So you’ve constructed MAGs, and would like to see if there are opportunities for refinement. Great. This tutorial will walk you through an example. We will demonstrate steps that we commonly take to manually refine MAGs we report. Even if refinement of *every* MAG is not possible, as you will see this is a labor-intensive process, refining critical MAGs may help you and others to prevent misleading insights. 
 
-We will walk through analyzing a set of specific genomes using a specific set of metagenomes, but you can just replace these with your genomes and metagenomes and go through the same steps.
-If you don't have your own data to analyze, but still wish to follow the step by step instructions you can find [instructions below](#setting-the-stage) on how to download the data we used here.
+We will walk through this analysis using a specific set of **genomes** and **metagenomes**, but you can simply replace these data with yours and follow the same workflow. All you need is this: one or more FASTA files and one or more metagenomes.
+
+If you don't have your own data to analyze, but still wish to follow the step by step instructions you can find [detailed instructions](#setting-the-stage) below to simply download the data we used in this tutorial.
 
 ## Taking a first look at your MAG
 
 {:.notice}
-Here we assume that for each MAG you have a profile database and a contigs database. If you wish to see the necessary analysis steps
-in order to get to this point, you can refer to the bottom of this post.
+At this point in the tutorial, we assume that you have an anvi'o profile database and a contigs database for each MAG you wish to analyze. These are standard file formats anvi'o use to store and read data after processing your FASTA files and your read recruitment results. Generating these files are fairly straightforward and they immediately lend themselves to a [myriad of other types of analyses](/software/anvio/network/) beyond refining your MAGs. You can refer to the instructions at the bottom of this post if you wish to get to this point with FASTA files for your own MAGs and metagenomes from which you recovered them.
 
-At this point you should have a contigs and a profile database for each MAG that you wish to refine.
-
-The first step is to take a look at the MAG in the interactive interface.
-
-We used the split profile and contigs databases to manually refine each MAG. Here is an example way to initiate the interactive interface for one of those:
+The first step is to take a look at the MAG in the interactive interface using the anvi'o profile and contigs databases. Here we used anvi'o *split profiles* to manually refine each MAG (generation of which explained at the end of this post). Here is an example way to initiate the interactive interface for one of those:
 
 ```bash
 anvi-interactive -p 07_SPLIT/GN02_MAG_IV_B/PROFILE.db \
@@ -65,9 +70,12 @@ Which should give you something that looks like this:
 
 [![GN02_MAG_IV_B_initial](images/GN02_MAG_IV_B_initial.png)](images/GN02_MAG_IV_B_initial.png){:.center-img .width-60}
 
-We have many metagenomes, and so the tree in the middle appears too small, so the first thing we will do is make it bigger.
+{:.notice}
+If this is the first time you are seeing an anvi'o interactive interface, we have a separate tutorial [here](/tutorials/interactive-interface/) that describes visualization capabilites of anvi'o intearctive interface that may help you orient yourself a little. In addition to that, [here](/tutorials/infant-gut/) we have an extensive tutorial on metagenomic binning that may help you get familiar with some of the anvi'o vocabulary.
 
-First click on the "Show Additional Settings" button:
+Briefly, every layer in this display is one of the metagenomes, and each item shown here is one of the contigs in this MAG. Data points by default show the mean coverage of a given contig in a given metagenome, but that view can be changed to [other things]({% post_url 2017-05-08-anvio-views %}).
+
+There are 88 metagenomes in Espinoza et al. study, hence there are 88 layers in theis display. Because we have many metagenomes, the dendrogram in the middle appears too small to make accurate selections of branches. So the first thing we will do is make it bigger. First click on the "Show Additional Settings" button:
 
 [![additional_settings](images/additional_settings.png)](images/additional_settings.png){:.center-img .width-60}
 
@@ -75,12 +83,11 @@ And now we can set the radius (here we chose 15,000):
 
 [![change_radius](images/change_radius.png)](images/change_radius.png){:.center-img .width-60}
 
-And once we hit "Draw" (or use "d" as a keyboard shortcut), we get:
+And once we hit "Draw" (or use "d" as a keyboard shortcut), we get this:
 
 [![bigger_radius](images/bigger_radius.png)](images/bigger_radius.png){:.center-img .width-60}
 
-Looks much better.
-We can already see some interesting patterns, but before we dig into these patters, let's choose all the splits in this MAG. When you click with the left click on any of the branches in the tree at the center of the interface, it will choose all the branches of that tree section and add them to a bin.
+Looks much better. We can already see some interesting patterns, but before we dig into those, let's choose all the splits in this MAG. When you click with the left click on any of the branches in the center dendrogram, it will choose all the items under that part of the tree and add them into a 'bin'.
 
 You can then move to the "Bins" tab (top left), you can see some real-time stats regarding your MAG:
 
@@ -91,18 +98,22 @@ Once you click the "Bins" tab and you choose all the splits (just choosing the t
 [![bins_tab_all_splits](images/bins_tab_all_splits.png)](images/bins_tab_all_splits.png){:.center-img .width-60}
 
 Let's review what we see:
- - Splits - anvi'o splits long contigs into splits of a maximum of 20,000 nucleotides (this is the default, but the number could be modified in `anvi-gen-contigs-database`). Here we have 313 splits.
- - Len - the total length of all the splits (contigs) in your MAG.
- - Comp. - completion based on a collection of single copy core genes. anvi'o has a certain heuristic to determine the domain (bacteria/archea/eukaryota) of the MAG and it would use a dedicated collection of single copy core genes accordingly.
- - Red. - redundancy of single copy core genes.
 
-We can see that this bin has very high redundancy in single copy core genes. This is a very strong sign to tell us that this bin is highly contaminated. In fact, recent [guidelines set 10% as the highest redundancy that is appropriate to report for a MAG](https://www.nature.com/articles/nbt.3893).
+ - **Splits**: anvi'o splits long contigs into splits of a maximum of 20,000 nucleotides (this is the default, but the number could be modified in `anvi-gen-contigs-database`). Here we have 313 splits.
+ - **Len**: the total length of all the splits (contigs) in your MAG.
+ - **Comp.**: completion based on a collection of single-copy core genes. anvi'o has a certain heuristic to determine the domain (bacteria/archea/eukaryota) of the MAG and it would use a dedicated collection of single-copy core genes accordingly.
+ - **Red.**: redundancy of single-copy core genes.
+
+We can see that this bin has very high redundancy of single-copy core genes. This is a very strong indication that this bin is highly contaminated. In fact, recent [guidelines set 10% as the highest redundancy that is appropriate to report for a MAG](https://www.nature.com/articles/nbt.3893), with which [we agree]({% post_url 2016-06-09-assessing-completion-and-contamination-of-MAGs %}).
+
+{:.warning}
+While high redundancy of single-copy core genes is a good predictor of contamination, **the lack of redundancy is not an absolute predictor of the lack of contamination**. Read Veronika Klevenson's "[Notes on genome refinement with anvi'o]({% post_url 2017-05-11-anvi-refine-by-veronika %})".
 
 We can click on the redundancy number and see which specific genes are redundant:
 
 [![redundancy_click](images/redundancy_click.png)](images/redundancy_click.png){:.center-img .width-60}
 
-Moreover, if we click on a specific gene name the splits in which it occurs would be highlighted by a red marker outside the outermost circular section of the interactive interface. Let's click on the first one (Ribosomal_S16):
+Moreover, if we click on a specific gene name, anvi'o will highlight with a red mark the splits in which the gene occurs. Let's click on the first one (Ribosomal_S16):
 
 In order to see the highlights better, let's first go back to the "Main" tab (top right of screen), and set some parameters for "Selections". It will make our selections and highlights much more visible:
 
@@ -112,19 +123,15 @@ And now the interactive interface should look like this:
 
 [![redundant_ribosomal](images/redundant_ribosomal.png)](images/redundant_ribosomal.png){:.center-img .width-60}
 
-In order to get an idea of what taxons these copies of Ribosomal protein S16 represent, we can blast the splits in which these genes are found against the NCBI's database.
-This could be easily done from the interactive interface.
-We simply right click on one of these splits, and then a menu such as in the screenshot below will appear:
+In order to get an idea of what taxa these copies of Ribosomal protein S16 represent, we can BLAST the splits in which these genes are found against the NCBI's nr database. This could be done from the interactive interface easily. We simply right click on one of these splits, and then a menu such as in the screenshot below will appear:
 
 [![rightclick](images/rightclick.png)](images/rightclick.png){:.center-img .width-60}
 
-Now, we can either choose one of the "blast" options from below, but I like to choose "Get split sequence".
-Choosing this option will prompt the following screen:
+Now, we can either choose one of the "blast" options from below, but I like to choose "Get split sequence". Choosing this option will prompt the following screen:
 
 [![split_sequence](images/split_sequence.png)](images/split_sequence.png){:.center-img .width-60}
 
-If we click on the sequence inside this window, then the sequence will be highlighted and we can copy and paste it into [balstx](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastx&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome) and run the blastx search (blastx accepts nucleotide sequences as input, translates open reading frames to amino acid sequences and searches NCBI's protein sequences database).
-Depending on the length and content of a split this could be very fast or very slow. In this case it took about XX minutes to get a result and here is a screenshot of the top two hits:
+If we click on the sequence inside this window, then the sequence will be highlighted and we can copy and paste it into [balstx](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastx&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome) and run the blastx search (blastx accepts nucleotide sequences as input, translates open reading frames to amino acid sequences and searches NCBI's protein sequences database). Depending on the length and content of a split this could be very fast or very slow. In this case it took about XX minutes to get a result and here is a screenshot of the top two hits:
 
 [![blast_split1](images/blast_split1.png)](images/blast_split1.png){:.center-img .width-90}
 
@@ -150,13 +157,18 @@ If you click on the "Items order", you can choose from multiple options of items
 
 [![items_order](images/items_order.png)](images/items_order.png){:.center-img .width-60}
 
-You can read more about each of these options in the ["Infant Gut Tutorial"](http://merenlab.org/tutorials/infant-gut/#chapter-i-genome-resolved-metagenomics).
-By default items are organized by a metric that uses both sequence composition and differential coverage. We can see that the dendrogram separates into two major clusters that appear to have distinct differential coverages.
-Let's make two bins with these distinct clusters (pro tip: on Mac, you can use ⌘ + mouse click on a branch to store it in a new bin):
+You can read more about each of these options in the ["Infant Gut Tutorial"](/tutorials/infant-gut/#chapter-i-genome-resolved-metagenomics). By default items are organized by a metric that uses both sequence composition and differential coverage. We can see that the dendrogram separates into two major clusters that appear to have distinct differential coverages. Let's make two bins with these distinct clusters:
+
+{:.warning}
+**Pro tip**. On Mac, you can use ⌘ + mouse click on a branch to store it in a new bin.
 
 [![refine1](images/refine1.png)](images/refine1.png){:.center-img .width-60}
 
-(pro tip: right click on a branch removes it from whatever bin it was in)
+{:.warning}
+**Pro tip**. Right click on a branch removes it from whatever bin it was in.
+
+{:.warning}
+**Sad tip**. The anvi'o interactive interface does not have a CTRL-Z.
 
 We can see that these two clusters correspond to two genomes with very high completion and very low redundancy. As we show below, these genomes belong to the candidate phylum Gracilibacteria (formerly GN02), a member of the Candidate Phyla Radiation (CPR) [this completion estimation is an underestimation](http://merenlab.org/2016/04/17/predicting-CPR-Genomes/#distribution-of-bacterial-single-copy-genes-in-cpr).
 
@@ -169,15 +181,15 @@ But what about those splits that now belong to no bin? We will start with the cl
 The coverage pattern tell us that these splits are covered in samples in which either of these populations occur, so these are likely largely "shared" sequences of these populations, i.e. sequences that recruit short reads from both of these populations.
 So let's check what happens when we add these splits to each of the bins
 
-If we add it to bin1:
+This is what happens if we add it to bin1:
 
 [![orphan2](images/orphan2.png)](images/orphan2.png){:.center-img .width-60}
 
-But if we add it to bin2:
+In contrast, this is what happens if we add it to bin2:
 
 [![orphan3](images/orphan3.png)](images/orphan3.png){:.center-img .width-60}
 
-But the completion and redundancy tell us that these splits fit better in bin2 than in bin1 and hence that is where we decided to put them. These type of choices are common to manual refinement and are never easy to make. The best course of action is to continue to scrutinize the MAGs, as we will show below. But it is also important to remember that getting a "perfect" MAG could be very difficult and maybe even impossible.
+So the completion and redundancy estimates tell us that these splits fit better in bin2 than in bin1. Hence that is where we decided to put them. These type of choices are common to manual refinement and are never easy to make. The best course of action is to continue to scrutinize the MAGs, as we will discuss below. But it is also important to remember that getting a "perfect" MAG could be very difficult, and in some cases may be impossible. It is important to go down the road, but also to remember to not get lost.
 
 What about the remaining splits? When we add these splits to either of the bins, they don't contribute to completion nor to redundancy. The coverage shows that these are sequences that are largely missing from both of these populations, and hence we decided to not add these to either of the bins.
 
@@ -193,14 +205,14 @@ But we don't stop here. Next, we will discuss the various ways in which we scrut
 ## Scrutinizing MAGs with various methods
 
 <blockquote markdown="1">
-_Even though MAGs are powerful tools to discover unknown and unusual things, usually, when you see that a MAG is unusual, you can assume that it is contaminated._
+_Even though metagenome-assembled genomes key to discover unusual things, usually, when you see a MAG that is unusual, your first assumption should be that it is due to contamination._
 
 <div class="blockquote-author">Alon Shaiber</div>
 </blockquote>
 
-In this section we discuss how we use various methods (phylogenomics, pangenomics, ANI, taxonomy of genes and genomes, or basically anything we can put our hands on) to identify contaminated MAGs.
+In this section we discuss how we use various methods, such as phylogenomics, pangenomics, average nucleotide identity (ANI), taxonomy of genes and genomes, and anything else we can put our hands on to try to identify contamination in MAGs.
 
-### Blasting HMM hits of single copy core genes
+### Blasting HMM hits of single-copy core genes
 
 One step we often take when working on MAGs is to export the amino-acid sequences of all the _Campbell et al._ HMM hits and blast these on the NCBI nr database.
 
@@ -268,7 +280,7 @@ anvi-display-pan -p 10_PAN/GN02_UNREFINED/GN02_UNREFINED-PAN.db \
 Ok, there is a lot here, and if you want to learn about all the wonderful information that is presented here, you should refer to the anvi'o [pangenomics tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/).
 We really recommend that you take a look, because there are a lot of things you can learn from a pangenome.
 
-In our case we will focus on just one thing: the single copy core gene clusters.
+In our case we will focus on just one thing: the single-copy core gene clusters.
 So we can first play with the interface to only show things that we are interested in.
 The figure above contains concentric circular section to represent each of the four genomes we used for computing the pangenomes.
 In addition there are 5 additional concentric layers, but we are only interested in the one that is labeled "SCG Clusters".
@@ -310,11 +322,11 @@ And now we can take another look:
 
 [![pangenome1](images/pangenome1.png)](images/pangenome1.png){:.center-img .width-60}
 
-I encircled and added an arrow above to emphesize the single copy core gene clusters (SCGCs).
+I encircled and added an arrow above to emphesize the single-copy core gene clusters (SCGCs).
 The SCGCs are important because we can use these for many things.
 For example, these could be great to use for [phylogeny](http://merenlab.org/2016/11/08/pangenomics-v2/#scrutinizing-phylogenomics).
 But in our case the fact that there are only 8 such gene clusters is a pretty alarming sign that something is wrong.
-A closer examination of the figure above reveals that there are many gene clusters that appear as single copy in the other three genomes, appear as multi-copy in MAG IV.B.
+A closer examination of the figure above reveals that there are many gene clusters that appear as single-copy in the other three genomes, appear as multi-copy in MAG IV.B.
 
 Let's now take a look at the pangenome using the refined genomes:
 
@@ -401,16 +413,16 @@ wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/638/805/GCA_003638805.1_ASM3
 {:.notice}
 Initially we wanted to take a look at the Alloprevotella MAGs from Espinoza _et al_ but later we decided to focus on the CPR genomes that Espinoca et al. reported (GN02 and TM7). Hence, while we did not refine the Alloprevotella MAGs, they were included in our workflow, and accordingly, we include them in the following steps so that repeating these steps would give the exact data the we used.
 
+--- 
 
-## 
+Before we go into refining we wish to take a look at the individual fasta files. To do that we use the contigs database, which allows us to annotate each fasta file and compute some basic statistics such as redundancy and completion based on single-copy core genes.
 
-Before we go into refining we wish to take a look at the individual fasta files. To do that we use the contigs database, which allows us to annotate each fasta file and compute some basic statistics such as redundancy and completion based on single copy core genes.
-
-To sreamline the contigs database creation and annotation, we used `anvi-run-workflow`. This is a tool that is meant to help streamline the analysis steps. For more details regarding `anvi-run-workflow` and the anvi'o worfklows please read [this tutorial](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/)).
+{:.notice}
+**To sreamline the contigs database creation and annotation**, we used `anvi-run-workflow`. This is a tool that is meant to help streamline the analysis steps and make things fully reproducible. For more details regarding `anvi-run-workflow` and other anvi'o worfklows please read [this tutorial]({% post_url 2018-07-09-anvio-snakemake-workflows %})).
 
 ### Generating a merged FASTA file for the MAGs
 
-If you work with your own FASTA file/s and you don't wish to merge them, you can skip this section.
+You can skip this section if you are working with your own FASTA file(s) and you do not wish to merge them.
 
 {:.notice}
 When working with multiple FASTA files you can choose between analysing each separately or concatinating them into a single FASTA file. The main advantage of working with a single FASTA file in our case is that mapping short reads to a single large FASTA file is much faster than mapping reads to multiple smaller files. Depending on your specific data you should decide what's better for your case.
@@ -839,7 +851,7 @@ done
 
 
 In order to compare between the MAGs from the original Espinoza et al publication and our refined MAGs,
-we examined the completion and redundancy values that were generated using the collection of single copy
+we examined the completion and redundancy values that were generated using the collection of single-copy
 core genes from [Campbell _et al_](https://www.pnas.org/content/110/14/5540). These values are included in the bins_summary.txt
 file inside each SUMMARY folder that was created by anvi-summarize.
 
@@ -856,7 +868,7 @@ To bypass this issue, we used the another file that is available in the summary 
 08_SUMMARY/bin_by_bin/TM7_MAG_III_A/TM7_MAG_III_A-Campbell_et_al-hmm-sequences.txt
 ```
 
-This file includes the sequences for all the genes that matched the single copy core genes from [Campbell _et al_](https://www.pnas.org/content/110/14/5540).
+This file includes the sequences for all the genes that matched the single-copy core genes from [Campbell _et al_](https://www.pnas.org/content/110/14/5540).
 We will use the headers of this FASTA file (yes, even though it has a ".txt" suffix, it is a FASTA file), to learn which genes are
 present in TM7_MAG_III_A and with what copy number:
 
@@ -1094,23 +1106,6 @@ anvi-display-pan -p 10_PAN/TM7_REFINED/TM7_REFINED-PAN.db \
                  -g 10_PAN/TM7-REFINED-GENOMES.db
 ```
 
-## FASTA files for refined MAGs
-
-* [GN02_MAG_IV_A_1](http://merenlab.org/data/refining-espinoza-mags/files/GN02_MAG_IV_A_1-contigs.fa); GN02 _MAG IV.A in the original study.
-
-* [GN02_MAG_IV_A_2](http://merenlab.org/data/refining-espinoza-mags/files/GN02_MAG_IV_A_2-contigs.fa); GN02 _MAG IV.A in the original study.
-
-* [GN02_MAG_IV_B_1](http://merenlab.org/data/refining-espinoza-mags/files/GN02_MAG_IV_B_1-contigs.fa); GN02 _MAG IV.B in the original study.
-
-* [GN02_MAG_IV_B_2](http://merenlab.org/data/refining-espinoza-mags/files/GN02_MAG_IV_B_2-contigs.fa); GN02 _MAG IV.B in the original study.
-
-* [TM7_MAG_III_A_1](http://merenlab.org/data/refining-espinoza-mags/files/TM7_MAG_III_A_1-contigs.fa); TM7 MAG III.A in the original study.
-
-* [TM7_MAG_III_A_2](http://merenlab.org/data/refining-espinoza-mags/files/TM7_MAG_III_A_2-contigs.fa); TM7 MAG III.A in the original study.
-
-* [TM7_MAG_III_B_1](http://merenlab.org/data/refining-espinoza-mags/files/TM7_MAG_III_B_1-contigs.fa); TM7 MAG III.B in the original study.
-
-* [TM7_MAG_III_C_1](http://merenlab.org/data/refining-espinoza-mags/files/TM7_MAG_III_C_1-contigs.fa); TM7 MAG III.C in the original study.
 
 <div style="display: block; height: 200px;">&nbsp;</div>
 
