@@ -5,7 +5,7 @@ excerpt: "How to download, process, and combine genomes from NCBI in your phylog
 modified: 2019-03-14
 categories: [anvio]
 comments: true
-authors: [alon]
+authors: [alon, meren]
 ---
 
 {% include _toc.html %}
@@ -31,16 +31,16 @@ If you have GenBank files from other sources than the NCBI, you may want to take
 
 Let's start with a simple example and assume that you wish to download all complete genomes in the genus *Bifidobacterium* from the NCBI and turn them into anvi'o contigs databases. An anvi'o contigs database can be used in many ways and in many different workflows since it is quite a central piece of [all things anvi'o](http://merenlab.org/software/anvio/network/):
 
-![/images/contigs-db-in-network.png](/images/contigs-db-in-network.png){:.center-img .width-60}
+[![contigs-db-in-network](/images/contigs-db-in-network.png)](/images/contigs-db-in-network.png){:.center-img .width-60}
 
-You could download all complete *Bifidobacterium* genomes like this: 
+You could download all complete *Bifidobacterium* genomes like this:
 
 ``` bash
 ncbi-genome-download bacteria \
                      --assembly-level chromosome,complete \
                      --genus Bifidobacterium \
                      --metadata metadata.txt
-``` 
+```
 
 {:.notice}
 Indeed there are many parameters in the help menu of this program for you to explore.
@@ -69,7 +69,7 @@ anvi-run-workflow -w contigs \
 ```
 
 {:.notice}
-Please consider reading the [anvi'o snakemake worklfows](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/) tutorial to see how could you continue with pylogenomic or pangenomic analyses.
+Please consider reading the [anvi'o snakemake worklfows](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/) tutorial to see how you could continue with pylogenomic or pangenomic analyses.
 
 {:.warning}
 The remainder of this example is here only for educational purposes so you have an idea about the raw steps to accomplish things in anvi'o so you can take better advantage of its Lego-like architecture. This is basically to delay your inevitable evolution into those people in WALL-E due to the luxurious convenience of anvi'o snakemake workflows.
@@ -123,7 +123,7 @@ In these more realistic use cases, the helper script [gimme_taxa.py](https://git
 
 Say we have a MAG that we were able to assign to the candidate phylum Gracilibacteria (formerly [GN02](https://aem.asm.org/content/72/5/3685)).
 
-To download all genomes affiliated with Gracilibacteria from the NCBI, we will need a specific TaxID, a unique number that translates to a node in the tree of taxa. In this case the node will be Gracilibacteria, and it will allow us to ask `gimme_taxa.py` to return us all specific IDs for genomes that are under it.
+To download all genomes affiliated with Gracilibacteria from the NCBI, we will need a specific TaxID, a unique number that translates to a node in the tree of taxa. In this case the node will be Gracilibacteria, and it will allow us to ask `gimme_taxa.py` to give us all specific IDs for genomes that are under it.
 
 First, we download the helper script:
 
@@ -164,7 +164,7 @@ parent_taxid	descendent_taxid	descendent_name
 363464	1226339	Gracilibacteria bacterium oral taxon 872
 ```
 
-While this file is important to survey and keep as a report for later, to make it compatible with `ncbi-genome-download` wants, we just need to keep the list of TaxIDs (the descendant taxon ids in this case). For that, you can re-run the helper script this way:
+While this file is important to survey and keep as a report for later, to make it compatible with what `ncbi-genome-download` wants, we just need to keep the list of TaxIDs (the descendant taxon ids in this case). For that, you can re-run the helper script this way:
 
 ```bash
 python gimme_taxa.py Gracilibacteria \
@@ -177,7 +177,7 @@ python gimme_taxa.py Gracilibacteria \
 We can now download all of these genomes:
 
 {:.warning}
-Pro tip: if you want to first see a list of what is going to be downloaded use the `-n` flag for a dry run.
+**Pro tip**: if you want to first see a list of what is going to be downloaded use the `-n` flag for a dry run.
 
 ```bash
 ncbi-genome-download -t GN02-TaxIDs-for-ngd-just-IDs.txt \
@@ -198,9 +198,9 @@ Here is a glimpse to this metadata file:
 
 ```bash
 $ column -t GN02-NCBI-METADATA.txt | head -n 3
-assembly_accession  bioproject   biosample     wgs_master      excluded_from_refseq  refseq_category  relation_to_type_material  taxid            species_taxid  organism_name  infraspecific_name  isolate          version_status   assembly_level                            release_type                              genome_rep       seq_rel_date  asm_name     submitter    gbrs_paired_asm  paired_asm_comp  ftp_path     local_filename
-GCA_000404985.1     PRJNA192474  SAMN02441616  ASNE00000000.1  derived               from             single                     cell             na             1130342        1130342             Gracilibacteria  bacterium        JGI                                       0000069-K10                               strain=JGI       0000069-K10   latest       Contig       Major            Full             2013/06/03   ASM40498v1       DOE          Joint                                                                               Genome                                                                               Institute                                                                            GCF_000404985.1                                                                      identical                                                                            ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/404/985/GCA_000404985.1_ASM40498v1    ./GN02/genbank/bacteria/GCA_000404985.1/GCA_000404985.1_ASM40498v1_genomic.gbff.gz
-GCA_000404725.1     PRJNA192390  SAMN02440944  ASND00000000.1  derived               from             single                     cell             ;              partial        na                  1130343          1130343          Gracilibacteria                           bacterium                                 JGI              0000069-P22   strain=JGI   0000069-P22  latest           Contig           Major        Partial          2013/06/03   ASM40472v1                                                                          DOE                                                                                  Joint                                                                                Genome                                                                               Institute                                                                            na                                                                                   na                                                                                   ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/404/725/GCA_000404725.1_ASM40472v1   ./GN02/genbank/bacteria/GCA_000404725.1/GCA_000404725.1_ASM40472v1_genomic.gbff.gz
+assembly_accession  bioproject   biosample     wgs_master      excluded_from_refseq                      refseq_category  relation_to_type_material  taxid    species_taxid                                 organism_name                                                                  infraspecific_name      isolate                                   version_status   assembly_level  release_type  genome_rep  seq_rel_date  asm_name                       submitter                                         gbrs_paired_asm  paired_asm_comp                                                                     ftp_path                                                                             local_filename
+GCA_000404985.1     PRJNA192474  SAMN02441616  ASNE00000000.1  derived from single cell                  na                                          1130342  1130342                                       Gracilibacteria bacterium JGI 0000069-K10                                      strain=JGI 0000069-K10                                            latest           Contig          Major         Full        2013/06/03    ASM40498v1                     DOE Joint Genome Institute                        GCF_000404985.1  identical                                                                           ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/404/985/GCA_000404985.1_ASM40498v1    ./GN02/genbank/bacteria/GCA_000404985.1/GCA_000404985.1_ASM40498v1_genomic.gbff.gz
+GCA_000404725.1     PRJNA192390  SAMN02440944  ASND00000000.1  derived from single cell ; partial        na                                          1130343  1130343                                       Gracilibacteria bacterium JGI 0000069-P22                                      strain=JGI 0000069-P22                                            latest           Contig          Major         Partial     2013/06/03    ASM40472v1                     DOE Joint Genome Institute                        na               na                                                                                  ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/404/725/GCA_000404725.1_ASM40472v1    ./GN02/genbank/bacteria/GCA_000404725.1/GCA_000404725.1_ASM40472v1_genomic.gbff.gz
 ```
 
 We created a sctipt that takes this metadata file and generates a [fasta.txt](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#fastatxt)
@@ -288,7 +288,7 @@ anvi-script-process-genbank-metadata -m GN02-NCBI-METADATA.txt \
 ```
 
 {:.notice}
-Alternatively you can go rebel and edit the external gene calls files to replace the source `PGAP` with `prodigal`. But you must realize that in some cases this may yield misleading insights. But we can't stop you from doing that.
+Alternatively, you can go rebel and edit the external gene calls files to replace the source `PGAP` with `prodigal`. But you must realize that in some cases this may yield misleading insights. But we can't stop you from doing that.
 
 The output directory would stay the same, but the TXT file `GN02-fasta.txt` now looks like this:
 
@@ -313,7 +313,7 @@ By excluding the external gene calls file from the fasta.txt file, we guarantee 
 
 ### Running snakemake workflows
 
-We generally first run the [contigs workflow](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#contigs-workflow) on these files. You can get a default config file for the contigs workflow as desribed in the anvi'o snakemake tutorial and take a look at all the parameters available to you. But the easiest thing to use would be this config file `CONTIGS-CONFIG.json`:
+We generally first run the [contigs workflow](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#contigs-workflow) on these files. You can get a default config file for the contigs workflow as desribed in the anvi'o snakemake workflow tutorial and take a look at all the parameters available to you. But the easiest thing to use would be this config file `CONTIGS-CONFIG.json`:
 
 ```json
 {
