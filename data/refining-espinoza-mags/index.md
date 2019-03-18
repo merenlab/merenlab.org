@@ -396,14 +396,6 @@ wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/638/935/GCA_003638935.1_ASM3
 wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/638/915/GCA_003638915.1_ASM363891v1/GCA_003638915.1_ASM363891v1_genomic.fna.gz \
     -O 01_FASTA/TM7_MAG_III_C.fa.gz
 
-# Alloprevotella_MAG_II_A (bin_3)
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/639/005/GCA_003639005.1_ASM363900v1/GCA_003639005.1_ASM363900v1_genomic.fna.gz \
-    -O 01_FASTA/Alloprevotella_MAG_II_A.fa.gz
-
-# Alloprevotella_MAG_II_B (bin_4)
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/639/155/GCA_003639155.1_ASM363915v1/GCA_003639155.1_ASM363915v1_genomic.fna.gz \
-    -O 01_FASTA/Alloprevotella_MAG_II_B.fa.gz
-
 # GN02_MAG_IV_A (bin_15)
 wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/638/815/GCA_003638815.1_ASM363881v1/GCA_003638815.1_ASM363881v1_genomic.fna.gz \
      -O 01_FASTA/GN02_MAG_IV_A.fa.gz
@@ -412,9 +404,6 @@ wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/638/815/GCA_003638815.1_ASM3
 wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/638/805/GCA_003638805.1_ASM363880v1/GCA_003638805.1_ASM363880v1_genomic.fna.gz \
      -O 01_FASTA/GN02_MAG_IV_B.fa.gz
 ```
-
-{:.notice}
-Initially we wanted to take a look at the Alloprevotella MAGs from Espinoza et al. but later we decided to focus on the CPR genomes that Espinoca et al. reported (GN02 and TM7). Hence, while we did not refine the Alloprevotella MAGs, they were included in our workflow, and accordingly, we include them in the following steps so that repeating these steps would give the exact data the we used.
 
 --- 
 
@@ -448,8 +437,6 @@ name                     path
 TM7_MAG_III_A            01_FASTA/TM7_MAG_III_A.fa.gz
 TM7_MAG_III_B            01_FASTA/TM7_MAG_III_B.fa.gz
 TM7_MAG_III_C            01_FASTA/TM7_MAG_III_C.fa.gz
-Alloprevotella_MAG_II_A  01_FASTA/Alloprevotella_MAG_II_A.fa.gz
-Alloprevotella_MAG_II_B  01_FASTA/Alloprevotella_MAG_II_B.fa.gz
 GN02_MAG_IV_A            01_FASTA/GN02_MAG_IV_A.fa.gz
 GN02_MAG_IV_B            01_FASTA/GN02_MAG_IV_B.fa.gz
 ```
@@ -535,8 +522,6 @@ This is what ESPINOZA-MAGS-REFORMATTED-FASTA.txt looks like:
 ```bash
 column -t ESPINOZA-MAGS-REFORMATTED-FASTA.txt
 name	path
-Alloprevotella_MAG_II_A	01_FASTA/Alloprevotella_MAG_II_A/Alloprevotella_MAG_II_A-contigs-prefix-formatted-only.fa
-Alloprevotella_MAG_II_B	01_FASTA/Alloprevotella_MAG_II_B/Alloprevotella_MAG_II_B-contigs-prefix-formatted-only.fa
 GN02_MAG_IV_A	01_FASTA/GN02_MAG_IV_A/GN02_MAG_IV_A-contigs-prefix-formatted-only.fa
 GN02_MAG_IV_B	01_FASTA/GN02_MAG_IV_B/GN02_MAG_IV_B-contigs-prefix-formatted-only.fa
 TM7_MAG_III_A	01_FASTA/TM7_MAG_III_A/TM7_MAG_III_A-contigs-prefix-formatted-only.fa
@@ -555,11 +540,11 @@ Here is a glimpse to the resulting `ESPINOZA-MAGS-COLLECTION.txt`:
 
 ```
 column -t  ESPINOZA-MAGS-COLLECTION.txt | head -n 5
-Alloprevotella_MAG_II_A_000000000001  Alloprevotella_MAG_II_A
-Alloprevotella_MAG_II_A_000000000002  Alloprevotella_MAG_II_A
-Alloprevotella_MAG_II_A_000000000003  Alloprevotella_MAG_II_A
-Alloprevotella_MAG_II_A_000000000004  Alloprevotella_MAG_II_A
-Alloprevotella_MAG_II_A_000000000005  Alloprevotella_MAG_II_A
+GN02_MAG_IV_A_000000000001  GN02_MAG_IV_A
+GN02_MAG_IV_A_000000000002  GN02_MAG_IV_A
+GN02_MAG_IV_A_000000000003  GN02_MAG_IV_A
+GN02_MAG_IV_A_000000000004  GN02_MAG_IV_A
+GN02_MAG_IV_A_000000000005  GN02_MAG_IV_A
 ```
 
 In order to have the snakemake workflow use this collection automatically, and generate a summary and split databases, we need a `collections_txt` (as is explained in the `anvi-run-workflow` [tutorial](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#generating-summary-and-split-profiles)).
@@ -765,12 +750,12 @@ AUXILIARY-DATA.db	PROFILE.db		RUNLOG.txt		collection-import.done
 ```bash
 # For each bin a folder is generated inside 07_SPLIT
 ls 07_SPLIT/
-Alloprevotella_MAG_II_A		GN02_MAG_IV_B			TM7_MAG_III_C
-Alloprevotella_MAG_II_B		TM7_MAG_III_A			GN02_MAG_IV_A
+GN02_MAG_IV_B			TM7_MAG_III_C
+TM7_MAG_III_A			GN02_MAG_IV_A
 TM7_MAG_III_B
 
 # Here is an example for one of the split bins:
-ls 07_SPLIT/Alloprevotella_MAG_II_A/
+ls 07_SPLIT/GN02_MAG_IV_A/
 AUXILIARY-DATA.db		PROFILE.db			CONTIGS.db
 ```
 
