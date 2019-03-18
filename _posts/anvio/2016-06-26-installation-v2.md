@@ -70,6 +70,7 @@ anvi-self-test --suite mini
 {:.notice}
 Note that the most up-to-date conda-available anvi'o version, which is currently `v5.4.0`, may differ from the most up-to-date stable anvi'o version, which is `v{% include _project-anvio-version-number.html %}`.
 
+**NOTE:** To activate the anvio conda environment when opening a new terminal window, depending on your conda setup you will either need to enter `source activate anvio5` or `conda activate anvio5` (if you named the conda environment "anvio5", set with the `--name` flag in the above conda commands).
 
 ## Installation (with varying levels of pain)
 

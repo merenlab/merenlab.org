@@ -2,7 +2,5 @@ name	path
 TM7_MAG_III_A	01_FASTA/TM7_MAG_III_A.fa.gz
 TM7_MAG_III_B	01_FASTA/TM7_MAG_III_B.fa.gz
 TM7_MAG_III_C	01_FASTA/TM7_MAG_III_C.fa.gz
-Alloprevotella_MAG_II_A	01_FASTA/Alloprevotella_MAG_II_A.fa.gz
-Alloprevotella_MAG_II_B	01_FASTA/Alloprevotella_MAG_II_B.fa.gz
 GN02_MAG_IV_A	01_FASTA/GN02_MAG_IV_A.fa.gz
 GN02_MAG_IV_B	01_FASTA/GN02_MAG_IV_B.fa.gz
