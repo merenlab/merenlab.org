@@ -19,11 +19,11 @@ redirect_from: /data/refining-espinoza-mags
 
 The tutorial includes **recommendations to streamline your examination of MAGs**, and provides a practical workflow with examples that clarify details of the anvi'o interactive interface. The tutorial broadly covers the following topics:
 
-1. Using **sequence composition** and **differential coverage** to investigate MAGs in detail to identify contamination (including some tips on using the interactive interface effectively).
+1. Using **sequence composition** and **differential coverage** to investigate MAGs in detail to identify contamination (including some tips on using the anvi'o interactive interface effectively).
 2. Using **phylogenomics** to investigate refinement efforts in an evolutionary context.
 3. Using **pangenomics** to study differences between refined and original MAGs.
 
-While these approaches are independent of any particular dataset or study, to demonstrate their efficacy using a real-world dataset, we will use  use some of the key MAGs published by [Espinoza et al](https://mbio.asm.org/content/9/6/e01631-18) using the public data the authors kindly provided. At the end of this document you will find a full description of the commands we run to reproduce all steps we run on Esponoza et al. data.
+While these approaches are independent of any particular dataset or study, to demonstrate their efficacy using a real-world dataset, we will use some of the key MAGs published by [Espinoza et al.](https://mbio.asm.org/content/9/6/e01631-18) using the public data the authors kindly provided. At the end of this document you will find a full description of the commands we run to reproduce all steps we run on Esponoza et al. data.
 
 </div>
 
@@ -35,7 +35,7 @@ While these approaches are independent of any particular dataset or study, to de
 In addition to demonstrate a step-by-step MAG refinement, we wish to contribute to Espinoza et al.'s study by reporting **cleaned verisons of some of their key MAGs that will likely be of great interest to the oral microbiome community due to their originality**. The following list reports the FASTA files for the refined Espinoza et al. MAGs that belong to candidate phyla radiation:
 
 * **Gracilibacteria (formerly GN02)**: [GN02 MAG.IV.B.1](/data/refining-espinoza-mags/files/GN02_MAG_IV_B_1-contigs.fa) and [GN02 MAG.IV.B.2](/data/refining-espinoza-mags/files/GN02_MAG_IV_B_2-contigs.fa) (*refined from Espinoza et al. MAG IV.B*).
-* **Saccharibacteria (formerly TM7)**: [TM7 MAG.III.A.1](/data/refining-espinoza-mags/files/TM7_MAG_III_A_1-contigs.fa) and [TM7 MAG.III.A.2](/data/refining-espinoza-mags/files/TM7_MAG_III_A_2-contigs.fa) (*refined from Espinoza et al. MAG III.A*); [TM7_MAG_III_B_1](/data/refining-espinoza-mags/files/TM7_MAG_III_B_1-contigs.fa) (*refined from Espinoza et al. MAG III.B*). [TM7 MAG.III.C.1](/data/refining-espinoza-mags/files/TM7_MAG_III_C_1-contigs.fa) (*refined from Espinoza et al. MAG III.C*). 
+* **Saccharibacteria (formerly TM7)**: [TM7 MAG.III.A.1](/data/refining-espinoza-mags/files/TM7_MAG_III_A_1-contigs.fa) and [TM7 MAG.III.A.2](/data/refining-espinoza-mags/files/TM7_MAG_III_A_2-contigs.fa) (*refined from Espinoza et al. MAG III.A*); [TM7 MAG III.B.1](/data/refining-espinoza-mags/files/TM7_MAG_III_B_1-contigs.fa) (*refined from Espinoza et al. MAG III.B*). [TM7 MAG.III.C.1](/data/refining-espinoza-mags/files/TM7_MAG_III_C_1-contigs.fa) (*refined from Espinoza et al. MAG III.C*). 
 * **Absconditabacteria (formerly SR1)**: [SR1 MAG.IV.A.1](/data/refining-espinoza-mags/files/SR1_MAG_IV_A_1-contigs.fa) and [SR1 MAG.IV.A.2](/data/refining-espinoza-mags/files/SR1_MAG_IV_A_2-contigs.fa) (*refined from Espinoza et al. MAG IV.A; **Note:** MAG IV.A was annotated as GN2 although a phylogenomic analysis using ribosomal proteins affiliates it with SR1*).
 
 </div>
@@ -52,14 +52,14 @@ So you’ve constructed MAGs, and would like to see if there are opportunities f
 
 We will walk through this analysis using a specific set of **genomes** and **metagenomes**, but you can simply replace these data with yours and follow the same workflow. All you need is this: one or more FASTA files and one or more metagenomes.
 
-If you don't have your own data to analyze, but still wish to follow the step by step instructions you can find [detailed instructions](#setting-the-stage) below to simply download the data we used in this tutorial.
+If you don't have your own data to analyze, but still wish to follow the step by step instructions, you can find [detailed instructions](#setting-the-stage) below to simply download the data we used in this tutorial.
 
 ## Taking a first look at your MAG
 
 {:.notice}
 At this point in the tutorial, we assume that you have an anvi'o profile database and a contigs database for each MAG you wish to analyze. These are standard file formats anvi'o use to store and read data after processing your FASTA files and your read recruitment results. Generating these files are fairly straightforward and they immediately lend themselves to a [myriad of other types of analyses](/software/anvio/network/) beyond refining your MAGs. You can refer to the instructions at the bottom of this post if you wish to get to this point with FASTA files for your own MAGs and metagenomes from which you recovered them.
 
-The first step is to take a look at the MAG in the interactive interface using the anvi'o profile and contigs databases. Here we used anvi'o *split profiles* to manually refine each MAG (generation of which explained at the end of this post). Here is an example way to initiate the interactive interface for one of those:
+The first step is to take a look at the MAG in the interactive interface using the anvi'o profile and contigs databases. Here we used anvi'o *split profiles* to manually refine each MAG (generation of which is explained at the end of this post). Here is an example way to initiate the interactive interface for one of those:
 
 ```bash
 anvi-interactive -p 07_SPLIT/GN02_MAG_IV_B/PROFILE.db \
@@ -93,7 +93,7 @@ You can then move to the "Bins" tab (top left), you can see some real-time stats
 
 [![tab_bins](images/tab_bins.png)](images/tab_bins.png){:.center-img .width-60}
 
-Once you click the "Bins" tab and you choose all the splits (just choosing the two branches that come out of the root should do it), you interface should look like this:
+Once you click the "Bins" tab and you choose all the splits (just choosing the two branches that come out of the root should do it), your interface should look like this:
 
 [![bins_tab_all_splits](images/bins_tab_all_splits.png)](images/bins_tab_all_splits.png){:.center-img .width-60}
 
@@ -131,18 +131,18 @@ Now, we can either choose one of the "blast" options from below, but I like to c
 
 [![split_sequence](images/split_sequence.png)](images/split_sequence.png){:.center-img .width-60}
 
-If we click on the sequence inside this window, then the sequence will be highlighted and we can copy and paste it into [balstx](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastx&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome) and run the blastx search (blastx accepts nucleotide sequences as input, translates open reading frames to amino acid sequences and searches NCBI's protein sequences database). Depending on the length and content of a split this could be very fast or very slow. In this case it took about XX minutes to get a result and here is a screenshot of the top two hits:
+If we click on the sequence inside this window, then the sequence will be highlighted and we can copy and paste it into [balstx](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastx&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome) and run the blastx search (blastx accepts nucleotide sequences as input, translates open reading frames to amino acid sequences and searches NCBI's protein sequences database). Depending on the length and content of a split this could be very fast or very slow. In this case it took about 10 minutes to get a result and here is a screenshot of the top two hits:
 
 [![blast_split1](images/blast_split1.png)](images/blast_split1.png){:.center-img .width-90}
 
-The top hit is to the original MAG published by _Espinoza et al_ so that is of no interest.
-The second hit is to a Gracilibacteria genome [HOT-871](https://www.ncbi.nlm.nih.gov/genome/?term=txid1540872[Organism:noexp]) from a study by [_Jouline et al_](http://grantome.com/grant/NIH/R01-DE024463-04).
+The top hit is to the original MAG published by Espinoza et al. so that is of no interest.
+The second hit is to a Gracilibacteria genome [HOT-871](https://www.ncbi.nlm.nih.gov/genome/?term=txid1540872[Organism:noexp]) from a study by [Jouline et al.](http://grantome.com/grant/NIH/R01-DE024463-04).
 
 We repeat this process for the other split that contains a copy of Ribosomal protein S16, and here is the top hit.
 
 [![blast_split2](images/blast_split2.png)](images/blast_split2.png){:.center-img .width-90}
 
-Again the top hit is to the original genome from _Espinoza et al_, but the second hit is to a different Gracilibacteria genome [HOT-872](https://www.ncbi.nlm.nih.gov/genome/?term=txid1912928[Organism:noexp]) which is also from the study by [_Jouline et al_](http://grantome.com/grant/NIH/R01-DE024463-04).
+Again the top hit is to the original genome from Espinoza et al., but the second hit is to a different Gracilibacteria genome [HOT-872](https://www.ncbi.nlm.nih.gov/genome/?term=txid1912928[Organism:noexp]) which is also from the study by [Jouline et al.](http://grantome.com/grant/NIH/R01-DE024463-04).
 
 So the two copies of the genes likely both represent populations from the candidate phylum Gracilibacteria (formerly GN02), but blast tells us that they hit different genomes.
 In addition, we can see that these copies of Ribosomal protein S16 occur in two sides of the figure that represent very distinct sections of the organizing dendrogram in the middle. This is a good sign that tells us refinement is going to be easy and effective.
@@ -151,7 +151,7 @@ Ok, so now it is time to talk about that dendrogram in the middle.
 
 ## Refining using sequence composition and differential coverage
 
-The dendrogram in the middle organizes the items of the interactive. In this case the items represent splits.
+The dendrogram in the middle organizes the items of the interactive interface. In this case the items represent splits.
 
 If you click on the "Items order", you can choose from multiple options of items orders:
 
@@ -170,7 +170,7 @@ You can read more about each of these options in the ["Infant Gut Tutorial"](/tu
 {:.warning}
 **Sad tip**. The anvi'o interactive interface does not have a CTRL-Z.
 
-We can see that these two clusters correspond to two genomes with very high completion and very low redundancy. As we show below, these genomes belong to the candidate phylum Gracilibacteria (formerly GN02), a member of the Candidate Phyla Radiation (CPR) [this completion estimation is an underestimation](http://merenlab.org/2016/04/17/predicting-CPR-Genomes/#distribution-of-bacterial-single-copy-genes-in-cpr).
+We can see that these two clusters correspond to two genomes with very high completion and very low redundancy. As we show below, these genomes belong to the candidate phylum Gracilibacteria (formerly GN02), a member of the Candidate Phyla Radiation (CPR), and hence [this completion estimation is an underestimation](http://merenlab.org/2016/04/17/predicting-CPR-Genomes/#distribution-of-bacterial-single-copy-genes-in-cpr).
 
 So here we are, we took just a few fairly easy steps and we have already improved these genomes A LOT!
 
@@ -198,14 +198,14 @@ So here are the final bins (now with nicer names too. You can change the names o
 [![refine_final](images/refine_final.png)](images/refine_final.png){:.center-img .width-60}
 
 
-We repeated this refinement process for the rest of the _Espinoza et al_ CPR bins (GN02_MAG_IV_A TM7_MAG_III_A TM7_MAG_III_B TM7_MAG_III_C), to get refined MAGs (to get these refinement results go to [the section below](http://localhost:4000/data/refining-espinoza-mags/#getting-finalized-views-and-statistics-for-the-genomes-we-refined)).
+We repeated this refinement process for the rest of the Espinoza et al. CPR bins (GN02 MAG IV.A TM7 MAG III.A TM7 MAG III.B TM7 MAG III.C), to get refined MAGs (to get these refinement results go to [the section below](http://localhost:4000/data/refining-espinoza-mags/#getting-finalized-views-and-statistics-for-the-genomes-we-refined)).
 
 But we don't stop here. Next, we will discuss the various ways in which we scrutinize our MAGs.
 
 ## Scrutinizing MAGs with various methods
 
 <blockquote markdown="1">
-_Even though metagenome-assembled genomes key to discover unusual things, usually, when you see a MAG that is unusual, your first assumption should be that it is due to contamination._
+_Even though metagenome-assembled genomes (MAGs) are key to discover unusual things, usually, when you see a MAG that is unusual, your first assumption should be that it is due to contamination._
 
 <div class="blockquote-author">Alon Shaiber</div>
 </blockquote>
@@ -214,7 +214,7 @@ In this section we discuss how we use various methods, such as phylogenomics, pa
 
 ### Blasting HMM hits of single-copy core genes
 
-One step we often take when working on MAGs is to export the amino-acid sequences of all the _Campbell et al._ HMM hits and blast these on the NCBI nr database.
+One step we often take when working on MAGs is to export the amino-acid sequences of all the Campbell et al. HMM hits and blast these on the NCBI nr database.
 
 In this case, we already blasted a split from each of the refined MAGs (see above), and so we skipped this step, but I still wanted to put this note here in case you want to do it.
 
@@ -233,12 +233,15 @@ We can use the output FASTA file to blast on NCBI (which we didn't, but _you_ ca
 ### Phylogeny with some genomes from NCBI
 
 Earlier we blasted sequences from each of the refined MAGs, which gave us the idea that these MAGs belong to Candidatus Gracilibacteria.
-To gain more confidence in this taxonomic assignment we will copmute a phylogenetic tree.
+To gain more confidence in this taxonomic assignment we will compute a phylogenetic tree.
 In addition, a phylogenetic analysis is a good way to see things that seem out of the ordinary.
 For example, if your MAG branches far away from other genomes, it could be that there is nothing closely related to it on NCBI (yay for you!),
-but often it could mean that the sequences you used for phylogeny originate from various populations, namely, you MAG is contaminated (boo!).
+but often it could mean that the sequences you used for phylogeny originate from various populations, namely, your MAG is contaminated (boo!).
 
-We downloaded some genomes that belong to each of the phyla that these CPR MAGs belong to (we included the tow Gracilibateria genomes from _Jouline et al_ that we mentioned before).
+We downloaded some genomes that belong to each of the phyla that these CPR MAGs belong to (we included the two Gracilibateria genomes from Jouline et al. that we mentioned before).
+
+{:.warning}
+To read about how we usually go about getting genomes for such phylogenomic and pangenomic analyses, you can refer to [this blogpost](http://merenlab.org/2019/03/14/ncbi-genome-download-magic/)
 
 To see the details of how we generated this phylogeny you can refer to the [section below](#computing-phylogeny).
 
@@ -258,7 +261,7 @@ We also made some manual selections to highlight the MAGs we refined and we get:
 
 [![phylogeny](images/phylogeny.png)](images/phylogeny.png){:.center-img .width-60}
 
-The fact that the MAGs we refined from the _Espinoza et al_ MAG IV.A and MAG IV.B each have a very closely related genome from an independent study is a good sign that these are good quality genomes.
+The fact that the MAGs we refined from the Espinoza et al. MAG IV.A and MAG IV.B each have a very closely related genome from an independent study is a good sign that these are good quality genomes.
 On the other hand, lack of closely related genomes for the TM7 genomes doesn't necessarily mean anything.
 
 ### Comparing pagenomes using refined and unrefined MAGs
@@ -300,11 +303,11 @@ We can also change which information is shown. I changed the values to these:
 
 [![layer_height](images/layer_height.png)](images/layer_height.png){:.center-img .width-60}
 
-We can also change the organization of the gene-clusters (namely the organizing dendrogram at the middle of the figure):
+In addition, in the "Main" tab, we can change the organization of the gene-clusters (namely the organizing dendrogram at the middle of the figure):
 
 [![pan_items_order](images/pan_items_order.png)](images/pan_items_order.png){:.center-img .width-60}
 
-By default the data the is shown is the presence/absence of each gene cluster in each genome,
+By default, the data is shown as presence/absence of each gene cluster in each genome,
 but in this case we want to see how many copies of each gene cluster are in each genome.
 So we change the "View":
 
@@ -314,7 +317,7 @@ We want the maximum value to be the same for each layer, so we adjust the "Max":
 
 [![pan_max_value](images/pan_max_value.png)](images/pan_max_value.png){:.center-img .width-60}
 
-Lastly, I changed the color of the layer representing our genome of interest to highlight it:
+Lastly, I changed the color of the layer representing our genome-of-interest to highlight it:
 
 [![layer_color](images/layer_color.png)](images/layer_color.png){:.center-img .width-60}
 
@@ -326,21 +329,21 @@ I encircled and added an arrow above to emphesize the single-copy core gene clus
 The SCGCs are important because we can use these for many things.
 For example, these could be great to use for [phylogeny](http://merenlab.org/2016/11/08/pangenomics-v2/#scrutinizing-phylogenomics).
 But in our case the fact that there are only 8 such gene clusters is a pretty alarming sign that something is wrong.
-A closer examination of the figure above reveals that there are many gene clusters that appear as single-copy in the other three genomes, appear as multi-copy in MAG IV.B.
+A closer examination of the figure above reveals that there are many gene clusters that appear as single-copy in the other three genomes, but as multi-copy in MAG IV.B.
 
 Let's now take a look at the pangenome using the refined genomes:
 
 [![pangenome2](images/pangenome2.png)](images/pangenome2.png){:.center-img .width-60}
 
-We can see that there are now many more SCGCs (there are 128 such gene clusters a 1,600% increase compared to earlier).
+We can see that there are now many more SCGCs (there are 128 such gene clusters, a 1,600% increase compared to earlier).
 
 ## Summary
 
-Here we presented some steps you can take if you want to examine some genomes using metagenomes.
+Here we presented steps you can take if you want to examine some genomes using metagenomes.
 
 There are many more things that could be done, and we will try to extend this tutorial in the future.
 
-The bottom line is that it is that we strongly encourage to explore MAGs in various ways.
+The bottom line is that we strongly encourage to explore MAGs in various ways.
 
 ## Reproducible workflow
 
@@ -352,7 +355,7 @@ This section explains how to download the metagenomes and MAGs from the original
 Downloading this data would allow you to follow this post step by step and get the final results we got.
 Alternatively, you can skip this part, and apply the approach we describe to your own data._
 
-#### Downloading the Espinoza _et al_ metagenomes
+#### Downloading the Espinoza et al. metagenomes
 
 You can download raw Illumina paired-end seqeuncing data files for the 88 supragingival plaque samples into your work directory the following way:
 
@@ -373,7 +376,7 @@ for SRR_accession in `cat SRR_list.txt`; do
 
 Once the download is finished, you should have 196 FASTQ files in your `01_RAW_FASTQ` directory, representing the paired-end reads of 88 metagenomes.
 
-#### Downloading key MAGs from Espinoza _et al_
+#### Downloading key MAGs from Espinoza et al.
 
 In our reanalysis we only focused on some of the key MAGs that represented understudied lineages in the oral cavity. You can download these FASTA files from the NCBI GenBank in the following way:
 
@@ -411,7 +414,7 @@ wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/638/805/GCA_003638805.1_ASM3
 ```
 
 {:.notice}
-Initially we wanted to take a look at the Alloprevotella MAGs from Espinoza _et al_ but later we decided to focus on the CPR genomes that Espinoca et al. reported (GN02 and TM7). Hence, while we did not refine the Alloprevotella MAGs, they were included in our workflow, and accordingly, we include them in the following steps so that repeating these steps would give the exact data the we used.
+Initially we wanted to take a look at the Alloprevotella MAGs from Espinoza et al. but later we decided to focus on the CPR genomes that Espinoca et al. reported (GN02 and TM7). Hence, while we did not refine the Alloprevotella MAGs, they were included in our workflow, and accordingly, we include them in the following steps so that repeating these steps would give the exact data the we used.
 
 --- 
 
@@ -852,10 +855,10 @@ done
 
 In order to compare between the MAGs from the original Espinoza et al publication and our refined MAGs,
 we examined the completion and redundancy values that were generated using the collection of single-copy
-core genes from [Campbell _et al_](https://www.pnas.org/content/110/14/5540). These values are included in the bins_summary.txt
+core genes from [Campbell et al.](https://www.pnas.org/content/110/14/5540). These values are included in the bins_summary.txt
 file inside each SUMMARY folder that was created by anvi-summarize.
 
-The following file includes the completion and redundancy for the original MAGs from Espinoza _et al_:
+The following file includes the completion and redundancy for the original MAGs from Espinoza et al.:
 
 ```bash
 08_SUMMARY/bins_summary.txt
@@ -868,7 +871,7 @@ To bypass this issue, we used the another file that is available in the summary 
 08_SUMMARY/bin_by_bin/TM7_MAG_III_A/TM7_MAG_III_A-Campbell_et_al-hmm-sequences.txt
 ```
 
-This file includes the sequences for all the genes that matched the single-copy core genes from [Campbell _et al_](https://www.pnas.org/content/110/14/5540).
+This file includes the sequences for all the genes that matched the single-copy core genes from [Campbell et al.](https://www.pnas.org/content/110/14/5540).
 We will use the headers of this FASTA file (yes, even though it has a ".txt" suffix, it is a FASTA file), to learn which genes are
 present in TM7_MAG_III_A and with what copy number:
 
