@@ -16,7 +16,7 @@ image:
 {% include _project-anvio-version.html %}
 
 {: .notice}
-Some parts of this article may require anvi'o `v5` or later. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal.
+Contents of this article requires anvi'o `v5` or later. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal.
 
 {: .notice}
 Guy Leonard has made a script to download any of the BUSCO HMM collections and automatically convert them into Anvi'o ready versions. The script and an example of usage can be found [here](https://github.com/guyleonard/busco_hmms_for_anvio).  
@@ -29,45 +29,7 @@ This post describes a collection of 83 single-copy core genes I curated from [BU
 
 While anvi'o comes with reference single-copy core gene collections to assess completion and redundancy of bacterial and archaeal bins, until `v5`, it did not include any collection for viruses and eukaryotes. This is a limiting factor for anvi'o users who are interested in [the genome-resolved metagenomics workflow](http://merenlab.org/2016/06/22/anvio-tutorial-v2/) to study domains of life beyond Bacteria and Archaea.
 
-Fortunately, it is easy to [incorporate new HMM models](http://merenlab.org/2016/05/21/archaeal-single-copy-genes/) into anvi'o to search for particular gene families of interest.
-
-Here I simply used this opportunity to curate a collection of eukaryotic single-copy core genes for anvi'o using the __BUSCO__ database. This led to a promising (yet preliminary) collection of 83 single-copy core genes for eukaryotes "ready-to-be-used" from within anvi'o (which is currently available in the `master` reposotory, and will be included in the `v5` version by default):
-
-[https://github.com/merenlab/anvio/tree/master/anvio/data/hmm/BUSCO_85_Protista/](https://github.com/merenlab/anvio/tree/master/anvio/data/hmm/BUSCO_85_Protista/)
-
-
-<div class="extra-info" markdown="1">
-
-<span class="extra-info-header">Using `BUSCO_83_Protista` with anvi'o `v4`</span>
-
-This collection will be available by default in anvi'o `v5`, however, if you would like to use it with anvi'o `v4`, you still can do it. For that, first download and unpack the archive:
-
-```
-# download
-wget http://merenlab.org/files/BUSCO_83_Protista.tar.gz
-
-# unpack
-tar -zxvf BUSCO_83_Protista.tar.gz
-```
-
-If you already have an anvi'o contigs database for your project, you can add this new set of HMMs the following way:
-
-```
-anvi-run-hmms -c CONTIGS.db -H /PATH/TO/BUSCO_83_Protista/
-```
-
-Once this is done, the results will be immediately available to you in real-time completion estimates in the interactive interface, and when you use [anvi'o command line programs](http://merenlab.org/software/anvio/vignette/) that estimate completion/redundancy of genome bins:
-
-If you simply have a FASTA file, then you can follow these steps to first create a contigs database, and then estimate completion quickly:
-
-```
-anvi-gen-contigs-database -f FASTA.file -o CONTIGS.db
-anvi-run-hmms -c CONTIGS.db -H /PATH/TO/BUSCO_83_Protista/
-anvi-compute-completeness -c CONTIGS.db --completeness-source BUSCO_83_Protista
-```
-
-</div>
-
+Fortunately, it is easy to [incorporate new HMM models](http://merenlab.org/2016/05/21/archaeal-single-copy-genes/) into anvi'o to search for particular gene families of interest. Here I simply used this opportunity to curate a collection of eukaryotic single-copy core genes for anvi'o using the __BUSCO__ database. This led to a promising (yet preliminary) [collection](https://github.com/merenlab/anvio/tree/master/anvio/data/hmm/BUSCO_83_Protista/) of 83 single-copy core genes that installs with anvi'o since version `v5`.
 
 ## BUSCO: Benchmarking Universal Single-Copy Orthologs
 
