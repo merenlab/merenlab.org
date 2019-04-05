@@ -82,7 +82,7 @@ Because we haven't provided any specific organization, anvi'o organizes all samp
 If you press `m` on your keyboard, you can toggle the information window on that would show you the actual data points under your mouse pointer.
 
 {:.warning}
-Once you are done looking at an interactive display and would like to run more commands on your terminal, you should close the browser tab, and kill the server by pressing `CTRL+C` key combination in your terminal.
+Once you are done looking at an interactive display and would like to continue running more commands, you should close the browser tab and kill the server by pressing `CTRL+C` key combination in your terminal.
 
 ## Organizing items
 
