@@ -16,7 +16,7 @@ categories: [anvio]
 The contents of this post will only work with anvi'o `v5` and snakemake `v4` or later.
 
 {:.warning}
-{% include _fixthispage.html source="anvio/2018-07-09-anvio-snakemake-workflows.md" %}
+{% include _fixthispage.html source="_posts/anvio/2018-07-09-anvio-snakemake-workflows.md" %}
 
 {% include _join-anvio-slack.html %}
 
