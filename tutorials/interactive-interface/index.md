@@ -300,7 +300,7 @@ You can import this visual display into your version by downloading the anvi'o s
 
 ``` bash
  $ wget http://merenlab.org/tutorials/interactive-interface/files/pretty-state.json
- $ anvi-import-state -p PROFILE.db -s pretty-state.json -n default
+ $ anvi-import-state -p profile.db -s pretty-state.json -n default
 ```
 
 Now you can re-run your interface, and you will have it, too:
