@@ -458,4 +458,4 @@ It is Tom's. But you can always enter a [bug report](https://github.com/meren/an
 
 ### There is something in this tutorial I want to fix
 
-{% include _fixthispage.html source="anvio/2016-06-22-anvio-tutorial-v2.md" %}
+{% include _fixthispage.html source="_posts/anvio/2016-06-22-anvio-tutorial-v2.md" %}

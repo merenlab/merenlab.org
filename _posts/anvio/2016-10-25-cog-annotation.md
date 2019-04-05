@@ -20,7 +20,7 @@ This is different than [importing functions into anvi'o]({% post_url anvio/2016-
 {% include _toc.html %}
 
 {:.notice}
-{% include _fixthispage.html source="anvio/2016-11-25-cog-annotation.md" %}
+{% include _fixthispage.html source="_posts/anvio/2016-11-25-cog-annotation.md" %}
 
 ## Annotating an anvi'o contigs database with COGs
 

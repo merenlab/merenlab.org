@@ -21,7 +21,7 @@ This pangenomic workflow is for anvi'o version `2.1.0` and later versions of anv
 We have changed all instances of the term '**protein cluster**' in our pangenomic workflow to '**gene cluster**' in anvi'o `v4`. The reason behind this change is detailed [here](https://github.com/merenlab/anvio/issues/644).
 
 {:.notice}
-{% include _fixthispage.html source="anvio/2016-11-08-pangenomics-v2.md" %}
+{% include _fixthispage.html source="_posts/anvio/2016-11-08-pangenomics-v2.md" %}
 
 {% capture images %}{{site.url}}/images/anvio/2016-11-08-pan-genomics{% endcapture %}
 

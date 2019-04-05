@@ -113,7 +113,7 @@ Every layer represents a visit, and `M` and `GG` postfixes in sample names mark 
 ## Playing with data using anvi'o
 
 {:.notice}
-{% include _fixthispage.html source="anvio/3000-01-01-template.md" %}
+{% include _fixthispage.html source="_posts/anvio/3000-01-01-template.md" %}
 
 So what are these profiles good for? What can one do with an anvi'o merged profile?
 
