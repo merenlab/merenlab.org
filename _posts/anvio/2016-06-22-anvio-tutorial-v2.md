@@ -341,10 +341,8 @@ You can use `anvi-export-collection` to export collection information and import
 You can use `anvi-show-collections-and-bins` to see all available collections and bins in an anvi'o profile or pan database.
 
 {:.notice}
-You can use `anvi-estimate-genome-completeness` to see completion and redundancy estimates for all bins in a given anvi'o collection.
+You can use `anvi-script-get-collection-info` to see completion and redundancy estimates for all bins in a given anvi'o collection.
 
-{:.warning}
-The program `anvi-estimate-genome-completeness` was called `anvi-script-get-collection-info` in anvi'o versions `v5.4` and earlier.
 
 ### anvi-interactive
 
@@ -371,7 +369,7 @@ This will work perfectly **if your merged profile has its own trees** (i.e., the
 If there are no clusterings available in your profile database `anvi-interactive` will complain about the fact that it can't visualize your profile. But if you have an anvi'o collection stored in your profile database, you can run the interactive interface in **collection mode**. If you are not sure whether you have a collection or not, you can see all available collections using this command:
 
 ``` bash
-$ anvi-estimate-genome-completeness -p SAMPLES-MERGED/PROFILE.db -c contigs.db --list-collections
+$ anvi-script-get-collection-info -p SAMPLES-MERGED/PROFILE.db -c contigs.db --list-collections
 ```
 
 Once you know the collection you want to work with, you can use this notation to visualize it:
@@ -408,7 +406,7 @@ This functionality will not be available to you if you are using anvi'o `v3` or 
 A *collection* represents one or more bins with one or more contigs. Collections are stored in anvi'o databases can be imported from the results of external binning software, or saved through the anvi-interactive interface after a human-guided binning effort. Once you have a collection, you can *summarize* it using `anvi-summarize`.
 
 {:.notice}
-If you don't know what collections and bins are available in a profile database, you can use the program `anvi-show-collections-and-bins`, and if you would like to get a very quick list of completion estimates for your bins in a collection, you can use the program `anvi-estimate-genome-completeness`.
+If you don't know what collections and bins are available in a profile database, you can use the program `anvi-show-collections-and-bins`, and if you would like to get a very quick list of completion estimates for your bins in a collection, you can use the program `anvi-script-get-collection-info`.
 
 The result of `anvi-summarize` is a static HTML output that you can visualize in your browser, send to your colleagues, put on your web page (an example from one of our papers is [here](http://anvio.org/data/INFANT-CLC-SUMMARY-SUPERVISED/)), or attach to your submission as a supplementary data for review. When you run `anvi-summarize`,
 
