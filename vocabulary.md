@@ -94,6 +94,10 @@ From a computational standpoint, the term pangenome broadly refers to the entire
 
 The family of computational strategies that determine the pangenome and make it accessible as a framework to study relationships between a set of genomes through gene clusters.
 
+### Phylogenomics
+
+The practice of inferring evolutionary history and relationships between different organisms, based on genomic differences across multiple conserved genes.
+
 ### Gene cluster
 
 Fundamental units of pangenomes which appear in the literature also as ‘protein clusters’, ‘orthogroups’, ‘groups of orthologous genes’, or ‘operational protein families’ (and they should not be confused with biosynthetic gene clusters which describe functionally related genes that belong to the same operon in a single chromosome).
@@ -116,6 +120,14 @@ Where 'meta' indicates that we apply our analysis across all populations in a gi
 A nucleotide position where the identity of all bases mapping to this position varies (beyond the expected rate of sequencing error).
 
 SNVs are characterized by (1) the position in the reference sequence where the difference occurs, and (2) a frequency vector that quantifies the frequency of nucleotide identities that mapped onto that position. See [this page](http://merenlab.org/2015/07/20/analyzing-variability/#single-nucleotide-variants) for a lengthier discussion of SNVs. Also see the definition of single-codon variant and single-amino acid variant.
+
+### Completion
+
+An estimate of how completely a bin of contigs covers a full genome, based on the number of different bacterial single-copy core genes (BSCGs) can be found in the bin. BSCGs are a set of genes that we think should be present in all bacterial genomes (and by we, we mean scientists who study bacterial genomes). So theoretically, the higher the percentage of BSCGs found in your bin, the more likely that bin represents a complete genome. In practice, of course, this is just an assumption we make, and [it's hard to get 100% completeness] (http://merenlab.org/2016/06/09/assessing-completion-and-contamination-of-MAGs/).
+
+### Redundancy
+
+A measure of how many copies of each bacterial single-copy core gene (BSCG) are in a bin of contigs. Usually, we expect to have only one copy of each of these genes (that's why they're called 'single-copy'), and for this reason, redundancy of BSCGs is commonly used as an estimate of contamination (ie, it indicates that more than one genome may be represented in the bin). However, it could be that the bin is not contaminated, and the bacterial genome in question just has several copies of some BSCGs. So we prefer not to draw conclusions about contamination right away. Want to know more? See [this page] (http://merenlab.org/2016/06/09/assessing-completion-and-contamination-of-MAGs/).
 
 ## All things anvi'o
 
