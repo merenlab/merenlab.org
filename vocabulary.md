@@ -61,7 +61,7 @@ The ratio of all 4-nucleotide words in a given contig. The tetra-nucleotide freq
 
 ### Metagenome-assembled genome (MAG)
 
-A genome bin that meets certain quality requirements and can be assumed to reprsent Contigs from one bin of a metagenome, which collectively represent the DNA of (what we think is) a single population.
+A genome bin that meets certain quality requirements and can be assumed to reprsent contigs from one bin of a metagenome, which collectively represent the DNA of (what we think is) a single population.
 
 ### Population
 
@@ -111,7 +111,7 @@ Where 'meta' indicates that we apply our analysis across all populations in a gi
 
 </div>
 
-Single-nucleotide variant (SNV)
+### Single-nucleotide variant (SNV)
 
 A nucleotide position where the identity of all bases mapping to this position varies (beyond the expected rate of sequencing error).
 
@@ -135,7 +135,7 @@ Every concentric circle in anvi'o interactive interfaces (in radial display mode
 
 ### Item
 
-Data points shown in layers. Items can be a lot of things in anvi'o: they will be splits in metagenomic mode, genes in gene mode, gene clusters in pangenome mode, or genome bins in collections more.
+Data points shown in layers. Items can be a lot of things in anvi'o: they will be splits in metagenomic mode, genes in gene mode, gene clusters in pangenome mode, or genome bins in collections mode.
 
 ### Parent layer
 
@@ -143,7 +143,7 @@ The special layer in anvi'o interactive interfaces that describe which splits be
 
 ### Items organization
 
-The center piece of an anvi'o interactive display that organizes items. It could be a hierarchical clustering dendrogram based on an anvi'o clustering configuration, or a user provided phylogenetic tree. These organizations can also utilize alphabetical orders, or additional user-provided layers.
+The center piece of an anvi'o interactive display that organizes items. It could be a hierarchical clustering dendrogram based on an anvi'o clustering configuration, or a user-provided phylogenetic tree. These organizations can also utilize alphabetical orders, or additional user-provided layers.
 
 ### Clustering configuration
 
@@ -184,7 +184,7 @@ A text file containing taxonomy information for your genes that you obtained fro
 
 ### Collection
 
-A virtual construct to store bins of items in an anvi'o profile database. Each collection contains one or more bins, and each bin contains one or more items. These items can be gene clusters, contigs, or ther things depending on the display mode.
+A virtual construct to store bins of items in an anvi'o profile database. Each collection contains one or more bins, and each bin contains one or more items. These items can be gene clusters, contigs, or other things depending on the display mode.
 
 ### Single-codon variant (SCV)
 
