@@ -1023,6 +1023,17 @@ This note is here mainly for documentation of the code, and for those of you who
 
 </div>
 
+## The MAX THREADS parameter
+
+While `resources` allows you to limit the cummulative number of threads used by all rules, the "max_threads" allows you to limit the maximum number of threads used by any individual rule.
+For a discussion on why this feature was added refer to [this github issue](https://github.com/merenlab/anvio/issues/1015).
+
+For example add this to your config file to limit the max number of threads for ANY rule to 10:
+
+```bash
+    "max_threads": 10
+```
+
 # The ADDITIONAL PARAMS option
 
 
