@@ -92,6 +92,7 @@ The study of environmental metagenomes.
 
 From a computational standpoint, the term pangenome broadly refers to the entire collection of genes found in two or more genomes.
 
+{:data-tags="pangenomics,pan"}
 ### Pangenomics
 
 The family of computational strategies that determine the pangenome and make it accessible as a framework to study relationships between a set of genomes through gene clusters.
@@ -213,3 +214,4 @@ Differences between mapped reads at the amino acid residue level. See [this page
 {% include _fixthispage.html source="vocabulary.md" %}
 
 {% include _join-anvio-slack.html %}
+{% include _tag-words.html %}
