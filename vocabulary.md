@@ -41,6 +41,8 @@ In the context of metagenomics, read recruitment allows one to estimate the cove
 
 Average number of sequencing reads that map to each nucleotide posotion in a reference. Also known as 'depth of coverage'.
 
+![coverage](../images/momics/coverage.gif)
+
 ### Contig
 
 A contiguous segment of DNA that is often 'assembled' from short sequencing reads, but still represents only a fraction of the longer context to which it belongs.
