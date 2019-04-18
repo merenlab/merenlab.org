@@ -38,7 +38,7 @@ Include attribute to heading tags like below, comma seperated, case-insensitive.
               let postText = document.createTextNode(node.nodeValue.slice(start + wordLower.length, contentLower.length));
               let link = document.createElement('a');
               link.setAttribute('href', '#' + tag.target);
-              link.innerHTML = tag.word;
+              link.innerHTML = node.nodeValue.slice(start, start + wordLower.length);
 
               p.insertBefore(preText , node);
               p.insertBefore(link    , node);
