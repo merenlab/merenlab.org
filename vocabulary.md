@@ -31,18 +31,21 @@ Commonly used to define the raw output of a sequencer. These are strings of the 
 
 A sequence that you know something about. In the context of metagenomics, it often refers to a sequence that one uses for read recruitment. 
 
+{:data-tags="read recruitment"}
 ### Read recruitment
 
 A set of computational strategies to align sequencing reads to one or more reference sequences. Also known as 'mapping'.
 
 In the context of metagenomics, read recruitment allows one to estimate the coverage of a given reference sequence in a given metagenome by identifying all short reads that match to it. Understanding this strategy, along with its power and caveats, is one of the most important steps to fully appreciate most ‘omics strategies and the ways they lend themselves to study the ecology and evolution of microbial populations.
 
+{:data-tags="coverage"}
 ### Coverage
 
 Average number of sequencing reads that map to each nucleotide position in a reference. Also known as 'depth of coverage'.
 
 ![coverage](../images/momics/coverage.gif)
 
+{:data-tags="contig"}
 ### Contig
 
 A contiguous segment of DNA that is often 'assembled' from short sequencing reads, but still represents only a fraction of the longer context to which it belongs.
@@ -61,14 +64,17 @@ Change in coverage of a reference sequence across multiple samples. This statist
 
 The ratio of all 4-nucleotide words in a given contig. The tetra-nucleotide frequency is largely preserved throughout microbial genomes, which enables the identification of distinct contigs that likely originate from the same population.
 
+{:data-tags="MAG"}
 ### Metagenome-assembled genome (MAG)
 
-A genome bin that meets certain quality requirements and can be assumed to reprsent contigs from one bin of a metagenome, which collectively represent the DNA of (what we think is) a single population.
+A genome bin that meets certain quality requirements and can be assumed to represent contigs from one bin of a metagenome, which collectively represent the DNA of (what we think is) a single population.
 
+{:data-tags="population"}
 ### Population
 
 Although frequently used, microbiology does not have a precise and consensus definition for what is a population, and how to define boundaries of environmental populations. One of the operational definitions our group often uses suggests that a population is an assemblage of co-existing microbes in an environment whose genomes are similar enough to map to the context of the same reference genome.
 
+{:data-tags="metagenome"}
 ### Metagenome
 
 The entire DNA content of an environment. Since most environments harbor many different organisms, the metagenome includes genetic information from a large collection of genomes. High-throughput sequencing of metagenomes produce tremendous amount of sequencing reads that can be used for assembly or read recruitment.
@@ -84,15 +90,17 @@ In general, if you see the prefix 'meta' in front of an ‘omics term, it means 
 Works for us. :)
 </div>
 
+{:data-tags="metagenomics"}
 ### Metagenomics
 
 The study of environmental metagenomes.
 
+{:data-tags="pangenome"}
 ### Pangenome
 
 From a computational standpoint, the term pangenome broadly refers to the entire collection of genes found in two or more genomes.
 
-{:data-tags="pangenomics,pan"}
+{:data-tags="pangenomics"}
 ### Pangenomics
 
 The family of computational strategies that determine the pangenome and make it accessible as a framework to study relationships between a set of genomes through gene clusters.
@@ -118,6 +126,7 @@ Where 'meta' indicates that we apply our analysis across all populations in a gi
 
 </div>
 
+{:data-tags="snv"}
 ### Single-nucleotide variant (SNV)
 
 A nucleotide position where the identity of all bases mapping to this position varies (beyond the expected rate of sequencing error).
