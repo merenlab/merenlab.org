@@ -39,7 +39,7 @@ In the context of metagenomics, read recruitment allows one to estimate the cove
 
 ### Coverage
 
-Average number of sequencing reads that map to each nucleotide posotion in a reference. Also known as 'depth of coverage'.
+Average number of sequencing reads that map to each nucleotide position in a reference. Also known as 'depth of coverage'.
 
 ![coverage](../images/momics/coverage.gif)
 
@@ -67,7 +67,7 @@ A genome bin that meets certain quality requirements and can be assumed to reprs
 
 ### Population
 
-Although frequently used, microbiology does not have a precise and consensus definition for what is a population, and how to define boundaries of enviornmental populations. One of the operational definitions our group often uses suggests that a population is an assemblage of co-existing microbes in an environment whose genomes are similar enough to map to the context of the same reference genome.
+Although frequently used, microbiology does not have a precise and consensus definition for what is a population, and how to define boundaries of environmental populations. One of the operational definitions our group often uses suggests that a population is an assemblage of co-existing microbes in an environment whose genomes are similar enough to map to the context of the same reference genome.
 
 ### Metagenome
 
@@ -125,11 +125,11 @@ SNVs are characterized by (1) the position in the reference sequence where the d
 
 ### Completion
 
-A rough estimate of how completely a set of contigs represents a full genome based on the presence or absence of single-copy core genes (SCGs) they contain. SCGs are a set of special genes that occur in every single genome once and once only. So theoretically, the higher the percentage of SCGs found in a genome bin, the more likely that the bin represents a complete genome. Of course, SCGs are determined by analyzing isolate genomes that are avaialble to find out which genes match to this criterion, hence, the accuracy of their predictions may be limited when this approch applied to genome bins bins that represent populations from poorly studies clades of life. Even for genomes of well-studied organisms, our methods to identify these genes in genomes may prevent us to get [100% completeness](http://merenlab.org/2016/06/09/assessing-completion-and-contamination-of-MAGs/).
+A rough estimate of how completely a set of contigs represents a full genome based on the presence or absence of single-copy core genes (SCGs) they contain. SCGs are a set of special genes that occur in every single genome once and once only. So theoretically, the higher the percentage of SCGs found in a genome bin, the more likely that the bin represents a complete genome. Of course, SCGs are determined by analyzing isolate genomes that are available to find out which genes match to this criterion, hence, the accuracy of their predictions may be limited when this approach is applied to genome bins that represent populations from poorly studies clades of life. Even for genomes of well-studied organisms, our methods to identify these genes in genomes may prevent us from getting to [100% completeness](http://merenlab.org/2016/06/09/assessing-completion-and-contamination-of-MAGs/).
 
 ### Redundancy
 
-A measure of how many copies of each single-copy core gene (SCG) are found in a set of contigs. Usually, we expect to have only one copy of each of these genes (that's why they're called 'single-copy'), and for this reason, redundancy of SCGs is commonly used as an estimate the level of potential 'contamination' within a bin (i.e., higher values of redundancy may indicate that more than one population may be contributing to a given genome bin). However, interpretations of 'contamination' as a function of redundant occurrence of SCGs may not be straightforwad as some genomes may have multiple copies of generally single-copy core genes, hence we prefer not to draw conclusions about contamination right away. In additon, lack of redundancy does not necessarily mean the lack of contamination, since contaminant contigs that do not include SCGs will not be in the radar of these estimates. Want to know more? See [this page](http://merenlab.org/2016/06/09/assessing-completion-and-contamination-of-MAGs/).
+A measure of how many copies of each single-copy core gene (SCG) are found in a set of contigs. Usually, we expect to have only one copy of each of these genes (that's why they're called 'single-copy'), and for this reason, redundancy of SCGs is commonly used as an estimate the level of potential 'contamination' within a bin (i.e., higher values of redundancy may indicate that more than one population may be contributing to a given genome bin). However, interpretations of 'contamination' as a function of redundant occurrence of SCGs may not be straightforward as some genomes may have multiple copies of generally single-copy core genes, hence we prefer not to draw conclusions about contamination right away. In addition, lack of redundancy does not necessarily mean the lack of contamination, since contaminant contigs that do not include SCGs will not be in the radar of these estimates. Want to know more? See [this page](http://merenlab.org/2016/06/09/assessing-completion-and-contamination-of-MAGs/).
 
 ## All things anvi'o
 
@@ -141,11 +141,11 @@ Highly customizable visualization environment in anvi'o to interact with data. I
 
 ### Split
 
-A fragment of a contig in your anvi'o analysis. Anvi'o, by default, breaks up long contigs you provide into multiple parts, called 'splits', purely for visualization purposes so the researcher can distinguish a very long contig from shorter once. This way, a single contig that represents 1,000,000 base pairs would not have less visual significance than 10 contigs each of which are about 10,000 base pairs. The default split size is 20,000 bp, but you can change this using the `--split-length` parameter when you generate an anvi'o contigs database. 
+A fragment of a contig in your anvi'o analysis. Anvi'o, by default, breaks up long contigs you provide into multiple parts, called 'splits', purely for visualization purposes so the researcher can distinguish a very long contig from shorter ones. This way, a single contig that represents 1,000,000 base pairs would not have less visual significance than 10 contigs each of which are about 10,000 base pairs. The default split size is 20,000 bp, but you can change this using the `--split-length` parameter when you generate an anvi'o contigs database. 
 
 ### Layer
 
-Every concentric circle in anvi'o interactive interfaces (in radial display mode). Visualization of a minimal metagenome in anvi'o intearctive interface layers will include the parent, GC-content, and metagenomic samples.
+Every concentric circle in anvi'o interactive interfaces (in radial display mode). Visualization of a minimal metagenome in anvi'o interactive interface layers will include the parent, GC-content, and metagenomic samples.
 
 ### Item
 
@@ -182,7 +182,7 @@ Information about known genes that can be used to search for the presence of the
 
 ### Variability profile
 
-Information on residue variants across samples. These variants, wehther they are SNVs, SCVs, or SAAVs, are usually identified for each sample when a profile database is generated for the sample. This information can later be combined across samples into a variability profile using the command `anvi-gen-variability-profile`. For an extensive tutorial on how to analyze variability profiles using anvio plese refer to [this resource](http://merenlab.org/2015/07/20/analyzing-variability/).
+Information on residue variants across samples. These variants, whether they are SNVs, SCVs, or SAAVs, are usually identified for each sample when a profile database is generated for the sample. This information can later be combined across samples into a variability profile using the command `anvi-gen-variability-profile`. For an extensive tutorial on how to analyze variability profiles using anvio pleafixed some spelling se refer to [this resource](http://merenlab.org/2015/07/20/analyzing-variability/).
 
 ### External gene calls file
 
