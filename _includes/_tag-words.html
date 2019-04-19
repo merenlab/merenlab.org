@@ -1,0 +1,54 @@
+<script>
+/* Usage: 
+Include attribute to heading tags like below, comma seperated, case-insensitive.
+
+{:data-tags="pangenomics,pan"}
+### Pangenomics
+
+*/
+(function() {
+  let allTags = [];
+
+  document.querySelectorAll('[data-tags]').forEach((node) => {
+    let words = node.getAttribute('data-tags').split(',');
+
+    words.forEach((word) => {
+      allTags.push({'word': word, 'target': node.getAttribute('id')});
+    });
+
+    // We want longer tags to be done first otherwise pan would replace pangenomics always
+    allTags.sort((a,b) => {
+      if (a.word.length < b.word.length)
+        return 1;
+      if (a.word.length > b.word.length)
+        return -1;
+        return 0;
+    });
+
+    document.querySelectorAll('p').forEach((p) => {
+      allTags.forEach((tag) => {
+        p.childNodes.forEach((node) => {
+          if (node.nodeType == Node.TEXT_NODE) {
+            let contentLower = node.nodeValue.toLowerCase();
+            let wordLower = tag.word.toLowerCase();
+
+            let start = contentLower.indexOf(wordLower);
+            if (start > -1) {
+              let preText = document.createTextNode(node.nodeValue.slice(0, start));
+              let postText = document.createTextNode(node.nodeValue.slice(start + wordLower.length, contentLower.length));
+              let link = document.createElement('a');
+              link.setAttribute('href', '#' + tag.target);
+              link.innerHTML = node.nodeValue.slice(start, start + wordLower.length);
+
+              p.insertBefore(preText , node);
+              p.insertBefore(link    , node);
+              p.insertBefore(postText, node);
+              p.removeChild(node);
+            }
+          }
+        });
+      });
+    });
+  });
+})();
+</script>
