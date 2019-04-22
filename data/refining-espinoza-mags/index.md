@@ -73,7 +73,7 @@ Which should give you something that looks like this:
 {:.notice}
 If this is the first time you are seeing an anvi'o interactive interface, we have a separate tutorial [here](/tutorials/interactive-interface/) that describes visualization capabilites of anvi'o intearctive interface that may help you orient yourself a little. In addition to that, [here](/tutorials/infant-gut/) we have an extensive tutorial on metagenomic binning that may help you get familiar with some of the anvi'o vocabulary.
 
-Briefly, every layer in this display is one of the metagenomes, and each item shown here is one of the contigs in this MAG. Data points by default show the mean coverage of a given contig in a given metagenome, but that view can be changed to [other things]({% post_url 2017-05-08-anvio-views %}).
+Briefly, every layer in this display is one of the metagenomes, and each item shown here is one of the contigs in this MAG. Data points by default show the mean coverage of a given contig in a given metagenome, but that view can be changed to [other things]({% post_url anvio/2017-05-08-anvio-views %}).
 
 There are 88 metagenomes in Espinoza et al. study, hence there are 88 layers in theis display. Because we have many metagenomes, the dendrogram in the middle appears too small to make accurate selections of branches. So the first thing we will do is make it bigger. First click on the "Show Additional Settings" button:
 
@@ -104,10 +104,10 @@ Let's review what we see:
  - **Comp.**: completion based on a collection of single-copy core genes. anvi'o has a certain heuristic to determine the domain (bacteria/archea/eukaryota) of the MAG and it would use a dedicated collection of single-copy core genes accordingly.
  - **Red.**: redundancy of single-copy core genes.
 
-We can see that this bin has very high redundancy of single-copy core genes. This is a very strong indication that this bin is highly contaminated. In fact, recent [guidelines set 10% as the highest redundancy that is appropriate to report for a MAG](https://www.nature.com/articles/nbt.3893), with which [we agree]({% post_url 2016-06-09-assessing-completion-and-contamination-of-MAGs %}).
+We can see that this bin has very high redundancy of single-copy core genes. This is a very strong indication that this bin is highly contaminated. In fact, recent [guidelines set 10% as the highest redundancy that is appropriate to report for a MAG](https://www.nature.com/articles/nbt.3893), with which [we agree]({% post_url miscellaneous/2016-06-09-assessing-completion-and-contamination-of-MAGs %}).
 
 {:.warning}
-While high redundancy of single-copy core genes is a good predictor of contamination, **the lack of redundancy is not an absolute predictor of the lack of contamination**. Read Veronika Klevenson's "[Notes on genome refinement with anvi'o]({% post_url 2017-05-11-anvi-refine-by-veronika %})".
+While high redundancy of single-copy core genes is a good predictor of contamination, **the lack of redundancy is not an absolute predictor of the lack of contamination**. Read Veronika Klevenson's "[Notes on genome refinement with anvi'o]({% post_url anvio/2017-05-11-anvi-refine-by-veronika %})".
 
 We can click on the redundancy number and see which specific genes are redundant:
 
@@ -410,7 +410,7 @@ wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/638/805/GCA_003638805.1_ASM3
 Before we go into refining we wish to take a look at the individual fasta files. To do that we use the contigs database, which allows us to annotate each fasta file and compute some basic statistics such as redundancy and completion based on single-copy core genes.
 
 {:.notice}
-**To sreamline the contigs database creation and annotation**, we used `anvi-run-workflow`. This is a tool that is meant to help streamline the analysis steps and make things fully reproducible. For more details regarding `anvi-run-workflow` and other anvi'o worfklows please read [this tutorial]({% post_url 2018-07-09-anvio-snakemake-workflows %})).
+**To sreamline the contigs database creation and annotation**, we used `anvi-run-workflow`. This is a tool that is meant to help streamline the analysis steps and make things fully reproducible. For more details regarding `anvi-run-workflow` and other anvi'o worfklows please read [this tutorial]({% post_url anvio/2018-07-09-anvio-snakemake-workflows %})).
 
 ### Generating a merged FASTA file for the MAGs
 
