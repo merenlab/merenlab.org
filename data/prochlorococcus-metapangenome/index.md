@@ -4,7 +4,7 @@ title: The Prochlorococcus metapangenome
 modified: 2017-04-20
 excerpt: "A complete bioinformatics workflow behind the study 'Linking Pangenomes and Metagenomes: The Prochlorococcus Metapangenome'"
 comments: true
-redirect_from: /data/2018_Delmont_and_Eren_Metapangenomics
+redirect_from: /data/2018_Delmont_and_Eren_Metapangenomics/
 
 ---
 
