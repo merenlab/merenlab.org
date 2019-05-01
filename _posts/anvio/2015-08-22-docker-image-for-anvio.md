@@ -38,7 +38,7 @@ If you are seeing something like this when you are done pulling everything, you 
 ``` bash
 $ docker images
 REPOSITORY          TAG        IMAGE ID     CREATED    SIZE
-meren/anvio         5.4        (...)        (...)      1.37GB
+meren/anvio         5.5        (...)        (...)      1.37GB
 meren/anvio         5          (...)        (...)      1.45GB
 meren/anvio         4          (...)        (...)      900.0 MB
 meren/anvio         3          (...)        (...)      932.0 MB
@@ -60,7 +60,7 @@ docker run --rm -it -v `pwd`:`pwd` -w `pwd` -p 8080:8080 meren/anvio:latest
 Following this command, you should see a new command line like this one:
 
 ``` bash
-:: anvi'o v5.4 :: /WORK/DIR/PATH >>>
+:: anvi'o v5.5 :: /WORK/DIR/PATH >>>
 ```
 
 You're done! If you type `anvi-` and press `TAB` twice, you see all the anvi'o programs available to you.
@@ -91,7 +91,7 @@ For your reference, We keep our Docker files for each anvi'o version here:
 If you would like to rebuild the Docker image for anvi'o on your own server, you can simply get a copy of the file:
 
 ``` bash
-wget https://gist.githubusercontent.com/meren/65b1f1bfea1b53e87e10f025d1e4c29a/raw/49e7a0b55474c37e271d8188865d2ba423923330/Dockerfile_v5.4.sh -O Dockerfile
+wget https://gist.githubusercontent.com/meren/65b1f1bfea1b53e87e10f025d1e4c29a/raw/b0a841c4be8873ba73faba217e798d3d9e207823/Dockerfile_v5.5.sh -O Dockerfile
 ```
 
 Add/remove things you want to the image, and build the new docker image:
