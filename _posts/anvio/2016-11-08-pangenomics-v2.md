@@ -559,7 +559,13 @@ Unfortunately there could be some functions with very similar names, let's check
 cut -f 1 PROCHLORO-functions-occurrence-fixed-a-little.txt | sort | uniq -d
 ```
 
-We can see that `Fatty_acid_desaturase`, and `Protein_tyrosine_phosphatase` are duplicated now. This is because, for example, there are two COG functions `Protein-tyrosine phosphatase` (accession `COG2453`) and `Protein-tyrosine-phosphatase` (accession `COG0394`), which match different gene clusters in our pangenome. Because we cannot create a tree with duplicated nodes, and since we can't really say that these are different functions, we will use a script to merge these duplicated occurrences (i.e. merge their occurrences with a `logical or`). Your working directory includes the script `fix_functional_occurrence_table.py`:
+We can see that `Fatty_acid_desaturase`, and `Protein_tyrosine_phosphatase` are duplicated now. This is because, for example, there are two COG functions `Protein-tyrosine phosphatase` (accession `COG2453`) and `Protein-tyrosine-phosphatase` (accession `COG0394`), which match different gene clusters in our pangenome. Because we cannot create a tree with duplicated nodes, and since we can't really say that these are different functions, we will use a script to merge these duplicated occurrences (i.e. merge their occurrences with a `logical or`). To do this, we will use the ad-hoc script: `fix_functional_occurrence_table.py`. You can download this script this way:
+
+```bash
+wget https://gist.githubusercontent.com/ShaiberAlon/aff0b2493637a370c7d52e1a5aacecea/raw/7e2647fa391bd55617cd4d7685c0056600ec4eae/fix_functional_occurrence_table.py
+```
+
+And use is this way:
 
 ```
 ./fix_functional_occurrence_table.py PROCHLORO-functions-occurrence-fixed-a-little.txt PROCHLORO-functions-occurrence-fixed.txt
