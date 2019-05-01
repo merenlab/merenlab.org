@@ -37,7 +37,7 @@ This reproducible bioinformatics workflow  describes program names and exact par
 Please find the published study along with its review history here: [https://peerj.com/articles/4320/](https://peerj.com/articles/4320/){:target="_blank"}
 
 {:.notice}
-All anvi'o analyses in this document are performed using the anvi'o version `v3`. Please see [the installation notes]({% post_url anvio/2016-06-26-installation-v2 %}) to download the appropriate version through PyPI, Docker, or GitHub.
+All anvi'o analyses in this document are performed using the anvi'o version `v3` (but it is OK to use anything newer than that, although pelase don't forget to run `anvi-migrate-db` on your databases). Please see [the installation notes]({% post_url anvio/2016-06-26-installation-v2 %}) to download the appropriate version through PyPI, Docker, or GitHub.
 
 <!--
 The URL [AAA](AAA){:target="_blank"} serves the publication.
@@ -471,6 +471,9 @@ In the next chapter, we in fact will generate a single file that summarizes dete
 
 ### Environmental connectivity of each gene cluster
 
+{:.warning}
+Most these steps are specific to anvi'o `v3` and have been imporoved so dramatically. If you are struggling with a similar analysis using later versions of anvi'o and our online tutorials do not seem to help, please let us know and we will help you sort things out.
+
 The next step is to link each gene from each genome across every metagenome to characterize the ratio of environmentally accessory genes (EAGs) to environmentally core genes (ECGs) in each gene cluster in the pangenome. This way, we will be linking the pangenome to the environment not only through the distribution statistics of each genome across each metagenome (see 'Niche partitioning of genomes'), but also by connecting the contents of each gene cluster to the environment:
 
 ``` bash
@@ -518,8 +521,40 @@ In fact, the resulting display is publicly available on the anvi'server and you 
 {:.notice}
 [doi:10.6084/m9.figshare.5447227](https://doi.org/10.6084/m9.figshare.5447227){:target="_blank"} serves the anvi'o files for the _Prochlorococcus_ metapangenome.
 
-If you've gone through the entire document, we thank you for your time and interest. If you have any questions, or if you would like any part of this document to be clarified, please leave a comment.
 
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Migrating your databases</span>
+
+If you are using an anvi'o version newer than `v3` and wish you visualize the metapangenome above, you will need to migrate the databases to your new version of anvi'o. Fortunately it is qutie simple. Please run the commands below one by one in the directory after unpacking the file you have downloaded:
+
+```bash
+# migrate the pan database
+ANVIO_SAMPLES_DB=Prochlorococcus-METAPAN-SAMPLES.db anvi-migrate-db Prochlorococcus-PAN-PAN.db
+
+# migrate the genomes storage
+anvi-migrate-db Prochlorococcus-GENOMES.h5
+
+# convert the additional layers to the new format
+echo -e "pc_name\tDetection#EDG\tDetection#ECG\tDetection#NA" | sed 's/#/!/g' > ENVIRONMENTAL-CORE-FIXED.txt
+grep -v 'pc_name' ENVIRONMENTAL-CORE.txt | awk 'BEGIN{FS=";"}{print $1 "\t" $2 "\t" $3}' >> ENVIRONMENTAL-CORE-FIXED.txt
+
+# import additional layers into the pan database
+anvi-import-misc-data -t items ENVIRONMENTAL-CORE-FIXED.txt -p Prochlorococcus-PAN-PAN.db
+
+# remove garbage
+rm -rf *SAMPLES* ENVIRONMENTAL-CORE.txt 00_run.sh ENVIRONMENTAL-CORE-GENES.txt
+
+# finally, visualize, and say *tada*
+anvi-display-pan -p Prochlorococcus-PAN-PAN.db -g Prochlorococcus-GENOMES.db
+```
+
+Please let us know if you run any trouble with any of these :)
+
+</div>
+
+If you've gone through the entire document, we thank you for your time and interest. If you have any questions, or if you would like any part of this document to be clarified, please leave a comment.
 
 ## References
 
