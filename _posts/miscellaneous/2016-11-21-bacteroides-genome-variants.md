@@ -99,7 +99,7 @@ Once you are here, you can simply run `anvi-interactive` to initiate the display
 ``` bash
 $ wget http://merenlab.org/files/P-214-state.json
 $ anvi-import-state -p PROFILE.db -n default -s P-214-state.json
-$ anvi-interactive -p PROFILE.db -c CONTIGS.db --split-hmm-layers --show-outlier-SNVs
+$ anvi-interactive -p PROFILE.db -c CONTIGS.db --split-hmm-layers
 ```
 
 and see this when you following the last command:
