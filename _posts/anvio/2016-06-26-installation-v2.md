@@ -45,20 +45,20 @@ conda install -c bioconda -c conda-forge anvio
 ***Note***: Some users reported that the one above was installing anvio `v4`, if that is also the case for you, uninstall it, and try it with this command:
 
 ```
-conda install -n anvio5 -c bioconda -c conda-forge anvio=5.4.0
+conda install -n anvio5 -c bioconda -c conda-forge anvio=5.5.0
 ```
 
 If you get an `EnvironmentLocationNotFound` error from the previous command, try what Bruno Gomez-Gil [suggested](http://merenlab.org/2016/06/26/installation-v2/#comment-4369825459) instead:
 
 ```
-conda create -n anvio5 -c bioconda -c conda-forge anvio=5.4.0
+conda create -n anvio5 -c bioconda -c conda-forge anvio=5.5.0
 ```
 
 ***Note***: One of our users who has been trying conda installation on an HPC system [reported](https://github.com/merenlab/anvio/issues/895#issuecomment-403656800) the following steps working for them:
 
 ```
 conda create -y --name anvio5 python=3.6
-conda install -y --name anvio5 -c bioconda -c conda-forge anvio=5.4.0
+conda install -y --name anvio5 -c bioconda -c conda-forge anvio=5.5.0
 ```
 
 Once the installation is complete, test anvi'o quickly to make sure everything is in order:
@@ -68,7 +68,7 @@ anvi-self-test --suite mini
 ```
 
 {:.notice}
-Note that the most up-to-date conda-available anvi'o version, which is currently `v5.4.0`, may differ from the most up-to-date stable anvi'o version, which is `v{% include _project-anvio-version-number.html %}`.
+Note that the most up-to-date conda-available anvi'o version, which is currently `v5.5.0`, may differ from the most up-to-date stable anvi'o version, which is `v{% include _project-anvio-version-number.html %}`.
 
 **NOTE:** To activate the anvio conda environment when opening a new terminal window, depending on your conda setup you will either need to enter `source activate anvio5` or `conda activate anvio5` (if you named the conda environment "anvio5", set with the `--name` flag in the above conda commands).
 
