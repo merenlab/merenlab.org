@@ -11,7 +11,7 @@
       "type": "COLLECTION"
     },
     {
-      "size": 9,
+      "size": 10,
       "score": 0.5,
       "color": "#00AA00",
       "id": "bin",
@@ -20,7 +20,7 @@
       "type": "BIN"
     },
     {
-      "size": 18,
+      "size": 20,
       "score": 0.5,
       "color": "#00AA00",
       "id": "profile-db",
@@ -29,7 +29,7 @@
       "type": "DB"
     },
     {
-      "size": 29,
+      "size": 30,
       "score": 0.5,
       "color": "#00AA00",
       "id": "contigs-db",
@@ -74,7 +74,7 @@
       "type": "TXT"
     },
     {
-      "size": 13,
+      "size": 14,
       "score": 0.5,
       "color": "#00AA00",
       "id": "pan-db",
@@ -92,7 +92,7 @@
       "type": "STATS"
     },
     {
-      "size": 4,
+      "size": 5,
       "score": 0.5,
       "color": "#00AA00",
       "id": "interactive",
@@ -182,6 +182,42 @@
       "type": "TXT"
     },
     {
+      "size": 2,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "misc-data-item-orders-txt",
+      "name": "LAYER ORDERS DATA",
+      "internal": false,
+      "type": "TXT"
+    },
+    {
+      "size": 5,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "dendrogram",
+      "name": "DENDROGRAM",
+      "internal": false,
+      "type": "NEWICK"
+    },
+    {
+      "size": 5,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "phylogeny",
+      "name": "PHYLOGENY",
+      "internal": false,
+      "type": "NEWICK"
+    },
+    {
+      "size": 6,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "genes-db",
+      "name": "GENES",
+      "internal": true,
+      "type": "DB"
+    },
+    {
       "size": 1,
       "score": 1,
       "color": "#AA0000",
@@ -218,15 +254,6 @@
       "type": "TXT"
     },
     {
-      "size": 5,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "genes-db",
-      "name": "GENES",
-      "internal": true,
-      "type": "DB"
-    },
-    {
       "size": 2,
       "score": 1,
       "color": "#AA0000",
@@ -234,15 +261,6 @@
       "name": "INTERACTIVE STATE",
       "internal": false,
       "type": "JSON"
-    },
-    {
-      "size": 4,
-      "score": 1,
-      "color": "#AA0000",
-      "id": "phylogeny",
-      "name": "PHYLOGENY",
-      "internal": false,
-      "type": "NEWICK"
     },
     {
       "size": 3,
@@ -342,24 +360,6 @@
       "name": "ITEM ORDERS DATA",
       "internal": false,
       "type": "CONCEPT"
-    },
-    {
-      "size": 1,
-      "score": 1,
-      "color": "#AA0000",
-      "id": "misc-data-item-orders-txt",
-      "name": "LAYER ORDERS DATA",
-      "internal": false,
-      "type": "TXT"
-    },
-    {
-      "size": 4,
-      "score": 1,
-      "color": "#AA0000",
-      "id": "dendrogram",
-      "name": "DENDROGRAM",
-      "internal": false,
-      "type": "NEWICK"
     },
     {
       "size": 1,
@@ -596,6 +596,14 @@
       "type": "PROGRAM"
     },
     {
+      "size": 9,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-export-items-order",
+      "name": "anvi-export-items-order",
+      "type": "PROGRAM"
+    },
+    {
       "size": 3,
       "score": 0.1,
       "color": "#AAAA00",
@@ -788,6 +796,14 @@
       "type": "PROGRAM"
     },
     {
+      "size": 5,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-inspect",
+      "name": "anvi-inspect",
+      "type": "PROGRAM"
+    },
+    {
       "size": 15,
       "score": 0.1,
       "color": "#AAAA00",
@@ -942,23 +958,23 @@
       "target": 0
     },
     {
-      "target": 71,
+      "target": 72,
       "source": 0
     },
     {
-      "source": 83,
+      "source": 84,
       "target": 0
     },
     {
-      "source": 91,
+      "source": 93,
       "target": 0
     },
     {
-      "target": 106,
+      "target": 108,
       "source": 0
     },
     {
-      "target": 107,
+      "target": 109,
       "source": 0
     },
     {
@@ -970,31 +986,35 @@
       "target": 1
     },
     {
-      "target": 71,
+      "target": 72,
       "source": 1
     },
     {
-      "target": 75,
+      "target": 76,
       "source": 1
     },
     {
-      "target": 81,
+      "target": 82,
       "source": 1
     },
     {
-      "source": 91,
+      "target": 92,
+      "source": 1
+    },
+    {
+      "source": 93,
       "target": 1
     },
     {
-      "target": 91,
+      "target": 93,
       "source": 1
     },
     {
-      "source": 98,
+      "source": 100,
       "target": 1
     },
     {
-      "target": 98,
+      "target": 100,
       "source": 1
     },
     {
@@ -1010,7 +1030,7 @@
       "source": 2
     },
     {
-      "target": 68,
+      "target": 67,
       "source": 2
     },
     {
@@ -1018,15 +1038,15 @@
       "source": 2
     },
     {
-      "target": 71,
+      "target": 70,
       "source": 2
     },
     {
-      "target": 75,
+      "target": 72,
       "source": 2
     },
     {
-      "target": 80,
+      "target": 76,
       "source": 2
     },
     {
@@ -1034,11 +1054,11 @@
       "source": 2
     },
     {
-      "target": 83,
+      "target": 82,
       "source": 2
     },
     {
-      "target": 85,
+      "target": 84,
       "source": 2
     },
     {
@@ -1050,23 +1070,31 @@
       "source": 2
     },
     {
-      "target": 91,
+      "target": 88,
       "source": 2
     },
     {
-      "source": 93,
+      "target": 92,
+      "source": 2
+    },
+    {
+      "target": 93,
+      "source": 2
+    },
+    {
+      "source": 95,
       "target": 2
     },
     {
-      "target": 98,
+      "target": 100,
       "source": 2
     },
     {
-      "target": 106,
+      "target": 108,
       "source": 2
     },
     {
-      "target": 107,
+      "target": 109,
       "source": 2
     },
     {
@@ -1094,19 +1122,15 @@
       "source": 3
     },
     {
-      "target": 67,
+      "target": 68,
       "source": 3
     },
     {
-      "source": 70,
+      "source": 71,
       "target": 3
     },
     {
-      "target": 71,
-      "source": 3
-    },
-    {
-      "target": 74,
+      "target": 72,
       "source": 3
     },
     {
@@ -1118,11 +1142,11 @@
       "source": 3
     },
     {
-      "target": 78,
+      "target": 77,
       "source": 3
     },
     {
-      "target": 80,
+      "target": 79,
       "source": 3
     },
     {
@@ -1142,11 +1166,15 @@
       "source": 3
     },
     {
-      "target": 88,
+      "target": 85,
       "source": 3
     },
     {
-      "target": 91,
+      "target": 89,
+      "source": 3
+    },
+    {
+      "target": 92,
       "source": 3
     },
     {
@@ -1154,19 +1182,15 @@
       "source": 3
     },
     {
-      "target": 97,
+      "target": 95,
       "source": 3
     },
     {
-      "target": 98,
+      "target": 99,
       "source": 3
     },
     {
       "target": 100,
-      "source": 3
-    },
-    {
-      "target": 101,
       "source": 3
     },
     {
@@ -1178,11 +1202,19 @@
       "source": 3
     },
     {
-      "target": 106,
+      "target": 104,
       "source": 3
     },
     {
-      "target": 107,
+      "target": 105,
+      "source": 3
+    },
+    {
+      "target": 108,
+      "source": 3
+    },
+    {
+      "target": 109,
       "source": 3
     },
     {
@@ -1190,7 +1222,7 @@
       "target": 4
     },
     {
-      "source": 108,
+      "source": 110,
       "target": 4
     },
     {
@@ -1202,11 +1234,11 @@
       "source": 6
     },
     {
-      "target": 72,
+      "target": 73,
       "source": 6
     },
     {
-      "target": 80,
+      "target": 81,
       "source": 6
     },
     {
@@ -1214,15 +1246,15 @@
       "source": 7
     },
     {
-      "target": 72,
+      "target": 73,
       "source": 7
     },
     {
-      "target": 80,
+      "target": 81,
       "source": 7
     },
     {
-      "target": 94,
+      "target": 96,
       "source": 7
     },
     {
@@ -1234,7 +1266,7 @@
       "source": 8
     },
     {
-      "target": 68,
+      "target": 67,
       "source": 8
     },
     {
@@ -1242,19 +1274,19 @@
       "source": 8
     },
     {
-      "target": 77,
+      "target": 70,
       "source": 8
     },
     {
-      "target": 79,
+      "target": 78,
       "source": 8
     },
     {
-      "target": 83,
+      "target": 80,
       "source": 8
     },
     {
-      "target": 85,
+      "target": 84,
       "source": 8
     },
     {
@@ -1266,15 +1298,19 @@
       "source": 8
     },
     {
-      "target": 94,
+      "target": 88,
       "source": 8
     },
     {
-      "source": 96,
+      "target": 96,
+      "source": 8
+    },
+    {
+      "source": 98,
       "target": 8
     },
     {
-      "target": 107,
+      "target": 109,
       "source": 8
     },
     {
@@ -1294,7 +1330,11 @@
       "target": 10
     },
     {
-      "source": 91,
+      "source": 92,
+      "target": 10
+    },
+    {
+      "source": 93,
       "target": 10
     },
     {
@@ -1306,7 +1346,7 @@
       "target": 11
     },
     {
-      "source": 91,
+      "source": 93,
       "target": 11
     },
     {
@@ -1314,19 +1354,15 @@
       "source": 12
     },
     {
-      "source": 72,
+      "source": 73,
       "target": 12
     },
     {
-      "target": 77,
+      "target": 78,
       "source": 12
     },
     {
-      "target": 79,
-      "source": 12
-    },
-    {
-      "target": 94,
+      "target": 80,
       "source": 12
     },
     {
@@ -1334,11 +1370,15 @@
       "source": 12
     },
     {
-      "target": 103,
+      "target": 98,
       "source": 12
     },
     {
-      "target": 107,
+      "target": 105,
+      "source": 12
+    },
+    {
+      "target": 109,
       "source": 12
     },
     {
@@ -1346,7 +1386,7 @@
       "target": 13
     },
     {
-      "source": 107,
+      "source": 109,
       "target": 13
     },
     {
@@ -1354,11 +1394,11 @@
       "source": 14
     },
     {
-      "source": 74,
+      "source": 75,
       "target": 14
     },
     {
-      "target": 75,
+      "target": 76,
       "source": 14
     },
     {
@@ -1366,7 +1406,7 @@
       "source": 15
     },
     {
-      "source": 75,
+      "source": 76,
       "target": 15
     },
     {
@@ -1374,7 +1414,7 @@
       "target": 16
     },
     {
-      "target": 83,
+      "target": 84,
       "source": 16
     },
     {
@@ -1382,11 +1422,11 @@
       "target": 17
     },
     {
-      "target": 70,
+      "target": 71,
       "source": 17
     },
     {
-      "target": 108,
+      "target": 110,
       "source": 17
     },
     {
@@ -1394,11 +1434,11 @@
       "target": 18
     },
     {
-      "target": 84,
+      "target": 85,
       "source": 18
     },
     {
-      "source": 103,
+      "source": 105,
       "target": 18
     },
     {
@@ -1410,7 +1450,11 @@
       "target": 20
     },
     {
-      "source": 68,
+      "target": 86,
+      "source": 20
+    },
+    {
+      "source": 67,
       "target": 21
     },
     {
@@ -1418,7 +1462,23 @@
       "source": 21
     },
     {
-      "source": 68,
+      "target": 87,
+      "source": 21
+    },
+    {
+      "target": 93,
+      "source": 21
+    },
+    {
+      "source": 94,
+      "target": 21
+    },
+    {
+      "source": 67,
+      "target": 22
+    },
+    {
+      "source": 74,
       "target": 22
     },
     {
@@ -1426,7 +1486,23 @@
       "source": 22
     },
     {
-      "source": 68,
+      "target": 87,
+      "source": 22
+    },
+    {
+      "target": 93,
+      "source": 22
+    },
+    {
+      "target": 67,
+      "source": 23
+    },
+    {
+      "target": 69,
+      "source": 23
+    },
+    {
+      "source": 72,
       "target": 23
     },
     {
@@ -1434,24 +1510,16 @@
       "source": 23
     },
     {
-      "target": 68,
-      "source": 24
+      "target": 87,
+      "source": 23
     },
     {
-      "source": 71,
+      "target": 93,
+      "source": 23
+    },
+    {
+      "source": 68,
       "target": 24
-    },
-    {
-      "target": 85,
-      "source": 24
-    },
-    {
-      "target": 86,
-      "source": 24
-    },
-    {
-      "target": 91,
-      "source": 24
     },
     {
       "source": 69,
@@ -1462,64 +1530,44 @@
       "source": 25
     },
     {
-      "source": 73,
+      "source": 69,
       "target": 26
     },
     {
-      "target": 85,
+      "target": 87,
       "source": 26
     },
     {
-      "target": 86,
-      "source": 26
+      "source": 69,
+      "target": 27
     },
     {
-      "target": 91,
-      "source": 26
-    },
-    {
-      "target": 73,
+      "target": 87,
       "source": 27
     },
     {
-      "source": 79,
-      "target": 27
-    },
-    {
-      "source": 80,
-      "target": 27
-    },
-    {
-      "source": 76,
+      "source": 70,
       "target": 28
     },
     {
-      "source": 76,
+      "target": 88,
+      "source": 28
+    },
+    {
+      "target": 74,
+      "source": 29
+    },
+    {
+      "source": 80,
       "target": 29
     },
     {
-      "target": 76,
-      "source": 30
+      "source": 81,
+      "target": 29
     },
     {
-      "target": 81,
-      "source": 30
-    },
-    {
-      "target": 82,
-      "source": 30
-    },
-    {
-      "source": 90,
+      "source": 77,
       "target": 30
-    },
-    {
-      "target": 97,
-      "source": 30
-    },
-    {
-      "target": 99,
-      "source": 30
     },
     {
       "source": 77,
@@ -1530,115 +1578,119 @@
       "source": 32
     },
     {
+      "target": 82,
+      "source": 32
+    },
+    {
+      "target": 83,
+      "source": 32
+    },
+    {
+      "source": 91,
+      "target": 32
+    },
+    {
+      "target": 99,
+      "source": 32
+    },
+    {
+      "target": 101,
+      "source": 32
+    },
+    {
       "source": 78,
       "target": 33
     },
     {
-      "source": 79,
-      "target": 33
-    },
-    {
-      "source": 80,
-      "target": 33
-    },
-    {
-      "target": 80,
+      "target": 78,
       "source": 34
     },
     {
-      "source": 100,
-      "target": 34
+      "source": 79,
+      "target": 35
+    },
+    {
+      "source": 80,
+      "target": 35
     },
     {
       "source": 81,
       "target": 35
     },
     {
-      "source": 82,
-      "target": 35
-    },
-    {
-      "source": 84,
-      "target": 36
-    },
-    {
-      "source": 101,
-      "target": 36
+      "target": 81,
+      "source": 36
     },
     {
       "source": 102,
       "target": 36
     },
     {
+      "source": 82,
+      "target": 37
+    },
+    {
+      "source": 83,
+      "target": 37
+    },
+    {
       "source": 85,
-      "target": 37
+      "target": 38
     },
     {
-      "source": 93,
-      "target": 37
+      "source": 103,
+      "target": 38
     },
     {
-      "source": 96,
-      "target": 37
+      "source": 104,
+      "target": 38
     },
     {
-      "source": 97,
-      "target": 37
-    },
-    {
-      "target": 85,
-      "source": 38
-    },
-    {
-      "target": 85,
-      "source": 39
-    },
-    {
-      "target": 86,
-      "source": 39
-    },
-    {
-      "target": 91,
-      "source": 39
-    },
-    {
-      "source": 92,
+      "source": 86,
       "target": 39
     },
     {
-      "source": 86,
-      "target": 40
+      "source": 95,
+      "target": 39
     },
     {
-      "source": 86,
-      "target": 41
+      "source": 98,
+      "target": 39
     },
     {
-      "source": 86,
-      "target": 42
+      "source": 99,
+      "target": 39
     },
     {
       "source": 87,
-      "target": 43
+      "target": 40
+    },
+    {
+      "source": 87,
+      "target": 41
+    },
+    {
+      "source": 87,
+      "target": 42
     },
     {
       "source": 88,
-      "target": 44
-    },
-    {
-      "target": 88,
-      "source": 45
+      "target": 43
     },
     {
       "source": 89,
-      "target": 46
+      "target": 44
     },
     {
       "target": 89,
-      "source": 47
+      "source": 45
     },
     {
-      "target": 91,
+      "source": 90,
+      "target": 46
+    },
+    {
+      "target": 90,
       "source": 47
     },
     {
@@ -1646,63 +1698,67 @@
       "source": 47
     },
     {
-      "source": 97,
-      "target": 47
-    },
-    {
-      "target": 89,
-      "source": 48
-    },
-    {
-      "target": 90,
-      "source": 49
-    },
-    {
-      "target": 91,
-      "source": 50
-    },
-    {
-      "target": 92,
-      "source": 50
-    },
-    {
-      "source": 94,
-      "target": 51
-    },
-    {
-      "source": 95,
-      "target": 52
-    },
-    {
       "target": 95,
-      "source": 53
+      "source": 47
     },
     {
       "source": 99,
+      "target": 47
+    },
+    {
+      "target": 90,
+      "source": 48
+    },
+    {
+      "target": 91,
+      "source": 49
+    },
+    {
+      "target": 93,
+      "source": 50
+    },
+    {
+      "target": 94,
+      "source": 50
+    },
+    {
+      "source": 96,
+      "target": 51
+    },
+    {
+      "source": 97,
+      "target": 52
+    },
+    {
+      "target": 97,
+      "source": 53
+    },
+    {
+      "source": 101,
       "target": 53
     },
     {
-      "target": 100,
+      "target": 102,
       "source": 54
     },
     {
-      "target": 101,
+      "target": 103,
       "source": 55
     },
     {
-      "source": 104,
+      "source": 106,
       "target": 55
     },
     {
-      "target": 102,
+      "target": 104,
       "source": 56
     },
     {
-      "source": 105,
+      "source": 107,
       "target": 56
     },
     {
-      "source": 106,
+      "source": 108,
       "target": 57
     }
   ],

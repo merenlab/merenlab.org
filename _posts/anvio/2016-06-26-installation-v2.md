@@ -33,49 +33,32 @@ python -c 'import webbrowser as w; w.open_new("http://")'
 
 </div>
 
-## Painless installation with Homebrew
-
-If you have [Homebrew](http://brew.sh/) installed on your computer, all you need to do is to run this to have anvi'o installed, and skip the rest of this page (although we suggest you to run `brew doctor` in your terminal first to make sure everything is good to go):
-
-``` bash
-brew tap merenlab/anvio
-brew install merenlab/anvio/anvio
-```
-
-Once the installation is complete, test anvi'o quickly to make sure everything is in order:
-
-
-``` bash
-anvi-self-test --suite mini
-```
-
-That's it!
-
-{:.notice}
-You may see warning messages during self-test runs. Don't be concerned.
-
-
 ## Painless installation with Conda
 
 
 If you have [Anaconda](https://www.continuum.io/downloads), it is also possible to install anvi'o along with its all Python and non-Python dependencies thanks to [John Eppley](https://scholar.google.com/citations?user=4S2q_9cAAAAJ&hl=en):
 
 ``` bash
-conda install -c bioconda -c conda-forge anvio diamond bwa
+conda install -c bioconda -c conda-forge anvio
 ```
 
 ***Note***: Some users reported that the one above was installing anvio `v4`, if that is also the case for you, uninstall it, and try it with this command:
 
 ```
-conda install -n anvio5 -c bioconda -c conda-forge anvio=5.1.0 diamond bwa
+conda install -n anvio5 -c bioconda -c conda-forge anvio=5.5.0
+```
+
+If you get an `EnvironmentLocationNotFound` error from the previous command, try what Bruno Gomez-Gil [suggested](http://merenlab.org/2016/06/26/installation-v2/#comment-4369825459) instead:
+
+```
+conda create -n anvio5 -c bioconda -c conda-forge anvio=5.5.0
 ```
 
 ***Note***: One of our users who has been trying conda installation on an HPC system [reported](https://github.com/merenlab/anvio/issues/895#issuecomment-403656800) the following steps working for them:
 
 ```
 conda create -y --name anvio5 python=3.6
-conda install -y --name anvio5 django=2.0.2
-conda install -y --name anvio5 -c bioconda -c conda-forge anvio=5 diamond bwa
+conda install -y --name anvio5 -c bioconda -c conda-forge anvio=5.5.0
 ```
 
 Once the installation is complete, test anvi'o quickly to make sure everything is in order:
@@ -85,8 +68,9 @@ anvi-self-test --suite mini
 ```
 
 {:.notice}
-Note that the most up-to-date conda-available anvi'o version, which is currently `v5`, may differ from the most up-to-date stable anvi'o version, which is `v{% include _project-anvio-version-number.html %}`.
+Note that the most up-to-date conda-available anvi'o version, which is currently `v5.5.0`, may differ from the most up-to-date stable anvi'o version, which is `v{% include _project-anvio-version-number.html %}`.
 
+**NOTE:** To activate the anvio conda environment when opening a new terminal window, depending on your conda setup you will either need to enter `source activate anvio5` or `conda activate anvio5` (if you named the conda environment "anvio5", set with the `--name` flag in the above conda commands).
 
 ## Installation (with varying levels of pain)
 
@@ -145,6 +129,9 @@ python --version
 
 {:.notice}
 If using venv, run `python3 -m venv ~/virtual-envs/anvio-{% include _project-anvio-version-number.html %}`
+
+{:.notice}
+If using conda, run `python3 -m virtualenv ~/virtual-envs/anvio-{% include _project-anvio-version-number.html %}`
 
 {:.notice}
 The output of the last command must start with `Python 3`. If not, remove the virtual environment with `rm -rf ~/virtual-envs/anvio`, and find out how can you create a virtual environment for Python 3 on your system. You can try `-p python3` as a parameter to your `virtualenv` command. Or you can type `virtualenv` and _without pressing the space character_ press `TAB` key twice quickly to see if there is an alternative binary such as `virtualenv-3.5` or `virtualenv-3.5`. If not, it means Python 3 is not installed on your system.
@@ -247,6 +234,9 @@ source ~/virtual-envs/anvio-dev/bin/activate
 python --version
 ```
 
+{:.notice}
+If using conda, run `python3 -m virtualenv ~/virtual-envs/anvio-dev`
+
 Don't forget to make sure the output of the last command starts with `Python 3`.
 
 ### I need to get the codebase
@@ -305,6 +295,9 @@ git clone --recursive https://github.com/meren/anvio.git
 
 Create a virtual environment (`master` to remind you that you are following the GitHub `master`), and do the initial setup, and leave it:
 
+{:.notice}
+If using conda, run `python3 -m virtualenv ~/virtual-envs/anvio-master` instead of the line that starts wth `virtualenv` down below.
+
 ``` bash
 virtualenv ~/virtual-envs/anvio-master
 source ~/virtual-envs/anvio-master/bin/activate
@@ -317,7 +310,10 @@ rm -rf anvio.egg-info build dist
 deactivate
 ```
 
-Then update your activation batch to add necessary environment variables (keep in mind that **you need to update** the `$DIR` variable with whatever it shows in your system **before running the following lines in your terminal**):
+Then update your activation batch to add necessary environment variables:
+
+{:.warning}
+Please note that **you need to update** the `$DIR` variable to whichever directory you cloned the codebase on your system **before running the following lines in your terminal**.
 
 
 ``` bash

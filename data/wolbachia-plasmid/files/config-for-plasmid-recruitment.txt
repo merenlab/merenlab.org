@@ -1,0 +1,37 @@
+{
+    "samples_txt": "samples-for-plasmid-recruitment.txt",
+    "fasta_txt": "fasta-txt-for-plasmid-recruitment.txt",
+    "references_mode": true,
+    "anvi_gen_contigs_database": {
+        "--project-name": "{group}",
+        "threads": 5
+    },
+    "centrifuge": {
+        "run": false
+    },
+    "anvi_script_reformat_fasta": {
+        "run": false
+    },
+    "iu_filter_quality_minoche": {
+        "run": false
+    },
+    "anvi_profile": {
+        "threads": 5,
+        "--sample-name": "{sample}",
+        "--skip-hierarchical-clustering": true,
+        "--min-contig-length": "0"
+    },
+    "anvi_merge": {
+        "--sample-name": "{group}",
+        "--skip-concoct-binning": true
+    },
+    "import_percent_of_reads_mapped": {
+        "run": false,
+        "threads": ""
+    },
+    "references_mode": true,
+    "output_dirs": {
+        "CONTIGS_DIR": "03_CONTIGS"
+    }
+}
+

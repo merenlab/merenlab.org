@@ -88,7 +88,7 @@
   email: ozcanesen@gmail.com
   twitter: ozcanesen
   avatar: bio-ozcan.jpg
-  github: ozcanesen
+  github: ozcan
   web: http://blog.ozcanesen.com/
   bio: "As a computer engineer I strive to utilize my expertise to investigate challenges in microbial ecology, metagenomics, and visualization of complex data."
   address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
@@ -174,6 +174,26 @@
       inst: Section of Pediatric Gastroenterology, Hepatology and Nutrition at the University of Chicago
       inst_link: http://pediatrics.uchicago.edu/education/fellowship/gastroenterology
 
+- alias: quentin
+  official: True
+  name: Quentin Clayssen
+  tenure_start: 04/2019
+  role: FACCTS Visiting Scientist
+  email: quentin.clayssen@gmail.com
+  github: qclayssen
+  linkedin: quentin-clayssen-398360139
+  twitter: ClayssenQ
+  avatar: bio-quentin.jpg
+  bio: "I am a microbiologist and a bioinformatician in training interested in metagenomics. I currently am focusing on approaches for rapid placement of metagenome-assembled genomes into the tree of life."
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  affiliations:
+    - title: Graduate Student
+      inst: Master of Bioinformatics, the University of Nantes, France
+      inst_link: http://www.masterbioinfo-nantes.fr/
+    - title: FACCTS Visiting Scientist
+      inst: France And Chicago Collaborating in The Sciences
+      inst_link: https://fcc.uchicago.edu/faccts
+
 - alias: kota
   official: True
   name: Kota Bear
@@ -255,6 +275,18 @@
     - title: Graduate Student
       inst: Department of Microbiology & Immunology, Stanford University
       inst_link: http://med.stanford.edu/microimmuno.html
+
+- alias: julie
+  contributor: True
+  avatar: bio-julie.jpg
+  name: Julie Reveillaud
+  role: Contributing hero and Collaborator
+  web: https://juliereve.wordpress.com
+  twitter: JulieReve
+  affiliations:
+    - title: Research Scientist
+      inst: INRA, ASTRE Unit, Montpellier, France
+      inst_link: https://www.cirad.fr/en/our-research/research-units/animals-health-territories-risks-and-ecosystems
 
 ####################################################################################
 # Previous members.

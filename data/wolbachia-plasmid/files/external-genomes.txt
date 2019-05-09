@@ -1,0 +1,2 @@
+name	contigs_db_path
+wPip	wPip.db

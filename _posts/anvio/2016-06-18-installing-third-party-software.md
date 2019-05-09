@@ -16,7 +16,7 @@ As an apology, we will do our best to keep this article up-to-date, so installin
 {% include _toc.html %}
 
 {:.notice}
-{% include _fixthispage.html source="anvio/2016-06-18-installing-third-party-software.md" %}
+{% include _fixthispage.html source="_posts/anvio/2016-06-18-installing-third-party-software.md" %}
 
 ## samtools
 
