@@ -9,8 +9,44 @@ comments: false
 <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
 
 <div class="category-box">
-<a href="#2018"><span class="category-item">2018 <small>(6)</small></span></a><a href="#2017"><span class="category-item">2017 <small>(10)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(5)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a>
+<a href="#2019"><span class="category-item">2019 <small>(2)</small></span></a><a href="#2018"><span class="category-item">2018 <small>(6)</small></span></a><a href="#2017"><span class="category-item">2017 <small>(10)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(5)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a>
 </div>
+
+<a name="2019">&nbsp;</a>
+<h1>2019</h1>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41467-019-08973-w"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1038/s41467-019-08973-w" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1038/s41467-019-08973-w" target="_new">The <i>Wolbachia</i> mobilome in <i>Culex pipiens</i> includes a putative plasmid.</a></h3>
+    <span class="pub-authors">Reveillaud, R., Bordenstein, S. R., Cruaud, C., <span class="pub-member-author">Shaiber, A.</span>, <span class="pub-member-author">Esen, Ö. C.</span>, O. C., Weill, M., Makoundou, P., <span class="pub-member-author">Lolans, K.</span>, <span class="pub-member-author">Watson, A. R.</span>, Rakotoarivony, I., Bordenstein, S. R., and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="../images/miscellaneous/2019-03-05-wolbachia-plasmid/minion-metagenomics.png"><img src="../images/miscellaneous/2019-03-05-wolbachia-plasmid/minion-metagenomics.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- The first report of a <i>Wolbachia</i> plasmid through genome-resolved metagenomics on microsurgically removed individual mosquito ovary samples (<a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-019-08973-w/MediaObjects/41467_2019_8973_MOESM2_ESM.pdf">peer reviews and responses</a>).</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Yet another application of <a href="https://doi.org/10.7717/peerj.4320">metapangenomics</a> and an applicatoin of minION long-read sequencing on extremely low-biomass samples.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  <a href="http://merenlab.org/data/wolbachia-plasmid">Reproducible bioinformatics workflow</a> with all data items, a 'behind the paper' <a href="http://merenlab.org/2019/03/05/wolbachia-plasmid/">blog post</a> by <a href="https://twitter.com/JulieReve">Julie Reveillaud</a>, and a <a href="https://www.mbl.edu/blog/new-mobile-element-found-in-mosquito-parasite-has-potential-for-disease-control/">press release</a> from the Marine Biological Laboratory.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>Nature Communications</i>. <b>10:1051</b></span>
+</div>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41564-019-0362-4"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1038/s41564-019-0362-4" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1038/s41564-019-0362-4" target="_new">Co-occurring genomic capacity for anaerobic methane and dissimilatory sulfur metabolisms discovered in the Korarchaeota.</a></h3>
+    <span class="pub-authors">McKay, L. J., Dlakić, M., Fields, M. W., <span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Eren, A. M</span>., Jay, Z. J., Klingelsmith, K. B., Rusch, D. B., and Inskeep, W. P.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="../images/pubs/mckay_and_inskeep.jpg"><img src="../images/pubs/mckay_and_inskeep.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- Yesllowstone National Park, archaeal evolution, genome-resolved metagenomics, phylogenomics, and pangenomics (cool stuff all over).</span><br><span style="display: inline-block; padding-bottom: 5px;">-  First description of a microbial population with both anaerobic methane and dissimilatory sulfur metabolisms.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  A news article by Montana State University with the photographs of cools scientists: <a href="http://www.montana.edu/news/18471">An organism in Yellowstone hot spring potentially linked to earliest life on Earth"</a></span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>Nature Microbiology</i>. <b>2058-5276</b></span>
+</div>
+
 
 <a name="2018">&nbsp;</a>
 <h1>2018</h1>
@@ -57,7 +93,7 @@ comments: false
     <a href="https://i.imgur.com/gzDpEU5.jpg"><img src="https://i.imgur.com/gzDpEU5.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
     </div>
     <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- A big-data study in which a pangenome of 31 <i>Prochlorococcus</i> isolates meets 31 billion Tara Oceans metagenomic sequences (<a href="https://peerj.com/articles/4320/reviews/">Peer-review history</a>).</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Metapangenomes reveal to what extent genes that may be linked to the ecology and fitness of microbes are conserved within a phylogenetic clade.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  <a href="http://merenlab.org/data/2018_Delmont_and_Eren_Metapangenomics/" target="_blank">Reproducible bioinformatics workflow</a>.</span>
+    <span style="display: inline-block; padding-bottom: 5px;">- A big-data study in which a pangenome of 31 <i>Prochlorococcus</i> isolates meets 31 billion Tara Oceans metagenomic sequences (<a href="https://peerj.com/articles/4320/reviews/">Peer-review history</a>).</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Metapangenomes reveal to what extent genes that may be linked to the ecology and fitness of microbes are conserved within a phylogenetic clade.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  <a href="http://merenlab.org/data/prochlorococcus-metapangenome" target="_blank">Reproducible bioinformatics workflow</a>.</span>
     </div>
     </div>
     <span class="pub-journal"><i>PeerJ</i>. <b>6:e4320</b></span>

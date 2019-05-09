@@ -1,0 +1,5 @@
+sample	r1	r2
+Culex_O03	Culex_O03_RAW_R1.fastq	Culex_O03_RAW_R2.fastq
+Culex_O07	Culex_O07_RAW_R1.fastq	Culex_O07_RAW_R2.fastq
+Culex_O11	Culex_O11_RAW_R1.fastq	Culex_O11_RAW_R2.fastq
+Culex_O12	Culex_O12_RAW_R1.fastq	Culex_O12_RAW_R2.fastq

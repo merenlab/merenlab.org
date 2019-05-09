@@ -1,0 +1,6 @@
+{
+    "anvi_run_ncbi_cogs": {
+        "run": false
+    },
+    "fasta_txt": "ESPINOZA-MAGS-FASTA.txt"
+}

@@ -17,9 +17,11 @@ p {
    ========================================================================== */
 
 .slack-button {
+    box-shadow: 0px 0px 25px 3px #d8d8d8;
+    border-radius: 8px;
+    /* padding: 5px; */
+    background-image: linear-gradient(#ffffff, #fff9e9);
     background-color: #fff9e9;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
     margin: 10px;
     margin-bottom: 20px;
     padding: 5px;
@@ -167,6 +169,31 @@ th, td {
     font-size: 80%;
 }
 
+.pub_float {
+    margin: auto;
+    margin-bottom: 20px;
+    box-shadow: 4px 4px 14px 1px #ccc;
+    width: 90%;
+    border: 1px solid #bcbcbc;
+    border-radius: 14px;
+    padding: 5px;
+    background-image: linear-gradient(#f4f4f4, #efefef);
+    h3 {
+        margin-bottom: 6px;
+        margin-top: 5px;
+        margin-left: 9px;
+    }
+    p {
+        font-size: 90%;
+        font-style: italic;
+    }
+    a, a:hover {
+        font-size: 80%;
+        border-bottom: 0 solid transparent;
+    }
+}
+
+
 .pub {
     margin: 5px 0px;
     h3 {
@@ -184,7 +211,7 @@ th, td {
 
 .pub-authors {
   display: block;
-  width: 100%;
+  width: 95%;
   padding-left: 10px;
   margin-bottom: 10px;
   font-variant: small-caps;

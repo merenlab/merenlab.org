@@ -1,0 +1,54 @@
+{
+    "fasta_txt": "ESPINOZA_MERGED_FASTA.txt",
+    "centrifuge": {
+        "threads": 2,
+        "run": true,
+        "db": "/groups/merenlab/00_RESOURCES/Centrifuge-NR/nt/nt"
+    },
+    "anvi_run_hmms": {
+        "run": true,
+        "threads": 5
+    },
+    "anvi_run_ncbi_cogs": {
+        "run": true,
+        "threads": 5
+    },
+    "anvi_script_reformat_fasta": {
+        "run": false
+    },
+    "samples_txt": "samples.txt",
+    "iu_filter_quality_minoche": {
+        "run": true,
+        "--ignore-deflines": true
+    },
+    "gzip_fastqs": {
+        "run": true
+    },
+    "bowtie": {
+        "additional_params": "--no-unal",
+        "threads": 3
+    },
+    "samtools_view": {
+        "additional_params": "-F 4"
+    },
+    "anvi_profile": {
+        "threads": 3,
+        "--sample-name": "{sample}",
+        "--overwrite-output-destinations": true,
+        "--profile-SCVs": true,
+        "--min-contig-length": 0
+    },
+    "import_percent_of_reads_mapped": {
+        "run": true
+    },
+    "references_mode": true,
+    "all_against_all": true,
+    "collections_txt": "ESPINOZA_ET_AL_COLLECTIONS_FILE.txt",
+    "output_dirs": {
+        "CONTIGS_DIR": "03_CONTIGS",
+        "MAPPING_DIR": "04_MAPPING",
+        "PROFILE_DIR": "05_ANVIO_PROFILE",
+        "MERGE_DIR": "06_MERGED",
+        "LOGS_DIR": "00_LOGS"
+    }
+}

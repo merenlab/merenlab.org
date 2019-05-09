@@ -1,0 +1,6 @@
+name	contigs_db_path
+Wolbachia_O03	Wolbachia_O03.db
+Wolbachia_O07	Wolbachia_O07.db
+Wolbachia_O11	Wolbachia_O11.db
+Wolbachia_O12	Wolbachia_O12.db
+wPip	wPip.db
