@@ -14,7 +14,7 @@ ap.add_argument('--genes', '-g', default=None)
 ap.add_argument('--positions', '-p', default=None)
 ap.add_argument('--full', '-f', action='store_true')
 ap.add_argument('--plot', action='store_true')
-ap.add_argument('--false-discovery-rate', '-fdr', default=0.1, type = float)
+ap.add_argument('--false-discovery-rate', '-fdr', default=0.05, type = float)
 ap.add_argument('--correlation-variable', default='Temperature')
 args = ap.parse_args()
 
