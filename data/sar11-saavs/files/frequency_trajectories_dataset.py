@@ -14,6 +14,7 @@ ap.add_argument('--genes', '-g', default=None)
 ap.add_argument('--positions', '-p', default=None)
 ap.add_argument('--full', '-f', action='store_true')
 ap.add_argument('--plot', action='store_true')
+ap.add_argument('--false-discovery-rate', '-fdr', default=0.05, type = float)
 ap.add_argument('--correlation-variable', default='Temperature')
 args = ap.parse_args()
 
@@ -199,4 +200,11 @@ for gene, df_subset in df.groupby('corresponding_gene_call'):
         ind += 1
 
 output = pd.DataFrame(output)
+
+print('Starting multiple testing analysis')
+multiple_testing = m.multipletests(output['pvalue'].values, method='fdr_bh', alpha = args.false_discovery_rate)
+print('{} of {} pass significance test at fdr {}'.format(np.sum(multiple_testing[0]), len(multiple_testing[0]), args.false_discovery_rate))
+output['pvalue_corrected'] = multiple_testing[0]
+output['significant_at_fdr_{:.2f}'.format(args.false_discovery_rate)] = multiple_testing[1]
+
 output.to_csv(args.output, sep='\t', index=False)
