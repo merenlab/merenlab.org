@@ -25,7 +25,7 @@ Here is an example project with more 250,000 splits:
 
 One way to analyze this dataset is to rely on CONCOCT. For instance, you can profile each of your sample with `--min-contig-length` of 2500, and skip the hierarchical clustering during `anvi-merge`:
 
-    $ anvi-merge */RUNINFO.cp -c contigs.db -o MERGED_PROFILE --skip-hierarchical-clustering
+    $ anvi-merge */PROFILE.db -c contigs.db -o MERGED_PROFILE --skip-hierarchical-clustering
 
 Although resulting merged profile would be missing all the trees that are used by `anvi-interactive`, it would contain clustering results from CONCOCT, therefore you would still have your genome bins identified. Which means, you can now run `anvi-summarize` on the merged data, and take a look at what's up:
 
