@@ -35,7 +35,7 @@ python -c 'import webbrowser as w; w.open_new("http://")'
 
 ## Painless installation with Conda
 
-This is a very simple and effective way to install anvi'o on your system along with all of its dependencies thanks (we thank [John Eppley](https://scholar.google.com/citations?user=4S2q_9cAAAAJ&hl=en) for pushing us towards this direction). For this to work, you need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be installed on your system. If you are not sure whether it is installed or not, open a terminal (hopefully an [iTerm](https://www.iterm2.com/) if you are using Mac) and type `conda`. You should see an output like this instead of a 'command not found' error (your version might be different):
+This is a very simple and effective way to install anvi'o on your system along with all of its dependencies (we thank [John Eppley](https://scholar.google.com/citations?user=4S2q_9cAAAAJ&hl=en) for pushing us towards this direction). For this to work, you need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be installed on your system. If you are not sure whether it is installed or not, open a terminal (hopefully an [iTerm](https://www.iterm2.com/) if you are using Mac) and type `conda`. You should see an output like this instead of a 'command not found' error (your version might be different):
 
 ```bash
 $ conda --version
