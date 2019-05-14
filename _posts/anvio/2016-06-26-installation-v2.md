@@ -50,6 +50,9 @@ Run this command to install the latest stable version of anvi'o:
 conda install -n anvio5 -c bioconda -c conda-forge anvio=5.5.0
 ```
 
+{:.notice}
+Note that the most up-to-date conda-available anvi'o version, which is currently `v5.5`, may differ from the most up-to-date stable anvi'o version, which is `v{% include _project-anvio-version-number.html %}` according to our headquarters at Westeros.
+
 If you get an `EnvironmentLocationNotFound` error from the previous command, try what Bruno Gomez-Gil [suggested](http://merenlab.org/2016/06/26/installation-v2/#comment-4369825459) instead:
 
 ```
@@ -68,9 +71,6 @@ Once the installation is complete, test anvi'o quickly to make sure everything i
 ``` bash
 anvi-self-test --suite mini
 ```
-
-{:.notice}
-Note that the most up-to-date conda-available anvi'o version, which is currently `v5.5`, may differ from the most up-to-date stable anvi'o version, which is `v{% include _project-anvio-version-number.html %}`.
 
 {:.warning}
 **IMPORTANT NOTE**: You may need to activate the anvi'o conda environment every time you open a new terminal window. Depending on your conda setup, you will either need to run `source activate anvio5` or `conda activate anvio5` (this assumes you named your conda environment for anvio `anvio5` as per the commands above using the `--name` flag --if not, please replace `anvio5` with whatever you have used to name your environment).
