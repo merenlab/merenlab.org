@@ -2,7 +2,7 @@
 layout: post
 title: "Installing anvi'o"
 excerpt: "Instructions to install the v2 branch of the platform."
-modified: 2016-06-26 
+modified: 2019-05-14
 tags: []
 categories: [anvio]
 redirect_from: /2015/05/01/installation/
@@ -35,14 +35,16 @@ python -c 'import webbrowser as w; w.open_new("http://")'
 
 ## Painless installation with Conda
 
+This is a very simple and effective way to install anvi'o on your system along with all of its dependencies thanks (we thank [John Eppley](https://scholar.google.com/citations?user=4S2q_9cAAAAJ&hl=en) for pushing us towards this direction). For this to work, you need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be installed on your system. If you are not sure whether it is installed or not, open a terminal (hopefully an [iTerm](https://www.iterm2.com/) if you are using Mac) and type `conda`. You should see an output like this instead of a 'command not found' error (your version might be different):
 
-If you have [Anaconda](https://www.continuum.io/downloads), it is also possible to install anvi'o along with its all Python and non-Python dependencies thanks to [John Eppley](https://scholar.google.com/citations?user=4S2q_9cAAAAJ&hl=en):
-
-``` bash
-conda install -c bioconda -c conda-forge anvio
+```bash
+$ conda --version
+conda 4.6.2
 ```
 
-***Note***: Some users reported that the one above was installing anvio `v4`, if that is also the case for you, uninstall it, and try it with this command:
+If you don't have conda installed, then you should first install it through their [installation page](https://docs.conda.io/en/latest/miniconda.html). Once you have confirmed you have conda installed, you are golden.
+
+Run this command to install the latest stable version of anvi'o:
 
 ```
 conda install -n anvio5 -c bioconda -c conda-forge anvio=5.5.0
@@ -68,9 +70,10 @@ anvi-self-test --suite mini
 ```
 
 {:.notice}
-Note that the most up-to-date conda-available anvi'o version, which is currently `v5.5.0`, may differ from the most up-to-date stable anvi'o version, which is `v{% include _project-anvio-version-number.html %}`.
+Note that the most up-to-date conda-available anvi'o version, which is currently `v5.5`, may differ from the most up-to-date stable anvi'o version, which is `v{% include _project-anvio-version-number.html %}`.
 
-**NOTE:** To activate the anvio conda environment when opening a new terminal window, depending on your conda setup you will either need to enter `source activate anvio5` or `conda activate anvio5` (if you named the conda environment "anvio5", set with the `--name` flag in the above conda commands).
+{:.warning}
+**IMPORTANT NOTE**: You may need to activate the anvi'o conda environment every time you open a new terminal window. Depending on your conda setup, you will either need to run `source activate anvio5` or `conda activate anvio5` (this assumes you named your conda environment for anvio `anvio5` as per the commands above using the `--name` flag --if not, please replace `anvio5` with whatever you have used to name your environment).
 
 ## Installation (with varying levels of pain)
 
