@@ -16,6 +16,13 @@ p {
    Header
    ========================================================================== */
 
+.group-photo {
+    width: 75%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 8px 8px 21px rgba(0, 0, 0, 0.3);
+}
+
 .slack-button {
     box-shadow: 0px 0px 25px 3px #d8d8d8;
     border-radius: 8px;
