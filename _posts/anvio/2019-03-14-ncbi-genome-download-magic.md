@@ -321,11 +321,14 @@ We generally first run the [contigs workflow](http://merenlab.org/2018/07/09/anv
 }
 ```
 
-Now we can run the following, which would create all the contigs databases:
+Now we can run the following, which would create all the contigs databases (in 6 threads):
 
 ```bash
 anvi-run-workflow -w contigs \
-                  -c CONTIGS-CONFIG.json
+                  -c CONTIGS-CONFIG.json \
+                      --additional-params \
+                            --jobs 6 \
+                            --resources nodes=6
 ```
 
 Once this is done, one can go to any direction with the resulting contigs databases.
