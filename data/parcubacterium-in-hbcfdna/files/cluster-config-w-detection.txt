@@ -1,0 +1,11 @@
+[general]
+
+[TNF !CONTIGS.db::kmer_contigs]
+
+[Coverage_N PROFILE.db::detection_contigs]
+normalize = False
+log = False
+
+[GC_content !CONTIGS.db::splits_basic_info]
+columns_to_use = gc_content_parent,gc_content_parent,gc_content_parent
+normalize = False

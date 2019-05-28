@@ -1,0 +1,36 @@
+{
+    "samples_txt": "samples.txt",
+    "references_txt": "references.txt",
+    "all_against_all": false,
+
+    "remove_human_contamination": {
+        "run": false
+    },
+
+    "qc": {
+        "run": false
+    },
+
+    "reformat_fasta": {
+        "run": false
+    },
+
+    "centrifuge":{
+        "run": false
+    },
+
+    "anvi_profile": {
+        "min_contig_length": 1000,
+        "profile_AA": false,
+        "report_variability_full": true,
+        "threads": 4
+    },
+
+    "anvi_merge": {
+        "skip_concoct_binning": true
+    },
+
+    "bowtie": {
+       "threads": 4
+    }
+}
