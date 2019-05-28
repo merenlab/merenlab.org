@@ -1,0 +1,2 @@
+reference	path
+Kowarsky_et_al_ALL_contigs	Kowarsky_et_al_ALL_CONTIGS.fa
