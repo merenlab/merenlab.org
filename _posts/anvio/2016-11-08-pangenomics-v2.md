@@ -416,7 +416,7 @@ This program utilizes information in the layers additional data table of your pa
 
 For those of you who like to dive into the details, here is some information about what goes on behind the scenes.
 
-In order for this analysis to be compatible with everything else relating to the pangenome, we decided that it should be focused on gene clusters, since they are the heart of our pangenomes. This means that the first step of the functional analysis is to try to associate every gene cluster with a function. Because gene clusters do not have functional annotation by default as functional annotation is done in anvi'o at the level of individual genes.
+In order for this analysis to be compatible with everything else relating to the pangenome, we decided that it should be focused on gene clusters, since they are the heart of our pangenomes. This means that the first step of the functional analysis is to try to associate every gene cluster with a function. This is necessary because gene clusters do not have functional annotation by default, as functional annotation is done in anvi'o at the level of individual genes.
 
 In an ideal world, all genes in a single gene cluster would be annotated with the same identical function. While in reality this is usually the case, it is not always true. In cases in which there are multiple functions associated with a gene cluster, we chose the most frequent function, i.e. the one that the largest number of genes in the gene cluster matches (if there is a tie of multiple functions, then we simply choose one arbitrarily). If none of the genes in the gene cluster were annotated, then the gene cluster has no function associated to it.
 
@@ -442,24 +442,16 @@ anvi-get-enriched-functions-per-pan-group -p PROCHLORO/Prochlorococcus_Pan-PAN.d
 
 Here is the structure of the output file *PROCHLORO-PAN-enriched-functions-light.txt* (there are more columns, scroll towards right to see them):
 
-
-|category | COG_FUNCTION | enrichment_score | p_value | portion_occurrence_in_group | portion_occurrence_outside_of_group | occurrence_in_group | occurrence_outside_of_group | gene_clusters_ids | core_in_group | core | corrected_p_value|
-|-- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | --|
-|LL | Proteasome lid subunit RPN8/RPN11, contains Jab1/MPN domain metalloenzyme   (JAMM) motif | 4.78 | 0 | 1 | 0 | 11 | 0 | GC_00002219, GC_00003850, GC_00004483 | TRUE | FALSE | 0|
-|LL | 1,6-Anhydro-N-acetylmuramate kinase | 4.78 | 0 | 1 | 0 | 11 | 0 | GC_00001728 | TRUE | FALSE | 0|
-|LL | L-amino acid N-acyltransferase YncA | 4.78 | 0 | 0.91 | 0 | 10 | 0 | GC_00001902 | FALSE | FALSE | 0|
-|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
-|LL | Secreted protein containing bacterial Ig-like   domain and vWFA domain | 1.19 | 0.23 | 0.18 | 0 | 2 | 0 | GC_00004324 | FALSE | FALSE | 0.68|
-|LL | Exopolysaccharide biosynthesis protein related to   N-acetylglucosamine-1-phosphodiester alpha-N-acety... | 1.19 | 0.23 | 0.18 | 0 | 2 | 0 | GC_00004835 | FALSE | FALSE | 0.68|
-|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
-|LL | Hydroxymethylpyrimidine/phosphomethylpyrimidine   kinase | -4.78 | 0 | 0 | 1 | 0 | 20 | GC_00001251 | FALSE | FALSE | 0|
-|LL | Uncharacterized conserved protein, DUF697 family | -4.78 | 0 | 0 | 1 | 0 | 20 | GC_00001393 | FALSE | FALSE | 0|
-|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
-|HL | Chromatin remodeling complex protein RSC6,   contains SWIB domain | 4.78 | 0 | 1 | 0 | 20 | 0 | GC_00001035 | TRUE | FALSE | 0|
-|HL | Metallophosphoesterase superfamily enzyme | 4.78 | 0 | 0.95 | 0 | 19 | 0 | GC_00001533 | FALSE | FALSE | 0|
-|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
-|HL | N-acetylglucosamine-6-phosphate deacetylase | -4.78 | 0 | 0 | 1 | 0 | 11 | GC_00001770 | FALSE | FALSE | 0|
-|HL | Exonuclease VII, large subunit | -4.78 | 0 | 0 | 1 | 0 | 11 | GC_00001726 | FALSE | FALSE | 0|
+|COG_FUNCTION | enrichment_score | q_value | gene_clusters_ids | function_accession | p_LL | p_HL | N_LL | N_HL | corrected_q_value|
+|-- | -- | -- | -- | -- | -- | -- | -- | -- | --|
+|N-acetylglucosamine-6-phosphate   deacetylase | 14.76 | 0 | GC_00001770 | COG1820 | 1 | 0 | 11 | 20 | 0.01|
+|1,6-Anhydro-N-acetylmuramate kinase | 14.76 | 0 | GC_00001728 | COG2377 | 1 | 0 | 11 | 20 | 0.01|
+|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
+|ATP-dependent DNA   ligase | 8.12 | 0 | GC_00000992, GC_00001635 | COG1793 | 0 | 1 | 11 | 20 | 0.14|
+|N-acetylglutamate synthase or related   acetyltransferase, GNAT family | 8.12 | 0 | GC_00001298 | COG1246 | 0 | 1 | 11 | 20 | 0.14|
+|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
+|Ribosome-associated   protein YbcJ, S4-like RNA binding protein | 0 | 0.98 | GC_00000820 | COG2501 | 1 | 0.9 | 11 | 20 | 0.98|
+|Endonuclease YncB, thermonuclease family | 0 | 0.99 | GC_00001719, GC_00003000 | COG1525 | 0.45 | 0.45 | 11 | 20 | 0.99|
 
 The following describes each column:
 
