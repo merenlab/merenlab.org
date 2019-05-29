@@ -27,7 +27,7 @@ If you have any questions, please feel free to leave a comment down below, send 
 {% include _join-anvio-slack.html %}
 
 
-## Introduction
+## Introduction 
 
 This is a part of the collaboration we had with [Carl Yeoman](https://yeomanlab.com/) and his colleagues.
 
