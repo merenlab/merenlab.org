@@ -30,7 +30,7 @@ If you have any questions, please feel free to leave a comment down below, send 
 
 Our current study re-analyzes the invaluable metagenomic datasets and assemblies the study above made available. As briefly described previously on [this blog post](http://merenlab.org/2017/08/23/CPR-in-blood/), Kowarsky et al. take hundreds of blood samples collected from tens of patients, and use shotgun seqeuncing and assembly strategies to recover contigs from cell-free DNA. They remove sequences that match to the human genome, and investigate what is there in the remaining contigs. The authors also validate some of their findings by performing independent bench experiments, which is very nice to see since unfortunately ‘omics findings are rarely validated by additional experiments.
 
-While the original blog post have identified an initial genome bin that resembled genomes characterized as Candidate Phyla Radiation, it had two major limitations. The first limitation was the use of only the novel contigs from Kowarsky et al. study as contigs that were considered 'non-novel' could still represent fragments that belong to this population: Kowarsky et al. had determined whether a given contig in their assembly was novel or not based on BLAST searches against known sequences in the NCBI's databases, but NCBI contains thousands of CPR genomes, hence partial matches may have removed contigs from the 'novel' bin. The second limitation of the initial survey of the assembly in that blog post was the fact that the analysis made no use of differential coverage information to make sure the bin was not contaminated.
+While the original blog post have identified an initial genome bin that resembled genomes characterized as Candidate Phyla Radiation, it had two major limitations. The first limitation was the use of only the novel contigs from the Kowarsky et al. study, as contigs that were considered 'non-novel' could still represent fragments that belong to this population: Kowarsky et al. had determined whether a given contig in their assembly was novel or not based on BLAST searches against known sequences in the NCBI's databases, but NCBI contains thousands of CPR genomes. Hence, partial matches may have removed contigs from the 'novel' bin. The second limitation of the initial survey of the assembly in that blog post was the fact that the analysis made no use of differential coverage information to make sure the bin was not contaminated.
 
 Our current study addresses both of these limitations by (1) including [non-novel contigs](files/non-novel-contigs.fa.zip) (obtained from Kowarsky et al. through personal communication) in our analysis together with [novel contigs](files/novel-contigs.fa.zip) that were published before, and (2) employing metagenomic short reads made available in the origial study for read recruitment analyses. Together, these additions allowed us to determine a more complete genome bin for this CPR genome in this extremely challenging dataset, and perform a phylogenomic analyses to shed light on its place on the Tree of Life.
 
@@ -39,7 +39,7 @@ Our current study addresses both of these limitations by (1) including [non-nove
 
 For brevity, this section only describes the read recruitment analysis we performed to map reads from pregnant women blood metagenomes on to the combined set of contigs that includes both novel and non-novel contigs. However, we performed all read recruitment analyses similarly, which means changing the contents of the `samples.txt` and `references.txt` files, which we will describe shortly, will be sufficient to perform all others.
 
-The mapping procedure implements the anvi'o metagenomics workflow [described here](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/) in great detail. Briefly, the two main inputs of this workflow are a list of metagenomes, and a reference context for read recruitment, and its main output is an anvi'o contigs database and a merged profile database for visualization and/or binning. Metagenomes from which the reads will be recrioted are described in a file called `samples.txt`, which looked like this for this analysis (you can see the enitre file [here](samples.txt)):
+The mapping procedure implements the anvi'o metagenomics workflow [described here](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/) in great detail. Briefly, the two main inputs of this workflow are a list of metagenomes, and a reference context for read recruitment, and its main output is an anvi'o contigs database and a merged profile database for visualization and/or binning. Metagenomes from which the reads will be recruited are described in a file called `samples.txt`, which looked like this for this analysis (you can see the enitre file [here](samples.txt)):
 
 |sample|r1|r2|
 |:--|:--:|:--:|
@@ -63,7 +63,7 @@ wget http://merenlab.org/data/parcubacterium-in-hbcfdna/files/novel-contigs.fa.z
 unzip non-novel-contigs.fa.zip
 unzip novel-contigs.fa.zip
 
-cat novel-contigs.fa non-novel-contigs.fa > all-contigs.fa
+cat novel-contigs.fa non-novel-contigs.fa > Kowarsky_et_al_ALL_CONTIGS.fa
 ```
 
 Then, we generate a `reference.txt` file (which is also available [here](files/references.txt)):
@@ -123,16 +123,16 @@ anvi-run-workflow -w metagenomics \
                            --resources nodes=6
 ```
 
-This analysis results in an anvi'o merged profile database that describes the read recruitment statistics of each contig in `all-contigs.fa` across all metagenomes.
+This analysis results in an anvi'o merged profile database that describes the read recruitment statistics of each contig in `Kowarsky_et_al_ALL_CONTIGS.fa` across all metagenomes.
 
 {:.warning}
 [doi:10.6084/m9.figshare.8188613](https://doi.org/10.6084/m9.figshare.8188613) gives access to anvi'o files that were used in the downstream analysis.
 
 ## Manual genome refinement
 
-By default, anvi'o organizes contigs in a given merged profile database based on tetranucleotide-frequency and differential coverage. While this strategy is quite effective and also has been used in many commonly used binning algorithms to identify population genomes, the differential coverage signal can be extremely noisy if all microbial populations are extremely rare in a metagenome (i.e., a large fraction of sequencing describes the eukaryotic contamination) since in those situations non-specific read recruitment determines most of the coverage signal, and there can be many ways to reach to the same mean coverage when there is enough chaos at the coverage level. This was such a dataset where the coverage of microbial contigs were extremely low, and our empirical analyses with this challenging dataset suggested that differential detection, instead of differential coverage, may serve better to identify population genomes contigs of which detected similarly across samples.
+By default, anvi'o organizes contigs in a given merged profile database based on tetranucleotide-frequency and differential coverage. While this strategy is quite effective and also has been used in many commonly used binning algorithms to identify population genomes, the differential coverage signal can be extremely noisy if all microbial populations are extremely rare in a metagenome (i.e., a large fraction of sequencing describes the eukaryotic contamination) since in those situations non-specific read recruitment determines most of the coverage signal, and there can be many ways to reach to the same mean coverage when there is enough chaos at the coverage level. This was such a dataset where the coverage of microbial contigs were extremely low, and our empirical analyses with this challenging dataset suggested that differential detection, instead of differential coverage, may serve better to identify population genomes, contigs of which detected similarly across samples.
 
-To utilize differential detection along with tetranucleotide frequency, we first created an anvi'o clustering recipe that uses `detection_contigs` information stored in anvi'o databases rather than `mean_coverage_contigs` as it is the case in default approach:
+To utilize differential detection along with tetranucleotide frequency, we first created an anvi'o clustering recipe that uses `detection_contigs` information stored in anvi'o databases rather than `mean_coverage_contigs` as it is the case in the default approach:
 
 ``` ini
 [general]
@@ -183,7 +183,7 @@ Number of splits described ...................: 175
 Bin names ....................................: CPR_bin, Parcu_16S
 ```
 
-Then we added an additional data layer to identify contigs that carried one or more bacterial single-copy core genes which was explained in [this file](files/contigs_with_BSCGs.txt):
+Then, we added an additional data layer to identify contigs that carried one or more bacterial single-copy core genes which was explained in [this file](files/contigs_with_BSCGs.txt):
 
 ```
 anvi-import-misc-data files/contigs_with_BSCGs.txt \
@@ -229,7 +229,7 @@ Our conservative effort to identify the set of contigs for a final refined bin i
 
 - The default display shows the organization of contigs based on tetranucleotide frequency --switch to `TNF DETECTION` order (in the Main panel under the 'Item order" combo box) and re-draw the display.
 
-- Load the collection `INITIAL CPR BIN FROM TNF` to identify contigs that match to the initial CPR bin identified from novel contigs (in teh Bins panel under Load Collection dialogue). This gives us this:
+- Load the collection `INITIAL CPR BIN FROM TNF` to identify contigs that match to the initial CPR bin identified from novel contigs (in the Bins panel under Load Collection dialogue). This gives us this:
 
 [![](images/refinement-01.png)](images/refinement-01.png){:.center-img .width-60}
 
@@ -435,7 +435,7 @@ anvi-interactive -p phylogenomics.db \
                  --title "CPR bin + Brown et al CPR Genomes + Five Firmicutes Genomes"
 ```
 
-After some polishing, this was the result allowed us to suggest the CPR bin was a member of the superphylum Parcubacteria:
+After some polishing, this was the result that allowed us to suggest the CPR bin was a member of the superphylum Parcubacteria:
 
 [![](images/phylogenomic-tree.png)](images/phylogenomic-tree.png){:.center-img .width-90}
 
