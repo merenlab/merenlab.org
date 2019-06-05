@@ -16,6 +16,19 @@ p {
    Header
    ========================================================================== */
 
+summary {
+    background: #f4f5ea;
+    padding: 4px;
+    border-radius: 3px;
+}
+
+details {
+    background: #fffaf5;
+    padding: 10px;
+    border: 1px #bbbbbb dashed;
+    border-radius: 5px;
+}
+
 .group-photo {
     width: 75%;
     max-width: 800px;
