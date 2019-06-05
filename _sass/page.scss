@@ -18,8 +18,12 @@ p {
 
 summary {
     background: #f4f5ea;
-    padding: 4px;
-    border-radius: 3px;
+    padding: 5px;
+    border-radius: 5px;
+    font-variant: small-caps;
+    font-weight: bold;
+    box-shadow: 4px 4px 8px #d8d8d8;
+    outline: none;
 }
 
 details {
