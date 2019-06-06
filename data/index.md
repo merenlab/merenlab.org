@@ -237,10 +237,6 @@ This is what you should see after entering the last command in your terminal:
 * Primary and supplementary figures: [https://doi.org/10.6084/m9.figshare.3851481.v2](https://doi.org/10.6084/m9.figshare.3851481.v2){:target="_blank"}
 * Supplementary tables: [https://doi.org/10.6084/m9.figshare.3851478.v2](https://doi.org/10.6084/m9.figshare.3851478.v2){:target="_blank"}
 
-The anvi'o profiles article in this data collection contains 22 items:
-
-<iframe src="https://widgets.figshare.com/articles/3851364/embed?show_title=1" width="100%" height="300" frameborder="0"></iframe>
-
 </details>
 
 For an example on how to re-analyze these anvi'o profiles, please [click here]({% post_url miscellaneous/2016-11-21-bacteroides-genome-variants %}/#displaying-a-patient-metagenome-from-vineis-et-al){:target="_blank"}.
@@ -311,6 +307,8 @@ Everything mentioned on this page can be cited using doi [10.6084/m9.figshare.20
 The anvi'o profiles here will run with a much earlier version of anvi'o. If you would like to work with them, please checkout your anvi'o codebase to [this commit](https://github.com/meren/anvio/commit/265318856301ab4f7a71911aeaefb524339efbb3). Please don't hesitate to write us if you need assistance.
 
 <details markdown="1"><summary>Show/hide public data items for the study</summary>
+
+---
 
 **Daily Infant Gut Samples by Sharon _et al._**. Raw data and anvi'o results for the section on supervised binning and the analysis of the variability in genome bins.
 
