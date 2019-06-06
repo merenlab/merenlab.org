@@ -9,7 +9,7 @@ body {
 }
 
 p {
-  line-height: 1.5em;
+  line-height: 1.6em;
 }
 
 /* 
@@ -19,18 +19,21 @@ p {
 summary {
     background: #f4f5ea;
     padding: 5px;
+    margin-bottom: 8px;
     border-radius: 5px;
     font-variant: small-caps;
     font-weight: bold;
     box-shadow: 4px 4px 8px #d8d8d8;
     outline: none;
+    background-image: linear-gradient(-90deg, #ff9a9a, #ffff62);
 }
 
 details {
-    background: #fffaf5;
-    padding: 10px;
+    padding: 15px;
     border: 1px #bbbbbb dashed;
     border-radius: 5px;
+    background-image: linear-gradient(90deg, rgb(243, 243, 243) 0%, rgba(255,255,255,1) 32%);
+    margin-bottom: 10px;
 }
 
 .group-photo {
