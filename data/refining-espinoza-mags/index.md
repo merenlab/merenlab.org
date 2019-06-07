@@ -75,7 +75,12 @@ If this is the first time you are seeing an anvi'o interactive interface, we hav
 
 Briefly, every layer in this display is one of the metagenomes, and each item shown here is one of the contigs in this MAG. Data points by default show the mean coverage of a given contig in a given metagenome, but that view can be changed to [other things]({% post_url anvio/2017-05-08-anvio-views %}).
 
-There are 88 metagenomes in Espinoza et al. study, hence there are 88 layers in theis display. Because we have many metagenomes, the dendrogram in the middle appears too small to make accurate selections of branches. So the first thing we will do is make it bigger. First click on the "Show Additional Settings" button:
+There are 88 metagenomes in Espinoza et al. study, hence there are 88 layers in this display. Because we have many metagenomes, the dendrogram in the middle appears too small to make accurate selections of branches. So the first thing we will do is make it bigger.
+
+<details markdown="1"><summary>Show/Hide Changing the radius of the central dendrogram</summary>
+
+<br>
+First click on the "Show Additional Settings" button:
 
 [![additional_settings](images/additional_settings.png)](images/additional_settings.png){:.center-img .width-60}
 
@@ -85,9 +90,16 @@ And now we can set the radius (here we chose 15,000):
 
 And once we hit "Draw" (or use "d" as a keyboard shortcut), we get this:
 
+</details>
+
 [![bigger_radius](images/bigger_radius.png)](images/bigger_radius.png){:.center-img .width-60}
 
-Looks much better. We can already see some interesting patterns, but before we dig into those, let's choose all the splits in this MAG. When you click with the left click on any of the branches in the center dendrogram, it will choose all the items under that part of the tree and add them into a 'bin'.
+Looks much better. We can already see some interesting patterns, but before we dig into those, let's examine some general stats regarding these splits in the anvi'o interactive interface.
+
+<details markdown="1"><summary>Show/Hide Examining stats for bins in the interactive interface</summary>
+
+<br>
+To get to see some stats for these splits, we first choose all the splits in this MAG. When you click with the left click on any of the branches in the center dendrogram, it will choose all the items under that part of the tree and add them into a 'bin'.
 
 You can then move to the "Bins" tab (top left), you can see some real-time stats regarding your MAG:
 
@@ -95,14 +107,16 @@ You can then move to the "Bins" tab (top left), you can see some real-time stats
 
 Once you click the "Bins" tab and you choose all the splits (just choosing the two branches that come out of the root should do it), your interface should look like this:
 
+</details>
+
 [![bins_tab_all_splits](images/bins_tab_all_splits.png)](images/bins_tab_all_splits.png){:.center-img .width-60}
 
 Let's review what we see:
 
  - **Splits**: anvi'o splits long contigs into splits of a maximum of 20,000 nucleotides (this is the default, but the number could be modified in `anvi-gen-contigs-database`). Here we have 313 splits.
- - **Len**: the total length of all the splits (contigs) in your MAG.
- - **Comp.**: completion based on a collection of single-copy core genes. anvi'o has a certain heuristic to determine the domain (bacteria/archea/eukaryota) of the MAG and it would use a dedicated collection of single-copy core genes accordingly.
- - **Red.**: redundancy of single-copy core genes.
+ - **Len**: the total length of all the splits (contigs) in your MAG, which in this case is 1.99Mbp. This is already suspicious since other GN02 genomes are much smaller (closer to 1-1.2Mbpa).
+ - **Comp.**: completion based on a collection of single-copy core genes. anvi'o has a certain heuristic to determine the domain (bacteria/archea/eukaryota) of the MAG and it would use a dedicated collection of single-copy core genes accordingly. The estimated completion is 84.2%, which would actually be [typical to a highly complete member of the CPR](http://merenlab.org/2016/04/17/predicting-CPR-Genomes/).
+ - **Red.**: redundancy of single-copy core genes, which is estimated to be 77%.
 
 We can see that this bin has very high redundancy of single-copy core genes. This is a very strong indication that this bin is highly contaminated. In fact, recent [guidelines set 10% as the highest redundancy that is appropriate to report for a MAG](https://www.nature.com/articles/nbt.3893), with which [we agree]({% post_url miscellaneous/2016-06-09-assessing-completion-and-contamination-of-MAGs %}).
 
@@ -113,6 +127,11 @@ We can click on the redundancy number and see which specific genes are redundant
 
 [![redundancy_click](images/redundancy_click.png)](images/redundancy_click.png){:.center-img .width-60}
 
+Let's look for example which splits contain the redundant copies of Ribosomal_S16:
+
+<details markdown="1"><summary>Show/Hide Highlighting redundant single-copy core genes</summary>
+
+<br>
 Moreover, if we click on a specific gene name, anvi'o will highlight with a red mark the splits in which the gene occurs. Let's click on the first one (Ribosomal_S16):
 
 In order to see the highlights better, let's first go back to the "Main" tab (top right of screen), and set some parameters for "Selections". It will make our selections and highlights much more visible:
@@ -120,10 +139,16 @@ In order to see the highlights better, let's first go back to the "Main" tab (to
 [![selections](images/selections.png)](images/selections.png){:.center-img .width-60}
 
 And now the interactive interface should look like this:
+</details>
 
 [![redundant_ribosomal](images/redundant_ribosomal.png)](images/redundant_ribosomal.png){:.center-img .width-60}
 
-In order to get an idea of what taxa these copies of Ribosomal protein S16 represent, we can BLAST the splits in which these genes are found against the NCBI's nr database. This could be done from the interactive interface easily. We simply right click on one of these splits, and then a menu such as in the screenshot below will appear:
+In order to get an idea of what taxa these copies of Ribosomal protein S16 represent, we can BLAST the splits in which these genes are found against the NCBI's nr database.
+
+<details markdown="1"><summary>Show/Hide Getting sequences for splits</summary>
+
+<br>
+This could be done from the interactive interface easily. We simply right click on one of these splits, and then a menu such as in the screenshot below will appear:
 
 [![rightclick](images/rightclick.png)](images/rightclick.png){:.center-img .width-60}
 
@@ -131,14 +156,21 @@ Now, we can either choose one of the "blast" options from below, but I like to c
 
 [![split_sequence](images/split_sequence.png)](images/split_sequence.png){:.center-img .width-60}
 
-If we click on the sequence inside this window, then the sequence will be highlighted and we can copy and paste it into [balstx](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastx&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome) and run the blastx search (blastx accepts nucleotide sequences as input, translates open reading frames to amino acid sequences and searches NCBI's protein sequences database). Depending on the length and content of a split this could be very fast or very slow. In this case it took about 10 minutes to get a result and here is a screenshot of the top two hits:
+If we click on the sequence inside this window, then the sequence will be highlighted and we can copy and paste it into [balstx](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastx&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome) and run the blastx search (blastx accepts nucleotide sequences as input, translates open reading frames to amino acid sequences and searches NCBI's protein sequences database). Depending on the length and content of a split this could be very fast or very slow. In this case it took about 10 minutes to get a result.
+
+We can repeat this process for the other split that contains a copy of Ribosomal protein S16.
+
+</details>
+<br>
+
+Here are the screenshot of the top two hits on NCBI for one  of the splits:
 
 [![blast_split1](images/blast_split1.png)](images/blast_split1.png){:.center-img .width-90}
 
 The top hit is to the original MAG published by Espinoza et al. so that is of no interest.
 The second hit is to a Gracilibacteria genome [HOT-871](https://www.ncbi.nlm.nih.gov/genome/?term=txid1540872[Organism:noexp]) from a study by [Jouline et al.](http://grantome.com/grant/NIH/R01-DE024463-04).
 
-We repeat this process for the other split that contains a copy of Ribosomal protein S16, and here is the top hit.
+And here are the top hits for the second split:
 
 [![blast_split2](images/blast_split2.png)](images/blast_split2.png){:.center-img .width-90}
 
@@ -157,7 +189,7 @@ If you click on the "Items order", you can choose from multiple options of items
 
 [![items_order](images/items_order.png)](images/items_order.png){:.center-img .width-60}
 
-You can read more about each of these options in the ["Infant Gut Tutorial"](/tutorials/infant-gut/#chapter-i-genome-resolved-metagenomics). By default items are organized by a metric that uses both sequence composition and differential coverage. We can see that the dendrogram separates into two major clusters that appear to have distinct differential coverages. Let's make two bins with these distinct clusters:
+You can read more about each of these options in the ["Infant Gut Tutorial"](/tutorials/infant-gut/#chapter-i-genome-resolved-metagenomics). By default, items are organized by a metric that uses both sequence composition and differential coverage. We can see that the dendrogram separates into two major clusters that appear to have distinct differential coverages. Let's make two bins with these distinct clusters:
 
 {:.warning}
 **Pro tip**. On Mac, you can use ⌘ + mouse click on a branch to store it in a new bin.
@@ -170,7 +202,7 @@ You can read more about each of these options in the ["Infant Gut Tutorial"](/tu
 {:.warning}
 **Sad tip**. The anvi'o interactive interface does not have a CTRL-Z.
 
-We can see that these two clusters correspond to two genomes with very high completion and very low redundancy. As we show below, these genomes belong to the candidate phylum Gracilibacteria (formerly GN02), a member of the Candidate Phyla Radiation (CPR), and hence [this completion estimation is an underestimation](http://merenlab.org/2016/04/17/predicting-CPR-Genomes/#distribution-of-bacterial-single-copy-genes-in-cpr).
+We can see that these two clusters correspond to two genomes with very high completion and very low redundancy (C/R of 80.6%/0.7% for Bin_1 and 75.5%/0% for Bin_2). As we show below, these genomes belong to the candidate phylum Gracilibacteria (formerly GN02), a member of the Candidate Phyla Radiation (CPR), and hence [this completion estimation is an underestimation](http://merenlab.org/2016/04/17/predicting-CPR-Genomes/#distribution-of-bacterial-single-copy-genes-in-cpr).
 
 So here we are, we took just a few fairly easy steps and we have already improved these genomes A LOT!
 
@@ -178,7 +210,7 @@ But what about those splits that now belong to no bin? We will start with the cl
 
 [![orphan_cluster1](images/orphan_cluster1.png)](images/orphan_cluster1.png){:.center-img .width-60}
 
-The coverage pattern tell us that these splits are covered in samples in which either of these populations occur, so these are likely largely "shared" sequences of these populations, i.e. sequences that recruit short reads from both of these populations.
+The coverage pattern tells us that these splits are covered in samples in which either of these populations occur, so these are likely largely "shared" sequences of these populations, i.e. sequences that recruit short reads from both of these populations.
 So let's check what happens when we add these splits to each of the bins
 
 This is what happens if we add it to bin1:
@@ -253,10 +285,17 @@ anvi-interactive --manual \
                  -t 09_PHYLOGENOMICS_WITH_FIRMICUTES/ESPINOZA_CPR_MAGS-proteins_GAPS_REMOVED.fa.contree
 ```
 
-We first change the "Drawing type" to "Phylogram":
+
+<details markdown="1"><summary>Show/Hide Changing the "drawing type" in anvi'o</summary>
+
+<br>
+Phylogenies often look better when viewd in a phylogram instead of a circular phylogram. This is what we do to change the "Drawing type" to "Phylogram":
 
 [![drawing_type](images/drawing_type.png)](images/drawing_type.png){:.center-img .width-60}
 
+</details>
+
+<br>
 We also made some manual selections to highlight the MAGs we refined and we get:
 
 [![phylogeny](images/phylogeny.png)](images/phylogeny.png){:.center-img .width-60}
@@ -283,11 +322,17 @@ anvi-display-pan -p 10_PAN/GN02_UNREFINED/GN02_UNREFINED-PAN.db \
 Ok, there is a lot here, and if you want to learn about all the wonderful information that is presented here, you should refer to the anvi'o [pangenomics tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/).
 We really recommend that you take a look, because there are a lot of things you can learn from a pangenome.
 
-In our case we will focus on just one thing: the single-copy core gene clusters.
-So we can first play with the interface to only show things that we are interested in.
-The figure above contains concentric circular section to represent each of the four genomes we used for computing the pangenomes.
-In addition there are 5 additional concentric layers, but we are only interested in the one that is labeled "SCG Clusters".
-So we will remove the rest of the layers from the iterface. To do that, we go to the "Main" tab and set the "Height" to zero for each layer we don't want:
+In our case we will focus on just one thing: the single-copy core gene clusters ("SCG Clusters" or simply "SCGs").
+The SCGs are gene clusters that occur with a single copy in ALL genomes in the pangenome. Similar to how we use the redundancy of single copy core genes from an HMM collection to estimate contamination, we can also use SCGs as a similar indicator as we show below.
+The figure above contains concentric circular sections to represent each of the four genomes we used for computing the pangenomes.
+In addition, there are 5 additional concentric layers, but we are only interested in the one that is labeled "SCG Clusters".
+
+So we will remove the rest of the layers from the iterface, and change a few more things to make it easier to examine the SCGs.
+
+<details markdown="1"><summary>Show/Hide Modifying the interactive interface for the pangenome</summary>
+
+<br>
+In order to remove the layers that are currently of no interest to us, we go to the "Main" tab and set the "Height" to zero for each layer we don't want:
 
 [![height_to_zero](images/height_to_zero.png)](images/height_to_zero.png){:.center-img .width-60}
 
@@ -323,10 +368,12 @@ Lastly, I changed the color of the layer representing our genome-of-interest to 
 
 And now we can take another look:
 
+</details>
+
 [![pangenome1](images/pangenome1.png)](images/pangenome1.png){:.center-img .width-60}
 
-I encircled and added an arrow above to emphesize the single-copy core gene clusters (SCGCs).
-The SCGCs are important because we can use these for many things.
+I encircled and added an arrow above to emphesize the single-copy core gene clusters (SCGs).
+The SCGs are important because we can use these for many things.
 For example, these could be great to use for [phylogeny](http://merenlab.org/2016/11/08/pangenomics-v2/#scrutinizing-phylogenomics).
 But in our case the fact that there are only 8 such gene clusters is a pretty alarming sign that something is wrong.
 A closer examination of the figure above reveals that there are many gene clusters that appear as single-copy in the other three genomes, but as multi-copy in MAG IV.B.
@@ -335,7 +382,7 @@ Let's now take a look at the pangenome using the refined genomes:
 
 [![pangenome2](images/pangenome2.png)](images/pangenome2.png){:.center-img .width-60}
 
-We can see that there are now many more SCGCs (there are 128 such gene clusters, a 1,600% increase compared to earlier).
+We can see that there are now many more SCGs (there are 128 such gene clusters, a 1,600% increase compared to earlier).
 
 ## Summary
 
@@ -351,16 +398,16 @@ Here you will find all the computational steps that are required to get the resu
 
 ### Setting the stage
 
-This section explains how to download the metagenomes and MAGs from the original study by Espinoza _et al.
+This section explains how to download the metagenomes and MAGs from the original study by Espinoza et al.
 Downloading this data would allow you to follow this post step by step and get the final results we got.
-Alternatively, you can skip this part, and apply the approach we describe to your own data._
+Alternatively, you can skip this part, and apply the approach we describe to your own data.
 
 #### Downloading the Espinoza et al. metagenomes
 
 You can download raw Illumina paired-end seqeuncing data files for the 88 supragingival plaque samples into your work directory the following way:
 
 ``` bash
-wget http://merenlab.org/data/refining-espinoza-mags/files/SRR_list.txt 
+wget http://merenlab.org/data/refining-espinoza-mags/files/SRR_list.txt
 
 for SRR_accession in `cat SRR_list.txt`; do
     fastq-dump --outdir 01_RAW_FASTQ \
@@ -371,7 +418,8 @@ for SRR_accession in `cat SRR_list.txt`; do
                --dumpbase \
                --split-3 \
                --clip \
-               $SRR_accesion
+               $SRR_accession
+done
 ```
 
 Once the download is finished, you should have 196 FASTQ files in your `01_RAW_FASTQ` directory, representing the paired-end reads of 88 metagenomes.
@@ -418,7 +466,7 @@ You can skip this section if you are working with your own FASTA file(s) and you
 
 {:.notice}
 When working with multiple FASTA files you can choose between analysing each separately or concatinating them into a single FASTA file. The main advantage of working with a single FASTA file in our case is that mapping short reads to a single large FASTA file is much faster than mapping reads to multiple smaller files. Depending on your specific data you should decide what's better for your case.
-In this case we chose to a single merged FASTA file since the MAGs that we examined originated from an assembly that was done with the exact metagenomes that we use here. all the steps that are done here could be done with multiple fasta files (and hence multiple contigs databases) in the same manner.
+In this case we chose to use a single merged FASTA file since the MAGs that we examined originated from an assembly that was done with the exact metagenomes that we use here. all the steps that are done here could be done with multiple fasta files (and hence multiple contigs databases) in the same manner.
 To make things go a little faster, we combined all MAGs into a single FASTA file (so the mapping and profiling steps could be streamlined).
 
 In order to create a merged FASTA file, we first wish to rename the headers in each FASTA file to have names that are meaningful (so that we know for each contig, what genome it originated from) and also names that are acceptable for anvi'o (i.e. ASCII and '_'). For that, we used the following text file, `ESPINOZA-MAGS-FASTA.txt`, which is in the format of a `fasta_txt` file as accepted by [`anvi-run-workflow`](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#fastatxt).
@@ -568,8 +616,8 @@ Notice that we set the value in the `contigs_mode` column to `1`, because our co
 ### Running the anvi'o metagenomic workflow
 
 The analysis described here utilizes the anvi'o [contigs](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#creating-an-anvio-contigs-database) and [profile](http://merenlab.org/2016/06/22/anvio-tutorial-v2/#anvi-profile) databases. You can refer to the anvi'o [metagenomic tutorial](http://merenlab.org/2016/06/22/anvio-tutorial-v2/) to learn more about these databases in a general manner or to [this tutorial](http://merenlab.org/tutorials/infant-gut/) to see many of the things that you could do using anvi'o. In this post we will assume a basic familiarity of anvi'o.
-In order to streamline the process of generating and annotating a contigs database and a merged profile database we used We used the [snakemake-based metagenomics workflow](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#metagenomics-workflow).
-You can either follow the steps here or follow the step-by-step process in the [anvi'o metagenomic tutorial](http://merenlab.org/2016/06/22/anvio-tutorial-v2/).
+In order to streamline the process of generating and annotating a contigs database and a merged profile database we used the [snakemake-based metagenomics workflow](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#metagenomics-workflow).
+To learn how to use this workflow, you can either follow the steps here or follow the step-by-step process in the [anvi'o metagenomic tutorial](http://merenlab.org/2016/06/22/anvio-tutorial-v2/).
 
 First we will describe all the necesary files for the workflow.
 
@@ -624,7 +672,7 @@ The content of which should look like this:
     "centrifuge": {
         "threads": 2,
         "run": true,
-        "db": "/groups/merenlab/00_RESOURCES/Centrifuge-NR/nt/nt"
+        "db": "/PATH-TO-CENTRIFUGE/Centrifuge-NR/nt/nt"
     },
     "anvi_run_hmms": {
         "run": true,
@@ -664,7 +712,7 @@ The content of which should look like this:
     },
     "references_mode": true,
     "all_against_all": true,
-    "collections_txt": "ESPINOZA_ET_AL_COLLECTIONS_FILE.txt",
+    "collections_txt": "ESPINOZA-COLLECTIONS-FILE.txt",
     "output_dirs": {
         "QC_DIR": "02_QC",
         "CONTIGS_DIR": "03_CONTIGS",
@@ -678,20 +726,6 @@ The content of which should look like this:
 
 {:.notice}
 Note that in order for this config file to work for you, the path to the centrifuge database must be fixed to match the path on your machine (or simply set centrifuge not to run by setting the "run" parameter to `false`).
-
-We will also need the collections file ESPINOZA_ET_AL_COLLECTIONS_FILE.txt:
-
-```bash
-wget http://merenlab.org/data/refining-espinoza-mags/files/ESPINOZA_ET_AL_COLLECTIONS_FILE.txt
-```
-
-This file specifies the details that are required in order to import the collection that was generated above. This is what the file looks like:
-
-```bash
-$ cat ESPINOZA_ET_AL_COLLECTIONS_FILE.txt
-name    collection_name collection_file contigs_mode
-ESPINOZA        ORIGINAL_MAGS   ESPINOZA-MAGS-COLLECTION.txt    1
-```
 
 Just to make sure things look alright, we run the following command to generate a visual summary of the workflow:
 
@@ -979,52 +1013,95 @@ We used the following config file PHYLOGENY-CONFIG.json:
 You can download it:
 
 ```bash
-wget
+wget http://merenlab.org/data/refining-espinoza-mags/files/PHYLOGENY-CONFIG.json
 ```
 
-The external and internal genomes files are used for anvi-get-sequences-for-hmms-hits.
+The external and internal genomes files are used for anvi-get-sequences-for-hmms-hits. The external genomes file will be generated automatically by the workflow, but we need to provide the internal genomes file.
 
-You can download these files:
+You can download the external genomes file:
 
 ```bash
-wget
-wget
+wget http://merenlab.org/data/refining-espinoza-mags/files/INTERNAL-GENOMES-PHYLOGENOMICS.txt
 ```
 
-And this is what they look like:
+And this is what it look like:
 
 ```
-cat EXTERNAL-GENOMES-PHYLOGENOMICS.txt
-
-cat INTERNAL-GENOMES-PHYLOGENOMICS.txt
-
+$ cat INTERNAL-GENOMES-PHYLOGENOMICS.txt
+name	bin_id	collection_id	profile_db_path	contigs_db_path
+GN02_MAG_IV_A_1	GN02_MAG_IV_A_1	default	07_SPLIT/GN02_MAG_IV_A/PROFILE.db	07_SPLIT/GN02_MAG_IV_A/CONTIGS.db
+GN02_MAG_IV_A_2	GN02_MAG_IV_A_2	default	07_SPLIT/GN02_MAG_IV_A/PROFILE.db	07_SPLIT/GN02_MAG_IV_A/CONTIGS.db
+GN02_MAG_IV_B_1	GN02_MAG_IV_B_1	default	07_SPLIT/GN02_MAG_IV_B/PROFILE.db	07_SPLIT/GN02_MAG_IV_B/CONTIGS.db
+GN02_MAG_IV_B_2	GN02_MAG_IV_B_2	default	07_SPLIT/GN02_MAG_IV_B/PROFILE.db	07_SPLIT/GN02_MAG_IV_B/CONTIGS.db
+TM7_MAG_III_A_1	TM7_MAG_IIIA_1	default	07_SPLIT/TM7_MAG_III_A/PROFILE.db	07_SPLIT/TM7_MAG_III_A/CONTIGS.db
+TM7_MAG_III_A_2	TM7_MAG_IIIA_2	default	07_SPLIT/TM7_MAG_III_A/PROFILE.db	07_SPLIT/TM7_MAG_III_A/CONTIGS.db
+TM7_MAG_III_B_1	TM7_MAG_IIIB_1	default	07_SPLIT/TM7_MAG_III_B/PROFILE.db	07_SPLIT/TM7_MAG_III_B/CONTIGS.db
+TM7_MAG_III_C_1	TM7_MAG_IIIC_1	default	07_SPLIT/TM7_MAG_III_C/PROFILE.db	07_SPLIT/TM7_MAG_III_C/CONTIGS.db
 ```
 
 To run the workflow we ran:
 
 ```bash
-anvi-run-workflow -w phylogenomics -c PHYLOGENY-CONFIG.json
+anvi-run-workflow -w phylogenomics \
+                  -c PHYLOGENY-CONFIG.json
 ```
 
 ## Computing the pangenomes
 
 The purpose of this section is to provide the steps to generate the pangenomes that we generated for comparing the refined and unrefined MAGs.
 
-To download the internal and external genomes files that we used:
+To download the internal genomes files that we used:
 
 ```bash
-wget 
+wget http://merenlab.org/data/refining-espinoza-mags/files/SR1_UNREFINED-GENOMES.txt
+wget http://merenlab.org/data/refining-espinoza-mags/files/SR1_REFINED-GENOMES.txt
+wget http://merenlab.org/data/refining-espinoza-mags/files/GN02_UNREFINED-GENOMES.txt
+wget http://merenlab.org/data/refining-espinoza-mags/files/GN02_REFINED-GENOMES.txt
+wget http://merenlab.org/data/refining-espinoza-mags/files/TM7_UNREFINED-GENOMES.txt
+wget http://merenlab.org/data/refining-espinoza-mags/files/TM7_REFINED-GENOMES.txt
 ```
-In order to generate the pangenomes we ran the following commands
+
+Let's look at two of these for example:
+
+```bash
+$ cat TM7_UNREFINED-GENOMES.txt
+name	bin_id	collection_id	profile_db_path	contigs_db_path
+TM7_MAG_III_A	TM7_MAG_III_A	ORIGINAL_MAGS	07_SPLIT/TM7_MAG_III_A/PROFILE.db	07_SPLIT/TM7_MAG_III_A/CONTIGS.db
+
+$ cat TM7_REFINED-GENOMES.txt
+name	bin_id	collection_id	profile_db_path	contigs_db_path
+TM7_MAG_III_A_1	TM7_MAG_IIIA_1	default	07_SPLIT/TM7_MAG_III_A/PROFILE.db	07_SPLIT/TM7_MAG_III_A/CONTIGS.db
+TM7_MAG_III_A_2	TM7_MAG_IIIA_2	default	07_SPLIT/TM7_MAG_III_A/PROFILE.db	07_SPLIT/TM7_MAG_III_A/CONTIGS.db
+```
+
+And we can create the external genomes file for each analysis in the following way:
+
+```bash
+for p in TM7 GN02 SR1; do
+    head -n 1 EXTERNAL-GENOMES-PHYLOGENOMICS.txt > $p-EXTERNAL-GENOMES.txt
+    grep $p EXTERNAL-GENOMES-PHYLOGENOMICS.txt >> $p-EXTERNAL-GENOMES.txt
+done
+```
+
+Let's look at one of these for example:
+
+```
+$ cat TM7-EXTERNAL-GENOMES.txt
+name	contigs_db_path
+TM7_RAAC3_1_GCA_000503915_1	02_CONTIGS/TM7_RAAC3_1_GCA_000503915_1-contigs.db
+TM7x_GCA_000803625_1	02_CONTIGS/TM7x_GCA_000803625_1-contigs.db
+```
+
+In order to generate the pangenomes we ran the following commands:
 
 ```bash
 mkdir -p 10_PAN
 
-anvi-gen-genomes-storage --external-genomes SR1-EXTERNAL-GENOMES.txt \
+anvi-gen-genomes-storage --external-genomes SR1_EXTERNAL-GENOMES.txt \
                          --internal-genomes SR1_UNREFINED-GENOMES.txt \
                          -o 10_PAN/SR1-UNREFINED-GENOMES.db
 
-anvi-gen-genomes-storage --external-genomes SR1-EXTERNAL-GENOMES.txt \
+anvi-gen-genomes-storage --external-genomes SR1_EXTERNAL-GENOMES.txt \
                          --internal-genomes SR1_REFINED-GENOMES.txt \
                          -o 10_PAN/SR1-REFINED-GENOMES.db
 
@@ -1042,11 +1119,11 @@ anvi-pan-genome -g 10_PAN/SR1-REFINED-GENOMES.db \
             --num-threads 2 \
             --min-occurrence 2
 
-anvi-gen-genomes-storage --external-genomes GN02-EXTERNAL-GENOMES.txt \
+anvi-gen-genomes-storage --external-genomes GN02_EXTERNAL-GENOMES.txt \
                          --internal-genomes GN02_UNREFINED-GENOMES.txt \
                          -o 10_PAN/GN02-UNREFINED-GENOMES.db
 
-anvi-gen-genomes-storage --external-genomes GN02-EXTERNAL-GENOMES.txt \
+anvi-gen-genomes-storage --external-genomes GN02_EXTERNAL-GENOMES.txt \
                          --internal-genomes GN02_REFINED-GENOMES.txt \
                          -o 10_PAN/GN02-REFINED-GENOMES.db
 
@@ -1064,11 +1141,11 @@ anvi-pan-genome -g 10_PAN/GN02-REFINED-GENOMES.db \
             --num-threads 2 \
             --min-occurrence 2
 
-anvi-gen-genomes-storage --external-genomes TM7-EXTERNAL-GENOMES.txt \
+anvi-gen-genomes-storage --external-genomes TM7_EXTERNAL-GENOMES.txt \
                          --internal-genomes TM7_UNREFINED-GENOMES.txt \
                          -o 10_PAN/TM7-UNREFINED-GENOMES.db
 
-anvi-gen-genomes-storage --external-genomes TM7-EXTERNAL-GENOMES.txt \
+anvi-gen-genomes-storage --external-genomes TM7_EXTERNAL-GENOMES.txt \
                          --internal-genomes TM7_REFINED-GENOMES.txt \
                          -o 10_PAN/TM7-REFINED-GENOMES.db
 
