@@ -16,22 +16,6 @@ comments: false
 <h1>2019</h1>
 
 <div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41467-019-08973-w"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.1038/s41467-019-08973-w" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <h3><a href=" https://doi.org/10.1038/s41467-019-08973-w" target="_new">The <i>Wolbachia</i> mobilome in <i>Culex pipiens</i> includes a putative plasmid.</a></h3>
-    <span class="pub-authors">Reveillaud, R., Bordenstein, S. R., Cruaud, C., <span class="pub-member-author">Shaiber, A.</span>, <span class="pub-member-author">Esen, Ö. C.</span>, O. C., Weill, M., Makoundou, P., <span class="pub-member-author">Lolans, K.</span>, <span class="pub-member-author">Watson, A. R.</span>, Rakotoarivony, I., Bordenstein, S. R., and <span class="pub-member-author">Eren, A. M</span>.</span>
-    <div class="pub-info">
-    <div class="pub-featured-image">
-    <a href="../images/miscellaneous/2019-03-05-wolbachia-plasmid/minion-metagenomics.png"><img src="../images/miscellaneous/2019-03-05-wolbachia-plasmid/minion-metagenomics.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
-    </div>
-    <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- The first report of a <i>Wolbachia</i> plasmid through genome-resolved metagenomics on microsurgically removed individual mosquito ovary samples (<a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-019-08973-w/MediaObjects/41467_2019_8973_MOESM2_ESM.pdf">peer reviews and responses</a>).</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Yet another application of <a href="https://doi.org/10.7717/peerj.4320">metapangenomics</a> and an applicatoin of minION long-read sequencing on extremely low-biomass samples.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  <a href="http://merenlab.org/data/wolbachia-plasmid">Reproducible bioinformatics workflow</a> with all data items, a 'behind the paper' <a href="http://merenlab.org/2019/03/05/wolbachia-plasmid/">blog post</a> by <a href="https://twitter.com/JulieReve">Julie Reveillaud</a>, and a <a href="https://www.mbl.edu/blog/new-mobile-element-found-in-mosquito-parasite-has-potential-for-disease-control/">press release</a> from the Marine Biological Laboratory.</span>
-    </div>
-    </div>
-    <span class="pub-journal"><i>Nature Communications</i>. <b>10:1051</b></span>
-</div>
-
-<div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1128/mBio.00725-19"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1128/mBio.00725-19" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <h3><a href=" https://doi.org/10.1128/mBio.00725-19" target="_new">Composite metagenome-assembled genomes reduce the quality of public genome repositories.</a></h3>
@@ -45,6 +29,22 @@ comments: false
     </div>
     </div>
     <span class="pub-journal"><i>mBio</i>. <b>10(3) e00725-19</b></span>
+</div>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41467-019-08973-w"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1038/s41467-019-08973-w" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1038/s41467-019-08973-w" target="_new">The <i>Wolbachia</i> mobilome in <i>Culex pipiens</i> includes a putative plasmid.</a></h3>
+    <span class="pub-authors">Reveillaud, R., Bordenstein, S. R., Cruaud, C., <span class="pub-member-author">Shaiber, A.</span>, <span class="pub-member-author">Esen, Ö. C.</span>, O. C., Weill, M., Makoundou, P., <span class="pub-member-author">Lolans, K.</span>, <span class="pub-member-author">Watson, A. R.</span>, Rakotoarivony, I., Bordenstein, S. R., and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="../images/miscellaneous/2019-03-05-wolbachia-plasmid/minion-metagenomics.png"><img src="../images/miscellaneous/2019-03-05-wolbachia-plasmid/minion-metagenomics.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- The first report of a <i>Wolbachia</i> plasmid through genome-resolved metagenomics on microsurgically removed individual mosquito ovary samples (<a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-019-08973-w/MediaObjects/41467_2019_8973_MOESM2_ESM.pdf">peer reviews and responses</a>).</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Yet another application of <a href="https://doi.org/10.7717/peerj.4320">metapangenomics</a> and an applicatoin of minION long-read sequencing on extremely low-biomass samples.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  <a href="http://merenlab.org/data/wolbachia-plasmid">Reproducible bioinformatics workflow</a> with all data items, a 'behind the paper' <a href="http://merenlab.org/2019/03/05/wolbachia-plasmid/">blog post</a> by <a href="https://twitter.com/JulieReve">Julie Reveillaud</a>, and a <a href="https://www.mbl.edu/blog/new-mobile-element-found-in-mosquito-parasite-has-potential-for-disease-control/">press release</a> from the Marine Biological Laboratory.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>Nature Communications</i>. <b>10:1051</b></span>
 </div>
 
 <div class="pub">
