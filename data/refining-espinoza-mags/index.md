@@ -54,6 +54,12 @@ We will walk through this analysis using a specific set of **genomes** and **met
 
 If you don't have your own data to analyze, but still wish to follow the step by step instructions, you can find [detailed instructions](#setting-the-stage) below to simply download the data we used in this tutorial.
 
+One more thing, througout this blogpost you will encounter sections that look like the one below. These contain extra practical information about working with the anvi'o interactive interface:
+
+<details markdown="1"><summary>Show/Hide Example for expandable practical tips</summary>
+Feel free to skip these, if you just want to focus on the general discussion of refining MAGs and not interested in the anvi'o interactive interface :-)
+</details>
+
 ## Taking a first look at your MAG
 
 {:.notice}
