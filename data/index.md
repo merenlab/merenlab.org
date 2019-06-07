@@ -12,6 +12,27 @@ This page serves the publicly available data items mentioned in our publications
 
 {% include _toc.html %}
 
+## Refining Metagenome-Assembled Genomes
+
+<div class="pub_float">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1128/mBio.00725-19"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1128/mBio.00725-19" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1128/mBio.00725-19" target="_new">Composite metagenome-assembled genomes reduce the quality of public genome repositories.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Shaiber, A.</span>, and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="../images/pubs/shaiber_eren_MAG_refinement.png"><img src="../images/pubs/shaiber_eren_MAG_refinement.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A letter that stresses that the composite metagenome-assembled genomes influence phylogenomic, pangenomic, and ecological insights (<a href="../files/Shaiber_Eren_2019_reviewer_response.pdf" target="_blank">peer reviews and responses</a>).</span><br><span style="display: inline-block; padding-bottom: 5px;">-  <a href="http://merenlab.org/data/refining-espinoza-mags/" target="_blank">A reproducible workflow</a> to detail the steps of genome refinement and make available the refined versions of some key genomes.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>mBio</i>. <b>10(3) e00725-19</b></span>
+</div>
+
+{:.warning}
+[http://merenlab.org/data/refining-espinoza-mags](refining-espinoza-mags) gives access to our **complete bioinformatics workflow**.
+
 ## A <i>Wolbachia</i> Plasmid
 
 <div class="pub_float">
