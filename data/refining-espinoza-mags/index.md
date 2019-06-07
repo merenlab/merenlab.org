@@ -27,6 +27,8 @@ While these approaches are independent of any particular dataset or study, to de
 
 </div>
 
+{:.notice}
+The [doi:10.1128/mBio.00725-19](http://doi.org/10.1128/mBio.00725-19) serves the open-access peer-reviewed study described in this document.
 
 <div class="extra-info" markdown="1">
 
