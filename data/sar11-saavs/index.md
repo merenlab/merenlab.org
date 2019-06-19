@@ -726,6 +726,114 @@ These reports were the key data to compare the differential occurrence of varian
 {:.notice}
 [doi:10.6084/m9.figshare.5248447](https://doi.org/10.6084/m9.figshare.5248447){:target="_blank"} serves the anvi'o variability tables described in this section.
 
+## Estimating the neutral AAST frequency distribution expectation
+
+Bounds for the expected AAST frequency distribution assuming a neutral model were calculated in the following way. For rationalization of this approach, please refer to the methods section of the paper.
+
+First, the frequency of codon usage was quantified throughout the 799 genes from the reference sequence.
+
+``` bash
+anvi-get-codon-frequencies -c SAR11-CONTIGS.db -o codon_frequencies.txt
+```
+
+Next, the frequency distribution of expected AASTs based on the frequency of codons was calculated for two extreme cases: one in which the probability of double or triple mutations was zero (`neutral_freq_dist_r_0.0_top_25.txt`), and another where the probability of transitioning to any of the other 63 codons were equally probable, regardless of mutational distance (`neutral_freq_dist_r_0.8571_top_25.txt`). Respectively, these distributions for the top 25 amino acids were calculated with the following commands:
+
+``` bash
+wget http://merenlab.org/data/sar11-saavs/files/core-S-LLPA-genes.txt
+python get_codon_frequency_vector.py 0.0
+python get_codon_frequency_vector.py 0.8571
+```
+
+Where `get_codon_frequency_vector.py` was the following Python script:
+
+``` python
+#!/usr/bin/env python
+# -*- coding: utf-8
+import sys
+import numpy as np
+import pandas as pd
+
+r = float(sys.argv[1]) # if r = 0.8571 all mutations are equally likely, regardless of mutational distance
+
+from anvio.sequence import Codon
+from anvio.constants import codons, codon_to_AA, amino_acids
+
+dist = Codon().get_codon_to_codon_dist_dictionary()
+
+genes = [int(gene.strip()) for gene in open('core-S-LLPA-genes.txt').readlines()]
+df = pd.read_csv('codon_frequencies.txt', sep='\t')
+vector = df.loc[df['gene_callers_id'].isin(genes), :].iloc[:, 1:].sum(axis=0)
+vector /= vector.sum()
+
+exchange_rate = {}
+
+'''notice sum is 63, i.e. the number of codons - 1'''
+num_1_distance_mutations = 9
+num_2_distance_mutations = 27 # 3C2 * 3^2
+num_3_distance_mutations = 27 # 3C3 * 3^3
+
+G = lambda d: 1 - r if d == 1 else r
+H = lambda d: 1/num_1_distance_mutations if d == 1 else 1/(num_2_distance_mutations + num_3_distance_mutations)
+
+for X in codons:
+    for Y in codons:
+        if codons.index(Y) <= codons.index(X):
+            continue
+
+        amino_acid_X = codon_to_AA[X]
+        amino_acid_Y = codon_to_AA[Y]
+
+        if amino_acid_X == amino_acid_Y:
+            continue
+
+        AAST = ''.join(sorted([amino_acid_X, amino_acid_Y]))
+
+        fX = vector[X]
+        fY = vector[Y]
+        d = dist[X][Y][0]
+        score = (fX + fY)/2 * G(d) * H(d)
+
+        if AAST not in exchange_rate:
+            exchange_rate[AAST] = score
+        else:
+            exchange_rate[AAST] += score
+
+top_twenty_five = ["IleVal",
+                   "AspGlu",
+                   "AsnAsp",
+                   "AsnLys",
+                   "AsnSer",
+                   "ArgLys",
+                   "GluLys",
+                   "SerThr",
+                   "IleLeu",
+                   "AlaThr",
+                   "IleThr",
+                   "GlnLys",
+                   "AlaSer",
+                   "LeuPhe",
+                   "AlaVal",
+                   "IleMet",
+                   "GlnGlu",
+                   "PheTyr",
+                   "LeuVal",
+                   "GlySer",
+                   "HisTyr",
+                   "LeuSer",
+                   "LysThr",
+                   "AsnThr",
+                   "ProSer"]
+
+# normalize rates
+exchange_rate = {aast: rate/sum(exchange_rate.values()) for aast, rate in exchange_rate.items()}
+
+x = top_twenty_five
+y = [exchange_rate[aast] for aast in top_twenty_five]
+
+df = pd.DataFrame(list(zip(*[x,y])), columns=('AAST', 'fraction'))
+df.to_csv('neutral_freq_dist_r_{:.4}_top_25.txt'.format(r), sep='\t')
+```
+
 ## Calculating allele frequency trajectories with respect to temperature
 
 This brief section outlines how we made use of the SAAV table `S-LLPA_SAAVs_20x_10percent_departure.txt` to calculate allele frequency trajectories (illustrated in Figure S7) for each codon position that contained at least one SAAV. Allele frequency trajectories were calculated for each of such positions for the two amino acids comprising the most common AAST at that position. For example, if at some position, 40 of the 74 metagenomes had the AAST 'alanine/serine', and the remaining 34 metagenomes had the AAST 'alanine/valine', the trajectories of alanine and serine would be calculated. If in any of the metagenomes the coverage of both amino acids were 0, the position was discarded. For the remaining positions, the allele frequencies were correlated with in situ temperature with the script that can be downloaded like so:
