@@ -4,6 +4,7 @@ excerpt: "Inputs, outputs, programs, and concepts. All linked. Just like the way
 layout: project-anvio-network
 modified: 2018-06-23
 categories: [anvio]
+redirect_from: /nt/
 image:
   feature: anvio-network.png
   display: false
