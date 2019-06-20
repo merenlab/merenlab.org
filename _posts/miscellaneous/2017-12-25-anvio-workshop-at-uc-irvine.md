@@ -51,7 +51,7 @@ This workshop is hosted by **[UCI Microbiome Initiative](http://microbiome.uci.e
 
 * We will have example datasets for you to follow everything on your anvi'o installed computers.
 
-* This will likely be fun. Or it will be "*just OK*". Regardless, [here are some testimonials]({% post_url anvio/2017-07-12-testimonials %}){:target="_blank"} from anvi'o users to see the breadth of research endeavours anvi'o can facilitate. If this sounds inteersting, talk to your supervisor. If you are the supervisor, send your students.
+* This will likely be fun. Or it will be "*just OK*". Regardless, [here are some testimonials](/testimonials/){:target="_blank"} from anvi'o users to see the breadth of research endeavours anvi'o can facilitate. If this sounds inteersting, talk to your supervisor. If you are the supervisor, send your students.
 
 We will keep this page up-to-date as things progress, but please use the comments section if you have any questions.
 

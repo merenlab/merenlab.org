@@ -31,7 +31,7 @@ See **all programs in anvi'o** here: [{{ site.url }}/software/anvio/vignette/]({
 
 # Others on anvi'o
 
-[Visit this post]({% post_url anvio/2017-07-12-testimonials %}) to read user testimonials, or share your anvi'o experience with others.
+[Visit this post](/testimonials/) to read user testimonials, or share your anvi'o experience with others.
 
 # Citation
 
