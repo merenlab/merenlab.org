@@ -7,7 +7,9 @@ modified: 2016-11-08
 tags: []
 categories: [anvio]
 comments: true
-redirect_from: /2015/11/14/pangenomics/
+redirect_from:
+  - /2015/11/14/pangenomics/
+  - /p/
 ---
 
 {% include _toc.html %}
