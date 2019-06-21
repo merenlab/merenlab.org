@@ -565,9 +565,9 @@ By investigating the `Legends` tab you can see that the `source` layer indicates
 
 As you can see, even if the initial results from an automatic binning approach contain poorly identified bins, it is possible to improve the final results through refinement steps.
 
-<div class="extra-info" markdown="1">
+Thank you for following the tutorial this far!
 
-<span class="extra-info-header">More on refinement...</span>
+<details markdown="1"><summary>Show/hide More on refinement</summary>
 
 You can read more about `anvi-refine` [here]({% post_url anvio/2015-05-11-anvi-refine %}){:target="_blank"}. Also you may want to look at Tom's refining of the Loki archaea: [Inspecting the genomic link between Archaea and Eukaryota]({% post_url miscellaneous/2017-01-03-loki-the-link-archaea-eukaryota %}).
 
@@ -576,21 +576,18 @@ If you are feeling lazy, you can just take a quick look at this videos from the 
 First a closer look at *Lokiarchaeum* sp. GC14_75
 
 <iframe width="600" height="315" src="https://www.youtube.com/embed/fuggwaagLng" frameborder="0" allowfullscreen></iframe>
+<br />
 
 And then curating it:
 
 <iframe width="600" height="315" src="https://www.youtube.com/embed/vXPKP5vKiBM" frameborder="0" allowfullscreen></iframe>
 
 <br />
-You should always double-check your metagenome-assembled genomes. 
+You should always double-check your metagenome-assembled genomes.
 
-</div>
+</details>
 
-
-Thank you for following the tutorial this far!
-
-
-### Meren's two cents on binning
+<details markdown="1"><summary>Show/hide Meren's two cents on binning</summary>
 
 Binning is inherently a very challenging task.
 
@@ -671,6 +668,8 @@ There are more ways to improve bins and binning results. But although we have se
 Then it is time to increase the depth of sequencing, implement a different assembly strategy, rethink the sampling strategy, or change the experimental approach to do what seems to be undoable. Here is an example from Tom Delmont et al. to that last point with soil metagenomics: [doi:10.3389/fmicb.2015.00358](https://doi.org/10.3389/fmicb.2015.00358){:target="_blank"}.
 
 We all just have to continue working, and enjoy this revolution.
+
+</details>
 
 ## Chapter III: Phylogenomics
 
