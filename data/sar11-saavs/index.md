@@ -726,6 +726,26 @@ These reports were the key data to compare the differential occurrence of varian
 {:.notice}
 [doi:10.6084/m9.figshare.5248447](https://doi.org/10.6084/m9.figshare.5248447){:target="_blank"} serves the anvi'o variability tables described in this section.
 
+## Estimating the neutral AAST frequency distribution expectation
+
+Bounds for the expected AAST frequency distribution assuming a neutral model were calculated in the following way. For rationalization of this approach, please refer to the methods section of the paper.
+
+First, the frequency of codon usage was quantified throughout the 799 genes from the reference sequence.
+
+``` bash
+anvi-get-codon-frequencies -c SAR11-CONTIGS.db -o codon_frequencies.txt
+```
+
+Next, the frequency distribution of expected AASTs based on the frequency of codons was calculated for both models: Model 1 in which the probability of double or triple mutations was zero, with a transition vs transversion rate of 2 (`neutral_freq_dist_model_1.txt`), and Model 2 where the probability of transitioning to any of the other 63 codons were equally probable, regardless of mutational distance or number of transitions/transversions (`neutral_freq_dist_model_2.txt`). Respectively, these distributions for the top 25 amino acids were calculated with the following commands:
+
+``` bash
+wget http://merenlab.org/data/sar11-saavs/files/core-S-LLPA-genes.txt
+wget http://merenlab.org/data/sar11-saavs/files/model_1_frequency_vector.py
+wget http://merenlab.org/data/sar11-saavs/files/model_2_frequency_vector.py
+python model_1_frequency_vector.py 2
+python model_2_frequency_vector.py
+```
+
 ## Calculating allele frequency trajectories with respect to temperature
 
 This brief section outlines how we made use of the SAAV table `S-LLPA_SAAVs_20x_10percent_departure.txt` to calculate allele frequency trajectories (illustrated in Figure S7) for each codon position that contained at least one SAAV. Allele frequency trajectories were calculated for each of such positions for the two amino acids comprising the most common AAST at that position. For example, if at some position, 40 of the 74 metagenomes had the AAST 'alanine/serine', and the remaining 34 metagenomes had the AAST 'alanine/valine', the trajectories of alanine and serine would be calculated. If in any of the metagenomes the coverage of both amino acids were 0, the position was discarded. For the remaining positions, the allele frequencies were correlated with in situ temperature with the script that can be downloaded like so:
@@ -949,9 +969,9 @@ anvi-saavs-and-protein-structures-summary -i SAR11-S-LLPA-SAAVs-ON-STRUCTURE \
 
 The same output is also archived at [doi:10.6084/m9.figshare.5248432](https://doi.org/10.6084/m9.figshare.5248432){:target="_blank"}.
 
-## Application of Deep Learning to SAAVs
+## Application of Deep Learning and Fixation Index to SAAVs
 
-This section describes our use of deep learning to estimate distances between TARA metagnomes based on SAAVs identified in core S-LLPA genes. We used the resulting distance matrix to identify the main groups, and proteotypes displayed in Figure 3 in our study.
+This section describes our use of deep learning to estimate distances between TARA metagenomes based on SAAVs identified in core S-LLPA genes. We used the resulting distance matrix to identify the main groups, and proteotypes displayed in Figure 3 in our study.
 
 ### Setting the stage
 
@@ -1375,10 +1395,23 @@ python ACOL_Pseudo_SAR11.py
 
 Running this code generates the TAB-delimited output file `S-LLPA-DEEP-LEARNING-DIST-MAT.csv` which contains deep learning-estimated distances between metagenomes. A copy of this distance matrix is [available here]({{ site.url }}/data/sar11-saavs/files/S-LLPA-DEEP-LEARNING-DIST-MAT.csv){:target="_blank"}.
 
+### Generating distance matrices from fixation index for SAAVs and SNVs data
 
-### Identifying proteotypes from Deep Learning-estimated distances
+As well as deep learning, we also attempted to cluster the SAAVs and SNVs using fixation index, the workflow to generate distance matrices is described here:
 
-The distance matrix `S-LLPA-DEEP-LEARNING-DIST-MAT.csv` contained distances across metagenoems, from which we could obtain a hierarchical clustering of our metagenomes. Yet, the identification of proteotypes required us to cut this dendrogram into a reasonable number of sub-clusters. To determine the appropriate number, we relied on the elbow of the intra-cluster sum-of-squares curve of k-means by running the following R code on the `S-LLPA-DEEP-LEARNING-DIST-MAT.csv`,
+``` bash
+anvi-gen-fixation-index-matrix -V S-LLPA_SNVs_20x_1percent_departure.txt -o NT_fixation_indices.txt --engine NT
+anvi-gen-fixation-index-matrix -V S-LLPA_SAAVs_20x_10percent_departure.txt -o AA_fixation_indices.txt --engine AA
+anvi-matrix-to-newick NT_fixation_indices.txt
+anvi-matrix-to-newick AA_fixation_indices.txt
+```
+
+A copy of the SAAVs data distance matrix is [available here]({{ site.url }}/data/sar11-saavs/files/AA_fixation_indices.txt){:target="_blank"} in the SNVs data distance matrix [here]({{ site.url }}/data/sar11-saavs/files/NT_fixation_indices.txt).
+
+
+### Identifying proteotypes from Deep Learning and Fixation Index Distances
+
+The distance matrix `S-LLPA-DEEP-LEARNING-DIST-MAT.csv` contained distances across metagenomes, from which we could obtain a hierarchical clustering of our metagenomes. Yet, the identification of proteotypes required us to cut this dendrogram into a reasonable number of sub-clusters. To determine the appropriate number, we relied on the elbow of the intra-cluster sum-of-squares curve of k-means by running the following R code on the `S-LLPA-DEEP-LEARNING-DIST-MAT.csv`,
 
 ``` R
 #!/usr/bin/env Rscript
@@ -1406,6 +1439,48 @@ dev.off()
 which suggested that 'six' was an appropriate number to divide our dendrogram:
 
 [![SAR11]({{images}}/kmeans.png)]({{images}}/kmeans.png){:.center-img .width-70}
+
+We also applied the same clustering of samples based on fixation index for both the SAAV data and the SNVs data using an almost identical script:
+
+``` R
+#!/usr/bin/env Rscript
+# Visualize the squared mean error per number of k-means clusters given a distance matrix
+
+library(ggplot2)
+
+AA_fixation_index_dists <- read.table("AA_fixation_indices.txt", sep="\t", header=TRUE, row.names=1)
+NT_fixation_index_dists <- read.table("NT_fixation_indices.txt", sep="\t", header=TRUE, row.names=1)
+
+AA_df <- data.frame(k=numeric(), error=numeric())
+NT_df <- data.frame(k=numeric(), error=numeric())
+
+for (i in 1:250){
+  for (j in 2:15){
+    AA_df <- rbind(AA_df, c(j, sum(kmeans(AA_fixation_index_dists, centers=j)$withinss)))
+    NT_df <- rbind(NT_df, c(j, sum(kmeans(NT_fixation_index_dists, centers=j)$withinss)))
+  }
+}
+
+names(AA_df) <- c('k', 'error')
+names(NT_df) <- c('k', 'error')
+
+pdf('./num_clusters_AA_fixation_index.pdf')
+ggplot(AA_df, aes(x=k, y=error, group=k)) + geom_jitter(alpha=0.1, size=0.5) + geom_violin()
+dev.off()
+
+pdf('./num_clusters_NT_fixation_index.pdf')
+ggplot(NT_df, aes(x=k, y=error, group=k)) + geom_jitter(alpha=0.1, size=0.5) + geom_violin()
+dev.off()
+```
+
+The elbow of the intra-cluster sum-of-squares curve of k-means of fixation indices of the SNV data looks like:
+
+[![SAR11]({{images}}/kmeans_NT_fixation_index.png)]({{images}}/kmeans_NT_fixation_index.png){:.center-img .width-70}
+
+And for the SAAV data it looks like:
+
+[![SAR11]({{images}}/kmeans_AA_fixation_index.png)]({{images}}/kmeans_AA_fixation_index.png){:.center-img .width-70}
+
 
 ## References
 

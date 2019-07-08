@@ -1,0 +1,2 @@
+name	bin_id	collection_id	profile_db_path	contigs_db_path
+TM7_MAG_III_A	TM7_MAG_III_A	ORIGINAL_MAGS	07_SPLIT/TM7_MAG_III_A/PROFILE.db	07_SPLIT/TM7_MAG_III_A/CONTIGS.db
