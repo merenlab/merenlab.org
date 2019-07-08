@@ -1,12 +1,13 @@
 ---
 layout: post
 authors: [meren,tom,evan]
-title: "Analyzing sequence variants with anvi'o"
+title: "Studying microbial population genetics with anvi'o"
 excerpt: "Exploring micro-diversity patterns using for deeper insights into ecology"
 modified: 2016-07-21
 tags: []
 categories: [anvio]
 comments: true
+redirect_from: /mpg/
 ---
 
 {:.notice}

@@ -79,7 +79,7 @@ oligotype: error: too few arguments
 Good? Good. You can press `CTRL`+`D` to go back to your host terminal.
 
 
-## Running the oligoytping docker image (for Mac OSX / Windows users)
+## Running the oligotyping docker image (for Mac OSX / Windows users)
 
 First, you will need to install the [Docker Toolbox](https://www.docker.com/toolbox). Once you have it installed, run 'Docker Quickstart Terminal' application. At the end, this is what you want to see:
 
@@ -90,7 +90,7 @@ First, you will need to install the [Docker Toolbox](https://www.docker.com/tool
 Note the IP address (which is `192.168.99.100` in my case), becasue you will need it later. At this point, all you need to do is to run this command (note that you may need to change the version number):
 
 ``` bash
-docker run -p 8080:8080 -it meren/oligityping:latest
+docker run -p 8080:8080 -it meren/oligotyping:latest
 ```
 
 Docker will download all the necessary images, and will finally give you a prompt which will look like this:

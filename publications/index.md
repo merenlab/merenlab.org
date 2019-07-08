@@ -9,11 +9,27 @@ comments: false
 <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
 
 <div class="category-box">
-<a href="#2019"><span class="category-item">2019 <small>(2)</small></span></a><a href="#2018"><span class="category-item">2018 <small>(6)</small></span></a><a href="#2017"><span class="category-item">2017 <small>(10)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(5)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a>
+<a href="#2019"><span class="category-item">2019 <small>(3)</small></span></a><a href="#2018"><span class="category-item">2018 <small>(6)</small></span></a><a href="#2017"><span class="category-item">2017 <small>(10)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(5)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a>
 </div>
 
 <a name="2019">&nbsp;</a>
 <h1>2019</h1>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1128/mBio.00725-19"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1128/mBio.00725-19" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1128/mBio.00725-19" target="_new">Composite metagenome-assembled genomes reduce the quality of public genome repositories.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Shaiber, A.</span>, and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="../images/pubs/shaiber_eren_MAG_refinement.png"><img src="../images/pubs/shaiber_eren_MAG_refinement.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A letter that stresses that the composite metagenome-assembled genomes influence phylogenomic, pangenomic, and ecological insights (<a href="../files/Shaiber_Eren_2019_reviewer_response.pdf" target="_blank">peer reviews and responses</a>).</span><br><span style="display: inline-block; padding-bottom: 5px;">-  <a href="http://merenlab.org/data/refining-espinoza-mags/" target="_blank">A reproducible workflow</a> to detail the steps of genome refinement and make available the refined versions of some key genomes.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>mBio</i>. <b>10(3) e00725-19</b></span>
+</div>
 
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41467-019-08973-w"></div>
@@ -61,7 +77,7 @@ comments: false
     <a href="../images/pubs/schwartz_et_al_trna_seq.png"><img src="../images/pubs/schwartz_et_al_trna_seq.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
     </div>
     <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- First application of tRNA sequencing to microbiomes (<a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-018-07675-z/MediaObjects/41467_2018_7675_MOESM2_ESM.pdf">Peer reviews and responses</a>).</span><br><span style="display: inline-block; padding-bottom: 5px;">-  tRNA-seq distinguishes high-fat- and low-fat-fed mice in a comparable fashion to 16S rRNA gene amplicons, reveals taxon- and diet-dependent variations in tRNA modifications, and provides in situ insights into tRNA gene expression dynamics and post-transcriptional modifications.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  "<a href="https://www.uchicagomedicine.org/forefront/microbiome-articles/2018/december/new-rna-sequencing-strategy-provides-insight-into-microbiomes">New RNA sequencing strategy provides insight into microbiomes</a>", by <b>Matt Wood</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  "<a href="https://www.news-medical.net/news/20181217/RNA-sequencing-offers-novel-insights-into-the-microbiome.aspx">RNA sequencing offers novel insights into the microbiome</a>", by <b>Liji Thomas</b>, MD, and <b>Kate Anderton</b>, B.Sc.</span>
+    <span style="display: inline-block; padding-bottom: 5px;">- First application of tRNA sequencing to microbiomes (<a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-018-07675-z/MediaObjects/41467_2018_7675_MOESM2_ESM.pdf">peer reviews and responses</a>).</span><br><span style="display: inline-block; padding-bottom: 5px;">-  tRNA-seq distinguishes high-fat- and low-fat-fed mice in a comparable fashion to 16S rRNA gene amplicons, reveals taxon- and diet-dependent variations in tRNA modifications, and provides in situ insights into tRNA gene expression dynamics and post-transcriptional modifications.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  "<a href="https://www.uchicagomedicine.org/forefront/microbiome-articles/2018/december/new-rna-sequencing-strategy-provides-insight-into-microbiomes">New RNA sequencing strategy provides insight into microbiomes</a>", by <b>Matt Wood</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  "<a href="https://www.news-medical.net/news/20181217/RNA-sequencing-offers-novel-insights-into-the-microbiome.aspx">RNA sequencing offers novel insights into the microbiome</a>", by <b>Liji Thomas</b>, MD, and <b>Kate Anderton</b>, B.Sc.</span>
     </div>
     </div>
     <span class="pub-journal"><i>Nature Communications</i>. <b>9:5353</b></span>

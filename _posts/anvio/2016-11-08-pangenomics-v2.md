@@ -7,7 +7,9 @@ modified: 2016-11-08
 tags: []
 categories: [anvio]
 comments: true
-redirect_from: /2015/11/14/pangenomics/
+redirect_from:
+  - /2015/11/14/pangenomics/
+  - /p/
 ---
 
 {% include _toc.html %}
@@ -77,7 +79,7 @@ $ anvi-self-test --suite pangenomics
 
 An anvi'o *genomes storage* is a special database that stores information about genomes. A genomes storage can be generated only from *external* genomes, only from *internal* genomes, or it can contain both types. Before we go any further, here are some definitions to clarify things:
 
-* **An external genome** is anything you have in a FASTA file format (i.e., a genome you downloaded from NCBI, or obtained through any other way).
+* **An external genome** is anything you have in a FASTA file format (i.e., a genome you have downloaded from NCBI, or obtained through any other way).
 
 * **An internal genome** is any *genome bin* you stored in an anvi'o collection at the end of your metagenomic analysis (if you are not familiar with the anvi'o metagenomic workflow please take a look at [this post]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %})). 
 

@@ -12,6 +12,27 @@ This page serves the publicly available data items mentioned in our publications
 
 {% include _toc.html %}
 
+## Refining Metagenome-Assembled Genomes
+
+<div class="pub_float">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1128/mBio.00725-19"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1128/mBio.00725-19" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1128/mBio.00725-19" target="_new">Composite metagenome-assembled genomes reduce the quality of public genome repositories.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Shaiber, A.</span>, and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="../images/pubs/shaiber_eren_MAG_refinement.png"><img src="../images/pubs/shaiber_eren_MAG_refinement.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A letter that stresses that the composite metagenome-assembled genomes influence phylogenomic, pangenomic, and ecological insights (<a href="../files/Shaiber_Eren_2019_reviewer_response.pdf" target="_blank">peer reviews and responses</a>).</span><br><span style="display: inline-block; padding-bottom: 5px;">-  <a href="http://merenlab.org/data/refining-espinoza-mags/" target="_blank">A reproducible workflow</a> to detail the steps of genome refinement and make available the refined versions of some key genomes.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>mBio</i>. <b>10(3) e00725-19</b></span>
+</div>
+
+{:.warning}
+[http://merenlab.org/data/refining-espinoza-mags](refining-espinoza-mags) gives access to our **complete bioinformatics workflow**.
+
 ## A <i>Wolbachia</i> Plasmid
 
 <div class="pub_float">
@@ -33,7 +54,7 @@ This page serves the publicly available data items mentioned in our publications
 {:.warning}
 [http://merenlab.org/data/wolbachia-plasmid](wolbachia-plasmid) gives access to our **complete bioinformatics workflow**.
 
-**Public data items for the study:**
+<details markdown="1"><summary>Show/hide public data items for the study</summary>
 
 <div style="width: 200px; float: right; padding-left: 20px;">
 <a href="../images/miscellaneous/2019-03-05-wolbachia-plasmid/metapangenomics.png" target="_blank"><img src="../images/miscellaneous/2019-03-05-wolbachia-plasmid/metapangenomics.png" style="border:none;" /></a>
@@ -46,6 +67,8 @@ This page serves the publicly available data items mentioned in our publications
 * [doi:10.6084/m9.figshare.6380015](https://doi.org/10.6084/m9.figshare.6380015): Artificially circularized individual sequences for the plasmid *p*WCP.
 * [doi:10.6084/m9.figshare.6263876](https://doi.org/10.6084/m9.figshare.6263876): The anvi’o merged profile databases for each *Culex pipiens* metagenome.
 * [doi:10.6084/m9.figshare.6291650](https://doi.org/10.6084/m9.figshare.6291650): The anvi'o pan database and the genomes storage for the *Wolbachia* metapangenome. 
+
+</details>
 
 ## The <i>Prochlorococcus</i> Metapangenome
 
@@ -68,7 +91,7 @@ This page serves the publicly available data items mentioned in our publications
 {:.warning}
 [http://merenlab.org/data/prochlorococcus-metapangenome](prochlorococcus-metapangenome) gives access to our **complete bioinformatics workflow**.
 
-**Public data items for the study:**
+<details markdown="1"><summary>Show/hide public data items for the study</summary>
 
 <div style="width: 200px; float: right; padding-left: 20px;">
 <a href="prochlorococcus-metapangenome/images/genes-in-two-genomes.png" target="_blank"><img src="prochlorococcus-metapangenome/images/genes-in-two-genomes.png" style="border:none;" /></a>
@@ -80,6 +103,8 @@ This page serves the publicly available data items mentioned in our publications
 * [doi:10.6084/m9.figshare.5447227](https://doi.org/10.6084/m9.figshare.5447227): The metapangenome of *Prochlorococcus* isolates.
 * [doi:10.6084/m9.figshare.5447233](https://doi.org/10.6084/m9.figshare.5447233): The metapangenome of *Prochlorococcus* single-amplified genomes.
 * [doi:10.6084/m9.figshare.5447233](https://doi.org/10.6084/m9.figshare.5447233): Extended pangenome of *Prochlorococcus* isolate and single-amplified genomes.
+
+</details>
 
 ## Genomes from Tara Oceans Metagenomes
 
@@ -102,7 +127,7 @@ This page serves the publicly available data items mentioned in our publications
 {:.warning}
 [http://merenlab.org/data/tara-oceans-mags](tara-oceans-mags/) gives access to our **complete bioinformatics workflow**.
 
-**Public data items for the study:**
+<details markdown="1"><summary>Show/hide public data items for the study</summary>
 
 <div style="width: 200px; float: right; padding-left: 20px;">
 <a href="https://anvi-server.org/merenlab/tara_hbds" target="_blank"><img src="tara-oceans-mags/images/Figure_02.png" style="border:none;" /></a>
@@ -117,6 +142,7 @@ This page serves the publicly available data items mentioned in our publications
 * [doi:10.6084/m9.figshare.4902938](https://doi.org/10.6084/m9.figshare.4902938): Main and Supplementary Tables and Figures. Which includes **Figure 1** (geographically bounded metagenomic co-assemblies), **Figure 2** (the nexus between phylogeny and function of HBDs), **Figure 3** (Phylogeny of nitrogen fixation genes), **Figure 4** (the abundance of nitrogen-fixing populations of Planctomycetes and Proteobacteria across oceans), **Supplementary Figure 1** (phylogenetic analysis of nifH genes), **Supplementary Table 1** (the summary of the 93 metagenomes from TARA Oceans, and the twelve geographic regions they represent), **Supplementary Table 2** (the summary of the co-assembly and binning outputs for each metagenomic set), **Supplementary Table 3** (genomic features of 957 MAGs from the non-redundant genomic database including the taxonomy for each MAG, the mean coverage, relative distribution, detection and number of recruited reads for each MAG across the 93 metagenomes, etc), **Supplementary Table 4** (the 16S rRNA gene sequence identified in HBD-09), **Supplementary Table 5** (genomic features, Pearson correlation (based on the relative distribution in 93 metagenomes), **Supplementary Table 6** (RAST subsystems and KEGG modules for the nine HBDs), **Supplementary Table 7** (nifH gene sequences in MAGs, orphan scaffolds, as well as the reference sequence γ-24774A11, along with their mean coverage across the 93 metagenomes), **Supplementary Table 8** (Genomic features of 30,244 bins manually characterized from the 12 metagenomic sets. Completion and redundancy estimates are based on the average of four bacterial single-copy gene collections), **Supplementary Table 9** (KEGG annotation for 1,077 MAGs), and **Supplementary Table 10** (Relative distribution of 1,077 MAGs across the 93 metagenomes).
 * An interactive visualization for the phylogenomic analysis of 432 Proteobacteria and 43 Planctomycetes metagenome-assembled genomes from our database of 957 non-redundant MAGs is also available: [here](https://anvi-server.org/merenlab/tara_hbds).
 
+</details>
 
 ## Genome-resolved Fecal Microbiota Transplantation
 
@@ -136,11 +162,11 @@ This page serves the publicly available data items mentioned in our publications
     <span class="pub-journal"><i>Microbiome</i>. <b>5:50</b></span>
 </div>
 
+<details markdown="1"><summary>Show/hide public data items for the study</summary>
+
 <div style="width: 200px; float: right; padding-left: 20px;">
 <a href="../images/fmt_figure_01.png"><img src="../images/fmt_figure_01.png" style="border:none;" /></a>
 </div>
-
-**Public data items for the study:**
 
 * While the accession ID [**SRP093449**](https://www.ncbi.nlm.nih.gov/sra/?term=SRP093449){:target="_blank"} serves serves the raw shotgun metagenomic data through NCBI's Short Read Archive, [this FigShare collection](https://figshare.com/projects/Data_for_the_FMT_study_by_Lee_and_Khan_et_al_2017_/17516){:target="_blank"} gives access to all public data items detailed below.
 * [doi:10.6084/m9.figshare.4792633](https://doi.org/10.6084/m9.figshare.4792633){:target="_blank"}: Files for anvi'o manual interactive for a quick visualization of the distribution of 92 donor MAGs from Lee and Khan et al study (**panel a** in the figure above). Follow these steps for a quick interactive visualization:
@@ -210,6 +236,7 @@ This is what you should see after entering the last command in your terminal:
 * [doi:10.6084/m9.figshare.4793761](https://doi.org/10.6084/m9.figshare.4793761){:target="_blank"}: Individual anvi'o profiles for the occurrence of each the FMT donor MAG across 151 HMP gut metagenomes (for each MAG gives access to the information shown in **panel d** in the figure above).
 * [doi:10.6084/m9.figshare.4792645](https://doi.org/10.6084/m9.figshare.4792645){:target="_blank"}: Individual figures that show the detection of 92 donor MAGs in 151 HMP gut metagenomes.
 
+</details>
 
 
 ## Bacteroides in Pouchitis
@@ -225,15 +252,13 @@ This is what you should see after entering the last command in your terminal:
 {:.notice}
 **Here is a blog post on it:** [*Bacteroides* Genome Variants, and a reproducible science exercise with anvi'o]({% post_url miscellaneous/2016-11-21-bacteroides-genome-variants %}).
 
-Data for the paper:
+<details markdown="1"><summary>Show/hide public data items for the study</summary>
 
 * Anvi'o profiles: [https://doi.org/10.6084/m9.figshare.3851364](https://doi.org/10.6084/m9.figshare.3851364){:target="_blank"}
 * Primary and supplementary figures: [https://doi.org/10.6084/m9.figshare.3851481.v2](https://doi.org/10.6084/m9.figshare.3851481.v2){:target="_blank"}
 * Supplementary tables: [https://doi.org/10.6084/m9.figshare.3851478.v2](https://doi.org/10.6084/m9.figshare.3851478.v2){:target="_blank"}
 
-The anvi'o profiles article in this data collection contains 22 items:
-
-<iframe src="https://widgets.figshare.com/articles/3851364/embed?show_title=1" width="100%" height="300" frameborder="0"></iframe>
+</details>
 
 For an example on how to re-analyze these anvi'o profiles, please [click here]({% post_url miscellaneous/2016-11-21-bacteroides-genome-variants %}/#displaying-a-patient-metagenome-from-vineis-et-al){:target="_blank"}.
 
@@ -256,19 +281,16 @@ For an example on how to re-analyze these anvi'o profiles, please [click here]({
     <span class="pub-journal"><i>PeerJ</i>. <b>4:e1839</b></span>
 </div>
 
+<details markdown="1"><summary>Show/hide public data items for the study</summary>
+
 * [This link](https://ndownloader.figshare.com/files/3677700) will download the archive file for anvi'o profile for merged datasets (221 Mb). The run script in this archive will automatically start the anvi'o interactive interface, and draw **Figure 1** (compatible with anvi'o v1.2.2, for which a [docker container]({% post_url anvio/2015-08-22-docker-image-for-anvio %}) is available).
 * Visit [this adress](http://anvio.org/data/Delmont_et_al-2016-Tardigrade-Summary/) to view the anvi'o summary for genomic selections in Figure 1. Alternatively, you can use [this address](https://ndownloader.figshare.com/files/3677703) to download this static HTML output to view on your own computer.
 * Following links give access to the individual genome files:
 
   - [Draft genome for *H. dujardini*](http://anvio.org/data/Delmont_et_al-2016-Tardigrade-Summary/bin_by_bin/Tardigrade_draft_genome_01/Tardigrade_draft_genome_01-contigs.fa)
-
   - [Bacterial draft genome 01](http://anvio.org/data/Delmont_et_al-2016-Tardigrade-Summary/bin_by_bin/Bacterial_draft_genome_01/Bacterial_draft_genome_01-contigs.fa)
-
   - [Bacterial draft genome 02](http://anvio.org/data/Delmont_et_al-2016-Tardigrade-Summary/bin_by_bin/Bacterial_draft_genome_02/Bacterial_draft_genome_02-contigs.fa)
-
   - [Bacterial draft genome 03](http://anvio.org/data/Delmont_et_al-2016-Tardigrade-Summary/bin_by_bin/Bacterial_draft_genome_03/Bacterial_draft_genome_03-contigs.fa)
-
-<div style="display: block; height: 0px;">&nbsp;</div>
 
 * [This link](https://ndownloader.figshare.com/files/3677706) will download everything necessary to recreate -an unpolished version of- **Figure 2** appears in the manuscript, including the run script that will run the process automatically (compatible both with v1 and v2 branches of anvi'o).
 * Following links give access to media files and supplementary tables:
@@ -278,8 +300,11 @@ For an example on how to re-analyze these anvi'o profiles, please [click here]({
   - [**Supplementary Table 1**](https://ndownloader.figshare.com/files/3677718). *Summary of H. dujardini and bacterial genomes identified from the raw assembly results of Boothby et al. (2015) and Koutsovoulos et al. (2015). * Inferred from Boothby et al. (2015) and Koutsovoulos et al. (2015) publications. ** Scores were calculated using bacterial single copy genes from Campbell et al. (2013) and are only used to assess bacterial contamination levels in the eukaryotic assembly results.
   - [**Supplementary Table 2**](https://ndownloader.figshare.com/files/3677721). *Summary of functions identified by RAST in the bacterial draft genome #2 (selection #3 in Fig. 1).*
   - [**Supplementary Table 3**](https://ndownloader.figshare.com/files/3677724). *Summary of HMM hits for each bacterial single-copy gene (collection of 139 from Campbell et al. (2013)) identified in 1) the raw assembly by Boothby et al. (2015), 2) the raw assembly by Koutsovoulos et al. (2015), 3) the curated draft genome of Hypsibius dujardini  from Boothby et al. assembly in this study, and 4) the curated draft genome of H. dujardini from Koutsovoulos et al. (2015).*
-*Everything mentioned on this page can be cited using doi [10.6084/m9.figshare.2067057](https://doi.org/10.6084/m9.figshare.2067057).*
 
+{:.notice}
+Everything mentioned on this page can be cited using doi [10.6084/m9.figshare.2067057](https://doi.org/10.6084/m9.figshare.2067057).
+
+</details>
 
 ## Anvi'o Methods Paper
 
@@ -301,6 +326,8 @@ For an example on how to re-analyze these anvi'o profiles, please [click here]({
 
 {:.notice}
 The anvi'o profiles here will run with a much earlier version of anvi'o. If you would like to work with them, please checkout your anvi'o codebase to [this commit](https://github.com/meren/anvio/commit/265318856301ab4f7a71911aeaefb524339efbb3). Please don't hesitate to write us if you need assistance.
+
+<details markdown="1"><summary>Show/hide public data items for the study</summary>
 
 ---
 
@@ -333,4 +360,7 @@ The anvi'o profiles here will run with a much earlier version of anvi'o. If you 
 
 * Tables: [Additional file 1](https://doi.org/10.6084/m9.figshare.1499237), [Additional file 2](https://doi.org/10.6084/m9.figshare.1499238), [Additional file 3](https://doi.org/10.6084/m9.figshare.1499239).
 * Figures: [Figure 1](https://doi.org/10.6084/m9.figshare.1499240), [Figure 2](https://doi.org/10.6084/m9.figshare.1499241), [Figure 3](https://doi.org/10.6084/m9.figshare.1499242), [Figure 4](https://doi.org/10.6084/m9.figshare.1499243), [Figure 5](https://doi.org/10.6084/m9.figshare.1499244), [Supplementary Figure 1](https://doi.org/10.6084/m9.figshare.1499245), [Supplementary Figure 2](https://doi.org/10.6084/m9.figshare.1499247).
+
+</details>
+
 <div style="height:100px;">&nbsp;</div>
