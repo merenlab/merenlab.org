@@ -422,11 +422,11 @@ In order for this analysis to be compatible with everything else relating to the
 
 In an ideal world, all genes in a single gene cluster would be annotated with the same identical function. While in reality this is usually the case, it is not always true. In cases in which there are multiple functions associated with a gene cluster, we chose the most frequent function, i.e. the one that the largest number of genes in the gene cluster matches (if there is a tie of multiple functions, then we simply choose one arbitrarily). If none of the genes in the gene cluster were annotated, then the gene cluster has no function associated to it.
 
-Naturally, when we associate each gene cluster with a single function, we could end up with multiple gene clusters in a pangenome with the same function. From our experience, most functions are associated with a single gene cluster, but there are still plenty of functions that associate with multiple gene clusters, and this will be more common in pangenomes that contain distantly related genomes. In these cases, in order to find the occurrence of a given function among genomes, we simply 'merge' the occurrences of all gene clusters associated with that same function (for you computational readers, we simply take the "or" product of the presence/absence vectors of the gene clusters across genomes).
+Naturally, when we associate each gene cluster with a single function, we could end up with multiple gene clusters in a pangenome with the same function. From our experience, most functions are associated with a single gene cluster, but there are still plenty of functions that associate with multiple gene clusters, and this will be more common in pangenomes that contain distantly related genomes. In these cases, in order to find the occurrence of a given function among genomes, we simply 'merge' the occurrences of all gene clusters associated with that same function (for you computational readers, we simply take the sum of the occurrence frequency vectors of the gene clusters across genomes).
 
 The careful readers will notice that we distinguish between 'functional annotation' and 'functional association' in the following text. When we mention 'functional annotation', we refer to the annotation of a single gene with a function by the functional annotation source (i.e. COGs, EggNOG, etc.), whereas 'functional association' of a gene cluster is the association of gene clusters with a single function as described above.
 
-Ok, so now we have a presence/absence table of functions in genomes, and we can calculate different scores for each function, and also visualize it. See the details below!
+Ok, so now we have a frequency table of functions in genomes, and we can calculate different scores for each function, and also visualize it. See the details below!
 </div>
 
 
@@ -507,7 +507,7 @@ The large subunit matches a single gene cluster which is in the CORE LL, and the
 
 ### Creating a quick pangenome with functions
 
-Next, we will explore whether there are any functions enriched for any of the sub clades. In addition, we will introduce another feature `--functional-occurrence-table-output`. This optional output is a TAB-delimited file with the presence/absence information for functions in genomes.
+Next, we will explore whether there are any functions enriched for any of the sub clades. In addition, we will introduce another feature `--functional-occurrence-table-output`. This optional output is a TAB-delimited file with the frequency of occurrence information for functions in genomes (i.e. how many genes in a genome carry were associated with each function).
 
 ```bash
 anvi-get-enriched-functions-per-pan-group -p PROCHLORO/Prochlorococcus_Pan-PAN.db \
