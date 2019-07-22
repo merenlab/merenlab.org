@@ -3,7 +3,7 @@
     "centrifuge": {
         "threads": 2,
         "run": true,
-        "db": "/groups/merenlab/00_RESOURCES/Centrifuge-NR/nt/nt"
+        "db": "/PATH/TO/CENTRIFUGE/Centrifuge-NR/nt/nt"
     },
     "anvi_run_hmms": {
         "run": true,
