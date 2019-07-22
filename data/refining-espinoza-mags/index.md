@@ -721,12 +721,20 @@ The content of which should look like this:
     "references_mode": true,
     "all_against_all": true,
     "collections_txt": "ESPINOZA-COLLECTIONS-FILE.txt",
+    "anvi_summarize": {
+        "run": true
+    },
+    "anvi_split": {
+        "run": true
+    },
     "output_dirs": {
         "QC_DIR": "02_QC",
         "CONTIGS_DIR": "03_CONTIGS",
         "MAPPING_DIR": "04_MAPPING",
         "PROFILE_DIR": "05_ANVIO_PROFILE",
         "MERGE_DIR": "06_MERGED",
+        "SUMMARY_DIR": "08_SUMMARY",
+        "SPLIT_PROFILES_DIR": "07_SPLIT",
         "LOGS_DIR": "00_LOGS"
     }
 }
