@@ -680,7 +680,7 @@ The content of which should look like this:
     "centrifuge": {
         "threads": 2,
         "run": true,
-        "db": "/PATH-TO-CENTRIFUGE/Centrifuge-NR/nt/nt"
+        "db": "/PATH/TO/CENTRIFUGE/Centrifuge-NR/nt/nt"
     },
     "anvi_run_hmms": {
         "run": true,
