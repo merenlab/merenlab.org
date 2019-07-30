@@ -680,7 +680,7 @@ The content of which should look like this:
     "centrifuge": {
         "threads": 2,
         "run": true,
-        "db": "/PATH-TO-CENTRIFUGE/Centrifuge-NR/nt/nt"
+        "db": "/PATH/TO/CENTRIFUGE/Centrifuge-NR/nt/nt"
     },
     "anvi_run_hmms": {
         "run": true,
@@ -721,12 +721,20 @@ The content of which should look like this:
     "references_mode": true,
     "all_against_all": true,
     "collections_txt": "ESPINOZA-COLLECTIONS-FILE.txt",
+    "anvi_summarize": {
+        "run": true
+    },
+    "anvi_split": {
+        "run": true
+    },
     "output_dirs": {
         "QC_DIR": "02_QC",
         "CONTIGS_DIR": "03_CONTIGS",
         "MAPPING_DIR": "04_MAPPING",
         "PROFILE_DIR": "05_ANVIO_PROFILE",
         "MERGE_DIR": "06_MERGED",
+        "SUMMARY_DIR": "08_SUMMARY",
+        "SPLIT_PROFILES_DIR": "07_SPLIT",
         "LOGS_DIR": "00_LOGS"
     }
 }
@@ -745,7 +753,7 @@ anvi-run-workflow -w metagenomics \
 
 This original graph with all samples is way too big, but here is a subset of it with only three samples for demonstration purposes:
 
-[![workflow](images/workflow-metagenomics.png)](images/workflow-metagenomics){:.center-img .width-90}
+[![workflow](images/workflow-metagenomics.png)](images/workflow-metagenomics.png){:.center-img .width-90}
 
 We finally run this configuration the following way (the `--cluster` parameters are specific to our server, and will require you to remove that paramter, or format depending on your own server setup):
 

@@ -3,7 +3,7 @@
     "centrifuge": {
         "threads": 2,
         "run": true,
-        "db": "/groups/merenlab/00_RESOURCES/Centrifuge-NR/nt/nt"
+        "db": "/PATH/TO/CENTRIFUGE/Centrifuge-NR/nt/nt"
     },
     "anvi_run_hmms": {
         "run": true,
@@ -43,12 +43,21 @@
     },
     "references_mode": true,
     "all_against_all": true,
-    "collections_txt": "ESPINOZA_ET_AL_COLLECTIONS_FILE.txt",
+    "collections_txt": "ESPINOZA-COLLECTIONS-FILE.txt",
+    "anvi_summarize": {
+        "run": true
+    },
+    "anvi_split": {
+        "run": true
+    },
     "output_dirs": {
+        "QC_DIR": "02_QC",
         "CONTIGS_DIR": "03_CONTIGS",
         "MAPPING_DIR": "04_MAPPING",
         "PROFILE_DIR": "05_ANVIO_PROFILE",
         "MERGE_DIR": "06_MERGED",
+        "SUMMARY_DIR": "08_SUMMARY",
+        "SPLIT_PROFILES_DIR": "07_SPLIT",
         "LOGS_DIR": "00_LOGS"
     }
 }
