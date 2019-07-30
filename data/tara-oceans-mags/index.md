@@ -1,10 +1,12 @@
 ---
 layout: page
-title: Recovering Micorbial Genomes from TARA Oceans Metagenomes
+title: Recovering Microbial Genomes from TARA Oceans Metagenomes
 modified: 2017-04-20
 excerpt: "A complete workflow behind the manuscript 'Nitrogen-fixing populations of Planctomycetes and Proteobacteria are abundant in the surface ocean' by Delmont et al"
 comments: true
-redirect_from: /data/2017_Delmont_et_al_HBDs
+redirect_from:
+  - /data/2017_Delmont_et_al_HBDs
+  - /data/2017_Delmont_et_al_HBDs/
 
 ---
 
