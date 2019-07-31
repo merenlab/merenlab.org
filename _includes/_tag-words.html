@@ -1,19 +1,26 @@
 <script>
-/* Usage: 
+/* Usage:
 Include attribute to heading tags like below, comma seperated, case-insensitive.
 
-{:data-tags="pangenomics,pan"}
-### Pangenomics
+    {:data-tags="pangenomics,pan"}
+    ### Pangenomics
+
+If you want data tags to only match whole words, then use define them this way:
+
+    {:data-tags="<pan>"}
+    ### Pangenomics
 
 */
 (function() {
   let allTags = [];
+  let word_separating_chars = [" ", ",", ".", "(", ")", "[", "]", "`", '"', "'", "-"];
 
   document.querySelectorAll('[data-tags]').forEach((node) => {
     let words = node.getAttribute('data-tags').split(',');
 
     words.forEach((word) => {
-      allTags.push({'word': word, 'target': node.getAttribute('id')});
+      if (word.replace('<', '').replace('>', '').length > 3)
+        allTags.push({'word': word, 'target': node.getAttribute('id')});
     });
 
     // We want longer tags to be done first otherwise pan would replace pangenomics always
@@ -31,19 +38,38 @@ Include attribute to heading tags like below, comma seperated, case-insensitive.
           if (node.nodeType == Node.TEXT_NODE) {
             let contentLower = node.nodeValue.toLowerCase();
             let wordLower = tag.word.toLowerCase();
+            let considerWholeWordsOnly = false;
+
+            if (wordLower.startsWith('<') && wordLower.endsWith('>')){
+                wordLower = wordLower.slice(1, -1);
+                console.log(wordLower);
+                considerWholeWordsOnly = true;
+            }
 
             let start = contentLower.indexOf(wordLower);
-            if (start > -1) {
-              let preText = document.createTextNode(node.nodeValue.slice(0, start));
-              let postText = document.createTextNode(node.nodeValue.slice(start + wordLower.length, contentLower.length));
-              let link = document.createElement('a');
-              link.setAttribute('href', '#' + tag.target);
-              link.innerHTML = node.nodeValue.slice(start, start + wordLower.length);
 
-              p.insertBefore(preText , node);
-              p.insertBefore(link    , node);
-              p.insertBefore(postText, node);
-              p.removeChild(node);
+            let okToContinue=false;
+            if (start > -1) {
+                if (considerWholeWordsOnly) {
+                    if (start > -1 && word_separating_chars.includes(contentLower[start - 1]) && word_separating_chars.includes(contentLower[start + wordLower.length])){
+                        okToContinue = true;
+                    }
+                } else {
+                    okToContinue = true;
+                }
+            }
+
+            if (okToContinue) {
+                let preText = document.createTextNode(node.nodeValue.slice(0, start));
+                let postText = document.createTextNode(node.nodeValue.slice(start + wordLower.length, contentLower.length));
+                let link = document.createElement('a');
+                link.setAttribute('href', '#' + tag.target);
+                link.innerHTML = node.nodeValue.slice(start, start + wordLower.length);
+
+                p.insertBefore(preText , node);
+                p.insertBefore(link    , node);
+                p.insertBefore(postText, node);
+                p.removeChild(node);
             }
           }
         });
