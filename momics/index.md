@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Microbial 'Omics: An introduction
+title: Microbial 'Omics&#58 An introduction
 modified: 2019-08-01
 excerpt: "A community resource for reusable material to teach microbial 'omics"
 authors: [meren]
