@@ -56,7 +56,7 @@ Download PowerPoint slides for this animation from [here](02-genome-resolved-met
 
 ### Reconstructing genomes from metagenomes
 
-The aim of this animation is to discuss the general steps of reconstructing genomes from metagenomes. It shows that it is often not perfect even abundances of individual populations are relatively even, but often population sizes dramatically differ between different taxa, which makes it quite difficult to reconstruct genomes of rare taxa.
+The aim of this animation is to discuss the general steps of reconstructing genomes from metagenomes. It shows that it is often not perfect, even when abundances of individual populations are relatively even. Often, population sizes dramatically differ between different taxa, which makes it quite difficult to reconstruct genomes of rare taxa.
 
 ![](03-reconstructing-genomes-from-metagenomes.gif)
 
@@ -65,7 +65,7 @@ Download PowerPoint slides for this animation from [here](03-reconstructing-geno
 
 #### Computing k-mer frquencies
 
-We often use the fact that tetranucleotide frequencies of nucleotides are relatively conserved throughout genomes to identify [contig](../vocabulary/#contig)s that belong to the same [population](../vocabulary/#population) genome, however, what does it even mean to compute k-mer frequencies is not something covered in great detail. The purpose of this animation is to demonstrate how it is done step-by-step, and how this information could lead to the identification of sequences that are compositionally similar without any a priori knowledge about their origins.
+We often use the fact that tetranucleotide frequencies of nucleotides are relatively conserved throughout genomes to identify [contig](../vocabulary/#contig)s that belong to the same [population](../vocabulary/#population) genome, however, what it even means to compute k-mer frequencies is not something covered in great detail. The purpose of this animation is to demonstrate how it is done step-by-step, and how this information could lead to the identification of sequences that are compositionally similar without any a priori knowledge about their origins.
 
 ![](04-computing-kmer-frequencies.gif)
 
@@ -74,7 +74,7 @@ Download PowerPoint slides for this animation from [here](04-computing-kmer-freq
 
 #### Differential coverage
 
-The assumption that [contigs](../vocabulary/#contig) that belong to the same population genome will have similar coverages within a given metagenome enables the use of differential coverage to reconstruct genomes. The purpose of this animation to discuss this principle step-by-step. 
+The assumption that [contigs](../vocabulary/#contig) belonging to the same population genome will have similar coverages within a given metagenome enables the use of differential coverage to reconstruct genomes. The purpose of this animation to discuss this principle step-by-step. 
 
 ![](05-computing-differential-coverage.gif)
 
@@ -103,7 +103,7 @@ Download PowerPoint slides for this animation from [here](07-concept-of-pangenom
 
 ### Metapangenomics
 
-We define a ‘metapangenome’ as the outcome of the analysis of pangenomes in conjunction with the environment where the abundance and prevalence of gene clusters and genomes are recovered through shotgun metagenomes. The purpose of the following animation is to build on the previous description of pangenomics and show how it can integrate with environmental metagenomes.
+We define a ‘metapangenome’ as the outcome of the analysis of pangenomes in conjunction with the environment, where the abundance and prevalence of gene clusters and genomes are recovered through shotgun metagenomes. The purpose of the following animation is to build on the previous description of pangenomics and show how it can integrate with environmental metagenomes.
 
 ![](08-concept-of-metapangenomics.gif)
 
@@ -177,7 +177,7 @@ This is a small exercise with pangenomics. At the link below you will find a dat
 
 [https://www.dropbox.com/s/1brw4c7h9i8ud2k/Bifidobacterium_genomes.tar.gz](https://www.dropbox.com/s/1brw4c7h9i8ud2k/Bifidobacterium_genomes.tar.gz)
 
-Genomes in this data pack belong to the genus *Bifidobacterium*, however, you don't know which species they assign. Please follow the [anvi'o pangenomics tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/) to create a pangenome for all these 15 genomes using the program `anvi-pan-genome` with default parameters, and answer the following questions:
+Genomes in this data pack belong to the genus *Bifidobacterium*, however, you don't know which species are assigned to them. Please follow the [anvi'o pangenomics tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/) to create a pangenome for all these 15 genomes using the program `anvi-pan-genome` with default parameters, and answer the following questions:
 
 * How many single-copy core genes did you find?
 * When you organize genomes based on gene cluster frequencies, how many main groups do you observe?
