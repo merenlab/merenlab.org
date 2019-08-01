@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Microbial 'Omics Course Material
-modified: 2015-07-30
-excerpt: "A public resource for teaching materials from our lab"
+title: Microbial 'Omics: An introduction
+modified: 2019-08-01
+excerpt: "A community resource for reusable material to teach microbial 'omics"
 authors: [meren]
 comments: true
 image:
