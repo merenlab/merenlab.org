@@ -5,23 +5,26 @@ modified: 2015-07-30
 excerpt: "A public resource for teaching materials from our lab"
 authors: [meren]
 comments: true
+image:
+  feature: http://merenlab.org/momics/microbial-omics-summary.png
+  display: false
 ---
 
 {% include _toc.html %}
 
-On this page you will find some of the reusable material [Meren Lab](http://merenlab.org) has developed to teach key concepts in microbial 'omics. Please note that this is an evolving resource, and please do not hesitate to get in touch with us if you have any questions or suggestions.
+On this page you will find some of the reusable material [Meren Lab](http://merenlab.org) has developed to communicate key concepts in microbial 'omics. Please note that this is an evolving resource, and do not hesitate to get in touch with us if you have any questions or suggestions.
 
 {% include _join-anvio-slack.html %}
 
 ## Motivation
 
-During the Spring semester of 2019 I started teaching at the University of Chicago an undergraduate class on microbial 'omics. For those of you who may be interested, this is the description of the course from its [syllabus](https://www.dropbox.com/s/37v8i3er6uju9ku/MOmics_Draft_Syllabus.pdf):
+During the Spring semester of 2019, I started a new undergraduate course at the University of Chicago on microbial 'omics with the following description (the rest of the syllabus is [here](https://www.dropbox.com/s/37v8i3er6uju9ku/MOmics_Draft_Syllabus.pdf)):
 
 <div style="background-color: whitesmoke; border-radius: 15px;">
 <p style="padding: 10px 30px 10px 30px;"><i>Every ecological niche our planet has to offer, including the human body itself, is home to an astonishing number of microbial cells that form complex communities. The last several years witnessed tremendous advances in molecular and computational approaches which now offer unprecedented access to these communities through new 'omics strategies. Developing an overall understanding of these strategies -including the ability to identify their appropriate applications and shortcomings- has quietly become a de facto necessity in the journey of an independent life scientist. The primary aim of this course is to empower its participants and enable them to study the ecology, evolution, and functioning of naturally occurring microbial populations. Through equal proportions of theory and practice, the participants will use state-of-the-art computational methods to work with real-world microbial data and recognize the current conceptual framework that helps us wrap our collective mind around the most diverse form of life on our planet.</i></p>
 </div>
 
-Offering a deep appreciation of the fundamental concepts in microbial 'omics during undergraduate education is extremely critical for two reasons. One, most microbial 'omics strategies are connected to one another, and two, classical undergraduate training in life sciences does not include adequate exposure to the basic principles behind commonly used computational strategies of data-enabled microbiology.
+Offering a deep appreciation of the fundamental concepts in microbial 'omics during the undergraduate journey of future life scientists is critical for two reasons. One, most microbial 'omics strategies are connected to one another, and two, classical undergraduate training in life sciences does not include adequate exposure to the basic principles behind commonly used computational strategies of data-enabled microbiology.
 
 For a detailed communication of concepts in microbial 'omics, I started creating animations on my tablet computer and used them during the course. Advancing through these animations slide-by-slide created enough room for questions and discussions to elucidate ecological and evolutionary interpretations of primary forms of data. **My motivation to make these animations publicly available was to ensure that they are accessible to others who may be interested in using them to teach these concepts in a similar fashion** (PowerPoint slides for each animation is also available underneath every animation).
 
