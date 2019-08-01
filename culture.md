@@ -60,7 +60,7 @@ Doing science in a social setting requires a delicate balance of things that oft
 
 - **Criticism**. It as our responsibility to be tough on ideas during group discussions yet it is not easy to criticize an idea while making sure that the owner of the idea does not feel as if they are not appreciated as a member. Ideas can be torn apart, thrown away, and improved. But it is not acceptible to not be careful to find the delicate balance. If you are delivering a criticism, please be mindful. If you are at the recieving end of it and you are upset with the mode of delivery, please speak up. If you are the observer of a tough situation, please consider taking action. That said, the absolute respect and compassion we expect from each other when we are among ourselves is a luxury that we may not expect from our colleagues elsewhere. Others will criticize us, and we must be welcoming of such external criticism, too. In addition we must be prepared that they can be harsh, and we must learn to respect those opinions regardless. But also we should be able to move on when it feels necessary without slowing down and without being cynical or dimissive of outside criticism.
 
-- **Mindfulness**. No one interrupts anyone else. Body language can be as interruptive as spoken words, so we should strive to encourage the speaker's attempt to speak up their mind by making sure they are not dealing with our verbal or physical reactions. Delivering an idea is already hard enough and we can all do without additional stress. Some days are worse than others for each one of us. If you feel that it is one of those days, you should feel free to not attend to a group discussion.
+- **Mindfulness**. No one interrupts anyone else. Body language can be as interruptive as spoken words, so we should strive to encourage the speaker's attempt to speak up their mind by making sure they are not dealing with our verbal or physical reactions. Delivering an idea is already hard enough and we can all do without additional stress. Some days are worse than others for each one of us. If you feel that it is one of those days, you should feel free to not attend a group discussion.
 
 # Member Roles and Specifics
 
@@ -70,13 +70,13 @@ The purpose of this section is to clarify general expectations of our group.
 
 This list may not include some of my implicit promises. If you see a topic that needs to be covered in this section, please let me know.
 
-- My main role and responsibilty in this group is to keep everyone **happy**,  **productive**, and **funded**. I promise to work with everyone to deliver this. If a member is systemmaticaly lacking either of them despite our best efforts, I also promise to do my best to help them find a better place. Throughout my career in science I saw many PhD students and post-docs lost years before they realized they were at the wrong place, and I am determined to not let that happen to anyone in our group.
+- My main role and responsibilty in this group is to keep everyone **happy**,  **productive**, and **funded**. I promise to work with everyone to deliver this. If a member is systematically lacking either of them despite our best efforts, I also promise to do my best to help them find a better place. Throughout my career in science I saw many PhD students and post-docs lost years before they realized they were at the wrong place, and I am determined to not let that happen to anyone in our group.
 
 - Besides the group meetings, every member will at least have a 1-hour slot per week to have a private meeting with me. Unless I am traveling or sick. During the times of travel, I will do my best to meet you through Skype if you are willing.
 
 - You will be free to walk into my office anytime if you have a question. If I am coding or writing something that takes lots of concentration and should not be interrupted, I will close my door or will not come in to work at all. If my door is open, you are welcome to come in and ask me anything.
 
-- I will do my best to find exciting projects for each one of you, and involve you with outside projects that you may contribute based on your skill set and level of interest. That said, I promise to not enlist anyone for any project without first probing thier level of interest and availability.
+- I will do my best to find exciting projects for each one of you, and involve you with outside projects that you may contribute based on your skill set and level of interest. That said, I promise to not enlist anyone for any project without first probing their level of interest and availability.
 
 - I will do my best to make sure you have a high-end laptop, an external monitor, a pair of noise-cancelling headphones, an ergonomic keyboard, an ergonomic mouse, and an optional standing desk solution when you start in our group. And somewhere to sit, hopefully.
 
