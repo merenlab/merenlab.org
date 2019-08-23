@@ -9,7 +9,7 @@ comments: false
 <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
 
 <div class="category-box">
-<a href="#2019"><span class="category-item">2019 <small>(3)</small></span></a><a href="#2018"><span class="category-item">2018 <small>(6)</small></span></a><a href="#2017"><span class="category-item">2017 <small>(10)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(5)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a>
+<a href="#2019"><span class="category-item">2019 <small>(4)</small></span></a><a href="#2018"><span class="category-item">2018 <small>(6)</small></span></a><a href="#2017"><span class="category-item">2017 <small>(10)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(5)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a>
 </div>
 
 <a name="2019">&nbsp;</a>
@@ -61,6 +61,22 @@ comments: false
     </div>
     </div>
     <span class="pub-journal"><i>Nature Microbiology</i>. <b>2058-5276</b></span>
+</div>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41564-019-0494-6"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1038/s41564-019-0494-6" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1038/s41564-019-0494-6" target="_new">Global phylogeography and ancient evolution of the widespread human gut virus crAssphage.</a></h3>
+    <span class="pub-authors">Edwards, R. A., Vega, A. A., Norman, H. M., Ohaeri, M., Levi, K., Dinsdale, E. A., Cinek, O., Aziz, R. K., McNair, K., Barr, J. J., Bibby, K., Brouns, SJJ., Cazares, A., deJonge, P. A., Desnues, C., Díaz Muñoz, S. L., Fineran, P. C., Kurilshikov, A., Lavigne, R., Mazankova, K., McCarthy, D. T., Nobrega, F. L., Reyes Muñoz, A., Tapia, G., Trefault, N., Tyakht, A. V., Vinuesa, P., Wagemans, J., Zhernakova, A., Aarestrup, F. M., Ahmadov, G., Alassaf, A., Anton, J., Asangba, A., Billings, E. K., Cantu, V. A., Carlton, J. M., Cazares, D., Cho, G. S., Condeff, T., Cortés, P., Cranfield, M., Cuevas, D. A., De la Iglesia, R., Decewicz, P., Doane, M. P., Dominy, N. J., Dziewit, L., Elwasila, B. M., <span class="pub-member-author">Eren, A. M</span>., Franz, C., Fu, J., Garcia-Aljaro, C., Ghedin, E., Gulino, K. M., Haggerty, J. M., Head, S. R., Hendriksen, R. S., Hill, C., Hyöty, H., Ilina, E. N., Irwin, M. T., Jeffries, T. C., Jofre, J., Junge, R. E., Kelley, S. T., Khan Mirzaei, M., Kowalewski, M., Kumaresan, D., Leigh, S. R., Lipson, D., Lisitsyna, E. S., Llagostera, M., Maritz, J. M., Marr, L. C., McCann, A., Molshanski-Mor, S., Monteiro, S., Moreira-Grez, B., Morris, M., Mugisha, L., Muniesa, M., Neve, H., Nguyen, N. P., Nigro, O. D., Nilsson, A. S., O'Connell, T., Odeh, R., Oliver, A., Piuri, M., Prussin Ii, A. J., Qimron, U., Quan, Z. X., Rainetova, P., Ramírez-Rojas, A., Raya, R., Reasor, K., Rice, GAO., Rossi, A., Santos, R., Shimashita, J., Stachler, E. N., Stene, L. C., Strain, R., Stumpf, R., Torres, P. J., Twaddle, A., Ugochi Ibekwe, M., Villagra, N., Wandro, S., White, B., Whiteley, A., Whiteson, K. L., Wijmenga, C., Zambrano, M. M., Zschach, H., and Dutilh, B. E.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="../images/pubs/crAssphage.png"><img src="../images/pubs/crAssphage.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A monumental effort lead by <a href="https://twitter.com/linsalrob" target="_blank">Rob Edwards</a> and <a href="https://twitter.com/BEDutilh" target="_blank">Bas Dutilh</a> to explore with the help of 114 scientists from around the world the global phylogeorgraphy and evolution of <a href="https://www.nature.com/articles/ncomms5498" target="_blank">crAssphage</a>, one of the most numerous viruses in the human gut that infect bacteria.</span><br><span style="display: inline-block; padding-bottom: 5px;">- A curated list of press coverage of this study is available <a href="https://edwards.sdsu.edu/research/press-about-global-phylogeography-of-crassphage/" target="_blank">on Rob Edwards' web site</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>Nature Microbiology</i>. <b>ahead of print</b></span>
 </div>
 
 
