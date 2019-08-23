@@ -45,6 +45,22 @@
       inst: The Biophysical Sciences Program at the University of Chicago
       inst_link: http://biophysics.uchicago.edu/
 
+- alias: florian
+  official: True
+  name: Florian Trigodet
+  tenure_start: 08/2019
+  role: Post-doctoral Scientist
+  email: trigodet.florian@gmail.com
+  twitter: FlorianTrigodet
+  github: FlorianTrigodet
+  linkedin: florian-trigodet-67b351b4
+  avatar: bio-florian.jpg
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  bio: "I am a microbiologist by training, and as a postdoctoral researcher I am using advanced computational strategies to make sense of the microbial ecology of complex habitats."
+  affiliations:
+    - title: Post-doctoral Scientist
+      inst: The Department of Medicine at the University of Chicago
+      inst_link: http://medicine.uchicago.edu/
 
 - alias: andrea
   official: True
