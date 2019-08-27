@@ -33,6 +33,28 @@ This page serves the publicly available data items mentioned in our publications
 {:.warning}
 [http://merenlab.org/data/refining-espinoza-mags](refining-espinoza-mags) gives access to our **complete bioinformatics workflow**.
 
+## A multi'omics <i>Spiroplasma</i> analysis
+
+<div class="pub_float">
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.7717/peerj.7548"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.7548" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.7717/peerj.7548" target="_new">Genome-resolved insights into a novel Spiroplasma symbiont of the Wheat Stem Sawfly.</a></h3>
+    <span class="pub-authors">Yeoman, C. J., Brutscher, L. M., <span class="pub-member-author">Esen, Ö. C.</span>, Ibaoglu, F., Fowler, C., <span class="pub-member-author">Eren, A. M</span>., Wanner, K., and Weaver, D. K.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="../images/pubs/spiroplasma-pangenome.png"><img src="../images/pubs/spiroplasma-pangenome.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);" /></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A study that uses (1) <b>genome-resolved metagenomics</b> to reconstruct a population genome from fly metagenomes that resolves to the genus <a href="https://en.wikipedia.org/wiki/Spiroplasma" target="_blank"><i>Spiroplasma</i></a>, (2) <b>pangenomics</b> to put this genome in the context of other <i>Spiroplasma</i> genomes, (3) <b>phylogenomics</b> to infer ancestral relationships between <i>Spiroplasma</i> genomes, and (4) includes an ANI-based distance estimation between all genomes for comprehensive reporting.</span><br /><span style="display: inline-block; padding-bottom: 5px;">-  It is a particularly good example that demonstrates how pangenomics can reveal appropriate targets for high-resolution phylogenomics.</span><br /><span style="display: inline-block; padding-bottom: 5px;">-  A fully reproducible bioinformatics workflow for this multi'omics analysis is <a href="http://merenlab.org/data/spiroplasma-pangenome/" target="_blank">here</a>. Anvi'o databases to interactively reproduce and explore the Spiroplasma pangenome is also <a href="http://doi.org/10.6084/m9.figshare.8201852" target="_blank">available</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>PeerJ</i>. <b>7:e7548</b></span>
+</div>
+
+{:.warning}
+[http://merenlab.org/data/spiroplasma-pangenome/](spiroplasma-pangenome) gives access to the **complete bioinformatics workflow** we used in this study.
+
+
 ## A <i>Wolbachia</i> Plasmid
 
 <div class="pub_float">
