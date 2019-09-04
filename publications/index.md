@@ -9,11 +9,27 @@ comments: false
 <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
 
 <div class="category-box">
-<a href="#2019"><span class="category-item">2019 <small>(5)</small></span></a><a href="#2018"><span class="category-item">2018 <small>(6)</small></span></a><a href="#2017"><span class="category-item">2017 <small>(10)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(5)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a>
+<a href="#2019"><span class="category-item">2019 <small>(6)</small></span></a><a href="#2018"><span class="category-item">2018 <small>(6)</small></span></a><a href="#2017"><span class="category-item">2017 <small>(9)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(5)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a>
 </div>
 
 <a name="2019">&nbsp;</a>
 <h1>2019</h1>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.7554/eLife.46497"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.7554/eLife.46497" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.7554/eLife.46497" target="_new">Single-amino acid variants reveal evolutionary processes that shape the biogeography of a global SAR11 subclade.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Kiefl, E.</span>, Kilinc, O., <span class="pub-member-author">Esen, Ö. C.</span>, Uysal, I., Rappé, M. S., Giovannoni, S., and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="http://i.imgur.com/HrlXPOF.jpg"><img src="http://i.imgur.com/HrlXPOF.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A study that introduces <a href="http://merenlab.org/2015/07/20/analyzing-variability/#an-intro-to-single-nucleotidecodonamino-acid-variation" target="_blank">'single-amino acid variants'</a> (SAAVs) and demonstrates <b>the use of SAAVs to tease apart evolutionary processes that shape the biogeography and genomic heterogeneity within a SAR11 population</b> through metagenomics.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  A first attempt to link population genetics and the predicted protein structures to explore <i>in silico</i> <b>the intersection beetween protein biochemistry and evolutionary processes</b> acting on an environmental microbe.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  An application of <a href="https://peerj.com/articles/4320/" target="_blank">metapangenomics</a> to define <b>subclades of SAR11 based on gene content and ecology</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Reproducible bioinformatics workflow is <a href="" target="_blank">here</a>. <a href="https://doi.org/10.7554/eLife.46497.040" target="_blank">Reviewer criticism</a> and <a href="https://doi.org/10.7554/eLife.46497.041" target="_blank">our responses</a> are also available.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>eLife</i>. <b>8:e46497</b></span>
+</div>
 
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1128/mBio.00725-19"></div>
@@ -48,22 +64,6 @@ comments: false
 </div>
 
 <div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41564-019-0362-4"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.1038/s41564-019-0362-4" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <h3><a href=" https://doi.org/10.1038/s41564-019-0362-4" target="_new">Co-occurring genomic capacity for anaerobic methane and dissimilatory sulfur metabolisms discovered in the Korarchaeota.</a></h3>
-    <span class="pub-authors">McKay, L. J., Dlakić, M., Fields, M. W., <span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Eren, A. M</span>., Jay, Z. J., Klingelsmith, K. B., Rusch, D. B., and Inskeep, W. P.</span>
-    <div class="pub-info">
-    <div class="pub-featured-image">
-    <a href="../images/pubs/mckay_and_inskeep.jpg"><img src="../images/pubs/mckay_and_inskeep.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
-    </div>
-    <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- Yesllowstone National Park, archaeal evolution, genome-resolved metagenomics, phylogenomics, and pangenomics (cool stuff all over).</span><br><span style="display: inline-block; padding-bottom: 5px;">-  First description of a microbial population with both anaerobic methane and dissimilatory sulfur metabolisms.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  A news article by Montana State University with the photographs of cools scientists: <a href="http://www.montana.edu/news/18471">An organism in Yellowstone hot spring potentially linked to earliest life on Earth"</a></span>
-    </div>
-    </div>
-    <span class="pub-journal"><i>Nature Microbiology</i>. <b>2058-5276</b></span>
-</div>
-
-<div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.7717/peerj.7548"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.7548" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <h3><a href=" https://doi.org/10.7717/peerj.7548" target="_new">Genome-resolved insights into a novel Spiroplasma symbiont of the Wheat Stem Sawfly.</a></h3>
@@ -93,6 +93,22 @@ comments: false
     </div>
     </div>
     <span class="pub-journal"><i>Nature Microbiology</i>. <b>ahead of print</b></span>
+</div>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41564-019-0362-4"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1038/s41564-019-0362-4" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1038/s41564-019-0362-4" target="_new">Co-occurring genomic capacity for anaerobic methane and dissimilatory sulfur metabolisms discovered in the Korarchaeota.</a></h3>
+    <span class="pub-authors">McKay, L. J., Dlakić, M., Fields, M. W., <span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Eren, A. M</span>., Jay, Z. J., Klingelsmith, K. B., Rusch, D. B., and Inskeep, W. P.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="../images/pubs/mckay_and_inskeep.jpg"><img src="../images/pubs/mckay_and_inskeep.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- Yesllowstone National Park, archaeal evolution, genome-resolved metagenomics, phylogenomics, and pangenomics (cool stuff all over).</span><br><span style="display: inline-block; padding-bottom: 5px;">-  First description of a microbial population with both anaerobic methane and dissimilatory sulfur metabolisms.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  A news article by Montana State University with the photographs of cools scientists: <a href="http://www.montana.edu/news/18471">An organism in Yellowstone hot spring potentially linked to earliest life on Earth"</a></span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>Nature Microbiology</i>. <b>2058-5276</b></span>
 </div>
 
 
@@ -231,22 +247,6 @@ comments: false
     <h3><a href=" https://doi.org/10.1038/s41467-017-01228-6" target="_new">Genomic variation in microbial populations inhabiting the marine subseafloor at deep-sea hydrothermal vents.</a></h3>
     <span class="pub-authors">Anderson, R. E., Reveillaud, J., Reddington, E., <span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Eren, A. M</span>., McDermott, J. M., Seewald, J. S., and Huber, J. A.</span>
     <span class="pub-journal"><i>Nature Communications</i>. <b>8:1114</b></span>
-</div>
-
-<div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/170639"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.1101/170639" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <h3><a href=" https://doi.org/10.1101/170639" target="_new">The global biogeography of amino acid variants within a single SAR11 population is governed by natural selection.</a></h3>
-    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Kiefl, E.</span>, Kilinc, O., <span class="pub-member-author">Esen, Ö. C.</span>, Uysal, I., Rappé, M. S., Giovannoni, S., and <span class="pub-member-author">Eren, A. M</span>.</span>
-    <div class="pub-info">
-    <div class="pub-featured-image">
-    <a href="http://i.imgur.com/HrlXPOF.jpg"><img src="http://i.imgur.com/HrlXPOF.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
-    </div>
-    <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- Using single-amino acid variants to investigate genome variation within a single SAR11 population across large geographies.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Application of a novel Deep Learning algorithm to resolve relationships between metagenomes through complex SAAV data.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Partitioning of SAAVs suggests natural selection, rather than neutral evolution, is the main driver of the evolution of SAR11.</span>
-    </div>
-    </div>
-    <span class="pub-journal"><i>BioRxiv</i>. <b>pre-print</b></span>
 </div>
 
 <div class="pub">
