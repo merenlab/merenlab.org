@@ -1404,7 +1404,7 @@ $ anvi-compute-ani -e additional-files/pangenomics/external-genomes.txt \
 ```
 
 {:.notice}
-If you are using anvio v6 or later, `anvi-compute-ani` has been replaced by `anvi-compute-genome-similiarty`. The above command remains the same otherwise.
+If you are using anvio v6 or later, `anvi-compute-ani` has been replaced by `anvi-compute-genome-similarity`. The above command remains the same otherwise.
 
 <div class="extra-info" markdown="1">
 

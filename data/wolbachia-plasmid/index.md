@@ -1191,7 +1191,7 @@ anvi-compute-ani --external-genomes genomes-for-ani.txt \
 ```
 
 {:.notice}
-If you are using anvio v6 or later, `anvi-compute-ani` has been replaced by `anvi-compute-genome-similiarty`. The above command remains the same otherwise.
+If you are using anvio v6 or later, `anvi-compute-ani` has been replaced by `anvi-compute-genome-similarity`. The above command remains the same otherwise.
 
 Which returned the following results for percent identity:
 
