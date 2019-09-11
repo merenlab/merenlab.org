@@ -143,7 +143,7 @@ anvi-compute-ani -e external-genomes.txt \
 ```
 
 {:.notice}
-If you are using anvio v6 or later, `anvi-compute-ani` has been replaced by `anvi-compute-genome-similiarty`. The above command remains the same otherwise.
+If you are using anvio v6 or later, `anvi-compute-ani` has been replaced by `anvi-compute-genome-similarity`. The above command remains the same otherwise.
 
 To infer evolutionary associations between 31 genomes in our pangenome, we used single-copy core genes (SCGs) across all genomes for a phylogenomic analysis. To recover a FASTA file for individually aligned and concatenated SCGs specific to the pangenome, we ran the following command:
 
