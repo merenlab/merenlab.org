@@ -697,17 +697,18 @@ There are 321 (of a total of 499) gene clusters in CORE_HL that have functions. 
 We hope you find great uses for the functional enrichment analysis framework in anvi'o pangenomic workflow! Feel free to send us any questions you may have.
 
 
-## Computing the average nucleotide identity for genomes
+## Computing the average nucleotide identity for genomes (and other genome similarity metrics too!)
 
-Anvi'o also contains a program, [`anvi-compute-ani`](http://merenlab.org/software/anvio/vignette/#anvi-compute-ani), which uses [PyANI](https://doi.org/10.1039/C5AY02550H) to compute average nucleotide identity across your genomes. It expects you to provide an external genomes file to declare which genomes you are interested in for an ANI analysis, but it also optionally accepts a pan database to add its findings into it as additional layer data.
+Anvi'o also contains a program, [`anvi-compute-genome-similarity`](http://merenlab.org/software/anvio/vignette/#anvi-genome-similarity), which uses various similarity metrics such as [PyANI](https://doi.org/10.1039/C5AY02550H) to compute average nucleotide identity across your genomes, and [sourmash](https://doi.org/10.21105/joss.00027) to compute mash distance across your genomes. It expects any combination of external genome files, internal genome files, or a fasta text file that points to the paths of FASTA files (each FASTA is assumed to be 1 genome). In addition, [`anvi-compute-genome-similarity`](http://merenlab.org/software/anvio/vignette/#anvi-genome-similarity) optionally accepts a pan database to add all results into it as additional layer data.
 
 Here is an example with our *Prochlorococcus* Pan genome:
 
 ``` bash
-anvi-compute-ani --external-genomes external-genomes.txt \
-                 --output-dir ANI \
-                 --num-threads 6 \
-                 --pan-db PROCHLORO/Prochlorococcus_Pan-PAN.db
+anvi-compute-genome-similarity --external-genomes external-genomes.txt \
+                               --program pyANI \
+                               --output-dir ANI \
+                               --num-threads 6 \
+                               --pan-db PROCHLORO/Prochlorococcus_Pan-PAN.db
 ```
 
 Once it is complete, we can visualize the pan genome again to see what is new:
@@ -732,7 +733,10 @@ Yes. [Magic](https://github.com/merenlab/anvio/pull/822).
 You may need to change the `min` value from the interface for a better representation of ANI across your genomes in your own pangenome.
 
 {:.notice}
-***A note from Meren***: We have `anvi-compute-ani`, because someone asked for it on GitHub. We thank our proactive users, like [Mike Lee](https://astrobiomike.github.io/), on behalf of the community.
+[`anvi-compute-genome-similarity`](http://merenlab.org/software/anvio/vignette/#anvi-genome-similarity) has replaced `anvi-compute-ani`, now that more metrics are available than just ANI. Sorry if this screwed up your workflow.
+
+{:.notice}
+***A note from Meren***: We have `anvi-compute-genome-similarity`, because someone asked for it on GitHub. We thank our proactive users, like [Mike Lee](https://astrobiomike.github.io/), on behalf of the community.
 
 
 <div class="extra-info" markdown="1">
