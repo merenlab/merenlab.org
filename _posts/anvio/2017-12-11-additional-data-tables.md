@@ -33,7 +33,7 @@ As a part of this design, we ended up killing the 'anvi'o samples database'. If 
 
 We are as confused as you are, so let's start with this example display to explain what is what:
 
-![Example anvi'o display](https://anvi-server.org/static/img/example.png){:.center-img .width-40}
+[![image]({{images}}/anvio-display.png)]({{images}}/anvio-display.png){:.center-img .width-50}
 
 In this display, the deondrogram denoted by **(1)** shows the organization of **items**. So anything that appears there are what we call 'items'. Concentric circles identified by **(2)** represent the view data. View data is often computed by anvi'o itself, and stored in pan or profile databases. Additional data for items will decorate things around view data display (such as those green things in this particular example). The dendrogram identified by **(3)** shows how those concentric circles, or **layers** should be organized. Data we will import as 'layer orders' will appear there. What is shown by **(4)** is the additional data for layers, and you will also learn in this post how to import data to appear there.
 
