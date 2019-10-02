@@ -105,7 +105,7 @@ Using the files in the datapack directory, let's take a first look at the merge 
 
 
 ``` bash
- $ anvi-interactive -p PROFILE.db -c CONTIGS.db 
+ $ anvi-interactive -p PROFILE.db -c CONTIGS.db
 ```
 
 The anvi'o interactive interface should welcome you with this display (after you click "draw"):
@@ -117,9 +117,7 @@ The anvi'o interactive interface should welcome you with this display (after you
 When it is time to type other commands, you can close the window, go back to the terminal and press `CTRL + C` to kill the server.
 
 
-<div class="extra-info" markdown="1">
-
-<span class="extra-info-header">Tom's description of the metagenomic binning-related features of the anvi'o interactive interface</span>
+<details markdown="1"><summary>Show/hide Tom's description of the metagenomic binning-related features of the anvi'o interactive interface</summary>
 
 The interactive interface of anvi'o can be quite overwhelming. This particular box, in addition to the [interactive interface tutorial](tutorials/interactive-interface/), attempts to give you insights into the features of the interactive interface relevant to metagenomic binning.
 
@@ -156,7 +154,7 @@ Your selections will not be lost when switching from one organization to another
 ![Inspection_Contig_Example.png](images/Inspection_Contig_Example.png){:.center-img .width-50}
 
 Note that gene coordinates are displayed at the bottom and their inferred function can be accessed in a simple click. When detected, single nucleotide variants are also described in this display (vertical bars). You can close the `inspection mode` window when your curiosity has been satisfied. 
-</div>
+</details>
 
 
 ### Importing taxonomy for genes
@@ -177,7 +175,7 @@ If you import these files into the contigs database the following way,
 And run the interactive interface again,
 
 ``` bash
- $ anvi-interactive -p PROFILE.db -c CONTIGS.db 
+ $ anvi-interactive -p PROFILE.db -c CONTIGS.db
 ```
 
 You will see an additional layer with taxonomy:
@@ -221,7 +219,7 @@ Here is an example of 16 bins we identified for comparison AFTER you performed y
 
 [![Manual_Binnin_Result_Example.png](images/Manual_Binnin_Result_Example.png)](images/Manual_Binnin_Result_Example.png){:.center-img .width-50}
 
-Please save your binning effort as `default` in the `Bins` tab (click on the `store bin collection` box). 
+Please save your binning effort as `default` in the `Bins` tab (click on the `store bin collection` box).
 
 {:.notice}
 In the anvi'o lingo, a 'collection' is something that describes one or more bins, each of which describe one or more contigs.
