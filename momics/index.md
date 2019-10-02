@@ -32,6 +32,8 @@ I am aware that while the raw form of these animations may be helpful for expert
 
 Resources on this page represent a fraction of the material we have developed for this course. We are hoping to advance its contents over time. Please feel free to share your invaluable suggestions.
 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Some of the material we have developed to teach Microbial &#39;Omics at the University of Chicago is now public: <br><br> <a href="https://t.co/3xEaeRgAXs">https://t.co/3xEaeRgAXs</a><br><br>It is indeed a start rather than a final product, and I hope it will evolve with your feedback to become a useful community resource.</p>&mdash; A. Murat Eren (Meren) (@merenbey) <a href="https://twitter.com/merenbey/status/1156954062593638400?ref_src=twsrc%5Etfw">August 1, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 ## Concepts
 
 The following sections describe each concept with a short summary of how I used them during the course. Please feel free to use any of the PowerPoint files in your own presentations, or let me know if you would like to chat about their interpretations.
