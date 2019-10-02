@@ -256,6 +256,71 @@ anvi-import-state -p PROCHLORO/Prochlorococcus_Pan-PAN.db \
 
 No excuses for bad looking pangenomes.
 
+## Splitting the pangenome
+
+In some cases one might want ot split a given pangenome into multiple independent pangenomes, such as one that contains only core gene clusters, or one that contains only singletons, etc.
+
+Anvi'o has a multi-talented program to split things, which also works with collections and bins in pan databases. It is called [`anvi-split`](http://merenlab.org/software/anvio/vignette/#anvi-split). Which enables you to focus on any group of gene clusters that are defined in a bin in a given pangenome, and split them into an independent and stand-alone pangeome.
+
+If you are feeling lost, you will likely find the visual description of this functionality much more clear than the technical one. Following steps will demonstrate it using the Prochlorococcus pangenome. Let's assume in the Prochlorococcus pangenome you happened to have three bins, *Core*, *HL Core*, and *Singletons*, all stored in the collection named *default*:
+
+[![split pan]({{images}}/splitting-pan-01.png)]({{images}}/splitting-pan-01.png){:.center-img .width-80}
+
+These bins can be split from this pangenome into their own little pan databases using `anvi-split` this way:
+
+```
+anvi-split -p Prochlorococcus-PAN.db \
+           -g Prochlorococcus-GENOMES.db \
+           -C default \
+           -o SPLIT_PANs
+```
+
+The resulting directory would contain the following files:
+
+```
+$ ls -lR SPLIT_PANs
+total 0
+drwxr-xr-x  3 meren  staff  96 Apr 26 16:37 Core
+drwxr-xr-x  3 meren  staff  96 Apr 26 16:37 Hl_Core
+drwxr-xr-x  3 meren  staff  96 Apr 26 16:37 Singletons
+
+SPLIT_PANs/Core:
+total 3240
+-rw-r--r--  1 meren  staff  1658880 Apr 26 16:37 PAN.db
+
+SPLIT_PANs/Hl_Core:
+total 1560
+-rw-r--r--  1 meren  staff  798720 Apr 26 16:37 PAN.db
+
+SPLIT_PANs/Singletons:
+total 4672
+-rw-r--r--  1 meren  staff  1384448 Apr 26 16:37 PAN.db
+```
+
+As you can see these are individual pangenomes that can indeed be visualized with `anvi-display-pan`. For instance running the following command,
+
+```
+anvi-display-pan -p SPLIT_PANs/Core/PAN.db \
+                 -g Prochlorococcus-GENOMES.db
+```
+
+Would give you this display:
+
+[![split pan]({{images}}/splitting-pan-02.png)]({{images}}/splitting-pan-02.png){:.center-img .width-80}
+
+Or runnig this one instead,
+
+```
+anvi-display-pan -p SPLIT_PANs/Singletons/PAN.db \
+                 -g Prochlorococcus-GENOMES.db
+```
+
+Would give you this one:
+
+[![split pan]({{images}}/splitting-pan-03.png)]({{images}}/splitting-pan-03.png){:.center-img .width-80}
+
+And that's that.
+
 ## Inspecting gene clusters
 
 Every gene cluster in your analysis will contain one or more amino acid sequence that originate from one or more genomes. While there will likely be a 'core' section, in which all gene cluster will appear in every genome, it is also common to find gene clusters that contain more than one gene call from a single genome (i.e., all multi-copy genes in a given genome will end up in the same gene cluster). Sooner or later you will start getting curious about some of the gene clusters, and want to learn more about them. Luckily you can right-click on to any gene cluster, and you would see this menu (or maybe even more depending on when you are reading this article):
