@@ -76,7 +76,7 @@ Download PowerPoint slides for this animation from [here](04-computing-kmer-freq
 
 #### Differential coverage
 
-The assumption that [contigs](../vocabulary/#contig) belonging to the same population genome will have similar coverages within a given metagenome enables the use of differential coverage to reconstruct genomes. The purpose of this animation to discuss this principle step-by-step. 
+The assumption that [contigs](../vocabulary/#contig) belonging to the same population genome will have similar coverages within a given metagenome enables the use of differential coverage to reconstruct genomes. The purpose of this animation to discuss this principle step-by-step.
 
 ![](05-computing-differential-coverage.gif)
 
@@ -85,7 +85,7 @@ Download PowerPoint slides for this animation from [here](05-computing-different
 
 #### From metagenomic reads to anvi'o merged profiles
 
-This animation demonstrates the essential steps of going from short reads to metagenomes in anvi'o. 
+This animation demonstrates the essential steps of going from short reads to metagenomes in anvi'o.
 
 ![](06-anvio-merged-profile-db.gif)
 
