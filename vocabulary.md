@@ -45,7 +45,7 @@ Average number of sequencing reads that map to each nucleotide position in a ref
 
 ![coverage](../images/momics/coverage.gif)
 
-{:data-tags="contig"}
+{:data-tags="<contig>,<contigs>"}
 ### Contig
 
 A contiguous segment of DNA that is often 'assembled' from short sequencing reads, but still represents only a fraction of the longer context to which it belongs.
@@ -64,7 +64,7 @@ Change in coverage of a reference sequence across multiple samples. This statist
 
 The ratio of all 4-nucleotide words in a given contig. The tetra-nucleotide frequency is largely preserved throughout microbial genomes, which enables the identification of distinct contigs that likely originate from the same population.
 
-{:data-tags="MAG"}
+{:data-tags="<MAG>"}
 ### Metagenome-assembled genome (MAG)
 
 A genome bin that meets certain quality requirements and can be assumed to represent contigs from one bin of a metagenome, which collectively represent the DNA of (what we think is) a single population.
