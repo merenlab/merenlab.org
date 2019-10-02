@@ -73,18 +73,18 @@ And clicking 'Draw' would have given us this:
 
 There isn't much to look at. Fine. Let's assume we have the following information for each item displayed in here which goes like this:
 
-|item_name|categorical_1|categorical_2|text_layer_01|numerical|bars_main!A;B;C|
-|:--|:--:|:--:|:--:|:--:|:--:|
-|backrest|b|y|nmwje|2.78|278;23;1|
-|backward|b|x|bqmyujr psrd doefhi|2.49|249;52;2|
-|backwind|b|y|hkfer lchpmzix|2.69|269;32;3|
-|backyard|b|x|advoe bfkyhmg|2.05|205;96;4|
-|bacteria|b|x|lqmcwn hywco|2.63|263;38;5|
-|bacterin|b||vxqdmn|2.98|298;3;6|
-|baetylus|b|x|fkgpydi owgyhfx xwlpj|2.19|219;82;7|
-|bagpiped|b|y|ijmnur|2.12|212;89;8|
-|balconet|b|y|ecizgs|2.89|289;12;9|
-|(...)|(...)|(...)|(...)|(...)|(...)|
+|item_name|categorical_1|categorical_2|text_layer_01|numerical|bars_main!A|bars_main!B|bars_main!C|
+|:--|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+|backrest|b|y|nmwje|2.78|278|23|1|
+|backward|b|x|bqmyujr psrd doefhi|2.49|249|52|2|
+|backwind|b|y|hkfer lchpmzix|2.69|269|32|3|
+|backyard|b|x|advoe bfkyhmg|2.05|205|96|4|
+|bacteria|b|x|lqmcwn hywco|2.63|263|38|5|
+|bacterin|b||vxqdmn|2.98|298|3|6|
+|baetylus|b|x|fkgpydi owgyhfx xwlpj|2.19|219|82|7|
+|bagpiped|b|y|ijmnur|2.12|212|89|8|
+|balconet|b|y|ecizgs|2.89|289|12|9|
+|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 
 If you take a look at the `view_data.txt` you would realize that the first columns of both files are pretty identical. 
 
@@ -95,22 +95,22 @@ $ anvi-import-misc-data items_additional_data.txt \
                               -p profile.db \
                               --target-data-table items
 
-New items additional data...
+New data for 'items' in data group 'default'
 ===============================================
-Key "categorical_1" ..........................: Predicted type: str
-Key "categorical_2" ..........................: Predicted type: str
-Key "text_layer_01" ..........................: Predicted type: str
-Key "numerical" ..............................: Predicted type: float
-Key "bars_main!A;B;C" ........................: Predicted type: stackedbar
+Data key "categorical_1" .....................: Predicted type: str
+Data key "categorical_2" .....................: Predicted type: str
+Data key "text_layer_01" .....................: Predicted type: str
+Data key "numerical" .........................: Predicted type: float
+Data key "bars_main!A" .......................: Predicted type: stackedbar
+Data key "bars_main!B" .......................: Predicted type: stackedbar
+Data key "bars_main!C" .......................: Predicted type: stackedbar
 
-
-WARNING
+NEW DATA
 ===============================================
-You (or the programmer) asked anvi'o to NOT check the consistency of the names
-of your items between your additional data and the profile database you are
-attempting to update. So be it.
-
-New data added to the db for your items ......: categorical_1, categorical_2, text_layer_01, numerical, bars_main!A;B;C.
+Database .....................................: profile
+Data group ...................................: default
+Data table ...................................: items
+New data keys ................................: categorical_1, categorical_2, text_layer_01, numerical, bars_main!A, bars_main!B, bars_main!C.
 ```
 
 Now running the interactive interface again will give us something extra:
@@ -227,11 +227,11 @@ $ anvi-import-misc-data items_additional_data.txt \
 
 Access to layer additional data tables is conceptually identical to the way we work with additional data for items, and it requires a small change in the command line. For instance, take the following file:
 
-|samples|numerical_01|numerical_02|categorical|stacked_bar!X;Y;Z|
-|:--|:--:|:--:|:--:|:--:|
-|c1|100|5|A|1;2;3|
-|c2|200|4|B|2;3;1|
-|c3|300|3|B|3;1;2|
+|samples|numerical_01|numerical_02|categorical|stacked_bar!X|stacked_bar!Y|stacked_bar!Z|
+|:--|:--:|:--:|:--:|:--:|:--:|:--:|
+|c1|100|5|A|1|2|3|
+|c2|200|4|B|2|3|1|
+|c3|300|3|B|3|1|2|
 
 Now the first column of this file is identical to our layer names, and every column describes a property of a given layer.
 
@@ -242,14 +242,12 @@ We could add this into the profile database this way :
                          -p profile.db \
                          --target-data-table layers
 
-New layers additional data...
+NEW DATA
 ===============================================
-Key "numerical_01" ...........................: Predicted type: int
-Key "numerical_02" ...........................: Predicted type: int
-Key "categorical" ............................: Predicted type: str
-Key "stacked_bar!X;Y;Z" ......................: Predicted type: stackedbar
-
-New data added to the db for your layers .....: numerical_01, numerical_02, categorical, stacked_bar!X;Y;Z.
+Database .....................................: profile
+Data group ...................................: default
+Data table ...................................: layers
+New data keys ................................: numerical_01, numerical_02, categorical, stacked_bar!X, stacked_bar!Y, stacked_bar!Z.
 ```
 
 After this, more information for each layer should show up on the right hand side when you re-run the interactive interface:
