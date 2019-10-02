@@ -9,11 +9,27 @@ comments: false
 <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
 
 <div class="category-box">
-<a href="#2019"><span class="category-item">2019 <small>(3)</small></span></a><a href="#2018"><span class="category-item">2018 <small>(6)</small></span></a><a href="#2017"><span class="category-item">2017 <small>(10)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(5)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a>
+<a href="#2019"><span class="category-item">2019 <small>(6)</small></span></a><a href="#2018"><span class="category-item">2018 <small>(6)</small></span></a><a href="#2017"><span class="category-item">2017 <small>(9)</small></span></a><a href="#2016"><span class="category-item">2016 <small>(5)</small></span></a><a href="#2015"><span class="category-item">2015 <small>(8)</small></span></a><a href="#2014"><span class="category-item">2014 <small>(10)</small></span></a><a href="#2013"><span class="category-item">2013 <small>(5)</small></span></a>
 </div>
 
 <a name="2019">&nbsp;</a>
 <h1>2019</h1>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.7554/eLife.46497"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.7554/eLife.46497" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.7554/eLife.46497" target="_new">Single-amino acid variants reveal evolutionary processes that shape the biogeography of a global SAR11 subclade.</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Kiefl, E.</span>, Kilinc, O., <span class="pub-member-author">Esen, Ö. C.</span>, Uysal, I., Rappé, M. S., Giovannoni, S., and <span class="pub-member-author">Eren, A. M</span>.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="http://i.imgur.com/HrlXPOF.jpg"><img src="http://i.imgur.com/HrlXPOF.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A study that introduces <a href="http://merenlab.org/2015/07/20/analyzing-variability/#an-intro-to-single-nucleotidecodonamino-acid-variation" target="_blank">'single-amino acid variants'</a> (SAAVs) and demonstrates <b>the use of SAAVs to tease apart evolutionary processes that shape the biogeography and genomic heterogeneity within a SAR11 population</b> through metagenomics.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  A first attempt to link population genetics and the predicted protein structures to explore <i>in silico</i> <b>the intersection beetween protein biochemistry and evolutionary processes</b> acting on an environmental microbe.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  An application of <a href="https://peerj.com/articles/4320/" target="_blank">metapangenomics</a> to define <b>subclades of SAR11 based on gene content and ecology</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Reproducible bioinformatics workflow is <a href="http://merenlab.org/data/sar11-saavs/" target="_blank">here</a>. <a href="https://doi.org/10.7554/eLife.46497.040" target="_blank">Reviewer criticism</a> and <a href="https://doi.org/10.7554/eLife.46497.041" target="_blank">our responses</a> are also available.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>eLife</i>. <b>8:e46497</b></span>
+</div>
 
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1128/mBio.00725-19"></div>
@@ -45,6 +61,38 @@ comments: false
     </div>
     </div>
     <span class="pub-journal"><i>Nature Communications</i>. <b>10:1051</b></span>
+</div>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.7717/peerj.7548"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.7548" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.7717/peerj.7548" target="_new">Genome-resolved insights into a novel Spiroplasma symbiont of the Wheat Stem Sawfly.</a></h3>
+    <span class="pub-authors">Yeoman, C. J., Brutscher, L. M., <span class="pub-member-author">Esen, Ö. C.</span>, Ibaoglu, F., Fowler, C., <span class="pub-member-author">Eren, A. M</span>., Wanner, K., and Weaver, D. K.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="../images/pubs/spiroplasma-pangenome.png"><img src="../images/pubs/spiroplasma-pangenome.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A study that uses (1) <b>genome-resolved metagenomics</b> to reconstruct a population genome from fly metagenomes that resolves to the genus <a href="https://en.wikipedia.org/wiki/Spiroplasma" target="_blank"><i>Spiroplasma</i></a>, (2) <b>pangenomics</b> to put this genome in the context of other <i>Spiroplasma</i> genomes, (3) <b>phylogenomics</b> to infer ancestral relationships between <i>Spiroplasma</i> genomes, and (4) includes an ANI-based distance estimation between all genomes for comprehensive reporting.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  It is a particularly good example that demonstrates how pangenomics can reveal appropriate targets for high-resolution phylogenomics.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  A fully reproducible bioinformatics workflow for this multi'omics analysis is <a href="http://merenlab.org/data/spiroplasma-pangenome/" target="_blank">here</a>. Anvi'o databases to interactively reproduce and explore the Spiroplasma pangenome is also <a href="http://doi.org/10.6084/m9.figshare.8201852" target="_blank">available</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>PeerJ</i>. <b>7:e7548</b></span>
+</div>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41564-019-0494-6"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1038/s41564-019-0494-6" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1038/s41564-019-0494-6" target="_new">Global phylogeography and ancient evolution of the widespread human gut virus crAssphage.</a></h3>
+    <span class="pub-authors">Edwards, R. A., Vega, A. A., Norman, H. M., Ohaeri, M., Levi, K., Dinsdale, E. A., Cinek, O., Aziz, R. K., McNair, K., Barr, J. J., Bibby, K., Brouns, SJJ., Cazares, A., deJonge, P. A., Desnues, C., Díaz Muñoz, S. L., Fineran, P. C., Kurilshikov, A., Lavigne, R., Mazankova, K., McCarthy, D. T., Nobrega, F. L., Reyes Muñoz, A., Tapia, G., Trefault, N., Tyakht, A. V., Vinuesa, P., Wagemans, J., Zhernakova, A., Aarestrup, F. M., Ahmadov, G., Alassaf, A., Anton, J., Asangba, A., Billings, E. K., Cantu, V. A., Carlton, J. M., Cazares, D., Cho, G. S., Condeff, T., Cortés, P., Cranfield, M., Cuevas, D. A., De la Iglesia, R., Decewicz, P., Doane, M. P., Dominy, N. J., Dziewit, L., Elwasila, B. M., <span class="pub-member-author">Eren, A. M</span>., Franz, C., Fu, J., Garcia-Aljaro, C., Ghedin, E., Gulino, K. M., Haggerty, J. M., Head, S. R., Hendriksen, R. S., Hill, C., Hyöty, H., Ilina, E. N., Irwin, M. T., Jeffries, T. C., Jofre, J., Junge, R. E., Kelley, S. T., Khan Mirzaei, M., Kowalewski, M., Kumaresan, D., Leigh, S. R., Lipson, D., Lisitsyna, E. S., Llagostera, M., Maritz, J. M., Marr, L. C., McCann, A., Molshanski-Mor, S., Monteiro, S., Moreira-Grez, B., Morris, M., Mugisha, L., Muniesa, M., Neve, H., Nguyen, N. P., Nigro, O. D., Nilsson, A. S., O'Connell, T., Odeh, R., Oliver, A., Piuri, M., Prussin Ii, A. J., Qimron, U., Quan, Z. X., Rainetova, P., Ramírez-Rojas, A., Raya, R., Reasor, K., Rice, GAO., Rossi, A., Santos, R., Shimashita, J., Stachler, E. N., Stene, L. C., Strain, R., Stumpf, R., Torres, P. J., Twaddle, A., Ugochi Ibekwe, M., Villagra, N., Wandro, S., White, B., Whiteley, A., Whiteson, K. L., Wijmenga, C., Zambrano, M. M., Zschach, H., and Dutilh, B. E.</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="../images/pubs/crAssphage.png"><img src="../images/pubs/crAssphage.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A monumental effort lead by <a href="https://twitter.com/linsalrob" target="_blank">Rob Edwards</a> and <a href="https://twitter.com/BEDutilh" target="_blank">Bas Dutilh</a> to explore with the help of 114 scientists from around the world the global phylogeorgraphy and evolution of <a href="https://www.nature.com/articles/ncomms5498" target="_blank">crAssphage</a>, one of the most numerous viruses in the human gut that infect bacteria.</span><br><span style="display: inline-block; padding-bottom: 5px;">- A curated list of press coverage of this study is available <a href="https://edwards.sdsu.edu/research/press-about-global-phylogeography-of-crassphage/" target="_blank">on Rob Edwards' web site</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><i>Nature Microbiology</i>. <b>ahead of print</b></span>
 </div>
 
 <div class="pub">
@@ -199,22 +247,6 @@ comments: false
     <h3><a href=" https://doi.org/10.1038/s41467-017-01228-6" target="_new">Genomic variation in microbial populations inhabiting the marine subseafloor at deep-sea hydrothermal vents.</a></h3>
     <span class="pub-authors">Anderson, R. E., Reveillaud, J., Reddington, E., <span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Eren, A. M</span>., McDermott, J. M., Seewald, J. S., and Huber, J. A.</span>
     <span class="pub-journal"><i>Nature Communications</i>. <b>8:1114</b></span>
-</div>
-
-<div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/170639"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.1101/170639" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <h3><a href=" https://doi.org/10.1101/170639" target="_new">The global biogeography of amino acid variants within a single SAR11 population is governed by natural selection.</a></h3>
-    <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Kiefl, E.</span>, Kilinc, O., <span class="pub-member-author">Esen, Ö. C.</span>, Uysal, I., Rappé, M. S., Giovannoni, S., and <span class="pub-member-author">Eren, A. M</span>.</span>
-    <div class="pub-info">
-    <div class="pub-featured-image">
-    <a href="http://i.imgur.com/HrlXPOF.jpg"><img src="http://i.imgur.com/HrlXPOF.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
-    </div>
-    <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- Using single-amino acid variants to investigate genome variation within a single SAR11 population across large geographies.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Application of a novel Deep Learning algorithm to resolve relationships between metagenomes through complex SAAV data.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Partitioning of SAAVs suggests natural selection, rather than neutral evolution, is the main driver of the evolution of SAR11.</span>
-    </div>
-    </div>
-    <span class="pub-journal"><i>BioRxiv</i>. <b>pre-print</b></span>
 </div>
 
 <div class="pub">

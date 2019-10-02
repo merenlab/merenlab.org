@@ -17,35 +17,24 @@ redirect_from:
 This document describes the reproducible bioinformatics workflow for our study titled "*The large scale biogeography of amino acid variants within a single SAR11 population is governed by natural selection*". Here you will find program names and exact parameters we used throughout every step of the analysis of SAR11 genomes and metagenomes from the TARA Oceans and Ocean Sampling Day projects, which relied predominantly on the open-source analysis platform [anvi’o](http://merenlab.org/software/anvio) (Eren et al., 2015).
 
 <div class="pub_float">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/170639"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.1101/170639" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <h3><a href=" https://doi.org/10.1101/170639" target="_new">The global biogeography of amino acid variants within a single SAR11 population is governed by natural selection.</a></h3>
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.7554/eLife.46497"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.7554/eLife.46497" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.7554/eLife.46497" target="_new">Single-amino acid variants reveal evolutionary processes that shape the biogeography of a global SAR11 subclade.</a></h3>
     <span class="pub-authors"><span class="pub-member-author">Delmont, T. O.</span>, <span class="pub-member-author">Kiefl, E.</span>, Kilinc, O., <span class="pub-member-author">Esen, Ö. C.</span>, Uysal, I., Rappé, M. S., Giovannoni, S., and <span class="pub-member-author">Eren, A. M</span>.</span>
     <div class="pub-info">
     <div class="pub-featured-image">
-    <a href="http://i.imgur.com/HrlXPOF.jpg"><img src="http://i.imgur.com/HrlXPOF.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    <a href="http://i.imgur.com/HrlXPOF.jpg"><img src="http://i.imgur.com/HrlXPOF.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);" /></a>
     </div>
     <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- Using single-amino acid variants to investigate genome variation within a single SAR11 population across large geographies.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Application of a novel Deep Learning algorithm to resolve relationships between metagenomes through complex SAAV data.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Partitioning of SAAVs suggests natural selection, rather than neutral evolution, is the main driver of the evolution of SAR11.</span>
+    <span style="display: inline-block; padding-bottom: 5px;">- A study that introduces <a href="http://merenlab.org/2015/07/20/analyzing-variability/#an-intro-to-single-nucleotidecodonamino-acid-variation" target="_blank">'single-amino acid variants'</a> (SAAVs) and demonstrates <b>the use of SAAVs to tease apart evolutionary processes that shape the biogeography and genomic heterogeneity within a SAR11 population</b> through metagenomics.</span><br /><span style="display: inline-block; padding-bottom: 5px;">-  A first attempt to link population genetics and the predicted protein structures to explore <i>in silico</i> <b>the intersection beetween protein biochemistry and evolutionary processes</b> acting on an environmental microbe.</span><br /><span style="display: inline-block; padding-bottom: 5px;">-  An application of <a href="https://peerj.com/articles/4320/" target="_blank">metapangenomics</a> to define <b>subclades of SAR11 based on gene content and ecology</b>.</span><br /><span style="display: inline-block; padding-bottom: 5px;">-  Reproducible bioinformatics workflow is <a href="http://merenlab.org/data/sar11-saavs/" target="_blank">here</a>. <a href="https://doi.org/10.7554/eLife.46497.040" target="_blank">Reviewer criticism</a> and <a href="https://doi.org/10.7554/eLife.46497.041" target="_blank">our responses</a> are also available.</span>
     </div>
     </div>
-    <span class="pub-journal"><i>BioRxiv</i>. <b>pre-print</b></span>
+    <span class="pub-journal"><i>eLife</i>. <b>8:e46497</b></span>
 </div>
 
 
-
 {:.notice}
-All anvi'o analyses in this document are performed using the anvi'o version `v2.4.0`. Please see [the installation notes]({% post_url anvio/2016-06-26-installation-v2 %}) to download the appropriate version through PyPI, Docker, or GitHub.
-
-{:.notice}
-The URL [http://www.biorxiv.org/content/early/2017/07/31/170639](http://www.biorxiv.org/content/early/2017/07/31/170639){:target="_blank"} serves the pre-print of the study described in this document.
-
-<!--
-
-{:.notice}
-The URL [http://merenlab.org/data/#XXX](http://merenlab.org/data/#XXX){:target="_blank"} serves all public data items used and produced by this study.
-
--->
+All anvi'o analyses in this document are performed using the anvi'o version `v5`. Please see [the installation notes]({% post_url anvio/2016-06-26-installation-v2 %}) to download the appropriate version through PyPI, Docker, or GitHub.
 
 {:.notice}
 The URL [http://merenlab.org/data/sar11-saavs/](sar11-saavs/){:target="_blank"} serves the most up-to-date version of this document.
@@ -281,6 +270,9 @@ anvi-compute-ani -e external-genomes.txt \
                  -o ani \
                  -T 6
 ```
+
+{:.notice}
+If you are using anvio v6 or later, `anvi-compute-ani` has been replaced by `anvi-compute-genome-similarity`. The above command remains the same otherwise.
 
 We reported the resulting distance matrix `ani/ANIb_percentage_identity.txt` reported as a supplementary table (a TAB-delimited copy of which is [here](files/16S-distance-matrix.txt)).
 

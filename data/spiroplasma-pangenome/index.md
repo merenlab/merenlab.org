@@ -33,14 +33,14 @@ If you have any questions, please feel free to leave a comment down below, send 
 
 This is a part of the collaboration we had with [Carl Yeoman](https://yeomanlab.com/) and his colleagues.
 
-Our team here at the [Meren Lab](http://merenlab.org/) processed the raw metagenomic sequences Yeoman et al generated from [Wheat Stem Sawfly](https://en.wikipedia.org/wiki/Wheat_fly), reconsutrcuted and manually curating a novel population genome that resolved to the genus *Spiroplasma* genus, and put this genome into the context of other *Spiroplasma* genomes that are available in public databases.
-12
-The *Spiroplasma* genome had a GC% content of 24.56%, 754 open reading frames, components of a single ribosomal RNA operon, and 23 tRNA encoding genes. Full annotation and the genome is available through [PATRIC](https://www.patricbrc.org/view/Genome/2132.146) and the NCBI Bioproject [PRJNA540284](https://www.ncbi.nlm.nih.gov/assembly/GCA_005795965.1/).
+Our team here at the [Meren Lab](http://merenlab.org/) processed the raw metagenomic sequences Yeoman et al generated from [Wheat Stem Sawfly](https://en.wikipedia.org/wiki/Wheat_fly), reconstructed and manually curated a novel population genome that resolved to the *Spiroplasma* genus, and put this genome into the context of other *Spiroplasma* genomes that are available in public databases.
+
+The *Spiroplasma* genome had a GC% content of 24.56%, 754 open reading frames, components of a single ribosomal RNA operon, and 23 tRNA encoding genes. Full annotation and the genome are available through [PATRIC](https://www.patricbrc.org/view/Genome/2132.146) and the NCBI Bioproject [PRJNA540284](https://www.ncbi.nlm.nih.gov/assembly/GCA_005795965.1/).
 
 To put this genome into the context of other *Spiroplasma* genomes we used genomes available through the NCBI and included recently published genomes from the Ixodetes clade of mollicutes by [Sapountzis et al](https://elifesciences.org/articles/39209) (named *EntAcro1* and *EntAcro10*).
 
 {:.notice}
-We tested this workflow on [anvi'o](http://merenlab.org/software/anvio/) `v5.5` and should work with anvi'o releases `v5` or later. To see the installation instructions of anvi'o please visit [here](http://merenlab.org/2016/06/26/installation-v2/).
+We tested this workflow on [anvi'o](http://merenlab.org/software/anvio/) `v5.5` and it should work with anvi'o releases `v5` or later. To see the installation instructions of anvi'o please visit [here](http://merenlab.org/2016/06/26/installation-v2/).
 
 ## Metagenome assembled genomes
 
@@ -121,7 +121,7 @@ After editing this file to make sure names look human-readable (a copy of the fi
 {:.notice}
 Note that the external-genomes.txt file will be generated automatically by the pangenomic workflow.
 
-Adn finally run the [anvi'o pangenomic workflow](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#pangenomics-workflow) (with 6 cores) to get the pangenome computed:
+And finally ran the [anvi'o pangenomic workflow](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#pangenomics-workflow) (with 6 cores) to get the pangenome computed:
 
 ``` bash
 anvi-run-workflow -w pangenomics \
@@ -142,7 +142,10 @@ anvi-compute-ani -e external-genomes.txt \
                  -T 6
 ```
 
-To infer evolutionary associations between 31 geomes in our pangenome, we used single-copy core genes (SCGs) across all genomoes for a phylogenomic analysis. To recover a FASTA file for individually aligned and concatenated SCGs specific to the pangenome, we run the following command:
+{:.notice}
+If you are using anvio v6 or later, `anvi-compute-ani` has been replaced by `anvi-compute-genome-similarity`. The above command remains the same otherwise.
+
+To infer evolutionary associations between 31 genomes in our pangenome, we used single-copy core genes (SCGs) across all genomes for a phylogenomic analysis. To recover a FASTA file for individually aligned and concatenated SCGs specific to the pangenome, we ran the following command:
 
 ```
 anvi-get-sequences-for-gene-clusters -p 03_PAN/Spiroplasma-PAN.db \
@@ -153,7 +156,7 @@ anvi-get-sequences-for-gene-clusters -p 03_PAN/Spiroplasma-PAN.db \
                                      --output-file 03_PAN/Spiroplasma-SCGs.fa
 ```
 
-This resulted in a FASTA file, which we first cleaned up by removing nucleotdie positions that were gap characters in more than 50% of the seqeunces using [trimAl](https://github.com/scapella/trimal),
+This resulted in a FASTA file, which we first cleaned up by removing nucleotide positions that were gap characters in more than 50% of the seqeunces using [trimAl](https://github.com/scapella/trimal),
 
 ```
 trimal -in 03_PAN/Spiroplasma-SCGs.fa \
@@ -161,7 +164,7 @@ trimal -in 03_PAN/Spiroplasma-SCGs.fa \
        -gt 0.50
 ```
 
-And run the phylogenomic analysis using [IQ-TREE](http://www.iqtree.org/) with the 'WAG' general matrix model to infer a maximum likelihood tree:
+And ran the phylogenomic analysis using [IQ-TREE](http://www.iqtree.org/) with the 'WAG' general matrix model to infer a maximum likelihood tree:
 
 ```
 iqtree -s 03_PAN/Spiroplasma-SCGs-clean.fa \
@@ -170,7 +173,7 @@ iqtree -s 03_PAN/Spiroplasma-SCGs-clean.fa \
        -bb 1000
 ```
 
-In order to organize genomes in the pangenome during the visualization step, we generated a 'layers order' file (the format of which is explained here), and imported it into the pan database:
+In order to organize genomes in the pangenome during the visualization step, we generated a 'layers order' file (the format of which is explained [here](http://merenlab.org/2017/12/11/additional-data-tables/)), and imported it into the pan database:
 
 ``` bash
 # generate the file
@@ -198,36 +201,36 @@ Which opened an interactive interface with the pangenome.
 
 ## Polishing the pangenome
 
-We find it critical to properly visualize complex data, and often put the extra effor to prepare and polish our visualizations for publication. 
+We find it critical to properly visualize complex data, and often put the extra effort to prepare and polish our visualizations for publication. 
 
 This figure shows the initial/raw display of the pangenome:
 
 [![](images/spiroplasma-pangenome-raw.png)](images/spiroplasma-pangenome-raw.png){:.center-img .width-70}
 
-We polished this display by (1) displaying teh phylogenomic tree and (2) the ANI estimates we computed and stored in the pan database prevoiusly through the following steps:
+We polished this display by displaying (1) the phylogenomic tree and (2) the ANI estimates we computed and stored in the pan database prevoiusly through the following steps:
 
 - Click **Draw** after the interface first opens.
 - Click **Settings > Layers > Layer Groups > ANI_percentage_identity** to display the ANI heatmap.
 - Select all ANI layers by selecting ANI_percentage_identity from **Settings > Layers > Select all layers in a group**.
 - Increase the minimum values for each ANI layer all at once by entering 0.7 in **Settings > Layers > Edit attributes for multiple layers > Min**.
 - Click **Settings > Layers > Redraw layer data** to see changes.
-- Select 'SCG_Phylogeny from **Settings > Layers > Order** by combo box to order genomes by the phylogenomic tree
-- Incrase the radius of the dendrogram in the center by entering 6000 in **Settings > Main > Show Additional Settings > Dendrogram > Radius**
-- Incrase the height of the phylogenomic tree on the right-top by entering 2000 in **Settings > Layers > Tree/Dendrogram > Height**
-- Incrase the size and selections layer by entering 400 in **Settings > Main > Additional Settings > Selections > Height**
+- Select 'SCG_Phylogeny' from **Settings > Layers > Order** by combo box to order genomes by the phylogenomic tree
+- Increase the radius of the dendrogram in the center by entering 6000 in **Settings > Main > Show Additional Settings > Dendrogram > Radius**
+- Increase the height of the phylogenomic tree on the right-top by entering 2000 in **Settings > Layers > Tree/Dendrogram > Height**
+- Increase the size and selections layer by entering 400 in **Settings > Main > Additional Settings > Selections > Height**
 - Click **Settings > Main > Show Additional Settings > Custom margins** to enable custom margins
-- Use **Settings > Main > Layers** to incrase genome / group distances using the margin column
+- Use **Settings > Main > Layers** to increase genome / group distances using the margin column
 - Command-right-click to the branch of singletons and click Collapse from the menu
 - Reduce the opacity of layer bacgrounds by setting 0.15 to  **Settings > Main > Show Additional Settings > Layers > Background opacity**
 - Increase the maximum font size by entering 240 in  **Settings > Main > Show Additional Settings > Layer Labels > Max. Font Size**
 - Click **Draw** to see changes
 
-Which gave gave us this display:
+Which gave us this display:
 
 [![](images/spiroplasma-pangenome-polished.png)](images/spiroplasma-pangenome-polished.png){:.center-img .width-70}
 
 
-We then used the Save SVG button that is located in Settings panel bottom-right to download the SVG file, and urther polished labels in Inkscape to acquire this final figure:
+We then used the **Save SVG** button that is located in the Settings panel (bottom-right) to download the SVG file, and further polished labels in [Inkscape](https://inkscape.org/) to acquire this final figure:
 
 [![](images/spiroplasma-pangenome.png)](images/spiroplasma-pangenome.png){:.center-img .width-70}
 
