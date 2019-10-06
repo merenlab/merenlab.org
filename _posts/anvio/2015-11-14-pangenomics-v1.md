@@ -372,6 +372,3 @@ For instance, here is a slightly richer analysis of 30 genomes:
 The rest is up to your inner artist.
 
 
-## Final words
-
-We are realizing that there is a lot to explore in this front, and excited to work with the community. Please let us know if you have any suggestions using our [discussion group]({% post_url anvio/2015-10-14-anvio-discussion-group %}), the comments section below. You can also keep an eye on our [public code repository](http://github.com/meren/anvio) for new releases.
