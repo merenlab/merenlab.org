@@ -87,7 +87,7 @@ At first glance, the network looks complicated:
 
 But you can click on any one icon to learn more about how it fits into the rest of the anvi'o universe. For example, let's say you wanted to learn more about what you can do with contigs databases. You'd click on the `contigs-db` icon, and peruse the vast web of anvi'o programs that use or generate these databases:
 
-<img src="/images/anvio-network-contigs-db.png" width="100%" />
+<img src="/images/contigs-db-in-network.png" width="100%" />
 
 ## Learning resources
 We try our best to keep our online documentation up-to-date. Sometimes, our best is not very good (we're sorry! we have lots of things to do 😞), but most of the time, you should be able to find plenty of information right here on our website. This section gives a brief overview of different kinds of learning resources we provide.
