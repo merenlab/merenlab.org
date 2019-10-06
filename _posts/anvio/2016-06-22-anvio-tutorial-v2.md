@@ -34,7 +34,7 @@ If you are here, you must have already [installed]({% post_url anvio/2016-06-26-
 
 It is always a good idea to stick with stable versions of the platform, as the snapshots from [the codebase](http://github.com/meren/anvio) can be very unstable and/or broken. However we also need people who like to live at the edge, and who would follow the development, test new features, join discussions, and push us to do better.
 
-You probably will run into issues while using anvi'o. We apologize for that in advance. But when that happens, please consider contacting us to give us a chance to address the problem for you. You can post a comment down below, join [the anvi'o discussion group]({% post_url anvio/2015-10-14-anvio-discussion-group %}), or open an <a href="https://github.com/meren/anvio/issues">issue</a>. Regardless of the method to connect, please don't forget to copy-paste the `anvi-interactive -v` output, the operating system you are using, or any other details that may be relevant to the problem.
+You probably will run into issues while using anvi'o. We apologize for that in advance. But when that happens, please consider taking a look at this post on [how to get help]({% post_url anvio/2019-10-07-finding-your-way-anvio %}). Regardless of the method to connect, please don't forget to copy-paste the `anvi-interactive -v` output, the operating system you are using, or any other details that may be relevant to the problem.
 
 
 ## Preparation
@@ -454,7 +454,7 @@ Please read **[this article]({% post_url anvio/2015-05-11-anvi-refine %})** for 
 
 ### I ran into an issue, whose fault is it?
 
-It is Tom's. But you can always enter a [bug report](https://github.com/meren/anvio/issues) if you are certain that it needs to be fixed in the anvi'o code base. If you are not sure, please use the button above to join our Slack group, or come to [the anvi'o discussion group]({% post_url anvio/2015-10-14-anvio-discussion-group %}), and let's talk about it!
+It is Tom's. But you can always enter a [bug report](https://github.com/meren/anvio/issues) if you are certain that it needs to be fixed in the anvi'o code base. If you are not sure, please use the button above to [join our Slack group]({% post_url anvio/2019-10-07-finding-your-way-anvio %}/#non-technical-anvio-slack), or come to the [anvi'o discussion group]({% post_url anvio/2019-10-07-finding-your-way-anvio %}/#non-technical-google-groups), and let's talk about it!
 
 ### There is something in this tutorial I want to fix
 
