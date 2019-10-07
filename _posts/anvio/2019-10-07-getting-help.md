@@ -15,7 +15,7 @@ redirect_from: /2015/10/14/anvio-discussion-group/
 
 Anvi'o does a lot. And sometimes it can be a little overwhelming. We ourselves often feel overwhelmed by it. That's why we are writing this post, to remind everyone (including ourselves) how to find the best resources to learn anvi'o and how to find help when we have a problem.
 
-This post is for you if you would like to have a better idea bout how to,
+This post is for you if you would like to have a better idea about how to,
 
 * Find anvi'o programs and understand their utility through online and offline means,
 * Investigate how anvi'o programs, databases and concepts are connected to each other,
@@ -43,7 +43,7 @@ After thinking about itself for a bit, anvi'o will return to you a table that lo
 
 [![programs]({{images}}/anvi-help-functions.png)]( {{images}}/anvi-help-functions.png){:.center-img .width-70}
 
-As you can see, there are multiple anvi'o programs related to the keyword "functions". Let's assume you are interested using `anvi-run-ncbi-cogs` since it does *provide* functions and you like NCBI. From the output, you can see that `anvi-run-ncbi-cogs` *requires* `contigs-db` and `cogs-data`. Let's assume you are not familiar with neither. Lvuckily, you can ask `anvi-help` who provides any requiremement. Let's start with `cogs-data`:
+As you can see, there are multiple anvi'o programs related to the keyword "functions". Let's assume you are interested using `anvi-run-ncbi-cogs` since it does *provide* functions and you like NCBI. From the output, you can see that `anvi-run-ncbi-cogs` *requires* `contigs-db` and `cogs-data`. Let's assume you are not familiar with either. Luckily, you can ask `anvi-help` who provides these requiremements. Let's start with `cogs-data`:
 
 ```
 anvi-help --provides cogs-data
@@ -59,7 +59,7 @@ anvi-help --provides contigs-database
 
 [![programs]({{images}}/anvi-help-provides-contigs.png)]( {{images}}/anvi-help-provides-contigs.png){:.center-img .width-70}
 
-And there you have it! From two quick searches, you know how to go from the FASTA file of your contigs to a contigs database with COG functions using three anvi'o programs. If you were to ask for fun whether anyting in anvi'o *provides* FASTA files, you could search for that as well,
+And there you have it! From three quick searches, you know how to go from the FASTA file of your contigs to a contigs database with COG functions using three anvi'o programs. If you were to ask for fun whether anything in anvi'o *provides* FASTA files, you could search for that as well,
 
 ```
 anvi-help --provides fasta
@@ -75,13 +75,13 @@ The <a href="http://merenlab.org/software/anvio/vignette/">vignette</a> is the p
 
 ## Explore anvi'o concepts online
 
-Anvi'o is a web of interconnected concepts, data, and programs. The program `anvi-help` traverses what anvi'o programs know about themselves to help you find your way starting with a keyword. An alternative way to do it is to browse interactively how all everything in anvi'o is connected as a network. We have a nice <a href="http://merenlab.org/software/anvio/vignette/">visualization of this network</a> that is useful for exploring what anvi'o can do and what it needs from you to do it.
+Anvi'o is a web of interconnected concepts, data, and programs. The program `anvi-help` traverses what anvi'o programs know about themselves to help you find your way starting with a keyword. An alternative way to do it is to browse interactively how everything in anvi'o is connected as a network. We have a nice <a href="http://merenlab.org/software/anvio/vignette/">visualization of this network</a> that is useful for exploring what anvi'o can do and what it needs from you to do it.
 
-At first glance, the network looks may look complicated:
+At first glance, the network may look complicated:
 
 [![programs]({{images}}/anvio-network.png)](/software/anvio/network/){:.center-img .width-90}
 
-But you can click on any one icon to learn more about how it fits into the rest of the anvi'o universe. This helps you to quckly learn more about what you can do with a contigs database. For that, you would click on the contigs-db icon in the network above, and peruse the vast web of anvi'o programs that use or generate these databases.
+But you can click on any one icon to learn more about how it fits into the rest of the anvi'o universe. This helps you to quckly learn more about what you can do with a contigs database, for instance. For that, you would click on the contigs-db icon in the network above, and peruse the vast web of anvi'o programs that use or generate these databases.
 
 # Getting help from the community
 
@@ -97,7 +97,7 @@ You have a non-technical problem if you are,
 - **Having trouble running or installing anvi'o**.
 - **Not sure how to do a particular analysis in anvi'o**, and cannot find any hints or documentation about it in our online resources.
 - **Not sure how to set parameters of an anvi'o program to accomplish your particular goal**, or have any other such question about more nuanced usage of anvi'o.
-- **Need a new feature that is not in anvi'o**.
+- **In need of a new feature that is not in anvi'o**.
 - **Confused by any part of our online documentation**.
 
 In these cases you can use any of the non-technical communication channels below. But in all cases please makes sure you start your message with a short description of your system (i.e., the output of `anvi-self-test -v` would be a good information to provide).
@@ -110,11 +110,11 @@ You have a technical problem if you are,
 
 That's it. This is the only time you have a technical problem that requires you to contact the developers.
 
-Following resources are at your disposal to seek help:
+The following resources are at your disposal to seek help:
 
 ## Google groups [non-technical]
 
-We have a discussion group, served by Google Groups, wherein you can ask your anvi'o related questions and receive answers via email. The nice thing about this group is that all messages are archived, so everyone can benefit from past discussions. The answers you seek may already be out there :)
+We have a discussion group, served by Google Groups, wherein you can ask your anvi'o related questions and receive answers via e-mail. The nice thing about this group is that all messages are archived, so everyone can benefit from past discussions. The answers you seek may already be out there :)
 
 Use [this address](https://groups.google.com/forum/#!forum/anvio/join) to join the discussion group. You do not need to have a GMail account to subscribe. 
 
@@ -128,7 +128,7 @@ Every e-mail from the group will have enough information in its footer to help y
 
 ## Anvi'o Slack [non-technical]
 
-For those of us who are into IM-ing (that's instant messaging for those who are not up on their old school internet slang), join our Slack channel (you will need to install the program [Slack](https://slack.com) if you don't have it already). It is pretty effective for real-time conversations. Although Slack is not archived, and discussions in Slack will not be accessible to public. Click the button below to get your invitation:
+For those of us who are into IM-ing (that's instant messaging for those who are not up on their old school internet slang), join our Slack channel (you will need to install the program [Slack](https://slack.com) if you don't have it already). It is pretty effective for real-time conversations. However, Slack is not archived, and discussions in Slack will not be accessible to the public. Click the button below to get your invitation:
 
 {% include _join-anvio-slack.html %}
 
@@ -136,7 +136,7 @@ This is how Slack looks like in general:
 
 [![Slack]({{images}}/anvio-slack.png)]({{images}}/anvio-slack.png){:.center-img .width-90}
 
-We enjoy discussing concepts of microbial 'omics as scientific discussion beyond anvi'o are most welcome there.
+We enjoy discussing concepts of microbial 'omics, so scientific discussions beyond anvi'o are most welcome there.
 
 ## Comments on MerenLab.org [non-technical]
 
@@ -146,18 +146,18 @@ Most of our blog posts, tutorials, and other web pages have a comments section a
 
 If you are having a technical problem, please [submit an issue on GitHub](https://github.com/merenlab/anvio/issues) to contact developers.
 
-The only time it is appropriate to use GitHub is if you are have a technical issue, or a developer requested you to submit an issue for a non-technical concern. 
+The only time it is appropriate to use GitHub is if you are having a technical issue, or a developer requested you to submit an issue for a non-technical concern. 
 
 When you are submitting a GitHub issue, it is extremely critical for you to read the issue template that appears when you click "New Issue", and remove the instructions once you have read them all before submission.
 
 
 # Educational resources
 
-We try our best to keep our online documentation up-to-date. Our best is not always enough, but most of the time you should be able to find plenty of information right here on our website. This section gives a brief overview of different kinds of learning resources we provide for beginners.
+We try our best to keep our online documentation up-to-date. Our best is not always enough, but most of the time you should be able to find plenty of information right here on our website. This section gives a brief overview of the different kinds of learning resources we provide for beginners.
 
 ### The 'omics vocabulary
 
-In anvi'o programs and most of the documents referenced below, you will find a whole host of terms of microbial 'omics that are specific to our field (such as 'contig') or specific to anvi'o (such as 'contigs database'). While familiarity with the terms is essentail, they can be initially confusing and seemingly impenetrable. Which is why we have started developing a dedicated <a href="http://merenlab.org/vocabulary/">vocabulary page</a> to help you get started.
+In anvi'o programs and most of the documents referenced below, you will find a whole host of terms of microbial 'omics that are specific to our field (such as 'contig') or specific to anvi'o (such as 'contigs database'). While familiarity with the terms is essential, they can be initially confusing and seemingly impenetrable. Which is why we have started developing a dedicated <a href="http://merenlab.org/vocabulary/">vocabulary page</a> to help you get started.
 
 {:.notice}
 Our vocabulary page is in its infancy. If someting is missing, or if you do not agree with some of the definitions, we would be happy to hear from you.
