@@ -2,7 +2,7 @@
 layout: post
 title: "Getting help from the anvi'o community"
 excerpt: "A primer on how to find your way through the maze of microbial 'omics and anvi'o"
-modified: 2019-10-05
+modified: 2019-10-06
 authors: [iva]
 categories: [anvio]
 comments: true
