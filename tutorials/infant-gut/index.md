@@ -13,7 +13,7 @@ image:
 {% include _toc.html %}
 
 {:.warning}
-This tutorial is tailored for anvi'o `v5` or later. You can learn the version of your installation by typing `anvi-interactive -v`. If you have an older version, some things will not work the way they should.
+This tutorial is tailored for anvi'o `v6` or later. You can learn the version of your installation by typing `anvi-interactive -v`. If you have an older version, some things will not work the way they should.
 
 **The goal of this tutorial** is to explore some of the most fundamental aspects of anvi'o and its application to a real-world dataset. We organized it in multiple interconnected chapters, which all use the same dataset:
 
@@ -45,11 +45,11 @@ We hope you find the tutorial useful, and generously share your opinions or crit
 To download the infant gut datapack copy-paste the following commands into your terminal:
 
 ``` bash
- $ wget https://ndownloader.figshare.com/files/12898007 -O INFANT-GUT-TUTORIAL.tar.gz
+ $ wget https://ndownloader.figshare.com/files/17928131 -O INFANT-GUT-TUTORIAL.tar.gz
  $ tar -zxvf INFANT-GUT-TUTORIAL.tar.gz && cd INFANT-GUT-TUTORIAL
 ```
 
-Alternatively (i.e., if you don't have `wget` installed on your system), you can download the same file using this this link: [https://ndownloader.figshare.com/files/12898007](https://ndownloader.figshare.com/files/12898007).
+Alternatively (i.e., if you don't have `wget` installed on your system), you can download the same file using this this link: [https://ndownloader.figshare.com/files/17928131](https://ndownloader.figshare.com/files/17928131).
 
 When you click the link, it will start downloading a **210 Mb** compressed file automatically. Once it is done, go to the relevant directory that contains this file using your terminal, and unpack it the following way:
 
