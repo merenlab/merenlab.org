@@ -129,14 +129,14 @@ If you run the program with `--debug` flag you can see all the underlying taxono
 
 ## Estimating taxonomy in the terminal
 
-There are many ways to estimate taxonomy, but all of them are going to use the program `anvi-estimate-scg-taxonomy`. Following sections will demonstrate multiple uses of this tool.
+There are many ways to estimate taxonomy, but all of them are going to use the program `anvi-estimate-genome-taxonomy`. Following sections will demonstrate multiple uses of this tool.
 
 ### Contigs db of a single genome
 
 If you have an anvi'o contigs for a single genome, you can simply run this command:
 
 ```
-anvi-estimate-scg-taxonomy -c CONTIGS.db
+anvi-estimate-genome-taxonomy -c CONTIGS.db
 ```
 
 If your contigs database is a metagenome, rather than a single genome, this command line will yield an error that complains about the fact that the redundancy of the single-copy core genes is too much for this to be a single genome. In this case you can either force anvi'o to give you an answer ANYWAY by using the flag `--just-do-it` (which will definitely not going to be a useful answer) or tell anvi'o to treat this contigs database as a metagenome.
@@ -146,8 +146,8 @@ If your contigs database is a metagenome, rather than a single genome, this comm
 If you have generated your contigs database from a metagenomic assembly, then you should be running the same command in metageome mode:
 
 ```
-anvi-estimate-scg-taxonomy -c CONTIGS.db \
-                           --metagenome-mode
+anvi-estimate-genome-taxonomy -c CONTIGS.db \
+                              --metagenome-mode
 ```
 
 Here is a simplified list of what is going on behind the scenes when you run this command:
@@ -156,7 +156,7 @@ Here is a simplified list of what is going on behind the scenes when you run thi
 - Chooses one of them to use for taxonomy estimation, and,
 - Generates an output (which can also be stored into a tab delimited file with `--output` parameter).
 
-Since the contigs database of the infant gut dataset is generated from the assembly of all short reads, this is in fact quite an appropriate way to study it with `anvi-estimate-scg-taxonomy`. When you run the command, anvi'o will first tell you the frequencies of SCGs in your contigs database. Here is an example output from my run on the infant gut dataset:
+Since the contigs database of the infant gut dataset is generated from the assembly of all short reads, this is in fact quite an appropriate way to study it with `anvi-estimate-genome-taxonomy`. When you run the command, anvi'o will first tell you the frequencies of SCGs in your contigs database. Here is an example output from my run on the infant gut dataset:
 
 ```
 * A total of 171 single-copy core genes with taxonomic affiliations were
@@ -181,9 +181,9 @@ One of the most significant shortcomings of this workflow is that you will not f
 I could also set the SCG myself. For instance I can see in the output that the SCG `Ribosomal_S9` occurs 9 times instead of 10. If I try that SCG instad,
 
 ```
-anvi-estimate-scg-taxonomy -c CONTIGS.db \
-                           --metagenome-mode \
-                           --scg-name Ribosomal_S9
+anvi-estimate-genome-taxonomy -c CONTIGS.db \
+                              --metagenome-mode \
+                              --scg-name Ribosomal_S9
 ```
 
 I get a similar picture of the same data, but of course I am missing one of the entries:
@@ -197,11 +197,11 @@ These are not conclusive taxonomic insights, but still very useful to have a rap
 If you have a contigs database for your genomes or metagenomes AS WELL AS a single or merged profile database that you have generated from the read recruitment analyses of your metageomes given those contigs (i.e., the standard metagenomic workflow), in fact you can also estimate the coverages of those SCGs you are assigning taxonomy to. To do that, I can run the following command on the infant gut dataset:
 
 ```
-anvi-estimate-scg-taxonomy -c CONTIGS.db \
-                           -p PROFILE.db \
-                           --metagenome-mode \
-                           --compute-scg-coverages
-``` 
+anvi-estimate-genome-taxonomy -c CONTIGS.db \
+                              -p PROFILE.db \
+                              --metagenome-mode \
+                              --compute-scg-coverages
+```
 
 Tadaa:
 
@@ -246,9 +246,9 @@ Bin names ....................................: Aneorococcus_sp, C_albicans, E_f
 The bin names in the collection meren are taxonomic affiliations for these bins as they appeared in the original publicatoin of this dataset by [Sharon et al.](https://www.ncbi.nlm.nih.gov/pubmed/22936250), so they can serve as ground truths for this little experiment. Now we can run the scg-taxonomy estimation on this collection:
 
 ```
-anvi-estimate-scg-taxonomy -c CONTIGS.db \
-                           -p PROFILE.db \
-                           -C merens
+anvi-estimate-genome-taxonomy -c CONTIGS.db \
+                              -p PROFILE.db \
+                              -C merens
 ```
 
 which returns this:
@@ -258,7 +258,9 @@ which returns this:
 Everything seems to be working well. But it is important to remember two things. One, this is a simple human gut metagenome and for your environmental metageomes things will not be as smooth (but those of us who study environmental metagenomes are already aware of that). Two, please note the last two lines. Why are there blank? If you were to look at the completion estimates of the bins in this collection,
 
 ```
-anvi-estimate-genome-completeness -p PROFILE.db -c CONTIGS.db -C merens
+anvi-estimate-genome-completeness -p PROFILE.db \
+                                  -c CONTIGS.db \
+                                  -C merens
 ```
 
 You would see that `P_acnes` has no completion estimate:
@@ -307,7 +309,7 @@ Yes. You will not get perfect taxonomy, but the reality is nothing will give you
 
 I would also suggest you to take look at [GTDB-Tk](https://github.com/Ecogenomics/GTDBTk). It will almost certainly do a better job to estimate taxonomy (we are hoping to publish a small note with proper benchmarks on accuracy). The GitHub page of GTDB-Tk suggests that it requires ~100Gb of memory, ~27Gb of storage, and takes about ~1 hour per 1,000 genomes when using 64 CPUs. Anvi'o scg-taxonomy takes about 100Mb space on a laptop computer wiht 16Gb memory and 4 CPUs, and takes about 20 seconds to assign taxonomy to 1,000 genomes. Of course this time doesn't include standard items in anvi'o workflow that takes place before anvi'o scg-taxonomy but is required for it to run, such as the time it takes to create an anvi'o contigs database, running HMMs on it, etc. But regardless, you should always be extra careful with things that are fast.
 
-Both for `anvi-run-scg-taxonomy` and `anvi-estimate-scg-taxonomy` programs accept `--debug` flags. If things don't make sense, you should re-run these programs with the `--debug` flag to see additional information.
+Both for `anvi-run-scg-taxonomy` and `anvi-estimate-genome-taxonomy` programs accept `--debug` flags. If things don't make sense, you should re-run these programs with the `--debug` flag to see additional information.
 
 This is an extremely new feature and we hope it will contribute to your journey in microbial 'omics and your anvi'o experience. Please keep in mind just like everyting in anvi'o, the evolution of this feature will be heavily influenced by your feedback and suggestions. Please let us know if something doesn't work for you!
 
