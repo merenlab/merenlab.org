@@ -5,7 +5,9 @@ excerpt: "Instructions to install the v2 branch of the platform."
 modified: 2019-05-14
 tags: []
 categories: [anvio]
-redirect_from: /2015/05/01/installation/
+redirect_from:
+ - /2015/05/01/installation/
+ - /install-anvio
 comments: true
 image:
   feature: https://github.com/merenlab/anvio/raw/master/anvio/data/interactive/images/logo.png

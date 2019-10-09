@@ -13,7 +13,7 @@ image:
 {% include _toc.html %}
 
 {:.warning}
-This tutorial is tailored for anvi'o `v5` or later. You can learn the version of your installation by typing `anvi-interactive -v`. If you have an older version, some things will not work the way they should.
+This tutorial is tailored for anvi'o `v6` or later. You can learn the version of your installation by typing `anvi-interactive -v`. If you have an older version, some things will not work the way they should.
 
 **The goal of this tutorial** is to explore some of the most fundamental aspects of anvi'o and its application to a real-world dataset. We organized it in multiple interconnected chapters, which all use the same dataset:
 
@@ -45,11 +45,11 @@ We hope you find the tutorial useful, and generously share your opinions or crit
 To download the infant gut datapack copy-paste the following commands into your terminal:
 
 ``` bash
- $ wget https://ndownloader.figshare.com/files/12898007 -O INFANT-GUT-TUTORIAL.tar.gz
+ $ wget https://ndownloader.figshare.com/files/17928131 -O INFANT-GUT-TUTORIAL.tar.gz
  $ tar -zxvf INFANT-GUT-TUTORIAL.tar.gz && cd INFANT-GUT-TUTORIAL
 ```
 
-Alternatively (i.e., if you don't have `wget` installed on your system), you can download the same file using this this link: [https://ndownloader.figshare.com/files/12898007](https://ndownloader.figshare.com/files/12898007).
+Alternatively (i.e., if you don't have `wget` installed on your system), you can download the same file using this this link: [https://ndownloader.figshare.com/files/17928131](https://ndownloader.figshare.com/files/17928131).
 
 When you click the link, it will start downloading a **210 Mb** compressed file automatically. Once it is done, go to the relevant directory that contains this file using your terminal, and unpack it the following way:
 
@@ -105,7 +105,7 @@ Using the files in the datapack directory, let's take a first look at the merge 
 
 
 ``` bash
- $ anvi-interactive -p PROFILE.db -c CONTIGS.db 
+ $ anvi-interactive -p PROFILE.db -c CONTIGS.db
 ```
 
 The anvi'o interactive interface should welcome you with this display (after you click "draw"):
@@ -117,9 +117,7 @@ The anvi'o interactive interface should welcome you with this display (after you
 When it is time to type other commands, you can close the window, go back to the terminal and press `CTRL + C` to kill the server.
 
 
-<div class="extra-info" markdown="1">
-
-<span class="extra-info-header">Tom's description of the metagenomic binning-related features of the anvi'o interactive interface</span>
+<details markdown="1"><summary>Show/hide Tom's description of the metagenomic binning-related features of the anvi'o interactive interface</summary>
 
 The interactive interface of anvi'o can be quite overwhelming. This particular box, in addition to the [interactive interface tutorial](tutorials/interactive-interface/), attempts to give you insights into the features of the interactive interface relevant to metagenomic binning.
 
@@ -156,7 +154,7 @@ Your selections will not be lost when switching from one organization to another
 ![Inspection_Contig_Example.png](images/Inspection_Contig_Example.png){:.center-img .width-50}
 
 Note that gene coordinates are displayed at the bottom and their inferred function can be accessed in a simple click. When detected, single nucleotide variants are also described in this display (vertical bars). You can close the `inspection mode` window when your curiosity has been satisfied. 
-</div>
+</details>
 
 
 ### Importing taxonomy for genes
@@ -177,7 +175,7 @@ If you import these files into the contigs database the following way,
 And run the interactive interface again,
 
 ``` bash
- $ anvi-interactive -p PROFILE.db -c CONTIGS.db 
+ $ anvi-interactive -p PROFILE.db -c CONTIGS.db
 ```
 
 You will see an additional layer with taxonomy:
@@ -221,7 +219,7 @@ Here is an example of 16 bins we identified for comparison AFTER you performed y
 
 [![Manual_Binnin_Result_Example.png](images/Manual_Binnin_Result_Example.png)](images/Manual_Binnin_Result_Example.png){:.center-img .width-50}
 
-Please save your binning effort as `default` in the `Bins` tab (click on the `store bin collection` box). 
+Please save your binning effort as `default` in the `Bins` tab (click on the `store bin collection` box).
 
 {:.notice}
 In the anvi'o lingo, a 'collection' is something that describes one or more bins, each of which describe one or more contigs.
