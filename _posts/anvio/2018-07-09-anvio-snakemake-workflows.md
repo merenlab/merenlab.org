@@ -606,7 +606,7 @@ Where:
  - `collection_file`: a path to your collection file (i.e. the file that specifies the bin for each split/contig).
  - `bins_info`: (optional) a path to your bins-info txt file
  - `contigs_mode`: (optional) if your collection file include contigs names (instead of splits) set this column to `1`.
- - The last column (`default_collection`) is an optional column to specify if you want a default collection to be imported using `anvi-script-add-default-collection`. If you want the default collection, then set the value in this column to `1`.
+ - The last column (`default_collection`) is an optional column to specify if you want a default collection to be imported using `anvi-script-add-default-collection`. If you want the default collection, then set the value in this column to `1`. The default collection will be called `DEFAULT` and the bin name would be the name in the `name` column of the `collections.txt` file (i.e. the "group" name).
 
 {:.notice}
 If you specify you want a default_collection for a group then you can't specify a collection file for this group (these options are mutually exclusive). In addition, `anvi_split` will not run for a group with a default collection (a default collection includes a single bin with all the contigs, so there is nothing to split).
