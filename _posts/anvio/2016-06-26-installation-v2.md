@@ -107,7 +107,7 @@ conda install -y --name anvio-6 -c bioconda -c conda-forge anvio=6
 {:.warning}
 **IMPORTANT NOTE**: You may need to activate the anvi'o conda environment every time you open a new terminal window. Depending on your conda setup, you will either need to run `source activate anvio-6` or `conda activate anvio-6` (this assumes you named your conda environment for anvio `anvio-6` as per the commands above using the `--name` flag --if not, please replace `anvio-6` with whatever you have used to name your environment). You can always list your conda environments by typing `conda env list`.
 
-## Installation (with varying levels of pain)
+## Other installation (with varying levels of pain)
 
 First things first: nothing here is as scary as it looks, and you can do it.
 
