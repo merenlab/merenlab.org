@@ -37,45 +37,75 @@ python -c 'import webbrowser as w; w.open_new("http://")'
 
 ## Painless installation with Conda
 
-This is a very simple and effective way to install anvi'o on your system along with all of its dependencies (we thank [John Eppley](https://scholar.google.com/citations?user=4S2q_9cAAAAJ&hl=en) for pushing us towards this direction). For this to work, you need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be installed on your system. If you are not sure whether it is installed or not, open a terminal (hopefully an [iTerm](https://www.iterm2.com/) if you are using Mac) and type `conda`. You should see an output like this instead of a 'command not found' error (your version might be different):
+This is a very simple and effective way to install anvi'o on your system along with all of its dependencies (we thank [John Eppley](https://scholar.google.com/citations?user=4S2q_9cAAAAJ&hl=en) for pushing us towards this direction).
+
+For this to work, you need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be installed on your system. If you are not sure whether it is installed or not, open a terminal (hopefully an [iTerm](https://www.iterm2.com/), if you are using Mac) and type `conda`. You should see an output like this instead of a 'command not found' error (your version might be different):
 
 ```bash
 $ conda --version
-conda 4.6.2
+conda 4.7.12
 ```
 
 If you don't have conda installed, then you should first install it through their [installation page](https://docs.conda.io/en/latest/miniconda.html). Once you have confirmed you have conda installed, you are golden.
 
-Run this command to install the latest stable version of anvi'o:
+First run this command to make sure you are up-to-date:
 
 ```
-conda install -n anvio5 -c bioconda -c conda-forge anvio=5.5.0
+conda update conda
 ```
 
-{:.notice}
-Note that the most up-to-date conda-available anvi'o version, which is currently `v5.5`, may differ from the most up-to-date stable anvi'o version, which is `v{% include _project-anvio-version-number.html %}` according to our headquarters at Westeros.
-
-If you get an `EnvironmentLocationNotFound` error from the previous command, try what Bruno Gomez-Gil [suggested](http://merenlab.org/2016/06/26/installation-v2/#comment-4369825459) instead:
+Then, add the following channels that will be required for anvi'o installation:
 
 ```
-conda create -n anvio5 -c bioconda -c conda-forge anvio=5.5.0
+conda config --env --add channels conda-forge
+conda config --env --add channels bioconda
 ```
 
-***Note***: One of our users who has been trying conda installation on an HPC system [reported](https://github.com/merenlab/anvio/issues/895#issuecomment-403656800) the following steps working for them:
+Then, create an anvi'o environment for anvi'o v{% include _project-anvio-version-number.html %}:
 
 ```
-conda create -y --name anvio5 python=3.6
-conda install -y --name anvio5 -c bioconda -c conda-forge anvio=5.5.0
+conda create -n anvio-6 python=3.6
 ```
 
-Once the installation is complete, test anvi'o quickly to make sure everything is in order:
+It is critical to create it with Python 3.6.
+
+Activate your new environment first:
+
+```
+conda activate anvio-6
+```
+
+Finally, install anvi'o:
+
+```
+conda install anvio=6
+```
+
+{:.warning}
+If you are getting a `PackagesNotFoundError` error, it may mean that anvi'o v{% include _project-anvio-version-number.html %} is not yet synchronized to the conda repository. It usually takes a day or two to have new releases in conda. Please first check [the release logs for the latest version](https://github.com/merenlab/anvio/releases/tag/v{% include _project-anvio-version-number.html %}), and if it has been more than three days since the release, please let us know!
+
+
+If the installation is complete, test anvi'o quickly to make sure everything is in order:
 
 ``` bash
 anvi-self-test --suite mini
 ```
 
+If your browser popped up at the end of this, you are golden.
+
+{:.notice}
+**If all tests seemed to run perfectly but the browser didn't pop-up**, it may mean that Python on your system is unable to find your default browser. Not a biggie. Paste the address http://localhost:8080 to your browser to see the interactive display. It may also mean that you are on a server system where there is no graphical interface for the browser to show up. That is fine, too. Read this article to learn how you can forward displays from servers to your laptop: [working with remote displays]({% post_url anvio/2018-03-07-working-with-remote-interative }).
+
+***Note***: One of our users who has been trying conda installation on an HPC system [reported](https://github.com/merenlab/anvio/issues/895#issuecomment-403656800) the following steps working for them:
+
+```
+conda deactivate
+conda create -y --name anvio-6 python=3.6
+conda install -y --name anvio-6 -c bioconda -c conda-forge anvio=6
+```
+
 {:.warning}
-**IMPORTANT NOTE**: You may need to activate the anvi'o conda environment every time you open a new terminal window. Depending on your conda setup, you will either need to run `source activate anvio5` or `conda activate anvio5` (this assumes you named your conda environment for anvio `anvio5` as per the commands above using the `--name` flag --if not, please replace `anvio5` with whatever you have used to name your environment).
+**IMPORTANT NOTE**: You may need to activate the anvi'o conda environment every time you open a new terminal window. Depending on your conda setup, you will either need to run `source activate anvio-6` or `conda activate anvio-6` (this assumes you named your conda environment for anvio `anvio-6` as per the commands above using the `--name` flag --if not, please replace `anvio-6` with whatever you have used to name your environment). You can always list your conda environments by typing `conda env list`.
 
 ## Installation (with varying levels of pain)
 
@@ -139,8 +169,7 @@ If using venv, run `python3 -m venv ~/virtual-envs/anvio-{% include _project-anv
 If using conda, run `python3 -m virtualenv ~/virtual-envs/anvio-{% include _project-anvio-version-number.html %}`
 
 {:.notice}
-The output of the last command must start with `Python 3`. If not, remove the virtual environment with `rm -rf ~/virtual-envs/anvio`, and find out how can you create a virtual environment for Python 3 on your system. You can try `-p python3` as a parameter to your `virtualenv` command. Or you can type `virtualenv` and _without pressing the space character_ press `TAB` key twice quickly to see if there is an alternative binary such as `virtualenv-3.5` or `virtualenv-3.5`. If not, it means Python 3 is not installed on your system.
-
+The output of the last command must start with `Python 3`. If not, remove the virtual environment with `rm -rf ~/virtual-envs/anvio`, and find out how can you create a virtual environment for Python 3 on your system. You can try `-p python3` as a parameter to your `virtualenv` command. Or you can type `virtualenv` and _without pressing the space character_ press `TAB` key twice quickly to see if there is an alternative binary such as `virtualenv-3.6`. If not, it means Python 3 is not installed on your system.
 
 Make sure your paths look alright. Yours should look similar to this:
 
@@ -148,7 +177,6 @@ Make sure your paths look alright. Yours should look similar to this:
 (anvio-{% include _project-anvio-version-number.html %}) meren ~ $ which pip
 /Users/meren/virtual-envs/anvio-{% include _project-anvio-version-number.html %}/bin/pip
 ```
-
 
 <div class="extra-info" markdown="1">
 
