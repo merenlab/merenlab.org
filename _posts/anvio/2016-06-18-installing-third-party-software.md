@@ -100,38 +100,6 @@ Go to your terminal, type `sqlite3 --version`, if you get an error, you need to 
 {:.notice}
 Note: Although this is completely optional, you may also want to consider installing [DB Browser for SQLite](http://sqlitebrowser.org/). It is a lightweight, open-source database browser a nice graphical interface that is very easy-to-install. You probably will never need it or use it, but it may be handy at some point.
 
-
-## GNU Scientific Library
-
-[GSL](http://www.gnu.org/software/gsl/) is a widely used C library for scientific computation. The only thing depends on GSL is the CONCOCT extension in the codebase. The installation is quite straightforward on most systems. If you are using MacPorts, you can type this on your terminal: `port install gsl gsl-devel py27-gsl` (Rika tells me homebrew on Mac works, too). Otherwise, try these commands and you should be OK:
-
-``` bash
-wget ftp://ftp.gnu.org/gnu/gsl/gsl-latest.tar.gz
-tar -zxvf gsl-latest.tar.gz
-cd gsl-*
-./configure && make && sudo make install
-```
-
-## NumPY
-
-[NumPY](http://www.numpy.org/) is the fundamental package for scientific computing with Python. Anvi'o uses numpy quite often, and probably not in the best way possible.
-
-**Citation**: [https://arxiv.org/abs/1102.1523](https://arxiv.org/abs/1102.1523)
-
-You don't need to install numpy if you get no complaints back when you type `python -c "import numpy"` in your terminal. If you do get an import error, then you need to install numpy. You can try this:
-
-``` bash
-sudo pip install numpy
-```
-
-## Cython
-
-[Cython](http://cython.org/) is "*an optimising static compiler for both the Python programming language and the extended Cython programming language*". If `python -c "import Cython"` in your terminal does not complain, you are golden. Otherwise, install it by running this:
-
-``` bash
-sudo pip install Cython
-```
-
 ## FastTree
 
 [FastTree](http://www.microbesonline.org/fasttree/) *infers approximately-maximum-likelihood phylogenetic trees from alignments of nucleotide or protein sequences*. To install FastTree, first visit this page and follow the instructions to compile it:
@@ -166,21 +134,6 @@ FastTree accepts alignments in fasta or phylip interleaved formats
 
 (...)
 ```
-
-
-## HDF5
-
-[HDF5](https://www.hdfgroup.org/HDF5/) is "*a data model, library, and file format for storing and managing data*". If you are not sure what it is, you probably don't have it, but we are a big fan of HD5 here in anvi'o development side. If you are using macports on your Mac, you can get away with `sudo port install hdf5`, otherwise you can run these commands on your terminal (these are for version 1.8.16, feel free to check whether there is a newer release of HDF5 from [here](https://www.hdfgroup.org/ftp/HDF5/current/src/), and install the most curent tar.bz2 file in that directory instead):
-
-``` bash
-wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.17/src/hdf5-1.8.17.tar.bz2
-tar -jxvf hdf5-1.8.17.tar.bz2
-cd hdf5-1.8.17
-./configure && make && sudo make install
-```
-
-{:.notice}
-Depending on your operating system and version, you may need to install `libhdf5-dev` package separately to avoid fatal `No such file or directory` errors for various header files (we heard complaints from Debian and Ubuntu users).
  
 ## Centrifuge
 
