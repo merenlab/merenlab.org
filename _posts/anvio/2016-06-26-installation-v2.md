@@ -61,21 +61,19 @@ conda config --env --add channels conda-forge
 conda config --env --add channels bioconda
 ```
 
-Then, create an anvi'o environment for anvi'o v{% include _project-anvio-version-number.html %}:
+Then, create an anvi'o environment for anvi'o v{% include _project-anvio-version-number.html %} (it is essential to create it with Python 3.6 as shown below):
 
 ```
 conda create -n anvio-6 python=3.6
 ```
 
-It is critical to create it with Python 3.6.
-
-Activate your new environment first:
+Once it is ready, first activate your new environment:
 
 ```
 conda activate anvio-6
 ```
 
-Finally, install anvi'o:
+And finally install anvi'o in it:
 
 ```
 conda install anvio=6
@@ -83,7 +81,6 @@ conda install anvio=6
 
 {:.warning}
 If you are getting a `PackagesNotFoundError` error, it may mean that anvi'o v{% include _project-anvio-version-number.html %} is not yet synchronized to the conda repository. It usually takes a day or two to have new releases in conda. Please first check [the release logs for the latest version](https://github.com/merenlab/anvio/releases/tag/v{% include _project-anvio-version-number.html %}), and if it has been more than three days since the release, please let us know!
-
 
 If the installation is complete, test anvi'o quickly to make sure everything is in order:
 
@@ -111,7 +108,7 @@ conda install -y --name anvio-6 -c bioconda -c conda-forge anvio=6
 
 First things first: nothing here is as scary as it looks, and you can do it.
 
-Firs, you will need to make sure your system does have all the following software if you are going to follow any of the following installation instructions. If you just follow these links, you will most probably be golden:
+You will need to make sure your system does have all the following software if you are going to follow any of the following installation instructions. If you just follow these links, you will most probably be golden:
 
 * [samtools]({% post_url anvio/2016-06-18-installing-third-party-software %}#samtools){:target="_blank"}
 * [Prodigal]({% post_url anvio/2016-06-18-installing-third-party-software %}#prodigal){:target="_blank"}
@@ -127,24 +124,19 @@ pip install virtualenv
 If you don't have `pip`, you will need to visit [this web page](https://pip.pypa.io/en/stable/installing/) to have it installed.
 
 {:.notice}
-**Please note**, anvi'o uses Python 3 exclusively.
+**Please note**, anvi'o exclusively uses Python 3.
 
 {:.notice}
-You may [run into some issues](https://matplotlib.org/faq/virtualenv_faq.html) **eith `matplotlib` in the virtual environment**. A simple [solution](https://matplotlib.org/faq/osx_framework.html#short-version) is to use [venv](https://docs.python.org/3/library/venv.html) (which comes built-in in python 3) instead of `virtualenv`. 
+You may [run into some issues](https://matplotlib.org/faq/virtualenv_faq.html) **with `matplotlib` in the virtual environment**. A simple [solution](https://matplotlib.org/faq/osx_framework.html#short-version) is to use [venv](https://docs.python.org/3/library/venv.html) (which comes built-in in python 3) instead of `virtualenv`. 
 
-If you run into any trouble, send an e-mail to [Google Groups for anvi'o](https://groups.google.com/forum/#!forum/anvio).
-
-OK. If made through the section above, you may have gone through the most painful part already, and anvi'o developers are very proud of you.
+OK. If you are still here, you may have gone through the most painful part already and anvi'o developers are very proud of you.
 
 
 ### Installing the latest stable release (safe mode)
 
-
 {% include _join-anvio-slack.html %}
 
-This is the best way to install the stable release (but not the best way if you would like to synchronize your anvi'o to the development version, for which you should jump to the 'active codebase' section).
-
-You will do everything in a Python virtual environment. If you are not experienced with computer thingies, do not worry. If you have taken care of your dependencies mentioned above, the rest should be very simple.
+The safest way to install anvi'o is to do everything in a Python virtual environment. If you are not experienced with computer thingies, do not worry. If you have taken care of your dependencies mentioned above, the rest should be very simple.
 
 We first need to create a new virtual environment for anvi'o. Since it is easier to keep all virtual environments in one place, I will first create a directory in my home:
 
@@ -243,13 +235,12 @@ meren ~ $ anvi-interactive -v
 meren ~ $ anvi-activate-v{% include _project-anvio-version-number.html %}
 (anvio) meren ~ $ anvi-interactive -v
 Anvi'o version ...............................: {% include _project-anvio-version-number.html %}
-Profile DB version ...........................: 20
-Contigs DB version ...........................: 8
-Pan DB version ...............................: 5
-Samples information DB version ...............: 2
-Genome data storage version ..................: 1
-Auxiliary data storage version ...............: 3
-Anvi'server users data storage version .......: 1
+Profile DB version ...........................: 31
+Contigs DB version ...........................: 14
+Pan DB version ...............................: 13
+Genome data storage version ..................: 6
+Auxiliary data storage version ...............: 2
+Structure DB version .........................: 1
 (anvio) meren ~ $ 
 ```
 
@@ -335,9 +326,6 @@ source ~/virtual-envs/anvio-master/bin/activate
 python --version # make sure the output starts with `Python 3`.
 cd $DIR/anvio # don't forget to update the $DIR with the real path
 pip install -r requirements.txt
-python setup.py build
-cp build/lib.*/anvio/*so anvio/
-rm -rf anvio.egg-info build dist
 deactivate
 ```
 
@@ -378,6 +366,6 @@ Upon the successful completion of all the tests, your browser should popup and t
 <a href="{{ site.url }}/images/anvio/misc/mini-test-screenshot.png"><img src="{{ site.url }}/images/anvio/misc/mini-test-screenshot.png" width="50%" /></a>
 </div>
 
-All fine? Perfect! Now you have a running installation of anvi'o!
+All fine? Perfect! Now you have a running anvi'o!
 
 It is time to go through some anvi'o tutorials (see the pull-down menu at the top of this page), or take a look at [all the other posts on the platform]({{ site.url }}/software/anvio).
