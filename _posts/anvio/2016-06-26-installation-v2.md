@@ -94,7 +94,7 @@ anvi-self-test --suite mini
 If your browser popped up at the end of this, you are golden.
 
 {:.notice}
-**If all tests seemed to run perfectly but the browser didn't pop-up**, it may mean that Python on your system is unable to find your default browser. Not a biggie. Paste the address http://localhost:8080 to your browser to see the interactive display. It may also mean that you are on a server system where there is no graphical interface for the browser to show up. That is fine, too. Read this article to learn how you can forward displays from servers to your laptop: [working with remote displays]({% post_url anvio/2018-03-07-working-with-remote-interative }).
+**If all tests seemed to run perfectly but the browser didn't pop-up**, it may mean that Python on your system is unable to find your default browser. Not a biggie. Paste the address http://localhost:8080 to your browser to see the interactive display. It may also mean that you are on a server system where there is no graphical interface for the browser to show up. That is fine, too. Read this article to learn how you can forward displays from servers to your laptop: [working with remote displays]({% post_url anvio/2018-03-07-working-with-remote-interative %}).
 
 ***Note***: One of our users who has been trying conda installation on an HPC system [reported](https://github.com/merenlab/anvio/issues/895#issuecomment-403656800) the following steps working for them:
 
