@@ -2,7 +2,7 @@
 layout: post
 authors: [meren]
 title: "Real-time genome taxonomy estimation with anvi'o"
-excerpt: "An attempt in alchemy combining the magic of GTDB and SCGs in anvi'o."
+excerpt: "An attempt at alchemy combining the magic of GTDB and SCGs in anvi'o."
 modified: 2019-10-08
 tags: []
 categories: [anvio]
@@ -40,16 +40,16 @@ The new anvi'o scg-taxonomy module described on this page stands on more than 1,
 
 ## Introduction
 
-Often when we deal with genomes we need some sort of insight into taxonomy. This becomes a critical need especially when you reconstruct genomes from metagenomes as you want to know where do these new genomes fit in the tree of life rapidly. So far anvi'o did not offer a rapid solution for that, but starting with the `v6` we have a solution for that. Everything is new, so probably there are going to be hickups before we manage to stabilize things.
+Often when we deal with genomes we need some sort of insight into taxonomy. This becomes an especially critical need when you reconstruct genomes from metagenomes, as you want to know where these new genomes fit in the tree of life rapidly. So far anvi'o did not offer a rapid solution for that, but starting with the `v6` we have a solution for that. Everything is new, so probably there are going to be hiccups before we manage to stabilize things.
 
 The new anvi'o scg-taxonomy worklow uses the taxonomy determined by the [The Genome Taxonomy Database](https://gtdb.ecogenomic.org/) (GTDB, [@ace_gtdb](https://twitter.com/ace_gtdb)), an effort led by scientists who are primarily affiliated with the [Australian Centre for Ecogenomics](https://ecogenomic.org/).
 
 {:.warning}
 If you use anvi'o scg-taxonomy module, please don't forget to cite the initial work that introduced this resource: [doi:10.1038/nbt.4229](http://doi.org/10.1038/nbt.4229). There is also a tool from the developers of the GTDB, [GTDB-Tk](https://github.com/Ecogenomics/GTDBTk), to assign taxonomy to genomes.
 
-In a nutshell, anvi'o (1) downloads both single-copy core genes (SCGs) and the taxonomy of the genomes -as defined by the GTDB- from which these genes are coming from, (2) bulids search databases for a subset of these SCGs (depending on whether they are in the Bacterial and Archaeal collection of SCGs anvi'o recognizes and based on other heuristics), (3) searches SCGs from every new genome in the anvi'o ecosystem in these databases and creates consensus taxonomy for each genome.
+In a nutshell, anvi'o (1) downloads both single-copy core genes (SCGs) and the taxonomy of the genomes - as defined by the GTDB - from which these genes are coming from, (2) bulids search databases for a subset of these SCGs (depending on whether they are in the Bacterial and Archaeal collection of SCGs anvi'o recognizes and based on other heuristics), (3) searches SCGs from every new genome in the anvi'o ecosystem in these databases and creates consensus taxonomy for each genome.
 
-There following sections will cover the three major steps for anvi'o scg-taxonomy: (1) setting things up, (2) population contigs database with taxonomy, and (3) running taxonomy estimations. The text will cover how to run anvi'o scg-taxonomy both from the terminal environment and through the graphical user interface.
+The following sections will cover the three major steps for anvi'o scg-taxonomy: (1) setting things up, (2) populating contigs database with taxonomy, and (3) running taxonomy estimations. The text will cover how to run anvi'o scg-taxonomy both from the terminal environment and through the graphical user interface.
 
 For the sake of reproducibility, here I will use the infant gut dataset that [we use to demonstrate many things anvi'o](/tutorials/infant-gut/). If you would like to follow this tutorial not with your own datasets but with the infant gut dataset, you can simply [click here first](/tutorials/infant-gut/#downloading-the-pre-packaged-infant-gut-dataset), follow the download instructions, and come back here once the text tells you to **go back**.
 
@@ -116,16 +116,16 @@ anvi-run-scg-taxonomy -c CONTIGS.db
 ```
 
 {:.warning}
-If you have multiple CPUs and memory you may want to use `--num-parallel-processes` and `--num-threads` parameters to speed things up. Please refer to the help menu to find out what they actually mean. Just ot give you an idea, runing this program on the infant gut dataset without any parallelization takes 50 seconds. When I run the same command with `--num-parallel-processes 3` and `--num-threads 3`, it takes 10 seconds. Just so you know.
+If you have multiple CPUs and memory you may want to use `--num-parallel-processes` and `--num-threads` parameters to speed things up. Please refer to the help menu to find out what they actually mean. Just to give you an idea, running this program on the infant gut dataset without any parallelization takes 50 seconds. When I run the same command with `--num-parallel-processes 3` and `--num-threads 3`, it takes 10 seconds. Just so you know.
 
 Here is a crude list of what is going on behind the scenes when you run this program:
 
 - Anvi'o finds all [the 22 single-copy core genes](https://github.com/merenlab/anvio/tree/master/anvio/data/misc/SCG_TAXONOMY/GTDB/SCG_SEARCH_DATABASES) it uses for scg-taxonomy in a given contigs database, 
 - Searches them against the corresponding databases from the GTDB, and,
-- Chooses the best hit among all the hits, and puts stores them in a table in the contigs database.
+- Chooses the best hit among all the hits, and stores them in a table in the contigs database.
 
 {:.notice}
-If you run the program with `--debug` flag you can see all the underlying taxonomy strings that lead to the consensus. Beware, though, your terminal will be overwhelmed by some text :)
+If you run the program with the `--debug` flag you can see all the underlying taxonomy strings that lead to the consensus. Beware, though, your terminal will be overwhelmed by some text :)
 
 ## Estimating taxonomy in the terminal
 
@@ -139,7 +139,7 @@ If you have an anvi'o contigs for a single genome, you can simply run this comma
 anvi-estimate-genome-taxonomy -c CONTIGS.db
 ```
 
-If your contigs database is a metagenome, rather than a single genome, this command line will yield an error that complains about the fact that the redundancy of the single-copy core genes is too much for this to be a single genome. In this case you can either force anvi'o to give you an answer ANYWAY by using the flag `--just-do-it` (which will definitely not going to be a useful answer) or tell anvi'o to treat this contigs database as a metagenome.
+If your contigs database is a metagenome, rather than a single genome, this command line will yield an error that complains about the fact that the redundancy of the single-copy core genes is too much for this to be a single genome. In this case you can either force anvi'o to give you an answer ANYWAY by using the flag `--just-do-it` (which is definitely not going to be a useful answer) or tell anvi'o to treat this contigs database as a metagenome.
 
 ### Contigs db of a metagenome
 
@@ -154,7 +154,7 @@ Here is a simplified list of what is going on behind the scenes when you run thi
 
 - Anvi'o counts the occurrence of each of the 22 single-copy core genes in this contigs database,
 - Chooses one of them to use for taxonomy estimation, and,
-- Generates an output (which can also be stored into a tab delimited file with `--output` parameter).
+- Generates an output (which can also be stored in a tab delimited file with `--output` parameter).
 
 Since the contigs database of the infant gut dataset is generated from the assembly of all short reads, this is in fact quite an appropriate way to study it with `anvi-estimate-genome-taxonomy`. When you run the command, anvi'o will first tell you the frequencies of SCGs in your contigs database. Here is an example output from my run on the infant gut dataset:
 
@@ -190,7 +190,7 @@ I get a similar picture of the same data, but of course I am missing one of the 
 
 [![scg-taxonomy]({{images}}/igd-metagenome-mode-S9.png)]({{images}}/igd-metagenome-mode-S9.png){:.center-img .width-90}
 
-These are not conclusive taxonomic insights, but still very useful to have a rapid idea about what you have.
+These are not conclusive taxonomic insights, but it's still very useful to have a rapid idea about what you have.
 
 ### Contigs db + profile db
 
@@ -243,7 +243,7 @@ Number of splits described ...................: 4,451
 Bin names ....................................: Aneorococcus_sp, C_albicans, E_facealis, F_magna, L_citreum, P_acnes, P_avidum, P_rhinitidis, S_aureus, S_epidermidis, S_hominis, S_lugdunensis, Streptococcus
 ```
 
-The bin names in the collection meren are taxonomic affiliations for these bins as they appeared in the original publicatoin of this dataset by [Sharon et al.](https://www.ncbi.nlm.nih.gov/pubmed/22936250), so they can serve as ground truths for this little experiment. Now we can run the scg-taxonomy estimation on this collection:
+The bin names in the collection meren are taxonomic affiliations for these bins as they appeared in the original publication of this dataset by [Sharon et al.](https://www.ncbi.nlm.nih.gov/pubmed/22936250), so they can serve as ground truths for this little experiment. Now we can run the scg-taxonomy estimation on this collection:
 
 ```
 anvi-estimate-genome-taxonomy -c CONTIGS.db \
@@ -255,7 +255,7 @@ which returns this:
 
 [![scg-taxonomy]({{images}}/igd-collection.png)]({{images}}/igd-collection.png){:.center-img .width-90}
 
-Everything seems to be working well. But it is important to remember two things. One, this is a simple human gut metagenome and for your environmental metageomes things will not be as smooth (but those of us who study environmental metagenomes are already aware of that). Two, please note the last two lines. Why are there blank? If you were to look at the completion estimates of the bins in this collection,
+Everything seems to be working well. But it is important to remember two things. One, this is a simple human gut metagenome and for your environmental metagenomes things will not be as smooth (but those of us who study environmental metagenomes are already aware of that). Two, please note the last two lines. Why are they blank? If you were to look at the completion estimates of the bins in this collection,
 
 ```
 anvi-estimate-genome-completeness -p PROFILE.db \
@@ -267,7 +267,7 @@ You would see that `P_acnes` has no completion estimate:
 
 [![scg-taxonomy]({{images}}/igd-collection-completion.png)]({{images}}/igd-collection-completion.png){:.center-img .width-90}
 
-It doesn't have a completion estimate, becasue it doesn't have enough number of SCGs according to anvi'o to even make a suggestion regarding how complete it is. In contrast, `C_albicans` has a fairly well completion. But even though BUSCO HMMs [Tom Delmont had curated]({% post_url anvio/2018-05-05-eukaryotic-single-copy-core-genes %}) for anvi'o predicts its completion well, this bin is a eukaryotic bin. Sadly scg-taxonomy will not work for eukaryotic genomes (until GTDB starts considering them).
+It doesn't have a completion estimate, because it doesn't have a high enough number of SCGs (according to anvi'o) to even make a suggestion regarding how complete it is. In contrast, `C_albicans` has a fairly good completion score. But even though the BUSCO HMMs [Tom Delmont had curated]({% post_url anvio/2018-05-05-eukaryotic-single-copy-core-genes %}) for anvi'o predict its completion well, this bin is a eukaryotic bin. Sadly, scg-taxonomy will not work for eukaryotic genomes (until GTDB starts considering them).
 
 
 ## Estimating taxonomy in the interface
@@ -281,7 +281,7 @@ anvi-interactive -p PROFILE.db \
                  -c CONTIGS.db
 ```
 
-and click the draw button, switch the Bin panel, I will see this display:
+click the draw button, and switch to the Bin panel, I will see this display:
 
 [![scg-taxonomy]({{images}}/igd-vanilla.png)]({{images}}/igd-vanilla.png){:.center-img .width-90}
 
@@ -295,9 +295,9 @@ Here is what happens when I load the colleciton `merens` to this interface:
 
 [![scg-taxonomy]({{images}}/igd-collection.gif)]({{images}}/igd-collection.gif){:.center-img .width-90}
 
-It is happening so rapidly, it looks as if anvi'o knew the taxonomy for these bins. But in reality the taxonomy shown underneath bin names are comoputed on the fly.
+It is happening so rapidly, it looks as if anvi'o knew the taxonomy for these bins. But in reality the taxonomy shown underneath bin names are computed on the fly.
 
-One thing to remember is that the taxonomy information shown on the bins menu is a consensus taxonomy calculated from the taxonomic affiliations of all relevant SCGs in a given bin. It is possible to see the underlying data for this through the taxonomy table interface you can open by clicking "Recalculate / Show Taxonomy for Bins" button in the Bins panel. When you click that, you see the following table that shows the consensus taxonomy, and the SCGs from which it was computed:
+One thing to remember is that the taxonomy information shown on the bins menu is a consensus taxonomy calculated from the taxonomic affiliations of all relevant SCGs in a given bin. It is possible to see the underlying data for this through the taxonomy table interface, which you can open by clicking on the "Recalculate / Show Taxonomy for Bins" button in the Bins panel. When you click that, you see the following table that shows the consensus taxonomy, and the SCGs from which it was computed:
 
 [![scg-taxonomy]({{images}}/igd-taxonomy-table.gif)]({{images}}/igd-taxonomy-table.gif){:.center-img .width-90}
 
@@ -305,13 +305,13 @@ One thing to remember is that the taxonomy information shown on the bins menu is
 
 You will not get perfect taxonomy with scg-taxonomy, but you will some taxonomy *very* rapidly. Anvi'o scg-taxonomy module will not estimate taxonomy for bins that are very low completion. It will not estimate taxonomy for eukaryotic bins. In `--metagenome-mode` you will not see any evidence of the populations from which the assembler did not recover any of the ribosomal proteins anvi'o uses for taxonomy estimation.
 
-Yes. You will not get perfect taxonomy, but the reality is nothing will give you perfect taxonomy. There is no such thing as perfect taxonomy. Taxonomy is a mess. Thanks to heroic efforts by those who try to find an order in this mess (such as those who gave us SILVA or GTDB), we, as a community, try to find the best place to attach our genomes in the tree of life. But from building trees to determine single-copy core genes to identify them in genomes to define and assign taxonomic names, everything slowly falls apart as we struggle between sensitivity, feasibility, and accuracy of our approaches. For those of us who need taxonomy, the struggle is real. Our best option is to make sure we confirm the taxonomic affiliations of our genomes and bins. Which, despite the popular belief, may require manual work in some occasions using pangenomics, phylogenomics, studing ANI, BLAST'ing things around, etc. But I still hope the anvi'o scg-taxonomy will help you to develop some initial insights into *your* taxonomic mess 😇
+Yes. You will not get perfect taxonomy, but the reality is nothing will give you perfect taxonomy. There is no such thing as perfect taxonomy. Taxonomy is a mess. Thanks to heroic efforts by those who try to find an order in this mess (such as those who gave us SILVA or GTDB), we, as a community, try to find the best place to attach our genomes in the tree of life. But from building trees to determining single-copy core genes, to identifying them in genomes, to defining and assigning taxonomic names, everything slowly falls apart as we struggle between sensitivity, feasibility, and accuracy of our approaches. For those of us who need taxonomy, the struggle is real. Our best option is to make sure we confirm the taxonomic affiliations of our genomes and bins. Which, despite the popular belief, may require manual work in some occasions using pangenomics, phylogenomics, studing ANI, BLAST'ing things around, etc. But I still hope the anvi'o scg-taxonomy will help you to develop some initial insights into *your* taxonomic mess 😇
 
-I would also suggest you to take look at [GTDB-Tk](https://github.com/Ecogenomics/GTDBTk). It will almost certainly do a better job to estimate taxonomy (we are hoping to publish a small note with proper benchmarks on accuracy). The GitHub page of GTDB-Tk suggests that it requires ~100Gb of memory, ~27Gb of storage, and takes about ~1 hour per 1,000 genomes when using 64 CPUs. Anvi'o scg-taxonomy takes about 100Mb space on a laptop computer wiht 16Gb memory and 4 CPUs, and takes about 20 seconds to assign taxonomy to 1,000 genomes. Of course this time doesn't include standard items in anvi'o workflow that takes place before anvi'o scg-taxonomy but is required for it to run, such as the time it takes to create an anvi'o contigs database, running HMMs on it, etc. But regardless, you should always be extra careful with things that are fast.
+I would also suggest you to take look at [GTDB-Tk](https://github.com/Ecogenomics/GTDBTk). It will almost certainly do a better job to estimate taxonomy (we are hoping to publish a small note with proper benchmarks on accuracy). The GitHub page of GTDB-Tk suggests that it requires ~100Gb of memory, ~27Gb of storage, and takes about ~1 hour per 1,000 genomes when using 64 CPUs. Anvi'o scg-taxonomy takes about 100Mb space on a laptop computer with 16Gb memory and 4 CPUs, and takes about 20 seconds to assign taxonomy to 1,000 genomes. Of course this time doesn't include standard items in anvi'o workflow that take place before anvi'o scg-taxonomy but are required for it to run, such as the time it takes to create an anvi'o contigs database, running HMMs on it, etc. But regardless, you should always be extra careful with things that are fast.
 
 Both for `anvi-run-scg-taxonomy` and `anvi-estimate-genome-taxonomy` programs accept `--debug` flags. If things don't make sense, you should re-run these programs with the `--debug` flag to see additional information.
 
-This is an extremely new feature and we hope it will contribute to your journey in microbial 'omics and your anvi'o experience. Please keep in mind just like everyting in anvi'o, the evolution of this feature will be heavily influenced by your feedback and suggestions. Please let us know if something doesn't work for you!
+This is an extremely new feature and we hope it will contribute to your journey in microbial 'omics and your anvi'o experience. Please keep in mind just like everything in anvi'o, the evolution of this feature will be heavily influenced by your feedback and suggestions. Please let us know if something doesn't work for you!
 
 {% include _join-anvio-slack.html %}
 
