@@ -17,11 +17,80 @@ image:
 
 {% include _project-anvio-version.html %}
 
-This article explains basic steps of installing anvi'o using rather conventional methods.
+This article explains basic steps of installing anvi'o using rather conventional methods. We recommend you to install it on your system, but if you just want to run it without installing, you can also [try anvi'o in docker]({% post_url anvio/2015-08-22-docker-image-for-anvio %}).
 
 Please consider opening an <a href="https://github.com/meren/anvio/issues">issue</a> for technical problems, or join us on Slack if you need help:
 
 {% include _join-anvio-slack.html %}
+
+## Painless installation with Conda
+
+This is a very simple and effective way to install anvi'o on your system along with most of its dependencies.
+
+For this to work, you need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be installed on your system. If you are not sure whether it is installed or not, open a terminal (hopefully an [iTerm](https://www.iterm2.com/), if you are using Mac) and type `conda`. You should see an output like this instead of a 'command not found' error (your version might be different):
+
+```bash
+$ conda --version
+conda 4.7.12
+```
+
+If you don't have conda installed, then you should first install it through their [installation page](https://docs.conda.io/en/latest/miniconda.html). Once you have confirmed you have conda installed, run this command to make sure you are up-to-date:
+
+```
+conda update conda
+```
+
+Then, add the following channels that will be required for the anvi'o installation:
+
+```
+conda config --env --add channels conda-forge
+conda config --env --add channels bioconda
+```
+
+Then, create an anvi'o environment for anvi'o v{% include _project-anvio-version-number.html %} (it is essential to create it with Python 3.6 as shown below):
+
+```
+conda create -n anvio-6 python=3.6
+```
+
+Once it is ready, activate your new environment:
+
+```
+conda activate anvio-6
+```
+
+And finally install anvi'o in it:
+
+```
+conda install anvio=6
+```
+
+This may take a while.
+
+{:.notice}
+**You are getting a `PackagesNotFoundError` error?**. It may mean that anvi'o v{% include _project-anvio-version-number.html %} is not yet synchronized to the conda repository. It usually takes a day or two to have new releases in conda. Please first check [the release logs for the latest version](https://github.com/merenlab/anvio/releases/tag/v{% include _project-anvio-version-number.html %}), and if it has been more than three days since the release, please let us know!
+
+If the installation seems to be complete, you should test anvi'o quickly to make sure everything is in order:
+
+``` bash
+anvi-self-test --suite mini
+```
+
+If at the end of this your browser automatically loaded the test run results, you are golden.
+
+{:.notice}
+**Your browser didn't pop-up?**. If all tests seemed to run perfectly but the browser didn't pop-up, it may mean that Python on your system is unable to find your default browser. Not a biggie (but see the note on Chrome down bellow and try the Python command shown there). Paste the address http://localhost:8080 to your browser to see the interactive display. It may also mean that you are on a server system where there is no graphical interface for the browser to show up. That is fine, too. Read this article to learn how you can forward displays from servers to your laptop: [working with remote displays]({% post_url anvio/2018-03-07-working-with-remote-interative %}).
+
+***Note***: One of our users who has been trying conda installation on an HPC system [reported](https://github.com/merenlab/anvio/issues/895#issuecomment-403656800) the following steps working for them:
+
+```
+conda deactivate
+conda create -y --name anvio-6 python=3.6
+conda install -y --name anvio-6 -c bioconda -c conda-forge anvio=6
+```
+
+{:.warning}
+**IMPORTANT NOTE**: You may need to activate the anvi'o conda environment every time you open a new terminal window. Depending on your conda setup, you will either need to run `source activate anvio-6` or `conda activate anvio-6` (this assumes you named your conda environment for anvio `anvio-6` as per the commands above using the `--name` flag --if not, please replace `anvio-6` with whatever you have used to name your environment). You can always list your conda environments by typing `conda env list`.
 
 <div class="extra-info" markdown="1">
 
@@ -35,78 +104,9 @@ python -c 'import webbrowser as w; w.open_new("http://")'
 
 </div>
 
-## Painless installation with Conda
-
-This is a very simple and effective way to install anvi'o on your system along with all of its dependencies (we thank [John Eppley](https://scholar.google.com/citations?user=4S2q_9cAAAAJ&hl=en) for pushing us towards this direction).
-
-For this to work, you need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be installed on your system. If you are not sure whether it is installed or not, open a terminal (hopefully an [iTerm](https://www.iterm2.com/), if you are using Mac) and type `conda`. You should see an output like this instead of a 'command not found' error (your version might be different):
-
-```bash
-$ conda --version
-conda 4.7.12
-```
-
-If you don't have conda installed, then you should first install it through their [installation page](https://docs.conda.io/en/latest/miniconda.html). Once you have confirmed you have conda installed, you are golden.
-
-First run this command to make sure you are up-to-date:
-
-```
-conda update conda
-```
-
-Then, add the following channels that will be required for anvi'o installation:
-
-```
-conda config --env --add channels conda-forge
-conda config --env --add channels bioconda
-```
-
-Then, create an anvi'o environment for anvi'o v{% include _project-anvio-version-number.html %} (it is essential to create it with Python 3.6 as shown below):
-
-```
-conda create -n anvio-6 python=3.6
-```
-
-Once it is ready, first activate your new environment:
-
-```
-conda activate anvio-6
-```
-
-And finally install anvi'o in it:
-
-```
-conda install anvio=6
-```
-
-{:.warning}
-If you are getting a `PackagesNotFoundError` error, it may mean that anvi'o v{% include _project-anvio-version-number.html %} is not yet synchronized to the conda repository. It usually takes a day or two to have new releases in conda. Please first check [the release logs for the latest version](https://github.com/merenlab/anvio/releases/tag/v{% include _project-anvio-version-number.html %}), and if it has been more than three days since the release, please let us know!
-
-If the installation is complete, test anvi'o quickly to make sure everything is in order:
-
-``` bash
-anvi-self-test --suite mini
-```
-
-If your browser popped up at the end of this, you are golden.
-
-{:.notice}
-**If all tests seemed to run perfectly but the browser didn't pop-up**, it may mean that Python on your system is unable to find your default browser. Not a biggie. Paste the address http://localhost:8080 to your browser to see the interactive display. It may also mean that you are on a server system where there is no graphical interface for the browser to show up. That is fine, too. Read this article to learn how you can forward displays from servers to your laptop: [working with remote displays]({% post_url anvio/2018-03-07-working-with-remote-interative %}).
-
-***Note***: One of our users who has been trying conda installation on an HPC system [reported](https://github.com/merenlab/anvio/issues/895#issuecomment-403656800) the following steps working for them:
-
-```
-conda deactivate
-conda create -y --name anvio-6 python=3.6
-conda install -y --name anvio-6 -c bioconda -c conda-forge anvio=6
-```
-
-{:.warning}
-**IMPORTANT NOTE**: You may need to activate the anvi'o conda environment every time you open a new terminal window. Depending on your conda setup, you will either need to run `source activate anvio-6` or `conda activate anvio-6` (this assumes you named your conda environment for anvio `anvio-6` as per the commands above using the `--name` flag --if not, please replace `anvio-6` with whatever you have used to name your environment). You can always list your conda environments by typing `conda env list`.
-
 ## Other installation (with varying levels of pain)
 
-First things first: nothing here is as scary as it looks, and you can do it.
+If you are an end user we really suggest you to follow the installation instructions for conda. But then it is your computer, nothing here is as scary as it looks, and you can do it.
 
 You will need to make sure your system does have all the following software if you are going to follow any of the following installation instructions. If you just follow these links, you will most probably be golden:
 

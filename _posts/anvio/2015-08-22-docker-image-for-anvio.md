@@ -15,10 +15,12 @@ authors: [meren]
 
 {% include _join-anvio-slack.html %}
 
-If you want to run anvi'o quickly on a server or a desktop system with zero pain and no installation, this could be a good solution for you (otherwise try the [standard way of installing anvi'o]({% post_url anvio/2016-06-26-installation-v2 %}). 
+Docker will help you run anvi'o quickly on a server or a desktop system with zero pain and no installation.
+
+This article explains how to start using anvi'o without installing it. For long-term use for research, we recommend you to [install anvi'o on your system through conda]({% post_url anvio/2016-06-26-installation-v2.md %}).
 
 {:.notice}
-Special thanks go to to my good friend [Çağlar Onur](https://twitter.com/caglar10ur) for forcing us to [have it](https://github.com/meren/anvio/pull/191).
+Special thanks go to [Çağlar Onur](https://twitter.com/caglar10ur) for forcing us to [have a docker solution](https://github.com/meren/anvio/pull/191).
 
 {:.warning}
 **Our latest docker images are quite big** (~8 Gb), because images after `v6` come with lots of bells and whistles such as assemblers, mapping software, binning tools (that seems to be quite hard to install in general), on other useful tools. Installing them is pain, so we go through it once to create you working recipes, and storage is cheap. But if you need a minimal anvi'o image for your specific needs, please let us know, and we can help you with that.
