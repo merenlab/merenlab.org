@@ -395,9 +395,20 @@ Then we suggest you to use `virtualenv` to start a Python 3.6 environment, and i
 
 ## Running the "Mini Test"
 
-You can make anvi'o test itself by running the program `anvi-self-test`. It is absolutely normal to see 'warning' messages. In most cases anvi'o is talkative, and would like to keep you informed. **You should read those warning messages carefully, but they often don't require any action.**
+You can make anvi'o test itself very quickly by running,
 
-Upon the successful completion of all the tests, your browser should popup and take you to the interactive interface. When you click that 'Draw' button whenever you see one. One of those interfaces should look something like this (this is one of the older version of [the anvi'o interactive interface]({% post_url anvio/2016-02-27-the-anvio-interactive-interface %}), and it shall stay here so we remember where we came from):
+```
+anvi-self-test --suite mini
+```
+
+It is absolutely normal to see 'warning' messages. In most cases anvi'o is talkative, and would like to keep you informed. **You should read those warning messages carefully, but in most cases they will not require action.**
+
+Upon the successful completion of all the tests, your browser should popup and take you to the interactive interface. When you click that 'Draw' button whenever you see one.
+
+When anvi'o is done drawing the test data, you should see something like this:
+
+{:.notice}
+This is one of the older version of [the anvi'o interactive interface]({% post_url anvio/2016-02-27-the-anvio-interactive-interface %}), and it shall stay here so we remember where we came from.
 
 <div class="centerimg">
 <a href="{{ site.url }}/images/anvio/misc/mini-test-screenshot.png"><img src="{{ site.url }}/images/anvio/misc/mini-test-screenshot.png" width="50%" /></a>
