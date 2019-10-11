@@ -165,6 +165,12 @@ Here we will setup a directory to keep the Python virtual environment for anvi'o
 
 ```
 mkdir -p ~/virtual-envs/
+
+# run this just in case there is already a directory with this name
+# so you avoid 'too many symlinks' error from virtualenv in the
+# next step
+rm -rf ~/virtual-envs/anvio-master
+
 virtualenv ~/virtual-envs/anvio-master
 source ~/virtual-envs/anvio-master/bin/activate
 ```
@@ -301,14 +307,17 @@ You can always use `~/.bashrc` or `~/.bash_profile` files to add aliases to make
 
 This is all personal taste and they may need to change from computer to computer, but I adeed the following lines at the end of my `~/.bash_profile` to easily switch between different versions of anvi'o on my Mac system:
 
+{:.notice}
+If you are using Anaconda rather than miniconda, or you are using Linux and not Mac, you will have to find corresponding paths for lines that start with `/Users` down below :)
+
 ``` bash
 init_anvio_6 () {
     {
         deactivate && conda deactivate
     } &> /dev/null
 
-    export PATH="/Users/meren/miniconda3/bin:$PATH"
-    . /Users/meren/miniconda3/etc/profile.d/conda.sh
+    export PATH="/Users/$USER/miniconda3/bin:$PATH"
+    . /Users/$USER/miniconda3/etc/profile.d/conda.sh
     conda activate anvio-6
     export PS1="\[\e[0m\e[40m\e[1;30m\] :: anvi'o v6 :: \[\e[0m\e[0m \[\e[1;32m\]\]\w\[\e[m\] \[\e[1;31m\]>>>\[\e[m\] \[\e[0m\]"
 }
@@ -319,8 +328,8 @@ init_anvio_master () {
         deactivate && conda deactivate
     } &> /dev/null
 
-    export PATH="/Users/meren/miniconda3/bin:$PATH"
-    . /Users/meren/miniconda3/etc/profile.d/conda.sh
+    export PATH="/Users/$USER/miniconda3/bin:$PATH"
+    . /Users/$USER/miniconda3/etc/profile.d/conda.sh
     conda activate anvio-master
     anvi-activate-master
     export PS1="\[\e[0m\e[40m\e[1;30m\] :: anvi'o v6 master :: \[\e[0m\e[0m \[\e[1;34m\]\]\w\[\e[m\] \[\e[1;31m\]>>>\[\e[m\] \[\e[0m\]"
