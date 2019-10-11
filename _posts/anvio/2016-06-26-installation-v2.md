@@ -17,13 +17,15 @@ image:
 
 {% include _project-anvio-version.html %}
 
-This article explains basic steps of installing anvi'o using rather conventional methods. We recommend you to install it on your system, but if you just want to run it without installing, you can also [try anvi'o in docker]({% post_url anvio/2015-08-22-docker-image-for-anvio %}).
+This article explains basic steps of installing anvi'o using rather conventional methods both for end users and current of future developers.
+
+We do recommend you to install anvi'o on your system, but if you just want to run it without any installation, you may find the article on [trying anvi'o in docker]({% post_url anvio/2015-08-22-docker-image-for-anvio %}) more suitable.
 
 Please consider opening an <a href="https://github.com/meren/anvio/issues">issue</a> for technical problems, or join us on Slack if you need help:
 
 {% include _join-anvio-slack.html %}
 
-## Painless installation with Conda
+## Installation with conda (painless method suggested for everyone)
 
 This is a very simple and effective way to install anvi'o on your system along with most of its dependencies.
 
@@ -104,6 +106,268 @@ python -c 'import webbrowser as w; w.open_new("http://")'
 
 </div>
 
+
+## Following the active codebase (you're a wizard, arry)
+
+If you follow these instructions you can follow the `master` branch of anvi'o, which is where we add new features and bug fixes in between stable releases. If you are a developer, this would also be the best way to edit the anvi'o codebase, and propose your changes to us. Following the active codebase will come with various advantages, but you must also consider the fact that it can be less stable than official releases. Nevertheless, here we go for those of you who live life at the edge.
+
+{:.notice}
+Special thanks go to [Jarrod Scott](https://twitter.com/metacrobe) who worked this recipe out. If you have further suggestions, please let us know on Slack or by leaving a comment below.
+
+First, create a new conda environment, and activate it:
+
+```
+conda deactivate
+conda create -y --name anvio-master python=3.6
+conda activate anvio-master
+```
+
+If this all worked, these are the outputs you should see:
+```
+(anvio-master) meren ~ $ python --version
+Python 3.6.7
+
+(anvio-master) meren ~ $ which python
+/Users/meren/miniconda3/envs/anvio-master/bin/python
+```
+
+Good? Good. Then, install the following dependencies in this conda environment:
+
+```
+pip install virtualenv
+
+conda install -y -c bioconda prodigal
+conda install -y -c bioconda mcl
+conda install -y -c bioconda muscle
+conda install -y -c bioconda fasttree
+conda install -y -c bioconda hmmer
+conda install -y -c bioconda diamond
+conda install -y -c bioconda blast
+conda install -y -c bioconda megahit
+conda install -y -c bioconda bowtie2
+conda install -y -c bioconda bwa
+conda install -y -c bioconda samtools
+conda install -y -c bioconda centrifuge
+conda install -y -c bioconda bioconductor-qvalue
+conda install -y -c conda-forge r-optparse
+conda install -y -c r r-tidyverse
+```
+
+Now it is time to get a copy of the anvi'o codebase. Here I will suggest `~/github/` as the base directory, but you can change if you want to something else (in which case you must remember to apply that change all the following commands, of course):
+
+``` bash
+# setup the code directory and get the anvi'o codebase
+mkdir -p ~/github && cd ~/github/
+git clone --recursive https://github.com/meren/anvio.git
+```
+
+Here we will setup a directory to keep the Python virtual environment for anvi'o (virtual environment within a virtual environment, keep your totem nearby):
+
+```
+mkdir -p ~/virtual-envs/
+virtualenv ~/virtual-envs/anvio-master
+source ~/virtual-envs/anvio-master/bin/activate
+```
+
+Now it is time to install the Python dependencies of anvi'o:
+
+``` bash
+cd ~/github/anvio/
+pip install -r requirements.txt
+```
+
+When this is done successfully, you can deactivate the Python environment:
+
+```
+deactivate
+```
+
+Now we will setup your conda environment in such a way, every time you activate anvi'o within it, you will get the very latest updates from the `master` repository:
+
+``` bash
+# updating the activation script for the Python virtual environmnet
+# so (1) Python knows where to find anvi'o libraries, (2) BASH knows
+# where to find its programs, and (3) every the environment is activated
+# it downloads the latest code from the `master` repository
+echo -e "\n# >>> ANVI'O STUFF >>>" >> ~/virtual-envs/anvio-master/bin/activate
+echo 'export PYTHONPATH=$PYTHONPATH:~/github/anvio/' >> ~/virtual-envs/anvio-master/bin/activate
+echo 'export PATH=$PATH:~/github/anvio/bin:~/github/anvio/sandbox' >> ~/virtual-envs/anvio-master/bin/activate
+echo 'cd ~/github/anvio && git pull && cd -' >> ~/virtual-envs/anvio-master/bin/activate
+echo "# <<< ANVI'O STUFF <<<" >> ~/virtual-envs/anvio-master/bin/activate
+```
+
+Finally we define an alias, `anvi-activate-master`, so when you are in your conda environment for `anvio-dev` you can run it as a command to initiate everything like a pro:
+
+```
+echo -e "\n# >>> ANVI'O STUFF >>>" >> ~/.bash_profile
+echo 'alias anvi-activate-master="source ~/virtual-envs/anvio-master/bin/activate"' >> ~/.bash_profile
+echo "# <<< ANVI'O STUFF <<<" >> ~/.bash_profile
+source ~/.bash_profile
+```
+
+At this stage if you run `anvi-activate-master`, you should see similar outputs to these:
+
+```
+$ anvi-self-test -v
+
+Anvi'o version ...............................: esther (v6-master)
+Profile DB version ...........................: 31
+Contigs DB version ...........................: 14
+Pan DB version ...............................: 13
+Genome data storage version ..................: 6
+Auxiliary data storage version ...............: 2
+Structure DB version .........................: 1
+
+$ which anvi-self-test
+
+/Users/meren/github/anvio/bin/anvi-self-test
+```
+
+If that is the case, you're golden.
+
+
+<details markdown="1"><summary>Show/hide playing with the code</summary>
+
+Now you can go to the anvi'o codebase,
+
+```
+cd ~/github/anvio
+```
+
+Make change,
+
+``` bash
+sed -i '' 's/esther/ESTHER/g' anvio/__init__.py
+```
+
+See it in the git log:
+
+``` diff
+$ git diff
+
+diff --git a/anvio/__init__.py b/anvio/__init__.py
+index 1ceca28a..75c91a73 100644
+--- a/anvio/__init__.py
++++ b/anvio/__init__.py
+@@ -13,7 +13,7 @@ import platform
+ import pkg_resources
+
+ anvio_version = '6-master'
+-anvio_codename = 'esther'
++anvio_codename = 'ESTHER'
+
+ DEBUG = '--debug' in sys.argv
+ FORCE = '--force' in sys.argv
+```
+
+But also see in action:
+
+```
+$ anvi-self-test -v
+
+Anvi'o version ...............................: ESTHER (v6-master)
+Profile DB version ...........................: 31
+Contigs DB version ...........................: 14
+Pan DB version ...............................: 13
+Genome data storage version ..................: 6
+Auxiliary data storage version ...............: 2
+Structure DB version .........................: 1
+```
+
+If you want to see what is going on in the codebase lately install `tig`,
+
+```
+pip install tig
+```
+
+And run it:
+
+```
+cd ~/github/anvio/
+tig
+```
+</details>
+
+So, this is the end of setting up the active anvi'o codebase on your computer so you can follow our daily additions to the code before they appear in stable releases, and use anvi'o exactly the way we use on our comptuers for our science on your own risk. Please note that given this setup so far, every time you open a terminal you will have to first activate conda, and then the Python environment:
+
+```
+conda activate anvio-master
+anvi-activate-master
+```
+
+You can always use `~/.bashrc` or `~/.bash_profile` files to add aliases to make these steps easier for yourself, or remove them when you are tired.
+
+<details markdown="1"><summary>Show/hide Meren's BASH profile setup</summary>
+
+This is all personal taste and they may need to change from computer to computer, but I adeed the following lines at the end of my `~/.bash_profile` to easily switch between different versions of anvi'o on my Mac system:
+
+``` bash
+init_anvio_6 () {
+    {
+        deactivate && conda deactivate
+    } &> /dev/null
+
+    export PATH="/Users/meren/miniconda3/bin:$PATH"
+    . /Users/meren/miniconda3/etc/profile.d/conda.sh
+    conda activate anvio-6
+    export PS1="\[\e[0m\e[40m\e[1;30m\] :: anvi'o v6 :: \[\e[0m\e[0m \[\e[1;32m\]\]\w\[\e[m\] \[\e[1;31m\]>>>\[\e[m\] \[\e[0m\]"
+}
+
+
+init_anvio_master () {
+    {
+        deactivate && conda deactivate
+    } &> /dev/null
+
+    export PATH="/Users/meren/miniconda3/bin:$PATH"
+    . /Users/meren/miniconda3/etc/profile.d/conda.sh
+    conda activate anvio-master
+    anvi-activate-master
+    export PS1="\[\e[0m\e[40m\e[1;30m\] :: anvi'o v6 master :: \[\e[0m\e[0m \[\e[1;34m\]\]\w\[\e[m\] \[\e[1;31m\]>>>\[\e[m\] \[\e[0m\]"
+}
+
+alias a6=init_anvio_6
+alias am=init_anvio_master
+```
+
+With this steup, in a new terminal window I can type `a6` or `am` to run the stable or master version of anvi'o, or to switch from one to the other:
+
+```
+meren ~ $ anvi-self-test -v
+-bash: anvi-self-test: command not found
+
+meren ~ $ a6
+
+:: anvi'o v6 :: ~ >>>
+
+:: anvi'o v6 :: ~ >>> anvi-self-test -v
+Anvi'o version ...............................: esther (v6)
+Profile DB version ...........................: 31
+Contigs DB version ...........................: 14
+Pan DB version ...............................: 13
+Genome data storage version ..................: 6
+Auxiliary data storage version ...............: 2
+Structure DB version .........................: 1
+
+:: anvi'o v6 :: ~ >>> am
+
+:: anvi'o v6 master :: ~ >>>
+
+:: anvi'o v6 master :: ~ >>> anvi-self-test -v
+Anvi'o version ...............................: esther (v6-master)
+Profile DB version ...........................: 31
+Contigs DB version ...........................: 14
+Pan DB version ...............................: 13
+Genome data storage version ..................: 6
+Auxiliary data storage version ...............: 2
+Structure DB version .........................: 1
+```
+
+
+**But please note** that both aliases run `deactivate` and `conda deactivate` first, and they may not work for you especially if you have a fancy setup. I'd be very happy to improve these shortcuts.
+</details>
+
+
 ## Other installation (with varying levels of pain)
 
 If you are an end user we really suggest you to follow the installation instructions for conda. But then it is your computer, nothing here is as scary as it looks, and you can do it.
@@ -115,245 +379,9 @@ You will need to make sure your system does have all the following software if y
 * [HMMER]({% post_url anvio/2016-06-18-installing-third-party-software %}#hmmer){:target="_blank"}
 * [SQLite]({% post_url anvio/2016-06-18-installing-third-party-software %}#sqlite){:target="_blank"}
 
-Finally you will need `virtualenv`. This should work for most:
+Then we suggest you to use `virtualenv` to start a Python 3.6 environment, and install anvi'o in it. Don't use `pip` as the anvi'o package stored at PyPI is lacking some files due to size limitatons. Instead, visit the following link, go to the bottom of the page, downlaod the file `anvio-X.tar.gz` and work with that file:
 
-``` bash
-pip install virtualenv
-```
-
-If you don't have `pip`, you will need to visit [this web page](https://pip.pypa.io/en/stable/installing/) to have it installed.
-
-{:.notice}
-**Please note**, anvi'o exclusively uses Python 3.
-
-{:.notice}
-You may [run into some issues](https://matplotlib.org/faq/virtualenv_faq.html) **with `matplotlib` in the virtual environment**. A simple [solution](https://matplotlib.org/faq/osx_framework.html#short-version) is to use [venv](https://docs.python.org/3/library/venv.html) (which comes built-in in python 3) instead of `virtualenv`. 
-
-OK. If you are still here, you may have gone through the most painful part already and anvi'o developers are very proud of you.
-
-
-### Installing the latest stable release (safe mode)
-
-{% include _join-anvio-slack.html %}
-
-The safest way to install anvi'o is to do everything in a Python virtual environment. If you are not experienced with computer thingies, do not worry. If you have taken care of your dependencies mentioned above, the rest should be very simple.
-
-We first need to create a new virtual environment for anvi'o. Since it is easier to keep all virtual environments in one place, I will first create a directory in my home:
-
-``` bash
-mkdir ~/virtual-envs/
-```
-
-Then we will create a new virtual environment for anvi'o under that directory, to activate it, and to check the Python version in it to make sure the version starts with `3`:
-
-``` bash
-virtualenv ~/virtual-envs/anvio-{% include _project-anvio-version-number.html %}
-source ~/virtual-envs/anvio-{% include _project-anvio-version-number.html %}/bin/activate
-python --version
-```
-
-{:.notice}
-If using venv, run `python3 -m venv ~/virtual-envs/anvio-{% include _project-anvio-version-number.html %}`
-
-{:.notice}
-If using conda, run `python3 -m virtualenv ~/virtual-envs/anvio-{% include _project-anvio-version-number.html %}`
-
-{:.notice}
-The output of the last command must start with `Python 3`. If not, remove the virtual environment with `rm -rf ~/virtual-envs/anvio`, and find out how can you create a virtual environment for Python 3 on your system. You can try `-p python3` as a parameter to your `virtualenv` command. Or you can type `virtualenv` and _without pressing the space character_ press `TAB` key twice quickly to see if there is an alternative binary such as `virtualenv-3.6`. If not, it means Python 3 is not installed on your system.
-
-Make sure your paths look alright. Yours should look similar to this:
-
-``` bash
-(anvio-{% include _project-anvio-version-number.html %}) meren ~ $ which pip
-/Users/meren/virtual-envs/anvio-{% include _project-anvio-version-number.html %}/bin/pip
-```
-
-<div class="extra-info" markdown="1">
-
-<span class="extra-info-header">A note on Python 3.7</span>
-
-This box is only relevant to you if you are using Python version 3.7. In that case some dependencies will fail to install as their latest stable release is not compatible with this Python version. For these dependencies you need to install development versions.
-
-**scikit-learn**
-
-``` bash
-pip install https://github.com/scikit-learn/scikit-learn/archive/4035e60a6f0a0a2546bf0442ab603961c6a9cc4a.zip
-```
-
-**Datrie (Dependency of snakemake)**
-
-```
-pip install https://github.com/ozcan/datrie/releases/download/0.7.1/datrie-0.7.1.tar.gz
-```
-
-Or from original source:
-
-```
-wget https://github.com/pytries/datrie/archive/0.7.1.tar.gz
-tar xf 0.7.1.tar.gz
-cd datrie-0.7.1
-./update_c.sh
-python3.7 setup.py build
-python3.7 setup.py install
-```
-
-After installing these dependencies you should be able to install anvi'o. But when you run `anvi-profile --version`. The anvi'o version may show up as `vunknown`. This happens when the version of an anvi'o depenceny does not match to what anvi'o expects. You can always check the actual version of anvi'o with `pip show anvio` or  `pip list | grep anvio`.
-
-</div>
-
-Now you can do the installation:
-
-``` bash
-pip install numpy
-pip install scipy
-pip install cython
-pip install anvio
-```
-
-If all looks good, now you should be able to run `anvi-self-test`:
-
-``` bash
-anvi-self-test --suite mini
-```
-
-{:.notice}
-You may see warning messages during self-test runs. Don't be concerned.
-
-If this runs successfully, a browser window will popup. Don't forget to go back to your terminal and press `CTRL+C` to kill the server. To leave the virtual environment, you can run the command `deactivate`.
-
-Now every time you want to use anvi'o, you will need to activate the virtual environment. If you like things to be convenient as much as we do, you may want to run the following command so you have a new command, `anvi-activate` that activates your anvi'o installation:
-
-``` bash
-echo 'alias anvi-activate-v{% include _project-anvio-version-number.html %}="source ~/virtual-envs/anvio-{% include _project-anvio-version-number.html %}/bin/activate"' >> ~/.bash_profile
-```
-
-When I open a new terminal, things look like this:
-
-``` bash
-meren ~ $ anvi-interactive -v
--bash: anvi-interactive: command not found
-meren ~ $ anvi-activate-v{% include _project-anvio-version-number.html %}
-(anvio) meren ~ $ anvi-interactive -v
-Anvi'o version ...............................: {% include _project-anvio-version-number.html %}
-Profile DB version ...........................: 31
-Contigs DB version ...........................: 14
-Pan DB version ...............................: 13
-Genome data storage version ..................: 6
-Auxiliary data storage version ...............: 2
-Structure DB version .........................: 1
-(anvio) meren ~ $ 
-```
-
-### Installing or updating from the active codebase (because why not)
-
-This will allow you to go beyond the stable version and follow the very current version of the codebase (we assume you already have taken of your dependencies).
-
-Let's setup a new virtual environment and activate it:
-
-``` bash
-virtualenv ~/virtual-envs/anvio-dev
-source ~/virtual-envs/anvio-dev/bin/activate
-python --version
-```
-
-{:.notice}
-If using conda, run `python3 -m virtualenv ~/virtual-envs/anvio-dev`
-
-Don't forget to make sure the output of the last command starts with `Python 3`.
-
-### I need to get the codebase
-
-So this is your first time with the codebase. Get a fresh copy (with all the submodules necessary):
-
-``` bash
-cd
-git clone --recursive https://github.com/meren/anvio.git
-```
-
-Then go into the `anvio` directory, and then run the installation:
-
-``` bash
-cd anvio
-source ~/virtual-envs/anvio-dev/bin/activate
-pip install -r requirements.txt
-python setup.py install
-```
-
-### I already have the codebase
-
-So you want to _update_ your already existing installation. Follow these steps:
-
-{% highlight bash %}
-cd
-cd anvio
-git pull
-git submodule update --init --recursive
-source ~/virtual-envs/anvio-dev/bin/activate
-pip install -r requirements.txt
-python setup.py install
-{% endhighlight %}
-
-### What now?
-
-Now it is time to run `anvi-self-test --suite mini`, of course.
-
-If you want to make things simpler, you can add an alias to your `~/.bash_profile` to easily switch to this environment:
-
-``` bash
-echo 'alias anvi-activate-dev="source ~/virtual-envs/anvio-dev/bin/activate"' >> ~/.bash_profile
-```
-
-### Installation for developers (you're a wizard, arry)
-
-{:.notice}
-This is the best option to keep up-to-date with day-to-day updates from anvi'o developers.
-
-If you are planning to do this, you really need no introductions, but I will give you one anyway. Clone the codebase into a `$DIR` you like:
-
-{% highlight bash %}
-cd $DIR
-git clone --recursive https://github.com/meren/anvio.git
-{% endhighlight %}
-
-Create a virtual environment (`master` to remind you that you are following the GitHub `master`), and do the initial setup, and leave it:
-
-{:.notice}
-If using conda, run `python3 -m virtualenv ~/virtual-envs/anvio-master` instead of the line that starts wth `virtualenv` down below.
-
-``` bash
-virtualenv ~/virtual-envs/anvio-master
-source ~/virtual-envs/anvio-master/bin/activate
-python --version # make sure the output starts with `Python 3`.
-cd $DIR/anvio # don't forget to update the $DIR with the real path
-pip install -r requirements.txt
-deactivate
-```
-
-Then update your activation batch to add necessary environment variables:
-
-{:.warning}
-Please note that **you need to update** the `$DIR` variable to whichever directory you cloned the codebase on your system **before running the following lines in your terminal**.
-
-
-``` bash
-echo 'export PYTHONPATH=$PYTHONPATH:$DIR/anvio/' >> ~/virtual-envs/anvio-master/bin/activate
-echo 'export PATH=$PATH:$DIR/anvio/bin:$DIR/anvio/sandbox' >> ~/virtual-envs/anvio-master/bin/activate
-```
-
-That's it. If you like, add an alias to your `~/.bash_profile` to activate this quickly:
-
-``` bash
-echo 'alias anvi-activate-master="source ~/virtual-envs/anvio-master/bin/activate"' >> ~/.bash_profile
-source ~/.bash_profile
-```
-
-Finally, if you would like to pull the latest commits from GitHub every time you switch to the `master`, add these to your activation batch (you will need to update `$DIR` once again):
-
-``` bash
-echo 'cd $DIR/anvio && git pull && cd -' >> ~/virtual-envs/anvio-master/bin/activate
-```
-
-You are golden.
+[https://github.com/merenlab/anvio/releases/latest](https://github.com/merenlab/anvio/releases/latest)
 
 
 ## Running the "Mini Test"
