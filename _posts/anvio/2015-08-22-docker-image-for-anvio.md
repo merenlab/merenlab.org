@@ -17,7 +17,7 @@ authors: [meren]
 
 Docker will help you run anvi'o quickly on a server or a desktop system with zero pain and no installation.
 
-This article explains how to start using anvi'o without installing it. For long-term use for research, we recommend you to [install anvi'o on your system through conda]({% post_url anvio/2016-06-26-installation-v2.md %}).
+This article explains how to start using anvi'o without installing it. For long-term use for research, we recommend you to [install anvi'o on your system through conda]({% post_url anvio/2016-06-26-installation-v2 %}).
 
 {:.notice}
 Special thanks go to [Çağlar Onur](https://twitter.com/caglar10ur) for forcing us to [have a docker solution](https://github.com/meren/anvio/pull/191).
