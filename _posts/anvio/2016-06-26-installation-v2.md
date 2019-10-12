@@ -38,32 +38,32 @@ conda 4.7.12
 
 If you don't have conda installed, then you should first install it through their [installation page](https://docs.conda.io/en/latest/miniconda.html). Once you have confirmed you have conda installed, run this command to make sure you are up-to-date:
 
-```
+``` bash
 conda update conda
 ```
 
 Then, add the following channels that will be required for the anvi'o installation:
 
-```
+``` bash
 conda config --env --add channels conda-forge
 conda config --env --add channels bioconda
 ```
 
 Then, create an anvi'o environment for anvi'o v{% include _project-anvio-version-number.html %} (it is essential to create it with Python 3.6 as shown below):
 
-```
+``` bash
 conda create -n anvio-6 python=3.6
 ```
 
 Once it is ready, activate your new environment:
 
-```
+``` bash
 conda activate anvio-6
 ```
 
 And finally install anvi'o in it:
 
-```
+``` bash
 conda install anvio=6
 ```
 
@@ -121,14 +121,15 @@ Special thanks go to [Jarrod Scott](https://twitter.com/metacrobe) who worked th
 
 First, create a new conda environment, and activate it:
 
-```
+``` bash
 conda deactivate
 conda create -y --name anvio-master python=3.6
 conda activate anvio-master
 ```
 
 If this all worked, these are the outputs you should see:
-```
+
+``` bash
 (anvio-master) meren ~ $ python --version
 Python 3.6.7
 
@@ -138,7 +139,7 @@ Python 3.6.7
 
 Good? Good. Then, install the following dependencies in this conda environment:
 
-```
+``` bash
 pip install virtualenv
 
 conda install -y -c bioconda prodigal
@@ -168,7 +169,7 @@ git clone --recursive https://github.com/meren/anvio.git
 
 Here we will setup a directory to keep the Python virtual environment for anvi'o (virtual environment within a virtual environment, keep your totem nearby):
 
-```
+``` bash
 mkdir -p ~/virtual-envs/
 
 # run this just in case there is already a directory with this name
@@ -287,13 +288,13 @@ Structure DB version .........................: 1
 
 If you want to see what is going on in the codebase lately install `tig`,
 
-```
+``` bash
 pip install tig
 ```
 
 And run it:
 
-```
+``` bash
 cd ~/github/anvio/
 tig
 ```
@@ -402,7 +403,7 @@ Then we suggest you to use `virtualenv` to start a Python 3.6 environment, and i
 
 You can make anvi'o test itself very quickly by running,
 
-```
+``` bash
 anvi-self-test --suite mini
 ```
 
