@@ -2,7 +2,7 @@
 layout: post
 authors: [meren]
 title: "Real-time genome taxonomy estimation with anvi'o"
-excerpt: "An attempt at alchemy combining the magic of GTDB and SCGs in anvi'o."
+excerpt: "An attempt at alchemy combining the magic of GTDB and single-copy core genes in anvi'o."
 modified: 2019-10-08
 tags: []
 categories: [anvio]
@@ -42,10 +42,13 @@ The new anvi'o scg-taxonomy module described on this page stands on more than 1,
 
 Often when we deal with genomes we need some sort of insight into taxonomy. This becomes an especially critical need when you reconstruct genomes from metagenomes, as you want to know where these new genomes fit in the tree of life rapidly. So far anvi'o did not offer a rapid solution for that, but starting with the `v6` we have a solution for that. Everything is new, so probably there are going to be hiccups before we manage to stabilize things.
 
-The new anvi'o scg-taxonomy worklow uses the taxonomy determined by the [The Genome Taxonomy Database](https://gtdb.ecogenomic.org/) (GTDB, [@ace_gtdb](https://twitter.com/ace_gtdb)), an effort led by scientists who are primarily affiliated with the [Australian Centre for Ecogenomics](https://ecogenomic.org/).
+The new anvi'o scg-taxonomy worklow uses the taxonomy determined by the [The Genome Taxonomy Database](https://gtdb.ecogenomic.org/) (GTDB, [@ace_gtdb](https://twitter.com/ace_gtdb)), an effort led by scientists who are primarily affiliated with the [Australian Centre for Ecogenomics](https://ecogenomic.org/). And the workflow searches new seqeunces in GTDB databases using [DIAMOND](https://github.com/bbuchfink/diamond), a fast alternative to the NCBI's BLAST, developed and maintained by the brilliant [Benjamin Buchfink](https://twitter.com/bbuchfink), who is a bioinformatician at the MPI for Developmental Biology in Germany. We thank them sincerely.
 
 {:.warning}
-If you use anvi'o scg-taxonomy module, please don't forget to cite the initial work that introduced this resource: [doi:10.1038/nbt.4229](http://doi.org/10.1038/nbt.4229). There is also a tool from the developers of the GTDB, [GTDB-Tk](https://github.com/Ecogenomics/GTDBTk), to assign taxonomy to genomes.
+If you use anvi'o scg-taxonomy module, please don't forget to cite the initial work that introduced this resource ([doi:10.1038/nbt.4229](http://doi.org/10.1038/nbt.4229)), and DIAMOND ([doi:10.1038/nmeth.3176](https://doi.org/10.1038/nmeth.3176)).
+
+{:.notice}
+Please note that there is another tool from the developers of the GTDB, [GTDB-Tk](https://github.com/Ecogenomics/GTDBTk), to assign taxonomy to genomes.
 
 In a nutshell, anvi'o (1) downloads both single-copy core genes (SCGs) and the taxonomy of the genomes - as defined by the GTDB - from which these genes are coming from, (2) bulids search databases for a subset of these SCGs (depending on whether they are in the Bacterial and Archaeal collection of SCGs anvi'o recognizes and based on other heuristics), (3) searches SCGs from every new genome in the anvi'o ecosystem in these databases and creates consensus taxonomy for each genome.
 
