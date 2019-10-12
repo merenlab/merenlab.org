@@ -85,11 +85,16 @@ If at the end of this your browser automatically loaded the test run results, yo
 
 ***Note***: One of our users who has been trying conda installation on an HPC system [reported](https://github.com/merenlab/anvio/issues/895#issuecomment-403656800) the following steps working for them:
 
-```
+``` bash
 conda deactivate
 conda create -y --name anvio-6 python=3.6
 conda install -y --name anvio-6 -c bioconda -c conda-forge anvio=6
+
+# unfortunately conda installs the wrong version of diamond, so make sure
+# to install the correct version as a last step:
+conda install -y diamond=0.9.14
 ```
+
 
 {:.warning}
 **IMPORTANT NOTE**: You may need to activate the anvi'o conda environment every time you open a new terminal window. Depending on your conda setup, you will either need to run `source activate anvio-6` or `conda activate anvio-6` (this assumes you named your conda environment for anvio `anvio-6` as per the commands above using the `--name` flag --if not, please replace `anvio-6` with whatever you have used to name your environment). You can always list your conda environments by typing `conda env list`.
@@ -141,13 +146,13 @@ conda install -y -c bioconda mcl
 conda install -y -c bioconda muscle
 conda install -y -c bioconda fasttree
 conda install -y -c bioconda hmmer
-conda install -y -c bioconda diamond
 conda install -y -c bioconda blast
 conda install -y -c bioconda megahit
 conda install -y -c bioconda bowtie2
 conda install -y -c bioconda bwa
 conda install -y -c bioconda samtools
 conda install -y -c bioconda centrifuge
+conda install -y -c bioconda diamond=0.9.14
 conda install -y -c bioconda bioconductor-qvalue
 conda install -y -c conda-forge r-optparse
 conda install -y -c r r-tidyverse
