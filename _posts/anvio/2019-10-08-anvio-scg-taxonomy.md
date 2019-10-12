@@ -59,6 +59,9 @@ For the sake of reproducibility, here I will use the infant gut dataset that [we
 {:.notice}
 This is something you will do only once after installing anvi'o `v6`.
 
+{:.warning}
+**SCG-TAXONOMY WILL NOT WORK** unless you have `diamond` version `0.9.14` installed on your system. **Please first run `diamond --version` to make sure you have the right version.** If not, install it first. If you are in a conda environment, you can simply run `conda install diamond=0.9.14`.
+
 A fresh installation of anvi'o will have all the FASTA files that are going to be used for scg-taxonomy, but not the search databases that must be generated from them. We are not shipping the databases because they need to be built with the DIAMOND installed on your computer to make sure we are not running into various incompatibilty problems.
 
 To setup your SCG taxonomy databases, run the following program, which will not take longer than a minute:
