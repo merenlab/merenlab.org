@@ -64,7 +64,7 @@ conda activate anvio-6
 And finally install anvi'o in it:
 
 ``` bash
-conda install anvio=6
+conda install -y anvio=6
 ```
 
 This may take a while.
@@ -72,7 +72,13 @@ This may take a while.
 {:.notice}
 **You are getting a `PackagesNotFoundError` error?**. It may mean that anvi'o v{% include _project-anvio-version-number.html %} is not yet synchronized to the conda repository. It usually takes a day or two to have new releases in conda. Please first check [the release logs for the latest version](https://github.com/merenlab/anvio/releases/tag/v{% include _project-anvio-version-number.html %}), and if it has been more than three days since the release, please let us know!
 
-If the installation seems to be complete, you should test anvi'o quickly to make sure everything is in order:
+When the last step is complete, there is one last thing we need to do. Unfortunately conda installs the wrong version of diamond, so here we will make sure we go back to the correct version:
+
+```bash
+conda install -y diamond=0.9.14
+```
+
+Once this is complete, you should test anvi'o quickly to make sure everything is in order:
 
 ``` bash
 anvi-self-test --suite mini
@@ -89,9 +95,6 @@ If at the end of this your browser automatically loaded the test run results, yo
 conda deactivate
 conda create -y --name anvio-6 python=3.6
 conda install -y --name anvio-6 -c bioconda -c conda-forge anvio=6
-
-# unfortunately conda installs the wrong version of diamond, so make sure
-# to install the correct version as a last step:
 conda install -y diamond=0.9.14
 ```
 
@@ -155,8 +158,9 @@ conda install -y -c bioconda samtools
 conda install -y -c bioconda centrifuge
 conda install -y -c bioconda diamond=0.9.14
 conda install -y -c bioconda bioconductor-qvalue
-conda install -y -c conda-forge r-optparse
+conda install -y r-base=3.6.1
 conda install -y -c r r-tidyverse
+conda install -y -c conda-forge r-optparse
 ```
 
 Now it is time to get a copy of the anvi'o codebase. Here I will suggest `~/github/` as the base directory, but you can change if you want to something else (in which case you must remember to apply that change all the following commands, of course):
