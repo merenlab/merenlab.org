@@ -92,6 +92,9 @@ anvi-run-hmms -c Bacillus_subtilis.db
 
 If you hapenned to read [this post]({% post_url anvio/2015-12-07-predicting-number-of-genomes %}), you already know that at this point we can take a look at the distribuiton of bacterial single-copy genes in this contigs database and predict the number of genomes in it:
 
+{:.warning}
+Please use the program [`anvi-display-contigs-stats`](http://merenlab.org/software/anvio/vignette/#anvi-display-contigs-stats) to learn about the predicted number of bacterial, archaeal, and eukaryotic genomes you have in your contigs database. The interactive display of that program will give you these numbers also. We are keeping the rest of the post here so we remember where we are coming from :)
+
 ``` bash
 $ anvi-script-gen_stats_for_single_copy_genes.py Bacillus_subtilis.db
 $ anvi-script-gen_stats_for_single_copy_genes.R Bacillus_subtilis.db.hits Bacillus_subtilis.db.genes
