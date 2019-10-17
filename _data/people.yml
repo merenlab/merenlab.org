@@ -129,6 +129,20 @@
        inst: Department of Computer Science at the University of Chicago
        inst_link: https://www.cs.uchicago.edu/
 
+- alias: matt
+  official: True
+  name: Matthew Schechter
+  tenure_start: 10/2019
+  role: Graduate Student
+  email: mschechter@uchicago.edu
+  avatar: bio-matt.jpg
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  bio: "I am interested in combining comparative genomics and environmental metagenomics to identify genetic determinants of fitness in microbial populations in the human gut and ocean microbiome."
+  affiliations:
+    - title: Graduate Student
+      inst: Committee on Microbiology at the University of Chicago
+      inst_link: https://biomedsciences.uchicago.edu/page/microbiology
+
 - alias: abby
   official: True
   name: Abigail Schmid
@@ -189,26 +203,6 @@
     - title: Pediatric Gastroenterology Fellow
       inst: Section of Pediatric Gastroenterology, Hepatology and Nutrition at the University of Chicago
       inst_link: http://pediatrics.uchicago.edu/education/fellowship/gastroenterology
-
-- alias: quentin
-  official: True
-  name: Quentin Clayssen
-  tenure_start: 04/2019
-  role: FACCTS Visiting Scientist
-  email: quentin.clayssen@gmail.com
-  github: qclayssen
-  linkedin: quentin-clayssen-398360139
-  twitter: ClayssenQ
-  avatar: bio-quentin.jpg
-  bio: "I am a microbiologist and a bioinformatician in training interested in metagenomics. I currently am focusing on approaches for rapid placement of metagenome-assembled genomes into the tree of life."
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  affiliations:
-    - title: Graduate Student
-      inst: Master of Bioinformatics, the University of Nantes, France
-      inst_link: http://www.masterbioinfo-nantes.fr/
-    - title: FACCTS Visiting Scientist
-      inst: France And Chicago Collaborating in The Sciences
-      inst_link: https://fcc.uchicago.edu/faccts
 
 - alias: iva
   official: True
@@ -323,6 +317,22 @@
 ####################################################################################
 # Previous members.
 ####################################################################################
+
+- alias: quentin
+  official: True
+  name: Quentin Clayssen
+  nick_name: Quentin
+  tenure_start: 04/2019
+  tenure_end: 10/2019
+  role: FACCTS Visiting Scientist
+  email: quentin.clayssen@gmail.com
+  github: qclayssen
+  linkedin: quentin-clayssen-398360139
+  twitter: ClayssenQ
+  avatar: bio-quentin.jpg
+  current_info: finishing up his masters education in France
+  contributions: He took the the first stab at developing the fisrt version of the anvi'o framework for rapid determination of taxonomic affiliation of metagenome-assembled genomes
+  bio: "I am a microbiologist and a bioinformatician in training interested in metagenomics. I currently am focusing on approaches for rapid placement of metagenome-assembled genomes into the tree of life."
 
 - alias: sonny
   official: True
