@@ -42,6 +42,9 @@ If you don't have conda installed, then you should first install it through thei
 conda update conda
 ```
 
+{:.warning}
+Please make sure you create a new conda enviornment for anvi'o (you can make sure you are not in a conda environment by opening a new terminal and running `conda deactivate`. You can see which environments exist on your coputer by running `conda env list`. You can indeed install anvi'o in an existing conda environment, but if things go wrong, please consider relying on meditation for help rather than [anvi'o community resources]({% post_url anvio/2019-10-07-getting-help %}).
+
 Then, add the following channels that will be required for the anvi'o installation:
 
 ``` bash
@@ -114,13 +117,19 @@ python -c 'import webbrowser as w; w.open_new("http://")'
 
 </div>
 
+If you are here, you are done. Congratulations, and thank you!
 
 ## Following the active codebase (you're a wizard, arry)
 
-If you follow these instructions you can follow the `master` branch of anvi'o, which is where we add new features and bug fixes in between stable releases. If you are a developer, this would also be the best way to edit the anvi'o codebase, and propose your changes to us. Following the active codebase will come with various advantages, but you must also consider the fact that it can be less stable than official releases. Nevertheless, here we go for those of you who live life at the edge.
+If you follow these instructions you can follow the `master` branch of anvi'o, which is where we add new features and bug fixes in between stable releases. Following the `master` branch as prescribed here will not prevent you to also have a stable anvi'o ersion on the same computer in parallel.
+
+{:.warning}
+This section is not meant to be followed by those who would define themselves as *end users* in a conventional sense. It means if you would consider yourself someone who feels more comfortable with *stability*, *calmness*, and *predictibility* rather than *advanture* and *suprise*, or if you think feeling the occasional urge to ask your computer *WHAT NOW YOU STUPID CALCULATOR?* is not your cup of tea, you should stick with the installation recipe described in the previous section. Because if you just found yourself in this section and do not know what is `git` or `master`, you may be about to take upon more work than you anticipate (and while Meren totally thinks you should do it anyway because you have the world in your grip and all these unknown is yours to conquer, those who know how to cultivate happiness and productivity at the some time will suggest you to don't do it and move on with your day).
+
+Following the active codebase will come with various advantages, but you must also consider the fact that it can be less stable than official releases. Nevertheless, here we go for those of you who live life at the edge.
 
 {:.notice}
-Special thanks go to [Jarrod Scott](https://twitter.com/metacrobe) who worked this recipe out. If you have further suggestions, please let us know on Slack or by leaving a comment below.
+Special thanks go to [Jarrod Scott](https://twitter.com/metacrobe) who tested this recipe out and suggested changes. If you something doesn't work here anymore please fix it, and share your solution with us.
 
 First, create a new conda environment, and activate it:
 
@@ -253,6 +262,9 @@ cd ~/github/anvio
 Make change,
 
 ``` bash
+# as you probably know the following line is good for Mac
+# computers but will fail in Linux systems unless you remove
+# the part that goes like -i '' :)
 sed -i '' 's/esther/ESTHER/g' anvio/__init__.py
 ```
 
