@@ -92,11 +92,11 @@ In this display we only have one contig *pLA6 12*, so we can right-click anywher
 
 If you had more than one contig, you'd just pick the contig you want to inspect and do the same thing.
 
-Over time we came to the realization that when we have too many samples and contigs to visualize, accessing to the inspection page for a given contig in a large dataset can be a signfiicant challenge. That is why, we developed `anvi-inspect`, which is included in anvi'o since the `v6` version.
+Over time we came to the realization that when we have too many samples and contigs to visualize, accessing the inspection page for a given contig in a large dataset can be a signfiicant challenge. That is why, we developed `anvi-inspect`, which is included in anvi'o since the `v6` version.
 
 ## Targeted visualization of coverage through anvi-inspect
 
-The anvi'o program `anvi-inspect` enables you to viusalize the coverage of a given contig without having to throug the main display of the interactive interface. For this you will need to specify the split name that you're interested in. There are many ways to find a split name of interest in anvi'o. Programs like such as [anvi-search-functions](/vignette/#anvi-search-functions) or [anvi-export-splits-and-coverages](/vignette/#anvi-export-splits-and-coverages) will report split names. But in this particular case there is a single split in our profile database. So we don't really provide a split name. Howver, if we run anvi-inspect without any split name, it will not be happy with us:
+The anvi'o program `anvi-inspect` enables you to viusalize the coverage of a given contig without having to go through the main display of the interactive interface. For this you will need to specify the split name that you're interested in. There are many ways to find a split name of interest in anvi'o. Programs like such as [anvi-search-functions](/vignette/#anvi-search-functions) or [anvi-export-splits-and-coverages](/vignette/#anvi-export-splits-and-coverages) will report split names. But in this particular case there is a single split in our profile database. So we don't really provide a split name. However, if we run anvi-inspect without any split name, it will not be happy with us:
 
 ```bash
 anvi-inspect -p PROFILE.db \
@@ -120,7 +120,7 @@ anvi-inspect -p PROFILE.db \
 
 This command will give you the same inspect page that we saw before, but allows you to skip going through the interactive interface.
 
-So anvi-inspect offers direct access to inspection page and solves some of the problems associated with having to go through the main display when we know which splits we are interested in working. But over time we reached to another realization: while inspect page is great for interactive visualization with access to all the genes and functions, exporting these coverage plots for publications or presentations are very difficult. One could take screen shots of the inspect page, but that's not a very elegant solution, nor is it reproducible. And it's even less ideal if you have a lot of samples.
+So anvi-inspect offers direct access to inspection page and solves some of the problems associated with having to go through the main display when we know which splits we are interested in working with. But over time we reached to another realization: while inspect page is great for interactive visualization with access to all the genes and functions, exporting these coverage plots for publications or presentations are very difficult. One could take screen shots of the inspect page, but that's not a very elegant solution, nor is it reproducible. And it's even less ideal if you have a lot of samples.
 
 The next program solves that issue.
 
@@ -250,7 +250,7 @@ And the other one is the `RED` group:
 
 ### Bringing in colors
 
-The outputs above are useful, but they just give you black coverage plots and default SNV colors. Plus, everything has the same y-axis even if the coverage values are radically different. But of course these can be changed to fit the users needs. For example, one can color plots above based on where the samples are from, restrict the maximum coverage to 2000, allow a sliding y-axes for each plot, and have customized SNV lines I would run:
+The outputs above are useful, but they just give you black coverage plots and default SNV colors. Plus, everything has the same y-axis even if the coverage values are radically different. But of course these can be changed to fit the users needs. For example, one can color plots above based on where the samples are from, restrict the maximum coverage to 2000, allow a sliding y-axes for each plot, and have customized SNV lines by running:
 
 ```bash
 anvi-script-visualize-split-coverages -i pLA6_12_000000000001_split_00001_coverage.txt \
@@ -278,11 +278,11 @@ RED0041	RED	#8b0000
 RED0045	RED	#8b0000
 ```
 
-And voila! Teh `MAL` group:
+And voila! The `MAL` group:
 
 [![coverages]({{images}}/MAL_color_plots.png)]({{images}}/MAL_color_plots.png){:.center-img .width-90}
 
-and teh `RED` group:
+and the `RED` group:
 
 [![coverages]({{images}}/RED_color_plots.png)]({{images}}/RED_color_plots.png){:.center-img .width-90}
 
