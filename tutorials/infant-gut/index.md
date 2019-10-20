@@ -42,14 +42,14 @@ We hope you find the tutorial useful, and generously share your opinions or crit
 
 ## Downloading the pre-packaged Infant Gut Dataset
 
-To download the infant gut datapack copy-paste the following commands into your terminal:
+To download the infant gut data-pack copy-paste the following commands into your terminal:
 
 ``` bash
-wget https://ndownloader.figshare.com/files/17928131 -O INFANT-GUT-TUTORIAL.tar.gz
+wget https://ndownloader.figshare.com/files/18046139 -O INFANT-GUT-TUTORIAL.tar.gz
 tar -zxvf INFANT-GUT-TUTORIAL.tar.gz && cd INFANT-GUT-TUTORIAL
 ```
 
-Alternatively (i.e., if you don't have `wget` installed on your system), you can download the same file using this this link: [https://ndownloader.figshare.com/files/17928131](https://ndownloader.figshare.com/files/17928131).
+Alternatively (i.e., if you don't have `wget` installed on your system), you can download the same file using this this link: [https://ndownloader.figshare.com/files/18046139](https://ndownloader.figshare.com/files/18046139).
 
 When you click the link, it will start downloading a **210 Mb** compressed file automatically. Once it is done, go to the relevant directory that contains this file using your terminal, and unpack it the following way:
 
@@ -62,9 +62,9 @@ If you were sent here somewhere from down below, now you can **go back**. If you
 
 <div class="extra-info" markdown="1">
 
-<span class="extra-info-header">Some details on the contents of the data pack for the curious</span>
+<span class="extra-info-header">Some details on the contents of the data-pack for the curious</span>
 
-If you type `ls` in the dataset directory you will see that the datapack contains an anvi'o contigs database, an anvi'o merged profile database (that describes 11 metagenomes), and other additional data that are required by various sections in this tutorial. Here are some simple descriptions for some of these files, and how we generated them.
+If you type `ls` in the dataset directory you will see that the data-pack contains an anvi'o contigs database, an anvi'o merged profile database (that describes 11 metagenomes), and other additional data that are required by various sections in this tutorial. Here are some simple descriptions for some of these files, and how we generated them.
 
 **The contigs and profile databases**. We generated an anvi'o contigs database using the program `anvi-gen-contigs-database`. This special anvi'o database keeps all the information related to your contigs: positions of open reading frames, k-mer frequencies for each contig, functional and taxonomic annotation of genes, etc. The contigs database is an essential component of everything related to anvi'o metagenomic workflow. We also generated a merged anvi'o profile databases using the program `anvi-profile`. In contrast to the contigs database, anvi'o profile databases store *sample-specific* information about contigs. Profiling a BAM file with anvi'o creates a single profile that reports properties for each contig in a single sample based on mapping results. Each profile database automatically links to a contigs database, and anvi'o can merge single profiles that link to the same contigs database into an **anvi'o merged profile** (which is what you will work with during this tutorial), using the program `anvi-merge`. Here are some direct links describing these steps:
 
@@ -101,7 +101,7 @@ A typical anvi'o genome-resolved metagenomic workflow [starts with one or more B
 {:.notice}
 While this tutorial will take you through a simple analysis of a real dataset, there also is available a more comprehensive (but more abstract) tutorial on [anvi'o metagenomic workflow]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}){:target="_blank"}.
 
-Using the files in the datapack directory, let's take a first look at the merge profile database for the infant gut dataset metagenome. If you copy-paste this to your terminal:
+Using the files in the data-pack directory, let's take a first look at the merge profile database for the infant gut dataset metagenome. If you copy-paste this to your terminal:
 
 
 ``` bash
@@ -1260,7 +1260,7 @@ anvi-compute-genome-similarity -e additional-files/pangenomics/external-genomes.
 
 <span class="extra-info-header">For people in a rush</span>
 
-Computing ANI can take a long time especially if you don't have many threads to share. Your data pack contains the ANI percent identity file that emerges from the previous command line that you can import into your pan database if you don't want to run the command and move on:
+Computing ANI can take a long time especially if you don't have many threads to share. Your data-pack contains the ANI percent identity file that emerges from the previous command line that you can import into your pan database if you don't want to run the command and move on:
 
 ``` bash
 anvi-import-misc-data additional-files/pangenomics/ANI_percentage_identity.txt \
@@ -1327,7 +1327,7 @@ First, you need to define how you would like to group your genomes in the pangen
 |E_faecium_6798|faecium|
 ```
 
-Which is also in your data pack. Let's import it into the pan database as an additional layer data:
+Which is also in your data-pack. Let's import it into the pan database as an additional layer data:
 
 ``` bash
 anvi-import-misc-data -p PAN/Enterococcus-PAN.db \
@@ -1815,12 +1815,12 @@ In the previous sections of this tutorial we recovered an *E. faecalis* genome f
 
 Increasing availability of shotgun metagenomes offer quite powerful ways to characterize MAGs and isolate genomes across different systems. Harnessing the power of available metagenomes, in fact we could ask the question "*how does our E. faecalis MAG look like in other infant gut metagenomes*". To provide a preliminary answer to this question, and how similar questions can be answered using in anvi'o, here we will use [another Banfield group study](https://www.nature.com/articles/s41467-017-02018-w) by Brooks et al.
 
-In your data pack you have a merged anvi'o profile that describes the read recruitment statistics of our E. faecalis MAG across 20 gut metagenomes from the Brooks et al. study.
+In your data-pack you have a merged anvi'o profile that describes the read recruitment statistics of our E. faecalis MAG across 20 gut metagenomes from the Brooks et al. study.
 
 <div class="extra-info" markdown="1">
 
 <span class="extra-info-header">Snakemake workflows to the rescue</span>
-Your datapack already contains an anvi'o contigs database and a merged profile database that puts the E. faecalis genome in the context of 20 gut metagenomes, but here is some extra info for those of you who are curious to know how did we generated these data.
+Your data-pack already contains an anvi'o contigs database and a merged profile database that puts the E. faecalis genome in the context of 20 gut metagenomes, but here is some extra info for those of you who are curious to know how did we generated these data.
 
 To generate these mapping results and to profile them using anvi'o, we used the anvi'o snakemake workflow for metagenomics.
 
@@ -1909,7 +1909,7 @@ And this is our `config.json`, which describes how to do the read recruitment:
 }
 ```
 
-And we run the following command, which gave us the anvi'o output in your data pack:
+And we run the following command, which gave us the anvi'o output in your data-pack:
 
 ``` bash
 anvi-run-workflow -w metagenomics \
@@ -1920,7 +1920,7 @@ Magic.
 
 </div>
 
-You can visualize the merged profile in your data pack by typing the following command,
+You can visualize the merged profile in your data-pack by typing the following command,
 
 ``` bash
 anvi-interactive -p additional-files/e_faeealis_across_hmp/PROFILE.db \
@@ -1989,7 +1989,7 @@ To analyze and visualize where nucleotide-level variation occurs in the three-di
 {:.notice}
 Very briefly, structures are predicted using [MODELLER](http://merenlab.org/2016/06/18/installing-third-party-software/#modeller), which attempts to find homologous proteins with experimentally-solved structures. If any exist, they are used as templates to model your proteins of interest.
 
-You already have a pre-made structure database in the data pack, and you can make sure it exists with the following command:
+You already have a pre-made structure database in the data-pack, and you can make sure it exists with the following command:
 
 ``` bash
 ls additional-files/e_faeealis_across_hmp/STRUCTURE.db
