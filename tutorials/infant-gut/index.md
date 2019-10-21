@@ -49,7 +49,7 @@ wget https://ndownloader.figshare.com/files/18046139 -O INFANT-GUT-TUTORIAL.tar.
 tar -zxvf INFANT-GUT-TUTORIAL.tar.gz && cd INFANT-GUT-TUTORIAL
 ```
 
-Alternatively (i.e., if you don't have `wget` installed on your system), you can download the same file using [this direct download link](https://ndownloader.figshare.com/files/17928131).
+Alternatively (i.e., if you don't have `wget` installed on your system), you can download the same file using [this direct download link](https://ndownloader.figshare.com/files/18046139).
 
 When you click the link, it will start downloading a **210 Mb** compressed file automatically. Once it is done, go to the relevant directory that contains this file using your terminal, and unpack it the following way:
 
