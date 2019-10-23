@@ -22,8 +22,8 @@ This tutorial is tailored for anvi'o `v6` or later. You can learn the version of
 * [**Chapter III**: Phylogenomics](#chapter-iii-phylogenomics)
 * [**Chapter IV**: Pangenomics](#chapter-iv-pangenomics)
 * [**Chapter V**: Microbial Population Genetics](#chapter-v-microbial-population-genetics)
-* [**Chapter VI**: A genome across metagenomes](#chapter-vi-a-genome-across-metagenomes)
-* [**Chapter VII**: Single-amino acid variants to protein structures](#chapter-vii-single-amino-acid-variants-to-protein-structures)
+* [**Chapter VI**: Genes and genomes across metagenomes](#chapter-vi-genes-and-genomes-across-metagenomes)
+* [**Chapter VII**: From single-amino acid variants to protein structures](#chapter-vii-from-single-amino-acid-variants-to-protein-structures)
 
 **At the end of this tutorial, you should be able to**
 
@@ -1647,6 +1647,9 @@ Now we will visualize the information two different ways.
 
 First, we will use R to recapitulate what we did in our [paper](https://peerj.com/articles/1319/){:target="_blank"}. Of course, please feel absolutely free to look at the Figure 3 behind that link if you are fine with RUINING THE SURPRISE :(
 
+{:.warning}
+This section is here due to historical reasons. This is not our preferred way of visualizing SNV data.
+
 For this step we will need [this R script](https://github.com/meren/anvio-methods-paper-analyses/blob/master/SHARON_et_al/VARIABILITY_REPORTS/02_GEN_FIGURE_SUMMARY.R){:target="_blank"} Meren had written before. You can download it the following way:
 
 ``` bash
@@ -1791,7 +1794,7 @@ Here I will stop, but still we have a lot to talk about!
 
 ### Visualizing SNV profiles as a network
 
-Finally, you can generate an XML description of the SNV profiles you have generated using `anvi-gen-variability-profile` program, using the program `anvi-gen-variability-network`:
+You can ALSO generate an XML description of the SNV profiles you have generated using `anvi-gen-variability-profile` program, using the program `anvi-gen-variability-network`:
 
 ``` bash
 anvi-gen-variability-network -i E-faecalis-SNVs.txt \
@@ -1804,12 +1807,45 @@ Here is a screenshot from Gephi for SNV profiles in the *E. faecalis* genome bin
 
 [![E. faecalis SNVs network](images/network.png)](images/network.png){:.center-img .width-100}
 
+Networks. Everyone likes networks.
+
+### Measuring distances between metagenomes with F<sub>ST</sub>
+
+The [fixation index](https://en.wikipedia.org/wiki/Fixation_index), F<sub>ST</sub>, is a measure of differentiation revealed by SNVs between two populations, and is a variation of the most widely used approach to describe population structures, [*F*-statistic](https://en.wikipedia.org/wiki/F-statistics). Anvi'o includes a program, [anvi-gen-fixation-index-matrix](/software/anvio/vignette/#anvi-gen-fixation-index-matrix), which implements F<sub>ST</sub> in accordance with [Schloissnig et al.'s 2013 work](https://doi.org/10.1038/nature11711) to permit multi-allelic variant positions.
+
+As an alternative to previous strategies, we can use F<sub>ST</sub> to estimate distances between metagenomes using the SNV data following the footsteps of [Tom Delmont and Evan Kiefl et al's previous work](https://elifesciences.org/articles/46497) by providing this program with the variability profile anvi'o generates:
+
+```
+anvi-gen-fixation-index-matrix --variability-profile E-faecalis-SNVs.txt \
+                               --output-file FST_E_facealis.txt
+```
+
+The resulting file is a distance matrix, in which 0 indicates maximum similarity, and 1 indicates maximum distance between two metagenomes as a function of, in our case, SNVs they have in the context of a given genome. We can quickly turn that distance matrix into a hierarchical clustering dendrogram,
+
+```
+anvi-matrix-to-newick FST_E_facealis.txt \
+                      --output-file FST_E_facealis.newick
+```
+
+And visualize the output in anvi'o,
+
+```
+anvi-interactive -t FST_E_facealis.newick \
+                 -p FST_E_facealis.db \
+                 --manual
+```
+
+And voila:
+
+[![E. faecalis SNVs FST](images/FST_E_facealis.png)](images/FST_E_facealis.png){:.center-img .width-60}
+
+Even though F<sub>ST</sub> is quite a sane way to investigate associations between metagenomes, it is important to look at the entirety of the SNV profile by first *looking* at it using the second method.
+
 OK.
 
-You just read about three different ways to visualize the single-nucleotide variability profiles. We are done here!
+You just read about four different ways to visualize the single-nucleotide variability profiles with anvi'o. We are done here.
 
-
-## Chapter VI: A genome across metagenomes
+## Chapter VI: Genes and genomes across metagenomes
 
 In the previous sections of this tutorial we recovered an *E. faecalis* genome from an infant gut metagenome.
 
@@ -1960,7 +1996,7 @@ Including the inspection of a given gene in its context with upstream and downst
 
 [![E. facealis pan](images/gene-inspection.png)](images/gene-inspection.png){:.center-img .width-80}
 
-## Chapter VII: Single-amino acid variants to protein structures
+## Chapter VII: From single-amino acid variants to protein structures
 
 {:.notice}
 This section of the tutorial uses the data described in the above section [Putting the E. faecalis genome in the context of HMP gut metagenomes](#downloading-the-pre-packaged-infant-gut-dataset). You already have this data, but if you're wondering "where did this come from?", you should read that section and then come back.
@@ -2136,4 +2172,4 @@ Let's face it: it is a lot easier to live in a world of A, C, T, and G. But in t
 
 ## Final words
 
-Do you want more examples? Do you have questions? Please don't hesitate to get in touch with [us](../../people/)!
+Do you want more examples? Do you have questions? Please don't hesitate to get in touch with [us](/people/)!
