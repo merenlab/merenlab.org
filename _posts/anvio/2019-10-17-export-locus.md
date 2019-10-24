@@ -31,7 +31,7 @@ To explore the functionality of `anvi-export-locus`, let's extract the lac opero
 <div class="extra-info" markdown="1">
 
 <span class="extra-info-header">Using anvi-export-locus with external gene calls</span>
-If you are using [external gene calls](https://github.com/merenlab/anvio/issues/368) when generating your contigs databases, then you should make sure genes that are next to each other on a contig, have sequenctial gene caller ids. If you are using [Prodigal](https://github.com/hyattpd/Prodigal), then you have nothing to worry, since this is how Prodigal behaves and this is how we tested `anvi-export-locus`. To clarify this point, the way `anvi-export-locus` finds the genes for it to cut is by using the gene callers id. For example, if you are `flank-mode` and the the upstream and downstream genes that you provided hit gene caller ids 40 and 50, respectively, then `anvi-export-locus` will return the eleven genes with ids between 40 and 50. Intuitively, you would expect these to be next to each other on the chromosome, but there is nothing stopping you from using external gene calls that don't abide this intuition, and anvi'o is not going to check whether that is the case or not.
+If you are using [external gene calls](https://github.com/merenlab/anvio/issues/368) when generating your contigs databases, then you should make certain genes that are next to each other on a contig, have sequential gene caller ids. If you are using [Prodigal](https://github.com/hyattpd/Prodigal), then you have nothing to worry, since this is how Prodigal behaves and this is how we tested `anvi-export-locus`. To clarify this point, the way `anvi-export-locus` finds the genes for it to cut is by using the gene callers id. For example, if you are `flank-mode` and the upstream and downstream genes that you provided hit gene caller ids 40 and 50, respectively, then `anvi-export-locus` will return the eleven genes with ids between 40 and 50. Intuitively, you would expect these to be next to each other on the chromosome, but there is nothing stopping you from using external gene calls that don't abide by this intuition, and anvi'o is not going to check whether that is the case or not.
 </div>
 
 
@@ -66,7 +66,7 @@ anvi-script-process-genbank-metadata -m metadata.txt \
 ## Generate contigs DBs
 Now we need to get the fasta files into an anvi'o friendly format. To do this, we'll convert the files we made in the previous step into contigs DBs using the [anvi'o contigs workflow](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#contigs-workflow). 
 
-First, make a json file for the anvio workflow called `contigs.json`
+First, make a json file for the anvio workflow called `contigs.json`:
 ```{bash}
 {
     "fasta_txt": "ecoli.txt"
@@ -97,7 +97,7 @@ Let's get cutting!
 
 ## Default mode
 
-First, we'll use `default-mode` to extract the general genomic neighborhood around the lac operon in each genome
+First, we'll use `default-mode` to extract the general genomic neighborhood around the lac operon in each genome:
 ```{bash}
 mkdir 03_LOCI
 
@@ -113,7 +113,7 @@ do
 done
 ```
 
-
+{:.notice}
 `--search-term` is NOT case sensitive unless you surround your term in quotes (e.g. `--search-term "lacZ"`)
 
 Here is a visual representation of how `anvi-export-locus` found the anchor gene "lacZ" the cuts 10 genes upstread and downstream.
