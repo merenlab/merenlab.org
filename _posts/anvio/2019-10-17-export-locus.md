@@ -1,6 +1,6 @@
 ---
 layout: post
-authors: [matt, meren]
+authors: [matt, evan, alon]
 title: "Extract loci from genomes and metagenomes with anvi'o!"
 excerpt: "How to locate and extract target genetic loci from larger genetic context."
 modified: 2019-10-08
