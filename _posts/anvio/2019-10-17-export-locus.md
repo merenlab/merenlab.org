@@ -16,21 +16,26 @@ redirect_from:
 {:.warning}
 This tutorial is for `v6` and later versions of anvi'o. You can identify which version you have on your computer by typing `anvi-self-test --version` in your terminal.
 
-## Introduction
-Some genetic analyses call for the comparison of specific genetic loci between genomes. For example, one may be interested in investigating evidence for adaptive evolution of the lac operon between different E. coli strains. The first step to this analysis would be to extract the various lac operon from a collection of E. coli genomes. 
+{% include _project-anvio-version.html %}
 
-To address this example and other genomic loci analyses alike, we present the tool `anvi-export-locus`!
+## Introduction
+
+Some genetic analyses call for the comparison of specific genetic loci between genomes. For example, one may be interested in investigating evidence for adaptive evolution of the lac operon between different _E. coli_ strains. The first step to this analysis would be to extract the various lac operon from a collection of _E. coli_ genomes. 
+
+To address this example and other genomic loci analyses alike, we present the tool [anvi-export-locus](/software/anvio/vignette/#anvi-export-locus)!
 
 Briefly, `anvi-export-locus` cuts out loci using two approaches: `default-mode` or what we call `flank-mode`. In the `default-mode`, the tool locates a designated anchor gene, then cuts upstream and downstream based on user-defined input. On the other hand, `flank-mode` finds designated genes that surround the target locus, then cuts in between them. Genes to locate locus anchors or flanking genes are defined through their specific ids in anvi'o or through `search-terms` that query functional annotations or HMM hits stored in your contigs database.
 
-To explore the functionality of `anvi-export-locus`, let's extract the lac operon from the larger genomic context of E. coli genomes!
+To explore the functionality of `anvi-export-locus`, let's extract the lac operon from the larger genomic context of _E. coli_ genomes!
 
-## Download E. coli genomes
+{% include _join-anvio-slack.html %}
 
-First, let's download Genbank files for a few representative E. coli strains:
+## Downloading _E. coli_ genomes
+
+First, let's download Genbank files for a few representative _E. coli_ strains:
 
 {:.notice}
-Alon has a great tutorial [here](http://merenlab.org/2019/03/14/ncbi-genome-download-magic/) describing how to automagically download genomes from NCBI. We'll be using this tool to download a few E. Coli genomes. If you have any questions regarding downloading genomes, please refer to [Alon's tutorial](http://merenlab.org/2019/03/14/ncbi-genome-download-magic/).
+Alon has a great tutorial [here](http://merenlab.org/2019/03/14/ncbi-genome-download-magic/) describing how to automagically download genomes from NCBI. We'll be using this tool to download a few _E. coli_ genomes. If you have any questions regarding downloading genomes, please refer to [Alon's tutorial](http://merenlab.org/2019/03/14/ncbi-genome-download-magic/).
 
 ```{bash}
 # Set working directory variable for later
@@ -74,11 +79,12 @@ anvi-run-workflow -w contigs \
 ```
 
 ## Extract lac operon
+
 We should now have contigs DBs for our genomes. 
 
-Now that we have six representative E. coli examples, we will use a combination of the `default-mode` and `flank-mode` to cut out the genomic neighborhood around the lac operon and then trim the contig to just contain the target operon. 
+Now that we have six representative _E. coli_ examples, we will use a combination of the `default-mode` and `flank-mode` to cut out the genomic neighborhood around the lac operon and then trim the contig to just contain the target operon. 
 
-First, we will use `default-mode`. This requires the user to provide a `-search-term` and `--num-genes` parameter. The `-search-term` will act as an anchor gene to locate the locus within the contigs provided. In this case, we will use the lacZ gene to locate the lac operon in our  E. coli genomes. Once the anchor gene is located `--num-genes X,Y` will instruct `anvi-export-locus` to cut `X` gene(s) upstream and `Y` gene(s) downstream of the designated anchor gene.
+First, we will use `default-mode`. This requires the user to provide a `-search-term` and `--num-genes` parameter. The `-search-term` will act as an anchor gene to locate the locus within the contigs provided. In this case, we will use the lacZ gene to locate the lac operon in our  _E. coli_ genomes. Once the anchor gene is located `--num-genes X,Y` will instruct `anvi-export-locus` to cut `X` gene(s) upstream and `Y` gene(s) downstream of the designated anchor gene.
 
 Let's get cutting!
 
@@ -130,6 +136,9 @@ Herr is a visual representation of how `flank-mode` cuts out a locus using flank
 
 ## Conclusion
 
-`anvi-export-locus` is a flexible tool that allows you to extract genomic loci from genomes and metagenomes. In this tutorial, we looked at the classic lac operon in E. coli genomes, but this tool can also be unleashed on any genomic loci and even metagenomic assemblies! For instance, one could extract specific cellulose synthesis operons from soil metagenomes.
+[anvi-export-locus](/software/anvio/vignette/#anvi-export-locus) is a flexible tool that allows you to extract genomic loci from genomes and metagenomes. In this tutorial, we looked at the classic lac operon in _E. coli_ genomes, but this tool can also be unleashed on any genomic loci and even metagenomic assemblies! For instance, one could extract specific cellulose synthesis operons from soil metagenomes.
 
 We hope you find amazing applications for this tool. If you have a suggestion or question please do not hesitate to contact us. Also, please report any bugs as an issue on the anvi'o [Github repository](https://github.com/merenlab/anvio).
+
+{% include _join-anvio-slack.html %}
+
