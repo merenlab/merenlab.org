@@ -28,6 +28,13 @@ Briefly, `anvi-export-locus` cuts out loci using two approaches: `default-mode` 
 
 To explore the functionality of `anvi-export-locus`, let's extract the lac operon from the larger genomic context of _E. coli_ genomes!
 
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Using anvi-export-locus with external gene calls</span>
+If you are using [external gene calls](https://github.com/merenlab/anvio/issues/368) when generating your contigs databases, then you should make sure genes that are next to each other on a contig, have sequenctial gene caller ids. If you are using [Prodigal](https://github.com/hyattpd/Prodigal), then you have nothing to worry, since this is how Prodigal behaves and this is how we tested `anvi-export-locus`. To clarify this point, the way `anvi-export-locus` finds the genes for it to cut is by using the gene callers id. For example, if you are `flank-mode` and the the upstream and downstream genes that you provided hit gene caller ids 40 and 50, respectively, then `anvi-export-locus` will return the eleven genes with ids between 40 and 50. Intuitively, you would expect these to be next to each other on the chromosome, but there is nothing stopping you from using external gene calls that don't abide this intuition, and anvi'o is not going to check whether that is the case or not.
+</div>
+
+
 {% include _join-anvio-slack.html %}
 
 ## Downloading _E. coli_ genomes
