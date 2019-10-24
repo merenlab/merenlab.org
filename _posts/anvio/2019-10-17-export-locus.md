@@ -24,7 +24,7 @@ Some genetic analyses call for the comparison of specific genetic loci between g
 
 To address this example and other genomic loci analyses alike, we present the tool [anvi-export-locus](/software/anvio/vignette/#anvi-export-locus)!
 
-Briefly, `anvi-export-locus` cuts out loci using two approaches: `default-mode` or what we call `flank-mode`. In the `default-mode`, the tool locates a designated anchor gene, then cuts upstream and downstream based on user-defined input. On the other hand, `flank-mode` finds designated genes that surround the target locus, then cuts in between them. Genes to locate locus anchors or flanking genes are defined through their specific ids in anvi'o or through `search-terms` that query functional annotations or HMM hits stored in your contigs database.
+Briefly, `anvi-export-locus` cuts out loci using two approaches: `default-mode` or what we call `flank-mode`. In the `default-mode`, the tool locates a designated anchor gene, then cuts upstream and downstream based on user-defined input. On the other hand, `flank-mode` finds designated genes that define the left and right boundaries of the target locus, then cuts in between them. Genes to locate locus anchors or flanking genes are defined through their specific ids in anvi'o or through `search-terms` that query functional annotations or HMM hits stored in your contigs database.
 
 To explore the functionality of `anvi-export-locus`, let's extract the lac operon from the larger genomic context of _E. coli_ genomes!
 
@@ -69,7 +69,7 @@ First, make a json file for the anvio workflow called `contigs.json`
 Then run the contigs workflow! 
 
 {:.notice}
-This step may take a while depending on your computational resources. If you have any questions about running anvi'o workflows please refer to this tutorial [here](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#a-general-introduction-to-essentials). If you access to an HPC or cluster computer, check out additional paramters  [here](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#running-workflows-on-a-cluster).
+This step may take a while depending on your computational resources. If you have any questions about running anvi'o workflows please refer to this tutorial [here](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#a-general-introduction-to-essentials). If you access to an HPC or cluster computer, check out additional parameters  [here](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#running-workflows-on-a-cluster).
 ```{bash}
 anvi-run-workflow -w contigs \
                   -c contigs.json \
@@ -84,7 +84,7 @@ We should now have contigs DBs for our genomes.
 
 Now that we have six representative _E. coli_ examples, we will use a combination of the `default-mode` and `flank-mode` to cut out the genomic neighborhood around the lac operon and then trim the contig to just contain the target operon. 
 
-First, we will use `default-mode`. This requires the user to provide a `-search-term` and `--num-genes` parameter. The `-search-term` will act as an anchor gene to locate the locus within the contigs provided. In this case, we will use the lacZ gene to locate the lac operon in our  _E. coli_ genomes. Once the anchor gene is located `--num-genes X,Y` will instruct `anvi-export-locus` to cut `X` gene(s) upstream and `Y` gene(s) downstream of the designated anchor gene.
+First, we will use `default-mode`. This requires the user to provide a `--search-term` and `--num-genes` parameter. The `--search-term` will act as an anchor gene to locate the locus within the contigs provided. In this case, we will use the lacZ gene to locate the lac operon in our  _E. coli_ genomes. Once the anchor gene is located `--num-genes X,Y` will instruct `anvi-export-locus` to cut `X` gene(s) upstream and `Y` gene(s) downstream of the designated anchor gene.
 
 Let's get cutting!
 
@@ -116,7 +116,7 @@ Here is a visual representation of how `anvi-export-locus` found the anchor gene
 
 Awesome, now we have some smaller contigs that contain the lac operon. BUT, we also grabbed some extra genes that don't belong to the operon. Let's use `--flank-mode` to trim the loci to just contain the lac operon.
 
-To do this, give `anvi-export-locus` two flanking `--search-terms': lacI and lacA
+To do this, give `anvi-export-locus` two flanking `--search-term`s: lacI and lacA
 ```{bash}
 for GENOME in `ls "${WD}"/03_LOCI/*.db`;
 do
@@ -129,9 +129,9 @@ done
 ```
 
 {:.notice}
-`--flank-mode` requires flanking genes to be single copies in the contig it's searching. If your locus of interest does not have fixed coordinates in your genomes or metagenomes, you may need to adjust the `-search-terms` on a case by case bases. 
+`--flank-mode` requires flanking genes to be single copies in the contig it's searching. If your locus of interest does not have fixed coordinates in your genomes or metagenomes, you may need to adjust the `-search-term`s on a case by case bases. 
 
-Herr is a visual representation of how `flank-mode` cuts out a locus using flanking genes.
+Here is a visual representation of how `flank-mode` cuts out a locus using flanking genes.
 [![export-locus-defaultmode](/images/export-locus-flankmode.png)](export-locus-flankmode.png){:.center-img .width-100}
 
 ## Conclusion
