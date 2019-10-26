@@ -10,7 +10,7 @@ comments: true
 redirect_from:
   - /export-loci/
 image:
-    feature: /images/export-locus-sketch.png
+    feature: export-locus-sketch.png
 ---
 
 {% include _toc.html %}
