@@ -365,7 +365,7 @@ Advanced access to gene clusters is also possible through the command line throu
 {:.notice}
 This functionality is available since anvi'o `v5.2` (here is the original contribution from Mahmoud Yousef).
 
-Gene clusters are good, but not all gene clusters are created equal. By simply inspecting them you can have see differing levels of disagreements between amino acid sequences across different genomes in each gene cluster.
+Gene clusters are good, but not all gene clusters are created equal. By simply inspecting the alignments within just a few of gene clusters, you can witness differing levels of disagreements between amino acid sequences across different genomes.
 
 ### Concept of homogeneity
 
@@ -385,6 +385,9 @@ If you are working with a pangenome that was generated prior to anvi'o `v5.2`, y
 Here is an example in the context of our *Prochlorococcus* pangenome (see the outermost two additional layers):
 
 [![31 Prochlorococcus collection]({{images}}/homogeneity-indices-main.png)]({{images}}/homogeneity-indices-main.png){:.center-img .width-70}
+
+{:.warning}
+Homogeneity indices are calculated based on the alignment. If the alignment for some reason fails for a given set of genes in a gene cluster, the homogeneity indices for it will show `-1`.
 
 #### Geometric homogeneity index
 
