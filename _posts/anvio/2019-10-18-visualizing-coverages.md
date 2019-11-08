@@ -15,7 +15,7 @@ This workflow is for `v6` and later versions of anvi'o. You can identify which v
 
 {% capture images %}{{site.url}}/images/anvio/2019-10-18-visualizing-coverages{% endcapture %}
 
-"Read recruitment", "read mapping" or even just "mapping" are thrown around all the time in metagenomic studies and they all describe the same thing. If you already feel confident with read recruitment, feel free to skip down to the new stuff, probably starting at the section "What is this tutorial about?". But if you want a refresher, or a slighly more in-depth understanding of read recruitment, here's a quick summary about the underlying principles and the utility of one of the most powerful strategy we frequently rely on in metagenomic studies to make sense of environmental populations.
+"Read recruitment", "read mapping" or even just "mapping" are thrown around all the time in metagenomic studies and they all describe the same thing. If you already feel confident with read recruitment, feel free to skip down to the new stuff, probably starting at the section "What is this tutorial about?". But if you want a refresher, or a slighly more in-depth understanding of read recruitment, here's a quick summary about the underlying principles and the utility of one of the most powerful strategies that we frequently rely on in metagenomic studies to make sense of environmental populations.
 
 # How *does* read recruitment work?
 
@@ -35,7 +35,7 @@ In our lab we frequently use [Bowtie2](http://bowtie-bio.sourceforge.net/Bowtie2
 
 Typically, you start with a reference file input in FASTA format. For simiplicity, let's say this is a reference genome. Bowtie2 takes this FASTA file and uses a Burrows-Wheeler Transformation to convert it to a Bowtie2 index. This is a method of compressing your data by cyclically rotating the sequence to get all possible rotations of the sequence, ordering them alphabetically, ranking each letter by its occurance, and keeping only the right most column of data. The ordering means that the rank, the n<sup>th</sup> time that that letter has appeared in the sequence, is the same in the first and last columns. The letters are also assigned a count value, in other words their original position in the sequence. We can use the Last to First (LF) function to match a character with its rank (these values are stored by the algorithm) and use the Walk Left function to reconstruct the initial sequence from these data. More information on these functions can be found [here](https://ocw.mit.edu/courses/biology/7-91j-foundations-of-computational-and-systems-biology-spring-2014/lecture-slides/MIT7_91JS14_Lecture5.pdf).
 
-Ok, so now we have a Bowtie2 index, how do we actually map the reads? Our input reads will typically be in FASTQ format, so we'll have the read information and a quality score for each base. To find reads that match exactly, we use something called a Full-text index in Minute space (FM) index. This matches your read from right to left (5' to 3') to the Bowtie2 index. Each iteration of top and bottom using the FM index indicates the range of rows in the index that have progressively longer matches to our query read. If the range is 0, it means that there's nothing that matches the read sequence exactly and it wouldn't be mapped. But we can immediately think of a problem here. What if there are sequencing errors in our data, or more importantly, true biological variation? We want to be able to map reads that aren't a perfect match. To get around this, Bowtie2 uses a backtracking alignment search. When it encounters a mismatch, it attempts to add all of the differernt bases to see what matches and then continues. It can also try to backtrack to the lowest quality match, replace this with another base and continue from there. The number of mismatches and amount of backtracking is limited to avoid reads mapping that do not belong in that position. This algorithm is "greedy", meaning it will keep the first mismatch that works but not necessarily the best one. Bowtie2 can be forced to use the best one by supplying the flag `--best`. Because Bowtie2 restricts the amount of backtracking, it may seem like it is biased toward the right hand side of the read, however the left hand side of the read is typically higher quality, and Bowtie2 can use a mirrow index to avoid this bias. A mirror index is the reference sequence reverse complementd and made into a Bowtie2 index, then mapping reversed reads to this index. Again, see [here](https://ocw.mit.edu/courses/biology/7-91j-foundations-of-computational-and-systems-biology-spring-2014/lecture-slides/MIT7_91JS14_Lecture5.pdf) for more information.
+Ok, so now we have a Bowtie2 index, how do we actually map the reads? Our input reads will typically be in FASTQ format, so we'll have the read information and a quality score for each base. To find reads that match exactly, we use something called a Full-text index in Minute space (FM) index. This matches your read from right to left (5' to 3') to the Bowtie2 index. Each iteration of top and bottom using the FM index indicates the range of rows in the index that have progressively longer matches to our query read. If the range is 0, it means that there's nothing that matches the read sequence exactly and it wouldn't be mapped. But we can immediately think of a problem here. What if there are sequencing errors in our data, or more importantly, true biological variation? We want to be able to map reads that aren't a perfect match. To get around this, Bowtie2 uses a backtracking alignment search. When it encounters a mismatch, it attempts to add all of the different bases to see what matches and then continues. It can also try to backtrack to the lowest quality match, replace this with another base and continue from there. The number of mismatches and amount of backtracking is limited to avoid reads mapping that do not belong in that position. This algorithm is "greedy", meaning it will keep the first mismatch that works but not necessarily the best one. Bowtie2 can be forced to use the best one by supplying the flag `--best`. Because Bowtie2 restricts the amount of backtracking, it may seem like it is biased toward the right hand side of the read, however the left hand side of the read is typically higher quality, and Bowtie2 can use a mirror index to avoid this bias. A mirror index is the reference sequence reverse complementd and made into a Bowtie2 index, then mapping reversed reads to this index. Again, see [here](https://ocw.mit.edu/courses/biology/7-91j-foundations-of-computational-and-systems-biology-spring-2014/lecture-slides/MIT7_91JS14_Lecture5.pdf) for more information.
 
 Alright, the reads have now been mapped, but where are these reads in the reference? To determine this, we take the suffix array, or in other words the file that was generated that kept track of the postition of every base in the original sequence. Unfortunately, this complete file is very large, so instead of keeping the entire thing, Bowtie2 keeps every 32nd entry (this number can be adjusted) and then uses the Walk-Left function (which reconstucts the initial sequence) until it hits the suffix of interest.
 
@@ -120,13 +120,13 @@ anvi-inspect -p PROFILE.db \
 
 This command will give you the same inspect page that we saw before, but allows you to skip going through the interactive interface.
 
-So anvi-inspect offers direct access to inspection page and solves some of the problems associated with having to go through the main display when we know which splits we are interested in working with. But over time we reached to another realization: while inspect page is great for interactive visualization with access to all the genes and functions, exporting these coverage plots for publications or presentations are very difficult. One could take screen shots of the inspect page, but that's not a very elegant solution, nor is it reproducible. And it's even less ideal if you have a lot of samples.
+So anvi-inspect offers direct access to inspection page and solves some of the problems associated with having to go through the main display when we know which splits we are interested in working with. But over time we reached to another realization: while inspect page is great for interactive visualization with access to all the genes and functions, exporting these coverage plots for publications or presentations is very difficult. One could take screen shots of the inspect page, but that's not a very elegant solution, nor is it reproducible. And it's even less ideal if you have a lot of samples.
 
 The next program solves that issue.
 
 ## Exporting coverage data as a PDF
 
-Anvi'o's new and talented program [anvi-script-visualize-split-coverages](/vignette/#anvi-script-visualize-split-coverages) will generate static version of the coverage plots you see in anvi'o interactive interfaces as a PDF. In other words, this program will give you the inspect page produced in `ggplot2`.
+Anvi'o's new and talented program [anvi-script-visualize-split-coverages](/vignette/#anvi-script-visualize-split-coverages) will generate static versions of the coverage plots you see in anvi'o interactive interfaces as a PDF. In other words, this program will give you the inspect page produced in `ggplot2`.
 
 {:.notice}
 **Meren's note**: [anvi-script-visualize-split-coverages](/vignette/#anvi-script-visualize-split-coverages) is the first anvi'o program that is contributed entirely from someone who is not an official member of the UChicago anvi'o headquarters. [Ryan Moore](http://twitter.com/mooreryan), a graduate student at the University of Delaware, heard our call on Twitter, and implemented this very talented program for the entire community. I know I speak on behalf of all anvi'o users who will use his program when I say I am very grateful for his generosity and time. This is how open-source projects grow and become the property of the community rather than being associated with a single group forever. Thank you, Ryan!
@@ -197,12 +197,12 @@ Which creates a PDF file that looks like this:
 
 Yay! Now we have SNVs. The default SNV colors are green, red and grey. Green color indicates those nucleotide positions that occur in the third position of a codon. In contrast, red indicates those that are in the first or the second nucleotide position in a codon. As you can imagine, the grey ones are those nucleotide positions that occur at intergenic regions of the chromosome.
 
-As we can see from the plot above, the coverage in the above samples varies widely, and while this is good to distinguish highly covered vs lowly covered samples, it also makes it difficult to visualize the ones with less coverage, especially of you want to look at SNVs. Thankfully, there is a solution for this. You can run exactly the same [anvi-script-visualize-split-coverages](/vignette/#anvi-script-visualize-split-coverages) command, but add in the flag `--free-y-scale TRUE`.
+As we can see from the plot above, the coverage in the above samples varies widely, and while this is good to distinguish highly covered vs lowly covered samples, it also makes it difficult to visualize the ones with less coverage, especially if you want to look at SNVs. Thankfully, there is a solution for this. You can run exactly the same [anvi-script-visualize-split-coverages](/vignette/#anvi-script-visualize-split-coverages) command, but add in the flag `--free-y-scale`.
 
 ```bash
 anvi-script-visualize-split-coverages -i pLA6_12_000000000001_split_00001_coverage.txt \
                                       -o pLA6_12_000000000001_split_00001_inspect.pdf \
-                                      --snv-data pLA6_12_000000000001_split_00001_SNVs.txt
+                                      --snv-data pLA6_12_000000000001_split_00001_SNVs.txt \
                                       --free-y-scale TRUE
 ```
 
@@ -212,9 +212,9 @@ This will give you a plot that looks like this:
 
 ### Visualize a subset of your samples
 
-Sometimes you may be interested in only a subset of the samples in your profile database. An additional file for helps you to have a more detailed control on the output PDF including providing a way to subset your samples.
+Sometimes you may be interested in only a subset of the samples in your profile database. An additional, tab-delilimited file called `samples_data.txt` with sample names and their corresponding groups gives you more control on the output PDF, including providing a way to subset your samples.
 
-Another additional file you can create is a `samples_data.txt` file. This will specify which samples should be grouped together into the same PDF. For example, some of the metagenomes we downloaded were from the Red Sea, and some were metagenomes from pelagic zones all over the world (the Malaspina metagenomes). One could create a file that looks like this to store Red Sea mapping results to one PDF, and the Malaspina metagenomes mapping to another PDF,
+`samples.txt` will specify which samples should be grouped together into the same PDF. For example, some of the metagenomes we downloaded were from the Red Sea, and some were metagenomes from pelagic zones all over the world (the Malaspina metagenomes). One could create a file that looks like this to store Red Sea mapping results to one PDF, and the Malaspina metagenomes mapping to another PDF,
 
 ```
 sample_name	sample_group
@@ -266,7 +266,7 @@ anvi-script-visualize-split-coverages -i pLA6_12_000000000001_split_00001_covera
 Where the `sample_data_colors.txt` file is:
 
 ```
-sample_name	sample_group
+sample_name	sample_group	sample_color
 MSP0109	MAL	#000080
 MSP0112	MAL	#000080
 MSP0114	MAL	#000080
