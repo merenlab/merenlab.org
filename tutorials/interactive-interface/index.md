@@ -76,7 +76,7 @@ $ anvi-interactive -d data.txt \
 
 [![manual](images/data-raw.png)](images/data-raw.png){:.center-img .width-50}
 
-Because we haven't provided any specific organization, anvi'o organizes all samples alphabetically (very smart, anvi'o, really, thanks). But we will recover that.
+Because we haven't provided any specific organization, anvi'o organizes all samples alphabetically. But we will recover from that.
 
 {:.notice}
 If you press `m` on your keyboard, you can toggle the information window on that would show you the actual data points under your mouse pointer.
@@ -105,21 +105,37 @@ We can do a quick hierarchical clustering on the data using the program `anvi-ma
 
 [![manual](images/data-w-tree.png)](images/data-w-tree.png){:.center-img .width-50}
 
-A bit better! While we are here, though, click "save state" and save a default state so we don't have to press draw every time we run the interface going forward (later we will update that state). Although the program `anvi-matrix-to-newick` uses Euclidean distance and ward linkage by default to organize things, other distance metric and linkage options are available:
-
-``` bash
- $ anvi-matrix-to-newick data.txt \
-                         -o tree.txt \
-                         --distance braycurtis \
-                         --linkage average
-```
+A bit better! 
 
 {:.notice}
-Available **distance metrics** include `braycurtis`, `canberra`, `chebyshev`, `cityblock`, `correlation`, `cosine`, `dice`, `euclidean`, `hamming`, `jaccard`, `kulsinski`, `matching`, `minkowski`, `rogerstanimoto`, `russellrao`, `sokalmichener`, `sokalsneath`, `sqeuclidean`, and `yule`. Available linkage algorithms include `single`, `complete`, `average`, `weighted`, `centroid`, `median`, and `ward`.
+Although the program `anvi-matrix-to-newick` uses Euclidean distance and ward linkage by default to organize things, available **distance metrics** include `braycurtis`, `canberra`, `chebyshev`, `cityblock`, `correlation`, `cosine`, `dice`, `euclidean`, `hamming`, `jaccard`, `kulsinski`, `matching`, `minkowski`, `rogerstanimoto`, `russellrao`, `sokalmichener`, `sokalsneath`, `sqeuclidean`, and `yule` with available **linkage algorithms**, `single`, `complete`, `average`, `weighted`, `centroid`, `median`, and `ward`.
+
+## State files
+
+Anvi'o enables you to a lot with its interactive interface when it comes to making visualization decisions. It also offers you a way to store these changes through so called *states*. A state is a JSON-formatted description of what you see in the interface and is stored in a anvi'o profile databases. There can be more than one state files in a given database, but if anvi'o finds a state in a given profile database called `default`, then it will automatically load it and click the Draw button on your behalf.
+
+While we are here, let's click "save state" and save a `default` state so we don't have to press draw every time we run the interface going forward (later we will have to update this state as we continue editing the interface).
+
+There are other ways to deal with states. For instance, if you go to your terminal and run the command,
+
+```
+anvi-help state
+``` 
+
+You will see that there are multiple programs that can export these state files. Just for fun, let's export the state we just stored and take a look at it:
+
+```
+anvi-export-state -p profile.db \
+                  -s default \
+                  -o default.json
+```
+
+As you can imagine, an edited state file can also be imported to a profile database.
+
 
 ## Organizing layers
 
-We definitely improved the organization of items based on their taxonomic makeup. But layers could have been organized better, as well.
+Going back to the dataset we have been playing with, we definitely have improved the display of items when we organized them based on the occurrence patterns of different taxa on metagenomes. But layers, which, in this particular dataset represent taxa, could have been organized better, as well.
 
 Doing it with anvi'o is somewhat similar to the initial step of organizing items (but notice that we now add the flag `--transpose`):
 
@@ -171,7 +187,7 @@ Then, if you click draw again, you will feel that we are getting somewhere.
 
 
 {:.notice}
-This may be a good time to save your default state by using the buttons down below in your settings panel so you don't have to click Draw every time you start a new interactive interface.
+This may be a good time to update your default state.
 
 
 ## Let's go all corners
@@ -240,7 +256,7 @@ Just a small tip while we are here: you can always zoom-in to a particular part 
 ![manual](images/zoom.gif){:.center-img .width-80}
 
 {:.notice}
-You could have shown your items additonal data in the interactive interface without importing it, but using the `--additional-layers` parameter. But it is always a better practice to import additional data into the profile database to minimize the number of files that need to be carried around for full reproducibility.
+You could have shown your items additional data in the interactive interface without importing it, but using the `--additional-layers` parameter. But it is always a better practice to import additional data into the profile database to minimize the number of files that need to be carried around for full reproducibility.
 
 
 ## Additional data for the layers

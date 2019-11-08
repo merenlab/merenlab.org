@@ -138,6 +138,7 @@
   avatar: bio-matt.jpg
   linkedin: matthewschechter
   twitter: mschecht_bio
+  web: https://orcid.org/0000-0002-8435-3203
   github: mschecht
   address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
   bio: "I am interested in combining comparative genomics and environmental metagenomics to identify genetic determinants of fitness in microbial populations in the human gut and ocean microbiome."
@@ -222,6 +223,23 @@
     - title: Graduate Student
       inst: The Biophysical Sciences Program at the University of Chicago
       inst_link: http://biophysics.uchicago.edu/
+
+- alias: sam
+  official: True
+  name: Samuel Miller
+  tenure_start: 11/2019
+  role: Post-doctoral Scientist
+  email: samuelmiller@uchicago.edu
+  twitter: smiller_science
+  github: semiller10
+  web: https://semiller10.github.io
+  avatar: bio-sam.jpg
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  bio: "I study how microbes function in their environments by developing and applying computational tools to interpret data from approaches such as tRNA-sequencing, proteomics, and metagenomics."
+  affiliations:
+    - title: Post-doctoral Scientist
+      inst: The Department of Medicine at the University of Chicago
+      inst_link: http://medicine.uchicago.edu/
 
 - alias: kota
   official: True

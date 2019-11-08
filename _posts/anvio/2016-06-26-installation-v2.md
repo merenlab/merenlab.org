@@ -55,19 +55,19 @@ conda config --env --add channels bioconda
 Then, create an anvi'o environment for anvi'o v{% include _project-anvio-version-number.html %} (it is essential to create it with Python 3.6 as shown below):
 
 ``` bash
-conda create -n anvio-6 python=3.6
+conda create -n anvio-6.1 python=3.6
 ```
 
 Once it is ready, activate your new environment:
 
 ``` bash
-conda activate anvio-6
+conda activate anvio-6.1
 ```
 
 And finally install anvi'o in it:
 
 ``` bash
-conda install -y anvio=6
+conda install -y anvio=6.1
 ```
 
 This may take a while.
@@ -96,14 +96,14 @@ If at the end of this your browser automatically loaded the test run results, yo
 
 ``` bash
 conda deactivate
-conda create -y --name anvio-6 python=3.6
-conda install -y --name anvio-6 -c bioconda -c conda-forge anvio=6
+conda create -y --name anvio-6.1 python=3.6
+conda install -y --name anvio-6.1 -c bioconda -c conda-forge anvio=6.1
 conda install -y diamond=0.9.14
 ```
 
 
 {:.warning}
-**IMPORTANT NOTE**: You may need to activate the anvi'o conda environment every time you open a new terminal window. Depending on your conda setup, you will either need to run `source activate anvio-6` or `conda activate anvio-6` (this assumes you named your conda environment for anvio `anvio-6` as per the commands above using the `--name` flag --if not, please replace `anvio-6` with whatever you have used to name your environment). You can always list your conda environments by typing `conda env list`.
+**IMPORTANT NOTE**: You may need to activate the anvi'o conda environment every time you open a new terminal window. Depending on your conda setup, you will either need to run `source activate anvio-6.1` or `conda activate anvio-6.1` (this assumes you named your conda environment for anvio `anvio-6.1` as per the commands above using the `--name` flag --if not, please replace `anvio-6.1` with whatever you have used to name your environment). You can always list your conda environments by typing `conda env list`.
 
 <div class="extra-info" markdown="1">
 
@@ -235,7 +235,7 @@ At this stage if you run `anvi-activate-master`, you should see similar outputs 
 ```
 $ anvi-self-test -v
 
-Anvi'o version ...............................: esther (v6-master)
+Anvi'o version ...............................: esther (v6.1-master)
 Profile DB version ...........................: 31
 Contigs DB version ...........................: 14
 Pan DB version ...............................: 13
@@ -280,7 +280,7 @@ index 1ceca28a..75c91a73 100644
 @@ -13,7 +13,7 @@ import platform
  import pkg_resources
 
- anvio_version = '6-master'
+ anvio_version = '6.1-master'
 -anvio_codename = 'esther'
 +anvio_codename = 'ESTHER'
 
@@ -293,7 +293,7 @@ But also see in action:
 ```
 $ anvi-self-test -v
 
-Anvi'o version ...............................: ESTHER (v6-master)
+Anvi'o version ...............................: ESTHER (v6.1-master)
 Profile DB version ...........................: 31
 Contigs DB version ...........................: 14
 Pan DB version ...............................: 13
@@ -333,15 +333,15 @@ This is all personal taste and they may need to change from computer to computer
 If you are using Anaconda rather than miniconda, or you are using Linux and not Mac, you will have to find corresponding paths for lines that start with `/Users` down below :)
 
 ``` bash
-init_anvio_6 () {
+init_anvio_stable () {
     {
         deactivate && conda deactivate
     } &> /dev/null
 
     export PATH="/Users/$USER/miniconda3/bin:$PATH"
     . /Users/$USER/miniconda3/etc/profile.d/conda.sh
-    conda activate anvio-6
-    export PS1="\[\e[0m\e[40m\e[1;30m\] :: anvi'o v6 :: \[\e[0m\e[0m \[\e[1;32m\]\]\w\[\e[m\] \[\e[1;31m\]>>>\[\e[m\] \[\e[0m\]"
+    conda activate anvio-6.1
+    export PS1="\[\e[0m\e[47m\e[1;30m\] :: anvi'o v6.1 :: \[\e[0m\e[0m \[\e[1;32m\]\]\w\[\e[m\] \[\e[1;31m\]>>>\[\e[m\] \[\e[0m\]"
 }
 
 
@@ -357,22 +357,22 @@ init_anvio_master () {
     export PS1="\[\e[0m\e[40m\e[1;30m\] :: anvi'o v6 master :: \[\e[0m\e[0m \[\e[1;34m\]\]\w\[\e[m\] \[\e[1;31m\]>>>\[\e[m\] \[\e[0m\]"
 }
 
-alias a6=init_anvio_6
+alias as=init_anvio_stable
 alias am=init_anvio_master
 ```
 
-With this steup, in a new terminal window I can type `a6` or `am` to run the stable or master version of anvi'o, or to switch from one to the other:
+With this steup, in a new terminal window I can type `as` or `am` to run the stable or master version of anvi'o, or to switch from one to the other:
 
 ```
 meren ~ $ anvi-self-test -v
 -bash: anvi-self-test: command not found
 
-meren ~ $ a6
+meren ~ $ as
 
-:: anvi'o v6 :: ~ >>>
+:: anvi'o v6.1 :: ~ >>>
 
-:: anvi'o v6 :: ~ >>> anvi-self-test -v
-Anvi'o version ...............................: esther (v6)
+:: anvi'o v6.1 :: ~ >>> anvi-self-test -v
+Anvi'o version ...............................: esther (v6.1)
 Profile DB version ...........................: 31
 Contigs DB version ...........................: 14
 Pan DB version ...............................: 13
@@ -380,7 +380,7 @@ Genome data storage version ..................: 6
 Auxiliary data storage version ...............: 2
 Structure DB version .........................: 1
 
-:: anvi'o v6 :: ~ >>> am
+:: anvi'o v6.1 :: ~ >>> am
 
 :: anvi'o v6 master :: ~ >>>
 
