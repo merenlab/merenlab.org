@@ -6,6 +6,7 @@ modified: 2018-05-05
 categories: [anvio]
 comments: true
 authors: [tom]
+redirect_from: /delmont-euk-scgs
 image:
   feature: http://merenlab.org/images/anvio/2018-05-05-eukaryotic-single-copy-core-genes/correlation.png
   display: false
