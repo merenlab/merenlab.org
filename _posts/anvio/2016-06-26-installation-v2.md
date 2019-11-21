@@ -45,12 +45,6 @@ conda update conda
 {:.warning}
 Please make sure you create a new conda enviornment for anvi'o (you can make sure you are not in a conda environment by opening a new terminal and running `conda deactivate`. You can see which environments exist on your coputer by running `conda env list`. You can indeed install anvi'o in an existing conda environment, but if things go wrong, please consider relying on meditation for help rather than [anvi'o community resources]({% post_url anvio/2019-10-07-getting-help %}).
 
-Then, add the following channels that will be required for the anvi'o installation:
-
-``` bash
-conda config --env --add channels conda-forge
-conda config --env --add channels bioconda
-```
 
 Then, create an anvi'o environment for anvi'o v{% include _project-anvio-version-number.html %} (it is essential to create it with Python 3.6 as shown below):
 
@@ -67,7 +61,7 @@ conda activate anvio-6.1
 And finally install anvi'o in it:
 
 ``` bash
-conda install -y anvio=6.1
+conda install -y -c conda-forge -c bioconda anvio=6.1
 ```
 
 This may take a while.
