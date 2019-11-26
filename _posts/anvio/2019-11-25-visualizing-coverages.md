@@ -2,7 +2,7 @@
 layout: post
 title: "Visualizing contig coverages to make informed statements regarding microbial population diversity"
 excerpt: "How to take mapping results, visualize them in anvi'o, and export them for publication"
-modified: 2019-10-18
+modified: 2019-11-25
 categories: [anvio]
 comments: true
 authors: [emily, ryan]
@@ -13,31 +13,33 @@ authors: [emily, ryan]
 {: .notice}
 This workflow is for `v6` and later versions of anvi'o. You can identify which version you have on your computer by typing `anvi-self-test --version` in your terminal.
 
-{% capture images %}{{site.url}}/images/anvio/2019-10-18-visualizing-coverages{% endcapture %}
+{% capture images %}{{site.url}}/images/anvio/2019-11-25-visualizing-coverages{% endcapture %}
 
-"Read recruitment", "read mapping" or even just "mapping" are thrown around all the time in metagenomic studies and they all describe the same thing. If you already feel confident with read recruitment, feel free to skip down to the new stuff, probably starting at the section "What is this tutorial about?". But if you want a refresher, or a slighly more in-depth understanding of read recruitment, here's a quick summary about the underlying principles and the utility of one of the most powerful strategies that we frequently rely on in metagenomic studies to make sense of environmental populations.
+"Read recruitment", "read mapping" or even just "mapping" are thrown around all the time in metagenomic studies and they all describe the same thing. If you already feel confident with read recruitment, feel free to skip down to the new stuff, probably starting at the section "[Visualizing coverage data in anvi'o](#visualizing-coverage-data-in-anvio)".
+
+But if you want a refresher, here we start with a quick summary about the underlying principles and the utility of one of the most powerful strategies that we frequently rely on in metagenomic studies to make sense of environmental populations.
 
 # How *does* read recruitment work?
 
-Understanding superficially how read mapping works is fairly straighforward. You have one or more genomes, or contigs assembled from metageomes as your reference, and you're figuring out how many of your short reads in your metagenomes match to your reference seqeunces. Like the animation below shows, you can do this for multiple metagenomes (i.e., multiple samples) and study the distribution of a given reference sequence across environments. It also gives you important information like the [coverage](/vocabulary/#coverage) or the [detection](/vocabulary/#detection) of your reference.
+Understanding superficially how read mapping works is fairly straightforward. You have one or more genomes, or contigs assembled from metagenomes as your reference, and you're figuring out how many of your short reads in your metagenomes match to your reference sequences. Like the animation below shows, you can do this for multiple metagenomes (i.e., multiple samples) and study the distribution of a given reference sequence across environments. It also gives you important information like the [coverage](/vocabulary/#coverage) or the [detection](/vocabulary/#detection) of your reference.
 
 [![coverages](/images/momics/coverage.gif)](/images/momics/coverage.gif){:.center-img .width-90}
 
-Intuitively, you can think of mapping as the process of taking a metagenomic read, determining whether it matches any of the reference sequences, and placing it neatly under the part of reference to which it matches best, and doing this for every single read. That's exactly what coverage plots display: how short reads align to a referene context. Often, this level of understanding is good enough for a lot of things. But this is not *exactly* how things actually work. While this exact description of mapping would work in theory, in practice finding the best matches of each short read through alignment is incredibly computationally intensive. Instead, all popular software used for read recruitment use some fancy approaches to exponentially increase the speed of mapping.
+Intuitively, you can think of mapping as the process of taking a metagenomic read, determining whether it matches any of the reference sequences, and placing it neatly under the part of reference to which it matches best, and doing this for every single read. That's exactly what coverage plots display: how short reads align to a reference context. Often, this level of understanding is good enough for a lot of things. But this is not *exactly* how things actually work. While this exact description of mapping would work in theory, in practice finding the best matches of each short read through alignment is incredibly computationally intensive. Instead, all popular software used for read recruitment use some fancy approaches to dramatically increase the speed of mapping.
 
 If you're interested, the remaining text in this section will provide a short summary (to the best of our understanding) of how a mapping index is made, and how the reads are aligned.
 
 {:.notice}
-For this summary we have extensively relied upon this [video](link) and the original [Bowtie paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2690996/). The slides that accompary the video can be found [here](https://ocw.mit.edu/courses/biology/7-91j-foundations-of-computational-and-systems-biology-spring-2014/lecture-slides/MIT7_91JS14_Lecture5.pdf). This is a biologist's understanding and introduction to the complexities of mapping, and by no means a full explanation. If you're interested in learning more in depth how this process works, see one of the original references listed in this paragraph.
+For this summary we have extensively relied upon this [video](link) and the original [Bowtie paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2690996/). The slides that accompany the video can be found [here](https://ocw.mit.edu/courses/biology/7-91j-foundations-of-computational-and-systems-biology-spring-2014/lecture-slides/MIT7_91JS14_Lecture5.pdf). This is a biologist's understanding and introduction to the complexities of mapping, and by no means a full explanation. If you're interested in learning more in depth how this process works, see one of the original references listed in this paragraph.
 
 {:.notice}
 In our lab we frequently use [Bowtie2](http://bowtie-bio.sourceforge.net/Bowtie2/) to recruit reads, so this explanation will be in the context of Bowtie2. That said, most read mapping software use similar techniques.
 
-Typically, you start with a reference file input in FASTA format. For simiplicity, let's say this is a reference genome. Bowtie2 takes this FASTA file and uses a Burrows-Wheeler Transformation to convert it to a Bowtie2 index. This is a method of compressing your data by cyclically rotating the sequence to get all possible rotations of the sequence, ordering them alphabetically, ranking each letter by its occurance, and keeping only the right most column of data. The ordering means that the rank, the n<sup>th</sup> time that that letter has appeared in the sequence, is the same in the first and last columns. The letters are also assigned a count value, in other words their original position in the sequence. We can use the Last to First (LF) function to match a character with its rank (these values are stored by the algorithm) and use the Walk Left function to reconstruct the initial sequence from these data. More information on these functions can be found [here](https://ocw.mit.edu/courses/biology/7-91j-foundations-of-computational-and-systems-biology-spring-2014/lecture-slides/MIT7_91JS14_Lecture5.pdf).
+Typically, you start with a reference file input in FASTA format. For simplicity, let's say our FASTA contains a single reference genome. Bowtie2 takes this FASTA file and uses a Burrows-Wheeler Transformation to convert it to a Bowtie2 *index*. This is a method of compressing your data by cyclically rotating the sequence to get all possible rotations of the sequence, ordering them alphabetically, ranking each letter by its occurrence, and keeping only the right most column of data. The ordering means that the rank, the n<sup>th</sup> time that that letter has appeared in the sequence, is the same in the first and last columns. The letters are also assigned a count value, in other words their original position in the sequence. We can use the Last to First (LF) function to match a character with its rank (these values are stored by the algorithm) and use the Walk Left function to reconstruct the initial sequence from these data. More information on these functions can be found [here](https://ocw.mit.edu/courses/biology/7-91j-foundations-of-computational-and-systems-biology-spring-2014/lecture-slides/MIT7_91JS14_Lecture5.pdf).
 
 Ok, so now we have a Bowtie2 index, how do we actually map the reads? Our input reads will typically be in FASTQ format, so we'll have the read information and a quality score for each base. To find reads that match exactly, we use something called a Full-text index in Minute space (FM) index. This matches your read from right to left (5' to 3') to the Bowtie2 index. Each iteration of top and bottom using the FM index indicates the range of rows in the index that have progressively longer matches to our query read. If the range is 0, it means that there's nothing that matches the read sequence exactly and it wouldn't be mapped. But we can immediately think of a problem here. What if there are sequencing errors in our data, or more importantly, true biological variation? We want to be able to map reads that aren't a perfect match. To get around this, Bowtie2 uses a backtracking alignment search. When it encounters a mismatch, it attempts to add all of the different bases to see what matches and then continues. It can also try to backtrack to the lowest quality match, replace this with another base and continue from there. The number of mismatches and amount of backtracking is limited to avoid reads mapping that do not belong in that position. This algorithm is "greedy", meaning it will keep the first mismatch that works but not necessarily the best one. Bowtie2 can be forced to use the best one by supplying the flag `--best`. Because Bowtie2 restricts the amount of backtracking, it may seem like it is biased toward the right hand side of the read, however the left hand side of the read is typically higher quality, and Bowtie2 can use a mirror index to avoid this bias. A mirror index is the reference sequence reverse complemented and made into a Bowtie2 index, then mapping reversed reads to this index. Again, see [here](https://ocw.mit.edu/courses/biology/7-91j-foundations-of-computational-and-systems-biology-spring-2014/lecture-slides/MIT7_91JS14_Lecture5.pdf) for more information.
 
-Alright, the reads have now been mapped, but where are these reads in the reference? To determine this, we take the suffix array, or in other words the file that was generated that kept track of the postition of every base in the original sequence. Unfortunately, this complete file is very large, so instead of keeping the entire thing, Bowtie2 keeps every 32nd entry (this number can be adjusted) and then uses the Walk-Left function (which reconstucts the initial sequence) until it hits the suffix of interest.
+Alright, the reads have now been mapped, but where are these reads in the reference? To determine this, we take the suffix array, or in other words the file that was generated that kept track of the position of every base in the original sequence. Unfortunately, this complete file is very large, so instead of keeping the entire thing, Bowtie2 keeps every 32nd entry (this number can be adjusted) and then uses the Walk-Left function (which reconstructs the initial sequence) until it hits the suffix of interest.
 
 Yay! The reads are mapped. Now on to the biologically relevant part of the post.
 
@@ -57,7 +59,7 @@ If you want to know more about the use of read mapping in genome resolved metage
 
 ## Visualizing coverage data in anvi'o
 
-The purpose of this tutorial is not to convince you that manual inspection of your contigs is well worth your time (although maybe now you're a little more convinced), but rather to explain new features in anvi'o v6 that make this process managable - **especially** if you have a ton of samples.
+The purpose of this tutorial is not to convince you that manual inspection of your contigs is well worth your time (although maybe now you're a little more convinced), but rather to explain new features in the [sixth version of anvi'o](https://github.com/merenlab/anvio/releases/tag/v6) that make this process manageable - **especially** if you have a ton of samples.
 
 This post assumes that you have the anvi'o databases for a study of yours in which you have mapped one or more metagenomes to one or more contigs (if you are not familiar with anvi'o please refer to other sources, [such as this one](http://merenlab.org/2016/06/22/anvio-tutorial-v2/) to learn about how to get your project into anvi'o). It will walk you through the process of inspecting your splits using [anvi-inspect](/software/anvio/vignette/#anvi-inspect) for a quick inspection and [anvi-script-visualize-split-coverages](/software/anvio/vignette/#anvi-script-visualize-split-coverages) to export a PDF of these results.
 
@@ -66,7 +68,19 @@ A quick note: by default anvi'o soft-splits contigs longer than 20,000 basepairs
 
 To make things more interesting, we'll do a re-analysis of a plasmid described in a recent study by [Petersen et al](https://www.pnas.org/content/early/2019/09/19/1905878116). If you'd like to download the necessary anvi'o files to follow this tutorial, please feel free to download them from [here](add_in_link), unpack the archive, and run every command in the resulting directory.
 
-We chose this dataset due to the simplicity and relevance. In their [study](https://www.pnas.org/content/early/2019/09/19/1905878116), Petersen et al identify a highly conserved and globally distributed plasmid called *pLA6 12*. The authors claim that the backbone of the plasmid is conserved, but there is a hyper-variable section that can have variable genes, such as chromate resistance, that appear to benefit bacteria that carry it. The authors also mention that the backbone of this plasmid is conserved across sampling locations, but they do not elaborate in the study how they came to this conclusion, nor do they give the details of their approaches in the methods section of the study. In this post we will use this plasmid as a reference, and recruit short reads from marine metagenomes to substantiate the claims made in this study while learning how to use anvi'o tools to study coverage patterns. Briefly, we downloaded some of the metagenomes they listed in the study, mapped short reads from these metagenomes to the plasmid *pLA6 12*, and profiled the mapping results using anvi'o which resulted in the database files we shared above.
+We chose this dataset due to the simplicity and relevance. In their [study](https://www.pnas.org/content/early/2019/09/19/1905878116), Petersen et al identify a highly conserved and globally distributed plasmid called *pLA6 12*. The authors suggest that the backbone of the plasmid is conserved, but there is a hyper-variable section that can have variable genes, such as chromate resistance, that appear to benefit bacteria that carry it. The authors also mention that the backbone of this plasmid is conserved across sampling locations, but they do not elaborate in the study how they came to this conclusion, nor do they give the details of their approaches in the methods section of the study. In this post we will use this plasmid as a reference, and recruit short reads from marine metagenomes to substantiate the claims made in this study while learning how to use anvi'o tools to study coverage patterns. For this, we downloaded some of the metagenomes listed in the study, mapped short reads from these metagenomes to the plasmid *pLA6 12*, and profiled the mapping results using anvi'o.
+
+---
+
+If you would like to follow the rest of the post on your computer, you can run the following commands on your terminal to download the data and and unpack it:
+
+```bash
+# download
+wget http://merenlab.org/files/ANVIO-DBs-FOR-pLA6-MAPPING.tar.gz
+
+# unpack
+tar -zxvf ANVIO-DBs-FOR-pLA6-MAPPING.tar.gz && cd ANVIO-DBs-FOR-pLA6-MAPPING
+```
 
 
 ## Conventional way to visualizing coverages
@@ -92,11 +106,11 @@ In this display we only have one contig *pLA6 12*, so we can right-click anywher
 
 If you had more than one contig, you'd just pick the contig you want to inspect and do the same thing.
 
-Over time we came to the realization that when we have too many samples and contigs to visualize, accessing the inspection page for a given contig in a large dataset can be a signfiicant challenge. That is why, we developed `anvi-inspect`, which is included in anvi'o since the `v6` version.
+Over time we came to the realization that when we have too many samples and contigs to visualize, accessing the inspection page for a given contig in a large dataset can be a significant challenge. That is why, we developed `anvi-inspect`, which is included in anvi'o since the `v6` version.
 
 ## Targeted visualization of coverage through anvi-inspect
 
-The anvi'o program `anvi-inspect` enables you to viusalize the coverage of a given contig without having to go through the main display of the interactive interface. For this you will need to specify the split name that you're interested in. There are many ways to find a split name of interest in anvi'o. Programs like such as [anvi-search-functions](/vignette/#anvi-search-functions) or [anvi-export-splits-and-coverages](/vignette/#anvi-export-splits-and-coverages) will report split names. But in this particular case there is a single split in our profile database. So we don't really provide a split name. However, if we run anvi-inspect without any split name, it will not be happy with us:
+The anvi'o program `anvi-inspect` enables you to visualize the coverage of a given contig without having to go through the main display of the interactive interface. For this you will need to specify the split name that you're interested in. There are many ways to find a split name of interest in anvi'o. Programs like such as [anvi-search-functions](/vignette/#anvi-search-functions) or [anvi-export-splits-and-coverages](/vignette/#anvi-export-splits-and-coverages) will report split names. But in this particular case there is a single split in our profile database. So we don't really provide a split name. However, if we run anvi-inspect without any split name, it will not be happy with us:
 
 ```bash
 anvi-inspect -p PROFILE.db \
@@ -126,10 +140,10 @@ The next program solves that issue.
 
 ## Exporting coverage data as a PDF
 
-Anvi'o's new and talented program [anvi-script-visualize-split-coverages](/vignette/#anvi-script-visualize-split-coverages) will generate static versions of the coverage plots you see in anvi'o interactive interfaces as a PDF. In other words, this program will give you the inspect page produced in `ggplot2`.
+The new and talented anvi'o program [anvi-script-visualize-split-coverages](/vignette/#anvi-script-visualize-split-coverages) will generate static versions of the coverage plots you see in anvi'o interactive interfaces as a PDF. In other words, this program will give you the inspect page produced in `ggplot2`.
 
 {:.notice}
-**Meren's note**: [anvi-script-visualize-split-coverages](/vignette/#anvi-script-visualize-split-coverages) is the first anvi'o program that is contributed entirely from someone who is not an official member of the UChicago anvi'o headquarters. [Ryan Moore](http://twitter.com/mooreryan), a graduate student at the University of Delaware, heard our call on Twitter, and implemented this very talented program for the entire community. I know I speak on behalf of all anvi'o users who will use his program when I say I am very grateful for his generosity and time. This is how open-source projects grow and become the property of the community rather than being associated with a single group forever. Thank you, Ryan!
+**Meren's note**: [anvi-script-visualize-split-coverages](/vignette/#anvi-script-visualize-split-coverages) is the first anvi'o program that is contributed **entirely** from someone who is not an official member of the UChicago anvi'o headquarters. [Ryan Moore](http://twitter.com/mooreryan), a graduate student at the University of Delaware, heard [our call on Twitter](https://twitter.com/merenbey/status/1138909272430039040), and implemented this lovely program for the entire community. I know I speak on behalf of all anvi'o users who will use his program when I say I am very grateful for his generosity and time. This is how open-source projects grow and become the property of the community rather than being associated with a single group forever. Thank you, Ryan!
 
 The following subsections will demonstrate various uses of [anvi-script-visualize-split-coverages](/vignette/#anvi-script-visualize-split-coverages) and explain how to generate input files for this program using other anvi'o programs.
 
@@ -212,7 +226,7 @@ This will give you a plot that looks like this:
 
 ### Visualize a subset of your samples
 
-Sometimes you may be interested in only a subset of the samples in your profile database. An additional, tab-delilimited file called `samples_data.txt` with sample names and their corresponding groups gives you more control on the output PDF, including providing a way to subset your samples.
+Sometimes you may be interested in only a subset of the samples in your profile database. An additional, TAB-delilimited file called `samples_data.txt` with sample names and their corresponding groups gives you more control on the output PDF, including providing a way to subset your samples.
 
 `samples.txt` will specify which samples should be grouped together into the same PDF. For example, some of the metagenomes we downloaded were from the Red Sea, and some were metagenomes from pelagic zones all over the world (the Malaspina metagenomes). One could create a file that looks like this to store Red Sea mapping results to one PDF, and the Malaspina metagenomes mapping to another PDF,
 
@@ -292,7 +306,7 @@ This is of course just one example of a customizable plot. Please click [anvi-sc
 
 Now we've visualized the mapping results from [Petersen et al](https://www.pnas.org/content/early/2019/09/19/1905878116), we can try to make some fair conclusions.
 
-In their paper, they claim that this plasmid is nearly identical between all of these metagenomes, aside from the variable region that we can see in the middle. Our mapping results confirm that this is indeed the case. There are a lot of SNVs in comparison to the reference *pLA6 12* plasmid, but clearly it is conserved across these environments. However, if they had looked at their coverage plots, they would have realized that in samples where there appars to be two versions of the plasmid (eg. MAP0144 and MSPO0146 where some reads are mapping to the hypervariable region) the SNV bars do not extend completely to the top of the plot. This indicates that the version that has the reads mapping to the hypervariable region may also have a slightly different backbone that is more similar to the reference than the rest of the environment.
+In their paper, they suggest that this plasmid is nearly identical between all of these metagenomes, aside from the variable region that we can see in the middle. Our mapping results confirm that this is indeed the case. There are a lot of SNVs in comparison to the reference *pLA6 12* plasmid, but clearly it is conserved across these environments. However, looking at the coverage plots we can also observe that in samples where there appears to be two versions of the plasmid (e.g., MAP0144 and MSPO0146 where some reads are mapping to the hypervariable region), the SNVs indicate lack of monoclonality in the environment (i.e., they do not extend completely to the top of the plot). This suggests that the version that has the reads mapping to the hypervariable region may also have a slightly different backbone that is more similar to the reference than the rest of the environment.
 
 Thank you very much if you made it all the way to the bottom and if you still have questions about [anvi-inspect](/vignette/#anvi-inspect) or [anvi-script-visualize-split-coverages](/vignette/#anvi-script-visualize-split-coverages) feel free to reach out to us.
 
