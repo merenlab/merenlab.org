@@ -1,11 +1,13 @@
 ---
 layout: post
-title: "Visualizing contig coverages to make informed statements regarding microbial population diversity"
-excerpt: "How to take mapping results, visualize them in anvi'o, and export them for publication"
+title: "Visualizing contig coverages to better understand microbial population structures"
+excerpt: "Ways to visualize metagenomic-read recruitment results in anvi'o to make informed statements about environmental populations (and to generate publication-ready figures)"
 modified: 2019-11-25
 categories: [anvio]
 comments: true
 authors: [emily, ryan]
+image:
+  feature: http://merenlab.org/images/anvio/2019-11-25-visualizing-coverages/ScreenShot_inspect_pLA6_12.png
 ---
 
 {% include _toc.html %}
@@ -59,14 +61,14 @@ If you want to know more about the use of read mapping in genome resolved metage
 
 ## Visualizing coverage data in anvi'o
 
-The purpose of this tutorial is not to convince you that manual inspection of your contigs is well worth your time (although maybe now you're a little more convinced), but rather to explain new features in the [sixth version of anvi'o](https://github.com/merenlab/anvio/releases/tag/v6) that make this process manageable - **especially** if you have a ton of samples.
+The purpose of this post is _not_ to convince you that manual inspection of your contigs is well worth your time (although we hope you recognize the importance of doing it), but rather to explain new features in the [sixth version of anvi'o](https://github.com/merenlab/anvio/releases/tag/v6) that make this process manageable - **especially** if you have a ton of samples.
 
 This post assumes that you have the anvi'o databases for a study of yours in which you have mapped one or more metagenomes to one or more contigs (if you are not familiar with anvi'o please refer to other sources, [such as this one](http://merenlab.org/2016/06/22/anvio-tutorial-v2/) to learn about how to get your project into anvi'o). It will walk you through the process of inspecting your splits using [anvi-inspect](/software/anvio/vignette/#anvi-inspect) for a quick inspection and [anvi-script-visualize-split-coverages](/software/anvio/vignette/#anvi-script-visualize-split-coverages) to export a PDF of these results.
 
 {:.notice}
 A quick note: by default anvi'o soft-splits contigs longer than 20,000 basepairs into multiple pieces for to have a balanced view of short and long contigs. In the anvi'o lingo each of these pieces are called "splits", which you can interact with through various interactive interfaces of the platform. If you have a contig that is shorter than the average split size, the split will be equivalent to the contig.
 
-To make things more interesting, we'll do a re-analysis of a plasmid described in a recent study by [Petersen et al](https://www.pnas.org/content/early/2019/09/19/1905878116). If you'd like to download the necessary anvi'o files to follow this tutorial, please feel free to download them from [here](add_in_link), unpack the archive, and run every command in the resulting directory.
+To make things more interesting, we'll do a re-analysis of a plasmid described in a recent study by [Petersen et al](https://www.pnas.org/content/early/2019/09/19/1905878116). If you'd like to download the necessary anvi'o files to follow this post, please feel free to download them from [here](add_in_link), unpack the archive, and run every command in the resulting directory.
 
 We chose this dataset due to the simplicity and relevance. In their [study](https://www.pnas.org/content/early/2019/09/19/1905878116), Petersen et al identify a highly conserved and globally distributed plasmid called *pLA6 12*. The authors suggest that the backbone of the plasmid is conserved, but there is a hyper-variable section that can have variable genes, such as chromate resistance, that appear to benefit bacteria that carry it. The authors also mention that the backbone of this plasmid is conserved across sampling locations, but they do not elaborate in the study how they came to this conclusion, nor do they give the details of their approaches in the methods section of the study. In this post we will use this plasmid as a reference, and recruit short reads from marine metagenomes to substantiate the claims made in this study while learning how to use anvi'o tools to study coverage patterns. For this, we downloaded some of the metagenomes listed in the study, mapped short reads from these metagenomes to the plasmid *pLA6 12*, and profiled the mapping results using anvi'o.
 
