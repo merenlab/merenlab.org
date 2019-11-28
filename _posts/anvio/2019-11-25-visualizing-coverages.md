@@ -63,7 +63,7 @@ If you want to know more about the use of read mapping in genome resolved metage
 
 The purpose of this post is _not_ to convince you that manual inspection of your contigs is well worth your time (although we hope you recognize the importance of doing it), but rather to explain new features in the [sixth version of anvi'o](https://github.com/merenlab/anvio/releases/tag/v6) that make this process manageable - **especially** if you have a ton of samples.
 
-This post assumes that you have the anvi'o databases for a study of yours in which you have mapped one or more metagenomes to one or more contigs (if you are not familiar with anvi'o please refer to other sources, [such as this one](http://merenlab.org/2016/06/22/anvio-tutorial-v2/) to learn about how to get your project into anvi'o). It will walk you through the process of inspecting your splits using [anvi-inspect](/software/anvio/vignette/#anvi-inspect) for a quick inspection and [anvi-script-visualize-split-coverages](/software/anvio/vignette/#anvi-script-visualize-split-coverages) to export a PDF of these results.
+This post assumes that you have the anvi'o databases for a study of yours in which you have mapped one or more metagenomes to one or more contigs (if you are not familiar with anvi'o please refer to other sources, [such as this one](http://merenlab.org/2016/06/22/anvio-tutorial-v2/) to learn about how to get your project into anvi'o). It will walk you through the process of inspecting your splits using [anvi-inspect](/software/anvio/vignette/#anvi-inspect) for a quick inspection and `anvi-script-visualize-split-coverages` to export a PDF of these results.
 
 {:.notice}
 A quick note: by default anvi'o soft-splits contigs longer than 20,000 basepairs into multiple pieces for to have a balanced view of short and long contigs. In the anvi'o lingo each of these pieces are called "splits", which you can interact with through various interactive interfaces of the platform. If you have a contig that is shorter than the average split size, the split will be equivalent to the contig.
@@ -87,7 +87,7 @@ tar -zxvf ANVIO-DBs-FOR-pLA6-MAPPING.tar.gz && cd ANVIO-DBs-FOR-pLA6-MAPPING
 
 ## Conventional way to visualizing coverages
 
-Before jumping into the new programs in anvi'o, `anvi-inspect` and [anvi-script-visualize-split-coverages](/vignette/#anvi-script-visualize-split-coverages), let's go through the tried and true approach of visualizing coverage plots once you've opened the anvi'o interface. This introduction will give you a better idea of the utility of `anvi-inspect` and [anvi-script-visualize-split-coverages](/vignette/#anvi-script-visualize-split-coverages). If you're comfortable with inspecting contigs from the interface, feel free to skip this section.
+Before jumping into the new programs in anvi'o, `anvi-inspect` and `anvi-script-visualize-split-coverages`, let's go through the tried and true approach of visualizing coverage plots once you've opened the anvi'o interface. This introduction will give you a better idea of the utility of `anvi-inspect` and `anvi-script-visualize-split-coverages`. If you're comfortable with inspecting contigs from the interface, feel free to skip this section.
 
 If you run this command,
 
@@ -142,16 +142,16 @@ The next program solves that issue.
 
 ## Exporting coverage data as a PDF
 
-The new and talented anvi'o program [anvi-script-visualize-split-coverages](/vignette/#anvi-script-visualize-split-coverages) will generate static versions of the coverage plots you see in anvi'o interactive interfaces as a PDF. In other words, this program will give you the inspect page produced in `ggplot2`. You'll need the `ggplot2` and `outparse` packages installed in R.
+The new and talented anvi'o program `anvi-script-visualize-split-coverages` will generate static versions of the coverage plots you see in anvi'o interactive interfaces as a PDF. In other words, this program will give you the inspect page produced in `ggplot2`. You'll need the `ggplot2` and `outparse` packages installed in R.
 
 {:.notice}
-**Meren's note**: [anvi-script-visualize-split-coverages](/vignette/#anvi-script-visualize-split-coverages) is the first anvi'o program that is contributed **entirely** from someone who is not an official member of the UChicago anvi'o headquarters. [Ryan Moore](http://twitter.com/TenderIsTheByte), a graduate student at the University of Delaware, heard [our call on Twitter](https://twitter.com/merenbey/status/1138909272430039040), and implemented this lovely program for the entire community. I know I speak on behalf of all anvi'o users who will use his program when I say I am very grateful for his generosity and time. This is how open-source projects grow and become the property of the community rather than being associated with a single group forever. Thank you, Ryan!
+**Meren's note**: `anvi-script-visualize-split-coverages` is the first anvi'o program that is contributed **entirely** from someone who is not an official member of the UChicago anvi'o headquarters. [Ryan Moore](http://twitter.com/TenderIsTheByte), a graduate student at the University of Delaware, heard [our call on Twitter](https://twitter.com/merenbey/status/1138909272430039040), and implemented this lovely program for the entire community. I know I speak on behalf of all anvi'o users who will use his program when I say I am very grateful for his generosity and time. This is how open-source projects grow and become the property of the community rather than being associated with a single group forever. Thank you, Ryan!
 
-The following subsections will demonstrate various uses of [anvi-script-visualize-split-coverages](/vignette/#anvi-script-visualize-split-coverages) and explain how to generate input files for this program using other anvi'o programs.
+The following subsections will demonstrate various uses of `anvi-script-visualize-split-coverages` and explain how to generate input files for this program using other anvi'o programs.
 
 ### Visualize only the coverage of a split across samples:
 
-The most basic funcitonality of [anvi-script-visualize-split-coverages](/vignette/#anvi-script-visualize-split-coverages) is to export coverage plots as a PDF. In order to do this, it needs to know the coverage of your split. To get this, you can run the command [anvi-get-split-coverages](/vignette/#anvi-get-split-coverages) and specify the split name similar to what's shown below.
+The most basic funcitonality of `anvi-script-visualize-split-coverages` is to export coverage plots as a PDF. In order to do this, it needs to know the coverage of your split. To get this, you can run the command [anvi-get-split-coverages](/vignette/#anvi-get-split-coverages) and specify the split name similar to what's shown below.
 
 If you don't know what your split of interest is called, you can run this first:
 
@@ -169,7 +169,7 @@ anvi-get-split-coverages -p PROFILE.db -c CONTIGS.db \
                          -o pLA6_12_000000000001_split_00001_coverage.txt
 ```
 
-Now it is time to give the output file `pLA6_12_000000000001_split_00001_coverage.txt` as an input for [anvi-script-visualize-split-coverages](/vignette/#anvi-script-visualize-split-coverages):
+Now it is time to give the output file `pLA6_12_000000000001_split_00001_coverage.txt` as an input for `anvi-script-visualize-split-coverages`:
 
 ```bash
 anvi-script-visualize-split-coverages -i pLA6_12_000000000001_split_00001_coverage.txt \
@@ -182,7 +182,7 @@ And done! This is a screenshot of the output PDF file generated by this command:
 
 ### Visualize both coverage and single-nuleotide variants
 
-If you provide the appropriate input file, [anvi-script-visualize-split-coverages](/vignette/#anvi-script-visualize-split-coverages) can plot the coverage values with the corresponding SNVs. The anvi'o program that reports such data from profile databases is [anvi-gen-variability-profile](/vignette/#anvi-gen-variability-profile). SNVs are essential to have if you want to make statements about sub-populations dynamics of a given environmental poplation or lack there of. This [post](http://merenlab.org/2015/07/20/analyzing-variability/#the-output-matrix) details the contents of the output file [anvi-gen-variability-profile](/vignette/#anvi-gen-variability-profile) generates. We can ask anvi'o to report the SNV data associated with a given split by running the following command:
+If you provide the appropriate input file, `anvi-script-visualize-split-coverages` can plot the coverage values with the corresponding SNVs. The anvi'o program that reports such data from profile databases is [anvi-gen-variability-profile](/vignette/#anvi-gen-variability-profile). SNVs are essential to have if you want to make statements about sub-populations dynamics of a given environmental poplation or lack there of. This [post](http://merenlab.org/2015/07/20/analyzing-variability/#the-output-matrix) details the contents of the output file [anvi-gen-variability-profile](/vignette/#anvi-gen-variability-profile) generates. We can ask anvi'o to report the SNV data associated with a given split by running the following command:
 
 ```bash
 anvi-gen-variability-profile -p PROFILE.db \
@@ -213,7 +213,7 @@ Which creates a PDF file that looks like this:
 
 Yay! Now we have SNVs. The default SNV colors are green, red and grey. Green color indicates those nucleotide positions that occur in the third position of a codon. In contrast, red indicates those that are in the first or the second nucleotide position in a codon. As you can imagine, the grey ones are those nucleotide positions that occur at intergenic regions of the chromosome.
 
-As we can see from the plot above, the coverage in the above samples varies widely, and while this is good to distinguish highly covered vs lowly covered samples, it also makes it difficult to visualize the ones with less coverage, especially if you want to look at SNVs. Thankfully, there is a solution for this. You can run exactly the same [anvi-script-visualize-split-coverages](/vignette/#anvi-script-visualize-split-coverages) command, but add in the flag `--free-y-scale`.
+As we can see from the plot above, the coverage in the above samples varies widely, and while this is good to distinguish highly covered vs lowly covered samples, it also makes it difficult to visualize the ones with less coverage, especially if you want to look at SNVs. Thankfully, there is a solution for this. You can run exactly the same `anvi-script-visualize-split-coverages` command, but add in the flag `--free-y-scale`.
 
 ```bash
 anvi-script-visualize-split-coverages -i pLA6_12_000000000001_split_00001_coverage.txt \
@@ -245,7 +245,7 @@ RED0041	RED
 RED0045	RED
 ```
 
-and then run [anvi-script-visualize-split-coverages](/vignette/#anvi-script-visualize-split-coverages) this way:
+and then run `anvi-script-visualize-split-coverages` this way:
 
 ```bash
 anvi-script-visualize-split-coverages -i pLA6_12_000000000001_split_00001_coverage.txt \
@@ -302,7 +302,7 @@ and the `RED` group:
 
 [![coverages]({{images}}/RED_color_plots.png)]({{images}}/RED_color_plots.png){:.center-img .width-90}
 
-This is of course just one example of a customizable plot. Please click [anvi-script-visualize-split-coverages](/vignette/#anvi-script-visualize-split-coverages) or use `--help` in the terminal to see all options available.
+This is of course just one example of a customizable plot. Please click `anvi-script-visualize-split-coverages` or use `--help` in the terminal to see all options available.
 
 # Final Words
 
@@ -310,7 +310,7 @@ Now we've visualized the mapping results from [Petersen et al](https://www.pnas.
 
 In their paper, they suggest that this plasmid is nearly identical between all of these metagenomes, aside from the variable region that we can see in the middle. Our mapping results confirm that this is indeed the case. There are a lot of SNVs in comparison to the reference *pLA6 12* plasmid, but clearly it is conserved across these environments. However, looking at the coverage plots we can also observe that in samples where there appears to be two versions of the plasmid (e.g., MAP0144 and MSPO0146 where some reads are mapping to the hypervariable region), the SNVs indicate lack of monoclonality in the environment (i.e., they do not extend completely to the top of the plot). This suggests that the version that has the reads mapping to the hypervariable region may also have a slightly different backbone that is more similar to the reference than the rest of the environment.
 
-Thank you very much if you made it all the way to the bottom and if you still have questions about [anvi-inspect](/vignette/#anvi-inspect) or [anvi-script-visualize-split-coverages](/vignette/#anvi-script-visualize-split-coverages) feel free to reach out to us.
+Thank you very much if you made it all the way to the bottom and if you still have questions about [anvi-inspect](/vignette/#anvi-inspect) or `anvi-script-visualize-split-coverages` feel free to reach out to us.
 
 {% include _join-anvio-slack.html %}
 
