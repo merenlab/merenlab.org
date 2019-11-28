@@ -310,7 +310,7 @@ Now we've visualized the mapping results from [Petersen et al](https://www.pnas.
 
 In their paper, they suggest that this plasmid is nearly identical between all of these metagenomes, aside from the variable region that we can see in the middle. Our mapping results confirm that this is indeed the case. There are a lot of SNVs in comparison to the reference *pLA6 12* plasmid, but clearly it is conserved across these environments. However, looking at the coverage plots we can also observe that in samples where there appears to be two versions of the plasmid (e.g., MAP0144 and MSPO0146 where some reads are mapping to the hypervariable region), the SNVs indicate lack of monoclonality in the environment (i.e., they do not extend completely to the top of the plot). This suggests that the version that has the reads mapping to the hypervariable region may also have a slightly different backbone that is more similar to the reference than the rest of the environment.
 
-Thank you very much if you made it all the way to the bottom and if you still have questions about [anvi-inspect](/vignette/#anvi-inspect) or anvi-script-visualize-split-coverages feel free to reach out to us.
+testThank you very much if you made it all the way to the bottom and if you still have questions about [anvi-inspect](/vignette/#anvi-inspect) or anvi-script-visualize-split-coverages feel free to reach out to us.
 
 {% include _join-anvio-slack.html %}
 
