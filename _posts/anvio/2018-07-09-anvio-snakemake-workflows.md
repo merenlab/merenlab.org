@@ -898,7 +898,7 @@ anvi-display-pan -g 03_PAN_INTERNAL_EXTERNAL_GENOMES/MYPAN_COMBINED-GENOMES.db
 
 ## Phylogenomics workflow
 
-Similar to what is describe in the anvi'o [phylogenomics tutorial]({{site.url}}/2017/06/07/phylogenomics/), this workflow uses a collection of internal and external genomes (i.e. a bunch of FASTA files and/or genomic bins), and a collection of genes to compute a phylogenomic tree. Specifically, the genes are exported and aligned using `anvi-get-sequences-for-hmm-hits`. At the time of writing this tutorial, the only available pipeline included the trimming of sequences using trimal, followed by tree computation by `iq-tree`.
+Similar to what is describe in the anvi'o [phylogenomics tutorial]({{site.url}}/2017/06/07/phylogenomics/), this workflow uses a collection of internal and external genomes (i.e. a bunch of FASTA files and/or genomic bins), and a collection of genes to compute a phylogenomic tree. Specifically, the genes are exported and aligned using `anvi-get-sequences-for-hmm-hits`. At the time of writing this tutorial, the only available pipeline included the trimming of sequences using [trimal](http://trimal.cgenomics.org/), followed by tree computation by [iq-tree](http://www.iqtree.org/).
 
 In order to use this program you would need either a `fasta.txt` file, or an `internal-genomes.txt` file (or both).
 
