@@ -337,10 +337,10 @@
       inst_link: http://med.stanford.edu/microimmuno.html
 
 - alias: julie
-  contributor: True
+  guest: True
   avatar: bio-julie.jpg
   name: Julie Reveillaud
-  role: Contributing hero and Collaborator
+  role: Guest writer
   web: https://juliereve.wordpress.com
   twitter: JulieReve
   affiliations:
@@ -348,6 +348,29 @@
       inst: INRA, ASTRE Unit, Montpellier, France
       inst_link: https://www.cirad.fr/en/our-research/research-units/animals-health-territories-risks-and-ecosystems
 
+- alias: vincent_d
+  guest: True
+  avatar: bio-vincent_d.png
+  name: Vincent J. Denef
+  email: vdenef@umich.edu
+  role: Guest writer
+  web: http://www-personal.umich.edu/~vdenef/
+  twitter: VJDenef
+  affiliations:
+    - title: Assistant Professor
+      inst: Ecology and Evolutionary Biology, University of Michigan
+      inst_link: https://lsa.umich.edu/eeb/
+
+- alias: jacob_e
+  guest: True
+  avatar: bio-jacob_e.png
+  name: Jacob T. Evans
+  role: Guest writer
+  email: jtevans@umich.edu
+  affiliations:
+    - title: Bioinformatician
+      inst: Ecology and Evolutionary Biology, University of Michigan
+      inst_link: https://lsa.umich.edu/eeb/
 
 ####################################################################################
 # Previous members.
