@@ -3,15 +3,15 @@
 
 
 # EDIT THESE #####################################################################
-names_to_highlight = ['Eren, A. M',
-                      'Delmont, T. O.',
-                      'Esen, Ö. C.',
-                      'Lee, S. T. M.',
-                      'Shaiber, A.',
-                      'Kiefl, E.',
-                      'Cui, S.',
-                      'Watson, A. R.',
-                      'Lolans, K.']
+names_to_highlight = ['Eren AM',
+                      'Delmont TO',
+                      'Esen ÖC',
+                      'Lee STM',
+                      'Shaiber A',
+                      'Kiefl E',
+                      'Cui S',
+                      'Watson AR',
+                      'Lolans K']
 
 journal_name_fixes = [('The ISME journal', 'ISME J'),
                       ('Proceedings of the National Academy of Sciences of the United States of America', 'Proc Natl Acad Sci U S A'),
@@ -23,9 +23,11 @@ keep_pubs_after_year = 2009
 
 import os
 import sys
+from datetime import datetime
 
 try:
     import anvio.utils as u
+    from anvio.errors import ConfigError
 except:
     sys.stderr.write("This program requires anvi'o to be installed :/\n")
     sys.exit(-1)
@@ -66,102 +68,68 @@ class Publications:
         self.pubs_info_file_path = pubs_info_file_path
 
 
-    def get_author_highlights(self, authors_str):
-        for author in names_to_highlight:
-            authors_str = authors_str.replace(author, '<span class="pub-member-author">%s</span>' % (author))
+    def get_author_highlights(self, pub):
+        authors_str = []
+        for author in pub['authors']:
+            if author in pub['co_first_authors']:
+                author_h = author + '<sup>‡</sup>'
+            else:
+                author_h = author
 
-        return authors_str
+            if author in names_to_highlight:
+                authors_str.append('<span class="pub-member-author">%s</span>' % (author_h))
+            else:
+                authors_str.append(author_h)
+
+        return ', '.join(authors_str)
 
 
-    def parse_bookends_input(self):
+    def parse_pubs_txt(self):
         bad_entries = []
 
         if os.path.exists(self.pubs_info_file_path):
             self.info = u.get_TAB_delimited_file_as_dictionary(self.pubs_info_file_path)
 
-        for line in [l.strip() for l in open(self.pubs_file_path, 'rU').readlines()]:
-            if line.find('(ed.)') > 0 or line.find('(eds.)') > 0:
-                bad_entries.append((line, 'ed/eds. found...'), )
-                continue
+        pubs_header = u.get_columns_of_TAB_delim_file(self.pubs_file_path, include_first_column=True)
+        headers_expected = ['Authors', 'Title', 'Publication', 'Volume', 'Number', 'Pages', 'Year', 'doi']
+        missing_headers = [h for h in pubs_header if h not in headers_expected]
+        if len(missing_headers):
+            raise ConfigError("Sorry, the pubs.txt seems to be missing some of the headers that are mandatory. Each of \
+                               the columns in the following list must be present in this file: %s (hint: yours do not have\
+                               the following: %s)." % (', '.join(headers_expected), ', '.join(missing_headers)))
 
-            p_s = line.find(' (')
-            p_e = p_s + 6
-            if not p_s > 0:
-                bad_entries.append((line, 'p_s <= 0...'), )
-                continue
-            if not line[p_e] == ')':
-                bad_entries.append((line, 'p_e != )...'), )
-                continue
+        self.pubs_txt = u.get_TAB_delimited_file_as_dictionary(self.pubs_file_path, indexing_field=pubs_header.index('doi'))
 
-            doi = None
-            if line.split()[-1].strip().startswith('doi:'):
-                doi = line.split('doi:')[1].strip()
-                line = line.split('doi:')[0].strip()
+        for doi in self.pubs_txt:
+            authors = []
+            co_first_authors = []
+            p = self.pubs_txt[doi]
 
-            year = int(line[p_s + 2:p_e])
-
-            if year < keep_pubs_after_year:
-                bad_entries.append((line, 'year >= keep_pubs_after...'), )
-                continue
-
-            authors = line[0: p_s]
-
-            q_s = line.find(' "', p_e)
-            if not q_s > 0:
-                bad_entries.append((line, 'q_s <= 0...'), )
-                continue
-            q_e = line.find('."', q_s)
-
-            if not q_e > 0:
-                q_e = line.find('?"', q_s)
-                if not q_e > 0:
-                    bad_entries.append((line, 'q_e <= 0...'), )
+            for author in [_.strip() for _ in p['Authors'].split(';')]:
+                if not len(author):
                     continue
 
-            title = line[q_s + 2:q_e + 1]
+                author_last_name, author_first_name_raw = [_.strip() for _ in author.split(',')]
+                author_first_name = ''.join([n[0] for n in author_first_name_raw.split()])
+                author_final_name = '%s %s' % (author_last_name, author_first_name)
 
-            c = line.find(', ', q_e + 2)
-            if not c > 0:
-                bad_entries.append((line, 'c <= 0...'), )
-                continue
+                if author_first_name_raw.endswith('*'):
+                    co_first_authors.append(author_final_name)
 
-            journal = line[q_e + 3:c]
+                authors.append(author_final_name)
 
-            issue = line[c + 2:-1]
+            if p['Number']:
+                issue = '%s(%s):%s' % (p['Volume'], p['Number'], p['Pages'])
+            else:
+                issue = '%s:%s' % (p['Volume'], p['Pages'])
 
-            # ad hoc fixes for journal names
-            for bad_form, good_form in journal_name_fixes:
-                journal = journal.replace(bad_form, good_form)
-
-            self.journals_list.append(journal)
-
-            authors = authors.replace('Esen, Ö.,', 'Esen, Ö. C.,')
-            authors = authors.replace('Murat Eren, A.,', 'Eren, A. M.,')
+            year = p['Year'].strip()
+            pub_entry = {'authors': authors, 'title': p['Title'], 'journal': p['Publication'], 'issue': issue, 'doi': doi, 'year': year, 'co_first_authors': co_first_authors}
 
             if year not in self.pubs_dict:
-                self.pubs_dict[year] = [{'authors': authors, 'title': title, 'journal': journal, 'issue': issue, 'doi': doi, 'year': year}]
+                self.pubs_dict[year] = [pub_entry]
             else:
-                self.pubs_dict[year].append({'authors': authors, 'title': title, 'journal': journal, 'issue': issue, 'doi': doi, 'year': year})
-
-            if authors.count(',') == 1:
-                self.authors_list.append(authors)
-                if year > 2004:
-                    self.recent_authors_list.append(authors)
-            else:
-                for author in [a + '.' if not a.endswith('.') else a for a in authors.replace('and ', '').split('., ')]:
-                    self.authors_list.append(author)
-                    if year > 2004:
-                        self.recent_authors_list.append(author)
-
-
-        # check for failed entries
-        if len(bad_entries):
-            print("Some entries failed. Quitting.")
-            print()
-            for tpl in bad_entries:
-                print(' - Failed (reason: "%s"): %s' % (tpl[1], tpl[0]))
-
-            sys.exit(-2)
+                self.pubs_dict[year].append(pub_entry)
 
 
     def get_markdown_text_for_pub(self, pub):
@@ -188,7 +156,10 @@ class Publications:
             A('    <h3><a href="%s" target="_new">%s</a></h3>' % (' https://doi.org/%s' % (pub['doi']), pub['title']))
         else:
             A('    <h3><a href="http://scholar.google.com/scholar?hl=en&q=%s" target="_new">%s</a></h3>' % ('http://scholar.google.com/scholar?hl=en&q=%s' % (pub['title'].replace(' ', '+')), pub['title']))
-        A('    <span class="pub-authors">%s</span>' % self.get_author_highlights(pub['authors']))
+        A('    <span class="pub-authors">%s</span>' % self.get_author_highlights(pub))
+
+        if pub['co_first_authors']:
+            A('    <span class="pub-co-first-authors"><sup>‡</sup>Co-first authors</span>')
 
         if pub['doi'] in self.info:
             info = self.info[pub['doi']]
@@ -207,32 +178,32 @@ class Publications:
 
             A('    </div>')
 
-        A('    <span class="pub-journal"><i>%s</i>. <b>%s</b></span>' % (pub['journal'], pub['issue']))
+        A('    <span class="pub-journal"><b>%s</b>, %s.</span>' % (pub['journal'], pub['issue']))
         A('</div>\n')
 
         return '\n'.join(pub_md)
 
 
-    def store_markdown_output_for_pubs(self, output_file_path, include_top_journals = False):
-        years = ''.join(['<a href="#%s"><span class="category-item">%s <small>(%d)</small></span></a>' % (y, y, len(self.pubs_dict[y])) for y in sorted(list(self.pubs_dict.keys()), reverse=True)])
-        top_journals = ", ".join(['<b>%s</b> (<i>%d</i>)' % (x[1], x[0]) for x in sorted([(self.journals_list.count(journal), journal) for journal in set(self.journals_list)], reverse = True)[0:25]])
+    def store_markdown_output_for_pubs(self, output_file_path):
+        # years = ''.join(['<a href="#%s"><span class="category-item">%s <small>(%d)</small></span></a>' % (y, y, len(self.pubs_dict[y])) for y in sorted(list(self.pubs_dict.keys()), reverse=True)])
+        years = ''.join(['<a href="#%s"><span class="category-item">%s</span></a>' % (y, y) for y in sorted(list(self.pubs_dict.keys()), reverse=True)])
 
         output_file = open(output_file_path, 'w')
         W = lambda s: output_file.write(s + '\n')
 
         W('---')
         W('layout: publications')
-        W('modified: 2015-02-05')
+        W('modified: %s' % datetime.today().strftime('%Y-%m-%d'))
         W('comments: false')
         W('---\n')
 
         W('''<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>\n''')
         W('''<script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>\n''')
 
-        if include_top_journals:
-            W("<h1>Journals</h1>\n%s\n" % top_journals)
-
         W('<div class="category-box">\n%s\n</div>\n' % years)
+
+        W('{:.notice}\n')
+        W("This page shows publications that are most reflective of our interests. For a complete list, please see <a href='https://scholar.google.com/citations?user=GtLLuxoAAAAJ&view_op=list_works&sortby=pubdate' target='_blank'>Meren's Google Scholar page</a>.\n")
 
         for year in sorted(list(self.pubs_dict.keys()), reverse=True):
             W('<a name="%s">&nbsp;</a>' % year)
@@ -246,5 +217,9 @@ class Publications:
 
 if __name__ == '__main__':
     pubs = Publications()
-    pubs.parse_bookends_input()
-    pubs.store_markdown_output_for_pubs('publications/index.md')
+    try:
+        pubs.parse_pubs_txt()
+        pubs.store_markdown_output_for_pubs('publications/index.md')
+    except ConfigError as e:
+        print(e)
+        sys.exit(-1)
