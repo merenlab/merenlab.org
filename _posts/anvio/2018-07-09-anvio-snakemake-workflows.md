@@ -6,6 +6,8 @@ excerpt: "Bringing the magic of anvi'o together with the wonders of snakemake."
 comments: true
 authors: [alon, meren]
 categories: [anvio]
+redirect_from:
+  - /anvio-workflows/
 ---
 
 {% capture images %}{{site.url}}/images/anvio/2018-07-09-anvio-snakemake-workflows{% endcapture %}
