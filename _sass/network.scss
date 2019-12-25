@@ -1,8 +1,5 @@
 #logo {
-    position: absolute;
-    display: block;
-    top: 95px;
-    left: 5px
+    float: left;
 }
 
 #logo img {
@@ -11,23 +8,35 @@
     background-color:rgba(255,255,255,0.75);
 }
 
+#description {
+    padding: 8px;
+    border-bottom: 4px dashed #d6d6d6;
+}
+
 #infopanel {
-position: absolute;
+    position: absolute;
     display: block;
-    top: 360px;
-    margin-left: 5px;
+    top: 78px;
+    margin-left: 25px;
     left: 5px;
     width: 239px;
     padding: 5px;
-    background: rgba(255,255,255,0.90);
+    background: rgba(255,255,255,0.9);
     border: 1px solid lightgray;
     font-size: 12px;
     font-family: 'Lora', serif;
     line-height: 1.5;
     border-radius: 10px;
-    box-shadow: 5px -5px 26px rgba(179, 179, 179, 0.5);
-    overflow: scroll;
+    box-shadow: 5px -5px 26px rgba(179,179,179,0.5);
     bottom: 10px;
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+#infopanel::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
 }
 
 #infopanel::before {
