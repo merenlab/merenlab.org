@@ -10,13 +10,19 @@ image:
   display: false
 ---
 
+<div id="infopanel">
+
 <div id="logo">
     <a href="https://github.com/merenlab/anvio/releases" target="_blank">
-        <img src="https://github.com/merenlab/anvio/raw/master/anvio/data/interactive/images/logo.png" width="250" />
+        <img src="https://github.com/merenlab/anvio/raw/master/anvio/data/interactive/images/logo.png" style="width:222px; opacity: 0.8;" />
     </a>
 </div>
-
-<div id="infopanel">
+<p id="description">This purpose of this page is to visualize <b>the interconnected nature of anvi'o concepts and programs</b>.
+<br /><br />
+Through its modular design principles, <b>anvi'o resembles LEGO, where the same simple blocks can build non-identical complex structures</b>. Interfaces between anvi'o tools are established by self-contained databases that are generated, modified, queried, visualized, and merged with other databases through atomic anvi'o programs. Through this modularity, anvi'o aims to empower microbiologists without imposing rigid workflows or adding substantial limitations on creativity and to help them explore large datasets through their unique and diverse approaches.
+<br /><br />
+You can zoom-in, zoom-out and move the network around. If you click on any item on this page, you will see how to acquire that item and what you can do with it: red lines show where is it coming from, and green lines show where can you go with it. The descriptions of each icon is below.
+</p>
 
 <div class="info">
 <img src="/images/icons/PROGRAM.png" width="30" />
