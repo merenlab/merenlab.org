@@ -372,6 +372,17 @@
       inst: Ecology and Evolutionary Biology, University of Michigan
       inst_link: https://lsa.umich.edu/eeb/
 
+- alias: jarrod_s
+  guest: True
+  avatar: bio-jarrod_s.png
+  name: Jarrod J. Scott
+  role: Guest writer
+  email: jjscott@uwalumni.com
+  affiliations:
+    - title: Post-doctoral Scientist
+      inst: Smithsonian Tropical Research Institute
+      inst_link: https://stri.si.edu/
+
 ####################################################################################
 # Previous members.
 ####################################################################################
