@@ -33,27 +33,27 @@ It contains about 3,000 words and will take little more than 15 minutes to read.
 {:.notice}
 If you are too cool for introductions and are here to see some cool plots, [jump here](#visualizing-contig-fate-across-binning-algorithms-with-alluvial-diagrams).
 
-As the number of environmental metagenomes, binning algorithms, and metagenome-assembled genomes (MAGs) rapidly increase, it becomes easier to get washed away by the avalanche of data and forget what really matters. But when the dust settles from the current race of who is going to put together the largest number of genomes in one sit, perhaps we will once again realize that the convenience of outsourcing all decisions to our some computer programs did not serve us as well as we though it would.
+As the number of environmental metagenomes, binning algorithms, and metagenome-assembled genomes (MAGs) rapidly increase, it becomes easier to get washed away by the avalanche of data and forget what really matters. But when the dust settles from the current race of who is going to put together the largest number of genomes in one sit, perhaps we will once again realize that the convenience of outsourcing all decisions to some computer programs did not serve us as well as we though it would.
 
 The premise of metagenomic binning is relatively simple on paper: collect sample, sequence all DNA, assemble sequences, bin contigs, celebrate.
 
 [![binning](http://merenlab.org/momics/03-reconstructing-genomes-from-metagenomes.gif)](http://merenlab.org/momics/03-reconstructing-genomes-from-metagenomes.gif){:.center-img .width-90}
 
-In reality, though, reconstructing genomes from metagenomes accurately using short-metagenomic reads is really difficult on many accounts of theory and practice (see "[Accurate and Complete Genomes from Metagenomes](https://www.biorxiv.org/content/10.1101/808410v2)" by [Lin-Xing Chen](https://scholar.google.com/citations?user=ssOQEpkAAAAJ&hl=en) et al. for a comprehensive overview, tips, and strategies).
+In reality, though, accurately reconstructing genomes from metagenomes using short-metagenomic reads is really difficult on many accounts of theory and practice (see "[Accurate and Complete Genomes from Metagenomes](https://www.biorxiv.org/content/10.1101/808410v2)" by [Lin-Xing Chen](https://scholar.google.com/citations?user=ssOQEpkAAAAJ&hl=en) et al. for a comprehensive overview, tips, and strategies).
 
 The biggest problem of all is the poor assembly of short metagenomic reads. We all know and wish that long-read sequencing and Hi-C will soon start giving us near-complete genomes from metagenomes. But this is like how quantum computers will soon revolutionize computing (and in the process will likely make NP-complete problems disappear and render cryptography obsolete so we can all become a singularity of a broken family). We are not there yet, and we are not sure when we will be. Until then, we have to work with what we have. So if short reads are going to be around for a little longer, and actually much much longer for the 90% of the scientists who are not affiliated with top X institutes, then what is the biggest risk?
 
-The biggest risk of reconstructing genomes from metagenomes is to end up working with composite genomes, as [composite genomes **will influence ecological, pangenomic, and phylogenomic insights**](https://doi.org/10.1128/mBio.00725-19). Despite [the community guidelines](https://www.nature.com/articles/nbt.3893), not reporting composite genomes is not that easy even when we really really want to. Because counting the occurrence of single-copy core genes, which is the most commonly -and often *the only*- approach used to scrutinize new MAGs, is *not* bulletproof. Yes -- [single-copy core genes **are not enough to detect contamination issues**](https://www.biorxiv.org/content/10.1101/808410v2). So we will get bad bins, and we will not even know it unless we manually refine them. Most scientist in our field will agree that one of the most sorely missing pieces of our computational toolkit for genome-resolved metagenomics is the ability to estimate the quality and completion of a new genome without relying on any *a priori* information such as databases or gene families, and by using the entirety of the genomic data, and not only some parts of it. It is almost certain multiple groups are pushing those boundaries, and we wish them well, as their solution will continue to be useful after the long-read sequencing revolution. But we are not there yet, either.
+The biggest risk of reconstructing genomes from metagenomes is to end up working with composite genomes, as [composite genomes **will influence ecological, pangenomic, and phylogenomic insights**](https://doi.org/10.1128/mBio.00725-19). Despite [the community guidelines](https://www.nature.com/articles/nbt.3893), avoiding composite genomes is not that easy even when we really really want to. Because counting the occurrence of single-copy core genes, which is the most commonly&#151;and often *the only*&#151;approach used to scrutinize new MAGs, is *not* bulletproof. Yes&#151;[single-copy core genes **are not enough to detect contamination issues**](https://www.biorxiv.org/content/10.1101/808410v2). So we will get bad bins, and we will not even know it unless we manually refine them. Most scientist in our field will agree that one of the most sorely missing pieces of our computational toolkit for genome-resolved metagenomics is the ability to estimate the quality and completion of a new genome without relying on any *a priori* information such as databases or gene families, and by using the entirety of the genomic data, and not only some parts of it. It is almost certain that multiple groups are pushing these boundaries, and we wish them well, as their solutions will continue to be useful after the long-read sequencing revolution. But we are not there yet, either.
 
-Long story short, in general we don't have great assemblies, we don't have bulletproof ways to identify contamination issues. What do we do, then?
+Long story short, in general we don't have great assemblies and we don't have bulletproof ways to identify contamination issues. What do we do, then?
 
-The best we can do at the moment is perhaps to better understand what is going on within our genome bins that magically emerge from binning algorithms. And that is the purpose of this post by discussing these two questions:
+The best we can do at the moment is perhaps to better understand what is going on within our genome bins that magically emerge from binning algorithms. And that is the purpose of this post and we get there by discussing these two questions:
 
 One, **can we actually *see* the outcomes of the decisions computers make on our behalf during the binning process**? Two, **are there any *scalable* ways to deal with poor genome bins**?
 
 For those of you with little patience, answers to these questions are "*sort of*" and "*no*". Feel free to go back to your work with a peaceful mind.
 
-But if you are interested in seeing what does it mean to *sort of* seeing the decisions of binning algorithms, and what turns that *no* to a *yes* easily but in a non-scalable fashion, then stick around to see some disturbing automatic binning decisions and mini manual refinement successes.
+But if you are interested in what it means to *sort of* see the decisions of binning algorithms, and what turns that *no* into a *yes* easily but in a non-scalable fashion, then stick around to see some disturbing automatic binning decisions and mini manual refinement successes.
 
 ## Comparing metagenomic binning algorithms is difficult
 
@@ -61,11 +61,11 @@ It is difficult to compare binning algorithms since simulated or biological mock
 
 So even when every publication introducing a new binning algorithm does so by showing that it is superior to all others, the question 'which binning algorithm should we use' still manages to roam without a single answer. This is because **binning algorithms have different strengths and different weaknesses**. Different binning algorithms may have different levels of success in dealing with metagenomes from different environments or constructed using different sequencing platforms. Moreover, different binning algorithms may have different levels of success in reconstructing different microbial populations even in a single metagenome.
 
-Recognizing this mess, [Christian M. K. Sieber](https://twitter.com/ChrisMKSieber) and colleagues recently introduced [DAS Tool](https://www.nature.com/articles/s41564-018-0171-1), an approach that enables you to run multiple binning algorithms on the same dataset and aggregate their results to get your best final bins. This makes a lot of sense.
+Recognizing this mess, [Christian M. K. Sieber](https://twitter.com/ChrisMKSieber) and colleagues recently introduced [DAS Tool](https://www.nature.com/articles/s41564-018-0171-1), an approach that enables you to run multiple binning algorithms on the same dataset and aggregate the results to get your best final bins. This makes a lot of sense.
 
-But **most binning algorithms are going to agree when the input material is good** (long contigs, lots of coverage, large number of samples, etc). When they disagree, however, it will be largely due to poor input material. And when the input material is not ideal, whether it is due to the limitations of sequencing chemistry or the peculiar biology of the study system, then it doesn't really matter how great any individual tool or the one that will aggregate their results.
+But **most binning algorithms are going to agree when the input material is good** (long contigs, lots of coverage, large number of samples, etc). When they disagree, however, it will largely be due to poor input material. And when the input material is not ideal, whether it is due to the limitations of sequencing chemistry or the peculiar biology of the study system, then it doesn't really matter how great any individual tool or the one that will aggregate their results.
 
-To establish this point better, the authors would like to offer you the [Roomba vs dog poop challenge](https://www.google.com/search?tbm=isch&q=roomba+vs+dog+poop)) as an analogy. This is what happens when a state-of-the-art algorithm runs into a situation for which it was not prepared for. Sadly, this *is* the case way too often when we are dealing with relatively complex metagenomes and short-read assembly: the data are not ideal for the vast majority of projects, and our algorithms have no idea what hit them. So when things are good, you are OK. And when things are bad, even DAS Tool will not be able to save a project while each Roomba is going haywire in their own way. So, the next question is, **can we do better despite**, especially when things are not ideal?
+To establish this point better, the authors would like to offer you the [Roomba vs dog poop challenge](https://www.google.com/search?tbm=isch&q=roomba+vs+dog+poop)) as an analogy. This is what happens when a state-of-the-art algorithm runs into a situation for which it was not prepared. Sadly, this *is* the case way too often when we are dealing with relatively complex metagenomes and short-read assembly: the data are not ideal for the vast majority of projects, and our algorithms have no idea what hit them. So when things are good, you are OK. And when things are bad, even DAS Tool will not be able to save a project while each Roomba is going haywire in their own way. So, the next question is, **can we do better despite**, especially when things are not ideal?
 
 Whether we can do better or not requires us to understand what is really going on in our metagenomic bins. How do different binning algorithms compare to one another? How can we improve the final products? Doing that is relatively easy with simple metagenomes (as an example, [here is how we did this before](http://merenlab.org/tutorials/infant-gut/#chapter-ii-automatic-binning)). But **when things get complex, then we really have no idea what is going on in our bins beyond trivial summary tables that look good on paper, but say little in reality because MAGs are more than just a bunch of single-copy core genes to count**.
 
@@ -93,7 +93,7 @@ The dataset contains 28 shallow water marine samples collected within a 20km rad
 
 [![binning]({{images}}/contigstats.png)]({{images}}/contigstats.png){:.center-img .width-50}
 
-There are some good contigs, many bad contigs, and 2+ million genes that represent about 300 bacterial, 30 archaeal, and 2 eukaryotic genomes. With its size and complexity, this is a good representation of the ocean metagenome with short reads. Assembly statistics may improve slightly with a single-assembly strategy, by using [IDBA](https://academic.oup.com/bioinformatics/article/28/11/1420/266973) or [metaSPAdes](https://genome.cshlp.org/content/27/5/824.long), or may improve dramatically with the use of long-read sequencing in parallel. But this is what most researchers run into when they do metagenomic sequencing, so this assembly is not too far from reality.
+There are some good contigs, many bad contigs, and 2+ million genes that represent about 300 bacterial, 30 archaeal, and 2 eukaryotic genomes. With its size and complexity, this is a good representation of an ocean metagenome with short reads. Assembly statistics may improve slightly with a single-assembly strategy, by using [IDBA](https://academic.oup.com/bioinformatics/article/28/11/1420/266973) or [metaSPAdes](https://genome.cshlp.org/content/27/5/824.long), or may improve dramatically with the use of long-read sequencing in parallel. But this is what most researchers run into when they do metagenomic sequencing, so this assembly is not too far from reality.
 
 Jarrod proceeds to map short reads from each metagenome back to the assembly, profiles each resulting BAM file with `anvi-profile`, merges the resulting single profile databases with `anvi-merge`, and runs `anvi-cluster-contigs` for [CONCOCT](https://www.nature.com/articles/nmeth.3103), [MaxBin 2.0](https://academic.oup.com/bioinformatics/article/32/4/605/1744462), and [MetaBAT 2](https://peerj.com/preprints/27522/), and also uses DAS Tool to aggregate results from each individual analysis.
 
@@ -163,7 +163,7 @@ MetaBAT layer is shown in red to remind you that the basis of DAS Tool's decisio
 
 The `C/R` values indicate the completion and redundancy of a given bin. So according to this diagram we understand that the DAS Tool reported the MetaBAT bin `METABAT__219` as is, which has a 100% completion and 0% redundancy according to anvi'o. Anvi'o determines this by counting the occurrence of bacterial single-copy core genes in this genome bin.
 
-So what is up with MaxBin and CONCOCT? Before we move on, here is a critical point about our visualization approach. For instance, when you look at the size of `MAXBIN_167`, it looks too small to be a metagenomic bin. But what is shown here is not the entirety of `MAXBIN_167`, which in fact is 2.4 Mpb, but instead, only the amount of `METABAT_219` contigs that ended up in `MAXBIN_167`.
+So what is up with MaxBin and CONCOCT? Before we move on, here is a critical point about our visualization approach. For instance, when you look at the size of `MAXBIN_167`, it looks too small to be a metagenomic bin. But what is shown here is not the entirety of `MAXBIN_167`, which in fact is 2.4 Mpb, but instead, only the amount of `MAXBIN_167` contigs that ended up in `METABAT_219`.
 
 Going back to "what is up with MaxBin and CONCOCT?" question: yes, this figure also shows that the set of contigs that were described in a single bin by METABAT, and chosen by DAS Tool as the final bin, were distributed across five bins in MAXBIN, and seven bins in CONCOCT. A great deal of confusion and disagreement here.
 
@@ -221,7 +221,7 @@ Since we are using only tetra-nucleotide frequency to organize these contigs, th
 
 Now when you look at the diagram above, you see that **now these two bins, which simply organizes the same contigs differently, have a total redundancy of 9% and 4%**. And for this outcome, you had to start with the poorly done CONCOCT bin, rather than masterfully done DAS Tool sub bin.
 
-Anvi'o [real-time taxonomy estimation](http://merenlab.org/2019/10/08/anvio-scg-taxonomy/) using the [GTDB](https://gtdb.ecogenomic.org/), assigns one of them resolves to the genus *Puniceispirillum* and the other to *HIMB100*: 
+Anvi'o [real-time taxonomy estimation](http://merenlab.org/2019/10/08/anvio-scg-taxonomy/) using the [GTDB](https://gtdb.ecogenomic.org/) resolves one bin to the genus *Puniceispirillum* and the other to *HIMB100*: 
 
 [![binning]({{images}}/taxonomy.png)]({{images}}/taxonomy.png){:.center-img .width-90}
 
@@ -253,14 +253,14 @@ Please consider doing what we did here: show how your algorithm compares to othe
 
 Don't trust 'mean coverage' blindly, because mean coverage can mean a lot of things: [take a look](http://merenlab.org/2019/11/25/visualizing-coverages/).
 
-This is important for two reasons. One, it is one way for users of your algorithm to know in what situations they should use it, and tow, it is one way for you to see how to improve your strategy while still developing it, because seeing is everything.
+This is important for two reasons. One, it is a way for users of your algorithm to know in what situations they should use it. Two, it is a way for you to see how to improve your strategy while still developing it, because seeing is everything.
 
 
 ### For those who generate MAGs or rely on them
 
-We can continue to use single-copy core genes to remove seemingly bad bins when they can actually be saved, and it would be wasteful.
+We can continue to use single-copy core genes to remove seemingly bad bins when they can actually be saved, and this would be wasteful.
 
-We can assume that if we only keep the bins with good completion and redundancy estimates based on single-copy core genes the remaining bins would be clean, and it would be naive.
+We can assume that if we only keep the bins with good completion and redundancy estimates based on single-copy core genes the remaining bins would be clean, and this would be naive.
 
 The last example in this post was *not* the final example in this dataset: visualizations in this post represent _every single bin_ we randomly chose and looked at. They are not unique examples, they are not unrealistic.
 
