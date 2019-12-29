@@ -33,7 +33,7 @@ It contains about 3,000 words and will take little more than 15 minutes to read.
 {:.notice}
 If you are too cool for introductions and are here to see some cool plots, [jump here](#visualizing-contig-fate-across-binning-algorithms-with-alluvial-diagrams).
 
-As the number of environmental metagenomes, binning algorithms, and metagenome-assembled genomes (MAGs) rapidly increase, it becomes easier to get washed away by the avalanche of data and forget what really matters. But when the dust settles from the current race of who is going to put together the largest number of genomes in one sit, perhaps we will once again realize that the convenience of outsourcing all decisions to some computer programs did not serve us as well as we though it would.
+As the number of environmental metagenomes, binning algorithms, and metagenome-assembled genomes (MAGs) rapidly increase, it becomes easier to get washed away by the avalanche of data and forget what really matters. But when the dust settles from the current race of who is going to put together the largest number of genomes in one sit, perhaps we will once again realize that the convenience of outsourcing all decisions to some computer programs did not serve us as well as we thought it would.
 
 The premise of metagenomic binning is relatively simple on paper: collect sample, sequence all DNA, assemble sequences, bin contigs, celebrate.
 
@@ -41,9 +41,9 @@ The premise of metagenomic binning is relatively simple on paper: collect sample
 
 In reality, though, accurately reconstructing genomes from metagenomes using short-metagenomic reads is really difficult on many accounts of theory and practice (see "[Accurate and Complete Genomes from Metagenomes](https://www.biorxiv.org/content/10.1101/808410v2)" by [Lin-Xing Chen](https://scholar.google.com/citations?user=ssOQEpkAAAAJ&hl=en) et al. for a comprehensive overview, tips, and strategies).
 
-The biggest problem of all is the poor assembly of short metagenomic reads. We all know and wish that long-read sequencing and Hi-C will soon start giving us near-complete genomes from metagenomes. But this is like how quantum computers will soon revolutionize computing (and in the process will likely make NP-complete problems disappear and render cryptography obsolete so we can all become a singularity of a broken family). We are not there yet, and we are not sure when we will be. Until then, we have to work with what we have. So if short reads are going to be around for a little longer, and actually much much longer for the 90% of the scientists who are not affiliated with top X institutes, then what is the biggest risk?
+The biggest problem of all is the poor assembly of short metagenomic reads. We all know and wish that long-read sequencing and Hi-C will soon start giving us near-complete genomes from metagenomes. But this is like how quantum computers will soon revolutionize computing (and in the process will likely make NP-complete problems disappear and render cryptography obsolete so we can all become a singularity of a broken family). We are not there yet, and until then we have to work with what we have. So if short reads are going to be around for a little longer, then what is the biggest risk?
 
-The biggest risk of reconstructing genomes from metagenomes is to end up working with composite genomes, as [composite genomes **will influence ecological, pangenomic, and phylogenomic insights**](https://doi.org/10.1128/mBio.00725-19). Despite [the community guidelines](https://www.nature.com/articles/nbt.3893), avoiding composite genomes is not that easy even when we really really want to. Because counting the occurrence of single-copy core genes, which is the most commonly&#151;and often *the only*&#151;approach used to scrutinize new MAGs, is *not* bulletproof. Yes&#151;[single-copy core genes **are not enough to detect contamination issues**](https://www.biorxiv.org/content/10.1101/808410v2). So we will get bad bins, and we will not even know it unless we manually refine them. Most scientist in our field will agree that one of the most sorely missing pieces of our computational toolkit for genome-resolved metagenomics is the ability to estimate the quality and completion of a new genome without relying on any *a priori* information such as databases or gene families, and by using the entirety of the genomic data, and not only some parts of it. It is almost certain that multiple groups are pushing these boundaries, and we wish them well, as their solutions will continue to be useful after the long-read sequencing revolution. But we are not there yet, either.
+The biggest risk of reconstructing genomes from metagenomes is to end up working with composite genomes, as [composite genomes **will influence ecological, pangenomic, and phylogenomic insights**](https://doi.org/10.1128/mBio.00725-19). Despite [the community guidelines](https://www.nature.com/articles/nbt.3893), avoiding composite genomes is not that easy even when we really really want to. Because counting the occurrence of single-copy core genes, which is the most commonly --and often *the only*-- approach used to scrutinize new MAGs, is *not* bulletproof. Yes -- [single-copy core genes **are not enough to detect contamination issues**](https://www.biorxiv.org/content/10.1101/808410v2). So we will get bad bins, and we will not even know it unless we manually refine them. Most scientists in our field will agree that one of the most sorely missing pieces of our computational toolkit for genome-resolved metagenomics is the ability to estimate the quality and completion of a new genome without relying on any *a priori* information such as databases or gene families, and by using the entirety of the genomic data, and not only some parts of it. It is almost certain that multiple groups are pushing these boundaries, and we wish them well, as their solutions will continue to be useful after the long-read sequencing revolution. But we are not there yet, either.
 
 Long story short, in general we don't have great assemblies and we don't have bulletproof ways to identify contamination issues. What do we do, then?
 
@@ -85,9 +85,9 @@ Something appropriately complex and realistic?
 
 ## Some ocean metagenomes appear
 
-Every corner of microbial ecology is filled data. But **the best data are the data that are in the progress of being analyzed** so playing with it could end up being useful to its rightful owner as they go through it.
+Every corner of microbial ecology is filled with data. But **the best data are the data that are in the progress of being analyzed** so playing with it could end up being useful to its rightful owner as they go through it.
 
-Enter [a spontaneous thread in anvi'o Slack channel](https://anvio.slack.com/archives/C8SFMGYF3/p1576677417097800) by Jarrod Scott (who currently a post-doctoral scientist at the [Smithsonian Tropical Research Institute](https://stri.si.edu/), Panama), which made it clear that he has been testing `anvi-cluster-contigs` on his ocean metagenomes.
+Enter [a spontaneous thread in anvi'o Slack channel](https://anvio.slack.com/archives/C8SFMGYF3/p1576677417097800) by Jarrod Scott (who currently is a post-doctoral scientist at the [Smithsonian Tropical Research Institute](https://stri.si.edu/), Panama), which made it clear that he has been testing `anvi-cluster-contigs` on his ocean metagenomes.
 
 The dataset contains 28 shallow water marine samples collected within a 20km radius around [Isla Coiba](https://goo.gl/maps/VUkiZGPSa5yucjWN9) in the Eastern Pacific Ocean. The data was co-assembled with [MEGAHIT](https://academic.oup.com/bioinformatics/article/31/10/1674/177884). Here is the output of `anvi-display-contigs-stats` for that assembly:
 
@@ -193,7 +193,7 @@ Here is another example:
 
 In this case DAS Tool reports only a part of a CONCOCT bin (you can tell by the `_sub` postfix in the name). This is where you watch your Roomba from your pet-cam approaching head-on towards some accident. The final bin has 98% complete and 17% redundant. 
 
-Similar to the case of `MAXBIN_167` discussed above, CONCOCT `Bin_131` shown here is only 60% of the bin that ended up being reported by DAS Tool. It this case it is hard to make sense of what led to this decision to split `Bin_131` in this particular way. But seeing that these contigs ended up in 16 MaxBin and 12 MetaBAT bins is not encouraging.
+Similar to the case of `MAXBIN_167` discussed above, CONCOCT `Bin_131` shown here is only 60% of the bin that ended up being reported by DAS Tool. In this case it is hard to make sense of what led to this decision to split `Bin_131` in this particular way. But seeing that these contigs ended up in 16 MaxBin and 12 MetaBAT bins is not encouraging.
 
 Let's turn the question around and say we will focus on the entirety of `Bin_131` and see what is happening. Here is a diagram of the same bin, but starting with CONCOCT result, instead of DAS Tool: 
 
@@ -217,9 +217,9 @@ There is a lot to talk about here, but let's first focus on the screenshot from 
 
 Here, the contigs are organized based on sequence composition, as you can see they largely split into two major branches. The data shown here is [detection](http://merenlab.org/2017/05/08/anvio-views/#detection), and the min/max values are set to 0.25 and 0.50. Which means, if less than 25% of a given contig has at least 1X coverage in a given metagenome, it will not have a black bar in the corresponding layer. In parallel, if more than 50% of it covered with at least one short read, then it will be shown with a full bar. 
 
-Since we are using only tetra-nucleotide frequency to organize these contigs, the detection signal has no influence on the way the center dendrogram organizes them. The difficulty here is that these two populations are co-occurring quite abundantly only in three metagenomes, so differential coverage signal is largely useless to them. But if you squint your eyes, you can tell that actually only one of them is detected faintly in the last two samples. So tetra-nucleotide frequency resolves distinct populations, and their ecology agrees with that resolution. It is nothing for you to expert the crap out of this signal, but it is just too much Roomba.
+Since we are using only tetra-nucleotide frequency to organize these contigs, the detection signal has no influence on the way the center dendrogram organizes them. The difficulty here is that these two populations are co-occurring quite abundantly only in three metagenomes, so differential coverage signal is largely useless to them. But if you squint your eyes, you can tell that actually only one of them is detected faintly in the last two samples. So tetra-nucleotide frequency resolves distinct populations, and their ecology agrees with that resolution. It is a piece of cake for your eyes to pick up that signal and for your expertise to make sense of it, but for the Roomba it is just too much.
 
-Now when you look at the diagram above, you see that **now these two bins, which simply organizes the same contigs differently, have a total redundancy of 9% and 4%**. And for this outcome, you had to start with the poorly done CONCOCT bin, rather than masterfully done DAS Tool sub bin.
+Now when you look at the diagram above, you see that **now these two bins, which simply organize the same set of contigs differently, have a total redundancy of 9% and 4%**. And to reach this outcome without sacrificing the completion of one of these bins, you would have had to start with the poorly done CONCOCT bin, rather than masterfully done DAS Tool sub-bin.
 
 Anvi'o [real-time taxonomy estimation](http://merenlab.org/2019/10/08/anvio-scg-taxonomy/) using the [GTDB](https://gtdb.ecogenomic.org/) resolves one bin to the genus *Puniceispirillum* and the other to *HIMB100*: 
 
@@ -266,7 +266,7 @@ The last example in this post was *not* the final example in this dataset: visua
 
 If you are working with a relatively complex environment with a relatively small number of samples, if you are using Illumina sequencing, a popular assembly software, and a popular binning algorithm, everything you see here is more than likely happening in your dataset as well. If you are looking at binning efforts from individual samples, then you have much more reasons to be concerned.
 
-This is true for recent publications that described large number of genomes, and these monumental efforts indeed come with their own shortcomings. For instance, take this TM7 MAG appeared in a recent publication by [Pasolli et al.](https://linkinghub.elsevier.com/retrieve/pii/S0092-8674(19)30001-7):
+This is true for recent publications that described large number of genomes, and these monumental efforts indeed come with their own shortcomings. For instance, take this TM7 MAG that appeared in a recent publication by [Pasolli et al.](https://linkinghub.elsevier.com/retrieve/pii/S0092-8674(19)30001-7):
 
 [![binning]({{images}}/Passoli_TM7.png)]({{images}}/Passoli_TM7.png){:.center-img .width-80}
 
@@ -278,11 +278,11 @@ The figure is from [Lin-Xing Chen et al.](https://www.biorxiv.org/content/10.110
 
 Almost 20% of the contigs in this MAG is contamination from *Veillonella* and other oral taxa. These contigs ended up together, because in the only plaque sample that was used for binning ([SRS023938](https://www.ncbi.nlm.nih.gov/biosample/?term=SRS023938)), their coverages were relatively comparable.
 
-The reason to highlight this bin is not to criticize Passoli et al.'s work. There was nothing much anyone could do for these 11 contigs when there were millions of other contigs to deal with in 150,000 genome bins. But it is to show that this *is* the reality of large-scale fully-automated binning efforts in the midst of all the shortcomings of metagenomics.
+The reason to highlight this bin is not to criticize Passoli et al.'s work. There was nothing much anyone could do for these 11 contigs when there were millions of others spreading through 150,000 genome bins to deal with. But the reason is to show that this *is* the reality of large-scale fully-automated binning efforts in the midst of all the shortcomings of metagenomics.
 
 Overall, it is essential to be aware, but there is no need to be pessimistic.
 
-Despite all these difficulties science moves on, and moves on fast. We are thankful for the passion and dedication of those who develop binning algorithms, create new public metagenomes, and put their best effort to catalogue the genomic make up of natural habitats, such as Passoli et al.
+Science moves on despite all these difficulties, and moves on fast. We are thankful for the passion and dedication of those who develop binning algorithms, create new public metagenomes, and put their best effort to catalogue the genomic make up of natural habitats, such as Passoli et al.
 
 And thank *you* for reading all the way down here.
 
