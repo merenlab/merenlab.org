@@ -33,7 +33,7 @@ It contains about 3,000 words and will take little more than 15 minutes to read.
 ## Introduction
 
 {:.notice}
-If you are too cool for introductions and are here to see some cool plots, [jump here](#visualizing-contig-fate-across-binning-algorithms-with-alluvial-diagrams).
+If you are too cool for introductions and are only here to see some plots, [jump here](#visualizing-contig-fate-across-binning-algorithms-with-alluvial-diagrams).
 
 As the number of environmental metagenomes, binning algorithms, and metagenome-assembled genomes (MAGs) rapidly increase, it becomes easier to get washed away by the avalanche of data and forget what really matters. But when the dust settles from the current race of who is going to put together the largest number of genomes in one sit, perhaps we will once again realize that the convenience of outsourcing all decisions to some computer programs did not serve us as well as we thought it would.
 
