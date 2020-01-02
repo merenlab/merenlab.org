@@ -294,3 +294,11 @@ And thank *you* for reading all the way down here.
 
 
 {% include _join-anvio-slack.html %}
+
+---
+
+<div style="padding-top:30px">&nbsp;</div>
+
+<blockquote class="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">A new blog post from Jarrod Scott and I in which we try to take a look at what is going on in some MAGs by visualizing the contig membership changes across binning strategies that were applied to the same data:<a href="https://t.co/u92wz8QSTt">https://t.co/u92wz8QSTt</a><br><br>Happy new year!</p>&mdash; A. Murat Eren (Meren) (@merenbey) <a href="https://twitter.com/merenbey/status/1212766625444909057?ref_src=twsrc%5Etfw">January 2, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+---
