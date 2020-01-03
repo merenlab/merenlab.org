@@ -142,7 +142,7 @@ The next program solves that issue.
 
 ## Exporting coverage data as a PDF
 
-The new and talented anvi'o program `anvi-script-visualize-split-coverages` will generate static versions of the coverage plots you see in anvi'o interactive interfaces as a PDF. In other words, this program will give you the inspect page produced in `ggplot2`. You'll need the `ggplot2` and `outparse` packages installed in R.
+The new and talented anvi'o program `anvi-script-visualize-split-coverages` will generate static versions of the coverage plots you see in anvi'o interactive interfaces as a PDF. In other words, this program will give you the inspect page produced in `ggplot2`. You'll need the `ggplot2` and `optparse` packages installed in R.
 
 {:.notice}
 **Meren's note**: `anvi-script-visualize-split-coverages` is the first anvi'o program that is contributed **entirely** from someone who is not an official member of the UChicago anvi'o headquarters. [Ryan Moore](http://twitter.com/TenderIsTheByte), a graduate student at the University of Delaware, heard [our call on Twitter](https://twitter.com/merenbey/status/1138909272430039040), and implemented this lovely program for the entire community. I know I speak on behalf of all anvi'o users who will use his program when I say I am very grateful for his generosity and time. This is how open-source projects grow and become the property of the community rather than being associated with a single group forever. Thank you, Ryan!
