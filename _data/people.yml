@@ -241,17 +241,17 @@
       inst: The Department of Medicine at the University of Chicago
       inst_link: http://medicine.uchicago.edu/
 
-- alias: kota
+- alias: kiki
   official: True
-  name: Kota Bear
-  web: https://en.wikipedia.org/wiki/Poodle
-  tenure_start: 01/2017
-  role: Dog
-  avatar: bio-kota.png
-  address: Chicago, IL
-  bio: "I focus on members of the family Sciuridae and Leporidae to study stress-induced behavioral changes in mammals."
+  name: Kiki Füßel
+  web: https://twitter.com/merenbey/status/1196919880680914944
+  tenure_start: 11/2019
+  role: Mood Regulator
+  avatar: bio-kiki.jpg
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9118, Chicago, IL 60637 USA
+  bio: "I am an environmental scientist and a passionate anthropologist. I study my environments and my humans through my somatosensory, olfactory, and gustatory systems."
   affiliations:
-    - title: Honorary Member
+    - title: Therapy Dog
 
 ####################################################################################
 # Non-member friends
