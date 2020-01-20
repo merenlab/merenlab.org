@@ -7,19 +7,28 @@ excerpt: "Anvi'o Project Page"
 
 {% include _toc.html %}
 
-# Anvi'o in a nutshell
+# Anvi'o: integrated multi-omics at scale
 
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
-Anvi'o is an [open-source](http://github.com/meren/anvio), [community-driven](https://github.com/merenlab/anvio/blob/master/AUTHORS.txt) analysis and visualization platform for 'omics data.
+Anvi'o is an **[open-source](http://github.com/meren/anvio)**, **community-driven** analysis and visualization platform for **microbial 'omics**. It brings together many aspects of today's cutting-edge strategies including **genomics**, **metagenomics**, **metatranscriptomics**, **pangenomics**, **phylogenomics**, and **microbial population genetics** in an *integrated* and *easy-to-use* fashion through extensive **interactive visualization** capabilities.
 
-It brings together many aspects of today's cutting-edge genomic, metagenomic, metatranscriptomic, pangenomic, and phylogenomic analysis practices to address a wide array of needs.
+Anvi'o currently stands on **more than 80,000 lines of Python and JavaScript code** that follow modern software development paradigms thanks to the voluntary contributions of **more than [30 developers](https://github.com/merenlab/anvio/blob/master/AUTHORS.txt)** from the academia and industry, [empowering microbiologists](/testimonials/) for their [complex needs](https://github.com/merenlab/anvio/releases).
+
+As a principle, anvi'o does not track its users by any means, but based on [self-reported data on Twitter](https://twitter.com/merenbey/status/1218364014641786882), there is at least one anvi'o user in the following countries:
+
+<p style="font-size: x-large;">
+🇺🇸🇨🇦🇬🇧🇦🇺🇨🇳🇸🇪🇵🇹🇯🇵🇮🇹🇫🇷🇪🇸🇩🇰🇩🇪🇨🇱🇨🇭🇦🇷🇹🇷🇸🇬🇸🇦🇷🇺🇵🇷🇵🇭🇳🇴🇲🇾🇲🇽
+🇲🇫🇱🇺🇰🇷🇮🇳🇮🇱🇮🇪🇭🇰🇫🇮🇨🇼🇨🇷🇨🇴🇧🇷🇦🇹
+</p>
+
+We welcome you to join in our growing international community, and look forward to hearing your concerns, ideas, and feature requests regarding anvi'o, or questions on microbial 'omics through any of our [online venues](http://merenlab.org/2019/10/07/getting-help/).
 
 {% include _join-anvio-slack.html %}
 
-# Releases
+# Install
 
-Find latest anvi'o releases [here](https://github.com/merenlab/anvio/releases).
+**[Installing anvi'o](/install-anvio/)** is quite straightforward on Mac, Linux, or Windows operating systems. Following our installation tutorial you can install the latest stable version of anvi'o or tap into our master code repository to track the very latest changes. Alternatively, you can use one of our [Docker containers](/anvio-docker) without any installation.
 
 # Tutorials
 
@@ -29,9 +38,6 @@ See the "**tutorials**" pull-down menu to learn what you can do with anvi'o.
 
 See **all programs in anvi'o** here: [{{ site.url }}/software/anvio/vignette/]({{ site.url }}/software/anvio/vignette/)
 
-# Others on anvi'o
-
-[Visit this post](/testimonials/) to read user testimonials, or share your anvi'o experience with others.
 
 # Citation
 
@@ -41,8 +47,5 @@ Please consider also citing the following paper if you are using the pangenomics
 
 Delmont TO and Eren AM. (2018) [Linking pangenomes and metagenomes: the *Prochlorococcus* metapangenome](https://peerj.com/articles/4320/). *PeerJ* **6**:e4320
 
-# Authors
 
-Full list of authors and contributors can be found [here](https://github.com/merenlab/anvio/blob/master/AUTHORS.txt).
-
-# All posts anvi'o
+# Blog posts on anvi'o and microbial 'omics
