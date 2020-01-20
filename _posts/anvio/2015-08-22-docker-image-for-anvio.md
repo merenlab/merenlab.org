@@ -6,6 +6,8 @@ modified: 2015-08-22
 tags: []
 categories: [anvio]
 comments: true
+redirect_from:
+ - /anvio-docker
 authors: [meren]
 ---
 
