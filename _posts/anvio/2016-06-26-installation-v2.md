@@ -7,7 +7,7 @@ tags: []
 categories: [anvio]
 redirect_from:
  - /2015/05/01/installation/
- - /install-anvio
+ - /install-anvio/
 comments: true
 image:
   feature: https://github.com/merenlab/anvio/raw/master/anvio/data/interactive/images/logo.png
