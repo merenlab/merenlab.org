@@ -83,7 +83,7 @@ To run VirSorter you will also need to download MetaGeneAnnotator ([Noguchi et a
 ```
 cd ~/miniconda/envs/virsorter/bin
 wget http://metagene.nig.ac.jp/metagene/mga_x86_64.tar.gz
-tar -xvzf metagene/mga_x86_64.tar.gz
+tar -xvzf mga_x86_64.tar.gz
 ```
 
 Now you have a running VirSorter installation, however, you need the data pack to actually run it.
