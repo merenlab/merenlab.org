@@ -25,7 +25,6 @@ We welcome you to join in our growing international community, and look forward 
 
 {% include _join-anvio-slack.html %}
 
-t
 # Install
 
 **[Installing anvi'o](/install-anvio/)** is quite straightforward on Mac, Linux, or Windows operating systems. Following our installation tutorial you can install the latest stable version of anvi'o or tap into our master code repository to track the very latest changes. Alternatively, you can use one of our [Docker containers](/anvio-docker) without any installation.
