@@ -1,5 +1,5 @@
 {
-    "fasta_txt": "ESPINOZA_MERGED_FASTA.txt",
+    "fasta_txt": "ESPINOZA-MERGED-FASTA.txt",
     "centrifuge": {
         "threads": 2,
         "run": true,

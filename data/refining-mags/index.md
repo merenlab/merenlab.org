@@ -4,7 +4,9 @@ title: Refining Metagenome-Assembled Genomes
 modified: 2019-01-15
 excerpt: "Refining oral MAGs from Espinoza et al 2018"
 comments: true
-redirect_from: /data/refining-espinoza-mags
+redirect_from:
+  - /data/refining-espinoza-mags
+  - /data/refining-mags
 
 ---
 
@@ -560,20 +562,15 @@ wget https://gist.githubusercontent.com/ShaiberAlon/23fc13ed56e02854bee427736728
 
 This script takes a `fasta_txt` file as input and generates a collection file where the name of each entry in the `fasta_txt` file is associated with the names of contigs in the respective FASTA file.
 
-So first we had to generate a `fasta_txt` for the newly generated reformated FASTA files, which we did by running the following commands:
+The following BASH one liner will generate a TAB delmited file (which will be our `fasta_txt` mentioned above) for the newly generated reformated FASTA files:
 
 ```bash
-echo name > MAG-NAMES.txt
-cut -f 1 ESPINOZA-MAGS-FASTA.txt | tail -n +2 | sort >> MAG-NAMES.txt
-
-echo path > REFORMATTED-FASTAS.txt
-ls 01_FASTA/*/*fa | sort >> REFORMATTED-FASTAS.txt
-
-paste MAG-NAMES.txt REFORMATTED-FASTAS.txt > ESPINOZA-MAGS-REFORMATTED-FASTA.txt
-rm MAG-NAMES.txt REFORMATTED-FASTAS.txt
+ls 01_FASTA/*/*.fa | \
+    awk 'BEGIN{FS="/"; print "name\tpath"}
+              {print $2 "\t" $0}' > ESPINOZA-MAGS-REFORMATTED-FASTA.txt
 ```
 
-This is what ESPINOZA-MAGS-REFORMATTED-FASTA.txt looks like:
+This is what the contents of this file looks like:
 
 ```bash
 column -t ESPINOZA-MAGS-REFORMATTED-FASTA.txt
@@ -589,7 +586,7 @@ Now we can generate the collection file:
 
 ```bash
 python gen-collection-for-merged-fasta.py -f ESPINOZA-MAGS-REFORMATTED-FASTA.txt \
-                                       -o ESPINOZA-MAGS-COLLECTION.txt
+                                          -o ESPINOZA-MAGS-COLLECTION.txt
 ```
 
 Here is a glimpse to the resulting `ESPINOZA-MAGS-COLLECTION.txt`:
@@ -602,6 +599,8 @@ GN02_MAG_IV_A_000000000003  GN02_MAG_IV_A
 GN02_MAG_IV_A_000000000004  GN02_MAG_IV_A
 GN02_MAG_IV_A_000000000005  GN02_MAG_IV_A
 ```
+
+Note that every line in this collection file describes which contig name belongs to which genome.
 
 In order to have the snakemake workflow use this collection automatically, and generate a summary and split databases, we need a `collections_txt` (as is explained in the `anvi-run-workflow` [tutorial](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#generating-summary-and-split-profiles)).
 
@@ -676,7 +675,7 @@ The content of which should look like this:
 
 ``` json
 {
-    "fasta_txt": "ESPINOZA_MERGED_FASTA.txt",
+    "fasta_txt": "ESPINOZA-MERGED-FASTA.txt",
     "centrifuge": {
         "threads": 2,
         "run": true,
