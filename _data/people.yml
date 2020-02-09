@@ -27,24 +27,6 @@
       inst: The Biomedical Sciences Cluster at the University of Chicago
       inst_link: https://biomedsciences.uchicago.edu/
 
-- alias: alon
-  official: True
-  name: Alon Shaiber
-  tenure_start: 10/2016
-  role: Graduate Student
-  email: alon.shaiber@gmail.com
-  twitter: alon_shaiber
-  github: ShaiberAlon
-  linkedin: alon-shaiber
-  skype: alon.shaiber
-  avatar: bio-alon.jpg
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  bio: "I'm a graduate student in the Bio Physical Sciences Program at UChicago. I'm fascinated by the complexity of microbial ecology and interested in applying and developing computational tools to explore it."
-  affiliations:
-    - title: Graduate Student
-      inst: The Biophysical Sciences Program at the University of Chicago
-      inst_link: http://biophysics.uchicago.edu/
-
 - alias: florian
   official: True
   name: Florian Trigodet
@@ -388,6 +370,28 @@
 # Previous members.
 ####################################################################################
 
+- alias: alon
+  nick_name: Alon
+  tenure_start: 10/2016
+  tenure_end: 02/2020
+  current_info: getting prepared for the next chapter of his journey
+  contributions: Throughout his studies of the human oral cavity microbiome and its enigmatic members through genome-resolved metageomics, he served the community with his open code and tutorials. Alon was <a href="https://twitter.com/merenbey/status/1223038960789872646" target="_blank">the very first graduate student to join our group</a> who dramatically influnced the trajectory of our science
+  official: True
+  name: Alon Shaiber
+  role: Graduate Student
+  email: alon.shaiber@gmail.com
+  twitter: alon_shaiber
+  github: ShaiberAlon
+  linkedin: alon-shaiber
+  skype: alon.shaiber
+  avatar: bio-alon.jpg
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  bio: "I'm a graduate student in the Bio Physical Sciences Program at UChicago. I'm fascinated by the complexity of microbial ecology and interested in applying and developing computational tools to explore it."
+  affiliations:
+    - title: Graduate Student
+      inst: The Biophysical Sciences Program at the University of Chicago
+      inst_link: http://biophysics.uchicago.edu/
+
 - alias: quentin
   official: True
   name: Quentin Clayssen
@@ -400,8 +404,8 @@
   linkedin: quentin-clayssen-398360139
   twitter: ClayssenQ
   avatar: bio-quentin.jpg
-  current_info: finishing up his masters education in France
-  contributions: He took the the first stab at developing the fisrt version of the anvi'o framework for rapid determination of taxonomic affiliation of metagenome-assembled genomes
+  current_info: a graduate student at the <a href="https://ethz.ch/en.html">ETH Zurich</a>
+  contributions: He contributed to the development of an anvi'o framework for <a href="http://merenlab.org/2019/10/08/anvio-scg-taxonomy/">the rapid determination of genome taxonomy</a>
   bio: "I am a microbiologist and a bioinformatician in training interested in metagenomics. I currently am focusing on approaches for rapid placement of metagenome-assembled genomes into the tree of life."
 
 - alias: sonny
