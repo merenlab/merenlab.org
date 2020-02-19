@@ -90,6 +90,12 @@
         <div class="person-info">
           <h3>{{ person.name }}</h3>
 
+            <div class="social-box">
+              {% if person.twitter %}<a href="http://twitter.com/{{ person.twitter }}" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i> Twitter</a>{% endif %}
+              {% if person.github %}<a href="http://github.com/{{ person.github }}" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>{% endif %}
+              {% if person.orcid %}<a href="https://orcid.org/{{ person.orcid }}" class="person-social" target="_blank"><i class="fa fa-fw fa-microphone"></i> ORCiD</a>{% endif %}
+            </div>
+
           <p>
              {{ person.nick_name }} was a {{ person.role }} with us between {{person.tenure_start}} and {{person.tenure_end}}.
              {{ person.contributions }}. The last time we checked, {{ person.nick_name }} was {{ person.current_info }}.
