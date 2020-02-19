@@ -161,6 +161,7 @@ conda install -y -c bioconda samtools
 conda install -y -c bioconda centrifuge
 conda install -y -c bioconda diamond=0.9.14
 conda install -y -c bioconda bioconductor-qvalue
+conda install -y -c bioconda trnascan-se
 conda install -y r-base=3.6.1
 conda install -y -c r r-tidyverse
 conda install -y -c conda-forge r-optparse
