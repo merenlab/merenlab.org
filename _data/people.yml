@@ -366,7 +366,7 @@
 
 - alias: jarrod_s
   guest: True
-  avatar: bio-jarrod_s.png
+  avatar: bio-j.gif
   name: Jarrod J. Scott
   role: Guest writer
   email: jarrod.jude.scott@gmail.com
@@ -391,6 +391,7 @@
   role: Graduate Student
   email: alon.shaiber@gmail.com
   twitter: alon_shaiber
+  orcid: 0000-0002-4806-9280
   github: ShaiberAlon
   linkedin: alon-shaiber
   skype: alon.shaiber
@@ -423,6 +424,7 @@
   name: Sonny T. M. Lee
   nick_name: Sonny
   tenure_start: 05/2016
+  twitter: sonnytmlee
   tenure_end: 05/2018
   current_info: an Assistant Professor of Microbial Ecology (<a href="http://www.the-lee-lab.com" target="_blank">http://www.the-lee-lab.com</a>) at the Kansas State University, Division of Biology
   contributions: He took the responsibility of leading the Fecal Microbiota Transplantation work in our lab. Sonny also was the driving force behind setting up the wet-lab component of our group
