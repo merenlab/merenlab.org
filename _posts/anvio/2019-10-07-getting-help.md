@@ -6,7 +6,9 @@ modified: 2019-10-06
 authors: [iva]
 categories: [anvio]
 comments: true
-redirect_from: /2015/10/14/anvio-discussion-group/
+redirect_from:
+  - /2015/10/14/anvio-discussion-group/
+  - /help
 ---
 
 {% include _toc.html %}
