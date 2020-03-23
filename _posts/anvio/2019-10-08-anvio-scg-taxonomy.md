@@ -1,7 +1,7 @@
 ---
 layout: post
 authors: [meren]
-title: "Real-time genome taxonomy estimation with anvi'o"
+title: "Genome / metagenome / MAG taxonomy with anvi'o"
 excerpt: "An attempt at alchemy combining the magic of GTDB and single-copy core genes in anvi'o."
 modified: 2019-10-08
 tags: []
