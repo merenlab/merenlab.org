@@ -40,7 +40,7 @@ With the [anvi'o](https://peerj.com/articles/1319/) scg-taxonomy workflow you ca
 
 ## Thanks
 
-The new anvi'o scg-taxonomy module described on this page stands on more than 1,500 lines of code that is fully integrated to the rest of the anvi'o platform. This effort is partially a result of a pilot award from the [FACCTS](https://fcc.uchicago.edu/) (*France and Chicago Collaborating in The Sciences*) program, which supported the travel expenses of **Quentin Clayssen** from France to Chicago, who put the initial effort to investigate the feasibility of this idea. I would also like to thank [**Alon Shaiber**](https://twitter.com/alon_shaiber) for his excellent suggestions that influenced the speed of this algorithm, and [**Özcan Esen**](https://twitter.com/ozcanesen) for helping with the integration of this module to the anvi'o interface.
+The new anvi'o scg-taxonomy module described on this page stands on more than 2,500 lines of code that is fully integrated to the rest of the anvi'o platform. This effort is partially a result of a pilot award from the [FACCTS](https://fcc.uchicago.edu/) (*France and Chicago Collaborating in The Sciences*) program, which supported the travel expenses of **Quentin Clayssen** from France to Chicago, who put the initial effort to investigate the feasibility of this idea. I would also like to thank [**Alon Shaiber**](https://twitter.com/alon_shaiber) for his excellent suggestions that influenced the speed of this algorithm, and [**Özcan Esen**](https://twitter.com/ozcanesen) for helping with the integration of this module to the anvi'o interface.
 
 
 ## Introduction
