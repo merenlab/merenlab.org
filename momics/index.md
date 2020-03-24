@@ -18,7 +18,7 @@ On this page you will find some of the reusable material [Meren Lab](http://mere
 
 ## Motivation
 
-During the Spring semester of 2019, I started a new undergraduate course at the University of Chicago on microbial 'omics with the following description (the rest of the syllabus is [here](https://www.dropbox.com/s/37v8i3er6uju9ku/MOmics_Draft_Syllabus.pdf)):
+During the Spring semester of 2019, I started a new undergraduate course at the University of Chicago on microbial 'omics with the following description (the rest of the syllabus is [here](https://www.dropbox.com/s/vb1xqrec55kjnt0/microbial_omics.pdf)):
 
 <div style="background-color: whitesmoke; border-radius: 15px;">
 <p style="padding: 10px 30px 10px 30px;"><i>Every ecological niche our planet has to offer, including the human body itself, is home to an astonishing number of microbial cells that form complex communities. The last several years witnessed tremendous advances in molecular and computational approaches which now offer unprecedented access to these communities through new 'omics strategies. Developing an overall understanding of these strategies -including the ability to identify their appropriate applications and shortcomings- has quietly become a de facto necessity in the journey of an independent life scientist. The primary aim of this course is to empower its participants and enable them to study the ecology, evolution, and functioning of naturally occurring microbial populations. Through equal proportions of theory and practice, the participants will use state-of-the-art computational methods to work with real-world microbial data and recognize the current conceptual framework that helps us wrap our collective mind around the most diverse form of life on our planet.</i></p>
