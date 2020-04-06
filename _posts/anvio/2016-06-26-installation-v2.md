@@ -72,7 +72,21 @@ conda install -y -c conda-forge -c bioconda anvio==6.2
 {:.notice}
 This may take a while. Seriously, though, this may take *A VERY LONG TIME*, but it will work at the end. Without going too much into the details, the long wait is due to the fact that the time requirement of the package dependency resolver of conda scales linearly with the number of conda packages out there. Good news? It is a [known problem](https://github.com/conda/conda/issues/7239). Bad news? It has been known for a long time. **On my high-end laptop computer it took about 4 hours to resolve the dependencies, and less than a minute to install all necessary packages**. Conda developers are on it, and I'm certain we will see improvements in the future.
 
-Once your installation is complete, you should test anvi'o quickly to make sure everything is in order:
+
+Once your installation is complete, and before we go any further, please run this command in your terminal:
+
+```
+conda list | grep anvio-minimal | grep 6.2 | awk '{print $3}'
+```
+
+If the output of this is `py_1`, you are golden :) If it says `py_0`, it means there is one more thing you have to do:
+
+```
+conda remove --force anvio-minimal
+conda install -y -c bioconda -c conda-forge anvio-minimal==6.2=py_1
+```
+
+Once this is done, you should test anvi'o quickly to make sure everything is in order:
 
 ``` bash
 anvi-self-test --suite mini
