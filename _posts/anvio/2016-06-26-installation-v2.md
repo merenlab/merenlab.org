@@ -29,6 +29,11 @@ Please consider opening an <a href="https://github.com/meren/anvio/issues">issue
 
 This is a very simple and effective way to install anvi'o on your system along with most of its dependencies.
 
+{:.notice}
+<div id="windowsreminder" style="min-height: 50px;" markdown="1">
+<img src="/images/windows10.png" style="float:left; width:50px; border: None; display: block; margin-right: 5px;">Although these installation instructions primarily target and rigorously tested for Linux and Mac OSX, you will be able to follow them if you are using Microsoft Windows **if and only if you first install the [Linux Subsystem for Windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10)**. Our users have reported success stories with Ubuntu on WSL.
+</div>
+
 For this to work, you need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be installed on your system. If you are not sure whether it is installed or not, open a terminal (hopefully an [iTerm](https://www.iterm2.com/), if you are using Mac) and type `conda`. You should see an output like this instead of a 'command not found' error (your version might be different):
 
 ```bash
