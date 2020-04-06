@@ -70,7 +70,7 @@ conda install -y -c conda-forge -c bioconda anvio==6.2
 ```
 
 {:.notice}
-This may take a while. It may even take A VERY LONG WHILE, and it is a [known problem](https://github.com/conda/conda/issues/7239). On my computer it took about 4 hours to resolve all dependencies.
+This may take a while. Seriously, though, this may take *A VERY LONG TIME*, but it will work at the end. Without going too much into the details, the long wait is due to the fact that the time requirement of the package dependency resolver of conda scales linearly with the number of conda packages out there. Good news? It is a [known problem](https://github.com/conda/conda/issues/7239). Bad news? It has been known for a long time. **On my high-end laptop computer it took about 4 hours to resolve the dependencies, and less than a minute to install all necessary packages**. Conda developers are on it, and I'm certain we will see improvements in the future.
 
 Once your installation is complete, you should test anvi'o quickly to make sure everything is in order:
 
