@@ -70,16 +70,16 @@ conda install -y -c conda-forge -c bioconda anvio==6.2
 ```
 
 {:.notice}
-This may take a while. Seriously, though, this may take *A VERY LONG TIME*, but it will work at the end. Without going too much into the details, the long wait is due to the fact that the time requirement of the package dependency resolver of conda scales linearly with the number of conda packages out there. Good news? It is a [known problem](https://github.com/conda/conda/issues/7239). Bad news? It has been known for a long time. **On my high-end laptop computer it took about 4 hours to resolve the dependencies, and less than a minute to install all necessary packages**. Conda developers are on it, and I'm certain we will see improvements in the future.
+This may take a while. Seriously, though, this may take *A VERY LONG TIME* for some of you. But it will work at the end. The long wait is due to the time requirement of the package dependency resolver of conda, which scales linearly with the number of conda packages out there. Good news? It is a [known problem](https://github.com/conda/conda/issues/7239), and conda developers are on it. And I'm certain we will see improvements in the future.
+But just to give you an idea, **on my high-end laptop computer it took about 4 hours to resolve the dependencies, and less than a minute to install all necessary packages**. It may take much faster for you, but if it is taking longer, please don't worry.
 
-
-Once your installation is complete, and before we go any further, please run this command in your terminal:
+Once your installation is complete, please run this command in your terminal for a final check:
 
 ```
 conda list | grep anvio-minimal | grep 6.2 | awk '{print $3}'
 ```
 
-If the output of this is `py_1`, you are golden :) If it says `py_0`, it means there is one more thing you have to do:
+If the output of this is `py_1`, you are golden :) But if it says `py_0`, it means there is one more thing you have to do:
 
 ```
 conda remove --force anvio-minimal
