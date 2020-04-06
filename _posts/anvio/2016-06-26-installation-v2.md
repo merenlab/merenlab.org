@@ -95,7 +95,13 @@ anvi-self-test --suite mini
 If at the end of this your browser automatically loaded the test run results, you are golden.
 
 {:.notice}
-**Your browser didn't pop-up?**. If all tests seemed to run perfectly but the browser didn't pop-up, it may mean that Python on your system is unable to find your default browser. Not a biggie (but see the note on Chrome down bellow and try the Python command shown there). Paste the address http://localhost:8080 to your browser to see the interactive display. It may also mean that you are on a server system where there is no graphical interface for the browser to show up. That is fine, too. Read this article to learn how you can forward displays from servers to your laptop: [working with remote displays]({% post_url anvio/2018-03-07-working-with-remote-interative %}).
+**Your browser didn't pop-up?**. If all tests seemed to run perfectly but the browser didn't pop-up, it may mean that Python on your system is unable to find your default browser. Not a biggie (but see the note on Chrome down bellow and try the Python command shown there). Paste the address `localhost:8080` to your browser to see the interactive display. It may also mean that you are on a server system where there is no graphical interface for the browser to show up. That is fine, too. Read this article to learn how you can forward displays from servers to your laptop: [working with remote displays]({% post_url anvio/2018-03-07-working-with-remote-interative %}).
+
+
+{:.notice}
+<div id="windowsreminder" style="min-height: 50px;" markdown="1">
+<img src="/images/windows10.png" style="float:left; width:50px; border: None; display: block; margin-right: 5px;">Windows users may be greeted by a "This site can't be reached" error even when their browsers show up. Copy-paste on your address bar `localhost:8080` and press ENTER to see if it fixes it. Sorry. You are the one who brought a Microsoft Windows to an open-source fight.
+</div>
 
 
 {:.warning}
