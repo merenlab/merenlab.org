@@ -82,7 +82,7 @@ conda list | grep anvio-minimal | grep 6.2 | awk '{print $3}'
 If the output of this is `py_1`, you are golden :) But if it says `py_0`, it means there is one more thing you have to do:
 
 ```
-conda remove --force anvio-minimal
+conda remove -y --force anvio-minimal
 conda install -y -c bioconda -c conda-forge anvio-minimal==6.2=py_1
 ```
 
