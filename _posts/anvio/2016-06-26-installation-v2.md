@@ -33,7 +33,7 @@ For this to work, you need [miniconda](https://docs.conda.io/en/latest/miniconda
 
 ```bash
 $ conda --version
-conda 4.7.12
+conda 4.8.3
 ```
 
 If you don't have conda installed, then you should first install it through their [installation page](https://docs.conda.io/en/latest/miniconda.html). Once you have confirmed you have conda installed, run this command to make sure you are up-to-date:
@@ -43,39 +43,31 @@ conda update conda
 ```
 
 {:.warning}
-Please make sure you create a new conda enviornment for anvi'o (you can make sure you are not in a conda environment by opening a new terminal and running `conda deactivate`. You can see which environments exist on your coputer by running `conda env list`. You can indeed install anvi'o in an existing conda environment, but if things go wrong, please consider relying on meditation for help rather than [anvi'o community resources]({% post_url anvio/2019-10-07-getting-help %}).
+Please make sure you create a new conda environment for anvi'o (you can make sure you are not in a conda environment by opening a new terminal and running `conda deactivate`. You can see which environments exist on your coputer by running `conda env list`. You can indeed install anvi'o in an existing conda environment, but if things go wrong, please consider relying on meditation for help rather than [anvi'o community resources]({% post_url anvio/2019-10-07-getting-help %}).
 
 
 Then, create an anvi'o environment for anvi'o v{% include _project-anvio-version-number.html %} (it is essential to create it with Python 3.6 as shown below):
 
 ``` bash
-conda create -n anvio-6.1 python=3.6
+conda create -y --name anvio-6.2 python=3.6
 ```
 
 Once it is ready, activate your new environment:
 
 ``` bash
-conda activate anvio-6.1
+conda activate anvio-6.2
 ```
 
 And finally install anvi'o in it:
 
 ``` bash
-conda install -y -c conda-forge -c bioconda anvio=6.1
+conda install -y -c conda-forge -c bioconda anvio==6.2
 ```
-
-This may take a while.
 
 {:.notice}
-**You are getting a `PackagesNotFoundError` error?**. It may mean that anvi'o v{% include _project-anvio-version-number.html %} is not yet synchronized to the conda repository. It usually takes a day or two to have new releases in conda. Please first check [the release logs for the latest version](https://github.com/merenlab/anvio/releases/tag/v{% include _project-anvio-version-number.html %}), and if it has been more than three days since the release, please let us know!
+This may take a while. It may even take A VERY LONG WHILE, and it is a [known problem](https://github.com/conda/conda/issues/7239). On my computer it took about 4 hours to resolve all dependencies.
 
-When the last step is complete, there is one last thing we need to do. Unfortunately conda installs the wrong version of diamond, so here we will make sure we go back to the correct version:
-
-```bash
-conda install -y diamond=0.9.14
-```
-
-Once this is complete, you should test anvi'o quickly to make sure everything is in order:
+Once your installation is complete, you should test anvi'o quickly to make sure everything is in order:
 
 ``` bash
 anvi-self-test --suite mini
@@ -86,18 +78,9 @@ If at the end of this your browser automatically loaded the test run results, yo
 {:.notice}
 **Your browser didn't pop-up?**. If all tests seemed to run perfectly but the browser didn't pop-up, it may mean that Python on your system is unable to find your default browser. Not a biggie (but see the note on Chrome down bellow and try the Python command shown there). Paste the address http://localhost:8080 to your browser to see the interactive display. It may also mean that you are on a server system where there is no graphical interface for the browser to show up. That is fine, too. Read this article to learn how you can forward displays from servers to your laptop: [working with remote displays]({% post_url anvio/2018-03-07-working-with-remote-interative %}).
 
-***Note***: One of our users who has been trying conda installation on an HPC system [reported](https://github.com/merenlab/anvio/issues/895#issuecomment-403656800) the following steps working for them:
-
-``` bash
-conda deactivate
-conda create -y --name anvio-6.1 python=3.6
-conda install -y --name anvio-6.1 -c bioconda -c conda-forge anvio=6.1
-conda install -y diamond=0.9.14
-```
-
 
 {:.warning}
-**IMPORTANT NOTE**: You may need to activate the anvi'o conda environment every time you open a new terminal window. Depending on your conda setup, you will either need to run `source activate anvio-6.1` or `conda activate anvio-6.1` (this assumes you named your conda environment for anvio `anvio-6.1` as per the commands above using the `--name` flag --if not, please replace `anvio-6.1` with whatever you have used to name your environment). You can always list your conda environments by typing `conda env list`.
+**IMPORTANT NOTE**: You may need to activate the anvi'o conda environment every time you open a new terminal window. Depending on your conda setup, you will either need to run `source activate anvio-6.2` or `conda activate anvio-6.2` (this assumes you named your conda environment for anvio `anvio-6.2` as per the commands above using the `--name` flag --if not, please replace `anvio-6.2` with whatever you have used to name your environment). You can always list your conda environments by typing `conda env list`.
 
 <div class="extra-info" markdown="1">
 
@@ -115,7 +98,7 @@ If you are here, you are done. Congratulations, and thank you!
 
 ## Following the active codebase (you're a wizard, arry)
 
-If you follow these instructions you can follow the `master` branch of anvi'o, which is where we add new features and bug fixes in between stable releases. Following the `master` branch as prescribed here will not prevent you to also have a stable anvi'o ersion on the same computer in parallel.
+If you follow these instructions you can follow the `master` branch of anvi'o, which is where we add new features and bug fixes in between stable releases. Following the `master` branch as prescribed here will not prevent you to also have a stable anvi'o version on the same computer in parallel.
 
 {:.warning}
 This section is not meant to be followed by those who would define themselves as *end users* in a conventional sense. It means if you would consider yourself someone who feels more comfortable with *stability*, *calmness*, and *predictibility* rather than *advanture* and *suprise*, or if you think feeling the occasional urge to ask your computer *WHAT NOW YOU STUPID CALCULATOR?* is not your cup of tea, you should stick with the installation recipe described in the previous section. Because if you just found yourself in this section and do not know what is `git` or `master`, you may be about to take upon more work than you anticipate (and while Meren totally thinks you should do it anyway because you have the world in your grip and all these unknown is yours to conquer, those who know how to cultivate happiness and productivity at the some time will suggest you to don't do it and move on with your day).
@@ -148,24 +131,31 @@ Good? Good. Then, install the following dependencies in this conda environment:
 ``` bash
 pip install virtualenv
 
-conda install -y -c bioconda prodigal
-conda install -y -c bioconda mcl
-conda install -y -c bioconda muscle
-conda install -y -c bioconda fasttree
-conda install -y -c bioconda hmmer
-conda install -y -c bioconda blast
-conda install -y -c bioconda megahit
-conda install -y -c bioconda bowtie2
-conda install -y -c bioconda bwa
-conda install -y -c bioconda samtools
-conda install -y -c bioconda centrifuge
-conda install -y -c bioconda diamond=0.9.14
-conda install -y -c bioconda bioconductor-qvalue
-conda install -y -c bioconda trnascan-se
-conda install -y r-base=3.6.1
-conda install -y -c r r-tidyverse
-conda install -y -c conda-forge r-optparse
+conda install -y prodigal \
+                 mcl \
+                 muscle \
+                 hmmer \
+                 diamond ==0.9.14 \
+                 blast \
+                 megahit \
+                 bowtie2 \
+                 bwa \
+                 samtools \
+                 centrifuge \
+                 trimal \
+                 iqtree \
+                 fastani \
+                 fasttree \
+                 r-base \
+                 r-stringi \
+                 r-tidyverse \
+                 r-magrittr \
+                 r-optparse \
+                 bioconductor-qvalue \
+                 trnascan-se
 ```
+
+
 
 Now it is time to get a copy of the anvi'o codebase. Here I will suggest `~/github/` as the base directory, but you can change if you want to something else (in which case you must remember to apply that change all the following commands, of course):
 
@@ -230,7 +220,7 @@ At this stage if you run `anvi-activate-master`, you should see similar outputs 
 ```
 $ anvi-self-test -v
 
-Anvi'o version ...............................: esther (v6.1-master)
+Anvi'o version ...............................: esther (v6.2-master)
 Profile DB version ...........................: 31
 Contigs DB version ...........................: 14
 Pan DB version ...............................: 13
@@ -275,7 +265,7 @@ index 1ceca28a..75c91a73 100644
 @@ -13,7 +13,7 @@ import platform
  import pkg_resources
 
- anvio_version = '6.1-master'
+ anvio_version = '6.2-master'
 -anvio_codename = 'esther'
 +anvio_codename = 'ESTHER'
 
@@ -288,7 +278,7 @@ But also see in action:
 ```
 $ anvi-self-test -v
 
-Anvi'o version ...............................: ESTHER (v6.1-master)
+Anvi'o version ...............................: ESTHER (v6.2-master)
 Profile DB version ...........................: 31
 Contigs DB version ...........................: 14
 Pan DB version ...............................: 13
@@ -335,8 +325,8 @@ init_anvio_stable () {
 
     export PATH="/Users/$USER/miniconda3/bin:$PATH"
     . /Users/$USER/miniconda3/etc/profile.d/conda.sh
-    conda activate anvio-6.1
-    export PS1="\[\e[0m\e[47m\e[1;30m\] :: anvi'o v6.1 :: \[\e[0m\e[0m \[\e[1;32m\]\]\w\[\e[m\] \[\e[1;31m\]>>>\[\e[m\] \[\e[0m\]"
+    conda activate anvio-6.2
+    export PS1="\[\e[0m\e[47m\e[1;30m\] :: anvi'o v6.2 :: \[\e[0m\e[0m \[\e[1;32m\]\]\w\[\e[m\] \[\e[1;31m\]>>>\[\e[m\] \[\e[0m\]"
 }
 
 
@@ -364,10 +354,10 @@ meren ~ $ anvi-self-test -v
 
 meren ~ $ as
 
-:: anvi'o v6.1 :: ~ >>>
+:: anvi'o v6.2 :: ~ >>>
 
-:: anvi'o v6.1 :: ~ >>> anvi-self-test -v
-Anvi'o version ...............................: esther (v6.1)
+:: anvi'o v6.2 :: ~ >>> anvi-self-test -v
+Anvi'o version ...............................: esther (v6.2)
 Profile DB version ...........................: 31
 Contigs DB version ...........................: 14
 Pan DB version ...............................: 13
@@ -375,7 +365,7 @@ Genome data storage version ..................: 6
 Auxiliary data storage version ...............: 2
 Structure DB version .........................: 1
 
-:: anvi'o v6.1 :: ~ >>> am
+:: anvi'o v6.2 :: ~ >>> am
 
 :: anvi'o v6 master :: ~ >>>
 
@@ -398,17 +388,11 @@ Structure DB version .........................: 1
 
 If you are an end user we really suggest you to follow the installation instructions for conda. But then it is your computer, nothing here is as scary as it looks, and you can do it.
 
-You will need to make sure your system does have all the following software if you are going to follow any of the following installation instructions. If you just follow these links, you will most probably be golden:
-
-* [samtools]({% post_url anvio/2016-06-18-installing-third-party-software %}#samtools){:target="_blank"}
-* [Prodigal]({% post_url anvio/2016-06-18-installing-third-party-software %}#prodigal){:target="_blank"}
-* [HMMER]({% post_url anvio/2016-06-18-installing-third-party-software %}#hmmer){:target="_blank"}
-* [SQLite]({% post_url anvio/2016-06-18-installing-third-party-software %}#sqlite){:target="_blank"}
-
-Then we suggest you to use `virtualenv` to start a Python 3.6 environment, and install anvi'o in it. Don't use `pip` as the anvi'o package stored at PyPI is lacking some files due to size limitatons. Instead, visit the following link, go to the bottom of the page, downlaod the file `anvio-X.tar.gz` and work with that file:
+We suggest you to use `virtualenv` to start a Python 3.6 environment, and install anvi'o in it. Don't use `pip` as the anvi'o package stored at PyPI is lacking some files due to size limitations. Instead, visit the following link, go to the bottom of the page, download the file `anvio-X.tar.gz` and work with that file:
 
 [https://github.com/merenlab/anvio/releases/latest](https://github.com/merenlab/anvio/releases/latest)
 
+The best way to see what additional software you will need running on your computer for anvi'o to be happy is to take a look at the contents of [this file](https://github.com/merenlab/anvio/blob/master/conda-recipe/anvio/meta.yaml) (which is a conda build recipe, but it will give you the idea (ignore anvio-minimal, you basically have taken care of it by installing anvi'o, and focus on the rest)).
 
 ## Running the "Mini Test"
 
@@ -420,7 +404,7 @@ anvi-self-test --suite mini
 
 It is absolutely normal to see 'warning' messages. In most cases anvi'o is talkative, and would like to keep you informed. **You should read those warning messages carefully, but in most cases they will not require action.**
 
-Upon the successful completion of all the tests, your browser should popup and take you to the interactive interface. When you click that 'Draw' button whenever you see one.
+Upon the successful completion of all the tests, your browser *should* popup and take you to the interactive interface. When you click that 'Draw' button whenever you see one.
 
 When anvi'o is done drawing the test data, you should see something like this:
 

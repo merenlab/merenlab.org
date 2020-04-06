@@ -51,6 +51,7 @@ If you are seeing something like this when you are done pulling everything, you 
 $ docker images
 
 REPOSITORY          TAG        IMAGE ID     CREATED    SIZE
+meren/anvio         6.2        (...)        (...)      12.1GB
 meren/anvio         6.1        (...)        (...)      7.4GB
 meren/anvio         6          (...)        (...)      7.9GB
 meren/anvio         5.5        (...)        (...)      1.37GB
@@ -116,13 +117,13 @@ In theory, at any given time you should be able to rebuild a docker image for an
 docker build -t meren/anvio:master .
 ```
 
-Alternatively, you can switch to a tag, such as anvi'o `v6.1`, and build a copy of that:
+Alternatively, you can switch to a tag, such as anvi'o `v6.2`, and build a copy of that:
 
 If you would like to rebuild the Docker image for anvi'o on your own server, you can simply get a copy of the file:
 
 ``` bash
-git checkout v6.1
-docker build -t meren/anvio:6.1 .
+git checkout v6.2
+docker build -t meren/anvio:6.2 .
 ```
 
 Optionally, you can push it to your account on the hub to allow other people run it easily (i.e., this is what we do to push new images to the anvi'o accound):
