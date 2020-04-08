@@ -144,6 +144,27 @@ Once you have your contigs database, you can start importing things into it, or 
 |16|contig_03|5720|6233|f|0|program|v1.0|
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 
+When an external gene calls file is provided, anvi'o will not perform any gene prediction, but will still try to translate DNA sequence found in start-stop positions of each gene. In some cases, you may want to provide your own amino acid sequences so anvi'o directly uses them instead of trying to translate your genes. In that case, you can add an optional column to your external gene calls file, `aa_sequence`, to list amino acid sequences for each gene call, which could look like this:
+
+|gene_callers_id|contig|start|stop|direction|partial|source|version|aa_sequence|
+|:---:|:---|:---:|:---:|:---:|:---:|:---:|:--|
+|1|contig_01|1113|1677|f|0|program|v1.0|MAQTTNDIKNGSVLNLDGQLWTVI(...)|
+|2|contig_01|1698|2142|f|0|program|v1.0|MARSTARKRALNTLYEADEKGQDI(...)|
+|3|contig_01|2229|3447|f|0|program|v1.0|MNQYDSEAVMFDPQDAVLVLEDGQ(...)|
+|4|contig_01|3439|6820|r|0|program|v1.0|MPKRTDIKSVMVIGSGPIVIGQAA(...)|
+|7|contig_01|8496|10350|r|1|program|v1.0|MMSSPSSEEVNAQRSDFGLRLSNS(...)|
+|8|contig_02|306|1650|f|0|program|v1.0|MADSQHGRLIVLCGPAGVGKGTVL(...)|
+|9|contig_02|1971|3132|f|0|program|v1.0|MRSAKLMNGRVFAGARALYRAAGV(...)|
+|10|contig_02|3230|4007|f|0|program|v1.0|MAFGTEPTPTGLADPPIDDLMEHA(...)|
+|11|contig_02|4080|5202|f|0|program|v1.0|MAELKLISAESVTEGHPDKVCDQI(...)|
+|12|contig_02|5194|5926|f|0|program|v1.0|MRYPCIMTNEDAEQLALDGLAPRK(...)|
+|13|contig_03|606|2514|f|0|program|v1.0|MTLTLRMEKRMKGWPGEPQMEYDV(...)|
+|14|contig_03|2751|3207|f|0|program|v1.0|MLKVLFAGTPDVAVPSLKLLAQDT(...)|
+|15|contig_03|3219|5616|f|0|program|v1.0|MLEQETPNIASMASLPTLSAPGLL(...)|
+|16|contig_03|5720|6233|f|0|program|v1.0|MLESEVDMNDHDEETLASLQQAND(...)|
+|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
+
+Explicitly defining amino acid sequences could be particularly useful when working with eukaryotic genomes, or genomes that use non-standard genetic code.
 
 {:.notice}
 **Please note**: For a complete gene call where the value of `partial` is `0`, the number of nucleotides, i.e. the value of `stop - start`, must be divided by three **without** any remainder. Any other gene call is not a complete gene call, and must be identified as such by setting the value of `partial` to `1` so anvi'o does not try to translate their sequence. Otherwise anvi'o will be upset, and then frustrate you.
