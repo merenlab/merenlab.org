@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2019-12-17
+modified: 2020-04-16
 comments: false
 ---
 
@@ -9,12 +9,32 @@ comments: false
 <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
 
 <div class="category-box">
-<a href="#2019"><span class="category-item">2019</span></a><a href="#2018"><span class="category-item">2018</span></a><a href="#2017"><span class="category-item">2017</span></a><a href="#2016"><span class="category-item">2016</span></a><a href="#2015"><span class="category-item">2015</span></a><a href="#2014"><span class="category-item">2014</span></a><a href="#2013"><span class="category-item">2013</span></a>
+<a href="#2020"><span class="category-item">2020</span></a><a href="#2019"><span class="category-item">2019</span></a><a href="#2018"><span class="category-item">2018</span></a><a href="#2017"><span class="category-item">2017</span></a><a href="#2016"><span class="category-item">2016</span></a><a href="#2015"><span class="category-item">2015</span></a><a href="#2014"><span class="category-item">2014</span></a><a href="#2013"><span class="category-item">2013</span></a>
 </div>
 
 {:.notice}
 
 This page shows publications that are most reflective of our interests. For a complete list, please see <a href='https://scholar.google.com/citations?user=GtLLuxoAAAAJ&view_op=list_works&sortby=pubdate' target='_blank'>Meren's Google Scholar page</a>.
+
+<a name="2020">&nbsp;</a>
+<h1>2020</h1>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/gr.258640.119"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1101/gr.258640.119" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1101/gr.258640.119" target="_new">Accurate and complete genomes from metagenomes</a></h3>
+    <span class="pub-authors">Chen L, Anantharaman K, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Eren AM</span>, Banfield JF</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="../images/pubs/chen_accurate_genomes.png"><img src="../images/pubs/chen_accurate_genomes.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A <b>review on genome-resolved metagenomics</b> that discusses the importance of using assembly and careful binning strategies to study metagenomes.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Case studies include a demonstration of how <b>single-copy core genes can fail to predict the quality of metagenome-assembled genomes</b>, and <b>automated strategies that yield tens of thousands of metagenome-assembled genomes will include extensive contamination</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Promotes approaches to reconstruct <b>'complete' genomes from metagenomes</b> and the use of <b>GC skew as a metric for checking genome correctness</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Tutorial on <a href="https://ggkbase-help.berkeley.edu/genome_curation/scaffold-extension-and-gap-closing/" target="_blank">scaffold extension and gap closing</a>, reproducible workflow for <a href="http://merenlab.org/data/parcubacterium-in-hbcfdna/" target="_blank">binning and phylogenomics of a Parcubacterium genome from human blood metagenomes</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><b>Genome Research</b>, 30(3):315-333.</span>
+</div>
+
 
 <a name="2019">&nbsp;</a>
 <h1>2019</h1>
@@ -27,7 +47,7 @@ This page shows publications that are most reflective of our interests. For a co
     <span class="pub-co-first-authors"><sup>‡</sup>Co-first authors</span>
     <div class="pub-info">
     <div class="pub-featured-image">
-    <a href="http://i.imgur.com/HrlXPOF.jpg"><img src="http://i.imgur.com/HrlXPOF.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    <a href="../images/pubs/delmond_and_kiefl_sar11_saavs.jpg"><img src="../images/pubs/delmond_and_kiefl_sar11_saavs.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
     </div>
     <div class="pub-highlights">
     <span style="display: inline-block; padding-bottom: 5px;">- A study that introduces <a href="http://merenlab.org/2015/07/20/analyzing-variability/#an-intro-to-single-nucleotidecodonamino-acid-variation" target="_blank">'single-amino acid variants'</a> (SAAVs) and demonstrates <b>the use of SAAVs to tease apart evolutionary processes that shape the biogeography and genomic heterogeneity within a SAR11 population</b> through metagenomics.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  A first attempt to link population genetics and the predicted protein structures to explore <i>in silico</i> <b>the intersection beetween protein biochemistry and evolutionary processes</b> acting on an environmental microbe.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  An application of <a href="https://peerj.com/articles/4320/" target="_blank">metapangenomics</a> to define <b>subclades of SAR11 based on gene content and ecology</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Reproducible bioinformatics workflow is <a href="http://merenlab.org/data/sar11-saavs/" target="_blank">here</a>. <a href="https://doi.org/10.7554/eLife.46497.040" target="_blank">Reviewer criticism</a> and <a href="https://doi.org/10.7554/eLife.46497.041" target="_blank">our responses</a> are also available.</span>

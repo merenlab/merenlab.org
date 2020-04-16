@@ -12,6 +12,30 @@ This page serves the publicly available data items mentioned in our publications
 
 {% include _toc.html %}
 
+## Accurate and complete genomes from metagenomes
+
+<div class="pub_float">
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1101/gr.258640.119"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1101/gr.258640.119" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1101/gr.258640.119" target="_new">Accurate and complete genomes from metagenomes</a></h3>
+    <span class="pub-authors">Chen L, Anantharaman K, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Eren AM</span>, Banfield JF</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="../images/pubs/chen_accurate_genomes.png"><img src="../images/pubs/chen_accurate_genomes.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);" /></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A <b>review on genome-resolved metagenomics</b> that discusses the importance of using assembly and careful binning strategies to study metagenomes.</span><br /><span style="display: inline-block; padding-bottom: 5px;">-  Case studies include a demonstration of how <b>single-copy core genes can fail to predict the quality of metagenome-assembled genomes</b>, and <b>automated strategies that yield tens of thousands of metagenome-assembled genomes will include extensive contamination</b>.</span><br /><span style="display: inline-block; padding-bottom: 5px;">-  Promotes approaches to reconstruct <b>'complete' genomes from metagenomes</b> and the use of <b>GC skew as a metric for checking genome correctness</b>.</span><br /><span style="display: inline-block; padding-bottom: 5px;">-  Tutorial on <a href="https://ggkbase-help.berkeley.edu/genome_curation/scaffold-extension-and-gap-closing/" target="_blank">scaffold extension and gap closing</a>, reproducible workflow for <a href="http://merenlab.org/data/parcubacterium-in-hbcfdna/" target="_blank">binning and phylogenomics of a Parcubacterium genome from human blood metagenomes</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><b>Genome Research</b>, 30(3):315-333.</span>
+</div>
+
+{:.warning}
+[http://merenlab.org/data/parcubacterium-in-hbcfdna/](parcubacterium-in-hbcfdna) gives access to the bioinformatics workflow that details the reconstruction of a CPR genome from human blood cell-free DNA metagenomes, and it phylogenomic placement.
+
+{:.warning}
+[https://ggkbase-help.berkeley.edu/genome_curation/scaffold-extension-and-gap-closing/](https://ggkbase-help.berkeley.edu/genome_curation/scaffold-extension-and-gap-closing/) gives access to a step-by-step procedure for scaffold extension and gap closing to dramatically improve the quality of metagenome-assembled genomes (MAGs).
+
 ## Population Genetics of SAR11 through SAAVs
 
 <div class="pub_float">
