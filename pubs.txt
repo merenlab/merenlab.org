@@ -1,4 +1,5 @@
 Authors	Title	Publication	Volume	Number	Pages	Year	doi
+Chen, Lin-Xing; Anantharaman, Karthik; Shaiber, Alon; Eren, A Murat; Banfield, Jillian F; 	Accurate and complete genomes from metagenomes	Genome Research	30	3	315-333	2020	10.1101/gr.258640.119
 Delmont, Tom O*; Kiefl, Evan*; Kilinc, Ozsel; Esen, Özcan C; Uysal, Ismail; Rappé, Michael S; Giovannoni, Steven; Eren, A Murat; 	Single-amino acid variants reveal evolutionary processes that shape the biogeography of a global SAR11 subclade	eLife	8		e46497	2019	10.7554/eLife.46497
 Shaiber, Alon; Eren, A Murat; 	Composite Metagenome-Assembled Genomes Reduce the Quality of Public Genome Repositories	mBio	10	3	e00725-19	2019	10.1128/mBio.00725-19
 Reveillaud, Julie*; Bordenstein, Sarah R*; Cruaud, Corinne; Shaiber, Alon; Esen, Özcan C.; Weill, Mylène; Makoundou, Patrick; Lolans, Karen; Watson, Andrea R.; Rakotoarivony, Ignace; Bordenstein, Seth; Eren, A. Murat; 	The Wolbachia mobilome in Culex pipiens includes a putative plasmid	Nature Communications	10	1	1051	2019	10.1038/s41467-019-08973-w
