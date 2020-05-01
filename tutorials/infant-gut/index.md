@@ -226,8 +226,8 @@ Aaaand we are done.
 You can take a very quick look at the taxonomic composition of the metagenome through the command line first:
 
 ```
-anvi-estimate-genome-taxonomy -c CONTIGS.db \
-                              --metagenome-mode
+anvi-estimate-scg-taxonomy -c CONTIGS.db \
+                           --metagenome-mode
 ```
 
 which should give us this output for the IGD:
@@ -263,7 +263,7 @@ Good, but could have been better. Why? *Pro tip: we have a profile database, wha
 Anvi'o can add these metagenome-level taxonomic insights into a given profile database, let's do that,
 
 ```
-anvi-estimate-genome-taxonomy -c CONTIGS.db \
+anvi-estimate-scg-taxonomy -c CONTIGS.db \
                               -p PROFILE.db \
                               --metagenome-mode \
                               --compute-scg-coverages \
@@ -319,7 +319,7 @@ If you don't want to do your own binning and still be able to continue with the 
 
 ```
 anvi-import-collection additional-files/collections/merens.txt \
-                       --bins-info additional-files/collections/merens-info.txt
+                       --bins-info additional-files/collections/merens-info.txt \
                        -p PROFILE.db \
                        -c CONTIGS.db \
                        -C default
