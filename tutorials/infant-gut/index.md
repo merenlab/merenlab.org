@@ -1310,7 +1310,6 @@ For instance, genomes in this pangenome are organized into two distinct groups b
 First, you need to define how you would like to group your genomes in the pangenome so anvi'o can find out which functions are characteristic of each group. Here is our TAB-delimited file to divide these genomes into two groups:
 
 
-```
 |name|clade|
 |:--|:--:|
 |E_faecalis_6240|faecalis|
@@ -1325,7 +1324,6 @@ First, you need to define how you would like to group your genomes in the pangen
 |E_faecium_6601|faecium|
 |E_faecium_6778|faecium|
 |E_faecium_6798|faecium|
-```
 
 Which is also in your data-pack. Let's import it into the pan database as an additional layer data:
 
