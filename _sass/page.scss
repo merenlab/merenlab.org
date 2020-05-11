@@ -762,6 +762,7 @@ $button-size: 1.5rem;
 /* Large feature header image */
 .image-wrap {
     position: relative;
+    margin-bottom: -4px;
     @include clearfix;
     &:after {
         content: " ";
