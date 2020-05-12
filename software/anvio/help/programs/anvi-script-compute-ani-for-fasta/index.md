@@ -24,7 +24,7 @@ Run ANI between contigs in a single FASTA file.
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-fasta](../../artifacts/contigs-fasta)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[fasta](../../artifacts/fasta)</span></p>
 
 ## Usage
 

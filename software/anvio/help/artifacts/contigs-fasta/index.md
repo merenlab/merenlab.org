@@ -21,15 +21,34 @@ A FASTA-type anvi'o artifact. It is typically provided by the user.
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-dereplicate-genomes](../../programs/anvi-dereplicate-genomes)</span> <span class="artifact-p">[anvi-export-contigs](../../programs/anvi-export-contigs)</span> <span class="artifact-p">[anvi-export-splits-and-coverages](../../programs/anvi-export-splits-and-coverages)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-export-contigs](../../programs/anvi-export-contigs)</span> <span class="artifact-p">[anvi-export-splits-and-coverages](../../programs/anvi-export-splits-and-coverages)</span> <span class="artifact-p">[anvi-script-reformat-fasta](../../programs/anvi-script-reformat-fasta)</span></p>
 
 
 ## Required or used by
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-dereplicate-genomes](../../programs/anvi-dereplicate-genomes)</span> <span class="artifact-r">[anvi-gen-contigs-database](../../programs/anvi-gen-contigs-database)</span> <span class="artifact-r">[anvi-script-compute-ani-for-fasta](../../programs/anvi-script-compute-ani-for-fasta)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-gen-contigs-database](../../programs/anvi-gen-contigs-database)</span></p>
 
 ## Description
 
-{:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "contigs-fasta.md". Its contents will replace this sad text. THANK YOU!
+A <span class="artifact&#45;n">[contigs&#45;fasta](/software/anvio/help/artifacts/contigs&#45;fasta)</span> is a <span class="artifact&#45;n">[fasta](/software/anvio/help/artifacts/fasta)</span> file that is suitable to be used by <span class="artifact&#45;n">[anvi&#45;gen&#45;contigs&#45;database](/software/anvio/help/programs/anvi&#45;gen&#45;contigs&#45;database)</span> to create a <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span>.
+
+The most critical requirement for this file is that **it must have simple deflines**. If your <span class="artifact&#45;n">[fasta](/software/anvio/help/artifacts/fasta)</span> file doesn't have simple deflines, it is not a proper <span class="artifact&#45;n">[contigs&#45;fasta](/software/anvio/help/artifacts/contigs&#45;fasta)</span>. If you intend to use this file with anvi'o, **you must fix your FASTA file prior to mapping**.
+
+Take a look at your deflines prior to mapping, and remove anything that is not a digit, an ASCII letter, an underscore, or a dash character. Here are some example deflines that are not suitable for a <span class="artifact&#45;n">[fasta](/software/anvio/help/artifacts/fasta)</span> to be considered a <span class="artifact&#45;n">[contigs&#45;fasta](/software/anvio/help/artifacts/contigs&#45;fasta)</span>
+
+``` bash
+>Contig&#45;123 length:4567 
+>Another defline 42
+>gi|478446819|gb|JN117275.2|
+```
+
+And here are some OK ones:
+
+``` bash
+>Contig&#45;123
+>Another_defline_42
+>gi_478446819_gb_JN117275_2
+```
+
+The program <span class="artifact&#45;n">[anvi&#45;script&#45;reformat&#45;fasta](/software/anvio/help/programs/anvi&#45;script&#45;reformat&#45;fasta)</span> can do this automatically for you.
 

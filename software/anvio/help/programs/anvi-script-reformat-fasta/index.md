@@ -1,0 +1,62 @@
+---
+layout: page 
+title: anvi-script-reformat-fasta [program]
+categories: [anvio]
+comments: false
+image:
+  featurerelative: ../../../images/header.png
+  display: true
+---
+
+
+{% include _toc.html %}
+
+
+<img src="../../images/icons/PROGRAM.png" alt="PROGRAM" style="width:100px; border:none" />
+
+Reformat FASTA file (remove contigs based on length, or based on a given list of deflines, and/or generate an output with simpler names)
+
+[Back to help main page](../../)
+
+## Provides
+
+<p style="text-align: left" markdown="1"><span class="artifact-p">[contigs-fasta](../../artifacts/contigs-fasta)</span></p>
+
+## Requires or uses
+
+<p style="text-align: left" markdown="1"><span class="artifact-r">[fasta](../../artifacts/fasta)</span></p>
+
+## Usage
+
+
+### Converting a FASTA file to a contigs FASTA
+
+<div class="codeblock" markdown="1">
+anvi&#45;script&#45;reformat&#45;fasta <span class="artifact&#45;n">[fasta](/software/anvio/help/artifacts/fasta)</span> \
+                           &#45;o <span class="artifact&#45;n">[contigs&#45;fasta](/software/anvio/help/artifacts/contigs&#45;fasta)</span> \
+                           &#45;&#45;simplify&#45;names
+</div>
+
+{:.notice}
+If you use the flag *&#45;&#45;report&#45;file*, it will also create a TAB&#45;delimited file for you to keep track of which defline in the new file corresponds to which defline in the original file.
+
+### Removing short reads from FASTA
+
+Removing short contigs from a FASTA file will improve the performance of the <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> later. Running the same command this way will also remove sequences that are shorter than 1,000 nts:
+
+<div class="codeblock" markdown="1">
+anvi&#45;script&#45;reformat&#45;fasta <span class="artifact&#45;n">[fasta](/software/anvio/help/artifacts/fasta)</span> \
+                           &#45;o <span class="artifact&#45;n">[contigs&#45;fasta](/software/anvio/help/artifacts/contigs&#45;fasta)</span> \
+                           &#45;l 1000 \
+                           &#45;&#45;simplify&#45;names
+</div>
+
+
+
+
+## Additional Resources
+
+
+
+{:.notice}
+Are you aware of resources that may help users better understand the utility of this program? Please feel free to edit [this file](https://github.com/merenlab/anvio/tree/master/bin/anvi-script-reformat-fasta) on GitHub. If you are not sure how to do that, find the `__resources__` tag in [this file](https://github.com/merenlab/anvio/blob/master/bin/anvi-interactive) to see an example.
