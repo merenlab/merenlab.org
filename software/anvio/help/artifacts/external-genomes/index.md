@@ -1,0 +1,46 @@
+---
+layout: post
+title: external-genomes [artifact]
+categories: [anvio]
+comments: false
+image:
+  featurerelative: ../../../images/header.png
+  display: true
+---
+
+
+{% include _toc.html %}
+
+
+<img src="../../images/icons/TXT.png" alt="TXT" style="width:100px; border:none" />
+
+A TXT-type anvi'o artifact. It is typically provided by the user.
+
+[Back to help main page](../../)
+
+## Provided by
+
+
+Most likely provided by the user.
+
+
+## Required or used by
+
+<p style="text-align: left" markdown="1"><span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[anvi-analyze-synteny](../../programs/anvi-analyze-synteny)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[anvi-compute-genome-similarity](../../programs/anvi-compute-genome-similarity)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[anvi-dereplicate-genomes](../../programs/anvi-dereplicate-genomes)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[anvi-gen-genomes-storage](../../programs/anvi-gen-genomes-storage)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[anvi-get-sequences-for-hmm-hits](../../programs/anvi-get-sequences-for-hmm-hits)</span></p>
+
+## Description
+
+An external genome is anything you have in a FASTA file format (i.e., a genome you have downloaded from NCBI, or obtained through any other way) that was converted into a [contigs-db](/software/anvio/help/artifacts/contigs-db).
+
+External genomes file format enables anvi&#39;o to work with one or more external genomes. A TAB-delimited external genomes file will be composed of the following two columns:
+
+|name|contigs_db_path|
+|:--|:--|
+|Name_01|/path/to/contigs-01.db|
+|Name_02|/path/to/contigs-02.db|
+|Name_03|/path/to/contigs-03.db|
+|(...)|(...)|
+
+Please make sure names in the `name` column does not include any special characters (underscore is fine). It is also a good idea to keep these names short and descriptive as they will appear in various figures in downstream analyses.
+
+
