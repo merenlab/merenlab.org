@@ -30,12 +30,12 @@ Most likely provided by the user.
 
 ## Description
 
-By default, anvi&#39;o uses Prodigal for gene calling when the user is generating a [contigs-db](/software/anvio/help/artifacts/contigs-db). Yet, if the user provides an external gene calls file, then anvi&#39;o does not perform gene calling, and uses this file to store the gene information into the new [contigs-db](/software/anvio/help/artifacts/contigs-db).
+By default, anvi'o uses Prodigal for gene calling when the user is generating a <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span>. Yet, if the user provides an external gene calls file, then anvi'o does not perform gene calling, and uses this file to store the gene information into the new <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span>.
 
-External gene calls is a user-provided TAB-delimited file that should follow this format:
+External gene calls is a user&#45;provided TAB&#45;delimited file that should follow this format:
 
 |gene_callers_id|contig|start|stop|direction|partial|source|version|
-|:---:|:---|:---:|:---:|:---:|:---:|:---:|
+|:&#45;&#45;&#45;:|:&#45;&#45;&#45;|:&#45;&#45;&#45;:|:&#45;&#45;&#45;:|:&#45;&#45;&#45;:|:&#45;&#45;&#45;:|:&#45;&#45;&#45;:|
 |1|contig_01|1113|1677|f|0|program|v1.0|
 |2|contig_01|1698|2142|f|0|program|v1.0|
 |3|contig_01|2229|3447|f|0|program|v1.0|
@@ -52,10 +52,10 @@ External gene calls is a user-provided TAB-delimited file that should follow thi
 |16|contig_03|5720|6233|f|0|program|v1.0|
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 
-Please note that while anvi&#39;o will not perform any gene prediction, it will still try to translate DNA sequence found in start-stop positions of each gene using the standard genetic code. You can prevent that by providing your own amino acid sequences by adding an optional column to your external gene calls file, `aa_sequence`:
+Please note that while anvi'o will not perform any gene prediction, it will still try to translate DNA sequence found in start&#45;stop positions of each gene using the standard genetic code. You can prevent that by providing your own amino acid sequences by adding an optional column to your external gene calls file, `aa_sequence`:
 
 |gene_callers_id|contig|start|stop|direction|partial|source|version|aa_sequence|
-|:---:|:---|:---:|:---:|:---:|:---:|:---:|:--|
+|:&#45;&#45;&#45;:|:&#45;&#45;&#45;|:&#45;&#45;&#45;:|:&#45;&#45;&#45;:|:&#45;&#45;&#45;:|:&#45;&#45;&#45;:|:&#45;&#45;&#45;:|:&#45;&#45;|
 |1|contig_01|1113|1677|f|0|program|v1.0|MAQTTNDIKNGSVLNLDGQLWTVI(...)|
 |2|contig_01|1698|2142|f|0|program|v1.0|MARSTARKRALNTLYEADEKGQDI(...)|
 |3|contig_01|2229|3447|f|0|program|v1.0|MNQYDSEAVMFDPQDAVLVLEDGQ(...)|
@@ -72,15 +72,15 @@ Please note that while anvi&#39;o will not perform any gene prediction, it will 
 |16|contig_03|5720|6233|f|0|program|v1.0|MLESEVDMNDHDEETLASLQQAND(...)|
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 
-Explicitly defining amino acid sequences could be particularly useful when working with eukaryotic genomes, or genomes that use non-standard genetic code.
+Explicitly defining amino acid sequences could be particularly useful when working with eukaryotic genomes, or genomes that use non&#45;standard genetic code.
 
 {:.notice}
-**Please note**: For a complete gene call where the value of `partial` is `0`, the number of nucleotides, i.e. the value of `stop - start`, must be divided by three **without** any remainder. Any other gene call is not a complete gene call, and must be identified as such by setting the value of `partial` to `1` so anvi&#39;o does not try to translate their sequence. Otherwise anvi&#39;o will be upset, and then frustrate you.
+**Please note**: For a complete gene call where the value of `partial` is `0`, the number of nucleotides, i.e. the value of `stop &#45; start`, must be divided by three **without** any remainder. Any other gene call is not a complete gene call, and must be identified as such by setting the value of `partial` to `1` so anvi'o does not try to translate their sequence. Otherwise anvi'o will be upset, and then frustrate you.
 
 {:.notice}
-**Please note**: anvi&#39;o follows the convention of string indexing and splicing that is identical to the way one does it in Python or C.
+**Please note**: anvi'o follows the convention of string indexing and splicing that is identical to the way one does it in Python or C.
 
-The statement above means that the index of the first nucleotide in any contig should be `0`. In other words, for a gene call that starts at the position `x`th position and ends at position `y`th position, we start counting from `x-1`, and not from `x` (but we still end at `y`. The `start` and `stop` positions in the input file should comply with this. Here is an example gene in a contig:
+The statement above means that the index of the first nucleotide in any contig should be `0`. In other words, for a gene call that starts at the position `x`th position and ends at position `y`th position, we start counting from `x&#45;1`, and not from `x` (but we still end at `y`. The `start` and `stop` positions in the input file should comply with this. Here is an example gene in a contig:
 
 ``` bash
                  1         2         3
@@ -89,7 +89,7 @@ contig: NNNATGNNNNNNNNNNNNNNNNNTAGAAAAAA (...)
            |______ gene X _______|
 ```
 
-The `start` and `stop` positions in the input file for this gene should be `3` and `26`, respectively. Which means, if you are trying to generate an external gene calls file from gene calls produced by a gene caller that reports start/stop positions starting with the index of `1` rather than `0`, you basically need to subtract one from the start position of every gene call for a matching anvi&#39;o external gene calls file.
+The `start` and `stop` positions in the input file for this gene should be `3` and `26`, respectively. Which means, if you are trying to generate an external gene calls file from gene calls produced by a gene caller that reports start/stop positions starting with the index of `1` rather than `0`, you basically need to subtract one from the start position of every gene call for a matching anvi'o external gene calls file.
 
 Gene `start` and `stop` positions do not care about the direction of the gene as they simply address how the gene sequence should be sliced out from a longer sequence. Whether a gene is forward or reverse is defined in the column `direction`.
 

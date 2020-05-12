@@ -20,11 +20,11 @@ Identify redundant (highly similar) genomes.
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[contigs-fasta](../../artifacts/contigs-fasta)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[fasta](../../artifacts/fasta)</span></p>
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[external-genomes](../../artifacts/external-genomes)</span> <span class="artifact-r">[internal-genomes](../../artifacts/internal-genomes)</span> <span class="artifact-r">[contigs-fasta](../../artifacts/contigs-fasta)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[external-genomes](../../artifacts/external-genomes)</span> <span class="artifact-r">[internal-genomes](../../artifacts/internal-genomes)</span> <span class="artifact-r">[fasta](../../artifacts/fasta)</span></p>
 
 ## Usage
 
