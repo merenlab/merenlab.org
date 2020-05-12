@@ -11,7 +11,7 @@ image:
 A complete list of current anvi'o programs and artifacts.
 
 {:.notice}
-The help contents were last updated on **12 May 20 16:26:51** for anvi'o version **6.2-master (esther)**.
+The help contents were last updated on **12 May 20 16:33:03** for anvi'o version **6.2-master (esther)**.
 
 
 {% include _project-anvio-version.html %}
@@ -26,9 +26,9 @@ The help contents were last updated on **12 May 20 16:26:51** for anvi'o version
 Listed below a total of 67 programs.
 
 
-* **[anvi-analyze-synteny](programs/anvi-analyze-synteny)**: This program helps you extract synteny patterns from a group of similar loci or genomes. This is accomplished by deconstructing contigs into Ngrams (group of neighboring genes of which N is the number of genes) of gene functions using a sliding window method. Once completed, anvi&#39;o will export a table with Ngrams counts for you to work with. By default anvi&#39;o will ignore Ngrams that contain genes without annotations. If you would like to override this, you can use the --analyze-unknown-functions flag..
+* **[anvi-analyze-synteny](programs/anvi-analyze-synteny)**: This program helps you extract synteny patterns from a group of similar loci or genomes. This is accomplished by deconstructing contigs into Ngrams (group of neighboring genes of which N is the number of genes) using a sliding window method. Once completed, anvi&#39;o will export a table with Ngrams for you to work with. If more than one annotation source is provided, please designate which annotation_source anvio should use to make the Ngrams with using the --ngram-source parameter (e.g. gene_clusters, COG_FUNCTION). By default anvi&#39;o will ignore Ngrams that contain genes without annotations. If you would like to override this, you can use the --analyze-unknown-functions flag..
 <span>**Provides**: <span class="artifact-p">[ngrams](artifacts/ngrams)</span> / 
-<span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[external-genomes](artifacts/external-genomes)</span>.</span>
+<span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[genomes-storage-db](artifacts/genomes-storage-db)</span>.</span>
 
 
 * **[anvi-cluster-contigs](programs/anvi-cluster-contigs)**: A program to cluster items in a merged anvi&#39;o profile using automatic binning algorithms..
