@@ -14,7 +14,7 @@ image:
 
 <img src="../../images/icons/PROGRAM.png" alt="PROGRAM" style="width:100px; border:none" />
 
-This program helps you extract synteny patterns from a group of similar loci or genomes. This is accomplished by deconstructing contigs into Ngrams (group of neighboring genes of which N is the number of genes) of gene functions using a sliding window method. Once completed, anvi&#39;o will export a table with Ngrams counts for you to work with. By default anvi&#39;o will ignore Ngrams that contain genes without annotations. If you would like to override this, you can use the --analyze-unknown-functions flag.
+This program helps you extract synteny patterns from a group of similar loci or genomes. This is accomplished by deconstructing contigs into Ngrams (group of neighboring genes of which N is the number of genes) using a sliding window method. Once completed, anvi&#39;o will export a table with Ngrams for you to work with. If more than one annotation source is provided, please designate which annotation_source anvio should use to make the Ngrams with using the --ngram-source parameter (e.g. gene_clusters, COG_FUNCTION). By default anvi&#39;o will ignore Ngrams that contain genes without annotations. If you would like to override this, you can use the --analyze-unknown-functions flag.
 
 [Back to help main page](../../)
 
@@ -24,7 +24,7 @@ This program helps you extract synteny patterns from a group of similar loci or 
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[external-genomes](../../artifacts/external-genomes)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[genomes-storage-db](../../artifacts/genomes-storage-db)</span></p>
 
 ## Usage
 
