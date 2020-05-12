@@ -20,29 +20,32 @@ Generate a new anvi&#39;o contigs database.
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](../../artifacts/contigs-db)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[contigs-db](../../artifacts/contigs-db)</span></p>
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-fasta](../../artifacts/contigs-fasta)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[external-gene-calls](../../artifacts/external-gene-calls)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-fasta](../../artifacts/contigs-fasta)</span> <span class="artifact-r">[external-gene-calls](../../artifacts/external-gene-calls)</span></p>
 
 ## Usage
 
 
 ### Create a contigs database from a FASTA file
 
-```
-anvi-gen-contigs-database -f [contigs-fasta](/software/anvio/help/artifacts/contigs-fasta) -o [contigs-db](/software/anvio/help/artifacts/contigs-db)
-```
+<div class="codeblock" markdown="1">
+anvi-gen-contigs-database -f [contigs-fasta](/software/anvio/help/artifacts/contigs-fasta) \
+                          -o [contigs-db](/software/anvio/help/artifacts/contigs-db)
+</div>
 
 A FASTA file that contains one or more sequences. These sequences may belong
 to a single genome, or could be contigs obtained from an assembly.
 
 ### Create a contigs database with external gene calls
 
-```
-anvi-gen-contigs-database -f [contigs-fasta](/software/anvio/help/artifacts/contigs-fasta) -o [contigs-db](/software/anvio/help/artifacts/contigs-db) -e [external-gene-calls](/software/anvio/help/artifacts/external-gene-calls)
-```
+<div class="codeblock" markdown="1">
+anvi-gen-contigs-database -f [contigs-fasta](/software/anvio/help/artifacts/contigs-fasta) \
+                          -o [contigs-db](/software/anvio/help/artifacts/contigs-db) \
+                          -e [external-gene-calls](/software/anvio/help/artifacts/external-gene-calls)
+</div>
 
 
 

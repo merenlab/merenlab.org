@@ -26,7 +26,7 @@ Most likely provided by the user.
 
 ## Required or used by
 
-<p style="text-align: left" markdown="1"><span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[anvi-gen-contigs-database](../../programs/anvi-gen-contigs-database)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-gen-contigs-database](../../programs/anvi-gen-contigs-database)</span></p>
 
 ## Description
 

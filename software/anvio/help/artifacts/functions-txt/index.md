@@ -21,15 +21,15 @@ A TXT-type anvi'o artifact. It is typically provided by the user.
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[anvi-export-functions](../../programs/anvi-export-functions)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[anvi-search-functions](../../programs/anvi-search-functions)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-export-functions](../../programs/anvi-export-functions)</span> <span class="artifact-p">[anvi-search-functions](../../programs/anvi-search-functions)</span></p>
 
 
 ## Required or used by
 
-<p style="text-align: left" markdown="1"><span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[anvi-import-functions](../../programs/anvi-import-functions)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-import-functions](../../programs/anvi-import-functions)</span></p>
 
 ## Description
 
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute to its description, please see examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs), and feel free to add a Markdown formatted file in this directory named ".md", contents of which will replace this sad text. THANK YOU!
+**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "functions-txt.md". Its contents will replace this sad text. THANK YOU!
 

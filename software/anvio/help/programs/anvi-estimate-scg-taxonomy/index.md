@@ -20,17 +20,17 @@ Estimates taxonomy at genome and metagenome level. This program is the entry poi
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[genome-taxonomy](../../artifacts/genome-taxonomy)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[genome-taxonomy-txt](../../artifacts/genome-taxonomy-txt)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[genome-taxonomy](../../artifacts/genome-taxonomy)</span> <span class="artifact-p">[genome-taxonomy-txt](../../artifacts/genome-taxonomy-txt)</span></p>
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](../../artifacts/profile-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](../../artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[scgs-taxonomy](../../artifacts/scgs-taxonomy)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[collection](../../artifacts/collection)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[bin](../../artifacts/bin)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[profile-db](../../artifacts/profile-db)</span> <span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[scgs-taxonomy](../../artifacts/scgs-taxonomy)</span> <span class="artifact-r">[collection](../../artifacts/collection)</span> <span class="artifact-r">[bin](../../artifacts/bin)</span></p>
 
 ## Usage
 
 
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see usage examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs), and feel free to add a Markdown formatted file in this directory named "anvi-estimate-scg-taxonomy.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-estimate-scg-taxonomy.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
 
 
 ## Additional Resources

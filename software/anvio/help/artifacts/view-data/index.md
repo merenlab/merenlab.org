@@ -26,10 +26,10 @@ Most likely provided by the user.
 
 ## Required or used by
 
-<p style="text-align: left" markdown="1"><span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[anvi-interactive](../../programs/anvi-interactive)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[anvi-matrix-to-newick](../../programs/anvi-matrix-to-newick)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-interactive](../../programs/anvi-interactive)</span> <span class="artifact-r">[anvi-matrix-to-newick](../../programs/anvi-matrix-to-newick)</span></p>
 
 ## Description
 
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute to its description, please see examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs), and feel free to add a Markdown formatted file in this directory named ".md", contents of which will replace this sad text. THANK YOU!
+**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "view-data.md". Its contents will replace this sad text. THANK YOU!
 
