@@ -20,17 +20,17 @@ A script to get back sequences for gene calls
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[genes-fasta](../../artifacts/genes-fasta)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[genes-fasta](../../artifacts/genes-fasta)</span></p>
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](../../artifacts/contigs-db)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span></p>
 
 ## Usage
 
 
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see usage examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs), and feel free to add a Markdown formatted file in this directory named "anvi-get-sequences-for-gene-calls.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-get-sequences-for-gene-calls.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
 
 
 ## Additional Resources

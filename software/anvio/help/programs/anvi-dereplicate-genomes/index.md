@@ -20,17 +20,17 @@ Identify redundant (highly similar) genomes.
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-fasta](../../artifacts/contigs-fasta)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[contigs-fasta](../../artifacts/contigs-fasta)</span></p>
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[external-genomes](../../artifacts/external-genomes)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[internal-genomes](../../artifacts/internal-genomes)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-fasta](../../artifacts/contigs-fasta)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[external-genomes](../../artifacts/external-genomes)</span> <span class="artifact-r">[internal-genomes](../../artifacts/internal-genomes)</span> <span class="artifact-r">[contigs-fasta](../../artifacts/contigs-fasta)</span></p>
 
 ## Usage
 
 
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see usage examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs), and feel free to add a Markdown formatted file in this directory named "anvi-dereplicate-genomes.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-dereplicate-genomes.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
 
 
 ## Additional Resources

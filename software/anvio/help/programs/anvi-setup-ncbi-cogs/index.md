@@ -20,7 +20,7 @@ Download and setup NCBI&#39;s Clusters of Orthologous Groups database.
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[cogs-data](../../artifacts/cogs-data)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[cogs-data](../../artifacts/cogs-data)</span></p>
 
 ## Requires or uses
 
@@ -30,7 +30,7 @@ Download and setup NCBI&#39;s Clusters of Orthologous Groups database.
 
 
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see usage examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs), and feel free to add a Markdown formatted file in this directory named "anvi-setup-ncbi-cogs.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-setup-ncbi-cogs.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
 
 
 ## Additional Resources

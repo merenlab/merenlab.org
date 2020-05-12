@@ -16,6 +16,39 @@ p {
    Header
    ========================================================================== */
 
+.codeblock {
+    white-space: pre;
+    font-family: Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
+    overflow-x: auto;
+    background-color: #efefef;
+    border: 1px solid #969696;
+    margin-bottom: 30px;
+    padding: 0px;
+    padding-left: 20px;
+    border-left: 5px solid #dc5252;
+    border-radius: 5px;
+    font-size: .75rem;
+    line-height: 1.5;
+}
+
+.artifact-p {
+    background:#cbe4d5;
+    padding: 0px 3px 2px 3px;
+    border-radius: 5px;
+}
+
+.artifact-r {
+    background:#dcbfe8;
+    padding: 0px 3px 2px 3px;
+    border-radius: 5px;
+}
+
+.artifact-n {
+    background:#e8e8e8;
+    padding: 0px 3px 2px 3px;
+    border-radius: 5px;
+}
+
 summary {
     background: #f4f5ea;
     padding: 5px;
