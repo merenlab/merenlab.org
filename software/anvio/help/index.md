@@ -1,0 +1,369 @@
+---
+layout: post 
+title: Help pages for anvi'o programs and artifacts 
+categories: [anvio]
+comments: false
+image:
+  featurerelative: images/header.png
+  display: true
+---
+
+A complete list of current anvi'o programs and artifacts.
+
+{:.notice}
+The contents of this file was last updated on **12 May 20 15:23:03**, and at the time of generation, anvi'o was at version **6.2-master (esther)**.
+
+
+{% include _project-anvio-version.html %}
+{% include _toc.html %}
+{% include _join-anvio-slack.html %}
+
+
+---
+
+## Programs
+
+Listed below a total of 67 programs.
+
+
+* **[anvi-analyze-synteny](programs/anvi-analyze-synteny)**: This program helps you extract synteny patterns from a group of similar loci or genomes. This is accomplished by deconstructing contigs into Ngrams (group of neighboring genes of which N is the number of genes) of gene functions using a sliding window method. Once completed, anvi&#39;o will export a table with Ngrams counts for you to work with. By default anvi&#39;o will ignore Ngrams that contain genes without annotations. If you would like to override this, you can use the --analyze-unknown-functions flag..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[ngrams](artifacts/ngrams)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[external-genomes](artifacts/external-genomes)</span>.</span>
+
+
+* **[anvi-cluster-contigs](programs/anvi-cluster-contigs)**: A program to cluster items in a merged anvi&#39;o profile using automatic binning algorithms..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[collection](artifacts/collection)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[bin](artifacts/bin)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span>.</span>
+
+
+* **[anvi-compute-genome-similarity](programs/anvi-compute-genome-similarity)**: Export sequences from sequence sources and compute a similarity metric (e.g. ANI). If a Pan Database is given anvi&#39;o will write computed output to misc data tables of Pan Database..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[genome-similarity](artifacts/genome-similarity)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[external-genomes](artifacts/external-genomes)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[internal-genomes](artifacts/internal-genomes)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[pan-db](artifacts/pan-db)</span>.</span>
+
+
+* **[anvi-dereplicate-genomes](programs/anvi-dereplicate-genomes)**: Identify redundant (highly similar) genomes..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-fasta](artifacts/contigs-fasta)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[external-genomes](artifacts/external-genomes)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[internal-genomes](artifacts/internal-genomes)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-fasta](artifacts/contigs-fasta)</span>.</span>
+
+
+* **[anvi-display-contigs-stats](programs/anvi-display-contigs-stats)**: Start the anvi&#39;o interactive interactive for viewing or comparing contigs statistics.
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-stats](artifacts/contigs-stats)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[interactive](artifacts/interactive)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[svg](artifacts/svg)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span>.</span>
+
+
+* **[anvi-display-pan](programs/anvi-display-pan)**: Start an anvi&#39;o server to display a pan-genome.
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[collection](artifacts/collection)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[bin](artifacts/bin)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[interactive](artifacts/interactive)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[svg](artifacts/svg)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[pan-db](artifacts/pan-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[genomes-storage-db](artifacts/genomes-storage-db)</span>.</span>
+
+
+* **[anvi-display-structure](programs/anvi-display-structure)**: Interactively visualize sequence variants on protein structures.
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[interactive](artifacts/interactive)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[summary](artifacts/summary)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[structure-db](artifacts/structure-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[variability-profile](artifacts/variability-profile)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span>.</span>
+
+
+* **[anvi-estimate-kegg-metabolism](programs/anvi-estimate-kegg-metabolism)**: Reconstructs metabolic pathways and estimates pathway completeness for a given set of contigs..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[kegg-metabolism](artifacts/kegg-metabolism)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[kegg-db](artifacts/kegg-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[kegg-functions](artifacts/kegg-functions)</span>.</span>
+
+
+* **[anvi-estimate-scg-taxonomy](programs/anvi-estimate-scg-taxonomy)**: Estimates taxonomy at genome and metagenome level. This program is the entry point to estimate taxonomy for a given set of contigs (i.e., all contigs in a contigs database, or contigs described in collections as bins). For this, it uses single-copy core gene sequences and the GTDB database. .
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[genome-taxonomy](artifacts/genome-taxonomy)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[genome-taxonomy-txt](artifacts/genome-taxonomy-txt)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[scgs-taxonomy](artifacts/scgs-taxonomy)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[collection](artifacts/collection)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[bin](artifacts/bin)</span>.</span>
+
+
+* **[anvi-export-collection](programs/anvi-export-collection)**: Export a collection from an anvi&#39;o database.
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[collection-txt](artifacts/collection-txt)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span>.</span>
+
+
+* **[anvi-export-contigs](programs/anvi-export-contigs)**: Export contigs (or splits) from an anvi&#39;o contigs database.
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-fasta](artifacts/contigs-fasta)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span>.</span>
+
+
+* **[anvi-export-functions](programs/anvi-export-functions)**: Export gene function calls from an anvi&#39;o contigs database.
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[functions-txt](artifacts/functions-txt)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span>.</span>
+
+
+* **[anvi-export-gene-calls](programs/anvi-export-gene-calls)**: Export gene calls from an anvi&#39;o contigs database..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[gene-calls-txt](artifacts/gene-calls-txt)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span>.</span>
+
+
+* **[anvi-export-items-order](programs/anvi-export-items-order)**: Export an item order from an anvi&#39;o database.
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-item-orders-txt](artifacts/misc-data-item-orders-txt)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[dendrogram](artifacts/dendrogram)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[phylogeny](artifacts/phylogeny)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[genes-db](artifacts/genes-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[pan-db](artifacts/pan-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span>.</span>
+
+
+* **[anvi-export-locus](programs/anvi-export-locus)**: This program helps you cut a &#39;locus&#39; from a larger genetic context (e.g., contigs, genomes). By default, anvi&#39;o will locate a user-defined anchor gene, extend its selection upstream and downstream based on the --num-genes argument, then extract the locus to create a new contigs database. The anchor gene must be provided as --search-term, --gene-caller-ids, or --hmm-sources. If --flank-mode is designated, you MUST provide TWO flanking genes that define the locus region (Please see --flank-mode help for more information). If everything goes as plan, anvi&#39;o will give you individual locus contigs databases for every matching anchor gene found in the original contigs database provided. Enjoy your mini contigs databases!.
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[locus-fasta](artifacts/locus-fasta)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span>.</span>
+
+
+* **[anvi-export-misc-data](programs/anvi-export-misc-data)**: Export additional data or order tables in pan or profile databases for items or layers..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-items-txt](artifacts/misc-data-items-txt)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-layers-txt](artifacts/misc-data-layers-txt)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-layer-orders-txt](artifacts/misc-data-layer-orders-txt)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-nucleotides-txt](artifacts/misc-data-nucleotides-txt)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-amino-acids-txt](artifacts/misc-data-amino-acids-txt)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[genes-db](artifacts/genes-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[pan-db](artifacts/pan-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span>.</span>
+
+
+* **[anvi-export-splits-and-coverages](programs/anvi-export-splits-and-coverages)**: Export split or contig sequences and coverages across samples stored in an anvi&#39;o profile database. This program is especially useful if you would like to &#39;bin&#39; your splits or contigs outside of anvi&#39;o and import the binning results into anvi&#39;o using `anvi-import-collection` program..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-fasta](artifacts/contigs-fasta)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[coverages-txt](artifacts/coverages-txt)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span>.</span>
+
+
+* **[anvi-export-state](programs/anvi-export-state)**: Export an anvi&#39;o state into a profile database..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[state-json](artifacts/state-json)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[pan-db](artifacts/pan-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span>.</span>
+
+
+* **[anvi-export-structures](programs/anvi-export-structures)**: Export .pdb structure files from a structure database..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[protein-structure](artifacts/protein-structure)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[structure-db](artifacts/structure-db)</span>.</span>
+
+
+* **[anvi-gen-contigs-database](programs/anvi-gen-contigs-database)**: Generate a new anvi&#39;o contigs database..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-fasta](artifacts/contigs-fasta)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[external-gene-calls](artifacts/external-gene-calls)</span>.</span>
+
+
+* **[anvi-gen-fixation-index-matrix](programs/anvi-gen-fixation-index-matrix)**: Generate a pairwise matrix of a fixation indices between samples.
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[fixation-index-matrix](artifacts/fixation-index-matrix)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[structure-db](artifacts/structure-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[bin](artifacts/bin)</span>.</span>
+
+
+* **[anvi-gen-gene-level-stats-databases](programs/anvi-gen-gene-level-stats-databases)**: A program to compute genes databases for a ginen set of bins stored in an anvi&#39;o collection. Genes databases store gene-level coverage and detection statistics, and they are usually computed and generated automatically when they are required (such as running anvi-interactive with `--gene-mode` flag). This program allows you to pre-compute them if you don&#39;t want them to be done all at once..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[genes-db](artifacts/genes-db)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[collection](artifacts/collection)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[bin](artifacts/bin)</span>.</span>
+
+
+* **[anvi-gen-genomes-storage](programs/anvi-gen-genomes-storage)**: Create a genome storage from internal or external genomes for a pan genome analysis..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[genomes-storage-db](artifacts/genomes-storage-db)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[external-genomes](artifacts/external-genomes)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[internal-genomes](artifacts/internal-genomes)</span>.</span>
+
+
+* **[anvi-gen-phylogenomic-tree](programs/anvi-gen-phylogenomic-tree)**: Generate phylogenomic tree from aligment file..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[phylogeny](artifacts/phylogeny)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[concatenated-gene-alignment-fasta](artifacts/concatenated-gene-alignment-fasta)</span>.</span>
+
+
+* **[anvi-gen-structure-database](programs/anvi-gen-structure-database)**: Identifies genes in your contigs database that encode proteins that are homologous to proteins with solved structures. If sufficiently similar homologs are identified, they are used as structural templates to predict the 3D structure of proteins in your contigs database. See our tutorial: http://merenlab.org/2018/09/04/structural-biology-with-anvio/.
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[structure-db](artifacts/structure-db)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[pdb-db](artifacts/pdb-db)</span>.</span>
+
+
+* **[anvi-gen-variability-profile](programs/anvi-gen-variability-profile)**: Generate a table that comprehensively summarizes the variability of nucleotide, codon, or amino acid positions. We call these single nucleotide variants (SNVs), single codon variants (SCVs), and single amino acid variants (SAAVs), respectively. Learn more here: http://merenlab.org/2015/07/20/analyzing-variability/.
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[variability-profile](artifacts/variability-profile)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[structure-db](artifacts/structure-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[bin](artifacts/bin)</span>.</span>
+
+
+* **[anvi-get-codon-frequencies](programs/anvi-get-codon-frequencies)**: Get amino acid or codon frequencies of genes in a contigs database..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[codon-frequencies-txt](artifacts/codon-frequencies-txt)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[aa-frequencies-txt](artifacts/aa-frequencies-txt)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span>.</span>
+
+
+* **[anvi-get-enriched-functions-per-pan-group](programs/anvi-get-enriched-functions-per-pan-group)**: A program that takes a pangenome, and a categorical layers additional data item, and generates the input for anvi-get-enriched-functions-per-pan-group. If requested a functional occurrence table across genomes is also generated..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[functional-enrichment-txt](artifacts/functional-enrichment-txt)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-layers-category](artifacts/misc-data-layers-category)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[pan-db](artifacts/pan-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[genomes-storage-db](artifacts/genomes-storage-db)</span>.</span>
+
+
+* **[anvi-get-sequences-for-gene-calls](programs/anvi-get-sequences-for-gene-calls)**: A script to get back sequences for gene calls.
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[genes-fasta](artifacts/genes-fasta)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span>.</span>
+
+
+* **[anvi-get-sequences-for-gene-clusters](programs/anvi-get-sequences-for-gene-clusters)**: Do cool stuff with gene clusters in anvi&#39;o pan genomes.
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[genes-fasta](artifacts/genes-fasta)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[concatenated-gene-alignment-fasta](artifacts/concatenated-gene-alignment-fasta)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[pan-db](artifacts/pan-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[genomes-storage-db](artifacts/genomes-storage-db)</span>.</span>
+
+
+* **[anvi-get-sequences-for-hmm-hits](programs/anvi-get-sequences-for-hmm-hits)**: Get sequences for HMM hits from many inputs to study phylogenomics..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[genes-fasta](artifacts/genes-fasta)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[concatenated-gene-alignment-fasta](artifacts/concatenated-gene-alignment-fasta)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[external-genomes](artifacts/external-genomes)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[internal-genomes](artifacts/internal-genomes)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[hmm-profile](artifacts/hmm-profile)</span>.</span>
+
+
+* **[anvi-get-short-reads-from-bam](programs/anvi-get-short-reads-from-bam)**: Get short reads back from a BAM file with options for compression, splitting of forward and reverse reads, etc..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[short-reads-fasta](artifacts/short-reads-fasta)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[bin](artifacts/bin)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[bam-file](artifacts/bam-file)</span>.</span>
+
+
+* **[anvi-get-short-reads-mapping-to-a-gene](programs/anvi-get-short-reads-mapping-to-a-gene)**: Recover short reads from BAM files that were mapped to genes you are interested in. It is possible to work with a single gene call, or a bunch of them. Similarly, you can get short reads from a single BAM file, or from many of them..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[short-reads-fasta](artifacts/short-reads-fasta)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[bam-file](artifacts/bam-file)</span>.</span>
+
+
+* **[anvi-import-collection](programs/anvi-import-collection)**: Import an external binning result into anvi&#39;o.
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[collection](artifacts/collection)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[pan-db](artifacts/pan-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[collection-txt](artifacts/collection-txt)</span>.</span>
+
+
+* **[anvi-import-functions](programs/anvi-import-functions)**: Parse and store functional annotation of genes..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[functions](artifacts/functions)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[functions-txt](artifacts/functions-txt)</span>.</span>
+
+
+* **[anvi-import-items-order](programs/anvi-import-items-order)**: Import a new items order into an anvi&#39;o database.
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-item-orders](artifacts/misc-data-item-orders)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[genes-db](artifacts/genes-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[pan-db](artifacts/pan-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-item-orders-txt](artifacts/misc-data-item-orders-txt)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[dendrogram](artifacts/dendrogram)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[phylogeny](artifacts/phylogeny)</span>.</span>
+
+
+* **[anvi-import-misc-data](programs/anvi-import-misc-data)**: Populate additional data or order tables in pan or profile databases for items and layers, OR additional data in contigs databases for nucleotides and amino acids (the Swiss army knife-level serious stuff)..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-items](artifacts/misc-data-items)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-layers](artifacts/misc-data-layers)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-layer-orders](artifacts/misc-data-layer-orders)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-nucleotides](artifacts/misc-data-nucleotides)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-amino-acids](artifacts/misc-data-amino-acids)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[genes-db](artifacts/genes-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[pan-db](artifacts/pan-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-items-txt](artifacts/misc-data-items-txt)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[dendrogram](artifacts/dendrogram)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[phylogeny](artifacts/phylogeny)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-layers-txt](artifacts/misc-data-layers-txt)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-layer-orders-txt](artifacts/misc-data-layer-orders-txt)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-nucleotides-txt](artifacts/misc-data-nucleotides-txt)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-amino-acids-txt](artifacts/misc-data-amino-acids-txt)</span>.</span>
+
+
+* **[anvi-import-state](programs/anvi-import-state)**: Import an anvi&#39;o state into a profile database..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[state](artifacts/state)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[pan-db](artifacts/pan-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[state-json](artifacts/state-json)</span>.</span>
+
+
+* **[anvi-import-taxonomy-for-genes](programs/anvi-import-taxonomy-for-genes)**: Import gene-level taxonomy into an anvi&#39;o contigs database..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[gene-taxonomy](artifacts/gene-taxonomy)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[gene-taxonomy-txt](artifacts/gene-taxonomy-txt)</span>.</span>
+
+
+* **[anvi-import-taxonomy-for-layers](programs/anvi-import-taxonomy-for-layers)**: Import layers-level taxonomy into an anvi&#39;o additional layer data table in an anvi&#39;o single-profile database..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[layer-taxonomy](artifacts/layer-taxonomy)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[single-profile-db](artifacts/single-profile-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[layer-taxonomy-txt](artifacts/layer-taxonomy-txt)</span>.</span>
+
+
+* **[anvi-init-bam](programs/anvi-init-bam)**: Sort/Index BAM files.
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[bam-file](artifacts/bam-file)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[raw-bam-file](artifacts/raw-bam-file)</span>.</span>
+
+
+* **[anvi-inspect](programs/anvi-inspect)**: Start an anvi&#39;o inspect interactive interface..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[interactive](artifacts/interactive)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[bin](artifacts/bin)</span>.</span>
+
+
+* **[anvi-interactive](programs/anvi-interactive)**: Start an anvi&#39;o server for the interactive interface.
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[collection](artifacts/collection)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[bin](artifacts/bin)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[interactive](artifacts/interactive)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[svg](artifacts/svg)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[single-profile-db](artifacts/single-profile-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[genes-db](artifacts/genes-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[bin](artifacts/bin)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[view-data](artifacts/view-data)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[dendrogram](artifacts/dendrogram)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[phylogeny](artifacts/phylogeny)</span>.</span>
+
+
+* **[anvi-matrix-to-newick](programs/anvi-matrix-to-newick)**: Takes a distance matrix, returns a newick tree..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[dendrogram](artifacts/dendrogram)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[view-data](artifacts/view-data)</span>.</span>
+
+
+* **[anvi-merge](programs/anvi-merge)**: Merge multiple anvio profiles.
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-item-orders](artifacts/misc-data-item-orders)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[single-profile-db](artifacts/single-profile-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span>.</span>
+
+
+* **[anvi-meta-pan-genome](programs/anvi-meta-pan-genome)**: Convert a pangenome into a metapangenome..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[metapangenome](artifacts/metapangenome)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[internal-genomes](artifacts/internal-genomes)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[pan-db](artifacts/pan-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[genomes-storage-db](artifacts/genomes-storage-db)</span>.</span>
+
+
+* **[anvi-oligotype-linkmers](programs/anvi-oligotype-linkmers)**: Takes an anvi&#39;o linkmers report, generates an oligotyping output.
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[oligotypes](artifacts/oligotypes)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[linkmers-txt](artifacts/linkmers-txt)</span>.</span>
+
+
+* **[anvi-pan-genome](programs/anvi-pan-genome)**: A DIAMOND and MCL-based anvi&#39;o workflow for pangenomics. You provide genomes from anywhere (whether they are external genomes, or anvi&#39;o genome bins in collections), and it gives you back a pangenome analysis..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[pan-db](artifacts/pan-db)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-item-orders](artifacts/misc-data-item-orders)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[genomes-storage-db](artifacts/genomes-storage-db)</span>.</span>
+
+
+* **[anvi-profile](programs/anvi-profile)**: Creates a single anvi&#39;o profile database. The default input to this program is a BAM file.                   When it is run on a BAM file, depending on the user parameters, the program quantifies                   coverage per nucleotide position (and averages them out per contig), calculates                   single-nucleotide, single-codon, and single-amino acid variants, and stores these data                   into appropriate tables. Anvi&#39;o single profiles can be merged by the program `anvi-merge`..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[single-profile-db](artifacts/single-profile-db)</span> <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-item-orders](artifacts/misc-data-item-orders)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[bam-file](artifacts/bam-file)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span>.</span>
+
+
+* **[anvi-refine](programs/anvi-refine)**: Start an anvi&#39;o interactive interactive to manually curate or refine a genome, whether it is a metagenome-assembled, single-cell, or an isolate genome..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[bin](artifacts/bin)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[bin](artifacts/bin)</span>.</span>
+
+
+* **[anvi-report-linkmers](programs/anvi-report-linkmers)**: Access reads in contigs and positions in a BAM file.
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[linkmers-txt](artifacts/linkmers-txt)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[bam-file](artifacts/bam-file)</span>.</span>
+
+
+* **[anvi-run-hmms](programs/anvi-run-hmms)**: This program deals with populating tables that store HMM hits in an anvi&#39;o contigs database..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[hmm-profile](artifacts/hmm-profile)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[hmm-source](artifacts/hmm-source)</span>.</span>
+
+
+* **[anvi-run-kegg-kofams](programs/anvi-run-kegg-kofams)**: Run KOfam HMMs on an anvi&#39;o contigs database..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[kegg-functions](artifacts/kegg-functions)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[kegg-db](artifacts/kegg-db)</span>.</span>
+
+
+* **[anvi-run-ncbi-cogs](programs/anvi-run-ncbi-cogs)**: Run NCBI&#39;s COGs to associate genes in an anvi&#39;o contigs database with functions. COGs database was been designed as an attempt to classify proteins from completely sequenced genomes on the basis of the orthology concept. It is no longer actively developed, however, it is still very effective for daily needs. You may want to consider Pfams or the eggNOG database for more comprehensive functional insights..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[functions](artifacts/functions)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[cogs-data](artifacts/cogs-data)</span>.</span>
+
+
+* **[anvi-run-pfams](programs/anvi-run-pfams)**: Run Pfam on Contigs Database..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[functions](artifacts/functions)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[pfams-data](artifacts/pfams-data)</span>.</span>
+
+
+* **[anvi-run-scg-taxonomy](programs/anvi-run-scg-taxonomy)**: The purpose of this program is to affiliate single-copy core genes in an anvi&#39;o contigs database with taxonomic names. A properly setup local SCG taxonomy database is required for this program to perform properly. After its successful run, `anvi-estimate-scg-taxonomy` will be useful to estimate taxonomy at genome-, collection-, or metagenome-level)..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[scgs-taxonomy](artifacts/scgs-taxonomy)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[scgs-taxonomy-db](artifacts/scgs-taxonomy-db)</span>.</span>
+
+
+* **[anvi-scan-trnas](programs/anvi-scan-trnas)**: Identify and store tRNA genes in a contigs database..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[trna-genes](artifacts/trna-genes)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span>.</span>
+
+
+* **[anvi-search-functions](programs/anvi-search-functions)**: Search functions in an anvi&#39;o contigs database or genomes storage. Basically, this program searches for one or more search terms you define in functional annotations of genes in an anvi&#39;o contigs database, and generates multiple reports. The simpler report (which also is the default one) simply tells you which contigs contain genes with functions matching to serach terms you used. This file is only useful to quickly highlight matching contigs in the interface by providing it to the anvi-interactive with the `--additional-layer` parameter. You can also request a much more comprehensive report, which gives you anything you might need to know, including the matching gene caller id, functional annotation source, and full function name for each hit and serach term..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[functions-txt](artifacts/functions-txt)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[genomes-storage-db](artifacts/genomes-storage-db)</span>.</span>
+
+
+* **[anvi-setup-kegg-kofams](programs/anvi-setup-kegg-kofams)**: Download and setup KEGG KOfam HMM profiles..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[kegg-db](artifacts/kegg-db)</span> / 
+<span>**Requires**: .</span>
+
+
+* **[anvi-setup-ncbi-cogs](programs/anvi-setup-ncbi-cogs)**: Download and setup NCBI&#39;s Clusters of Orthologous Groups database..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[cogs-data](artifacts/cogs-data)</span> / 
+<span>**Requires**: .</span>
+
+
+* **[anvi-setup-pdb-database](programs/anvi-setup-pdb-database)**: Setup or update an offline database of representative PDB structures clustered at 95%..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[pdb-db](artifacts/pdb-db)</span> / 
+<span>**Requires**: .</span>
+
+
+* **[anvi-setup-pfams](programs/anvi-setup-pfams)**: Download and setup Pfam data from the EBI..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[pfams-data](artifacts/pfams-data)</span> / 
+<span>**Requires**: .</span>
+
+
+* **[anvi-setup-scg-databases](programs/anvi-setup-scg-databases)**: The purpose of this program is to download necessary information from GTDB (https://gtdb.ecogenomic.org/), and set it up in such a way that your anvi&#39;o installation is able to assign taxonomy to single-copy core genes using `anvi-run-scg-taxonomy` and estimate taxonomy for genomes or metagenomes using `anvi-estimate-genome-taxonomy`)..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[scgs-taxonomy-db](artifacts/scgs-taxonomy-db)</span> / 
+<span>**Requires**: .</span>
+
+
+* **[anvi-show-collections-and-bins](programs/anvi-show-collections-and-bins)**: A script to display collections stored in an anvi&#39;o profile or pan database..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[collection](artifacts/collection)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[pan-db](artifacts/pan-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span>.</span>
+
+
+* **[anvi-split](programs/anvi-split)**: Split an anvi&#39;o pan or profile database into smaller, self-contained pieces. This is usually great when you want to share a subset of an anvi&#39;o project. You give this guy your databases, and a collection id, and it gives you back directories of individual projects for each bin that can be treated as self-contained smaller anvi&#39;o projects. We know you don&#39;t read this far into these help menus, but please remember: you will either need to provide a profile &amp; contigs database pair, or a pan &amp; genomes storage pair. The rest will be taken care of. Magic..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[split-bins](artifacts/split-bins)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[collection](artifacts/collection)</span>.</span>
+
+
+* **[anvi-summarize](programs/anvi-summarize)**: Summarize an anvi&#39;o collection. Fun stuff..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[summary](artifacts/summary)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[collection](artifacts/collection)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[pan-db](artifacts/pan-db)</span> <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[genomes-storage-db](artifacts/genomes-storage-db)</span>.</span>
+
+
+* **[anvi-script-compute-ani-for-fasta](programs/anvi-script-compute-ani-for-fasta)**: Run ANI between contigs in a single FASTA file..
+<span>**Provides**: <span style="background:#cbe4d5; padding: 0px 3px 2px 3px; border-radius: 5px;">[genome-similarity](artifacts/genome-similarity)</span> / 
+<span>**Requires**: <span style="background:#dcbfe8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-fasta](artifacts/contigs-fasta)</span>.</span>
+
+
+
+## Artifacts
+
+A total of 77 artifacts.
+
+* <span style="line-height: 25px;"><span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[pan-db](artifacts/pan-db)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-db](artifacts/contigs-db)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-fasta](artifacts/contigs-fasta)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[external-gene-calls](artifacts/external-gene-calls)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[concatenated-gene-alignment-fasta](artifacts/concatenated-gene-alignment-fasta)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[short-reads-fasta](artifacts/short-reads-fasta)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[genes-fasta](artifacts/genes-fasta)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[bam-file](artifacts/bam-file)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[protein-structure](artifacts/protein-structure)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[raw-bam-file](artifacts/raw-bam-file)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[locus-fasta](artifacts/locus-fasta)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[structure-db](artifacts/structure-db)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[pdb-db](artifacts/pdb-db)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[kegg-db](artifacts/kegg-db)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[single-profile-db](artifacts/single-profile-db)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[profile-db](artifacts/profile-db)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[genes-db](artifacts/genes-db)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[genomes-storage-db](artifacts/genomes-storage-db)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[contigs-stats](artifacts/contigs-stats)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[svg](artifacts/svg)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[bin](artifacts/bin)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[collection](artifacts/collection)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[collection-txt](artifacts/collection-txt)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[hmm-source](artifacts/hmm-source)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[hmm-profile](artifacts/hmm-profile)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[cogs-data](artifacts/cogs-data)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[pfams-data](artifacts/pfams-data)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[trna-genes](artifacts/trna-genes)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-items-txt](artifacts/misc-data-items-txt)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-items](artifacts/misc-data-items)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-layers-txt](artifacts/misc-data-layers-txt)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-layers](artifacts/misc-data-layers)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-nucleotides-txt](artifacts/misc-data-nucleotides-txt)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-nucleotides](artifacts/misc-data-nucleotides)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-amino-acids-txt](artifacts/misc-data-amino-acids-txt)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-amino-acids](artifacts/misc-data-amino-acids)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-layers-category](artifacts/misc-data-layers-category)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[genome-similarity](artifacts/genome-similarity)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-layer-orders](artifacts/misc-data-layer-orders)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-item-orders](artifacts/misc-data-item-orders)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-layer-orders-txt](artifacts/misc-data-layer-orders-txt)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[misc-data-item-orders-txt](artifacts/misc-data-item-orders-txt)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[dendrogram](artifacts/dendrogram)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[metapangenome](artifacts/metapangenome)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[oligotypes](artifacts/oligotypes)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[linkmers-txt](artifacts/linkmers-txt)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[phylogeny](artifacts/phylogeny)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[gene-calls-txt](artifacts/gene-calls-txt)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[functions](artifacts/functions)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[functions-txt](artifacts/functions-txt)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[functional-enrichment-txt](artifacts/functional-enrichment-txt)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[kegg-functions](artifacts/kegg-functions)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[interactive](artifacts/interactive)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[view-data](artifacts/view-data)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[layer-taxonomy](artifacts/layer-taxonomy)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[layer-taxonomy-txt](artifacts/layer-taxonomy-txt)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[gene-taxonomy](artifacts/gene-taxonomy)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[gene-taxonomy-txt](artifacts/gene-taxonomy-txt)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[genome-taxonomy](artifacts/genome-taxonomy)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[genome-taxonomy-txt](artifacts/genome-taxonomy-txt)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[scgs-taxonomy-db](artifacts/scgs-taxonomy-db)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[scgs-taxonomy](artifacts/scgs-taxonomy)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[external-genomes](artifacts/external-genomes)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[internal-genomes](artifacts/internal-genomes)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[coverages-txt](artifacts/coverages-txt)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[genome-distance-txt](artifacts/genome-distance-txt)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[genome-distance](artifacts/genome-distance)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[variability-profile](artifacts/variability-profile)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[codon-frequencies-txt](artifacts/codon-frequencies-txt)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[aa-frequencies-txt](artifacts/aa-frequencies-txt)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[fixation-index-matrix](artifacts/fixation-index-matrix)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[summary](artifacts/summary)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[split-bins](artifacts/split-bins)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[state](artifacts/state)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[ngrams](artifacts/ngrams)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[state-json](artifacts/state-json)</span> <span style="background:#e8e8e8; padding: 0px 3px 2px 3px; border-radius: 5px;">[kegg-metabolism](artifacts/kegg-metabolism)</span>.</span>
