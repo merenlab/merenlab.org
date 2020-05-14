@@ -8,13 +8,15 @@ image:
   display: true
 ---
 
+Export split or contig sequences and coverages across samples stored in an anvi&#39;o profile database. This program is especially useful if you would like to &#39;bin&#39; your splits or contigs outside of anvi&#39;o and import the binning results into anvi&#39;o using `anvi-import-collection` program.
+
 
 {% include _toc.html %}
+<div id="svg" class="subnetwork"></div>
+{% capture network_path %}{{ "network.json" }}{% endcapture %}
+{% capture network_height %}{{ 300 }}{% endcapture %}
+{% include _project-anvio-graph.html %}
 
-
-<img src="../../images/icons/PROGRAM.png" alt="PROGRAM" style="width:100px; border:none" />
-
-Export split or contig sequences and coverages across samples stored in an anvi&#39;o profile database. This program is especially useful if you would like to &#39;bin&#39; your splits or contigs outside of anvi&#39;o and import the binning results into anvi&#39;o using `anvi-import-collection` program.
 
 [Back to help main page](../../)
 

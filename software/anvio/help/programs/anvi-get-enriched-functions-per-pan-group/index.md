@@ -8,13 +8,15 @@ image:
   display: true
 ---
 
+A program that takes a pangenome, and a categorical layers additional data item, and generates the input for anvi-get-enriched-functions-per-pan-group. If requested a functional occurrence table across genomes is also generated.
+
 
 {% include _toc.html %}
+<div id="svg" class="subnetwork"></div>
+{% capture network_path %}{{ "network.json" }}{% endcapture %}
+{% capture network_height %}{{ 300 }}{% endcapture %}
+{% include _project-anvio-graph.html %}
 
-
-<img src="../../images/icons/PROGRAM.png" alt="PROGRAM" style="width:100px; border:none" />
-
-A program that takes a pangenome, and a categorical layers additional data item, and generates the input for anvi-get-enriched-functions-per-pan-group. If requested a functional occurrence table across genomes is also generated.
 
 [Back to help main page](../../)
 

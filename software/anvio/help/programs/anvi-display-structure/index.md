@@ -8,13 +8,15 @@ image:
   display: true
 ---
 
+Interactively visualize sequence variants on protein structures
+
 
 {% include _toc.html %}
+<div id="svg" class="subnetwork"></div>
+{% capture network_path %}{{ "network.json" }}{% endcapture %}
+{% capture network_height %}{{ 300 }}{% endcapture %}
+{% include _project-anvio-graph.html %}
 
-
-<img src="../../images/icons/PROGRAM.png" alt="PROGRAM" style="width:100px; border:none" />
-
-Interactively visualize sequence variants on protein structures
 
 [Back to help main page](../../)
 

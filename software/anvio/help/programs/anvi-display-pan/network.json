@@ -1,0 +1,95 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "collection",
+      "name": "collection",
+      "internal": true,
+      "type": "COLLECTION"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "bin",
+      "name": "bin",
+      "internal": true,
+      "type": "BIN"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "interactive",
+      "name": "interactive",
+      "internal": true,
+      "type": "DISPLAY"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "svg",
+      "name": "svg",
+      "internal": false,
+      "type": "SVG"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "pan-db",
+      "name": "pan-db",
+      "internal": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "genomes-storage-db",
+      "name": "genomes-storage-db",
+      "internal": true,
+      "type": "DB"
+    },
+    {
+      "size": 6,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-display-pan",
+      "name": "anvi-display-pan",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "source": 6,
+      "target": 0
+    },
+    {
+      "source": 6,
+      "target": 1
+    },
+    {
+      "source": 6,
+      "target": 2
+    },
+    {
+      "source": 6,
+      "target": 3
+    },
+    {
+      "target": 6,
+      "source": 4
+    },
+    {
+      "target": 6,
+      "source": 5
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}

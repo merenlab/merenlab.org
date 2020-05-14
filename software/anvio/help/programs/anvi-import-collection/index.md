@@ -8,13 +8,15 @@ image:
   display: true
 ---
 
+Import an external binning result into anvi&#39;o
+
 
 {% include _toc.html %}
+<div id="svg" class="subnetwork"></div>
+{% capture network_path %}{{ "network.json" }}{% endcapture %}
+{% capture network_height %}{{ 300 }}{% endcapture %}
+{% include _project-anvio-graph.html %}
 
-
-<img src="../../images/icons/PROGRAM.png" alt="PROGRAM" style="width:100px; border:none" />
-
-Import an external binning result into anvi&#39;o
 
 [Back to help main page](../../)
 

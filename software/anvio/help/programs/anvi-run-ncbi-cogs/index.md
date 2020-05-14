@@ -8,13 +8,15 @@ image:
   display: true
 ---
 
+Run NCBI&#39;s COGs to associate genes in an anvi&#39;o contigs database with functions. COGs database was been designed as an attempt to classify proteins from completely sequenced genomes on the basis of the orthology concept. It is no longer actively developed, however, it is still very effective for daily needs. You may want to consider Pfams or the eggNOG database for more comprehensive functional insights.
+
 
 {% include _toc.html %}
+<div id="svg" class="subnetwork"></div>
+{% capture network_path %}{{ "network.json" }}{% endcapture %}
+{% capture network_height %}{{ 300 }}{% endcapture %}
+{% include _project-anvio-graph.html %}
 
-
-<img src="../../images/icons/PROGRAM.png" alt="PROGRAM" style="width:100px; border:none" />
-
-Run NCBI&#39;s COGs to associate genes in an anvi&#39;o contigs database with functions. COGs database was been designed as an attempt to classify proteins from completely sequenced genomes on the basis of the orthology concept. It is no longer actively developed, however, it is still very effective for daily needs. You may want to consider Pfams or the eggNOG database for more comprehensive functional insights.
 
 [Back to help main page](../../)
 

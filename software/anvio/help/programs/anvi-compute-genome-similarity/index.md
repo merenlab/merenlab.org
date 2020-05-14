@@ -8,13 +8,15 @@ image:
   display: true
 ---
 
+Export sequences from sequence sources and compute a similarity metric (e.g. ANI). If a Pan Database is given anvi&#39;o will write computed output to misc data tables of Pan Database.
+
 
 {% include _toc.html %}
+<div id="svg" class="subnetwork"></div>
+{% capture network_path %}{{ "network.json" }}{% endcapture %}
+{% capture network_height %}{{ 300 }}{% endcapture %}
+{% include _project-anvio-graph.html %}
 
-
-<img src="../../images/icons/PROGRAM.png" alt="PROGRAM" style="width:100px; border:none" />
-
-Export sequences from sequence sources and compute a similarity metric (e.g. ANI). If a Pan Database is given anvi&#39;o will write computed output to misc data tables of Pan Database.
 
 [Back to help main page](../../)
 

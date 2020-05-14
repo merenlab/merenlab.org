@@ -8,13 +8,15 @@ image:
   display: true
 ---
 
+Creates a single anvi&#39;o profile database. The default input to this program is a BAM file.                   When it is run on a BAM file, depending on the user parameters, the program quantifies                   coverage per nucleotide position (and averages them out per contig), calculates                   single-nucleotide, single-codon, and single-amino acid variants, and stores these data                   into appropriate tables. Anvi&#39;o single profiles can be merged by the program `anvi-merge`.
+
 
 {% include _toc.html %}
+<div id="svg" class="subnetwork"></div>
+{% capture network_path %}{{ "network.json" }}{% endcapture %}
+{% capture network_height %}{{ 300 }}{% endcapture %}
+{% include _project-anvio-graph.html %}
 
-
-<img src="../../images/icons/PROGRAM.png" alt="PROGRAM" style="width:100px; border:none" />
-
-Creates a single anvi&#39;o profile database. The default input to this program is a BAM file.                   When it is run on a BAM file, depending on the user parameters, the program quantifies                   coverage per nucleotide position (and averages them out per contig), calculates                   single-nucleotide, single-codon, and single-amino acid variants, and stores these data                   into appropriate tables. Anvi&#39;o single profiles can be merged by the program `anvi-merge`.
 
 [Back to help main page](../../)
 

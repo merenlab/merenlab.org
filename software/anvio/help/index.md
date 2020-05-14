@@ -10,11 +10,16 @@ image:
 
 A complete list of current anvi'o programs and artifacts.
 
-{:.notice}
-The help contents were last updated on **13 May 20 20:28:32** for anvi'o version **6.2-master (esther)**.
-
 
 {% include _project-anvio-version.html %}
+
+
+<a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
+
+{:.notice}
+The help contents were last updated on **13 May 20 23:59:27** for anvi'o version **6.2-master (esther)**.
+
+
 {% include _toc.html %}
 {% include _join-anvio-slack.html %}
 
