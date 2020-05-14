@@ -38,11 +38,11 @@ anvi&#45;script&#45;reformat&#45;fasta <span class="artifact&#45;n">[fasta](/sof
 </div>
 
 {:.notice}
-If you use the flag *&#45;&#45;report&#45;file*, it will also create a TAB&#45;delimited file for you to keep track of which defline in the new file corresponds to which defline in the original file.
+If you use the flag *--report-file*, it will also create a TAB-delimited file for you to keep track of which defline in the new file corresponds to which defline in the original file.
 
 ### Removing short reads from FASTA
 
-Removing short contigs from a FASTA file will improve the performance of the <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> later. Running the same command this way will also remove sequences that are shorter than 1,000 nts:
+Removing short contigs from a FASTA file will improve the performance of the <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> later. Running the same command this way will also remove sequences that are shorter than 1,000 nts:
 
 <div class="codeblock" markdown="1">
 anvi&#45;script&#45;reformat&#45;fasta <span class="artifact&#45;n">[fasta](/software/anvio/help/artifacts/fasta)</span> \
