@@ -52,3 +52,6 @@ And here are some OK ones:
 
 The program <span class="artifact-n">[anvi-script-reformat-fasta](/software/anvio/help/programs/anvi-script-reformat-fasta)</span> can do this automatically for you.
 
+{:.notice}
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/contigs-fasta.md) to update this information.
+

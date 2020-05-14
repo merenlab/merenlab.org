@@ -53,6 +53,9 @@ anvi&#45;script&#45;reformat&#45;fasta <span class="artifact&#45;n">[fasta](/sof
 
 
 
+{:.notice}
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-reformat-fasta.md) to update this information.
+
 
 ## Additional Resources
 

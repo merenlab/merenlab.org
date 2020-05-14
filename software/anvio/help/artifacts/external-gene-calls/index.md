@@ -99,3 +99,6 @@ You can read the previous discussions regarding this behavior in [this issue](ht
 
 
 
+{:.notice}
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/external-gene-calls.md) to update this information.
+
