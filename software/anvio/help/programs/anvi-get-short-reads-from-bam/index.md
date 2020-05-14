@@ -8,13 +8,15 @@ image:
   display: true
 ---
 
+Get short reads back from a BAM file with options for compression, splitting of forward and reverse reads, etc.
+
 
 {% include _toc.html %}
+<div id="svg" class="subnetwork"></div>
+{% capture network_path %}{{ "network.json" }}{% endcapture %}
+{% capture network_height %}{{ 300 }}{% endcapture %}
+{% include _project-anvio-graph.html %}
 
-
-<img src="../../images/icons/PROGRAM.png" alt="PROGRAM" style="width:100px; border:none" />
-
-Get short reads back from a BAM file with options for compression, splitting of forward and reverse reads, etc.
 
 [Back to help main page](../../)
 

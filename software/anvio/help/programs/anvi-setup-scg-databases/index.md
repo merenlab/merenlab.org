@@ -8,13 +8,15 @@ image:
   display: true
 ---
 
+The purpose of this program is to download necessary information from GTDB (https://gtdb.ecogenomic.org/), and set it up in such a way that your anvi&#39;o installation is able to assign taxonomy to single-copy core genes using `anvi-run-scg-taxonomy` and estimate taxonomy for genomes or metagenomes using `anvi-estimate-genome-taxonomy`).
+
 
 {% include _toc.html %}
+<div id="svg" class="subnetwork"></div>
+{% capture network_path %}{{ "network.json" }}{% endcapture %}
+{% capture network_height %}{{ 300 }}{% endcapture %}
+{% include _project-anvio-graph.html %}
 
-
-<img src="../../images/icons/PROGRAM.png" alt="PROGRAM" style="width:100px; border:none" />
-
-The purpose of this program is to download necessary information from GTDB (https://gtdb.ecogenomic.org/), and set it up in such a way that your anvi&#39;o installation is able to assign taxonomy to single-copy core genes using `anvi-run-scg-taxonomy` and estimate taxonomy for genomes or metagenomes using `anvi-estimate-genome-taxonomy`).
 
 [Back to help main page](../../)
 

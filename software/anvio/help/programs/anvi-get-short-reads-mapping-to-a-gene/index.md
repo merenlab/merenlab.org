@@ -8,13 +8,15 @@ image:
   display: true
 ---
 
+Recover short reads from BAM files that were mapped to genes you are interested in. It is possible to work with a single gene call, or a bunch of them. Similarly, you can get short reads from a single BAM file, or from many of them.
+
 
 {% include _toc.html %}
+<div id="svg" class="subnetwork"></div>
+{% capture network_path %}{{ "network.json" }}{% endcapture %}
+{% capture network_height %}{{ 300 }}{% endcapture %}
+{% include _project-anvio-graph.html %}
 
-
-<img src="../../images/icons/PROGRAM.png" alt="PROGRAM" style="width:100px; border:none" />
-
-Recover short reads from BAM files that were mapped to genes you are interested in. It is possible to work with a single gene call, or a bunch of them. Similarly, you can get short reads from a single BAM file, or from many of them.
 
 [Back to help main page](../../)
 

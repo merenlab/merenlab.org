@@ -8,13 +8,15 @@ image:
   display: true
 ---
 
+Populate additional data or order tables in pan or profile databases for items and layers, OR additional data in contigs databases for nucleotides and amino acids (the Swiss army knife-level serious stuff).
+
 
 {% include _toc.html %}
+<div id="svg" class="subnetwork"></div>
+{% capture network_path %}{{ "network.json" }}{% endcapture %}
+{% capture network_height %}{{ 300 }}{% endcapture %}
+{% include _project-anvio-graph.html %}
 
-
-<img src="../../images/icons/PROGRAM.png" alt="PROGRAM" style="width:100px; border:none" />
-
-Populate additional data or order tables in pan or profile databases for items and layers, OR additional data in contigs databases for nucleotides and amino acids (the Swiss army knife-level serious stuff).
 
 [Back to help main page](../../)
 

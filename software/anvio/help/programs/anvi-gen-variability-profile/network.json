@@ -1,0 +1,82 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "variability-profile",
+      "name": "variability-profile",
+      "internal": false,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "contigs-db",
+      "name": "contigs-db",
+      "internal": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "profile-db",
+      "name": "profile-db",
+      "internal": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "structure-db",
+      "name": "structure-db",
+      "internal": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "bin",
+      "name": "bin",
+      "internal": true,
+      "type": "BIN"
+    },
+    {
+      "size": 5,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-gen-variability-profile",
+      "name": "anvi-gen-variability-profile",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "source": 5,
+      "target": 0
+    },
+    {
+      "target": 5,
+      "source": 1
+    },
+    {
+      "target": 5,
+      "source": 2
+    },
+    {
+      "target": 5,
+      "source": 3
+    },
+    {
+      "target": 5,
+      "source": 4
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}

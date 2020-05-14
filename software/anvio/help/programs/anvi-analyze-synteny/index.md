@@ -8,13 +8,15 @@ image:
   display: true
 ---
 
+This program helps you extract synteny patterns from a group of similar loci or genomes. This is accomplished by deconstructing contigs into Ngrams (group of neighboring genes of which N is the number of genes) using a sliding window method. Once completed, anvi&#39;o will export a table with Ngrams for you to work with. If more than one annotation source is provided, please designate which annotation_source anvio should use to make the Ngrams with using the --ngram-source parameter (e.g. gene_clusters, COG_FUNCTION). By default anvi&#39;o will ignore Ngrams that contain genes without annotations. If you would like to override this, you can use the --analyze-unknown-functions flag.
+
 
 {% include _toc.html %}
+<div id="svg" class="subnetwork"></div>
+{% capture network_path %}{{ "network.json" }}{% endcapture %}
+{% capture network_height %}{{ 300 }}{% endcapture %}
+{% include _project-anvio-graph.html %}
 
-
-<img src="../../images/icons/PROGRAM.png" alt="PROGRAM" style="width:100px; border:none" />
-
-This program helps you extract synteny patterns from a group of similar loci or genomes. This is accomplished by deconstructing contigs into Ngrams (group of neighboring genes of which N is the number of genes) using a sliding window method. Once completed, anvi&#39;o will export a table with Ngrams for you to work with. If more than one annotation source is provided, please designate which annotation_source anvio should use to make the Ngrams with using the --ngram-source parameter (e.g. gene_clusters, COG_FUNCTION). By default anvi&#39;o will ignore Ngrams that contain genes without annotations. If you would like to override this, you can use the --analyze-unknown-functions flag.
 
 [Back to help main page](../../)
 

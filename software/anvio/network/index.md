@@ -17,7 +17,7 @@ image:
         <img src="https://github.com/merenlab/anvio/raw/master/anvio/data/interactive/images/logo.png" style="width:222px; opacity: 0.8;" />
     </a>
 </div>
-<p id="description">The purpose of this page is to visualize <b>the interconnected nature of anvi'o concepts and programs</b>.
+<p id="description">The purpose of this page is to visualize <b>the interconnected nature of anvi'o concepts and programs</b>. Visit our <b><a href="/software/anvio/help/" target="_blank">help pages</a></b> for more information on anvi'o programs and concepts.
 <br /><br />
 Through its modular design principles, <b>anvi'o resembles LEGO, where the same simple blocks can build non-identical complex structures</b>. Interfaces between anvi'o tools are established by self-contained databases that are generated, modified, queried, visualized, and merged with other databases through atomic anvi'o programs. Through this modularity, anvi'o aims to empower microbiologists without imposing rigid workflows or adding substantial limitations on creativity and to help them explore large datasets through their unique and diverse approaches.
 <br /><br />
@@ -107,4 +107,5 @@ You can zoom-in, zoom-out and move the network around. If you click on any item 
 </div>
 
 <div id="svg"></div>
+{% capture network_path %}{{ "/software/anvio/network/network.json" }}{% endcapture %}
 {% include _project-anvio-graph.html %}

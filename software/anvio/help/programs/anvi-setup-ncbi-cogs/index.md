@@ -8,13 +8,15 @@ image:
   display: true
 ---
 
+Download and setup NCBI&#39;s Clusters of Orthologous Groups database.
+
 
 {% include _toc.html %}
+<div id="svg" class="subnetwork"></div>
+{% capture network_path %}{{ "network.json" }}{% endcapture %}
+{% capture network_height %}{{ 300 }}{% endcapture %}
+{% include _project-anvio-graph.html %}
 
-
-<img src="../../images/icons/PROGRAM.png" alt="PROGRAM" style="width:100px; border:none" />
-
-Download and setup NCBI&#39;s Clusters of Orthologous Groups database.
 
 [Back to help main page](../../)
 

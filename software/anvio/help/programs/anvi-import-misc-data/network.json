@@ -1,0 +1,225 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "misc-data-items",
+      "name": "misc-data-items",
+      "internal": false,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "misc-data-layers",
+      "name": "misc-data-layers",
+      "internal": false,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "misc-data-layer-orders",
+      "name": "misc-data-layer-orders",
+      "internal": false,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "misc-data-nucleotides",
+      "name": "misc-data-nucleotides",
+      "internal": false,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "misc-data-amino-acids",
+      "name": "misc-data-amino-acids",
+      "internal": false,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "genes-db",
+      "name": "genes-db",
+      "internal": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "pan-db",
+      "name": "pan-db",
+      "internal": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "profile-db",
+      "name": "profile-db",
+      "internal": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "contigs-db",
+      "name": "contigs-db",
+      "internal": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "misc-data-items-txt",
+      "name": "misc-data-items-txt",
+      "internal": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "dendrogram",
+      "name": "dendrogram",
+      "internal": false,
+      "type": "NEWICK"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "phylogeny",
+      "name": "phylogeny",
+      "internal": false,
+      "type": "NEWICK"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "misc-data-layers-txt",
+      "name": "misc-data-layers-txt",
+      "internal": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "misc-data-layer-orders-txt",
+      "name": "misc-data-layer-orders-txt",
+      "internal": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "misc-data-nucleotides-txt",
+      "name": "misc-data-nucleotides-txt",
+      "internal": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "misc-data-amino-acids-txt",
+      "name": "misc-data-amino-acids-txt",
+      "internal": false,
+      "type": "TXT"
+    },
+    {
+      "size": 16,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-import-misc-data",
+      "name": "anvi-import-misc-data",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "source": 16,
+      "target": 0
+    },
+    {
+      "source": 16,
+      "target": 1
+    },
+    {
+      "source": 16,
+      "target": 2
+    },
+    {
+      "source": 16,
+      "target": 3
+    },
+    {
+      "source": 16,
+      "target": 4
+    },
+    {
+      "target": 16,
+      "source": 5
+    },
+    {
+      "target": 16,
+      "source": 6
+    },
+    {
+      "target": 16,
+      "source": 7
+    },
+    {
+      "target": 16,
+      "source": 8
+    },
+    {
+      "target": 16,
+      "source": 9
+    },
+    {
+      "target": 16,
+      "source": 10
+    },
+    {
+      "target": 16,
+      "source": 11
+    },
+    {
+      "target": 16,
+      "source": 12
+    },
+    {
+      "target": 16,
+      "source": 13
+    },
+    {
+      "target": 16,
+      "source": 14
+    },
+    {
+      "target": 16,
+      "source": 15
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}

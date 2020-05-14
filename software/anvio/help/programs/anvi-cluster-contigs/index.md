@@ -8,13 +8,15 @@ image:
   display: true
 ---
 
+A program to cluster items in a merged anvi&#39;o profile using automatic binning algorithms.
+
 
 {% include _toc.html %}
+<div id="svg" class="subnetwork"></div>
+{% capture network_path %}{{ "network.json" }}{% endcapture %}
+{% capture network_height %}{{ 300 }}{% endcapture %}
+{% include _project-anvio-graph.html %}
 
-
-<img src="../../images/icons/PROGRAM.png" alt="PROGRAM" style="width:100px; border:none" />
-
-A program to cluster items in a merged anvi&#39;o profile using automatic binning algorithms.
 
 [Back to help main page](../../)
 

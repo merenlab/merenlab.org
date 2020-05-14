@@ -8,13 +8,15 @@ image:
   display: true
 ---
 
+Split an anvi&#39;o pan or profile database into smaller, self-contained pieces. This is usually great when you want to share a subset of an anvi&#39;o project. You give this guy your databases, and a collection id, and it gives you back directories of individual projects for each bin that can be treated as self-contained smaller anvi&#39;o projects. We know you don&#39;t read this far into these help menus, but please remember: you will either need to provide a profile &amp; contigs database pair, or a pan &amp; genomes storage pair. The rest will be taken care of. Magic.
+
 
 {% include _toc.html %}
+<div id="svg" class="subnetwork"></div>
+{% capture network_path %}{{ "network.json" }}{% endcapture %}
+{% capture network_height %}{{ 300 }}{% endcapture %}
+{% include _project-anvio-graph.html %}
 
-
-<img src="../../images/icons/PROGRAM.png" alt="PROGRAM" style="width:100px; border:none" />
-
-Split an anvi&#39;o pan or profile database into smaller, self-contained pieces. This is usually great when you want to share a subset of an anvi&#39;o project. You give this guy your databases, and a collection id, and it gives you back directories of individual projects for each bin that can be treated as self-contained smaller anvi&#39;o projects. We know you don&#39;t read this far into these help menus, but please remember: you will either need to provide a profile &amp; contigs database pair, or a pan &amp; genomes storage pair. The rest will be taken care of. Magic.
 
 [Back to help main page](../../)
 

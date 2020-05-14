@@ -8,13 +8,15 @@ image:
   display: true
 ---
 
+Search functions in an anvi&#39;o contigs database or genomes storage. Basically, this program searches for one or more search terms you define in functional annotations of genes in an anvi&#39;o contigs database, and generates multiple reports. The simpler report (which also is the default one) simply tells you which contigs contain genes with functions matching to serach terms you used. This file is only useful to quickly highlight matching contigs in the interface by providing it to the anvi-interactive with the `--additional-layer` parameter. You can also request a much more comprehensive report, which gives you anything you might need to know, including the matching gene caller id, functional annotation source, and full function name for each hit and serach term.
+
 
 {% include _toc.html %}
+<div id="svg" class="subnetwork"></div>
+{% capture network_path %}{{ "network.json" }}{% endcapture %}
+{% capture network_height %}{{ 300 }}{% endcapture %}
+{% include _project-anvio-graph.html %}
 
-
-<img src="../../images/icons/PROGRAM.png" alt="PROGRAM" style="width:100px; border:none" />
-
-Search functions in an anvi&#39;o contigs database or genomes storage. Basically, this program searches for one or more search terms you define in functional annotations of genes in an anvi&#39;o contigs database, and generates multiple reports. The simpler report (which also is the default one) simply tells you which contigs contain genes with functions matching to serach terms you used. This file is only useful to quickly highlight matching contigs in the interface by providing it to the anvi-interactive with the `--additional-layer` parameter. You can also request a much more comprehensive report, which gives you anything you might need to know, including the matching gene caller id, functional annotation source, and full function name for each hit and serach term.
 
 [Back to help main page](../../)
 

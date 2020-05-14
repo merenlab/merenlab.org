@@ -8,13 +8,15 @@ image:
   display: true
 ---
 
+Reconstructs metabolic pathways and estimates pathway completeness for a given set of contigs.
+
 
 {% include _toc.html %}
+<div id="svg" class="subnetwork"></div>
+{% capture network_path %}{{ "network.json" }}{% endcapture %}
+{% capture network_height %}{{ 300 }}{% endcapture %}
+{% include _project-anvio-graph.html %}
 
-
-<img src="../../images/icons/PROGRAM.png" alt="PROGRAM" style="width:100px; border:none" />
-
-Reconstructs metabolic pathways and estimates pathway completeness for a given set of contigs.
 
 [Back to help main page](../../)
 
