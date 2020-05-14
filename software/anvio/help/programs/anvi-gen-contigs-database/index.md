@@ -60,6 +60,9 @@ anvi&#45;gen&#45;contigs&#45;database &#45;f <span class="artifact&#45;n">[conti
 </div>
 
 
+{:.notice}
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-gen-contigs-database.md) to update this information.
+
 
 ## Additional Resources
 
