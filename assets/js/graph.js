@@ -2,15 +2,8 @@ var network_path = document.getElementById("network").getAttribute("path");
 var __height = document.getElementById("network").getAttribute("height");
 
 if (__height){
-    // this is a subnetwork
-
-    var header_image_height = $("#header-image-wrap").height();
-    var innerHeight = header_image_height - 45;
-    var innerWidth = $("#svg").width();
-
-    $("#svg").height(header_image_height - 45);
-
-    console.log("you should always see this line before width and height output later.");
+    var innerWidth = $("#articlecontent").width();
+    var innerHeight = parseInt(__height);
 } else {
     var innerWidth = window.innerWidth;
     var innerHeight = window.innerHeight - 90;
