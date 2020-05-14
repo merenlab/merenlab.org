@@ -11,7 +11,7 @@ image:
 A complete list of current anvi'o programs and artifacts.
 
 {:.notice}
-The help contents were last updated on **12 May 20 18:31:39** for anvi'o version **6.2-master (esther)**.
+The help contents were last updated on **13 May 20 19:23:06** for anvi'o version **6.2-master (esther)**.
 
 
 {% include _project-anvio-version.html %}
