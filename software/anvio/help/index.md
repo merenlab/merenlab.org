@@ -17,7 +17,7 @@ A complete list of current anvi'o programs and artifacts.
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **14 May 20 20:00:09** for anvi'o version **6.2-master (esther)**.
+The help contents were last updated on **14 May 20 21:11:51** for anvi'o version **6.2-master (esther)**.
 
 
 {% include _toc.html %}
@@ -146,7 +146,7 @@ Listed below a total of 69 programs.
 <span>**Requires**: <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[collection](artifacts/collection)</span> <span class="artifact-r">[bin](artifacts/bin)</span>.</span>
 
 
-* **[anvi-gen-genomes-storage](programs/anvi-gen-genomes-storage)**: Create a genome storage from internal or external genomes for a pan genome analysis..
+* **[anvi-gen-genomes-storage](programs/anvi-gen-genomes-storage)**: Create a genome storage from internal and/or external genomes for a pangenome analysis..
 <span>**Provides**: <span class="artifact-p">[genomes-storage-db](artifacts/genomes-storage-db)</span> / 
 <span>**Requires**: <span class="artifact-r">[external-genomes](artifacts/external-genomes)</span> <span class="artifact-r">[internal-genomes](artifacts/internal-genomes)</span>.</span>
 
@@ -271,7 +271,7 @@ Listed below a total of 69 programs.
 <span>**Requires**: <span class="artifact-r">[linkmers-txt](artifacts/linkmers-txt)</span>.</span>
 
 
-* **[anvi-pan-genome](programs/anvi-pan-genome)**: A DIAMOND and MCL-based anvi&#39;o workflow for pangenomics. You provide genomes from anywhere (whether they are external genomes, or anvi&#39;o genome bins in collections), and it gives you back a pangenome analysis..
+* **[anvi-pan-genome](programs/anvi-pan-genome)**: An anvi&#39;o program to compute a pangenome from an anvi&#39;o genome storage..
 <span>**Provides**: <span class="artifact-p">[pan-db](artifacts/pan-db)</span> <span class="artifact-p">[misc-data-item-orders](artifacts/misc-data-item-orders)</span> / 
 <span>**Requires**: <span class="artifact-r">[genomes-storage-db](artifacts/genomes-storage-db)</span>.</span>
 
