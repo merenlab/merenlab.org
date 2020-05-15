@@ -41,8 +41,10 @@ External genomes file format enables anvi'o to work with one or more external ge
 |Name_03|/path/to/contigs-03.db|
 |(...)|(...)|
 
+{:.warning}
 Please make sure names in the `name` column does not include any special characters (underscore is fine). It is also a good idea to keep these names short and descriptive as they will appear in various figures in downstream analyses.
 
+Also see, **<span class="artifact-n">[internal-genomes](/software/anvio/help/artifacts/internal-genomes)</span>**.
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/external-genomes.md) to update this information.

@@ -26,7 +26,7 @@ Most likely provided by the user.
 
 ## Required or used by
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-run-hmms](../../programs/anvi-run-hmms)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-get-sequences-for-hmm-hits](../../programs/anvi-get-sequences-for-hmm-hits)</span> <span class="artifact-r">[anvi-run-hmms](../../programs/anvi-run-hmms)</span></p>
 
 ## Description
 

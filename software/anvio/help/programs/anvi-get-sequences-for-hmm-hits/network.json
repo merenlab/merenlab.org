@@ -57,12 +57,12 @@
     },
     {
       "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "hmm-profile",
-      "name": "hmm-profile",
-      "internal": true,
-      "type": "CONCEPT"
+      "score": 1,
+      "color": "#AA0000",
+      "id": "hmm-source",
+      "name": "hmm-source",
+      "internal": false,
+      "type": "HMM"
     },
     {
       "size": 7,
