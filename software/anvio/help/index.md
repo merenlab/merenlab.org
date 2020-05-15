@@ -17,7 +17,7 @@ A complete list of current anvi'o programs and artifacts.
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **13 May 20 23:59:27** for anvi'o version **6.2-master (esther)**.
+The help contents were last updated on **14 May 20 20:00:09** for anvi'o version **6.2-master (esther)**.
 
 
 {% include _toc.html %}
@@ -186,9 +186,9 @@ Listed below a total of 69 programs.
 <span>**Requires**: <span class="artifact-r">[pan-db](artifacts/pan-db)</span> <span class="artifact-r">[genomes-storage-db](artifacts/genomes-storage-db)</span>.</span>
 
 
-* **[anvi-get-sequences-for-hmm-hits](programs/anvi-get-sequences-for-hmm-hits)**: Get sequences for HMM hits from many inputs to study phylogenomics..
+* **[anvi-get-sequences-for-hmm-hits](programs/anvi-get-sequences-for-hmm-hits)**: Get sequences for HMM hits from many inputs..
 <span>**Provides**: <span class="artifact-p">[genes-fasta](artifacts/genes-fasta)</span> <span class="artifact-p">[concatenated-gene-alignment-fasta](artifacts/concatenated-gene-alignment-fasta)</span> / 
-<span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[external-genomes](artifacts/external-genomes)</span> <span class="artifact-r">[internal-genomes](artifacts/internal-genomes)</span> <span class="artifact-r">[hmm-profile](artifacts/hmm-profile)</span>.</span>
+<span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[external-genomes](artifacts/external-genomes)</span> <span class="artifact-r">[internal-genomes](artifacts/internal-genomes)</span> <span class="artifact-r">[hmm-source](artifacts/hmm-source)</span>.</span>
 
 
 * **[anvi-get-short-reads-from-bam](programs/anvi-get-short-reads-from-bam)**: Get short reads back from a BAM file with options for compression, splitting of forward and reverse reads, etc..
