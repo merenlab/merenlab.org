@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Create a genome storage from internal or external genomes for a pan genome analysis.
+Create a genome storage from internal and/or external genomes for a pangenome analysis.
 
 
 {% include _toc.html %}
@@ -31,12 +31,39 @@ Create a genome storage from internal or external genomes for a pan genome analy
 ## Usage
 
 
+### From external genomes
+
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;genomes&#45;storage &#45;e <span class="artifact&#45;n">[external&#45;genomes](/software/anvio/help/artifacts/external&#45;genomes)</span> \
+                         &#45;o <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/artifacts/genomes&#45;storage&#45;db)</span>
+</div>
+
+### From internal genomes
+
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;genomes&#45;storage &#45;i <span class="artifact&#45;n">[internal&#45;genomes](/software/anvio/help/artifacts/internal&#45;genomes)</span> \
+                         &#45;o <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/artifacts/genomes&#45;storage&#45;db)</span>
+</div>
+
+### From internal and external genomes
+
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;genomes&#45;storage &#45;i <span class="artifact&#45;n">[internal&#45;genomes](/software/anvio/help/artifacts/internal&#45;genomes)</span> \
+                         &#45;e <span class="artifact&#45;n">[external&#45;genomes](/software/anvio/help/artifacts/external&#45;genomes)</span> \
+                         &#45;o <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/artifacts/genomes&#45;storage&#45;db)</span>
+</div>
+
+See also <span class="artifact-n">[anvi-pan-genome](/software/anvio/help/programs/anvi-pan-genome)</span>, which computes a pangenome from a <span class="artifact-n">[genomes-storage-db](/software/anvio/help/artifacts/genomes-storage-db)</span>.
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-gen-genomes-storage.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-gen-genomes-storage.md) to update this information.
 
 
 ## Additional Resources
 
+
+* [A tutorial on pangenomics](http://merenlab.org/2016/11/08/pangenomics-v2/)
 
 
 {:.notice}

@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-A DIAMOND and MCL-based anvi&#39;o workflow for pangenomics. You provide genomes from anywhere (whether they are external genomes, or anvi&#39;o genome bins in collections), and it gives you back a pangenome analysis.
+An anvi&#39;o program to compute a pangenome from an anvi&#39;o genome storage.
 
 
 {% include _toc.html %}
