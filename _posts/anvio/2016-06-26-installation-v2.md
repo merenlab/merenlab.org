@@ -160,7 +160,7 @@ conda install -y prodigal \
                  mcl \
                  muscle \
                  hmmer \
-                 diamond ==0.9.14 \
+                 diamond==0.9.14 \
                  blast \
                  megahit \
                  bowtie2 \
