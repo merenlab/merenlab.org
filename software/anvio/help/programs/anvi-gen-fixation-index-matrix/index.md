@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-gen-fixation-index-matrix [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Generate a pairwise matrix of a fixation indices between samples
+Generate a pairwise matrix of a fixation indices between samples.
+
+See **[program help menu](../../../vignette#anvi-gen-fixation-index-matrix)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -18,15 +20,13 @@ Generate a pairwise matrix of a fixation indices between samples
 {% include _project-anvio-graph.html %}
 
 
-[Back to help main page](../../)
-
 ## Provides
 
 <p style="text-align: left" markdown="1"><span class="artifact-p">[fixation-index-matrix](../../artifacts/fixation-index-matrix)</span></p>
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[profile-db](../../artifacts/profile-db)</span> <span class="artifact-r">[structure-db](../../artifacts/structure-db)</span> <span class="artifact-r">[bin](../../artifacts/bin)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[profile-db](../../artifacts/profile-db)</span> <span class="artifact-r">[structure-db](../../artifacts/structure-db)</span> <span class="artifact-r">[bin](../../artifacts/bin)</span> <span class="artifact-r">[variability-profile-txt](../../artifacts/variability-profile-txt)</span></p>
 
 ## Usage
 

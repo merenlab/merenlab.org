@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-run-scg-taxonomy [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-The purpose of this program is to affiliate single-copy core genes in an anvi&#39;o contigs database with taxonomic names. A properly setup local SCG taxonomy database is required for this program to perform properly. After its successful run, `anvi-estimate-scg-taxonomy` will be useful to estimate taxonomy at genome-, collection-, or metagenome-level).
+The purpose of this program is to affiliate single-copy core genes in an anvi&#39;o contigs database with taxonomic names. A properly setup local SCG taxonomy database is required for this program to perform properly. After its successful run, `anvi-estimate-scg-taxonomy` will be useful to estimate taxonomy at genome-, collection-, or metagenome-level)..
+
+See **[program help menu](../../../vignette#anvi-run-scg-taxonomy)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ The purpose of this program is to affiliate single-copy core genes in an anvi&#3
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

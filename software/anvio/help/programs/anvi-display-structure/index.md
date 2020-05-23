@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-display-structure [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Interactively visualize sequence variants on protein structures
+Interactively visualize sequence variants on protein structures.
+
+See **[program help menu](../../../vignette#anvi-display-structure)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -18,15 +20,13 @@ Interactively visualize sequence variants on protein structures
 {% include _project-anvio-graph.html %}
 
 
-[Back to help main page](../../)
-
 ## Provides
 
 <p style="text-align: left" markdown="1"><span class="artifact-p">[interactive](../../artifacts/interactive)</span> <span class="artifact-p">[summary](../../artifacts/summary)</span></p>
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[structure-db](../../artifacts/structure-db)</span> <span class="artifact-r">[variability-profile](../../artifacts/variability-profile)</span> <span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[profile-db](../../artifacts/profile-db)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[structure-db](../../artifacts/structure-db)</span> <span class="artifact-r">[variability-profile-txt](../../artifacts/variability-profile-txt)</span> <span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[profile-db](../../artifacts/profile-db)</span></p>
 
 ## Usage
 

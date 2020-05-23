@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-export-state [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Export an anvi&#39;o state into a profile database.
+Export an anvi&#39;o state into a profile database..
+
+See **[program help menu](../../../vignette#anvi-export-state)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Export an anvi&#39;o state into a profile database.
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

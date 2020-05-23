@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-export-locus [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-This program helps you cut a &#39;locus&#39; from a larger genetic context (e.g., contigs, genomes). By default, anvi&#39;o will locate a user-defined anchor gene, extend its selection upstream and downstream based on the --num-genes argument, then extract the locus to create a new contigs database. The anchor gene must be provided as --search-term, --gene-caller-ids, or --hmm-sources. If --flank-mode is designated, you MUST provide TWO flanking genes that define the locus region (Please see --flank-mode help for more information). If everything goes as plan, anvi&#39;o will give you individual locus contigs databases for every matching anchor gene found in the original contigs database provided. Enjoy your mini contigs databases!
+This program helps you cut a &#39;locus&#39; from a larger genetic context (e.g., contigs, genomes). By default, anvi&#39;o will locate a user-defined anchor gene, extend its selection upstream and downstream based on the --num-genes argument, then extract the locus to create a new contigs database. The anchor gene must be provided as --search-term, --gene-caller-ids, or --hmm-sources. If --flank-mode is designated, you MUST provide TWO flanking genes that define the locus region (Please see --flank-mode help for more information). If everything goes as plan, anvi&#39;o will give you individual locus contigs databases for every matching anchor gene found in the original contigs database provided. Enjoy your mini contigs databases!.
+
+See **[program help menu](../../../vignette#anvi-export-locus)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ This program helps you cut a &#39;locus&#39; from a larger genetic context (e.g.
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

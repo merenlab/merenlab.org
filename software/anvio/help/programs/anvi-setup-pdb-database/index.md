@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-setup-pdb-database [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Setup or update an offline database of representative PDB structures clustered at 95%.
+Setup or update an offline database of representative PDB structures clustered at 95%..
+
+See **[program help menu](../../../vignette#anvi-setup-pdb-database)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Setup or update an offline database of representative PDB structures clustered a
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

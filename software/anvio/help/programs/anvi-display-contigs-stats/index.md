@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-display-contigs-stats [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Start the anvi&#39;o interactive interactive for viewing or comparing contigs statistics
+Start the anvi&#39;o interactive interactive for viewing or comparing contigs statistics.
+
+See **[program help menu](../../../vignette#anvi-display-contigs-stats)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Start the anvi&#39;o interactive interactive for viewing or comparing contigs st
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-run-pfams [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Run Pfam on Contigs Database.
+Run Pfam on Contigs Database..
+
+See **[program help menu](../../../vignette#anvi-run-pfams)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Run Pfam on Contigs Database.
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

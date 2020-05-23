@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-scan-trnas [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Identify and store tRNA genes in a contigs database.
+Identify and store tRNA genes in a contigs database..
+
+See **[program help menu](../../../vignette#anvi-scan-trnas)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Identify and store tRNA genes in a contigs database.
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

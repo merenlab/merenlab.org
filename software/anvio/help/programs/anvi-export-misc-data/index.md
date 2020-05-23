@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-export-misc-data [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Export additional data or order tables in pan or profile databases for items or layers.
+Export additional data or order tables in pan or profile databases for items or layers..
+
+See **[program help menu](../../../vignette#anvi-export-misc-data)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Export additional data or order tables in pan or profile databases for items or 
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-script-reformat-fasta [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Reformat FASTA file (remove contigs based on length, or based on a given list of deflines, and/or generate an output with simpler names)
+Reformat FASTA file (remove contigs based on length, or based on a given list of deflines, and/or generate an output with simpler names).
+
+See **[program help menu](../../../vignette#anvi-script-reformat-fasta)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Reformat FASTA file (remove contigs based on length, or based on a given list of
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

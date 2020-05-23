@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-export-structures [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Export .pdb structure files from a structure database.
+Export .pdb structure files from a structure database..
+
+See **[program help menu](../../../vignette#anvi-export-structures)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Export .pdb structure files from a structure database.
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

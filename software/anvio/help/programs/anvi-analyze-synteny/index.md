@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-analyze-synteny [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-This program helps you extract synteny patterns from a group of similar loci or genomes. This is accomplished by deconstructing contigs into Ngrams (group of neighboring genes of which N is the number of genes) using a sliding window method. Once completed, anvi&#39;o will export a table with Ngrams for you to work with. If more than one annotation source is provided, please designate which annotation_source anvio should use to make the Ngrams with using the --ngram-source parameter (e.g. gene_clusters, COG_FUNCTION). By default anvi&#39;o will ignore Ngrams that contain genes without annotations. If you would like to override this, you can use the --analyze-unknown-functions flag.
+This program helps you extract synteny patterns from a group of similar loci or genomes. This is accomplished by deconstructing contigs into Ngrams (group of neighboring genes of which N is the number of genes) using a sliding window method. Once completed, anvi&#39;o will export a table with Ngrams for you to work with. If more than one annotation source is provided, please designate which annotation_source anvio should use to make the Ngrams with using the --ngram-source parameter (e.g. gene_clusters, COG_FUNCTION). By default anvi&#39;o will ignore Ngrams that contain genes without annotations. If you would like to override this, you can use the --analyze-unknown-functions flag..
+
+See **[program help menu](../../../vignette#anvi-analyze-synteny)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ This program helps you extract synteny patterns from a group of similar loci or 
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

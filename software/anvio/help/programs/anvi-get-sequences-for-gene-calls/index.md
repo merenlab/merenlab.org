@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-get-sequences-for-gene-calls [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-A script to get back sequences for gene calls
+A script to get back sequences for gene calls.
+
+See **[program help menu](../../../vignette#anvi-get-sequences-for-gene-calls)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ A script to get back sequences for gene calls
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

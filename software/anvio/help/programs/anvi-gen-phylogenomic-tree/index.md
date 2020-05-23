@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-gen-phylogenomic-tree [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Generate phylogenomic tree from aligment file.
+Generate phylogenomic tree from aligment file..
+
+See **[program help menu](../../../vignette#anvi-gen-phylogenomic-tree)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Generate phylogenomic tree from aligment file.
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-estimate-kegg-metabolism [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Reconstructs metabolic pathways and estimates pathway completeness for a given set of contigs.
+Reconstructs metabolic pathways and estimates pathway completeness for a given set of contigs..
+
+See **[program help menu](../../../vignette#anvi-estimate-kegg-metabolism)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Reconstructs metabolic pathways and estimates pathway completeness for a given s
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-display-pan [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Start an anvi&#39;o server to display a pan-genome
+Start an anvi&#39;o server to display a pan-genome.
+
+See **[program help menu](../../../vignette#anvi-display-pan)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Start an anvi&#39;o server to display a pan-genome
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

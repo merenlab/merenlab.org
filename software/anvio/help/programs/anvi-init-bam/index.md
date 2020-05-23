@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-init-bam [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Sort/Index BAM files
+Sort/Index BAM files.
+
+See **[program help menu](../../../vignette#anvi-init-bam)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Sort/Index BAM files
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

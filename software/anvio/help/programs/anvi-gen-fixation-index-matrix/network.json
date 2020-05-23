@@ -47,7 +47,16 @@
       "type": "BIN"
     },
     {
-      "size": 5,
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "variability-profile-txt",
+      "name": "variability-profile-txt",
+      "provided_by_anvio": true,
+      "type": "TXT"
+    },
+    {
+      "size": 6,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-gen-fixation-index-matrix",
@@ -57,24 +66,28 @@
   ],
   "links": [
     {
-      "source": 5,
+      "source": 6,
       "target": 0
     },
     {
-      "target": 5,
+      "target": 6,
       "source": 1
     },
     {
-      "target": 5,
+      "target": 6,
       "source": 2
     },
     {
-      "target": 5,
+      "target": 6,
       "source": 3
     },
     {
-      "target": 5,
+      "target": 6,
       "source": 4
+    },
+    {
+      "target": 6,
+      "source": 5
     }
   ],
   "directed": false,

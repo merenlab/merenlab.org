@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-meta-pan-genome [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Convert a pangenome into a metapangenome.
+Convert a pangenome into a metapangenome..
+
+See **[program help menu](../../../vignette#anvi-meta-pan-genome)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Convert a pangenome into a metapangenome.
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

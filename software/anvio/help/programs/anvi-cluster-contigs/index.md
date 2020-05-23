@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-cluster-contigs [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-A program to cluster items in a merged anvi&#39;o profile using automatic binning algorithms.
+A program to cluster items in a merged anvi&#39;o profile using automatic binning algorithms..
+
+See **[program help menu](../../../vignette#anvi-cluster-contigs)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ A program to cluster items in a merged anvi&#39;o profile using automatic binnin
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

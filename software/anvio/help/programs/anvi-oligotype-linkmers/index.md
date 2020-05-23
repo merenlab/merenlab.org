@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-oligotype-linkmers [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Takes an anvi&#39;o linkmers report, generates an oligotyping output
+Takes an anvi&#39;o linkmers report, generates an oligotyping output.
+
+See **[program help menu](../../../vignette#anvi-oligotype-linkmers)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Takes an anvi&#39;o linkmers report, generates an oligotyping output
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 
