@@ -29,7 +29,7 @@
       "type": "TXT"
     },
     {
-      "size": 8,
+      "size": 9,
       "score": 0.5,
       "color": "#00AA00",
       "id": "collection",
@@ -198,6 +198,15 @@
       "name": "GENE FUNCTIONS",
       "internal": false,
       "type": "TXT"
+    },
+    {
+      "size": 4,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "functions",
+      "name": "GENE FUNCTIONS",
+      "internal": true,
+      "type": "CONCEPT"
     },
     {
       "size": 1,
@@ -405,15 +414,6 @@
       "name": "BAM FILE",
       "internal": false,
       "type": "BAM"
-    },
-    {
-      "size": 3,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "functions",
-      "name": "GENE FUNCTIONS",
-      "internal": true,
-      "type": "CONCEPT"
     },
     {
       "size": 4,
@@ -669,7 +669,7 @@
       "type": "PROGRAM"
     },
     {
-      "size": 3,
+      "size": 5,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-export-collection",
@@ -685,7 +685,7 @@
       "type": "PROGRAM"
     },
     {
-      "size": 4,
+      "size": 6,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-export-functions",
@@ -1291,6 +1291,10 @@
       "source": 3
     },
     {
+      "target": 75,
+      "source": 3
+    },
+    {
       "target": 87,
       "source": 3
     },
@@ -1699,18 +1703,26 @@
       "target": 21
     },
     {
-      "source": 78,
+      "target": 77,
+      "source": 22
+    },
+    {
+      "source": 100,
       "target": 22
     },
     {
-      "source": 79,
+      "source": 118,
+      "target": 22
+    },
+    {
+      "source": 119,
+      "target": 22
+    },
+    {
+      "source": 78,
       "target": 23
     },
     {
-      "target": 101,
-      "source": 23
-    },
-    {
       "source": 79,
       "target": 24
     },
@@ -1719,47 +1731,31 @@
       "source": 24
     },
     {
+      "source": 79,
+      "target": 25
+    },
+    {
+      "target": 101,
+      "source": 25
+    },
+    {
       "target": 102,
-      "source": 24
+      "source": 25
     },
     {
       "target": 108,
-      "source": 24
+      "source": 25
     },
     {
       "source": 109,
-      "target": 24
+      "target": 25
     },
     {
       "source": 79,
-      "target": 25
+      "target": 26
     },
     {
       "source": 89,
-      "target": 25
-    },
-    {
-      "target": 101,
-      "source": 25
-    },
-    {
-      "target": 102,
-      "source": 25
-    },
-    {
-      "target": 108,
-      "source": 25
-    },
-    {
-      "target": 79,
-      "source": 26
-    },
-    {
-      "target": 81,
-      "source": 26
-    },
-    {
-      "source": 87,
       "target": 26
     },
     {
@@ -1775,16 +1771,32 @@
       "source": 26
     },
     {
-      "source": 80,
+      "target": 79,
+      "source": 27
+    },
+    {
+      "target": 81,
+      "source": 27
+    },
+    {
+      "source": 87,
       "target": 27
     },
     {
-      "source": 81,
-      "target": 28
+      "target": 101,
+      "source": 27
     },
     {
       "target": 102,
-      "source": 28
+      "source": 27
+    },
+    {
+      "target": 108,
+      "source": 27
+    },
+    {
+      "source": 80,
+      "target": 28
     },
     {
       "source": 81,
@@ -1803,47 +1815,51 @@
       "source": 30
     },
     {
-      "source": 82,
+      "source": 81,
       "target": 31
     },
     {
-      "source": 83,
+      "target": 102,
+      "source": 31
+    },
+    {
+      "source": 82,
       "target": 32
     },
     {
-      "target": 103,
-      "source": 32
-    },
-    {
-      "source": 84,
+      "source": 83,
       "target": 33
     },
     {
-      "source": 86,
+      "target": 103,
+      "source": 33
+    },
+    {
+      "source": 84,
       "target": 34
     },
     {
+      "source": 86,
+      "target": 35
+    },
+    {
       "target": 89,
-      "source": 35
-    },
-    {
-      "source": 95,
-      "target": 35
-    },
-    {
-      "source": 96,
-      "target": 35
-    },
-    {
-      "target": 90,
       "source": 36
     },
     {
-      "source": 124,
+      "source": 95,
       "target": 36
     },
     {
-      "source": 92,
+      "source": 96,
+      "target": 36
+    },
+    {
+      "target": 90,
+      "source": 37
+    },
+    {
+      "source": 124,
       "target": 37
     },
     {
@@ -1851,72 +1867,64 @@
       "target": 38
     },
     {
-      "source": 93,
+      "source": 92,
       "target": 39
     },
     {
+      "source": 93,
+      "target": 40
+    },
+    {
       "target": 93,
-      "source": 40
+      "source": 41
     },
     {
       "source": 94,
-      "target": 41
-    },
-    {
-      "source": 95,
-      "target": 41
-    },
-    {
-      "source": 96,
-      "target": 41
-    },
-    {
-      "target": 96,
-      "source": 42
-    },
-    {
-      "source": 117,
       "target": 42
     },
     {
+      "source": 95,
+      "target": 42
+    },
+    {
+      "source": 96,
+      "target": 42
+    },
+    {
+      "target": 96,
+      "source": 43
+    },
+    {
+      "source": 117,
+      "target": 43
+    },
+    {
       "source": 97,
-      "target": 43
-    },
-    {
-      "source": 98,
-      "target": 43
-    },
-    {
-      "target": 97,
-      "source": 44
-    },
-    {
-      "target": 98,
-      "source": 44
-    },
-    {
-      "source": 106,
       "target": 44
     },
     {
+      "source": 98,
+      "target": 44
+    },
+    {
+      "target": 97,
+      "source": 45
+    },
+    {
+      "target": 98,
+      "source": 45
+    },
+    {
+      "source": 106,
+      "target": 45
+    },
+    {
       "target": 114,
-      "source": 44
+      "source": 45
     },
     {
       "target": 116,
-      "source": 44
-    },
-    {
-      "source": 100,
-      "target": 45
-    },
-    {
-      "source": 118,
-      "target": 45
-    },
-    {
-      "source": 119,
-      "target": 45
+      "source": 45
     },
     {
       "source": 101,
