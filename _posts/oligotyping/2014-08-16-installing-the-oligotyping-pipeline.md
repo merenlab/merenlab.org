@@ -37,146 +37,172 @@ When the installation is done, you can refer to [this post]({% post_url oligotyp
 If you have questions, please send them to the [discussion forum](https://groups.google.com/forum/#!forum/oligotyping).
 
 
-## Installing the latest stable version using pip (suggested method)
+## Installing the latest stable version using conda + pip (suggested method)
 
-Install [macports](https://www.macports.org/) if you haven’t. You can download it from [here](https://www.macports.org/install.php) (this is the only installer you will download). Macports provides an easy access to thousands of open-source software. Once you have it installed, open a terminal and type this:
+For this to work, you need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be installed on your system. If you are not sure whether it is installed or not, open a terminal (hopefully an [iTerm](https://www.iterm2.com/), if you are using Mac) and type `conda`. You should see an output like this instead of a 'command not found' error (your version might be different):
 
-    sudo port selfupdate
+```bash
+$ conda --version
+conda 4.8.3
+```
 
-Next, type this command:
+If you don't have conda installed, then you should first install it through their [installation page](https://docs.conda.io/en/latest/miniconda.html). Once you have confirmed you have conda installed, run this command to make sure you are up-to-date:
 
-    sudo port install python27
+``` bash
+conda update conda
+```
 
-This will install Python 2.7 on your system. I know that you already have Python installed, but you don’t want to use that one.
+{:.warning}
+Please make sure you create a new conda environment oligotyping (you can make sure you are not in a conda environment by opening a new terminal and running `conda deactivate`. You can see which environments exist on your computer by running `conda env list`.
 
-Next, type this command:
+Then, create a new environment for oligotyping:
 
-    sudo port select --set python python27
+``` bash
+conda create -y --name oligotyping python=3.6
+```
 
-This will make sure you use the correct Python version from the correct place. When you type the following command, you should see a response that starts with `/opt/local/...`:
+Once it is ready, activate your new environment:
 
-    which python
+``` bash
+conda activate oligotyping
+```
 
-Next, type these commands:
+And finally install the following packages first:
 
-    sudo port install py27-pip py27-scipy py27-matplotlib py27-biopython py27-django git
-    sudo port select --set pip pip27
+``` bash
+conda install -y git r-base blast pip
+```
 
-The first one is to install some dependencies. The second one is to make sure pip27 is the default, and you can simply access to it by typing “pip” instead of “pip27″.
+Once everything is done, install the following R libraries:
 
-If you don’t have R installed, type this (if you have an older version of R installed, you may have issues with the next step, in that case please consider doing what this step suggests):
+```
+conda install -y r-ggplot2 r-vegan r-gplots r-gtools r-reshape r-optparse r-pheatmap r-rcolorbrewer r-compute.es
+```
 
-    sudo port install R
+If you came this far, it means you have installed everything necessary.
 
-In the terminal, type R, and enter these lines (if everything goes all right with the first line, you are going to need to press ‘n’ after the second line):
+You can either execute these last two steps, OR directly jump to the next section to follow the active codebase (which would be my suggestion).
 
-    install.packages(c('vegan', 'ggplot2', 'gplots', 'gtools', 'reshape', 'optparse', 'pheatmap', 'RColorBrewer', 'compute.es'))
-    quit()
-
-Install NCBI+ executables (especially blastn (v 2.2.*), they are avilable from this address (the easiest way to install NCBI tools for MAC users is to download the .dmg file):
-
-[ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/](ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/)
-
-After the installation, you need to make sure when you open a terminal and type `blastn -help`, you get the help menu, instead of a command not found error.
-
-If you came this far, it means you have installed everything necessary. Finally, you can run this command to install the oligotyping pipeline:
-
-    sudo pip install oligotyping
+```
+pip install oligotyping
+```
 
 When you type this command you should get a help menu, instead of a command not found error:
 
     oligotype --help
 
-**Note for MAC users:** It seems running this command sometimes results in a `command not found` error, although all files are in place. In that case you may need to update your `$PATH` variable (so the shell knows where to look for Python programs). To do that, first make sure that you see the `oligotype` binary in this output:
 
-    ls /opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/oligotype
+## Using the oligotyping pipeline directly from the upstream without installation (Meren's way)
 
-If it is there, update your `PATH` variable permanently by running these commands:
+This is to make sure you are following the very latest state of the codebase.
 
-{% gist a9bc1bf856adb3525a95 %}
-
-
-## Installing the latest stable version from the source code (OK method)
-
-
-Pip installation makes things easier, but alternatively you can download the source package of the stable version and install it manually. For this, you still need to complete the first 7 steps in the previous recipe, and then instead of running 8th step, you can follow these steps.
-
-Download the source code from this address:
-
-[http://oligotyping.org/files/downloads/](http://oligotyping.org/files/downloads/)
-
-You should download the latest version available, but I will assume you downloaded `oligotyping-1.0.tar.gz` in this example.
-
-Go to the directory where you downloaded this file in terminal, and type these commands:
-
-    tar -zxvf oligotyping-1.0.tar.gz
-    cd oligotyping-1.0
-    sudo python setup.py install
-
-If everything went alright, when you type this command you should get a help menu, instead of a command not found error:
-
-    oligotype --help
-
-
-## Installing the latest snapshot from the GitHub repository (Hacker mode [ON])
-
-The repository contains the latest codebase. It may be unstable, but it may also have features that haven’t appeared in a stable version of the oligotyping pipeline. This is what you need to do to install oligotyping from the GitHub repository:
-
-From the terminal, type this:
-
-    git clone git://github.com/meren/oligotyping.git
-
-This will create a directory called ‘oligotyping’.
-
-Then type these commands to install the pipeline:
-
-    cd oligotyping
-    sudo python setup.py install
-
-
-## Using the oligtyping pipeline from directly the master repo without installation (Meren's way)
-
-This is for command line gurus. See the next section if you don't feel comfortable with this one. Keep in mind that you will need to change the directory names to adapt this recipe for your system:
+First, do this:
 
 ``` bash
-# setup a virtual environment with Python 2.7, and activate it
-mkdir -p ~/virtual-envs/
-virtualenv -p python2.7 ~/virtual-envs/oligotyping-master
-source ~/virtual-envs/oligotyping-master/bin/activate
-
-# get the source code, and install requirements
-mkdir -p ~/github/
-cd ~/github/
-git clone git@github.com:merenlab/oligotyping.git
-cd oligotyping
-pip install -p requirements.txt
-deactivate
-
-# setup init scripts for easy use
-echo 'export PYTHONPATH=$PYTHONPATH:~/github/oligotyping' >> ~/virtual-envs/oligotyping-master/bin/activate
-echo 'export PATH=$PATH:~/github/oligotyping/bin' >> ~/virtual-envs/oligotyping-master/bin/activate
-echo 'alias oligotyping-activate-master="source ~/virtual-envs/oligotyping-master/bin/activate"' >> ~/.bash_profile
-echo 'cd ~/github/oligotyping/ && git pull && cd -' >> ~/virtual-envs/oligotyping-master/bin/activate
-source ~/.bash_profile
-
-# setup matplotlib so it works from within the virtualenv
-mkdir -p ~/.matplotlib
-echo 'backend: Agg' >> ~/.matplotlib/matplotlibrc
+pip install virtualenv
 ```
 
-Now you can activate the oligotyping pipeline with the latest additions by typing this in your command line:
+Now it is time to get a copy of the oligotyping codebase. Here I will suggest `~/github/` as the base directory, but you can change if you want to something else (in which case you must remember to apply that change all the following commands, of course):
 
 ``` bash
+# setup the code directory and get the oligotyping codebase
+mkdir -p ~/github && cd ~/github/
+git clone https://github.com/merenlab/oligotyping.git
+```
+
+Here we will setup a directory to keep the Python virtual environment for OLIGOTYPING (virtual environment within a virtual environment, keep your totem nearby):
+
+``` bash
+mkdir -p ~/virtual-envs/
+
+rm -rf ~/virtual-envs/oligotyping
+
+virtualenv ~/virtual-envs/oligotyping --pip 20.0.2
+source ~/virtual-envs/oligotyping/bin/activate
+```
+
+When this is done successfully, you can run the following two lines to install oligotyping Python dependencies and deactivate the Python environment:
+
+```
+pip install -r ~/github/oligotyping/requirements.txt
+deactivate
+```
+
+Now we will setup your conda environment in such a way, every time you activate OLIGOTYPING within it, you will get the very latest updates from the `master` repository:
+
+``` bash
+# updating the activation script for the Python virtual environmnet
+# so (1) Python knows where to find OLIGOTYPING libraries, (2) BASH knows
+# where to find its programs, and (3) every the environment is activated
+# it downloads the latest code from the `master` repository
+echo -e "\n# >>> OLIGOTYPING STUFF >>>" >> ~/virtual-envs/oligotyping/bin/activate
+echo 'export PYTHONPATH=$PYTHONPATH:~/github/oligotyping/' >> ~/virtual-envs/oligotyping/bin/activate
+echo 'export PATH=$PATH:~/github/oligotyping/bin:~/github/oligotyping/sandbox' >> ~/virtual-envs/oligotyping/bin/activate
+echo 'cd ~/github/oligotyping && git pull && cd -' >> ~/virtual-envs/oligotyping/bin/activate
+echo "# <<< OLIGOTYPING STUFF <<<" >> ~/virtual-envs/oligotyping/bin/activate
+```
+
+Finally we define an alias, `oligotyping-activate-master`, so when you are in your conda environment for `oligotyping` you can run it as a command to initiate everything like a pro:
+
+```
+echo -e "\n# >>> OLIGOTYPING STUFF >>>" >> ~/.bash_profile
+echo 'alias oligotyping-activate-master="source ~/virtual-envs/oligotyping/bin/activate"' >> ~/.bash_profile
+echo "# <<< OLIGOTYPING STUFF <<<" >> ~/.bash_profile
+source ~/.bash_profile
+```
+
+At this stage if you run `oligotyping-activate-master`, you should be able to run this command without any errors:
+
+```
+$ oligotype -h
+
+$ which oligotype
+~/github/oligotyping/bin/oligotype
+```
+
+If that is the case, you're golden.
+
+
+So, this is the end of setting up the active OLIGOTYPING codebase on your computer so you can follow our daily additions to the code before they appear in stable releases, and use OLIGOTYPING exactly the way we use on our computers for our science on your own risk.
+
+**Please note that given this setup so far, every time you open a terminal you will have to first activate conda, and then the Python environment:**
+
+```
+conda activate oligotyping
 oligotyping-activate-master
 ```
 
-You will still need to setup other dependencies such as R, for which you can see the instructions in the 'suggested method' section.
+You can always use `~/.bashrc` or `~/.bash_profile` files to add aliases to make these steps easier for yourself, or remove them when you are tired.
 
----
+<details markdown="1"><summary>Show/hide Meren's BASH profile setup</summary>
+
+This is all personal taste and they may need to change from computer to computer, but I added the following lines at the end of my `~/.bash_profile` to easily switch between different versions of OLIGOTYPING on my Mac system:
+
+{:.notice}
+If you are using Anaconda rather than miniconda, or you are using Linux and not Mac, you will have to find corresponding paths for lines that start with `/Users` down below :)
+
+``` bash
+
+init_oligotyping_master () {
+    {
+        deactivate && conda deactivate
+    } &> /dev/null
+
+    export PATH="/Users/$USER/miniconda3/bin:$PATH"
+    . /Users/$USER/miniconda3/etc/profile.d/conda.sh
+    conda activate oligotyping
+    oligotyping-activate-master
+    export PS1="\[\e[0m\e[40m\e[1;30m\] :: oligotyping master :: \[\e[0m\e[0m \[\e[1;34m\]\]\w\[\e[m\] \[\e[1;31m\]>>>\[\e[m\] \[\e[0m\]"
+}
+
+alias om=init_oligotyping_master
+```
+
+With this setup, in a new terminal window I can type `om` to activate oligotyping.
 
 
-I thank Les Dethlefsen very much for sharing his experience with the installation and helping me improve the document.
+**But please note** that both aliases run `deactivate` and `conda deactivate` first, and they may not work for you especially if you have a fancy setup. I'd be very happy to improve these shortcuts.
+</details>
 
-Please don’t hesitate to ask questions about the installation at the [here](https://groups.google.com/forum/#!forum/oligotyping).
 
 
