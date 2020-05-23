@@ -20,7 +20,16 @@
       "type": "DB"
     },
     {
-      "size": 2,
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "collection",
+      "name": "collection",
+      "internal": true,
+      "type": "COLLECTION"
+    },
+    {
+      "size": 3,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-export-collection",
@@ -30,12 +39,16 @@
   ],
   "links": [
     {
-      "source": 2,
+      "source": 3,
       "target": 0
     },
     {
-      "target": 2,
+      "target": 3,
       "source": 1
+    },
+    {
+      "target": 3,
+      "source": 2
     }
   ],
   "directed": false,
