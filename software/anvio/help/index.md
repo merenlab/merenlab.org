@@ -17,7 +17,7 @@ A complete list of current anvi'o programs and artifacts.
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **15 May 20 13:23:17** for anvi'o version **6.2-master (esther)**.
+The help contents were last updated on **23 May 20 16:06:35** for anvi'o version **6.2-master (esther)**.
 
 
 {% include _toc.html %}
@@ -83,7 +83,7 @@ Listed below a total of 69 programs.
 
 * **[anvi-export-collection](programs/anvi-export-collection)**: Export a collection from an anvi&#39;o database.
 <span>**Provides**: <span class="artifact-p">[collection-txt](artifacts/collection-txt)</span> / 
-<span>**Requires**: <span class="artifact-r">[profile-db](artifacts/profile-db)</span>.</span>
+<span>**Requires**: <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[collection](artifacts/collection)</span>.</span>
 
 
 * **[anvi-export-contigs](programs/anvi-export-contigs)**: Export contigs (or splits) from an anvi&#39;o contigs database.
@@ -93,7 +93,7 @@ Listed below a total of 69 programs.
 
 * **[anvi-export-functions](programs/anvi-export-functions)**: Export gene function calls from an anvi&#39;o contigs database.
 <span>**Provides**: <span class="artifact-p">[functions-txt](artifacts/functions-txt)</span> / 
-<span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span>.</span>
+<span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[functions](artifacts/functions)</span>.</span>
 
 
 * **[anvi-export-gene-calls](programs/anvi-export-gene-calls)**: Export gene calls from an anvi&#39;o contigs database..
@@ -156,7 +156,7 @@ Listed below a total of 69 programs.
 <span>**Requires**: <span class="artifact-r">[concatenated-gene-alignment-fasta](artifacts/concatenated-gene-alignment-fasta)</span>.</span>
 
 
-* **[anvi-gen-structure-database](programs/anvi-gen-structure-database)**: Identifies genes in your contigs database that encode proteins that are homologous to proteins with solved structures. If sufficiently similar homologs are identified, they are used as structural templates to predict the 3D structure of proteins in your contigs database. See our tutorial: http://merenlab.org/2018/09/04/structural-biology-with-anvio/.
+* **[anvi-gen-structure-database](programs/anvi-gen-structure-database)**: Identifies genes in your contigs database that encode proteins that are homologous to proteins with solved structures. If sufficiently similar homologs are identified, they are used as structural templates to predict the 3D structure of proteins in your contigs database..
 <span>**Provides**: <span class="artifact-p">[structure-db](artifacts/structure-db)</span> / 
 <span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[pdb-db](artifacts/pdb-db)</span>.</span>
 

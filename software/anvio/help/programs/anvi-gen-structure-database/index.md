@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Identifies genes in your contigs database that encode proteins that are homologous to proteins with solved structures. If sufficiently similar homologs are identified, they are used as structural templates to predict the 3D structure of proteins in your contigs database. See our tutorial: http://merenlab.org/2018/09/04/structural-biology-with-anvio/
+Identifies genes in your contigs database that encode proteins that are homologous to proteins with solved structures. If sufficiently similar homologs are identified, they are used as structural templates to predict the 3D structure of proteins in your contigs database.
 
 
 {% include _toc.html %}

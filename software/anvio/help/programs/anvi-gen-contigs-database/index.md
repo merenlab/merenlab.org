@@ -61,20 +61,16 @@ anvi&#45;gen&#45;contigs&#45;database &#45;f <span class="artifact&#45;n">[conti
                           &#45;&#45;external&#45;gene&#45;calls <span class="artifact&#45;n">[external&#45;gene&#45;calls](/software/anvio/help/artifacts/external&#45;gene&#45;calls)</span>
 </div>
 
-### Create a contigs database with external gene calls (part 2)
+See <span class="artifact-n">[external-gene-calls](/software/anvio/help/artifacts/external-gene-calls)</span> for the description and formatting requirements of this file.
 
-Sometimes gene calls are not perfect. If they have internal stop codons, an error will be raised. You can persist through this error with `--ignore-internal-stop-codons` and when the amino acid sequences are determined for such genes, stop codons will be replaced with `X` in the sequence.
-
-Other complications: if any genes are indivisible by 3, an error will raise because this introduces ambiguity in which codon frame defines the gene's amino acid sequence. Any genes marked as `partial` in the gene calls file suffer from this as well. However, anvi'o has a way of recovering from this by using `--predict-frame`. To learn more about what this does, see `anvi-gen-contigs-database --help`, and additionally, view the pull request where this feature was [first introduced](https://github.com/merenlab/anvio/pull/1428).
+If user-provided or anvi'o-calculated amino acid sequences contain internal stop codons, anvi'o will yield an error. The following command will persist through this error:
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;contigs&#45;database &#45;f <span class="artifact&#45;n">[contigs&#45;fasta](/software/anvio/help/artifacts/contigs&#45;fasta)</span> \
                           &#45;o <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
                           &#45;&#45;external&#45;gene&#45;calls <span class="artifact&#45;n">[external&#45;gene&#45;calls](/software/anvio/help/artifacts/external&#45;gene&#45;calls)</span> \
-                          &#45;&#45;predict&#45;frame \
                           &#45;&#45;ignore&#45;internal&#45;stop&#45;codons
 </div>
-
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-gen-contigs-database.md) to update this information.

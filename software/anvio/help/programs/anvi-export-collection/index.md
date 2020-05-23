@@ -26,7 +26,7 @@ Export a collection from an anvi&#39;o database
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[profile-db](../../artifacts/profile-db)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[profile-db](../../artifacts/profile-db)</span> <span class="artifact-r">[collection](../../artifacts/collection)</span></p>
 
 ## Usage
 

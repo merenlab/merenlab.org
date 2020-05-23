@@ -26,7 +26,7 @@ Export gene function calls from an anvi&#39;o contigs database
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[functions](../../artifacts/functions)</span></p>
 
 ## Usage
 
