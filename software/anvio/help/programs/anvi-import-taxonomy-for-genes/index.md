@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-import-taxonomy-for-genes [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Import gene-level taxonomy into an anvi&#39;o contigs database.
+Import gene-level taxonomy into an anvi&#39;o contigs database..
+
+See **[program help menu](../../../vignette#anvi-import-taxonomy-for-genes)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Import gene-level taxonomy into an anvi&#39;o contigs database.
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

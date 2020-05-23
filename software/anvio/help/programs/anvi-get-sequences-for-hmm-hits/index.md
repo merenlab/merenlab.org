@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-get-sequences-for-hmm-hits [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Get sequences for HMM hits from many inputs.
+Get sequences for HMM hits from many inputs..
+
+See **[program help menu](../../../vignette#anvi-get-sequences-for-hmm-hits)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Get sequences for HMM hits from many inputs.
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

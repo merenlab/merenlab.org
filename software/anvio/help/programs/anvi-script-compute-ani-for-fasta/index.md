@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-script-compute-ani-for-fasta [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Run ANI between contigs in a single FASTA file.
+Run ANI between contigs in a single FASTA file..
+
+See **[program help menu](../../../vignette#anvi-script-compute-ani-for-fasta)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Run ANI between contigs in a single FASTA file.
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-setup-kegg-kofams [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Download and setup KEGG KOfam HMM profiles.
+Download and setup KEGG KOfam HMM profiles..
+
+See **[program help menu](../../../vignette#anvi-setup-kegg-kofams)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Download and setup KEGG KOfam HMM profiles.
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

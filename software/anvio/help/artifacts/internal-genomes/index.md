@@ -16,7 +16,7 @@ image:
 
 A TXT-type anvi'o artifact. This artifact is typically provided **by the user** for anvi'o to import into its databases, process, and/or use.
 
-[Back to help main page](../../)
+Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Provided by
 

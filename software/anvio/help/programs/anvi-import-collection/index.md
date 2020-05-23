@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-import-collection [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Import an external binning result into anvi&#39;o
+Import an external binning result into anvi&#39;o.
+
+See **[program help menu](../../../vignette#anvi-import-collection)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Import an external binning result into anvi&#39;o
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

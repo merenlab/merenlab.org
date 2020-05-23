@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-export-collection [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Export a collection from an anvi&#39;o database
+Export a collection from an anvi&#39;o database.
+
+See **[program help menu](../../../vignette#anvi-export-collection)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Export a collection from an anvi&#39;o database
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

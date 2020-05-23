@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-import-functions [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Parse and store functional annotation of genes.
+Parse and store functional annotation of genes..
+
+See **[program help menu](../../../vignette#anvi-import-functions)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Parse and store functional annotation of genes.
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

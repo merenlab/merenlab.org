@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-run-hmms [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-This program deals with populating tables that store HMM hits in an anvi&#39;o contigs database.
+This program deals with populating tables that store HMM hits in an anvi&#39;o contigs database..
+
+See **[program help menu](../../../vignette#anvi-run-hmms)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ This program deals with populating tables that store HMM hits in an anvi&#39;o c
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

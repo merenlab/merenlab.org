@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-show-collections-and-bins [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-A script to display collections stored in an anvi&#39;o profile or pan database.
+A script to display collections stored in an anvi&#39;o profile or pan database..
+
+See **[program help menu](../../../vignette#anvi-show-collections-and-bins)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ A script to display collections stored in an anvi&#39;o profile or pan database.
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

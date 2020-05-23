@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-estimate-genome-completeness [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Estimate completion and redundancy using domain-specific single-copy core genes.
+Estimate completion and redundancy using domain-specific single-copy core genes..
+
+See **[program help menu](../../../vignette#anvi-estimate-genome-completeness)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Estimate completion and redundancy using domain-specific single-copy core genes.
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

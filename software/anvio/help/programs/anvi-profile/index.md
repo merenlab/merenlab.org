@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-profile [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Creates a single anvi&#39;o profile database. The default input to this program is a BAM file.                   When it is run on a BAM file, depending on the user parameters, the program quantifies                   coverage per nucleotide position (and averages them out per contig), calculates                   single-nucleotide, single-codon, and single-amino acid variants, and stores these data                   into appropriate tables. Anvi&#39;o single profiles can be merged by the program `anvi-merge`.
+Creates a single anvi&#39;o profile database. The default input to this program is a BAM file.                   When it is run on a BAM file, depending on the user parameters, the program quantifies                   coverage per nucleotide position (and averages them out per contig), calculates                   single-nucleotide, single-codon, and single-amino acid variants, as well as structurel variants                   such as insertion and deletions and stores these data into appropriate tables. Anvi&#39;o single                   profiles can be merged by the program `anvi-merge`..
+
+See **[program help menu](../../../vignette#anvi-profile)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -18,11 +20,9 @@ Creates a single anvi&#39;o profile database. The default input to this program 
 {% include _project-anvio-graph.html %}
 
 
-[Back to help main page](../../)
-
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[single-profile-db](../../artifacts/single-profile-db)</span> <span class="artifact-p">[misc-data-item-orders](../../artifacts/misc-data-item-orders)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[single-profile-db](../../artifacts/single-profile-db)</span> <span class="artifact-p">[misc-data-item-orders](../../artifacts/misc-data-item-orders)</span> <span class="artifact-p">[variability-profile](../../artifacts/variability-profile)</span></p>
 
 ## Requires or uses
 

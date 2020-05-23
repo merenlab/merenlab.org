@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-get-codon-frequencies [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Get amino acid or codon frequencies of genes in a contigs database.
+Get amino acid or codon frequencies of genes in a contigs database..
+
+See **[program help menu](../../../vignette#anvi-get-codon-frequencies)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Get amino acid or codon frequencies of genes in a contigs database.
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

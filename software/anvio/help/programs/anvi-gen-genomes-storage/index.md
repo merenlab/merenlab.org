@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-gen-genomes-storage [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Create a genome storage from internal and/or external genomes for a pangenome analysis.
+Create a genome storage from internal and/or external genomes for a pangenome analysis..
+
+See **[program help menu](../../../vignette#anvi-gen-genomes-storage)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Create a genome storage from internal and/or external genomes for a pangenome an
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

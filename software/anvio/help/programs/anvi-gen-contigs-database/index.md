@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-gen-contigs-database [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Generate a new anvi&#39;o contigs database.
+Generate a new anvi&#39;o contigs database..
+
+See **[program help menu](../../../vignette#anvi-gen-contigs-database)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Generate a new anvi&#39;o contigs database.
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

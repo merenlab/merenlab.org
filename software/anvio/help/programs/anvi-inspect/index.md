@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-inspect [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Start an anvi&#39;o inspect interactive interface.
+Start an anvi&#39;o inspect interactive interface..
+
+See **[program help menu](../../../vignette#anvi-inspect)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Start an anvi&#39;o inspect interactive interface.
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

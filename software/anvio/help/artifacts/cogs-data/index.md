@@ -16,7 +16,7 @@ image:
 
 A DATA-type anvi'o artifact. This artifact is typically generated, used, and/or exported **by anvi'o** (and not provided by the user)..
 
-[Back to help main page](../../)
+Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Provided by
 

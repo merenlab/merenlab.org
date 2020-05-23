@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-get-sequences-for-gene-clusters [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Do cool stuff with gene clusters in anvi&#39;o pan genomes
+Do cool stuff with gene clusters in anvi&#39;o pan genomes.
+
+See **[program help menu](../../../vignette#anvi-get-sequences-for-gene-clusters)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Do cool stuff with gene clusters in anvi&#39;o pan genomes
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

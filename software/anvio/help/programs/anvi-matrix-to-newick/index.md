@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-matrix-to-newick [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Takes a distance matrix, returns a newick tree.
+Takes a distance matrix, returns a newick tree..
+
+See **[program help menu](../../../vignette#anvi-matrix-to-newick)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Takes a distance matrix, returns a newick tree.
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

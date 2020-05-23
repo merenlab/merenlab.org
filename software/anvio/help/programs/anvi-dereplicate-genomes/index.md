@@ -1,5 +1,5 @@
 ---
-layout: page 
+layout: page
 title: anvi-dereplicate-genomes [program]
 categories: [anvio]
 comments: false
@@ -8,7 +8,9 @@ image:
   display: true
 ---
 
-Identify redundant (highly similar) genomes.
+Identify redundant (highly similar) genomes..
+
+See **[program help menu](../../../vignette#anvi-dereplicate-genomes)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -17,8 +19,6 @@ Identify redundant (highly similar) genomes.
 {% capture network_height %}{{ 300 }}{% endcapture %}
 {% include _project-anvio-graph.html %}
 
-
-[Back to help main page](../../)
 
 ## Provides
 

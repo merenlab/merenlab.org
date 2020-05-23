@@ -21,6 +21,15 @@
     },
     {
       "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "variability-profile",
+      "name": "variability-profile",
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
       "score": 1,
       "color": "#AA0000",
       "id": "bam-file",
@@ -38,7 +47,7 @@
       "type": "DB"
     },
     {
-      "size": 4,
+      "size": 5,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-profile",
@@ -48,20 +57,24 @@
   ],
   "links": [
     {
-      "source": 4,
+      "source": 5,
       "target": 0
     },
     {
-      "source": 4,
+      "source": 5,
       "target": 1
     },
     {
-      "target": 4,
-      "source": 2
+      "source": 5,
+      "target": 2
     },
     {
-      "target": 4,
+      "target": 5,
       "source": 3
+    },
+    {
+      "target": 5,
+      "source": 4
     }
   ],
   "directed": false,
