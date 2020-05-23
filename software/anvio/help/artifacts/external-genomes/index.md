@@ -14,7 +14,7 @@ image:
 
 <img src="../../images/icons/TXT.png" alt="TXT" style="width:100px; border:none" />
 
-A TXT-type anvi'o artifact. It is typically provided by the user.
+A TXT-type anvi'o artifact. This artifact is typically provided **by the user** for anvi'o to import into its databases, process, and/or use.
 
 [Back to help main page](../../)
 

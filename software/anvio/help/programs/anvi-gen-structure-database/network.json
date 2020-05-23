@@ -7,7 +7,7 @@
       "color": "#00AA00",
       "id": "structure-db",
       "name": "structure-db",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {
@@ -16,7 +16,7 @@
       "color": "#00AA00",
       "id": "contigs-db",
       "name": "contigs-db",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {
@@ -25,8 +25,8 @@
       "color": "#00AA00",
       "id": "pdb-db",
       "name": "pdb-db",
-      "internal": true,
-      "type": "CONCEPT"
+      "provided_by_anvio": true,
+      "type": "DB"
     },
     {
       "size": 3,

@@ -14,7 +14,7 @@ image:
 
 <img src="../../images/icons/JSON.png" alt="JSON" style="width:100px; border:none" />
 
-A JSON-type anvi'o artifact. It is typically provided by the user.
+A JSON-type anvi'o artifact. This artifact can be generated, used, and/or exported **by anvi'o**. It can also be provided **by the user** for anvi'o to import into its databases, process, and/or use..
 
 [Back to help main page](../../)
 

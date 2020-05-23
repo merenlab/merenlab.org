@@ -7,7 +7,7 @@
       "color": "#00AA00",
       "id": "genome-taxonomy",
       "name": "genome-taxonomy",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
@@ -16,7 +16,7 @@
       "color": "#AA0000",
       "id": "genome-taxonomy-txt",
       "name": "genome-taxonomy-txt",
-      "internal": false,
+      "provided_by_anvio": false,
       "type": "TXT"
     },
     {
@@ -25,7 +25,7 @@
       "color": "#00AA00",
       "id": "profile-db",
       "name": "profile-db",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {
@@ -34,7 +34,7 @@
       "color": "#00AA00",
       "id": "contigs-db",
       "name": "contigs-db",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {
@@ -43,7 +43,7 @@
       "color": "#00AA00",
       "id": "scgs-taxonomy",
       "name": "scgs-taxonomy",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
@@ -52,7 +52,7 @@
       "color": "#00AA00",
       "id": "collection",
       "name": "collection",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "COLLECTION"
     },
     {
@@ -61,7 +61,7 @@
       "color": "#00AA00",
       "id": "bin",
       "name": "bin",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "BIN"
     },
     {

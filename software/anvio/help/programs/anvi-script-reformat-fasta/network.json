@@ -3,11 +3,11 @@
   "nodes": [
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "contigs-fasta",
       "name": "contigs-fasta",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "FASTA"
     },
     {
@@ -16,7 +16,7 @@
       "color": "#AA0000",
       "id": "fasta",
       "name": "fasta",
-      "internal": false,
+      "provided_by_anvio": false,
       "type": "FASTA"
     },
     {

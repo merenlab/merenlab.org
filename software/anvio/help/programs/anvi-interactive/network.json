@@ -7,7 +7,7 @@
       "color": "#00AA00",
       "id": "collection",
       "name": "collection",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "COLLECTION"
     },
     {
@@ -16,7 +16,7 @@
       "color": "#00AA00",
       "id": "bin",
       "name": "bin",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "BIN"
     },
     {
@@ -25,16 +25,16 @@
       "color": "#00AA00",
       "id": "interactive",
       "name": "interactive",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DISPLAY"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "svg",
       "name": "svg",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "SVG"
     },
     {
@@ -43,7 +43,7 @@
       "color": "#00AA00",
       "id": "profile-db",
       "name": "profile-db",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {
@@ -52,7 +52,7 @@
       "color": "#00AA00",
       "id": "single-profile-db",
       "name": "single-profile-db",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {
@@ -61,7 +61,7 @@
       "color": "#00AA00",
       "id": "contigs-db",
       "name": "contigs-db",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {
@@ -70,34 +70,34 @@
       "color": "#00AA00",
       "id": "genes-db",
       "name": "genes-db",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "view-data",
       "name": "view-data",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "TXT"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "dendrogram",
       "name": "dendrogram",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "NEWICK"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "phylogeny",
       "name": "phylogeny",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "NEWICK"
     },
     {

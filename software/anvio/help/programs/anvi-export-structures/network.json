@@ -7,7 +7,7 @@
       "color": "#AA0000",
       "id": "protein-structure",
       "name": "protein-structure",
-      "internal": false,
+      "provided_by_anvio": false,
       "type": "TXT"
     },
     {
@@ -16,7 +16,7 @@
       "color": "#00AA00",
       "id": "structure-db",
       "name": "structure-db",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {

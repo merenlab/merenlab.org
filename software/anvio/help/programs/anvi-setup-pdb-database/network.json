@@ -7,8 +7,8 @@
       "color": "#00AA00",
       "id": "pdb-db",
       "name": "pdb-db",
-      "internal": true,
-      "type": "CONCEPT"
+      "provided_by_anvio": true,
+      "type": "DB"
     },
     {
       "size": 1,

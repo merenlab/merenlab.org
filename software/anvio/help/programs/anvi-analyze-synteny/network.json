@@ -7,7 +7,7 @@
       "color": "#00AA00",
       "id": "ngrams",
       "name": "ngrams",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
@@ -16,7 +16,7 @@
       "color": "#00AA00",
       "id": "contigs-db",
       "name": "contigs-db",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {
@@ -25,7 +25,7 @@
       "color": "#00AA00",
       "id": "genomes-storage-db",
       "name": "genomes-storage-db",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {

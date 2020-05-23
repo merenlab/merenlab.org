@@ -3,47 +3,47 @@
   "nodes": [
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "misc-data-items",
       "name": "misc-data-items",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "misc-data-layers",
       "name": "misc-data-layers",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "misc-data-layer-orders",
       "name": "misc-data-layer-orders",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "misc-data-nucleotides",
       "name": "misc-data-nucleotides",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "misc-data-amino-acids",
       "name": "misc-data-amino-acids",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
@@ -52,7 +52,7 @@
       "color": "#00AA00",
       "id": "genes-db",
       "name": "genes-db",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {
@@ -61,7 +61,7 @@
       "color": "#00AA00",
       "id": "pan-db",
       "name": "pan-db",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {
@@ -70,7 +70,7 @@
       "color": "#00AA00",
       "id": "profile-db",
       "name": "profile-db",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {
@@ -79,70 +79,70 @@
       "color": "#00AA00",
       "id": "contigs-db",
       "name": "contigs-db",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "misc-data-items-txt",
       "name": "misc-data-items-txt",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "TXT"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "dendrogram",
       "name": "dendrogram",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "NEWICK"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "phylogeny",
       "name": "phylogeny",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "NEWICK"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "misc-data-layers-txt",
       "name": "misc-data-layers-txt",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "TXT"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "misc-data-layer-orders-txt",
       "name": "misc-data-layer-orders-txt",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "TXT"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "misc-data-nucleotides-txt",
       "name": "misc-data-nucleotides-txt",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "TXT"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "misc-data-amino-acids-txt",
       "name": "misc-data-amino-acids-txt",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "TXT"
     },
     {
