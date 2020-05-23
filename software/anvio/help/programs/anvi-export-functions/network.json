@@ -3,11 +3,11 @@
   "nodes": [
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "functions-txt",
       "name": "functions-txt",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "TXT"
     },
     {
@@ -16,7 +16,7 @@
       "color": "#00AA00",
       "id": "contigs-db",
       "name": "contigs-db",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {
@@ -25,7 +25,7 @@
       "color": "#00AA00",
       "id": "functions",
       "name": "functions",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {

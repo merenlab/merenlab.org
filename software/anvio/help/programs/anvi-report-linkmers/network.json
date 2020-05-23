@@ -7,7 +7,7 @@
       "color": "#AA0000",
       "id": "linkmers-txt",
       "name": "linkmers-txt",
-      "internal": false,
+      "provided_by_anvio": false,
       "type": "TXT"
     },
     {
@@ -16,7 +16,7 @@
       "color": "#AA0000",
       "id": "bam-file",
       "name": "bam-file",
-      "internal": false,
+      "provided_by_anvio": false,
       "type": "BAM"
     },
     {

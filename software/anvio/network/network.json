@@ -7,34 +7,34 @@
       "color": "#00AA00",
       "id": "ngrams",
       "name": "NGRAM",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
-      "size": 36,
+      "size": 41,
       "score": 0.5,
       "color": "#00AA00",
       "id": "contigs-db",
       "name": "CONTIGS",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
-    },
-    {
-      "size": 5,
-      "score": 1,
-      "color": "#AA0000",
-      "id": "external-genomes",
-      "name": "EXTERNAL GENOMES",
-      "internal": false,
-      "type": "TXT"
     },
     {
       "size": 9,
       "score": 0.5,
       "color": "#00AA00",
+      "id": "genomes-storage-db",
+      "name": "GENOMES STORAGE",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 11,
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "collection",
       "name": "COLLECTION",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "COLLECTION"
     },
     {
@@ -43,26 +43,35 @@
       "color": "#00AA00",
       "id": "bin",
       "name": "BIN",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "BIN"
     },
     {
-      "size": 23,
+      "size": 25,
       "score": 0.5,
       "color": "#00AA00",
       "id": "profile-db",
       "name": "PROFILE",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {
       "size": 2,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "genome-similarity",
       "name": "GENOME SIMILARITY",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
+    },
+    {
+      "size": 5,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "external-genomes",
+      "name": "EXTERNAL GENOMES",
+      "provided_by_anvio": false,
+      "type": "TXT"
     },
     {
       "size": 5,
@@ -70,34 +79,34 @@
       "color": "#AA0000",
       "id": "internal-genomes",
       "name": "INTERNAL GENOMES",
-      "internal": false,
+      "provided_by_anvio": false,
       "type": "TXT"
     },
     {
-      "size": 14,
+      "size": 15,
       "score": 0.5,
       "color": "#00AA00",
       "id": "pan-db",
       "name": "PAN",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {
-      "size": 6,
+      "size": 4,
       "score": 1,
       "color": "#AA0000",
-      "id": "contigs-fasta",
-      "name": "CONTIGS",
-      "internal": false,
+      "id": "fasta",
+      "name": "REGULAR FASTA",
+      "provided_by_anvio": false,
       "type": "FASTA"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "contigs-stats",
       "name": "CONTIGS STATS",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "STATS"
     },
     {
@@ -106,34 +115,25 @@
       "color": "#00AA00",
       "id": "interactive",
       "name": "INTERACTIVE DISPLAY",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DISPLAY"
     },
     {
       "size": 3,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "svg",
       "name": "SVG",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "SVG"
     },
     {
-      "size": 8,
+      "size": 2,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "genomes-storage-db",
-      "name": "GENOMES STORAGE",
-      "internal": true,
-      "type": "DB"
-    },
-    {
-      "size": 2,
-      "score": 1,
-      "color": "#AA0000",
       "id": "summary",
       "name": "STATIC SUMMARY",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "SUMMARY"
     },
     {
@@ -141,17 +141,53 @@
       "score": 0.5,
       "color": "#00AA00",
       "id": "structure-db",
-      "name": "STRUCTURE",
-      "internal": true,
+      "name": "PROTEIN STRUCTURES",
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {
       "size": 2,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "variability-profile",
       "name": "VARIABILITY PROFILE",
-      "internal": false,
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "completion",
+      "name": "COMPLETION",
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "kegg-metabolism",
+      "name": "KEGG METABOLISM ESTIMATES",
+      "provided_by_anvio": true,
+      "type": "TXT"
+    },
+    {
+      "size": 3,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "kegg-db",
+      "name": "KEGG DB",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 2,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "kegg-functions",
+      "name": "KOFAM FUNCTIONS",
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
@@ -160,7 +196,7 @@
       "color": "#00AA00",
       "id": "genome-taxonomy",
       "name": "GENOME TAXONOMY",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
@@ -169,7 +205,7 @@
       "color": "#AA0000",
       "id": "genome-taxonomy-txt",
       "name": "GENOME TAXONOMY",
-      "internal": false,
+      "provided_by_anvio": false,
       "type": "TXT"
     },
     {
@@ -178,25 +214,34 @@
       "color": "#00AA00",
       "id": "scgs-taxonomy",
       "name": "SCG TAXONOMY",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
       "size": 2,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "collection-txt",
       "name": "COLLECTION",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "TXT"
     },
     {
+      "size": 4,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "contigs-fasta",
+      "name": "CONTIGS",
+      "provided_by_anvio": true,
+      "type": "FASTA"
+    },
+    {
       "size": 3,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "functions-txt",
       "name": "GENE FUNCTIONS",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "TXT"
     },
     {
@@ -205,43 +250,43 @@
       "color": "#00AA00",
       "id": "functions",
       "name": "GENE FUNCTIONS",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "gene-calls-txt",
       "name": "GENE CALLS",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "TXT"
     },
     {
       "size": 2,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "misc-data-item-orders-txt",
       "name": "LAYER ORDERS DATA",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "TXT"
     },
     {
       "size": 5,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "dendrogram",
       "name": "DENDROGRAM",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "NEWICK"
     },
     {
       "size": 5,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "phylogeny",
       "name": "PHYLOGENY",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "NEWICK"
     },
     {
@@ -250,61 +295,79 @@
       "color": "#00AA00",
       "id": "genes-db",
       "name": "GENES",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "locus-fasta",
       "name": "LOCUS",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "FASTA"
     },
     {
       "size": 2,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "misc-data-items-txt",
       "name": "ITEMS DATA",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "TXT"
     },
     {
       "size": 2,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "misc-data-layers-txt",
       "name": "LAYERS DATA",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "TXT"
     },
     {
       "size": 2,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "misc-data-layer-orders-txt",
       "name": "LAYER ORDERS DATA",
-      "internal": false,
+      "provided_by_anvio": true,
+      "type": "TXT"
+    },
+    {
+      "size": 2,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "misc-data-nucleotides-txt",
+      "name": "NUCLEOTIDES DATA",
+      "provided_by_anvio": true,
+      "type": "TXT"
+    },
+    {
+      "size": 2,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "misc-data-amino-acids-txt",
+      "name": "AMINO_ACIDS DATA",
+      "provided_by_anvio": true,
       "type": "TXT"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "coverages-txt",
       "name": "COVERAGES",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "TXT"
     },
     {
       "size": 2,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "state-json",
       "name": "INTERACTIVE STATE",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "JSON"
     },
     {
@@ -313,25 +376,34 @@
       "color": "#AA0000",
       "id": "protein-structure",
       "name": "PDB FILE",
-      "internal": false,
+      "provided_by_anvio": false,
       "type": "TXT"
     },
     {
       "size": 1,
       "score": 1,
       "color": "#AA0000",
+      "id": "external-gene-calls",
+      "name": "EXTERNAL GENE CALLS",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "fixation-index-matrix",
       "name": "FIXATION INDEX MATRIX",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "TXT"
     },
     {
       "size": 3,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "concatenated-gene-alignment-fasta",
       "name": "CONCATENATED GENE ALIGNMENT",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "FASTA"
     },
     {
@@ -340,34 +412,34 @@
       "color": "#00AA00",
       "id": "pdb-db",
       "name": "PDB DB",
-      "internal": true,
-      "type": "CONCEPT"
+      "provided_by_anvio": true,
+      "type": "DB"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "codon-frequencies-txt",
       "name": "CODON FREQUENCIES",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "TXT"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "aa-frequencies-txt",
       "name": "AA FREQUENCIES",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "TXT"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "functional-enrichment-txt",
       "name": "ENRICHED FUNCTIONS",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "TXT"
     },
     {
@@ -376,34 +448,34 @@
       "color": "#00AA00",
       "id": "misc-data-layers-category",
       "name": "LAYERS DATA CATEGORY",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
       "size": 3,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "genes-fasta",
       "name": "GENES",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "FASTA"
     },
     {
       "size": 2,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "hmm-profile",
-      "name": "HMM PROFILE",
-      "internal": true,
-      "type": "CONCEPT"
+      "id": "hmm-source",
+      "name": "HMM SOURCE",
+      "provided_by_anvio": true,
+      "type": "HMM"
     },
     {
       "size": 2,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "short-reads-fasta",
       "name": "SHORT READS",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "FASTA"
     },
     {
@@ -412,43 +484,61 @@
       "color": "#AA0000",
       "id": "bam-file",
       "name": "BAM FILE",
-      "internal": false,
+      "provided_by_anvio": false,
       "type": "BAM"
     },
     {
       "size": 4,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "misc-data-item-orders",
       "name": "ITEM ORDERS DATA",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "misc-data-items",
       "name": "ITEMS DATA",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "misc-data-layers",
       "name": "LAYERS DATA",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "misc-data-layer-orders",
       "name": "LAYER ORDERS DATA",
-      "internal": false,
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "misc-data-nucleotides",
+      "name": "NUCLEOTIDES DATA",
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "misc-data-amino-acids",
+      "name": "AMINO_ACIDS DATA",
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
@@ -457,7 +547,7 @@
       "color": "#00AA00",
       "id": "state",
       "name": "INTERACTIVE STATE",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
@@ -466,16 +556,16 @@
       "color": "#00AA00",
       "id": "gene-taxonomy",
       "name": "GENE TAXONOMY",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "gene-taxonomy-txt",
       "name": "GENE TAXONOMY",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "TXT"
     },
     {
@@ -484,7 +574,7 @@
       "color": "#00AA00",
       "id": "layer-taxonomy",
       "name": "LAYER TAXONOMY",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
@@ -493,16 +583,16 @@
       "color": "#00AA00",
       "id": "single-profile-db",
       "name": "SINGLE PROFILE",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "layer-taxonomy-txt",
       "name": "LAYER TAXONOMY",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "TXT"
     },
     {
@@ -511,16 +601,16 @@
       "color": "#AA0000",
       "id": "raw-bam-file",
       "name": "RAW BAM FILE",
-      "internal": false,
+      "provided_by_anvio": false,
       "type": "BAM"
     },
     {
       "size": 2,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "view-data",
       "name": "VIEW DATA",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "TXT"
     },
     {
@@ -529,16 +619,16 @@
       "color": "#00AA00",
       "id": "metapangenome",
       "name": "METAPANGENOME",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "oligotypes",
       "name": "OLIGOTYPES",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
@@ -547,17 +637,17 @@
       "color": "#AA0000",
       "id": "linkmers-txt",
       "name": "LINKMERS",
-      "internal": false,
+      "provided_by_anvio": false,
       "type": "TXT"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
-      "id": "hmm-source",
-      "name": "HMM SOURCE",
-      "internal": false,
-      "type": "HMM"
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "hmm-profile",
+      "name": "HMM PROFILE",
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
     },
     {
       "size": 2,
@@ -565,7 +655,7 @@
       "color": "#00AA00",
       "id": "cogs-data",
       "name": "COGs DATA",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DATA"
     },
     {
@@ -574,7 +664,7 @@
       "color": "#00AA00",
       "id": "pfams-data",
       "name": "PFAMs DATA",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DATA"
     },
     {
@@ -583,7 +673,7 @@
       "color": "#00AA00",
       "id": "scgs-taxonomy-db",
       "name": "SCG TAXONOMY DB",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
@@ -592,16 +682,16 @@
       "color": "#00AA00",
       "id": "trna-genes",
       "name": "TRNA GENES",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "split-bins",
       "name": "SPLIT BINS",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
@@ -629,7 +719,7 @@
       "type": "PROGRAM"
     },
     {
-      "size": 6,
+      "size": 4,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-dereplicate-genomes",
@@ -658,6 +748,22 @@
       "color": "#AAAA00",
       "id": "anvi-display-structure",
       "name": "anvi-display-structure",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 7,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-estimate-genome-completeness",
+      "name": "anvi-estimate-genome-completeness",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 5,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-estimate-kegg-metabolism",
+      "name": "anvi-estimate-kegg-metabolism",
       "type": "PROGRAM"
     },
     {
@@ -717,7 +823,7 @@
       "type": "PROGRAM"
     },
     {
-      "size": 11,
+      "size": 17,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-export-misc-data",
@@ -749,7 +855,7 @@
       "type": "PROGRAM"
     },
     {
-      "size": 4,
+      "size": 5,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-gen-contigs-database",
@@ -885,7 +991,7 @@
       "type": "PROGRAM"
     },
     {
-      "size": 20,
+      "size": 30,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-import-misc-data",
@@ -1013,6 +1119,14 @@
       "type": "PROGRAM"
     },
     {
+      "size": 4,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-run-kegg-kofams",
+      "name": "anvi-run-kegg-kofams",
+      "type": "PROGRAM"
+    },
+    {
       "size": 5,
       "score": 0.1,
       "color": "#AAAA00",
@@ -1056,6 +1170,14 @@
       "size": 1,
       "score": 0.1,
       "color": "#AAAA00",
+      "id": "anvi-setup-kegg-kofams",
+      "name": "anvi-setup-kegg-kofams",
+      "type": "PROGRAM"
+    },
+    {
+      "size": 1,
+      "score": 0.1,
+      "color": "#AAAA00",
       "id": "anvi-setup-ncbi-cogs",
       "name": "anvi-setup-ncbi-cogs",
       "type": "PROGRAM"
@@ -1085,6 +1207,14 @@
       "type": "PROGRAM"
     },
     {
+      "size": 4,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-show-collections-and-bins",
+      "name": "anvi-show-collections-and-bins",
+      "type": "PROGRAM"
+    },
+    {
       "size": 6,
       "score": 0.1,
       "color": "#AAAA00",
@@ -1101,42 +1231,26 @@
       "type": "PROGRAM"
     },
     {
-      "size": 3,
+      "size": 2,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-script-compute-ani-for-fasta",
       "name": "anvi-script-compute-ani-for-fasta",
       "type": "PROGRAM"
+    },
+    {
+      "size": 3,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-script-reformat-fasta",
+      "name": "anvi-script-reformat-fasta",
+      "type": "PROGRAM"
     }
   ],
   "links": [
     {
-      "source": 67,
+      "source": 77,
       "target": 0
-    },
-    {
-      "target": 67,
-      "source": 1
-    },
-    {
-      "target": 68,
-      "source": 1
-    },
-    {
-      "target": 71,
-      "source": 1
-    },
-    {
-      "target": 73,
-      "source": 1
-    },
-    {
-      "target": 74,
-      "source": 1
-    },
-    {
-      "target": 76,
-      "source": 1
     },
     {
       "target": 77,
@@ -1147,31 +1261,35 @@
       "source": 1
     },
     {
-      "target": 80,
+      "target": 81,
       "source": 1
     },
     {
-      "target": 82,
+      "target": 83,
       "source": 1
     },
     {
-      "source": 85,
-      "target": 1
+      "target": 84,
+      "source": 1
+    },
+    {
+      "target": 85,
+      "source": 1
     },
     {
       "target": 86,
       "source": 1
     },
     {
-      "target": 87,
+      "target": 88,
+      "source": 1
+    },
+    {
+      "target": 89,
       "source": 1
     },
     {
       "target": 90,
-      "source": 1
-    },
-    {
-      "target": 91,
       "source": 1
     },
     {
@@ -1179,16 +1297,16 @@
       "source": 1
     },
     {
+      "target": 93,
+      "source": 1
+    },
+    {
       "target": 94,
       "source": 1
     },
     {
-      "target": 96,
-      "source": 1
-    },
-    {
-      "target": 97,
-      "source": 1
+      "source": 97,
+      "target": 1
     },
     {
       "target": 98,
@@ -1199,7 +1317,11 @@
       "source": 1
     },
     {
-      "target": 100,
+      "target": 102,
+      "source": 1
+    },
+    {
+      "target": 103,
       "source": 1
     },
     {
@@ -1207,7 +1329,7 @@
       "source": 1
     },
     {
-      "target": 107,
+      "target": 106,
       "source": 1
     },
     {
@@ -1215,7 +1337,19 @@
       "source": 1
     },
     {
+      "target": 109,
+      "source": 1
+    },
+    {
       "target": 110,
+      "source": 1
+    },
+    {
+      "target": 111,
+      "source": 1
+    },
+    {
+      "target": 112,
       "source": 1
     },
     {
@@ -1223,15 +1357,7 @@
       "source": 1
     },
     {
-      "target": 115,
-      "source": 1
-    },
-    {
-      "target": 117,
-      "source": 1
-    },
-    {
-      "target": 118,
+      "target": 116,
       "source": 1
     },
     {
@@ -1243,803 +1369,863 @@
       "source": 1
     },
     {
-      "target": 121,
-      "source": 1
-    },
-    {
       "target": 122,
       "source": 1
     },
     {
-      "target": 127,
+      "target": 126,
       "source": 1
     },
     {
-      "target": 128,
+      "target": 127,
       "source": 1
-    },
-    {
-      "target": 67,
-      "source": 2
-    },
-    {
-      "target": 69,
-      "source": 2
-    },
-    {
-      "target": 70,
-      "source": 2
-    },
-    {
-      "target": 88,
-      "source": 2
-    },
-    {
-      "target": 96,
-      "source": 2
-    },
-    {
-      "source": 68,
-      "target": 3
-    },
-    {
-      "source": 72,
-      "target": 3
-    },
-    {
-      "target": 74,
-      "source": 3
-    },
-    {
-      "target": 75,
-      "source": 3
-    },
-    {
-      "target": 87,
-      "source": 3
-    },
-    {
-      "source": 99,
-      "target": 3
-    },
-    {
-      "source": 108,
-      "target": 3
-    },
-    {
-      "target": 127,
-      "source": 3
-    },
-    {
-      "target": 128,
-      "source": 3
-    },
-    {
-      "source": 68,
-      "target": 4
-    },
-    {
-      "source": 72,
-      "target": 4
-    },
-    {
-      "target": 74,
-      "source": 4
-    },
-    {
-      "target": 86,
-      "source": 4
-    },
-    {
-      "target": 87,
-      "source": 4
-    },
-    {
-      "target": 91,
-      "source": 4
-    },
-    {
-      "target": 97,
-      "source": 4
-    },
-    {
-      "target": 107,
-      "source": 4
-    },
-    {
-      "source": 108,
-      "target": 4
-    },
-    {
-      "target": 108,
-      "source": 4
-    },
-    {
-      "source": 115,
-      "target": 4
-    },
-    {
-      "target": 115,
-      "source": 4
-    },
-    {
-      "target": 68,
-      "source": 5
-    },
-    {
-      "target": 73,
-      "source": 5
-    },
-    {
-      "target": 74,
-      "source": 5
-    },
-    {
-      "target": 75,
-      "source": 5
-    },
-    {
-      "target": 79,
-      "source": 5
-    },
-    {
-      "target": 81,
-      "source": 5
-    },
-    {
-      "target": 82,
-      "source": 5
-    },
-    {
-      "target": 83,
-      "source": 5
-    },
-    {
-      "target": 86,
-      "source": 5
-    },
-    {
-      "target": 87,
-      "source": 5
-    },
-    {
-      "target": 91,
-      "source": 5
-    },
-    {
-      "target": 96,
-      "source": 5
-    },
-    {
-      "target": 97,
-      "source": 5
-    },
-    {
-      "target": 99,
-      "source": 5
-    },
-    {
-      "target": 101,
-      "source": 5
-    },
-    {
-      "target": 102,
-      "source": 5
-    },
-    {
-      "target": 103,
-      "source": 5
-    },
-    {
-      "target": 107,
-      "source": 5
-    },
-    {
-      "target": 108,
-      "source": 5
-    },
-    {
-      "source": 110,
-      "target": 5
-    },
-    {
-      "target": 115,
-      "source": 5
-    },
-    {
-      "target": 127,
-      "source": 5
-    },
-    {
-      "target": 128,
-      "source": 5
-    },
-    {
-      "source": 69,
-      "target": 6
-    },
-    {
-      "source": 129,
-      "target": 6
-    },
-    {
-      "target": 69,
-      "source": 7
-    },
-    {
-      "target": 70,
-      "source": 7
-    },
-    {
-      "target": 88,
-      "source": 7
-    },
-    {
-      "target": 96,
-      "source": 7
-    },
-    {
-      "target": 111,
-      "source": 7
-    },
-    {
-      "target": 69,
-      "source": 8
-    },
-    {
-      "target": 72,
-      "source": 8
-    },
-    {
-      "target": 79,
-      "source": 8
-    },
-    {
-      "target": 81,
-      "source": 8
-    },
-    {
-      "target": 83,
-      "source": 8
-    },
-    {
-      "target": 93,
-      "source": 8
-    },
-    {
-      "target": 95,
-      "source": 8
-    },
-    {
-      "target": 99,
-      "source": 8
-    },
-    {
-      "target": 101,
-      "source": 8
-    },
-    {
-      "target": 102,
-      "source": 8
-    },
-    {
-      "target": 103,
-      "source": 8
-    },
-    {
-      "target": 111,
-      "source": 8
-    },
-    {
-      "source": 113,
-      "target": 8
-    },
-    {
-      "target": 128,
-      "source": 8
-    },
-    {
-      "source": 70,
-      "target": 9
-    },
-    {
-      "target": 70,
-      "source": 9
-    },
-    {
-      "source": 76,
-      "target": 9
-    },
-    {
-      "source": 82,
-      "target": 9
-    },
-    {
-      "target": 85,
-      "source": 9
     },
     {
       "target": 129,
-      "source": 9
+      "source": 1
     },
     {
-      "source": 71,
-      "target": 10
+      "target": 130,
+      "source": 1
     },
     {
-      "source": 71,
-      "target": 11
+      "target": 131,
+      "source": 1
     },
     {
-      "source": 72,
-      "target": 11
+      "target": 132,
+      "source": 1
     },
     {
-      "source": 73,
-      "target": 11
+      "target": 133,
+      "source": 1
     },
     {
-      "source": 107,
-      "target": 11
+      "target": 134,
+      "source": 1
     },
     {
-      "source": 108,
-      "target": 11
+      "target": 135,
+      "source": 1
     },
     {
-      "source": 71,
-      "target": 12
+      "target": 142,
+      "source": 1
     },
     {
-      "source": 72,
-      "target": 12
-    },
-    {
-      "source": 108,
-      "target": 12
-    },
-    {
-      "target": 72,
-      "source": 13
-    },
-    {
-      "source": 88,
-      "target": 13
-    },
-    {
-      "target": 93,
-      "source": 13
-    },
-    {
-      "target": 95,
-      "source": 13
-    },
-    {
-      "target": 111,
-      "source": 13
-    },
-    {
-      "target": 113,
-      "source": 13
-    },
-    {
-      "target": 122,
-      "source": 13
-    },
-    {
-      "target": 128,
-      "source": 13
-    },
-    {
-      "source": 73,
-      "target": 14
-    },
-    {
-      "source": 128,
-      "target": 14
-    },
-    {
-      "target": 73,
-      "source": 15
-    },
-    {
-      "target": 84,
-      "source": 15
-    },
-    {
-      "target": 86,
-      "source": 15
-    },
-    {
-      "source": 90,
-      "target": 15
-    },
-    {
-      "target": 91,
-      "source": 15
-    },
-    {
-      "target": 73,
-      "source": 16
-    },
-    {
-      "source": 91,
-      "target": 16
-    },
-    {
-      "source": 74,
-      "target": 17
-    },
-    {
-      "source": 74,
-      "target": 18
-    },
-    {
-      "target": 74,
-      "source": 19
-    },
-    {
-      "source": 120,
-      "target": 19
-    },
-    {
-      "source": 75,
-      "target": 20
-    },
-    {
-      "target": 99,
-      "source": 20
-    },
-    {
-      "source": 77,
-      "target": 21
-    },
-    {
-      "target": 100,
-      "source": 21
-    },
-    {
-      "source": 122,
-      "target": 21
+      "target": 143,
+      "source": 1
     },
     {
       "target": 77,
-      "source": 22
+      "source": 2
+    },
+    {
+      "target": 82,
+      "source": 2
     },
     {
       "source": 100,
-      "target": 22
+      "target": 2
     },
     {
-      "source": 118,
-      "target": 22
+      "target": 105,
+      "source": 2
     },
     {
-      "source": 119,
-      "target": 22
+      "target": 107,
+      "source": 2
+    },
+    {
+      "target": 123,
+      "source": 2
+    },
+    {
+      "target": 125,
+      "source": 2
+    },
+    {
+      "target": 135,
+      "source": 2
+    },
+    {
+      "target": 143,
+      "source": 2
     },
     {
       "source": 78,
-      "target": 23
+      "target": 3
     },
     {
-      "source": 79,
-      "target": 24
+      "source": 82,
+      "target": 3
     },
     {
-      "target": 101,
-      "source": 24
+      "target": 84,
+      "source": 3
     },
     {
-      "source": 79,
-      "target": 25
+      "target": 86,
+      "source": 3
     },
     {
-      "target": 101,
-      "source": 25
+      "target": 87,
+      "source": 3
     },
     {
-      "target": 102,
-      "source": 25
+      "target": 99,
+      "source": 3
+    },
+    {
+      "source": 111,
+      "target": 3
+    },
+    {
+      "source": 120,
+      "target": 3
+    },
+    {
+      "source": 141,
+      "target": 3
+    },
+    {
+      "target": 142,
+      "source": 3
+    },
+    {
+      "target": 143,
+      "source": 3
+    },
+    {
+      "source": 78,
+      "target": 4
+    },
+    {
+      "source": 82,
+      "target": 4
+    },
+    {
+      "target": 86,
+      "source": 4
+    },
+    {
+      "target": 98,
+      "source": 4
+    },
+    {
+      "target": 99,
+      "source": 4
+    },
+    {
+      "target": 103,
+      "source": 4
+    },
+    {
+      "target": 109,
+      "source": 4
+    },
+    {
+      "target": 119,
+      "source": 4
+    },
+    {
+      "source": 120,
+      "target": 4
+    },
+    {
+      "target": 120,
+      "source": 4
+    },
+    {
+      "source": 127,
+      "target": 4
+    },
+    {
+      "target": 127,
+      "source": 4
+    },
+    {
+      "target": 78,
+      "source": 5
+    },
+    {
+      "target": 83,
+      "source": 5
+    },
+    {
+      "target": 84,
+      "source": 5
+    },
+    {
+      "target": 86,
+      "source": 5
+    },
+    {
+      "target": 87,
+      "source": 5
+    },
+    {
+      "target": 91,
+      "source": 5
+    },
+    {
+      "target": 93,
+      "source": 5
+    },
+    {
+      "target": 94,
+      "source": 5
+    },
+    {
+      "target": 95,
+      "source": 5
+    },
+    {
+      "target": 98,
+      "source": 5
+    },
+    {
+      "target": 99,
+      "source": 5
+    },
+    {
+      "target": 103,
+      "source": 5
     },
     {
       "target": 108,
-      "source": 25
+      "source": 5
     },
     {
-      "source": 109,
-      "target": 25
+      "target": 109,
+      "source": 5
+    },
+    {
+      "target": 111,
+      "source": 5
+    },
+    {
+      "target": 113,
+      "source": 5
+    },
+    {
+      "target": 114,
+      "source": 5
+    },
+    {
+      "target": 115,
+      "source": 5
+    },
+    {
+      "target": 119,
+      "source": 5
+    },
+    {
+      "target": 120,
+      "source": 5
+    },
+    {
+      "source": 122,
+      "target": 5
+    },
+    {
+      "target": 127,
+      "source": 5
+    },
+    {
+      "target": 141,
+      "source": 5
+    },
+    {
+      "target": 142,
+      "source": 5
+    },
+    {
+      "target": 143,
+      "source": 5
     },
     {
       "source": 79,
-      "target": 26
+      "target": 6
+    },
+    {
+      "source": 144,
+      "target": 6
+    },
+    {
+      "target": 79,
+      "source": 7
+    },
+    {
+      "target": 80,
+      "source": 7
+    },
+    {
+      "target": 84,
+      "source": 7
+    },
+    {
+      "target": 100,
+      "source": 7
+    },
+    {
+      "target": 108,
+      "source": 7
+    },
+    {
+      "target": 79,
+      "source": 8
+    },
+    {
+      "target": 80,
+      "source": 8
+    },
+    {
+      "target": 100,
+      "source": 8
+    },
+    {
+      "target": 108,
+      "source": 8
+    },
+    {
+      "target": 123,
+      "source": 8
+    },
+    {
+      "target": 79,
+      "source": 9
+    },
+    {
+      "target": 82,
+      "source": 9
+    },
+    {
+      "target": 91,
+      "source": 9
+    },
+    {
+      "target": 93,
+      "source": 9
+    },
+    {
+      "target": 95,
+      "source": 9
+    },
+    {
+      "target": 105,
+      "source": 9
+    },
+    {
+      "target": 107,
+      "source": 9
+    },
+    {
+      "target": 111,
+      "source": 9
+    },
+    {
+      "target": 113,
+      "source": 9
+    },
+    {
+      "target": 114,
+      "source": 9
+    },
+    {
+      "target": 115,
+      "source": 9
+    },
+    {
+      "target": 123,
+      "source": 9
+    },
+    {
+      "source": 125,
+      "target": 9
+    },
+    {
+      "target": 141,
+      "source": 9
+    },
+    {
+      "target": 143,
+      "source": 9
+    },
+    {
+      "source": 80,
+      "target": 10
+    },
+    {
+      "target": 80,
+      "source": 10
+    },
+    {
+      "target": 144,
+      "source": 10
+    },
+    {
+      "target": 145,
+      "source": 10
+    },
+    {
+      "source": 81,
+      "target": 11
+    },
+    {
+      "source": 81,
+      "target": 12
+    },
+    {
+      "source": 82,
+      "target": 12
+    },
+    {
+      "source": 83,
+      "target": 12
+    },
+    {
+      "source": 119,
+      "target": 12
+    },
+    {
+      "source": 120,
+      "target": 12
+    },
+    {
+      "source": 81,
+      "target": 13
+    },
+    {
+      "source": 82,
+      "target": 13
+    },
+    {
+      "source": 120,
+      "target": 13
+    },
+    {
+      "source": 83,
+      "target": 14
+    },
+    {
+      "source": 143,
+      "target": 14
+    },
+    {
+      "target": 83,
+      "source": 15
+    },
+    {
+      "target": 96,
+      "source": 15
+    },
+    {
+      "target": 98,
+      "source": 15
+    },
+    {
+      "source": 102,
+      "target": 15
+    },
+    {
+      "target": 103,
+      "source": 15
+    },
+    {
+      "target": 83,
+      "source": 16
+    },
+    {
+      "source": 103,
+      "target": 16
+    },
+    {
+      "source": 84,
+      "target": 17
+    },
+    {
+      "source": 85,
+      "target": 18
+    },
+    {
+      "target": 85,
+      "source": 19
+    },
+    {
+      "target": 130,
+      "source": 19
+    },
+    {
+      "source": 136,
+      "target": 19
+    },
+    {
+      "target": 85,
+      "source": 20
+    },
+    {
+      "source": 130,
+      "target": 20
+    },
+    {
+      "source": 86,
+      "target": 21
+    },
+    {
+      "source": 86,
+      "target": 22
+    },
+    {
+      "target": 86,
+      "source": 23
+    },
+    {
+      "source": 133,
+      "target": 23
+    },
+    {
+      "source": 87,
+      "target": 24
+    },
+    {
+      "target": 111,
+      "source": 24
+    },
+    {
+      "source": 88,
+      "target": 25
+    },
+    {
+      "source": 94,
+      "target": 25
+    },
+    {
+      "target": 97,
+      "source": 25
+    },
+    {
+      "source": 145,
+      "target": 25
     },
     {
       "source": 89,
       "target": 26
     },
     {
-      "target": 101,
+      "target": 112,
       "source": 26
     },
     {
-      "target": 102,
-      "source": 26
-    },
-    {
-      "target": 108,
-      "source": 26
-    },
-    {
-      "target": 79,
-      "source": 27
-    },
-    {
-      "target": 81,
-      "source": 27
-    },
-    {
-      "source": 87,
-      "target": 27
-    },
-    {
-      "target": 101,
-      "source": 27
-    },
-    {
-      "target": 102,
-      "source": 27
-    },
-    {
-      "target": 108,
-      "source": 27
-    },
-    {
-      "source": 80,
-      "target": 28
-    },
-    {
-      "source": 81,
-      "target": 29
-    },
-    {
-      "target": 102,
-      "source": 29
-    },
-    {
-      "source": 81,
-      "target": 30
-    },
-    {
-      "target": 102,
-      "source": 30
-    },
-    {
-      "source": 81,
-      "target": 31
-    },
-    {
-      "target": 102,
-      "source": 31
-    },
-    {
-      "source": 82,
-      "target": 32
-    },
-    {
-      "source": 83,
-      "target": 33
-    },
-    {
-      "target": 103,
-      "source": 33
-    },
-    {
-      "source": 84,
-      "target": 34
-    },
-    {
-      "source": 86,
-      "target": 35
+      "source": 135,
+      "target": 26
     },
     {
       "target": 89,
-      "source": 36
-    },
-    {
-      "source": 95,
-      "target": 36
-    },
-    {
-      "source": 96,
-      "target": 36
-    },
-    {
-      "target": 90,
-      "source": 37
-    },
-    {
-      "source": 124,
-      "target": 37
-    },
-    {
-      "source": 92,
-      "target": 38
-    },
-    {
-      "source": 92,
-      "target": 39
-    },
-    {
-      "source": 93,
-      "target": 40
-    },
-    {
-      "target": 93,
-      "source": 41
-    },
-    {
-      "source": 94,
-      "target": 42
-    },
-    {
-      "source": 95,
-      "target": 42
-    },
-    {
-      "source": 96,
-      "target": 42
-    },
-    {
-      "target": 96,
-      "source": 43
-    },
-    {
-      "source": 117,
-      "target": 43
-    },
-    {
-      "source": 97,
-      "target": 44
-    },
-    {
-      "source": 98,
-      "target": 44
-    },
-    {
-      "target": 97,
-      "source": 45
-    },
-    {
-      "target": 98,
-      "source": 45
-    },
-    {
-      "source": 106,
-      "target": 45
-    },
-    {
-      "target": 114,
-      "source": 45
-    },
-    {
-      "target": 116,
-      "source": 45
-    },
-    {
-      "source": 101,
-      "target": 46
-    },
-    {
-      "source": 110,
-      "target": 46
-    },
-    {
-      "source": 113,
-      "target": 46
-    },
-    {
-      "source": 114,
-      "target": 46
-    },
-    {
-      "source": 102,
-      "target": 47
-    },
-    {
-      "source": 102,
-      "target": 48
-    },
-    {
-      "source": 102,
-      "target": 49
-    },
-    {
-      "source": 103,
-      "target": 50
-    },
-    {
-      "source": 104,
-      "target": 51
-    },
-    {
-      "target": 104,
-      "source": 52
-    },
-    {
-      "source": 105,
-      "target": 53
-    },
-    {
-      "target": 105,
-      "source": 54
-    },
-    {
-      "target": 108,
-      "source": 54
-    },
-    {
-      "target": 110,
-      "source": 54
-    },
-    {
-      "source": 114,
-      "target": 54
-    },
-    {
-      "target": 105,
-      "source": 55
-    },
-    {
-      "target": 106,
-      "source": 56
-    },
-    {
-      "target": 108,
-      "source": 57
-    },
-    {
-      "target": 109,
-      "source": 57
-    },
-    {
-      "source": 111,
-      "target": 58
+      "source": 27
     },
     {
       "source": 112,
-      "target": 59
+      "target": 27
     },
     {
-      "target": 112,
-      "source": 60
+      "source": 131,
+      "target": 27
     },
     {
-      "source": 116,
-      "target": 60
+      "source": 132,
+      "target": 27
     },
     {
-      "target": 117,
-      "source": 61
+      "source": 90,
+      "target": 28
     },
     {
-      "target": 118,
-      "source": 62
+      "source": 91,
+      "target": 29
     },
     {
-      "source": 123,
-      "target": 62
+      "target": 113,
+      "source": 29
     },
     {
-      "target": 119,
-      "source": 63
+      "source": 91,
+      "target": 30
     },
     {
-      "source": 125,
-      "target": 63
+      "target": 113,
+      "source": 30
+    },
+    {
+      "target": 114,
+      "source": 30
     },
     {
       "target": 120,
+      "source": 30
+    },
+    {
+      "source": 121,
+      "target": 30
+    },
+    {
+      "source": 91,
+      "target": 31
+    },
+    {
+      "source": 101,
+      "target": 31
+    },
+    {
+      "target": 113,
+      "source": 31
+    },
+    {
+      "target": 114,
+      "source": 31
+    },
+    {
+      "target": 120,
+      "source": 31
+    },
+    {
+      "target": 91,
+      "source": 32
+    },
+    {
+      "target": 93,
+      "source": 32
+    },
+    {
+      "source": 99,
+      "target": 32
+    },
+    {
+      "target": 113,
+      "source": 32
+    },
+    {
+      "target": 114,
+      "source": 32
+    },
+    {
+      "target": 120,
+      "source": 32
+    },
+    {
+      "source": 92,
+      "target": 33
+    },
+    {
+      "source": 93,
+      "target": 34
+    },
+    {
+      "target": 114,
+      "source": 34
+    },
+    {
+      "source": 93,
+      "target": 35
+    },
+    {
+      "target": 114,
+      "source": 35
+    },
+    {
+      "source": 93,
+      "target": 36
+    },
+    {
+      "target": 114,
+      "source": 36
+    },
+    {
+      "source": 93,
+      "target": 37
+    },
+    {
+      "target": 114,
+      "source": 37
+    },
+    {
+      "source": 93,
+      "target": 38
+    },
+    {
+      "target": 114,
+      "source": 38
+    },
+    {
+      "source": 94,
+      "target": 39
+    },
+    {
+      "source": 95,
+      "target": 40
+    },
+    {
+      "target": 115,
+      "source": 40
+    },
+    {
+      "source": 96,
+      "target": 41
+    },
+    {
+      "target": 97,
+      "source": 42
+    },
+    {
+      "source": 98,
+      "target": 43
+    },
+    {
+      "target": 101,
+      "source": 44
+    },
+    {
+      "source": 107,
+      "target": 44
+    },
+    {
+      "source": 108,
+      "target": 44
+    },
+    {
+      "target": 102,
+      "source": 45
+    },
+    {
+      "source": 138,
+      "target": 45
+    },
+    {
+      "source": 104,
+      "target": 46
+    },
+    {
+      "source": 104,
+      "target": 47
+    },
+    {
+      "source": 105,
+      "target": 48
+    },
+    {
+      "target": 105,
+      "source": 49
+    },
+    {
+      "source": 106,
+      "target": 50
+    },
+    {
+      "source": 107,
+      "target": 50
+    },
+    {
+      "source": 108,
+      "target": 50
+    },
+    {
+      "target": 108,
+      "source": 51
+    },
+    {
+      "target": 129,
+      "source": 51
+    },
+    {
+      "source": 109,
+      "target": 52
+    },
+    {
+      "source": 110,
+      "target": 52
+    },
+    {
+      "target": 109,
+      "source": 53
+    },
+    {
+      "target": 110,
+      "source": 53
+    },
+    {
+      "source": 118,
+      "target": 53
+    },
+    {
+      "target": 126,
+      "source": 53
+    },
+    {
+      "target": 128,
+      "source": 53
+    },
+    {
+      "source": 113,
+      "target": 54
+    },
+    {
+      "source": 122,
+      "target": 54
+    },
+    {
+      "source": 125,
+      "target": 54
+    },
+    {
+      "source": 126,
+      "target": 54
+    },
+    {
+      "source": 114,
+      "target": 55
+    },
+    {
+      "source": 114,
+      "target": 56
+    },
+    {
+      "source": 114,
+      "target": 57
+    },
+    {
+      "source": 114,
+      "target": 58
+    },
+    {
+      "source": 114,
+      "target": 59
+    },
+    {
+      "source": 115,
+      "target": 60
+    },
+    {
+      "source": 116,
+      "target": 61
+    },
+    {
+      "target": 116,
+      "source": 62
+    },
+    {
+      "source": 117,
+      "target": 63
+    },
+    {
+      "target": 117,
+      "source": 64
+    },
+    {
+      "target": 120,
+      "source": 64
+    },
+    {
+      "target": 122,
       "source": 64
     },
     {
@@ -2047,12 +2233,72 @@
       "target": 64
     },
     {
-      "source": 121,
-      "target": 65
+      "target": 117,
+      "source": 65
     },
     {
-      "source": 127,
-      "target": 66
+      "target": 118,
+      "source": 66
+    },
+    {
+      "target": 120,
+      "source": 67
+    },
+    {
+      "target": 121,
+      "source": 67
+    },
+    {
+      "source": 123,
+      "target": 68
+    },
+    {
+      "source": 124,
+      "target": 69
+    },
+    {
+      "target": 124,
+      "source": 70
+    },
+    {
+      "source": 128,
+      "target": 70
+    },
+    {
+      "source": 129,
+      "target": 71
+    },
+    {
+      "target": 131,
+      "source": 72
+    },
+    {
+      "source": 137,
+      "target": 72
+    },
+    {
+      "target": 132,
+      "source": 73
+    },
+    {
+      "source": 139,
+      "target": 73
+    },
+    {
+      "target": 133,
+      "source": 74
+    },
+    {
+      "source": 140,
+      "target": 74
+    },
+    {
+      "source": 134,
+      "target": 75
+    },
+    {
+      "source": 142,
+      "target": 76
     }
   ],
   "directed": false,

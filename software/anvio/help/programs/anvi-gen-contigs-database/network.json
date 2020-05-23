@@ -7,16 +7,16 @@
       "color": "#00AA00",
       "id": "contigs-db",
       "name": "contigs-db",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "contigs-fasta",
       "name": "contigs-fasta",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "FASTA"
     },
     {
@@ -25,7 +25,7 @@
       "color": "#AA0000",
       "id": "external-gene-calls",
       "name": "external-gene-calls",
-      "internal": false,
+      "provided_by_anvio": false,
       "type": "TXT"
     },
     {

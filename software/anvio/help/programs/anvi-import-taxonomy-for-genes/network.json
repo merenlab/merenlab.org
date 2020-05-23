@@ -7,7 +7,7 @@
       "color": "#00AA00",
       "id": "gene-taxonomy",
       "name": "gene-taxonomy",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
@@ -16,16 +16,16 @@
       "color": "#00AA00",
       "id": "contigs-db",
       "name": "contigs-db",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "gene-taxonomy-txt",
       "name": "gene-taxonomy-txt",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "TXT"
     },
     {

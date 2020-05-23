@@ -14,7 +14,7 @@ image:
 
 <img src="../../images/icons/FASTA.png" alt="FASTA" style="width:100px; border:none" />
 
-A FASTA-type anvi'o artifact. It is typically provided by the user.
+A FASTA-type anvi'o artifact. This artifact is typically generated, used, and/or exported **by anvi'o** (and not provided by the user)..
 
 [Back to help main page](../../)
 

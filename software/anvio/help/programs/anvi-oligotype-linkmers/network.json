@@ -3,11 +3,11 @@
   "nodes": [
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "oligotypes",
       "name": "oligotypes",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "CONCEPT"
     },
     {
@@ -16,7 +16,7 @@
       "color": "#AA0000",
       "id": "linkmers-txt",
       "name": "linkmers-txt",
-      "internal": false,
+      "provided_by_anvio": false,
       "type": "TXT"
     },
     {

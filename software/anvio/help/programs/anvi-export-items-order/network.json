@@ -3,29 +3,29 @@
   "nodes": [
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "misc-data-item-orders-txt",
       "name": "misc-data-item-orders-txt",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "TXT"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "dendrogram",
       "name": "dendrogram",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "NEWICK"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
+      "score": 0.5,
+      "color": "#00AA00",
       "id": "phylogeny",
       "name": "phylogeny",
-      "internal": false,
+      "provided_by_anvio": true,
       "type": "NEWICK"
     },
     {
@@ -34,7 +34,7 @@
       "color": "#00AA00",
       "id": "genes-db",
       "name": "genes-db",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {
@@ -43,7 +43,7 @@
       "color": "#00AA00",
       "id": "pan-db",
       "name": "pan-db",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {
@@ -52,7 +52,7 @@
       "color": "#00AA00",
       "id": "profile-db",
       "name": "profile-db",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DB"
     },
     {

@@ -7,7 +7,7 @@
       "color": "#00AA00",
       "id": "pfams-data",
       "name": "pfams-data",
-      "internal": true,
+      "provided_by_anvio": true,
       "type": "DATA"
     },
     {
