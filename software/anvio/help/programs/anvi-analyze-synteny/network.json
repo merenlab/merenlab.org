@@ -14,8 +14,8 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "contigs-db",
-      "name": "contigs-db",
+      "id": "genomes-storage-db",
+      "name": "genomes-storage-db",
       "provided_by_anvio": true,
       "type": "DB"
     },
@@ -23,13 +23,22 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "genomes-storage-db",
-      "name": "genomes-storage-db",
+      "id": "functions",
+      "name": "functions",
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "pan-db",
+      "name": "pan-db",
       "provided_by_anvio": true,
       "type": "DB"
     },
     {
-      "size": 3,
+      "size": 4,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-analyze-synteny",
@@ -39,16 +48,20 @@
   ],
   "links": [
     {
-      "source": 3,
+      "source": 4,
       "target": 0
     },
     {
-      "target": 3,
+      "target": 4,
       "source": 1
     },
     {
-      "target": 3,
+      "target": 4,
       "source": 2
+    },
+    {
+      "target": 4,
+      "source": 3
     }
   ],
   "directed": false,
