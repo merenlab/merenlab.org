@@ -6,9 +6,17 @@ comments: false
 image:
   featurerelative: images/header.png
   display: true
+redirect_from:
+    - /help
 ---
 
-A complete list of current anvi'o programs and artifacts.
+On this page you will find a complete list of anvi'o programs and artifacts.
+
+{:.notice}
+Visit <a href="http://merenlab.org/2019/10/07/getting-help/">this page</a> to learn <b>how to get help from the anvi'o community</b>.
+
+{:.notice}
+Visit <a href="http://merenlab.org/software/anvio/vignette/">this page</a> to see a complete <b>list of anvi'o programs and their command line arguments</b>.
 
 
 {% include _project-anvio-version.html %}
@@ -17,7 +25,7 @@ A complete list of current anvi'o programs and artifacts.
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **23 May 20 18:32:48** for anvi'o version **6.2-master (esther)**.
+The help contents were last updated on **31 May 20 15:10:51** for anvi'o version **6.2-master (esther)**.
 
 
 {% include _toc.html %}

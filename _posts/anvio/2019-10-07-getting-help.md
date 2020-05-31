@@ -8,7 +8,6 @@ categories: [anvio]
 comments: true
 redirect_from:
   - /2015/10/14/anvio-discussion-group/
-  - /help
 ---
 
 {% include _toc.html %}
@@ -30,6 +29,10 @@ This post is for you if you would like to have a better idea about how to,
 # Getting help from anvi'o
 
 The purpose of this section is to introduce you to resources from which you can get **online or offline help to better use anvi'o by yourself**, without reaching out to another person.
+
+## Browse anvi'o programs and artifacts online
+
+Please visit [this page](/software/anvio/help/) for online help for anvi'o programs and artifacts.
 
 ## Query anvi'o programs offline
 
