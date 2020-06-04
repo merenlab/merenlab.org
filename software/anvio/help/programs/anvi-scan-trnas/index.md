@@ -22,7 +22,7 @@ See **[program help menu](../../../vignette#anvi-scan-trnas)** or go back to the
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[trna-genes](../../artifacts/trna-genes)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[hmm-hits](../../artifacts/hmm-hits)</span></p>
 
 ## Requires or uses
 

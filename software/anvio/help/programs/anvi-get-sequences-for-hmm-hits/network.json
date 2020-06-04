@@ -57,11 +57,11 @@
     },
     {
       "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
+      "score": 1,
+      "color": "#AA0000",
       "id": "hmm-source",
       "name": "hmm-source",
-      "provided_by_anvio": true,
+      "provided_by_anvio": false,
       "type": "HMM"
     },
     {
