@@ -5,8 +5,8 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "trna-genes",
-      "name": "trna-genes",
+      "id": "hmm-hits",
+      "name": "hmm-hits",
       "provided_by_anvio": true,
       "type": "CONCEPT"
     },

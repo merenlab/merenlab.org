@@ -21,7 +21,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-estimate-kegg-metabolism](../../programs/anvi-estimate-kegg-metabolism)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-display-kegg-metabolism](../../programs/anvi-display-kegg-metabolism)</span> <span class="artifact-p">[anvi-estimate-kegg-metabolism](../../programs/anvi-estimate-kegg-metabolism)</span></p>
 
 
 ## Required or used by

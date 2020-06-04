@@ -1,6 +1,6 @@
 ---
 layout: post
-title: hmm-profile [artifact]
+title: hmm-hits [artifact]
 categories: [anvio]
 comments: false
 image:
@@ -21,7 +21,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-run-hmms](../../programs/anvi-run-hmms)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-run-hmms](../../programs/anvi-run-hmms)</span> <span class="artifact-p">[anvi-scan-trnas](../../programs/anvi-scan-trnas)</span></p>
 
 
 ## Required or used by
@@ -30,6 +30,9 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
+The search results for an <span class="artifact-n">[hmm-source](/software/anvio/help/artifacts/hmm-source)</span> in a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>.
+
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "hmm-profile.md". Its contents will replace this sad text. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/hmm-hits.md) to update this information.
 

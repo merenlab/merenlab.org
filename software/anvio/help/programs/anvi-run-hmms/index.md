@@ -22,7 +22,7 @@ See **[program help menu](../../../vignette#anvi-run-hmms)** or go back to the *
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[hmm-profile](../../artifacts/hmm-profile)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[hmm-hits](../../artifacts/hmm-hits)</span></p>
 
 ## Requires or uses
 
@@ -31,8 +31,13 @@ See **[program help menu](../../../vignette#anvi-run-hmms)** or go back to the *
 ## Usage
 
 
+Stores <span class="artifact-n">[hmm-hits](/software/anvio/help/artifacts/hmm-hits)</span> for a given <span class="artifact-n">[hmm-source](/software/anvio/help/artifacts/hmm-source)</span> in a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>.
+
+One of the programs that users commonly run on newly generated <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>, along with <span class="artifact-n">[anvi-scan-trnas](/software/anvio/help/programs/anvi-scan-trnas)</span>, <span class="artifact-n">[anvi-run-ncbi-cogs](/software/anvio/help/programs/anvi-run-ncbi-cogs)</span>, <span class="artifact-n">[anvi-run-scg-taxonomy](/software/anvio/help/programs/anvi-run-scg-taxonomy)</span>, and so on.
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-run-hmms.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-run-hmms.md) to update this information.
 
 
 ## Additional Resources
