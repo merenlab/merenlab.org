@@ -26,7 +26,7 @@ Most likely provided by the user.
 
 ## Required or used by
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-compute-genome-similarity](../../programs/anvi-compute-genome-similarity)</span> <span class="artifact-r">[anvi-dereplicate-genomes](../../programs/anvi-dereplicate-genomes)</span> <span class="artifact-r">[anvi-gen-genomes-storage](../../programs/anvi-gen-genomes-storage)</span> <span class="artifact-r">[anvi-get-sequences-for-hmm-hits](../../programs/anvi-get-sequences-for-hmm-hits)</span> <span class="artifact-r">[anvi-meta-pan-genome](../../programs/anvi-meta-pan-genome)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-compute-genome-similarity](../../programs/anvi-compute-genome-similarity)</span> <span class="artifact-r">[anvi-dereplicate-genomes](../../programs/anvi-dereplicate-genomes)</span> <span class="artifact-r">[anvi-estimate-metabolism](../../programs/anvi-estimate-metabolism)</span> <span class="artifact-r">[anvi-gen-genomes-storage](../../programs/anvi-gen-genomes-storage)</span> <span class="artifact-r">[anvi-get-sequences-for-hmm-hits](../../programs/anvi-get-sequences-for-hmm-hits)</span> <span class="artifact-r">[anvi-meta-pan-genome](../../programs/anvi-meta-pan-genome)</span></p>
 
 ## Description
 
@@ -44,7 +44,8 @@ Internal genomes file format enables anvi'o to work with one or more bins from o
 {:.warning}
 Please make sure names in the `name` column does not include any special characters (underscore is fine). It is also a good idea to keep these names short and descriptive as they will appear in various figures in downstream analyses.
 
-Also see, **<span class="artifact-n">[external-genomes](/software/anvio/help/artifacts/external-genomes)</span>**.
+Also see, **<span class="artifact-n">[external-genomes](/software/anvio/help/artifacts/external-genomes)</span>** and **<span class="artifact-n">[metagenomes](/software/anvio/help/artifacts/metagenomes)</span>**.
+
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/internal-genomes.md) to update this information.

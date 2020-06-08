@@ -26,7 +26,7 @@ See **[program help menu](../../../vignette#anvi-estimate-scg-taxonomy)** or go 
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[profile-db](../../artifacts/profile-db)</span> <span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[scgs-taxonomy](../../artifacts/scgs-taxonomy)</span> <span class="artifact-r">[collection](../../artifacts/collection)</span> <span class="artifact-r">[bin](../../artifacts/bin)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[profile-db](../../artifacts/profile-db)</span> <span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[scgs-taxonomy](../../artifacts/scgs-taxonomy)</span> <span class="artifact-r">[collection](../../artifacts/collection)</span> <span class="artifact-r">[bin](../../artifacts/bin)</span> <span class="artifact-r">[metagenomes](../../artifacts/metagenomes)</span></p>
 
 ## Usage
 
