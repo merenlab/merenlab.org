@@ -26,10 +26,17 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Required or used by
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-estimate-kegg-metabolism](../../programs/anvi-estimate-kegg-metabolism)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-display-kegg-metabolism](../../programs/anvi-display-kegg-metabolism)</span> <span class="artifact-r">[anvi-estimate-metabolism](../../programs/anvi-estimate-metabolism)</span></p>
 
 ## Description
 
+[Kegg Orthology](https://www.genome.jp/kegg/ko.html) (KO) functional annotations, produced by finding HMM hits to the KEGG KOfam database.
+
+You can annotate a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> with these KEGG functions by running <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/programs/anvi-run-kegg-kofams)</span>.
+
+Another program that relies on these annotations is <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/programs/anvi-estimate-metabolism)</span>, which uses them to determine presence and completeness of metabolic pathways that are defined by KOs.
+
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "kegg-functions.md". Its contents will replace this sad text. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/kegg-functions.md) to update this information.
 

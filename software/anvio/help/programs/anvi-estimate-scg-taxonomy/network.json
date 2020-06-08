@@ -65,7 +65,16 @@
       "type": "BIN"
     },
     {
-      "size": 7,
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "metagenomes",
+      "name": "metagenomes",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 8,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-estimate-scg-taxonomy",
@@ -75,32 +84,36 @@
   ],
   "links": [
     {
-      "source": 7,
+      "source": 8,
       "target": 0
     },
     {
-      "source": 7,
+      "source": 8,
       "target": 1
     },
     {
-      "target": 7,
+      "target": 8,
       "source": 2
     },
     {
-      "target": 7,
+      "target": 8,
       "source": 3
     },
     {
-      "target": 7,
+      "target": 8,
       "source": 4
     },
     {
-      "target": 7,
+      "target": 8,
       "source": 5
     },
     {
-      "target": 7,
+      "target": 8,
       "source": 6
+    },
+    {
+      "target": 8,
+      "source": 7
     }
   ],
   "directed": false,
