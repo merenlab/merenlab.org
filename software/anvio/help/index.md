@@ -25,7 +25,7 @@ Visit <a href="http://merenlab.org/software/anvio/vignette/">this page</a> to se
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **08 Jun 20 15:32:09** for anvi'o version **6.2-master (esther)**.
+The help contents were last updated on **09 Jun 20 09:21:03** for anvi'o version **6.2-master (esther)**.
 
 
 {% include _toc.html %}
@@ -64,7 +64,7 @@ Listed below a total of 70 programs.
 <span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span>.</span>
 
 
-* **[anvi-display-kegg-metabolism](programs/anvi-display-kegg-metabolism)**: Start the anvi&#39;o interactive interactive for viewing KEGG metabolism data.
+* **[anvi-display-metabolism](programs/anvi-display-metabolism)**: Start the anvi&#39;o interactive interactive for viewing KEGG metabolism data.
 <span>**Provides**: <span class="artifact-p">[interactive](artifacts/interactive)</span> / 
 <span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[kegg-db](artifacts/kegg-db)</span> <span class="artifact-r">[kegg-functions](artifacts/kegg-functions)</span> <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[collection](artifacts/collection)</span> <span class="artifact-r">[bin](artifacts/bin)</span>.</span>
 
