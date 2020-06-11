@@ -25,7 +25,7 @@ Visit <a href="http://merenlab.org/software/anvio/vignette/">this page</a> to se
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **09 Jun 20 09:21:03** for anvi'o version **6.2-master (esther)**.
+The help contents were last updated on **11 Jun 20 16:22:15** for anvi'o version **6.2-master (esther)**.
 
 
 {% include _toc.html %}
@@ -64,9 +64,9 @@ Listed below a total of 70 programs.
 <span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span>.</span>
 
 
-* **[anvi-display-metabolism](programs/anvi-display-metabolism)**: Start the anvi&#39;o interactive interactive for viewing KEGG metabolism data.
-<span>**Provides**: <span class="artifact-p">[interactive](artifacts/interactive)</span> / 
-<span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[kegg-db](artifacts/kegg-db)</span> <span class="artifact-r">[kegg-functions](artifacts/kegg-functions)</span> <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[collection](artifacts/collection)</span> <span class="artifact-r">[bin](artifacts/bin)</span>.</span>
+* **[anvi-display-kegg-metabolism](programs/anvi-display-kegg-metabolism)**: Start the anvi&#39;o interactive interactive for viewing KEGG metabolism data.
+<span>**Provides**: <span class="artifact-p">[kegg-metabolism](artifacts/kegg-metabolism)</span> <span class="artifact-p">[interactive](artifacts/interactive)</span> / 
+<span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span>.</span>
 
 
 * **[anvi-display-pan](programs/anvi-display-pan)**: Start an anvi&#39;o server to display a pan-genome.
@@ -84,7 +84,7 @@ Listed below a total of 70 programs.
 <span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[external-genomes](artifacts/external-genomes)</span> <span class="artifact-r">[collection](artifacts/collection)</span>.</span>
 
 
-* **[anvi-estimate-metabolism](programs/anvi-estimate-metabolism)**: Reconstructs metabolic pathways and estimates pathway completeness for a given set of contigs.
+* **[anvi-estimate-metabolism](programs/anvi-estimate-metabolism)**: Reconstructs metabolic pathways and estimates pathway completeness for a given set of contigs..
 <span>**Provides**: <span class="artifact-p">[kegg-metabolism](artifacts/kegg-metabolism)</span> / 
 <span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[kegg-db](artifacts/kegg-db)</span> <span class="artifact-r">[kegg-functions](artifacts/kegg-functions)</span> <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[collection](artifacts/collection)</span> <span class="artifact-r">[bin](artifacts/bin)</span> <span class="artifact-r">[external-genomes](artifacts/external-genomes)</span> <span class="artifact-r">[internal-genomes](artifacts/internal-genomes)</span> <span class="artifact-r">[metagenomes](artifacts/metagenomes)</span>.</span>
 
@@ -309,7 +309,7 @@ Listed below a total of 70 programs.
 <span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[hmm-source](artifacts/hmm-source)</span>.</span>
 
 
-* **[anvi-run-kegg-kofams](programs/anvi-run-kegg-kofams)**: Run KOfam HMMs on an anvi&#39;o contigs database.
+* **[anvi-run-kegg-kofams](programs/anvi-run-kegg-kofams)**: Run KOfam HMMs on an anvi&#39;o contigs database..
 <span>**Provides**: <span class="artifact-p">[kegg-functions](artifacts/kegg-functions)</span> / 
 <span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[kegg-db](artifacts/kegg-db)</span>.</span>
 
@@ -339,7 +339,7 @@ Listed below a total of 70 programs.
 <span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[genomes-storage-db](artifacts/genomes-storage-db)</span>.</span>
 
 
-* **[anvi-setup-kegg-kofams](programs/anvi-setup-kegg-kofams)**: Download and setup KEGG KOfam HMM profiles.
+* **[anvi-setup-kegg-kofams](programs/anvi-setup-kegg-kofams)**: Download and setup KEGG KOfam HMM profiles..
 <span>**Provides**: <span class="artifact-p">[kegg-db](artifacts/kegg-db)</span> / 
 <span>**Requires**: .</span>
 

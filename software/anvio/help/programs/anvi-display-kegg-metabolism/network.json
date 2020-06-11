@@ -1,0 +1,56 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "kegg-metabolism",
+      "name": "kegg-metabolism",
+      "provided_by_anvio": true,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "interactive",
+      "name": "interactive",
+      "provided_by_anvio": true,
+      "type": "DISPLAY"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "contigs-db",
+      "name": "contigs-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 3,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-display-kegg-metabolism",
+      "name": "anvi-display-kegg-metabolism",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "source": 3,
+      "target": 0
+    },
+    {
+      "source": 3,
+      "target": 1
+    },
+    {
+      "target": 3,
+      "source": 2
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}
