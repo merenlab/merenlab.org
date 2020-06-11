@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Download and setup KEGG KOfam HMM profiles.
+Download and setup KEGG KOfam HMM profiles..
 
 See **[program help menu](../../../vignette#anvi-setup-kegg-kofams)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
