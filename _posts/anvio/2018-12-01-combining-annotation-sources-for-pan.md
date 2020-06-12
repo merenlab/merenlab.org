@@ -150,7 +150,7 @@ cat all_refs.fa *_clean.fa > all_genomes.fa
 ```
 
 {:.notice}
-Here is where the command-line stuff is going to start getting a little heavy. If you aren't comfortable with it yet, and want to get better acquainted (which is infitely worthwhile if you are going to be doing this stuff at all regularly), a great place to start is [here](https://astrobiomike.github.io/unix/unix-intro) :) 
+Here is where the command-line stuff is going to start getting a little heavy. If you aren't comfortable with it yet, and want to get better acquainted (which is *infinitely* worthwhile if you are going to be doing this stuff at all regularly), a great place to start is [here](https://astrobiomike.github.io/unix/unix-intro) :) 
 
 Here we are going to parse the gff files from `prodigal` to match the formatting for the anvi'o external gene calls file. This is a tab-delimited file (with a header) with 6 columns: "gene_callers_id", "contig", "start", "stop", "direction", "partial", "source", and "version". Here is one way to build those last 5 columns: 
 
