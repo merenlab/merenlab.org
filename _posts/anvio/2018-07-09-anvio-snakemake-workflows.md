@@ -253,7 +253,7 @@ The workflow includes the following steps:
 
 1. Quality control of metagenomic short reads using [illumina-utils](https://github.com/merenlab/illumina-utils/), and generating a comprehensive final report for the results of this step (so you have your Supplementary Table 1 ready).
 
-2. Taxonomical profiling of short reads using [krakenuniq](https://github.com/fbreitwieser/krakenuniq). These provide relative abundance of taxons in each metagenome. These profiles are also imported into individual profile databases, and are available in the merged profile database (for more details about this, refer to the [release notes of anvi'o version 5.1](https://github.com/merenlab/anvio/releases/tag/v5.1)). THIS IS ONLY AVAILABLE IN THE `master` version on github, and it will be available in the next release of anvi'o.
+2. Taxonomical profiling of short reads using [krakenuniq](https://github.com/fbreitwieser/krakenuniq). These profiles are also imported into individual profile databases, and are available in the merged profile database (for more details about this, refer to the [release notes of anvi'o version 5.1](https://github.com/merenlab/anvio/releases/tag/v5.1)). 
 
 2. Individual or combined assembly of quality filtered metagenomic reads using either [megahit](https://github.com/voutcn/megahit), [metaspades](http://cab.spbu.ru/software/spades/), or [idba_ud](https://github.com/loneknightpy/idba).
 
