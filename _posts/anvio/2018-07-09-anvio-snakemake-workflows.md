@@ -102,9 +102,9 @@ So this is the general introduction to the config file. In the next chapter you 
 
 <div class="extra-info" markdown="1">
 
-<span class="extra-info-header">Merging paired-end fastq files</span>
+<span class="extra-info-header">Merging paired-end FASTQ files</span>
 
-If multiple paired-end reads fastq files correspond to the same sample, they can be listed separated by a comma (with no space). This could be relevant, for example, if one sample was sequenced in multiple runs. Let's take a `samples_txt` with three samples, but assume that `sample_01` was sequenced twice. The `samples_txt` file would then look like this (notice the second line of the file):
+If multiple paired-end reads FASTQ files correspond to the same sample, they can be listed separated by a comma (with no space). This could be relevant, for example, if one sample was sequenced in multiple runs. Let's take a `samples_txt` with three samples, but assume that `sample_01` was sequenced twice. The `samples_txt` file would then look like this (notice the second line of the file):
 
 ```
 sample     group  r1                                             r2
@@ -114,7 +114,7 @@ sample_03  G02    sample-03-R1.fastq.gz                          sample-03-R2.fa
 ```
 
 {:.notice}
-If your fastq files are already quality filtered, and you didn't do it with this workflow, and you wish to skip the quality filtering step, **AND** for some reason you didn't already merge the fastq files that should be merged together, then you must do so manually, and then provide only one `r1` file and one `r2` file per sample. 
+If your FASTQ files are already quality filtered, and you didn't do it with this workflow, and you wish to skip the quality filtering step, **AND** for some reason you didn't already merge the FASTQ files that should be merged together, then you must do so manually, and then provide only one `r1` file and one `r2` file per sample. 
 
 </div>
 
@@ -122,7 +122,7 @@ To see how this file is used, you can take a look at the metagenomics workflow i
 
 ## fasta.txt
 
-`fasta.txt` is a file that holds a name and a path to fasta files that are needed as input for a workflow. You can see an example of how these are used in the [contigs workflow](#contigs-workflow), [pangenomics workflow](#pangenomics-workflow), or the [reference mode](#references-mode) of the metagenomics workflow. Here is an example file:
+`fasta.txt` is a file that holds a name and a path to FASTA files that are needed as input for a workflow. You can see an example of how these are used in the [contigs workflow](#contigs-workflow), [pangenomics workflow](#pangenomics-workflow), or the [reference mode](#references-mode) of the metagenomics workflow. Here is an example file:
 
 ```bash
 name	path
@@ -131,7 +131,7 @@ ANOTHER_NAME	relative/path/fasta_02.fa.gz
 ```
 
 {:.notice}
-Notice that one of the files above has a `.gz` suffix. The files could either be compressed or not, and the workflow will deal with that for you, so that you could keep your fasta files compressed and hence take less storage room on your machine.
+Notice that one of the files above has a `.gz` suffix. The files could either be compressed or not, and the workflow will deal with that for you, so that you could keep your FASTA files compressed and hence take less storage room on your machine.
 
 # Mock Data
 
@@ -185,6 +185,8 @@ and you could examine its content to find out all possible options to tweak. We 
 
 ```json
 {
+	 "workflow_name": "contigs",
+    "config_version": 1,
     "fasta_txt": "fasta.txt",
     "output_dirs": {
         "FASTA_DIR":   "01_FASTA_contigs_workflow",
@@ -289,6 +291,8 @@ In your working directory there is a config file `config-idba_ud.json`; let's ta
 
 ```
 {
+    "workflow_name": "metagenomics",
+    "config_version": 1,
     "samples_txt": "samples.txt",
     "idba_ud": {
         "--min_contig": 1000,
@@ -336,7 +340,8 @@ But there are some general things you can notice:
  - **parameters with an empty value (`""`)** - Many of the parameters in the default config file get an empty value. This means that the default parameter that is provided by the underlying program will be used. For example, the rule `anvi_gen_contigs_database` is responsible for running `anvi-gen-contigs-database` (we tried giving intuitive names for rules :-)). Below you can see all the available configurations for `anvi_gen_contigs_database`. Let's take the parameter `--split-length` as an example. By refering to the help menu of `anvi-gen-contigs-database` you will find that the default for `--split-length` is 20,000, and this default value will be used by `anvi-gen-contigs-database` if nothing was supplied in the config file.
 You may notice another interesting thing, which is that the value for `--project-name` is `"{group}"`. This is a little magic trick to make it so that the project name in your contigs database would be indentical to the group name that you supplied in the config file. If you wish to understand this syntax, you may read about [the snakemake wildcards](http://snakemake.readthedocs.io/en/stable/snakefiles/rules.html#wildcards).
 
-```
+``` json
+    (...)
     "anvi_gen_contigs_database": {
         "--project-name": "{group}",
         "threads": 5,
@@ -349,6 +354,7 @@ You may notice another interesting thing, which is that the value for `--project
         "--split-length": "",
         "--kmer-size": ""
     },
+    (...)
 ```
 
 </div>
@@ -453,7 +459,8 @@ The default directory structure that will appear in the working directory includ
 
 Don't like these names? You can specify the name of the folder by providing the following information in the config file:
 
-```
+``` json
+    (...)
     "output_dirs": {
         "LOGS_DIR"    : "00_MY_beAuTiFul_LOGS",
         "QC_DIR"      : "BEST_QC_DIR_EVER",
@@ -463,6 +470,7 @@ Don't like these names? You can specify the name of the folder by providing the 
         "PROFILE_DIR" : "/I/already/did/my/profiling/and/this/is/where/you/can/find/it/",
         "MERGE_DIR".  : "06_Keep_Calm_and_Merge_On"
     }
+    (...)
 ```
 
 You can change all, or just some of the names of these output folders. And you can provide an absolute or a relative path for them.
@@ -488,6 +496,8 @@ In your working directory you can find an updated config file `config-idba_ud-al
 
 ```json
 {
+    "workflow_name": "metagenomics",
+    "config_version": 1,
     "samples_txt": "samples.txt",
     "idba_ud": {
         "--min_contig": 1000,
@@ -524,20 +534,22 @@ If you are new to **snakemake**, you might be surprised to see how easy it is to
 This mode is used when you have one or more genomes, and one or more metagenomes from which you wish to recruit reads using your genomes.
 
 Along with assembly-based metagenomics, we often use anvi'o to explore the occurrence of population genomes accross metagenomes. A good example of how useful this approach could be is described in this blogpost: [DWH O. desum v2: Most abundant Oceanospirillaceae population in the Deepwater Horizon Oil Plume](http://merenlab.org/2017/11/25/DWH-O-desum-v2/).
-For this mode, what you have is a bunch of fastq files (metagenomes) and fasta files (reference genomes), and all you need to do is to let the workflow know where to find these files, using two `.txt` files: `samples_txt`, and `fasta_txt`. 
+For this mode, what you have is a bunch of FASTQ files (metagenomes) and FASTA files (reference genomes), and all you need to do is to let the workflow know where to find these files, using two `.txt` files: `samples_txt`, and `fasta_txt`. 
 
-`fasta_txt` should be a 2 column tab-separated file, where the first column specifies a reference name and the second column specifies the filepath of the fasta file for that reference.
+`fasta_txt` should be a 2 column tab-separated file, where the first column specifies a reference name and the second column specifies the filepath of the FASTA file for that reference.
 
 After properly formatting your `samples_txt` and `fasta_txt`, reference mode is initiated by adding these to your config file:
 
 ```
+(...)
 "fasta_txt": "fasta.txt",
 "references_mode": true
+(...)
 ```
 
 The `samples_txt` stays as before, but this time the `group` column will specify for each sample, which reference should be used (aka the name of the reference as defined in the first column of `fasta_txt`). If the `samples_txt` file doesn't have a `group` column, then an ["all against all"](#all-against-all-mode) mode would be provoked. 
 
-First let's set up the reference fasta files:
+First let's set up the reference FASTA files:
 
 ```bash
 gunzip three_samples_example/*.fa.gz
@@ -553,6 +565,8 @@ G02     three_samples_example/G02-contigs.fa
 
 $ cat config-references-mode.json
 {
+    "workflow_name": "metagenomics",
+    "config_version": 1,
     "fasta_txt": "fasta.txt",
     "references_mode": true,
     "output_dirs": {
@@ -594,6 +608,7 @@ If you wish to utilize automatic binning algorithms, you can use [anvi-cluster-c
 The configuration parameters for the `anvi_cluster_contigs` rule look like this by default:
 
 ```json
+    (...)
     "anvi_cluster_contigs": {
         "run": "",
         "--driver": "",
@@ -606,6 +621,7 @@ The configuration parameters for the `anvi_cluster_contigs` rule look like this 
         "--additional-params-binsanity": "",
         "threads": ""
     },
+    (...)
 ```
 
 Let's go over how to work with these:
@@ -617,7 +633,7 @@ Let's go over how to work with these:
 
 ### Generating summary and split profiles
 
-As of anvi'o v5.3, you can also configure the workflow to import collections and generate a summary and/or split your profile database (using `anvi-split`). If you are running the workflow and plan to do binning, then you would usually not have a collection yet. But often we already have a collection ready (e.g. if you are re-profiling things for some reason, or if you are performing mapping and profiling on a fasta file that was generated by merging a bunch of genomes into one fasta).
+As of anvi'o v5.3, you can also configure the workflow to import collections and generate a summary and/or split your profile database (using `anvi-split`). If you are running the workflow and plan to do binning, then you would usually not have a collection yet. But often we already have a collection ready (e.g. if you are re-profiling things for some reason, or if you are performing mapping and profiling on a FASTA file that was generated by merging a bunch of genomes into one fasta).
 
 In order for the workflow to import a collection into a merged profile database you need to provide a `collections.txt` file in the following manner:
 
@@ -652,6 +668,8 @@ Let's run a mock example. We can update the config file for [references mode](#r
 
 ```json
 {
+    "workflow_name": "metagenomics",
+    "config_version": 1,
     "fasta_txt": "fasta.txt",
     "references_mode": true,
     "collections_txt": "collections.txt",
@@ -685,31 +703,33 @@ G02	MOCK	MOCK-collection.txt	MOCK-collection-info.txt
 
 Once we run this, we can find the summary in the following directory: `08_SUMMARY/G02-SUMMARY/`.
 
-And for each bin in `MOCK-collection.txt` we have a direcotry under: `09_SPLIT_PROFILES/G02/`.
+And for each bin in `MOCK-collection.txt` we have a directory under: `09_SPLIT_PROFILES/G02/`.
 
 ### Reference-based short read removal
 
-As of anvi'o v5.3, we added a feature for removing short reads based on mapping to reference fasta files.
-The purpose of this feature is to allow you to filter reads that match certain reference genomes. As you will see below, you can also use this feature to just quantify the reads that match these reference fasta, without removing these reads from the fastq files (see `dont_remove_just_map`).
+As of anvi'o v5.3, we added a feature for removing short reads based on mapping to reference FASTA files.
+The purpose of this feature is to allow you to filter reads that match certain reference genomes. As you will see below, you can also use this feature to just quantify the reads that match these reference FASTA, without removing these reads from the FASTQ files (see `dont_remove_just_map`).
 
 This step is performed by the rule `remove_short_reads_based_on_references`. By default, this rule will not run.
 
 Here are the default parameters for this rule:
 
 ```
+    (...)
     "remove_short_reads_based_on_references": {
         "delimiter-for-iu-remove-ids-from-fastq": " ",
         "dont_remove_just_map": "",
         "references_for_removal_txt": "",
         "threads": ""
     },
+    (...)
 ```
 
 Let's go over the parameters of this rule:
 
 `references_for_removal_txt` - This is a table similar to the `fasta.txt` file, with two columns: `reference` and `path`. This rule is performed if and only if a table text file was supplied using this parameter.
 
-`dont_remove_just_map` - If you set this parameter to `true`, then the mapping will be performed in order to count the number of reads in each sample that matched the references in your `references_for_removal_txt`, but that's it (i.e. these reads will not be removed from your fastq files). The reason we decided to add this feature is to let you assess the number of reads that probably match these references, without risking losing reads that actually matter to you. More specifically, this way the assembly step has access to all the reads that were in the fastq file. You can see the note by Brian Bushnell [here](http://seqanswers.com/forums/showthread.php?t=42552) for an example as to why you wouldn't want to remove short reads (in the method we use for removing them) before your assembly.
+`dont_remove_just_map` - If you set this parameter to `true`, then the mapping will be performed in order to count the number of reads in each sample that matched the references in your `references_for_removal_txt`, but that's it (i.e. these reads will not be removed from your FASTQ files). The reason we decided to add this feature is to let you assess the number of reads that probably match these references, without risking losing reads that actually matter to you. More specifically, this way the assembly step has access to all the reads that were in the FASTQ file. You can see the note by Brian Bushnell [here](http://seqanswers.com/forums/showthread.php?t=42552) for an example as to why you wouldn't want to remove short reads (in the method we use for removing them) before your assembly.
 
 `delimiter-for-iu-remove-ids-from-fastq` - this allows you to set the `--delimiter` for `iu-remove-ids-from-fastq`, which is the program we use for the removal of short reads. Refer to the manual (by running `iu-remove-ids-from-fastq -h`) to better understand this feature. By default we set the `--delimiter` to a single space `" "` (we found it to be useful sometimes and harmless in other cases).
 
@@ -727,6 +747,8 @@ We can modify the config from the [References Mode](#references-mode) section ab
 
 ```json
 {
+    "workflow_name": "metagenomics",
+    "config_version": 1,
     "fasta_txt": "fasta.txt",
     "references_mode": true,
     "remove_short_reads_based_on_references": {
@@ -779,10 +801,12 @@ Running a [pangenomic workflow](http://merenlab.org/2016/11/08/pangenomics-v2/) 
 
 ### With external genomes
 
-All you need are a bunch of fasta files, and a `fasta_txt`, formatted in the same manner that is described [above in references mode](#references-mode). In your working directory you can find the config `config-pangenomics.json`:
+All you need are a bunch of FASTA files, and a `fasta_txt`, formatted in the same manner that is described [above in references mode](#references-mode). In your working directory you can find the config `config-pangenomics.json`:
 
 ```
 {
+    "workflow_name": "pangenomics",
+    "config_version": 1,
     "project_name": "MYPAN",
     "external_genomes": "my-external-genomes.txt",
     "fasta_txt": "fasta.txt",
@@ -842,6 +866,8 @@ In your working directory you have a config file `config-pangenomics-internal-ge
 
 ```json
 {
+    "workflow_name": "pangenomics",
+    "config_version": 1,
     "project_name": "MYPAN-INTERNAL",
     "internal_genomes": "my-internal-genomes.txt",
     "output_dirs": {
@@ -888,6 +914,8 @@ We can use the files from the examples above. In your working directory you will
 
 ```json
 {
+    "workflow_name": "pangenomics",
+    "config_version": 1,
     "project_name": "MYPAN_COMBINED",
     "external_genomes": "my-external-genomes.txt",
     "internal_genomes": "my-internal-genomes.txt",
@@ -945,6 +973,8 @@ In your working directory you will find the following mock config file `config-p
 
 ```json
 {
+    "workflow_name": "phylogenomics",
+    "config_version": 1,
     "anvi_get_sequences_for_hmm_hits": {
         "--return-best-hit": true,
         "--align-with": "famsa",
@@ -1117,7 +1147,7 @@ In assembly mode, this rule is always executed.
 
 ## What's going on behind the scenes before we run idba_ud?
 
-A note regarding `idba_ud` is that it requires a single fasta as an input. Because of that, what we do is use `fq2fa` to merge the pair of reads of each sample to one fasta, and then we use `cat` to concatenate multiple samples for a co-assembly. The `fasta` file is created as a temporary file, and is deleted once `idba_ud` finishes running. If this is annoying to you, then feel free to contact us or just hack it yourself. We tried to minimize memory usage by deleting each individual fasta file after it was concatenated to the merged fasta file ([see this issue for details](https://github.com/merenlab/anvio/issues/954)).
+A note regarding `idba_ud` is that it requires a single FASTA as an input. Because of that, what we do is use `fq2fa` to merge the pair of reads of each sample to one FASTA, and then we use `cat` to concatenate multiple samples for a co-assembly. The FASTA file is created as a temporary file, and is deleted once `idba_ud` finishes running. If this is annoying to you, then feel free to contact us or just hack it yourself. We tried to minimize memory usage by deleting each individual FASTA file after it was concatenated to the merged FASTA file ([see this issue for details](https://github.com/merenlab/anvio/issues/954)).
 
 ## Can I change the parameters of samtools view?
 
@@ -1178,9 +1208,9 @@ Once you have such a file, and let's say you named it `kraken.txt`, simply add t
     "kraken_txt": "kraken.txt"
 ```
 
-## How do I skip the QC of the fastq files?
+## How do I skip the QC of the FASTQ files?
 
-If you already ran quality filtering for your fastq files, then just make sure that this is included in your config file:
+If you already ran quality filtering for your FASTQ files, then just make sure that this is included in your config file:
 
 ```
 "iu_filter_quality_minoche": {
@@ -1193,15 +1223,15 @@ If you already ran quality filtering for your fastq files, then just make sure t
 In short, yes. If you already did mapping, and you have a bunch of bam files, and now you want to run additional steps from the workflow (e.g. generate contigs databases, annotate them, profile the bam files, etc.), then it might not be entirely straightforward, but it is possible (and I wish to extend my thanks to [Even Sannes Riiser](https://twitter.com/evensriiser?lang=en) for troubleshooting this process).
 
 This is what you need to do:
-1. Make sure you have a [samples.txt](#samplestxt) file. The first column is, as usual, the name of your sample. As for the other two columns `r1`, and `r2`, in your case you should no longer need the fastq files, and hence this two column could have any arbitrary word, but you still have to have *something* there (if you still have access to your fastq files, and you want to run something like krakenHLL, then in that case, you should put the path to the fastq files, just as in the normal case of a `samples.txt` file)
-2. You should tell the workflow to [skip QC](#how-do-i-skip-the-qc-of-the-fastq-files). If you don't do this, then the workflow by default would look for your fastq files, and QC them, and run everything else, including mapping.
+1. Make sure you have a [samples.txt](#samplestxt) file. The first column is, as usual, the name of your sample. As for the other two columns `r1`, and `r2`, in your case you should no longer need the FASTQ files, and hence this two column could have any arbitrary word, but you still have to have *something* there (if you still have access to your FASTQ files, and you want to run something like krakenHLL, then in that case, you should put the path to the FASTQ files, just as in the normal case of a `samples.txt` file)
+2. You should tell the workflow to [skip QC](#how-do-i-skip-the-qc-of-the-fastq-files). If you don't do this, then the workflow by default would look for your FASTQ files, and QC them, and run everything else, including mapping.
 3. You should use [references mode](#references-mode).
 4. You need to make sure your bam files have names compatible with what the snakemake workflow expects. The way we expect to find the bam file is this:
 ```
 MAPPING_DIR/group_name/sample_name.bam
 ```
     Where `MAPPING_DIR` is `04_MAPPING` by default but you can set it in the config file. `group_name` is the name you gave the reference in your `fasta.txt` file. And `sample_name` is the name you gave the sample in the `samples.txt` file.
-5. You must skip `import_percent_of_reads_mapped`. Currently, we use the log files of bowtie2 to find out how many reads were in the (Qc-ied) fastq files, but since you already did your mapping elsewhere, we don't know how to get that information, and hence you must skip this step. This is pretty easy to do manually later on, so no big deal. In order to skip `import_percent_of_reads_mapped`, include this in your config file:
+5. You must skip `import_percent_of_reads_mapped`. Currently, we use the log files of bowtie2 to find out how many reads were in the (Qc-ied) FASTQ files, but since you already did your mapping elsewhere, we don't know how to get that information, and hence you must skip this step. This is pretty easy to do manually later on, so no big deal. In order to skip `import_percent_of_reads_mapped`, include this in your config file:
 
 ```
 "import_percent_of_reads_mapped": {
@@ -1274,12 +1304,14 @@ Now, at most 10 jobs would be submitted to the queue in parallel, but only as lo
 As of anvi'o `v5.3` [metaSPAdes](http://cab.spbu.ru/software/spades/) has been added to the metagenomics workflow. By default, these are the parameters for metaspades:
 
 ```
+    (...)
     "metaspades": {
         "additional_params": "--only-assembler",
         "threads": 11,
         "run": "",
         "use_scaffolds": ""
     },
+    (...)
 ```
 
 `additional_params` works in the same way as is explained [above for samtools](#can-i-change-the-parameters-of-samtools-view), and allows you to specify anything that metaSPAdes accepts. By default it is set to `--only-assembler`, since QC is done using `iu-filter-quality-minoche`, and we see no reason to have metaSPAdes do another step of QC. If you want to specify more parameters then you probably want it to still include `--only-assembler`.
