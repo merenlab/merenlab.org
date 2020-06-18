@@ -46,7 +46,7 @@ The URL [http://merenlab.org/data/sar11-saavs/](sar11-saavs/){:target="_blank"} 
 
 In this study,
 
-* We characterized the metapangenome of 21 SAR11 isolate genomes using metagenomes from the TARA Oceans and Ocean Sampling Day projects,
+* We characterized the metapangenome of 21 SAR11 isolate genomes ([subclades](files/sar11-subclades.txt))using metagenomes from the TARA Oceans and Ocean Sampling Day projects,
 
 * Identified a remarkably abundant and widespread SAR11 lineage with considerable yet cohesive levels of variation, as measured by the alignment quality of recruited reads.
 
