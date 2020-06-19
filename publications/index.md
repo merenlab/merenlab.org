@@ -187,7 +187,8 @@ This page shows publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41467-018-07675-z"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41467-018-07675-z" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <h3><a href=" https://doi.org/10.1038/s41467-018-07675-z" target="_new">Microbiome characterization by high-throughput transfer RNA sequencing and modification analysis</a></h3>
-    <span class="pub-authors">Schwartz MH, Wang H, Pan JN, Clark WC, <span class="pub-member-author">Cui S</span>, Eckwahl MJ, Pan DW, Parisien M, Owens SM, Cheng BL, Martinez K, Xu J, Chang EB, Pan T, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-authors">Schwartz MH, Wang H, Pan JN, Clark WC, <span class="pub-member-author">Cui S</span>, Eckwahl MJ, Pan DW, Parisien M, Owens SM, Cheng BL, Martinez K, Xu J, Chang EB, Pan T<sup>‡</sup>, <span class="pub-member-author">Eren AM<sup>‡</sup></span></span>
+    <span class="pub-co-first-authors"><sup>‡</sup>Co-senior authors</span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="../images/pubs/schwartz_et_al_trna_seq.png"><img src="../images/pubs/schwartz_et_al_trna_seq.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
