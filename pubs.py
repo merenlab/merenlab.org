@@ -72,6 +72,8 @@ class Publications:
         authors_str = []
         for author in pub['authors']:
             if author in pub['co_first_authors']:
+                author_h = author + '<sup>☯</sup>'
+            elif author in pub['co_senior_authors']:
                 author_h = author + '<sup>‡</sup>'
             else:
                 author_h = author
@@ -85,8 +87,6 @@ class Publications:
 
 
     def parse_pubs_txt(self):
-        bad_entries = []
-
         if os.path.exists(self.pubs_info_file_path):
             self.info = u.get_TAB_delimited_file_as_dictionary(self.pubs_info_file_path)
 
@@ -103,6 +103,7 @@ class Publications:
         for doi in self.pubs_txt:
             authors = []
             co_first_authors = []
+            co_senior_authors = []
             p = self.pubs_txt[doi]
 
             for author in [_.strip() for _ in p['Authors'].split(';')]:
@@ -115,6 +116,8 @@ class Publications:
 
                 if author_first_name_raw.endswith('*'):
                     co_first_authors.append(author_final_name)
+                elif  author_first_name_raw.endswith('+'):
+                    co_senior_authors.append(author_final_name)
 
                 authors.append(author_final_name)
 
@@ -124,7 +127,7 @@ class Publications:
                 issue = '%s:%s' % (p['Volume'], p['Pages'])
 
             year = p['Year'].strip()
-            pub_entry = {'authors': authors, 'title': p['Title'], 'journal': p['Publication'], 'issue': issue, 'doi': doi, 'year': year, 'co_first_authors': co_first_authors}
+            pub_entry = {'authors': authors, 'title': p['Title'], 'journal': p['Publication'], 'issue': issue, 'doi': doi, 'year': year, 'co_first_authors': co_first_authors, 'co_senior_authors': co_senior_authors}
 
             if year not in self.pubs_dict:
                 self.pubs_dict[year] = [pub_entry]
@@ -158,8 +161,12 @@ class Publications:
             A('    <h3><a href="http://scholar.google.com/scholar?hl=en&q=%s" target="_new">%s</a></h3>' % ('http://scholar.google.com/scholar?hl=en&q=%s' % (pub['title'].replace(' ', '+')), pub['title']))
         A('    <span class="pub-authors">%s</span>' % self.get_author_highlights(pub))
 
-        if pub['co_first_authors']:
-            A('    <span class="pub-co-first-authors"><sup>‡</sup>Co-first authors</span>')
+        if pub['co_first_authors'] and not pub['co_senior_authors']:
+            A('    <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors</span>')
+        elif pub['co_first_authors'] and pub['co_senior_authors']:
+            A('    <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors; <sup>‡</sup>Co-senior authors</span>')
+        elif pub['co_senior_authors'] and not pub['co_first_authors']:
+            A('    <span class="pub-co-first-authors"><sup>‡</sup>Co-senior authors</span>')
 
         if pub['doi'] in self.info:
             info = self.info[pub['doi']]

@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2020-04-19
+modified: 2020-06-18
 comments: false
 ---
 
@@ -20,10 +20,28 @@ This page shows publications that are most reflective of our interests. For a co
 <h1>2020</h1>
 
 <div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.7554/eLife.56998"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.7554/eLife.56998" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.7554/eLife.56998" target="_new">Droplet-based high-throughput cultivation for accurate screening of antibiotic resistant gut microbes</a></h3>
+    <span class="pub-authors">Watterson WJ, Tanyeri M, <span class="pub-member-author">Watson AR</span>, Cham CM, Shan Y, Chang EB, <span class="pub-member-author">Eren AM<sup>‡</sup></span>, Tay S<sup>‡</sup></span>
+    <span class="pub-co-first-authors"><sup>‡</sup>Co-senior authors</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="../images/pubs/watterson_et_al_droplets.jpg"><img src="../images/pubs/watterson_et_al_droplets.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- An aneorobic microfluidics platform for high-throughput cultivation of microbes that grows <b>single microbial cells in millions of picoliter droplets</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Populations of gut microbes that compete poorly in plates grow well in droplets <b>regardless of culture media</b>. Furthermore, taxonomic profile of droplets resembles droplets much better than plate scrapings even at the level of oligotypes.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Demonstrates that <b>not detecting microbes in plate-based screening of antibiotic resistance may not mean that the original sample does not contain microbes resistant to antibiotics</b>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><b>eLife</b>, 9:e56998.</span>
+</div>
+
+<div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/gr.258640.119"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1101/gr.258640.119" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <h3><a href=" https://doi.org/10.1101/gr.258640.119" target="_new">Accurate and complete genomes from metagenomes</a></h3>
-    <span class="pub-authors">Chen L, Anantharaman K, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Eren AM</span>, Banfield JF</span>
+    <span class="pub-authors">Chen L, Anantharaman K, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Eren AM<sup>‡</sup></span>, Banfield JF<sup>‡</sup></span>
+    <span class="pub-co-first-authors"><sup>‡</sup>Co-senior authors</span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="../images/pubs/chen_accurate_genomes.png"><img src="../images/pubs/chen_accurate_genomes.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -43,8 +61,8 @@ This page shows publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.7554/eLife.46497"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.7554/eLife.46497" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <h3><a href=" https://doi.org/10.7554/eLife.46497" target="_new">Single-amino acid variants reveal evolutionary processes that shape the biogeography of a global SAR11 subclade</a></h3>
-    <span class="pub-authors"><span class="pub-member-author">Delmont TO<sup>‡</sup></span>, <span class="pub-member-author">Kiefl E<sup>‡</sup></span>, Kilinc O, <span class="pub-member-author">Esen ÖC</span>, Uysal I, Rappé MS, Giovannoni S, <span class="pub-member-author">Eren AM</span></span>
-    <span class="pub-co-first-authors"><sup>‡</sup>Co-first authors</span>
+    <span class="pub-authors"><span class="pub-member-author">Delmont TO<sup>☯</sup></span>, <span class="pub-member-author">Kiefl E<sup>☯</sup></span>, Kilinc O, <span class="pub-member-author">Esen ÖC</span>, Uysal I, Rappé MS, Giovannoni S, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors</span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="../images/pubs/delmond_and_kiefl_sar11_saavs.jpg"><img src="../images/pubs/delmond_and_kiefl_sar11_saavs.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -76,8 +94,8 @@ This page shows publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41467-019-08973-w"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41467-019-08973-w" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <h3><a href=" https://doi.org/10.1038/s41467-019-08973-w" target="_new">The Wolbachia mobilome in Culex pipiens includes a putative plasmid</a></h3>
-    <span class="pub-authors">Reveillaud J<sup>‡</sup>, Bordenstein SR<sup>‡</sup>, Cruaud C, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Esen ÖC</span>, Weill M, Makoundou P, <span class="pub-member-author">Lolans K</span>, <span class="pub-member-author">Watson AR</span>, Rakotoarivony I, Bordenstein S, <span class="pub-member-author">Eren AM</span></span>
-    <span class="pub-co-first-authors"><sup>‡</sup>Co-first authors</span>
+    <span class="pub-authors">Reveillaud J<sup>☯</sup>, Bordenstein SR<sup>☯</sup>, Cruaud C, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Esen ÖC</span>, Weill M, Makoundou P, <span class="pub-member-author">Lolans K</span>, <span class="pub-member-author">Watson AR</span>, Rakotoarivony I, Bordenstein S, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors</span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="../images/miscellaneous/2019-03-05-wolbachia-plasmid/minion-metagenomics.png"><img src="../images/miscellaneous/2019-03-05-wolbachia-plasmid/minion-metagenomics.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -230,8 +248,8 @@ This page shows publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41586-018-0125-z"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41586-018-0125-z" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <h3><a href=" https://doi.org/10.1038/s41586-018-0125-z" target="_new">Microbial signals drive pre-leukaemic myeloproliferation in a Tet2-deficient host</a></h3>
-    <span class="pub-authors">Meisel M<sup>‡</sup>, Hinterleitner R<sup>‡</sup>, Pacis A, Chen L, Earley ZM, Mayassi T, Pierre JF, Ernest JD, Galipeau HJ, Thuille N, Bouziat R, Buscarlet M, Ringus DL, Wang Y, Li Y, Dinh V, Kim SM, McDonald BD, Zurenski MA, Musch MW, Furtado GC, Lira SA, Baier G, Chang EB, <span class="pub-member-author">Eren AM</span>, Weber CR, Busque L, Godley LA, Verdú EF, Barreiro LB, Jabri B</span>
-    <span class="pub-co-first-authors"><sup>‡</sup>Co-first authors</span>
+    <span class="pub-authors">Meisel M<sup>☯</sup>, Hinterleitner R<sup>☯</sup>, Pacis A, Chen L, Earley ZM, Mayassi T, Pierre JF, Ernest JD, Galipeau HJ, Thuille N, Bouziat R, Buscarlet M, Ringus DL, Wang Y, Li Y, Dinh V, Kim SM, McDonald BD, Zurenski MA, Musch MW, Furtado GC, Lira SA, Baier G, Chang EB, <span class="pub-member-author">Eren AM</span>, Weber CR, Busque L, Godley LA, Verdú EF, Barreiro LB, Jabri B</span>
+    <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors</span>
     <div class="pub-info-no-image">
     <div class="pub-highlights-no-image">
     <span style="display: inline-block; padding-bottom: 5px;">- TET2 deficiency ➡️  deteriorating small intestinal barrier ➡️  bacterial translocation ➡️  incrased IL-6 signalling ➡️  pre-leukemic myeloproliferation (a leukemia precursor).</span><br><span style="display: inline-block; padding-bottom: 5px;">-  ScienceDaily: <a href="https://www.sciencedaily.com/releases/2018/05/180516131226.htm" target="_blank">Under certain conditions, bacterial signals set the stage for leukemia</a>.</span>
@@ -248,8 +266,8 @@ This page shows publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s40168-017-0270-x"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1186/s40168-017-0270-x" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <h3><a href=" https://doi.org/10.1186/s40168-017-0270-x" target="_new">Tracking microbial colonization in fecal microbiota transplantation experiments via genome-resolved metagenomics</a></h3>
-    <span class="pub-authors"><span class="pub-member-author">Lee STM<sup>‡</sup></span>, Kahn SA<sup>‡</sup>, <span class="pub-member-author">Delmont TO</span>, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Esen ÖC</span>, Hubert NA, Morrison HG, Antonopoulos DA, Rubin DT, <span class="pub-member-author">Eren AM</span></span>
-    <span class="pub-co-first-authors"><sup>‡</sup>Co-first authors</span>
+    <span class="pub-authors"><span class="pub-member-author">Lee STM<sup>☯</sup></span>, Kahn SA<sup>☯</sup>, <span class="pub-member-author">Delmont TO</span>, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Esen ÖC</span>, Hubert NA, Morrison HG, Antonopoulos DA, Rubin DT, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors</span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="http://i.imgur.com/4e4Ic4u.jpg"><img src="http://i.imgur.com/4e4Ic4u.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
