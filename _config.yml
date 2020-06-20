@@ -31,14 +31,8 @@ kramdown:
 
 # Site owner
 owner:
-  name: Meren
-  avatar: bio-photo.jpg
-  bio: "I study microbial ecology using my background in computation."
+  name: Meren Lab
   email: a.murat.eren@gmail.com
-  disqus-shortname: merensgithub
-  twitter: merenbey
-  github: meren
-  linkedin: meren
 
 include: [".htaccess"]
 exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]
