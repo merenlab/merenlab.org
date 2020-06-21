@@ -170,8 +170,10 @@ Anvi'o workflows rely on inheritance, which means a workflow can be invoked from
 This workflow is useful if you have one or more **FASTA files** that describe one or more contigs for your assembled metagenomes or genomes, and you want to get anvi'o contigs databases.
 
 {:.warning}
-If you have not run `anvi-setup-ncbi-cogs` and `anvi-setup-scg-databases` programs, the default config will fail with an error that inclues the keyword `__rule_anvi_run_ncbi_cogs`. You can avoid this error by first running these two anvi'o programs to setup databases, or turn those steps off explicitly (here is <a href="https://groups.google.com/d/msg/anvio/TDaMn9cpwX4/bnLbECHPAAAJ">an example for anvi'o 6.1</a> (if you have tried and that example is no longer working please let us know)).
+If you have not run anvi'o programs `anvi-setup-ncbi-cogs` and `anvi-setup-scg-taxonomy` (=`anvi-setup-scg-databases` in anvi'o `v6.2` or earlier versions), the default config will fail with a cryptic error. You can avoid this by first running these two anvi'o programs to setup databases, or set the rules for COG functions (and/or SCG taxonomy) to `run=false` explicitly (here is <a href="https://groups.google.com/d/msg/anvio/TDaMn9cpwX4/bnLbECHPAAAJ">an example for anvi'o 6.1</a> (if you have tried and that example is no longer working please let us know)).
 
+{:.warning}
+This program is called .
 The contigs workflow is meant for cases in which all you want is to create anvi'o contigs databases from FASTA files, and annotate them with functions, taxonomy, etc. Since the design of workflows allow inheritance, contigs workflow will be used by other workflows we will describe later.
 
 You could simply ask anvi'o to give you a default config file for contigs workflow,

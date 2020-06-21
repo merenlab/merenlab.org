@@ -16,6 +16,15 @@ p {
    Header
    ========================================================================== */
 
+.twitter-tweet {
+    padding-left: 40px;
+    padding-bottom: 20px;
+}
+
+.EmbeddedTweet-tweetContainer {
+    box-shadow: 7px 7px 15px 1px #ccc;
+}
+
 .codeblock {
     white-space: pre;
     font-family: Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;

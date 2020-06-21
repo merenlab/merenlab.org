@@ -1,6 +1,6 @@
 ---
 layout: page
-title: anvi-setup-scg-databases [program]
+title: anvi-setup-scg-taxonomy [program]
 categories: [anvio]
 comments: false
 image:
@@ -10,7 +10,7 @@ image:
 
 The purpose of this program is to download necessary information from GTDB (https://gtdb.ecogenomic.org/), and set it up in such a way that your anvi&#39;o installation is able to assign taxonomy to single-copy core genes using `anvi-run-scg-taxonomy` and estimate taxonomy for genomes or metagenomes using `anvi-estimate-genome-taxonomy`)..
 
-See **[program help menu](../../../vignette#anvi-setup-scg-databases)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+See **[program help menu](../../../vignette#anvi-setup-scg-taxonomy)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -32,7 +32,7 @@ See **[program help menu](../../../vignette#anvi-setup-scg-databases)** or go ba
 
 
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-setup-scg-databases.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-setup-scg-taxonomy.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
 
 
 ## Additional Resources
@@ -42,4 +42,4 @@ See **[program help menu](../../../vignette#anvi-setup-scg-databases)** or go ba
 
 
 {:.notice}
-Are you aware of resources that may help users better understand the utility of this program? Please feel free to edit [this file](https://github.com/merenlab/anvio/tree/master/bin/anvi-setup-scg-databases) on GitHub. If you are not sure how to do that, find the `__resources__` tag in [this file](https://github.com/merenlab/anvio/blob/master/bin/anvi-interactive) to see an example.
+Are you aware of resources that may help users better understand the utility of this program? Please feel free to edit [this file](https://github.com/merenlab/anvio/tree/master/bin/anvi-setup-scg-taxonomy) on GitHub. If you are not sure how to do that, find the `__resources__` tag in [this file](https://github.com/merenlab/anvio/blob/master/bin/anvi-interactive) to see an example.
