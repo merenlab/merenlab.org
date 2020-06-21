@@ -57,6 +57,7 @@ Once an instance from `PanSuperclass` is initiated, the following member functio
 pan_db.init_gene_clusters()
 print(pan_db.gene_clusters)
 ```
+
 ```
 {
   "GC_00000001": {

@@ -75,8 +75,11 @@ A fresh installation of anvi'o will have all the FASTA files that are going to b
 To setup your SCG taxonomy databases, run the following program, which will not take longer than a minute:
 
 ```
-anvi-setup-scg-databases
+anvi-setup-scg-taxonomy
 ```
+
+{:.warning}
+This program is called `anvi-setup-scg-databases` in anvi'o `v6.2` or earlier versions.
 
 {:.notice}
 Please see the help menu for every program even if the text does not ask you to do it. There are many parameters for every anvi'o program so you can tweak things depending on your system and needs.
@@ -84,7 +87,7 @@ Please see the help menu for every program even if the text does not ask you to 
 When I run this on my computer, this is the output I get:
 
 ```
-(anvio-master) (base) meren ~ $ anvi-setup-scg-databases
+(anvio-master) (base) meren ~ $ anvi-setup-scg-taxonomy
 
 WARNING
 ===============================================
@@ -112,7 +115,7 @@ If you don't have permission to write to the part of the disk anvi'o is installe
 The command above will only create the databases without downloading original files. In some rare cases you may have to re-download everything and start with a clean slate. If you think this is what you need, try this command (but you should run this only if you have a problem):
 
 ```
-anvi-setup-scg-databases --reset
+anvi-setup-scg-taxonomy --reset
 ```
 
 ## Populating contigs db with SCG taxonomy

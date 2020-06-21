@@ -21,7 +21,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-setup-scg-databases](../../programs/anvi-setup-scg-databases)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-setup-scg-taxonomy](../../programs/anvi-setup-scg-taxonomy)</span></p>
 
 
 ## Required or used by

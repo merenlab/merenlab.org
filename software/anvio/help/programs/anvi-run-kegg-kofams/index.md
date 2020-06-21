@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Run KOfam HMMs on an anvi&#39;o contigs database..
+Run KOfam HMMs on an anvi&#39;o contigs database.
 
 See **[program help menu](../../../vignette#anvi-run-kegg-kofams)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

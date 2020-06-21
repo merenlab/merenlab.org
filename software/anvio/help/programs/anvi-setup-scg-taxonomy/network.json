@@ -14,8 +14,8 @@
       "size": 1,
       "score": 0.1,
       "color": "#AAAA00",
-      "id": "anvi-setup-scg-databases",
-      "name": "anvi-setup-scg-databases",
+      "id": "anvi-setup-scg-taxonomy",
+      "name": "anvi-setup-scg-taxonomy",
       "type": "PROGRAM"
     }
   ],

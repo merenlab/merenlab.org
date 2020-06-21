@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Reconstructs metabolic pathways and estimates pathway completeness for a given set of contigs..
+Reconstructs metabolic pathways and estimates pathway completeness for a given set of contigs.
 
 See **[program help menu](../../../vignette#anvi-estimate-metabolism)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -97,7 +97,7 @@ anvi&#45;estimate&#45;metabolism &#45;M metagenomes.txt
 
 ### Estimation for multiple bins in different metagenomes
 
-If you have multiple bins (also known as <span class="artifact-n">[internal-genomes](/software/anvio/help/artifacts/internal-genomes)</span> across different collections or even different metagenomes, they can be analyzed with the same command by providing an internal genomes file to <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/programs/anvi-estimate-metabolism)</span>. To see the required format for the external genomes file, see <span class="artifact-n">[internal-genomes](/software/anvio/help/artifacts/internal-genomes)</span>.
+If you have multiple bins (also known as <span class="artifact-n">[internal-genomes](/software/anvio/help/artifacts/internal-genomes)</span>) across different collections or even different metagenomes, they can be analyzed with the same command by providing an internal genomes file to <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/programs/anvi-estimate-metabolism)</span>. To see the required format for the external genomes file, see <span class="artifact-n">[internal-genomes](/software/anvio/help/artifacts/internal-genomes)</span>.
 
 <div class="codeblock" markdown="1">
 anvi&#45;estimate&#45;metabolism &#45;i internal&#45;genomes.txt
@@ -129,6 +129,8 @@ anvi&#45;estimate&#45;metabolism &#45;c CONTIGS.db &#45;O my&#45;cool&#45;prefix
 This program has two major output options - long format (tab-delimited) output files and matrices.
 
 Long format output has several preset "modes" as well as a "custom" mode in which the user can define the contents of the output file. Multiple modes can be used at once, and each requested "mode" will result in a separate output file. The default output mode is "modules" mode.
+
+You can find more details on the output format by looking at <span class="artifact-n">[kegg-metabolism](/software/anvio/help/artifacts/kegg-metabolism)</span>.
 
 ### Viewing available output modes
 
@@ -168,8 +170,6 @@ Matrix format is only available when working with multiple contigs databases. Se
 <div class="codeblock" markdown="1">
 anvi&#45;estimate&#45;metabolism &#45;i internal&#45;genomes.txt &#45;&#45;matrix&#45;format
 </div>
-
-You can find more details on the output format by looking at <span class="artifact-n">[kegg-metabolism](/software/anvio/help/artifacts/kegg-metabolism)</span>.
 
 
 {:.notice}
