@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Online seminar series on Microbial 'Omics for beginners"
-excerpt: "Discussions on key concepts that underlie some of the most popular 'omics strategies."
+excerpt: "Socially isolated community discussions on key concepts and stuff."
 modified: 2020-06-27
 tags: []
 authors: [meren]
