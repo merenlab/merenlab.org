@@ -375,6 +375,18 @@
       inst: Smithsonian Tropical Research Institute
       inst_link: https://stri.si.edu/
 
+      alias: antonio
+  guest: True
+  avatar: bio-antonio.png
+  name: Antonio Fernandez-Guerra
+  email: antonio@metagenomics.eu
+  role: Guest writer
+  orcid: 0000-0002-8679-490X
+  web: https://dark.metagenomics.eu
+  affiliations:
+    - title: Assistant Professor
+      inst: Lundbeck Foundation GeoGenetics Centre, The GLOBE Institute, University of Copenhagen
+      inst_link: https://globe.ku.dk/research/geogenetics/
 ####################################################################################
 # Previous members.
 ####################################################################################
