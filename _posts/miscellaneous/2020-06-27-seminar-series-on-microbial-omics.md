@@ -101,8 +101,15 @@ Seminars are free to attend and open to anyone! However, we request you to regis
 {:.warning}
 The registration form will be open until July 8<sup>th</sup>. **Do you know someone who may benefit from this? Please let them know!**
 
+
 ## Questions?
 
 Please use the comments section down below or find us on Slack.
 
 {% include _join-anvio-slack.html %}
+
+---
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I put together a six-week seminar series on microbial &#39;omics. The purpose here is to clarify key concepts in simple, digestible terms with no practical discussions.<br><br>Details, schedule, and a registration link is here:<a href="https://t.co/X9YliIsGzh">https://t.co/X9YliIsGzh</a></p>&mdash; A. Murat Eren (Meren) (@merenbey) <a href="https://twitter.com/merenbey/status/1277630827745161217?ref_src=twsrc%5Etfw">June 29, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+---
