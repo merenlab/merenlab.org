@@ -63,7 +63,7 @@ There will be a 20 to 40 second delay between Zoom and YouTube.
 
 * [Mike Lee](https://twitter.com/AstrobioMike): Research Scientist at NASA’s [Ames Research Center](https://www.nasa.gov/ames). *Mike will lead the Phylogenomics session.*
 
-* [Iva Veseli](https://www.linkedin.com/in/iva-veseli/): Graduate Student at the [Biophysical Sciences Program](http://biophysics.uchicago.edu/), University of Chicago. *Iva will answer questions asked on the chat window on the Zoom call, or bring them up to with the lecturer(s)*.
+* [Iva Veseli](https://www.linkedin.com/in/iva-veseli/): Graduate Student at the [Biophysical Sciences Program](http://biophysics.uchicago.edu/), University of Chicago. *Iva will answer questions asked on the chat window on the Zoom call, or bring them up with the lecturer(s)*.
 
 * [Emily Fogarty](https://twitter.com/emily_fogarty11): Graduate Student at the [Committee on Microbiology](https://biomedsciences.uchicago.edu/page/microbiology), University of Chicago. *Emily will answer questions asked on the chat window during the YouTube live stream, or bring them up with the lecturer(s)*. 
 
