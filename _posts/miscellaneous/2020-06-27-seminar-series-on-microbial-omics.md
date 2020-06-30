@@ -17,6 +17,9 @@ Welcome, and thank you for your interest!
 
 The link to the registration form is at the end of this post. But we will assume that you have read everything on this page! :)
 
+{:.warning}
+Largely due to technical reasons, we will have to set a limit of 400 people. If more than 400 people registers for the seminars, there will be a random selection. You will get an e-mail before our first meeting regarding the selection outcome. Apologies for the inconvenience, and thank you for your understanding.
+
 ## Motivation
 
 **The primary aim of this seminar series is to give a broad introduction to some of the key concepts and strategies that enable us to study the ecology, evolution, and functioning of naturally occurring microbial populations.**
@@ -94,12 +97,14 @@ If you are registered for a given week, you will get an e-mail 15 minutes before
 
 ## Registration
 
-Seminars are free to attend and open to anyone! However, we request you to register using the following form:
+Seminars are free to attend and open to anyone! However, due to technical reasons, **we will not be able to invite everyone who fills up the form**.
+
+We request you to register using the following form:
 
 **[https://forms.gle/o2JY8ufE4mJojdE48](https://forms.gle/o2JY8ufE4mJojdE48)**
 
 {:.warning}
-The registration form will be open until July 8<sup>th</sup>. **Do you know someone who may benefit from this? Please let them know!**
+The registration form will be open until July 8<sup>th</sup>.
 
 
 ## Questions?
