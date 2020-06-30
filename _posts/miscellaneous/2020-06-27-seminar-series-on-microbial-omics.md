@@ -23,17 +23,19 @@ The link to the registration form is at the end of this post. But we will assume
 
 The last several years witnessed tremendous advances in molecular and computational approaches which now offer unprecedented access to naturally occurring microbial communities through new *'omics* strategies. Developing an overall understanding of these strategies -including the ability to identify their appropriate applications and shortcomings- has quietly become a *de facto* necessity in the journey of an independent life scientist.
 
-While most of these strategies are quite accessible thanks to the increasing number of computational tools and pipelines, without a complete understanding of the key concepts, exploiting available computational solutions to address unique scientific questions remain difficult. The purpose of the seminar series is to offer some introductions to key concepts, without talking about practical applications of tools.
+While most of these strategies are quite accessible thanks to the increasing number of computational tools and pipelines, without a complete understanding of the key concepts, exploiting available computational solutions to address unique scientific questions remain difficult. The purpose of the seminar series is to offer some introductions to key concepts, without talking about tools or their practical applications.
 
 ## Target audience
 
-**The target audience of this seminar series is beginners from all backgrounds who are interested in microbial 'omics**. Even if you have never been exposed to the strategies the seminars will cover, you will likely to be able to follow the content and discussions.
+**The target audience of this seminar series is beginners from all backgrounds who are interested in microbial 'omics**.
+
+Even if you have never been exposed to the strategies the seminars will cover, you will likely to be able to follow the content and discussions.
 
 Seminars will use simple terms and simple language as much as possible.
 
 ## Seminar format
 
-Each week there will be a seminar on Zoom, and each seminar will be composed of two sections: lecture, and discussion.
+Each week there will be a seminar, and each seminar will be composed of two sections: lecture, and discussion.
 
 ### Lecture part
 
@@ -43,11 +45,27 @@ Each week there will be a seminar on Zoom, and each seminar will be composed of 
 
 **Discussions** will take and additional 30 to 45 minutes and will be dedicated to **questions, exchange of ideas, and practical considerations**. Although the target audience is beginners, our sessions will undoubtedly include researchers who are experienced on the topic and will be encouraged to take part in discussions.
 
+## Logistics
+
+**If you are registered for a given week, you will get an e-mail 15 minutes before the start time with URLs that will enable you to follow the session.**
+
+**We will primarily use Zoom for lectures**. If you plan to attend, please [download](https://zoom.us/download) the latest version of Zoom beforehand. If you already have Zoom installed on your computer, please make sure it is up to date. On the Zoom call, any participant will be able to unmute themselves to ask questions verbally, or use the chat window to do it in written form during the lecture or discussion sections. A person who will be identified at the beginning of each seminar will interrupt the speaker at appropriate times and brings up questions from the chat window.
+
+**In parallel, we will also use YouTube to stream the content live**. Those who are registered for the seminar series will also be given a YouTube URL. This way, if there are more people than our Zoom account can accommodate, they will follow the seminar and discussions through YouTube.
+
+{:.notice}
+There will be a 20 to 40 second delay between Zoom and YouTube.
+
+
 ## Lecturers
 
 * [Meren](https://twitter.com/merenbey): Assistant Professor at the [University of Chicago](http://uchicago.edu), and a Fellow of the [Marine Biological Laboratory](http://mbl.edu).
 
-* [Mike Lee](https://twitter.com/AstrobioMike): Research Scientist at NASA’s [Ames Research Center](https://www.nasa.gov/ames). *Dr. Lee will lead the Phylogenomics session.*
+* [Mike Lee](https://twitter.com/AstrobioMike): Research Scientist at NASA’s [Ames Research Center](https://www.nasa.gov/ames). *Mike will lead the Phylogenomics session.*
+
+* [Iva Veseli](https://www.linkedin.com/in/iva-veseli/): Graduate Student at the [Biophysical Sciences Program](http://biophysics.uchicago.edu/), University of Chicago. *Iva will answer questions asked on the chat window on the Zoom call, or bring them up to with the lecturer(s)*.
+
+* [Emily Fogarty](https://twitter.com/emily_fogarty11): Graduate Student at the [Committee on Microbiology](https://biomedsciences.uchicago.edu/page/microbiology), University of Chicago. *Emily will answer questions asked on the chat window during the YouTube live stream, or bring them up with the lecturer(s)*. 
 
 ## Schedule
 
@@ -84,29 +102,25 @@ Each week there will be a seminar on Zoom, and each seminar will be composed of 
 <blockquote markdown="1">**Phylogenomics: inferring evolutionary relationships between microorganisms**
 </blockquote>
 
-## Logistics
-
-We will use Zoom for lectures. If you plan to attend, please [download](https://zoom.us/download) the latest version of Zoom beforehand. If you already have Zoom installed on your computer, please make sure it is up to date.
-
-Any participant will be able to unmute themselves to ask questions verbally, or use the chat window to do it in written form during the lecture or discussion sections. A person who will be identified at the beginning of each seminar will interrupt the speaker at appropriate times and brings up questions from the chat window.
-
-If you are registered for a given week, you will get an e-mail 15 minutes before the lecture start time with the Zoom link that will enable you to connect.
-
 ## Registration
 
-Seminars are free to attend and open to anyone! However, we request you to register using the following form:
+Seminars are free to attend and open to anyone! But we request you to register using the following form:
 
 **[https://forms.gle/o2JY8ufE4mJojdE48](https://forms.gle/o2JY8ufE4mJojdE48)**
 
 {:.warning}
-The registration form will be open until July 8<sup>th</sup>. **Do you know someone who may benefit from this? Please let them know!**
+The registration form will be open until July 8<sup>th</sup>.
 
+{:.warning}
+If you fill up the form please remember to mark those dates on your calendar.
 
 ## Questions?
 
 Please use the comments section down below or find us on Slack.
 
 {% include _join-anvio-slack.html %}
+
+Thank you very much for your interest.
 
 ---
 
