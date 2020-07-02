@@ -69,6 +69,7 @@ There will be a 20 to 40 second delay between Zoom and YouTube.
 
 * **[Emily Fogarty](https://twitter.com/emily_fogarty11)**: Graduate Student in the **[Committee on Microbiology](https://biomedsciences.uchicago.edu/page/microbiology)** at the University of Chicago. *Emily will answer questions asked on the chat window during the YouTube live stream, or bring them up with the lecturer(s)*. 
 
+
 ## Schedule
 
 **Every lecture will take place on a Wednesday at 9am Chicago Time (CST)** ([see what time it corresponds to in your city](https://www.timeanddate.com/worldclock/converter.html?iso=20200708T140000&p1=64&p2=259&p3=240&p4=514&p5=770&p6=676&p7=233&p8=246&p9=155&p10=250&p11=16&p12=176)).
