@@ -5,7 +5,7 @@ modified: 2018-09-04
 excerpt: "Combining metagenomic sequence data with modelled protein structures"
 comments: true
 authors: [evan]
-categories: [anvio]
+categories: [anvio,anvi-3dev]
 redirect_from:
   - /anvi-3dev
 image:
