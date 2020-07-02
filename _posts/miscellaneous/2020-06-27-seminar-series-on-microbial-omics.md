@@ -61,7 +61,7 @@ There will be a 20 to 40 second delay between Zoom and YouTube.
 
 * **[Meren](https://twitter.com/merenbey)**: Assistant Professor in the [Department of Medicine](https://medicine.uchicago.edu/) and the [Committee on Microbiology](https://biomedsciences.uchicago.edu/page/microbiology) at the **[University of Chicago](http://uchicago.edu)**, and a Fellow of the **[Marine Biological Laboratory](http://mbl.edu)**.
 
-* **[Roland Hatzenpichler](www.environmental-microbiology.com)**, Assistant Professor in the Department of [Chemistry and Biochemistry](https://chemistry.montana.edu/), the [Thermal Biology Institute](http://tbi.montana.edu/), and the [Center for Biofilm Engineering](http://www.biofilm.montana.edu/) at **[Montana State University](https://www.montana.edu/)**. *Roland will lead a discussion on what we do <u>not</u> learn about microbial life from sequencing alone.*
+* **[Roland Hatzenpichler](http://www.environmental-microbiology.com)**, Assistant Professor in the Department of [Chemistry and Biochemistry](https://chemistry.montana.edu/), the [Thermal Biology Institute](http://tbi.montana.edu/), and the [Center for Biofilm Engineering](http://www.biofilm.montana.edu/) at **[Montana State University](https://www.montana.edu/)**. *Roland will lead a discussion on what we do <u>not</u> learn about microbial life from sequencing alone.*
 
 * **[Mike Lee](https://twitter.com/AstrobioMike)**: Research Scientist at the [Ames Research Center](https://www.nasa.gov/ames), National Aeronautics and Space Administration (**[NASA](https://www.nasa.gov/)**). *Mike will lead the Phylogenomics session.*
 
