@@ -17,6 +17,14 @@ comments: true
 
 {% include _project-anvio-images.html %}
 
+## Anvi-3dev
+
+<div class="quotable">
+<a href="{{ site.url }}/software/anvio/">Anvi-3dev</a> provides an automated, scalable, and interactive work environment for the analysis and visualization of single-amino acid and single-codon variants derived from metagenomic data in conjunction with predicted protein structures of genes. Anvi-3dev is integrated into the anvi'o environment. Please see the <a href="{{ site.url }}/software/anvio/">anvi-3dev project page</a> for details.
+</div>
+
+{% include _project-anvi-3dev-images.html %}
+
 ## Oligotyping
 
 <div class="quotable">
