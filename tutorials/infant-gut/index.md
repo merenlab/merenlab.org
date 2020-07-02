@@ -3,7 +3,7 @@ layout: page
 modified: 2017-02-06
 modified: 2018-08-08
 excerpt: "Binning, benchmarking binning approaches, refining poorly identified bins, and other Anvi'o tutorial for metagenomics using the Infant Gut Dataset by Sharon *et al*"
-categories: [anvio]
+categories: [anvio,anvi-3dev]
 comments: true
 redirect_from: /igd/
 image:
