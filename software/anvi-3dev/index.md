@@ -37,7 +37,7 @@ Like all software, anvi-3dev is built upon other software, all of which is open 
 especially indebted to the following list of projects, without which anvi-3dev would not have been
 developed:
 
-## MODELLER
+### MODELLER
 
 {:.notice}
 **Citation**: [doi:10.1002/0471250953.bi0506s15](https://doi.org/10.1002/0471250953.bi0506s15)
@@ -50,7 +50,7 @@ developed:
 
 MODELLER is the program anvi'o uses to predict protein structure based on experimentally solved structures in the Protein Data Bank. We'll talk more specifically about how it accomplishes this in the following section, but for now you need to make sure it's installed on your computer. For that, check out these instructions to see if you have it installed ([click me](http://merenlab.org/2016/06/18/installing-third-party-software/#modeller)), and how to install it if you don't. We've tried to make it as simple for you as possible.
 
-## NGL
+### NGL
 
 {:.notice}
 **Citation**: [doi:10.1093/nar/gkv402](https://doi.org/10.1093/nar/gkv402)
