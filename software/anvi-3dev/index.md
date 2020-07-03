@@ -1,7 +1,9 @@
 ---
 layout: project-anvi-3dev-main
 title: "Integrating metagenomic sequence variants and predicted protein structures"
-redirect_from: /projects/anvi-3dev/
+redirect_from:
+  - /anvi-3dev
+  - /projects/anvi-3dev/
 excerpt: "Anvi-3dev Project Page"
 image:
   feature: eel-pond.jpg
