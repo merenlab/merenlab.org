@@ -11,11 +11,19 @@ redirect_from: /mpg/
 ---
 
 {:.notice}
-This is a theoretical tutorial describing how to characterize SNVs, SCVs and SAAVs with anvi'o, and how to interpret the output. For a more practical tutorial on the same topic, please visit [http://merenlab.org/tutorials/infant-gut/#profiling-snvs-in-a-bin]({{ site.url }}/tutorials/infant-gut/#profiling-snvs-in-a-bin) for a tutorial on profiling SNVs, SCVs, and SAAVs, and check out [http://merenlab.org/2018/09/04/structural-biology-with-anvio/](http://merenlab.org/2018/09/04/structural-biology-with-anvio/) for a tutorial on visualizing SCVs and SAAVs directly on the protein structure they encode for. Also check out our [reproducible workflow on oceanic SAR11]({{ site.url }}/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/), which leverages the concepts in this tutorial to gain insight into ecologically-linked patterns of micro-diversity on a global scale.
+This is a theoretical tutorial describing how to characterize SNVs, SCVs and SAAVs with anvi'o, and
+how to interpret the output. For a more practical tutorial on the same topic, please visit
+[the infant gut tutorial]({{ site.url
+}}/tutorials/infant-gut/#profiling-snvs-in-a-bin) for a tutorial on profiling SNVs, SCVs, and SAAVs,
+and check out
+[the anvi-3dev blog post]({{ site.url }}/2018/09/04/getting-started-with-anvi-3dev/)
+for a tutorial on visualizing SCVs and SAAVs directly on the protein structure they encode for. Also
+check out our [reproducible workflow on oceanic SAR11]({{ site.url
+}}/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/), which leverages the concepts in this tutorial to
+gain insight into ecologically-linked patterns of micro-diversity on a global scale.
 
 {:.notice}
 We thank [Rika Anderson](https://twitter.com/RikaEAnderson) for carefully reading this tutorial, and embarrassing us by fixing our mistakes multiple times.
-
 
 {% include _toc.html %}
 
@@ -75,7 +83,11 @@ We can not combine the independent nucleotide variants when we are working with 
 </div>
 
 {:.notice}
-Indeed this approach reduces the number of short reads we can work with. For instance, in our toy example 4 (33%) of the reads suffer this fate. But in a hypothetical scenario where [variation in coverage in recruitment results](http://merenlab.org/2016/12/14/coverage-variation/) is non-existent, the expected fraction of those to be excluded should be equivalent to `4 / (2 + L)` where `L` is the length of your short reads.
+Indeed this approach reduces the number of short reads we can work with. For instance, in our toy
+example 4 (33%) of the reads suffer this fate. But in a hypothetical scenario where [variation in
+coverage in recruitment results](http://merenlab.org/2016/12/14/coverage-variation/) is
+non-existent, the expected fraction of those to be excluded should be equivalent to \$4 / (2 + L)\$
+where \$L\$ is the length of your short reads.
 
 The frequencies of remaining codons can now be read directly, which would yield the frequency vector shown in red. The resulting SCV is characterized as 50% `TCC` and 50% `AGC`, which are both codons of serine, and thus the **SCV is 100% synonymous**. The use of SNVs rather than SCVs would have overestimated non-synonymous variants.
 
@@ -128,22 +140,38 @@ Please do not hesitate to ask questions, make suggestions, and/or start discussi
 
 # *De novo* characterization and reporting of SNVs
 
-During the profiling step that should be done for each sample separately, anvi'o checks the composition of nucleotides that map to each reference position, and keeps track of variation in the form of 'base frequencies'.
+During the profiling step that should be done for each sample separately, anvi'o checks the
+composition of nucleotides that map to each reference position, and keeps track of variation in the
+form of 'base frequencies'.
 
 Note that the reporting of these base frequencies is a little tricky: If you report base frequencies for each position when there is any variation at all, then the number of reported positions would be enormous. For instance, if you have a nucleotide position with 500X coverage, you can safely assume that there will always be _some_ nucleotides that do not match to the consensus nucleotide for that position--whether it is due to biology, or random sequencing errors, or other types of relevant or irrelevant sources of variation. For the sake of better management of available resources, and to be very quick, anvi'o (with its default settings) ___does not___ report variation in every single nucleotide position during profiling.
 
 Instead, it relies on the following conservative heuristic to identify SNVs and report the variation only at these nucleotide positions:
- 
-<div class='centerimg'>
-<a href='https://www.desmos.com/calculator/qwocua4zi5'><img src='{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/function.png' style='border: none; width: 200px;' /></a>
-</div>
 
-where, `x` represents the coverage, and `b`, `m`, and `c` represent the model parameters equal to 3, 1.45, and 0.05, respectively. Assuming `n1` and `n2` represent the frequency of the most frequent and the second most frequent bases in a given nucleotide position (see the table), base frequencies are reported only if `n2/n1 > y` criterion is satisfied for a given coverage of `x`. It is this simple (and ugly, in a sense). But briefly, this approach sets a dynamic baseline for minimum variation required for reporting _as a function of coverage depth_. According to this heuristic, `y` would be 0.29 for 20X coverage, 0.13 for 50X coverage, 0.08 for 100X coverage, and ~0.05 for very large values of coverage as `y` approaches to `c`. The goal here is to lessen the impact of sequencing and mapping errors in reported frequencies, and it does it's boring job.
+$$ y = \left(\frac{1}{b}\right)^{x^{\frac{1}{b}} - m} + c $$
 
-This heuristic is affirmatively _not_ the be all end all, and it is an area or our workflow we could stand to improve. We have chosen these parameters conservatively such that it reports SNVs that one can really trust. However, we are definitely culling out some degree of biologically relevant variation. If you're interested in learning more you should check out the supplemental material of [this study](https://www.nature.com/articles/nature24287), as we think they are the people who are thinking the best thoughts about how to identify SNVs in metagenomic contexts.
+where, \$x\$ represents the coverage, and \$b\$, \$m\$, and \$c\$ represent the model parameters
+equal to 3, 1.45, and 0.05, respectively. Assuming \$n_1\$ and \$n_2\$ represent the frequency of
+the most frequent and the second most frequent bases in a given nucleotide position (see the table),
+base frequencies are reported only if \$n_2/n_1 > y\$ criterion is satisfied for a given coverage of
+\$x\$. It is this simple (and ugly, in a sense). But briefly, this approach sets a dynamic baseline
+for minimum variation required for reporting _as a function of coverage depth_. According to this
+heuristic, \$y\$ would be 0.29 for 20X coverage, 0.13 for 50X coverage, 0.08 for 100X coverage, and
+~0.05 for very large values of coverage as \$y\$ approaches to \$c\$. The goal here is to lessen the
+impact of sequencing and mapping errors in reported frequencies, and it does it's boring job.
 
-This computation- and storage-efficient strategy reports a relatively short list (could still be millions of SNVs) of SNVs. However, the user always has the option to instruct the profiler to store _all observed frequencies_ by declaring this intention with `--report-variability-full` flag for more statistically appropriate downstream analyses. We are of course talking about the type of analyses Christopher Quince-like people would like to do.
+This heuristic is affirmatively _not_ the be all end all, and it is an area or our workflow we could
+stand to improve. We have chosen these parameters conservatively such that it reports SNVs that one
+can really trust. However, we are definitely culling out some degree of biologically relevant
+variation. If you're interested in learning more you should check out the supplemental material of
+[this study](https://www.nature.com/articles/nature24287), as we think they are the people who are
+thinking the best thoughts about how to identify SNVs in metagenomic contexts.
 
+This computation- and storage-efficient strategy reports a relatively short list (could still be
+millions of SNVs) of SNVs. However, the user always has the option to instruct the profiler to store
+_all observed frequencies_ by declaring this intention with `--report-variability-full` flag for
+more statistically appropriate downstream analyses. We are of course talking about the type of
+analyses Christopher Quince-like people would like to do.
 
 # Generating a SNV, SCV, or SAAV profile
 
