@@ -59,13 +59,16 @@ There will be a 20 to 40 second delay between Zoom and YouTube.
 
 ## Lecturers
 
-* [Meren](https://twitter.com/merenbey): Assistant Professor at the [University of Chicago](http://uchicago.edu), and a Fellow of the [Marine Biological Laboratory](http://mbl.edu).
+* **[Meren](https://twitter.com/merenbey)**: Assistant Professor in the [Department of Medicine](https://medicine.uchicago.edu/) and the [Committee on Microbiology](https://biomedsciences.uchicago.edu/page/microbiology) at the **[University of Chicago](http://uchicago.edu)**, and a Fellow of the **[Marine Biological Laboratory](http://mbl.edu)**.
 
-* [Mike Lee](https://twitter.com/AstrobioMike): Research Scientist at NASA’s [Ames Research Center](https://www.nasa.gov/ames). *Mike will lead the Phylogenomics session.*
+* **[Roland Hatzenpichler](http://www.environmental-microbiology.com)**, Assistant Professor in the Department of [Chemistry and Biochemistry](https://chemistry.montana.edu/), the [Thermal Biology Institute](http://tbi.montana.edu/), and the [Center for Biofilm Engineering](http://www.biofilm.montana.edu/) at **[Montana State University](https://www.montana.edu/)**. *Roland will lead a discussion on what we do <u>not</u> learn about microbial life from sequencing alone.*
 
-* [Iva Veseli](https://www.linkedin.com/in/iva-veseli/): Graduate Student at the [Biophysical Sciences Program](http://biophysics.uchicago.edu/), University of Chicago. *Iva will answer questions asked on the chat window on the Zoom call, or bring them up with the lecturer(s)*.
+* **[Mike Lee](https://twitter.com/AstrobioMike)**: Research Scientist at the [Ames Research Center](https://www.nasa.gov/ames), National Aeronautics and Space Administration (**[NASA](https://www.nasa.gov/)**). *Mike will lead the Phylogenomics session.*
 
-* [Emily Fogarty](https://twitter.com/emily_fogarty11): Graduate Student at the [Committee on Microbiology](https://biomedsciences.uchicago.edu/page/microbiology), University of Chicago. *Emily will answer questions asked on the chat window during the YouTube live stream, or bring them up with the lecturer(s)*. 
+* **[Iva Veseli](https://www.linkedin.com/in/iva-veseli/)**: Graduate Student in the **[Biophysical Sciences Program](http://biophysics.uchicago.edu/)** at the University of Chicago. *Iva will answer questions asked on the chat window on the Zoom call, or bring them up with the lecturer(s)*.
+
+* **[Emily Fogarty](https://twitter.com/emily_fogarty11)**: Graduate Student in the **[Committee on Microbiology](https://biomedsciences.uchicago.edu/page/microbiology)** at the University of Chicago. *Emily will answer questions asked on the chat window during the YouTube live stream, or bring them up with the lecturer(s)*. 
+
 
 ## Schedule
 
