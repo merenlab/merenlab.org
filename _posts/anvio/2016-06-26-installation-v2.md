@@ -69,9 +69,12 @@ And finally install anvi'o in it:
 conda install -y -c conda-forge -c bioconda anvio==6.2
 ```
 
-{:.notice}
+{:.warning}
 This may take a while. Seriously, though, this may take *A VERY LONG TIME* for some of you. But it will work at the end. The long wait is due to the time requirement of the package dependency resolver of conda, which scales linearly with the number of conda packages out there. Good news? It is a [known problem](https://github.com/conda/conda/issues/7239), and conda developers are on it. And I'm certain we will see improvements in the future.
 But just to give you an idea, **on my high-end laptop computer it took about 4 hours to resolve the dependencies, and less than a minute to install all necessary packages**. It may take much faster for you, but if it is taking longer, please don't worry.
+
+{:.notice}
+If you are using Mac OSX, **you may reduce your installation time to minutes** by following [this solution](https://groups.google.com/d/msg/anvio/TxCohPEY-iU/moGyMAqQAAAJ) implemented by [Blake Sanders](https://micro.uchicago.edu/program/students/blake-sanders), a graduate student at the Committee on Microbiology, University of Chicago. If you follow that solution precisely, you can continue with the next line as if nothing happened.
 
 Once your installation is complete, please run this command in your terminal for a final check:
 
