@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Integrating metagenomic sequence variants and predicted protein structures"
+title: "Integrating sequence variants and predicted protein structures"
 modified: 2018-09-04
 excerpt: "A discussion on the practical and theoretical aspects of using anvi-3dev"
 comments: true

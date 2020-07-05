@@ -1997,17 +1997,33 @@ Including the inspection of a given gene in its context with upstream and downst
 ## Chapter VII: From single-amino acid variants to protein structures
 
 {:.notice}
-This section of the tutorial uses the data described in the above section [Putting the E. faecalis genome in the context of HMP gut metagenomes](#downloading-the-pre-packaged-infant-gut-dataset). You already have this data, but if you're wondering "where did this come from?", you should read that section and then come back.
+This section of the tutorial uses the data described in the above section [Putting the E. faecalis
+genome in the context of HMP gut metagenomes](#downloading-the-pre-packaged-infant-gut-dataset). You
+already have this data, but if you're wondering "where did this come from?", you should read that
+section and then come back.
 
-{:.notice}
-This is a brief demonstration to showcase protein structure visualization that can be carried out by anvi'o. For a more detailed and in depth tutorial dedicated to this topic, please refer to [this post](http://merenlab.org/2018/09/04/structural-biology-with-anvio/)
+This is a brief demonstration to showcase protein structure visualization that can be carried out by
+a software embedded in anvi'o, called [`anvi-3dev`]({{ site.url }}/software/anvi-3dev). For a more
+detailed and in depth tutorial dedicated to this topic, please refer to this
+post ([click me]({{ site.url }}/2018/09/04/getting-started-with-anvi-3dev/))
 
-In the previous sections of this tutorial we used single-nucleotide variants (SNVs) to explore sequence heterogeneity of an *E. faecalis* population. In this section of the tutorial we explore in what ways these variants alter the encoded protein synthesized downstream, and how such variation is shaped by principles of protein evolution. When analyzing sequence variation in the context of proteins, it makes a lot more sense to characterize sequence variation with single codon variants (SCVs) or single amino acid variants (SAAVS) rather than SNVs. If you are unfamiliar with these concepts, or want to learn more, [click me](http://merenlab.org/2015/07/20/analyzing-variability/#single-nucleotide-variants).
+In the previous sections of this tutorial we used single-nucleotide variants (SNVs) to explore
+sequence heterogeneity of an *E. faecalis* population. In this section of the tutorial we explore in
+what ways these variants alter the encoded protein synthesized downstream, and how such variation is
+shaped by principles of protein evolution. When analyzing sequence variation in the context of
+proteins, it makes a lot more sense to characterize sequence variation with single codon variants
+(SCVs) or single amino acid variants (SAAVS) rather than SNVs. If you are unfamiliar with these
+concepts, or want to learn more, [click
+me]({{ site.url }}/2015/07/20/analyzing-variability/#single-nucleotide-variants).
 
 <details markdown="1"><summary>Show/hide Evan's note</summary>
 
-It's worth noting that this *E. faecalis* MAG recruits reads from populations with relatively low amounts of intra-population diversity. In more diverse microbial environments such as marine or soil ecosystems, visual patterns of variants on protein structures become much more striking. While the infant gut tutorial is a good medium to get you familiarized with various features of anvi'o, you should check out [this paper](https://doi.org/10.7554/eLife.46497) if you want to see more striking patterns of structural sequence variation. Here is a figure from that study:
-
+It's worth noting that this *E. faecalis* MAG recruits reads from populations with relatively low
+amounts of intra-population diversity. In more diverse microbial environments such as marine or soil
+ecosystems, visual patterns of variants on protein structures become much more striking. While the
+infant gut tutorial is a good medium to get you familiarized with various features of anvi-3dev, you
+should check out [this paper](https://doi.org/10.7554/eLife.46497) if you want to see more striking
+patterns of structural sequence variation. Here is a figure from that study:
 
 [![SAAVs](images/SAR11_SAAVs.png)](images/SAR11_SAAVs.png){:.center-img .width-80}
 
@@ -2018,7 +2034,11 @@ It's worth noting that this *E. faecalis* MAG recruits reads from populations wi
 
 ### The structure database
 
-To analyze and visualize where nucleotide-level variation occurs in the three-dimensional structure of the encoded protein, you need a protein structure. For this, anvi'o has a dedicated structure database that stores all structural information requested by the user. Users can create their own structure database by providing a contigs database, and a list of gene IDs in the contigs database they want to predict structures for.
+To analyze and visualize where nucleotide-level variation occurs in the three-dimensional structure
+of an encoded protein, you need a protein structure. For this, anvi-3dev has a dedicated structure
+database that stores all structural information requested by the user. Users can create their own
+structure database by providing a contigs database, and a list of gene IDs in the contigs database
+they want to predict structures for.
 
 {:.notice}
 Very briefly, structures are predicted using [MODELLER](http://merenlab.org/2016/06/18/installing-third-party-software/#modeller), which attempts to find homologous proteins with experimentally-solved structures. If any exist, they are used as templates to model your proteins of interest.
@@ -2032,7 +2052,7 @@ ls additional-files/e_faeealis_across_hmp/STRUCTURE.db
 <div class="extra-info" markdown="1">
 
 <span class="extra-info-header">Make your own structure database</span>
-For your information, you can re-create this structure database with the following command, although you will have to install some dependencies (anvi'o will tell you what to do if you try but don't have the dependencies):
+For your information, you can re-create this structure database with the following command, although you will have to install some dependencies (anvi-3dev will tell you what to do if you try but don't have the dependencies):
 
 ``` bash
 anvi-gen-structure-database -c additional-files/e_faeealis_across_hmp/CONTIGS.db \
@@ -2042,15 +2062,15 @@ anvi-gen-structure-database -c additional-files/e_faeealis_across_hmp/CONTIGS.db
 ```
 </div>
 
-### Visualizing proteins with anvi-display-structure
+### Visualizing proteins with anvi-3dev
 
 With a structure database in hand, you are ready to visualize SAAVs and SCVs on protein structures.
 
 ``` bash
-anvi-display-structure -s additional-files/e_faeealis_across_hmp/STRUCTURE.db \
-                       -p additional-files/e_faeealis_across_hmp/PROFILE.db \
-                       -c additional-files/e_faeealis_across_hmp/CONTIGS.db \
-                       --min-departure-from-consensus 0
+anvi-3dev -s additional-files/e_faeealis_across_hmp/STRUCTURE.db \
+          -p additional-files/e_faeealis_across_hmp/PROFILE.db \
+          -c additional-files/e_faeealis_across_hmp/CONTIGS.db \
+          --min-departure-from-consensus 0
 ```
 
 After running the above command, you should see the following view.
@@ -2149,10 +2169,10 @@ SRR5405692  |  10   |  Sloan2  |  Gut       |  14      |  Sloan2_14      |  1009
 Afterwards, we can rerun the interactive display:
 
 ``` bash
-anvi-display-structure -s additional-files/e_faeealis_across_hmp/STRUCTURE.db \
-                       -p additional-files/e_faeealis_across_hmp/PROFILE.db \
-                       -c additional-files/e_faeealis_across_hmp/CONTIGS.db \
-                       --min-departure-from-consensus 0
+anvi-3dev -s additional-files/e_faeealis_across_hmp/STRUCTURE.db \
+          -p additional-files/e_faeealis_across_hmp/PROFILE.db \
+          -c additional-files/e_faeealis_across_hmp/CONTIGS.db \
+          --min-departure-from-consensus 0
 ```
 
 Now, there are many more grouping categories available to us.
@@ -2165,7 +2185,7 @@ Now, there are many more grouping categories available to us.
 
 We hope this tutorial give you enough motivation to explore your own data with this framework! Feel free to click on the other 4 genes in the Main tab and further explore, or better yet, do it with your own metagenomes.
 
-Let's face it: it is a lot easier to live in a world of A, C, T, and G. But in this restricted space we can't explore the biochemical consequences of our sequences, and we therefore can't understand why DNA sequences are the way they are. This branch of anvi'o has been designed to help make this undertaking more accessible, but it is only in its infancy. If you have suggestions, please let us know.
+Let's face it: it is a lot easier to live in a world of A, C, T, and G. But in this restricted space we can't explore the biochemical consequences of our sequences, and we therefore can't understand why DNA sequences are the way they are. anvi-3dev has been designed to help make this undertaking more accessible, but it is only in its infancy. If you have suggestions, please let us know.
 
 
 ## Final words
