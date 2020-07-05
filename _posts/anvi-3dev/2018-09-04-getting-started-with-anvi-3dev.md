@@ -164,46 +164,121 @@ protein models will be stored in the structure database, along with the structur
 
 Okay so you know how to make a simple structure database, but MODELLER has many parameters that are waiting to be refined.
 
-We have tried our best to make as many parameters tunable as possible to create the databases you want and with the level of stringency that you control. Below are a list of all the parameters that you can use to fine-tune database creation.
+We have tried our best to make as many parameters tunable as possible to create the databases you
+want and with the level of stringency that you control. Below are a list of all the parameters that
+you can use to fine-tune database creation.
 
 {:.warning}
 If you use MODELLER and there's something you want to control but that we don't provide access to, please let us know and we'll try our best to add it.
 
-1. **`--num-models`**. As [already described](#the-structure-database), once MODELLER has 3D-aligned the target to the templates, it carries out an optimization simulation. This process is deterministic, meaning that if you run the simulation 3 times with the same initial structures, the 3 final structures (aka models) will be the same. Yet if you perturb the atomic positions of the initial structure before running the simulations (see `--deviation`), you may stumble upon different, and perhaps even better, models. Therefore, it makes sense to simulate several models to search a larger solution space. This parameter control the number of models to be simulated. Keep in mind that protein templates are the largest determinant of a model's accuracy, so there is no need to go overboard with large numbers. The default is 3, and more than 20 seems excessive.
+1. **`--num-models`**. As [already described](#the-structure-database), once MODELLER has 3D-aligned
+   the target to the templates, it carries out an optimization simulation. This process is
+   deterministic, meaning that if you run the simulation 3 times with the same initial structures,
+   the 3 final structures (aka models) will be the same. Yet if you perturb the atomic positions of
+   the initial structure before running the simulations (see `--deviation`), you may stumble upon
+   different, and perhaps even better, models. Therefore, it makes sense to simulate several models
+   to search a larger solution space. This parameter controls the number of models to be simulated.
+   Keep in mind that protein templates are the largest determinant of a model's accuracy, so there
+   is no need to go overboard with large numbers. The default is 1, but feel free to use more.
 
-2. **`--deviation`**. The standard deviation of atomic perturbation of the initial structure in ångströms. You can explore more of the solution space by perturbing the atomic positions of the initial structure. The default is 4.
+2. **`--deviation`**. The standard deviation of atomic perturbation of the initial structure in
+   ångströms. You can explore more of the solution space by perturbing the atomic positions of the
+   initial structure. The default is 4.
 
-3. **`--modeller-database`**. MODELLER finds candidate template sequences from a database of proteins with known structures. By default, it uses a database, `pdb_95.pir`, which contains all PDB structures clustered at 95% sequence identity, which can be downloaded [here](https://salilab.org/modeller/supplemental.html). It's a very convenient resource and is periodically updated by the [Sali Lab](https://salilab.org/). If you don't have it, anvi-3dev will download it for you when the time is right. If you have your own database it must have either the extension `.bin` or `.pir` and anvi-3dev should be able to find it under `anvio/data/misc/MODELLER/db`.
+3. **`--modeller-database`**. MODELLER finds candidate template sequences from a sequence database
+   of proteins with known structures. By default, it uses a database, `pdb_95`, which contains the
+   sequences of all PDB structures clustered at 95% sequence identity, which can be downloaded
+   [here](https://salilab.org/modeller/supplemental.html). It's a very convenient resource and is
+   periodically updated by the [Sali Lab](https://salilab.org/). If you don't have it, anvi-3dev
+   will download it for you when the time is right. If you have your own database it must have
+   either the extension `.bin`, `.pir` or `.dmnd` and anvi-3dev should be able to find it under
+   `anvio/data/misc/MODELLER/db`.
 
-4. **`--scoring-method`**. If you generate 10 models with `--num-models 10`, how should the best model be decided? The metric used could be any of `GA341_score` ([citation](https://salilab.org/pdf/John_NucleicAcidsRes_2003.pdf)), `DOPE_score` ([citation](https://salilab.org/pdf/Shen_ProteinSci_2006.pdf)), or `molpdf`, which is the simplest scoring function. `GA341` is an absolute measure, where a good model will have a score near `1.0`, whereas anything below `0.6` can be considered bad. `DOPE_score` and `molpdf` scores are relative energy measures, where lower scores are better. `DOPE` has been generally shown to distinguish better between good and bad models compared to `molpdf`. MODELLER uses `DOPE_score` by default. To learn more about assessment methods, see this MODELLER tutorial [here](https://salilab.org/modeller/tutorial/basic.html). 
+5. **`--scoring-method`**. If you generated 10 models with `--num-models 10`, how should the best
+   model be decided? The metric used could be any of `GA341_score`
+   ([citation](https://salilab.org/pdf/John_NucleicAcidsRes_2003.pdf)), `DOPE_score`
+   ([citation](https://salilab.org/pdf/Shen_ProteinSci_2006.pdf)), or `molpdf`, which is the
+   simplest scoring function. `GA341` is an absolute measure, where a good model will have a score
+   near `1.0`, whereas anything below `0.6` can be considered bad. `DOPE_score` and `molpdf` scores
+   are relative energy measures, where lower scores are better. `DOPE` has been generally shown to
+   distinguish better between good and bad models compared to `molpdf`. MODELLER uses `DOPE_score`
+   by default. To learn more about assessment methods, see this MODELLER tutorial
+   [here](https://salilab.org/modeller/tutorial/basic.html). 
 
-5. **`--percent-identical-cutoff`**. Minimum normalized percent identity of a PDB protein to be used as a template for a given gene. Here we define normalized percent identity as the percentage of amino acids in the gene of interest that are identical to an entry in the database given the entire length the protein of interest. For example, if there is 100% identity between the protein of interest and the template over the length of the alignment, but the alignment length is only half of the protein of interest sequence length, then the normalized percent identical would be 50%. This helps us avoid the inflation of identity scores due to partial matches. The default is 30%. Obviously the higher the percentage identity, the more confident you can be in the accuracy of the model, however it will reduce your hits. Keep in mind that if you are after high accuracy, selecting template structures based on a single threshold is very simplistic. The template selection step is perhaps the most critical aspect of the workflow, and requires manual intervention if accuracy is critical.
+6. **`--percent-identical-cutoff`**. Minimum normalized percent identity of a PDB protein to be used
+   as a template for a given gene. Here we define normalized percent identity as the percentage of
+   amino acids in the gene of interest that are identical to an entry in the database given the
+   entire length the protein of interest. For example, if there is 100% identity between the protein
+   of interest and the template over the length of the alignment, but the alignment length is only
+   half of the protein of interest sequence length, then the normalized percent identical would be
+   50%. This helps us avoid the inflation of identity scores due to partial matches. The default is
+   30%. Obviously the higher the percentage identity, the more confident you can be in the accuracy
+   of the model, however it will reduce your hits. Keep in mind that if you are after high accuracy,
+   selecting template structures based on a single threshold is very simplistic. The template
+   selection step is perhaps the most critical aspect of the workflow, and requires manual
+   intervention if accuracy is critical.
 
-6. **`--max-number-templates`**. Generally speaking it is best to use as many templates as possible given that they have high proper percent identity to the protein of interest. Here is an [excerpt](https://salilab.org/modeller/methenz/andras/node4.html) from the Sali Lab: "*The use of several templates generally increases the model accuracy. One strength of MODELLER is that it can combine information from multiple template structures, in two ways. First, multiple template structures may be aligned with different domains of the target, with little overlap between them, in which case the modeling procedure can construct a homology-based model of the whole target sequence. Second, the template structures may be aligned with the same part of the target, in which case the modeling procedure is likely to automatically build the model on the locally best template [43,44]. In general, it is frequently beneficial to include in the modeling process all the templates that differ substantially from each other, if they share approximately the same overall similarity to the target sequence*". The default is 5, but if only X candidate templates are found to pass the `--percent-identical-cutoff` threshold, then only X will be used.
+7. **`--max-number-templates`**. Generally speaking it is best to use as many templates as possible
+   given that they have high proper percent identity to the protein of interest. Here is an
+   [excerpt](https://salilab.org/modeller/methenz/andras/node4.html) from the Sali Lab: "*The use of
+   several templates generally increases the model accuracy. One strength of MODELLER is that it can
+   combine information from multiple template structures, in two ways. First, multiple template
+   structures may be aligned with different domains of the target, with little overlap between them,
+   in which case the modeling procedure can construct a homology-based model of the whole target
+   sequence. Second, the template structures may be aligned with the same part of the target, in
+   which case the modeling procedure is likely to automatically build the model on the locally best
+   template [43,44]. In general, it is frequently beneficial to include in the modeling process all
+   the templates that differ substantially from each other, if they share approximately the same
+   overall similarity to the target sequence*". The default is 5, but if only X candidate templates
+   are found to pass the `--percent-identical-cutoff` threshold, then only X will be used.
 
-7. **`--very-fast`**. Use this option if you're impatient and want only the roughest predicted structures. It's fast because the step size of the simulation is very large and a very low quality requirement is established for reaching equilibrium. Not recommended, but we're not going to be the ones to deny you of freewill.
+8. **`--very-fast`**. Use this option if you're impatient and want only the roughest predicted
+   structures. It's fast because the step size of the simulation is very large and a very low
+   quality requirement is established for reaching equilibrium. Not recommended, but we're not going
+   to be the ones to deny you of freewill.
 
-8. **`--dump-dir`**. Modelling structures requires a lot of moving parts, each of which have their own outputs. The output of this program is a structure database containing the pertinent results of this computation, however a lot of stuff doesn't make the cut. By providing a directory for this parameter you will get, in addition to the structure database, a directory containing the raw output for everything produced by MODELLER.
+9. **`--dump-dir`**. Modelling structures requires a lot of moving parts, each of which have their
+   own outputs. The output of this program is a structure database containing the pertinent results
+   of this computation, however a lot of stuff doesn't make the cut. By providing a directory for
+   this parameter you will get, in addition to the structure database, a directory containing the
+   raw output for everything produced by MODELLER.
 
 ## A quick case study on the importance of key parameters
 
-How much do these parameters matter? In this section we look at a gene from a SAR11 genome that encodes for *CDP-D-glucose 4,6-dehydratase*, and investigate the effect of template selection and model number on the predicted structure.
+How much do these parameters matter? In this section we look at a gene from a SAR11 genome that
+encodes for *CDP-D-glucose 4,6-dehydratase*, and investigate the effect of template selection and
+model number on the predicted structure.
 
 ### How much does the number of models matter?
 
-Hopefully it's clear that increasing the number of models increases the search space and the accuracy of your final model, but when is enough, enough? To test this I predicted the SAR11 dehydratase structure with default parameters except with `--num-models 100`. Here are the DOPE scores of those 100 structure predictions, which took about an hour to compute:
+This is anecdotal, and represents only 1 case.
+{:.notice}
+
+Hopefully it's clear that increasing the number of models increases the search space and the
+accuracy of your final model, but when is enough, enough? To test this I predicted the SAR11
+dehydratase structure with default parameters except with `--num-models 100`. Here are the DOPE
+scores of those 100 structure predictions, which took about an hour to compute:
 
 [![100-models-hist]({{images}}/100-models-hist.png)]( {{images}}/100-models-hist.png){:.center-img .width-80}
 
-Since model 79 has the best DOPE score of -42376.1132812 (most negative), it was picked as the best model. But that's just a number, and I certainly don't know how to meaningfully compare models using this score besides comparing their magnitudes. So here is a visual comparison between the best and worst models according to DOPE score:
+Since model 79 has the best DOPE score of -42376.1132812 (most negative), it was picked as the best
+model. But that's just a number, and I certainly don't know how to meaningfully compare models using
+this score besides comparing their magnitudes. So here is a visual comparison between the best and
+worst models according to DOPE score:
 
 [![num-model-comparison]({{images}}/num-model-comparison.png)]( {{images}}/num-model-comparison.png){:.center-img .width-80}
 
-They have an RMSD of 1.617. I will let you be the judge of how different these are, but in general keep in mind it will depend on what questions you are interested in. Based on the visual similarity between the two models in this case study, the default value for `--num-models` has been set to 3.
+They have an RMSD of 1.617 Å. I will let you be the judge of how different these are, but in general
+keep in mind it will depend on what questions you are interested in. Based on the visual similarity
+between the two models in this case study, the default value for `--num-models` has been set to 3.
 
 ### How much do templates matter?
 
-The higher the similarity of your templates to your target, the better your model will be. But how does the effect of multiple templates influence model results? Let's see.
+This is anecdotal, and represents only 1 case.
+{:.notice}
+
+The higher the similarity of your templates to your target, the better your model will be. But how
+does the effect of multiple templates influence model results? Let's see.
 
 For this SAR11 dehydratase gene, MODELLER finds 2 candidate templates above 30% identity:
 
@@ -212,7 +287,11 @@ Template 1 ........................: Protein ID: 1wvg, Chain A (39.4% identical)
 Template 2 ........................: Protein ID: 1rkx, Chain A (38.8% identical)
 ```
 
-Template 1 comes from *Salmonella typhi* and template 2 from *Yersinia pseudotuberculosis*. They are both ~39% similar to SAR11 but 73% similar to one another, with a RMSD of 2.053 Å between their main-chain atoms. I created 3 different models, one using template 1, a second using template 2, and a third using templates 1 and 2. Figure below shows the best models (using `--num-models 15`) from each of these 3 templates.
+Template 1 comes from *Salmonella typhi* and template 2 from *Yersinia pseudotuberculosis*. They are
+both ~39% similar to SAR11 but 73% similar to one another, with a RMSD of 2.053 Å between their
+main-chain atoms. I created 3 different models, one using template 1, a second using template 2, and
+a third using templates 1 and 2. Figure below shows the best models (using `--num-models 15`) from
+each of these 3 templates.
 
 [![gene-1248-different-template-selections]({{images}}/gene-1248-different-template-selections.png)]( {{images}}/gene-1248-different-template-selections.png){:.center-img .width-80}
 
@@ -238,22 +317,52 @@ We see that the model based on both templates outperforms both single-template m
 
 >The use of several templates generally increases the model accuracy. One strength of MODELLER is that it can combine information from multiple template structures ... the template structures may be aligned with the same part of the target, in which case the modeling procedure is likely to automatically build the model on the locally best template. In general, it is frequently beneficial to include in the modeling process all the templates that differ substantially from each other, if they share approximately the same overall similarity to the target sequence.
 
-In our case, both the *Salmonella* and the *Pseudotuberculosis* proteins shared the same overall similarity to the SAR11 sequence, so utilizing both templates led to a better model. What if there was a third template that shared 90% similarity to our protein? Should we use all three templates or should we just use the one with 90% similarity? In this instance, we should use only the one template with 90% similarity, since the other 2 templates do not share the same overall similarity to the target sequence, and would lower the quality of our odel. On the other hand, if the third model was 45-50% similar to the target sequence, using all three could make more sense.
+In our case, both the *Salmonella* and the *Pseudotuberculosis* proteins shared the same overall
+similarity to the SAR11 sequence, so utilizing both templates led to a better model. What if there
+was a third template that shared 90% similarity to our protein? Should we use all three templates or
+should we just use the one with 90% similarity? In this instance, we should use only the one
+template with 90% similarity, since the other 2 templates do not share the same overall similarity
+to the target sequence, and would lower the quality of our odel. On the other hand, if the third
+model was 45-50% similar to the target sequence, using all three could make more sense.
+Unfortunately this sort of decison-making is not coded into `anvi-gen-structure-databse`, and at this point in time
+only provides a hard cutoff with `--num-templates`. Complain to us if this matters to you!
 
 # Using the structure database as an input to anvi-gen-variability-profile
 
-Once you have structures for proteins of interest, what can you do with them? One utility is to combine the output of `anvi-gen-variability-profile` with structural information. 
+Once you have structures for proteins of interest, what can you do with them? One utility is to
+combine the output of `anvi-gen-variability-profile` with structural information. 
 
-`anvi-gen-variability-profile` is a robust program to generate variability profiles for metagenomes at the level of nucleotides (SNVs), codons (SCVs), or amino acids (SAAVs). You can get a hands-on feel for this program in [this section of the Infant Gut Tutorial](http://merenlab.org/tutorials/infant-gut/#chapter-iv-microbial-population-genetics) or you can get into the nitty-gritty in [this more theoretical tutorial](http://merenlab.org/2015/07/20/analyzing-variability/) dedicated to the subject.
+`anvi-gen-variability-profile` is a robust program to generate variability profiles for metagenomes
+at the level of nucleotides (SNVs), codons (SCVs), or amino acids (SAAVs). You can get a hands-on
+feel for this program in [this section of the Infant Gut
+Tutorial]({{ site.url }}/tutorials/infant-gut/#chapter-v-microbial-population-genetics) or you
+can get into the nitty-gritty in [this more theoretical
+tutorial]({{ site.url }}/2015/07/20/analyzing-variability/) dedicated to the subject.
 
-The output of `anvi-gen-variability-profile` is a table where each row corresponds to a sequence variant found in a metagenome. Each column gives descriptive or quantitative information about the variants. If the flag `-s /PATH/TO/STRUCTURE-DATABASE.db` is given to the program, additional columns will be added for structural information if (a) the variant occurs within a gene, (b) the gene has a predicted structure, and (c) the variant is either a SAAV (use `--engine AA`) or an SCV (use `--engine CDN`). All the columns that can be added are listed [here](http://merenlab.org/2015/07/20/analyzing-variability/#matrix-output-those-unique-to-structure-database-integration). This is my favourite feature of the structure database.
+The output of `anvi-gen-variability-profile` is a table where each row corresponds to a sequence
+variant found in a metagenome. Each column gives descriptive or quantitative information about the
+variants. If the parameter `-s /PATH/TO/STRUCTURE-DATABASE.db` is given to the program, additional
+columns will be added for structural information if (a) the variant occurs within a gene, (b) the
+gene has a predicted structure, and (c) the variant is either a SAAV (use `--engine AA`) or an SCV
+(use `--engine CDN`). All the columns that can be added are listed
+[here]({{ site.url }}/2015/07/20/analyzing-variability/#matrix-output-those-unique-to-structure-database-integration).
+This is my favourite feature of the structure database.
 
 # Display metagenomic sequence variants directly on predicted structures
 
 {:.notice}
-`anvi-3dev`, described below, visualizes variability from metagenomic sequence data onto a reference 3D structures. The structures are predicted either from a MAG or a reference genome with `anvi-gen-structure-database`. This program does not predict the impact of environmental variants on the structure.
+`anvi-3dev`, described below, visualizes variability from metagenomic sequence data onto a reference
+3D structures. The structures are predicted either from a MAG or a reference genome with
+`anvi-gen-structure-database`. This program does not predict the impact of environmental variants on
+the structure.
 
-There are many comprehensive software packages and web services to visualize protein structures. But Özcan and I wanted to create `anvi-3dev` with the very specific purpose of interactively visualizing, filtering, and clustering metagenomic sequence variants directly on protein strucures. Existing solutions were not incapable of doing these tasks, however, the lack of automation, scalability, and just the straight up time required for a single protein and the lack of integration convinced us that the community could benefit from a tool that was designed specifically for this purpose.
+There are many comprehensive software packages and web services to visualize protein structures. But
+Özcan and I wanted to create `anvi-3dev` with the very specific purpose of interactively
+visualizing, filtering, and clustering metagenomic sequence variants directly on protein strucures.
+Existing solutions were not incapable of doing these tasks, however, the lack of automation,
+scalability, and just the straight up time required for a single protein and the lack of integration
+convinced us that the community could benefit from a tool that was designed specifically for this
+purpose.
 
 ## Examples
 
@@ -286,9 +395,19 @@ These protein views are interactive with many visualization options. For example
 ## Supplying anvi-3dev with sequence variability
 
 {:.warning}
-Please note that the only required input for creating a structure database with `anvi-gen-structure-database` is a contigs database. But to visualize sequence variants on structures in your structure database, you will also need a single or merged anvi'o profile database that must have been generated with the flag `--profile-SCVs`, as this flag is what makes reporting SCVs and SAAVs possible. Otherwise, anvi'o will complain, and complaining has never solved any problem. If you have profile databases without this flag and want to visualize variants on structures, you have to re-profile with `--profile-SCVs`. We apologize for the inconvenience, but the reason this is not done by default is that it comes at a large computational cost.
+Please note that the only required input for creating a structure database with
+`anvi-gen-structure-database` is a contigs database. But to visualize sequence variants on
+structures in your structure database, you will also need a single or merged anvi'o profile database
+that must have been generated with the flag `--profile-SCVs`, as this flag is what makes reporting
+SCVs and SAAVs possible. Otherwise, anvi-3dev will complain, and complaining has never solved any
+problem. If you have profile databases without this flag and want to visualize variants on
+structures, you have to re-profile with `--profile-SCVs`. We apologize for the inconvenience, but
+the reason this is not done by default is that it comes at a large computational cost.
 
-The remainder of this tutorial describes the two ways in which you can provide anvi-3dev with sequence variability information, which is required to run the interface. The easiest and most straightforward way is to *not* provide anything, and let anvi-3dev do it for you. Simply provide the corresponding contigs and profile databases alongside your structure database:
+The remainder of this tutorial describes the two ways in which you can provide anvi-3dev with
+sequence variability information, which is required to run the interface. The easiest and most
+straightforward way is to *not* provide anything, and let anvi-3dev do it for you. Simply provide
+the corresponding contigs and profile databases alongside your structure database:
 
 ```bash
 anvi-3dev -s /PATH/TO/STRUCTURE.DB \
@@ -303,9 +422,18 @@ In this case anvi-3dev will calculate both SCVs and SAAVs on-the-fly and the fol
 * SCVs for gene X are loaded
 ```
 
-Afterwards, the interface will open a display for gene X. Notice that SCVs and SAAVs were only calculated for gene X. If you switch genes in the interface, SCVs and SAAVs will be calculated for the new gene.
+Afterwards, the interface will open a display for gene X. Notice that SCVs and SAAVs were only
+calculated for gene X. If you switch genes in the interface, SCVs and SAAVs will be calculated for
+the new gene.
 
-This is the standard way to visualize variation and is recommended in most cases. But there is an additional way that could be useful for one of two reasons: (1) profiling variation on-the-fly can take a long time for large profile database (on my laptop it takes about a minute to load each gene in a 26 GB profile database), and (2) if you merely want to show someone variation in a gene across some metagenomes, you don't want to send them a 26 GB profile database. Why not just send them a variation table? Hence, the second way to provide anvi-3dev with sequence variability is with a variability table generated from `anvi-gen-variability-profile`. With this approach, anvi-3dev will utilize variability from this table instead of reading it from the profile database:
+This is the standard way to visualize variation and is recommended in most cases. But there is an
+additional way that could be useful for one of two reasons: (1) profiling variation on-the-fly can
+take a long time for large profile database (on my laptop it takes about a minute to load each gene
+in a 26 GB profile database), and (2) if you merely want to show someone variation in a gene across
+some metagenomes, you don't want to send them a 26 GB profile database. Why not just send them a
+variation table? Hence, the second way to provide anvi-3dev with sequence variability is with a
+variability table generated from `anvi-gen-variability-profile`. With this approach, anvi-3dev will
+utilize variability from this table instead of reading it from the profile database:
 
 ```bash
 # generate a variability table
@@ -318,7 +446,7 @@ anvi-gen-variability-profile -p /PATH/TO/PROFILE.DB \
 
 # run the display using the variability table
 anvi-3dev -s /PATH/TO/STRUCTURE.DB \
-                       -V variability.txt
+          -V variability.txt
 ```
 
 The first command has some bells and whistles that are worth describing. First, `-s
