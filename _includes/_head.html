@@ -33,10 +33,27 @@
 <!-- Modernizr -->
 <script src="{{ site.url }}/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
 
-
 <!-- MathJAX stuff -->
-<script type="text/javascript"
-    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML-full">
+  MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    extensions: ["tex2jax.js"],
+    tex2jax: {
+      inlineMath: [ ['\$','\$'] ],
+      displayMath: [ ['$$','$$'] ]
+    }
+  });
+
+  function doOnLoad() {
+    var div = MathJax.HTML.Element(
+          "div",
+          {id: "MathDiv", style:{border:"1px solid", padding:"5px"}},
+          ["Here is math: \\(x^2+1\\)",["br"],"and a display $$x+1\\over x-1$$"]
+        );
+    document.body.appendChild(div);
+    // This does not seem needed but you can use if to force rendering of a div
+    MathJax.Hub.Queue(["Typeset",MathJax.Hub,'MathDiv']);
+  }
 </script>
 
 <!-- altmetric and dimensions -->
