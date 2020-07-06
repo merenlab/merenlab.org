@@ -164,8 +164,8 @@ This heuristic is affirmatively _not_ the be all end all, and it is an area or o
 stand to improve. We have chosen these parameters conservatively such that it reports SNVs that one
 can really trust. However, we are definitely culling out some degree of biologically relevant
 variation. If you're interested in learning more you should check out the supplemental material of
-[this study](https://www.nature.com/articles/nature24287), as we think they are the people who are
-thinking the best thoughts about how to identify SNVs in metagenomic contexts.
+[this study](https://www.nature.com/articles/nature24287), as we think this study represents one of
+the most well-thought and appropriate approaches to identify SNVs in metagenomic contexts.
 
 This computation- and storage-efficient strategy reports a relatively short list (could still be
 millions of SNVs) of SNVs. However, the user always has the option to instruct the profiler to store
