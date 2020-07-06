@@ -779,7 +779,7 @@ Some relatively easy exercises.
 
 The following data pack contains a genome, and multiple metagenomes in relevant directories:
 
-[https://www.dropbox.com/s/2hkjubrv11d0bh1/momics-week-02-data-analysis-assignment.tar.gz](https://www.dropbox.com/s/2hkjubrv11d0bh1/momics-week-02-data-analysis-assignment.tar.gz)
+[https://www.dropbox.com/s/6cq30443ydre6le/momics-week-02-data-analysis-assignment.zip](https://www.dropbox.com/s/6cq30443ydre6le/momics-week-02-data-analysis-assignment.zip)
 
 Please download it and unpack it, and make sure there is a **README.md** file in it. The contents of that file will be very similar to the rest of the information here, but what you will find on this page may be more up-to-date.
 
