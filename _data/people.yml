@@ -99,22 +99,6 @@
       inst: The Department of Medicine at the University of Chicago
       inst_link: http://medicine.uchicago.edu/
 
-- alias: mahmoud
-  official: True
-  name: Mahmoud Yousef
-  tenure_start: 05/2017
-  avatar: bio-mahmoud.jpg
-  role: Undergraduate Researcher
-  email: mahmoudyousef@uchicago.edu
-  linkedin: mahmoud-yousef-314198128/
-  github: mahmoudyousef98
-  bio: "I am interested in exploring the intersection of bioinformatics and medicine, and how bioinformatic techniques can be used to advance the quality of medicine."
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  affiliations:
-     - title: Undergraduate Student
-       inst: Department of Computer Science at the University of Chicago
-       inst_link: https://www.cs.uchicago.edu/
-
 - alias: matt
   official: True
   name: Matthew Schechter
@@ -413,6 +397,26 @@
     - title: Graduate Student
       inst: The Biophysical Sciences Program at the University of Chicago
       inst_link: http://biophysics.uchicago.edu/
+
+- alias: mahmoud
+  nick_name: Mahmoud
+  official: True
+  name: Mahmoud Yousef
+  tenure_start: 05/2017
+  tenure_end: 02/2020
+  current_info: a medical student at the <a href="https://pritzker.uchicago.edu/">Pritzker School of Medicine</a>, University of Chicago
+  contributions: Focusing on pangenomics, he developed functional and geometric homogeneity indices so we can interpret the heterogeneity within gene clusters.
+  avatar: bio-mahmoud.jpg
+  role: Undergraduate Researcher
+  email: mahmoudyousef@uchicago.edu
+  linkedin: mahmoud-yousef-314198128/
+  github: mahmoudyousef98
+  bio: "I am interested in exploring the intersection of bioinformatics and medicine, and how bioinformatic techniques can be used to advance the quality of medicine."
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  affiliations:
+     - title: Undergraduate Student
+       inst: Department of Computer Science at the University of Chicago
+       inst_link: https://www.cs.uchicago.edu/
 
 - alias: quentin
   official: True
