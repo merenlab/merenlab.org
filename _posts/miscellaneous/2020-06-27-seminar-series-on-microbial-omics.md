@@ -112,10 +112,7 @@ Seminars are free to attend and open to anyone! But we request you to register u
 **[https://forms.gle/o2JY8ufE4mJojdE48](https://forms.gle/o2JY8ufE4mJojdE48)**
 
 {:.warning}
-The registration form will be open until July 8<sup>th</sup>.
-
-{:.warning}
-If you fill up the form please remember to mark those dates on your calendar.
+If you fill up the form, please remember to mark those dates on your calendar. You will get an e-mail five to fifteen minutes before the beginning of the seminar on each Wednesday. Please be patient and don't forget to keep an eye on your JUNK or SPAM folders :)
 
 ## Questions?
 
