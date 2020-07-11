@@ -67,18 +67,21 @@ There will be a 20 to 40 second delay between Zoom and YouTube.
 
 * **[Iva Veseli](https://www.linkedin.com/in/iva-veseli/)**: Graduate Student in the **[Biophysical Sciences Program](http://biophysics.uchicago.edu/)** at the University of Chicago. *Iva will answer questions asked on the chat window on the Zoom call, or bring them up with the lecturer(s)*.
 
-* **[Emily Fogarty](https://twitter.com/emily_fogarty11)**: Graduate Student in the **[Committee on Microbiology](https://biomedsciences.uchicago.edu/page/microbiology)** at the University of Chicago. *Emily will answer questions asked on the chat window during the YouTube live stream, or bring them up with the lecturer(s)*. 
+* **[Emily Fogarty](https://twitter.com/emily_fogarty11)**: Graduate Student in the **[Committee on Microbiology](https://biomedsciences.uchicago.edu/page/microbiology)** at the University of Chicago. *Emily will answer questions asked on the chat window during the YouTube live stream, or bring them up with the lecturer(s)*.
 
 
 ## Schedule
 
-**Every lecture will take place on a Wednesday at 9am Chicago Time (CST)** ([see what time it corresponds to in your city](https://www.timeanddate.com/worldclock/converter.html?iso=20200708T140000&p1=64&p2=259&p3=240&p4=514&p5=770&p6=676&p7=233&p8=246&p9=155&p10=250&p11=16&p12=176)).
+**Every lecture will take place on a Wednesday at 9am Chicago Time (CST)** ([see what time it corresponds to in your city](https://www.timeanddate.com/worldclock/converter.html?iso=20200708T140000&p1=64&p2=259&p3=240&p4=514&p5=770&p6=676&p7=233&p8=246&p9=155&p10=250&p11=16&p12=176)), and recording of the lecture (minus the discussions) will appear here after a few days.
 
 ### July 8, 2020
 
 <blockquote markdown="1">**A brief introduction to microbial life, and popular 'omics approaches and data types**
 </blockquote>
 
+The video of the first week's lecture (if you click on the title, you will find the outline and timestamps of independent sections of the talk on YouTube):
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/R9KLkCZ95cU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### July 15, 2020
 
