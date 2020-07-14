@@ -60,11 +60,11 @@ I am aware that "dark matter" is definitely a catchy term. You may suggest that 
 
 But even though it is not appropriate, one may still argue that the use of "dark matter" has value when speaking to the public. It is a very sad argument, but OK, regardless of its validity, there *is* an argument for that part. Meanwhile, I can't think of *any arguments* that justifies why *scientists* would use it to communicate their findings to *other scientists* in peer-reviewed articles. Because there is absolutely no reason why one can't simply say what they mean by "dark matter" in an article instead of saying "dark matter" without any scientific basis.
 
-But even when we have a chance to correct the record, we seem to fall into the local minimums of our bad vocabulary. You can see an example to that in the review written by Christopher Quince et al. for Nature Biotechnology on "[Shotgun metagenomics, from sampling to analysis](https://www.nature.com/articles/nbt.3935)", and my tongue-in-cheek attempt to offer an alternative after the publication of the paper:
+But even when we have a chance to correct the record, we seem to fall into the local minimums of our bad vocabulary. You can see an example to that in this review written by [Chris Quince](https://scholar.google.com/citations?user=0yKnJ2wAAAAJ&hl=en) et al. for Nature Biotechnology, "[Shotgun metagenomics, from sampling to analysis](https://www.nature.com/articles/nbt.3935)", and my tongue-in-cheek attempt to offer an edit to their description after the publication of the paper:
 
 [![Suggestion to Quince et al.]({{images}}/quince-et-al.jpeg)]({{images}}/quince-et-al.jpeg){:.center-img .width-80}
 
-**Overall, I think we can all benefit from being more explicit**. Especially in a field that is growing so fast that even the terms we all commonly use mean different things to different groups, cutting corners with poor analogies like "dark matter" reflects badly on us, and hinders our ability to develop a robust and responsible vocabulary.
+Overall, I think **we can all benefit from being more explicit**. Especially in a field that is growing so fast that even the terms we all commonly use mean different things to different groups, cutting corners with poor analogies like "dark matter" reflects badly on us, and hinders our ability to develop a robust and responsible vocabulary.
 
 ---
 
