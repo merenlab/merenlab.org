@@ -64,7 +64,7 @@ But even when we have a chance to correct the record, we seem to fall into the l
 
 [![Suggestion to Quince et al.]({{images}}/quince-et-al.jpeg)]({{images}}/quince-et-al.jpeg){:.center-img .width-80}
 
-Overall, I think **we can all benefit from being more explicit**. Especially in a field that is growing so fast that even the terms we all commonly use mean different things to different groups, cutting corners with poor analogies like "dark matter" reflects badly on us, and hinders our ability to develop a robust and responsible vocabulary.
+The joke aside, I think **we can all benefit from being more explicit** :) Especially in a field that is growing so fast that even the terms we all commonly use mean different things to different groups, cutting corners with poor analogies like "dark matter" reflects badly on us, and hinders our ability to develop a robust and responsible vocabulary.
 
 ---
 
