@@ -1,7 +1,7 @@
 ---
 layout: post
 authors: [evan]
-title: "Using InteracDome to estimate per-residue binding frequencies"
+title: "Estimating per-residue binding frequencies with InteracDome"
 excerpt: "A blog post detailing InteracDome's integration into anvi'o"
 modified: 2020-07-20
 tags: []
@@ -35,8 +35,8 @@ for which the physical properties determine their behaviour*". It is from these 
 learn so much by analyzing variant data derived from metagenomes. However, given that the
 SNV/SAAV/SCV (I'll just call them variants from now on) patterns by themselves offer zero insight
 into fitness, within our field, variant data is most commonly used to identify and track "strains".
-In other words, variant data becomes a tool for tracking ecological processes, and less so a tool
-for identifying functional variants.
+And to be honest, that saddens me because there is so much more potential than using them as mere
+markers.
 
 To bridge a gap between metagenomic sequence variants and the structural biology of gene products
 that underpin function and fitness is no easy task, but I think its critical if we want empower the
@@ -55,7 +55,6 @@ IDs for which they could attribute per-residue ligand-binding scores to the Pfam
 They used this to further characterize the human proteome, however when I was listening to the talk
 all I was thinking about was applying it to metagenomics.
 
-
 They entitled their software, *InteracDome*, and there is an [online
 server](https://interacdome.princeton.edu/) where you can give an amino acid sequence, and their
 server will run an HMM of your sequence against the InteracDome database and attribute estimated
@@ -65,30 +64,32 @@ site.url }}/software/anvio/help/artifacts/contigs-db/). Furthermore, I wanted to
 information in the contigs database for further data analysis and visualization, as is the anvi'o
 way.
 
-So that is what this post is about. Basically, it is a technical description of the implementation
-details of putting InteracDome into anvi'o. It's not a tutorial, but at the end there will be an
-example (so maybe it is a tutorial). It's sort of an experimental post because I will not be shying
+
+## Who is this post for?
+
+This post is about my journey in implementing InteracDome into anvi'o. The primary purpose of this
+is to provide all the technical details in one place, so that (1) people who inevitably use this
+branch of anvi'o know what is going on under the hood, and (2) so people digging into the codebase
+for debugging or extending features understand why I made certain decisons. So if you fall into
+these 2 camps, you may be interested in this post. Just keep in mind that I will not be shying
 away from sharing code snippets from the codebase, so if you're code-shy, this is your trigger
 warning.
 
 ## A general map of the approach
 
-Here are the bird's-eye-view requirements I constrained myself by in order to implement InteracDome into anvi'o:
+Here are the bird's-eye-view components of InteracDome's implementation into anvi'o:
 
-1. We need to provide means to store a local copy of InteracDome's [tab-separated files](https://interacdome.princeton.edu/#tab-6136-4)
-2. We need an HMM database that the contig database's genes are searched against
-3. We need to run an HMM
-4. We need to parse the output
-4. We need to filter HMM results based on hit-quality criteria
-5. We need to match the InteracDome binding frequencies of the HMM to the gene sequences
-6. We need to store the per-residue binding frequencies of genes
+1. Storing a local copy of InteracDome's [tab-separated files](https://interacdome.princeton.edu/#tab-6136-4)
+2. Storing the HMM profiles that the contig database's genes are searched against
+3. Running the HMM
+4. Parsing HMMER's standard output file
+4. Filtering HMM hits
+5. Matching the InteracDome binding frequencies of the HMM match states to the gene's residues
+6. Storing the per-residue binding frequencies into the contigs database
 
-## anvi-setup-interacdome
+## (1) and (2): anvi-setup-interacdome
 
-If you notice, (1) and (2) are just setup, and so I created a program called
-`anvi-setup-interacdome` to handle both downloading InteracDome's tab-separated values, and created
-an HMM database that contains all the HMM profiles associated to each Pfam in the InteracDome
-dataset.
+## Description of tab-separated InteracDome files
 
 What are these tab-separated files, you say? Well they contain the binding frequencies associated to
 each match-state (read as: residue) of the HMM. Here is what one looks like:
@@ -111,7 +112,9 @@ each match-state (read as: residue) of the HMM. Here is what one looks like:
 | ...                     | ...           | ...          | ...                        | ...            | ...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
 You can see that the `binding_frequencies` column contains per residue scores from 0 to 1 that say
-how likely a given residue is to be involved in binding. Also notice that the `ligand_type` varies
+how likely a given residue is to be involved in binding. Each value is comma separated and there are
+as many values as there are match states in the HMM. That means the number of values in
+`binding_frequencies` matches the value of `domain_length`. Also notice that the `ligand_type` varies
 and you can have multiple ligands for a given Pfam. These files give what is the essential output of
 the InteracDome workflow, and there are two of them. The first is the non-redundant representable
 set, which "*correspond to domain-ligand interactions that had nonredundant instances across three
@@ -123,10 +126,24 @@ distinct PDB entries and achieved a cross-validated precision of at least 0.5. [
 recommend using this collection to annotate potential ligand-binding positions in protein
 sequences*".
 
-These InteracDome datasets, along with their associated HMM profiles, are the essential required
-input for running InteracDome in anvi'o. And to make these inputs available to the user, the user
-must run `anvi-setup-interacdome` which initiates a class called `InteracdomeSetup`. Here is the
-class:
+
+## Description of the HMM profiles
+
+Since each entry in the InteracDome dataset corresponds to a Pfam, we just need the Pfam database
+that can be readily downloaded from the EBI ftp server, or by running `anvi-setup-pfams`. But since
+all the Pfams are not present in the InteracDome dataset, we merely need a subset of the Pfam HMM
+database that contains Pfams with at least one entry from the non-redundant representable
+InteracDome set. From now on **I'll just call this subset the Interacdome Pfams (IPfams)**.
+Furthermore, InteracDome was carried out using Pfam `31.0`, so that's what we will use too.
+
+### anvi-setup-interacdome
+
+Acquiring the InteracDome's tab-separated files and the IPfam HMM profiles are just one-time setups,
+and therefore I created a program called [`anvi-setup-interacdome`]({{ site.url
+}}/software/anvio/help/programs/anvi-setup-interacdome/) to handle these tasks. So to make these
+inputs available, the user must run [`anvi-setup-interacdome`]({{ site.url
+}}/software/anvio/help/programs/anvi-setup-interacdome/) which initiates a class called
+`InteracdomeSetup`. Here is the class:
 
 {:. notice}
 This is merely a snapshot of the class as of July 12th, 2020.
@@ -267,10 +284,233 @@ class InteracdomeSetup(object):
 ```
 
 First, anvi'o creates a directory under `anvio/data/misc/Interacdome` (by default) which will end up
-housing the HMMs and the Interacdome datasets. Then the main method, `setup` is called, which is directly above us. We can see
-that first, anvi'o downloads the tab-separated files. Since these files were created for Pfam
-version `31.0`, anvi'o next downloads a copy of the Pfam `31.0` HMMs. There already exists a
-framework to download Pfams because of `anvi-setup-pfams`, so this was very little work to do. Yay for
-code resusability. As a final step, the Pfam HMMs are subset to include only the Pfam IDs that are
-in the Interacdome dataset. This required writing a parser for `.hmm` files (ugh).
+housing the IPfam HMM profiles and the Interacdome datasets. Then the main method, `setup` is
+called, which is directly above us. We can see that first, anvi'o downloads the tab-separated files.
+Since these files were created for Pfam version `31.0`, anvi'o next downloads a copy of the Pfam
+`31.0` HMMs. There already exists a framework to download Pfams because of `anvi-setup-pfams`, so
+this was very little work to do. Yay for code resusability. As a final step, the Pfam HMMs are
+subset to the IPfam HMMs, i.e. only the Pfams that are in the Interacdome dataset.
+
+## (3) Running the hidden Markov model (HMM)
+
+{:.warning}
+HMMs are by no means an elementary topic, and so rather than butcher an
+explanation with my limited understanding, I defer to this [wonderful
+paper](https://www.sciencedirect.com/science/article/pii/S1672022904020145).
+
+With both the required inputs being gathered and setup appropriately with
+[`anvi-setup-interacdome`]({{ site.url }}/software/anvio/help/programs/anvi-setup-interacdome/), the
+next thing I focused on was actually running an HMM on user genes. This as well as all the other
+components will be carried out by the program [`anvi-run-interacdome`]({{ site.url
+}}/software/anvio/help/programs/anvi-run-interacdome/).
+
+The program that goes hand-in-hand with Pfam HMM profiles is
+[HMMER](http://eddylab.org/software/hmmer/Userguide.pdf), and in fact, anvi'o already has a driver
+to run HMMER on a set of user genes which was written for [`anvi-run-pfams`]({{ site.url
+}}/software/anvio/help/programs/anvi-run-pfams/). Further in fact(?), [`anvi-run-pfams`]({{ site.url
+}}/software/anvio/help/programs/anvi-run-pfams/) in some ways does exactly what I want: it takes
+genes from the contigs database, runs an HMM model of the user genes against the Pfam HMM profiles,
+and annotates genes with the best Pfam hit. The primary difference between
+[`anvi-run-interacdome`]({{ site.url }}/software/anvio/help/programs/anvi-run-interacdome/) and
+[`anvi-run-pfams`]({{ site.url }}/software/anvio/help/programs/anvi-run-pfams/), is that rather than
+simply attribute to each gene the Pfam ID of the best hit, we instead must keep track of
+residue-level information associated to each hit, so that we can associate the binding
+frequencies from the Interacdome dataset. In this sense, things are much more complicated, as I will
+need to write an in-depth parser of HMMER's output to keep track of these things.
+
+Currently, [`anvi-run-pfams`]({{ site.url }}/software/anvio/help/programs/anvi-run-pfams/) can be
+run with either of the HMMER programs, `hmmscan` or `hmmsearch`. However, for [good
+reason](https://cryptogenomicon.org/2011/05/27/hmmscan-vs-hmmsearch-speed-the-numerology/),
+`hmmsearch` in practice runs much faster for querying user genes against a HMM profile database with
+a size comparable to the Pfam database. Since `hmmsearch` is faster for our use-case and because I
+wanted to avoid creating 2 output parsers (one for `hmmscan` and one for `hmmsearch`),
+`anvi-run-interacdome` is by design only compatible with `hmmsearch`.
+
+All in all, [`anvi-run-interacdome`]({{ site.url
+}}/software/anvio/help/programs/anvi-run-interacdome/) runs `hmmsearch` almost exactly like
+[`anvi-run-pfams`]({{ site.url }}/software/anvio/help/programs/anvi-run-pfams/) does. In fact, the
+the responsible class for [`anvi-run-interacdome`]({{ site.url
+}}/software/anvio/help/programs/anvi-run-interacdome/), `anvio.interacdome.InteracdomeSuper`,
+inherits `anvio.pfam.Pfam` to manage a lot of the boiler-plate code.
+
+## (4) Parsing HMMER's standard output file
+
+`hmmsearch` has 2 outputs. One is a tabular output like this:
+
+```
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+3609                 -            333 2-Hacid_dh           PF00389.29   134   8.8e-20   68.1   0.1   1   1   8.7e-23   1.2e-19   67.7   0.1     9   133    20   325     8   326 0.95 -
+5374                 -            320 2-Hacid_dh           PF00389.29   134     2e-10   37.8   0.0   1   1   2.6e-13   3.6e-10   37.0   0.0    21   103    24   195     5   310 0.71 -
+3609                 -            333 2-Hacid_dh_C         PF02826.18   178     1e-55  185.2   0.0   1   1   1.6e-58   1.5e-55  184.7   0.0     2   177   118   293   117   294 0.98 -
+5374                 -            320 2-Hacid_dh_C         PF02826.18   178   1.7e-53  178.0   0.1   1   1   3.2e-56   2.9e-53  177.2   0.1     2   178   108   282   107   282 0.96 -
+3608                 -            311 2-Hacid_dh_C         PF02826.18   178   2.4e-07   27.7   0.0   1   1   4.4e-10     4e-07   26.9   0.0    36   144    12   123     5   130 0.85 -
+2301                 -            162 2Fe-2S_thioredx      PF01257.18   145   3.8e-37  124.7   0.2   1   1   1.6e-40   4.3e-37  124.5   0.2     4   144    12   154     9   155 0.95 -
+2121                 -            441 2HCT                 PF03390.14   416  8.5e-157  519.4  35.0   1   1  3.6e-160  9.9e-157  519.2  35.0     1   415    24   434    24   435 0.99 -
+1998                 -            329 3Beta_HSD            PF01073.18   282   3.1e-22   76.2   0.0   1   1   1.1e-23   3.9e-21   72.6   0.0     1   237     4   243     4   254 0.74 -
+504                  -            316 3Beta_HSD            PF01073.18   282   7.7e-18   61.8   0.1   1   1   3.4e-20   1.2e-17   61.2   0.1     1   229     5   232     5   242 0.78 -
+[...]
+```
+
+The format is tabularized and thus easy enough to parse, but unfortunately the information is not
+detailed enough since it contains no information about residue-by-residue alignment. The second,
+more verbose output does:
+
+```
+# hmmsearch :: search profile(s) against a sequence database
+# HMMER 3.2.1 (June 2018); http://hmmer.org/
+# Copyright (C) 2018 Howard Hughes Medical Institute.
+# Freely distributed under the BSD open source license.
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# query HMM file:                  /Users/evan/Software/anvio/anvio/data/misc/Interacdome/Pfam-A.hmm
+# target sequence database:        /var/folders/58/mpjnklbs5ql_y2rsgn0cwwnh0000gn/T/tmpyebp3gbo/AA_gene_sequences.fa.0
+# output directed to file:         /var/folders/58/mpjnklbs5ql_y2rsgn0cwwnh0000gn/T/tmpyebp3gbo/AA_gene_sequences.fa.0_output
+# per-dom hits tabular output:     /var/folders/58/mpjnklbs5ql_y2rsgn0cwwnh0000gn/T/tmpyebp3gbo/AA_gene_sequences.fa.0_table
+# model-specific thresholding:     GA cutoffs
+# number of worker threads:        1
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Query:       14-3-3  [M=222]
+Accession:   PF00244.19
+Description: 14-3-3 protein
+Scores for complete sequences (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Sequence Description
+    ------- ------ -----    ------- ------ -----   ---- --  -------- -----------
+
+   [No hits detected that satisfy reporting thresholds]
+
+
+Domain annotation for each sequence (and alignments):
+
+   [No targets detected that satisfy reporting thresholds]
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query model(s):                            1  (222 nodes)
+Target sequences:                       2754  (847468 residues searched)
+Passed MSV filter:                       207  (0.0751634); expected 55.1 (0.02)
+Passed bias filter:                       80  (0.0290487); expected 55.1 (0.02)
+Passed Vit filter:                         6  (0.00217865); expected 2.8 (0.001)
+Passed Fwd filter:                         0  (0); expected 0.0 (1e-05)
+Initial search space (Z):               2754  [actual number of targets]
+Domain search space  (domZ):               0  [number of targets reported over threshold]
+# CPU time: 0.01u 0.00s 00:00:00.01 Elapsed: 00:00:00.01
+# Mc/sec: 14884.77
+//
+Query:       2-Hacid_dh  [M=134]
+Accession:   PF00389.29
+Description: D-isomer specific 2-hydroxyacid dehydrogenase, catalytic domain
+Scores for complete sequences (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Sequence Description
+    ------- ------ -----    ------- ------ -----   ---- --  -------- -----------
+    8.8e-20   68.1   0.1    1.2e-19   67.7   0.1    1.1  1  3609
+      2e-10   37.8   0.0    3.6e-10   37.0   0.0    1.5  1  5374
+
+
+Domain annotation for each sequence (and alignments):
+>> 3609
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !   67.7   0.1   8.7e-23   1.2e-19       9     133 ..      20     325 ..       8     326 .. 0.95
+
+  Alignments for each domain:
+  == domain 1  score: 67.7 bits;  conditional E-value: 8.7e-23
+                 HHHHHHHHH.TTE.EEEEESCSSHHHCHHHHTTESEEEE-TTS-BSHHHHHHHTT--EEEESSSSCTTB-HHHHHHTT-EEEE-TT.TTHHHHHHHH.. CS
+                 xxxxxxxxx.xxx.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.xxxxxxxxxx.. RF
+  2-Hacid_dh   9 eeelellke.egv.evevkdellteellekakdadalivrsntkvtaevlealpkLkviaragvGvDnvDldaakerGilVtnvpg.ystesvAElt.. 102
+                 +e l +l++ ++v +++v +e+  +el+e ++++ ++i  ++  +t+e++e+ ++L +i+r+g+G++n+Dldaak++  +V+ +p+ +  ++vAE
+        3609  20 PEHLTRLEKiGTVkHFTVDSEIGGKELAECLQGYTIIIASVTPFFTKEFFEHKDELLLISRHGIGYNNIDLDAAKQHDTIVSIIPAlVERDAVAENNvt 118
+                 667777888655556777779*****************************************************************777889***999* PP
+
+                 ................................................................................................... CS
+                 ................................................................................................... RF
+  2-Hacid_dh 103 ................................................................................................... 102
+
+        3609 119 nllavlrqtvaadasvkadqwekranfvgrtlfnktvgvigvgntgscvvetlrngfrcdvlaydpyksatylqsygakkvdldtllasadiiclcanl 217
+                 *************************************************************************************************** PP
+
+                 .............................................................................T-BHHHHHHHHHHHHHHHHHHH CS
+                 .............................................................................xxxxxxxxxxxxxxxxxxxxxx RF
+  2-Hacid_dh 103 .............................................................................aaTeeaqeniaeeaaenlvafl 124
+                                                                                              a+T e +++++e++++ +++++
+        3609 218 teesyhmigsaeiakmkdgvylsnsargalideeamiaglqsgkiaglgtdvleeepgrknhpylafenvvmtphtsAYTMECLQAMGEKCVQDVEDVV 316
+                 *************************************************************************************************** PP
+
+                 TTCCGTTBC CS
+                 xxxxxxxxx RF
+  2-Hacid_dh 125 kgespanav 133
+                 +g  p+  v
+        3609 317 QGILPQRTV 325
+                 **7777655 PP
+
+>> 5374
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !   37.0   0.0   2.6e-13   3.6e-10      21     103 ..      24     195 ..       5     310 .. 0.71
+
+  Alignments for each domain:
+  == domain 1  score: 37.0 bits;  conditional E-value: 2.6e-13
+                 EEEEESCSSHHHCHHHHTT.ESEEEE-TTS-BSHHHHHHH.TT--EEEESSSSCTTB-HHHHHHTT-EEEE-TTTTHHHHHHHH............... CS
+                 xxxxxxxxxxxxxxxxxxx.xxxxxxxxxxxxxxxxxxxx.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx............... RF
+  2-Hacid_dh  21 evevkdellteellekakd.adalivrsntkvtaevleal.pkLkviaragvGvDnvDldaakerGilVtnvpgystesvAElt............... 102
+                   ++  + +t+ l ++ ++ +++++ +  +++  ++l+   + Lk+i+++++G D  D+d ++e+Gil++n  g ++ s+ E++
+        5374  24 APNYLVKTSTDYLSSAEEEaIEIMLGWH-KEIGPRLLASDtSHLKWIQLISAGADYMDFDKLREKGILLSNGSGIHSVSISEHVlgvllahtrglqesi 121
+                 4444446666655555555344555555.559999998888************************************************9999888888 PP
+
+                 .........................................................................T CS
+                 .........................................................................x RF
+  2-Hacid_dh 103 .........................................................................a 103
+
+        5374 122 qqqmqhtwnqtapsyqqlsgqkmlivgtgqigqqlakfakglnlqvygvntsghvtegfiecysqknmskiihE 195
+                 88888888888888888888888888888888888888888888888887777777775554444444444440 PP
+
+[...]
+```
+
+To write the parser I made extensive use of the detailed output description in the [HMMER user
+guide](http://eddylab.org/software/hmmer/Userguide.pdf) (search for "**Step 2: search the sequence
+database with hmmsearch**") for the relevant section. I won't reiterate the meaning of each line, so
+check the guide if you're keen. The most important thing to note is that this more verbose output
+contains the same tabular information as the first output (albeit in more scattered fashion), and
+there are alignments of the user gene to the HMM profile hits.
+
+Consider this section of the output:
+
+```
+Query:       2-Hacid_dh  [M=134]
+Accession:   PF00389.29
+Description: D-isomer specific 2-hydroxyacid dehydrogenase, catalytic domain
+Scores for complete sequences (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Sequence Description
+    ------- ------ -----    ------- ------ -----   ---- --  -------- -----------
+    8.8e-20   68.1   0.1    1.2e-19   67.7   0.1    1.1  1  3609
+      2e-10   37.8   0.0    3.6e-10   37.0   0.0    1.5  1  5374
+```
+
+In this case, the IPfam `PF00389.29` hit to 2 user genes: `3609` and `5374`. Then, for each of these
+genes, we can find further down in the file the alignment of each. For example, here is where the
+alignment info for gene `3609` starts:
+
+```
+>> 3609
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !   67.7   0.1   8.7e-23   1.2e-19       9     133 ..      20     325 ..       8     326 .. 0.95
+
+  Alignments for each domain:
+  == domain 1  score: 67.7 bits;  conditional E-value: 8.7e-23
+                 HHHHHHHHH.TTE.EEEEESCSSHHHCHHHHTTESEEEE-TTS-BSHHHHHHHTT--EEEESSSSCTTB-HHHHHHTT-EEEE-TT.TTHHHHHHHH.. CS
+                 xxxxxxxxx.xxx.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.xxxxxxxxxx.. RF
+  2-Hacid_dh   9 eeelellke.egv.evevkdellteellekakdadalivrsntkvtaevlealpkLkviaragvGvDnvDldaakerGilVtnvpg.ystesvAElt.. 102
+                 +e l +l++ ++v +++v +e+  +el+e ++++ ++i  ++  +t+e++e+ ++L +i+r+g+G++n+Dldaak++  +V+ +p+ +  ++vAE
+        3609  20 PEHLTRLEKiGTVkHFTVDSEIGGKELAECLQGYTIIIASVTPFFTKEFFEHKDELLLISRHGIGYNNIDLDAAKQHDTIVSIIPAlVERDAVAENNvt 118
+                 667777888655556777779*****************************************************************777889***999* PP
+
+[...]
+```
 
