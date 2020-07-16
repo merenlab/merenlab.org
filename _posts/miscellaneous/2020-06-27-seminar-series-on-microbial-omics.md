@@ -88,6 +88,10 @@ The video of the first week's lecture (if you click on the title, you will find 
 <blockquote markdown="1">**The power of metagenomic read recruitment**
 </blockquote>
 
+The video of the second week's lecture. Please see questions asked and responses given, as well as the outline and timestamps of independent sections of the talk on YouTube:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MqD4aN1p1qA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ### July 22, 2020
 
 <blockquote markdown="1">**Genome-resolved metagenomics: key concepts in reconstructing genomes from metagenomes**
