@@ -112,3 +112,4 @@ A warning messages goes here.
 A notice statement goes here.
 ```
 
+When naming new posts, make sure the are not **POST-DATED**!

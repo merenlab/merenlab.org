@@ -23,6 +23,8 @@ But if you want a refresher, here we start with a quick summary about the underl
 
 # How *does* read recruitment work?
 
+Hello?
+
 Understanding superficially how read mapping works is fairly straightforward. You have one or more genomes, or contigs assembled from metagenomes as your reference, and you're figuring out how many of your short reads in your metagenomes match to your reference sequences. Like the animation below shows, you can do this for multiple metagenomes (i.e., multiple samples) and study the distribution of a given reference sequence across environments. It also gives you important information like the [coverage](/vocabulary/#coverage) or the [detection](/vocabulary/#detection) of your reference.
 
 [![coverages](/images/momics/coverage.gif)](/images/momics/coverage.gif){:.center-img .width-90}
