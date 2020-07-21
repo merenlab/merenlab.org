@@ -61,7 +61,9 @@ There will be a 20 to 40 second delay between Zoom and YouTube.
 
 * **[Meren](https://twitter.com/merenbey)**: Assistant Professor in the [Department of Medicine](https://medicine.uchicago.edu/) and the [Committee on Microbiology](https://biomedsciences.uchicago.edu/page/microbiology) at the **[University of Chicago](http://uchicago.edu)**, and a Fellow of the **[Marine Biological Laboratory](http://mbl.edu)**.
 
-* **[Roland Hatzenpichler](http://www.environmental-microbiology.com)**, Assistant Professor in the Department of [Chemistry and Biochemistry](https://chemistry.montana.edu/), the [Thermal Biology Institute](http://tbi.montana.edu/), and the [Center for Biofilm Engineering](http://www.biofilm.montana.edu/) at **[Montana State University](https://www.montana.edu/)**. *Roland will lead a discussion on what we do <u>not</u> learn about microbial life from sequencing alone.*
+* **[Roland Hatzenpichler](http://www.environmental-microbiology.com)**, Assistant Professor in the Department of [Chemistry and Biochemistry](https://chemistry.montana.edu/), the [Thermal Biology Institute](http://tbi.montana.edu/), and the [Center for Biofilm Engineering](http://www.biofilm.montana.edu/) at **[Montana State University](https://www.montana.edu/)**. *Roland will lead a discussion on what we do <u>not</u> learn about microbial associations from sequencing alone.*
+
+* **[Jessica Mark Welch](https://www.mbl.edu/jbpc/staff/jmarkwelch/)**, Associate Scientist in [the Josephine Bay Paul Center for Comparative Molecular Biology and Evolution](https://www.mbl.edu/jbpc/) at the **[Marine Biological Laboratory](https://mbl.edu/)**. *Jessica will lead a discussion on what we do <u>not</u> learn about microbial interactions from sequencing alone.*
 
 * **[Mike Lee](https://twitter.com/AstrobioMike)**: Research Scientist at the [Ames Research Center](https://www.nasa.gov/ames), National Aeronautics and Space Administration (**[NASA](https://www.nasa.gov/)**). *Mike will lead the Phylogenomics session.*
 
@@ -114,12 +116,7 @@ The video of the second week's lecture. Please see questions asked and responses
 
 ## Registration
 
-Seminars are free to attend and open to anyone! But we request you to register using the following form:
-
-**[https://forms.gle/o2JY8ufE4mJojdE48](https://forms.gle/o2JY8ufE4mJojdE48)**
-
-{:.warning}
-If you fill up the form, please remember to mark those dates on your calendar. You will get an e-mail five to fifteen minutes before the beginning of the seminar on each Wednesday. Please be patient and don't forget to keep an eye on your JUNK or SPAM folders :)
+Seminars are free to attend and open to anyone! If you have registered, you will get an e-mail five to fifteen minutes before the beginning of the seminar on each Wednesday. Please be patient and don't forget to keep an eye on your JUNK or SPAM folders :) If you have not registered, you still can attend. Please keep an eye on Meren's Twitter account or Anvi'o Slack channel (link below) for URLs to Zoom and YouTube streams.
 
 ## Questions?
 
