@@ -34,7 +34,7 @@ code snippets from the codebase, so if you're code-shy, this is your trigger war
 
 {:.warning}
 This post is not version-controlled. The codebase is dynamic and will inevitably change,
-but this post will (probably) not, and is therefore nearly a snapshot of what once was (July 20th,
+but this post will (probably) not, and is therefore merely a snapshot of what once was (July 20th,
 2020). I include it in the hopes it provides conceptual clarity, and hope it is not taken too
 seriously.
 
@@ -858,28 +858,95 @@ between user gene residues and match states, and therefore a mapping between use
 binding frequencies. Because of the legwork already described in
 [(4)](#4-parsing-hmmers-standard-output-file), there is very little to describe.
 
+The most noteworthy thing to talk about here is how I dealt with multiple overlapping hits.
+
 ### Dealing with multiple overlapping hits
 
-The most noteworthy thing to talk about here is how I dealt with multiple overlapping hits. FIXME
+Binding frequencies are held in a dataframe like this:
 
-Once this is done, positions with frequencies less than a threshold `self.min_binding_frequency` are filtered out.
+|   gene_callers_id |   codon_order_in_gene | pfam_id   |   match_state | ligand   |   binding_freq |
+|------------------:|----------------------:|:----------|--------------:|:---------|---------------:|
+|                 1 |                   169 | PF00534   |            22 | ADP      |      0.687948  |
+|                 1 |                   169 | PF13692   |             8 | ADP      |      0.595441  |
+|                 1 |                   174 | PF00534   |            27 | ADP      |      0.735759  |
+|                 1 |                   174 | PF13692   |            14 | ADP      |      0.595441  |
+|                 1 |                   184 | PF00534   |            37 | ADP      |      0.0697656 |
+|                 1 |                   184 | PF13692   |            24 | ADP      |      0.101399  |
+|                 1 |                   186 | PF00534   |            39 | ADP      |      0.0697656 |
+|                 1 |                   186 | PF13692   |            26 | ADP      |      0.101399  |
+|                 1 |                   187 | PF13692   |            27 | ADP      |      0.201761  |
+|                 1 |                   189 | PF00534   |            47 | ADP      |      0.0697656 |
+
+This is a great format, because not only do you have binding frequencies associated with the
+residues of user gene sequences (`codon_order_in_gene`), you also can see the exact match states
+that contributed the binding frequency. But this has redundant entries. What I want is a single
+binding frequency (for a given `ligand`) associated to each `codon_order_in_gene`, yet this format
+allows redundancies. For example, further down the table there are these two entries:
+
+|   gene_callers_id |   codon_order_in_gene | pfam_id   |   match_state | ligand   |   binding_freq |
+|------------------:|----------------------:|:----------|--------------:|:---------|---------------:|
+|                 1 |                   167 | PF00534   |            20 | ALL_     |      0.0979682 |
+|                 1 |                   167 | PF13692   |             6 | ALL_     |      0.103877  |
+
+Here, we have an amino acid position that has two contributions, both from `match_state` 20 of
+`pfam_id` PF00534, and `match_state` 6 of `pfam_id` PF13692. To condense this information, I created
+a second dataframe that collapses the redundant rows. For simplicity, I am quite simply averaging
+of all binding frequencies (for a given `ligand`) that associate to a given amino acid position. The
+above table is stored in the `bind_freq` attribute of `anvio.interacdome.InteracDomeSuper`, and the
+second collapse table is stored in the `avg_bind_freq` attribute of the same class. In the redundant
+case above, the corresponding entry in `avg_bind_freq` looks like this:
+
+|   gene_callers_id | ligand   |   codon_order_in_gene |   binding_freq |
+|------------------:|:---------|----------------------:|---------------:|
+|                 1 | ALL_     |                   167 |       0.100922 |
+
+`match_state` and `pfam_id` are dropped since these are no longer meaningful columns. However the
+information is still held in `bind_freq` (and as you will see in the next section, `bind_freq` is
+stored as a tab-separated file so this potentially very useful information is not lost).
+
+### Filtering low binding frequency scores
+
+If users are not interested in positions with low binding frequency scores, they can apply a filter
+with `--min-binding-frequency` and all entries below this threshold will be removed. This is also a
+very convenient way to maintain reasonable table size for storage in the contigs database. Here is a
+histogram of non-zero binding frequencies from a test dataset:
+
+[![binding-freq-hist]({{images}}/binding_freq_histogram.png)]({{images}}/binding_freq_histogram.png){:.center-img .width-90}
+
+It's clear from the above figure that even if the user is comfortable with discarding frequencies < 0.05, it has huge effect on table size.
 
 ## (6) Storing the per-residue binding frequencies into the contigs database
 
-Binding frequency info associated to the user's genes are stored in this dataframe:
+The data stored in the contigs database is a variant of `avg_bind_freq`. As a reminder,
+here is what `avg_bind_freq` looks like this:
 
-|    |   gene_callers_id | data_key   |   codon_order_in_gene |   data_value | data_type   | data_group   |
-|---:|------------------:|:-----------|----------------------:|-------------:|:------------|:-------------|
-|  0 |                 1 | ADP        |                   169 |     0.641695 | float       | InteracDome  |
-|  1 |                 1 | ADP        |                   174 |     0.6656   | float       | InteracDome  |
-|  4 |                 1 | ADP        |                   187 |     0.201761 | float       | InteracDome  |
-|  6 |                 1 | ADP        |                   190 |     0.163235 | float       | InteracDome  |
-|  8 |                 1 | ADP        |                   196 |     0.262405 | float       | InteracDome  |
-|  9 |                 1 | ADP        |                   199 |     0.161423 | float       | InteracDome  |
-| 12 |                 1 | ADP        |                   206 |     0.101399 | float       | InteracDome  |
-| 13 |                 1 | ADP        |                   208 |     0.101399 | float       | InteracDome  |
-| 16 |                 1 | ADP        |                   214 |     0.101399 | float       | InteracDome  |
-| 17 |                 1 | ADP        |                   217 |     0.101399 | float       | InteracDome  |
+|   gene_callers_id | ligand   |   codon_order_in_gene |   binding_freq |
+|------------------:|:---------|----------------------:|---------------:|
+|                 1 | ADP      |                   169 |      0.641695  |
+|                 1 | ADP      |                   174 |      0.6656    |
+|                 1 | ADP      |                   184 |      0.0855824 |
+|                 1 | ADP      |                   186 |      0.0855824 |
+|                 1 | ADP      |                   187 |      0.201761  |
+|                 1 | ADP      |                   189 |      0.0855824 |
+|                 1 | ADP      |                   190 |      0.163235  |
+|                 1 | ADP      |                   192 |      0.095622  |
+|                 1 | ADP      |                   196 |      0.262405  |
+|                 1 | ADP      |                   199 |      0.161423  |
+
+And here is the corresponding section of what is ultimately stored in the contigs database:
+
+| item_name   | data_key   |   data_value | data_type   | data_group   |
+|:------------|:-----------|-------------:|:------------|:-------------|
+| 1:169       | ADP        |    0.641695  | float       | InteracDome  |
+| 1:174       | ADP        |    0.6656    | float       | InteracDome  |
+| 1:184       | ADP        |    0.0855824 | float       | InteracDome  |
+| 1:186       | ADP        |    0.0855824 | float       | InteracDome  |
+| 1:187       | ADP        |    0.201761  | float       | InteracDome  |
+| 1:189       | ADP        |    0.0855824 | float       | InteracDome  |
+| 1:190       | ADP        |    0.163235  | float       | InteracDome  |
+| 1:192       | ADP        |    0.095622  | float       | InteracDome  |
+| 1:196       | ADP        |    0.262405  | float       | InteracDome  |
+| 1:199       | ADP        |    0.161423  | float       | InteracDome  |
 
 It may seem to be in oddly specific format, and that's because it is. You see, up until a few months
 ago, anvi'o contigs databases had no means of storing per-nucleotide or per-residue information.
@@ -894,40 +961,97 @@ new tables in the contigs database called `amino_acid_additional_data` and
 tables]({{ site.url }}/2017/12/11/additional-data-tables/). The convenience factor was through the
 roof for doing this, as I had to write very little code ([here](https://github.com/merenlab/anvio/pull/1419) is the
 pull request) and now we can store arbitrary per-nucleotide and per-amino-acid annotations (not just
-InteracDome stuff, but *anything*, even stacked bar data). However, two downsides are very appreciable.
+InteracDome stuff, but practically anything besides `.mp4`s). However, two downsides are very appreciable.
 
 First, the framework requires a unique key for each amino acid. Yet, it is technically two keys that
 define an amino acid: the `gene_caller_id` of the gene it belongs to, and the `codon_order_in_gene`
-(the residue position) of the gene. The same goes for defining a nucleotide: you need the position
+(the residue position) of the amino acid. The same goes for defining a nucleotide: you need the position
 in the contig (`pos_in_contig`) and you need the `contig_name`. So how do you get one key from two
 pieces of information? The solution, which is ugly, is to create a single key by concatenating these
-two pieces of information into a string. This has distinct advantages, the main one being that it
+two pieces of information into a string.  Doing so has distinct disadvantages, the main one being that it
 SQL queries are hindered: how can you quickly grab all amino acids belonging to gene 1 without first
-loading all into memory? Regardless, I did it. Someone will hate me in 5 years. Until then, when the
-above table is stored, it is first transformed into this ugly table:
+loading all into memory? Regardless, I did it. Someone will hate me in 5 years.
 
-|    | item_name   | data_key   |   data_value | data_type   | data_group   |
-|---:|:------------|:-----------|-------------:|:------------|:-------------|
-|  0 | 1:169       | ADP        |     0.641695 | float       | InteracDome  |
-|  1 | 1:174       | ADP        |     0.6656   | float       | InteracDome  |
-|  4 | 1:187       | ADP        |     0.201761 | float       | InteracDome  |
-|  6 | 1:190       | ADP        |     0.163235 | float       | InteracDome  |
-|  8 | 1:196       | ADP        |     0.262405 | float       | InteracDome  |
-|  9 | 1:199       | ADP        |     0.161423 | float       | InteracDome  |
-| 12 | 1:206       | ADP        |     0.101399 | float       | InteracDome  |
-| 13 | 1:208       | ADP        |     0.101399 | float       | InteracDome  |
-| 16 | 1:214       | ADP        |     0.101399 | float       | InteracDome  |
-| 17 | 1:217       | ADP        |     0.101399 | float       | InteracDome  |
-
-Entries under `item_name` equal to `<gene_callers_id>:<codon_order_in_gene>`, for example the first
+Take another look at the above table and you will see the string concatenation I'm talkinb about under the `item_name`
+column. Entries under `item_name` equal to `<gene_callers_id>:<codon_order_in_gene>`, for example the first
 entry `1:169` is the 169th residue (0-indexed) in gene 1.
 
-The second downside is specific to `anvi-run-interacdome`. You see, there is really a lot of
+The second downside to doing this is specific to `anvi-run-interacdome`. You see, there is really a lot of
 information missing from the above table. For example, it would be great to know which Pfam ID(s)
-contributed a given binding freqency. But there just isn't enough columns, and I am fixed within
-this framework. The remedy to this problem is that `anvi-run-interacdome` will not only add this
-table to the contigs database, but it will also output FIXME. It is not ideal, but it is still
-pretty damn good.
+contributed a given binding freqency and with which of their match states. I already discussed that
+this information is all present in the dataframe `bind_freq`. Unfortunately there just isn't
+enough columns, and I am fixed within this framework because I didn't want to reinvent the wheel. To
+console victims of this tyranny, `anvi-run-interacdome` does more than just store the above table in
+the contigs database. It also outputs two tab-delimited files. Their names are
+`INTERACDOME-match_state_contributors.txt` and `INTERACDOME-domain_hits.txt`...
+
+`INTERACDOME-match_state_contributors.txt` is a table of the exact contents in `bind_freq`
+mentioned [above](#dealing-with-multiple-overlapping-hits), but because you're somehow still reading
+this, I feel bad for you so here is the table again:
+
+|   gene_callers_id |   codon_order_in_gene | pfam_id   |   match_state | ligand   |   binding_freq |
+|------------------:|----------------------:|:----------|--------------:|:---------|---------------:|
+|                 1 |                   169 | PF00534   |            22 | ADP      |      0.687948  |
+|                 1 |                   169 | PF13692   |             8 | ADP      |      0.595441  |
+|                 1 |                   174 | PF00534   |            27 | ADP      |      0.735759  |
+|                 1 |                   174 | PF13692   |            14 | ADP      |      0.595441  |
+|                 1 |                   184 | PF00534   |            37 | ADP      |      0.0697656 |
+|                 1 |                   184 | PF13692   |            24 | ADP      |      0.101399  |
+|                 1 |                   186 | PF00534   |            39 | ADP      |      0.0697656 |
+|                 1 |                   186 | PF13692   |            26 | ADP      |      0.101399  |
+|                 1 |                   187 | PF13692   |            27 | ADP      |      0.201761  |
+|                 1 |                   189 | PF00534   |            47 | ADP      |      0.0697656 |
+
+From this, one can trace back each and every match state that contributed to a given binding
+frequency. This is what giving power to the user means.
+
+`INTERACDOME-domain_hits.txt` is a table of the exact contents in `dom_hits`
+mentioned [above](#4-parsing-hmmers-standard-output-file), but because you're somehow still reading
+this, I feel bad for you so here is the table again:
+
+| pfam_name       | pfam_id   |   corresponding_gene_call |   domain | qual   |   score |   bias |   c-evalue |   i-evalue |   hmm_start |   hmm_stop | hmm_bounds   |   ali_start |   ali_stop | ali_bounds   |   env_start |   env_stop | env_bounds   |   mean_post_prob | match_state_align                                                                                                                                                                                                     | comparison_align                                                                                                                                                                                                      | sequence_align                                                                                                                                                                                                        |   version |
+|:----------------|:----------|--------------------------:|---------:|:-------|--------:|-------:|-----------:|-----------:|------------:|-----------:|:-------------|------------:|-----------:|:-------------|------------:|-----------:|:-------------|-----------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------:|
+| Beta_elim_lyase | PF01212   |                      1762 |        1 | !      |    20.9 |    0.1 |    1e-08   |    3.5e-06 |          33 |        169 | ..           |          44 |        177 | ..           |          34 |        215 | ..           |             0.72 | tvnrLedavaelfgke..aalfvpqGtaAnsill.kill.qr..geevivtepahihfdetgaiaelagvklrdlknkeaGkmdlekleaaikevgaheekiklisltvTnntagGqvvsleelrevaaiakkygiplhlDgA                                                                       | ++  +++ael+      + f+  Gt +++  l  + + +r  g+ +i++   h   +et    +  g +l  ++ +++G +++e+l+++i++     e i + +++v n+   G++ +++e+ ev  +a+  +i++h+D+                                                                          | LLQQARKQIAELINVSanEIYFTSGGTEGDNWVLkGTAIeKRefGNHIIISAVEHPAVTETAEQLVELGFELSYAPVDKEGRVKVEELQKLIRK-----ETILVSVMAVNNE--VGTIQPIKEISEV--LAEFPKIHFHVDAV                                                                       |        20 |
+| PAPS_reduct     | PF01507   |                      1541 |        1 | !      |    36.1 |    0.1 |    3.6e-13 |    1.3e-10 |           2 |        164 | ..           |          21 |        231 | ..           |          20 |        234 | ..           |             0.79 | lvvsvsgGkdslVllhLalkafkpv....pvvfvdtghefpetiefvdeleeryglrlkvyepeeevaekinaekhgs.slyee.aaeriaKveplkk.................................aLekldedall..tGaRrdesksraklpiveidedfek.........slrvfPllnWteedvwqyilrenipynpLydqgfr | + +s+sgGkds  +++La  + ++      ++ ++ + ++  t++f++++e+  +++ +++     ++++ + + +++ + +   + e+ +   p  k                                   e++ ++a+   +G+R++es +r++     +++ +++          + ++Pl++W+  d+w+   + +++yn +y++ ++ | VYFSFSGGKDSGLMVQLANLVAEKLdrnfDLLILNIEANYTATVDFIKKIEQLPRVKNIYHFCLPFFEDNNTSFFQPQwKMWDPsEKEKWIHSLP--KnaitleniddglkkyyslsngnpdrflryfqnwYKEQYPQSAIScgVGIRAQESLHRHSAVTKGENKYKNRcwinitlegNILFYPLFDWKVGDIWAATFKCELEYNYIYEKMYK |        18 |
+| Ank_2           | PF12796   |                      1756 |        1 | !      |    32.2 |    0   |    6.7e-12 |    2.3e-09 |          29 |         84 | .]           |          74 |        135 | ..           |          53 |        135 | ..           |             0.85 | aLhyAakngnleivklLle...h.a..adndgrtpLhyAarsghleivklLlekgadinlkd                                                                                                                                                        | aL  Aa + +++ vk +l+   + +  +d +g+tpL +A+ ++ +ei+k L+++gadinl++                                                                                                                                                        | ALLEAANQRDTKKVKEILQdttYqVdeVDTEGNTPLNIAVHNNDIEIAKALIDRGADINLQN                                                                                                                                                        |         6 |
+| Ank_2           | PF12796   |                      1756 |        2 | !      |    28.5 |    0   |    9.5e-11 |    3.3e-08 |          22 |         75 | ..           |         199 |        265 | ..           |         195 |        267 | .]           |             0.76 | pn..k.ngktaLhyAak..ngnl...eivklLleha.....adndgrtpLhyAarsghleivklLle                                                                                                                                                   | ++  + +g taL+ A+   +gn    +ivklL+e++      dn+grt++ yA ++g++ei k+L +                                                                                                                                                   | IDfqNdFGYTALIEAVGlrEGNQlyqDIVKLLMENGadqsiKDNSGRTAMDYANQKGYTEISKILAQ                                                                                                                                                   |         6 |
+| IGPS            | PF00218   |                      1615 |        1 | !      |    20.6 |    0.1 |    1.2e-08 |    4e-06   |         202 |        249 | ..           |         195 |        242 | ..           |          73 |        248 | ..           |             0.88 | LaklvpkdvllvaeSGiktredveklkeegvnafLvGeslmrqedvek                                                                                                                                                                      | +++lv+++++++ae  i+t+e+++++k+ gv ++ vG +++r ++ +k                                                                                                                                                                      | IKQLVQENICVIAEGKIHTPEQARQIKKLGVAGIVVGGAITRPQEIAK                                                                                                                                                                      |        20 |
+| Ribosomal_L33   | PF00471   |                      1562 |        1 | !      |    66.6 |    1.5 |    1.1e-22 |    3.7e-20 |           2 |         47 | .]           |           4 |         49 | .]           |           3 |         49 | .]           |             0.97 | kvtLeCteCksrnYtttknkrntperLelkKYcprcrkhtlhkEtK                                                                                                                                                                        | +++LeC e+++r Y t+knkrn+perLelkKY p++r++ ++kE K                                                                                                                                                                        | NIILECVETGERLYLTSKNKRNNPERLELKKYSPKLRRRAIFKEVK                                                                                                                                                                        |        19 |
+| Ribosomal_S14   | PF00253   |                      1565 |        1 | !      |    83.3 |    0.1 |    3.9e-28 |    1.3e-25 |           2 |         54 | .]           |          36 |         88 | ..           |          35 |         88 | ..           |             0.98 | laklprnssptrirnrCrvtGrprGvirkfgLsRicfRelAlkgelpGvkKaS                                                                                                                                                                 | laklpr+s+p+r+r r++ +GrprG++rkfg+sRi+fRel ++g +pGvkKaS                                                                                                                                                                 | LAKLPRDSNPNRLRLRDQTDGRPRGYMRKFGMSRIKFRELDHQGLIPGVKKAS                                                                                                                                                                 |        20 |
+| Polysacc_synt_C | PF14667   |                      1593 |        1 | !      |    61.4 |   19.2 |    5.4e-21 |    1.9e-18 |           2 |        139 | ..           |         371 |        516 | ..           |         370 |        519 | ..           |             0.83 | LailalsiiflslstvlssiLqglgrqkialkalvigalvklilnllliplfgivGaaiatvlallvvavlnlyalrrllgikl...llrrllkpllaalvmgivvylllllllglllla...al..alllavlvgalvYllllll                                                                    | L+  ++s+ +l+++t++ siLq+l  +k+a+ ++ i++l+kli+++++i+lf  +G +iat+++ ++++++ +++l+r++ i++    ++   +++ +++vm i+ +l+l+++ ++   +   +l   + l +++g++v+ + l++                                                                    | LSATIISTSLLGIFTIVLSILQALSFHKKAMQITSITLLLKLIIQIPCIYLFKGYGLSIATIICTMFTTIIAYRFLSRKFDINPikyNRKYYSRLVYSTIVMTILSLLMLKIISSVYKFEstlQLffLISLIGCLGGVVFSVTLFR                                                                    |         5 |
+
+From this, one can learn about how good a given hit was, the alignment of the user gene to the
+HMM match states, and hopefully anything else the user would be interested in.
+
+## Conclusion
+
+Wow! That was certainly a mouthful. I know in a year or two when I am writing my thesis, this will
+be helpful to me, and I hope that it has been helpful to you too. If you have questions 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
