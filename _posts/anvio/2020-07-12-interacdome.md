@@ -32,6 +32,12 @@ technical blog post, and is quite distinct from other stuff we write about. But 
 be interested, by all means read :)! Just keep in mind that I will not be shying away from sharing
 code snippets from the codebase, so if you're code-shy, this is your trigger warning.
 
+{:.warning}
+This post is not version-controlled. The codebase is dynamic and will inevitably change,
+but this post will (probably) not, and is therefore nearly a snapshot of what once was (July 20th,
+2020). I include it in the hopes it provides conceptual clarity, and hope it is not taken too
+seriously.
+
 ## Introduction
 
 Far too often we do not know what our [SNV, SAAV, and SCV]({{ site.url
@@ -84,7 +90,7 @@ Here are the bird's-eye-view components of InteracDome's implementation into anv
 3. Running the HMM
 4. Parsing HMMER's standard output file
 4. Filtering HMM hits
-5. Matching the InteracDome binding frequencies of the HMM match states to the gene's residues
+5. Matching binding frequencies to the gene's residues
 6. Storing the per-residue binding frequencies into the contigs database
 
 ## (1) and (2): Storing copy of the InteracDome datasets and the corresponding HMM profiles
@@ -479,7 +485,7 @@ To write the parser I made extensive use of the detailed output description in t
 guide](http://eddylab.org/software/hmmer/Userguide.pdf) (search for "*Step 2: search the sequence
 database with hmmsearch*") for the relevant section. I won't reiterate the meaning of each line, so
 check the guide if you're keen. The most important thing to note is that this more verbose output
-contains the **sam** tabular information as the first output (albeit in more scattered fashion), and
+contains the **same** tabular information as the first output (albeit in more scattered fashion), and
 additionally has alignments of the HMM profile to the query gene.
 
 Consider this section of the output:
@@ -541,7 +547,7 @@ contains all essential information, however the alignment information is in the 
 To further process the alignment info into a more meaningful form, there is a second data structure
 called `ali_info`. `ali_info` is a nested dictionary. It looks like this:
 
-```
+```python
 ali_info = {
     # here is the template
     <gene_callers_id>: {
@@ -594,16 +600,6 @@ position in the HMM. Why doesn't `seq_positions` start at 0? Because in this exa
 at the 20th amino acid in the user gene. Sanity check: this means the `ali_start` entry in the
 corresponding row of `self.dom_hits` would be 20.
 
-The mapping of sequence positions to HMM match states encapsulated in this dataframe is the
-essential information required for attributing binding frequencies to user genes, since the binding
-frequencies in the tab-separated InteracDome files are attributed to match states. Diagramatically,
-the flow of information goes like:
-
-```
-                    [InteracDome]               [ali_info]
-(binding frequency) ------------> (match state) ---------> (user gene residue)
-```
-
 Together, these 2 data structures are the fruits of labor from parsing the HMMER standard out and
 provide generic utility that extends beyond just `anvi-run-interacdome`
 
@@ -647,7 +643,7 @@ Here is the resulting histogram of hit fractions:
 From this histogram, I deemed 0.8 was a good compromise between data retention and quality, so that
 is the default on July 21st, 2020.
 
-### Filtering bad hits
+### Filtering bad hits with information content
 
 Really, filtering bad hits is what the Pfam gathering threshold is designed for. But to be extra
 sure that we are not including junk, I followed the protocol of the InteracDome paper. To understand
@@ -660,14 +656,278 @@ states which are highly conserved will have a single dominant emission probabili
 unconserved match state will have more uniformly distributed emission probabilities, meaning many
 amino acids can inhabit the match state. To quantify how conserved a match state is, there is a
 quantity used in sequence logos called [information
-content](https://en.wikipedia.org/wiki/Sequence_logo#Logo_creation), which compares the entropy of a
+content](https://en.wikipedia.org/wiki/Sequence_logo#Logo_creation) (IC), which compares the entropy of a
 perfectly uniform distribution of emission probabilities to the observed entropy of emission
-probabilities. The formula boils down to this:
+probabilities. The formula for IC boils down to:
 
-$$ IC = \log_2{20} + \sum_{i=1}^{20}{ f_i \log_2{f_i} }$$
+$$ \text{IC} = \log_2{20} + \sum_{i=1}^{20}{ f_i \log_2{f_i} }$$
 
 where \$f_i\$ is the emission probability of the \$i\$th amino acid. The equation's worth boils down
-to this: the higher the information content, the more conserved the match state is.
+to this: **the higher the information content, the more conserved the match state is**.
 
-With this in mind, Kobren and Singh noted each position in each HMM profile that had an information
-content exceeding 4 (very conserved).
+With this in mind, Kobren and Singh identified each match state in a hit that had an IC exceeding 4
+(very conserved) and took note of the consensus amino acid (the amino acid with the highest emission
+probability). Then, in order to retain a hit, the gene sequence must share the same amino acid as
+the consensus amino at each of these conserved positions. The idea is that if one is to trust the
+quality of the hit, these positions should truly be conserved. I wanted to replicate this filtering
+procedure.
+
+This is great and all, except the HMMER output does not provide emission probabilities, and
+therefore calculating IC is a non-trivial task...
+
+#### Calculating information content
+
+To calculate information content (IC), one must dive into the `.hmm` file itself (the one created
+during `anvi-setup-interacdome`). An `.hmm` file contains all the information necessary about each
+HMM profile. Here is the content for just one HMM profile:
+
+
+```
+HMMER3/f [3.1b2 | February 2015]
+NAME  SnoaL_2
+ACC   PF12680.6
+DESC  SnoaL-like domain
+LENG  102
+ALPH  amino
+RF    no
+MM    no
+CONS  yes
+CS    yes
+MAP   yes
+DATE  Fri Jan 20 17:09:36 2017
+NSEQ  346
+EFFN  15.065170
+CKSUM 2037425494
+GA    27.00 27.00;
+TC    27.00 27.00;
+NC    26.90 26.90;
+BM    hmmbuild HMM.ann SEED.ann
+SM    hmmsearch -Z 26740544 -E 1000 --cpu 4 HMM pfamseq
+STATS LOCAL MSV       -9.2504  0.71708
+STATS LOCAL VITERBI  -10.2672  0.71708
+STATS LOCAL FORWARD   -3.5453  0.71708
+HMM          A        C        D        E        F        G        H        I        K        L        M        N        P        Q        R        S        T        V        W        Y   
+            m->m     m->i     m->d     i->m     i->i     d->m     d->d
+  COMPO   2.34288  4.65458  2.72525  2.62519  3.03686  2.67067  3.52524  3.01724  3.00945  2.64165  3.76982  3.29469  3.35980  3.23149  2.70953  2.90053  2.80605  2.55611  4.08669  3.52142
+          2.68618  4.42225  2.77519  2.73123  3.46354  2.40513  3.72494  3.29354  2.67741  2.69355  4.24690  2.90347  2.73739  3.18146  2.89801  2.37887  2.77519  2.98518  4.58477  3.61503
+          0.05491  6.34906  2.96263  0.61958  0.77255  0.00000        *
+      1   1.85458  4.97177  5.25772  5.11150  3.08317  4.68531  4.99660  2.29317  4.89333  2.21381  3.63812  4.70077  5.28514  5.02200  4.89677  3.94172  3.72771  0.88269  4.66437  3.70054      1 v - - H
+          2.68618  4.42225  2.77519  2.73123  3.46354  2.40513  3.72494  3.29354  2.67741  2.69355  4.24690  2.90347  2.73739  3.18146  2.89801  2.37887  2.77519  2.98518  4.58477  3.61503
+          0.00274  6.29689  7.01924  0.61958  0.77255  0.61121  0.78240
+      2   2.68388  5.69592  2.79379  1.70132  5.25800  3.51515  3.94249  4.36550  2.81371  3.15390  5.18636  3.57935  4.80095  2.41963  1.52011  3.04363  2.67472  3.24049  6.57819  4.76611      2 r - - H
+          2.68618  4.42225  2.77519  2.73123  3.46354  2.40513  3.72494  3.29354  2.67741  2.69355  4.24690  2.90347  2.73739  3.18146  2.89801  2.37887  2.77519  2.98518  4.58477  3.61503
+          0.00268  6.31868  7.04103  0.61958  0.77255  0.65639  0.73131
+      3   1.69557  6.15246  2.61454  2.25344  4.80524  3.13834  3.50575  4.98574  2.35803  3.99893  4.81684  3.13184  4.80553  2.73142  1.63172  3.26000  2.93426  4.54380  6.58436  4.54785      3 r - - H
+          2.68618  4.42225  2.77519  2.73123  3.46354  2.40513  3.72494  3.29354  2.67741  2.69355  4.24690  2.90347  2.73739  3.18146  2.89801  2.37887  2.77519  2.98518  4.58477  3.61503
+          0.00981  6.32551  4.83198  0.61958  0.77255  0.48312  0.95934
+
+          [... removed this part to keep things reasonably sized ...]
+
+    100   1.71561  3.64865  4.38480  3.42760  4.07808  4.69231  4.80409  3.24425  2.74698  3.28918  4.57912  4.05114  5.07262  3.40708  2.94600  2.98074  1.91959  1.46391  4.53056  4.17751    268 v - - E
+          2.68618  4.42225  2.77519  2.73123  3.46354  2.40513  3.72494  3.29354  2.67741  2.69355  4.24690  2.90347  2.73739  3.18146  2.89801  2.37887  2.77519  2.98518  4.58477  3.61503
+          0.01668  6.34179  4.21465  0.61958  0.77255  0.56154  0.84473
+    101   2.40957  4.62174  3.16892  1.34079  4.55620  3.69164  2.87511  4.51265  2.91940  2.76532  5.18494  3.33723  4.80964  3.03069  2.08808  2.60615  3.78804  3.55867  4.81816  3.79971    269 e - - E
+          2.68618  4.42225  2.77519  2.73123  3.46354  2.40513  3.72494  3.29354  2.67741  2.69355  4.24690  2.90347  2.73739  3.18146  2.89801  2.37887  2.77519  2.98518  4.58477  3.61503
+          0.05884  6.32777  2.89402  0.61958  0.77255  0.69190  0.69440
+    102   2.66258  5.17554  4.55953  2.87507  3.15074  3.58098  2.17249  2.34555  3.60158  2.58045  3.32878  3.02642  5.07290  3.26130  3.35997  3.29569  3.03481  2.15305  2.79882  3.02577    270 v - - E
+          2.68618  4.42225  2.77519  2.73123  3.46354  2.40513  3.72494  3.29354  2.67741  2.69355  4.24690  2.90347  2.73739  3.18146  2.89801  2.37887  2.77519  2.98518  4.58477  3.61503
+          0.00189  6.27083        *  0.61958  0.77255  0.00000        *
+//
+```
+
+The important part for IC is the section with lines that start from `1` and go to `102`. Each of
+these numbers are the match states of the HMM profile--in this case the profile has 102 match
+states. On each line with one of these numbers are the negative natural log of the emission
+probabilities for each of the 20 amino acids. Therefore, by parsing this file, one can establish the
+emission probabilities for every match state in every HMM profile.
+
+To grab the IC values for each match state, I wrote a parser class, `anvio.pfam.HMMProfile`, that
+parses `.hmm` profiles. I tried to make something generic, not just for the single-minded purpose of
+calculating IC, so it is basic but also extensible for future purposes. From what I can tell, most
+of the information in basic `.hmm` formats is being captured. Alongside this, IC is calculated for
+each match state in a dataframe that can be accessed like so:
+
+```python
+print(anvio.pfam.HMMProfile(<filepath>).data['PF01965']['MATCH_STATES'])
+```
+
+This print the following:
+
+|   MATCH_STATE | CS   | MM   | RF   | CONS   |   MAP |       IC |
+|--------------:|:-----|:-----|:-----|:-------|------:|---------:|
+|             0 | E    | -    | -    | K      |     1 | 0.469514 |
+|             1 | E    | -    | -    | K      |     2 | 0.992492 |
+|             2 | E    | -    | -    | V      |     3 | 1.79484  |
+|             3 | E    | -    | -    | L      |     4 | 0.83366  |
+|             4 | E    | -    | -    | V      |     5 | 1.30396  |
+|             5 | E    | -    | -    | L      |     6 | 0.758542 |
+|             6 | E    | -    | -    | L      |     7 | 0.779465 |
+|           ... | ...  | ...  | ...  | ...    |   ... |      ... |
+|           148 | E    | -    | -    | S      |   214 | 1.88744  |
+|           149 | S    | -    | -    | R      |   215 | 0.457319 |
+|           150 | S    | -    | -    | G      |   216 | 0.439365 |
+|           151 | G    | -    | -    | P      |   217 | 0.608714 |
+|           152 | G    | -    | -    | G      |   218 | 0.433156 |
+|           153 | G    | -    | -    | A      |   219 | 0.529335 |
+|           154 | H    | -    | -    | A      |   220 | 0.347968 |
+|           155 | H    | -    | -    | I      |   221 | 0.28936  |
+
+{:.warning}
+The match states are 0-indexed in this dataframe.
+
+And so with this class, anvi'o has easy access to IC for each match state in an `.hmm` file. One
+need only initiate the above class.
+
+#### The distribution of information content
+
+Rather than testing for information content (IC) > 4, I wanted to keep this a tunable parameter for
+the user (with a default of 4). To help guide anyone's investigation, I have compiled all of the IC
+values for each match state in the representable InteracDome dataset (2375 profile HMMs). This
+totals 414619 ICs. Here is a histogram of the values:
+
+[![IC-hist]({{images}}/IC_histogram.png)]({{images}}/IC_histogram.png){:.center-img .width-90}
+
+Wow, an absolutely gorgeous long-tailed distribution exhibiting
+[Pareto-like](https://en.wikipedia.org/wiki/Pareto_distribution) qualities. Here it is in log-log:
+
+[![IC-hist-log]({{images}}/IC_log_histogram.png)]({{images}}/IC_log_histogram.png){:.center-img .width-90}
+
+I digress. It's shape does not so much matter. But what I do find interesting is that only a very small
+portion of sites have IC > 4, which is the cutoff threshold Kobren and Singh applied. Only 0.062% of
+match states have IC > 4, and on average, each HMM profile contains only 0.11 such match states. To
+see the effect of applying this filter to real hits, I did a series of tests with decreasing cutoff
+thresholds of IC:
+
+|   total hits | IC cutoff   | filtered   |
+|-------------:|:------------|:-----------|
+|         2898 |           4 |          0 |
+|         2898 |         3.5 |         30 |
+|         2898 |         3.0 |        151 |
+|         2898 |         2.5 |        561 |
+|         2898 |         2.0 |       1380 |
+|         2898 |         1.5 |       2071 |
+
+It is impossible to really say whether decreasing the IC cutoff below 4 is a good or bad idea without
+taking a close examination of hits that are filtered. I did not do this. What I do agree with is
+that IC > 4 match states are extremely rare, and thus represent the pinnacle of what should be
+conserved an ultra-conserved residue. If the sequence mismatches to the consensus value at these
+positions, we should definitely be justified in throwing them out. It is at this moment unclear if
+we could lower this threshold and would be doing God's work, or would be throwing away useful data.
+
+<div class="extra-info" markdown="1">
+<span class="extra-info-header">Cysteine & glycine are stubborn</span>
+
+Fun fact, this table shows the consensus of match states with IC > 4, partitioned by amino acid.
+
+| AA | Number |
+|:---|-------:|
+| C  |    115 |
+| G  |     79 |
+| P  |     16 |
+| D  |     15 |
+| H  |     15 |
+| R  |      4 |
+| W  |      4 |
+| K  |      2 |
+| N  |      2 |
+| E  |      2 |
+| Q  |      1 |
+| A  |      1 |
+| T  |      1 |
+
+Cyteine and glycine are astonishingly more likely to be ultra-conserved than any other residue.
+
+</div>
+
+## (5) Matching binding frequencies to the gene's residues
+
+### The flow
+
+Once domain hits have been filtered, we are ready to attribute binding frequencies. The information
+flow of binding frequencies looks like this:
+
+```
+                    [InteracDome]               [HMMER]
+(binding frequency) ------------> (match state) ------> (user gene residue)
+```
+
+Binding frequencies are stored in the InteracDome table (either conserved or representable) and
+are attributed to match states. This is a mapping of binding frequency to match state. By running
+HMMER, we extracted alignment information of match states to user genes. This creates a mapping
+between user gene residues and match states, and therefore a mapping between user gene residues and
+binding frequencies. Because of the legwork already described in
+[(4)](#4-parsing-hmmers-standard-output-file), there is very little to describe.
+
+### Dealing with multiple overlapping hits
+
+The most noteworthy thing to talk about here is how I dealt with multiple overlapping hits. FIXME
+
+Once this is done, positions with frequencies less than a threshold `self.min_binding_frequency` are filtered out.
+
+## (6) Storing the per-residue binding frequencies into the contigs database
+
+Binding frequency info associated to the user's genes are stored in this dataframe:
+
+|    |   gene_callers_id | data_key   |   codon_order_in_gene |   data_value | data_type   | data_group   |
+|---:|------------------:|:-----------|----------------------:|-------------:|:------------|:-------------|
+|  0 |                 1 | ADP        |                   169 |     0.641695 | float       | InteracDome  |
+|  1 |                 1 | ADP        |                   174 |     0.6656   | float       | InteracDome  |
+|  4 |                 1 | ADP        |                   187 |     0.201761 | float       | InteracDome  |
+|  6 |                 1 | ADP        |                   190 |     0.163235 | float       | InteracDome  |
+|  8 |                 1 | ADP        |                   196 |     0.262405 | float       | InteracDome  |
+|  9 |                 1 | ADP        |                   199 |     0.161423 | float       | InteracDome  |
+| 12 |                 1 | ADP        |                   206 |     0.101399 | float       | InteracDome  |
+| 13 |                 1 | ADP        |                   208 |     0.101399 | float       | InteracDome  |
+| 16 |                 1 | ADP        |                   214 |     0.101399 | float       | InteracDome  |
+| 17 |                 1 | ADP        |                   217 |     0.101399 | float       | InteracDome  |
+
+It may seem to be in oddly specific format, and that's because it is. You see, up until a few months
+ago, anvi'o contigs databases had no means of storing per-nucleotide or per-residue information.
+Crazy, I know. The only thing that resembles this concept was per-nucleotide coverage values, but
+this is actually stored in the auxiliary database (a tumor of the profile database) that's created
+during `anvi-profile`. A few months ago I wanted to address this shortcoming for the selfish reason
+of knowing that one day I would implement InteracDome functionality into anvi'o. And I didn't want
+anvi'o to spit out some half-chewed tab-separated file to the user--I wanted the results to be
+stored in the contigs database so they could be used in integrated and interactive ways. So I created two
+new tables in the contigs database called `amino_acid_additional_data` and
+`nucleotide_additional_data`, which hijack the already existing framework for [additional data
+tables]({{ site.url }}/2017/12/11/additional-data-tables/). The convenience factor was through the
+roof for doing this, as I had to write very little code ([here](https://github.com/merenlab/anvio/pull/1419) is the
+pull request) and now we can store arbitrary per-nucleotide and per-amino-acid annotations (not just
+InteracDome stuff, but *anything*, even stacked bar data). However, two downsides are very appreciable.
+
+First, the framework requires a unique key for each amino acid. Yet, it is technically two keys that
+define an amino acid: the `gene_caller_id` of the gene it belongs to, and the `codon_order_in_gene`
+(the residue position) of the gene. The same goes for defining a nucleotide: you need the position
+in the contig (`pos_in_contig`) and you need the `contig_name`. So how do you get one key from two
+pieces of information? The solution, which is ugly, is to create a single key by concatenating these
+two pieces of information into a string. This has distinct advantages, the main one being that it
+SQL queries are hindered: how can you quickly grab all amino acids belonging to gene 1 without first
+loading all into memory? Regardless, I did it. Someone will hate me in 5 years. Until then, when the
+above table is stored, it is first transformed into this ugly table:
+
+|    | item_name   | data_key   |   data_value | data_type   | data_group   |
+|---:|:------------|:-----------|-------------:|:------------|:-------------|
+|  0 | 1:169       | ADP        |     0.641695 | float       | InteracDome  |
+|  1 | 1:174       | ADP        |     0.6656   | float       | InteracDome  |
+|  4 | 1:187       | ADP        |     0.201761 | float       | InteracDome  |
+|  6 | 1:190       | ADP        |     0.163235 | float       | InteracDome  |
+|  8 | 1:196       | ADP        |     0.262405 | float       | InteracDome  |
+|  9 | 1:199       | ADP        |     0.161423 | float       | InteracDome  |
+| 12 | 1:206       | ADP        |     0.101399 | float       | InteracDome  |
+| 13 | 1:208       | ADP        |     0.101399 | float       | InteracDome  |
+| 16 | 1:214       | ADP        |     0.101399 | float       | InteracDome  |
+| 17 | 1:217       | ADP        |     0.101399 | float       | InteracDome  |
+
+Entries under `item_name` equal to `<gene_callers_id>:<codon_order_in_gene>`, for example the first
+entry `1:169` is the 169th residue (0-indexed) in gene 1.
+
+The second downside is specific to `anvi-run-interacdome`. You see, there is really a lot of
+information missing from the above table. For example, it would be great to know which Pfam ID(s)
+contributed a given binding freqency. But there just isn't enough columns, and I am fixed within
+this framework. The remedy to this problem is that `anvi-run-interacdome` will not only add this
+table to the contigs database, but it will also output FIXME. It is not ideal, but it is still
+pretty damn good.
+
+
+
