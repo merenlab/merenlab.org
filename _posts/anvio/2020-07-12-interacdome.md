@@ -13,7 +13,7 @@ image:
   credit: https://interacdome.princeton.edu/
 ---
 
-{% capture images %}{{site.url}}/images/anvi-3dev/2020-07-17-interacdome{% endcapture %}
+{% capture images %}{{site.url}}/images/anvio/2020-07-17-interacdome{% endcapture %}
 
 {% include _toc.html %}
 
@@ -22,11 +22,21 @@ This feature is for `v7` and later versions of anvi'o. You can identify which ve
 
 {% include _project-anvio-version.html %}
 
+## Who is this post for?
+
+This post is like a technical diary for my implementation of InteracDome into anvi'o. The primary purpose of this
+is to provide all the technical details in one place, so that (1) people who inevitably use this
+in anvi'o know what is going on under the hood, and (2) so people digging into the codebase
+for debugging or extending features understand why I made certain decisons. It is thus a very
+technical blog post, and is quite distinct from other stuff we write about. But if you think you may
+be interested, by all means read :)! Just keep in mind that I will not be shying away from sharing
+code snippets from the codebase, so if you're code-shy, this is your trigger warning.
+
 ## Introduction
 
 Far too often we do not know what our [SNV, SAAV, and SCV]({{ site.url
 }}/2015/07/20/analyzing-variability/) data mean. The problem is that our data output is nucleotide
-sequence, which is although defines the blueprint for function, is a very abstracted output from
+sequence, which although defines the blueprint for function, is a very abstracted output from
 what we are trying to learn about. As eloquently put by [Harms and
 Thornton](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4418793/), as a practical convenience, we as
 evolutionary biologists have a tendency to "*treat molecular sequences as mere strings of letters,
@@ -65,17 +75,7 @@ information in the contigs database for further data analysis and visualization,
 way.
 
 
-## Who is this post for?
-
-This post is about my journey in implementing InteracDome into anvi'o. The primary purpose of this
-is to provide all the technical details in one place, so that (1) people who inevitably use this
-branch of anvi'o know what is going on under the hood, and (2) so people digging into the codebase
-for debugging or extending features understand why I made certain decisons. So if you fall into
-these 2 camps, you may be interested in this post. Just keep in mind that I will not be shying
-away from sharing code snippets from the codebase, so if you're code-shy, this is your trigger
-warning.
-
-## A general map of the approach
+## Breaking it down into (6) components
 
 Here are the bird's-eye-view components of InteracDome's implementation into anvi'o:
 
@@ -87,9 +87,9 @@ Here are the bird's-eye-view components of InteracDome's implementation into anv
 5. Matching the InteracDome binding frequencies of the HMM match states to the gene's residues
 6. Storing the per-residue binding frequencies into the contigs database
 
-## (1) and (2): anvi-setup-interacdome
+## (1) and (2): Storing copy of the InteracDome datasets and the corresponding HMM profiles
 
-## Description of tab-separated InteracDome files
+### Description of tab-separated InteracDome files
 
 What are these tab-separated files, you say? Well they contain the binding frequencies associated to
 each match-state (read as: residue) of the HMM. Here is what one looks like:
@@ -127,7 +127,7 @@ recommend using this collection to annotate potential ligand-binding positions i
 sequences*".
 
 
-## Description of the HMM profiles
+### Description of the HMM profiles
 
 Since each entry in the InteracDome dataset corresponds to a Pfam, we just need the Pfam database
 that can be readily downloaded from the EBI ftp server, or by running `anvi-setup-pfams`. But since
@@ -145,7 +145,7 @@ inputs available, the user must run [`anvi-setup-interacdome`]({{ site.url
 }}/software/anvio/help/programs/anvi-setup-interacdome/) which initiates a class called
 `InteracdomeSetup`. Here is the class:
 
-{:. notice}
+{:.notice}
 This is merely a snapshot of the class as of July 12th, 2020.
 
 ```python
@@ -328,10 +328,14 @@ wanted to avoid creating 2 output parsers (one for `hmmscan` and one for `hmmsea
 
 All in all, [`anvi-run-interacdome`]({{ site.url
 }}/software/anvio/help/programs/anvi-run-interacdome/) runs `hmmsearch` almost exactly like
-[`anvi-run-pfams`]({{ site.url }}/software/anvio/help/programs/anvi-run-pfams/) does. In fact, the
+[`anvi-run-pfams`]({{ site.url }}/software/anvio/help/programs/anvi-run-pfams/) does. In fact,
 the responsible class for [`anvi-run-interacdome`]({{ site.url
 }}/software/anvio/help/programs/anvi-run-interacdome/), `anvio.interacdome.InteracdomeSuper`,
 inherits `anvio.pfam.Pfam` to manage a lot of the boiler-plate code.
+
+{:.notice}
+I chose to apply the HMMER filter parameter `--cut_ga` that uses the Pfam GA (gathering threshold)
+score cutoffs to pre-filter the output of `hmmsearch`. This cuts out a lot of crap to sift through.
 
 ## (4) Parsing HMMER's standard output file
 
@@ -355,7 +359,7 @@ inherits `anvio.pfam.Pfam` to manage a lot of the boiler-plate code.
 
 The format is tabularized and thus easy enough to parse, but unfortunately the information is not
 detailed enough since it contains no information about residue-by-residue alignment. The second,
-more verbose output does:
+more verbose output, does:
 
 ```
 # hmmsearch :: search profile(s) against a sequence database
@@ -472,11 +476,11 @@ Domain annotation for each sequence (and alignments):
 ```
 
 To write the parser I made extensive use of the detailed output description in the [HMMER user
-guide](http://eddylab.org/software/hmmer/Userguide.pdf) (search for "**Step 2: search the sequence
-database with hmmsearch**") for the relevant section. I won't reiterate the meaning of each line, so
+guide](http://eddylab.org/software/hmmer/Userguide.pdf) (search for "*Step 2: search the sequence
+database with hmmsearch*") for the relevant section. I won't reiterate the meaning of each line, so
 check the guide if you're keen. The most important thing to note is that this more verbose output
-contains the same tabular information as the first output (albeit in more scattered fashion), and
-there are alignments of the user gene to the HMM profile hits.
+contains the **sam** tabular information as the first output (albeit in more scattered fashion), and
+additionally has alignments of the HMM profile to the query gene.
 
 Consider this section of the output:
 
@@ -492,7 +496,7 @@ Scores for complete sequences (score includes all domains):
       2e-10   37.8   0.0    3.6e-10   37.0   0.0    1.5  1  5374
 ```
 
-In this case, the IPfam `PF00389.29` hit to 2 user genes: `3609` and `5374`. Then, for each of these
+I will refer to this as the *domain hits summary*. In this case, the IPfam `PF00389.29` hit to 2 user genes: `3609` and `5374`. Then, for each of these
 genes, we can find further down in the file the alignment of each. For example, here is where the
 alignment info for gene `3609` starts:
 
@@ -514,3 +518,156 @@ alignment info for gene `3609` starts:
 [...]
 ```
 
+I will refer to this as the *hit alignment*. The aggregation of **all** the domain hit summaries and the
+hit alignments are stored in two datastructures that are attributes of the `anvio.parers.hmmer.HMMERStandardOutput`
+parser class. I will now describe both of them:
+
+The first is `dom_hits`, which is a dataframe which looks like this:
+
+|    | pfam_name       | pfam_id   |   corresponding_gene_call |   domain | qual   |   score |   bias |   c-evalue |   i-evalue |   hmm_start |   hmm_stop | hmm_bounds   |   ali_start |   ali_stop | ali_bounds   |   env_start |   env_stop | env_bounds   |   mean_post_prob | match_state_align                                                                                                                                                                                                     | comparison_align                                                                                                                                                                                                      | sequence_align                                                                                                                                                                                                        |   version |
+|---:|:----------------|:----------|--------------------------:|---------:|:-------|--------:|-------:|-----------:|-----------:|------------:|-----------:|:-------------|------------:|-----------:|:-------------|------------:|-----------:|:-------------|-----------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------:|
+|  0 | Beta_elim_lyase | PF01212   |                      1762 |        1 | !      |    20.9 |    0.1 |    1e-08   |    3.5e-06 |          33 |        169 | ..           |          44 |        177 | ..           |          34 |        215 | ..           |             0.72 | tvnrLedavaelfgke..aalfvpqGtaAnsill.kill.qr..geevivtepahihfdetgaiaelagvklrdlknkeaGkmdlekleaaikevgaheekiklisltvTnntagGqvvsleelrevaaiakkygiplhlDgA                                                                       | ++  +++ael+      + f+  Gt +++  l  + + +r  g+ +i++   h   +et    +  g +l  ++ +++G +++e+l+++i++     e i + +++v n+   G++ +++e+ ev  +a+  +i++h+D+                                                                          | LLQQARKQIAELINVSanEIYFTSGGTEGDNWVLkGTAIeKRefGNHIIISAVEHPAVTETAEQLVELGFELSYAPVDKEGRVKVEELQKLIRK-----ETILVSVMAVNNE--VGTIQPIKEISEV--LAEFPKIHFHVDAV                                                                       |        20 |
+|  1 | PAPS_reduct     | PF01507   |                      1541 |        1 | !      |    36.1 |    0.1 |    3.6e-13 |    1.3e-10 |           2 |        164 | ..           |          21 |        231 | ..           |          20 |        234 | ..           |             0.79 | lvvsvsgGkdslVllhLalkafkpv....pvvfvdtghefpetiefvdeleeryglrlkvyepeeevaekinaekhgs.slyee.aaeriaKveplkk.................................aLekldedall..tGaRrdesksraklpiveidedfek.........slrvfPllnWteedvwqyilrenipynpLydqgfr | + +s+sgGkds  +++La  + ++      ++ ++ + ++  t++f++++e+  +++ +++     ++++ + + +++ + +   + e+ +   p  k                                   e++ ++a+   +G+R++es +r++     +++ +++          + ++Pl++W+  d+w+   + +++yn +y++ ++ | VYFSFSGGKDSGLMVQLANLVAEKLdrnfDLLILNIEANYTATVDFIKKIEQLPRVKNIYHFCLPFFEDNNTSFFQPQwKMWDPsEKEKWIHSLP--KnaitleniddglkkyyslsngnpdrflryfqnwYKEQYPQSAIScgVGIRAQESLHRHSAVTKGENKYKNRcwinitlegNILFYPLFDWKVGDIWAATFKCELEYNYIYEKMYK |        18 |
+|  2 | Ank_2           | PF12796   |                      1756 |        1 | !      |    32.2 |    0   |    6.7e-12 |    2.3e-09 |          29 |         84 | .]           |          74 |        135 | ..           |          53 |        135 | ..           |             0.85 | aLhyAakngnleivklLle...h.a..adndgrtpLhyAarsghleivklLlekgadinlkd                                                                                                                                                        | aL  Aa + +++ vk +l+   + +  +d +g+tpL +A+ ++ +ei+k L+++gadinl++                                                                                                                                                        | ALLEAANQRDTKKVKEILQdttYqVdeVDTEGNTPLNIAVHNNDIEIAKALIDRGADINLQN                                                                                                                                                        |         6 |
+|  3 | Ank_2           | PF12796   |                      1756 |        2 | !      |    28.5 |    0   |    9.5e-11 |    3.3e-08 |          22 |         75 | ..           |         199 |        265 | ..           |         195 |        267 | .]           |             0.76 | pn..k.ngktaLhyAak..ngnl...eivklLleha.....adndgrtpLhyAarsghleivklLle                                                                                                                                                   | ++  + +g taL+ A+   +gn    +ivklL+e++      dn+grt++ yA ++g++ei k+L +                                                                                                                                                   | IDfqNdFGYTALIEAVGlrEGNQlyqDIVKLLMENGadqsiKDNSGRTAMDYANQKGYTEISKILAQ                                                                                                                                                   |         6 |
+|  4 | IGPS            | PF00218   |                      1615 |        1 | !      |    20.6 |    0.1 |    1.2e-08 |    4e-06   |         202 |        249 | ..           |         195 |        242 | ..           |          73 |        248 | ..           |             0.88 | LaklvpkdvllvaeSGiktredveklkeegvnafLvGeslmrqedvek                                                                                                                                                                      | +++lv+++++++ae  i+t+e+++++k+ gv ++ vG +++r ++ +k                                                                                                                                                                      | IKQLVQENICVIAEGKIHTPEQARQIKKLGVAGIVVGGAITRPQEIAK                                                                                                                                                                      |        20 |
+|  5 | Ribosomal_L33   | PF00471   |                      1562 |        1 | !      |    66.6 |    1.5 |    1.1e-22 |    3.7e-20 |           2 |         47 | .]           |           4 |         49 | .]           |           3 |         49 | .]           |             0.97 | kvtLeCteCksrnYtttknkrntperLelkKYcprcrkhtlhkEtK                                                                                                                                                                        | +++LeC e+++r Y t+knkrn+perLelkKY p++r++ ++kE K                                                                                                                                                                        | NIILECVETGERLYLTSKNKRNNPERLELKKYSPKLRRRAIFKEVK                                                                                                                                                                        |        19 |
+|  6 | Ribosomal_S14   | PF00253   |                      1565 |        1 | !      |    83.3 |    0.1 |    3.9e-28 |    1.3e-25 |           2 |         54 | .]           |          36 |         88 | ..           |          35 |         88 | ..           |             0.98 | laklprnssptrirnrCrvtGrprGvirkfgLsRicfRelAlkgelpGvkKaS                                                                                                                                                                 | laklpr+s+p+r+r r++ +GrprG++rkfg+sRi+fRel ++g +pGvkKaS                                                                                                                                                                 | LAKLPRDSNPNRLRLRDQTDGRPRGYMRKFGMSRIKFRELDHQGLIPGVKKAS                                                                                                                                                                 |        20 |
+|  7 | Polysacc_synt_C | PF14667   |                      1593 |        1 | !      |    61.4 |   19.2 |    5.4e-21 |    1.9e-18 |           2 |        139 | ..           |         371 |        516 | ..           |         370 |        519 | ..           |             0.83 | LailalsiiflslstvlssiLqglgrqkialkalvigalvklilnllliplfgivGaaiatvlallvvavlnlyalrrllgikl...llrrllkpllaalvmgivvylllllllglllla...al..alllavlvgalvYllllll                                                                    | L+  ++s+ +l+++t++ siLq+l  +k+a+ ++ i++l+kli+++++i+lf  +G +iat+++ ++++++ +++l+r++ i++    ++   +++ +++vm i+ +l+l+++ ++   +   +l   + l +++g++v+ + l++                                                                    | LSATIISTSLLGIFTIVLSILQALSFHKKAMQITSITLLLKLIIQIPCIYLFKGYGLSIATIICTMFTTIIAYRFLSRKFDINPikyNRKYYSRLVYSTIVMTILSLLMLKIISSVYKFEstlQLffLISLIGCLGGVVFSVTLFR                                                                    |         5 |
+
+It stores all the domain hit information in the domain hit summaries as well as the sequence of the
+consensus match states, the comparison string, and the sequence of the user gene. This table
+contains all essential information, however the alignment information is in the form of raw strings.
+To further process the alignment info into a more meaningful form, there is a second data structure
+called `ali_info`. `ali_info` is a nested dictionary. It looks like this:
+
+```
+ali_info = {
+    # here is the template
+    <gene_callers_id>: {
+        (<pfam_id>, <domain_id>): {
+            <a_dataframe_with_alignment_info>
+        },
+    },
+    # here is an example
+    1699: {
+        ('PF07972', 1): {
+            <a_dataframe_with_alignment_info>
+        },
+        ('PF07972', 2): {
+            <another_dataframe_with_alignment_info>
+        },
+        ('PF03383', 1): {
+            <yet_another_dataframe_with_alignment_info>
+        },
+    },
+}
+```
+
+Each dataframe contains detailed alignment info for a given hit. In the above example, if we wanted
+to assess alignment info about the hit of `PF00389.29` against the user gene with ID `3609`, we
+would access the dataframe via `ali_info[3609][('PF00389', 1)]`. Since `PF00389` hit only once to
+`3609`, the hit has the domain ID `1`. This entry in the nested dictionary is a dataframe that looks
+like this:
+
+I will refer to this as the *domain hits summary*. In this case, the IPfam `PF00389.29` hit to 2 user genes: `3609` and `5374`. Then, for each of these
+genes, we can find further down in the file the alignment of each. For example, here is where the
+alignment info for gene `3609` starts:
+
+|    | seq   | hmm   | comparison   |   seq_positions |   hmm_positions |
+|---:|:------|:------|:-------------|----------------:|----------------:|
+|  0 | P     | E     | +            |              19 |               8 |
+|  1 | E     | E     | E            |              20 |               9 |
+|  2 | H     | E     |              |              21 |              10 |
+|  3 | L     | L     | L            |              22 |              11 |
+|  4 | T     | E     |              |              23 |              12 |
+|  5 | R     | L     | +            |              24 |              13 |
+|  6 | L     | L     | L            |              25 |              14 |
+|  7 | E     | K     | +            |              26 |              15 |
+
+This dataframe is a per-residue characterization of the alignment strings, i.e. the columns
+`match_state_align`, `sequence_align`, and `comparison_align` found in `dom_hits.`. For convenience,
+positions in the alignment that contain a gap either in the HMM or in the gene sequence are stripped
+from this dataset. `seq_positions` correspond to the 0-indexed positions in the user gene--in this
+example `3609`. In other words, these are the `codon_order_in_gene` values that aligned to a non-gap
+position in the HMM. Why doesn't `seq_positions` start at 0? Because in this example, the hit starts
+at the 20th amino acid in the user gene. Sanity check: this means the `ali_start` entry in the
+corresponding row of `self.dom_hits` would be 20.
+
+The mapping of sequence positions to HMM match states encapsulated in this dataframe is the
+essential information required for attributing binding frequencies to user genes, since the binding
+frequencies in the tab-separated InteracDome files are attributed to match states. Diagramatically,
+the flow of information goes like:
+
+```
+                    [InteracDome]               [ali_info]
+(binding frequency) ------------> (match state) ---------> (user gene residue)
+```
+
+Together, these 2 data structures are the fruits of labor from parsing the HMMER standard out and
+provide generic utility that extends beyond just `anvi-run-interacdome`
+
+## (5) Filtering HMM hits
+
+### Pfam gathering threshold
+
+As previously mentioned, `hmmsearch` is ran with the `--cut_ga` flag, which using Pfam gathering
+thresholds to pre-filter a lot of poor-quality hits.
+
+### Filtering partial hits
+
+In the InteracDome paper, Kobren and Singh are more stringent about filtering hits than I decided to
+be. In the paper, it is demanded that 100% of the Pfam HMM maps to the user gene, i.e. the first and
+last position of the HMM hit should be non-gap characters, or else the hit is discarded. In other
+words, they discarded all partial hits. I have opted to relax this constraint since it seemed too
+strict for my applications, however, I did want to enforce some kind of threshold that would discard
+hits that are *very* partial. To quantify the partialness of a hit I defined the *hit fraction*
+quantity, which is defined as
+
+$$ f = K/L $$
+
+where \$K\$ is the alignment length (`hmm_stop` - `hmm_start`) and \$L\$ is the length of the HMM
+profile (the number of match states). For example, in the hit below, PF01212 has length of \$293\$
+(not shown below, but trust me), and the alignment length is \$169-33=136\$, so the hit fraction is
+\$f = 136/293 \approx 0.46\$.
+
+|    | pfam_name       | pfam_id   |   corresponding_gene_call |   domain | qual   |   score |   bias |   c-evalue |   i-evalue |   hmm_start |   hmm_stop | hmm_bounds   |   ali_start |   ali_stop | ali_bounds   |   env_start |   env_stop | env_bounds   |   mean_post_prob | match_state_align                                                                                                                                                                                                     | comparison_align                                                                                                                                                                                                      | sequence_align                                                                                                                                                                                                        |   version |
+|---:|:----------------|:----------|--------------------------:|---------:|:-------|--------:|-------:|-----------:|-----------:|------------:|-----------:|:-------------|------------:|-----------:|:-------------|------------:|-----------:|:-------------|-----------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------:|
+|  0 | Beta_elim_lyase | PF01212   |                      1762 |        1 | !      |    20.9 |    0.1 |    1e-08   |    3.5e-06 |          33 |        169 | ..           |          44 |        177 | ..           |          34 |        215 | ..           |             0.72 | tvnrLedavaelfgke..aalfvpqGtaAnsill.kill.qr..geevivtepahihfdetgaiaelagvklrdlknkeaGkmdlekleaaikevgaheekiklisltvTnntagGqvvsleelrevaaiakkygiplhlDgA                                                                       | ++  +++ael+      + f+  Gt +++  l  + + +r  g+ +i++   h   +et    +  g +l  ++ +++G +++e+l+++i++     e i + +++v n+   G++ +++e+ ev  +a+  +i++h+D+                                                                          | LLQQARKQIAELINVSanEIYFTSGGTEGDNWVLkGTAIeKRefGNHIIISAVEHPAVTETAEQLVELGFELSYAPVDKEGRVKVEELQKLIRK-----ETILVSVMAVNNE--VGTIQPIKEISEV--LAEFPKIHFHVDAV                                                                       |        20 |
+
+To apply a filter based on partialness, I created a threshold value, `self.min_hit_threshold`
+(specified with `--min-hit-fraction`) that the hit fraction of a hit must exceed in order to be
+kept. If `self.min_hit_threshold = 0.5`, then the above hit would be removed since its hit fraction
+is \$\approx 0.46\$. To determine a reasonable default value for this threshold, I calculated the
+hit fractions for all hits of an *E. faecalis* genome against the IPfams which yielded 2898 hits.
+Here is the resulting histogram of hit fractions:
+
+[![hit-fraction-hist]({{images}}/hit_fraction_histogram.png)]({{images}}/hit_fraction_histogram.png){:.center-img .width-90}
+
+From this histogram, I deemed 0.8 was a good compromise between data retention and quality, so that
+is the default on July 21st, 2020.
+
+### Filtering bad hits
+
+Really, filtering bad hits is what the Pfam gathering threshold is designed for. But to be extra
+sure that we are not including junk, I followed the protocol of the InteracDome paper. To understand
+what Kobren and Singh did, we must first make a one paragraph detour to define some terms.
+
+An HMM profile is composed of match states, one for each residue position in the HMM profile. And
+each match state is composed of 20 emission probabilities, one for each amino acid. An emission
+probability gives a probability that a given amino acid is observed for the match state. So match
+states which are highly conserved will have a single dominant emission probability, whereas an
+unconserved match state will have more uniformly distributed emission probabilities, meaning many
+amino acids can inhabit the match state. To quantify how conserved a match state is, there is a
+quantity used in sequence logos called [information
+content](https://en.wikipedia.org/wiki/Sequence_logo#Logo_creation), which compares the entropy of a
+perfectly uniform distribution of emission probabilities to the observed entropy of emission
+probabilities. The formula boils down to this:
+
+$$ IC = \log_2{20} + \sum_{i=1}^{20}{ f_i \log_2{f_i} }$$
+
+where \$f_i\$ is the emission probability of the \$i\$th amino acid. The equation's worth boils down
+to this: the higher the information content, the more conserved the match state is.
+
+With this in mind, Kobren and Singh noted each position in each HMM profile that had an information
+content exceeding 4 (very conserved).
