@@ -3,17 +3,17 @@ layout: post
 authors: [evan]
 title: "Estimating per-residue binding frequencies with InteracDome"
 excerpt: "A blog post detailing InteracDome's integration into anvi'o"
-modified: 2020-07-20
+modified: 2020-07-22
 tags: []
 categories: [anvio]
 comments: true
 image:
-  feature: ../../images/anvio/2020-07-17-interacdome/feature.png
+  feature: ../../images/anvio/2020-07-22-interacdome/feature.png
   display: true
   credit: https://interacdome.princeton.edu/
 ---
 
-{% capture images %}{{site.url}}/images/anvio/2020-07-17-interacdome{% endcapture %}
+{% capture images %}{{site.url}}/images/anvio/2020-07-22-interacdome{% endcapture %}
 
 {% include _toc.html %}
 
