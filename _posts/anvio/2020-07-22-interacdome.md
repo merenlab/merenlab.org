@@ -18,7 +18,7 @@ image:
 {% include _toc.html %}
 
 {:.warning}
-This feature is for `v7` and later versions of anvi'o. You can identify which version you have on your computer by typing `anvi-self-test --version` in your terminal.
+This feature is implemented in anvi'o `v7` and later. You can identify which version you have on your computer by typing `anvi-self-test --version` in your terminal.
 
 {% include _project-anvio-version.html %}
 
@@ -28,22 +28,23 @@ This post is like a technical diary for my implementation of InteracDome into an
 is to provide all the technical details in one place, so that (1) people who inevitably use this
 in anvi'o know what is going on under the hood, and (2) so people digging into the codebase
 for debugging or extending features understand why I made certain decisons. It is thus a very
-technical blog post, and is quite distinct from other stuff we write about. But if you think you may
-be interested, by all means read :)! Just keep in mind that I will not be shying away from sharing
+technical blog post, and in that sense is quite distinct from other stuff we write about. But if you think you may
+be interested, please keep reading. I will not pretend that this has a start middle and end--it is
+more a reference for all the decisions I made. Just keep in mind that I will not be shying away from sharing
 code snippets from the codebase, so if you're code-shy, this is your trigger warning.
 
 {:.warning}
 This post is not version-controlled. The codebase is dynamic and will inevitably change,
 but this post will (probably) not, and is therefore merely a snapshot of what once was (July 20th,
 2020). I include it in the hopes it provides conceptual clarity, and hope it is not taken too
-seriously.
+seriously, or an accurate representation of anvi'o's codebase.
 
 ## Introduction
 
 Far too often we do not know what our [SNV, SAAV, and SCV]({{ site.url
 }}/2015/07/20/analyzing-variability/) data mean. The problem is that our data output is nucleotide
-sequence, which although defines the blueprint for function, is a very abstracted output from
-what we are trying to learn about. As eloquently put by [Harms and
+sequence, which defines the blueprint for function, but is a very abstracted output from what we are
+trying to learn about. As eloquently put by [Harms and
 Thornton](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4418793/), as a practical convenience, we as
 evolutionary biologists have a tendency to "*treat molecular sequences as mere strings of letters,
 the patterns of which carry the traces of historical processes, rather than as functioning objects
@@ -51,31 +52,32 @@ for which the physical properties determine their behaviour*". It is from these 
 learn so much by analyzing variant data derived from metagenomes. However, given that the
 SNV/SAAV/SCV (I'll just call them variants from now on) patterns by themselves offer zero insight
 into fitness, within our field, variant data is most commonly used to identify and track "strains".
-And to be honest, that saddens me because there is so much more potential than using them as mere
-markers.
+And to be honest, that saddens me because there is so much more potential than using them as
+ecological markers.
 
 To bridge a gap between metagenomic sequence variants and the structural biology of gene products
-that underpin function and fitness is no easy task, but I think its critical if we want empower the
+that underpin function and fitness is no easy task, but I think its critical if we want empower
 our findings with biochemical information. (As a small step in this direction, Özcan, Meren, and I developed
 [anvi-3dev]({{ site.url }}/software/anvi-3dev), a way to visualize metagenomic sequence variants
 directly on predicted protein structures).
 
-On this front, one of the most transformative talks I have ever attended was given by Dr. Mona Singh about [this
-paper](https://academic.oup.com/nar/article/47/2/582/5232439) (Kobren and Singh, 2018). Kobren and
-Singh took every Pfam family and searched for whether or not any members of the family had
-crystalized structures that co-complexed with bound ligands. If so, then they calculated 3D distance
-scores of each residue to the ligand(s) and used these distances as an inverse proxy for binding
-likelihood (the more likely you are to be involved in the binding of a ligand, the close you are in
-physical space to the ligand). They aggregated the totality of these results and ended up with thousands of Pfam
-IDs for which they could attribute per-residue ligand-binding scores to the Pfam's associated HMM.
-They used this to further characterize the human proteome, however when I was listening to the talk
-all I was thinking about was applying it to metagenomics.
+Related to this concept, one of the most transformative talks I have ever attended was given by Dr.
+Mona Singh about [this paper](https://academic.oup.com/nar/article/47/2/582/5232439) (Kobren and
+Singh, 2018). Kobren and Singh took every Pfam family and searched for whether or not any members of
+the family had crystalized structures that co-complexed with bound ligands. If so, then they
+calculated 3D distance scores of each residue to the ligand(s) and used these distances as an
+inverse proxy for binding likelihood (the more likely you are to be involved in the binding of a
+ligand, the closer you are in physical space to the ligand). They aggregated the totality of these
+results and ended up with thousands of Pfam IDs for which they could attribute per-residue
+ligand-binding scores to the Pfam's associated hidden Markov model (HMM) profile.  They used this to
+extend our knowledge of the human proteome, however when I was listening to the talk all I was thinking
+about was applying it to metagenomics.
 
 They entitled their software, *InteracDome*, and there is an [online
 server](https://interacdome.princeton.edu/) where you can give an amino acid sequence, and their
 server will run an HMM of your sequence against the InteracDome database and attribute estimated
 binding scores for each residue in your sequence. That is basically exactly what I wanted to do,
-except for a massive number of genes that may typically found in [anvi'o contigs databases]({{
+except I wanted to extend this to the potentially massive number of genes that can typically found in [anvi'o contigs databases]({{
 site.url }}/software/anvio/help/artifacts/contigs-db/). Furthermore, I wanted to store all the
 information in the contigs database for further data analysis and visualization, as is the anvi'o
 way.
@@ -93,12 +95,13 @@ Here are the bird's-eye-view components of InteracDome's implementation into anv
 5. Matching binding frequencies to the gene's residues
 6. Storing the per-residue binding frequencies into the contigs database
 
-## (1) and (2): Storing copy of the InteracDome datasets and the corresponding HMM profiles
+## (1) and (2): Storing copies of the InteracDome datasets and the corresponding HMM profiles
 
 ### Description of tab-separated InteracDome files
 
 What are these tab-separated files, you say? Well they contain the binding frequencies associated to
-each match-state (read as: residue) of the HMM. Here is what one looks like:
+each match-state (read as: residue) of the HMM. Here is what one looks like (be sure to scroll right
+to get a complete picture of the table):
 
 | pfam_id                 | domain_length | ligand_type  | num_nonidentical_instances | num_structures | binding_frequencies                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ----------------------- | ------------- | ------------ | -------------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -118,11 +121,11 @@ each match-state (read as: residue) of the HMM. Here is what one looks like:
 | ...                     | ...           | ...          | ...                        | ...            | ...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
 You can see that the `binding_frequencies` column contains per residue scores from 0 to 1 that say
-how likely a given residue is to be involved in binding. Each value is comma separated and there are
+how likely each residue is to be involved in binding. Each value is comma separated and there are
 as many values as there are match states in the HMM. That means the number of values in
 `binding_frequencies` matches the value of `domain_length`. Also notice that the `ligand_type` varies
-and you can have multiple ligands for a given Pfam. These files give what is the essential output of
-the InteracDome workflow, and there are two of them. The first is the non-redundant representable
+and you can have multiple ligands for a given Pfam. I hope its appreciated that these files give the essential output of
+the InteracDome workflow, and there are two such files. The first is the non-redundant representable
 set, which "*correspond to domain-ligand interactions that had nonredundant instances across three
 or more distinct PDB structures. [Kobren and Singh] recommend using this collection to learn more
 about domain binding properties*". If I recall, there are 2375 such Pfam IDs in this set (this is
@@ -135,12 +138,13 @@ sequences*".
 
 ### Description of the HMM profiles
 
-Since each entry in the InteracDome dataset corresponds to a Pfam, we just need the Pfam database
-that can be readily downloaded from the EBI ftp server, or by running `anvi-setup-pfams`. But since
-all the Pfams are not present in the InteracDome dataset, we merely need a subset of the Pfam HMM
+Since each entry in the InteracDome dataset corresponds to a Pfam, we just need the Pfam database,
+and that can be readily downloaded from the EBI ftp server, or by running `anvi-setup-pfams`. But
+since all the Pfams are not present in the InteracDome dataset, we merely need a subset of the Pfam
 database that contains Pfams with at least one entry from the non-redundant representable
-InteracDome set. From now on **I'll just call this subset the Interacdome Pfams (IPfams)**.
-Furthermore, InteracDome was carried out using Pfam `31.0`, so that's what we will use too.
+InteracDome set. From now on **I'll just call this subset the InteracDome Pfams (IPfams)**.  Also,
+it needs to be said that InteracDome was carried out using Pfam `31.0`, so it is critical that is
+what we use too.
 
 ### anvi-setup-interacdome
 
@@ -149,13 +153,13 @@ and therefore I created a program called [`anvi-setup-interacdome`]({{ site.url
 }}/software/anvio/help/programs/anvi-setup-interacdome/) to handle these tasks. So to make these
 inputs available, the user must run [`anvi-setup-interacdome`]({{ site.url
 }}/software/anvio/help/programs/anvi-setup-interacdome/) which initiates a class called
-`InteracdomeSetup`. Here is the class:
+`InteracDomeSetup`. Here is the class:
 
 {:.notice}
 This is merely a snapshot of the class as of July 12th, 2020.
 
 ```python
-class InteracdomeSetup(object):
+class InteracDomeSetup(object):
     def __init__(self, args, run=terminal.Run(), progress=terminal.Progress()):
         """Setup a Pfam database for anvi'o
 
@@ -177,17 +181,17 @@ class InteracdomeSetup(object):
         }
 
         if self.interacdome_data_dir and args.reset:
-            raise ConfigError("You are attempting to run Interacdome setup on a non-default data directory (%s) using the --reset flag. "
+            raise ConfigError("You are attempting to run InteracDome setup on a non-default data directory (%s) using the --reset flag. "
                               "To avoid automatically deleting a directory that may be important to you, anvi'o refuses to reset "
                               "directories that have been specified with --interacdome-data-dir. If you really want to get rid of this "
-                              "directory and regenerate it with Interacdome data inside, then please remove the directory yourself using "
+                              "directory and regenerate it with InteracDome data inside, then please remove the directory yourself using "
                               "a command like `rm -r %s`. We are sorry to make you go through this extra trouble, but it really is "
                               "the safest way to handle things." % (self.interacdome_data_dir, self.interacdome_data_dir))
 
         if not self.interacdome_data_dir:
             self.interacdome_data_dir = constants.default_interacdome_data_path
 
-        self.run.warning('', header='Setting up Interacdome', lc='yellow')
+        self.run.warning('', header='Setting up InteracDome', lc='yellow')
         self.run.info('Data directory', self.interacdome_data_dir)
         self.run.info('Reset contents', args.reset)
 
@@ -208,12 +212,12 @@ class InteracdomeSetup(object):
 
         if (os.path.exists(os.path.join(self.interacdome_data_dir, 'Pfam-A.hmm') or 
             os.path.exists(os.path.join(self.interacdome_data_dir, 'Pfam-A.hmm.gz')))):
-            raise ConfigError("It seems you already have the Interacdome data downloaded in '%s', please "
+            raise ConfigError("It seems you already have the InteracDome data downloaded in '%s', please "
                               "use --reset flag if you want to re-download it." % self.interacdome_data_dir)
 
 
     def download_interacdome_files(self):
-        """Download the confident and representable non-redundant Interacdome datasets
+        """Download the confident and representable non-redundant InteracDome datasets
 
         These datasets can be found at the interacdome webpage: https://interacdome.princeton.edu/
         """
@@ -248,7 +252,7 @@ class InteracdomeSetup(object):
     def load_interacdome(self, kind='representable'):
         """Loads the representable interacdome dataset as pandas df"""
 
-        data = InteracdomeTableData(kind=kind, interacdome_data_dir=self.interacdome_data_dir)
+        data = InteracDomeTableData(kind=kind, interacdome_data_dir=self.interacdome_data_dir)
         return data.get_as_dataframe()
 
 
@@ -259,7 +263,7 @@ class InteracdomeSetup(object):
 
 
     def filter_pfam(self):
-        """Filter Pfam data according to whether the ACC is in the Interacdome dataset"""
+        """Filter Pfam data according to whether the ACC is in the InteracDome dataset"""
 
         interacdome_pfam_accessions = self.get_interacdome_pfam_accessions()
 
@@ -277,9 +281,9 @@ class InteracdomeSetup(object):
 
 
     def setup(self):
-        """The main method of this class. Sets up the Interacdome data directory for usage"""
+        """The main method of this class. Sets up the InteracDome data directory for usage"""
 
-        self.run.warning('', header='Downloading Interacdome tables', lc='yellow')
+        self.run.warning('', header='Downloading InteracDome tables', lc='yellow')
         self.download_interacdome_files()
 
         self.run.warning('', header='Downloading associated Pfam HMM profiles', lc='yellow')
@@ -289,13 +293,13 @@ class InteracdomeSetup(object):
         self.filter_pfam()
 ```
 
-First, anvi'o creates a directory under `anvio/data/misc/Interacdome` (by default) which will end up
-housing the IPfam HMM profiles and the Interacdome datasets. Then the main method, `setup` is
+First, anvi'o creates a directory under `anvio/data/misc/InteracDome` (by default) which will end up
+housing the IPfam HMM profiles and the InteracDome datasets. Then the main method, `setup` is
 called, which is directly above us. We can see that first, anvi'o downloads the tab-separated files.
 Since these files were created for Pfam version `31.0`, anvi'o next downloads a copy of the Pfam
 `31.0` HMMs. There already exists a framework to download Pfams because of `anvi-setup-pfams`, so
 this was very little work to do. Yay for code resusability. As a final step, the Pfam HMMs are
-subset to the IPfam HMMs, i.e. only the Pfams that are in the Interacdome dataset.
+subset to the IPfam HMMs, *i.e.* only the Pfams that are in the InteracDome dataset.
 
 ## (3) Running the hidden Markov model (HMM)
 
@@ -304,24 +308,23 @@ HMMs are by no means an elementary topic, and so rather than butcher an
 explanation with my limited understanding, I defer to this [wonderful
 paper](https://www.sciencedirect.com/science/article/pii/S1672022904020145).
 
-With both the required inputs being gathered and setup appropriately with
-[`anvi-setup-interacdome`]({{ site.url }}/software/anvio/help/programs/anvi-setup-interacdome/), the
-next thing I focused on was actually running an HMM on user genes. This as well as all the other
-components will be carried out by the program [`anvi-run-interacdome`]({{ site.url
-}}/software/anvio/help/programs/anvi-run-interacdome/).
+With both the required inputs being gathered and setup with [`anvi-setup-interacdome`]({{ site.url
+}}/software/anvio/help/programs/anvi-setup-interacdome/), the next thing I focused on was actually
+running an HMM on user genes. This as well as the remainder of steps will be carried out by the
+program [`anvi-run-interacdome`]({{ site.url }}/software/anvio/help/programs/anvi-run-interacdome/).
 
 The program that goes hand-in-hand with Pfam HMM profiles is
 [HMMER](http://eddylab.org/software/hmmer/Userguide.pdf), and in fact, anvi'o already has a driver
 to run HMMER on a set of user genes which was written for [`anvi-run-pfams`]({{ site.url
 }}/software/anvio/help/programs/anvi-run-pfams/). Further in fact(?), [`anvi-run-pfams`]({{ site.url
 }}/software/anvio/help/programs/anvi-run-pfams/) in some ways does exactly what I want: it takes
-genes from the contigs database, runs an HMM model of the user genes against the Pfam HMM profiles,
+genes from the contigs database, runs an HMM of the user genes against the Pfam HMM profiles,
 and annotates genes with the best Pfam hit. The primary difference between
 [`anvi-run-interacdome`]({{ site.url }}/software/anvio/help/programs/anvi-run-interacdome/) and
 [`anvi-run-pfams`]({{ site.url }}/software/anvio/help/programs/anvi-run-pfams/), is that rather than
 simply attribute to each gene the Pfam ID of the best hit, we instead must keep track of
 residue-level information associated to each hit, so that we can associate the binding
-frequencies from the Interacdome dataset. In this sense, things are much more complicated, as I will
+frequencies from the InteracDome dataset. In this sense, things are much more complicated, as I will
 need to write an in-depth parser of HMMER's output to keep track of these things.
 
 Currently, [`anvi-run-pfams`]({{ site.url }}/software/anvio/help/programs/anvi-run-pfams/) can be
@@ -336,7 +339,7 @@ All in all, [`anvi-run-interacdome`]({{ site.url
 }}/software/anvio/help/programs/anvi-run-interacdome/) runs `hmmsearch` almost exactly like
 [`anvi-run-pfams`]({{ site.url }}/software/anvio/help/programs/anvi-run-pfams/) does. In fact,
 the responsible class for [`anvi-run-interacdome`]({{ site.url
-}}/software/anvio/help/programs/anvi-run-interacdome/), `anvio.interacdome.InteracdomeSuper`,
+}}/software/anvio/help/programs/anvi-run-interacdome/), `anvio.interacdome.InteracDomeSuper`,
 inherits `anvio.pfam.Pfam` to manage a lot of the boiler-plate code.
 
 {:.notice}
@@ -364,7 +367,8 @@ score cutoffs to pre-filter the output of `hmmsearch`. This cuts out a lot of cr
 ```
 
 The format is tabularized and thus easy enough to parse, but unfortunately the information is not
-detailed enough since it contains no information about residue-by-residue alignment. The second,
+detailed enough since it contains no information about residue-by-residue alignment of the match
+states (residues in the HMM profile) to the user gene sequence. The second,
 more verbose output, does:
 
 ```
@@ -373,7 +377,7 @@ more verbose output, does:
 # Copyright (C) 2018 Howard Hughes Medical Institute.
 # Freely distributed under the BSD open source license.
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# query HMM file:                  /Users/evan/Software/anvio/anvio/data/misc/Interacdome/Pfam-A.hmm
+# query HMM file:                  /Users/evan/Software/anvio/anvio/data/misc/InteracDome/Pfam-A.hmm
 # target sequence database:        /var/folders/58/mpjnklbs5ql_y2rsgn0cwwnh0000gn/T/tmpyebp3gbo/AA_gene_sequences.fa.0
 # output directed to file:         /var/folders/58/mpjnklbs5ql_y2rsgn0cwwnh0000gn/T/tmpyebp3gbo/AA_gene_sequences.fa.0_output
 # per-dom hits tabular output:     /var/folders/58/mpjnklbs5ql_y2rsgn0cwwnh0000gn/T/tmpyebp3gbo/AA_gene_sequences.fa.0_table
@@ -525,7 +529,7 @@ alignment info for gene `3609` starts:
 ```
 
 I will refer to this as the *hit alignment*. The aggregation of **all** the domain hit summaries and the
-hit alignments are stored in two datastructures that are attributes of the `anvio.parers.hmmer.HMMERStandardOutput`
+hit alignments are stored in two datastructures that are attributes of the `anvio.parsers.hmmer.HMMERStandardOutput`
 parser class. I will now describe both of them:
 
 The first is `dom_hits`, which is a dataframe which looks like this:
@@ -543,7 +547,8 @@ The first is `dom_hits`, which is a dataframe which looks like this:
 
 It stores all the domain hit information in the domain hit summaries as well as the sequence of the
 consensus match states, the comparison string, and the sequence of the user gene. This table
-contains all essential information, however the alignment information is in the form of raw strings.
+contains all essential information, however the alignment information is in the form of raw strings
+(see `match_state_align`, `comparison_align`, and `sequence_align` columns).
 To further process the alignment info into a more meaningful form, there is a second data structure
 called `ali_info`. `ali_info` is a nested dictionary. It looks like this:
 
@@ -571,14 +576,10 @@ ali_info = {
 ```
 
 Each dataframe contains detailed alignment info for a given hit. In the above example, if we wanted
-to assess alignment info about the hit of `PF00389.29` against the user gene with ID `3609`, we
+to access alignment info about the hit of `PF00389.29` against the user gene with ID `3609`, we
 would access the dataframe via `ali_info[3609][('PF00389', 1)]`. Since `PF00389` hit only once to
 `3609`, the hit has the domain ID `1`. This entry in the nested dictionary is a dataframe that looks
 like this:
-
-I will refer to this as the *domain hits summary*. In this case, the IPfam `PF00389.29` hit to 2 user genes: `3609` and `5374`. Then, for each of these
-genes, we can find further down in the file the alignment of each. For example, here is where the
-alignment info for gene `3609` starts:
 
 |    | seq   | hmm   | comparison   |   seq_positions |   hmm_positions |
 |---:|:------|:------|:-------------|----------------:|----------------:|
@@ -591,29 +592,29 @@ alignment info for gene `3609` starts:
 |  6 | L     | L     | L            |              25 |              14 |
 |  7 | E     | K     | +            |              26 |              15 |
 
-This dataframe is a per-residue characterization of the alignment strings, i.e. the columns
-`match_state_align`, `sequence_align`, and `comparison_align` found in `dom_hits.`. For convenience,
+This dataframe is a per-residue characterization of the alignment strings, *i.e.* the columns
+`match_state_align`, `sequence_align`, and `comparison_align` found in `dom_hits`. For convenience,
 positions in the alignment that contain a gap either in the HMM or in the gene sequence are stripped
-from this dataset. `seq_positions` correspond to the 0-indexed positions in the user gene--in this
-example `3609`. In other words, these are the `codon_order_in_gene` values that aligned to a non-gap
+from this dataset. `seq_positions` correspond to the 0-indexed positions in the user gene (in this
+example the gene is `3609`). In other words, these are the `codon_order_in_gene` values that aligned to a non-gap
 position in the HMM. Why doesn't `seq_positions` start at 0? Because in this example, the hit starts
 at the 20th amino acid in the user gene. Sanity check: this means the `ali_start` entry in the
 corresponding row of `self.dom_hits` would be 20.
 
 Together, these 2 data structures are the fruits of labor from parsing the HMMER standard out and
-provide generic utility that extends beyond just `anvi-run-interacdome`
+provide generic utility that extends beyond just `anvi-run-interacdome`.
 
 ## (5) Filtering HMM hits
 
 ### Pfam gathering threshold
 
-As previously mentioned, `hmmsearch` is ran with the `--cut_ga` flag, which using Pfam gathering
+As previously mentioned, `hmmsearch` is ran with the `--cut_ga` flag, which uses Pfam gathering
 thresholds to pre-filter a lot of poor-quality hits.
 
 ### Filtering partial hits
 
 In the InteracDome paper, Kobren and Singh are more stringent about filtering hits than I decided to
-be. In the paper, it is demanded that 100% of the Pfam HMM maps to the user gene, i.e. the first and
+be. In the paper, it is demanded that 100% of the Pfam HMM maps to the user gene, *i.e.* the first and
 last position of the HMM hit should be non-gap characters, or else the hit is discarded. In other
 words, they discarded all partial hits. I have opted to relax this constraint since it seemed too
 strict for my applications, however, I did want to enforce some kind of threshold that would discard
@@ -624,7 +625,7 @@ $$ f = K/L $$
 
 where \$K\$ is the alignment length (`hmm_stop` - `hmm_start`) and \$L\$ is the length of the HMM
 profile (the number of match states). For example, in the hit below, PF01212 has length of \$293\$
-(not shown below, but trust me), and the alignment length is \$169-33=136\$, so the hit fraction is
+(not shown below, but trust me), and the alignment length is \$169-33=136\$. This means the hit fraction is
 \$f = 136/293 \approx 0.46\$.
 
 |    | pfam_name       | pfam_id   |   corresponding_gene_call |   domain | qual   |   score |   bias |   c-evalue |   i-evalue |   hmm_start |   hmm_stop | hmm_bounds   |   ali_start |   ali_stop | ali_bounds   |   env_start |   env_stop | env_bounds   |   mean_post_prob | match_state_align                                                                                                                                                                                                     | comparison_align                                                                                                                                                                                                      | sequence_align                                                                                                                                                                                                        |   version |
@@ -634,7 +635,7 @@ profile (the number of match states). For example, in the hit below, PF01212 has
 To apply a filter based on partialness, I created a threshold value, `self.min_hit_threshold`
 (specified with `--min-hit-fraction`) that the hit fraction of a hit must exceed in order to be
 kept. If `self.min_hit_threshold = 0.5`, then the above hit would be removed since its hit fraction
-is \$\approx 0.46\$. To determine a reasonable default value for this threshold, I calculated the
+is less than this value (\$\approx 0.46\$). To determine a reasonable default value for this threshold, I calculated the
 hit fractions for all hits of an *E. faecalis* genome against the IPfams which yielded 2898 hits.
 Here is the resulting histogram of hit fractions:
 
@@ -667,9 +668,9 @@ to this: **the higher the information content, the more conserved the match stat
 
 With this in mind, Kobren and Singh identified each match state in a hit that had an IC exceeding 4
 (very conserved) and took note of the consensus amino acid (the amino acid with the highest emission
-probability). Then, in order to retain a hit, the gene sequence must share the same amino acid as
-the consensus amino at each of these conserved positions. The idea is that if one is to trust the
-quality of the hit, these positions should truly be conserved. I wanted to replicate this filtering
+probability). Then, in order to retain a hit, the gene sequence this HMM profile hit to must share all the same amino acids as
+the consensus amino acids at each of these conserved positions. The idea is that if one is to trust the
+quality of the hit, these positions should equate since they are conserved. I wanted to replicate this filtering
 procedure.
 
 This is great and all, except the HMMER output does not provide emission probabilities, and
@@ -679,7 +680,7 @@ therefore calculating IC is a non-trivial task...
 
 To calculate information content (IC), one must dive into the `.hmm` file itself (the one created
 during `anvi-setup-interacdome`). An `.hmm` file contains all the information necessary about each
-HMM profile. Here is the content for just one HMM profile:
+HMM profile. Here is the content for just one HMM profile in the `.hmm`:
 
 
 ```
@@ -737,8 +738,9 @@ HMM          A        C        D        E        F        G        H        I   
 
 The important part for IC is the section with lines that start from `1` and go to `102`. Each of
 these numbers are the match states of the HMM profile--in this case the profile has 102 match
-states. On each line with one of these numbers are the negative natural log of the emission
-probabilities for each of the 20 amino acids. Therefore, by parsing this file, one can establish the
+states. On each line starting with one of these numbers are the negative natural log of the emission
+probabilities for each of the 20 amino acids. Therefore, by parsing this file by taking the negative
+exponentiation of these values, one can establish the
 emission probabilities for every match state in every HMM profile.
 
 To grab the IC values for each match state, I wrote a parser class, `anvio.pfam.HMMProfile`, that
@@ -751,7 +753,7 @@ each match state in a dataframe that can be accessed like so:
 print(anvio.pfam.HMMProfile(<filepath>).data['PF01965']['MATCH_STATES'])
 ```
 
-This print the following:
+This prints the following:
 
 |   MATCH_STATE | CS   | MM   | RF   | CONS   |   MAP |       IC |
 |--------------:|:-----|:-----|:-----|:-------|------:|---------:|
@@ -776,14 +778,14 @@ This print the following:
 The match states are 0-indexed in this dataframe.
 
 And so with this class, anvi'o has easy access to IC for each match state in an `.hmm` file. One
-need only initiate the above class.
+need only initiate the above class as demonstrated.
 
 #### The distribution of information content
 
-Rather than testing for information content (IC) > 4, I wanted to keep this a tunable parameter for
-the user (with a default of 4). To help guide anyone's investigation, I have compiled all of the IC
-values for each match state in the representable InteracDome dataset (2375 profile HMMs). This
-totals 414619 ICs. Here is a histogram of the values:
+Rather than testing for information content (IC) > 4, I wanted to keep the threshold a tunable parameter for
+the user (with a default being 4). To help guide anyone's investigation, I have compiled all of the IC
+values for each match state in the representable InteracDome dataset (2375 HMM profiles). This
+totals 414619 IC values. Here is a histogram of them:
 
 [![IC-hist]({{images}}/IC_histogram.png)]({{images}}/IC_histogram.png){:.center-img .width-90}
 
@@ -792,7 +794,7 @@ Wow, an absolutely gorgeous long-tailed distribution exhibiting
 
 [![IC-hist-log]({{images}}/IC_log_histogram.png)]({{images}}/IC_log_histogram.png){:.center-img .width-90}
 
-I digress. It's shape does not so much matter. But what I do find interesting is that only a very small
+I digress--it's shape does not so much matter. But what I do find interesting is that only a very small
 portion of sites have IC > 4, which is the cutoff threshold Kobren and Singh applied. Only 0.062% of
 match states have IC > 4, and on average, each HMM profile contains only 0.11 such match states. To
 see the effect of applying this filter to real hits, I did a series of tests with decreasing cutoff
@@ -811,8 +813,9 @@ It is impossible to really say whether decreasing the IC cutoff below 4 is a goo
 taking a close examination of hits that are filtered. I did not do this. What I do agree with is
 that IC > 4 match states are extremely rare, and thus represent the pinnacle of what should be
 conserved an ultra-conserved residue. If the sequence mismatches to the consensus value at these
-positions, we should definitely be justified in throwing them out. It is at this moment unclear if
-we could lower this threshold and would be doing God's work, or would be throwing away useful data.
+positions, we should definitely be justified in throwing the hit out. It is at this moment unclear if
+we could justifiably lower this threshold, or whether that would be throwing away useful
+data.
 
 <div class="extra-info" markdown="1">
 <span class="extra-info-header">Cysteine & glycine are stubborn</span>
@@ -839,7 +842,7 @@ Cyteine and glycine are astonishingly more likely to be ultra-conserved than any
 
 </div>
 
-## (5) Matching binding frequencies to the gene's residues
+## (5) Matching binding frequencies to the genes' residues
 
 ### The flow
 
@@ -851,10 +854,10 @@ flow of binding frequencies looks like this:
 (binding frequency) ------------> (match state) ------> (user gene residue)
 ```
 
-Binding frequencies are stored in the InteracDome table (either conserved or representable) and
-are attributed to match states. This is a mapping of binding frequency to match state. By running
+Binding frequencies are stored in either the conserved or representable InteracDome table and
+are attributed to match states of the IPfams. This is a mapping of binding frequency to match state. By running
 HMMER, we extracted alignment information of match states to user genes. This creates a mapping
-between user gene residues and match states, and therefore a mapping between user gene residues and
+between user gene residues and match states, and by extension a mapping between user gene residues and
 binding frequencies. Because of the legwork already described in
 [(4)](#4-parsing-hmmers-standard-output-file), there is very little to describe.
 
@@ -891,18 +894,18 @@ allows redundancies. For example, further down the table there are these two ent
 Here, we have an amino acid position that has two contributions, both from `match_state` 20 of
 `pfam_id` PF00534, and `match_state` 6 of `pfam_id` PF13692. To condense this information, I created
 a second dataframe that collapses the redundant rows. For simplicity, I am quite simply averaging
-of all binding frequencies (for a given `ligand`) that associate to a given amino acid position. The
+all binding frequencies (for a given `ligand`) that associate to a given amino acid position. The
 above table is stored in the `bind_freq` attribute of `anvio.interacdome.InteracDomeSuper`, and the
-second collapse table is stored in the `avg_bind_freq` attribute of the same class. In the redundant
+second, collapsed table is stored in the `avg_bind_freq` attribute of the same class. In the redundant
 case above, the corresponding entry in `avg_bind_freq` looks like this:
 
 |   gene_callers_id | ligand   |   codon_order_in_gene |   binding_freq |
 |------------------:|:---------|----------------------:|---------------:|
 |                 1 | ALL_     |                   167 |       0.100922 |
 
-`match_state` and `pfam_id` are dropped since these are no longer meaningful columns. However the
+`match_state` and `pfam_id` are dropped since these are no longer meaningful columns. However, their
 information is still held in `bind_freq` (and as you will see in the next section, `bind_freq` is
-stored as a tab-separated file so this potentially very useful information is not lost).
+stored as a tab-separated file so this potentially very useful information is not lost to the user).
 
 ### Filtering low binding frequency scores
 
@@ -950,44 +953,44 @@ And here is the corresponding section of what is ultimately stored in the contig
 
 It may seem to be in oddly specific format, and that's because it is. You see, up until a few months
 ago, anvi'o contigs databases had no means of storing per-nucleotide or per-residue information.
-Crazy, I know. The only thing that resembles this concept was per-nucleotide coverage values, but
+Crazy, I know. The only thing that resembled this concept was per-nucleotide coverage values, but
 this is actually stored in the auxiliary database (a tumor of the profile database) that's created
 during `anvi-profile`. A few months ago I wanted to address this shortcoming for the selfish reason
 of knowing that one day I would implement InteracDome functionality into anvi'o. And I didn't want
 anvi'o to spit out some half-chewed tab-separated file to the user--I wanted the results to be
-stored in the contigs database so they could be used in integrated and interactive ways. So I created two
+stored in the contigs database so they could be used in integrated and interactive manners. So I created two
 new tables in the contigs database called `amino_acid_additional_data` and
 `nucleotide_additional_data`, which hijack the already existing framework for [additional data
 tables]({{ site.url }}/2017/12/11/additional-data-tables/). The convenience factor was through the
 roof for doing this, as I had to write very little code ([here](https://github.com/merenlab/anvio/pull/1419) is the
 pull request) and now we can store arbitrary per-nucleotide and per-amino-acid annotations (not just
-InteracDome stuff, but practically anything besides `.mp4`s). However, two downsides are very appreciable.
+InteracDome stuff, but practically anything besides `.mp4` format). However, two downsides are very appreciable.
 
 First, the framework requires a unique key for each amino acid. Yet, it is technically two keys that
-define an amino acid: the `gene_caller_id` of the gene it belongs to, and the `codon_order_in_gene`
-(the residue position) of the amino acid. The same goes for defining a nucleotide: you need the position
+define an amino acid: the `gene_callers_id` of the gene it belongs to, and the `codon_order_in_gene`
+(the residue position) of the amino acid relative to its gene. The same goes for defining a nucleotide: you need the position
 in the contig (`pos_in_contig`) and you need the `contig_name`. So how do you get one key from two
 pieces of information? The solution, which is ugly, is to create a single key by concatenating these
-two pieces of information into a string.  Doing so has distinct disadvantages, the main one being that it
-SQL queries are hindered: how can you quickly grab all amino acids belonging to gene 1 without first
-loading all into memory? Regardless, I did it. Someone will hate me in 5 years.
+two pieces of information into a string.  Doing so has distinct disadvantages, the main one being that
+SQL queries are hindered: it becomes impossible to straight-forwardly grab all amino acids belonging to a gene without first
+loading all entries into memory, for example. Regardless, I did it. Someone will hate me in 5 years.
 
-Take another look at the above table and you will see the string concatenation I'm talkinb about under the `item_name`
+Take another look at the above table and you will see the string concatenation I'm talking about under the `item_name`
 column. Entries under `item_name` equal to `<gene_callers_id>:<codon_order_in_gene>`, for example the first
 entry `1:169` is the 169th residue (0-indexed) in gene 1.
 
 The second downside to doing this is specific to `anvi-run-interacdome`. You see, there is really a lot of
-information missing from the above table. For example, it would be great to know which Pfam ID(s)
-contributed a given binding freqency and with which of their match states. I already discussed that
+information missing from the above table. For example, it would be great to know which IPfam ID(s)
+contributed a given binding freqency and with which of their match states they did so. I already discussed that
 this information is all present in the dataframe `bind_freq`. Unfortunately there just isn't
-enough columns, and I am fixed within this framework because I didn't want to reinvent the wheel. To
+enough columns to accomodate this information, and I am fixed within this framework because I didn't want to reinvent the wheel. To
 console victims of this tyranny, `anvi-run-interacdome` does more than just store the above table in
-the contigs database. It also outputs two tab-delimited files. Their names are
+the contigs database. It also outputs two tab-delimited files. Their names are by default
 `INTERACDOME-match_state_contributors.txt` and `INTERACDOME-domain_hits.txt`...
 
 `INTERACDOME-match_state_contributors.txt` is a table of the exact contents in `bind_freq`
-mentioned [above](#dealing-with-multiple-overlapping-hits), but because you're somehow still reading
-this, I feel bad for you so here is the table again:
+mentioned [above](#dealing-with-multiple-overlapping-hits). Since you're somehow still reading
+this, I'll show you the table again:
 
 |   gene_callers_id |   codon_order_in_gene | pfam_id   |   match_state | ligand   |   binding_freq |
 |------------------:|----------------------:|:----------|--------------:|:---------|---------------:|
@@ -1006,8 +1009,8 @@ From this, one can trace back each and every match state that contributed to a g
 frequency. This is what giving power to the user means.
 
 `INTERACDOME-domain_hits.txt` is a table of the exact contents in `dom_hits`
-mentioned [above](#4-parsing-hmmers-standard-output-file), but because you're somehow still reading
-this, I feel bad for you so here is the table again:
+mentioned [above](#4-parsing-hmmers-standard-output-file). Since you're somehow still reading
+this, I'll show you the table again:
 
 | pfam_name       | pfam_id   |   corresponding_gene_call |   domain | qual   |   score |   bias |   c-evalue |   i-evalue |   hmm_start |   hmm_stop | hmm_bounds   |   ali_start |   ali_stop | ali_bounds   |   env_start |   env_stop | env_bounds   |   mean_post_prob | match_state_align                                                                                                                                                                                                     | comparison_align                                                                                                                                                                                                      | sequence_align                                                                                                                                                                                                        |   version |
 |:----------------|:----------|--------------------------:|---------:|:-------|--------:|-------:|-----------:|-----------:|------------:|-----------:|:-------------|------------:|-----------:|:-------------|------------:|-----------:|:-------------|-----------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------:|
@@ -1026,32 +1029,6 @@ HMM match states, and hopefully anything else the user would be interested in.
 ## Conclusion
 
 Wow! That was certainly a mouthful. I know in a year or two when I am writing my thesis, this will
-be helpful to me, and I hope that it has been helpful to you too. If you have questions 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+be helpful to me, and I hope that it has been helpful to you too. If you have questions, let me
+know.
 
