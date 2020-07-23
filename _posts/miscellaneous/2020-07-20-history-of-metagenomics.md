@@ -15,13 +15,19 @@ image:
 
 {% include _toc.html %}
 
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">A short note...</span>
 This past quarter, I had the opportunity to dive into the history of metagenomics and how it has shaped our current understanding of microbial ecology and evolution. To report on my journey, I decided to write a blogpost, summarizing ideas in the field that have shaped the questions I am addressing in my own research today. The goal of my thesis work is to integrate environmental metagenomic data and genomics data to explore key insights into microbial fitness in environments such as the human gut and the oceans. My hope is that this blog post is approachable and accurate, and sets the state for why I am able to ask these exciting questions.
 
 Best,
+
 Matthew Schechter
+
 June 12, 2020
 
-P.S. Please read the footnotes as they appear, they are meant to be read inline with the text. 
+P.S. Please read the tangent boxes as they appear, they are meant to be read inline with the text.
+</div>
 
 # Back to the Origins
 It was difficult to find a starting point for the history of metagenomics. As a primer, I thought it would be great to begin before the word metagenomics was invented, with arguably the most prominent figure of microbial ecology and evolution, Carl Woese. His philosophical and experimental contributions to 16S amplicon sequencing is an important catalyst that launched us into the era of metagenomics because it opened our eyes to the unimaginable diversity of microbes. Let’s get started!
