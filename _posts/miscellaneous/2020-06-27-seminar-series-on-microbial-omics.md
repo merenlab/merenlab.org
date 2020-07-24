@@ -59,28 +59,40 @@ There will be a 20 to 40 second delay between Zoom and YouTube.
 
 ## Lecturers
 
-* [Meren](https://twitter.com/merenbey): Assistant Professor at the [University of Chicago](http://uchicago.edu), and a Fellow of the [Marine Biological Laboratory](http://mbl.edu).
+* **[Meren](https://twitter.com/merenbey)**: Assistant Professor in the [Department of Medicine](https://medicine.uchicago.edu/) and the [Committee on Microbiology](https://biomedsciences.uchicago.edu/page/microbiology) at the **[University of Chicago](http://uchicago.edu)**, and a Fellow of the **[Marine Biological Laboratory](http://mbl.edu)**.
 
-* [Mike Lee](https://twitter.com/AstrobioMike): Research Scientist at NASA’s [Ames Research Center](https://www.nasa.gov/ames). *Mike will lead the Phylogenomics session.*
+* **[Roland Hatzenpichler](http://www.environmental-microbiology.com)**, Assistant Professor in the Department of [Chemistry and Biochemistry](https://chemistry.montana.edu/), the [Thermal Biology Institute](http://tbi.montana.edu/), and the [Center for Biofilm Engineering](http://www.biofilm.montana.edu/) at **[Montana State University](https://www.montana.edu/)**. *Roland will lead a discussion on what we do <u>not</u> learn about microbial associations from sequencing alone.*
 
-* [Iva Veseli](https://www.linkedin.com/in/iva-veseli/): Graduate Student at the [Biophysical Sciences Program](http://biophysics.uchicago.edu/), University of Chicago. *Iva will answer questions asked on the chat window on the Zoom call, or bring them up with the lecturer(s)*.
+* **[Jessica Mark Welch](https://www.mbl.edu/jbpc/staff/jmarkwelch/)**, Associate Scientist in [the Josephine Bay Paul Center for Comparative Molecular Biology and Evolution](https://www.mbl.edu/jbpc/) at the **[Marine Biological Laboratory](https://mbl.edu/)**. *Jessica will lead a discussion on what we do <u>not</u> learn about microbial interactions from sequencing alone.*
 
-* [Emily Fogarty](https://twitter.com/emily_fogarty11): Graduate Student at the [Committee on Microbiology](https://biomedsciences.uchicago.edu/page/microbiology), University of Chicago. *Emily will answer questions asked on the chat window during the YouTube live stream, or bring them up with the lecturer(s)*. 
+* **[Mike Lee](https://twitter.com/AstrobioMike)**: Research Scientist at the [Ames Research Center](https://www.nasa.gov/ames), National Aeronautics and Space Administration (**[NASA](https://www.nasa.gov/)**). *Mike will lead the Phylogenomics session.*
+
+* **[Iva Veseli](https://www.linkedin.com/in/iva-veseli/)**: Graduate Student in the **[Biophysical Sciences Program](http://biophysics.uchicago.edu/)** at the University of Chicago. *Iva will answer questions asked on the chat window on the Zoom call, or bring them up with the lecturer(s)*.
+
+* **[Emily Fogarty](https://twitter.com/emily_fogarty11)**: Graduate Student in the **[Committee on Microbiology](https://biomedsciences.uchicago.edu/page/microbiology)** at the University of Chicago. *Emily will answer questions asked on the chat window during the YouTube live stream, or bring them up with the lecturer(s)*.
+
 
 ## Schedule
 
-**Every lecture will take place on a Wednesday at 9am Chicago Time (CST)** ([see what time it corresponds to in your city](https://www.timeanddate.com/worldclock/converter.html?iso=20200708T140000&p1=64&p2=259&p3=240&p4=514&p5=770&p6=676&p7=233&p8=246&p9=155&p10=250&p11=16&p12=176)).
+**Every lecture will take place on a Wednesday at 9am Chicago Time (CST)** ([see what time it corresponds to in your city](https://www.timeanddate.com/worldclock/converter.html?iso=20200708T140000&p1=64&p2=259&p3=240&p4=514&p5=770&p6=676&p7=233&p8=246&p9=155&p10=250&p11=16&p12=176)), and recording of the lecture (minus the discussions) will appear here after a few days.
 
 ### July 8, 2020
 
 <blockquote markdown="1">**A brief introduction to microbial life, and popular 'omics approaches and data types**
 </blockquote>
 
+The video of the first week's lecture (if you click on the title, you will find the outline and timestamps of independent sections of the talk on YouTube):
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/R9KLkCZ95cU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### July 15, 2020
 
 <blockquote markdown="1">**The power of metagenomic read recruitment**
 </blockquote>
+
+The video of the second week's lecture. Please see questions asked and responses given, as well as the outline and timestamps of independent sections of the talk on YouTube:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MqD4aN1p1qA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### July 22, 2020
 
@@ -104,15 +116,7 @@ There will be a 20 to 40 second delay between Zoom and YouTube.
 
 ## Registration
 
-Seminars are free to attend and open to anyone! But we request you to register using the following form:
-
-**[https://forms.gle/o2JY8ufE4mJojdE48](https://forms.gle/o2JY8ufE4mJojdE48)**
-
-{:.warning}
-The registration form will be open until July 8<sup>th</sup>.
-
-{:.warning}
-If you fill up the form please remember to mark those dates on your calendar.
+Seminars are free to attend and open to anyone! If you have registered, you will get an e-mail five to fifteen minutes before the beginning of the seminar on each Wednesday. Please be patient and don't forget to keep an eye on your JUNK or SPAM folders :) If you have not registered, you still can attend. Please keep an eye on Meren's Twitter account or Anvi'o Slack channel (link below) for URLs to Zoom and YouTube streams.
 
 ## Questions?
 
