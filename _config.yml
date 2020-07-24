@@ -4,15 +4,17 @@ title:            Meren Lab
 locale:           en_US
 url:              http://merenlab.org
 
-
 # Jekyll configuration
-
 permalink: /:year/:month/:day/:title/
+
 markdown:    kramdown
+
 highlighter: rouge
+
 sass:
   sass_dir: _sass
   style: compressed
+
 plugins:
   - jekyll-sitemap
   - jekyll-redirect-from
@@ -33,6 +35,7 @@ kramdown:
 owner:
   name: Meren Lab
   email: a.murat.eren@gmail.com
+  disqus-shortname: merensgithub
 
 include: [".htaccess"]
 exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]
