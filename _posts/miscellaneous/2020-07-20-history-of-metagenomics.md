@@ -36,11 +36,16 @@ Carl Woese fundamentally changed our view of biological diversity by utilizing t
 
 The “Perspective” chapter reads like a microbial op-ed, reflecting on how nucleic acid sequencing fundamentally changed our understanding of genetics and evolution, and how taxonomy before sequencing was, “a fruitless search”. Woese has a few epic quotes in this section that would be a misjustice to paraphrase and are worth discussing more in-depth:
 
-“The cell is basically a historical document, and gaining the capacity to read it (by sequencing of genes) cannot but drastically alter the way we look at all biology.” (Woese 1987)
+<blockquote>
+“The cell is basically a historical document, and gaining the capacity to read it (by sequencing of genes) cannot but drastically alter the way we look at all biology.” 
+<div class="blockquote-author">Woese, 1987</div>
+</blockquote>
+
+This premise highlights how microbiology research has been fundamentally technology driven. Our “capacity” to sequence genes drastically changed our understanding of diversity and protein evolution. What other technological innovations have pushed microbiology forward? Since the field of metagenomics rests on the technology of Next-Generation sequencing and Long-read sequencing, I was inspired to review origins of a few fundamental microbiology technologies. Please refer to footnotes for one of a few deeper dives into tangent topics (1).
 
 <div class="extra-info" markdown="1">
 
-<span class="extra-info-header">(1) First of a few deep dives</span>
+<span class="extra-info-header">(1) Technology catalyzed the first micrbiology research</span>
 I would argue that most knowledge about microbiology could not be discovered a priori. In fact, for 1000's of years humanity had only interacted with the miracles (e.g. bread and beer) and disasters (e.g. pandemics) of microbial life using senses that could not elucidate the perpetrator (can we hear microbes?). Yet, there was an “apple falling from the tree” moment when Antony van Leeuwenhoek made technological improvements to the single lense light microscope. This Dutch scientist is referred to by many as the “Father of Microbiology” and is credited for discovering bacteria and protists! (Lane 2015)
 
 The realization of the microbial world permanently changed our view of biological diversity; At the time, adding a new Kingdom. Yet, visually quantifying and categorizing microbes through microscopes had its limits. How could one assign metabolic abilities to a “species” when most microbes look the same in their natural community assemblages? To begin and ask questions about “What are they doing?” and “Who is there?” another innovation was required.
@@ -56,7 +61,6 @@ Next, Woese discusses The Oparin-Haldane Hypothesis, colloquially known as the P
 
 <blockquote>
 “But if (and oh what a big if) we could conceive in some warm little pond with all sorts of ammonia and phosphoric salts, light, heat, electricity etcetera present, that a protein compound was chemically formed, ready to undergo still more complex changes [...]”
-
 <div class="blockquote-author">Darwin (https://www.darwinproject.ac.uk/letter/DCP-LETT-7471.xml)</div>
 </blockquote>
 
