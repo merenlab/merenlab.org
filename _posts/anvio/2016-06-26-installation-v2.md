@@ -157,8 +157,6 @@ Python 3.6.7
 Good? Good. Then, install the following dependencies in this conda environment:
 
 ``` bash
-pip install virtualenv
-
 conda install -y prodigal \
                  mcl \
                  muscle \
@@ -193,20 +191,6 @@ mkdir -p ~/github && cd ~/github/
 git clone --recursive https://github.com/meren/anvio.git
 ```
 
-Here we will setup a directory to keep the Python virtual environment for anvi'o (virtual environment within a virtual environment, keep your totem nearby):
-
-``` bash
-mkdir -p ~/virtual-envs/
-
-# run this just in case there is already a directory with this name
-# so you avoid 'too many symlinks' error from virtualenv in the
-# next step
-rm -rf ~/virtual-envs/anvio-master
-
-virtualenv ~/virtual-envs/anvio-master
-source ~/virtual-envs/anvio-master/bin/activate
-```
-
 Now it is time to install the Python dependencies of anvi'o:
 
 ``` bash
@@ -214,31 +198,26 @@ cd ~/github/anvio/
 pip install -r requirements.txt
 ```
 
-When this is done successfully, you can deactivate the Python environment:
-
-```
-deactivate
-```
-
-Now we will setup your conda environment in such a way, every time you activate anvi'o within it, you will get the very latest updates from the `master` repository:
+Now we will setup your conda environment in such a way, every time you activate it, you will get the very latest updates from the `master` repository. While you are still in anvi'o environment, copy-paste these lines into your terminal:
 
 ``` bash
-# updating the activation script for the Python virtual environmnet
+cat <<EOF >${CONDA_PREFIX}/etc/conda/activate.d/anvio.sh
+# creating an activation script for the the anvi'o master conda environmnet
 # so (1) Python knows where to find anvi'o libraries, (2) BASH knows
-# where to find its programs, and (3) every the environment is activated
-# it downloads the latest code from the `master` repository
-echo -e "\n# >>> ANVI'O STUFF >>>" >> ~/virtual-envs/anvio-master/bin/activate
-echo 'export PYTHONPATH=$PYTHONPATH:~/github/anvio/' >> ~/virtual-envs/anvio-master/bin/activate
-echo 'export PATH=$PATH:~/github/anvio/bin:~/github/anvio/sandbox' >> ~/virtual-envs/anvio-master/bin/activate
-echo 'cd ~/github/anvio && git pull && cd -' >> ~/virtual-envs/anvio-master/bin/activate
-echo "# <<< ANVI'O STUFF <<<" >> ~/virtual-envs/anvio-master/bin/activate
+# where to find its programs, and (3) every time the environment is activated
+# it downloads the latest code from the master repository
+export PYTHONPATH=\$PYTHONPATH:~/github/anvio/
+export PATH=\$PATH:~/github/anvio/bin:~/github/anvio/sandbox
+echo -e "\033[1;34mUpdating from the master repository in GitHub \033[0;31m(press CTRL+C to cancel)\033[0m ..."
+cd ~/github/anvio && git pull && cd -
+EOF
 ```
 
-Finally we define an alias, `anvi-activate-master`, so when you are in your conda environment for `anvio-dev` you can run it as a command to initiate everything like a pro:
+Finally we define an alias, `anvi-activate-master`, so you can use it to initiate everything like a pro:
 
 ```
 echo -e "\n# >>> ANVI'O STUFF >>>" >> ~/.bash_profile
-echo 'alias anvi-activate-master="source ~/virtual-envs/anvio-master/bin/activate"' >> ~/.bash_profile
+echo 'alias anvi-activate-master="conda activate anvio-master"' >> ~/.bash_profile
 echo "# <<< ANVI'O STUFF <<<" >> ~/.bash_profile
 source ~/.bash_profile
 ```
@@ -366,7 +345,6 @@ init_anvio_master () {
     export PATH="/Users/$USER/miniconda3/bin:$PATH"
     . /Users/$USER/miniconda3/etc/profile.d/conda.sh
     conda activate anvio-master
-    anvi-activate-master
     export PS1="\[\e[0m\e[40m\e[1;30m\] :: anvi'o v6 master :: \[\e[0m\e[0m \[\e[1;34m\]\]\w\[\e[m\] \[\e[1;31m\]>>>\[\e[m\] \[\e[0m\]"
 }
 
