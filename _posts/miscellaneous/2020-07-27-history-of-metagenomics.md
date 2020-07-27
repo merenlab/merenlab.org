@@ -10,7 +10,7 @@ comments: true
 redirect_from:
   - /history-of-metagenomics/
 image:
-    feature: 
+    feature: http://merenlab.org/images/history_metagenomics_vis.png
 ---
 
 {% include _toc.html %}
