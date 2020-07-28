@@ -17,7 +17,7 @@ image:
 
 ## Preface
 
-By taking a directed reading course with Meren, this past quarter I had the opportunity to fulfill requirements of two graduate school bodies at the University of Chicago I am affiliated with: [Committee on Microbiology](https://micro.uchicago.edu/) and ([Genetics and Regulation Training](https://biosciences.uchicago.edu/directory/genetics-and-regulation-t32-gm07197)). This course allowed me to dive into the history of metagenomics and how it has shaped our current understanding of microbial ecology and evolution.
+By taking a directed reading course with Meren this past quarter, I had the opportunity to fulfill requirements for two graduate school bodies at the University of Chicago I am affiliated with: [Committee on Microbiology](https://micro.uchicago.edu/) and [Genetics and Regulation Training](https://biosciences.uchicago.edu/directory/genetics-and-regulation-t32-gm07197). This course allowed me to dive into the history of metagenomics and how it has shaped our current understanding of microbial ecology and evolution.
 
 To report on my journey, I decided to write a blogpost, summarizing ideas in the field that have shaped the questions I am addressing in my own research today. Specifically, I am interested in integrating environmental metagenomic data and genomics data to explore key insights into microbial fitness in environments such as the human gut and the oceans. My hope is that this blog post is approachable and accurate, and sets the stage for why I am able to ask these exciting questions. Please read the tangent boxes as they appear, they are meant to be read inline with the text.
 
