@@ -198,6 +198,22 @@
     - title: Post-doctoral Scientist
       inst: The Department of Medicine at the University of Chicago
       inst_link: http://medicine.uchicago.edu/
+      
+- alias: jessica
+  official: True
+  name: Jessica Pan
+  tenure_start: 06/2019
+  role: Undergraduate Researcher
+  email: jnpan@mit.edu
+  avatar: bio-jessica.jpg
+  github: Jessica-Pan
+  orcid: 0000-0002-6743-6146
+  bio: "I am interested in using computational strategies to investigate microbial ecosystems and working to make those techniques more accessible to others."
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  affiliations:
+    - title: Undergraduate Student
+      inst: Massachusetts Institute of Technology
+      inst_link: http://web.mit.edu/
 
 - alias: kiki
   official: True
