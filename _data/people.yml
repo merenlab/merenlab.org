@@ -82,23 +82,6 @@
       inst: The Biophysical Sciences Program at the University of Chicago
       inst_link: http://biophysics.uchicago.edu/
 
-- alias: ozcan
-  official: True
-  name: Özcan C. Esen
-  tenure_start: 02/2016
-  role: Software guru, local hacker
-  email: ozcanesen@gmail.com
-  twitter: ozcanesen
-  avatar: bio-ozcan.jpg
-  github: ozcan
-  web: http://blog.ozcanesen.com/
-  bio: "As a computer engineer I strive to utilize my expertise to investigate challenges in microbial ecology, metagenomics, and visualization of complex data."
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  affiliations:
-    - title: Programmer
-      inst: The Department of Medicine at the University of Chicago
-      inst_link: http://medicine.uchicago.edu/
-
 - alias: matt
   official: True
   name: Matthew Schechter
@@ -397,6 +380,27 @@
     - title: Graduate Student
       inst: The Biophysical Sciences Program at the University of Chicago
       inst_link: http://biophysics.uchicago.edu/
+
+- alias: ozcan
+  nick_name: Ozcan
+  official: True
+  name: Özcan C. Esen
+  tenure_start: 02/2016
+  tenure_end: 02/2020
+  current_info:
+  contributions: Ozcan worked on anvi'o since it was nothing more than an idea, and has been one of the most prolific developers of it during the last five years. His remarkable contributions to the interactive capabilities of anvi'o has always been a critical component of the platform, and will continue to help many life scientists who use anvi'o
+  role: Programmer
+  email: ozcanesen@gmail.com
+  twitter: ozcanesen
+  avatar: bio-ozcan.jpg
+  github: ozcan
+  web: http://blog.ozcanesen.com/
+  bio: "As a computer engineer I strive to utilize my expertise to investigate challenges in microbial ecology, metagenomics, and visualization of complex data."
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  affiliations:
+    - title: Programmer
+      inst: The Department of Medicine at the University of Chicago
+      inst_link: http://medicine.uchicago.edu/
 
 - alias: mahmoud
   nick_name: Mahmoud
