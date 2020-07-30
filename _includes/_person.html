@@ -100,7 +100,7 @@
 
           <p>
              {{ person.nick_name }} was a {{ person.role }} with us between {{person.tenure_start}} and {{person.tenure_end}}.
-             {{ person.contributions }}. The last time we checked, {{ person.nick_name }} was {{ person.current_info }}.
+             {{ person.contributions }}.{% if person.current_info %} The last time we checked, {{ person.nick_name }} was {{ person.current_info }}.{% endif %}
           </p>
 
         </div>
