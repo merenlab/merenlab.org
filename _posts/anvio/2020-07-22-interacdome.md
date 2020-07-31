@@ -8,7 +8,7 @@ tags: []
 categories: [anvio]
 comments: true
 image:
-  feature: ../../images/anvio/2020-07-22-interacdome/feature.png
+  feature: http://merenlab.org/images/anvio/2020-07-22-interacdome/feature.png
   display: true
   credit: https://interacdome.princeton.edu/
 ---
@@ -23,6 +23,11 @@ This feature is implemented in anvi'o `v7` and later. You can identify which ver
 {% include _project-anvio-version.html %}
 
 ## Who is this post for?
+
+{:.notice}
+**NOTE**: For a more practical tutorial on the same topic, please visit
+[the infant gut tutorial]({{ site.url
+}}/tutorials/infant-gut/#chapter-vii-from-single-amino-acid-variants-to-protein-structures)
 
 This post is like a technical diary for my implementation of InteracDome into anvi'o. The primary purpose of this
 is to provide all the technical details in one place, so that (1) people who inevitably use this
@@ -1030,5 +1035,6 @@ HMM match states, and hopefully anything else the user would be interested in.
 
 Wow! That was certainly a mouthful. I know in a year or two when I am writing my thesis, this will
 be helpful to me, and I hope that it has been helpful to you too. If you have questions, let me
-know.
-
+know. And if you want to see all of this in action, be sure to check out the InteracDome section of
+[the infant gut tutorial]({{ site.url
+}}/tutorials/infant-gut/#chapter-vii-from-single-amino-acid-variants-to-protein-structures).
