@@ -99,14 +99,16 @@ The video of the second week's lecture. Please see questions asked and responses
 <blockquote markdown="1">**Genome-resolved metagenomics: key concepts in reconstructing genomes from metagenomes**
 </blockquote>
 
-The video of the second week's lecture. Please see questions asked and responses given, as well as the outline and timestamps of independent sections of the talk on YouTube:
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/RjNdHGK4ruo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### July 29, 2020
 
 <blockquote markdown="1">**Pangenomics: comparative genomics in the era of genomic explosion**
 </blockquote>
+
+The video of the lecture (please find timestamps for individual chapters and written Q&A's on YouTube):
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nyv7Xr07LCY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### August 5, 2020
 
