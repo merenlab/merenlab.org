@@ -2002,19 +2002,217 @@ genome in the context of HMP gut metagenomes](#downloading-the-pre-packaged-infa
 already have this data, but if you're wondering "where did this come from?", you should read that
 section and then come back.
 
-This is a brief demonstration to showcase protein structure visualization that can be carried out by
-a software embedded in anvi'o, called [`anvi-3dev`]({{ site.url }}/software/anvi-3dev). For a more
-detailed and in depth tutorial dedicated to this topic, please refer to this
-post ([click me]({{ site.url }}/2018/09/04/getting-started-with-anvi-3dev/))
+This section briefly showcases 2 separate, yet integrated features. The first is binding site
+prediction prediction with [InteracDome](https://interacdome.princeton.edu/), and the second is
+protein structure visualization with [anvi-3dev]({{ site.url }}/software/anvi-3dev). This is a
+**showcase** of these features, not an in-depth tutorial on either topic. For more comprehensive
+material on InteracDome, check out [this blog]({{ site.url }}/2020/07/22/interacdome/). For more
+detailed info and in depth tutorial on anvi-3dev, please refer to [this post]({{ site.url
+}}/2018/09/04/getting-started-with-anvi-3dev/).
 
-In the previous sections of this tutorial we used single-nucleotide variants (SNVs) to explore
-sequence heterogeneity of an *E. faecalis* population. In this section of the tutorial we explore in
-what ways these variants alter the encoded protein synthesized downstream, and how such variation is
-shaped by principles of protein evolution. When analyzing sequence variation in the context of
-proteins, it makes a lot more sense to characterize sequence variation with single codon variants
-(SCVs) or single amino acid variants (SAAVS) rather than SNVs. If you are unfamiliar with these
-concepts, or want to learn more, [click
-me]({{ site.url }}/2015/07/20/analyzing-variability/#single-nucleotide-variants).
+### Predicting binding sites with InteracDome
+
+{:.warning}
+This is considered an experimental feature at this point in time. It has not been sufficiently
+tested, yet we are very excited to experiment with it and make it available to *you* to experiment
+with. Please report any bugs you may find.
+
+In the previous chapters of this tutorial we used single-nucleotide variants (SNVs) to explore
+sequence heterogeneity of an *E. faecalis* population. This demonstrated the ease with which SNVs
+can be explored and characterized, however offered zero insight into their potential impact on
+fitness. This is an extremely difficult task, yet as a step towards this direction, the first
+section of this chapter is dedicated to exploring how we can predict binding sites using InteracDome
+via the program `anvi-run-interacdome`, and thereby attribute more meaning and context to
+observed distributions of SNVs.
+
+For this demo, we once again will use the *E. faecalis* genome as a medium to estimate per-residue binding
+frequencies. We start (and end) the process with the following command:
+
+{:.notice}
+In order for the command below to work, you will need to have at some point ran
+`anvi-setup-interacdome`, which downloads all necessary files. This will require an internet
+connection, ~250MB of free space, and about 10 minutes. So if the command didn't work, first type
+`anvi-setup-interacdome` and let anvi'o loose.
+
+```bash
+anvi-run-interacdome -c additional-files/e_faeealis_across_hmp/CONTIGS.db -T 2
+```
+
+As you may be getting used to, `-c` specifies the contigs database you would like to predict binding
+sites for, and `-T` means to run the command with 2 threads (feel free to use more if you have the
+hardware).
+
+In brief, running this command searches each gene in your contigs database against a subset of the
+Pfam database that have been annotated with per-residue "binding frequencies". These binding
+frequencies are values between 0 and 1 which indicate how likely it is a residue is involved in
+interacting with a ligand. The search is ran with [HMMER](http://hmmer.org/) and the binding
+frequencies are from the [InteracDome](https://interacdome.princeton.edu/).
+
+{:.notice}
+If you want to understand the inner workings as to how the InteracDome dataset was created, you
+should read [this paper](https://academic.oup.com/nar/article/47/2/582/5232439) which introduces the
+InteracDome resource.
+
+After running the command, you will see a bunch of output. Let's take a look at the output, one
+chunk at a time. Note that if you are unsatisfied with any of my descriptions of these outputs (Evan
+speaking here), check out my [implementation diary]({{ site.url }}/2020/07/22/interacdome) of this
+anvi'o feature for way more info. Here is the first chunk of output:
+
+```
+CITATION
+===============================================
+Anvi'o will use 'InteracDome' by Kobren and Singh (DOI: 10.1093/nar/gky1224) to
+attribute binding frequencies. If you publish your findings, please do not
+forget to properly credit their work.
+```
+
+InteracDome is the resource published by Kobren and Singh, that has annotated per-residue binding
+frequencies to Pfams. Without them, this would not be possible, so don't forget to cite. Next:
+
+```
+INITIALIZATION
+===============================================
+Interacdome dataset used .....................: representable
+Minimum hit fraction .........................: 0.5
+Pfam database directory ......................: /Users/evan/Software/anvio/anvio/data/misc/Interacdome
+Pfam database version ........................: 31.0 (2017-02)
+Contigs DB ...................................: Initialized: additional-files/e_faeealis_across_hmp/CONTIGS.db (v. 18)
+HMM profiles loaded from .....................: /Users/evan/Software/anvio/anvio/data/misc/Interacdome/Pfam-A.hmm
+Number of HMM profiles loaded ................: 2375 profiles
+num genes that HMM will be run on ............: 2,754
+Output .......................................: /var/folders/58/mpjnklbs5ql_y2rsgn0cwwnh0000gn/T/tmpz7zrm92p/AA_gene_sequences.fa
+```
+
+This simply provides some information about where the Pfams are located, which contigs database is
+being used, as well as the amino acid sequences exported from the contigs database. It also lets us
+know that we will be attempting to compute binding frequencies for 2754 *E. faecalis* genes since
+that's how many genes in the contigs database had amino acid sequences. To compute these binding
+frequencies, we will use an InteracDome database of 2375 Pfams that have annotated binding
+frequencies. This number comes from the fact that we are using the 'representable' subset of Pfams,
+which *“correspond[s] to domain-ligand interactions that had nonredundant instances across three or
+more distinct PDB structures. [Kobren and Singh] recommend using this collection to learn more about
+domain binding properties”*. If you want to include only highly confident interactions that have
+been cross-validated, supply the flag `--interacdome-dataset confident`. Next up:
+
+```
+HMM Profiling for InteracDome
+===============================================
+Reference ....................................: unknown
+Kind .........................................: unknown
+Alphabet .....................................: AA
+Context ......................................: DOMAIN
+Domain .......................................: N/A
+HMM model path ...............................: /Users/evan/Software/anvio/anvio/data/misc/Interacdome/Pfam-A.hmm
+Number of genes in HMM model .................: 2,375
+Noise cutoff term(s) .........................: --cut_ga
+Number of CPUs will be used for search .......: 2
+HMMer program used for search ................: hmmsearch
+Temporary work dir ...........................: /var/folders/58/mpjnklbs5ql_y2rsgn0cwwnh0000gn/T/tmpeqd9lraw
+Log file for thread 0 ........................: /var/folders/58/mpjnklbs5ql_y2rsgn0cwwnh0000gn/T/tmpeqd9lraw/AA_gene_sequences.fa.0_log
+Log file for thread 1 ........................: /var/folders/58/mpjnklbs5ql_y2rsgn0cwwnh0000gn/T/tmpeqd9lraw/AA_gene_sequences.fa.1_log
+```
+
+Rather boringly, this output just lets us know how we are running `HMMER`. Next:
+
+```
+HMMER results
+===============================================
+Loaded HMMER results from ....................: /var/folders/58/mpjnklbs5ql_y2rsgn0cwwnh0000gn/T/tmpeqd9lraw/hmm.standard
+num total domain hits ........................: 2,898
+num unique genes .............................: 1,521
+num unique HMMs ..............................: 956
+filtered hits (no InteracDome data) ..........: 0
+filtered hits (disagrees with conserved match states) : 1
+filtered hits (hit is too partial hit) .......: 261
+```
+
+These are the results from running `HMMER`. 2898 domain hits were found for 1521 genes. That means
+that about half the *E. faecalis* genome had at least one domain hit, and that the average number of
+domain hits for these genes was about 2. There were 956 Pfams (HMMs) that contributed domain hits,
+which is about 40% of the InteracDome "representable" dataset. The remaining lines indicate some
+filtering info. Most notably, 261 hits were removed because they corresponded to domain hits that
+had Pfams that aligned less than half of their length to the *E. faecalis* gene. You can change this
+fraction threshold with the parameter `--min-hit-fraction`, which by default is 0.5.
+
+Next up:
+
+```
+InteracDome Results
+===============================================
+* (Pre-filter) 1488 genes with at least 1 binding freq
+* (Pre-filter) 728542 total position-ligand combos with binding freqs
+    - position-ligand combos with binding freqs in range [0.0,0.1): 458055
+    - position-ligand combos with binding freqs in range [0.1,0.2): 96063
+    - position-ligand combos with binding freqs in range [0.2,0.3): 49816
+    - position-ligand combos with binding freqs in range [0.3,0.4): 35944
+    - position-ligand combos with binding freqs in range [0.4,0.5): 22678
+    - position-ligand combos with binding freqs in range [0.5,0.6): 18016
+    - position-ligand combos with binding freqs in range [0.6,0.7): 16228
+    - position-ligand combos with binding freqs in range [0.7,0.8): 10809
+    - position-ligand combos with binding freqs in range [0.8,0.9): 7704
+    - position-ligand combos with binding freqs in range [0.9,1.0]: 13229
+
+Filter by minimum binding frequency ..........: True
+Minimum binding frequency ....................: 0.2
+
+* (Post-filter) 1488 genes with at least 1 binding freq
+* (Post-filter) 174424 total position-ligand combos with binding freqs
+    - position-ligand combos with binding freqs in range [0.0,0.1): 0
+    - position-ligand combos with binding freqs in range [0.1,0.2): 0
+    - position-ligand combos with binding freqs in range [0.2,0.3): 49816
+    - position-ligand combos with binding freqs in range [0.3,0.4): 35944
+    - position-ligand combos with binding freqs in range [0.4,0.5): 22678
+    - position-ligand combos with binding freqs in range [0.5,0.6): 18016
+    - position-ligand combos with binding freqs in range [0.6,0.7): 16228
+    - position-ligand combos with binding freqs in range [0.7,0.8): 10809
+    - position-ligand combos with binding freqs in range [0.8,0.9): 7704
+    - position-ligand combos with binding freqs in range [0.9,1.0]: 13229
+```
+
+The following shows a text-based histogram of the binding frequency scores attributed to the *E.
+faecalis* genes (Reminder: the InteracDome dataset attributes to each residue a score between 0 and
+1, where 0 means unlikely and 1 means likely to be involved in binding a ligand). The first section
+shows before filtering low-frequency hits, and the second shows after filtering. As we can see, most
+binding frequencies attributed fall under 0.2, and by default there is a filter cutoff of 0.2. You
+can change this with `--min-binding-frequency`.
+
+Finally, there is:
+
+```
+* Binding frequencies for 49195 unique positions successfully stored in
+additional-files/e_faeealis_across_hmp/CONTIGS.db
+* Domain hit summaries stored in INTERACDOME-domain_hits.txt
+* Match state contributors stored in INTERACDOME-match_state_contributors.txt
+```
+
+After all filtering, the results are in: 49195 residues in the *E. faecalis* genome have been
+implicated in ligand binding. The positions, ligand types, and binding frequencies are
+stored in the contigs database, and a slew of additional information is stored in the text outputs
+`INTERACDOME-domain_hits.txt` and `INTERACDOME-match_state_contributors.txt`.
+
+With the addition of this information, there is seemingly an uncountable number of directions to go,
+and the truth is that we ourselves have not even scratched the surface. We therefore can't predict
+how this may be useful to you. I, Evan, have some ideas of my own, but I haven't even had time to
+explore them. That's how fresh these cookies are. That said, in the next section we will transition
+to talking about anvi-3dev, a tool to visualize protein structures, and as you may have guessed,
+there will be a section in which we visualize the predicted binding sites we calculated in this
+section.
+
+### Visualizing protein structures, SAAVs, SCVs, and binding sites with anvi-3dev
+
+So far we have been referring to sequence variants as SNVs, yet when analyzing sequence variation in
+the context of proteins, it makes a lot more sense to characterize sequence variation with single
+codon variants (SCVs) or single amino acid variants (SAAVS) rather than SNVs. If you are unfamiliar
+with these concepts, or want to learn more, [click me]({{ site.url
+}}/2015/07/20/analyzing-variability/#single-nucleotide-variants). Point is, we will be working with
+SAAVs and SCVs moving forward.
+
+In this section we will introduce [anvi-3dev]({{ site.url }}/software/anvi-3dev), a software
+embedded within the anvi'o codebase that enables one to predict protein structures for genes in your
+contigs database and visualize them in an interactive interface. The motivation was seeded by
+wanting more direct insight into the potential effect that sequence variants had on fitness, by
+visualizing them directly on the structure, since it is the physical properties of these structures
+that define function.
 
 <details markdown="1"><summary>Show/hide Evan's note</summary>
 
@@ -2026,7 +2224,6 @@ should check out [this paper](https://doi.org/10.7554/eLife.46497) if you want t
 patterns of structural sequence variation. Here is a figure from that study:
 
 [![SAAVs](images/SAR11_SAAVs.png)](images/SAR11_SAAVs.png){:.center-img .width-80}
-
 
 [Evan](https://twitter.com/evankiefl).
 
@@ -2077,43 +2274,89 @@ After running the above command, you should see the following view.
 
 [![E. facealis struct](images/structure-interactive-default.png)](images/structure-interactive-default.png){:.center-img .width-90}
 
-This is the predicted structure for `gene 58`. It's a 4-methyl-5-(beta-hydroxyethyl)thiazole kinase, and [the template protein](https://www.rcsb.org/structure/3DZV) used to model the structure was crystallized from an *E. faecalis* isolate by the Joint Center for Structural Genomics. The template shares 96.5% sequence identity with our gene, and so we are very confident in the accuracy of the predicted structure. Each red sphere indicates the position of a SAAV that occurred in at least one of the metagenomes. You can learn more about each SAAV by hovering the mouse above it.
+This is the predicted structure for `gene 58`. The left panel indicates that it is a
+Hydroxyethylthiazole kinase of the sugar kinase family, and [the template
+protein](https://www.rcsb.org/structure/3DZV) used to model the structure (PDB code 3DZV) was
+crystallized from an *E. faecalis* isolate by the Joint Center for Structural Genomics. The template
+shares 96.5% sequence identity with our gene, and so we are very confident in the accuracy of the
+predicted structure. On the display, each red sphere indicates the position of a SAAV that occurred
+in at least one of the metagenomes. You can learn more about each SAAV by hovering the mouse above
+it. Try and find the SAAV occurring at the 87th residue. To help, you can click the `Views` tab at
+the top, find the `Backbone Color` section, and then select the `Rule` to be `residueindex`. The
+SAAV at position 87 is orange in color.
 
 [![E. facealis struct](images/SAAV-hover.png)](images/SAAV-hover.png){:.center-img .width-90}
 
-Under 'Reference info' you can see that the MAG had an asparagine at this position, however under 'Variant frequencies', 88% of reads were threonine within the infants sampled. If you inspect the amino acid frequencies of more of these SAAVs, you will notice that most of them have insignificant levels of variation. These may be true biological variation in the environment, but they are at such low frequencies they are indistinguishable from sequencing error. To avoid fooling ourselves, we can filter out these reads by going to the Filters tab, and conservatively setting the minimum departure from reference value to 0.05:
+Under 'Reference info' you can see that the MAG had an asparagine at this position, however under
+'Variant frequencies', 88% of reads were threonine within the infants sampled. If you inspect the
+amino acid frequencies of more of these SAAVs, you will notice that most of them have insignificant
+levels of variation. These may be true biological variation in the environment, but they are at such
+low frequencies they are indistinguishable from sequencing error. To avoid fooling ourselves, we can
+filter out these reads by going to the Filters tab, and conservatively setting the minimum departure
+from reference value to 0.05:
 
 [![E. facealis struct](images/structure-filter-dfc.gif)](images/structure-filter-dfc.gif){:.center-img .width-90}
 
-To get a better idea of the characteristics of each SAAV, you can set the color and size for each according to various metrics of interest in the Perspectives tab. In the animation below, we color each SAAV according to its entropy to quantify the degree of variation at each site (click [here](http://merenlab.org/2015/07/20/analyzing-variability/#the-output-matrix) and search for 'entropy' for an explanation):
+(*I turned off the translucent surface by going to `Views|Structure|Surface|Show` and unchecking the
+box*)
+
+To get a better idea of the characteristics of each SAAV, you can set the color and size for each
+according to various metrics of interest in the Perspectives tab. In the animation below, we color
+each SAAV according to its entropy to quantify the degree of variation at each site (click
+[here](http://merenlab.org/2015/07/20/analyzing-variability/#the-output-matrix) and search for
+'entropy' for an explanation):
 
 [![E. facealis struct](images/structure-color-entropy.gif)](images/structure-color-entropy.gif){:.center-img .width-90}
 
-The 4 white-ish spheres are sites in which the metagenomes disagree with the MAG, but where there is little to no variation within the environment. In contrast, the 3 red-ish spheres indicate sites in which the environment has a mixed population of 2 or more amino acids. Verify this for yourself by looking at the variant frequencies and comparing their identities to the reference residue.
+(*I turned off rainbow coloring by going to `Views|Structure|Backbone Color|Rule` and selecting
+`Static`*)
+
+The 4 white-ish spheres are sites in which the metagenomes disagree with the MAG, but where there is
+little to no variation within the environment. In contrast, the 3 red-ish spheres indicate sites in
+which the environment has a mixed population of 2 or more amino acids. Verify this for yourself by
+looking at the variant frequencies and comparing their identities to the reference residue.
 
 ### SAAVs and SCVs
 
-So far we've focused exclusively on SAAVs, however we can also study variation with [single codon variants (SCVs)](http://merenlab.org/2015/07/20/analyzing-variability/#single-codon-variants). You can visualize SCVs by clicking `CDN` (read: codon) in the Main tab:
+So far we've focused exclusively on SAAVs, however we can also study variation with [single codon
+variants (SCVs)](http://merenlab.org/2015/07/20/analyzing-variability/#single-codon-variants). You
+can visualize SCVs by clicking `CDN` (read: codon) in the Main tab:
 
-[![E. facealis struct](images/structure-engine-select.png)](images/structure-engine-select.png){:.center-img .width-70}
+[![E. facealis struct](images/structure-engine-select.png)](images/structure-engine-select.png){:.center-img .width-40}
 
-In this view, the first thing you will notice is that there are many more SCVs than SAAVs. That's because unlike SAAVs, SCVs also report on synonymous variation. For example, this residue is completely synonymous, but impressively houses 4 of the 6 arginine codons:
+In this view, the first thing you will notice is that there are many more SCVs than SAAVs. That's
+because unlike SAAVs, SCVs also report on synonymous variation. For example, this residue is
+completely synonymous, but impressively houses 4 of the 6 arginine codons:
 
-[![E. facealis struct](images/structure-synonymous-hover.png)](images/structure-synonymous-hover.png){:.center-img .width-50}
+[![E. facealis struct](images/structure-synonymous-hover.png)](images/structure-synonymous-hover.png){:.center-img .width-40}
 
-In the situation below, there exists both synonymous and non-synonymous transitions. Note that the synonymity correspondingly deviates from 1.
-
-[![E. facealis struct](images/structure-non-synonymous-hover.png)](images/structure-non-synonymous-hover.png){:.center-img .width-50}
-
-If you inspect enough of these genes, you'll start to notice that SCVs at solvent inaccessible residues (relative solvent accessibility = 0) are almost always entirely synonymous (synonymity = 1). Do you have any explanation for why?
+If you inspect enough of these genes, you'll start to notice that SCVs at solvent inaccessible
+residues (relative solvent accessibility = 0) are almost always entirely synonymous (synonymity =
+1). Do you have any explanation for why?
 
 ### Case study: sequence variation within a kinase binding pocket
 
-Since `gene 58` is a kinase, it may not surprise you it has a binding pocket for ADP. Unfortunately there is currently no way to visualize ligands, but we can get a sense for the binding pocket by adding a translucent surface to the protein in the Perspectives tab. The binding pocket is pointed out in the animation below, and if you are up for the challenge, you can try and find this pocket in your own interface.
+Since `gene 58` is a kinase, it may not surprise you it has a binding pocket for ADP. Remember when
+we ran `anvi-run-interacdome` and predicted ligand sites? Let's visualize where this ADP pocket is.
+First, let's navigate to the Views tab, turn on the surface, and increase the opacity to 1. Then
+color the surface dynamically according to ADP binding frequency values. Your settings should mimic
+this:
 
-[![E. facealis struct](images/structure-zoom-in-ADP.gif)](images/structure-zoom-in-ADP.gif){:.center-img .width-80}
+[![settings-adp](images/structure-adp-settings.png)](images/structure-adp-settings.png){:.center-img .width-40}
 
-Since binding pockets are meticulously constrained to maintain optimal binding kinetics, they are under extreme purifying selection, which is why we don't see any SAAVs in the binding pocket:
+Here is what you should be seeing:
+
+[![rotate-adp](images/structure-adp.gif)](images/structure-select-ADP.gif){:.center-img .width-90}
+
+Rather gorgeously, we can see where the ADP is predicted to bind. Since binding pockets are
+meticulously constrained to maintain optimal binding kinetics, they are under extreme purifying
+selection. To see whether are there are any SAAVs in the binding pocket, I turned off the surface
+and changed the settings so that the backbone color represents ADP binding frequency, where purple
+represents higher frequencies:
+
+[![settings-adp-purple](images/structure-adp-purple-settings.png)](images/structure-adp-purple-settings.png){:.center-img .width-40}
+
+Here I've zoomed into the binding pocket, where you can see there are no SAAVs in "site".
 
 [![E. facealis struct](images/structure-adp-saavs.png)](images/structure-adp-saavs.png){:.center-img .width-90}
 
@@ -2121,15 +2364,34 @@ However, when we switch to a view of SCVs, the pocket lights up like a Christmas
 
 [![E. facealis struct](images/structure-adp-scvs.png)](images/structure-adp-scvs.png){:.center-img .width-90}
 
-Although visually convincing that these SCVs form part of the binding pocket, to prove we are not fooling ourselves, here are the residues determined crystallographically from the template protein to be in direct contact with ADP:
+ Visually it's clear that only variants that are fully synonymous are permissible in the binding
+ pocket.  This is a fine example of how non-synonymous sequence evolution is usually more highly
+ constrained than synonymous sequence evolution due to fitness-decreasing alterations in the
+ biophysical properties of the encoded protein. Since these synonymous SCVs do not influence the
+ binding site, they have no fitness effect on the protein's ability to function. It's impossible to
+ know without conducting fitness experiments, but most likely they are neutral mutations, and have
+ entered the population through drift and/or draft.
 
-[![E. facealis struct](images/structure-adp-contacts.png)](images/structure-adp-contacts.png){:.center-img .width-90}
+<div class="extra-info" markdown="1">
 
-Click [here](https://www.rcsb.org/3d-view/3DZV?preset=ligandInteraction&sele=ADP) to investigate for yourself. Of these residues, G190, V191, and G120 are SCVs in the infant guts, which confirms that mutations are occuring in the region of DNA encoding the binding pocket. Hovering the mouse over of each of these 3 SCVs, you can verify that these residues have synonymity values of 1, which is to say they are completely synonymous sites. This is a fine example of how non-synonymous sequence evolution is usually more highly constrained than synonymous sequence evolution due to fitness-decreasing alterations in the biophysical properties of the encoded protein. Since these synonymous SCVs do not influence the binding site, they have no fitness effect on the protein's ability to function. It's impossible to know without conducting fitness experiments, but most likely they are neutral mutations, and have entered the population through drift and/or draft.
+<span class="extra-info-header">Check out the other structures</span>
+There are a couple of other structures in this database, that you can select from the Main tab.
+There is a lot to explore. For example, shown below is where acetyl co-enzyme binds to
+`gene 620`, an acetyltransferase.
+
+[![aco](images/structure-aco.png)](images/structure-aco.png){:.center-img .width-50}
+
+</div>
 
 ### Grouping metagenomes
 
-You now know the basics. Let's talk about how to get the most out of this interface. Sometimes it is desirable to partition metagenomes into groups based on the experimental design. For example, these 20 metagenomes are from 7 infants, and it would be useful to group which metagenomes belong to which infant. Unless the user provides custom categories for groupings, only two are by default available: `merged` and `samples`. Currently you are using the `merged` category, which is why you see all variant data merged onto a single protein view. Go to the Main tab and select `samples` from within the Category dropdown menu. You should see this:
+You now know the basics. Let's talk about how to get the most out of this interface. Sometimes it is
+desirable to partition metagenomes into groups based on the experimental design. For example, these
+20 metagenomes are from 7 infants, and it would be useful to group which metagenomes belong to which
+infant. Unless the user provides custom categories for groupings, only two are by default available:
+`merged` and `samples`. Currently you are using the `merged` category, which is why you see all
+variant data merged onto a single protein view. Go to the Main tab and select `samples` from within
+the Category dropdown menu. You should see this:
 
 [![E. facealis struct](images/structure-samples-category.png)](images/structure-samples-category.png){:.center-img .width-100}
 
@@ -2179,13 +2441,20 @@ Now, there are many more grouping categories available to us.
 
 [![E. facealis struct](images/structure-category-pulldown.png)](images/structure-category-pulldown.png){:.center-img .width-60}
 
-`cohort_infant` categorizes metagenomes into the infants from which they were sampled. Select it to reveal one protein view for each of the 7 infants. Now the display can inform us about subtle differences in SAAVs between each infant.
+`cohort_infant` categorizes metagenomes into the infants from which they were sampled. Select it to
+reveal one protein view for each of the 7 infants. Now the display can inform us about subtle
+differences in SAAVs between each infant.
 
 [![E. facealis struct](images/structure-dramatic-zoom.gif)](images/structure-dramatic-zoom.gif){:.center-img .width-90}
 
-We hope this tutorial give you enough motivation to explore your own data with this framework! Feel free to click on the other 4 genes in the Main tab and further explore, or better yet, do it with your own metagenomes.
+We hope this tutorial give you enough motivation to explore your own data with this framework! Feel
+free to click on the other 4 genes in the Main tab and further explore, or better yet, do it with
+your own metagenomes.
 
-Let's face it: it is a lot easier to live in a world of A, C, T, and G. But in this restricted space we can't explore the biochemical consequences of our sequences, and we therefore can't understand why DNA sequences are the way they are. anvi-3dev has been designed to help make this undertaking more accessible, but it is only in its infancy. If you have suggestions, please let us know.
+Let's face it: it is a lot easier to live in a world of A, C, T, and G. But in this restricted space
+we can't explore the biochemical consequences of our sequences, and we therefore can't understand
+why DNA sequences are the way they are. anvi-3dev has been designed to help make this undertaking
+more accessible, but it is only in its infancy. If you have suggestions, please let us know.
 
 
 ## Final words
