@@ -231,6 +231,21 @@
       inst: Biological Sciences & Environmental Science
       inst_link: http://collegecatalog.uchicago.edu/thecollege/biologicalsciences/
       
+- alias: isaac
+  official: True
+  name: Isaac Fink
+  tenure_start: 04/2020
+  role: Undergraduate Researcher
+  email: iafink@uchicago.edu
+  avatar: bio-isaac.png
+  orcid: 0000-0003-3930-029X
+  bio: “I am interested in enhancing the power and accessibility of computational tools that analyze the microbiome.”
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  affiliations:
+    - title: Undergraduate Student
+      inst: Computer Science
+      inst_link: http://collegecatalog.uchicago.edu/thecollege/computerscience/
+      
 - alias: kiki
   official: True
   name: Kiki Füßel
