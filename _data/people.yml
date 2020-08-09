@@ -505,7 +505,7 @@
   nick_name: Tom
   tenure_start: 10/2015
   tenure_end: 05/2018
-  current_info: a post-doctoral reseracher studying microbial life at the <a href="http://jacob.cea.fr/drf/ifrancoisjacob/Pages/Departements/Genoscope.aspx">Genoscope</a> in France
+  current_info: a <a href="http://www.cnrs.fr/en">CNRS</a> scientist studying microbial life at the <a href="http://jacob.cea.fr/drf/ifrancoisjacob/Pages/Departements/Genoscope.aspx">Genoscope</a> in France
   contributions: He contributed to the development of anvi'o and its application to the ocean and gut metagenomes. Tom was the very first member of our lab, and Meren and Tom have spent lots of time together thinking about new ways to make sense of metagenomic data
   role: Post-doctoral Scientist
   email: tom.o.delmont@gmail.com
