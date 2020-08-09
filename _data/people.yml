@@ -149,21 +149,6 @@
       inst: The University of Chicago Section of Gastroenterology, Hepatology and Nutrition
       inst_link: https://medicine.uchicago.edu/sections/gastroenterology-hepatology-nutrition/
 
-- alias: joe
-  official: True
-  name: Joe Runde
-  tenure_start: 07/2018
-  role: Physician Researcher, Gastroenterology Fellow
-  email: joseph.runde@uchospitals.edu
-  github: jrunde1
-  avatar: bio-joe.jpg
-  address: The University of Chicago, 5841 S. Maryland Ave., Rm C-474, MC 4065, Chicago, IL 60637 USA
-  bio: "I am interested in genome-resolved investigations of gut metagenomes of children with inflammatory bowel disease."
-  affiliations:
-    - title: Pediatric Gastroenterology Fellow
-      inst: Section of Pediatric Gastroenterology, Hepatology and Nutrition at the University of Chicago
-      inst_link: http://pediatrics.uchicago.edu/education/fellowship/gastroenterology
-
 - alias: iva
   official: True
   name: Iva Veseli
@@ -405,11 +390,31 @@
 # Previous members.
 ####################################################################################
 
+- alias: joe
+  nick_name: Joe
+  name: Joe Runde
+  tenure_start: 07/2018
+  tenure_end: 07/202
+  current_info: an <b>Assistant Professor</b> at the Section of Gastroenterology, Hepatology and Nutrition of <a href="https://www.luriechildrens.org/"Lurie Children's Hospital</a>, an affiliate of the <a href="https://www.northwestern.edu/">Northwestern University</a>
+  contributions: In addition to serving as a Physician Researcher at the University of Chicago Medicine, Joe joined our group to study with us the microbial community dynamics in Chron's disease during Exclusive Enteral Nutrition therapy. His dedication and passion had a huge influence on our lab culture and dynamics
+  official: True
+  role: Physician Researcher
+  email: jrunde1@gmail.com
+  github: jrunde1
+  avatar: bio-joe.jpg
+  bio: "I am interested in genome-resolved investigations of gut metagenomes of children with inflammatory bowel disease."
+  affiliations:
+    - title: Pediatric Gastroenterology Fellow
+      inst: Section of Pediatric Gastroenterology, Hepatology and Nutrition at the University of Chicago
+      inst_link: http://pediatrics.uchicago.edu/education/fellowship/gastroenterology
+
+
+
 - alias: alon
   nick_name: Alon
   tenure_start: 10/2016
   tenure_end: 02/2020
-  current_info: a Genomics Data Scientist at <a href="https://weill.cornell.edu/">Weill Cornell Medicine</a>
+  current_info: a <b>Genomics Data Scientist</b> at <a href="https://weill.cornell.edu/">Weill Cornell Medicine</a>
   contributions: Throughout his studies of the human oral cavity microbiome and its enigmatic members via genome-resolved metagenomics, he served the community with his open code and tutorials. Alon, <a href="https://twitter.com/merenbey/status/1223038960789872646" target="_blank">the very first graduate student to join our group</a>, dramatically influenced the trajectory of our science
   official: True
   name: Alon Shaiber
@@ -421,7 +426,6 @@
   linkedin: alon-shaiber
   skype: alon.shaiber
   avatar: bio-alon.jpg
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
   bio: "I'm a graduate student in the Bio Physical Sciences Program at UChicago. I'm fascinated by the complexity of microbial ecology and interested in applying and developing computational tools to explore it."
   affiliations:
     - title: Graduate Student
@@ -455,7 +459,7 @@
   name: Mahmoud Yousef
   tenure_start: 05/2017
   tenure_end: 02/2020
-  current_info: a medical student at the <a href="https://pritzker.uchicago.edu/">Pritzker School of Medicine</a>, University of Chicago
+  current_info: a <b>medical student</b> at the <a href="https://pritzker.uchicago.edu/">Pritzker School of Medicine</a>, University of Chicago
   contributions: Focusing on pangenomics, he developed functional and geometric homogeneity indices so we can interpret the heterogeneity within gene clusters.
   avatar: bio-mahmoud.jpg
   role: Undergraduate Researcher
@@ -481,7 +485,7 @@
   linkedin: quentin-clayssen-398360139
   twitter: ClayssenQ
   avatar: bio-quentin.jpg
-  current_info: a graduate student at the <a href="https://ethz.ch/en.html">ETH Zurich</a>
+  current_info: a <b>graduate student</b> at the <a href="https://ethz.ch/en.html">ETH Zurich</a>
   contributions: He contributed to the development of an anvi'o framework for <a href="http://merenlab.org/2019/10/08/anvio-scg-taxonomy/">the rapid determination of genome taxonomy</a>
   bio: "I am a microbiologist and a bioinformatician in training interested in metagenomics. I currently am focusing on approaches for rapid placement of metagenome-assembled genomes into the tree of life."
 
@@ -492,7 +496,7 @@
   tenure_start: 05/2016
   twitter: sonnytmlee
   tenure_end: 05/2018
-  current_info: an Assistant Professor of Microbial Ecology (<a href="http://www.the-lee-lab.com" target="_blank">http://www.the-lee-lab.com</a>) at the Kansas State University, Division of Biology
+  current_info: an <b>Assistant Professor</b> of Microbial Ecology (<a href="http://www.the-lee-lab.com" target="_blank">http://www.the-lee-lab.com</a>) at the Kansas State University, Division of Biology
   contributions: He took the responsibility of leading the Fecal Microbiota Transplantation work in our lab. Sonny also was the driving force behind setting up the wet-lab component of our group
   role: Post-doctoral Scientist
   email: leet1@uchicago.edu
@@ -505,7 +509,7 @@
   nick_name: Tom
   tenure_start: 10/2015
   tenure_end: 05/2018
-  current_info: a <a href="http://www.cnrs.fr/en">CNRS</a> scientist studying microbial life at the <a href="http://jacob.cea.fr/drf/ifrancoisjacob/Pages/Departements/Genoscope.aspx">Genoscope</a> in France
+  current_info: a <b><a href="http://www.cnrs.fr/en">CNRS</a> scientist</b> studying microbial life at the <a href="http://jacob.cea.fr/drf/ifrancoisjacob/Pages/Departements/Genoscope.aspx">Genoscope</a> in France
   contributions: He contributed to the development of anvi'o and its application to the ocean and gut metagenomes. Tom was the very first member of our lab, and Meren and Tom have spent lots of time together thinking about new ways to make sense of metagenomic data
   role: Post-doctoral Scientist
   email: tom.o.delmont@gmail.com
