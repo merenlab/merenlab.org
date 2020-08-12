@@ -115,6 +115,10 @@ The video of the lecture (please find timestamps for individual chapters and wri
 <blockquote markdown="1">**Metapangenomics: A nexus between pangenomes and metagenomes**
 </blockquote>
 
+The video of the lecture (please find timestamps for individual chapters and written Q&A's on YouTube):
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/C3fHlccFxJw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ### August 12, 2020
 
 <blockquote markdown="1">**Phylogenomics: inferring evolutionary relationships between microorganisms**
