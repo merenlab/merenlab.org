@@ -124,6 +124,10 @@ The video of the lecture (please find timestamps for individual chapters and wri
 <blockquote markdown="1">**Phylogenomics: inferring evolutionary relationships between microorganisms**
 </blockquote>
 
+The video of the lecture (please find timestamps for individual chapters and written Q&A's on YouTube):
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hfHu8Lnwgzs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Registration
 
 Seminars are free to attend and open to anyone! If you have registered, you will get an e-mail five to fifteen minutes before the beginning of the seminar on each Wednesday. Please be patient and don't forget to keep an eye on your JUNK or SPAM folders :) If you have not registered, you still can attend. Please keep an eye on Meren's Twitter account or Anvi'o Slack channel (link below) for URLs to Zoom and YouTube streams.
