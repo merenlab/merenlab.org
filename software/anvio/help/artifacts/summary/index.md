@@ -21,7 +21,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-display-structure](../../programs/anvi-display-structure)</span> <span class="artifact-p">[anvi-summarize](../../programs/anvi-summarize)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-3dev](../../programs/anvi-3dev)</span> <span class="artifact-p">[anvi-summarize](../../programs/anvi-summarize)</span></p>
 
 
 ## Required or used by

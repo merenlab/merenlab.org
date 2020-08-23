@@ -22,7 +22,7 @@ See **[program help menu](../../../vignette#anvi-export-items-order)** or go bac
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[misc-data-item-orders-txt](../../artifacts/misc-data-item-orders-txt)</span> <span class="artifact-p">[dendrogram](../../artifacts/dendrogram)</span> <span class="artifact-p">[phylogeny](../../artifacts/phylogeny)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[misc-data-items-order-txt](../../artifacts/misc-data-items-order-txt)</span> <span class="artifact-p">[dendrogram](../../artifacts/dendrogram)</span> <span class="artifact-p">[phylogeny](../../artifacts/phylogeny)</span></p>
 
 ## Requires or uses
 
@@ -31,8 +31,28 @@ See **[program help menu](../../../vignette#anvi-export-items-order)** or go bac
 ## Usage
 
 
+This program, as one might think, allows you to export a <span class="artifact-n">[misc-data-items-order](/software/anvio/help/artifacts/misc-data-items-order)</span>, outputing a <span class="artifact-n">[misc-data-items-order-txt](/software/anvio/help/artifacts/misc-data-items-order-txt)</span>. 
+
+You can export one of the item orders in a <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span>, <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span>, or <span class="artifact-n">[genes-db](/software/anvio/help/artifacts/genes-db)</span> as follows: 
+
+<div class="codeblock" markdown="1">
+anvi&#45;export&#45;items&#45;order &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
+                        &#45;&#45;name cov
+</div>
+
+The `cov` here refers to the tree that is generated using only differential coverage. Almost all anvi'o profile databases will also have available an items-order based on the tetranucleotide frequency called `tnf`, and one based on both called `tnf-cov`. 
+
+However, to list the item orders available in this database, just don't include the name flag.  
+
+<div class="codeblock" markdown="1">
+anvi&#45;export&#45;items&#45;order &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/artifacts/pan&#45;db)</span> 
+</div>
+
+You'll get a `Config Error` that will tell you what item orders are available. 
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-export-items-order.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-export-items-order.md) to update this information.
 
 
 ## Additional Resources

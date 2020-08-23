@@ -14,37 +14,28 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "summary",
-      "name": "summary",
-      "provided_by_anvio": true,
-      "type": "SUMMARY"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "structure-db",
-      "name": "structure-db",
-      "provided_by_anvio": true,
-      "type": "DB"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "variability-profile-txt",
-      "name": "variability-profile-txt",
-      "provided_by_anvio": true,
-      "type": "TXT"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
       "id": "contigs-db",
       "name": "contigs-db",
       "provided_by_anvio": true,
       "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "kegg-db",
+      "name": "kegg-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "kegg-functions",
+      "name": "kegg-functions",
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
     },
     {
       "size": 1,
@@ -56,38 +47,60 @@
       "type": "DB"
     },
     {
-      "size": 6,
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "collection",
+      "name": "collection",
+      "provided_by_anvio": true,
+      "type": "COLLECTION"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "bin",
+      "name": "bin",
+      "provided_by_anvio": true,
+      "type": "BIN"
+    },
+    {
+      "size": 7,
       "score": 0.1,
       "color": "#AAAA00",
-      "id": "anvi-display-structure",
-      "name": "anvi-display-structure",
+      "id": "anvi-display-metabolism",
+      "name": "anvi-display-metabolism",
       "type": "PROGRAM"
     }
   ],
   "links": [
     {
-      "source": 6,
+      "source": 7,
       "target": 0
     },
     {
-      "source": 6,
-      "target": 1
+      "target": 7,
+      "source": 1
     },
     {
-      "target": 6,
+      "target": 7,
       "source": 2
     },
     {
-      "target": 6,
+      "target": 7,
       "source": 3
     },
     {
-      "target": 6,
+      "target": 7,
       "source": 4
     },
     {
-      "target": 6,
+      "target": 7,
       "source": 5
+    },
+    {
+      "target": 7,
+      "source": 6
     }
   ],
   "directed": false,

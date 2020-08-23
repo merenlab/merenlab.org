@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Takes a distance matrix, returns a newick tree..
+Takes a distance matrix, returns a newick tree.
 
 See **[program help menu](../../../vignette#anvi-matrix-to-newick)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

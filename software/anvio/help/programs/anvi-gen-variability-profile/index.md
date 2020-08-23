@@ -26,7 +26,7 @@ See **[program help menu](../../../vignette#anvi-gen-variability-profile)** or g
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[profile-db](../../artifacts/profile-db)</span> <span class="artifact-r">[structure-db](../../artifacts/structure-db)</span> <span class="artifact-r">[bin](../../artifacts/bin)</span> <span class="artifact-r">[variability-profile](../../artifacts/variability-profile)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[profile-db](../../artifacts/profile-db)</span> <span class="artifact-r">[structure-db](../../artifacts/structure-db)</span> <span class="artifact-r">[bin](../../artifacts/bin)</span> <span class="artifact-r">[variability-profile](../../artifacts/variability-profile)</span> <span class="artifact-r">[splits-txt](../../artifacts/splits-txt)</span></p>
 
 ## Usage
 

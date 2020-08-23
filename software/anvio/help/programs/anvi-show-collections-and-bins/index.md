@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-A script to display collections stored in an anvi&#39;o profile or pan database..
+A script to display collections stored in an anvi&#39;o profile or pan database.
 
 See **[program help menu](../../../vignette#anvi-show-collections-and-bins)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -22,7 +22,7 @@ See **[program help menu](../../../vignette#anvi-show-collections-and-bins)** or
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[collection](../../artifacts/collection)</span></p>
+<p style="text-align: left" markdown="1"></p>
 
 ## Requires or uses
 
@@ -31,8 +31,23 @@ See **[program help menu](../../../vignette#anvi-show-collections-and-bins)** or
 ## Usage
 
 
+This program tells you about the <span class="artifact-n">[collection](/software/anvio/help/artifacts/collection)</span>s within a <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span>. 
+
+Just run it like so 
+
+<div class="codeblock" markdown="1">
+anvi&#45;show&#45;collections&#45;and&#45;bins &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> 
+</div>
+
+and Anvi'o will output to your console the following information for each of the <span class="artifact-n">[collection](/software/anvio/help/artifacts/collection)</span>s in the database: 
+
+* The name and ID of the collection
+* The number of <span class="artifact-n">[bin](/software/anvio/help/artifacts/bin)</span>s within the collection, and each of their names
+* The number of splits contained within those bins 
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-show-collections-and-bins.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-show-collections-and-bins.md) to update this information.
 
 
 ## Additional Resources

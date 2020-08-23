@@ -31,7 +31,7 @@ See **[program help menu](../../../vignette#anvi-script-reformat-fasta)** or go 
 ## Usage
 
 
-### Converting a FASTA file to a contigs FASTA
+This program **converts a <span class="artifact-n">[fasta](/software/anvio/help/artifacts/fasta)</span> file to a <span class="artifact-n">[contigs-fasta](/software/anvio/help/artifacts/contigs-fasta)</span>.** In other words, it reformats your FASTA formatted file to meet the conditions required of a <span class="artifact-n">[contigs-fasta](/software/anvio/help/artifacts/contigs-fasta)</span>, which is able to be used by other anvi'o programs.
 
 <div class="codeblock" markdown="1">
 anvi&#45;script&#45;reformat&#45;fasta <span class="artifact&#45;n">[fasta](/software/anvio/help/artifacts/fasta)</span> \
@@ -42,9 +42,9 @@ anvi&#45;script&#45;reformat&#45;fasta <span class="artifact&#45;n">[fasta](/sof
 {:.notice}
 If you use the flag *--report-file*, it will also create a TAB-delimited file for you to keep track of which defline in the new file corresponds to which defline in the original file.
 
-### Removing short reads from FASTA
+### Removing the short reads
 
-Removing short contigs from a FASTA file will improve the performance of the <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> later. Running the same command this way will also remove sequences that are shorter than 1,000 nts:
+Removing short contigs from a FASTA file will improve the performance of the <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> later. The example below runs the same command while also removing sequences that are shorter than 1,000 nts:
 
 <div class="codeblock" markdown="1">
 anvi&#45;script&#45;reformat&#45;fasta <span class="artifact&#45;n">[fasta](/software/anvio/help/artifacts/fasta)</span> \

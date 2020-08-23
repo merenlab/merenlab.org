@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Convert a pangenome into a metapangenome..
+Convert a pangenome into a metapangenome.
 
 See **[program help menu](../../../vignette#anvi-meta-pan-genome)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

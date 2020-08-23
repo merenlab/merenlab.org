@@ -30,6 +30,17 @@ Most likely provided by the user.
 
 ## Description
 
+This is a text file containing taxonomy information for your layers (the same information as a <span class="artifact-n">[layer-taxonomy](/software/anvio/help/artifacts/layer-taxonomy)</span>). You can bring this information into a <span class="artifact-n">[single-profile-db](/software/anvio/help/artifacts/single-profile-db)</span> using <span class="artifact-n">[anvi-import-taxonomy-for-layers](/software/anvio/help/programs/anvi-import-taxonomy-for-layers)</span>. 
+
+This is a tab-delimited text file that is formatted similarly to a <span class="artifact-n">[gene-taxonomy-txt](/software/anvio/help/artifacts/gene-taxonomy-txt)</span>. The first column describes the names of your layers, and the following columns each correspond to the taxonomy level described in the header. Here is an example:
+
+    sample  t_domain    t_phylum    t_class     ...
+     c1     Eukaryea    Chordata    Mammalia
+     ...
+     
+
+
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "layer-taxonomy-txt.md". Its contents will replace this sad text. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/layer-taxonomy-txt.md) to update this information.
 

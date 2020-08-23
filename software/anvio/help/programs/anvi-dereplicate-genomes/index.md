@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Identify redundant (highly similar) genomes..
+Identify redundant (highly similar) genomes.
 
 See **[program help menu](../../../vignette#anvi-dereplicate-genomes)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

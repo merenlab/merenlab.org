@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Run ANI between contigs in a single FASTA file..
+Run ANI between contigs in a single FASTA file.
 
 See **[program help menu](../../../vignette#anvi-script-compute-ani-for-fasta)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

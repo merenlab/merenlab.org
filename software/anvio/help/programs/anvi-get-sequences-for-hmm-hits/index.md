@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Get sequences for HMM hits from many inputs..
+Get sequences for HMM hits from many inputs.
 
 See **[program help menu](../../../vignette#anvi-get-sequences-for-hmm-hits)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -152,7 +152,7 @@ Import the collection `merens`:
                        &#45;C merens
 </div>
 
-Then run the program to,
+Then run the program to
 
 ### Learn available HMM sources
 

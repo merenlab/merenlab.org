@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-The purpose of this program is to download necessary information from GTDB (https://gtdb.ecogenomic.org/), and set it up in such a way that your anvi&#39;o installation is able to assign taxonomy to single-copy core genes using `anvi-run-scg-taxonomy` and estimate taxonomy for genomes or metagenomes using `anvi-estimate-genome-taxonomy`)..
+The purpose of this program is to download necessary information from GTDB (https://gtdb.ecogenomic.org/), and set it up in such a way that your anvi&#39;o installation is able to assign taxonomy to single-copy core genes using `anvi-run-scg-taxonomy` and estimate taxonomy for genomes or metagenomes using `anvi-estimate-scg-taxonomy`).
 
 See **[program help menu](../../../vignette#anvi-setup-scg-taxonomy)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -31,8 +31,29 @@ See **[program help menu](../../../vignette#anvi-setup-scg-taxonomy)** or go bac
 ## Usage
 
 
+This program **downloads and sets up the search databases used for the scg-taxonomy workflow** (from [GTDB](https://gtdb.ecogenomic.org/)) so that you can run <span class="artifact-n">[anvi-run-scg-taxonomy](/software/anvio/help/programs/anvi-run-scg-taxonomy)</span> and <span class="artifact-n">[anvi-estimate-scg-taxonomy](/software/anvio/help/programs/anvi-estimate-scg-taxonomy)</span>. This program generates a <span class="artifact-n">[scgs-taxonomy-db](/software/anvio/help/artifacts/scgs-taxonomy-db)</span> artifact, which is required to run both of those programs. 
+
+For more information on that workflow, check out [this page](http://merenlab.org/2019/10/08/anvio-scg-taxonomy/)
+
+You will only have to run this program once per anvi'o installation. 
+
+Why is this not done by default? It just makes things easier downstream to build these databases with the DIAMOND installed on your computer to avoid incompatibility issues. Besides, it should take under a minute and is as simple as running
+
+<div class="codeblock" markdown="1">
+anvi&#45;setup&#45;scg&#45;databases
+</div>
+
+If you have already already run this program and are trying to redownload this data, run 
+
+<div class="codeblock" markdown="1">
+anvi&#45;setup&#45;scg&#45;databases &#45;&#45;reset
+</div>
+
+You can also download a specific release of this database by providing its URL with the flag `--scg-taxonomy-remote-database-url`. 
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-setup-scg-taxonomy.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-setup-scg-taxonomy.md) to update this information.
 
 
 ## Additional Resources

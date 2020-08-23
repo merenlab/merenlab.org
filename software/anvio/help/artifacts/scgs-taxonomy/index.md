@@ -30,6 +30,13 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
+This contains the taxonomy annotions for each of the single-copy core genes found in your <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>; in other words, this contains the results of a run of <span class="artifact-n">[anvi-run-scg-taxonomy](/software/anvio/help/programs/anvi-run-scg-taxonomy)</span>. 
+
+This information was found through the [GTDB](https://gtdb.ecogenomic.org/) database, so it will not work with Eukaryotic genomes. 
+
+This information allows you to quickly estimate the taxonomy of genomes, metagenomes, or bins stored in your contigs-db by using the command <span class="artifact-n">[anvi-estimate-scg-taxonomy](/software/anvio/help/programs/anvi-estimate-scg-taxonomy)</span>. 
+
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "scgs-taxonomy.md". Its contents will replace this sad text. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/scgs-taxonomy.md) to update this information.
 

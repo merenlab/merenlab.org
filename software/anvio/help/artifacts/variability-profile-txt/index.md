@@ -26,7 +26,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Required or used by
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-display-structure](../../programs/anvi-display-structure)</span> <span class="artifact-r">[anvi-gen-fixation-index-matrix](../../programs/anvi-gen-fixation-index-matrix)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-3dev](../../programs/anvi-3dev)</span> <span class="artifact-r">[anvi-gen-fixation-index-matrix](../../programs/anvi-gen-fixation-index-matrix)</span> <span class="artifact-r">[anvi-script-calculate-pn-ps-ratio](../../programs/anvi-script-calculate-pn-ps-ratio)</span> <span class="artifact-r">[anvi-script-variability-to-vcf](../../programs/anvi-script-variability-to-vcf)</span></p>
 
 ## Description
 

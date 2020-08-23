@@ -30,6 +30,20 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
+This file contains **the frequency of each codon in each gene in your <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>.** 
+
+This is a tab-delimited table where each column represents a codon and each row represents a specific gene. The numbers will either refer to counts of each codon or precent normalizations depending on the parameters with which you ran <span class="artifact-n">[anvi-get-codon-frequencies](/software/anvio/help/programs/anvi-get-codon-frequencies)</span>. 
+
+### Example
+
+    gene_caller_id  GCA GCC GCG GCT ...
+        1           0   0   1   2
+        2           1   0   0   2
+        .
+        .
+        .
+
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "codon-frequencies-txt.md". Its contents will replace this sad text. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/codon-frequencies-txt.md) to update this information.
 

@@ -21,16 +21,18 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-run-hmms](../../programs/anvi-run-hmms)</span> <span class="artifact-p">[anvi-scan-trnas](../../programs/anvi-scan-trnas)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-run-hmms](../../programs/anvi-run-hmms)</span> <span class="artifact-p">[anvi-scan-trnas](../../programs/anvi-scan-trnas)</span> <span class="artifact-p">[anvi-script-gen-hmm-hits-matrix-across-genomes](../../programs/anvi-script-gen-hmm-hits-matrix-across-genomes)</span></p>
 
 
 ## Required or used by
 
-<p style="text-align: left" markdown="1"></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-delete-hmms](../../programs/anvi-delete-hmms)</span></p>
 
 ## Description
 
-The search results for an <span class="artifact-n">[hmm-source](/software/anvio/help/artifacts/hmm-source)</span> in a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>.
+The search results for an <span class="artifact-n">[hmm-source](/software/anvio/help/artifacts/hmm-source)</span> in a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>. Essentially, this is the part of a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> that handles the HMM data. In anvi'o, this is usually functional annotations, such as identifying specfic ribosomal RNAs, various single-copy core genes, and transfer RNAs, though the user can also define their own HMM sources. 
+
+Upon creation, a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> will not contain any HMM results. In order to populate it, users can run <span class="artifact-n">[anvi-run-hmms](/software/anvio/help/programs/anvi-run-hmms)</span> using any <span class="artifact-n">[hmm-source](/software/anvio/help/artifacts/hmm-source)</span>. The program <span class="artifact-n">[anvi-scan-trnas](/software/anvio/help/programs/anvi-scan-trnas)</span> also populates a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>'s hmm-hits with potential tranfer RNA hits.
 
 
 {:.notice}

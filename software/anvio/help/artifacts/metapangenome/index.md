@@ -30,6 +30,11 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
+A metapangenome is a way of comparing a bunch of genomes based both on the gene clusters they contain (like in a pangenome) and their abundances in different environments/samples (using metagenomic read recruitment).
+
+Here is a [wonderful workflow](http://merenlab.org/data/prochlorococcus-metapangenome/) that takes you through the analysis of 31 *Prochlorococcus* isolate genomes and 93 TARA Oceans metagenomes, based on [this paper](https://peerj.com/articles/4320/). 
+
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "metapangenome.md". Its contents will replace this sad text. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/metapangenome.md) to update this information.
 

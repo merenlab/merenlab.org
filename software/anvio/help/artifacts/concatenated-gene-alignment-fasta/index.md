@@ -30,6 +30,22 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
+This file **contains the alignment information for multiple genes across different organisms**.
+
+Basically, a single gene alignment compares a single gene's sequence across multiple organisms. For example, you could align some specific rRNA sequence across all of the organisms in your sample. This alignment highlights both mutations and insertions and deletions (indicated with dashes). 
+
+Clustal programs do a great job of visualizing this data, by color coding it. Here is an example from Anvi'o's pangenome display: 
+
+![A lovely clustal-like alignment from the anvi'o pangenome display](../../images/example_alignment.png)
+
+A concatenated gene alignment fasta contains multiple of these gene alignments, in order to generate a tree based off of multiple genes. 
+
+This information can then be used to generate a phylogenomic tree using <span class="artifact-n">[anvi-gen-phylogenomic-tree](/software/anvio/help/programs/anvi-gen-phylogenomic-tree)</span> or through programs like [FastTree](http://www.microbesonline.org/fasttree/). 
+
+In Anvi'o, this is an output of <span class="artifact-n">[anvi-get-sequences-for-gene-clusters](/software/anvio/help/programs/anvi-get-sequences-for-gene-clusters)</span> (for generating a tree based off of gene clusters in your workflow) as well as <span class="artifact-n">[anvi-get-sequences-for-hmm-hits](/software/anvio/help/programs/anvi-get-sequences-for-hmm-hits)</span> (for generating a tree based off of the genes that got HMM hits). 
+
+
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "concatenated-gene-alignment-fasta.md". Its contents will replace this sad text. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/concatenated-gene-alignment-fasta.md) to update this information.
 

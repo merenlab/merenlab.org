@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Get short reads back from a BAM file with options for compression, splitting of forward and reverse reads, etc..
+Get short reads back from a BAM file with options for compression, splitting of forward and reverse reads, etc.
 
 See **[program help menu](../../../vignette#anvi-get-short-reads-from-bam)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
