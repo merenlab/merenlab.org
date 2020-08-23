@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Generate phylogenomic tree from aligment file..
+Generate phylogenomic tree from aligment file.
 
 See **[program help menu](../../../vignette#anvi-gen-phylogenomic-tree)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

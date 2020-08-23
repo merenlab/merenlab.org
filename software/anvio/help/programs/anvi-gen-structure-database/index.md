@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Identifies genes in your contigs database that encode proteins that are homologous to proteins with solved structures. If sufficiently similar homologs are identified, they are used as structural templates to predict the 3D structure of proteins in your contigs database..
+Identifies genes in your contigs database that encode proteins that are homologous to proteins with solved structures. If sufficiently similar homologs are identified, they are used as structural templates to predict the 3D structure of proteins in your contigs database.
 
 See **[program help menu](../../../vignette#anvi-gen-structure-database)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

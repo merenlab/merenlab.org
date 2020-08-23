@@ -5,8 +5,8 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "misc-data-item-orders",
-      "name": "misc-data-item-orders",
+      "id": "misc-data-items-order",
+      "name": "misc-data-items-order",
       "provided_by_anvio": true,
       "type": "CONCEPT"
     },
@@ -41,8 +41,8 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "misc-data-item-orders-txt",
-      "name": "misc-data-item-orders-txt",
+      "id": "misc-data-items-order-txt",
+      "name": "misc-data-items-order-txt",
       "provided_by_anvio": true,
       "type": "TXT"
     },

@@ -14,8 +14,8 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "misc-data-item-orders",
-      "name": "misc-data-item-orders",
+      "id": "misc-data-items-order",
+      "name": "misc-data-items-order",
       "provided_by_anvio": true,
       "type": "CONCEPT"
     },

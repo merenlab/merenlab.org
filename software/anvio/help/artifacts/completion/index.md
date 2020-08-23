@@ -35,7 +35,7 @@ An estimate of the completeness of purity of a genome based on single-copy core 
 {:.notice}
 See [this blog post](http://merenlab.org/2016/06/09/assessing-completion-and-contamination-of-MAGs/) for more information, and [this paper](https://doi.org/10.1038/nbt.3893) for the community standards for metagenome-assembled and single-amplified genomes.
 
-There are two essential features to this metric: **completion**, and **redundancy**.
+There are two essential features to this metric: **completion** and **redundancy**.
 
 ### Completion
 
@@ -54,6 +54,7 @@ However, interpretations of ‘contamination’ as a function of redundant occur
 ### Attention
 
 Regardless of their utility to gain quick insights, single-copy core genes are mere approximations to understanding the quality of a genome and [SCGs cannot ensure the absence of contamination or level of true completion](https://doi.org/10.1101/gr.258640.119).
+
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/completion.md) to update this information.

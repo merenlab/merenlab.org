@@ -30,6 +30,9 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
+This artifact contains all of the information provided in the interface of <span class="artifact-n">[anvi-display-contigs-stats](/software/anvio/help/programs/anvi-display-contigs-stats)</span> in a series of tab-delimited files. See that page for more information. 
+
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "contigs-stats.md". Its contents will replace this sad text. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/contigs-stats.md) to update this information.
 

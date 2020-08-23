@@ -22,7 +22,7 @@ See **[program help menu](../../../vignette#anvi-run-kegg-kofams)** or go back t
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[kegg-functions](../../artifacts/kegg-functions)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[kegg-functions](../../artifacts/kegg-functions)</span> <span class="artifact-p">[functions](../../artifacts/functions)</span></p>
 
 ## Requires or uses
 
@@ -31,9 +31,9 @@ See **[program help menu](../../../vignette#anvi-run-kegg-kofams)** or go back t
 ## Usage
 
 
-<span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/programs/anvi-run-kegg-kofams)</span> annotates a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> with HMM hits from KOfam, a database of KEGG Orthologs (KOs). You must set up these HMMs on your computer using <span class="artifact-n">[anvi-setup-kegg-kofams](/software/anvio/help/programs/anvi-setup-kegg-kofams)</span> before you can use this program.
+Essentially, this program uses the KEGG database to annotate functions and metabolic pathways in a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>. More specifically, <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/programs/anvi-run-kegg-kofams)</span> annotates a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> with HMM hits from KOfam, a database of KEGG Orthologs (KOs). You must set up these HMMs on your computer using <span class="artifact-n">[anvi-setup-kegg-kofams](/software/anvio/help/programs/anvi-setup-kegg-kofams)</span> before you can use this program.
 
-Briefly, what this program does is extract all the gene calls from the <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> and checks each one for hits to the KOfam HMM profiles in your <span class="artifact-n">[kegg-db](/software/anvio/help/artifacts/kegg-db)</span>. This can be time-consuming given that the number of HMM profiles is quite large, and especially time-consuming if the number of genes in the <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> is also large. Multi-threading is a good idea if you have the computational capability to do so.
+Briefly, what this program does is extract all the gene calls from the <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> and checks each one for hits to the KOfam HMM profiles in your <span class="artifact-n">[kegg-db](/software/anvio/help/artifacts/kegg-db)</span>. This can be time-consuming given that the number of HMM profiles is quite large, even more so if the number of genes in the <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> is also large. Multi-threading is a good idea if you have the computational capability to do so.
 
 Many HMM hits will be found, most of them weak. The weak hits will by default be eliminated according to the score thresholds provided by KEGG; that is, only hits with scores above the threshold for a given KO profile will be annotated in the <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>. It is perfectly normal to notice that the number of raw hits found is many, many times larger than the number of annotated KO hits in your database.
 
@@ -64,6 +64,13 @@ By default, <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help
 
 <div class="codeblock" markdown="1">
 anvi&#45;run&#45;kegg&#45;kofams &#45;c CONTIGS.db &#45;&#45;hmmer&#45;program hmmscan
+</div>
+
+### Keep all HMM hits
+Usually, this program parses out weak HMM hits and keeps only those that are above the score threshold for a given KO. If you would like to turn off this behavior and keep all hits (there will be _a lot_ of weak ones), you can follow the example below:
+
+<div class="codeblock" markdown="1">
+anvi&#45;run&#45;kegg&#45;kofams &#45;c CONTIGS.db &#45;&#45;keep&#45;all&#45;hits
 </div>
 
 

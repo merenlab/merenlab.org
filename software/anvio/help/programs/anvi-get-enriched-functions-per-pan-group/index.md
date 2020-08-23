@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-A program that takes a pangenome, and a categorical layers additional data item, and generates the input for anvi-get-enriched-functions-per-pan-group. If requested a functional occurrence table across genomes is also generated..
+A program that takes a pangenome, and a categorical layers additional data item, and generates the input for anvi-get-enriched-functions-per-pan-group. If requested a functional occurrence table across genomes is also generated.
 
 See **[program help menu](../../../vignette#anvi-get-enriched-functions-per-pan-group)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

@@ -21,7 +21,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-get-codon-frequencies](../../programs/anvi-get-codon-frequencies)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-get-aa-counts](../../programs/anvi-get-aa-counts)</span> <span class="artifact-p">[anvi-get-codon-frequencies](../../programs/anvi-get-codon-frequencies)</span></p>
 
 
 ## Required or used by
@@ -30,6 +30,22 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
+This file contains **the frequency of each amino acid for some reference context in your <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>**.  
+
+This is a tab-delimited table where each column represents an amino acid and each row represents a specific reference context (most often this will be a gene after running <span class="artifact-n">[anvi-get-codon-frequencies](/software/anvio/help/programs/anvi-get-codon-frequencies)</span>). The numbers will either refer to counts of each amino acid or precent normalizations depending on the parameters with which you ran <span class="artifact-n">[anvi-get-codon-frequencies](/software/anvio/help/programs/anvi-get-codon-frequencies)</span>. 
+
+You can also use <span class="artifact-n">[anvi-get-aa-counts](/software/anvio/help/programs/anvi-get-aa-counts)</span> to get this information for a <span class="artifact-n">[bin](/software/anvio/help/artifacts/bin)</span>, <span class="artifact-n">[collection](/software/anvio/help/artifacts/collection)</span>, or <span class="artifact-n">[splits-txt](/software/anvio/help/artifacts/splits-txt)</span>. 
+
+### Example
+
+    gene_caller_id  Ala Arg Thr Asp ...
+        1           0   0   1   2
+        2           1   0   0   2
+        .
+        .
+        .
+
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "aa-frequencies-txt.md". Its contents will replace this sad text. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/aa-frequencies-txt.md) to update this information.
 

@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Import an anvi&#39;o state into a profile database..
+Import an anvi&#39;o state into a profile database.
 
 See **[program help menu](../../../vignette#anvi-import-state)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

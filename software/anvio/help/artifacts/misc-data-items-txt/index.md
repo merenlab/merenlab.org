@@ -30,6 +30,15 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
+This a tab-delimited text file that describes information contained in a <span class="artifact-n">[misc-data-items](/software/anvio/help/artifacts/misc-data-items)</span>. 
+
+To import this information into a database, use <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/programs/anvi-import-misc-data)</span>. 
+
+In this table, the first column should match the names of the items that you're displaying, and the following columns can contain any categorical or numerical data of your choosing.  (You can even be fancy and display data as a stacked bar graph.)
+
+For an example, check out [the table on this page](http://merenlab.org/2017/12/11/additional-data-tables/#items-additional-data-table).
+
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "misc-data-items-txt.md". Its contents will replace this sad text. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/misc-data-items-txt.md) to update this information.
 

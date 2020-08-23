@@ -30,6 +30,11 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
+This is taxonomy information about the layers stored in a <span class="artifact-n">[single-profile-db](/software/anvio/help/artifacts/single-profile-db)</span>. When you open this <span class="artifact-n">[single-profile-db](/software/anvio/help/artifacts/single-profile-db)</span> with <span class="artifact-n">[anvi-interactive](/software/anvio/help/programs/anvi-interactive)</span>, this information will appear the same way that <span class="artifact-n">[misc-data-layers](/software/anvio/help/artifacts/misc-data-layers)</span> does: in graphs at the right side of the interface, similarly to how the layer names are displayed. 
+
+You can bring this information into your profile database using <span class="artifact-n">[anvi-import-taxonomy-for-layers](/software/anvio/help/programs/anvi-import-taxonomy-for-layers)</span> by providing a <span class="artifact-n">[layer-taxonomy-txt](/software/anvio/help/artifacts/layer-taxonomy-txt)</span>. 
+
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "layer-taxonomy.md". Its contents will replace this sad text. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/layer-taxonomy.md) to update this information.
 

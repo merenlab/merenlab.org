@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Import gene-level taxonomy into an anvi&#39;o contigs database..
+Import gene-level taxonomy into an anvi&#39;o contigs database.
 
 See **[program help menu](../../../vignette#anvi-import-taxonomy-for-genes)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -31,8 +31,15 @@ See **[program help menu](../../../vignette#anvi-import-taxonomy-for-genes)** or
 ## Usage
 
 
+This program uses a <span class="artifact-n">[gene-taxonomy-txt](/software/anvio/help/artifacts/gene-taxonomy-txt)</span> to populate the taxonomic information for the genes in a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>. 
+
+Once finished, your gene taxonomy will appear as an additional layer if you open the <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> and an associated <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> in <span class="artifact-n">[anvi-interactive](/software/anvio/help/programs/anvi-interactive)</span>. 
+
+There is an entire blogpost about different ways to do this [here](http://merenlab.org/2016/06/18/importing-taxonomy/). It outlines how to get your sequences using <span class="artifact-n">[anvi-get-sequences-for-gene-calls](/software/anvio/help/programs/anvi-get-sequences-for-gene-calls)</span> than use either [Kaiju](https://github.com/bioinformatics-centre/kaiju) or [Centrifuge](https://github.com/infphilo/centrifuge) to get the taxonomy information for your genes. Finally, you bring that information back into anvi'o using this program.  
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-import-taxonomy-for-genes.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-import-taxonomy-for-genes.md) to update this information.
 
 
 ## Additional Resources

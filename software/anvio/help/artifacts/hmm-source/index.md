@@ -21,16 +21,16 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-Most likely provided by the user.
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-script-gen-hmm-hits-matrix-across-genomes](../../programs/anvi-script-gen-hmm-hits-matrix-across-genomes)</span></p>
 
 
 ## Required or used by
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-get-sequences-for-hmm-hits](../../programs/anvi-get-sequences-for-hmm-hits)</span> <span class="artifact-r">[anvi-run-hmms](../../programs/anvi-run-hmms)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-delete-hmms](../../programs/anvi-delete-hmms)</span> <span class="artifact-r">[anvi-get-sequences-for-hmm-hits](../../programs/anvi-get-sequences-for-hmm-hits)</span> <span class="artifact-r">[anvi-run-hmms](../../programs/anvi-run-hmms)</span></p>
 
 ## Description
 
-An HMM source is a collection of one or more HMMs. 
+An HMM source is a collection of one or more HMMs. See the page for <span class="artifact-n">[anvi-run-hmms](/software/anvio/help/programs/anvi-run-hmms)</span> for more information on HMMs. 
 
 HMMs for any set of genes can be put together and run on any anvi'o <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> which would yield an <span class="artifact-n">[hmm-hits](/software/anvio/help/artifacts/hmm-hits)</span>.
 
@@ -46,7 +46,7 @@ An anvi'o installation will include [multiple HMM sources](https://github.com/me
 <span class="artifact&#45;n">[anvi&#45;run&#45;hmms](/software/anvio/help/programs/anvi&#45;run&#45;hmms)</span> &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span>
 </div>
 
-Default HMM sources in anvi'o include,
+The default HMM sources in anvi'o include:
 
 * **Bacteria_71**: 71 single-copy core genes for domain bacteria that represent a modified version of the HMM profiles published by [Mike Lee](https://doi.org/10.1093/bioinformatics/btz188). The anvi'o collection excludes Ribosomal_S20p, PseudoU_synth_1, Exonuc_VII_S, 5-FTHF_cyc-lig, YidD and Peptidase_A8 occurred in Lee collection (as they were exceptionally redundant or rare among MAGs from various habitats), and includes Ribosomal_S3_C, Ribosomal_L5, Ribosomal_L2 to make it more compatible with [Hug et al](https://www.nature.com/articles/nmicrobiol201648)'s set of ribosomal proteins.
 * **Archaea_76**: 76 single-copy core genes for domain archaea by [Mike Lee](https://doi.org/10.1093/bioinformatics/btz188).
@@ -81,6 +81,7 @@ Anvi'o will expect the HMM source directory to contain six files (see this for [
 All `DNA:CONTIG` targets will add new genes in the database for each hit.
 
 * **noise_cutoff_terms.txt**: A file to specify how to deal with noise. [See this comment](https://github.com/merenlab/anvio/issues/498#issuecomment-362115921) for more information on the contents of this file.
+
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/hmm-source.md) to update this information.

@@ -26,7 +26,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Required or used by
 
-<p style="text-align: left" markdown="1"></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-delete-state](../../programs/anvi-delete-state)</span></p>
 
 ## Description
 

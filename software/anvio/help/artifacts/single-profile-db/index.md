@@ -30,6 +30,23 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
+An anvi'o database that contains the same information as a merged <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span>, namely **key information about the mapping of short reads *in a single sample* to your contigs.** 
+
+You can think of this as a extension of a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> that contains information about how your contigs align with a single one of your individual samples. If you have more than one sample, you'll probably want to use <span class="artifact-n">[anvi-merge](/software/anvio/help/programs/anvi-merge)</span> to merge your databases into a merged <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span>. The vast majority of programs that use a profile database will also ask for the contigs database associated with it. 
+
+A single profile database contains information about how the short reads in a single BAM-file (see <span class="artifact-n">[bam-file](/software/anvio/help/artifacts/bam-file)</span>) map to the contigs in a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>. Specificially, a profile database contains 
+* the coverage and abundance per nucleotide position for each contig 
+* variants of various kinds (single-nucleotide, single-codon, and single-amino acid)
+* structural variants (ex insertions and deletions)
+
+Once created, a single profile database is almost interchangable with a <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> (even though the names can be a little confusing. Think of a single-profile-db as a type of profile-db, since it has only a few differences). The main differences between the two are as follows: 
+* You cannot run <span class="artifact-n">[anvi-cluster-contigs](/software/anvio/help/programs/anvi-cluster-contigs)</span> or <span class="artifact-n">[anvi-mcg-classifier](/software/anvio/help/programs/anvi-mcg-classifier)</span> on a single profile db, since these two programs look at the alignment data in many samples. 
+* You can run <span class="artifact-n">[anvi-import-taxonomy-for-layers](/software/anvio/help/programs/anvi-import-taxonomy-for-layers)</span> on a single profile database but not a merged one. 
+* You can only run <span class="artifact-n">[anvi-merge](/software/anvio/help/programs/anvi-merge)</span> on a single profile database.
+
+If you want to look at the contents of a single profile database, you can do so using <span class="artifact-n">[anvi-interactive](/software/anvio/help/programs/anvi-interactive)</span>. 
+
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "single-profile-db.md". Its contents will replace this sad text. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/single-profile-db.md) to update this information.
 

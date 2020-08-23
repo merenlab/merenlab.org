@@ -56,7 +56,16 @@
       "type": "CONCEPT"
     },
     {
-      "size": 6,
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "splits-txt",
+      "name": "splits-txt",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 7,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-gen-variability-profile",
@@ -66,28 +75,32 @@
   ],
   "links": [
     {
-      "source": 6,
+      "source": 7,
       "target": 0
     },
     {
-      "target": 6,
+      "target": 7,
       "source": 1
     },
     {
-      "target": 6,
+      "target": 7,
       "source": 2
     },
     {
-      "target": 6,
+      "target": 7,
       "source": 3
     },
     {
-      "target": 6,
+      "target": 7,
       "source": 4
     },
     {
-      "target": 6,
+      "target": 7,
       "source": 5
+    },
+    {
+      "target": 7,
+      "source": 6
     }
   ],
   "directed": false,

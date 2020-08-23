@@ -30,6 +30,13 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
+This is the output tables that are displayed when you run <span class="artifact-n">[anvi-estimate-scg-taxonomy](/software/anvio/help/programs/anvi-estimate-scg-taxonomy)</span>, but formatted as a tab-delimited text file. 
+
+To get this output, just provide the `-o` or the `-O` flag when running <span class="artifact-n">[anvi-estimate-scg-taxonomy](/software/anvio/help/programs/anvi-estimate-scg-taxonomy)</span>. 
+
+These contain the exact same information as is normally displayed in the terminal, just in a separate file that is easier to share or include as supplemental data. To see an explination of the data within this file, you can look at the page for <span class="artifact-n">[genome-taxonomy](/software/anvio/help/artifacts/genome-taxonomy)</span>. 
+
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "genome-taxonomy-txt.md". Its contents will replace this sad text. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/genome-taxonomy-txt.md) to update this information.
 

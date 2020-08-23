@@ -22,17 +22,35 @@ See **[program help menu](../../../vignette#anvi-import-items-order)** or go bac
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[misc-data-item-orders](../../artifacts/misc-data-item-orders)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[misc-data-items-order](../../artifacts/misc-data-items-order)</span></p>
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[genes-db](../../artifacts/genes-db)</span> <span class="artifact-r">[pan-db](../../artifacts/pan-db)</span> <span class="artifact-r">[profile-db](../../artifacts/profile-db)</span> <span class="artifact-r">[misc-data-item-orders-txt](../../artifacts/misc-data-item-orders-txt)</span> <span class="artifact-r">[dendrogram](../../artifacts/dendrogram)</span> <span class="artifact-r">[phylogeny](../../artifacts/phylogeny)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[genes-db](../../artifacts/genes-db)</span> <span class="artifact-r">[pan-db](../../artifacts/pan-db)</span> <span class="artifact-r">[profile-db](../../artifacts/profile-db)</span> <span class="artifact-r">[misc-data-items-order-txt](../../artifacts/misc-data-items-order-txt)</span> <span class="artifact-r">[dendrogram](../../artifacts/dendrogram)</span> <span class="artifact-r">[phylogeny](../../artifacts/phylogeny)</span></p>
 
 ## Usage
 
 
+This program, as one might think, allows you to import a <span class="artifact-n">[misc-data-items-order-txt](/software/anvio/help/artifacts/misc-data-items-order-txt)</span>, so that you can view it as a <span class="artifact-n">[misc-data-items-order](/software/anvio/help/artifacts/misc-data-items-order)</span>. 
+
+You can import an item order into a <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span>, <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span>, or <span class="artifact-n">[genes-db](/software/anvio/help/artifacts/genes-db)</span> as follows: 
+
+<div class="codeblock" markdown="1">
+anvi&#45;import&#45;collection &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
+                        &#45;&#45;i <span class="artifact&#45;n">[misc&#45;data&#45;items&#45;order&#45;txt](/software/anvio/help/artifacts/misc&#45;data&#45;items&#45;order&#45;txt)</span>
+</div>
+
+It may also be nice to give it a good name, so that it's easy to find in the interface. 
+
+<div class="codeblock" markdown="1">
+anvi&#45;import&#45;collection &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
+                        &#45;&#45;i <span class="artifact&#45;n">[misc&#45;data&#45;items&#45;order&#45;txt](/software/anvio/help/artifacts/misc&#45;data&#45;items&#45;order&#45;txt)</span> \
+                        &#45;&#45;name my_favorite_tree
+</div>
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-import-items-order.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-import-items-order.md) to update this information.
 
 
 ## Additional Resources

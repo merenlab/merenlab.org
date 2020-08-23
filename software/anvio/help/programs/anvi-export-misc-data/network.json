@@ -83,7 +83,52 @@
       "type": "DB"
     },
     {
-      "size": 9,
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "misc-data-items",
+      "name": "misc-data-items",
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "misc-data-layers",
+      "name": "misc-data-layers",
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "misc-data-layer-orders",
+      "name": "misc-data-layer-orders",
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "misc-data-nucleotides",
+      "name": "misc-data-nucleotides",
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "misc-data-amino-acids",
+      "name": "misc-data-amino-acids",
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 14,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-export-misc-data",
@@ -93,40 +138,60 @@
   ],
   "links": [
     {
-      "source": 9,
+      "source": 14,
       "target": 0
     },
     {
-      "source": 9,
+      "source": 14,
       "target": 1
     },
     {
-      "source": 9,
+      "source": 14,
       "target": 2
     },
     {
-      "source": 9,
+      "source": 14,
       "target": 3
     },
     {
-      "source": 9,
+      "source": 14,
       "target": 4
     },
     {
-      "target": 9,
+      "target": 14,
       "source": 5
     },
     {
-      "target": 9,
+      "target": 14,
       "source": 6
     },
     {
-      "target": 9,
+      "target": 14,
       "source": 7
     },
     {
-      "target": 9,
+      "target": 14,
       "source": 8
+    },
+    {
+      "target": 14,
+      "source": 9
+    },
+    {
+      "target": 14,
+      "source": 10
+    },
+    {
+      "target": 14,
+      "source": 11
+    },
+    {
+      "target": 14,
+      "source": 12
+    },
+    {
+      "target": 14,
+      "source": 13
     }
   ],
   "directed": false,

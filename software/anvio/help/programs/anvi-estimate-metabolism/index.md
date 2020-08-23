@@ -31,7 +31,7 @@ See **[program help menu](../../../vignette#anvi-estimate-metabolism)** or go ba
 ## Usage
 
 
-<span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/programs/anvi-estimate-metabolism)</span> predicts the metabolic capabilities of organisms based on their genetic content. It relies upon <span class="artifact-n">[kegg-functions](/software/anvio/help/artifacts/kegg-functions)</span> and metabolism information from the KEGG resource, which is stored in <span class="artifact-n">[kegg-db](/software/anvio/help/artifacts/kegg-db)</span>.
+<span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/programs/anvi-estimate-metabolism)</span> predicts the metabolic capabilities of organisms based on their genetic content. It relies upon <span class="artifact-n">[kegg-functions](/software/anvio/help/artifacts/kegg-functions)</span> and metabolism information from the KEGG resource, which is stored in a <span class="artifact-n">[kegg-db](/software/anvio/help/artifacts/kegg-db)</span>.
 
 The metabolic pathways that this program currently considers are those defined by KOs in the [KEGG MODULES resource](https://www.genome.jp/kegg/module.html). Each KO represents a gene function, and a KEGG module is a set of KOs that collectively carry out the steps in a metabolic pathway. Therefore, for this to work, you need to have annotated your <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> with hits to the KEGG KOfam database by running <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/programs/anvi-run-kegg-kofams)</span> prior to using this program.
 
@@ -39,7 +39,7 @@ Given a properly annotated <span class="artifact-n">[contigs-db](/software/anvio
 
 ## Running metabolism estimation on a single contigs database
 
-There are several possible inputs to this program. For single genomes - isolate genomes or MAGs, for example - you can provide a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>. If your <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> describes a metagenome rather than a single genome, you can provide the flag `--metagenome-mode`. In metagenome mode, KOfam hits in the <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> are analyzed as though they belong to one collective genome, despite the fact that the sequences represent multiple different populations. Alternatively, if you have binned your metagenome sequences into separate populations and would like metabolism estimation to be run separately on each bin, you can provide a <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> and a <span class="artifact-n">[collection](/software/anvio/help/artifacts/collection)</span>.
+There are several possible inputs to this program. For single genomes (isolate genomes or MAGs, for example) you can provide a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>. If your <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> describes a metagenome rather than a single genome, you can provide the flag `--metagenome-mode`. In metagenome mode, KOfam hits in the <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> are analyzed as though they belong to one collective genome, despite the fact that the sequences represent multiple different populations. Alternatively, if you have binned your metagenome sequences into separate populations and would like metabolism estimation to be run separately on each bin, you can provide a <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> and a <span class="artifact-n">[collection](/software/anvio/help/artifacts/collection)</span>.
 
 ### Estimation for a single genome
 
@@ -77,7 +77,7 @@ Each line in the `bin_ids.txt` file should be a bin name from the <span class="a
 
 ## Running metabolism estimation on multiple contigs databases
 
-If you have a set of contigs databases of the same type (ie, all of them are single genomes, or all are binned metagenomes), you can analyze them all at once. What you need to do is put the relevant information for each <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> into a text file and pass that text file to <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/programs/anvi-estimate-metabolism)</span>. The program will then run estimation individually on each contigs database in the file. The estimation results for each database will be aggregated and printed to the same output file(s).
+If you have a set of contigs databases of the same type (i.e., all of them are single genomes or all are binned metagenomes), you can analyze them all at once. What you need to do is put the relevant information for each <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> into a text file and pass that text file to <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/programs/anvi-estimate-metabolism)</span>. The program will then run estimation individually on each contigs database in the file. The estimation results for each database will be aggregated and printed to the same output file(s).
 
 ### Estimation for multiple single genomes
 
@@ -126,7 +126,7 @@ anvi&#45;estimate&#45;metabolism &#45;c CONTIGS.db &#45;O my&#45;cool&#45;prefix
 </div>
 
 
-This program has two major output options - long format (tab-delimited) output files and matrices.
+This program has two major output options: long format (tab-delimited) output files and matrices.
 
 Long format output has several preset "modes" as well as a "custom" mode in which the user can define the contents of the output file. Multiple modes can be used at once, and each requested "mode" will result in a separate output file. The default output mode is "modules" mode.
 

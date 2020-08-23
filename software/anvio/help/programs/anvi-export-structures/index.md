@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Export .pdb structure files from a structure database..
+Export .pdb structure files from a structure database.
 
 See **[program help menu](../../../vignette#anvi-export-structures)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

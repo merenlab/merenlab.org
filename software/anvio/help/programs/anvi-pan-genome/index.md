@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-An anvi&#39;o program to compute a pangenome from an anvi&#39;o genome storage..
+An anvi&#39;o program to compute a pangenome from an anvi&#39;o genome storage.
 
 See **[program help menu](../../../vignette#anvi-pan-genome)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -22,7 +22,7 @@ See **[program help menu](../../../vignette#anvi-pan-genome)** or go back to the
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[pan-db](../../artifacts/pan-db)</span> <span class="artifact-p">[misc-data-item-orders](../../artifacts/misc-data-item-orders)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[pan-db](../../artifacts/pan-db)</span> <span class="artifact-p">[misc-data-items-order](../../artifacts/misc-data-items-order)</span></p>
 
 ## Requires or uses
 
