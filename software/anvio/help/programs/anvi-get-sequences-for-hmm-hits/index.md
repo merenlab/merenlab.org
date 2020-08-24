@@ -60,6 +60,8 @@ anvi&#45;get&#45;sequences&#45;for&#45;hmm&#45;hits &#45;c <span class="artifact
 
 ### Learn available genes in a given HMM source
 
+Please note that the flag `--list-available-gene-names` gives you the list of genes in an HMM collection (i.e., `Bacteria_71` in the following example), and not the genes in your genomes or metagenomes that are matching to them.
+
 <div class="codeblock" markdown="1">
 anvi&#45;get&#45;sequences&#45;for&#45;hmm&#45;hits &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
                                 &#45;&#45;hmm&#45;source Bacteria_71 \
