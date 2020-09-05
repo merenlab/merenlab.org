@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: scgs-taxonomy [artifact]
 categories: [anvio]
 comments: false

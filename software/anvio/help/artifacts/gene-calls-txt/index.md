@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: gene-calls-txt [artifact]
 categories: [anvio]
 comments: false

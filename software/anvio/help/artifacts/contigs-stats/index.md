@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: contigs-stats [artifact]
 categories: [anvio]
 comments: false

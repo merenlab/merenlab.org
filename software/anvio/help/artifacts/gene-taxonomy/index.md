@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: gene-taxonomy [artifact]
 categories: [anvio]
 comments: false

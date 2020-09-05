@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: oligotypes [artifact]
 categories: [anvio]
 comments: false

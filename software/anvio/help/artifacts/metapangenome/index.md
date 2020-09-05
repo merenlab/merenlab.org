@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: metapangenome [artifact]
 categories: [anvio]
 comments: false

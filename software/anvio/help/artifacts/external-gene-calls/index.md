@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: external-gene-calls [artifact]
 categories: [anvio]
 comments: false

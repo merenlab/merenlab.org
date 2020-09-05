@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: hmm-source [artifact]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: genome-distance [artifact]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: genes-stats [artifact]
 categories: [anvio]
 comments: false

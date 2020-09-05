@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: bam-file [artifact]
 categories: [anvio]
 comments: false
