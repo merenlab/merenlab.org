@@ -30,6 +30,11 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
+This describes a local copy of a selection of the data from [Protein Data Bank](https://www.rcsb.org/) for structural annotation.
+
+It is required to run <span class="artifact-n">[anvi-gen-structure-database](/software/anvio/help/programs/anvi-gen-structure-database)</span> and is set up on your computer by the program <span class="artifact-n">[anvi-setup-pdb-database](/software/anvio/help/programs/anvi-setup-pdb-database)</span>. 
+
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "pdb-db.md". Its contents will replace this sad text. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/pdb-db.md) to update this information.
 

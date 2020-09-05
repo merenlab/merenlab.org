@@ -31,8 +31,42 @@ See **[program help menu](../../../vignette#anvi-export-contigs)** or go back to
 ## Usage
 
 
+This program **exports the contig sequences from a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>**, outputting them as a <span class="artifact-n">[contigs-fasta](/software/anvio/help/artifacts/contigs-fasta)</span>. It also has the ability to output the sequences of your splits instead. 
+
+You can run this program as follows: 
+
+<div class="codeblock" markdown="1">
+anvi&#45;export&#45;contigs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+                    &#45;o path/to/<span class="artifact&#45;n">[contigs&#45;fasta](/software/anvio/help/artifacts/contigs&#45;fasta)</span>
+</div>
+
+To run it on only a named subset of your contigs, you can provide a list of contigs as a separate file (in the same format as a <span class="artifact-n">[splits-txt](/software/anvio/help/artifacts/splits-txt)</span>). For example: 
+
+<div class="codeblock" markdown="1">
+anvi&#45;export&#45;contigs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+                    &#45;o path/to/<span class="artifact&#45;n">[contigs&#45;fasta](/software/anvio/help/artifacts/contigs&#45;fasta)</span> \
+                    &#45;&#45;contigs&#45;of&#45;interest my_favorite_contigs.txt 
+</div>
+
+where `my_favorite_contigs.txt` looks like this:
+
+    contig_0001
+    contig_0005
+    contig_0035
+    
+### Splits mode
+
+Want to look at your splits instead of your contigs? Just run with the flag `splits-mode` attached. 
+
+<div class="codeblock" markdown="1">
+anvi&#45;export&#45;contigs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+                    &#45;o path/to/<span class="artifact&#45;n">[contigs&#45;fasta](/software/anvio/help/artifacts/contigs&#45;fasta)</span> \
+                    &#45;&#45;splits&#45;mode
+</div>
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-export-contigs.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-export-contigs.md) to update this information.
 
 
 ## Additional Resources

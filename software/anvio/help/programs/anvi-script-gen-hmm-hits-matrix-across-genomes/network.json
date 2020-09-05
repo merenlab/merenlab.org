@@ -3,6 +3,33 @@
   "nodes": [
     {
       "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "hmm-hits-matrix-txt",
+      "name": "hmm-hits-matrix-txt",
+      "provided_by_anvio": true,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "external-genomes",
+      "name": "external-genomes",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "internal-genomes",
+      "name": "internal-genomes",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
       "score": 1,
       "color": "#AA0000",
       "id": "hmm-source",
@@ -20,16 +47,7 @@
       "type": "CONCEPT"
     },
     {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "contigs-db",
-      "name": "contigs-db",
-      "provided_by_anvio": true,
-      "type": "DB"
-    },
-    {
-      "size": 3,
+      "size": 5,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-script-gen-hmm-hits-matrix-across-genomes",
@@ -39,16 +57,24 @@
   ],
   "links": [
     {
-      "source": 3,
+      "source": 5,
       "target": 0
     },
     {
-      "source": 3,
-      "target": 1
+      "target": 5,
+      "source": 1
     },
     {
-      "target": 3,
+      "target": 5,
       "source": 2
+    },
+    {
+      "target": 5,
+      "source": 3
+    },
+    {
+      "target": 5,
+      "source": 4
     }
   ],
   "directed": false,

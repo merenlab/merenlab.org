@@ -26,7 +26,7 @@ See **[program help menu](../../../vignette#anvi-get-sequences-for-hmm-hits)** o
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[profile-db](../../artifacts/profile-db)</span> <span class="artifact-r">[external-genomes](../../artifacts/external-genomes)</span> <span class="artifact-r">[internal-genomes](../../artifacts/internal-genomes)</span> <span class="artifact-r">[hmm-source](../../artifacts/hmm-source)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[profile-db](../../artifacts/profile-db)</span> <span class="artifact-r">[external-genomes](../../artifacts/external-genomes)</span> <span class="artifact-r">[internal-genomes](../../artifacts/internal-genomes)</span> <span class="artifact-r">[hmm-source](../../artifacts/hmm-source)</span> <span class="artifact-r">[hmm-hits](../../artifacts/hmm-hits)</span></p>
 
 ## Usage
 

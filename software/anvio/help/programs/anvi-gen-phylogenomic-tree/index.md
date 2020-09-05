@@ -31,12 +31,26 @@ See **[program help menu](../../../vignette#anvi-gen-phylogenomic-tree)** or go 
 ## Usage
 
 
+This program generates a NEWICK-formatted phylogenomic tree (see <span class="artifact-n">[phylogeny](/software/anvio/help/artifacts/phylogeny)</span>) based on a given <span class="artifact-n">[concatenated-gene-alignment-fasta](/software/anvio/help/artifacts/concatenated-gene-alignment-fasta)</span>. 
+
+As mentioned in the [phylogenetics tutorial](http://merenlab.org/2017/06/07/phylogenomics/), it currently only has the option to use [FastTree](http://microbesonline.org/fasttree/) to do so, but be aware that there are many other programs that you can do this with. Some of the options we are familiar with (and are not yet represented in `anvi-gen-phylogenomic-tree`) include [MrBayes](http://mrbayes.sourceforge.net/), [MEGA](http://www.megasoftware.net/), and PHYLIP, [among many others](http://evolution.genetics.washington.edu/phylip/software.html#methods), most of which will happily take a <span class="artifact-n">[concatenated-gene-alignment-fasta](/software/anvio/help/artifacts/concatenated-gene-alignment-fasta)</span>. 
+
+Anyway, running this program is simple. Just provide the <span class="artifact-n">[concatenated-gene-alignment-fasta](/software/anvio/help/artifacts/concatenated-gene-alignment-fasta)</span> with all of the genes that you want to use and the output file path for your <span class="artifact-n">[phylogeny](/software/anvio/help/artifacts/phylogeny)</span>:
+
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;phylogenomic&#45;tree &#45;f <span class="artifact&#45;n">[concatenated&#45;gene&#45;alignment&#45;fasta](/software/anvio/help/artifacts/concatenated&#45;gene&#45;alignment&#45;fasta)</span> \
+                           &#45;o PATH/TO/<span class="artifact&#45;n">[phylogeny](/software/anvio/help/artifacts/phylogeny)</span>
+</div>
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-gen-phylogenomic-tree.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-gen-phylogenomic-tree.md) to update this information.
 
 
 ## Additional Resources
 
+
+* [View this program in action in the anvi&#39;o phylogenetics workflow](http://merenlab.org/2017/06/07/phylogenomics/)
 
 
 {:.notice}

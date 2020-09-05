@@ -26,7 +26,7 @@ See **[program help menu](../../../vignette#anvi-script-get-hmm-hits-per-gene-ca
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[hmm-source](../../artifacts/hmm-source)</span> <span class="artifact-r">[hmm-hits](../../artifacts/hmm-hits)</span></p>
 
 ## Usage
 

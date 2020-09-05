@@ -30,6 +30,10 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
+As an artifact, this describes the variability information about a single sample caluclated when you ran <span class="artifact-n">[anvi-profile](/software/anvio/help/programs/anvi-profile)</span>. To examine variability across samples, you'll want to use this information (which is stored within your <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span>) to run <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/programs/anvi-gen-variability-profile)</span>. 
+
+## Details about Variability
+
 In the context of anvi'o, variability means divergence of environmental populations from the reference used to perform metagenomic read recruitment.
 
 Here, the term "population" describes an assemblage of co-existing microbial genomes in an environment that are similar enough to map to the context of the same reference genome.

@@ -30,20 +30,17 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
-This artifact describes the **order of the branches for a visualization**.
+This artifact describes the **order of items in visualization tasks**.
 
-This is the tree in the central section of the default anvi'o interactive interface, or the order that your contigs (or genes or bins, depending on the mode) display in when in the circles. In order words, it is to <span class="artifact-n">[misc-data-items](/software/anvio/help/artifacts/misc-data-items)</span> as <span class="artifact-n">[misc-data-layer-orders](/software/anvio/help/artifacts/misc-data-layer-orders)</span> is to <span class="artifact-n">[misc-data-layers](/software/anvio/help/artifacts/misc-data-layers)</span>: a description not of the items themselves, but of what order they go in on the interface. 
+In anvi'o, main display items (such as 'gene clusters' in a pan database, 'contigs' in a profile database, etc) can be ordered either by a NEWICK formatted tree (such as a phylogenetic tree or a hierarchical clustering dendrogram), or by an array (such as a flat list of item names).
 
-Most often, this is a phylogenetic tree, but it can also just describe what order to display the branches or items in. 
+When a NEWICK tree is used to order items, it will appear as the tree in the central section of the default anvi'o interactive interface. When a flat list of items are provided to order items, the central display where a tree appears will be blank and the displayed items will still be ordered according to the list. In order words, items order is to <span class="artifact-n">[misc-data-items](/software/anvio/help/artifacts/misc-data-items)</span> as <span class="artifact-n">[misc-data-layer-orders](/software/anvio/help/artifacts/misc-data-layer-orders)</span> is to <span class="artifact-n">[misc-data-layers](/software/anvio/help/artifacts/misc-data-layers)</span>: a description not of the items themselves, but of what order they go in on the interface. 
 
-As of now, this is an provided by programs that generate a tree of this kind, including <span class="artifact-n">[anvi-pan-genome](/software/anvio/help/programs/anvi-pan-genome)</span>, <span class="artifact-n">[anvi-merge](/software/anvio/help/programs/anvi-merge)</span>, and <span class="artifact-n">[anvi-profile](/software/anvio/help/programs/anvi-profile)</span>. When you run these programs, they will put this information into your resulting <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span>. 
+Anvi'o programs such as <span class="artifact-n">[anvi-pan-genome](/software/anvio/help/programs/anvi-pan-genome)</span>, <span class="artifact-n">[anvi-merge](/software/anvio/help/programs/anvi-merge)</span>, and <span class="artifact-n">[anvi-profile](/software/anvio/help/programs/anvi-profile)</span> automatically generate NEWICK-formatted items order if possible (i.e., if you have less than 20,000 items). When you run these programs, they will put this information into your resulting <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span>. 
 
-However, you can also export this information to give to a fellow Anvi'o user or import this information if you have your own phylogenetic tree or desired order for your contigs. This is especially useful if you want to perform manual binning. 
+You can also export this information to give to a fellow anvi'o user or import this information if you have your own phylogenetic tree or desired order for your contigs.
 
-To import your own order for your items, use <span class="artifact-n">[anvi-import-items-order](/software/anvio/help/programs/anvi-import-items-order)</span>. To export this information, use <span class="artifact-n">[anvi-export-items-order](/software/anvio/help/programs/anvi-export-items-order)</span>. 
-
-
-
+You can use <span class="artifact-n">[anvi-import-items-order](/software/anvio/help/programs/anvi-import-items-order)</span> to import specific orders for your items, or <span class="artifact-n">[anvi-export-items-order](/software/anvio/help/programs/anvi-export-items-order)</span> to export this information.
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/misc-data-items-order.md) to update this information.

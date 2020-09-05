@@ -31,21 +31,19 @@ See **[program help menu](../../../vignette#anvi-import-items-order)** or go bac
 ## Usage
 
 
-This program, as one might think, allows you to import a <span class="artifact-n">[misc-data-items-order-txt](/software/anvio/help/artifacts/misc-data-items-order-txt)</span>, so that you can view it as a <span class="artifact-n">[misc-data-items-order](/software/anvio/help/artifacts/misc-data-items-order)</span>. 
-
-You can import an item order into a <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span>, <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span>, or <span class="artifact-n">[genes-db](/software/anvio/help/artifacts/genes-db)</span> as follows: 
+This program, as one might think, allows you to import a <span class="artifact-n">[misc-data-items-order-txt](/software/anvio/help/artifacts/misc-data-items-order-txt)</span> to describe a specific order of items stored in a <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span>, <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span>, or <span class="artifact-n">[genes-db](/software/anvio/help/artifacts/genes-db)</span>.
 
 <div class="codeblock" markdown="1">
-anvi&#45;import&#45;collection &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
+anvi&#45;import&#45;items&#45;order &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
                         &#45;&#45;i <span class="artifact&#45;n">[misc&#45;data&#45;items&#45;order&#45;txt](/software/anvio/help/artifacts/misc&#45;data&#45;items&#45;order&#45;txt)</span>
 </div>
 
-It may also be nice to give it a good name, so that it's easy to find in the interface. 
+It may also be nice to give it a good name, so that it's easy to find in the interface.
 
 <div class="codeblock" markdown="1">
-anvi&#45;import&#45;collection &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
+anvi&#45;import&#45;items&#45;order &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
                         &#45;&#45;i <span class="artifact&#45;n">[misc&#45;data&#45;items&#45;order&#45;txt](/software/anvio/help/artifacts/misc&#45;data&#45;items&#45;order&#45;txt)</span> \
-                        &#45;&#45;name my_favorite_tree
+                        &#45;&#45;name ORDER_NAME
 </div>
 
 

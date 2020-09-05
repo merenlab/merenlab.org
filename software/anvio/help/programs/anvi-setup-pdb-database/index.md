@@ -31,8 +31,28 @@ See **[program help menu](../../../vignette#anvi-setup-pdb-database)** or go bac
 ## Usage
 
 
+This program downloads a section of the [Protein Data Bank](https://www.rcsb.org/) which is required for strucutral analyses in anvi'o, such as running <span class="artifact-n">[anvi-gen-structure-database](/software/anvio/help/programs/anvi-gen-structure-database)</span> or <span class="artifact-n">[anvi-3dev](/software/anvio/help/programs/anvi-3dev)</span>. 
+
+<div class="codeblock" markdown="1">
+anvi&#45;setup&#45;pdb&#45;database &#45;&#45;just&#45;do&#45;it
+</div>
+
+If you already have a <span class="artifact-n">[pdb-db](/software/anvio/help/artifacts/pdb-db)</span> artifact and are trying to redownload this data, run 
+
+<div class="codeblock" markdown="1">
+anvi&#45;setup&#45;pdb&#45;database &#45;&#45;reset
+</div>
+
+Or if you just want to update your database, run 
+
+<div class="codeblock" markdown="1">
+anvi&#45;setup&#45;pdb&#45;database &#45;&#45;update
+</div>
+
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-setup-pdb-database.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-setup-pdb-database.md) to update this information.
 
 
 ## Additional Resources

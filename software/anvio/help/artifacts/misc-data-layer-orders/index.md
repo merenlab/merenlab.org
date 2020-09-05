@@ -36,6 +36,8 @@ As also defined in [this blog post](http://merenlab.org/2017/12/11/additional-da
 
 For example, you could use this tree to indicate and group together samples that came from the same geographic location, samples that came from the same donor, samples of the same type,  samples collected with the same collection method, and so on. 
 
+This is also used to import the taxonomy information at the end of [the pangenomics and phylogenomics workflow](http://merenlab.org/2017/06/07/phylogenomics/#pangenomic--phylogenomics). 
+
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/misc-data-layer-orders.md) to update this information.
