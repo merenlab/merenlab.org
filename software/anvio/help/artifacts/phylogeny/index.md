@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: phylogeny [artifact]
 categories: [anvio]
 comments: false

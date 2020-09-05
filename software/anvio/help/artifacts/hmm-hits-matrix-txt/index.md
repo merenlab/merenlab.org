@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: hmm-hits-matrix-txt [artifact]
 categories: [anvio]
 comments: false

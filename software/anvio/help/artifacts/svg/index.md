@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: svg [artifact]
 categories: [anvio]
 comments: false

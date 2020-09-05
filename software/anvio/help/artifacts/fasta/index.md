@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: fasta [artifact]
 categories: [anvio]
 comments: false

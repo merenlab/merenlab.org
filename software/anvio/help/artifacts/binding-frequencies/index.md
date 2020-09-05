@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: binding-frequencies [artifact]
 categories: [anvio]
 comments: false

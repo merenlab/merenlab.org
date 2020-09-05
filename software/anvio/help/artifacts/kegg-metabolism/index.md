@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: kegg-metabolism [artifact]
 categories: [anvio]
 comments: false

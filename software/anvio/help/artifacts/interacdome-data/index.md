@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: interacdome-data [artifact]
 categories: [anvio]
 comments: false

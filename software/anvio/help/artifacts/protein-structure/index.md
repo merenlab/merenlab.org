@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: protein-structure [artifact]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: functions-txt [artifact]
 categories: [anvio]
 comments: false

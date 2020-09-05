@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: kegg-db [artifact]
 categories: [anvio]
 comments: false

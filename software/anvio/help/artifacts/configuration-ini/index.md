@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: configuration-ini [artifact]
 categories: [anvio]
 comments: false

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: split-bins [artifact]
 categories: [anvio]
 comments: false

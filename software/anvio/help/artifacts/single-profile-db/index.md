@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: single-profile-db [artifact]
 categories: [anvio]
 comments: false

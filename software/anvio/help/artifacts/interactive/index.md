@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: interactive [artifact]
 categories: [anvio]
 comments: false

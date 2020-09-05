@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: misc-data-items-order-txt [artifact]
 categories: [anvio]
 comments: false
@@ -65,8 +65,9 @@ contig_2
 contig_3
 ```
 
-{:.notice}
+{:.warning}
 After importing an order into a database, you may need to specifically select that order in the interactive interface through the "Item orders" dropbox and re-draw your display to change the default order.
+
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/misc-data-items-order-txt.md) to update this information.

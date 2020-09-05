@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: pdb-db [artifact]
 categories: [anvio]
 comments: false

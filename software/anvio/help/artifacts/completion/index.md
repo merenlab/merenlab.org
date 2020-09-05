@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: completion [artifact]
 categories: [anvio]
 comments: false
