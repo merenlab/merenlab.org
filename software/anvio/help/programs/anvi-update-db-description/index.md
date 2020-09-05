@@ -26,13 +26,26 @@ See **[program help menu](../../../vignette#anvi-update-db-description)** or go 
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[pan-db](../../artifacts/pan-db)</span> <span class="artifact-r">[profile-db](../../artifacts/profile-db)</span> <span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[genes-db](../../artifacts/genes-db)</span> <span class="artifact-r">[genomes-storage-db](../../artifacts/genomes-storage-db)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[pan-db](../../artifacts/pan-db)</span> <span class="artifact-r">[profile-db](../../artifacts/profile-db)</span> <span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[genomes-storage-db](../../artifacts/genomes-storage-db)</span></p>
 
 ## Usage
 
 
+This program allows you to update the description of any anvi'o database with the push of a button (and the writing of an updated description). 
+
+This descirption helps make UIs a little prettier by showing up when you run programs like <span class="artifact-n">[anvi-interactive](/software/anvio/help/programs/anvi-interactive)</span> and <span class="artifact-n">[anvi-summarize](/software/anvio/help/programs/anvi-summarize)</span>. 
+
+Simply write out the description that you would prefer in a plain text file (with markdown syntax) and use this program to update the description of any <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span>, <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span>, <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>, or <span class="artifact-n">[genomes-storage-db](/software/anvio/help/artifacts/genomes-storage-db)</span>: 
+
+<div class="codeblock" markdown="1">
+anvi&#45;update&#45;db&#45;description &#45;&#45;description my_description.txt \
+                           <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span>
+</div>
+
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-update-db-description.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-update-db-description.md) to update this information.
 
 
 ## Additional Resources

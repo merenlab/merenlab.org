@@ -31,8 +31,22 @@ See **[program help menu](../../../vignette#anvi-gen-variability-profile)** or g
 ## Usage
 
 
+This program takes the variability data stored within a <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> and compiles it from across samples into a single matrix that comprehensively describes your SNVs, SCVs or SAAVs (a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/artifacts/variability-profile-txt)</span>).
+
+This program is described on [this blog post](http://merenlab.org/2015/07/20/analyzing-variability/#the-anvio-way), so take a look at that for more details. 
+
+## Let's talk parameters 
+
+Here is a basic run with no bells or whisles: 
+
+<div class="codeblock" markdown="1">
+anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
+                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span>
+</div>
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-gen-variability-profile.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-gen-variability-profile.md) to update this information.
 
 
 ## Additional Resources

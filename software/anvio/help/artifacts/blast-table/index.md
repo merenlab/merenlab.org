@@ -30,6 +30,15 @@ Most likely provided by the user.
 
 ## Description
 
+This describes the BLAST table that is outputted when you run [Protein BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE=Proteins) from the terminal. 
+
+When given to <span class="artifact-n">[anvi-script-filter-fasta-by-blast](/software/anvio/help/programs/anvi-script-filter-fasta-by-blast)</span>, which is currently the only program that uses this artifact, it expects output form 6. By default, this incldues the following data columns: 
+
+    qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore slen
+    
+However, you'll have to provide the columns in your file and their order to the program wirth the flag `--outfmt`. For the program to work properly, your table must at least include the columns `qseqid`, `bitscore`, `length`, `qlen`, and `pident`.
+
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "blast-table.md". Its contents will replace this sad text. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/blast-table.md) to update this information.
 

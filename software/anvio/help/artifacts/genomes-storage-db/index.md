@@ -30,6 +30,29 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
+This is an Anvi'o database that **stores information about your genomes, primarily for use in pangenomic analyses.**
+
+You can think of it like this: in a way, a genomes-storage-db is to the [the pangenomic workflow](http://merenlab.org/2016/11/08/pangenomics-v2/#generating-an-anvio-genomes-storage) what a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> is to the [the metagenomic workflow](http://merenlab.org/2016/06/22/anvio-tutorial-v2/). They both describe key information unique to your particular dataset and are required to run the vast majority of programs. 
+
+### What kind of information? 
+
+A genomes storage database contains information about the genomes that you inputted to create it, as well as the genes within them. 
+
+Specifically, there are three tables stored in a genomes storage database: 
+
+* A table describing the information about each of your genomes, such as their name, type (internal or external), GC content, number of contigs, completition, redunduncy, number of genes, etc. 
+* A table describing the genes within your genomes. For each gene, this includes its gene caller id, associated genome and position, sequence, length, and whether or not it is partial. 
+* A table describing the functions of your genes, including their sources and e-values. 
+
+### Cool. How do I make one? 
+
+You can generate one of these from an <span class="artifact-n">[internal-genomes](/software/anvio/help/artifacts/internal-genomes)</span> (genomes described in <span class="artifact-n">[bin](/software/anvio/help/artifacts/bin)</span>s), <span class="artifact-n">[external-genomes](/software/anvio/help/artifacts/external-genomes)</span> (genomes described in <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>s), or both using the program <span class="artifact-n">[anvi-gen-genomes-storage](/software/anvio/help/programs/anvi-gen-genomes-storage)</span>. 
+
+### Cool cool. What can I do with one? 
+
+With one of these, you can run <span class="artifact-n">[anvi-pan-genome](/software/anvio/help/programs/anvi-pan-genome)</span> to get a <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span>. If a genomes storage database is the <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> of pangenomics, then a <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span> is the <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span>. It contains lots of information that is vital for analysis, and most programs will require both the <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span> and its genomes storage database as an input. 
+
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "genomes-storage-db.md". Its contents will replace this sad text. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/genomes-storage-db.md) to update this information.
 

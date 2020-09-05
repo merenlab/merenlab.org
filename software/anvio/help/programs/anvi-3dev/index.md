@@ -38,6 +38,12 @@ See **[program help menu](../../../vignette#anvi-3dev)** or go back to the **[ma
 ## Additional Resources
 
 
+* [The overview page from the release](http://merenlab.org/software/anvi-3dev/)
+
+* [The section of the Infant Gut Tutorial focused on anvi-3dev](http://merenlab.org/tutorials/infant-gut/#chapter-vii-from-single-amino-acid-variants-to-protein-structures)
+
+* [Integrating sequence variants and predicted protein structures](http://merenlab.org/2018/09/04/getting-started-with-anvi-3dev/)
+
 
 {:.notice}
 Are you aware of resources that may help users better understand the utility of this program? Please feel free to edit [this file](https://github.com/merenlab/anvio/tree/master/bin/anvi-3dev) on GitHub. If you are not sure how to do that, find the `__resources__` tag in [this file](https://github.com/merenlab/anvio/blob/master/bin/anvi-interactive) to see an example.

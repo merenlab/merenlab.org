@@ -22,7 +22,7 @@ See **[program help menu](../../../vignette#anvi-export-splits-taxonomy)** or go
 
 ## Provides
 
-<p style="text-align: left" markdown="1"></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[splits-taxonomy-txt](../../artifacts/splits-taxonomy-txt)</span></p>
 
 ## Requires or uses
 
@@ -31,8 +31,21 @@ See **[program help menu](../../../vignette#anvi-export-splits-taxonomy)** or go
 ## Usage
 
 
+This program exports the taxonomy hits for the splits contained in a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>, outputting them in a <span class="artifact-n">[splits-taxonomy-txt](/software/anvio/help/artifacts/splits-taxonomy-txt)</span>. 
+
+To do this, anvi'o examines all of the annotated genes within your splits and returns the taxon ID with the most genes associated with it. For example, a split with 3 genes identified as E. coli, 2 genes identified as Staphylococcus aureus, and 1 as Streptococcus pneumoniae would be annotated as E. coli. 
+
+To run this program, just provide a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>:
+
+<div class="codeblock" markdown="1">
+anvi&#45;export&#45;splits&#45;taxonomy &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+                            &#45;o PATH/TO/<span class="artifact&#45;n">[splits&#45;taxonomy&#45;txt](/software/anvio/help/artifacts/splits&#45;taxonomy&#45;txt)</span>
+
+</div>
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-export-splits-taxonomy.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-export-splits-taxonomy.md) to update this information.
 
 
 ## Additional Resources
