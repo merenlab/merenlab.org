@@ -13,6 +13,9 @@ redirect_from:
 On this page you will find a complete list of anvi'o programs and artifacts.
 
 {:.notice}
+Confused by some of the 'omics terminology? Check out <a href="http://merenlab.org/vocabulary/"> our vocabulary page</a>.
+
+{:.notice}
 Visit <a href="http://merenlab.org/2019/10/07/getting-help/">this page</a> to learn <b>how to get help from the anvi'o community</b>.
 
 {:.notice}
@@ -25,7 +28,7 @@ Visit <a href="http://merenlab.org/software/anvio/vignette/">this page</a> to se
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **05 Sep 20 17:13:26** for anvi'o version **6.2-master (esther)**.
+The help contents were last updated on **14 Sep 20 09:28:08** for anvi'o version **6.2-master (esther)**.
 
 
 {% include _toc.html %}
@@ -36,7 +39,7 @@ The help contents were last updated on **05 Sep 20 17:13:26** for anvi'o version
 
 ## Programs
 
-Listed below a total of 107 programs.
+Listed below a total of 108 programs.
 
 
 * **[anvi-3dev](programs/anvi-3dev)**: Interactively visualize sequence variants on protein structures.
@@ -461,7 +464,7 @@ Listed below a total of 107 programs.
 
 * **[anvi-split](programs/anvi-split)**: Split an anvi&#39;o pan or profile database into smaller, self-contained pieces. This is usually great when you want to share a subset of an anvi&#39;o project. You give this guy your databases, and a collection id, and it gives you back directories of individual projects for each bin that can be treated as self-contained smaller anvi&#39;o projects. We know you don&#39;t read this far into these help menus, but please remember: you will either need to provide a profile &amp; contigs database pair, or a pan &amp; genomes storage pair. The rest will be taken care of. Magic.
 <span>**Provides**: <span class="artifact-p">[split-bins](artifacts/split-bins)</span> / 
-<span>**Requires**: <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[collection](artifacts/collection)</span>.</span>
+<span>**Requires**: <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[genomes-storage-db](artifacts/genomes-storage-db)</span> <span class="artifact-r">[pan-db](artifacts/pan-db)</span> <span class="artifact-r">[collection](artifacts/collection)</span>.</span>
 
 
 * **[anvi-summarize](programs/anvi-summarize)**: Summarizer for anvi&#39;o pan or profile db&#39;s. Essentially, this program takes a collection id along with either a profile database and a contigs database or a pan database and a genomes storage and generates a static HTML output for what is described in a given collection. The output directory will contain almost everything any downstream analysis may need, and can be displayed using a browser without the need for an anvi&#39;o installation. For this reason alone, reporting summary outputs as supplementary data with publications is a great idea for transparency and reproducibility.
@@ -557,6 +560,11 @@ Listed below a total of 107 programs.
 * **[anvi-script-process-genbank](programs/anvi-script-process-genbank)**: This script takes a GenBank file, and outputs a FASTA file, as well as two additional TAB-delimited output files for external gene calls and gene functions that can be used with the programs `anvi-gen-contigs-database` and `anvi-import-functions`.
 <span>**Provides**: <span class="artifact-p">[contigs-fasta](artifacts/contigs-fasta)</span> <span class="artifact-p">[external-gene-calls](artifacts/external-gene-calls)</span> <span class="artifact-p">[functions-txt](artifacts/functions-txt)</span> / 
 <span>**Requires**: <span class="artifact-r">[genbank-file](artifacts/genbank-file)</span>.</span>
+
+
+* **[anvi-script-process-genbank-metadata](programs/anvi-script-process-genbank-metadata)**: This script takes the &#39;metadata&#39; output of the program `ncbi-genome-download` (see https://github.com/kblin/ncbi-genome-download for details), and processes each GenBank file found in the metadata file to generate a FASTA file, as well as genes and functions files for each entry. Plus, it autmatically generates a FASTA TXT file descriptor for anvi&#39;o snakemake workfloes. So it is a multi-talented program like that..
+<span>**Provides**: <span class="artifact-p">[contigs-fasta](artifacts/contigs-fasta)</span> <span class="artifact-p">[functions-txt](artifacts/functions-txt)</span> <span class="artifact-p">[external-gene-calls](artifacts/external-gene-calls)</span> / 
+<span>**Requires**: .</span>
 
 
 * **[anvi-script-reformat-fasta](programs/anvi-script-reformat-fasta)**: Reformat FASTA file (remove contigs based on length, or based on a given list of deflines, and/or generate an output with simpler names).

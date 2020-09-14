@@ -31,8 +31,15 @@ See **[program help menu](../../../vignette#anvi-script-process-genbank)** or go
 ## Usage
 
 
+This program extracts the data from a <span class="artifact-n">[genbank-file](/software/anvio/help/artifacts/genbank-file)</span> and converts it into anvi'o friendly artifacts: namely, a <span class="artifact-n">[contigs-fasta](/software/anvio/help/artifacts/contigs-fasta)</span>, <span class="artifact-n">[external-gene-calls](/software/anvio/help/artifacts/external-gene-calls)</span> and a <span class="artifact-n">[functions-txt](/software/anvio/help/artifacts/functions-txt)</span>.
+
+The <span class="artifact-n">[contigs-fasta](/software/anvio/help/artifacts/contigs-fasta)</span> and <span class="artifact-n">[external-gene-calls](/software/anvio/help/artifacts/external-gene-calls)</span> can be given to <span class="artifact-n">[anvi-gen-contigs-database](/software/anvio/help/programs/anvi-gen-contigs-database)</span> to create a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>, and then you can use <span class="artifact-n">[anvi-import-functions](/software/anvio/help/programs/anvi-import-functions)</span> to bring the function data (in the <span class="artifact-n">[functions-txt](/software/anvio/help/artifacts/functions-txt)</span>) into the database. Then you'll have all of the data in your <span class="artifact-n">[genbank-file](/software/anvio/help/artifacts/genbank-file)</span> converted into a single <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>, which you can use for a variety of anvi'o analyses. 
+
+The parameters of this program entirely deal with the outputs. Besies telling the program where to put them, you can also give the function annotation source (in the <span class="artifact-n">[functions-txt](/software/anvio/help/artifacts/functions-txt)</span>) a custom name. 
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-script-process-genbank.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-process-genbank.md) to update this information.
 
 
 ## Additional Resources
