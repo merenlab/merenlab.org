@@ -21,7 +21,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-script-augustus-output-to-external-gene-calls](../../programs/anvi-script-augustus-output-to-external-gene-calls)</span> <span class="artifact-p">[anvi-script-process-genbank](../../programs/anvi-script-process-genbank)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-script-augustus-output-to-external-gene-calls](../../programs/anvi-script-augustus-output-to-external-gene-calls)</span> <span class="artifact-p">[anvi-script-process-genbank](../../programs/anvi-script-process-genbank)</span> <span class="artifact-p">[anvi-script-process-genbank-metadata](../../programs/anvi-script-process-genbank-metadata)</span></p>
 
 
 ## Required or used by
