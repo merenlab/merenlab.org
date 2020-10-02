@@ -30,7 +30,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
-This artifact is a TAB-delimited file that **associates genes and functions**.
+This artifact is a TAB-delimited file that **associates genes and functions**. 
 
 The user can generate this file to import gene functions into a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> via <span class="artifact-n">[anvi-import-functions](/software/anvio/help/programs/anvi-import-functions)</span> or can acquire this file by recovering it from a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> via <span class="artifact-n">[anvi-export-functions](/software/anvio/help/programs/anvi-export-functions)</span>. It is also the output of <span class="artifact-n">[anvi-search-functions](/software/anvio/help/programs/anvi-search-functions)</span> which searches for specific terms in your functional annotations.
 
