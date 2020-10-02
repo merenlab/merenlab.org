@@ -31,8 +31,20 @@ See **[program help menu](../../../vignette#anvi-script-variability-to-vcf)** or
 ## Usage
 
 
+This script **converts a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/artifacts/variability-profile-txt)</span> into <span class="artifact-n">[vcf](/software/anvio/help/artifacts/vcf)</span> (Variant Call Format).** 
+
+It is very easy to run: just provide the input and output paths as so:
+
+<div class="codeblock" markdown="1">
+anvi&#45;script&#45;variability&#45;to&#45;vcf &#45;i <span class="artifact&#45;n">[variability&#45;profile&#45;txt](/software/anvio/help/artifacts/variability&#45;profile&#45;txt)</span> \ 
+                               &#45;o <span class="artifact&#45;n">[vcf](/software/anvio/help/artifacts/vcf)</span> 
+</div>
+
+Note that to run this, you'll need to have run <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/programs/anvi-gen-variability-profile)</span> with the default nucleotide engine. 
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-script-variability-to-vcf.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-variability-to-vcf.md) to update this information.
 
 
 ## Additional Resources

@@ -31,8 +31,32 @@ See **[program help menu](../../../vignette#anvi-export-gene-calls)** or go back
 ## Usage
 
 
+This program exports your gene calls given a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> and a gene caller. The output of this is a <span class="artifact-n">[gene-calls-txt](/software/anvio/help/artifacts/gene-calls-txt)</span>. 
+
+To see the gene callers available in your contigs database, run 
+
+<div class="codeblock" markdown="1">
+anvi&#45;export&#45;gene&#45;calls &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+                       &#45;&#45;list&#45;gene&#45;callers
+</div>
+
+By default, this list will probably include [Prodigal](https://github.com/hyattpd/Prodigal), which identifies genes when creating a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>. For in this example, we'll use export Prodigal-identified genes. Note that you can also get genes from more than one source by providing several gene-callers in a comma-delimited list.  
+
+Then, you can export all of your gene callers in an orderly fashion by running 
+
+<div class="codeblock" markdown="1">
+anvi&#45;export&#45;gene&#45;calls &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+                       &#45;&#45;gene&#45;caller Prodigal \
+                       &#45;o path/to/output
+</div>
+
+This will put a <span class="artifact-n">[gene-calls-txt](/software/anvio/help/artifacts/gene-calls-txt)</span> in the path you specified containing all of your Prodigal genes. 
+
+If you don't want to display the amino acid sequences of each gene (they can crowd the file very quickly if you don't want to see them), just add the flag `--skip-sequence-reporting`
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-export-gene-calls.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-export-gene-calls.md) to update this information.
 
 
 ## Additional Resources

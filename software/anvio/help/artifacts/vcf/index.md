@@ -30,6 +30,26 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
+This represents a file in the Variant Call Format, which is a standard format for storing sequence variations like SNVs. 
+
+You can convert the information in a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/artifacts/variability-profile-txt)</span> to <span class="artifact-n">[vcf](/software/anvio/help/artifacts/vcf)</span> with the program <span class="artifact-n">[anvi-script-variability-to-vcf](/software/anvio/help/programs/anvi-script-variability-to-vcf)</span>. 
+
+### What's in this file? 
+
+For more details, you can check out the [VCF wikipedia page](https://en.wikipedia.org/wiki/Variant_Call_Format). 
+
+#### Header
+
+Briefly, this file's header (marked by `##` at the beginning of each line) contains various metadata. This includes the date, link to the reference file, contig information, etc. It also contains 
+- what information will be reported (denoted by `INFO`). 
+- what additional filters will be run on each SNV (denoted by `FILTER`). For example, marking which variants are below a certain quality threshold. 
+- what format to display additional data in (denoted by `FORMAT`). 
+
+#### Body
+
+The body of the file contains identifying information for the variation (the chromosome, position and ID), the identity of the position in the reference and alternative alleles present in your data. Following this is a quality score for your data and the additional information specified by the header. 
+
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "vcf.md". Its contents will replace this sad text. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/vcf.md) to update this information.
 

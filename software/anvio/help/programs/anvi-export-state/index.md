@@ -26,13 +26,31 @@ See **[program help menu](../../../vignette#anvi-export-state)** or go back to t
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[pan-db](../../artifacts/pan-db)</span> <span class="artifact-r">[profile-db](../../artifacts/profile-db)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[pan-db](../../artifacts/pan-db)</span> <span class="artifact-r">[profile-db](../../artifacts/profile-db)</span> <span class="artifact-r">[state](../../artifacts/state)</span></p>
 
 ## Usage
 
 
+This program allows you to export a <span class="artifact-n">[state](/software/anvio/help/artifacts/state)</span> from a <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span>. The output of this is a <span class="artifact-n">[state-json](/software/anvio/help/artifacts/state-json)</span>, which you can import into another anvi'o project with <span class="artifact-n">[anvi-import-state](/software/anvio/help/programs/anvi-import-state)</span>. 
+
+You can run this program on a <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span> as follows: 
+
+<div class="codeblock" markdown="1">
+anvi&#45;export&#45;state &#45;s <span class="artifact&#45;n">[state](/software/anvio/help/artifacts/state)</span> \
+                  &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span>  \
+                  &#45;o path/to/output
+</div>
+
+To list the collections available in this database, you can run 
+
+<div class="codeblock" markdown="1">
+anvi&#45;export&#45;state &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/artifacts/pan&#45;db)</span> \
+                  &#45;&#45;list&#45;states
+</div>
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-export-state.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-export-state.md) to update this information.
 
 
 ## Additional Resources

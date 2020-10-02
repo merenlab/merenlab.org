@@ -30,6 +30,23 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
+This file describes all of the gene calls contained in a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> from a specified list of sources. It is the output of <span class="artifact-n">[anvi-export-gene-calls](/software/anvio/help/programs/anvi-export-gene-calls)</span>. 
+
+For each gene identified, this file provides various information, including the caller ID, [start and stop position](http://merenlab.org/software/anvio/help/artifacts/external-gene-calls/#gene-startstop-positions), direction, whether or not the gene is partial, the [call type](http://merenlab.org/software/anvio/help/artifacts/external-gene-calls/#call-type), source and version (if available ), and the amino acid sequence. 
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "gene-calls-txt.md". Its contents will replace this sad text. THANK YOU!
+Want more information? This file is in the same format as an <span class="artifact-n">[external-gene-calls](/software/anvio/help/artifacts/external-gene-calls)</span>, so check out that page. 
+
+Here is an example from the Infant Gut Dataset: 
+
+    gene_callers_id    contig              start    stop    direction    partial    call_type    source     version   aa_sequence
+    0                  Day17a_QCcontig1    0        186     f            1          1            prodigal   v2.60     GSSPTAGVEQKQKPTWFLLFLFYSLFFDKLEEGTLKTFIRLKGSYRRMNTSNFSYGIMCLL
+    1                  Day17a_QCcontig1    214      1219    f            0          1            prodigal   v2.60     MKILLYFEGEKILAKSGIGRALDHQKRALSEVGIEYTLDADCSDYDILHINTYGVNSHRMVRKARKLGKKVIYHAHSTEEDFRNSFIGSNQLAPLVKKYLISLYSKADHLITPTPYSKTLLEGYGIKVPISAISNGIDLSRFYPSEEKEQKFREYFKIDEEKKVIICVGLFFERKGITDFIEVARQLPEYQFIWFGDTPMYSIPKNIRQLVKEDHPENVIFPGYIKGDVIEGAYAAANLFFFPSREETEGIVVLEALASQQQVLVRDIPVYQGWLVANENCYMGHSIEEFKKYIEGLLEGKIPSTREAGYQVAEQRSIKQIGYELKEVYETVLS
+    2                  Day17a_QCcontig1    1265     2489    f            0          1            prodigal   v2.60     MKIGFFTDTYFPQVSGVATSIKTLKDELEKHGHEVYIFTTTDPNATDFEEDVIRMPSVPFVSFKDRRVVVRGMWYAYLIAKELELDLIHTHTEFGAGILGKMVGKKMKIPVIHTYHTMYEDYLHYIAKGKVVRPSHVKFFSRVFTNHTTGVVCPSERVIEKLRDYGVTAPMRIIPTGIEIDKFLRPDITEEMIAGMRQQLGIEEQQIMLLSLSRISYEKNIQAIIQGLPQVIEKLPQTRLVIVGNGPYLEDLKELAEELEVSEYVQFTGEVPNEEVAIYYKAADYFVSASTSETQGLTYTEAMAAGVQCVAEGNAYLNNLFDHESLGKTFKTDSDFAPTLIDYIQANIKMDQTILDEKLFEISSTNFGNKMIEFYQDTLIYFDQLQMEKENADSIKKIKVKFTSLRK
+    ...
+
+
+
+{:.notice}
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/gene-calls-txt.md) to update this information.
 

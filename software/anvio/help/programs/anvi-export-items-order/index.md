@@ -26,14 +26,14 @@ See **[program help menu](../../../vignette#anvi-export-items-order)** or go bac
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[genes-db](../../artifacts/genes-db)</span> <span class="artifact-r">[pan-db](../../artifacts/pan-db)</span> <span class="artifact-r">[profile-db](../../artifacts/profile-db)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[pan-db](../../artifacts/pan-db)</span> <span class="artifact-r">[profile-db](../../artifacts/profile-db)</span></p>
 
 ## Usage
 
 
 This program, as one might think, allows you to export a <span class="artifact-n">[misc-data-items-order](/software/anvio/help/artifacts/misc-data-items-order)</span>, outputing a <span class="artifact-n">[misc-data-items-order-txt](/software/anvio/help/artifacts/misc-data-items-order-txt)</span>. 
 
-You can export one of the item orders in a <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span>, <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span>, or <span class="artifact-n">[genes-db](/software/anvio/help/artifacts/genes-db)</span> as follows: 
+You can export one of the item orders in a <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span> as follows: 
 
 <div class="codeblock" markdown="1">
 anvi&#45;export&#45;items&#45;order &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \

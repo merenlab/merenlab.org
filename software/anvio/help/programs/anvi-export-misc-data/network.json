@@ -50,15 +50,6 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "genes-db",
-      "name": "genes-db",
-      "provided_by_anvio": true,
-      "type": "DB"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
       "id": "pan-db",
       "name": "pan-db",
       "provided_by_anvio": true,
@@ -128,7 +119,7 @@
       "type": "CONCEPT"
     },
     {
-      "size": 14,
+      "size": 13,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-export-misc-data",
@@ -138,60 +129,56 @@
   ],
   "links": [
     {
-      "source": 14,
+      "source": 13,
       "target": 0
     },
     {
-      "source": 14,
+      "source": 13,
       "target": 1
     },
     {
-      "source": 14,
+      "source": 13,
       "target": 2
     },
     {
-      "source": 14,
+      "source": 13,
       "target": 3
     },
     {
-      "source": 14,
+      "source": 13,
       "target": 4
     },
     {
-      "target": 14,
+      "target": 13,
       "source": 5
     },
     {
-      "target": 14,
+      "target": 13,
       "source": 6
     },
     {
-      "target": 14,
+      "target": 13,
       "source": 7
     },
     {
-      "target": 14,
+      "target": 13,
       "source": 8
     },
     {
-      "target": 14,
+      "target": 13,
       "source": 9
     },
     {
-      "target": 14,
+      "target": 13,
       "source": 10
     },
     {
-      "target": 14,
+      "target": 13,
       "source": 11
     },
     {
-      "target": 14,
+      "target": 13,
       "source": 12
-    },
-    {
-      "target": 14,
-      "source": 13
     }
   ],
   "directed": false,

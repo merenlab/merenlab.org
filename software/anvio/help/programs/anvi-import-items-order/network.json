@@ -14,15 +14,6 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "genes-db",
-      "name": "genes-db",
-      "provided_by_anvio": true,
-      "type": "DB"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
       "id": "pan-db",
       "name": "pan-db",
       "provided_by_anvio": true,
@@ -65,7 +56,7 @@
       "type": "NEWICK"
     },
     {
-      "size": 7,
+      "size": 6,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-import-items-order",
@@ -75,32 +66,28 @@
   ],
   "links": [
     {
-      "source": 7,
+      "source": 6,
       "target": 0
     },
     {
-      "target": 7,
+      "target": 6,
       "source": 1
     },
     {
-      "target": 7,
+      "target": 6,
       "source": 2
     },
     {
-      "target": 7,
+      "target": 6,
       "source": 3
     },
     {
-      "target": 7,
+      "target": 6,
       "source": 4
     },
     {
-      "target": 7,
+      "target": 6,
       "source": 5
-    },
-    {
-      "target": 7,
-      "source": 6
     }
   ],
   "directed": false,
