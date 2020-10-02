@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Setup InteracDome data..
+Setup InteracDome data.
 
 See **[program help menu](../../../vignette#anvi-setup-interacdome)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

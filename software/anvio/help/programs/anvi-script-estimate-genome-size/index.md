@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-A program to estimate the size of the actual population genome to which a MAG belongs..
+A program to estimate the size of the actual population genome to which a MAG belongs.
 
 See **[program help menu](../../../vignette#anvi-script-estimate-genome-size)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

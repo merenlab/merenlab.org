@@ -26,13 +26,34 @@ See **[program help menu](../../../vignette#anvi-compute-completeness)** or go b
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[splits-txt](../../artifacts/splits-txt)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[splits-txt](../../artifacts/splits-txt)</span> <span class="artifact-r">[hmm-source](../../artifacts/hmm-source)</span></p>
 
 ## Usage
 
 
+This program tells you the completeness and redundency of single-copy gene sources available for your <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>. 
+
+For example, some of the defaults are collections of single-copy core genes named  `Protista_83`, `Archaea_76`, and `Bacteria_71`. This program will give you a rough estimate of how many Protist, Archaeal, and Bacterial genomes are included in your dataset using these single-copy core genes. 
+
+You can use the following run to list available completeness sources in your <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>:
+
+<div class="codeblock" markdown="1">
+anvi&#45;compute&#45;completeness &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+                          &#45;&#45;list&#45;completeness&#45;sources
+</div>
+                              
+Then you can run this program on a specifc source as folows:
+
+<div class="codeblock" markdown="1">
+anvi&#45;compute&#45;completeness &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+                          &#45;&#45;completeness&#45;source Bacteria_71
+</div>
+                              
+You can also provide a <span class="artifact-n">[splits-txt](/software/anvio/help/artifacts/splits-txt)</span> to focus on a specific set of splits, or declare a minimum e-value for a gene to count as a hit. The default is `1e-15`.
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-compute-completeness.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-compute-completeness.md) to update this information.
 
 
 ## Additional Resources

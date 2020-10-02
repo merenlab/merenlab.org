@@ -32,7 +32,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 This is a section of your <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> that contains custom additional information about specific amino acid residues. 
 
-Take a look at [this blogpost](http://merenlab.org/2020/07/22/interacdome/#6-storing-the-per-residue-binding-frequencies-into-the-contigs-database) for potential uses in the interactome (which will likely be added to anvi'o in v7) and the motivation behind this program. 
+Take a look at [this blogpost](http://merenlab.org/2020/07/22/interacdome/#6-storing-the-per-residue-binding-frequencies-into-the-contigs-database) for potential uses in the InteracDome (which will likely be added to anvi'o in v7) and the motivation behind this program. 
 
 Similarly to other types of miscellaneous data (like <span class="artifact-n">[misc-data-items](/software/anvio/help/artifacts/misc-data-items)</span>), this information can be populated into a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> with <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/programs/anvi-import-misc-data)</span> and can be either numerical or categorical. 
 

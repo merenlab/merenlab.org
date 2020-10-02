@@ -31,12 +31,47 @@ See **[program help menu](../../../vignette#anvi-compute-gene-cluster-homogeneit
 ## Usage
 
 
+This program **computes both the geometric homogeneity and functional homogeneity for the gene clusters in a <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span>.** 
+
+*Geometric homogeneity* and *functional homogeneity* are anvi'o specific terms that describe how similar genes within a gene cluster are to each other in different ways. Briefly, geometric homogeneity compares the positions of gaps in the aligned residues without considering specific amino acids, and functional homogeneity examines point mutations to amino acids and compares how similar the resulting amino acids are chemically. See [this page](http://merenlab.org/2016/11/08/pangenomics-v2/#inferring-the-homogeneity-of-gene-clusters) for more details. 
+
+You can run this program as so: 
+
+<div class="codeblock" markdown="1">
+anvi&#45;compute&#45;gene&#45;cluster&#45;homogeneity &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/artifacts/pan&#45;db)</span> \
+                                      &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/artifacts/genomes&#45;storage&#45;db)</span> \
+                                      &#45;o path/to/output.txt \
+                                      &#45;&#45;store&#45;in&#45;db
+</div>
+
+This run will put the output directly in the database, as well as provide it as a separate file as the specified output path. 
+
+You also have the option to calculate this information about only specific gene clusters, either by providing a gene cluster ID, list of gene cluster IDs, <span class="artifact-n">[collection](/software/anvio/help/artifacts/collection)</span> or <span class="artifact-n">[bin](/software/anvio/help/artifacts/bin)</span>. 
+
+To save on runtime, you can also enable `--quick-homogeneity`, which will not check for horizontal geometric homogenity (i.e. it will not look at alignments within a single gene). This will be less accurate for detailed analyses, but it will run faster. 
+
+Here is an example run that uses this flag and only looks at a specific collection: 
+
+<div class="codeblock" markdown="1">
+anvi&#45;compute&#45;gene&#45;cluster&#45;homogeneity &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/artifacts/pan&#45;db)</span> \
+                                      &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/artifacts/genomes&#45;storage&#45;db)</span> \
+                                      &#45;o path/to/output.txt \
+                                      &#45;&#45;store&#45;in&#45;db \ 
+                                      &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/artifacts/collection)</span> \
+                                      &#45;&#45;quick&#45;homogeneity 
+</div>
+
+You can also use multithreading if you're familiar with that. 
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-compute-gene-cluster-homogeneity.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-compute-gene-cluster-homogeneity.md) to update this information.
 
 
 ## Additional Resources
 
+
+* [The role of gene cluster homogeneity described in the Anvi&#39;o pangenomics tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/#inferring-the-homogeneity-of-gene-clusters)
 
 
 {:.notice}

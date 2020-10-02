@@ -13,7 +13,7 @@ redirect_from:
 On this page you will find a complete list of anvi'o programs and artifacts.
 
 {:.notice}
-Confused by some of the 'omics terminology? Check out <a href="http://merenlab.org/vocabulary/"> our vocabulary page</a>.
+Confused by some of the 'omics and/or anvi'o terminology? Check out <a href="http://merenlab.org/vocabulary/"> our vocabulary page</a>.
 
 {:.notice}
 Visit <a href="http://merenlab.org/2019/10/07/getting-help/">this page</a> to learn <b>how to get help from the anvi'o community</b>.
@@ -28,7 +28,7 @@ Visit <a href="http://merenlab.org/software/anvio/vignette/">this page</a> to se
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **16 Sep 20 17:17:56** for anvi'o version **6.2-master (esther)**.
+The help contents were last updated on **02 Oct 20 10:12:22** for anvi'o version **6.2-master (esther)**.
 
 
 {% include _toc.html %}
@@ -39,7 +39,7 @@ The help contents were last updated on **16 Sep 20 17:17:56** for anvi'o version
 
 ## Programs
 
-Listed below a total of 108 programs.
+Listed below a total of 112 programs.
 
 
 * **[anvi-3dev](programs/anvi-3dev)**: Interactively visualize sequence variants on protein structures.
@@ -59,7 +59,7 @@ Listed below a total of 108 programs.
 
 * **[anvi-compute-completeness](programs/anvi-compute-completeness)**: A script to generate completeness info for a given list of _splits_.
 <span>**Provides**:  / 
-<span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[splits-txt](artifacts/splits-txt)</span>.</span>
+<span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[splits-txt](artifacts/splits-txt)</span> <span class="artifact-r">[hmm-source](artifacts/hmm-source)</span>.</span>
 
 
 * **[anvi-compute-gene-cluster-homogeneity](programs/anvi-compute-gene-cluster-homogeneity)**: Compute homogeneity for gene clusters.
@@ -74,7 +74,7 @@ Listed below a total of 108 programs.
 
 * **[anvi-db-info](programs/anvi-db-info)**: Access self tables, display values, or set new ones totally on your own risk.
 <span>**Provides**:  / 
-<span>**Requires**: <span class="artifact-r">[pan-db](artifacts/pan-db)</span> <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[genomes-storage-db](artifacts/genomes-storage-db)</span> <span class="artifact-r">[genes-db](artifacts/genes-db)</span>.</span>
+<span>**Requires**: <span class="artifact-r">[pan-db](artifacts/pan-db)</span> <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[genomes-storage-db](artifacts/genomes-storage-db)</span> <span class="artifact-r">[structure-db](artifacts/structure-db)</span>.</span>
 
 
 * **[anvi-delete-collection](programs/anvi-delete-collection)**: Remove a collection from a given profile database.
@@ -132,6 +132,11 @@ Listed below a total of 108 programs.
 <span>**Requires**: <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[scgs-taxonomy](artifacts/scgs-taxonomy)</span> <span class="artifact-r">[collection](artifacts/collection)</span> <span class="artifact-r">[bin](artifacts/bin)</span> <span class="artifact-r">[metagenomes](artifacts/metagenomes)</span>.</span>
 
 
+* **[anvi-estimate-trna-taxonomy](programs/anvi-estimate-trna-taxonomy)**: Estimates taxonomy at genome and metagenome level using tRNA sequences..
+<span>**Provides**: <span class="artifact-p">[genome-taxonomy](artifacts/genome-taxonomy)</span> <span class="artifact-p">[genome-taxonomy-txt](artifacts/genome-taxonomy-txt)</span> / 
+<span>**Requires**: <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[trna-taxonomy](artifacts/trna-taxonomy)</span> <span class="artifact-r">[collection](artifacts/collection)</span> <span class="artifact-r">[bin](artifacts/bin)</span> <span class="artifact-r">[metagenomes](artifacts/metagenomes)</span>.</span>
+
+
 * **[anvi-export-collection](programs/anvi-export-collection)**: Export a collection from an anvi&#39;o database.
 <span>**Provides**: <span class="artifact-p">[collection-txt](artifacts/collection-txt)</span> / 
 <span>**Requires**: <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[collection](artifacts/collection)</span>.</span>
@@ -159,7 +164,7 @@ Listed below a total of 108 programs.
 
 * **[anvi-export-items-order](programs/anvi-export-items-order)**: Export an item order from an anvi&#39;o database.
 <span>**Provides**: <span class="artifact-p">[misc-data-items-order-txt](artifacts/misc-data-items-order-txt)</span> <span class="artifact-p">[dendrogram](artifacts/dendrogram)</span> <span class="artifact-p">[phylogeny](artifacts/phylogeny)</span> / 
-<span>**Requires**: <span class="artifact-r">[genes-db](artifacts/genes-db)</span> <span class="artifact-r">[pan-db](artifacts/pan-db)</span> <span class="artifact-r">[profile-db](artifacts/profile-db)</span>.</span>
+<span>**Requires**: <span class="artifact-r">[pan-db](artifacts/pan-db)</span> <span class="artifact-r">[profile-db](artifacts/profile-db)</span>.</span>
 
 
 * **[anvi-export-locus](programs/anvi-export-locus)**: This program helps you cut a &#39;locus&#39; from a larger genetic context (e.g., contigs, genomes). By default, anvi&#39;o will locate a user-defined anchor gene, extend its selection upstream and downstream based on the --num-genes argument, then extract the locus to create a new contigs database. The anchor gene must be provided as --search-term, --gene-caller-ids, or --hmm-sources. If --flank-mode is designated, you MUST provide TWO flanking genes that define the locus region (Please see --flank-mode help for more information). If everything goes as plan, anvi&#39;o will give you individual locus contigs databases for every matching anchor gene found in the original contigs database provided. Enjoy your mini contigs databases!.
@@ -169,7 +174,7 @@ Listed below a total of 108 programs.
 
 * **[anvi-export-misc-data](programs/anvi-export-misc-data)**: Export additional data or order tables in pan or profile databases for items or layers.
 <span>**Provides**: <span class="artifact-p">[misc-data-items-txt](artifacts/misc-data-items-txt)</span> <span class="artifact-p">[misc-data-layers-txt](artifacts/misc-data-layers-txt)</span> <span class="artifact-p">[misc-data-layer-orders-txt](artifacts/misc-data-layer-orders-txt)</span> <span class="artifact-p">[misc-data-nucleotides-txt](artifacts/misc-data-nucleotides-txt)</span> <span class="artifact-p">[misc-data-amino-acids-txt](artifacts/misc-data-amino-acids-txt)</span> / 
-<span>**Requires**: <span class="artifact-r">[genes-db](artifacts/genes-db)</span> <span class="artifact-r">[pan-db](artifacts/pan-db)</span> <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[misc-data-items](artifacts/misc-data-items)</span> <span class="artifact-r">[misc-data-layers](artifacts/misc-data-layers)</span> <span class="artifact-r">[misc-data-layer-orders](artifacts/misc-data-layer-orders)</span> <span class="artifact-r">[misc-data-nucleotides](artifacts/misc-data-nucleotides)</span> <span class="artifact-r">[misc-data-amino-acids](artifacts/misc-data-amino-acids)</span>.</span>
+<span>**Requires**: <span class="artifact-r">[pan-db](artifacts/pan-db)</span> <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[misc-data-items](artifacts/misc-data-items)</span> <span class="artifact-r">[misc-data-layers](artifacts/misc-data-layers)</span> <span class="artifact-r">[misc-data-layer-orders](artifacts/misc-data-layer-orders)</span> <span class="artifact-r">[misc-data-nucleotides](artifacts/misc-data-nucleotides)</span> <span class="artifact-r">[misc-data-amino-acids](artifacts/misc-data-amino-acids)</span>.</span>
 
 
 * **[anvi-export-splits-and-coverages](programs/anvi-export-splits-and-coverages)**: Export split or contig sequences and coverages across samples stored in an anvi&#39;o profile database. This program is especially useful if you would like to &#39;bin&#39; your splits or contigs outside of anvi&#39;o and import the binning results into anvi&#39;o using `anvi-import-collection` program.
@@ -184,7 +189,7 @@ Listed below a total of 108 programs.
 
 * **[anvi-export-state](programs/anvi-export-state)**: Export an anvi&#39;o state into a profile database.
 <span>**Provides**: <span class="artifact-p">[state-json](artifacts/state-json)</span> / 
-<span>**Requires**: <span class="artifact-r">[pan-db](artifacts/pan-db)</span> <span class="artifact-r">[profile-db](artifacts/profile-db)</span>.</span>
+<span>**Requires**: <span class="artifact-r">[pan-db](artifacts/pan-db)</span> <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[state](artifacts/state)</span>.</span>
 
 
 * **[anvi-export-structures](programs/anvi-export-structures)**: Export .pdb structure files from a structure database.
@@ -247,18 +252,18 @@ Listed below a total of 108 programs.
 <span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span>.</span>
 
 
-* **[anvi-get-enriched-functions-per-pan-group](programs/anvi-get-enriched-functions-per-pan-group)**: A program that takes a pangenome, and a categorical layers additional data item, and generates the input for anvi-get-enriched-functions-per-pan-group. If requested a functional occurrence table across genomes is also generated.
+* **[anvi-get-enriched-functions-per-pan-group](programs/anvi-get-enriched-functions-per-pan-group)**: A program that takes a pangenome, and a categorical layers additional data item, and generates a table describing functions that are enriched in those groups. If requested, a functional occurrence table across genomes is also generated.
 <span>**Provides**: <span class="artifact-p">[functional-enrichment-txt](artifacts/functional-enrichment-txt)</span> / 
-<span>**Requires**: <span class="artifact-r">[misc-data-layers-category](artifacts/misc-data-layers-category)</span> <span class="artifact-r">[pan-db](artifacts/pan-db)</span> <span class="artifact-r">[genomes-storage-db](artifacts/genomes-storage-db)</span>.</span>
+<span>**Requires**: <span class="artifact-r">[misc-data-layers](artifacts/misc-data-layers)</span> <span class="artifact-r">[pan-db](artifacts/pan-db)</span> <span class="artifact-r">[genomes-storage-db](artifacts/genomes-storage-db)</span>.</span>
 
 
 * **[anvi-get-sequences-for-gene-calls](programs/anvi-get-sequences-for-gene-calls)**: A script to get back sequences for gene calls.
 <span>**Provides**: <span class="artifact-p">[genes-fasta](artifacts/genes-fasta)</span> / 
-<span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span>.</span>
+<span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[genomes-storage-db](artifacts/genomes-storage-db)</span>.</span>
 
 
 * **[anvi-get-sequences-for-gene-clusters](programs/anvi-get-sequences-for-gene-clusters)**: Do cool stuff with gene clusters in anvi&#39;o pan genomes.
-<span>**Provides**: <span class="artifact-p">[genes-fasta](artifacts/genes-fasta)</span> <span class="artifact-p">[concatenated-gene-alignment-fasta](artifacts/concatenated-gene-alignment-fasta)</span> / 
+<span>**Provides**: <span class="artifact-p">[genes-fasta](artifacts/genes-fasta)</span> <span class="artifact-p">[concatenated-gene-alignment-fasta](artifacts/concatenated-gene-alignment-fasta)</span> <span class="artifact-p">[misc-data-items](artifacts/misc-data-items)</span> / 
 <span>**Requires**: <span class="artifact-r">[pan-db](artifacts/pan-db)</span> <span class="artifact-r">[genomes-storage-db](artifacts/genomes-storage-db)</span>.</span>
 
 
@@ -294,12 +299,12 @@ Listed below a total of 108 programs.
 
 * **[anvi-import-items-order](programs/anvi-import-items-order)**: Import a new items order into an anvi&#39;o database.
 <span>**Provides**: <span class="artifact-p">[misc-data-items-order](artifacts/misc-data-items-order)</span> / 
-<span>**Requires**: <span class="artifact-r">[genes-db](artifacts/genes-db)</span> <span class="artifact-r">[pan-db](artifacts/pan-db)</span> <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[misc-data-items-order-txt](artifacts/misc-data-items-order-txt)</span> <span class="artifact-r">[dendrogram](artifacts/dendrogram)</span> <span class="artifact-r">[phylogeny](artifacts/phylogeny)</span>.</span>
+<span>**Requires**: <span class="artifact-r">[pan-db](artifacts/pan-db)</span> <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[misc-data-items-order-txt](artifacts/misc-data-items-order-txt)</span> <span class="artifact-r">[dendrogram](artifacts/dendrogram)</span> <span class="artifact-r">[phylogeny](artifacts/phylogeny)</span>.</span>
 
 
 * **[anvi-import-misc-data](programs/anvi-import-misc-data)**: Populate additional data or order tables in pan or profile databases for items and layers, OR additional data in contigs databases for nucleotides and amino acids (the Swiss army knife-level serious stuff).
 <span>**Provides**: <span class="artifact-p">[misc-data-items](artifacts/misc-data-items)</span> <span class="artifact-p">[misc-data-layers](artifacts/misc-data-layers)</span> <span class="artifact-p">[misc-data-layer-orders](artifacts/misc-data-layer-orders)</span> <span class="artifact-p">[misc-data-nucleotides](artifacts/misc-data-nucleotides)</span> <span class="artifact-p">[misc-data-amino-acids](artifacts/misc-data-amino-acids)</span> / 
-<span>**Requires**: <span class="artifact-r">[genes-db](artifacts/genes-db)</span> <span class="artifact-r">[pan-db](artifacts/pan-db)</span> <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[misc-data-items-txt](artifacts/misc-data-items-txt)</span> <span class="artifact-r">[dendrogram](artifacts/dendrogram)</span> <span class="artifact-r">[phylogeny](artifacts/phylogeny)</span> <span class="artifact-r">[misc-data-layers-txt](artifacts/misc-data-layers-txt)</span> <span class="artifact-r">[misc-data-layer-orders-txt](artifacts/misc-data-layer-orders-txt)</span> <span class="artifact-r">[misc-data-nucleotides-txt](artifacts/misc-data-nucleotides-txt)</span> <span class="artifact-r">[misc-data-amino-acids-txt](artifacts/misc-data-amino-acids-txt)</span>.</span>
+<span>**Requires**: <span class="artifact-r">[pan-db](artifacts/pan-db)</span> <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[misc-data-items-txt](artifacts/misc-data-items-txt)</span> <span class="artifact-r">[dendrogram](artifacts/dendrogram)</span> <span class="artifact-r">[phylogeny](artifacts/phylogeny)</span> <span class="artifact-r">[misc-data-layers-txt](artifacts/misc-data-layers-txt)</span> <span class="artifact-r">[misc-data-layer-orders-txt](artifacts/misc-data-layer-orders-txt)</span> <span class="artifact-r">[misc-data-nucleotides-txt](artifacts/misc-data-nucleotides-txt)</span> <span class="artifact-r">[misc-data-amino-acids-txt](artifacts/misc-data-amino-acids-txt)</span>.</span>
 
 
 * **[anvi-import-state](programs/anvi-import-state)**: Import an anvi&#39;o state into a profile database.
@@ -387,7 +392,7 @@ Listed below a total of 108 programs.
 <span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[hmm-source](artifacts/hmm-source)</span>.</span>
 
 
-* **[anvi-run-interacdome](programs/anvi-run-interacdome)**: Run InteracDome on a contigs database..
+* **[anvi-run-interacdome](programs/anvi-run-interacdome)**: Run InteracDome on a contigs database.
 <span>**Provides**: <span class="artifact-p">[binding-frequencies](artifacts/binding-frequencies)</span> / 
 <span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[interacdome-data](artifacts/interacdome-data)</span>.</span>
 
@@ -412,6 +417,11 @@ Listed below a total of 108 programs.
 <span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[scgs-taxonomy-db](artifacts/scgs-taxonomy-db)</span>.</span>
 
 
+* **[anvi-run-trna-taxonomy](programs/anvi-run-trna-taxonomy)**: The purpose of this program is to affiliate tRNA gene sequences in an anvi&#39;o contigs database with taxonomic names. A properly setup local tRNA taxonomy database is required for this program to perform properly. After its successful run, `anvi-estimate-scg-taxonomy` will be useful to estimate taxonomy at genome-, collection-, or metagenome-level)..
+<span>**Provides**: <span class="artifact-p">[trna-taxonomy](artifacts/trna-taxonomy)</span> / 
+<span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[trna-taxonomy-db](artifacts/trna-taxonomy-db)</span>.</span>
+
+
 * **[anvi-scan-trnas](programs/anvi-scan-trnas)**: Identify and store tRNA genes in a contigs database.
 <span>**Provides**: <span class="artifact-p">[hmm-hits](artifacts/hmm-hits)</span> / 
 <span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span>.</span>
@@ -422,7 +432,7 @@ Listed below a total of 108 programs.
 <span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[genomes-storage-db](artifacts/genomes-storage-db)</span>.</span>
 
 
-* **[anvi-setup-interacdome](programs/anvi-setup-interacdome)**: Setup InteracDome data..
+* **[anvi-setup-interacdome](programs/anvi-setup-interacdome)**: Setup InteracDome data.
 <span>**Provides**: <span class="artifact-p">[interacdome-data](artifacts/interacdome-data)</span> / 
 <span>**Requires**: .</span>
 
@@ -452,6 +462,11 @@ Listed below a total of 108 programs.
 <span>**Requires**: .</span>
 
 
+* **[anvi-setup-trna-taxonomy](programs/anvi-setup-trna-taxonomy)**: The purpose of this program is to setup necessary databases for tRNA genes collected from GTDB (https://gtdb.ecogenomic.org/), genomes in your local anvi&#39;o installation so taxonomy information for a given set of tRNA sequences can be identified using `anvi-run-trna-taxonomy` and made sense of via `anvi-estimate-trna-taxonomy`)..
+<span>**Provides**: <span class="artifact-p">[trna-taxonomy-db](artifacts/trna-taxonomy-db)</span> / 
+<span>**Requires**: .</span>
+
+
 * **[anvi-show-collections-and-bins](programs/anvi-show-collections-and-bins)**: A script to display collections stored in an anvi&#39;o profile or pan database.
 <span>**Provides**:  / 
 <span>**Requires**: <span class="artifact-r">[pan-db](artifacts/pan-db)</span> <span class="artifact-r">[profile-db](artifacts/profile-db)</span>.</span>
@@ -462,7 +477,7 @@ Listed below a total of 108 programs.
 <span>**Requires**: <span class="artifact-r">[pan-db](artifacts/pan-db)</span> <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span>.</span>
 
 
-* **[anvi-split](programs/anvi-split)**: Split an anvi&#39;o pan or profile database into smaller, self-contained pieces. This is usually great when you want to share a subset of an anvi&#39;o project. You give this guy your databases, and a collection id, and it gives you back directories of individual projects for each bin that can be treated as self-contained smaller anvi&#39;o projects. We know you don&#39;t read this far into these help menus, but please remember: you will either need to provide a profile &amp; contigs database pair, or a pan &amp; genomes storage pair. The rest will be taken care of. Magic.
+* **[anvi-split](programs/anvi-split)**: Split an anvi&#39;o pan or profile database into smaller, self-contained pieces. Provide either a genomes-storage and pan database or a profile and contigs database pair, and you&#39;ll get back directories of individual projects for each bin  that can be treated as smaller anvi&#39;o projects.
 <span>**Provides**: <span class="artifact-p">[split-bins](artifacts/split-bins)</span> / 
 <span>**Requires**: <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[genomes-storage-db](artifacts/genomes-storage-db)</span> <span class="artifact-r">[pan-db](artifacts/pan-db)</span> <span class="artifact-r">[collection](artifacts/collection)</span>.</span>
 
@@ -470,6 +485,11 @@ Listed below a total of 108 programs.
 * **[anvi-summarize](programs/anvi-summarize)**: Summarizer for anvi&#39;o pan or profile db&#39;s. Essentially, this program takes a collection id along with either a profile database and a contigs database or a pan database and a genomes storage and generates a static HTML output for what is described in a given collection. The output directory will contain almost everything any downstream analysis may need, and can be displayed using a browser without the need for an anvi&#39;o installation. For this reason alone, reporting summary outputs as supplementary data with publications is a great idea for transparency and reproducibility.
 <span>**Provides**: <span class="artifact-p">[summary](artifacts/summary)</span> / 
 <span>**Requires**: <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[collection](artifacts/collection)</span> <span class="artifact-r">[pan-db](artifacts/pan-db)</span> <span class="artifact-r">[genomes-storage-db](artifacts/genomes-storage-db)</span>.</span>
+
+
+* **[anvi-trnaseq](programs/anvi-trnaseq)**: An anvi&#39;o script to process a tRNA-seq dataset, generating a tRNA-seq database..
+<span>**Provides**: <span class="artifact-p">[trnaseq-db](artifacts/trnaseq-db)</span> / 
+<span>**Requires**: .</span>
 
 
 * **[anvi-update-db-description](programs/anvi-update-db-description)**: Update the description in an anvi&#39;o database.
@@ -502,7 +522,7 @@ Listed below a total of 108 programs.
 <span>**Requires**: <span class="artifact-r">[fasta](artifacts/fasta)</span>.</span>
 
 
-* **[anvi-script-estimate-genome-size](programs/anvi-script-estimate-genome-size)**: A program to estimate the size of the actual population genome to which a MAG belongs..
+* **[anvi-script-estimate-genome-size](programs/anvi-script-estimate-genome-size)**: A program to estimate the size of the actual population genome to which a MAG belongs.
 <span>**Provides**:  / 
 <span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span>.</span>
 
@@ -562,7 +582,7 @@ Listed below a total of 108 programs.
 <span>**Requires**: <span class="artifact-r">[genbank-file](artifacts/genbank-file)</span>.</span>
 
 
-* **[anvi-script-process-genbank-metadata](programs/anvi-script-process-genbank-metadata)**: This script takes the &#39;metadata&#39; output of the program `ncbi-genome-download` (see https://github.com/kblin/ncbi-genome-download for details), and processes each GenBank file found in the metadata file to generate a FASTA file, as well as genes and functions files for each entry. Plus, it autmatically generates a FASTA TXT file descriptor for anvi&#39;o snakemake workfloes. So it is a multi-talented program like that..
+* **[anvi-script-process-genbank-metadata](programs/anvi-script-process-genbank-metadata)**: This script takes the &#39;metadata&#39; output of the program `ncbi-genome-download` (see https://github.com/kblin/ncbi-genome-download for details), and processes each GenBank file found in the metadata file to generate a FASTA file, as well as genes and functions files for each entry. Plus, it autmatically generates a FASTA TXT file descriptor for anvi&#39;o snakemake workfloes. So it is a multi-talented program like that.
 <span>**Provides**: <span class="artifact-p">[contigs-fasta](artifacts/contigs-fasta)</span> <span class="artifact-p">[functions-txt](artifacts/functions-txt)</span> <span class="artifact-p">[external-gene-calls](artifacts/external-gene-calls)</span> / 
 <span>**Requires**: .</span>
 
@@ -587,4 +607,4 @@ Listed below a total of 108 programs.
 
 A total of 92 artifacts.
 
-* <span style="line-height: 25px;"><span class="artifact-n">[pan-db](artifacts/pan-db)</span> <span class="artifact-n">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-n">[fasta](artifacts/fasta)</span> <span class="artifact-n">[contigs-fasta](artifacts/contigs-fasta)</span> <span class="artifact-n">[configuration-ini](artifacts/configuration-ini)</span> <span class="artifact-n">[external-gene-calls](artifacts/external-gene-calls)</span> <span class="artifact-n">[concatenated-gene-alignment-fasta](artifacts/concatenated-gene-alignment-fasta)</span> <span class="artifact-n">[short-reads-fasta](artifacts/short-reads-fasta)</span> <span class="artifact-n">[genes-fasta](artifacts/genes-fasta)</span> <span class="artifact-n">[bam-file](artifacts/bam-file)</span> <span class="artifact-n">[protein-structure](artifacts/protein-structure)</span> <span class="artifact-n">[raw-bam-file](artifacts/raw-bam-file)</span> <span class="artifact-n">[locus-fasta](artifacts/locus-fasta)</span> <span class="artifact-n">[structure-db](artifacts/structure-db)</span> <span class="artifact-n">[pdb-db](artifacts/pdb-db)</span> <span class="artifact-n">[kegg-db](artifacts/kegg-db)</span> <span class="artifact-n">[single-profile-db](artifacts/single-profile-db)</span> <span class="artifact-n">[profile-db](artifacts/profile-db)</span> <span class="artifact-n">[genes-db](artifacts/genes-db)</span> <span class="artifact-n">[genomes-storage-db](artifacts/genomes-storage-db)</span> <span class="artifact-n">[contigs-stats](artifacts/contigs-stats)</span> <span class="artifact-n">[svg](artifacts/svg)</span> <span class="artifact-n">[bin](artifacts/bin)</span> <span class="artifact-n">[collection](artifacts/collection)</span> <span class="artifact-n">[collection-txt](artifacts/collection-txt)</span> <span class="artifact-n">[hmm-source](artifacts/hmm-source)</span> <span class="artifact-n">[hmm-hits](artifacts/hmm-hits)</span> <span class="artifact-n">[completion](artifacts/completion)</span> <span class="artifact-n">[cogs-data](artifacts/cogs-data)</span> <span class="artifact-n">[pfams-data](artifacts/pfams-data)</span> <span class="artifact-n">[misc-data-items-txt](artifacts/misc-data-items-txt)</span> <span class="artifact-n">[misc-data-items](artifacts/misc-data-items)</span> <span class="artifact-n">[misc-data-layers-txt](artifacts/misc-data-layers-txt)</span> <span class="artifact-n">[misc-data-layers](artifacts/misc-data-layers)</span> <span class="artifact-n">[misc-data-nucleotides-txt](artifacts/misc-data-nucleotides-txt)</span> <span class="artifact-n">[misc-data-nucleotides](artifacts/misc-data-nucleotides)</span> <span class="artifact-n">[misc-data-amino-acids-txt](artifacts/misc-data-amino-acids-txt)</span> <span class="artifact-n">[misc-data-amino-acids](artifacts/misc-data-amino-acids)</span> <span class="artifact-n">[misc-data-layers-category](artifacts/misc-data-layers-category)</span> <span class="artifact-n">[genome-similarity](artifacts/genome-similarity)</span> <span class="artifact-n">[misc-data-layer-orders-txt](artifacts/misc-data-layer-orders-txt)</span> <span class="artifact-n">[misc-data-layer-orders](artifacts/misc-data-layer-orders)</span> <span class="artifact-n">[misc-data-items-order-txt](artifacts/misc-data-items-order-txt)</span> <span class="artifact-n">[misc-data-items-order](artifacts/misc-data-items-order)</span> <span class="artifact-n">[dendrogram](artifacts/dendrogram)</span> <span class="artifact-n">[metapangenome](artifacts/metapangenome)</span> <span class="artifact-n">[oligotypes](artifacts/oligotypes)</span> <span class="artifact-n">[linkmers-txt](artifacts/linkmers-txt)</span> <span class="artifact-n">[phylogeny](artifacts/phylogeny)</span> <span class="artifact-n">[gene-calls-txt](artifacts/gene-calls-txt)</span> <span class="artifact-n">[binding-frequencies](artifacts/binding-frequencies)</span> <span class="artifact-n">[interacdome-data](artifacts/interacdome-data)</span> <span class="artifact-n">[functions](artifacts/functions)</span> <span class="artifact-n">[functions-txt](artifacts/functions-txt)</span> <span class="artifact-n">[functional-enrichment-txt](artifacts/functional-enrichment-txt)</span> <span class="artifact-n">[kegg-functions](artifacts/kegg-functions)</span> <span class="artifact-n">[interactive](artifacts/interactive)</span> <span class="artifact-n">[view-data](artifacts/view-data)</span> <span class="artifact-n">[layer-taxonomy](artifacts/layer-taxonomy)</span> <span class="artifact-n">[layer-taxonomy-txt](artifacts/layer-taxonomy-txt)</span> <span class="artifact-n">[gene-taxonomy](artifacts/gene-taxonomy)</span> <span class="artifact-n">[gene-taxonomy-txt](artifacts/gene-taxonomy-txt)</span> <span class="artifact-n">[genome-taxonomy](artifacts/genome-taxonomy)</span> <span class="artifact-n">[genome-taxonomy-txt](artifacts/genome-taxonomy-txt)</span> <span class="artifact-n">[scgs-taxonomy-db](artifacts/scgs-taxonomy-db)</span> <span class="artifact-n">[scgs-taxonomy](artifacts/scgs-taxonomy)</span> <span class="artifact-n">[external-genomes](artifacts/external-genomes)</span> <span class="artifact-n">[internal-genomes](artifacts/internal-genomes)</span> <span class="artifact-n">[metagenomes](artifacts/metagenomes)</span> <span class="artifact-n">[coverages-txt](artifacts/coverages-txt)</span> <span class="artifact-n">[detection-txt](artifacts/detection-txt)</span> <span class="artifact-n">[genome-distance-txt](artifacts/genome-distance-txt)</span> <span class="artifact-n">[genome-distance](artifacts/genome-distance)</span> <span class="artifact-n">[variability-profile](artifacts/variability-profile)</span> <span class="artifact-n">[variability-profile-txt](artifacts/variability-profile-txt)</span> <span class="artifact-n">[codon-frequencies-txt](artifacts/codon-frequencies-txt)</span> <span class="artifact-n">[aa-frequencies-txt](artifacts/aa-frequencies-txt)</span> <span class="artifact-n">[fixation-index-matrix](artifacts/fixation-index-matrix)</span> <span class="artifact-n">[summary](artifacts/summary)</span> <span class="artifact-n">[split-bins](artifacts/split-bins)</span> <span class="artifact-n">[state](artifacts/state)</span> <span class="artifact-n">[ngrams](artifacts/ngrams)</span> <span class="artifact-n">[state-json](artifacts/state-json)</span> <span class="artifact-n">[kegg-metabolism](artifacts/kegg-metabolism)</span> <span class="artifact-n">[augustus-gene-calls](artifacts/augustus-gene-calls)</span> <span class="artifact-n">[genes-stats](artifacts/genes-stats)</span> <span class="artifact-n">[vcf](artifacts/vcf)</span> <span class="artifact-n">[blast-table](artifacts/blast-table)</span> <span class="artifact-n">[splits-txt](artifacts/splits-txt)</span> <span class="artifact-n">[genbank-file](artifacts/genbank-file)</span> <span class="artifact-n">[splits-taxonomy-txt](artifacts/splits-taxonomy-txt)</span> <span class="artifact-n">[hmm-hits-matrix-txt](artifacts/hmm-hits-matrix-txt)</span>.</span>
+* <span style="line-height: 25px;"><span class="artifact-n">[pan-db](artifacts/pan-db)</span> <span class="artifact-n">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-n">[trnaseq-db](artifacts/trnaseq-db)</span> <span class="artifact-n">[fasta](artifacts/fasta)</span> <span class="artifact-n">[contigs-fasta](artifacts/contigs-fasta)</span> <span class="artifact-n">[configuration-ini](artifacts/configuration-ini)</span> <span class="artifact-n">[external-gene-calls](artifacts/external-gene-calls)</span> <span class="artifact-n">[concatenated-gene-alignment-fasta](artifacts/concatenated-gene-alignment-fasta)</span> <span class="artifact-n">[short-reads-fasta](artifacts/short-reads-fasta)</span> <span class="artifact-n">[genes-fasta](artifacts/genes-fasta)</span> <span class="artifact-n">[bam-file](artifacts/bam-file)</span> <span class="artifact-n">[protein-structure](artifacts/protein-structure)</span> <span class="artifact-n">[raw-bam-file](artifacts/raw-bam-file)</span> <span class="artifact-n">[locus-fasta](artifacts/locus-fasta)</span> <span class="artifact-n">[structure-db](artifacts/structure-db)</span> <span class="artifact-n">[pdb-db](artifacts/pdb-db)</span> <span class="artifact-n">[kegg-db](artifacts/kegg-db)</span> <span class="artifact-n">[single-profile-db](artifacts/single-profile-db)</span> <span class="artifact-n">[profile-db](artifacts/profile-db)</span> <span class="artifact-n">[genes-db](artifacts/genes-db)</span> <span class="artifact-n">[genomes-storage-db](artifacts/genomes-storage-db)</span> <span class="artifact-n">[contigs-stats](artifacts/contigs-stats)</span> <span class="artifact-n">[svg](artifacts/svg)</span> <span class="artifact-n">[bin](artifacts/bin)</span> <span class="artifact-n">[collection](artifacts/collection)</span> <span class="artifact-n">[collection-txt](artifacts/collection-txt)</span> <span class="artifact-n">[hmm-source](artifacts/hmm-source)</span> <span class="artifact-n">[hmm-hits](artifacts/hmm-hits)</span> <span class="artifact-n">[completion](artifacts/completion)</span> <span class="artifact-n">[cogs-data](artifacts/cogs-data)</span> <span class="artifact-n">[pfams-data](artifacts/pfams-data)</span> <span class="artifact-n">[misc-data-items-txt](artifacts/misc-data-items-txt)</span> <span class="artifact-n">[misc-data-items](artifacts/misc-data-items)</span> <span class="artifact-n">[misc-data-layers-txt](artifacts/misc-data-layers-txt)</span> <span class="artifact-n">[misc-data-layers](artifacts/misc-data-layers)</span> <span class="artifact-n">[misc-data-nucleotides-txt](artifacts/misc-data-nucleotides-txt)</span> <span class="artifact-n">[misc-data-nucleotides](artifacts/misc-data-nucleotides)</span> <span class="artifact-n">[misc-data-amino-acids-txt](artifacts/misc-data-amino-acids-txt)</span> <span class="artifact-n">[misc-data-amino-acids](artifacts/misc-data-amino-acids)</span> <span class="artifact-n">[genome-similarity](artifacts/genome-similarity)</span> <span class="artifact-n">[misc-data-layer-orders-txt](artifacts/misc-data-layer-orders-txt)</span> <span class="artifact-n">[misc-data-layer-orders](artifacts/misc-data-layer-orders)</span> <span class="artifact-n">[misc-data-items-order-txt](artifacts/misc-data-items-order-txt)</span> <span class="artifact-n">[misc-data-items-order](artifacts/misc-data-items-order)</span> <span class="artifact-n">[dendrogram](artifacts/dendrogram)</span> <span class="artifact-n">[metapangenome](artifacts/metapangenome)</span> <span class="artifact-n">[oligotypes](artifacts/oligotypes)</span> <span class="artifact-n">[linkmers-txt](artifacts/linkmers-txt)</span> <span class="artifact-n">[phylogeny](artifacts/phylogeny)</span> <span class="artifact-n">[gene-calls-txt](artifacts/gene-calls-txt)</span> <span class="artifact-n">[binding-frequencies](artifacts/binding-frequencies)</span> <span class="artifact-n">[interacdome-data](artifacts/interacdome-data)</span> <span class="artifact-n">[functions](artifacts/functions)</span> <span class="artifact-n">[functions-txt](artifacts/functions-txt)</span> <span class="artifact-n">[functional-enrichment-txt](artifacts/functional-enrichment-txt)</span> <span class="artifact-n">[kegg-functions](artifacts/kegg-functions)</span> <span class="artifact-n">[interactive](artifacts/interactive)</span> <span class="artifact-n">[view-data](artifacts/view-data)</span> <span class="artifact-n">[layer-taxonomy](artifacts/layer-taxonomy)</span> <span class="artifact-n">[layer-taxonomy-txt](artifacts/layer-taxonomy-txt)</span> <span class="artifact-n">[gene-taxonomy](artifacts/gene-taxonomy)</span> <span class="artifact-n">[gene-taxonomy-txt](artifacts/gene-taxonomy-txt)</span> <span class="artifact-n">[genome-taxonomy](artifacts/genome-taxonomy)</span> <span class="artifact-n">[genome-taxonomy-txt](artifacts/genome-taxonomy-txt)</span> <span class="artifact-n">[scgs-taxonomy-db](artifacts/scgs-taxonomy-db)</span> <span class="artifact-n">[scgs-taxonomy](artifacts/scgs-taxonomy)</span> <span class="artifact-n">[trna-taxonomy-db](artifacts/trna-taxonomy-db)</span> <span class="artifact-n">[trna-taxonomy](artifacts/trna-taxonomy)</span> <span class="artifact-n">[external-genomes](artifacts/external-genomes)</span> <span class="artifact-n">[internal-genomes](artifacts/internal-genomes)</span> <span class="artifact-n">[metagenomes](artifacts/metagenomes)</span> <span class="artifact-n">[coverages-txt](artifacts/coverages-txt)</span> <span class="artifact-n">[detection-txt](artifacts/detection-txt)</span> <span class="artifact-n">[variability-profile](artifacts/variability-profile)</span> <span class="artifact-n">[variability-profile-txt](artifacts/variability-profile-txt)</span> <span class="artifact-n">[codon-frequencies-txt](artifacts/codon-frequencies-txt)</span> <span class="artifact-n">[aa-frequencies-txt](artifacts/aa-frequencies-txt)</span> <span class="artifact-n">[fixation-index-matrix](artifacts/fixation-index-matrix)</span> <span class="artifact-n">[summary](artifacts/summary)</span> <span class="artifact-n">[split-bins](artifacts/split-bins)</span> <span class="artifact-n">[state](artifacts/state)</span> <span class="artifact-n">[ngrams](artifacts/ngrams)</span> <span class="artifact-n">[state-json](artifacts/state-json)</span> <span class="artifact-n">[kegg-metabolism](artifacts/kegg-metabolism)</span> <span class="artifact-n">[augustus-gene-calls](artifacts/augustus-gene-calls)</span> <span class="artifact-n">[genes-stats](artifacts/genes-stats)</span> <span class="artifact-n">[vcf](artifacts/vcf)</span> <span class="artifact-n">[blast-table](artifacts/blast-table)</span> <span class="artifact-n">[splits-txt](artifacts/splits-txt)</span> <span class="artifact-n">[genbank-file](artifacts/genbank-file)</span> <span class="artifact-n">[splits-taxonomy-txt](artifacts/splits-taxonomy-txt)</span> <span class="artifact-n">[hmm-hits-matrix-txt](artifacts/hmm-hits-matrix-txt)</span>.</span>

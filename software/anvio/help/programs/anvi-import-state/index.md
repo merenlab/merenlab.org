@@ -31,8 +31,21 @@ See **[program help menu](../../../vignette#anvi-import-state)** or go back to t
 ## Usage
 
 
+This program allows you to import a <span class="artifact-n">[state](/software/anvio/help/artifacts/state)</span> from a <span class="artifact-n">[state-json](/software/anvio/help/artifacts/state-json)</span>.
+
+You can run this program on a <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span> like so: 
+
+<div class="codeblock" markdown="1">
+anvi&#45;import&#45;state &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
+                  &#45;s <span class="artifact&#45;n">[state&#45;json](/software/anvio/help/artifacts/state&#45;json)</span> \
+                  &#45;n MY_STATE
+</div>
+
+This will import the state described in your <span class="artifact-n">[state-json](/software/anvio/help/artifacts/state-json)</span> into your <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> with the name `MY_STATE`. 
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-import-state.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-import-state.md) to update this information.
 
 
 ## Additional Resources

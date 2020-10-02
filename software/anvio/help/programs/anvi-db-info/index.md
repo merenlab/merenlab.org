@@ -26,7 +26,7 @@ See **[program help menu](../../../vignette#anvi-db-info)** or go back to the **
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[pan-db](../../artifacts/pan-db)</span> <span class="artifact-r">[profile-db](../../artifacts/profile-db)</span> <span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[genomes-storage-db](../../artifacts/genomes-storage-db)</span> <span class="artifact-r">[genes-db](../../artifacts/genes-db)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[pan-db](../../artifacts/pan-db)</span> <span class="artifact-r">[profile-db](../../artifacts/profile-db)</span> <span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[genomes-storage-db](../../artifacts/genomes-storage-db)</span> <span class="artifact-r">[structure-db](../../artifacts/structure-db)</span></p>
 
 ## Usage
 

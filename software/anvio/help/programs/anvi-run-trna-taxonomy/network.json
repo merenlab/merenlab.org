@@ -5,10 +5,10 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "genes-fasta",
-      "name": "genes-fasta",
+      "id": "trna-taxonomy",
+      "name": "trna-taxonomy",
       "provided_by_anvio": true,
-      "type": "FASTA"
+      "type": "CONCEPT"
     },
     {
       "size": 1,
@@ -23,17 +23,17 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "genomes-storage-db",
-      "name": "genomes-storage-db",
+      "id": "trna-taxonomy-db",
+      "name": "trna-taxonomy-db",
       "provided_by_anvio": true,
-      "type": "DB"
+      "type": "CONCEPT"
     },
     {
       "size": 3,
       "score": 0.1,
       "color": "#AAAA00",
-      "id": "anvi-get-sequences-for-gene-calls",
-      "name": "anvi-get-sequences-for-gene-calls",
+      "id": "anvi-run-trna-taxonomy",
+      "name": "anvi-run-trna-taxonomy",
       "type": "PROGRAM"
     }
   ],

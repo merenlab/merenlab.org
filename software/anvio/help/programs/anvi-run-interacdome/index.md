@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Run InteracDome on a contigs database..
+Run InteracDome on a contigs database.
 
 See **[program help menu](../../../vignette#anvi-run-interacdome)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

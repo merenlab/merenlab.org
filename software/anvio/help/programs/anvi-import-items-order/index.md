@@ -26,7 +26,7 @@ See **[program help menu](../../../vignette#anvi-import-items-order)** or go bac
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[genes-db](../../artifacts/genes-db)</span> <span class="artifact-r">[pan-db](../../artifacts/pan-db)</span> <span class="artifact-r">[profile-db](../../artifacts/profile-db)</span> <span class="artifact-r">[misc-data-items-order-txt](../../artifacts/misc-data-items-order-txt)</span> <span class="artifact-r">[dendrogram](../../artifacts/dendrogram)</span> <span class="artifact-r">[phylogeny](../../artifacts/phylogeny)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[pan-db](../../artifacts/pan-db)</span> <span class="artifact-r">[profile-db](../../artifacts/profile-db)</span> <span class="artifact-r">[misc-data-items-order-txt](../../artifacts/misc-data-items-order-txt)</span> <span class="artifact-r">[dendrogram](../../artifacts/dendrogram)</span> <span class="artifact-r">[phylogeny](../../artifacts/phylogeny)</span></p>
 
 ## Usage
 
@@ -35,14 +35,14 @@ This program, as one might think, allows you to import a <span class="artifact-n
 
 <div class="codeblock" markdown="1">
 anvi&#45;import&#45;items&#45;order &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
-                        &#45;&#45;i <span class="artifact&#45;n">[misc&#45;data&#45;items&#45;order&#45;txt](/software/anvio/help/artifacts/misc&#45;data&#45;items&#45;order&#45;txt)</span>
+                        &#45;i <span class="artifact&#45;n">[misc&#45;data&#45;items&#45;order&#45;txt](/software/anvio/help/artifacts/misc&#45;data&#45;items&#45;order&#45;txt)</span>
 </div>
 
 It may also be nice to give it a good name, so that it's easy to find in the interface.
 
 <div class="codeblock" markdown="1">
 anvi&#45;import&#45;items&#45;order &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
-                        &#45;&#45;i <span class="artifact&#45;n">[misc&#45;data&#45;items&#45;order&#45;txt](/software/anvio/help/artifacts/misc&#45;data&#45;items&#45;order&#45;txt)</span> \
+                        &#45;i <span class="artifact&#45;n">[misc&#45;data&#45;items&#45;order&#45;txt](/software/anvio/help/artifacts/misc&#45;data&#45;items&#45;order&#45;txt)</span> \
                         &#45;&#45;name ORDER_NAME
 </div>
 

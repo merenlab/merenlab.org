@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-This script takes the &#39;metadata&#39; output of the program `ncbi-genome-download` (see https://github.com/kblin/ncbi-genome-download for details), and processes each GenBank file found in the metadata file to generate a FASTA file, as well as genes and functions files for each entry. Plus, it autmatically generates a FASTA TXT file descriptor for anvi&#39;o snakemake workfloes. So it is a multi-talented program like that..
+This script takes the &#39;metadata&#39; output of the program `ncbi-genome-download` (see https://github.com/kblin/ncbi-genome-download for details), and processes each GenBank file found in the metadata file to generate a FASTA file, as well as genes and functions files for each entry. Plus, it autmatically generates a FASTA TXT file descriptor for anvi&#39;o snakemake workfloes. So it is a multi-talented program like that.
 
 See **[program help menu](../../../vignette#anvi-script-process-genbank-metadata)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

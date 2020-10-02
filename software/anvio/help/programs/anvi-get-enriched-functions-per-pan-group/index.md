@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-A program that takes a pangenome, and a categorical layers additional data item, and generates the input for anvi-get-enriched-functions-per-pan-group. If requested a functional occurrence table across genomes is also generated.
+A program that takes a pangenome, and a categorical layers additional data item, and generates a table describing functions that are enriched in those groups. If requested, a functional occurrence table across genomes is also generated.
 
 See **[program help menu](../../../vignette#anvi-get-enriched-functions-per-pan-group)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -26,13 +26,68 @@ See **[program help menu](../../../vignette#anvi-get-enriched-functions-per-pan-
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[misc-data-layers-category](../../artifacts/misc-data-layers-category)</span> <span class="artifact-r">[pan-db](../../artifacts/pan-db)</span> <span class="artifact-r">[genomes-storage-db](../../artifacts/genomes-storage-db)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[misc-data-layers](../../artifacts/misc-data-layers)</span> <span class="artifact-r">[pan-db](../../artifacts/pan-db)</span> <span class="artifact-r">[genomes-storage-db](../../artifacts/genomes-storage-db)</span></p>
 
 ## Usage
 
 
+This program returns a **matrix of functions that are enriched within specific groups in your pangenome**. 
+
+You provide a <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span> and <span class="artifact-n">[genomes-storage-db](/software/anvio/help/artifacts/genomes-storage-db)</span> pair, as well as a <span class="artifact-n">[misc-data-layers](/software/anvio/help/artifacts/misc-data-layers)</span> that stores categorical data, and the program will consider each of the categories their own 'pan-group'. It will then find functions that are enriched in that group (i.e., functions that are associated with gene clusters that are characteristic of the genomes in that group). It returns this output as a <span class="artifact-n">[functional-enrichment-txt](/software/anvio/help/artifacts/functional-enrichment-txt)</span>
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-get-enriched-functions-per-pan-group.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Note that your <span class="artifact-n">[genomes-storage-db](/software/anvio/help/artifacts/genomes-storage-db)</span> must have at least one functional annotation source for this to work. 
+
+This helps you highlight functions or pathways that separate a specific pan-group and determine the functional core of your pangenome. For example, in the *Prochlorococcus* pangenome (the one used in [the pangenomics tutorial, where you can find morei info about this program](http://merenlab.org/2016/11/08/pangenomics-v2/#making-sense-of-functions-in-your-pangenome)), this program finds that `Exonuclease VII` is enriched in the low-light pan-group. The output file provides various statistics about how confident the program is in making this association. 
+
+### How does it work? 
+
+What this program does can be broken down into three steps: 
+
+1. Determining the pan-groups. Firstly, the program uses a <span class="artifact-n">[misc-data-layers](/software/anvio/help/artifacts/misc-data-layers)</span> (containing categorical, not numerical, data) to split the pangenome into several groups. For example, in the pangenome tutorial, this was the low-light and high-light groups. 
+2.  Determine the "functional associations" for each of your gene clusters. In short, this is collecting the functional annotations for all of the genes in each cluster and assigning the one that appears most frequently to represent the entire cluster. 
+3. Looking at the functional associations and their relative levels of abundance across the pan-groups. Specifically, it looks at the level that a particular gene cluster's functional association is unique to a single pan-group and the percent of genomes it appears in in each pan-group. This is what is reported in the output matrix, a <span class="artifact-n">[functional-enrichment-txt](/software/anvio/help/artifacts/functional-enrichment-txt)</span> 
+
+If you're still curious, check out [Alon's behind the scenes post](http://merenlab.org/2016/11/08/pangenomics-v2/#making-sense-of-functions-in-your-pangenome), which goes into a lot more detail.
+
+### Okay, cool. Let's talk parameters. 
+
+Here is the simplest run of this program: 
+
+<div class="codeblock" markdown="1">
+anvi&#45;get&#45;enriched&#45;functions&#45;per&#45;pan&#45;group &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/artifacts/pan&#45;db)</span>\
+                                          &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/artifacts/genomes&#45;storage&#45;db)</span> \
+                                          &#45;o <span class="artifact&#45;n">[functional&#45;enrichment&#45;txt](/software/anvio/help/artifacts/functional&#45;enrichment&#45;txt)</span> \ 
+                                          &#45;&#45;category&#45;variable CATEGORY
+</div>
+
+The parameter `--category-variable` gives the name of the categorical <span class="artifact-n">[misc-data-layers](/software/anvio/help/artifacts/misc-data-layers)</span> that you want to use to define your pan-groups. Note that this will consider all items not in a category in their own 'ungrouped' pan-group; you can ignore those items with the flag `--exlcude-ungrouped` 
+
+You can choose to not group together gene clusters with the same function by adding the parameter `--include-gc-identity-as-function` and setting the annotation source ot `IDENTITY`
+
+#### Defining a Functional Annotation Source
+
+You also have the option to only use functional annotations from a specific source, like so: 
+
+<div class="codeblock" markdown="1">
+anvi&#45;get&#45;enriched&#45;functions&#45;per&#45;pan&#45;group &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/artifacts/pan&#45;db)</span>\
+                                          &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/artifacts/genomes&#45;storage&#45;db)</span> \
+                                          &#45;o <span class="artifact&#45;n">[functional&#45;enrichment&#45;txt](/software/anvio/help/artifacts/functional&#45;enrichment&#45;txt)</span> \ 
+                                          &#45;&#45;category&#45;variable CATEGORY \ 
+                                          &#45;&#45;annotation&#45;source COG_FUNCTION
+</div>
+
+Use the parameter `--list-annotation-sources` to list the available annotation sources in your <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span>. 
+
+#### Additional Output 
+
+You can also output a functional occurance table, which describes the number of times each of your functional associations occurs in each genome you're looking at. You can interact more with this data by using <span class="artifact-n">[anvi-matrix-to-newick](/software/anvio/help/programs/anvi-matrix-to-newick)</span>. 
+
+You can find more information about this [here](http://merenlab.org/2016/11/08/pangenomics-v2/#creating-a-quick-pangenome-with-functions). 
+
+
+{:.notice}
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-get-enriched-functions-per-pan-group.md) to update this information.
 
 
 ## Additional Resources

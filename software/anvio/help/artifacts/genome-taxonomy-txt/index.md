@@ -21,7 +21,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-estimate-scg-taxonomy](../../programs/anvi-estimate-scg-taxonomy)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-estimate-scg-taxonomy](../../programs/anvi-estimate-scg-taxonomy)</span> <span class="artifact-p">[anvi-estimate-trna-taxonomy](../../programs/anvi-estimate-trna-taxonomy)</span></p>
 
 
 ## Required or used by
