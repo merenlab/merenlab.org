@@ -1,0 +1,96 @@
+current directory: /Users/jessicapan/Desktop/Lab_work/anvio_documentation/web/vendor/bundle/ruby/2.7.0/gems/ffi-1.9.25/ext/ffi_c
+/usr/local/opt/ruby/bin/ruby -I /usr/local/Cellar/ruby/2.7.1_2/lib/ruby/2.7.0 -r ./siteconf20200624-4784-bvv9e1.rb extconf.rb
+checking for ffi_call() in -lffi... yes
+checking for ffi_closure_alloc()... yes
+checking for ffi_raw_call()... yes
+checking for ffi_prep_raw_closure()... yes
+checking for shlwapi.h... no
+checking for ruby/thread.h... yes
+checking for rb_thread_blocking_region()... no
+checking for rb_thread_call_with_gvl()... yes
+checking for rb_thread_call_without_gvl()... yes
+checking for ffi_prep_cif_var()... yes
+creating extconf.h
+creating Makefile
+
+current directory: /Users/jessicapan/Desktop/Lab_work/anvio_documentation/web/vendor/bundle/ruby/2.7.0/gems/ffi-1.9.25/ext/ffi_c
+make "DESTDIR=" clean
+
+current directory: /Users/jessicapan/Desktop/Lab_work/anvio_documentation/web/vendor/bundle/ruby/2.7.0/gems/ffi-1.9.25/ext/ffi_c
+make "DESTDIR="
+compiling AbstractMemory.c
+compiling ArrayType.c
+compiling Buffer.c
+compiling Call.c
+Call.c:412:20: warning: incompatible pointer types passing 'VALUE (void *)' (aka 'unsigned long (void *)') to parameter of type 'VALUE (*)(VALUE)' (aka 'unsigned long (*)(unsigned long)') [-Wincompatible-pointer-types]
+        rb_rescue2(rbffi_do_blocking_call, (VALUE) bc, rbffi_save_frame_exception, (VALUE) &frame, rb_eException, (VALUE) 0);
+                   ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.7.1_2/include/ruby-2.7.0/ruby/ruby.h:1988:25: note: passing argument to parameter here
+VALUE rb_rescue2(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE,VALUE),VALUE,...);
+                        ^
+Call.c:412:56: warning: incompatible pointer types passing 'VALUE (void *, VALUE)' (aka 'unsigned long (void *, unsigned long)') to parameter of type 'VALUE (*)(VALUE, VALUE)' (aka 'unsigned long (*)(unsigned long, unsigned long)') [-Wincompatible-pointer-types]
+        rb_rescue2(rbffi_do_blocking_call, (VALUE) bc, rbffi_save_frame_exception, (VALUE) &frame, rb_eException, (VALUE) 0);
+                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.7.1_2/include/ruby-2.7.0/ruby/ruby.h:1988:47: note: passing argument to parameter here
+VALUE rb_rescue2(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE,VALUE),VALUE,...);
+                                              ^
+2 warnings generated.
+compiling ClosurePool.c
+compiling DataConverter.c
+compiling DynamicLibrary.c
+compiling Function.c
+Function.c:740:16: warning: incompatible pointer types passing 'VALUE (void *)' (aka 'unsigned long (void *)') to parameter of type 'VALUE (*)(VALUE)' (aka 'unsigned long (*)(unsigned long)') [-Wincompatible-pointer-types]
+    rb_rescue2(invoke_callback, (VALUE) data, save_callback_exception, (VALUE) data, rb_eException, (VALUE) 0);
+               ^~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.7.1_2/include/ruby-2.7.0/ruby/ruby.h:1988:25: note: passing argument to parameter here
+VALUE rb_rescue2(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE,VALUE),VALUE,...);
+                        ^
+Function.c:740:47: warning: incompatible pointer types passing 'VALUE (void *, VALUE)' (aka 'unsigned long (void *, unsigned long)') to parameter of type 'VALUE (*)(VALUE, VALUE)' (aka 'unsigned long (*)(unsigned long, unsigned long)') [-Wincompatible-pointer-types]
+    rb_rescue2(invoke_callback, (VALUE) data, save_callback_exception, (VALUE) data, rb_eException, (VALUE) 0);
+                                              ^~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.7.1_2/include/ruby-2.7.0/ruby/ruby.h:1988:47: note: passing argument to parameter here
+VALUE rb_rescue2(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE,VALUE),VALUE,...);
+                                              ^
+2 warnings generated.
+compiling FunctionInfo.c
+compiling LastError.c
+compiling LongDouble.c
+LongDouble.c:19:59: warning: incompatible pointer types passing 'VALUE (VALUE)' (aka 'unsigned long (unsigned long)') to parameter of type 'VALUE (*)(VALUE, VALUE)' (aka 'unsigned long (*)(unsigned long, unsigned long)') [-Wincompatible-pointer-types]
+        rb_cBigDecimal = rb_rescue(bigdecimal_load, Qnil, bigdecimal_failed, rb_cObject);
+                                                          ^~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.7.1_2/include/ruby-2.7.0/ruby/ruby.h:1987:46: note: passing argument to parameter here
+VALUE rb_rescue(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE,VALUE),VALUE);
+                                             ^
+1 warning generated.
+compiling MappedType.c
+compiling MemoryPointer.c
+compiling MethodHandle.c
+compiling Platform.c
+compiling Pointer.c
+compiling Struct.c
+compiling StructByReference.c
+compiling StructByValue.c
+compiling StructLayout.c
+compiling Thread.c
+compiling Type.c
+compiling Types.c
+compiling Variadic.c
+Variadic.c:274:20: warning: incompatible pointer types passing 'VALUE (void *)' (aka 'unsigned long (void *)') to parameter of type 'VALUE (*)(VALUE)' (aka 'unsigned long (*)(unsigned long)') [-Wincompatible-pointer-types]
+        rb_rescue2(rbffi_do_blocking_call, (VALUE) bc, rbffi_save_frame_exception, (VALUE) &frame, rb_eException, (VALUE) 0);
+                   ^~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.7.1_2/include/ruby-2.7.0/ruby/ruby.h:1988:25: note: passing argument to parameter here
+VALUE rb_rescue2(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE,VALUE),VALUE,...);
+                        ^
+Variadic.c:274:56: warning: incompatible pointer types passing 'VALUE (void *, VALUE)' (aka 'unsigned long (void *, unsigned long)') to parameter of type 'VALUE (*)(VALUE, VALUE)' (aka 'unsigned long (*)(unsigned long, unsigned long)') [-Wincompatible-pointer-types]
+        rb_rescue2(rbffi_do_blocking_call, (VALUE) bc, rbffi_save_frame_exception, (VALUE) &frame, rb_eException, (VALUE) 0);
+                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/local/Cellar/ruby/2.7.1_2/include/ruby-2.7.0/ruby/ruby.h:1988:47: note: passing argument to parameter here
+VALUE rb_rescue2(VALUE(*)(VALUE),VALUE,VALUE(*)(VALUE,VALUE),VALUE,...);
+                                              ^
+2 warnings generated.
+compiling ffi.c
+linking shared-object ffi_c.bundle
+
+current directory: /Users/jessicapan/Desktop/Lab_work/anvio_documentation/web/vendor/bundle/ruby/2.7.0/gems/ffi-1.9.25/ext/ffi_c
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 ffi_c.bundle ./.gem.20200624-4784-1sb9n1o
