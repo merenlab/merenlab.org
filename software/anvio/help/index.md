@@ -28,7 +28,7 @@ Visit <a href="http://merenlab.org/software/anvio/vignette/">this page</a> to se
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **02 Oct 20 10:12:22** for anvi'o version **6.2-master (esther)**.
+The help contents were last updated on **02 Oct 20 14:26:45** for anvi'o version **6.2-master (esther)**.
 
 
 {% include _toc.html %}
@@ -382,7 +382,7 @@ Listed below a total of 112 programs.
 <span>**Requires**: <span class="artifact-r">[collection](artifacts/collection)</span> <span class="artifact-r">[bin](artifacts/bin)</span> <span class="artifact-r">[profile-db](artifacts/profile-db)</span> <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span>.</span>
 
 
-* **[anvi-report-linkmers](programs/anvi-report-linkmers)**: Access reads in contigs and positions in a BAM file.
+* **[anvi-report-linkmers](programs/anvi-report-linkmers)**: Reports sequences stored in one or more BAM files that cover one of more specific nucleotide positions in a reference.
 <span>**Provides**: <span class="artifact-p">[linkmers-txt](artifacts/linkmers-txt)</span> / 
 <span>**Requires**: <span class="artifact-r">[bam-file](artifacts/bam-file)</span>.</span>
 
