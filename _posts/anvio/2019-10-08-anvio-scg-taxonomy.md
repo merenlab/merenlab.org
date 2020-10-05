@@ -642,7 +642,7 @@ anvi-estimate-scg-taxonomy --metagenomes metagenomes.txt \
                            --output-file-prefix METAGENOMES-EXAMPLE
 ```
 
-Anvi'o goes through all contigs databases, founds the frequencies of each SCG, and picks one that is the most frequent across them. This is what my terminal says:
+Anvi'o goes through all contigs databases, finds the frequencies of each SCG, and picks one that is the most frequent across them. This is what my terminal says:
 
 ```
 (...)
