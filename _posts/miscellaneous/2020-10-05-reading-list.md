@@ -7,8 +7,6 @@ modified: 2020-10-05
 tags: []
 categories: [miscellaneous]
 comments: true
-redirect_from:
-image:
 ---
 
 {% include _toc.html %}
@@ -17,7 +15,7 @@ image:
 
 Here we provide to the scientific community some thoughts and ideas from Black authors and creators on how we can recognize and confront anti-Black racism in our society, in our institutions, and in ourselves. The compilation of this list began following the [murder of George Floyd by Minneapolis police in May 2020](https://en.wikipedia.org/wiki/Killing_of_George_Floyd) (cw: violent imagery) and the global outrage it sparked, which reminded us of our responsibility to better educate ourselves on the ongoing issue of implicit and explicit racism. The lived experiences and published works of Black people demonstrate that we are all complicit in anti-Black racism in science and academia, no matter how well-meaning or progressive we are as individuals. We therefore urge our colleagues and readers to engage with these resources, even if you think they are not personally relevant to you.
 
-## Resource list
+## Resources
 
 ### "America's Private, White, Elite Schools Need Reform. Now."
 
@@ -31,6 +29,8 @@ Here we provide to the scientific community some thoughts and ideas from Black a
   <a href="https://momentum.medium.com/the-death-of-diversity-a-call-for-radical-reform-in-pwis-3a5018065aa">Medium, 26 June 2020</a>
 </div>
 
+</blockquote>
+
 ### “What Black scientists want from colleagues and their institutions”
 
 <blockquote>
@@ -40,7 +40,9 @@ Here we provide to the scientific community some thoughts and ideas from Black a
   |
   <a href="https://www.nature.com/articles/d41586-020-01883-8">Nature, 22 June 2020</a>
 </div>
-  
+
+</blockquote>
+
 ### "What I've learned about being a Black scientist"
 
 <blockquote>
@@ -52,17 +54,21 @@ Here we provide to the scientific community some thoughts and ideas from Black a
   <a href="https://www.sciencemag.org/careers/2020/06/what-ive-learned-about-being-black-scientist">Science, 16 June 2020</a>
 </div>
   
+</blockquote>
+
 ### "The Life of a Black Academic: Tired and Terrorized"
 
 <blockquote>
 (...) [D]o not become complacent because you think you feel tired from the impact of structural racism. You are not tired. Your black colleagues are tired. They are tired, weary, exhausted and do not have the luxury of resting. (...)
 <div class="blockquote-author">
   <b>Henrika McCoy, MSW, M.J., Ph.D., LCSW</b>
-  <a class="fa fa-fw fa-twitter-square" href="https://www.henrikamccoy.com/"> </a>
+  <a class="fa fa-fw fa-home" href="https://www.henrikamccoy.com/"> </a>
   |
   <a href="https://www.insidehighered.com/advice/2020/06/12/terror-many-black-academics-are-experiencing-has-left-them-absolutely-exhausted">Inside Higher Ed, 12 June 2020</a>
 </div>
   
+</blockquote>
+
 ### "Black in Nature"
 
 <blockquote>
@@ -76,6 +82,8 @@ Here we provide to the scientific community some thoughts and ideas from Black a
   <a href="https://integrativeandcomparativebiology.wordpress.com/2020/06/09/black-in-nature/">Integrative and Comparative Biology, 9 June 2020</a>
 </div>
   
+</blockquote>
+
 ### "White Academia: Do Better."
 
 <blockquote>
@@ -87,16 +95,20 @@ Here we provide to the scientific community some thoughts and ideas from Black a
   <a href="https://medium.com/the-faculty/white-academia-do-better-fa96cede1fc5">Medium, 8 June 2020</a>
 </div>
 
+</blockquote>
+
 ### "My Dream Come True: An Open Letter to My Colleagues."
 
 <blockquote>
 (...) I have been excluded from participating directly in most academic decisions and policy making. By this, I am referring to the fact that I have not been offered any departmental committee positions (other than those involving diversity) in my 31 years on the campus. (...)
 <div class="blockquote-author">
   <b>Tyrone B. Hayes, Ph.D.</b>
-  <a class="fa fa-fw fa-twitter-square" href="https://vcresearch.berkeley.edu/faculty/tyrone-b-hayes"> </a>
+  <a class="fa fa-fw fa-home" href="https://vcresearch.berkeley.edu/faculty/tyrone-b-hayes"> </a>
   |
   <a href="https://rothfelslab.berkeley.edu/2020/06/04/the-rothfels-lab-stands-against-racism-everywhere/">Letter reproduced with permission on Rothfels Lab website, 4 June 2020.</a>
 </div>
+
+</blockquote>
 
 ### "mSphere of Influence: Hiring of Underrepresented Minority Assistant Professors in Medical School Basic Science Departments Has a Long Way To Go"
 
@@ -109,6 +121,8 @@ Here we provide to the scientific community some thoughts and ideas from Black a
   <a href="ttps://msphere.asm.org/content/4/5/e00599-19">mSphere, 18 Sept 2019</a>
 </div>
 
+</blockquote>
+
 ### "ONLY BLACK WOMAN IN ENGINEERING CLASS, MY EXPERIENCE #SNSHYNSTEM"
 
 <blockquote>
@@ -119,6 +133,8 @@ Here we provide to the scientific community some thoughts and ideas from Black a
   |
   <a href="https://youtu.be/aQyqggLCEK0">YouTube, 11 Aug 2019.</a>
 </div>
+
+</blockquote>
 
 ### "The Disciplines Where No Black People Earn Ph.D.s"
 
@@ -131,6 +147,8 @@ Here we provide to the scientific community some thoughts and ideas from Black a
   <a href="https://www.theatlantic.com/education/archive/2019/04/lack-of-black-doctoral-students/587413/">The Atlantic, 19 April 2019</a>
 </div>
 
+</blockquote>
+
 ### "The Death of an Adjunct"
 
 <blockquote>
@@ -141,6 +159,8 @@ Here we provide to the scientific community some thoughts and ideas from Black a
   |
   <a href="https://www.theatlantic.com/education/archive/2019/04/adjunct-professors-higher-education-thea-hunter/586168/">The Atlantic, 8 April 2019</a>
 </div>
+
+</blockquote>
 
 ### "Not by proxy: Arguments for improving the use of race in biomedical research"
 
@@ -153,16 +173,20 @@ Here we provide to the scientific community some thoughts and ideas from Black a
   <a href="https://doi.org/10.1080/15265161.2017.1353176">The American Journal of Bioethics, 22 Aug 2017</a>
 </div>
 
+</blockquote>
+
 ### "Science's Role in Reducing US Racial Tensions"
 
 <blockquote>
 (...) Parallel to the problem of the lack of diversity in research topics and subjects, scientists must confront racism that affects the nature of scientific inquiry. One of the Mertonian norms [Merton’s four principles that comprise the ethos of modern science] of science, universalism, says that the merits of a scientific discovery should be based only on the discovery itself and not on socially defined characteristics, such as the race, culture, and gender of the discovering scientist. Yet, philosophers of science have shown that science is not as neutral and independent as the profession portrays. (...)
 <div class="blockquote-author">
   <b>Thomas S. Woodson, Ph.D.</b>
-  <a class="fa fa-fw fa-twitter-square" href="https://tswoodson.weebly.com/"> </a>
+  <a class="fa fa-fw fa-home" href="https://tswoodson.weebly.com/"> </a>
   |
   <a href="https://doi.org/10.1080/15265161.2017.1353176">Issues in Science and Technology, 2017</a>
 </div>
+
+</blockquote>
 
 ### "Navigating underrepresented STEM spaces: Experiences of Black women in US computing science higher education programs who actualize success"
 
@@ -175,6 +199,8 @@ Here we provide to the scientific community some thoughts and ideas from Black a
   <a href="https://doi.org/10.1080/15265161.2017.1353176">Journal of Diversity in Higher Education, 2014</a>
 </div>
 
+</blockquote>
+
 ### "Debating the Cause of Health Disparities: Implications for Bioethics and Racial Equality"
 
 <blockquote>
@@ -186,12 +212,22 @@ Here we provide to the scientific community some thoughts and ideas from Black a
   <a href="https://scholarship.law.upenn.edu/cgi/viewcontent.cgi?article=1572&context=faculty_scholarship">Cambridge Q. Healthcare Ethics, 2012</a>
 </div>
 
+</blockquote>
+
 ## Additional resources
 
-Jackson, Lauren M. "What Is an Anti-Racist Reading List For?" *Vulture*, 4 June 2020. | [web](https://www.vulture.com/2020/06/anti-racist-reading-lists-what-are-they-for.html).
+* Lauren M. Jackson, "What Is an Anti-Racist Reading List For?" [*Vulture*, 4 June 2020](https://www.vulture.com/2020/06/anti-racist-reading-lists-what-are-they-for.html).
 
-[The Black Women in Computational Biology Network](https://www.blackwomencompbio.org/)
+* [The Black Women in Computational Biology Network](https://www.blackwomencompbio.org/)
 
-[BlackInGenetics](https://www.blackingenetics.com/)
+* [BlackInGenetics](https://www.blackingenetics.com/)
 
-[Black In Microbiology](https://blackinmicrobiology.org/)
+* [Black In Microbiology](https://blackinmicrobiology.org/)
+
+---
+
+{:.notice}
+The author thanks the members of our lab for their contributions to this post.
+
+{:.warning}
+Please feel free to suggest updates to this content [by directly editing it](https://github.com/merenlab/web/blob/master/_posts/miscellaneous/2020-10-05-reading-list.md) or by reaching out to [us](http://merenlab.org/people/) via email.
