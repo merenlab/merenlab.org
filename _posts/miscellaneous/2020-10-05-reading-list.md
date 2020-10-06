@@ -7,6 +7,8 @@ modified: 2020-10-05
 tags: []
 categories: [miscellaneous]
 comments: true
+image:
+    feature: http://merenlab.org/images/anti-black-racism-reading-list.png
 ---
 
 {% include _toc.html %}
