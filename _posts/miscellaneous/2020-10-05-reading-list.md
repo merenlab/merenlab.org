@@ -184,7 +184,7 @@ Here we provide to the scientific community some thoughts and ideas from Black a
   <b>Thomas S. Woodson, Ph.D.</b>
   <a class="fa fa-fw fa-home" href="https://tswoodson.weebly.com/"> </a>
   |
-  <a href="https://doi.org/10.1080/15265161.2017.1353176">Issues in Science and Technology, 2017</a>
+  <a href="https://issues.org/perspective-sciences-role-in-reducing-us-racial-tensions/">Issues in Science and Technology, 2017</a>
 </div>
 
 </blockquote>
@@ -197,7 +197,7 @@ Here we provide to the scientific community some thoughts and ideas from Black a
   <b>LaVar J. Charleston, Ph.D. et al.</b>
   <a class="fa fa-fw fa-twitter-square" href="https://twitter.com/drljcharleston"> </a>
   |
-  <a href="https://doi.org/10.1080/15265161.2017.1353176">Journal of Diversity in Higher Education, 2014</a>
+  <a href="https://www.researchgate.net/publication/273716784_Navigating_Underrepresented_STEM_Spaces_Experiences_of_Black_Women_in_US_Computing_Science_Higher_Education_Programs_Who_Actualize_Success">Journal of Diversity in Higher Education, 2014</a>
 </div>
 
 </blockquote>
