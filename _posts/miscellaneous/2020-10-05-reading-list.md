@@ -119,7 +119,7 @@ Here we provide to the scientific community some thoughts and ideas from Black a
   <b>Michael D. L. Johnson, Ph.D.</b>
   <a class="fa fa-fw fa-twitter-square" href="https://twitter.com/blacksciblog"> </a>
   |
-  <a href="ttps://msphere.asm.org/content/4/5/e00599-19">mSphere, 18 Sept 2019</a>
+  <a href="https://msphere.asm.org/content/4/5/e00599-19">mSphere, 18 Sept 2019</a>
 </div>
 
 </blockquote>
