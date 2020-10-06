@@ -76,6 +76,7 @@ Here we provide to the scientific community some thoughts and ideas from Black a
 <div class="blockquote-author">
   <b>Alexus Roberts</b>
   <a class="fa fa-fw fa-twitter-square" href="https://twitter.com/Alexuss_Symone"> </a>
+  |
   <b>Shaz Zamore, Ph.D.</b>
   <a class="fa fa-fw fa-twitter-square" href="https://twitter.com/TheDoctaZ"> </a>
   |
