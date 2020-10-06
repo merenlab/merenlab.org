@@ -36,7 +36,7 @@ Here we provide to the scientific community some thoughts and ideas from Black a
 <blockquote>
 (...) Nature spoke to six Black academic researchers about the effects of racism on their careers, their advice to white colleagues and their thoughts on meaningful institutional actions. (...)
 <div class="blockquote-author">
-  <b>Virginia Gewin</b>
+  <b>Virginia Gewin, M.S.</b>
   |
   <a href="https://www.nature.com/articles/d41586-020-01883-8">Nature, 22 June 2020</a>
 </div>
@@ -61,7 +61,7 @@ Here we provide to the scientific community some thoughts and ideas from Black a
 <blockquote>
 (...) [D]o not become complacent because you think you feel tired from the impact of structural racism. You are not tired. Your black colleagues are tired. They are tired, weary, exhausted and do not have the luxury of resting. (...)
 <div class="blockquote-author">
-  <b>Henrika McCoy, MSW, M.J., Ph.D., LCSW</b>
+  <b>Henrika McCoy, M.S.W., M.J., Ph.D., L.C.S.W.</b>
   <a class="fa fa-fw fa-home" href="https://www.henrikamccoy.com/"> </a>
   |
   <a href="https://www.insidehighered.com/advice/2020/06/12/terror-many-black-academics-are-experiencing-has-left-them-absolutely-exhausted">Inside Higher Ed, 12 June 2020</a>
@@ -76,7 +76,7 @@ Here we provide to the scientific community some thoughts and ideas from Black a
 <div class="blockquote-author">
   <b>Alexus Roberts</b>
   <a class="fa fa-fw fa-twitter-square" href="https://twitter.com/Alexuss_Symone"> </a>
-  <b>Shaz Zamore</b>
+  <b>Shaz Zamore, Ph.D.</b>
   <a class="fa fa-fw fa-twitter-square" href="https://twitter.com/TheDoctaZ"> </a>
   |
   <a href="https://integrativeandcomparativebiology.wordpress.com/2020/06/09/black-in-nature/">Integrative and Comparative Biology, 9 June 2020</a>
@@ -89,7 +89,7 @@ Here we provide to the scientific community some thoughts and ideas from Black a
 <blockquote>
 (...) The aforementioned [tangible actions you can take to support Black faculty, staff, and students mentioned in this article are] certainly not a comprehensive list, but it is a start if you’re serious about addressing systemic racism in the academy and the experiences of Black faculty, students, and staff. (...)
 <div class="blockquote-author">
-  <b>Jasmine Roberts</b>
+  <b>Jasmine Roberts, M.A.</b>
   <a class="fa fa-fw fa-twitter-square" href="https://twitter.com/ProfJasmine"> </a>
   |
   <a href="https://medium.com/the-faculty/white-academia-do-better-fa96cede1fc5">Medium, 8 June 2020</a>
@@ -115,7 +115,7 @@ Here we provide to the scientific community some thoughts and ideas from Black a
 <blockquote>
 (...) It is perplexing that there has been no significant increase in the number of URM [underrepresented minority] assistant professor hires per year despite a 930% increase in annual production of (URM) biomedical Ph.D.’s from 1980 to 2013. In fact, with almost 6,000 Ph.D.’s awarded to URMs from 2005 to 2013, there were actually six fewer URM assistant professors in 2014 than in 2005 compared to an 8.6% growth rate with well represented groups (white, Asian, and international) in that time frame. (...)
 <div class="blockquote-author">
-  <b>Michael D. L. Johnson</b>
+  <b>Michael D. L. Johnson, Ph.D.</b>
   <a class="fa fa-fw fa-twitter-square" href="https://twitter.com/blacksciblog"> </a>
   |
   <a href="ttps://msphere.asm.org/content/4/5/e00599-19">mSphere, 18 Sept 2019</a>
@@ -128,7 +128,7 @@ Here we provide to the scientific community some thoughts and ideas from Black a
 <blockquote>
 (...) I was sticking out like a sore thumb, yet I was still unnoticeable. (...)
 <div class="blockquote-author">
-  <b>SNSHYN</b>
+  <b>Sunshine</b>
   <a class="fa fa-fw fa-twitter-square" href="https://twitter.com/SNSHYN__"> </a>
   |
   <a href="https://youtu.be/aQyqggLCEK0">YouTube, 11 Aug 2019.</a>
@@ -193,7 +193,7 @@ Here we provide to the scientific community some thoughts and ideas from Black a
 <blockquote>
 (...) [T]his research captures the unique challenges that participants [Black women] experience in their respective academic computing science environments, as well as how participants navigate this historically White, male-dominated field. (...)
 <div class="blockquote-author">
-  <b>LaVar J. Charleston et al.</b>
+  <b>LaVar J. Charleston, Ph.D. et al.</b>
   <a class="fa fa-fw fa-twitter-square" href="https://twitter.com/drljcharleston"> </a>
   |
   <a href="https://doi.org/10.1080/15265161.2017.1353176">Journal of Diversity in Higher Education, 2014</a>
