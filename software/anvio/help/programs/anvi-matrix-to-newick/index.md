@@ -31,12 +31,19 @@ See **[program help menu](../../../vignette#anvi-matrix-to-newick)** or go back 
 ## Usage
 
 
+This program converts a distance matrix (computed from a <span class="artifact-n">[view-data](/software/anvio/help/artifacts/view-data)</span> artifact) into a <span class="artifact-n">[dendrogram](/software/anvio/help/artifacts/dendrogram)</span>. 
+
+
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-matrix-to-newick.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-matrix-to-newick.md) to update this information.
 
 
 ## Additional Resources
 
+
+* [See this program in action in the pangenomics tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/#creating-a-quick-pangenome-with-functions)
 
 
 {:.notice}

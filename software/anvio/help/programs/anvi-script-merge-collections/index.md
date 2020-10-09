@@ -22,7 +22,7 @@ See **[program help menu](../../../vignette#anvi-script-merge-collections)** or 
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[collection-txt](../../artifacts/collection-txt)</span></p>
+<p style="text-align: left" markdown="1"></p>
 
 ## Requires or uses
 
@@ -31,8 +31,13 @@ See **[program help menu](../../../vignette#anvi-script-merge-collections)** or 
 ## Usage
 
 
+This program outputs a file that denotes which contigs and splits are part of which <span class="artifact-n">[collection-txt](/software/anvio/help/artifacts/collection-txt)</span> files. This just tells you which collections each of your contigs are a part of, which can be imported as  acategorical layer with <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/programs/anvi-import-misc-data)</span>. 
+
+This is not super useful, but it is used in the Infant gut tutorial [here](http://merenlab.org/tutorials/infant-gut/#comparing-multiple-binning-approaches). 
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-script-merge-collections.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-merge-collections.md) to update this information.
 
 
 ## Additional Resources

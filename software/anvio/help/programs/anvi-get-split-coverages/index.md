@@ -31,12 +31,43 @@ See **[program help menu](../../../vignette#anvi-get-split-coverages)** or go ba
 ## Usage
 
 
+This program returns the nucleotide-level coverage data for a specific set of the splits in your <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span>. 
+
+If you want to get the coverage data for all splits in your <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span>, run <span class="artifact-n">[anvi-export-splits-and-coverages](/software/anvio/help/programs/anvi-export-splits-and-coverages)</span> with the flag `--splits-mode`. 
+
+Simply provide a <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> and <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> pair and specific which splits you want to look at. You have two oftens to do this: 
+
+1.  Provide a single split name. (You can list all splits available with `--list-splits`)
+
+<div class="codeblock" markdown="1">
+anvi&#45;get&#45;split&#45;coverages &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
+                         &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+                         &#45;o <span class="artifact&#45;n">[coverages&#45;txt](/software/anvio/help/artifacts/coverages&#45;txt)</span> \ 
+                         &#45;&#45;split&#45;name Day17a_QCcontig9_split_00003
+</div>
+
+
+2. Provide both the name of a <span class="artifact-n">[bin](/software/anvio/help/artifacts/bin)</span> and the <span class="artifact-n">[collection](/software/anvio/help/artifacts/collection)</span> it is contained in. 
+
+<div class="codeblock" markdown="1">
+anvi&#45;get&#45;split&#45;coverages &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
+                         &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+                         &#45;o <span class="artifact&#45;n">[coverages&#45;txt](/software/anvio/help/artifacts/coverages&#45;txt)</span> \ 
+                         &#45;b <span class="artifact&#45;n">[bin](/software/anvio/help/artifacts/bin)</span> \
+                         &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/artifacts/collection)</span>
+</div>
+
+You can list all collections available with `--list-collections` or all bins in a collection with `--list-bins`. Alternatively, you could run <span class="artifact-n">[anvi-show-collections-and-bins](/software/anvio/help/programs/anvi-show-collections-and-bins)</span> on your <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> to get a more comprehensive overview. 
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-get-split-coverages.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-get-split-coverages.md) to update this information.
 
 
 ## Additional Resources
 
+
+* [Using this program to generate split coverage visualizations across samples](http://merenlab.org/2019/11/25/visualizing-coverages/#visualize-only-the-coverage-of-a-split-across-samples)
 
 
 {:.notice}
