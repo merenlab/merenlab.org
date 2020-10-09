@@ -28,7 +28,7 @@ Visit <a href="http://merenlab.org/software/anvio/vignette/">this page</a> to se
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **02 Oct 20 14:26:45** for anvi'o version **6.2-master (esther)**.
+The help contents were last updated on **09 Oct 20 09:21:16** for anvi'o version **6.2-master (esther)**.
 
 
 {% include _toc.html %}
@@ -573,7 +573,7 @@ Listed below a total of 112 programs.
 
 
 * **[anvi-script-merge-collections](programs/anvi-script-merge-collections)**: Generate an additional data file from multiple collections.
-<span>**Provides**: <span class="artifact-p">[collection-txt](artifacts/collection-txt)</span> / 
+<span>**Provides**:  / 
 <span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[collection-txt](artifacts/collection-txt)</span>.</span>
 
 

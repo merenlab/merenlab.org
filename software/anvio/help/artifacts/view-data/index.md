@@ -30,6 +30,13 @@ Most likely provided by the user.
 
 ## Description
 
+View data refers to a matrx where each column represents a specific sample and each row describes some attribute of that sample (most often a sequence's abundance per sample). 
+
+For example, in the [pangenomics tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/#creating-a-quick-pangenome-with-functions), the `PROCHLORO-functions-occurrence-frequency.txt` could be referred to as view-data. 
+
+You can use this to compute a distance matrix to generate a dendrogram (using <span class="artifact-n">[anvi-matrix-to-newick](/software/anvio/help/programs/anvi-matrix-to-newick)</span>) or direclty input it to <span class="artifact-n">[anvi-interactive](/software/anvio/help/programs/anvi-interactive)</span> to visualize the distribution of items across samples. 
+
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "view-data.md". Its contents will replace this sad text. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/view-data.md) to update this information.
 

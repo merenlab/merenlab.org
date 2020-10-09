@@ -21,7 +21,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-export-collection](../../programs/anvi-export-collection)</span> <span class="artifact-p">[anvi-script-merge-collections](../../programs/anvi-script-merge-collections)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-export-collection](../../programs/anvi-export-collection)</span></p>
 
 
 ## Required or used by

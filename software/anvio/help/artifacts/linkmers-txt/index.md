@@ -30,9 +30,9 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
-This is a tab-delimited table where each column represents a 
+This is a tab-delimited table where each row represents a a short read that mapped to a specific position in a reference contig. This is the output of <span class="artifact-n">[anvi-report-linkmers](/software/anvio/help/programs/anvi-report-linkmers)</span>, where those reference positions are given by the user.
 
-For instance, if the input for <span class="artifact-n">[anvi-report-linkmers](/software/anvio/help/programs/anvi-report-linkmers)</span> was similar to,
+For instance, if <span class="artifact-n">[anvi-report-linkmers](/software/anvio/help/programs/anvi-report-linkmers)</span> was run on three samples (`SAMPLE-01.bam`, `SAMPLE-02.bam`, and `SAMPLE-03.bam`) with this contigs-and-positions file,
 
 <table>
   <tbody>
@@ -43,7 +43,7 @@ For instance, if the input for <span class="artifact-n">[anvi-report-linkmers](/
   </tbody>
 </table>
 
-The resulting TAB-delimited <span class="artifact-n">[linkmers-txt](/software/anvio/help/artifacts/linkmers-txt)</span> file reported by <span class="artifact-n">[anvi-report-linkmers](/software/anvio/help/programs/anvi-report-linkmers)</span> run on three BAM files (SAMPLE-01.bam, SAMPLE-02.bam, SAMPLE-03.bam) would be similar to the following,
+Then the output would be the following: 
 
 |entry_id|sample_id|request_id|contig_name|pos_in_contig|pos_in_read|base|read_unique_id|read_X|reverse|sequence|
 |:--|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--|
@@ -130,7 +130,7 @@ The resulting TAB-delimited <span class="artifact-n">[linkmers-txt](/software/an
 |000000161|SAMPLE-03|001|contig_1720|7111|100|G|18f3cf83405581ea6|read-2|False|TTACATAATCGTAAGCACAGTTGTATAGTTTCGTTTCAGTAATTAAGTAAAATGAGGTTAAAGAGGTGACAGAAATGAAAAAGAGATTAGGGTTAGGTTTGGGAATGTTTTTAATAACAATTTTATCTAATTTGTCAGGAGTTATGGCTTATAGTGGTAATAGTAATTTACCGGGAAGT|
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 
-Where,
+Where
 
 * `sample_id` matches to the input BAM file name,
 
@@ -139,6 +139,7 @@ Where,
 * `pos_in_contig` marks the position of interest declared in the input file,
 
 * and `pos_in_read` marks the actual location of the nucleotide in the short reads that corresponds to the position of interest.
+
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/linkmers-txt.md) to update this information.
