@@ -183,7 +183,7 @@
     - title: Post-doctoral Scientist
       inst: The Department of Medicine at the University of Chicago
       inst_link: http://medicine.uchicago.edu/
-      
+
 - alias: jessica
   official: True
   name: Jessica Pan
@@ -215,7 +215,7 @@
     - title: Undergraduate Student
       inst: Biological Sciences & Environmental Science
       inst_link: http://collegecatalog.uchicago.edu/thecollege/biologicalsciences/
-      
+
 - alias: isaac
   official: True
   name: Isaac Fink
@@ -238,7 +238,7 @@
   role: Undergraduate Researcher
   email: ibrahimemohamed33@gmail.com
   github: ibrahimmohamed33
-  avatar: bio-ibrahim1.jpg
+  avatar: bio-ibrahim.jpg
   orcid: 0000-0002-1130-5454
   bio: “I am a student researcher interested in applying concepts from mathematics and computer science to understand and analyze metagenomes.”
   address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
@@ -247,7 +247,6 @@
       inst: Mathematics
       inst_link: http://collegecatalog.uchicago.edu/thecollege/mathematics/
 
-      
 - alias: kiki
   official: True
   name: Kiki Füßel
