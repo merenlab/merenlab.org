@@ -7,6 +7,7 @@ tags: []
 authors: [meren]
 categories: [miscellaneous]
 comments: true
+redirect_from: /momics-2020/
 image:
   feature: http://merenlab.org/images/miscellaneous/2020-06-27-seminar-series-on-microbial-omics/momics.png
 ---
