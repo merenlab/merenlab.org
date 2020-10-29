@@ -19,6 +19,19 @@ Here we provide to the scientific community some thoughts and ideas from Black a
 
 ## Resources
 
+### "Patching the Leaks: Revitalizing and Reimagining the STEM Pipeline"
+
+<blockquote>
+(...) Here, we suggest evidence-based strategies for leaders to incorporate into their diversity and inclusion efforts, including mechanisms to provide a supportive environment, safe spaces, and how to retain a diverse scientific workforce at all stages in the academic pipeline. To this end, we use our personalized experiences to emphasize revised mechanisms that will improve the pipeline throughout each stage. (...)
+<div class="blockquote-author">
+  <b>Antentor O. Hinton Jr., Ph.D. et al.</b>
+  <a class="fa fa-fw fa-twitter-square" href="https://twitter.com/phdgprotein86"> </a>
+  |
+  <a href="https://www.cell.com/cell/fulltext/S0092-8674(20)31226-5">Cell, 29 Oct 2020</a>
+</div>
+
+</blockquote>
+
 ### "America's Private, White, Elite Schools Need Reform. Now."
 
 <blockquote>
