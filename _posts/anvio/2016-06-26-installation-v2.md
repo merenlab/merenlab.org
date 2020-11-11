@@ -214,7 +214,8 @@ Python 3.6.7
 Good? Good. Then, install the following dependencies in this conda environment:
 
 ``` bash
-conda install -y prodigal \
+conda install -y -c conda-forge -c bioconda -c defaults \
+                 prodigal \
                  mcl \
                  muscle \
                  hmmer \
