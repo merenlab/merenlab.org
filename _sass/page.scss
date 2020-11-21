@@ -16,6 +16,36 @@ p {
    Header
    ========================================================================== */
 
+.imgclipholder p {
+    color: #6b6b6b;
+    background: #f5f5f5;
+    width: 90%;
+    margin: auto;
+    margin-top: -10px;
+    margin-left: 13px;
+    margin-bottom: 10px;
+    font-size: smaller;
+    font-style: italic;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.imgclip{
+    width: 95%;
+    height: 200px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: 10px solid #efefef !important;
+    border-radius: 10px;
+    -moz-box-shadow:    3px 3px 5px 6px #ddd;
+    -webkit-box-shadow: 3px 3px 5px 6px #ddd;
+    box-shadow:         3px 3px 5px 6px #ddd;
+}
+
+.imgclip .clippedimg{
+    border:none !important;
+}
+
 .slack-button-img {
     height: 12px;
     margin-bottom: 3px;
