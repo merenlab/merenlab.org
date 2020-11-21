@@ -30,6 +30,13 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
+A locus-fasta is one of the outputs of <span class="artifact-n">[anvi-export-locus](/software/anvio/help/programs/anvi-export-locus)</span>, which creates exports specific regions of interest out of a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>. 
+
+This artifact specifically describes the <span class="artifact-n">[fasta](/software/anvio/help/artifacts/fasta)</span> file that contains the sequence of one of the hits to the locus. 
+
+This file is contained within the directory specified by the `-o` parameter and is named with the prefix defined by the `-O` parameter, followed by a numerical identifier for this particular hit. The sequence in this fasta file is also contained in the <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> of the same name. 
+
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "locus-fasta.md". Its contents will replace this sad text. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/locus-fasta.md) to update this information.
 

@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Generate a table that comprehensively summarizes the variability of nucleotide, codon, or amino acid positions. We call these single nucleotide variants (SNVs), single codon variants (SCVs), and single amino acid variants (SAAVs), respectively. Learn more here: http://merenlab.org/2015/07/20/analyzing-variability/.
+Generate a table that comprehensively summarizes the variability of nucleotide, codon, or amino acid positions. We call these single nucleotide variants (SNVs), single codon variants (SCVs), and single amino acid variants (SAAVs), respectively.
 
 See **[program help menu](../../../vignette#anvi-gen-variability-profile)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -134,6 +134,8 @@ Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/progra
 
 
 * [All about SNVs, SCVs, and SAAVs](http://merenlab.org/2015/07/20/analyzing-variability/)
+
+* [This program in action in the anvi-3dev tutorial](http://merenlab.org/2018/09/04/getting-started-with-anvi-3dev/#supplying-anvi-3dev-with-sequence-variability)
 
 
 {:.notice}

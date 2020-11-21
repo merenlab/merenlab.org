@@ -22,7 +22,7 @@ See **[program help menu](../../../vignette#anvi-get-sequences-for-gene-calls)**
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[genes-fasta](../../artifacts/genes-fasta)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[genes-fasta](../../artifacts/genes-fasta)</span> <span class="artifact-p">[external-gene-calls](../../artifacts/external-gene-calls)</span></p>
 
 ## Requires or uses
 

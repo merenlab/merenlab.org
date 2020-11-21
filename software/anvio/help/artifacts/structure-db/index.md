@@ -30,6 +30,16 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
+This ddatabase contains the **predicted 3D structure data** of the sequences encoded by contigs in a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>. It is the result of running <span class="artifact-n">[anvi-gen-structure-database](/software/anvio/help/programs/anvi-gen-structure-database)</span> (which uses MODELLER to predict your protein strucutres initially based on alignment to sequences with known strucutres). 
+
+You can use this database to generate a variability profile (with <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/programs/anvi-gen-variability-profile)</span>) and then use that data (along with this database) to visualize your 3D structures and their relation to SCVs and SAAVs with <span class="artifact-n">[anvi-3dev](/software/anvio/help/programs/anvi-3dev)</span>. 
+
+Besides this, you can export the structure data into an external `.pdb` file (using <span class="artifact-n">[anvi-export-structures](/software/anvio/help/programs/anvi-export-structures)</span>) or generation the fixation index matrix (with <span class="artifact-n">[anvi-gen-fixation-index-matrix](/software/anvio/help/programs/anvi-gen-fixation-index-matrix)</span>). 
+
+For more information on the structure database, see [this blog post](http://merenlab.org/2018/09/04/getting-started-with-anvi-3dev/#the-structure-database). 
+
+
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "structure-db.md". Its contents will replace this sad text. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/structure-db.md) to update this information.
 

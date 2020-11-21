@@ -31,12 +31,32 @@ See **[program help menu](../../../vignette#anvi-setup-interacdome)** or go back
 ## Usage
 
 
+This program (much like all of the other programs that begin with `anvi-setup`) sets up a local copy of the InteracDome database for runs of <span class="artifact-n">[anvi-run-interacdome](/software/anvio/help/programs/anvi-run-interacdome)</span>. Note that Anvi'o only needs this program to be run once per version. 
+
+Specifically, this downloads [InteracDome](https://interacdome.princeton.edu/)’s [tab-separated files](https://interacdome.princeton.edu/#tab-6136-4) and the HMM profiles for the Pfams in your InteracDome data. This data is stored in the <span class="artifact-n">[interacdome-data](/software/anvio/help/artifacts/interacdome-data)</span> artifact. 
+
+When running this program, you can provide a path to store your InteracDome data in. The default path is `anvio/data/misc/InteracDome`; if you use a custom path, you will have to provide it to <span class="artifact-n">[anvi-run-interacdome](/software/anvio/help/programs/anvi-run-interacdome)</span> with the same parameter. Here is an example run: 
+
+<div class="codeblock" markdown="1">
+anvi&#45;setup&#45;interacdome  &#45;&#45;interacdome&#45;data&#45;dir path/to/directory 
+</div>
+
+If you want to overwrite any data that you have already downloaded (for example if you suspect something went wrong in the download), add the `--reset` flag: 
+
+<div class="codeblock" markdown="1">
+anvi&#45;setup&#45;interacdome  &#45;&#45;interacdome&#45;data&#45;dir path/to/directory \ 
+                        &#45;&#45;reset
+</div>
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-setup-interacdome.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-setup-interacdome.md) to update this information.
 
 
 ## Additional Resources
 
+
+* [The setup step in the InteracDome technical blogpost](http://merenlab.org/2020/07/22/interacdome/#anvi-setup-interacdome)
 
 
 {:.notice}

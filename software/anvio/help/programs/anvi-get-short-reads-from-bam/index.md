@@ -31,8 +31,45 @@ See **[program help menu](../../../vignette#anvi-get-short-reads-from-bam)** or 
 ## Usage
 
 
+This script get the short reads (in the form of a <span class="artifact-n">[short-reads-fasta](/software/anvio/help/artifacts/short-reads-fasta)</span>) out of a <span class="artifact-n">[bam-file](/software/anvio/help/artifacts/bam-file)</span>.  
+
+A basic run of this program is as follows: 
+
+<div class="codeblock" markdown="1">
+anvi&#45;get&#45;short&#45;reads&#45;from&#45;bam &#45;o path/to/output \ 
+                              BAM_FILE_1.bam BAM_FILE_2.bam
+</div>
+
+This will get all of the short reads out of the provided bam files (`BAM_FILE_1.bam` and `BAM_FILE_2.bam`) and put them into a single file. 
+
+### Narrowing the input 
+
+You can choose to only return the short reads that are contained within a <span class="artifact-n">[collection](/software/anvio/help/artifacts/collection)</span> or <span class="artifact-n">[bin](/software/anvio/help/artifacts/bin)</span>, as so:
+
+<div class="codeblock" markdown="1">
+anvi&#45;get&#45;short&#45;reads&#45;from&#45;bam &#45;o path/to/output \ 
+                              &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+                              &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
+                              &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/artifacts/collection)</span> \
+                              BAM_FILE_1.bam BAM_FILE_2.bam
+</div>
+
+### Changing the output format
+
+You can split the output based on the directionality of paired-end reads. Adding the tag `--split-R1-and-R2` causes the program to create three separate output files: one for R1 (sequences in the forward direction), one for R2 (sequences in the reverse direction; i.e. reverse complement of R1 sequences), and one for unparied reads. When doing this, you can name these three files with a prefix by using the flag `-O`.  
+
+<div class="codeblock" markdown="1">
+anvi&#45;get&#45;short&#45;reads&#45;from&#45;bam &#45;o path/to/output \ 
+                              &#45;&#45;split&#45;R1&#45;and&#45;R2 \ 
+                              &#45;O BAM_1_and_BAM_2 \
+                              BAM_FILE_1.bam BAM_FILE_2.bam
+</div>
+
+You can also compress the output by adding the flag `--gzip-output`
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-get-short-reads-from-bam.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-get-short-reads-from-bam.md) to update this information.
 
 
 ## Additional Resources
