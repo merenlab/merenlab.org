@@ -17,84 +17,111 @@ Study hard what interests you the most, in the most undisciplined, irreverent, a
 <div class="blockquote-author">Richard Feynman</div>
 </blockquote>
 
-<div style="height: 350px; width: 300px; float: right; padding-left: 20px;">
-<img src="images/all.png" style="border:none;" />
+
+<div style="width: 60%;margin: auto;">
+<img src="/images/microbial-omics.png" style="border:none;" />
 </div>
+
 
 The vast majority of life on our planet is *microbial*. An astonishing number of microbial organisms living in terrestrial and marine habitats represent a biomass that exceeds every living organism that can be seen by naked eye, combined.
 
-The inconceivable diversity of microbes allow them to synthesize or break down a wide array of chemical substrates, and govern biogeochemical cycles that make Earth a habitable planet for much less talented organisms (such as ourselves). Our own body is also home to a diverse assemblage of microbial cells. Bacteria that colonize our gastrointestinal tract help us maintain our health by extracting energy from undigested carbohydrates, synthesizing vitamins, and metabolizing xenobiotics.
+Through their inconceivable diversity that allow them to synthesize or break down a wide array of chemical substrates, **microbes govern biogeochemical cycles that make Earth a habitable planet for much less talented organisms** (such as ourselves). Our own body is also home to a diverse assemblage of microbial cells: bacteria that colonize our gastrointestinal tract help us maintain our health by extracting energy from undigested carbohydrates, synthesizing vitamins, and metabolizing xenobiotics.
 
-Microbes are essential to Earth’s functioning at every scale, and understanding them is imperative for a complete understanding of life.
 
-In our lab, we combine our expertise and interest in microbiology and computation to investigate the diversity and functioning of microbial communities in environments ranging from the human gastrointestinal tract and oral cavity, to sewages, oceans, and soils.
+**Microbes are essential to Earth’s functioning at every scale**. From comprehensive insights into ecosystem functioning to implementing effective bioremediation strategies or developing accurate models of environmental change and its long-term impacts, **a detailed understanding of microbial life is one of the most critical requirements of environmental science and medical microbiology**. If you would like to learn more about the basics of microbial life, you can watch [this video](https://www.youtube.com/watch?v=R9KLkCZ95cU) from our group.
 
-We design experiments, develop software platforms, and work with high-throughput sequencing data for marker genes, metagenomes, and metatranscriptomes to get closer to understanding mechanisms by which microbes interact with their surroundings, evolve, disperse, and initiate and/or adapt to environmental change.
+**Our research program focuses on understanding the ecology and evolution of naturally occurring microbial life using integrated 'omics strategies and laboratory experiments**: we develop new computational approaches and create advanced software platforms that intend to generate hypotheses from complex environmental data to bring us closer to explain mechanisms by which microbes interact with their surroundings, evolve, disperse, and initiate or adapt to environmental change.
 
-We believe in interdisciplinary, hypothesis-driven, open and collaborative science, and we strive to identify the best computational and experimental practices that follows the inspiration from biology.
+We are environment agnostic as microbial ecology and evolution happens everywhere. Hence, our studies range from the human gastrointestinal tract and oral cavity, to sewage systems, insect ovaries, and oceans (OK, perhaps we find oceans [*just* a little more intriguing](https://naturemicrobiologycommunity.nature.com/posts/34040-microbiologists-vs-shotgun-metagenomes-surface-ocean) than other habitats we study).
 
-The following is an incomplete list of current or future interests of our group.
+Describing our scientific interests as distinct categories is difficult since our studies are often intertwined with each other. Nevertheless, the following sections represent a crude and incomplete summary of our current interests.
 
-<div style="clear:both"></div>
 
-## Studying fundamentals of microbial life and evolution
+## Microbial ecology and evolution
 
-Despite their great importance for the habitability of the planet and maintenance of our health, our understanding of the diversity, functioning, and evolution of microbial life is far from being complete.
+Despite their great importance for the habitability of the planet and maintenance of our health, our understanding of the diversity, functioning, and evolution of microbial life is far from being complete (yes, despite all the probiotics you can buy from your local grocery store).
 
-This is partially due to our inability to bring microbial life into the lab environment for comprehensive, conventional investigations: in most cases, it is very challenging to successfully isolate individual microbes from their interactive and complex environments and keep them functionally alive in a controlled setting. Even when isolation is possible, understanding how well the isolated members of microbial populations represent their environmental population is not necessarily always clear. Thankfully, in parallel to conventional approaches, we can use state-of-the-art molecular and computational techniques to recover the genomic content of naturally occurring microbes directly from the environment, and investigate some of the most fundamental aspects of their life and evolution. Our lab often uses high-throughput sequencing data to identify known and novel populations of microbes, determine their distribution, functional potential, and genomic heterogeneity to study their relationships with other microbes and environments they reside, which can inform us about their evolution.
+This is partially due to our inability to bring microbial life into the lab environment for comprehensive, conventional investigations: in most cases, it is very challenging to successfully isolate individual microbes from their interactive and complex environments and be able to learn about their natural behavior in controlled settings. And even when isolation is possible, understanding how well the isolated members of microbial populations represent their environmental population is not necessarily always clear. That's why we complement conventional microbiological approaches with state-of-the-art molecular and computational strategies that allow us to **study naturally occurring microbes to understand their lifestyles and evolution without having to bring them to the laboratory environment**. That said, we **do** recognize the critical importance of being able to work with microbes in isolation and our fundamental need to generate mechanistic insights and see our science only complementary to such grand efforts.
 
-Microbial ecology and evolution is happening everywhere, and investigating fundamentals of microbial life is independent of habitats. Hence, we are as happy in our lab working with marine environments as we are working with the human guts, or insect ovaries.
+Our group typically relies on cutting edge computational strategies and high-throughput sequencing data to identify known and novel populations of microbes, reconstruct microbial genomes from metagenomes, characterize their ecology, functional and metabolic potential, and/or characterize their population genetics.
 
-<div style="width: 300px; float: right; padding-left: 20px;">
-<a href="http://i.imgur.com/HrlXPOF.jpg"><img src="http://i.imgur.com/HrlXPOF.jpg" style="border:none;" /></a>
+For instance, [one of our recent studies focused on SAR11](https://doi.org/10.1101/170639), which is one of the most abundant microbial lineages in marine habitats. In collaboration with [Stephen Giovannoni](http://microbiology.science.oregonstate.edu/dr-stephen-giovannoni) from the **Oregon State University**, [Mike Rappé](https://rappelab.wordpress.com/) from the **University of Hawai'i**, and [Ismail Uysal](https://www.researchgate.net/profile/Ismail_Uysal3) from the **University of South Florida**, we developed and applied novel approaches to investigate genetic diversity that emerges in a single SAR11 population as it travels around the world through the conveyor belt of large oceanic currents. By integrating metagenomics with *in silico* protein biochemistry, we were able to start generating hypotheses regarding the evolutionary processes that shape the proteome of this microbial clade as a function of changing ocean temperatures. **Our ongoing efforts to explore strategies to further integrate microbial population genetics with protein structure will yield new powerful tools to generate testable hypothesis regarding the determinants of microbial fitness and evolution**.
+
+<div class="imgclipholder">
+<div class="imgclip">
+	<a href="/images/pubs/delmond_and_kiefl_sar11_saavs.png"><img src="/images/pubs/delmond_and_kiefl_sar11_saavs.png" style="margin-top: -350px;"  class="clippedimg" /></a>
+</div>
+<p>Deep-learning-estimated biogeography of the SAR11 subclade 1a.3.V based on single-amino acid variant profiles of its environmental populations, and example single-amino acid variants displayed on protein structures.</p>
 </div>
 
-For instance, [one of our recent studies focused on SAR11](https://doi.org/10.1101/170639), which is one of the most abundant microbial lineages in marine habitats. In collaboration with [Stephen Giovannoni](http://microbiology.science.oregonstate.edu/dr-stephen-giovannoni) from the **Oregon State University**, [Mike Rappé](https://rappelab.wordpress.com/) from the **University of Hawai'i**, and [Ismail Uysal](https://www.researchgate.net/profile/Ismail_Uysal3) from the **University of South Florida**, we developed and applied novel approaches to investigate non-synonymous genomic heterogeneity that emerges in a *single SAR11 population* as it goes around the world through large oceanic current movements. Using single-amino acid variants, we observed significantly more protein variants in cold currents and an increased number of protein sweeps in warm currents, exposing a global pattern of alternating genomic diversity for this SAR11 population. From the geographic partitioning of SAAVs we could suggest that natural selection, rather than neutral evolution, is the main driver of the evolution of SAR11 in surface oceans. We will continue to explore approaches to link environmental heterogeneity to the genomic context and protein structure, and generate testable hypothesis from our 'omics studies to better understand determinants of microbial fitness and evolution.
+We also focus the powerful beam of **integrative 'omics** to host-associated microbes, such as those that live in **the human oral cavity**. Oral cavity is a fascinating environment with multiple distinct niches in a relatively small space with no dispersal limitation: it has diverse anatomy with hard and soft tissue structures; it is under differential influences of the host immunity throughout the oral tissue types; and it is constantly exposed to exogenous factors. Oral microbes complement the richness of the oral cavity with their own sophisticated lifestyles: they form complex communities that show remarkable patterns of horizontal and vertical transmission across humans and animals, temporal dynamism, spatial organization, and site specificity. Altogether, the oral cavity offers a powerful environment to study the ecology and evolution of microbial systems, with which our group has a [history](https://carlzimmer.com/the-zoo-in-the-mouth/). In collaboration with [Jessica L. Mark Welch](https://www.mbl.edu/jbpc/staff/jmarkwelch/) of the **Marine Biological Laboratory**, [Amy D. Willis](http://statisticaldiversitylab.com/) of **University of Washington**, [Floyd E. Dewhirst](https://www.forsyth.org/scientists/floyd-dewhirst/) of **Forsyth Institute**, and others, we recently **integrated genome-resolved metagenomics, pangenomics, and phylogenomics** to shed light on [functional and genetic underpinnings of niche specificity of closely related microbes](https://www.biorxiv.org/content/10.1101/2020.04.29.069278v2), and revealed that dental plaque may have served as a stepping stone at least for some environmental microbes to adapt to host environments.
 
-
-## Metagenomic and experimental insights into Fecal Microbiota Transplantation experiments
-
-Fecal Microbiota Transplantation (FMT) experiments, the quite literal transference of fecal matter from a healthy donor to a recipient, gained recognition as an effective and relatively safe treatment for recurrent or refractory *Clostridium difficile* infection (CDI). Its success in treating otherwise very hard to eradicate CDI sparked great interest in investigating FMT as a treatment also for other medical conditions associated with intestinal dysbiosis, such as ulcerative colitis, Crohn’s disease, irritable bowel syndrome, and even metabolic syndrome or neurodevelopmental and autoimmune disorders.
-
-Despite the excitement due to its therapeutic potential, FMTs also present challenges for researchers and clinicians with potential adverse outcomes, including the transfer of infectious organisms or contaminants from the environment. Deeper insights into FMTs from a basic science perspective will likely help us address these caveats, while teaching us a lot about the microbial dynamics. In fact, in our lab we see FMTs as excellent tools to study the functional basis of human gut colonization and the microbial response to environmental stress. As we learn about microbes by studying FMTs, we are hoping to get closer to understand key microbial populations that are responsible for beneficial outcomes of this procedure.
-
-<div style="width: 300px; float: right; padding-left: 20px;">
-<a href="{{ site.url }}/images/fmt_figure_01.png"><img src="{{ site.url }}/images/fmt_figure_01.png" style="border:none;" /></a>
+<div class="imgclipholder">
+<div class="imgclip">
+	<a href="/images/pubs/shaiber_et_al_tm7_phylogenomics.png"><img src="/images/pubs/shaiber_et_al_tm7_phylogenomics.png" style="margin-top: -145px;"  class="clippedimg" /></a>
+</div>
+<p>Yes, it is annoying to have to brush off a piece of 'outside' in your mouth multiple times a day, but how cool it is to think that your dental plaque may have contributed to the evolution of environmental microbes to adapt host habitats? A phylogenomic analysis of [new TM7 genomes we have reconstructed](https://www.biorxiv.org/content/10.1101/2020.04.29.069278v2) from human oral cavity shows that TM7 from dental plaque group together with environmental TM7, while tongue-associated TM7 group together with lineages associated with animal gut, suggesting that at least for TM7, the dental plaque resembles non-host environments, while the tongue and gut TM7s are more strongly shaped by the host.</p>
 </div>
 
-[In a recent pilot study](https://doi.org/10.1186/s40168-017-0270-x), we collected fecal samples from two recipients before and after an FMT procedure. By using our metagenomic approaches, we could track individual donor microbial populations in a very highly resolved manner in the recipient guts to study microbial colonization dynamics. Some donor microbes that were initially absent from the recipient guts colonized both individuals successfully, and we could detect them even 8 weeks after the transfer. In contrast, some other donor microbes failed to colonize neither of our recipients. Most interestingly, we found that the colonizers we could identify in our pilot study were common among a much larger cohort of healthy people, and non-colonizers occurred rarely in the same cohort. We use these crucial insights to investigate the functional potential of microbes with high colonization properties, inform cultivation experiments in our lab, and look forward to generate hypotheses that we can translate to model systems.
+We are also interested in **the human gut microbiome**. During the last few years we have been leveraging **Fecal Microbiota Transplantation** (FMT) experiments, the quite literal transference of fecal matter from a healthy donor to a recipient, to study microbial ecology and evolution. FMT gained recognition as an effective treatment for recurrent or refractory *Clostridium difficile* infection (CDI). In addition to its medical relevance, we believe FMT is a great tool to gain deeper insights into microbial life as it opens a window into the event horizon of **what happens when two microbial ecosystems collide**. 
 
-<div style="clear:both"></div>
+<div class="imgclipholder">
+<div class="imgclip">
+	<a href="/images/fmt_figure_01.png"><img src="/images/fmt_figure_01.png" style="margin-top: -311px;"  class="clippedimg" /></a>
+</div>
+<p markdown="1">The distribution of metagenome-assembled microbial genomes across FMT donor and recipients, as well as in healthy gut metagenomes across the United States [shows](https://doi.org/10.1186/s40168-017-0270-x) that microbes populations that are good at colonizing unrelated individuals are also prevalent across health people!</p>
+</div>
+
+Our group has been using FMT to study the **functional basis of human gut colonization**, but also to study **microbial responses to environmental stress**.
 
 
-## Advanced open-source software platforms for high-resolution microbial 'omics
+## Microbial responses to environmental change
 
-Computation is at the core of every scientific discipline. The fields of microbiology and microbial ecology, which rely on *big data* more and more, have  also dramatically benefited from the advances in computation during the last decade. The importance of computation in life sciences puts our lab in a lucky situation, but we try to use our skills in computation wisely.
+We imagine that in a hyper-dimensional space where every axis represents one of many distinct ecological factors (such as temperature, pH, light availability, the level of inflammation, etc), functions encoded in a single genome *maps* to a precise set of coordinates that define the niche boundaries of the organism the genome serves. But the Earth environments are not static. Thus, members of life are in a constant chase of an elusive equilibrium in their livelihoods they have evolved to occupy, as change constantly alters the fitness requirements of an environment by shifting the coordinates to which it maps. In other words, environmental change challenges the members of life to either go extinct, or find a way to change with it.
+
+Some environments change more rapidly compared to others, others change relatively slowly. Some changes are complex and impact many axes of a given environment (such as temperature, which influences many of its co-variables), other changes are relatively simpler and impact a smaller number of dimensions (such as antibiotics). Change is not a single phenomenon either, but a nested set of phenomena spread through different scales of time and space that comes with a broad range of magnitude and dynamism.
+
+Some ways for life to meet the challenge of change is through conventional means of evolution: a never-ending act of trial-and-error that changes the genetic code in small ways to move from one point in the fitness landscape to another. Our group studies this form of evolution through microbial population genetics and phylogenomics (where our work with marine microbes and residents of the oral cavity serve as examples). But environmental change is rarely so charitable to give enough time for life to adapt by perfecting its genetic code in a slow pace. Hence, our group also studies mechanisms by which microbes respond to environmental change in much smaller time scales by focusing on other means to adapt.
+
+Some of the well-understood strategies to gain rapid fitness include horizontal gene transfers and acquiring plasmids, hypervariability through diversity generating retro-elements, and/or hypervariable genomic islands that emerge from constant shuffling of genes. But the fastest way to respond to  respond to environmental change is translational regulation, which represents a profoundly under-explored layer of biology: protein translation dynamics that regulate fitness beyond the heritable genetic code.
+
+A plethora of signal regarding how living cells respond to rapid changes in the environment lies at the level of translational regulation, a set of mechanisms by which members of all three domains of life can (and do) change their proteome in a plastic fashion and beyond heritable and expressed genetic information. If the genome is the cookbook and the ribosome is the chef, the *epi* processes that regulate the translation dictate how and when the chef deviates from the recipe. Transfer RNAs (tRNAs) are critical components of all living cells and properties of tRNA transcripts (i.e., their abundance, charging, and chemical modifications) serve as proxy to such epi processes. Our group has been collaborating with [Tao Pan](https://biochem.uchicago.edu/faculty/tao-pan-phd) of **University of Chicago** to conduct systematical studies of tRNA transcripts beyond model organisms, and apply them to naturally occurring habitats by addressing significant molecular and computational bottlenecks. Through a three-year collaborative effort, we were able to [demonstrate a novel workflow](https://www.nature.com/articles/s41467-018-07675-z) for direct sequencing and analysis of tRNA transcripts from naturally occurring microbes.
+
+<div class="imgclipholder">
+<div class="imgclip">
+	<a href="/images/pubs/schwartz_et_al_trna_seq.png"><img src="/images/pubs/schwartz_et_al_trna_seq.png" style="margin-top: -50px;"  class="clippedimg" /></a>
+</div>
+<p>Draft tRNA-seq workflow prior to many biochemical advances made by the Pan lab over the last few months and computational advances made by Sam Miller, PhD, in our group.</p>
+</div>
+
+Our [proof-of-concept study](https://www.nature.com/articles/s41467-018-07675-z) showed that chemical modifications in tRNA transcripts were associated with protein translation dynamics linked to codon signatures that occurred more frequently in differentially expressed proteins in different environmental conditions. This unexpected discovery led to an award from the Keck Foundation award propelled us to further investigate translational dynamics in natural environments to accurately monitor subtle microbial responses at timescales and resolutions that reflect the speed of change in our oceans and terrestrial habitats. Our current goal to create a framework that gives access to tRNA sequencing in conjunction with other 'omics strategies as we believe metaepitranscriptomics will likely influence our understanding of microbial ecology and evolution in fundamental ways, and help us to accurately model the interconnection between rapidly changing habitats and their inhabitants.
+
+
+
+## Advanced open-source software for high-resolution microbial 'omics
+
+Studying microbial life by integrating multiple 'omics strategies required us to develop advanced software solutions such as [anvi'o](/software/anvio/). We have implemented anvi'o as an open-source community resource. 
+
+<div class="imgclipholder">
+<div class="imgclip">
+	<a href="/images/anvio-art.png"><img src="/images/anvio-art.png" style="margin-top: -170px;"  class="clippedimg" /></a>
+</div>
+<p>Anvi'o is an open-source platform with more than 90,000 lines-of-code. Which really is a lot of code.</p>
+</div>
+
+Computation is at the core of every scientific discipline. The fields of microbiology and microbial ecology, which rely on *big data* more and more, have also dramatically benefited from the advances in computation during the last decade. The importance of computation in life sciences puts our lab in a lucky situation, but we try to use our skills in computation wisely.
 
 How much of the scientific questions we dare to ask depend on the availability of computational solutions that can facilitate the investigation of those questions in complex datasets we plan to generate? Although the inherent link between the tool and thinking will continue to bind the two together, we believe it must be mostly the intellectual curiosity what drives the direction of science, and not the comfort of what is available.
 
-The agreement we have with ourselves in our lab is to keep the biology as the sole inspiration of our direction, and never let the computational conveniences find their ways into our thinking in the expense of our ability to explore fundamental questions. We strive to create software that would allow users to [get their hands dirty]({% post_url anvio/2015-12-09-musings-over-commamox %}) with their data, without imposing boilerplate analysis practices. In most cases the questions we are interested in require precise computational approaches which can offer enough resolution that would enable us to detect subtle changes. These needs resulted in various software solutions we proposed, including [oligotyping](http://onlinelibrary.wiley.com/doi/10.1111/2041-210X.12114/full), and [minimum entropy decomposition](http://www.nature.com/ismej/journal/v9/n4/full/ismej2014195a.html) for the analysis of marker gene data, and [anvi’o](https://peerj.com/articles/1319/) for comparative genomics, metagenomics, metatranscriptomics, and visualization of complex data.
+The agreement we have with ourselves in our group is to keep the biology as the sole inspiration of our direction, and never let the computational conveniences find their ways into our thinking in the expense of our ability to explore fundamental questions.
 
 We intend to maintain our flexibility, and let the incoming questions shape and re-shape our software.
-
-## Holistic approaches to investigate complex gastrointestinal diseases
-
-Inflammatory bowel diseases (IBD) describe a number of prolonged inflammatory conditions of the human colon and small intestine that affect increasingly more people. Substantial evidence links the occurrence of these chronic, relapsing conditions to aberrant immune responses to microbes that colonize the gut. Although there are remarkable shifts in microbial communities with the presence of IBD, there is no evidence for microbial members or metabolisms that are specific to the guts of individuals who suffer from IBD, and that are absent from healthy guts. The current understanding of mechanisms that lead to the development of these conditions is unfortunately limited. However, there is room for improvement in ways these diseases are studied. In collaboration with [Gene Chang’s group](http://changlab.uchicago.edu/) at the **University of Chicago**, [Mitch Sogin](https://scholar.google.com/citations?user=OQbV_3UAAAAJ)’s and [Hilary Morrison](https://scholar.google.com/citations?user=-cmjxwsAAAAJ)’s groups at the **Marine Biological Laboratory**, and [Dionysios Antonopoulos](http://www.anl.gov/contributors/dionysios-antonopoulos)’ group at the **Argonne National Laboratory**, we study the microbial members of IBD patients and the evolution of these microorganisms through genome-resolved metagenomics using longitudinal sampling strategies that allow individuals to serve as their own controls. Our holistic approach includes combining shotgun metagenomics with cultivation or organisms of interest, associating our findings with host factors, and generating hypotheses to be tested in model systems.
-
-
-## Genome-resolved understanding of the human oral cavity
-
-The oral cavity represents the receiving end of our digestive tract where the processing of food begins. Like every other mucosal surface on our body, bacteria also colonize the oral cavity, and they play a critical role in health and disease states of the mouth. Some medical conditions in the oral cavity, such as tooth decay, gum diseases, root canal infections, and tonsillitis can result in systemic diseases. Hence, a complete microbial understanding of this environment has always been essential for medical reasons. Besides its immediate relevance for overall health, we believe the oral cavity represents a fascinating environment to study the ecology of microbes. Due to the lack of any physical barriers, and continuous flow of saliva, microbes can disperse everywhere in the mouth. However, their distribution is far from random. While the microbial occupants of niches in the human mouth (such as tongue, cheeks, gums) form distinct communities, a universe of interactions emerges in this relatively small environment. We [previously showed](http://www.pnas.org/content/111/28/E2875) the differential distribution of very closely related microbial organisms in different oral sites at the marker gene-level using our high-resolution computational approaches. Today, in collaboration with [Jessica Mark Welch](http://www.mbl.edu/jbpc/staff/markwelchj/) from the **Marine Biological Laboratory**, we go further in an attempt to develop a genome-resolved understanding of the oral cavity, and characterize the distribution of pangenomic traits across oral sites.
-
-## Studying public health through the guts of the urban ecosystem
-
-Proper removal of waste is one of the most basic requirements of settled human communities. In fact, we owe our ability to live in such small geographical areas with such high population densities primarily to sewer infrastructures and their ability to effectively evacuate and treat human waste. Today, a modern sewer infrastructure is a critical component of every city. With its ubiquitous parts and components (i.e., toilets, pipes, drains, manholes, pumping stations, and treatment centers), this built environment represents a new, and not yet well-characterized ecosystem for microbial life. Although the functioning of microbes in wastewater treatment efforts has been extensively studied due to their industrial applications for bioremediation, understanding the microbial life in the rest of the sewer infrastructure, especially the pipe systems, has not been a major area of interest. In a recent study led by [Ryan Newton](https://scholar.google.com/citations?user=WaVCQwgAAAAJ) and [Sandra McLellan](http://home.freshwater.uwm.edu/mclellanlab/) from the **University of Wisconsin-Milwaukee**, we [demonstrated](http://mbio.asm.org/content/6/2/e02574-14.short) that it is possible to predict the level of obesity in a given US city with more than 80% accuracy by only analyzing the microbial community signatures found in sewage samples. The link between the microbial community structure and the level of obesity as demonstrated by this finding suggests a potentially very important role for sewages to track public health. We pursue a deeper understanding of the ecology of the sewer ecosystems through marker genes and shotgun metagenomes in an attempt to develop baseline metrics for microbial signatures that can identify matters of public health, and environmental change.
 
 ---
 
 ## Our 2 cents
 
-Some vocabulary we try to use, and promote as much as we can:
+Some vocabulary we try to use, and promote as much as we can (for more, see our [microbial 'omics vocabulary](../vocabulary)):
 
 - "**Bacteria and archaea**” to describe the two ~~major~~ famous ~~domains~~ whatevers of life, *instead of* "**prokaryotes**”. Because major scientific advances of recent times should not be ignored by scientists. Here is an opinion piece on this from Norman Pace: ["It's time to retire the prokaryote"]({{site.url}}/files/time-to-retire-prokaryote.pdf).
 
@@ -109,5 +136,5 @@ Some vocabulary we try to use, and promote as much as we can:
 - *Anything else* to describe microbes that are not yet characterized, *instead of* "**microbial dark matter**". [Just stop it]({% post_url miscellaneous/2017-06-22-microbial-dark-matter %}). [Please](https://twitter.com/merenbey/status/907708177403322368).
 
 
-If you believe we need corrections, please don't hesitate to [write to us]({{site.url}}/people/).
+If you believe we need corrections, please don't hesitate to [write to us]({{site.url}}/people/) :)
 
