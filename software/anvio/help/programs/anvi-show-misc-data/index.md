@@ -31,8 +31,37 @@ See **[program help menu](../../../vignette#anvi-show-misc-data)** or go back to
 ## Usage
 
 
+This program **lists the additional data** that is stored within a <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span>, <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> or <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>. This is data that can be imported with <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/programs/anvi-import-misc-data)</span> and is displayed in the interactive interface. 
+
+When run, this program will output to the terminal a list of all additional data tables that are stored within the database. If you want to export a specific element of these as a text file, see <span class="artifact-n">[anvi-export-misc-data](/software/anvio/help/programs/anvi-export-misc-data)</span>. 
+
+### What is displayed? 
+
+When running on a <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span>, the output will display the following types of data:
+
+- <span class="artifact-n">[misc-data-items](/software/anvio/help/artifacts/misc-data-items)</span> 
+- <span class="artifact-n">[misc-data-layers](/software/anvio/help/artifacts/misc-data-layers)</span>
+- <span class="artifact-n">[misc-data-layer-orders](/software/anvio/help/artifacts/misc-data-layer-orders)</span> (by default, this will include orders like `abundance` and `mean_coverage (newick)`)
+
+When running on a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>, the output will display the following types of data:
+
+- <span class="artifact-n">[misc-data-nucleotides](/software/anvio/help/artifacts/misc-data-nucleotides)</span> 
+- <span class="artifact-n">[misc-data-amino-acids](/software/anvio/help/artifacts/misc-data-amino-acids)</span> 
+
+These have no default values and will only contain data that has been imported with <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/programs/anvi-import-misc-data)</span>. 
+
+You also have the option to specify a specific kind of additional data table with `-t`. For example, to view only <span class="artifact-n">[misc-data-items](/software/anvio/help/artifacts/misc-data-items)</span> in a <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span>, just call
+
+<div class="codeblock" markdown="1">
+anvi&#45;show&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
+                    &#45;t items 
+</div>
+
+Similarly to importing and exporting additional data tables, you can also focus on a specific data group with the parameter `-D`.
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-show-misc-data.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-show-misc-data.md) to update this information.
 
 
 ## Additional Resources

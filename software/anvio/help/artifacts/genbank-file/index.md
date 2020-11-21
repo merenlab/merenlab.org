@@ -30,6 +30,13 @@ Most likely provided by the user.
 
 ## Description
 
+The GenBank file format was created by NCBI. 
+
+You can find an [explination](https://www.ncbi.nlm.nih.gov/genbank/) and [example](https://www.ncbi.nlm.nih.gov/genbank/samplerecord/) on the NCBI website. 
+
+In anvi'o, this is used by <span class="artifact-n">[anvi-script-process-genbank](/software/anvio/help/programs/anvi-script-process-genbank)</span> to convert the information in the genbank file to a <span class="artifact-n">[contigs-fasta](/software/anvio/help/artifacts/contigs-fasta)</span>, <span class="artifact-n">[external-gene-calls](/software/anvio/help/artifacts/external-gene-calls)</span>, and <span class="artifact-n">[functions-txt](/software/anvio/help/artifacts/functions-txt)</span>. 
+
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "genbank-file.md". Its contents will replace this sad text. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/genbank-file.md) to update this information.
 

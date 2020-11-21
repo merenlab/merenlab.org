@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-You give this program one or more FASTQ files and a short sequence, and it returns all short reads from the FASTQ file that matches to it. The purpose of this is to get back short reads that may be extending into hypervariable regions of genomes, resulting a decreased mappability of short reads in the metagenome given a reference. You often see those areas of genomes as significant dips in coverage, and in most cases with a large number of SNVs. When you provide the downstream conserved sequence, this program allows you to take a better look at those regions at the short read level without any mapping.
+You give this program one or more FASTQ files and a short sequence, and it returns all short reads from the FASTQ file that matches to it.
 
 See **[program help menu](../../../vignette#anvi-script-get-short-reads-matching-something)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -31,8 +31,30 @@ See **[program help menu](../../../vignette#anvi-script-get-short-reads-matching
 ## Usage
 
 
+This script takes a FASTQ file and a short input sequence and finds all of the short reads in your fastq file that align to your short sequence. 
+
+The purpose of this is to get back short reads that may be extending into hypervariable regions of genomes, resulting a decreased mappability of short reads in the metagenome given a reference. You often see those areas of genomes as significant dips in coverage, and in most cases with a large number of SNVs. When you provide the downstream conserved sequence, this program allows you to take a better look at those regions at the short read level without any mapping.
+
+To instead get short reads mapping to a gene, use <span class="artifact-n">[anvi-get-short-reads-mapping-to-a-gene](/software/anvio/help/programs/anvi-get-short-reads-mapping-to-a-gene)</span>.
+
+Here is an example run of this program with the default parameters, where the user is searching for alignments to `AAAAAAAAAAAA` in the sample named `example_sample` stored in the two fastq files `fastaq_one.fastq` and `fastq_two.fastq`: 
+
+<div class="codeblock" markdown="1">
+anvi&#45;script&#45;get&#45;short&#45;reads&#45;matching&#45;something &#45;&#45;match&#45;sequence AAAAAAAAAAAA \
+                                               &#45;s example_sample \ 
+                                               &#45;O example_sample_AAAAAAA_results
+                                               fastaq_one.fastq fastq_two.fastq
+</div>
+
+This will output all of the matching sequences into three <span class="artifact-n">[fasta](/software/anvio/help/artifacts/fasta)</span> files in the directory `example_sample_AAAAAAA_results`. These <span class="artifact-n">[fasta](/software/anvio/help/artifacts/fasta)</span> files differ in their format: (1) raw sequences, (2) the same sequences trimmed to the shortest one, (3) gaps `-` added to eliminate length variation. The last two formats provide downstream possibilities with oligotyping to cluster the short reads from an hypervariable region and estimatate their relative proportion. 
+
+Note that this will only report sequences where the length of the short read after the matching sequence is above a certain threshold. The default is 60. For example, if this dataset has the sequence `TTAAAAAAAAAAAAGGGGGGGGG`, this would not be included in the results, but if the sequence was followed by 60 `G` nucleotides, it would be because the length of the sequence after the match is longer than the threshold. You can change this threshold with the parameter `--min-remainder-length`.
+
+You can also choose to stop the program after it finds a certain number of matches or report the raw sequences instead of trimming them to the relevant sections. 
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-script-get-short-reads-matching-something.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-get-short-reads-matching-something.md) to update this information.
 
 
 ## Additional Resources

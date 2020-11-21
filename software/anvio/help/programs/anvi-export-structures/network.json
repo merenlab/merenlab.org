@@ -5,8 +5,8 @@
       "size": 1,
       "score": 1,
       "color": "#AA0000",
-      "id": "protein-structure",
-      "name": "protein-structure",
+      "id": "protein-structure-txt",
+      "name": "protein-structure-txt",
       "provided_by_anvio": false,
       "type": "TXT"
     },

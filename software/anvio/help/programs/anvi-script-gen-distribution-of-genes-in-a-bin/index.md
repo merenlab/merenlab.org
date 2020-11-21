@@ -38,6 +38,8 @@ See **[program help menu](../../../vignette#anvi-script-gen-distribution-of-gene
 ## Additional Resources
 
 
+* [This program in action as part of the metapangenomic workflow](http://merenlab.org/data/prochlorococcus-metapangenome/#classification-of-genes-as-ecgs-and-eags-by-the-distribution-of-genes-in-a-genome-across-metagenomes)
+
 
 {:.notice}
 Are you aware of resources that may help users better understand the utility of this program? Please feel free to edit [this file](https://github.com/merenlab/anvio/tree/master/bin/anvi-script-gen-distribution-of-genes-in-a-bin) on GitHub. If you are not sure how to do that, find the `__resources__` tag in [this file](https://github.com/merenlab/anvio/blob/master/bin/anvi-interactive) to see an example.

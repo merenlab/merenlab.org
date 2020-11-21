@@ -33,6 +33,8 @@ See **[program help menu](../../../vignette#anvi-export-misc-data)** or go back 
 
 This program lets you export miscellaneous data of your choosing into a text file, which can be imported into another anvi'o project using <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/programs/anvi-import-misc-data)</span>. You can export the same types of data that you can import with that function. These are also listed below.
 
+To see what misc-data is available in your database, use <span class="artifact-n">[anvi-show-misc-data](/software/anvio/help/programs/anvi-show-misc-data)</span>. 
+
 If your misc-data is associated with a specific data group, you can provide that data group to this program with the `-D` flag. 
 
 ## Data types you can export 

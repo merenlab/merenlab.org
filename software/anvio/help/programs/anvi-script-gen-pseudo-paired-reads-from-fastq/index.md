@@ -31,8 +31,25 @@ See **[program help menu](../../../vignette#anvi-script-gen-pseudo-paired-reads-
 ## Usage
 
 
+This program takes in a <span class="artifact-n">[short-reads-fasta](/software/anvio/help/artifacts/short-reads-fasta)</span> file and tries to recreate what paired reads for the data in that fasta file might look like. 
+
+An arbitrarily chosen half of the reads will be put into the R1 output, while the other half will be reverse complemented and put into the R2 output. 
+
+For example, if you ran 
+
+<div class="codeblock" markdown="1">
+anvi&#45;script&#45;gen&#45;pseudo&#45;paired&#45;reads&#45;from&#45;fastq &#45;f <span class="artifact&#45;n">[short&#45;reads&#45;fasta](/software/anvio/help/artifacts/short&#45;reads&#45;fasta)</span> \
+                                               &#45;O MY_READS 
+</div>
+
+Then you would end up with two files: 
+
+- `MY_READS_1.fastq` which contains half of the reads straight out of your input file
+- `MY_READS_2.fastq` which contains the reverse complement of the other half of the reads. 
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-script-gen-pseudo-paired-reads-from-fastq.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-gen-pseudo-paired-reads-from-fastq.md) to update this information.
 
 
 ## Additional Resources

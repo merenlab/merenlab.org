@@ -14,7 +14,7 @@ image:
 
 <img src="../../images/icons/NEWICK.png" alt="NEWICK" style="width:100px; border:none" />
 
-A NEWICK-type anvi'o artifact. This artifact can be generated, used, and/or exported **by anvi'o**. It can also be provided **by the user** for anvi'o to import into its databases, process, and/or use..
+A NEWICK-type anvi'o artifact. This artifact can be generated, used, and/or exported **by anvi'o**. It can also be provided **by the user** for anvi'o to import into its databases, process, and/or use.
 
 Back to the **[main page](../../)** of anvi'o programs and artifacts.
 

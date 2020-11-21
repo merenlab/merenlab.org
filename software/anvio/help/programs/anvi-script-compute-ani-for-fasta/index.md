@@ -31,8 +31,25 @@ See **[program help menu](../../../vignette#anvi-script-compute-ani-for-fasta)**
 ## Usage
 
 
+This program computes the average nucleotide identity between reads in a single fasta file (using PyANI). 
+
+To compute the ANI (or other genome distance metrics) between two genomes in different fasta files, use <span class="artifact-n">[anvi-compute-genome-similarity](/software/anvio/help/programs/anvi-compute-genome-similarity)</span>. 
+
+A default run of this program looks like this: 
+
+<div class="codeblock" markdown="1">
+anvi&#45;script&#45;compute&#45;ani&#45;for&#45;fasta &#45;f <span class="artifact&#45;n">[fasta](/software/anvio/help/artifacts/fasta)</span> \ 
+                                  &#45;o path/to/output \
+                                  &#45;&#45;method ANIb
+</div>
+
+By default, the PyANI method is ANIb (which aligns 1020 nt fragments of your sequences using BLASTN+). You can switch to ANIm, ANIblastall, or TETRA if desired. See the [PyANI documentation](https://github.com/widdowquinn/pyani) for more informaiton. 
+
+You also have the option to change the distance metric (from the default "euclidean") or the linkage method (from the default "ward") or provide a path to a log file for debug messages. 
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-script-compute-ani-for-fasta.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-compute-ani-for-fasta.md) to update this information.
 
 
 ## Additional Resources
