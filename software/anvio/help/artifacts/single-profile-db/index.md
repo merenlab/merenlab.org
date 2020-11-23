@@ -26,7 +26,9 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Required or used by
 
+
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-import-taxonomy-for-layers](../../programs/anvi-import-taxonomy-for-layers)</span> <span class="artifact-r">[anvi-interactive](../../programs/anvi-interactive)</span> <span class="artifact-r">[anvi-merge](../../programs/anvi-merge)</span></p>
+
 
 ## Description
 

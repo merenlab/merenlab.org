@@ -26,10 +26,19 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Required or used by
 
+
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-run-interacdome](../../programs/anvi-run-interacdome)</span></p>
+
 
 ## Description
 
+This artifact stores the data downloaded by <span class="artifact-n">[anvi-setup-interacdome](/software/anvio/help/programs/anvi-setup-interacdome)</span> and is required to run <span class="artifact-n">[anvi-run-interacdome](/software/anvio/help/programs/anvi-run-interacdome)</span>. 
+
+As described in the [InteracDome blogpost](https://merenlab.org/2020/07/22/interacdome/#anvi-setup-interacdome), this data includes [the tab-separated files](https://interacdome.princeton.edu/#tab-6136-4) from (InteracDome)[https://interacdome.princeton.edu/] and the Pfam 31.0 HMMs (similarly to <span class="artifact-n">[anvi-setup-pfams](/software/anvio/help/programs/anvi-setup-pfams)</span>) for only the Pfams that in are the InteracDome dataset. 
+
+By default, this data is stored in `anvio/data/misc/InteracDome`, but a custom path can be set when the user runs <span class="artifact-n">[anvi-setup-interacdome](/software/anvio/help/programs/anvi-setup-interacdome)</span> if desired. 
+
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "interacdome-data.md". Its contents will replace this sad text. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/interacdome-data.md) to update this information.
 
