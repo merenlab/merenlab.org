@@ -21,12 +21,14 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-Most likely provided by the user.
+There are no anvi'o tools that generate this artifact, which means it is most likely provided to the anvi'o ecosystem by the user.
 
 
 ## Required or used by
 
+
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-3dev](../../programs/anvi-3dev)</span> <span class="artifact-r">[anvi-compute-completeness](../../programs/anvi-compute-completeness)</span> <span class="artifact-r">[anvi-gen-fixation-index-matrix](../../programs/anvi-gen-fixation-index-matrix)</span> <span class="artifact-r">[anvi-gen-variability-matrix](../../programs/anvi-gen-variability-matrix)</span> <span class="artifact-r">[anvi-gen-variability-profile](../../programs/anvi-gen-variability-profile)</span> <span class="artifact-r">[anvi-get-aa-counts](../../programs/anvi-get-aa-counts)</span></p>
+
 
 ## Description
 
