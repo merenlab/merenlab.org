@@ -28,7 +28,7 @@ Visit <a href="http://merenlab.org/software/anvio/vignette/">this page</a> to se
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **23 Nov 20 10:23:46** for anvi'o version **6.2-master (esther)**.
+The help contents were last updated on **27 Nov 20 10:41:06** for anvi'o version **6.2-master (esther)**.
 
 
 {% include _toc.html %}
@@ -230,11 +230,6 @@ Listed below a total of 111 programs.
 * **[anvi-gen-structure-database](programs/anvi-gen-structure-database)**: Identifies genes in your contigs database that encode proteins that are homologous to proteins with solved structures. If sufficiently similar homologs are identified, they are used as structural templates to predict the 3D structure of proteins in your contigs database.
 <span>**Provides**: <span class="artifact-p">[structure-db](artifacts/structure-db)</span> / 
 <span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[pdb-db](artifacts/pdb-db)</span>.</span>
-
-
-* **[anvi-gen-variability-matrix](programs/anvi-gen-variability-matrix)**: Generate a variability matrix (potentially outdated program).
-<span>**Provides**:  / 
-<span>**Requires**: <span class="artifact-r">[splits-txt](artifacts/splits-txt)</span> <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span>.</span>
 
 
 * **[anvi-gen-variability-profile](programs/anvi-gen-variability-profile)**: Generate a table that comprehensively summarizes the variability of nucleotide, codon, or amino acid positions. We call these single nucleotide variants (SNVs), single codon variants (SCVs), and single amino acid variants (SAAVs), respectively.
@@ -570,6 +565,11 @@ Listed below a total of 111 programs.
 * **[anvi-script-merge-collections](programs/anvi-script-merge-collections)**: Generate an additional data file from multiple collections.
 <span>**Provides**:  / 
 <span>**Requires**: <span class="artifact-r">[contigs-db](artifacts/contigs-db)</span> <span class="artifact-r">[collection-txt](artifacts/collection-txt)</span>.</span>
+
+
+* **[anvi-script-pfam-accessions-to-hmms-directory](programs/anvi-script-pfam-accessions-to-hmms-directory)**: You give this program one or more PFAM accession ids, and it generates an anvi&#39;o compatible HMM directory to be used with `anvi-run-hmms`.
+<span>**Provides**: <span class="artifact-p">[hmm-source](artifacts/hmm-source)</span> / 
+<span>**Requires**: .</span>
 
 
 * **[anvi-script-process-genbank](programs/anvi-script-process-genbank)**: This script takes a GenBank file, and outputs a FASTA file, as well as two additional TAB-delimited output files for external gene calls and gene functions that can be used with the programs `anvi-gen-contigs-database` and `anvi-import-functions`.

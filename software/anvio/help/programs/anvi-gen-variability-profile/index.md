@@ -41,26 +41,53 @@ Here is a basic run with no bells or whisles:
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
-                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span>
+                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \ 
+                             &#45;C DEFAULT \
+                             &#45;b EVERYTHING
 </div>
+
+Note that this program requires you to specify a subset of the databases that you want to focus on, so to focus on everything in the databases, run <span class="artifact-n">[anvi-script-add-default-collection](/software/anvio/help/programs/anvi-script-add-default-collection)</span> and use the resulting <span class="artifact-n">[collection](/software/anvio/help/artifacts/collection)</span> and <span class="artifact-n">[bin](/software/anvio/help/artifacts/bin)</span>, as shown above. 
 
 You can add structural annotations by providing a <span class="artifact-n">[structure-db](/software/anvio/help/artifacts/structure-db)</span>. 
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
                              &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+                             &#45;C DEFAULT \
+                             &#45;b EVERYTHING \
                              &#45;s <span class="artifact&#45;n">[structure&#45;db](/software/anvio/help/artifacts/structure&#45;db)</span> 
 </div>
 
 ### Focusing on a subset of the input 
 
-You can focus on a specific <span class="artifact-n">[collection](/software/anvio/help/artifacts/collection)</span>, <span class="artifact-n">[bin](/software/anvio/help/artifacts/bin)</span>, genes (by providing a file or list of caller IDs) or list of splits (in the form of a <span class="artifact-n">[splits-txt](/software/anvio/help/artifacts/splits-txt)</span>). 
+Instead of focusing on everything (providing the collection `DEFAULT` and the bin `EVERYTHING`), there are three ways to focus on a subset of the input: 
 
-<div class="codeblock" markdown="1">
-anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
-                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
-                             &#45;&#45;gene&#45;caller&#45;ids GENE_1,GENE_2,GENE_3
-</div>
+1. Provide a list of gene caller IDs (as a parameter with the flag `--gene-caller-ids` as shown below, or as a file with the flag `--genes-of-interest`)
+
+    <div class="codeblock" markdown="1">
+    anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
+                                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+                                 &#45;&#45;gene&#45;caller&#45;ids GENE_1,GENE_2,GENE_3
+    </div>
+
+2. Provide a <span class="artifact-n">[splits-txt](/software/anvio/help/artifacts/splits-txt)</span> to focus only on a specific set of splits. 
+
+    <div class="codeblock" markdown="1">
+    anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
+                                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+                                 &#45;&#45;splits&#45;of&#45;intest <span class="artifact&#45;n">[splits&#45;txt](/software/anvio/help/artifacts/splits&#45;txt)</span>
+    </div>
+    
+3. Provide some other <span class="artifact-n">[collection](/software/anvio/help/artifacts/collection)</span> and <span class="artifact-n">[bin](/software/anvio/help/artifacts/bin)</span>. 
+
+    <div class="codeblock" markdown="1">
+    anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
+                                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \ 
+                                 &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/artifacts/collection)</span> \
+                                 &#45;b <span class="artifact&#45;n">[bin](/software/anvio/help/artifacts/bin)</span>
+    </div>
+
+### Additional Ways to Focus the Input 
 
 When providing a <span class="artifact-n">[structure-db](/software/anvio/help/artifacts/structure-db)</span>, you can also limit your analysis to only genes that have structures in your database. 
 
