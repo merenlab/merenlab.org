@@ -26,7 +26,9 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Required or used by
 
+
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-analyze-synteny](../../programs/anvi-analyze-synteny)</span> <span class="artifact-r">[anvi-export-functions](../../programs/anvi-export-functions)</span></p>
+
 
 ## Description
 

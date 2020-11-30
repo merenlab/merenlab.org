@@ -26,7 +26,9 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Required or used by
 
+
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-gen-structure-database](../../programs/anvi-gen-structure-database)</span></p>
+
 
 ## Description
 
