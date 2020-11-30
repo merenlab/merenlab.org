@@ -49,13 +49,3 @@ A lightweight and high-performance library to analyze raw Illumina data. It cont
 <br />
 <a href="https://github.com/meren/illumina-utils">https://github.com/meren/illumina-utils</a>
 </div>
-
-## BLAST Filtering Pipeline
-
-<div class="quotable">
-A metagenomic short read filtering software that uses a flexible configuration format. It allows users to define a chain of genomic filters, each of which perform on the output data provided by the previous filter, to filter reads out from sequencing data. It can exploit Sun Grid Engine and distribute individual processes. The source code is available through its GitHub repository:
-<br />
-<br />
-<a href="https://github.com/meren/BLAST-filtering-pipeline">https://github.com/meren/BLAST-filtering-pipeline</a>
-</div>
-
