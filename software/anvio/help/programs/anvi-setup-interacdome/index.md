@@ -31,7 +31,7 @@ See **[program help menu](../../../vignette#anvi-setup-interacdome)** or go back
 ## Usage
 
 
-This program (much like all of the other programs that begin with `anvi-setup`) sets up a local copy of the InteracDome database for runs of <span class="artifact-n">[anvi-run-interacdome](/software/anvio/help/programs/anvi-run-interacdome)</span>. Note that Anvi'o only needs this program to be run once per version. 
+This program (much like all of the other programs that begin with `anvi-setup`) sets up a local copy of the InteracDome database for runs of <span class="artifact-n">[anvi-run-interacdome](/software/anvio/help/programs/anvi-run-interacdome)</span>. Note that Anvi'o only needs this program to be run once per version of Anvi'o. 
 
 Specifically, this downloads [InteracDome](https://interacdome.princeton.edu/)’s [tab-separated files](https://interacdome.princeton.edu/#tab-6136-4) and the HMM profiles for the Pfams in your InteracDome data. This data is stored in the <span class="artifact-n">[interacdome-data](/software/anvio/help/artifacts/interacdome-data)</span> artifact. 
 

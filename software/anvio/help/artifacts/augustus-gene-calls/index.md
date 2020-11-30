@@ -21,12 +21,14 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-Most likely provided by the user.
+There are no anvi'o tools that generate this artifact, which means it is most likely provided to the anvi'o ecosystem by the user.
 
 
 ## Required or used by
 
+
 <p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-script-augustus-output-to-external-gene-calls](../../programs/anvi-script-augustus-output-to-external-gene-calls)</span></p>
+
 
 ## Description
 
