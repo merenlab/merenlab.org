@@ -4,7 +4,7 @@ title: "An analysis and visualization platform for 'omics data"
 redirect_from: /projects/anvio/
 excerpt: "Anvi'o Project Page"
 image:
-  featurerelative: help/images/header.png
+  featurerelative: help/main/images/header.png
   display: true
 ---
 
