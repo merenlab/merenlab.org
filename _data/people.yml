@@ -259,6 +259,9 @@
   avatar: bio-matthew_k.png
   bio: “I am interested in technology's role in supporting a more equitable future on planet earth.”
   address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+    - title: Programmer
+      inst: The Department of Medicine at the University of Chicago
+      inst_link: http://medicine.uchicago.edu/
 
 - alias: kiki
   official: True
