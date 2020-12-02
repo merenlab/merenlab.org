@@ -326,13 +326,13 @@ Using this configuration, we generated a genomes storage,
 
 ``` bash
 anvi-gen-genomes-storage -i internal-genomes.txt \
-                         -o Prochlorococcus-PAN-GENOMES.h5
+                         -o Prochlorococcus-PAN-GENOMES.db
 ```
 
 Computed the pangenome,
 
 ``` bash
-anvi-pan-genome -g Prochlorococcus-PAN-GENOMES.h5 \
+anvi-pan-genome -g Prochlorococcus-PAN-GENOMES.db \
                 --use-ncbi-blast \
                 --minbit 0.5 \
                 --mcl-inflation 10 \
@@ -345,7 +345,7 @@ and visualized it:
 ``` bash
 anvi-display-pan -p Prochlorococcus-PAN/Prochlorococcus-PAN-PAN.db \
                  -s Prochlorococcus-PAN/Prochlorococcus-PAN-SAMPLES.db \
-                 -g Prochlorococcus-GENOMES.h5
+                 -g Prochlorococcus-GENOMES.db
 ```
 
 So far so good? Good.
@@ -365,7 +365,7 @@ We then saved them as a collection named `default`. We finally summarized the _P
 
 ``` bash
 anvi-summarize -p Prochlorococcus-PAN/Prochlorococcus-PAN-PAN.db \
-               -g Prochlorococcus-GENOMES.h5 \
+               -g Prochlorococcus-GENOMES.db \
                -C default \
                -o Prochlorococcus-PAN-SUMMARY
 ```
@@ -480,7 +480,7 @@ The next step is to link each gene from each genome across every metagenome to c
 ``` bash
 anvi-script-gen-environmental-core-summary -i internal-genomes.txt \
                                            -p Prochlorococcus-PAN/Prochlorococcus-PAN-PAN.db \
-                                           -g Prochlorococcus-GENOMES.h5 \
+                                           -g Prochlorococcus-GENOMES.db \
                                            --fraction-of-median-coverage 0.25 \
                                            -O ENVIRONMENTAL-CORE
 ```
@@ -506,7 +506,7 @@ When we provide this file as an additional data to the program `anvi-display-pan
 ``` bash
 anvi-display-pan -p Prochlorococcus-PAN/Prochlorococcus-PAN-PAN.db \
                  -s Prochlorococcus-METAPAN-SAMPLES.db \
-                 -g Prochlorococcus-GENOMES.h5 \
+                 -g Prochlorococcus-GENOMES.db \
                  -A ENVIRONMENTAL-CORE.txt \
                  --title "Prochlorococcus Metapangenome"
 ```
@@ -535,7 +535,7 @@ If you are using an anvi'o version newer than `v3` and wish you visualize the me
 ANVIO_SAMPLES_DB=Prochlorococcus-METAPAN-SAMPLES.db anvi-migrate-db Prochlorococcus-PAN-PAN.db
 
 # migrate the genomes storage
-anvi-migrate-db Prochlorococcus-GENOMES.h5
+anvi-migrate-db Prochlorococcus-GENOMES.db
 
 # convert the additional layers to the new format
 echo -e "pc_name\tDetection#EDG\tDetection#ECG\tDetection#NA" | sed 's/#/!/g' > ENVIRONMENTAL-CORE-FIXED.txt
