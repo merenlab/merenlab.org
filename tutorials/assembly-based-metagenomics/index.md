@@ -220,8 +220,8 @@ Sample_02-QUALITY_PASSED_R2.fastq
 To make things simpler and to minimize human error, let's create two environment variables:
 
 ``` bash
-meren SSH://MBL ~ $ R1s=`ls 01_QC/*QUALITY_PASSED_R1* | python -c 'import sys; print ",".join([x.strip() for x in sys.stdin.readlines()])'`
-meren SSH://MBL ~ $ R2s=`ls 01_QC/*QUALITY_PASSED_R2* | python -c 'import sys; print ",".join([x.strip() for x in sys.stdin.readlines()])'`
+meren SSH://MBL ~ $ R1s=`ls 01_QC/*QUALITY_PASSED_R1* | python -c 'import sys; print(",".join([x.strip() for x in sys.stdin.readlines()]))'`
+meren SSH://MBL ~ $ R2s=`ls 01_QC/*QUALITY_PASSED_R2* | python -c 'import sys; print(",".join([x.strip() for x in sys.stdin.readlines()]))'`
 ```
 
 They will look like this:
