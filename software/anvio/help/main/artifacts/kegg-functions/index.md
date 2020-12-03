@@ -34,9 +34,9 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 [Kegg Orthology](https://www.genome.jp/kegg/ko.html) (KO) functional annotations, produced by finding HMM hits to the KEGG KOfam database.
 
-You can annotate a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> with these KEGG functions by running <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/programs/anvi-run-kegg-kofams)</span>.
+You can annotate a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> with these KEGG functions by running <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/main/programs/anvi-run-kegg-kofams)</span>.
 
-Another program that relies on these annotations is <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/programs/anvi-estimate-metabolism)</span>, which uses them to determine presence and completeness of metabolic pathways that are defined by KOs.
+Another program that relies on these annotations is <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span>, which uses them to determine presence and completeness of metabolic pathways that are defined by KOs.
 
 
 {:.notice}

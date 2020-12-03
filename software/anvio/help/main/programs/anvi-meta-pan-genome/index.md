@@ -31,16 +31,16 @@ See **[program help menu](../../../vignette#anvi-meta-pan-genome)** or go back t
 ## Usage
 
 
-This program integrates the information from an <span class="artifact-n">[internal-genomes](/software/anvio/help/artifacts/internal-genomes)</span> artifact into a <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span>, creating a metapangenome. 
+This program integrates the information from an <span class="artifact-n">[internal-genomes](/software/anvio/help/main/artifacts/internal-genomes)</span> artifact into a <span class="artifact-n">[pan-db](/software/anvio/help/main/artifacts/pan-db)</span>, creating a metapangenome. 
 
-A metapangenome contains both the information in a metagenome (i.e. their abundances in different samples as described in your <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span>) and the information in a pangenome (i.e. the gene clusters in your dataset). This is useful because you are able to observe which gene cluster patterns are present in certain environments. For an example of a metapangenomic workflow, take a look [here](http://merenlab.org/data/prochlorococcus-metapangenome/) (this tutorial was written before this program, but the insights persist). 
+A metapangenome contains both the information in a metagenome (i.e. their abundances in different samples as described in your <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span>) and the information in a pangenome (i.e. the gene clusters in your dataset). This is useful because you are able to observe which gene cluster patterns are present in certain environments. For an example of a metapangenomic workflow, take a look [here](http://merenlab.org/data/prochlorococcus-metapangenome/) (this tutorial was written before this program, but the insights persist). 
 
-To use this program, provide a <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span> and <span class="artifact-n">[genomes-storage-db](/software/anvio/help/artifacts/genomes-storage-db)</span> pair, as well as an <span class="artifact-n">[internal-genomes](/software/anvio/help/artifacts/internal-genomes)</span>.
+To use this program, provide a <span class="artifact-n">[pan-db](/software/anvio/help/main/artifacts/pan-db)</span> and <span class="artifact-n">[genomes-storage-db](/software/anvio/help/main/artifacts/genomes-storage-db)</span> pair, as well as an <span class="artifact-n">[internal-genomes](/software/anvio/help/main/artifacts/internal-genomes)</span>.
 
 <div class="codeblock" markdown="1">
-anvi&#45;meta&#45;pan&#45;genome &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/artifacts/pan&#45;db)</span> \
-                     &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/artifacts/genomes&#45;storage&#45;db)</span> \
-                     &#45;i <span class="artifact&#45;n">[internal&#45;genomes](/software/anvio/help/artifacts/internal&#45;genomes)</span> 
+anvi&#45;meta&#45;pan&#45;genome &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/main/artifacts/pan&#45;db)</span> \
+                     &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
+                     &#45;i <span class="artifact&#45;n">[internal&#45;genomes](/software/anvio/help/main/artifacts/internal&#45;genomes)</span> 
 </div>
 
 However, when integrating metagenomic and pangenomic data together, you'll get a lot of data. You can set two additional parameters to help you filter out data that doesn't mean certain standards:

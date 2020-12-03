@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Export an anvi&#x27;o state into a profile database.
+Export an anvi&#39;o state into a profile database.
 
 See **[program help menu](../../../vignette#anvi-export-state)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -31,20 +31,20 @@ See **[program help menu](../../../vignette#anvi-export-state)** or go back to t
 ## Usage
 
 
-This program allows you to export a <span class="artifact-n">[state](/software/anvio/help/artifacts/state)</span> from a <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span>. The output of this is a <span class="artifact-n">[state-json](/software/anvio/help/artifacts/state-json)</span>, which you can import into another anvi'o project with <span class="artifact-n">[anvi-import-state](/software/anvio/help/programs/anvi-import-state)</span>. 
+This program allows you to export a <span class="artifact-n">[state](/software/anvio/help/main/artifacts/state)</span> from a <span class="artifact-n">[pan-db](/software/anvio/help/main/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span>. The output of this is a <span class="artifact-n">[state-json](/software/anvio/help/main/artifacts/state-json)</span>, which you can import into another anvi'o project with <span class="artifact-n">[anvi-import-state](/software/anvio/help/main/programs/anvi-import-state)</span>. 
 
-You can run this program on a <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span> as follows: 
+You can run this program on a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/software/anvio/help/main/artifacts/pan-db)</span> as follows: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;state &#45;s <span class="artifact&#45;n">[state](/software/anvio/help/artifacts/state)</span> \
-                  &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span>  \
+anvi&#45;export&#45;state &#45;s <span class="artifact&#45;n">[state](/software/anvio/help/main/artifacts/state)</span> \
+                  &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span>  \
                   &#45;o path/to/output
 </div>
 
 To list the collections available in this database, you can run 
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;state &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/artifacts/pan&#45;db)</span> \
+anvi&#45;export&#45;state &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/main/artifacts/pan&#45;db)</span> \
                   &#45;&#45;list&#45;states
 </div>
 

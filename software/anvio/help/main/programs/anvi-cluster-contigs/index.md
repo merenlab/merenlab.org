@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-A program to cluster items in a merged anvi&#x27;o profile using automatic binning algorithms.
+A program to cluster items in a merged anvi&#39;o profile using automatic binning algorithms.
 
 See **[program help menu](../../../vignette#anvi-cluster-contigs)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -31,18 +31,18 @@ See **[program help menu](../../../vignette#anvi-cluster-contigs)** or go back t
 ## Usage
 
 
-This program clusters the contigs stored in a <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> using your binning algorithm of choice and stores the results in several <span class="artifact-n">[bin](/software/anvio/help/artifacts/bin)</span>s. 
+This program clusters the contigs stored in a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> using your binning algorithm of choice and stores the results in several <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span>s. 
 
-This is a quick alternative to manually binning your contigs, but it might miss some details that a human doing manual binning would find. After running this, you might want to run <span class="artifact-n">[anvi-summarize](/software/anvio/help/programs/anvi-summarize)</span> on the resulting <span class="artifact-n">[collection](/software/anvio/help/artifacts/collection)</span> to look through your bins, and, if necessary, use <span class="artifact-n">[anvi-refine](/software/anvio/help/programs/anvi-refine)</span> to change the contents of them. 
+This is a quick alternative to manually binning your contigs, but it might miss some details that a human doing manual binning would find. After running this, you might want to run <span class="artifact-n">[anvi-summarize](/software/anvio/help/main/programs/anvi-summarize)</span> on the resulting <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span> to look through your bins, and, if necessary, use <span class="artifact-n">[anvi-refine](/software/anvio/help/main/programs/anvi-refine)</span> to change the contents of them. 
 
 You have to option to use several different clustering algorithms, which you'll specify with the `driver` parameter: [concoct](https://github.com/BinPro/CONCOCT/blob/develop/doc/source/index.rst), [metabat2](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6662567/), [maxbin2](https://academic.oup.com/bioinformatics/article/32/4/605/1744462), [dastool](https://github.com/cmks/DAS_Tool), and [binsanity](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5345454/). 
 
 So, a run of this program will look like the following:
 
 <div class="codeblock" markdown="1">
-anvi&#45;cluster&#45;contigs &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
-                     &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \ 
-                     &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/artifacts/collection)</span> \ 
+anvi&#45;cluster&#45;contigs &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
+                     &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \ 
+                     &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span> \ 
                      &#45;&#45;driver concoct
 </div>
 

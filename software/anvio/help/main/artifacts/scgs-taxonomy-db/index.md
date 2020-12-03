@@ -32,9 +32,9 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
-This describes the databases downloaded from [The Genome Taxonomy Database](https://gtdb.ecogenomic.org/) when you run <span class="artifact-n">[anvi-setup-scg-taxonomy](/software/anvio/help/programs/anvi-setup-scg-taxonomy)</span>. 
+This describes the databases downloaded from [The Genome Taxonomy Database](https://gtdb.ecogenomic.org/) when you run <span class="artifact-n">[anvi-setup-scg-taxonomy](/software/anvio/help/main/programs/anvi-setup-scg-taxonomy)</span>. 
 
-Once you have these databases, you'll want to search the single-copy core genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> against them. To do this, run <span class="artifact-n">[anvi-run-scg-taxonomy](/software/anvio/help/programs/anvi-run-scg-taxonomy)</span>. 
+Once you have these databases, you'll want to search the single-copy core genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> against them. To do this, run <span class="artifact-n">[anvi-run-scg-taxonomy](/software/anvio/help/main/programs/anvi-run-scg-taxonomy)</span>. 
 
 
 {:.notice}

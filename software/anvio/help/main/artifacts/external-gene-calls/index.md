@@ -32,7 +32,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
-By default, anvi'o uses Prodigal for gene calling when the user is generating a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>. Yet, if the user provides an external gene calls file, then anvi'o does not perform gene calling, and uses this file to store the gene information into the new <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>.
+By default, anvi'o uses Prodigal for gene calling when the user is generating a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>. Yet, if the user provides an external gene calls file, then anvi'o does not perform gene calling, and uses this file to store the gene information into the new <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>.
 
 External gene calls is a user-provided TAB-delimited file that should follow this format:
 
@@ -101,7 +101,7 @@ This is a feature added after anvi'o `v6.2`. If you are using anvi'o `v6.2` or e
 
 The column `call_type` declares the nature of the call. It can take one of the following three integer values:
 
-* `1`, indicates that the gene call is for a CODING gene. For gene calls marked as CODING genes, anvi'o will try to predict the proper coding frame when <span class="artifact-n">[anvi-gen-contigs-database](/software/anvio/help/programs/anvi-gen-contigs-database)</span> is run using Markov models trained on a large number of protein sequences and was first described in this [pull request](https://github.com/merenlab/anvio/pull/1428). This is the default behavior for CODING sequences regardless of whether the gene call is partial or not. However, there are two ways the user can change this: (1) by providing an amino acid sequence for the call in the `aa_sequence` column or (2) by asking <span class="artifact-n">[anvi-gen-contigs-database](/software/anvio/help/programs/anvi-gen-contigs-database)</span> to `--skip-predict-frame`.
+* `1`, indicates that the gene call is for a CODING gene. For gene calls marked as CODING genes, anvi'o will try to predict the proper coding frame when <span class="artifact-n">[anvi-gen-contigs-database](/software/anvio/help/main/programs/anvi-gen-contigs-database)</span> is run using Markov models trained on a large number of protein sequences and was first described in this [pull request](https://github.com/merenlab/anvio/pull/1428). This is the default behavior for CODING sequences regardless of whether the gene call is partial or not. However, there are two ways the user can change this: (1) by providing an amino acid sequence for the call in the `aa_sequence` column or (2) by asking <span class="artifact-n">[anvi-gen-contigs-database](/software/anvio/help/main/programs/anvi-gen-contigs-database)</span> to `--skip-predict-frame`.
 
 * `2`, indicates that the gene call is for a NONCODING gene. This is used for non-coding RNAs (transfer RNAs or ribosomal RNAs). For gene calls marked as NONCODING, anvi'o will not attempt to predict an amino acid sequence (nor it will tolerate entries in the `aa_sequence` column).
 

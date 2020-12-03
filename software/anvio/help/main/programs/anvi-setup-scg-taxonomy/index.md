@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-The purpose of this program is to download necessary information from GTDB (https://gtdb.ecogenomic.org/), and set it up in such a way that your anvi&#x27;o installation is able to assign taxonomy to single-copy core genes using `anvi-run-scg-taxonomy` and estimate taxonomy for genomes or metagenomes using `anvi-estimate-scg-taxonomy`).
+The purpose of this program is to download necessary information from GTDB (https://gtdb.ecogenomic.org/), and set it up in such a way that your anvi&#39;o installation is able to assign taxonomy to single-copy core genes using `anvi-run-scg-taxonomy` and estimate taxonomy for genomes or metagenomes using `anvi-estimate-scg-taxonomy`).
 
 See **[program help menu](../../../vignette#anvi-setup-scg-taxonomy)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -31,7 +31,7 @@ See **[program help menu](../../../vignette#anvi-setup-scg-taxonomy)** or go bac
 ## Usage
 
 
-This program **downloads and sets up the search databases used for the scg-taxonomy workflow** (from [GTDB](https://gtdb.ecogenomic.org/)) so that you can run <span class="artifact-n">[anvi-run-scg-taxonomy](/software/anvio/help/programs/anvi-run-scg-taxonomy)</span> and <span class="artifact-n">[anvi-estimate-scg-taxonomy](/software/anvio/help/programs/anvi-estimate-scg-taxonomy)</span>. This program generates a <span class="artifact-n">[scgs-taxonomy-db](/software/anvio/help/artifacts/scgs-taxonomy-db)</span> artifact, which is required to run both of those programs. 
+This program **downloads and sets up the search databases used for the scg-taxonomy workflow** (from [GTDB](https://gtdb.ecogenomic.org/)) so that you can run <span class="artifact-n">[anvi-run-scg-taxonomy](/software/anvio/help/main/programs/anvi-run-scg-taxonomy)</span> and <span class="artifact-n">[anvi-estimate-scg-taxonomy](/software/anvio/help/main/programs/anvi-estimate-scg-taxonomy)</span>. This program generates a <span class="artifact-n">[scgs-taxonomy-db](/software/anvio/help/main/artifacts/scgs-taxonomy-db)</span> artifact, which is required to run both of those programs. 
 
 For more information on that workflow, check out [this page](http://merenlab.org/2019/10/08/anvio-scg-taxonomy/)
 

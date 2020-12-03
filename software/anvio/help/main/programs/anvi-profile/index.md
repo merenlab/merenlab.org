@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Creates a single anvi&#x27;o profile database.                    When it is run on a BAM file, depending on the user parameters, the program quantifies                   coverage per nucleotide position (and averages them  per contig), calculates                   single-nucleotide, single-codon, and single-amino acid variants, as well as structural variants                   such as insertion and deletions and stores these data into appropriate tables.
+Creates a single anvi&#39;o profile database.                    When it is run on a BAM file, depending on the user parameters, the program quantifies                   coverage per nucleotide position (and averages them  per contig), calculates                   single-nucleotide, single-codon, and single-amino acid variants, as well as structural variants                   such as insertion and deletions and stores these data into appropriate tables.
 
 See **[program help menu](../../../vignette#anvi-profile)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -31,11 +31,11 @@ See **[program help menu](../../../vignette#anvi-profile)** or go back to the **
 ## Usage
 
 
-This program **creates a <span class="artifact-n">[single-profile-db](/software/anvio/help/artifacts/single-profile-db)</span> from a <span class="artifact-n">[bam-file](/software/anvio/help/artifacts/bam-file)</span> and <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>**. 
+This program **creates a <span class="artifact-n">[single-profile-db](/software/anvio/help/main/artifacts/single-profile-db)</span> from a <span class="artifact-n">[bam-file](/software/anvio/help/main/artifacts/bam-file)</span> and <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>**. 
 
-Once you have a <span class="artifact-n">[single-profile-db](/software/anvio/help/artifacts/single-profile-db)</span>, you can run programs like <span class="artifact-n">[anvi-cluster-contigs](/software/anvio/help/programs/anvi-cluster-contigs)</span>, <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/programs/anvi-estimate-metabolism)</span>, and <span class="artifact-n">[anvi-gen-gene-level-stats-databases](/software/anvio/help/programs/anvi-gen-gene-level-stats-databases)</span>, as well as use the interactive interface with <span class="artifact-n">[anvi-interactive](/software/anvio/help/programs/anvi-interactive)</span>. If you want to run these same contigs against multiple BAM files (because you have multiple samples), you'll combine your <span class="artifact-n">[single-profile-db](/software/anvio/help/artifacts/single-profile-db)</span>s into a <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> after you've created them all using <span class="artifact-n">[anvi-merge](/software/anvio/help/programs/anvi-merge)</span>. See the pages for <span class="artifact-n">[single-profile-db](/software/anvio/help/artifacts/single-profile-db)</span> or <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> for more you can do with these artifacts. 
+Once you have a <span class="artifact-n">[single-profile-db](/software/anvio/help/main/artifacts/single-profile-db)</span>, you can run programs like <span class="artifact-n">[anvi-cluster-contigs](/software/anvio/help/main/programs/anvi-cluster-contigs)</span>, <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span>, and <span class="artifact-n">[anvi-gen-gene-level-stats-databases](/software/anvio/help/main/programs/anvi-gen-gene-level-stats-databases)</span>, as well as use the interactive interface with <span class="artifact-n">[anvi-interactive](/software/anvio/help/main/programs/anvi-interactive)</span>. If you want to run these same contigs against multiple BAM files (because you have multiple samples), you'll combine your <span class="artifact-n">[single-profile-db](/software/anvio/help/main/artifacts/single-profile-db)</span>s into a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> after you've created them all using <span class="artifact-n">[anvi-merge](/software/anvio/help/main/programs/anvi-merge)</span>. See the pages for <span class="artifact-n">[single-profile-db](/software/anvio/help/main/artifacts/single-profile-db)</span> or <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> for more you can do with these artifacts. 
 
-In short, this program runs various analyses on the contigs in your <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> and how they relate to the sample information stored in the <span class="artifact-n">[bam-file](/software/anvio/help/artifacts/bam-file)</span> you provided. It then stores this information into a <span class="artifact-n">[single-profile-db](/software/anvio/help/artifacts/single-profile-db)</span>. Specifically, this program calculates 
+In short, this program runs various analyses on the contigs in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> and how they relate to the sample information stored in the <span class="artifact-n">[bam-file](/software/anvio/help/main/artifacts/bam-file)</span> you provided. It then stores this information into a <span class="artifact-n">[single-profile-db](/software/anvio/help/main/artifacts/single-profile-db)</span>. Specifically, this program calculates 
 * coverage per nucleotide position (if you're unsure what coverage refers to, check out [this page](http://merenlab.org/vocabulary/#coverage))
 * single-nucleotide, single-codon, and single-amino acid variants (You can find all of those terms on the vocab page linked above, as well as a more detailed explaination [here](http://merenlab.org/2015/07/20/analyzing-variability/#an-intro-to-single-nucleotidecodonamino-acid-variation))
 * structural variants such as insertions or deletions 
@@ -44,17 +44,17 @@ In short, this program runs various analyses on the contigs in your <span class=
 
 ### Inputs 
 
-This program takes in an [indexed](https://merenlab.org/software/anvio/help/programs/anvi-init-bam) <span class="artifact-n">[bam-file](/software/anvio/help/artifacts/bam-file)</span> and a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>. The BAM file contains the short reads from a single sample that will be used to create the profile database. Thus, here is a standard run with default parameters: 
+This program takes in an [indexed](https://merenlab.org/software/anvio/help/programs/anvi-init-bam) <span class="artifact-n">[bam-file](/software/anvio/help/main/artifacts/bam-file)</span> and a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>. The BAM file contains the short reads from a single sample that will be used to create the profile database. Thus, here is a standard run with default parameters: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;profile &#45;i <span class="artifact&#45;n">[bam&#45;file](/software/anvio/help/artifacts/bam&#45;file)</span> \
-             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> 
+anvi&#45;profile &#45;i <span class="artifact&#45;n">[bam&#45;file](/software/anvio/help/main/artifacts/bam&#45;file)</span> \
+             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> 
 </div>
 
 Alternatively, if you lack mapping data, you can add the flag `--blank-profile` so that you can still get the functionality of a profile database. 
 
 <div class="codeblock" markdown="1">
-anvi&#45;profile &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span>  \ 
+anvi&#45;profile &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span>  \ 
             &#45;&#45;blank&#45;profile
 </div>
 
@@ -66,7 +66,7 @@ If you want to first check your BAM file to see what contigs it contains, just u
 
 *Note: This describes how to profile a named subset of contigs. To profile a subset of contigs based on their characterists (for example, only contigs of a certain length or that have a certain coverage), see the section below on "contig specifications"*
 
-By default, anvi'o will use every contig in your <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>. However, if you wish to focus specifically on a subset of these contigs, just provide a file that contains only the names of the contigs you want to analyze, one per line, using the tag `--contigs-of-interest`.
+By default, anvi'o will use every contig in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>. However, if you wish to focus specifically on a subset of these contigs, just provide a file that contains only the names of the contigs you want to analyze, one per line, using the tag `--contigs-of-interest`.
 
 For example, you could run
 
@@ -85,7 +85,7 @@ Where `contigs_i_like.txt` looks like this:
  
 Changing these will affect the way that your sequences are analyzed. 
 
-Keep in mind that if you plan to merge your resulting <span class="artifact-n">[single-profile-db](/software/anvio/help/artifacts/single-profile-db)</span> with others later in the project, you'll want to keep these parameters consistent. 
+Keep in mind that if you plan to merge your resulting <span class="artifact-n">[single-profile-db](/software/anvio/help/main/artifacts/single-profile-db)</span> with others later in the project, you'll want to keep these parameters consistent. 
 
 ### Contig Specification 
 
@@ -110,7 +110,7 @@ anvi&#45;profile &#45;c Ross_sea_contigs.db  \
 
 By default, anvi'o will not try to cluster your splits (since it takes quite a bit of runtime) unless you are using the tag `--blank-profile`. If you don't want to run this, use the tag `--skip-hierarchical-clustering`. 
 
-If you're planning to later merge this sample with others, it is better to perform clustering while running <span class="artifact-n">[anvi-merge](/software/anvio/help/programs/anvi-merge)</span> than at this stage. 
+If you're planning to later merge this sample with others, it is better to perform clustering while running <span class="artifact-n">[anvi-merge](/software/anvio/help/main/programs/anvi-merge)</span> than at this stage. 
 
 However, if you want to bin this single sample or otherwise want clustering to happen, just use the tag `--cluster-contigs`. 
 

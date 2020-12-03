@@ -31,7 +31,7 @@ See **[program help menu](../../../vignette#anvi-script-merge-collections)** or 
 ## Usage
 
 
-This program outputs a file that denotes which contigs and splits are part of which <span class="artifact-n">[collection-txt](/software/anvio/help/artifacts/collection-txt)</span> files. This just tells you which collections each of your contigs are a part of, which can be imported as  acategorical layer with <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/programs/anvi-import-misc-data)</span>. 
+This program outputs a file that denotes which contigs and splits are part of which <span class="artifact-n">[collection-txt](/software/anvio/help/main/artifacts/collection-txt)</span> files. This just tells you which collections each of your contigs are a part of, which can be imported as  acategorical layer with <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/main/programs/anvi-import-misc-data)</span>. 
 
 This is not super useful, but it is used in the Infant gut tutorial [here](http://merenlab.org/tutorials/infant-gut/#comparing-multiple-binning-approaches). 
 

@@ -32,9 +32,9 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
-This is a tab-delimited table where each row represents a a short read that mapped to a specific position in a reference contig. This is the output of <span class="artifact-n">[anvi-report-linkmers](/software/anvio/help/programs/anvi-report-linkmers)</span>, where those reference positions are given by the user.
+This is a tab-delimited table where each row represents a a short read that mapped to a specific position in a reference contig. This is the output of <span class="artifact-n">[anvi-report-linkmers](/software/anvio/help/main/programs/anvi-report-linkmers)</span>, where those reference positions are given by the user.
 
-For instance, if <span class="artifact-n">[anvi-report-linkmers](/software/anvio/help/programs/anvi-report-linkmers)</span> was run on three samples (`SAMPLE-01.bam`, `SAMPLE-02.bam`, and `SAMPLE-03.bam`) with this contigs-and-positions file,
+For instance, if <span class="artifact-n">[anvi-report-linkmers](/software/anvio/help/main/programs/anvi-report-linkmers)</span> was run on three samples (`SAMPLE-01.bam`, `SAMPLE-02.bam`, and `SAMPLE-03.bam`) with this contigs-and-positions file,
 
 <table>
   <tbody>

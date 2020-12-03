@@ -31,7 +31,7 @@ See **[program help menu](../../../vignette#anvi-import-functions)** or go back 
 ## Usage
 
 
-This program **takes in a <span class="artifact-n">[functions-txt](/software/anvio/help/artifacts/functions-txt)</span> to annotate your <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> with <span class="artifact-n">[functions](/software/anvio/help/artifacts/functions)</span>.** Basically, if you have already have the gene functions for the contigs in your <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> available in a file, you can import them into anvi'o using this command. 
+This program **takes in a <span class="artifact-n">[functions-txt](/software/anvio/help/main/artifacts/functions-txt)</span> to annotate your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> with <span class="artifact-n">[functions](/software/anvio/help/main/artifacts/functions)</span>.** Basically, if you have already have the gene functions for the contigs in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> available in a file, you can import them into anvi'o using this command. 
 
 You can find a really comprehesive walkthrough of this program on [this blog post about importing functions](http://merenlab.org/2016/06/18/importing-functions/), including information about built-in anvi'o parsers for InterProScan and the EggNOG database.
 

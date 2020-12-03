@@ -5,8 +5,26 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "binding-frequencies",
-      "name": "binding-frequencies",
+      "id": "binding-frequencies-txt",
+      "name": "binding-frequencies-txt",
+      "provided_by_anvio": true,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "misc-data-nucleotides",
+      "name": "misc-data-nucleotides",
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "misc-data-amino-acids",
+      "name": "misc-data-amino-acids",
       "provided_by_anvio": true,
       "type": "CONCEPT"
     },
@@ -29,7 +47,7 @@
       "type": "DATA"
     },
     {
-      "size": 3,
+      "size": 5,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-run-interacdome",
@@ -39,16 +57,24 @@
   ],
   "links": [
     {
-      "source": 3,
+      "source": 5,
       "target": 0
     },
     {
-      "target": 3,
-      "source": 1
+      "source": 5,
+      "target": 1
     },
     {
-      "target": 3,
-      "source": 2
+      "source": 5,
+      "target": 2
+    },
+    {
+      "target": 5,
+      "source": 3
+    },
+    {
+      "target": 5,
+      "source": 4
     }
   ],
   "directed": false,

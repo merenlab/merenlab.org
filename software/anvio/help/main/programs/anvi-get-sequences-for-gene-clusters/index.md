@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Do cool stuff with gene clusters in anvi&#x27;o pan genomes.
+Do cool stuff with gene clusters in anvi&#39;o pan genomes.
 
 See **[program help menu](../../../vignette#anvi-get-sequences-for-gene-clusters)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -31,20 +31,20 @@ See **[program help menu](../../../vignette#anvi-get-sequences-for-gene-clusters
 ## Usage
 
 
-This aptly-named program **gets the sequences for the gene clusters stored in a <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span> and returns them as either a <span class="artifact-n">[genes-fasta](/software/anvio/help/artifacts/genes-fasta)</span> or a <span class="artifact-n">[concatenated-gene-alignment-fasta](/software/anvio/help/artifacts/concatenated-gene-alignment-fasta)</span>** (which you can use to run <span class="artifact-n">[anvi-gen-phylogenomic-tree](/software/anvio/help/programs/anvi-gen-phylogenomic-tree)</span>). This gives you advanced access to your gene clusters, which you can take out of anvi'o, use for phylogenomic analyses, or do whatever you please with. 
+This aptly-named program **gets the sequences for the gene clusters stored in a <span class="artifact-n">[pan-db](/software/anvio/help/main/artifacts/pan-db)</span> and returns them as either a <span class="artifact-n">[genes-fasta](/software/anvio/help/main/artifacts/genes-fasta)</span> or a <span class="artifact-n">[concatenated-gene-alignment-fasta](/software/anvio/help/main/artifacts/concatenated-gene-alignment-fasta)</span>** (which you can use to run <span class="artifact-n">[anvi-gen-phylogenomic-tree](/software/anvio/help/main/programs/anvi-gen-phylogenomic-tree)</span>). This gives you advanced access to your gene clusters, which you can take out of anvi'o, use for phylogenomic analyses, or do whatever you please with. 
 
-You also have the option to output the sequences of your choice as a <span class="artifact-n">[misc-data-items](/software/anvio/help/artifacts/misc-data-items)</span> (with `add-into-items-additional-data-table`), which can be added to the <span class="artifact-n">[interactive](/software/anvio/help/artifacts/interactive)</span> interface as additional layers. 
+You also have the option to output the sequences of your choice as a <span class="artifact-n">[misc-data-items](/software/anvio/help/main/artifacts/misc-data-items)</span> (with `add-into-items-additional-data-table`), which can be added to the <span class="artifact-n">[interactive](/software/anvio/help/main/artifacts/interactive)</span> interface as additional layers. 
 
 While the number of parameters may seem daunting, many of the options just help you specify exactly which gene clusters you want to get the sequences  from. 
 
 ### Running on all gene clusters
 
-Here is a basic run, that will  export alignments for every single gene cluster found in the <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span> as amino acid sequences :
+Here is a basic run, that will  export alignments for every single gene cluster found in the <span class="artifact-n">[pan-db](/software/anvio/help/main/artifacts/pan-db)</span> as amino acid sequences :
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/artifacts/genomes&#45;storage&#45;db)</span> \
-                                     &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/artifacts/pan&#45;db)</span> \
-                                     &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/software/anvio/help/artifacts/genes&#45;fasta)</span>
+anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
+                                     &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/main/artifacts/pan&#45;db)</span> \
+                                     &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/software/anvio/help/main/artifacts/genes&#45;fasta)</span>
 </div>
 
 To get the DNA sequences instead, just add `--report-DNA-sequences`. 
@@ -53,21 +53,21 @@ To get the DNA sequences instead, just add `--report-DNA-sequences`.
 
 #### Part 1: Choosing gene clusters by collection, bin, or name
 
-You can export only the sequences for a specific <span class="artifact-n">[collection](/software/anvio/help/artifacts/collection)</span> or <span class="artifact-n">[bin](/software/anvio/help/artifacts/bin)</span> with the parameters `-C` or `-b` respectively. You also have the option to display the collections and bins available in your <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span> with `--list-collections` or `--list-bins`
+You can export only the sequences for a specific <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span> or <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span> with the parameters `-C` or `-b` respectively. You also have the option to display the collections and bins available in your <span class="artifact-n">[pan-db](/software/anvio/help/main/artifacts/pan-db)</span> with `--list-collections` or `--list-bins`
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/artifacts/genomes&#45;storage&#45;db)</span> \
-                                     &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/artifacts/pan&#45;db)</span> \
-                                     &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/software/anvio/help/artifacts/genes&#45;fasta)</span> \
-                                     &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/artifacts/collection)</span> 
+anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
+                                     &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/main/artifacts/pan&#45;db)</span> \
+                                     &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/software/anvio/help/main/artifacts/genes&#45;fasta)</span> \
+                                     &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span> 
 </div>
 
 Alternatively, you can export the specific gene clusters by name, either by providing a single gene cluster ID or a file with one gene cluster ID per line. For example: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/artifacts/genomes&#45;storage&#45;db)</span> \
-                                     &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/artifacts/pan&#45;db)</span> \
-                                     &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/software/anvio/help/artifacts/genes&#45;fasta)</span> \
+anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
+                                     &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/main/artifacts/pan&#45;db)</span> \
+                                     &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/software/anvio/help/main/artifacts/genes&#45;fasta)</span> \
                                      &#45;&#45;gene&#45;cluster&#45;ids&#45;file gene_clusters.txt
 </div>
 
@@ -89,12 +89,12 @@ Here is a list of the different filters that you can use to exclude some subsect
 - min/max [functional homogenity index](http://merenlab.org/2016/11/08/pangenomics-v2/#functional-homogeneity-index)
 - min/max combined homogenity index 
 
-For example, the following run on a <span class="artifact-n">[genomes-storage-db](/software/anvio/help/artifacts/genomes-storage-db)</span> that contains 50 genomes will report only the single-copy core genes with a functional homogenity index above 0.25:
+For example, the following run on a <span class="artifact-n">[genomes-storage-db](/software/anvio/help/main/artifacts/genomes-storage-db)</span> that contains 50 genomes will report only the single-copy core genes with a functional homogenity index above 0.25:
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/artifacts/genomes&#45;storage&#45;db)</span> \
-                                     &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/artifacts/pan&#45;db)</span> \
-                                     &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/software/anvio/help/artifacts/genes&#45;fasta)</span> \
+anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
+                                     &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/main/artifacts/pan&#45;db)</span> \
+                                     &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/software/anvio/help/main/artifacts/genes&#45;fasta)</span> \
                                      &#45;&#45;max&#45;num&#45;genes&#45;from&#45;each&#45;genome 1 \
                                      &#45;&#45;min&#45;num&#45;genomes&#45;gene&#45;cluster&#45;occurs 50 \
                                      &#45;&#45;min&#45;functional&#45;homogenity&#45;index 0.25 
@@ -106,12 +106,12 @@ For each of these parameters, see the program's help menu for more information.
 
 ### Fun with phylogenomics! 
 
-To get a <span class="artifact-n">[concatenated-gene-alignment-fasta](/software/anvio/help/artifacts/concatenated-gene-alignment-fasta)</span> (which you can use to run <span class="artifact-n">[anvi-gen-phylogenomic-tree](/software/anvio/help/programs/anvi-gen-phylogenomic-tree)</span>), use the parameter `--concatenate-gene-clusters`
+To get a <span class="artifact-n">[concatenated-gene-alignment-fasta](/software/anvio/help/main/artifacts/concatenated-gene-alignment-fasta)</span> (which you can use to run <span class="artifact-n">[anvi-gen-phylogenomic-tree](/software/anvio/help/main/programs/anvi-gen-phylogenomic-tree)</span>), use the parameter `--concatenate-gene-clusters`
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/artifacts/genomes&#45;storage&#45;db)</span> \
-                                     &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/artifacts/pan&#45;db)</span> \
-                                     &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/software/anvio/help/artifacts/genes&#45;fasta)</span> \
+anvi&#45;get&#45;sequences&#45;for&#45;gene&#45;clusters &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
+                                     &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/main/artifacts/pan&#45;db)</span> \
+                                     &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/software/anvio/help/main/artifacts/genes&#45;fasta)</span> \
                                      &#45;&#45;concatenate&#45;gene&#45;clusters
 </div>
 
@@ -125,7 +125,7 @@ Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/progra
 ## Additional Resources
 
 
-* [In action in the Anvi&#x27;o pangenomics tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/#scrutinizing-phylogenomics)
+* [In action in the Anvi&#39;o pangenomics tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/#scrutinizing-phylogenomics)
 
 
 {:.notice}

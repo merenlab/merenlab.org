@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Export an item order from an anvi&#x27;o database.
+Export an item order from an anvi&#39;o database.
 
 See **[program help menu](../../../vignette#anvi-export-items-order)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -31,12 +31,12 @@ See **[program help menu](../../../vignette#anvi-export-items-order)** or go bac
 ## Usage
 
 
-This program, as one might think, allows you to export a <span class="artifact-n">[misc-data-items-order](/software/anvio/help/artifacts/misc-data-items-order)</span>, outputing a <span class="artifact-n">[misc-data-items-order-txt](/software/anvio/help/artifacts/misc-data-items-order-txt)</span>. 
+This program, as one might think, allows you to export a <span class="artifact-n">[misc-data-items-order](/software/anvio/help/main/artifacts/misc-data-items-order)</span>, outputing a <span class="artifact-n">[misc-data-items-order-txt](/software/anvio/help/main/artifacts/misc-data-items-order-txt)</span>. 
 
-You can export one of the item orders in a <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span> as follows: 
+You can export one of the item orders in a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/software/anvio/help/main/artifacts/pan-db)</span> as follows: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;items&#45;order &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
+anvi&#45;export&#45;items&#45;order &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
                         &#45;&#45;name cov
 </div>
 
@@ -45,7 +45,7 @@ The `cov` here refers to the tree that is generated using only differential cove
 However, to list the item orders available in this database, just don't include the name flag.  
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;items&#45;order &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/artifacts/pan&#45;db)</span> 
+anvi&#45;export&#45;items&#45;order &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/main/artifacts/pan&#45;db)</span> 
 </div>
 
 You'll get a `Config Error` that will tell you what item orders are available. 

@@ -31,21 +31,21 @@ See **[program help menu](../../../vignette#anvi-gen-gene-consensus-sequences)**
 ## Usage
 
 
-This program **provides consensus sequences for the genes within a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> and <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> pair**.
+This program **provides consensus sequences for the genes within a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> and <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> pair**.
 
 In other words, this collapses variability by assigning the most abundant nucleotide in your sample at each position, giving single consensus sequences for each gene for each sample. 
 
 A basic run of this program will resemble the following: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;gen&#45;gene&#45;consensus&#45;seuqences &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
-                                  &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
-                                  &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/software/anvio/help/artifacts/genes&#45;fasta)</span> 
+anvi&#45;gen&#45;gene&#45;consensus&#45;seuqences &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
+                                  &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+                                  &#45;o <span class="artifact&#45;n">[genes&#45;fasta](/software/anvio/help/main/artifacts/genes&#45;fasta)</span> 
 </div>
 
-The default output is a <span class="artifact-n">[genes-fasta](/software/anvio/help/artifacts/genes-fasta)</span>, but you can also get a tab-delimited output matrix by adding the flag  `--tab-delimited`.
+The default output is a <span class="artifact-n">[genes-fasta](/software/anvio/help/main/artifacts/genes-fasta)</span>, but you can also get a tab-delimited output matrix by adding the flag  `--tab-delimited`.
 
-You also have the option to focus on a subset of the data in your <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> and <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> by providing either: 
+You also have the option to focus on a subset of the data in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> and <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> by providing either: 
 
 - A list of gene caller IDs (either as a parameter or through a file with one gene caller ID put line)
 - A list of samples to focus on (as a file with a single sample name per line) 

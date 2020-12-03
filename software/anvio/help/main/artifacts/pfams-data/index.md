@@ -34,7 +34,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 This basically stores **a local copy of the data from the EBI's [Pfam database](https://pfam.xfam.org/) for function annotation.** 
 
-It is required to run <span class="artifact-n">[anvi-run-pfams](/software/anvio/help/programs/anvi-run-pfams)</span> and is set up on your computer by the program <span class="artifact-n">[anvi-setup-pfams](/software/anvio/help/programs/anvi-setup-pfams)</span>. 
+It is required to run <span class="artifact-n">[anvi-run-pfams](/software/anvio/help/main/programs/anvi-run-pfams)</span> and is set up on your computer by the program <span class="artifact-n">[anvi-setup-pfams](/software/anvio/help/main/programs/anvi-setup-pfams)</span>. 
 
 
 {:.notice}

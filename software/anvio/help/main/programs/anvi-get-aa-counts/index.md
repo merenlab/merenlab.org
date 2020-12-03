@@ -31,11 +31,11 @@ See **[program help menu](../../../vignette#anvi-get-aa-counts)** or go back to 
 ## Usage
 
 
-Similarly to <span class="artifact-n">[anvi-get-codon-frequencies](/software/anvio/help/programs/anvi-get-codon-frequencies)</span>, this program counts the number of times each amino acid occurs in a given sequence, whether that's a <span class="artifact-n">[collection](/software/anvio/help/artifacts/collection)</span>, <span class="artifact-n">[bin](/software/anvio/help/artifacts/bin)</span>, set of contigs (listed in a <span class="artifact-n">[splits-txt](/software/anvio/help/artifacts/splits-txt)</span>), or a set of genes. The output of this is a <span class="artifact-n">[aa-frequencies-txt](/software/anvio/help/artifacts/aa-frequencies-txt)</span>. 
+Similarly to <span class="artifact-n">[anvi-get-codon-frequencies](/software/anvio/help/main/programs/anvi-get-codon-frequencies)</span>, this program counts the number of times each amino acid occurs in a given sequence, whether that's a <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span>, <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span>, set of contigs (listed in a <span class="artifact-n">[splits-txt](/software/anvio/help/main/artifacts/splits-txt)</span>), or a set of genes. The output of this is a <span class="artifact-n">[aa-frequencies-txt](/software/anvio/help/main/artifacts/aa-frequencies-txt)</span>. 
 
 There are four possible things you can count the amino acid frequencies in: 
-* All of the contigs in a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>
-* A series of <span class="artifact-n">[bin](/software/anvio/help/artifacts/bin)</span>s
+* All of the contigs in a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>
+* A series of <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span>s
 * A list of contigs
 * A list of genes
 
@@ -43,24 +43,24 @@ Examples for each are below.
 
 ### Option 1: all contigs in a contigs-db
 
-To count the amino acids in all of the contigs in a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>, you can just provide the <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> of interest, as so:
+To count the amino acids in all of the contigs in a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>, you can just provide the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> of interest, as so:
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;aa&#45;counts &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
-                   &#45;o path/to/<span class="artifact&#45;n">[aa&#45;frequencies&#45;txt](/software/anvio/help/artifacts/aa&#45;frequencies&#45;txt)</span>
+anvi&#45;get&#45;aa&#45;counts &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+                   &#45;o path/to/<span class="artifact&#45;n">[aa&#45;frequencies&#45;txt](/software/anvio/help/main/artifacts/aa&#45;frequencies&#45;txt)</span>
 </div>
 
 ### Option 2: a series of bins in a collection 
 
-To count the amino acid frequencies for a series of <span class="artifact-n">[bin](/software/anvio/help/artifacts/bin)</span>s, you'll need to provide three additional parameters: the <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> that you used for binning, the <span class="artifact-n">[collection](/software/anvio/help/artifacts/collection)</span> that your bins are contained in, and a text file that describes which bins you are interested in. This text file should have only one bin ID per line. 
+To count the amino acid frequencies for a series of <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span>s, you'll need to provide three additional parameters: the <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> that you used for binning, the <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span> that your bins are contained in, and a text file that describes which bins you are interested in. This text file should have only one bin ID per line. 
 
 So, your run would look something like this: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;aa&#45;counts &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
-                   &#45;o path/to/<span class="artifact&#45;n">[aa&#45;frequencies&#45;txt](/software/anvio/help/artifacts/aa&#45;frequencies&#45;txt)</span> \
-                   &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
-                   &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/artifacts/collection)</span> \
+anvi&#45;get&#45;aa&#45;counts &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+                   &#45;o path/to/<span class="artifact&#45;n">[aa&#45;frequencies&#45;txt](/software/anvio/help/main/artifacts/aa&#45;frequencies&#45;txt)</span> \
+                   &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
+                   &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span> \
                    &#45;B my_favorite_bins.txt
 </div>
 
@@ -71,12 +71,12 @@ anvi&#45;get&#45;aa&#45;counts &#45;c <span class="artifact&#45;n">[contigs&#45;
     
 ### Option 3: a list of contigs
 
-Just provide a <span class="artifact-n">[splits-txt](/software/anvio/help/artifacts/splits-txt)</span> file that lists the contigs you want to look at. 
+Just provide a <span class="artifact-n">[splits-txt](/software/anvio/help/main/artifacts/splits-txt)</span> file that lists the contigs you want to look at. 
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;aa&#45;counts &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
-                   &#45;o path/to/<span class="artifact&#45;n">[aa&#45;frequencies&#45;txt](/software/anvio/help/artifacts/aa&#45;frequencies&#45;txt)</span> \
-                   &#45;&#45;contigs&#45;of&#45;interest <span class="artifact&#45;n">[splits&#45;txt](/software/anvio/help/artifacts/splits&#45;txt)</span>
+anvi&#45;get&#45;aa&#45;counts &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+                   &#45;o path/to/<span class="artifact&#45;n">[aa&#45;frequencies&#45;txt](/software/anvio/help/main/artifacts/aa&#45;frequencies&#45;txt)</span> \
+                   &#45;&#45;contigs&#45;of&#45;interest <span class="artifact&#45;n">[splits&#45;txt](/software/anvio/help/main/artifacts/splits&#45;txt)</span>
 </div>
 
 ### Option 4: a list of genes 
@@ -84,8 +84,8 @@ anvi&#45;get&#45;aa&#45;counts &#45;c <span class="artifact&#45;n">[contigs&#45;
 Just provide a list of gene caller ids, straight into the terminal, like so:
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;aa&#45;counts &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
-                   &#45;o path/to/<span class="artifact&#45;n">[aa&#45;frequencies&#45;txt](/software/anvio/help/artifacts/aa&#45;frequencies&#45;txt)</span> \
+anvi&#45;get&#45;aa&#45;counts &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+                   &#45;o path/to/<span class="artifact&#45;n">[aa&#45;frequencies&#45;txt](/software/anvio/help/main/artifacts/aa&#45;frequencies&#45;txt)</span> \
                    &#45;&#45;gene&#45;caller&#45;ids gene_1,gene_2,gene_3
 </div>
 

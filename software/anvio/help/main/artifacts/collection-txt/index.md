@@ -32,7 +32,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
-This file describes the contents of a <span class="artifact-n">[collection](/software/anvio/help/artifacts/collection)</span> in a readable format. This is used for taking collections in and out of Anvi'o, or transferring them between Anvi'o projects. 
+This file describes the contents of a <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span> in a readable format. This is used for taking collections in and out of Anvi'o, or transferring them between Anvi'o projects. 
 
 This is a tab-delimited file that contains two columns. The first lists all of the contigs contained within the bins in this collection. The second lists the associated bin that that contig is placed in. For examples, check out [this page](https://github.com/merenlab/anvio/blob/master/anvio/tests/sandbox/example_files_for_external_binning_results/external_binning_of_contigs.txt) or below.
 

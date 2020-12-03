@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Remove HMM hits from an anvi&#x27;o contigs database.
+Remove HMM hits from an anvi&#39;o contigs database.
 
 See **[program help menu](../../../vignette#anvi-delete-hmms)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -31,22 +31,22 @@ See **[program help menu](../../../vignette#anvi-delete-hmms)** or go back to th
 ## Usage
 
 
-This program, as implied by the name, is used to delete a <span class="artifact-n">[hmm-hits](/software/anvio/help/artifacts/hmm-hits)</span> from a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>. This way, you can repopulate the function annotations with a different source or program or just delete data that's clogging up the interface.
+This program, as implied by the name, is used to delete a <span class="artifact-n">[hmm-hits](/software/anvio/help/main/artifacts/hmm-hits)</span> from a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>. This way, you can repopulate the function annotations with a different source or program or just delete data that's clogging up the interface.
 
-It is generally a good idea to export your information before deleting it, just in case. The HMM hits will show up in most displays, so if you've already run <span class="artifact-n">[anvi-summarize](/software/anvio/help/programs/anvi-summarize)</span>, you should be good. 
+It is generally a good idea to export your information before deleting it, just in case. The HMM hits will show up in most displays, so if you've already run <span class="artifact-n">[anvi-summarize](/software/anvio/help/main/programs/anvi-summarize)</span>, you should be good. 
 
-To list available <span class="artifact-n">[hmm-source](/software/anvio/help/artifacts/hmm-source)</span>s in a database, call 
+To list available <span class="artifact-n">[hmm-source](/software/anvio/help/main/artifacts/hmm-source)</span>s in a database, call 
 
 <div class="codeblock" markdown="1">
-anvi&#45;delete&#45;hmms &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+anvi&#45;delete&#45;hmms &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
                  &#45;&#45;list&#45;hmm&#45;sources
 </div>
 
-Then, you can easily delete <span class="artifact-n">[hmm-hits](/software/anvio/help/artifacts/hmm-hits)</span> from a specific source with the command
+Then, you can easily delete <span class="artifact-n">[hmm-hits](/software/anvio/help/main/artifacts/hmm-hits)</span> from a specific source with the command
 
 <div class="codeblock" markdown="1">
-anvi&#45;delete&#45;hmms &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
-                 &#45;&#45;hmm&#45;source <span class="artifact&#45;n">[hmm&#45;source](/software/anvio/help/artifacts/hmm&#45;source)</span> 
+anvi&#45;delete&#45;hmms &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+                 &#45;&#45;hmm&#45;source <span class="artifact&#45;n">[hmm&#45;source](/software/anvio/help/main/artifacts/hmm&#45;source)</span> 
 </div>
 
 

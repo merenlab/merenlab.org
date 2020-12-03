@@ -31,12 +31,12 @@ See **[program help menu](../../../vignette#anvi-scan-trnas)** or go back to the
 ## Usage
 
 
-This program identifies the tRNA genes in a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> and stores them in an <span class="artifact-n">[hmm-hits](/software/anvio/help/artifacts/hmm-hits)</span>. 
+This program identifies the tRNA genes in a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> and stores them in an <span class="artifact-n">[hmm-hits](/software/anvio/help/main/artifacts/hmm-hits)</span>. 
 
-To run, just provide a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> that you want to look through. 
+To run, just provide a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> that you want to look through. 
 
 <div class="codeblock" markdown="1">
-anvi&#45;scan&#45;trnas &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span>
+anvi&#45;scan&#45;trnas &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span>
 </div>
 
 ### Customizing the cut off score
@@ -46,7 +46,7 @@ What counts as a tRNA gene? That could be up to you.
 The default minimum score for a gene to be counted is 20.  However, you can set this cutoff to anywhere between 0-100. This value is actually used by the module tRNAScan-SE, so view [their documentation](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6768409/) for details. For example, to find more non-cononical tRNA genes, a user could lower the cutoff score to 10 as follows:
 
 <div class="codeblock" markdown="1">
-anvi&#45;scan&#45;trnas &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+anvi&#45;scan&#45;trnas &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
                 &#45;&#45;trna&#45;cut&#45;off&#45;score 10
 </div>
 
@@ -64,7 +64,7 @@ anvi&#45;scan&#45;trnas &#45;c <span class="artifact&#45;n">[contigs&#45;db](/so
 
 ### Understanding the output 
 
-Essentially, the output of this program states the probability that each gene is a tRNA gene. See <span class="artifact-n">[hmm-hits](/software/anvio/help/artifacts/hmm-hits)</span> for more information. 
+Essentially, the output of this program states the probability that each gene is a tRNA gene. See <span class="artifact-n">[hmm-hits](/software/anvio/help/main/artifacts/hmm-hits)</span> for more information. 
 
 
 {:.notice}

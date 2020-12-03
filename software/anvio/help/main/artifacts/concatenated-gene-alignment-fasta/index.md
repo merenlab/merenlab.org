@@ -42,9 +42,9 @@ Clustal programs do a great job of visualizing this data, by color coding it. He
 
 A concatenated gene alignment fasta contains multiple of these gene alignments, in order to generate a tree based off of multiple genes. 
 
-This information can then be used to generate a phylogenomic tree using <span class="artifact-n">[anvi-gen-phylogenomic-tree](/software/anvio/help/programs/anvi-gen-phylogenomic-tree)</span> or through programs like [FastTree](http://www.microbesonline.org/fasttree/). 
+This information can then be used to generate a phylogenomic tree using <span class="artifact-n">[anvi-gen-phylogenomic-tree](/software/anvio/help/main/programs/anvi-gen-phylogenomic-tree)</span> or through programs like [FastTree](http://www.microbesonline.org/fasttree/). 
 
-In Anvi'o, this is an output of <span class="artifact-n">[anvi-get-sequences-for-gene-clusters](/software/anvio/help/programs/anvi-get-sequences-for-gene-clusters)</span> (for generating a tree based off of gene clusters in your workflow) as well as <span class="artifact-n">[anvi-get-sequences-for-hmm-hits](/software/anvio/help/programs/anvi-get-sequences-for-hmm-hits)</span> (for generating a tree based off of the genes that got HMM hits). 
+In Anvi'o, this is an output of <span class="artifact-n">[anvi-get-sequences-for-gene-clusters](/software/anvio/help/main/programs/anvi-get-sequences-for-gene-clusters)</span> (for generating a tree based off of gene clusters in your workflow) as well as <span class="artifact-n">[anvi-get-sequences-for-hmm-hits](/software/anvio/help/main/programs/anvi-get-sequences-for-hmm-hits)</span> (for generating a tree based off of the genes that got HMM hits). 
 
 
 

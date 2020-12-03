@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Take a FASTQ file and convert it into 2 FASTQ files. Each read from the original FASTQ file halved, where one half is put in the R1 FASTQ and the other half is reverse complemented and put in the R2 FASTQ. If you&#x27;ve ended up here, things have clearly not gone very well for you, and as I write this sentence, I wholeheartedly sympathize.
+Take a FASTQ file and convert it into 2 FASTQ files. Each read from the original FASTQ file halved, where one half is put in the R1 FASTQ and the other half is reverse complemented and put in the R2 FASTQ. If you&#39;ve ended up here, things have clearly not gone very well for you, and as I write this sentence, I wholeheartedly sympathize.
 
 See **[program help menu](../../../vignette#anvi-script-gen-pseudo-paired-reads-from-fastq)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -31,14 +31,14 @@ See **[program help menu](../../../vignette#anvi-script-gen-pseudo-paired-reads-
 ## Usage
 
 
-This program takes in a <span class="artifact-n">[short-reads-fasta](/software/anvio/help/artifacts/short-reads-fasta)</span> file and tries to recreate what paired reads for the data in that fasta file might look like. 
+This program takes in a <span class="artifact-n">[short-reads-fasta](/software/anvio/help/main/artifacts/short-reads-fasta)</span> file and tries to recreate what paired reads for the data in that fasta file might look like. 
 
 An arbitrarily chosen half of the reads will be put into the R1 output, while the other half will be reverse complemented and put into the R2 output. 
 
 For example, if you ran 
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;gen&#45;pseudo&#45;paired&#45;reads&#45;from&#45;fastq &#45;f <span class="artifact&#45;n">[short&#45;reads&#45;fasta](/software/anvio/help/artifacts/short&#45;reads&#45;fasta)</span> \
+anvi&#45;script&#45;gen&#45;pseudo&#45;paired&#45;reads&#45;from&#45;fastq &#45;f <span class="artifact&#45;n">[short&#45;reads&#45;fasta](/software/anvio/help/main/artifacts/short&#45;reads&#45;fasta)</span> \
                                                &#45;O MY_READS 
 </div>
 

@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Export taxonomy for splits found in an anvi&#x27;o contigs database.
+Export taxonomy for splits found in an anvi&#39;o contigs database.
 
 See **[program help menu](../../../vignette#anvi-export-splits-taxonomy)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -31,15 +31,15 @@ See **[program help menu](../../../vignette#anvi-export-splits-taxonomy)** or go
 ## Usage
 
 
-This program exports the taxonomy hits for the splits contained in a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>, outputting them in a <span class="artifact-n">[splits-taxonomy-txt](/software/anvio/help/artifacts/splits-taxonomy-txt)</span>. 
+This program exports the taxonomy hits for the splits contained in a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>, outputting them in a <span class="artifact-n">[splits-taxonomy-txt](/software/anvio/help/main/artifacts/splits-taxonomy-txt)</span>. 
 
 To do this, anvi'o examines all of the annotated genes within your splits and returns the taxon ID with the most genes associated with it. For example, a split with 3 genes identified as E. coli, 2 genes identified as Staphylococcus aureus, and 1 as Streptococcus pneumoniae would be annotated as E. coli. 
 
-To run this program, just provide a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>:
+To run this program, just provide a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>:
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;splits&#45;taxonomy &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
-                            &#45;o PATH/TO/<span class="artifact&#45;n">[splits&#45;taxonomy&#45;txt](/software/anvio/help/artifacts/splits&#45;taxonomy&#45;txt)</span>
+anvi&#45;export&#45;splits&#45;taxonomy &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+                            &#45;o PATH/TO/<span class="artifact&#45;n">[splits&#45;taxonomy&#45;txt](/software/anvio/help/main/artifacts/splits&#45;taxonomy&#45;txt)</span>
 
 </div>
 

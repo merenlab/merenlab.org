@@ -32,7 +32,7 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-This is a text file containing **the average coverage for each contig in each sample** that was in the <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> and <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> that you used when you ran <span class="artifact-n">[anvi-export-splits-and-coverages](/software/anvio/help/programs/anvi-export-splits-and-coverages)</span> or <span class="artifact-n">[anvi-export-gene-coverage-and-detection](/software/anvio/help/programs/anvi-export-gene-coverage-and-detection)</span>. 
+This is a text file containing **the average coverage for each contig in each sample** that was in the <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> and <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> that you used when you ran <span class="artifact-n">[anvi-export-splits-and-coverages](/software/anvio/help/main/programs/anvi-export-splits-and-coverages)</span> or <span class="artifact-n">[anvi-export-gene-coverage-and-detection](/software/anvio/help/main/programs/anvi-export-gene-coverage-and-detection)</span>. 
 
 This is a tab-delimited file where each row describes a specific split/gene and each column describes one of your samples. Each cell contains the average coverage of that contig in that sample. 
 
@@ -40,7 +40,7 @@ This artifact is really only used when taking information out of anvi'o, so enjo
 
 ### Example for splits
 
-(the type of output you would get from <span class="artifact-n">[anvi-export-splits-and-coverages](/software/anvio/help/programs/anvi-export-splits-and-coverages)</span>)
+(the type of output you would get from <span class="artifact-n">[anvi-export-splits-and-coverages](/software/anvio/help/main/programs/anvi-export-splits-and-coverages)</span>)
 
     contig                  sample_1    sample_2    sample_3 ...
     Day1_contig1_split1     5.072727    4.523432    1.2343243         
@@ -51,7 +51,7 @@ This artifact is really only used when taking information out of anvi'o, so enjo
 
 ### Example for genes
 
-(the type of output you would get from <span class="artifact-n">[anvi-export-gene-coverage-and-detection](/software/anvio/help/programs/anvi-export-gene-coverage-and-detection)</span>)
+(the type of output you would get from <span class="artifact-n">[anvi-export-gene-coverage-and-detection](/software/anvio/help/main/programs/anvi-export-gene-coverage-and-detection)</span>)
 
     key       sample_1    sample_2    sample_3 ...
     13947     10.29109    1.984394    6.8289432         

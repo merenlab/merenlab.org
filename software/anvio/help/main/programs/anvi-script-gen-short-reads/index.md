@@ -50,8 +50,8 @@ contig = CTGTGGTTACGCCACCTTGAGAGATATTAGTCGCGTATTGCATCCGTGCCGACAAATTGCCCAACGCATCG
 Note that this file contains both the contig that you want to break down, and various information about the short reads that you want to create. To run this program, just call 
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;gen&#45;short&#45;reads <span class="artifact&#45;n">[configuration&#45;ini](/software/anvio/help/artifacts/configuration&#45;ini)</span> \
-                            &#45;&#45;output&#45;file&#45;path <span class="artifact&#45;n">[short&#45;reads&#45;fasta](/software/anvio/help/artifacts/short&#45;reads&#45;fasta)</span>
+anvi&#45;script&#45;gen&#45;short&#45;reads <span class="artifact&#45;n">[configuration&#45;ini](/software/anvio/help/main/artifacts/configuration&#45;ini)</span> \
+                            &#45;&#45;output&#45;file&#45;path <span class="artifact&#45;n">[short&#45;reads&#45;fasta](/software/anvio/help/main/artifacts/short&#45;reads&#45;fasta)</span>
 </div>
     
 The resulting FASTA file with short reads will cover the `contig` with short reads that are 10 nts long at 100X coverage. There will also be an error-rate of 0.05, to mimic the sequencing errors you would get from sequencing in the wet lab. 

@@ -31,30 +31,30 @@ See **[program help menu](../../../vignette#anvi-gen-structure-database)** or go
 ## Usage
 
 
-This program attempts to solve for the 3D strucutres of proteins encoded by genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> using DIAMOND and MODELLER. 
+This program attempts to solve for the 3D strucutres of proteins encoded by genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> using DIAMOND and MODELLER. 
 
-MODELLER first searches your sequence(s) against a database of proteins with a known structure (in Anvi'o, this is either your <span class="artifact-n">[pdb-db](/software/anvio/help/artifacts/pdb-db)</span> or the online copy of [the RCSB database](https://www.rcsb.org/) using [DIAMOND](http://www.diamondsearch.org/index.php). After sequence alignments, the program will select a base template based on the best hits. Then, the program creates a 3D alignment for your sequence and makes final adjustments to it based off of intermolecular interactions. For more information, see [here](http://merenlab.org/2018/09/04/getting-started-with-anvi-3dev/#how-modeller-works). 
+MODELLER first searches your sequence(s) against a database of proteins with a known structure (in Anvi'o, this is either your <span class="artifact-n">[pdb-db](/software/anvio/help/main/artifacts/pdb-db)</span> or the online copy of [the RCSB database](https://www.rcsb.org/) using [DIAMOND](http://www.diamondsearch.org/index.php). After sequence alignments, the program will select a base template based on the best hits. Then, the program creates a 3D alignment for your sequence and makes final adjustments to it based off of intermolecular interactions. For more information, see [here](http://merenlab.org/2018/09/04/getting-started-with-anvi-3dev/#how-modeller-works). 
 
-The output of this is a <span class="artifact-n">[structure-db](/software/anvio/help/artifacts/structure-db)</span>, which can be used to run <span class="artifact-n">[anvi-3dev](/software/anvio/help/programs/anvi-3dev)</span> to visualize all of this information. You can also export your strucutres into external .pdb files (<span class="artifact-n">[anvi-export-structures](/software/anvio/help/programs/anvi-export-structures)</span>), generate the fixation index matrix (<span class="artifact-n">[anvi-gen-fixation-index-matrix](/software/anvio/help/programs/anvi-gen-fixation-index-matrix)</span>), or the variability profile (<span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/programs/anvi-gen-variability-profile)</span>). 
+The output of this is a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span>, which can be used to run <span class="artifact-n">[anvi-3dev](/software/anvio/help/main/programs/anvi-3dev)</span> to visualize all of this information. You can also export your strucutres into external .pdb files (<span class="artifact-n">[anvi-export-structures](/software/anvio/help/main/programs/anvi-export-structures)</span>), generate the fixation index matrix (<span class="artifact-n">[anvi-gen-fixation-index-matrix](/software/anvio/help/main/programs/anvi-gen-fixation-index-matrix)</span>), or the variability profile (<span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/main/programs/anvi-gen-variability-profile)</span>). 
 
 ### Basic run 
 
 Here is a simple run:
 
 <div class="codeblock" markdown="1">
-anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
                             &#45;&#45;gene&#45;caller&#45;ids 1,2,3 \
                             &#45;o STRUCTURE.db 
 </div>
 
 Following this, you will have the strucutures for genes 1, 2, and 3 stored in `STRUCTURE.db`. Alternatively, you can provide a file name with the gene caller-ids (one ID per line) with the flag `--genes-of-interest`. 
 
-To indicate that you have already run <span class="artifact-n">[anvi-setup-pdb-database](/software/anvio/help/programs/anvi-setup-pdb-database)</span> to set up a local copy of representative PDB structures, provide the path to your <span class="artifact-n">[pdb-db](/software/anvio/help/artifacts/pdb-db)</span>:
+To indicate that you have already run <span class="artifact-n">[anvi-setup-pdb-database](/software/anvio/help/main/programs/anvi-setup-pdb-database)</span> to set up a local copy of representative PDB structures, provide the path to your <span class="artifact-n">[pdb-db](/software/anvio/help/main/artifacts/pdb-db)</span>:
 
 <div class="codeblock" markdown="1">
-anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
                             &#45;&#45;gene&#45;caller&#45;ids 1,2,3 \
-                            &#45;&#45;pdb&#45;database <span class="artifact&#45;n">[pdb&#45;db](/software/anvio/help/artifacts/pdb&#45;db)</span> \
+                            &#45;&#45;pdb&#45;database <span class="artifact&#45;n">[pdb&#45;db](/software/anvio/help/main/artifacts/pdb&#45;db)</span> \
                             &#45;o STRUCTURE.db 
 </div>
 
@@ -66,7 +66,7 @@ Here, we will go through a brief overview of the MODELLER parameters that you ar
 
 - The number of models to be simultated. The default is 1. 
 - The standard deviation of atomic perturbation of the initial strucutre (i.e. how much you change the position of the atoms before fine tuning with other analysis). The default is 4.
-- The MODELLER database used. The default is `pdb_95`, which can be found [here](https://salilab.org/modeller/supplemental.html). This is the same database that is downloaded by <span class="artifact-n">[anvi-setup-pdb-database](/software/anvio/help/programs/anvi-setup-pdb-database)</span>. 
+- The MODELLER database used. The default is `pdb_95`, which can be found [here](https://salilab.org/modeller/supplemental.html). This is the same database that is downloaded by <span class="artifact-n">[anvi-setup-pdb-database](/software/anvio/help/main/programs/anvi-setup-pdb-database)</span>. 
 - The socring function used to compare potential models. The default is `DOPE_score`.
 - The normalized percent identity cutoff for a template from the database to be further considered. 
 - The maximum number of templates that the program will consider. The default is 5. 

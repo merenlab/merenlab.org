@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Export split or contig sequences and coverages across samples stored in an anvi&#x27;o profile database. This program is especially useful if you would like to &#x27;bin&#x27; your splits or contigs outside of anvi&#x27;o and import the binning results into anvi&#x27;o using `anvi-import-collection` program.
+Export split or contig sequences and coverages across samples stored in an anvi&#39;o profile database. This program is especially useful if you would like to &#39;bin&#39; your splits or contigs outside of anvi&#39;o and import the binning results into anvi&#39;o using `anvi-import-collection` program.
 
 See **[program help menu](../../../vignette#anvi-export-splits-and-coverages)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -31,20 +31,20 @@ See **[program help menu](../../../vignette#anvi-export-splits-and-coverages)** 
 ## Usage
 
 
-This program **gives you the coverage information in your <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> as external files**. Basically, if you want to take that information in your <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> out of anvio, this is for you. 
+This program **gives you the coverage information in your <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> as external files**. Basically, if you want to take that information in your <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> out of anvio, this is for you. 
 
-Once you input your <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> and the <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> you used to generate it, it will create a <span class="artifact-n">[contigs-fasta](/software/anvio/help/artifacts/contigs-fasta)</span> that lists your contigs for you, as well as a <span class="artifact-n">[coverages-txt](/software/anvio/help/artifacts/coverages-txt)</span>, which describes your coverage information. 
+Once you input your <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> and the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> you used to generate it, it will create a <span class="artifact-n">[contigs-fasta](/software/anvio/help/main/artifacts/contigs-fasta)</span> that lists your contigs for you, as well as a <span class="artifact-n">[coverages-txt](/software/anvio/help/main/artifacts/coverages-txt)</span>, which describes your coverage information. 
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;splits&#45;and&#45;coverages &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
-                                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span>
+anvi&#45;export&#45;splits&#45;and&#45;coverages &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
+                                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span>
 </div>
 
 If your coverages are skewed by outlier positions, consider using Q2Q3-coverages instead.
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;splits&#45;and&#45;coverages &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
-                                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+anvi&#45;export&#45;splits&#45;and&#45;coverages &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
+                                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
                                  &#45;&#45;use&#45;Q2Q3&#45;coverages
 </div>
 

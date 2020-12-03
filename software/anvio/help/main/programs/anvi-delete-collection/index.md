@@ -31,22 +31,22 @@ See **[program help menu](../../../vignette#anvi-delete-collection)** or go back
 ## Usage
 
 
-This program, as implied by the name, is used to delete a <span class="artifact-n">[collection](/software/anvio/help/artifacts/collection)</span> from a <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span>. 
+This program, as implied by the name, is used to delete a <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span> from a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span>. 
 
-When you do this, you'll lose the collection forever, as well as the <span class="artifact-n">[bin](/software/anvio/help/artifacts/bin)</span>s within it. It is generally a good idea to export your binning effort into a <span class="artifact-n">[collection-txt](/software/anvio/help/artifacts/collection-txt)</span> using <span class="artifact-n">[anvi-export-collection](/software/anvio/help/programs/anvi-export-collection)</span> before deleting it, just to be safe. 
+When you do this, you'll lose the collection forever, as well as the <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span>s within it. It is generally a good idea to export your binning effort into a <span class="artifact-n">[collection-txt](/software/anvio/help/main/artifacts/collection-txt)</span> using <span class="artifact-n">[anvi-export-collection](/software/anvio/help/main/programs/anvi-export-collection)</span> before deleting it, just to be safe. 
 
 To list available collections in a database, call 
 
 <div class="codeblock" markdown="1">
-anvi&#45;delete&#45;collection &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
+anvi&#45;delete&#45;collection &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
                        &#45;&#45;list&#45;collections
 </div>
 
 Then, you can easily delete a collection with the command
 
 <div class="codeblock" markdown="1">
-anvi&#45;delete&#45;collection &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
-                       &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/artifacts/collection)</span>
+anvi&#45;delete&#45;collection &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
+                       &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span>
 </div>
 
 

@@ -32,10 +32,10 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-This describes the output of <span class="artifact-n">[anvi-script-calculate-pn-ps-ratio](/software/anvio/help/programs/anvi-script-calculate-pn-ps-ratio)</span>, which calculates the pN/pS ratio for each gene in a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>. 
+This describes the output of <span class="artifact-n">[anvi-script-calculate-pn-ps-ratio](/software/anvio/help/main/programs/anvi-script-calculate-pn-ps-ratio)</span>, which calculates the pN/pS ratio for each gene in a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>. 
 
 {:.notice}
-See the page for <span class="artifact-n">[anvi-script-calculate-pn-ps-ratio](/software/anvio/help/programs/anvi-script-calculate-pn-ps-ratio)</span> for an explanation of the pN/pS ratio 
+See the page for <span class="artifact-n">[anvi-script-calculate-pn-ps-ratio](/software/anvio/help/main/programs/anvi-script-calculate-pn-ps-ratio)</span> for an explanation of the pN/pS ratio 
 
 This describes a directory that contains the following three files: 
 
