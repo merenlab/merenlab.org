@@ -44,7 +44,7 @@ The following three columns are required for this file type:
 
 The following is an optional column:
 
-* `group`: A single-word categorical variable that assigns two or more samples into two or more groups.
+* `group`: A single-word categorical variable that assigns two or more samples into two or more groups..
 
 ### Examples samples.txt file
 
