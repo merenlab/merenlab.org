@@ -2,16 +2,7 @@
   "graph": [],
   "nodes": [
     {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "interactive",
-      "name": "interactive",
-      "provided_by_anvio": true,
-      "type": "DISPLAY"
-    },
-    {
-      "size": 1,
+      "size": 2,
       "score": 0.5,
       "color": "#00AA00",
       "id": "contigs-db",
@@ -20,25 +11,7 @@
       "type": "DB"
     },
     {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "kegg-data",
-      "name": "kegg-data",
-      "provided_by_anvio": true,
-      "type": "DB"
-    },
-    {
-      "size": 1,
-      "score": 0.5,
-      "color": "#00AA00",
-      "id": "kegg-functions",
-      "name": "kegg-functions",
-      "provided_by_anvio": true,
-      "type": "CONCEPT"
-    },
-    {
-      "size": 1,
+      "size": 2,
       "score": 0.5,
       "color": "#00AA00",
       "id": "profile-db",
@@ -47,29 +20,56 @@
       "type": "DB"
     },
     {
-      "size": 1,
+      "size": 2,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "collection",
-      "name": "collection",
+      "id": "pan-db",
+      "name": "pan-db",
       "provided_by_anvio": true,
-      "type": "COLLECTION"
+      "type": "DB"
     },
     {
-      "size": 1,
+      "size": 2,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "bin",
-      "name": "bin",
+      "id": "genes-db",
+      "name": "genes-db",
       "provided_by_anvio": true,
-      "type": "BIN"
+      "type": "DB"
     },
     {
-      "size": 7,
+      "size": 2,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "genomes-storage-db",
+      "name": "genomes-storage-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 2,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "structure-db",
+      "name": "structure-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 2,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "modules-db",
+      "name": "modules-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 14,
       "score": 0.1,
       "color": "#AAAA00",
-      "id": "anvi-display-metabolism",
-      "name": "anvi-display-metabolism",
+      "id": "anvi-migrate",
+      "name": "anvi-migrate",
       "type": "PROGRAM"
     }
   ],
@@ -80,23 +80,51 @@
     },
     {
       "target": 7,
+      "source": 0
+    },
+    {
+      "source": 7,
+      "target": 1
+    },
+    {
+      "target": 7,
       "source": 1
+    },
+    {
+      "source": 7,
+      "target": 2
     },
     {
       "target": 7,
       "source": 2
     },
     {
+      "source": 7,
+      "target": 3
+    },
+    {
       "target": 7,
       "source": 3
+    },
+    {
+      "source": 7,
+      "target": 4
     },
     {
       "target": 7,
       "source": 4
     },
     {
+      "source": 7,
+      "target": 5
+    },
+    {
       "target": 7,
       "source": 5
+    },
+    {
+      "source": 7,
+      "target": 6
     },
     {
       "target": 7,
