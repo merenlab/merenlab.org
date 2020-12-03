@@ -31,9 +31,9 @@ See **[program help menu](../../../vignette#anvi-export-misc-data)** or go back 
 ## Usage
 
 
-This program lets you export miscellaneous data of your choosing into a text file, which can be imported into another anvi'o project using <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/programs/anvi-import-misc-data)</span>. You can export the same types of data that you can import with that function. These are also listed below.
+This program lets you export miscellaneous data of your choosing into a text file, which can be imported into another anvi'o project using <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/main/programs/anvi-import-misc-data)</span>. You can export the same types of data that you can import with that function. These are also listed below.
 
-To see what misc-data is available in your database, use <span class="artifact-n">[anvi-show-misc-data](/software/anvio/help/programs/anvi-show-misc-data)</span>. 
+To see what misc-data is available in your database, use <span class="artifact-n">[anvi-show-misc-data](/software/anvio/help/main/programs/anvi-show-misc-data)</span>. 
 
 If your misc-data is associated with a specific data group, you can provide that data group to this program with the `-D` flag. 
 
@@ -41,44 +41,44 @@ If your misc-data is associated with a specific data group, you can provide that
 
 ### From a pan-db or profile-db: items, layers, layer orders
 
-**From a <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span>, you can export**
+**From a <span class="artifact-n">[pan-db](/software/anvio/help/main/artifacts/pan-db)</span> or <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span>, you can export**
 
-- items data (<span class="artifact-n">[misc-data-items](/software/anvio/help/artifacts/misc-data-items)</span>) into a <span class="artifact-n">[misc-data-items-txt](/software/anvio/help/artifacts/misc-data-items-txt)</span>. 
+- items data (<span class="artifact-n">[misc-data-items](/software/anvio/help/main/artifacts/misc-data-items)</span>) into a <span class="artifact-n">[misc-data-items-txt](/software/anvio/help/main/artifacts/misc-data-items-txt)</span>. 
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
+anvi&#45;export&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
                       &#45;&#45;target&#45;data&#45;table items 
 </div>
 
-- layers data (<span class="artifact-n">[misc-data-layers](/software/anvio/help/artifacts/misc-data-layers)</span>) into a <span class="artifact-n">[misc-data-layers-txt](/software/anvio/help/artifacts/misc-data-layers-txt)</span>.  
+- layers data (<span class="artifact-n">[misc-data-layers](/software/anvio/help/main/artifacts/misc-data-layers)</span>) into a <span class="artifact-n">[misc-data-layers-txt](/software/anvio/help/main/artifacts/misc-data-layers-txt)</span>.  
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/artifacts/pan&#45;db)</span> \
+anvi&#45;export&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/main/artifacts/pan&#45;db)</span> \
                       &#45;&#45;target&#45;data&#45;table layers 
 </div>
 
-- layer orders data (<span class="artifact-n">[misc-data-layer-orders](/software/anvio/help/artifacts/misc-data-layer-orders)</span>) into a <span class="artifact-n">[misc-data-layer-orders-txt](/software/anvio/help/artifacts/misc-data-layer-orders-txt)</span>. 
+- layer orders data (<span class="artifact-n">[misc-data-layer-orders](/software/anvio/help/main/artifacts/misc-data-layer-orders)</span>) into a <span class="artifact-n">[misc-data-layer-orders-txt](/software/anvio/help/main/artifacts/misc-data-layer-orders-txt)</span>. 
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
+anvi&#45;export&#45;misc&#45;data &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
                       &#45;&#45;target&#45;data&#45;table layer_orders 
 </div>
 
 ### From a contigs-db: nucleotide and amino acid information
 
-**From a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>, you can export**
+**From a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>, you can export**
 
-- nucleotide data (<span class="artifact-n">[misc-data-nucleotides](/software/anvio/help/artifacts/misc-data-nucleotides)</span>) into a <span class="artifact-n">[misc-data-nucleotides-txt](/software/anvio/help/artifacts/misc-data-nucleotides-txt)</span>.
+- nucleotide data (<span class="artifact-n">[misc-data-nucleotides](/software/anvio/help/main/artifacts/misc-data-nucleotides)</span>) into a <span class="artifact-n">[misc-data-nucleotides-txt](/software/anvio/help/main/artifacts/misc-data-nucleotides-txt)</span>.
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;misc&#45;data &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> 
+anvi&#45;export&#45;misc&#45;data &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> 
                       &#45;&#45;target&#45;data&#45;table nucleotides
 </div>
 
-- amino acid data (<span class="artifact-n">[misc-data-amino-acids](/software/anvio/help/artifacts/misc-data-amino-acids)</span>) into a <span class="artifact-n">[misc-data-amino-acids-txt](/software/anvio/help/artifacts/misc-data-amino-acids-txt)</span>.
+- amino acid data (<span class="artifact-n">[misc-data-amino-acids](/software/anvio/help/main/artifacts/misc-data-amino-acids)</span>) into a <span class="artifact-n">[misc-data-amino-acids-txt](/software/anvio/help/main/artifacts/misc-data-amino-acids-txt)</span>.
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;misc&#45;data &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> 
+anvi&#45;export&#45;misc&#45;data &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> 
                       &#45;&#45;target&#45;data&#45;table amino_acids
 </div>
 
@@ -90,7 +90,7 @@ Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/progra
 ## Additional Resources
 
 
-* [Working with anvi&#x27;o additional data tables](http://merenlab.org/2017/12/11/additional-data-tables/#views-items-layers-orders-some-anvio-terminology)
+* [Working with anvi&#39;o additional data tables](http://merenlab.org/2017/12/11/additional-data-tables/#views-items-layers-orders-some-anvio-terminology)
 
 
 {:.notice}

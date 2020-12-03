@@ -31,14 +31,14 @@ See **[program help menu](../../../vignette#anvi-export-structures)** or go back
 ## Usage
 
 
-This program exports the structures in a <span class="artifact-n">[structure-db](/software/anvio/help/artifacts/structure-db)</span> as <span class="artifact-n">[protein-structure-txt](/software/anvio/help/artifacts/protein-structure-txt)</span> files. 
+This program exports the structures in a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span> as <span class="artifact-n">[protein-structure-txt](/software/anvio/help/main/artifacts/protein-structure-txt)</span> files. 
 
-This allows you to view your 3D structures through other softwares that aren't focused on variable positions (like <span class="artifact-n">[anvi-3dev](/software/anvio/help/programs/anvi-3dev)</span> is). 
+This allows you to view your 3D structures through other softwares that aren't focused on variable positions (like <span class="artifact-n">[anvi-3dev](/software/anvio/help/main/programs/anvi-3dev)</span> is). 
 
-To run, just provide a <span class="artifact-n">[structure-db](/software/anvio/help/artifacts/structure-db)</span> and an output path:
+To run, just provide a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span> and an output path:
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;structures &#45;s <span class="artifact&#45;n">[structure&#45;db](/software/anvio/help/artifacts/structure&#45;db)</span> \
+anvi&#45;export&#45;structures &#45;s <span class="artifact&#45;n">[structure&#45;db](/software/anvio/help/main/artifacts/structure&#45;db)</span> \
                        &#45;o path/to/output
 </div>
 

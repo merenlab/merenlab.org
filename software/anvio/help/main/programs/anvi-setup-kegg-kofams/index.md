@@ -31,7 +31,7 @@ See **[program help menu](../../../vignette#anvi-setup-kegg-kofams)** or go back
 ## Usage
 
 
-<span class="artifact-n">[anvi-setup-kegg-kofams](/software/anvio/help/programs/anvi-setup-kegg-kofams)</span> downloads and organizes data from KEGG for use by other programs, namely <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/programs/anvi-run-kegg-kofams)</span> and <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/programs/anvi-estimate-metabolism)</span>. It downloads HMM profiles from the KOfams database as well as metabolism information such as that stored in the [KEGG MODULES resource](https://www.genome.jp/kegg/module.html). The program generates a directory with this data (<span class="artifact-n">[kegg-db](/software/anvio/help/artifacts/kegg-db)</span>), which by default is located at `anvio/anvio/data/misc/KEGG/`.
+<span class="artifact-n">[anvi-setup-kegg-kofams](/software/anvio/help/main/programs/anvi-setup-kegg-kofams)</span> downloads and organizes data from KEGG for use by other programs, namely <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/main/programs/anvi-run-kegg-kofams)</span> and <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span>. It downloads HMM profiles from the KOfams database as well as metabolism information such as that stored in the [KEGG MODULES resource](https://www.genome.jp/kegg/module.html). The program generates a directory with this data (<span class="artifact-n">[kegg-db](/software/anvio/help/main/artifacts/kegg-db)</span>), which by default is located at `anvio/anvio/data/misc/KEGG/`.
 
 ### Set up KEGG data
 

@@ -32,9 +32,9 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
-This a tab-delimited text file that describes information contained in a <span class="artifact-n">[misc-data-layers](/software/anvio/help/artifacts/misc-data-layers)</span>. 
+This a tab-delimited text file that describes information contained in a <span class="artifact-n">[misc-data-layers](/software/anvio/help/main/artifacts/misc-data-layers)</span>. 
 
-To import this information into a database, use <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/programs/anvi-import-misc-data)</span>. 
+To import this information into a database, use <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/main/programs/anvi-import-misc-data)</span>. 
 
 In this table, the first column should match the names of the samples that you're displaying, and the following columns can contain any categorical or numerical data of your choosing. (You can even be fancy and display data as a stacked bar graph.)
 

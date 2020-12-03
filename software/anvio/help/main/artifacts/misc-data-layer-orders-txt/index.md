@@ -32,9 +32,9 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
-This a tab-delimited text file that describes information contained in a <span class="artifact-n">[misc-data-layer-orders](/software/anvio/help/artifacts/misc-data-layer-orders)</span>. 
+This a tab-delimited text file that describes information contained in a <span class="artifact-n">[misc-data-layer-orders](/software/anvio/help/main/artifacts/misc-data-layer-orders)</span>. 
 
-To import this information into a database, use <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/programs/anvi-import-misc-data)</span>. 
+To import this information into a database, use <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/main/programs/anvi-import-misc-data)</span>. 
 
 This table should contain trees formatted in either basic or newick form, where each branch represents the samples displayed by your layers. The order of the branches from left to right is the order they will be displayed in, from the center moving out. 
 

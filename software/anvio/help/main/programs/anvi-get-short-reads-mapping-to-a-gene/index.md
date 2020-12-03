@@ -31,14 +31,14 @@ See **[program help menu](../../../vignette#anvi-get-short-reads-mapping-to-a-ge
 ## Usage
 
 
-This program finds all short reads from (<span class="artifact-n">[bam-file](/software/anvio/help/artifacts/bam-file)</span>) that align to a specific gene and returns them as a <span class="artifact-n">[short-reads-fasta](/software/anvio/help/artifacts/short-reads-fasta)</span>. 
+This program finds all short reads from (<span class="artifact-n">[bam-file](/software/anvio/help/main/artifacts/bam-file)</span>) that align to a specific gene and returns them as a <span class="artifact-n">[short-reads-fasta](/software/anvio/help/main/artifacts/short-reads-fasta)</span>. 
 
-If instead you want to extract these short reads from a FASTQ file, get your gene sequence with <span class="artifact-n">[anvi-export-gene-calls](/software/anvio/help/programs/anvi-export-gene-calls)</span> and take a look at <span class="artifact-n">[anvi-script-get-short-reads-matching-something](/software/anvio/help/programs/anvi-script-get-short-reads-matching-something)</span>. 
+If instead you want to extract these short reads from a FASTQ file, get your gene sequence with <span class="artifact-n">[anvi-export-gene-calls](/software/anvio/help/main/programs/anvi-export-gene-calls)</span> and take a look at <span class="artifact-n">[anvi-script-get-short-reads-matching-something](/software/anvio/help/main/programs/anvi-script-get-short-reads-matching-something)</span>. 
 
-To run this program, just specify the bam files you're looking at and the gene of interest. To do this, name the <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> containing your gene and the gene caller ID (either directly through the parameter `--gene-caller-id` or through a file). Here is an example:
+To run this program, just specify the bam files you're looking at and the gene of interest. To do this, name the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> containing your gene and the gene caller ID (either directly through the parameter `--gene-caller-id` or through a file). Here is an example:
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;short&#45;reads&#45;mapping&#45;to&#45;a&#45;gene &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+anvi&#45;get&#45;short&#45;reads&#45;mapping&#45;to&#45;a&#45;gene &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
                                        &#45;&#45;gene&#45;caller&#45;id 2 \
                                        &#45;i BAM_FILE_ONE.bam \
                                        &#45;O GENE_2_MATCHES 
@@ -51,7 +51,7 @@ You also have the option to provide multiple bam files; in this case, there will
 Additionally, you can change the number of nucleotides required to map to a short read for it to be reported. For example, to expand your search, you could decrese the required mapping length to 50 nucleotides, as so:
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;short&#45;reads&#45;mapping&#45;to&#45;a&#45;gene &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+anvi&#45;get&#45;short&#45;reads&#45;mapping&#45;to&#45;a&#45;gene &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
                                        &#45;&#45;gene&#45;caller&#45;id 2 \
                                        &#45;i Bam_file_one.bam Bam_file_two.bam \
                                        &#45;O GENE_2_MATCHES \

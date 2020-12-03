@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Export a collection from an anvi&#x27;o database.
+Export a collection from an anvi&#39;o database.
 
 See **[program help menu](../../../vignette#anvi-export-collection)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -31,25 +31,25 @@ See **[program help menu](../../../vignette#anvi-export-collection)** or go back
 ## Usage
 
 
-This program, as one might think, allows you to export a <span class="artifact-n">[collection](/software/anvio/help/artifacts/collection)</span>. This allows you to take your binning results elsewhere (including into another Anvi'o project with the command <span class="artifact-n">[anvi-import-collection](/software/anvio/help/programs/anvi-import-collection)</span>). 
+This program, as one might think, allows you to export a <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span>. This allows you to take your binning results elsewhere (including into another Anvi'o project with the command <span class="artifact-n">[anvi-import-collection](/software/anvio/help/main/programs/anvi-import-collection)</span>). 
 
-You can run this program on a <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/software/anvio/help/artifacts/pan-db)</span> as follows: 
+You can run this program on a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/software/anvio/help/main/artifacts/pan-db)</span> as follows: 
 
 <div class="codeblock" markdown="1">
 anvi&#45;export&#45;collection &#45;C my_favorite_collection \
-                        &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> 
+                        &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> 
 </div>
 
-This will give you a <span class="artifact-n">[collection-txt](/software/anvio/help/artifacts/collection-txt)</span> file that describes the collection `my_favorite_collection`. 
+This will give you a <span class="artifact-n">[collection-txt](/software/anvio/help/main/artifacts/collection-txt)</span> file that describes the collection `my_favorite_collection`. 
 
 To list the collections available in this database, you can run 
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;collection &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/artifacts/pan&#45;db)</span> \
+anvi&#45;export&#45;collection &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/main/artifacts/pan&#45;db)</span> \
                         &#45;&#45;list&#45;colllections
 </div>
 
-You can also add the flag `--include-unbinned` to have all unbinned contigs in the database show up at the end of your <span class="artifact-n">[collection-txt](/software/anvio/help/artifacts/collection-txt)</span> file in a bin titled `UNBINNED`. 
+You can also add the flag `--include-unbinned` to have all unbinned contigs in the database show up at the end of your <span class="artifact-n">[collection-txt](/software/anvio/help/main/artifacts/collection-txt)</span> file in a bin titled `UNBINNED`. 
 
 
 {:.notice}

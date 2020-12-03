@@ -36,7 +36,7 @@ This file contains information about your genes.
 
 It is a tab-delimited text file where each row represents a specific gene and each column provides different information. 
 
-As of now, the only program that returns data in this format is <span class="artifact-n">[anvi-script-gen_stats_for_single_copy_genes.py](/software/anvio/help/programs/anvi-script-gen_stats_for_single_copy_genes.py)</span>, which returns this information for the single copy core genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>. 
+As of now, the only program that returns data in this format is <span class="artifact-n">[anvi-script-gen_stats_for_single_copy_genes.py](/software/anvio/help/main/programs/anvi-script-gen_stats_for_single_copy_genes.py)</span>, which returns this information for the single copy core genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>. 
 
 From left to right, these tell you 
 * The source for this gene (ex `Protista_83`)

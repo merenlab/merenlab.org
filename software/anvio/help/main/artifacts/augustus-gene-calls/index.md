@@ -34,7 +34,7 @@ There are no anvi'o tools that generate this artifact, which means it is most li
 
 A gene call file from [AUGUSTUS](http://bioinf.uni-greifswald.de/augustus/). It ends with .gff. 
 
-You can convert this file into an anvi'o <span class="artifact-n">[external-gene-calls](/software/anvio/help/artifacts/external-gene-calls)</span> file using <span class="artifact-n">[anvi-script-augustus-output-to-external-gene-calls](/software/anvio/help/programs/anvi-script-augustus-output-to-external-gene-calls)</span>. 
+You can convert this file into an anvi'o <span class="artifact-n">[external-gene-calls](/software/anvio/help/main/artifacts/external-gene-calls)</span> file using <span class="artifact-n">[anvi-script-augustus-output-to-external-gene-calls](/software/anvio/help/main/programs/anvi-script-augustus-output-to-external-gene-calls)</span>. 
 
 
 {:.notice}

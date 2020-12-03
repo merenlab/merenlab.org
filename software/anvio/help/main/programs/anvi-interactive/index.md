@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Start an anvi&#x27;o server for the interactive interface.
+Start an anvi&#39;o server for the interactive interface.
 
 See **[program help menu](../../../vignette#anvi-interactive)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -44,22 +44,22 @@ Here, we'll go through *some* things that the Anvi'o interactive interface is ca
 One of the simplest ways to run the interactive interface (especially useful for manual binning) is just providing a profile database and contigs database:
 
 <div class="codeblock" markdown="1">
-anvi&#45;interactive &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
-                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span>
+anvi&#45;interactive &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
+                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span>
 </div>
 
-For the central tree to display correctly, you'll need to have run hierarchical clustering at some point while making your profile database (either during <span class="artifact-n">[anvi-merge](/software/anvio/help/programs/anvi-merge)</span>, or, if this is a <span class="artifact-n">[single-profile-db](/software/anvio/help/artifacts/single-profile-db)</span>, while running <span class="artifact-n">[anvi-profile](/software/anvio/help/programs/anvi-profile)</span>).
+For the central tree to display correctly, you'll need to have run hierarchical clustering at some point while making your profile database (either during <span class="artifact-n">[anvi-merge](/software/anvio/help/main/programs/anvi-merge)</span>, or, if this is a <span class="artifact-n">[single-profile-db](/software/anvio/help/main/artifacts/single-profile-db)</span>, while running <span class="artifact-n">[anvi-profile](/software/anvio/help/main/programs/anvi-profile)</span>).
 
-You'll get lovely concentric circles (or rectangles), each filled with data that was contained in your databases and that you are now free to interact with. See the page for the <span class="artifact-n">[interactive](/software/anvio/help/artifacts/interactive)</span> interface for more information.
+You'll get lovely concentric circles (or rectangles), each filled with data that was contained in your databases and that you are now free to interact with. See the page for the <span class="artifact-n">[interactive](/software/anvio/help/main/artifacts/interactive)</span> interface for more information.
 
 ### Running on a specific collection
 
 You can also run anvi-interactive on a specific collection. When doing this, Anvi'o will calculate various information about each of your bins, and display the interface. Each item of your central plot will not represent a contig, but a bin within your collection.
 
 <div class="codeblock" markdown="1">
-anvi&#45;interactive &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
-                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
-                 &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/artifacts/collection)</span>
+anvi&#45;interactive &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
+                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+                 &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span>
 </div>
 
 Since clustering is done here, you can also customize the linkage method and distance metric if desired.
@@ -77,10 +77,10 @@ A lot of the same functionality is available, including the inspect page and sea
 To initiate the visualization in gene mode you need the following:
 
 <div class="codeblock" markdown="1">
-anvi&#45;interactive &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
-                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
-                 &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/artifacts/collection)</span> \
-                 &#45;b <span class="artifact&#45;n">[bin](/software/anvio/help/artifacts/bin)</span> \
+anvi&#45;interactive &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
+                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+                 &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span> \
+                 &#45;b <span class="artifact&#45;n">[bin](/software/anvio/help/main/artifacts/bin)</span> \
                  &#45;&#45;gene&#45;mode
 </div>
 
@@ -103,9 +103,9 @@ When doing this kind of run, anvi'o does not expect you to have a profile databa
 
 ## Visualization Settings
 
-In Anvi'o, the visualization settings at a given time are called a <span class="artifact-n">[state](/software/anvio/help/artifacts/state)</span>.
+In Anvi'o, the visualization settings at a given time are called a <span class="artifact-n">[state](/software/anvio/help/main/artifacts/state)</span>.
 
-To open the interface in a specific state, you can use the `--state-autoload` flag or by importing a state using <span class="artifact-n">[anvi-import-state](/software/anvio/help/programs/anvi-import-state)</span>.
+To open the interface in a specific state, you can use the `--state-autoload` flag or by importing a state using <span class="artifact-n">[anvi-import-state](/software/anvio/help/main/programs/anvi-import-state)</span>.
 
 You can also customize various aspects of the interactive interface. For example, you can change the preselected view, title, and taxonomic level displayed (for example, showing the class name instead of the genus name). You can also hide outlier single nucleotide variations or open only a specific collection.
 
@@ -139,17 +139,17 @@ Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/progra
 ## Additional Resources
 
 
-* [A beginners tutorial on anvi&#x27;o interactive interface](http://merenlab.org/tutorials/interactive-interface/)
+* [A beginners tutorial on anvi&#39;o interactive interface](http://merenlab.org/tutorials/interactive-interface/)
 
 * [How to add more data to a display for layers and items](http://merenlab.org/2017/12/11/additional-data-tables/)
 
 * [An overview of interactive data types](http://merenlab.org/2016/02/27/the-anvio-interactive-interface/)
 
-* [Anvi&#x27;o &#x27;views&#x27; demystified](http://merenlab.org/2017/05/08/anvio-views/)
+* [Anvi&#39;o &#39;views&#39; demystified](http://merenlab.org/2017/05/08/anvio-views/)
 
 * [Working with SVG files from the interactive interface](http://merenlab.org/2016/10/27/high-resolution-figures/)
 
-* [Running remote anvi&#x27;o interactive interfaces on your local computer](http://merenlab.org/2018/03/07/working-with-remote-interative/)
+* [Running remote anvi&#39;o interactive interfaces on your local computer](http://merenlab.org/2018/03/07/working-with-remote-interative/)
 
 
 {:.notice}

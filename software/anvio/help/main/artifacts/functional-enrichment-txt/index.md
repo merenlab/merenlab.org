@@ -32,7 +32,7 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-This matrix describes the gene cluster level functional associations that are enriched within specific groups of your pangenome. It is the output of <span class="artifact-n">[anvi-get-enriched-functions-per-pan-group](/software/anvio/help/programs/anvi-get-enriched-functions-per-pan-group)</span> and is described in more detail [in the pangenomics tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/#making-sense-of-functions-in-your-pangenome). 
+This matrix describes the gene cluster level functional associations that are enriched within specific groups of your pangenome. It is the output of <span class="artifact-n">[anvi-get-enriched-functions-per-pan-group](/software/anvio/help/main/programs/anvi-get-enriched-functions-per-pan-group)</span> and is described in more detail [in the pangenomics tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/#making-sense-of-functions-in-your-pangenome). 
 
 Each row in this matrix describes a functional assocation that is associated with one or more of your gene clusters. These are listed in order of their pan-group, with the highest enrichment scores displayed first. 
 

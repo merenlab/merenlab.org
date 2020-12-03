@@ -31,20 +31,20 @@ See **[program help menu](../../../vignette#anvi-script-gen_stats_for_single_cop
 ## Usage
 
 
-This program **provides information about each of the single copy core genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>**. 
+This program **provides information about each of the single copy core genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>**. 
 
-Simply provide a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>, and it will create a <span class="artifact-n">[genes-stats](/software/anvio/help/artifacts/genes-stats)</span> file containing a variety of information about the single copy core genes in your database. 
+Simply provide a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>, and it will create a <span class="artifact-n">[genes-stats](/software/anvio/help/main/artifacts/genes-stats)</span> file containing a variety of information about the single copy core genes in your database. 
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;gen_stats_for_single_copy_core_genes.py &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> 
+anvi&#45;script&#45;gen_stats_for_single_copy_core_genes.py &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> 
 </div>
 
-The console output will tell you the total number of contigs, splits, and nucleotides in your <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>, while the text output will tell you the source, name, and e-value of each single-copy core gene. 
+The console output will tell you the total number of contigs, splits, and nucleotides in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>, while the text output will tell you the source, name, and e-value of each single-copy core gene. 
 
-You can get information from only single-copy core genes from a specific source. To see what sources are availible in your <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>, run 
+You can get information from only single-copy core genes from a specific source. To see what sources are availible in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>, run 
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;gen_stats_for_single_copy_core_genes.py &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+anvi&#45;script&#45;gen_stats_for_single_copy_core_genes.py &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
                                                     &#45;&#45;list&#45;sources
 </div>
 

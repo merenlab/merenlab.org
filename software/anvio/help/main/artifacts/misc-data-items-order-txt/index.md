@@ -32,7 +32,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
-This is a text file that **contains the information for a <span class="artifact-n">[misc-data-items-order](/software/anvio/help/artifacts/misc-data-items-order)</span>**, used for importing into and exporting this information from your anvi'o project.
+This is a text file that **contains the information for a <span class="artifact-n">[misc-data-items-order](/software/anvio/help/main/artifacts/misc-data-items-order)</span>**, used for importing into and exporting this information from your anvi'o project.
 
 ## NEWICK order
 

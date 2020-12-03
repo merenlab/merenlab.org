@@ -32,7 +32,7 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-This is the output of <span class="artifact-n">[anvi-export-splits-taxonomy](/software/anvio/help/programs/anvi-export-splits-taxonomy)</span>. It is in the same format as a <span class="artifact-n">[gene-taxonomy-txt](/software/anvio/help/artifacts/gene-taxonomy-txt)</span>, namely the first column identifies splits and the following columns describe the taxonomy hit associated with that split. 
+This is the output of <span class="artifact-n">[anvi-export-splits-taxonomy](/software/anvio/help/main/programs/anvi-export-splits-taxonomy)</span>. It is in the same format as a <span class="artifact-n">[gene-taxonomy-txt](/software/anvio/help/main/artifacts/gene-taxonomy-txt)</span>, namely the first column identifies splits and the following columns describe the taxonomy hit associated with that split. 
 
 For example:
 

@@ -31,13 +31,13 @@ See **[program help menu](../../../vignette#anvi-setup-pdb-database)** or go bac
 ## Usage
 
 
-This program downloads a section of the [Protein Data Bank](https://www.rcsb.org/) which is required for strucutral analyses in anvi'o, such as running <span class="artifact-n">[anvi-gen-structure-database](/software/anvio/help/programs/anvi-gen-structure-database)</span> or <span class="artifact-n">[anvi-3dev](/software/anvio/help/programs/anvi-3dev)</span>. 
+This program downloads a section of the [Protein Data Bank](https://www.rcsb.org/) which is required for strucutral analyses in anvi'o, such as running <span class="artifact-n">[anvi-gen-structure-database](/software/anvio/help/main/programs/anvi-gen-structure-database)</span> or <span class="artifact-n">[anvi-3dev](/software/anvio/help/main/programs/anvi-3dev)</span>. 
 
 <div class="codeblock" markdown="1">
 anvi&#45;setup&#45;pdb&#45;database &#45;&#45;just&#45;do&#45;it
 </div>
 
-If you already have a <span class="artifact-n">[pdb-db](/software/anvio/help/artifacts/pdb-db)</span> artifact and are trying to redownload this data, run 
+If you already have a <span class="artifact-n">[pdb-db](/software/anvio/help/main/artifacts/pdb-db)</span> artifact and are trying to redownload this data, run 
 
 <div class="codeblock" markdown="1">
 anvi&#45;setup&#45;pdb&#45;database &#45;&#45;reset

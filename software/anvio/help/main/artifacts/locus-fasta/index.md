@@ -32,11 +32,11 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-A locus-fasta is one of the outputs of <span class="artifact-n">[anvi-export-locus](/software/anvio/help/programs/anvi-export-locus)</span>, which creates exports specific regions of interest out of a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>. 
+A locus-fasta is one of the outputs of <span class="artifact-n">[anvi-export-locus](/software/anvio/help/main/programs/anvi-export-locus)</span>, which creates exports specific regions of interest out of a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>. 
 
-This artifact specifically describes the <span class="artifact-n">[fasta](/software/anvio/help/artifacts/fasta)</span> file that contains the sequence of one of the hits to the locus. 
+This artifact specifically describes the <span class="artifact-n">[fasta](/software/anvio/help/main/artifacts/fasta)</span> file that contains the sequence of one of the hits to the locus. 
 
-This file is contained within the directory specified by the `-o` parameter and is named with the prefix defined by the `-O` parameter, followed by a numerical identifier for this particular hit. The sequence in this fasta file is also contained in the <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> of the same name. 
+This file is contained within the directory specified by the `-o` parameter and is named with the prefix defined by the `-O` parameter, followed by a numerical identifier for this particular hit. The sequence in this fasta file is also contained in the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> of the same name. 
 
 
 {:.notice}

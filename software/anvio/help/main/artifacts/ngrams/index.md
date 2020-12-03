@@ -32,7 +32,7 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-An <span class="artifact-n">[ngrams](/software/anvio/help/artifacts/ngrams)</span> object is a DataFrame that contains count data of synteny patterns collected from a group of similar loci or genomes. It is produced by running <span class="artifact-n">[anvi-analyze-synteny](/software/anvio/help/programs/anvi-analyze-synteny)</span> when given a <span class="artifact-n">[genomes-storage-db](/software/anvio/help/artifacts/genomes-storage-db)</span> and an annotation source.
+An <span class="artifact-n">[ngrams](/software/anvio/help/main/artifacts/ngrams)</span> object is a DataFrame that contains count data of synteny patterns collected from a group of similar loci or genomes. It is produced by running <span class="artifact-n">[anvi-analyze-synteny](/software/anvio/help/main/programs/anvi-analyze-synteny)</span> when given a <span class="artifact-n">[genomes-storage-db](/software/anvio/help/main/artifacts/genomes-storage-db)</span> and an annotation source.
 
 An `ngram` is a group of neighboring genes that include precisely `n` genes, inspired by the term ngram in [linguistics and natural language processing](https://en.wikipedia.org/wiki/N-gram). This object was inspired by kmer count tables but is inherently different because it is counting adjacent genes and not nucleotides.
 

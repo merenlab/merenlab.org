@@ -27,14 +27,14 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-dereplicate-genomes](../../programs/anvi-dereplicate-genomes)</span> <span class="artifact-r">[anvi-script-compute-ani-for-fasta](../../programs/anvi-script-compute-ani-for-fasta)</span> <span class="artifact-r">[anvi-script-reformat-fasta](../../programs/anvi-script-reformat-fasta)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-dereplicate-genomes](../../programs/anvi-dereplicate-genomes)</span> <span class="artifact-r">[anvi-script-compute-ani-for-fasta](../../programs/anvi-script-compute-ani-for-fasta)</span> <span class="artifact-r">[anvi-script-get-short-reads-matching-something](../../programs/anvi-script-get-short-reads-matching-something)</span> <span class="artifact-r">[anvi-script-reformat-fasta](../../programs/anvi-script-reformat-fasta)</span></p>
 
 
 ## Description
 
-A FASTA-formatted file that does not necessarily meet the standards of a <span class="artifact-n">[contigs-fasta](/software/anvio/help/artifacts/contigs-fasta)</span>.
+A FASTA-formatted file that does not necessarily meet the standards of a <span class="artifact-n">[contigs-fasta](/software/anvio/help/main/artifacts/contigs-fasta)</span>.
 
-<span class="artifact-n">[anvi-script-reformat-fasta](/software/anvio/help/programs/anvi-script-reformat-fasta)</span> can turn a regular fasta into a <span class="artifact-n">[contigs-fasta](/software/anvio/help/artifacts/contigs-fasta)</span>, which anvi'o will be able to utilize better.
+<span class="artifact-n">[anvi-script-reformat-fasta](/software/anvio/help/main/programs/anvi-script-reformat-fasta)</span> can turn a regular fasta into a <span class="artifact-n">[contigs-fasta](/software/anvio/help/main/artifacts/contigs-fasta)</span>, which anvi'o will be able to utilize better.
 
 ### But what is a FASTA file? 
 

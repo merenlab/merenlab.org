@@ -32,9 +32,9 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
-This a tab-delimited text file that describes information contained in a <span class="artifact-n">[misc-data-nucleotides](/software/anvio/help/artifacts/misc-data-nucleotides)</span>. 
+This a tab-delimited text file that describes information contained in a <span class="artifact-n">[misc-data-nucleotides](/software/anvio/help/main/artifacts/misc-data-nucleotides)</span>. 
 
-To import this information into a database, use <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/programs/anvi-import-misc-data)</span>. 
+To import this information into a database, use <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/main/programs/anvi-import-misc-data)</span>. 
 
 In this table, the first column should provide two pieces of information, both identifying a specific nucleotide position: the name of the contig the nucleotide is on, and its position on that contig. These should be separated by a colon. The following columns can contain any categorical or numerical data of your choosing.
 
@@ -46,7 +46,7 @@ Here is an example with very abstract data:
     contig_7:24      group_1          3.2526         cool_data
     ...
 
-For a more concrete example, check out the example table for <span class="artifact-n">[misc-data-amino-acids](/software/anvio/help/artifacts/misc-data-amino-acids)</span> (which is formatted very similarly)  [here](http://merenlab.org/2020/07/22/interacdome/#6-storing-the-per-residue-binding-frequencies-into-the-contigs-database). The second table on this page is what you would provide to <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/programs/anvi-import-misc-data)</span>. 
+For a more concrete example, check out the example table for <span class="artifact-n">[misc-data-amino-acids](/software/anvio/help/main/artifacts/misc-data-amino-acids)</span> (which is formatted very similarly)  [here](http://merenlab.org/2020/07/22/interacdome/#6-storing-the-per-residue-binding-frequencies-into-the-contigs-database). The second table on this page is what you would provide to <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/main/programs/anvi-import-misc-data)</span>. 
 
 
 {:.notice}

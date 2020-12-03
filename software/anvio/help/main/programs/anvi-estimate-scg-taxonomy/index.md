@@ -31,9 +31,9 @@ See **[program help menu](../../../vignette#anvi-estimate-scg-taxonomy)** or go 
 ## Usage
 
 
-This program **quickly makes taxonomy estimates for genomes, metagenomes, or bins stored in your <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>.**
+This program **quickly makes taxonomy estimates for genomes, metagenomes, or bins stored in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>.**
 
-This is the final step in the scg-taxonomy workflow (described in its entirety [here](http://merenlab.org/2019/10/08/anvio-scg-taxonomy/)). Before running this program, you'll need to have run both <span class="artifact-n">[anvi-setup-scg-taxonomy](/software/anvio/help/programs/anvi-setup-scg-taxonomy)</span> and <span class="artifact-n">[anvi-run-scg-taxonomy](/software/anvio/help/programs/anvi-run-scg-taxonomy)</span> on the <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> you're working with for this project. 
+This is the final step in the scg-taxonomy workflow (described in its entirety [here](http://merenlab.org/2019/10/08/anvio-scg-taxonomy/)). Before running this program, you'll need to have run both <span class="artifact-n">[anvi-setup-scg-taxonomy](/software/anvio/help/main/programs/anvi-setup-scg-taxonomy)</span> and <span class="artifact-n">[anvi-run-scg-taxonomy](/software/anvio/help/main/programs/anvi-run-scg-taxonomy)</span> on the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> you're working with for this project. 
 
 [This tutorial](http://merenlab.org/2019/10/08/anvio-scg-taxonomy/#estimating-taxonomy-in-the-terminal) also includes a comprehensive overview of what this program can do. See that page for more information on all of the features described below. 
 
@@ -45,47 +45,47 @@ So, what can this program do?
 
 ### 1. Estimate the taxonomy of a single genome
 
-By default, this program wll assume your <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> contains only one genome, and will try to use the single-copy core genes (that were associated with taxonomy when you ran <span class="artifact-n">[anvi-run-scg-taxonomy](/software/anvio/help/programs/anvi-run-scg-taxonomy)</span>) to try to identify the taxonomy of your genome. 
+By default, this program wll assume your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> contains only one genome, and will try to use the single-copy core genes (that were associated with taxonomy when you ran <span class="artifact-n">[anvi-run-scg-taxonomy](/software/anvio/help/main/programs/anvi-run-scg-taxonomy)</span>) to try to identify the taxonomy of your genome. 
 
 When you run 
 
 <div class="codeblock" markdown="1">
-anvi&#45;estimate&#45;scg&#45;taxonomy &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span>
+anvi&#45;estimate&#45;scg&#45;taxonomy &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span>
 </div>
 
 It will give you the best taxonomy hit for your genome. If you would like to see how it got there (by looking at the hits for each of the single-copy core genes), just use the `--debug` flag to see more information, as so: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;estimate&#45;scg&#45;taxonomy &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+anvi&#45;estimate&#45;scg&#45;taxonomy &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
                            &#45;&#45;debug 
 </div>
 
 ### 2. Estimate the taxa within a metagenome 
 
-By running this program in metagenome mode, it will assume that your <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> contains multiple genomes and will try to give you an overview of the taxa within it. To do this, it will determine which single-copy core gene has the most hits in your contigs (for example `Ribosomal_S6`), and then will look at the taxnomy hits for that gene across your contigs. The output will be this list of taxonomy results. 
+By running this program in metagenome mode, it will assume that your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> contains multiple genomes and will try to give you an overview of the taxa within it. To do this, it will determine which single-copy core gene has the most hits in your contigs (for example `Ribosomal_S6`), and then will look at the taxnomy hits for that gene across your contigs. The output will be this list of taxonomy results. 
 
 <div class="codeblock" markdown="1">
-anvi&#45;estimate&#45;scg&#45;taxonomy &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+anvi&#45;estimate&#45;scg&#45;taxonomy &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
                            &#45;&#45;metagenome&#45;mode 
 </div>
 
 If you want to look at a specific gene (instead of the one with the most hits), you can also tell it to do that. For example, to tell it to look at Ribosomal_S9, run
 
 <div class="codeblock" markdown="1">
-anvi&#45;estimate&#45;scg&#45;taxonomy &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+anvi&#45;estimate&#45;scg&#45;taxonomy &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
                            &#45;&#45;metagenome&#45;mode  \
                            &#45;&#45;scg&#45;name Ribosomal_S9
 </div>
 
 ### 3. Look at relative abundance across multiple samples 
 
-If you provide a <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> or <span class="artifact-n">[single-profile-db](/software/anvio/help/artifacts/single-profile-db)</span>, then you'll be able to look at the relative abundance of your taxonomy hits (through a single-copy core gene) across your samples. Essentially, this adds additional columns to your output (one per sample) that descrbe the relative abundance of each hit in each sample. 
+If you provide a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> or <span class="artifact-n">[single-profile-db](/software/anvio/help/main/artifacts/single-profile-db)</span>, then you'll be able to look at the relative abundance of your taxonomy hits (through a single-copy core gene) across your samples. Essentially, this adds additional columns to your output (one per sample) that descrbe the relative abundance of each hit in each sample. 
 
 Running this will look something like this, 
 <div class="codeblock" markdown="1">
-anvi&#45;estimate&#45;scg&#45;taxonomy &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
+anvi&#45;estimate&#45;scg&#45;taxonomy &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
                            &#45;&#45;metagenome&#45;mode  \
-                           &#45;&#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
+                           &#45;&#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
                            &#45;&#45;compute&#45;scg&#45;coverages
 </div>
 
@@ -93,30 +93,30 @@ For an example output, take a look at [this page](http://merenlab.org/2019/10/08
 
 ### 4. Estimate the taxonomy of your bins 
 
-This program basically looks at each of the <span class="artifact-n">[bin](/software/anvio/help/artifacts/bin)</span>s in your <span class="artifact-n">[collection](/software/anvio/help/artifacts/collection)</span> as a single genome and tries to assign it taxonomy information. To do this, simply provide a collection, like this:
+This program basically looks at each of the <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span>s in your <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span> as a single genome and tries to assign it taxonomy information. To do this, simply provide a collection, like this:
 
 <div class="codeblock" markdown="1">
-anvi&#45;estimate&#45;scg&#45;taxonomy &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
-                           &#45;&#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/artifacts/collection)</span>
+anvi&#45;estimate&#45;scg&#45;taxonomy &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+                           &#45;&#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span>
 </div>
 
 You can also look at the relative abundances across your samples at the same time, by running something like this: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;estimate&#45;scg&#45;taxonomy &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/artifacts/contigs&#45;db)</span> \
-                           &#45;&#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/artifacts/collection)</span>  \
-                           &#45;&#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/artifacts/profile&#45;db)</span> \
+anvi&#45;estimate&#45;scg&#45;taxonomy &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+                           &#45;&#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span>  \
+                           &#45;&#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
                            &#45;&#45;compute&#45;scg&#45;coverages
 </div>
 
 ### 5. Look at multiple metagenomes at the same time
 
-You can even use this program to look at multiple metagenomes by providing a <span class="artifact-n">[metagenomes](/software/anvio/help/artifacts/metagenomes)</span> artifact. This is useful to get an overview of what kinds of taxa might be in your metagenomes, and what kinds of taxa they share. 
+You can even use this program to look at multiple metagenomes by providing a <span class="artifact-n">[metagenomes](/software/anvio/help/main/artifacts/metagenomes)</span> artifact. This is useful to get an overview of what kinds of taxa might be in your metagenomes, and what kinds of taxa they share. 
 
 Running this
 
 <div class="codeblock" markdown="1">
-anvi&#45;estimate&#45;scg&#45;taxonomy &#45;&#45;metagenomes <span class="artifact&#45;n">[metagenomes](/software/anvio/help/artifacts/metagenomes)</span> \
+anvi&#45;estimate&#45;scg&#45;taxonomy &#45;&#45;metagenomes <span class="artifact&#45;n">[metagenomes](/software/anvio/help/main/artifacts/metagenomes)</span> \
                            &#45;&#45;output&#45;file&#45;prefix EXAMPLE
 </div>
 

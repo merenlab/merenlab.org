@@ -32,11 +32,11 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
-This artifact stores the data downloaded by <span class="artifact-n">[anvi-setup-interacdome](/software/anvio/help/programs/anvi-setup-interacdome)</span> and is required to run <span class="artifact-n">[anvi-run-interacdome](/software/anvio/help/programs/anvi-run-interacdome)</span>. 
+This artifact stores the data downloaded by <span class="artifact-n">[anvi-setup-interacdome](/software/anvio/help/main/programs/anvi-setup-interacdome)</span> and is required to run <span class="artifact-n">[anvi-run-interacdome](/software/anvio/help/main/programs/anvi-run-interacdome)</span>. 
 
-As described in the [InteracDome blogpost](https://merenlab.org/2020/07/22/interacdome/#anvi-setup-interacdome), this data includes [the tab-separated files](https://interacdome.princeton.edu/#tab-6136-4) from (InteracDome)[https://interacdome.princeton.edu/] and the Pfam 31.0 HMMs (similarly to <span class="artifact-n">[anvi-setup-pfams](/software/anvio/help/programs/anvi-setup-pfams)</span>) for only the Pfams that in are the InteracDome dataset. 
+As described in the [InteracDome blogpost](https://merenlab.org/2020/07/22/interacdome/#anvi-setup-interacdome), this data includes [the tab-separated files](https://interacdome.princeton.edu/#tab-6136-4) from (InteracDome)[https://interacdome.princeton.edu/] and the Pfam 31.0 HMMs (similarly to <span class="artifact-n">[anvi-setup-pfams](/software/anvio/help/main/programs/anvi-setup-pfams)</span>) for only the Pfams that in are the InteracDome dataset. 
 
-By default, this data is stored in `anvio/data/misc/InteracDome`, but a custom path can be set when the user runs <span class="artifact-n">[anvi-setup-interacdome](/software/anvio/help/programs/anvi-setup-interacdome)</span> if desired. 
+By default, this data is stored in `anvio/data/misc/InteracDome`, but a custom path can be set when the user runs <span class="artifact-n">[anvi-setup-interacdome](/software/anvio/help/main/programs/anvi-setup-interacdome)</span> if desired. 
 
 
 {:.notice}

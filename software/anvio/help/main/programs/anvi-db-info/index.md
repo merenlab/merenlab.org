@@ -33,13 +33,13 @@ See **[program help menu](../../../vignette#anvi-db-info)** or go back to the **
 
 Displays information about an anvi'o database, and allows users to modify that information when absolutely necessary.
 
-This program is particularly useful for debugging, but also handy in a pinch if you want to check some facts about your database - to answer questions like "did I run HMMs on this <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> yet?" or "is this a merged <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span>?" This program can also be very dangerous when used to inappropriately modify database information, so if you want to change something, please proceed with caution.
+This program is particularly useful for debugging, but also handy in a pinch if you want to check some facts about your database - to answer questions like "did I run HMMs on this <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> yet?" or "is this a merged <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span>?" This program can also be very dangerous when used to inappropriately modify database information, so if you want to change something, please proceed with caution.
 
 ### What information will I see?
 
 All anvi'o databases contain a table of self-describing information known as the "self" table. It helps anvi'o keep track of critical facts such as the type of the database, its version number, and the date it was created. It also saves information about how the database was generated, what sorts of data it contains, what programs have been run on it, and so on. In general, this table exists so that anvi'o can make sure you are doing the right things with your data and that nothing will blow up. `anvi-db-info` will show you the contents of the self table when you run this program on an anvi'o database.
 
-The information in the self table will be different depending on the kind of database you are looking at. For example, a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> self table will indicate the number of contigs (and splits) in the database, whether or not gene calling was done (and with what gene callers), and which functional annotation sources have been used to annotate the genes. A <span class="artifact-n">[profile-db](/software/anvio/help/artifacts/profile-db)</span> self table will list which samples it contains mapping information for, how many reads where mapped from each sample, and whether or not SNVs have been profiled. A MODULES.db (see <span class="artifact-n">[kegg-db](/software/anvio/help/artifacts/kegg-db)</span>) self table will tell you how many KEGG modules are saved in the database and what is the hash value of the database contents. We could go on, but you probably get the picture.
+The information in the self table will be different depending on the kind of database you are looking at. For example, a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> self table will indicate the number of contigs (and splits) in the database, whether or not gene calling was done (and with what gene callers), and which functional annotation sources have been used to annotate the genes. A <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> self table will list which samples it contains mapping information for, how many reads where mapped from each sample, and whether or not SNVs have been profiled. A MODULES.db (see <span class="artifact-n">[kegg-db](/software/anvio/help/main/artifacts/kegg-db)</span>) self table will tell you how many KEGG modules are saved in the database and what is the hash value of the database contents. We could go on, but you probably get the picture.
 
 ### View information about a database
 
@@ -49,7 +49,7 @@ This is the only way that most people will use this program, and it is very simp
 anvi&#45;db&#45;info path&#45;to&#45;DB.db
 </div>
 
-Let's be even more specific and say you have a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span> called `CONTIGS.db`. To look at its self table, you would run the following:
+Let's be even more specific and say you have a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> called `CONTIGS.db`. To look at its self table, you would run the following:
 <div class="codeblock" markdown="1">
 anvi&#45;db&#45;info CONTIGS.db
 </div>
@@ -58,7 +58,7 @@ That's it! Easy-peasy lemon-squeezy.
 
 ### Example output
 
-Here is an example of what you might see for a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>.
+Here is an example of what you might see for a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>.
 
 ```
 DB Info (no touch)

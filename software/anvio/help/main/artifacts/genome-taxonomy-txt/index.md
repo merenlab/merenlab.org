@@ -32,11 +32,11 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-This is the output tables that are displayed when you run <span class="artifact-n">[anvi-estimate-scg-taxonomy](/software/anvio/help/programs/anvi-estimate-scg-taxonomy)</span> or <span class="artifact-n">[anvi-estimate-trna-taxonomy](/software/anvio/help/programs/anvi-estimate-trna-taxonomy)</span>, but formatted as a tab-delimited text file. 
+This is the output tables that are displayed when you run <span class="artifact-n">[anvi-estimate-scg-taxonomy](/software/anvio/help/main/programs/anvi-estimate-scg-taxonomy)</span> or <span class="artifact-n">[anvi-estimate-trna-taxonomy](/software/anvio/help/main/programs/anvi-estimate-trna-taxonomy)</span>, but formatted as a tab-delimited text file. 
 
-To get this output, just provide the `-o` or the `-O` flag when running <span class="artifact-n">[anvi-estimate-scg-taxonomy](/software/anvio/help/programs/anvi-estimate-scg-taxonomy)</span> or <span class="artifact-n">[anvi-estimate-trna-taxonomy](/software/anvio/help/programs/anvi-estimate-trna-taxonomy)</span>. 
+To get this output, just provide the `-o` or the `-O` flag when running <span class="artifact-n">[anvi-estimate-scg-taxonomy](/software/anvio/help/main/programs/anvi-estimate-scg-taxonomy)</span> or <span class="artifact-n">[anvi-estimate-trna-taxonomy](/software/anvio/help/main/programs/anvi-estimate-trna-taxonomy)</span>. 
 
-These contain the exact same information as is normally displayed in the terminal, just in a separate file that is easier to share or include as supplemental data. To see an explination of the data within this file, you can look at the page for <span class="artifact-n">[genome-taxonomy](/software/anvio/help/artifacts/genome-taxonomy)</span>. 
+These contain the exact same information as is normally displayed in the terminal, just in a separate file that is easier to share or include as supplemental data. To see an explination of the data within this file, you can look at the page for <span class="artifact-n">[genome-taxonomy](/software/anvio/help/main/artifacts/genome-taxonomy)</span>. 
 
 
 {:.notice}

@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Start the anvi&#x27;o interactive interactive for viewing KEGG metabolism data.
+Start the anvi&#39;o interactive interactive for viewing KEGG metabolism data.
 
 See **[program help menu](../../../vignette#anvi-display-metabolism)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -31,9 +31,9 @@ See **[program help menu](../../../vignette#anvi-display-metabolism)** or go bac
 ## Usage
 
 
-The purpose of <span class="artifact-n">[anvi-display-metabolism](/software/anvio/help/programs/anvi-display-metabolism)</span> is to interactively view metabolism estimation data.
+The purpose of <span class="artifact-n">[anvi-display-metabolism](/software/anvio/help/main/programs/anvi-display-metabolism)</span> is to interactively view metabolism estimation data.
 
-This program internally uses <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/programs/anvi-estimate-metabolism)</span> to obtain this data for the provided <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>.
+This program internally uses <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span> to obtain this data for the provided <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>.
 
 It is still under development.
 

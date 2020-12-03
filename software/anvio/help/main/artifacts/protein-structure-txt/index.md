@@ -32,11 +32,11 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-This is a Protein Data Bank (`X.pdb`) file that describes the structure of a protein as stored in your <span class="artifact-n">[structure-db](/software/anvio/help/artifacts/structure-db)</span>. This is the output of running <span class="artifact-n">[anvi-export-structures](/software/anvio/help/programs/anvi-export-structures)</span>.
+This is a Protein Data Bank (`X.pdb`) file that describes the structure of a protein as stored in your <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span>. This is the output of running <span class="artifact-n">[anvi-export-structures](/software/anvio/help/main/programs/anvi-export-structures)</span>.
 
 This file format has its own [Wikipedia page](https://en.wikipedia.org/wiki/Protein_Data_Bank_(file_format)), as well as pages on PDB-101 [for beginners](https://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/beginner's-guide-to-pdb-structures-and-the-pdbx-mmcif-format) and for [coordinates specifically](https://pdb101.rcsb.org/learn/guide-to-understanding-pdb-data/dealing-with-coordinates), but is also briefly explained here. 
 
-The header describes the title (if one exists), the type of data (denoted by `EXPDTA`), and any free-form annotations (denoted by `REMARK` ). In Anvi'o, these are primarily MODELLER information calculated when you ran <span class="artifact-n">[anvi-gen-structure-database](/software/anvio/help/programs/anvi-gen-structure-database)</span>. 
+The header describes the title (if one exists), the type of data (denoted by `EXPDTA`), and any free-form annotations (denoted by `REMARK` ). In Anvi'o, these are primarily MODELLER information calculated when you ran <span class="artifact-n">[anvi-gen-structure-database](/software/anvio/help/main/programs/anvi-gen-structure-database)</span>. 
 
 Most of the data will describe the position of individual atoms (denoted by `ATOM`) in your protein, where columns 6, 7, and 8 describe the three dimensional coordinate of the atom. The rest of the columns describe information like what position that atom is in the amno acid. 
 

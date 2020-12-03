@@ -32,9 +32,9 @@ There are no anvi'o tools that generate this artifact, which means it is most li
 
 ## Description
 
-This is a text file containing taxonomy information for your layers (the same information as a <span class="artifact-n">[layer-taxonomy](/software/anvio/help/artifacts/layer-taxonomy)</span>). You can bring this information into a <span class="artifact-n">[single-profile-db](/software/anvio/help/artifacts/single-profile-db)</span> using <span class="artifact-n">[anvi-import-taxonomy-for-layers](/software/anvio/help/programs/anvi-import-taxonomy-for-layers)</span>. 
+This is a text file containing taxonomy information for your layers (the same information as a <span class="artifact-n">[layer-taxonomy](/software/anvio/help/main/artifacts/layer-taxonomy)</span>). You can bring this information into a <span class="artifact-n">[single-profile-db](/software/anvio/help/main/artifacts/single-profile-db)</span> using <span class="artifact-n">[anvi-import-taxonomy-for-layers](/software/anvio/help/main/programs/anvi-import-taxonomy-for-layers)</span>. 
 
-This is a tab-delimited text file that is formatted similarly to a <span class="artifact-n">[gene-taxonomy-txt](/software/anvio/help/artifacts/gene-taxonomy-txt)</span>. The first column describes the names of your layers, and the following columns each correspond to the taxonomy level described in the header. Here is an example:
+This is a tab-delimited text file that is formatted similarly to a <span class="artifact-n">[gene-taxonomy-txt](/software/anvio/help/main/artifacts/gene-taxonomy-txt)</span>. The first column describes the names of your layers, and the following columns each correspond to the taxonomy level described in the header. Here is an example:
 
     sample  t_domain    t_phylum    t_class     ...
      c1     Eukaryea    Chordata    Mammalia

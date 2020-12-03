@@ -32,11 +32,11 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
-This ddatabase contains the **predicted 3D structure data** of the sequences encoded by contigs in a <span class="artifact-n">[contigs-db](/software/anvio/help/artifacts/contigs-db)</span>. It is the result of running <span class="artifact-n">[anvi-gen-structure-database](/software/anvio/help/programs/anvi-gen-structure-database)</span> (which uses MODELLER to predict your protein strucutres initially based on alignment to sequences with known strucutres). 
+This ddatabase contains the **predicted 3D structure data** of the sequences encoded by contigs in a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>. It is the result of running <span class="artifact-n">[anvi-gen-structure-database](/software/anvio/help/main/programs/anvi-gen-structure-database)</span> (which uses MODELLER to predict your protein strucutres initially based on alignment to sequences with known strucutres). 
 
-You can use this database to generate a variability profile (with <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/programs/anvi-gen-variability-profile)</span>) and then use that data (along with this database) to visualize your 3D structures and their relation to SCVs and SAAVs with <span class="artifact-n">[anvi-3dev](/software/anvio/help/programs/anvi-3dev)</span>. 
+You can use this database to generate a variability profile (with <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/main/programs/anvi-gen-variability-profile)</span>) and then use that data (along with this database) to visualize your 3D structures and their relation to SCVs and SAAVs with <span class="artifact-n">[anvi-3dev](/software/anvio/help/main/programs/anvi-3dev)</span>. 
 
-Besides this, you can export the structure data into an external `.pdb` file (using <span class="artifact-n">[anvi-export-structures](/software/anvio/help/programs/anvi-export-structures)</span>) or generation the fixation index matrix (with <span class="artifact-n">[anvi-gen-fixation-index-matrix](/software/anvio/help/programs/anvi-gen-fixation-index-matrix)</span>). 
+Besides this, you can export the structure data into an external `.pdb` file (using <span class="artifact-n">[anvi-export-structures](/software/anvio/help/main/programs/anvi-export-structures)</span>) or generation the fixation index matrix (with <span class="artifact-n">[anvi-gen-fixation-index-matrix](/software/anvio/help/main/programs/anvi-gen-fixation-index-matrix)</span>). 
 
 For more information on the structure database, see [this blog post](http://merenlab.org/2018/09/04/getting-started-with-anvi-3dev/#the-structure-database). 
 
