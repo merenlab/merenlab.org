@@ -14,17 +14,17 @@
       "size": 1,
       "score": 1,
       "color": "#AA0000",
-      "id": "fasta",
-      "name": "fasta",
+      "id": "samples-txt",
+      "name": "samples-txt",
       "provided_by_anvio": false,
-      "type": "FASTA"
+      "type": "TXT"
     },
     {
       "size": 2,
       "score": 0.1,
       "color": "#AAAA00",
-      "id": "anvi-script-get-short-reads-matching-something",
-      "name": "anvi-script-get-short-reads-matching-something",
+      "id": "anvi-script-get-primer-matches",
+      "name": "anvi-script-get-primer-matches",
       "type": "PROGRAM"
     }
   ],

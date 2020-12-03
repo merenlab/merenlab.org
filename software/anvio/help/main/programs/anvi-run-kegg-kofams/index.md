@@ -26,20 +26,20 @@ See **[program help menu](../../../vignette#anvi-run-kegg-kofams)** or go back t
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[kegg-db](../../artifacts/kegg-db)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[kegg-data](../../artifacts/kegg-data)</span></p>
 
 ## Usage
 
 
 Essentially, this program uses the KEGG database to annotate functions and metabolic pathways in a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>. More specifically, <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/main/programs/anvi-run-kegg-kofams)</span> annotates a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> with HMM hits from KOfam, a database of KEGG Orthologs (KOs). You must set up these HMMs on your computer using <span class="artifact-n">[anvi-setup-kegg-kofams](/software/anvio/help/main/programs/anvi-setup-kegg-kofams)</span> before you can use this program.
 
-Briefly, what this program does is extract all the gene calls from the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> and checks each one for hits to the KOfam HMM profiles in your <span class="artifact-n">[kegg-db](/software/anvio/help/main/artifacts/kegg-db)</span>. This can be time-consuming given that the number of HMM profiles is quite large, even more so if the number of genes in the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> is also large. Multi-threading is a good idea if you have the computational capability to do so.
+Briefly, what this program does is extract all the gene calls from the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> and checks each one for hits to the KOfam HMM profiles in your <span class="artifact-n">[kegg-data](/software/anvio/help/main/artifacts/kegg-data)</span>. This can be time-consuming given that the number of HMM profiles is quite large, even more so if the number of genes in the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> is also large. Multi-threading is a good idea if you have the computational capability to do so.
 
 Many HMM hits will be found, most of them weak. The weak hits will by default be eliminated according to the score thresholds provided by KEGG; that is, only hits with scores above the threshold for a given KO profile will be annotated in the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>. It is perfectly normal to notice that the number of raw hits found is many, many times larger than the number of annotated KO hits in your database.
 
 In the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> functions table, annotated KO hits (<span class="artifact-n">[kegg-functions](/software/anvio/help/main/artifacts/kegg-functions)</span>) will have the source `KOfam`.
 
-Running this program is a pre-requisite for metabolism estimation with <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span>. Note that if you are planning to run metabolism estimation, it must be run with the same <span class="artifact-n">[kegg-db](/software/anvio/help/main/artifacts/kegg-db)</span> that is used in this program to annotate KOfam hits.
+Running this program is a pre-requisite for metabolism estimation with <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span>. Note that if you are planning to run metabolism estimation, it must be run with the same <span class="artifact-n">[kegg-data](/software/anvio/help/main/artifacts/kegg-data)</span> that is used in this program to annotate KOfam hits.
 
 ### Standard usage
 
