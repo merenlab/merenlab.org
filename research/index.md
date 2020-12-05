@@ -27,8 +27,10 @@ The vast majority of life on our planet is *microbial*. An astonishing number of
 
 Through their inconceivable diversity that allow them to synthesize or break down a wide array of chemical substrates, **microbes govern biogeochemical cycles that make Earth a habitable planet for much less talented organisms** (such as ourselves). Our own body is also home to a diverse assemblage of microbial cells: bacteria that colonize our gastrointestinal tract help us maintain our health by extracting energy from undigested carbohydrates, synthesizing vitamins, and metabolizing xenobiotics.
 
+**Microbes are essential to Earth’s functioning at every scale**. From comprehensive insights into ecosystem functioning to implementing effective bioremediation strategies or developing accurate models of environmental change and its long-term impacts, **a detailed understanding of microbial life is one of the most critical requirements of environmental science and medical microbiology**.
 
-**Microbes are essential to Earth’s functioning at every scale**. From comprehensive insights into ecosystem functioning to implementing effective bioremediation strategies or developing accurate models of environmental change and its long-term impacts, **a detailed understanding of microbial life is one of the most critical requirements of environmental science and medical microbiology**. If you would like to learn more about the basics of microbial life, you can watch [this video](https://www.youtube.com/watch?v=R9KLkCZ95cU) from our group.
+{:.notice}
+If you would like to learn more about the **basic principles of microbial life**, you should watch [the first episode](https://www.youtube.com/watch?v=R9KLkCZ95cU) of the [Microbial 'Omics Seminar Series](https://merenlab.org/momics-2020), a collaborative outreach effort our group organized in 2020 (and [here is a bit of coverage of the event](/files/momics-2020-elise-wachspress.pdf) by [Elise Wachspress](https://www.linkedin.com/in/elise-wachspress-7aa0569/)).
 
 **Our research program focuses on understanding the ecology and evolution of naturally occurring microbial life using integrated 'omics strategies and laboratory experiments**: we develop new computational approaches and create advanced software platforms that intend to generate hypotheses from complex environmental data to bring us closer to explain mechanisms by which microbes interact with their surroundings, evolve, disperse, and initiate or adapt to environmental change.
 
@@ -95,7 +97,6 @@ A plethora of signal regarding how living cells respond to rapid changes in the 
 </div>
 
 Our [proof-of-concept study](https://www.nature.com/articles/s41467-018-07675-z) showed that chemical modifications in tRNA transcripts were associated with protein translation dynamics linked to codon signatures that occurred more frequently in differentially expressed proteins in different environmental conditions. This unexpected discovery led to an award from the Keck Foundation award propelled us to further investigate translational dynamics in natural environments to accurately monitor subtle microbial responses at timescales and resolutions that reflect the speed of change in our oceans and terrestrial habitats. Our current goal to create a framework that gives access to tRNA sequencing in conjunction with other 'omics strategies as we believe metaepitranscriptomics will likely influence our understanding of microbial ecology and evolution in fundamental ways, and help us to accurately model the interconnection between rapidly changing habitats and their inhabitants.
-
 
 
 ## Advanced open-source software for high-resolution microbial 'omics
