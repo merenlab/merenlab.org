@@ -8,6 +8,7 @@ categories: [anvio]
 comments: true
 redirect_from:
   - /2015/10/14/anvio-discussion-group/
+  - /software/anvio/getting-help
 ---
 
 {% include _toc.html %}
