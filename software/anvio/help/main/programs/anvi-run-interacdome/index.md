@@ -35,7 +35,7 @@ This program runs [InteracDome](https://interacdome.princeton.edu/) on your <spa
 
 The full process that this program goes through is detailed in [this blog post by Evan Kiefl](https://merenlab.org/2020/07/22/interacdome/). In summary, this program runs the HMM search against all of the genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>, parses and filters the results, and then stores the per-residue binding frequencies for each gene into the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>.  
 
-Before running this program, you'll have to have run <span class="artifact-n">[anvi-setup-interacdome](/software/anvio/help/main/programs/anvi-setup-interacdome)</span> to set up a local copy of [InteracDome's tab-separated files](https://interacdome.princeton.edu/#tab-6136-4), as well as <span class="artifact-n">[anvi-setup-pfams](/software/anvio/help/main/programs/anvi-setup-pfams)</span>. 
+Before running this program, you'll have to have run <span class="artifact-n">[anvi-setup-interacdome](/software/anvio/help/main/programs/anvi-setup-interacdome)</span> to set up a local copy of [InteracDome's tab-separated files](https://interacdome.princeton.edu/#tab-6136-4).
 
 ### Parameters
 
@@ -44,12 +44,6 @@ A basic run of this program looks like this:
 <div class="codeblock" markdown="1">
 anvi&#45;run&#45;interacdome &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
 </div>
-
-{:.notice}
-If you get an error that looks something like this:  "File/Path Error: No such file: 'PathToAnvio/anvio/data/misc/Interacdome/representable_interactions.txt' :/" It's because you forgot to run <span class="artifact-n">[anvi-setup-interacdome](/software/anvio/help/main/programs/anvi-setup-interacdome)</span> or you forgot to link to the <span class="artifact-n">[interacdome-data](/software/anvio/help/main/artifacts/interacdome-data)</span> with the `--interacdome-data-dir` parameter. 
-
-{:.notice}
-If instead you get an error that looks something like this: "FileNotFoundError: [Errno 2] No such file or directory: 'PathToAnvio/anvio/data/misc/Interacdome/Pfam.version'" after a warning that Anvi'o will try to unpack your Pfam database, that means you forgot to run <span class="artifact-n">[anvi-setup-pfams](/software/anvio/help/main/programs/anvi-setup-pfams)</span>
 
 If you want to annotate potential ligand-binding positions in your sequences instead of domain-binding properties, you can choose to only use Pfams that correspond to domain-ligand interactions that had nonredundant instances across three or more distinct PDB entries and achieved a cross-validated precision of at least 0.5. 
 

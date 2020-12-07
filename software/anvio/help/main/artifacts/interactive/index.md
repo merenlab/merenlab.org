@@ -32,13 +32,32 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-This page describes the many interactive interfaces that are utilized in Anvi'o. The most well-known and sophisticated of these are the beautiful concentric circles (though they can also be displayed in other shapes) given by <span class="artifact-n">[anvi-interactive](/software/anvio/help/main/programs/anvi-interactive)</span> and <span class="artifact-n">[anvi-display-pan](/software/anvio/help/main/programs/anvi-display-pan)</span>. 
+This page describes general properties of anvi'o interactive displays and programs that offer anvi'o interactive artifacts.
+
+## Terminology
+
+Anvi'o uses a simple terminology to address various aspects of interactive displays it produces, such as items, layers, views, orders, and so on. The purpose of this section is to provide some insights into these terminology using the figure below:
+
+![an anvi'o display](../../images/anvio_display_template.png){:.center-img}
+
+Even though the figure is a product of <span class="artifact-n">[anvi-display-pan](/software/anvio/help/main/programs/anvi-display-pan)</span>, the general terminology does not change across different interfaces, including the default visualizations of <span class="artifact-n">[anvi-interactive](/software/anvio/help/main/programs/anvi-interactive)</span>. Here are the descriptions of numbered areas in the figure:
+
+* The tree denoted by **(1)** shows the organization of each `item`. Items could be contigs, gene clusters, bins, genes, or anything else depending on which mode the anvi'o interactive interface was initiated. The structure that orders items and denoted by **(1)** in the figure can be a phylogenetic or phylogenomic tree, or a dendrogram produced by a hierarchical clustering algorithm. In addition, there may be nothing there, if the user has requested or set a linear items order through <span class="artifact-n">[misc-data-items-order](/software/anvio/help/main/artifacts/misc-data-items-order)</span>.
+* Each concentric circle underneath the number **(2)** is called a `layer` and the data shown for items and layers as a whole is called a `view`. A **layer** can be a genome, a metagenome, or anything else depending on which mode the anvi'o interactive was initiated. The **view** is like a data table where a datum is set for each **item** in each **layer**. The view data is typically computed by anvi’o and stored in pan databases by <span class="artifact-n">[anvi-pan-genome](/software/anvio/help/main/programs/anvi-pan-genome)</span> or profile databases by <span class="artifact-n">[anvi-profile](/software/anvio/help/main/programs/anvi-profile)</span>. The user add another view to the relevant combo box in the interface by providing a TAB-delimited file to <span class="artifact-n">[anvi-interactive](/software/anvio/help/main/programs/anvi-interactive)</span> through the command line argument `--additional-view`, or add new layers to extend these vies with additional data through <span class="artifact-n">[misc-data-items](/software/anvio/help/main/artifacts/misc-data-items)</span>.
+* The tree denoted by **(3)** shows a specific ordering of layers. Anvi'o will compute various layer orders automatically based on available **view** depending on the analysis or visualization mode, and users can extend available **layer orders** through <span class="artifact-n">[misc-data-layer-orders](/software/anvio/help/main/artifacts/misc-data-layer-orders)</span>.
+* What is shown by **(4)** is the additional data for layers. the user can extend this section with additional information on layers using the <span class="artifact-n">[misc-data-layers](/software/anvio/help/main/artifacts/misc-data-layers)</span>.
+
+The orchestrated use of <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/main/programs/anvi-import-misc-data)</span>, <span class="artifact-n">[anvi-export-misc-data](/software/anvio/help/main/programs/anvi-export-misc-data)</span>, and <span class="artifact-n">[anvi-delete-misc-data](/software/anvio/help/main/programs/anvi-delete-misc-data)</span> provides a powerful framework to decorate items or layers in a display and enhance visualization of complex data. Please take a look at the following article on how to extend anvi'o displays:
+
+* [https://merenlab.org/2017/12/11/additional-data-tables/](https://merenlab.org/2017/12/11/additional-data-tables/)
+
+## Programs that give interactive access
 
 If you're new to the anvi'o interactive interface, you'll probably want to check out [this tutorial for beginners](http://merenlab.org/tutorials/interactive-interface/) or the other resources on the  <span class="artifact-n">[anvi-interactive](/software/anvio/help/main/programs/anvi-interactive)</span> page. 
 
-However, there are more interfaces availible in anvi'o than just that one, so let's list them out: 
+However, there are more interfaces available in anvi'o than just that one, so let's list them out: 
 
-- <span class="artifact-n">[anvi-3dev](/software/anvio/help/main/programs/anvi-3dev)</span> lets you examine specific protein strcutures, along with SCV and SAAVs within it. (It even has [its own software page.](http://merenlab.org/software/anvi-3dev/). It's kind of a big deal.)
+- <span class="artifact-n">[anvi-3dev](/software/anvio/help/main/programs/anvi-3dev)</span> lets you examine specific protein structures, along with SCV and SAAVs within it. (It even has [its own software page.](http://merenlab.org/software/anvi-3dev/). It's kind of a big deal.)
 
 - <span class="artifact-n">[anvi-display-contigs-stats](/software/anvio/help/main/programs/anvi-display-contigs-stats)</span> shows you various stats about the contigs within a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>, such as their hmm-hits, lengths, N and L statistics, and so on.
 

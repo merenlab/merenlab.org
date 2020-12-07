@@ -33,6 +33,8 @@ See **[program help menu](../../../vignette#anvi-gen-variability-profile)** or g
 
 This program takes the variability data stored within a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> and compiles it from across samples into a single matrix that comprehensively describes your SNVs, SCVs or SAAVs (a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span>).
 
+By default, this program will just put the variability data into your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>. If you would like a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span> file, just provide the `-o` parameter with a filename. 
+
 This program is described on [this blog post](http://merenlab.org/2015/07/20/analyzing-variability/#the-anvio-way), so take a look at that for more details. 
 
 ## Let's talk parameters 
