@@ -92,13 +92,16 @@ So this is the general introduction to the config file. In the next chapter you 
 
 ## samples.txt
 
-`samples.txt` is the file that groups samples (if necessary), and links sample names to raw sequencing reads. There are supposed to be three or four columns (with the optional `groups` column) in a given `samples.txt` file where each column is separated from each other with a TAB character. The header should contain the following column names:
+This is a file to associate sample names to raw sequencing reads by grouping them if necessary. In a given `samples.txt`, there are supposed to be three or four columns (with the optional `groups` column), where each column is separated from each other with a TAB character. The header should contain the following column names:
 
 * **sample**: A name that you chose to give to each one of your metagenomic samples.
 
+* **r1**, and **r2**: These two columns hold the path (could be either a relative or an absolute path; it is always better to have absolute paths) to the FASTQ files that correspond to the sample. 
+
+Optionally, it can also contain this column:
+
 * **group**: Often, when we want to bin genomes from metagenomic assemblies we wish to do so by co-assembling multiple samples (see for example [Albertsen et al. 2012](https://www.nature.com/articles/nbt.2579) or [this blog post that explains how we binned the TARA Oceans metagenomes](http://merenlab.org/data/2017_Delmont_et_al_HBDs/)). The purpose of this column is to define which samples are going to be co-assembled together. This is an optional column, if this column is not included in the `samples_txt` file, then each sample will be assembled separately. By default, only the samples that were used for the co-assembly would then be mapped to the resulting assembly. If you want, you can co-assemble groups of samples, but then map **all** samples to each assembly (see the [all_against_all](#all-against-all-mode) option for the config file).
 
-* **r1**, and **r2**: These two columns hold the path (could be either a relative or an absolute path; it is always better to have absolute paths) to the FASTQ files that correspond to the sample. 
 
 <div class="extra-info" markdown="1">
 
@@ -106,12 +109,12 @@ So this is the general introduction to the config file. In the next chapter you 
 
 If multiple paired-end reads FASTQ files correspond to the same sample, they can be listed separated by a comma (with no space). This could be relevant, for example, if one sample was sequenced in multiple runs. Let's take a `samples_txt` with three samples, but assume that `sample_01` was sequenced twice. The `samples_txt` file would then look like this (notice the second line of the file):
 
-```
-sample     group  r1                                             r2
-sample_01  G01    sample-01-R1a.fastq.gz,sample-01-R1b.fastq.gz  sample-01-R2a.fastq.gz,sample-01-R2b.fastq.gz
-sample_02  G02    sample-02-R1.fastq.gz                          sample-02-R2.fastq.gz
-sample_03  G02    sample-03-R1.fastq.gz                          sample-03-R2.fastq.gz
-```
+
+|sample|group|r1|r2|
+|:--|:--:|:--|:--|
+|sample_01|G01|sample-01-R1a.fastq.gz,sample-01-R1b.fastq.gz|sample-01-R2a.fastq.gz,sample-01-R2b.fastq.gz|
+|sample_02|G02|sample-02-R1.fastq.gz|sample-02-R2.fastq.gz|
+|sample_03|G02|sample-03-R1.fastq.gz|sample-03-R2.fastq.gz|
 
 {:.notice}
 If your FASTQ files are already quality filtered, and you didn't do it with this workflow, and you wish to skip the quality filtering step, **AND** for some reason you didn't already merge the FASTQ files that should be merged together, then you must do so manually, and then provide only one `r1` file and one `r2` file per sample. 
@@ -124,14 +127,23 @@ To see how this file is used, you can take a look at the metagenomics workflow i
 
 `fasta.txt` is a file that holds a name and a path to FASTA files that are needed as input for a workflow. You can see an example of how these are used in the [contigs workflow](#contigs-workflow), [pangenomics workflow](#pangenomics-workflow), or the [reference mode](#references-mode) of the metagenomics workflow. Here is an example file:
 
-```bash
-name	path
-A_NAME_YOU_CHOSE	/absolute/path/fasta_01.fa
-ANOTHER_NAME	relative/path/fasta_02.fa.gz
-```
+|name|path|
+|:--|:--|
+|A_NAME_YOU_CHOSE|/absolute/path/fasta_01.fa|
+|ANOTHER_NAME|relative/path/fasta_02.fa.gz|
 
 {:.notice}
 Notice that one of the files above has a `.gz` suffix. The files could either be compressed or not, and the workflow will deal with that for you, so that you could keep your FASTA files compressed and hence take less storage room on your machine.
+
+
+The `fasta.txt` file format also allows users to optionally specify [external gene calls](/software/anvio/help/main/artifacts/external-gene-calls/) as well as [external functions](/software/anvio/help/main/artifacts/functions-txt/) for each FASTA file in the `fasta.txt`. Here is an example file with these additional columns:
+
+|name|path|external_gene_calls|gene_functional_annotation|
+|:--|:--|:--|:--|
+|A_NAME_YOU_CHOSE|/absolute/path/fasta_01.fa|/path/to/external-gene-calls.txt|/path/to/functions.txt|
+|ANOTHER_NAME|relative/path/fasta_02.fa.gz|path/to/external-gene-calls.txt|path/to/functions.txt|
+ 
+                                                                                                                                         
 
 # Mock Data
 
@@ -349,7 +361,6 @@ You may notice another interesting thing, which is that the value for `--project
         "threads": 5,
         "--description": "",
         "--skip-gene-calling": "",
-        "--external-gene-calls": "",
         "--ignore-internal-stop-codons": "",
         "--skip-mindful-splitting": "",
         "--contigs-fasta": "",
