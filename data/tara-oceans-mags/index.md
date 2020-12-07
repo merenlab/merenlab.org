@@ -393,7 +393,12 @@ done
 
 ### Initial automated binning with CONCOCT
 
-Although merging anvi'o profile databases make available the differential coverage values which are essential for binning, the number of scaffolds anvi’o can simultaneously process during the merging step is limited due to the costly step of hierarchical clustering. In order to cope with the large co-assemblies generated in this study, we first used the program `anvi-cluster-with-concoct` **to organize scaffolds into a defined number of clusters** with the automatic binning algorithm CONCOCT (Alneberg et al., 2014):
+Although merging anvi'o profile databases make available the differential coverage values which are
+essential for binning, the number of scaffolds anvi’o can simultaneously process during the merging
+step is limited due to the costly step of hierarchical clustering. In order to cope with the large
+co-assemblies generated in this study, we first used the program `anvi-cluster-with-concoct` **to
+organize scaffolds into a defined number of clusters** with the automatic binning algorithm CONCOCT
+(Alneberg et al., 2014):
 
 ``` bash
 for SET in `cat sets.txt`
@@ -405,6 +410,9 @@ do
 done
 ```
 
+{:.notice}
+anvi-cluster-with-concoct has been superseded with anvi-cluster-contigs
+
 This step generates a collection of 100 clusters called `CONCOCT` in each of the anvi'o merged profile database for each metagenomic set.
 
 Two exceptions were the Southern Ocean (SOC) and Pacific Ocean southeast (PSE) metagenomic sets, for which we generated 25 and 150 CONCOCT clusters due to their differences in size from other sets. We overwrote the existing CONCOCT clusters in these profiles the following way:
@@ -413,6 +421,9 @@ Two exceptions were the Southern Ocean (SOC) and Pacific Ocean southeast (PSE) m
 anvi-cluster-with-concoct -c SOC-CONTIGS.db -p SOC-MERGED/PROFILE.db --num-clusters 25 -C CONCOCT
 anvi-cluster-with-concoct -c PSE-CONTIGS.db -p PSE-MERGED/PROFILE.db --num-clusters 150 -C CONCOCT
 ```
+
+{:.notice}
+anvi-cluster-with-concoct has been superseded with anvi-cluster-contigs
 
 <div class="extra-info" markdown="1">
 

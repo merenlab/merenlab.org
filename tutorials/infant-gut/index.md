@@ -833,6 +833,9 @@ anvi-cluster-with-concoct -p PROFILE.db \
                           -C CONCOCT_C5
 ```
 
+{:.notice}
+anvi-cluster-with-concoct has been superseded with anvi-cluster-contigs
+
 Now you can run the interface again,
 
 ``` bash
