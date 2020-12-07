@@ -28,7 +28,7 @@ Visit <a href="http://merenlab.org/software/anvio/vignette/">this page</a> to se
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **03 Dec 20 16:54:57** for anvi'o version **6.2-master (esther)**.
+The help contents were last updated on **07 Dec 20 16:07:49** for anvi'o version **6.2-master (esther)**.
 
 
 {% include _toc.html %}
