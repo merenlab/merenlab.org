@@ -34,7 +34,7 @@ We welcome you to join in our growing international community, and look forward 
 
 # Help
 
-[Click here](/software/anvio/help)!
+[Click here](/software/anvio/getting-help)!
 
 # Tutorials
 
