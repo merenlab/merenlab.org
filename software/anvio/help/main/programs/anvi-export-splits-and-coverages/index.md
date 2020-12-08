@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Export split or contig sequences and coverages across samples stored in an anvi&#x27;o profile database. This program is especially useful if you would like to &#x27;bin&#x27; your splits or contigs outside of anvi&#x27;o and import the binning results into anvi&#x27;o using `anvi-import-collection` program.
+Export split or contig sequences and coverages across samples stored in an anvi&#39;o profile database. This program is especially useful if you would like to &#39;bin&#39; your splits or contigs outside of anvi&#39;o and import the binning results into anvi&#39;o using `anvi-import-collection` program.
 
 See **[program help menu](../../../vignette#anvi-export-splits-and-coverages)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

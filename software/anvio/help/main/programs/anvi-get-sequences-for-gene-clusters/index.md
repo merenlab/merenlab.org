@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Do cool stuff with gene clusters in anvi&#x27;o pan genomes.
+Do cool stuff with gene clusters in anvi&#39;o pan genomes.
 
 See **[program help menu](../../../vignette#anvi-get-sequences-for-gene-clusters)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -125,7 +125,7 @@ Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/progra
 ## Additional Resources
 
 
-* [In action in the Anvi&#x27;o pangenomics tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/#scrutinizing-phylogenomics)
+* [In action in the Anvi&#39;o pangenomics tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/#scrutinizing-phylogenomics)
 
 
 {:.notice}

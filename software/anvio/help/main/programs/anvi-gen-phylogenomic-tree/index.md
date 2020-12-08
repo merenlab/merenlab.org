@@ -50,7 +50,7 @@ Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/progra
 ## Additional Resources
 
 
-* [View this program in action in the anvi&#x27;o phylogenetics workflow](http://merenlab.org/2017/06/07/phylogenomics/)
+* [View this program in action in the anvi&#39;o phylogenetics workflow](http://merenlab.org/2017/06/07/phylogenomics/)
 
 
 {:.notice}

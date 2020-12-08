@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-This program deals with populating tables that store HMM hits in an anvi&#x27;o contigs database.
+This program deals with populating tables that store HMM hits in an anvi&#39;o contigs database.
 
 See **[program help menu](../../../vignette#anvi-run-hmms)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Export functions of genes from an anvi&#x27;o contigs database for a given annotation source.
+Export functions of genes from an anvi&#39;o contigs database for a given annotation source.
 
 See **[program help menu](../../../vignette#anvi-export-functions)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

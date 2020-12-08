@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-An anvi&#x27;o program to compute a pangenome from an anvi&#x27;o genome storage.
+An anvi&#39;o program to compute a pangenome from an anvi&#39;o genome storage.
 
 See **[program help menu](../../../vignette#anvi-pan-genome)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

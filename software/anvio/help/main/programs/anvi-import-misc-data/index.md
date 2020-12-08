@@ -104,7 +104,7 @@ Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/progra
 ## Additional Resources
 
 
-* [A primer on anvi&#x27;o misc data tables](http://merenlab.org/2017/12/11/additional-data-tables/)
+* [A primer on anvi&#39;o misc data tables](http://merenlab.org/2017/12/11/additional-data-tables/)
 
 
 {:.notice}

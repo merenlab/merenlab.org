@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Migrate an anvi&#x27;o database or config file to a newer version.
+Migrate an anvi&#39;o database or config file to a newer version.
 
 See **[program help menu](../../../vignette#anvi-migrate)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

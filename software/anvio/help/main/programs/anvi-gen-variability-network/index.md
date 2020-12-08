@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-A program to generate a network description from an anvi&#x27;o variability profile (potentially outdated program).
+A program to generate a network description from an anvi&#39;o variability profile (potentially outdated program).
 
 See **[program help menu](../../../vignette#anvi-gen-variability-network)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
