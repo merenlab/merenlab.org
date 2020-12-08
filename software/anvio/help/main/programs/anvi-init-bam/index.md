@@ -10,7 +10,7 @@ image:
 
 Sort/Index BAM files.
 
-See **[program help menu](../../../vignette#anvi-init-bam)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+See **[program help menu](../../../../vignette#anvi-init-bam)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -20,13 +20,13 @@ See **[program help menu](../../../vignette#anvi-init-bam)** or go back to the *
 {% include _project-anvio-graph.html %}
 
 
-## Provides
+## Can provide
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[bam-file](../../artifacts/bam-file)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[bam-file](../../artifacts/bam-file) <img src="../../images/icons/BAM.png" class="artifact-icon-mini" /></span></p>
 
-## Requires or uses
+## Can consume
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[raw-bam-file](../../artifacts/raw-bam-file)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[raw-bam-file](../../artifacts/raw-bam-file) <img src="../../images/icons/BAM.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 

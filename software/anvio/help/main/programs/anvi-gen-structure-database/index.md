@@ -10,7 +10,7 @@ image:
 
 Identifies genes in your contigs database that encode proteins that are homologous to proteins with solved structures. If sufficiently similar homologs are identified, they are used as structural templates to predict the 3D structure of proteins in your contigs database.
 
-See **[program help menu](../../../vignette#anvi-gen-structure-database)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+See **[program help menu](../../../../vignette#anvi-gen-structure-database)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -20,22 +20,22 @@ See **[program help menu](../../../vignette#anvi-gen-structure-database)** or go
 {% include _project-anvio-graph.html %}
 
 
-## Provides
+## Can provide
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[structure-db](../../artifacts/structure-db)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[structure-db](../../artifacts/structure-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
 
-## Requires or uses
+## Can consume
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[pdb-db](../../artifacts/pdb-db)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[pdb-db](../../artifacts/pdb-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 
 
 This program attempts to solve for the 3D strucutres of proteins encoded by genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> using DIAMOND and MODELLER. 
 
-MODELLER first searches your sequence(s) against a database of proteins with a known structure (in Anvi'o, this is either your <span class="artifact-n">[pdb-db](/software/anvio/help/main/artifacts/pdb-db)</span> or the online copy of [the RCSB database](https://www.rcsb.org/) using [DIAMOND](http://www.diamondsearch.org/index.php). After sequence alignments, the program will select a base template based on the best hits. Then, the program creates a 3D alignment for your sequence and makes final adjustments to it based off of intermolecular interactions. For more information, see [here](http://merenlab.org/2018/09/04/getting-started-with-anvi-3dev/#how-modeller-works). 
+MODELLER first searches your sequence(s) against a database of proteins with a known structure (in Anvi'o, this is either your <span class="artifact-n">[pdb-db](/software/anvio/help/main/artifacts/pdb-db)</span> or the online copy of [the RCSB database](https://www.rcsb.org/) using [DIAMOND](http://www.diamondsearch.org/index.php). After sequence alignments, the program will select a base template based on the best hits. Then, the program creates a 3D alignment for your sequence and makes final adjustments to it based off of intermolecular interactions. For more information, see [here](http://merenlab.org/2018/09/04/getting-started-with-anvio-structure/#how-modeller-works). 
 
-The output of this is a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span>, which can be used to run <span class="artifact-n">[anvi-3dev](/software/anvio/help/main/programs/anvi-3dev)</span> to visualize all of this information. You can also export your strucutres into external .pdb files (<span class="artifact-n">[anvi-export-structures](/software/anvio/help/main/programs/anvi-export-structures)</span>), generate the fixation index matrix (<span class="artifact-n">[anvi-gen-fixation-index-matrix](/software/anvio/help/main/programs/anvi-gen-fixation-index-matrix)</span>), or the variability profile (<span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/main/programs/anvi-gen-variability-profile)</span>). 
+The output of this is a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span>, which can be used to run <span class="artifact-n">[anvi-display-structure](/software/anvio/help/main/programs/anvi-display-structure)</span> to visualize all of this information. You can also export your strucutres into external .pdb files (<span class="artifact-n">[anvi-export-structures](/software/anvio/help/main/programs/anvi-export-structures)</span>), generate the fixation index matrix (<span class="artifact-n">[anvi-gen-fixation-index-matrix](/software/anvio/help/main/programs/anvi-gen-fixation-index-matrix)</span>), or the variability profile (<span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/main/programs/anvi-gen-variability-profile)</span>). 
 
 ### Basic run 
 
@@ -62,7 +62,7 @@ To quickly get a very rough estimate for your structures, you can run with the f
 
 ### Advanced Parameters
 
-Here, we will go through a brief overview of the MODELLER parameters that you are able to change. See [this page](http://merenlab.org/2018/09/04/getting-started-with-anvi-3dev/#description-of-all-modeller-parameters) for more information. 
+Here, we will go through a brief overview of the MODELLER parameters that you are able to change. See [this page](http://merenlab.org/2018/09/04/getting-started-with-anvio-structure/#description-of-all-modeller-parameters) for more information. 
 
 - The number of models to be simultated. The default is 1. 
 - The standard deviation of atomic perturbation of the initial strucutre (i.e. how much you change the position of the atoms before fine tuning with other analysis). The default is 4.
@@ -72,7 +72,7 @@ Here, we will go through a brief overview of the MODELLER parameters that you ar
 - The maximum number of templates that the program will consider. The default is 5. 
 - The MODELLER program to use. The default is `mod9.19`. 
 
-For a case study on how some of these parameters matter, see [here](http://merenlab.org/2018/09/04/getting-started-with-anvi-3dev/#a-quick-case-study-on-the-importance-of-key-parameters). 
+For a case study on how some of these parameters matter, see [here](http://merenlab.org/2018/09/04/getting-started-with-anvio-structure/#a-quick-case-study-on-the-importance-of-key-parameters). 
 
 You also have the option to 
 

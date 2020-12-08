@@ -10,7 +10,7 @@ image:
 
 Take a FASTQ file and convert it into 2 FASTQ files. Each read from the original FASTQ file halved, where one half is put in the R1 FASTQ and the other half is reverse complemented and put in the R2 FASTQ. If you&#39;ve ended up here, things have clearly not gone very well for you, and as I write this sentence, I wholeheartedly sympathize.
 
-See **[program help menu](../../../vignette#anvi-script-gen-pseudo-paired-reads-from-fastq)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+See **[program help menu](../../../../vignette#anvi-script-gen-pseudo-paired-reads-from-fastq)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -20,13 +20,13 @@ See **[program help menu](../../../vignette#anvi-script-gen-pseudo-paired-reads-
 {% include _project-anvio-graph.html %}
 
 
-## Provides
+## Can provide
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[short-reads-fasta](../../artifacts/short-reads-fasta)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[short-reads-fasta](../../artifacts/short-reads-fasta) <img src="../../images/icons/FASTA.png" class="artifact-icon-mini" /></span></p>
 
-## Requires or uses
+## Can consume
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[short-reads-fasta](../../artifacts/short-reads-fasta)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[short-reads-fasta](../../artifacts/short-reads-fasta) <img src="../../images/icons/FASTA.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 

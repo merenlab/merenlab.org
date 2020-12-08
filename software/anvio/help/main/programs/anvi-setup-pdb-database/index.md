@@ -10,7 +10,7 @@ image:
 
 Setup or update an offline database of representative PDB structures clustered at 95%.
 
-See **[program help menu](../../../vignette#anvi-setup-pdb-database)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+See **[program help menu](../../../../vignette#anvi-setup-pdb-database)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -20,18 +20,18 @@ See **[program help menu](../../../vignette#anvi-setup-pdb-database)** or go bac
 {% include _project-anvio-graph.html %}
 
 
-## Provides
+## Can provide
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[pdb-db](../../artifacts/pdb-db)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[pdb-db](../../artifacts/pdb-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
 
-## Requires or uses
+## Can consume
 
 <p style="text-align: left" markdown="1"></p>
 
 ## Usage
 
 
-This program downloads a section of the [Protein Data Bank](https://www.rcsb.org/) which is required for strucutral analyses in anvi'o, such as running <span class="artifact-n">[anvi-gen-structure-database](/software/anvio/help/main/programs/anvi-gen-structure-database)</span> or <span class="artifact-n">[anvi-3dev](/software/anvio/help/main/programs/anvi-3dev)</span>. 
+This program downloads a section of the [Protein Data Bank](https://www.rcsb.org/) which is required for strucutral analyses in anvi'o, such as running <span class="artifact-n">[anvi-gen-structure-database](/software/anvio/help/main/programs/anvi-gen-structure-database)</span> or <span class="artifact-n">[anvi-display-structure](/software/anvio/help/main/programs/anvi-display-structure)</span>. 
 
 <div class="codeblock" markdown="1">
 anvi&#45;setup&#45;pdb&#45;database &#45;&#45;just&#45;do&#45;it

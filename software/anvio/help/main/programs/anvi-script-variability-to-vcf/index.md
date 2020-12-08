@@ -10,7 +10,7 @@ image:
 
 A script to convert SNV output obtained from anvi-gen-variability-profile to the standard VCF format.
 
-See **[program help menu](../../../vignette#anvi-script-variability-to-vcf)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+See **[program help menu](../../../../vignette#anvi-script-variability-to-vcf)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -20,13 +20,13 @@ See **[program help menu](../../../vignette#anvi-script-variability-to-vcf)** or
 {% include _project-anvio-graph.html %}
 
 
-## Provides
+## Can provide
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[vcf](../../artifacts/vcf)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[vcf](../../artifacts/vcf) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
-## Requires or uses
+## Can consume
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[variability-profile-txt](../../artifacts/variability-profile-txt)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[variability-profile-txt](../../artifacts/variability-profile-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 
