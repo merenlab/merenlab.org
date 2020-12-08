@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Export an anvi&#39;o state into a profile database.
+Export an anvi&#x27;o state into a profile database.
 
 See **[program help menu](../../../vignette#anvi-export-state)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

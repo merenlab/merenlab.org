@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Import layers-level taxonomy into an anvi&#39;o additional layer data table in an anvi&#39;o single-profile database.
+Import layers-level taxonomy into an anvi&#x27;o additional layer data table in an anvi&#x27;o single-profile database.
 
 See **[program help menu](../../../vignette#anvi-import-taxonomy-for-layers)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

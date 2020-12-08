@@ -65,7 +65,16 @@
       "type": "DB"
     },
     {
-      "size": 14,
+      "size": 2,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "workflow-config",
+      "name": "workflow-config",
+      "provided_by_anvio": false,
+      "type": "JSON"
+    },
+    {
+      "size": 16,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-migrate",
@@ -75,60 +84,68 @@
   ],
   "links": [
     {
-      "source": 7,
+      "source": 8,
       "target": 0
     },
     {
-      "target": 7,
+      "target": 8,
       "source": 0
     },
     {
-      "source": 7,
+      "source": 8,
       "target": 1
     },
     {
-      "target": 7,
+      "target": 8,
       "source": 1
     },
     {
-      "source": 7,
+      "source": 8,
       "target": 2
     },
     {
-      "target": 7,
+      "target": 8,
       "source": 2
     },
     {
-      "source": 7,
+      "source": 8,
       "target": 3
     },
     {
-      "target": 7,
+      "target": 8,
       "source": 3
     },
     {
-      "source": 7,
+      "source": 8,
       "target": 4
     },
     {
-      "target": 7,
+      "target": 8,
       "source": 4
     },
     {
-      "source": 7,
+      "source": 8,
       "target": 5
     },
     {
-      "target": 7,
+      "target": 8,
       "source": 5
     },
     {
-      "source": 7,
+      "source": 8,
       "target": 6
     },
     {
-      "target": 7,
+      "target": 8,
       "source": 6
+    },
+    {
+      "source": 8,
+      "target": 7
+    },
+    {
+      "target": 8,
+      "source": 7
     }
   ],
   "directed": false,

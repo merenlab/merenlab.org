@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-A script to add a &#39;DEFAULT&#39; collection in an anvi&#39;o pan or profile database with a bin named &#39;EVERYTHING&#39; that describes all items available in the profile database.
+A script to add a &#x27;DEFAULT&#x27; collection in an anvi&#x27;o pan or profile database with a bin named &#x27;EVERYTHING&#x27; that describes all items available in the profile database.
 
 See **[program help menu](../../../vignette#anvi-script-add-default-collection)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

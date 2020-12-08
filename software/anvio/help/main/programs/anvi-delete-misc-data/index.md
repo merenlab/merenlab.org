@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Remove stuff from &#39;additional data&#39; or &#39;order&#39; tables for either items or layers in either pan or profile databases. OR, remove stuff from the &#39;additional data&#39; tables for nucleotides or amino acids in contigs databases.
+Remove stuff from &#x27;additional data&#x27; or &#x27;order&#x27; tables for either items or layers in either pan or profile databases. OR, remove stuff from the &#x27;additional data&#x27; tables for nucleotides or amino acids in contigs databases.
 
 See **[program help menu](../../../vignette#anvi-delete-misc-data)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -113,7 +113,7 @@ Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/progra
 ## Additional Resources
 
 
-* [Working with anvi&#39;o additional data tables](http://merenlab.org/2017/12/11/additional-data-tables/#views-items-layers-orders-some-anvio-terminology)
+* [Working with anvi&#x27;o additional data tables](http://merenlab.org/2017/12/11/additional-data-tables/#views-items-layers-orders-some-anvio-terminology)
 
 
 {:.notice}

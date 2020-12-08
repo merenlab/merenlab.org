@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Export contigs (or splits) from an anvi&#39;o contigs database.
+Export contigs (or splits) from an anvi&#x27;o contigs database.
 
 See **[program help menu](../../../vignette#anvi-export-contigs)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

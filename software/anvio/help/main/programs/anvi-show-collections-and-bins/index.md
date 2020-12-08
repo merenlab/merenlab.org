@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-A script to display collections stored in an anvi&#39;o profile or pan database.
+A script to display collections stored in an anvi&#x27;o profile or pan database.
 
 See **[program help menu](../../../vignette#anvi-show-collections-and-bins)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

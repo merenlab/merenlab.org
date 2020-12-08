@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Download and setup NCBI&#39;s Clusters of Orthologous Groups database.
+Download and setup NCBI&#x27;s Clusters of Orthologous Groups database.
 
 See **[program help menu](../../../vignette#anvi-setup-ncbi-cogs)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
