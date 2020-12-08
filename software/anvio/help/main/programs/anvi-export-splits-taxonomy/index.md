@@ -22,11 +22,11 @@ See **[program help menu](../../../vignette#anvi-export-splits-taxonomy)** or go
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[splits-taxonomy-txt](../../artifacts/splits-taxonomy-txt)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[splits-taxonomy-txt](../../artifacts/splits-taxonomy-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 

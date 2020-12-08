@@ -22,7 +22,7 @@ See **[program help menu](../../../vignette#anvi-setup-trna-taxonomy)** or go ba
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[trna-taxonomy-db](../../artifacts/trna-taxonomy-db)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[trna-taxonomy-db](../../artifacts/trna-taxonomy-db) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 

@@ -26,7 +26,7 @@ See **[program help menu](../../../vignette#anvi-gen-variability-network)** or g
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[variability-profile](../../artifacts/variability-profile)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[variability-profile](../../artifacts/variability-profile) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 

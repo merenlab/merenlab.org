@@ -22,11 +22,11 @@ See **[program help menu](../../../vignette#anvi-gen-phylogenomic-tree)** or go 
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[phylogeny](../../artifacts/phylogeny)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[phylogeny](../../artifacts/phylogeny) <img src="../../images/icons/NEWICK.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[concatenated-gene-alignment-fasta](../../artifacts/concatenated-gene-alignment-fasta)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[concatenated-gene-alignment-fasta](../../artifacts/concatenated-gene-alignment-fasta) <img src="../../images/icons/FASTA.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 

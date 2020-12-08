@@ -22,11 +22,11 @@ See **[program help menu](../../../vignette#anvi-gen-genomes-storage)** or go ba
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[genomes-storage-db](../../artifacts/genomes-storage-db)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[genomes-storage-db](../../artifacts/genomes-storage-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[external-genomes](../../artifacts/external-genomes)</span> <span class="artifact-r">[internal-genomes](../../artifacts/internal-genomes)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[external-genomes](../../artifacts/external-genomes) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[internal-genomes](../../artifacts/internal-genomes) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 

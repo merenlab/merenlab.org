@@ -22,7 +22,7 @@ See **[program help menu](../../../vignette#anvi-setup-kegg-kofams)** or go back
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[kegg-data](../../artifacts/kegg-data)</span> <span class="artifact-p">[modules-db](../../artifacts/modules-db)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[kegg-data](../../artifacts/kegg-data) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[modules-db](../../artifacts/modules-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 

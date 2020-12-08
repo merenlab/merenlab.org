@@ -21,7 +21,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-migrate](../../programs/anvi-migrate)</span> <span class="artifact-p">[anvi-pan-genome](../../programs/anvi-pan-genome)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-pan-genome](../../programs/anvi-pan-genome)</span></p>
 
 
 ## Required or used by

@@ -22,7 +22,7 @@ See **[program help menu](../../../vignette#anvi-setup-scg-taxonomy)** or go bac
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[scgs-taxonomy-db](../../artifacts/scgs-taxonomy-db)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[scgs-taxonomy-db](../../artifacts/scgs-taxonomy-db) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 

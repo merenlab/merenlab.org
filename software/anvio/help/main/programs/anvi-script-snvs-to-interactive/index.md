@@ -22,11 +22,11 @@ See **[program help menu](../../../vignette#anvi-script-snvs-to-interactive)** o
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[interactive](../../artifacts/interactive)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[interactive](../../artifacts/interactive) <img src="../../images/icons/DISPLAY.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[variability-profile-txt](../../artifacts/variability-profile-txt)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[variability-profile-txt](../../artifacts/variability-profile-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 

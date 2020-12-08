@@ -22,11 +22,11 @@ See **[program help menu](../../../vignette#anvi-run-workflow)** or go back to t
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[contigs-workflow](../../artifacts/contigs-workflow)</span> <span class="artifact-p">[metagenomics-workflow](../../artifacts/metagenomics-workflow)</span> <span class="artifact-p">[pangenomics-workflow](../../artifacts/pangenomics-workflow)</span> <span class="artifact-p">[phylogenomics-workflow](../../artifacts/phylogenomics-workflow)</span> <span class="artifact-p">[trnaseq-workflow](../../artifacts/trnaseq-workflow)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[contigs-workflow](../../artifacts/contigs-workflow) <img src="../../images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[metagenomics-workflow](../../artifacts/metagenomics-workflow) <img src="../../images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[pangenomics-workflow](../../artifacts/pangenomics-workflow) <img src="../../images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[phylogenomics-workflow](../../artifacts/phylogenomics-workflow) <img src="../../images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[trnaseq-workflow](../../artifacts/trnaseq-workflow) <img src="../../images/icons/WORKFLOW.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[samples-txt](../../artifacts/samples-txt)</span> <span class="artifact-r">[fasta-txt](../../artifacts/fasta-txt)</span> <span class="artifact-r">[workflow-config](../../artifacts/workflow-config)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[samples-txt](../../artifacts/samples-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[fasta-txt](../../artifacts/fasta-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[workflow-config](../../artifacts/workflow-config) <img src="../../images/icons/JSON.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 

@@ -112,11 +112,15 @@ p {
 .artifact-icon {
     border: none !important;
     border-radius: 0px !important;
-
-    /*Scale down will take the necessary specified space that is 400px x 200px without stretching the image*/
     object-fit:scale-down;
 }
 
+.artifact-icon-mini {
+    height: 13px;
+    border: none !important;
+    border-radius: 0px !important;
+    object-fit:scale-down;
+}
 .artifacts-table {
     font-family: unset;
 }
@@ -128,12 +132,18 @@ p {
     border-radius: 8px;
 }
 
+.artifact-list-td {
+    line-height: 20px;
+}
+
 .artifact-p-td {
     background: #eefff5;
+    line-height: 20px;
 }
 
 .artifact-r-td {
     background: #f9f5fb;
+    line-height: 20px;
 }
 
 .program-td {

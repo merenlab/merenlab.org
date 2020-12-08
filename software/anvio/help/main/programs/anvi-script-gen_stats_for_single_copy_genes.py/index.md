@@ -22,7 +22,7 @@ See **[program help menu](../../../vignette#anvi-script-gen_stats_for_single_cop
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[genes-stats](../../artifacts/genes-stats)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[genes-stats](../../artifacts/genes-stats) <img src="../../images/icons/STATS.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 

@@ -22,11 +22,11 @@ See **[program help menu](../../../vignette#anvi-report-linkmers)** or go back t
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[linkmers-txt](../../artifacts/linkmers-txt)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[linkmers-txt](../../artifacts/linkmers-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[bam-file](../../artifacts/bam-file)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[bam-file](../../artifacts/bam-file) <img src="../../images/icons/BAM.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 

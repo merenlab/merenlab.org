@@ -22,7 +22,7 @@ See **[program help menu](../../../vignette#anvi-trnaseq)** or go back to the **
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[trnaseq-db](../../artifacts/trnaseq-db)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[trnaseq-db](../../artifacts/trnaseq-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 

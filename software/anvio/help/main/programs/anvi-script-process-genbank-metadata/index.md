@@ -22,7 +22,7 @@ See **[program help menu](../../../vignette#anvi-script-process-genbank-metadata
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[contigs-fasta](../../artifacts/contigs-fasta)</span> <span class="artifact-p">[functions-txt](../../artifacts/functions-txt)</span> <span class="artifact-p">[external-gene-calls](../../artifacts/external-gene-calls)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[contigs-fasta](../../artifacts/contigs-fasta) <img src="../../images/icons/FASTA.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[functions-txt](../../artifacts/functions-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[external-gene-calls](../../artifacts/external-gene-calls) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 

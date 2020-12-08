@@ -22,11 +22,11 @@ See **[program help menu](../../../vignette#anvi-migrate)** or go back to the **
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-p">[profile-db](../../artifacts/profile-db)</span> <span class="artifact-p">[pan-db](../../artifacts/pan-db)</span> <span class="artifact-p">[genes-db](../../artifacts/genes-db)</span> <span class="artifact-p">[genomes-storage-db](../../artifacts/genomes-storage-db)</span> <span class="artifact-p">[structure-db](../../artifacts/structure-db)</span> <span class="artifact-p">[modules-db](../../artifacts/modules-db)</span> <span class="artifact-p">[workflow-config](../../artifacts/workflow-config)</span></p>
+<p style="text-align: left" markdown="1"></p>
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[profile-db](../../artifacts/profile-db)</span> <span class="artifact-r">[pan-db](../../artifacts/pan-db)</span> <span class="artifact-r">[genes-db](../../artifacts/genes-db)</span> <span class="artifact-r">[genomes-storage-db](../../artifacts/genomes-storage-db)</span> <span class="artifact-r">[structure-db](../../artifacts/structure-db)</span> <span class="artifact-r">[modules-db](../../artifacts/modules-db)</span> <span class="artifact-r">[workflow-config](../../artifacts/workflow-config)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[profile-db](../../artifacts/profile-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[pan-db](../../artifacts/pan-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[genes-db](../../artifacts/genes-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[genomes-storage-db](../../artifacts/genomes-storage-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[structure-db](../../artifacts/structure-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[modules-db](../../artifacts/modules-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[workflow-config](../../artifacts/workflow-config) <img src="../../images/icons/JSON.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 
