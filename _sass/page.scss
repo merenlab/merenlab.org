@@ -104,6 +104,54 @@ p {
     border-radius: 2px;
 }
 
+
+.artifact-icon-div {
+    width: 30px;
+}
+
+.artifact-icon {
+    border: none !important;
+    border-radius: 0px !important;
+
+    /*Scale down will take the necessary specified space that is 400px x 200px without stretching the image*/
+    object-fit:scale-down;
+}
+
+.artifacts-table {
+    font-family: unset;
+}
+
+.programs-table{
+    font-family: unset;
+    width: 100%;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+}
+
+.artifact-p-td {
+    background: #eefff5;
+}
+
+.artifact-r-td {
+    background: #f9f5fb;
+}
+
+.program-td {
+    background: #f1f1f1;
+}
+
+.programs-table tbody {
+    display: table;
+    width: 100%;
+}
+
+.programs-table td {
+    border: none;
+}
+.artifacts-table td {
+    border: none;
+}
+
 summary {
     background: #f4f5ea;
     padding: 5px;
@@ -146,7 +194,7 @@ details {
 
 .slack-invitation {
     position: relative;
-    top: -6px;
+    top: -2px;
     font-family: -webkit-body;
     font-variant: all-petite-caps;
 }
