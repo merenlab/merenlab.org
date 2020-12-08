@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Delete an anvi&#39;o state from a pan or profile database.
+Delete an anvi&#x27;o state from a pan or profile database.
 
 See **[program help menu](../../../vignette#anvi-delete-state)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

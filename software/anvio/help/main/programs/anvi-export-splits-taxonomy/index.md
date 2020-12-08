@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Export taxonomy for splits found in an anvi&#39;o contigs database.
+Export taxonomy for splits found in an anvi&#x27;o contigs database.
 
 See **[program help menu](../../../vignette#anvi-export-splits-taxonomy)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

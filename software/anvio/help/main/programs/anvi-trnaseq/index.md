@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-An anvi&#39;o script to process a tRNA-seq dataset, generating a tRNA-seq database..
+An anvi&#x27;o script to process a tRNA-seq dataset, generating a tRNA-seq database..
 
 See **[program help menu](../../../vignette#anvi-trnaseq)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

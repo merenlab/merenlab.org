@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Start the anvi&#39;o interactive interactive for viewing KEGG metabolism data.
+Start the anvi&#x27;o interactive interactive for viewing KEGG metabolism data.
 
 See **[program help menu](../../../vignette#anvi-display-metabolism)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

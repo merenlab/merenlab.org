@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Import an external binning result into anvi&#39;o.
+Import an external binning result into anvi&#x27;o.
 
 See **[program help menu](../../../vignette#anvi-import-collection)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

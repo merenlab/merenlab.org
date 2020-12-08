@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Take a FASTQ file and convert it into 2 FASTQ files. Each read from the original FASTQ file halved, where one half is put in the R1 FASTQ and the other half is reverse complemented and put in the R2 FASTQ. If you&#39;ve ended up here, things have clearly not gone very well for you, and as I write this sentence, I wholeheartedly sympathize.
+Take a FASTQ file and convert it into 2 FASTQ files. Each read from the original FASTQ file halved, where one half is put in the R1 FASTQ and the other half is reverse complemented and put in the R2 FASTQ. If you&#x27;ve ended up here, things have clearly not gone very well for you, and as I write this sentence, I wholeheartedly sympathize.
 
 See **[program help menu](../../../vignette#anvi-script-gen-pseudo-paired-reads-from-fastq)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

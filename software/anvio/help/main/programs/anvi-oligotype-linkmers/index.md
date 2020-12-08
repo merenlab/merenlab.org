@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Takes an anvi&#39;o linkmers report, generates an oligotyping output.
+Takes an anvi&#x27;o linkmers report, generates an oligotyping output.
 
 See **[program help menu](../../../vignette#anvi-oligotype-linkmers)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
