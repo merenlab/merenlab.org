@@ -22,11 +22,11 @@ See **[program help menu](../../../vignette#anvi-import-taxonomy-for-genes)** or
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[gene-taxonomy](../../artifacts/gene-taxonomy)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[gene-taxonomy](../../artifacts/gene-taxonomy) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[gene-taxonomy-txt](../../artifacts/gene-taxonomy-txt)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[gene-taxonomy-txt](../../artifacts/gene-taxonomy-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 

@@ -22,11 +22,11 @@ See **[program help menu](../../../vignette#anvi-init-bam)** or go back to the *
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[bam-file](../../artifacts/bam-file)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[bam-file](../../artifacts/bam-file) <img src="../../images/icons/BAM.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[raw-bam-file](../../artifacts/raw-bam-file)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[raw-bam-file](../../artifacts/raw-bam-file) <img src="../../images/icons/BAM.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 

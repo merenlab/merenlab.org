@@ -22,7 +22,7 @@ See **[program help menu](../../../vignette#anvi-setup-pdb-database)** or go bac
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[pdb-db](../../artifacts/pdb-db)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[pdb-db](../../artifacts/pdb-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 

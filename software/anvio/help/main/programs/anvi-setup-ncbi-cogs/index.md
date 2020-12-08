@@ -22,7 +22,7 @@ See **[program help menu](../../../vignette#anvi-setup-ncbi-cogs)** or go back t
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[cogs-data](../../artifacts/cogs-data)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[cogs-data](../../artifacts/cogs-data) <img src="../../images/icons/DATA.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 

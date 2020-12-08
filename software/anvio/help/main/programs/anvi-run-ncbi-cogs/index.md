@@ -22,11 +22,11 @@ See **[program help menu](../../../vignette#anvi-run-ncbi-cogs)** or go back to 
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[functions](../../artifacts/functions)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[functions](../../artifacts/functions) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[cogs-data](../../artifacts/cogs-data)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[cogs-data](../../artifacts/cogs-data) <img src="../../images/icons/DATA.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 

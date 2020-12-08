@@ -22,7 +22,7 @@ See **[program help menu](../../../vignette#anvi-script-pfam-accessions-to-hmms-
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[hmm-source](../../artifacts/hmm-source)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[hmm-source](../../artifacts/hmm-source) <img src="../../images/icons/HMM.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 

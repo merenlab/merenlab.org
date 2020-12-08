@@ -22,11 +22,11 @@ See **[program help menu](../../../vignette#anvi-script-filter-fasta-by-blast)**
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[contigs-fasta](../../artifacts/contigs-fasta)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[contigs-fasta](../../artifacts/contigs-fasta) <img src="../../images/icons/FASTA.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-fasta](../../artifacts/contigs-fasta)</span> <span class="artifact-r">[blast-table](../../artifacts/blast-table)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-fasta](../../artifacts/contigs-fasta) <img src="../../images/icons/FASTA.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[blast-table](../../artifacts/blast-table) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 

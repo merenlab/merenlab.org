@@ -22,11 +22,11 @@ See **[program help menu](../../../vignette#anvi-script-gen-pseudo-paired-reads-
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[short-reads-fasta](../../artifacts/short-reads-fasta)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[short-reads-fasta](../../artifacts/short-reads-fasta) <img src="../../images/icons/FASTA.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[short-reads-fasta](../../artifacts/short-reads-fasta)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[short-reads-fasta](../../artifacts/short-reads-fasta) <img src="../../images/icons/FASTA.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 

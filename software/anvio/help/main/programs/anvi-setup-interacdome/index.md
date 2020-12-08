@@ -22,7 +22,7 @@ See **[program help menu](../../../vignette#anvi-setup-interacdome)** or go back
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[interacdome-data](../../artifacts/interacdome-data)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[interacdome-data](../../artifacts/interacdome-data) <img src="../../images/icons/DATA.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 

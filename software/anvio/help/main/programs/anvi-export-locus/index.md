@@ -22,11 +22,11 @@ See **[program help menu](../../../vignette#anvi-export-locus)** or go back to t
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[locus-fasta](../../artifacts/locus-fasta)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[locus-fasta](../../artifacts/locus-fasta) <img src="../../images/icons/FASTA.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 

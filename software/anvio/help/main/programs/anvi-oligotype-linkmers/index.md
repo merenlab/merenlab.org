@@ -22,11 +22,11 @@ See **[program help menu](../../../vignette#anvi-oligotype-linkmers)** or go bac
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[oligotypes](../../artifacts/oligotypes)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[oligotypes](../../artifacts/oligotypes) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[linkmers-txt](../../artifacts/linkmers-txt)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[linkmers-txt](../../artifacts/linkmers-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 

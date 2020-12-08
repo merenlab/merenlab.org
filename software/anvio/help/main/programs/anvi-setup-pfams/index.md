@@ -22,7 +22,7 @@ See **[program help menu](../../../vignette#anvi-setup-pfams)** or go back to th
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[pfams-data](../../artifacts/pfams-data)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[pfams-data](../../artifacts/pfams-data) <img src="../../images/icons/DATA.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 

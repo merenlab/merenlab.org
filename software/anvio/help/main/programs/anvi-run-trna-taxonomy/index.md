@@ -22,11 +22,11 @@ See **[program help menu](../../../vignette#anvi-run-trna-taxonomy)** or go back
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[trna-taxonomy](../../artifacts/trna-taxonomy)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[trna-taxonomy](../../artifacts/trna-taxonomy) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[trna-taxonomy-db](../../artifacts/trna-taxonomy-db)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[trna-taxonomy-db](../../artifacts/trna-taxonomy-db) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 

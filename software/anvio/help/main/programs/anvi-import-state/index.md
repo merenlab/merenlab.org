@@ -22,11 +22,11 @@ See **[program help menu](../../../vignette#anvi-import-state)** or go back to t
 
 ## Provides
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[state](../../artifacts/state)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[state](../../artifacts/state) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
 
 ## Requires or uses
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[pan-db](../../artifacts/pan-db)</span> <span class="artifact-r">[profile-db](../../artifacts/profile-db)</span> <span class="artifact-r">[state-json](../../artifacts/state-json)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[pan-db](../../artifacts/pan-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[profile-db](../../artifacts/profile-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[state-json](../../artifacts/state-json) <img src="../../images/icons/JSON.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 
