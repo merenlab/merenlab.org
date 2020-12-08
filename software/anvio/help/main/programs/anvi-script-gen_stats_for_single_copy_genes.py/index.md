@@ -10,7 +10,7 @@ image:
 
 A simple script to generate info from search tables, given a contigs-db.
 
-See **[program help menu](../../../vignette#anvi-script-gen_stats_for_single_copy_genes.py)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+See **[program help menu](../../../../vignette#anvi-script-gen_stats_for_single_copy_genes.py)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -20,11 +20,11 @@ See **[program help menu](../../../vignette#anvi-script-gen_stats_for_single_cop
 {% include _project-anvio-graph.html %}
 
 
-## Provides
+## Can provide
 
 <p style="text-align: left" markdown="1"><span class="artifact-p">[genes-stats](../../artifacts/genes-stats) <img src="../../images/icons/STATS.png" class="artifact-icon-mini" /></span></p>
 
-## Requires or uses
+## Can consume
 
 <p style="text-align: left" markdown="1"></p>
 
