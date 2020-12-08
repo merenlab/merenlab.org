@@ -10,7 +10,7 @@ image:
 
 Start an anvi&#39;o interactive interactive to manually curate or refine a genome, whether it is a metagenome-assembled, single-cell, or an isolate genome.
 
-See **[program help menu](../../../vignette#anvi-refine)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+See **[program help menu](../../../../vignette#anvi-refine)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -20,11 +20,11 @@ See **[program help menu](../../../vignette#anvi-refine)** or go back to the **[
 {% include _project-anvio-graph.html %}
 
 
-## Provides
+## Can provide
 
 <p style="text-align: left" markdown="1"><span class="artifact-p">[bin](../../artifacts/bin) <img src="../../images/icons/BIN.png" class="artifact-icon-mini" /></span></p>
 
-## Requires or uses
+## Can consume
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[profile-db](../../artifacts/profile-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[bin](../../artifacts/bin) <img src="../../images/icons/BIN.png" class="artifact-icon-mini" /></span></p>
 

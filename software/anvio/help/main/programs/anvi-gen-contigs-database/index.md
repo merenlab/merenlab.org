@@ -10,7 +10,7 @@ image:
 
 Generate a new anvi&#39;o contigs database.
 
-See **[program help menu](../../../vignette#anvi-gen-contigs-database)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+See **[program help menu](../../../../vignette#anvi-gen-contigs-database)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -20,11 +20,11 @@ See **[program help menu](../../../vignette#anvi-gen-contigs-database)** or go b
 {% include _project-anvio-graph.html %}
 
 
-## Provides
+## Can provide
 
 <p style="text-align: left" markdown="1"><span class="artifact-p">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
 
-## Requires or uses
+## Can consume
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-fasta](../../artifacts/contigs-fasta) <img src="../../images/icons/FASTA.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[external-gene-calls](../../artifacts/external-gene-calls) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 

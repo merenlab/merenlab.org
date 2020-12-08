@@ -10,7 +10,7 @@ image:
 
 Download and setup NCBI&#39;s Clusters of Orthologous Groups database.
 
-See **[program help menu](../../../vignette#anvi-setup-ncbi-cogs)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+See **[program help menu](../../../../vignette#anvi-setup-ncbi-cogs)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -20,11 +20,11 @@ See **[program help menu](../../../vignette#anvi-setup-ncbi-cogs)** or go back t
 {% include _project-anvio-graph.html %}
 
 
-## Provides
+## Can provide
 
 <p style="text-align: left" markdown="1"><span class="artifact-p">[cogs-data](../../artifacts/cogs-data) <img src="../../images/icons/DATA.png" class="artifact-icon-mini" /></span></p>
 
-## Requires or uses
+## Can consume
 
 <p style="text-align: left" markdown="1"></p>
 

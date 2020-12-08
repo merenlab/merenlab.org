@@ -10,7 +10,7 @@ image:
 
 Identifies genes in your contigs database that encode proteins that are homologous to proteins with solved structures. If sufficiently similar homologs are identified, they are used as structural templates to predict the 3D structure of proteins in your contigs database.
 
-See **[program help menu](../../../vignette#anvi-gen-structure-database)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+See **[program help menu](../../../../vignette#anvi-gen-structure-database)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -20,11 +20,11 @@ See **[program help menu](../../../vignette#anvi-gen-structure-database)** or go
 {% include _project-anvio-graph.html %}
 
 
-## Provides
+## Can provide
 
 <p style="text-align: left" markdown="1"><span class="artifact-p">[structure-db](../../artifacts/structure-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
 
-## Requires or uses
+## Can consume
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[pdb-db](../../artifacts/pdb-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
 

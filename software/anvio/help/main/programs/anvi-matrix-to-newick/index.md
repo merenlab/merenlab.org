@@ -10,7 +10,7 @@ image:
 
 Takes a distance matrix, returns a newick tree.
 
-See **[program help menu](../../../vignette#anvi-matrix-to-newick)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+See **[program help menu](../../../../vignette#anvi-matrix-to-newick)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -20,11 +20,11 @@ See **[program help menu](../../../vignette#anvi-matrix-to-newick)** or go back 
 {% include _project-anvio-graph.html %}
 
 
-## Provides
+## Can provide
 
 <p style="text-align: left" markdown="1"><span class="artifact-p">[dendrogram](../../artifacts/dendrogram) <img src="../../images/icons/NEWICK.png" class="artifact-icon-mini" /></span></p>
 
-## Requires or uses
+## Can consume
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[view-data](../../artifacts/view-data) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 

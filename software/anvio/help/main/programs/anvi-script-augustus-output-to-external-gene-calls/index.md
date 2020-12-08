@@ -10,7 +10,7 @@ image:
 
 Takes in gene calls by AUGUSTUS v3.3.3, generates an anvi&#39;o external gene calls file. It may work well with other versions of AUGUSTUS, too. It is just no one has tested the script with different versions of the program.
 
-See **[program help menu](../../../vignette#anvi-script-augustus-output-to-external-gene-calls)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+See **[program help menu](../../../../vignette#anvi-script-augustus-output-to-external-gene-calls)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -20,11 +20,11 @@ See **[program help menu](../../../vignette#anvi-script-augustus-output-to-exter
 {% include _project-anvio-graph.html %}
 
 
-## Provides
+## Can provide
 
 <p style="text-align: left" markdown="1"><span class="artifact-p">[external-gene-calls](../../artifacts/external-gene-calls) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
-## Requires or uses
+## Can consume
 
 <p style="text-align: left" markdown="1"><span class="artifact-r">[augustus-gene-calls](../../artifacts/augustus-gene-calls) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
