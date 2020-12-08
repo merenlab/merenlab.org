@@ -10,7 +10,7 @@ image:
 
 Export .pdb structure files from a structure database.
 
-See **[program help menu](../../../vignette#anvi-export-structures)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+See **[program help menu](../../../../vignette#anvi-export-structures)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -20,20 +20,20 @@ See **[program help menu](../../../vignette#anvi-export-structures)** or go back
 {% include _project-anvio-graph.html %}
 
 
-## Provides
+## Can provide
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[protein-structure-txt](../../artifacts/protein-structure-txt)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[protein-structure-txt](../../artifacts/protein-structure-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
-## Requires or uses
+## Can consume
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[structure-db](../../artifacts/structure-db)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[structure-db](../../artifacts/structure-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 
 
 This program exports the structures in a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span> as <span class="artifact-n">[protein-structure-txt](/software/anvio/help/main/artifacts/protein-structure-txt)</span> files. 
 
-This allows you to view your 3D structures through other softwares that aren't focused on variable positions (like <span class="artifact-n">[anvi-3dev](/software/anvio/help/main/programs/anvi-3dev)</span> is). 
+This allows you to view your 3D structures through other softwares that aren't focused on variable positions (like <span class="artifact-n">[anvi-display-structure](/software/anvio/help/main/programs/anvi-display-structure)</span> is). 
 
 To run, just provide a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span> and an output path:
 

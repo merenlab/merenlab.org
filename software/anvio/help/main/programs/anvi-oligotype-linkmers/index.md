@@ -10,7 +10,7 @@ image:
 
 Takes an anvi&#39;o linkmers report, generates an oligotyping output.
 
-See **[program help menu](../../../vignette#anvi-oligotype-linkmers)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+See **[program help menu](../../../../vignette#anvi-oligotype-linkmers)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -20,13 +20,13 @@ See **[program help menu](../../../vignette#anvi-oligotype-linkmers)** or go bac
 {% include _project-anvio-graph.html %}
 
 
-## Provides
+## Can provide
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[oligotypes](../../artifacts/oligotypes)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[oligotypes](../../artifacts/oligotypes) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
 
-## Requires or uses
+## Can consume
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[linkmers-txt](../../artifacts/linkmers-txt)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[linkmers-txt](../../artifacts/linkmers-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 

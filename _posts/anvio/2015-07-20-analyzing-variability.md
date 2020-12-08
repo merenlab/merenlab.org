@@ -16,7 +16,7 @@ how to interpret the output. For a more practical tutorial on the same topic, pl
 [the infant gut tutorial]({{ site.url
 }}/tutorials/infant-gut/#profiling-snvs-in-a-bin) for a tutorial on profiling SNVs, SCVs, and SAAVs,
 and check out
-[the anvi-3dev blog post]({{ site.url }}/2018/09/04/getting-started-with-anvi-3dev/)
+[the anvio structure blog post]({{ site.url }}/2018/09/04/getting-started-with-anvio-structure/)
 for a tutorial on visualizing SCVs and SAAVs directly on the protein structure they encode for. Also
 check out our [reproducible workflow on oceanic SAR11]({{ site.url
 }}/data/2018_Delmont_and_Kiefl_et_al_SAR11_SAAVs/), which leverages the concepts in this tutorial to

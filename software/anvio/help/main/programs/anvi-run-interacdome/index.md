@@ -10,7 +10,7 @@ image:
 
 Run InteracDome on a contigs database.
 
-See **[program help menu](../../../vignette#anvi-run-interacdome)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+See **[program help menu](../../../../vignette#anvi-run-interacdome)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -20,13 +20,13 @@ See **[program help menu](../../../vignette#anvi-run-interacdome)** or go back t
 {% include _project-anvio-graph.html %}
 
 
-## Provides
+## Can provide
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[binding-frequencies-txt](../../artifacts/binding-frequencies-txt)</span> <span class="artifact-p">[misc-data-nucleotides](../../artifacts/misc-data-nucleotides)</span> <span class="artifact-p">[misc-data-amino-acids](../../artifacts/misc-data-amino-acids)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[binding-frequencies-txt](../../artifacts/binding-frequencies-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[misc-data-nucleotides](../../artifacts/misc-data-nucleotides) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[misc-data-amino-acids](../../artifacts/misc-data-amino-acids) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
 
-## Requires or uses
+## Can consume
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db)</span> <span class="artifact-r">[interacdome-data](../../artifacts/interacdome-data)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[interacdome-data](../../artifacts/interacdome-data) <img src="../../images/icons/DATA.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 

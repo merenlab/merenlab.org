@@ -27,7 +27,7 @@ There are no anvi'o tools that generate this artifact, which means it is most li
 ## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-script-get-primer-matches](../../programs/anvi-script-get-primer-matches)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-run-workflow](../../programs/anvi-run-workflow)</span> <span class="artifact-r">[anvi-script-get-primer-matches](../../programs/anvi-script-get-primer-matches)</span></p>
 
 
 ## Description
