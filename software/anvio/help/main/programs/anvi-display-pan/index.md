@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Start an anvi&#x27;o server to display a pan-genome.
+Start an anvi&#39;o server to display a pan-genome.
 
 See **[program help menu](../../../vignette#anvi-display-pan)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

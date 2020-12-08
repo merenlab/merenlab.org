@@ -178,7 +178,7 @@ Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/progra
 ## Additional Resources
 
 
-* [A tutorial on anvi&#x27;o phylogenomics workflow](http://merenlab.org/2017/06/07/phylogenomics/)
+* [A tutorial on anvi&#39;o phylogenomics workflow](http://merenlab.org/2017/06/07/phylogenomics/)
 
 * [A detailed application of phylogenomics to place a new genome on a tree](http://merenlab.org/data/parcubacterium-in-hbcfdna/)
 

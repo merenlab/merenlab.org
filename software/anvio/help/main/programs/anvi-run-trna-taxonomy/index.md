@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-The purpose of this program is to affiliate tRNA gene sequences in an anvi&#x27;o contigs database with taxonomic names. A properly setup local tRNA taxonomy database is required for this program to perform properly. After its successful run, `anvi-estimate-trna-taxonomy` will be useful to estimate taxonomy at genome-, collection-, or metagenome-level)..
+The purpose of this program is to affiliate tRNA gene sequences in an anvi&#39;o contigs database with taxonomic names. A properly setup local tRNA taxonomy database is required for this program to perform properly. After its successful run, `anvi-estimate-trna-taxonomy` will be useful to estimate taxonomy at genome-, collection-, or metagenome-level)..
 
 See **[program help menu](../../../vignette#anvi-run-trna-taxonomy)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

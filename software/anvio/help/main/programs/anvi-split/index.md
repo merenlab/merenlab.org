@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Split an anvi&#x27;o pan or profile database into smaller, self-contained pieces. Provide either a genomes-storage and pan database or a profile and contigs database pair, and you&#x27;ll get back directories of individual projects for each bin  that can be treated as smaller anvi&#x27;o projects.
+Split an anvi&#39;o pan or profile database into smaller, self-contained pieces. Provide either a genomes-storage and pan database or a profile and contigs database pair, and you&#39;ll get back directories of individual projects for each bin  that can be treated as smaller anvi&#39;o projects.
 
 See **[program help menu](../../../vignette#anvi-split)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

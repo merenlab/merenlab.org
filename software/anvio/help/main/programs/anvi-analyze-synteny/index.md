@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Extract ngrams, as in &#x27;co-occurring genes in synteny&#x27;, from genomes.
+Extract ngrams, as in &#39;co-occurring genes in synteny&#39;, from genomes.
 
 See **[program help menu](../../../vignette#anvi-analyze-synteny)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
