@@ -23,7 +23,6 @@ If you need an introduction to the terminology used in 'omics research or in anv
 {:.notice}
 The help contents were last updated on **08 Dec 20 17:41:57** for anvi'o version **6.2-master (esther)**.
 
-
 {% include _project-anvio-version.html %}
 {% include _toc.html %}
 
