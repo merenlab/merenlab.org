@@ -21,7 +21,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-3dev](../../programs/anvi-3dev)</span> <span class="artifact-p">[anvi-display-contigs-stats](../../programs/anvi-display-contigs-stats)</span> <span class="artifact-p">[anvi-display-metabolism](../../programs/anvi-display-metabolism)</span> <span class="artifact-p">[anvi-display-pan](../../programs/anvi-display-pan)</span> <span class="artifact-p">[anvi-inspect](../../programs/anvi-inspect)</span> <span class="artifact-p">[anvi-interactive](../../programs/anvi-interactive)</span> <span class="artifact-p">[anvi-script-snvs-to-interactive](../../programs/anvi-script-snvs-to-interactive)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-display-contigs-stats](../../programs/anvi-display-contigs-stats)</span> <span class="artifact-p">[anvi-display-metabolism](../../programs/anvi-display-metabolism)</span> <span class="artifact-p">[anvi-display-pan](../../programs/anvi-display-pan)</span> <span class="artifact-p">[anvi-display-structure](../../programs/anvi-display-structure)</span> <span class="artifact-p">[anvi-inspect](../../programs/anvi-inspect)</span> <span class="artifact-p">[anvi-interactive](../../programs/anvi-interactive)</span> <span class="artifact-p">[anvi-script-snvs-to-interactive](../../programs/anvi-script-snvs-to-interactive)</span></p>
 
 
 ## Required or used by
@@ -57,7 +57,7 @@ If you're new to the anvi'o interactive interface, you'll probably want to check
 
 However, there are more interfaces available in anvi'o than just that one, so let's list them out: 
 
-- <span class="artifact-n">[anvi-3dev](/software/anvio/help/main/programs/anvi-3dev)</span> lets you examine specific protein structures, along with SCV and SAAVs within it. (It even has [its own software page.](http://merenlab.org/software/anvi-3dev/). It's kind of a big deal.)
+- <span class="artifact-n">[anvi-display-structure](/software/anvio/help/main/programs/anvi-display-structure)</span> lets you examine specific protein structures, along with SCV and SAAVs within it. (It even has [its own software page.](http://merenlab.org/software/anvio-structure/). It's kind of a big deal.)
 
 - <span class="artifact-n">[anvi-display-contigs-stats](/software/anvio/help/main/programs/anvi-display-contigs-stats)</span> shows you various stats about the contigs within a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>, such as their hmm-hits, lengths, N and L statistics, and so on.
 

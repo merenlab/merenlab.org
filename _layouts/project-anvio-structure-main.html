@@ -1,0 +1,55 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+{% include _head.html %}
+</head>
+
+<body class="post-index">
+
+{% include _browser-upgrade.html %}
+
+{% include _navigation.html %}
+
+{% include _imagewrap.html %}
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    {% include _left-panel.html %}
+</div>
+
+<div id="index">
+    <div class="article-wrap">
+     <div id="articlecontent">
+        {{ content }}
+      </div> 
+    </div><!-- /.article-wrap -->
+        {% for post in site.posts %}
+          {% if post.categories contains "anvio-structure" %}
+                {% if post.title %}
+                    <article>
+                        <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <small>({{ post.date | date: "%a, %b %d, %Y" }})</small></h2>
+                        <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
+                    </article>
+                {% endif %}
+          {% endif %}
+        {% endfor %}
+        <article>
+            <h2><a href="{{ site_url }}/tutorials/infant-gut/#chapter-vii-from-single-amino-acid-variants-to-protein-structures" title="Infant Gut Tutorial">Infant Gut Tutorial</a></h2>
+            <p>A comprehensive tutorial on anvi'o features, with a section dedicated to anvi'o structure.</p>
+        </article>
+    </div><!-- /#index -->
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <footer>
+    {% include _footer.html %}
+  </footer>
+</div><!-- /.footer-wrap -->
+
+{% include _scripts.html %}
+
+</body>
+</html>
