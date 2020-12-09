@@ -21,8 +21,8 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **08 Dec 20 17:57:02** for anvi'o version **6.2-master (esther)**.
 
+The help contents were last updated on **08 Dec 20 18:12:26** for anvi'o version **6.2-master (esther)**.
 
 {% include _project-anvio-version.html %}
 {% include _toc.html %}
@@ -109,28 +109,6 @@ Anvi'o programs perform atomic tasks that can be weaved together to implement co
 
 Listed below **a total of 114 programs**.
 
-
-<div style="width:100%;">
-<table class="programs-table">
-<tbody>
-<tr style="border:none;">
-    <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-3dev](programs/anvi-3dev)**</span>. <span markdown="1">Interactively visualize sequence variants on protein structures</span>.
-    </td>
-</tr>
-<tr>
-    <td class="artifact-r-td">
-    <span class="artifact-emoji">🧀</span> <span class="artifact-r" markdown="1">[structure-db](artifacts/structure-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[variability-profile-txt](artifacts/variability-profile-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[profile-db](artifacts/profile-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[splits-txt](artifacts/splits-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
-    </td>
-</tr>
-<tr>
-    <td class="artifact-p-td">
-    <span class="artifact-emoji">🍕</span> <span class="artifact-p" markdown="1">[interactive](artifacts/interactive) <img src="images/icons/DISPLAY.png" class="artifact-icon-mini" /> </span>
-    </td>
-</tr>
-</tbody>
-</table>
-</div>
 
 <div style="width:100%;">
 <table class="programs-table">

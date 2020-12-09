@@ -3,7 +3,7 @@ layout: page
 modified: 2017-02-06
 modified: 2018-08-08
 excerpt: "Binning, benchmarking binning approaches, refining poorly identified bins, and other Anvi'o tutorial for metagenomics using the Infant Gut Dataset by Sharon *et al*"
-categories: [anvio,anvi-3dev]
+categories: [anvio,anvio-structure]
 comments: true
 redirect_from: /igd/
 image:
@@ -2007,11 +2007,11 @@ section and then come back.
 
 This section briefly showcases 2 separate, yet integrated features. The first is binding site
 prediction prediction with [InteracDome](https://interacdome.princeton.edu/), and the second is
-protein structure visualization with [anvi-3dev]({{ site.url }}/software/anvi-3dev). This is a
+protein structure visualization with [anvi'o structure]({{ site.url }}/software/anvio-structure). This is a
 **showcase** of these features, not an in-depth tutorial on either topic. For more comprehensive
 material on InteracDome, check out [this blog]({{ site.url }}/2020/07/22/interacdome/). For more
-detailed info and in depth tutorial on anvi-3dev, please refer to [this post]({{ site.url
-}}/2018/09/04/getting-started-with-anvi-3dev/).
+detailed info and in depth tutorial on anvi'o structure and what it can do for you, please refer to [this post]({{ site.url
+}}/2018/09/04/getting-started-with-anvio-structure/).
 
 ### Predicting binding sites with InteracDome
 
@@ -2197,11 +2197,11 @@ With the addition of this information, there is seemingly an uncountable number 
 and the truth is that we ourselves have not even scratched the surface. We therefore can't predict
 how this may be useful to you. I, Evan, have some ideas of my own, but I haven't even had time to
 explore them. That's how fresh these cookies are. That said, in the next section we will transition
-to talking about anvi-3dev, a tool to visualize protein structures, and as you may have guessed,
+to talking about anvi'o structure, a tool to visualize protein structures, and as you may have guessed,
 there will be a section in which we visualize the predicted binding sites we calculated in this
 section.
 
-### Visualizing protein structures, SAAVs, SCVs, and binding sites with anvi-3dev
+### Visualizing protein structures, SAAVs, SCVs, and binding sites with anvi'o structure
 
 So far we have been referring to sequence variants as SNVs, yet when analyzing sequence variation in
 the context of proteins, it makes a lot more sense to characterize sequence variation with single
@@ -2210,8 +2210,8 @@ with these concepts, or want to learn more, [click me]({{ site.url
 }}/2015/07/20/analyzing-variability/#single-nucleotide-variants). Point is, we will be working with
 SAAVs and SCVs moving forward.
 
-In this section we will introduce [anvi-3dev]({{ site.url }}/software/anvi-3dev), a software
-embedded within the anvi'o codebase that enables one to predict protein structures for genes in your
+In this section we will introduce [anvi'o structure]({{ site.url }}/software/anvio-structure), an integrated
+component of anvi'o that enables one to predict protein structures for genes in your
 contigs database and visualize them in an interactive interface. The motivation was seeded by
 wanting more direct insight into the potential effect that sequence variants had on fitness, by
 visualizing them directly on the structure, since it is the physical properties of these structures
@@ -2222,7 +2222,8 @@ that define function.
 It's worth noting that this *E. faecalis* MAG recruits reads from populations with relatively low
 amounts of intra-population diversity. In more diverse microbial environments such as marine or soil
 ecosystems, visual patterns of variants on protein structures become much more striking. While the
-infant gut tutorial is a good medium to get you familiarized with various features of anvi-3dev, you
+infant gut tutorial is a good medium to get you familiarized with various features of anvi'o
+structure, you
 should check out [this paper](https://doi.org/10.7554/eLife.46497) if you want to see more striking
 patterns of structural sequence variation. Here is a figure from that study:
 
@@ -2235,7 +2236,7 @@ patterns of structural sequence variation. Here is a figure from that study:
 ### The structure database
 
 To analyze and visualize where nucleotide-level variation occurs in the three-dimensional structure
-of an encoded protein, you need a protein structure. For this, anvi-3dev has a dedicated structure
+of an encoded protein, you need a protein structure. For this, anvi'o structure has a dedicated structure
 database that stores all structural information requested by the user. Users can create their own
 structure database by providing a contigs database, and a list of gene IDs in the contigs database
 they want to predict structures for.
@@ -2252,7 +2253,9 @@ ls additional-files/e_faeealis_across_hmp/STRUCTURE.db
 <div class="extra-info" markdown="1">
 
 <span class="extra-info-header">Make your own structure database</span>
-For your information, you can re-create this structure database with the following command, although you will have to install some dependencies (anvi-3dev will tell you what to do if you try but don't have the dependencies):
+For your information, you can re-create this structure database with the following command, although
+you will have to install some dependencies (`anvi-gen-structure-database` will tell you what to do if you try but don't
+have the dependencies):
 
 ``` bash
 anvi-gen-structure-database -c additional-files/e_faeealis_across_hmp/CONTIGS.db \
@@ -2262,15 +2265,15 @@ anvi-gen-structure-database -c additional-files/e_faeealis_across_hmp/CONTIGS.db
 ```
 </div>
 
-### Visualizing proteins with anvi-3dev
+### Visualizing proteins with anvi-display-structure
 
 With a structure database in hand, you are ready to visualize SAAVs and SCVs on protein structures.
 
 ``` bash
-anvi-3dev -s additional-files/e_faeealis_across_hmp/STRUCTURE.db \
-          -p additional-files/e_faeealis_across_hmp/PROFILE.db \
-          -c additional-files/e_faeealis_across_hmp/CONTIGS.db \
-          --min-departure-from-consensus 0
+anvi-display-structure -s additional-files/e_faeealis_across_hmp/STRUCTURE.db \
+                       -p additional-files/e_faeealis_across_hmp/PROFILE.db \
+                       -c additional-files/e_faeealis_across_hmp/CONTIGS.db \
+                       --min-departure-from-consensus 0
 ```
 
 After running the above command, you should see the following view.
@@ -2434,10 +2437,10 @@ SRR5405692  |  10   |  Sloan2  |  Gut       |  14      |  Sloan2_14      |  1009
 Afterwards, we can rerun the interactive display:
 
 ``` bash
-anvi-3dev -s additional-files/e_faeealis_across_hmp/STRUCTURE.db \
-          -p additional-files/e_faeealis_across_hmp/PROFILE.db \
-          -c additional-files/e_faeealis_across_hmp/CONTIGS.db \
-          --min-departure-from-consensus 0
+anvi-display-structure -s additional-files/e_faeealis_across_hmp/STRUCTURE.db \
+                       -p additional-files/e_faeealis_across_hmp/PROFILE.db \
+                       -c additional-files/e_faeealis_across_hmp/CONTIGS.db \
+                       --min-departure-from-consensus 0
 ```
 
 Now, there are many more grouping categories available to us.
@@ -2456,7 +2459,7 @@ your own metagenomes.
 
 Let's face it: it is a lot easier to live in a world of A, C, T, and G. But in this restricted space
 we can't explore the biochemical consequences of our sequences, and we therefore can't understand
-why DNA sequences are the way they are. anvi-3dev has been designed to help make this undertaking
+why DNA sequences are the way they are. Anvi'o structure has been designed to help make this undertaking
 more accessible, but it is only in its infancy. If you have suggestions, please let us know.
 
 

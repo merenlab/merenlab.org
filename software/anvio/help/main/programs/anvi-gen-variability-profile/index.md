@@ -164,7 +164,7 @@ Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/progra
 
 * [All about SNVs, SCVs, and SAAVs](http://merenlab.org/2015/07/20/analyzing-variability/)
 
-* [This program in action in the anvi-3dev tutorial](http://merenlab.org/2018/09/04/getting-started-with-anvi-3dev/#supplying-anvi-3dev-with-sequence-variability)
+* [This program in action in the anvi&#39;o structure tutorial](http://merenlab.org/2018/09/04/getting-started-with-anvio-structure/#supplying-anvi-display-structure-with-sequence-variability)
 
 
 {:.notice}

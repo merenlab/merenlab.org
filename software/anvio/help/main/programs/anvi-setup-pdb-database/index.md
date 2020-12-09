@@ -31,7 +31,7 @@ See **[program help menu](../../../../vignette#anvi-setup-pdb-database)** or go 
 ## Usage
 
 
-This program downloads a section of the [Protein Data Bank](https://www.rcsb.org/) which is required for strucutral analyses in anvi'o, such as running <span class="artifact-n">[anvi-gen-structure-database](/software/anvio/help/main/programs/anvi-gen-structure-database)</span> or <span class="artifact-n">[anvi-3dev](/software/anvio/help/main/programs/anvi-3dev)</span>. 
+This program downloads a section of the [Protein Data Bank](https://www.rcsb.org/) which is required for strucutral analyses in anvi'o, such as running <span class="artifact-n">[anvi-gen-structure-database](/software/anvio/help/main/programs/anvi-gen-structure-database)</span> or <span class="artifact-n">[anvi-display-structure](/software/anvio/help/main/programs/anvi-display-structure)</span>. 
 
 <div class="codeblock" markdown="1">
 anvi&#45;setup&#45;pdb&#45;database &#45;&#45;just&#45;do&#45;it
