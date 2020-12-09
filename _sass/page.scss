@@ -52,7 +52,7 @@ p {
 
 .slack-button-img {
     height: 12px;
-    margin-bottom: 0px;
+    margin-bottom: 4px;
     margin-left: 1px;
 }
 
@@ -124,6 +124,10 @@ p {
 
 .artifacts-table {
     font-family: unset;
+}
+
+.artifact-emoji {
+    font-size: large;
 }
 
 .programs-table{
@@ -205,7 +209,7 @@ details {
 
 .slack-invitation {
     position: relative;
-    top: -4px;
+    top: -3px;
     font-family: -webkit-body;
     font-variant: all-petite-caps;
 }
