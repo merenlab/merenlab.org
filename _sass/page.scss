@@ -52,7 +52,7 @@ p {
 
 .slack-button-img {
     height: 12px;
-    margin-bottom: 3px;
+    margin-bottom: 0px;
     margin-left: 1px;
 }
 
@@ -104,6 +104,65 @@ p {
     border-radius: 2px;
 }
 
+
+.artifact-icon-div {
+    width: 30px;
+}
+
+.artifact-icon {
+    border: none !important;
+    border-radius: 0px !important;
+    object-fit:scale-down;
+}
+
+.artifact-icon-mini {
+    height: 13px;
+    border: none !important;
+    border-radius: 0px !important;
+    object-fit:scale-down;
+}
+
+.artifacts-table {
+    font-family: unset;
+}
+
+.programs-table{
+    font-family: unset;
+    width: 100%;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+}
+
+.artifact-list-td {
+    line-height: 20px;
+}
+
+.artifact-p-td {
+    background: #eefff5;
+    line-height: 20px;
+}
+
+.artifact-r-td {
+    background: #f9f5fb;
+    line-height: 20px;
+}
+
+.program-td {
+    background: #f1f1f1;
+}
+
+.programs-table tbody {
+    display: table;
+    width: 100%;
+}
+
+.programs-table td {
+    border: none;
+}
+.artifacts-table td {
+    border: none;
+}
+
 summary {
     background: #f4f5ea;
     padding: 5px;
@@ -146,7 +205,7 @@ details {
 
 .slack-invitation {
     position: relative;
-    top: -6px;
+    top: -4px;
     font-family: -webkit-body;
     font-variant: all-petite-caps;
 }
