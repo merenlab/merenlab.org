@@ -22,7 +22,7 @@ See **[program help menu](../../../../vignette#anvi-run-interacdome)** or go bac
 
 ## Can provide
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[binding-frequencies-txt](../../artifacts/binding-frequencies-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[misc-data-nucleotides](../../artifacts/misc-data-nucleotides) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[misc-data-amino-acids](../../artifacts/misc-data-amino-acids) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[binding-frequencies-txt](../../artifacts/binding-frequencies-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[misc-data-amino-acids](../../artifacts/misc-data-amino-acids) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
 
 ## Can consume
 
@@ -31,34 +31,68 @@ See **[program help menu](../../../../vignette#anvi-run-interacdome)** or go bac
 ## Usage
 
 
-This program runs [InteracDome](https://interacdome.princeton.edu/) on your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>, which **finds the per-residue binding scores for all of your genes**. 
+This program predicts per-residue binding scores for genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> via the
+[InteracDome](https://interacdome.princeton.edu/) database.
 
-The full process that this program goes through is detailed in [this blog post by Evan Kiefl](https://merenlab.org/2020/07/22/interacdome/). In summary, this program runs the HMM search against all of the genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>, parses and filters the results, and then stores the per-residue binding frequencies for each gene into the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>.  
+The full process is detailed in [this blog post](https://merenlab.org/2020/07/22/interacdome/). In
+fact, ideally, all of that information should really be in this very document, but because the
+blogpost has preceded this document, it hasn't been translated over yet. So really, you should
+really be reading that blogpost if you want to get into the nitty gritty details. Otherwise, the
+quick reference herein should be sufficient.
 
-Before running this program, you'll have to have run <span class="artifact-n">[anvi-setup-interacdome](/software/anvio/help/main/programs/anvi-setup-interacdome)</span> to set up a local copy of [InteracDome's tab-separated files](https://interacdome.princeton.edu/#tab-6136-4).
+In summary, this program runs an HMM search of the genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> to all the Pfam gene
+families that have been annotated with InteracDome binding frequencies. Then, it parses and filters
+results, associates binding frequencies of HMM match states to the user's genes of interest, and
+then stores the resulting per-residue binding frequencies for each gene into the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> as
+<span class="artifact-n">[misc-data-amino-acids](/software/anvio/help/main/artifacts/misc-data-amino-acids)</span>.
 
-### Parameters
+Before running this program, you'll have to run <span class="artifact-n">[anvi-setup-interacdome](/software/anvio/help/main/programs/anvi-setup-interacdome)</span> to set up a local copy of
+[InteracDome's tab-separated files](https://interacdome.princeton.edu/#tab-6136-4).
 
-A basic run of this program looks like this: 
+
+## Basic Usage
+
+A basic run of this program looks like this:
 
 <div class="codeblock" markdown="1">
-anvi&#45;run&#45;interacdome &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;run&#45;interacdome &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> &#45;T 4
 </div>
 
-If you want to annotate potential ligand-binding positions in your sequences instead of domain-binding properties, you can choose to only use Pfams that correspond to domain-ligand interactions that had nonredundant instances across three or more distinct PDB entries and achieved a cross-validated precision of at least 0.5. 
+In addition to storing per-residue binding frequencies as <span class="artifact-n">[misc-data-amino-acids](/software/anvio/help/main/artifacts/misc-data-amino-acids)</span> in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>, this
+also outputs additional files prefixed with `INTERACDOME` by default (the prefix can be changed with
+`-O`). These are provided as <span class="artifact-n">[binding-frequencies-txt](/software/anvio/help/main/artifacts/binding-frequencies-txt)</span> files named `INTERACDOME-match_state_contributors.txt`
+and `INTERACDOME-domain_hits.txt`. See <span class="artifact-n">[binding-frequencies-txt](/software/anvio/help/main/artifacts/binding-frequencies-txt)</span> for details.
+
+## Parameters
+
+[InteracDome](https://interacdome.princeton.edu/) offers two different binding frequency datasets
+that can be chosen with `--interacdome-dataset`.  Choose 'representable' to include Pfams that
+correspond to domain-ligand interactions that had nonredundant instances across three or more
+distinct PDB structures. InteracDome authors recommend using this collection to learn more about
+domain binding properties. Choose 'confident' to include Pfams that correspond to domain-ligand
+interactions that had nonredundant instances across three or more distinct PDB entries and achieved
+a cross-validated precision of at least 0.5. The default is 'representable', and you can change it
+like so:
 
 <div class="codeblock" markdown="1">
 anvi&#45;run&#45;interacdome &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
                      &#45;&#45;interacdome&#45;dataset confident
 </div>
 
-Additionally, there are three thresholds that you can set: 
+This progarm is multi-threaded, so be sure to make use of it:
+
+<div class="codeblock" markdown="1">
+anvi&#45;run&#45;interacdome &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+                     &#45;&#45;interacdome&#45;dataset confident \
+                     &#45;T 8
+</div>
+
+Additionally, there are numerous thresholds that you can set: 
 
 1. [`--min-binding-frequency` to ignore very low frequencies](https://merenlab.org/2020/07/22/interacdome/#filtering-low-binding-frequency-scores). The InteracDome scale is from 0 (most likely not involved in binding) to 1 (most likely involved in binding). The default cutoff is 0.200000. 
-2. [`--min-hit-fraction` to remove results with low detection]((https://merenlab.org/2020/07/22/interacdome/#filtering-partial-hits)). The default value is 0.5, so HMMs that are less than twice as long as the total hit length will not be considered. 
-3. [`--information-content-cutoff` to ignore low-qulaity domain hits](https://merenlab.org/2020/07/22/interacdome/#filtering-bad-hits-with-information-content). The default value is 4, so for an alignment to count, the HMM sequence must be very conserved (with more than 95 percent consensus). Setting this cutoff to a very high value will keep all sequences regardless of percent consensus. 
+2. [`--min-hit-fraction` to remove poor quality HMM hits]((https://merenlab.org/2020/07/22/interacdome/#filtering-partial-hits)). The default value is 0.5, so at least half of a profile HMM's length must align to your gene, otherwise the hit will be discarded.
+3. [`--information-content-cutoff` to ignore low-qulaity domain hits](https://merenlab.org/2020/07/22/interacdome/#filtering-bad-hits-with-information-content). The default value is 4, which means every amino acid of your gene must match the consensus amino acid of the match state for each mate state with [information content](https://en.wikipedia.org/wiki/Sequence_logo) greater than 4. Decreasing this cutoff yields an increasingly stringent filter.
 
-By default, this program does not produce an output, just puts the final results into the <span class="artifact-n">[misc-data-amino-acids](/software/anvio/help/main/artifacts/misc-data-amino-acids)</span> (for SAAVs) or <span class="artifact-n">[misc-data-nucleotides](/software/anvio/help/main/artifacts/misc-data-nucleotides)</span> (for SNVs and SCVs) of your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>. If you'd like a tab-delimited output, simply provide the `-O` flag and anvi'o will create a <span class="artifact-n">[binding-frequencies-txt](/software/anvio/help/main/artifacts/binding-frequencies-txt)</span> for your data.  
 
 
 {:.notice}

@@ -33,8 +33,6 @@ See **[program help menu](../../../../vignette#anvi-gen-variability-profile)** o
 
 This program takes the variability data stored within a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> and compiles it from across samples into a single matrix that comprehensively describes your SNVs, SCVs or SAAVs (a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span>).
 
-By default, this program will just put the variability data into your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>. If you would like a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span> file, just provide the `-o` parameter with a filename. 
-
 This program is described on [this blog post](http://merenlab.org/2015/07/20/analyzing-variability/#the-anvio-way), so take a look at that for more details. 
 
 ## Let's talk parameters 
@@ -69,7 +67,7 @@ Instead of focusing on everything (providing the collection `DEFAULT` and the bi
     <div class="codeblock" markdown="1">
     anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
                                  &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                                 &#45;&#45;gene&#45;caller&#45;ids GENE_1,GENE_2,GENE_3
+                                 &#45;&#45;gene&#45;caller&#45;ids 1,2,3
     </div>
 
 2. Provide a <span class="artifact-n">[splits-txt](/software/anvio/help/main/artifacts/splits-txt)</span> to focus only on a specific set of splits. 
@@ -89,7 +87,7 @@ Instead of focusing on everything (providing the collection `DEFAULT` and the bi
                                  &#45;b <span class="artifact&#45;n">[bin](/software/anvio/help/main/artifacts/bin)</span>
     </div>
 
-### Additional Ways to Focus the Input 
+### Additional ways to focus the input 
 
 When providing a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span>, you can also limit your analysis to only genes that have structures in your database. 
 
@@ -97,7 +95,6 @@ When providing a <span class="artifact-n">[structure-db](/software/anvio/help/ma
 anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
                              &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
                              &#45;s <span class="artifact&#45;n">[structure&#45;db](/software/anvio/help/main/artifacts/structure&#45;db)</span> \
-                             &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span> \
                              &#45;&#45;only&#45;if&#45;structure
 </div>
 
@@ -107,25 +104,30 @@ You can also choose to look at only data from specific samples by providing a fi
 anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
                              &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
                              &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span> \
+                             &#45;b <span class="artifact&#45;n">[bin](/software/anvio/help/main/artifacts/bin)</span> \
                              &#45;&#45;samples&#45;of&#45;interest my_samples.txt
 </div>
 
 where `my_samples.txt` looks like this:
 
-    DAY_17A
-    DAY_18A
-    DAY_22A
-    
+<div class="codeblock" markdown="1">
+DAY_17A
+DAY_18A
+DAY_22A
+...
+</div>
+
 ### SNVs vs. SCVs vs. SAAVs 
 
-Which one you're analyzing depends entirely on the `engine` parameter, which you can set to `NT` (nucleotides), `CDN` (codons), or `AA` (amino acids). The default value is nucleotides. Note that to analyze SCVs or SAAVs, you'll have needed to use the flag `--profile-SCVs` when you ran <span class="artifact-n">[anvi-profile](/software/anvio/help/main/programs/anvi-profile)</span> or <span class="artifact-n">[anvi-merge](/software/anvio/help/main/programs/anvi-merge)</span>. 
+Which one you're analyzing depends entirely on the `engine` parameter, which you can set to `NT` (nucleotides), `CDN` (codons), or `AA` (amino acids). The default value is nucleotides. Note that to analyze SCVs or SAAVs, you'll have needed to use the flag `--profile-SCVs` when you ran <span class="artifact-n">[anvi-profile](/software/anvio/help/main/programs/anvi-profile)</span>.
 
 For example, to analyze SAAVs, run 
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
                              &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                             &#45;s <span class="artifact&#45;n">[structure&#45;db](/software/anvio/help/main/artifacts/structure&#45;db)</span> \
+                             &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span> \
+                             &#45;b <span class="artifact&#45;n">[bin](/software/anvio/help/main/artifacts/bin)</span> \
                              &#45;&#45;engine AA
 </div>
 
@@ -134,7 +136,8 @@ When analyzing single codon variants, you can choose to skip computing synonymit
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
                              &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                             &#45;s <span class="artifact&#45;n">[structure&#45;db](/software/anvio/help/main/artifacts/structure&#45;db)</span> \
+                             &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span> \
+                             &#45;b <span class="artifact&#45;n">[bin](/software/anvio/help/main/artifacts/bin)</span> \
                              &#45;&#45;engine CDN \
                              &#45;&#45;skip&#45;synonymity
 </div>
@@ -143,15 +146,15 @@ anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[pr
 
 You can filter the output in various ways, so that you can get straight to the variability positions that you're most interested in. Here are some of the filters that you can set:
 
-* The maximum number of variable positions that can come from a single split (e.g. to look at a max of only two random SCVs from each split)
-* The maximum and minimum departure from the reference or consensus position
-* The minimum coverage value in all samples (if a position is covered less than that value in a even single sample, it will not be reported)
+* The maximum number of variable positions that can come from a single split (e.g. to look at a max of 100 SCVs from each split, randomly sampled)
+* The maximum and minimum departure from the reference or consensus
+* The minimum coverage value in all samples (if a position is covered less than that value in _one_ sample, it will not be reported for _all_ samples)
 
 ### Adding additional information
 
-You can also set `--quince-mode`, which reports the variability data across all samples for each position reported (even if that position isn't variable in some samples). For example, if nucleotide position 34 of contig 1 was a SNV in one sample, the output would contain the data for nucleotide position 34 for all of your samples. 
+You can also set `--quince-mode`, which reports the variability data across all samples for each position reported (even if that position isn't variable in some samples). For example, if nucleotide position 34 of contig 1 was a SNV in one sample, the output would contain data for nucleotide position 34 for all of your samples. 
 
-You can also ask the program to report the contig names, split names, and gene-level coverage statistics. 
+You can also ask the program to report the contig names, split names, and gene-level coverage statistics, which appear as additional columns in the output.
 
 
 

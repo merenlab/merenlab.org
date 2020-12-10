@@ -21,7 +21,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **08 Dec 20 18:34:59** for anvi'o version **6.2-master (esther)**.
+The help contents were last updated on **09 Dec 20 18:29:44** for anvi'o version **6.2-master (esther)**.
 
 
 {% include _project-anvio-version.html %}
@@ -1687,7 +1687,7 @@ Listed below **a total of 114 programs**.
 </tr>
 <tr>
     <td class="artifact-p-td">
-    <span class="artifact-emoji">🍕</span> <span class="artifact-p" markdown="1">[binding-frequencies-txt](artifacts/binding-frequencies-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[misc-data-nucleotides](artifacts/misc-data-nucleotides) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[misc-data-amino-acids](artifacts/misc-data-amino-acids) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
+    <span class="artifact-emoji">🍕</span> <span class="artifact-p" markdown="1">[binding-frequencies-txt](artifacts/binding-frequencies-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[misc-data-amino-acids](artifacts/misc-data-amino-acids) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 </tbody>

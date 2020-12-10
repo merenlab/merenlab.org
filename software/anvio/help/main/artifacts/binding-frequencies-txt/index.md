@@ -32,6 +32,17 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
+When <span class="artifact-n">[anvi-run-interacdome](/software/anvio/help/main/programs/anvi-run-interacdome)</span> is ran, it stores binding frequencies directly into the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>
+as <span class="artifact-n">[misc-data-amino-acids](/software/anvio/help/main/artifacts/misc-data-amino-acids)</span>. Yet <span class="artifact-n">[anvi-run-interacdome](/software/anvio/help/main/programs/anvi-run-interacdome)</span> also outputs tabular data
+directly accessible by the user--this data is what is meant by <span class="artifact-n">[binding-frequencies-txt](/software/anvio/help/main/artifacts/binding-frequencies-txt)</span>.
+
+Specifically, <span class="artifact-n">[binding-frequencies-txt](/software/anvio/help/main/artifacts/binding-frequencies-txt)</span> refers to 2 files named `INTERACDOME-match_state_contributors.txt`
+and `INTERACDOME-domain_hits.txt` (the `INTERACDOME` part can be changed with `-O`). One day, the
+format of these files will be explicitly in this document. Until then, you can find their ouput formats
+in [this blogpost](https://merenlab.org/2020/07/22/interacdome/#6-storing-the-per-residue-binding-frequencies-into-the-contigs-database).
+Sorry for the inconvenience!
+
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "binding-frequencies-txt.md". Its contents will replace this sad text. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/binding-frequencies-txt.md) to update this information.
 
