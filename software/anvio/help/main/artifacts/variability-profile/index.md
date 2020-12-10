@@ -32,7 +32,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
-As an artifact, this describes the variability information about a single sample caluclated when you ran <span class="artifact-n">[anvi-profile](/software/anvio/help/main/programs/anvi-profile)</span>. To examine variability across samples, you'll want to use this information (which is stored within your <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span>) to run <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/main/programs/anvi-gen-variability-profile)</span>. 
+As an artifact, this describes the variability information about a single sample calculated when you ran <span class="artifact-n">[anvi-profile](/software/anvio/help/main/programs/anvi-profile)</span>. To examine variability across samples, you'll want to use this information (which is stored within your <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span>) to run <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/main/programs/anvi-gen-variability-profile)</span>. 
 
 ## Details about Variability
 

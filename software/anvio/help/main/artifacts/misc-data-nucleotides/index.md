@@ -21,7 +21,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-import-misc-data](../../programs/anvi-import-misc-data)</span> <span class="artifact-p">[anvi-run-interacdome](../../programs/anvi-run-interacdome)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-import-misc-data](../../programs/anvi-import-misc-data)</span></p>
 
 
 ## Required or used by

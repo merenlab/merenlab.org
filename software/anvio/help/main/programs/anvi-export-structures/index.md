@@ -31,9 +31,9 @@ See **[program help menu](../../../../vignette#anvi-export-structures)** or go b
 ## Usage
 
 
-This program exports the structures in a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span> as <span class="artifact-n">[protein-structure-txt](/software/anvio/help/main/artifacts/protein-structure-txt)</span> files. 
-
-This allows you to view your 3D structures through other softwares that aren't focused on variable positions (like <span class="artifact-n">[anvi-display-structure](/software/anvio/help/main/programs/anvi-display-structure)</span> is). 
+This program exports the structures from a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span> into the globally understood pdb format
+(<span class="artifact-n">[protein-structure-txt](/software/anvio/help/main/artifacts/protein-structure-txt)</span>), so they may be used for any follow-up analyses taking place outside of
+anvi'o.
 
 To run, just provide a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span> and an output path:
 
@@ -42,7 +42,8 @@ anvi&#45;export&#45;structures &#45;s <span class="artifact&#45;n">[structure&#4
                        &#45;o path/to/output
 </div>
 
-You can also provide a list of gene caller IDs, either directly through the parameter `--gene-caller-ids` or through a file with one gene caller ID per line. 
+You can also provide a list of gene caller IDs, either directly through the parameter
+`--gene-caller-ids` or through a file with one gene caller ID per line.
 
 
 {:.notice}

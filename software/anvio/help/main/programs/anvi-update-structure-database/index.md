@@ -45,7 +45,7 @@ anvi&#45;update&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[
                                &#45;&#45;gene&#45;caller&#45;ids 1,4,5
 </div>
 
-Then the strucutral analysis for genes 4 and 5 will be added to your <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span>. Gene 1 will be ignored, since it is already present.
+Then the structural analysis for genes 4 and 5 will be added to your <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span> (assuming templates are found). Gene 1 will be ignored, since it is already present.
 
 If instead you want to re-run the structural analysis on genes that are already in your <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span>, you'll need to specify that by adding the flag `--rerun-genes`
 
@@ -58,7 +58,7 @@ anvi&#45;update&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[
 
 Now, the program will rerun the analysis for gene 1 and will still add genes 4 and 5 to the <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span>. 
 
-Both of these runs will have the same MODELLER parameters as your run of <span class="artifact-n">[anvi-gen-structure-database](/software/anvio/help/main/programs/anvi-gen-structure-database)</span>. However, to get the raw outputs, you will need to use the parameter `--dump-dir`. You can also set a specific MODELLER program with `--modular-executable`.  Parameters for multi-threading would also have to be given again. 
+Both of these runs will have the same MODELLER parameters as your run of <span class="artifact-n">[anvi-gen-structure-database](/software/anvio/help/main/programs/anvi-gen-structure-database)</span>. However, to get the raw outputs, you will need to use the parameter `--dump-dir`. You can also set a specific MODELLER program with `--modeller-executable`. Parameters for multi-threading would also have to be given again.
 
 
 
