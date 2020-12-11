@@ -32,7 +32,7 @@ There are no anvi'o tools that generate this artifact, which means it is most li
 
 ## Description
 
-An external genome is anything you have in a FASTA file format (i.e., a genome you have downloaded from NCBI, or obtained through any other way) that was converted into a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>.
+An external genome is any genome assembly that was converted into a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> from its original FASTA file format using the program <span class="artifact-n">[anvi-gen-contigs-database](/software/anvio/help/main/programs/anvi-gen-contigs-database)</span>. You can obtain one of these in a variety of ways, the most common being 1) downloading a genome from a database such as NCBI and 2) assembling a genome yourself from sequencing reads. The key thing is that the sequences in the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> represent a _single_ microbial population (or species, if you are not working with microbes) - ie, it is not a metagenome.
 
 The external genomes file format enables anvi'o to work with one or more external genomes. A TAB-delimited external genomes file will be composed of the following two columns:
 

@@ -31,28 +31,25 @@ See **[program help menu](../../../../vignette#anvi-gen-fixation-index-matrix)**
 ## Usage
 
 
+
 This program generates a matrix of the pairwise fixation indices (F<sub>ST</sub>) between your samples.
 
 ### What's a fixation index?
 
-As described [in the Infant Gut
-Tutorial](https://merenlab.org/tutorials/infant-gut/#measuring-distances-between-metagenomes-with-fst),
-the fixation index is a measure of the distance between two populations, based on their sequence
-variants (usually SNVs). Specifically, the fixation index is the ratio between the variance in
-allele frequency between subpopulations and the variance in the total population. 
+As described [in the Infant Gut Tutorial](https://merenlab.org/tutorials/infant-gut/#measuring-distances-between-metagenomes-with-fst), the fixation index is a measure of the distance between two populations, based on their sequence variants (usually SNVs). Specifically, the fixation index is the ratio between the variance in allele frequency between subpopulations and the variance in the total population. 
 
-The fixation index has its own [Wikipedia page](https://en.wikipedia.org/wiki/Fixation_index) and is
-a special case of [F-statistics](https://en.wikipedia.org/wiki/F-statistics). 
 
-In anvi'o, the fixation index is calculated in accordance with [Schloissnig et al.
-(2013)](https://doi.org/10.1038/nature11711)'s work to allow variant positions with multiple
-competing alleles.
+The fixation index has its own [Wikipedia page](https://en.wikipedia.org/wiki/Fixation_index) and is a special case of [F-statistics](https://en.wikipedia.org/wiki/F-statistics). 
 
-## Anvi-gen-fixation-index
 
-There are two ways to run this program. 
+In anvi'o, the fixation index is calculated in accordance with [Schloissnig et al.  (2013)](https://doi.org/10.1038/nature11711)'s work to allow variant positions with multiple competing alleles.
 
-### Input 1: Variability Profile
+
+## Anvi-gen-fixation-index 
+
+There are two ways to run this program.  
+
+### Input 1: Variability Profile 
 
 The simplest one is the one shown [in the Infant Gut Tutorial](https://merenlab.org/tutorials/infant-gut/#measuring-distances-between-metagenomes-with-fst): just provide a <span class="artifact-n">[variability-profile](/software/anvio/help/main/artifacts/variability-profile)</span>, like so: 
 
@@ -61,7 +58,7 @@ anvi&#45;gen&#45;fixation&#45;index&#45;matrix &#45;&#45;variability&#45;profile
                                &#45;&#45;output&#45;file my_matrix.txt
 </div>
 
-This will use the information in your <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span> to generate the fixation index for each of the pairwise sample comparisons, and store the results in a <span class="artifact-n">[fixation-index-matrix](/software/anvio/help/main/artifacts/fixation-index-matrix)</span> named `my_matrix.txt`. 
+This will use the information in your <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span> to generate the fixation index for each of the pairwise sample comparisons, and store the results in a <span class="artifact-n">[fixation-index-matrix](/software/anvio/help/main/artifacts/fixation-index-matrix)</span> named `my_matrix.txt`.  
 
 ### Input 2: Anvi'o databases
 
@@ -71,7 +68,7 @@ Instead of providing a <span class="artifact-n">[variability-profile](/software/
 - Provide a list of splits (in a <span class="artifact-n">[splits-txt](/software/anvio/help/main/artifacts/splits-txt)</span>)
 - Provide a <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span> and <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span>
 
-Additionally, you can add structural annotations by inputting a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span> (and focus only on genes with structural annotations with the flag `--only-if-structure`) or choose to focus on only a subset of your samples by providing a file of samples of interest. 
+Additionally, you can add structural annotations by inputting a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span> (and focus only on genes with structural annotations with the flag `--only-if-structure`) or choose to focus on only a subset of your samples by providing a file of samples of interest.  
 
 When doing this, you can also set the variability engine to get the fixation index for SCVs (`--engine CDN`) or SAAVs (`--engine AA`). 
 
@@ -79,7 +76,8 @@ You can find more information about these parameters on the page for <span class
 
 ### Additional Parameters
 
-While a fixation index is usually betwene 0 and 1, it is possible for an index to be negative (usually because of out-breeding). By default, anvi'o sets these negative values to 0, but you can choose to keep the negative values with the flag `--keep-negatives`
+While a fixation index is usually betwene 0 and 1, it is possible for an index to be negative (usually because of out-breeding). By default, anvi'o sets these negative values to 0, but you can choose to keep the negative values with the flag `--keep-negatives` 
+
 
 
 {:.notice}

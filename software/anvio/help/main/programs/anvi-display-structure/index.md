@@ -31,33 +31,27 @@ See **[program help menu](../../../../vignette#anvi-display-structure)** or go b
 ## Usage
 
 
-This program opens an interactive interface to explore single amino acid variants (SAAVs) and single
-codon variants (SCVs) in the context of predicted tertiary protein structures and binding sites.
-There are many example uses
-[here](http://merenlab.org/2018/09/04/getting-started-with-anvio-structure/#display-metagenomic-sequence-variants-directly-on-predicted-structures)
-and you can work through an example as part of [the infant gut
-tutorial](http://merenlab.org/tutorials/infant-gut/#chapter-vii-from-single-amino-acid-variants-to-protein-structures)
-as well.  This is an integral program of anvi'o structure, which you can learn more about
-[here](https://merenlab.org/software/anvio-structure/).
 
-In short, this program enables users to explore sequence variation in the context of 3D protein
-structure, which reveals insight that cannot be learned from purely sequence-based approaches.
+This program opens an interactive interface to explore single amino acid variants (SAAVs) and single codon variants (SCVs) in the context of predicted tertiary protein structures and binding sites.  There are many example uses [here](http://merenlab.org/2018/09/04/getting-started-with-anvio-structure/#display-metagenomic-sequence-variants-directly-on-predicted-structures) and you can work through an example as part of [the infant gut tutorial](http://merenlab.org/tutorials/infant-gut/#chapter-vii-from-single-amino-acid-variants-to-protein-structures) as well.  This is an integral program of anvi'o structure, which you can learn more about [here](https://merenlab.org/software/anvio-structure/).
 
-### Before running
 
-To run this program, you'll need to have created a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span> which can be easily done with a
-<span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> and the program <span class="artifact-n">[anvi-gen-structure-database](/software/anvio/help/main/programs/anvi-gen-structure-database)</span>.
+In short, this program enables users to explore sequence variation in the context of 3D protein structure, which reveals insight that cannot be learned from purely sequence-based approaches.
 
-You'll also need a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> that was created using <span class="artifact-n">[anvi-profile](/software/anvio/help/main/programs/anvi-profile)</span>'s flag `--profile-SCVs`,
-which means that single codon variants (SCVs) have been profiled. Very sorry if this forces you to
-re-profile, but as of v6.2, this is now a very expedient process.
 
-### Basic Run
+### Before running 
 
-There are two ways to provide the variability information to this program.
+To run this program, you'll need to have created a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span> which can be easily done with a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> and the program <span class="artifact-n">[anvi-gen-structure-database](/software/anvio/help/main/programs/anvi-gen-structure-database)</span>.
 
-The first is to provide a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> and <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> pair, and let this program calculate
-SAAVs and SCVs as they are requested by the interface.
+
+You'll also need a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> that was created using <span class="artifact-n">[anvi-profile](/software/anvio/help/main/programs/anvi-profile)</span>'s flag `--profile-SCVs`, which means that single codon variants (SCVs) have been profiled. Very sorry if this forces you to re-profile, but as of v6.2, this is now a very expedient process.
+
+
+### Basic Run 
+
+There are two ways to provide the variability information to this program.  
+
+The first is to provide a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> and <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> pair, and let this program calculate SAAVs and SCVs as they are requested by the interface.
+
 
 <div class="codeblock" markdown="1">
 anvi&#45;display&#45;structure &#45;s <span class="artifact&#45;n">[structure&#45;db](/software/anvio/help/main/artifacts/structure&#45;db)</span> \
@@ -65,11 +59,8 @@ anvi&#45;display&#45;structure &#45;s <span class="artifact&#45;n">[structure&#4
                        &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> 
 </div>
 
-The second is to use <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/main/programs/anvi-gen-variability-profile)</span> to create a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span>. This
-way, you pre-load all of the variability data and don't have to wait for <span class="artifact-n">[anvi-display-structure](/software/anvio/help/main/programs/anvi-display-structure)</span>
-to calculate variability on-the-fly. This option is probably most convenient in instances where you
-have already generated a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span> for other reasons. If you fall into this camp,
-you can run <span class="artifact-n">[anvi-display-structure](/software/anvio/help/main/programs/anvi-display-structure)</span> as so:
+The second is to use <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/main/programs/anvi-gen-variability-profile)</span> to create a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span>. This way, you pre-load all of the variability data and don't have to wait for <span class="artifact-n">[anvi-display-structure](/software/anvio/help/main/programs/anvi-display-structure)</span> to calculate variability on-the-fly. This option is probably most convenient in instances where you have already generated a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span> for other reasons. If you fall into this camp, you can run <span class="artifact-n">[anvi-display-structure](/software/anvio/help/main/programs/anvi-display-structure)</span> as so:
+
 
 <div class="codeblock" markdown="1">
 anvi&#45;display&#45;structure &#45;s <span class="artifact&#45;n">[structure&#45;db](/software/anvio/help/main/artifacts/structure&#45;db)</span> \
@@ -78,35 +69,27 @@ anvi&#45;display&#45;structure &#45;s <span class="artifact&#45;n">[structure&#4
 </div>
 
 {:.notice}
-You still must provide the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> used to generate the <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span>, since it
-contains other necessary information such as functional annotations and ligand binding predictions.
-You may optionally provide a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> if custom sample grouping is important to you.
+You still must provide the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> used to generate the <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span>, since it contains other necessary information such as functional annotations and ligand binding predictions.  You may optionally provide a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> if custom sample grouping is important to you.
 
 {:.notice}
-During <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/main/programs/anvi-gen-variability-profile)</span>, if you are _only_ interested in genes that have predicted
-structures, you may want to run <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/main/programs/anvi-gen-variability-profile)</span> with the flag
-`--only-if-structure`.
+During <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/main/programs/anvi-gen-variability-profile)</span>, if you are _only_ interested in genes that have predicted structures, you may want to run <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/main/programs/anvi-gen-variability-profile)</span> with the flag `--only-if-structure`.
 
 ### Refining your search
 
 You have several options to refine what proteins and variants you're looking at: 
 
-- Provide a list of gene caller IDs to only display specific genes (this can be provided either
-  directly as a parameter or as a file with one gene caller ID per line)
-- Specify the minimum departure from the consensus sequence. This is a number from 0-1 that
-  describes the threshold for a variability position to be displayed. For example, if this is set to
-  0.2, then all SAAVs and SCVs where less than 20 percent of the reads vary from the consensus
-  sequence will not be displayed.
-- Specify samples of interest. Those in your <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> or <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span> that are
-  not in the samples of interest will be filtered out.
+- Provide a list of gene caller IDs to only display specific genes (this can be provided either directly as a parameter or as a file with one gene caller ID per line)
+- Specify the minimum departure from the consensus sequence. This is a number from 0-1 that describes the threshold for a variability position to be displayed. For example, if this is set to 0.2, then all SAAVs and SCVs where less than 20 percent of the reads vary from the consensus sequence will not be displayed.
+- Specify samples of interest. Those in your <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> or <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span> that are not in the samples of interest will be filtered out.
 
-If you're choosing to have <span class="artifact-n">[anvi-display-structure](/software/anvio/help/main/programs/anvi-display-structure)</span> calculate variability on-the-fly, you can speed
-things up by choosing to _only_ calculate SAAVs or _only_ calculate SCVs.
+If you're choosing to have <span class="artifact-n">[anvi-display-structure](/software/anvio/help/main/programs/anvi-display-structure)</span> calculate variability on-the-fly, you can speed things up by choosing to _only_ calculate SAAVs or _only_ calculate SCVs.
 
-### Other parameters
 
-Power users can also change the server configuration (i.e. set the IP address, port number, browser
-path, server password, etc.)
+### Other parameters 
+
+Power users can also change the server configuration (i.e. set the IP address, port number, browser path, server password, etc.)
+
+
 
 
 {:.notice}

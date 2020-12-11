@@ -31,19 +31,20 @@ See **[program help menu](../../../../vignette#anvi-export-structures)** or go b
 ## Usage
 
 
-This program exports the structures from a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span> into the globally understood pdb format
-(<span class="artifact-n">[protein-structure-txt](/software/anvio/help/main/artifacts/protein-structure-txt)</span>), so they may be used for any follow-up analyses taking place outside of
-anvi'o.
 
-To run, just provide a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span> and an output path:
+This program exports the structures from a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span> into the globally understood pdb format (<span class="artifact-n">[protein-structure-txt](/software/anvio/help/main/artifacts/protein-structure-txt)</span>), so they may be used for any follow-up analyses taking place outside of anvi'o.
+
+
+To run, just provide a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span> and an output path: 
 
 <div class="codeblock" markdown="1">
 anvi&#45;export&#45;structures &#45;s <span class="artifact&#45;n">[structure&#45;db](/software/anvio/help/main/artifacts/structure&#45;db)</span> \
                        &#45;o path/to/output
 </div>
 
-You can also provide a list of gene caller IDs, either directly through the parameter
-`--gene-caller-ids` or through a file with one gene caller ID per line.
+You can also provide a list of gene caller IDs, either directly through the parameter `--gene-caller-ids` or through a file with one gene caller ID per line.
+
+
 
 
 {:.notice}

@@ -32,16 +32,18 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 ## Description
 
-This database contains the protein structural data for genes in a corresponding <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> and
-can be generated with <span class="artifact-n">[anvi-gen-structure-database](/software/anvio/help/main/programs/anvi-gen-structure-database)</span>.
 
-Currently, this database is best utilized for visualizing 3D structures with <span class="artifact-n">[anvi-display-structure](/software/anvio/help/main/programs/anvi-display-structure)</span>.
+This database contains the protein structural data for genes in a corresponding <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> and can be generated with <span class="artifact-n">[anvi-gen-structure-database](/software/anvio/help/main/programs/anvi-gen-structure-database)</span>.
 
-For more information on the structure database, see [this blog
-post](http://merenlab.org/2018/09/04/getting-started-with-anvio-structure/#the-structure-database). 
+
+Currently, this database is best utilized for visualizing 3D structures with <span class="artifact-n">[anvi-display-structure](/software/anvio/help/main/programs/anvi-display-structure)</span>.  
+
+For more information on the structure database, see [this blog post](http://merenlab.org/2018/09/04/getting-started-with-anvio-structure/#the-structure-database). 
+
 
 {:.notice}
 This artifact is currently a stub. I'm looking at you, Evan. - Evan
+
 
 
 {:.notice}

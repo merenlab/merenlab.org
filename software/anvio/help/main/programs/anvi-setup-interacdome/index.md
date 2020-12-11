@@ -31,14 +31,12 @@ See **[program help menu](../../../../vignette#anvi-setup-interacdome)** or go b
 ## Usage
 
 
-This program (much like all of the other programs that begin with `anvi-setup`) sets up a local copy
-of the InteracDome database for <span class="artifact-n">[anvi-run-interacdome](/software/anvio/help/main/programs/anvi-run-interacdome)</span> as well as a local copy of Pfam
-v31.0, which is what InteracDome is defined for. Note that anvi'o only needs this program to be
-run once.
 
-Specifically, this downloads [InteracDome](https://interacdome.princeton.edu/)’s [tab-separated
-files](https://interacdome.princeton.edu/#tab-6136-4) and the Pfam v31.0 HMM profiles for the Pfams in your
-InteracDome data. This data is stored in the <span class="artifact-n">[interacdome-data](/software/anvio/help/main/artifacts/interacdome-data)</span> artifact. 
+This program (much like all of the other programs that begin with `anvi-setup`) sets up a local copy of the InteracDome database for <span class="artifact-n">[anvi-run-interacdome](/software/anvio/help/main/programs/anvi-run-interacdome)</span> as well as a local copy of Pfam v31.0, which is what InteracDome is defined for. Note that anvi'o only needs this program to be run once.
+
+
+Specifically, this downloads [InteracDome](https://interacdome.princeton.edu/)’s [tab-separated files](https://interacdome.princeton.edu/#tab-6136-4) and the Pfam v31.0 HMM profiles for the Pfams in your InteracDome data. This data is stored in the <span class="artifact-n">[interacdome-data](/software/anvio/help/main/artifacts/interacdome-data)</span> artifact. 
+
 
 It's easy as 1-2-3:
 
@@ -46,9 +44,8 @@ It's easy as 1-2-3:
 anvi&#45;setup&#45;interacdome
 </div>
 
-When running this program, you can provide a path to store your InteracDome data in. The default
-path is `anvio/data/misc/InteracDome`; if you use a custom path, you will have to provide it to
-<span class="artifact-n">[anvi-run-interacdome](/software/anvio/help/main/programs/anvi-run-interacdome)</span> with the same parameter. Here is an example run: 
+When running this program, you can provide a path to store your InteracDome data in. The default path is `anvio/data/misc/InteracDome`; if you use a custom path, you will have to provide it to <span class="artifact-n">[anvi-run-interacdome](/software/anvio/help/main/programs/anvi-run-interacdome)</span> with the same parameter. Here is an example run: 
+
 
 <div class="codeblock" markdown="1">
 anvi&#45;setup&#45;interacdome &#45;&#45;interacdome&#45;data&#45;dir path/to/directory 
@@ -60,6 +57,7 @@ If you want to overwrite any data that you have already downloaded (for example 
 anvi&#45;setup&#45;interacdome  &#45;&#45;interacdome&#45;data&#45;dir path/to/directory \ 
                         &#45;&#45;reset
 </div>
+
 
 
 {:.notice}

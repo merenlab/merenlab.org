@@ -21,7 +21,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **09 Dec 20 18:29:44** for anvi'o version **6.2-master (esther)**.
+The help contents were last updated on **10 Dec 20 18:36:20** for anvi'o version **6.2-master (esther)**.
 
 
 {% include _project-anvio-version.html %}
@@ -33,7 +33,7 @@ The help contents were last updated on **09 Dec 20 18:29:44** for anvi'o version
 
 Anvi'o artifacts represent **concepts, file types, or data types** anvi'o programs can work with. A given anvi'o artifact can be provided by the user (such as a FASTA file), produced by anvi'o (such as a profile database), or both (such as phylogenomic trees). Anvi'o artifacts link anvi'o programs to each other to build novel workflows.
 
-Listed below **a total of 102 artifacts**.
+Listed below **a total of 103 artifacts**.
 
 <table class="artifacts-table">
 
@@ -46,7 +46,7 @@ Listed below **a total of 102 artifacts**.
 </tr>
 
 <tr>
-<td><div class="artifact-icon-div"><img src="images/icons/TXT.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[configuration-ini](artifacts/configuration-ini)</span> <span class="artifact-n" markdown="1">[external-gene-calls](artifacts/external-gene-calls)</span> <span class="artifact-n" markdown="1">[protein-structure-txt](artifacts/protein-structure-txt)</span> <span class="artifact-n" markdown="1">[samples-txt](artifacts/samples-txt)</span> <span class="artifact-n" markdown="1">[fasta-txt](artifacts/fasta-txt)</span> <span class="artifact-n" markdown="1">[collection-txt](artifacts/collection-txt)</span> <span class="artifact-n" markdown="1">[misc-data-items-txt](artifacts/misc-data-items-txt)</span> <span class="artifact-n" markdown="1">[misc-data-layers-txt](artifacts/misc-data-layers-txt)</span> <span class="artifact-n" markdown="1">[misc-data-nucleotides-txt](artifacts/misc-data-nucleotides-txt)</span> <span class="artifact-n" markdown="1">[misc-data-amino-acids-txt](artifacts/misc-data-amino-acids-txt)</span> <span class="artifact-n" markdown="1">[misc-data-layer-orders-txt](artifacts/misc-data-layer-orders-txt)</span> <span class="artifact-n" markdown="1">[misc-data-items-order-txt](artifacts/misc-data-items-order-txt)</span> <span class="artifact-n" markdown="1">[linkmers-txt](artifacts/linkmers-txt)</span> <span class="artifact-n" markdown="1">[gene-calls-txt](artifacts/gene-calls-txt)</span> <span class="artifact-n" markdown="1">[binding-frequencies-txt](artifacts/binding-frequencies-txt)</span> <span class="artifact-n" markdown="1">[functions-txt](artifacts/functions-txt)</span> <span class="artifact-n" markdown="1">[functional-enrichment-txt](artifacts/functional-enrichment-txt)</span> <span class="artifact-n" markdown="1">[view-data](artifacts/view-data)</span> <span class="artifact-n" markdown="1">[layer-taxonomy-txt](artifacts/layer-taxonomy-txt)</span> <span class="artifact-n" markdown="1">[gene-taxonomy-txt](artifacts/gene-taxonomy-txt)</span> <span class="artifact-n" markdown="1">[genome-taxonomy-txt](artifacts/genome-taxonomy-txt)</span> <span class="artifact-n" markdown="1">[external-genomes](artifacts/external-genomes)</span> <span class="artifact-n" markdown="1">[internal-genomes](artifacts/internal-genomes)</span> <span class="artifact-n" markdown="1">[metagenomes](artifacts/metagenomes)</span> <span class="artifact-n" markdown="1">[coverages-txt](artifacts/coverages-txt)</span> <span class="artifact-n" markdown="1">[detection-txt](artifacts/detection-txt)</span> <span class="artifact-n" markdown="1">[variability-profile-txt](artifacts/variability-profile-txt)</span> <span class="artifact-n" markdown="1">[codon-frequencies-txt](artifacts/codon-frequencies-txt)</span> <span class="artifact-n" markdown="1">[aa-frequencies-txt](artifacts/aa-frequencies-txt)</span> <span class="artifact-n" markdown="1">[fixation-index-matrix](artifacts/fixation-index-matrix)</span> <span class="artifact-n" markdown="1">[kegg-metabolism](artifacts/kegg-metabolism)</span> <span class="artifact-n" markdown="1">[augustus-gene-calls](artifacts/augustus-gene-calls)</span> <span class="artifact-n" markdown="1">[vcf](artifacts/vcf)</span> <span class="artifact-n" markdown="1">[blast-table](artifacts/blast-table)</span> <span class="artifact-n" markdown="1">[splits-txt](artifacts/splits-txt)</span> <span class="artifact-n" markdown="1">[genbank-file](artifacts/genbank-file)</span> <span class="artifact-n" markdown="1">[splits-taxonomy-txt](artifacts/splits-taxonomy-txt)</span> <span class="artifact-n" markdown="1">[hmm-hits-matrix-txt](artifacts/hmm-hits-matrix-txt)</span></td>
+<td><div class="artifact-icon-div"><img src="images/icons/TXT.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[configuration-ini](artifacts/configuration-ini)</span> <span class="artifact-n" markdown="1">[external-gene-calls](artifacts/external-gene-calls)</span> <span class="artifact-n" markdown="1">[protein-structure-txt](artifacts/protein-structure-txt)</span> <span class="artifact-n" markdown="1">[samples-txt](artifacts/samples-txt)</span> <span class="artifact-n" markdown="1">[fasta-txt](artifacts/fasta-txt)</span> <span class="artifact-n" markdown="1">[collection-txt](artifacts/collection-txt)</span> <span class="artifact-n" markdown="1">[misc-data-items-txt](artifacts/misc-data-items-txt)</span> <span class="artifact-n" markdown="1">[misc-data-layers-txt](artifacts/misc-data-layers-txt)</span> <span class="artifact-n" markdown="1">[misc-data-nucleotides-txt](artifacts/misc-data-nucleotides-txt)</span> <span class="artifact-n" markdown="1">[misc-data-amino-acids-txt](artifacts/misc-data-amino-acids-txt)</span> <span class="artifact-n" markdown="1">[misc-data-layer-orders-txt](artifacts/misc-data-layer-orders-txt)</span> <span class="artifact-n" markdown="1">[misc-data-items-order-txt](artifacts/misc-data-items-order-txt)</span> <span class="artifact-n" markdown="1">[linkmers-txt](artifacts/linkmers-txt)</span> <span class="artifact-n" markdown="1">[gene-calls-txt](artifacts/gene-calls-txt)</span> <span class="artifact-n" markdown="1">[binding-frequencies-txt](artifacts/binding-frequencies-txt)</span> <span class="artifact-n" markdown="1">[functions-txt](artifacts/functions-txt)</span> <span class="artifact-n" markdown="1">[functional-enrichment-txt](artifacts/functional-enrichment-txt)</span> <span class="artifact-n" markdown="1">[view-data](artifacts/view-data)</span> <span class="artifact-n" markdown="1">[layer-taxonomy-txt](artifacts/layer-taxonomy-txt)</span> <span class="artifact-n" markdown="1">[gene-taxonomy-txt](artifacts/gene-taxonomy-txt)</span> <span class="artifact-n" markdown="1">[genome-taxonomy-txt](artifacts/genome-taxonomy-txt)</span> <span class="artifact-n" markdown="1">[external-genomes](artifacts/external-genomes)</span> <span class="artifact-n" markdown="1">[internal-genomes](artifacts/internal-genomes)</span> <span class="artifact-n" markdown="1">[metagenomes](artifacts/metagenomes)</span> <span class="artifact-n" markdown="1">[coverages-txt](artifacts/coverages-txt)</span> <span class="artifact-n" markdown="1">[detection-txt](artifacts/detection-txt)</span> <span class="artifact-n" markdown="1">[variability-profile-txt](artifacts/variability-profile-txt)</span> <span class="artifact-n" markdown="1">[codon-frequencies-txt](artifacts/codon-frequencies-txt)</span> <span class="artifact-n" markdown="1">[aa-frequencies-txt](artifacts/aa-frequencies-txt)</span> <span class="artifact-n" markdown="1">[fixation-index-matrix](artifacts/fixation-index-matrix)</span> <span class="artifact-n" markdown="1">[kegg-metabolism](artifacts/kegg-metabolism)</span> <span class="artifact-n" markdown="1">[augustus-gene-calls](artifacts/augustus-gene-calls)</span> <span class="artifact-n" markdown="1">[vcf](artifacts/vcf)</span> <span class="artifact-n" markdown="1">[blast-table](artifacts/blast-table)</span> <span class="artifact-n" markdown="1">[splits-txt](artifacts/splits-txt)</span> <span class="artifact-n" markdown="1">[genbank-file](artifacts/genbank-file)</span> <span class="artifact-n" markdown="1">[splits-taxonomy-txt](artifacts/splits-taxonomy-txt)</span> <span class="artifact-n" markdown="1">[hmm-hits-matrix-txt](artifacts/hmm-hits-matrix-txt)</span> <span class="artifact-n" markdown="1">[clustering-configuration](artifacts/clustering-configuration)</span></td>
 </tr>
 
 <tr>
@@ -107,7 +107,7 @@ Listed below **a total of 102 artifacts**.
 
 Anvi'o programs perform atomic tasks that can be weaved together to implement complete 'omics workflows. Please note that there may be programs that are not listed on this page. You can type 'anvi-' in your terminal, and press the TAB key twice to see the full list of programs available to you on your system, and type `anvi-program-name --help` to read the full list of command line options.
 
-Listed below **a total of 114 programs**.
+Listed below **a total of 115 programs**.
 
 
 <div style="width:100%;">
@@ -522,6 +522,28 @@ Listed below **a total of 114 programs**.
 <tr>
     <td class="artifact-p-td">
     <span class="artifact-emoji">🍕</span> <span class="artifact-p" markdown="1">[genome-taxonomy](artifacts/genome-taxonomy) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[genome-taxonomy-txt](artifacts/genome-taxonomy-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="width:100%;">
+<table class="programs-table">
+<tbody>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-experimental-organization](programs/anvi-experimental-organization)**</span>. <span markdown="1">Create an experimental clustering dendrogram.</span>.
+    </td>
+</tr>
+<tr>
+    <td class="artifact-r-td">
+    <span class="artifact-emoji">🧀</span> <span class="artifact-r" markdown="1">[clustering-configuration](artifacts/clustering-configuration) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr>
+    <td class="artifact-p-td">
+    <span class="artifact-emoji">🍕</span> <span class="artifact-p" markdown="1">[dendrogram](artifacts/dendrogram) <img src="images/icons/NEWICK.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 </tbody>
@@ -2303,7 +2325,7 @@ Listed below **a total of 114 programs**.
 </tr>
 <tr>
     <td class="artifact-p-td">
-    <span class="artifact-emoji">🍕</span> 
+    <span class="artifact-emoji">🍕</span> <span class="artifact-p" markdown="1">[view-data](artifacts/view-data) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[misc-data-items-txt](artifacts/misc-data-items-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 </tbody>

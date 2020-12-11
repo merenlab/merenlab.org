@@ -21,7 +21,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-export-items-order](../../programs/anvi-export-items-order)</span> <span class="artifact-p">[anvi-matrix-to-newick](../../programs/anvi-matrix-to-newick)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-experimental-organization](../../programs/anvi-experimental-organization)</span> <span class="artifact-p">[anvi-export-items-order](../../programs/anvi-export-items-order)</span> <span class="artifact-p">[anvi-matrix-to-newick](../../programs/anvi-matrix-to-newick)</span></p>
 
 
 ## Required or used by
