@@ -22,6 +22,9 @@ The purpose of this tutorial is to describe a flexible workflow to download geno
 The tutorial will primarily walk you through the steps of downloading genomes of interest from the NCBI (using [ncbi-genome-download](https://github.com/kblin/ncbi-genome-download) by [Kai Blin](https://twitter.com/kaiblin)), processing NCBI GenBank files (using [anvi-script-process-genbank-metadata](http://merenlab.org/software/anvio/vignette/#anvi-script-process-genbank-metadata)) to get anvi'o compatible files, and running anvi'o [contigs workflow](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#contigs-workflow) to generate a contigs database for each of these genomes (using [anvi-run-workflow](http://merenlab.org/software/anvio/vignette/#anvi-run-workflow)).
 
 {:.notice}
+You can run `pip install ncbi-genome-download` in your anvi'o environment to install the program that will be essentials for the next steps.
+
+{:.notice}
 There is another [blog post](http://merenlab.org/2018/12/01/combining-annotation-sources-for-pan/) by [Mike Lee](https://twitter.com/AstrobioMike) covering a similar topic for pangenomics. If you are interested in quick and large-scale phylogenomics analyses, you may also want to consider [GToTree](https://github.com/AstrobioMike/GToTree/wiki).
 
 {:.notice}
@@ -119,30 +122,24 @@ The example above covered a simple, but less likely use case. Many of us work wi
 
 ### Recovering genome IDs to download
 
-In these more realistic use cases, the helper script [gimme_taxa.py](https://github.com/kblin/ncbi-genome-download#contributed-scripts-gimme_taxapy) contributed by [Joe R. J. Healey](http://orcid.org/0000-0002-9569-6738) becomes handy. This helper script allows us to learn specific taxon identifiers for a set of genomes based on hierarchical taxonomic information (i.e., all genomes that belong to a family, or class, and so on).
+In these more realistic use cases, [Joe R. J. Healey](http://orcid.org/0000-0002-9569-6738)'s helper script in the `ncbi-genome-download` distribution, `gimme_taxa.py`, becomes handy. This helper script allows us to learn specific taxon identifiers for a set of genomes based on hierarchical taxonomic information (i.e., all genomes that belong to a family, or class, and so on).
 
 Say we have a MAG that we were able to assign to the candidate phylum Gracilibacteria (formerly [GN02](https://aem.asm.org/content/72/5/3685)).
 
 To download all genomes affiliated with Gracilibacteria from the NCBI, we will need a specific TaxID, a unique number that translates to a node in the tree of taxa. In this case the node will be Gracilibacteria, and it will allow us to ask `gimme_taxa.py` to give us all specific IDs for genomes that are under it.
 
-First, we download the helper script:
+There are two ways to do it. One way to do it is to use the name 'Gracilibacteria' as a starting point:
 
 ```bash
-wget https://raw.githubusercontent.com/kblin/ncbi-genome-download/master/contrib/gimme_taxa.py ./
-```
-
-One way to do it is to use the name 'Gracilibacteria' as a starting point:
-
-```bash
-python gimme_taxa.py Gracilibacteria \
-                     -o GN02-TaxIDs-for-ngd.txt
+gimme_taxa.py Gracilibacteria \
+              -o GN02-TaxIDs-for-ngd.txt
 ```
 
 Another way to do the same thing is to first go to NCBI's [Taxonomy Browser](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi) and find out the *parent TaxID* by simply searching for the taxon name of interest. If you do that for Gracilibacteria, you can see that the parent TaxID for this taxon is `363464`. We can run the helper script also with that number to find all that descend from there:
 
 ```bash
-python gimme_taxa.py 363464 \
-                     -o GN02-TaxIDs-for-ngd.txt
+gimme_taxa.py 363464 \
+              -o GN02-TaxIDs-for-ngd.txt
 ```
 
 {:.warning}
@@ -167,9 +164,9 @@ parent_taxid	descendent_taxid	descendent_name
 While this file is important to survey and keep as a report for later, to make it compatible with what `ncbi-genome-download` wants, we just need to keep the list of TaxIDs (the descendant taxon ids in this case). For that, you can re-run the helper script this way:
 
 ```bash
-python gimme_taxa.py Gracilibacteria \
-                     -o GN02-TaxIDs-for-ngd-just-IDs.txt \
-                     --just-taxids
+gimme_taxa.py Gracilibacteria \
+              -o GN02-TaxIDs-for-ngd-just-IDs.txt \
+              --just-taxids
 ```
 
 ### Downloading genomes from the NCBI
