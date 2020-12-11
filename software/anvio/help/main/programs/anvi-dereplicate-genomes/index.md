@@ -31,9 +31,9 @@ See **[program help menu](../../../../vignette#anvi-dereplicate-genomes)** or go
 ## Usage
 
 
-This program uses the user's similarity metric of choice to identify genomes that are highly similar
-to each other, and groups them together into redundant clusters. The program finds representative
-sequences for each cluster and outputs them into <span class="artifact-n">[fasta](/software/anvio/help/main/artifacts/fasta)</span> files.
+
+This program uses the user's similarity metric of choice to identify genomes that are highly similar to each other, and groups them together into redundant clusters. The program finds representative sequences for each cluster and outputs them into <span class="artifact-n">[fasta](/software/anvio/help/main/artifacts/fasta)</span> files.
+
 
 #### Input Options 
 
@@ -98,6 +98,7 @@ You can change how anvi'o picks the representative sequence from each cluster wi
 - `centrality` (default): picks the genome with highest average similiarty to every other genome in the cluster
 
 You can also choose to skip checking genome hashes (which will warn you if you have identical sequences in separate genomes with different names), provide a log path for debug messages or use multithreading (relevant only if not providing `--ani-dir` or `--mash-dir`).
+
 
 
 

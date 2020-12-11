@@ -32,7 +32,7 @@ There are no anvi'o tools that generate this artifact, which means it is most li
 
 ## Description
 
-An internal genome is any <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span> described in an anvi'o <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span> stored in an anvi'o <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span>.
+An internal genome is any <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span> described in an anvi'o <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span> stored in an anvi'o <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span>. You can obtain one of these by binning a metagenome assembly (stored in an anvi'o <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>), which you can do either manually in the interactive interface or automatically with a binning software, and saving or importing it into a <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span>.
 
 The internal genomes file format enables anvi'o to work with one or more bins from one or more collections that may be defined in different anvi'o <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> files. A TAB-delimited internal genomes file will be composed of the following five columns:
 

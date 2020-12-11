@@ -31,17 +31,14 @@ See **[program help menu](../../../../vignette#anvi-setup-pdb-database)** or go 
 ## Usage
 
 
-## Basic usage
 
-This program creates a <span class="artifact-n">[pdb-db](/software/anvio/help/main/artifacts/pdb-db)</span> local database that holds PDB structures from [this sequence
-database](https://salilab.org/modeller/supplemental.html), which is hosted by the [Sali
-lab](https://salilab.org/).  Their database comprises all PDB RCSB sequences that have been
-clustered at 95% sequence similarity. They seem to update their database every couple of months
-(thank you guys!).
+## Basic usage 
 
-The purpose of <span class="artifact-n">[anvi-setup-pdb-database](/software/anvio/help/main/programs/anvi-setup-pdb-database)</span> to have a local copy of reference structures that
-can be used to, for example, get template structures for homology modelling when
-<span class="artifact-n">[anvi-gen-structure-database](/software/anvio/help/main/programs/anvi-gen-structure-database)</span> is ran.
+This program creates a <span class="artifact-n">[pdb-db](/software/anvio/help/main/artifacts/pdb-db)</span> local database that holds PDB structures from [this sequence database](https://salilab.org/modeller/supplemental.html), which is hosted by the [Sali lab](https://salilab.org/).  Their database comprises all PDB RCSB sequences that have been clustered at 95% sequence similarity. They seem to update their database every couple of months (thank you guys!).
+
+
+The purpose of <span class="artifact-n">[anvi-setup-pdb-database](/software/anvio/help/main/programs/anvi-setup-pdb-database)</span> to have a local copy of reference structures that can be used to, for example, get template structures for homology modelling when <span class="artifact-n">[anvi-gen-structure-database](/software/anvio/help/main/programs/anvi-gen-structure-database)</span> is ran.
+
 
 Running this program is easy:
 
@@ -64,6 +61,7 @@ anvi&#45;setup&#45;pdb&#45;database &#45;&#45;update
 ## Notes
 
 The output <span class="artifact-n">[pdb-db](/software/anvio/help/main/artifacts/pdb-db)</span> database is ~20GB and its contents may take several hours to download.
+
 
 
 {:.notice}

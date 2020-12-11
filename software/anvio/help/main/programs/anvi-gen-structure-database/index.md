@@ -31,28 +31,21 @@ See **[program help menu](../../../../vignette#anvi-gen-structure-database)** or
 ## Usage
 
 
-This program attempts to solve for the 3D strucutres of proteins encoded by genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> using DIAMOND and MODELLER. 
 
-DIAMOND first searches your sequence(s) against a database of proteins with a known structure.  This
-database is downloaded from the [Sali lab](https://salilab.org/modeller/supplemental.html), who
-created and maintain MODELLER, and contains all of the PDB sequences clustered at 95% identity.
+This program attempts to solve for the 3D strucutres of proteins encoded by genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> using DIAMOND and MODELLER.  
 
-If any good hits are found, they are selected as templates, and their structures are nabbed either
-from [the RCSB directly](https://www.rcsb.org/), or from a local <span class="artifact-n">[pdb-db](/software/anvio/help/main/artifacts/pdb-db)</span> database which you can
-create yourself with <span class="artifact-n">[anvi-setup-pdb-database](/software/anvio/help/main/programs/anvi-setup-pdb-database)</span>. Then, anvi'o passes control over to MODELLER,
-which creates a 3D alignment for your sequence to the template structures, and makes final
-adjustments to it based off of empirical distributions of bond angles. For more information, check
-[the blogpost](http://merenlab.org/2018/09/04/getting-started-with-anvio-structure/#how-modeller-works).
+DIAMOND first searches your sequence(s) against a database of proteins with a known structure.  This database is downloaded from the [Sali lab](https://salilab.org/modeller/supplemental.html), who created and maintain MODELLER, and contains all of the PDB sequences clustered at 95% identity.
 
-The output of this program is a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span>, which contains all of the modelled structures.
-Currently, the primary use of the <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span> is for interactive exploration with
-<span class="artifact-n">[anvi-display-structure](/software/anvio/help/main/programs/anvi-display-structure)</span>. You can also export your structures into external .pdb files with
-<span class="artifact-n">[anvi-export-structures](/software/anvio/help/main/programs/anvi-export-structures)</span>, or incorporate structural information in the <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span>
-with <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/main/programs/anvi-gen-variability-profile)</span>.
+
+If any good hits are found, they are selected as templates, and their structures are nabbed either from [the RCSB directly](https://www.rcsb.org/), or from a local <span class="artifact-n">[pdb-db](/software/anvio/help/main/artifacts/pdb-db)</span> database which you can create yourself with <span class="artifact-n">[anvi-setup-pdb-database](/software/anvio/help/main/programs/anvi-setup-pdb-database)</span>. Then, anvi'o passes control over to MODELLER, which creates a 3D alignment for your sequence to the template structures, and makes final adjustments to it based off of empirical distributions of bond angles. For more information, check [the blogpost](http://merenlab.org/2018/09/04/getting-started-with-anvio-structure/#how-modeller-works).
+
+
+The output of this program is a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span>, which contains all of the modelled structures.  Currently, the primary use of the <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span> is for interactive exploration with <span class="artifact-n">[anvi-display-structure](/software/anvio/help/main/programs/anvi-display-structure)</span>. You can also export your structures into external .pdb files with <span class="artifact-n">[anvi-export-structures](/software/anvio/help/main/programs/anvi-export-structures)</span>, or incorporate structural information in the <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span> with <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/main/programs/anvi-gen-variability-profile)</span>.
+
 
 ### Basic run 
 
-Here is a simple run:
+Here is a simple run: 
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
@@ -60,9 +53,9 @@ anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[con
                             &#45;o STRUCTURE.db 
 </div>
 
-Following this, you will have the structures for genes 1, 2, and 3 stored in `STRUCTURE.db`, assuming reasonable templates were found. Alternatively, you can provide a file name with the gene caller IDs (one ID per line) with the flag `--genes-of-interest`. 
+Following this, you will have the structures for genes 1, 2, and 3 stored in `STRUCTURE.db`, assuming reasonable templates were found. Alternatively, you can provide a file name with the gene caller IDs (one ID per line) with the flag `--genes-of-interest`.  
 
-If you have already run <span class="artifact-n">[anvi-setup-pdb-database](/software/anvio/help/main/programs/anvi-setup-pdb-database)</span> and therefore have a local copy of representative PDB structures, make sure you use it by providing the `--offline` flag. If you put it in a non-default location, provide the path to your <span class="artifact-n">[pdb-db](/software/anvio/help/main/artifacts/pdb-db)</span>:
+If you have already run <span class="artifact-n">[anvi-setup-pdb-database](/software/anvio/help/main/programs/anvi-setup-pdb-database)</span> and therefore have a local copy of representative PDB structures, make sure you use it by providing the `--offline` flag. If you put it in a non-default location, provide the path to your <span class="artifact-n">[pdb-db](/software/anvio/help/main/artifacts/pdb-db)</span>: 
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
@@ -94,6 +87,7 @@ You also have the option to
 - Skip the use of DSSP, which predicts beta sheets, alpha helices, certain bond angles, and relative
   solvent acessibility of residues.
 - Additionally, to output **all** the raw data, just provide a path to the desired directory with the flag `--dump-dir`.
+
 
 
 
