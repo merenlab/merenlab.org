@@ -5,6 +5,8 @@ modified: 2020-12-12
 comments: false
 ---
 
+The purpose of this page is to show some of the fancy things our web page can do. If you add new features that are specific to our web code, or discover uses of features that are not described here, please feel free to extend this list.
+
 ## Marking anvi'o artifacts and programs
 
 **Raw**:
