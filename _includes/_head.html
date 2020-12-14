@@ -20,7 +20,7 @@
 <meta name="google-site-verification" content="x_a2aVtoLyANByc9VDBjyPm80IlGbNYUm4Vr1tSRhi0" />
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="{{ site.url }}/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/main.css">
 
 <meta http-equiv="cleartype" content="on">
 
@@ -34,13 +34,13 @@
 <script src="{{ site.url }}/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
 
 <!-- MathJAX stuff -->
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML-full">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML-full">
   MathJax.Hub.Config({
     jax: ["input/TeX","output/HTML-CSS"],
     extensions: ["tex2jax.js"],
     tex2jax: {
-      inlineMath: [ ['\$','\$'] ],
-      displayMath: [ ['$$','$$'] ]
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
     }
   });
 

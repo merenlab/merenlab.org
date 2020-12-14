@@ -34,9 +34,7 @@ This is a very simple and effective way to install anvi'o on your system along w
 <img src="/images/windows10.png" style="float:left; width:50px; border: None; display: block; margin-right: 5px;">Although these installation instructions primarily target and rigorously tested for Linux and Mac OSX, you will be able to follow them if you are using Microsoft Windows **if and only if you first install the [Linux Subsystem for Windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10)**. Our users have reported success stories with Ubuntu on WSL.
 </div>
 
-### Making sure you have conda
-
-For this to work, you need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be installed on your system. If you are not sure whether it is installed or not, open a terminal (hopefully an [iTerm](https://www.iterm2.com/), if you are using Mac) and type `conda`. You should see an output like this instead of a 'command not found' error (your version might be different):
+**For this to work, you need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be installed on your system.** If you are not sure whether it is installed or not, open a terminal (hopefully an [iTerm](https://www.iterm2.com/), if you are using Mac) and type `conda`. You should see an output like this instead of a 'command not found' error (your version might be different):
 
 ```bash
 $ conda --version
@@ -49,17 +47,19 @@ If you don't have conda installed, then you should first install it through thei
 conda update conda
 ```
 
-### Installing anvi'o into a new conda environment
+Good. Next, installing anvi'o.
 
 {:.notice}
-It is a good idea to make sure you are not already in a conda environment before you run the following steps. Just to be clear, you can indeed install anvi'o in an existing conda environment, but if things go wrong, we kindly ask you to refer to meditation for help, rather than [anvi'o community resources]({% post_url anvio/2019-10-07-getting-help %} since there is no way we can help you if you are installing anvi'o in a different conda environment :) If you want to see what environments do you have on your computer and whether you already are in one of them in your current terminal by running `conda env list`. **If all these are too much for you and all you want to do is to move on with the installation**, simply do this: open a new terminal, and run `conda deactivate`, and continue with the next paragraph.
+It is a good idea to make sure you are not already in a conda environment before you run the following steps. Just to be clear, you can indeed install anvi'o in an existing conda environment, but if things go wrong, we kindly ask you to refer to meditation for help, rather than [anvi'o community resources]({% post_url anvio/2019-10-07-getting-help %} since there is no way we can help you if you are installing anvi'o in a different conda environment :) If you want to see what environments do you have on your computer and whether you already are in one of them in your current terminal by running `conda env list`. **If all these are too much for you and all you want to do is to move on with the installation**, simply do this: open a new terminal, and run `conda deactivate`, and continue with the rest of the text.
 
-Resolving dependencies can take a very long time for conda (which is a [known problem](https://github.com/conda/conda/issues/7239)), hence, here we will use a serious shortcut to generate an environment for anvi'o `v{% include _project-anvio-version-number.html %}`:
+**Please choose only one of the two following subsections.**
 
-{:.notice}
-This is a solution that works very well for Mac OSX and **reduces installation time to minutes** that was first suggested by [Blake Sanders](https://micro.uchicago.edu/program/students/blake-sanders), a graduate student at the Committee on Microbiology, University of Chicago. If you follow that solution precisely, you can continue with the next line as if nothing happened.
+### Installation for Mac OSX users
 
-{:.warning}
+Resolving dependencies (especially on Mac systems) can take a very long time for conda (which is a [known problem](https://github.com/conda/conda/issues/7239)), hence, here we will use a serious shortcut to generate an environment for anvi'o `v{% include _project-anvio-version-number.html %}`:
+
+The solution here works very well for Mac OSX and **reduces installation time to minutes** that was first suggested by [Blake Sanders](https://micro.uchicago.edu/program/students/blake-sanders), a graduate student at the Committee on Microbiology, University of Chicago. If you follow that solution precisely, you can continue with the next line as if nothing happened.
+
 If you don't want to do this, or if this somehow is not working for you, you can click on "*A more conventional way to install stable anvi'o through conda*" section down below and follow the recipe there instead. If things failed here it would be extremely helpful if you could let us know which operating system you were using with its version, and what error did you get so we can perhaps improve it.
 
 ``` bash
@@ -78,9 +78,13 @@ conda env create -f anvio-environment-6.2.yml
 conda activate anvio-6.2
 ```
 
-<details markdown="1"><summary>Show/hide A more conventional way to install stable anvi'o through conda</summary>
+*If you are here, jump to "Checking your installation" section without running the commands described under "For Linux / Windows users".*
 
-If you are here it means the recipe above either didn't work for you, or you need to do it the oldschool way for a specific reason. In that case, first you will need to create a conda environment for anvi'o v{% include _project-anvio-version-number.html %} (it is essential to create it with Python 3.6 as shown below):
+### Installation for Linux / Windows users
+
+This is the conventional way of running conda to install stable anvi'o through conda. Even though the title says it is for Linux and Windows users, it will also work for Mac OSX users (but for them the installation will likely take forever, hence the alternative above).
+
+First you will need to create a conda environment for anvi'o v{% include _project-anvio-version-number.html %} (it is essential to create it with Python 3.6 as shown below):
 
 ``` bash
 conda create -y --name anvio-6.2 python=3.6
@@ -98,10 +102,7 @@ And finally install anvi'o in it:
 conda install -y -c conda-forge -c bioconda anvio==6.2
 ```
 
-{:.warning}
-This may take a while. Seriously, though, this may take *A VERY LONG TIME* for some of you (I heard it exceeded 24 hours for some people, which is obviously crazy). But it will work at the end. The long wait is due to the time requirement of the package dependency resolver of conda, which scales linearly with the number of conda packages out there. Good news? It is a [known problem](https://github.com/conda/conda/issues/7239), and conda developers are on it. And I'm certain we will see improvements in the future.
-
-</details>
+That's all!
 
 ### Checking your installation
 
@@ -168,10 +169,9 @@ Following the active codebase will come with various advantages, but you must al
 {:.notice}
 Special thanks go to [Jarrod Scott](https://twitter.com/metacrobe) who tested this recipe out and suggested changes. If you something doesn't work here anymore please fix it, and share your solution with us.
 
-Because resolving dependencies can take a very long time for conda, here we will have a serious shortcut to generate a `master` environment for anvi'o quickly:
+Because resolving dependencies can take a very long time for conda on Mac OSX, here we will have a serious shortcut to generate a `master` environment for anvi'o quickly. Use the following recipe only if you are setting up anvi'o on a Mac OSX system. Otherwise, jump to the next one.
 
-{:.warning}
-If you don't want to do this, or if this somehow is not working for you, you can click on "*A more conventional way to generate the conda environment*" section down below and follow the recipe there instead. If things failed here it would be extremely helpful if you could let us know which operating system you were using with its version, and what error did you get so we can perhaps improve it.
+### Conda setup for Mac OSX users
 
 ``` bash
 # first get a copy of the following file (if you get a "command not found"
@@ -189,9 +189,11 @@ conda env create -f anvio-environment-master.yml
 conda activate anvio-master
 ```
 
-<details markdown="1"><summary>Show/hide A more conventional way to generate the conda environment</summary>
+If everything worked here, you can jump to the "setting up the local copy of the anvi'o codebase" section.
 
-OK. So the solution that relies on an environment file is not working for you, or you want more control in the creation of a conda environment for anvi'o. Fine! In that case, we can do this step by step. First, create a new conda environment, and activate it:
+### Conda setup for Linux/Windows users
+
+Create a new conda environment, and activate it:
 
 ``` bash
 conda deactivate
@@ -212,7 +214,8 @@ Python 3.6.7
 Good? Good. Then, install the following dependencies in this conda environment:
 
 ``` bash
-conda install -y prodigal \
+conda install -y -c conda-forge -c bioconda -c defaults \
+                 prodigal \
                  mcl \
                  muscle \
                  hmmer \
@@ -238,12 +241,11 @@ conda install -y prodigal \
 
 Once this is done, you can continue with the next step of acquiring and setting up the anvi'o codebase on your computer.
 
-</details>
-
+### Setting up the local copy of the anvi'o codebase
 
 If you are here, it means you have a conda environment with everything except anvi'o itself. We will make sure this environment _has_ anvi'o by getting a copy of the anvi'o codebase from GitHub.
 
-Here I will suggest `~/github/` as the base directory, but you can change if you want to something else (in which case you must remember to apply that change all the following commands, of course):
+Here I will suggest `~/github/` as the base directory to keep the code, but you can change if you want to something else (in which case you must remember to apply that change all the following commands, of course):
 
 ``` bash
 # setup the code directory and get the anvi'o codebase
@@ -258,11 +260,11 @@ cd ~/github/anvio/
 pip install -r requirements.txt
 ```
 
-Now we will setup your conda environment in such a way, every time you activate it, you will get the very latest updates from the `master` repository. While you are still in anvi'o environment, copy-paste these lines into your terminal:
+Now we have the codebase and we have the conda environment, but they don't know about each other. Now we will setup your conda environment in such a way, every time you activate it, you will get the very latest updates from the main anvi'o repository. While you are still in anvi'o environment, copy-paste these lines into your terminal:
 
 ``` bash
 cat <<EOF >${CONDA_PREFIX}/etc/conda/activate.d/anvio.sh
-# creating an activation script for the the anvi'o master conda environmnet
+# creating an activation script for the the anvi'o master conda environment
 # so (1) Python knows where to find anvi'o libraries, (2) BASH knows
 # where to find its programs, and (3) every time the environment is activated
 # it downloads the latest code from the master repository
@@ -412,7 +414,7 @@ alias as=init_anvio_stable
 alias am=init_anvio_master
 ```
 
-With this steup, in a new terminal window I can type `as` or `am` to run the stable or master version of anvi'o, or to switch from one to the other:
+With this setup, in a new terminal window I can type `as` or `am` to run the stable or master version of anvi'o, or to switch from one to the other:
 
 ```
 meren ~ $ anvi-self-test -v
@@ -447,6 +449,7 @@ Structure DB version .........................: 1
 
 
 **But please note** that both aliases run `deactivate` and `conda deactivate` first, and they may not work for you especially if you have a fancy setup. I'd be very happy to improve these shortcuts.
+
 </details>
 
 

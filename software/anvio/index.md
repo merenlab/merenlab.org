@@ -4,7 +4,7 @@ title: "An analysis and visualization platform for 'omics data"
 redirect_from: /projects/anvio/
 excerpt: "Anvi'o Project Page"
 image:
-  featurerelative: help/images/header.png
+  featurerelative: help/main/images/header.png
   display: true
 ---
 
@@ -32,17 +32,13 @@ We welcome you to join in our growing international community, and look forward 
 
 **[Installing anvi'o](/install-anvio/)** is quite straightforward on Mac, Linux, or Windows operating systems. Following our installation tutorial you can install the latest stable version of anvi'o or tap into our master code repository to track the very latest changes. Alternatively, you can use one of our [Docker containers](/anvio-docker) without any installation.
 
-# Help
+# Get Help
 
-[Click here](/software/anvio/help)!
+See our [community resources](/software/anvio/getting-help), or browse [all anvi'o programs and artifacts](/software/anvio/help/main/).
 
 # Tutorials
 
 See the "**tutorials**" pull-down menu to learn what you can do with anvi'o.
-
-# Vignette
-
-See **all programs in anvi'o** here: [{{ site.url }}/software/anvio/vignette/]({{ site.url }}/software/anvio/vignette/)
 
 
 # Citation

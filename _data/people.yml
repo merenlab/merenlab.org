@@ -183,7 +183,7 @@
     - title: Post-doctoral Scientist
       inst: The Department of Medicine at the University of Chicago
       inst_link: http://medicine.uchicago.edu/
-      
+
 - alias: jessica
   official: True
   name: Jessica Pan
@@ -215,7 +215,7 @@
     - title: Undergraduate Student
       inst: Biological Sciences & Environmental Science
       inst_link: http://collegecatalog.uchicago.edu/thecollege/biologicalsciences/
-      
+
 - alias: isaac
   official: True
   name: Isaac Fink
@@ -230,7 +230,40 @@
     - title: Undergraduate Student
       inst: Computer Science
       inst_link: http://collegecatalog.uchicago.edu/thecollege/computerscience/
-      
+
+- alias: ibrahim
+  official: True
+  name: Ibrahim Mohamed
+  tenure_start: 07/2020
+  role: Undergraduate Researcher
+  email: ibrahimemohamed33@gmail.com
+  github: ibrahimmohamed33
+  avatar: bio-ibrahim.png
+  orcid: 0000-0002-1130-5454
+  bio: “I am a student researcher interested in applying concepts from mathematics and computer science to understand and analyze metagenomes.”
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  affiliations:
+    - title: Undergraduate Student
+      inst: Mathematics
+      inst_link: http://collegecatalog.uchicago.edu/thecollege/mathematics/
+
+- alias: matthew
+  official: True
+  name: Matthew Lawrence Klein
+  web: http://matthewlawrencekle.in 
+  github: matthewlawrenceklein
+  linkedin: matthew-lawrence-klein
+  tenure_start: 11/2020
+  role: Programmer
+  email: mtt.l.kln@gmail.com
+  avatar: bio-matthew_k.png
+  bio: “I am interested in technology's role in supporting a more equitable future on planet earth.”
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  affiliations:
+    - title: Programmer
+      inst: The Department of Medicine at the University of Chicago
+      inst_link: http://medicine.uchicago.edu/
+
 - alias: kiki
   official: True
   name: Kiki Füßel

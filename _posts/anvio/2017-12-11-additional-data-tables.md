@@ -29,17 +29,15 @@ That's why, while keeping the *ad hoc* workflow in place, we have extended anvi'
 {:.notice}
 As a part of this design, we ended up killing the 'anvi'o samples database'. If you are too young to remember those days, that's fine, you are not missing anything. If you are stuck with a an anvio'o project that has a samples database, don't worry, `anvi-migrade-db` program will help you to import the data in the samples database into the new tables in the profile database with no effort.
 
-## Views, items, layers, orders: some anvi'o terminology 
+## Purpose and terminology
 
-We are as confused as you are, so let's start with this example display to explain what is what:
+If you are not familiar with anvi'o terminology for display items (i.e., if you don't know what is a layer, view, or item), please [read this first](/software/anvio/help/main/artifacts/interactive/) to familiarize yourself with various parts of standard anvio' intearctive displays:
 
-[![image]({{images}}/anvio-display.png)]({{images}}/anvio-display.png){:.center-img .width-50}
+[![image]({{images}}/anvio-display.png)](/software/anvio/help/main/artifacts/interactive/){:.center-img .width-50}
 
-In this display, the deondrogram denoted by **(1)** shows the organization of **items**. So anything that appears there are what we call 'items'. Concentric circles identified by **(2)** represent the view data. View data is often computed by anvi'o itself, and stored in pan or profile databases. Additional data for items will decorate things around view data display (such as those green things in this particular example). The dendrogram identified by **(3)** shows how those concentric circles, or **layers** should be organized. Data we will import as 'layer orders' will appear there. What is shown by **(4)** is the additional data for layers, and you will also learn in this post how to import data to appear there.
+The purpose of this post is to show you how to annotate a display with additional data for items, layers, and layer orders. For all these tasks, we will use the same three programs, **anvi-import-misc-data**, **anvi-export-misc-data**, and **anvi-delete-misc-data** with different target tables (such as `items` to decorate items, `layers` to make **(4)** appear, or `layer_orders` make data for **(3)** available for our pan or profile databases.
 
-Basically, the purpose of this post is to show you how to annotate a display with additional data for items, layers, and layer orders. For all these tasks, we will use the same three programs, **anvi-import-misc-data**, **anvi-export-misc-data**, and **anvi-delete-misc-data** with different target tables (such as `items` to decorate items, `layers` to make **(4)** appear, or `layer_orders` make data for **(3)** available for our pan or profile databases.
-
-Throughout this post, I will use a simple dataset for demonstration purposes. If you would like to follow it on your anvi'o `v4` or later installed computer, first run these commands:
+Throughout this post, I will use a simple dataset for demonstration. If you would like to follow it on your anvi'o `v4` or later installed computer, first run these commands:
 
 
 ``` bash
@@ -47,7 +45,6 @@ wget http://merenlab.org/files/anvio_additional_data_tables_example.tar.gz
 tar -zxvf anvio_additional_data_tables_example.tar.gz
 cd anvio_additional_data_tables_example/
 ```
-
 
 ## Dealing with data tables as a user
 

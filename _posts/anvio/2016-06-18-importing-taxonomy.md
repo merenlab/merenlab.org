@@ -43,7 +43,7 @@ The Kaiju package comes with many handy scripts for analyzing the taxonomic cont
 
 * Next, run the Kaiju command to classify you genes.
 
-* Finally, run `addTaxonNames` to amend the Kaiju output with taxon names.  
+* Finally, run `addTaxonNames` to amend the Kaiju output with taxon names.
 
 
 **First, download and format a reference database**. You only need to run this once unless you want multiple databases or you want to update an existing database.

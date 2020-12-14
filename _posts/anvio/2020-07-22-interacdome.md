@@ -63,7 +63,7 @@ ecological markers.
 To bridge a gap between metagenomic sequence variants and the structural biology of gene products
 that underpin function and fitness is no easy task, but I think its critical if we want empower
 our findings with biochemical information. (As a small step in this direction, Özcan, Meren, and I developed
-[anvi-3dev]({{ site.url }}/software/anvi-3dev), a way to visualize metagenomic sequence variants
+[anvi'o structure]({{ site.url }}/software/anvio-structure), a way to visualize metagenomic sequence variants
 directly on predicted protein structures).
 
 Related to this concept, one of the most transformative talks I have ever attended was given by Dr.

@@ -12,13 +12,47 @@ p {
   line-height: 1.6em;
 }
 
-/* 
+/*
    Header
    ========================================================================== */
 
+.page ul {
+    line-height: 1.6em;
+}
+
+.imgclipholder p {
+    color: #6b6b6b;
+    background: #f5f5f5;
+    width: 90%;
+    margin: auto;
+    margin-top: -10px;
+    margin-left: 13px;
+    margin-bottom: 10px;
+    font-size: smaller;
+    font-style: italic;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.imgclip{
+    width: 95%;
+    height: 200px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: 10px solid #efefef !important;
+    border-radius: 10px;
+    -moz-box-shadow:    3px 3px 5px 6px #ddd;
+    -webkit-box-shadow: 3px 3px 5px 6px #ddd;
+    box-shadow:         3px 3px 5px 6px #ddd;
+}
+
+.imgclip .clippedimg{
+    border:none !important;
+}
+
 .slack-button-img {
     height: 12px;
-    margin-bottom: 3px;
+    margin-bottom: 4px;
     margin-left: 1px;
 }
 
@@ -70,6 +104,69 @@ p {
     border-radius: 2px;
 }
 
+
+.artifact-icon-div {
+    width: 30px;
+}
+
+.artifact-icon {
+    border: none !important;
+    border-radius: 0px !important;
+    object-fit:scale-down;
+}
+
+.artifact-icon-mini {
+    height: 13px;
+    border: none !important;
+    border-radius: 0px !important;
+    object-fit:scale-down;
+}
+
+.artifacts-table {
+    font-family: unset;
+}
+
+.artifact-emoji {
+    font-size: inherit;
+}
+
+.programs-table{
+    font-family: unset;
+    width: 100%;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+}
+
+.artifact-list-td {
+    line-height: 28px;
+}
+
+.artifact-p-td {
+    background: #eefff5;
+    line-height: 28px;
+}
+
+.artifact-r-td {
+    background: #f9f5fb;
+    line-height: 28px;
+}
+
+.program-td {
+    background: #f1f1f1;
+}
+
+.programs-table tbody {
+    display: table;
+    width: 100%;
+}
+
+.programs-table td {
+    border: none;
+}
+.artifacts-table td {
+    border: none;
+}
+
 summary {
     background: #f4f5ea;
     padding: 5px;
@@ -112,7 +209,7 @@ details {
 
 .slack-invitation {
     position: relative;
-    top: -6px;
+    top: -3px;
     font-family: -webkit-body;
     font-variant: all-petite-caps;
 }

@@ -63,7 +63,7 @@ Next, we'll make FASTAs, external gene calls, and functional annotations for all
 ```bash
 anvi-script-process-genbank-metadata -m metadata.txt \
                                      --output-dir ecoli \
-                                     --output-fasta-txt ecoli.txt
+                                     --output-fasta-txt fasta.txt
 ```
 
 Just to have an idea about what is going on, please take a look at the output file `ecoli.txt`. We will use this file to create our contigs databases for these genomes.
@@ -72,21 +72,19 @@ Just to have an idea about what is going on, please take a look at the output fi
 
 Now we need to get the fasta files into an anvi'o friendly format. There are many ways to turn your FASTA files into anvi'o contigs databases, but here we will follow our best practices and process all our files using the [anvi'o contigs workflow](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#contigs-workflow). 
 
-First, make a json file for the anvio workflow called `contigs.json`:
+First, make a config file for the anvio workflow called `config.json`:
 
 ```bash
-{
-    "fasta_txt": "ecoli.txt"
-}
+anvi-run-workflow -w contigs --get-default-config config.json
 ```
 
 Then run the contigs workflow! 
 
 {:.notice}
-This step may take a while depending on your computational resources. If you have any questions about running anvi'o workflows please refer to this tutorial [here](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#a-general-introduction-to-essentials). If you access to an HPC or cluster computer, check out additional parameters  [here](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#running-workflows-on-a-cluster).
+This step may take a while depending on your computational resources. If you have any questions about running anvi'o workflows please refer to this tutorial [here](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#a-general-introduction-to-essentials). If you access to an HPC or cluster computer, check out additional parameters [here](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#running-workflows-on-a-cluster). HINT: you will probably need to edit `config.json` by switching the rule `anvi_gen_contigs_database` parameter `--ignore-internal-stop-codons` to `true`.
 ```bash
 anvi-run-workflow -w contigs \
-                  -c contigs.json \
+                  -c config.json \
                   --additional-params \
                             --jobs 6 \
                             --resources nodes=6
