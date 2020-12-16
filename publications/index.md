@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2020-11-20
+modified: 2020-12-16
 comments: false
 ---
 
@@ -18,6 +18,40 @@ This page shows publications that are most reflective of our interests. For a co
 
 <a name="2020">&nbsp;</a>
 <h1>2020</h1>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s13059-020-02195-w"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1186/s13059-020-02195-w" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1186/s13059-020-02195-w" target="_new">Functional and genetic markers of niche partitioning among enigmatic members of the human oral microbiome</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Shaiber A</span>, Willis AD, <span class="pub-member-author">Delmont TO</span>, Roux S, Chen L, <span class="pub-member-author">Schmid AC</span>, <span class="pub-member-author">Yousef M</span>, <span class="pub-member-author">Watson AR</span>, <span class="pub-member-author">Lolans K</span>, <span class="pub-member-author">Esen ÖC</span>, <span class="pub-member-author">Lee STM</span>, Downey N, Morrison HG, Dewhirst FE, Mark Welch JL<sup>‡</sup>, <span class="pub-member-author">Eren AM<sup>‡</sup></span></span>
+    <span class="pub-co-first-authors"><sup>‡</sup>Co-senior authors</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/shaiber_et_al_tm7_phylogenomics.png"><img src="/images/pubs/shaiber_et_al_tm7_phylogenomics.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A multi-omics study that combines <b>genome-resolved metagenomics</b>, <b>pangenomics</b>, <b>phylogenomics</b>, and <b>microbial population genetics</b> to investigate the ecology and evolution of Saccharibacteria (TM7) in the human oral cavity, and offers a formal description of '<b>functional enrichment</b>' statistic for phylogenomics and pangenomics.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Demonstrates that TM7s split into tongue specialists and plaque specialists, and plaque TM7s group with environmental TM7s, leading to an hypothesis that <b>the dental plaque may have served as a stepping stone for environmental microbes to adapt to host environments</b> at least for some clades of microbes.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><b>Genome Biology</b>, 21:292.</span>
+</div>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s13059-020-02200-2"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1186/s13059-020-02200-2" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1186/s13059-020-02200-2" target="_new">Metapangenomics of the oral microbiome provides insights into habitat adaptation and cultivar diversity</a></h3>
+    <span class="pub-authors">Utter DR, Borisy GG, <span class="pub-member-author">Eren AM</span>, Cavanaugh CM<sup>‡</sup>, Mark Welch JL<sup>‡</sup></span>
+    <span class="pub-co-first-authors"><sup>‡</sup>Co-senior authors</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/utter_et_al_metapangenome.png"><img src="/images/pubs/utter_et_al_metapangenome.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- An application of <b>metapangenomics</b> that links the gene pool of two major oral microbial taxa, <i>Haemophilus parainfluenzae</i> and the genus <i>Rothia</i>, to their ecology using the Human Microbiome Project metageonomes generated from tongue, buccal mucosa, and dental plaque samples.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Reveals that seemingly generalist organisms are composed of cryptic subpopulations with distinct ecology that is associated with only a small number of genes.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  <a href="https://dutter.github.io/projects/oral_metapan">Reproducible bioinformatics workflow</a> by Daniel Utter.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><b>Genome Biology</b>, 21:293.</span>
+</div>
 
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.7554/eLife.56998"></div>
@@ -204,7 +238,7 @@ This page shows publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41564-018-0176-9"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41564-018-0176-9" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <h3><a href=" https://doi.org/10.1038/s41564-018-0176-9" target="_new">Nitrogen-fixing populations of Planctomycetes and Proteobacteria are abundant in surface ocean metagenomes</a></h3>
-    <span class="pub-authors"><span class="pub-member-author">Delmont TO</span>, Quince C, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Esen ÖC</span>, Lee ST, Rappé MS, MacLellan SL, Lücker S, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-authors"><span class="pub-member-author">Delmont TO</span>, Quince C, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Esen ÖC</span>, <span class="pub-member-author">Lee STM</span>, Rappé MS, MacLellan SL, Lücker S, <span class="pub-member-author">Eren AM</span></span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="http://i.imgur.com/oFRefc4.jpg"><img src="http://i.imgur.com/oFRefc4.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>

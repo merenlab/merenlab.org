@@ -11,7 +11,9 @@ names_to_highlight = ['Eren AM',
                       'Kiefl E',
                       'Cui S',
                       'Watson AR',
-                      'Lolans K']
+                      'Lolans K',
+                      'Schmid AC',
+                      'Yousef M']
 
 journal_name_fixes = [('The ISME journal', 'ISME J'),
                       ('Proceedings of the National Academy of Sciences of the United States of America', 'Proc Natl Acad Sci U S A'),
