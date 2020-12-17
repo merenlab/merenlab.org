@@ -12,6 +12,39 @@ This page serves the publicly available data items mentioned in our publications
 
 {% include _toc.html %}
 
+
+<div class="pub_float">
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1186/s13059-020-02195-w"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1186/s13059-020-02195-w" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1186/s13059-020-02195-w" target="_new">Functional and genetic markers of niche partitioning among enigmatic members of the human oral microbiome</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Shaiber A</span>, Willis AD, <span class="pub-member-author">Delmont TO</span>, Roux S, Chen L, <span class="pub-member-author">Schmid AC</span>, <span class="pub-member-author">Yousef M</span>, <span class="pub-member-author">Watson AR</span>, <span class="pub-member-author">Lolans K</span>, <span class="pub-member-author">Esen ÖC</span>, <span class="pub-member-author">Lee STM</span>, Downey N, Morrison HG, Dewhirst FE, Mark Welch JL<sup>‡</sup>, <span class="pub-member-author">Eren AM<sup>‡</sup></span></span>
+    <span class="pub-co-first-authors"><sup>‡</sup>Co-senior authors</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/shaiber_et_al_tm7_phylogenomics.png"><img src="/images/pubs/shaiber_et_al_tm7_phylogenomics.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);" /></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A multi-omics study that combines <b>genome-resolved metagenomics</b>, <b>pangenomics</b>, <b>phylogenomics</b>, and <b>microbial population genetics</b> to investigate the ecology and evolution of Saccharibacteria (TM7) in the human oral cavity, and offers a formal description of '<b>functional enrichment</b>' statistic for phylogenomics and pangenomics.</span><br /><span style="display: inline-block; padding-bottom: 5px;">-  Demonstrates that TM7s split into tongue specialists and plaque specialists, and plaque TM7s group with environmental TM7s, leading to an hypothesis that <b>the dental plaque may have served as a stepping stone for environmental microbes to adapt to host environments</b> at least for some clades of microbes</span><br /><span style="display: inline-block; padding-bottom: 5px;">-  "<a href="https://www.eurekalert.org/pub_releases/2020-12/uocm-mid121420.php" target="_blank">Microbes in dental plaque look more like relatives in soil than those on the tongue</a>", EurekAlert.</span><br /><span style="display: inline-block; padding-bottom: 5px;">-  <a href="https://static-content.springer.com/esm/art%3A10.1186%2Fs13059-020-02195-w/MediaObjects/13059_2020_2195_MOESM13_ESM.docx" target="_blank">Anonymous reviewer comments and responses</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><b>Genome Biology</b>, 21:292.</span>
+</div>
+
+<details markdown="1"><summary>Show/hide public data items for the study</summary>
+
+<div style="width: 200px; float: right; padding-left: 20px;">
+<a href="/images/pubs/shaiber_et_al_tm7_phylogenomics.png" target="_blank"><img src="/images/pubs/shaiber_et_al_tm7_phylogenomics.png" style="border:none;" /></a>
+</div>
+
+* We deposited the short-read **sequencing data for amplicons and shotgun metagenomes** as well as **key MAGs** that emerged from our study under the NCBI BioProject [PRJNA625082](https://www.ncbi.nlm.nih.gov/bioproject/?term=prjna625082). The Supplementary Table 1 of our study lists accession numbers for each sample individually.
+* We deposited the **long-read sequencing data** in the NCBI’s SRA database for individuals C-F ([SRR11547007](https://www.ncbi.nlm.nih.gov/sra/?term=SRR11547007)), C-M ([SRR11547005](https://www.ncbi.nlm.nih.gov/sra/?term=SRR11547005), [SRR11547006](https://www.ncbi.nlm.nih.gov/sra/?term=SRR11547006)), and L ([SRR11547004](https://www.ncbi.nlm.nih.gov/sra/?term=SRR11547004)).
+* [doi:10.6084/m9.figshare.12217799](https://doi.org/10.6084/m9.figshare.12217799): FASTA files for **co-assembled metagenomes** per individial.
+* [doi:10.6084/m9.figshare.12217805](https://doi.org/10.6084/m9.figshare.12217805): Anvi’o **split profiles** for each of the 790 MAGs.
+* [doi:10.6084/m9.figshare.12217811](https://doi.org/10.6084/m9.figshare.12217811): The **TM7 pangenome**.
+* [doi:10.6084/m9.figshare.11634321](https://doi.org/10.6084/m9.figshare.11634321): Supplementary Tables, Supplementary Figures, and the Supplementary Information file.
+
+</details>
+
 ## Accurate and complete genomes from metagenomes
 
 <div class="pub_float">
