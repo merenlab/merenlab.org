@@ -13,7 +13,7 @@ image:
 {% include _toc.html %}
 
 {:.warning}
-This tutorial is tailored for anvi'o `v6` or later. You can learn the version of your installation by typing `anvi-interactive -v`. If you have an older version, some things will not work the way they should.
+This tutorial is tailored for anvi'o `v7` or later. You can learn the version of your installation by typing `anvi-interactive -v`. If you have an older version, some things will not work the way they should.
 
 **The goal of this tutorial** is to explore some of the most fundamental aspects of anvi'o and its application to a real-world dataset. We organized it in multiple interconnected chapters, which all use the same dataset:
 
