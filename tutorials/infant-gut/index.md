@@ -57,6 +57,12 @@ When you click the link, it will start downloading a **210 Mb** compressed file 
 tar -zxvf INFANTGUTTUTORIAL.tar.gz && cd INFANT-GUT-TUTORIAL
 ```
 
+If you are using a higher version of anvi'o than was the one that was used to generate these databases (perhaps you are following the development branch), you may need to run {% include PROGRAM name="anvi-migrate" text="anvi-migrate" %} to get them up to date. If you are not sure whether you need this, do not worry - you could safely skip it and anvi'o would later let you know if there is a problem when you try to run another command.
+
+``` bash
+anvi-migrate --migrate-dbs-safely *.db
+```
+
 {:.notice}
 If you were sent here somewhere from down below, now you can **go back**. If you have no idea what this means, ignore this notice, and continue reading. You're OK :)
 
