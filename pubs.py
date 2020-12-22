@@ -3,17 +3,25 @@
 
 
 # EDIT THESE #####################################################################
-names_to_highlight = ['Eren AM',
-                      'Delmont TO',
-                      'Esen ÖC',
-                      'Lee STM',
-                      'Shaiber A',
-                      'Kiefl E',
-                      'Cui S',
-                      'Watson AR',
-                      'Lolans K',
-                      'Schmid AC',
-                      'Yousef M']
+names_to_highlight = {'Eren AM': None,
+                      'Delmont TO': range(2015, 2020),
+                      'Esen ÖC': range(2015, 2021),
+                      'Lee STM': None,
+                      'Shaiber A': None,
+                      'Kiefl E': None,
+                      'Cui S': None,
+                      'Watson AR': None,
+                      'Lolans K': None,
+                      'Schmid AC': None,
+                      'Yousef M': None,
+                      'Veseli I': None,
+                      'Miller SE': None,
+                      'Schechter MS': None,
+                      'Fink I': None,
+                      'Pan JN': None,
+                      'Yousef M': None,
+                      'Fogarty EC': None,
+                      'Trigodet F': None,}
 
 journal_name_fixes = [('The ISME journal', 'ISME J'),
                       ('Proceedings of the National Academy of Sciences of the United States of America', 'Proc Natl Acad Sci U S A'),
@@ -70,7 +78,7 @@ class Publications:
         self.pubs_info_file_path = pubs_info_file_path
 
 
-    def get_author_highlights(self, pub):
+    def get_author_highlights(self, pub, year):
         authors_str = []
         for author in pub['authors']:
             if author in pub['co_first_authors']:
@@ -81,7 +89,12 @@ class Publications:
                 author_h = author
 
             if author in names_to_highlight:
-                authors_str.append('<span class="pub-member-author">%s</span>' % (author_h))
+                if not names_to_highlight[author]:
+                    authors_str.append('<span class="pub-member-author">%s</span>' % (author_h))
+                elif int(year) in names_to_highlight[author]:
+                    authors_str.append('<span class="pub-member-author">%s</span>' % (author_h))
+                else:
+                    authors_str.append(author_h)
             else:
                 authors_str.append(author_h)
 
@@ -161,7 +174,7 @@ class Publications:
             A('    <h3><a href="%s" target="_new">%s</a></h3>' % (' https://doi.org/%s' % (pub['doi']), pub['title']))
         else:
             A('    <h3><a href="http://scholar.google.com/scholar?hl=en&q=%s" target="_new">%s</a></h3>' % ('http://scholar.google.com/scholar?hl=en&q=%s' % (pub['title'].replace(' ', '+')), pub['title']))
-        A('    <span class="pub-authors">%s</span>' % self.get_author_highlights(pub))
+        A('    <span class="pub-authors">%s</span>' % self.get_author_highlights(pub, pub['year']))
 
         if pub['co_first_authors'] and not pub['co_senior_authors']:
             A('    <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors</span>')
