@@ -31,7 +31,7 @@ This tutorial is tailored for anvi'o `v7` or later. You can learn the version of
 * Incorporate automatic binning results into your metagenomes,
 * Perform phylogenomic analyses to learn about their approximate location in the tree of life,
 * Determine core and accessory genes they contain compared to closely related genomes through pangenomics,
-* Explore within population genomic diversity through single-nuleotide variants,
+* Explore within population genomic diversity through single-nucleotide variants,
 * Put a given metagenome-assembled, single-cell or isolate genome into the context of public metagenomes to investigate their core and accessory genes, and
 * Investigate the genomic heterogeneity in the context of predicted protein structures.
 
@@ -763,7 +763,7 @@ Bins in collection "MAXBIN"
 ╘══════════════════════╧══════════╧══════════════╧════════════════╧════════════════╧══════════════╧════════════════╛
 ```
 
-The take home message here is that even when automatic binning approaches yield poorly identified bins, it is possible to improve the final results through a manual refinement step. Clearly these extra steps require a lot of expertise, intuition, attention, and decision making. And fortunately you are all familiar with each one of them because science. 
+The take home message here is that even when automatic binning approaches yield poorly identified bins, it is possible to improve the final results through a manual refinement step. Clearly these extra steps require a lot of expertise, intuition, attention, and decision making. And fortunately you are all familiar with each one of them because science.
 
 Thank you for following the tutorial this far!
 
