@@ -165,11 +165,11 @@ Note that gene coordinates are displayed at the bottom and their inferred functi
 
 ### Importing taxonomy for genes
 
-Anvi'o can work with gene-level taxonomic annotations, but gene-level taxonomy is not useful for anything beyond occasional help with manual binning. Once gene-level taxonomy is added into the contigs database, anvi'o will determine the taxonomy of each contig based on the taxonomic affiliation of genes they describe, and display them in the interface whenever possible.
+Anvi'o can work with gene-level taxonomic annotations, but gene-level taxonomy is not useful for anything beyond occasional help with manual binning. Once gene-level taxonomy is added into the {% include ARTIFACT name="contigs-db" text="contigs database" %}, anvi'o will determine the taxonomy of each contig based on the taxonomic affiliation of genes they describe, and display them in the interface whenever possible.
 
-Centrifuge ([code](https://github.com/infphilo/centrifuge){:target="_blank"}, [pre-print](http://biorxiv.org/content/early/2016/05/25/054965.article-info){:target="_blank"}) is [one of the options]({% post_url anvio/2016-06-18-importing-taxonomy %}#centrifuge-output){:target="_blank"} to [import taxonomic annotations]({% post_url anvio/2016-06-18-importing-taxonomy %}){:target="_blank"} into an anvi'o contigs database. Centrifuge files for the IGD are already in the directory `additional-files/centrifuge-files`.
+Centrifuge ([code](https://github.com/infphilo/centrifuge){:target="_blank"}, [pre-print](http://biorxiv.org/content/early/2016/05/25/054965.article-info){:target="_blank"}) is [one of the options]({% post_url anvio/2016-06-18-importing-taxonomy %}#centrifuge-output){:target="_blank"} to [import taxonomic annotations]({% post_url anvio/2016-06-18-importing-taxonomy %}){:target="_blank"} into an anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %}. Centrifuge files for the IGD are already in the directory `additional-files/centrifuge-files`.
 
-If you import these files into the contigs database the following way,
+If you import these files into the {% include ARTIFACT name="contigs-db" text="contigs database" %} the following way,
 
 ``` bash
 anvi-import-taxonomy-for-genes -c CONTIGS.db \
@@ -216,7 +216,7 @@ Then recreate them using four threads:
 anvi-setup-scg-databases -T 4
 ```
 
-And re-run taxonomy on our contigs database:
+And re-run taxonomy on our {% include ARTIFACT name="contigs-db" text="contigs database" %}:
 
 ```
 anvi-run-scg-taxonomy -c CONTIGS.db \
@@ -884,7 +884,7 @@ To see a practical application of phylogenomics see [this workflow](http://meren
 
 
 {:.notice}
-**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
+**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
 
 Please run the following command in the IGD dir, so you have everything you need. We will simply import our previously generated collection of bins in the IGD dataset as the `default` collection:
 
@@ -934,7 +934,7 @@ anvi-get-sequences-for-hmm-hits -c CONTIGS.db \
 ```
 
 {:.notice}
-As you know, you can use `anvi-run-hmms` program with custom made HMM profiles to add your own HMMs into the contigs database.
+As you know, you can use `anvi-run-hmms` program with custom made HMM profiles to add your own HMMs into the {% include ARTIFACT name="contigs-db" text="contigs database" %}.
 
 Alright. We have two. Let's see what genes do we have in `Bacteria_71`:
 
@@ -1124,7 +1124,7 @@ Both phylogenomics and pangenomics are strategies under the umbrella of comparat
 You can find a comprehensive tutorial on the anvi'o pangenomic workflow [here]({% post_url anvio/2016-11-08-pangenomics-v2 %}){:target="_blank"}.
 
 {:.warning}
-**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
+**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
 
 Please run following commands in the IGD dir. They will set the stage for us to take a look at the *E. faecalis* bin:
 
@@ -1140,7 +1140,7 @@ anvi-import-collection additional-files/collections/e-faecalis.txt \
 
 ### Generating a genome storage
 
-For this example I downloaded 6 *E. faecalis*, and 5 *E. faecium* genomes to analyze them together with our *E. faecalis* bin. For each of these 11 *external genomes*, I generated anvi'o contigs databases. You can find all of them in the additional files directory:
+For this example I downloaded 6 *E. faecalis*, and 5 *E. faecium* genomes to analyze them together with our *E. faecalis* bin. For each of these 11 *external genomes*, I generated anvi'o {% include ARTIFACT name="contigs-db" text="contigs databases" %}. You can find all of them in the additional files directory:
 
 ``` bash
 ls additional-files/pangenomics/external-genomes/*db
@@ -1158,7 +1158,7 @@ additional-files/pangenomics/external-genomes/Enterococcus_faecium_6798.db
 ```
 
 {:.notice}
-The post [Accessing and including NCBI genomes in 'omics analyses in anvi'o]({% post_url anvio/2019-03-14-ncbi-genome-download-magic %}) explains how to download sets of genomes you are interested in from the NCBI and turn them into anvi'o contigs databases.
+The post [Accessing and including NCBI genomes in 'omics analyses in anvi'o]({% post_url anvio/2019-03-14-ncbi-genome-download-magic %}) explains how to download sets of genomes you are interested in from the NCBI and turn them into anvi'o {% include ARTIFACT name="contigs-db" text="contigs databases" %}.
 
 There also are two files in the `additional-files/pangenomics` directory to describe how to access to the external genomes:
 
@@ -1483,7 +1483,7 @@ Here we will profile the single-nucleotide variations (SNVs) in the *E. faecalis
 This is more of a practical tutorial for hands on experience to recover and make sense of SNVs. For a more theoretical one on the same topic, please consider first reading the tutorial [Analyzing sequence variants with anvi'o]({% post_url anvio/2015-07-20-analyzing-variability %}){:target="_blank"}.
 
 {:.notice}
-**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
+**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
 
 First of all, if you haven't already, run this command to load the collection containing the *E. faecalis* bin (no harm done running it twice):
 
@@ -1537,7 +1537,7 @@ ls MAGs/E_facealis/
 AUXILIARY-DATA.h5 CONTIGS.db        CONTIGS.h5        PROFILE.db
 ```
 
-Look familiar? This generated a new anvi'o profile database and anvi'o contigs database that pertains only to the `E_facealis` bin. While the program `anvi-split` does its magic, it also adds into the resulting profile database a collection (called `DEFAULT`), with a single bin in it (called `ALL_SPLITS`) that contains all the contigs in this MAG. This way we can access to its contents from all anvi'o programs. Here is an example:
+Look familiar? This generated a new anvi'o profile database and anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} that pertains only to the `E_facealis` bin. While the program `anvi-split` does its magic, it also adds into the resulting profile database a collection (called `DEFAULT`), with a single bin in it (called `ALL_SPLITS`) that contains all the contigs in this MAG. This way we can access to its contents from all anvi'o programs. Here is an example:
 
 ``` bash
 anvi-estimate-genome-completeness -p MAGs/E_facealis/PROFILE.db \
@@ -1863,7 +1863,7 @@ In your data-pack you have a merged anvi'o profile that describes the read recru
 <div class="extra-info" markdown="1">
 
 <span class="extra-info-header">Snakemake workflows to the rescue</span>
-Your data-pack already contains an anvi'o contigs database and a merged profile database that puts the E. faecalis genome in the context of 20 gut metagenomes, but here is some extra info for those of you who are curious to know how did we generated these data.
+Your data-pack already contains an anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} and a merged profile database that puts the E. faecalis genome in the context of 20 gut metagenomes, but here is some extra info for those of you who are curious to know how did we generated these data.
 
 To generate these mapping results and to profile them using anvi'o, we used the anvi'o snakemake workflow for metagenomics.
 
@@ -2047,11 +2047,11 @@ connection, ~250MB of free space, and about 10 minutes. So if the command didn't
 anvi-run-interacdome -c additional-files/e_faeealis_across_hmp/CONTIGS.db -T 2
 ```
 
-As you may be getting used to, `-c` specifies the contigs database you would like to predict binding
+As you may be getting used to, `-c` specifies the {% include ARTIFACT name="contigs-db" text="contigs database" %} you would like to predict binding
 sites for, and `-T` means to run the command with 2 threads (feel free to use more if you have the
 hardware).
 
-In brief, running this command searches each gene in your contigs database against a subset of the
+In brief, running this command searches each gene in your {% include ARTIFACT name="contigs-db" text="contigs database" %} against a subset of the
 Pfam database that have been annotated with per-residue "binding frequencies". These binding
 frequencies are values between 0 and 1 which indicate how likely it is a residue is involved in
 interacting with a ligand. The search is ran with [HMMER](http://hmmer.org/) and the binding
@@ -2092,10 +2092,10 @@ num genes that HMM will be run on ............: 2,754
 Output .......................................: /var/folders/58/mpjnklbs5ql_y2rsgn0cwwnh0000gn/T/tmpz7zrm92p/AA_gene_sequences.fa
 ```
 
-This simply provides some information about where the Pfams are located, which contigs database is
-being used, as well as the amino acid sequences exported from the contigs database. It also lets us
+This simply provides some information about where the Pfams are located, which {% include ARTIFACT name="contigs-db" text="contigs database" %} is
+being used, as well as the amino acid sequences exported from the {% include ARTIFACT name="contigs-db" text="contigs database" %}. It also lets us
 know that we will be attempting to compute binding frequencies for 2754 *E. faecalis* genes since
-that's how many genes in the contigs database had amino acid sequences. To compute these binding
+that's how many genes in the {% include ARTIFACT name="contigs-db" text="contigs database" %} had amino acid sequences. To compute these binding
 frequencies, we will use an InteracDome database of 2375 Pfams that have annotated binding
 frequencies. This number comes from the fact that we are using the 'representable' subset of Pfams,
 which *“correspond[s] to domain-ligand interactions that had nonredundant instances across three or
@@ -2196,7 +2196,7 @@ additional-files/e_faeealis_across_hmp/CONTIGS.db
 
 After all filtering, the results are in: 49195 residues in the *E. faecalis* genome have been
 implicated in ligand binding. The positions, ligand types, and binding frequencies are
-stored in the contigs database, and a slew of additional information is stored in the text outputs
+stored in the {% include ARTIFACT name="contigs-db" text="contigs database" %}, and a slew of additional information is stored in the text outputs
 `INTERACDOME-domain_hits.txt` and `INTERACDOME-match_state_contributors.txt`.
 
 With the addition of this information, there is seemingly an uncountable number of directions to go,
@@ -2218,7 +2218,7 @@ SAAVs and SCVs moving forward.
 
 In this section we will introduce [anvi'o structure]({{ site.url }}/software/anvio-structure), an integrated
 component of anvi'o that enables one to predict protein structures for genes in your
-contigs database and visualize them in an interactive interface. The motivation was seeded by
+{% include ARTIFACT name="contigs-db" text="contigs database" %} and visualize them in an interactive interface. The motivation was seeded by
 wanting more direct insight into the potential effect that sequence variants had on fitness, by
 visualizing them directly on the structure, since it is the physical properties of these structures
 that define function.
@@ -2244,7 +2244,7 @@ patterns of structural sequence variation. Here is a figure from that study:
 To analyze and visualize where nucleotide-level variation occurs in the three-dimensional structure
 of an encoded protein, you need a protein structure. For this, anvi'o structure has a dedicated structure
 database that stores all structural information requested by the user. Users can create their own
-structure database by providing a contigs database, and a list of gene IDs in the contigs database
+structure database by providing a {% include ARTIFACT name="contigs-db" text="contigs database" %}, and a list of gene IDs in the {% include ARTIFACT name="contigs-db" text="contigs database" %}
 they want to predict structures for.
 
 {:.notice}
