@@ -31,8 +31,45 @@ See **[program help menu](../../../../vignette#anvi-run-workflow)** or go back t
 ## Usage
 
 
+This program allows you to run [Snakemake](https://snakemake.readthedocs.io/en/stable/) workflows for common anvi'o processes. It is described fully in [this tutorial](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#contigs-workflow). 
+
+Essentially, an anvi'o workflow will run several anvi'o programs for you in quick succession (based on a standard set of intiial steps that will allow you to quickly get to a point where you can ask novel questions). 
+
+As of now, the available workflows are the <span class="artifact-n">[contigs-workflow](/software/anvio/help/main/artifacts/contigs-workflow)</span>, the <span class="artifact-n">[metagenomics-workflow](/software/anvio/help/main/artifacts/metagenomics-workflow)</span>, the <span class="artifact-n">[pangenomics-workflow](/software/anvio/help/main/artifacts/pangenomics-workflow)</span>, the <span class="artifact-n">[phylogenomics-workflow](/software/anvio/help/main/artifacts/phylogenomics-workflow)</span>, and the <span class="artifact-n">[trnaseq-workflow](/software/anvio/help/main/artifacts/trnaseq-workflow)</span>. 
+
+### Before running the workflow
+
+Each workflow requires a <span class="artifact-n">[workflow-config](/software/anvio/help/main/artifacts/workflow-config)</span>: the file that details all of the parameters for the workflow. To get the <span class="artifact-n">[workflow-config](/software/anvio/help/main/artifacts/workflow-config)</span> with the default parameters, just run 
+
+<div class="codeblock" markdown="1">
+anvi&#45;run&#45;workflow &#45;w WORKFLOW&#45;NAME \
+                  &#45;&#45;get&#45;default&#45;config CONFIG.json
+</div>
+
+Before running a workflow, it is also a good idea to check the required dependencies by running 
+
+<div class="codeblock" markdown="1">
+anvi&#45;run&#45;workflow &#45;w WORKFLOW&#45;NAME \
+                  &#45;&#45;list&#45;dependencies
+</div>
+
+### The main run 
+
+The main run of the workflow should look like this: 
+
+<div class="codeblock" markdown="1">
+anvi&#45;run&#45;workflow &#45;w WORKFLOW&#45;NAME \
+                  &#45;c CONFIG.json
+                  &#45;&#45;save&#45;workflow&#45;graph
+</div>
+
+The flag `--save-workflow-graph` creates a visual representation of the anvio programs that the workflow you're running used. 
+
+You can also use the `-A` flag at the end of the parameter list to change other [Snakemake](https://snakemake.readthedocs.io/en/stable/) parameters. 
+
+
 {:.notice}
-**No one has described the usage of this program** :/ If you would like to contribute, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs), and feel free to add a Markdown formatted file in that directory named "anvi-run-workflow.md". For a template, you can use the markdown file for `anvi-gen-contigs-database`. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-run-workflow.md) to update this information.
 
 
 ## Additional Resources

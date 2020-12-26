@@ -21,13 +21,13 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-export-gene-calls](../../programs/anvi-export-gene-calls)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-export-gene-calls](../../programs/anvi-export-gene-calls)</span> <span class="artifact-p">[anvi-script-transpose-matrix](../../programs/anvi-script-transpose-matrix)</span></p>
 
 
 ## Required or used by
 
 
-There are no anvi'o tools that use or require this artifact directly, which means it is most likely an end-product for the user.
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-script-transpose-matrix](../../programs/anvi-script-transpose-matrix)</span></p>
 
 
 ## Description
