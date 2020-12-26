@@ -21,13 +21,13 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-dereplicate-genomes](../../programs/anvi-dereplicate-genomes)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-dereplicate-genomes](../../programs/anvi-dereplicate-genomes)</span> <span class="artifact-p">[anvi-script-fix-homopolymer-indels](../../programs/anvi-script-fix-homopolymer-indels)</span></p>
 
 
 ## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-dereplicate-genomes](../../programs/anvi-dereplicate-genomes)</span> <span class="artifact-r">[anvi-script-compute-ani-for-fasta](../../programs/anvi-script-compute-ani-for-fasta)</span> <span class="artifact-r">[anvi-script-reformat-fasta](../../programs/anvi-script-reformat-fasta)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-dereplicate-genomes](../../programs/anvi-dereplicate-genomes)</span> <span class="artifact-r">[anvi-script-compute-ani-for-fasta](../../programs/anvi-script-compute-ani-for-fasta)</span> <span class="artifact-r">[anvi-script-fix-homopolymer-indels](../../programs/anvi-script-fix-homopolymer-indels)</span> <span class="artifact-r">[anvi-script-reformat-fasta](../../programs/anvi-script-reformat-fasta)</span></p>
 
 
 ## Description

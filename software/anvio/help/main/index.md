@@ -21,7 +21,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **10 Dec 20 18:36:20** for anvi'o version **6.2-master (esther)**.
+The help contents were last updated on **25 Dec 20 20:15:29** for anvi'o version **6.2-master (esther)**.
 
 
 {% include _project-anvio-version.html %}
@@ -107,7 +107,7 @@ Listed below **a total of 103 artifacts**.
 
 Anvi'o programs perform atomic tasks that can be weaved together to implement complete 'omics workflows. Please note that there may be programs that are not listed on this page. You can type 'anvi-' in your terminal, and press the TAB key twice to see the full list of programs available to you on your system, and type `anvi-program-name --help` to read the full list of command line options.
 
-Listed below **a total of 115 programs**.
+Listed below **a total of 117 programs**.
 
 
 <div style="width:100%;">
@@ -2315,6 +2315,28 @@ Listed below **a total of 115 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-fix-homopolymer-indels](programs/anvi-script-fix-homopolymer-indels)**</span>. <span markdown="1">Corrects homopolymer-region associated INDELs in a given genome based on a reference genome. The most effective use of this script is when the input genome is a genome reconstructed by minION long reads, and the reference genome is one that is of high-quality. Essentially, this script will BLAST the genome you wish to correct against the reference genome you provide, identify INDELs in the BLAST results that are exclusively associated with homopolymer regions, and will take the reference genome as a guide to correct the input sequences, and report a new FASTA file. You can use the output FASTA file that is fixed as the input FASTA file over and over again to see if you can eliminate all homopolymer-associated INDELs</span>.
+    </td>
+</tr>
+<tr>
+    <td class="artifact-r-td">
+    <span class="artifact-emoji">🧀</span> <span class="artifact-r" markdown="1">[fasta](artifacts/fasta) <img src="images/icons/FASTA.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr>
+    <td class="artifact-p-td">
+    <span class="artifact-emoji">🍕</span> <span class="artifact-p" markdown="1">[fasta](artifacts/fasta) <img src="images/icons/FASTA.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="width:100%;">
+<table class="programs-table">
+<tbody>
+<tr style="border:none;">
+    <td class="program-td">
         <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-gen-distribution-of-genes-in-a-bin](programs/anvi-script-gen-distribution-of-genes-in-a-bin)**</span>. <span markdown="1">Quantify the detection of genes in genomes in metagenomes to identify the environmental core. This is a helper script for anvi&#39;o metapangenomic workflow</span>.
     </td>
 </tr>
@@ -2612,6 +2634,28 @@ Listed below **a total of 115 programs**.
 <tr>
     <td class="artifact-p-td">
     <span class="artifact-emoji">🍕</span> <span class="artifact-p" markdown="1">[interactive](artifacts/interactive) <img src="images/icons/DISPLAY.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="width:100%;">
+<table class="programs-table">
+<tbody>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-transpose-matrix](programs/anvi-script-transpose-matrix)**</span>. <span markdown="1">Transpose a TAB-delimited file</span>.
+    </td>
+</tr>
+<tr>
+    <td class="artifact-r-td">
+    <span class="artifact-emoji">🧀</span> <span class="artifact-r" markdown="1">[view-data](artifacts/view-data) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[functions-txt](artifacts/functions-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[misc-data-items-txt](artifacts/misc-data-items-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[misc-data-layers-txt](artifacts/misc-data-layers-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[gene-calls-txt](artifacts/gene-calls-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[linkmers-txt](artifacts/linkmers-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr>
+    <td class="artifact-p-td">
+    <span class="artifact-emoji">🍕</span> <span class="artifact-p" markdown="1">[view-data](artifacts/view-data) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[functions-txt](artifacts/functions-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[misc-data-items-txt](artifacts/misc-data-items-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[misc-data-layers-txt](artifacts/misc-data-layers-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[gene-calls-txt](artifacts/gene-calls-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[linkmers-txt](artifacts/linkmers-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 </tbody>

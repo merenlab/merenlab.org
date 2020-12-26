@@ -21,13 +21,13 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-script-gen-distribution-of-genes-in-a-bin](../../programs/anvi-script-gen-distribution-of-genes-in-a-bin)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-script-gen-distribution-of-genes-in-a-bin](../../programs/anvi-script-gen-distribution-of-genes-in-a-bin)</span> <span class="artifact-p">[anvi-script-transpose-matrix](../../programs/anvi-script-transpose-matrix)</span></p>
 
 
 ## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-interactive](../../programs/anvi-interactive)</span> <span class="artifact-r">[anvi-matrix-to-newick](../../programs/anvi-matrix-to-newick)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-interactive](../../programs/anvi-interactive)</span> <span class="artifact-r">[anvi-matrix-to-newick](../../programs/anvi-matrix-to-newick)</span> <span class="artifact-r">[anvi-script-transpose-matrix](../../programs/anvi-script-transpose-matrix)</span></p>
 
 
 ## Description

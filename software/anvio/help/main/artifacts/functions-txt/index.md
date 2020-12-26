@@ -21,13 +21,13 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-export-functions](../../programs/anvi-export-functions)</span> <span class="artifact-p">[anvi-search-functions](../../programs/anvi-search-functions)</span> <span class="artifact-p">[anvi-script-get-hmm-hits-per-gene-call](../../programs/anvi-script-get-hmm-hits-per-gene-call)</span> <span class="artifact-p">[anvi-script-process-genbank](../../programs/anvi-script-process-genbank)</span> <span class="artifact-p">[anvi-script-process-genbank-metadata](../../programs/anvi-script-process-genbank-metadata)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-export-functions](../../programs/anvi-export-functions)</span> <span class="artifact-p">[anvi-search-functions](../../programs/anvi-search-functions)</span> <span class="artifact-p">[anvi-script-get-hmm-hits-per-gene-call](../../programs/anvi-script-get-hmm-hits-per-gene-call)</span> <span class="artifact-p">[anvi-script-process-genbank](../../programs/anvi-script-process-genbank)</span> <span class="artifact-p">[anvi-script-process-genbank-metadata](../../programs/anvi-script-process-genbank-metadata)</span> <span class="artifact-p">[anvi-script-transpose-matrix](../../programs/anvi-script-transpose-matrix)</span></p>
 
 
 ## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-import-functions](../../programs/anvi-import-functions)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-import-functions](../../programs/anvi-import-functions)</span> <span class="artifact-r">[anvi-script-transpose-matrix](../../programs/anvi-script-transpose-matrix)</span></p>
 
 
 ## Description
