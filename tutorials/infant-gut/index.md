@@ -769,9 +769,8 @@ Thank you for following the tutorial this far!
 
 <details markdown="1"><summary>Show/hide More on refinement</summary>
 
-You can read more about `anvi-refine` [here]({% post_url anvio/2015-05-11-anvi-refine %}){:target="_blank"}. Also you may want to look at Tom's refining of the Loki archaea: [Inspecting the genomic link between Archaea and Eukaryota]({% post_url miscellaneous/2017-01-03-loki-the-link-archaea-eukaryota %}).
+You can read more about {% include PROGRAM name="anvi-refine" text="`anvi-refine`" %} [here]({% post_url anvio/2015-05-11-anvi-refine %}){:target="_blank"}. Also you may want to look at Tom's refining of the Loki archaea: [Inspecting the genomic link between Archaea and Eukaryota]({% post_url miscellaneous/2017-01-03-loki-the-link-archaea-eukaryota %}).
 
-If you are feeling lazy, you can just take a quick look at this videos from the post above.
 If you are feeling lazy, you can just take a quick look at these videos from the post above.
 
 First a closer look at *Lokiarchaeum* sp. GC14_75
