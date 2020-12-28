@@ -127,7 +127,7 @@ When it is time to type other commands, you can close the window, go back to the
 
 The {% include ARTIFACT name="interactive" text="interactive" %} interface of anvi'o can be quite overwhelming. This particular box, in addition to the [interactive interface tutorial](tutorials/interactive-interface/), attempts to give you insights into the features of the {% include ARTIFACT name="interactive" text="interactive" %} interface relevant to metagenomic binning.
 
-First of all, each leaf in the cerntral dendrogram describes an individual contig. Contigs that were fragmented into multiple splits due to their extensive length can be identified in the `Parent` layer. The grey layers after the `GC-Content` display mean coverage values (i.e., the environmental signal) of each contig/split across the 11 metagenomes. Finally, you can click on the `MOUSE` box on the right side of the interface to explore numerical and alphabetic values in more details across the display.
+First of all, each leaf in the central dendrogram describes an individual contig. Contigs that were fragmented into multiple splits due to their extensive length can be identified in the `Parent` layer. The grey layers after the `GC-Content` display mean coverage values (i.e., the environmental signal) of each contig/split across the 11 metagenomes. Finally, you can click on the `MOUSE` box on the right side of the interface to explore numerical and alphabetic values in more details across the display.
 
 [![Interface-explanations.png](images/Interface-explanations.png)](images/Interface-explanations.png){:.center-img .width-50}
 
