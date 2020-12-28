@@ -830,7 +830,7 @@ If you take a look at the resulting interactive graph, you can see that one shou
 {:.notice}
 We have a citable version, and a more formal description of this workflow in our recent paper “[Identifying contamination with advanced visualization and analysis practices: metagenomic approaches for eukaryotic genome assemblies](https://peerj.com/articles/1839/){:target="_blank"}” (see the [supplementary material](https://doi.org/10.7717/peerj.1839/supp-1)).
 
-Fine. Using `anvi-cluster-with-concoct` program, we ask CONCOCT to naively identify 5 clusters in this dataset, and store the results in the profile database as a {% include ARTIFACT name="collection" text="collection" %}:
+Fine. Using `anvi-cluster-with-concoct` program, we ask CONCOCT to naively identify 5 clusters in this dataset, and store the results in the {% include ARTIFACT name="profile-db" text="profile database" %} as a {% include ARTIFACT name="collection" text="collection" %}:
 
 ``` bash
 anvi-cluster-with-concoct -p PROFILE.db \
