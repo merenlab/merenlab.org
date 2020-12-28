@@ -266,7 +266,7 @@ which should give us this output for the IGD:
 
 Good, but could have been better. Why? *Pro tip: we have a profile database, what does it mean and how it could improve the information we see here?*
 
-Anvi'o can add these metagenome-level taxonomic insights into a given profile database, let's do that,
+Anvi'o can add these metagenome-level taxonomic insights into a given {% include ARTIFACT name="profile-db" text="profile database" %}, let's do that,
 
 ```
 anvi-estimate-scg-taxonomy -c CONTIGS.db \
