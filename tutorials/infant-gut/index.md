@@ -617,7 +617,7 @@ Now we can discuss about different approaches of automatic binning.
 {:.warning}
 Please note that the algorithms we have used here may have been improved since the time we did these analyses, therefore please don't make any decisions about their performance or efficacy based on what you are seeing here.
 
-Just a reminder, once you have the {% include ARTIFACT name="interactive" text="interactive" %} interface in front of you, you can in fact investigate the taxonomy of contigs by BLASTing them against various NCBI {% include ARTIFACT name="collection" text="collections" %} using the right-click menu to have a second opinion about what do public databases think they are:
+Just a reminder, once you have the {% include ARTIFACT name="interactive" text="interactive" %} interface in front of you, you can in fact investigate the taxonomy of contigs by BLASTing them against various NCBI collections using the right-click menu to have a second opinion about what do public databases think they are:
 
 [![Infant gut merged](images/infant-gut-split.gif)](images/infant-gut-split.gif){:.center-img .width-50}
 
