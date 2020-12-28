@@ -483,7 +483,7 @@ you can immediately see what {% include ARTIFACT name="collection" text="collect
 anvi-show-collections-and-bins -p PROFILE.db
 ```
 
-You can get a quick idea regarding the estimated completion of {% include ARTIFACT name="bin" text="bins" %} in a given {% include ARTIFACT name="collection" text="collection" %}:
+You can get a quick idea regarding the {% include PROGRAM name="anvi-estimate-genome-completeness" text="estimated completion" %} of {% include ARTIFACT name="bin" text="bins" %} in a given {% include ARTIFACT name="collection" text="collection" %}:
 
 ``` bash
 anvi-estimate-genome-completeness -p PROFILE.db \
