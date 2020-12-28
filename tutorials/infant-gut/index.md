@@ -102,7 +102,7 @@ By the end of this chapter, you should (1) have a comprehensive understanding of
 
 ---
 
-A typical anvi'o genome-resolved metagenomic workflow [starts with one or more BAM files and a FASTA file of your contigs]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#preparation){:target="_blank"}. There are many ways to get your contigs and BAM files for your metagenomes and we have started implementing a tutorial that [describes the workflows we often use]({% post_url anvio/2018-07-09-anvio-snakemake-workflows %}). But in this tutorial we will start from a point in the workflow where you have used your BAM and FASTA files to generate anvi'o contigs and profile databases.
+A typical anvi'o genome-resolved metagenomic workflow [starts with one or more BAM files and a FASTA file of your contigs]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#preparation){:target="_blank"}. There are many ways to get your contigs and BAM files for your metagenomes and we have started implementing a tutorial that [describes the workflows we often use]({% post_url anvio/2018-07-09-anvio-snakemake-workflows %}). But in this tutorial we will start from a point in the workflow where you have used your {% include ARTIFACT name="bam-file" text="BAM" %} and {% include ARTIFACT name="fasta" text="FASTA" %} files to generate anvi'o {% include ARTIFACT name="contigs-db" text="contigs" %} and {% include ARTIFACT name="profile-db" text="profile" %} databases.
 
 {:.notice}
 While this tutorial will take you through a simple analysis of a real dataset, there also is available a more comprehensive (but more abstract) tutorial on [anvi'o metagenomic workflow]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}){:target="_blank"}.
