@@ -508,7 +508,7 @@ anvi-interactive -p PROFILE.db \
 ```
 
 {:.notice}
-Alternatively you could load the interface without the `--collection-autoload ` flag, and click `Bins > Load bin collection > CONCOCT > Load` to load the CONCOCT {% include ARTIFACT name="collection" text="collection" %}.
+Alternatively you could load the interface without the `--collection-autoload` flag, and click `Bins > Load bin collection > CONCOCT > Load` to load the CONCOCT {% include ARTIFACT name="collection" text="collection" %}.
 
 To turn off text annotation, go to `Main > Display > Additional Settings > Selections` and then uncheck `Show names`. You will then see something like this:
 
