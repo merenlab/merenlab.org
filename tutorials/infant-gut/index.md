@@ -304,7 +304,7 @@ Here is an example of 16 {% include ARTIFACT name="bin" text="bins" %} we identi
 
 [![Manual_Binnin_Result_Example.png](images/Manual_Binnin_Result_Example.png)](images/Manual_Binnin_Result_Example.png){:.center-img .width-50}
 
-Please save your {% include ARTIFACT name="bin" text="bins" %} as a collection. You can give your collection any name, but if you all it `default`, anvi'o will treat it differently.
+Please save your {% include ARTIFACT name="bin" text="bins" %} as a collection. You can give your collection any name, but if you call it `default`, anvi'o will treat it differently.
 
 {:.notice}
 In the anvi'o lingo, a 'collection' is something that describes one or more bins, each of which describe one or more contigs.
