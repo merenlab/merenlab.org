@@ -333,7 +333,7 @@ anvi-import-collection additional-files/collections/merens.txt \
 
 </div>
 
-Let's summarize the {% include ARTIFACT name="collection" text="collection" %} you have just created:
+Let's {% include PROGRAM name="anvi-summarize" text="summarize" %} the {% include ARTIFACT name="collection" text="collection" %} you have just created:
 
 ```
 anvi-summarize -p PROFILE.db \
