@@ -467,7 +467,7 @@ anvi-delete-collection -p PROFILE.db \
 
 ### Importing an external binning result
 
-You can create a {% include ARTIFACT name="collection" text="collection" %} by using the {% include ARTIFACT name="interactive" text="interactive" %} interface (e.g., the `default` and `MAGs` {% include ARTIFACT name="collection" text="collections" %} you just created), or you can import external binning results into your profile database as a {% include ARTIFACT name="collection" text="collection" %} and see how that {% include ARTIFACT name="collection" text="collection" %} groups contigs. For instance, let's import the CONCOCT {% include ARTIFACT name="collection" text="collection" %}:
+You can create a {% include ARTIFACT name="collection" text="collection" %} by using the {% include ARTIFACT name="interactive" text="interactive" %} interface (e.g., the `default` and `MAGs` {% include ARTIFACT name="collection" text="collections" %} you just created), or you can {% include PROGRAM name="anvi-import-collection" text="import" %} {% include ARTIFACT name="collection-txt" text="external binning results" %} into your profile database as a {% include ARTIFACT name="collection" text="collection" %} and see how that {% include ARTIFACT name="collection" text="collection" %} groups contigs. For instance, let's import the CONCOCT {% include ARTIFACT name="collection" text="collection" %}:
 
 ``` bash
 anvi-import-collection additional-files/external-binning-results/CONCOCT.txt \
