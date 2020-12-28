@@ -360,7 +360,7 @@ anvi-rename-bins -p PROFILE.db \
 
 With those settings, a new {% include ARTIFACT name="collection" text="collection" %} `MAG` will be created in which (1) {% include ARTIFACT name="bin" text="bins" %} with a completion >70% are identified as MAGs (stands for Metagenome-Assembled Genome), (2) and {% include ARTIFACT name="bin" text="bins" %} and MAGs are attached the prefix IGD and renamed based on the difference between completion and redundancy.
 
-Now we can use the program `anvi-summarize` to summarize the new {% include ARTIFACT name="collection" text="collection" %}:
+Now we can use the program {% include PROGRAM name="anvi-summarize" text="`anvi-summarize`" %} to summarize the new {% include ARTIFACT name="collection" text="collection" %}:
 
 ``` bash
 anvi-summarize -p PROFILE.db \
