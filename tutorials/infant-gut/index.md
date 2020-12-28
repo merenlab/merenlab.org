@@ -313,9 +313,9 @@ If you identified near-complete genomes, then congratulations, you have characte
 
 ### Summarizing the binning results
 
-Why do we do binning? Because we are interested in making sense of our metagenomes in the context of genomes we have recovered through binning. Understanding the distribution patterns of the genomes we have in a {% include ARTIFACT name="collection" text="collection" %} in a quantitative fashion, or getting back a table of function names found in each one of them, or even summarizing our {% include ARTIFACT name="bin" text="bins" %} as distinct FASTA files are critical for next steps of every binning analysis. After all, binning is a boring detail before you start doing your science.
+Why do we do binning? Because we are interested in making sense of our metagenomes in the context of genomes we have recovered through binning. Understanding the distribution patterns of the genomes we have in a {% include ARTIFACT name="collection" text="collection" %} in a quantitative fashion, or getting back a table of function names found in each one of them, or even {% include PROGRAM name="anvi-summarize" text="summarizing" %} our {% include ARTIFACT name="bin" text="bins" %} as distinct FASTA files are critical for next steps of every binning analysis. After all, binning is a boring detail before you start doing your science.
 
-To ensure that you have everything you need to continue working with the outcomes of your binning effort outside of anvi'o, we have a program called `anvi-summarize`. It is possible to summarize any {% include ARTIFACT name="collection" text="collection" %} stored in an anvi'o profile database through this program. The result is a static HTML page that can be viewed on any computer.
+To ensure that you have everything you need to continue working with the outcomes of your binning effort outside of anvi'o, we have {% include PROGRAM name="anvi-summarize" text="a program" %} called `anvi-summarize`. It is possible to summarize any {% include ARTIFACT name="collection" text="collection" %} stored in an anvi'o profile database through this program. The result is a static HTML page that can be viewed on any computer.
 
 <div class="extra-info" markdown="1">
 
