@@ -107,7 +107,7 @@ A typical anvi'o genome-resolved metagenomic workflow [starts with one or more B
 {:.notice}
 While this tutorial will take you through a simple analysis of a real dataset, there also is available a more comprehensive (but more abstract) tutorial on [anvi'o metagenomic workflow]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}){:target="_blank"}.
 
-Using the files in the data-pack directory, let's take a first look at the merge profile database for the infant gut dataset metagenome. If you copy-paste this to your terminal:
+Using the files in the data-pack directory, let's take a first look at the merged profile database for the infant gut dataset metagenome. If you copy-paste this to your terminal:
 
 
 ``` bash
