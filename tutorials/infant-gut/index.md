@@ -137,7 +137,7 @@ Once the {% include ARTIFACT name="interactive" text="interactive" %} interface 
 
 Make contig selections by hovering your mouse over the tree in the center of the anvi'o figure. To add the highlighted selection to your current {% include ARTIFACT name="bin" text="bin" %}, left click. To remove the highlighted selection from your current {% include ARTIFACT name="bin" text="bin" %}, right click. To create a new {% include ARTIFACT name="bin" text="bin" %}, click "New bin" under the `Bins` tab in `Settings`. To change to a different {% include ARTIFACT name="bin" text="bin" %}, click the blue dot next to the {% include ARTIFACT name="bin" text="bin" %} name you're interested in.
 
-**Manipulating the inner dendrogram**. By default, anvi'o uses three different clutering approaches to organize contigs in the center dendrogram. Your ability to perform manual binning will be in part determined on your understanding of these clustering strategies. Here is a brief description of each:
+**Manipulating the inner dendrogram**. By default, anvi'o uses three different clustering approaches to organize contigs in the center dendrogram. Your ability to perform manual binning will be in part determined on your understanding of these clustering strategies. Here is a brief description of each:
 
 - *Differential coverage*: clustering based on the differential coverage of contigs across metagenomes. The logic behind this metric is that fragments originating from the same genome should have the same distribution patterns, often different from other genomes.
 
