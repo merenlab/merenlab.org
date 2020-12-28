@@ -477,7 +477,7 @@ anvi-import-collection additional-files/external-binning-results/CONCOCT.txt \
                        --contigs-mode
 ```
 
-you can immediately see what {% include ARTIFACT name="collection" text="collections" %} are available in a given profile database the following way (which in this case should show us the {% include ARTIFACT name="collection" text="collections" %} `CONCOCT`, and `MAGs`):
+you can immediately see what {% include ARTIFACT name="collection" text="collections" %} are available in a given profile database {% include PROGRAM name="anvi-show-collections-and-bins" text="the following way" %} (which in this case should show us the {% include ARTIFACT name="collection" text="collections" %} `CONCOCT`, and `MAGs`):
 
 ``` bash
 anvi-show-collections-and-bins -p PROFILE.db
