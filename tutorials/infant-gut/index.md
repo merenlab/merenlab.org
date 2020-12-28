@@ -216,7 +216,7 @@ Then recreate them using four threads:
 anvi-setup-scg-taxonomy -T 4
 ```
 
-And re-run taxonomy on our {% include ARTIFACT name="contigs-db" text="contigs database" %}:
+And re-run {% include ARTIFACT name="scgs-taxonomy" text="taxonomy" %} on our {% include ARTIFACT name="contigs-db" text="contigs database" %}:
 
 ```
 anvi-run-scg-taxonomy -c CONTIGS.db \
