@@ -636,7 +636,7 @@ anvi-import-collection additional-files/external-binning-results/MAXBIN.txt \
                        --contigs-mode
 ```
 
-From here, there are two things we can do very quickly. First, we can create a {% include ARTIFACT name="summary" text="summary" %} of our new {% include ARTIFACT name="collection" text="collection" %}, or we can take a quick look at the {% include PROGRAM name="anvi-estimate-genome-completeness" text="completion / redundancy estimates" %} of {% include ARTIFACT name="bin" text="bins" %} described by this {% include ARTIFACT name="collection" text="collection" %} from the command line:
+From here, there are two things we can do very quickly. First, we can create a {% include ARTIFACT name="summary" text="summary" %} of our new {% include ARTIFACT name="collection" text="collection," %} or we can take a quick look at the {% include ARTIFACT name="completion" text="completion / redundancy estimates" %} of {% include ARTIFACT name="bin" text="bins" %} described by this {% include ARTIFACT name="collection" text="collection" %} from the command line:
 
 ``` bash
 anvi-estimate-genome-completeness -p PROFILE.db \
@@ -656,7 +656,7 @@ This command should give you a display similar to this:
 
 [![MaxBin results in collection mode](images/maxbin-collection.png)](images/maxbin-collection.png){:.center-img .width-50}
 
-All previous {% include ARTIFACT name="interactive" text="interactive" %} displays were at the contig-level (each leaf in the center tree was a contig). However, this display is at the *bin-level*. Instead of contigs, this display shows us the distribution of *bins* MaxBin identified. We also have completion and redundancy estimates for each {% include ARTIFACT name="bin" text="bin" %}, which helps us make some early sense of what is going on.
+All previous {% include ARTIFACT name="interactive" text="interactive" %} displays were at the contig-level (each leaf in the center tree was a contig). However, this display is at the *bin-level*. Instead of contigs, this display shows us the distribution of *bins* MaxBin identified. We also have {% include ARTIFACT name="completion" text="completion and redundancy estimates" %} for each {% include ARTIFACT name="bin" text="bin," %} which helps us make some early sense of what is going on.
 
 {:.notice}
 Please read this post to learn more about completion and redundancy estimates: [Assessing completion and contamination of metagenome-assembled genomes]({% post_url miscellaneous/2016-06-09-assessing-completion-and-contamination-of-MAGs %}){:target="_blank"}
