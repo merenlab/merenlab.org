@@ -307,13 +307,13 @@ Here is an example of 16 {% include ARTIFACT name="bin" text="bins" %} we identi
 Please save your {% include ARTIFACT name="bin" text="bins" %} as a collection. You can give your collection any name, but if you call it `default`, anvi'o will treat it differently.
 
 {:.notice}
-In the anvi'o lingo, a 'collection' is something that describes one or more bins, each of which describe one or more contigs.
+In the anvi'o lingo, a 'collection' is something that describes one or more {% include ARTIFACT name="bin" text="bins" %}, each of which describe one or more contigs.
 
 If you identified near-complete genomes, then congratulations, you have characterized genomic contents of microbial populations *de novo*.
 
 ### Summarizing the binning results
 
-Why do we do binning? Because we are interested in making sense of our metagenomes in the context of genomes we have recovered through binning. Understanding the distribution patterns of the genomes we have in a collection in a quantitative fashion, or getting back a table of function names found in each one of them, or even summarizing our bins as distinct FASTA files are critical for next steps of every binning analysis. After all, binning is a boring detail before you start doing your science.
+Why do we do binning? Because we are interested in making sense of our metagenomes in the context of genomes we have recovered through binning. Understanding the distribution patterns of the genomes we have in a collection in a quantitative fashion, or getting back a table of function names found in each one of them, or even summarizing our {% include ARTIFACT name="bin" text="bins" %} as distinct FASTA files are critical for next steps of every binning analysis. After all, binning is a boring detail before you start doing your science.
 
 To ensure that you have everything you need to continue working with the outcomes of your binning effort outside of anvi'o, we have a program called `anvi-summarize`. It is possible to summarize any collection stored in an anvi'o profile database through this program. The result is a static HTML page that can be viewed on any computer.
 
@@ -346,7 +346,7 @@ Once summary is finished, take a minute to look at its contents.
 
 ### Renaming bins in your collection (from chaos to order)
 
-As you can see from the summary file, at this point bin names are random, and we often find it useful to put some order on this front. This becomes an extremely useful strategy especially when the intention is to merge multiple binning efforts later. For this task we use the program `anvi-rename-bins`:
+As you can see from the summary file, at this point {% include ARTIFACT name="bin" text="bin" %} names are random, and we often find it useful to put some order on this front. This becomes an extremely useful strategy especially when the intention is to merge multiple binning efforts later. For this task we use the program `anvi-rename-bins`:
 
 ``` bash
 anvi-rename-bins -p PROFILE.db \
@@ -358,7 +358,7 @@ anvi-rename-bins -p PROFILE.db \
                  --report-file rename-bins-report.txt
 ```
 
-With those settings, a new collection `MAG` will be created in which (1) bins with a completion >70% are identified as MAGs (stands for Metagenome-Assembled Genome), (2) and bins and MAGs are attached the prefix IGD and renamed based on the difference between completion and redundancy.
+With those settings, a new collection `MAG` will be created in which (1) {% include ARTIFACT name="bin" text="bins" %} with a completion >70% are identified as MAGs (stands for Metagenome-Assembled Genome), (2) and {% include ARTIFACT name="bin" text="bins" %} and MAGs are attached the prefix IGD and renamed based on the difference between completion and redundancy.
 
 Now we can use the program `anvi-summarize` to summarize the new collection:
 
@@ -380,12 +380,12 @@ Better.
 ### Refining individual MAGs: the curation step
 
 {:.warning}
-**Why do we need to curate bins?** Please see [this paper](https://doi.org/10.1128/mBio.00725-19) to see how poorly refined bins can influence ecological and evolutionary insights we gain from MAGs. There is also a step-by-step workflow to describe steps of manual curation [here](http://merenlab.org/data/refining-espinoza-mags/).
+**Why do we need to curate bins?** Please see [this paper](https://doi.org/10.1128/mBio.00725-19) to see how poorly refined {% include ARTIFACT name="bin" text="bins" %} can influence ecological and evolutionary insights we gain from MAGs. There is also a step-by-step workflow to describe steps of manual curation [here](http://merenlab.org/data/refining-espinoza-mags/).
 
 {:.warning}
 **Why not relying only on single-copy core genes to estimate purity of a genome bin?** Let's think about this altogether. But once we are done with this, please see the relevant section in [this study](https://t.co/tlnQvIGsIw).
 
-To straighten the quality of the `MAGs` collection, it is possible to visualize individual bins and if needed, refine them. For this we use the program `anvi-refine`. For instance, if you were to be interested in refining one of the bins in our current collection, you could run this command:
+To straighten the quality of the `MAGs` collection, it is possible to visualize individual {% include ARTIFACT name="bin" text="bins" %} and if needed, refine them. For this we use the program `anvi-refine`. For instance, if you were to be interested in refining one of the {% include ARTIFACT name="bin" text="bins" %} in our current collection, you could run this command:
 
 ``` bash
 anvi-refine -p PROFILE.db \
@@ -394,14 +394,14 @@ anvi-refine -p PROFILE.db \
             -b IGD_MAG_00001
 ```
 
-Now the {% include ARTIFACT name="interactive" text="interactive" %} interface only displays contigs from a single bin. During this curation step, one can try different clustering strategies (i.e. by only relying on coverage, or only relying on sequence composition) to identify outliers and investigate carefully whether they may be contaminants. You can select everything, and remove those contigs you don't want to keep in the bin before using the Bins panel to store your updated set of contigs in the database.
+Now the {% include ARTIFACT name="interactive" text="interactive" %} interface only displays contigs from a single {% include ARTIFACT name="bin" text="bin" %}. During this curation step, one can try different clustering strategies (i.e. by only relying on coverage, or only relying on sequence composition) to identify outliers and investigate carefully whether they may be contaminants. You can select everything, and remove those contigs you don't want to keep in the {% include ARTIFACT name="bin" text="bin" %} before using the Bins panel to store your updated set of contigs in the database.
 
 Here is an example of MAG we had to curate (we removed three contigs):
 
 [![Refining_a_MAG_example.png](images/Refining_a_MAG_example.png)](images/Refining_a_MAG_example.png){:.center-img .width-50}
 
 {:.warning}
-Storing the refined new bin in the database will modify the collection, but you will need to run `anvi-summarize` if you want the summary output to also be updated.
+Storing the refined new {% include ARTIFACT name="bin" text="bin" %} in the database will modify the collection, but you will need to run `anvi-summarize` if you want the summary output to also be updated.
 
 This is indeed a simple example. But in some cases refining a given MAG can take hours. But this is an extremely critical step of genome-resolved metagenomics studies, especially when important claims are made based on MAGs.
 
@@ -446,7 +446,7 @@ Binsanity-refine -f . -l -p -150 -c igm.coverage.lognorm
 
 Eren et al. results come directly from the collection generated during the study.
 
-Finally, a file corresponding to Sharon et al. results was created by BLAST-searching sequences in bins identified by the authors of the study (see [http://ggkbase.berkeley.edu/carrol](http://ggkbase.berkeley.edu/carrol){:target="_blank"}) to our contigs to have matching names for our assembly.
+Finally, a file corresponding to Sharon et al. results was created by BLAST-searching sequences in {% include ARTIFACT name="bin" text="bins" %} identified by the authors of the study (see [http://ggkbase.berkeley.edu/carrol](http://ggkbase.berkeley.edu/carrol){:target="_blank"}) to our contigs to have matching names for our assembly.
 
 </div>
 
@@ -483,7 +483,7 @@ you can immediately see what collections are available in a given profile databa
 anvi-show-collections-and-bins -p PROFILE.db
 ```
 
-You can get a quick idea regarding the estimated completion of bins in a given collection:
+You can get a quick idea regarding the estimated completion of {% include ARTIFACT name="bin" text="bins" %} in a given collection:
 
 ``` bash
 anvi-estimate-genome-completeness -p PROFILE.db \
@@ -548,7 +548,7 @@ Day17a_QCcontig1007_split_00001  INFANT-GUT-ASSEMBLY-bin_16.fna  Bin_3    db_bin
 Day17a_QCcontig1008_split_00001  INFANT-GUT-ASSEMBLY-bin_14.fna  Bin_2    db_bin_1   maxbin.009  metabat_igm.7         Cluster.8.fasta   Candida_albcans
 ```
 
-Good. Now you can run the {% include ARTIFACT name="interactive" text="interactive" %} interface to display all collections of bins stored in `collections.tsv` as 'additional layers':
+Good. Now you can run the {% include ARTIFACT name="interactive" text="interactive" %} interface to display all collections of {% include ARTIFACT name="bin" text="bins" %} stored in `collections.tsv` as 'additional layers':
 
 ``` bash
 anvi-interactive -p PROFILE.db \
@@ -590,7 +590,7 @@ At this point you should be seeing a display similar to this (after setting the 
 
 [![Infant gut merged](images/infant-gut-collections.png)](images/infant-gut-collections.png){:.center-img .width-50}
 
-The legends for each of the bin collections are available in the `Legends` tab of `Settings`. To visually emphasize relationships between bins, you can change the color of each bin manually by clicking on the colored boxes in the legends. Or, if you're not a masochist you can import an anvi'o state where we did that for you:
+The legends for each of the {% include ARTIFACT name="bin" text="bin" %} collections are available in the `Legends` tab of `Settings`. To visually emphasize relationships between {% include ARTIFACT name="bin" text="bins" %}, you can change the color of each {% include ARTIFACT name="bin" text="bin" %} manually by clicking on the colored boxes in the legends. Or, if you're not a masochist you can import an anvi'o state where we did that for you:
 
 ``` bash
 anvi-import-state --state additional-files/state-files/state-merged.json \
@@ -636,7 +636,7 @@ anvi-import-collection additional-files/external-binning-results/MAXBIN.txt \
                        --contigs-mode
 ```
 
-From here, there are two things we can do very quickly. First, we can create a summary of our new collection, or we can take a quick look at the completion / redundancy estimates of bins described by this collection from the command line:
+From here, there are two things we can do very quickly. First, we can create a summary of our new collection, or we can take a quick look at the completion / redundancy estimates of {% include ARTIFACT name="bin" text="bins" %} described by this collection from the command line:
 
 ``` bash
 anvi-estimate-genome-completeness -p PROFILE.db \
@@ -656,14 +656,14 @@ This command should give you a display similar to this:
 
 [![MaxBin results in collection mode](images/maxbin-collection.png)](images/maxbin-collection.png){:.center-img .width-50}
 
-All previous {% include ARTIFACT name="interactive" text="interactive" %} displays were at the contig-level (each leaf in the center tree was a contig). However, this display is at the *bin-level*. Instead of contigs, this display shows us the distribution of *bins* MaxBin identified. We also have completion and redundancy estimates for each bin, which helps us make some early sense of what is going on.
+All previous {% include ARTIFACT name="interactive" text="interactive" %} displays were at the contig-level (each leaf in the center tree was a contig). However, this display is at the *bin-level*. Instead of contigs, this display shows us the distribution of *bins* MaxBin identified. We also have completion and redundancy estimates for each {% include ARTIFACT name="bin" text="bin" %}, which helps us make some early sense of what is going on.
 
 {:.notice}
 Please read this post to learn more about completion and redundancy estimates: [Assessing completion and contamination of metagenome-assembled genomes]({% post_url miscellaneous/2016-06-09-assessing-completion-and-contamination-of-MAGs %}){:target="_blank"}
 
-It is clear that some bins are not as well-resolved as others. For instance, bins `maxbin_007` and `maxbin_008` have redundancy estimates of 22% and 91%, respectively, which suggests each of them describe multiple distinct populations. Well, clearly we would have preferred those bins to *behave*.
+It is clear that some {% include ARTIFACT name="bin" text="bins" %} are not as well-resolved as others. For instance, bins `maxbin_007` and `maxbin_008` have redundancy estimates of 22% and 91%, respectively, which suggests each of them describe multiple distinct populations. Well, clearly we would have preferred those {% include ARTIFACT name="bin" text="bins" %} to *behave*.
 
-If you order bins based on their detection across metagenomes (by changing the 'Items order' to 'detection' from the menu in the Main tab), you can also see that  bins `maxbin_007` and `maxbin_008` are right next to each other. This suggests that it may be a good idea to simply merge these bins first, and then refine to avoid issues of over-splitting populations of interest. Let's merge them into a single bin first:
+If you order {% include ARTIFACT name="bin" text="bins" %} based on their detection across metagenomes (by changing the 'Items order' to 'detection' from the menu in the Main tab), you can also see that  bins `maxbin_007` and `maxbin_008` are right next to each other. This suggests that it may be a good idea to simply merge these {% include ARTIFACT name="bin" text="bins" %} first, and then refine to avoid issues of over-splitting populations of interest. Let's merge them into a single {% include ARTIFACT name="bin" text="bin" %} first:
 
 ```
 anvi-merge-bins -p PROFILE.db \
@@ -672,7 +672,7 @@ anvi-merge-bins -p PROFILE.db \
                 --new-bin-name maxbin_007_and_008
 ```
 
-If you take a quick look at the collection again, you can see that the new bin `maxbin_007_and_008` is the bin that needs immediate action based on single-copy core genes:
+If you take a quick look at the collection again, you can see that the new bin `maxbin_007_and_008` is the {% include ARTIFACT name="bin" text="bin" %} that needs immediate action based on single-copy core genes:
 
 ```
 anvi-estimate-genome-completeness -p PROFILE.db \
@@ -704,7 +704,7 @@ Bins in collection "MAXBIN"
 ╘════════════════════╧══════════╧══════════════╧════════════════╧════════════════╧══════════════╧════════════════╛
 ```
 
-Fine. Let's refine that bin:
+Fine. Let's refine that {% include ARTIFACT name="bin" text="bin" %}:
 
 ``` bash
 anvi-refine -p PROFILE.db \
@@ -717,11 +717,11 @@ Which should give us this display, on which we see the distribution of contigs t
 
 [![MaxBin_One_Bin_refine.png](images/MaxBin_One_Bin_refine.png)](images/MaxBin_One_Bin_refine.png){:.center-img .width-50}
 
-We can now make the following selections to split these two bins into six, and update our database by storing these refined bins from the Bins panel in the interface:
+We can now make the following selections to split these two {% include ARTIFACT name="bin" text="bins" %} into six, and update our database by storing these refined {% include ARTIFACT name="bin" text="bins" %} from the Bins panel in the interface:
 
 [![MaxBin_One_Bin_refine.png](images/MaxBin_One_Bin_refine_selections.png)](images/MaxBin_One_Bin_refine_selections.png){:.center-img .width-50}
 
-If you take another look after this, you can see that `maxbin_007_and_008` is replaced with smaller bins, and the total redundancy in the collection is much lower:
+If you take another look after this, you can see that `maxbin_007_and_008` is replaced with smaller {% include ARTIFACT name="bin" text="bins" %}, and the total redundancy in the collection is much lower:
 
 ```
 anvi-estimate-genome-completeness -p PROFILE.db \
@@ -763,7 +763,7 @@ Bins in collection "MAXBIN"
 ╘══════════════════════╧══════════╧══════════════╧════════════════╧════════════════╧══════════════╧════════════════╛
 ```
 
-The take home message here is that even when automatic binning approaches yield poorly identified bins, it is possible to improve the final results through a manual refinement step. Clearly these extra steps require a lot of expertise, intuition, attention, and decision making. And fortunately you are all familiar with each one of them because science.
+The take home message here is that even when automatic binning approaches yield poorly identified {% include ARTIFACT name="bin" text="bins" %}, it is possible to improve the final results through a manual refinement step. Clearly these extra steps require a lot of expertise, intuition, attention, and decision making. And fortunately you are all familiar with each one of them because science.
 
 Thank you for following the tutorial this far!
 
@@ -799,17 +799,17 @@ You should reming yourself that each of these approaches are implemented by peop
 
 So which one to choose? How to get out of this situation easily and move on? I know how much desire there is to outsource everything we do to fully automated computational solutions. I also acknowledge that the ability to do that is important to perform large-scale and reproducible analyses without going through too much pain. But we are not at a stage yet with metagenomics where you can rely on any of the available automated binning tools, and expect your MAGs to be safe and sound.
 
-For instance, I think CONCOCT is doing a pretty awesome job identifying MAGs in the IGD, even with the low-abundance organisms. However, it is not perfect, either. In fact if you look carefully, you can see that it creates two bins for one *Candida albicans* genome. Hierarchical clustering will always get you closest to the best organization of contigs with simple distance metrics and linkage algorithms. But there are major challenges associated with that approach, including the fact that it is simply an exploratory method and can't give you "bins" out-of-the-box. Even more importantly, it has tremendous limitations come from its computational complexity (~*O*(*m*<sup>2</sup> log *m*), where *m* is the number of data points). So in most cases it is not even a remote possibility to organize contigs using a hierarchical clustering approach in an assembly in reasonable amount of time (and there is no way to visualize that even if you were to get a dendrogram for 200,000 contigs (you can create simple 2D ordinations with that number of items, but you really shouldn't, but that's another discussion)). Except assemblies with rather smaller number of contigs like the IGD, we are always going to use automated ways to identify bins, at least *initially*, knowing that resulting bins may be, and in most cases will be, crappy. That's why in anvi'o we implemented ways to quickly look into automatically identified bins (i.e., the `collection` mode of `anvi-interactive`), and even refine those with poor redundancy scores to improve final results (i.e., `anvi-refine`).
+For instance, I think CONCOCT is doing a pretty awesome job identifying MAGs in the IGD, even with the low-abundance organisms. However, it is not perfect, either. In fact if you look carefully, you can see that it creates two {% include ARTIFACT name="bin" text="bins" %} for one *Candida albicans* genome. Hierarchical clustering will always get you closest to the best organization of contigs with simple distance metrics and linkage algorithms. But there are major challenges associated with that approach, including the fact that it is simply an exploratory method and can't give you "bins" out-of-the-box. Even more importantly, it has tremendous limitations come from its computational complexity (~*O*(*m*<sup>2</sup> log *m*), where *m* is the number of data points). So in most cases it is not even a remote possibility to organize contigs using a hierarchical clustering approach in an assembly in reasonable amount of time (and there is no way to visualize that even if you were to get a dendrogram for 200,000 contigs (you can create simple 2D ordinations with that number of items, but you really shouldn't, but that's another discussion)). Except assemblies with rather smaller number of contigs like the IGD, we are always going to use automated ways to identify {% include ARTIFACT name="bin" text="bins" %}, at least *initially*, knowing that resulting {% include ARTIFACT name="bin" text="bins" %} may be, and in most cases will be, crappy. That's why in anvi'o we implemented ways to quickly look into automatically identified {% include ARTIFACT name="bin" text="bins" %} (i.e., the `collection` mode of `anvi-interactive`), and even refine those with poor redundancy scores to improve final results (i.e., `anvi-refine`).
 
-So we can fix crappy bins to an extent since [we know more or less how things should look like]({% post_url miscellaneous/2016-06-09-assessing-completion-and-contamination-of-MAGs %}){:target="_blank"}, and [we have tools to do that]({% post_url anvio/2015-05-11-anvi-refine %}). That being said, there is one more consideration that is very easy to miss. Although it is somewhat possible to recover from **conflation error** (i.e., more than one genome ends up in one bin), it is much harder to recover from the **fragmentation error** (i.e., one genome is split into multiple bins). You can see an example for fragmentation error if you take a careful look from this figure (i.e., CONCOCT bins between 9:30 and 12:00 o'clock, or MaxBin bins between 5:00 and 7:00 o'clock):
+So we can fix crappy {% include ARTIFACT name="bin" text="bins" %} to an extent since [we know more or less how things should look like]({% post_url miscellaneous/2016-06-09-assessing-completion-and-contamination-of-MAGs %}){:target="_blank"}, and [we have tools to do that]({% post_url anvio/2015-05-11-anvi-refine %}). That being said, there is one more consideration that is very easy to miss. Although it is somewhat possible to recover from **conflation error** (i.e., more than one genome ends up in one {% include ARTIFACT name="bin" text="bin" %}), it is much harder to recover from the **fragmentation error** (i.e., one genome is split into multiple {% include ARTIFACT name="bin" text="bins" %}). You can see an example for fragmentation error if you take a careful look from this figure (i.e., CONCOCT bins between 9:30 and 12:00 o'clock, or MaxBin bins between 5:00 and 7:00 o'clock):
 
 [![Infant gut merged](images/infant-gut-collections-final-tod.png)](infant-gut-collections-final-tod.png){:.center-img .width-50}
 
-This is a problem that likely happens quite often, and very hard to deal with once the bins are identified. But we *can* recover from that.
+This is a problem that likely happens quite often, and very hard to deal with once the {% include ARTIFACT name="bin" text="bins" %} are identified. But we *can* recover from that.
 
 #### From fragmentation to conflation error: A Meren Lab Heuristic to fight back
 
-One of the heuristics we recently started using in our lab to avoid fragmentation error is to confine CONCOCT's clustering space to a much smaller number of clusters than the expected number of bacterial genomes in a given dataset, and then curate resulting contaminated bins manually. Let's say we expect to find `n` bacterial genomes, so we run CONCOCT with a maximum number of clusters of about `n/2` (no judging! I told you it was a heuristic!).
+One of the heuristics we recently started using in our lab to avoid fragmentation error is to confine CONCOCT's clustering space to a much smaller number of clusters than the expected number of bacterial genomes in a given dataset, and then curate resulting contaminated {% include ARTIFACT name="bin" text="bins" %} manually. Let's say we expect to find `n` bacterial genomes, so we run CONCOCT with a maximum number of clusters of about `n/2` (no judging! I told you it was a heuristic!).
 
 <blockquote>
 Well, how do you even know how many bacterial genomes you should expect to find in a metagenome?
@@ -855,7 +855,7 @@ and you would see this:
 
 [![CONCOCT w/ 5 clusters](images/concoct-5-clusters.png)](images/concoct-5-clusters.png){:.center-img .width-50}
 
-Well, there aren't any fragmentation errors anymore, and in fact CONCOCT did an amazing job to identify general patterns in the dataset. Now refining these bins to fix all the conflation errors would be much more easier. If you would like to try, here is an example:
+Well, there aren't any fragmentation errors anymore, and in fact CONCOCT did an amazing job to identify general patterns in the dataset. Now refining these {% include ARTIFACT name="bin" text="bins" %} to fix all the conflation errors would be much more easier. If you would like to try, here is an example:
 
 ``` bash
 anvi-refine -p PROFILE.db \
@@ -866,7 +866,7 @@ anvi-refine -p PROFILE.db \
 
 ---
 
-There are more ways to improve bins and binning results. But although we have seen major improvements in our research by exploring these directions, there are also many other cases nothing is quite enough.
+There are more ways to improve {% include ARTIFACT name="bin" text="bins" %} and binning results. But although we have seen major improvements in our research by exploring these directions, there are also many other cases nothing is quite enough.
 
 Then it is time to increase the depth of sequencing, implement a different assembly strategy, rethink the sampling strategy, or change the experimental approach to do what seems to be undoable. Here is an example from Tom Delmont et al. to that last point with soil metagenomics: [doi:10.3389/fmicb.2015.00358](https://doi.org/10.3389/fmicb.2015.00358){:target="_blank"}.
 
@@ -886,7 +886,7 @@ To see a practical application of phylogenomics see [this workflow](http://meren
 {:.notice}
 **If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
 
-Please run the following command in the IGD dir, so you have everything you need. We will simply import our previously generated collection of bins in the IGD dataset as the `default` collection:
+Please run the following command in the IGD dir, so you have everything you need. We will simply import our previously generated collection of {% include ARTIFACT name="bin" text="bins" %} in the IGD dataset as the `default` collection:
 
 ``` bash
 anvi-import-collection additional-files/collections/merens.txt \
@@ -896,7 +896,7 @@ anvi-import-collection additional-files/collections/merens.txt \
                        -C default
 ```
 
-At this point, you have in your anvi'o profile database a collection with multiple bins:
+At this point, you have in your anvi'o profile database a collection with multiple {% include ARTIFACT name="bin" text="bins" %}:
 
 ``` bash
 anvi-show-collections-and-bins -p PROFILE.db
@@ -911,7 +911,7 @@ Bin names ....................................: Aneorococcus_sp, C_albicans, E_f
 
 Putting genomes in a phylogenomic context is one of the common ways to compare them to each other. The common practice is to concatenate aligned sequences of single-copy core genes for each genome of interest, and generate a phylogenomic tree by analyzing the resulting alignment.
 
-Let's assume we want to run a phylogenomic analysis on all genome bins we have in the collection `merens` in the IGD (you may have your own collections somewhere, that is fine too).
+Let's assume we want to run a phylogenomic analysis on all genome {% include ARTIFACT name="bin" text="bins" %} we have in the collection `merens` in the IGD (you may have your own collections somewhere, that is fine too).
 
 In order to do the phylogenomic analysis, we will need a FASTA file of concatenated genes. And to get that FASTA file out of our anvi'o databases, we will primarily use the program `anvi-get-sequences-for-hmm-hits`.
 
@@ -967,7 +967,7 @@ OK. A lot. Good for you, `Bacteria_71`.
 
 For the sake of this simple example, let's assume we want to use a bunch of ribosomal genes for our phylogenomic analysis: `Ribosomal_L1`, `Ribosomal_L2`, `Ribosomal_L3`, `Ribosomal_L4`, `Ribosomal_L5`, `Ribosomal_L6`.
 
-OK. The following command will give us all these genes from all bins described in the collection `default`:
+OK. The following command will give us all these genes from all {% include ARTIFACT name="bin" text="bins" %} described in the collection `default`:
 
 ``` bash
 anvi-get-sequences-for-hmm-hits -c CONTIGS.db \
@@ -1095,9 +1095,9 @@ You can replace the colors with the bin names by selecting `Text` from `Main > L
 
 [![phylogenomics](images/phylogenomics-manual-mode-text.png)](images/phylogenomics-manual-mode-text.png){:.center-img .width-50}
 
-We can do much more with this phylogenomic tree of our bins than visualizing it in manual mode.
+We can do much more with this phylogenomic tree of our {% include ARTIFACT name="bin" text="bins" %} than visualizing it in manual mode.
 
-For instance, we could use it immediately to organize our bins in our collection while showing their distribution across samples.
+For instance, we could use it immediately to organize our {% include ARTIFACT name="bin" text="bins" %} in our collection while showing their distribution across samples.
 
 ``` bash
 anvi-interactive -p PROFILE.db \
@@ -1111,14 +1111,14 @@ Which would give you the following display after selecting the 'Phylogenomic tre
 [![phylogenomics](images/phylogenomics-collection-mode.png)](images/phylogenomics-collection-mode.png){:.center-img .width-50}
 
 
-The tree in the middle shows the phylogenomic organization of bins we identified in the IGD.
+The tree in the middle shows the phylogenomic organization of {% include ARTIFACT name="bin" text="bins" %} we identified in the IGD.
 
 Now you know how to organize distantly related genomes using universally conserved genes.
 
 
 ## Chapter IV: Pangenomics
 
-Both phylogenomics and pangenomics are strategies under the umbrella of comparative genomics, and they are inherently very similar despite their key differences. In this chapter we will discuss pangenomics and use anvi'o to have a small pangenomic analysis using our famous *E. faecalis* bin we recovered from the infant gut dataset and a bunch of others from the interwebs.
+Both phylogenomics and pangenomics are strategies under the umbrella of comparative genomics, and they are inherently very similar despite their key differences. In this chapter we will discuss pangenomics and use anvi'o to have a small pangenomic analysis using our famous *E. faecalis* {% include ARTIFACT name="bin" text="bin" %} we recovered from the infant gut dataset and a bunch of others from the interwebs.
 
 {:.notice}
 You can find a comprehensive tutorial on the anvi'o pangenomic workflow [here]({% post_url anvio/2016-11-08-pangenomics-v2 %}){:target="_blank"}.
@@ -1126,7 +1126,7 @@ You can find a comprehensive tutorial on the anvi'o pangenomic workflow [here]({
 {:.warning}
 **If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
 
-Please run following commands in the IGD dir. They will set the stage for us to take a look at the *E. faecalis* bin:
+Please run following commands in the IGD dir. They will set the stage for us to take a look at the *E. faecalis* {% include ARTIFACT name="bin" text="bin" %}:
 
 ``` bash
 anvi-import-collection additional-files/collections/e-faecalis.txt \
@@ -1140,7 +1140,7 @@ anvi-import-collection additional-files/collections/e-faecalis.txt \
 
 ### Generating a genome storage
 
-For this example I downloaded 6 *E. faecalis*, and 5 *E. faecium* genomes to analyze them together with our *E. faecalis* bin. For each of these 11 *external genomes*, I generated anvi'o {% include ARTIFACT name="contigs-db" text="contigs databases" %}. You can find all of them in the additional files directory:
+For this example I downloaded 6 *E. faecalis*, and 5 *E. faecium* genomes to analyze them together with our *E. faecalis* {% include ARTIFACT name="bin" text="bin" %}. For each of these 11 *external genomes*, I generated anvi'o {% include ARTIFACT name="contigs-db" text="contigs databases" %}. You can find all of them in the additional files directory:
 
 ``` bash
 ls additional-files/pangenomics/external-genomes/*db
@@ -1411,7 +1411,7 @@ you will see the following selections:
 
 [![E. facealis pan](images/e-faecalis-pan-selections.png)](images/e-faecalis-pan-selections.png){:.center-img .width-70}
 
-We used collections to store bins of contigs in the first section (and that's how we identified that *E. faecalis* population from the Sharon et al. metagenomes anyway), and now the same concept serves us as a way to store bins of gene clusters.
+We used collections to store {% include ARTIFACT name="bin" text="bins" %} of contigs in the first section (and that's how we identified that *E. faecalis* population from the Sharon et al. metagenomes anyway), and now the same concept serves us as a way to store {% include ARTIFACT name="bin" text="bins" %} of gene clusters.
 
 If you right-click on any of the gene clusters, you will see a menu,
 
@@ -1427,7 +1427,7 @@ Yes we can!
 
 ### Summarizing a pangenome
 
-For instance, in my tentative selection above, there is a bin called `CORE ALL`, which describes all gene clusters that seems to be in all genomes in this analysis. You can in fact summarize the collection `default` to access all the information about each gene described in each gene cluster selected as `CORE ALL`.
+For instance, in my tentative selection above, there is a {% include ARTIFACT name="bin" text="bin" %} called `CORE ALL`, which describes all gene clusters that seems to be in all genomes in this analysis. You can in fact summarize the collection `default` to access all the information about each gene described in each gene cluster selected as `CORE ALL`.
 
 You can summarize the pangenome using the collection we have the following way:
 
@@ -1477,7 +1477,7 @@ I'm sure you need no help to know what to do with this file.
 
 ## Chapter V: Microbial Population Genetics
 
-Here we will profile the single-nucleotide variations (SNVs) in the *E. faecalis* bin found in Sharon et al.'s Infant Gut Dataset (IGD).
+Here we will profile the single-nucleotide variations (SNVs) in the *E. faecalis* {% include ARTIFACT name="bin" text="bin" %} found in Sharon et al.'s Infant Gut Dataset (IGD).
 
 {:.notice}
 This is more of a practical tutorial for hands on experience to recover and make sense of SNVs. For a more theoretical one on the same topic, please consider first reading the tutorial [Analyzing sequence variants with anvi'o]({% post_url anvio/2015-07-20-analyzing-variability %}){:target="_blank"}.
@@ -1485,7 +1485,7 @@ This is more of a practical tutorial for hands on experience to recover and make
 {:.notice}
 **If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
 
-First of all, if you haven't already, run this command to load the collection containing the *E. faecalis* bin (no harm done running it twice):
+First of all, if you haven't already, run this command to load the collection containing the *E. faecalis* {% include ARTIFACT name="bin" text="bin" %} (no harm done running it twice):
 
 ``` bash
 anvi-import-collection additional-files/collections/merens.txt \
@@ -1495,7 +1495,7 @@ anvi-import-collection additional-files/collections/merens.txt \
                         -C default
 ```
 
-Please run the following commands in the IGD dir. They will set the stage for us to take a look at the *E. faecalis* bin:
+Please run the following commands in the IGD dir. They will set the stage for us to take a look at the *E. faecalis* {% include ARTIFACT name="bin" text="bin" %}:
 
 ``` bash
 # importing taxonomy for gene calls
@@ -1510,15 +1510,15 @@ anvi-import-state --state additional-files/state-files/state-merged.json \
                   -p PROFILE.db
 ```
 
-OK. Let's first remind ourselves where this bin is.
+OK. Let's first remind ourselves where this {% include ARTIFACT name="bin" text="bin" %} is.
 
-You remember the *E. faecalis* bin from previous sections of this tutorial:
+You remember the *E. faecalis* {% include ARTIFACT name="bin" text="bin" %} from previous sections of this tutorial:
 
 [![E. faecalis bin](images/e-faecalis-bin.png)](images/e-faecalis-bin.png){:.center-img .width-50}
 
-The red selection in the most outer layer represents the *E. faecalis* bin, which is very abundant in every sample, and it is stored in the collection `merens` under the bin name `E_facealis` (yes, the name has a typo, we know, it is all Tom's fault). In this section we will focus on this bin, and in fact we don't really need the rest of this metagenome.
+The red selection in the most outer layer represents the *E. faecalis* {% include ARTIFACT name="bin" text="bin" %}, which is very abundant in every sample, and it is stored in the collection `merens` under the {% include ARTIFACT name="bin" text="bin" %} name `E_facealis` (yes, the name has a typo, we know, it is all Tom's fault). In this section we will focus on this {% include ARTIFACT name="bin" text="bin" %}, and in fact we don't really need the rest of this metagenome.
 
-Since we have identified the genome bin of focus, we can set aside the rest of the metagenome, and 'split' that bin out of this profile database to create a self-contained anvi'o profile that *only* describes this single bin. This is also a great way to share your research with others. Here is how we can get that bin out of this metagenome:
+Since we have identified the genome {% include ARTIFACT name="bin" text="bin" %} of focus, we can set aside the rest of the metagenome, and 'split' that {% include ARTIFACT name="bin" text="bin" %} out of this profile database to create a self-contained anvi'o profile that *only* describes this single {% include ARTIFACT name="bin" text="bin" %}. This is also a great way to share your research with others. Here is how we can get that {% include ARTIFACT name="bin" text="bin" %} out of this metagenome:
 
 ``` bash
 anvi-split -p PROFILE.db \
@@ -1537,7 +1537,7 @@ ls MAGs/E_facealis/
 AUXILIARY-DATA.h5 CONTIGS.db        CONTIGS.h5        PROFILE.db
 ```
 
-Look familiar? This generated a new anvi'o profile database and anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} that pertains only to the `E_facealis` bin. While the program `anvi-split` does its magic, it also adds into the resulting profile database a collection (called `DEFAULT`), with a single bin in it (called `ALL_SPLITS`) that contains all the contigs in this MAG. This way we can access to its contents from all anvi'o programs. Here is an example:
+Look familiar? This generated a new anvi'o profile database and anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} that pertains only to the `E_facealis` {% include ARTIFACT name="bin" text="bin" %}. While the program `anvi-split` does its magic, it also adds into the resulting profile database a collection (called `DEFAULT`), with a single {% include ARTIFACT name="bin" text="bin" %} in it (called `ALL_SPLITS`) that contains all the contigs in this MAG. This way we can access to its contents from all anvi'o programs. Here is an example:
 
 ``` bash
 anvi-estimate-genome-completeness -p MAGs/E_facealis/PROFILE.db \
@@ -1551,7 +1551,7 @@ anvi-estimate-genome-completeness -p MAGs/E_facealis/PROFILE.db \
 ╘════════════╧══════════╧══════════════╧════════════════╧════════════════╧══════════════╧════════════════╛
 ```
 
-OK. If you were to visualize this bin,
+OK. If you were to visualize this {% include ARTIFACT name="bin" text="bin" %},
 
 ``` bash
 anvi-interactive -p MAGs/E_facealis/PROFILE.db \
@@ -1570,7 +1570,7 @@ this is what you should get:
 <span class="extra-info-header">Why anvi-split is great for open science?</span>
 In a recent large-scale study we discovered very abundant, yet previously unrecognized microbial populations in the surface ocean that have the capacity to 'fix' nitrogen. Here is [the study](https://go.nature.com/2y2NmKU), and here is the [behind the paper](https://naturemicrobiologycommunity.nature.com/users/113363-a-murat-eren-meren/posts/34040-microbiologists-vs-shotgun-metagenomes-surface-ocean) blog post.
 
-We did the scariest of all in the name of open science by making sure anyone could 'see' what is going on in our genome bins with as little effort as possible.
+We did the scariest of all in the name of open science by making sure anyone could 'see' what is going on in our genome {% include ARTIFACT name="bin" text="bins" %} with as little effort as possible.
 
 For instance, if you would you like to see the distribution and nucleotide-level coverage patterns of HBD-06, one of our nitrogen-fixing populations in our study across Tara Oceans metagenomes, you can simply copy-paste the following commands to your terminal:
 
@@ -1603,7 +1603,7 @@ Yep. Because it 2018. That's why.
 
 Alright.
 
-Here is a different representation of the coverage of this bin across samples (which is a screenshot from our paper):
+Here is a different representation of the coverage of this {% include ARTIFACT name="bin" text="bin" %} across samples (which is a screenshot from our paper):
 
 <div class='centerimg'>
 <a href='{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/coverage.png'><img src='{{ site.url }}/images/anvio/2015-07-20-analyzing-variability/coverage.png' style='width: 50%;' /></a>
@@ -1611,7 +1611,7 @@ Here is a different representation of the coverage of this bin across samples (w
 
 See, it *really* is abundant (every dot here is the coverage of a nucleotide position that was reported as a variable position).
 
-OK. Clearly, we have no way of knowing the extent of variation within this bin through this perspective. But `anvi-gen-variability-profile` is exactly for that purpose, and that's what we will do here using two different methods to visualize its report (using R, and using anvi'o).
+OK. Clearly, we have no way of knowing the extent of variation within this {% include ARTIFACT name="bin" text="bin" %} through this perspective. But `anvi-gen-variability-profile` is exactly for that purpose, and that's what we will do here using two different methods to visualize its report (using R, and using anvi'o).
 
 Let's first generate the SNV profile output file, [details of which were described extensively here]({% post_url anvio/2015-07-20-analyzing-variability %}#the-output-matrix). Here it is:
 
@@ -1646,7 +1646,7 @@ which contains only the sample names with larger number of reads for every dupli
 
 OK. Our beloved `anvi-gen-variability-profile` will kindly store results from 466 nucleotide positions in the output file, `E-faecalis-SNVs.txt`. Because we used the flag `--quince-mode`, there will be a total of 3,728 entries in the file (=466 x 8).
 
-At this point we now know that the *E. faecalis* is not a monoclonal bin, and does maintain some level of heterogeneity. What we don't know is whether it is just noise, or if there is any signal that may tell us something about the nature of this variability.
+At this point we now know that the *E. faecalis* is not a monoclonal {% include ARTIFACT name="bin" text="bin" %}, and does maintain some level of heterogeneity. What we don't know is whether it is just noise, or if there is any signal that may tell us something about the nature of this variability.
 
 Now we will visualize the information two different ways.
 
@@ -1810,7 +1810,7 @@ anvi-gen-variability-network -i E-faecalis-SNVs.txt \
 
 You can use [Gephi](https://gephi.org/){:target="_blank"} to play with the resulting file to visualize or to analyze the network properties of nucleotide positions further.
 
-Here is a screenshot from Gephi for SNV profiles in the *E. faecalis* genome bin:
+Here is a screenshot from Gephi for SNV profiles in the *E. faecalis* genome {% include ARTIFACT name="bin" text="bin" %}:
 
 [![E. faecalis SNVs network](images/network.png)](images/network.png){:.center-img .width-100}
 
@@ -1976,7 +1976,7 @@ This output simply puts our contigs in the *E. faecalis* genome we recovered fro
 
 ### The gene mode: studying distribution patterns at the gene-level
 
-Furthermore, one could want to do it per gene basis for a more higly resolved understanding of distribution patterns. Luckily, if you have a collection and a bin in your profile database, anvi'o allows that.
+Furthermore, one could want to do it per gene basis for a more higly resolved understanding of distribution patterns. Luckily, if you have a collection and a {% include ARTIFACT name="bin" text="bin" %} in your profile database, anvi'o allows that.
 
 {:.notice}
 If you don't have a collection, `anvi-script-add-default-collection` will help you add one.
