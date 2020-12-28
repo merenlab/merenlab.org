@@ -346,7 +346,7 @@ Once {% include ARTIFACT name="summary" text="summary" %} is finished, take a mi
 
 ### Renaming bins in your collection (from chaos to order)
 
-As you can see from the {% include ARTIFACT name="summary" text="summary" %} file, at this point {% include ARTIFACT name="bin" text="bin" %} names are random, and we often find it useful to put some order on this front. This becomes an extremely useful strategy especially when the intention is to merge multiple binning efforts later. For this task we use the program `anvi-rename-bins`:
+As you can see from the {% include ARTIFACT name="summary" text="summary" %} file, at this point {% include ARTIFACT name="bin" text="bin" %} names are random, and we often find it useful to put some order on this front. This becomes an extremely useful strategy especially when the intention is to merge multiple binning efforts later. For this task we use the program {% include PROGRAM name="anvi-rename-bins" text="`anvi-rename-bins`" %}:
 
 ``` bash
 anvi-rename-bins -p PROFILE.db \
