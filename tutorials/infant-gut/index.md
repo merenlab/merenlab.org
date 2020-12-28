@@ -193,7 +193,7 @@ In the Layers tab find the `Taxonomy` layer, set its height to `200`, then drag 
 
 ### Inferring taxonomy for metagenomes
 
-So at this point we don't have any idea about what genomes do we have in this dataset, but anvi'o can make sense of the taxonomic make up of a given metagenome by characterizing taxonomic affiliations of single-copy core genes. The details of this scg-taxonomy workflow is described [here]({% post_url anvio/2019-10-08-anvio-scg-taxonomy %}) in greater detail.
+So at this point we don't have any idea about what genomes do we have in this dataset, but anvi'o can make sense of the taxonomic make up of a given metagenome by characterizing taxonomic affiliations of single-copy core genes. The details of this {% include PROGRAM name="anvi-run-scg-taxonomy" text="scg-taxonomy workflow" %} is described [here]({% post_url anvio/2019-10-08-anvio-scg-taxonomy %}) in greater detail.
 
 <div class="extra-info" markdown="1">
 
@@ -213,7 +213,7 @@ python -c 'import anvio; \
 Then recreate them using four threads:
 
 ```
-anvi-setup-scg-databases -T 4
+anvi-setup-scg-taxonomy -T 4
 ```
 
 And re-run taxonomy on our {% include ARTIFACT name="contigs-db" text="contigs database" %}:
