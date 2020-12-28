@@ -107,14 +107,14 @@ A typical anvi'o genome-resolved metagenomic workflow [starts with one or more B
 {:.notice}
 While this tutorial will take you through a simple analysis of a real dataset, there also is available a more comprehensive (but more abstract) tutorial on [anvi'o metagenomic workflow]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}){:target="_blank"}.
 
-Using the files in the data-pack directory, let's take a first look at the merged profile database for the infant gut dataset metagenome. If you copy-paste this to your terminal:
+Using the files in the data-pack directory, let's take a first look at the merged {% include ARTIFACT name="profile-db" text="profile database" %} for the infant gut dataset metagenome. If you copy-paste this to your terminal:
 
 
 ``` bash
 anvi-interactive -p PROFILE.db -c CONTIGS.db
 ```
 
-The anvi'o interactive interface should welcome you with this display (after you click "draw"):
+The anvi'o {% include ARTIFACT name="interactive" text="interactive" %} interface should welcome you with this display (after you click "draw"):
 
 [![infant-gut-merged.png](images/infant-gut-merged.png)](images/infant-gut-merged.png){:.center-img .width-50}
 
