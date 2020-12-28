@@ -125,13 +125,13 @@ When it is time to type other commands, you can close the window, go back to the
 
 <details markdown="1"><summary>Show/hide Tom's description of the metagenomic binning-related features of the anvi'o interactive interface</summary>
 
-The interactive interface of anvi'o can be quite overwhelming. This particular box, in addition to the [interactive interface tutorial](tutorials/interactive-interface/), attempts to give you insights into the features of the interactive interface relevant to metagenomic binning.
+The {% include ARTIFACT name="interactive" text="interactive" %} interface of anvi'o can be quite overwhelming. This particular box, in addition to the [interactive interface tutorial](tutorials/interactive-interface/), attempts to give you insights into the features of the {% include ARTIFACT name="interactive" text="interactive" %} interface relevant to metagenomic binning.
 
 First of all, each leaf in the cerntral dendrogram describes an individual contig. Contigs that were fragmented into multiple splits due to their extensive length can be identified in the `Parent` layer. The grey layers after the `GC-Content` display mean coverage values (i.e., the environmental signal) of each contig/split across the 11 metagenomes. Finally, you can click on the `MOUSE` box on the right side of the interface to explore numerical and alphabetic values in more details across the display.
 
 [![Interface-explanations.png](images/Interface-explanations.png)](images/Interface-explanations.png){:.center-img .width-50}
 
-Once the interactive interface is up and running, you can start binning:
+Once the {% include ARTIFACT name="interactive" text="interactive" %} interface is up and running, you can start binning:
 
 [![Infant gut merged](images/infant-gut-merged.gif)](images/infant-gut-merged.gif){:.center-img .width-50}
 
@@ -178,7 +178,7 @@ anvi-import-taxonomy-for-genes -c CONTIGS.db \
                                additional-files/centrifuge-files/centrifuge_hits.tsv
 ```
 
-And run the interactive interface again,
+And run the {% include ARTIFACT name="interactive" text="interactive" %} interface again,
 
 ``` bash
 anvi-interactive -p PROFILE.db -c CONTIGS.db
@@ -187,7 +187,7 @@ anvi-interactive -p PROFILE.db -c CONTIGS.db
 You will see an additional layer with taxonomy:
 
 {:.notice}
-In the Layers tab find the `Taxonomy` layer, set its height to `200`, then drag the layer in between `DAY24` and `hmms_Ribosomal_RNAs`, and click `Draw` again. Then click `Save State` button, and overwrite the `default` state. This will make sure anvi'o remembers to make the height of that layer 200px the next time you run the interactive interface!
+In the Layers tab find the `Taxonomy` layer, set its height to `200`, then drag the layer in between `DAY24` and `hmms_Ribosomal_RNAs`, and click `Draw` again. Then click `Save State` button, and overwrite the `default` state. This will make sure anvi'o remembers to make the height of that layer 200px the next time you run the {% include ARTIFACT name="interactive" text="interactive" %} interface!
 
 [![Infant gut merged](images/infant-gut-with-tax.png)](images/infant-gut-with-tax.png){:.center-img .width-50}
 
@@ -394,7 +394,7 @@ anvi-refine -p PROFILE.db \
             -b IGD_MAG_00001
 ```
 
-Now the interactive interface only displays contigs from a single bin. During this curation step, one can try different clustering strategies (i.e. by only relying on coverage, or only relying on sequence composition) to identify outliers and investigate carefully whether they may be contaminants. You can select everything, and remove those contigs you don't want to keep in the bin before using the Bins panel to store your updated set of contigs in the database.
+Now the {% include ARTIFACT name="interactive" text="interactive" %} interface only displays contigs from a single bin. During this curation step, one can try different clustering strategies (i.e. by only relying on coverage, or only relying on sequence composition) to identify outliers and investigate carefully whether they may be contaminants. You can select everything, and remove those contigs you don't want to keep in the bin before using the Bins panel to store your updated set of contigs in the database.
 
 Here is an example of MAG we had to curate (we removed three contigs):
 
@@ -467,7 +467,7 @@ anvi-delete-collection -p PROFILE.db \
 
 ### Importing an external binning result
 
-You can create a collection by using the interactive interface (e.g., the `default` and `MAGs` collections you just created), or you can import external binning results into your profile database as a collection and see how that collection groups contigs. For instance, let's import the CONCOCT collection:
+You can create a collection by using the {% include ARTIFACT name="interactive" text="interactive" %} interface (e.g., the `default` and `MAGs` collections you just created), or you can import external binning results into your profile database as a collection and see how that collection groups contigs. For instance, let's import the CONCOCT collection:
 
 ``` bash
 anvi-import-collection additional-files/external-binning-results/CONCOCT.txt \
@@ -499,7 +499,7 @@ anvi-estimate-genome-taxonomy -p PROFILE.db \
                               -C CONCOCT
 ```
 
-OK. Let's run the interactive interface again with the `CONCOCT` collection:
+OK. Let's run the {% include ARTIFACT name="interactive" text="interactive" %} interface again with the `CONCOCT` collection:
 
 ``` bash
 anvi-interactive -p PROFILE.db \
@@ -522,7 +522,7 @@ Since we have all these results from different binning approaches, it clearly wo
 
 Here we have multiple independent sources of information we could use. Including (1) the organization of contigs based on hierarchical clustering analysis, (2) per-contig taxonomy estimated from the gene-level taxonomic annotations by Centrifuge, and (3) results from the original publication from Sharon et al., in which authors did a very careful job to identify every genome in the dataset (even resolving the *Staphylococcus* pangenome, which is extremely hard for automatic binning approaches that work with a single co-assembly). So these are the things we can build upon for a modest comparison.
 
-To include binning results in this framework, we could import each collection into the profile database the way we imported CONCOCT. But unfortunately at any given time there could only be one collection that can be displayed in the interface. Luckily there are other things we can do. For instance, as a workaround, we can merge all binning results into a single file, and use that file as an 'additional data file' to visualize them in the interactive interface.
+To include binning results in this framework, we could import each collection into the profile database the way we imported CONCOCT. But unfortunately at any given time there could only be one collection that can be displayed in the interface. Luckily there are other things we can do. For instance, as a workaround, we can merge all binning results into a single file, and use that file as an 'additional data file' to visualize them in the {% include ARTIFACT name="interactive" text="interactive" %} interface.
 
 Anvi'o has a script to merge multiple files for external binning results into a single merged file (don't ask why):
 
@@ -548,7 +548,7 @@ Day17a_QCcontig1007_split_00001  INFANT-GUT-ASSEMBLY-bin_16.fna  Bin_3    db_bin
 Day17a_QCcontig1008_split_00001  INFANT-GUT-ASSEMBLY-bin_14.fna  Bin_2    db_bin_1   maxbin.009  metabat_igm.7         Cluster.8.fasta   Candida_albcans
 ```
 
-Good. Now you can run the interactive interface to display all collections of bins stored in `collections.tsv` as 'additional layers':
+Good. Now you can run the {% include ARTIFACT name="interactive" text="interactive" %} interface to display all collections of bins stored in `collections.tsv` as 'additional layers':
 
 ``` bash
 anvi-interactive -p PROFILE.db \
@@ -568,7 +568,7 @@ anvi-import-misc-data collections.tsv \
                       -t items
 ```
 
-Now you can run the interactive interface *without* the `collections.tsv`, and you would get the exact same display, since the additional data now would be read from the additional data tables:
+Now you can run the {% include ARTIFACT name="interactive" text="interactive" %} interface *without* the `collections.tsv`, and you would get the exact same display, since the additional data now would be read from the additional data tables:
 
 ``` bash
 anvi-interactive -p PROFILE.db -c CONTIGS.db
@@ -598,7 +598,7 @@ anvi-import-state --state additional-files/state-files/state-merged.json \
                   -p PROFILE.db
 ```
 
-and run the interactive interface again with the same command line,
+and run the {% include ARTIFACT name="interactive" text="interactive" %} interface again with the same command line,
 
 ``` bash
 anvi-interactive -p PROFILE.db \
@@ -617,7 +617,7 @@ Now we can discuss about different approaches of automatic binning.
 {:.warning}
 Please note that the algorithms we have used here may have been improved since the time we did these analyses, therefore please don't make any decisions about their performance or efficacy based on what you are seeing here.
 
-Just a reminder, once you have the interactive interface in front of you, you can in fact investigate the taxonomy of contigs by BLASTing them against various NCBI collections using the right-click menu to have a second opinion about what do public databases think they are:
+Just a reminder, once you have the {% include ARTIFACT name="interactive" text="interactive" %} interface in front of you, you can in fact investigate the taxonomy of contigs by BLASTing them against various NCBI collections using the right-click menu to have a second opinion about what do public databases think they are:
 
 [![Infant gut merged](images/infant-gut-split.gif)](images/infant-gut-split.gif){:.center-img .width-50}
 
@@ -626,7 +626,7 @@ We recently have added an option to quickly run them on [BIGSI](http://www.bigsi
 
 ### Manually curating automatic binning outputs
 
-OK. Let's assume, we didn't see the interactive interface, and we have no idea about the dataset. We didn't do any of the things we did up to this point. We just had profiled and merged the IGD, and we did binning of this dataset using MaxBin. Let's start by importing MaxBin results into the profile database as a collection:
+OK. Let's assume, we didn't see the {% include ARTIFACT name="interactive" text="interactive" %} interface, and we have no idea about the dataset. We didn't do any of the things we did up to this point. We just had profiled and merged the IGD, and we did binning of this dataset using MaxBin. Let's start by importing MaxBin results into the profile database as a collection:
 
 ``` bash
 anvi-import-collection additional-files/external-binning-results/MAXBIN.txt \
@@ -644,7 +644,7 @@ anvi-estimate-genome-completeness -p PROFILE.db \
                                   -C MAXBIN
 ```
 
-Alternatively, we can take a quick look at the binning results by initiating the interactive interface in `collection` mode:
+Alternatively, we can take a quick look at the binning results by initiating the {% include ARTIFACT name="interactive" text="interactive" %} interface in `collection` mode:
 
 ``` bash
 anvi-interactive -p PROFILE.db \
@@ -656,7 +656,7 @@ This command should give you a display similar to this:
 
 [![MaxBin results in collection mode](images/maxbin-collection.png)](images/maxbin-collection.png){:.center-img .width-50}
 
-All previous interactive displays were at the contig-level (each leaf in the center tree was a contig). However, this display is at the *bin-level*. Instead of contigs, this display shows us the distribution of *bins* MaxBin identified. We also have completion and redundancy estimates for each bin, which helps us make some early sense of what is going on.
+All previous {% include ARTIFACT name="interactive" text="interactive" %} displays were at the contig-level (each leaf in the center tree was a contig). However, this display is at the *bin-level*. Instead of contigs, this display shows us the distribution of *bins* MaxBin identified. We also have completion and redundancy estimates for each bin, which helps us make some early sense of what is going on.
 
 {:.notice}
 Please read this post to learn more about completion and redundancy estimates: [Assessing completion and contamination of metagenome-assembled genomes]({% post_url miscellaneous/2016-06-09-assessing-completion-and-contamination-of-MAGs %}){:target="_blank"}
@@ -1390,7 +1390,7 @@ There are multiple ways to identify gene clusters that match to a given set of c
 
 [![E. facealis pan](images/pan-filters.png)](images/pan-filters.png){:.center-img .width-50}
 
-The command line program `anvi-get-sequences-for-gene-clusters` can also give you access to these filters and more to get very precise reports. Another option is the good'ol interactive interface, and using the dendrogram it produces to organize gene clusters based on their distribution across genomes. From this display you can make manual selections of gene clusters. I already made some selections and stored them in a file for your convenience. If you import them the following way,
+The command line program `anvi-get-sequences-for-gene-clusters` can also give you access to these filters and more to get very precise reports. Another option is the good'ol {% include ARTIFACT name="interactive" text="interactive" %} interface, and using the dendrogram it produces to organize gene clusters based on their distribution across genomes. From this display you can make manual selections of gene clusters. I already made some selections and stored them in a file for your convenience. If you import them the following way,
 
 ``` bash
 anvi-import-collection additional-files/pangenomics/pan-collection.txt \
@@ -1399,7 +1399,7 @@ anvi-import-collection additional-files/pangenomics/pan-collection.txt \
                        -C default
 ```
 
-and re-run the interactive interface,
+and re-run the {% include ARTIFACT name="interactive" text="interactive" %} interface,
 
 ``` bash
 anvi-display-pan -g Enterococcus-GENOMES.db \
@@ -1593,7 +1593,7 @@ anvi-interactive -p TARA_ANW_MAG_00006/PROFILE.db \
                  -c TARA_ANW_MAG_00006/CONTIGS.db
 ```
 
-Anyone who is running these commands on a computer with any version of anvi'o (well, `v2.3.0` or later) will see an interactive interface in their browser that shows the coverage of each contig across all Tara Oceans Project surface ocean samples:
+Anyone who is running these commands on a computer with any version of anvi'o (well, `v2.3.0` or later) will see an {% include ARTIFACT name="interactive" text="interactive" %} interface in their browser that shows the coverage of each contig across all Tara Oceans Project surface ocean samples:
 
 [![TARA](images/tara-mag-00006.png)](images/tara-mag-00006.png){:.center-img .width-70}
 
@@ -1705,9 +1705,9 @@ Investigating what causes this, is of course when things start to get exciting. 
 
 ### Visualizing SNV profiles using anvi'o
 
-R visualization is useful, but the heatmap in that figure can't effectively visualize more than a couple hundred positions. That's why there is a random subsampling step. But we can use the anvi'o interactive interface to display up to 25,000 nucleotide positions easily.
+R visualization is useful, but the heatmap in that figure can't effectively visualize more than a couple hundred positions. That's why there is a random subsampling step. But we can use the anvi'o {% include ARTIFACT name="interactive" text="interactive" %} interface to display up to 25,000 nucleotide positions easily.
 
-For this, we have a little program called `anvi-script-snvs-to-interactive` which reads an anvi'o variability profile, and creates an *anvi'o interactive interface-compatible* output from it.
+For this, we have a little program called `anvi-script-snvs-to-interactive` which reads an anvi'o variability profile, and creates an *anvi'o {% include ARTIFACT name="interactive" text="interactive" %} interface-compatible* output from it.
 
 So when you run this script the following way,
 
@@ -1720,7 +1720,7 @@ it will do its magic, and create an output directory with material that can dire
 {:.notice}
 A little note for people who are interested in programming: Feel free to take a look at the [relevant line of the source code](https://github.com/meren/anvio/blob/master/sandbox/anvi-script-snvs-to-interactive#L72){:target="_blank"} of this script to see how easy it is to generate an anvi'o-compatible visualizable output from any TAB-delimited matrix file.
 
-If you run the interactive interface on these results the following way,
+If you run the {% include ARTIFACT name="interactive" text="interactive" %} interface on these results the following way,
 
 ``` bash
 anvi-interactive --profile e_faecalis_snvs/profile.db \
@@ -1734,7 +1734,7 @@ You will get this view:
 
 [![E. faecalis SNVs](images/e-faecalis-SNVs-anvio.png)](images/e-faecalis-SNVs-anvio.png){:.center-img .width-50}
 
-This view can definitely be improved. I prepared a state file to match colors of competing nucleotides to the R results. If you import that state file and run the interactive interface the following way,
+This view can definitely be improved. I prepared a state file to match colors of competing nucleotides to the R results. If you import that state file and run the {% include ARTIFACT name="interactive" text="interactive" %} interface the following way,
 
 ``` bash
 anvi-import-state -p e_faecalis_snvs/profile.db \
@@ -1790,7 +1790,7 @@ unique_pos  sample_id  pos   gene_call  departure_from_ref  competing_nts  split
 80          DAY_24     7955  233        0                   TT             Day17a_QCcontig1_split_00012
 ```
 
-Good, everything checks out. Now since we know the split names and positions in splits, we can in fact see where they actually are using the interactive interface to visualize the merged profile database again, and look at the wider context using the 'inspect' option. Which I have already done for you:
+Good, everything checks out. Now since we know the split names and positions in splits, we can in fact see where they actually are using the {% include ARTIFACT name="interactive" text="interactive" %} interface to visualize the merged profile database again, and look at the wider context using the 'inspect' option. Which I have already done for you:
 
 [![E. faecalis SNVs](images/e-faecalis-SNV-context.gif)](images/e-faecalis-SNV-context.gif){:.center-img .width-50}
 
@@ -2218,7 +2218,7 @@ SAAVs and SCVs moving forward.
 
 In this section we will introduce [anvi'o structure]({{ site.url }}/software/anvio-structure), an integrated
 component of anvi'o that enables one to predict protein structures for genes in your
-{% include ARTIFACT name="contigs-db" text="contigs database" %} and visualize them in an interactive interface. The motivation was seeded by
+{% include ARTIFACT name="contigs-db" text="contigs database" %} and visualize them in an {% include ARTIFACT name="interactive" text="interactive" %} interface. The motivation was seeded by
 wanting more direct insight into the potential effect that sequence variants had on fitness, by
 visualizing them directly on the structure, since it is the physical properties of these structures
 that define function.
@@ -2440,7 +2440,7 @@ SRR5405707  |  15   |  Sloan2  |  Gut       |  12      |  Sloan2_12      |  986.
 SRR5405693  |  9    |  Sloan2  |  Gut       |  14      |  Sloan2_14      |  1009.0                           |  30.0                   |  M    |  C-section   |  1200.0              |  Magee-Womens  |  00-10
 SRR5405692  |  10   |  Sloan2  |  Gut       |  14      |  Sloan2_14      |  1009.0                           |  30.0                   |  M    |  C-section   |  1200.0              |  Magee-Womens  |  10-20
 
-Afterwards, we can rerun the interactive display:
+Afterwards, we can rerun the {% include ARTIFACT name="interactive" text="interactive" %} display:
 
 ``` bash
 anvi-display-structure -s additional-files/e_faeealis_across_hmp/STRUCTURE.db \
