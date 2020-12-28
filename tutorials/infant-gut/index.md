@@ -491,10 +491,9 @@ anvi-estimate-genome-completeness -p PROFILE.db \
                                   -C CONCOCT
 ```
 
-You can also get an idea about their taxonomy:
+You can also get an idea about their {% include PROGRAM name="anvi-estimate-scg-taxonomy" text="taxonomy" %}:
 
 ``` bash
-anvi-estimate-genome-taxonomy -p PROFILE.db \
 anvi-estimate-scg-taxonomy -p PROFILE.db \
                               -c CONTIGS.db \
                               -C CONCOCT
