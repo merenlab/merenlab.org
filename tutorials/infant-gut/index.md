@@ -663,7 +663,7 @@ Please read this post to learn more about completion and redundancy estimates: [
 
 It is clear that some {% include ARTIFACT name="bin" text="bins" %} are not as well-resolved as others. For instance, bins `maxbin_007` and `maxbin_008` have redundancy estimates of 22% and 91%, respectively, which suggests each of them describe multiple distinct populations. Well, clearly we would have preferred those {% include ARTIFACT name="bin" text="bins" %} to *behave*.
 
-If you order {% include ARTIFACT name="bin" text="bins" %} based on their detection across metagenomes (by changing the 'Items order' to 'detection' from the menu in the Main tab), you can also see that  bins `maxbin_007` and `maxbin_008` are right next to each other. This suggests that it may be a good idea to simply merge these {% include ARTIFACT name="bin" text="bins" %} first, and then refine to avoid issues of over-splitting populations of interest. Let's merge them into a single {% include ARTIFACT name="bin" text="bin" %} first:
+If you order {% include ARTIFACT name="bin" text="bins" %} based on their detection across metagenomes (by changing the 'Items order' to 'detection' from the menu in the Main tab), you can also see that  bins `maxbin_007` and `maxbin_008` are right next to each other. This suggests that it may be a good idea to simply merge these {% include ARTIFACT name="bin" text="bins" %} first, and then {% include PROGRAM name="anvi-refine" text="refine" %} to avoid issues of over-splitting populations of interest. Let's {% include PROGRAM name="anvi-merge-bins" text="merge" %} them into a single {% include ARTIFACT name="bin" text="bin" %} first:
 
 ```
 anvi-merge-bins -p PROFILE.db \
@@ -704,7 +704,7 @@ Bins in collection "MAXBIN"
 ╘════════════════════╧══════════╧══════════════╧════════════════╧════════════════╧══════════════╧════════════════╛
 ```
 
-Fine. Let's refine that {% include ARTIFACT name="bin" text="bin" %}:
+Fine. Let's {% include PROGRAM name="anvi-refine" text="refine" %} that {% include ARTIFACT name="bin" text="bin" %}:
 
 ``` bash
 anvi-refine -p PROFILE.db \
