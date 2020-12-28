@@ -524,7 +524,7 @@ Here we have multiple independent sources of information we could use, including
 
 To include binning results in this framework, we could import each {% include ARTIFACT name="collection" text="collection" %} into the {% include ARTIFACT name="profile-db" text="profile database" %} the way we imported CONCOCT. But unfortunately at any given time there could only be one {% include ARTIFACT name="collection" text="collection" %} that can be displayed in the interface. Luckily there are other things we can do. For instance, as a workaround, we can merge all binning results into a single file, and use that file as an 'additional data file' to visualize them in the {% include ARTIFACT name="interactive" text="interactive" %} interface.
 
-Anvi'o has a script to merge multiple files from external binning results into a single merged file (don't ask why):
+Anvi'o has a {% include PROGRAM name="anvi-script-merge-collections" text="script to merge multiple files from external binning results into a single merged file" %} (don't ask why):
 
 ``` bash
 anvi-script-merge-collections -c CONTIGS.db \
