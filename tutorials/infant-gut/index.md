@@ -636,7 +636,7 @@ anvi-import-collection additional-files/external-binning-results/MAXBIN.txt \
                        --contigs-mode
 ```
 
-From here, there are two things we can do very quickly. First, we can create a summary of our new {% include ARTIFACT name="collection" text="collection" %}, or we can take a quick look at the completion / redundancy estimates of {% include ARTIFACT name="bin" text="bins" %} described by this {% include ARTIFACT name="collection" text="collection" %} from the command line:
+From here, there are two things we can do very quickly. First, we can create a {% include ARTIFACT name="summary" text="summary" %} of our new {% include ARTIFACT name="collection" text="collection" %}, or we can take a quick look at the {% include PROGRAM name="anvi-estimate-genome-completeness" text="completion / redundancy estimates" %} of {% include ARTIFACT name="bin" text="bins" %} described by this {% include ARTIFACT name="collection" text="collection" %} from the command line:
 
 ``` bash
 anvi-estimate-genome-completeness -p PROFILE.db \
