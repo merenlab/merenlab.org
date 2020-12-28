@@ -495,6 +495,7 @@ You can also get an idea about their taxonomy:
 
 ``` bash
 anvi-estimate-genome-taxonomy -p PROFILE.db \
+anvi-estimate-scg-taxonomy -p PROFILE.db \
                               -c CONTIGS.db \
                               -C CONCOCT
 ```
