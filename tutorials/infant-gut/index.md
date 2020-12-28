@@ -135,7 +135,7 @@ Once the {% include ARTIFACT name="interactive" text="interactive" %} interface 
 
 [![Infant gut merged](images/infant-gut-merged.gif)](images/infant-gut-merged.gif){:.center-img .width-50}
 
-Make contig selections by hovering your mouse over the tree in the center of the anvi'o figure. To add the highlighted selection to your current bin, left click. To remove the highlighted selection from your current bin, right click. To create a new bin, click "New bin" under the `Bins` tab in `Settings`. To change to a different bin, click the blue dot next to the bin name you're interested in.
+Make contig selections by hovering your mouse over the tree in the center of the anvi'o figure. To add the highlighted selection to your current {% include ARTIFACT name="bin" text="bin" %}, left click. To remove the highlighted selection from your current {% include ARTIFACT name="bin" text="bin" %}, right click. To create a new {% include ARTIFACT name="bin" text="bin" %}, click "New bin" under the `Bins` tab in `Settings`. To change to a different {% include ARTIFACT name="bin" text="bin" %}, click the blue dot next to the {% include ARTIFACT name="bin" text="bin" %} name you're interested in.
 
 **Manipulating the inner dendrogram**. By default, anvi'o uses three different clutering approaches to organize contigs in the center dendrogram. Your ability to perform manual binning will be in part determined on your understanding of these clustering strategies. Here is a brief description of each:
 
@@ -153,9 +153,9 @@ And here is where to change the settings in the `Main` tab:
 Anvi'o by default trusts the assembly; therefore splits from the same contig will remain together (but you can breakup contigs through the interface).
 
 {:.warning}
-Your selections will not be lost when switching from one organization to another. This particular ability has been very useful to visualize differences between clustering strategies and access the biological relevance of identified bins.
+Your selections will not be lost when switching from one organization to another. This particular ability has been very useful to visualize differences between clustering strategies and access the biological relevance of identified {% include ARTIFACT name="bin" text="bins" %}.
 
-**Inspecting individual contigs in the context of their metagenomic signal**. In addition to selecting bins based on different clustering strategies, you can explore in more details the coverage of individual contigs across metagenomes: this is the __inspection mode__. You simply need to right click on any metagenomic layer at the coordinates of a contig of interest, and select "Inspect split". A new window should pop-up, like in this example:
+**Inspecting individual contigs in the context of their metagenomic signal**. In addition to selecting {% include ARTIFACT name="bin" text="bins" %} based on different clustering strategies, you can explore in more details the coverage of individual contigs across metagenomes: this is the __inspection mode__. You simply need to right click on any metagenomic layer at the coordinates of a contig of interest, and select "Inspect split". A new window should pop-up, like in this example:
 
 ![Inspection_Contig_Example.png](images/Inspection_Contig_Example.png){:.center-img .width-50}
 
@@ -293,18 +293,18 @@ Next, we can perform a round of manual binning. This should take about 10 minute
 
 <span class="extra-info-header">A few tips for binning:</span>
 
-- You do not have to bin all contigs. Instead, try to identify bins corresponding to an actual genome. Those will have relatively high completion values. The low-completion or no-completion bins in metagenomes might represent viruses, plasmids, or other interesting genetic elements, but this tutorial will ignore them.
-- Please try to avoid bins with redundancy >10%. [Those likely contain contaminants](http://merenlab.org/2016/06/09/assessing-completion-and-contamination-of-MAGs/).
+- You do not have to bin all contigs. Instead, try to identify {% include ARTIFACT name="bin" text="bins" %} corresponding to an actual genome. Those will have relatively high completion values. The low-completion or no-completion {% include ARTIFACT name="bin" text="bins" %} in metagenomes might represent viruses, plasmids, or other interesting genetic elements, but this tutorial will ignore them.
+- Please try to avoid {% include ARTIFACT name="bin" text="bins" %} with redundancy >10%. [Those likely contain contaminants](http://merenlab.org/2016/06/09/assessing-completion-and-contamination-of-MAGs/).
 - You can increase the inner tree radius (e.g., 5,000) for a better binning experience in the `Main` tab (additional settings)
-- You can select the option `show grid` in the `Main` tab (additional settings) for a better demarcation of identified bins
+- You can select the option `show grid` in the `Main` tab (additional settings) for a better demarcation of identified {% include ARTIFACT name="bin" text="bins" %}
 
 </div>
 
-Here is an example of 16 bins we identified for comparison AFTER you performed your own binning:
+Here is an example of 16 {% include ARTIFACT name="bin" text="bins" %} we identified for comparison AFTER you performed your own binning:
 
 [![Manual_Binnin_Result_Example.png](images/Manual_Binnin_Result_Example.png)](images/Manual_Binnin_Result_Example.png){:.center-img .width-50}
 
-Please save your bins as a collection. You can give your collection any name, but if you all it `default`, anvi'o will treat it differently.
+Please save your {% include ARTIFACT name="bin" text="bins" %} as a collection. You can give your collection any name, but if you all it `default`, anvi'o will treat it differently.
 
 {:.notice}
 In the anvi'o lingo, a 'collection' is something that describes one or more bins, each of which describe one or more contigs.
