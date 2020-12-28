@@ -450,9 +450,9 @@ Finally, a file corresponding to Sharon et al. results was created by BLAST-sear
 
 </div>
 
-Now you have the background information about where these files are coming from. Moving on. But just before we continue to move on, let's remove the default {% include ARTIFACT name="collection" text="collection" %} from our profile database, if there is one, to avoid any confusion.
+Now you have the background information about where these files are coming from. Moving on. But just before we continue to move on, let's remove the default {% include ARTIFACT name="collection" text="collection" %} from our {% include ARTIFACT name="profile-db" text="profile database" %}, if there is one, to avoid any confusion.
 
-You can use this command to see all {% include ARTIFACT name="collection" text="collections" %} in your anvi'o profile database:
+You can use this command to see all {% include ARTIFACT name="collection" text="collections" %} in your anvi'o {% include ARTIFACT name="profile-db" text="profile database" %}:
 
 ```
 anvi-show-collections-and-bins -p PROFILE.db
