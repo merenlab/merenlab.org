@@ -385,7 +385,7 @@ Better.
 {:.warning}
 **Why not relying only on single-copy core genes to estimate purity of a genome bin?** Let's think about this altogether. But once we are done with this, please see the relevant section in [this study](https://t.co/tlnQvIGsIw).
 
-To straighten the quality of the `MAGs` {% include ARTIFACT name="collection" text="collection" %}, it is possible to visualize individual {% include ARTIFACT name="bin" text="bins" %} and if needed, refine them. For this we use the program `anvi-refine`. For instance, if you were to be interested in refining one of the {% include ARTIFACT name="bin" text="bins" %} in our current {% include ARTIFACT name="collection" text="collection" %}, you could run this command:
+To straighten the quality of the `MAGs` {% include ARTIFACT name="collection" text="collection" %}, it is possible to visualize individual {% include ARTIFACT name="bin" text="bins" %} and if needed, refine them. For this we use the program {% include PROGRAM name="anvi-refine" text="`anvi-refine`" %}. For instance, if you were to be interested in refining one of the {% include ARTIFACT name="bin" text="bins" %} in our current {% include ARTIFACT name="collection" text="collection" %}, you could run this command:
 
 ``` bash
 anvi-refine -p PROFILE.db \
