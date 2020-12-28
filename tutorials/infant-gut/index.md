@@ -590,7 +590,7 @@ At this point you should be seeing a display similar to this (after setting the 
 
 [![Infant gut merged](images/infant-gut-collections.png)](images/infant-gut-collections.png){:.center-img .width-50}
 
-The legends for each of the {% include ARTIFACT name="bin" text="bin" %} {% include ARTIFACT name="collection" text="collections" %} are available in the `Legends` tab of `Settings`. To visually emphasize relationships between {% include ARTIFACT name="bin" text="bins" %}, you can change the color of each {% include ARTIFACT name="bin" text="bin" %} manually by clicking on the colored boxes in the legends. Or, if you're not a masochist you can import an anvi'o state where we did that for you:
+The legends for each of the {% include ARTIFACT name="bin" text="bin" %} {% include ARTIFACT name="collection" text="collections" %} are available in the `Legends` tab of `Settings`. To visually emphasize relationships between {% include ARTIFACT name="bin" text="bins" %}, you can change the color of each {% include ARTIFACT name="bin" text="bin" %} manually by clicking on the colored boxes in the legends. Or, if you're not a masochist you can {% include PROGRAM name="anvi-import-state" text="import an anvi'o state" %} where we did that for you:
 
 ``` bash
 anvi-import-state --state additional-files/state-files/state-merged.json \
