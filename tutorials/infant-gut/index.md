@@ -522,7 +522,7 @@ Since we have all these results from different binning approaches, it clearly wo
 
 Here we have multiple independent sources of information we could use, including (1) the organization of contigs based on hierarchical clustering analysis, (2) per-contig taxonomy estimated from the gene-level taxonomic annotations by Centrifuge, and (3) results from the original publication from Sharon et al., in which authors did a very careful job to identify every genome in the dataset (even resolving the *Staphylococcus* pangenome, which is extremely hard for automatic binning approaches that work with a single co-assembly). So these are the things we can build upon for a modest comparison.
 
-To include binning results in this framework, we could import each {% include ARTIFACT name="collection" text="collection" %} into the {% include ARTIFACT name="profile-db" text="profile database" %} the way we imported CONCOCT. But unfortunately at any given time there could only be one {% include ARTIFACT name="collection" text="collection" %} that can be displayed in the interface. Luckily there are other things we can do. For instance, as a workaround, we can merge all binning results into a single file, and use that file as an 'additional data file' to visualize them in the {% include ARTIFACT name="interactive" text="interactive" %} interface.
+To include binning results in this framework, we could import each {% include ARTIFACT name="collection" text="collection" %} into the {% include ARTIFACT name="profile-db" text="profile database" %} the way we imported CONCOCT. But unfortunately at any given time there could only be one {% include ARTIFACT name="collection" text="collection" %} that can be displayed in the interface. Luckily there are other things we can do. For instance, as a workaround, we can merge all binning results into a single file, and use that file as an {% include ARTIFACT name="misc-data-layers" text="'additional data file'" %} to visualize them in the {% include ARTIFACT name="interactive" text="interactive" %} interface.
 
 Anvi'o has a {% include PROGRAM name="anvi-script-merge-collections" text="script to merge multiple files from external binning results into a single merged file" %} (don't ask why):
 
@@ -548,7 +548,7 @@ Day17a_QCcontig1007_split_00001  INFANT-GUT-ASSEMBLY-bin_16.fna  Bin_3    db_bin
 Day17a_QCcontig1008_split_00001  INFANT-GUT-ASSEMBLY-bin_14.fna  Bin_2    db_bin_1   maxbin.009  metabat_igm.7         Cluster.8.fasta   Candida_albcans
 ```
 
-Good. Now you can run the {% include ARTIFACT name="interactive" text="interactive" %} interface to display all {% include ARTIFACT name="collection" text="collections" %} of {% include ARTIFACT name="bin" text="bins" %} stored in `collections.tsv` as 'additional layers':
+Good. Now you can run the {% include ARTIFACT name="interactive" text="interactive" %} interface to display all {% include ARTIFACT name="collection" text="collections" %} of {% include ARTIFACT name="bin" text="bins" %} stored in `collections.tsv` as {% include ARTIFACT name="misc-data-layers" text="'additional layers'" %}:
 
 ``` bash
 anvi-interactive -p PROFILE.db \
@@ -560,7 +560,7 @@ anvi-interactive -p PROFILE.db \
 
 <span class="extra-info-header">Dealing with additional data tables like a pro</span>
 
-As you can see, `-A` parameter allows us to add anything to the interface as additional layers as far as the first column of that data matches to our item names. We could alternatively import this additional information into our profile database, and the way to do it is through the use of [additional data tables subsystem of anvi'o]({% post_url anvio/2017-12-11-additional-data-tables %}). There is much more information on how to deal with additional data of all sorts here, but basically we can run the following command to import this data into our database:
+As you can see, `-A` parameter allows us to add anything to the interface as additional layers as far as the first column of that data matches to our item names. We could alternatively import this additional information into our profile database, and the way to do it is through the use of [additional data tables subsystem of anvi'o]({% post_url anvio/2017-12-11-additional-data-tables %}). There is much more information on how to deal with additional data of all sorts here, but basically we can run the {% include PROGRAM name="anvi-import-misc-data" text="following command" %} to import this data into our database:
 
 ``` bash
 anvi-import-misc-data collections.tsv \
