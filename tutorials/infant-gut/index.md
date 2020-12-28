@@ -817,7 +817,7 @@ Well, how do you even know how many bacterial genomes you should expect to find 
 <div class="blockquote-author">You</div>
 </blockquote>
 
-Thanks for the great question. Although this may sound like a challenging problem to some, we have a very simple way to resolve it (which I described in this [blog post]({% post_url anvio/2015-12-07-predicting-number-of-genomes %}){:target="_blank"}). If you still have access to the IGD, you can run this simple command:
+Thanks for the great question. Although this may sound like a challenging problem to some, we have a very simple way to resolve it (which I described in this [blog post]({% post_url anvio/2015-12-07-predicting-number-of-genomes %}){:target="_blank"}). If you still have access to the IGD, you can run {% include PROGRAM name="anvi-display-contigs-stats" text="this simple command" %}:
 
 ``` bash
 anvi-display-contigs-stats CONTIGS.db
