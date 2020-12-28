@@ -840,7 +840,7 @@ anvi-cluster-with-concoct -p PROFILE.db \
 ```
 
 {:.notice}
-anvi-cluster-with-concoct has been superseded with anvi-cluster-contigs
+anvi-cluster-with-concoct has been superseded with {% include PROGRAM name="anvi-cluster-contigs" text="anvi-cluster-contigs" %}
 
 Now you can run the interface again,
 
