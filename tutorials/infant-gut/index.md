@@ -19,11 +19,12 @@ This tutorial is tailored for anvi'o `v7` or later. You can learn the version of
 
 * [**Chapter I**: Genome-resolved Metagenomics](#chapter-i-genome-resolved-metagenomics)
 * [**Chapter II**: Automatic Binning](#chapter-ii-automatic-binning)
-* [**Chapter III**: Phylogenomics](#chapter-iii-phylogenomics)
-* [**Chapter IV**: Pangenomics](#chapter-iv-pangenomics)
-* [**Chapter V**: Microbial Population Genetics](#chapter-v-microbial-population-genetics)
-* [**Chapter VI**: Genes and genomes across metagenomes](#chapter-vi-genes-and-genomes-across-metagenomes)
-* [**Chapter VII**: From single-amino acid variants to protein structures](#chapter-vii-from-single-amino-acid-variants-to-protein-structures)
+* [**Chapter III**: Metabolism Prediction](#chapter-iii-metabolism-prediction)
+* [**Chapter IV**: Phylogenomics](#chapter-iv-phylogenomics)
+* [**Chapter V**: Pangenomics](#chapter-v-pangenomics)
+* [**Chapter VI**: Microbial Population Genetics](#chapter-vi-microbial-population-genetics)
+* [**Chapter VII**: Genes and genomes across metagenomes](#chapter-vii-genes-and-genomes-across-metagenomes)
+* [**Chapter VIII**: From single-amino acid variants to protein structures](#chapter-viii-from-single-amino-acid-variants-to-protein-structures)
 
 **At the end of this tutorial, you should be able to**
 
@@ -874,7 +875,9 @@ We all just have to continue working, and enjoy this revolution.
 
 </details>
 
-## Chapter III: Phylogenomics
+## Chapter III: Metabolism Prediction
+
+## Chapter IV: Phylogenomics
 
 {:.notice}
 This is more of a practical tutorial to do phylogenomic analyses on metagenome-assembled genomes described in anvi'o {% include ARTIFACT name="collection" text="collections" %}. For a more abstract tutorial on phylogenomics, please consider first reading '[An anvi'o workflow for phylogenomics]({% post_url anvio/2017-06-07-phylogenomics %}){:target="_blank"}'.
@@ -1116,7 +1119,7 @@ The tree in the middle shows the phylogenomic organization of {% include ARTIFAC
 Now you know how to organize distantly related genomes using universally conserved genes.
 
 
-## Chapter IV: Pangenomics
+## Chapter V: Pangenomics
 
 Both phylogenomics and pangenomics are strategies under the umbrella of comparative genomics, and they are inherently very similar despite their key differences. In this chapter we will discuss pangenomics and use anvi'o to have a small pangenomic analysis using our famous *E. faecalis* {% include ARTIFACT name="bin" text="bin" %} we recovered from the infant gut dataset and a bunch of others from the interwebs.
 
@@ -1475,7 +1478,7 @@ unique_id  |  protein_cluster_id  |  bin_name  |  genome_name      |  gene_calle
 
 I'm sure you need no help to know what to do with this file.
 
-## Chapter V: Microbial Population Genetics
+## Chapter VI: Microbial Population Genetics
 
 Here we will profile the single-nucleotide variations (SNVs) in the *E. faecalis* {% include ARTIFACT name="bin" text="bin" %} found in Sharon et al.'s Infant Gut Dataset (IGD).
 
@@ -1852,7 +1855,7 @@ OK.
 
 You just read about four different ways to visualize the single-nucleotide variability profiles with anvi'o. We are done here.
 
-## Chapter VI: Genes and genomes across metagenomes
+## Chapter VII: Genes and genomes across metagenomes
 
 In the previous sections of this tutorial we recovered an *E. faecalis* genome from an infant gut metagenome.
 
@@ -2003,7 +2006,7 @@ Including the inspection of a given gene in its context with upstream and downst
 
 [![E. facealis pan](images/gene-inspection.png)](images/gene-inspection.png){:.center-img .width-80}
 
-## Chapter VII: From single-amino acid variants to protein structures
+## Chapter VIII: From single-amino acid variants to protein structures
 
 {:.notice}
 This section of the tutorial uses the data described in the above section [Putting the E. faecalis
