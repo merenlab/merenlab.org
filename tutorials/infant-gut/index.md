@@ -909,8 +909,31 @@ As of `v7`, anvi'o uses [KEGG](https://www.genome.jp/kegg/) as the source of met
 {:.notice}
 We've already prepped the Infant Gut Dataset to be ready for the metabolism estimation commands below, but in case you are working on your own dataset, please note that before you can run {% include PROGRAM name="anvi-estimate-metabolism" text="`anvi-estimate-metabolism`" %} on a fresh {% include ARTIFACT name="contigs-db" text="contigs database," %} you would need to first set up KEGG data on your computer using {% include PROGRAM name="anvi-setup-kegg-kofams" text="`anvi-setup-kegg-kofams`" %} and then annotate your database using {% include PROGRAM name="anvi-run-kegg-kofams" text="`anvi-run-kegg-kofams`" %}.
 
+Let's get to it. To start off, we want an overview picture of what metabolisms the organisms in our {% include ARTIFACT name="collection" text="collection" %} are capable of. We could visualize this nicely if we had a matrix of the completeness scores for each metabolic module in the KEGG MODULE database in each {% include ARTIFACT name="bin" text="bin" %}. {% include PROGRAM name="anvi-estimate-metabolism" text="`anvi-estimate-metabolism`" %} can provide output files in matrix format if we run it in "multi-mode", which means we will have to create an {% include ARTIFACT name="internal-genomes" text="internal genomes file" %} for the bins in our {% include ARTIFACT name="collection" text="collection" %}:
 
+name|bin_id|collection_id|profile_db_path|contigs_db_path
+|:---|:---|:---|:---|:---|
+Aneorococcus_sp|Aneorococcus_sp|default|../../PROFILE.db|../../CONTIGS.db
+C_albicans|C_albicans|default|../../PROFILE.db|../../CONTIGS.db
+E_facealis|E_facealis|default|../../PROFILE.db|../../CONTIGS.db
+F_magna|F_magna|default|../../PROFILE.db|../../CONTIGS.db
+L_citreum|L_citreum|default|../../PROFILE.db|../../CONTIGS.db
+P_acnes|P_acnes|default|../../PROFILE.db|../../CONTIGS.db
+P_avidum|P_avidum|default|../../PROFILE.db|../../CONTIGS.db
+P_rhinitidis|P_rhinitidis|default|../../PROFILE.db|../../CONTIGS.db
+S_aureus|S_aureus|default|../../PROFILE.db|../../CONTIGS.db
+S_epidermidis|S_epidermidis|default|../../PROFILE.db|../../CONTIGS.db
+S_hominis|S_hominis|default|../../PROFILE.db|../../CONTIGS.db
+S_lugdunensis|S_lugdunensis|default|../../PROFILE.db|../../CONTIGS.db
+Streptococcus|Streptococcus|default|../../PROFILE.db|../../CONTIGS.db
 
+This file is available in the IGD datapack as `additional-files/metabolism/internal_genomes.txt`.
+
+Here is the command to run metabolism estimation on each bin, and produce matrix-formatted output:
+``` bash
+anvi-estimate-metabolism -i additional-files/metabolism/internal_genomes.txt --matrix-format
+```
+When this program runs, it will look at the KOfam annotations within each bin, match them up to the KEGG module definitions to estimate the completeness of each module, and produce 3 output matrices (in which rows are metabolic modules and columns are bins).
 
 ## Chapter IV: Phylogenomics
 
