@@ -877,6 +877,9 @@ We all just have to continue working, and enjoy this revolution.
 
 ## Chapter III: Metabolism Prediction
 
+{:.notice}
+**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
+
 ## Chapter IV: Phylogenomics
 
 {:.notice}
