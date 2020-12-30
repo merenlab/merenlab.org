@@ -904,6 +904,13 @@ In anvi'o, metabolism estimation involves collecting gene annotations and matchi
 {:.notice}
 As of `v7`, anvi'o uses [KEGG](https://www.genome.jp/kegg/) as the source of metabolism information for estimation purposes. It is an amazing resource with nicely structured data, including HMM profiles for functional annotation in the [KEGG KOfam](https://academic.oup.com/bioinformatics/article/36/7/2251/5631907) database and definitions of metabolic pathways in the [KEGG MODULE](https://www.genome.jp/kegg/module.html) database. However, we plan to expand from this in the future, and in particular one of our goals is to allow users to include their own custom definitions of metabolic pathways in the metabolism data used for estimation. So stay tuned!
 
+### Estimating metabolism in our collection of bins
+
+{:.notice}
+We've already prepped the Infant Gut Dataset to be ready for the metabolism estimation commands below, but in case you are working on your own dataset, please note that before you can run {% include PROGRAM name="anvi-estimate-metabolism" text="`anvi-estimate-metabolism`" %} on a fresh {% include ARTIFACT name="contigs-db" text="contigs database," %} you would need to first set up KEGG data on your computer using {% include PROGRAM name="anvi-setup-kegg-kofams" text="`anvi-setup-kegg-kofams`" %} and then annotate your database using {% include PROGRAM name="anvi-run-kegg-kofams" text="`anvi-run-kegg-kofams`" %}.
+
+
+
 
 ## Chapter IV: Phylogenomics
 
