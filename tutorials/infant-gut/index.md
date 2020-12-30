@@ -1360,11 +1360,11 @@ and see the new layer there that correspond to our clades:
 Now we can ask anvi'o to identify and report functions that are enriched in either of these clades along with the gene clusters they are associated with:
 
 ``` bash
-anvi-get-enriched-functions-per-pan-group -p PAN/Enterococcus-PAN.db \
-                                          -g Enterococcus-GENOMES.db \
-                                          --category clade \
-                                          --annotation-source COG_FUNCTION \
-                                          -o functional-enrichment.txt
+anvi-compute-functional-enrichment -p PAN/Enterococcus-PAN.db \
+                                   -g Enterococcus-GENOMES.db \
+                                   --category-variable clade \
+                                   --annotation-source COG_FUNCTION \
+                                   -o functional-enrichment.txt
 ```
 
 Which would generate a new file, `functional-enrichment.txt`, in our work directory that is just filled with stuff like this:
@@ -1386,6 +1386,8 @@ Which would generate a new file, `functional-enrichment.txt`, in our work direct
 
 So it turns out *killer toxin insensitivity* protein is only encoded by *E. faecalis*... I am not surprised. One should expect anything from these microbes :(
 
+{:.notice}
+As of `v7` the script `anvi-get-enriched-functions-per-pan-group` (which used to be in this tutorial) was upgraded to the more general script {% include PROGRAM name="anvi-compute-functional-enrichment" text="`anvi-compute-functional-enrichment`" %}.
 
 ### Binning gene clusters
 
