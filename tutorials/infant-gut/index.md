@@ -883,7 +883,16 @@ We all just have to continue working, and enjoy this revolution.
 {:.notice}
 Metabolism prediction in anvi'o is a new feature and still under ongoing development as of `v7`. We appreciate your patience and feedback on any issues you might run into, and we welcome suggestions for improvement. Thank you very much!
 
+Microbiologists care a lot about what microbes are doing, and for this reason we spend a lot of time looking at functional annotations in our 'omics data. But what if we told you that you could go a step further than that, and look at functional annotations in the larger context of metabolism? This chapter is about how to leverage known, structured information on metabolic pathways to predict the metabolic capacity encoded by microbial genomes, MAGs, or metagenomes.
 
+To demonstrate this, we are going to predict the metabolic potential of the organisms in our previously generated {% include ARTIFACT name="collection" text="collection" %} of {% include ARTIFACT name="bin" text="bins" %} in the IGD dataset. Please run the following command in the IGD directory to import those bins as the `default` {% include ARTIFACT name="collection" text="collection" %}.
+``` bash
+anvi-import-collection additional-files/collections/merens.txt \
+                       --bins-info additional-files/collections/merens-info.txt \
+                       -p PROFILE.db \
+                       -c CONTIGS.db \
+                       -C default
+```
 
 ## Chapter IV: Phylogenomics
 
