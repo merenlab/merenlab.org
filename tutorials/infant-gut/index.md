@@ -894,6 +894,17 @@ anvi-import-collection additional-files/collections/merens.txt \
                        -C default
 ```
 
+### Some obligatory background on metabolism prediction
+Metabolism prediction, also known as metabolic reconstruction, is the practice of guessing (estimating) what metabolic pathways an organism can use to build or break down molecules, based on the proteins it encodes in its genome. It typically involves integrating knowledge about metabolic pathways from well-curated, publically-available databases such as [KEGG](https://www.genome.jp/kegg/) or [MetaCyc](https://metacyc.org/).
+
+In some cases, metabolic reconstruction is a modeling approach that uses fancy math to compute a metabolic network from a genome and refine it based on experimental data in a process called [Flux Balance Analysis](https://www.nature.com/articles/nbt.1614). You cannot currently do this type of metabolic reconstruction in anvi'o, but if you are interested in it we refer you to a [2019 review](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1769-1) of tools that do as a starting point for that adventure.
+
+In anvi'o, metabolism estimation involves collecting gene annotations and matching them to defined metabolic pathways to compute a 'completeness' score for each pathway. Statistics about each pathway and the genes that contribute to them are then summarized in a variety of output files that can be analyzed either by reading them directly or by using them as input to downstream programs/scripts.
+
+{:.notice}
+As of `v7`, anvi'o uses [KEGG](https://www.genome.jp/kegg/) as the source of metabolism information for estimation purposes. It is an amazing resource with nicely structured data, including HMM profiles for functional annotation in the [KEGG KOfam](https://academic.oup.com/bioinformatics/article/36/7/2251/5631907) database and definitions of metabolic pathways in the [KEGG MODULE](https://www.genome.jp/kegg/module.html) database. However, we plan to expand from this in the future, and in particular one of our goals is to allow users to include their own custom definitions of metabolic pathways in the metabolism data used for estimation. So stay tuned!
+
+
 ## Chapter IV: Phylogenomics
 
 {:.notice}
