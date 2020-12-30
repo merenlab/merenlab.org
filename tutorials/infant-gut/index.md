@@ -880,6 +880,11 @@ We all just have to continue working, and enjoy this revolution.
 {:.notice}
 **If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
 
+{:.notice}
+Metabolism prediction in anvi'o is a new feature and still under ongoing development as of `v7`. We appreciate your patience and feedback on any issues you might run into, and we welcome suggestions for improvement. Thank you very much!
+
+
+
 ## Chapter IV: Phylogenomics
 
 {:.notice}
