@@ -17,6 +17,9 @@ image:
 
 {% include _project-anvio-version.html %}
 
+{:.warning}
+**JAN 2, 2021 NOTE**: EVEN THOUGH AS OF TODAY THE LATEST VERSION ANVI'O IS `V7`, OUR CONDA PACKAGES ARE NOT YET READY. So this document explains the installatio of `v6.2`. Give us a few days, and we will remove this message once the content here is updated with instructions to install anvi'o `v7` :)
+
 This article explains basic steps of installing anvi'o using rather conventional methods both for end users and current of future developers.
 
 We do recommend you to install anvi'o on your system, but if you just want to run it without any installation, you may find the article on [trying anvi'o in docker]({% post_url anvio/2015-08-22-docker-image-for-anvio %}) more suitable.
