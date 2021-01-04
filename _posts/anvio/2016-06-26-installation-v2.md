@@ -433,7 +433,7 @@ init_anvio_7 () {
 init_anvio_dev () {
     deactivate &> /dev/null
     conda deactivate &> /dev/null
-    export PATH="$MY_MINICONDA_BASE bin:$PATH"
+    export PATH="$MY_MINICONDA_BASE/bin:$PATH"
     . $MY_MINICONDA_BASE/etc/profile.d/conda.sh
     conda activate anvio-dev
     export PS1="\[\e[0m\e[40m\e[1;30m\] :: anvi'o v7 dev :: \[\e[0m\e[0m \[\e[1;34m\]\]\w\[\e[m\] \[\e[1;31m\]>>>\[\e[m\] \[\e[0m\]"
