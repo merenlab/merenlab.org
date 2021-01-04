@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2020-12-17
+modified: 2020-12-21
 comments: false
 ---
 
@@ -20,10 +20,26 @@ This page shows publications that are most reflective of our interests. For a co
 <h1>2020</h1>
 
 <div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41564-020-00834-3"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1038/s41564-020-00834-3" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1038/s41564-020-00834-3" target="_new">Community-led, integrated, reproducible multi-omics with anvi'o</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Eren AM</span>, <span class="pub-member-author">Kiefl E</span>, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Veseli I</span>, <span class="pub-member-author">Miller SE</span>, <span class="pub-member-author">Schechter MS</span>, <span class="pub-member-author">Fink I</span>, <span class="pub-member-author">Pan JN</span>, <span class="pub-member-author">Yousef M</span>, <span class="pub-member-author">Fogarty EC</span>, <span class="pub-member-author">Trigodet F</span>, <span class="pub-member-author">Watson AR</span>, <span class="pub-member-author">Esen ÖC</span>, Moore RM, Clayssen Q, Lee MD, Kivenson V, Graham ED, Merrill BD, Karkman A, Blankenberg D, Eppley JM, Sjödin A, Scott JJ, Vázquez-Campos X, McKay LJ, McDaniel EA, Stevens SLR, Anderson RE, Fuessel J, Fernandez-Guerra A, Maignien L, Delmont TO, Willis AD</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/anvio-integrated-omics.png"><img src="/images/pubs/anvio-integrated-omics.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A summary of the progress of <a href="/software/anvio" target="_blank">anvi'o</a> during the past five years.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><b>Nature Microbiology</b>, 6(1):3:6.</span>
+</div>
+
+<div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s13059-020-02195-w"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1186/s13059-020-02195-w" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <h3><a href=" https://doi.org/10.1186/s13059-020-02195-w" target="_new">Functional and genetic markers of niche partitioning among enigmatic members of the human oral microbiome</a></h3>
-    <span class="pub-authors"><span class="pub-member-author">Shaiber A</span>, Willis AD, <span class="pub-member-author">Delmont TO</span>, Roux S, Chen L, <span class="pub-member-author">Schmid AC</span>, <span class="pub-member-author">Yousef M</span>, <span class="pub-member-author">Watson AR</span>, <span class="pub-member-author">Lolans K</span>, <span class="pub-member-author">Esen ÖC</span>, <span class="pub-member-author">Lee STM</span>, Downey N, Morrison HG, Dewhirst FE, Mark Welch JL<sup>‡</sup>, <span class="pub-member-author">Eren AM<sup>‡</sup></span></span>
+    <span class="pub-authors"><span class="pub-member-author">Shaiber A</span>, Willis AD, Delmont TO, Roux S, Chen L, <span class="pub-member-author">Schmid AC</span>, <span class="pub-member-author">Yousef M</span>, <span class="pub-member-author">Watson AR</span>, <span class="pub-member-author">Lolans K</span>, <span class="pub-member-author">Esen ÖC</span>, <span class="pub-member-author">Lee STM</span>, Downey N, Morrison HG, Dewhirst FE, Mark Welch JL<sup>‡</sup>, <span class="pub-member-author">Eren AM<sup>‡</sup></span></span>
     <span class="pub-co-first-authors"><sup>‡</sup>Co-senior authors</span>
     <div class="pub-info">
     <div class="pub-featured-image">
@@ -221,7 +237,7 @@ This page shows publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41467-018-07675-z"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41467-018-07675-z" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <h3><a href=" https://doi.org/10.1038/s41467-018-07675-z" target="_new">Microbiome characterization by high-throughput transfer RNA sequencing and modification analysis</a></h3>
-    <span class="pub-authors">Schwartz MH, Wang H, Pan JN, Clark WC, <span class="pub-member-author">Cui S</span>, Eckwahl MJ, Pan DW, Parisien M, Owens SM, Cheng BL, Martinez K, Xu J, Chang EB, Pan T<sup>‡</sup>, <span class="pub-member-author">Eren AM<sup>‡</sup></span></span>
+    <span class="pub-authors">Schwartz MH, Wang H, <span class="pub-member-author">Pan JN</span>, Clark WC, <span class="pub-member-author">Cui S</span>, Eckwahl MJ, Pan DW, Parisien M, Owens SM, Cheng BL, Martinez K, Xu J, Chang EB, Pan T<sup>‡</sup>, <span class="pub-member-author">Eren AM<sup>‡</sup></span></span>
     <span class="pub-co-first-authors"><sup>‡</sup>Co-senior authors</span>
     <div class="pub-info">
     <div class="pub-featured-image">

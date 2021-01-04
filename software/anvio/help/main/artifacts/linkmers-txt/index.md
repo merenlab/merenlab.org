@@ -21,13 +21,13 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-report-linkmers](../../programs/anvi-report-linkmers)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-report-linkmers](../../programs/anvi-report-linkmers)</span> <span class="artifact-p">[anvi-script-transpose-matrix](../../programs/anvi-script-transpose-matrix)</span></p>
 
 
 ## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-oligotype-linkmers](../../programs/anvi-oligotype-linkmers)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-oligotype-linkmers](../../programs/anvi-oligotype-linkmers)</span> <span class="artifact-r">[anvi-script-transpose-matrix](../../programs/anvi-script-transpose-matrix)</span></p>
 
 
 ## Description
