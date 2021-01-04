@@ -168,6 +168,9 @@ conda install -y -c bioconda fasttree
 # this may cause some issues. if it doesn't install,
 # don't worry:
 conda install -y -c bioconda fastani
+
+# this also is a good addition as suggested by Daan Speth:
+conda install -y -c conda-forge h5py=2.8.0
 ```
 
 Now you can jump to "[Download and install anvi'o](#3-download-and-install-anvio)"!
@@ -313,6 +316,9 @@ conda install -y -c bioconda fasttree
 # this may cause some issues. if it doesn't install,
 # don't worry:
 conda install -y -c bioconda fastani
+
+# this also is a good addition as suggested by Daan Speth:
+conda install -y -c conda-forge h5py=2.8.0
 ```
 Now you are ready for the code.
 
@@ -346,14 +352,14 @@ Now all dependencies are in place, and you have the code. One more step.
 
 ### Linking conda environment and the codebase
 
-Now we have the codebase and we have the conda environment, but they don't know about each other. 
+Now we have the codebase and we have the conda environment, but they don't know about each other.
 
 Here we will setup your conda environment in such a way that every time you activate it, you will get the very latest updates from the main anvi'o repository. While you are still in anvi'o environment, copy-paste these lines into your terminal:
 
 ``` bash
 cat <<EOF >${CONDA_PREFIX}/etc/conda/activate.d/anvio.sh
 # creating an activation script for the the conda environment for anvi'o
-# development branch so (1) Python knows where to find anvi'o libraries, 
+# development branch so (1) Python knows where to find anvi'o libraries,
 # (2) the shell knows where to find anvi'o programs, and (3) every time
 # the environment is activated it synchronizes with the latest code from
 # active GitHub repository:
