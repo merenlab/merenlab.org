@@ -32,6 +32,27 @@ There are no anvi'o tools that generate this artifact, which means it is most li
 
 ## Description
 
+This is a file used by <span class="artifact-n">[anvi-run-workflow](/software/anvio/help/main/programs/anvi-run-workflow)</span> that lists the name and path of all of the input <span class="artifact-n">[fasta](/software/anvio/help/main/artifacts/fasta)</span> files. 
+
+As of now, this file is used in the <span class="artifact-n">[contigs-workflow](/software/anvio/help/main/artifacts/contigs-workflow)</span>, <span class="artifact-n">[pangenomics-workflow](/software/anvio/help/main/artifacts/pangenomics-workflow)</span>, and [the reference mode](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#references-mode) of the <span class="artifact-n">[metagenomics-workflow](/software/anvio/help/main/artifacts/metagenomics-workflow)</span>.
+
+This file will look something like this: 
+
+    name        path
+    SAMPLE_01   path/to/sample_01.fa
+    SAMPLE_02   path/to/sample_02.fa
+    
+Note that the paths can be either absolute or relative, and the fasta files can be either compressed or not. That's all up to you. 
+
+To input more information, for each file you can also specify an <span class="artifact-n">[external-gene-calls](/software/anvio/help/main/artifacts/external-gene-calls)</span> file and/or a <span class="artifact-n">[functions-txt](/software/anvio/help/main/artifacts/functions-txt)</span>. Just provide those with additional columns, as so: 
+
+    name        path                    external_gene_calls             gene_functional_annotation
+    SAMPLE_01   path/to/sample_01.fa    <span class="artifact-n">[external-gene-calls](/software/anvio/help/main/artifacts/external-gene-calls)</span>_01.txt  <span class="artifact-n">[functions-txt](/software/anvio/help/main/artifacts/functions-txt)</span>_01.txt
+    SAMPLE_02   path/to/sample_02.fa    <span class="artifact-n">[external-gene-calls](/software/anvio/help/main/artifacts/external-gene-calls)</span>_02.txt  <span class="artifact-n">[functions-txt](/software/anvio/help/main/artifacts/functions-txt)</span>_02.txt
+
+For more information, check out the [anvi'o workflow tutorial](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#fastatxt)
+
+
 {:.notice}
-**No one has described this artifact yet** :/ If you would like to contribute by describing it, please see previous examples [here](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts), and add a Markdown formatted file in that directory named "fasta-txt.md". Its contents will replace this sad text. THANK YOU!
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/fasta-txt.md) to update this information.
 

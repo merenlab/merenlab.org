@@ -23,7 +23,7 @@ This article explains how to start using anvi'o without installing it. For long-
 Special thanks go to [Çağlar Onur](https://twitter.com/caglar10ur) for forcing us to [have a docker solution](https://github.com/meren/anvio/pull/191).
 
 {:.warning}
-**Our latest docker images are quite big** (~8 Gb), because images after `v6` come with lots of bells and whistles such as assemblers, mapping software, binning tools (that seems to be quite hard to install in general), on other useful tools. Installing them is pain, so we go through it once to create you working recipes, and storage is cheap. But if you need a minimal anvi'o image for your specific needs, please let us know, and we can help you with that.
+**Our latest docker images are quite big** (~15 Gb), because images after `v6` come with lots of bells and whistles such as assemblers, mapping software, binning tools (that seems to be quite hard to install in general), on other useful tools. Installing them is pain, so we go through it once to create you working recipes, and storage is cheap. But if you need a minimal anvi'o image for your specific needs, please let us know, and we can help you with that.
 
 {% include _join-anvio-slack.html %}
 
@@ -34,7 +34,7 @@ Here we assume that you have Docker installed, and the docker service is up and 
 ```
 docker --version
 
-Docker version 19.03.2, build 6a30dfc
+Docker version 20.10.0, build 7287ab3
 ```
 
 If you get a command not found error, you may need to install docker, or start its service.
@@ -51,6 +51,7 @@ If you are seeing something like this when you are done pulling everything, you 
 $ docker images
 
 REPOSITORY          TAG        IMAGE ID     CREATED    SIZE
+meren/anvio         7          (...)        (...)      14.4GB
 meren/anvio         6.2        (...)        (...)      12.1GB
 meren/anvio         6.1        (...)        (...)      7.4GB
 meren/anvio         6          (...)        (...)      7.9GB
@@ -76,7 +77,7 @@ docker run --rm -it -v `pwd`:`pwd` -w `pwd` -p 8080:8080 meren/anvio:latest
 Following this command, you should see a new command line like this one:
 
 ``` bash
-:: anvi'o v6 :: /WORK/DIR/PATH >>>
+:: anvi'o v7 :: /WORK/DIR/PATH >>>
 ```
 
 You're done! If you type `anvi-` and press `TAB` twice, you see all the anvi'o programs available to you.
@@ -117,13 +118,13 @@ In theory, at any given time you should be able to rebuild a docker image for an
 docker build -t meren/anvio:master .
 ```
 
-Alternatively, you can switch to a tag, such as anvi'o `v6.2`, and build a copy of that:
+Alternatively, you can switch to a tag, such as anvi'o `v7`, and build a copy of that:
 
 If you would like to rebuild the Docker image for anvi'o on your own server, you can simply get a copy of the file:
 
 ``` bash
-git checkout v6.2
-docker build -t meren/anvio:6.2 .
+git checkout v7
+docker build -t meren/anvio:7 .
 ```
 
 Optionally, you can push it to your account on the hub to allow other people run it easily (i.e., this is what we do to push new images to the anvi'o accound):
