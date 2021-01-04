@@ -57,7 +57,7 @@ Please consider opening an <a href="https://github.com/meren/anvio/issues">issue
 {:.notice}
 {% include _fixthispage.html source="_posts/anvio/2016-06-26-installation-v2.md" %}
 
-## (1) Setup Conda
+## (1) Setup conda
 
 This is a very simple and effective way to install anvi'o on your system along with most of its dependencies.
 
@@ -81,7 +81,7 @@ conda update conda
 
 Good? Good! You are almost there!
 
-## (2) Setup Anvi'o Environment
+## (2) Setup an anvi'o environment
 
 {:.notice}
 It is a good idea to **make sure you are not already in a conda environment** before you run the following steps. Just to be clear, you can indeed install anvi'o in an existing conda environment, but if things go wrong, we kindly ask you to refer to meditation for help, rather than [anvi'o community resources]({% post_url anvio/2019-10-07-getting-help %} since there is no way we can help you if you are installing anvi'o in a different conda environment :) If you want to see what environments do you have on your computer and whether you already are in one of them in your current terminal by running `conda env list`. **If all these are too much for you and all you want to do is to move on with the installation**, simply do this: open a new terminal, and run `conda deactivate`, and continue with the rest of the text.
@@ -173,7 +173,7 @@ conda install -y -c bioconda fastani
 Now you can jump to "[Download and install anvi'o](#3-download-and-install-anvio)"!
 
 
-## (3) Download and install anvi'o
+## (3) Install anvi'o
 
 Here you will first download the Python source package for the official anvi'o release:
 
@@ -188,10 +188,10 @@ And install it using `pip` like a boss:
 pip install anvio-7.tar.gz
 ```
 
-If everything went fine, you can jump to "[Check your anvi'o setup](#4-check-your-anvio-setup)" to see if things worked for you.
+If everything went fine, you can jump to "[Check your anvi'o setup](#4-check-your-installation)" to see if things worked for you.
 
 
-## (4) Check your anvi'o setup
+## (4) Check your installation
 
 If you are here, you are ready to check if everything is working on your system.
 
@@ -401,7 +401,7 @@ If you followed these instructions, every time you open a terminal you will have
 conda activate anvio-dev
 ```
 
-If you are here, you can now jump to "[Check your anvi'o setup](#4-check-your-anvio-setup)" to see if things worked for you using `anvi-self-test`.
+If you are here, you can now jump to "[Check your anvi'o setup](#4-check-your-installation)" to see if things worked for you using `anvi-self-test`.
 
 
 ## Bonus: An alternative BASH profile setup
@@ -505,6 +505,8 @@ The best way to see what additional software you will need running on your compu
 Don't be a stranger, and let us know if you need help.
 
 {% include _join-anvio-slack.html %}
+
+---
 
 {:.notice}
 {% include _fixthispage.html source="_posts/anvio/2016-06-26-installation-v2.md" %}
