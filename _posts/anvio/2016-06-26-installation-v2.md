@@ -122,7 +122,7 @@ If this didn't go well, jump to the slower but reliable option. If it did go wel
 conda activate anvio-7
 ```
 
-and jump to "[Download and install anvi'o](#3-download-and-install-anvio)".
+and jump to "[Download and install anvi'o](#3-install-anvio)".
 
 ### Slower but reliable option
 
@@ -173,7 +173,7 @@ conda install -y -c bioconda fastani
 conda install -y -c conda-forge h5py=2.8.0
 ```
 
-Now you can jump to "[Download and install anvi'o](#3-download-and-install-anvio)"!
+Now you can jump to "[Download and install anvi'o](#3-install-anvio)"!
 
 
 ## (3) Install anvi'o
