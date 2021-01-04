@@ -81,7 +81,7 @@ An anvi'o *genomes storage* is a special database that stores information about 
 
 * **An external genome** is anything you have in a FASTA file format (i.e., a genome you have downloaded from NCBI, or obtained through any other way).
 
-* **An internal genome** is any *genome bin* you stored in an anvi'o collection at the end of your metagenomic analysis (if you are not familiar with the anvi'o metagenomic workflow please take a look at [this post]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %})). 
+* **An internal genome** is any *genome bin* you stored in an anvi'o collection at the end of your metagenomic analysis (if you are not familiar with the anvi'o metagenomic workflow please take a look at [this post]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %})).
 
 {:.notice}
 **Converting FASTA files into anvi'o contigs databases**: Working with *internal* genomes is quite straightforward since you already have an anvi'o contigs and an anvi'o profile database for them. But if all you have is a bunch of FASTA files, this workflow will require you to convert each of them into an anvi'o contigs database. There is a lot of information about how to create an anvi'o contigs database [here]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}/#anvi-gen-contigs-database), but if you feel lazy, you can also use the script `anvi-script-FASTA-to-contigs-db`, which requires a single parameter: the FASTA file path. Power users should consider taking a [look at the code](https://github.com/meren/anvio/blob/master/sandbox/anvi-script-FASTA-to-contigs-db#L50), and create their own batch script with improvements on those lines based on their needs (for instance, increasing the number of threads when running HMMs, etc). Also, you may want to run `anvi-run-ncbi-cogs` on your contigs database to annotate your genes.
@@ -408,7 +408,7 @@ In reality, the complex processes that influence protein folding and the intrica
 
 Given all of that, let’s look at our pangenome again. What are they good for? Well, there is a lot one could do with these homogeneity indices, and it would be unfair to expect this tutorial to cover all of them. Nevertheless, here is an attempt to highlight some aspects of it.
 
-To get a quick idea about some of the least homogeneous gene clusters, one could order gene clusetrs based on increasing or decreasing homogeneity. Let's say we want to order it by increasing functional homogeneity (as you likely know already, this can be done through the "Items order" combo box in the main settings panel): 
+To get a quick idea about some of the least homogeneous gene clusters, one could order gene clusetrs based on increasing or decreasing homogeneity. Let's say we want to order it by increasing functional homogeneity (as you likely know already, this can be done through the "Items order" combo box in the main settings panel):
 
 [![Prochlorococcus pan]({{images}}/hi-order-01.png)]({{images}}/hi-order-01.png){:.center-img .width-70}
 
@@ -426,7 +426,7 @@ Anvi'o offers quite a powerful way to filter gene clusters both through the comm
 
 #### Exploratory analyses
 
-Let's assume you wish to find a gene cluster that represents a single-copy core gene with very high discrepancy between its geometric homogeneity versus its functional homogeneity. As in, you want something that is highly conserved across all genomes, it is under structural constraints that keeps its alignment homogeneous, but it has lots of room to diversify in a way that impacts its functional heterogeneity. You want a lot. But could anvi'o deliver? 
+Let's assume you wish to find a gene cluster that represents a single-copy core gene with very high discrepancy between its geometric homogeneity versus its functional homogeneity. As in, you want something that is highly conserved across all genomes, it is under structural constraints that keeps its alignment homogeneous, but it has lots of room to diversify in a way that impacts its functional heterogeneity. You want a lot. But could anvi'o deliver?
 
 Well, for this very specific set of constraints you could first order all gene clusters based on decreasing geometric homogeneity index, then enter the following values to set up a filter before applying it and highlighting the matching gene clusters:
 
@@ -476,7 +476,10 @@ Needless to say, estimates for homogeneity indices per gene cluster will also ap
 
 ## Making sense of functions in your pangenome
 
-Once we have our pangenome, one of the critical things that we usually want to do is look at the functions associated with our gene clusters. This is a crucial yet complicated challenge to which we can approach in multiple ways. Here, we will describe how you can identify functions that are enriched for some of the clades or sub clades that are included in your pangenome. In addition, we will discuss how you can find the functional core of the pangenome. This is done with our new and improved program `anvi-get-enriched-functions-per-pan-group`.
+Once we have our pangenome, one of the critical things that we usually want to do is look at the functions associated with our gene clusters. This is a crucial yet complicated challenge to which we can approach in multiple ways. Here, we will describe how you can identify functions that are enriched for some of the clades or sub clades that are included in your pangenome. In addition, we will discuss how you can find the functional core of the pangenome. This is done with our new and improved program {% include PROGRAM name="anvi-compute-functional-enrichment" text="`anvi-compute-functional-enrichment`" %}.
+
+{:.notice}
+As of `v7` the script `anvi-get-enriched-functions-per-pan-group` (which used to be in this tutorial) was upgraded to the more general script {% include PROGRAM name="anvi-compute-functional-enrichment" text="`anvi-compute-functional-enrichment`" %}.
 
 This program utilizes information in the layers additional data table of your pan database to identify 'groups' within your genomes, and find functions that are enriched in those groups, i.e. functions that are characteristic of these genomes, and predominantly absent from genomes from outside this group. To use this feature you must have at least one categorical additional layer information (which can easily be done via `anvi-import-misc-data`), and at least one functional annotation source for your genomes storage (which will automatically be the case if every contigs database that were used when you run `anvi-gen-genomes-storage` was annotated with the same functional source).
 
@@ -515,12 +518,12 @@ Let's use the *Prochlorococcus* example to learn what we can do with this.
 First we will compare the low-light vs. the high-light genomes in order to see if there are any functions that are unique to either group using the 'light' categorical additional layer data (if this doesn't make sense to you please go back to one of the pangenome figures above and see the layer additional data 'light'):
 
 ```bash
-anvi-get-enriched-functions-per-pan-group -p PROCHLORO/Prochlorococcus_Pan-PAN.db \
-                                          -g PROCHLORO-GENOMES.db \
-                                          --category light \
-                                          --annotation-source COG_FUNCTION \
-                                          -o PROCHLORO-PAN-enriched-functions-light.txt \
-                                          --functional-occurrence-table-output PROCHLORO-functions-occurrence-frequency.txt
+anvi-compute-functional-enrichment -p PROCHLORO/Prochlorococcus_Pan-PAN.db \
+                                   -g PROCHLORO-GENOMES.db \
+                                   --category light \
+                                   --annotation-source COG_FUNCTION \
+                                   -o PROCHLORO-PAN-enriched-functions-light.txt \
+                                   --functional-occurrence-table-output PROCHLORO-functions-occurrence-frequency.txt
 ```
 
 {:.notice}
@@ -528,7 +531,7 @@ In addition to the functional enrichment output `PROCHLORO-PAN-enriched-function
 
 Here is the structure of the output file *PROCHLORO-PAN-enriched-functions-light.txt* (there are more columns, scroll towards right to see them):
 
-|COG_FUNCTION | enrichment_score | unadjusted_p_value | adjusted_q_value | associated_groups | function_accession | gene_clusters_ids | p_LL | p_HL | N_LL | N_HL|
+|COG_FUNCTION | enrichment_score | unadjusted_p_value | adjusted_q_value | associated_groups | accession | gene_clusters_ids | p_LL | p_HL | N_LL | N_HL|
 |-- | -- | -- | -- | -- | -- | -- | -- | -- | --| --|
 |Proteasome lid subunit RPN8/RPN11, contains Jab1/MPN domain metalloenzyme (JAMM) motif | 31.00002279 | 2.58E-08 | 1.43E-06 | LL | COG1310 | GC_00002219, GC_00003850, GC_00004483 | 1 | 0 | 11 | 20|
 |Adenine-specific DNA glycosylase, acts on AG and A-oxoG pairs | 31.00002279 | 2.58E-08 | 1.43E-06 | LL | COG1194 | GC_00001711 | 1 | 0 | 11 | 20|
@@ -572,7 +575,7 @@ The functional enrichment score proposed here and implemented in anvi'o is the R
 The test accounts for the fact that there may be more genomes observed from one category than the other. As usual, having more genomes makes the test more reliable.
 There are lots of different ways to do this test, but we did some investigations and found that the Rao test had the highest power out of all tests that control Type 1 error rate. Yay!
 
-Since many users will be looking at testing for enrichment across many functions, by default we adjust for multiple testing by controlling the false discovery rate. For this reason, please report q-values instead of p-values in your paper if you use `anvi-get-enriched-functions-per-pan-group`.
+Since many users will be looking at testing for enrichment across many functions, by default we adjust for multiple testing by controlling the false discovery rate. For this reason, please report q-values instead of p-values in your paper if you use {% include PROGRAM name="anvi-compute-functional-enrichment" text="`anvi-compute-functional-enrichment`" %}.
 </div>
 
 Now let's search for one of the top functions in the table "Ser/Thr protein kinase RdoA involved in Cpx stress response, MazF antagonist", which is enriched for the members of the LL group, and we can see in the table that it matches four gene clusters.
@@ -597,12 +600,12 @@ The large subunit matches a single gene cluster which is in the CORE LL, and the
 Next, we will introduce another feature `--functional-occurrence-table-output`. Our command line above, included this parameter. Here it is again, just as a reminder:
 
 ```bash
-anvi-get-enriched-functions-per-pan-group -p PROCHLORO/Prochlorococcus_Pan-PAN.db \
-                                          -g PROCHLORO-GENOMES.db \
-                                          --category light \
-                                          --annotation-source COG_FUNCTION \
-                                          -o PROCHLORO-PAN-enriched-functions-light.txt \
-                                          --functional-occurrence-table-output PROCHLORO-functions-occurrence-frequency.txt
+anvi-compute-functional-enrichment -p PROCHLORO/Prochlorococcus_Pan-PAN.db \
+                                   -g PROCHLORO-GENOMES.db \
+                                   --category light \
+                                   --annotation-source COG_FUNCTION \
+                                   -o PROCHLORO-PAN-enriched-functions-light.txt \
+                                   --functional-occurrence-table-output PROCHLORO-functions-occurrence-frequency.txt
 ```
 
 This optional output is a TAB-delimited file with the frequency of occurrence information for functions in genomes (i.e. how many genes in a genome were associated with each function).
@@ -895,11 +898,11 @@ You may need to change the `min` value from the interface for a better represent
 
 <span class="extra-info-header">A little note from Meren on how to order genomes</span>
 
-It has always been a question mark for me how to order genomes with respect to gene clusters. Should one use the gene cluster presence/absence patterns to organize genomes (where one ignores paralogs and works with a binary table to cluster genomes)? Or should one rely on gene cluster frequency data to order things (where one does consider paralogs, so their table is not binary anymore, but contains the frequencies for number of genes from each genome in each gene cluster)? 
+It has always been a question mark for me how to order genomes with respect to gene clusters. Should one use the gene cluster presence/absence patterns to organize genomes (where one ignores paralogs and works with a binary table to cluster genomes)? Or should one rely on gene cluster frequency data to order things (where one does consider paralogs, so their table is not binary anymore, but contains the frequencies for number of genes from each genome in each gene cluster)?
 
 Thanks to Özcan’s [new addition](https://github.com/merenlab/anvio/commit/aa007cf902dea2de4bd63524cd49f0566cf2511d) to the codebase, I've made an unexpected observation while I was working on this section of the tutorial regarding this question of 'how to order genomes' in a pangenome.
 
-This is how ANI matrix looks like when I order *Prochlorococcus* genomes based on gene cluster frequency data: 
+This is how ANI matrix looks like when I order *Prochlorococcus* genomes based on gene cluster frequency data:
 
 [![ani]({{images}}/ani-gc-freqs.png)]({{images}}/ani-gc-freqs.png){:.center-img .width-40}
 
@@ -965,5 +968,3 @@ The structure of this file will look like this, and will give you an opportunity
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 
 This file will link each gene from each genome with every selection you've made and named through the interface or through the program `anvi-import-collection`, and will also give you access to the amino acid sequence and function of each gene.
-
-
