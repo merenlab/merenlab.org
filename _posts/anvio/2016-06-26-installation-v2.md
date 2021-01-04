@@ -54,6 +54,9 @@ Please consider opening an <a href="https://github.com/meren/anvio/issues">issue
 
 {% include _join-anvio-slack.html %}
 
+{:.notice}
+{% include _fixthispage.html source="_posts/anvio/2016-06-26-installation-v2.md" %}
+
 ## (1) Setup Conda
 
 This is a very simple and effective way to install anvi'o on your system along with most of its dependencies.
@@ -82,9 +85,6 @@ Good? Good! You are almost there!
 
 {:.notice}
 It is a good idea to **make sure you are not already in a conda environment** before you run the following steps. Just to be clear, you can indeed install anvi'o in an existing conda environment, but if things go wrong, we kindly ask you to refer to meditation for help, rather than [anvi'o community resources]({% post_url anvio/2019-10-07-getting-help %} since there is no way we can help you if you are installing anvi'o in a different conda environment :) If you want to see what environments do you have on your computer and whether you already are in one of them in your current terminal by running `conda env list`. **If all these are too much for you and all you want to do is to move on with the installation**, simply do this: open a new terminal, and run `conda deactivate`, and continue with the rest of the text.
-
-{:.warning}
-Our conda packages are not ready as of Jan 3, 2020 (you can [see the activity here](https://github.com/bioconda/bioconda-recipes/pull/26014)). The following solutions will take a little more extra steps due to that, but you can confindently follow them.
 
 You have two options here.
 
@@ -261,10 +261,10 @@ If you are still here, let's start.
 
 ---
 
-First make sure you are not in any environment by running `conda deactivate`. Then, make sure you don't have an environment called `anvio-master`:
+First make sure you are not in any environment by running `conda deactivate`. Then, make sure you don't have an environment called `anvio-dev` (as in *anvi'o development*):
 
 ```
-conda env remove --name anvio-7
+conda env remove --name anvio-dev
 ```
 
 Now we can continue with setting up the conda environment.
@@ -274,13 +274,13 @@ Now we can continue with setting up the conda environment.
 First create a new conda environment:
 
 ``` bash
-conda create -y --name anvio-master python=3.6
+conda create -y --name anvio-dev python=3.6
 ```
 
 And activate it:
 
 ```
-conda activate anvio-master
+conda activate anvio-dev
 ```
 
 Install necessary packages:
@@ -352,41 +352,32 @@ Here we will setup your conda environment in such a way that every time you acti
 
 ``` bash
 cat <<EOF >${CONDA_PREFIX}/etc/conda/activate.d/anvio.sh
-# creating an activation script for the the anvi'o master conda environment
-# so (1) Python knows where to find anvi'o libraries, (2) BASH knows
-# where to find its programs, and (3) every time the environment is activated
-# it downloads the latest code from the master repository
+# creating an activation script for the the conda environment for anvi'o
+# development branch so (1) Python knows where to find anvi'o libraries, 
+# (2) the shell knows where to find anvi'o programs, and (3) every time
+# the environment is activated it synchronizes with the latest code from
+# active GitHub repository:
 export PYTHONPATH=\$PYTHONPATH:~/github/anvio/
 export PATH=\$PATH:~/github/anvio/bin:~/github/anvio/sandbox
-echo -e "\033[1;34mUpdating from the master repository in GitHub \033[0;31m(press CTRL+C to cancel)\033[0m ..."
+echo -e "\033[1;34mUpdating from anvi'o GitHub \033[0;31m(press CTRL+C to cancel)\033[0m ..."
 cd ~/github/anvio && git pull && cd -
 EOF
 ```
 
-Finally we define an alias, `anvi-activate-master`, so you can use it to initiate everything like a pro:
-
 {:.warning}
 If you are using `zsh` by default these may not work. If you run into a trouble here or especially if you figure out a way to make it work both for `zsh` and `bash`, please let us know.
 
-```
-echo -e "\n# >>> ANVI'O STUFF >>>" >> ~/.bash_profile
-echo 'alias anvi-activate-master="conda activate anvio-master"' >> ~/.bash_profile
-echo "# <<< ANVI'O STUFF <<<" >> ~/.bash_profile
-source ~/.bash_profile
-```
-
-At this stage if you run `anvi-activate-master`, you should see similar outputs to these:
+If everything worked, you should be able to type the following commands in a new terminal and see similar outputs:
 
 ```
-which anvi-self-test
+meren ~ $ conda activate anvio-dev
+Updating from anvi'o GitHub (press CTRL+C to cancel) ...
 
+(anvio-dev) meren ~ $ which anvi-self-test
 /Users/meren/github/anvio/bin/anvi-self-test
-```
 
-```
-anvi-self-test -v
-
-Anvi'o .......................................: hope (v7-master)
+(anvio-dev) meren ~ $ anvi-self-test -v
+Anvi'o .......................................: hope (v7-dev)
 
 Profile database .............................: 35
 Contigs database .............................: 20
@@ -396,16 +387,18 @@ Auxiliary data storage .......................: 2
 Structure database ...........................: 2
 Metabolic modules database ...................: 2
 tRNA-seq database ............................: 1
+
+(anvio-dev) meren ~ $
 ```
 
-If that is the case, you're golden.
+If that is the case, you're all set.
 
-Now every change you will make in the codebase will be immediately reflected when you run anvi'o tools.
+Every change you will make in anvi'o codebase will immediately be reflected when you run anvi'o tools (but if you change the code and do not revert back, git will stop updating your branch from the upstream). 
 
-If you followed these instructions every time you open a terminal you will have to first activate conda, and then the Python environment:
+If you followed these instructions, every time you open a terminal you will have to run the following command to activate your anvi'o environment:
 
 ```
-conda activate anvio-master
+conda activate anvio-dev
 ```
 
 If you are here, you can now jump to "[Check your anvi'o setup](#4-check-your-anvio-setup)" to see if things worked for you using `anvi-self-test`.
@@ -414,46 +407,51 @@ If you are here, you can now jump to "[Check your anvi'o setup](#4-check-your-an
 ## Bonus: An alternative BASH profile setup
 
 {:.notice}
-This section is written by Meren and reflects his setup on a Mac system that runs miniconda where `bash` is [setup as the default shell](https://itnext.io/upgrading-bash-on-macos-7138bd1066ba).
+This section is written by Meren and reflects his setup on a Mac system that runs miniconda where `bash` is [setup as the default shell](https://itnext.io/upgrading-bash-on-macos-7138bd1066ba). If you are using another shell and if you would like to share your solution, please send a PR!
 
 This is all personal taste and they may need to change from computer to computer, but I added the following lines at the end of my `~/.bash_profile` to easily switch between different versions of anvi'o on my Mac system:
 
 
 ``` bash
-init_anvio_stable () {
-    {
-        deactivate && conda deactivate
-    } &> /dev/null
+# This is where my miniconda base is, you can find out
+# where is yours by running this in your terminal:
+#
+#    conda env list | grep base
+#
+export MY_MINICONDA_BASE="/Users/$USER/miniconda3"
 
-    export PATH="/Users/$USER/miniconda3/bin:$PATH"
-    . /Users/$USER/miniconda3/etc/profile.d/conda.sh
+init_anvio_7 () {
+    deactivate &> /dev/null
+    conda deactivate &> /dev/null
+    export PATH="$MY_MINICONDA_BASE/bin:$PATH"
+    . $MY_MINICONDA_BASE/etc/profile.d/conda.sh
     conda activate anvio-7
     export PS1="\[\e[0m\e[47m\e[1;30m\] :: anvi'o v7 :: \[\e[0m\e[0m \[\e[1;32m\]\]\w\[\e[m\] \[\e[1;31m\]>>>\[\e[m\] \[\e[0m\]"
 }
 
 
-init_anvio_master () {
-    {
-        deactivate && conda deactivate
-    } &> /dev/null
-
-    export PATH="/Users/$USER/miniconda3/bin:$PATH"
-    . /Users/$USER/miniconda3/etc/profile.d/conda.sh
-    conda activate anvio-master
-    export PS1="\[\e[0m\e[40m\e[1;30m\] :: anvi'o v7 master :: \[\e[0m\e[0m \[\e[1;34m\]\]\w\[\e[m\] \[\e[1;31m\]>>>\[\e[m\] \[\e[0m\]"
+init_anvio_dev () {
+    deactivate &> /dev/null
+    conda deactivate &> /dev/null
+    export PATH="$MY_MINICONDA_BASE bin:$PATH"
+    . $MY_MINICONDA_BASE/etc/profile.d/conda.sh
+    conda activate anvio-dev
+    export PS1="\[\e[0m\e[40m\e[1;30m\] :: anvi'o v7 dev :: \[\e[0m\e[0m \[\e[1;34m\]\]\w\[\e[m\] \[\e[1;31m\]>>>\[\e[m\] \[\e[0m\]"
 }
 
-alias as=init_anvio_stable
-alias am=init_anvio_master
+alias anvio-7=init_anvio_7
+alias anvio-dev=init_anvio_dev
 ```
 
-With this setup, in a new terminal window I can type `as` or `am` to run the stable or master version of anvi'o, or to switch from one to the other:
+You can either open a new terminal window or run `source ~/.bash_profile` to make sure these changes take effect. Now you should be able to type `anvio-7` to initialize the stable anvi'o, and `anvio-dev` to initialize the development branch of the codebase.
+
+Here is what I see in my terminal for `anvio-7`:
 
 ```
 meren ~ $ anvi-self-test -v
 -bash: anvi-self-test: command not found
 
-meren ~ $ as
+meren ~ $ anvio-7
 
 :: anvi'o v7 :: ~ >>>
 
@@ -468,13 +466,20 @@ Auxiliary data storage .......................: 2
 Structure database ...........................: 2
 Metabolic modules database ...................: 2
 tRNA-seq database ............................: 1
+```
 
-:: anvi'o v7 :: ~ >>> am
+Or for `anvio-dev`:
 
-:: anvi'o v7 master :: ~ >>>
+```
+meren ~ $ anvi-self-test -v
+-bash: anvi-self-test: command not found
 
-:: anvi'o v7 master :: ~ >>> anvi-self-test -v
-Anvi'o .......................................: hope (v7-master)
+:: anvi'o v7 :: ~ >>> anvio-dev
+
+:: anvi'o v7 dev :: ~ >>>
+
+:: anvi'o v7 dev :: ~ >>> anvi-self-test -v
+Anvi'o .......................................: hope (v7-dev)
 
 Profile database .............................: 35
 Contigs database .............................: 20
@@ -486,7 +491,7 @@ Metabolic modules database ...................: 2
 tRNA-seq database ............................: 1
 ```
 
-**But please note** that both aliases run `deactivate` and `conda deactivate` first, and they may not work for you especially if you have a fancy setup. I'd be very happy to improve these shortcuts.
+**But please note** that both aliases run `deactivate` and `conda deactivate` first, and they may not work for you especially if you have a fancy setup.
 
 
 ## Other installation options
@@ -500,3 +505,6 @@ The best way to see what additional software you will need running on your compu
 Don't be a stranger, and let us know if you need help.
 
 {% include _join-anvio-slack.html %}
+
+{:.notice}
+{% include _fixthispage.html source="_posts/anvio/2016-06-26-installation-v2.md" %}
