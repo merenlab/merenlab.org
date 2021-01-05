@@ -49,13 +49,15 @@ docker system prune --force -a
 ```
 </details>
 
-
 Please consider opening an <a href="https://github.com/meren/anvio/issues">issue</a> for technical problems, or join us on Slack if you need help:
 
 {% include _join-anvio-slack.html %}
 
 {:.notice}
 {% include _fixthispage.html source="_posts/anvio/2016-06-26-installation-v2.md" %}
+
+{:.notice}
+We thank [Daan Speth](https://twitter.com/daanspeth), [Jarrod Scott](https://orcid.org/0000-0001-9863-1318), and [Mike Lee](https://twitter.com/AstrobioMike) for their help to offer a smooth installation experience for everyone in this document.
 
 ## (1) Setup conda
 
@@ -96,24 +98,32 @@ If this shortcut doesn't work for you for some reason, you will not worry and tr
 Resolving dependencies (especially on Mac systems) can take a very long time for conda (which is a [known problem](https://github.com/conda/conda/issues/7239)), hence, here we will use a serious shortcut to generate an environment for anvi'o `v{% include _project-anvio-version-number.html %}`.
 
 
-First get a copy of the following file:
+First you will need to get a copy of the following file, but you have two options depending on the operating system you're using.
 
+If you are using **Mac OSX**, use this one:
 
 ``` bash
-curl https://merenlab.org/files/anvio-conda-environments/anvio-environment-7.yml \
-     --output anvio-environment-7.yml
+curl https://merenlab.org/files/anvio-conda-environments/anvio-environment-7-MACOS.yaml \
+     --output anvio-environment-7.yaml
 ```
 
-Make sure there you don't have an environment called `anvio-v{% include _project-anvio-version-number.html %}` already:
+If you are using **Linux/Windows**, use this one:
+
+``` bash
+curl https://merenlab.org/files/anvio-conda-environments/anvio-environment-7-LINUX.yaml \
+     --output anvio-environment-7.yaml
+```
+
+Run this to make sure you don't already have an environment called `anvio-v{% include _project-anvio-version-number.html %}`:
 
 ```
 conda env remove --name anvio-7
 ```
 
-Create a new `anvio-v{% include _project-anvio-version-number.html %}` environment using the file you just downloaded:
+Now create a new `anvio-v{% include _project-anvio-version-number.html %}` environment using the file you just downloaded:
 
 ```
-conda env create -f anvio-environment-7.yml
+conda env create -f anvio-environment-7.yaml
 ```
 
 If this didn't go well, jump to the slower but reliable option. If it did go well, then you should activate that environment,
@@ -164,13 +174,11 @@ conda install -y -c bioconda r-magrittr
 conda install -y -c bioconda r-optparse
 conda install -y -c bioconda bioconductor-qvalue
 conda install -y -c bioconda fasttree
+conda install -y -c conda-forge h5py=2.8.0
 
 # this may cause some issues. if it doesn't install,
 # don't worry:
 conda install -y -c bioconda fastani
-
-# this also is a good addition as suggested by Daan Speth:
-conda install -y -c conda-forge h5py=2.8.0
 ```
 
 Now you can jump to "[Download and install anvi'o](#3-install-anvio)"!
@@ -191,7 +199,7 @@ And install it using `pip` like a boss:
 pip install anvio-7.tar.gz
 ```
 
-If everything went fine, you can jump to "[Check your anvi'o setup](#4-check-your-installation)" to see if things worked for you.
+If everything went fine, you can jump to "[Check your anvi'o setup](#4-check-your-installation)" to see if things worked for you, and then you are free to go!
 
 
 ## (4) Check your installation
@@ -237,9 +245,12 @@ python -c 'import webbrowser as w; w.open_new("http://")'
 ```
 </div>
 
-If you are here, you are done. Congratulations, and thank you very much for your patience! Now you can take a look up some anvi'o resources [here]({{ site.url }}/software/anvio), or come say hi to us on Slack.
+If you are here, you are done! Congratulations, and thank you very much for your patience!
+
+Now you can take a look up some anvi'o resources [here]({{ site.url }}/software/anvio), or come say hi to us on Slack.
 
 {% include _join-anvio-slack.html %}
+
 
 ## (5) Follow the active development (you're a wizard, arry)
 
@@ -312,13 +323,11 @@ conda install -y -c bioconda r-magrittr
 conda install -y -c bioconda r-optparse
 conda install -y -c bioconda bioconductor-qvalue
 conda install -y -c bioconda fasttree
+conda install -y -c conda-forge h5py=2.8.0
 
 # this may cause some issues. if it doesn't install,
 # don't worry:
 conda install -y -c bioconda fastani
-
-# this also is a good addition as suggested by Daan Speth:
-conda install -y -c conda-forge h5py=2.8.0
 ```
 Now you are ready for the code.
 
