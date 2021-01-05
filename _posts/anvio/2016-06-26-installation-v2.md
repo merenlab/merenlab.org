@@ -56,7 +56,7 @@ Please consider opening an <a href="https://github.com/meren/anvio/issues">issue
 {:.notice}
 {% include _fixthispage.html source="_posts/anvio/2016-06-26-installation-v2.md" %}
 
-{:.notice}
+{:.warning}
 We thank [Daan Speth](https://twitter.com/daanspeth), [Jarrod Scott](https://orcid.org/0000-0001-9863-1318), [Susheel Bhanu Busi](https://scholar.google.com/citations?user=U0g3IzQAAAAJ&hl=en), and [Mike Lee](https://twitter.com/AstrobioMike), who kindly invested their time to test the installation instructions on this page on different systems and/or made suggestions to the document to ensure a smoother installation experience for everyone.
 
 ## (1) Setup conda
