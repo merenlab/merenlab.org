@@ -936,7 +936,7 @@ anvi-get-sequences-for-hmm-hits -c CONTIGS.db \
 ```
 
 {:.notice}
-As you know, you can use `anvi-run-hmms` program with custom made HMM profiles to add your own HMMs into the {% include ARTIFACT name="contigs-db" text="contigs database" %}.
+As you know, you can use {% include PROGRAM name="anvi-run-hmms" %} program with custom made HMM profiles to add your own HMMs into the contigs database.
 
 Alright. We have two. Let's see what genes do we have in `Bacteria_71`:
 
@@ -969,7 +969,7 @@ OK. A lot. Good for you, `Bacteria_71`.
 
 For the sake of this simple example, let's assume we want to use a bunch of ribosomal genes for our phylogenomic analysis: `Ribosomal_L1`, `Ribosomal_L2`, `Ribosomal_L3`, `Ribosomal_L4`, `Ribosomal_L5`, `Ribosomal_L6`.
 
-OK. The following command will give us all these genes from all {% include ARTIFACT name="bin" text="bins" %} described in the {% include ARTIFACT name="collection" %} `default`:
+OK. The {% include PROGRAM name="anvi-get-sequences-for-hmm-hits" text="following command" %} will give us all these genes from all bins described in the collection `default`:
 
 ``` bash
 anvi-get-sequences-for-hmm-hits -c CONTIGS.db \
@@ -1068,7 +1068,7 @@ If you look at the resulting file again, you will see how everything looks just 
 
 Once you have your concatenated genes, which you now have them in `seqs-for-phylogenomics.fa` if you followed the previous section, it is time to perform the phylogenomic analysis.
 
-There are multiple ways to do this. Here we will use the program `anvi-gen-phylogenomic-tree`, which accepts a FASTA file and uses one of the programs it knows about to compute the tree. Currently the only option is [FastTree](http://www.microbesonline.org/fasttree/), which infers approximately-maximum-likelihood phylogenetic trees from FASTA files that look like yours. Send us your favorite, and we will happily consider expanding the collection of available tools for this analysis.
+There are multiple ways to do this. Here we will use the program {% include PROGRAM name="anvi-gen-phylogenomic-tree" %}, which accepts a FASTA file and uses one of the programs it knows about to compute the tree. Currently the only option is [FastTree](http://www.microbesonline.org/fasttree/), which infers approximately-maximum-likelihood phylogenetic trees from FASTA files that look like yours. Send us your favorite, and we will happily consider expanding the collection of available tools for this analysis.
 
 Computing a phylogenomic tree from our FASTA file is as simple as this:
 
