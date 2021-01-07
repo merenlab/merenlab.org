@@ -1126,9 +1126,9 @@ Both phylogenomics and pangenomics are strategies under the umbrella of comparat
 You can find a comprehensive tutorial on the anvi'o pangenomic workflow [here]({% post_url anvio/2016-11-08-pangenomics-v2 %}){:target="_blank"}.
 
 {:.warning}
-**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
+**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged {% include ARTIFACT name="profile-db" text="profile database" %} and the anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
 
-Please run following commands in the IGD dir. They will set the stage for us to take a look at the *E. faecalis* bin:
+Please run following {% include PROGRAM name="anvi-import-collection" text="command" %} in the IGD dir. They will set the stage for us to take a look at the *E. faecalis* bin:
 
 ``` bash
 anvi-import-collection additional-files/collections/e-faecalis.txt \
@@ -1142,7 +1142,7 @@ anvi-import-collection additional-files/collections/e-faecalis.txt \
 
 ### Generating a genome storage
 
-For this example I downloaded 6 *E. faecalis*, and 5 *E. faecium* genomes to analyze them together with our *E. faecalis* bin. For each of these 11 *external genomes*, I generated anvi'o {% include ARTIFACT name="contigs-db" text="contigs databases" %}. You can find all of them in the additional files directory:
+For this example I downloaded 6 *E. faecalis*, and 5 *E. faecium* genomes to analyze them together with our *E. faecalis* bin. For each of these 11 *external genomes*, I generated anvi'o contigs databases. You can find all of them in the additional files directory:
 
 ``` bash
 ls additional-files/pangenomics/external-genomes/*db
@@ -1160,9 +1160,9 @@ additional-files/pangenomics/external-genomes/Enterococcus_faecium_6798.db
 ```
 
 {:.notice}
-The post [Accessing and including NCBI genomes in 'omics analyses in anvi'o]({% post_url anvio/2019-03-14-ncbi-genome-download-magic %}) explains how to download sets of genomes you are interested in from the NCBI and turn them into anvi'o {% include ARTIFACT name="contigs-db" text="contigs databases" %}.
+The post [Accessing and including NCBI genomes in 'omics analyses in anvi'o]({% post_url anvio/2019-03-14-ncbi-genome-download-magic %}) explains how to download sets of genomes you are interested in from the NCBI and turn them into anvi'o contigs databases.
 
-There also are two files in the `additional-files/pangenomics` directory to describe how to access to the external genomes:
+There also are two files in the `additional-files/pangenomics` directory to describe how to access to the {% include ARTIFACT name="external-genomes" %}:
 
 |name|contigs_db_path|
 |:--|:--|
@@ -1178,7 +1178,7 @@ There also are two files in the `additional-files/pangenomics` directory to desc
 |E_faecium_6778|external-genomes/Enterococcus_faecium_6778.db|
 |E_faecium_6798|external-genomes/Enterococcus_faecium_6798.db|
 
-and the internal one:
+and the {% include ARTIFACT name="external-genomes" text="internal" %} one:
 
 |name|bin_id|collection_id|profile_db_path|contigs_db_path|
 |:--|:--:|:--:|:--|:--|
@@ -1196,7 +1196,7 @@ anvi-gen-genomes-storage -i additional-files/pangenomics/internal-genomes.txt \
 
 ### Computing and visualizing the pangenome
 
-Now we have the genomes storage, we can characterize the pangenome:
+Now we have the {% include ARTIFACT name="genomes-storage-db" text="genomes storage"%}, we can characterize the pangenome:
 
 ``` bash
 anvi-pan-genome -g Enterococcus-GENOMES.db \
@@ -1234,7 +1234,7 @@ I am not arguing that every figure should look like that one, but I would like y
 </div>
 
 
-OK. I made the previous display a bit prettier for you. If you kill the server, and import the state file the following way, and re-run the server,
+OK. I made the previous display a bit prettier for you. If you kill the server, and {% include PROGRAM name="anvi-import-state" text="import" %} the {% include ARTIFACT name="state" %} file the following way, and re-run the server,
 
 ``` bash
 anvi-import-state -p PAN/Enterococcus-PAN.db \
@@ -1254,7 +1254,7 @@ Now not only can we see how our E. faecalis genome looks like compared to availa
 
 ### Adding average nucleotide identity
 
-The pangenome tells us about the similarities and dissimilarities between those genomes given the amino acid sequences of open reading frames we identified within each one of them. We could also compare them to each other by computing the average nucleotide identity between them. Anvi'o comes with a program to do that, which uses [PyANI by Pritchard et al.](https://github.com/widdowquinn/pyani) to pairwise align DNA sequences between genomes to estimate similarities between them. [See this tutorial for details]({% post_url anvio/2016-11-08-pangenomics-v2 %}#computing-the-average-nucleotide-identity-for-genomes).
+The pangenome tells us about the similarities and dissimilarities between those genomes given the amino acid sequences of open reading frames we identified within each one of them. We could also compare them to each other by computing the average nucleotide identity between them. Anvi'o comes with a {% include PROGRAM name="anvi-compute-genome-similarity" text="program" %} to do that, which uses [PyANI by Pritchard et al.](https://github.com/widdowquinn/pyani) to pairwise align DNA sequences between genomes to estimate similarities between them. [See this tutorial for details]({% post_url anvio/2016-11-08-pangenomics-v2 %}#computing-the-average-nucleotide-identity-for-genomes).
 
 We can compute average nucleotide identity among our genomes, and add them to the pan database the following way:
 
@@ -1271,7 +1271,7 @@ anvi-compute-genome-similarity -e additional-files/pangenomics/external-genomes.
 
 <span class="extra-info-header">For people in a rush</span>
 
-Computing ANI can take a long time especially if you don't have many threads to share. Your data-pack contains the ANI percent identity file that emerges from the previous command line that you can import into your pan database if you don't want to run the command and move on:
+Computing ANI can take a long time especially if you don't have many threads to share. Your data-pack contains the ANI percent identity file that emerges from the previous command line that you can {% include PROGRAM name="anvi-import-misc-data" text="import" %} into your pan database if you don't want to run the command and move on:
 
 ``` bash
 anvi-import-misc-data additional-files/pangenomics/ANI_percentage_identity.txt \
@@ -1336,7 +1336,7 @@ First, you need to define how you would like to group your genomes in the pangen
 |E_faecium_6778|faecium|
 |E_faecium_6798|faecium|
 
-Which is also in your data-pack. Let's import it into the pan database as an additional layer data:
+Which is also in your data-pack. Let's {% include PROGRAM name="anvi-import-misc-data" text="import" %} it into the pan database as an additional layer data:
 
 ``` bash
 anvi-import-misc-data -p PAN/Enterococcus-PAN.db \
@@ -1394,7 +1394,7 @@ There are multiple ways to identify gene clusters that match to a given set of c
 
 [![E. facealis pan](images/pan-filters.png)](images/pan-filters.png){:.center-img .width-50}
 
-The command line program `anvi-get-sequences-for-gene-clusters` can also give you access to these filters and more to get very precise reports. Another option is the good'ol {% include ARTIFACT name="interactive" %} interface, and using the dendrogram it produces to organize gene clusters based on their distribution across genomes. From this display you can make manual selections of gene clusters. I already made some selections and stored them in a file for your convenience. If you import them the following way,
+The command line program {% include PROGRAM name="anvi-get-sequences-for-gene-clusters" text="`anvi-get-sequences-for-gene-clusters`" %} can also give you access to these filters and more to get very precise reports. Another option is the good'ol {% include ARTIFACT name="interactive" %} interface, and using the dendrogram it produces to organize gene clusters based on their distribution across genomes. From this display you can make manual selections of gene clusters. I already made some selections and stored them in a file for your convenience. If you {% include PROGRAM name="anvi-import-collection" text="import" %} them the following way,
 
 ``` bash
 anvi-import-collection additional-files/pangenomics/pan-collection.txt \
@@ -1403,7 +1403,7 @@ anvi-import-collection additional-files/pangenomics/pan-collection.txt \
                        -C default
 ```
 
-and re-run the {% include ARTIFACT name="interactive" %} interface,
+and re-run the interactive interface,
 
 ``` bash
 anvi-display-pan -g Enterococcus-GENOMES.db \
@@ -1433,7 +1433,7 @@ Yes we can!
 
 For instance, in my tentative selection above, there is a bin called `CORE ALL`, which describes all gene clusters that seems to be in all genomes in this analysis. You can in fact summarize the collection `default` to access all the information about each gene described in each gene cluster selected as `CORE ALL`.
 
-You can summarize the pangenome using the collection we have the following way:
+You can {% include PROGRAM name="anvi-summarize" text="summarize" %} the pangenome using the collection we have the following way:
 
 ``` bash
 anvi-summarize -p PAN/Enterococcus-PAN.db \
