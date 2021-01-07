@@ -168,9 +168,9 @@ Note that gene coordinates are displayed at the bottom and their inferred functi
 
 Anvi'o can work with gene-level taxonomic annotations, but gene-level taxonomy is not useful for anything beyond occasional help with manual binning. Once gene-level taxonomy is added into the {% include ARTIFACT name="contigs-db" text="contigs database" %}, anvi'o will determine the taxonomy of each contig based on the taxonomic affiliation of genes they describe, and display them in the interface whenever possible.
 
-Centrifuge ([code](https://github.com/infphilo/centrifuge){:target="_blank"}, [pre-print](http://biorxiv.org/content/early/2016/05/25/054965.article-info){:target="_blank"}) is [one of the options]({% post_url anvio/2016-06-18-importing-taxonomy %}#centrifuge-output){:target="_blank"} to [import taxonomic annotations]({% post_url anvio/2016-06-18-importing-taxonomy %}){:target="_blank"} into an anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %}. Centrifuge files for the IGD are already in the directory `additional-files/centrifuge-files`.
+Centrifuge ([code](https://github.com/infphilo/centrifuge){:target="_blank"}, [pre-print](http://biorxiv.org/content/early/2016/05/25/054965.article-info){:target="_blank"}) is [one of the options]({% post_url anvio/2016-06-18-importing-taxonomy %}#centrifuge-output){:target="_blank"} to [import taxonomic annotations]({% post_url anvio/2016-06-18-importing-taxonomy %}){:target="_blank"} into an anvi'o contigs database. Centrifuge files for the IGD are already in the directory `additional-files/centrifuge-files`.
 
-If you import these files into the {% include ARTIFACT name="contigs-db" text="contigs database" %} the following way,
+If you import these files into the contigs database the following way,
 
 ``` bash
 anvi-import-taxonomy-for-genes -c CONTIGS.db \
@@ -188,7 +188,7 @@ anvi-interactive -p PROFILE.db -c CONTIGS.db
 You will see an additional layer with taxonomy:
 
 {:.notice}
-In the Layers tab find the `Taxonomy` layer, set its height to `200`, then drag the layer in between `DAY24` and `hmms_Ribosomal_RNAs`, and click `Draw` again. Then click `Save State` button, and overwrite the `default` state. This will make sure anvi'o remembers to make the height of that layer 200px the next time you run the {% include ARTIFACT name="interactive" %} interface!
+In the Layers tab find the `Taxonomy` layer, set its height to `200`, then drag the layer in between `DAY24` and `hmms_Ribosomal_RNAs`, and click `Draw` again. Then click `Save State` button, and overwrite the `default` state. This will make sure anvi'o remembers to make the height of that layer 200px the next time you run the interactive interface!
 
 [![Infant gut merged](images/infant-gut-with-tax.png)](images/infant-gut-with-tax.png){:.center-img .width-50}
 
@@ -217,7 +217,7 @@ Then recreate them using four threads:
 anvi-setup-scg-taxonomy -T 4
 ```
 
-And re-run {% include ARTIFACT name="scgs-taxonomy" text="taxonomy" %} on our {% include ARTIFACT name="contigs-db" text="contigs database" %}:
+And re-run {% include ARTIFACT name="scgs-taxonomy" text="taxonomy" %} on our contigs database:
 
 ```
 anvi-run-scg-taxonomy -c CONTIGS.db \
@@ -294,10 +294,10 @@ Next, we can perform a round of manual binning. This should take about 10 minute
 
 <span class="extra-info-header">A few tips for binning:</span>
 
-- You do not have to bin all contigs. Instead, try to identify {% include ARTIFACT name="bin" text="bins" %} corresponding to an actual genome. Those will have relatively high completion values. The low-completion or no-completion {% include ARTIFACT name="bin" text="bins" %} in metagenomes might represent viruses, plasmids, or other interesting genetic elements, but this tutorial will ignore them.
-- Please try to avoid {% include ARTIFACT name="bin" text="bins" %} with redundancy >10%. [Those likely contain contaminants](http://merenlab.org/2016/06/09/assessing-completion-and-contamination-of-MAGs/).
+- You do not have to bin all contigs. Instead, try to identify bins corresponding to an actual genome. Those will have relatively high completion values. The low-completion or no-completion bins in metagenomes might represent viruses, plasmids, or other interesting genetic elements, but this tutorial will ignore them.
+- Please try to avoid bins with redundancy >10%. [Those likely contain contaminants](http://merenlab.org/2016/06/09/assessing-completion-and-contamination-of-MAGs/).
 - You can increase the inner tree radius (e.g., 5,000) for a better binning experience in the `Main` tab (additional settings)
-- You can select the option `show grid` in the `Main` tab (additional settings) for a better demarcation of identified {% include ARTIFACT name="bin" text="bins" %}
+- You can select the option `show grid` in the `Main` tab (additional settings) for a better demarcation of identified bins
 
 </div>
 
@@ -305,18 +305,18 @@ Here is an example of 16 {% include ARTIFACT name="bin" text="bins" %} we identi
 
 [![Manual_Binnin_Result_Example.png](images/Manual_Binnin_Result_Example.png)](images/Manual_Binnin_Result_Example.png){:.center-img .width-50}
 
-Please save your {% include ARTIFACT name="bin" text="bins" %} as a {% include ARTIFACT name="collection" %}. You can give your {% include ARTIFACT name="collection" %} any name, but if you call it `default`, anvi'o will treat it differently.
+Please save your bins as a {% include ARTIFACT name="collection" %}. You can give your collection any name, but if you call it `default`, anvi'o will treat it differently.
 
 {:.notice}
-In the anvi'o lingo, a {% include ARTIFACT name="collection" %} is something that describes one or more {% include ARTIFACT name="bin" text="bins" %}, each of which describe one or more contigs.
+In the anvi'o lingo, a collection is something that describes one or more bins, each of which describe one or more contigs.
 
 If you identified near-complete genomes, then congratulations, you have characterized genomic contents of microbial populations *de novo*.
 
 ### Summarizing the binning results
 
-Why do we do binning? Because we are interested in making sense of our metagenomes in the context of genomes we have recovered through binning. Understanding the distribution patterns of the genomes we have in a {% include ARTIFACT name="collection" %} in a quantitative fashion, or getting back a table of function names found in each one of them, or even {% include PROGRAM name="anvi-summarize" text="summarizing" %} our {% include ARTIFACT name="bin" text="bins" %} as distinct FASTA files are critical for next steps of every binning analysis. After all, binning is a boring detail before you start doing your science.
+Why do we do binning? Because we are interested in making sense of our metagenomes in the context of genomes we have recovered through binning. Understanding the distribution patterns of the genomes we have in a collection in a quantitative fashion, or getting back a table of function names found in each one of them, or even summarizing our bins as distinct FASTA files are critical for next steps of every binning analysis. After all, binning is a boring detail before you start doing your science.
 
-To ensure that you have everything you need to continue working with the outcomes of your binning effort outside of anvi'o, we have a program called {include PROGRAM name="anvi-summarize"}. It is possible to summarize any {% include ARTIFACT name="collection" %} stored in an anvi'o profile database through this program. The result is a static HTML page that can be viewed on any computer.
+To ensure that you have everything you need to continue working with the outcomes of your binning effort outside of anvi'o, we have a program called {% include PROGRAM name="anvi-summarize" %}. It is possible to summarize any collection stored in an anvi'o profile database through this program. The result is a static HTML page that can be viewed on any computer.
 
 <div class="extra-info" markdown="1">
 
@@ -334,7 +334,7 @@ anvi-import-collection additional-files/collections/merens.txt \
 
 </div>
 
-Let's summarize the {% include ARTIFACT name="collection" %} you have just created:
+Let's summarize the collection you have just created:
 
 ```
 anvi-summarize -p PROFILE.db \
@@ -343,11 +343,11 @@ anvi-summarize -p PROFILE.db \
                -o SUMMARY
 ```
 
-Once {% include ARTIFACT name="summary" %} is finished, take a minute to look at its contents.
+Once the summary is finished, take a minute to look at its contents.
 
 ### Renaming bins in your collection (from chaos to order)
 
-As you can see from the {% include ARTIFACT name="summary" %} file, at this point {% include ARTIFACT name="bin" %} names are random, and we often find it useful to put some order on this front. This becomes an extremely useful strategy especially when the intention is to merge multiple binning efforts later. For this task we use the program {% include PROGRAM name="anvi-rename-bins" %}:
+As you can see from the {% include ARTIFACT name="summary" %} file, at this point bin names are random, and we often find it useful to put some order on this front. This becomes an extremely useful strategy especially when the intention is to merge multiple binning efforts later. For this task we use the program {% include PROGRAM name="anvi-rename-bins" %}:
 
 ``` bash
 anvi-rename-bins -p PROFILE.db \
@@ -359,9 +359,9 @@ anvi-rename-bins -p PROFILE.db \
                  --report-file rename-bins-report.txt
 ```
 
-With those settings, a new {% include ARTIFACT name="collection" %} `MAG` will be created in which (1) {% include ARTIFACT name="bin" text="bins" %} with a completion >70% are identified as MAGs (stands for Metagenome-Assembled Genome), (2) and {% include ARTIFACT name="bin" text="bins" %} and MAGs are attached the prefix IGD and renamed based on the difference between completion and redundancy.
+With those settings, a new collection `MAG` will be created in which (1) bins with a completion >70% are identified as MAGs (stands for Metagenome-Assembled Genome), and (2) bins and MAGs are attached the prefix IGD and renamed based on the difference between completion and redundancy.
 
-Now we can use the program {% include PROGRAM name="anvi-summarize" %} to summarize the new {% include ARTIFACT name="collection" %}:
+Now we can use the program {% include PROGRAM name="anvi-summarize" %} to summarize the new collection:
 
 ``` bash
 anvi-summarize -p PROFILE.db \
@@ -381,12 +381,12 @@ Better.
 ### Refining individual MAGs: the curation step
 
 {:.warning}
-**Why do we need to curate bins?** Please see [this paper](https://doi.org/10.1128/mBio.00725-19) to see how poorly refined {% include ARTIFACT name="bin" text="bins" %} can influence ecological and evolutionary insights we gain from MAGs. There is also a step-by-step workflow to describe steps of manual curation [here](http://merenlab.org/data/refining-espinoza-mags/).
+**Why do we need to curate bins?** Please see [this paper](https://doi.org/10.1128/mBio.00725-19) to see how poorly refined bins can influence ecological and evolutionary insights we gain from MAGs. There is also a step-by-step workflow to describe steps of manual curation [here](http://merenlab.org/data/refining-espinoza-mags/).
 
 {:.warning}
 **Why not relying only on single-copy core genes to estimate purity of a genome bin?** Let's think about this altogether. But once we are done with this, please see the relevant section in [this study](https://t.co/tlnQvIGsIw).
 
-To straighten the quality of the `MAGs` {% include ARTIFACT name="collection" %}, it is possible to visualize individual {% include ARTIFACT name="bin" text="bins" %} and if needed, refine them. For this we use the program {% include PROGRAM name="anvi-refine" %}. For instance, if you were to be interested in refining one of the {% include ARTIFACT name="bin" text="bins" %} in our current {% include ARTIFACT name="collection" %}, you could run this command:
+To straighten the quality of the `MAGs` collection, it is possible to visualize individual bins and if needed, refine them. For this we use the program {% include PROGRAM name="anvi-refine" %}. For instance, if you were to be interested in refining one of the bins in our current collection, you could run this command:
 
 ``` bash
 anvi-refine -p PROFILE.db \
@@ -395,14 +395,14 @@ anvi-refine -p PROFILE.db \
             -b IGD_MAG_00001
 ```
 
-Now the {% include ARTIFACT name="interactive" %} interface only displays contigs from a single {% include ARTIFACT name="bin" %}. During this curation step, one can try different clustering strategies (i.e. by only relying on coverage, or only relying on sequence composition) to identify outliers and investigate carefully whether they may be contaminants. You can select everything, and remove those contigs you don't want to keep in the {% include ARTIFACT name="bin" %} before using the Bins panel to store your updated set of contigs in the database.
+Now the {% include ARTIFACT name="interactive" %} interface only displays contigs from a single bin. During this curation step, one can try different clustering strategies (i.e. by only relying on coverage, or only relying on sequence composition) to identify outliers and investigate carefully whether they may be contaminants. You can select everything, and remove those contigs you don't want to keep in the bin before using the Bins panel to store your updated set of contigs in the database.
 
 Here is an example of MAG we had to curate (we removed three contigs):
 
 [![Refining_a_MAG_example.png](images/Refining_a_MAG_example.png)](images/Refining_a_MAG_example.png){:.center-img .width-50}
 
 {:.warning}
-Storing the refined new {% include ARTIFACT name="bin" %} in the database will modify the {% include ARTIFACT name="collection" %}, but you will need to run `anvi-summarize` if you want the summary output to also be updated.
+Storing the refined new bin in the database will modify the collection, but you will need to run `anvi-summarize` if you want the summary output to also be updated.
 
 This is indeed a simple example. But in some cases refining a given MAG can take hours. But this is an extremely critical step of genome-resolved metagenomics studies, especially when important claims are made based on MAGs.
 
