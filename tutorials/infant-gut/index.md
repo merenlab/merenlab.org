@@ -108,7 +108,7 @@ A typical anvi'o genome-resolved metagenomic workflow [starts with one or more B
 {:.notice}
 While this tutorial will take you through a simple analysis of a real dataset, there also is available a more comprehensive (but more abstract) tutorial on [anvi'o metagenomic workflow]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}){:target="_blank"}.
 
-Using the files in the data-pack directory, let's take a first look at the merged {% include ARTIFACT name="profile-db" text="profile database" %} for the infant gut dataset metagenome. If you copy-paste this to your terminal:
+Using the files in the data-pack directory, let's take a first look at the merged profile database for the infant gut dataset metagenome. If you copy-paste this to your terminal:
 
 
 ``` bash
@@ -126,17 +126,17 @@ When it is time to type other commands, you can close the window, go back to the
 
 <details markdown="1"><summary>Show/hide Tom's description of the metagenomic binning-related features of the anvi'o interactive interface</summary>
 
-The {% include ARTIFACT name="interactive" %} interface of anvi'o can be quite overwhelming. This particular box, in addition to the [interactive interface tutorial](tutorials/interactive-interface/), attempts to give you insights into the features of the {% include ARTIFACT name="interactive" %} interface relevant to metagenomic binning.
+The {% include ARTIFACT name="interactive" %} interface of anvi'o can be quite overwhelming. This particular box, in addition to the [interactive interface tutorial](tutorials/interactive-interface/), attempts to give you insights into the features of the interactive interface relevant to metagenomic binning.
 
 First of all, each leaf in the central dendrogram describes an individual contig. Contigs that were fragmented into multiple splits due to their extensive length can be identified in the `Parent` layer. The grey layers after the `GC-Content` display mean coverage values (i.e., the environmental signal) of each contig/split across the 11 metagenomes. Finally, you can click on the `MOUSE` box on the right side of the interface to explore numerical and alphabetic values in more details across the display.
 
 [![Interface-explanations.png](images/Interface-explanations.png)](images/Interface-explanations.png){:.center-img .width-50}
 
-Once the {% include ARTIFACT name="interactive" %} interface is up and running, you can start binning:
+Once the interactive interface is up and running, you can start binning:
 
 [![Infant gut merged](images/infant-gut-merged.gif)](images/infant-gut-merged.gif){:.center-img .width-50}
 
-Make contig selections by hovering your mouse over the tree in the center of the anvi'o figure. To add the highlighted selection to your current {% include ARTIFACT name="bin" %}, left click. To remove the highlighted selection from your current {% include ARTIFACT name="bin" %}, right click. To create a new {% include ARTIFACT name="bin" %}, click "New bin" under the `Bins` tab in `Settings`. To change to a different {% include ARTIFACT name="bin" %}, click the blue dot next to the {% include ARTIFACT name="bin" %} name you're interested in.
+Make contig selections by hovering your mouse over the tree in the center of the anvi'o figure. To add the highlighted selection to your current {% include ARTIFACT name="bin" %}, left click. To remove the highlighted selection from your current bin, right click. To create a new bin, click "New bin" under the `Bins` tab in `Settings`. To change to a different bin, click the blue dot next to the bin name you're interested in.
 
 **Manipulating the inner dendrogram**. By default, anvi'o uses three different clustering approaches to organize contigs in the center dendrogram. Your ability to perform manual binning will be in part determined on your understanding of these clustering strategies. Here is a brief description of each:
 
@@ -154,9 +154,9 @@ And here is where to change the settings in the `Main` tab:
 Anvi'o by default trusts the assembly; therefore splits from the same contig will remain together (but you can breakup contigs through the interface).
 
 {:.warning}
-Your selections will not be lost when switching from one organization to another. This particular ability has been very useful to visualize differences between clustering strategies and access the biological relevance of identified {% include ARTIFACT name="bin" text="bins" %}.
+Your selections will not be lost when switching from one organization to another. This particular ability has been very useful to visualize differences between clustering strategies and access the biological relevance of identified bins.
 
-**Inspecting individual contigs in the context of their metagenomic signal**. In addition to selecting {% include ARTIFACT name="bin" text="bins" %} based on different clustering strategies, you can explore in more details the coverage of individual contigs across metagenomes: this is the __inspection mode__. You simply need to right click on any metagenomic layer at the coordinates of a contig of interest, and select "Inspect split". A new window should pop-up, like in this example:
+**Inspecting individual contigs in the context of their metagenomic signal**. In addition to selecting bins based on different clustering strategies, you can explore in more details the coverage of individual contigs across metagenomes: this is the __inspection mode__. You simply need to right click on any metagenomic layer at the coordinates of a contig of interest, and select "Inspect split". A new window should pop-up, like in this example:
 
 ![Inspection_Contig_Example.png](images/Inspection_Contig_Example.png){:.center-img .width-50}
 
