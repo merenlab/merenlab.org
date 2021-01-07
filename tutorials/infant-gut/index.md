@@ -19,9 +19,9 @@ This tutorial is tailored for anvi'o `v7` or later. You can learn the version of
 
 * [**Chapter I**: Genome-resolved Metagenomics](#chapter-i-genome-resolved-metagenomics)
 * [**Chapter II**: Automatic Binning](#chapter-ii-automatic-binning)
-* [**Chapter III**: Metabolism Prediction](#chapter-iii-metabolism-prediction)
-* [**Chapter IV**: Phylogenomics](#chapter-iv-phylogenomics)
-* [**Chapter V**: Pangenomics](#chapter-v-pangenomics)
+* [**Chapter III**: Phylogenomics](#chapter-iii-phylogenomics)
+* [**Chapter IV**: Pangenomics](#chapter-iv-pangenomics)
+* [**Chapter V**: Metabolism Prediction](#chapter-v-metabolism-prediction)
 * [**Chapter VI**: Microbial Population Genetics](#chapter-vi-microbial-population-genetics)
 * [**Chapter VII**: Genes and genomes across metagenomes](#chapter-vii-genes-and-genomes-across-metagenomes)
 * [**Chapter VIII**: From single-amino acid variants to protein structures](#chapter-viii-from-single-amino-acid-variants-to-protein-structures)
@@ -875,67 +875,8 @@ We all just have to continue working, and enjoy this revolution.
 
 </details>
 
-## Chapter III: Metabolism Prediction
 
-{:.notice}
-**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
-
-{:.notice}
-Metabolism prediction in anvi'o is a new feature and still under ongoing development as of `v7`. We appreciate your patience and feedback on any issues you might run into, and we welcome suggestions for improvement. Thank you very much!
-
-Microbiologists care a lot about what microbes are doing, and for this reason we spend a lot of time looking at functional annotations in our 'omics data. But what if we told you that you could go a step further than that, and look at functional annotations in the larger context of metabolism? This chapter is about how to leverage known, structured information on metabolic pathways to predict the metabolic capacity encoded by microbial genomes, MAGs, or metagenomes.
-
-To demonstrate this, we are going to predict the metabolic potential of the organisms in our previously generated {% include ARTIFACT name="collection" %} of {% include ARTIFACT name="bin" text="bins" %} in the IGD dataset. Please run the following command in the IGD directory to import those bins as the `default` {% include ARTIFACT name="collection" %}.
-``` bash
-anvi-import-collection additional-files/collections/merens.txt \
-                       --bins-info additional-files/collections/merens-info.txt \
-                       -p PROFILE.db \
-                       -c CONTIGS.db \
-                       -C default
-```
-
-### Some obligatory background on metabolism prediction
-Metabolism prediction, also known as metabolic reconstruction, is the practice of guessing (estimating) what metabolic pathways an organism can use to build or break down molecules, based on the proteins it encodes in its genome. It typically involves integrating knowledge about metabolic pathways from well-curated, publically-available databases such as [KEGG](https://www.genome.jp/kegg/) or [MetaCyc](https://metacyc.org/).
-
-In some cases, metabolic reconstruction is a modeling approach that uses fancy math to compute a metabolic network from a genome and refine it based on experimental data in a process called [Flux Balance Analysis](https://www.nature.com/articles/nbt.1614). You cannot currently do this type of metabolic reconstruction in anvi'o, but if you are interested in it we refer you to a [2019 review](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1769-1) of tools that do as a starting point for that adventure.
-
-In anvi'o, metabolism estimation involves collecting gene annotations and matching them to defined metabolic pathways to compute a 'completeness' score for each pathway. Statistics about each pathway and the genes that contribute to them are then summarized in a variety of output files that can be analyzed either by reading them directly or by using them as input to downstream programs/scripts.
-
-{:.notice}
-As of `v7`, anvi'o uses [KEGG](https://www.genome.jp/kegg/) as the source of metabolism information for estimation purposes. It is an amazing resource with nicely structured data, including HMM profiles for functional annotation in the [KEGG KOfam](https://academic.oup.com/bioinformatics/article/36/7/2251/5631907) database and definitions of metabolic pathways in the [KEGG MODULE](https://www.genome.jp/kegg/module.html) database. However, we plan to expand from this in the future, and in particular one of our goals is to allow users to include their own custom definitions of metabolic pathways in the metabolism data used for estimation. So stay tuned!
-
-### Estimating metabolism in our collection of bins
-
-{:.notice}
-We've already prepped the Infant Gut Dataset to be ready for the metabolism estimation commands below, but in case you are working on your own dataset, please note that before you can run {% include PROGRAM name="anvi-estimate-metabolism" %} on a fresh {% include ARTIFACT name="contigs-db" text="contigs database," %} you would need to first set up KEGG data on your computer using {% include PROGRAM name="anvi-setup-kegg-kofams" %} and then annotate your database using {% include PROGRAM name="anvi-run-kegg-kofams" %}.
-
-Let's get to it. To start off, we want an overview picture of what metabolisms the organisms in our {% include ARTIFACT name="collection" %} are capable of. We could visualize this nicely if we had a matrix of the completeness scores for each metabolic module in the KEGG MODULE database in each {% include ARTIFACT name="bin" %}. {% include PROGRAM name="anvi-estimate-metabolism" %} can provide output files in matrix format if we run it in "multi-mode", which means we will have to create an {% include ARTIFACT name="internal-genomes" text="internal genomes file" %} for the bins in our {% include ARTIFACT name="collection" %}:
-
-name|bin_id|collection_id|profile_db_path|contigs_db_path
-|:---|:---|:---|:---|:---|
-Aneorococcus_sp|Aneorococcus_sp|default|../../PROFILE.db|../../CONTIGS.db
-C_albicans|C_albicans|default|../../PROFILE.db|../../CONTIGS.db
-E_facealis|E_facealis|default|../../PROFILE.db|../../CONTIGS.db
-F_magna|F_magna|default|../../PROFILE.db|../../CONTIGS.db
-L_citreum|L_citreum|default|../../PROFILE.db|../../CONTIGS.db
-P_acnes|P_acnes|default|../../PROFILE.db|../../CONTIGS.db
-P_avidum|P_avidum|default|../../PROFILE.db|../../CONTIGS.db
-P_rhinitidis|P_rhinitidis|default|../../PROFILE.db|../../CONTIGS.db
-S_aureus|S_aureus|default|../../PROFILE.db|../../CONTIGS.db
-S_epidermidis|S_epidermidis|default|../../PROFILE.db|../../CONTIGS.db
-S_hominis|S_hominis|default|../../PROFILE.db|../../CONTIGS.db
-S_lugdunensis|S_lugdunensis|default|../../PROFILE.db|../../CONTIGS.db
-Streptococcus|Streptococcus|default|../../PROFILE.db|../../CONTIGS.db
-
-This file is available in the IGD datapack as `additional-files/metabolism/internal_genomes.txt`.
-
-Here is the command to run metabolism estimation on each bin, and produce matrix-formatted output:
-``` bash
-anvi-estimate-metabolism -i additional-files/metabolism/internal_genomes.txt --matrix-format
-```
-When this program runs, it will look at the KOfam annotations within each bin, match them up to the KEGG module definitions to estimate the completeness of each module, and produce 3 output matrices (in which rows are metabolic modules and columns are bins).
-
-## Chapter IV: Phylogenomics
+## Chapter III: Phylogenomics
 
 {:.notice}
 This is more of a practical tutorial to do phylogenomic analyses on metagenome-assembled genomes described in anvi'o {% include ARTIFACT name="collection" text="collections" %}. For a more abstract tutorial on phylogenomics, please consider first reading '[An anvi'o workflow for phylogenomics]({% post_url anvio/2017-06-07-phylogenomics %}){:target="_blank"}'.
@@ -1177,7 +1118,7 @@ The tree in the middle shows the phylogenomic organization of {% include ARTIFAC
 Now you know how to organize distantly related genomes using universally conserved genes.
 
 
-## Chapter V: Pangenomics
+## Chapter IV: Pangenomics
 
 Both phylogenomics and pangenomics are strategies under the umbrella of comparative genomics, and they are inherently very similar despite their key differences. In this chapter we will discuss pangenomics and use anvi'o to have a small pangenomic analysis using our famous *E. faecalis* {% include ARTIFACT name="bin" %} we recovered from the infant gut dataset and a bunch of others from the interwebs.
 
@@ -1537,6 +1478,68 @@ unique_id  |  protein_cluster_id  |  bin_name  |  genome_name      |  gene_calle
 
 
 I'm sure you need no help to know what to do with this file.
+
+
+## Chapter V: Metabolism Prediction
+
+{:.notice}
+**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
+
+{:.notice}
+Metabolism prediction in anvi'o is a new feature and still under ongoing development as of `v7`. We appreciate your patience and feedback on any issues you might run into, and we welcome suggestions for improvement. Thank you very much!
+
+Microbiologists care a lot about what microbes are doing, and for this reason we spend a lot of time looking at functional annotations in our 'omics data. But what if we told you that you could go a step further than that, and look at functional annotations in the larger context of metabolism? This chapter is about how to leverage known, structured information on metabolic pathways to predict the metabolic capacity encoded by microbial genomes, MAGs, or metagenomes.
+
+To demonstrate this, we are going to predict the metabolic potential of the organisms in our previously generated {% include ARTIFACT name="collection" %} of {% include ARTIFACT name="bin" text="bins" %} in the IGD dataset. Please run the following command in the IGD directory to import those bins as the `default` {% include ARTIFACT name="collection" %}.
+``` bash
+anvi-import-collection additional-files/collections/merens.txt \
+                       --bins-info additional-files/collections/merens-info.txt \
+                       -p PROFILE.db \
+                       -c CONTIGS.db \
+                       -C default
+```
+
+### Some obligatory background on metabolism prediction
+Metabolism prediction, also known as metabolic reconstruction, is the practice of guessing (estimating) what metabolic pathways an organism can use to build or break down molecules, based on the proteins it encodes in its genome. It typically involves integrating knowledge about metabolic pathways from well-curated, publically-available databases such as [KEGG](https://www.genome.jp/kegg/) or [MetaCyc](https://metacyc.org/).
+
+In some cases, metabolic reconstruction is a modeling approach that uses fancy math to compute a metabolic network from a genome and refine it based on experimental data in a process called [Flux Balance Analysis](https://www.nature.com/articles/nbt.1614). You cannot currently do this type of metabolic reconstruction in anvi'o, but if you are interested in it we refer you to a [2019 review](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1769-1) of tools that do as a starting point for that adventure.
+
+In anvi'o, metabolism estimation involves collecting gene annotations and matching them to defined metabolic pathways to compute a 'completeness' score for each pathway. Statistics about each pathway and the genes that contribute to them are then summarized in a variety of output files that can be analyzed either by reading them directly or by using them as input to downstream programs/scripts.
+
+{:.notice}
+As of `v7`, anvi'o uses [KEGG](https://www.genome.jp/kegg/) as the source of metabolism information for estimation purposes. It is an amazing resource with nicely structured data, including HMM profiles for functional annotation in the [KEGG KOfam](https://academic.oup.com/bioinformatics/article/36/7/2251/5631907) database and definitions of metabolic pathways in the [KEGG MODULE](https://www.genome.jp/kegg/module.html) database. However, we plan to expand from this in the future, and in particular one of our goals is to allow users to include their own custom definitions of metabolic pathways in the metabolism data used for estimation. So stay tuned!
+
+### Estimating metabolism in our collection of bins
+
+{:.notice}
+We've already prepped the Infant Gut Dataset to be ready for the metabolism estimation commands below, but in case you are working on your own dataset, please note that before you can run {% include PROGRAM name="anvi-estimate-metabolism" %} on a fresh {% include ARTIFACT name="contigs-db" text="contigs database," %} you would need to first set up KEGG data on your computer using {% include PROGRAM name="anvi-setup-kegg-kofams" %} and then annotate your database using {% include PROGRAM name="anvi-run-kegg-kofams" %}.
+
+Let's get to it. To start off, we want an overview picture of what metabolisms the organisms in our {% include ARTIFACT name="collection" %} are capable of. We could visualize this nicely if we had a matrix of the completeness scores for each metabolic module in the KEGG MODULE database in each {% include ARTIFACT name="bin" %}. {% include PROGRAM name="anvi-estimate-metabolism" %} can provide output files in matrix format if we run it in "multi-mode", which means we will have to create an {% include ARTIFACT name="internal-genomes" text="internal genomes file" %} for the bins in our {% include ARTIFACT name="collection" %}:
+
+name|bin_id|collection_id|profile_db_path|contigs_db_path
+|:---|:---|:---|:---|:---|
+Aneorococcus_sp|Aneorococcus_sp|default|../../PROFILE.db|../../CONTIGS.db
+C_albicans|C_albicans|default|../../PROFILE.db|../../CONTIGS.db
+E_facealis|E_facealis|default|../../PROFILE.db|../../CONTIGS.db
+F_magna|F_magna|default|../../PROFILE.db|../../CONTIGS.db
+L_citreum|L_citreum|default|../../PROFILE.db|../../CONTIGS.db
+P_acnes|P_acnes|default|../../PROFILE.db|../../CONTIGS.db
+P_avidum|P_avidum|default|../../PROFILE.db|../../CONTIGS.db
+P_rhinitidis|P_rhinitidis|default|../../PROFILE.db|../../CONTIGS.db
+S_aureus|S_aureus|default|../../PROFILE.db|../../CONTIGS.db
+S_epidermidis|S_epidermidis|default|../../PROFILE.db|../../CONTIGS.db
+S_hominis|S_hominis|default|../../PROFILE.db|../../CONTIGS.db
+S_lugdunensis|S_lugdunensis|default|../../PROFILE.db|../../CONTIGS.db
+Streptococcus|Streptococcus|default|../../PROFILE.db|../../CONTIGS.db
+
+This file is available in the IGD datapack as `additional-files/metabolism/internal_genomes.txt`.
+
+Here is the command to run metabolism estimation on each bin, and produce matrix-formatted output:
+``` bash
+anvi-estimate-metabolism -i additional-files/metabolism/internal_genomes.txt --matrix-format
+```
+When this program runs, it will look at the KOfam annotations within each bin, match them up to the KEGG module definitions to estimate the completeness of each module, and produce 3 output matrices (in which rows are metabolic modules and columns are bins).
+
 
 ## Chapter VI: Microbial Population Genetics
 
