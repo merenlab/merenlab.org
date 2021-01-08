@@ -1415,7 +1415,7 @@ you will see the following selections:
 
 [![E. facealis pan](images/e-faecalis-pan-selections.png)](images/e-faecalis-pan-selections.png){:.center-img .width-70}
 
-We used collection to store bins of contigs in the first section (and that's how we identified that *E. faecalis* population from the Sharon et al. metagenomes anyway), and now the same concept serves us as a way to store bins of gene clusters.
+We used a collection to store bins of contigs in the first section (and that's how we identified that *E. faecalis* population from the Sharon et al. metagenomes anyway), and now the same concept serves us as a way to store bins of gene clusters.
 
 If you right-click on any of the gene clusters, you will see a menu,
 
