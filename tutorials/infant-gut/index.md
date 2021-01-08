@@ -1513,7 +1513,7 @@ Here is the command to run metabolism estimation on each bin, and produce matrix
 ``` bash
 anvi-estimate-metabolism -e additional-files/pangenomics/external-genomes.txt --matrix-format -O Enterococcus
 ```
-When this program runs, it will look at the KOfam annotations within each bin, match them up to the KEGG module definitions to estimate the completeness of each module, and produce 3 output matrices (in which rows are metabolic modules and columns are bins).
+When this program runs, it will look at the KOfam annotations within each genome, match them up to the KEGG module definitions to estimate the completeness of each module, and produce 3 output matrices. One of these matrices will contain module completeness scores, one will be a binary matrix indicating presence (1) or absence (0) of each module in each genome, and the last will be a matrix counting the number of hits to each KO in each genome.
 
 
 ## Chapter VI: Microbial Population Genetics
