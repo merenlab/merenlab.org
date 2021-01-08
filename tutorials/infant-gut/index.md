@@ -1515,6 +1515,12 @@ anvi-estimate-metabolism -e additional-files/pangenomics/external-genomes.txt --
 ```
 When this program runs, it will look at the KOfam annotations within each genome, match them up to the KEGG module definitions to estimate the completeness of each module, and produce 3 output matrices. One of these matrices will contain module completeness scores, one will be a binary matrix indicating presence (1) or absence (0) of each module in each genome, and the last will be a matrix counting the number of hits to each KO in each genome.
 
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Presence/absence of modules</span>
+A module is considered 'present' in a genome, bin, or metagenomic contig (the level of resolution depends on your input type) if its completeness score is above the a certain threshold, which can be set with the `--module-completion-threshold` parameter. A static threshold such as this is not the most ideal metric, especially since metabolic modules have variable numbers of genes - for example, with the default threshold of 0.75 (75%), a module with 3 KOs in it would only be considered present if all 3 of those KOs were found in a genome, while a module with 5 KOs could be considered present if only 4 of its KOs were found. This problem is exacerbated in metagenomes since bins are more likely to be incomplete than isolate genomes. Therefore, module presence/absence only exists as a quick-and-dirty way for you to filter through modules that might be of interest, and we urge you to always double-check the data to avoid false negatives as much as possible. :) 
+</div>
+
 
 ## Chapter VI: Microbial Population Genetics
 
