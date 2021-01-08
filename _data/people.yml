@@ -433,7 +433,7 @@
   name: Joe Runde
   tenure_start: 07/2018
   tenure_end: 07/202
-  current_info: an <b>Assistant Professor</b> at the Section of Gastroenterology, Hepatology and Nutrition of <a href="https://www.luriechildrens.org/"Lurie Children's Hospital</a>, an affiliate of the <a href="https://www.northwestern.edu/">Northwestern University</a>
+  current_info: an Assistant Professor at the <a href="https://www.luriechildrens.org/">Lurie Children's Hospital</a>, <a href="https://www.northwestern.edu/">Northwestern University</a>
   contributions: In addition to serving as a Physician Researcher at the University of Chicago Medicine, Joe joined our group to study with us the microbial community dynamics in Chron's disease during Exclusive Enteral Nutrition therapy. His dedication and passion had a huge influence on our lab culture and dynamics
   official: True
   role: Physician Researcher
@@ -452,7 +452,7 @@
   nick_name: Alon
   tenure_start: 10/2016
   tenure_end: 02/2020
-  current_info: a <b>Genomics Data Scientist</b> at <a href="https://weill.cornell.edu/">Weill Cornell Medicine</a>
+  current_info: a Genomics Data Scientist at <a href="https://weill.cornell.edu/">Weill Cornell Medicine</a>
   contributions: Throughout his studies of the human oral cavity microbiome and its enigmatic members via genome-resolved metagenomics, he served the community with his open code and tutorials. Alon, <a href="https://twitter.com/merenbey/status/1223038960789872646" target="_blank">the very first graduate student to join our group</a>, dramatically influenced the trajectory of our science
   official: True
   name: Alon Shaiber
@@ -497,7 +497,7 @@
   name: Mahmoud Yousef
   tenure_start: 05/2017
   tenure_end: 02/2020
-  current_info: a <b>medical student</b> at the <a href="https://pritzker.uchicago.edu/">Pritzker School of Medicine</a>, University of Chicago
+  current_info: a medical student at the <a href="https://pritzker.uchicago.edu/">Pritzker School of Medicine</a>, University of Chicago
   contributions: Focusing on pangenomics, he developed functional and geometric homogeneity indices so we can interpret the heterogeneity within gene clusters.
   avatar: bio-mahmoud.jpg
   role: Undergraduate Researcher
@@ -523,7 +523,7 @@
   linkedin: quentin-clayssen-398360139
   twitter: ClayssenQ
   avatar: bio-quentin.jpg
-  current_info: a <b>graduate student</b> at the <a href="https://ethz.ch/en.html">ETH Zurich</a>
+  current_info: a graduate student at the <a href="https://ethz.ch/en.html">ETH Zurich</a>
   contributions: He contributed to the development of an anvi'o framework for <a href="http://merenlab.org/2019/10/08/anvio-scg-taxonomy/">the rapid determination of genome taxonomy</a>
   bio: "I am a microbiologist and a bioinformatician in training interested in metagenomics. I currently am focusing on approaches for rapid placement of metagenome-assembled genomes into the tree of life."
 
@@ -534,7 +534,7 @@
   tenure_start: 05/2016
   twitter: sonnytmlee
   tenure_end: 05/2018
-  current_info: an <b>Assistant Professor</b> of Microbial Ecology (<a href="http://www.the-lee-lab.com" target="_blank">http://www.the-lee-lab.com</a>) at the Kansas State University, Division of Biology
+  current_info: an Assistant Professor of Microbial Ecology (<a href="http://www.the-lee-lab.com" target="_blank">http://www.the-lee-lab.com</a>) at the Kansas State University, Division of Biology
   contributions: He took the responsibility of leading the Fecal Microbiota Transplantation work in our lab. Sonny also was the driving force behind setting up the wet-lab component of our group
   role: Post-doctoral Scientist
   email: leet1@uchicago.edu
@@ -547,7 +547,7 @@
   nick_name: Tom
   tenure_start: 10/2015
   tenure_end: 05/2018
-  current_info: a <b><a href="http://www.cnrs.fr/en">CNRS</a> scientist</b> studying microbial life at the <a href="http://jacob.cea.fr/drf/ifrancoisjacob/Pages/Departements/Genoscope.aspx">Genoscope</a> in France
+  current_info: a <a href="http://www.cnrs.fr/en">CNRS</a> scientist at the <a href="http://jacob.cea.fr/drf/ifrancoisjacob/Pages/Departements/Genoscope.aspx">Genoscope</a> in France
   contributions: He contributed to the development of anvi'o and its application to the ocean and gut metagenomes. Tom was the very first member of our lab, and Meren and Tom have spent lots of time together thinking about new ways to make sense of metagenomic data
   role: Post-doctoral Scientist
   email: tom.o.delmont@gmail.com
@@ -561,7 +561,7 @@
   nick_name: Steven
   tenure_start: 07/2016
   tenure_end: 10/2016
-  current_info: a <b>Software Engineer</b> at <a href="https://en.wikipedia.org/wiki/Capital_One">Capital One</a>
+  current_info: a Software Engineer at <a href="https://en.wikipedia.org/wiki/Capital_One">Capital One</a>
   contributions: He contributed to the development of tRNA-seq tools, a project that bridged Meren's and <a href="https://scholar.google.com/citations?user=R5nkatMAAAAJ&hl=en">Tao Pan</a>'s interests
   official: True
   role: Summer Student
