@@ -1390,7 +1390,7 @@ As of `v7` the script `anvi-get-enriched-functions-per-pan-group` (which used to
 
 ### Binning gene clusters
 
-There are multiple ways to identify gene clusters that match to a given set of criteria. If you like, you can use a combinations of filters that are available through the interface:
+There are multiple ways to identify gene clusters that match to a given set of criteria. If you like, you can use a combination of filters that are available through the interface:
 
 [![E. facealis pan](images/pan-filters.png)](images/pan-filters.png){:.center-img .width-50}
 
