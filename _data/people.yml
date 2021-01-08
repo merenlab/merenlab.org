@@ -100,23 +100,6 @@
       inst: Committee on Microbiology at the University of Chicago
       inst_link: https://biomedsciences.uchicago.edu/page/microbiology
 
-- alias: abby
-  official: True
-  name: Abigail Schmid
-  tenure_start: 02/2016
-  role: Undergraduate Researcher
-  email: abigailcschmid@uchicago.edu
-  avatar: bio-abby.jpg
-  linkedin: abigailschmid
-  orcid: 0000-0002-7685-864X
-  twitter: schmidabby
-  bio: "I am interested in using applied mathematics and computational techniques to answer questions about microbial life."
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  affiliations:
-    - title: Undergraduate Student
-      inst: Computational and Applied Mathematics
-      inst_link: http://collegecatalog.uchicago.edu/thecollege/caam/
-
 - alias: emily
   official: True
   name: Emily Fogarty
@@ -422,6 +405,28 @@
 ####################################################################################
 # Previous members.
 ####################################################################################
+
+- alias: abby
+  nick_name: Abby
+  official: True
+  name: Abigail Schmid
+  current_info: a computational modeling Post-Bac student at the <a href="https://www.lanl.gov/" target="_blank">Los Alamos National Laboratory</a>
+  contributions: Abby joined our group as an undergraduate researcher and used pangenomics and metagenomics for high-throughput characterization on hypervariable genomic islands of some of the most prevalent members of the human microbiome. Her work left behind a treasure trove of insights into some of the most interesting parts of microbial genomes
+  tenure_start: 02/2016
+  tenure_end: 06/2019
+  role: Undergraduate Researcher
+  email: abigailcschmid@uchicago.edu
+  avatar: bio-abby.jpg
+  linkedin: abigailschmid
+  orcid: 0000-0002-7685-864X
+  twitter: schmidabby
+  bio: "I am interested in using applied mathematics and computational techniques to answer questions about microbial life."
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  affiliations:
+    - title: Undergraduate Student
+      inst: Computational and Applied Mathematics
+      inst_link: http://collegecatalog.uchicago.edu/thecollege/caam/
+
 
 - alias: joe
   nick_name: Joe
