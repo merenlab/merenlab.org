@@ -1518,9 +1518,22 @@ When this program runs, it will look at the KOfam annotations within each genome
 <div class="extra-info" markdown="1">
 
 <span class="extra-info-header">Presence/absence of modules</span>
-A module is considered 'present' in a genome, bin, or metagenomic contig (the level of resolution depends on your input type) if its completeness score is above the a certain threshold, which can be set with the `--module-completion-threshold` parameter. A static threshold such as this is not the most ideal metric, especially since metabolic modules have variable numbers of genes - for example, with the default threshold of 0.75 (75%), a module with 3 KOs in it would only be considered present if all 3 of those KOs were found in a genome, while a module with 5 KOs could be considered present if only 4 of its KOs were found. This problem is exacerbated in metagenomes since bins are more likely to be incomplete than isolate genomes. Therefore, module presence/absence only exists as a quick-and-dirty way for you to filter through modules that might be of interest, and we urge you to always double-check the data to avoid false negatives as much as possible. :) 
+A module is considered 'present' in a genome, bin, or metagenomic contig (the level of resolution depends on your input type) if its completeness score is above the a certain threshold, which can be set with the `--module-completion-threshold` parameter. A static threshold such as this is not the most ideal metric, especially since metabolic modules have variable numbers of genes - for example, with the default threshold of 0.75 (75%), a module with 3 KOs in it would only be considered present if all 3 of those KOs were found in a genome, while a module with 5 KOs could be considered present if only 4 of its KOs were found. This problem is exacerbated in metagenomes since bins are more likely to be incomplete than isolate genomes. Therefore, module presence/absence only exists as a quick-and-dirty way for you to filter through modules that might be of interest, and we urge you to always double-check the data to avoid false negatives as much as possible. :)
 </div>
 
+We can use anvi'o to visualize the module completeness matrix as a heatmap. First, we generate a newick tree from the matrix with the program {% include PROGRAM name="anvi-matrix-to-newick" %}:
+``` bash
+anvi-matrix-to-newick Enterococcus-completeness-MATRIX.txt
+```
+
+And then we load up the matrix into the interactive interface in "manual mode", using the tree to organize the modules into columns based on their distribution across the *Enterococcus* genomes.
+``` bash
+anvi-interactive --manual-mode -d Enterococcus-completeness-MATRIX.txt -t Enterococcus-completeness-MATRIX.txt.newick -p Enterococcus_metabolism_PROFILE.db --title "Enterococcus Metabolism Heatmap"
+```
+
+To make it look like a rectangular heatmap, we set the 'Drawing Type' to 'Phylogram', increase the width (in 'Additional Settings'), and change every layer to be of type 'Intensity'. Voila:
+
+[![Enterococcus Heatmap](images/entero_heatmap_unlabeled.png)](images/entero_heatmap_unlabeled.png){:.center-img }
 
 ## Chapter VI: Microbial Population Genetics
 
