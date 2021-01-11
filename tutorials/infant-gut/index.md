@@ -1541,6 +1541,39 @@ To make it look like a rectangular heatmap, we set the 'Drawing Type' to 'Phylog
 
 [![Enterococcus Heatmap](images/entero_heatmap_unlabeled.png)](images/entero_heatmap_unlabeled.png){:.center-img }
 
+Excellent. We can already see that the *E. faecalis* and *E. faecium* genomes form two distinct groups, with the distinguishing metabolic pathways on the rightmost side of the heatmap. But what exactly are those pathways? The module numbers, which are IDs from the KEGG MODULE database, aren't very informative. We can fix that by adding additional layers of text data describing each metabolic module. If you take a look at the {% include ARTIFACT name='misc-data-items-txt' text='miscellaneous data file' %} which can be found at `additional-files/metabolism/modules_info.txt`, you will see that it describes each module. Here is a sample:
+
+module | class | category | subcategory
+:----|:----|:----|:-----|
+M00001 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism
+M00002 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism
+M00003 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism
+M00307 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism
+M00009 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism
+
+We can then import this data into the established profile database using the {% include PROGRAM name='anvi-import-misc-data' text='following program' %}:
+```bash
+anvi-import-misc-data -p Enterococcus_metabolism_PROFILE.db \
+-t items additional-files/metabolism/modules_info.txt
+```
+
+And then we can run the visualization command yet again to see the heatmap with labels. Here is a screenshot of the rightmost part, where we can see which pathways distinguish the two species:
+
+
+
+<div class="extra-info" markdown="1">
+<span class="extra-info-header">How to generate the modules information file</span>
+Oh, so you wish to know how this additional data table was obtained? How excellent. It is quite simple - the {% include ARTIFACT name='modules-db' text='MODULES database' %} carries this information about each KEGG module. We can extract the info and stick it into a tab-delimited file using the following lines of code:
+``` bash
+echo -e "module\tclass\tcategory\tsubcategory" > modules_info.txt
+sqlite3 ~/software/anvio/anvio/data/misc/KEGG/MODULES.db \
+    "select module,data_value from kegg_modules where data_name='CLASS'" | \
+    sed 's/; /|/g' | \
+    tr '|' '\t' >> modules_info.txt
+```
+Here, we are using the `sqlite3` program for accessing SQLite databases, and doing a bit of text manipulation to convert the database output into a tab-delimited format.
+</div>
+
 ## Chapter VI: Microbial Population Genetics
 
 Here we will profile the single-nucleotide variations (SNVs) in the *E. faecalis* bin found in Sharon et al.'s Infant Gut Dataset (IGD).
