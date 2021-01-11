@@ -1577,7 +1577,8 @@ sqlite3 ~/software/anvio/anvio/data/misc/KEGG/MODULES.db \
     sed 's/; /|/g' | \
     tr '|' '\t' >> module_class.txt
 sqlite3 ~/software/anvio/anvio/data/misc/KEGG/MODULES.db \
-    "select module,data_value from kegg_modules where data_name='NAME'" | tr '|' '\t' > module_names.txt
+    "select module,data_value from kegg_modules where data_name='NAME'" | \
+    tr '|' '\t' > module_names.txt
 paste module_class.txt <(cut -f 2 module_names.txt ) >> modules_info.txt
 ```
 Here, we are using the `sqlite3` program for accessing SQLite databases, and doing a bit of text manipulation to convert the database output into a tab-delimited format.
