@@ -1507,11 +1507,13 @@ As of `v7`, anvi'o uses [KEGG](https://www.genome.jp/kegg/) as the source of met
 {:.notice}
 We've already prepped the Infant Gut Dataset to be ready for the metabolism estimation commands below, but in case you are working on your own dataset, please note that before you can run metabolism estimation on a fresh contigs database, you would need to first set up KEGG data on your computer using {% include PROGRAM name="anvi-setup-kegg-kofams" %} and then annotate your database using {% include PROGRAM name="anvi-run-kegg-kofams" %}.
 
-Let's get to it. To start off, we want an overview picture of what metabolisms are encoded in the *Enterococcus* genomes. We could visualize this nicely if we had a matrix of the completeness scores for each metabolic module in the KEGG MODULE database in each bin. {% include PROGRAM name="anvi-estimate-metabolism" %} can provide output files in matrix format if we run it in "multi-mode", which means we will need an {% include ARTIFACT name="external-genomes" text="external genomes file" %}. Luckily, there is already one in the datapack folder `additional-files/pangenomics` (described above in the pangenomics chapter).
+Let's get to it. To start off, we want an overview picture of what metabolisms are encoded in the *Enterococcus* genomes. We could visualize this nicely if we had a matrix of the completeness scores for each metabolic module in the KEGG MODULE database in each bin. {% include PROGRAM name="anvi-estimate-metabolism" %} can provide output files in matrix format if we run it in "multi-mode", which means we will need an {% include ARTIFACT name="external-genomes" text="external genomes file" %}. Luckily, there is already one in the datapack folder - the same one that is described above in the pangenomics chapter - in the `additional-files/pangenomics` folder.
 
 Here is the command to run metabolism estimation on each bin, and produce matrix-formatted output:
 ``` bash
-anvi-estimate-metabolism -e additional-files/pangenomics/external-genomes.txt --matrix-format -O Enterococcus
+anvi-estimate-metabolism \
+    -e additional-files/pangenomics/external-genomes.txt \
+    --matrix-format -O Enterococcus
 ```
 When this program runs, it will look at the KOfam annotations within each genome, match them up to the KEGG module definitions to estimate the completeness of each module, and produce 3 output matrices. One of these matrices will contain module completeness scores, one will be a binary matrix indicating presence (1) or absence (0) of each module in each genome, and the last will be a matrix counting the number of hits to each KO in each genome.
 
@@ -1521,14 +1523,18 @@ When this program runs, it will look at the KOfam annotations within each genome
 A module is considered 'present' in a genome, bin, or metagenomic contig (the level of resolution depends on your input type) if its completeness score is above the a certain threshold, which can be set with the `--module-completion-threshold` parameter. A static threshold such as this is not the most ideal metric, especially since metabolic modules have variable numbers of genes - for example, with the default threshold of 0.75 (75%), a module with 3 KOs in it would only be considered present if all 3 of those KOs were found in a genome, while a module with 5 KOs could be considered present if only 4 of its KOs were found. This problem is exacerbated in metagenomes since bins are more likely to be incomplete than isolate genomes. Therefore, module presence/absence only exists as a quick-and-dirty way for you to filter through modules that might be of interest, and we urge you to always double-check the data to avoid false negatives as much as possible. :)
 </div>
 
-We can use anvi'o to visualize the module completeness matrix as a heatmap. First, we generate a newick tree from the matrix with the program {% include PROGRAM name="anvi-matrix-to-newick" %}:
+We can use anvi'o to visualize the module completeness matrix as a heatmap. First, we generate a newick tree from the matrix with the program {% include PROGRAM name="anvi-matrix-to-newick" text='anvi-matrix-to-newick:' %}
 ``` bash
 anvi-matrix-to-newick Enterococcus-completeness-MATRIX.txt
 ```
 
 And then we load up the matrix into the interactive interface in "manual mode", using the tree to organize the modules into columns based on their distribution across the *Enterococcus* genomes.
 ``` bash
-anvi-interactive --manual-mode -d Enterococcus-completeness-MATRIX.txt -t Enterococcus-completeness-MATRIX.txt.newick -p Enterococcus_metabolism_PROFILE.db --title "Enterococcus Metabolism Heatmap"
+anvi-interactive --manual-mode \
+    -d Enterococcus-completeness-MATRIX.txt \
+    -t Enterococcus-completeness-MATRIX.txt.newick \
+    -p Enterococcus_metabolism_PROFILE.db \
+    --title "Enterococcus Metabolism Heatmap"
 ```
 
 To make it look like a rectangular heatmap, we set the 'Drawing Type' to 'Phylogram', increase the width (in 'Additional Settings'), and change every layer to be of type 'Intensity'. Voila:
