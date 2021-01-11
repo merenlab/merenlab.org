@@ -1571,11 +1571,14 @@ The genome labels are not visible in this zoomed and rotated view, but if you lo
 <span class="extra-info-header">How to generate the modules information file</span>
 Oh, so you wish to know how this additional data table was obtained? How excellent. It is quite simple - the {% include ARTIFACT name='modules-db' text='MODULES database' %} carries this information about each KEGG module. We can extract the info and stick it into a tab-delimited file using the following lines of code:
 ``` bash
-echo -e "module\tclass\tcategory\tsubcategory" > modules_info.txt
+echo -e "module\tclass\tcategory\tsubcategory\tname" > modules_info.txt
 sqlite3 ~/software/anvio/anvio/data/misc/KEGG/MODULES.db \
     "select module,data_value from kegg_modules where data_name='CLASS'" | \
     sed 's/; /|/g' | \
-    tr '|' '\t' >> modules_info.txt
+    tr '|' '\t' >> module_class.txt
+sqlite3 ~/software/anvio/anvio/data/misc/KEGG/MODULES.db \
+    "select module,data_value from kegg_modules where data_name='NAME'" | tr '|' '\t' > module_names.txt
+paste module_class.txt <(cut -f 2 module_names.txt ) >> modules_info.txt
 ```
 Here, we are using the `sqlite3` program for accessing SQLite databases, and doing a bit of text manipulation to convert the database output into a tab-delimited format.
 </div>
