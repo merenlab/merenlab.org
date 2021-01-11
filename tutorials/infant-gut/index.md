@@ -1557,9 +1557,15 @@ anvi-import-misc-data -p Enterococcus_metabolism_PROFILE.db \
 -t items additional-files/metabolism/modules_info.txt
 ```
 
-And then we can run the visualization command yet again to see the heatmap with labels. Here is a screenshot of the rightmost part, where we can see which pathways distinguish the two species:
+And then we can run the visualization command yet again to see the heatmap with labels.
 
+[![Enterococcus Heatmap](images/entero_heatmap_labeled.png)](images/entero_heatmap_labeled.png){:.center-img }
 
+Here is a (rotated) screenshot of the rightmost part, where we can see which pathways distinguish the two species:
+
+[![Enterococcus Heatmap](images/entero_heatmap_zoomed.png)](images/entero_heatmap_zoom.png){:.center-img }
+
+The genome labels are not visible in this zoomed and rotated view, but if you look back at the full heatmap, you can see that *E. faecalis* genomes are on the left side and *E. faecium* ones are on the right.
 
 <div class="extra-info" markdown="1">
 <span class="extra-info-header">How to generate the modules information file</span>
