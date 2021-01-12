@@ -1599,6 +1599,18 @@ unique_id | genome_name | db_name | kegg_module | module_name | module_class | m
 2 | Enterococcus_faecalis_6240 | E_faecalis_6240 | M00003 | Gluconeogenesis, oxaloacetate => fructose-6P | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | "(K01596,K01610) K01689 (K01834,K15633,K15634,K15635) K00927 (K00134,K00150) K01803 ((K01623,K01624,K11645) (K03841,K02446,K11532,K01086,K04041),K01622)" | 0.875 | True | K00134,K04041,K01624,K01689,K01803,K00927,K01834 | 642,617,348,1044,1041,1042,1043,2342,2646
 3 | Enterococcus_faecalis_6240 | E_faecalis_6240 | M00307 | Pyruvate oxidation, pyruvate => acetyl-CoA | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | "((K00163,K00161+K00162)+K00627+K00382-K13997),K00169+K00170+K00171+(K00172,K00189),K03737" | 1.0 | True | K00382,K00627,K03737 | 539,538,771,1117,1396
 
+As you can see, each row contains one metabolic module in one genome, and includes for that module:
+- some details about its name, categorization, and definition (all of which are sourced from KEGG)
+- followed by information specific to this genome:
+  - the completeness score
+  - whether or not that score is above the completeness score threshold
+  - which KO genes were found that contribute to this module
+  - and the gene caller IDs of those genes
+
+Let's take a look at the Threonine Biosynthesis pathway that was differentially present between the two species. This is module M00018, so we can search for that. Since we are specifically interested in which genes from this pathway were present in each genome, we will filter the output so that we only see the genome name, module number, module definition, completeness score, KOs, and gene caller ids:
+``` bash
+grep 'M00018' Enterococcus_metabolism_modules.txt | cut -f 2,4,9,10,12,13
+```
 
 ## Chapter VI: Microbial Population Genetics
 
