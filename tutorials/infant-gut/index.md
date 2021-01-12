@@ -1565,7 +1565,7 @@ Here is a (rotated) screenshot of the rightmost part, where we can see which pat
 
 [![Enterococcus Heatmap](images/entero_heatmap_zoomed.png)](images/entero_heatmap_zoom.png){:.center-img }
 
-The genome labels are not visible in this zoomed and rotated view, but if you look back at the full heatmap, you can see that *E. faecalis* genomes are on the left side and *E. faecium* ones are on the right.
+The genome labels are not visible in this zoomed and rotated view, but if you look back at the full heatmap, you can see that *E. faecalis* genomes are on the left side and *E. faecium* ones are on the right. Based on the estimated metabolism, it looks like the two species differ in select energy metabolism, amino acid metabolism, and vitamin/cofactor metabolism pathways. Yet many of those are faint bands indicating a low completeness score, so perhaps these genomes share a select few KOs that contribute to several of the species-specific pathways. A particularly interesting observation is that all the *E. faecalis* genomes have near-complete pathways for Threonine Biosynthesis and Menaquinone Biosynthesis (the module completeness scores for these pathways are 80% and 78%, respectively, in each *E. faecalis* genome), while these pathways are partial in all the *E. faecium* genomes (the corresponding completeness is 20% and 11% in each *E. faecium*) genome. It would not be surprising if the same KOs from these pathways are present in each genome.
 
 <div class="extra-info" markdown="1">
 <span class="extra-info-header">How to generate the modules information file</span>
