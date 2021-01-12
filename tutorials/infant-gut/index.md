@@ -1584,6 +1584,22 @@ paste module_class.txt <(cut -f 2 module_names.txt ) >> modules_info.txt
 Here, we are using the `sqlite3` program for accessing SQLite databases, and doing a bit of text manipulation to convert the database output into a tab-delimited format.
 </div>
 
+So now that we know what to look for, let's get some more detailed metabolism estimation output. We'll run the metabolism estimation again, but this time we will get long-format output - specifically 'modules' mode output, which will print information about each module in each genome. This mode is the default, so we don't need to specify it on the command line. (Side note: you can find more details about the possible outputs of `anvi-estimate-metabolism` {% include ARTIFACT name='kegg-metabolism' text='here'%}).
+``` bash
+anvi-estimate-metabolism \
+    -e additional-files/pangenomics/external-genomes.txt \
+    -O Enterococcus_metabolism
+```
+This produces an output file called `Enterococcus_metabolism_modules.txt`. Here is a sample from the top of that file:
+
+unique_id | genome_name | db_name | kegg_module | module_name | module_class | module_category | module_subcategory | module_definition | module_completeness | module_is_complete | kofam_hits_in_module | gene_caller_ids_in_module
+:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---
+0 | Enterococcus_faecalis_6240 | E_faecalis_6240 | M00001 | Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | "(K00844,K12407,K00845,K00886,K08074,K00918) (K01810,K06859,K13810,K15916) (K00850,K16370,K21071,K00918) (K01623,K01624,K11645,K16305,K16306) K01803 ((K00134,K00150) K00927,K11389) (K01834,K15633,K15634,K15635) K01689 (K00873,K12406)" | 1.0 | True | K00134,K00873,K01624,K00850,K01810,K01689,K01803,K00927,K01834,K00845 | 642,226,348,225,600,1044,1041,1042,1043,2342,2646,1608
+1 | Enterococcus_faecalis_6240 | E_faecalis_6240 | M00002 | Glycolysis, core module involving three-carbon compounds | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | "K01803 ((K00134,K00150) K00927,K11389) (K01834,K15633,K15634,K15635) K01689 (K00873,K12406)" | 1.0 | True | K00134,K00873,K01689,K01803,K00927,K01834 | 642,226,1044,1041,1042,1043,2342,2646
+2 | Enterococcus_faecalis_6240 | E_faecalis_6240 | M00003 | Gluconeogenesis, oxaloacetate => fructose-6P | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | "(K01596,K01610) K01689 (K01834,K15633,K15634,K15635) K00927 (K00134,K00150) K01803 ((K01623,K01624,K11645) (K03841,K02446,K11532,K01086,K04041),K01622)" | 0.875 | True | K00134,K04041,K01624,K01689,K01803,K00927,K01834 | 642,617,348,1044,1041,1042,1043,2342,2646
+3 | Enterococcus_faecalis_6240 | E_faecalis_6240 | M00307 | Pyruvate oxidation, pyruvate => acetyl-CoA | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | "((K00163,K00161+K00162)+K00627+K00382-K13997),K00169+K00170+K00171+(K00172,K00189),K03737" | 1.0 | True | K00382,K00627,K03737 | 539,538,771,1117,1396
+
+
 ## Chapter VI: Microbial Population Genetics
 
 Here we will profile the single-nucleotide variations (SNVs) in the *E. faecalis* bin found in Sharon et al.'s Infant Gut Dataset (IGD).
