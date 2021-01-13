@@ -132,6 +132,12 @@ If this didn't go well, jump to the slower but reliable option. If it did go wel
 conda activate anvio-7
 ```
 
+Then downgrade the HMMER to an earlier version due to a [recently reported bug](https://github.com/merenlab/anvio/issues/1638) related to HMMER `v3.3.1`:
+
+```
+conda install -y -c bioconda hmmer=3.2.1
+```
+
 and jump to "[Download and install anvi'o](#3-install-anvio)".
 
 ### Slower but reliable option
@@ -155,7 +161,7 @@ conda install -y -c bioconda "sqlite >=3.31.1"
 conda install -y -c bioconda prodigal
 conda install -y -c bioconda mcl
 conda install -y -c bioconda muscle
-conda install -y -c bioconda hmmer
+conda install -y -c bioconda hmmer=3.2.1
 conda install -y -c bioconda diamond
 conda install -y -c bioconda blast
 conda install -y -c bioconda megahit
