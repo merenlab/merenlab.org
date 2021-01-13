@@ -1625,7 +1625,32 @@ Enterococcus_faecium_6601 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K000
 Enterococcus_faecium_6778 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.2 | K00133 | 683
 Enterococcus_faecium_6798 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.2 | K00133 | 511
 
+Turns out everyone has got K00133, the second step in the module definition. What's more, all the *E. faecalis* genomes have the same set of 4 KOs to make this module 80% complete: K00872, K00003, K01733, and K00133. It also looks like the 3 KOs that are not shared with *E. faecium* are always right next to each other in the genome, because the gene caller ids for those 3 KOs have a range of 3. All genomes are missing enzymes for the first step in the pathway, as far as we can tell.
 
+Let's see what these KOs are by checking out the second file, `Enterococcus_metabolism_kofam_hits.txt`. That file looks like this:
+
+unique_id | genome_name | db_name | ko | gene_caller_id | contig | modules_with_ko | ko_definition
+0 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K00845 | 1608 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00001,M00549,M00892,M00909 | glucokinase [EC:2.7.1.2]
+1 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K01810 | 600 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00001,M00004,M00892,M00909 | glucose-6-phosphate isomerase [EC:5.3.1.9]
+2 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K00850 | 225 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00001,M00345 | 6-phosphofructokinase 1 [EC:2.7.1.11]
+
+In this file, each row is a KO hit in one genome. The columns are hopefully self-explanatory from the headers. :)  Most of the KO information is the same across every genome, with the exception of the gene caller id and the contig that the gene is located on. Now, if we look specifically for K00133 (using the following code to get only the first instance of K00133 in the file),
+``` bash
+grep K00133 Enterococcus_metabolism_kofam_hits.txt | head -n 1
+```
+then we see the following:
+
+139 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K00133 | 358 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00018,M00033,M00017,M00016,M00525,M00526,M00527 | aspartate-semialdehyde dehydrogenase [EC:1.2.1.11]
+
+So K00133 is an aspartate-semialdehyde dehydrogenase, and it is part of several modules, which is likely why it is present in all of these genomes. In fact, if we use the same strategy to look for the other 3 KOs that were present in the *E. faecalis* genomes, we will see that they are specific to this pathway (or, in the case of K00003, it is also in a closely related pathway - M00017, Methionine biosynthesis).
+
+141 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K00872 | 1295 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00018 | homoserine kinase [EC:2.7.1.39]
+140 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K00003 | 1297 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00018,M00017 | homoserine dehydrogenase [EC:1.1.1.3]
+142 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K01733 | 1296 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00018 | threonine synthase [EC:4.2.3.1]
+
+So, are these *E. faecalis* populations capable of producing threonine? It appears likely, considering the 80% completeness score of the threonine biosynthesis module. However, we cannot know for sure given the absence of an enzyme required for the first step of the pathway. It is entirely possible that we failed to annotate this enzyme for some reason, and perhaps a more thorough search for K00928, K12524, K12525, or K12526 would turn up something. Or perhaps threonine-producing capabilities have already been confirmed in these organisms, and a literature search would turn up evidence for this. In fact, KEGG's own reference pathway for [M00018 in *E. faecalis*](https://www.genome.jp/kegg-bin/show_module?efa_M00018) indicates that a complete threonine biosynthesis pathway, including K00928, is present.
+
+But, as often happens in science, every scientist must decide for themself at what point they feel comfortable accepting results and at what point they need to go deeper to confirm them. And it is of course important to keep in mind that while genomically-encoded metabolic pathways are the first requirement for an organism to be able to perform some metabolism, even that does not necessarily mean the organism is doing so in all environments or stages of life. Perhaps `anvi-estimate-metabolism` is thus most reliable as a hypothesis-generating tool used to inform wet-lab experiments or to guide literature searches. It is up to you, and your science. :)
 
 ## Chapter VI: Microbial Population Genetics
 
