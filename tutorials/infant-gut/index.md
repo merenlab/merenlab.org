@@ -1584,13 +1584,14 @@ paste module_class.txt <(cut -f 2 module_names.txt ) >> modules_info.txt
 Here, we are using the `sqlite3` program for accessing SQLite databases, and doing a bit of text manipulation to convert the database output into a tab-delimited format.
 </div>
 
-So now that we know what to look for, let's get some more detailed metabolism estimation output. We'll run the metabolism estimation again, but this time we will get long-format output - specifically 'modules' mode output, which will print information about each module in each genome. This mode is the default, so we don't need to specify it on the command line. (Side note: you can find more details about the possible outputs of `anvi-estimate-metabolism` {% include ARTIFACT name='kegg-metabolism' text='here'%}).
+So now that we know what to look for, let's get some more detailed metabolism estimation output. We'll run the metabolism estimation again, but this time we will get long-format output - specifically 'modules' mode output, which will print information about each module in each genome, and 'kofam_hits' mode output, which will print information about each KO. 'modules' mode is the default, so if that was all we wanted we wouldn't need to specify it on the command line, but since we are also asking for 'kofam_hits' mode here we pass both of them, in a comma-separated list, to the `--kegg-output-modes` parameter. (Side note: you can find more details about the possible outputs of `anvi-estimate-metabolism` {% include ARTIFACT name='kegg-metabolism' text='here'%}).
 ``` bash
 anvi-estimate-metabolism \
     -e additional-files/pangenomics/external-genomes.txt \
-    -O Enterococcus_metabolism
+    -O Enterococcus_metabolism \
+    --kegg-output-modes modules,kofam_hits
 ```
-This produces an output file called `Enterococcus_metabolism_modules.txt`. Here is a sample from the top of that file:
+This produces two output files: `Enterococcus_metabolism_modules.txt`, and `Enterococcus_metabolism_kofam_hits.txt`. Here is a sample from the top of the modules file:
 
 unique_id | genome_name | db_name | kegg_module | module_name | module_class | module_category | module_subcategory | module_definition | module_completeness | module_is_complete | kofam_hits_in_module | gene_caller_ids_in_module
 :---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---
