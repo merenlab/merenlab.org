@@ -1608,7 +1608,7 @@ As you can see, each row contains one metabolic module in one genome, and includ
   - which KO genes were found that contribute to this module
   - and the gene caller IDs of those genes
 
-Let's take a look at the Threonine Biosynthesis pathway that was differentially present between the two species. This is module M00018, so we can search for that. Since we are specifically interested in which genes from this pathway were present in each genome, we will filter the output so that we only see the genome name, module number, module definition, completeness score, KOs, and gene caller ids:
+Let's take a look at the Threonine Biosynthesis pathway that was differentially present between the two species. This is module M00018, so we can search for that. Since we are specifically interested in which genes from this pathway were present in each genome, we will filter the output so that we only see the genome name, module number, module definition, completeness score, KOs, and gene caller ids (scroll right to see the latter columns):
 ``` bash
 grep 'M00018' Enterococcus_metabolism_modules.txt | cut -f 2,4,9,10,12,13
 ```
