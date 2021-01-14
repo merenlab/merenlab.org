@@ -1654,7 +1654,7 @@ But, as often happens in science, every scientist must decide for themself at wh
 
 ### Metabolism Enrichment
 
-Just like we looked at functional enrichment in the pangenomics chapter, we can look for enriched metabolic modules in the two Enterococcus species. In fact, we can use the same program, and it will run the same statistical tests - except that instead of functional annotations, it will use modules which have a completeness score above the threshold that the user sets (by default, 0.75). All we need is the 'modules' mode output, and a file indicating which group each genome belongs to. We already have the modules file from before. Here is the groups file:
+Just like we looked at functional enrichment in the pangenomics chapter, we can look for enriched metabolic modules in the two Enterococcus species. In fact, we can use the same program, and it will run the same statistical tests - except that instead of functional annotations, it will use modules which have a completeness score above the threshold that the user sets (by default, 0.75). All we need is the 'modules' mode output, and a file indicating which group each genome belongs to. We already have the modules file from before. Here is the groups file (which is also in the datapack):
 
 |sample|group|
 |:--|:--:|
@@ -1678,6 +1678,24 @@ anvi-compute-functional-enrichment \
     -o Enterococcus_enriched_modules.txt
 ```
 
+We get from this a file called `Enterococcus_enriched_modules.txt`, in which the modules are organized from highest to lowest enrichment score. So if we look at the top 10 or so rows in the file, we will see the metabolic pathways that are most enriched in either group:
+
+KEGG_MODULE | enrichment_score | unadjusted_p_value | adjusted_q_value | associated_groups | accession | sample_ids | p_faecalis | N_faecalis | p_faecium | N_faecium
+---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
+D-Galacturonate degradation (bacteria), D-galacturonate => pyruvate + D-glyceraldehyde 3P | 11.00004247343848 | 9.110979983090492e-4 | 0.006681385320933027 | faecium | M00631 | E_faecium_6589,E_faecium_6590,E_faecium_6601,E_faecium_6778,E_faecium_6798 | 0 | 6 | 1 | 5
+D-Glucuronate degradation, D-glucuronate => pyruvate + D-glyceraldehyde 3P | 11.00004247343848 | 9.110979983090492e-4 | 0.006681385320933027 | faecium | M00061 | E_faecium_6589,E_faecium_6590,E_faecium_6601,E_faecium_6778,E_faecium_6798 | 0 | 6 | 1 | 5
+Lysine biosynthesis, acetyl-DAP pathway, aspartate => lysine | 11.00004247343848 | 9.110979983090492e-4 | 0.006681385320933027 | faecalis | M00525 | E_faecalis_6240,E_faecalis_6250,E_faecalis_6255,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563 | 1 | 6 | 0 | 5
+Menaquinone biosynthesis, chorismate (+ polyprenyl-PP) => menaquinol | 11.00004247343848 | 9.110979983090492e-4 | 0.006681385320933027 | faecalis | M00116 | E_faecalis_6240,E_faecalis_6250,E_faecalis_6255,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563 | 1 | 6 | 0 | 5
+Tetrahydrofolate biosynthesis, GTP => THF | 11.00004247343848 | 9.110979983090492e-4 | 0.006681385320933027 | faecalis | M00126 | E_faecalis_6240,E_faecalis_6250,E_faecalis_6255,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563 | 1 | 6 | 0 | 5
+Threonine biosynthesis, aspartate => homoserine => threonine | 11.00004247343848 | 9.110979983090492e-4 | 0.006681385320933027 | faecalis | M00018 | E_faecalis_6240,E_faecalis_6250,E_faecalis_6255,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563 | 1 | 6 | 0 | 5
+Thiamine salvage pathway, HMP/HET => TMP | 7.542898979759332 | 0.006024703126062904 | 0.03786956250668111 | faecalis | M00899 | E_faecalis_6240,E_faecalis_6250,E_faecalis_6255,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563,E_faecium_6798 | 1 | 6 | 0.2 | 5
+Cysteine biosynthesis, serine => cysteine | 1.3200000268467633 | 0.2505920458675303 | 1 | faecalis | M00021 | E_faecalis_6240,E_faecalis_6250,E_faecalis_6255,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563,E_faecium_6589,E_faecium_6590,E_faecium_6778,E_faecium_6798 | 1 | 6 | 0.8 | 5
+Formaldehyde assimilation, ribulose monophosphate pathway | 1.3200000268467615 | 0.2505920458675306 | 1 | faecium | M00345 | E_faecium_6778 | 0 | 60.2 | 5
+Pantothenate biosynthesis, valine/L-aspartate => pantothenate | 1.060714286668624 | 0.30305232927257136 | 1 | faecalis | M00119 | E_faecalis_6240,E_faecalis_6255,E_faecalis_6557,E_faecium_6601 | 0.5 | 6 | 0.2 | 5
+
+Well, it seems like there are only a few modules that are truly enriched, considering that the p-value and adjusted q-value jump to high, non-significant values starting with the Cysteine biosynthesis module. But of the 6-7 modules with high enrichment scores and low p/q-values, it seems that the *E. faecium* genomes are enriched with a couple of sugar degradation pathways while the *E. faecalis* genomes are enriched with several biosynthesis pathways - including the Threonine and Menaquinone Biosynthesis pathways that we found earlier when looking at the heatmap. In fact, if you look back at the zoomed heatmap you can find a few more of these enriched modules and visualize the difference in completeness score between the two clades. The enrichment script is a good way to quantify these differences and assign a significance value to them.  
+
+If you are interested in learning more details about this enrichment analysis and its output, the tutorial for it is [here]({% post_url anvio/2016-11-08-pangenomics-v2 %}/#making-sense-of-functions-in-your-pangenome).
 
 ## Chapter VI: Microbial Population Genetics
 
