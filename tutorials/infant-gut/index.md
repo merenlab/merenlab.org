@@ -1543,13 +1543,13 @@ To make it look like a rectangular heatmap, we set the 'Drawing Type' to 'Phylog
 
 Excellent. We can already see that the *E. faecalis* and *E. faecium* genomes form two distinct groups, with the distinguishing metabolic pathways on the rightmost side of the heatmap. But what exactly are those pathways? The module numbers, which are IDs from the KEGG MODULE database, aren't very informative. We can fix that by adding additional layers of text data describing each metabolic module. If you take a look at the {% include ARTIFACT name='misc-data-items-txt' text='miscellaneous data file' %} which can be found at `additional-files/metabolism/modules_info.txt`, you will see that it describes each module. Here is a sample:
 
-module | class | category | subcategory
-:----|:----|:----|:-----|
-M00001 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism
-M00002 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism
-M00003 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism
-M00307 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism
-M00009 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism
+module | class | category | subcategory | name
+:----|:----|:----|:-----|:----
+M00001 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate
+M00002 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | Glycolysis, core module involving three-carbon compounds
+M00003 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | Gluconeogenesis, oxaloacetate => fructose-6P
+M00307 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | Pyruvate oxidation, pyruvate => acetyl-CoA
+M00009 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | Citrate cycle (TCA cycle, Krebs cycle)
 
 We can then import this data into the established profile database using the {% include PROGRAM name='anvi-import-misc-data' text='following program' %}:
 ```bash
