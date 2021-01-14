@@ -1511,8 +1511,7 @@ Let's get to it. To start off, we want an overview picture of what metabolisms a
 
 Here is the command to run metabolism estimation on each bin, and produce matrix-formatted output:
 ``` bash
-anvi-estimate-metabolism \
-    -e additional-files/pangenomics/external-genomes.txt \
+anvi-estimate-metabolism -e additional-files/pangenomics/external-genomes.txt \
     --matrix-format -O Enterococcus
 ```
 When this program runs, it will look at the KOfam annotations within each genome, match them up to the KEGG module definitions to estimate the completeness of each module, and produce 3 output matrices. One of these matrices will contain module completeness scores, one will be a binary matrix indicating presence (1) or absence (0) of each module in each genome, and the last will be a matrix counting the number of hits to each KO in each genome.
@@ -1572,12 +1571,10 @@ The genome labels are not visible in this zoomed and rotated view, but if you lo
 Oh, so you wish to know how this additional data table was obtained? How excellent. It is quite simple - the {% include ARTIFACT name='modules-db' text='MODULES database' %} carries this information about each KEGG module. We can extract the info and stick it into a tab-delimited file using the following lines of code:
 ``` bash
 echo -e "module\tclass\tcategory\tsubcategory\tname" > modules_info.txt
-sqlite3 ~/software/anvio/anvio/data/misc/KEGG/MODULES.db \
-    "select module,data_value from kegg_modules where data_name='CLASS'" | \
+sqlite3 ~/software/anvio/anvio/data/misc/KEGG/MODULES.db "select module,data_value from kegg_modules where data_name='CLASS'" | \
     sed 's/; /|/g' | \
     tr '|' '\t' >> module_class.txt
-sqlite3 ~/software/anvio/anvio/data/misc/KEGG/MODULES.db \
-    "select module,data_value from kegg_modules where data_name='NAME'" | \
+sqlite3 ~/software/anvio/anvio/data/misc/KEGG/MODULES.db "select module,data_value from kegg_modules where data_name='NAME'" | \
     tr '|' '\t' > module_names.txt
 paste module_class.txt <(cut -f 2 module_names.txt ) >> modules_info.txt
 ```
@@ -1586,8 +1583,7 @@ Here, we are using the `sqlite3` program for accessing SQLite databases, and doi
 
 So now that we know what to look for, let's get some more detailed metabolism estimation output. We'll run the metabolism estimation again, but this time we will get long-format output - specifically 'modules' mode output, which will print information about each module in each genome, and 'kofam_hits' mode output, which will print information about each KO. 'modules' mode is the default, so if that was all we wanted we wouldn't need to specify it on the command line, but since we are also asking for 'kofam_hits' mode here we pass both of them, in a comma-separated list, to the `--kegg-output-modes` parameter. (Side note: you can find more details about the possible outputs of `anvi-estimate-metabolism` {% include ARTIFACT name='kegg-metabolism' text='here'%}).
 ``` bash
-anvi-estimate-metabolism \
-    -e additional-files/pangenomics/external-genomes.txt \
+anvi-estimate-metabolism -e additional-files/pangenomics/external-genomes.txt \
     -O Enterococcus_metabolism \
     --kegg-output-modes modules,kofam_hits
 ```
@@ -1672,8 +1668,7 @@ Just like we looked at functional enrichment in the pangenomics chapter, we can 
 
 And here is the command to run {%include PROGRAM name='anvi-compute-functional-enrichment' text='the enrichment script' %} on modules:
 ``` bash
-anvi-compute-functional-enrichment \
-    -M Enterococcus_metabolism_modules.txt \
+anvi-compute-functional-enrichment -M Enterococcus_metabolism_modules.txt \
     -G additional-files/metabolism/entero_groups.txt \
     -o Enterococcus_enriched_modules.txt
 ```
