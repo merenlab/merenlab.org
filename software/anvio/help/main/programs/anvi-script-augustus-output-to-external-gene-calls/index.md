@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Takes in gene calls by AUGUSTUS v3.3.3, generates an anvi&#39;o external gene calls file. It may work well with other versions of AUGUSTUS, too. It is just no one has tested the script with different versions of the program.
+Takes in gene calls by AUGUSTUS v3.3.3, generates an anvi&#x27;o external gene calls file. It may work well with other versions of AUGUSTUS, too. It is just no one has tested the script with different versions of the program.
 
 See **[program help menu](../../../../vignette#anvi-script-augustus-output-to-external-gene-calls)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Export an item order from an anvi&#39;o database.
+Export an item order from an anvi&#x27;o database.
 
 See **[program help menu](../../../../vignette#anvi-export-items-order)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

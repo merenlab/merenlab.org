@@ -21,7 +21,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **29 Dec 20 22:48:18** for anvi'o version **6.2-master (esther)**.
+The help contents were last updated on **14 Jan 21 14:10:13** for anvi'o version **7-dev (hope)**.
 
 
 {% include _project-anvio-version.html %}
@@ -33,7 +33,7 @@ The help contents were last updated on **29 Dec 20 22:48:18** for anvi'o version
 
 Anvi'o artifacts represent **concepts, file types, or data types** anvi'o programs can work with. A given anvi'o artifact can be provided by the user (such as a FASTA file), produced by anvi'o (such as a profile database), or both (such as phylogenomic trees). Anvi'o artifacts link anvi'o programs to each other to build novel workflows.
 
-Listed below **a total of 104 artifacts**.
+Listed below **a total of 105 artifacts**.
 
 <table class="artifacts-table">
 
@@ -42,7 +42,7 @@ Listed below **a total of 104 artifacts**.
 </tr>
 
 <tr>
-<td><div class="artifact-icon-div"><img src="images/icons/FASTA.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[fasta](artifacts/fasta)</span> <span class="artifact-n" markdown="1">[contigs-fasta](artifacts/contigs-fasta)</span> <span class="artifact-n" markdown="1">[concatenated-gene-alignment-fasta](artifacts/concatenated-gene-alignment-fasta)</span> <span class="artifact-n" markdown="1">[short-reads-fasta](artifacts/short-reads-fasta)</span> <span class="artifact-n" markdown="1">[genes-fasta](artifacts/genes-fasta)</span> <span class="artifact-n" markdown="1">[locus-fasta](artifacts/locus-fasta)</span></td>
+<td><div class="artifact-icon-div"><img src="images/icons/FASTA.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[fasta](artifacts/fasta)</span> <span class="artifact-n" markdown="1">[contigs-fasta](artifacts/contigs-fasta)</span> <span class="artifact-n" markdown="1">[trnaseq-fasta](artifacts/trnaseq-fasta)</span> <span class="artifact-n" markdown="1">[concatenated-gene-alignment-fasta](artifacts/concatenated-gene-alignment-fasta)</span> <span class="artifact-n" markdown="1">[short-reads-fasta](artifacts/short-reads-fasta)</span> <span class="artifact-n" markdown="1">[genes-fasta](artifacts/genes-fasta)</span> <span class="artifact-n" markdown="1">[locus-fasta](artifacts/locus-fasta)</span></td>
 </tr>
 
 <tr>
@@ -107,7 +107,7 @@ Listed below **a total of 104 artifacts**.
 
 Anvi'o programs perform atomic tasks that can be weaved together to implement complete 'omics workflows. Please note that there may be programs that are not listed on this page. You can type 'anvi-' in your terminal, and press the TAB key twice to see the full list of programs available to you on your system, and type `anvi-program-name --help` to read the full list of command line options.
 
-Listed below **a total of 118 programs**.
+Listed below **a total of 119 programs**.
 
 
 <div style="width:100%;">
@@ -115,7 +115,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-analyze-synteny](programs/anvi-analyze-synteny)**</span>. <span markdown="1">Extract ngrams, as in &#39;co-occurring genes in synteny&#39;, from genomes</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-analyze-synteny](programs/anvi-analyze-synteny)**</span>. <span markdown="1">Extract ngrams, as in &#x27;co-occurring genes in synteny&#x27;, from genomes</span>.
     </td>
 </tr>
 <tr>
@@ -137,7 +137,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-cluster-contigs](programs/anvi-cluster-contigs)**</span>. <span markdown="1">A program to cluster items in a merged anvi&#39;o profile using automatic binning algorithms</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-cluster-contigs](programs/anvi-cluster-contigs)**</span>. <span markdown="1">A program to cluster items in a merged anvi&#x27;o profile using automatic binning algorithms</span>.
     </td>
 </tr>
 <tr>
@@ -225,7 +225,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-compute-genome-similarity](programs/anvi-compute-genome-similarity)**</span>. <span markdown="1">Export sequences from sequence sources and compute a similarity metric (e.g. ANI). If a Pan Database is given anvi&#39;o will write computed output to misc data tables of Pan Database</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-compute-genome-similarity](programs/anvi-compute-genome-similarity)**</span>. <span markdown="1">Export sequences from sequence sources and compute a similarity metric (e.g. ANI). If a Pan Database is given anvi&#x27;o will write computed output to misc data tables of Pan Database</span>.
     </td>
 </tr>
 <tr>
@@ -236,6 +236,28 @@ Listed below **a total of 118 programs**.
 <tr>
     <td class="artifact-p-td">
     <span class="artifact-emoji">🍕</span> <span class="artifact-p" markdown="1">[genome-similarity](artifacts/genome-similarity) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="width:100%;">
+<table class="programs-table">
+<tbody>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-convert-trnaseq-database](programs/anvi-convert-trnaseq-database)**</span>. <span markdown="1">A program that processes one or more anvio&#x27; tRNA-seq databases generated by `anvi-trnaseq` to generate anvi&#x27;o contigs and merged profile databases that are accessible to the rest of the tools in anvi&#x27;o software ecosystem. Briefly, this program will determine final seed sequences from input tRNA-seq databases, determine their coverages across samples, identify tRNA modification sites, and INDELs associated with transcripts in each sample against the seed sequences and store all these data into resulting databases for interactive visualization of the data or in-depth analysis using other anvi&#x27;o frameworks</span>.
+    </td>
+</tr>
+<tr>
+    <td class="artifact-r-td">
+    <span class="artifact-emoji">🧀</span> <span class="artifact-r" markdown="1">[trnaseq-db](artifacts/trnaseq-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr>
+    <td class="artifact-p-td">
+    <span class="artifact-emoji">🍕</span> <span class="artifact-p" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[profile-db](artifacts/profile-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 </tbody>
@@ -291,7 +313,29 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-delete-hmms](programs/anvi-delete-hmms)**</span>. <span markdown="1">Remove HMM hits from an anvi&#39;o contigs database</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-delete-functions](programs/anvi-delete-functions)**</span>. <span markdown="1">Remove functional annotation sources from an anvi&#x27;o contigs database</span>.
+    </td>
+</tr>
+<tr>
+    <td class="artifact-r-td">
+    <span class="artifact-emoji">🧀</span> <span class="artifact-r" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[functions](artifacts/functions) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr>
+    <td class="artifact-p-td">
+    <span class="artifact-emoji">🍕</span> 
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="width:100%;">
+<table class="programs-table">
+<tbody>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-delete-hmms](programs/anvi-delete-hmms)**</span>. <span markdown="1">Remove HMM hits from an anvi&#x27;o contigs database</span>.
     </td>
 </tr>
 <tr>
@@ -313,7 +357,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-delete-misc-data](programs/anvi-delete-misc-data)**</span>. <span markdown="1">Remove stuff from &#39;additional data&#39; or &#39;order&#39; tables for either items or layers in either pan or profile databases. OR, remove stuff from the &#39;additional data&#39; tables for nucleotides or amino acids in contigs databases</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-delete-misc-data](programs/anvi-delete-misc-data)**</span>. <span markdown="1">Remove stuff from &#x27;additional data&#x27; or &#x27;order&#x27; tables for either items or layers in either pan or profile databases. OR, remove stuff from the &#x27;additional data&#x27; tables for nucleotides or amino acids in contigs databases</span>.
     </td>
 </tr>
 <tr>
@@ -335,7 +379,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-delete-state](programs/anvi-delete-state)**</span>. <span markdown="1">Delete an anvi&#39;o state from a pan or profile database</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-delete-state](programs/anvi-delete-state)**</span>. <span markdown="1">Delete an anvi&#x27;o state from a pan or profile database</span>.
     </td>
 </tr>
 <tr>
@@ -379,7 +423,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-display-contigs-stats](programs/anvi-display-contigs-stats)**</span>. <span markdown="1">Start the anvi&#39;o interactive interactive for viewing or comparing contigs statistics</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-display-contigs-stats](programs/anvi-display-contigs-stats)**</span>. <span markdown="1">Start the anvi&#x27;o interactive interactive for viewing or comparing contigs statistics</span>.
     </td>
 </tr>
 <tr>
@@ -401,7 +445,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-display-metabolism](programs/anvi-display-metabolism)**</span>. <span markdown="1">Start the anvi&#39;o interactive interactive for viewing KEGG metabolism data</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-display-metabolism](programs/anvi-display-metabolism)**</span>. <span markdown="1">Start the anvi&#x27;o interactive interactive for viewing KEGG metabolism data</span>.
     </td>
 </tr>
 <tr>
@@ -423,7 +467,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-display-pan](programs/anvi-display-pan)**</span>. <span markdown="1">Start an anvi&#39;o server to display a pan-genome</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-display-pan](programs/anvi-display-pan)**</span>. <span markdown="1">Start an anvi&#x27;o server to display a pan-genome</span>.
     </td>
 </tr>
 <tr>
@@ -577,7 +621,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-export-collection](programs/anvi-export-collection)**</span>. <span markdown="1">Export a collection from an anvi&#39;o database</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-export-collection](programs/anvi-export-collection)**</span>. <span markdown="1">Export a collection from an anvi&#x27;o database</span>.
     </td>
 </tr>
 <tr>
@@ -599,7 +643,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-export-contigs](programs/anvi-export-contigs)**</span>. <span markdown="1">Export contigs (or splits) from an anvi&#39;o contigs database</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-export-contigs](programs/anvi-export-contigs)**</span>. <span markdown="1">Export contigs (or splits) from an anvi&#x27;o contigs database</span>.
     </td>
 </tr>
 <tr>
@@ -621,7 +665,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-export-functions](programs/anvi-export-functions)**</span>. <span markdown="1">Export functions of genes from an anvi&#39;o contigs database for a given annotation source</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-export-functions](programs/anvi-export-functions)**</span>. <span markdown="1">Export functions of genes from an anvi&#x27;o contigs database for a given annotation source</span>.
     </td>
 </tr>
 <tr>
@@ -643,7 +687,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-export-gene-calls](programs/anvi-export-gene-calls)**</span>. <span markdown="1">Export gene calls from an anvi&#39;o contigs database</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-export-gene-calls](programs/anvi-export-gene-calls)**</span>. <span markdown="1">Export gene calls from an anvi&#x27;o contigs database</span>.
     </td>
 </tr>
 <tr>
@@ -687,7 +731,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-export-items-order](programs/anvi-export-items-order)**</span>. <span markdown="1">Export an item order from an anvi&#39;o database</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-export-items-order](programs/anvi-export-items-order)**</span>. <span markdown="1">Export an item order from an anvi&#x27;o database</span>.
     </td>
 </tr>
 <tr>
@@ -709,7 +753,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-export-locus](programs/anvi-export-locus)**</span>. <span markdown="1">This program helps you cut a &#39;locus&#39; from a larger genetic context (e.g., contigs, genomes). By default, anvi&#39;o will locate a user-defined anchor gene, extend its selection upstream and downstream based on the --num-genes argument, then extract the locus to create a new contigs database. The anchor gene must be provided as --search-term, --gene-caller-ids, or --hmm-sources. If --flank-mode is designated, you MUST provide TWO flanking genes that define the locus region (Please see --flank-mode help for more information). If everything goes as plan, anvi&#39;o will give you individual locus contigs databases for every matching anchor gene found in the original contigs database provided. Enjoy your mini contigs databases!</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-export-locus](programs/anvi-export-locus)**</span>. <span markdown="1">This program helps you cut a &#x27;locus&#x27; from a larger genetic context (e.g., contigs, genomes). By default, anvi&#x27;o will locate a user-defined anchor gene, extend its selection upstream and downstream based on the --num-genes argument, then extract the locus to create a new contigs database. The anchor gene must be provided as --search-term, --gene-caller-ids, or --hmm-sources. If --flank-mode is designated, you MUST provide TWO flanking genes that define the locus region (Please see --flank-mode help for more information). If everything goes as plan, anvi&#x27;o will give you individual locus contigs databases for every matching anchor gene found in the original contigs database provided. Enjoy your mini contigs databases!</span>.
     </td>
 </tr>
 <tr>
@@ -753,7 +797,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-export-splits-and-coverages](programs/anvi-export-splits-and-coverages)**</span>. <span markdown="1">Export split or contig sequences and coverages across samples stored in an anvi&#39;o profile database. This program is especially useful if you would like to &#39;bin&#39; your splits or contigs outside of anvi&#39;o and import the binning results into anvi&#39;o using `anvi-import-collection` program</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-export-splits-and-coverages](programs/anvi-export-splits-and-coverages)**</span>. <span markdown="1">Export split or contig sequences and coverages across samples stored in an anvi&#x27;o profile database. This program is especially useful if you would like to &#x27;bin&#x27; your splits or contigs outside of anvi&#x27;o and import the binning results into anvi&#x27;o using `anvi-import-collection` program</span>.
     </td>
 </tr>
 <tr>
@@ -775,7 +819,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-export-splits-taxonomy](programs/anvi-export-splits-taxonomy)**</span>. <span markdown="1">Export taxonomy for splits found in an anvi&#39;o contigs database</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-export-splits-taxonomy](programs/anvi-export-splits-taxonomy)**</span>. <span markdown="1">Export taxonomy for splits found in an anvi&#x27;o contigs database</span>.
     </td>
 </tr>
 <tr>
@@ -797,7 +841,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-export-state](programs/anvi-export-state)**</span>. <span markdown="1">Export an anvi&#39;o state into a profile database</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-export-state](programs/anvi-export-state)**</span>. <span markdown="1">Export an anvi&#x27;o state into a profile database</span>.
     </td>
 </tr>
 <tr>
@@ -841,7 +885,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-gen-contigs-database](programs/anvi-gen-contigs-database)**</span>. <span markdown="1">Generate a new anvi&#39;o contigs database</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-gen-contigs-database](programs/anvi-gen-contigs-database)**</span>. <span markdown="1">Generate a new anvi&#x27;o contigs database</span>.
     </td>
 </tr>
 <tr>
@@ -907,7 +951,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-gen-gene-level-stats-databases](programs/anvi-gen-gene-level-stats-databases)**</span>. <span markdown="1">A program to compute genes databases for a ginen set of bins stored in an anvi&#39;o collection. Genes databases store gene-level coverage and detection statistics, and they are usually computed and generated automatically when they are required (such as running anvi-interactive with `--gene-mode` flag). This program allows you to pre-compute them if you don&#39;t want them to be done all at once</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-gen-gene-level-stats-databases](programs/anvi-gen-gene-level-stats-databases)**</span>. <span markdown="1">A program to compute genes databases for a ginen set of bins stored in an anvi&#x27;o collection. Genes databases store gene-level coverage and detection statistics, and they are usually computed and generated automatically when they are required (such as running anvi-interactive with `--gene-mode` flag). This program allows you to pre-compute them if you don&#x27;t want them to be done all at once</span>.
     </td>
 </tr>
 <tr>
@@ -995,7 +1039,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-gen-variability-network](programs/anvi-gen-variability-network)**</span>. <span markdown="1">A program to generate a network description from an anvi&#39;o variability profile (potentially outdated program)</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-gen-variability-network](programs/anvi-gen-variability-network)**</span>. <span markdown="1">A program to generate a network description from an anvi&#x27;o variability profile (potentially outdated program)</span>.
     </td>
 </tr>
 <tr>
@@ -1083,28 +1127,6 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-get-enriched-functions-per-pan-group](programs/anvi-get-enriched-functions-per-pan-group)**</span>. <span markdown="1">A program that takes a pangenome, and a categorical layers additional data item, and generates a table describing functions that are enriched in those groups. If requested, a functional occurrence table across genomes is also generated</span>.
-    </td>
-</tr>
-<tr>
-    <td class="artifact-r-td">
-    <span class="artifact-emoji">🧀</span> <span class="artifact-r" markdown="1">[misc-data-layers](artifacts/misc-data-layers) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[pan-db](artifacts/pan-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[genomes-storage-db](artifacts/genomes-storage-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /> </span>
-    </td>
-</tr>
-<tr>
-    <td class="artifact-p-td">
-    <span class="artifact-emoji">🍕</span> <span class="artifact-p" markdown="1">[functional-enrichment-txt](artifacts/functional-enrichment-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
-    </td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<div style="width:100%;">
-<table class="programs-table">
-<tbody>
-<tr style="border:none;">
-    <td class="program-td">
         <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-get-sequences-for-gene-calls](programs/anvi-get-sequences-for-gene-calls)**</span>. <span markdown="1">A script to get back sequences for gene calls</span>.
     </td>
 </tr>
@@ -1127,7 +1149,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-get-sequences-for-gene-clusters](programs/anvi-get-sequences-for-gene-clusters)**</span>. <span markdown="1">Do cool stuff with gene clusters in anvi&#39;o pan genomes</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-get-sequences-for-gene-clusters](programs/anvi-get-sequences-for-gene-clusters)**</span>. <span markdown="1">Do cool stuff with gene clusters in anvi&#x27;o pan genomes</span>.
     </td>
 </tr>
 <tr>
@@ -1237,7 +1259,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-import-collection](programs/anvi-import-collection)**</span>. <span markdown="1">Import an external binning result into anvi&#39;o</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-import-collection](programs/anvi-import-collection)**</span>. <span markdown="1">Import an external binning result into anvi&#x27;o</span>.
     </td>
 </tr>
 <tr>
@@ -1281,7 +1303,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-import-items-order](programs/anvi-import-items-order)**</span>. <span markdown="1">Import a new items order into an anvi&#39;o database</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-import-items-order](programs/anvi-import-items-order)**</span>. <span markdown="1">Import a new items order into an anvi&#x27;o database</span>.
     </td>
 </tr>
 <tr>
@@ -1325,7 +1347,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-import-state](programs/anvi-import-state)**</span>. <span markdown="1">Import an anvi&#39;o state into a profile database</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-import-state](programs/anvi-import-state)**</span>. <span markdown="1">Import an anvi&#x27;o state into a profile database</span>.
     </td>
 </tr>
 <tr>
@@ -1347,7 +1369,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-import-taxonomy-for-genes](programs/anvi-import-taxonomy-for-genes)**</span>. <span markdown="1">Import gene-level taxonomy into an anvi&#39;o contigs database</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-import-taxonomy-for-genes](programs/anvi-import-taxonomy-for-genes)**</span>. <span markdown="1">Import gene-level taxonomy into an anvi&#x27;o contigs database</span>.
     </td>
 </tr>
 <tr>
@@ -1369,7 +1391,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-import-taxonomy-for-layers](programs/anvi-import-taxonomy-for-layers)**</span>. <span markdown="1">Import layers-level taxonomy into an anvi&#39;o additional layer data table in an anvi&#39;o single-profile database</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-import-taxonomy-for-layers](programs/anvi-import-taxonomy-for-layers)**</span>. <span markdown="1">Import layers-level taxonomy into an anvi&#x27;o additional layer data table in an anvi&#x27;o single-profile database</span>.
     </td>
 </tr>
 <tr>
@@ -1413,7 +1435,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-inspect](programs/anvi-inspect)**</span>. <span markdown="1">Start an anvi&#39;o inspect interactive interface</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-inspect](programs/anvi-inspect)**</span>. <span markdown="1">Start an anvi&#x27;o inspect interactive interface</span>.
     </td>
 </tr>
 <tr>
@@ -1435,7 +1457,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-interactive](programs/anvi-interactive)**</span>. <span markdown="1">Start an anvi&#39;o server for the interactive interface</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-interactive](programs/anvi-interactive)**</span>. <span markdown="1">Start an anvi&#x27;o server for the interactive interface</span>.
     </td>
 </tr>
 <tr>
@@ -1501,7 +1523,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-merge-bins](programs/anvi-merge-bins)**</span>. <span markdown="1">Merge a given set of bins in an anvi&#39;o collection</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-merge-bins](programs/anvi-merge-bins)**</span>. <span markdown="1">Merge a given set of bins in an anvi&#x27;o collection</span>.
     </td>
 </tr>
 <tr>
@@ -1545,7 +1567,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-migrate](programs/anvi-migrate)**</span>. <span markdown="1">Migrate an anvi&#39;o database or config file to a newer version</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-migrate](programs/anvi-migrate)**</span>. <span markdown="1">Migrate an anvi&#x27;o database or config file to a newer version</span>.
     </td>
 </tr>
 <tr>
@@ -1567,7 +1589,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-oligotype-linkmers](programs/anvi-oligotype-linkmers)**</span>. <span markdown="1">Takes an anvi&#39;o linkmers report, generates an oligotyping output</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-oligotype-linkmers](programs/anvi-oligotype-linkmers)**</span>. <span markdown="1">Takes an anvi&#x27;o linkmers report, generates an oligotyping output</span>.
     </td>
 </tr>
 <tr>
@@ -1589,7 +1611,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-pan-genome](programs/anvi-pan-genome)**</span>. <span markdown="1">An anvi&#39;o program to compute a pangenome from an anvi&#39;o genome storage</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-pan-genome](programs/anvi-pan-genome)**</span>. <span markdown="1">An anvi&#x27;o program to compute a pangenome from an anvi&#x27;o genome storage</span>.
     </td>
 </tr>
 <tr>
@@ -1611,7 +1633,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-profile](programs/anvi-profile)**</span>. <span markdown="1">Creates a single anvi&#39;o profile database.                    When it is run on a BAM file, depending on the user parameters, the program quantifies                   coverage per nucleotide position (and averages them  per contig), calculates                   single-nucleotide, single-codon, and single-amino acid variants, as well as structural variants                   such as insertion and deletions and stores these data into appropriate tables</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-profile](programs/anvi-profile)**</span>. <span markdown="1">Creates a single anvi&#x27;o profile database.                    When it is run on a BAM file, depending on the user parameters, the program quantifies                   coverage per nucleotide position (and averages them  per contig), calculates                   single-nucleotide, single-codon, and single-amino acid variants, as well as structural variants                   such as insertion and deletions and stores these data into appropriate tables</span>.
     </td>
 </tr>
 <tr>
@@ -1633,7 +1655,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-refine](programs/anvi-refine)**</span>. <span markdown="1">Start an anvi&#39;o interactive interactive to manually curate or refine a genome, whether it is a metagenome-assembled, single-cell, or an isolate genome</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-refine](programs/anvi-refine)**</span>. <span markdown="1">Start an anvi&#x27;o interactive interactive to manually curate or refine a genome, whether it is a metagenome-assembled, single-cell, or an isolate genome</span>.
     </td>
 </tr>
 <tr>
@@ -1699,7 +1721,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-run-hmms](programs/anvi-run-hmms)**</span>. <span markdown="1">This program deals with populating tables that store HMM hits in an anvi&#39;o contigs database</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-run-hmms](programs/anvi-run-hmms)**</span>. <span markdown="1">This program deals with populating tables that store HMM hits in an anvi&#x27;o contigs database</span>.
     </td>
 </tr>
 <tr>
@@ -1743,7 +1765,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-run-kegg-kofams](programs/anvi-run-kegg-kofams)**</span>. <span markdown="1">Run KOfam HMMs on an anvi&#39;o contigs database</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-run-kegg-kofams](programs/anvi-run-kegg-kofams)**</span>. <span markdown="1">Run KOfam HMMs on an anvi&#x27;o contigs database</span>.
     </td>
 </tr>
 <tr>
@@ -1765,7 +1787,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-run-ncbi-cogs](programs/anvi-run-ncbi-cogs)**</span>. <span markdown="1">This program runs NCBI&#39;s COGs to associate genes in an anvi&#39;o contigs database with functions. COGs database was been designed as an attempt to classify proteins from completely sequenced genomes on the basis of the orthology concept.</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-run-ncbi-cogs](programs/anvi-run-ncbi-cogs)**</span>. <span markdown="1">This program runs NCBI&#x27;s COGs to associate genes in an anvi&#x27;o contigs database with functions. COGs database was been designed as an attempt to classify proteins from completely sequenced genomes on the basis of the orthology concept.</span>.
     </td>
 </tr>
 <tr>
@@ -1809,7 +1831,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-run-scg-taxonomy](programs/anvi-run-scg-taxonomy)**</span>. <span markdown="1">The purpose of this program is to affiliate single-copy core genes in an anvi&#39;o contigs database with taxonomic names. A properly setup local SCG taxonomy database is required for this program to perform properly. After its successful run, `anvi-estimate-scg-taxonomy` will be useful to estimate taxonomy at genome-, collection-, or metagenome-level)</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-run-scg-taxonomy](programs/anvi-run-scg-taxonomy)**</span>. <span markdown="1">The purpose of this program is to affiliate single-copy core genes in an anvi&#x27;o contigs database with taxonomic names. A properly setup local SCG taxonomy database is required for this program to perform properly. After its successful run, `anvi-estimate-scg-taxonomy` will be useful to estimate taxonomy at genome-, collection-, or metagenome-level)</span>.
     </td>
 </tr>
 <tr>
@@ -1831,7 +1853,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-run-trna-taxonomy](programs/anvi-run-trna-taxonomy)**</span>. <span markdown="1">The purpose of this program is to affiliate tRNA gene sequences in an anvi&#39;o contigs database with taxonomic names. A properly setup local tRNA taxonomy database is required for this program to perform properly. After its successful run, `anvi-estimate-trna-taxonomy` will be useful to estimate taxonomy at genome-, collection-, or metagenome-level).</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-run-trna-taxonomy](programs/anvi-run-trna-taxonomy)**</span>. <span markdown="1">The purpose of this program is to affiliate tRNA gene sequences in an anvi&#x27;o contigs database with taxonomic names. A properly setup local tRNA taxonomy database is required for this program to perform properly. After its successful run, `anvi-estimate-trna-taxonomy` will be useful to estimate taxonomy at genome-, collection-, or metagenome-level).</span>.
     </td>
 </tr>
 <tr>
@@ -1853,7 +1875,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-run-workflow](programs/anvi-run-workflow)**</span>. <span markdown="1">Execute, manage, parallelize, and troubleshoot entire &#39;omics workflows and chain together anvi&#39;o and third party programs</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-run-workflow](programs/anvi-run-workflow)**</span>. <span markdown="1">Execute, manage, parallelize, and troubleshoot entire &#x27;omics workflows and chain together anvi&#x27;o and third party programs</span>.
     </td>
 </tr>
 <tr>
@@ -1897,7 +1919,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-search-functions](programs/anvi-search-functions)**</span>. <span markdown="1">Search functions in an anvi&#39;o contigs database or genomes storage. Basically, this program searches for one or more search terms you define in functional annotations of genes in an anvi&#39;o contigs database, and generates multiple reports. The default report simply tells you which contigs contain genes with functions matching to serach terms you used, useful for viewing in the interface. You can also request a much more comprehensive report, which gives you anything you might need to know for each hit and serach term</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-search-functions](programs/anvi-search-functions)**</span>. <span markdown="1">Search functions in an anvi&#x27;o contigs database or genomes storage. Basically, this program searches for one or more search terms you define in functional annotations of genes in an anvi&#x27;o contigs database, and generates multiple reports. The default report simply tells you which contigs contain genes with functions matching to serach terms you used, useful for viewing in the interface. You can also request a much more comprehensive report, which gives you anything you might need to know for each hit and serach term</span>.
     </td>
 </tr>
 <tr>
@@ -1963,7 +1985,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-setup-ncbi-cogs](programs/anvi-setup-ncbi-cogs)**</span>. <span markdown="1">Download and setup NCBI&#39;s Clusters of Orthologous Groups database</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-setup-ncbi-cogs](programs/anvi-setup-ncbi-cogs)**</span>. <span markdown="1">Download and setup NCBI&#x27;s Clusters of Orthologous Groups database</span>.
     </td>
 </tr>
 <tr>
@@ -2029,7 +2051,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-setup-scg-taxonomy](programs/anvi-setup-scg-taxonomy)**</span>. <span markdown="1">The purpose of this program is to download necessary information from GTDB (https://gtdb.ecogenomic.org/), and set it up in such a way that your anvi&#39;o installation is able to assign taxonomy to single-copy core genes using `anvi-run-scg-taxonomy` and estimate taxonomy for genomes or metagenomes using `anvi-estimate-scg-taxonomy`)</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-setup-scg-taxonomy](programs/anvi-setup-scg-taxonomy)**</span>. <span markdown="1">The purpose of this program is to download necessary information from GTDB (https://gtdb.ecogenomic.org/), and set it up in such a way that your anvi&#x27;o installation is able to assign taxonomy to single-copy core genes using `anvi-run-scg-taxonomy` and estimate taxonomy for genomes or metagenomes using `anvi-estimate-scg-taxonomy`)</span>.
     </td>
 </tr>
 <tr>
@@ -2051,7 +2073,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-setup-trna-taxonomy](programs/anvi-setup-trna-taxonomy)**</span>. <span markdown="1">The purpose of this program is to setup necessary databases for tRNA genes collected from GTDB (https://gtdb.ecogenomic.org/), genomes in your local anvi&#39;o installation so taxonomy information for a given set of tRNA sequences can be identified using `anvi-run-trna-taxonomy` and made sense of via `anvi-estimate-trna-taxonomy`)</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-setup-trna-taxonomy](programs/anvi-setup-trna-taxonomy)**</span>. <span markdown="1">The purpose of this program is to setup necessary databases for tRNA genes collected from GTDB (https://gtdb.ecogenomic.org/), genomes in your local anvi&#x27;o installation so taxonomy information for a given set of tRNA sequences can be identified using `anvi-run-trna-taxonomy` and made sense of via `anvi-estimate-trna-taxonomy`)</span>.
     </td>
 </tr>
 <tr>
@@ -2073,7 +2095,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-show-collections-and-bins](programs/anvi-show-collections-and-bins)**</span>. <span markdown="1">A script to display collections stored in an anvi&#39;o profile or pan database</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-show-collections-and-bins](programs/anvi-show-collections-and-bins)**</span>. <span markdown="1">A script to display collections stored in an anvi&#x27;o profile or pan database</span>.
     </td>
 </tr>
 <tr>
@@ -2117,7 +2139,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-split](programs/anvi-split)**</span>. <span markdown="1">Split an anvi&#39;o pan or profile database into smaller, self-contained pieces. Provide either a genomes-storage and pan database or a profile and contigs database pair, and you&#39;ll get back directories of individual projects for each bin  that can be treated as smaller anvi&#39;o projects</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-split](programs/anvi-split)**</span>. <span markdown="1">Split an anvi&#x27;o pan or profile database into smaller, self-contained pieces. Provide either a genomes-storage and pan database or a profile and contigs database pair, and you&#x27;ll get back directories of individual projects for each bin  that can be treated as smaller anvi&#x27;o projects</span>.
     </td>
 </tr>
 <tr>
@@ -2139,7 +2161,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-summarize](programs/anvi-summarize)**</span>. <span markdown="1">Summarizer for anvi&#39;o pan or profile db&#39;s. Essentially, this program takes a collection id along with either a profile database and a contigs database or a pan database and a genomes storage and generates a static HTML output for what is described in a given collection. The output directory will contain almost everything any downstream analysis may need, and can be displayed using a browser without the need for an anvi&#39;o installation. For this reason alone, reporting summary outputs as supplementary data with publications is a great idea for transparency and reproducibility</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-summarize](programs/anvi-summarize)**</span>. <span markdown="1">Summarizer for anvi&#x27;o pan or profile db&#x27;s. Essentially, this program takes a collection id along with either a profile database and a contigs database or a pan database and a genomes storage and generates a static HTML output for what is described in a given collection. The output directory will contain almost everything any downstream analysis may need, and can be displayed using a browser without the need for an anvi&#x27;o installation. For this reason alone, reporting summary outputs as supplementary data with publications is a great idea for transparency and reproducibility</span>.
     </td>
 </tr>
 <tr>
@@ -2161,12 +2183,12 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-trnaseq](programs/anvi-trnaseq)**</span>. <span markdown="1">An anvi&#39;o script to process a tRNA-seq dataset, generating a tRNA-seq database.</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-trnaseq](programs/anvi-trnaseq)**</span>. <span markdown="1">A program to process raw tRNA-seq dataset, which is the sequencing of tRNA transcripts in a given sample, to generate an anvi&#x27;o tRNA-seq database</span>.
     </td>
 </tr>
 <tr>
     <td class="artifact-r-td">
-    <span class="artifact-emoji">🧀</span> 
+    <span class="artifact-emoji">🧀</span> <span class="artifact-r" markdown="1">[trnaseq-fasta](artifacts/trnaseq-fasta) <img src="images/icons/FASTA.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 <tr>
@@ -2183,7 +2205,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-update-db-description](programs/anvi-update-db-description)**</span>. <span markdown="1">Update the description in an anvi&#39;o database</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-update-db-description](programs/anvi-update-db-description)**</span>. <span markdown="1">Update the description in an anvi&#x27;o database</span>.
     </td>
 </tr>
 <tr>
@@ -2227,7 +2249,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-add-default-collection](programs/anvi-script-add-default-collection)**</span>. <span markdown="1">A script to add a &#39;DEFAULT&#39; collection in an anvi&#39;o pan or profile database with a bin named &#39;EVERYTHING&#39; that describes all items available in the profile database</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-add-default-collection](programs/anvi-script-add-default-collection)**</span>. <span markdown="1">A script to add a &#x27;DEFAULT&#x27; collection in an anvi&#x27;o pan or profile database with a bin named &#x27;EVERYTHING&#x27; that describes all items available in the profile database</span>.
     </td>
 </tr>
 <tr>
@@ -2249,7 +2271,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-augustus-output-to-external-gene-calls](programs/anvi-script-augustus-output-to-external-gene-calls)**</span>. <span markdown="1">Takes in gene calls by AUGUSTUS v3.3.3, generates an anvi&#39;o external gene calls file. It may work well with other versions of AUGUSTUS, too. It is just no one has tested the script with different versions of the program</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-augustus-output-to-external-gene-calls](programs/anvi-script-augustus-output-to-external-gene-calls)**</span>. <span markdown="1">Takes in gene calls by AUGUSTUS v3.3.3, generates an anvi&#x27;o external gene calls file. It may work well with other versions of AUGUSTUS, too. It is just no one has tested the script with different versions of the program</span>.
     </td>
 </tr>
 <tr>
@@ -2359,7 +2381,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-gen-distribution-of-genes-in-a-bin](programs/anvi-script-gen-distribution-of-genes-in-a-bin)**</span>. <span markdown="1">Quantify the detection of genes in genomes in metagenomes to identify the environmental core. This is a helper script for anvi&#39;o metapangenomic workflow</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-gen-distribution-of-genes-in-a-bin](programs/anvi-script-gen-distribution-of-genes-in-a-bin)**</span>. <span markdown="1">Quantify the detection of genes in genomes in metagenomes to identify the environmental core. This is a helper script for anvi&#x27;o metapangenomic workflow</span>.
     </td>
 </tr>
 <tr>
@@ -2403,7 +2425,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-gen-pseudo-paired-reads-from-fastq](programs/anvi-script-gen-pseudo-paired-reads-from-fastq)**</span>. <span markdown="1">Take a FASTQ file and convert it into 2 FASTQ files. Each read from the original FASTQ file halved, where one half is put in the R1 FASTQ and the other half is reverse complemented and put in the R2 FASTQ. If you&#39;ve ended up here, things have clearly not gone very well for you, and as I write this sentence, I wholeheartedly sympathize</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-gen-pseudo-paired-reads-from-fastq](programs/anvi-script-gen-pseudo-paired-reads-from-fastq)**</span>. <span markdown="1">A script that takes a FASTQ file that is not paired-end (i.e., R1 alone) and converts it into two FASTQ files that are paired-end (i.e., R1 and R2). This is a quick-and-dirty workaround that halves each read from the original FASTQ and puts one half in the FASTQ file for R1 and puts the reverse-complement of the second half in the FASTQ file for R2. If you&#x27;ve ended up here, things have clearly not gone very well for you, and Evan, who battled similar battles and ended up implementing this solution wholeheartedly sympathizes</span>.
     </td>
 </tr>
 <tr>
@@ -2557,7 +2579,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-pfam-accessions-to-hmms-directory](programs/anvi-script-pfam-accessions-to-hmms-directory)**</span>. <span markdown="1">You give this program one or more PFAM accession ids, and it generates an anvi&#39;o compatible HMM directory to be used with `anvi-run-hmms`</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-pfam-accessions-to-hmms-directory](programs/anvi-script-pfam-accessions-to-hmms-directory)**</span>. <span markdown="1">You give this program one or more PFAM accession ids, and it generates an anvi&#x27;o compatible HMM directory to be used with `anvi-run-hmms`</span>.
     </td>
 </tr>
 <tr>
@@ -2601,7 +2623,7 @@ Listed below **a total of 118 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-process-genbank-metadata](programs/anvi-script-process-genbank-metadata)**</span>. <span markdown="1">This script takes the &#39;metadata&#39; output of the program `ncbi-genome-download` (see [https://github.com/kblin/ncbi-genome-download](https://github.com/kblin/ncbi-genome-download) for details), and processes each GenBank file found in the metadata file to generate a FASTA file, as well as genes and functions files for each entry. Plus, it autmatically generates a FASTA TXT file descriptor for anvi&#39;o snakemake workflows. So it is a multi-talented program like that</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-process-genbank-metadata](programs/anvi-script-process-genbank-metadata)**</span>. <span markdown="1">This script takes the &#x27;metadata&#x27; output of the program `ncbi-genome-download` (see [https://github.com/kblin/ncbi-genome-download](https://github.com/kblin/ncbi-genome-download) for details), and processes each GenBank file found in the metadata file to generate a FASTA file, as well as genes and functions files for each entry. Plus, it autmatically generates a FASTA TXT file descriptor for anvi&#x27;o snakemake workflows. So it is a multi-talented program like that</span>.
     </td>
 </tr>
 <tr>

@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Start an anvi&#39;o inspect interactive interface.
+Start an anvi&#x27;o inspect interactive interface.
 
 See **[program help menu](../../../../vignette#anvi-inspect)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

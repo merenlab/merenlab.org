@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Start an anvi&#39;o server for the interactive interface.
+Start an anvi&#x27;o server for the interactive interface.
 
 See **[program help menu](../../../../vignette#anvi-interactive)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -177,17 +177,17 @@ Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/progra
 ## Additional Resources
 
 
-* [A beginners tutorial on anvi&#39;o interactive interface](http://merenlab.org/tutorials/interactive-interface/)
+* [A beginners tutorial on anvi&#x27;o interactive interface](http://merenlab.org/tutorials/interactive-interface/)
 
 * [How to add more data to a display for layers and items](http://merenlab.org/2017/12/11/additional-data-tables/)
 
 * [An overview of interactive data types](http://merenlab.org/2016/02/27/the-anvio-interactive-interface/)
 
-* [Anvi&#39;o &#39;views&#39; demystified](http://merenlab.org/2017/05/08/anvio-views/)
+* [Anvi&#x27;o &#x27;views&#x27; demystified](http://merenlab.org/2017/05/08/anvio-views/)
 
 * [Working with SVG files from the interactive interface](http://merenlab.org/2016/10/27/high-resolution-figures/)
 
-* [Running remote anvi&#39;o interactive interfaces on your local computer](http://merenlab.org/2018/03/07/working-with-remote-interative/)
+* [Running remote anvi&#x27;o interactive interfaces on your local computer](http://merenlab.org/2018/03/07/working-with-remote-interative/)
 
 
 {:.notice}

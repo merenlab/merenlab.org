@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Generate a new anvi&#39;o contigs database.
+Generate a new anvi&#x27;o contigs database.
 
 See **[program help menu](../../../../vignette#anvi-gen-contigs-database)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
