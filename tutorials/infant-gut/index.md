@@ -1654,7 +1654,7 @@ But, as often happens in science, every scientist must decide for themself at wh
 
 ### Metabolism Enrichment
 
-Just like we looked at functional enrichment in the pangenomics chapter, we can look for enriched modules in the two Enterococcus species. In fact, we can use the same program, and it will run the same statistical tests - except that instead of functional annotations, it will use modules which have a completeness score above the threshold that the user sets (by default, 0.75). All we need is the 'modules' mode output, and a file indicating which group each genome belongs to. We already have the modules file from before. Here is the groups file:
+Just like we looked at functional enrichment in the pangenomics chapter, we can look for enriched metabolic modules in the two Enterococcus species. In fact, we can use the same program, and it will run the same statistical tests - except that instead of functional annotations, it will use modules which have a completeness score above the threshold that the user sets (by default, 0.75). All we need is the 'modules' mode output, and a file indicating which group each genome belongs to. We already have the modules file from before. Here is the groups file:
 
 |sample|group|
 |:--|:--:|
@@ -1670,7 +1670,7 @@ Just like we looked at functional enrichment in the pangenomics chapter, we can 
 |E_faecium_6778|faecium|
 |E_faecium_6798|faecium|
 
-Here is the command to run {%include PROGRAM name='anvi-compute-functional-enrichment' text='enrichment' %} on modules:
+And here is the command to run {%include PROGRAM name='anvi-compute-functional-enrichment' text='the enrichment script' %} on modules:
 ``` bash
 anvi-compute-functional-enrichment \
     -M Enterococcus_metabolism_modules.txt \
