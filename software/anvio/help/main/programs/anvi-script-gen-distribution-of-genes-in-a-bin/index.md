@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Quantify the detection of genes in genomes in metagenomes to identify the environmental core. This is a helper script for anvi&#39;o metapangenomic workflow.
+Quantify the detection of genes in genomes in metagenomes to identify the environmental core. This is a helper script for anvi&#x27;o metapangenomic workflow.
 
 See **[program help menu](../../../../vignette#anvi-script-gen-distribution-of-genes-in-a-bin)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

@@ -90,7 +90,7 @@ Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/progra
 ## Additional Resources
 
 
-* [Working with anvi&#39;o additional data tables](http://merenlab.org/2017/12/11/additional-data-tables/#views-items-layers-orders-some-anvio-terminology)
+* [Working with anvi&#x27;o additional data tables](http://merenlab.org/2017/12/11/additional-data-tables/#views-items-layers-orders-some-anvio-terminology)
 
 
 {:.notice}

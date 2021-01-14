@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-This program runs NCBI&#39;s COGs to associate genes in an anvi&#39;o contigs database with functions. COGs database was been designed as an attempt to classify proteins from completely sequenced genomes on the basis of the orthology concept..
+This program runs NCBI&#x27;s COGs to associate genes in an anvi&#x27;o contigs database with functions. COGs database was been designed as an attempt to classify proteins from completely sequenced genomes on the basis of the orthology concept..
 
 See **[program help menu](../../../../vignette#anvi-run-ncbi-cogs)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -33,11 +33,9 @@ See **[program help menu](../../../../vignette#anvi-run-ncbi-cogs)** or go back 
 
 This program **associates genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> with functions using NCBI's [Clusters of Orthologus Groups (COGs) database](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC102395/).**
 
-Before you run this program, you'll have to set up the COGs database on your computer with the program <span class="artifact-n">[anvi-setup-ncbi-cogs](/software/anvio/help/main/programs/anvi-setup-ncbi-cogs)</span>.  
+Before you run this program, you'll have to set up the COGs database on your computer with the program <span class="artifact-n">[anvi-setup-ncbi-cogs](/software/anvio/help/main/programs/anvi-setup-ncbi-cogs)</span>.
 
-As mentioned above, the COGs database is no longer actively added to, so you might also want to consider using a separate database. As of yet, anvi'o does not have a program to accesss the eggNOG database (but instructions to use this database to get and import function information are [here](http://merenlab.org/2016/06/18/importing-functions/#eggnog-database--emapper)), but does have the functionality to use the Pfams database (check out <span class="artifact-n">[anvi-run-pfams](/software/anvio/help/main/programs/anvi-run-pfams)</span> for more information) and the KOfamKOALA database (see <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/main/programs/anvi-run-kegg-kofams)</span>). 
-
-To run, you'll need to provide a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>. If you stored the <span class="artifact-n">[cogs-data](/software/anvio/help/main/artifacts/cogs-data)</span> that you got from running <span class="artifact-n">[anvi-setup-ncbi-cogs](/software/anvio/help/main/programs/anvi-setup-ncbi-cogs)</span> in a custom location, you'll need to provide that path as well. The output is a <span class="artifact-n">[functions](/software/anvio/help/main/artifacts/functions)</span> artifact. 
+To run, you'll need to provide a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>. If you stored the <span class="artifact-n">[cogs-data](/software/anvio/help/main/artifacts/cogs-data)</span> that you got from running <span class="artifact-n">[anvi-setup-ncbi-cogs](/software/anvio/help/main/programs/anvi-setup-ncbi-cogs)</span> in a custom location, you'll need to provide that path as well. The output is a <span class="artifact-n">[functions](/software/anvio/help/main/artifacts/functions)</span> artifact.
 
 <div class="codeblock" markdown="1">
 anvi&#45;run&#45;ncbi&#45;cogs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
@@ -46,14 +44,14 @@ anvi&#45;run&#45;ncbi&#45;cogs &#45;c <span class="artifact&#45;n">[contigs&#45;
 
 Without the flag `--cog-data-dir`, anvi'o will just search in the default location.
 
-By default, this program uses DIAMOND in the "fast" setting for database searching. To instead run in "sensitive" mode, just call: 
+By default, this program uses DIAMOND in the "fast" setting for database searching. To instead run in "sensitive" mode, just call:
 
 <div class="codeblock" markdown="1">
 anvi&#45;run&#45;ncbi&#45;cogs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
             &#45;&#45;sensitive
 </div>
 
-You can also use blastp to search, by running: 
+You can also use blastp to search, by running:
 
 <div class="codeblock" markdown="1">
 anvi&#45;run&#45;ncbi&#45;cogs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \

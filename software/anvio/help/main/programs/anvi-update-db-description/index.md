@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Update the description in an anvi&#39;o database.
+Update the description in an anvi&#x27;o database.
 
 See **[program help menu](../../../../vignette#anvi-update-db-description)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
