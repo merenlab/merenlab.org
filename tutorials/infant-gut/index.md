@@ -1652,6 +1652,33 @@ So, are these *E. faecalis* populations capable of producing threonine? It appea
 
 But, as often happens in science, every scientist must decide for themself at what point they feel comfortable accepting results and at what point they need to go deeper to confirm them. And it is of course important to keep in mind that while genomically-encoded metabolic pathways are the first requirement for an organism to be able to perform some metabolism, even that does not necessarily mean the organism is doing so in all environments or stages of life. Perhaps `anvi-estimate-metabolism` is thus most reliable as a hypothesis-generating tool used to inform wet-lab experiments or to guide literature searches. It is up to you, and your science. :)
 
+### Metabolism Enrichment
+
+Just like we looked at functional enrichment in the pangenomics chapter, we can look for enriched modules in the two Enterococcus species. In fact, we can use the same program, and it will run the same statistical tests - except that instead of functional annotations, it will use modules which have a completeness score above the threshold that the user sets (by default, 0.75). All we need is the 'modules' mode output, and a file indicating which group each genome belongs to. We already have the modules file from before. Here is the groups file:
+
+|sample|group|
+|:--|:--:|
+|E_faecalis_6240|faecalis|
+|E_faecalis_6250|faecalis|
+|E_faecalis_6255|faecalis|
+|E_faecalis_6512|faecalis|
+|E_faecalis_6557|faecalis|
+|E_faecalis_6563|faecalis|
+|E_faecium_6589|faecium|
+|E_faecium_6590|faecium|
+|E_faecium_6601|faecium|
+|E_faecium_6778|faecium|
+|E_faecium_6798|faecium|
+
+Here is the command to run {%include PROGRAM name='anvi-compute-functional-enrichment' text='enrichment' %} on modules:
+``` bash
+anvi-compute-functional-enrichment \
+    -M Enterococcus_metabolism_modules.txt \
+    -G additional-files/metabolism/entero_groups.txt \
+    -o Enterococcus_enriched_modules.txt
+```
+
+
 ## Chapter VI: Microbial Population Genetics
 
 Here we will profile the single-nucleotide variations (SNVs) in the *E. faecalis* bin found in Sharon et al.'s Infant Gut Dataset (IGD).
