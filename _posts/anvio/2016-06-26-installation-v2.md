@@ -363,6 +363,11 @@ cd ~/github/anvio/
 pip install -r requirements.txt
 ```
 
+{:.warning}
+Some packages in `requirement.txt` need to be installed with a more up to date c-compiler on **Mac OSX**. If you’re getting an error that contains this, `x86_64-apple-darwin13.4.0-clang` in the message, please run this command `export CC=clang` and try again. If you are still unable to run the `pip install` command above please make an issue on the github page or let us know in the anvi'o slack channel
+
+
+
 Now all dependencies are in place, and you have the code. One more step.
 
 ### Linking conda environment and the codebase
