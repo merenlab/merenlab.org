@@ -1808,7 +1808,7 @@ gzip -d TARA_ANW_MAG_00006/AUXILIARY-DATA.h5.gz
 
 # if you are not using anvi'o v2.3.0, you need to migrate
 # anvi'o databases to your version:
-ANVIO_SAMPLES_DB=SKIP anvi-migrate-db TARA_ANW_MAG_00006/*db
+ANVIO_SAMPLES_DB=SKIP anvi-migrate TARA_ANW_MAG_00006/*.db --migrate-dbs-safely
 
 
 anvi-interactive -p TARA_ANW_MAG_00006/PROFILE.db \
