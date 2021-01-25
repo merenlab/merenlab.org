@@ -980,9 +980,9 @@ anvi-get-sequences-for-hmm-hits -c CONTIGS.db \
                                 --gene-names Ribosomal_L1,Ribosomal_L2,Ribosomal_L3,Ribosomal_L4,Ribosomal_L5,Ribosomal_L6
 
 Init .........................................: 4451 splits in 13 bin(s)
-Hits .........................................: 1358 hits for 1 source(s)
-Filtered hits ................................: 65 hits remain after filtering for 6 gene(s)
-Mode .........................................: DNA seqeunces
+Hits .........................................: 668 hits for 1 source(s)
+Filtered hits ................................: 64 hits remain after filtering for 6 gene(s)
+Mode .........................................: DNA sequences
 Genes are concatenated .......................: False
 Output .......................................: seqs-for-phylogenomics.fa
 ```
