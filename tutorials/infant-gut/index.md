@@ -1362,13 +1362,13 @@ Now we can ask anvi'o to identify and report functions that are enriched in eith
 anvi-compute-functional-enrichment -p PAN/Enterococcus-PAN.db \
                                    -g Enterococcus-GENOMES.db \
                                    --category-variable clade \
-                                   --annotation-source COG_FUNCTION \
+                                   --annotation-source COG14_FUNCTION \
                                    -o functional-enrichment.txt
 ```
 
 Which would generate a new file, `functional-enrichment.txt`, in our work directory that is just filled with stuff like this:
 
-|COG_FUNCTION|enrichment_score|unadjusted_p_value|adjusted_q_value|associated_groups|accession|gene_clusters_ids|p_faecium|p_faecalis|N_faecium|N_faecalis|
+|COG14_FUNCTION|enrichment_score|unadjusted_p_value|adjusted_q_value|associated_groups|accession|gene_clusters_ids|p_faecium|p_faecalis|N_faecium|N_faecalis|
 |:--|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
 |Alpha-galactosidase|12.00000001|5.32E-04|0.003981046|faecium|COG3345|GC_00002469|1|0|5|7|
 |Zinc transporter ZupT|12.00000001|5.32E-04|0.003981046|faecium|COG0428|GC_00002604|1|0|5|7|
