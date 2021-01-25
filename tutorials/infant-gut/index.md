@@ -1459,7 +1459,7 @@ The most important part of this output is this one:
 You can unzip this file,
 
 ``` bash
-gzip -d PAN_SUMMARY/Enterococcus_protein_clusters_summary.txt.gz
+gzip -d PAN_SUMMARY/Enterococcus_gene_clusters_summary.txt.gz
 ```
 
 And play with it to see how it will solve all your problems. You can import it into R, or open it in EXCEL to have a quick look at its contents. But here is a quick look at the first 10 lines of this file that contains 35,175 gene entries:
