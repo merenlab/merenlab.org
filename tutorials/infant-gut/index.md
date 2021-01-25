@@ -1705,7 +1705,7 @@ Here we will profile the single-nucleotide variations (SNVs) in the *E. faecalis
 This is more of a practical tutorial for hands on experience to recover and make sense of SNVs. For a more theoretical one on the same topic, please consider first reading the tutorial [Analyzing sequence variants with anvi'o]({% post_url anvio/2015-07-20-analyzing-variability %}){:target="_blank"}.
 
 {:.notice}
-**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
+**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged {% include ARTIFACT name="profile-db" text="profile database" %} and the anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
 
 First of all, if you haven't already, run this command to load the collection containing the *E. faecalis* bin (no harm done running it twice):
 
