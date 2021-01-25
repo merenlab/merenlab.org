@@ -1759,7 +1759,7 @@ ls MAGs/E_facealis/
 AUXILIARY-DATA.h5 CONTIGS.db        CONTIGS.h5        PROFILE.db
 ```
 
-Look familiar? This generated a new anvi'o profile database and anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} that pertains only to the `E_facealis` bin. While the program `anvi-split` does its magic, it also adds into the resulting profile database a collection (called `DEFAULT`), with a single bin in it (called `ALL_SPLITS`) that contains all the contigs in this MAG. This way we can access to its contents from all anvi'o programs. Here is an example:
+Look familiar? This generated a new anvi'o profile database and anvi'o contigs database that pertains only to the `E_facealis` bin. While the program `anvi-split` does its magic, it also adds into the resulting profile database a collection (called `DEFAULT`), with a single bin in it (called `ALL_SPLITS`) that contains all the contigs in this MAG. This way we can access to its contents from all anvi'o programs. Here is an example:
 
 ``` bash
 anvi-estimate-genome-completeness -p MAGs/E_facealis/PROFILE.db \
@@ -1927,9 +1927,9 @@ Investigating what causes this, is of course when things start to get exciting. 
 
 ### Visualizing SNV profiles using anvi'o
 
-R visualization is useful, but the heatmap in that figure can't effectively visualize more than a couple hundred positions. That's why there is a random subsampling step. But we can use the anvi'o {% include ARTIFACT name="interactive" %} interface to display up to 25,000 nucleotide positions easily.
+R visualization is useful, but the heatmap in that figure can't effectively visualize more than a couple hundred positions. That's why there is a random subsampling step. But we can use the anvi'o interactive interface to display up to 25,000 nucleotide positions easily.
 
-For this, we have a little program called `anvi-script-snvs-to-interactive` which reads an anvi'o variability profile, and creates an *anvi'o {% include ARTIFACT name="interactive" %} interface-compatible* output from it.
+For this, we have a little program called `anvi-script-snvs-to-interactive` which reads an anvi'o variability profile, and creates an *anvi'o interactive interface-compatible* output from it.
 
 So when you run this script the following way,
 
@@ -1942,7 +1942,7 @@ it will do its magic, and create an output directory with material that can dire
 {:.notice}
 A little note for people who are interested in programming: Feel free to take a look at the [relevant line of the source code](https://github.com/meren/anvio/blob/master/sandbox/anvi-script-snvs-to-interactive#L72){:target="_blank"} of this script to see how easy it is to generate an anvi'o-compatible visualizable output from any TAB-delimited matrix file.
 
-If you run the {% include ARTIFACT name="interactive" %} interface on these results the following way,
+If you run the interactive interface on these results the following way,
 
 ``` bash
 anvi-interactive --profile e_faecalis_snvs/profile.db \
@@ -1956,7 +1956,7 @@ You will get this view:
 
 [![E. faecalis SNVs](images/e-faecalis-SNVs-anvio.png)](images/e-faecalis-SNVs-anvio.png){:.center-img .width-50}
 
-This view can definitely be improved. I prepared a state file to match colors of competing nucleotides to the R results. If you import that state file and run the {% include ARTIFACT name="interactive" %} interface the following way,
+This view can definitely be improved. I prepared a state file to match colors of competing nucleotides to the R results. If you import that state file and run the interactive interface the following way,
 
 ``` bash
 anvi-import-state -p e_faecalis_snvs/profile.db \
@@ -2012,7 +2012,7 @@ unique_pos  sample_id  pos   gene_call  departure_from_ref  competing_nts  split
 80          DAY_24     7955  233        0                   TT             Day17a_QCcontig1_split_00012
 ```
 
-Good, everything checks out. Now since we know the split names and positions in splits, we can in fact see where they actually are using the {% include ARTIFACT name="interactive" %} interface to visualize the merged profile database again, and look at the wider context using the 'inspect' option. Which I have already done for you:
+Good, everything checks out. Now since we know the split names and positions in splits, we can in fact see where they actually are using the interactive interface to visualize the merged profile database again, and look at the wider context using the 'inspect' option. Which I have already done for you:
 
 [![E. faecalis SNVs](images/e-faecalis-SNV-context.gif)](images/e-faecalis-SNV-context.gif){:.center-img .width-50}
 
@@ -2085,7 +2085,7 @@ In your data-pack you have a merged anvi'o profile that describes the read recru
 <div class="extra-info" markdown="1">
 
 <span class="extra-info-header">Snakemake workflows to the rescue</span>
-Your data-pack already contains an anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} and a merged profile database that puts the E. faecalis genome in the context of 20 gut metagenomes, but here is some extra info for those of you who are curious to know how did we generated these data.
+Your data-pack already contains an anvi'o contigs database and a merged profile database that puts the E. faecalis genome in the context of 20 gut metagenomes, but here is some extra info for those of you who are curious to know how did we generated these data.
 
 To generate these mapping results and to profile them using anvi'o, we used the anvi'o snakemake workflow for metagenomics.
 
@@ -2269,11 +2269,11 @@ connection, ~250MB of free space, and about 10 minutes. So if the command didn't
 anvi-run-interacdome -c additional-files/e_faeealis_across_hmp/CONTIGS.db -T 2
 ```
 
-As you may be getting used to, `-c` specifies the {% include ARTIFACT name="contigs-db" text="contigs database" %} you would like to predict binding
+As you may be getting used to, `-c` specifies the contigs database you would like to predict binding
 sites for, and `-T` means to run the command with 2 threads (feel free to use more if you have the
 hardware).
 
-In brief, running this command searches each gene in your {% include ARTIFACT name="contigs-db" text="contigs database" %} against a subset of the
+In brief, running this command searches each gene in your contigs database against a subset of the
 Pfam database that have been annotated with per-residue "binding frequencies". These binding
 frequencies are values between 0 and 1 which indicate how likely it is a residue is involved in
 interacting with a ligand. The search is ran with [HMMER](http://hmmer.org/) and the binding
@@ -2314,10 +2314,10 @@ num genes that HMM will be run on ............: 2,754
 Output .......................................: /var/folders/58/mpjnklbs5ql_y2rsgn0cwwnh0000gn/T/tmpz7zrm92p/AA_gene_sequences.fa
 ```
 
-This simply provides some information about where the Pfams are located, which {% include ARTIFACT name="contigs-db" text="contigs database" %} is
-being used, as well as the amino acid sequences exported from the {% include ARTIFACT name="contigs-db" text="contigs database" %}. It also lets us
+This simply provides some information about where the Pfams are located, which contigs database is
+being used, as well as the amino acid sequences exported from the contigs database. It also lets us
 know that we will be attempting to compute binding frequencies for 2754 *E. faecalis* genes since
-that's how many genes in the {% include ARTIFACT name="contigs-db" text="contigs database" %} had amino acid sequences. To compute these binding
+that's how many genes in the contigs database had amino acid sequences. To compute these binding
 frequencies, we will use an InteracDome database of 2375 Pfams that have annotated binding
 frequencies. This number comes from the fact that we are using the 'representable' subset of Pfams,
 which *“correspond[s] to domain-ligand interactions that had nonredundant instances across three or
@@ -2418,7 +2418,7 @@ additional-files/e_faeealis_across_hmp/CONTIGS.db
 
 After all filtering, the results are in: 49195 residues in the *E. faecalis* genome have been
 implicated in ligand binding. The positions, ligand types, and binding frequencies are
-stored in the {% include ARTIFACT name="contigs-db" text="contigs database" %}, and a slew of additional information is stored in the text outputs
+stored in the contigs database, and a slew of additional information is stored in the text outputs
 `INTERACDOME-domain_hits.txt` and `INTERACDOME-match_state_contributors.txt`.
 
 With the addition of this information, there is seemingly an uncountable number of directions to go,
@@ -2440,7 +2440,7 @@ SAAVs and SCVs moving forward.
 
 In this section we will introduce [anvi'o structure]({{ site.url }}/software/anvio-structure), an integrated
 component of anvi'o that enables one to predict protein structures for genes in your
-{% include ARTIFACT name="contigs-db" text="contigs database" %} and visualize them in an {% include ARTIFACT name="interactive" %} interface. The motivation was seeded by
+contigs database and visualize them in an interactive interface. The motivation was seeded by
 wanting more direct insight into the potential effect that sequence variants had on fitness, by
 visualizing them directly on the structure, since it is the physical properties of these structures
 that define function.
@@ -2466,7 +2466,7 @@ patterns of structural sequence variation. Here is a figure from that study:
 To analyze and visualize where nucleotide-level variation occurs in the three-dimensional structure
 of an encoded protein, you need a protein structure. For this, anvi'o structure has a dedicated structure
 database that stores all structural information requested by the user. Users can create their own
-structure database by providing a {% include ARTIFACT name="contigs-db" text="contigs database" %}, and a list of gene IDs in the {% include ARTIFACT name="contigs-db" text="contigs database" %}
+structure database by providing a contigs database, and a list of gene IDs in the contigs database
 they want to predict structures for.
 
 {:.notice}
@@ -2662,7 +2662,7 @@ SRR5405707  |  15   |  Sloan2  |  Gut       |  12      |  Sloan2_12      |  986.
 SRR5405693  |  9    |  Sloan2  |  Gut       |  14      |  Sloan2_14      |  1009.0                           |  30.0                   |  M    |  C-section   |  1200.0              |  Magee-Womens  |  00-10
 SRR5405692  |  10   |  Sloan2  |  Gut       |  14      |  Sloan2_14      |  1009.0                           |  30.0                   |  M    |  C-section   |  1200.0              |  Magee-Womens  |  10-20
 
-Afterwards, we can rerun the {% include ARTIFACT name="interactive" %} display:
+Afterwards, we can rerun the interactive display:
 
 ``` bash
 anvi-display-structure -s additional-files/e_faeealis_across_hmp/STRUCTURE.db \
