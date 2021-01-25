@@ -1556,6 +1556,11 @@ anvi-import-misc-data -p Enterococcus_metabolism_PROFILE.db \
 -t items additional-files/metabolism/modules_info.txt
 ```
 
+To painlessly make your interactive visualizations look like the ones in the screenshots, you can import the following state file into your profile database:
+```
+anvi-import-state -n default -p Enterococcus_metabolism_PROFILE.db -s additional-files/metabolism/metabolism_state.json
+```
+
 And then we can run the visualization command yet again to see the heatmap with labels.
 
 [![Enterococcus Heatmap](images/entero_heatmap_labeled.png)](images/entero_heatmap_labeled.png){:.center-img }
