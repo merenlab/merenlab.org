@@ -882,7 +882,7 @@ We all just have to continue working, and enjoy this revolution.
 This is more of a practical tutorial to do phylogenomic analyses on metagenome-assembled genomes described in anvi'o {% include ARTIFACT name="collection" text="collections" %}. For a more abstract tutorial on phylogenomics, please consider first reading '[An anvi'o workflow for phylogenomics]({% post_url anvio/2017-06-07-phylogenomics %}){:target="_blank"}'.
 
 {:.notice}
-To see a practical application of phylogenomics see [this workflow](http://merenlab.org/data/parcubacterium-in-hbcfdna/){:target="_blank"}'.
+To see a practical application of phylogenomics see [this workflow](http://merenlab.org/data/parcubacterium-in-hbcfdna/){:target="_blank"}.
 
 
 {:.notice}
