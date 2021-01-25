@@ -301,14 +301,14 @@ Next, we can perform a round of manual binning. This should take about 10 minute
 
 </div>
 
-Here is an example of 16 {% include ARTIFACT name="bin" text="bins" %} we identified for comparison AFTER you performed your own binning:
+Here is an example of 16 bins we identified for comparison AFTER you performed your own binning:
 
 [![Manual_Binnin_Result_Example.png](images/Manual_Binnin_Result_Example.png)](images/Manual_Binnin_Result_Example.png){:.center-img .width-50}
 
-Please save your bins as a {% include ARTIFACT name="collection" %}. You can give your collection any name, but if you call it `default`, anvi'o will treat it differently.
+Please save your bins as a collection. You can give your collection any name, but if you call it `default`, anvi'o will treat it differently.
 
 {:.notice}
-In the anvi'o lingo, a collection is something that describes one or more bins, each of which describe one or more contigs.
+In the anvi'o lingo, a {% include ARTIFACT name="collection" %} is something that describes one or more {% include ARTIFACT name="bin" text="bins" %}, each of which describe one or more contigs.
 
 If you identified near-complete genomes, then congratulations, you have characterized genomic contents of microbial populations *de novo*.
 
