@@ -1819,7 +1819,7 @@ Anyone who is running these commands on a computer with any version of anvi'o (w
 
 [![TARA](images/tara-mag-00006.png)](images/tara-mag-00006.png){:.center-img .width-70}
 
-Yep. Because it 2018. That's why.
+Yep. Because it is 2021. That's why.
 </div>
 
 
