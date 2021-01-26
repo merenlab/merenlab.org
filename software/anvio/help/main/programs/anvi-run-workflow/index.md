@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Execute, manage, parallelize, and troubleshoot entire &#39;omics workflows and chain together anvi&#39;o and third party programs.
+Execute, manage, parallelize, and troubleshoot entire &#x27;omics workflows and chain together anvi&#x27;o and third party programs.
 
 See **[program help menu](../../../../vignette#anvi-run-workflow)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

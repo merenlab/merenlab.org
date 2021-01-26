@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Download and setup NCBI&#39;s Clusters of Orthologous Groups database.
+Download and setup NCBI&#x27;s Clusters of Orthologous Groups database.
 
 See **[program help menu](../../../../vignette#anvi-setup-ncbi-cogs)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -32,9 +32,6 @@ See **[program help menu](../../../../vignette#anvi-setup-ncbi-cogs)** or go bac
 
 
 This program **downloads and organizes a local copy of the data from NCBI's [COGs database](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC102395/) for use in function annotation.** This program generates a <span class="artifact-n">[cogs-data](/software/anvio/help/main/artifacts/cogs-data)</span> artifact, which is required to run the program <span class="artifact-n">[anvi-run-ncbi-cogs](/software/anvio/help/main/programs/anvi-run-ncbi-cogs)</span>. 
-
-{:.notice}
-The COGs database is no longer actively added to, so you might also want to consider using a separate database. As of yet, anvi'o does not have a program to accesss the eggNOG database (but instructions to use this database to get and import function information are [here](http://merenlab.org/2016/06/18/importing-functions/#eggnog-database--emapper)), but does have the functionality to use the Pfams database (check out <span class="artifact-n">[anvi-run-pfams](/software/anvio/help/main/programs/anvi-run-pfams)</span> for more information) and the KOfamKOALA database (see <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/main/programs/anvi-run-kegg-kofams)</span>). 
 
 ### Set up COGs data
 <div class="codeblock" markdown="1">

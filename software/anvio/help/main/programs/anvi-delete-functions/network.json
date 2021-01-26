@@ -5,33 +5,33 @@
       "size": 1,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "trnaseq-db",
-      "name": "trnaseq-db",
+      "id": "contigs-db",
+      "name": "contigs-db",
       "provided_by_anvio": true,
       "type": "DB"
     },
     {
       "size": 1,
-      "score": 1,
-      "color": "#AA0000",
-      "id": "trnaseq-fasta",
-      "name": "trnaseq-fasta",
-      "provided_by_anvio": false,
-      "type": "FASTA"
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "functions",
+      "name": "functions",
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
     },
     {
       "size": 2,
       "score": 0.1,
       "color": "#AAAA00",
-      "id": "anvi-trnaseq",
-      "name": "anvi-trnaseq",
+      "id": "anvi-delete-functions",
+      "name": "anvi-delete-functions",
       "type": "PROGRAM"
     }
   ],
   "links": [
     {
-      "source": 2,
-      "target": 0
+      "target": 2,
+      "source": 0
     },
     {
       "target": 2,

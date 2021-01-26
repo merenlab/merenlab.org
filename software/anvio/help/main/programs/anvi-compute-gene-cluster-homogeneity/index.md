@@ -71,7 +71,7 @@ Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/progra
 ## Additional Resources
 
 
-* [The role of gene cluster homogeneity described in the Anvi&#39;o pangenomics tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/#inferring-the-homogeneity-of-gene-clusters)
+* [The role of gene cluster homogeneity described in the Anvi&#x27;o pangenomics tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/#inferring-the-homogeneity-of-gene-clusters)
 
 
 {:.notice}

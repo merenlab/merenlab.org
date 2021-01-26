@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Export a collection from an anvi&#39;o database.
+Export a collection from an anvi&#x27;o database.
 
 See **[program help menu](../../../../vignette#anvi-export-collection)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
