@@ -1362,28 +1362,28 @@ Now we can ask anvi'o to identify and report functions that are enriched in eith
 anvi-compute-functional-enrichment -p PAN/Enterococcus-PAN.db \
                                    -g Enterococcus-GENOMES.db \
                                    --category-variable clade \
-                                   --annotation-source COG14_FUNCTION \
+                                   --annotation-source COG20_FUNCTION \
                                    -o functional-enrichment.txt
 ```
 
 Which would generate a new file, `functional-enrichment.txt`, in our work directory that is just filled with stuff like this:
 
-|COG14_FUNCTION|enrichment_score|unadjusted_p_value|adjusted_q_value|associated_groups|accession|gene_clusters_ids|p_faecium|p_faecalis|N_faecium|N_faecalis|
+| COG20_FUNCTION | enrichment_score | unadjusted_p_value | adjusted_q_value | associated_groups | accession | gene_clusters_ids | p_faecium |p_faecalis | N_faecium | N_faecalis |
 |:--|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-|Alpha-galactosidase|12.00000001|5.32E-04|0.003981046|faecium|COG3345|GC_00002469|1|0|5|7|
-|Zinc transporter ZupT|12.00000001|5.32E-04|0.003981046|faecium|COG0428|GC_00002604|1|0|5|7|
-|Phenolic acid decarboxylase|12.00000001|5.32E-04|0.003981046|faecium|COG3479|GC_00002605|1|0|5|7|
+| Na+/glutamate symporter (GltS) | 12.00000001 | 5.3200E-4 | 0.00359836 | faecalis | COG0786 | GC_00001886 | 1 | 0 | 7 | 5 |
+| Uncharacterized conserved protein (PDB:4LQE) | 12.00000001 | 5.3200E-4 | 0.00359836 | faecalis | COG4815 | GC_00002033 | 1 | 0 | 7 | 5 |
+| ABC-type transport system involved in cytochrome bd biosynthesis, ATPase and permease components (CydD) | 12.00000001 | 5.3200E-4 | 0.00359836 | faecalis | COG4988 | GC_00002143 | 1 | 0 | 7 | 5 |
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
-|Molybdenum cofactor biosynthesis enzyme|12.00000001|5.32E-04|0.003981046|faecalis|COG0315|GC_00002162|0|1|5|7|
-|Propanediol utilization protein|12.00000001|5.32E-04|0.003981046|faecalis|COG4869|GC_00001620|0|1|5|7|
-|Killer toxin insensitivity|12.00000001|5.32E-04|0.003981046|faecalis|COG0251|GC_00001637|0|1|5|7|
+| ABC-type sugar transport system, ATPase component (MglA) | 12.00000001 | 5.3200E-4 | 0.00359836 | faecium | COG1129 | GC_00002839 | 0 | 1 | 7 | 5 |
+| Transcriptional regulator GlxA, contains an amidase domain and an AraC-type DNA-binding HTH domain (GlxA) | 12.00000001 | 5.3200E-4 | 0.00359836 | faecium | COG4977 | GC_00002985, GC_00004051 | 0 | 1 | 7 | 5 |
+| tRNA uridine 5-carbamoylmethylation protein Kti12 (Killer toxin insensitivity protein) (Kti12) (PDB:3A4L) | 12.00000001 | 5.3200E-4 | 0.00359836 | faecium | COG4088 | GC_00002966 | 0 | 1 | 7 | 5 |
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
-|Rhodanese-related sulfurtransferase|-7.70E-42|1|1|NA|COG0607|GC_00000313|1|1|5|7|
-|Serine/threonine protein phosphatase PrpC|-7.70E-42|1|1|NA|COG0631|GC_00000572|1|1|5|7|
-|Tryptophan-rich sensory protein (mitochondrial benzodiazepine receptor homolog)|-7.70E-42|1|1|NA|COG3476|GC_00000886|1|1|5|7|
+| Capsular polysaccharide biosynthesis protein YveK (YveK) | 8.57057147 | 0.00341639 | 0.02206531 | faecium | COG3944 | GC_00002486 | 0.1429 | 1 | 7 | 5 |
+| V8-like Glu-specific endopeptidase (eMpr) | 8.57057147 | 0.00341639 | 0.02206531 | faecalis | COG3591 | GC_00002396, GC_00004621 | 0.8571 | 0 | 7 | 5 |
+| Zn-dependent metalloprotease (Neutral protease B) (LasB) (PDB:3NQY) | 8.57057147 | 0.00341639 | 0.02206531 | faecalis | COG3227 | GC_00002507 | 0.8571 | 0 | 7 | 5 |
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 
-So it turns out *killer toxin insensitivity* protein is only encoded by *E. faecalis*... I am not surprised. One should expect anything from these microbes :(
+So it turns out *killer toxin insensitivity* protein is only encoded by *E. faecium*... I am not surprised. One should expect anything from these microbes :(
 
 {:.notice}
 As of `v7` the script `anvi-get-enriched-functions-per-pan-group` (which used to be in this tutorial) was upgraded to the more general script {% include PROGRAM name="anvi-compute-functional-enrichment" %}.
