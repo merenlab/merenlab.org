@@ -21,9 +21,11 @@ This tutorial is tailored for anvi'o `v6` or later. You can learn the version of
 * [**Chapter II**: Automatic Binning](#chapter-ii-automatic-binning)
 * [**Chapter III**: Phylogenomics](#chapter-iii-phylogenomics)
 * [**Chapter IV**: Pangenomics](#chapter-iv-pangenomics)
-* [**Chapter V**: Microbial Population Genetics](#chapter-v-microbial-population-genetics)
-* [**Chapter VI**: Genes and genomes across metagenomes](#chapter-vi-genes-and-genomes-across-metagenomes)
-* [**Chapter VII**: From single-amino acid variants to protein structures](#chapter-vii-from-single-amino-acid-variants-to-protein-structures)
+* [**Chapter V**: Metabolism Prediction](#chapter-v-metabolism-prediction)
+* [**Chapter VI**: Microbial Population Genetics](#chapter-vi-microbial-population-genetics)
+* [**Chapter VII**: Genes and genomes across metagenomes](#chapter-vii-genes-and-genomes-across-metagenomes)
+* [**Chapter VIII**: From single-amino acid variants to protein structures](#chapter-viii-from-single-amino-acid-variants-to-protein-structures)
+
 
 **At the end of this tutorial, you should be able to**
 
@@ -45,7 +47,7 @@ We hope you find the tutorial useful, and generously share your opinions or crit
 To download the infant gut data-pack copy-paste the following commands into your terminal:
 
 ``` bash
-wget https://ndownloader.figshare.com/files/18046139 -O INFANT-GUT-TUTORIAL.tar.gz
+wget https://ndownloader.figshare.com/files/26193278 -O INFANT-GUT-TUTORIAL.tar.gz
 tar -zxvf INFANT-GUT-TUTORIAL.tar.gz && cd INFANT-GUT-TUTORIAL
 ```
 
@@ -57,6 +59,12 @@ When you click the link, it will start downloading a **210 Mb** compressed file 
 tar -zxvf INFANTGUTTUTORIAL.tar.gz && cd INFANT-GUT-TUTORIAL
 ```
 
+If you are using a newer version of anvi'o than was the one that was used to generate these databases (perhaps you are following the development branch), you may need to run {% include PROGRAM name="anvi-migrate" %} to get them up to date. If you are not sure whether you need this, do not worry - you could safely skip it and anvi'o would later remind you what exactly needs to be done.
+
+``` bash
+anvi-migrate --migrate-dbs-safely *.db
+```
+
 {:.notice}
 If you were sent here somewhere from down below, now you can **go back**. If you have no idea what this means, ignore this notice, and continue reading. You're OK :)
 
@@ -66,15 +74,15 @@ If you were sent here somewhere from down below, now you can **go back**. If you
 
 If you type `ls` in the dataset directory you will see that the data-pack contains an anvi'o contigs database, an anvi'o merged profile database (that describes 11 metagenomes), and other additional data that are required by various sections in this tutorial. Here are some simple descriptions for some of these files, and how we generated them.
 
-**The contigs and profile databases**. We generated an anvi'o contigs database using the program `anvi-gen-contigs-database`. This special anvi'o database keeps all the information related to your contigs: positions of open reading frames, k-mer frequencies for each contig, functional and taxonomic annotation of genes, etc. The contigs database is an essential component of everything related to anvi'o metagenomic workflow. We also generated a merged anvi'o profile databases using the program `anvi-profile`. In contrast to the contigs database, anvi'o profile databases store *sample-specific* information about contigs. Profiling a BAM file with anvi'o creates a single profile that reports properties for each contig in a single sample based on mapping results. Each profile database automatically links to a contigs database, and anvi'o can merge single profiles that link to the same contigs database into an **anvi'o merged profile** (which is what you will work with during this tutorial), using the program `anvi-merge`. Here are some direct links describing these steps:
+**The contigs and profile databases**. We generated an anvi'o contigs database using the program {% include PROGRAM name="anvi-gen-contigs-database" %}. This special anvi'o database keeps all the information related to your contigs: positions of open reading frames, k-mer frequencies for each contig, functional and taxonomic annotation of genes, etc. The contigs database is an essential component of everything related to anvi'o metagenomic workflow. We also generated a merged anvi'o profile database using the program {% include PROGRAM name="anvi-profile" %}. In contrast to the contigs database, anvi'o profile databases store *sample-specific* information about contigs. Profiling a BAM file with anvi'o creates a single profile that reports properties for each contig in a single sample based on mapping results. Each profile database automatically links to a contigs database, and anvi'o can merge {% include ARTIFACT name="single-profile-db" text="single profiles" %} that link to the same contigs database into an **anvi'o merged profile** (which is what you will work with during this tutorial), using the program {% include PROGRAM name="anvi-merge" %}. Here are some direct links describing these steps:
 
 * [Creating an anvi'o contigs database]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#creating-an-anvio-contigs-database){:target="_blank"}
 * [Creating an anvi'o profile database]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#profiling-bam-files){:target="_blank"}
 * [Merging anvi'o profile databases]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}#working-with-anvio-profiles){:target="_blank"}
 
-**Identifying single-copy core genes among contigs**. We used the program `anvi-run-hmms` to identify single-copy core genes for Bacteria, Archaea, Eukarya, as well as sequences for ribosomal RNAs among the IGD contigs. All of these results are also stored in the contigs database. This information allows us to learn the completion and redundancy estimates of newly identified bins in the interactive interface, on the fly. Note that if all single copy-core genes for a given domain are detected once in the selected bin, then the completion will be 100% and the redundancy 0%. If a few genes are detected multiple times, the redundancy value will increase. If a few genes are missing, then it is the completion value that will drop.
+**Identifying single-copy core genes among contigs**. We used the program {% include PROGRAM name="anvi-run-hmms" %} to identify single-copy core genes for Bacteria, Archaea, Eukarya, as well as sequences for ribosomal RNAs among the IGD contigs. All of these results are also stored in the contigs database. This information allows us to learn the completion and redundancy estimates of newly identified {% include ARTIFACT name="bin" %} in the interactive interface, on the fly. Note that if all single copy-core genes for a given domain are detected once in the selected bin, then the completion will be 100% and the redundancy 0%. If a few genes are detected multiple times, the redundancy value will increase. If a few genes are missing, then it is the completion value that will drop.
 
-**Assigning functions to genes.** We also run `anvi-run-ncbi-cogs` on the contigs database before we packaged it for you, which stores functional hits for genes results in the contigs database. At the end of the binning process, functions occurring in each bin will be made available for downstream analyses.
+**Assigning functions to genes.** We also ran {% include PROGRAM name="anvi-run-ncbi-cogs" %} and {% include PROGRAM name="anvi-run-kegg-kofams" %} on the contigs database before we packaged it for you, which stored {% include ARTIFACT name="functions" %} for genes results in the contigs database. At the end of the binning process, functions occurring in each bin will be made available for downstream analyses.
 
 </div>
 
@@ -101,25 +109,22 @@ A typical anvi'o genome-resolved metagenomic workflow [starts with one or more B
 {:.notice}
 While this tutorial will take you through a simple analysis of a real dataset, there also is available a more comprehensive (but more abstract) tutorial on [anvi'o metagenomic workflow]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}){:target="_blank"}.
 
-Using the files in the data-pack directory, let's take a first look at the merge profile database for the infant gut dataset metagenome. If you copy-paste this to your terminal:
-
+Using the files in the data-pack directory, let's take a first look at the merged profile database for the infant gut dataset metagenome. If you copy-paste this to your terminal:
 
 ``` bash
 anvi-interactive -p PROFILE.db -c CONTIGS.db
 ```
 
-The anvi'o interactive interface should welcome you with this display (after you click "draw"):
+The anvi'o {% include ARTIFACT name="interactive" %} interface should welcome you with this display (after you click "draw"):
 
 [![infant-gut-merged.png](images/infant-gut-merged.png)](images/infant-gut-merged.png){:.center-img .width-50}
-
 
 {:.notice}
 When it is time to type other commands, you can close the window, go back to the terminal and press `CTRL + C` to kill the server.
 
-
 <details markdown="1"><summary>Show/hide Tom's description of the metagenomic binning-related features of the anvi'o interactive interface</summary>
 
-The interactive interface of anvi'o can be quite overwhelming. This particular box, in addition to the [interactive interface tutorial](tutorials/interactive-interface/), attempts to give you insights into the features of the interactive interface relevant to metagenomic binning.
+The {% include ARTIFACT name="interactive" %} interface of anvi'o can be quite overwhelming. This particular box, in addition to the [interactive interface tutorial](tutorials/interactive-interface/), attempts to give you insights into the features of the interactive interface relevant to metagenomic binning.
 
 First of all, each leaf in the cerntral dendrogram describes an individual contig. Contigs that were fragmented into multiple splits due to their extensive length can be identified in the `Parent` layer. The grey layers after the `GC-Content` display mean coverage values (i.e., the environmental signal) of each contig/split across the 11 metagenomes. Finally, you can click on the `MOUSE` box on the right side of the interface to explore numerical and alphabetic values in more details across the display.
 
@@ -129,7 +134,7 @@ Once the interactive interface is up and running, you can start binning:
 
 [![Infant gut merged](images/infant-gut-merged.gif)](images/infant-gut-merged.gif){:.center-img .width-50}
 
-Make contig selections by hovering your mouse over the tree in the center of the anvi'o figure. To add the highlighted selection to your current bin, left click. To remove the highlighted selection from your current bin, right click. To create a new bin, click "New bin" under the `Bins` tab in `Settings`. To change to a different bin, click the blue dot next to the bin name you're interested in.
+Make contig selections by hovering your mouse over the tree in the center of the anvi'o figure. To add the highlighted selection to your current {% include ARTIFACT name="bin" %}, left click. To remove the highlighted selection from your current bin, right click. To create a new bin, click "New bin" under the `Bins` tab in `Settings`. To change to a different bin, click the blue dot next to the bin name you're interested in.
 
 **Manipulating the inner dendrogram**. By default, anvi'o uses three different clutering approaches to organize contigs in the center dendrogram. Your ability to perform manual binning will be in part determined on your understanding of these clustering strategies. Here is a brief description of each:
 
@@ -172,7 +177,7 @@ anvi-import-taxonomy-for-genes -c CONTIGS.db \
                                additional-files/centrifuge-files/centrifuge_hits.tsv
 ```
 
-And run the interactive interface again,
+And run the {% include ARTIFACT name="interactive" %} interface again,
 
 ``` bash
 anvi-interactive -p PROFILE.db -c CONTIGS.db
@@ -187,41 +192,7 @@ In the Layers tab find the `Taxonomy` layer, set its height to `200`, then drag 
 
 ### Inferring taxonomy for metagenomes
 
-So at this point we don't have any idea about what genomes do we have in this dataset, but anvi'o can make sense of the taxonomic make up of a given metagenome by characterizing taxonomic affiliations of single-copy core genes. The details of this scg-taxonomy workflow is described [here]({% post_url anvio/2019-10-08-anvio-scg-taxonomy %}) in greater detail.
-
-<div class="extra-info" markdown="1">
-
-<span class="extra-info-header">Special database setup</span>
-
-Due to a glitch in anvi'o `v6`, you may run into some SCG database issues here, so let's solve it here once and for all. This is something you will do once. First copy-paste this line to remove all previously generated databases from your disk (this cryptic one-liner will remove all databases for SCG taxonomy):
-
-``` python
-python -c 'import anvio; \
-           import glob; \
-           import os; \
-               [os.remove(x) for x in glob.glob(os.path.join(os.path.dirname(anvio.__file__), \
-                                               "data/misc/SCG_TAXONOMY/GTDB/SCG_SEARCH_DATABASES/") + "*.dmnd") \
-                                                        if os.path.exists(x)]'
-```
-
-Then recreate them using four threads:
-
-```
-anvi-setup-scg-databases -T 4
-```
-
-And re-run taxonomy on our contigs database:
-
-```
-anvi-run-scg-taxonomy -c CONTIGS.db \
-                      --num-parallel-processes 3 \
-                      --num-threads 2
-```
-
-Aaaand we are done.
-
-</div>
-
+So at this point we don't have any idea about what genomes do we have in this dataset, but anvi'o can make sense of the taxonomic make up of a given metagenome by characterizing taxonomic affiliations of single-copy core genes. The details of this {% include PROGRAM name="anvi-run-scg-taxonomy" %} is described [here]({% post_url anvio/2019-10-08-anvio-scg-taxonomy %}) in greater detail.
 
 You can take a very quick look at the taxonomic composition of the metagenome through the command line first:
 
@@ -258,24 +229,68 @@ which should give us this output for the IGD:
 ╘════════════════════╧════════════════════╧══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╛
 ```
 
-Good, but could have been better. Why? *Pro tip: we have a profile database, what does it mean and how it could improve the information we see here?*
+Good, but could have been better. Why?
 
-Anvi'o can add these metagenome-level taxonomic insights into a given profile database, let's do that,
+{:.notice}
+**Pro tip**: we have a profile database, what does it mean and how it could improve the information we see here?
+
+Making use of our {% include ARTIFACT name="profile-db" text="profile database" %} the following way, will give us a little more information about our dataset:
 
 ```
 anvi-estimate-scg-taxonomy -c CONTIGS.db \
-                              -p PROFILE.db \
-                              --metagenome-mode \
-                              --compute-scg-coverages \
-                              --update-profile-db-with-taxonomy
+                           -p PROFILE.db \
+                           --metagenome-mode \
+                           --compute-scg-coverages
 ```
 
-and find the new layer additional data and take a look at it:
+which should give us the following output:
+
+```
+Taxa in metagenome "Infant Gut Contigs from Sharon et al."
+===============================================
+╒════════════════════╤════════════════════╤════════════════════════════════╤═══════════╤═══════════╤══════════╤═══════════╤═══════════╤══════════════╕
+│                    │   percent_identity │ taxonomy                       │   DAY_15A │   DAY_15B │   DAY_16 │   DAY_17A │   DAY_17B │ ... 6 more   │
+╞════════════════════╪════════════════════╪════════════════════════════════╪═══════════╪═══════════╪══════════╪═══════════╪═══════════╪══════════════╡
+│ Ribosomal_S6_2915  │               97.9 │ (s) Enterococcus faecalis      │   372.512 │   699.853 │  663.241 │    186.34 │    1149.6 │ ... 6 more   │
+├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
+│ Ribosomal_S6_11655 │               98.9 │ (s) Staphylococcus epidermidis │   112.694 │   172.478 │  147.304 │   23.3901 │   140.769 │ ... 6 more   │
+├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
+│ Ribosomal_S6_4484  │               98.9 │ (s) Peptoniphilus lacydonensis │         0 │         0 │        0 │         0 │         0 │ ... 6 more   │
+├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
+│ Ribosomal_S6_7660  │               98.9 │ (g) Staphylococcus             │         0 │         0 │        0 │         0 │         0 │ ... 6 more   │
+├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
+│ Ribosomal_S6_6421  │                100 │ (s) Cutibacterium avidum       │   17.8935 │   5.87368 │  4.79909 │         0 │         0 │ ... 6 more   │
+├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
+│ Ribosomal_S6_12163 │               98.9 │ (s) Staphylococcus hominis     │   2.39322 │   22.5447 │  13.2806 │         0 │   9.94853 │ ... 6 more   │
+├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
+│ Ribosomal_S6_15200 │               98.9 │ (s) Leuconostoc citreum        │         0 │         0 │  1.86532 │         0 │    1.6936 │ ... 6 more   │
+├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
+│ Ribosomal_S6_29818 │               98.9 │ (s) Streptococcus oralis       │         0 │         0 │        0 │         0 │         0 │ ... 6 more   │
+├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
+│ Ribosomal_S6_25880 │               98.9 │ (s) Finegoldia magna           │         0 │         0 │        0 │         0 │         0 │ ... 6 more   │
+├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
+│ Ribosomal_S6_30904 │               98.1 │ (s) Anaerococcus nagyae        │  0.528958 │         0 │  0.14157 │         0 │         0 │ ... 6 more   │
+╘════════════════════╧════════════════════╧════════════════════════════════╧═══════════╧═══════════╧══════════╧═══════════╧═══════════╧══════════════╛
+```
+
+These look like information that would have been useful to have in front of us in our interactive interface. Luckily, anvi'o can add these taxonomic insights into a given {% include ARTIFACT name="profile-db" text="profile database" %}, if you change the previous command just a bit:
+
+```
+anvi-estimate-scg-taxonomy -c CONTIGS.db \
+                           -p PROFILE.db \
+                           --metagenome-mode \
+                           --compute-scg-coverages \
+                           --update-profile-db-with-taxonomy
+```
+
+Tadaa. Now let's take another look at our interactive interface and find the additional data for our layers:
 
 ```
 anvi-interactive -c CONTIGS.db \
                  -p PROFILE.db
 ```
+
+At this point we have an overall idea about the make up of this metagenome, but we don't have any genomes from it. The following sections will cover some of multiple ways to do this.
 
 ### Manual identification of genomes in the Infant Gut Dataset
 
@@ -298,10 +313,10 @@ Here is an example of 16 bins we identified for comparison AFTER you performed y
 
 [![Manual_Binnin_Result_Example.png](images/Manual_Binnin_Result_Example.png)](images/Manual_Binnin_Result_Example.png){:.center-img .width-50}
 
-Please save your bins as a collection. You can give your collection any name, but if you all it `default`, anvi'o will treat it differently.
+Please save your bins as a collection. You can give your collection any name, but if you call it `default`, anvi'o will treat it differently.
 
 {:.notice}
-In the anvi'o lingo, a 'collection' is something that describes one or more bins, each of which describe one or more contigs.
+In the anvi'o lingo, a {% include ARTIFACT name="collection" %} is something that describes one or more {% include ARTIFACT name="bin" text="bins" %}, each of which describe one or more contigs.
 
 If you identified near-complete genomes, then congratulations, you have characterized genomic contents of microbial populations *de novo*.
 
@@ -309,7 +324,7 @@ If you identified near-complete genomes, then congratulations, you have characte
 
 Why do we do binning? Because we are interested in making sense of our metagenomes in the context of genomes we have recovered through binning. Understanding the distribution patterns of the genomes we have in a collection in a quantitative fashion, or getting back a table of function names found in each one of them, or even summarizing our bins as distinct FASTA files are critical for next steps of every binning analysis. After all, binning is a boring detail before you start doing your science.
 
-To ensure that you have everything you need to continue working with the outcomes of your binning effort outside of anvi'o, we have a program called `anvi-summarize`. It is possible to summarize any collection stored in an anvi'o profile database through this program. The result is a static HTML page that can be viewed on any computer.
+To ensure that you have everything you need to continue working with the outcomes of your binning effort outside of anvi'o, we have a program called {% include PROGRAM name="anvi-summarize" %}. It is possible to summarize any collection stored in an anvi'o profile database through this program. The result is a static HTML page that can be viewed on any computer.
 
 <div class="extra-info" markdown="1">
 
@@ -336,11 +351,11 @@ anvi-summarize -p PROFILE.db \
                -o SUMMARY
 ```
 
-Once summary is finished, take a minute to look at its contents.
+Once the summary is finished, take a minute to look at its contents.
 
 ### Renaming bins in your collection (from chaos to order)
 
-As you can see from the summary file, at this point bin names are random, and we often find it useful to put some order on this front. This becomes an extremely useful strategy especially when the intention is to merge multiple binning efforts later. For this task we use the program `anvi-rename-bins`:
+As you can see from the {% include ARTIFACT name="summary" %} file, at this point bin names are random, and we often find it useful to put some order on this front. This becomes an extremely useful strategy especially when the intention is to merge multiple binning efforts later. For this task we use the program {% include PROGRAM name="anvi-rename-bins" %}:
 
 ``` bash
 anvi-rename-bins -p PROFILE.db \
@@ -352,9 +367,9 @@ anvi-rename-bins -p PROFILE.db \
                  --report-file rename-bins-report.txt
 ```
 
-With those settings, a new collection `MAG` will be created in which (1) bins with a completion >70% are identified as MAGs (stands for Metagenome-Assembled Genome), (2) and bins and MAGs are attached the prefix IGD and renamed based on the difference between completion and redundancy.
+With those settings, a new collection `MAG` will be created in which (1) bins with a completion >70% are identified as MAGs (stands for Metagenome-Assembled Genome), and (2) bins and MAGs are attached the prefix IGD and renamed based on the difference between completion and redundancy.
 
-Now we can use the program `anvi-summarize` to summarize the new collection:
+Now we can use the program {% include PROGRAM name="anvi-summarize" %} to summarize the new collection:
 
 ``` bash
 anvi-summarize -p PROFILE.db \
@@ -379,7 +394,8 @@ Better.
 {:.warning}
 **Why not relying only on single-copy core genes to estimate purity of a genome bin?** Let's think about this altogether. But once we are done with this, please see the relevant section in [this study](https://t.co/tlnQvIGsIw).
 
-To straighten the quality of the `MAGs` collection, it is possible to visualize individual bins and if needed, refine them. For this we use the program `anvi-refine`. For instance, if you were to be interested in refining one of the bins in our current collection, you could run this command:
+To straighten the quality of the `MAGs` collection, it is possible to visualize individual bins and if needed, refine them. For this we use the program {% include PROGRAM name="anvi-refine" %}. For instance, if you were to be interested in refining one of the bins in our current collection, you could run this command:
+
 
 ``` bash
 anvi-refine -p PROFILE.db \
@@ -388,7 +404,7 @@ anvi-refine -p PROFILE.db \
             -b IGD_MAG_00001
 ```
 
-Now the interactive interface only displays contigs from a single bin. During this curation step, one can try different clustering strategies (i.e. by only relying on coverage, or only relying on sequence composition) to identify outliers and investigate carefully whether they may be contaminants. You can select everything, and remove those contigs you don't want to keep in the bin before using the Bins panel to store your updated set of contigs in the database.
+Now the {% include ARTIFACT name="interactive" %} interface only displays contigs from a single bin. During this curation step, one can try different clustering strategies (i.e. by only relying on coverage, or only relying on sequence composition) to identify outliers and investigate carefully whether they may be contaminants. You can select everything, and remove those contigs you don't want to keep in the bin before using the Bins panel to store your updated set of contigs in the database.
 
 Here is an example of MAG we had to curate (we removed three contigs):
 
@@ -407,7 +423,7 @@ The directory `additional-files/external-binning-results` contains a number of f
 
 <div class="extra-info" markdown="1">
 
-<span class="extra-info-header">External binning results:</span>
+<span class="extra-info-header">External binning results [FROM AGES AGO]:</span>
 
 The first five files are courtesy of **Elaina Graham**, who used [GroopM](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4183954/){:target="_blank"} (v0.3.5), [MetaBat](https://peerj.com/articles/1165/){:target="_blank"} (v0.26.3), [MaxBin](https://microbiomejournal.biomedcentral.com/articles/10.1186/2049-2618-2-26){:target="_blank"} (v2.1.1), [MyCC](https://sourceforge.net/projects/sb2nhri/files/MyCC/){:target="_blank"}, and [BinSanity](http://biorxiv.org/content/early/2016/08/16/069567){:target="_blank"} (v0.2.1) to bin the IGD. For future references, here are the parameters Elaina used for each approach:
 
@@ -438,21 +454,21 @@ Binsanity-refine -f . -l -p -150 -c igm.coverage.lognorm
 
 [CONCOCT](http://www.nature.com/nmeth/journal/v11/n11/full/nmeth.3103.html){:target="_blank"} results come from the CONCOCT module that was embedded within anvi'o until `v6`.
 
-Eren et al. results come directly from the collection generated during the study.
+Eren et al. results come directly from the {% include ARTIFACT name="collection" %} generated during the study.
 
 Finally, a file corresponding to Sharon et al. results was created by BLAST-searching sequences in bins identified by the authors of the study (see [http://ggkbase.berkeley.edu/carrol](http://ggkbase.berkeley.edu/carrol){:target="_blank"}) to our contigs to have matching names for our assembly.
 
 </div>
 
-Now you have the background information about where these files are coming from. Moving on. But just before we continue to move on, let's remove the default collection from our profile database, if there is one, to avoid any confusion.
+Now you have the background information about where these files are coming from. Moving on. But just before we continue to move on, let's remove the default collection from our {% include ARTIFACT name="profile-db" text="profile database" %}, if there is one, to avoid any confusion.
 
-You can use this command to see all collections in your anvi'o profile database:
+You can use the program {% include PROGRAM name="anvi-show-collections-and-bins" %} to see all collections in your anvi'o profile database:
 
 ```
 anvi-show-collections-and-bins -p PROFILE.db
 ```
 
-And use this one to remove one that's called `default`:
+And use {% include PROGRAM name="anvi-delete-collection" text="this one"%} to remove one that's called `default`:
 
 ```
 anvi-delete-collection -p PROFILE.db \
@@ -461,7 +477,7 @@ anvi-delete-collection -p PROFILE.db \
 
 ### Importing an external binning result
 
-You can create a collection by using the interactive interface (e.g., the `default` and `MAGs` collections you just created), or you can import external binning results into your profile database as a collection and see how that collection groups contigs. For instance, let's import the CONCOCT collection:
+You can create a collection by using the {% include ARTIFACT name="interactive" %} interface (e.g., the `default` and `MAGs` collections you just created), or you can import {% include ARTIFACT name="collection-txt" text="external binning results" %} into your profile database as a collection and see how that collection groups contigs. For instance, let's {% include PROGRAM name="anvi-import-collection" text="import" %} the CONCOCT collection:
 
 ``` bash
 anvi-import-collection additional-files/external-binning-results/CONCOCT.txt \
@@ -471,13 +487,13 @@ anvi-import-collection additional-files/external-binning-results/CONCOCT.txt \
                        --contigs-mode
 ```
 
-you can immediately see what collections are available in a given profile database the following way (which in this case should show us the collections `CONCOCT`, and `MAGs`):
+you can immediately see what collections are available in a given profile database using the program {% include PROGRAM name="anvi-show-collections-and-bins" %} (which in this case should show us the collections `CONCOCT`, and `MAGs`):
 
 ``` bash
 anvi-show-collections-and-bins -p PROFILE.db
 ```
 
-You can get a quick idea regarding the estimated completion of bins in a given collection:
+You can get a quick idea regarding the {% include PROGRAM name="anvi-estimate-genome-completeness" text="estimated completion" %} of bins in a given collection:
 
 ``` bash
 anvi-estimate-genome-completeness -p PROFILE.db \
@@ -502,7 +518,7 @@ anvi-interactive -p PROFILE.db \
 ```
 
 {:.notice}
-Alternatively you could load the interface without the `--collection-autoload ` flag, and click `Bins > Load bin collection > CONCOCT > Load` to load the CONCOCT collection.
+Alternatively you could load the interface without the `--collection-autoload` flag, and click `Bins > Load bin collection > CONCOCT > Load` to load the CONCOCT collection.
 
 To turn off text annotation, go to `Main > Display > Additional Settings > Selections` and then uncheck `Show names`. You will then see something like this:
 
@@ -516,9 +532,9 @@ Since we have all these results from different binning approaches, it clearly wo
 
 Here we have multiple independent sources of information we could use. Including (1) the organization of contigs based on hierarchical clustering analysis, (2) per-contig taxonomy estimated from the gene-level taxonomic annotations by Centrifuge, and (3) results from the original publication from Sharon et al., in which authors did a very careful job to identify every genome in the dataset (even resolving the *Staphylococcus* pangenome, which is extremely hard for automatic binning approaches that work with a single co-assembly). So these are the things we can build upon for a modest comparison.
 
-To include binning results in this framework, we could import each collection into the profile database the way we imported CONCOCT. But unfortunately at any given time there could only be one collection that can be displayed in the interface. Luckily there are other things we can do. For instance, as a workaround, we can merge all binning results into a single file, and use that file as an 'additional data file' to visualize them in the interactive interface.
+To include binning results in this framework, we could import each collection into the profile database the way we imported CONCOCT. But unfortunately at any given time there could only be one collection that can be displayed in the interface. Luckily there are other things we can do. For instance, as a workaround, we can merge all binning results into a single file, and use that file as an {% include ARTIFACT name="misc-data-layers" text="'additional data file'" %} to visualize them in the interactive interface.
 
-Anvi'o has a script to merge multiple files for external binning results into a single merged file (don't ask why):
+Anvi'o has a script called {% include PROGRAM name="anvi-script-merge-collections" %} to merge multiple files from external binning results into a single merged file (don't ask why):
 
 ``` bash
 anvi-script-merge-collections -c CONTIGS.db \
@@ -542,7 +558,7 @@ Day17a_QCcontig1007_split_00001  INFANT-GUT-ASSEMBLY-bin_16.fna  Bin_3    db_bin
 Day17a_QCcontig1008_split_00001  INFANT-GUT-ASSEMBLY-bin_14.fna  Bin_2    db_bin_1   maxbin.009  metabat_igm.7         Cluster.8.fasta   Candida_albcans
 ```
 
-Good. Now you can run the interactive interface to display all collections of bins stored in `collections.tsv` as 'additional layers':
+Good. Now you can run the interactive interface to display all bins in all collections stored in `collections.tsv` as additional layers:
 
 ``` bash
 anvi-interactive -p PROFILE.db \
@@ -554,7 +570,7 @@ anvi-interactive -p PROFILE.db \
 
 <span class="extra-info-header">Dealing with additional data tables like a pro</span>
 
-As you can see, `-A` parameter allows us to add anything to the interface as additional layers as far as the first column of that data matches to our item names. We could alternatively import this additional information into our profile database, and the way to do it is through the use of [additional data tables subsystem of anvi'o]({% post_url anvio/2017-12-11-additional-data-tables %}). There is much more information on how to deal with additional data of all sorts here, but basically we can run the following command to import this data into our database:
+As you can see, `-A` parameter allows us to add anything to the interface as additional layers as far as the first column of that data matches to our item names. We could alternatively import this additional information into our profile database, and the way to do it is through the use of [additional data tables subsystem of anvi'o]({% post_url anvio/2017-12-11-additional-data-tables %}). There is much more information on how to deal with additional data of all sorts here, but basically we can use the program {% include PROGRAM name="anvi-import-misc-data" %} to import this data into our database:
 
 ``` bash
 anvi-import-misc-data collections.tsv \
@@ -584,7 +600,7 @@ At this point you should be seeing a display similar to this (after setting the 
 
 [![Infant gut merged](images/infant-gut-collections.png)](images/infant-gut-collections.png){:.center-img .width-50}
 
-The legends for each of the bin collections are available in the `Legends` tab of `Settings`. To visually emphasize relationships between bins, you can change the color of each bin manually by clicking on the colored boxes in the legends. Or, if you're not a masochist you can import an anvi'o state where we did that for you:
+The legends for each of the bin collections are available in the `Legends` tab of `Settings`. To visually emphasize relationships between bins, you can change the color of each bin manually by clicking on the colored boxes in the legends. Or, if you're not a masochist, you can use the program {% include PROGRAM name="anvi-import-state" %} to import an anvi'o {% include ARTIFACT name="state" %} we have created for you:
 
 ``` bash
 anvi-import-state --state additional-files/state-files/state-merged.json \
@@ -630,7 +646,7 @@ anvi-import-collection additional-files/external-binning-results/MAXBIN.txt \
                        --contigs-mode
 ```
 
-From here, there are two things we can do very quickly. First, we can create a summary of our new collection, or we can take a quick look at the completion / redundancy estimates of bins described by this collection from the command line:
+From here, there are two things we can do very quickly. First, we can create a {% include ARTIFACT name="summary" %} of our new collection or we can take a quick look at the {% include ARTIFACT name="completion" text="completion / redundancy estimates" %} of bins described by this collection from the command line, using {% include PROGRAM name="anvi-estimate-genome-completeness" %}:
 
 ``` bash
 anvi-estimate-genome-completeness -p PROFILE.db \
@@ -657,7 +673,7 @@ Please read this post to learn more about completion and redundancy estimates: [
 
 It is clear that some bins are not as well-resolved as others. For instance, bins `maxbin_007` and `maxbin_008` have redundancy estimates of 22% and 91%, respectively, which suggests each of them describe multiple distinct populations. Well, clearly we would have preferred those bins to *behave*.
 
-If you order bins based on their detection across metagenomes (by changing the 'Items order' to 'detection' from the menu in the Main tab), you can also see that  bins `maxbin_007` and `maxbin_008` are right next to each other. This suggests that it may be a good idea to simply merge these bins first, and then refine to avoid issues of over-splitting populations of interest. Let's merge them into a single bin first:
+If you order bins based on their detection across metagenomes (by changing the 'Items order' to 'detection' from the menu in the Main tab), you can also see that  bins `maxbin_007` and `maxbin_008` are right next to each other. This suggests that it may be a good idea to simply merge these bins first, and then use the program {% include PROGRAM name="anvi-refine" %} to avoid issues of over-splitting populations of interest. Let's use the program {% include PROGRAM name="anvi-merge-bins" %} to merge them into a single bin first:
 
 ```
 anvi-merge-bins -p PROFILE.db \
@@ -754,16 +770,16 @@ Bins in collection "MAXBIN"
 │ maxbin_007_and_008_5 │ BACTERIA │          0.3 │          38.03 │           2.82 │          247 │        2333489 │
 ├──────────────────────┼──────────┼──────────────┼────────────────┼────────────────┼──────────────┼────────────────┤
 │ maxbin_007_and_008_6 │ BACTERIA │          0.8 │          71.83 │           2.82 │          556 │        1237568 │
-╘══════════════════════╧══════════╧══════════════╧════════════════╧════════════════╧══════════════╧════════════════╛
+╘════════════════════╧══════════╧══════════════╧════════════════╧════════════════╧══════════════╧════════════════╛
 ```
 
-The take home message here is that even when automatic binning approaches yield poorly identified bins, it is possible to improve the final results through a manual refinement step. Clearly these extra steps require a lot of expertise, intuition, attention, and decision making. And fortunately you are all familiar with each one of them because science. 
+The take home message here is that even when automatic binning approaches yield poorly identified bins, it is possible to improve the final results through a manual refinement step. Clearly these extra steps require a lot of expertise, intuition, attention, and decision making. And fortunately you are all familiar with each one of them because science.
 
 Thank you for following the tutorial this far!
 
 <details markdown="1"><summary>Show/hide More on refinement</summary>
 
-You can read more about `anvi-refine` [here]({% post_url anvio/2015-05-11-anvi-refine %}){:target="_blank"}. Also you may want to look at Tom's refining of the Loki archaea: [Inspecting the genomic link between Archaea and Eukaryota]({% post_url miscellaneous/2017-01-03-loki-the-link-archaea-eukaryota %}).
+You can read more about {% include PROGRAM name="anvi-refine" %} [here]({% post_url anvio/2015-05-11-anvi-refine %}){:target="_blank"}. Also you may want to look at Tom's refining of the Loki archaea: [Inspecting the genomic link between Archaea and Eukaryota]({% post_url miscellaneous/2017-01-03-loki-the-link-archaea-eukaryota %}).
 
 If you are feeling lazy, you can just take a quick look at this videos from the post above.
 
@@ -813,8 +829,7 @@ Well, how do you even know how many bacterial genomes you should expect to find 
 
 Thanks for the great question. Although this may sound like a challenging problem to some, we have a very simple way to resolve it (which I described in this [blog post]({% post_url anvio/2015-12-07-predicting-number-of-genomes %}){:target="_blank"}). If you still have access to the IGD, you can run this simple command:
 
-``` bash
-anvi-display-contigs-stats CONTIGS.db
+``display-contigs-stats CONTIGS.db
 ```
 
 If you take a look at the resulting interactive graph, you can see that one should expect to find about 10 near-complete genomes in this dataset:
@@ -834,7 +849,8 @@ anvi-cluster-with-concoct -p PROFILE.db \
 ```
 
 {:.notice}
-anvi-cluster-with-concoct has been superseded with anvi-cluster-contigs
+anvi-cluster-with-concoct has been superseded with {% include PROGRAM name="anvi-cluster-contigs" %}
+
 
 Now you can run the interface again,
 
@@ -860,7 +876,7 @@ anvi-refine -p PROFILE.db \
 
 ---
 
-There are more ways to improve bins and binning results. But although we have seen major improvements in our research by exploring these directions, there are also many other cases nothing is quite enough.
+There are more ways to improve bins and binning results. But although we have seen major improvements in our research by exploring these directions, there are also many other cases where nothing is quite enough.
 
 Then it is time to increase the depth of sequencing, implement a different assembly strategy, rethink the sampling strategy, or change the experimental approach to do what seems to be undoable. Here is an example from Tom Delmont et al. to that last point with soil metagenomics: [doi:10.3389/fmicb.2015.00358](https://doi.org/10.3389/fmicb.2015.00358){:target="_blank"}.
 
@@ -871,16 +887,16 @@ We all just have to continue working, and enjoy this revolution.
 ## Chapter III: Phylogenomics
 
 {:.notice}
-This is more of a practical tutorial to do phylogenomic analyses on metagenome-assembled genomes described in anvi'o collections. For a more abstract tutorial on phylogenomics, please consider first reading '[An anvi'o workflow for phylogenomics]({% post_url anvio/2017-06-07-phylogenomics %}){:target="_blank"}'.
+This is more of a practical tutorial to do phylogenomic analyses on metagenome-assembled genomes described in anvi'o {% include ARTIFACT name="collection" text="collections" %}. For a more abstract tutorial on phylogenomics, please consider first reading '[An anvi'o workflow for phylogenomics]({% post_url anvio/2017-06-07-phylogenomics %}){:target="_blank"}'.
 
 {:.notice}
-To see a practical application of phylogenomics see [this workflow](http://merenlab.org/data/parcubacterium-in-hbcfdna/){:target="_blank"}'.
+To see a practical application of phylogenomics see [this workflow](http://merenlab.org/data/parcubacterium-in-hbcfdna/){:target="_blank"}.
 
 
 {:.notice}
-**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
+**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged {% include ARTIFACT name="profile-db" text="profile database" %} and the anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
 
-Please run the following command in the IGD dir, so you have everything you need. We will simply import our previously generated collection of bins in the IGD dataset as the `default` collection:
+Please run the following command in the IGD dir, so you have everything you need. We will simply import our previously generated collection of {% include ARTIFACT name="bin" text="bins" %} in the IGD dataset as the `default` collection:
 
 ``` bash
 anvi-import-collection additional-files/collections/merens.txt \
@@ -913,7 +929,7 @@ In order to do the phylogenomic analysis, we will need a FASTA file of concatena
 
 We first need to identify an HMM profile, and then select some gene names from this profile to play with.
 
-Going back to the IGD, let's start by looking at what HMM profiles available to us:
+Going back to the IGD, let's start by looking at what HMM profiles are available to us:
 
 ``` bash
 anvi-get-sequences-for-hmm-hits -c CONTIGS.db \
@@ -928,7 +944,7 @@ anvi-get-sequences-for-hmm-hits -c CONTIGS.db \
 ```
 
 {:.notice}
-As you know, you can use `anvi-run-hmms` program with custom made HMM profiles to add your own HMMs into the contigs database.
+As you know, you can use {% include PROGRAM name="anvi-run-hmms" %} program with custom made HMM profiles to add your own HMMs into the contigs database.
 
 Alright. We have two. Let's see what genes do we have in `Bacteria_71`:
 
@@ -961,7 +977,7 @@ OK. A lot. Good for you, `Bacteria_71`.
 
 For the sake of this simple example, let's assume we want to use a bunch of ribosomal genes for our phylogenomic analysis: `Ribosomal_L1`, `Ribosomal_L2`, `Ribosomal_L3`, `Ribosomal_L4`, `Ribosomal_L5`, `Ribosomal_L6`.
 
-OK. The following command will give us all these genes from all bins described in the collection `default`:
+OK. The {% include PROGRAM name="anvi-get-sequences-for-hmm-hits" text="following command" %} will give us all these genes from all bins described in the collection `default`:
 
 ``` bash
 anvi-get-sequences-for-hmm-hits -c CONTIGS.db \
@@ -972,9 +988,9 @@ anvi-get-sequences-for-hmm-hits -c CONTIGS.db \
                                 --gene-names Ribosomal_L1,Ribosomal_L2,Ribosomal_L3,Ribosomal_L4,Ribosomal_L5,Ribosomal_L6
 
 Init .........................................: 4451 splits in 13 bin(s)
-Hits .........................................: 1358 hits for 1 source(s)
-Filtered hits ................................: 65 hits remain after filtering for 6 gene(s)
-Mode .........................................: DNA seqeunces
+Hits .........................................: 668 hits for 1 source(s)
+Filtered hits ................................: 64 hits remain after filtering for 6 gene(s)
+Mode .........................................: DNA sequences
 Genes are concatenated .......................: False
 Output .......................................: seqs-for-phylogenomics.fa
 ```
@@ -999,7 +1015,7 @@ To exit `less` mode, press `q`.
 
 Every sequence for every HMM hit is for itself :/ Hmm.
 
-Concatenated we stand divided we fall.
+Concatenated we stand, divided we fall.
 
 
 ### Concatenating genes
@@ -1060,7 +1076,7 @@ If you look at the resulting file again, you will see how everything looks just 
 
 Once you have your concatenated genes, which you now have them in `seqs-for-phylogenomics.fa` if you followed the previous section, it is time to perform the phylogenomic analysis.
 
-There are multiple ways to do this. Here we will use the program `anvi-gen-phylogenomic-tree`, which accepts a FASTA file and uses one of the programs it knows about to compute the tree. Currently the only option is [FastTree](http://www.microbesonline.org/fasttree/), which infers approximately-maximum-likelihood phylogenetic trees from FASTA files that look like yours. Send us your favorite, and we will happily consider expanding the collection of available tools for this analysis.
+There are multiple ways to do this. Here we will use the program {% include PROGRAM name="anvi-gen-phylogenomic-tree" %}, which accepts a FASTA file and uses one of the programs it knows about to compute the tree. Currently the only option is [FastTree](http://www.microbesonline.org/fasttree/), which infers approximately-maximum-likelihood phylogenetic trees from FASTA files that look like yours. Send us your favorite, and we will happily consider expanding the collection of available tools for this analysis.
 
 Computing a phylogenomic tree from our FASTA file is as simple as this:
 
@@ -1112,15 +1128,15 @@ Now you know how to organize distantly related genomes using universally conserv
 
 ## Chapter IV: Pangenomics
 
-Both phylogenomics and pangenomics are strategies under the umbrella of comparative genomics, and they are inherently very similar despite their key differences. In this chapter we will discuss pangenomics and use anvi'o to have a small pangenomic analysis using our famous *E. faecalis* bin we recovered from the infant gut dataset and a bunch of others from the interwebs.
+Both phylogenomics and pangenomics are strategies under the umbrella of comparative genomics, and they are inherently very similar despite their key differences. In this chapter we will discuss pangenomics and use anvi'o to have a small pangenomic analysis using our famous *E. faecalis* {% include ARTIFACT name="bin" %} we recovered from the infant gut dataset and a bunch of others from the interwebs.
 
 {:.notice}
 You can find a comprehensive tutorial on the anvi'o pangenomic workflow [here]({% post_url anvio/2016-11-08-pangenomics-v2 %}){:target="_blank"}.
 
 {:.warning}
-**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
+**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged {% include ARTIFACT name="profile-db" text="profile database" %} and the anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
 
-Please run following commands in the IGD dir. They will set the stage for us to take a look at the *E. faecalis* bin:
+Please run following {% include PROGRAM name="anvi-import-collection" text="command" %} in the IGD dir. They will set the stage for us to take a look at the *E. faecalis* bin:
 
 ``` bash
 anvi-import-collection additional-files/collections/e-faecalis.txt \
@@ -1154,7 +1170,7 @@ additional-files/pangenomics/external-genomes/Enterococcus_faecium_6798.db
 {:.notice}
 The post [Accessing and including NCBI genomes in 'omics analyses in anvi'o]({% post_url anvio/2019-03-14-ncbi-genome-download-magic %}) explains how to download sets of genomes you are interested in from the NCBI and turn them into anvi'o contigs databases.
 
-There also are two files in the `additional-files/pangenomics` directory to describe how to access to the external genomes:
+There also are two files in the `additional-files/pangenomics` directory to describe how to access to the {% include ARTIFACT name="external-genomes" %}:
 
 |name|contigs_db_path|
 |:--|:--|
@@ -1170,7 +1186,7 @@ There also are two files in the `additional-files/pangenomics` directory to desc
 |E_faecium_6778|external-genomes/Enterococcus_faecium_6778.db|
 |E_faecium_6798|external-genomes/Enterococcus_faecium_6798.db|
 
-and the internal one:
+and the {% include ARTIFACT name="external-genomes" text="internal" %} one:
 
 |name|bin_id|collection_id|profile_db_path|contigs_db_path|
 |:--|:--:|:--:|:--|:--|
@@ -1188,7 +1204,7 @@ anvi-gen-genomes-storage -i additional-files/pangenomics/internal-genomes.txt \
 
 ### Computing and visualizing the pangenome
 
-Now we have the genomes storage, we can characterize the pangenome:
+Now we have the {% include ARTIFACT name="genomes-storage-db" text="genomes storage"%}, we can characterize the pangenome:
 
 ``` bash
 anvi-pan-genome -g Enterococcus-GENOMES.db \
@@ -1226,7 +1242,7 @@ I am not arguing that every figure should look like that one, but I would like y
 </div>
 
 
-OK. I made the previous display a bit prettier for you. If you kill the server, and import the state file the following way, and re-run the server,
+OK. I made the previous display a bit prettier for you. If you kill the server, and {% include PROGRAM name="anvi-import-state" text="import" %} the {% include ARTIFACT name="state" %} file the following way, and re-run the server,
 
 ``` bash
 anvi-import-state -p PAN/Enterococcus-PAN.db \
@@ -1246,7 +1262,7 @@ Now not only can we see how our E. faecalis genome looks like compared to availa
 
 ### Adding average nucleotide identity
 
-The pangenome tells us about the similarities and dissimilarities between those genomes given the amino acid sequences of open reading frames we identified within each one of them. We could also compare them to each other by computing the average nucleotide identity between them. Anvi'o comes with a program to do that, which uses [PyANI by Pritchard et al.](https://github.com/widdowquinn/pyani) to pairwise align DNA sequences between genomes to estimate similarities between them. [See this tutorial for details]({% post_url anvio/2016-11-08-pangenomics-v2 %}#computing-the-average-nucleotide-identity-for-genomes).
+The pangenome tells us about the similarities and dissimilarities between those genomes given the amino acid sequences of open reading frames we identified within each one of them. We could also compare them to each other by computing the average nucleotide identity between them. Anvi'o comes with a {% include PROGRAM name="anvi-compute-genome-similarity" text="program" %} to do that, which uses [PyANI by Pritchard et al.](https://github.com/widdowquinn/pyani) to pairwise align DNA sequences between genomes to estimate similarities between them. [See this tutorial for details]({% post_url anvio/2016-11-08-pangenomics-v2 %}#computing-the-average-nucleotide-identity-for-genomes).
 
 We can compute average nucleotide identity among our genomes, and add them to the pan database the following way:
 
@@ -1263,7 +1279,7 @@ anvi-compute-genome-similarity -e additional-files/pangenomics/external-genomes.
 
 <span class="extra-info-header">For people in a rush</span>
 
-Computing ANI can take a long time especially if you don't have many threads to share. Your data-pack contains the ANI percent identity file that emerges from the previous command line that you can import into your pan database if you don't want to run the command and move on:
+Computing ANI can take a long time especially if you don't have many threads to share. Your data-pack contains the ANI percent identity file that emerges from the previous command line that you can {% include PROGRAM name="anvi-import-misc-data" text="import" %} into your pan database if you don't want to run the command and move on:
 
 ``` bash
 anvi-import-misc-data additional-files/pangenomics/ANI_percentage_identity.txt \
@@ -1308,7 +1324,7 @@ Please take a look at [this study](https://doi.org/10.1038/s41467-019-08973-w) a
 
 One of the things we often are interested in is this question: which functions are associated with a particular organization of genomes due to their phylogenomic or pangenomic characteristics.
 
-For instance, genomes in this pangenome are organized into two distinct groups based on differential distribution of gene clusters. That is of course not surprising, since these genomes are classified into two distinct 'species' within the genus Enterococcus. So you can certainly imagine more appropriate or interesting examples where you may be wondering about functional enrichment across groups of genomes that do not have such clear distinctions at the level of taxonomy. The actual tutorial to make sense of functions in pangenomes is [here]({% post_url anvio/2016-11-08-pangenomics-v2 %}/#making-some-sense-of-functions-in-your-pangenome). Here we will make a quick pass to demonstrate its relevance.
+For instance, genomes in this pangenome are organized into two distinct groups based on differential distribution of gene clusters. That is of course not surprising, since these genomes are classified into two distinct 'species' within the genus Enterococcus. So you can certainly imagine more appropriate or interesting examples where you may be wondering about functional enrichment across groups of genomes that do not have such clear distinctions at the level of taxonomy. The actual tutorial to make sense of functions in pangenomes is [here]({% post_url anvio/2016-11-08-pangenomics-v2 %}/#making-sense-of-functions-in-your-pangenome). Here we will make a quick pass to demonstrate its relevance.
 
 First, you need to define how you would like to group your genomes in the pangenome so anvi'o can find out which functions are characteristic of each group. Here is our TAB-delimited file to divide these genomes into two groups:
 
@@ -1328,7 +1344,7 @@ First, you need to define how you would like to group your genomes in the pangen
 |E_faecium_6778|faecium|
 |E_faecium_6798|faecium|
 
-Which is also in your data-pack. Let's import it into the pan database as an additional layer data:
+Which is also in your data-pack. Let's {% include PROGRAM name="anvi-import-misc-data" text="import" %} it into the pan database as an additional layer data:
 
 ``` bash
 anvi-import-misc-data -p PAN/Enterococcus-PAN.db \
@@ -1351,40 +1367,42 @@ and see the new layer there that correspond to our clades:
 Now we can ask anvi'o to identify and report functions that are enriched in either of these clades along with the gene clusters they are associated with:
 
 ``` bash
-anvi-get-enriched-functions-per-pan-group -p PAN/Enterococcus-PAN.db \
-                                          -g Enterococcus-GENOMES.db \
-                                          --category clade \
-                                          --annotation-source COG_FUNCTION \
-                                          -o functional-enrichment.txt
+anvi-compute-functional-enrichment -p PAN/Enterococcus-PAN.db \
+                                   -g Enterococcus-GENOMES.db \
+                                   --category-variable clade \
+                                   --annotation-source COG20_FUNCTION \
+                                   -o functional-enrichment.txt
 ```
 
 Which would generate a new file, `functional-enrichment.txt`, in our work directory that is just filled with stuff like this:
 
-|COG_FUNCTION|enrichment_score|unadjusted_p_value|adjusted_q_value|associated_groups|function_accession|gene_clusters_ids|p_faecium|p_faecalis|N_faecium|N_faecalis|
+| COG20_FUNCTION | enrichment_score | unadjusted_p_value | adjusted_q_value | associated_groups | accession | gene_clusters_ids | p_faecium |p_faecalis | N_faecium | N_faecalis |
 |:--|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-|Alpha-galactosidase|12.00000001|5.32E-04|0.003981046|faecium|COG3345|GC_00002469|1|0|5|7|
-|Zinc transporter ZupT|12.00000001|5.32E-04|0.003981046|faecium|COG0428|GC_00002604|1|0|5|7|
-|Phenolic acid decarboxylase|12.00000001|5.32E-04|0.003981046|faecium|COG3479|GC_00002605|1|0|5|7|
+| Na+/glutamate symporter (GltS) | 12.00000001 | 5.3200E-4 | 0.00359836 | faecalis | COG0786 | GC_00001886 | 1 | 0 | 7 | 5 |
+| Uncharacterized conserved protein (PDB:4LQE) | 12.00000001 | 5.3200E-4 | 0.00359836 | faecalis | COG4815 | GC_00002033 | 1 | 0 | 7 | 5 |
+| ABC-type transport system involved in cytochrome bd biosynthesis, ATPase and permease components (CydD) | 12.00000001 | 5.3200E-4 | 0.00359836 | faecalis | COG4988 | GC_00002143 | 1 | 0 | 7 | 5 |
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
-|Molybdenum cofactor biosynthesis enzyme|12.00000001|5.32E-04|0.003981046|faecalis|COG0315|GC_00002162|0|1|5|7|
-|Propanediol utilization protein|12.00000001|5.32E-04|0.003981046|faecalis|COG4869|GC_00001620|0|1|5|7|
-|Killer toxin insensitivity|12.00000001|5.32E-04|0.003981046|faecalis|COG0251|GC_00001637|0|1|5|7|
+| ABC-type sugar transport system, ATPase component (MglA) | 12.00000001 | 5.3200E-4 | 0.00359836 | faecium | COG1129 | GC_00002839 | 0 | 1 | 7 | 5 |
+| Transcriptional regulator GlxA, contains an amidase domain and an AraC-type DNA-binding HTH domain (GlxA) | 12.00000001 | 5.3200E-4 | 0.00359836 | faecium | COG4977 | GC_00002985, GC_00004051 | 0 | 1 | 7 | 5 |
+| tRNA uridine 5-carbamoylmethylation protein Kti12 (Killer toxin insensitivity protein) (Kti12) (PDB:3A4L) | 12.00000001 | 5.3200E-4 | 0.00359836 | faecium | COG4088 | GC_00002966 | 0 | 1 | 7 | 5 |
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
-|Rhodanese-related sulfurtransferase|-7.70E-42|1|1|NA|COG0607|GC_00000313|1|1|5|7|
-|Serine/threonine protein phosphatase PrpC|-7.70E-42|1|1|NA|COG0631|GC_00000572|1|1|5|7|
-|Tryptophan-rich sensory protein (mitochondrial benzodiazepine receptor homolog)|-7.70E-42|1|1|NA|COG3476|GC_00000886|1|1|5|7|
+| Capsular polysaccharide biosynthesis protein YveK (YveK) | 8.57057147 | 0.00341639 | 0.02206531 | faecium | COG3944 | GC_00002486 | 0.1429 | 1 | 7 | 5 |
+| V8-like Glu-specific endopeptidase (eMpr) | 8.57057147 | 0.00341639 | 0.02206531 | faecalis | COG3591 | GC_00002396, GC_00004621 | 0.8571 | 0 | 7 | 5 |
+| Zn-dependent metalloprotease (Neutral protease B) (LasB) (PDB:3NQY) | 8.57057147 | 0.00341639 | 0.02206531 | faecalis | COG3227 | GC_00002507 | 0.8571 | 0 | 7 | 5 |
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 
-So it turns out *killer toxin insensitivity* protein is only encoded by *E. faecalis*... I am not surprised. One should expect anything from these microbes :(
+So it turns out *killer toxin insensitivity* protein is only encoded by *E. faecium*... I am not surprised. One should expect anything from these microbes :(
 
+{:.notice}
+As of `v7` the script `anvi-get-enriched-functions-per-pan-group` (which used to be in this tutorial) was upgraded to the more general script {% include PROGRAM name="anvi-compute-functional-enrichment" %}.
 
 ### Binning gene clusters
 
-There are multiple ways to identify gene clusters that match to a given set of criteria. If you like, you can use a combinations of filters that are available through the interface:
+There are multiple ways to identify gene clusters that match to a given set of criteria. If you like, you can use a combination of filters that are available through the interface:
 
-[![E. facealis pan](images/pan-filters.png)](images/pan-filters.png){:.center-img .width-50}
+[![E. faecalis pan](images/pan-filters.png)](images/pan-filters.png){:.center-img .width-50}
 
-The command line program `anvi-get-sequences-for-gene-clusters` can also give you access to these filters and more to get very precise reports. Another option is the good'ol interactive interface, and using the dendrogram it produces to organize gene clusters based on their distribution across genomes. From this display you can make manual selections of gene clusters. I already made some selections and stored them in a file for your convenience. If you import them the following way,
+The command line program {% include PROGRAM name="anvi-get-sequences-for-gene-clusters" text="`anvi-get-sequences-for-gene-clusters`" %} can also give you access to these filters and more to get very precise reports. Another option is the good'ol {% include ARTIFACT name="interactive" %} interface, and using the dendrogram it produces to organize gene clusters based on their distribution across genomes. From this display you can make manual selections of gene clusters. I already made some selections and stored them in a file for your convenience. If you {% include PROGRAM name="anvi-import-collection" text="import" %} them the following way,
 
 ``` bash
 anvi-import-collection additional-files/pangenomics/pan-collection.txt \
@@ -1405,7 +1423,7 @@ you will see the following selections:
 
 [![E. facealis pan](images/e-faecalis-pan-selections.png)](images/e-faecalis-pan-selections.png){:.center-img .width-70}
 
-We used collections to store bins of contigs in the first section (and that's how we identified that *E. faecalis* population from the Sharon et al. metagenomes anyway), and now the same concept serves us as a way to store bins of gene clusters.
+We used a collection to store bins of contigs in the first section (and that's how we identified that *E. faecalis* population from the Sharon et al. metagenomes anyway), and now the same concept serves us as a way to store bins of gene clusters.
 
 If you right-click on any of the gene clusters, you will see a menu,
 
@@ -1423,7 +1441,7 @@ Yes we can!
 
 For instance, in my tentative selection above, there is a bin called `CORE ALL`, which describes all gene clusters that seems to be in all genomes in this analysis. You can in fact summarize the collection `default` to access all the information about each gene described in each gene cluster selected as `CORE ALL`.
 
-You can summarize the pangenome using the collection we have the following way:
+You can {% include PROGRAM name="anvi-summarize" text="summarize" %} the pangenome using the collection we have the following way:
 
 ``` bash
 anvi-summarize -p PAN/Enterococcus-PAN.db \
@@ -1449,27 +1467,244 @@ The most important part of this output is this one:
 You can unzip this file,
 
 ``` bash
-gzip -d PAN_SUMMARY/Enterococcus_protein_clusters_summary.txt.gz
+gzip -d PAN_SUMMARY/Enterococcus_gene_clusters_summary.txt.gz
 ```
 
 And play with it to see how it will solve all your problems. You can import it into R, or open it in EXCEL to have a quick look at its contents. But here is a quick look at the first 10 lines of this file that contains 35,175 gene entries:
 
-unique_id  |  protein_cluster_id  |  bin_name  |  genome_name      |  gene_callers_id  |  COG_CATEGORY_ACC  |  COG_CATEGORY  |  COG_FUNCTION_ACC  |  COG_FUNCTION                             |  aa_sequence   |
------------|----------------------|------------|-------------------|-------------------|--------------------|----------------|--------------------|-------------------------------------------|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-1          |  PC_00000001         |            |  E_faecalis_6240  |  26               |  X                 |  X             |  COG2826           |  Transposase and inactivated derivatives  |   IS30 family  |  MTYKHLTIDELTMIESYYLQHNKPVEIANRMGRAIQTIYNVVNKFKQGKTALDYWHQYKENKKKCGRKVIQLPAHEVDYIKEKVTLGWTPDVIIGRKERPVSCGMRTLYRLFSKGIFDIDTLPMKGKRKPNGHQEKRGKQQYQRSIHDRPDNYPDFNSEFGHLEGDTIVGIHHKSAVITLVERLSKVIITIKPNGRKALDIETALNQWFSRFPKNFFKSITFDCGKEFSNWKAISNQHDIDIYFADPGTPSQRPLNENSNGILRRNGLPKSMDFREVNQTFISSVSNQRNHIPRKSLNYRTPIEIFLSYVQEAFYSNLI
-2          |  PC_00000001         |            |  E_faecalis_6240  |  615              |  X                 |  X             |  COG2826           |  Transposase and inactivated derivatives  |   IS30 family  |  MTYKHLTIDELTMIESYYLQHNKPVEIANRMGRAIQTIYNVVNKFKQGKTALDYWHQYKENKKKCGRKVIQLPAHEVDYIKEKVTLGWTPDVIIGRKERPVSCGMRTLYRLFSKGIFDIDTLPMKGKRKPNGHQEKRGKQQYQRSIHDRPDNYPDFNSEFGHLEGDTIVGIHHKSAVITLVERLSKVIITIKPNGRKALDIETALNQWFSRFPKNFFKSITFDCGKEFSNWKAISNQHDIDIYFADPGTPSQRPLNENSNGILRRNGLPKSMDFREVNQTFISSVSNQRNHIPRKSLNYRTPIEIFLSYVQEAFYSNLI
-3          |  PC_00000001         |            |  E_faecalis_6240  |  2032             |  X                 |  X             |  COG2826           |  Transposase and inactivated derivatives  |   IS30 family  |  MTYKHLTIDELTMIESYYLQHNKPVEIANRMGRAIQTIYNVVNKFKQGKTALDYWHQYKENKKKCGRKVIQLPAHEVDYIKEKVTLGWTPDVIIGRKERPVSCGMRTLYRLFSKGIFDIDTLPMKGKRKPNGHQEKRGKQQYQRSIHDRPDNYPDFNSEFGHLEGDTIVGIHHKSAVITLVERLSKVIITIKPNGRKALDIETALNQWFSRFPKNFFKSITFDCGKEFSNWKAISNQHDIDIYFADPGTPSQRPLNENSNGILRRNGLPKSMDFREVNQTFISSVSNQRNHIPRKSLNYRTPIEIFLSYVQEAFYSNLI
-4          |  PC_00000001         |            |  E_faecalis_6240  |  2200             |  X                 |  X             |  COG2826           |  Transposase and inactivated derivatives  |   IS30 family  |  MTYKHLTIDELTMIESYYLQHNKPVEIANRMGRAIQTIYNVVNKFKQGKTALDYWHQYKENKKKCGRKVIQLPAHEVDYIKEKVTLGWTPDVIIGRKERPVSCGMRTLYRLFSKGIFDIDTLPMKGKRKPNGHQEKRGKQQYQRSIHDRPDNYPDFNSEFGHLEGDTIVGIHHKSAVITLVERLSKVIITIKPNGRKALDIETALNQWFSRFPKNFFKSITFDCGKEFSNWKAISNQHDIDIYFADPGTPSQRPLNENSNGILRRNGLPKSMDFREVNQTFISSVSNQRNHIPRKSLNYRTPIEIFLSYVQEAFYSNLI
-5          |  PC_00000001         |            |  E_faecalis_6240  |  2747             |  X                 |  X             |  COG2826           |  Transposase and inactivated derivatives  |   IS30 family  |  MTYKHLTIDELTMIESYYLQHNKPVEIANRMGRAIQTIYNVVNKFKQGKTALDYWHQYKENKKKCGRKVIQLPAHEVDYIKEKVTLGWTPDVIIGRKERPVSCGMRTLYRLFSKGIFDIDTLPMKGKRKPNGHQEKRGKQQYQRSIHDRPDNYPDFNSEFGHLEGDTIVGIHHKSAVITLVERLSKVIITIKPNGRKALDIETALNQWFSRFPKNFFKSITFDCGKEFSNWKAISNQHDIDIYFADPGTPSQRPLNENSNGILRRNGLPKSMDFREVNQTFISSVSNQRNHIPRKSLNYRTPIEIFLSYVQEAFYSNLI
-6          |  PC_00000001         |            |  E_faecalis_6240  |  2925             |  X                 |  X             |  COG2826           |  Transposase and inactivated derivatives  |   IS30 family  |  MTYKHLTIDELTMIESYYLQHNKPVEIANRMGRAIQTIYNVVNKFKQGKTALDYWHQYKENKKKCGRKVIQLPAHEVDYIKEKVTLGWTPDVIIGRKERPVSCGMRTLYRLFSKGIFDIDTLPMKGKRKPNGHQEKRGKQQYQRSIHDRPDNYPDFNSEFGHLEGDTIVGIHHKSAVITLVERLSKVIITIKPNGRKALDIETALNQWFSRFPKNFFKSITFDCGKEFSNWKAISNQHDIDIYFADPGTLSQRPLNENSNGILRHNGLPKSMDFREVNQTFISSVSNQRNHIPRKSLNYRTPIEIFLSYVQEAFYSNLI
-7          |  PC_00000001         |            |  E_faecalis_6240  |  2902             |  X                 |  X             |  COG2826           |  Transposase and inactivated derivatives  |   IS30 family  |  MTYKHLTIDELTMIESYYLQHNKPVEIANRMGRAIQTIYNVVNKFKQGKTALDYWHQYKENKKKCGRKVIQLPAHEVDYIKEKVTLGWTPDVIIGRKERPVSCGMRTLYRLFSKGIFDIDTLPMKGKRKPNGHQEKRGKQQYQRSIHDRPDNYPDFNSEFGHLGGDTIVGIHHKSAVITLVERLSKVIITIKPNGRKALDIETALNQWFSRFPKNFFKSITFDCGKEFSNWKAISNQHDIDIYFADPGTLSQRPLNENSNGILRHNGLPKSMDFREVNQTFISSVSNQRNHIPRKSLNYRTPIEIFLSYVQEAFYSNLI
-8          |  PC_00000001         |            |  E_faecalis_6240  |  2674             |  X                 |  X             |  COG2826           |  Transposase and inactivated derivatives  |   IS30 family  |  MTYKHLTIDELTMIESYYLQHNKPVEIANRMGRAIQTIYNVVNKFKQGKTALDYWHQYKENKKKCDRKVIQLPAHEVDYIKEKVTLGWTPDVIIGRKERPVSCGMRTLYRLFSKGIFDIDTLPMKGKRKPNGHQEKRGKQQYQRSIHDRPDNYPDFNSEFGHLGGDTIVGIHHKSAVITLVERLSKVIITIKPNGRKALDIETALNQWFSRFPKNFFKSITFDCGKEFSNWKAISNQHDIDIYFADPGTLSQRPLNENSNGILRHNGLPKSMDFREVNQTFISSVSNQRNHIPRKSLNYRTPIEIFLSYVQEAFYSNLI
-9          |  PC_00000001         |            |  E_faecalis_6240  |  25               |  X                 |  X             |  COG2826           |  Transposase and inactivated derivatives  |   IS30 family  |  MTYTHLTSNELAMIEAYYNNHQSVAKTAVLLNRSRQTIHKVYQFFKTGHNALDYFNQYKKNKTRCGRRPIVLSDEQTEYIQKRVVQGWTPDVIVGRAEFSISCSMRTLYRMFKQGVFEVTHLPMKGKRKANGHKETRGKQSFRRSLRDRGNDYSKFNQEFGHLEGDTIVGKKHKSAVITLVERLSKVIITLQPEGRRAIDIENRLNQWMQSVPKHLFKSMTFDCGKEFSNWKSISNINDIDIYFADPGTPSQRGLNENSNGLLRKDGLPKQMDFNEVDESFIQSIASKRNNIPRKSLNYKTPIEVFLSHICKEELSNLI
+unique_id | gene_cluster_id | bin_name | genome_name | gene_callers_id | num_genomes_gene_cluster_has_hits | num_genes_in_gene_cluster | max_num_paralogs | SCG | functional_homogeneity_index | geometric_homogeneity_index | combined_homogeneity_index | COG14_CATEGORY_ACC | COG14_CATEGORY | COG20_CATEGORY_ACC | COG20_CATEGORY | KEGG_Module_ACC | KEGG_Module | COG20_FUNCTION_ACC | COG20_FUNCTION | KOfam_ACC | KOfam | COG20_PATHWAY_ACC | COG20_PATHWAY | COG14_FUNCTION_ACC | COG14_FUNCTION | KEGG_Class_ACC | KEGG_Class | aa_sequence
+---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+1 | GC_00000001 |  | E_faecalis_6240 | 25 | 8 | 131 | 25 | 0 | 0.794525316839173 | 0.792244649463775 | 0.793383344147778 | X | X | X | Mobilome: prophages, transposons | | | COG2826 | Transposase and inactivated derivatives, IS30 family (Tra8) | K07482 | transposase, IS30 family |  |  | COG2826 | Transposase and inactivated derivatives, IS30 family |  |  | --MTYTHLTSNELAMIEAYYNNHQSVAKTAVLLNRSRQTIHKVYQFFKTGHNALDYFNQYKKNKTRCGRRPIVLSDEQTEYIQKRVVQGWTPDVIVGRAEFSISCSMRTLYRMFKQGVFEVTHLPMKGKRKANGHKETRGKQSFRRSLRDRGNDYSKFNQEFGHLEGDTIVGKKHKSAVITLVERLSKVIITLQPEGRRAIDIENRLNQWMQSVPKHLFKSMTFDCGKEFSNWKSISNINDIDIYFADPGTPSQRGLNENSNGLLRKDGLPKQMDFNEVDESFIQSIASKRNNIPRKSLNYKTPIEVFLSHICKEELSNLI-----
+2 | GC_00000001 |  | E_faecalis_6240 | 26 | 8 | 131 | 25 | 0 | 0.794525316839173 | 0.792244649463775 | 0.793383344147778 | X | X | X | Mobilome: prophages, transposons | | | COG2826 | Transposase and inactivated derivatives, IS30 family (Tra8) | K07482 | transposase, IS30 family |  |  | COG2826 | Transposase and inactivated derivatives, IS30 family |  |  | --MTYKHLTIDELTMIESYYLQHNKPVEIANRMGRAIQTIYNVVNKFKQGKTALDYWHQYKENKKKCGRKVIQLPAHEVDYIKEKVTLGWTPDVIIGRKERPVSCGMRTLYRLFSKGIFDIDTLPMKGKRKPNGHQEKRGKQQYQRSIHDRPDNYPDFNSEFGHLEGDTIVGIHHKSAVITLVERLSKVIITIKPNGRKALDIETALNQWFSRFPKNFFKSITFDCGKEFSNWKAISNQHDIDIYFADPGTPSQRPLNENSNGILRRNGLPKSMDFREVNQTFISSVSNQRNHIPRKSLNYRTPIEIFLSYVQEAFYSNLI-----
+3 | GC_00000001 |  | E_faecalis_6240 | 615 | 8 | 131 | 25 | 0 | 0.794525316839173 | 0.792244649463775 | 0.793383344147778 | X | X | X | Mobilome: prophages, transposons | | | COG2826 | Transposase and inactivated derivatives, IS30 family (Tra8) | K07482 | transposase, IS30 family |  |  | COG2826 | Transposase and inactivated derivatives, IS30 family |  |  | --MTYKHLTIDELTMIESYYLQHNKPVEIANRMGRAIQTIYNVVNKFKQGKTALDYWHQYKENKKKCGRKVIQLPAHEVDYIKEKVTLGWTPDVIIGRKERPVSCGMRTLYRLFSKGIFDIDTLPMKGKRKPNGHQEKRGKQQYQRSIHDRPDNYPDFNSEFGHLEGDTIVGIHHKSAVITLVERLSKVIITIKPNGRKALDIETALNQWFSRFPKNFFKSITFDCGKEFSNWKAISNQHDIDIYFADPGTPSQRPLNENSNGILRRNGLPKSMDFREVNQTFISSVSNQRNHIPRKSLNYRTPIEIFLSYVQEAFYSNLI-----
+4 | GC_00000001 |  | E_faecalis_6240 | 2032 | 8 | 131 | 25 | 0 | 0.794525316839173 | 0.792244649463775 | 0.793383344147778 | X | X | X | Mobilome: prophages, transposons | | | COG2826 | Transposase and inactivated derivatives, IS30 family (Tra8) | K07482 | transposase, IS30 family |  |  | COG2826 | Transposase and inactivated derivatives, IS30 family |  |  | --MTYKHLTIDELTMIESYYLQHNKPVEIANRMGRAIQTIYNVVNKFKQGKTALDYWHQYKENKKKCGRKVIQLPAHEVDYIKEKVTLGWTPDVIIGRKERPVSCGMRTLYRLFSKGIFDIDTLPMKGKRKPNGHQEKRGKQQYQRSIHDRPDNYPDFNSEFGHLEGDTIVGIHHKSAVITLVERLSKVIITIKPNGRKALDIETALNQWFSRFPKNFFKSITFDCGKEFSNWKAISNQHDIDIYFADPGTPSQRPLNENSNGILRRNGLPKSMDFREVNQTFISSVSNQRNHIPRKSLNYRTPIEIFLSYVQEAFYSNLI-----
+5 | GC_00000001 |  | E_faecalis_6240 | 2200 | 8 | 131 | 25 | 0 | 0.794525316839173 | 0.792244649463775 | 0.793383344147778 | X | X | X | Mobilome: prophages, transposons | | | COG2826 | Transposase and inactivated derivatives, IS30 family (Tra8) | K07482 | transposase, IS30 family |  |  | COG2826 | Transposase and inactivated derivatives, IS30 family |  |  | --MTYKHLTIDELTMIESYYLQHNKPVEIANRMGRAIQTIYNVVNKFKQGKTALDYWHQYKENKKKCGRKVIQLPAHEVDYIKEKVTLGWTPDVIIGRKERPVSCGMRTLYRLFSKGIFDIDTLPMKGKRKPNGHQEKRGKQQYQRSIHDRPDNYPDFNSEFGHLEGDTIVGIHHKSAVITLVERLSKVIITIKPNGRKALDIETALNQWFSRFPKNFFKSITFDCGKEFSNWKAISNQHDIDIYFADPGTPSQRPLNENSNGILRRNGLPKSMDFREVNQTFISSVSNQRNHIPRKSLNYRTPIEIFLSYVQEAFYSNLI-----
+6 | GC_00000001 |  | E_faecalis_6240 | 2747 | 8 | 131 | 25 | 0 | 0.794525316839173 | 0.792244649463775 | 0.793383344147778 | X | X | X | Mobilome: prophages, transposons | | | COG2826 | Transposase and inactivated derivatives, IS30 family (Tra8) | K07482 | transposase, IS30 family |  |  | COG2826 | Transposase and inactivated derivatives, IS30 family |  |  | --MTYKHLTIDELTMIESYYLQHNKPVEIANRMGRAIQTIYNVVNKFKQGKTALDYWHQYKENKKKCGRKVIQLPAHEVDYIKEKVTLGWTPDVIIGRKERPVSCGMRTLYRLFSKGIFDIDTLPMKGKRKPNGHQEKRGKQQYQRSIHDRPDNYPDFNSEFGHLEGDTIVGIHHKSAVITLVERLSKVIITIKPNGRKALDIETALNQWFSRFPKNFFKSITFDCGKEFSNWKAISNQHDIDIYFADPGTPSQRPLNENSNGILRRNGLPKSMDFREVNQTFISSVSNQRNHIPRKSLNYRTPIEIFLSYVQEAFYSNLI-----
+7 | GC_00000001 |  | E_faecalis_6240 | 2925 | 8 | 131 | 25 | 0 | 0.794525316839173 | 0.792244649463775 | 0.793383344147778 | X | X | X | Mobilome: prophages, transposons | | | COG2826 | Transposase and inactivated derivatives, IS30 family (Tra8) | K07482 | transposase, IS30 family |  |  | COG2826 | Transposase and inactivated derivatives, IS30 family |  |  | --MTYKHLTIDELTMIESYYLQHNKPVEIANRMGRAIQTIYNVVNKFKQGKTALDYWHQYKENKKKCGRKVIQLPAHEVDYIKEKVTLGWTPDVIIGRKERPVSCGMRTLYRLFSKGIFDIDTLPMKGKRKPNGHQEKRGKQQYQRSIHDRPDNYPDFNSEFGHLEGDTIVGIHHKSAVITLVERLSKVIITIKPNGRKALDIETALNQWFSRFPKNFFKSITFDCGKEFSNWKAISNQHDIDIYFADPGTLSQRPLNENSNGILRHNGLPKSMDFREVNQTFISSVSNQRNHIPRKSLNYRTPIEIFLSYVQEAFYSNLI-----
+8 | GC_00000001 |  | E_faecalis_6240 | 2902 | 8 | 131 | 25 | 0 | 0.794525316839173 | 0.792244649463775 | 0.793383344147778 | X | X | X | Mobilome: prophages, transposons | | | COG2826 | Transposase and inactivated derivatives, IS30 family (Tra8) | K07482 | transposase, IS30 family |  |  | COG2826 | Transposase and inactivated derivatives, IS30 family |  |  | --MTYKHLTIDELTMIESYYLQHNKPVEIANRMGRAIQTIYNVVNKFKQGKTALDYWHQYKENKKKCGRKVIQLPAHEVDYIKEKVTLGWTPDVIIGRKERPVSCGMRTLYRLFSKGIFDIDTLPMKGKRKPNGHQEKRGKQQYQRSIHDRPDNYPDFNSEFGHLGGDTIVGIHHKSAVITLVERLSKVIITIKPNGRKALDIETALNQWFSRFPKNFFKSITFDCGKEFSNWKAISNQHDIDIYFADPGTLSQRPLNENSNGILRHNGLPKSMDFREVNQTFISSVSNQRNHIPRKSLNYRTPIEIFLSYVQEAFYSNLI-----
+9 | GC_00000001 |  | E_faecalis_6240 | 2674 | 8 | 131 | 25 | 0 | 0.794525316839173 | 0.792244649463775 | 0.793383344147778 | X | X | X | Mobilome: prophages, transposons | | | COG2826 | Transposase and inactivated derivatives, IS30 family (Tra8) | K07482 | transposase, IS30 family |  |  | COG2826 | Transposase and inactivated derivatives, IS30 family |  |  | --MTYKHLTIDELTMIESYYLQHNKPVEIANRMGRAIQTIYNVVNKFKQGKTALDYWHQYKENKKKCDRKVIQLPAHEVDYIKEKVTLGWTPDVIIGRKERPVSCGMRTLYRLFSKGIFDIDTLPMKGKRKPNGHQEKRGKQQYQRSIHDRPDNYPDFNSEFGHLGGDTIVGIHHKSAVITLVERLSKVIITIKPNGRKALDIETALNQWFSRFPKNFFKSITFDCGKEFSNWKAISNQHDIDIYFADPGTLSQRPLNENSNGILRHNGLPKSMDFREVNQTFISSVSNQRNHIPRKSLNYRTPIEIFLSYVQEAFYSNLI-----
 
 
 I'm sure you need no help to know what to do with this file.
 
-## Chapter V: Microbial Population Genetics
+## Chapter V: Metabolism Prediction
+
+{:.notice}
+**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o {% include ARTIFACT name="contigs-db" text="contigs databases" %} for the *E. faecalis* and *E. faecium* genomes used in the pangenomics chapter of the tutorial. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
+
+{:.notice}
+Metabolism prediction in anvi'o is a new feature and still under ongoing development as of `v7`. We appreciate your patience and feedback on any issues you might run into, and we welcome suggestions for improvement. Thank you very much!
+
+Microbiologists care a lot about what microbes are doing, and for this reason we spend a lot of time looking at functional annotations in our 'omics data. But what if we told you that you could go a step further than that, and look at functional annotations in the larger context of metabolism? This chapter is about how to leverage known, structured information on metabolic pathways to predict the metabolic capacity encoded by microbial genomes, MAGs, or metagenomes.
+
+In the pangenomics chapter, we explored functions in two species of *Enterococcus*. To demonstrate the utility of metabolism reconstruction in anvi'o, we are now going to predict the metabolic potential of these organisms.
+
+### Some obligatory background on metabolism prediction
+Metabolism prediction, also known as metabolic reconstruction, is the practice of guessing (estimating) what metabolic pathways an organism can use to build or break down molecules, based on the proteins it encodes in its genome. It typically involves integrating knowledge about metabolic pathways from well-curated, publically-available databases such as [KEGG](https://www.genome.jp/kegg/) or [MetaCyc](https://metacyc.org/).
+
+In some cases, metabolic reconstruction is a modeling approach that uses fancy math to compute a metabolic network from a genome and refine it based on experimental data in a process called [Flux Balance Analysis](https://www.nature.com/articles/nbt.1614). You cannot currently do this type of metabolic reconstruction in anvi'o, but if you are interested in it we refer you to a [2019 review](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1769-1) of tools that do FBA as a starting point for that adventure.
+
+In anvi'o, metabolism estimation involves collecting gene annotations and matching them to defined metabolic pathways to compute a 'completeness' score for each pathway. Statistics about each pathway and the genes that contribute to them are then summarized in a variety of output files that can be analyzed either by reading them directly or by using them as input to downstream programs/scripts.
+
+{:.notice}
+As of `v7`, anvi'o uses [KEGG](https://www.genome.jp/kegg/) as the source of metabolism information for estimation purposes. It is an amazing resource with nicely structured data, including HMM profiles for functional annotation in the [KEGG KOfam](https://academic.oup.com/bioinformatics/article/36/7/2251/5631907) database and definitions of metabolic pathways in the [KEGG MODULE](https://www.genome.jp/kegg/module.html) database. However, we plan to expand from this in the future, and in particular one of our goals is to allow users to include their own custom definitions of metabolic pathways in the metabolism data used for estimation. So stay tuned!
+
+### Estimating metabolism in the *Enterococcus* genomes
+
+{:.notice}
+We've already prepped the Infant Gut Dataset to be ready for the metabolism estimation commands below, but in case you are working on your own dataset, please note that before you can run metabolism estimation on a fresh contigs database, you would need to first set up KEGG data on your computer using {% include PROGRAM name="anvi-setup-kegg-kofams" %} and then annotate your database using {% include PROGRAM name="anvi-run-kegg-kofams" %}.
+
+Let's get to it. To start off, we want an overview picture of what metabolisms are encoded in the *Enterococcus* genomes. We could visualize this nicely if we had a matrix of the completeness scores for each metabolic module (from the KEGG MODULE database) in each bin. {% include PROGRAM name="anvi-estimate-metabolism" %} can provide output files in matrix format if we run it in "multi-mode", which means we will need an {% include ARTIFACT name="external-genomes" text="external genomes file" %}. Luckily, there is already one in the datapack - the same one that is described above in the pangenomics chapter - in the `additional-files/pangenomics` folder.
+
+Here is the command to run metabolism estimation on each bin, and produce matrix-formatted output:
+``` bash
+anvi-estimate-metabolism -e additional-files/pangenomics/external-genomes.txt \
+    --matrix-format -O Enterococcus
+```
+When this program runs, it will look at the KOfam annotations within each genome, match them up to the KEGG module definitions to estimate the completeness of each module, and produce 3 output matrices. One of these matrices will contain module completeness scores, one will be a binary matrix indicating presence (1) or absence (0) of each module in each genome, and the last will be a matrix counting the number of hits to each KO in each genome.
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Presence/absence of modules</span>
+A module is considered 'present' in a genome, bin, or metagenomic contig (the level of resolution depends on your input type) if its completeness score is above the a certain threshold, which can be set with the `--module-completion-threshold` parameter. A static threshold such as this is not the most ideal metric, especially since metabolic modules have variable numbers of genes - for example, with the default threshold of 0.75 (75%), a module with 3 KOs in it would only be considered present if all 3 of those KOs were found in a genome, while a module with 5 KOs could be considered present if only 4 of its KOs were found. This problem is exacerbated in metagenomes since bins are more likely to be incomplete than isolate genomes. Therefore, module presence/absence only exists as a quick-and-dirty way for you to filter through modules that might be of interest, and we urge you to always double-check the data to avoid false negatives as much as possible. :)
+</div>
+
+We can use anvi'o to visualize the module completeness matrix as a heatmap. First, we generate a newick tree from the matrix with the program {% include PROGRAM name="anvi-matrix-to-newick" text='anvi-matrix-to-newick:' %}
+``` bash
+anvi-matrix-to-newick Enterococcus-completeness-MATRIX.txt
+```
+
+And then we load up the matrix into the interactive interface in "manual mode", using the tree to organize the modules into columns based on their distribution across the *Enterococcus* genomes.
+``` bash
+anvi-interactive --manual-mode \
+    -d Enterococcus-completeness-MATRIX.txt \
+    -t Enterococcus-completeness-MATRIX.txt.newick \
+    -p Enterococcus_metabolism_PROFILE.db \
+    --title "Enterococcus Metabolism Heatmap"
+```
+
+To make it look like a rectangular heatmap, we set the 'Drawing Type' to 'Phylogram', increase the width (in 'Additional Settings'), and change every layer to be of type 'Intensity'. Voila:
+
+[![Enterococcus Heatmap](images/entero_heatmap_unlabeled.png)](images/entero_heatmap_unlabeled.png){:.center-img }
+
+Excellent. We can already see that the *E. faecalis* and *E. faecium* genomes form two distinct groups, with the distinguishing metabolic pathways on the rightmost side of the heatmap. But what exactly are those pathways? The module numbers, which are IDs from the KEGG MODULE database, aren't very informative. We can fix that by adding additional layers of text data describing each metabolic module. If you take a look at the {% include ARTIFACT name='misc-data-items-txt' text='miscellaneous data file' %} which can be found at `additional-files/metabolism/modules_info.txt`, you will see that it describes each module. Here is a sample:
+
+module | class | category | subcategory | name
+:----|:----|:----|:-----|:----
+M00001 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate
+M00002 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | Glycolysis, core module involving three-carbon compounds
+M00003 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | Gluconeogenesis, oxaloacetate => fructose-6P
+M00307 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | Pyruvate oxidation, pyruvate => acetyl-CoA
+M00009 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | Citrate cycle (TCA cycle, Krebs cycle)
+
+We can then import this data into the established profile database using the {% include PROGRAM name='anvi-import-misc-data' text='following program' %}:
+```bash
+anvi-import-misc-data -p Enterococcus_metabolism_PROFILE.db \
+-t items additional-files/metabolism/modules_info.txt
+```
+
+To painlessly make your interactive visualizations look like the ones in the screenshots, you can import the following state file into your profile database:
+```
+anvi-import-state -n default -p Enterococcus_metabolism_PROFILE.db -s additional-files/metabolism/metabolism_state.json
+```
+
+And then we can run the visualization command yet again to see the heatmap with labels.
+
+[![Enterococcus Heatmap](images/entero_heatmap_labeled.png)](images/entero_heatmap_labeled.png){:.center-img }
+
+Here is a (rotated) screenshot of the rightmost part, where we can see which pathways distinguish the two species:
+
+[![Enterococcus Heatmap](images/entero_heatmap_zoomed.png)](images/entero_heatmap_zoom.png){:.center-img }
+
+The genome labels are not visible in this zoomed and rotated view, but if you look back at the full heatmap, you can see that *E. faecalis* genomes are on the left side and *E. faecium* ones are on the right. Based on the estimated metabolism, it looks like the two species differ in select energy metabolism, amino acid metabolism, and vitamin/cofactor metabolism pathways. Yet many of those are faint bands indicating a low completeness score, so perhaps these genomes share a select few KOs that contribute to several of the species-specific pathways. A particularly interesting observation is that all the *E. faecalis* genomes have near-complete pathways for Threonine Biosynthesis and Menaquinone Biosynthesis (the module completeness scores for these pathways are 80% and 78%, respectively, in each *E. faecalis* genome), while these pathways are partial in all the *E. faecium* genomes (the corresponding completeness is 20% and 11% in each *E. faecium*) genome. It would not be surprising if the same KOs from these pathways are present in each genome.
+
+<div class="extra-info" markdown="1">
+<span class="extra-info-header">How to generate the modules information file</span>
+Oh, so you wish to know how this additional data table was obtained? How excellent. It is quite simple - the {% include ARTIFACT name='modules-db' text='MODULES database' %} carries this information about each KEGG module. We can extract the info and stick it into a tab-delimited file using the following lines of code:
+``` bash
+echo -e "module\tclass\tcategory\tsubcategory\tname" > modules_info.txt
+sqlite3 ~/software/anvio/anvio/data/misc/KEGG/MODULES.db "select module,data_value from kegg_modules where data_name='CLASS'" | \
+    sed 's/; /|/g' | \
+    tr '|' '\t' >> module_class.txt
+sqlite3 ~/software/anvio/anvio/data/misc/KEGG/MODULES.db "select module,data_value from kegg_modules where data_name='NAME'" | \
+    tr '|' '\t' > module_names.txt
+paste module_class.txt <(cut -f 2 module_names.txt ) >> modules_info.txt
+```
+Here, we are using the `sqlite3` program for accessing SQLite databases, and doing a bit of text manipulation to convert the database output into a tab-delimited format.
+</div>
+
+So now that we know what to look for, let's get some more detailed metabolism estimation output. We'll run the metabolism estimation again, but this time we will get long-format output - specifically 'modules' mode output, which will print information about each module in each genome, and 'kofam_hits' mode output, which will print information about each KO. 'modules' mode is the default, so if that was all we wanted we wouldn't need to specify it on the command line, but since we are also asking for 'kofam_hits' mode here we pass both of them, in a comma-separated list, to the `--kegg-output-modes` parameter. (Side note: you can find more details about the possible outputs of `anvi-estimate-metabolism` {% include ARTIFACT name='kegg-metabolism' text='here'%}).
+``` bash
+anvi-estimate-metabolism -e additional-files/pangenomics/external-genomes.txt \
+    -O Enterococcus_metabolism \
+    --kegg-output-modes modules,kofam_hits
+```
+This produces two output files: `Enterococcus_metabolism_modules.txt`, and `Enterococcus_metabolism_kofam_hits.txt`. Here is a sample from the top of the modules file:
+
+unique_id | genome_name | db_name | kegg_module | module_name | module_class | module_category | module_subcategory | module_definition | module_completeness | module_is_complete | kofam_hits_in_module | gene_caller_ids_in_module
+:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---
+0 | Enterococcus_faecalis_6240 | E_faecalis_6240 | M00001 | Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | "(K00844,K12407,K00845,K00886,K08074,K00918) (K01810,K06859,K13810,K15916) (K00850,K16370,K21071,K00918) (K01623,K01624,K11645,K16305,K16306) K01803 ((K00134,K00150) K00927,K11389) (K01834,K15633,K15634,K15635) K01689 (K00873,K12406)" | 1.0 | True | K00134,K00873,K01624,K00850,K01810,K01689,K01803,K00927,K01834,K00845 | 642,226,348,225,600,1044,1041,1042,1043,2342,2646,1608
+1 | Enterococcus_faecalis_6240 | E_faecalis_6240 | M00002 | Glycolysis, core module involving three-carbon compounds | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | "K01803 ((K00134,K00150) K00927,K11389) (K01834,K15633,K15634,K15635) K01689 (K00873,K12406)" | 1.0 | True | K00134,K00873,K01689,K01803,K00927,K01834 | 642,226,1044,1041,1042,1043,2342,2646
+2 | Enterococcus_faecalis_6240 | E_faecalis_6240 | M00003 | Gluconeogenesis, oxaloacetate => fructose-6P | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | "(K01596,K01610) K01689 (K01834,K15633,K15634,K15635) K00927 (K00134,K00150) K01803 ((K01623,K01624,K11645) (K03841,K02446,K11532,K01086,K04041),K01622)" | 0.875 | True | K00134,K04041,K01624,K01689,K01803,K00927,K01834 | 642,617,348,1044,1041,1042,1043,2342,2646
+3 | Enterococcus_faecalis_6240 | E_faecalis_6240 | M00307 | Pyruvate oxidation, pyruvate => acetyl-CoA | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | "((K00163,K00161+K00162)+K00627+K00382-K13997),K00169+K00170+K00171+(K00172,K00189),K03737" | 1.0 | True | K00382,K00627,K03737 | 539,538,771,1117,1396
+
+As you can see, each row contains one metabolic module in one genome, and includes for that module:
+- some details about its name, categorization, and definition (all of which are sourced from KEGG)
+- followed by information specific to this genome:
+  - the completeness score
+  - whether or not that score is above the completeness score threshold
+  - which KO genes were found that contribute to this module
+  - and the gene caller IDs of those genes
+
+Let's take a look at the Threonine Biosynthesis pathway that was differentially present between the two species. This is module M00018, so we can search for that. Since we are specifically interested in which genes from this pathway were present in each genome, we will filter the output so that we only see the genome name, module number, module definition, completeness score, KOs, and gene caller ids (scroll right to see the latter columns):
+``` bash
+grep 'M00018' Enterococcus_metabolism_modules.txt | cut -f 2,4,9,10,12,13
+```
+
+Enterococcus_faecalis_6240 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.8 | K00133,K00872,K00003,K01733 | 358,1295,1297,1296
+Enterococcus_faecalis_6250 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.8 | K00872,K00003,K01733,K00133 | 2184,2186,2185,1100
+Enterococcus_faecalis_6255 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.8 | K00872,K00003,K01733,K00133 | 2160,2162,2161,1198
+Enterococcus_faecalis_6512 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.8 | K00872,K00003,K01733,K00133 | 1837,1839,1838,948
+Enterococcus_faecalis_6557 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.8 | K00872,K00003,K01733,K00133 | 2489,2491,2490,1290
+Enterococcus_faecalis_6563 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.8 | K00872,K00003,K01733,K00133 | 1952,1954,1953,1006
+Enterococcus_faecium_6589 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.2 | K00133 | 552
+Enterococcus_faecium_6590 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.2 | K00133 | 723
+Enterococcus_faecium_6601 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.2 | K00133 | 867
+Enterococcus_faecium_6778 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.2 | K00133 | 683
+Enterococcus_faecium_6798 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.2 | K00133 | 511
+
+Turns out everyone has got K00133, the second step in the module definition. What's more, all the *E. faecalis* genomes have the same set of 4 KOs to make this module 80% complete: K00872, K00003, K01733, and K00133. It also looks like the 3 KOs that are not shared with *E. faecium* are always right next to each other in the genome, because the gene caller ids for those 3 KOs have a range of 3. All genomes are missing enzymes for the first step in the pathway, as far as we can tell.
+
+Let's see what these KOs are by checking out the second file, `Enterococcus_metabolism_kofam_hits.txt`. That file looks like this:
+
+unique_id | genome_name | db_name | ko | gene_caller_id | contig | modules_with_ko | ko_definition
+0 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K00845 | 1608 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00001,M00549,M00892,M00909 | glucokinase [EC:2.7.1.2]
+1 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K01810 | 600 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00001,M00004,M00892,M00909 | glucose-6-phosphate isomerase [EC:5.3.1.9]
+2 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K00850 | 225 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00001,M00345 | 6-phosphofructokinase 1 [EC:2.7.1.11]
+
+In this file, each row is a KO hit in one genome. The columns are hopefully self-explanatory from the headers. :)  Most of the KO information is the same across every genome, with the exception of the gene caller id and the contig that the gene is located on. Now, if we look specifically for K00133 (using the following code to get only the first instance of K00133 in the file),
+``` bash
+grep K00133 Enterococcus_metabolism_kofam_hits.txt | head -n 1
+```
+then we see the following:
+
+139 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K00133 | 358 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00018,M00033,M00017,M00016,M00525,M00526,M00527 | aspartate-semialdehyde dehydrogenase [EC:1.2.1.11]
+
+So K00133 is an aspartate-semialdehyde dehydrogenase, and it is part of several modules, which is likely why it is present in all of these genomes. In fact, if we use the same strategy to look for the other 3 KOs that were present in the *E. faecalis* genomes, we will see that they are specific to this pathway (or, in the case of K00003, it is also in a closely related pathway - M00017, Methionine biosynthesis).
+
+141 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K00872 | 1295 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00018 | homoserine kinase [EC:2.7.1.39]
+140 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K00003 | 1297 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00018,M00017 | homoserine dehydrogenase [EC:1.1.1.3]
+142 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K01733 | 1296 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00018 | threonine synthase [EC:4.2.3.1]
+
+So, are these *E. faecalis* populations capable of producing threonine? It appears likely, considering the 80% completeness score of the threonine biosynthesis module. However, we cannot know for sure given the absence of an enzyme required for the first step of the pathway. It is entirely possible that we failed to annotate this enzyme for some reason, and perhaps a more thorough search for K00928, K12524, K12525, or K12526 would turn up something. Or perhaps threonine-producing capabilities have already been confirmed in these organisms, and a literature search would turn up evidence for this. In fact, KEGG's own reference pathway for [M00018 in *E. faecalis*](https://www.genome.jp/kegg-bin/show_module?efa_M00018) indicates that a complete threonine biosynthesis pathway, including K00928, is present.
+
+But, as often happens in science, every scientist must decide for themself at what point they feel comfortable accepting results and at what point they need to go deeper to confirm them. And it is of course important to keep in mind that while genomically-encoded metabolic pathways are the first requirement for an organism to be able to perform some metabolism, even that does not necessarily mean the organism is doing so in all environments or stages of life. Perhaps `anvi-estimate-metabolism` is thus most reliable as a hypothesis-generating tool used to inform wet-lab experiments or to guide literature searches. It is up to you, and your science. :)
+
+### Metabolism Enrichment
+
+Just like we looked at functional enrichment in the pangenomics chapter, we can look for enriched metabolic modules in the two Enterococcus species. In fact, we can use the same program, and it will run the same statistical tests - except that instead of functional annotations, it will use modules which have a completeness score above the threshold that the user sets (by default, 0.75). All we need is the 'modules' mode output, and a file indicating which group each genome belongs to. We already have the modules file from before. Here is the groups file (which is also in the datapack):
+
+|sample|group|
+|:--|:--:|
+|E_faecalis_6240|faecalis|
+|E_faecalis_6250|faecalis|
+|E_faecalis_6255|faecalis|
+|E_faecalis_6512|faecalis|
+|E_faecalis_6557|faecalis|
+|E_faecalis_6563|faecalis|
+|E_faecium_6589|faecium|
+|E_faecium_6590|faecium|
+|E_faecium_6601|faecium|
+|E_faecium_6778|faecium|
+|E_faecium_6798|faecium|
+
+And here is the command to run {%include PROGRAM name='anvi-compute-functional-enrichment' text='the enrichment script' %} on modules:
+``` bash
+anvi-compute-functional-enrichment -M Enterococcus_metabolism_modules.txt \
+    -G additional-files/metabolism/entero_groups.txt \
+    -o Enterococcus_enriched_modules.txt
+```
+
+We get from this a file called `Enterococcus_enriched_modules.txt`, in which the modules are organized from highest to lowest enrichment score. So if we look at the top 10 or so rows in the file, we will see the metabolic pathways that are most enriched in either group:
+
+KEGG_MODULE | enrichment_score | unadjusted_p_value | adjusted_q_value | associated_groups | accession | sample_ids | p_faecalis | N_faecalis | p_faecium | N_faecium
+---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
+D-Galacturonate degradation (bacteria), D-galacturonate => pyruvate + D-glyceraldehyde 3P | 11.00004247343848 | 9.110979983090492e-4 | 0.006681385320933027 | faecium | M00631 | E_faecium_6589,E_faecium_6590,E_faecium_6601,E_faecium_6778,E_faecium_6798 | 0 | 6 | 1 | 5
+D-Glucuronate degradation, D-glucuronate => pyruvate + D-glyceraldehyde 3P | 11.00004247343848 | 9.110979983090492e-4 | 0.006681385320933027 | faecium | M00061 | E_faecium_6589,E_faecium_6590,E_faecium_6601,E_faecium_6778,E_faecium_6798 | 0 | 6 | 1 | 5
+Lysine biosynthesis, acetyl-DAP pathway, aspartate => lysine | 11.00004247343848 | 9.110979983090492e-4 | 0.006681385320933027 | faecalis | M00525 | E_faecalis_6240,E_faecalis_6250,E_faecalis_6255,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563 | 1 | 6 | 0 | 5
+Menaquinone biosynthesis, chorismate (+ polyprenyl-PP) => menaquinol | 11.00004247343848 | 9.110979983090492e-4 | 0.006681385320933027 | faecalis | M00116 | E_faecalis_6240,E_faecalis_6250,E_faecalis_6255,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563 | 1 | 6 | 0 | 5
+Tetrahydrofolate biosynthesis, GTP => THF | 11.00004247343848 | 9.110979983090492e-4 | 0.006681385320933027 | faecalis | M00126 | E_faecalis_6240,E_faecalis_6250,E_faecalis_6255,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563 | 1 | 6 | 0 | 5
+Threonine biosynthesis, aspartate => homoserine => threonine | 11.00004247343848 | 9.110979983090492e-4 | 0.006681385320933027 | faecalis | M00018 | E_faecalis_6240,E_faecalis_6250,E_faecalis_6255,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563 | 1 | 6 | 0 | 5
+Thiamine salvage pathway, HMP/HET => TMP | 7.542898979759332 | 0.006024703126062904 | 0.03786956250668111 | faecalis | M00899 | E_faecalis_6240,E_faecalis_6250,E_faecalis_6255,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563,E_faecium_6798 | 1 | 6 | 0.2 | 5
+Cysteine biosynthesis, serine => cysteine | 1.3200000268467633 | 0.2505920458675303 | 1 | faecalis | M00021 | E_faecalis_6240,E_faecalis_6250,E_faecalis_6255,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563,E_faecium_6589,E_faecium_6590,E_faecium_6778,E_faecium_6798 | 1 | 6 | 0.8 | 5
+Formaldehyde assimilation, ribulose monophosphate pathway | 1.3200000268467615 | 0.2505920458675306 | 1 | faecium | M00345 | E_faecium_6778 | 0 | 60.2 | 5
+Pantothenate biosynthesis, valine/L-aspartate => pantothenate | 1.060714286668624 | 0.30305232927257136 | 1 | faecalis | M00119 | E_faecalis_6240,E_faecalis_6255,E_faecalis_6557,E_faecium_6601 | 0.5 | 6 | 0.2 | 5
+
+Well, it seems like there are only a few modules that are truly enriched, considering that the p-value and adjusted q-value jump to high, non-significant values starting with the Cysteine biosynthesis module. But of the 6-7 modules with high enrichment scores and low p/q-values, it seems that the *E. faecium* genomes are enriched with a couple of sugar degradation pathways while the *E. faecalis* genomes are enriched with several biosynthesis pathways - including the Threonine and Menaquinone Biosynthesis pathways that we found earlier when looking at the heatmap. In fact, if you look back at the zoomed heatmap you can find a few more of these enriched modules and visualize the difference in completeness score between the two clades. The enrichment script is a good way to quantify these differences and assign a significance value to them.  
+
+If you are interested in learning more details about this enrichment analysis and its output, the tutorial for it is [here]({% post_url anvio/2016-11-08-pangenomics-v2 %}/#making-sense-of-functions-in-your-pangenome).
+
+## Chapter VI: Microbial Population Genetics
 
 Here we will profile the single-nucleotide variations (SNVs) in the *E. faecalis* bin found in Sharon et al.'s Infant Gut Dataset (IGD).
 
@@ -1477,7 +1712,7 @@ Here we will profile the single-nucleotide variations (SNVs) in the *E. faecalis
 This is more of a practical tutorial for hands on experience to recover and make sense of SNVs. For a more theoretical one on the same topic, please consider first reading the tutorial [Analyzing sequence variants with anvi'o]({% post_url anvio/2015-07-20-analyzing-variability %}){:target="_blank"}.
 
 {:.notice}
-**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged profile database and the anvi'o contigs database for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
+**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o merged {% include ARTIFACT name="profile-db" text="profile database" %} and the anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} for the IGD available to you. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
 
 First of all, if you haven't already, run this command to load the collection containing the *E. faecalis* bin (no harm done running it twice):
 
@@ -1580,18 +1815,18 @@ gzip -d TARA_ANW_MAG_00006/AUXILIARY-DATA.h5.gz
 
 # if you are not using anvi'o v2.3.0, you need to migrate
 # anvi'o databases to your version:
-ANVIO_SAMPLES_DB=SKIP anvi-migrate-db TARA_ANW_MAG_00006/*db
+ANVIO_SAMPLES_DB=SKIP anvi-migrate TARA_ANW_MAG_00006/*.db --migrate-dbs-safely
 
 
 anvi-interactive -p TARA_ANW_MAG_00006/PROFILE.db \
                  -c TARA_ANW_MAG_00006/CONTIGS.db
 ```
 
-Anyone who is running these commands on a computer with any version of anvi'o (well, `v2.3.0` or later) will see an interactive interface in their browser that shows the coverage of each contig across all Tara Oceans Project surface ocean samples:
+nyone who is running these commands on a computer with any version of anvi'o (well, `v2.3.0` or later) will see an {% include ARTIFACT name="interactive" %} interface in their browser that shows the coverage of each contig across all Tara Oceans Project surface ocean samples:
 
 [![TARA](images/tara-mag-00006.png)](images/tara-mag-00006.png){:.center-img .width-70}
 
-Yep. Because it 2018. That's why.
+Yep. Because it is 2021. That's why.
 </div>
 
 
