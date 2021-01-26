@@ -46,7 +46,7 @@ We hope you find the tutorial useful, and generously share your opinions or crit
 To download the infant gut data-pack copy-paste the following commands into your terminal:
 
 ``` bash
-wget https://ndownloader.figshare.com/files/18046139 -O INFANT-GUT-TUTORIAL.tar.gz
+wget https://ndownloader.figshare.com/files/26193278 -O INFANT-GUT-TUTORIAL.tar.gz
 tar -zxvf INFANT-GUT-TUTORIAL.tar.gz && cd INFANT-GUT-TUTORIAL
 ```
 
@@ -58,7 +58,7 @@ When you click the link, it will start downloading a **210 Mb** compressed file 
 tar -zxvf INFANTGUTTUTORIAL.tar.gz && cd INFANT-GUT-TUTORIAL
 ```
 
-If you are using a higher version of anvi'o than was the one that was used to generate these databases (perhaps you are following the development branch), you may need to run {% include PROGRAM name="anvi-migrate" %} to get them up to date. If you are not sure whether you need this, do not worry - you could safely skip it and anvi'o would later let you know if there is a problem when you try to run another command.
+If you are using a newer version of anvi'o than was the one that was used to generate these databases (perhaps you are following the development branch), you may need to run {% include PROGRAM name="anvi-migrate" %} to get them up to date. If you are not sure whether you need this, do not worry - you could safely skip it and anvi'o would later remind you what exactly needs to be done.
 
 ``` bash
 anvi-migrate --migrate-dbs-safely *.db
@@ -196,39 +196,6 @@ In the Layers tab find the `Taxonomy` layer, set its height to `200`, then drag 
 
 So at this point we don't have any idea about what genomes do we have in this dataset, but anvi'o can make sense of the taxonomic make up of a given metagenome by characterizing taxonomic affiliations of single-copy core genes. The details of this {% include PROGRAM name="anvi-run-scg-taxonomy" %} is described [here]({% post_url anvio/2019-10-08-anvio-scg-taxonomy %}) in greater detail.
 
-<div class="extra-info" markdown="1">
-
-<span class="extra-info-header">Special database setup</span>
-
-Due to a glitch in anvi'o `v6`, you may run into some SCG database issues here, so let's solve it here once and for all. This is something you will do once. First copy-paste this line to remove all previously generated databases from your disk (this cryptic one-liner will remove all databases for SCG taxonomy):
-
-``` python
-python -c 'import anvio; \
-           import glob; \
-           import os; \
-               [os.remove(x) for x in glob.glob(os.path.join(os.path.dirname(anvio.__file__), \
-                                               "data/misc/SCG_TAXONOMY/GTDB/SCG_SEARCH_DATABASES/") + "*.dmnd") \
-                                                        if os.path.exists(x)]'
-```
-
-Then recreate them using four threads:
-
-```
-anvi-setup-scg-taxonomy -T 4
-```
-
-And re-run {% include ARTIFACT name="scgs-taxonomy" text="taxonomy" %} on our contigs database:
-
-```
-anvi-run-scg-taxonomy -c CONTIGS.db \
-                      --num-parallel-processes 3 \
-                      --num-threads 2
-```
-
-Aaaand we are done.
-
-</div>
-
 
 You can take a very quick look at the taxonomic composition of the metagenome through the command line first:
 
@@ -265,24 +232,68 @@ which should give us this output for the IGD:
 ╘════════════════════╧════════════════════╧══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╛
 ```
 
-Good, but could have been better. Why? *Pro tip: we have a profile database, what does it mean and how it could improve the information we see here?*
+Good, but could have been better. Why?
 
-Anvi'o can add these metagenome-level taxonomic insights into a given {% include ARTIFACT name="profile-db" text="profile database" %}, let's do that,
+{:.notice}
+**Pro tip**: we have a profile database, what does it mean and how it could improve the information we see here?
+
+Making use of our {% include ARTIFACT name="profile-db" text="profile database" %} the following way, will give us a little more information about our dataset:
 
 ```
 anvi-estimate-scg-taxonomy -c CONTIGS.db \
-                              -p PROFILE.db \
-                              --metagenome-mode \
-                              --compute-scg-coverages \
-                              --update-profile-db-with-taxonomy
+                           -p PROFILE.db \
+                           --metagenome-mode \
+                           --compute-scg-coverages
 ```
 
-and find the new layer additional data and take a look at it:
+which should give us the following output:
+
+```
+Taxa in metagenome "Infant Gut Contigs from Sharon et al."
+===============================================
+╒════════════════════╤════════════════════╤════════════════════════════════╤═══════════╤═══════════╤══════════╤═══════════╤═══════════╤══════════════╕
+│                    │   percent_identity │ taxonomy                       │   DAY_15A │   DAY_15B │   DAY_16 │   DAY_17A │   DAY_17B │ ... 6 more   │
+╞════════════════════╪════════════════════╪════════════════════════════════╪═══════════╪═══════════╪══════════╪═══════════╪═══════════╪══════════════╡
+│ Ribosomal_S6_2915  │               97.9 │ (s) Enterococcus faecalis      │   372.512 │   699.853 │  663.241 │    186.34 │    1149.6 │ ... 6 more   │
+├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
+│ Ribosomal_S6_11655 │               98.9 │ (s) Staphylococcus epidermidis │   112.694 │   172.478 │  147.304 │   23.3901 │   140.769 │ ... 6 more   │
+├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
+│ Ribosomal_S6_4484  │               98.9 │ (s) Peptoniphilus lacydonensis │         0 │         0 │        0 │         0 │         0 │ ... 6 more   │
+├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
+│ Ribosomal_S6_7660  │               98.9 │ (g) Staphylococcus             │         0 │         0 │        0 │         0 │         0 │ ... 6 more   │
+├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
+│ Ribosomal_S6_6421  │                100 │ (s) Cutibacterium avidum       │   17.8935 │   5.87368 │  4.79909 │         0 │         0 │ ... 6 more   │
+├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
+│ Ribosomal_S6_12163 │               98.9 │ (s) Staphylococcus hominis     │   2.39322 │   22.5447 │  13.2806 │         0 │   9.94853 │ ... 6 more   │
+├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
+│ Ribosomal_S6_15200 │               98.9 │ (s) Leuconostoc citreum        │         0 │         0 │  1.86532 │         0 │    1.6936 │ ... 6 more   │
+├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
+│ Ribosomal_S6_29818 │               98.9 │ (s) Streptococcus oralis       │         0 │         0 │        0 │         0 │         0 │ ... 6 more   │
+├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
+│ Ribosomal_S6_25880 │               98.9 │ (s) Finegoldia magna           │         0 │         0 │        0 │         0 │         0 │ ... 6 more   │
+├────────────────────┼────────────────────┼────────────────────────────────┼───────────┼───────────┼──────────┼───────────┼───────────┼──────────────┤
+│ Ribosomal_S6_30904 │               98.1 │ (s) Anaerococcus nagyae        │  0.528958 │         0 │  0.14157 │         0 │         0 │ ... 6 more   │
+╘════════════════════╧════════════════════╧════════════════════════════════╧═══════════╧═══════════╧══════════╧═══════════╧═══════════╧══════════════╛
+```
+
+These look like information that would have been useful to have in front of us in our interactive interface. Luckily, anvi'o can add these taxonomic insights into a given {% include ARTIFACT name="profile-db" text="profile database" %}, if you change the previous command just a bit:
+
+```
+anvi-estimate-scg-taxonomy -c CONTIGS.db \
+                           -p PROFILE.db \
+                           --metagenome-mode \
+                           --compute-scg-coverages \
+                           --update-profile-db-with-taxonomy
+```
+
+Tadaa. Now let's take another look at our interactive interface and find the additional data for our layers:
 
 ```
 anvi-interactive -c CONTIGS.db \
                  -p PROFILE.db
 ```
+
+At this point we have an overall idea about the make up of this metagenome, but we don't have any genomes from it. The following sections will cover some of multiple ways to do this.
 
 ### Manual identification of genomes in the Infant Gut Dataset
 
@@ -414,7 +425,7 @@ The directory `additional-files/external-binning-results` contains a number of f
 
 <div class="extra-info" markdown="1">
 
-<span class="extra-info-header">External binning results:</span>
+<span class="extra-info-header">External binning results [FROM AGES AGO]:</span>
 
 The first five files are courtesy of **Elaina Graham**, who used [GroopM](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4183954/){:target="_blank"} (v0.3.5), [MetaBat](https://peerj.com/articles/1165/){:target="_blank"} (v0.26.3), [MaxBin](https://microbiomejournal.biomedcentral.com/articles/10.1186/2049-2618-2-26){:target="_blank"} (v2.1.1), [MyCC](https://sourceforge.net/projects/sb2nhri/files/MyCC/){:target="_blank"}, and [BinSanity](http://biorxiv.org/content/early/2016/08/16/069567){:target="_blank"} (v0.2.1) to bin the IGD. For future references, here are the parameters Elaina used for each approach:
 
@@ -1392,7 +1403,7 @@ As of `v7` the script `anvi-get-enriched-functions-per-pan-group` (which used to
 
 There are multiple ways to identify gene clusters that match to a given set of criteria. If you like, you can use a combination of filters that are available through the interface:
 
-[![E. facealis pan](images/pan-filters.png)](images/pan-filters.png){:.center-img .width-50}
+[![E. faecalis pan](images/pan-filters.png)](images/pan-filters.png){:.center-img .width-50}
 
 The command line program {% include PROGRAM name="anvi-get-sequences-for-gene-clusters" text="`anvi-get-sequences-for-gene-clusters`" %} can also give you access to these filters and more to get very precise reports. Another option is the good'ol {% include ARTIFACT name="interactive" %} interface, and using the dendrogram it produces to organize gene clusters based on their distribution across genomes. From this display you can make manual selections of gene clusters. I already made some selections and stored them in a file for your convenience. If you {% include PROGRAM name="anvi-import-collection" text="import" %} them the following way,
 
