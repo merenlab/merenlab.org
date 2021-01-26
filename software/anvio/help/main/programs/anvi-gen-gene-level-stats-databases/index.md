@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-A program to compute genes databases for a ginen set of bins stored in an anvi&#39;o collection. Genes databases store gene-level coverage and detection statistics, and they are usually computed and generated automatically when they are required (such as running anvi-interactive with `--gene-mode` flag). This program allows you to pre-compute them if you don&#39;t want them to be done all at once.
+A program to compute genes databases for a ginen set of bins stored in an anvi&#x27;o collection. Genes databases store gene-level coverage and detection statistics, and they are usually computed and generated automatically when they are required (such as running anvi-interactive with `--gene-mode` flag). This program allows you to pre-compute them if you don&#x27;t want them to be done all at once.
 
 See **[program help menu](../../../../vignette#anvi-gen-gene-level-stats-databases)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 

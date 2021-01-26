@@ -49,13 +49,15 @@ docker system prune --force -a
 ```
 </details>
 
-
 Please consider opening an <a href="https://github.com/meren/anvio/issues">issue</a> for technical problems, or join us on Slack if you need help:
 
 {% include _join-anvio-slack.html %}
 
 {:.notice}
 {% include _fixthispage.html source="_posts/anvio/2016-06-26-installation-v2.md" %}
+
+{:.warning}
+We thank [Daan Speth](https://twitter.com/daanspeth), [Jarrod Scott](https://orcid.org/0000-0001-9863-1318), [Susheel Bhanu Busi](https://scholar.google.com/citations?user=U0g3IzQAAAAJ&hl=en), and [Mike Lee](https://twitter.com/AstrobioMike), who kindly invested their time to test the installation instructions on this page on different systems and/or made suggestions to the document to ensure a smoother installation experience for everyone.
 
 ## (1) Setup conda
 
@@ -96,24 +98,32 @@ If this shortcut doesn't work for you for some reason, you will not worry and tr
 Resolving dependencies (especially on Mac systems) can take a very long time for conda (which is a [known problem](https://github.com/conda/conda/issues/7239)), hence, here we will use a serious shortcut to generate an environment for anvi'o `v{% include _project-anvio-version-number.html %}`.
 
 
-First get a copy of the following file:
+First you will need to get a copy of the following file, but you have two options depending on the operating system you're using.
 
+If you are using **Mac OSX**, use this one:
 
 ``` bash
-curl https://merenlab.org/files/anvio-conda-environments/anvio-environment-7.yml \
-     --output anvio-environment-7.yml
+curl https://merenlab.org/files/anvio-conda-environments/anvio-environment-7-MACOS.yaml \
+     --output anvio-environment-7.yaml
 ```
 
-Make sure there you don't have an environment called `anvio-v{% include _project-anvio-version-number.html %}` already:
+If you are using **Linux/Windows**, use this one:
+
+``` bash
+curl https://merenlab.org/files/anvio-conda-environments/anvio-environment-7-LINUX.yaml \
+     --output anvio-environment-7.yaml
+```
+
+Run this to make sure you don't already have an environment called `anvio-v{% include _project-anvio-version-number.html %}`:
 
 ```
 conda env remove --name anvio-7
 ```
 
-Create a new `anvio-v{% include _project-anvio-version-number.html %}` environment using the file you just downloaded:
+Now create a new `anvio-v{% include _project-anvio-version-number.html %}` environment using the file you just downloaded:
 
 ```
-conda env create -f anvio-environment-7.yml
+conda env create -f anvio-environment-7.yaml
 ```
 
 If this didn't go well, jump to the slower but reliable option. If it did go well, then you should activate that environment,
@@ -122,7 +132,13 @@ If this didn't go well, jump to the slower but reliable option. If it did go wel
 conda activate anvio-7
 ```
 
-and jump to "[Download and install anvi'o](#3-download-and-install-anvio)".
+Then downgrade the HMMER to an earlier version due to a [recently reported bug](https://github.com/merenlab/anvio/issues/1638) related to HMMER `v3.3.1`:
+
+```
+conda install -y -c bioconda hmmer=3.2.1
+```
+
+and jump to "[Download and install anvi'o](#3-install-anvio)".
 
 ### Slower but reliable option
 
@@ -145,7 +161,7 @@ conda install -y -c bioconda "sqlite >=3.31.1"
 conda install -y -c bioconda prodigal
 conda install -y -c bioconda mcl
 conda install -y -c bioconda muscle
-conda install -y -c bioconda hmmer
+conda install -y -c bioconda hmmer=3.2.1
 conda install -y -c bioconda diamond
 conda install -y -c bioconda blast
 conda install -y -c bioconda megahit
@@ -164,13 +180,14 @@ conda install -y -c bioconda r-magrittr
 conda install -y -c bioconda r-optparse
 conda install -y -c bioconda bioconductor-qvalue
 conda install -y -c bioconda fasttree
+conda install -y -c conda-forge h5py=2.8.0
 
 # this may cause some issues. if it doesn't install,
 # don't worry:
 conda install -y -c bioconda fastani
 ```
 
-Now you can jump to "[Download and install anvi'o](#3-download-and-install-anvio)"!
+Now you can jump to "[Download and install anvi'o](#3-install-anvio)"!
 
 
 ## (3) Install anvi'o
@@ -188,7 +205,7 @@ And install it using `pip` like a boss:
 pip install anvio-7.tar.gz
 ```
 
-If everything went fine, you can jump to "[Check your anvi'o setup](#4-check-your-installation)" to see if things worked for you.
+If everything went fine, you can jump to "[Check your anvi'o setup](#4-check-your-installation)" to see if things worked for you, and then you are free to go!
 
 
 ## (4) Check your installation
@@ -234,9 +251,12 @@ python -c 'import webbrowser as w; w.open_new("http://")'
 ```
 </div>
 
-If you are here, you are done. Congratulations, and thank you very much for your patience! Now you can take a look up some anvi'o resources [here]({{ site.url }}/software/anvio), or come say hi to us on Slack.
+If you are here, you are done! Congratulations, and thank you very much for your patience!
+
+Now you can take a look up some anvi'o resources [here]({{ site.url }}/software/anvio), or come say hi to us on Slack.
 
 {% include _join-anvio-slack.html %}
+
 
 ## (5) Follow the active development (you're a wizard, arry)
 
@@ -309,6 +329,7 @@ conda install -y -c bioconda r-magrittr
 conda install -y -c bioconda r-optparse
 conda install -y -c bioconda bioconductor-qvalue
 conda install -y -c bioconda fasttree
+conda install -y -c conda-forge h5py=2.8.0
 
 # this may cause some issues. if it doesn't install,
 # don't worry:
@@ -342,18 +363,23 @@ cd ~/github/anvio/
 pip install -r requirements.txt
 ```
 
+{:.warning}
+Some packages in `requirement.txt` need to be installed with a more up to date c-compiler on **Mac OSX**. If you’re getting an error that contains this, `x86_64-apple-darwin13.4.0-clang` in the message, please run this command `export CC=clang` and try again. If you are still unable to run the `pip install` command above please make an issue on the github page or let us know in the anvi'o slack channel
+
+
+
 Now all dependencies are in place, and you have the code. One more step.
 
 ### Linking conda environment and the codebase
 
-Now we have the codebase and we have the conda environment, but they don't know about each other. 
+Now we have the codebase and we have the conda environment, but they don't know about each other.
 
 Here we will setup your conda environment in such a way that every time you activate it, you will get the very latest updates from the main anvi'o repository. While you are still in anvi'o environment, copy-paste these lines into your terminal:
 
 ``` bash
 cat <<EOF >${CONDA_PREFIX}/etc/conda/activate.d/anvio.sh
 # creating an activation script for the the conda environment for anvi'o
-# development branch so (1) Python knows where to find anvi'o libraries, 
+# development branch so (1) Python knows where to find anvi'o libraries,
 # (2) the shell knows where to find anvi'o programs, and (3) every time
 # the environment is activated it synchronizes with the latest code from
 # active GitHub repository:
@@ -433,7 +459,7 @@ init_anvio_7 () {
 init_anvio_dev () {
     deactivate &> /dev/null
     conda deactivate &> /dev/null
-    export PATH="$MY_MINICONDA_BASE bin:$PATH"
+    export PATH="$MY_MINICONDA_BASE/bin:$PATH"
     . $MY_MINICONDA_BASE/etc/profile.d/conda.sh
     conda activate anvio-dev
     export PS1="\[\e[0m\e[40m\e[1;30m\] :: anvi'o v7 dev :: \[\e[0m\e[0m \[\e[1;34m\]\]\w\[\e[m\] \[\e[1;31m\]>>>\[\e[m\] \[\e[0m\]"

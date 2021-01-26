@@ -27,7 +27,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-compute-functional-enrichment](../../programs/anvi-compute-functional-enrichment)</span> <span class="artifact-r">[anvi-delete-misc-data](../../programs/anvi-delete-misc-data)</span> <span class="artifact-r">[anvi-export-misc-data](../../programs/anvi-export-misc-data)</span> <span class="artifact-r">[anvi-get-enriched-functions-per-pan-group](../../programs/anvi-get-enriched-functions-per-pan-group)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-compute-functional-enrichment](../../programs/anvi-compute-functional-enrichment)</span> <span class="artifact-r">[anvi-delete-misc-data](../../programs/anvi-delete-misc-data)</span> <span class="artifact-r">[anvi-export-misc-data](../../programs/anvi-export-misc-data)</span></p>
 
 
 ## Description

@@ -88,19 +88,19 @@ p {
 }
 
 .artifact-p {
-    background:#ddf9e8;
+    background:#cbe4d5;
     padding: 0px 3px 2px 3px;
     border-radius: 2px;
 }
 
 .artifact-r {
-    background:#f9ebff;
+    background:#dcbfe8;
     padding: 0px 3px 2px 3px;
     border-radius: 2px;
 }
 
 .artifact-n {
-    background: #ede9ff;
+    background: #e1dbf9;
     padding: 1px 3px 1px 3px;
     border-radius: 2px;
 }
@@ -594,6 +594,14 @@ th, td {
     a {
         color: #a7a7a7;
     }
+}
+
+.person-info-text a {
+    color: #4b4b8e;
+}
+
+.person-current-info {
+    text-decoration: underline;
 }
 
 .persons-title {

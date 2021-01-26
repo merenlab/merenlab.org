@@ -8,7 +8,7 @@ image:
   display: true
 ---
 
-Merge a given set of bins in an anvi&#39;o collection.
+Merge a given set of bins in an anvi&#x27;o collection.
 
 See **[program help menu](../../../../vignette#anvi-merge-bins)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
