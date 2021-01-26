@@ -770,7 +770,7 @@ Bins in collection "MAXBIN"
 │ maxbin_007_and_008_5 │ BACTERIA │          0.3 │          38.03 │           2.82 │          247 │        2333489 │
 ├──────────────────────┼──────────┼──────────────┼────────────────┼────────────────┼──────────────┼────────────────┤
 │ maxbin_007_and_008_6 │ BACTERIA │          0.8 │          71.83 │           2.82 │          556 │        1237568 │
-╘════════════════════╧══════════╧══════════════╧════════════════╧════════════════╧══════════════╧════════════════╛
+╘══════════════════════╧══════════╧══════════════╧════════════════╧════════════════╧══════════════╧════════════════╛
 ```
 
 The take home message here is that even when automatic binning approaches yield poorly identified bins, it is possible to improve the final results through a manual refinement step. Clearly these extra steps require a lot of expertise, intuition, attention, and decision making. And fortunately you are all familiar with each one of them because science.
@@ -829,7 +829,8 @@ Well, how do you even know how many bacterial genomes you should expect to find 
 
 Thanks for the great question. Although this may sound like a challenging problem to some, we have a very simple way to resolve it (which I described in this [blog post]({% post_url anvio/2015-12-07-predicting-number-of-genomes %}){:target="_blank"}). If you still have access to the IGD, you can run this simple command:
 
-``display-contigs-stats CONTIGS.db
+```
+anvi-display-contigs-stats CONTIGS.db
 ```
 
 If you take a look at the resulting interactive graph, you can see that one should expect to find about 10 near-complete genomes in this dataset:
@@ -1822,7 +1823,7 @@ anvi-interactive -p TARA_ANW_MAG_00006/PROFILE.db \
                  -c TARA_ANW_MAG_00006/CONTIGS.db
 ```
 
-nyone who is running these commands on a computer with any version of anvi'o (well, `v2.3.0` or later) will see an {% include ARTIFACT name="interactive" %} interface in their browser that shows the coverage of each contig across all Tara Oceans Project surface ocean samples:
+Anyone who is running these commands on a computer with any version of anvi'o (well, `v2.3.0` or later) will see an {% include ARTIFACT name="interactive" %} interface in their browser that shows the coverage of each contig across all Tara Oceans Project surface ocean samples:
 
 [![TARA](images/tara-mag-00006.png)](images/tara-mag-00006.png){:.center-img .width-70}
 
