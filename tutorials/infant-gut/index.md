@@ -1582,14 +1582,28 @@ The genome labels are not visible in this zoomed and rotated view, but if you lo
 <div class="extra-info" markdown="1">
 <span class="extra-info-header">How to generate the modules information file</span>
 Oh, so you wish to know how this additional data table was obtained? How excellent. It is quite simple - the {% include ARTIFACT name='modules-db' text='MODULES database' %} carries this information about each KEGG module. We can extract the info and stick it into a tab-delimited file using the following lines of code:
+
 ``` bash
+# learn where the MODULES.db is:
+export ANVIO_MODULES_DB=`python -c "import anvio; import os; print(os.path.join(os.path.dirname(anvio.__file__), 'data/misc/KEGG/MODULES.db'))"`
+
+# start an empty file:
 echo -e "module\tclass\tcategory\tsubcategory\tname" > modules_info.txt
-sqlite3 ~/software/anvio/anvio/data/misc/KEGG/MODULES.db "select module,data_value from kegg_modules where data_name='CLASS'" | \
+
+# get module classes:
+sqlite3 $ANVIO_MODULES_DB "select module, data_value from kegg_modules where data_name='CLASS'" | \
     sed 's/; /|/g' | \
     tr '|' '\t' >> module_class.txt
-sqlite3 ~/software/anvio/anvio/data/misc/KEGG/MODULES.db "select module,data_value from kegg_modules where data_name='NAME'" | \
+
+# get module names:
+sqlite3 $ANVIO_MODULES_DB "select module,data_value from kegg_modules where data_name='NAME'" | \
     tr '|' '\t' > module_names.txt
+
+# join everything
 paste module_class.txt <(cut -f 2 module_names.txt ) >> modules_info.txt
+
+# empty the trash bin:
+rm module_names.txt module_class.txt
 ```
 Here, we are using the `sqlite3` program for accessing SQLite databases, and doing a bit of text manipulation to convert the database output into a tab-delimited format.
 </div>
