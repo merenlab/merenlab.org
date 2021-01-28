@@ -47,11 +47,11 @@ We hope you find the tutorial useful, and generously share your opinions or crit
 To download the infant gut data-pack copy-paste the following commands into your terminal:
 
 ``` bash
-wget https://ndownloader.figshare.com/files/26193278 -O INFANT-GUT-TUTORIAL.tar.gz
+wget https://ndownloader.figshare.com/files/26218961 -O INFANT-GUT-TUTORIAL.tar.gz
 tar -zxvf INFANT-GUT-TUTORIAL.tar.gz && cd INFANT-GUT-TUTORIAL
 ```
 
-Alternatively (i.e., if you don't have `wget` installed on your system), you can download the same file using [this direct download link](https://ndownloader.figshare.com/files/18046139).
+Alternatively (i.e., if you don't have `wget` installed on your system), you can download the same file using [this direct download link](https://ndownloader.figshare.com/files/26218961).
 
 When you click the link, it will start downloading a **210 Mb** compressed file automatically. Once it is done, go to the relevant directory that contains this file using your terminal, and unpack it the following way:
 
@@ -1539,9 +1539,21 @@ We can use anvi'o to visualize the module completeness matrix as a heatmap. Firs
 anvi-matrix-to-newick Enterococcus-completeness-MATRIX.txt
 ```
 
-And then we load up the matrix into the interactive interface in "manual mode", using the tree to organize the modules into columns based on their distribution across the *Enterococcus* genomes.
+And then we use the `--dry-run` flag to ask `anvi-interactive` to give us a new profile database, import our state in it, and THEN run anvi'o interactive interface to visualize the distribution of modules across the *Enterococcus* genomes:
 
 ``` bash
+# dry run to get the profile db:
+anvi-interactive -d Enterococcus-completeness-MATRIX.txt \
+                 -p Enterococcus_metabolism_PROFILE.db \
+                 --manual-mode \
+                 --dry-run
+
+# import the state file:
+anvi-import-state -s additional-files/state-files/state-metabolism.json \
+                  -p Enterococcus_metabolism_PROFILE.db \
+                  -n default
+
+# run for reals:
 anvi-interactive --manual-mode \
                  -d Enterococcus-completeness-MATRIX.txt \
                  -t Enterococcus-completeness-MATRIX.txt.newick \
@@ -1549,7 +1561,7 @@ anvi-interactive --manual-mode \
                  --title "Enterococcus Metabolism Heatmap"
 ```
 
-To make it look like a rectangular heatmap, we set the 'Drawing Type' to 'Phylogram', increase the width (in 'Additional Settings'), and change every layer to be of type 'Intensity'. Voila:
+Which should give us this display:
 
 [![Enterococcus Heatmap](images/entero_heatmap_unlabeled.png)](images/entero_heatmap_unlabeled.png){:.center-img }
 
