@@ -33,6 +33,25 @@ See **[program help menu](../../../../vignette#anvi-display-contigs-stats)** or 
 
 This program **helps you make sense of contigs in one or more <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>s**.
 
+### Working with single or multiple contigs databases
+
+You can use this program on a single contigs database the following way:
+
+<div class="codeblock" markdown="1">
+anvi&#45;display&#45;contigs&#45;stats CONTIGS&#45;01.db
+</div>
+
+Alternatively, you may use it to compare multiple contigs databases:
+
+<div class="codeblock" markdown="1">
+anvi&#45;display&#45;contigs&#45;stats CONTIGS&#45;01.db \
+                           CONTIGS&#45;02.db \
+                           (...)
+                           CONTIGS&#45;XX.db
+</div>
+
+If you are comparing multiple, each contigs databse will become an individual column in all outputs.
+
 ### Interactive output
 
 If you run this program on an anvi'o contigs database with default parameters,
@@ -63,6 +82,7 @@ Below the graphs are the **contigs stats** which are displayed in the following 
 - The number of HMM hits in your contigs. This goes through every <span class="artifact-n">[hmm-source](/software/anvio/help/main/artifacts/hmm-source)</span> and gives the number of hits its genes had in all of your contigs. Basically, this is the number of hits that is given in the lower graph at the top of the page.
 - The number of genomes that anvi'o predicts are in your sample, based on how many hits the single copy core genes got from the various <span class="artifact-n">[hmm-source](/software/anvio/help/main/artifacts/hmm-source)</span>s. See the description of the lower graph above, or [this blog post](http://merenlab.org/2015/12/07/predicting-number-of-genomes/) for more information.
 
+
 ### Text output
 
 If you wish to report <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> stats as a supplementary table, a text output will be much more appropriate. If you add the flag `--report-as-text` anvi'o will not attempt to initiate an interactive interface, and instead will report the stats as a TAB-delmited file:
@@ -79,7 +99,7 @@ There is also another flag you can add to get the output formatted as markdown, 
 anvi&#45;display&#45;contigs&#45;stats <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
                           &#45;&#45;report&#45;as&#45;text \
                           &#45;&#45;as&#45;markdown \
-                          &#45;o OUTPUT_FILE_NAME.txt
+                          &#45;o OUTPUT_FILE_NAME.md
 </div>
 
 Here is an example output:
@@ -110,18 +130,17 @@ archaea (Archaea_76)|0|0|0|0
 eukarya (Protista_83)|0|0|0|0
 bacteria (Bacteria_71)|33|26|20|18
 
-You can easily convert the markdown output into PDF or HTML pages using [pandoc](https://pandoc.org/).
+You can easily convert the markdown output into PDF or HTML pages using [pandoc](https://pandoc.org/). For instance running the following command in the previous output,
 
-### Working with multiple contigs databases
+```
+pandoc -V geometry:landscape \
+       OUTPUT_FILE_NAME.md
+       -o OUTPUT_FILE_NAME.pdf
+```
 
-This interface is espeically useful if you want to compare multiple contigs databases. In which case each contigs datase will become a column in this display. To use it with multiple contigs databases, simply add them to your command line:
+will results in a PDF file that looks like this:
 
-<div class="codeblock" markdown="1">
-anvi&#45;display&#45;contigs&#45;stats CONTIGS&#45;01.db \
-                           CONTIGS&#45;02.db \
-                           (...)
-                           CONTIGS&#45;XX.db
-</div>
+![an anvi'o display](../../images/display_contigs_stats_pandoc_output.png){:.center-img}
 
 
 {:.notice}
