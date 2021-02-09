@@ -100,7 +100,7 @@ The first thing we need to do is to generate an anvi'o {% include ARTIFACT name=
 ``` bash
 for i in `ls *fa | awk 'BEGIN{FS=".fa"}{print $1}'`
 do
-    anvi-gen-contigs-database -i $i.fa -o $i.db
+    anvi-gen-contigs-database -f $i.fa -o $i.db
     anvi-run-hmms -c $i.db
 done
 ```
@@ -414,7 +414,7 @@ As it is discussed in the previous section, to do anything with these genomes, w
 ``` bash
 for i in `ls *fa | awk 'BEGIN{FS=".fa"}{print $1}'`
 do
-    anvi-gen-contigs-database -i $i.fa -o $i.db
+    anvi-gen-contigs-database -f $i.fa -o $i.db
     anvi-run-hmms -c $i.db
 done
 ```
