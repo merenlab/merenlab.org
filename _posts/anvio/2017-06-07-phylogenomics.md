@@ -95,19 +95,15 @@ Escherichia_coli_9038.fa       Prevotella_denticola_19594.fa
 Salmonella_enterica_21806.fa   Salmonella_enterica_22289.fa
 ```
 
-The first thing we need to do is to generate an anvi'o contigs database for each one of them ([read more about anvi'o contigs databases here]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}/#creating-an-anvio-contigs-database){:target="_blank"}).
-
-Anvi'o has a script to do it in one step, and we can do it for every FASTA file in our work directory this way:
+The first thing we need to do is to generate an anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} for each one of them:
 
 ``` bash
-for i in *fa
+for i in `ls *fa | awk 'BEGIN{FS=".fa"}{print $1}'`
 do
-	anvi-script-FASTA-to-contigs-db $i
+    anvi-gen-contigs-database -i $i.fa -o $i.db
+    anvi-run-hmms -c $i.db
 done
 ```
-
-{:.notice}
-`anvi-script-FASTA-to-contigs-db` is a very simple script that runs `anvi-script-reformat-fasta` (to make sure deflines are clean), `anvi-gen-contigs-database` to create a contigs database for the FASTA file, and `anvi-run-hmms` to run default HMM profiles on the resulting contigs database. You can do all these steps manually to have more control over the process.
 
 At the end of this, for each FASTA file I should have a file with the same name that ends with '.db'.
 
@@ -413,15 +409,15 @@ Salmonella_enterica_21806.fa Salmonella_enterica_24368.fa
 Salmonella_enterica_21834.fa Salmonella_enterica_24443.fa
 ```
 
-As it is discussed in the previous section, to do anything with these genomes, we will need them in the anvi'o contigs database format, so let's start with that:
+As it is discussed in the previous section, to do anything with these genomes, we will need them in the anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} format, so let's start with that:
 
 ``` bash
-for i in *fa
+for i in `ls *fa | awk 'BEGIN{FS=".fa"}{print $1}'`
 do
-	anvi-script-FASTA-to-contigs-db $i
+    anvi-gen-contigs-database -i $i.fa -o $i.db
+    anvi-run-hmms -c $i.db
 done
 ```
-
 
 At the end of this the directory should be populated with files that ends with '.db', but we are not done: we also need a TAB-delimited 'external genomes' file to describe these genomes and associate them with a name. Here is mine:
 
