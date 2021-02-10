@@ -27,7 +27,7 @@ This tutorial is tailored for anvi'o <b>`v4` or later</b>. You can learn which v
 
 * You can use **any set of genes to create concatenated proteins**. While you can use genes in one of the default HMM profiles anvi'o uses for bacterial and archaeal single-copy core genes (such as a set of commonly used ribosomal proteins), you can also **go rogue and use a set of genes in your [custom HMM profile]({% post_url anvio/2016-05-21-archaeal-single-copy-genes %}){:target="_blank"}**.
 
-* You can **combine [pangenomics]({% post_url anvio/2016-11-08-pangenomics-v2 %}){:target="_blank"} and phylogenomics** to investigate relationships between very closely related genomes using protein clusters beyond universal single-copy core genes.
+* You can **combine [pangenomics]({% post_url anvio/2016-11-08-pangenomics-v2 %}){:target="_blank"} and phylogenomics** to investigate relationships between very closely related genomes using gene clusters beyond universal single-copy core genes.
 
 * You can **interactively visualize your phylogenomic trees** using the [anvi'o interactive interface]({{ site_url }}/tutorials/interactive-interface/}){:target="_blank"} (by optionally extending them with additional data), or **[share them with your colleagues](https://anvi-server.org/merenlab/tara_hbds)** through [anvi'server](http://anvi-server.org){:target="_blank"}.
 
@@ -132,38 +132,43 @@ wget https://goo.gl/XuezQF -O external-genomes.txt
 
 ---
 
-We will use the program `anvi-get-sequences-for-hmm-hits` to get sequences out of this collection of contigs databases.
+We will use the program {% include PROGRAM name="anvi-get-sequences-for-hmm-hits" %} to get sequences out of this collection of contigs databases.
 
 {:.notice}
 `anvi-get-sequences-for-hmm-hits` is quite a powerful program that lets you do lots of things with a single anvi'o contigs database, or a collection of external genomes (which is what we are doing here), or a collection in a profile database. Please consider exploring it yourself since this tutorial will not cover all aspects of it.
 
 Fine. We will concatenate genes, but which genes are we going to concatenate?
 
-First, we need to identify an HMM profile to use, and then select some gene names from this profile to play with. Anvi'o has multiple HMM profiles for single-copy core genes by default, and by typing the following command, you can learn which ones are already in your contigs databases:
-
+First, we need to identify an HMM profile to use, and then select some gene names from this profile to play with. Anvi'o has multiple HMM profiles for single-copy core genes by default, and you can always use the program {% include PROGRAM name="anvi-db-info" %} to learn which HMM sources you have in a given contigs database. Here is an example:
 
 ``` bash
- $ anvi-get-sequences-for-hmm-hits --external-genomes external-genomes.txt \
-                                   --list-hmm-sources
+anvi-db-info Salmonella_enterica_21170.db
 
-Internal genomes .............................: 0 have been initialized.
-External genomes .............................: 12 found.
+(...)
 
-HMM SOURCES COMMON TO ALL 12 GENOMES
+AVAILABLE HMM SOURCES
 ===============================================
-* Campbell_et_al [type: singlecopy] [num genes: 139]
-* Rinke_et_al [type: singlecopy] [num genes: 162]
+* 'Archaea_76' (76 models with 37 hits)
+* 'Bacteria_71' (71 models with 70 hits)
+* 'Protista_83' (83 models with 5 hits)
+* 'Ribosomal_RNA_12S' (1 model with 0 hits)
+* 'Ribosomal_RNA_16S' (3 models with 7 hits)
+* 'Ribosomal_RNA_18S' (1 model with 0 hits)
+* 'Ribosomal_RNA_23S' (2 models with 7 hits)
+* 'Ribosomal_RNA_28S' (1 model with 0 hits)
+* 'Ribosomal_RNA_5S' (5 models with 0 hits)
+
 ```
 
-For the remainder of this tutorial we will use the collection from Campbell et al, however, you can use others, including your own [custom HMM profiles]({% post_url anvio/2016-05-21-archaeal-single-copy-genes %}) to focus on a set of single-copy genes across your genomes of interest (for instance, if you are comparing multiple eukaryotic genomes, neither of these collections may be very useful to you).
+For the remainder of this tutorial we will use the collection called `Bacteria_71`, which is the default bacterial single-copy core gene collection anvi'o (which also includes ribosomal proteins that are good for archaea as well). However, you can use others, including your own [custom HMM profiles]({% post_url anvio/2016-05-21-archaeal-single-copy-genes %}) to focus on a set of single-copy genes across your genomes of interest (for instance, if you are comparing multiple eukaryotic genomes, neither of these collections may be very useful to you).
 
 ---
 
-We will use the [Campbell et al. collection](http://www.pnas.org/content/108/31/12776.short), but which genes should we pick from it? Let's take a look and see which genes are described in this collection:
+OK, so we will use `Bacteria_71` as a source of single-copy core genes, but which genes exactly should we pick from it? Let's take a look and see which genes are described in this collection:
 
 ``` bash
  $ anvi-get-sequences-for-hmm-hits --external-genomes external-genomes.txt \
-                                   --hmm-source Campbell_et_al \
+                                   --hmm-source Bacteria_71 \
                                    --list-available-gene-names
 
 Internal genomes .............................: 0 have been initialized.
@@ -171,30 +176,18 @@ External genomes .............................: 12 found.
 
 GENES IN HMM SOURCES COMMON TO ALL 12 GENOMES
 ===============================================
-* Campbell_et_al [type: singlecopy]: Arg_tRNA_synt_N, B5, CTP_synth_N, CoaE,
-Competence, Cons_hypoth95, Cytidylate_kin, DNA_pol3_beta, DNA_pol3_beta_2,
-DNA_pol3_beta_3, EF_TS, Enolase_C, Enolase_N, FAD_syn, FDX-ACB, Flavokinase,
-GAD, GMP_synt_C, GTP1_OBG, GidB, GrpE, IF-2, IF2_N, IF3_C, IF3_N, IPPT, LepA_C,
-Methyltransf_5, MurB_C, NusA_N, Oligomerisation, PGK, PNPase, Pept_tRNA_hydro,
-Peptidase_A8, Phe_tRNA-synt_N, PseudoU_synth_1, RBFA, RNA_pol_A_CTD,
-RNA_pol_A_bac, RNA_pol_L, RNA_pol_Rpb1_1, RNA_pol_Rpb1_2, RNA_pol_Rpb1_3,
-RNA_pol_Rpb1_4, RNA_pol_Rpb1_5, RNA_pol_Rpb2_1, RNA_pol_Rpb2_2, RNA_pol_Rpb2_3,
-RNA_pol_Rpb2_45, RNA_pol_Rpb2_6, RNA_pol_Rpb2_7, RRF, RecA, RecR,
-Ribonuclease_P, Ribosom_S12_S23, Ribosomal_L1, Ribosomal_L10, Ribosomal_L11,
-Ribosomal_L11_N, Ribosomal_L12, Ribosomal_L13, Ribosomal_L14, Ribosomal_L16,
-Ribosomal_L17, Ribosomal_L18e, Ribosomal_L18p, Ribosomal_L19, Ribosomal_L2,
+* Bacteria_71 [type: singlecopy]: ADK, AICARFT_IMPCHas, ATP-synt, ATP-synt_A,
+Adenylsucc_synt, Chorismate_synt, EF_TS, Exonuc_VII_L, GrpE, Ham1p_like, IPPT,
+OSCP, PGK, Pept_tRNA_hydro, RBFA, RNA_pol_L, RNA_pol_Rpb6, RRF, RecO_C,
+Ribonuclease_P, Ribosom_S12_S23, Ribosomal_L1, Ribosomal_L13, Ribosomal_L14,
+Ribosomal_L16, Ribosomal_L17, Ribosomal_L18p, Ribosomal_L19, Ribosomal_L2,
 Ribosomal_L20, Ribosomal_L21p, Ribosomal_L22, Ribosomal_L23, Ribosomal_L27,
-Ribosomal_L28, Ribosomal_L29, Ribosomal_L2_C, Ribosomal_L3, Ribosomal_L32p,
-Ribosomal_L35p, Ribosomal_L4, Ribosomal_L5, Ribosomal_L5_C, Ribosomal_L6,
-Ribosomal_L9_C, Ribosomal_L9_N, Ribosomal_S10, Ribosomal_S11, Ribosomal_S13,
-Ribosomal_S15, Ribosomal_S16, Ribosomal_S17, Ribosomal_S18, Ribosomal_S19,
-Ribosomal_S2, Ribosomal_S20p, Ribosomal_S3_C, Ribosomal_S4, Ribosomal_S5,
-Ribosomal_S5_C, Ribosomal_S6, Ribosomal_S7, Ribosomal_S8, Ribosomal_S9, RimM,
-RuvA_C, RuvA_N, RuvB_C, S-AdoMet_synt_C, S-AdoMet_synt_M, SRP_SPB, SecE, SecG,
-SecY, Seryl_tRNA_N, SmpB, THF_DHG_CYH, THF_DHG_CYH_C, TIM, TRCF, Toprim_N,
-Trigger_C, Trigger_N, TruB_N, UBA, UPF0054, UPF0079, UPF0081, UvrB, UvrC_HhH_N,
-Val_tRNA-synt_C, YchF-GTPase_C, dsrm, eIF-1a, tRNA-synt_1d, tRNA-synt_2d,
-tRNA_m1G_MT, zf-C4_ClpX
+Ribosomal_L27A, Ribosomal_L28, Ribosomal_L29, Ribosomal_L3, Ribosomal_L32p,
+Ribosomal_L35p, Ribosomal_L4, Ribosomal_L5, Ribosomal_L6, Ribosomal_L9_C,
+Ribosomal_S10, Ribosomal_S11, Ribosomal_S13, Ribosomal_S15, Ribosomal_S16,
+Ribosomal_S17, Ribosomal_S19, Ribosomal_S2, Ribosomal_S20p, Ribosomal_S3_C,
+Ribosomal_S6, Ribosomal_S7, Ribosomal_S8, Ribosomal_S9, RsfS, RuvX, SecE, SecG, SecY, SmpB, TsaE, UPF0054, YajC, eIF-1a, ribosomal_L24, tRNA-synt_1d,
+tRNA_m1G_MT
 ```
 
 You can select any combination of these genes to use for your phylogenomic analysis, including all of them --if you do not declare a `--gene-names` parameter, the program would use all. But considering the fact that ribosomal proteins are often used for phylogenomic analyses, let's say we decided to use the following ribosomal proteins: `Ribosomal_L1`, `Ribosomal_L2`, `Ribosomal_L3`, `Ribosomal_L4`, `Ribosomal_L5`, and `Ribosomal_L6`.
@@ -204,7 +197,7 @@ The following command will give you the concatenated amino acid sequences for th
 ```bash
 anvi-get-sequences-for-hmm-hits --external-genomes external-genomes.txt \
                                 -o concatenated-proteins.fa \
-                                --hmm-source Campbell_et_al \
+                                --hmm-source Bacteria_71 \
                                 --gene-names Ribosomal_L1,Ribosomal_L2,Ribosomal_L3,Ribosomal_L4,Ribosomal_L5,Ribosomal_L6 \
                                 --return-best-hit \
                                 --get-aa-sequences \
@@ -230,24 +223,24 @@ Of course there was no way we were not going to implement the `--concatenate` fl
 </div>
 
 
-Now we have the FASTA file, we can use the program `anvi-gen-phylogenomic-tree` (and thank Özcan [for implementing it](https://github.com/merenlab/anvio/blob/master/bin/anvi-gen-phylogenomic-tree)),
+Now we have the FASTA file, we can use the program {% include PROGRAM name="anvi-gen-phylogenomic-tree" %},
 
 ``` bash
 anvi-gen-phylogenomic-tree -f concatenated-proteins.fa \
                            -o phylogenomic-tree.txt
 ```
 
-to get a newick-formatted tree for our genomes!
+to get a newick-formatted {% include ARTIFACT name="phylogeny" %} artifact for our genomes!
 
 {:.notice}
-**Important note**: At the time of writing, FastTree was the only option available in the program `anvi-gen-phylogenomic-tree` (please see the `--help` menu). We are hoping to include more ways to deal with alignments based on your suggestions so you can try other options via the `--program` parameter. On the other hand, although `anvi-gen-phylogenomic-tree` is available to you as an anvi'o program to make sure you have a quick and easy way to perform your phylogenomic analyses, you have the freedom  (or responsibility, depending on how you see things) to try other means to get your newick trees, as the other steps in anvi'o will not care how you generated your newick tree. Some of the options we are familiar with (and are not yet represented in `anvi-gen-phylogenomic-tree`) include [MrBayes](http://mrbayes.sourceforge.net/), [MEGA](http://www.megasoftware.net/), and PHYLIP, [among many others](http://evolution.genetics.washington.edu/phylip/software.html#methods). Luckily, almost all of them are going to be happy to work with the concatenated amino acid sequences you will get from anvi'o. Phylogenetics has tremendous challenges, investigated by hundreds of brilliant scientists over decades. And here we are, reducing years of research into a single command line. We are doing this, because at some point we have to stop and be practical, but serious questions and good data always deserve more. You *can* get away by using one algorithm to generate your tree, but you should consider exploring other options. If you happen to know a good written resource, or if *you* are a good resource, please write to us, and help us think about what would be the best strategy to provide useful insights to researchers who may be interested in learning more about the details of phylogenetics and/or phylogenomics.
+**Important note**: FastTree is currently the only option implemented in {% include PROGRAM name="anvi-gen-phylogenomic-tree" %}. Its purpose is to make sure you have a quick and easy way to perform your phylogenomic analyses, but you have the freedom  (or responsibility, depending on how you see things) to try other means to get your trees. Some of the options we are familiar with include [MrBayes](http://mrbayes.sourceforge.net/), [MEGA](http://www.megasoftware.net/), and PHYLIP, [among many others](http://evolution.genetics.washington.edu/phylip/software.html#methods). We typically use XX, and you can go through [this workflow](https://merenlab.org/data/parcubacterium-in-hbcfdna/) to get yourself familiarized with how we use it. Luckily, almost all of the programs you will find to generate trees are going to be happy to work with the concatenated amino acid sequences you will get from anvi'o. Phylogenetics has tremendous challenges, investigated by hundreds of brilliant scientists over decades. And here we are, reducing years of research into a single command line. We are doing this, because at some point we have to stop and be practical, but serious questions and good data always deserve more. You *can* get away by using one algorithm to generate your tree, but you should consider exploring other options. If you happen to know a good written resource, or if *you* are a good resource, please write to us, and help us think about what would be the best strategy to provide useful insights to researchers who may be interested in learning more about the details of phylogenetics and/or phylogenomics.
 
 ---
 
-Now you have a newick tree that shows you how your genomes relate to each other, and you can use the anvi'o interactive interface to immediately visualize this new tree:
+Now you have a newick tree that shows you how your genomes relate to each other, and you can use the anvi'o {% include ARTIFACT name="interactive" text="interactive interface" %} to immediately visualize this new tree:
 
 {:.notice}
-In manual mode, anvi'o will automatically generate an empty profile database upon its first initialization. For instance, even though you do not have the profile database `phylogenomic-profile.db` in your work directory if you are following the tutorial, when you run the command below, it will be automatically generated.
+In manual mode, anvi'o will automatically generate an empty profile database upon its first initialization. For instance, even though you do not have the {% include ARTIFACT name="profile-db" text="profile database" %} `phylogenomic-profile.db` in your work directory if you are following the tutorial, when you run the command below, it will be automatically generated.
 
 
 ``` bash
@@ -310,60 +303,50 @@ This is my ([interactive](http://anvi-server.org/merenlab/phylogenomics_tutorial
 
 `anvi-get-sequences-for-hmm-hits` will also accept the gene names of interest in a file if you provide a file path to the parameter `--gene-names`.
 
-For instance, instead of the 6 ribosomal proteins we used so far in this tutorial, one could have used all the ribosomal proteins described in Cambell et al.'s collection, which would have been very unpleasant to try to fit into a single command line as comma-separated names.
+For instance, instead of the 6 ribosomal proteins we used so far in this tutorial, one could have used all the ribosomal proteins described in `Bacteria_71`, which would have been very unpleasant to try to fit into a single command line as comma-separated names.
 
-To demonstrate that, I put all those 49 ribosomal proteins into a file:
+To demonstrate that, I put all those 39 ribosomal proteins into a file:
 
 ```bash
 $ cat gene-names.txt
 Ribosomal_L1
-Ribosomal_L10
-Ribosomal_L11
-Ribosomal_L11_N
-Ribosomal_L12
+Ribosomal_L2
 Ribosomal_L13
 Ribosomal_L14
 Ribosomal_L16
 Ribosomal_L17
-Ribosomal_L18e
 Ribosomal_L18p
 Ribosomal_L19
-Ribosomal_L2
 Ribosomal_L20
 Ribosomal_L21p
 Ribosomal_L22
 Ribosomal_L23
+ribosomal_L24
 Ribosomal_L27
+Ribosomal_L27A
 Ribosomal_L28
 Ribosomal_L29
-Ribosomal_L2_C
 Ribosomal_L3
 Ribosomal_L32p
 Ribosomal_L35p
 Ribosomal_L4
 Ribosomal_L5
-Ribosomal_L5_C
 Ribosomal_L6
 Ribosomal_L9_C
-Ribosomal_L9_N
 Ribosomal_S10
 Ribosomal_S11
 Ribosomal_S13
 Ribosomal_S15
 Ribosomal_S16
 Ribosomal_S17
-Ribosomal_S18
 Ribosomal_S19
 Ribosomal_S2
-Ribosomal_S20p
 Ribosomal_S3_C
-Ribosomal_S4
-Ribosomal_S5
-Ribosomal_S5_C
 Ribosomal_S6
 Ribosomal_S7
 Ribosomal_S8
 Ribosomal_S9
+Ribosomal_S20p
 Ribosom_S12_S23
 ```
 
@@ -373,7 +356,7 @@ And re-run the anvi'o analysis with this file:
 # get the gene sequences using the file
 anvi-get-sequences-for-hmm-hits --external-genomes external-genomes.txt \
                                 -o concatenated-ribosomal-proteins.fa \
-                                --hmm-source Campbell_et_al \
+                                --hmm-source Bacteria_71 \
                                 --gene-names gene-names.txt \
                                 --return-best-hit \
                                 --get-aa-sequences \
@@ -392,7 +375,7 @@ While we are at it, Tom also run PhyloSift on these genomes just to make sure th
 
 Both tree structures are very comparable, and small differences are likely coming from the fact that we didn't use the same set of genes PhyloSift uses.
 
-## Working with protein clusters in anvi'o pangenomes
+## Working with gene clusters in anvi'o pangenomes
 
 {: .notice}
 This part of the tutorial is taking place in the data pack directory `closely-related`
@@ -444,7 +427,7 @@ wget https://goo.gl/DTM9sz -O external-genomes.txt
 
 Before we start, there is a question you may be asking yourself: why don't we analyze these genomes the way it is explained in the previous section? 
 
-### Why protein clusters?
+### Why gene clusters?
 
 What makes single-copy core genes powerful for some applications of phylogenomics, makes them weak for other applications. We use single-copy core genes because [we find them in most of the bacterial and archaeal genomes]({% post_url miscellaneous/2016-04-17-predicting-CPR-Genomes %}). However, comparing very similar genomes may require the inclusion of a larger number of genes that occur in all genomes of interest to increase the signal of divergence.
 
@@ -454,7 +437,7 @@ For instance, let's quickly run the first method:
 # get the gene sequences
 anvi-get-sequences-for-hmm-hits --external-genomes external-genomes.txt \
                                 -o concatenated-proteins.fa \
-                                --hmm-source Campbell_et_al \
+                                --hmm-source Bacteria_71 \
                                 --gene-names Ribosomal_L1,Ribosomal_L2,Ribosomal_L3,Ribosomal_L4,Ribosomal_L5,Ribosomal_L6 \
                                 --return-best-hit \
                                 --get-aa-sequences \
@@ -478,7 +461,7 @@ As you can see, 9 of the genomes have a flat line in the phylogenomic tree, whic
 ### Pangenomic + Phylogenomics
 
 {:.notice}
-Here I will not go through the details of pangenomic workflow, but if you are interested in learning more, please read the article "[An anvi'o workflow for microbial pangenomics]({% post_url anvio/2016-11-08-pangenomics-v2 %})", and the [pangenomic example we used in the Infant Gut Tutorial]({{ site_url }}/tutorials/infant-gut/#a-pangenomic-analysis) if you are feeling *particularly* procrastinative today.
+Here I will not go through the details of pangenomics workflow, but if you are interested in learning more, please read the article "[An anvi'o workflow for microbial pangenomics]({% post_url anvio/2016-11-08-pangenomics-v2 %})", and the [pangenomic example we used in the Infant Gut Tutorial]({{ site_url }}/tutorials/infant-gut/#a-pangenomic-analysis) if you are feeling *particularly* procrastinative today.
 
 Here is the pangenomic analysis:
 
@@ -503,11 +486,11 @@ anvi-display-pan -g Salmonella-GENOMES.db \
 
 So this is the pangenome of 12 Salmonella strains, and you can already see that those genomes that were flat in the phylogenomic analysis are quite far from being identical.
 
-Expectedly, there is a very large number of core protein clusters that represent genes that occur in every genome (3,456 of them, precisely):
+Expectedly, there is a very large number of core gene clusters that represent genes that occur in every genome (3,456 of them, precisely):
 
 [![phylo]({{images}}/salmonella-pangenome-02.png)]({{images}}/salmonella-pangenome-02.png){:.center-img .width-70}
 
-The number of core protein clusters that represent single-copy genes is also quite remarkable, too (there are 3,053 of them)
+The number of core gene clusters that represent single-copy genes is also quite remarkable, too (there are 3,053 of them)
 
 [![phylo]({{images}}/salmonella-pangenome-03.png)]({{images}}/salmonella-pangenome-03.png){:.center-img .width-70}
 
@@ -517,7 +500,7 @@ One could certainly store all those genes in a collection and work with them. I 
 
 ---
 
-The program `anvi-export-pc-alignments` is what we will use to export alignments genes in protein clusters. This is also a very capable program, and I urge you to take a look at its help menu and explore other ways to use it for your research. Here, we declare the collection name and the bin id in our anvi'o pan database, and export sequences:
+The program {% include PROGRAM name="anvi-get-sequences-for-gene-clusters" %} is what we will use to export alignments genes in gene clusters. This is also a very capable program, and I urge you to take a look at its help menu and explore other ways to use it for your research. Here, we declare the collection name and the bin id in our anvi'o pan database, and export sequences:
 
 ``` bash
 anvi-get-sequences-for-gene-clusters -g Salmonella-GENOMES.db \
@@ -532,7 +515,7 @@ anvi-get-sequences-for-gene-clusters -g Salmonella-GENOMES.db \
 
 <span class="extra-info-header">Special Thanks</span>
 
-Until very recently, the program `anvi-export-pc-alignments ` did not have a `--concatenate` flag either :) We thank [Ryan Bartelme](https://twitter.com/MicrobialBart){:target="_blank"} for asking for it, and being our beta tester.
+Until very recently, the program{% include PROGRAM name="anvi-get-sequences-for-gene-clusters" %} did not have a `--concatenate` flag either :) We thank [Ryan Bartelme](https://twitter.com/MicrobialBart){:target="_blank"} for asking for it, and being our beta tester.
 </div>
 
 
