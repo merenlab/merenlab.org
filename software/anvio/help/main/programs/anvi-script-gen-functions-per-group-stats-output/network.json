@@ -1,0 +1,82 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "interactive",
+      "name": "interactive",
+      "provided_by_anvio": true,
+      "type": "DISPLAY"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "functions",
+      "name": "functions",
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "genomes-storage-db",
+      "name": "genomes-storage-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "internal-genomes",
+      "name": "internal-genomes",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "external-genomes",
+      "name": "external-genomes",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 5,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-script-gen-functions-per-group-stats-output",
+      "name": "anvi-script-gen-functions-per-group-stats-output",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "source": 5,
+      "target": 0
+    },
+    {
+      "target": 5,
+      "source": 1
+    },
+    {
+      "target": 5,
+      "source": 2
+    },
+    {
+      "target": 5,
+      "source": 3
+    },
+    {
+      "target": 5,
+      "source": 4
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}
