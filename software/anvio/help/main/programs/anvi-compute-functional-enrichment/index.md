@@ -26,7 +26,7 @@ See **[program help menu](../../../../vignette#anvi-compute-functional-enrichmen
 
 ## Can consume
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[kegg-metabolism](../../artifacts/kegg-metabolism) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[groups-txt](../../artifacts/groups-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[misc-data-layers](../../artifacts/misc-data-layers) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[pan-db](../../artifacts/pan-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[genomes-storage-db](../../artifacts/genomes-storage-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[external-genomes](../../artifacts/external-genomes) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[internal-genomes](../../artifacts/internal-genomes) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[kegg-metabolism](../../artifacts/kegg-metabolism) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[groups-txt](../../artifacts/groups-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[misc-data-layers](../../artifacts/misc-data-layers) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[pan-db](../../artifacts/pan-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[genomes-storage-db](../../artifacts/genomes-storage-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[external-genomes](../../artifacts/external-genomes) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[internal-genomes](../../artifacts/internal-genomes) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[functions](../../artifacts/functions) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 
@@ -80,22 +80,22 @@ By default, gene clusters with the same functional annotation will be merged. Bu
 
 <div class="codeblock" markdown="1">
 anvi&#45;compute&#45;functional&#45;enrichment &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/main/artifacts/pan&#45;db)</span>\
-                               &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
-                               &#45;o <span class="artifact&#45;n">[functional&#45;enrichment&#45;txt](/software/anvio/help/main/artifacts/functional&#45;enrichment&#45;txt)</span> \
-                               &#45;&#45;category&#45;variable CATEGORY \
-                               &#45;&#45;annotation&#45;source IDENTITY \
-                               &#45;&#45;include&#45;gc&#45;identity&#45;as&#45;function
+                                   &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
+                                   &#45;o <span class="artifact&#45;n">[functional&#45;enrichment&#45;txt](/software/anvio/help/main/artifacts/functional&#45;enrichment&#45;txt)</span> \
+                                   &#45;&#45;category&#45;variable CATEGORY \
+                                   &#45;&#45;annotation&#45;source IDENTITY \
+                                   &#45;&#45;include&#45;gc&#45;identity&#45;as&#45;function
 </div>
 
 To output a functional occurrence table, which describes the number of times each of your functional associations occurs in each genome you're looking at, use the `--functional-occurrence-table-output` parameter, like so:
 
 <div class="codeblock" markdown="1">
 anvi&#45;compute&#45;functional&#45;enrichment &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/main/artifacts/pan&#45;db)</span>\
-                               &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
-                               &#45;o <span class="artifact&#45;n">[functional&#45;enrichment&#45;txt](/software/anvio/help/main/artifacts/functional&#45;enrichment&#45;txt)</span> \
-                               &#45;&#45;category&#45;variable CATEGORY \
-                               &#45;&#45;annotation&#45;source FUNCTION_SOURCE \
-                               &#45;&#45;functional&#45;occurrence&#45;table&#45;output FUNC_OCCURRENCE.TXT
+                                   &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
+                                   &#45;o <span class="artifact&#45;n">[functional&#45;enrichment&#45;txt](/software/anvio/help/main/artifacts/functional&#45;enrichment&#45;txt)</span> \
+                                   &#45;&#45;category&#45;variable CATEGORY \
+                                   &#45;&#45;annotation&#45;source FUNCTION_SOURCE \
+                                   &#45;&#45;functional&#45;occurrence&#45;table&#45;output FUNC_OCCURRENCE.TXT
 </div>
 
 You can interact more with this data file by using <span class="artifact-n">[anvi-matrix-to-newick](/software/anvio/help/main/programs/anvi-matrix-to-newick)</span>. Find more information about this output option [here](http://merenlab.org/2016/11/08/pangenomics-v2/#creating-a-quick-pangenome-with-functions).
@@ -115,8 +115,8 @@ See <span class="artifact-n">[kegg-metabolism](/software/anvio/help/main/artifac
 
 <div class="codeblock" markdown="1">
 anvi&#45;compute&#45;functional&#45;enrichment &#45;M MODULES.TXT \
-                               &#45;G <span class="artifact&#45;n">[groups&#45;txt](/software/anvio/help/main/artifacts/groups&#45;txt)</span> \
-                               &#45;o <span class="artifact&#45;n">[functional&#45;enrichment&#45;txt](/software/anvio/help/main/artifacts/functional&#45;enrichment&#45;txt)</span>
+                                   &#45;G <span class="artifact&#45;n">[groups&#45;txt](/software/anvio/help/main/artifacts/groups&#45;txt)</span> \
+                                   &#45;o <span class="artifact&#45;n">[functional&#45;enrichment&#45;txt](/software/anvio/help/main/artifacts/functional&#45;enrichment&#45;txt)</span>
 </div>
 
 ### Additional parameters
@@ -125,27 +125,27 @@ The default completeness threshold for a module to be considered 'present' in a 
 
 <div class="codeblock" markdown="1">
 anvi&#45;compute&#45;functional&#45;enrichment &#45;M MODULES.TXT \
-                               &#45;G <span class="artifact&#45;n">[groups&#45;txt](/software/anvio/help/main/artifacts/groups&#45;txt)</span> \
-                               &#45;o <span class="artifact&#45;n">[functional&#45;enrichment&#45;txt](/software/anvio/help/main/artifacts/functional&#45;enrichment&#45;txt)</span> \
-                               &#45;&#45;module&#45;completion&#45;threshold 0.9
+                                   &#45;G <span class="artifact&#45;n">[groups&#45;txt](/software/anvio/help/main/artifacts/groups&#45;txt)</span> \
+                                   &#45;o <span class="artifact&#45;n">[functional&#45;enrichment&#45;txt](/software/anvio/help/main/artifacts/functional&#45;enrichment&#45;txt)</span> \
+                                   &#45;&#45;module&#45;completion&#45;threshold 0.9
 </div>
 
 By default, the column containing sample names in your MODULES.TXT file will have the header `db_name`, but there are certain cases in which you might have them in a different column - for example, if you did not run <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span> in multi-mode. In those cases, you can specify that a different column contains the sample names by providing its header with `--sample-header`. For example, if you sample names were in the `metagenome_name` column, you would do the following:
 
 <div class="codeblock" markdown="1">
 anvi&#45;compute&#45;functional&#45;enrichment &#45;M MODULES.TXT \
-                               &#45;G <span class="artifact&#45;n">[groups&#45;txt](/software/anvio/help/main/artifacts/groups&#45;txt)</span> \
-                               &#45;o <span class="artifact&#45;n">[functional&#45;enrichment&#45;txt](/software/anvio/help/main/artifacts/functional&#45;enrichment&#45;txt)</span> \
-                               &#45;&#45;sample&#45;header metagenome_name
+                                   &#45;G <span class="artifact&#45;n">[groups&#45;txt](/software/anvio/help/main/artifacts/groups&#45;txt)</span> \
+                                   &#45;o <span class="artifact&#45;n">[functional&#45;enrichment&#45;txt](/software/anvio/help/main/artifacts/functional&#45;enrichment&#45;txt)</span> \
+                                   &#45;&#45;sample&#45;header metagenome_name
 </div>
 
 If you ran <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span> on a bunch of extra samples but only want to include a subset of those samples in the <span class="artifact-n">[groups-txt](/software/anvio/help/main/artifacts/groups-txt)</span>, that is fine - by default any samples from the MODULES.TXT file that are missing from the <span class="artifact-n">[groups-txt](/software/anvio/help/main/artifacts/groups-txt)</span> will be ignored. However, there is also an option to include those missing samples in the analysis, as one big group called 'UNGROUPED'. To do this, you can use the --include-samples-missing-from-groups-txt parameter. Just be careful that if you are also using the --include-ungrouped flag (see below), any samples without a specified group in the <span class="artifact-n">[groups-txt](/software/anvio/help/main/artifacts/groups-txt)</span> will also be included in the 'UNGROUPED' group.
 
 <div class="codeblock" markdown="1">
 anvi&#45;compute&#45;functional&#45;enrichment &#45;M MODULES.TXT \
-                               &#45;G <span class="artifact&#45;n">[groups&#45;txt](/software/anvio/help/main/artifacts/groups&#45;txt)</span> \
-                               &#45;o <span class="artifact&#45;n">[functional&#45;enrichment&#45;txt](/software/anvio/help/main/artifacts/functional&#45;enrichment&#45;txt)</span> \
-                               &#45;&#45;include&#45;samples&#45;missing&#45;from&#45;groups&#45;txt
+                                   &#45;G <span class="artifact&#45;n">[groups&#45;txt](/software/anvio/help/main/artifacts/groups&#45;txt)</span> \
+                                   &#45;o <span class="artifact&#45;n">[functional&#45;enrichment&#45;txt](/software/anvio/help/main/artifacts/functional&#45;enrichment&#45;txt)</span> \
+                                   &#45;&#45;include&#45;samples&#45;missing&#45;from&#45;groups&#45;txt
 </div>
 
 
@@ -166,9 +166,9 @@ You can provide either an <span class="artifact-n">[external-genomes](/software/
 
 <div class="codeblock" markdown="1">
 anvi&#45;compute&#45;functional&#45;enrichment &#45;i <span class="artifact&#45;n">[internal&#45;genomes](/software/anvio/help/main/artifacts/internal&#45;genomes)</span>\
-                               &#45;e <span class="artifact&#45;n">[external&#45;genomes](/software/anvio/help/main/artifacts/external&#45;genomes)</span> \
-                               &#45;o <span class="artifact&#45;n">[functional&#45;enrichment&#45;txt](/software/anvio/help/main/artifacts/functional&#45;enrichment&#45;txt)</span> \
-                               &#45;&#45;annotation&#45;source FUNCTION_SOURCE
+                                   &#45;e <span class="artifact&#45;n">[external&#45;genomes](/software/anvio/help/main/artifacts/external&#45;genomes)</span> \
+                                   &#45;o <span class="artifact&#45;n">[functional&#45;enrichment&#45;txt](/software/anvio/help/main/artifacts/functional&#45;enrichment&#45;txt)</span> \
+                                   &#45;&#45;annotation&#45;source FUNCTION_SOURCE
 </div>
 
 ### Additional Parameters
@@ -177,10 +177,10 @@ Also similar to option 1, you can get a tab-delimited matrix describing the occu
 
 <div class="codeblock" markdown="1">
 anvi&#45;compute&#45;functional&#45;enrichment &#45;i <span class="artifact&#45;n">[internal&#45;genomes](/software/anvio/help/main/artifacts/internal&#45;genomes)</span>\
-                               &#45;e <span class="artifact&#45;n">[external&#45;genomes](/software/anvio/help/main/artifacts/external&#45;genomes)</span> \
-                               &#45;o <span class="artifact&#45;n">[functional&#45;enrichment&#45;txt](/software/anvio/help/main/artifacts/functional&#45;enrichment&#45;txt)</span> \
-                               &#45;&#45;annotation&#45;source FUNCTION_SOURCE
-                               &#45;&#45;functional&#45;occurrence&#45;table&#45;output FUNC_OCCURRENCE.TXT
+                                   &#45;e <span class="artifact&#45;n">[external&#45;genomes](/software/anvio/help/main/artifacts/external&#45;genomes)</span> \
+                                   &#45;o <span class="artifact&#45;n">[functional&#45;enrichment&#45;txt](/software/anvio/help/main/artifacts/functional&#45;enrichment&#45;txt)</span> \
+                                   &#45;&#45;annotation&#45;source FUNCTION_SOURCE
+                                   &#45;&#45;functional&#45;occurrence&#45;table&#45;output FUNC_OCCURRENCE.TXT
 </div>
 
 
@@ -189,7 +189,7 @@ anvi&#45;compute&#45;functional&#45;enrichment &#45;i <span class="artifact&#45;
 If you provide the `--include-ungrouped` parameter, then genomes (or samples) without a group will be included from the analysis. (By default, these genomes/samples are ignored.) For the pangenome case, these genomes are those without a category in the provided `--category-variable`. For metabolic modules or the genomes in groups case, these samples/genomes are those with an empty value in the 'group' column (of either the <span class="artifact-n">[groups-txt](/software/anvio/help/main/artifacts/groups-txt)</span> or the <span class="artifact-n">[external-genomes](/software/anvio/help/main/artifacts/external-genomes)</span>/<span class="artifact-n">[internal-genomes](/software/anvio/help/main/artifacts/internal-genomes)</span> files).
 
 
-## More information on `anvi-script-enrichment-stats`
+## More information on anvi-script-enrichment-stats
 
 This program serves as the interface to `anvi-script-enrichment-stats`, an R script which performs an enrichment test on your input. You will find a brief description of how this script works in Alon's "Behind the Scenes" note in [the pangenomics tutorial](https://merenlab.org/2016/11/08/pangenomics-v2/#making-sense-of-functions-in-your-pangenome). Better yet, check out the methods section of Alon's paper, published in Genome Biology [here](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02195-w).
 

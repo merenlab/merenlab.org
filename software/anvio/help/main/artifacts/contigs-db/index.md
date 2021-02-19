@@ -40,17 +40,18 @@ The information a contigs database contains about its sequences include the posi
 
 ### Another (less computation-heavy) way of thinking about it
 
-When working in anvi'o, you'll need to be able to access previous analysis done on a genome or transcriptome. To do this, anvi'o uses tools like contigs databases instead of regular fasta files. So, you'll want to convert the data that you have into a contigs database to use other anvi'o programs (using <span class="artifact-n">[anvi-gen-contigs-database](/software/anvio/help/main/programs/anvi-gen-contigs-database)</span>). As seen on the page for <span class="artifact-n">[metagenomes](/software/anvio/help/main/artifacts/metagenomes)</span>, you can then use this contigs database instead of your fasta file for all of your anvi'o needs. 
+When working in anvi'o, you'll need to be able to access previous analysis done on a genome or transcriptome. To do this, anvi'o uses tools like contigs databases instead of regular fasta files. So, you'll want to convert the data that you have into a contigs database to use other anvi'o programs (using <span class="artifact-n">[anvi-gen-contigs-database](/software/anvio/help/main/programs/anvi-gen-contigs-database)</span>). As seen on the page for <span class="artifact-n">[metagenomes](/software/anvio/help/main/artifacts/metagenomes)</span>, you can then use this contigs database instead of your fasta file for all of your anvi'o needs.
 
-In short, to get the most out of your data in anvi'o, you'll want to use your data (which was probably originally in a <span class="artifact-n">[fasta](/software/anvio/help/main/artifacts/fasta)</span> file) to create both a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> and a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span>. That way, anvi'o is able to keep track of many different kinds of analysis and you can easily interact with other anvi'o programs. 
+In short, to get the most out of your data in anvi'o, you'll want to use your data (which was probably originally in a <span class="artifact-n">[fasta](/software/anvio/help/main/artifacts/fasta)</span> file) to create both a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> and a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span>. That way, anvi'o is able to keep track of many different kinds of analysis and you can easily interact with other anvi'o programs.
 
 ## Usage Information
 
 ### Creating and populating a contigs database
 
-Contigs databases will be initialized using **<span class="artifact-n">[anvi-gen-contigs-database](/software/anvio/help/main/programs/anvi-gen-contigs-database)</span>** using a <span class="artifact-n">[contigs-fasta](/software/anvio/help/main/artifacts/contigs-fasta)</span>. This will compute the k-mer frequencies for each contig, soft-split your contigs, and identify open reading frames. To populate a contigs database with more information, you can then run various other programs. 
+Contigs databases will be initialized using **<span class="artifact-n">[anvi-gen-contigs-database](/software/anvio/help/main/programs/anvi-gen-contigs-database)</span>** using a <span class="artifact-n">[contigs-fasta](/software/anvio/help/main/artifacts/contigs-fasta)</span>. This will compute the k-mer frequencies for each contig, soft-split your contigs, and identify open reading frames. To populate a contigs database with more information, you can then run various other programs.
 
-**Key programs that populate an anvi'o contigs database with essential information** include 
+**Key programs that populate an anvi'o contigs database with essential information** include,
+
 * <span class="artifact-n">[anvi-run-hmms](/software/anvio/help/main/programs/anvi-run-hmms)</span> (which uses HMMs to annotate your genes against an <span class="artifact-n">[hmm-source](/software/anvio/help/main/artifacts/hmm-source)</span>)
 * <span class="artifact-n">[anvi-run-scg-taxonomy](/software/anvio/help/main/programs/anvi-run-scg-taxonomy)</span> (which associates its single-copy core gene with taxonomic data)
 * <span class="artifact-n">[anvi-scan-trnas](/software/anvio/help/main/programs/anvi-scan-trnas)</span> (which identifies the tRNA genes)
@@ -58,16 +59,15 @@ Contigs databases will be initialized using **<span class="artifact-n">[anvi-gen
 
 Once an anvi'o contigs database is generated and populated with information, it is **always a good idea to run <span class="artifact-n">[anvi-display-contigs-stats](/software/anvio/help/main/programs/anvi-display-contigs-stats)</span>** to see a numerical summary of its contents.
 
-Other programs you can run to populate a contigs database include 
+Other programs you can run to populate a contigs database with functions include,
+
 * <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/main/programs/anvi-run-kegg-kofams)</span> (which annotates the genes in the database with the KEGG KOfam database)
 
-### Analysis on a populated contigs database 
+### Analysis on a populated contigs database
 
 Other essential programs that read from a contigs database and yield key information include <span class="artifact-n">[anvi-estimate-genome-completeness](/software/anvio/help/main/programs/anvi-estimate-genome-completeness)</span>, <span class="artifact-n">[anvi-get-sequences-for-hmm-hits](/software/anvio/help/main/programs/anvi-get-sequences-for-hmm-hits)</span>, and <span class="artifact-n">[anvi-estimate-scg-taxonomy](/software/anvio/help/main/programs/anvi-estimate-scg-taxonomy)</span>.
 
 If you wish to run programs like <span class="artifact-n">[anvi-cluster-contigs](/software/anvio/help/main/programs/anvi-cluster-contigs)</span>, <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span>, and <span class="artifact-n">[anvi-gen-gene-level-stats-databases](/software/anvio/help/main/programs/anvi-gen-gene-level-stats-databases)</span>, or view your database with <span class="artifact-n">[anvi-interactive](/software/anvio/help/main/programs/anvi-interactive)</span>, you'll need to first use your contigs database to create a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span>.
-
-
 
 
 {:.notice}

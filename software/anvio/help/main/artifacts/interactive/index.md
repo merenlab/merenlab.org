@@ -21,7 +21,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-display-contigs-stats](../../programs/anvi-display-contigs-stats)</span> <span class="artifact-p">[anvi-display-metabolism](../../programs/anvi-display-metabolism)</span> <span class="artifact-p">[anvi-display-pan](../../programs/anvi-display-pan)</span> <span class="artifact-p">[anvi-display-structure](../../programs/anvi-display-structure)</span> <span class="artifact-p">[anvi-inspect](../../programs/anvi-inspect)</span> <span class="artifact-p">[anvi-interactive](../../programs/anvi-interactive)</span> <span class="artifact-p">[anvi-script-snvs-to-interactive](../../programs/anvi-script-snvs-to-interactive)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-display-contigs-stats](../../programs/anvi-display-contigs-stats)</span> <span class="artifact-p">[anvi-display-functions](../../programs/anvi-display-functions)</span> <span class="artifact-p">[anvi-display-metabolism](../../programs/anvi-display-metabolism)</span> <span class="artifact-p">[anvi-display-pan](../../programs/anvi-display-pan)</span> <span class="artifact-p">[anvi-display-structure](../../programs/anvi-display-structure)</span> <span class="artifact-p">[anvi-inspect](../../programs/anvi-inspect)</span> <span class="artifact-p">[anvi-interactive](../../programs/anvi-interactive)</span> <span class="artifact-p">[anvi-script-gen-functions-per-group-stats-output](../../programs/anvi-script-gen-functions-per-group-stats-output)</span> <span class="artifact-p">[anvi-script-snvs-to-interactive](../../programs/anvi-script-snvs-to-interactive)</span></p>
 
 
 ## Required or used by
@@ -53,24 +53,25 @@ The orchestrated use of <span class="artifact-n">[anvi-import-misc-data](/softwa
 
 ## Programs that give interactive access
 
-If you're new to the anvi'o interactive interface, you'll probably want to check out [this tutorial for beginners](http://merenlab.org/tutorials/interactive-interface/) or the other resources on the  <span class="artifact-n">[anvi-interactive](/software/anvio/help/main/programs/anvi-interactive)</span> page. 
+If you're new to the anvi'o interactive interface, you'll probably want to check out [this tutorial for beginners](http://merenlab.org/tutorials/interactive-interface/) or the other resources on the  <span class="artifact-n">[anvi-interactive](/software/anvio/help/main/programs/anvi-interactive)</span> page.
 
-However, there are more interfaces available in anvi'o than just that one, so let's list them out: 
+However, there are more interfaces available in anvi'o than just that one, so let's list them out:
 
 - <span class="artifact-n">[anvi-display-structure](/software/anvio/help/main/programs/anvi-display-structure)</span> lets you examine specific protein structures, along with SCV and SAAVs within it. (It even has [its own software page.](http://merenlab.org/software/anvio-structure/). It's kind of a big deal.)
 
 - <span class="artifact-n">[anvi-display-contigs-stats](/software/anvio/help/main/programs/anvi-display-contigs-stats)</span> shows you various stats about the contigs within a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>, such as their hmm-hits, lengths, N and L statistics, and so on.
 
-- <span class="artifact-n">[anvi-display-metabolism](/software/anvio/help/main/programs/anvi-display-metabolism)</span> is still under development but will allow you to interactively view metabolism estimation data using <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span> under the hood. 
+- <span class="artifact-n">[anvi-display-functions](/software/anvio/help/main/programs/anvi-display-functions)</span> lets you quickly browse the functional pool for a given set of genomes or metagenomes.
 
-- <span class="artifact-n">[anvi-display-pan](/software/anvio/help/main/programs/anvi-display-pan)</span> displays information about the gene clusters that are stored in a <span class="artifact-n">[pan-db](/software/anvio/help/main/artifacts/pan-db)</span>. It lets you easily view your core and accessory genes, and can even be turned into a metapangenome through importing additional data tables. 
+- <span class="artifact-n">[anvi-display-metabolism](/software/anvio/help/main/programs/anvi-display-metabolism)</span> is still under development but will allow you to interactively view metabolism estimation data using <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span> under the hood.
 
-- <span class="artifact-n">[anvi-inspect](/software/anvio/help/main/programs/anvi-inspect)</span> lets you look at a single split across your samples, as well as the genes identified within it. This interface can also be opened from the <span class="artifact-n">[anvi-interactive](/software/anvio/help/main/programs/anvi-interactive)</span> interface by asking for details about a specific split. 
+- <span class="artifact-n">[anvi-display-pan](/software/anvio/help/main/programs/anvi-display-pan)</span> displays information about the gene clusters that are stored in a <span class="artifact-n">[pan-db](/software/anvio/help/main/artifacts/pan-db)</span>. It lets you easily view your core and accessory genes, and can even be turned into a metapangenome through importing additional data tables.
 
-- <span class="artifact-n">[anvi-interactive](/software/anvio/help/main/programs/anvi-interactive)</span> displays the information in a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span>. It lets you view the distribution of your contigs across your samples, manually bin metagenomic data into MAGSs (and refine those bins with <span class="artifact-n">[anvi-refine](/software/anvio/help/main/programs/anvi-refine)</span>), and much more. You can also use this to look at your genes instead of your contigs or [examine the genomes after a phylogenomic anlysis](http://merenlab.org/2017/06/07/phylogenomics/). Just look at that program page for a glimpse of this program's amazingness. 
+- <span class="artifact-n">[anvi-inspect](/software/anvio/help/main/programs/anvi-inspect)</span> lets you look at a single split across your samples, as well as the genes identified within it. This interface can also be opened from the <span class="artifact-n">[anvi-interactive](/software/anvio/help/main/programs/anvi-interactive)</span> interface by asking for details about a specific split.
 
-- <span class="artifact-n">[anvi-script-snvs-to-interactive](/software/anvio/help/main/programs/anvi-script-snvs-to-interactive)</span> lets you view a comprehensive summary of the SNVs, SCVs, and SAAVs within your contigs. 
+- <span class="artifact-n">[anvi-interactive](/software/anvio/help/main/programs/anvi-interactive)</span> displays the information in a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span>. It lets you view the distribution of your contigs across your samples, manually bin metagenomic data into MAGSs (and refine those bins with <span class="artifact-n">[anvi-refine](/software/anvio/help/main/programs/anvi-refine)</span>), and much more. You can also use this to look at your genes instead of your contigs or [examine the genomes after a phylogenomic anlysis](http://merenlab.org/2017/06/07/phylogenomics/). Just look at that program page for a glimpse of this program's amazingness.
 
+- <span class="artifact-n">[anvi-script-snvs-to-interactive](/software/anvio/help/main/programs/anvi-script-snvs-to-interactive)</span> lets you view a comprehensive summary of the SNVs, SCVs, and SAAVs within your contigs.
 
 
 {:.notice}
