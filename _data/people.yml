@@ -167,22 +167,6 @@
       inst: The Department of Medicine at the University of Chicago
       inst_link: http://medicine.uchicago.edu/
 
-- alias: jessica
-  official: True
-  name: Jessica Pan
-  tenure_start: 06/2019
-  role: Undergraduate Researcher
-  email: jnpan@mit.edu
-  avatar: bio-jessica.png
-  github: Jessica-Pan
-  orcid: 0000-0002-6743-6146
-  bio: "I am interested in using computational strategies to investigate microbial ecosystems and working to make those techniques more accessible to others."
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  affiliations:
-    - title: Undergraduate Student
-      inst: Massachusetts Institute of Technology
-      inst_link: http://web.mit.edu/
-
 - alias: rebecca
   official: True
   name: Rebecca Xiong
@@ -406,6 +390,27 @@
 # Previous members.
 ####################################################################################
 
+- alias: jessica
+  nick_name: Jessica
+  official: True
+  name: Jessica Pan
+  current_info: an undergraduate student at the <a href="https://www.mit.edu/" target="_blank">Massachusetts Institute of Technology</a>
+  contributions: Jessica has joined our lab as a high-school student and made significant contributions to the completely brand-new <a href="https://merenlab.org/software/anvio/help/main/" _target="blank">anvi'o help system</a>
+  tenure_start: 06/2019
+  tenure_end: 09/2020
+  role: Undergraduate Researcher
+  email: jnpan@mit.edu
+  avatar: bio-jessica.png
+  github: Jessica-Pan
+  orcid: 0000-0002-6743-6146
+  bio: "I am interested in using computational strategies to investigate microbial ecosystems and working to make those techniques more accessible to others."
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  affiliations:
+    - title: Undergraduate Student
+      inst: Massachusetts Institute of Technology
+      inst_link: http://web.mit.edu/
+
+
 - alias: abby
   nick_name: Abby
   official: True
@@ -445,8 +450,6 @@
     - title: Pediatric Gastroenterology Fellow
       inst: Section of Pediatric Gastroenterology, Hepatology and Nutrition at the University of Chicago
       inst_link: http://pediatrics.uchicago.edu/education/fellowship/gastroenterology
-
-
 
 - alias: alon
   nick_name: Alon
