@@ -57,6 +57,8 @@ In a recent study, we cited this work the following way:
 >
 > **Functional enrichment analyses**. The statistical approach for enrichment analysis is defined elsewhere ([Shaiber et al. 2020](https://doi.org/10.1186/s13059-020-02195-w)), but briefly the program `anvi-compute-functional-enrichment` determined enrichment scores for functions (or metabolic modules) within groups of genomes by fitting a binomial generalized linear model (GLM) to the occurrence of each function (or complete metabolic module) in each group, and then computing a Rao test statistic, uncorrected p-values, and corrected q-values. We considered any function or metabolic module with a q-value less than 0.05 to be 'enriched' in its associated group (...)
 
+{:.notice}
+Questions about this feature? Try Amy Willis, Alon Shaiber, or Iva Veseli.
 
 ## Snakemake workflows
 
@@ -80,6 +82,9 @@ In a recent study, we cited our workflows the following way:
 > 
 > (...)
 
+{:.notice}
+Questions about this feature? Try Alon Shaiber.
+
 
 ## Metabolic reconstruction
 
@@ -89,10 +94,12 @@ There is not yet a published study that describes anvi'o metabolic reconstructio
 >
 > **Analysis of metabolic modules and enrichment**. We calculated the level of completeness for a given KEGG module ([Kanehisa et al. 2014](https://doi.org/10.1093/nar/gkt1076); [Kanehisa et al. 2017](https://doi.org/10.1093/nar/gkw1092)) in our genomes using the program `anvi-estimate-metabolism`, which leveraged previous annotation of genes with KEGG orthologs (KOs) (see the section ‘Processing of contigs’). Then, the program `anvi-compute-functional-enrichment` determined whether a given metabolic module was enriched in based on the output from `anvi-estimate-metabolism`.  The URL [https://merenlab.org/m/anvi-estimate-metabolism](https://merenlab.org/m/anvi-estimate-metabolism) serves a tutorial for this program which details the modes of usage and output file formats (...)
 
+{:.notice}
+Questions about this feature? Try Iva Veseli.
 
 ## Single-amino acid variants
 
-If you are using anvi'o to study microbial population genetics through single-codon variants or single-amino acid variants, please consider also citing this work:
+If you are using anvi'o to study microbial population genetics through single-codon or single-amino acid variants, please consider also citing this work:
 
 <div class="pub_float">
 <div class="altmetric-embed" data-badge-type="donut" data-doi="10.7554/eLife.46497"></div>
@@ -103,6 +110,8 @@ If you are using anvi'o to study microbial population genetics through single-co
     <span class="pub-journal"><b>eLife</b>, 8:e46497.</span>
 </div>
 
+{:.notice}
+Questions about this feature? Try Evan Kiefl.
 
 ## Metapangenomics
 
@@ -116,8 +125,10 @@ The metapangenomics was first introduced in this study. If you are using anvi'o 
 <span class="pub-journal"><b>PeerJ</b>, 6:e4320.</span>
 </div>
 
+{:.notice}
+Questions about this feature? Try Meren.
 
-## Metagenomic binning / refinement only
+## Metagenomic binning / refinement
 
 If you used anvi'o only for metagenomic binning or for the refinement of genomes, please consider citing this study, too.
 
@@ -128,3 +139,6 @@ If you used anvi'o only for metagenomic binning or for the refinement of genomes
     <span class="pub-authors"><span class="none">Eren AM</span>, <span class="none">Esen ÖC</span>, Quince C, Vineis JH, Morrison HG, Sogin ML, <span class="none">Delmont TO</span></span>
     <span class="pub-journal"><b>PeerJ</b>, 3:e1319.</span>
 </div>
+
+{:.notice}
+Questions about this feature? Try Tom Delmont.
