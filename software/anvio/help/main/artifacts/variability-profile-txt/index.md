@@ -3,6 +3,7 @@ layout: page
 title: variability-profile-txt [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/variability-profile-txt
 image:
   featurerelative: ../../../images/header.png
   display: true

@@ -3,6 +3,7 @@ layout: page
 title: anvi-update-structure-database [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-update-structure-database
 image:
   featurerelative: ../../../images/header.png
   display: true

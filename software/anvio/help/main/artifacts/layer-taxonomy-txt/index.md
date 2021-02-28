@@ -3,6 +3,7 @@ layout: page
 title: layer-taxonomy-txt [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/layer-taxonomy-txt
 image:
   featurerelative: ../../../images/header.png
   display: true

@@ -3,6 +3,7 @@ layout: page
 title: concatenated-gene-alignment-fasta [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/concatenated-gene-alignment-fasta
 image:
   featurerelative: ../../../images/header.png
   display: true

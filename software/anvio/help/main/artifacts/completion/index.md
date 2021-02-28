@@ -3,6 +3,7 @@ layout: page
 title: completion [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/completion
 image:
   featurerelative: ../../../images/header.png
   display: true

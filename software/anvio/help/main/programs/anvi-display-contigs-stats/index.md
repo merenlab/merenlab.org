@@ -3,6 +3,7 @@ layout: page
 title: anvi-display-contigs-stats [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-display-contigs-stats
 image:
   featurerelative: ../../../images/header.png
   display: true

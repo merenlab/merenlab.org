@@ -3,6 +3,7 @@ layout: page
 title: interactive [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/interactive
 image:
   featurerelative: ../../../images/header.png
   display: true

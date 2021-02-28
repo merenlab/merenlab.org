@@ -3,6 +3,7 @@ layout: page
 title: anvi-display-functions [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-display-functions
 image:
   featurerelative: ../../../images/header.png
   display: true

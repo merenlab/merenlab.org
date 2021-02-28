@@ -3,6 +3,7 @@ layout: page
 title: anvi-script-filter-fasta-by-blast [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-script-filter-fasta-by-blast
 image:
   featurerelative: ../../../images/header.png
   display: true

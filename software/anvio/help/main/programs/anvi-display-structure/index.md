@@ -3,6 +3,7 @@ layout: page
 title: anvi-display-structure [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-display-structure
 image:
   featurerelative: ../../../images/header.png
   display: true

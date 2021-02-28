@@ -3,6 +3,7 @@ layout: page
 title: anvi-import-taxonomy-for-genes [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-import-taxonomy-for-genes
 image:
   featurerelative: ../../../images/header.png
   display: true

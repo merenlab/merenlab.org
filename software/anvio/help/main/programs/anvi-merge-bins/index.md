@@ -3,6 +3,7 @@ layout: page
 title: anvi-merge-bins [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-merge-bins
 image:
   featurerelative: ../../../images/header.png
   display: true

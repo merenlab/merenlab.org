@@ -3,6 +3,7 @@ layout: page
 title: anvi-gen-fixation-index-matrix [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-gen-fixation-index-matrix
 image:
   featurerelative: ../../../images/header.png
   display: true

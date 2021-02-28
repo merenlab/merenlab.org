@@ -3,6 +3,7 @@ layout: page
 title: anvi-script-gen-functions-per-group-stats-output [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-script-gen-functions-per-group-stats-output
 image:
   featurerelative: ../../../images/header.png
   display: true

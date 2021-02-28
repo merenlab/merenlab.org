@@ -3,6 +3,7 @@ layout: page
 title: anvi-experimental-organization [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-experimental-organization
 image:
   featurerelative: ../../../images/header.png
   display: true

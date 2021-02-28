@@ -3,6 +3,7 @@ layout: page
 title: anvi-gen-contigs-database [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-gen-contigs-database
 image:
   featurerelative: ../../../images/header.png
   display: true

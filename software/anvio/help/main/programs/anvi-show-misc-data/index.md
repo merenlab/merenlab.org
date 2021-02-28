@@ -3,6 +3,7 @@ layout: page
 title: anvi-show-misc-data [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-show-misc-data
 image:
   featurerelative: ../../../images/header.png
   display: true

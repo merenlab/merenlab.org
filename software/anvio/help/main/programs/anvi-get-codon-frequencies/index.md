@@ -3,6 +3,7 @@ layout: page
 title: anvi-get-codon-frequencies [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-get-codon-frequencies
 image:
   featurerelative: ../../../images/header.png
   display: true

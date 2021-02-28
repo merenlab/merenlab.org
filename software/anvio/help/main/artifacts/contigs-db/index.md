@@ -3,6 +3,7 @@ layout: page
 title: contigs-db [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/contigs-db
 image:
   featurerelative: ../../../images/header.png
   display: true

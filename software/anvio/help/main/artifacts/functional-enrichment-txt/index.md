@@ -3,6 +3,7 @@ layout: page
 title: functional-enrichment-txt [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/functional-enrichment-txt
 image:
   featurerelative: ../../../images/header.png
   display: true

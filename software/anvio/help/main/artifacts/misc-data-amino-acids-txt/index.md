@@ -3,6 +3,7 @@ layout: page
 title: misc-data-amino-acids-txt [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/misc-data-amino-acids-txt
 image:
   featurerelative: ../../../images/header.png
   display: true

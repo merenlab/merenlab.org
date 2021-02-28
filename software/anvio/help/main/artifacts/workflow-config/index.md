@@ -3,6 +3,7 @@ layout: page
 title: workflow-config [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/workflow-config
 image:
   featurerelative: ../../../images/header.png
   display: true

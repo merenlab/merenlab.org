@@ -3,6 +3,7 @@ layout: page
 title: anvi-script-compute-ani-for-fasta [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-script-compute-ani-for-fasta
 image:
   featurerelative: ../../../images/header.png
   display: true

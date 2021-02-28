@@ -3,6 +3,7 @@ layout: page
 title: trnaseq-workflow [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/trnaseq-workflow
 image:
   featurerelative: ../../../images/header.png
   display: true

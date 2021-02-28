@@ -3,6 +3,7 @@ layout: page
 title: anvi-gen-phylogenomic-tree [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-gen-phylogenomic-tree
 image:
   featurerelative: ../../../images/header.png
   display: true

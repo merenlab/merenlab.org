@@ -3,6 +3,7 @@ layout: page
 title: trna-taxonomy-db [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/trna-taxonomy-db
 image:
   featurerelative: ../../../images/header.png
   display: true

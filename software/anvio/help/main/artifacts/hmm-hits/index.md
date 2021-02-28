@@ -3,6 +3,7 @@ layout: page
 title: hmm-hits [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/hmm-hits
 image:
   featurerelative: ../../../images/header.png
   display: true

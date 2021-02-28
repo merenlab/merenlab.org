@@ -3,6 +3,7 @@ layout: page
 title: anvi-export-locus [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-export-locus
 image:
   featurerelative: ../../../images/header.png
   display: true

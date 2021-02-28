@@ -3,6 +3,7 @@ layout: page
 title: anvi-gen-genomes-storage [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-gen-genomes-storage
 image:
   featurerelative: ../../../images/header.png
   display: true

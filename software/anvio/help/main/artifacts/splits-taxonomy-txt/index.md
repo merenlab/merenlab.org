@@ -3,6 +3,7 @@ layout: page
 title: splits-taxonomy-txt [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/splits-taxonomy-txt
 image:
   featurerelative: ../../../images/header.png
   display: true

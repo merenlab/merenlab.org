@@ -3,6 +3,7 @@ layout: page
 title: anvi-script-calculate-pn-ps-ratio [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-script-calculate-pn-ps-ratio
 image:
   featurerelative: ../../../images/header.png
   display: true

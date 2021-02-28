@@ -3,6 +3,7 @@ layout: page
 title: single-profile-db [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/single-profile-db
 image:
   featurerelative: ../../../images/header.png
   display: true

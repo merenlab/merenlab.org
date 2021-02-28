@@ -3,6 +3,7 @@ layout: page
 title: clustering-configuration [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/clustering-configuration
 image:
   featurerelative: ../../../images/header.png
   display: true

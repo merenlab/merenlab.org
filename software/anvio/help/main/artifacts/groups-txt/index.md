@@ -3,6 +3,7 @@ layout: page
 title: groups-txt [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/groups-txt
 image:
   featurerelative: ../../../images/header.png
   display: true

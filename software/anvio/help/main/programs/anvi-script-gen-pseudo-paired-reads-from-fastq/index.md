@@ -3,6 +3,7 @@ layout: page
 title: anvi-script-gen-pseudo-paired-reads-from-fastq [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-script-gen-pseudo-paired-reads-from-fastq
 image:
   featurerelative: ../../../images/header.png
   display: true

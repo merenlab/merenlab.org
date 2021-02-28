@@ -3,6 +3,7 @@ layout: page
 title: anvi-export-splits-and-coverages [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-export-splits-and-coverages
 image:
   featurerelative: ../../../images/header.png
   display: true

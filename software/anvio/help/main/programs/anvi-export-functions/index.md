@@ -3,6 +3,7 @@ layout: page
 title: anvi-export-functions [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-export-functions
 image:
   featurerelative: ../../../images/header.png
   display: true

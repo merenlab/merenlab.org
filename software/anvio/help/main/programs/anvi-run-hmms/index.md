@@ -3,6 +3,7 @@ layout: page
 title: anvi-run-hmms [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-run-hmms
 image:
   featurerelative: ../../../images/header.png
   display: true

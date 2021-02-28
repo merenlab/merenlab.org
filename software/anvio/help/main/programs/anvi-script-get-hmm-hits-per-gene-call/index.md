@@ -3,6 +3,7 @@ layout: page
 title: anvi-script-get-hmm-hits-per-gene-call [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-script-get-hmm-hits-per-gene-call
 image:
   featurerelative: ../../../images/header.png
   display: true

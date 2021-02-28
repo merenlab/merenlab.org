@@ -3,6 +3,7 @@ layout: page
 title: anvi-script-get-primer-matches [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-script-get-primer-matches
 image:
   featurerelative: ../../../images/header.png
   display: true

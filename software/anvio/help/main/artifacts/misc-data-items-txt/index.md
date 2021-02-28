@@ -3,6 +3,7 @@ layout: page
 title: misc-data-items-txt [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/misc-data-items-txt
 image:
   featurerelative: ../../../images/header.png
   display: true

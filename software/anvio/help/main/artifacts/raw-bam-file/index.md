@@ -3,6 +3,7 @@ layout: page
 title: raw-bam-file [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/raw-bam-file
 image:
   featurerelative: ../../../images/header.png
   display: true

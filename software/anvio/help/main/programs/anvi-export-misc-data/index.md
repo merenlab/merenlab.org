@@ -3,6 +3,7 @@ layout: page
 title: anvi-export-misc-data [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-export-misc-data
 image:
   featurerelative: ../../../images/header.png
   display: true

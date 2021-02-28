@@ -3,6 +3,7 @@ layout: page
 title: anvi-export-items-order [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-export-items-order
 image:
   featurerelative: ../../../images/header.png
   display: true

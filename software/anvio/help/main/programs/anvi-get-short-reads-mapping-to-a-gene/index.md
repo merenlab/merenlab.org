@@ -3,6 +3,7 @@ layout: page
 title: anvi-get-short-reads-mapping-to-a-gene [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-get-short-reads-mapping-to-a-gene
 image:
   featurerelative: ../../../images/header.png
   display: true

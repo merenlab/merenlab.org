@@ -3,6 +3,7 @@ layout: page
 title: anvi-estimate-metabolism [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-estimate-metabolism
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -188,7 +189,7 @@ anvi&#45;estimate&#45;metabolism &#45;c CONTIGS.db &#45;&#45;list&#45;available&
 Here is an example of defining the modules output to contain columns with the module number, the module name, and the completeness score.
 
 <div class="codeblock" markdown="1">
-anvi&#45;estimate&#45;metabolism &#45;c CONTIGS.db &#45;&#45;kegg&#45;output&#45;modes custom &#45;&#45;custom&#45;output&#45;headers kegg_module,module_name,module_is_complete
+anvi&#45;estimate&#45;metabolism &#45;c CONTIGS.db &#45;&#45;kegg&#45;output&#45;modes modules_custom &#45;&#45;custom&#45;output&#45;headers kegg_module,module_name,module_is_complete
 </div>
 
 **Including modules with 0% completeness in long-format output**
@@ -199,6 +200,21 @@ By default, modules with a completeness score of 0 are left out of the output fi
 anvi&#45;estimate&#45;metabolism &#45;c CONTIGS.db &#45;&#45;kegg&#45;output&#45;modes modules &#45;&#45;include&#45;zeros
 </div>
 
+**Including coverage and detection in long-format output**
+
+If you have a profile database associated with your contigs database and you would like to include coverage and detection data in the metabolism estimation output files, you can use the `--add-coverage` flag.
+<div class="codeblock" markdown="1">
+anvi&#45;estimate&#45;metabolism &#45;c CONTIGS.db &#45;p PROFILE.db &#45;&#45;kegg&#45;output&#45;modes modules,kofam_hits_in_modules &#45;&#45;add&#45;coverage
+</div>
+
+For `kofam_hits_in_modules` mode output files, in which each row contains one KOfam hit, the output will contain two additional columns (per sample in the profile database), one of which contains the mean coverage of that particular gene call by reads from that sample and the other which contains the detection of that gene in the sample.
+
+For `modules` mode output files, in which each row contains a KEGG module, the output will contain _four_ additional columns (per sample in the profile database). One column will contain comma-separated mean coverage values for each gene call in the module, in the same order as the corresponding gene calls in the `gene_caller_ids_in_module` column. Another column will contain the average of these gene coverage values, which represents the average coverage of the entire module. Likewise, the third and fourth columns will contain comma-separated detection values for each gene call and the average detection, respectively.
+
+Note that you can customize which coverage/detection columns are in the output files if you use `custom` modules mode. Use the following command to find out which coverage/detection headers are available:
+<div class="codeblock" markdown="1">
+anvi&#45;estimate&#45;metabolism &#45;c CONTIGS.db &#45;p PROFILE.db &#45;&#45;add&#45;coverage &#45;&#45;list&#45;available&#45;output&#45;headers
+</div>
 
 ### Matrix Output
 Matrix format is only available when working with multiple contigs databases. Several output matrices will be generated, each of which describes one statistic such as module completion score, module presence/absence, or KO hit counts. Rows will describe modules or KOs, columns will describe your input samples (ie genomes, metagenomes, bins), and each cell of the matrix will be the corresponding statistic for a module in a sample. You can see examples of this output format by viewing <span class="artifact-n">[kegg-metabolism](/software/anvio/help/main/artifacts/kegg-metabolism)</span>.

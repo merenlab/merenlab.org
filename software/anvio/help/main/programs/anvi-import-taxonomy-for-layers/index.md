@@ -3,6 +3,7 @@ layout: page
 title: anvi-import-taxonomy-for-layers [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-import-taxonomy-for-layers
 image:
   featurerelative: ../../../images/header.png
   display: true

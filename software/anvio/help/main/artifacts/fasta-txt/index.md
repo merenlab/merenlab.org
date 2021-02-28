@@ -3,6 +3,7 @@ layout: page
 title: fasta-txt [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/fasta-txt
 image:
   featurerelative: ../../../images/header.png
   display: true

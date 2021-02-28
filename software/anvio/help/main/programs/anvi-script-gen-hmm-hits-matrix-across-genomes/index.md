@@ -3,6 +3,7 @@ layout: page
 title: anvi-script-gen-hmm-hits-matrix-across-genomes [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-script-gen-hmm-hits-matrix-across-genomes
 image:
   featurerelative: ../../../images/header.png
   display: true

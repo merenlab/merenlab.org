@@ -3,6 +3,7 @@ layout: page
 title: anvi-script-gen-distribution-of-genes-in-a-bin [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-script-gen-distribution-of-genes-in-a-bin
 image:
   featurerelative: ../../../images/header.png
   display: true

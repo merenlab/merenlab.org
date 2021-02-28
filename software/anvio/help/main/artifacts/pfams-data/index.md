@@ -3,6 +3,7 @@ layout: page
 title: pfams-data [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/pfams-data
 image:
   featurerelative: ../../../images/header.png
   display: true

@@ -3,6 +3,7 @@ layout: page
 title: anvi-cluster-contigs [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-cluster-contigs
 image:
   featurerelative: ../../../images/header.png
   display: true

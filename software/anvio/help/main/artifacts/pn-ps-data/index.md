@@ -3,6 +3,7 @@ layout: page
 title: pn-ps-data [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/pn-ps-data
 image:
   featurerelative: ../../../images/header.png
   display: true

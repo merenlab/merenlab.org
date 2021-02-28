@@ -3,6 +3,7 @@ layout: page
 title: anvi-script-get-coverage-from-bam [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-script-get-coverage-from-bam
 image:
   featurerelative: ../../../images/header.png
   display: true

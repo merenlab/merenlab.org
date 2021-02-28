@@ -3,6 +3,7 @@ layout: page
 title: detection-txt [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/detection-txt
 image:
   featurerelative: ../../../images/header.png
   display: true

@@ -3,6 +3,7 @@ layout: page
 title: hmm-hits-matrix-txt [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/hmm-hits-matrix-txt
 image:
   featurerelative: ../../../images/header.png
   display: true

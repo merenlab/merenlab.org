@@ -3,6 +3,7 @@ layout: page
 title: functions [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/functions
 image:
   featurerelative: ../../../images/header.png
   display: true

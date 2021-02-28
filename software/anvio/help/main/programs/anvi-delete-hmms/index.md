@@ -3,6 +3,7 @@ layout: page
 title: anvi-delete-hmms [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-delete-hmms
 image:
   featurerelative: ../../../images/header.png
   display: true

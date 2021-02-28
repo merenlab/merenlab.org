@@ -3,6 +3,7 @@ layout: page
 title: misc-data-layers [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/misc-data-layers
 image:
   featurerelative: ../../../images/header.png
   display: true

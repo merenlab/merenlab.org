@@ -3,6 +3,7 @@ layout: page
 title: anvi-search-functions [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-search-functions
 image:
   featurerelative: ../../../images/header.png
   display: true

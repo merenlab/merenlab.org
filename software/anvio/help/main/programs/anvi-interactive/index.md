@@ -3,6 +3,7 @@ layout: page
 title: anvi-interactive [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-interactive
 image:
   featurerelative: ../../../images/header.png
   display: true

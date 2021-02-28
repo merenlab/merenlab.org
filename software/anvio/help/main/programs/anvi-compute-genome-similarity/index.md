@@ -3,6 +3,7 @@ layout: page
 title: anvi-compute-genome-similarity [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-compute-genome-similarity
 image:
   featurerelative: ../../../images/header.png
   display: true

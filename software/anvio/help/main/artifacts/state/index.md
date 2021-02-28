@@ -3,6 +3,7 @@ layout: page
 title: state [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/state
 image:
   featurerelative: ../../../images/header.png
   display: true
