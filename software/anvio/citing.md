@@ -40,7 +40,7 @@ The rest of the citations on this page are specific for certain anvi'o features.
 
 ## Functional enrichment analyses
 
-This feature was introduced by Amy Willis and Alon Shaiber, and described for the first time in this study. In addition to the default anvi'o citation, please  consider citing this work.
+This feature was described for the first time in this study:
 
 <div class="pub_float">
 <div class="altmetric-embed" data-badge-type="donut" data-doi="10.1186/s13059-020-02195-w"></div>
