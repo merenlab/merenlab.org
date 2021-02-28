@@ -3,6 +3,7 @@ layout: page
 title: genes-db [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/genes-db
 image:
   featurerelative: ../../../images/header.png
   display: true

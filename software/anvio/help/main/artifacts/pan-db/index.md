@@ -3,6 +3,7 @@ layout: page
 title: pan-db [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/pan-db
 image:
   featurerelative: ../../../images/header.png
   display: true

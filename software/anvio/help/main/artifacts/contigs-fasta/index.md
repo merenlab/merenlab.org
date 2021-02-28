@@ -3,6 +3,7 @@ layout: page
 title: contigs-fasta [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/contigs-fasta
 image:
   featurerelative: ../../../images/header.png
   display: true

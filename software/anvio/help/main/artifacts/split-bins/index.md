@@ -3,6 +3,7 @@ layout: page
 title: split-bins [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/split-bins
 image:
   featurerelative: ../../../images/header.png
   display: true

@@ -3,6 +3,7 @@ layout: page
 title: trnaseq-db [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/trnaseq-db
 image:
   featurerelative: ../../../images/header.png
   display: true

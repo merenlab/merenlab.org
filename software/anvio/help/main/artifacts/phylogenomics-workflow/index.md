@@ -3,6 +3,7 @@ layout: page
 title: phylogenomics-workflow [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/phylogenomics-workflow
 image:
   featurerelative: ../../../images/header.png
   display: true

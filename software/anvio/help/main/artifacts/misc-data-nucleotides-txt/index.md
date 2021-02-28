@@ -3,6 +3,7 @@ layout: page
 title: misc-data-nucleotides-txt [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/misc-data-nucleotides-txt
 image:
   featurerelative: ../../../images/header.png
   display: true

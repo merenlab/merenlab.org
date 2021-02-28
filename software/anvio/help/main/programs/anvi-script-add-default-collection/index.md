@@ -3,6 +3,7 @@ layout: page
 title: anvi-script-add-default-collection [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-script-add-default-collection
 image:
   featurerelative: ../../../images/header.png
   display: true

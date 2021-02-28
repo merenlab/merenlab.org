@@ -3,6 +3,7 @@ layout: page
 title: anvi-export-splits-taxonomy [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-export-splits-taxonomy
 image:
   featurerelative: ../../../images/header.png
   display: true

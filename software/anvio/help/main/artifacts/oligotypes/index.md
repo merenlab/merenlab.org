@@ -3,6 +3,7 @@ layout: page
 title: oligotypes [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/oligotypes
 image:
   featurerelative: ../../../images/header.png
   display: true

@@ -3,6 +3,7 @@ layout: page
 title: samples-txt [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/samples-txt
 image:
   featurerelative: ../../../images/header.png
   display: true

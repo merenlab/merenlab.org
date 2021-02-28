@@ -3,6 +3,7 @@ layout: page
 title: anvi-setup-ncbi-cogs [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-setup-ncbi-cogs
 image:
   featurerelative: ../../../images/header.png
   display: true

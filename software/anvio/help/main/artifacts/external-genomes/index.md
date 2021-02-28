@@ -3,6 +3,7 @@ layout: page
 title: external-genomes [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/external-genomes
 image:
   featurerelative: ../../../images/header.png
   display: true

@@ -3,6 +3,7 @@ layout: page
 title: anvi-export-gene-calls [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-export-gene-calls
 image:
   featurerelative: ../../../images/header.png
   display: true

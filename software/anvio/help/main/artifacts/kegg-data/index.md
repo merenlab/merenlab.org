@@ -3,6 +3,7 @@ layout: page
 title: kegg-data [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/kegg-data
 image:
   featurerelative: ../../../images/header.png
   display: true

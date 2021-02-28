@@ -3,6 +3,7 @@ layout: page
 title: anvi-gen-gene-consensus-sequences [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-gen-gene-consensus-sequences
 image:
   featurerelative: ../../../images/header.png
   display: true

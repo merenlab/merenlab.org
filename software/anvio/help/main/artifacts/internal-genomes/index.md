@@ -3,6 +3,7 @@ layout: page
 title: internal-genomes [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/internal-genomes
 image:
   featurerelative: ../../../images/header.png
   display: true

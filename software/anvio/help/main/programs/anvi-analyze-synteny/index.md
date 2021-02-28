@@ -3,6 +3,7 @@ layout: page
 title: anvi-analyze-synteny [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-analyze-synteny
 image:
   featurerelative: ../../../images/header.png
   display: true

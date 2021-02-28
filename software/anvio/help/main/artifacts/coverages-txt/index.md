@@ -3,6 +3,7 @@ layout: page
 title: coverages-txt [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/coverages-txt
 image:
   featurerelative: ../../../images/header.png
   display: true

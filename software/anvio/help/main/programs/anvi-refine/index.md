@@ -3,6 +3,7 @@ layout: page
 title: anvi-refine [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-refine
 image:
   featurerelative: ../../../images/header.png
   display: true

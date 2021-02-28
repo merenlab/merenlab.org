@@ -3,6 +3,7 @@ layout: page
 title: ngrams [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/ngrams
 image:
   featurerelative: ../../../images/header.png
   display: true

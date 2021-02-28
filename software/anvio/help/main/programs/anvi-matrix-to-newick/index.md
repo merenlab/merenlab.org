@@ -3,6 +3,7 @@ layout: page
 title: anvi-matrix-to-newick [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-matrix-to-newick
 image:
   featurerelative: ../../../images/header.png
   display: true

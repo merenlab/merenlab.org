@@ -3,6 +3,7 @@ layout: page
 title: phylogeny [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/phylogeny
 image:
   featurerelative: ../../../images/header.png
   display: true

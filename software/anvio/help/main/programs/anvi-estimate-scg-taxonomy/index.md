@@ -3,6 +3,7 @@ layout: page
 title: anvi-estimate-scg-taxonomy [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-estimate-scg-taxonomy
 image:
   featurerelative: ../../../images/header.png
   display: true

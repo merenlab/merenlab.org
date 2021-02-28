@@ -3,6 +3,7 @@ layout: page
 title: collection-txt [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/collection-txt
 image:
   featurerelative: ../../../images/header.png
   display: true

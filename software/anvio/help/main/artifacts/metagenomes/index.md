@@ -3,6 +3,7 @@ layout: page
 title: metagenomes [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/metagenomes
 image:
   featurerelative: ../../../images/header.png
   display: true

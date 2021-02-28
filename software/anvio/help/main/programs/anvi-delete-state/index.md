@@ -3,6 +3,7 @@ layout: page
 title: anvi-delete-state [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-delete-state
 image:
   featurerelative: ../../../images/header.png
   display: true

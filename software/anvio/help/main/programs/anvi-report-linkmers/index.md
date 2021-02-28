@@ -3,6 +3,7 @@ layout: page
 title: anvi-report-linkmers [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-report-linkmers
 image:
   featurerelative: ../../../images/header.png
   display: true

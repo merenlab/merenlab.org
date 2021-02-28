@@ -3,6 +3,7 @@ layout: page
 title: anvi-gen-structure-database [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-gen-structure-database
 image:
   featurerelative: ../../../images/header.png
   display: true

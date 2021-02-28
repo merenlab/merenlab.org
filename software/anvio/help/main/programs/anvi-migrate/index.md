@@ -3,6 +3,7 @@ layout: page
 title: anvi-migrate [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-migrate
 image:
   featurerelative: ../../../images/header.png
   display: true

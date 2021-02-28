@@ -3,6 +3,7 @@ layout: page
 title: gene-calls-txt [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/gene-calls-txt
 image:
   featurerelative: ../../../images/header.png
   display: true

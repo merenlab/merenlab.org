@@ -3,6 +3,7 @@ layout: page
 title: trnaseq-fasta [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/trnaseq-fasta
 image:
   featurerelative: ../../../images/header.png
   display: true

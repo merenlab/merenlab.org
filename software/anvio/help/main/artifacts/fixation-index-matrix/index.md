@@ -3,6 +3,7 @@ layout: page
 title: fixation-index-matrix [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/fixation-index-matrix
 image:
   featurerelative: ../../../images/header.png
   display: true

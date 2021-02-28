@@ -3,6 +3,7 @@ layout: page
 title: anvi-gen-gene-level-stats-databases [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-gen-gene-level-stats-databases
 image:
   featurerelative: ../../../images/header.png
   display: true

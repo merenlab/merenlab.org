@@ -3,6 +3,7 @@ layout: page
 title: anvi-setup-trna-taxonomy [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-setup-trna-taxonomy
 image:
   featurerelative: ../../../images/header.png
   display: true

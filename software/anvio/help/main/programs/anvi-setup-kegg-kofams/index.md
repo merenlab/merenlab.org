@@ -3,6 +3,7 @@ layout: page
 title: anvi-setup-kegg-kofams [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-setup-kegg-kofams
 image:
   featurerelative: ../../../images/header.png
   display: true

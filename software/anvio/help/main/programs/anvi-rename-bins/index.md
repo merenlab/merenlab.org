@@ -3,6 +3,7 @@ layout: page
 title: anvi-rename-bins [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-rename-bins
 image:
   featurerelative: ../../../images/header.png
   display: true

@@ -3,6 +3,7 @@ layout: page
 title: anvi-import-functions [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-import-functions
 image:
   featurerelative: ../../../images/header.png
   display: true

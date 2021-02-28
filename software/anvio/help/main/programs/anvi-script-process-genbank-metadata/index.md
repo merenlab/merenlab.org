@@ -3,6 +3,7 @@ layout: page
 title: anvi-script-process-genbank-metadata [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-script-process-genbank-metadata
 image:
   featurerelative: ../../../images/header.png
   display: true

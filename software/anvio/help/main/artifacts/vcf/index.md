@@ -3,6 +3,7 @@ layout: page
 title: vcf [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/vcf
 image:
   featurerelative: ../../../images/header.png
   display: true

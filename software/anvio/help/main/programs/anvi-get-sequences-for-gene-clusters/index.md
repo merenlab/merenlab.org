@@ -3,6 +3,7 @@ layout: page
 title: anvi-get-sequences-for-gene-clusters [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-get-sequences-for-gene-clusters
 image:
   featurerelative: ../../../images/header.png
   display: true

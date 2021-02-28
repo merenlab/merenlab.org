@@ -3,6 +3,7 @@ layout: page
 title: anvi-compute-functional-enrichment [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-compute-functional-enrichment
 image:
   featurerelative: ../../../images/header.png
   display: true

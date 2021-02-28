@@ -3,6 +3,7 @@ layout: page
 title: hmm-source [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/hmm-source
 image:
   featurerelative: ../../../images/header.png
   display: true

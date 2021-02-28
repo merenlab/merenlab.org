@@ -3,6 +3,7 @@ layout: page
 title: anvi-script-fix-homopolymer-indels [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-script-fix-homopolymer-indels
 image:
   featurerelative: ../../../images/header.png
   display: true

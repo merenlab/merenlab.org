@@ -3,6 +3,7 @@ layout: page
 title: anvi-summarize [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-summarize
 image:
   featurerelative: ../../../images/header.png
   display: true

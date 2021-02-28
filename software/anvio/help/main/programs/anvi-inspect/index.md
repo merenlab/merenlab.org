@@ -3,6 +3,7 @@ layout: page
 title: anvi-inspect [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-inspect
 image:
   featurerelative: ../../../images/header.png
   display: true

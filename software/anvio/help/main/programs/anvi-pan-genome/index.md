@@ -3,6 +3,7 @@ layout: page
 title: anvi-pan-genome [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-pan-genome
 image:
   featurerelative: ../../../images/header.png
   display: true

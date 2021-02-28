@@ -3,6 +3,7 @@ layout: page
 title: summary [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/summary
 image:
   featurerelative: ../../../images/header.png
   display: true

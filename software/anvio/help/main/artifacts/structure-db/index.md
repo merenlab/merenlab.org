@@ -3,6 +3,7 @@ layout: page
 title: structure-db [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/structure-db
 image:
   featurerelative: ../../../images/header.png
   display: true

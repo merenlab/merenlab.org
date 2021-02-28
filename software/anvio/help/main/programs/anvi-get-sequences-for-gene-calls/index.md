@@ -3,6 +3,7 @@ layout: page
 title: anvi-get-sequences-for-gene-calls [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-get-sequences-for-gene-calls
 image:
   featurerelative: ../../../images/header.png
   display: true

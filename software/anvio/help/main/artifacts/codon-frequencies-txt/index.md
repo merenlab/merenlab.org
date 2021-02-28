@@ -3,6 +3,7 @@ layout: page
 title: codon-frequencies-txt [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/codon-frequencies-txt
 image:
   featurerelative: ../../../images/header.png
   display: true

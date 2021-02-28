@@ -3,6 +3,7 @@ layout: page
 title: anvi-run-workflow [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-run-workflow
 image:
   featurerelative: ../../../images/header.png
   display: true

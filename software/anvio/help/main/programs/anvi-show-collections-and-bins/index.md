@@ -3,6 +3,7 @@ layout: page
 title: anvi-show-collections-and-bins [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-show-collections-and-bins
 image:
   featurerelative: ../../../images/header.png
   display: true

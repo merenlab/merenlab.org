@@ -3,6 +3,7 @@ layout: page
 title: anvi-display-pan [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-display-pan
 image:
   featurerelative: ../../../images/header.png
   display: true

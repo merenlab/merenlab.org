@@ -3,6 +3,7 @@ layout: page
 title: short-reads-fasta [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/short-reads-fasta
 image:
   featurerelative: ../../../images/header.png
   display: true

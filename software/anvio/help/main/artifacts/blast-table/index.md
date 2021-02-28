@@ -3,6 +3,7 @@ layout: page
 title: blast-table [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/blast-table
 image:
   featurerelative: ../../../images/header.png
   display: true

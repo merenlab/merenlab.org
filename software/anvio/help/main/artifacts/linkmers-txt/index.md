@@ -3,6 +3,7 @@ layout: page
 title: linkmers-txt [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/linkmers-txt
 image:
   featurerelative: ../../../images/header.png
   display: true

@@ -3,6 +3,7 @@ layout: page
 title: anvi-script-gen-short-reads [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-script-gen-short-reads
 image:
   featurerelative: ../../../images/header.png
   display: true
