@@ -68,7 +68,7 @@ anvi&#45;display&#45;functions &#45;e <span class="artifact&#45;n">[external&#45
 
 While the default setting which is to use function names will be appropriate for most applications, using accession IDs instead of function names may be important for specific applications. There may be an actual difference between using functions or accession to aggregate data since multiple accession IDs in various databases may correspond to the same function. This may lead to misleading enrichment analyses downstream as identical function annotations may be over-split into multiple groups. Thus, the default aggregation method uses function names.
 
-### Aggregating functions using accession IDs
+### Aggregating functions using function names
 
 In some cases a gene may be annotated with multiple functions. This is a decision often made at the function annotation tool level. For instance <span class="artifact-n">[anvi-run-ncbi-cogs](/software/anvio/help/main/programs/anvi-run-ncbi-cogs)</span> may yield two COG annotations for a single gene because the significance score for both hits may exceed the default cutoff. While this can be useful in <span class="artifact-n">[anvi-summarize](/software/anvio/help/main/programs/anvi-summarize)</span> output where things should be most comprehensive, having some genes annotated with multiple functions and others with one function may over-split them (since in this scenario a gene with COGXXX and COGXXX;COGYYY would end up in different bins). Thus, <span class="artifact-n">[anvi-display-functions](/software/anvio/help/main/programs/anvi-display-functions)</span> will will use the best hit for any gene that has multiple hits. But this behavior can be turned off the following way:
 
