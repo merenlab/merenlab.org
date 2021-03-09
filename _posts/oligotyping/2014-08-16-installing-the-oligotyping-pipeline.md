@@ -37,7 +37,7 @@ When the installation is done, you can refer to [this post]({% post_url oligotyp
 If you have questions, please send them to the [discussion forum](https://groups.google.com/forum/#!forum/oligotyping).
 
 
-## Installing the latest stable version using conda + pip (suggested method)
+## Installing the latest stable version using conda + pip (easy-peasy)
 
 For this to work, you need [miniconda](https://docs.conda.io/en/latest/miniconda.html) to be installed on your system. If you are not sure whether it is installed or not, open a terminal (hopefully an [iTerm](https://www.iterm2.com/), if you are using Mac) and type `conda`. You should see an output like this instead of a 'command not found' error (your version might be different):
 
@@ -70,7 +70,7 @@ conda activate oligotyping
 And finally install the following packages first:
 
 ``` bash
-conda install -y git r-base blast pip
+conda install -y r-base blast -c bioconda
 ```
 
 Once everything is done, install the following R libraries:
@@ -92,14 +92,16 @@ When you type this command you should get a help menu, instead of a command not 
     oligotype --help
 
 
-## Using the oligotyping pipeline directly from the upstream without installation (Meren's way)
+## Tracking the active oligotyping codebase without installation (artistic mode)
 
 This is to make sure you are following the very latest state of the codebase.
 
-First, do this:
+First, setup your environment for oligotyping:
 
 ``` bash
-pip install virtualenv
+conda update conda
+conda create -y --name oligotyping python=3.6
+conda activate oligotyping
 ```
 
 Now it is time to get a copy of the oligotyping codebase. Here I will suggest `~/github/` as the base directory, but you can change if you want to something else (in which case you must remember to apply that change all the following commands, of course):
@@ -108,101 +110,72 @@ Now it is time to get a copy of the oligotyping codebase. Here I will suggest `~
 # setup the code directory and get the oligotyping codebase
 mkdir -p ~/github && cd ~/github/
 git clone https://github.com/merenlab/oligotyping.git
+conda activate oligotyping
 ```
 
-Here we will setup a directory to keep the Python virtual environment for OLIGOTYPING (virtual environment within a virtual environment, keep your totem nearby):
+Let's install some helper tools next:
 
 ``` bash
-mkdir -p ~/virtual-envs/
-
-rm -rf ~/virtual-envs/oligotyping
-
-virtualenv ~/virtual-envs/oligotyping --pip 20.0.2
-source ~/virtual-envs/oligotyping/bin/activate
+conda install -y r-base blast -c bioconda
+conda install -y r-ggplot2 r-vegan r-gplots r-gtools r-reshape r-optparse r-pheatmap r-rcolorbrewer r-compute.es -c conda-forge
 ```
 
-When this is done successfully, you can run the following two lines to install oligotyping Python dependencies and deactivate the Python environment:
+When this is done successfully, you can run the following to install oligotyping Python dependencies:
 
 ```
 pip install -r ~/github/oligotyping/requirements.txt
-deactivate
 ```
 
-Now we will setup your conda environment in such a way, every time you activate OLIGOTYPING within it, you will get the very latest updates from the `master` repository:
+Now we will setup your conda environment in such a way, every time you activate oligotyping within it, you will get the very latest updates from the main repository. Just copy-paste the entire thing below into your terminal:
 
-``` bash
-# updating the activation script for the Python virtual environmnet
-# so (1) Python knows where to find OLIGOTYPING libraries, (2) BASH knows
-# where to find its programs, and (3) every the environment is activated
-# it downloads the latest code from the `master` repository
-echo -e "\n# >>> OLIGOTYPING STUFF >>>" >> ~/virtual-envs/oligotyping/bin/activate
-echo 'export PYTHONPATH=$PYTHONPATH:~/github/oligotyping/' >> ~/virtual-envs/oligotyping/bin/activate
-echo 'export PATH=$PATH:~/github/oligotyping/bin:~/github/oligotyping/sandbox' >> ~/virtual-envs/oligotyping/bin/activate
-echo 'cd ~/github/oligotyping && git pull && cd -' >> ~/virtual-envs/oligotyping/bin/activate
-echo "# <<< OLIGOTYPING STUFF <<<" >> ~/virtual-envs/oligotyping/bin/activate
+
+```bash
+cat <<EOF >${CONDA_PREFIX}/etc/conda/activate.d/oligotyping.sh
+# creating an activation script for the the conda environment for anvi'o
+# development branch so (1) Python knows where to find anvi'o libraries,
+# (2) the shell knows where to find anvi'o programs, and (3) every time
+# the environment is activated it synchronizes with the latest code from
+# active GitHub repository:
+export PYTHONPATH=\$PYTHONPATH:~/github/oligotyping/
+export PATH=\$PATH:~/github/oligotyping/bin:~/github/oligotyping/sandbox
+echo -e "\033[1;34mUpdating from oligotyping GitHub \033[0;31m(press CTRL+C to cancel)\033[0m ..."
+cd ~/github/oligotyping && git pull && cd -
+EOF
 ```
 
-Finally we define an alias, `oligotyping-activate-master`, so when you are in your conda environment for `oligotyping` you can run it as a command to initiate everything like a pro:
+{:.warning}
+If you are using zsh by default these may not work. If you run into a trouble here or especially if you figure out a way to make it work both for zsh and bash, please let us know.
 
+If everything worked, you should be able to type the following commands in a new terminal and see similar outputs:
+
+```bash
+meren ~ $ conda activate oligotyping
+Updating from oligotyping GitHub (press CTRL+C to cancel) ...
+Already up to date.
+/Users/meren
+(oligotyping) meren ~ $
+
+(oligotyping) meren ~ $ which oligotype
+/Users/meren/github/oligotyping/bin/oligotype
+
+(oligotyping) meren ~ $ decompose
+usage: decompose [-h] [-m FLOAT] [-X] [-d INTEGER] [-A INTEGER] [-M INTEGER]
+                 [-V INTEGER] [-t CHAR] [-o OUTPUT_DIRECTORY] [-p STR] [-g]
+                 [-S] [-H] [-R] [-F] [-K] [-T] [-N INTEGER] [-E FILEPATH]
+                 [--skip-gen-html] [--skip-gen-figures]
+                 [--skip-check-input-file] [--skip-gexf-files] [--quick]
+                 [--version]
+                 FILEPATH
+decompose: error: the following arguments are required: FILEPATH
 ```
-echo -e "\n# >>> OLIGOTYPING STUFF >>>" >> ~/.bash_profile
-echo 'alias oligotyping-activate-master="source ~/virtual-envs/oligotyping/bin/activate"' >> ~/.bash_profile
-echo "# <<< OLIGOTYPING STUFF <<<" >> ~/.bash_profile
-source ~/.bash_profile
-```
 
-At this stage if you run `oligotyping-activate-master`, you should be able to run this command without any errors:
+If that is the case, you’re all set.
 
-```
-$ oligotype -h
-
-$ which oligotype
-~/github/oligotyping/bin/oligotype
-```
-
-If that is the case, you're golden.
-
-
-So, this is the end of setting up the active OLIGOTYPING codebase on your computer so you can follow our daily additions to the code before they appear in stable releases, and use OLIGOTYPING exactly the way we use on our computers for our science on your own risk.
-
-**Please note that given this setup so far, every time you open a terminal you will have to first activate conda, and then the Python environment:**
+If you followed these instructions, every time you open a terminal you will have to run the following command to activate your oligotyping environment:
 
 ```
 conda activate oligotyping
-oligotyping-activate-master
 ```
 
-You can always use `~/.bashrc` or `~/.bash_profile` files to add aliases to make these steps easier for yourself, or remove them when you are tired.
-
-<details markdown="1"><summary>Show/hide Meren's BASH profile setup</summary>
-
-This is all personal taste and they may need to change from computer to computer, but I added the following lines at the end of my `~/.bash_profile` to easily switch between different versions of OLIGOTYPING on my Mac system:
-
-{:.notice}
-If you are using Anaconda rather than miniconda, or you are using Linux and not Mac, you will have to find corresponding paths for lines that start with `/Users` down below :)
-
-``` bash
-
-init_oligotyping_master () {
-    {
-        deactivate && conda deactivate
-    } &> /dev/null
-
-    export PATH="/Users/$USER/miniconda3/bin:$PATH"
-    . /Users/$USER/miniconda3/etc/profile.d/conda.sh
-    conda activate oligotyping
-    oligotyping-activate-master
-    export PS1="\[\e[0m\e[40m\e[1;30m\] :: oligotyping master :: \[\e[0m\e[0m \[\e[1;34m\]\]\w\[\e[m\] \[\e[1;31m\]>>>\[\e[m\] \[\e[0m\]"
-}
-
-alias om=init_oligotyping_master
-```
-
-With this setup, in a new terminal window I can type `om` to activate oligotyping.
-
-
-**But please note** that both aliases run `deactivate` and `conda deactivate` first, and they may not work for you especially if you have a fancy setup. I'd be very happy to improve these shortcuts.
-</details>
-
-
-
+{:.notive}
+We hope the oligotyping serves you well. It's development has stalled since our group's interests have shifted from amplicon data to 'omics. There are many ways to improve especially the minimum entropy decomposition algorithm. Due to the core principle behind it (i.e., the information theory), with only relatively minor improvements this algorithm will almost certainly perform better to recover subtle biological signal in complex data than any other algorithm that relies on pairwise sequence alighments to count mismatches. If you are interested, plese send us an e-mail, and we will give you our best ideas so you can improve the code and make it your own.
