@@ -138,8 +138,10 @@ class Publications:
 
             if p['Number']:
                 issue = '%s(%s):%s' % (p['Volume'], p['Number'], p['Pages'])
-            else:
+            elif p['Volume'] and p['Pages']:
                 issue = '%s:%s' % (p['Volume'], p['Pages'])
+            else:
+                issue = None
 
             year = p['Year'].strip()
             pub_entry = {'authors': authors, 'title': p['Title'], 'journal': p['Publication'], 'issue': issue, 'doi': doi, 'year': year, 'co_first_authors': co_first_authors, 'co_senior_authors': co_senior_authors}
@@ -200,7 +202,10 @@ class Publications:
 
             A('    </div>')
 
-        A('    <span class="pub-journal"><b>%s</b>, %s.</span>' % (pub['journal'], pub['issue']))
+        if pub['issue']:
+            A('    <span class="pub-journal"><b>%s</b>, %s <a href="https://doi.org/%s" target="_blank">🔗</a></span>' % (pub['journal'], pub['issue'], pub['doi']))
+        else:
+            A('    <span class="pub-journal"><b>%s</b> <a href="https://doi.org/%s" target="_blank">🔗</a></span>' % (pub['journal'], pub['doi']))
         A('</div>\n')
 
         return '\n'.join(pub_md)
