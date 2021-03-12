@@ -22,7 +22,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-compute-functional-enrichment](../../programs/anvi-compute-functional-enrichment)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-compute-functional-enrichment](../../programs/anvi-compute-functional-enrichment)</span> <span class="artifact-p">[anvi-display-functions](../../programs/anvi-display-functions)</span></p>
 
 
 ## Required or used by
