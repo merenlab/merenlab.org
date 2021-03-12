@@ -1496,6 +1496,9 @@ I'm sure you need no help to know what to do with this file.
 {:.notice}
 Metabolism prediction in anvi'o is a new feature and still under ongoing development as of `v7`. We appreciate your patience and feedback on any issues you might run into, and we welcome suggestions for improvement. Thank you very much!
 
+{:.notice}
+This project was supported by the National Science Foundation Graduate Research Fellowship Program under Grant No. 1746045.
+
 Microbiologists care a lot about what microbes are doing, and for this reason we spend a lot of time looking at functional annotations in our 'omics data. But what if we told you that you could go a step further than that, and look at functional annotations in the larger context of metabolism? This chapter is about how to leverage known, structured information on metabolic pathways to predict the metabolic capacity encoded by microbial genomes, MAGs, or metagenomes.
 
 In the pangenomics chapter, we explored functions in two species of *Enterococcus*. To demonstrate the utility of metabolism reconstruction in anvi'o, we are now going to predict the metabolic potential of these organisms.
