@@ -23,11 +23,11 @@ See **[program help menu](../../../../vignette#anvi-display-functions)** or go b
 
 ## Can provide
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[interactive](../../artifacts/interactive) <img src="../../images/icons/DISPLAY.png" class="artifact-icon-mini" /></span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[interactive](../../artifacts/interactive) <img src="../../images/icons/DISPLAY.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[functional-enrichment-txt](../../artifacts/functional-enrichment-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
 ## Can consume
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[functions](../../artifacts/functions) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[genomes-storage-db](../../artifacts/genomes-storage-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[internal-genomes](../../artifacts/internal-genomes) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[external-genomes](../../artifacts/external-genomes) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[functions](../../artifacts/functions) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[genomes-storage-db](../../artifacts/genomes-storage-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[internal-genomes](../../artifacts/internal-genomes) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[external-genomes](../../artifacts/external-genomes) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[groups-txt](../../artifacts/groups-txt) <img src="../../images/icons/TXT.png" class="artifact-icon-mini" /></span></p>
 
 ## Usage
 
@@ -52,6 +52,48 @@ You can replace the annotation source based on what is available across your gen
 
 {:.notice}
 Please note that a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> will be automatically generated for you. Once it is generated, the same profile database can be visualized over and over again using <span class="artifact-n">[anvi-interactive](/software/anvio/help/main/programs/anvi-interactive)</span> in manual mode, without having to retain any other files.
+
+
+### Combining genomes from multiple sources
+
+You can run this program by combining genomes from multiple sources:
+
+<div class="codeblock" markdown="1">
+anvi&#45;display&#45;functions &#45;e <span class="artifact&#45;n">[external&#45;genomes](/software/anvio/help/main/artifacts/external&#45;genomes)</span> \
+                       &#45;i <span class="artifact&#45;n">[internal&#45;genomes](/software/anvio/help/main/artifacts/internal&#45;genomes)</span> \
+                       &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
+                       &#45;&#45;annotation&#45;source KOfam \
+                       &#45;&#45;profile&#45;db KOFAM&#45;PROFILE.db
+
+</div>
+
+This way, you can bring together functions in your metagenome-assembled genomes, the isolates you have acquired from external sources, and even genomes in an anvi'o pangenome into a single framework in a disturbingly easy fashion.
+
+### Performing functional enrichment analysis for free
+
+This is an optional step, but may be very useful for some investigations. If your genomes are divided into meaningful groups, you can also perform a functional enrichment analysis while running this program. All you need to do for this to be included in your analysis is to provide a <span class="artifact-n">[groups-txt](/software/anvio/help/main/artifacts/groups-txt)</span> file that describes which genome belongs to which group:
+
+<div class="codeblock" markdown="1">
+anvi&#45;display&#45;functions &#45;e <span class="artifact&#45;n">[external&#45;genomes](/software/anvio/help/main/artifacts/external&#45;genomes)</span> \
+                       &#45;&#45;groups&#45;txt <span class="artifact&#45;n">[groups&#45;txt](/software/anvio/help/main/artifacts/groups&#45;txt)</span>
+                       &#45;&#45;annotation&#45;source KOfam \
+                       &#45;&#45;profile&#45;db KOFAM&#45;PROFILE.db
+</div>
+
+If you are using multiple sources for your genomes, you may not immediately know which genomes to list in your <span class="artifact-n">[groups-txt](/software/anvio/help/main/artifacts/groups-txt)</span> file. In that case, you can first run the program with this additional parameter,
+
+<div class="codeblock" markdown="1">
+anvi&#45;display&#45;functions &#45;e <span class="artifact&#45;n">[external&#45;genomes](/software/anvio/help/main/artifacts/external&#45;genomes)</span> \
+                       &#45;i <span class="artifact&#45;n">[internal&#45;genomes](/software/anvio/help/main/artifacts/internal&#45;genomes)</span> \
+                       &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
+                       &#45;&#45;annotation&#45;source COG20_FUNCTION \
+                       &#45;&#45;profile&#45;db COGS&#45;PROFILE.db \
+                       &#45;&#45;print&#45;genome&#45;names&#45;and&#45;quit
+</div>
+
+In which case anvi'o would report all the functions once it recovers everything from all sources, and print them out for you to create a groups file before re-running the program with it.
+
+This analysis will add the following additional layers in your <span class="artifact-n">[interactive](/software/anvio/help/main/artifacts/interactive)</span> display: 'enrichment_score', 'unadjusted_p_value', 'adjusted_q_value', 'associated_groups'. See <span class="artifact-n">[functional-enrichment-txt](/software/anvio/help/main/artifacts/functional-enrichment-txt)</span> to learn more about these columns.
 
 ### Aggregating functions using accession IDs
 
@@ -90,18 +132,6 @@ anvi&#45;display&#45;functions &#45;e <span class="artifact&#45;n">[external&#45
 
 Here the `--min-occurrence 5` parameter will exclude any function that appears to occur in less than 5 genomes in your collection.
 
-### Combining genomes from multiple sources
-
-Alternatively, you can run the program by combining genomes from multiple sources:
-
-<div class="codeblock" markdown="1">
-anvi&#45;display&#45;functions &#45;e <span class="artifact&#45;n">[external&#45;genomes](/software/anvio/help/main/artifacts/external&#45;genomes)</span> \
-                       &#45;i <span class="artifact&#45;n">[internal&#45;genomes](/software/anvio/help/main/artifacts/internal&#45;genomes)</span> \
-                       &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
-                       &#45;&#45;annotation&#45;source KOfam \
-                       &#45;&#45;profile&#45;db KOFAM&#45;PROFILE.db
-
-</div>
 
 ### A real-world example
 

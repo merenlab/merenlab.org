@@ -22,7 +22,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-There are no anvi'o tools that generate this artifact, which means it is most likely provided to the anvi'o ecosystem by the user.
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-script-gen-genomes-file](../../programs/anvi-script-gen-genomes-file)</span></p>
 
 
 ## Required or used by
