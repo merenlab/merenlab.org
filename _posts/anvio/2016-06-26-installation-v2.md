@@ -213,7 +213,6 @@ pip install mistune==0.8.4
 
 If everything went fine, you can jump to "[Check your anvi'o setup](#4-check-your-installation)" to see if things worked for you, and then you are free to go!
 
-
 ## (4) Check your installation
 
 If you are here, you are ready to check if everything is working on your system.
