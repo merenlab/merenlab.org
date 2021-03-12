@@ -205,6 +205,12 @@ And install it using `pip` like a boss:
 pip install anvio-7.tar.gz
 ```
 
+Right after this, run this command to make sure you have the right version of this one library [that changed its API](https://github.com/merenlab/anvio/issues/1692) recently:
+
+```
+pip install mistune==0.8.4
+```
+
 If everything went fine, you can jump to "[Check your anvi'o setup](#4-check-your-installation)" to see if things worked for you, and then you are free to go!
 
 
