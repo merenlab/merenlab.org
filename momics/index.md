@@ -48,7 +48,7 @@ Amplicon sequencing and shotgun sequencing represent the most popular ways to  g
 ![](00-amplicons-vs-shotgun-metagenomes.gif)
 
 {:.warning}
-Download PowerPoint slides for this animation from [here](00-amplicons-vs-shotgun-metagenomes.pptx).
+[Download as PowerPoint slides](00-amplicons-vs-shotgun-metagenomes.pptx).
 
 ### Metagenomic read recruitment: how it is done
 
@@ -58,7 +58,7 @@ Metagenomic [read recruitment](../vocabulary/#read-recruitment) is one of the mo
 ![](01-metagenomic-read-recruitment-simple.gif)
 
 {:.warning}
-Download PowerPoint slides for this animation from [here](01-metagenomic-read-recruitment-simple.pptx).
+[Download as PowerPoint slides](01-metagenomic-read-recruitment-simple.pptx).
 
 ### Metagenomic read recruitment: how it is used
 
@@ -67,7 +67,7 @@ The animation below aims to support a discussion on non-specific read recruitmen
 ![](01-metagenomic-read-recruitment.gif)
 
 {:.warning}
-Download PowerPoint slides for this animation from [here](01-metagenomic-read-recruitment.pptx).
+[Download as PowerPoint slides](01-metagenomic-read-recruitment.pptx).
 
 ### Genome-resolved metagenomics
 
@@ -76,7 +76,7 @@ We use the term 'genome-resolved metagenomics' to describe a family of strategie
 ![](02-genome-resolved-metagenomics.gif)
 
 {:.warning}
-Download PowerPoint slides for this animation from [here](02-genome-resolved-metagenomics.pptx).
+[Download as PowerPoint slides](02-genome-resolved-metagenomics.pptx).
 
 ### Reconstructing genomes from metagenomes
 
@@ -85,7 +85,7 @@ The aim of this animation is to discuss the general steps of reconstructing geno
 ![](03-reconstructing-genomes-from-metagenomes.gif)
 
 {:.warning}
-Download PowerPoint slides for this animation from [here](03-reconstructing-genomes-from-metagenomes.pptx).
+[Download as PowerPoint slides](03-reconstructing-genomes-from-metagenomes.pptx).
 
 #### Computing k-mer frquencies
 
@@ -94,7 +94,7 @@ We often use the fact that tetranucleotide frequencies of nucleotides are relati
 ![](04-computing-kmer-frequencies.gif)
 
 {:.warning}
-Download PowerPoint slides for this animation from [here](04-computing-kmer-frequencies.pptx).
+[Download as PowerPoint slides](04-computing-kmer-frequencies.pptx).
 
 #### Differential coverage
 
@@ -103,7 +103,7 @@ The assumption that [contigs](../vocabulary/#contig) belonging to the same popul
 ![](05-computing-differential-coverage.gif)
 
 {:.warning}
-Download PowerPoint slides for this animation from [here](05-computing-differential-coverage.pptx).
+[Download as PowerPoint slides](05-computing-differential-coverage.pptx).
 
 #### From metagenomic reads to anvi'o merged profiles
 
@@ -112,7 +112,7 @@ This animation demonstrates the essential steps of going from short reads to met
 ![](06-anvio-merged-profile-db.gif)
 
 {:.warning}
-Download PowerPoint slides for this animation from [here](06-anvio-merged-profile-db.pptx).
+[Download as PowerPoint slides](06-anvio-merged-profile-db.pptx).
 
 
 ### Pangenomics
@@ -122,7 +122,7 @@ Pangenomes are critical tools to understand how a given set of genomes relate to
 ![](07-concept-of-pangenomics.gif)
 
 {:.warning}
-Download PowerPoint slides for this animation from [here](07-concept-of-pangenomics.pptx).
+[Download as PowerPoint slides](07-concept-of-pangenomics.pptx).
 
 
 ### Metapangenomics
@@ -132,7 +132,7 @@ We define a ‘metapangenome’ as the outcome of the analysis of pangenomes in 
 ![](08-concept-of-metapangenomics.gif)
 
 {:.warning}
-Download PowerPoint slides for this animation from [here](08-concept-of-metapangenomics.pptx).
+[Download as PowerPoint slides](08-concept-of-metapangenomics.pptx).
 
 
 ### Phylogenomics
@@ -147,7 +147,7 @@ A discussion on how these three commonly used strategies compare.
 ![](09-approaches-for-comparative-genomics.gif)
 
 {:.warning}
-Download PowerPoint slides for this animation from [here](09-approaches-for-comparative-genomics.pptx).
+[Download as PowerPoint slides](09-approaches-for-comparative-genomics.pptx).
 
 
 
