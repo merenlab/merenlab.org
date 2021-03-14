@@ -41,9 +41,28 @@ With the realization that some concepts in microbial 'omics are difficult to com
 
 The following sections describe each concept with a short summary of how I used them during the course. Please feel free to use any of the PowerPoint files in your own presentations, or let me know if you would like to chat about their interpretations.
 
-### Metagenomic read recruitment
+### Amplicons vs shotgun metagenomes
 
-Metagenomic [read recruitment](../vocabulary/#read-recruitment) is one of the most commonly used strategies in microbial 'omics. The animation aims to support a discussion on non-specific read recruitment, [coverage](../vocabulary/#coverage) versus [detection](../vocabulary/#detection), and the association between read recruitment statistics and population genetics.
+Amplicon sequencing and shotgun sequencing represent the most popular ways to  generate sequencing data to study microbial life. Both strategies come with their unique advantages and disadvantages. The purpose of the animation below is the communicate the key difference between the data they yield and to discuss their appliations. 
+
+![](00-amplicons-vs-shotgun-metagenomes.gif)
+
+{:.warning}
+Download PowerPoint slides for this animation from [here](00-amplicons-vs-shotgun-metagenomes.pptx).
+
+### Metagenomic read recruitment: how it is done
+
+Metagenomic [read recruitment](../vocabulary/#read-recruitment) is one of the most commonly used strategies in microbial 'omics. The purpose of this animation is to communicate how it is done in simplest terms possible.
+
+
+![](01-metagenomic-read-recruitment-simple.gif)
+
+{:.warning}
+Download PowerPoint slides for this animation from [here](01-metagenomic-read-recruitment-simple.pptx).
+
+### Metagenomic read recruitment: how it is used
+
+The animation below aims to support a discussion on non-specific read recruitment, [coverage](../vocabulary/#coverage) versus [detection](../vocabulary/#detection), and the association between read recruitment statistics and their ability to enable us study genomic variation in environmental populations (i.e., microbial population genetics).
 
 ![](01-metagenomic-read-recruitment.gif)
 
@@ -52,7 +71,7 @@ Download PowerPoint slides for this animation from [here](01-metagenomic-read-re
 
 ### Genome-resolved metagenomics
 
-We use the term 'genome-resolved metagenomics' to desribe a family of strategies that generate genome-level insights from metagenomes, rather than focusing solely on short reads for broad taxonomic or functional summaries of samples. The purpose of the animation is to support a discussion about the advantages and disadvantages of using reference genomes or metagenome-assembled genomes to recruit reads from metagenomes. It also provides an opportunity to discuss limitations of assembly and binning.
+We use the term 'genome-resolved metagenomics' to describe a family of strategies that generate genome-level insights from metagenomes, rather than focusing solely on short reads for broad taxonomic or functional summaries of samples. The purpose of the animation is to support a discussion about the advantages and disadvantages of using reference genomes or metagenome-assembled genomes to recruit reads from metagenomes. It also provides an opportunity to discuss limitations of assembly and binning.
 
 ![](02-genome-resolved-metagenomics.gif)
 
@@ -119,7 +138,7 @@ Download PowerPoint slides for this animation from [here](08-concept-of-metapang
 ### Phylogenomics
 
 {:.notice}
-Slides for this section will be available around late 2020.
+Slides for this section will be available at some point :/
 
 ### Phylogenetics vs Phylogenomics vs Pangenomics
 
@@ -131,16 +150,6 @@ A discussion on how these three commonly used strategies compare.
 Download PowerPoint slides for this animation from [here](09-approaches-for-comparative-genomics.pptx).
 
 
-### Microbial Population Genetics
-
-{:.notice}
-Slides for this section will be available around late 2020.
-
-
-### Metaepitranscriptomics
-
-{:.notice}
-Slides for this section will be available around late 2020.
 
 ## Student questions
 
