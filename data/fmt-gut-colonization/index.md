@@ -30,17 +30,24 @@ If you have any questions and/or if you are unable to find an important piece of
 
 ## Study description
 
-Our study involves the investigations of human gut metagenomes to understand the ecology of microbes before and after fecal microbiota transplantation (FMT) experiments. To do that, we 
+{:.notice}
+You can find a crude summary of our study [here](https://twitter.com/merenbey/status/1369016402896695298) as a Twitter thread. 
 
-* Reconstruct metagenome-assembled genomes (MAGs) from FMT donor gut metagenomes,
-* Using these genomes investigate the distribution of donor populations in donor and recipient gut metagenomes before and after FMT,
-* Investigate the prevalence of donor populations in global gut metagenomes,
-* Define a set of quantitative and stringent criteria to determine 'colonization' events,
-* Identify 'high-fitness' and 'low-fitness' donor populations based on their colonization abilities and prevalence in global gut metagenomes,
-* Determine metabolic pathways that are enriched in either of these high-fitness or low-fitness groups,
-* Study microbial genomes reconstructed from healthy individuals and individuals with IBD to show that high-fitness genomes are differentially enriched in IBD.
+Briefly, our study involves the investigations of human gut metagenomes to understand the ecology of microbes before and after fecal microbiota transplantation (FMT) experiments, and the relevance of emerging ecological principals to inflammatory bowel disease (IBD). For this, we
 
-Most of these steps are detailed in [our manuscript](https://doi.org/10.1101/2021.03.02.433653) and on this page you will find details of intermediate steps and anvi'o reusable data currencies to reproduce our main findings.
+* **Reconstruct metagenome-assembled genomes** (MAGs) from FMT donor gut metagenomes,
+* Characterize the distribution of donor populations in donor and recipient gut metagenomes before and after FMT using these genomes,
+* Investigate the prevalence of donor populations **in global gut metagenomes**,
+* Define a set of quantitative criteria to **determine 'colonization' events unambigously**,
+* Identify '**high-fitness**' and '**low-fitness**' donor populations based on **their colonization abilities and prevalence in global gut metagenomes**,
+* Determine **metabolic pathways that are enriched** in either of these high-fitness or low-fitness groups,
+* Study microbial genomes reconstructed from **healthy individuals and individuals with IBD** to test whether the enrichment of high-fitness and low-fitness genomes were identical between these cohorts (they were not).
+
+Here is a sketch that aims to capture the points below:
+
+[![Figure 04 top panel](images/workflow-sketch.jpeg)](images/workflow-sketch.jpeg){:.center-img .width-50}
+
+Most of these steps are indeed detailed in [our manuscript](https://doi.org/10.1101/2021.03.02.433653). On this page, **you will find details of intermediate steps and anvi'o reusable data currencies to reproduce our main findings**.
 
 ## Reconstructing donor genomes
 
