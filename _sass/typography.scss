@@ -283,11 +283,10 @@ li {
     code {
         @include font-rem(12);
         white-space: nowrap;
-        padding: 0 2px;
-        padding-bottom: 1px;
+        padding: 2px 3px;
         background-color: #efefef;
-        border: 1px solid #969696;
-        color: #bf2727;
+        border: 1px solid #cecece;
+        color: #484848;
         @include rounded(3px);
     }
 }
