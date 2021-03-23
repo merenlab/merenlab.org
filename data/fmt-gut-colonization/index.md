@@ -51,11 +51,142 @@ Most of these steps are indeed detailed in [our manuscript](https://doi.org/10.1
 
 ## Reconstructing donor genomes
 
-*To be described.*
+To reconstruct donor microbial population genomes, or MAGs, from our donor gut metagenomes, we used the anvi’o workflow for metagenomics. This workflow (1) co-assembled donor metagenomes using IDBA_UD, (2) mapped donor and recipient metagenomes onto donor contigs using bowtie2, (3) profiled mapping results to allow for manual binning of contigs into MAGs, and (4) summarized bin collections for downstream analysis.
 
 {:.notice}
-[doi:](){:target="_blank"} serves anvi'o {% include ARTIFACT name="contigs-db" text="contigs databases" %} for donor assemblies, and merged anvi'o {% include ARTIFACT name="profile-db" text="profile databases" %} that show the distribution of genomes across donor and recipient metagenomes. Use XXX for {% include ARTIFACT name="collection" %} name.
+[doi:](){:target="_blank"} serves anvi'o {% include ARTIFACT name="contigs-db" text="contigs databases" %} for donor assemblies, and merged anvi'o {% include ARTIFACT name="profile-db" text="profile databases" %} that show the distribution of genomes across donor and recipient metagenomes. Use `default` for {% include ARTIFACT name="collection" %} name.
 
+## Global prevalence of donor genomes
+
+To determine the prevalence of donor genomes in 17 different countries, we once again used the anvi'o metagenomics workflow. This time, the workflow (1) recruited reads from 1,984 publicly available gut metagenomes to our donor contigs using bowtie2, (2) profiled mapping results, and (3) summarized MAG collections for downstream analysis.
+
+Included in the resulting summary files is information about the detection of each donor genome in each global metagenome. We summarized the detection results by country, using a minimum detection threshold of 0.25. You can reproduce this step the following way:
+
+```bash
+# download the script
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/summarize-global-detection.py \
+      -o summarize-global-detection.py
+
+# download the input files [3.7Mb, 5.2Mb]
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-global-DA.txt \
+      -o detection-global-DA.txt
+ 
+ curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-global-DB.txt \
+      -o detection-global-DB.txt
+
+# run the script and look at the output files [detection-global-by-country-DA.txt, detection-global-by-country-DB.txt]
+python3 summarize-global-detection.py
+```
+
+## Investigating the ecological forces driving colonization outcomes
+
+This section will describe how to recreate Figure 2 in our study:
+
+[![Figure 02](images/Figure_02.png)](images/Figure_02.png){:.center-img .width-50}
+
+We wanted to determine whether colonization outcomes were driven primarily by neutral or adaptive ecological forces. If colonization outcomes were driven by neutral forces, we would expect the successful colonizers to be the populations that were the most abundant in the donor stool sample used for transplantation. These would be the populations most likely to survive the bottleneck event that occured when a portion of the stool sample was selected for transplantation, and the most likely to survive the effects of ecological drift in the gut. Alternatively, if colonization outcomes were driven by adaptive ecological forces, we would expect the successful colonizers to be the populations that were the most fit in the gut environment.
+
+To test whether colonization outcomes were driven by neutral or adaptive forces we measured the correlation of dose and fitness with colonization outcome. We measured dose using the mean coverage of a population in the donor stool sample used for transplantation and we used population prevalence in healthy adult guts as a proxy for fitness.
+
+### Preliminary analysis
+As a simple preliminary analysis we first measured whether the fitness of a population was correlated with its detection in donor or recipient post-FMT metagenomes, to see if the post-FMT gut environment was selecting for fitter populations than the donor gut environment.
+
+If you want to reproduce this analysis, you can do so with the following steps:
+
+``` bash
+# download the input files
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/metadata-donor.txt \
+     -o metadata-donor.txt
+
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/metadata-donor.txt \
+     -o metadata-recipient.txt
+
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/metadata-donor.txt \
+     -o metadata-transplants.txt
+
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-FMT-DA.txt \
+     -o detection-FMT-DA.txt
+
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-FMT-DB.txt \
+     -o detection-FMT-DB.txt
+
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-global-by-country-DA.txt \
+     -o detection-global-by-country-DA.txt
+
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-global-by-country-DB.txt \
+     -o detection-global-by-country-DB.txt
+
+# download the script to create mean detection vs. prevalence table
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/make-mean-detec-vs-prev-table.py \
+     -o make-mean-detec-vs-prev-table.py
+
+# run the script to make aforementioned tables
+python3 make_mean_detec_vs_prev_table.py
+
+# download the script to visualize results
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/Figure-02A.R \
+     -o Figure-02A.R
+
+# run the script :)
+Rscript Figure-02A.R
+```
+
+Which generates a PDF that looks like this:
+
+[![Figure 02 panel A](images/Figure_02A.png)](images/Figure_02A.png){:.center-img .width-10}
+
+### Defining colonization success and failure
+
+Our preliminary results indicated that FMT may be selecting for fitter microbes in the recipient post-FMT gut environment. However, we wanted to more directly test whether neutral or adaptive forces were driving colonization.
+
+We began with a simple definition of colonization: a population is absent in a recipient pre-FMT, present in the donor stool samples used for transplantation, and present in the recipient post-FMT. Whereas if a population is present in the donor stool sample used for transplantation and absent in the recipient pre-FMT, it failed to colonize. However, we decided that looking at the presence or absence of population genomes in donor and recipient samples did not provide sufficient resolution. If a population is present in the donor and in the recipient pre-FMT, how do we know if the post-FMT population is native to the recipient or came from the donor? Even if we don't see a population pre-FMT, how do we know that the post-FMT population wasn't already present in the recipient at undetectable levels? To resolve these ambiguities, we used subpopulation, or strain, level information from DESMAN. DESMAN provides the number of subpopulations, or strains, of each population in each metagenome, along with their relative abundances.
+
+This led us to create the definition of colonization, or non-colonization, outlined in Supplementary Figure 4.
+
+We then used the output of that workflow to measure the correlation of dose and fitness with colonization outcome, to determine whether colonization is driven by neutral or adaptive forces.
+
+To replicate the process of that workflow, you can do the following:
+```bash
+# download additional files
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/scg-cov-DA.txt \
+     -o scg-cov-DA.txt
+
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/scg-cov-DB.txt \
+     -o scg-cov-DB.txt
+
+# download the script
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/determine-colonization.py \
+     -o determine-colonization.py
+
+# run the script and look at the output files [colonized-DA.txt, colonized-DB.txt, did-not-colonize-DA.txt, did-not-colonize-DB.txt]
+python3 determine-colonization.py
+```
+
+### Correlation of dose and fitness with colonization outcome
+
+We used logistic regression to test for a correlation between dose and colonization outcome, and fitnes and colonization outcome. We then further evaluated our regression models using ROC curves.
+
+If you would like to recreate this analysis, you can do so through the following steps:
+
+```bash
+# download files
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/summary-DA.txt \
+     -o summary-DA.txt
+
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/summary-DB.txt \
+     -o summary-DB.txt
+
+# download script
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/Figure-02BC.txt \
+     -o Figure-02BC.txt
+
+# run script
+Rscript Figure-02BC.R
+```
+
+Which generates a PDF that looks like this:
+
+[![Figure 02 panel B and C](images/Figure_02BC.png)](images/Figure_02BC.png){:.center-img .width-10}
 
 ## Investigating metabolic competence among microbial genomes reconstructed from healthy individuals and individuals with IBD
 
