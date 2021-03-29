@@ -3,6 +3,7 @@ layout: page
 title: anvi-get-short-reads-from-bam [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-get-short-reads-from-bam
 image:
   featurerelative: ../../../images/header.png
   display: true

@@ -3,6 +3,7 @@ layout: page
 title: anvi-compute-gene-cluster-homogeneity [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-compute-gene-cluster-homogeneity
 image:
   featurerelative: ../../../images/header.png
   display: true

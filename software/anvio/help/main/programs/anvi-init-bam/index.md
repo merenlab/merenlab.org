@@ -3,6 +3,7 @@ layout: page
 title: anvi-init-bam [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-init-bam
 image:
   featurerelative: ../../../images/header.png
   display: true

@@ -27,7 +27,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-db-info](../../programs/anvi-db-info)</span> <span class="artifact-r">[anvi-interactive](../../programs/anvi-interactive)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-db-info](../../programs/anvi-db-info)</span> <span class="artifact-r">[anvi-interactive](../../programs/anvi-interactive)</span> <span class="artifact-r">[anvi-migrate](../../programs/anvi-migrate)</span></p>
 
 
 ## Description

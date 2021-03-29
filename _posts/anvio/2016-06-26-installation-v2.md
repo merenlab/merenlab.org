@@ -205,8 +205,13 @@ And install it using `pip` like a boss:
 pip install anvio-7.tar.gz
 ```
 
-If everything went fine, you can jump to "[Check your anvi'o setup](#4-check-your-installation)" to see if things worked for you, and then you are free to go!
+Right after this, run this command to make sure you have the right version of this one library [that changed its API](https://github.com/merenlab/anvio/issues/1692) recently:
 
+```
+pip install mistune==0.8.4
+```
+
+If everything went fine, you can jump to "[Check your anvi'o setup](#4-check-your-installation)" to see if things worked for you, and then you are free to go!
 
 ## (4) Check your installation
 
@@ -362,6 +367,11 @@ Now it is time to install the Python dependencies of anvi'o:
 cd ~/github/anvio/
 pip install -r requirements.txt
 ```
+
+{:.warning}
+Some packages in `requirement.txt` need to be installed with a more up to date c-compiler on **Mac OSX**. If you’re getting an error that contains this, `x86_64-apple-darwin13.4.0-clang` in the message, please run this command `export CC=clang` and try again. If you are still unable to run the `pip install` command above please make an issue on the github page or let us know in the anvi'o slack channel
+
+
 
 Now all dependencies are in place, and you have the code. One more step.
 

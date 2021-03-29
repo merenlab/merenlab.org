@@ -3,6 +3,7 @@ layout: page
 title: cogs-data [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/cogs-data
 image:
   featurerelative: ../../../images/header.png
   display: true

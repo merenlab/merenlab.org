@@ -3,6 +3,7 @@ layout: page
 title: aa-frequencies-txt [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/aa-frequencies-txt
 image:
   featurerelative: ../../../images/header.png
   display: true

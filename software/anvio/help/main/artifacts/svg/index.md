@@ -3,6 +3,7 @@ layout: page
 title: svg [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/svg
 image:
   featurerelative: ../../../images/header.png
   display: true

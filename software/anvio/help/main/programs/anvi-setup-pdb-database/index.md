@@ -3,6 +3,7 @@ layout: page
 title: anvi-setup-pdb-database [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-setup-pdb-database
 image:
   featurerelative: ../../../images/header.png
   display: true

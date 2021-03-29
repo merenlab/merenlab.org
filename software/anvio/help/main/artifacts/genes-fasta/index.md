@@ -3,6 +3,7 @@ layout: page
 title: genes-fasta [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/genes-fasta
 image:
   featurerelative: ../../../images/header.png
   display: true

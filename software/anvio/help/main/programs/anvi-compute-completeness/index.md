@@ -3,6 +3,7 @@ layout: page
 title: anvi-compute-completeness [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-compute-completeness
 image:
   featurerelative: ../../../images/header.png
   display: true

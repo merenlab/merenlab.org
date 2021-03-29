@@ -3,6 +3,7 @@ layout: page
 title: anvi-export-structures [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-export-structures
 image:
   featurerelative: ../../../images/header.png
   display: true

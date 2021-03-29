@@ -3,6 +3,7 @@ layout: page
 title: pdb-db [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/pdb-db
 image:
   featurerelative: ../../../images/header.png
   display: true

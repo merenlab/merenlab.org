@@ -3,6 +3,7 @@ layout: page
 title: locus-fasta [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/locus-fasta
 image:
   featurerelative: ../../../images/header.png
   display: true

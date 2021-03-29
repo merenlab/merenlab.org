@@ -3,6 +3,7 @@ layout: page
 title: augustus-gene-calls [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/augustus-gene-calls
 image:
   featurerelative: ../../../images/header.png
   display: true

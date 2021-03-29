@@ -3,6 +3,7 @@ layout: page
 title: anvi-script-merge-collections [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-script-merge-collections
 image:
   featurerelative: ../../../images/header.png
   display: true

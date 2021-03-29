@@ -3,6 +3,7 @@ layout: page
 title: configuration-ini [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/configuration-ini
 image:
   featurerelative: ../../../images/header.png
   display: true

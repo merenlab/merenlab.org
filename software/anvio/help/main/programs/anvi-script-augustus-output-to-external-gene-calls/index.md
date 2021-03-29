@@ -3,6 +3,7 @@ layout: page
 title: anvi-script-augustus-output-to-external-gene-calls [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-script-augustus-output-to-external-gene-calls
 image:
   featurerelative: ../../../images/header.png
   display: true

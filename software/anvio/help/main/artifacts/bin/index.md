@@ -3,6 +3,7 @@ layout: page
 title: bin [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/bin
 image:
   featurerelative: ../../../images/header.png
   display: true

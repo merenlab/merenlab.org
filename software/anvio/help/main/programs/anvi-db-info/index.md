@@ -3,6 +3,7 @@ layout: page
 title: anvi-db-info [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-db-info
 image:
   featurerelative: ../../../images/header.png
   display: true

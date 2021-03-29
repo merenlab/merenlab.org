@@ -3,6 +3,7 @@ layout: page
 title: genbank-file [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/genbank-file
 image:
   featurerelative: ../../../images/header.png
   display: true

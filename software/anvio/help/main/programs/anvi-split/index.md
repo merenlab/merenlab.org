@@ -3,6 +3,7 @@ layout: page
 title: anvi-split [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-split
 image:
   featurerelative: ../../../images/header.png
   display: true

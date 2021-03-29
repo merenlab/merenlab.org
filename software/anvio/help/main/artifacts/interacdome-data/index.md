@@ -3,6 +3,7 @@ layout: page
 title: interacdome-data [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/interacdome-data
 image:
   featurerelative: ../../../images/header.png
   display: true

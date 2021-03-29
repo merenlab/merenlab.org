@@ -3,6 +3,7 @@ layout: page
 title: gene-taxonomy [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/gene-taxonomy
 image:
   featurerelative: ../../../images/header.png
   display: true

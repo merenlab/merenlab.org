@@ -3,6 +3,7 @@ layout: page
 title: protein-structure-txt [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/protein-structure-txt
 image:
   featurerelative: ../../../images/header.png
   display: true

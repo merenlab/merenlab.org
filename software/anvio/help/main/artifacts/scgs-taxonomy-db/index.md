@@ -3,6 +3,7 @@ layout: page
 title: scgs-taxonomy-db [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/scgs-taxonomy-db
 image:
   featurerelative: ../../../images/header.png
   display: true

@@ -3,6 +3,7 @@ layout: page
 title: view-data [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/view-data
 image:
   featurerelative: ../../../images/header.png
   display: true

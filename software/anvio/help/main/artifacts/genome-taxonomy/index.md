@@ -3,6 +3,7 @@ layout: page
 title: genome-taxonomy [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/genome-taxonomy
 image:
   featurerelative: ../../../images/header.png
   display: true

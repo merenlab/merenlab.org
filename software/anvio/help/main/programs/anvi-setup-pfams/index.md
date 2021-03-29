@@ -3,6 +3,7 @@ layout: page
 title: anvi-setup-pfams [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-setup-pfams
 image:
   featurerelative: ../../../images/header.png
   display: true

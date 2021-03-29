@@ -123,7 +123,7 @@ If you wish to follow the tutorial on your computer, you can download the Prochl
 wget https://ndownloader.figshare.com/files/11857577 -O Prochlorococcus_31_genomes.tar.gz
 tar -zxvf Prochlorococcus_31_genomes.tar.gz
 cd Prochlorococcus_31_genomes
-anvi-migrate-db *.db
+anvi-migrate *.db --migrate-dbs-safely
 ```
 
 The directory contains anvi'o contigs databases, an external genomes file, and a TAB-delimited data file that contains additional information for each genome (which is optional, but you will see later why it is very useful). You can generate a genomes storage as described in this section the following way:
@@ -494,7 +494,7 @@ Naturally, when we associate each gene cluster with a single function, we could 
 
 The careful readers will notice that we distinguish between 'functional annotation' and 'functional association' in the following text. When we mention 'functional annotation', we refer to the annotation of a single gene with a function by the functional annotation source (i.e. COGs, EggNOG, etc.), whereas 'functional association' of a gene cluster is the association of gene clusters with a single function as described above.
 
-Ok, so now we have a frequency table of functions in genomes and we use it as an input to the functional enrichment test. This test was implemented by [Amy Willis](https://github.com/adw96) in `R` (you can find the script [here](https://github.com/merenlab/anvio/blob/master/sandbox/anvi-script-run-functional-enrichment-stats)), and uses a Generalized Linear Model with the logit linkage function to compute an enrichment score and p-value for each function. False Detection Rate correction to p-values to account for multiple tests is done using the package [`qvalue`](https://www.bioconductor.org/packages/release/bioc/html/qvalue.html).
+Ok, so now we have a frequency table of functions in genomes and we use it as an input to the functional enrichment test. This test was implemented by [Amy Willis](https://github.com/adw96) in `R` (you can find the script [here](https://github.com/merenlab/anvio/blob/master/sandbox/anvi-script-enrichment-stats)), and uses a Generalized Linear Model with the logit linkage function to compute an enrichment score and p-value for each function. False Detection Rate correction to p-values to account for multiple tests is done using the package [`qvalue`](https://www.bioconductor.org/packages/release/bioc/html/qvalue.html).
 
 In addition to the enrichment test, we use a simple heuristic to find the groups that associate with each function. **This association is only meaningful for functions that are truly enriched, and should otherwise be ignored**. We simply determine that for every function, the associated groups are the ones in which the occurrence of the function of genomes is greater than the expected occurrence under a uniformal distribution (i.e. if the function was equally probable to occur in genomes from all groups). Mathematically speaking (if you are into that kind of stuff), if we denote $$E_{ij}$$ as the expected number of genomes in group $$i$$ with the function $$j$$ under the null distribution, where we consider the null distribution to be a uniform distribution. Hence:
 

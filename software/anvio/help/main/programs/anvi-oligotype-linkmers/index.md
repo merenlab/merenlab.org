@@ -3,6 +3,7 @@ layout: page
 title: anvi-oligotype-linkmers [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-oligotype-linkmers
 image:
   featurerelative: ../../../images/header.png
   display: true

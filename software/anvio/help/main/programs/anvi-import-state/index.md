@@ -3,6 +3,7 @@ layout: page
 title: anvi-import-state [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-import-state
 image:
   featurerelative: ../../../images/header.png
   display: true

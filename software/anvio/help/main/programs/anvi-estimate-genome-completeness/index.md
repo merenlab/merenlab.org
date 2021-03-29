@@ -3,6 +3,7 @@ layout: page
 title: anvi-estimate-genome-completeness [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-estimate-genome-completeness
 image:
   featurerelative: ../../../images/header.png
   display: true

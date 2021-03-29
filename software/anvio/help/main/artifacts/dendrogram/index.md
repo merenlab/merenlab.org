@@ -3,6 +3,7 @@ layout: page
 title: dendrogram [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/dendrogram
 image:
   featurerelative: ../../../images/header.png
   display: true

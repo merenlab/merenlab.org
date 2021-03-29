@@ -3,6 +3,7 @@ layout: page
 title: anvi-script-gen_stats_for_single_copy_genes.py [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-script-gen_stats_for_single_copy_genes.py
 image:
   featurerelative: ../../../images/header.png
   display: true

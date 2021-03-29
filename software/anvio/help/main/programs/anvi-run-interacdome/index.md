@@ -3,6 +3,7 @@ layout: page
 title: anvi-run-interacdome [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-run-interacdome
 image:
   featurerelative: ../../../images/header.png
   display: true

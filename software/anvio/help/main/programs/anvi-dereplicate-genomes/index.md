@@ -3,6 +3,7 @@ layout: page
 title: anvi-dereplicate-genomes [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-dereplicate-genomes
 image:
   featurerelative: ../../../images/header.png
   display: true

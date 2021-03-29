@@ -3,6 +3,7 @@ layout: page
 title: modules-db [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/modules-db
 image:
   featurerelative: ../../../images/header.png
   display: true

@@ -3,6 +3,7 @@ layout: page
 title: anvi-trnaseq [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-trnaseq
 image:
   featurerelative: ../../../images/header.png
   display: true

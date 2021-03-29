@@ -3,6 +3,7 @@ layout: page
 title: contigs-stats [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/contigs-stats
 image:
   featurerelative: ../../../images/header.png
   display: true

@@ -3,6 +3,7 @@ layout: page
 title: binding-frequencies-txt [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/binding-frequencies-txt
 image:
   featurerelative: ../../../images/header.png
   display: true

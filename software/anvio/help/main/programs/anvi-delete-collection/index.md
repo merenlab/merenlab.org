@@ -3,6 +3,7 @@ layout: page
 title: anvi-delete-collection [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-delete-collection
 image:
   featurerelative: ../../../images/header.png
   display: true

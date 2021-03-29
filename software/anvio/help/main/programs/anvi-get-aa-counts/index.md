@@ -3,6 +3,7 @@ layout: page
 title: anvi-get-aa-counts [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-get-aa-counts
 image:
   featurerelative: ../../../images/header.png
   display: true

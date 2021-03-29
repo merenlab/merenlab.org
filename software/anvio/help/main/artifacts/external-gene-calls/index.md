@@ -3,6 +3,7 @@ layout: page
 title: external-gene-calls [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/external-gene-calls
 image:
   featurerelative: ../../../images/header.png
   display: true

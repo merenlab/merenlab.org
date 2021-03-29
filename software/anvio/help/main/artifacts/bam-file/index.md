@@ -3,6 +3,7 @@ layout: page
 title: bam-file [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/bam-file
 image:
   featurerelative: ../../../images/header.png
   display: true

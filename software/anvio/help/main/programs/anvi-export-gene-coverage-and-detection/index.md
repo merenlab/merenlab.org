@@ -3,6 +3,7 @@ layout: page
 title: anvi-export-gene-coverage-and-detection [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-export-gene-coverage-and-detection
 image:
   featurerelative: ../../../images/header.png
   display: true

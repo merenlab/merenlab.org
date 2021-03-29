@@ -3,6 +3,7 @@ layout: page
 title: anvi-script-reformat-fasta [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-script-reformat-fasta
 image:
   featurerelative: ../../../images/header.png
   display: true

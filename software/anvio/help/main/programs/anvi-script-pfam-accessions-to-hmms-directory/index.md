@@ -3,6 +3,7 @@ layout: page
 title: anvi-script-pfam-accessions-to-hmms-directory [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-script-pfam-accessions-to-hmms-directory
 image:
   featurerelative: ../../../images/header.png
   display: true

@@ -3,6 +3,7 @@ layout: page
 title: genome-similarity [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/genome-similarity
 image:
   featurerelative: ../../../images/header.png
   display: true

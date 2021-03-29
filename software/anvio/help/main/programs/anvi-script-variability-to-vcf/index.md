@@ -3,6 +3,7 @@ layout: page
 title: anvi-script-variability-to-vcf [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-script-variability-to-vcf
 image:
   featurerelative: ../../../images/header.png
   display: true

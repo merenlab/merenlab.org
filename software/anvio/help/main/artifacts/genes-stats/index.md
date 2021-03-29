@@ -3,6 +3,7 @@ layout: page
 title: genes-stats [artifact]
 categories: [anvio]
 comments: false
+redirect_from: /m/genes-stats
 image:
   featurerelative: ../../../images/header.png
   display: true

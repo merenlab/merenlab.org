@@ -3,6 +3,7 @@ layout: page
 title: anvi-script-transpose-matrix [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-script-transpose-matrix
 image:
   featurerelative: ../../../images/header.png
   display: true

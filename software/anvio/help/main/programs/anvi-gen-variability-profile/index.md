@@ -3,6 +3,7 @@ layout: page
 title: anvi-gen-variability-profile [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-gen-variability-profile
 image:
   featurerelative: ../../../images/header.png
   display: true

@@ -3,6 +3,7 @@ layout: page
 title: anvi-run-scg-taxonomy [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-run-scg-taxonomy
 image:
   featurerelative: ../../../images/header.png
   display: true

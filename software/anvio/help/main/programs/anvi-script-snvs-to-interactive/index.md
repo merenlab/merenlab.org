@@ -3,6 +3,7 @@ layout: page
 title: anvi-script-snvs-to-interactive [program]
 categories: [anvio]
 comments: false
+redirect_from: /m/anvi-script-snvs-to-interactive
 image:
   featurerelative: ../../../images/header.png
   display: true
