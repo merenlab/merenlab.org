@@ -49,14 +49,130 @@ Here is a sketch that aims to capture the points below:
 
 Most of these steps are indeed detailed in [our manuscript](https://doi.org/10.1101/2021.03.02.433653). On this page, **you will find details of intermediate steps and anvi'o reusable data currencies to reproduce our main findings**.
 
-## Reconstructing donor genomes
+## Reproducible donor and recipient metagenomes
 
-To reconstruct donor microbial population genomes, or MAGs, from our donor gut metagenomes, we used the anvi’o workflow for metagenomics. This workflow (1) co-assembled donor metagenomes using IDBA_UD, (2) mapped donor and recipient metagenomes onto donor contigs using bowtie2, (3) profiled mapping results to allow for manual binning of contigs into MAGs, and (4) summarized bin collections for downstream analysis.
+{:.warning}
+[doi:10.6084/m9.figshare.14331236](https://doi.org/10.6084/m9.figshare.14331236){:target="_blank"} serves the anvi'o reproducible donor and recipient data.
+
+This section will introduce the primary data objects that can be used in [the anvi'o software ecosystem](/help). This subsection will describe how they were generated, give access to them, and demonstrate how they can be used.
+
+### Background information
+
+{:.warning}
+The NCBI BioProject accession ID [PRJNA701961](https://www.ncbi.nlm.nih.gov/bioproject/?term=prjna701961) gives access to raw sequences for each donor and recipient metagenome. Details of each metagenome and their individual accession IDs are [listed in this supplementary table](https://figshare.com/articles/dataset/Supplementary_Tables/14138405?file=26827157).
+
+We generated our data objects from the shotgun sequencing of donor and recipient stool metagenomes. The program {% include PROGRAM name="anvi-run-workflow" %} took us from raw metagenomic sequences to anvi'o contigs and profile databases (which will be explained later) by running the [anvi’o workflow for metagenomics]({% post_url anvio/2018-07-09-anvio-snakemake-workflows %}) in a scalable fashion. Details of this workflow is described [in our study](https://doi.org/10.1101/2021.03.02.433653) in detail, but briefly, *for each donor and their recipients* this workflow, **co-assembled** donor metagenomes, profiled resulting donor contigs in the context of donor and recipient metagenomes through metagenomic read recruitment (which enabled us to **reconstruct and refine donor genomes** using {% include PROGRAM name="anvi-interactive" %} and {% include PROGRAM name="anvi-refine" %}, and summarized the coverage and detection of donor genomes across metagenomes for downstream analyses.
+
+We uploaded the resulting data packs to FigShare and the following subsections explain how to download and work with them.
+
+### Download
+
+You can download either or both data packs for donor A (4.14 Gb compressed) and donor B (4.59 Gb compressed) the following way:
+
+``` bash
+# download donor A data pack:
+curl -L https://ndownloader.figshare.com/files/27334157 \
+     -o FMT_DONOR_A_AND_RECIPIENTS.tar.gz
+
+# download donor B data pack:
+curl -L https://ndownloader.figshare.com/files/27334316 \
+     -o FMT_DONOR_B_AND_RECIPIENTS.tar.xz
+```
+
+Once you download either (or both) of these data packs, the following commands will enable you to unpack and investigate their contents (the example here is given for donor A, but will also work for donor B with slight changes):
+
+``` bash
+# unpack (this should take about 30 seconds on a standard
+# laptop and result in a directory that takes about 8Gb
+# of storage space
+tar -zxvf FMT_DONOR_A_AND_RECIPIENTS.tar.gz
+
+# go into the directory:
+cd FMT_DONOR_A_AND_RECIPIENTS
+
+# make sure you have all the files:
+ls -l
+
+total 7.8G
+4.0G Mar 28 11:19 AUXILIARY-DATA.db
+1.4G Mar 28 11:18 CONTIGS.db
+124K Mar 28 11:23 MAGs-additional-data.txt
+4.4K Mar 28 11:19 MAGs-order-by-detection.newick
+2.5G Mar 28 11:38 PROFILE.db
+```
+
+If you see a similar output, you have everything you need to reproduce and scrutinize our figures and findings interactively.
+
+These files give access to (1) the co-assemblies of the stool metagenomes from a given donor, (2) gene calls and annotations of gene functions for each donor contig, (3) nucleotide-resolved coverage and detection data for each donor contig across all donor and recipient metagenomes, and (4) genomes we have reconstructed from these data (which is stored as a collection named `default` in the merged profile database).
+
+### Reproduce
+
+The two main files in these data pack are `CONTIGS.db` and `PROFILE.db`, and the vast majority of analyses in our study used the information stored in these artifacts.
 
 {:.notice}
-[doi:](){:target="_blank"} serves anvi'o {% include ARTIFACT name="contigs-db" text="contigs databases" %} for donor assemblies, and merged anvi'o {% include ARTIFACT name="profile-db" text="profile databases" %} that show the distribution of genomes across donor and recipient metagenomes. Use `default` for {% include ARTIFACT name="collection" %} name.
+Examples below are for donor A, but will also work for donor B with slight changes.
 
-## Global prevalence of donor genomes
+Genomes described in our study is stored in a {% include ARTIFACT name="collection" %} called `default`:
+
+``` bash
+anvi-show-collections-and-bins -p PROFILE.db
+
+Collection: "default"
+===============================================
+Collection ID ................................: default
+Number of bins ...............................: 128
+Number of splits described ...................: 21,741
+Bin names ....................................: DA_MAG_00001, DA_MAG_00002, DA_MAG_00003, DA_MAG_00004, DA_MAG_00005, DA_MAG_00006, DA_MAG_00007, DA_MAG_00008, DA_MAG_00009, DA_MAG_00010, DA_MAG_00011,
+                                                DA_MAG_00012, DA_MAG_00013, DA_MAG_00014, DA_MAG_00015, DA_MAG_00016, DA_MAG_00017, DA_MAG_00018, DA_MAG_00019, DA_MAG_00020, DA_MAG_00021, DA_MAG_00022,
+                                                DA_MAG_00023, DA_MAG_00024, DA_MAG_00025, DA_MAG_00026, DA_MAG_00027, DA_MAG_00028, DA_MAG_00029, DA_MAG_00030, DA_MAG_00031, DA_MAG_00032, DA_MAG_00033,
+                                                DA_MAG_00034, DA_MAG_00035, DA_MAG_00036, DA_MAG_00037, DA_MAG_00038, DA_MAG_00039, DA_MAG_00040, DA_MAG_00041, DA_MAG_00042, DA_MAG_00043, DA_MAG_00044,
+                                                DA_MAG_00045, DA_MAG_00046, DA_MAG_00047, DA_MAG_00048, DA_MAG_00049, DA_MAG_00050, DA_MAG_00051, DA_MAG_00052, DA_MAG_00053, DA_MAG_00054, DA_MAG_00055,
+                                                DA_MAG_00056, DA_MAG_00057, DA_MAG_00058, DA_MAG_00059, DA_MAG_00060, DA_MAG_00061, DA_MAG_00062, DA_MAG_00063, DA_MAG_00064, DA_MAG_00065, DA_MAG_00066,
+                                                DA_MAG_00067, DA_MAG_00068, DA_MAG_00069, DA_MAG_00070, DA_MAG_00071, DA_MAG_00072, DA_MAG_00073, DA_MAG_00074, DA_MAG_00075, DA_MAG_00076, DA_MAG_00077,
+                                                DA_MAG_00078, DA_MAG_00079, DA_MAG_00080, DA_MAG_00081, DA_MAG_00082, DA_MAG_00083, DA_MAG_00084, DA_MAG_00085, DA_MAG_00086, DA_MAG_00087, DA_MAG_00088,
+                                                DA_MAG_00089, DA_MAG_00090, DA_MAG_00091, DA_MAG_00092, DA_MAG_00093, DA_MAG_00094, DA_MAG_00095, DA_MAG_00096, DA_MAG_00097, DA_MAG_00098, DA_MAG_00099,
+                                                DA_MAG_00100, DA_MAG_00101, DA_MAG_00102, DA_MAG_00103, DA_MAG_00104, DA_MAG_00105, DA_MAG_00106, DA_MAG_00107, DA_MAG_00108, DA_MAG_00109, DA_MAG_00110,
+                                                DA_MAG_00111, DA_MAG_00112, DA_MAG_00113, DA_MAG_00114, DA_MAG_00115, DA_MAG_00116, DA_MAG_00117, DA_MAG_00118, DA_MAG_00119, DA_MAG_00120, DA_MAG_00121,
+                                                DA_MAG_00122, DA_MAG_00123, DA_MAG_00124, DA_MAG_00125, DA_MAG_00126, DA_MAG_00127, DA_MAG_00128
+
+```
+
+The genome names shown here will indeed match to the genome names in [our supplementary tables](https://doi.org/10.6084/m9.figshare.14138405).
+
+To interactively visualize all donor genomes stored in the {% include ARTIFACT name="collection" %} we called `default` across all donor and recipient metagenomes, you can run this {% include PROGRAM name="anvi-interactive" %} command:
+
+``` bash
+anvi-interactive --profile-db PROFILE.db \
+                 --contigs-db CONTIGS.db \
+                 --collection-name default \
+                 --additional-layers MAGs-additional-data.txt \
+                 --tree MAGs-order-by-detection.newick
+```
+
+Which will open a browser window to display the detection of donor A genomes which reproduces the panel in Figure 01 interactively:
+
+[![Figure 01 panel A](images/donor-A-interactive.png)](images/donor-A-interactive.png){:.center-img .width-50}
+
+If you are interested in investigating the coverages of a single donor genome, say `DA_MAG_00052`, you can run the following {% include PROGRAM name="anvi-refine" %} command:
+
+``` bash
+anvi-refine --profile-db PROFILE.db \
+            --contigs-db CONTIGS.db \
+            --collection-name default \
+            --bin-id DA_MAG_00052
+```
+ 
+Which will open a browser window to display the detection of each contig in the donor A genome `DA_MAG_00052`:
+
+[![MAG_00052](images/MAG_00052.png)](MAG_00052.png){:.center-img .width-50}
+
+Where you can right-click on any split and inspect nucleotide-level coverage values, genes and their functions for each section of the genome.
+
+---
+
+In addition to the examples shown above, these data packs can be used for additional investigations thanks to their versatility. `CONTIGS.db` is an {% include ARTIFACT name="contigs-db" text="anvi'o contigs database" %}, and any anvi'o program [that runs on contigs databases](/software/anvio/help/main/artifacts/contigs-db/) will run on this file. Similarly, `PROFILE.db` is an {% include ARTIFACT name="profile-db" text="anvi'o profile database" %}, and you can find [here](/software/anvio/help/main/artifacts/profile-db/) a list of programs in the anvi'o ecosystem that will work with this artifact.
+
+## Estimating the global prevalence of donor genomes
 
 To determine the prevalence of donor genomes in 17 different countries, we once again used the anvi'o metagenomics workflow. This time, the workflow (1) recruited reads from 1,984 publicly available gut metagenomes to our donor contigs using bowtie2, (2) profiled mapping results, and (3) summarized MAG collections for downstream analysis.
 
