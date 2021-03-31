@@ -174,7 +174,10 @@ In addition to the examples shown above, these data packs can be used for additi
 
 ## Estimating the global prevalence of donor genomes
 
-To determine the prevalence of donor genomes in 17 different countries, we once again used the anvi'o metagenomics workflow. This time, the workflow (1) recruited reads from 1,984 publicly available gut metagenomes to our donor contigs using bowtie2, (2) profiled mapping results, and (3) summarized MAG collections for downstream analysis.
+{:.notice}
+Details of each publicly available metagenome used and their individual accession IDs are listed in [this supplementary table](https://figshare.com/articles/dataset/Supplementary_Tables/14138405?file=26827166).
+
+To determine the prevalence of donor genomes in 17 different countries, we ran a separate anvi’o metagenomics workflow. This time, the workflow (1) recruited reads from 1,984 publicly available gut metagenomes to our donor contigs using bowtie2, (2) profiled mapping results, and (3) summarized the detection of each MAG in each global metagenome.
 
 Included in the resulting summary files is information about the detection of each donor genome in each global metagenome. We summarized the detection results by country, using a minimum detection threshold of 0.25. You can reproduce this step the following way:
 
@@ -183,14 +186,16 @@ Included in the resulting summary files is information about the detection of ea
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/summarize-global-detection.py \
       -o summarize-global-detection.py
 
-# download the input files [3.7Mb, 5.2Mb]
+# download the input files for donor A (3.7Mb) and donor B (5.2Mb)
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-global-DA.txt \
       -o detection-global-DA.txt
  
  curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-global-DB.txt \
       -o detection-global-DB.txt
 
-# run the script and look at the output files [detection-global-by-country-DA.txt, detection-global-by-country-DB.txt]
+# run the script and look at the output files:
+# detection-global-by-country-DA.txt and
+# detection-global-by-country-DB.txt
 python3 summarize-global-detection.py
 ```
 
