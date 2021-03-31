@@ -1,0 +1,11 @@
+Group	Recipient	Sample Name	FMT date (m/d/y)	Transplanted Sample Collection Date (m/d/y)	FMT Method	FMT Indication(s)
+DA	R01	DA_D_09	12/16/15	11/16/15	pill	C_diff
+DA	R02	DA_D_10	12/16/15	11/23/15	colonoscopy	C_diff
+DA	R03	DA_D_15	3/15/16	3/8/16	colonoscopy	C_diff
+DA	R04	DA_D_14	3/28/16	3/2/16	pill	C_diff_UC
+DA	R05	DA_D_08	10/20/15	10/9/15	colonoscopy	C_diff_UC
+DB	R01	DB_D_08	8/25/15	6/6/15	colonoscopy	C_diff
+DB	R02	DB_D_11	9/18/15	8/13/15	colonoscopy	C_diff
+DB	R03	DB_D_14	5/17/16	5/2/16	pill	C_diff
+DB	R04	DB_D_13	11/6/15	10/9/15	pill	C_diff
+DB	R05	DB_D_07	6/24/15	5/29/15	pill	C_diff_UC

@@ -41,6 +41,9 @@ With the realization that some concepts in microbial 'omics are difficult to com
 
 The following sections describe each concept with a short summary of how I used them during the course. Please feel free to use any of the PowerPoint files in your own presentations, or let me know if you would like to chat about their interpretations.
 
+{:.notice}
+**How do you create these animations?** My strategy is embarrassingly simple and probably not optimal since I am not a graphics designer. But since I heard this question multiple times, I decided to put my pride aside and offer a public response for this in case others may also want to use a similar strategy to create new material. My workflow has three main steps and the trick here is to think backwards. First, I draw the entire concept on my tablet computer manually (I use a graphics editor called ProtoSketch, but any editor that can export SVG files will do just fine). Then, I step by step remove parts from the final SVG and export individual PNG images of identical size (I use [Inkscape](https://inkscape.org/) for this, and you should, too! Inkscape is an open-source vector graphics editor that needs your support and will serve you very well in the long run). Finally, I import the resulting PNG images into slides in reverse order so I can advance them one by one to introduce the entire concept from scratch.
+
 ### Amplicons vs shotgun metagenomes
 
 Amplicon sequencing and shotgun sequencing represent the most popular ways to  generate sequencing data to study microbial life. Both strategies come with their unique advantages and disadvantages. The purpose of the animation below is the communicate the key difference between the data they yield and to discuss their appliations. 
