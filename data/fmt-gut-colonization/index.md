@@ -201,6 +201,29 @@ python3 summarize-global-detection.py
 
 ## Investigating the ecological forces driving colonization outcomes
 
+<details markdown="1"><summary>Recreating input data files</summary>
+
+The following analyses use data tables produced by anvi-summarize and anvi-export-table. You can download the tables directly using the instructions in this section, or you can reproduce them yourself using the CONTIGS.db and PROFILE.db contained in the donor A and donor B data packs like so:
+
+```bash
+# enter containing directory
+cd FMT_DONOR_A_AND_RECIPIENTS
+
+# run anvi-summarize
+anvi-summarize --profile-db PROFILE.db \
+               --contigs-db CONTIGS.db \
+               --collection-name default \
+               --output-dir SUMMARY
+```
+
+The files referenced in this section and their equivalent output from the above commands are listed here:
+
+|reproducible workflow file|anvi-summarize output path|
+|:--:|:--:|
+|detection-FMT-DA.txt|FMT_DONOR_A_AND_RECIPIENTS/SUMMARY/bins_across_samples/detection.txt|
+
+</details>
+
 This section will describe how to recreate Figure 2 in our study:
 
 [![Figure 02](images/Figure_02.png)](images/Figure_02.png){:.center-img .width-50}
@@ -216,26 +239,30 @@ If you want to reproduce this analysis, you can do so with the following steps:
 
 ``` bash
 # download the input files
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/metadata-donor.txt \
-     -o metadata-donor.txt
+for file in metadata-donor.txt \
+            metadata-recipient.txt \
+            metadata-transplants.txt \
+            detection-FMT-DA.txt \
+            detection-FMT-DB.txt \
+            detection-global-by-country-DA.txt \
+            detection-global-by-country-DB.txt
+do
+	curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
+		 -o ${file}
+done
 
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/metadata-donor.txt \
-     -o metadata-recipient.txt
+# make sure you have all the files:
+ls -l
 
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/metadata-donor.txt \
-     -o metadata-transplants.txt
+total 456
+46K Mar 31 12:30 detection-FMT-DA.txt
+58K Mar 31 12:30 detection-FMT-DB.txt
+42K Mar 31 12:30 detection-global-by-country-DA.txt
+60K Mar 31 12:30 detection-global-by-country-DB.txt
+956B Mar 31 12:30 metadata-donor.txt
+3.9K Mar 31 12:30 metadata-recipient.txt
+592B Mar 31 12:30 metadata-transplants.txt
 
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-FMT-DA.txt \
-     -o detection-FMT-DA.txt
-
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-FMT-DB.txt \
-     -o detection-FMT-DB.txt
-
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-global-by-country-DA.txt \
-     -o detection-global-by-country-DA.txt
-
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-global-by-country-DB.txt \
-     -o detection-global-by-country-DB.txt
 
 # download the script to create mean detection vs. prevalence table
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/make-mean-detec-vs-prev-table.py \
