@@ -219,7 +219,7 @@ anvi-summarize --profile-db PROFILE.db \
 The files referenced in this section and their equivalent output from the above commands are listed here:
 
 |reproducible workflow file|anvi-summarize output path|
-|:--:|:--:|
+|:--|:--|
 |detection-FMT-DA.txt|FMT_DONOR_A_AND_RECIPIENTS/SUMMARY/bins_across_samples/detection.txt|
 
 </details>
