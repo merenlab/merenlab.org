@@ -203,16 +203,17 @@ python3 summarize-global-detection.py
 
 <details markdown="1"><summary>Recreating input data files</summary>
 
-The following analyses use data tables produced by anvi-summarize and anvi-export-table. You can download the tables directly using the instructions in this section, or you can reproduce them yourself using the CONTIGS.db and PROFILE.db contained in the donor A and donor B data packs like so:
+The following analyses use data tables derived from the output of {% include PROGRAM name="anvi-summarize" %}. You can download the tables directly using the instructions in this section, or you can reproduce them yourself using the CONTIGS.db and PROFILE.db contained in the donor A and donor B data packs like so:
 
 ```bash
-# enter containing directory
+# enter data pack directory
 cd FMT_DONOR_A_AND_RECIPIENTS
 
 # run anvi-summarize
-anvi-summarize --profile-db PROFILE.db \
+anvi-summarize --pan-or-profile-db PROFILE.db \
                --contigs-db CONTIGS.db \
                --collection-name default \
+               --init-gene-coverages \
                --output-dir SUMMARY
 ```
 
@@ -262,7 +263,6 @@ total 456
 956B Mar 31 12:30 metadata-donor.txt
 3.9K Mar 31 12:30 metadata-recipient.txt
 592B Mar 31 12:30 metadata-transplants.txt
-
 
 # download the script to create mean detection vs. prevalence table
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/make-mean-detec-vs-prev-table.py \
