@@ -34,4 +34,4 @@ for group in ['A', 'B']:
         hmm_means[mag] = mag_hmm_means
 
     hmm_means_df = pd.DataFrame(hmm_means,index=samples).T
-    hmm_means_df.to_csv(f"mean-cov-D{group}.txt", sep='\t', index=True)
+    hmm_means_df.to_csv(f"scg-cov-D{group}.txt", sep='\t', index=True)
