@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 #!/usr/bin/env python3
 import pandas as pd
 
 # A function to summarize detection of bins in different groups designated by 3-letter sample prefixes
 
+=======
+# A function to summarize detection of bins in different groups designated by 3-letter sample prefixes
+
+import pandas as pd
+
+>>>>>>> 05b25422ae07009bc26f00953a8f33577d51e51c
 def summarize(detection_file, output):
     # Read detection table, with bin names as indexes:
     detection = pd.read_csv(detection_file, sep='\t', index_col='bins')

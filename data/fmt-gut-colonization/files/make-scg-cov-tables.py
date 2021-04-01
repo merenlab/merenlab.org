@@ -1,14 +1,25 @@
+<<<<<<< HEAD
 #!/usr/bin/env python3
 import pandas as pd
 
 for group in ['A', 'B']:
     mags_summary = pd.read_csv(f"FMT_DONOR_{group}_AND_RECIPIENTS/SUMMARY/bins_summary.txt", sep="\t", index_col=0)
+=======
+import pandas as pd
+
+for group in ['A', 'B']:
+    mags_summary = pd.read_csv(f"FMT_DONOR_{group}_AND_RECIPIENTS/SUMMARY/default/bins_summary.txt", sep="\t", index_col=0)
+>>>>>>> 05b25422ae07009bc26f00953a8f33577d51e51c
     mags = list(mags_summary.index)
     hmm_means = {}
 
     for mag in mags:
         # Get gene caller ids for Campell et al. HMMs:
+<<<<<<< HEAD
         mag_path = f"FMT_DONOR_{group}_AND_RECIPIENTS/SUMMARY/bin_by_bin/{mag}/{mag}-"
+=======
+        mag_path = f"FMT_DONOR_{group}_AND_RECIPIENTS/SUMMARY/default/bin_by_bin/{mag}/{mag}-"
+>>>>>>> 05b25422ae07009bc26f00953a8f33577d51e51c
         mag_hmm_seqs = f"{mag_path}Campbell_et_al-hmm-sequences.txt"
         mag_hmm_ids = []
 
@@ -21,7 +32,11 @@ for group in ['A', 'B']:
                     gene_caller_id_stop = stripped_line.find("|", gene_caller_id_start)
                     gene_caller_id = stripped_line[gene_caller_id_start:gene_caller_id_stop]
                     mag_hmm_ids.append(int(gene_caller_id))
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 05b25422ae07009bc26f00953a8f33577d51e51c
         # Get coverages of HMM gene caller ids in each sample:
         mag_gene_covs = pd.read_csv(f"{mag_path}gene_non_outlier_coverages.txt", sep='\t', index_col=0)
 
@@ -34,4 +49,8 @@ for group in ['A', 'B']:
         hmm_means[mag] = mag_hmm_means
 
     hmm_means_df = pd.DataFrame(hmm_means,index=samples).T
+<<<<<<< HEAD
     hmm_means_df.to_csv(f"scg-cov-D{group}.txt", sep='\t', index=True)
+=======
+    hmm_means_df.to_csv(f"mean-cov-D{group}.txt", sep='\t', index=True)
+>>>>>>> 05b25422ae07009bc26f00953a8f33577d51e51c

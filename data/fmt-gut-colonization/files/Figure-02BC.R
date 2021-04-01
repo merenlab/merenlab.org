@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 #!/usr/bin/env Rscript
+=======
+>>>>>>> 05b25422ae07009bc26f00953a8f33577d51e51c
 library(tidyverse)
 library(pROC)
 library(cowplot)
@@ -174,4 +177,8 @@ col2 <- plot_grid(title2, B_DB, align_second_col[[3]], ncol=1, rel_heights = c(0
 # put together
 BC <- plot_grid(col1, col2, nrow=1)
 
+<<<<<<< HEAD
 ggsave("Figure-02BC.pdf", BC, width=6, height=6, units="in", dpi=300)
+=======
+ggsave("Figure-02BC.pdf", BC, width=6, height=6, units="in", dpi=300)
+>>>>>>> 05b25422ae07009bc26f00953a8f33577d51e51c
