@@ -319,12 +319,16 @@ This led us to create the definition of colonization, or non-colonization, outli
 
 To run the above workflow to determine if a population colonized a recipient in our study, you can do the following:
 ```bash
-# download additional files
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/scg-cov-DA.txt \
-     -o scg-cov-DA.txt
-
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/scg-cov-DB.txt \
-     -o scg-cov-DB.txt
+# download additional input files
+for file in scg-cov-DA.txt \
+            scg-cov-DB.txt \
+            subpop-comp-DA.txt \
+            subpop-comp-DB.txt \
+            subpop-num-DA.txt \
+            subpop-num-DB.txt;
+do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
+        -o ${file};
+done
 
 # download the script
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/determine-colonization.py \
