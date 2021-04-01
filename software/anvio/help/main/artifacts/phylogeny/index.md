@@ -28,7 +28,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-import-items-order](../../programs/anvi-import-items-order)</span> <span class="artifact-r">[anvi-import-misc-data](../../programs/anvi-import-misc-data)</span> <span class="artifact-r">[anvi-interactive](../../programs/anvi-interactive)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-import-items-order](../../programs/anvi-import-items-order)</span> <span class="artifact-r">[anvi-import-misc-data](../../programs/anvi-import-misc-data)</span> <span class="artifact-r">[anvi-interactive](../../programs/anvi-interactive)</span> <span class="artifact-r">[anvi-script-checkm-tree-to-interactive](../../programs/anvi-script-checkm-tree-to-interactive)</span></p>
 
 
 ## Description
