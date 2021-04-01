@@ -76,7 +76,7 @@ curl -L https://ndownloader.figshare.com/files/27334157 \
 
 # download donor B data pack:
 curl -L https://ndownloader.figshare.com/files/27334316 \
-     -o FMT_DONOR_B_AND_RECIPIENTS.tar.gx
+     -o FMT_DONOR_B_AND_RECIPIENTS.tar.gz
 ```
 
 Once you download either (or both) of these data packs, the following commands will enable you to unpack and investigate their contents (the example here is given for donor A, but will also work for donor B with slight changes):
