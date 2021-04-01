@@ -76,7 +76,7 @@ curl -L https://ndownloader.figshare.com/files/27334157 \
 
 # download donor B data pack:
 curl -L https://ndownloader.figshare.com/files/27334316 \
-     -o FMT_DONOR_B_AND_RECIPIENTS.tar.gz
+     -o FMT_DONOR_B_AND_RECIPIENTS.tar.gx
 ```
 
 Once you download either (or both) of these data packs, the following commands will enable you to unpack and investigate their contents (the example here is given for donor A, but will also work for donor B with slight changes):
@@ -203,17 +203,28 @@ python3 summarize-global-detection.py
 
 <details markdown="1"><summary>Recreating input data files</summary>
 
-The following analyses use data tables derived from the output of {% include PROGRAM name="anvi-summarize" %}. You can download the tables directly using the instructions in this section, or you can reproduce them yourself using the CONTIGS.db and PROFILE.db contained in the donor A and donor B data packs like so:
+The following analyses use data tables derived from the output of {% include PROGRAM name="anvi-summarize" %}. You can download the tables directly using the instructions in this section, or you can reproduce them yourself using the `CONTIGS.db` and `PROFILE.db` contained in the donor A and donor B data packs like so:
+
+{:.warning}
+To fully reproduce what we did, you need to run {% include PROGRAM name="anvi-summarize" %} with the `--init-gene-coverages` flag. Andrea crashed her laptop when testing this, so it is recommended that you only do this if you are using a fancy, powerful computer. If you don't have access to such resources, you can run {% include PROGRAM name="anvi-summarize" %} without this flag and then download the two files that will be missing from your output.
 
 ```bash
 # enter data pack directory
 cd FMT_DONOR_A_AND_RECIPIENTS
 
 # run anvi-summarize
+===================================================
+# the computationally intensive way
 anvi-summarize --pan-or-profile-db PROFILE.db \
                --contigs-db CONTIGS.db \
                --collection-name default \
                --init-gene-coverages \
+               --output-dir SUMMARY
+==================================================
+# or the less computationally intensive way
+anvi-summarize --pan-or-profile-db PROFILE.db \
+               --contigs-db CONTIGS.db \
+               --collection-name default \
                --output-dir SUMMARY
 ```
 
@@ -281,7 +292,7 @@ Rscript Figure-02A.R
 
 Which generates a PDF that looks like this:
 
-[![Figure 02 panel A](images/Figure_02A.png)](images/Figure_02A.png){:.center-img .width-10}
+[![Figure 02 panel A](images/Figure_02A.png)](images/Figure_02A.png){:.center-img .width-50}
 
 ### Defining colonization success and failure
 
@@ -334,7 +345,7 @@ Rscript Figure-02BC.R
 
 Which generates a PDF that looks like this:
 
-[![Figure 02 panel B and C](images/Figure_02BC.png)](images/Figure_02BC.png){:.center-img .width-10}
+[![Figure 02 panel B and C](images/Figure_02BC.png)](images/Figure_02BC.png){:.center-img .width-50}
 
 ## Investigating metabolic competence among microbial genomes reconstructed from healthy individuals and individuals with IBD
 
