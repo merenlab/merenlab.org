@@ -9,7 +9,7 @@ image:
   display: true
 ---
 
-This program calculates for each gene the ratio of pN/pS (the metagenomic analogy of dN/dS) based on metagenomic read recruitment, however, unlike standard pN/pS calculations, it relies on codons rather than nucleotides for accurate estimations of synonimity.
+FIXME.
 
 See **[program help menu](../../../../vignette#anvi-script-calculate-pn-ps-ratio)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -42,34 +42,28 @@ dN/dS, which is the ratio of rates between non-synonymous (dN) and synonymous **
 strains/species. We calculate pN/pS from allele frequency obtained through SCVs and SAAVs (see
 [publication in preparation](FIXME)) for exact implementation details.
 
-### Neat. How do I use this program? 
+### Neat. How do I use this program?
 
-Firstly, you'll need to run <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/main/programs/anvi-gen-variability-profile)</span> twice with the same parameters on the
-same databases. The first time, use the flag `--engine AA` to get a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span> for
-SAAVs (single amino acid variants), which we'll name the `SAAVs.txt` in this example. The second
-time, use the flag `--engine CDN` to get a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span> for SCVs (single codon
-variants), which we'll name `SCVs.txt` in this example. 
+Firstly, you'll need to run <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/main/programs/anvi-gen-variability-profile)</span> using the flag `--engine CDN` to get a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span> for SCVs (single codon variants), which we'll name `SCVs.txt` in this example.
 
 Then you can run this program like so:
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;calculate&#45;pn&#45;ps&#45;ratio &#45;a SAAVs.txt \
-                                  &#45;b SCVs.txt \ 
+anvi&#45;script&#45;calculate&#45;pn&#45;ps&#45;ratio &#45;V SCVs.txt \
                                   &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
                                   &#45;o output_dir 
 </div>
 
-This will result in a directory called `output_dir` that contains several tables that describe each of your genes. See <span class="artifact-n">[pn-ps-data](/software/anvio/help/main/artifacts/pn-ps-data)</span> for more information. 
+A pN/pS value is calculated for each (gene, sample) combo. This will result in a directory called `output_dir` that contains several tables that describe each of your genes. See <span class="artifact-n">[pn-ps-data](/software/anvio/help/main/artifacts/pn-ps-data)</span> for more information.
 
 ### Other parameters
 
-By default, this program ignores some of the genes and variable positions in your variability
-profiles; you can choose to be more sensitive or ignore more positions by changing any of these
-three variables:
+This program has some default filtering choices that you should pay mind to. You can tune these filter options with the following variables:
 
-- The minimum departure from consensus for a variable position (default: 0.10). 
-- The minimum number of SCVs in a gene (default: 4). 
-- The minimum coverage at a variable position (default: 30)
+- The minimum departure from consensus for a variable position (`--min-departure-from-consensus`).
+- The minimum departure from reference for a variable position (`--min-departure-from-reference`).
+- The minimum number of SCVs in a grouping (`--minimum-num-variants`).
+- The minimum coverage at a variable position (`--min-coverage`).
 
 
 {:.notice}
