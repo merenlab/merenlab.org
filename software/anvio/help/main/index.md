@@ -21,7 +21,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **12 Mar 21 16:41:11** for anvi'o version **7-dev (hope)**.
+The help contents were last updated on **04 Apr 21 14:28:46** for anvi'o version **7-dev (hope)**.
 
 
 {% include _project-anvio-version.html %}
@@ -2315,7 +2315,7 @@ Listed below **a total of 124 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-calculate-pn-ps-ratio](programs/anvi-script-calculate-pn-ps-ratio)**</span>. <span markdown="1">This program calculates for each gene the ratio of pN/pS (the metagenomic analogy of dN/dS) based on metagenomic read recruitment, however, unlike standard pN/pS calculations, it relies on codons rather than nucleotides for accurate estimations of synonimity</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-calculate-pn-ps-ratio](programs/anvi-script-calculate-pn-ps-ratio)**</span>. <span markdown="1">FIXME</span>.
     </td>
 </tr>
 <tr>

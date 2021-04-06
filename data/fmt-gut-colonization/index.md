@@ -31,7 +31,7 @@ If you have any questions and/or if you are unable to find an important piece of
 ## Study description
 
 {:.notice}
-You can find a crude summary of our study [here](https://twitter.com/merenbey/status/1369016402896695298) as a Twitter thread. 
+You can find a crude summary of our study [here](https://twitter.com/merenbey/status/1369016402896695298) as a Twitter thread.
 
 Briefly, our study involves the investigations of human gut metagenomes to understand the ecology of microbes before and after fecal microbiota transplantation (FMT) experiments, and the relevance of emerging ecological principals to inflammatory bowel disease (IBD). For this, we
 
@@ -71,11 +71,11 @@ You can download either or both data packs for donor A (4.14 Gb compressed) and 
 
 ``` bash
 # download donor A data pack:
-curl -L https://ndownloader.figshare.com/files/27334157 \
+curl -L https://ndownloader.figshare.com/files/27452192 \
      -o FMT_DONOR_A_AND_RECIPIENTS.tar.gz
 
 # download donor B data pack:
-curl -L https://ndownloader.figshare.com/files/27334316 \
+curl -L https://ndownloader.figshare.com/files/27452216 \
      -o FMT_DONOR_B_AND_RECIPIENTS.tar.xz
 ```
 
@@ -161,7 +161,7 @@ anvi-refine --profile-db PROFILE.db \
             --collection-name default \
             --bin-id DA_MAG_00052
 ```
- 
+
 Which will open a browser window to display the detection of each contig in the donor A genome `DA_MAG_00052`:
 
 [![MAG_00052](images/MAG_00052.png)](MAG_00052.png){:.center-img .width-50}
@@ -186,7 +186,7 @@ curl -L https://merenlab.org/data/fmt-gut-colonization/files/summarize-global-de
 # download the input files [3.7Mb, 5.2Mb]
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-global-DA.txt \
       -o detection-global-DA.txt
- 
+
  curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-global-DB.txt \
       -o detection-global-DB.txt
 
@@ -249,7 +249,7 @@ Rscript Figure-02A.R
 
 Which generates a PDF that looks like this:
 
-[![Figure 02 panel A](images/Figure_02A.png)](images/Figure_02A.png){:.center-img .width-10}
+[![Figure 02 panel A](images/Figure_02A.png)](images/Figure_02A.png){:.center-img .width-50}
 
 ### Defining colonization success and failure
 
@@ -302,7 +302,7 @@ Rscript Figure-02BC.R
 
 Which generates a PDF that looks like this:
 
-[![Figure 02 panel B and C](images/Figure_02BC.png)](images/Figure_02BC.png){:.center-img .width-10}
+[![Figure 02 panel B and C](images/Figure_02BC.png)](images/Figure_02BC.png){:.center-img .width-50}
 
 ## Investigating metabolic competence among microbial genomes reconstructed from healthy individuals and individuals with IBD
 
@@ -513,7 +513,7 @@ To visualize the ridge-line plots, we first selected a set of modules that diffe
 
 
 ``` R
-# modules_to_display <- c("M00924","M00122", "M00023", "M00028", "M00570", "M00082", "M00844", "M00015",  "M00526", "M00022") 
+# modules_to_display <- c("M00924","M00122", "M00023", "M00028", "M00570", "M00082", "M00844", "M00015",  "M00526", "M00022")
 dfx <- df[df$module %in% modules_to_display, ]
 dfx$module = factor(dfx$module, levels=modules_to_display)
 ```
