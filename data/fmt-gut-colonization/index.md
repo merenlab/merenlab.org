@@ -234,12 +234,17 @@ anvi-summarize --pan-or-profile-db FMT_DONOR_A_AND_RECIPIENTS/PROFILE.db \
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/make-scg-cov-tables.py \
      -o make-scg-cov-tables.py
 
-# run script
+# run script and note the output files:
+# scg-cov-DA.txt and
+# scg-cov-DB.txt
 python3 make-scg-cov-tables.py
 
 # copy other relevant files to working directory to follow the rest of the workflow
 cp FMT_DONOR_A_AND_RECIPIENTS/SUMMARY/bins_across_samples/detection.txt detection-FMT-DA.txt
 cp FMT_DONOR_B_AND_RECIPIENTS/SUMMARY/bins_across_samples/detection.txt detection-FMT-DB.txt
+
+cp FMT_DONOR_A_AND_RECIPIENTS/SUMMARY/bins_across_samples/mean_coverage_Q2Q3.txt mean-cov-DA.txt
+cp FMT_DONOR_B_AND_RECIPIENTS/SUMMARY/bins_across_samples/mean_coverage_Q2Q3.txt mean-cov-DB.txt
 ```
 
 </details>
