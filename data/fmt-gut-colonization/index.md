@@ -224,7 +224,7 @@ anvi-summarize --pan-or-profile-db FMT_DONOR_A_AND_RECIPIENTS/PROFILE.db \
                --init-gene-coverages \
                --output-dir FMT_DONOR_A_AND_RECIPIENTS/SUMMARY
 
-# Repeat above step for donor B
+# repeat above step for donor B
 
 # download script to get mean coverage of SCGs
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/make-scg-cov-tables.py \
@@ -271,7 +271,7 @@ do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
         -o ${file};
 done
 
-# make sure you have all the files:
+# make sure you have all the files
 ls -l
 
 total 456
@@ -283,7 +283,7 @@ total 456
 3.9K Mar 31 12:30 metadata-recipient.txt
 592B Mar 31 12:30 metadata-transplants.txt
 
-# download the script to create mean detection vs. prevalence table
+# download the script to create mean detection vs. prevalence tables
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/make-mean-detec-vs-prev-table.py \
      -o make-mean-detec-vs-prev-table.py
 
@@ -294,7 +294,7 @@ python3 make-mean-detec-vs-prev-table.py
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/Figure-02A.R \
      -o Figure-02A.R
 
-# run the script to visualize results :)
+# run the script to visualize results
 Rscript Figure-02A.R
 ```
 
@@ -381,11 +381,11 @@ However, within the donor A cohort both fitness and dose were correlated with co
 To reproduce that analysis, you can follow these steps:
 
 ```bash
-# download script
+# download the script
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/Figure-02D.txt \
      -o Figure-02D.R
 
-# run script
+# run the script
 Rscript Figure-02D.R
 ```
 
