@@ -388,6 +388,10 @@ curl -L https://merenlab.org/data/fmt-gut-colonization/files/Figure-02D.txt \
 Rscript Figure-02D.R
 ```
 
+Which produce a PDF that looks like this:
+
+[![Figure 02 panel D](images/Figure_02D.png)](images/Figure_02D.png){:.center-img .width-50}
+
 ## Investigating metabolic competence among microbial genomes reconstructed from healthy individuals and individuals with IBD
 
 {:.warning}
