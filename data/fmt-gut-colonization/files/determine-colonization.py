@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-#!/usr/bin/env python3
-=======
->>>>>>> 05b25422ae07009bc26f00953a8f33577d51e51c
 import pandas as pd
 import os.path
 
