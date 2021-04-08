@@ -174,7 +174,10 @@ In addition to the examples shown above, these data packs can be used for additi
 
 ## Estimating the global prevalence of donor genomes
 
-To determine the prevalence of donor genomes in 17 different countries, we once again used the anvi'o metagenomics workflow. This time, the workflow (1) recruited reads from 1,984 publicly available gut metagenomes to our donor contigs using bowtie2, (2) profiled mapping results, and (3) summarized MAG collections for downstream analysis.
+{:.notice}
+Details of each publicly available metagenome used and their individual accession IDs are listed in [this supplementary table](https://figshare.com/articles/dataset/Supplementary_Tables/14138405?file=26827166).
+
+To determine the prevalence of donor genomes in 17 different countries, we ran a separate anvi’o metagenomics workflow. This time, the workflow (1) recruited reads from 1,984 publicly available gut metagenomes to our donor contigs using bowtie2, (2) profiled mapping results, and (3) summarized the detection of each MAG in each global metagenome.
 
 Included in the resulting summary files is information about the detection of each donor genome in each global metagenome. We summarized the detection results by country, using a minimum detection threshold of 0.25. You can reproduce this step the following way:
 
@@ -183,18 +186,73 @@ Included in the resulting summary files is information about the detection of ea
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/summarize-global-detection.py \
       -o summarize-global-detection.py
 
-# download the input files [3.7Mb, 5.2Mb]
+# download the input files for donor A (3.7Mb) and donor B (5.2Mb)
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-global-DA.txt \
       -o detection-global-DA.txt
 
  curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-global-DB.txt \
       -o detection-global-DB.txt
 
-# run the script and look at the output files [detection-global-by-country-DA.txt, detection-global-by-country-DB.txt]
+# download the script
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/summarize-global-detection.py \
+      -o summarize-global-detection.py
+
+# run the script and look at the output files:
+# detection-global-by-country-DA.txt and
+# detection-global-by-country-DB.txt
 python3 summarize-global-detection.py
 ```
 
 ## Investigating the ecological forces driving colonization outcomes
+
+<details markdown="1"><summary>Recreating input data files</summary>
+
+The following analyses use data tables derived from the output of {% include PROGRAM name="anvi-summarize" %}. You can download the tables directly using the instructions in this section, or you can reproduce them yourself using the `CONTIGS.db` and `PROFILE.db` contained in the donor A and donor B data packs like so:
+
+{:.warning}
+To fully reproduce what we did, you need to run {% include PROGRAM name="anvi-summarize" %} with the `--init-gene-coverages` flag. Andrea crashed her laptop when testing this, so it is recommended that you only do this if you are using a fancy, powerful computer. If you don't have access to such resources, you can download the output of anvi-summarize directly.
+
+```bash
+# make sure you're in the directory containing the data packs
+ls -l
+
+Apr  1 12:26 FMT_DONOR_A_AND_RECIPIENTS
+Mar 31 17:17 FMT_DONOR_A_AND_RECIPIENTS.tar.gz
+Apr  1 12:30 FMT_DONOR_B_AND_RECIPIENTS
+Mar 31 18:34 FMT_DONOR_B_AND_RECIPIENTS.tar.gz
+
+# run anvi-summarize
+anvi-summarize --pan-or-profile-db FMT_DONOR_A_AND_RECIPIENTS/PROFILE.db \
+               --contigs-db FMT_DONOR_A_AND_RECIPIENTS/CONTIGS.db \
+               --collection-name default \
+               --init-gene-coverages \
+               --output-dir FMT_DONOR_A_AND_RECIPIENTS/SUMMARY
+
+# -----------------------------------------------------------------------------
+# OR, IF YOU DON'T HAVE THE RESOURCES TO RUN THE ABOVE COMMAND:
+# download the summary results
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/SUMMARY-DA.tar.gz \
+     -o FMT_DONOR_A_AND_RECIPIENTS/SUMMARY-DA.tar.gz
+
+# extract the summary results (~4Kb for each donor)
+tar -zxvf FMT_DONOR_A_AND_RECIPIENTS/SUMMARY-DA.tar.gz 
+# -----------------------------------------------------------------------------
+
+# REPEAT ABOVE STEPS FOR DONOR B
+
+# download script to get mean coverage of SCGs
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/make-scg-cov-tables.py \
+     -o make-scg-cov-tables.py
+
+# run script
+python3 make-scg-cov-tables.py
+
+# copy other relevant files to working directory to follow the rest of the workflow
+cp FMT_DONOR_A_AND_RECIPIENTS/SUMMARY/bins_across_samples/detection.txt detection-FMT-DA.txt
+cp FMT_DONOR_B_AND_RECIPIENTS/SUMMARY/bins_across_samples/detection.txt detection-FMT-DB.txt
+```
+
+</details>
 
 This section will describe how to recreate Figure 2 in our study:
 
@@ -211,26 +269,28 @@ If you want to reproduce this analysis, you can do so with the following steps:
 
 ``` bash
 # download the input files
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/metadata-donor.txt \
-     -o metadata-donor.txt
+for file in metadata-donor.txt \
+            metadata-recipient.txt \
+            metadata-transplants.txt \
+            detection-FMT-DA.txt \
+            detection-FMT-DB.txt \
+            detection-global-by-country-DA.txt \
+            detection-global-by-country-DB.txt;
+do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
+        -o ${file};
+done
 
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/metadata-donor.txt \
-     -o metadata-recipient.txt
+# make sure you have all the files:
+ls -l
 
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/metadata-donor.txt \
-     -o metadata-transplants.txt
-
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-FMT-DA.txt \
-     -o detection-FMT-DA.txt
-
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-FMT-DB.txt \
-     -o detection-FMT-DB.txt
-
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-global-by-country-DA.txt \
-     -o detection-global-by-country-DA.txt
-
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-global-by-country-DB.txt \
-     -o detection-global-by-country-DB.txt
+total 456
+46K Mar 31 12:30 detection-FMT-DA.txt
+58K Mar 31 12:30 detection-FMT-DB.txt
+42K Mar 31 12:30 detection-global-by-country-DA.txt
+60K Mar 31 12:30 detection-global-by-country-DB.txt
+956B Mar 31 12:30 metadata-donor.txt
+3.9K Mar 31 12:30 metadata-recipient.txt
+592B Mar 31 12:30 metadata-transplants.txt
 
 # download the script to create mean detection vs. prevalence table
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/make-mean-detec-vs-prev-table.py \
@@ -243,7 +303,7 @@ python3 make_mean_detec_vs_prev_table.py
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/Figure-02A.R \
      -o Figure-02A.R
 
-# run the script :)
+# run the script to visualize results :)
 Rscript Figure-02A.R
 ```
 
@@ -257,26 +317,36 @@ Our preliminary results indicated that FMT may be selecting for fitter microbes 
 
 We began with a simple definition of colonization: a population is absent in a recipient pre-FMT, present in the donor stool samples used for transplantation, and present in the recipient post-FMT. Whereas if a population is present in the donor stool sample used for transplantation and absent in the recipient pre-FMT, it failed to colonize. However, we decided that looking at the presence or absence of population genomes in donor and recipient samples did not provide sufficient resolution. If a population is present in the donor and in the recipient pre-FMT, how do we know if the post-FMT population is native to the recipient or came from the donor? Even if we don't see a population pre-FMT, how do we know that the post-FMT population wasn't already present in the recipient at undetectable levels? To resolve these ambiguities, we used subpopulation, or strain, level information from DESMAN. DESMAN provides the number of subpopulations, or strains, of each population in each metagenome, along with their relative abundances.
 
-This led us to create the definition of colonization, or non-colonization, outlined in Supplementary Figure 4.
+This led us to create the definition of colonization, or non-colonization, outlined in Supplementary Figure 4:
 
-We then used the output of that workflow to measure the correlation of dose and fitness with colonization outcome, to determine whether colonization is driven by neutral or adaptive forces.
+[![Figure S04](images/Figure_S04.png)](images/Figure_S04.png){:.center-img .width-50}
 
-To replicate the process of that workflow, you can do the following:
+To run the above workflow to determine if a population colonized a recipient in our study, you can do the following:
 ```bash
-# download additional files
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/scg-cov-DA.txt \
-     -o scg-cov-DA.txt
-
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/scg-cov-DB.txt \
-     -o scg-cov-DB.txt
+# download additional input files
+for file in scg-cov-DA.txt \
+            scg-cov-DB.txt \
+            subpop-comp-DA.txt \
+            subpop-comp-DB.txt \
+            subpop-num-DA.txt \
+            subpop-num-DB.txt;
+do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
+        -o ${file};
+done
 
 # download the script
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/determine-colonization.py \
      -o determine-colonization.py
 
-# run the script and look at the output files [colonized-DA.txt, colonized-DB.txt, did-not-colonize-DA.txt, did-not-colonize-DB.txt]
+# run the script and look at the output files:
+# colonized-DA.txt,
+# colonized-DB.txt, 
+# did-not-colonize-DA.txt and
+# did-not-colonize-DB.txt
 python3 determine-colonization.py
 ```
+
+We then used the output of this workflow to measure the correlation of dose and fitness with colonization outcome, to determine whether colonization is driven by neutral or adaptive forces.
 
 ### Correlation of dose and fitness with colonization outcome
 
@@ -435,7 +505,8 @@ external_genomes <- read.table(file='external-genomes.txt', header = TRUE, sep =
 A quick check to make sure the number of genomes per group makes sense based on what we know about our groups:
 
 ```
-   CROHNS  FMT_HIGH_FITNESS  FMT_LOW_FITNESS   HEALTHY    POUCHITIS       256                20               20       264           44
+   CROHNS  FMT_HIGH_FITNESS  FMT_LOW_FITNESS   HEALTHY    POUCHITIS 
+      256                20               20       264           44
 ```
 
 We then turn the matrix formatted file into a data frame, and add some relevant information per genome using the external genomes file:
