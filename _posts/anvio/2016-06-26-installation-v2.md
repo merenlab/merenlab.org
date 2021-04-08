@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Installing anvi'o"
-excerpt: "Instructions to install the v2 branch of the platform."
+excerpt: "Instructions to install the current release of the platform."
 modified: 2019-05-14
 tags: []
 categories: [anvio]
