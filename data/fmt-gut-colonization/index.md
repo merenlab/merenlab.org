@@ -371,6 +371,23 @@ Which generates a PDF that looks like this:
 
 [![Figure 02 panel B and C](images/Figure_02BC.png)](images/Figure_02BC.png){:.center-img .width-50}
 
+### Correlation of fitness with dose
+
+Our logistic regression analysis showed that fitness was correlated with colonization success in the donor B cohort, and dose was not. This indicates that within the donor B cohort, colonization outcome was likely driven by adaptive, rather than neutral, ecological forces.
+
+However, within the donor A cohort both fitness and dose were correlated with colonization success. The donor A ROC curves suggested a possible correlation between fitness and dose, confounding our ability to determine which of these factors were relevant to colonization outcome. To see if this was the case we performed a linear regression to see if fitness and dose were correlated with one another within each cohort.
+
+To reproduce that analysis, you can follow these steps:
+
+```bash
+# download script
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/Figure-02D.txt \
+     -o Figure-02D.R
+
+# run script
+Rscript Figure-02D.R
+```
+
 ## Investigating metabolic competence among microbial genomes reconstructed from healthy individuals and individuals with IBD
 
 {:.warning}
