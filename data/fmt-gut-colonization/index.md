@@ -345,18 +345,25 @@ We used logistic regression to test for a correlation between dose and colonizat
 If you would like to recreate this analysis, you can do so through the following steps:
 
 ```bash
-# download files
+# download additional files
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/summary-DA.txt \
-     -o summary-DA.txt
+     -o mean-cov-DA.txt
 
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/summary-DB.txt \
-     -o summary-DB.txt
+     -o mean-cov-DB.txt
 
-# download script
+# download script to consolidate relevant data
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/make-summary-tables-for-regression.py \
+     -o make-summary-tables-for-regression.py
+
+# run script to consolidate data
+python3 make-summary-tables-for-regression.py
+
+# download script to visualize results
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/Figure-02BC.txt \
      -o Figure-02BC.R
 
-# run script
+# run script to visualize results
 Rscript Figure-02BC.R
 ```
 
