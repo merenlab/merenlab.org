@@ -139,8 +139,8 @@ plot_logit_and_auc <- function (df_path) {
 # EXECUTION ---------------------------------------------------------------
 
 # Panel B and panel C for donor A and donor B
-BC_DA <- plot_logit_and_auc(df_path = "summary-DA.txt")
-BC_DB <- plot_logit_and_auc(df_path = "summary-DB.txt")
+BC_DA <- plot_logit_and_auc(df_path = "summary-for-regression-DA.txt")
+BC_DB <- plot_logit_and_auc(df_path = "summary-for-regression-DB.txt")
 
 B1_DA <- BC_DA[[1]]
 B2_DA <- BC_DA[[2]]
