@@ -393,6 +393,8 @@ Which produces a PDF that looks like this:
 
 [![Figure 02 panel D](images/Figure_02D.png)](images/Figure_02D.png){:.center-img .width-50}
 
+Indeed, in donor A populations fitness and dose are correlated with one another, while this is not the case for donor B populations.
+
 ## Investigating metabolic competence among microbial genomes reconstructed from healthy individuals and individuals with IBD
 
 {:.warning}
