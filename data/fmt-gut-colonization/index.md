@@ -346,11 +346,11 @@ If you would like to recreate this analysis, you can do so through the following
 
 ```bash
 # download additional files
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/summary-DA.txt \
-     -o mean-cov-DA.txt
-
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/summary-DB.txt \
-     -o mean-cov-DB.txt
+for file in mean-cov-DA.txt \
+            mean-cov-DB.txt;
+do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
+        -o ${file};
+done
 
 # download script to consolidate relevant data
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/make-summary-tables-for-regression.py \
@@ -388,7 +388,7 @@ curl -L https://merenlab.org/data/fmt-gut-colonization/files/Figure-02D.txt \
 Rscript Figure-02D.R
 ```
 
-Which produce a PDF that looks like this:
+Which produces a PDF that looks like this:
 
 [![Figure 02 panel D](images/Figure_02D.png)](images/Figure_02D.png){:.center-img .width-50}
 
