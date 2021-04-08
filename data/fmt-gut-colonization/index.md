@@ -361,7 +361,7 @@ curl -L https://merenlab.org/data/fmt-gut-colonization/files/make-summary-tables
 python3 make-summary-tables-for-regression.py
 
 # download script to visualize results
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/Figure-02BC.txt \
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/Figure-02BC.R \
      -o Figure-02BC.R
 
 # run script to visualize results
