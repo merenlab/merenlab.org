@@ -182,16 +182,12 @@ To determine the prevalence of donor genomes in 17 different countries, we ran a
 Included in the resulting summary files is information about the detection of each donor genome in each global metagenome. We summarized the detection results by country, using a minimum detection threshold of 0.25. You can reproduce this step the following way:
 
 ```bash
-# download the script
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/summarize-global-detection.py \
-      -o summarize-global-detection.py
-
 # download the input files for donor A (3.7Mb) and donor B (5.2Mb)
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-global-DA.txt \
-      -o detection-global-DA.txt
-
- curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-global-DB.txt \
-      -o detection-global-DB.txt
+for file in detection-global-DA.txt \
+            detection-global-DB.txt;
+do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
+        -o ${file};
+done
 
 # download the script
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/summarize-global-detection.py \
