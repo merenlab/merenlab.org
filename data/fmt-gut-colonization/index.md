@@ -210,7 +210,7 @@ python3 summarize-global-detection.py
 The following analyses use data tables derived from the output of {% include PROGRAM name="anvi-summarize" %}. You can download the tables directly using the instructions in this section, or you can reproduce them yourself using the `CONTIGS.db` and `PROFILE.db` contained in the donor A and donor B data packs like so:
 
 {:.warning}
-To fully reproduce what we did, you need to run {% include PROGRAM name="anvi-summarize" %} with the `--init-gene-coverages` flag. Andrea crashed her laptop when testing this, so it is recommended that you only do this if you have a fancy, powerful computer with suffiocient resources. :(
+To fully reproduce what we did, you need to run {% include PROGRAM name="anvi-summarize" %} with the `--init-gene-coverages` flag. Andrea crashed her laptop when testing this, so it is recommended that you only do this if you have a fancy, powerful computer with sufficient resources. :(
 
 ```bash
 # make sure you're in the directory containing the data packs
@@ -345,24 +345,52 @@ We used logistic regression to test for a correlation between dose and colonizat
 If you would like to recreate this analysis, you can do so through the following steps:
 
 ```bash
-# download files
+# download additional files
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/summary-DA.txt \
-     -o summary-DA.txt
+     -o mean-cov-DA.txt
 
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/summary-DB.txt \
-     -o summary-DB.txt
+     -o mean-cov-DB.txt
 
-# download script
+# download script to consolidate relevant data
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/make-summary-tables-for-regression.py \
+     -o make-summary-tables-for-regression.py
+
+# run script to consolidate data
+python3 make-summary-tables-for-regression.py
+
+# download script to visualize results
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/Figure-02BC.txt \
      -o Figure-02BC.R
 
-# run script
+# run script to visualize results
 Rscript Figure-02BC.R
 ```
 
 Which generates a PDF that looks like this:
 
 [![Figure 02 panel B and C](images/Figure_02BC.png)](images/Figure_02BC.png){:.center-img .width-50}
+
+### Correlation of fitness with dose
+
+Our logistic regression analysis showed that fitness was correlated with colonization success in the donor B cohort, and dose was not. This indicates that within the donor B cohort, colonization outcome was likely driven by adaptive, rather than neutral, ecological forces.
+
+However, within the donor A cohort both fitness and dose were correlated with colonization success. The donor A ROC curves suggested a possible correlation between fitness and dose, confounding our ability to determine which of these factors were relevant to colonization outcome. To see if this was the case we performed a linear regression to see if fitness and dose were correlated with one another within each cohort.
+
+To reproduce that analysis, you can follow these steps:
+
+```bash
+# download script
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/Figure-02D.txt \
+     -o Figure-02D.R
+
+# run script
+Rscript Figure-02D.R
+```
+
+Which produce a PDF that looks like this:
+
+[![Figure 02 panel D](images/Figure_02D.png)](images/Figure_02D.png){:.center-img .width-50}
 
 ## Investigating metabolic competence among microbial genomes reconstructed from healthy individuals and individuals with IBD
 
