@@ -182,16 +182,12 @@ To determine the prevalence of donor genomes in 17 different countries, we ran a
 Included in the resulting summary files is information about the detection of each donor genome in each global metagenome. We summarized the detection results by country, using a minimum detection threshold of 0.25. You can reproduce this step the following way:
 
 ```bash
-# download the script
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/summarize-global-detection.py \
-      -o summarize-global-detection.py
-
 # download the input files for donor A (3.7Mb) and donor B (5.2Mb)
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-global-DA.txt \
-      -o detection-global-DA.txt
-
- curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-global-DB.txt \
-      -o detection-global-DB.txt
+for file in detection-global-DA.txt \
+            detection-global-DB.txt;
+do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
+        -o ${file};
+done
 
 # download the script
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/summarize-global-detection.py \
@@ -228,18 +224,23 @@ anvi-summarize --pan-or-profile-db FMT_DONOR_A_AND_RECIPIENTS/PROFILE.db \
                --init-gene-coverages \
                --output-dir FMT_DONOR_A_AND_RECIPIENTS/SUMMARY
 
-# Repeat above step for donor B
+# repeat above step for donor B
 
 # download script to get mean coverage of SCGs
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/make-scg-cov-tables.py \
      -o make-scg-cov-tables.py
 
-# run script
+# run script and note the output files:
+# scg-cov-DA.txt and
+# scg-cov-DB.txt
 python3 make-scg-cov-tables.py
 
 # copy other relevant files to working directory to follow the rest of the workflow
 cp FMT_DONOR_A_AND_RECIPIENTS/SUMMARY/bins_across_samples/detection.txt detection-FMT-DA.txt
 cp FMT_DONOR_B_AND_RECIPIENTS/SUMMARY/bins_across_samples/detection.txt detection-FMT-DB.txt
+
+cp FMT_DONOR_A_AND_RECIPIENTS/SUMMARY/bins_across_samples/mean_coverage_Q2Q3.txt mean-cov-DA.txt
+cp FMT_DONOR_B_AND_RECIPIENTS/SUMMARY/bins_across_samples/mean_coverage_Q2Q3.txt mean-cov-DB.txt
 ```
 
 </details>
@@ -270,7 +271,7 @@ do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
         -o ${file};
 done
 
-# make sure you have all the files:
+# make sure you have all the files
 ls -l
 
 total 456
@@ -282,7 +283,7 @@ total 456
 3.9K Mar 31 12:30 metadata-recipient.txt
 592B Mar 31 12:30 metadata-transplants.txt
 
-# download the script to create mean detection vs. prevalence table
+# download the script to create mean detection vs. prevalence tables
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/make-mean-detec-vs-prev-table.py \
      -o make-mean-detec-vs-prev-table.py
 
@@ -293,7 +294,7 @@ python3 make-mean-detec-vs-prev-table.py
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/Figure-02A.R \
      -o Figure-02A.R
 
-# run the script to visualize results :)
+# run the script to visualize results
 Rscript Figure-02A.R
 ```
 
@@ -346,11 +347,11 @@ If you would like to recreate this analysis, you can do so through the following
 
 ```bash
 # download additional files
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/summary-DA.txt \
-     -o mean-cov-DA.txt
-
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/summary-DB.txt \
-     -o mean-cov-DB.txt
+for file in mean-cov-DA.txt \
+            mean-cov-DB.txt;
+do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
+        -o ${file};
+done
 
 # download script to consolidate relevant data
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/make-summary-tables-for-regression.py \
@@ -360,7 +361,7 @@ curl -L https://merenlab.org/data/fmt-gut-colonization/files/make-summary-tables
 python3 make-summary-tables-for-regression.py
 
 # download script to visualize results
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/Figure-02BC.txt \
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/Figure-02BC.R \
      -o Figure-02BC.R
 
 # run script to visualize results
@@ -380,15 +381,15 @@ However, within the donor A cohort both fitness and dose were correlated with co
 To reproduce that analysis, you can follow these steps:
 
 ```bash
-# download script
+# download the script
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/Figure-02D.txt \
      -o Figure-02D.R
 
-# run script
+# run the script
 Rscript Figure-02D.R
 ```
 
-Which produce a PDF that looks like this:
+Which produces a PDF that looks like this:
 
 [![Figure 02 panel D](images/Figure_02D.png)](images/Figure_02D.png){:.center-img .width-50}
 
