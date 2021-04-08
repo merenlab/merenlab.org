@@ -354,7 +354,7 @@ curl -L https://merenlab.org/data/fmt-gut-colonization/files/summary-DB.txt \
 
 # download script
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/Figure-02BC.txt \
-     -o Figure-02BC.txt
+     -o Figure-02BC.R
 
 # run script
 Rscript Figure-02BC.R
