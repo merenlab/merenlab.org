@@ -37,8 +37,8 @@ plot_logit_and_auc <- function (df_path) {
   # mct = mean coverage in transplant sample
   # cfd = fraction detected in Canada 
   logitMod_mct <- glm(outcome ~ transplant_mean_cov_Q2Q3, data = df, family = binomial("logit"))
-  logitMod_cfd <- glm(outcome ~ CAN_frac_detected, data = df, family = binomial("logit"))
-  logitMod_all <- glm(outcome ~ transplant_mean_cov_Q2Q3 + CAN_frac_detected, data = df, family = binomial("logit"))
+  logitMod_cfd <- glm(outcome ~ CAN_frac_detec, data = df, family = binomial("logit"))
+  logitMod_all <- glm(outcome ~ transplant_mean_cov_Q2Q3 + CAN_frac_detec, data = df, family = binomial("logit"))
   
   p_value_mct <- signif(summary(logitMod_mct)$coefficients[2,4], 2)
   p_value_cfd <- signif(summary(logitMod_cfd)$coefficients[2,4], 2)
@@ -82,7 +82,7 @@ plot_logit_and_auc <- function (df_path) {
   }
   
   # Box plot for fraction detected in Canada:
-  bp_cfd <- ggplot(df, aes(x = CAN_frac_detected, y = outcome)) +
+  bp_cfd <- ggplot(df, aes(x = CAN_frac_detec, y = outcome)) +
     geom_boxplot(width = 0.75, size = 0.5, color = alpha("black", 1), alpha = 0, outlier.shape = NA) +
     geom_point(position = position_jitter(width = 0.01, height = 0.3), size = 0.5, fill = alpha("black", 1), color = alpha("black", 1), shape = 21) +
     labs(title = "Prevalence", caption = paste("p-value:", p_value_cfd)) +
@@ -90,8 +90,8 @@ plot_logit_and_auc <- function (df_path) {
     scale_y_discrete(labels = c(no_colo_label, colo_label)) +
     my_theme() +
     theme(axis.title.y = element_blank()) +
-    geom_segment(aes(x=min(df$CAN_frac_detected)-0.05, y=1, xend=min(df$CAN_frac_detected)-0.05, yend=2), size=.5) +
-    annotate(geom="text", x=min(df$CAN_frac_detected)-0.05, y=1.5, size=3.5, angle=90, label=sig)
+    geom_segment(aes(x=min(df$CAN_frac_detec)-0.05, y=1, xend=min(df$CAN_frac_detec)-0.05, yend=2), size=.5) +
+    annotate(geom="text", x=min(df$CAN_frac_detec)-0.05, y=1.5, size=3.5, angle=90, label=sig)
   
   # ROC CURVES
   
@@ -103,7 +103,7 @@ plot_logit_and_auc <- function (df_path) {
                            threshold = roc_obj_mct$thresholds,
                            vars = paste("Dose\nAUC=", auc_mct, sep=""))
   
-  predictions_cfd <- predict(logitMod_cfd, df["CAN_frac_detected"], outcome="response")
+  predictions_cfd <- predict(logitMod_cfd, df["CAN_frac_detec"], outcome="response")
   roc_obj_cfd <- roc(df$outcome, predictions_cfd)
   auc_cfd <- signif(roc_obj_cfd$auc, digits = 2)
   roc_df_cfd <- data.frame(sensitivity = roc_obj_cfd$sensitivities, 
@@ -111,7 +111,7 @@ plot_logit_and_auc <- function (df_path) {
                            threshold = roc_obj_cfd$thresholds,
                            vars = paste("Prevalence\nAUC=", auc_cfd, sep=""))
   
-  predictions_all <- predict(logitMod_all, df[c("transplant_mean_cov_Q2Q3", "CAN_frac_detected")], outcome="response")
+  predictions_all <- predict(logitMod_all, df[c("transplant_mean_cov_Q2Q3", "CAN_frac_detec")], outcome="response")
   roc_obj_all <- roc(df$outcome, predictions_all)
   auc_all <- signif(roc_obj_all$auc, digits = 2)
   roc_df_all <- data.frame(sensitivity = roc_obj_all$sensitivities, 
