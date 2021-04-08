@@ -56,6 +56,15 @@ plot_dose_vs_prevalence <- function (df_path) {
 D_DA <- plot_dose_vs_prevalence(df_path = "summary-DA.txt")
 D_DB <- plot_dose_vs_prevalence(df_path = "summary-DB.txt")
 
-D <- plot_grid(D_DA, D_DB, nrow=1)
+# make column titles
+title1 <- ggdraw() + draw_label("Donor A", fontface='bold')
+title2 <- ggdraw() + draw_label("Donor B", fontface='bold')
+
+# make columns
+col1 <- plot_grid(title1, D_DA, ncol=1, rel_heights = c(0.1,1))
+col2 <- plot_grid(title2, D_DB, ncol=1, rel_heights = c(0.1,1))
+
+# put together
+D <- plot_grid(col1, col2, nrow=1)
 
 ggsave("Figure_02D.pdf", D, width=6, height=3, units="in")
