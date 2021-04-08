@@ -287,7 +287,7 @@ curl -L https://merenlab.org/data/fmt-gut-colonization/files/make-mean-detec-vs-
      -o make-mean-detec-vs-prev-table.py
 
 # run the script to make aforementioned tables
-python3 make_mean_detec_vs_prev_table.py
+python3 make-mean-detec-vs-prev-table.py
 
 # download the script to visualize results
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/Figure-02A.R \
