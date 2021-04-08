@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-#!/usr/bin/env Rscript
-=======
->>>>>>> 05b25422ae07009bc26f00953a8f33577d51e51c
 library(tidyverse)
 library(cowplot)
-
-
-setwd("/Users/andrea/github/web/data/fmt-gut-colonization/files")
 
 # THEME -------------------------------------------------------------------
 
