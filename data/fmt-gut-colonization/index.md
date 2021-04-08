@@ -210,7 +210,7 @@ python3 summarize-global-detection.py
 The following analyses use data tables derived from the output of {% include PROGRAM name="anvi-summarize" %}. You can download the tables directly using the instructions in this section, or you can reproduce them yourself using the `CONTIGS.db` and `PROFILE.db` contained in the donor A and donor B data packs like so:
 
 {:.warning}
-To fully reproduce what we did, you need to run {% include PROGRAM name="anvi-summarize" %} with the `--init-gene-coverages` flag. Andrea crashed her laptop when testing this, so it is recommended that you only do this if you are using a fancy, powerful computer. If you don't have access to such resources, you can download the output of anvi-summarize directly.
+To fully reproduce what we did, you need to run {% include PROGRAM name="anvi-summarize" %} with the `--init-gene-coverages` flag. Andrea crashed her laptop when testing this, so it is recommended that you only do this if you have a fancy, powerful computer with suffiocient resources. :(
 
 ```bash
 # make sure you're in the directory containing the data packs
@@ -219,7 +219,7 @@ ls -l
 Apr  1 12:26 FMT_DONOR_A_AND_RECIPIENTS
 Mar 31 17:17 FMT_DONOR_A_AND_RECIPIENTS.tar.gz
 Apr  1 12:30 FMT_DONOR_B_AND_RECIPIENTS
-Mar 31 18:34 FMT_DONOR_B_AND_RECIPIENTS.tar.gz
+Mar 31 18:34 FMT_DONOR_B_AND_RECIPIENTS.tar.gx
 
 # run anvi-summarize
 anvi-summarize --pan-or-profile-db FMT_DONOR_A_AND_RECIPIENTS/PROFILE.db \
@@ -228,17 +228,7 @@ anvi-summarize --pan-or-profile-db FMT_DONOR_A_AND_RECIPIENTS/PROFILE.db \
                --init-gene-coverages \
                --output-dir FMT_DONOR_A_AND_RECIPIENTS/SUMMARY
 
-# -----------------------------------------------------------------------------
-# OR, IF YOU DON'T HAVE THE RESOURCES TO RUN THE ABOVE COMMAND:
-# download the summary results
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/SUMMARY-DA.tar.gz \
-     -o FMT_DONOR_A_AND_RECIPIENTS/SUMMARY-DA.tar.gz
-
-# extract the summary results (~4Kb for each donor)
-tar -zxvf FMT_DONOR_A_AND_RECIPIENTS/SUMMARY-DA.tar.gz 
-# -----------------------------------------------------------------------------
-
-# REPEAT ABOVE STEPS FOR DONOR B
+# Repeat above step for donor B
 
 # download script to get mean coverage of SCGs
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/make-scg-cov-tables.py \
