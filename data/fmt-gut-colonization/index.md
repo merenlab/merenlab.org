@@ -210,7 +210,7 @@ python3 summarize-global-detection.py
 The following analyses use data tables derived from the output of {% include PROGRAM name="anvi-summarize" %}. You can download the tables directly using the instructions in this section, or you can reproduce them yourself using the `CONTIGS.db` and `PROFILE.db` contained in the donor A and donor B data packs like so:
 
 {:.warning}
-To fully reproduce what we did, you need to run {% include PROGRAM name="anvi-summarize" %} with the `--init-gene-coverages` flag. Andrea crashed her laptop when testing this, so it is recommended that you only do this if you have a fancy, powerful computer with suffiocient resources. :(
+To fully reproduce what we did, you need to run {% include PROGRAM name="anvi-summarize" %} with the `--init-gene-coverages` flag. Andrea crashed her laptop when testing this, so it is recommended that you only do this if you have a fancy, powerful computer with sufficient resources. :(
 
 ```bash
 # make sure you're in the directory containing the data packs
