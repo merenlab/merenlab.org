@@ -170,22 +170,6 @@
       inst: The Department of Medicine at the University of Chicago
       inst_link: http://medicine.uchicago.edu/
 
-- alias: rebecca
-  official: True
-  name: Rebecca Xiong
-  tenure_start: 01/2020
-  role: Undergraduate Researcher
-  email: rxiong@uchicago.edu
-  avatar: bio-rebecca.png
-  linkedin: rebecca-xiong
-  orcid: 0000-0003-0535-0619
-  bio: "I am a student researcher interested in unraveling the intricate connections between microbial ecology and the human body."
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  affiliations:
-    - title: Undergraduate Student
-      inst: Biological Sciences & Environmental Science
-      inst_link: http://collegecatalog.uchicago.edu/thecollege/biologicalsciences/
-
 - alias: isaac
   official: True
   name: Isaac Fink
@@ -389,6 +373,8 @@
     - title: Assistant Professor
       inst: Lundbeck Foundation GeoGenetics Centre, The GLOBE Institute, University of Copenhagen
       inst_link: https://globe.ku.dk/research/geogenetics/
+
+
 ####################################################################################
 # Previous members.
 ####################################################################################
