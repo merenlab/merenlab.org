@@ -205,6 +205,14 @@ And install it using `pip` like a boss:
 pip install anvio-7.tar.gz
 ```
 
+Some people have reported errors in the installation of `pysam` using `pip`, so if this installation fails, you can install `pysam` using conda:
+
+```
+conda config --add channels r
+conda config --add channels bioconda
+conda install pysam
+```
+
 Right after this, run this command to make sure you have the right version of this one library [that changed its API](https://github.com/merenlab/anvio/issues/1692) recently:
 
 ```
