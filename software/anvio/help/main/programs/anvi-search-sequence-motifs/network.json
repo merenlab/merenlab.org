@@ -1,0 +1,82 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "misc-data-items",
+      "name": "misc-data-items",
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "misc-data-layers",
+      "name": "misc-data-layers",
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "profile-db",
+      "name": "profile-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "contigs-db",
+      "name": "contigs-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "genes-db",
+      "name": "genes-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 5,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-search-sequence-motifs",
+      "name": "anvi-search-sequence-motifs",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "source": 5,
+      "target": 0
+    },
+    {
+      "source": 5,
+      "target": 1
+    },
+    {
+      "target": 5,
+      "source": 2
+    },
+    {
+      "target": 5,
+      "source": 3
+    },
+    {
+      "target": 5,
+      "source": 4
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}
