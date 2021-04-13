@@ -57,7 +57,7 @@ Please consider opening an <a href="https://github.com/meren/anvio/issues">issue
 {% include _fixthispage.html source="_posts/anvio/2016-06-26-installation-v2.md" %}
 
 {:.warning}
-We thank [Daan Speth](https://twitter.com/daanspeth), [Jarrod Scott](https://orcid.org/0000-0001-9863-1318), [Susheel Bhanu Busi](https://scholar.google.com/citations?user=U0g3IzQAAAAJ&hl=en), and [Mike Lee](https://twitter.com/AstrobioMike), who kindly invested their time to test the installation instructions on this page on different systems and/or made suggestions to the document to ensure a smoother installation experience for everyone.
+We thank [Daan Speth](https://twitter.com/daanspeth), [Jarrod Scott](https://orcid.org/0000-0001-9863-1318), [Susheel Bhanu Busi](https://scholar.google.com/citations?user=U0g3IzQAAAAJ&hl=en), [Mike Lee](https://twitter.com/AstrobioMike), and [Josh Herr](http://joshuaherr.com/) who kindly invested their time to test the installation instructions on this page on different systems and/or made suggestions to the document to ensure a smoother installation experience for everyone.
 
 ## (1) Setup conda
 
@@ -88,61 +88,7 @@ Good? Good! You are almost there!
 {:.notice}
 It is a good idea to **make sure you are not already in a conda environment** before you run the following steps. Just to be clear, you can indeed install anvi'o in an existing conda environment, but if things go wrong, we kindly ask you to refer to meditation for help, rather than [anvi'o community resources]({% post_url anvio/2019-10-07-getting-help %} since there is no way we can help you if you are installing anvi'o in a different conda environment :) If you want to see what environments do you have on your computer and whether you already are in one of them in your current terminal by running `conda env list`. **If all these are too much for you and all you want to do is to move on with the installation**, simply do this: open a new terminal, and run `conda deactivate`, and continue with the rest of the text.
 
-You have two options here.
-
-### A shortcut worth trying
-
-{:.notice}
-If this shortcut doesn't work for you for some reason, you will not worry and try the slower option down below.
-
-Resolving dependencies (especially on Mac systems) can take a very long time for conda (which is a [known problem](https://github.com/conda/conda/issues/7239)), hence, here we will use a serious shortcut to generate an environment for anvi'o `v{% include _project-anvio-version-number.html %}`.
-
-
-First you will need to get a copy of the following file, but you have two options depending on the operating system you're using.
-
-If you are using **Mac OSX**, use this one:
-
-``` bash
-curl https://merenlab.org/files/anvio-conda-environments/anvio-environment-7-MACOS.yaml \
-     --output anvio-environment-7.yaml
-```
-
-If you are using **Linux/Windows**, use this one:
-
-``` bash
-curl https://merenlab.org/files/anvio-conda-environments/anvio-environment-7-LINUX.yaml \
-     --output anvio-environment-7.yaml
-```
-
-Run this to make sure you don't already have an environment called `anvio-v{% include _project-anvio-version-number.html %}`:
-
-```
-conda env remove --name anvio-7
-```
-
-Now create a new `anvio-v{% include _project-anvio-version-number.html %}` environment using the file you just downloaded:
-
-```
-conda env create -f anvio-environment-7.yaml
-```
-
-If this didn't go well, jump to the slower but reliable option. If it did go well, then you should activate that environment,
-
-```
-conda activate anvio-7
-```
-
-Then downgrade the HMMER to an earlier version due to a [recently reported bug](https://github.com/merenlab/anvio/issues/1638) related to HMMER `v3.3.1`:
-
-```
-conda install -y -c bioconda hmmer=3.2.1
-```
-
-and jump to "[Download and install anvi'o](#3-install-anvio)".
-
-### Slower but reliable option
-
-First create a new conda environment:
+First, create a new conda environment:
 
 ``` bash
 conda create -y --name anvio-7 python=3.6
@@ -182,8 +128,8 @@ conda install -y -c bioconda bioconductor-qvalue
 conda install -y -c bioconda fasttree
 conda install -y -c conda-forge h5py=2.8.0
 
-# this may cause some issues. if it doesn't install,
-# don't worry:
+# this last one may cause some issues. if it doesn't install,
+# don't worry, you will still be fine:
 conda install -y -c bioconda fastani
 ```
 
@@ -205,15 +151,14 @@ And install it using `pip` like a boss:
 pip install anvio-7.tar.gz
 ```
 
-Some people have reported errors in the installation of `pysam` using `pip`, so if this installation fails, you can install `pysam` using conda:
+Some people have reported errors in the installation of `pysam` using `pip`, so if your installation also fails due to `pysam`, you can use the following two lines to first install this package via conda, and then install the anvi'o package via `pip`:
 
 ```
-conda config --add channels r
-conda config --add channels bioconda
-conda install pysam
+conda install -y -c bioconda pysam 
+pip install anvio-7.tar.gz
 ```
 
-Right after this, run this command to make sure you have the right version of this one library [that changed its API](https://github.com/merenlab/anvio/issues/1692) recently:
+After a successful installation of anvi'o via `pip`, run this command to make sure you have the right version of this one library [that changed its API](https://github.com/merenlab/anvio/issues/1692) recently:
 
 ```
 pip install mistune==0.8.4
