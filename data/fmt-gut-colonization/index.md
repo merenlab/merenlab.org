@@ -201,12 +201,16 @@ python3 summarize-global-detection.py
 
 ## Investigating the ecological forces driving colonization outcomes
 
-<details markdown="1"><summary>Recreating input data files</summary>
+<div class="extra-info" markdown="1">
 
-The following analyses use data tables derived from the output of {% include PROGRAM name="anvi-summarize" %}. You can download the tables directly using the instructions in this section, or you can reproduce them yourself using the `CONTIGS.db` and `PROFILE.db` contained in the donor A and donor B data packs like so:
+<span class="extra-info-header">Recreating input data files (optional steps)</span>
+
+Analyses in the following sections outside of this box use data tables derived from the output of {% include PROGRAM name="anvi-summarize" %}. You can download these tables directly using the instructions in this section, or you can reproduce them yourself using instructions in this box using the primary anvi'o databases you have downloaded as a part of the data packs for the donor A and donor B.
 
 {:.warning}
-To fully reproduce what we did, you need to run {% include PROGRAM name="anvi-summarize" %} with the `--init-gene-coverages` flag. Andrea crashed her laptop when testing this, so it is recommended that you only do this if you have a fancy, powerful computer with sufficient resources. :(
+To fully reproduce what we did, you need to run {% include PROGRAM name="anvi-summarize" %} with the `--init-gene-coverages` flag. Andrea's laptop run out of memory when testing this, so it is recommended that you only do this if you have a fancy, powerful computer with sufficient resources :( --Andrea.
+
+The following steps will generate the input data tables:
 
 ```bash
 # make sure you're in the directory containing the data packs
@@ -243,7 +247,7 @@ cp FMT_DONOR_A_AND_RECIPIENTS/SUMMARY/bins_across_samples/mean_coverage_Q2Q3.txt
 cp FMT_DONOR_B_AND_RECIPIENTS/SUMMARY/bins_across_samples/mean_coverage_Q2Q3.txt mean-cov-DB.txt
 ```
 
-</details>
+</div>
 
 This section will describe how to recreate Figure 2 in our study:
 
