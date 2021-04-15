@@ -691,6 +691,49 @@ while read name path; do
 done < samples.txt
 ```
 
+And imported the kraken2 taxonomy into each profile:
+
+```bash
+while read name path; do
+    if [ "$name" == "name" ]; then
+        continue
+    fi
+    anvi-import-taxonomy-for-layers -p ${name}.db \
+                        --parser krakenuniq \
+                        -i kraken2_output/${name}
+done < samples.txt
+```
+
+Before merging the profiles for each group of samples and exporting taxonomy tables:
+
+```bash
+# download the script to merge profiles
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/merge-taxonomy-profiles.py \
+     -o merge-taxonomy-profiles.py
+
+# run the script for each group
+python merge-taxonomy-profiles.py DA*.db DA
+python merge-taxonomy-profiles.py DB*.db DA
+python merge-taxonomy-profiles.py CAN*.db CAN
+```
+
+Finally, we cleaned up the taxonomy tables:
+
+```bash
+# get rid of t_*! from taxon names
+for x in *_t_*; do sed -i -r 's/t_\w+?!//g' $x; done
+```
+
+And merge the groups we'd like to compare together (the following script is set up to merge DA, DB and CAN, but can be easily modified for a different set of groups):
+
+```bash
+# download the script to merge tables
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/merge-taxonomy-tables.py \
+     -o merge-taxonomy-tables.py
+
+# run the script
+python3 merge-taxonomy-tables.py
+```
 
 <div style="display: block; height: 200px;">&nbsp;</div>
 
