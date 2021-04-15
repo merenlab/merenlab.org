@@ -643,5 +643,53 @@ for(module in modules_to_display){
 
 And combined both panels in [Inkscape](https://inkscape.org/) to finalize the figure for publication.
 
+## NMDS ordination of metagenomes by taxonomic composition
+
+To compare the the similarity of donor, recipient and healthy Canadian stool samples, we performed a non-metric multidimensional scaling (nMDS) ordination analysis with Horn-Morisita dissimilarity indices on taxonomic composition data for each sample metagenome. We used kraken2 to get taxonomic composition data for each of our metagenomes, merged and reformatted that data using anvi'o and a few ad hoc scripts, and created ordination plots in R. This workflow can be reproduced with teh following steps.
+
+First, we ran kraken2 on all metagenomes:
+
+```bash
+mkdir -p kraken2_output
+
+while read sample r1 r2; do
+    if [ "$sample" == "sample" ]; then
+        continue
+    fi
+    kraken2 --paired $r1 $r2 \
+            --db $DB_PATH \
+            --gzip-compressed \
+            --use-names \
+            --report kraken2_output/${sample}-kraken2.txt \
+            --threads 10"
+done < samples.txt
+```
+
+If you run this command yourself you should replace `$DB_PATH` with the path to the kraken2 database on your computer. You will also need to provide a TAB-delimited `samples.txt` file providing the paths to your [R1 and R2 files for each metagenome](https://merenlab.org/data/fmt-gut-colonization/#background-information) formatted like so:
+
+|sample|r1|r2|
+|:--|:--|:--|
+|DA_D_01|DA_D_01_R1.fastq.gz|DA_D_01_R2.fastq.gz|
+|DA_D_02|DA_D_02_R1.fastq.gz|DA_D_02_R2.fastq.gz|
+
+Next, using the same `samples.txt` file, we created a blank {% include ARTIFACT name="profile-db" text="anvi'o profile database" %} for each sample:
+
+```bash
+while read name path; do
+    if [ "$name" == "name" ]; then
+		continue
+    fi
+    anvi-interactive -p ${name}.db \
+                     -d kraken2_output/${name} \
+                     --title $name \
+                     --manual \
+                     --dry-run
+done < samples.txt
+```
+
+
+
+
+
 <div style="display: block; height: 200px;">&nbsp;</div>
 
