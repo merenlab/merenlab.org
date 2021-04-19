@@ -649,9 +649,13 @@ And combined both panels in [Inkscape](https://inkscape.org/) to finalize the fi
 
 ## NMDS ordination of metagenomes by taxonomic composition
 
-To compare the the similarity of donor, recipient and healthy Canadian stool samples, we performed a non-metric multidimensional scaling (nMDS) ordination analysis with Horn-Morisita dissimilarity indices on taxonomic composition data for each sample metagenome. We used kraken2 to get taxonomic composition data for each of our metagenomes, merged and reformatted that data using anvi'o and a few ad hoc scripts, and created ordination plots in R. This workflow can be reproduced with teh following steps.
+<div class="extra-info" markdown="1">
 
-First, we ran kraken2 on all metagenomes:
+<span class="extra-info-header">Recreating input data files (optional steps)</span>
+
+The analysis in this section uses taxonomic composition tables that were generated from raw, short-read metagenomes by kraken2 and subseqeuntly merged and reformatted using anvi'o and a few ad hoc scripts. This box describes that workflow for anyone who would like to recreate it, otherwise the final taxonomic composition tables are provided after the box.
+
+First, we ran kraken2 on all raw metagenomes (see [Background information](https://merenlab.org/data/fmt-gut-colonization/#background-information)):
 
 ```bash
 mkdir -p kraken2_output
@@ -669,7 +673,7 @@ while read sample r1 r2; do
 done < samples.txt
 ```
 
-If you run this command yourself you should replace `$DB_PATH` with the path to the kraken2 database on your computer. You will also need to provide a TAB-delimited `samples.txt` file providing the paths to your [R1 and R2 files for each metagenome](https://merenlab.org/data/fmt-gut-colonization/#background-information) formatted like so:
+If you run this command yourself you should replace `$DB_PATH` with the path to the kraken2 database on your computer. You will also need to provide a TAB-delimited `samples.txt` file providing the paths to your R1 and R2 files for each metagenome, formatted this way:
 
 |sample|r1|r2|
 |:--|:--|:--|
@@ -713,7 +717,7 @@ curl -L https://merenlab.org/data/fmt-gut-colonization/files/merge-taxonomy-prof
 
 # run the script for each group
 python merge-taxonomy-profiles.py DA*.db DA
-python merge-taxonomy-profiles.py DB*.db DA
+python merge-taxonomy-profiles.py DB*.db DB
 python merge-taxonomy-profiles.py CAN*.db CAN
 ```
 
@@ -724,7 +728,7 @@ Finally, we cleaned up the taxonomy tables:
 for x in *_t_*; do sed -i -r 's/t_\w+?!//g' $x; done
 ```
 
-And merge the groups we'd like to compare together (the following script is set up to merge DA, DB and CAN, but can be easily modified for a different set of groups):
+And merged the tables of groups we'd like to compare (the following script is set up to merge DA, DB and CAN, but can be easily modified for a different set of groups):
 
 ```bash
 # download the script to merge tables
@@ -734,6 +738,35 @@ curl -L https://merenlab.org/data/fmt-gut-colonization/files/merge-taxonomy-tabl
 # run the script
 python3 merge-taxonomy-tables.py
 ```
+
+</div>
+
+This section will describe how to recreate Supplementary Figures 2 and 3 in our study:
+
+[![Figure S02](images/Figure_S02.png)](images/Figure_S02.png){:.center-img .width-50}
+[![Figure S03](images/Figure_S03.png)](images/Figure_S03.png){:.center-img .width-50}
+
+To compare the the similarity of donor, recipient and healthy Canadian stool samples, we performed a non-metric multidimensional scaling (nMDS) ordination analysis with Horn-Morisita dissimilarity indices on taxonomic composition data for each sample metagenome. To reproduce this analysis, you can do the following:
+
+```bash
+# download the input files
+for file in metadata-ordination-DA-DB-CAN.txt \
+            taxonomy-genus-DA-DB-CAN.txt;
+do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
+        -o ${file};
+done
+
+# download the scripts
+for file in ordination-run.shx \
+            ordination-plot.R;
+do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
+        -o ${file};
+done
+
+# run the script to generate plots
+bash ordiantion-run.shx
+```
+
 
 <div style="display: block; height: 200px;">&nbsp;</div>
 
