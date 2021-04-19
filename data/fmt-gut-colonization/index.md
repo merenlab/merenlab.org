@@ -683,12 +683,12 @@ If you run this command yourself you should replace `$DB_PATH` with the path to 
 Next, using the same `samples.txt` file, we created a blank {% include ARTIFACT name="profile-db" text="anvi'o profile database" %} for each sample:
 
 ```bash
-while read name path; do
+while read name r1 r2; do
     if [ "$name" == "name" ]; then
 		continue
     fi
-    anvi-interactive -p ${name}.db \
-                     -d kraken2_output/${name} \
+    anvi-interactive --profile-db ${name}.db \
+                     --view-data kraken2_output/${name}-kraken2.txt \
                      --title $name \
                      --manual \
                      --dry-run
@@ -698,13 +698,13 @@ done < samples.txt
 And imported the kraken2 taxonomy into each profile:
 
 ```bash
-while read name path; do
+while read name r1 r2; do
     if [ "$name" == "name" ]; then
         continue
     fi
-    anvi-import-taxonomy-for-layers -p ${name}.db \
-                        --parser krakenuniq \
-                        -i kraken2_output/${name}
+    anvi-import-taxonomy-for-layers --profile-db ${name}.db \
+                                    --parser krakenuniq \
+                                    --input-files kraken2_output/${name}-kraken2.txt
 done < samples.txt
 ```
 
