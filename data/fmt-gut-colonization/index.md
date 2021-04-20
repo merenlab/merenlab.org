@@ -655,7 +655,7 @@ And combined both panels in [Inkscape](https://inkscape.org/) to finalize the fi
 
 The analysis in this section uses taxonomic composition tables that were generated from raw, short-read metagenomes by kraken2 and subseqeuntly merged and reformatted using anvi'o and a few ad hoc scripts. This box describes that workflow for anyone who would like to recreate it, otherwise the final taxonomic composition tables are provided after the box.
 
-First, we ran kraken2 on all raw metagenomes (see [Background information](https://merenlab.org/data/fmt-gut-colonization/#background-information)):
+First, we ran kraken2 on all raw metagenomes from our study (see [Background information](https://merenlab.org/data/fmt-gut-colonization/#background-information)) and the publicly available Canadian gut metagenomes (see [Estimating the global prevalence of donor genomes](https://merenlab.org/data/fmt-gut-colonization/#estimating-the-global-prevalence-of-donor-genomes):
 
 ```bash
 mkdir -p kraken2-output
