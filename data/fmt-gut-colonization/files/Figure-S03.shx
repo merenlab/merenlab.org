@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Save me as `00_RUN.shx` in your work directory, and run `chmod +x` on me.
+
+DRAW () {
+    echo
+    echo "WORKING ON DATA \"$1\" at $2-level ..."
+    echo
+    echo
+
+    ./visualize_pill_vs_colo.R ../../04_reformat_mpa/"$1"_t_"$2".txt "$1"_metadata.txt -m timing -o $1-$2 --title "$1 ($2)";
+}
+
+for group in CP_KC
+do
+    for level in "phylum" "family" "genus"
+    do
+        DRAW $group $level
+    done
+done
