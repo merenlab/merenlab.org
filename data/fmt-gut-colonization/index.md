@@ -647,5 +647,129 @@ for(module in modules_to_display){
 
 And combined both panels in [Inkscape](https://inkscape.org/) to finalize the figure for publication.
 
+## NMDS ordination of metagenomes by taxonomic composition
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Recreating input data files (optional steps)</span>
+
+The analysis in this section uses taxonomic composition tables that were generated from raw, short-read metagenomes by kraken2 and subseqeuntly merged and reformatted using anvi'o and a few ad hoc scripts. This box describes that workflow for anyone who would like to recreate it, otherwise the final taxonomic composition tables are provided after the box.
+
+First, we ran kraken2 on all raw metagenomes (see [Background information](https://merenlab.org/data/fmt-gut-colonization/#background-information)):
+
+```bash
+mkdir -p kraken2-output
+
+while read sample r1 r2; do
+    if [ "$sample" == "sample" ]; then
+        continue
+    fi
+    kraken2 --paired $r1 $r2 \
+            --db $DB_PATH \
+            --gzip-compressed \
+            --use-names \
+            --report kraken2-output/${sample}-kraken2.txt \
+            --use-mpa-style \
+            --threads 10"
+done < samples.txt
+```
+
+If you run this command yourself you should replace `$DB_PATH` with the path to the kraken2 database on your computer. You will also need to provide a TAB-delimited `samples.txt` file providing the paths to your R1 and R2 files for each metagenome, formatted this way:
+
+|sample|r1|r2|
+|:--|:--|:--|
+|DA_D_01|DA_D_01_R1.fastq.gz|DA_D_01_R2.fastq.gz|
+|DA_D_02|DA_D_02_R1.fastq.gz|DA_D_02_R2.fastq.gz|
+
+Next, using the same `samples.txt` file, we created a blank {% include ARTIFACT name="profile-db" text="anvi'o profile database" %} for each sample:
+
+```bash
+mkdir -p taxonomy-profiles
+
+while read sample r1 r2; do
+    if [ "$sample" == "sample" ]; then
+		continue
+    fi
+    anvi-interactive --profile-db taxonomy-profiles/${sample}.db \
+                     --view-data kraken2-output/${sample}-kraken2.txt \
+                     --title $sample \
+                     --manual \
+                     --dry-run
+done < samples.txt
+```
+
+And imported the kraken2 taxonomy into each profile:
+
+```bash
+while read sample r1 r2; do
+    if [ "$sample" == "sample" ]; then
+        continue
+    fi
+    anvi-import-taxonomy-for-layers --profile-db taxonomy-profiles/${sample}.db \
+                                    --parser krakenuniq \
+                                    --input-files kraken2-output/${sample}-kraken2.txt
+done < samples.txt
+```
+
+Before merging the profiles for each group of samples and exporting taxonomy tables:
+
+```bash
+# download the script to merge profiles
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/merge-taxonomy-profiles.py \
+     -o merge-taxonomy-profiles.py
+
+# run the script for each group
+python merge-taxonomy-profiles.py DA*.db DA
+python merge-taxonomy-profiles.py DB*.db DB
+python merge-taxonomy-profiles.py CAN*.db CAN
+```
+
+Finally, we cleaned up the taxonomy tables:
+
+```bash
+# get rid of t_*! from taxon names
+for x in *_t_*; do sed -i -r 's/t_\w+?!//g' $x; done
+```
+
+And merged the tables of groups we'd like to compare (the following script is set up to merge DA, DB and CAN, but can be easily modified for a different set of groups):
+
+```bash
+# download the script to merge tables
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/merge-taxonomy-tables.py \
+     -o merge-taxonomy-tables.py
+
+# run the script
+python3 merge-taxonomy-tables.py
+```
+
+</div>
+
+This section will describe how to recreate Supplementary Figures 2 and 3 in our study:
+
+[![Figure S02](images/Figure_S02.png)](images/Figure_S02.png){:.center-img .width-50}
+[![Figure S03](images/Figure_S03.png)](images/Figure_S03.png){:.center-img .width-50}
+
+To compare the the similarity of donor, recipient and healthy Canadian stool samples, we performed a non-metric multidimensional scaling (nMDS) ordination analysis with Horn-Morisita dissimilarity indices on taxonomic composition data for each sample metagenome. To reproduce this analysis, you can do the following:
+
+```bash
+# download the input files
+for file in metadata-ordination-DA-DB-CAN.txt \
+            taxonomy-genus-DA-DB-CAN.txt;
+do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
+        -o ${file};
+done
+
+# download the scripts
+for file in ordination-run.shx \
+            ordination-plot.R;
+do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
+        -o ${file};
+done
+
+# run the script to generate plots
+bash ordiantion-run.shx
+```
+
+
 <div style="display: block; height: 200px;">&nbsp;</div>
 
