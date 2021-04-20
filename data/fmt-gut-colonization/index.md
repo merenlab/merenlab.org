@@ -718,17 +718,20 @@ Before merging the profiles for each group of samples and exporting taxonomy tab
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/merge-taxonomy-profiles.py \
      -o merge-taxonomy-profiles.py
 
+# make an output directory
+mkdir -p taxonomy-tables
+
 # run the script for each group
-python merge-taxonomy-profiles.py DA*.db DA
-python merge-taxonomy-profiles.py DB*.db DB
-python merge-taxonomy-profiles.py CAN*.db CAN
+python merge-taxonomy-profiles.py taxonomy-profiles/DA*.db taxonomy-tables/DA
+python merge-taxonomy-profiles.py taxonomy-profiles/DB*.db taxonomy-tables/DB
+python merge-taxonomy-profiles.py taxonomy-profiles/CAN*.db taxonom-tables/CAN
 ```
 
-Finally, we cleaned up the taxonomy tables:
+Finally, we cleaned up the taxonomy tables (this optional command works in linux but not in MacOSX):
 
 ```bash
 # get rid of t_*! from taxon names
-for x in *_t_*; do sed -i -r 's/t_\w+?!//g' $x; done
+for x in taxonomy-tables/*_t_*; do sed -i -r 's/t_\w+?!//g' $x; done
 ```
 
 And merged the tables of groups we'd like to compare (the following script is set up to merge DA, DB and CAN, but can be easily modified for a different set of groups):
