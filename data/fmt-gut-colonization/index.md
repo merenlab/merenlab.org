@@ -686,13 +686,13 @@ Next, using the same `samples.txt` file, we created a blank {% include ARTIFACT 
 ```bash
 mkdir -p taxonomy-profiles
 
-while read name r1 r2; do
-    if [ "$name" == "name" ]; then
+while read sample r1 r2; do
+    if [ "$sample" == "sample" ]; then
 		continue
     fi
-    anvi-interactive --profile-db taxonomy-profiles/${name}.db \
-                     --view-data kraken2-output/${name}-kraken2.txt \
-                     --title $name \
+    anvi-interactive --profile-db taxonomy-profiles/${sample}.db \
+                     --view-data kraken2-output/${sample}-kraken2.txt \
+                     --title $sample \
                      --manual \
                      --dry-run
 done < samples.txt
@@ -701,13 +701,13 @@ done < samples.txt
 And imported the kraken2 taxonomy into each profile:
 
 ```bash
-while read name r1 r2; do
-    if [ "$name" == "name" ]; then
+while read sample r1 r2; do
+    if [ "$sample" == "sample" ]; then
         continue
     fi
-    anvi-import-taxonomy-for-layers --profile-db taxonomy-profiles/${name}.db \
+    anvi-import-taxonomy-for-layers --profile-db taxonomy-profiles/${sample}.db \
                                     --parser krakenuniq \
-                                    --input-files kraken2-output/${name}-kraken2.txt
+                                    --input-files kraken2-output/${sample}-kraken2.txt
 done < samples.txt
 ```
 
