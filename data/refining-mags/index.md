@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Refining Metagenome-Assembled Genomes
-modified: 2019-01-15
+modified: 2020-04-15
 excerpt: "Refining oral MAGs from Espinoza et al 2018"
 comments: true
 redirect_from:
