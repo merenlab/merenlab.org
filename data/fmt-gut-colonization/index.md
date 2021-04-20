@@ -766,14 +766,14 @@ do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
 done
 
 # download the scripts
-for file in ordination-run.shx \
+for file in Figure-S02.shx \
             ordination-plot.R;
 do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
         -o ${file};
 done
 
 # run the script to generate plots
-bash ordiantion-run.shx
+bash Figure-S02.shx
 ```
 
 
