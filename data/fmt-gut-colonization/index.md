@@ -747,9 +747,12 @@ python3 merge-taxonomy-tables.py
 
 </div>
 
-This section will describe how to recreate Supplementary Figures 2 and 3 in our study:
+This section will describe how to recreate Supplementary Figure 2 in our study:
 
 [![Figure S02](images/Figure_S02.png)](images/Figure_S02.png){:.center-img .width-50}
+
+And Supplementary Figure 3:
+
 [![Figure S03](images/Figure_S03.png)](images/Figure_S03.png){:.center-img .width-50}
 
 To compare the the similarity of donor, recipient and healthy Canadian stool samples, we performed a non-metric multidimensional scaling (nMDS) ordination analysis with Horn-Morisita dissimilarity indices on taxonomic composition data for each sample metagenome. To reproduce this analysis, you can do the following:
