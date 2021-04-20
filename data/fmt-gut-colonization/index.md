@@ -658,7 +658,7 @@ The analysis in this section uses taxonomic composition tables that were generat
 First, we ran kraken2 on all raw metagenomes (see [Background information](https://merenlab.org/data/fmt-gut-colonization/#background-information)):
 
 ```bash
-mkdir -p kraken2_output
+mkdir -p kraken2-output
 
 while read sample r1 r2; do
     if [ "$sample" == "sample" ]; then
@@ -668,7 +668,8 @@ while read sample r1 r2; do
             --db $DB_PATH \
             --gzip-compressed \
             --use-names \
-            --report kraken2_output/${sample}-kraken2.txt \
+            --report kraken2-output/${sample}-kraken2.txt \
+            --use-mpa-style \
             --threads 10"
 done < samples.txt
 ```
@@ -683,12 +684,14 @@ If you run this command yourself you should replace `$DB_PATH` with the path to 
 Next, using the same `samples.txt` file, we created a blank {% include ARTIFACT name="profile-db" text="anvi'o profile database" %} for each sample:
 
 ```bash
+mkdir -p taxonomy-profiles
+
 while read name r1 r2; do
     if [ "$name" == "name" ]; then
 		continue
     fi
-    anvi-interactive --profile-db ${name}.db \
-                     --view-data kraken2_output/${name}-kraken2.txt \
+    anvi-interactive --profile-db taxonomy-profiles/${name}.db \
+                     --view-data kraken2-output/${name}-kraken2.txt \
                      --title $name \
                      --manual \
                      --dry-run
@@ -702,9 +705,9 @@ while read name r1 r2; do
     if [ "$name" == "name" ]; then
         continue
     fi
-    anvi-import-taxonomy-for-layers --profile-db ${name}.db \
+    anvi-import-taxonomy-for-layers --profile-db taxonomy-profiles/${name}.db \
                                     --parser krakenuniq \
-                                    --input-files kraken2_output/${name}-kraken2.txt
+                                    --input-files kraken2-output/${name}-kraken2.txt
 done < samples.txt
 ```
 

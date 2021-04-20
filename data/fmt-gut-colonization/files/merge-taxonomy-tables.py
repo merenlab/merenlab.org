@@ -2,7 +2,7 @@ import pandas as pd
 
 taxon_levels = ('domain', 'phylum', 'class', 'order', 'family', 'genus', 'species')
 
-groups_to_merge = ('CP', 'KC', 'CAN')
+groups_to_merge = ('DA', 'DB', 'CAN')
 
 group_name = "_".join(groups_to_merge)
 
