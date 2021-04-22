@@ -758,7 +758,7 @@ And Supplementary Figure 3:
 To compare the the similarity of donor, recipient and healthy Canadian stool samples, we performed a non-metric multidimensional scaling (nMDS) ordination analysis with Horn-Morisita dissimilarity indices on taxonomic composition data for each sample metagenome. To reproduce this analysis, you can do the following:
 
 ```bash
-# download the input files
+# download the input data and metadata files
 for file in metadata-ordination-Figure-S02.txt \
             metadata-ordination-Figure-S03.txt \
             taxonomy-genus-DA-DB-CAN.txt \
@@ -767,18 +767,34 @@ do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
         -o ${file};
 done
 
-# download the scripts
+# download the scripts to generate plots
 for file in ordination-plot-groups.R \
             ordination-plot-methods.R;
 do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
         -o ${file};
 done
 
-# run the scripts to generate plots
-Rscript ordination-plot-groups.R taxonomy-genus-DA-DB-CAN.txt metadata-ordination-Figure-S02.txt -m timing -o DA-DB-CAN-genus-groups --title "DA, DB, CAN (genus)"
-Rscript ordination-plot-methods.R taxonomy-genus-DA-DB.txt metadata-ordination-Figure-S03.txt -m timing -o DA-DB-genus-methods --title "DA, DB (genus)"
+# run the scripts and examine output plots:
+# DA-DB-CAN-genus-groups-bars.pdf <- stacked bar chart of taxonomic composition across samples
+# DA-DB-CAN-genus-groups-split.pdf <- ordination plots split by sample
+# DA-DB-CAN-genus-groups-together.pdf <- combined ordination plot (Figure S02)
+# DA-DB-genus-methods-bars.pdf
+# DA-DB-genus-methods-split.pdf
+# DA-DB-genus-methods-together.pdf <- (Figure S03)
+
+Rscript ordination-plot-groups.R taxonomy-genus-DA-DB-CAN.txt \
+                                 metadata-ordination-Figure-S02.txt \
+                                 -m timing \
+                                 -o DA-DB-CAN-genus-groups \
+                                 --title "DA, DB, CAN (genus)"
+Rscript ordination-plot-methods.R taxonomy-genus-DA-DB.txt \
+                                  metadata-ordination-Figure-S03.txt \
+                                  -m timing \
+                                  -o DA-DB-genus-methods \
+                                  --title "DA, DB (genus)"
 ```
 
+The output files 
 
 <div style="display: block; height: 200px;">&nbsp;</div>
 
