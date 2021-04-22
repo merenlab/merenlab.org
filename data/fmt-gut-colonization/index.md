@@ -781,7 +781,6 @@ done
 # DA-DB-genus-methods-bars.pdf
 # DA-DB-genus-methods-split.pdf
 # DA-DB-genus-methods-together.pdf <- (Figure S03)
-
 Rscript ordination-plot-groups.R taxonomy-genus-DA-DB-CAN.txt \
                                  metadata-ordination-Figure-S02.txt \
                                  -m timing \
