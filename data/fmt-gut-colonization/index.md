@@ -793,7 +793,5 @@ Rscript ordination-plot-methods.R taxonomy-genus-DA-DB.txt \
                                   --title "DA, DB (genus)"
 ```
 
-The output files 
-
 <div style="display: block; height: 200px;">&nbsp;</div>
 
