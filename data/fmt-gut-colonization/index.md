@@ -761,22 +761,22 @@ To compare the the similarity of donor, recipient and healthy Canadian stool sam
 # download the input files
 for file in metadata-ordination-Figure-S02.txt \
             metadata-ordination-Figure-S03.txt \
-            taxonomy-genus-DA-DB-CAN.txt;
+            taxonomy-genus-DA-DB-CAN.txt \
+            taxonomy-genus-DA-DB.txt;
 do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
         -o ${file};
 done
 
 # download the scripts
-for file in Figure-S02.shx \
-            Figure-S03.shx \
-            ordination-plot.R;
+for file in ordination-plot-groups.R \
+            ordination-plot-methods.R;
 do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
         -o ${file};
 done
 
 # run the scripts to generate plots
-bash Figure-S02.shx
-bash Figure-S03.shx
+Rscript ordination-plot-groups.R taxonomy-genus-DA-DB-CAN.txt metadata-ordination-Figure-S02.txt -m timing -o DA-DB-CAN-genus-groups --title "DA, DB, CAN (genus)"
+Rscript ordination-plot-methods.R taxonomy-genus-DA-DB.txt metadata-ordination-Figure-S03.txt -m timing -o DA-DB-genus-methods --title "DA, DB (genus)"
 ```
 
 

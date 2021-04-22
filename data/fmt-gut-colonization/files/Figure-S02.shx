@@ -8,7 +8,7 @@ DRAW () {
     echo
     echo
 
-    Rscript visualize.R taxonomy-"$2"-"$1".txt "$1"_metadata.txt -m timing -o $1-$2 --title "$1 ($2)";
+    Rscript ordination-plot-groups.R taxonomy-"$2"-"$1".txt metadata-ordination-Figure-S02.txt -m timing -o $1-$2 --title "$1 ($2)";
 }
 
 for group in DA-DB-CAN
