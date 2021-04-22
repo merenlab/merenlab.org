@@ -781,7 +781,6 @@ done
 # DA-DB-genus-methods-bars.pdf
 # DA-DB-genus-methods-split.pdf
 # DA-DB-genus-methods-together.pdf <- (Figure S03)
-
 Rscript ordination-plot-groups.R taxonomy-genus-DA-DB-CAN.txt \
                                  metadata-ordination-Figure-S02.txt \
                                  -m timing \
@@ -793,8 +792,6 @@ Rscript ordination-plot-methods.R taxonomy-genus-DA-DB.txt \
                                   -o DA-DB-genus-methods \
                                   --title "DA, DB (genus)"
 ```
-
-The output files 
 
 <div style="display: block; height: 200px;">&nbsp;</div>
 
