@@ -31,7 +31,7 @@ If you have any questions and/or if you are unable to find an important piece of
 ## Study description
 
 {:.notice}
-You can find a crude summary of our study [here](https://twitter.com/merenbey/status/1369016402896695298) as a Twitter thread. 
+You can find a crude summary of our study [here](https://twitter.com/merenbey/status/1369016402896695298) as a Twitter thread.
 
 Briefly, our study involves the investigations of human gut metagenomes to understand the ecology of microbes before and after fecal microbiota transplantation (FMT) experiments, and the relevance of emerging ecological principals to inflammatory bowel disease (IBD). For this, we
 
@@ -71,11 +71,11 @@ You can download either or both data packs for donor A (4.14 Gb compressed) and 
 
 ``` bash
 # download donor A data pack:
-curl -L https://ndownloader.figshare.com/files/27334157 \
+curl -L https://ndownloader.figshare.com/files/27452192 \
      -o FMT_DONOR_A_AND_RECIPIENTS.tar.gz
 
 # download donor B data pack:
-curl -L https://ndownloader.figshare.com/files/27334316 \
+curl -L https://ndownloader.figshare.com/files/27452216 \
      -o FMT_DONOR_B_AND_RECIPIENTS.tar.xz
 ```
 
@@ -161,7 +161,7 @@ anvi-refine --profile-db PROFILE.db \
             --collection-name default \
             --bin-id DA_MAG_00052
 ```
- 
+
 Which will open a browser window to display the detection of each contig in the donor A genome `DA_MAG_00052`:
 
 [![MAG_00052](images/MAG_00052.png)](MAG_00052.png){:.center-img .width-50}
@@ -174,27 +174,80 @@ In addition to the examples shown above, these data packs can be used for additi
 
 ## Estimating the global prevalence of donor genomes
 
-To determine the prevalence of donor genomes in 17 different countries, we once again used the anvi'o metagenomics workflow. This time, the workflow (1) recruited reads from 1,984 publicly available gut metagenomes to our donor contigs using bowtie2, (2) profiled mapping results, and (3) summarized MAG collections for downstream analysis.
+{:.notice}
+Details of each publicly available metagenome used and their individual accession IDs are listed in [this supplementary table](https://figshare.com/articles/dataset/Supplementary_Tables/14138405?file=26827166).
+
+To determine the prevalence of donor genomes in 17 different countries, we ran a separate anvi’o metagenomics workflow. This time, the workflow (1) recruited reads from 1,984 publicly available gut metagenomes to our donor contigs using bowtie2, (2) profiled mapping results and (3) summarized the detection of each MAG in each global metagenome.
 
 Included in the resulting summary files is information about the detection of each donor genome in each global metagenome. We summarized the detection results by country, using a minimum detection threshold of 0.25. You can reproduce this step the following way:
 
 ```bash
+# download the input files for donor A (3.7Mb) and donor B (5.2Mb)
+for file in detection-global-DA.txt \
+            detection-global-DB.txt;
+do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
+        -o ${file};
+done
+
 # download the script
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/summarize-global-detection.py \
       -o summarize-global-detection.py
 
-# download the input files [3.7Mb, 5.2Mb]
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-global-DA.txt \
-      -o detection-global-DA.txt
- 
- curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-global-DB.txt \
-      -o detection-global-DB.txt
-
-# run the script and look at the output files [detection-global-by-country-DA.txt, detection-global-by-country-DB.txt]
+# run the script and look at the output files:
+# detection-global-by-country-DA.txt and
+# detection-global-by-country-DB.txt
 python3 summarize-global-detection.py
 ```
 
 ## Investigating the ecological forces driving colonization outcomes
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Recreating input data files (optional steps)</span>
+
+Analyses in the following sections outside of this box use data tables derived from the output of {% include PROGRAM name="anvi-summarize" %}. You can download these tables directly using the instructions in this section, or you can reproduce them yourself using instructions in this box using the primary anvi'o databases you have downloaded as a part of the data packs for the donor A and donor B.
+
+{:.warning}
+To fully reproduce what we did, you need to run {% include PROGRAM name="anvi-summarize" %} with the `--init-gene-coverages` flag. Andrea's laptop run out of memory when testing this, so it is recommended that you only do this if you have a fancy, powerful computer with sufficient resources :( --Andrea.
+
+The following steps will generate the input data tables:
+
+```bash
+# make sure you're in the directory containing the data packs
+ls -l
+
+Apr  1 12:26 FMT_DONOR_A_AND_RECIPIENTS
+Mar 31 17:17 FMT_DONOR_A_AND_RECIPIENTS.tar.gz
+Apr  1 12:30 FMT_DONOR_B_AND_RECIPIENTS
+Mar 31 18:34 FMT_DONOR_B_AND_RECIPIENTS.tar.gx
+
+# run anvi-summarize
+anvi-summarize --pan-or-profile-db FMT_DONOR_A_AND_RECIPIENTS/PROFILE.db \
+               --contigs-db FMT_DONOR_A_AND_RECIPIENTS/CONTIGS.db \
+               --collection-name default \
+               --init-gene-coverages \
+               --output-dir FMT_DONOR_A_AND_RECIPIENTS/SUMMARY
+
+# repeat above step for donor B
+
+# download script to get mean coverage of SCGs
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/make-scg-cov-tables.py \
+     -o make-scg-cov-tables.py
+
+# run script and note the output files:
+# scg-cov-DA.txt and
+# scg-cov-DB.txt
+python3 make-scg-cov-tables.py
+
+# copy other relevant files to working directory to follow the rest of the workflow
+cp FMT_DONOR_A_AND_RECIPIENTS/SUMMARY/bins_across_samples/detection.txt detection-FMT-DA.txt
+cp FMT_DONOR_B_AND_RECIPIENTS/SUMMARY/bins_across_samples/detection.txt detection-FMT-DB.txt
+
+cp FMT_DONOR_A_AND_RECIPIENTS/SUMMARY/bins_across_samples/mean_coverage_Q2Q3.txt mean-cov-DA.txt
+cp FMT_DONOR_B_AND_RECIPIENTS/SUMMARY/bins_across_samples/mean_coverage_Q2Q3.txt mean-cov-DB.txt
+```
+
+</div>
 
 This section will describe how to recreate Figure 2 in our study:
 
@@ -211,45 +264,47 @@ If you want to reproduce this analysis, you can do so with the following steps:
 
 ``` bash
 # download the input files
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/metadata-donor.txt \
-     -o metadata-donor.txt
+for file in metadata-donor.txt \
+            metadata-recipient.txt \
+            metadata-transplants.txt \
+            detection-FMT-DA.txt \
+            detection-FMT-DB.txt \
+            detection-global-by-country-DA.txt \
+            detection-global-by-country-DB.txt;
+do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
+        -o ${file};
+done
 
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/metadata-donor.txt \
-     -o metadata-recipient.txt
+# make sure you have all the files
+ls -l
 
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/metadata-donor.txt \
-     -o metadata-transplants.txt
+total 456
+46K Mar 31 12:30 detection-FMT-DA.txt
+58K Mar 31 12:30 detection-FMT-DB.txt
+42K Mar 31 12:30 detection-global-by-country-DA.txt
+60K Mar 31 12:30 detection-global-by-country-DB.txt
+956B Mar 31 12:30 metadata-donor.txt
+3.9K Mar 31 12:30 metadata-recipient.txt
+592B Mar 31 12:30 metadata-transplants.txt
 
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-FMT-DA.txt \
-     -o detection-FMT-DA.txt
-
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-FMT-DB.txt \
-     -o detection-FMT-DB.txt
-
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-global-by-country-DA.txt \
-     -o detection-global-by-country-DA.txt
-
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/detection-global-by-country-DB.txt \
-     -o detection-global-by-country-DB.txt
-
-# download the script to create mean detection vs. prevalence table
+# download the script to create mean detection vs. prevalence tables
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/make-mean-detec-vs-prev-table.py \
      -o make-mean-detec-vs-prev-table.py
 
 # run the script to make aforementioned tables
-python3 make_mean_detec_vs_prev_table.py
+python3 make-mean-detec-vs-prev-table.py
 
 # download the script to visualize results
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/Figure-02A.R \
      -o Figure-02A.R
 
-# run the script :)
+# run the script to visualize results
 Rscript Figure-02A.R
 ```
 
 Which generates a PDF that looks like this:
 
-[![Figure 02 panel A](images/Figure_02A.png)](images/Figure_02A.png){:.center-img .width-10}
+[![Figure 02 panel A](images/Figure_02A.png)](images/Figure_02A.png){:.center-img .width-50}
 
 ### Defining colonization success and failure
 
@@ -257,26 +312,36 @@ Our preliminary results indicated that FMT may be selecting for fitter microbes 
 
 We began with a simple definition of colonization: a population is absent in a recipient pre-FMT, present in the donor stool samples used for transplantation, and present in the recipient post-FMT. Whereas if a population is present in the donor stool sample used for transplantation and absent in the recipient pre-FMT, it failed to colonize. However, we decided that looking at the presence or absence of population genomes in donor and recipient samples did not provide sufficient resolution. If a population is present in the donor and in the recipient pre-FMT, how do we know if the post-FMT population is native to the recipient or came from the donor? Even if we don't see a population pre-FMT, how do we know that the post-FMT population wasn't already present in the recipient at undetectable levels? To resolve these ambiguities, we used subpopulation, or strain, level information from DESMAN. DESMAN provides the number of subpopulations, or strains, of each population in each metagenome, along with their relative abundances.
 
-This led us to create the definition of colonization, or non-colonization, outlined in Supplementary Figure 4.
+This led us to create the definition of colonization, or non-colonization, outlined in Supplementary Figure 4:
 
-We then used the output of that workflow to measure the correlation of dose and fitness with colonization outcome, to determine whether colonization is driven by neutral or adaptive forces.
+[![Figure S04](images/Figure_S04.png)](images/Figure_S04.png){:.center-img .width-50}
 
-To replicate the process of that workflow, you can do the following:
+To run the above workflow to determine if a population colonized a recipient in our study, you can do the following:
 ```bash
-# download additional files
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/scg-cov-DA.txt \
-     -o scg-cov-DA.txt
-
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/scg-cov-DB.txt \
-     -o scg-cov-DB.txt
+# download additional input files
+for file in scg-cov-DA.txt \
+            scg-cov-DB.txt \
+            subpop-comp-DA.txt \
+            subpop-comp-DB.txt \
+            subpop-num-DA.txt \
+            subpop-num-DB.txt;
+do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
+        -o ${file};
+done
 
 # download the script
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/determine-colonization.py \
      -o determine-colonization.py
 
-# run the script and look at the output files [colonized-DA.txt, colonized-DB.txt, did-not-colonize-DA.txt, did-not-colonize-DB.txt]
+# run the script and look at the output files:
+# colonized-DA.txt,
+# colonized-DB.txt, 
+# did-not-colonize-DA.txt and
+# did-not-colonize-DB.txt
 python3 determine-colonization.py
 ```
+
+We then used the output of this workflow to measure the correlation of dose and fitness with colonization outcome, to determine whether colonization is driven by neutral or adaptive forces.
 
 ### Correlation of dose and fitness with colonization outcome
 
@@ -285,24 +350,54 @@ We used logistic regression to test for a correlation between dose and colonizat
 If you would like to recreate this analysis, you can do so through the following steps:
 
 ```bash
-# download files
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/summary-DA.txt \
-     -o summary-DA.txt
+# download additional files
+for file in mean-cov-DA.txt \
+            mean-cov-DB.txt;
+do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
+        -o ${file};
+done
 
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/summary-DB.txt \
-     -o summary-DB.txt
+# download script to consolidate relevant data
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/make-summary-tables-for-regression.py \
+     -o make-summary-tables-for-regression.py
 
-# download script
-curl -L https://merenlab.org/data/fmt-gut-colonization/files/Figure-02BC.txt \
-     -o Figure-02BC.txt
+# run script to consolidate data
+python3 make-summary-tables-for-regression.py
 
-# run script
+# download script to visualize results
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/Figure-02BC.R \
+     -o Figure-02BC.R
+
+# run script to visualize results
 Rscript Figure-02BC.R
 ```
 
 Which generates a PDF that looks like this:
 
-[![Figure 02 panel B and C](images/Figure_02BC.png)](images/Figure_02BC.png){:.center-img .width-10}
+[![Figure 02 panel B and C](images/Figure_02BC.png)](images/Figure_02BC.png){:.center-img .width-50}
+
+### Correlation of fitness with dose
+
+Our logistic regression analysis showed that fitness was correlated with colonization success in the donor B cohort, and dose was not. This indicates that within the donor B cohort, colonization outcome was likely driven by adaptive, rather than neutral, ecological forces.
+
+However, within the donor A cohort both fitness and dose were correlated with colonization success. The donor A ROC curves suggested a possible correlation between fitness and dose, confounding our ability to determine which of these factors were relevant to colonization outcome. To see if this was the case we performed a linear regression to see if fitness and dose were correlated with one another within each cohort.
+
+To reproduce that analysis, you can follow these steps:
+
+```bash
+# download the script
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/Figure-02D.txt \
+     -o Figure-02D.R
+
+# run the script
+Rscript Figure-02D.R
+```
+
+Which produces a PDF that looks like this:
+
+[![Figure 02 panel D](images/Figure_02D.png)](images/Figure_02D.png){:.center-img .width-50}
+
+Indeed, in donor A populations fitness and dose are correlated with one another, while this is not the case for donor B populations.
 
 ## Investigating metabolic competence among microbial genomes reconstructed from healthy individuals and individuals with IBD
 
@@ -435,7 +530,8 @@ external_genomes <- read.table(file='external-genomes.txt', header = TRUE, sep =
 A quick check to make sure the number of genomes per group makes sense based on what we know about our groups:
 
 ```
-   CROHNS  FMT_HIGH_FITNESS  FMT_LOW_FITNESS   HEALTHY    POUCHITIS       256                20               20       264           44
+   CROHNS  FMT_HIGH_FITNESS  FMT_LOW_FITNESS   HEALTHY    POUCHITIS 
+      256                20               20       264           44
 ```
 
 We then turn the matrix formatted file into a data frame, and add some relevant information per genome using the external genomes file:
@@ -513,7 +609,7 @@ To visualize the ridge-line plots, we first selected a set of modules that diffe
 
 
 ``` R
-# modules_to_display <- c("M00924","M00122", "M00023", "M00028", "M00570", "M00082", "M00844", "M00015",  "M00526", "M00022") 
+# modules_to_display <- c("M00924","M00122", "M00023", "M00028", "M00570", "M00082", "M00844", "M00015",  "M00526", "M00022")
 dfx <- df[df$module %in% modules_to_display, ]
 dfx$module = factor(dfx$module, levels=modules_to_display)
 ```
@@ -550,6 +646,152 @@ for(module in modules_to_display){
 ```
 
 And combined both panels in [Inkscape](https://inkscape.org/) to finalize the figure for publication.
+
+## NMDS ordination of metagenomes by taxonomic composition
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Recreating input data files (optional steps)</span>
+
+The analysis in this section uses taxonomic composition tables that were generated from raw, short-read metagenomes by kraken2 and subseqeuntly merged and reformatted using anvi'o and a few ad hoc scripts. This box describes that workflow for anyone who would like to recreate it, otherwise the final taxonomic composition tables are provided after the box.
+
+First, we ran kraken2 on all raw metagenomes from our study (see [Background information](https://merenlab.org/data/fmt-gut-colonization/#background-information)) and the publicly available Canadian gut metagenomes (see [Estimating the global prevalence of donor genomes](https://merenlab.org/data/fmt-gut-colonization/#estimating-the-global-prevalence-of-donor-genomes):
+
+```bash
+mkdir -p kraken2-output
+
+while read sample r1 r2; do
+    if [ "$sample" == "sample" ]; then
+        continue
+    fi
+    kraken2 --paired $r1 $r2 \
+            --db $DB_PATH \
+            --gzip-compressed \
+            --use-names \
+            --report kraken2-output/${sample}-kraken2.txt \
+            --use-mpa-style \
+            --threads 10"
+done < samples.txt
+```
+
+If you run this command yourself you should replace `$DB_PATH` with the path to the kraken2 database on your computer. You will also need to provide a TAB-delimited `samples.txt` file providing the paths to your R1 and R2 files for each metagenome, formatted this way:
+
+|sample|r1|r2|
+|:--|:--|:--|
+|DA_D_01|DA_D_01_R1.fastq.gz|DA_D_01_R2.fastq.gz|
+|DA_D_02|DA_D_02_R1.fastq.gz|DA_D_02_R2.fastq.gz|
+
+Next, using the same `samples.txt` file, we created a blank {% include ARTIFACT name="profile-db" text="anvi'o profile database" %} for each sample:
+
+```bash
+mkdir -p taxonomy-profiles
+
+while read sample r1 r2; do
+    if [ "$sample" == "sample" ]; then
+		continue
+    fi
+    anvi-interactive --profile-db taxonomy-profiles/${sample}.db \
+                     --view-data kraken2-output/${sample}-kraken2.txt \
+                     --title $sample \
+                     --manual \
+                     --dry-run
+done < samples.txt
+```
+
+And imported the kraken2 taxonomy into each profile:
+
+```bash
+while read sample r1 r2; do
+    if [ "$sample" == "sample" ]; then
+        continue
+    fi
+    anvi-import-taxonomy-for-layers --profile-db taxonomy-profiles/${sample}.db \
+                                    --parser krakenuniq \
+                                    --input-files kraken2-output/${sample}-kraken2.txt
+done < samples.txt
+```
+
+Before merging the profiles for each group of samples and exporting taxonomy tables:
+
+```bash
+# download the script to merge profiles
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/merge-taxonomy-profiles.py \
+     -o merge-taxonomy-profiles.py
+
+# make an output directory
+mkdir -p taxonomy-tables
+
+# run the script for each group
+python merge-taxonomy-profiles.py taxonomy-profiles/DA*.db taxonomy-tables/DA
+python merge-taxonomy-profiles.py taxonomy-profiles/DB*.db taxonomy-tables/DB
+python merge-taxonomy-profiles.py taxonomy-profiles/CAN*.db taxonom-tables/CAN
+```
+
+Finally, we cleaned up the taxonomy tables (this optional command works in linux but not in MacOSX):
+
+```bash
+# get rid of t_*! from taxon names
+for x in taxonomy-tables/*_t_*; do sed -i -r 's/t_\w+?!//g' $x; done
+```
+
+And merged the tables of groups we'd like to compare (the following script is set up to merge DA, DB and CAN, but can be easily modified for a different set of groups):
+
+```bash
+# download the script to merge tables
+curl -L https://merenlab.org/data/fmt-gut-colonization/files/merge-taxonomy-tables.py \
+     -o merge-taxonomy-tables.py
+
+# run the script
+python3 merge-taxonomy-tables.py
+```
+
+</div>
+
+This section will describe how to recreate Supplementary Figure 2 in our study:
+
+[![Figure S02](images/Figure_S02.png)](images/Figure_S02.png){:.center-img .width-50}
+
+And Supplementary Figure 3:
+
+[![Figure S03](images/Figure_S03.png)](images/Figure_S03.png){:.center-img .width-50}
+
+To compare the the similarity of donor, recipient and healthy Canadian stool samples, we performed a non-metric multidimensional scaling (nMDS) ordination analysis with Horn-Morisita dissimilarity indices on taxonomic composition data for each sample metagenome. To reproduce this analysis, you can do the following:
+
+```bash
+# download the input data and metadata files
+for file in metadata-ordination-Figure-S02.txt \
+            metadata-ordination-Figure-S03.txt \
+            taxonomy-genus-DA-DB-CAN.txt \
+            taxonomy-genus-DA-DB.txt;
+do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
+        -o ${file};
+done
+
+# download the scripts to generate plots
+for file in ordination-plot-groups.R \
+            ordination-plot-methods.R;
+do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
+        -o ${file};
+done
+
+# run the scripts and examine output plots:
+# DA-DB-CAN-genus-groups-bars.pdf <- stacked bar chart of taxonomic composition across samples
+# DA-DB-CAN-genus-groups-split.pdf <- ordination plots split by sample
+# DA-DB-CAN-genus-groups-together.pdf <- combined ordination plot (Figure S02)
+# DA-DB-genus-methods-bars.pdf
+# DA-DB-genus-methods-split.pdf
+# DA-DB-genus-methods-together.pdf <- (Figure S03)
+Rscript ordination-plot-groups.R taxonomy-genus-DA-DB-CAN.txt \
+                                 metadata-ordination-Figure-S02.txt \
+                                 -m timing \
+                                 -o DA-DB-CAN-genus-groups \
+                                 --title "DA, DB, CAN (genus)"
+Rscript ordination-plot-methods.R taxonomy-genus-DA-DB.txt \
+                                  metadata-ordination-Figure-S03.txt \
+                                  -m timing \
+                                  -o DA-DB-genus-methods \
+                                  --title "DA, DB (genus)"
+```
 
 <div style="display: block; height: 200px;">&nbsp;</div>
 

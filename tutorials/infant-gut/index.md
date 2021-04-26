@@ -44,20 +44,14 @@ We hope you find the tutorial useful, and generously share your opinions or crit
 
 ## Downloading the pre-packaged Infant Gut Dataset
 
-To download the infant gut data-pack copy-paste the following commands into your terminal:
+To download and unpack [the infant gut data-pack](https://ndownloader.figshare.com/files/26218961), copy-paste the following commands into your terminal:
 
 ``` bash
-wget https://ndownloader.figshare.com/files/26218961 -O INFANT-GUT-TUTORIAL.tar.gz
+curl -L https://ndownloader.figshare.com/files/26218961 -o INFANT-GUT-TUTORIAL.tar.gz
 tar -zxvf INFANT-GUT-TUTORIAL.tar.gz && cd INFANT-GUT-TUTORIAL
 ```
 
-Alternatively (i.e., if you don't have `wget` installed on your system), you can download the same file using [this direct download link](https://ndownloader.figshare.com/files/26218961).
-
-When you click the link, it will start downloading a **210 Mb** compressed file automatically. Once it is done, go to the relevant directory that contains this file using your terminal, and unpack it the following way:
-
-``` bash
-tar -zxvf INFANTGUTTUTORIAL.tar.gz && cd INFANT-GUT-TUTORIAL
-```
+This will download a **210 Mb** compressed file, and unpack it, which will take an additional **490 Mb**.
 
 If you are using a newer version of anvi'o than was the one that was used to generate these databases (perhaps you are following the development branch), you may need to run {% include PROGRAM name="anvi-migrate" %} to get them up to date. If you are not sure whether you need this, do not worry - you could safely skip it and anvi'o would later remind you what exactly needs to be done.
 

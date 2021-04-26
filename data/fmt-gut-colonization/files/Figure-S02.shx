@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Save me as `00_RUN.shx` in your work directory, and run `chmod +x` on me.
+
+DRAW () {
+    echo
+    echo "WORKING ON DATA \"$1\" at $2-level ..."
+    echo
+    echo
+
+    Rscript ordination-plot-groups.R taxonomy-"$2"-"$1".txt metadata-ordination-Figure-S02.txt -m timing -o $1-$2 --title "$1 ($2)";
+}
+
+for group in DA-DB-CAN
+do
+    for level in "genus"
+    do
+        DRAW $group $level
+    done
+done

@@ -1,3 +1,5 @@
+import pandas as pd
+
 # A function to summarize detection of bins in different groups designated by 3-letter sample prefixes
 
 import pandas as pd

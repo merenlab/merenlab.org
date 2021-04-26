@@ -123,7 +123,7 @@ DAY_22A
 
 Which one you're analyzing depends entirely on the `engine` parameter, which you can set to `NT` (nucleotides), `CDN` (codons), or `AA` (amino acids). The default value is nucleotides. Note that to analyze SCVs or SAAVs, you'll have needed to use the flag `--profile-SCVs` when you ran <span class="artifact-n">[anvi-profile](/software/anvio/help/main/programs/anvi-profile)</span>.
 
-For example, to analyze SAAVs, run 
+For example, to analyze SAAVs, run
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
@@ -133,15 +133,14 @@ anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[pr
                              &#45;&#45;engine AA
 </div>
 
-When analyzing single codon variants, you can choose to skip computing synonymity to save on run time, as so: 
+To analyze SCVs, run
 
 <div class="codeblock" markdown="1">
 anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
                              &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
                              &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span> \
                              &#45;b <span class="artifact&#45;n">[bin](/software/anvio/help/main/artifacts/bin)</span> \
-                             &#45;&#45;engine CDN \
-                             &#45;&#45;skip&#45;synonymity
+                             &#45;&#45;engine CDN
 </div>
 
 ### Filtering the output 
