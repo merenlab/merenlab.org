@@ -16,7 +16,7 @@ image:
 
 <span class="extra-info-header">Summary</span>
 
-**The purpose of this page** is to discuss key findings of the study "**[Adaptive ecological processes and metabolic independence drive microbial colonization and resilience in the human gut](https://doi.org/10.1101/2021.03.02.433653)**" by Watson et al.
+**The purpose of this page** is to discuss key findings of the study "**[Metabolic competency drives microbial colonization and resilience in health and disease](https://doi.org/10.1101/2021.03.02.433653)**" by Watson et al.
 
 On this page you will find data and ad hoc scripts for important analyses, results of which discussed in the paper.
 
