@@ -21,7 +21,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **12 Apr 21 20:21:26** for anvi'o version **7-dev (hope)**.
+The help contents were last updated on **16 May 21 13:18:18** for anvi'o version **7-dev (hope)**.
 
 
 {% include _project-anvio-version.html %}
@@ -1149,6 +1149,28 @@ Listed below **a total of 125 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-get-pn-ps-ratio](programs/anvi-get-pn-ps-ratio)**</span>. <span markdown="1">FIXME</span>.
+    </td>
+</tr>
+<tr>
+    <td class="artifact-r-td">
+    <span class="artifact-emoji">🧀</span> <span class="artifact-r" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[variability-profile-txt](artifacts/variability-profile-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr>
+    <td class="artifact-p-td">
+    <span class="artifact-emoji">🍕</span> <span class="artifact-p" markdown="1">[pn-ps-data](artifacts/pn-ps-data) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="width:100%;">
+<table class="programs-table">
+<tbody>
+<tr style="border:none;">
+    <td class="program-td">
         <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-get-sequences-for-gene-calls](programs/anvi-get-sequences-for-gene-calls)**</span>. <span markdown="1">A script to get back sequences for gene calls</span>.
     </td>
 </tr>
@@ -1858,7 +1880,7 @@ Listed below **a total of 125 programs**.
 </tr>
 <tr>
     <td class="artifact-r-td">
-    <span class="artifact-emoji">🧀</span> <span class="artifact-r" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[scgs-taxonomy-db](artifacts/scgs-taxonomy-db) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
+    <span class="artifact-emoji">🧀</span> <span class="artifact-r" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[scgs-taxonomy-db](artifacts/scgs-taxonomy-db) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[hmm-hits](artifacts/hmm-hits) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 <tr>
@@ -2326,28 +2348,6 @@ Listed below **a total of 125 programs**.
 <tr>
     <td class="artifact-p-td">
     <span class="artifact-emoji">🍕</span> <span class="artifact-p" markdown="1">[external-gene-calls](artifacts/external-gene-calls) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
-    </td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<div style="width:100%;">
-<table class="programs-table">
-<tbody>
-<tr style="border:none;">
-    <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-calculate-pn-ps-ratio](programs/anvi-script-calculate-pn-ps-ratio)**</span>. <span markdown="1">FIXME</span>.
-    </td>
-</tr>
-<tr>
-    <td class="artifact-r-td">
-    <span class="artifact-emoji">🧀</span> <span class="artifact-r" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[variability-profile-txt](artifacts/variability-profile-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
-    </td>
-</tr>
-<tr>
-    <td class="artifact-p-td">
-    <span class="artifact-emoji">🍕</span> <span class="artifact-p" markdown="1">[pn-ps-data](artifacts/pn-ps-data) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 </tbody>

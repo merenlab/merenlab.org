@@ -1,9 +1,9 @@
 ---
 layout: page
-title: anvi-script-calculate-pn-ps-ratio [program]
+title: anvi-get-pn-ps-ratio [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-script-calculate-pn-ps-ratio
+redirect_from: /m/anvi-get-pn-ps-ratio
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -11,7 +11,7 @@ image:
 
 FIXME.
 
-See **[program help menu](../../../../vignette#anvi-script-calculate-pn-ps-ratio)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+See **[program help menu](../../../../vignette#anvi-get-pn-ps-ratio)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -67,7 +67,7 @@ This program has some default filtering choices that you should pay mind to. You
 
 
 {:.notice}
-Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-script-calculate-pn-ps-ratio.md) to update this information.
+Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/programs/anvi-get-pn-ps-ratio.md) to update this information.
 
 
 ## Additional Resources
@@ -75,4 +75,4 @@ Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/progra
 
 
 {:.notice}
-Are you aware of resources that may help users better understand the utility of this program? Please feel free to edit [this file](https://github.com/merenlab/anvio/tree/master/bin/anvi-script-calculate-pn-ps-ratio) on GitHub. If you are not sure how to do that, find the `__resources__` tag in [this file](https://github.com/merenlab/anvio/blob/master/bin/anvi-interactive) to see an example.
+Are you aware of resources that may help users better understand the utility of this program? Please feel free to edit [this file](https://github.com/merenlab/anvio/tree/master/bin/anvi-get-pn-ps-ratio) on GitHub. If you are not sure how to do that, find the `__resources__` tag in [this file](https://github.com/merenlab/anvio/blob/master/bin/anvi-interactive) to see an example.
