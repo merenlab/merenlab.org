@@ -16,7 +16,7 @@ image:
 
 <span class="extra-info-header">Summary</span>
 
-**The purpose of this page** is to discuss key findings of the study "**[Adaptive ecological processes and metabolic independence drive microbial colonization and resilience in the human gut](https://doi.org/10.1101/2021.03.02.433653)**" by Watson et al.
+**The purpose of this page** is to discuss key findings of the study "**[Metabolic competency drives microbial colonization and resilience in health and disease](https://doi.org/10.1101/2021.03.02.433653)**" by Watson et al.
 
 On this page you will find data and ad hoc scripts for important analyses, results of which discussed in the paper.
 
@@ -208,7 +208,7 @@ python3 summarize-global-detection.py
 Analyses in the following sections outside of this box use data tables derived from the output of {% include PROGRAM name="anvi-summarize" %}. You can download these tables directly using the instructions in this section, or you can reproduce them yourself using instructions in this box using the primary anvi'o databases you have downloaded as a part of the data packs for the donor A and donor B.
 
 {:.warning}
-To fully reproduce what we did, you need to run {% include PROGRAM name="anvi-summarize" %} with the `--init-gene-coverages` flag. Andrea's laptop run out of memory when testing this, so it is recommended that you only do this if you have a fancy, powerful computer with sufficient resources :( --Andrea.
+To fully reproduce what we did, you need to run {% include PROGRAM name="anvi-summarize" %} with the `--init-gene-coverages` flag. My laptop run out of memory when testing this on my local, so it is recommended that you only do this if you have access to a powerful computer with sufficient resources :( --Andrea.
 
 The following steps will generate the input data tables:
 
@@ -655,7 +655,7 @@ And combined both panels in [Inkscape](https://inkscape.org/) to finalize the fi
 
 The analysis in this section uses taxonomic composition tables that were generated from raw, short-read metagenomes by kraken2 and subseqeuntly merged and reformatted using anvi'o and a few ad hoc scripts. This box describes that workflow for anyone who would like to recreate it, otherwise the final taxonomic composition tables are provided after the box.
 
-First, we ran kraken2 on all raw metagenomes from our study (see [Background information](https://merenlab.org/data/fmt-gut-colonization/#background-information)) and the publicly available Canadian gut metagenomes (see [Estimating the global prevalence of donor genomes](https://merenlab.org/data/fmt-gut-colonization/#estimating-the-global-prevalence-of-donor-genomes):
+First, we ran kraken2 on all raw metagenomes from our study (see [Background information](https://merenlab.org/data/fmt-gut-colonization/#background-information)) and the publicly available Canadian gut metagenomes (see [Estimating the global prevalence of donor genomes](https://merenlab.org/data/fmt-gut-colonization/#estimating-the-global-prevalence-of-donor-genomes)):
 
 ```bash
 mkdir -p kraken2-output

@@ -22,7 +22,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-script-calculate-pn-ps-ratio](../../programs/anvi-script-calculate-pn-ps-ratio)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-get-pn-ps-ratio](../../programs/anvi-get-pn-ps-ratio)</span></p>
 
 
 ## Required or used by
@@ -33,10 +33,10 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-This describes the output of <span class="artifact-n">[anvi-script-calculate-pn-ps-ratio](/software/anvio/help/main/programs/anvi-script-calculate-pn-ps-ratio)</span>, which calculates the pN/pS ratio for each gene in a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>. 
+This describes the output of <span class="artifact-n">[anvi-get-pn-ps-ratio](/software/anvio/help/main/programs/anvi-get-pn-ps-ratio)</span>, which calculates the pN/pS ratio for each gene in a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>. 
 
 {:.notice}
-See the page for <span class="artifact-n">[anvi-script-calculate-pn-ps-ratio](/software/anvio/help/main/programs/anvi-script-calculate-pn-ps-ratio)</span> for an explanation of the pN/pS ratio 
+See the page for <span class="artifact-n">[anvi-get-pn-ps-ratio](/software/anvio/help/main/programs/anvi-get-pn-ps-ratio)</span> for an explanation of the pN/pS ratio 
 
 This describes a directory that contains the following four files: 
 

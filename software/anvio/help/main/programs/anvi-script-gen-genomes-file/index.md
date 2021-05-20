@@ -32,23 +32,40 @@ See **[program help menu](../../../../vignette#anvi-script-gen-genomes-file)** o
 ## Usage
 
 
-This script can automatically generate an external or internal genomes file.
+The primary purpose of this script is to reduce the amount of labor required to generate <span class="artifact-n">[external-genomes](/software/anvio/help/main/artifacts/external-genomes)</span> or <span class="artifact-n">[internal-genomes](/software/anvio/help/main/artifacts/internal-genomes)</span> files anvi'o typically uses to learn about your bins and/or genomes.
 
 ## Generating an external genomes file
+
 If you provide an input directory and a name for the output file, then every <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> in that directory will get a line in the resulting <span class="artifact-n">[external-genomes](/software/anvio/help/main/artifacts/external-genomes)</span> file:
 
 ```
-anvi-script-gen-genomes-file --input-dir path/to/dir -e external_genomes.txt
+anvi-script-gen-genomes-file --input-dir path/to/dir \
+                             --output-file external_genomes.txt
 ```
 
-The name of each database will be whatever string is in front of the `*.db` extension, and the `contigs_db_path` column will contain absolute paths.
+Names for genomes in the the resulting external genomes file will be set based on the `project_name` variable, and the `contigs_db_path` column will contain absolute paths.
+
+{:.notice}
+You can learn the current `project_name` and/or change it for a given <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> using the program <span class="artifact-n">[anvi-db-info](/software/anvio/help/main/programs/anvi-db-info)</span>. This variable is set by the program <span class="artifact-n">[anvi-gen-contigs-database](/software/anvio/help/main/programs/anvi-gen-contigs-database)</span>.
+
+You can also instruct `anvi-script-gen-genomes-file` to include all subdirectories under a given directory path:
+
+```
+anvi-script-gen-genomes-file --input-dir path/to/dir \
+                             --output-file external_genomes.txt \
+                             --include-subdirs
+```
 
 ## Generating an internal genomes file
+
 To get an <span class="artifact-n">[internal-genomes](/software/anvio/help/main/artifacts/internal-genomes)</span> file containing all bins from a collection, provide a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span>, its corresponding <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>, and the <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span> name:
 
-```
-anvi-script-gen-genomes-file -i internal_genomes.txt -c CONTIGS.db -p PROFILE.db -C default
-```
+<div class="codeblock" markdown="1">
+anvi&#45;script&#45;gen&#45;genomes&#45;file &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+                             &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
+                             &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span> \
+                             &#45;&#45;output&#45;file internal&#45;genomes.txt
+</div>
 
 The name of each internal genome will be the same as the bin name, and the path columns will contain absolute paths.
 

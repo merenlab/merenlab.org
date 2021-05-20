@@ -48,7 +48,7 @@ The default minimum score for a gene to be counted is 20.  However, you can set 
 
 <div class="codeblock" markdown="1">
 anvi&#45;scan&#45;trnas &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                &#45;&#45;trna&#45;cut&#45;off&#45;score 10
+                &#45;&#45;trna&#45;cutoff&#45;score 10
 </div>
 
 ### Other options 
