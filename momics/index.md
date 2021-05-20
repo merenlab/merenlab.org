@@ -766,7 +766,7 @@ Not yet, but we are going to put a significant effort to make sure the platform 
 
 > What specific advantage do we get from sequencing tRNA molecules over the actual proteins?
 
-Sequencing nucleic acids produces the largest amount of data per dollar. Proteomics is much more challenging and the scope of data is much more limited. For example, one tRNA-seq library can easily produce 10,000,000 data points and costs $100 (~100,000 sequences per dollar spent), whereas a top-notch proteomic experiment produces up to 100,000 data points and costs around $1,000 in 2019.
+Sequencing nucleic acids produces the largest amount of data per dollar. Proteomics is much more challenging and the scope of data is much more limited. For example, one tRNA-seq library can easily produce 10,000,000 data points and costs 100 dollars (an average of 100,000 sequences per dollar spent), whereas a top-notch proteomic experiment produces up to 100,000 data points and costs around 1,000 dollars in 2020.
 
 Although in reality cost is a critical aspect that determines feasibility, there is more than this. Some proteins are used very rapidly and leave little evidence in the proteome while some others are very rare, and we will never get enough signal to detect them despite their critical importance in cells. It is not so easy to use proteomics to study natural state and stress levels of microbes.
 
