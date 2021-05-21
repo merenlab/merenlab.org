@@ -21,7 +21,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **16 May 21 15:07:42** for anvi'o version **7-dev (hope)**.
+The help contents were last updated on **21 May 21 13:07:46** for anvi'o version **7-dev (hope)**.
 
 
 {% include _project-anvio-version.html %}
@@ -107,7 +107,7 @@ Listed below **a total of 105 artifacts**.
 
 Anvi'o programs perform atomic tasks that can be weaved together to implement complete 'omics workflows. Please note that there may be programs that are not listed on this page. You can type 'anvi-' in your terminal, and press the TAB key twice to see the full list of programs available to you on your system, and type `anvi-program-name --help` to read the full list of command line options.
 
-Listed below **a total of 125 programs**.
+Listed below **a total of 128 programs**.
 
 
 <div style="width:100%;">
@@ -181,12 +181,56 @@ Listed below **a total of 125 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-compute-functional-enrichment](programs/anvi-compute-functional-enrichment)**</span>. <span markdown="1">This is a driver program for `anvi-script-enrichment-stats`, a script that computes enrichment scores and group associations for annotated entities (ie, functions, KEGG Modules) across groups of genomes or samples.</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-compute-functional-enrichment](programs/anvi-compute-functional-enrichment)**</span>. <span markdown="1">A program that is no more. Read on</span>.
     </td>
 </tr>
 <tr>
     <td class="artifact-r-td">
-    <span class="artifact-emoji">🧀</span> <span class="artifact-r" markdown="1">[kegg-metabolism](artifacts/kegg-metabolism) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[groups-txt](artifacts/groups-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[misc-data-layers](artifacts/misc-data-layers) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[pan-db](artifacts/pan-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[genomes-storage-db](artifacts/genomes-storage-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[external-genomes](artifacts/external-genomes) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[internal-genomes](artifacts/internal-genomes) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[functions](artifacts/functions) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
+    <span class="artifact-emoji">🧀</span> 
+    </td>
+</tr>
+<tr>
+    <td class="artifact-p-td">
+    <span class="artifact-emoji">🍕</span> <span class="artifact-p" markdown="1">[functional-enrichment-txt](artifacts/functional-enrichment-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="width:100%;">
+<table class="programs-table">
+<tbody>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-compute-functional-enrichment-across-genomes](programs/anvi-compute-functional-enrichment-across-genomes)**</span>. <span markdown="1">A program that computes functional enrichment across groups of genomes.</span>.
+    </td>
+</tr>
+<tr>
+    <td class="artifact-r-td">
+    <span class="artifact-emoji">🧀</span> <span class="artifact-r" markdown="1">[groups-txt](artifacts/groups-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[genomes-storage-db](artifacts/genomes-storage-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[external-genomes](artifacts/external-genomes) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[internal-genomes](artifacts/internal-genomes) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[functions](artifacts/functions) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr>
+    <td class="artifact-p-td">
+    <span class="artifact-emoji">🍕</span> <span class="artifact-p" markdown="1">[functional-enrichment-txt](artifacts/functional-enrichment-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="width:100%;">
+<table class="programs-table">
+<tbody>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-compute-functional-enrichment-in-pan](programs/anvi-compute-functional-enrichment-in-pan)**</span>. <span markdown="1">A program that computes functional enrichment within a pangenome.</span>.
+    </td>
+</tr>
+<tr>
+    <td class="artifact-r-td">
+    <span class="artifact-emoji">🧀</span> <span class="artifact-r" markdown="1">[misc-data-layers](artifacts/misc-data-layers) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[pan-db](artifacts/pan-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[genomes-storage-db](artifacts/genomes-storage-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[functions](artifacts/functions) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 <tr>
@@ -236,6 +280,28 @@ Listed below **a total of 125 programs**.
 <tr>
     <td class="artifact-p-td">
     <span class="artifact-emoji">🍕</span> <span class="artifact-p" markdown="1">[genome-similarity](artifacts/genome-similarity) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div style="width:100%;">
+<table class="programs-table">
+<tbody>
+<tr style="border:none;">
+    <td class="program-td">
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-compute-metabolic-enrichment](programs/anvi-compute-metabolic-enrichment)**</span>. <span markdown="1">A program that computes metabolic enrichment acros groups of genomes and metagenomes</span>.
+    </td>
+</tr>
+<tr>
+    <td class="artifact-r-td">
+    <span class="artifact-emoji">🧀</span> <span class="artifact-r" markdown="1">[kegg-metabolism](artifacts/kegg-metabolism) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[groups-txt](artifacts/groups-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[external-genomes](artifacts/external-genomes) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[internal-genomes](artifacts/internal-genomes) <img src="images/icons/TXT.png" class="artifact-icon-mini" /></span> <span class="artifact-r" markdown="1">[functions](artifacts/functions) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
+    </td>
+</tr>
+<tr>
+    <td class="artifact-p-td">
+    <span class="artifact-emoji">🍕</span> <span class="artifact-p" markdown="1">[functional-enrichment-txt](artifacts/functional-enrichment-txt) <img src="images/icons/TXT.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 </tbody>
