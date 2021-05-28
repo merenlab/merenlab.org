@@ -204,7 +204,7 @@
 - alias: matthew
   official: True
   name: Matthew Lawrence Klein
-  web: http://matthewlawrencekle.in 
+  web: http://matthewlawrencekle.in
   github: matthewlawrenceklein
   linkedin: matthew-lawrence-klein
   tenure_start: 11/2020
@@ -233,6 +233,21 @@
 ####################################################################################
 # Non-member friends
 ####################################################################################
+
+- alias: chiara
+  contributor: True
+  name: Chiara Vanni
+  avatar: bio-chiara.jpg
+  email: cvanni@mpi-bremen.de
+  orcid: 0000-0002-1124-1147
+  github: ChiaraVanni
+  web: https://scholar.google.com/citations?user=0-KzK6MAAAAJ&hl=en
+  role: Contributing hero
+  twitter: ChiaraVanni5
+  affiliations:
+    - title: Graduate Student
+      inst: Max Planck Institute for Marine Microbiology
+      inst_link: https://mpi-bremen.de
 
 - alias: ryan
   contributor: True
