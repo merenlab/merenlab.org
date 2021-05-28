@@ -11,14 +11,19 @@ image:
 
 {% include _toc.html %}
 
-
 <div class="extra-info" markdown="1">
 
 <span class="extra-info-header">Summary</span>
 
-**The purpose of this page** is to discuss key findings of the study "**[Metabolic competency drives microbial colonization and resilience in health and disease](https://doi.org/10.1101/2021.03.02.433653)**" by Watson et al.
+**The purpose of this page** is to provide access to reproducible data products that underlie our key findings in the study "**[Metabolic competency drives microbial colonization and resilience in health and disease](https://doi.org/10.1101/2021.03.02.433653)**" by Watson et al.
 
-On this page you will find data and ad hoc scripts for important analyses, results of which discussed in the paper.
+In addition to the following data items, un this page you will find command lines and ad hoc scripts for important analyses, results of which discussed in the paper:
+
+* [PRJNA701961](https://www.ncbi.nlm.nih.gov/bioproject/?term=prjna701961): The **raw sequencing data for donor and recipient metagenomes**.
+* [doi:10.6084/m9.figshare.14331236](https://doi.org/10.6084/m9.figshare.14331236): Data products that give reproducible access to **donor and recipient metagenomes, metagenome-assembled genomes, and read recruitment results**.
+* [doi:10.6084/m9.figshare.14225840](https://doi.org/10.6084/m9.figshare.14225840): Data products that give reproducible access to **genomes and their metabolic potential** we have used to investigatie metabolic competence among microbes from healthy individuals and individuals with IBD.
+* [doi:10.6084/m9.figshare.14138405](https://doi.org/10.6084/m9.figshare.14138405): Supplementary Tables.
+
 
 </div>
 
@@ -27,11 +32,24 @@ If you have any questions and/or if you are unable to find an important piece of
 
 {% include _join-anvio-slack.html %}
 
+<div class="pub_float">
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1101/2021.03.02.433653"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1101/2021.03.02.433653" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1101/2021.03.02.433653" target="_new">Adaptive ecological processes and metabolic independence drive microbial colonization and resilience in the human gut</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Watson AR</span>, Füssel J, <span class="pub-member-author">Veseli I</span>, DeLongchamp JZ, Silva M, <span class="pub-member-author">Trigodet F</span>, <span class="pub-member-author">Lolans K</span>, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Fogarty EC</span>, Quince C, Yu MK, Söylev A, Morrison HG, Lee ST, Rubin DT, Jabri B, Louie T, <span class="pub-member-author">Eren AM</span></span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/watson_et_al_fmt.jpeg"><img src="/images/pubs/watson_et_al_fmt.jpeg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);" /></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A Fecal Microbiota Transplantation (FMT) study that reveals unexpected parallels between the <b>adaptive ecological processes</b> that shape the recipient gut <b>microbial composition after FMT</b> and those that influence <b>microbial diversity in patients with Inflammatory Bowel Disease (IBD)</b>.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- Includes an observation that links <b>the presence of superior metabolic competence in bacterial populations to their expansion in IBD</b>.</span><br /><span style="display: inline-block; padding-bottom: 5px;">-  Here is a <a href="https://twitter.com/merenbey/status/1369016402896695298" target="_blank">Twitter thread</a> that explains <b>key points</b> of the study.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><b>bioRxiv</b> <a href="https://doi.org/10.1101/2021.03.02.433653" target="_blank">🔗</a></span>
+</div>
+
 
 ## Study description
-
-{:.notice}
-You can find a crude summary of our study [here](https://twitter.com/merenbey/status/1369016402896695298) as a Twitter thread.
 
 Briefly, our study involves the investigations of human gut metagenomes to understand the ecology of microbes before and after fecal microbiota transplantation (FMT) experiments, and the relevance of emerging ecological principals to inflammatory bowel disease (IBD). For this, we
 
