@@ -34,9 +34,11 @@ A sequence that you know something about. In the context of metagenomics, it oft
 {:data-tags="read recruitment"}
 ### Read recruitment
 
-A set of computational strategies to align sequencing reads to one or more reference sequences. Also known as 'mapping'.
+A set of computational strategies to align sequencing reads to one or more reference sequences. Also known as 'read mapping', or simply 'mapping'.
 
-In the context of metagenomics, read recruitment allows one to estimate the coverage of a given reference sequence in a given metagenome by identifying all short reads that match to it. Understanding this strategy, along with its power and caveats, is one of the most important steps to fully appreciate most ‘omics strategies and the ways they lend themselves to study the ecology and evolution of microbial populations.
+In the context of metagenomics, read recruitment allows one to estimate whether a given sequence is present in a given metagenome. This is done by 'recruiting' all reads from a metagenome that matches to any part of the reference sequence. Understanding this strategy, along with its power and caveats, is one of the most important steps to fully appreciate most ‘omics strategies and the ways they lend themselves to study the ecology and evolution of microbial populations.
+
+Read recruitment typically yields two quantities to make sense of a given sequence in the context of a given metagenome: coverage, and detection.
 
 {:data-tags="coverage"}
 ### Coverage
@@ -44,6 +46,24 @@ In the context of metagenomics, read recruitment allows one to estimate the cove
 Average number of sequencing reads that map to each nucleotide position in a reference. Also known as 'depth of coverage'.
 
 ![coverage](../images/momics/coverage.gif)
+
+Also known as 'depth of coverage'.
+
+{:data-tags="detection"}
+### Detection
+
+The proportion of nucleotides in a given reference sequence that are covered by at least one short read.
+
+The detection metric can help determine whether the coverage of a sequence is likely due to non-specific read recruitment:
+
+![detection](../images/momics/detection.png){:.center-img .width-60}
+
+Also known as 'breadth of coverage'.
+
+{:data-tags="non-specific read recruitment"}
+### Non-specific read recruitment
+
+Recruitment of short reads from an environment to a reference sequence context due to local sequence homology between unrelated populations (i.e., recruiting reads from an environment even if they are not coming from a population of interest). This signal can result in variation in coverage values, or result in misleading conclusions regarding the presence of a population in a given environment due to incorrect coverage estimates. Not coverage, but the detection metric can be useful to identify cases of non-specific read recruitment.
 
 {:data-tags="<contig>,<contigs>"}
 ### Contig

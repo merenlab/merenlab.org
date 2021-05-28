@@ -13,7 +13,7 @@ authors: [mike]
 {% capture images %}{{site.url}}/images/anvio/2018-12-01-combining-annotation-sources-for-pan{% endcapture %}
 
 {:.notice}
-This tutorial was written using anvi'o `v5.2`.  
+This tutorial was initially written using anvi'o `v5.2`, but has been updated to include the later addition of `anvi-script-process-genbank`.  
 
 
 ## Introduction
@@ -25,7 +25,7 @@ It is also possible that you may have already annotated your new isolate or meta
 The purpose of this post is to demonstrate a way to incorporate new genomes with reference genomes from NCBI, while maintaining their vetted reference-genome annotations.
 
 {:.warning}
-The content of this post is a little hacky, but it's the only way I've figured out how to do it so far – plus it's fun because we get to play with BASH 😃
+The content of this post is a little hacky, but it's the only way I've figured out how to do it so far – plus it's fun because we get to play with Unix 😃
 
 ## Data
 
@@ -88,32 +88,45 @@ cat *_ref.gbff > all_refs.gbff
 
 And now we need to parse this GenBank file into the needed files for generating our contigs database. 
 
-Fortunately, some incredible person, [ahem](https://media.giphy.com/media/3o7bu5EmEyJr15fTK8/giphy.gif), already wrote an anvi'o program to do just that: `anvi-script-genbank-to-external-gene-calls`.
+We can use the program `anvi-script-process-genbank` within anvi'o to do this. Because anvi'o expects the gene-calling annotation source of all genomes being incorporated into a pangenome analysis to be the same, we are going to specify the `--annotation-source` as "prodigal", even though the NCBI PGAP annotations were [done a little more extensively](https://www.ncbi.nlm.nih.gov/genome/annotation_prok/process/): 
 
-Unfortunately, because that same incredible person is an amateur, he just discovered some bugs in his code, so unless you're using the [active codebase](/2016/06/26/installation-v2/#installing-or-updating-from-the-active-codebase-because-why-not), the copy you have in your anvi'o `v5.2` will won't work properly at the moment :( So you should probably download the fixed version of the same script for now:
+```bash
+anvi-script-process-genbank -i all_refs.gbff \
+                            --output-gene-calls all_refs_gene_calls.tsv \
+                            --output-functions all_refs_functions.tsv \
+                            --output-fasta all_refs.fa \
+                            --annotation-source prodigal
+```
+---
+<h4>Side Note </h4>
 
-``` bash
-curl -O https://raw.githubusercontent.com/AstrobioMike/bioinf_tools/master/anvi-script-genbank-to-external-gene-calls-v2.py
+If you are working with NCBI genbank files that are not yet publicly available, you may get an error from `anvi-script-process-genbank` due to the genbank file not being in the "proper" format that is expected by the underlying biopython module that handles parsing it. I have a small program in my [bioinformatics tools](https://github.com/AstrobioMike/bioinf_tools#bioinformatics-tools-bit){:target="_blank"} package to get around this. If needed, we can install that with conda like so (it'd be best to put it in its own environment, not within the anvi'o environment):
+
+```bash
+conda create -y -n bit -c conda-forge -c bioconda -c defaults -c astrobiomike bit
+conda activate bit
 ```
 
-Because anvi'o expects the gene-calling annotation source of all genomes being incorporated into a pangenome analysis to be the same, we are going to specify the `--gene_call_source` as "prodigal", even though the NCBI PGAP annotations were [done a little more extensively](https://www.ncbi.nlm.nih.gov/genome/annotation_prok/process/): 
+Then we can clean up the format with the following command (renaming it afterwards to match the code above):
 
-``` bash
-python anvi-script-genbank-to-external-gene-calls-v2.py -i all_refs.gbff \
-                                                        -o all_refs_gene_calls.tsv \
-                                                        -a all_refs_functions.tsv \
-                                                        -f all_refs.fa \
-                                                        --gene_call_source prodigal
+```bash
+bit-genbank-locus-clean-slate -i all_refs.gbff -o all_refs.gbff-clean
+mv all_refs.gbff-clean all_refs.gbff
 ```
 
-This output 3 files: 1) an external gene calls file, `all_refs_gene_calls.tsv`; 2) a FASTA file, `all_refs.fa`; and 3) a functional annotation file, `all_refs_functions.tsv`. Files 1 and 2 are needed for creating our contigs database, and file 3 right after that to import our functional annotations. But right now all 3 of these just hold the reference genomes. That's fine for the annotations file (3) at this point because the reference genomes have no annotations yet. But we need to add gene calls (to file 1) and sequences (to file 2) for our new genomes in order to be able to create our contigs database with all. 
+And after switching back out of the `bit` environment into the proper anvi'o environment, we'd be ready to use the `anvi-script-process-genbank` command above 🙂
+
+<h4>Now back to our regularly scheduled post</h4>
+---
+
+`anvi-script-process-genbank` outputs 3 files: 1) an external gene calls file, `all_refs_gene_calls.tsv`; 2) a FASTA file, `all_refs.fa`; and 3) a functional annotation file, `all_refs_functions.tsv`. Files 1 and 2 are needed for creating our contigs database, and file 3 right after that to import our functional annotations. But right now all 3 of these just hold the reference genomes. That's fine for the annotations file (3) at this point because the reference genomes have no annotations yet. But we need to add gene calls (to file 1) and sequences (to file 2) for our new genomes in order to be able to create our contigs database with all. 
 
 ### Calling genes for the newly recovered genomes and combining with reference files
 First we're going to clean the headers of our new genome FASTA files with `anvi-script-reformat-fasta`, and explicitly add the genome identifier. This will help us with creating our collection later.
 
 Then we're going to call genes on our new genomes so we can add them to the `all_refs_gene_calls.tsv` file we just created. We will do this with `prodigal` (v2.6.3 here) on our own, and then add them ourselves.
 
-We'll run these here in a loop – if you are new to BASH and/or loops and want to learn their awesome power, check out [this page here](https://astrobiomike.github.io/bash/for_loops) :)
+We'll run these here in a loop – if you are new to a Unix-like command line and/or loops and want to learn their awesome power, check out [this page here](https://astrobiomike.github.io/unix/for-loops) :)
 
 ``` bash
 for genome in $(ls *.fna | cut -f1 -d ".")
@@ -137,7 +150,7 @@ cat all_refs.fa *_clean.fa > all_genomes.fa
 ```
 
 {:.notice}
-Here is where the command-line stuff is going to start getting a little heavy. If you aren't comfortable with BASH yet, and want to get better acquainted, a good place to start is [here](https://astrobiomike.github.io/bash/basics) :) 
+Here is where the command-line stuff is going to start getting a little heavy. If you aren't comfortable with it yet, and want to get better acquainted (which is *infinitely* worthwhile if you are going to be doing this stuff at all regularly), a great place to start is [here](https://astrobiomike.github.io/unix/unix-intro) :) 
 
 Here we are going to parse the gff files from `prodigal` to match the formatting for the anvi'o external gene calls file. This is a tab-delimited file (with a header) with 6 columns: "gene_callers_id", "contig", "start", "stop", "direction", "partial", "source", and "version". Here is one way to build those last 5 columns: 
 

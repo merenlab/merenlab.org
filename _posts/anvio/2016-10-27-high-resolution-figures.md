@@ -35,11 +35,19 @@ If you have an anvi'o state named `default` stored in your profile database, you
 
 We use [Inkscape](https://inkscape.org/en/) for pretty much everything. Not only because it is open-source, but also because it is truly one of the best vector graphics editors available.
 
-Although Inkscape can handle pretty large files, working with files that contain tens of thousands of SVG objects can quickly become a major pain. Our solution is to convert those SVG files into high-resolution PNG files first. Because Inkscape is awesome, you can do it from the command line by simply typing this:
+Although Inkscape can handle pretty large files, working with files that contain tens of thousands of SVG objects can quickly become a major pain. Our solution is to convert those SVG files into high-resolution PNG files first. Because Inkscape is awesome, and you can do it from the command line by simply typing this in its older versions:
 
 {% highlight bash %}
 $ inkscape --without-gui -f input.svg --export-png output.png -d 300 -D
 {% endhighlight %}
+
+
+Or this in the newer vrsions:
+
+{% highlight bash %}
+$ inkscape --export-area-drawing input.svg --export-type="png" -d 300
+{% endhighlight %}
+
 
 {:.notice}
 Depending on the system you are using, you may need to provide full paths for the SVG file and for the output PNG file. If you get a "file not found" error, try providing full paths.

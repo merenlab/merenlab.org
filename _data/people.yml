@@ -16,7 +16,7 @@
   fax: +1-773-702-2281
   skype: a.murat.eren
   address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9118, Chicago, IL 60637 USA
-  bio: "I am a computer scientist with a deep appreciation for the complexity of life. I design algorithms and experiments to better understand microbes and their ecology."
+  bio: "I am a computer scientist with a deep appreciation for the complexity of life. I design algorithms and experiments to better understand microbes and their ecology. [photos: <a href='https://photos.app.goo.gl/5MiXqMyh1BmwaX9K9'>1</a>, <a href='https://photos.app.goo.gl/QXpHn8XJYG1gs9SGA'>2</a>, <a href='https://photos.app.goo.gl/12oTCyULisDNjibQ7'>3</a>]."
   affiliations:
     - title: MBL Fellow
       inst: Marine Biological Laboratory
@@ -82,39 +82,6 @@
       inst: The Biophysical Sciences Program at the University of Chicago
       inst_link: http://biophysics.uchicago.edu/
 
-- alias: ozcan
-  official: True
-  name: Özcan C. Esen
-  tenure_start: 02/2016
-  role: Software guru, local hacker
-  email: ozcanesen@gmail.com
-  twitter: ozcanesen
-  avatar: bio-ozcan.jpg
-  github: ozcan
-  web: http://blog.ozcanesen.com/
-  bio: "As a computer engineer I strive to utilize my expertise to investigate challenges in microbial ecology, metagenomics, and visualization of complex data."
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  affiliations:
-    - title: Programmer
-      inst: The Department of Medicine at the University of Chicago
-      inst_link: http://medicine.uchicago.edu/
-
-- alias: mahmoud
-  official: True
-  name: Mahmoud Yousef
-  tenure_start: 05/2017
-  avatar: bio-mahmoud.jpg
-  role: Undergraduate Researcher
-  email: mahmoudyousef@uchicago.edu
-  linkedin: mahmoud-yousef-314198128/
-  github: mahmoudyousef98
-  bio: "I am interested in exploring the intersection of bioinformatics and medicine, and how bioinformatic techniques can be used to advance the quality of medicine."
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  affiliations:
-     - title: Undergraduate Student
-       inst: Department of Computer Science at the University of Chicago
-       inst_link: https://www.cs.uchicago.edu/
-
 - alias: matt
   official: True
   name: Matthew Schechter
@@ -132,23 +99,6 @@
     - title: Graduate Student
       inst: Committee on Microbiology at the University of Chicago
       inst_link: https://biomedsciences.uchicago.edu/page/microbiology
-
-- alias: abby
-  official: True
-  name: Abigail Schmid
-  tenure_start: 02/2016
-  role: Undergraduate Researcher
-  email: abigailcschmid@uchicago.edu
-  avatar: bio-abby.jpg
-  linkedin: abigailschmid
-  orcid: 0000-0002-7685-864X
-  twitter: schmidabby
-  bio: "I am interested in using applied mathematics and computational techniques to answer questions about microbial life."
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  affiliations:
-    - title: Undergraduate Student
-      inst: Computational and Applied Mathematics
-      inst_link: http://collegecatalog.uchicago.edu/thecollege/caam/
 
 - alias: emily
   official: True
@@ -182,21 +132,6 @@
       inst: The University of Chicago Section of Gastroenterology, Hepatology and Nutrition
       inst_link: https://medicine.uchicago.edu/sections/gastroenterology-hepatology-nutrition/
 
-- alias: joe
-  official: True
-  name: Joe Runde
-  tenure_start: 07/2018
-  role: Physician Researcher, Gastroenterology Fellow
-  email: joseph.runde@uchospitals.edu
-  github: jrunde1
-  avatar: bio-joe.jpg
-  address: The University of Chicago, 5841 S. Maryland Ave., Rm C-474, MC 4065, Chicago, IL 60637 USA
-  bio: "I am interested in genome-resolved investigations of gut metagenomes of children with inflammatory bowel disease."
-  affiliations:
-    - title: Pediatric Gastroenterology Fellow
-      inst: Section of Pediatric Gastroenterology, Hepatology and Nutrition at the University of Chicago
-      inst_link: http://pediatrics.uchicago.edu/education/fellowship/gastroenterology
-
 - alias: iva
   official: True
   name: Iva Veseli
@@ -208,11 +143,14 @@
   linkedin: iva-veseli
   avatar: bio-iva.jpg
   address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  bio: "I am a computer scientist/biologist who likes leveraging computational methods to explore biological data. Currently, I am studying biogeography and ecology of the gut microbiome."
+  bio: "I am a computer scientist/biologist who leverages computational methods to explore biological data. Currently, I am studying microbial metabolism in environmental metagenomes."
   affiliations:
     - title: Graduate Student
       inst: The Biophysical Sciences Program at the University of Chicago
       inst_link: http://biophysics.uchicago.edu/
+    - title: Fellow
+      inst: NSF Graduate Research Fellowship Program
+      inst_link: https://www.nsfgrfp.org/
 
 - alias: sam
   official: True
@@ -229,6 +167,54 @@
   bio: "I study how microbes function in their environments by developing and applying computational tools to interpret data from approaches such as tRNA-sequencing, proteomics, and metagenomics."
   affiliations:
     - title: Post-doctoral Scientist
+      inst: The Department of Medicine at the University of Chicago
+      inst_link: http://medicine.uchicago.edu/
+
+- alias: isaac
+  official: True
+  name: Isaac Fink
+  tenure_start: 04/2020
+  role: Undergraduate Researcher
+  email: iafink@uchicago.edu
+  avatar: bio-isaac.png
+  orcid: 0000-0003-3930-029X
+  bio: “I am interested in enhancing the power and accessibility of computational tools that analyze the microbiome.”
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  affiliations:
+    - title: Undergraduate Student
+      inst: Computer Science
+      inst_link: http://collegecatalog.uchicago.edu/thecollege/computerscience/
+
+- alias: ibrahim
+  official: True
+  name: Ibrahim Mohamed
+  tenure_start: 07/2020
+  role: Undergraduate Researcher
+  email: ibrahimemohamed33@gmail.com
+  github: ibrahimmohamed33
+  avatar: bio-ibrahim.png
+  orcid: 0000-0002-1130-5454
+  bio: “I am a student researcher interested in applying concepts from mathematics and computer science to understand and analyze metagenomes.”
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  affiliations:
+    - title: Undergraduate Student
+      inst: Mathematics
+      inst_link: http://collegecatalog.uchicago.edu/thecollege/mathematics/
+
+- alias: matthew
+  official: True
+  name: Matthew Lawrence Klein
+  web: http://matthewlawrencekle.in 
+  github: matthewlawrenceklein
+  linkedin: matthew-lawrence-klein
+  tenure_start: 11/2020
+  role: Programmer
+  email: mtt.l.kln@gmail.com
+  avatar: bio-matthew_k.png
+  bio: “I am interested in technology's role in supporting a more equitable future on planet earth.”
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  affiliations:
+    - title: Programmer
       inst: The Department of Medicine at the University of Chicago
       inst_link: http://medicine.uchicago.edu/
 
@@ -375,9 +361,84 @@
       inst: Smithsonian Tropical Research Institute
       inst_link: https://stri.si.edu/
 
+- alias: antonio
+  guest: True
+  avatar: bio-antonio.png
+  name: Antonio Fernandez-Guerra
+  email: antonio@metagenomics.eu
+  role: Guest writer
+  orcid: 0000-0002-8679-490X
+  web: https://dark.metagenomics.eu
+  affiliations:
+    - title: Assistant Professor
+      inst: Lundbeck Foundation GeoGenetics Centre, The GLOBE Institute, University of Copenhagen
+      inst_link: https://globe.ku.dk/research/geogenetics/
+
+
 ####################################################################################
 # Previous members.
 ####################################################################################
+
+- alias: jessica
+  nick_name: Jessica
+  official: True
+  name: Jessica Pan
+  current_info: an undergraduate student at the <a href="https://www.mit.edu/" target="_blank">Massachusetts Institute of Technology</a>
+  contributions: Jessica has joined our lab as a high-school student and made significant contributions to the completely brand-new <a href="https://merenlab.org/software/anvio/help/main/" _target="blank">anvi'o help system</a>
+  tenure_start: 06/2019
+  tenure_end: 09/2020
+  role: Undergraduate Researcher
+  email: jnpan@mit.edu
+  avatar: bio-jessica.png
+  github: Jessica-Pan
+  orcid: 0000-0002-6743-6146
+  bio: "I am interested in using computational strategies to investigate microbial ecosystems and working to make those techniques more accessible to others."
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  affiliations:
+    - title: Undergraduate Student
+      inst: Massachusetts Institute of Technology
+      inst_link: http://web.mit.edu/
+
+
+- alias: abby
+  nick_name: Abby
+  official: True
+  name: Abigail Schmid
+  current_info: a computational modeling Post-Bac student at the <a href="https://www.lanl.gov/" target="_blank">Los Alamos National Laboratory</a>
+  contributions: Abby joined our group as an undergraduate researcher and used pangenomics and metagenomics for high-throughput characterization on hypervariable genomic islands of some of the most prevalent members of the human microbiome. Her work left behind a treasure trove of insights into some of the most interesting parts of microbial genomes
+  tenure_start: 10/2017
+  tenure_end: 09/2020
+  role: Undergraduate Researcher
+  email: abigailcschmid@uchicago.edu
+  avatar: bio-abby.jpg
+  linkedin: abigailschmid
+  orcid: 0000-0002-7685-864X
+  twitter: schmidabby
+  bio: "I am interested in using applied mathematics and computational techniques to answer questions about microbial life."
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  affiliations:
+    - title: Undergraduate Student
+      inst: Computational and Applied Mathematics
+      inst_link: http://collegecatalog.uchicago.edu/thecollege/caam/
+
+
+- alias: joe
+  nick_name: Joe
+  name: Joe Runde
+  tenure_start: 07/2018
+  tenure_end: 07/2020
+  current_info: an Assistant Professor at the <a href="https://www.luriechildrens.org/">Lurie Children's Hospital</a>, <a href="https://www.northwestern.edu/">Northwestern University</a>
+  contributions: In addition to serving as a Physician Researcher at the University of Chicago Medicine, Joe joined our group to study with us the microbial community dynamics in Chron's disease during Exclusive Enteral Nutrition therapy. His dedication and passion had a huge influence on our lab culture and dynamics
+  official: True
+  role: Physician Researcher
+  email: jrunde1@gmail.com
+  github: jrunde1
+  avatar: bio-joe.jpg
+  bio: "I am interested in genome-resolved investigations of gut metagenomes of children with inflammatory bowel disease."
+  affiliations:
+    - title: Pediatric Gastroenterology Fellow
+      inst: Section of Pediatric Gastroenterology, Hepatology and Nutrition at the University of Chicago
+      inst_link: http://pediatrics.uchicago.edu/education/fellowship/gastroenterology
 
 - alias: alon
   nick_name: Alon
@@ -395,12 +456,52 @@
   linkedin: alon-shaiber
   skype: alon.shaiber
   avatar: bio-alon.jpg
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
   bio: "I'm a graduate student in the Bio Physical Sciences Program at UChicago. I'm fascinated by the complexity of microbial ecology and interested in applying and developing computational tools to explore it."
   affiliations:
     - title: Graduate Student
       inst: The Biophysical Sciences Program at the University of Chicago
       inst_link: http://biophysics.uchicago.edu/
+
+- alias: ozcan
+  nick_name: Ozcan
+  official: True
+  name: Özcan C. Esen
+  tenure_start: 02/2016
+  tenure_end: 02/2020
+  current_info:
+  contributions: Ozcan worked on anvi'o since it was nothing more than an idea, and has been one of the most prolific developers of it during the last five years. His remarkable contributions to the interactive capabilities of anvi'o has always been a critical component of the platform, and will continue to help many life scientists who use anvi'o
+  role: Programmer
+  email: ozcanesen@gmail.com
+  twitter: ozcanesen
+  avatar: bio-ozcan.jpg
+  github: ozcan
+  web: http://blog.ozcanesen.com/
+  bio: "As a computer engineer I strive to utilize my expertise to investigate challenges in microbial ecology, metagenomics, and visualization of complex data."
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  affiliations:
+    - title: Programmer
+      inst: The Department of Medicine at the University of Chicago
+      inst_link: http://medicine.uchicago.edu/
+
+- alias: mahmoud
+  nick_name: Mahmoud
+  official: True
+  name: Mahmoud Yousef
+  tenure_start: 05/2017
+  tenure_end: 02/2020
+  current_info: a medical student at the <a href="https://pritzker.uchicago.edu/">Pritzker School of Medicine</a>, University of Chicago
+  contributions: Focusing on pangenomics, he developed functional and geometric homogeneity indices so we can interpret the heterogeneity within gene clusters.
+  avatar: bio-mahmoud.jpg
+  role: Undergraduate Researcher
+  email: mahmoudyousef@uchicago.edu
+  linkedin: mahmoud-yousef-314198128/
+  github: mahmoudyousef98
+  bio: "I am interested in exploring the intersection of bioinformatics and medicine, and how bioinformatic techniques can be used to advance the quality of medicine."
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  affiliations:
+     - title: Undergraduate Student
+       inst: Department of Computer Science at the University of Chicago
+       inst_link: https://www.cs.uchicago.edu/
 
 - alias: quentin
   official: True
@@ -438,7 +539,7 @@
   nick_name: Tom
   tenure_start: 10/2015
   tenure_end: 05/2018
-  current_info: a post-doctoral reseracher studying microbial life at the <a href="http://jacob.cea.fr/drf/ifrancoisjacob/Pages/Departements/Genoscope.aspx">Genoscope</a> in France
+  current_info: a <a href="http://www.cnrs.fr/en">CNRS</a> scientist at the <a href="http://jacob.cea.fr/drf/ifrancoisjacob/Pages/Departements/Genoscope.aspx">Genoscope</a> in France
   contributions: He contributed to the development of anvi'o and its application to the ocean and gut metagenomes. Tom was the very first member of our lab, and Meren and Tom have spent lots of time together thinking about new ways to make sense of metagenomic data
   role: Post-doctoral Scientist
   email: tom.o.delmont@gmail.com
@@ -452,7 +553,7 @@
   nick_name: Steven
   tenure_start: 07/2016
   tenure_end: 10/2016
-  current_info: an undergraduate student studying computer science at the <a href="https://www.cs.uchicago.edu/">Department of Computer Science at the University of Chicago</a>
+  current_info: a Software Engineer at <a href="https://en.wikipedia.org/wiki/Capital_One">Capital One</a>
   contributions: He contributed to the development of tRNA-seq tools, a project that bridged Meren's and <a href="https://scholar.google.com/citations?user=R5nkatMAAAAJ&hl=en">Tao Pan</a>'s interests
   official: True
   role: Summer Student

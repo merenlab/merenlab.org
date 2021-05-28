@@ -1,25 +1,26 @@
-Here you will find the current anvi'o programs in the latest stable version of the platform, and their help menu. The contents of this file was last updated on **05 Apr 20 22:02:12**, and then anvi'o looked like this:
+Here you will find the current anvi'o programs in the latest stable version of the platform, and their help menu. The contents of this file was last updated on **21 Jun 20 14:19:09**, and then anvi'o looked like this:
 
 |Key|Value|
 |:--|:--:|
 |Anvi&#39;o version|esther (v6.2-master)|
-|Profile DB version|32|
-|Contigs DB version|14|
-|Genes DB version|5|
+|Profile DB version|34|
+|Contigs DB version|18|
+|Genes DB version|6|
 |Auxiliary data storage version|2|
-|Pan DB version|13|
-|Genome data storage version|6|
-|Structure DB version|1|
+|Pan DB version|14|
+|Genome data storage version|7|
+|Structure DB version|2|
+|KEGG Modules DB version|2|
 
 ---
 
 # Summary
 
-**Main anvi'o programs (93)**
-[anvi-analyze-synteny](#anvi-analyze-synteny), [anvi-cluster-contigs](#anvi-cluster-contigs), [anvi-compute-completeness](#anvi-compute-completeness), [anvi-compute-gene-cluster-homogeneity](#anvi-compute-gene-cluster-homogeneity), [anvi-compute-genome-similarity](#anvi-compute-genome-similarity), [anvi-db-info](#anvi-db-info), [anvi-delete-collection](#anvi-delete-collection), [anvi-delete-hmms](#anvi-delete-hmms), [anvi-delete-misc-data](#anvi-delete-misc-data), [anvi-delete-state](#anvi-delete-state), [anvi-dereplicate-genomes](#anvi-dereplicate-genomes), [anvi-display-contigs-stats](#anvi-display-contigs-stats), [anvi-display-pan](#anvi-display-pan), [anvi-display-structure](#anvi-display-structure), [anvi-estimate-genome-completeness](#anvi-estimate-genome-completeness), [anvi-estimate-scg-taxonomy](#anvi-estimate-scg-taxonomy), [anvi-experimental-organization](#anvi-experimental-organization), [anvi-export-collection](#anvi-export-collection), [anvi-export-contigs](#anvi-export-contigs), [anvi-export-functions](#anvi-export-functions), [anvi-export-gene-calls](#anvi-export-gene-calls), [anvi-export-gene-coverage-and-detection](#anvi-export-gene-coverage-and-detection), [anvi-export-items-order](#anvi-export-items-order), [anvi-export-locus](#anvi-export-locus), [anvi-export-misc-data](#anvi-export-misc-data), [anvi-export-splits-and-coverages](#anvi-export-splits-and-coverages), [anvi-export-splits-taxonomy](#anvi-export-splits-taxonomy), [anvi-export-state](#anvi-export-state), [anvi-export-structures](#anvi-export-structures), [anvi-export-table](#anvi-export-table), [anvi-gen-contigs-database](#anvi-gen-contigs-database), [anvi-gen-fixation-index-matrix](#anvi-gen-fixation-index-matrix), [anvi-gen-gene-consensus-sequences](#anvi-gen-gene-consensus-sequences), [anvi-gen-gene-level-stats-databases](#anvi-gen-gene-level-stats-databases), [anvi-gen-genomes-storage](#anvi-gen-genomes-storage), [anvi-gen-network](#anvi-gen-network), [anvi-gen-phylogenomic-tree](#anvi-gen-phylogenomic-tree), [anvi-gen-structure-database](#anvi-gen-structure-database), [anvi-gen-variability-matrix](#anvi-gen-variability-matrix), [anvi-gen-variability-network](#anvi-gen-variability-network), [anvi-gen-variability-profile](#anvi-gen-variability-profile), [anvi-get-aa-counts](#anvi-get-aa-counts), [anvi-get-codon-frequencies](#anvi-get-codon-frequencies), [anvi-get-enriched-functions-per-pan-group](#anvi-get-enriched-functions-per-pan-group), [anvi-get-sequences-for-gene-calls](#anvi-get-sequences-for-gene-calls), [anvi-get-sequences-for-gene-clusters](#anvi-get-sequences-for-gene-clusters), [anvi-get-sequences-for-hmm-hits](#anvi-get-sequences-for-hmm-hits), [anvi-get-short-reads-from-bam](#anvi-get-short-reads-from-bam), [anvi-get-short-reads-mapping-to-a-gene](#anvi-get-short-reads-mapping-to-a-gene), [anvi-get-split-coverages](#anvi-get-split-coverages), [anvi-help](#anvi-help), [anvi-import-collection](#anvi-import-collection), [anvi-import-functions](#anvi-import-functions), [anvi-import-items-order](#anvi-import-items-order), [anvi-import-misc-data](#anvi-import-misc-data), [anvi-import-state](#anvi-import-state), [anvi-import-taxonomy-for-genes](#anvi-import-taxonomy-for-genes), [anvi-import-taxonomy-for-layers](#anvi-import-taxonomy-for-layers), [anvi-init-bam](#anvi-init-bam), [anvi-inspect](#anvi-inspect), [anvi-interactive](#anvi-interactive), [anvi-matrix-to-newick](#anvi-matrix-to-newick), [anvi-mcg-classifier](#anvi-mcg-classifier), [anvi-merge](#anvi-merge), [anvi-merge-bins](#anvi-merge-bins), [anvi-meta-pan-genome](#anvi-meta-pan-genome), [anvi-migrate](#anvi-migrate), [anvi-oligotype-linkmers](#anvi-oligotype-linkmers), [anvi-pan-genome](#anvi-pan-genome), [anvi-profile](#anvi-profile), [anvi-push](#anvi-push), [anvi-refine](#anvi-refine), [anvi-rename-bins](#anvi-rename-bins), [anvi-report-linkmers](#anvi-report-linkmers), [anvi-run-hmms](#anvi-run-hmms), [anvi-run-ncbi-cogs](#anvi-run-ncbi-cogs), [anvi-run-pfams](#anvi-run-pfams), [anvi-run-scg-taxonomy](#anvi-run-scg-taxonomy), [anvi-run-workflow](#anvi-run-workflow), [anvi-scan-trnas](#anvi-scan-trnas), [anvi-search-functions](#anvi-search-functions), [anvi-self-test](#anvi-self-test), [anvi-setup-ncbi-cogs](#anvi-setup-ncbi-cogs), [anvi-setup-pdb-database](#anvi-setup-pdb-database), [anvi-setup-pfams](#anvi-setup-pfams), [anvi-setup-scg-databases](#anvi-setup-scg-databases), [anvi-show-collections-and-bins](#anvi-show-collections-and-bins), [anvi-show-misc-data](#anvi-show-misc-data), [anvi-split](#anvi-split), [anvi-summarize](#anvi-summarize), [anvi-update-db-description](#anvi-update-db-description), [anvi-update-structure-database](#anvi-update-structure-database), [anvi-upgrade](#anvi-upgrade).
+**Main anvi'o programs (97)**
+[anvi-analyze-synteny](#anvi-analyze-synteny), [anvi-cluster-contigs](#anvi-cluster-contigs), [anvi-compute-completeness](#anvi-compute-completeness), [anvi-compute-gene-cluster-homogeneity](#anvi-compute-gene-cluster-homogeneity), [anvi-compute-genome-similarity](#anvi-compute-genome-similarity), [anvi-db-info](#anvi-db-info), [anvi-delete-collection](#anvi-delete-collection), [anvi-delete-hmms](#anvi-delete-hmms), [anvi-delete-misc-data](#anvi-delete-misc-data), [anvi-delete-state](#anvi-delete-state), [anvi-dereplicate-genomes](#anvi-dereplicate-genomes), [anvi-display-contigs-stats](#anvi-display-contigs-stats), [anvi-display-metabolism](#anvi-display-metabolism), [anvi-display-pan](#anvi-display-pan), [anvi-display-structure](#anvi-display-structure), [anvi-estimate-genome-completeness](#anvi-estimate-genome-completeness), [anvi-estimate-metabolism](#anvi-estimate-metabolism), [anvi-estimate-scg-taxonomy](#anvi-estimate-scg-taxonomy), [anvi-experimental-organization](#anvi-experimental-organization), [anvi-export-collection](#anvi-export-collection), [anvi-export-contigs](#anvi-export-contigs), [anvi-export-functions](#anvi-export-functions), [anvi-export-gene-calls](#anvi-export-gene-calls), [anvi-export-gene-coverage-and-detection](#anvi-export-gene-coverage-and-detection), [anvi-export-items-order](#anvi-export-items-order), [anvi-export-locus](#anvi-export-locus), [anvi-export-misc-data](#anvi-export-misc-data), [anvi-export-splits-and-coverages](#anvi-export-splits-and-coverages), [anvi-export-splits-taxonomy](#anvi-export-splits-taxonomy), [anvi-export-state](#anvi-export-state), [anvi-export-structures](#anvi-export-structures), [anvi-export-table](#anvi-export-table), [anvi-gen-contigs-database](#anvi-gen-contigs-database), [anvi-gen-fixation-index-matrix](#anvi-gen-fixation-index-matrix), [anvi-gen-gene-consensus-sequences](#anvi-gen-gene-consensus-sequences), [anvi-gen-gene-level-stats-databases](#anvi-gen-gene-level-stats-databases), [anvi-gen-genomes-storage](#anvi-gen-genomes-storage), [anvi-gen-network](#anvi-gen-network), [anvi-gen-phylogenomic-tree](#anvi-gen-phylogenomic-tree), [anvi-gen-structure-database](#anvi-gen-structure-database), [anvi-gen-variability-matrix](#anvi-gen-variability-matrix), [anvi-gen-variability-network](#anvi-gen-variability-network), [anvi-gen-variability-profile](#anvi-gen-variability-profile), [anvi-get-aa-counts](#anvi-get-aa-counts), [anvi-get-codon-frequencies](#anvi-get-codon-frequencies), [anvi-get-enriched-functions-per-pan-group](#anvi-get-enriched-functions-per-pan-group), [anvi-get-sequences-for-gene-calls](#anvi-get-sequences-for-gene-calls), [anvi-get-sequences-for-gene-clusters](#anvi-get-sequences-for-gene-clusters), [anvi-get-sequences-for-hmm-hits](#anvi-get-sequences-for-hmm-hits), [anvi-get-short-reads-from-bam](#anvi-get-short-reads-from-bam), [anvi-get-short-reads-mapping-to-a-gene](#anvi-get-short-reads-mapping-to-a-gene), [anvi-get-split-coverages](#anvi-get-split-coverages), [anvi-help](#anvi-help), [anvi-import-collection](#anvi-import-collection), [anvi-import-functions](#anvi-import-functions), [anvi-import-items-order](#anvi-import-items-order), [anvi-import-misc-data](#anvi-import-misc-data), [anvi-import-state](#anvi-import-state), [anvi-import-taxonomy-for-genes](#anvi-import-taxonomy-for-genes), [anvi-import-taxonomy-for-layers](#anvi-import-taxonomy-for-layers), [anvi-init-bam](#anvi-init-bam), [anvi-inspect](#anvi-inspect), [anvi-interactive](#anvi-interactive), [anvi-matrix-to-newick](#anvi-matrix-to-newick), [anvi-mcg-classifier](#anvi-mcg-classifier), [anvi-merge](#anvi-merge), [anvi-merge-bins](#anvi-merge-bins), [anvi-meta-pan-genome](#anvi-meta-pan-genome), [anvi-migrate](#anvi-migrate), [anvi-oligotype-linkmers](#anvi-oligotype-linkmers), [anvi-pan-genome](#anvi-pan-genome), [anvi-profile](#anvi-profile), [anvi-push](#anvi-push), [anvi-refine](#anvi-refine), [anvi-rename-bins](#anvi-rename-bins), [anvi-report-linkmers](#anvi-report-linkmers), [anvi-run-hmms](#anvi-run-hmms), [anvi-run-kegg-kofams](#anvi-run-kegg-kofams), [anvi-run-ncbi-cogs](#anvi-run-ncbi-cogs), [anvi-run-pfams](#anvi-run-pfams), [anvi-run-scg-taxonomy](#anvi-run-scg-taxonomy), [anvi-run-workflow](#anvi-run-workflow), [anvi-scan-trnas](#anvi-scan-trnas), [anvi-search-functions](#anvi-search-functions), [anvi-self-test](#anvi-self-test), [anvi-setup-kegg-kofams](#anvi-setup-kegg-kofams), [anvi-setup-ncbi-cogs](#anvi-setup-ncbi-cogs), [anvi-setup-pdb-database](#anvi-setup-pdb-database), [anvi-setup-pfams](#anvi-setup-pfams), [anvi-setup-scg-taxonomy](#anvi-setup-scg-taxonomy), [anvi-show-collections-and-bins](#anvi-show-collections-and-bins), [anvi-show-misc-data](#anvi-show-misc-data), [anvi-split](#anvi-split), [anvi-summarize](#anvi-summarize), [anvi-update-db-description](#anvi-update-db-description), [anvi-update-structure-database](#anvi-update-structure-database), [anvi-upgrade](#anvi-upgrade).
 
-**Ad hoc anvi'o scripts (26)**
-[anvi-script-add-default-collection](#anvi-script-add-default-collection), [anvi-script-calculate-pn-ps-ratio](#anvi-script-calculate-pn-ps-ratio), [anvi-script-checkm-tree-to-interactive](#anvi-script-checkm-tree-to-interactive), [anvi-script-compute-ani-for-fasta](#anvi-script-compute-ani-for-fasta), [anvi-script-estimate-genome-size](#anvi-script-estimate-genome-size), [anvi-script-filter-fasta-by-blast](#anvi-script-filter-fasta-by-blast), [anvi-script-gen-CPR-classifier](#anvi-script-gen-CPR-classifier), [anvi-script-gen-distribution-of-genes-in-a-bin](#anvi-script-gen-distribution-of-genes-in-a-bin), [anvi-script-gen-hmm-hits-matrix-across-genomes](#anvi-script-gen-hmm-hits-matrix-across-genomes), [anvi-script-gen-programs-network](#anvi-script-gen-programs-network), [anvi-script-gen-programs-vignette](#anvi-script-gen-programs-vignette), [anvi-script-gen-scg-domain-classifier](#anvi-script-gen-scg-domain-classifier), [anvi-script-gen-short-reads](#anvi-script-gen-short-reads), [anvi-script-gen_stats_for_single_copy_genes.py](#anvi-script-gen_stats_for_single_copy_genes.py), [anvi-script-get-coverage-from-bam](#anvi-script-get-coverage-from-bam), [anvi-script-get-hmm-hits-per-gene-call](#anvi-script-get-hmm-hits-per-gene-call), [anvi-script-get-short-reads-matching-something](#anvi-script-get-short-reads-matching-something), [anvi-script-merge-collections](#anvi-script-merge-collections), [anvi-script-predict-CPR-genomes](#anvi-script-predict-CPR-genomes), [anvi-script-process-genbank](#anvi-script-process-genbank), [anvi-script-process-genbank-metadata](#anvi-script-process-genbank-metadata), [anvi-script-reformat-fasta](#anvi-script-reformat-fasta), [anvi-script-run-eggnog-mapper](#anvi-script-run-eggnog-mapper), [anvi-script-snvs-to-interactive](#anvi-script-snvs-to-interactive), [anvi-script-transpose-matrix](#anvi-script-transpose-matrix), [anvi-script-variability-to-vcf](#anvi-script-variability-to-vcf).
+**Ad hoc anvi'o scripts (30)**
+[anvi-script-add-default-collection](#anvi-script-add-default-collection), [anvi-script-augustus-output-to-external-gene-calls](#anvi-script-augustus-output-to-external-gene-calls), [anvi-script-calculate-pn-ps-ratio](#anvi-script-calculate-pn-ps-ratio), [anvi-script-checkm-tree-to-interactive](#anvi-script-checkm-tree-to-interactive), [anvi-script-compute-ani-for-fasta](#anvi-script-compute-ani-for-fasta), [anvi-script-estimate-genome-size](#anvi-script-estimate-genome-size), [anvi-script-filter-fasta-by-blast](#anvi-script-filter-fasta-by-blast), [anvi-script-gen-CPR-classifier](#anvi-script-gen-CPR-classifier), [anvi-script-gen-distribution-of-genes-in-a-bin](#anvi-script-gen-distribution-of-genes-in-a-bin), [anvi-script-gen-help-pages](#anvi-script-gen-help-pages), [anvi-script-gen-hmm-hits-matrix-across-genomes](#anvi-script-gen-hmm-hits-matrix-across-genomes), [anvi-script-gen-programs-network](#anvi-script-gen-programs-network), [anvi-script-gen-programs-vignette](#anvi-script-gen-programs-vignette), [anvi-script-gen-pseudo-paired-reads-from-fastq](#anvi-script-gen-pseudo-paired-reads-from-fastq), [anvi-script-gen-scg-domain-classifier](#anvi-script-gen-scg-domain-classifier), [anvi-script-gen-short-reads](#anvi-script-gen-short-reads), [anvi-script-gen_stats_for_single_copy_genes.py](#anvi-script-gen_stats_for_single_copy_genes.py), [anvi-script-get-coverage-from-bam](#anvi-script-get-coverage-from-bam), [anvi-script-get-hmm-hits-per-gene-call](#anvi-script-get-hmm-hits-per-gene-call), [anvi-script-get-short-reads-matching-something](#anvi-script-get-short-reads-matching-something), [anvi-script-merge-collections](#anvi-script-merge-collections), [anvi-script-predict-CPR-genomes](#anvi-script-predict-CPR-genomes), [anvi-script-process-genbank](#anvi-script-process-genbank), [anvi-script-process-genbank-metadata](#anvi-script-process-genbank-metadata), [anvi-script-reformat-fasta](#anvi-script-reformat-fasta), [anvi-script-run-eggnog-mapper](#anvi-script-run-eggnog-mapper), [anvi-script-snvs-to-interactive](#anvi-script-snvs-to-interactive), [anvi-script-tabulate](#anvi-script-tabulate), [anvi-script-transpose-matrix](#anvi-script-transpose-matrix), [anvi-script-variability-to-vcf](#anvi-script-variability-to-vcf).
 
 ---
 
@@ -30,13 +31,7 @@ Please let us know if there is something unclear in this output.
 
 ## anvi-analyze-synteny
 
-This program helps you extract synteny patterns from a group of similar loci
-or genomes. This is accomplished by deconstructing contigs into Ngrams (group
-of neighboring genes of which N is the number of genes) of gene functions
-using a sliding window method. Once completed, anvi&#39;o will export a table with
-Ngrams counts for you to work with. By default anvi&#39;o will ignore Ngrams that
-contain genes without annotations. If you would like to override this, you can
-use the --analyze-unknown-functions flag.
+Extract ngrams, as in &#39;co-occurring genes in synteny&#39;, from genomes
 
 
 
@@ -45,9 +40,11 @@ use the --analyze-unknown-functions flag.
 **Usage**
 
 ```
-anvi-analyze-synteny [-h] -e FILE_PATH --annotation-source SOURCE NAME
-                     --ngram-window-range NGRAM_WINDOW_RANGE -o
-                     FILE_PATH [--analyze-unknown-functions]
+anvi-analyze-synteny [-h] -g GENOMES_STORAGE
+                     [--ngram-window-range NGRAM_WINDOW_RANGE]
+                     [-o FILE_PATH] [--annotation-source SOURCE NAME]
+                     [-p PAN_DB] [-n NGRAM_SOURCE] [-l]
+                     [--analyze-unknown-functions] [-G GENOME_NAMES]
 ```
 
 **Parameters**
@@ -57,18 +54,8 @@ anvi-analyze-synteny [-h] -e FILE_PATH --annotation-source SOURCE NAME
 **Essential INPUT:** 
 
 ```
-  -e FILE_PATH, --external-genomes FILE_PATH
-                        A two-column TAB-delimited flat text file that lists
-                        anvi'o contigs databases. The first item in the header
-                        line should read 'name', and the second should read
-                        'contigs_db_path'. Each line in the file should
-                        describe a single entry, where the first column is the
-                        name of the genome (or MAG), and the second column is
-                        the anvi'o contigs database generated for this genome.
-  --annotation-source SOURCE NAME
-                        Get functional annotations for a specific annotation
-                        source. You can use the flag '--list-annotation-
-                        sources' to learn about what sources are available.
+  -g GENOMES_STORAGE, --genomes-storage GENOMES_STORAGE
+                        Anvi'o genomes storage file
   --ngram-window-range NGRAM_WINDOW_RANGE
                         The range of window sizes of Ngrams to analyze for
                         synteny patterns.Please format the window-range as x:y
@@ -79,13 +66,39 @@ anvi-analyze-synteny [-h] -e FILE_PATH --annotation-source SOURCE NAME
 
 
 
-**Additonal INPUT:** 
+**Annotation sources for Ngrams:**   Choose one source of annotations for your Ngrams.
 
 ```
+  --annotation-source SOURCE NAME
+                        Get functional annotations for a specific annotation
+                        source. You can use the flag '--list-annotation-
+                        sources' to learn about what sources are available.
+  -p PAN_DB, --pan-db PAN_DB
+                        Anvi'o pan database
+  -n NGRAM_SOURCE, --ngram-source NGRAM_SOURCE
+                        If two annotation sources are provided, please choose
+                        one annotation source that will be used to calcuate
+                        Ngrams (e.g. gene_clusters, COG_FUNCTION)
+```
+
+
+
+**Optional arguments:** 
+
+```
+  -l, --list-annotation-sources
+                        List available functional annotation sources.
   --analyze-unknown-functions
                         Provide this flag if you want anvi-analyze-synteny to
-                        take into account Ngrams that contain gene calls that
-                        have no annotation.
+                        report Ngrams that contain gene calls that have no
+                        annotation.
+  -G GENOME_NAMES, --genome-names GENOME_NAMES
+                        Genome names to 'focus'. You can use this parameter to
+                        limit the genomes included in your analysis. You can
+                        provide these names as a comma-separated list of
+                        names, or you can put them in a file, where you have a
+                        single genome name in each line, and provide the file
+                        path.
 ```
 
 
@@ -120,7 +133,7 @@ anvi-cluster-contigs [-h] -p PROFILE_DB -c CONTIGS_DB -C
                         Anvi'o profile database
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -C COLLECTION_NAME, --collection-name COLLECTION_NAME
                         Collection name.
   --driver DRIVER       Automatic binning drivers. Available options 'concoct,
@@ -242,7 +255,7 @@ anvi-compute-completeness [-h] [--splits-of-interest FILE] -c
                         a unique split name.
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -e E-VALUE, --min-e-value E-VALUE
                         Minimum significance score of an HMM find to be
                         considered as a valid hit. Default is 1e-15.
@@ -696,7 +709,7 @@ anvi-delete-hmms [-h] -c CONTIGS_DB [--hmm-source SOURCE NAME] [-l]
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   --hmm-source SOURCE NAME
                         Use a specific HMM source. You can use '--list-hmm-
                         sources' flag to see a list of available resources.
@@ -714,8 +727,9 @@ anvi-delete-hmms [-h] -c CONTIGS_DB [--hmm-source SOURCE NAME] [-l]
 
 ## anvi-delete-misc-data
 
-Remove stuff from additional data or order tables in pan or profile databases
-for items or layers
+Remove stuff from &#39;additional data&#39; or &#39;order&#39; tables for either items or
+layers in either pan or profile databases. OR, remove stuff from the
+&#39;additional data&#39; tables for nucleotides or amino acids in contigs databases.
 
 
 
@@ -724,8 +738,8 @@ for items or layers
 **Usage**
 
 ```
-anvi-delete-misc-data [-h] -p PAN_OR_PROFILE_DB -t NAME
-                      [--keys-to-remove KEYS_TO_REMOVE]
+anvi-delete-misc-data [-h] [-p PAN_OR_PROFILE_DB] [-c CONTIGS_DB] -t
+                      NAME [--keys-to-remove KEYS_TO_REMOVE]
                       [--groups-to-remove GROUPS_TO_REMOVE]
                       [--list-available-keys] [--just-do-it]
 ```
@@ -734,12 +748,22 @@ anvi-delete-misc-data [-h] -p PAN_OR_PROFILE_DB -t NAME
 
 
 
-**optional arguments:** 
+**Database input:**   Provide 1 of these
 
 ```
   -p PAN_OR_PROFILE_DB, --pan-or-profile-db PAN_OR_PROFILE_DB
                         Anvi'o pan or profile database (and even genes
                         database in appropriate contexts).
+  -c CONTIGS_DB, --contigs-db CONTIGS_DB
+                        Anvi'o contigs database generated by 'anvi-gen-
+                        contigs-database'
+```
+
+
+
+**Details:**   Everything else.
+
+```
   -t NAME, --target-data-table NAME
                         The target table is the table you are interested in
                         accessing. Currently it can be 'items','layers', or
@@ -1194,6 +1218,121 @@ anvi-display-contigs-stats [-h] [--report-as-text] [-o FILE_PATH]
 
 
 
+## anvi-display-metabolism
+
+Start the anvi&#39;o interactive interactive for viewing KEGG metabolism data
+
+
+
+
+
+**Usage**
+
+```
+anvi-display-metabolism [-h] -c CONTIGS_DB [-m]
+                        [--kegg-data-dir KEGG_DATA_DIR] [-p PROFILE_DB]
+                        [-C COLLECTION_NAME] [-b BIN_NAME]
+                        [-B FILE_PATH]
+                        [--module-completion-threshold NUM]
+                        [-I IP_ADDR] [-P INT] [--browser-path PATH]
+                        [--server-only] [--password-protected]
+```
+
+**Parameters**
+
+
+
+**INPUT:**   The minimum you must provide this program is a contigs database. In which
+  case anvi&#39;o will attempt to estimate and display metabolism for all
+  contigs in it, assuming that the contigs database represents a single
+  genome. If the contigs database is actually a metagenome, you should use
+  the `--metagenome` flag to explicitly declare that.
+
+```
+  -c CONTIGS_DB, --contigs-db CONTIGS_DB
+                        Anvi'o contigs database generated by 'anvi-gen-
+                        contigs-database'
+  -m, --metagenome-mode
+                        Treat a given contigs database as a metagenome rather
+                        than treating it as a single genome.
+  --kegg-data-dir KEGG_DATA_DIR
+                        The directory path for your KEGG setup, which will
+                        include things like KOfam profiles and KEGG MODULE
+                        data. Anvi'o will try to use the default path if you
+                        do not specify anything.
+```
+
+
+
+**ADDITIONAL INPUT:**   If you also provide a profile database AND a collection name, anvi&#39;o will
+  estimate metabolism separately for each bin in your collection. You can
+  also limit those estimates to a specific bin or set of bins in the
+  collection using the parameters `--bin-id` or `--bin-ids-file`,
+  respectively.
+
+```
+  -p PROFILE_DB, --profile-db PROFILE_DB
+                        Anvi'o profile database
+  -C COLLECTION_NAME, --collection-name COLLECTION_NAME
+                        Collection name.
+  -b BIN_NAME, --bin-id BIN_NAME
+                        Bin name you are interested in.
+  -B FILE_PATH, --bin-ids-file FILE_PATH
+                        Text file for bins (each line should be a unique bin
+                        id).
+```
+
+
+
+**OUTPUT:**   Parameters for controlling estimation output. The output will be TAB-
+  delimited files which by default are prefixed with &#39;kegg-metabolism&#39;, but
+  you can of course change that name here.
+
+```
+  --module-completion-threshold NUM
+                        This threshold defines the point at which we consider
+                        a KEGG module to be 'complete' or 'present' in a given
+                        genome or bin. It is the fraction of steps that must
+                        be complete in in order for the entire module to be
+                        marked complete. The default is 0.75.
+```
+
+
+
+**SERVER CONFIGURATION:**   For power users.
+
+```
+  -I IP_ADDR, --ip-address IP_ADDR
+                        IP address for the HTTP server. The default ip address
+                        (0.0.0.0) should work just fine for most.
+  -P INT, --port-number INT
+                        Port number to use for anvi'o services. If nothing is
+                        declared, anvi'o will try to find a suitable port
+                        number, starting from the default port number, 8080.
+  --browser-path PATH   By default, anvi'o will use your default browser to
+                        launch the interactive interface. If you would like to
+                        use something else than your system default, you can
+                        provide a full path for an alternative browser using
+                        this parameter, and hope for the best. For instance we
+                        are using this parameter to call Google's experimental
+                        browser, Canary, which performs better with demanding
+                        visualizations.
+  --server-only         The default behavior is to start the local server, and
+                        fire up a browser that connects to the server. If you
+                        have other plans, and want to start the server without
+                        calling the browser, this is the flag you need.
+  --password-protected  If this flag is set, command line tool will ask you to
+                        enter a password and interactive interface will be
+                        only accessible after entering same password. This
+                        option is recommended for shared machines like
+                        clusters or shared networks where computers are not
+                        isolated.
+```
+
+
+
+
+
 ## anvi-display-pan
 
 Start an anvi&#39;o server to display a pan-genome
@@ -1400,7 +1539,7 @@ anvi-display-structure [-h] -s STRUCTURE_DB [-p PROFILE_DB]
                         Anvi'o profile database
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -V VARIABILITY_TABLE, --variability-profile VARIABILITY_TABLE
                         The output of anvi-gen-variability-profile, or a
                         different variant-calling output that has been
@@ -1521,7 +1660,7 @@ anvi-estimate-genome-completeness [-h] [-c CONTIGS_DB] [-e FILE_PATH]
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
 ```
 
 
@@ -1564,6 +1703,193 @@ anvi-estimate-genome-completeness [-h] [-c CONTIGS_DB] [-e FILE_PATH]
                         possible.
   -o FILE_PATH, --output-file FILE_PATH
                         File path to store results.
+```
+
+
+
+
+
+## anvi-estimate-metabolism
+
+Reconstructs metabolic pathways and estimates pathway completeness for a given
+set of contigs
+
+
+
+
+
+**Usage**
+
+```
+anvi-estimate-metabolism [-h] [-c CONTIGS_DB] [-m]
+                         [--kegg-data-dir KEGG_DATA_DIR]
+                         [-p PROFILE_DB] [-C COLLECTION_NAME]
+                         [-b BIN_NAME] [-B FILE_PATH] [-e FILE_PATH]
+                         [-i FILE_PATH] [-M FILE_PATH]
+                         [--module-completion-threshold NUM]
+                         [-O FILENAME_PREFIX]
+                         [--kegg-output-modes MODES]
+                         [--list-available-modes]
+                         [--custom-output-headers HEADERS]
+                         [--list-available-output-headers]
+                         [--matrix-format]
+                         [--get-raw-data-as-json FILENAME_PREFIX]
+                         [--store-json-without-estimation]
+                         [--estimate-from-json FILE_PATH]
+```
+
+**Parameters**
+
+
+
+**INPUT #1:**   The minimum you must provide this program is a contigs database. In which
+  case anvi&#39;o will attempt to estimate metabolism for all contigs in it,
+  assuming that the contigs database represents a single genome. If the
+  contigs database is actually a metagenome, you should use the
+  `--metagenome` flag to explicitly declare that.
+
+```
+  -c CONTIGS_DB, --contigs-db CONTIGS_DB
+                        Anvi'o contigs database generated by 'anvi-gen-
+                        contigs-database'
+  -m, --metagenome-mode
+                        Treat a given contigs database as a metagenome rather
+                        than treating it as a single genome.
+  --kegg-data-dir KEGG_DATA_DIR
+                        The directory path for your KEGG setup, which will
+                        include things like KOfam profiles and KEGG MODULE
+                        data. Anvi'o will try to use the default path if you
+                        do not specify anything.
+```
+
+
+
+**INPUT #2:**   If you also provide a profile database AND a collection name, anvi&#39;o will
+  estimate metabolism separately for each bin in your collection. You can
+  also limit those estimates to a specific bin or set of bins in the
+  collection using the parameters `--bin-id` or `--bin-ids-file`,
+  respectively.
+
+```
+  -p PROFILE_DB, --profile-db PROFILE_DB
+                        Anvi'o profile database
+  -C COLLECTION_NAME, --collection-name COLLECTION_NAME
+                        Collection name.
+  -b BIN_NAME, --bin-id BIN_NAME
+                        Bin name you are interested in.
+  -B FILE_PATH, --bin-ids-file FILE_PATH
+                        Text file for bins (each line should be a unique bin
+                        id).
+```
+
+
+
+**INPUT #3:**   If you have multiple contigs databases to work with, you can put them all
+  into a file. Then anvi&#39;o will run estimation separately on each database
+  and generate a single output file for all. There are 3 types of input
+  files to choose from depending on whether you have single genomes
+  (external), genomes in collections (internal), or metagenomes in your
+  contigs DBs.
+
+```
+  -e FILE_PATH, --external-genomes FILE_PATH
+                        A two-column TAB-delimited flat text file that lists
+                        anvi'o contigs databases. The first item in the header
+                        line should read 'name', and the second should read
+                        'contigs_db_path'. Each line in the file should
+                        describe a single entry, where the first column is the
+                        name of the genome (or MAG), and the second column is
+                        the anvi'o contigs database generated for this genome.
+  -i FILE_PATH, --internal-genomes FILE_PATH
+                        A five-column TAB-delimited flat text file. The header
+                        line must contain these columns: 'name', 'bin_id',
+                        'collection_id', 'profile_db_path', 'contigs_db_path'.
+                        Each line should list a single entry, where 'name' can
+                        be any name to describe the anvi'o bin identified as
+                        'bin_id' that is stored in a collection.
+  -M FILE_PATH, --metagenomes FILE_PATH
+                        A two-column TAB-delimited flat text file. The header
+                        line must contain these columns: 'name',
+                        'contigs_db_path', and 'profile_db_path'. Each line
+                        should list a single entry, where 'name' can be any
+                        name to describe the metagenome stored in the anvi'o
+                        contigs database. In this context, the anvi'o profiles
+                        associated with contigs database must be SINGLE
+                        PROFILES, as in generated by the program `anvi-
+                        profile` and not `anvi-merge`.
+```
+
+
+
+**OUTPUT:**   Parameters for controlling estimation output. The output will be TAB-
+  delimited files which by default are prefixed with &#39;kegg-metabolism&#39;, but
+  you can of course change that name here.
+
+```
+  --module-completion-threshold NUM
+                        This threshold defines the point at which we consider
+                        a KEGG module to be 'complete' or 'present' in a given
+                        genome or bin. It is the fraction of steps that must
+                        be complete in in order for the entire module to be
+                        marked complete. The default is 0.75.
+  -O FILENAME_PREFIX, --output-file-prefix FILENAME_PREFIX
+                        A prefix to be used while naming the output files (no
+                        file type extensions please; just a prefix).
+  --kegg-output-modes MODES
+                        Use this flag to indicate what information you want in
+                        the kegg metabolism output files, by providing a
+                        comma-separated list of output modes (each 'mode' you
+                        provide will result in a different output file, all
+                        with the same prefix). The default output modes are
+                        'kofam_hits' and 'complete_modules'. To see a list of
+                        available output modes, run this script with the flag
+                        --list-available-modes.
+  --list-available-modes
+                        Use this flag to see the available output modes and
+                        their descriptions.
+  --custom-output-headers HEADERS
+                        For use with the 'custom' output mode. Provide a
+                        comma-separated list of headers to include in the
+                        output matrix. To see a list of available headers, run
+                        this script with the flag --list-available-output-
+                        headers.
+  --list-available-output-headers
+                        Use this flag to see the available output headers.
+  --matrix-format       If you want to generate the output in several sparse
+                        matrices instead of one file, use this flag. In each
+                        matrix, contigs DBs will be arranged in columns and
+                        KEGG modules in rows. This output option is especially
+                        appropriate for input option #3.
+```
+
+
+
+**DEBUG:**   Parameters to use if you think something fishy is going on or otherwise
+  want to exert more control. Go for it.
+
+```
+  --get-raw-data-as-json FILENAME_PREFIX
+                        If you want the raw metabolism estimation data
+                        dictionary in JSON-format, provide a filename prefix
+                        to this argument.The program will then output a file
+                        with the .json extension containing this data.
+  --store-json-without-estimation
+                        This flag is used to control what is stored in the
+                        JSON-formatted metabolism data dictionary. When this
+                        flag is provided alongside the --get-raw-data-as-json
+                        flag, the JSON file will be created without running
+                        metabolism estimation, and that file will consequently
+                        include only information about KOfam hits and gene
+                        calls. The idea is that you can then modify this file
+                        as you like and re-run this program using the flag
+                        --estimate-from-json.
+  --estimate-from-json FILE_PATH
+                        If you have a JSON file containing KOfam hits and gene
+                        call information from your contigs database (such as a
+                        file produced using the --get-raw-data-as-json flag),
+                        you can provide that file to this flag and KEGG
+                        metabolism estimates will be computed from the
+                        information within instead of from a contigs database.
 ```
 
 
@@ -1617,7 +1943,7 @@ anvi-estimate-scg-taxonomy [-h] [-c CONTIGS_DB] [-m] [-p PROFILE_DB]
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -m, --metagenome-mode
                         Treat a given contigs database as a metagenome rather
                         than treating it as a single genome.
@@ -1808,7 +2134,7 @@ anvi-experimental-organization [-h] [-p PROFILE_DB] -c CONTIGS_DB
                         Anvi'o profile database
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -i DIR_PATH, --input-directory DIR_PATH
                         Input directory where the input files addressed from
                         the configuration file can be found (i.e., the profile
@@ -1897,7 +2223,7 @@ Export contigs (or splits) from an anvi&#39;o contigs database
 
 ```
 anvi-export-contigs [-h] -c CONTIGS_DB [--contigs-of-interest FILE]
-                    [--splits-mode] -o FILE_PATH
+                    [--splits-mode] -o FILE_PATH [--just-do-it]
 ```
 
 **Parameters**
@@ -1909,7 +2235,7 @@ anvi-export-contigs [-h] -c CONTIGS_DB [--contigs-of-interest FILE]
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   --contigs-of-interest FILE
                         It is possible to focus on only a set of contigs. If
                         you would like to do that and ignore the rest of the
@@ -1919,6 +2245,8 @@ anvi-export-contigs [-h] -c CONTIGS_DB [--contigs-of-interest FILE]
   --splits-mode         Export split sequences instead.
   -o FILE_PATH, --output-file FILE_PATH
                         File path to store results.
+  --just-do-it          Don't bother me with questions or warnings, just do
+                        it.
 ```
 
 
@@ -1927,7 +2255,8 @@ anvi-export-contigs [-h] -c CONTIGS_DB [--contigs-of-interest FILE]
 
 ## anvi-export-functions
 
-Export gene function calls from an anvi&#39;o contigs database
+Export functions of genes from an anvi&#39;o contigs database for a given
+annotation source
 
 
 
@@ -1949,7 +2278,7 @@ anvi-export-functions [-h] -c CONTIGS_DB [-o FILE_PATH]
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -o FILE_PATH, --output-file FILE_PATH
                         File path to store results.
   --annotation-sources SOURCE NAME[S]
@@ -1993,7 +2322,7 @@ anvi-export-gene-calls [-h] -c CONTIGS_DB [-o FILE_PATH]
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -o FILE_PATH, --output-file FILE_PATH
                         File path to store results.
   --gene-caller GENE-CALLER
@@ -2040,7 +2369,7 @@ anvi-export-gene-coverage-and-detection [-h] -p PROFILE_DB -c
                         Anvi'o profile database
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -O FILENAME_PREFIX, --output-file-prefix FILENAME_PREFIX
                         A prefix to be used while naming the output files (no
                         file type extensions please; just a prefix).
@@ -2130,7 +2459,7 @@ anvi-export-locus [-h] -c CONTIGS_DB [-s SEARCH_TERM]
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
 ```
 
 
@@ -2253,20 +2582,30 @@ or layers.
 **Usage**
 
 ```
-anvi-export-misc-data [-h] -p PAN_OR_PROFILE_DB -t NAME [-D NAME]
-                      [-o FILE_PATH]
+anvi-export-misc-data [-h] [-p PAN_OR_PROFILE_DB] [-c CONTIGS_DB] -t
+                      NAME [-D NAME] [-o FILE_PATH]
 ```
 
 **Parameters**
 
 
 
-**optional arguments:** 
+**Database input:**   Provide 1 of these
 
 ```
   -p PAN_OR_PROFILE_DB, --pan-or-profile-db PAN_OR_PROFILE_DB
                         Anvi'o pan or profile database (and even genes
                         database in appropriate contexts).
+  -c CONTIGS_DB, --contigs-db CONTIGS_DB
+                        Anvi'o contigs database generated by 'anvi-gen-
+                        contigs-database'
+```
+
+
+
+**Details:**   Everything else.
+
+```
   -t NAME, --target-data-table NAME
                         The target table is the table you are interested in
                         accessing. Currently it can be 'items','layers', or
@@ -2318,7 +2657,7 @@ anvi-export-splits-and-coverages [-h] -p PROFILE_DB -c CONTIGS_DB
                         Anvi'o profile database
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -o DIR_PATH, --output-dir DIR_PATH
                         Directory path for output files
   -O FILENAME_PREFIX, --output-file-prefix FILENAME_PREFIX
@@ -2371,7 +2710,7 @@ anvi-export-splits-taxonomy [-h] -c CONTIGS_DB -o FILE_PATH
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -o FILE_PATH, --output-file FILE_PATH
                         File path to store results.
 ```
@@ -2530,6 +2869,7 @@ anvi-gen-contigs-database [-h] -f FASTA [-n PROJECT_NAME]
                           [--prodigal-translation-table INT]
                           [--external-gene-calls GENE-CALLS]
                           [--ignore-internal-stop-codons]
+                          [--skip-predict-frame]
                           [--skip-mindful-splitting]
 ```
 
@@ -2629,7 +2969,7 @@ anvi-gen-contigs-database [-h] -f FASTA [-n PROJECT_NAME]
                         Prodigal documentation to determine what is the right
                         translation table for you if you think you need it.)
   --external-gene-calls GENE-CALLS
-                        A TAB-delimited file to utilize external gene calls.
+                        A TAB-delimited file to define external gene calls.
                         The file must have these columns: 'gene_callers_id' (a
                         unique integer number for each gene call, start from
                         1), 'contig' (the contig name the gene call is found),
@@ -2638,25 +2978,53 @@ anvi-gen-contigs-database [-h] -f FASTA [-n PROJECT_NAME]
                         gene open reading frame; can be 'f' or 'r'), 'partial'
                         (whether it is a complete gene call, or a partial one;
                         must be 1 for partial calls, and 0 for complete
-                        calls), 'source' (the gene caller), and 'version' (the
-                        version of the gene caller, i.e., v2.6.7 or v1.0). An
-                        example file can be found via the URL
-                        https://bit.ly/2qEEHuQ
+                        calls), 'call_type' (1 if it is coding, 2 if it is
+                        noncoding, or 3 if it is unknown (only gene calls with
+                        call_type = 1 will have amino acid sequences
+                        translated)), 'source' (the gene caller), and
+                        'version' (the version of the gene caller, i.e.,
+                        v2.6.7 or v1.0). An additional 'optional' column is
+                        'aa_sequence' to explicitly define the amino acid
+                        seqeuence of a gene call so anvi'o does not attempt to
+                        translate the DNA sequence itself. An EXAMPLE FILE
+                        (with the optional 'aa_sequence' column (so feel free
+                        to take it out for your own case)) can be found at the
+                        URL https://bit.ly/2qEEHuQ. If you are providing
+                        external gene calls, please also see the flag `--skip-
+                        predict-frame`.
   --ignore-internal-stop-codons
                         This is only relevant when you have an external gene
                         calls file. If anvi'o figures out that your custom
                         gene calls result in amino acid sequences with stop
                         codons in the middle, it will complain about it. You
                         can use this flag to tell anvi'o to don't check for
-                        internal stop codons, EVEN THOUGH IT MEANS THERE IS
-                        MOST LIKELY SOMETHING WRONG WITH YOUR EXTERNAL GENE
-                        CALLS FILE. Anvi'o will understand that sometimes we
-                        don't want to care, and will not judge you. Instead,
-                        it will replace every stop codon residue in the amino
-                        acid sequence with an 'X' character. Please let us
-                        know if you used this and things failed, so we can
-                        tell you that you shouldn't have really used it if you
-                        didn't like failures at the first place (smiley).
+                        internal stop codons, Even though this shouldn't
+                        happen in theory, we understand that it almost always
+                        does. In these cases, anvi'o understands that
+                        sometimes we don't want to care, and will not judge
+                        you. Instead, it will replace every stop codon residue
+                        in the amino acid sequence with an 'X' character.
+                        Please let us know if you used this and things failed,
+                        so we can tell you that you shouldn't have really used
+                        it if you didn't like failures at the first place
+                        (smiley).
+  --skip-predict-frame  When you have provide an external gene calls file,
+                        anvi'o will predict the correct frame for gene calls
+                        as best as it can by using a previously-generated
+                        Markov model that is trained using the uniprot50
+                        database (see this for details:
+                        https://github.com/merenlab/anvio/pull/1428), UNLESS
+                        there is an `aa_sequence` entry for a given gene call
+                        in the external gene calls file. Please note that
+                        PREDICTING FRAMES MAY CHANGE START/STOP POSITIONS OF
+                        YOUR GENE CALLS SLIGHTLY, if those that are in the
+                        external gene calls file are not describing proper
+                        gene calls according to the model. If you use this
+                        flag, anvi'o will not rely on any model and will
+                        attempt to translate your DNA sequences by solely
+                        relying upon start/stop positions in the file, but it
+                        will complain about sequences start/stop positions of
+                        which are not divisible by 3.
 ```
 
 
@@ -2705,7 +3073,7 @@ anvi-gen-fixation-index-matrix [-h] [-p PROFILE_DB] [-c CONTIGS_DB]
                         Anvi'o profile database
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -s STRUCTURE_DB, --structure-db STRUCTURE_DB
                         Anvi'o structure database.
   -V VARIABILITY_TABLE, --variability-profile VARIABILITY_TABLE
@@ -2842,7 +3210,7 @@ anvi-gen-gene-consensus-sequences [-h] -p PROFILE_DB -c CONTIGS_DB
                                   [--samples-of-interest FILE]
                                   [-o FILE_PATH] [--tab-delimited]
                                   [--engine ENGINE] [--contigs-mode]
-                                  [--compress-samples]
+                                  [--quince-mode] [--compress-samples]
 ```
 
 **Parameters**
@@ -2868,7 +3236,7 @@ anvi-gen-gene-consensus-sequences [-h] -p PROFILE_DB -c CONTIGS_DB
                         Anvi'o profile database
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
 ```
 
 
@@ -2922,6 +3290,8 @@ anvi-gen-gene-consensus-sequences [-h] -p PROFILE_DB -c CONTIGS_DB
   --engine ENGINE       Variability engine. The default is 'NT'.
   --contigs-mode        Use this flag to output consensus sequences of
                         contigs, instead of the default, which is genes
+  --quince-mode         Use this flag to output consensus sequences for cases
+                        even where there is no variability
 ```
 
 
@@ -2961,7 +3331,7 @@ anvi-gen-gene-level-stats-databases [-h] -c CONTIGS_DB -p PROFILE_DB
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -p PROFILE_DB, --profile-db PROFILE_DB
                         Anvi'o profile database
 ```
@@ -3031,10 +3401,16 @@ anvi-gen-gene-level-stats-databases [-h] -c CONTIGS_DB -p PROFILE_DB
 
 ## anvi-gen-genomes-storage
 
-Create a genome storage from internal or external genomes for a pan genome
+Create a genome storage from internal and/or external genomes for a pangenome
 analysis.
 
 
+
+
+**Example uses and other resources**
+
+
+* [A tutorial on pangenomics](http://merenlab.org/2016/11/08/pangenomics-v2/)
 
 
 
@@ -3135,7 +3511,7 @@ anvi-gen-network [-h] -p PROFILE_DB -c CONTIGS_DB
                         Anvi'o profile database
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   --annotation-source SOURCE NAME
                         Get functional annotations for a specific annotation
                         source. You can use the flag '--list-annotation-
@@ -3203,8 +3579,7 @@ anvi-gen-phylogenomic-tree [-h] -f FASTA -o FILE_PATH
 Identifies genes in your contigs database that encode proteins that are
 homologous to proteins with solved structures. If sufficiently similar
 homologs are identified, they are used as structural templates to predict the
-3D structure of proteins in your contigs database. See our tutorial:
-http://merenlab.org/2018/09/04/structural-biology-with-anvio/
+3D structure of proteins in your contigs database.
 
 
 
@@ -3247,7 +3622,7 @@ anvi-gen-structure-database [-h] -c CONTIGS_DB [--pdb-db PDB_DB]
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   --pdb-db PDB_DB       By default, this program accesses the structure files
                         it needs from an internal anvi'o database that can be
                         set up with anvi-setup-pdb-database. If a required
@@ -3467,7 +3842,7 @@ anvi-gen-variability-matrix [-h] -c CONTIGS_DB --splits-of-interest
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   --splits-of-interest FILE
                         A file with split names. There should be only one
                         column in the file, and each line should correspond to
@@ -3621,7 +3996,7 @@ anvi-gen-variability-profile [-h] -p PROFILE_DB -c CONTIGS_DB
                         Anvi'o profile database
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -s STRUCTURE_DB, --structure-db STRUCTURE_DB
                         Anvi'o structure database.
 ```
@@ -3824,7 +4199,7 @@ anvi-get-aa-counts [-h] -c CONTIGS_DB [-o FILE_PATH] [-p PROFILE_DB]
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -o FILE_PATH, --output-file FILE_PATH
                         File path to store results.
 ```
@@ -3901,7 +4276,7 @@ anvi-get-codon-frequencies [-h] -c CONTIGS_DB
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
 ```
 
 
@@ -4089,7 +4464,7 @@ anvi-get-sequences-for-gene-calls [-h] [-c CONTIGS_DB]
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   --gene-caller-ids GENE_CALLER_IDS
                         Gene caller ids. Multiple of them can be declared
                         separated by a delimiter (the default is a comma). In
@@ -4405,7 +4780,7 @@ anvi-get-sequences-for-gene-clusters [-h] -p PAN_DB
 
 ## anvi-get-sequences-for-hmm-hits
 
-Get sequences for HMM hits from many inputs to study phylogenomics.
+Get sequences for HMM hits from many inputs.
 
 
 
@@ -4450,7 +4825,7 @@ anvi-get-sequences-for-hmm-hits [-h] [-c CONTIGS_DB] [-p PROFILE_DB]
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
 ```
 
 
@@ -4669,7 +5044,7 @@ anvi-get-short-reads-from-bam [-h] -p PROFILE_DB -c CONTIGS_DB
                         Anvi'o profile database
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -C COLLECTION_NAME, --collection-name COLLECTION_NAME
                         Collection name.
   -b BIN_NAME, --bin-id BIN_NAME
@@ -4725,7 +5100,7 @@ anvi-get-short-reads-mapping-to-a-gene [-h] -c CONTIGS_DB -i
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -i INPUT_BAM(S) [INPUT_BAM(S) ...], --input-files INPUT_BAM(S) [INPUT_BAM(S) ...]
                         Sorted and indexed BAM files to analyze. It is
                         essential that all BAM files must be the result of
@@ -4809,7 +5184,7 @@ anvi-get-split-coverages [-h] -p PROFILE_DB [--split-name SPLIT_NAME]
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -C COLLECTION_NAME, --collection-name COLLECTION_NAME
                         Collection name.
   -b BIN_NAME, --bin-id BIN_NAME
@@ -4917,7 +5292,7 @@ anvi-import-collection [-h] [-c CONTIGS_DB] [-p PAN_OR_PROFILE_DB] -C
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -p PAN_OR_PROFILE_DB, --pan-or-profile-db PAN_OR_PROFILE_DB
                         Anvi'o pan or profile database (and even genes
                         database in appropriate contexts).
@@ -4981,7 +5356,7 @@ anvi-import-functions [-h] -c CONTIGS_DB [-p PARSER] -i FILES)
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -p PARSER, --parser PARSER
                         Parser to make sense of the input files (if you need
                         one). There are currently 1 parsers readily available:
@@ -5077,7 +5452,8 @@ anvi-import-items-order [-h] [-i FILE] [-p DB PATH] [--name ORDER NAME]
 ## anvi-import-misc-data
 
 Populate additional data or order tables in pan or profile databases for items
-or layers (the Swiss army knife-level serious stuff).
+and layers, OR additional data in contigs databases for nucleotides and amino
+acids (the Swiss army knife-level serious stuff).
 
 
 
@@ -5092,8 +5468,8 @@ or layers (the Swiss army knife-level serious stuff).
 **Usage**
 
 ```
-anvi-import-misc-data [-h] -p PAN_OR_PROFILE_DB -t NAME [-D NAME]
-                      [--transpose] [--just-do-it]
+anvi-import-misc-data [-h] [-p PAN_OR_PROFILE_DB] [-c CONTIGS_DB] -t
+                      NAME [-D NAME] [--transpose] [--just-do-it]
                       TAB DELIMITED FILE
 ```
 
@@ -5116,12 +5492,22 @@ anvi-import-misc-data [-h] -p PAN_OR_PROFILE_DB -t NAME [-D NAME]
 
 
 
-**optional arguments:** 
+**Database input:**   Provide 1 of these
 
 ```
   -p PAN_OR_PROFILE_DB, --pan-or-profile-db PAN_OR_PROFILE_DB
                         Anvi'o pan or profile database (and even genes
                         database in appropriate contexts).
+  -c CONTIGS_DB, --contigs-db CONTIGS_DB
+                        Anvi'o contigs database generated by 'anvi-gen-
+                        contigs-database'
+```
+
+
+
+**Details:**   Everything else.
+
+```
   -t NAME, --target-data-table NAME
                         The target table is the table you are interested in
                         accessing. Currently it can be 'items','layers', or
@@ -5201,7 +5587,7 @@ anvi-import-taxonomy-for-genes [-h] -c CONTIGS_DB [-p PARSER] -i FILES)
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -p PARSER, --parser PARSER
                         Parser to make sense of the input files. There are 3
                         parsers readily available: ['default_matrix',
@@ -5344,7 +5730,7 @@ anvi-inspect [-h] [-p PROFILE_DB] [-c CONTIGS_DB]
                         Anvi'o profile database
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   --split-name SPLIT_NAME
                         Split name.
 ```
@@ -5449,7 +5835,7 @@ anvi-interactive [-h] [-p PROFILE_DB] [-c CONTIGS_DB]
 
 
 
-**DEFAULT INPUTS:**   The interavtive interface can be started with and without anvi&#39;o
+**DEFAULT INPUTS:**   The interactive interface can be started with and without anvi&#39;o
   databases. The default use assumes you have your profile and contigs
   database, however, it is also possible to start the interface using ad hoc
   input files. See &#39;MANUAL INPUT&#39; section for required parameters.
@@ -5459,7 +5845,7 @@ anvi-interactive [-h] [-p PROFILE_DB] [-c CONTIGS_DB]
                         Anvi'o profile database
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -C COLLECTION_NAME, --collection-name COLLECTION_NAME
                         If you have a collection in your profile database, you
                         can use this flag to start the interactive interface
@@ -5822,7 +6208,7 @@ anvi-mcg-classifier [-h] -p PROFILE_DB -c CONTIGS_DB
                         Anvi'o profile database
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
 ```
 
 
@@ -5950,7 +6336,7 @@ anvi-merge [-h] -c CONTIGS_DB [-o DIR_PATH] [-S NAME]
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -o DIR_PATH, --output-dir DIR_PATH
                         Directory path for output files
   -S NAME, --sample-name NAME
@@ -6151,25 +6537,56 @@ Migrate an anvi&#39;o database or config file to a newer version.
 **Usage**
 
 ```
-anvi-migrate [-h] [--just-do-it] [-t VERSION] DATABASE [DATABASE ...]
+anvi-migrate [-h] [--migrate-dbs-safely] [--migrate-dbs-quickly]
+             [--just-do-it] [-t VERSION]
+             DATABASES) [DATABASE(S ...]
 ```
 
 **Parameters**
 
 
 
-**positional arguments:** 
+**INPUTS:**   You will literally give us any anvi&#39;o database.
 
 ```
-  DATABASE              Anvi'o database or config file for migration
+  DATABASE(S)           Anvi'o database or config file for migration. You can
+                        give many of them all at once. Running `anvi-migrate
+                        *.db` in a directory will migrate all databases in
+                        that directory.
 ```
 
 
 
-**optional arguments:** 
+**SAFETY:**   It is up to you. Safe things take much longer and boring. Unsafe things
+  are fast, fun, and .. well, don&#39;t come to use if your computer loses power
+  or somiething.
 
 ```
-  --just-do-it          Do not bother me with warnings
+  --migrate-dbs-safely  If you chose this, anvi'o will first create a copy of
+                        your original database. If something goes wrong, it
+                        will restore the original. If everything works, it
+                        will remove the old copy. IF YOU HAVE DATABASES THAT
+                        ARE VERY LARGE OR IF YOU ARE MIGRATING MANY MANY OF
+                        THEM THIS OPTION WILL ADD A HUGE I/O BURDEN ON YOUR
+                        SYSTEM. But still. Safety is safe.
+  --migrate-dbs-quickly
+                        If you chose this, anvi'o will migrate your databases
+                        in place. It will be much faster (and arguably more
+                        fun) than the safe option, but if something goes
+                        wrong, you will lose data. During the first five years
+                        of anvi'o development not a single user lost data
+                        using our migration scripts as far as we know. But
+                        there is always a first, and today might be your lucky
+                        day.
+```
+
+
+
+**PARAMATERS OF CONVENIENCE:**   This is how anvi&#39;o spoils you.
+
+```
+  --just-do-it          Don't bother me with questions or warnings, just do
+                        it.
   -t VERSION, --target-version VERSION
                         Anvi'o will stop upgrading your database when it
                         reaches to this version.
@@ -6212,9 +6629,7 @@ anvi-oligotype-linkmers [-h] -i LINKMER_REPORT -o DIR_PATH
 
 ## anvi-pan-genome
 
-A DIAMOND and MCL-based anvi&#39;o workflow for pangenomics. You provide genomes
-from anywhere (whether they are external genomes, or anvi&#39;o genome bins in
-collections), and it gives you back a pangenome analysis.
+An anvi&#39;o program to compute a pangenome from an anvi&#39;o genome storage.
 
 
 
@@ -6423,8 +6838,9 @@ Creates a single anvi&#39;o profile database. The default input to this program 
 a BAM file. When it is run on a BAM file, depending on the user parameters,
 the program quantifies coverage per nucleotide position (and averages them out
 per contig), calculates single-nucleotide, single-codon, and single-amino acid
-variants, and stores these data into appropriate tables. Anvi&#39;o single
-profiles can be merged by the program `anvi-merge`.
+variants, as well as structurel variants such as insertion and deletions and
+stores these data into appropriate tables. Anvi&#39;o single profiles can be
+merged by the program `anvi-merge`.
 
 `metagenomics` `profile_db` `contigs_db` `bam` `variability` `clustering` 
 
@@ -6466,7 +6882,7 @@ anvi-profile [-h] [-i INPUT_BAM] [-c CONTIGS_DB] [--blank-profile]
                         parameters used for profiling.
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   --blank-profile       If you only have contig sequences, but no mapping data
                         (i.e., you found a genome and would like to take a
                         look from it), this flag will become very hand. After
@@ -6832,7 +7248,7 @@ anvi-refine [-h] -p PROFILE_DB -c CONTIGS_DB [-C COLLECTION_NAME]
                         Anvi'o profile database
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
 ```
 
 
@@ -7018,7 +7434,7 @@ anvi-rename-bins [-h] -c CONTIGS_DB -p PROFILE_DB
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -p PROFILE_DB, --profile-db PROFILE_DB
                         Anvi'o profile database
   --collection-to-read COLLECTION_TO_READ
@@ -7154,7 +7570,8 @@ contigs database.
 ```
 anvi-run-hmms [-h] -c CONTIGS_DB [-H HMM PROFILE PATH]
               [-I HMM PROFILE NAME] [--also-scan-trnas]
-              [-T NUM_THREADS] [--just-do-it]
+              [-T NUM_THREADS] [--hmmer-program HMMER_PROGRAM]
+              [--just-do-it]
 ```
 
 **Parameters**
@@ -7166,7 +7583,7 @@ anvi-run-hmms [-h] -c CONTIGS_DB [-H HMM PROFILE PATH]
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
 ```
 
 
@@ -7216,6 +7633,20 @@ anvi-run-hmms [-h] -c CONTIGS_DB [-H HMM PROFILE PATH]
                         --if you are clusterizing your runs, and asking for
                         multiple threads to use, you may deplete your
                         resources very fast.
+  --hmmer-program HMMER_PROGRAM
+                        Which of the HMMER programs to use to run HMMs
+                        (hmmscan or hmmsearch). By default anvi'o will use
+                        hmmscan for typical HMM operations like those in anvi-
+                        run-hmms (as these tend to scan a very large number of
+                        genes against a relatively small number of HMMs), but
+                        if you are using this program to scan a very large
+                        number of HMMs, hmmsearch might be a better choice for
+                        performance. For this reason, hmmsearch is the default
+                        in operations like anvi-run-pfams and anvi-run-kegg-
+                        kofams. See this article for a discussion on the
+                        performance of these two programs:
+                        https://cryptogenomicon.org/2011/05/27/hmmscan-vs-
+                        hmmsearch-speed-the-numerology/
 ```
 
 
@@ -7223,6 +7654,78 @@ anvi-run-hmms [-h] -c CONTIGS_DB [-H HMM PROFILE PATH]
 **AUTHORITY:**   Because you are the boss.
 
 ```
+  --just-do-it          Don't bother me with questions or warnings, just do
+                        it.
+```
+
+
+
+
+
+## anvi-run-kegg-kofams
+
+Run KOfam HMMs on an anvi&#39;o contigs database
+
+
+
+
+
+**Usage**
+
+```
+anvi-run-kegg-kofams [-h] -c CONTIGS_DB [--kegg-data-dir KEGG_DATA_DIR]
+                     [-T NUM_THREADS] [--hmmer-program HMMER_PROGRAM]
+                     [--keep-all-hits] [--just-do-it]
+```
+
+**Parameters**
+
+
+
+**REQUIRED INPUT:**   The stuff you need for this to work.
+
+```
+  -c CONTIGS_DB, --contigs-db CONTIGS_DB
+                        Anvi'o contigs database generated by 'anvi-gen-
+                        contigs-database'
+```
+
+
+
+**OPTIONAL INPUT:**   Optional params for a custom experience.
+
+```
+  --kegg-data-dir KEGG_DATA_DIR
+                        The directory path for your KEGG setup, which will
+                        include things like KOfam profiles and KEGG MODULE
+                        data. Anvi'o will try to use the default path if you
+                        do not specify anything.
+  -T NUM_THREADS, --num-threads NUM_THREADS
+                        Maximum number of threads to use for multithreading
+                        whenever possible. Very conservatively, the default is
+                        1. It is a good idea to not exceed the number of CPUs
+                        / cores on your system. Plus, please be careful with
+                        this option if you are running your commands on a SGE
+                        --if you are clusterizing your runs, and asking for
+                        multiple threads to use, you may deplete your
+                        resources very fast.
+  --hmmer-program HMMER_PROGRAM
+                        Which of the HMMER programs to use to run HMMs
+                        (hmmscan or hmmsearch). By default anvi'o will use
+                        hmmscan for typical HMM operations like those in anvi-
+                        run-hmms (as these tend to scan a very large number of
+                        genes against a relatively small number of HMMs), but
+                        if you are using this program to scan a very large
+                        number of HMMs, hmmsearch might be a better choice for
+                        performance. For this reason, hmmsearch is the default
+                        in operations like anvi-run-pfams and anvi-run-kegg-
+                        kofams. See this article for a discussion on the
+                        performance of these two programs:
+                        https://cryptogenomicon.org/2011/05/27/hmmscan-vs-
+                        hmmsearch-speed-the-numerology/
+  --keep-all-hits       If you use this flag, anvi'o will not get rid of any
+                        raw HMM hits, even those that are below the score
+                        threshold.
   --just-do-it          Don't bother me with questions or warnings, just do
                         it.
 ```
@@ -7262,7 +7765,7 @@ anvi-run-ncbi-cogs [-h] -c CONTIGS_DB [--cog-data-dir COG_DATA_DIR]
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   --cog-data-dir COG_DATA_DIR
                         The directory path for your COG setup. Anvi'o will try
                         to use the default path if you do not specify
@@ -7311,7 +7814,7 @@ Run Pfam on Contigs Database.
 
 ```
 anvi-run-pfams [-h] -c CONTIGS_DB [--pfam-data-dir PFAM_DATA_DIR]
-               [-T NUM_THREADS]
+               [-T NUM_THREADS] [--hmmer-program HMMER_PROGRAM]
 ```
 
 **Parameters**
@@ -7323,7 +7826,7 @@ anvi-run-pfams [-h] -c CONTIGS_DB [--pfam-data-dir PFAM_DATA_DIR]
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   --pfam-data-dir PFAM_DATA_DIR
                         The directory path for your Pfam setup. Anvi'o will
                         try to use the default path if you do not specify
@@ -7337,6 +7840,20 @@ anvi-run-pfams [-h] -c CONTIGS_DB [--pfam-data-dir PFAM_DATA_DIR]
                         --if you are clusterizing your runs, and asking for
                         multiple threads to use, you may deplete your
                         resources very fast.
+  --hmmer-program HMMER_PROGRAM
+                        Which of the HMMER programs to use to run HMMs
+                        (hmmscan or hmmsearch). By default anvi'o will use
+                        hmmscan for typical HMM operations like those in anvi-
+                        run-hmms (as these tend to scan a very large number of
+                        genes against a relatively small number of HMMs), but
+                        if you are using this program to scan a very large
+                        number of HMMs, hmmsearch might be a better choice for
+                        performance. For this reason, hmmsearch is the default
+                        in operations like anvi-run-pfams and anvi-run-kegg-
+                        kofams. See this article for a discussion on the
+                        performance of these two programs:
+                        https://cryptogenomicon.org/2011/05/27/hmmscan-vs-
+                        hmmsearch-speed-the-numerology/
 ```
 
 
@@ -7381,7 +7898,7 @@ anvi-run-scg-taxonomy [-h] -c CONTIGS_DB
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
 ```
 
 
@@ -7529,9 +8046,9 @@ anvi-run-workflow [-h] [-w WORKFLOW]
   --dry-run             Don't do anything real. Test everything, and stop
                         right before wherever the developer said 'well, this
                         is enough testing', and decided to print out results.
-  --skip-dry-run        Don't do anything real. Test everything, and stop
-                        right before wherever the developer said 'well, this
-                        is enough testing', and decided to print out results.
+  --skip-dry-run        Don't do a dry run. Just start the workflow! Useful
+                        when your job is so big it takes hours to do a dry
+                        run.
   --save-workflow-graph
                         Save a graph representation of the workflow. If you
                         are using this flag and if your system is unable to
@@ -7582,7 +8099,7 @@ anvi-scan-trnas [-h] -c CONTIGS_DB [-T NUM_THREADS]
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -T NUM_THREADS, --num-threads NUM_THREADS
                         Maximum number of threads to use for multithreading
                         whenever possible. Very conservatively, the default is
@@ -7645,7 +8162,7 @@ anvi-search-functions [-h] [-c CONTIGS_DB] [-p PAN_DB]
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -p PAN_DB, --pan-db PAN_DB
                         Anvi'o pan database
   -g GENOMES_STORAGE, --genomes-storage GENOMES_STORAGE
@@ -7725,6 +8242,53 @@ anvi-self-test [-h] [--suite SUITE]
                  specific test to run. Here is a full list of available
                  options: mini, full, pangenomics, alons-classifier, manual-
                  interface.
+```
+
+
+
+
+
+## anvi-setup-kegg-kofams
+
+Download and setup KEGG KOfam HMM profiles
+
+
+
+
+
+**Usage**
+
+```
+anvi-setup-kegg-kofams [-h] [--kegg-data-dir KEGG_DATA_DIR]
+                       [--kegg-archive KEGG_ARCHIVE] [--reset]
+                       [--just-do-it]
+```
+
+**Parameters**
+
+
+
+**POSSIBLE INPUT:**   Not required for this program to run, but could be useful.
+
+```
+  --kegg-data-dir KEGG_DATA_DIR
+                        The directory path for your KEGG setup, which will
+                        include things like KOfam profiles and KEGG MODULE
+                        data. Anvi'o will try to use the default path if you
+                        do not specify anything.
+  --kegg-archive KEGG_ARCHIVE
+                        The path to an archived KEGG directory. If you provide
+                        this parameter, anvi'o will set up the KEGG data
+                        directory from the archive rather than downloading and
+                        building it from the KEGG website.
+  --reset               Remove all the previously stored files and start over.
+                        If something is feels wrong for some reason and if you
+                        believe re-downloading files and setting them up could
+                        address the issue, this is the flag that will tell
+                        anvi'o to act like a real computer scientist
+                        challenged with a computational problem.
+  --just-do-it          Don't bother me with questions or warnings, just do
+                        it.
 ```
 
 
@@ -7895,7 +8459,7 @@ anvi-setup-pfams [-h] [--pfam-data-dir PFAM_DATA_DIR] [--reset]
 
 
 
-## anvi-setup-scg-databases
+## anvi-setup-scg-taxonomy
 
 The purpose of this program is to download necessary information from GTDB
 (https://gtdb.ecogenomic.org/), and set it up in such a way that your anvi&#39;o
@@ -7916,10 +8480,10 @@ run-scg-taxonomy` and estimate taxonomy for genomes or metagenomes using
 **Usage**
 
 ```
-anvi-setup-scg-databases [-h] [-T NUM_THREADS]
-                         [--scgs-taxonomy-data-dir PATH]
-                         [--scgs-taxonomy-remote-database-url URL]
-                         [--reset] [--redo-databases]
+anvi-setup-scg-taxonomy [-h] [-T NUM_THREADS]
+                        [--scgs-taxonomy-data-dir PATH]
+                        [--scgs-taxonomy-remote-database-url URL]
+                        [--reset] [--redo-databases]
 ```
 
 **Parameters**
@@ -8024,19 +8588,30 @@ Show all misc data keys in all misc data tables
 **Usage**
 
 ```
-anvi-show-misc-data [-h] -p PAN_OR_PROFILE_DB [-t NAME] [-D NAME]
+anvi-show-misc-data [-h] [-p PAN_OR_PROFILE_DB] [-c CONTIGS_DB]
+                    [-t NAME] [-D NAME]
 ```
 
 **Parameters**
 
 
 
-**optional arguments:** 
+**Database input:**   Provide 1 of these
 
 ```
   -p PAN_OR_PROFILE_DB, --pan-or-profile-db PAN_OR_PROFILE_DB
                         Anvi'o pan or profile database (and even genes
                         database in appropriate contexts).
+  -c CONTIGS_DB, --contigs-db CONTIGS_DB
+                        Anvi'o contigs database generated by 'anvi-gen-
+                        contigs-database'
+```
+
+
+
+**Details:**   Everything else.
+
+```
   -t NAME, --target-data-table NAME
                         The target table is the table you are interested in
                         accessing. Currently it can be 'items','layers', or
@@ -8095,7 +8670,7 @@ anvi-split [-h] -p PAN_OR_PROFILE_DB [-c CONTIGS_DB]
                         database in appropriate contexts).
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -g GENOMES_STORAGE, --genomes-storage GENOMES_STORAGE
                         Anvi'o genomes storage file
 ```
@@ -8183,7 +8758,14 @@ anvi-split [-h] -p PAN_OR_PROFILE_DB [-c CONTIGS_DB]
 
 ## anvi-summarize
 
-Summarize an anvi&#39;o collection. Fun stuff.
+Summarizer for anvi&#39;o pan or profile db&#39;s. Essentially, this program takes a
+collection id along with either a profile database and a contigs database or a
+pan database and a genomes storage and generates a static HTML output for what
+is described in a given collection. The output directory will contain almost
+everything any downstream analysis may need, and can be displayed using a
+browser without the need for an anvi&#39;o installation. For this reason alone,
+reporting summary outputs as supplementary data with publications is a great
+idea for transparency and reproducibility.
 
 
 
@@ -8225,7 +8807,7 @@ anvi-summarize [-h] -p PAN_OR_PROFILE_DB [-c CONTIGS_DB]
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -g GENOMES_STORAGE, --genomes-storage GENOMES_STORAGE
                         Anvi'o genomes storage file
 ```
@@ -8391,7 +8973,7 @@ anvi-update-structure-database [-h] -c CONTIGS_DB -s STRUCTURE_DB
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -s STRUCTURE_DB, --structure-db STRUCTURE_DB
                         Anvi'o structure database.
 ```
@@ -8546,13 +9128,53 @@ anvi-script-add-default-collection [-h] -p PAN_OR_PROFILE_DB
                         database in appropriate contexts).
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -b BIN_NAME, --bin-id BIN_NAME
                         Name for the new bin. If you don't provide any then it
                         will be named "EVERYTHING".
   -C COLLECTION_NAME, --collection-name COLLECTION_NAME
                         Name for the new collection. If you don't provide any
                         then it will be named "DEFAULT".
+```
+
+
+
+
+
+## anvi-script-augustus-output-to-external-gene-calls
+
+Takes in gene calls by AUGUSTUS v3.3.3, generates an anvi&#39;o external gene
+calls file. It may work well with other versions of AUGUSTUS, too. It is just
+no one has tested the script with different versions of the program.
+
+
+
+
+
+**Usage**
+
+```
+anvi-script-augustus-output-to-external-gene-calls [-h] -i INPUT_FILE
+                                                   [-o FILE_PATH]
+                                                   [--just-do-it]
+```
+
+**Parameters**
+
+
+
+**optional arguments:** 
+
+```
+  -i INPUT_FILE, --input-file INPUT_FILE
+                        Gene calls file from AUGUSTUS (that ends with .gff).
+                        Please note that the script is only tested with
+                        AUGUSTUS v3.3.3 output (although it may still work
+                        with other versions of the program).
+  -o FILE_PATH, --output-file FILE_PATH
+                        File path to store results.
+  --just-do-it          Don't bother me with questions or warnings, just do
+                        it.
 ```
 
 
@@ -8769,7 +9391,7 @@ anvi-script-estimate-genome-size [-h] -c CONTIGS_DB [--verbose]
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
 ```
 
 
@@ -8924,7 +9546,7 @@ anvi-script-gen-distribution-of-genes-in-a-bin [-h] -c CONTIGS_DB
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -p PROFILE_DB, --profile-db PROFILE_DB
                         Anvi'o profile database
   -C COLLECTION_NAME, --collection-name COLLECTION_NAME
@@ -8959,10 +9581,39 @@ anvi-script-gen-distribution-of-genes-in-a-bin [-h] -c CONTIGS_DB
 
 
 
+## anvi-script-gen-help-pages
+
+Generate a static web page for anvio&#39;o help pages
+
+
+
+
+
+**Usage**
+
+```
+anvi-script-gen-help-pages [-h] [-o DIR_PATH]
+```
+
+**Parameters**
+
+
+
+**optional arguments:** 
+
+```
+  -o DIR_PATH, --output-dir DIR_PATH
+                        Directory path for output files
+```
+
+
+
+
+
 ## anvi-script-gen-hmm-hits-matrix-across-genomes
 
-A simple script to generate a TAB-delimited file for the presence or absence
-of HMM hits in a given set of contigs databases and an HMM source.
+A simple script to generate a TAB-delimited file that reports the frequency of
+HMM hits for a given HMM source across contigs databases.
 
 
 
@@ -9090,6 +9741,43 @@ anvi-script-gen-programs-vignette [-h] [-o FILE_PATH]
   -p PROGRAM_NAMES_TO_FOCUS, --program-names-to-focus PROGRAM_NAMES_TO_FOCUS
                         Comma-spearated list of program names to focus Mostly
                         for debugging purposes.
+```
+
+
+
+
+
+## anvi-script-gen-pseudo-paired-reads-from-fastq
+
+Take a FASTQ file and convert it into 2 FASTQ files. Each read from the
+original FASTQ file halved, where one half is put in the R1 FASTQ and the
+other half is reverse complemented and put in the R2 FASTQ. If you&#39;ve ended up
+here, things have clearly not gone very well for you, and as I write this
+sentence, I wholeheartedly sympathize.
+
+
+
+
+
+**Usage**
+
+```
+anvi-script-gen-pseudo-paired-reads-from-fastq [-h] -f FASTQ
+                                               [-O FILENAME_PREFIX]
+```
+
+**Parameters**
+
+
+
+**optional arguments:** 
+
+```
+  -f FASTQ, --fastq FASTQ
+  -O FILENAME_PREFIX, --output-file-prefix FILENAME_PREFIX
+                        If you want final FASTQs with the format
+                        myfastq_1.fastq and myfastq_2.fastq, then this
+                        parameter should be set to myfastq
 ```
 
 
@@ -9343,7 +10031,7 @@ anvi-script-get-hmm-hits-per-gene-call [-h] -c CONTIGS_DB
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
 ```
 
 
@@ -9458,7 +10146,7 @@ anvi-script-merge-collections [-h] -c CONTIGS_DB -i FILES) [FILE(S ...]
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -i FILE(S) [FILE(S) ...], --input-files FILE(S) [FILE(S) ...]
                         Input file(s). TAB-delimited input files should have
                         two columns, where the first column holds the contig
@@ -9513,7 +10201,7 @@ anvi-script-predict-CPR-genomes [-h] -c CONTIGS_DB [-p PROFILE_DB]
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   -p PROFILE_DB, --profile-db PROFILE_DB
                         Anvi'o profile database
   -C COLLECTION_NAME, --collection-name COLLECTION_NAME
@@ -9780,7 +10468,7 @@ anvi-script-run-eggnog-mapper [-h] -c CONTIGS_DB
 ```
   -c CONTIGS_DB, --contigs-db CONTIGS_DB
                         Anvi'o contigs database generated by 'anvi-gen-
-                        contigs'
+                        contigs-database'
   --cog-data-dir COG_DATA_DIR
                         The directory path for your COG setup if you did not
                         use the default directory.
@@ -9879,6 +10567,27 @@ anvi-script-snvs-to-interactive [-h]
   -o DIR_PATH, --output-dir DIR_PATH
                         Directory path for output files
 ```
+
+
+
+
+
+## anvi-script-tabulate
+
+Tabulates TAB-delmited data with headers in terminal: `cat table.txt | anvi-
+script-tabulate`
+
+
+
+
+
+**Usage**
+
+```
+anvi-script-tabulate [-h]
+```
+
+**Parameters**
 
 
 

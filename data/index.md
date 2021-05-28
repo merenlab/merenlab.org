@@ -6,11 +6,86 @@ excerpt: "Publicly available data and other information on publications from our
 comments: true
 ---
 
-This page serves the publicly available data items mentioned in our publications. Please do not hesitate to get in touch if something is missing.
+This page serves **public (and often reproducible) data items that underlie key findings in our publications**.
+
+If you would like to interactively explore any of the data items, you may need to install [anvi'o](https://merenlab.org/software/anvio/) or use it via our [Docker containers](https://hub.docker.com/r/meren/anvio/tags?page=1&ordering=last_updated) without installation. See [anvi'o programs and artifacts](/software/anvio/help/main/) that can be used to further explore reproducible data items below.
+
+Please do not hesitate to get in touch if something is missing. You can send [us](/people/) an e-mail, or find us on Slack:
 
 {% include _join-anvio-slack.html %}
 
 {% include _toc.html %}
+
+## Metabolic competency of gut microbes in health and disease
+
+
+<div class="pub_float">
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1101/2021.03.02.433653"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1101/2021.03.02.433653" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1101/2021.03.02.433653" target="_new">Adaptive ecological processes and metabolic independence drive microbial colonization and resilience in the human gut</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Watson AR</span>, Füssel J, <span class="pub-member-author">Veseli I</span>, DeLongchamp JZ, Silva M, <span class="pub-member-author">Trigodet F</span>, <span class="pub-member-author">Lolans K</span>, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Fogarty EC</span>, Quince C, Yu MK, Söylev A, Morrison HG, Lee ST, Rubin DT, Jabri B, Louie T, <span class="pub-member-author">Eren AM</span></span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/watson_et_al_fmt.jpeg"><img src="/images/pubs/watson_et_al_fmt.jpeg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);" /></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A Fecal Microbiota Transplantation (FMT) study that reveals unexpected parallels between the <b>adaptive ecological processes</b> that shape the recipient gut <b>microbial composition after FMT</b> and those that influence <b>microbial diversity in patients with Inflammatory Bowel Disease (IBD)</b>.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- Includes an observation that links <b>the presence of superior metabolic competence in bacterial populations to their expansion in IBD</b>.</span><br /><span style="display: inline-block; padding-bottom: 5px;">-  Here is a <a href="https://twitter.com/merenbey/status/1369016402896695298" target="_blank">Twitter thread</a> that explains <b>key points</b> of the study.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><b>bioRxiv</b> <a href="https://doi.org/10.1101/2021.03.02.433653" target="_blank">🔗</a></span>
+</div>
+
+{:.warning}
+[https://merenlab.org/data/fmt-gut-colonization](fmt-gut-colonization) gives access to our **bioinformatics workflow**.
+
+<details markdown="1"><summary>Show/hide <b>public raw and reproducible</b> data items</summary>
+
+<div style="width: 200px; float: right; padding-left: 20px;">
+<a href="/images/pubs/watson_et_al_fmt.jpeg" target="_blank"><img src="/images/pubs/watson_et_al_fmt.jpeg" style="border:none;" /></a>
+</div>
+
+* We deposited the **raw sequencing data for donor and recipient metagenomes** under the NCBI BioProject [PRJNA701961](https://www.ncbi.nlm.nih.gov/bioproject/?term=prjna701961) (see Supplementary Table 1 for accession numbers and the details of each sample).
+* [doi:10.6084/m9.figshare.14331236](https://doi.org/10.6084/m9.figshare.14331236): Data products that give reproducible access to **donor and recipient metagenomes, metagenome-assembled genomes, and read recruitment results**.
+* [doi:10.6084/m9.figshare.14225840](https://doi.org/10.6084/m9.figshare.14225840): Data products that give reproducible access to **genomes and their metabolic potential** we have used to investigatie metabolic competence among microbes from healthy individuals and individuals with IBD.
+* [doi:10.6084/m9.figshare.14138405](https://doi.org/10.6084/m9.figshare.14138405): Supplementary Tables.
+
+</details>
+
+
+
+## Niche partitioning in the human oral cavity
+
+<div class="pub_float">
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1186/s13059-020-02195-w"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1186/s13059-020-02195-w" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <h3><a href=" https://doi.org/10.1186/s13059-020-02195-w" target="_new">Functional and genetic markers of niche partitioning among enigmatic members of the human oral microbiome</a></h3>
+    <span class="pub-authors"><span class="pub-member-author">Shaiber A</span>, Willis AD, <span class="pub-member-author">Delmont TO</span>, Roux S, Chen L, <span class="pub-member-author">Schmid AC</span>, <span class="pub-member-author">Yousef M</span>, <span class="pub-member-author">Watson AR</span>, <span class="pub-member-author">Lolans K</span>, <span class="pub-member-author">Esen ÖC</span>, <span class="pub-member-author">Lee STM</span>, Downey N, Morrison HG, Dewhirst FE, Mark Welch JL<sup>‡</sup>, <span class="pub-member-author">Eren AM<sup>‡</sup></span></span>
+    <span class="pub-co-first-authors"><sup>‡</sup>Co-senior authors</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/shaiber_et_al_tm7_phylogenomics.png"><img src="/images/pubs/shaiber_et_al_tm7_phylogenomics.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);" /></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A multi-omics study that combines <b>genome-resolved metagenomics</b>, <b>pangenomics</b>, <b>phylogenomics</b>, and <b>microbial population genetics</b> to investigate the ecology and evolution of Saccharibacteria (TM7) in the human oral cavity, and offers a formal description of '<b>functional enrichment</b>' statistic for phylogenomics and pangenomics.</span><br /><span style="display: inline-block; padding-bottom: 5px;">-  Demonstrates that TM7s split into tongue specialists and plaque specialists, and plaque TM7s group with environmental TM7s, leading to an hypothesis that <b>the dental plaque may have served as a stepping stone for environmental microbes to adapt to host environments</b> at least for some clades of microbes</span><br /><span style="display: inline-block; padding-bottom: 5px;">-  "<a href="https://www.eurekalert.org/pub_releases/2020-12/uocm-mid121420.php" target="_blank">Microbes in dental plaque look more like relatives in soil than those on the tongue</a>", EurekAlert.</span><br /><span style="display: inline-block; padding-bottom: 5px;">-  <a href="https://static-content.springer.com/esm/art%3A10.1186%2Fs13059-020-02195-w/MediaObjects/13059_2020_2195_MOESM13_ESM.docx" target="_blank">Anonymous reviewer comments and responses</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><b>Genome Biology</b>, 21:292.</span>
+</div>
+
+<details markdown="1"><summary>Show/hide <b>public raw and reproducible</b> data items</summary>
+
+<div style="width: 200px; float: right; padding-left: 20px;">
+<a href="/images/pubs/shaiber_et_al_tm7_phylogenomics.png" target="_blank"><img src="/images/pubs/shaiber_et_al_tm7_phylogenomics.png" style="border:none;" /></a>
+</div>
+
+* We deposited the short-read **sequencing data for amplicons and shotgun metagenomes** as well as **key MAGs** that emerged from our study under the NCBI BioProject [PRJNA625082](https://www.ncbi.nlm.nih.gov/bioproject/?term=prjna625082). The Supplementary Table 1 of our study lists accession numbers for each sample individually.
+* We deposited the **long-read sequencing data** in the NCBI’s SRA database for individuals C-F ([SRR11547007](https://www.ncbi.nlm.nih.gov/sra/?term=SRR11547007)), C-M ([SRR11547005](https://www.ncbi.nlm.nih.gov/sra/?term=SRR11547005), [SRR11547006](https://www.ncbi.nlm.nih.gov/sra/?term=SRR11547006)), and L ([SRR11547004](https://www.ncbi.nlm.nih.gov/sra/?term=SRR11547004)).
+* [doi:10.6084/m9.figshare.12217799](https://doi.org/10.6084/m9.figshare.12217799): FASTA files for **co-assembled metagenomes** per individial.
+* [doi:10.6084/m9.figshare.12217805](https://doi.org/10.6084/m9.figshare.12217805): Anvi’o **split profiles** for each of the 790 MAGs.
+* [doi:10.6084/m9.figshare.12217811](https://doi.org/10.6084/m9.figshare.12217811): The **TM7 pangenome**.
+* [doi:10.6084/m9.figshare.11634321](https://doi.org/10.6084/m9.figshare.11634321): Supplementary Tables, Supplementary Figures, and the Supplementary Information file.
+
+</details>
 
 ## Accurate and complete genomes from metagenomes
 
@@ -55,7 +130,25 @@ This page serves the publicly available data items mentioned in our publications
 </div>
 
 {:.warning}
-[http://merenlab.org/data/sar11-saavs](sar11-saavs) gives access to our **complete bioinformatics workflow** and data items for reproducibility.
+[http://merenlab.org/data/sar11-saavs](sar11-saavs) gives access to our **complete bioinformatics workflow**.
+
+<details markdown="1"><summary>Show/hide <b>public raw and reproducible</b> data items</summary>
+
+<div style="width: 200px; float: right; padding-left: 20px;">
+<a href="/data/sar11-saavs/images/s-llpa-core.png" target="_blank"><img src="/data/sar11-saavs/images/s-llpa-core.png" style="border:none;" /></a>
+</div>
+
+* [doi:10.5281/zenodo.835218](https://doi.org/10.5281/zenodo.835218) Reproducible data items that quantify read recruitment of SAR11 isolates across surface ocean metagenomes.
+* [doi:10.6084/m9.figshare.5248453](https://doi.org/10.6084/m9.figshare.5248453): Static HTML output that shows the distribution of SAR11 isolates across surface ocean metagenomes.
+* [doi:10.6084/m9.figshare.5248459](https://doi.org/10.6084/m9.figshare.5248459): The reproducible SAR11 metapangenome.
+* [doi:10.6084/m9.figshare.5248435](https://doi.org/10.6084/m9.figshare.5248435): Self-contained anvi’o profile for HIMB83 across all metagenomes.
+* [doi:10.6084/m9.figshare.5248447](https://doi.org/10.6084/m9.figshare.5248447): Single-nucleotide variants of HIMB83 across metagenomes.
+* [doi:10.5281/zenodo.835218](https://doi.org/10.5281/zenodo.835218): SAR11 single-amino acid variants on predicted protein structures.
+
+</details>
+
+
+
 
 ## Refining Metagenome-Assembled Genomes
 
@@ -121,7 +214,7 @@ This page serves the publicly available data items mentioned in our publications
 {:.warning}
 [http://merenlab.org/data/wolbachia-plasmid](wolbachia-plasmid) gives access to our **complete bioinformatics workflow**.
 
-<details markdown="1"><summary>Show/hide public data items for the study</summary>
+<details markdown="1"><summary>Show/hide <b>public raw and reproducible</b> data items</summary>
 
 <div style="width: 200px; float: right; padding-left: 20px;">
 <a href="../images/miscellaneous/2019-03-05-wolbachia-plasmid/metapangenomics.png" target="_blank"><img src="../images/miscellaneous/2019-03-05-wolbachia-plasmid/metapangenomics.png" style="border:none;" /></a>
@@ -158,7 +251,7 @@ This page serves the publicly available data items mentioned in our publications
 {:.warning}
 [http://merenlab.org/data/prochlorococcus-metapangenome](prochlorococcus-metapangenome) gives access to our **complete bioinformatics workflow**.
 
-<details markdown="1"><summary>Show/hide public data items for the study</summary>
+<details markdown="1"><summary>Show/hide <b>public raw and reproducible</b> data items</summary>
 
 <div style="width: 200px; float: right; padding-left: 20px;">
 <a href="prochlorococcus-metapangenome/images/genes-in-two-genomes.png" target="_blank"><img src="prochlorococcus-metapangenome/images/genes-in-two-genomes.png" style="border:none;" /></a>
@@ -194,7 +287,7 @@ This page serves the publicly available data items mentioned in our publications
 {:.warning}
 [http://merenlab.org/data/tara-oceans-mags](tara-oceans-mags/) gives access to our **complete bioinformatics workflow**.
 
-<details markdown="1"><summary>Show/hide public data items for the study</summary>
+<details markdown="1"><summary>Show/hide <b>public raw and reproducible</b> data items</summary>
 
 <div style="width: 200px; float: right; padding-left: 20px;">
 <a href="https://anvi-server.org/merenlab/tara_hbds" target="_blank"><img src="tara-oceans-mags/images/Figure_02.png" style="border:none;" /></a>
@@ -229,7 +322,7 @@ This page serves the publicly available data items mentioned in our publications
     <span class="pub-journal"><i>Microbiome</i>. <b>5:50</b></span>
 </div>
 
-<details markdown="1"><summary>Show/hide public data items for the study</summary>
+<details markdown="1"><summary>Show/hide <b>public raw and reproducible</b> data items</summary>
 
 <div style="width: 200px; float: right; padding-left: 20px;">
 <a href="../images/fmt_figure_01.png"><img src="../images/fmt_figure_01.png" style="border:none;" /></a>
@@ -319,7 +412,7 @@ This is what you should see after entering the last command in your terminal:
 {:.notice}
 **Here is a blog post on it:** [*Bacteroides* Genome Variants, and a reproducible science exercise with anvi'o]({% post_url miscellaneous/2016-11-21-bacteroides-genome-variants %}).
 
-<details markdown="1"><summary>Show/hide public data items for the study</summary>
+<details markdown="1"><summary>Show/hide <b>public raw and reproducible</b> data items</summary>
 
 * Anvi'o profiles: [https://doi.org/10.6084/m9.figshare.3851364](https://doi.org/10.6084/m9.figshare.3851364){:target="_blank"}
 * Primary and supplementary figures: [https://doi.org/10.6084/m9.figshare.3851481.v2](https://doi.org/10.6084/m9.figshare.3851481.v2){:target="_blank"}
@@ -348,7 +441,7 @@ For an example on how to re-analyze these anvi'o profiles, please [click here]({
     <span class="pub-journal"><i>PeerJ</i>. <b>4:e1839</b></span>
 </div>
 
-<details markdown="1"><summary>Show/hide public data items for the study</summary>
+<details markdown="1"><summary>Show/hide <b>public raw and reproducible</b> data items</summary>
 
 * [This link](https://ndownloader.figshare.com/files/3677700) will download the archive file for anvi'o profile for merged datasets (221 Mb). The run script in this archive will automatically start the anvi'o interactive interface, and draw **Figure 1** (compatible with anvi'o v1.2.2, for which a [docker container]({% post_url anvio/2015-08-22-docker-image-for-anvio %}) is available).
 * Visit [this adress](http://anvio.org/data/Delmont_et_al-2016-Tardigrade-Summary/) to view the anvi'o summary for genomic selections in Figure 1. Alternatively, you can use [this address](https://ndownloader.figshare.com/files/3677703) to download this static HTML output to view on your own computer.
@@ -394,7 +487,7 @@ Everything mentioned on this page can be cited using doi [10.6084/m9.figshare.20
 {:.notice}
 The anvi'o profiles here will run with a much earlier version of anvi'o. If you would like to work with them, please checkout your anvi'o codebase to [this commit](https://github.com/meren/anvio/commit/265318856301ab4f7a71911aeaefb524339efbb3). Please don't hesitate to write us if you need assistance.
 
-<details markdown="1"><summary>Show/hide public data items for the study</summary>
+<details markdown="1"><summary>Show/hide <b>public raw and reproducible</b> data items</summary>
 
 ---
 

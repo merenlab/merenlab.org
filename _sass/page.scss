@@ -6,15 +6,71 @@ body {
     background-color: $bodycolor;
     font-family: $base-font;
     color: $text-color;
+    font-size: 11pt;
 }
 
 p {
   line-height: 1.6em;
 }
 
-/* 
+/*
    Header
    ========================================================================== */
+
+.page ul {
+    line-height: 1.6em;
+}
+
+.imgclipholder p {
+    color: #6b6b6b;
+    background: #f5f5f5;
+    width: 90%;
+    margin: auto;
+    margin-top: -10px;
+    margin-left: 13px;
+    margin-bottom: 10px;
+    font-size: smaller;
+    font-style: italic;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.imgclip{
+    width: 95%;
+    height: 200px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: 10px solid #efefef !important;
+    border-radius: 10px;
+    -moz-box-shadow:    3px 3px 5px 6px #ddd;
+    -webkit-box-shadow: 3px 3px 5px 6px #ddd;
+    box-shadow:         3px 3px 5px 6px #ddd;
+}
+
+.imgclip .clippedimg{
+    border:none !important;
+}
+
+.slack-button-img {
+    height: 12px;
+    margin-bottom: 4px;
+    margin-left: 1px;
+}
+
+.slack-button-img-big {
+    height: 20px;
+    margin-bottom: 4px;
+}
+
+
+.twitter-tweet {
+    padding-left: 40px;
+    padding-bottom: 20px;
+}
+
+.EmbeddedTweet-tweetContainer {
+    box-shadow: 7px 7px 15px 1px #ccc;
+}
 
 .codeblock {
     white-space: pre;
@@ -47,6 +103,69 @@ p {
     background: #e1dbf9;
     padding: 1px 3px 1px 3px;
     border-radius: 2px;
+}
+
+
+.artifact-icon-div {
+    width: 30px;
+}
+
+.artifact-icon {
+    border: none !important;
+    border-radius: 0px !important;
+    object-fit:scale-down;
+}
+
+.artifact-icon-mini {
+    height: 13px;
+    border: none !important;
+    border-radius: 0px !important;
+    object-fit:scale-down;
+}
+
+.artifacts-table {
+    font-family: unset;
+}
+
+.artifact-emoji {
+    font-size: inherit;
+}
+
+.programs-table{
+    font-family: unset;
+    width: 100%;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+}
+
+.artifact-list-td {
+    line-height: 28px;
+}
+
+.artifact-p-td {
+    background: #eefff5;
+    line-height: 28px;
+}
+
+.artifact-r-td {
+    background: #f9f5fb;
+    line-height: 28px;
+}
+
+.program-td {
+    background: #f1f1f1;
+}
+
+.programs-table tbody {
+    display: table;
+    width: 100%;
+}
+
+.programs-table td {
+    border: none;
+}
+.artifacts-table td {
+    border: none;
 }
 
 summary {
@@ -91,7 +210,7 @@ details {
 
 .slack-invitation {
     position: relative;
-    top: -6px;
+    top: -3px;
     font-family: -webkit-body;
     font-variant: all-petite-caps;
 }
@@ -467,10 +586,22 @@ th, td {
     }
     p {
         font-style: italic;
-    margin-bottom: 12px;
-    margin-top: 12px;
-    color: #a7a7a7;
+        padding-left: 140px;
+        margin-bottom: 12px;
+        margin-top: 12px;
+        color: #a7a7a7;
     }
+    a {
+        color: #a7a7a7;
+    }
+}
+
+.person-info-text a {
+    color: #4b4b8e;
+}
+
+.person-current-info {
+    text-decoration: underline;
 }
 
 .persons-title {

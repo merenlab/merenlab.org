@@ -3,15 +3,25 @@
 
 
 # EDIT THESE #####################################################################
-names_to_highlight = ['Eren AM',
-                      'Delmont TO',
-                      'Esen ÖC',
-                      'Lee STM',
-                      'Shaiber A',
-                      'Kiefl E',
-                      'Cui S',
-                      'Watson AR',
-                      'Lolans K']
+names_to_highlight = {'Eren AM': None,
+                      'Delmont TO': range(2015, 2020),
+                      'Esen ÖC': range(2015, 2021),
+                      'Lee STM': None,
+                      'Shaiber A': None,
+                      'Kiefl E': None,
+                      'Cui S': None,
+                      'Watson AR': None,
+                      'Lolans K': None,
+                      'Schmid AC': None,
+                      'Yousef M': None,
+                      'Veseli I': None,
+                      'Miller SE': None,
+                      'Schechter MS': None,
+                      'Fink I': None,
+                      'Pan JN': None,
+                      'Yousef M': None,
+                      'Fogarty EC': None,
+                      'Trigodet F': None,}
 
 journal_name_fixes = [('The ISME journal', 'ISME J'),
                       ('Proceedings of the National Academy of Sciences of the United States of America', 'Proc Natl Acad Sci U S A'),
@@ -68,16 +78,23 @@ class Publications:
         self.pubs_info_file_path = pubs_info_file_path
 
 
-    def get_author_highlights(self, pub):
+    def get_author_highlights(self, pub, year):
         authors_str = []
         for author in pub['authors']:
             if author in pub['co_first_authors']:
+                author_h = author + '<sup>☯</sup>'
+            elif author in pub['co_senior_authors']:
                 author_h = author + '<sup>‡</sup>'
             else:
                 author_h = author
 
             if author in names_to_highlight:
-                authors_str.append('<span class="pub-member-author">%s</span>' % (author_h))
+                if not names_to_highlight[author]:
+                    authors_str.append('<span class="pub-member-author">%s</span>' % (author_h))
+                elif int(year) in names_to_highlight[author]:
+                    authors_str.append('<span class="pub-member-author">%s</span>' % (author_h))
+                else:
+                    authors_str.append(author_h)
             else:
                 authors_str.append(author_h)
 
@@ -85,8 +102,6 @@ class Publications:
 
 
     def parse_pubs_txt(self):
-        bad_entries = []
-
         if os.path.exists(self.pubs_info_file_path):
             self.info = u.get_TAB_delimited_file_as_dictionary(self.pubs_info_file_path)
 
@@ -103,6 +118,7 @@ class Publications:
         for doi in self.pubs_txt:
             authors = []
             co_first_authors = []
+            co_senior_authors = []
             p = self.pubs_txt[doi]
 
             for author in [_.strip() for _ in p['Authors'].split(';')]:
@@ -115,16 +131,20 @@ class Publications:
 
                 if author_first_name_raw.endswith('*'):
                     co_first_authors.append(author_final_name)
+                elif  author_first_name_raw.endswith('+'):
+                    co_senior_authors.append(author_final_name)
 
                 authors.append(author_final_name)
 
             if p['Number']:
                 issue = '%s(%s):%s' % (p['Volume'], p['Number'], p['Pages'])
-            else:
+            elif p['Volume'] and p['Pages']:
                 issue = '%s:%s' % (p['Volume'], p['Pages'])
+            else:
+                issue = None
 
             year = p['Year'].strip()
-            pub_entry = {'authors': authors, 'title': p['Title'], 'journal': p['Publication'], 'issue': issue, 'doi': doi, 'year': year, 'co_first_authors': co_first_authors}
+            pub_entry = {'authors': authors, 'title': p['Title'], 'journal': p['Publication'], 'issue': issue, 'doi': doi, 'year': year, 'co_first_authors': co_first_authors, 'co_senior_authors': co_senior_authors}
 
             if year not in self.pubs_dict:
                 self.pubs_dict[year] = [pub_entry]
@@ -156,10 +176,14 @@ class Publications:
             A('    <h3><a href="%s" target="_new">%s</a></h3>' % (' https://doi.org/%s' % (pub['doi']), pub['title']))
         else:
             A('    <h3><a href="http://scholar.google.com/scholar?hl=en&q=%s" target="_new">%s</a></h3>' % ('http://scholar.google.com/scholar?hl=en&q=%s' % (pub['title'].replace(' ', '+')), pub['title']))
-        A('    <span class="pub-authors">%s</span>' % self.get_author_highlights(pub))
+        A('    <span class="pub-authors">%s</span>' % self.get_author_highlights(pub, pub['year']))
 
-        if pub['co_first_authors']:
-            A('    <span class="pub-co-first-authors"><sup>‡</sup>Co-first authors</span>')
+        if pub['co_first_authors'] and not pub['co_senior_authors']:
+            A('    <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors</span>')
+        elif pub['co_first_authors'] and pub['co_senior_authors']:
+            A('    <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors; <sup>‡</sup>Co-senior authors</span>')
+        elif pub['co_senior_authors'] and not pub['co_first_authors']:
+            A('    <span class="pub-co-first-authors"><sup>‡</sup>Co-senior authors</span>')
 
         if pub['doi'] in self.info:
             info = self.info[pub['doi']]
@@ -178,7 +202,10 @@ class Publications:
 
             A('    </div>')
 
-        A('    <span class="pub-journal"><b>%s</b>, %s.</span>' % (pub['journal'], pub['issue']))
+        if pub['issue']:
+            A('    <span class="pub-journal"><b>%s</b>, %s <a href="https://doi.org/%s" target="_blank">🔗</a></span>' % (pub['journal'], pub['issue'], pub['doi']))
+        else:
+            A('    <span class="pub-journal"><b>%s</b> <a href="https://doi.org/%s" target="_blank">🔗</a></span>' % (pub['journal'], pub['doi']))
         A('</div>\n')
 
         return '\n'.join(pub_md)

@@ -123,7 +123,7 @@ If you wish to follow the tutorial on your computer, you can download the Prochl
 wget https://ndownloader.figshare.com/files/11857577 -O Prochlorococcus_31_genomes.tar.gz
 tar -zxvf Prochlorococcus_31_genomes.tar.gz
 cd Prochlorococcus_31_genomes
-anvi-migrate-db *.db
+anvi-migrate *.db --migrate-dbs-safely
 ```
 
 The directory contains anvi'o contigs databases, an external genomes file, and a TAB-delimited data file that contains additional information for each genome (which is optional, but you will see later why it is very useful). You can generate a genomes storage as described in this section the following way:
@@ -161,7 +161,7 @@ anvi-pan-genome -g PROCHLORO-GENOMES.db \
 
 Each parameter after the `--project-name` is optional (yet aligns to the way we run the pangenome for our publication).
 
-The directory you have downloaded also contains a file called "layer-additional-data.txt", which summarizes teh clade to which each genome belongs. Once the pangenome is computed, we can add it into the pan database:
+The directory you have downloaded also contains a file called "layer-additional-data.txt", which summarizes the clade to which each genome belongs. Once the pangenome is computed, we can add it into the pan database:
 
 ``` bash
 anvi-import-misc-data layer-additional-data.txt \
@@ -371,7 +371,7 @@ Gene clusters are good, but not all gene clusters are created equal. By simply i
 
 A gene cluster may contain amino acid sequences from different genomes that are almost identical, which would be a highly homogeneous gene cluster. Another gene cluster may contain highly divergent amino acid sequnces from different genomes, which would then be a highly non-homogeneous one, and so on.
 
-One could infer the nature of sequence homogeneity within a gene cluster by focusing on two primary attributes of sequence alignments: functional homogeneity (i.e., how conserved aligned amino acid residues across genes), and geometric homogeneity (i.e., how does the gap / residue distribution look like within a gene cluster regardless of the identity of amino acids. While it is rather straightforward to have an idea about the homogeneity of gene clusters through the manual inspection of the aligned sequences within them, it has not been possible to quantify this information automatically. But anvi'o now has you covered.
+One could infer the nature of sequence homogeneity within a gene cluster by focusing on two primary attributes of sequence alignments: functional homogeneity (i.e., how conserved aligned amino acid residues across genes), and geometric homogeneity (i.e., how does the gap / residue distribution look like within a gene cluster regardless of the identity of amino acids). While it is rather straightforward to have an idea about the homogeneity of gene clusters through the manual inspection of the aligned sequences within them, it has not been possible to quantify this information automatically. But anvi'o now has you covered.
 
 Indeed, understanding the within gene cluster homogeneity could yield detailed ecological or evolutionary insights regarding the forces that shape the genomic context across closely related taxa, or help scrutinize gene clusters further for downstream analyses manually or programmatically. The purpose of this section is to show you how we solved this problem in anvi'o and to demonstrate its efficacy.
 
@@ -476,7 +476,7 @@ Needless to say, estimates for homogeneity indices per gene cluster will also ap
 
 ## Making sense of functions in your pangenome
 
-Once we have our pangenome, one of the critical things that we usually want to do is look at the functions associated with our gene clusters. This is a crucial yet complicated challenge to which we can appraoch in multiple ways. Here, we will describe how you can identify functions that are enriched for some of the clades or sub clades that are included in your pangenome. In addition, we will discuss how you can find the functional core of the pangenome. This is done with our new and improved program `anvi-get-enriched-functions-per-pan-group`.
+Once we have our pangenome, one of the critical things that we usually want to do is look at the functions associated with our gene clusters. This is a crucial yet complicated challenge to which we can approach in multiple ways. Here, we will describe how you can identify functions that are enriched for some of the clades or sub clades that are included in your pangenome. In addition, we will discuss how you can find the functional core of the pangenome. This is done with our new and improved program `anvi-get-enriched-functions-per-pan-group`.
 
 This program utilizes information in the layers additional data table of your pan database to identify 'groups' within your genomes, and find functions that are enriched in those groups, i.e. functions that are characteristic of these genomes, and predominantly absent from genomes from outside this group. To use this feature you must have at least one categorical additional layer information (which can easily be done via `anvi-import-misc-data`), and at least one functional annotation source for your genomes storage (which will automatically be the case if every contigs database that were used when you run `anvi-gen-genomes-storage` was annotated with the same functional source).
 
@@ -494,7 +494,7 @@ Naturally, when we associate each gene cluster with a single function, we could 
 
 The careful readers will notice that we distinguish between 'functional annotation' and 'functional association' in the following text. When we mention 'functional annotation', we refer to the annotation of a single gene with a function by the functional annotation source (i.e. COGs, EggNOG, etc.), whereas 'functional association' of a gene cluster is the association of gene clusters with a single function as described above.
 
-Ok, so now we have a frequency table of functions in genomes and we use it as an input to the functional enrichment test. This test was implemented by [Amy Willis](https://github.com/adw96) in `R` (you can find the script [here](https://github.com/merenlab/anvio/blob/master/sandbox/anvi-script-run-functional-enrichment-stats)), and uses a Generalized Linear Model with the logit linkage function to compute an enrichment score and p-value for each function. False Detection Rate correction to p-values to account for multiple tests is done using the package [`qvalue`](https://www.bioconductor.org/packages/release/bioc/html/qvalue.html).
+Ok, so now we have a frequency table of functions in genomes and we use it as an input to the functional enrichment test. This test was implemented by [Amy Willis](https://github.com/adw96) in `R` (you can find the script [here](https://github.com/merenlab/anvio/blob/master/sandbox/anvi-script-enrichment-stats)), and uses a Generalized Linear Model with the logit linkage function to compute an enrichment score and p-value for each function. False Detection Rate correction to p-values to account for multiple tests is done using the package [`qvalue`](https://www.bioconductor.org/packages/release/bioc/html/qvalue.html).
 
 In addition to the enrichment test, we use a simple heuristic to find the groups that associate with each function. **This association is only meaningful for functions that are truly enriched, and should otherwise be ignored**. We simply determine that for every function, the associated groups are the ones in which the occurrence of the function of genomes is greater than the expected occurrence under a uniformal distribution (i.e. if the function was equally probable to occur in genomes from all groups). Mathematically speaking (if you are into that kind of stuff), if we denote $$E_{ij}$$ as the expected number of genomes in group $$i$$ with the function $$j$$ under the null distribution, where we consider the null distribution to be a uniform distribution. Hence:
 

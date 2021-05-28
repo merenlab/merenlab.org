@@ -139,12 +139,16 @@ figcaption {
    Notices
    ========================================================================== */
 
+.width-10 {width: 10%;}
+.width-20 {width: 20%;}
+.width-30 {width: 30%;}
 .width-40 {width: 40%;}
 .width-50 {width: 50%;}
 .width-60 {width: 60%;}
 .width-70 {width: 70%;}
 .width-80 {width: 80%;}
 .width-90 {width: 90%;}
+.width-100 {width: 100%;}
 
 .notice {
     margin-top: 1.5em;
@@ -283,11 +287,10 @@ li {
     code {
         @include font-rem(12);
         white-space: nowrap;
-        padding: 0 2px;
-        padding-bottom: 1px;
+        padding: 2px 3px;
         background-color: #efefef;
-        border: 1px solid #969696;
-        color: #bf2727;
+        border: 1px solid #cecece;
+        color: #484848;
         @include rounded(3px);
     }
 }

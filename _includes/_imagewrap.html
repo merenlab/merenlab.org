@@ -12,6 +12,10 @@
     {% if page.image.featurerelative %}
       "{{ page.url }}/{{ page.image.featurerelative }}"
     {% endif %}
+
+    {% if page.image.featurefromroot %}
+      "{{ site.url }}/{{ page.image.featurefromroot }}"
+    {% endif %}
   alt="{{ page.title }} feature image">
   {% if page.image.credit %}
     <span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>

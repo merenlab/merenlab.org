@@ -43,7 +43,7 @@ The Kaiju package comes with many handy scripts for analyzing the taxonomic cont
 
 * Next, run the Kaiju command to classify you genes.
 
-* Finally, run `addTaxonNames` to amend the Kaiju output with taxon names.  
+* Finally, run `addTaxonNames` to amend the Kaiju output with taxon names.
 
 
 **First, download and format a reference database**. You only need to run this once unless you want multiple databases or you want to update an existing database.
@@ -100,7 +100,10 @@ addTaxonNames -t /path/to/nodes.dmp \
 
 Whew. **Now you are ready to run the anvi'o parser for Kaiju**.
 
-At this point its not a bad idea to make a copy of your contigs database --just in case. In order to get the Kaiju taxonomic profile into your contigs database you will run the following command with the output file from the `addTaxonNames` step:
+{:.warning}
+Please note that if you are using a newer version of Kaiju, the next line will not work for you. Please follow [this](https://github.com/RemiMaglione/r-scripts/tree/master/scripts4taxonomy/Kaiju2Anvi'o) recipe by [Rémi Maglione](https://twitter.com/remi_maglione) to adjust your output to anvi'o.
+
+In order to get the Kaiju taxonomic profile into your contigs database you will run the following command with the output file from the `addTaxonNames` step:
 
 ``` bash
 anvi-import-taxonomy-for-genes -i gene_calls_nr.names \

@@ -41,23 +41,45 @@ With the realization that some concepts in microbial 'omics are difficult to com
 
 The following sections describe each concept with a short summary of how I used them during the course. Please feel free to use any of the PowerPoint files in your own presentations, or let me know if you would like to chat about their interpretations.
 
-### Metagenomic read recruitment
+{:.notice}
+**How do you create these animations?** My strategy is embarrassingly simple and probably not optimal since I am not a graphics designer. But since I heard this question multiple times, I decided to put my pride aside and offer a public response for this in case others may also want to use a similar strategy to create new material. My workflow has three main steps and the trick here is to think backwards. First, I draw the entire concept on my tablet computer manually (I use a graphics editor called ProtoSketch, but any editor that can export SVG files will do just fine). Then, I step by step remove parts from the final SVG and export individual PNG images of identical size (I use [Inkscape](https://inkscape.org/) for this, and you should, too! Inkscape is an open-source vector graphics editor that needs your support and will serve you very well in the long run). Finally, I import the resulting PNG images into slides in reverse order so I can advance them one by one to introduce the entire concept from scratch.
 
-Metagenomic [read recruitment](../vocabulary/#read-recruitment) is one of the most commonly used strategies in microbial 'omics. The animation aims to support a discussion on non-specific read recruitment, [coverage](../vocabulary/#coverage) versus [detection](../vocabulary/#detection), and the association between read recruitment statistics and population genetics.
+### Amplicons vs shotgun metagenomes
+
+Amplicon sequencing and shotgun sequencing represent the most popular ways to  generate sequencing data to study microbial life. Both strategies come with their unique advantages and disadvantages. The purpose of the animation below is the communicate the key difference between the data they yield and to discuss their appliations. 
+
+![](00-amplicons-vs-shotgun-metagenomes.gif)
+
+{:.warning}
+[Download as PowerPoint slides](00-amplicons-vs-shotgun-metagenomes.pptx).
+
+### Metagenomic read recruitment: how it is done
+
+Metagenomic [read recruitment](../vocabulary/#read-recruitment) is one of the most commonly used strategies in microbial 'omics. The purpose of this animation is to communicate how it is done in simplest terms possible.
+
+
+![](01-metagenomic-read-recruitment-simple.gif)
+
+{:.warning}
+[Download as PowerPoint slides](01-metagenomic-read-recruitment-simple.pptx).
+
+### Metagenomic read recruitment: how it is used
+
+The animation below aims to support a discussion on non-specific read recruitment, [coverage](../vocabulary/#coverage) versus [detection](../vocabulary/#detection), and the association between read recruitment statistics and their ability to enable us study genomic variation in environmental populations (i.e., microbial population genetics).
 
 ![](01-metagenomic-read-recruitment.gif)
 
 {:.warning}
-Download PowerPoint slides for this animation from [here](01-metagenomic-read-recruitment.pptx).
+[Download as PowerPoint slides](01-metagenomic-read-recruitment.pptx).
 
 ### Genome-resolved metagenomics
 
-We use the term 'genome-resolved metagenomics' to desribe a family of strategies that generate genome-level insights from metagenomes, rather than focusing solely on short reads for broad taxonomic or functional summaries of samples. The purpose of the animation is to support a discussion about the advantages and disadvantages of using reference genomes or metagenome-assembled genomes to recruit reads from metagenomes. It also provides an opportunity to discuss limitations of assembly and binning.
+We use the term 'genome-resolved metagenomics' to describe a family of strategies that generate genome-level insights from metagenomes, rather than focusing solely on short reads for broad taxonomic or functional summaries of samples. The purpose of the animation is to support a discussion about the advantages and disadvantages of using reference genomes or metagenome-assembled genomes to recruit reads from metagenomes. It also provides an opportunity to discuss limitations of assembly and binning.
 
 ![](02-genome-resolved-metagenomics.gif)
 
 {:.warning}
-Download PowerPoint slides for this animation from [here](02-genome-resolved-metagenomics.pptx).
+[Download as PowerPoint slides](02-genome-resolved-metagenomics.pptx).
 
 ### Reconstructing genomes from metagenomes
 
@@ -66,7 +88,7 @@ The aim of this animation is to discuss the general steps of reconstructing geno
 ![](03-reconstructing-genomes-from-metagenomes.gif)
 
 {:.warning}
-Download PowerPoint slides for this animation from [here](03-reconstructing-genomes-from-metagenomes.pptx).
+[Download as PowerPoint slides](03-reconstructing-genomes-from-metagenomes.pptx).
 
 #### Computing k-mer frquencies
 
@@ -75,7 +97,7 @@ We often use the fact that tetranucleotide frequencies of nucleotides are relati
 ![](04-computing-kmer-frequencies.gif)
 
 {:.warning}
-Download PowerPoint slides for this animation from [here](04-computing-kmer-frequencies.pptx).
+[Download as PowerPoint slides](04-computing-kmer-frequencies.pptx).
 
 #### Differential coverage
 
@@ -84,7 +106,7 @@ The assumption that [contigs](../vocabulary/#contig) belonging to the same popul
 ![](05-computing-differential-coverage.gif)
 
 {:.warning}
-Download PowerPoint slides for this animation from [here](05-computing-differential-coverage.pptx).
+[Download as PowerPoint slides](05-computing-differential-coverage.pptx).
 
 #### From metagenomic reads to anvi'o merged profiles
 
@@ -93,7 +115,7 @@ This animation demonstrates the essential steps of going from short reads to met
 ![](06-anvio-merged-profile-db.gif)
 
 {:.warning}
-Download PowerPoint slides for this animation from [here](06-anvio-merged-profile-db.pptx).
+[Download as PowerPoint slides](06-anvio-merged-profile-db.pptx).
 
 
 ### Pangenomics
@@ -103,7 +125,7 @@ Pangenomes are critical tools to understand how a given set of genomes relate to
 ![](07-concept-of-pangenomics.gif)
 
 {:.warning}
-Download PowerPoint slides for this animation from [here](07-concept-of-pangenomics.pptx).
+[Download as PowerPoint slides](07-concept-of-pangenomics.pptx).
 
 
 ### Metapangenomics
@@ -113,13 +135,13 @@ We define a ‘metapangenome’ as the outcome of the analysis of pangenomes in 
 ![](08-concept-of-metapangenomics.gif)
 
 {:.warning}
-Download PowerPoint slides for this animation from [here](08-concept-of-metapangenomics.pptx).
+[Download as PowerPoint slides](08-concept-of-metapangenomics.pptx).
 
 
 ### Phylogenomics
 
 {:.notice}
-Slides for this section will be available around late 2020.
+Slides for this section will be available at some point :/
 
 ### Phylogenetics vs Phylogenomics vs Pangenomics
 
@@ -128,19 +150,9 @@ A discussion on how these three commonly used strategies compare.
 ![](09-approaches-for-comparative-genomics.gif)
 
 {:.warning}
-Download PowerPoint slides for this animation from [here](09-approaches-for-comparative-genomics.pptx).
+[Download as PowerPoint slides](09-approaches-for-comparative-genomics.pptx).
 
 
-### Microbial Population Genetics
-
-{:.notice}
-Slides for this section will be available around late 2020.
-
-
-### Metaepitranscriptomics
-
-{:.notice}
-Slides for this section will be available around late 2020.
 
 ## Student questions
 
@@ -754,7 +766,7 @@ Not yet, but we are going to put a significant effort to make sure the platform 
 
 > What specific advantage do we get from sequencing tRNA molecules over the actual proteins?
 
-Sequencing nucleic acids produces the largest amount of data per dollar. Proteomics is much more challenging and the scope of data is much more limited. For example, one tRNA-seq library can easily produce 10,000,000 data points and costs $100 (~100,000 sequences per dollar spent), whereas a top-notch proteomic experiment produces up to 100,000 data points and costs around $1,000 in 2019.
+Sequencing nucleic acids produces the largest amount of data per dollar. Proteomics is much more challenging and the scope of data is much more limited. For example, one tRNA-seq library can easily produce 10,000,000 data points and costs 100 dollars (an average of 100,000 sequences per dollar spent), whereas a top-notch proteomic experiment produces up to 100,000 data points and costs around 1,000 dollars in 2020.
 
 Although in reality cost is a critical aspect that determines feasibility, there is more than this. Some proteins are used very rapidly and leave little evidence in the proteome while some others are very rare, and we will never get enough signal to detect them despite their critical importance in cells. It is not so easy to use proteomics to study natural state and stress levels of microbes.
 
@@ -779,7 +791,7 @@ Some relatively easy exercises.
 
 The following data pack contains a genome, and multiple metagenomes in relevant directories:
 
-[https://www.dropbox.com/s/2hkjubrv11d0bh1/momics-week-02-data-analysis-assignment.tar.gz](https://www.dropbox.com/s/2hkjubrv11d0bh1/momics-week-02-data-analysis-assignment.tar.gz)
+[https://www.dropbox.com/s/6cq30443ydre6le/momics-week-02-data-analysis-assignment.zip](https://www.dropbox.com/s/6cq30443ydre6le/momics-week-02-data-analysis-assignment.zip)
 
 Please download it and unpack it, and make sure there is a **README.md** file in it. The contents of that file will be very similar to the rest of the information here, but what you will find on this page may be more up-to-date.
 

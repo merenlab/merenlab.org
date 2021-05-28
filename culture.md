@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Lab Culture and Expectations
-modified: 2019-01-01
+modified: 2020-12-10
 comments: false
 excerpt: "A guide for new and current members of our group"
 ---
@@ -19,6 +19,8 @@ Study hard what interests you the most, in the most undisciplined, irreverent, a
 * We strive to **serve the community**. This includes writing extensive tutorials, giving lectures or workshops, and responding to messages that are coming from our colleagues near and far. We assume that one of the best ways to spend our time is to make it easier for others to learn what they wish to learn from us.
 
 * We **maintain a critical outlook**. We are most critical of our own work, and genuinely try to first understand what others are trying to accomplish before being critical of theirs.
+
+In addition to these guiding principles that define our work ethic, we absolutely **denounce any form of discrimination**. We will not tolerate racist or sexist inclinations of any kind, or any form of arrogance or contempt towards any member of our community in public or in private. We hope and believe that the members of our group will go out of their way to make others feel welcome, and be brave to raise their concerns when they witness a mistake. We expect every member of our group to be prepared to participate our ongoing efforts to educate ourselves in issues that affect minorities in the United States and beyond (see some blog posts [here](http://merenlab.org/2020/10/05/reading-list/) and [here](http://merenlab.org/2017/09/14/gender-gap/)).
 
 # Group Culture
 
@@ -58,7 +60,7 @@ Doing science in a social setting requires a delicate balance of things that oft
 
 - **Efficiency**. It is best if at any given time only one person is talking, especially during official lab meetings or spontaneous discussions in the lab. Getting excited is a part of our daily routine and the definition of our job, but starting multiple discussions at a given moment can be very inefficient since both parties will be missing out others' ideas.
 
-- **Criticism**. It as our responsibility to be tough on ideas during group discussions yet it is not easy to criticize an idea while making sure that the owner of the idea does not feel as if they are not appreciated as a member. Ideas can be torn apart, thrown away, and improved. But it is not acceptable to not be careful to find the delicate balance. If you are delivering a criticism, please be mindful. If you are at the receiving end of it and you are upset with the mode of delivery, please speak up. If you are the observer of a tough situation, please consider taking action. That said, the absolute respect and compassion we expect from each other when we are among ourselves is a luxury that we may not expect from our colleagues elsewhere. Others will criticize us, and we must be welcoming of such external criticism, too. In addition we must be prepared that they can be harsh, and we must learn to respect those opinions regardless. But also we should be able to move on when it feels necessary without slowing down and without being cynical or dismissive of outside criticism.
+- **Criticism**. It is our responsibility to be tough on ideas during group discussions yet it is not easy to criticize an idea while making sure that the owner of the idea does not feel as if they are not appreciated as a member. Ideas can be torn apart, thrown away, and improved. But it is not acceptable to not be careful to find the delicate balance. If you are delivering a criticism, please be mindful. If you are at the receiving end of it and you are upset with the mode of delivery, please speak up. If you are the observer of a tough situation, please consider taking action. That said, the absolute respect and compassion we expect from each other when we are among ourselves is a luxury that we may not expect from our colleagues elsewhere. Others will criticize us, and we must be welcoming of such external criticism, too. In addition we must be prepared that they can be harsh, and we must learn to respect those opinions regardless. But also we should be able to move on when it feels necessary without slowing down and without being cynical or dismissive of outside criticism.
 
 - **Mindfulness**. No one interrupts anyone else. Body language can be as interruptive as spoken words, so we should strive to encourage the speaker's attempt to speak up their mind by making sure they are not dealing with our verbal or physical reactions. Delivering an idea is already hard enough and we can all do without additional stress. Some days are worse than others for each one of us. If you feel that it is one of those days, you should feel free to not attend a group discussion.
 
@@ -113,8 +115,6 @@ Many things in this section are open to discussion. We can modify them, or there
 - It is important for you to attend to talks at the university. Especially the departmental seminars and seminars by the Committee on Microbiology. Regardless whether you think it is relevant and worth for your time, especially if you are a PhD student. Even the talks that seem to be least relevant to you will play a role in your progress by helping you develop a broader vision. This will also make you a good citizen of our department.
 
 - You represent the lab and its members when you are at meetings inside and outside of the university. Make your fellow labmates proud with your excellence. It is OK to be critical, but doing it with absolute respect, accuracy, and compassion is key. You may not initially realize it, but science is a small world, our field is even smaller, and your social mistakes will linger much longer than you wish, and affect more people than just yourself. Assume that everything you will say about someone else will be heard by them sooner or later. I think the best strategy is to compliment people from their backs, and criticize them to their faces.
-
-- We absolutely denounce any form of discrimination, especially towards people who belong to minority groups and those who are not affiliated with so called 'elite' institutions. I hope that you will go out of your way to make them feel welcome, and be brave to raise your concerns if you witness a mistake. We will not tolerate racist or sexist inclinations of any kind.
 
 - I wish every Postdoc and PhD student to read at least 3 papers from other groups each week. It would contribute to everyone's journey if you were to post the PDF to Slack, and include one- or two-sentence summary of why you were interested in that work and what you have learned.
 

@@ -372,6 +372,9 @@ do
 done
 ```
 
+{:.notice}
+anvi-cluster-with-concoct has been superseded with anvi-cluster-contigs
+
 Conclusion of this step added a collection, `CONCOCT_5`, to each of our merged anvi'o profile databases with five bins in them. We then surveyed each mosquito with the following command to find out which bin likely contained the population genome (this example shows the output for `O03`):
 
 ``` bash
