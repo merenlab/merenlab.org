@@ -40,7 +40,7 @@ You may find this article (or at lest some sections of it) useful to your journe
 **Warning**: Reading experiences of many ECRs in their own words made me realize that while the details of very positive experiences of mentees can be very uplifting, very negative experiences can be extremely difficult to go through and may trigger strong emotions. If you are an ECR, please feel free to skip quotes marked with red sections altogether. That said, I also came to the realization while I was working on this material that if you are someone who is in a position of power in academia like myself, learning about the experiences of ECRs and trying to appreciate the diversity of ways by which mentors can influence the lives and wellbeing of their mentees in very positive or very negative ways is nothing less than a responsibility for us.
 
 {:.notice}
-If you have any suggestions or concerns, please feel free to get in touch with me via the comments section below, by sending an email, or contacting me through (@[merenbey](https://twitter.com/merenbey)). I thank **Jessika Fuessel** and **Bana Jabri** for discussing this work with me patiently, and proofreading the final product.
+If you have any suggestions or concerns, please feel free to get in touch with me via the comments section below, by sending an email, or contacting me through (@[merenbey](https://twitter.com/merenbey)). I thank **Jessika Fuessel** and **Bana Jabri** for discussing this work with me patiently. I also thank [Evan Kiefl](https://twitter.com/evankiefl), [Karen Lolans](https://twitter.com/KarenLolans), and [Emily Fogarty](https://twitter.com/emily_fogarty11) for proofreading the final product.
 
 ## Introduction
 
