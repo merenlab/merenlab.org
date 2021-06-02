@@ -6,13 +6,14 @@ Introduction to the survey data summary
 [The survey is located
 here](https://forms.gle/RPksYdyihGuSBZMa8). **You still can take the
 survey or encourage others to do it**. Since the workflow that generates
-the figures and text below is fully reproducible, it is possible to
-update the results with additional data relatively quickly. If that
-every happens, this note will reflect that with dates and significant
-changes in results if there are any. The data below cover a snapshot of
-the survey results. For your reference, the time stamp of the last
-answer in the survey at the time of the analysis was **6/1/2021
-9:25:16** (MM/DD/YYYY HH:MM:SS).
+the figures and text below is [fully
+reproducible](https://github.com/merenlab/mentorship-survey-workflow),
+it is possible to update the results with additional data relatively
+quickly. If that every happens, this note will reflect that with dates
+and significant changes in results if there are any. The data below
+cover a snapshot of the survey results. For your reference, the time
+stamp of the last answer in the survey at the time of the analysis was
+**6/1/2021 9:25:16** (MM/DD/YYYY HH:MM:SS).
 
 {:.notice}
 This section offers a general summary of mentees and mentors.
