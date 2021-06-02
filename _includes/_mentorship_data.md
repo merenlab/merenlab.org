@@ -111,13 +111,19 @@ mentees.
 
 ![]({{images}}/mentee_mentor_minority-1.png)<!-- -->
 
-The bars below show the proportion of mentees working with mentors as a
-function of their minority status. While 40.0% of the mentees who work
-with mentors who belong to a minority group identify as minority,
-mentees who identify as minority make up only 23.8% of mentees who work
-with mentors who do not belong to a minority group.
+The bars below show the matching of the minority status between mentees
+and mentors. While 40.0% of the mentees who work with mentors that
+belong to a minority group also identify as minority, mentees who
+identify as minority make up only 23.8% of the mentees who work with
+mentors who do not belong to a minority group.
 
 ![]({{images}}/mentor_mentee_minoritry-1.png)<!-- -->
+
+Each column of the figure groups mentors based on their minority status
+(Yes/No answers on the x-axis are given to the question “was your mentor
+a member of a minority group”), and each color reports the minority
+status of the proportion of mentees who are working with these groups of
+mentors.
 
 ------------------------------------------------------------------------
 
