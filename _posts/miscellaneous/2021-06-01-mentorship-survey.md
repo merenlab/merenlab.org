@@ -23,7 +23,7 @@ image:
 
 **The purpose** of this article is to provide access to a recent survey that aimed to capture experiences of early career researchers (ECRs) with an academic mentor.
 
-In addition to some preliminary analyses of answers collected through quantified survey questions, the article contains anonymous statements from ECRs in which they describe their experiences, best and worst aspects of the mentorship they have received, and their advice on how to how to better.
+In addition to some preliminary analyses of answers collected through quantified survey questions, the article contains anonymous statements from ECRs in which they describe their experiences, best and worst aspects of the mentorship they have received, and their advice on how to how do better.
 
 You may find this article (or at lest some sections of it) useful to your journey if you are,
 
