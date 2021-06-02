@@ -1518,7 +1518,7 @@ Enthusiastic, driven by boundless curiosity and committed to excellence. Always 
 <div class="blockquote-author"><b>Grad student</b> (♀) had a <span style="color:green;">very positive experience</span> in <b>United Kingdom</b><br />reporting on the <b>most admirable qualities</b> of their mentor (♀)</div>
 </blockquote>
 
-### Mentees advice their mentors to do better
+### Mentees advise their mentors to do better
 
 In this section you will find the words of ECRs to describe the advice they would have given to their mentor so they could do better.
 
@@ -2267,7 +2267,7 @@ There are ways to help rather than dictating approaches and knowledge
 <div class="blockquote-author"><b>Grad student</b> (♂) had a <span style="color:green;">positive experience</span> in <b>United States</b><br />shares <b>their advice</b> for their mentor (♀)</div>
 </blockquote>
 
-### Mentees advice future mentees
+### Mentees advise future mentees
 
 In this section you will find the words of ECRs to describe what advice they would have given to those who are getting ready to pursue a career in science and are looking for mentors.
 

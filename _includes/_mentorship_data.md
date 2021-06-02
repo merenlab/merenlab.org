@@ -164,7 +164,7 @@ though, I had to come here and add the following text retrospectively.
 Most scientists are aware that mentor-mentee relationships can
 occasionally go either extremes of the experience spectrum. And
 considering all the stories I personally have witnessed as an ECR either
-through social media or by watching the journey of other ERCs as
+through social media or by watching the journey of other ECRs as
 mentees, I did not know what the distribution of experiences was going
 to look like. But my interpretation of these results changed as I
 continued to work on the article, especially after I started reading the
@@ -328,7 +328,7 @@ mentors and left academia:
 ![]({{images}}/experience_with_mentor_future-1.png)<!-- -->
 
 Even after *negative* or *very negative* experiences with a mentor,
-mantees seem to have moved on with their careers in academia in
+mentees seem to have moved on with their careers in academia in
 comparable proportions to those who had positive or very positive
 experiences. But these results on careers are to be taken with *two*
 grains of salt as this survey may be grossly underestimating the number
@@ -351,7 +351,7 @@ incorrect](https://www.nature.com/articles/s41467-020-19723-8)
 interpretation of the matter???
 
 Well, thankfully our survey suggests that the overall experiences of
-mantees with their mentors do not seem to correlate with the gender of
+mentees with their mentors do not seem to correlate with the gender of
 the mentee:
 
 ![]({{images}}/mentee_gender_mentor_exp-1.png)<!-- -->
@@ -360,7 +360,7 @@ uniform across genders (just to note, while the x-axis shows the gender
 of mentees, the inline box plots highlight the distribution of the
 gender of mentors within a given category).
 
-One could also ask whether the overall experiences of mantees with their
+One could also ask whether the overall experiences of mentees with their
 mentors correlate with the gender of their mentor:
 
 ![]({{images}}/mentor_gender_mentor_exp-1.png)<!-- -->
@@ -407,7 +407,7 @@ of awareness of mentors in their skills:
 Mentors who were aware of their shortcomings in mentoring had more
 likely to have mentees with whom they had very positive relationships.
 
-Here is a data-driven tip: If you are an ERC considering to start
+Here is a data-driven tip: If you are an ECR considering to start
 working with a new mentor, ask them what they think is their biggest
 shortcoming in mentorship. Then ask the same question to their trainees.
 It may be a good sign if they match. If you are a mentor, think about
@@ -448,7 +448,7 @@ particularly considered good by their colleagues:
 
 ### Are mentors making it easy to raise mentorship concerns
 
-If a mentor is not explicitly asking for feedback from their mantees on
+If a mentor is not explicitly asking for feedback from their mentees on
 the mentorship they are receiving, it may not be the end of the world,
 if they are at least making it easier for their mentees to raise their
 concerns. However, most mentors seem to make it difficult for their

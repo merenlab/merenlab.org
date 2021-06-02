@@ -2,7 +2,7 @@
 layout: post
 authors: [meren]
 title: "Mentorship in life sciences: voices of mentees"
-excerpt: "An attempt to learn from the experiences of ERCs with their mentors"
+excerpt: "An attempt to learn from the experiences of ECRs with their mentors"
 modified: 2021-06-01
 tags: []
 categories: [miscellaneous]
