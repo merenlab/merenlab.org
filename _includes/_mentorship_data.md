@@ -9,7 +9,7 @@ survey or encourage others to do it**. Since the workflow that generates
 the figures and text below is [fully
 reproducible](https://github.com/merenlab/mentorship-survey-workflow),
 it is possible to update the results with additional data relatively
-quickly. If that every happens, this note will reflect that with dates
+quickly. If that ever happens, this note will reflect that with dates
 and significant changes in results if there are any. The data below
 cover a snapshot of the survey results. For your reference, the time
 stamp of the last answer in the survey at the time of the analysis was
@@ -234,10 +234,10 @@ their mentors were common to all mentees trained by their mentor:
 But interestingly, the extent of commonness of experiences were not
 uniform across distinct categories of mentorship outcomes. While only
 11.4% of the mentees who had a very positive experience with their
-mentors thought that their experience was specific to a few, 54.2% of
-the mentees who had a very positive experience with their mentor
-believed that their experience was specific to few people trained by the
-same mentor:
+mentors thought that their experience was specific to a few, as much as
+54.2% of the mentees who had a very negative experience with their
+mentor believed that their experience was specific to few people trained
+by the same mentor:
 
 ![]({{images}}/experience_with_mentor_common_in_group_02-1.png)<!-- -->
 
