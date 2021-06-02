@@ -55,7 +55,12 @@ The figure below displays the list of countries with five or more survey
 results, but for the sake of posterity, each country and the number of
 responses looked like this: United States: 164 / Germany: 36 / United
 Kingdom: 20 / The Netherlands: 12 / Canada: 11 / France: 8 / Austria: 7
-/ India: 7 / Belgium: 6 / Finland: 5 / Italy: 5 / Turkey: 5 .
+/ India: 7 / Belgium: 6 / Finland: 5 / Italy: 5 / Turkey: 5 / Australia:
+4 / Denmark: 3 / Greece: 3 / Japan: 3 / Norway: 3 / Portugal: 3 /
+Sweden: 3 / Switzerland: 3 / \[none entered\]: 2 / Chile: 2 / China: 2 /
+Ireland: 2 / New Zealand: 2 / Poland: 2 / Singapore: 2 / Slovenia: 2 /
+South Korea: 2 / Spain: 2 / Colombia: 1 / Czech Republic: 1 / Estonia: 1
+/ Indonesia: 1 / Mexico: 1 / Saudi Arabia: 1 / Togo: 1.
 
 ### Career stages
 
