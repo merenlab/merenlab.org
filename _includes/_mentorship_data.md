@@ -236,13 +236,13 @@ common to all other mentees trained by the same mentor:
 
 ![]({{images}}/experience_with_mentor_common_in_group_01-1.png)<!-- -->
 
-But interestingly, the extent of commonness of experiences were not
-uniform across distinct categories of mentorship outcomes. While only
-11.4% of the mentees who had a very positive experience with their
-mentors thought that their experience was specific to a few, as much as
-54.2% of the mentees who had a very negative experience with their
-mentor believed that their experience was specific to few people trained
-by the same mentor:
+But interestingly, the extent of commonness of experiences was related
+to mentorship outcomes. Only 11.4% of mentees who had a very positive
+mentoring experience thought their experience was specific to a few
+others trained by the same mentor (defined as “Very specific” or
+“Somewhat specific” survey responses). In contrast, as much as 54.2% of
+mentees who had a very negative experience believed their experience was
+specific to a few:
 
 ![]({{images}}/experience_with_mentor_common_in_group_02-1.png)<!-- -->
 
@@ -409,14 +409,14 @@ of awareness of mentors in their skills:
 
 ![]({{images}}/mentee_awareness-1.png)<!-- -->
 
-Mentors who were aware of their shortcomings in mentoring had more
+Mentors who were aware of their shortcomings in mentoring were more
 likely to have mentees with whom they had very positive relationships.
 
-Here is a data-driven tip: If you are an ECR considering to start
-working with a new mentor, ask them what they think is their biggest
-shortcoming in mentorship. Then ask the same question to their trainees.
-It may be a good sign if they match. If you are a mentor, think about
-what might be your shortcomings in mentoring people.
+Here is a data-driven tip: If you are an ECR considering a new mentor,
+ask them what they think is their biggest shortcoming in mentorship.
+Then ask the same question to their trainees. It may be a good sign if
+they match. If you are a mentor, think about what might be your
+shortcomings in mentoring people.
 
 ### Mentors asking for feedback
 
@@ -466,7 +466,7 @@ in raising concerns with mentorship they receive is quite stark:
 
 ![]({{images}}/mentor_mentorship_concerns_02-1.png)<!-- -->
 
-Almost none of the mentees had a negative experience with a mentors who
+Almost none of the mentees had a negative experience with mentors who
 made it easier to raise concerns. Creating an environment where it
 doesn’t take much to be able to raise concerns is indeed a way to ensure
 negative experiences do not evolve to very negative ones.
@@ -516,8 +516,8 @@ important role of these documents is that they push mentors to actually
 think about who they think they are (or perhaps more accurately, who
 they wish to be as mentors) and what they want their group to radiate as
 a cultural and intellectual gathering. So it is an extremely useful
-exercise for anyone who with to challenge themselves regardless of their
-career stage.
+exercise for anyone who wishes to challenge themselves regardless of
+their career stage.
 
 While I think mentors should draft their documents without reading
 others, here is a list of such documents I collected online that belong
