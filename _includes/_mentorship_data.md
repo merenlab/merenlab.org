@@ -43,11 +43,10 @@ This is likely due to the limits of my reach on Twitter.
 
 ### Countries
 
-Another limitation of the survey is the representation of countries.
-Although there were at least one person filled the survey from **a total
-of 36 countries**, the number of individuals from each country was
-heavily skewed, and the vast majority of those who filled the survey
-worked in **the United States**:
+Another limitation of the survey is the geographic representation.
+Although the survey was filled by individuals from **a total of 36
+countries**, the number of individuals from each country was heavily
+skewed, with the vast majority from **the United States**
 
 ![]({{images}}/country-1.png)<!-- -->
 
@@ -79,7 +78,7 @@ of the mentors were men**.
 
 While mentees who were men were shared equally between men and women
 mentors, a **larger proportion of women worked with mentors who were
-women**.
+also women**.
 
 ![]({{images}}/mentor_mentee_gender-1.png)<!-- -->
 
@@ -105,7 +104,7 @@ The survey also collected data on the minority status of mentees and
 mentors they worked with. The question was aimed to identify those who,
 except their gender, were a member of a minority group in their
 workplace based on ethnic background and/or religion. While **34.1% of
-mentees were a member of a minority group**, only **11.6% of mentors
+mentees were members of a minority group**, only **11.6% of mentors
 belonged to a minority group**, to the best of the knowledge of their
 mentees.
 
@@ -216,15 +215,15 @@ But for those small number of people who are assaulted or diagnosed with
 a rare disease, life changes irreversibly.
 
 This personal experience convinced me that this is the true power of
-this survey. The power of this survey is not the opportunities it
-enables for data analyses or summary of positive or negative experiences
-as a function of categories the survey fits people into. It is the words
-of those who lived these experiences, and the power and the magnitude of
-those words that can convince us to the importance of working towards an
-ideal where all mentee-mentor experiences are positive or very positive,
-and that there is a lot more to do to achieve that.
+this survey. The power of this survey is not the opportunities for data
+analyses or summary of positive or negative experiences as a function of
+categories the survey fits people into. It is the words of those who
+lived these experiences, and the power and the magnitude of those words
+that can convince us the importance of working towards an ideal where
+all mentee-mentor experiences are positive or very positive, and that
+there is a lot more to do to achieve that.
 
-This section stil exists as I managed to fight off the desire to delete
+This section still exists as I managed to fight off the desire to delete
 everything I’ve done until this realization, and let the text continue
 to try to offer a general summary of the data for posterity before
 leaving you with [the words of early career
@@ -232,8 +231,8 @@ researchers](#the-words-of-early-career-researchers).
 
 ### Commonality of experiences within a group
 
-In the most general sense, ECRs believe that their experiences with
-their mentors were common to all mentees trained by their mentor:
+In the most general sense, ECRs believe that their experiences were
+common to all other mentees trained by the same mentor:
 
 ![]({{images}}/experience_with_mentor_common_in_group_01-1.png)<!-- -->
 
