@@ -172,7 +172,7 @@ considering all the stories I personally have witnessed as an ECR either
 through social media or by watching the journey of other ECRs as
 mentees, I did not know what the distribution of experiences was going
 to look like. But my interpretation of these results changed as I
-continued to work on the article, especially after I started reading the
+continued to work on the blog, especially after I started reading the
 words of mentees.
 
 First, I found the large proportion of positive experiences pleasantly
@@ -344,9 +344,9 @@ Factors that are associated with positive vs negative outcomes
 --------------------------------------------------------------
 
 {:.notice}
-This section aims to investigate strong associations by
-benchmarking various categorical data and positive or negative outcomes
-of mentor-mentee relationships.
+This section aims to visualize associations between various
+categories of mentors and mentees and positive or negative outcomes of
+mentor-mentee relationships.
 
 ### Gender of the mentee or the mentor
 
@@ -443,12 +443,13 @@ ask for feedback:
 
 ![]({{images}}/mentor_asking_feedback_03-1.png)<!-- -->
 
-It is indeed extremely difficult to establish a causative relationship
-here. But when it comes to asking for feedback, it seems women do it
-slightly more than men, Assistant Professors do it slightly more than
-Professors, and mentors who are considered to be ‘good’ by their
-colleagues (according to mentees) do it more than those who are not
-particularly considered good by their colleagues:
+It is indeed extremely difficult to establish or test any hypothesis
+here, and it is not the purpose of this blog post. But when it comes to
+asking for feedback, it seems women do it slightly more than men,
+Assistant Professors do it slightly more than Professors, and mentors
+who are considered to be ‘good’ by their colleagues (according to
+mentees) do it more than those who are not particularly considered good
+by their colleagues:
 
 ![]({{images}}/mentor_x_asking_feedback-1.png)<!-- -->
 
