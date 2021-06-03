@@ -78,7 +78,7 @@ But even if a systemic change is the only way forward, the desire for that only 
 
 ## Final words
 
-I hope the data and resources on this page would serve for mentors to identify actionable items to improve the experiences of their mentees, serve mentees to see green and red flags to steer through this difficult system, and administrators to implement strategies to survey mentee well-being and improve mentee-mentor relationships at their departments and/or institutions.
+I hope the data and resources on this page will inspire mentors with actionable items to improve the experiences of their mentees, mentees with green and red flags to look out for in this difficult system, and administrators with new strategies to survey mentee well-being and improve mentee-mentor relationships at their departments and/or institutions.
 
 Before I leave you with the voices of mentees, I thank you for coming this far.
 
