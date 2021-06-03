@@ -350,16 +350,17 @@ of mentor-mentee relationships.
 
 ### Gender of the mentee or the mentor
 
-Does gender plays a role in the outcomes of mentee-mentor pairings? Does
+Does gender play a role in the outcomes of mentee-mentor pairings? Does
 our collective mind have room for yet another [blatantly
 incorrect](https://www.nature.com/articles/s41467-020-19723-8)
-interpretation of the matter???
+interpretation of the influence on gender on critical matters???
 
-Well, thankfully our survey suggests that the overall experiences of
+Well, thankfully the survey data suggest that the overall experiences of
 mentees with their mentors do not seem to correlate with the gender of
 the mentee:
 
 ![]({{images}}/mentee_gender_mentor_exp-1.png)<!-- -->
+
 The distribution of positive and negative experiences seem to be quite
 uniform across genders (just to note, while the x-axis shows the gender
 of mentees, the inline box plots highlight the distribution of the
