@@ -5,19 +5,19 @@
       "size": 2,
       "score": 0.5,
       "color": "#00AA00",
-      "id": "contigs-db",
-      "name": "contigs-db",
-      "provided_by_anvio": true,
-      "type": "DB"
-    },
-    {
-      "size": 2,
-      "score": 0.5,
-      "color": "#00AA00",
       "id": "hmm-hits",
       "name": "hmm-hits",
       "provided_by_anvio": true,
       "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "contigs-db",
+      "name": "contigs-db",
+      "provided_by_anvio": true,
+      "type": "DB"
     },
     {
       "size": 1,
@@ -29,7 +29,7 @@
       "type": "HMM"
     },
     {
-      "size": 5,
+      "size": 4,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-script-filter-hmm-hits-table",
@@ -45,10 +45,6 @@
     {
       "target": 3,
       "source": 0
-    },
-    {
-      "source": 3,
-      "target": 1
     },
     {
       "target": 3,

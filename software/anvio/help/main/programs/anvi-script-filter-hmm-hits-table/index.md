@@ -9,7 +9,7 @@ image:
   display: true
 ---
 
-Add or remove entries in a contigDB hmm_hits table..
+Filter weak HMM hits from a given contigs database using a domain hits table reported by `anvi-run-hmms`..
 
 See **[program help menu](../../../../vignette#anvi-script-filter-hmm-hits-table)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
 
@@ -23,7 +23,7 @@ See **[program help menu](../../../../vignette#anvi-script-filter-hmm-hits-table
 
 ## Can provide
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[contigs-db](../../artifacts/contigs-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[hmm-hits](../../artifacts/hmm-hits) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[hmm-hits](../../artifacts/hmm-hits) <img src="../../images/icons/CONCEPT.png" class="artifact-icon-mini" /></span></p>
 
 ## Can consume
 

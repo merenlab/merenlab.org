@@ -21,7 +21,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **07 Jun 21 10:11:21** for anvi'o version **7-dev (hope)**.
+The help contents were last updated on **07 Jun 21 10:14:43** for anvi'o version **7-dev (hope)**.
 
 
 {% include _project-anvio-version.html %}
@@ -2491,7 +2491,7 @@ Listed below **a total of 128 programs**.
 <tbody>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-filter-hmm-hits-table](programs/anvi-script-filter-hmm-hits-table)**</span>. <span markdown="1">Add or remove entries in a contigDB hmm_hits table.</span>.
+        <span class="artifact-emoji">🔥</span> <span markdown="1">**[anvi-script-filter-hmm-hits-table](programs/anvi-script-filter-hmm-hits-table)**</span>. <span markdown="1">Filter weak HMM hits from a given contigs database using a domain hits table reported by `anvi-run-hmms`.</span>.
     </td>
 </tr>
 <tr>
@@ -2501,7 +2501,7 @@ Listed below **a total of 128 programs**.
 </tr>
 <tr>
     <td class="artifact-p-td">
-    <span class="artifact-emoji">🍕</span> <span class="artifact-p" markdown="1">[contigs-db](artifacts/contigs-db) <img src="images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[hmm-hits](artifacts/hmm-hits) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
+    <span class="artifact-emoji">🍕</span> <span class="artifact-p" markdown="1">[hmm-hits](artifacts/hmm-hits) <img src="images/icons/CONCEPT.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 </tbody>

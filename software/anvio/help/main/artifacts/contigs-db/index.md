@@ -22,7 +22,7 @@ Back to the **[main page](../../)** of anvi'o programs and artifacts.
 ## Provided by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-convert-trnaseq-database](../../programs/anvi-convert-trnaseq-database)</span> <span class="artifact-p">[anvi-gen-contigs-database](../../programs/anvi-gen-contigs-database)</span> <span class="artifact-p">[anvi-script-filter-hmm-hits-table](../../programs/anvi-script-filter-hmm-hits-table)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[anvi-convert-trnaseq-database](../../programs/anvi-convert-trnaseq-database)</span> <span class="artifact-p">[anvi-gen-contigs-database](../../programs/anvi-gen-contigs-database)</span></p>
 
 
 ## Required or used by
