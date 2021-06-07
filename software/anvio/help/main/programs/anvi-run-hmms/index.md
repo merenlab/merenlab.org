@@ -107,6 +107,9 @@ These resulting files are not _exactly_ the raw output of HMMER because anvi'o d
 
 #### Requesting domain table output
 
+{:.notice}
+Please also see <span class="artifact-n">[anvi-script-filter-hmm-hits-table](/software/anvio/help/main/programs/anvi-script-filter-hmm-hits-table)</span>
+
 No matter what, anvi'o will use the regular table output to annotate your contigs database. However, if you are using the --hmmer-output-dir to store the HMMER output, you can also request a domain table output using the flag `--get-domtable-output`.
 
 <div class="codeblock" markdown="1">

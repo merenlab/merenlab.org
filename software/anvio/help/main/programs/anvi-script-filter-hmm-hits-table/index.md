@@ -32,32 +32,25 @@ See **[program help menu](../../../../vignette#anvi-script-filter-hmm-hits-table
 ## Usage
 
 
-This program is for filtering a <span class="artifact-n">[hmm-source](/software/anvio/help/main/artifacts/hmm-source)</span> from a <span class="artifact-n">[hmm-hits](/software/anvio/help/main/artifacts/hmm-hits)</span> in a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> using HMM alignment parameters such as query-coverage and target-coverage. Briefly, the program will remove all records from an <span class="artifact-n">[hmm-source](/software/anvio/help/main/artifacts/hmm-source)</span> in the <span class="artifact-n">[hmm-hits](/software/anvio/help/main/artifacts/hmm-hits)</span> then import a new <span class="artifact-n">[hmm-hits](/software/anvio/help/main/artifacts/hmm-hits)</span> table into the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> that was filtered to your specifications. At the moment, this tool is only designed to work with `hmmsearch` with protein sequences. The `--domtblout` can be produced from running `anvi-run-hmms` with your <span class="artifact-n">[hmm-source](/software/anvio/help/main/artifacts/hmm-source)</span> of interest and using the `--domtblout` parameter AND  `hmmsearch` as the program.
+This program is for filtering a <span class="artifact-n">[hmm-source](/software/anvio/help/main/artifacts/hmm-source)</span> from a <span class="artifact-n">[hmm-hits](/software/anvio/help/main/artifacts/hmm-hits)</span> in a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> using HMM alignment parameters such as query-coverage and target-coverage. Briefly, the program will remove all records from an <span class="artifact-n">[hmm-source](/software/anvio/help/main/artifacts/hmm-source)</span> in the <span class="artifact-n">[hmm-hits](/software/anvio/help/main/artifacts/hmm-hits)</span> then import a new <span class="artifact-n">[hmm-hits](/software/anvio/help/main/artifacts/hmm-hits)</span> table into the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> that was filtered to your specifications. At the moment, this tool is only designed to work with `hmmsearch` with protein sequences. The `--domtblout` can be produced from running <span class="artifact-n">[anvi-run-hmms](/software/anvio/help/main/programs/anvi-run-hmms)</span> with your <span class="artifact-n">[hmm-source](/software/anvio/help/main/artifacts/hmm-source)</span> of interest and using the `--domtblout` parameter AND  `hmmsearch` as the program.
 
-To list available <span class="artifact-n">[hmm-source](/software/anvio/help/main/artifacts/hmm-source)</span> in a database:
-
-<div class="codeblock" markdown="1">
-anvi&#45;script&#45;filter&#45;hmm&#45;hit&#45;table &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                                 &#45;&#45;list&#45;hmm&#45;sources
-</div>
-
-Make `--domtblout` with `anvi-run-hmms`
+For this, you first need to ask <span class="artifact-n">[anvi-run-hmms](/software/anvio/help/main/programs/anvi-run-hmms)</span> to ask HMMER to report a domain hits table by including `--hmm-domain-tblout-path` flag in your command:
 
 <div class="codeblock" markdown="1">
 anvi&#45;run&#45;hmms &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
               &#45;I Bacteria_71 \
-              &#45;&#45;just&#45;do&#45;it \
-              &#45;&#45;hmmer&#45;program hmmsearch \
-              &#45;&#45;hmm&#45;domain&#45;tblout&#45;path hmmsearch
+              &#45;&#45;hmm&#45;domain&#45;tblout&#45;path DOMTABLE.txt
 </div>
 
-Then you can filter out hits using query or target coverage! Here's an example where we can filter out hmm_hits with a target-coverage less than 90%:
+At the end of this run, your HMM hits will be stored in your contigs database as usual. But with the availability of the domain hits table from this run, you can filter out hits from your contigs database using thresholds for query or target coverage of each hit.
+
+For instance following the command above, the command below will remove HMM hits from your contigs database for genes that had less than 90% coverage of the target:
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;filter&#45;hmm&#45;hit&#45;table &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                                 &#45;&#45;hmm&#45;source <span class="artifact&#45;n">[hmm&#45;source](/software/anvio/help/main/artifacts/hmm&#45;source)</span> \
-                                 &#45;&#45;domtblout hmmsearch_domtable \
-                                 &#45;&#45;target&#45;coverage 0.9
+anvi&#45;script&#45;filter&#45;hmm&#45;hits&#45;table &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+                                  &#45;&#45;hmm&#45;source Bacteria_71 \
+                                  &#45;&#45;domtblout DOMTABLE.txt \
+                                  &#45;&#45;target&#45;coverage 0.9
 </div>
 
 
