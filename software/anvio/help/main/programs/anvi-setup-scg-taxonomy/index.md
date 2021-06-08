@@ -41,13 +41,13 @@ You will only have to run this program once per anvi'o installation.
 Why is this not done by default? It just makes things easier downstream to build these databases with the DIAMOND installed on your computer to avoid incompatibility issues. Besides, it should take under a minute and is as simple as running
 
 <div class="codeblock" markdown="1">
-anvi&#45;setup&#45;scg&#45;databases
+anvi&#45;setup&#45;scg&#45;taxonomy
 </div>
 
 If you have already already run this program and are trying to redownload this data, run 
 
 <div class="codeblock" markdown="1">
-anvi&#45;setup&#45;scg&#45;databases &#45;&#45;reset
+anvi&#45;setup&#45;scg&#45;taxonomy &#45;&#45;reset
 </div>
 
 You can also download a specific release of this database by providing its URL with the flag `--scg-taxonomy-remote-database-url`. 
