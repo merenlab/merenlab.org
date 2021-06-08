@@ -49,7 +49,7 @@ You can ask the program to see what workflows it knows about:
 
 ```
 $ anvi-run-workflow --list-workflows
-Available workflows ....: contigs, metagenomics, pangenomics
+Available workflows ....: contigs, metagenomics, pangenomics, phylogenomics, trnaseq
 ```
 
 You should consult with your own installation to see what workflows are available to you in case we failed to keep this page up-to-date.
@@ -96,7 +96,7 @@ This is a file to associate sample names to raw sequencing reads by grouping the
 
 * **sample**: A name that you chose to give to each one of your metagenomic samples.
 
-* **r1**, and **r2**: These two columns hold the path (could be either a relative or an absolute path; it is always better to have absolute paths) to the FASTQ files that correspond to the sample. 
+* **r1**, and **r2**: These two columns hold the path (could be either a relative or an absolute path; it is always better to have absolute paths) to the FASTQ files that correspond to the sample.
 
 Optionally, it can also contain this column:
 
@@ -117,7 +117,7 @@ If multiple paired-end reads FASTQ files correspond to the same sample, they can
 |sample_03|G02|sample-03-R1.fastq.gz|sample-03-R2.fastq.gz|
 
 {:.notice}
-If your FASTQ files are already quality filtered, and you didn't do it with this workflow, and you wish to skip the quality filtering step, **AND** for some reason you didn't already merge the FASTQ files that should be merged together, then you must do so manually, and then provide only one `r1` file and one `r2` file per sample. 
+If your FASTQ files are already quality filtered, and you didn't do it with this workflow, and you wish to skip the quality filtering step, **AND** for some reason you didn't already merge the FASTQ files that should be merged together, then you must do so manually, and then provide only one `r1` file and one `r2` file per sample.
 
 </div>
 
@@ -142,8 +142,7 @@ The `fasta.txt` file format also allows users to optionally specify [external ge
 |:--|:--|:--|:--|
 |A_NAME_YOU_CHOSE|/absolute/path/fasta_01.fa|/path/to/external-gene-calls.txt|/path/to/functions.txt|
 |ANOTHER_NAME|relative/path/fasta_02.fa.gz|path/to/external-gene-calls.txt|path/to/functions.txt|
- 
-                                                                                                                                         
+
 
 # Mock Data
 
@@ -158,9 +157,6 @@ tar -xvzf WORKFLOW_TUTORIAL_DATA.tar.gz
 
 # go into the directory
 cd WORKFLOW_TUTORIAL_DATA
-
-# uncompress the mock contigs FASTA files
-gzip -d three_samples_example/*contigs*.gz
 ```
 
 Now you can follow the steps in this tutorial and run everything on your machine (assuming you have anvi'o and other programs are installed).
@@ -199,7 +195,7 @@ and you could examine its content to find out all possible options to tweak. We 
 
 ```json
 {
-	 "workflow_name": "contigs",
+    "workflow_name": "contigs",
     "config_version": 1,
     "fasta_txt": "fasta.txt",
     "output_dirs": {
@@ -269,7 +265,7 @@ The workflow includes the following steps:
 
 1. Quality control of metagenomic short reads using [illumina-utils](https://github.com/merenlab/illumina-utils/), and generating a comprehensive final report for the results of this step (so you have your Supplementary Table 1 ready).
 
-2. Taxonomical profiling of short reads using [krakenuniq](https://github.com/fbreitwieser/krakenuniq). These profiles are also imported into individual profile databases, and are available in the merged profile database (for more details about this, refer to the [release notes of anvi'o version 5.1](https://github.com/merenlab/anvio/releases/tag/v5.1)). 
+2. Taxonomical profiling of short reads using [krakenuniq](https://github.com/fbreitwieser/krakenuniq). These profiles are also imported into individual profile databases, and are available in the merged profile database (for more details about this, refer to the [release notes of anvi'o version 5.1](https://github.com/merenlab/anvio/releases/tag/v5.1)).
 
 2. Individual or combined assembly of quality filtered metagenomic reads using either [megahit](https://github.com/voutcn/megahit), [metaspades](http://cab.spbu.ru/software/spades/), or [idba_ud](https://github.com/loneknightpy/idba).
 
@@ -316,7 +312,7 @@ In your working directory there is a config file `config-idba_ud.json`; let's ta
 }
 ```
 
-Very short. Every configurable parameter (and there are many many of them) that is not mentioned here will be assigned a default value. 
+Very short. Every configurable parameter (and there are many many of them) that is not mentioned here will be assigned a default value.
 
 {:.notice}
 We usually like to start with a default config file, and then delete every line for which we wish to keep the default (if you don't delete it, then nothing would happen, but why keep garbage in your files?).
@@ -325,10 +321,10 @@ So what do we have in the example config file above?
 
 * **samples_txt**: Path for our `samples.txt` (since we used the default name `samples.txt` we didn't really have to include this in the config file).
 
-* **idba_ud**: A few parameters for `idba_ud`. 
+* **idba_ud**: A few parameters for `idba_ud`.
 
-  -	**run**: Currently two assembly software packages are available in the workflow: megahit and idba_ud. We didn't set either of these as the default program, and hence if you wish to assemble things then you must set the `run` parameter to `true` for one (and only one) of these. 
-	
+  - **run**: Currently two assembly software packages are available in the workflow: megahit and idba_ud. We didn't set either of these as the default program, and hence if you wish to assemble things then you must set the `run` parameter to `true` for one (and only one) of these.
+
   - **--min-contig**: From the help menu of `idba_ud` [we learn]({{images}}/idba_ud_min_contig.png) that `idab_ud` has the default as `200`, and we want it as `1,000`, and hence we include this in the config.
 
   - **threads**: When you wish to use multi-threads you can specify how many threads to use for each step of the workflow using this parameter. Here we chose 11 threads for `idba_ud`.
@@ -348,7 +344,7 @@ It is very big, and that's why we didn't paste it here. We keep things flexible 
 But there are some general things you can notice:
 
  - **threads** - every rule has the parameter "threads" available to it. This is meant for the case in which you are using multi-threads to run things. To learn more about how snakemake utilizes threads you can refer to the snakemake documentation. We decided to allow the user to set the number of threads for all rules, including ones for which we ourselves never use more than 1 (why? because, why not? maybe someone would one day need it for some reason. Don't judge). When **threads** is the only parameter that is available for a rule, it means that there is nothing else that you can configure for this rule. Specifically, it means you don't even get to choose whether this rule is run or not. But don't worry, snakemake will make sure that steps that are not necessary will not run.
- 
+
  - **run** - some rules have this parameter. The rules that have this parameter are optional rules. To make sure that an optional rule is run you need to set the `run` parameter to `true`. If you wish not to run an optional rule, then you must set `run` to `false` or simply an empty string (`""`). Some of the optional rules run by default and others don't. You can find out what the default behavior is by looking at the default config file. As mentioned above, if a rule doesn't have the **run** parameter it means that snakemake will infer whether it needs to run or not (just have some trust please!).
 
  - **parameters with an empty value (`""`)** - Many of the parameters in the default config file get an empty value. This means that the default parameter that is provided by the underlying program will be used. For example, the rule `anvi_gen_contigs_database` is responsible for running `anvi-gen-contigs-database` (we tried giving intuitive names for rules :-)). Below you can see all the available configurations for `anvi_gen_contigs_database`. Let's take the parameter `--split-length` as an example. By refering to the help menu of `anvi-gen-contigs-database` you will find that the default for `--split-length` is 20,000, and this default value will be used by `anvi-gen-contigs-database` if nothing was supplied in the config file.
@@ -458,7 +454,7 @@ anvi-interactive -p 05_ANVIO_PROFILE/G01/sample_01/PROFILE.db \
 
 <span class="extra-info-header">A note on directory structure</span>
 
-The default directory structure that will appear in the working directory includes these directories: 
+The default directory structure that will appear in the working directory includes these directories:
 
 ```
 00_LOGS
@@ -547,7 +543,7 @@ If you are new to **snakemake**, you might be surprised to see how easy it is to
 This mode is used when you have one or more genomes, and one or more metagenomes from which you wish to recruit reads using your genomes.
 
 Along with assembly-based metagenomics, we often use anvi'o to explore the occurrence of population genomes accross metagenomes. A good example of how useful this approach could be is described in this blogpost: [DWH O. desum v2: Most abundant Oceanospirillaceae population in the Deepwater Horizon Oil Plume](http://merenlab.org/2017/11/25/DWH-O-desum-v2/).
-For this mode, what you have is a bunch of FASTQ files (metagenomes) and FASTA files (reference genomes), and all you need to do is to let the workflow know where to find these files, using two `.txt` files: `samples_txt`, and `fasta_txt`. 
+For this mode, what you have is a bunch of FASTQ files (metagenomes) and FASTA files (reference genomes), and all you need to do is to let the workflow know where to find these files, using two `.txt` files: `samples_txt`, and `fasta_txt`.
 
 `fasta_txt` should be a 2 column tab-separated file, where the first column specifies a reference name and the second column specifies the filepath of the FASTA file for that reference.
 
@@ -560,7 +556,7 @@ After properly formatting your `samples_txt` and `fasta_txt`, reference mode is 
 (...)
 ```
 
-The `samples_txt` stays as before, but this time the `group` column will specify for each sample, which reference should be used (aka the name of the reference as defined in the first column of `fasta_txt`). If the `samples_txt` file doesn't have a `group` column, then an ["all against all"](#all-against-all-mode) mode would be provoked. 
+The `samples_txt` stays as before, but this time the `group` column will specify for each sample, which reference should be used (aka the name of the reference as defined in the first column of `fasta_txt`). If the `samples_txt` file doesn't have a `group` column, then an ["all against all"](#all-against-all-mode) mode would be provoked.
 
 First let's set up the reference FASTA files:
 
@@ -1151,9 +1147,9 @@ anvi-run-workflow -w metagenomics \
 Yes! In "reference mode", you may choose to skip this step, and keep your original contigs names by changing the `anvi_script_reformat_fasta` rule the following way:
 
 ```
-	"anvi_script_reformat_fasta": {
-		"run": false
-	}
+    "anvi_script_reformat_fasta": {
+        "run": false
+    }
 ```
 
 In assembly mode, this rule is always executed.
@@ -1187,7 +1183,7 @@ bowtie2 --threads NUM_THREADS \
 
 Hence, you can use `additional_params` to specify all parameters except `--threads`, `-x`, `-1`, `-2`, or `-S`.
 
-For example, if you don't want gapped alignment (aka the reference does not recruit any reads that contain indels with respect to it), and you don't want to store unmapped reads in the SAM output file, set `additional_params` to be `--rfg 10000,10000 --no-unal` (for a full list of options see the bowtie2 [documentation](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#options)). 
+For example, if you don't want gapped alignment (aka the reference does not recruit any reads that contain indels with respect to it), and you don't want to store unmapped reads in the SAM output file, set `additional_params` to be `--rfg 10000,10000 --no-unal` (for a full list of options see the bowtie2 [documentation](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#options)).
 
 ## How can I restart a failed job?
 If your job fails for some reason you can use  `additional_params` with the original command to restart the workflow where it stopped. For example:
@@ -1195,8 +1191,9 @@ If your job fails for some reason you can use  `additional_params` with the orig
 ```
 anvi-run-workflow -w metagenomics \
                   -c config-idba_ud.json \
-		  --additional-params \
-		  --keep-going --rerun-incomplete
+                  --additional-params \
+                    --keep-going \
+                    --rerun-incomplete
 ```
 Here using `additional_params` with the `--keep-going` and `--rerun-incomplete` flags will resume the job even if it failed in the middle of a rule, like `anvi_profile`. Of course, it is always a good idea to figure out why a workflow failed in the first place.
 
