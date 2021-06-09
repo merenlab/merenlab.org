@@ -1,5 +1,5 @@
 - alias: meren
-  official: True
+  lab_member: True
   name: A. Murat Eren (Meren)
   tenure_start: 10/2015
   role: PI
@@ -29,7 +29,7 @@
       inst_link: https://biomedsciences.uchicago.edu/
 
 - alias: florian
-  official: True
+  lab_member: True
   name: Florian Trigodet
   tenure_start: 08/2019
   role: Post-doctoral Scientist
@@ -47,7 +47,7 @@
       inst_link: http://medicine.uchicago.edu/
 
 - alias: andrea
-  official: True
+  lab_member: True
   name: Andrea Watson
   tenure_start: 06/2017
   role: Graduate Student
@@ -65,7 +65,7 @@
       inst_link: https://biomedsciences.uchicago.edu/page/microbiology
 
 - alias: evan
-  official: True
+  lab_member: True
   name: Evan Kiefl
   tenure_start: 04/2017
   role: Graduate Student
@@ -83,7 +83,7 @@
       inst_link: http://biophysics.uchicago.edu/
 
 - alias: matt
-  official: True
+  lab_member: True
   name: Matthew Schechter
   tenure_start: 10/2019
   role: Graduate Student
@@ -101,7 +101,7 @@
       inst_link: https://biomedsciences.uchicago.edu/page/microbiology
 
 - alias: emily
-  official: True
+  lab_member: True
   name: Emily Fogarty
   tenure_start: 06/2018
   role: Graduate Student
@@ -117,7 +117,7 @@
       inst_link: https://biomedsciences.uchicago.edu/page/microbiology
 
 - alias: karen
-  official: True
+  lab_member: True
   name: Karen Lolans
   tenure_start: 07/2018
   role: Senior Research Technician
@@ -133,7 +133,7 @@
       inst_link: https://medicine.uchicago.edu/sections/gastroenterology-hepatology-nutrition/
 
 - alias: iva
-  official: True
+  lab_member: True
   name: Iva Veseli
   tenure_start: 06/2019
   role: Graduate Student
@@ -153,7 +153,7 @@
       inst_link: https://www.nsfgrfp.org/
 
 - alias: sam
-  official: True
+  lab_member: True
   name: Samuel Miller
   tenure_start: 11/2019
   role: Post-doctoral Scientist
@@ -171,7 +171,7 @@
       inst_link: http://medicine.uchicago.edu/
 
 - alias: isaac
-  official: True
+  lab_member: True
   name: Isaac Fink
   tenure_start: 04/2020
   role: Undergraduate Researcher
@@ -186,7 +186,7 @@
       inst_link: http://collegecatalog.uchicago.edu/thecollege/computerscience/
 
 - alias: ibrahim
-  official: True
+  lab_member: True
   name: Ibrahim Mohamed
   tenure_start: 07/2020
   role: Undergraduate Researcher
@@ -202,7 +202,7 @@
       inst_link: http://collegecatalog.uchicago.edu/thecollege/mathematics/
 
 - alias: matthew
-  official: True
+  lab_member: True
   name: Matthew Lawrence Klein
   web: http://matthewlawrencekle.in
   github: matthewlawrenceklein
@@ -219,7 +219,7 @@
       inst_link: http://medicine.uchicago.edu/
 
 - alias: kiki
-  official: True
+  lab_member: True
   name: Kiki Füßel
   web: https://twitter.com/merenbey/status/1196919880680914944
   tenure_start: 11/2019
@@ -230,173 +230,14 @@
   affiliations:
     - title: Therapy Dog
 
-####################################################################################
-# Non-member friends
-####################################################################################
-
-- alias: chiara
-  contributor: True
-  name: Chiara Vanni
-  avatar: bio-chiara.jpg
-  email: cvanni@mpi-bremen.de
-  orcid: 0000-0002-1124-1147
-  github: ChiaraVanni
-  web: https://scholar.google.com/citations?user=0-KzK6MAAAAJ&hl=en
-  role: Contributing hero
-  twitter: ChiaraVanni5
-  affiliations:
-    - title: Graduate Student
-      inst: Max Planck Institute for Marine Microbiology
-      inst_link: https://mpi-bremen.de
-
-- alias: ryan
-  contributor: True
-  avatar: bio-ryan.jpeg
-  name: Ryan Moore
-  linkedin: ryan-moore-444a21b5
-  role: Contributing hero and anvi'o developer
-  twitter: TenderIsTheByte
-  github: mooreryan
-  affiliations:
-    - title: Graduate Student (Wommack Lab)
-      inst: Center for Bioinformatics and Comp Bio, University of Delaware
-      inst_link: https://bioinformatics.udel.edu/
-
-- alias: mike
-  contributor: True
-  name: Mike Lee
-  avatar: bio-mike.jpg
-  email: michael.lee0517@gmail.com
-  github: AstrobioMike
-  web: https://astrobiomike.github.io
-  role: Contributing hero
-  twitter: AstrobioMike
-  linkedin: AstrobioMike
-  affiliations:
-    - title: NASA Space Biology Fellow
-      inst: NASA Ames Research Center
-      inst_link: https://www.nasa.gov/ames
-    - title: JCVI Research Fellow
-      inst: J. Craig Venter Institute
-      inst_link: https://www.jcvi.org/
-
-- alias: veronika
-  avatar: bio-veronika.jpg
-  contributor: True
-  name: Veronika Kivenson
-  role: Contributing hero
-  web: http://methane.geol.ucsb.edu/Home.html
-  twitter: v_kivenson
-  affiliations:
-    - title: Graduate Student
-      inst: Earth Science, UC Santa Barbara
-      inst_link: http://www.geol.ucsb.edu/
-
-- alias: antti
-  contributor: True
-  email: antti.karkman@helsinki.fi
-  avatar: bio-antti.png
-  name: Antti Karkman
-  role: Contributing hero
-  github: karkman
-  affiliations:
-    - title: Postdoctoral researcher
-      inst: University of Helsinki
-      inst_link: https://www.helsinki.fi/en
-
-- alias: elaina
-  contributor: True
-  avatar: bio-elaina.jpg
-  name: Elaina Graham
-  role: Contributing hero
-  github: edgraham
-  twitter: perilousUnknown
-  affiliations:
-    - title: Graduate Student
-      inst: University of Southern California
-      inst_link: https://www.usc.edu/
-
-- alias: bryan
-  contributor: True
-  avatar: bio-bryan.jpg
-  name: Bryan Merrill
-  role: Contributing hero
-  github: brymerr921
-  email: bmerrill@stanford.edu
-  affiliations:
-    - title: Graduate Student
-      inst: Department of Microbiology & Immunology, Stanford University
-      inst_link: http://med.stanford.edu/microimmuno.html
-
-- alias: julie
-  guest: True
-  avatar: bio-julie.jpg
-  name: Julie Reveillaud
-  role: Guest writer
-  web: https://juliereve.wordpress.com
-  twitter: JulieReve
-  affiliations:
-    - title: Research Scientist
-      inst: INRA, ASTRE Unit, Montpellier, France
-      inst_link: https://www.cirad.fr/en/our-research/research-units/animals-health-territories-risks-and-ecosystems
-
-- alias: vincent_d
-  guest: True
-  avatar: bio-vincent_d.png
-  name: Vincent J. Denef
-  email: vdenef@umich.edu
-  role: Guest writer
-  web: http://www-personal.umich.edu/~vdenef/
-  twitter: VJDenef
-  affiliations:
-    - title: Assistant Professor
-      inst: Ecology and Evolutionary Biology, University of Michigan
-      inst_link: https://lsa.umich.edu/eeb/
-
-- alias: jacob_e
-  guest: True
-  avatar: bio-jacob_e.png
-  name: Jacob T. Evans
-  role: Guest writer
-  email: jtevans@umich.edu
-  affiliations:
-    - title: Bioinformatician
-      inst: Ecology and Evolutionary Biology, University of Michigan
-      inst_link: https://lsa.umich.edu/eeb/
-
-- alias: jarrod_s
-  guest: True
-  avatar: bio-jarrod_s.jpg
-  name: Jarrod J. Scott
-  role: Guest writer
-  email: jarrod.jude.scott@gmail.com
-  web: https://istmobiome.rbind.io/
-  affiliations:
-    - title: Post-doctoral Scientist
-      inst: Smithsonian Tropical Research Institute
-      inst_link: https://stri.si.edu/
-
-- alias: antonio
-  guest: True
-  avatar: bio-antonio.png
-  name: Antonio Fernandez-Guerra
-  email: antonio@metagenomics.eu
-  role: Guest writer
-  orcid: 0000-0002-8679-490X
-  web: https://dark.metagenomics.eu
-  affiliations:
-    - title: Assistant Professor
-      inst: Lundbeck Foundation GeoGenetics Centre, The GLOBE Institute, University of Copenhagen
-      inst_link: https://globe.ku.dk/research/geogenetics/
-
 
 ####################################################################################
-# Previous members.
+# Lab Alumni.
 ####################################################################################
 
 - alias: jessica
   nick_name: Jessica
-  official: True
+  lab_member: True
   name: Jessica Pan
   current_info: an undergraduate student at the <a href="https://www.mit.edu/" target="_blank">Massachusetts Institute of Technology</a>
   contributions: Jessica has joined our lab as a high-school student and made significant contributions to the completely brand-new <a href="https://merenlab.org/software/anvio/help/main/" _target="blank">anvi'o help system</a>
@@ -417,7 +258,7 @@
 
 - alias: abby
   nick_name: Abby
-  official: True
+  lab_member: True
   name: Abigail Schmid
   current_info: a computational modeling Post-Bac student at the <a href="https://www.lanl.gov/" target="_blank">Los Alamos National Laboratory</a>
   contributions: Abby joined our group as an undergraduate researcher and used pangenomics and metagenomics for high-throughput characterization on hypervariable genomic islands of some of the most prevalent members of the human microbiome. Her work left behind a treasure trove of insights into some of the most interesting parts of microbial genomes
@@ -444,7 +285,7 @@
   tenure_end: 07/2020
   current_info: an Assistant Professor at the <a href="https://www.luriechildrens.org/">Lurie Children's Hospital</a>, <a href="https://www.northwestern.edu/">Northwestern University</a>
   contributions: In addition to serving as a Physician Researcher at the University of Chicago Medicine, Joe joined our group to study with us the microbial community dynamics in Chron's disease during Exclusive Enteral Nutrition therapy. His dedication and passion had a huge influence on our lab culture and dynamics
-  official: True
+  lab_member: True
   role: Physician Researcher
   email: jrunde1@gmail.com
   github: jrunde1
@@ -461,7 +302,7 @@
   tenure_end: 02/2020
   current_info: a Genomics Data Scientist at <a href="https://weill.cornell.edu/">Weill Cornell Medicine</a>
   contributions: Throughout his studies of the human oral cavity microbiome and its enigmatic members via genome-resolved metagenomics, he served the community with his open code and tutorials. Alon, <a href="https://twitter.com/merenbey/status/1223038960789872646" target="_blank">the very first graduate student to join our group</a>, dramatically influenced the trajectory of our science
-  official: True
+  lab_member: True
   name: Alon Shaiber
   role: Graduate Student
   email: alon.shaiber@gmail.com
@@ -479,7 +320,7 @@
 
 - alias: ozcan
   nick_name: Ozcan
-  official: True
+  lab_member: True
   name: Özcan C. Esen
   tenure_start: 02/2016
   tenure_end: 02/2020
@@ -500,7 +341,7 @@
 
 - alias: mahmoud
   nick_name: Mahmoud
-  official: True
+  lab_member: True
   name: Mahmoud Yousef
   tenure_start: 05/2017
   tenure_end: 02/2020
@@ -519,7 +360,7 @@
        inst_link: https://www.cs.uchicago.edu/
 
 - alias: quentin
-  official: True
+  lab_member: True
   name: Quentin Clayssen
   nick_name: Quentin
   tenure_start: 04/2019
@@ -535,7 +376,7 @@
   bio: "I am a microbiologist and a bioinformatician in training interested in metagenomics. I currently am focusing on approaches for rapid placement of metagenome-assembled genomes into the tree of life."
 
 - alias: sonny
-  official: True
+  lab_member: True
   name: Sonny T. M. Lee
   nick_name: Sonny
   tenure_start: 05/2016
@@ -549,7 +390,7 @@
   bio: "I am a microbiologist studying the most interesting inhabitants of humans, coral reefs, and the ocean, and using big data to answer vexing problems of our future."
 
 - alias: tom
-  official: True
+  lab_member: True
   name: Tom O. Delmont
   nick_name: Tom
   tenure_start: 10/2015
@@ -565,13 +406,176 @@
 
 - alias: steven
   name: Steven Cui
+  lab_member: True
   nick_name: Steven
   tenure_start: 07/2016
   tenure_end: 10/2016
   current_info: a Software Engineer at <a href="https://en.wikipedia.org/wiki/Capital_One">Capital One</a>
   contributions: He contributed to the development of tRNA-seq tools, a project that bridged Meren's and <a href="https://scholar.google.com/citations?user=R5nkatMAAAAJ&hl=en">Tao Pan</a>'s interests
-  official: True
   role: Summer Student
   avatar: bio-steven.png
   email: stevencui729@gmail.com
   bio: "I am an undergraduate student at UChicago studying computer science. I look forward to tackling new and exciting computational problems in the field of bionformatics."
+
+
+####################################################################################
+# Community Guests & Contributors
+####################################################################################
+
+- alias: chiara
+  community_member: True
+  name: Chiara Vanni
+  avatar: bio-chiara.jpg
+  email: cvanni@mpi-bremen.de
+  orcid: 0000-0002-1124-1147
+  github: ChiaraVanni
+  web: https://scholar.google.com/citations?user=0-KzK6MAAAAJ&hl=en
+  role: Contributing hero
+  twitter: ChiaraVanni5
+  affiliations:
+    - title: Graduate Student
+      inst: Max Planck Institute for Marine Microbiology
+      inst_link: https://mpi-bremen.de
+
+- alias: ryan
+  community_member: True
+  avatar: bio-ryan.jpeg
+  name: Ryan Moore
+  linkedin: ryan-moore-444a21b5
+  role: Contributing hero and anvi'o developer
+  twitter: TenderIsTheByte
+  github: mooreryan
+  affiliations:
+    - title: Graduate Student (Wommack Lab)
+      inst: Center for Bioinformatics and Comp Bio, University of Delaware
+      inst_link: https://bioinformatics.udel.edu/
+
+- alias: mike
+  community_member: True
+  name: Mike Lee
+  avatar: bio-mike.jpg
+  email: michael.lee0517@gmail.com
+  github: AstrobioMike
+  web: https://astrobiomike.github.io
+  role: Contributing hero
+  twitter: AstrobioMike
+  linkedin: AstrobioMike
+  affiliations:
+    - title: NASA Space Biology Fellow
+      inst: NASA Ames Research Center
+      inst_link: https://www.nasa.gov/ames
+    - title: JCVI Research Fellow
+      inst: J. Craig Venter Institute
+      inst_link: https://www.jcvi.org/
+
+- alias: veronika
+  avatar: bio-veronika.jpg
+  community_member: True
+  name: Veronika Kivenson
+  role: Contributing hero
+  web: http://methane.geol.ucsb.edu/Home.html
+  twitter: v_kivenson
+  affiliations:
+    - title: Graduate Student
+      inst: Earth Science, UC Santa Barbara
+      inst_link: http://www.geol.ucsb.edu/
+
+- alias: antti
+  community_member: True
+  email: antti.karkman@helsinki.fi
+  avatar: bio-antti.png
+  name: Antti Karkman
+  role: Contributing hero
+  github: karkman
+  affiliations:
+    - title: Postdoctoral researcher
+      inst: University of Helsinki
+      inst_link: https://www.helsinki.fi/en
+
+- alias: elaina
+  community_member: True
+  avatar: bio-elaina.jpg
+  name: Elaina Graham
+  role: Contributing hero
+  github: edgraham
+  twitter: perilousUnknown
+  affiliations:
+    - title: Graduate Student
+      inst: University of Southern California
+      inst_link: https://www.usc.edu/
+
+- alias: bryan
+  community_member: True
+  avatar: bio-bryan.jpg
+  name: Bryan Merrill
+  role: Contributing hero
+  github: brymerr921
+  email: bmerrill@stanford.edu
+  affiliations:
+    - title: Graduate Student
+      inst: Department of Microbiology & Immunology, Stanford University
+      inst_link: http://med.stanford.edu/microimmuno.html
+
+- alias: julie
+  community_member: True
+  avatar: bio-julie.jpg
+  name: Julie Reveillaud
+  role: Guest writer
+  web: https://juliereve.wordpress.com
+  twitter: JulieReve
+  affiliations:
+    - title: Research Scientist
+      inst: INRA, ASTRE Unit, Montpellier, France
+      inst_link: https://www.cirad.fr/en/our-research/research-units/animals-health-territories-risks-and-ecosystems
+
+- alias: vincent_d
+  community_member: True
+  avatar: bio-vincent_d.png
+  name: Vincent J. Denef
+  email: vdenef@umich.edu
+  role: Guest writer
+  web: http://www-personal.umich.edu/~vdenef/
+  twitter: VJDenef
+  affiliations:
+    - title: Assistant Professor
+      inst: Ecology and Evolutionary Biology, University of Michigan
+      inst_link: https://lsa.umich.edu/eeb/
+
+- alias: jacob_e
+  community_member: True
+  avatar: bio-jacob_e.png
+  name: Jacob T. Evans
+  role: Guest writer
+  email: jtevans@umich.edu
+  affiliations:
+    - title: Bioinformatician
+      inst: Ecology and Evolutionary Biology, University of Michigan
+      inst_link: https://lsa.umich.edu/eeb/
+
+- alias: jarrod_s
+  community_member: True
+  avatar: bio-jarrod_s.jpg
+  name: Jarrod J. Scott
+  role: Guest writer
+  email: jarrod.jude.scott@gmail.com
+  web: https://istmobiome.rbind.io/
+  affiliations:
+    - title: Post-doctoral Scientist
+      inst: Smithsonian Tropical Research Institute
+      inst_link: https://stri.si.edu/
+
+- alias: antonio
+  community_member: True
+  avatar: bio-antonio.png
+  name: Antonio Fernandez-Guerra
+  email: antonio@metagenomics.eu
+  role: Guest writer
+  orcid: 0000-0002-8679-490X
+  web: https://dark.metagenomics.eu
+  affiliations:
+    - title: Assistant Professor
+      inst: Lundbeck Foundation GeoGenetics Centre, The GLOBE Institute, University of Copenhagen
+      inst_link: https://globe.ku.dk/research/geogenetics/
+
+
+

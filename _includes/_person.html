@@ -1,22 +1,19 @@
 {% assign current = 0 %}
-{% assign past = 0 %}
-{% assign forever = 0 %}
-{% assign guest = 0 %}
+{% assign alumni = 0 %}
+{% assign community = 0 %}
 
 {% for person in site.data.people %}
-    {% if person.official and person.tenure_end == nil %}{% assign current = current | plus: 1 %}{% endif %}
-    {% if person.official and person.tenure_end %}{% assign past = past | plus: 1 %}{% endif %}
-    {% if person.contributor %}{% assign forever = forever | plus: 1 %}{% endif %}
-    {% if person.guest %}{% assign guest = guest | plus: 1 %}{% endif %}
+    {% if person.lab_member and person.tenure_end == nil %}{% assign current = current | plus: 1 %}{% endif %}
+    {% if person.lab_member and person.tenure_end %}{% assign alumni = alumni | plus: 1 %}{% endif %}
+    {% if person.community_member %}{% assign community = community | plus: 1 %}{% endif %}
 {% endfor %}
 
 <div class="people">
 
 <div class="category-box" style="margin-top:50px">
     <a href="#current"><span class="category-item">Current ({{ current }})</span></a>
-    <a href="#past"><span class="category-item">Past ({{ past }})</span></a>
-    <a href="#forever"><span class="category-item">Forever ({{ forever }})</span></a>
-    <a href="#guest"><span class="category-item">Guest ({{ guest }})</span></a>
+    <a href="#alumni"><span class="category-item">Previous ({{ alumni }})</span></a>
+    <a href="#community"><span class="category-item">Community ({{ community }})</span></a>
 </div>
 
 <p align="center"><img class="group-photo" src="../images/group-photo-07-2020.png" /></p>
@@ -25,12 +22,12 @@
 
 <p class="notice">Interested in joining? Please consider reading <a href="../culture/" style="color: darkblue;">the lab culture and expectations</a> first. Some information on our location and space is also <a href="space/" style="color: darkblue;">here.</a></p>
 
-<p class="persons-title" href="current" style="margin-top: 0px;">Current members (sorted by name)<a name="current">&nbsp;</a></p>
+<p class="persons-title" href="current" style="margin-top: 0px;">Current Members (sorted by name)<a name="current">&nbsp;</a></p>
 
 {% assign people_sorted = site.data.people | sort:"name" %}
 
 {% for person in people_sorted %}
-    {% if person.official and person.tenure_end == nil %}
+    {% if person.lab_member and person.tenure_end == nil %}
     <div class="person">
         <div class="person-photo">
         {% if person.avatar contains 'http' %}
@@ -76,10 +73,12 @@
 
 <div class="alumni">
 
-<p class="persons-title">Those we miss (sorted by date)<a name="past">&nbsp;</a></p>
+<p class="persons-title">Previous Members (sorted by date)<a name="alumni">&nbsp;</a></p>
+
+<p class="notice">Those who were officiallly affiliated with our group but now continue their career elsewhere. If you see yourself or someone else below with outdated information, please edit <a href="https://github.com/merenlab/web/blob/master/_data/people.yml" style="color:red;">this</a> file.
 
 {% for person in site.data.people %}
-    {% if person.official and person.tenure_end %}
+    {% if person.lab_member and person.tenure_end %}
     <div class="alumnus">
         <div class="person-photo">
         {% if person.avatar contains 'http' %}
@@ -109,64 +108,14 @@
 {% endfor %}
 </div>
 
-<div class="heroes">
+<div class="community">
 
-<p class="persons-title">Contributing heroes<a name="forever">&nbsp;</a></p>
+<p class="persons-title">Community<a name="community">&nbsp;</a></p>
 
-{% for person in site.data.people %}
-    {% if person.contributor %}
-    <div class="person">
-        <div class="person-photo">
-        {% if person.avatar contains 'http' %}
-        	<img src="{{ person.avatar }}" class="person-photo-img" alt="{{ person.name }} bio photo">
-        {% else %}
-        	<img src="{{ site.url }}/images/{{ person.avatar }}" class="person-photo-img" alt="{{ person.name }} bio photo">
-        {% endif %}
-        </div>
-
-        <div class="person-info">
-          <h3>{{ person.name }}</h3>
-            <div class="social-box">
-              {% if person.web %}<a href="{{ person.web }}" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i> Web</a>{% endif %}
-              {% if person.email %}<a href="mailto:{{ person.email }}" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a>{% endif %}
-              {% if person.twitter %}<a href="http://twitter.com/{{ person.twitter }}" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i> Twitter</a>{% endif %}
-              {% if person.google.plus %}<a href="http://plus.google.com/+{{ person.google.plus }}" class="person-social" target="_blank"><i class="fa fa-fw fa-google-plus-square"></i> Google+</a>{% endif %}
-              {% if person.linkedin %}<a href="http://linkedin.com/in/{{ person.linkedin }}" class="person-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a>{% endif %}
-              {% if person.github %}<a href="http://github.com/{{ person.github }}" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>{% endif %}
-              {% if person.orcid %}<a href="https://orcid.org/{{ person.orcid }}" class="person-social" target="_blank"><i class="fa fa-fw fa-microphone"></i>ORCiD</a>{% endif %}
-
-            </div>
-
-          <p>{{ person.bio }}</p>
-
-          {% if person.affiliations %}
-          <ul class="person-affiliations">
-          {% for affiliation in person.affiliations %}
-          <li>{% if affiliation.title_link %}<a id="aff-link" target="_blank" href="{{ affiliation.title_link }}">{% endif %}{{ affiliation.title }}{% if affiliation.title_link %}</a>{% endif %}{% if affiliation.inst %}, <a href="{{ affiliation.inst_link }}" id="aff-link" target="_blank">{{ affiliation.inst }}</a>{% endif %}.</li>
-          {% endfor %}
-          </ul>
-          {% endif %}
-
-          <ul class="person-contributions">
-          {% for post in site.posts %}
-                {% if post.authors contains person.alias %}
-                    <li><a id="contrib-link" href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <small>({{ post.date | date: "%a, %b %d, %Y" }})</small></li>
-                {% endif %}
-          {% endfor %}
-          </ul>
-
-        </div>
-    </div>
-    {% endif %}
-{% endfor %}
-</div>
-
-<div class="guests">
-
-<p class="persons-title">Guests<a name="guest">&nbsp;</a></p>
+<p class="notice">Members of our community who generously shared their experiences, opinions and/or computational expertise with others through blog posts. If you see yourself or someone else below with outdated information, please edit <a href="https://github.com/merenlab/web/blob/master/_data/people.yml" style="color:red;">this</a> file.
 
 {% for person in site.data.people %}
-    {% if person.guest %}
+    {% if person.community_member %}
     <div class="person">
         <div class="person-photo">
         {% if person.avatar contains 'http' %}
