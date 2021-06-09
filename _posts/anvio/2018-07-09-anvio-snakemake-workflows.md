@@ -323,15 +323,6 @@ In your working directory there is a config file `config-idba_ud.json`; let's ta
         "--seq-type": "",
         "threads": ""
     },
-    "anvi_profile": {
-        "threads": 3,
-        "--sample-name": "{sample}",
-        "--overwrite-output-destinations": true
-    },
-    "anvi_merge": {
-        "--sample-name": "{group}",
-        "--overwrite-output-destinations": true
-    },
     "idba_ud": {
         "--min_contig": 1000,
         "threads": 11,
