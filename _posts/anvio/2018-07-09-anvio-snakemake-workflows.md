@@ -48,8 +48,14 @@ Anvi'o allows you to use its workflows through the program `anvi-run-workflow` (
 You can ask the program to see what workflows it knows about:
 
 ```
-$ anvi-run-workflow --list-workflows
-Available workflows ....: contigs, metagenomics, pangenomics, phylogenomics, trnaseq
+anvi-run-workflow --list-workflows
+
+WARNING
+===============================================
+If you publish results from this workflow, please do not forget to cite
+snakemake (doi:10.1093/bioinformatics/bts480)
+
+Available workflows ..........................: contigs, metagenomics, pangenomics, phylogenomics, trnaseq
 ```
 
 You should consult with your own installation to see what workflows are available to you in case we failed to keep this page up-to-date.
@@ -167,6 +173,9 @@ Examples throughout this tutorial will use simpler forms of `anvi-run-workflow` 
 
 # Workflows
 
+{:.warning}
+Anvi'o snakemake workflows can be a bit cryptic with their errors. This can be extremely frustrating whether you are an anvi'o developer, or a new user. The key here is to look at the contents of log files, which often are very helpful to find out what went wrong. If you are looking at your terminal with a wall of red text, just search for '.log' on that screen, and copy the log file name that is mentioned within the scary red text, and use the program `cat` to show its contents. It will usually help you to realize what is going wrong, and once you know it, you will be able to ask for help even if you don't know how to solve it.
+
 In this section we will go through current anvi'o workflows, and demonstrate how they work.
 
 {:.notice}
@@ -196,12 +205,12 @@ and you could examine its content to find out all possible options to tweak. We 
 ```json
 {
     "workflow_name": "contigs",
-    "config_version": 1,
+    "config_version": "2",
     "fasta_txt": "fasta.txt",
     "output_dirs": {
-        "FASTA_DIR":   "01_FASTA_contigs_workflow",
+        "FASTA_DIR": "01_FASTA_contigs_workflow",
         "CONTIGS_DIR": "02_CONTIGS_contigs_workflow",
-        "LOGS_DIR":    "00_LOGS_contigs_workflow"
+        "LOGS_DIR": "00_LOGS_contigs_workflow"
     }
 }
 ```
@@ -299,11 +308,30 @@ As previous chapters clarified, this is the file that describes our 'groups' and
 
 In your working directory there is a config file `config-idba_ud.json`; let's take a look at it.
 
-```
+```json
 {
     "workflow_name": "metagenomics",
-    "config_version": 1,
+    "config_version": "2",
     "samples_txt": "samples.txt",
+    "anvi_script_reformat_fasta": {
+        "run": true,
+        "--prefix": "{group}",
+        "--simplify-names": true,
+        "--keep-ids": "",
+        "--exclude-ids": "",
+        "--min-len": "",
+        "--seq-type": "",
+        "threads": ""
+    },
+    "anvi_profile": {
+        "threads": 3,
+        "--sample-name": "{sample}",
+        "--overwrite-output-destinations": true
+    },
+    "anvi_merge": {
+        "--sample-name": "{group}",
+        "--overwrite-output-destinations": true
+    },
     "idba_ud": {
         "--min_contig": 1000,
         "threads": 11,
@@ -312,14 +340,14 @@ In your working directory there is a config file `config-idba_ud.json`; let's ta
 }
 ```
 
-Very short. Every configurable parameter (and there are many many of them) that is not mentioned here will be assigned a default value.
+Relatively short. Every configurable parameter (and there are many many of them) that is not mentioned here will be assigned a default value.
 
 {:.notice}
-We usually like to start with a default config file, and then delete every line for which we wish to keep the default (if you don't delete it, then nothing would happen, but why keep garbage in your files?).
+We usually like to start with a default config file, and edit parameters that are important to us. Usually these edits are related to making `true` values `false` if we don't want to run a particular step, or change number of threads assigned to a single step, etc.
 
 So what do we have in the example config file above?
 
-* **samples_txt**: Path for our `samples.txt` (since we used the default name `samples.txt` we didn't really have to include this in the config file).
+* **samples_txt**: Path for our `samples.txt` (since we used the default name `samples.txt`, we didn't really have to include this in the config file, but it is always better to be explicit).
 
 * **idba_ud**: A few parameters for `idba_ud`.
 
@@ -339,7 +367,7 @@ anvi-run-workflow -w metagenomics \
                   --get-default-config default-metagenomics-config.json
 ```
 
-It is very big, and that's why we didn't paste it here. We keep things flexible for you, and that means having many parameters.
+It is very long, and that's why we didn't paste it here. We keep things flexible for you, and that means having many parameters.
 
 But there are some general things you can notice:
 
@@ -401,7 +429,7 @@ After the workflow is running you simply click **ctrl-A** followd by **D** to de
 screen -r mysnakemakeworkflow
 ```
 
-And when you want to kill it use **ctrl-D** (while connected to the screen).
+And when you want to kill it use **CTRL-D** (while connected to the screen).
 
 At any given time you can see a list of all your screens this way:
 
@@ -433,15 +461,16 @@ And it should look like this:
 
 Ok, so this looks like a standard merged profile database with two samples. As a bonus, we also added a step to import the number of short reads in each sample ("Total num reads"), and we also used it to calculate the percentage of reads from the sample that have been mapped to the contigs ("Percent Mapped").
 
-If you remember, we had two "groups" in the samples.txt file. Hence, we have two contigs databases and two merged profile databases. Let's take a look at the other profile database, but since this group only included one sample, then there was nothing to merge. What we do in this case is that we automatically add the `--cluster-contigs` argument to `anvi-profile` (see the the help menu: `anvi-profile -h` for more details). We still create a "fake" merged profile database here: `06_MERGED/G01/PROFILE.db`, but this is just a mock output file. If you look into it you'll see:
+This is a bit of an expert knowledge, but if you remember, we had two "groups" in the samples.txt file. Hence, we have two contigs databases for G01 and G02. But one of our groups had only a single sample, there was nothing to merge. Thus, there is no merged profile for G01 at the location you would expect to find it, but instead, there is a README file there:
 
 ```
-$ cat 06_MERGED/G01/PROFILE.db
+$ cat 06_MERGED/G01/README.txt
 Only one file was profiled with G01 so there is nothing to
 merge. But don't worry, you can still use anvi-interactive with
 the single profile database that is here: 05_ANVIO_PROFILE/G01/sample_01/PROFILE.db
 ```
 
+Which means, while you can interactively visualize merged profile databases that are affiliated with groups that have more than one sample, you will find profiles to visualize under single profiles directories for groups associated with a single sample (such as G01 in our example):
 
 ```bash
 anvi-interactive -p 05_ANVIO_PROFILE/G01/sample_01/PROFILE.db \
@@ -542,29 +571,22 @@ If you are new to **snakemake**, you might be surprised to see how easy it is to
 {:.warning}
 This mode is used when you have one or more genomes, and one or more metagenomes from which you wish to recruit reads using your genomes.
 
-Along with assembly-based metagenomics, we often use anvi'o to explore the occurrence of population genomes accross metagenomes. A good example of how useful this approach could be is described in this blogpost: [DWH O. desum v2: Most abundant Oceanospirillaceae population in the Deepwater Horizon Oil Plume](http://merenlab.org/2017/11/25/DWH-O-desum-v2/).
+Along with assembly-based metagenomics, we often use anvi'o to explore the occurrence of population genomes across metagenomes. A good example of how useful this approach could be is described in this blogpost: [DWH O. desum v2: Most abundant Oceanospirillaceae population in the Deepwater Horizon Oil Plume](http://merenlab.org/2017/11/25/DWH-O-desum-v2/).
 For this mode, what you have is a bunch of FASTQ files (metagenomes) and FASTA files (reference genomes), and all you need to do is to let the workflow know where to find these files, using two `.txt` files: `samples_txt`, and `fasta_txt`.
 
-`fasta_txt` should be a 2 column tab-separated file, where the first column specifies a reference name and the second column specifies the filepath of the FASTA file for that reference.
+`fasta_txt` should be a 2 column tab-separated file, where the first column specifies a reference name and the second column specifies the file path of the FASTA file for that reference.
 
 After properly formatting your `samples_txt` and `fasta_txt`, reference mode is initiated by adding these to your config file:
 
 ```
 (...)
-"fasta_txt": "fasta.txt",
 "references_mode": true
 (...)
 ```
 
 The `samples_txt` stays as before, but this time the `group` column will specify for each sample, which reference should be used (aka the name of the reference as defined in the first column of `fasta_txt`). If the `samples_txt` file doesn't have a `group` column, then an ["all against all"](#all-against-all-mode) mode would be provoked.
 
-First let's set up the reference FASTA files:
-
-```bash
-gunzip three_samples_example/*.fa.gz
-```
-
-in your directory you can find the following `fasta.txt`, and `config-references-mode.json`:
+In your directory you can find the following `fasta.txt`, and `config-references-mode.json`:
 
 ```bash
 $ cat fasta.txt
@@ -575,8 +597,9 @@ G02     three_samples_example/G02-contigs.fa
 $ cat config-references-mode.json
 {
     "workflow_name": "metagenomics",
-    "config_version": 1,
+    "config_version": "2",
     "fasta_txt": "fasta.txt",
+    "samples_txt": "samples.txt",
     "references_mode": true,
     "output_dirs": {
         "FASTA_DIR": "02_FASTA_references_mode",
@@ -757,7 +780,7 @@ We can modify the config from the [References Mode](#references-mode) section ab
 ```json
 {
     "workflow_name": "metagenomics",
-    "config_version": 1,
+    "config_version": 2,
     "fasta_txt": "fasta.txt",
     "references_mode": true,
     "remove_short_reads_based_on_references": {
@@ -780,7 +803,8 @@ We can modify the config from the [References Mode](#references-mode) section ab
 Now you can run this:
 
 ```
-anvi-run-workflow -w metagenomics -c config-references-mode-with-short-read-removal.json
+anvi-run-workflow -w metagenomics \
+                  -c config-references-mode-with-short-read-removal.json
 ```
 
 <div class="extra-info" markdown="1">
@@ -815,7 +839,7 @@ All you need are a bunch of FASTA files, and a `fasta_txt`, formatted in the sam
 ```
 {
     "workflow_name": "pangenomics",
-    "config_version": 1,
+    "config_version": "2",
     "project_name": "MYPAN",
     "external_genomes": "my-external-genomes.txt",
     "fasta_txt": "fasta.txt",
@@ -876,7 +900,7 @@ In your working directory you have a config file `config-pangenomics-internal-ge
 ```json
 {
     "workflow_name": "pangenomics",
-    "config_version": 1,
+    "config_version": "2",
     "project_name": "MYPAN-INTERNAL",
     "internal_genomes": "my-internal-genomes.txt",
     "output_dirs": {
@@ -924,7 +948,7 @@ We can use the files from the examples above. In your working directory you will
 ```json
 {
     "workflow_name": "pangenomics",
-    "config_version": 1,
+    "config_version": "2",
     "project_name": "MYPAN_COMBINED",
     "external_genomes": "my-external-genomes.txt",
     "internal_genomes": "my-internal-genomes.txt",
@@ -983,10 +1007,10 @@ In your working directory you will find the following mock config file `config-p
 ```json
 {
     "workflow_name": "phylogenomics",
-    "config_version": 1,
+    "config_version": "2",
     "anvi_get_sequences_for_hmm_hits": {
         "--return-best-hit": true,
-        "--align-with": "famsa",
+        "--align-with": "muscle",
         "--concatenate-genes": true,
         "--get-aa-sequences": true,
         "--hmm-sources": "Campbell_et_al",
@@ -1043,7 +1067,8 @@ We have a total of 5 genomes. These genomes are very small mock genomes that onl
 We can run the workflow:
 
  ```bash
-anvi-run-workflow -w phylogenomics -c config-phylo.json
+anvi-run-workflow -w phylogenomics \
+                  -c config-phylo.json
  ```
 
 And now we can visualize the final tree which in our case would be `03_PHYLOGENOMICS/TEST-proteins_GAPS_REMOVED.fa.contree`:
