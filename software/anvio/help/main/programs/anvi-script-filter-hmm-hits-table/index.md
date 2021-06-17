@@ -39,7 +39,8 @@ For this, you first need to ask <span class="artifact-n">[anvi-run-hmms](/softwa
 <div class="codeblock" markdown="1">
 anvi&#45;run&#45;hmms &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
               &#45;I Bacteria_71 \
-              &#45;&#45;hmm&#45;domain&#45;tblout&#45;path DOMTABLE.txt
+              &#45;&#45;hmmer&#45;output&#45;dir path/to/DOMTABLE.txt
+              &#45;&#45;domain&#45;hits&#45;table
 </div>
 
 At the end of this run, your HMM hits will be stored in your contigs database as usual. But with the availability of the domain hits table from this run, you can filter out hits from your contigs database using thresholds for query or target coverage of each hit.
@@ -49,7 +50,7 @@ For instance following the command above, the command below will remove HMM hits
 <div class="codeblock" markdown="1">
 anvi&#45;script&#45;filter&#45;hmm&#45;hits&#45;table &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
                                   &#45;&#45;hmm&#45;source Bacteria_71 \
-                                  &#45;&#45;domtblout DOMTABLE.txt \
+                                  &#45;&#45;domain&#45;hits&#45;table path/to/DOMTABLE.txt \
                                   &#45;&#45;target&#45;coverage 0.9
 </div>
 
