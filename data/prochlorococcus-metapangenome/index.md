@@ -52,7 +52,7 @@ While our study was in review, we decided to stop using 'protein clusters' and s
 
 
 {:.notice}
-The URL [http://merenlab.org/data/prochlorococcus-metapangenome](prochlorococcus-metapangenome){:target="_blank"} serves the most up-to-date version of this document.
+The URL [https://merenlab.org/data/prochlorococcus-metapangenome](/data/prochlorococcus-metapangenome){:target="_blank"} serves the most up-to-date version of this document.
 
 
 <div class="extra-info" markdown="1">
