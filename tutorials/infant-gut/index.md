@@ -160,7 +160,7 @@ Note that gene coordinates are displayed at the bottom and their inferred functi
 
 Anvi'o can work with gene-level taxonomic annotations, but gene-level taxonomy is not useful for anything beyond occasional help with manual binning. Once gene-level taxonomy is added into the contigs database, anvi'o will determine the taxonomy of each contig based on the taxonomic affiliation of genes they describe, and display them in the interface whenever possible.
 
-Centrifuge ([code](https://github.com/infphilo/centrifuge){:target="_blank"}, [pre-print](http://biorxiv.org/content/early/2016/05/25/054965.article-info){:target="_blank"}) is [one of the options]({% post_url anvio/2016-06-18-importing-taxonomy %}#centrifuge-output){:target="_blank"} to [import taxonomic annotations]({% post_url anvio/2016-06-18-importing-taxonomy %}){:target="_blank"} into an anvi'o contigs database. Centrifuge files for the IGD are already in the directory `additional-files/centrifuge-files`.
+Centrifuge ([code](https://github.com/DaehwanKimLab/centrifuge){:target="_blank"}, [paper](http://doi.org/10.1101/gr.210641.116){:target="_blank"}) is [one of the options]({% post_url anvio/2016-06-18-importing-taxonomy %}#centrifuge-output){:target="_blank"} to [import taxonomic annotations]({% post_url anvio/2016-06-18-importing-taxonomy %}){:target="_blank"} into an anvi'o contigs database. Centrifuge files for the IGD are already in the directory `additional-files/centrifuge-files`.
 
 If you import these files into the contigs database the following way,
 
@@ -383,10 +383,10 @@ Better.
 ### Refining individual MAGs: the curation step
 
 {:.warning}
-**Why do we need to curate bins?** Please see [this paper](https://doi.org/10.1128/mBio.00725-19) to see how poorly refined bins can influence ecological and evolutionary insights we gain from MAGs. There is also a step-by-step workflow to describe steps of manual curation [here](http://merenlab.org/data/refining-espinoza-mags/).
+**Why do we need to curate bins?** Please see [this paper](https://doi.org/10.1128/mBio.00725-19) to see how poorly refined bins can influence ecological and evolutionary insights we gain from MAGs. There is also a step-by-step workflow to describe steps of manual curation [here](https://merenlab.org/data/refining-mags/).
 
 {:.warning}
-**Why not relying only on single-copy core genes to estimate purity of a genome bin?** Let's think about this altogether. But once we are done with this, please see the relevant section in [this study](https://t.co/tlnQvIGsIw).
+**Why not relying only on single-copy core genes to estimate purity of a genome bin?** Let's think about this altogether. But once we are done with this, please see the relevant section in [this study](https://doi.org/10.1101/gr.258640.119).
 
 To straighten the quality of the `MAGs` collection, it is possible to visualize individual bins and if needed, refine them. For this we use the program {% include PROGRAM name="anvi-refine" %}. For instance, if you were to be interested in refining one of the bins in our current collection, you could run this command:
 
