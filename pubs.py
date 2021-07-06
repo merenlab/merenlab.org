@@ -173,9 +173,9 @@ class Publications:
         A('''<div class='altmetric-embed' data-badge-type='donut' data-doi="%s"></div>''' % pub['doi'])
         A('''<div class="__dimensions_badge_embed__" data-doi="%s" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>''' % pub['doi'])
         if pub['doi']:
-            A('    <h3><a href="%s" target="_new">%s</a></h3>' % (' https://doi.org/%s' % (pub['doi']), pub['title']))
+            A('    <span class="pub-title"><a href="%s" target="_new">%s</a></span>' % (' https://doi.org/%s' % (pub['doi']), pub['title']))
         else:
-            A('    <h3><a href="http://scholar.google.com/scholar?hl=en&q=%s" target="_new">%s</a></h3>' % ('http://scholar.google.com/scholar?hl=en&q=%s' % (pub['title'].replace(' ', '+')), pub['title']))
+            A('    <span class="pub-title"><a href="http://scholar.google.com/scholar?hl=en&q=%s" target="_new">%s</a></span>' % ('http://scholar.google.com/scholar?hl=en&q=%s' % (pub['title'].replace(' ', '+')), pub['title']))
         A('    <span class="pub-authors">%s</span>' % self.get_author_highlights(pub, pub['year']))
 
         if pub['co_first_authors'] and not pub['co_senior_authors']:
@@ -233,8 +233,7 @@ class Publications:
         W("This page shows publications that are most reflective of our interests. For a complete list, please see <a href='https://scholar.google.com/citations?user=GtLLuxoAAAAJ&view_op=list_works&sortby=pubdate' target='_blank'>Meren's Google Scholar page</a>.\n")
 
         for year in sorted(list(self.pubs_dict.keys()), reverse=True):
-            W('<a name="%s">&nbsp;</a>' % year)
-            W('<h1>%s</h1>\n' % year)
+            W('## %s\n' % (year))
 
             for pub in self.pubs_dict[year]:
                 W(self.get_markdown_text_for_pub(pub))
