@@ -230,7 +230,7 @@ class Publications:
         W('<div class="category-box">\n%s\n</div>\n' % years)
 
         W('{:.notice}\n')
-        W("This page shows publications that are most reflective of our interests. For a complete list, please see <a href='https://scholar.google.com/citations?user=GtLLuxoAAAAJ&view_op=list_works&sortby=pubdate' target='_blank'>Meren's Google Scholar page</a>.\n")
+        W("This page lists publications that are most reflective of our interests. For a complete list, please see <a href='https://scholar.google.com/citations?user=GtLLuxoAAAAJ&view_op=list_works&sortby=pubdate' target='_blank'>Meren's Google Scholar page</a>.\n")
 
         for year in sorted(list(self.pubs_dict.keys()), reverse=True):
             W('## %s\n' % (year))
