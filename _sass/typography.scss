@@ -48,8 +48,21 @@ h6 {
 }
 
 #articlecontent h3 {
-    padding: 0em;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-left: 7px;
+    border-bottom: 1px #555 solid;
+    background: linear-gradient(to bottom, #FFFFFF, #F6F6F6);
 }
+
+#articlecontent h4 {
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-left: 7px;
+    border-bottom: 1px #999 dashed;
+    background: linear-gradient(to bottom, #FFFFFF, #F6F6F6);
+}
+
 
 .article-wrap li {
     padding-bottom: 0.75em;
