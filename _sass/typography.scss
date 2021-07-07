@@ -38,6 +38,10 @@ h6 {
     @include font-size(14);
 }
 
+#toc-header {
+    background: none !important;
+}
+
 #articlecontent h2 {
     margin-top: 2em;
     padding-top: 0.5em;
