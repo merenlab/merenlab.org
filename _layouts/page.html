@@ -35,12 +35,25 @@
     {% endif %}
     <div class="article-wrap">
 
-     <div id="articlecontent">{{ content }}</div>
-      {% if page.share != false %}
-        <hr />
-        {% include _social-share.html %}
-      {% endif %}
+     <div id="articlecontent">
+
+     <section id="table-of-contents" class="toc">
+        <header><h3 id="toc-header"><i class="fa fa-book"></i> Table of Contents</h3></header>
+
+        <div id="drawer">{% include _toc.html html=content %}</div>
+    </section>
+
+    {{ content }}
+
+    </div> <!-- article content -->
+
+    {% if page.share != false %}
+      <hr />
+      {% include _social-share.html %}
+    {% endif %}
+
     </div><!-- /.article-wrap -->
+
     {% if site.owner.disqus-shortname and page.comments == true %}
       <section id="disqus_thread"></section><!-- /#disqus_thread -->
     {% endif %}
