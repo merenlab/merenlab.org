@@ -13,7 +13,6 @@ image:
     feature: http://merenlab.org/images/history_metagenomics_vis.png
 ---
 
-{% include _toc.html %}
 
 ## Preface
 

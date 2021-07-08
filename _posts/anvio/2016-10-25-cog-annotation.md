@@ -17,7 +17,6 @@ This is different than [importing functions into anvi'o]({% post_url anvio/2016-
 
 **Citation** information! If you are using this workflow, along with the search algorithm you will elect to use, you should also cite the following work: [Expanded microbial genome coverage and improved protein family annotation in the COG database](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4383993/).
 
-{% include _toc.html %}
 
 {:.notice}
 {% include _fixthispage.html source="_posts/anvio/2016-11-25-cog-annotation.md" %}

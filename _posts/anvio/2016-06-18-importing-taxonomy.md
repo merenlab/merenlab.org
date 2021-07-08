@@ -16,7 +16,6 @@ The basic workflow goes like this: (1) generate your contigs database from your 
 {:.notice}
 **Important note**: There are many ways to have your genes annotated with taxonomy. But, there is **only one way** to make sure the gene IDs in your taxonomy files correspond to the gene caller IDs in the database: export your DNA or AA sequences from the anvi'o contigs database you wish to annotate using the anvi'o program `anvi-get-sequences-for-gene-calls`. 
 
-{% include _toc.html %}
 
 
 ## Kaiju

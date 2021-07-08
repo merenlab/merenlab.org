@@ -14,7 +14,6 @@ image:
 {% capture anviostructure %}{{site.url}}/software/anvio-structure{% endcapture %}
 {% capture images %}{{site.url}}/images/anvio-structure/2018-09-04-getting-started-with-anvio-structure{% endcapture %}
 
-{% include _toc.html %}
 
 {:.notice}
 The contents of this post assume you are working with anvi'o `v7` or later.

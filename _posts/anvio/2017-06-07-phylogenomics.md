@@ -19,7 +19,6 @@ If you are using the phylogenomics workflow with anvi'o version `v5.1` with inte
 {: .notice}
 This tutorial is tailored for anvi'o <b>`v4` or later</b>. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal.
 
-{% include _toc.html %}
 
 **The goal of this tutorial** is to walk you through some of the anvi'o capabilities that can help you study your data with phylogenomics. With the current anvi'o phylogenomics workflow,
 

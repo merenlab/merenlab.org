@@ -9,7 +9,6 @@ categories: [anvio]
 comments: true
 ---
 
-{% include _toc.html %}
 
 Microbiologists have been cultivating microbial organisms for centuries, and are now routinely using high-throughput sequencing technologies to access the genomic content of their culture collections, greatly enhancing our understanding of the microbial world.
 

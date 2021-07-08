@@ -13,7 +13,6 @@ image:
     feature: export-locus-sketch.png
 ---
 
-{% include _toc.html %}
 
 {:.warning}
 This tutorial is for `v6` and later versions of anvi'o. You can identify which version you have on your computer by typing `anvi-self-test --version` in your terminal.

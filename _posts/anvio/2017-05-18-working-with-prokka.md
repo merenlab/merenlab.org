@@ -11,7 +11,6 @@ authors: [antti]
 
 {% capture images %}{{site.url}}/images/2017-05-18-working-with-prokka{% endcapture %}
 
-{% include _toc.html %}
 
 {:.notice}
 **A note from the Meren Lab**: We are very thankful to Antti on behalf of all anvi'o users who are also Prokka users for taking his time to share his experience with importing Prokka annotations into anvi'o.

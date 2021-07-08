@@ -8,7 +8,6 @@ comments: true
 authors: [alon, meren]
 ---
 
-{% include _toc.html %}
 
 {:.notice}
 This tutorial was written using anvi'o `v5.4`.

@@ -9,7 +9,6 @@ categories: [oligotyping]
 comments: true
 ---
 
-{% include _toc.html %}
 
 >I am very pleased to announce that Frontiers in Microbiology is now hosting a research topic on oligotyping, which is open for submissions! 
 

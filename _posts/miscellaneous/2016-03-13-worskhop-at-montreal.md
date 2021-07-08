@@ -8,7 +8,6 @@ categories: [miscellaneous]
 comments: true
 ---
 
-{% include _toc.html %}
 
 <p style="text-align: right; font-style: italic; color: #AAAAAA;">This document was last updated on June 7<sup>th</sup>, 2016.</p>
 

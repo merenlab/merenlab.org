@@ -11,7 +11,6 @@ redirect_from:
   - /scg-taxonomy/
 ---
 
-{% include _toc.html %}
 
 {% include _project-anvio-version.html %}
 

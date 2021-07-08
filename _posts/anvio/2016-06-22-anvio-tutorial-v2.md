@@ -9,7 +9,6 @@ redirect_from: /2015/05/01/anvio-tutorial/
 comments: true
 ---
 
-{% include _toc.html %}
 
 {% include _project-anvio-version.html %}
 

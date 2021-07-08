@@ -12,7 +12,6 @@ redirect_from:
   - /p/
 ---
 
-{% include _toc.html %}
 
 {% include _project-anvio-version.html %}
 

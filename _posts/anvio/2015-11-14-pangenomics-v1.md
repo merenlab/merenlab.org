@@ -9,7 +9,6 @@ comments: true
 authors: [meren, tom]
 ---
 
-{% include _toc.html %}
 
 {: .notice}
 This pangenomic workflow is for `2.0.2` and earlier versions of anvi'o. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal. The latest workflow and most up-to-date pangenomic is [here]({% post_url anvio/2016-11-08-pangenomics-v2 %}), and comes with some significant improvements with respect to interactivity.

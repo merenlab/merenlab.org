@@ -8,7 +8,6 @@ image:
     feature: http://merenlab.org/data/spiroplasma-pangenome/images/spiroplasma-pangenome.png
 ---
 
-{% include _toc.html %}
 
 <div class="extra-info" markdown="1">
 

@@ -6,7 +6,6 @@ excerpt: "A re-analysis effort on Kowarsky et al study"
 comments: true
 ---
 
-{% include _toc.html %}
 
 <div class="extra-info" markdown="1">
 

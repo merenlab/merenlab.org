@@ -12,7 +12,6 @@ categories: [anvio]
 
 {% capture files %}{{site.url}}/files/2018_BPHS_WORKSHOP{% endcapture %}
 
-{% include _toc.html %}
 
 {% include _join-anvio-slack.html %}
 

@@ -10,7 +10,6 @@ authors: [ozcan]
 ---
 
 
-{% include _toc.html %}
 
 
 We had decided to use web browsers for our visualization needs in anvi'o from the get go. Which served us very well. Thanks to that decision, and our follow up decision to implement our visualization library from scratch, we were able to interactively work with tens of thousands of SVG objects even on a laptop computer. Kudos to all web browser developers out there who put a lot of effort into making browsers perform well, even for extreme cases of stress like the one anvi'o creates.

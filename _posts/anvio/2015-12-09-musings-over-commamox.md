@@ -9,7 +9,6 @@ comments: true
 authors: [meren]
 ---
 
-{% include _toc.html %}
 
 There is no clear "*take home message*" in this post. But if you are in the mood for some serious procrastination, please go ahead and read it at your own risk. You will find some insights into a metagenomic dataset, and at the end you may end up finding yourself inspired to look into the details of your own metagenomes in similar ways.
 

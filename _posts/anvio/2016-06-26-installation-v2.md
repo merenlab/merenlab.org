@@ -13,7 +13,6 @@ image:
   feature: https://github.com/merenlab/anvio/raw/master/anvio/data/interactive/images/logo.png
 ---
 
-{% include _toc.html %}
 
 {% include _project-anvio-version.html %}
 

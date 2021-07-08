@@ -16,7 +16,6 @@ This is a short and friendly rant against the use of the term "dark matter" in m
 
 {% capture images %}{{site.url}}/images/miscellaneous/2017-06-22-microbial-dark-matter{% endcapture %}
 
-{% include _toc.html %}
 
 ## Why even waste time on writing this
 

@@ -10,7 +10,6 @@ image:
   feature: http://merenlab.org/images/anvio/2019-11-25-visualizing-coverages/ScreenShot_inspect_pLA6_12.png
 ---
 
-{% include _toc.html %}
 
 {: .notice}
 This workflow is for `v6` and later versions of anvi'o. You can identify which version you have on your computer by typing `anvi-self-test --version` in your terminal.
