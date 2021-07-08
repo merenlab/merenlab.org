@@ -9,7 +9,6 @@ categories: [oligotyping]
 comments: true
 ---
 
-{% include _toc.html %}
 
 
 In this post you will read about the result of an oligotyping analysis that highlights the sexual tranmissibility of Gardnerella vaginalis strains among sexual partners.

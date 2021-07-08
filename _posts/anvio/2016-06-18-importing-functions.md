@@ -19,7 +19,6 @@ Anvi'o accepts functional annotation at the gene-level. Gene IDs in your input f
 {:.notice}
 **Important note**: There are many ways to have your genes annotated with functions, but, there is only one way to make sure the gene IDs in the files you generate using external tools correspond to the gene IDs in the database: export your DNA or AA sequences from the anvi'o contigs database you wish to annotate using anvi'o program `anvi-get-sequences-for-gene-calls`.
 
-{% include _toc.html %}
 
 ## Introduction
 

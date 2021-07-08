@@ -9,7 +9,6 @@ image:
   display: true
 ---
 
-{% include _toc.html %}
 
 <div class="extra-info" markdown="1">
 

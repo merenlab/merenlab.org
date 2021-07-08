@@ -9,7 +9,6 @@ comments: true
 authors: [meren, ozcan]
 ---
 
-{% include _toc.html %}
 
 <p style="text-align: right; font-style: italic; color: #AAAAAA;">This document last updated on April 1<sup>st</sup>, 2016.</p>
 

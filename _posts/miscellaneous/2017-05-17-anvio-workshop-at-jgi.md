@@ -12,7 +12,6 @@ image:
   display: false
 ---
 
-{% include _toc.html %}
 
 {% capture images %}{{site.url}}/images/miscellaneous/2017-05-17-anvio-workshop-at-jgi{% endcapture %}
 

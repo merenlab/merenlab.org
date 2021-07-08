@@ -7,9 +7,9 @@ tags: []
 authors: [meren]
 categories: [miscellaneous]
 comments: true
+redirect_from: /sharing-data/
 ---
 
-{% include _toc.html %}
 
 {:.notice}
 A version of this blog post [first appeared](https://researchdata.springernature.com/users/113363-a-murat-eren-meren/posts/44023-fantastic-data-and-how-to-share-them-a-plea-to-journal-editors-and-reviewers) at [the Research Data Blog at Springer Nature](https://researchdata.springernature.com/) as a part of the "[Love Data Week 2019](https://researchdata.springernature.com/users/184393-roza-sakellaropoulou/posts/44241-a-week-of-lovin-on-data-content-for-love-data-week-2019)". When I was asked to contribute why data sharing is important from our perspective, I thought it would be easy for me to write about some positive success stories, yet I couldn't steer away from writing one of the serious issues we have been recently struggling with instead: poorly shared data (unintentionally, or intentionally).

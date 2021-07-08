@@ -13,7 +13,6 @@ image:
   display: true
 ---
 
-{% include _toc.html %}
 
 {% capture images %}{{site.url}}/images/mentorship-survey{% endcapture %}
 

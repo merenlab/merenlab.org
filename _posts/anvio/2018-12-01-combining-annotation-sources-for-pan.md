@@ -8,7 +8,6 @@ comments: true
 authors: [mike]
 ---
 
-{% include _toc.html %}
 
 {% capture images %}{{site.url}}/images/anvio/2018-12-01-combining-annotation-sources-for-pan{% endcapture %}
 

@@ -10,8 +10,6 @@ image:
   feature: feature-infant-gut-tutorial.png
 ---
 
-{% include _toc.html %}
-
 {:.warning}
 This tutorial is tailored for anvi'o `v6` or later. You can learn the version of your installation by typing `anvi-interactive -v`. If you have an older version, some things will not work the way they should.
 

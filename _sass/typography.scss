@@ -38,6 +38,30 @@ h6 {
     @include font-size(14);
 }
 
+.li-level-2 {
+    background: #323232;
+    padding-left: 0px !important;
+}
+
+.li-level-3 {
+    background: #9d9d9d;
+    padding-left: 10px !important;
+}
+
+.li-level-4 {
+    background: #b0b0b0;
+    padding-left: 20px !important;
+}
+
+.li-level-5 {
+    background: #e0e0e0;
+    padding-left: 30px !important;
+}
+
+#toc-header {
+    background: none !important;
+}
+
 #articlecontent h2 {
     margin-top: 2em;
     padding-top: 0.5em;

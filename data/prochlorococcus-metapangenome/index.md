@@ -9,7 +9,6 @@ redirect_from:
   - /pm/
 ---
 
-{% include _toc.html %}
 
 {% capture images %}{{site.url}}/data/prochlorococcus-metapangenome/images{% endcapture %}
 

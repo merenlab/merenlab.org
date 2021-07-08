@@ -9,7 +9,6 @@ categories: [anvio]
 comments: true
 ---
 
-{% include _toc.html %}
 
 As you know, hierarchical clustering in anvi'o (that is necessary to represent a merged dataset as a nice looking tree) requires the maximum number of splits to be around 20,000.
 

@@ -8,7 +8,6 @@ authors: [tom, meren]
 categories: [miscellaneous]
 ---
 
-{% include _toc.html %}
 
 {% capture images %}{{site.url}}/images/miscellaneous/2017-11-25-DWH-O-desum-v2{% endcapture %}
 

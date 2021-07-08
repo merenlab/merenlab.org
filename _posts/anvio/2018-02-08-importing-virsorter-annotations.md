@@ -11,7 +11,6 @@ authors: [bryan]
 
 {% capture images %}{{site.url}}/images/anvio/2018-02-08-working-with-VirSorter{% endcapture %}
 
-{% include _toc.html %}
 
 {:.notice}
 **A note from the Meren Lab**: We are very thankful to Bryan for sharing his expertise on behalf of all anvi’o users who wished to know more about the phages lurking in their metagenomes using [VirSorter](https://doi.org/10.7717/peerj.985). Bryan is currently a PhD Candidate in the [Sonnenburg Lab](http://sonnenburglab.stanford.edu/), Stanford University School of Medicine.

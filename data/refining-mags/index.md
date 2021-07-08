@@ -10,7 +10,6 @@ redirect_from:
 
 ---
 
-{% include _toc.html %}
 
 
 <div class="extra-info" markdown="1">

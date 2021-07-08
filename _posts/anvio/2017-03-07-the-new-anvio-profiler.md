@@ -11,7 +11,6 @@ authors: [meren]
 
 {% capture images %}{{site.url}}/images/anvio/2017-07-03-the-new-anvio-profiler{% endcapture %}
 
-{% include _toc.html %}
 
 We just released the new anvi'o `v2.2.2`. If you would like to see why you should use this version, you can read the full release notes [here](https://github.com/merenlab/anvio/releases/tag/v2.2.2){:target="_blank"}.
 

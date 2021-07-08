@@ -11,7 +11,6 @@ authors: [meren]
 
 {% capture images %}{{site.url}}/images/anvio/2016-10-27-high-resolution-figures{% endcapture %}
 
-{% include _toc.html %}
 
 Preparing publication-quality figures is not an easy task. Although the [anvi'o interactive interface]({% post_url anvio/2016-02-27-the-anvio-interactive-interface %}) allows you to work with your display extensively and fine-tune your story, you will still need to finalize your figure using an editor.
 

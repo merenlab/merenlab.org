@@ -13,7 +13,6 @@ authors: [meren]
 
 {% include _project-anvio-version.html %}
 
-{% include _toc.html %}
 
 Docker will help you run anvi'o quickly on a server or a desktop system with zero pain and no installation.
 

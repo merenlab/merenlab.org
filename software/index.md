@@ -7,8 +7,6 @@ redirect_from: /projects/
 comments: true
 ---
 
-{% include _toc.html %}
-
 ## Anvi'o
 
 <div class="quotable">

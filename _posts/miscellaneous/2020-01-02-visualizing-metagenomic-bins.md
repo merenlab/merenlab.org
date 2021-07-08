@@ -13,7 +13,6 @@ image:
 
 {% capture images %}{{site.url}}/images/miscellaneous/2020-01-02-visualizing-metagenomic-bins{% endcapture %}
 
-{% include _toc.html %}
 
 <div class="extra-info" markdown="1">
 

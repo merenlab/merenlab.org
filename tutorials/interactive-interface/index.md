@@ -21,8 +21,6 @@ To follow this tutorial open your terminal, create a new directory anywhere on y
 {:.notice}
 While this tutorial will take you through a simple analysis of a real dataset, there also is available a more comprehensive (but more abstract) tutorial on [data types in the anvi'o interactive interface understands]({% post_url anvio/2016-02-27-the-anvio-interactive-interface %}){:target="_blank"}.
 
-{% include _toc.html %}
-
 ## The data matrix
 
 Anvi'o interactive interface is often initiated to display and manupilate data stored in anvi'o databases. However, in this simple tutorial we will use the interactive interface in 'manual mode' by providing it with the data to diplay manually.

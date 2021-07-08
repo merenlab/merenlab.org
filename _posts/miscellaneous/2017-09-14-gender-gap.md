@@ -9,7 +9,6 @@ comments: true
 authors: [meren]
 ---
 
-{% include _toc.html %}
 
 [Elisabeth Bik](https://microbiomedigest.com) recently mentioned [this conference](http://bioinformatics.gatech.edu/2017/) on Twitter to highlight its serious gender imbalance:
 

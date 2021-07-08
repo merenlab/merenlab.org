@@ -9,7 +9,6 @@ categories: [oligotyping]
 comments: true
 ---
 
-{% include _toc.html %}
 
 {:.notice}
 There is also a [docker image for oligotyping]({% post_url oligotyping/2014-09-02-virtualbox %}) if you are interested in a painless run.

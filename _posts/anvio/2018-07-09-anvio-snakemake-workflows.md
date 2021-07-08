@@ -12,7 +12,6 @@ redirect_from:
 
 {% capture images %}{{site.url}}/images/anvio/2018-07-09-anvio-snakemake-workflows{% endcapture %}
 
-{% include _toc.html %}
 
 {:.notice}
 The contents of this post will only work with anvi'o `v5` and snakemake `v4` or later.

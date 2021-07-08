@@ -9,7 +9,6 @@ comments: true
 authors: [meren]
 ---
 
-{% include _toc.html %}
 
 [The anvi'o metagenomics workflow]({% post_url anvio/2016-06-22-anvio-tutorial-v2 %}) is quite straighforward. But what if you have multiple sources of data that are mapped to the same contigs? If you have metagenomic, metatranscriptomic data from the same environment, and if you want to do a combined analysis, continue reading.
 

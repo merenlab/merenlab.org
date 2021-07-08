@@ -11,7 +11,6 @@ authors: [veronika]
 
 {% capture images %}{{site.url}}/images/miscellaneous/2017-05-11-anvi-refine-by-veronika{% endcapture %}
 
-{% include _toc.html %}
 
 {:.notice}
 **A note from the Meren Lab**: We are very thankful to Veronika for taking the time to share her experience with `anvi-refine`. Veronika is a graduate student at the University of California, Santa Barbara. She is affiliated with the [Valentine Lab](http://methane.geol.ucsb.edu/Home.html), where she studies microbial mat rings in deep ocean sediment using metagenomics.

@@ -14,7 +14,6 @@ This article describes some recipes for the installation of softwre used by anvi
 
 But the article is limited to those tools that we do not install through our conda recipes. Please see our GitHub repository to see a complete list of third-party software that are [required for anvi'o to install](https://github.com/merenlab/anvio/blob/master/conda-recipe/anvio-minimal/meta.yaml) or [critical but not required for its runtime](https://github.com/merenlab/anvio/blob/master/conda-recipe/anvio/meta.yaml) (i.e., they are critical if you want to do anything comprehensive with anvi'o, but without them you still can install and run anvi'o).
 
-{% include _toc.html %}
 
 {:.notice}
 {% include _fixthispage.html source="_posts/anvio/2016-06-18-installing-third-party-software.md" %}

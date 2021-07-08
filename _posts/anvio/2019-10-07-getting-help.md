@@ -11,7 +11,6 @@ redirect_from:
   - /software/anvio/getting-help
 ---
 
-{% include _toc.html %}
 
 {% capture images %}{{site.url}}/images/anvio/2019-10-07-getting-help{% endcapture %}
 

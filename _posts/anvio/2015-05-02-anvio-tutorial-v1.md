@@ -9,7 +9,6 @@ redirect_from: /2015/05/02/anvio-tutorial/
 comments: true
 ---
 
-{% include _toc.html %}
 
 {: .notice}
 This tutorial is tailored for anvi'o <b>v1 branch</b>, and <b>version 1.2.0 or later</b>. Please update your installation first if you have an earlier version installed. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal.

@@ -10,7 +10,6 @@ redirect_from:
 
 ---
 
-{% include _toc.html %}
 
 This document describes the reproducible bioinformatics workflow we used to recover and characterize metagenome-assembled genomes (MAGs) from the TARA Oceans metagenomic co-assemblies, some of which are described in the following study:
 

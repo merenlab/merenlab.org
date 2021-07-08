@@ -19,7 +19,6 @@ image:
 {: .notice}
 This feature is available in anvi'o <b>`v2.3.3` or later</b>. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal.
 
-{% include _toc.html %}
 
 In most cases, getting ribosomal RNA genes out of isolate or metagneome-assembled genomes is not as straightforward as one would like. Gene callers usually don't perform well when it comes to identifying 16S or 23S rRNA genes, and using primer sequences for these regions is not exactly 2017. We added a new feature in anvi'o that reduces down all these to two command lines:
 

@@ -397,6 +397,10 @@ th, td {
     border-left: 10px solid #d4d4d4;
 }
 
+.pub_float .pub-title {
+    border-left: none;
+}
+
 .pub-authors {
     display: block;
     width: 95%;
@@ -405,6 +409,10 @@ th, td {
     margin-top: 4px;
     font-variant: small-caps;
     color: rgb(102, 102, 102);
+}
+
+.pub_float .pub-authors {
+    padding-left: 8px;
 }
 
 .pub-co-first-authors {
@@ -416,6 +424,10 @@ th, td {
     color: #717171;
     font-size: smaller;
     font-style: italic;
+}
+
+.pub_float .pub-co-first-authors {
+    padding-left: 12px;
 }
 
 .pub-member-author {
@@ -435,6 +447,12 @@ th, td {
     font-size: small;
 }
 
+.pub_float .pub-journal {
+    margin-left: 8px;
+    background-image: none;
+    border: none;
+}
+
 .pub-info {
     background-image: linear-gradient(to left, #fefff0, white);
     border: 1px #f4f4f4 solid;
@@ -448,6 +466,13 @@ th, td {
     min-height: 100px;
 }
 
+.pub_float .pub-info {
+    margin-left: 8px;
+    margin-right: 8px;
+    background: white;
+    border: 1px #bcbcbc solid;
+}
+
 .pub-info-no-image {
     background-image: linear-gradient(to left, #fefff0, white);
     border: 1px #f4f4f4 solid;
@@ -459,6 +484,10 @@ th, td {
     padding: 4px;
     padding-right: 14px;
     font-size: small;
+}
+
+.pub_float .pub-info-no-image {
+    margin-left: 8px;
 }
 
 .pub-featured-image {

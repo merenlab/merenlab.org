@@ -11,7 +11,6 @@ authors: [elaina]
 
 {% capture images %}{{site.url}}/images/anvio/2018-01-17-working-with-GhostKoala{% endcapture %}
 
-{% include _toc.html %}
 
 {:.notice}
 **A note from the Meren Lab**: We are very thankful to Elaina for sharing her expertise on behalf of all anvi’o users who wished to import KEGG annotations into their workflows. Elaina is currently a third-year PhD student at the University of Southern California, where she uses her background in microbiology and molecular biology, and her learnings from genome-resolved metagenomics, to generate testable hypotheses regarding the diversity and functioning of microbial populations. She is the developer of [BinSanity](https://peerj.com/articles/3035/), which is an automated binning algorithm that was recently used in another study she co-authored to recover [more than two thousand metagenome-assembled genomes](https://www.nature.com/articles/sdata2017203) from the TARA Oceans Project.

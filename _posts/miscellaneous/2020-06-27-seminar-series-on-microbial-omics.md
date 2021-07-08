@@ -12,7 +12,6 @@ image:
   feature: http://merenlab.org/images/miscellaneous/2020-06-27-seminar-series-on-microbial-omics/momics.png
 ---
 
-{% include _toc.html %}
 
 Welcome, and thank you for your interest! The microbial 'omics seminar series of 2020 is now over, but in this page you can find the recorded lectures.
 
