@@ -14,8 +14,8 @@
 
 <div class="category-box" style="margin-top:50px">
     <a href="#current"><span class="category-item">Current ({{ current }})</span></a>
-    <a href="#collaborators"><span class="category-item">Collaborators ({{ collaborator }})</span></a>
     <a href="#alumni"><span class="category-item">Previous ({{ alumni }})</span></a>
+    <a href="#collaborators"><span class="category-item">Collaborators ({{ collaborator }})</span></a>
     <a href="#community"><span class="category-item">Community ({{ community }})</span></a>
 </div>
 
@@ -68,6 +68,7 @@
           </ul>
           {% endif %}
 
+          {% include _person_posts.html %}
 
         </div>
     </div>
@@ -79,7 +80,7 @@
 
 <p class="persons-title">Collaborators and Partners in Science<a name="collaborators">&nbsp;</a></p>
 
-<p class="notice">Our partners in science who work closely and actively with our group. Undoubtedly, this list will forever be incomplete. We collaborate with many more scientists and we benefit from the guidance of many of our senior colleagues. This dynamic list is meant to mention our most active collaborators with whom we interact almost daily (sorted by name, please edit <a href="https://github.com/merenlab/web/blob/master/_data/people.yml" style="color:red;">this</a> file if updates necessary).
+<p class="notice">Our partners in science who work closely and actively with our group. Undoubtedly, this list will forever be incomplete. We collaborate with many more scientists and we benefit from the guidance of many of our senior colleagues. This dynamic list is meant to mention our most active collaborators with whom we interact almost daily to weekly (sorted by name, please edit <a href="https://github.com/merenlab/web/blob/master/_data/people.yml" style="color:red;">this</a> file if updates necessary).
 
 {% for person in people_sorted %}
     {% if person.collaborator %}
@@ -111,24 +112,7 @@
           </ul>
           {% endif %}
 
-
-          {% assign person_has_posts = 0 %}
-
-          {% for post in site.posts %}
-                {% if post.authors contains person.alias %}
-                    {% assign person_has_posts = person_has_posts | plus: 1 %}
-                {% endif %}
-          {% endfor %}
-
-          {% if person_has_posts > 0 %}
-          <ul class="person-contributions">
-          {% for post in site.posts %}
-                {% if post.authors contains person.alias %}
-                    <li><a id="contrib-link" href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <small>({{ post.date | date: "%a, %b %d, %Y" }})</small></li>
-                {% endif %}
-          {% endfor %}
-          </ul>
-          {% endif %}
+          {% include _person_posts.html %}
 
         </div>
     </div>
@@ -145,7 +129,7 @@
 
 {% for person in site.data.people %}
     {% if person.lab_member and person.tenure_end %}
-    <div class="alumnus">
+    <div class="person">
         <div class="person-photo">
         {% if person.avatar contains 'http' %}
         	<img src="{{ person.avatar }}" class="person-photo-img" alt="{{ person.name }} bio photo">
@@ -167,6 +151,8 @@
              {{ person.nick_name }} was a {{ person.role }} with us between {{person.tenure_start}} and {{person.tenure_end}}.
              {{ person.contributions }}.{% if person.current_info %} The last time we checked, {{ person.nick_name }} was <span class="person-current-info">{{ person.current_info }}</span>.{% endif %}
           </p>
+
+          {% include _person_posts.html %}
 
         </div>
     </div>
