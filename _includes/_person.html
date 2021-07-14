@@ -1,10 +1,12 @@
 {% assign current = 0 %}
 {% assign alumni = 0 %}
+{% assign collaborator = 0 %}
 {% assign community = 0 %}
 
 {% for person in site.data.people %}
     {% if person.lab_member and person.tenure_end == nil %}{% assign current = current | plus: 1 %}{% endif %}
     {% if person.lab_member and person.tenure_end %}{% assign alumni = alumni | plus: 1 %}{% endif %}
+    {% if person.collaborator %}{% assign collaborator = collaborator | plus: 1 %}{% endif %}
     {% if person.community_member %}{% assign community = community | plus: 1 %}{% endif %}
 {% endfor %}
 
@@ -12,6 +14,7 @@
 
 <div class="category-box" style="margin-top:50px">
     <a href="#current"><span class="category-item">Current ({{ current }})</span></a>
+    <a href="#collaborators"><span class="category-item">Collaborators ({{ collaborator }})</span></a>
     <a href="#alumni"><span class="category-item">Previous ({{ alumni }})</span></a>
     <a href="#community"><span class="category-item">Community ({{ community }})</span></a>
 </div>
@@ -70,6 +73,69 @@
     </div>
     {% endif %}
 {% endfor %}
+
+
+<div class="collaborators">
+
+<p class="persons-title">Collaborators and Partners in Science<a name="collaborators">&nbsp;</a></p>
+
+<p class="notice">Our partners in science who work closely and actively with our group. Undoubtedly, this list will forever be incomplete. We collaborate with many more scientists and we benefit from the guidance of many of our senior colleagues. This dynamic list is meant to mention our most active collaborators with whom we interact almost daily (sorted by name, please edit <a href="https://github.com/merenlab/web/blob/master/_data/people.yml" style="color:red;">this</a> file if updates necessary).
+
+{% for person in people_sorted %}
+    {% if person.collaborator %}
+    <div class="person">
+        <div class="person-photo">
+        {% if person.avatar contains 'http' %}
+        	<img src="{{ person.avatar }}" class="person-photo-img" alt="{{ person.name }} bio photo">
+        {% else %}
+        	<img src="{{ site.url }}/images/{{ person.avatar }}" class="person-photo-img" alt="{{ person.name }} bio photo">
+        {% endif %}
+        </div>
+
+        <div class="person-info">
+          <h3>{{ person.name }}</h3>
+
+            <div class="social-box">
+              {% if person.twitter %}<a href="http://twitter.com/{{ person.twitter }}" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i> Twitter</a>{% endif %}
+              {% if person.github %}<a href="http://github.com/{{ person.github }}" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>{% endif %}
+              {% if person.orcid %}<a href="https://orcid.org/{{ person.orcid }}" class="person-social" target="_blank"><i class="fa fa-fw fa-microphone"></i> ORCiD</a>{% endif %}
+            </div>
+
+          <p>{{ person.bio }}</p>
+
+          {% if person.affiliations %}
+          <ul class="person-affiliations">
+          {% for affiliation in person.affiliations %}
+          <li>{% if affiliation.title_link %}<a id="aff-link" target="_blank" href="{{ affiliation.title_link }}">{% endif %}{{ affiliation.title }}{% if affiliation.title_link %}</a>{% endif %}{% if affiliation.inst %}, <a href="{{ affiliation.inst_link }}" id="aff-link" target="_blank">{{ affiliation.inst }}</a>{% endif %}.</li>
+          {% endfor %}
+          </ul>
+          {% endif %}
+
+
+          {% assign person_has_posts = 0 %}
+
+          {% for post in site.posts %}
+                {% if post.authors contains person.alias %}
+                    {% assign person_has_posts = person_has_posts | plus: 1 %}
+                {% endif %}
+          {% endfor %}
+
+          {% if person_has_posts > 0 %}
+          <ul class="person-contributions">
+          {% for post in site.posts %}
+                {% if post.authors contains person.alias %}
+                    <li><a id="contrib-link" href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <small>({{ post.date | date: "%a, %b %d, %Y" }})</small></li>
+                {% endif %}
+          {% endfor %}
+          </ul>
+          {% endif %}
+
+        </div>
+    </div>
+    {% endif %}
+{% endfor %}
+</div>
+
 
 <div class="alumni">
 
