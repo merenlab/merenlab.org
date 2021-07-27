@@ -1,7 +1,8 @@
 ---
 layout: page
-modified: 2017-02-06
+title: A primer on anvi'o
 modified: 2018-08-08
+authors: [meren,iva,evan,tom]
 excerpt: "Binning, benchmarking binning approaches, refining poorly identified bins, and other Anvi'o tutorial for metagenomics using the Infant Gut Dataset by Sharon *et al*"
 categories: [anvio,anvio-structure]
 comments: true
