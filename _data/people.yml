@@ -391,6 +391,7 @@
 
 - alias: tom
   lab_member: True
+  collaborator: True
   name: Tom O. Delmont
   nick_name: Tom
   tenure_start: 10/2015
@@ -403,6 +404,10 @@
   avatar: bio-tom.jpg
   skype: tom.o.delmont
   bio: "I am a microbial ecologist who seeks to understand small and large-scale ecological patterns in the microbial world. My most recent investigations focused on humans, pristine soils, and the Southern Ocean."
+  affiliations:
+     - title: CNRS
+       inst: Genoscope - Centre National de Séquençage
+       inst_link: https://www.genoscope.cns.fr
 
 - alias: steven
   name: Steven Cui
@@ -417,6 +422,90 @@
   email: stevencui729@gmail.com
   bio: "I am an undergraduate student at UChicago studying computer science. I look forward to tackling new and exciting computational problems in the field of bionformatics."
 
+
+####################################################################################
+# Collaborators and partners in science
+####################################################################################
+
+- alias: mikeyu
+  collaborator: True
+  name: Michael Yu
+  avatar: bio-mikeyu.jpg
+  email: mikeyu@ttic.edu
+  web: https://www.ttic.edu/faculty/yu/
+  role: Partner in Science / Collaborator
+  linkedin: michaelyumit
+  github: michaelkyu
+  bio: "I develop new machine learning methods and algorithms to study large biomedical datasets. I'm interested in transferring techniques in computational biology to other fields, including natural language processing."
+  affiliations:
+    - title: Research Assistant Professor
+      inst: Toyota Technological Institute at Chicago
+      inst_link: https://www.ttic.edu/
+
+- alias: amy
+  collaborator: True
+  role: Partner in Science / Collaborator
+  avatar: bio-amy.jpg
+  name: Amy D. Willis
+  email: adwillis@uw.edu
+  web: http://statisticaldiversitylab.com/team/amy-willis
+  linkedin: none
+  twitter: AmyDWillis
+  orcid: 0000-0002-2802-4317
+  github: adw96
+  bio: "My lab and I develop statistical and computational methods for the analysis of biodiversity data, with a particular focus on the microbiome. Like the Meren lab, I'm passionate about reproducible science, meaningful data analysis, ecosystem and host health, outreach and education, and collaborating with scientists who share these values."
+  affiliations:
+    - title: Principal Investigator
+      inst: Statistical Diversity Lab, University of Washington
+      inst_link: http://statisticaldiversitylab.com/
+    - title: Assistant Professor
+      inst: Department of Biostatistics, University of Washington
+      inst_link: https://www.biostat.washington.edu/
+
+- alias: antonio
+  collaborator: True
+  avatar: bio-antonio.png
+  name: Antonio Fernandez-Guerra
+  email: antonio@metagenomics.eu
+  role: Guest writer
+  orcid: 0000-0002-8679-490X
+  web: https://dark.metagenomics.eu
+  bio: "My group and I develop and apply new methodologies to analyze modern and ancient (meta)genomic data. We like to use ancient microbes to reconstruct past environments and make sense of the genes of unknown function in genomes and metagenomes."
+  affiliations:
+    - title: Assistant Professor
+      inst: Lundbeck Foundation GeoGenetics Centre, The GLOBE Institute, University of Copenhagen
+      inst_link: https://globe.ku.dk/research/geogenetics/
+
+- alias: arda
+  collaborator: True
+  role: Partner in Science / Collaborator
+  avatar: bio-arda.jpg
+  name: Arda Söylev
+  email: asoylev@gmail.com
+  web: http://www.ardasoylev.com
+  twitter: asoylev
+  orcid: 0000-0003-2198-1920
+  github: asylvz
+  bio: "I am a computer scientist, interested in designing algorithms to analyze and understand microbiome and also structural variations in modern and ancient genomes."
+  affiliations:
+    - title: Assistant Professor
+      inst: Konya Food and Agriculture University
+      inst_link: https://mmf.gidatarim.edu.tr/
+
+- alias: jessika
+  collaborator: True
+  role: Partner in Science / Collaborator
+  avatar: bio-jessika.jpg
+  name: Jessika Fuessel
+  email: ju.fuessel@gmail.com
+  twitter: FuesselJessika
+  orcid: 0000-0002-4210-2318
+  github: jessika-fuessel
+  bio: "My aim is to understand the production and fate of microbial metabolites within the context of changing environmental conditions using a multi-omics approaches."
+  affiliations:
+    - title: Post-doctoral Scientist
+      inst: Department of Medicine, University of Chicago
+      inst_link: https://medicine.uchicago.edu/
 
 ####################################################################################
 # Community Guests & Contributors
@@ -563,19 +652,3 @@
     - title: Post-doctoral Scientist
       inst: Smithsonian Tropical Research Institute
       inst_link: https://stri.si.edu/
-
-- alias: antonio
-  community_member: True
-  avatar: bio-antonio.png
-  name: Antonio Fernandez-Guerra
-  email: antonio@metagenomics.eu
-  role: Guest writer
-  orcid: 0000-0002-8679-490X
-  web: https://dark.metagenomics.eu
-  affiliations:
-    - title: Assistant Professor
-      inst: Lundbeck Foundation GeoGenetics Centre, The GLOBE Institute, University of Copenhagen
-      inst_link: https://globe.ku.dk/research/geogenetics/
-
-
-
