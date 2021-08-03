@@ -178,8 +178,8 @@ This will generate an output file called `splits_basic_info.txt` file, which we 
 If you want to also generate gene-level annotations for hallmark genes and import those into anvi'o (think capsid proteins, terminases, etc.) then you'll need to also run this command to export your gene calls from your anvi'o contigs database:
 
 ``` bash
-anvi-anvi-export-gene-calls -c CONTIGS.db \
-                  -o all_gene_calls.txt
+anvi-export-gene-calls -c CONTIGS.db \
+                       -o all_gene_calls.txt
 ```
 
 
