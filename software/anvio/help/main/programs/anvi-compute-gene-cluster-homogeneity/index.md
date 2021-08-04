@@ -11,7 +11,7 @@ image:
 
 Compute homogeneity for gene clusters.
 
-See **[program help menu](../../../../vignette#anvi-compute-gene-cluster-homogeneity)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -21,13 +21,23 @@ See **[program help menu](../../../../vignette#anvi-compute-gene-cluster-homogen
 {% include _project-anvio-graph.html %}
 
 
-## Can provide
+## Authors
 
-<p style="text-align: left" markdown="1"></p>
+<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/mahmoudyousef98.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">Mahmoud Yousef</span><div class="page-author-social-box"><a href="mailto:mahmoudyousef@uchicago.edu" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://github.com/mahmoudyousef98" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+
+
 
 ## Can consume
 
+
 <p style="text-align: left" markdown="1"><span class="artifact-r">[pan-db](../../artifacts/pan-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span> <span class="artifact-r">[genomes-storage-db](../../artifacts/genomes-storage-db) <img src="../../images/icons/DB.png" class="artifact-icon-mini" /></span></p>
+
+
+## Can provide
+
+
+This program does not seem to provide any artifacts. Such programs usually print out some information for you to see or alter some anvi'o artifacts without producing any immediate outputs.
+
 
 ## Usage
 

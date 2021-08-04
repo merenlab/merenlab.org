@@ -17,7 +17,7 @@ image:
 
 A HMM-type anvi'o artifact. This artifact is typically provided **by the user** for anvi'o to import into its databases, process, and/or use.
 
-Back to the **[main page](../../)** of anvi'o programs and artifacts.
+🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
 ## Provided by
 

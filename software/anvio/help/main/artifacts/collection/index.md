@@ -17,7 +17,7 @@ image:
 
 A COLLECTION-type anvi'o artifact. This artifact is typically generated, used, and/or exported **by anvi'o** (and not provided by the user)..
 
-Back to the **[main page](../../)** of anvi'o programs and artifacts.
+🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
 ## Provided by
 

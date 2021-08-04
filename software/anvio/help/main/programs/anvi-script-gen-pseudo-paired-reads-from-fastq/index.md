@@ -11,7 +11,7 @@ image:
 
 A script that takes a FASTQ file that is not paired-end (i.e., R1 alone) and converts it into two FASTQ files that are paired-end (i.e., R1 and R2). This is a quick-and-dirty workaround that halves each read from the original FASTQ and puts one half in the FASTQ file for R1 and puts the reverse-complement of the second half in the FASTQ file for R2. If you&#x27;ve ended up here, things have clearly not gone very well for you, and Evan, who battled similar battles and ended up implementing this solution wholeheartedly sympathizes.
 
-See **[program help menu](../../../../vignette#anvi-script-gen-pseudo-paired-reads-from-fastq)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -21,13 +21,23 @@ See **[program help menu](../../../../vignette#anvi-script-gen-pseudo-paired-rea
 {% include _project-anvio-graph.html %}
 
 
-## Can provide
+## Authors
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[short-reads-fasta](../../artifacts/short-reads-fasta) <img src="../../images/icons/FASTA.png" class="artifact-icon-mini" /></span></p>
+<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/ekiefl.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">Evan Kiefl</span><div class="page-author-social-box"><a href="mailto:kiefl.evan@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/evankiefl" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/ekiefl" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+
+
 
 ## Can consume
 
+
 <p style="text-align: left" markdown="1"><span class="artifact-r">[short-reads-fasta](../../artifacts/short-reads-fasta) <img src="../../images/icons/FASTA.png" class="artifact-icon-mini" /></span></p>
+
+
+## Can provide
+
+
+<p style="text-align: left" markdown="1"><span class="artifact-p">[short-reads-fasta](../../artifacts/short-reads-fasta) <img src="../../images/icons/FASTA.png" class="artifact-icon-mini" /></span></p>
+
 
 ## Usage
 

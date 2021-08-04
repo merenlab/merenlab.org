@@ -11,7 +11,7 @@ image:
 
 Corrects homopolymer-region associated INDELs in a given genome based on a reference genome. The most effective use of this script is when the input genome is a genome reconstructed by minION long reads, and the reference genome is one that is of high-quality. Essentially, this script will BLAST the genome you wish to correct against the reference genome you provide, identify INDELs in the BLAST results that are exclusively associated with homopolymer regions, and will take the reference genome as a guide to correct the input sequences, and report a new FASTA file. You can use the output FASTA file that is fixed as the input FASTA file over and over again to see if you can eliminate all homopolymer-associated INDELs.
 
-See **[program help menu](../../../../vignette#anvi-script-fix-homopolymer-indels)** or go back to the **[main page](../../)** of anvi'o programs and artifacts.
+🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
 
 {% include _toc.html %}
@@ -21,13 +21,23 @@ See **[program help menu](../../../../vignette#anvi-script-fix-homopolymer-indel
 {% include _project-anvio-graph.html %}
 
 
-## Can provide
+## Authors
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[fasta](../../artifacts/fasta) <img src="../../images/icons/FASTA.png" class="artifact-icon-mini" /></span></p>
+<div class="page-author"><div class="page-author-info"><div class="page-person-photo"><img class="page-person-photo-img" src="../../images/authors/meren.jpg" /></div><div class="page-person-info-box"><span class="page-author-name">A. Murat Eren (Meren)</span><div class="page-author-social-box"><a href="http://meren.org" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i>Web</a><a href="mailto:a.murat.eren@gmail.com" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a><a href="http://twitter.com/merenbey" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i>Twitter</a><a href="http://github.com/meren" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a></div></div></div></div>
+
+
 
 ## Can consume
 
+
 <p style="text-align: left" markdown="1"><span class="artifact-r">[fasta](../../artifacts/fasta) <img src="../../images/icons/FASTA.png" class="artifact-icon-mini" /></span></p>
+
+
+## Can provide
+
+
+<p style="text-align: left" markdown="1"><span class="artifact-p">[fasta](../../artifacts/fasta) <img src="../../images/icons/FASTA.png" class="artifact-icon-mini" /></span></p>
+
 
 ## Usage
 
