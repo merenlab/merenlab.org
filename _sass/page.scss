@@ -330,6 +330,10 @@ th, td {
     float: right;
 }
 
+.page-person-info-box-mini {
+    float: right;
+}
+
 .page-person-photo {
     float: left;
     min-width: 50px;
@@ -360,6 +364,12 @@ th, td {
     border: none !important;
 }
 
+.page-person-photo-img-mini {
+    border-radius: 150px !important;
+    max-width: 30px;
+    height: 30px;
+    border: none !important;
+}
 
 .page-author-social-box {
     border-top: 1px solid #e2e2e2;
@@ -548,6 +558,9 @@ th, td {
   display: inline-block;
 }
 
+.page-author-mini {
+  display: inline-block;
+}
 .authored {
   margin-bottom: 0px;
   line-height: 1.2em;
