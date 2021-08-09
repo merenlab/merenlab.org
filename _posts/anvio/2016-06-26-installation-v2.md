@@ -169,23 +169,26 @@ If everything went fine, you can jump to "[Check your anvi'o setup](#4-check-you
 
 If you are here, you are ready to check if everything is working on your system.
 
-The easiest way to do it is to run a self-test and see if everything is in order:
+The easiest way to do it is to run the anvi'o program `anvi-self-test` and see if everything is in order:
 
 ``` bash
-anvi-self-test
+anvi-self-test --suite mini
 ```
 
 {:.notice}
-If you don't want anvi'o to show you a browser window at the end and quietly finish testing if everything is OK, add `--no-interactive` flag to the command above.
+If you don't want anvi'o to show you a browser window at the end and quietly finish testing if everything is OK, add `--no-interactive` flag to the command above. Another note, `anvi-self-test` is run in `--suite mini` mode, which tests the absolute minimal features of your anvi'o installation. If you run it without any parameters, it will tests many more things.
 
 {:.warning}
 It is absolutely normal to see 'warning' messages. In general anvi'o is talkative as it would like to keep you informed. In an ideal world you should keep a careful eye on those warning messages, but in most cases they will not require action.
 
-If everything goes smoothly, your browser should pop-up and show you something like this at the end of `anvi-self-test`:
+If everything goes smoothly, your browser should pop-up and show you an anvi'o {% include ARTIFACT name="interactive" %} interface that looks something like this once `anvi-self-test` is done running:
 
 <div class="centerimg">
 <a href="{{ site.url }}/images/anvio/misc/mini-test-screenshot.png"><img src="{{ site.url }}/images/anvio/misc/mini-test-screenshot.png" width="50%" /></a>
 </div>
+
+{:.warning}
+If your browser does not show up, or does show up but can't show anything due to a 'network problem', you may also want to visit the address [http://localhost:8080](http://localhost:8080) by entering this address to your browser address bar manually. On some systems the default network interface anvi'o uses to connect to its own server causes issues. You may also find the help page for {% include PROGRAM name="anvi-interactive" %} useful for future references.
 
 {:.notice}
 The screenshot above is from 2015 and will be vastly different from the [interactive interface]({% post_url anvio/2016-02-27-the-anvio-interactive-interface %}) you should see in your browser. It is still here so we remember where we came from 😇
