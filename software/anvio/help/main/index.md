@@ -21,7 +21,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **04 Aug 21 11:38:34** for anvi'o version **7-dev (hope)**.
+The help contents were last updated on **09 Aug 21 11:20:41** for anvi'o version **7-dev (hope)**.
 
 
 {% include _project-anvio-version.html %}
@@ -33,7 +33,7 @@ The help contents were last updated on **04 Aug 21 11:38:34** for anvi'o version
 
 Anvi'o artifacts represent **concepts, file types, or data types** anvi'o programs can work with. A given anvi'o artifact can be provided by the user (such as a FASTA file), produced by anvi'o (such as a profile database), or both (such as phylogenomic trees). Anvi'o artifacts link anvi'o programs to each other to build novel workflows.
 
-Listed below **a total of 105 artifacts**.
+Listed below **a total of 107 artifacts**.
 
 <table class="artifacts-table">
 
@@ -86,7 +86,7 @@ Listed below **a total of 105 artifacts**.
 </tr>
 
 <tr>
-<td><div class="artifact-icon-div"><img src="images/icons/DISPLAY.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[interactive](artifacts/interactive)</span></td>
+<td><div class="artifact-icon-div"><img src="images/icons/DISPLAY.png" class="artifact-icon" /></div></td><td class="artifact-list-td"><span class="artifact-n" markdown="1">[interactive](artifacts/interactive)</span> <span class="artifact-n" markdown="1">[contig-inspection](artifacts/contig-inspection)</span> <span class="artifact-n" markdown="1">[gene-cluster-inspection](artifacts/gene-cluster-inspection)</span></td>
 </tr>
 
 <tr>
@@ -706,7 +706,7 @@ Listed below **a total of 127 programs**.
 <tr>
     <td class="artifact-p-td">
     <span class="artifact-emoji">🍕</span>
-        <span class="artifact-p" markdown="1">[collection](artifacts/collection) <img src="images/icons/COLLECTION.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[bin](artifacts/bin) <img src="images/icons/BIN.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[interactive](artifacts/interactive) <img src="images/icons/DISPLAY.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[svg](artifacts/svg) <img src="images/icons/SVG.png" class="artifact-icon-mini" /> </span>
+        <span class="artifact-p" markdown="1">[collection](artifacts/collection) <img src="images/icons/COLLECTION.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[bin](artifacts/bin) <img src="images/icons/BIN.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[interactive](artifacts/interactive) <img src="images/icons/DISPLAY.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[svg](artifacts/svg) <img src="images/icons/SVG.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[gene-cluster-inspection](artifacts/gene-cluster-inspection) <img src="images/icons/DISPLAY.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 <tr style="border:none;">
@@ -2066,7 +2066,7 @@ Listed below **a total of 127 programs**.
 <tr>
     <td class="artifact-p-td">
     <span class="artifact-emoji">🍕</span>
-        <span class="artifact-p" markdown="1">[interactive](artifacts/interactive) <img src="images/icons/DISPLAY.png" class="artifact-icon-mini" /> </span>
+        <span class="artifact-p" markdown="1">[interactive](artifacts/interactive) <img src="images/icons/DISPLAY.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[contig-inspection](artifacts/contig-inspection) <img src="images/icons/DISPLAY.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 <tr style="border:none;">
@@ -2096,7 +2096,7 @@ Listed below **a total of 127 programs**.
 <tr>
     <td class="artifact-p-td">
     <span class="artifact-emoji">🍕</span>
-        <span class="artifact-p" markdown="1">[collection](artifacts/collection) <img src="images/icons/COLLECTION.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[bin](artifacts/bin) <img src="images/icons/BIN.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[interactive](artifacts/interactive) <img src="images/icons/DISPLAY.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[svg](artifacts/svg) <img src="images/icons/SVG.png" class="artifact-icon-mini" /> </span>
+        <span class="artifact-p" markdown="1">[collection](artifacts/collection) <img src="images/icons/COLLECTION.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[bin](artifacts/bin) <img src="images/icons/BIN.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[interactive](artifacts/interactive) <img src="images/icons/DISPLAY.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[svg](artifacts/svg) <img src="images/icons/SVG.png" class="artifact-icon-mini" /></span> <span class="artifact-p" markdown="1">[contig-inspection](artifacts/contig-inspection) <img src="images/icons/DISPLAY.png" class="artifact-icon-mini" /> </span>
     </td>
 </tr>
 <tr style="border:none;">

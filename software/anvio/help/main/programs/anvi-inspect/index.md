@@ -36,7 +36,7 @@ Start an anvi&#x27;o inspect interactive interface.
 ## Can provide
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-p">[interactive](../../artifacts/interactive) <img src="../../images/icons/DISPLAY.png" class="artifact-icon-mini" /></span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-p">[interactive](../../artifacts/interactive) <img src="../../images/icons/DISPLAY.png" class="artifact-icon-mini" /></span> <span class="artifact-p">[contig-inspection](../../artifacts/contig-inspection) <img src="../../images/icons/DISPLAY.png" class="artifact-icon-mini" /></span></p>
 
 
 ## Usage
