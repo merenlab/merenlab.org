@@ -1,27 +1,30 @@
 # How to run a copy of this website locally
 
-You can run a local version of this website to see how your changes will look like when they are pushed. For this, you need to install `jekyll`, which can be doen the following way on a Mac OSX:
+Installing ruby on Mac is always a pain. But you can start with this (newer versions of ruby may cause you trouble with some of the gems):
 
 ```
-sudo gem install jekyll
+brew install ruby@2.7
 ```
 
-If the command `gem` is not found, or your Ruby version is outdated, try to install it the following way first:
+This step may ask you to add things to your `~/.bash_profile` to update your `$PATH`, which you should do, and then either open a new terminal, or run `source ~/.bash_profile`, so the output for `which ruby` looks something like this:
 
 ```
-brew install ruby
+/usr/local/opt/ruby@2.7/bin/ruby
 ```
 
-Once the installation is complete, you can get a copy of the web site from GitHub:
+Once you're done with these initial steps, you can get a copy of the web site from GitHub:
 
 ```
+mkdir -p ~/github
+cd ~/github/
+
 git clone https://github.com/merenlab/web.git
-cd web
 ```
 
 To make sure you have the necesary gems, run:
 
 ```
+cd web
 bundle install
 ```
 
