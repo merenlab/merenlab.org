@@ -46,7 +46,7 @@ Reconstructs metabolic pathways and estimates pathway completeness for a given s
 
 The metabolic pathways that this program currently considers are those defined by KEGG Orthologs (KOs) in the [KEGG MODULE resource](https://www.genome.jp/kegg/module.html). Each KO represents a gene function, and a KEGG module is a set of KOs that collectively carry out the steps in a metabolic pathway.
 
-Given a properly annotated <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>, this program determines which KOs are present and uses these functions to compute the completeness of each KEGG module. The output is one or more tabular text files - see <span class="artifact-n">[kegg-metabolism](/software/anvio/help/main/artifacts/kegg-metabolism)</span> for the output description and examples. 
+Given a properly annotated <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>, this program determines which KOs are present and uses these functions to compute the completeness of each KEGG module. The output is one or more tabular text files - see <span class="artifact-n">[kegg-metabolism](/software/anvio/help/main/artifacts/kegg-metabolism)</span> for the output description and examples.
 
 For a practical tutorial on how to use this program, visit [this link](https://merenlab.org/tutorials/infant-gut/#chapter-v-metabolism-prediction). A more abstract discussion of available parameters, as well as technical details about how the metabolism estimation is done, can be found below.
 
@@ -61,7 +61,7 @@ Both <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/main/p
 
 ## Running metabolism estimation
 
-You can run metabolism estimation on any set of annotated sequences, but these sequences typically fall under one of the following categories: 
+You can run metabolism estimation on any set of annotated sequences, but these sequences typically fall under one of the following categories:
 
 - Single genomes, also referred to as <span class="artifact-n">[external-genomes](/software/anvio/help/main/artifacts/external-genomes)</span>. These can be isolate genomes or metagenome-assembled genomes, for example. Each one is described in its own individual <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>.
 - Bins, also referred to as <span class="artifact-n">[internal-genomes](/software/anvio/help/main/artifacts/internal-genomes)</span>. These often represent metagenome-assembled genomes, but generally can be any subset of sequences within a database. A single <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> can contain multiple bins.
@@ -82,7 +82,7 @@ anvi&#45;estimate&#45;metabolism &#45;c <span class="artifact&#45;n">[contigs&#4
 
 ### Estimation for bins in a metagenome
 
-You can estimate metabolism for different subsets of the sequences in your contigs database if you first <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span> them and save them as a <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span>. For each bin, only the gene annotations from its subset of sequences will contribute to the module completeness scores. 
+You can estimate metabolism for different subsets of the sequences in your contigs database if you first <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span> them and save them as a <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span>. For each bin, only the gene annotations from its subset of sequences will contribute to the module completeness scores.
 
 You can estimate metabolism for every individual bin in a collection by providing the profile database that describes the collection as well as the collection name:
 
@@ -137,7 +137,7 @@ Multiple single genomes (also known as <span class="artifact-n">[external-genome
 anvi&#45;estimate&#45;metabolism &#45;e external&#45;genomes.txt
 </div>
 
-### Estimation for multiple bins 
+### Estimation for multiple bins
 
 If you have multiple bins (also known as <span class="artifact-n">[internal-genomes](/software/anvio/help/main/artifacts/internal-genomes)</span>), they can be analyzed with the same command by providing an internal genomes file to <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span>. The bins in this file can be from the same collection, from different collections, or even from different metagenomes. To see the required format for the internal genomes file, see <span class="artifact-n">[internal-genomes](/software/anvio/help/main/artifacts/internal-genomes)</span>.
 
@@ -161,7 +161,7 @@ There are many ways to alter the behavior of this program to fit your needs. You
 
 As explained in the [technical details section](#how-is-the-module-completeness-score-calculated) below, KEGG module completeness is computed as the percentage of steps in the metabolic pathway that are 'present' based on the annotated KOs in the contigs database. If this completeness is larger than a certain percentage, then the entire module is considered to be 'complete' in the sample and the corresponding row in the long-format modules mode output file will have 'True' under the `module_is_complete` column. By default, the module completion threshold is 0.75, or 75%.
 
-Changing this parameter doesn't have any effect other than changing the proportions of 'True' and 'False' values in the `module_is_complete` column of long-format modules mode output (or the proportion of 1s and 0s in the module presence-absence matrix for `--matrix-format` output). It does _not_ alter completeness scores. It also does not affect which modules are printed to the output file, unless you use the `--only-complete` flag (described in a later section). Therefore, the purpose of changing this threshold is usually so that you can filter the output later somehow (i.e., by searching for 'True' values in the long-format output). 
+Changing this parameter doesn't have any effect other than changing the proportions of 'True' and 'False' values in the `module_is_complete` column of long-format modules mode output (or the proportion of 1s and 0s in the module presence-absence matrix for `--matrix-format` output). It does _not_ alter completeness scores. It also does not affect which modules are printed to the output file, unless you use the `--only-complete` flag (described in a later section). Therefore, the purpose of changing this threshold is usually so that you can filter the output later somehow (i.e., by searching for 'True' values in the long-format output).
 
 In this example, we change the threshold to 50 percent.
 
@@ -193,7 +193,7 @@ To see what long-format output modes are currently available, use the `--list-av
 anvi&#45;estimate&#45;metabolism &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> &#45;&#45;list&#45;available&#45;modes
 </div>
 
-The program will print a list like the one below and then exit. 
+The program will print a list like the one below and then exit.
 
 ```
 AVAILABLE OUTPUT MODES
@@ -234,7 +234,7 @@ To find out what column headers are available, use the `--list-available-output-
 anvi&#45;estimate&#45;metabolism &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> &#45;&#45;list&#45;available&#45;output&#45;headers
 </div>
 
-The program will print a list like the one below and then exit. 
+The program will print a list like the one below and then exit.
 
 ```
 AVAILABLE OUTPUT HEADERS
@@ -268,7 +268,7 @@ ko_definition ................................: The functional annotation associ
 genome_name ..................................: Name of genome/bin/metagenome in which we find KOfam hits and/or KEGG modules [all output modes]
 ```
 
-As you can see, this flag is also useful when you want to quickly look up the description of each column of data in your output files. 
+As you can see, this flag is also useful when you want to quickly look up the description of each column of data in your output files.
 
 For each header, the output mode(s) that it is applicable to are listed after the description. The headers you can choose from for `modules_custom` output end in either `[modules output mode]` or `[all output modes]`.
 
@@ -292,7 +292,7 @@ anvi&#45;estimate&#45;metabolism &#45;c <span class="artifact&#45;n">[contigs&#4
 
 **Including coverage and detection in long-format output**
 
-If you have a profile database associated with your contigs database and you would like to include coverage and detection data in the metabolism estimation output files, you can use the `--add-coverage` flag. You will need to provide the profile database as well, of course. :) 
+If you have a profile database associated with your contigs database and you would like to include coverage and detection data in the metabolism estimation output files, you can use the `--add-coverage` flag. You will need to provide the profile database as well, of course. :)
 
 <div class="codeblock" markdown="1">
 anvi&#45;estimate&#45;metabolism &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> &#45;&#45;kegg&#45;output&#45;modes modules,kofam_hits_in_modules &#45;&#45;add&#45;coverage
@@ -309,13 +309,13 @@ anvi&#45;estimate&#45;metabolism &#45;c <span class="artifact&#45;n">[contigs&#4
 </div>
 
 ### Matrix Output
-Matrix format is only available when working with multiple contigs databases. Several output matrices will be generated, each of which describes one statistic such as module completion score, module presence/absence, or KO hit counts. As with long-format output, each output file will have the same prefix and the file suffixes will indicate which type of data is present in the file. 
+Matrix format is only available when working with multiple contigs databases. Several output matrices will be generated, each of which describes one statistic such as module completion score, module presence/absence, or KO hit counts. As with long-format output, each output file will have the same prefix and the file suffixes will indicate which type of data is present in the file.
 
 In each matrix, the rows will describe modules or KOs, the columns will describe your input samples (i.e. genomes, metagenomes, bins), and each cell will be the corresponding statistic. You can see examples of this output format by viewing <span class="artifact-n">[kegg-metabolism](/software/anvio/help/main/artifacts/kegg-metabolism)</span>.
 
 **Obtaining matrix-formatted output**
 
-Getting these matrices is as easy as providing the `--matrix-format`.
+Getting these matrices is as easy as providing the `--matrix-format` flag.
 
 <div class="codeblock" markdown="1">
 anvi&#45;estimate&#45;metabolism &#45;i internal&#45;genomes.txt &#45;&#45;matrix&#45;format
@@ -416,7 +416,7 @@ Regardless of which output type you are working with, there are a few generic op
 <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span> can produce a variety of output files. All will be prefixed with the same string, which by default is `kegg-metabolism`. If you want to change this prefix, use the `-O` flag.
 
 <div class="codeblock" markdown="1">
-anvi&#45;estimate&#45;metabolism &#45;c CONTIGS.db &#45;O my&#45;cool&#45;prefix
+anvi&#45;estimate&#45;metabolism &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> &#45;O my&#45;cool&#45;prefix
 </div>
 
 **Including only complete modules in the output**
@@ -426,7 +426,7 @@ Remember that module completion threshold? Well, you can use that to control whi
 Here is an example of using this flag with long-format output (which is the default, as described above, but we are asking for it explicitly here just to be clear):
 
 <div class="codeblock" markdown="1">
-anvi&#45;estimate&#45;metabolism &#45;c CONTIGS.db &#45;&#45;kegg&#45;output&#45;modes modules &#45;&#45;only&#45;complete
+anvi&#45;estimate&#45;metabolism &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> &#45;&#45;kegg&#45;output&#45;modes modules &#45;&#45;only&#45;complete
 </div>
 
 And here is an example of using this flag with matrix output. In this case, we are working with multiple input samples, and the behavior of this flag is slightly different: a module will be included in the matrix if it is at or above the module completion threshold in **at least one sample**. If there are any samples in which that module's completeness is below the threshold, its completeness in that sample will be **represented by a 0.0** in the matrix, regardless of its actual completeness score.
@@ -451,11 +451,11 @@ If you have gotten an error that looks something like this:
 Config Error: The contigs DB that you are working with has been annotated with a different version of the MODULES.db than you are working with now.
 ```
 
-This means that the MODULES.db used by <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/main/programs/anvi-run-kegg-kofams)</span> has different contents (different KOs and/or different modules) than the one you are currently using to estimate metabolism, which would lead to mismatches if metabolism estimation were to continue. There are a few ways this can happen, which of course have different solutions:
+This means that the <span class="artifact-n">[modules-db](/software/anvio/help/main/artifacts/modules-db)</span> used by <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/main/programs/anvi-run-kegg-kofams)</span> has different contents (different KOs and/or different modules) than the one you are currently using to estimate metabolism, which would lead to mismatches if metabolism estimation were to continue. There are a few ways this can happen, which of course have different solutions:
 
 1. You annotated your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> with a former version of <span class="artifact-n">[kegg-data](/software/anvio/help/main/artifacts/kegg-data)</span>, and subsequently set up a new <span class="artifact-n">[anvi-setup-kegg-kofams](/software/anvio/help/main/programs/anvi-setup-kegg-kofams)</span> (possibly with the `--kegg-archive` or `--download-from-kegg` options, which get you a non-default version of KEGG data). Then you tried to run <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span> with the new <span class="artifact-n">[kegg-data](/software/anvio/help/main/artifacts/kegg-data)</span> version. If this is you, and you have saved your former version of <span class="artifact-n">[kegg-data](/software/anvio/help/main/artifacts/kegg-data)</span> somewhere, then you are in luck - you can simply direct <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span> to use the old version of KEGG with `--kegg-data-dir`. If you didn't save it, then unfortunately you will most likely have to re-run <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/main/programs/anvi-run-kegg-kofams)</span> on your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> to re-annotate it with the new version before continuing with metabolism estimation.
 2. You have multiple versions of <span class="artifact-n">[kegg-data](/software/anvio/help/main/artifacts/kegg-data)</span> on your computer in different locations, and you used different ones for <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/main/programs/anvi-run-kegg-kofams)</span> and <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span>. If this is what you did, then there is an easy fix - simply find the KEGG data directory containing the MODULES.db with the same content hash (you can use <span class="artifact-n">[anvi-db-info](/software/anvio/help/main/programs/anvi-db-info)</span> on the MODULES.db to find the hash value) as the one used by <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/main/programs/anvi-run-kegg-kofams)</span> and submit that location with `--kegg-data-dir` to this program.
-3. Your collaborator gave you some databases that they annotated with a different version of <span class="artifact-n">[kegg-data](/software/anvio/help/main/artifacts/kegg-data)</span> than you have on your computer. In this case, either you or they (or both) have probably been using a non-default (or out-dated) version of <span class="artifact-n">[kegg-data](/software/anvio/help/main/artifacts/kegg-data)</span>. If they have the current default snapshot of KEGG data but you do not, then you'll need to get that version onto your computer using the default usage of <span class="artifact-n">[anvi-setup-kegg-kofams](/software/anvio/help/main/programs/anvi-setup-kegg-kofams)</span>. Otherwise, your collaborator will need to somehow share all or part of their KEGG data directory with you before you can work on their databases. See <span class="artifact-n">[anvi-setup-kegg-kofams](/software/anvio/help/main/programs/anvi-setup-kegg-kofams)</span> for details on how to share non-default setups of <span class="artifact-n">[kegg-data](/software/anvio/help/main/artifacts/kegg-data)</span>.
+3. Your collaborator gave you some databases that they annotated with a different version of <span class="artifact-n">[kegg-data](/software/anvio/help/main/artifacts/kegg-data)</span> than you have on your computer. In this case, either you or they (or both) have probably been using a non-default (or outdated) version of <span class="artifact-n">[kegg-data](/software/anvio/help/main/artifacts/kegg-data)</span>. If they have the current default snapshot of KEGG data but you do not, then you'll need to get that version onto your computer using the default usage of <span class="artifact-n">[anvi-setup-kegg-kofams](/software/anvio/help/main/programs/anvi-setup-kegg-kofams)</span>. Otherwise, your collaborator will need to somehow share all or part of their KEGG data directory with you before you can work on their databases. See <span class="artifact-n">[anvi-setup-kegg-kofams](/software/anvio/help/main/programs/anvi-setup-kegg-kofams)</span> for details on how to share non-default setups of <span class="artifact-n">[kegg-data](/software/anvio/help/main/artifacts/kegg-data)</span>.
 
 
 ## Technical Details
