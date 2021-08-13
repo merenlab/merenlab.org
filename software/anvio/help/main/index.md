@@ -21,7 +21,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **09 Aug 21 11:20:41** for anvi'o version **7-dev (hope)**.
+The help contents were last updated on **12 Aug 21 23:01:56** for anvi'o version **7-dev (hope)**.
 
 
 {% include _project-anvio-version.html %}
@@ -2103,7 +2103,7 @@ Listed below **a total of 127 programs**.
     <td class="program-td">
         <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/ozcanesen" target="_blank"><img class="page-person-photo-img-mini" title="Özcan C. Esen" src="images/authors/ozcan.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://linkedin.com/in/matthew-lawrence-klein" target="_blank"><img class="page-person-photo-img-mini" title="Matthew Lawrence Klein" src="images/authors/matthewlawrenceklein.png" /></a></div></div>
+<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://linkedin.com/in/matthew-lawrence-klein" target="_blank"><img class="page-person-photo-img-mini" title="Matthew Lawrence Klein" src="images/authors/matthewlawrenceklein.jpg" /></a></div></div>
 <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://github.com/isaacfink21" target="_blank"><img class="page-person-photo-img-mini" title="Isaac Fink" src="images/authors/isaacfink21.png" /></a></div></div>
 <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://github.com/blankenberg" target="_blank"><img class="page-person-photo-img-mini" title="Daniel Blankenberg" src="images/authors/no-avatar.png" /></a></div></div>
 

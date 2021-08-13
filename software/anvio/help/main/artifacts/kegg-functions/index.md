@@ -35,7 +35,7 @@ A CONCEPT-type anvi'o artifact. This artifact is typically generated, used, and/
 
 [Kegg Orthology](https://www.genome.jp/kegg/ko.html) (KO) functional annotations, produced by finding HMM hits to the KEGG KOfam database.
 
-You can annotate a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> with these KEGG functions by running <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/main/programs/anvi-run-kegg-kofams)</span>.
+You can annotate a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> with these KEGG functions by running <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/main/programs/anvi-run-kegg-kofams)</span>. They will be added to the gene functions table under the source 'KOfam'.
 
 Another program that relies on these annotations is <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span>, which uses them to determine presence and completeness of metabolic pathways that are defined by KOs.
 
