@@ -52,17 +52,24 @@ An intersting quote.
 <div class="blockquote-author">Someone Interesting</div>
 </blockquote>
 
+## Images
 
-## Showing table of contents
+Never load your images directly, and always use this notation, which will enable lazy loading and will standardize all images:
 
-{% include _toc.html %}
-
-**Raw**:
-
-```
-{% raw %}
-{% include _toc.html %}
-{% endraw %}
+``` html
+{% include IMAGE path="/path/to/image.png" width=50 %}
 ```
 
-To see the **rendered** version, see the top-right of the page.
+Here are some examples:
+
+``` html
+{% include IMAGE path="https://merenlab.org/logo.png" %}
+```
+
+``` html
+{% include IMAGE path="some_folder/store_c.gif" width=50 %}
+```
+
+``` html
+{% include IMAGE path="/images/ref_bg.gif" title="Changing the background color of a layer" width=90 %}
+```
