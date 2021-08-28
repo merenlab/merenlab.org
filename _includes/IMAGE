@@ -1,2 +1,1 @@
-<p><a href="{{ include.path }}" class="center-img {% if include.width %}width-{{ include.width }}{% else %}width-60{% endif %} image-popup"><img src="{{ include.path }}" alt="{% if include.title %}{{ include.title }}{% else %}{% endif %}" title="{% if include.title %}{{ include.title }}{% else %}{% endif %}"></a></p>
-
+<p><a href="{{ include.path }}" class="center-img {% if include.width %}width-{{ include.width }}{% else %}width-60{% endif %} image-popup"><img src="{{ include.path }}" alt="{% if include.title %}{{ include.title }}{% else %}{% endif %}" title="{% if include.title %}{{ include.title }}{% else %}{% endif %}" loading="lazy"></a></p>
