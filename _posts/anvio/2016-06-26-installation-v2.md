@@ -153,9 +153,12 @@ pip install anvio-7.tar.gz
 Some people have reported errors in the installation of `pysam` using `pip`, so if your installation also fails due to `pysam`, you can use the following two lines to first install this package via conda, and then install the anvi'o package via `pip`:
 
 ```
-conda install -y -c bioconda pysam 
+conda install -y -c bioconda pysam
 pip install anvio-7.tar.gz
 ```
+
+{:.warning}
+Even after fixing the pysam problem, some packages installed by this command may still require a more up to date c-compiler on **Mac OSX**. If you're getting an error that contains `x86_64-apple-darwin13.4.0-clang` or similar keywords in the output message, please run `export CC=clang` in your terminal and try the command above again. If you are still unable to run the `pip install` command above, run both `export CC=/usr/bin/clang` and `export CXX=/usr/bin/clang++` before trying again. If the `pip` installation still doesn't work, please make an issue on the github page or let us know in the anvi'o slack channel about your problem and we will try to help you.
 
 After a successful installation of anvi'o via `pip`, run this command to make sure you have the right version of this one library [that changed its API](https://github.com/merenlab/anvio/issues/1692) recently:
 
@@ -324,8 +327,10 @@ pip install -r requirements.txt
 ```
 
 {:.warning}
-Some packages in `requirement.txt` need to be installed with a more up to date c-compiler on **Mac OSX**. If you’re getting an error that contains this, `x86_64-apple-darwin13.4.0-clang` in the message, please run this command `export CC=clang` and try again. If you are still unable to run the `pip install` command above please make an issue on the github page or let us know in the anvi'o slack channel
+If `pysam` is causing you trouble during this step, you may want to try to install it with conda first by running `conda install -y -c bioconda pysam` and then try the `pip` install command again.
 
+{:.warning}
+Some packages in `requirement.txt` may require to be installed with a more up to date c-compiler on **Mac OSX**. If you're getting an error that contains `x86_64-apple-darwin13.4.0-clang` or similar keywords in the output message, please run `export CC=clang` in your terminal and try the command above again. If you are still unable to run the `pip install` command above, run both `export CC=/usr/bin/clang` and `export CXX=/usr/bin/clang++` before trying again. If the `pip` installation still doesn't work, please make an issue on the github page or let us know in the anvi'o slack channel about your problem and we will try to help you.
 
 
 Now all dependencies are in place, and you have the code. One more step.
