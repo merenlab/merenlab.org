@@ -113,7 +113,7 @@ conda install -y -c bioconda megahit
 conda install -y -c bioconda spades
 conda install -y -c bioconda bowtie2=2.3.4.1 tbb=2019.8
 conda install -y -c bioconda bwa
-conda install -y -c bioconda samtools
+conda install -y -c bioconda samtools=1.9
 conda install -y -c bioconda centrifuge
 conda install -y -c bioconda trimal
 conda install -y -c bioconda iqtree
@@ -278,9 +278,9 @@ conda install -y -c bioconda diamond
 conda install -y -c bioconda blast
 conda install -y -c bioconda megahit
 conda install -y -c bioconda spades
-conda install -y -c bioconda bowtie2
+conda install -y -c bioconda bowtie2=2.3.4.1 tbb=2019.8
 conda install -y -c bioconda bwa
-conda install -y -c bioconda samtools
+conda install -y -c bioconda samtools=1.9
 conda install -y -c bioconda centrifuge
 conda install -y -c bioconda trimal
 conda install -y -c bioconda iqtree
