@@ -58,14 +58,14 @@ To run, you'll need to provide a <span class="artifact-n">[contigs-db](/software
 Here is a default run: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;run&#45;ncbi&#45;cogs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;run&#45;pfams &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
             &#45;&#45;pfam&#45;data&#45;dir <span class="artifact&#45;n">[pfams&#45;data](/software/anvio/help/main/artifacts/pfams&#45;data)</span> 
 </div>
 
 By default, this uses `hmmsearch` to run HMMs. You can choose to use `hmmscan` instead by running
 
 <div class="codeblock" markdown="1">
-anvi&#45;run&#45;ncbi&#45;cogs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;run&#45;pfams &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
             &#45;&#45;pfam&#45;data&#45;dir <span class="artifact&#45;n">[pfams&#45;data](/software/anvio/help/main/artifacts/pfams&#45;data)</span> \
             &#45;&#45;hmmer&#45;program hmmscan
 </div>

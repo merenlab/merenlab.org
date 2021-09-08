@@ -59,9 +59,9 @@ Firstly, you'll need to run <span class="artifact-n">[anvi-gen-variability-profi
 Then you can run this program like so:
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;calculate&#45;pn&#45;ps&#45;ratio &#45;V SCVs.txt \
-                                  &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                                  &#45;o output_dir 
+anvi&#45;get&#45;pn&#45;ps&#45;ratio &#45;V SCVs.txt \
+                     &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+                     &#45;o output_dir
 </div>
 
 A pN/pS value is calculated for each (gene, sample) combo. This will result in a directory called `output_dir` that contains several tables that describe each of your genes. See <span class="artifact-n">[pn-ps-data](/software/anvio/help/main/artifacts/pn-ps-data)</span> for more information.
