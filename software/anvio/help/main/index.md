@@ -21,7 +21,7 @@ If you need an introduction to the terminology used in 'omics research or in anv
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
 {:.notice}
-The help contents were last updated on **09 Sep 21 19:12:30** for anvi'o version **7-dev (hope)**.
+The help contents were last updated on **10 Sep 21 10:29:28** for anvi'o version **7-dev (hope)**.
 
 
 {% include _project-anvio-version.html %}
@@ -1528,8 +1528,8 @@ Listed below **a total of 127 programs**.
 </tr>
 <tr style="border:none;">
     <td class="program-td">
-        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
-<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="page-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+        <span class="artifact-emoji">🧠</span> <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/evankiefl" target="_blank"><img class="page-person-photo-img-mini" title="Evan Kiefl" src="images/authors/ekiefl.jpg" /></a></div></div>
+<div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/merenbey" target="_blank"><img class="page-person-photo-img-mini" title="A. Murat Eren (Meren)" src="images/authors/meren.jpg" /></a></div></div>
 <div class="page-author-mini"><div class="page-person-photo-mini"><a href="http://twitter.com/alon_shaiber" target="_blank"><img class="page-person-photo-img-mini" title="Alon Shaiber" src="images/authors/ShaiberAlon.jpg" /></a></div></div>
 
     </td>
