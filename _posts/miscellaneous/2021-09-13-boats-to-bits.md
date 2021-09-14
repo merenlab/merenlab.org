@@ -9,7 +9,7 @@ categories: [miscellaneous]
 comments: true
 redirect_from: /boats-to-bits/
 image:
-  feature: http://localhost:4000/images/miscellaneous/boats-to-bits/header.jpg
+  feature: https://merenlab.org/images/miscellaneous/boats-to-bits/header.jpg
   display: true
 ---
 
