@@ -2,7 +2,7 @@
 layout: post
 authors: [meren]
 title: "From Boats to Bits: Evolution of a study on marine microbes"
-excerpt: "A diel sampling effort to generate the metagenome, metatranscriptome, and metaepitranscriptome of the surface ocean"
+excerpt: "Or, Meren's personal notes from a 48 hours, high-resolution, diel sampling effort in Hawai'i."
 modified: 2021-09-13
 tags: [hawaii, sampling]
 categories: [miscellaneous]
@@ -79,11 +79,11 @@ Our desire to advance this work was too high-risk for federal funding. But lucki
 
 Sooo, **the long story short**, I was realizing in 2019 that (1) the sequencing of tRNA transcripts had the potential to take environmental microbiology to new pastures, (2) our molecular approaches that simplify library preparation stages were improving for applications of tRNA-seq in complex and low-biomass environments thanks to Tao, Chris K, and Chris W, and (3) our computational strategies to study tRNA abundance and chemical modifications through resulting data were maturing in Sam's talented hands. Needless to say, I was dying to see whether the application of these advances to marine systems could bring us closer to investigate a slightly more refined form of the general question I mentioned at the beginning of this chapter to go after *how do surface ocean microbes respond to environmental change **BEYOND** the heritable genetic code in very short scales of time?*
 
-It was clear that we had to do some tRNA sequencing on some surface ocean samples. But we needed two more things to come together to generate the data we needed: financial support, and motivated people.
+It was clear that we had to do some high-throughput tRNA sequencing on some surface ocean samples. But we needed two more things to come together to generate the data we needed: financial support, and motivated people.
 
 ## Finances
 
-As someone who is in between multiple disciplines it has always been difficult for me to convince federal funding agencies to help me fund our research questions in life sciences. I wish I had more self-confidence to just share some of the reviewer comments I have received for our papers, and grants we sent to NSF and NIH over the years. I understand the obligation for those whose job is to funnel scarce financial resources to projects that pose *minimum perceived risk*. But since 'risk' is not always easy to determine, funding decisions are inevitably driven in part by the reputation of the investigators who apply for funding. The contribution of reputation to these decisions is not something that is very obvious to those of us who have never sat through an entire NSF grant review panel or those of us who sat through too many of them. But just like many early career scientists, I believe I did suffer in some instances from not having a name in the field. But I had an additional problem: I was neither enough of a computer scientist for computer scientists, nor I was enough of a microbiologist for microbiologists. To many of my colleagues, I was Neitherherenorthere, PhD.
+Finding financial support for high-risk ideas is extremely difficult. Especially for early career scientists who do interdisciplinary work. For instance, I quickly learned that funding decisions are inevitably driven in part by the reputation of the investigators who apply for funding. The contribution of reputation to these decisions is not something that is very obvious to those of us who never sat through an entire NSF grant review panel or those of us who sat through too many of them... But the grant applications of all early career scientists, especially those who were not trained in superstar labs or coming from superstar institutions, do suffer from not having a reputation in the field. And who can really blame the reviewers who are given the responsibility by the funding agencies to help determine how to partition our scarce financial resources if they are biased towards groups that have demonstrated successes? So that's that. Being in between multiple disciplines does not help either. I wish I had the courage to share some of the comments I have received for our papers or grants we sent to NSF and NIH over the years. In addition to not having a reputation, I often was neither enough of a computer scientist for computer scientists, nor I was enough of a microbiologist for microbiologists for my colleagues. My name was Neitherherenorthere, PhD, which translated to being too risky to support through federal funds.
 
 So from where I could find support for this ambitious and high-risk project? My mentors at the Department of Medicine at the University of Chicago, and especially my section chief [David Rubin](https://twitter.com/IBDMD), have always been there with an inexhaustible confidence in me and support for my random ideas. But it would have been too embarrassing to ask for the section of 'Gastroenterology, Hepatology, and Nutrition' to support marine research. If I was going to do this, I had to do it right.
 
@@ -274,6 +274,8 @@ These shifts included many more names than only Meren, Mike, Evan Kiefl, Jessika
 
 * [Mariana Rocha de Souza](https://twitter.com/MRochadeSouza), a graduate student at the Coral Resilience and ToBo Labs at the HIMB, focusing on coral reefs and the role of the microscopic algae that lives in the coral in providing coral resilience to climate change. She is starting a Knauss fellowship on Marine Policy! Mariana contributed to the sampling effort by helping in the lab by collecting environmental data in the boat and by filtering water and in the lab.
 
+* **Mariko Quinn**, a sophomore at the University of Hawai'i at Mānoa majoring in Global Environmental Science, interested in coral reef ecology and reproduction. After the undergraduate education, Mariko plans to pursue graduate school for marine science. Mariko contributed to the sampling effort by filtering water samples and in the lab.
+
 * **Ciara Ratum**, an undergraduate student at Hawai'i Pacific University, who is interested in marine biology as well as communicating marine science especially to the local communities in Hawai'i. After the undergrad, she plans to work in a job related to marine biology before applying for graduate school. Ciara contributed to the sampling effort by collecting environmental data for the last three hours of the time series.
 
 ---
@@ -414,7 +416,7 @@ Science is difficult. But its people make it worth it.
 
 ## Next Steps
 
-On the one hand we have done a lot. Formalizing the idea, raising funds, planning, and completing an ambitious sampling effort to materialize the project took a significant amount of work. On the other hand, we are still at the beginning of this project. We still need to process our samples to prepare sequencing libraries, perform sequencing, analyze and interpret the data, and write our findings.
+Well. On the one hand we have done a lot. Formalizing the idea, raising funds, planning, and completing an ambitious sampling effort to materialize the project took a significant amount of work. On the other hand, we are still at the beginning of this project. We still need to process our samples to prepare sequencing libraries, perform sequencing, analyze and interpret the data, and write our findings.
 
 As I am writing these lines, we are back in Chicago. As samples come from the Rappé Lab's freezers to us in dry shippers batch by batch, Jessika and Karen are working on extracting DNA and RNA molecules.
 
