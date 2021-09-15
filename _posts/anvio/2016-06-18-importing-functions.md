@@ -17,12 +17,12 @@ Have you been struggling with importing your functions into anvi'o? You want to 
 Anvi'o accepts functional annotation at the gene-level. Gene IDs in your input files should correspond to gene IDs in the contigs database, hence, functional annotation should be done *after* exporting genes from the contigs database. The basic workflow goes like this: (1) generate your contigs database, (2) export your gene sequences, (3) assign functions to them, and (4) import results back into your contigs database.
 
 {:.notice}
-**Important note**: There are many ways to have your genes annotated with functions, but, there is only one way to make sure the gene IDs in the files you generate using external tools correspond to the gene IDs in the database: export your DNA or AA sequences from the anvi'o contigs database you wish to annotate using anvi'o program `anvi-get-sequences-for-gene-calls`.
+**Important note**: There are many ways to have your genes annotated with functions, but, there is only one way to make sure the gene IDs in the files you generate using external tools correspond to the gene IDs in the database: export your DNA or AA sequences from the anvi'o contigs database you wish to annotate using anvi'o program {% include PROGRAM name="anvi-get-sequences-for-gene-calls" %}.
 
 
 ## Introduction
 
-You will be using `anvi-import-functions` to do things described here, but before we start with the input file formats here is a little information about the program. You can import functions into anvi'o *incrementally*. For instance, let's assume you have annotated your genes with PFAMs, imported those results into anvi'o. Then you decided to do it with TIGRFAMs, too. In fact you *can* import TIGRFAMs as an additional data into the database without erasing PFAMs. Functions can be imported multiple times from multiple sources without overwriting previous imports. This is the default behavior of the program, but alternatively, you can use the `--drop-previous-annotations` flag to make a fresh start, in which case all previous imports would be erased from the db, and only the final input will be stored in it.
+You will be using {% include PROGRAM name="anvi-import-functions" %} to do things described here, but before we start with the input file formats here is a little information about the program. You can import functions into anvi'o *incrementally*. For instance, let's assume you have annotated your genes with PFAMs, imported those results into anvi'o. Then you decided to do it with TIGRFAMs, too. In fact you *can* import TIGRFAMs as an additional data into the database without erasing PFAMs. Functions can be imported multiple times from multiple sources without overwriting previous imports. This is the default behavior of the program, but alternatively, you can use the `--drop-previous-annotations` flag to make a fresh start, in which case all previous imports would be erased from the db, and only the final input will be stored in it.
 
 When you import your gene calls you get more comprehensive outputs during summary. Also when you inspect your contigs, you get to click on gene calls and see how they are annotated:
 
@@ -33,7 +33,7 @@ When you import your gene calls you get more comprehensive outputs during summar
 
 ## Simple matrix
 
-This is the simplest way to get the functional annotation of genes into anvi'o. The details of this primary file format is [described here](/software/anvio/help/artifacts/functions-txt/).
+This is the simplest way to get the functional annotation of genes into anvi'o is to do it through a flat, TAB-delmited text file we call {% include ARTIFACT name="functions-txt" %}. Please see the details of this format using the link.
 
 ## EggNOG database + emapper
 
@@ -97,7 +97,7 @@ That's it!
 
 ### It doesn't work?
 
-If the InterProScan parser within `anvi-import-functions` is not working for you, chances are that you used the `--iprlookup`, `--goterms` and/or the `--pathways` options when you ran InterProScan. This happens because the parser expects a table with 11 columns, and you have 15. Columns 12 and 13 are the InterPro integrated annotations, while 14 and 15 correspond to the GOterms and pathway annotations respectively.
+If the InterProScan parser within {% include PROGRAM name="anvi-import-functions" %} is not working for you, chances are that you used the `--iprlookup`, `--goterms` and/or the `--pathways` options when you ran InterProScan. This happens because the parser expects a table with 11 columns, and you have 15. Columns 12 and 13 are the InterPro integrated annotations, while 14 and 15 correspond to the GOterms and pathway annotations respectively.
 
 Fortunately, there are ways around it. The easiest way it is to remove these extra columns and keep going:
 
@@ -119,7 +119,7 @@ anvi-import-functions -c contigs.db \
                         -i table_to_import.tsv
 ```
 
-And, unfortunately, this may not work in some cases. E.g. if you got TMHMM or Phobius annotations, the e-value column will be always a dash `-`, not a number and the standard `anvi-import-functions` doesn't like it.
+And, unfortunately, this may not work in some cases. E.g. if you got TMHMM or Phobius annotations, the e-value column will be always a dash `-`, not a number and the standard {% include PROGRAM name="anvi-import-functions" %} doesn't like it.
 
 #### The final solution
 
