@@ -28,7 +28,7 @@ A DB-type anvi'o artifact. This artifact is typically generated, used, and/or ex
 ## Required or used by
 
 
-<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-import-taxonomy-for-layers](../../programs/anvi-import-taxonomy-for-layers)</span> <span class="artifact-r">[anvi-interactive](../../programs/anvi-interactive)</span> <span class="artifact-r">[anvi-merge](../../programs/anvi-merge)</span></p>
+<p style="text-align: left" markdown="1"><span class="artifact-r">[anvi-import-taxonomy-for-layers](../../programs/anvi-import-taxonomy-for-layers)</span> <span class="artifact-r">[anvi-interactive](../../programs/anvi-interactive)</span> <span class="artifact-r">[anvi-merge](../../programs/anvi-merge)</span> <span class="artifact-r">[anvi-summarize-blitz](../../programs/anvi-summarize-blitz)</span></p>
 
 
 ## Description

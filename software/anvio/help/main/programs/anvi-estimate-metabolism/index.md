@@ -295,10 +295,10 @@ anvi&#45;estimate&#45;metabolism &#45;c <span class="artifact&#45;n">[contigs&#4
 If you have a profile database associated with your contigs database and you would like to include coverage and detection data in the metabolism estimation output files, you can use the `--add-coverage` flag. You will need to provide the profile database as well, of course. :)
 
 <div class="codeblock" markdown="1">
-anvi&#45;estimate&#45;metabolism &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> &#45;&#45;kegg&#45;output&#45;modes modules,kofam_hits_in_modules &#45;&#45;add&#45;coverage
+anvi&#45;estimate&#45;metabolism &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> &#45;&#45;kegg&#45;output&#45;modes modules,kofam_hits_in_modules,kofam_hits &#45;&#45;add&#45;coverage
 </div>
 
-For `kofam_hits_in_modules` mode output files, in which each row describes one KOfam hit to a gene in the contigs database, the output will contain two additional columns per sample in the profile database. One column will contain the mean coverage of that particular gene call by reads from that sample and the other will contain the detection of that gene in the sample.
+For `kofam_hits_in_modules` and `kofam_hits` mode output files, in which each row describes one KOfam hit to a gene in the contigs database, the output will contain two additional columns per sample in the profile database. One column will contain the mean coverage of that particular gene call by reads from that sample and the other will contain the detection of that gene in the sample.
 
 For `modules` mode output files, in which each row describes a KEGG module, the output will contain _four_ additional columns per sample in the profile database. One column will contain comma-separated mean coverage values for each gene call in the module, in the same order as the corresponding gene calls in the `gene_caller_ids_in_module` column. Another column will contain the average of these gene coverage values, which represents the average coverage of the entire module. Likewise, the third and fourth columns will contain comma-separated detection values for each gene call and the average detection, respectively.
 
