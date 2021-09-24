@@ -9,7 +9,7 @@ image:
   display: true
 ---
 
-Get nucleotide-level, contig-level, or bin-level coverage values from a BAM file.
+Get nucleotide-level, contig-level, or bin-level coverage values from a BAM file very rapidly. For other anvi&#x27;o programs that are designed to profile BAM files, see `anvi-profile` and `anvi-profile-blitz`.
 
 🔙 **[To the main page](../../)** of anvi'o programs and artifacts.
 
