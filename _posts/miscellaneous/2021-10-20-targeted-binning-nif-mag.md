@@ -37,3 +37,22 @@ Thankfully, Meren soon brought to my attention a recently published dataset of A
 Given my complete lack of success at finding anything nitrogen-fixy in the previous dataset, I was rather skeptical that this new dataset, while exciting and new, would turn out any different. But I gave it a shot, and - **spoilers - it worked! I not only found complete nitrogen fixation pathways in 4 individual Arctic Ocean metagenomes, but I also used that information to perform targeted binning of a microbial population genome containing one such pathway. It was a very happy moment, and I am excited to share with you how I did it.
 
 Let's go through this analysis together :)
+
+## Estimating metabolism in Arctic Ocean metagenomes
+
+To start, we need metagenome assemblies of the Arctic Ocean samples from Cao et al's dataset. I am fortunate to be colleagues with [Matt Schechter](https://orcid.org/0000-0002-8435-3203), an awesome microbiologist who knows way more about oceans than I do, and who also happened to be interested in this dataset. He downloaded the samples and made single assemblies of them using the software [IDBA-UD](FIXME CITATION) as part of [the anvi'o metagenomic workflow](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#metagenomics-workflow). We are all benefiting from his hard work today - thanks, Matt!
+
+We won't look at all 60 samples from the Cao et al paper, only 16 of their surface Arctic Ocean samples [FIXME CHECK IF SURFACE].
+The first thing that I did with those 16 assemblies was run %{anvi-estimate-metabolism}s in metagenome mode. I will show you the commands that I used to do this, but I won't ask you to do it yourself, because it takes quite a long time (and currently requires an obscene amount of memory, for which I deeply apologize). I created a %{metagenomes}s file containing the names and %{contigs-db}s paths of each sample called `metagenomes.txt`, and I wrote a bash loop to estimate metabolism individually on each sample:
+
+```bash
+while read db path; \
+do \
+    anvi-estimate-metabolism -c $path \
+    --metagenome-mode \
+    -O $db; \
+done < <(tail -n+2 metagenomes.txt)
+```
+If you are determined to run this loop yourself, it is probably only possible on a high-performance computing cluster, in which case you will almost certainly have to modify the command to give each `anvi-estimate-metabolism` job more memory.
+
+But you do not have to run this loop yourself, and you can instead download the resulting output files from [this link](FIXME FIGSHARE LINK). Once you do that, you will notice that there are 16 text files, one for each metagenome assembly.
