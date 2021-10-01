@@ -113,15 +113,57 @@ Without further ado, let's take a look at the data.
 
 Though M00175 only contains the catalytic portion of our required _nif_ gene set, it is a good starting point for our search. If we look for this module in our metabolism estimation results, we can find out which contig(s) it is located on and use that to guide our search for the remaining genes.
 
-You can use the following `bash` code to search for lines describing M00175 in all metabolism estimation outputs. The code filters the output so that it contains only those lines which have a score of 1.0 in the `module_completeness` column, meaning that all 3 _nifHDK_ genes are located on the same contig. It further filters the output to contain only the columns describing 1) the file name and line of file where M00175 was found, 2) the contig name, 9) the completeness score, 11) the list of KO hits that we found from this module, and 12) the corresponding gene caller IDs of these hits.
+You can use the following `bash` code to search for lines describing M00175 in all metabolism estimation `modules` mode outputs. The code filters the output so that it contains only those lines which have a score of 1.0 in the `module_completeness` column, meaning that all 3 _nifHDK_ genes are located on the same contig. It further filters the output to contain only the columns describing 1) the file name and line of file where M00175 was found, 2) the contig name, 9) the completeness score, 11) the list of KO hits that we found from this module, and 12) the corresponding gene caller IDs of these hits.
 
 ```bash
 grep M00175 *_modules.txt | awk -F'\t' '$9 == 1.0' | cut -f 1,2,9,11,12
 ```
 
 Your output should look like this:
+
 N06-contigs_modules.txt:45627 | c_000000000414 | 1.0 | K02586,K02591,K02588 | 35075,35076,35074
 N07-contigs_modules.txt:7413 | c_000000004049 | 1.0 | K02586,K02591,K02588 | 94224,94225,94223
 N07-contigs_modules.txt:31467 | c_000000000073 | 1.0 | K02586,K02591,K02588 | 14638,14637,14639
 N22-contigs_modules.txt:44057 | c_000000000122 | 1.0 | K02586,K02591,K02588 | 16856,16857,16855
 N25-contigs_modules.txt:11798 | c_000000000104 | 1.0 | K02586,K02591,K02588 | 13919,13920,13918
+
+These are promising results! The complete M00175 module was found in 4 different Arctic Ocean samples (there are two different instances in sample N07).
+
+I encourage you to look through the other instances of this module in the output files. If you do this, you will see that some metagenomes appear to have all three of these genes split across multiple contigs (could they be contigs from the same genome?). For instance, here is a pair of contigs from sample N22:
+
+N22-contigs_modules.txt:35879 | c_000000000861 | 0.3333333333333333 | K02588 | 43430
+N22-contigs_modules.txt:49457 | c_000000003717 | 0.6666666666666666 | K02591,K02586 | 84130,84129
+
+_nifH_ is on one contig and _nifDK_ are on the other. I think it is likely that these two contigs go together, because it seems unlikely that a genome would have one of these genes from this operon and not the rest (though it could happen, of course. Things like prophages and transposons often destroy our expectations for microbial genomes).
+
+All in all, as you examine the estimation results for these 16 metagenomes, you should find that 9 of them have at least a partial copy of M00175, and 5 of those contain a complete set of _nifHDK_.
+
+Of course, as we discussed earlier, there are 3 other genes that we need to find alongside _nifHDK_ in order to be sure that we have a microbial population capable of fixing nitrogen. KEGG may not have put these genes in M00175, but it does have a KOfam profile for each one of _nifENB_ - those KOs are K02587, K02592, and K02585. To search for these, we turn to our `kofam_hits` mode output files.
+
+We will focus on the five samples that contain _nifHDK_, which are N06, N07, N22, N25, and N38.
+
+[TODO: write code and output examples for section on kofam hits]
+
+In sample N06, we found a complete M00175 module on contig `c_000000000414`. From the `kofam_hits` output, we can see that _nifE_ and _nifN_ are also on that contig, while _nifB_ is on a separate one (contig `c_000000001170`). This arrangement makes sense, since _nifB_ is the gene expected to be farthest away from the others based on the _A. vinelandii_ genome we looked at earlier. And since all six of the required _nif_ genes are present, it seems very likely that this metagenome contains a legitimate nitrogen-fixing population!
+
+```
+FIXME
+```
+
+In sample N07, we find all six genes on the same contig, `c_000000000073`. This is even better. There is a nitrogen-fixing population here for sure (and there may even be two different ones, considering that contig `c_000000004049` also contains a complete M00175 and there is a second set of the _nifENB_ genes spread across three different contigs).
+
+```
+FIXME
+```
+
+Sample N22 has a similar situation to N06, with 5 out of 6 genes appearing on contig `c_000000000122`. It also appears to have a second set of these genes spread across multiple contigs, just as in N07.
+
+```
+FIXME
+```
+
+You can take a look at N25 and N38 yourself. N25 should have at least one copy of all six genes (and 5/6 on the same contig), but N38 should be missing _nifN_.
+
+At this point, we can be fairly confident that there are nitrogen-fixing populations in samples N06, N07, N22, and N25. The natural question to ask next is - what are they?
+
+## Determining population identities
