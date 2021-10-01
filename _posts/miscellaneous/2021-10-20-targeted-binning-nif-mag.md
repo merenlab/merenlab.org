@@ -167,3 +167,7 @@ You can take a look at N25 and N38 yourself. N25 should have at least one copy o
 At this point, we can be fairly confident that there are nitrogen-fixing populations in samples N06, N07, N22, and N25. The natural question to ask next is - what are they?
 
 ## Determining population identities
+
+Since we are working with individual contigs and not full genomes right now, a good strategy to figure out what these populations could be is to use [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome) to see if there is anything similar to these contigs in the NCBI database.
+
+Well, because I am nice, I extracted the relevant contig sequences from these metagenome assemblies for you. You will find them in the [TODO MAKE FILE] file in the datapack. 
