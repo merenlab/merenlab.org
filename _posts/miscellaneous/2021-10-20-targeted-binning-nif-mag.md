@@ -104,7 +104,7 @@ Just so you have a picture of what this should look like, here is a diagram of t
 
 The catalytic genes - all the ones from module M00175 - are located next to each other on the bacterial chromosome. The other required biosynthetic genes are located farther along, with _nifE_ and _nifN_ expressed under the same promoter and _nifB_ isolated from the rest of the genes and expressed under its own promoter.
 
-We expect to see this general pattern reflected in the Arctic Ocean metagenome assemblies, meaning that genes _nifHDKEN_ are the mosst likely to end up on the same contig. If you keep reading, you will see that this is indeed the case!
+We expect to see this general pattern reflected in the Arctic Ocean metagenome assemblies, meaning that genes _nifHDKEN_ are the most likely to end up on the same contig. If you keep reading, you will see that this is indeed the case!
 
 Without further ado, let's take a look at the data.
 
