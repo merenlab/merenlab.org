@@ -84,3 +84,28 @@ This is a [modules mode](https://merenlab.org/software/anvio/help/main/artifacts
 
 If right now you are thinking, "But wait... if we only focus on the genes within the same contig, many metabolic pathways will have completeness scores that are too low," then you are exactly correct. It is likely that most metabolic pathways from the same genome will be split across multiple contigs, so they will end up in different lines of this file. In the example above, contig `c_000000008738` contains 50% of the KOs required for the purine degradation module `M00546`, but perhaps the other KOs in the pathway (such as `K01477`) are also belonging to whatever microbial population this is, just on a different contig. Putting many contigs together to match up the different parts of the pathway, while making sure that you are not producing a chimeric population, is a task that would require careful binning.
 
+Luckily for us, the nitrogen fixation module from KEGG has a couple of helpful characteristics. First, it contains only 3 genes, and second, it is encoded in an operon, so those genes are located close together in any given genome sequence. These two things make it much more likely that the entire module will end up within a single contig in our metagenome assemblies, which means it will be relatively easier to find a complete nitrogen fixation module in our metabolism estimation output files.
+
+But before we dive into our search, let's quickly discuss what the nitrogen fixation operon, and its corresponding KEGG module, look like.
+
+## Nitrogen fixation - KEGG vs reality
+
+The KEGG module for nitrogen fixation is [M00175](https://www.genome.jp/module/M00175), and it looks like this:
+
+[TODO: Insert M00175 screenshot]
+
+You need a nitrogenase enzyme complex to convert nitrogen gas to ammonia, and there are only two possible versions of this complex: the "molybdenum-dependent nitrogenase" protein complex encoded by genes _nifH_ (K02588), _nifD_ (K02586), and _nifK_ (K02591) of the _nif_ operon; or the "vanadium-dependent nitrogenase" protein complex encoded by genes _vnfD_ (K22896), _vnfK_ (K22897), _vnfG_ (K22898), and _vnfH_ (K22899), of the (you guessed it) _vnf_ operon. The latter complex has been isolated from soil bacteria and is known to be an alternative nitrogenase that is expressed when molybdenum is not available ([Lee et al 2009](https://doi.org/10.1073/pnas.0904408106), [Bishop et al 1980](https://doi.org/10.1073/pnas.77.12.7342)). We're just going to ignore it, because I have yet to see it in any ocean samples.
+
+So that means we effectively care about only _nifHDK_ in this module. But wait. While _nifHDK_ represent the catalytic components of the nitrogenase enzyme, it turns out that there are a few other genes required to produce the essential FeMo-cofactor and incorporate it into this complex. At minimum, the extra genes required are _nifE_ ([K02587](https://www.genome.jp/dbget-bin/www_bget?ko:K02587)), _nifN_([K02592](https://www.genome.jp/dbget-bin/www_bget?ko:K02592)), and _nifB_ ([K02585](https://www.genome.jp/dbget-bin/www_bget?ko:K02585))([Dos Santos et al 2012](https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-13-162)). That means we need to find six genes - preferably on the same contig - within a metagenome sample in order to be confident that the metagenome includes a nitrogen-fixing population.
+
+Just so you have a picture of what this should look like, here is a diagram of the _nif_ operon in the _Azotobacter vinelandii_ genome sequence, from [Dos Santos et al 2012](https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-13-162)).
+
+[TODO: insert Fig 1 from https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-13-162)]
+
+The catalytic genes - all the ones from module M00175 - are located next to each other on the bacterial chromosome. The other required biosynthetic genes are located farther along, with _nifE_ and _nifN_ expressed under the same promoter and _nifB_ isolated from the rest of the genes and expressed under its own promoter.
+
+We expect to see this general pattern reflected in the Arctic Ocean metagenome assemblies, meaning that genes _nifHDKEN_ are the mosst likely to end up on the same contig. If you keep reading, you will see that this is indeed the case!
+
+Without further ado, let's take a look at the data.
+
+## Looking for evidence of a nitrogen-fixing population
