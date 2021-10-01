@@ -57,9 +57,9 @@ do \
     -O $name; \
 done < <(tail -n+2 metagenomes.txt)
 ```
+{:.notice}
 If you are determined to run this loop yourself, it is probably only possible on a high-performance computing cluster, in which case you will almost certainly have to modify the command to give each `anvi-estimate-metabolism` job more memory.
 
-But you do not have to run this loop yourself, and you can instead download the resulting output files from [this link](FIXME FIGSHARE LINK). Once you do that, you will notice that there are 16 text files, one for each metagenome assembly.
 What this loop does is read each line of the `metagenomes.txt` file, except for the first one (the `tail -n+2` command skips the first line). Each non-header line in the file contains the name of the metagenome sample (which gets placed into the `$name` variable) and the path to its contigs database (which gets placed into the `$path` variable). Therefore, `anvi-estimate-metabolism` gets run on each contigs database in metagenome mode, and the resulting output file is prefixed with the sample name.
 
 It _is_ possible to run `anvi-estimate-metabolism` on more than one contigs database at a time, using multi-mode, which you can read about on the %{anvi-estimate-metabolism}s help page. However, I did not do this here because I wanted the output for each sample to be printed to a separate output file, for purely organizational purposes.
