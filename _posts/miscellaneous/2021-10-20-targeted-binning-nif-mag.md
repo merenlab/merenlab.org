@@ -50,11 +50,11 @@ You do not need the metagenome assemblies to follow the rest of this blog post, 
 The first thing that I did with those 16 assemblies was run %{anvi-estimate-metabolism}s in metagenome mode. I will show you the commands that I used to do this, but I won't ask you to do it yourself, because it takes quite a long time (and currently requires an obscene amount of memory, for which I deeply apologize). I created a %{metagenomes}s file containing the names and %{contigs-db}s paths of each sample called `metagenomes.txt`, and I wrote a bash loop to estimate metabolism individually on each sample:
 
 ```bash
-while read db path; \
+while read name path; \
 do \
     anvi-estimate-metabolism -c $path \
     --metagenome-mode \
-    -O $db; \
+    -O $name; \
 done < <(tail -n+2 metagenomes.txt)
 ```
 If you are determined to run this loop yourself, it is probably only possible on a high-performance computing cluster, in which case you will almost certainly have to modify the command to give each `anvi-estimate-metabolism` job more memory.
