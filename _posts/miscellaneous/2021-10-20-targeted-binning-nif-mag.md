@@ -109,3 +109,18 @@ We expect to see this general pattern reflected in the Arctic Ocean metagenome a
 Without further ado, let's take a look at the data.
 
 ## Looking for evidence of a nitrogen-fixing population
+
+Though M00175 only contains the catalytic portion of our required _nif_ gene set, it is a good starting point for our search. If we look for this module in our metabolism estimation results, we can find out which contig(s) it is located on and use that to guide our search for the remaining genes.
+
+You can use the following `bash` code to search for lines describing M00175 in all metabolism estimation outputs. The code filters the output so that it contains only those lines which have a score of 1.0 in the `module_completeness` column, meaning that all 3 _nifHDK_ genes are located on the same contig. It further filters the output to contain only the columns describing 1) the file name and line of file where M00175 was found, 2) the contig name, 9) the completeness score, 11) the list of KO hits that we found from this module, and 12) the corresponding gene caller IDs of these hits.
+
+```bash
+grep M00175 *_modules.txt | awk -F'\t' '$9 == 1.0' | cut -f 1,2,9,11,12
+```
+
+Your output should look like this:
+N06-contigs_modules.txt:45627 | c_000000000414 | 1.0 | K02586,K02591,K02588 | 35075,35076,35074
+N07-contigs_modules.txt:7413 | c_000000004049 | 1.0 | K02586,K02591,K02588 | 94224,94225,94223
+N07-contigs_modules.txt:31467 | c_000000000073 | 1.0 | K02586,K02591,K02588 | 14638,14637,14639
+N22-contigs_modules.txt:44057 | c_000000000122 | 1.0 | K02586,K02591,K02588 | 16856,16857,16855
+N25-contigs_modules.txt:11798 | c_000000000104 | 1.0 | K02586,K02591,K02588 | 13919,13920,13918
