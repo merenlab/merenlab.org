@@ -175,7 +175,7 @@ unique_id | contig_name | ko | gene_caller_id | modules_with_ko | ko_definition
 8118 | c_000000000073 | K02585 | 14642 | None | nitrogen fixation protein NifB
 122901 | c_000000000095 | K02585 | 17048 | None | nitrogen fixation protein NifB
 
-Recall from earlier that in sample N07, one complete M00175 module was on contig `c_000000000073`, and another was on contig `c_000000004049`. The `kofam_hits` file shows that there is one copy each of _nifENB_ on contig `c_000000000073`, which means that we have found all six _nif_ genes on the same contig! This is excellent. There is a nitrogen-fixing population here for sure (and there may even be two different ones, considering that contig `c_000000004049` also contains a complete M00175 and there is a second set of the _nifENB_ genes spread across three different contigs).
+Recall from earlier that in sample N07, one complete M00175 module was on contig `c_000000000073`, and another was on contig `c_000000004049`. The `kofam_hits` file shows that there is one copy each of _nifENB_ on contig `c_000000000073`, which means that we have found all six _nif_ genes on the same contig! This is excellent. There is a nitrogen-fixing population here for sure (and there may even be two different ones, considering that contig `c_000000004049` also contains a complete M00175 and there is a second set of the _nifENB_ genes spread across two different contigs).
 
 What does sample 22 have in store for us? Earlier, we found a complete M00175 on contig `c_000000000122` in this sample.
 
