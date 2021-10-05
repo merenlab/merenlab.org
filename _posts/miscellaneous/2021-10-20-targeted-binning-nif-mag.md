@@ -42,7 +42,7 @@ Let's go through this analysis together :)
 
 To start, we need metagenome assemblies of the Arctic Ocean samples from Cao et al's dataset. I am fortunate to be colleagues with [Matt Schechter](https://orcid.org/0000-0002-8435-3203), an awesome microbiologist who knows way more about oceans than I do, and who also happened to be interested in this dataset. He downloaded the samples and made single assemblies of them using the software [IDBA-UD](FIXME CITATION) as part of [the anvi'o metagenomic workflow](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#metagenomics-workflow). We are all benefiting from his hard work today - thanks, Matt!
 
-We won't look at all 60 samples from the Cao et al paper, only 16 of their surface Arctic Ocean samples [FIXME CHECK IF SURFACE].
+We won't look at all 60 samples from the Cao et al paper, only 16 of their surface Arctic Ocean samples (taken from a depth of 0 m).
 
 {:.notice}
 You do not need the metagenome assemblies to follow the rest of this blog post, but you would like to have access to the 16 assemblies I am talking about, you can download their contigs databases [here](FIXME FIGSHARE LINK). But be warned - they will take up 6.5 GB of space on your computer.
