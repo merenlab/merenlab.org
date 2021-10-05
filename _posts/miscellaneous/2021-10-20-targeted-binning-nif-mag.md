@@ -70,7 +70,7 @@ It _is_ possible to run `anvi-estimate-metabolism` on more than one contigs data
 
 You can download the resulting output files from [this link](FIXME FIGSHARE LINK). Once you do that, you will notice that there are 32 text files, two for each metagenome assembly. Let's take a look at the first few lines of the `modules` file for sample N02:
 ```bash
-head -n 4 N02-contigs_modules.txt
+head -n 4 N02_modules.txt
 ```
 
 You should see something like this:
