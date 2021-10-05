@@ -190,7 +190,7 @@ unique_id | contig_name | ko | gene_caller_id | modules_with_ko | ko_definition
 
 Since there is a K02587 and a K02592 on contig `c_000000000122`, 5 out of 6 _nif_ genes appear on the same contig in this metagenome. N22 also appears to have a second set of these genes spread across multiple contigs, just as in N07.
 
-You can take a look at N25 and N38 yourself. N25 should have at least one copy of all six genes (and 5/6 on the same contig - `c_000000000104`), but N38 should be missing _nifN_.
+You can take a look at N25 and N38 yourself. N25 should have at least one copy of all six genes (and 5/6 on contig `c_000000000104`), but N38 should be missing _nifN_.
 
 At this point, we can be fairly confident that there are nitrogen-fixing populations in samples N06, N07, N22, and N25. The natural question to ask next is - what are they?
 
