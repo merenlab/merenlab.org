@@ -105,7 +105,7 @@ Just so you have a picture of what this should look like, here is a diagram of t
 
 The catalytic genes - all the ones from module M00175 - are located next to each other on the bacterial chromosome. The other required biosynthetic genes are located farther along, with _nifE_ and _nifN_ expressed under the same promoter and _nifB_ isolated from the rest of the genes and expressed under its own promoter.
 
-We expect to see this general pattern reflected in the Arctic Ocean metagenome assemblies, meaning that genes _nifHDKEN_ are the most likely to end up on the same contig. If you keep reading, you will see that this is indeed the case!
+We expect to see this general pattern reflected in the Arctic Ocean metagenome assemblies, meaning that gene groups _nifHDK_ and _nifEN_ are the most likely to end up on the same contig. If you keep reading, you will see that this is indeed the case!
 
 Without further ado, let's take a look at the data.
 
@@ -136,33 +136,57 @@ N22-contigs_modules.txt:49457 | c_000000003717 | 0.6666666666666666 | K02591,K02
 
 _nifH_ is on one contig and _nifDK_ are on the other. I think it is likely that these two contigs go together, because it seems unlikely that a genome would have one of these genes from this operon and not the rest (though it could happen, of course. Things like prophages and transposons often destroy our expectations for microbial genomes).
 
-All in all, as you examine the estimation results for these 16 metagenomes, you should find that 9 of them have at least a partial copy of M00175, and 5 of those contain a complete set of _nifHDK_.
+All in all, as you examine the estimation results for these 16 metagenomes, you should find that 9 of them have at least a partial copy of M00175, and 5 of those contain at least one complete set of _nifHDK_ (though not necessarily all on the same contig).
 
-Of course, as we discussed earlier, there are 3 other genes that we need to find alongside _nifHDK_ in order to be sure that we have a microbial population capable of fixing nitrogen. KEGG may not have put these genes in M00175, but it does have a KOfam profile for each one of _nifENB_ - those KOs are K02587, K02592, and K02585. To search for these, we turn to our `kofam_hits` mode output files.
+Of course, as we discussed earlier, there are 3 other genes that we need to find alongside _nifHDK_ in order to be sure that we have a microbial population capable of fixing nitrogen. KEGG may not have put these genes in M00175, but it does have a KOfam profile for each one of _nifENB_ - those KOs are K02587, K02592, and K02585. To search for these, we turn to our [`kofam_hits` mode](https://merenlab.org/software/anvio/help/main/artifacts/kegg-metabolism/#kofam-hits-mode) output files.
 
-We will focus on the five samples that contain _nifHDK_, which are N06, N07, N22, N25, and N38.
-
-[TODO: write code and output examples for section on kofam hits]
-
-In sample N06, we found a complete M00175 module on contig `c_000000000414`. From the `kofam_hits` output, we can see that _nifE_ and _nifN_ are also on that contig, while _nifB_ is on a separate one (contig `c_000000001170`). This arrangement makes sense, since _nifB_ is the gene expected to be farthest away from the others based on the _A. vinelandii_ genome we looked at earlier. And since all six of the required _nif_ genes are present, it seems very likely that this metagenome contains a legitimate nitrogen-fixing population!
+We will focus on the five samples that contain _nifHDK_, which are N06, N07, N22, N25, and N38. Let's look at their `kofam_hits` output files one at a time, starting with sample N06.
 
 ```
-FIXME
+# print the header line, then run a search loop
+head -n 1 N06_kofam_hits.txt; \
+for k in K02587 K02592 K02585; \
+do \
+  grep $k N06_kofam_hits.txt; \
+done
 ```
+The loop above searches for the KO of each of _nifENB_ in this file. When you run it, you should see output that looks like this:
 
-In sample N07, we find all six genes on the same contig, `c_000000000073`. This is even better. There is a nitrogen-fixing population here for sure (and there may even be two different ones, considering that contig `c_000000004049` also contains a complete M00175 and there is a second set of the _nifENB_ genes spread across three different contigs).
+unique_id | contig_name | ko | gene_caller_id | modules_with_ko | ko_definition
+|:---|:---|:---|:---|:---|:---|
+70353 | c_000000000415 | K02587 | 35136 | None | nitrogenase molybdenum-cofactor synthesis protein NifE
+70352 | c_000000000415 | K02592 | 35137 | None | nitrogenase molybdenum-iron protein NifN
+82427 | c_000000001170 | K02585 | 58423 | None | nitrogen fixation protein NifB
 
-```
-FIXME
-```
+In sample N06, we previously found a complete M00175 module on contig `c_000000000414`. From the `kofam_hits` output, we can see that _nifE_ and _nifN_ are on a different contig, `c_000000000415`, while _nifB_ is on yet another (contig `c_000000001170`). This arrangement makes sense based on the _A. vinelandii_ genome we looked at earlier. It is too bad that they are not all on the same contig, but since all six of the required _nif_ genes are present, it seems likely that this metagenome contains a legitimate nitrogen-fixing population!
 
-Sample N22 has a similar situation to N06, with 5 out of 6 genes appearing on contig `c_000000000122`. It also appears to have a second set of these genes spread across multiple contigs, just as in N07.
+If we use the same code to search in file `N07_kofam_hits.txt`, we get:
 
-```
-FIXME
-```
+unique_id | contig_name | ko | gene_caller_id | modules_with_ko | ko_definition
+|:---|:---|:---|:---|:---|:---|
+3729 | c_000000000256 | K02587 | 29649 | None | nitrogenase molybdenum-cofactor synthesis protein NifE
+8116 | c_000000000073 | K02587 | 14636 | None | nitrogenase molybdenum-cofactor synthesis protein NifE
+3727 | c_000000000256 | K02592 | 29650 | None | nitrogenase molybdenum-iron protein NifN
+8110 | c_000000000073 | K02592 | 14635 | None | nitrogenase molybdenum-iron protein NifN
+8118 | c_000000000073 | K02585 | 14642 | None | nitrogen fixation protein NifB
+122901 | c_000000000095 | K02585 | 17048 | None | nitrogen fixation protein NifB
 
-You can take a look at N25 and N38 yourself. N25 should have at least one copy of all six genes (and 5/6 on the same contig), but N38 should be missing _nifN_.
+Recall from earlier that in sample N07, one complete M00175 module was on contig `c_000000000073`, and another was on contig `c_000000004049`. The `kofam_hits` file shows that there is one copy each of _nifENB_ on contig `c_000000000073`, which means that we have found all six _nif_ genes on the same contig! This is excellent. There is a nitrogen-fixing population here for sure (and there may even be two different ones, considering that contig `c_000000004049` also contains a complete M00175 and there is a second set of the _nifENB_ genes spread across three different contigs).
+
+What does sample 22 have in store for us? Earlier, we found a complete M00175 on contig `c_000000000122` in this sample.
+
+unique_id | contig_name | ko | gene_caller_id | modules_with_ko | ko_definition
+|:---|:---|:---|:---|:---|:---|
+83218 | c_000000000122 | K02587 | 16870 | None | nitrogenase molybdenum-cofactor synthesis protein NifE
+120563 | c_000000003718 | K02587 | 84133 | None | nitrogenase molybdenum-cofactor synthesis protein NifE
+83216 | c_000000000122 | K02592 | 16871 | None | nitrogenase molybdenum-iron protein NifN
+120562 | c_000000003718 | K02592 | 84134 | None | nitrogenase molybdenum-iron protein NifN
+2217 | c_000000000860 | K02585 | 43377 | None | nitrogen fixation protein NifB
+90602 | c_000000000014 | K02585 | 5285 | None | nitrogen fixation protein NifB
+
+Since there is a K02587 and a K02592 on contig `c_000000000122`, 5 out of 6 _nif_ genes appear on the same contig in this metagenome. N22 also appears to have a second set of these genes spread across multiple contigs, just as in N07.
+
+You can take a look at N25 and N38 yourself. N25 should have at least one copy of all six genes (and 5/6 on the same contig - `c_000000000104`), but N38 should be missing _nifN_.
 
 At this point, we can be fairly confident that there are nitrogen-fixing populations in samples N06, N07, N22, and N25. The natural question to ask next is - what are they?
 
