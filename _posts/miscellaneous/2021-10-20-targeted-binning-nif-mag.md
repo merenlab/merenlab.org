@@ -122,12 +122,11 @@ grep M00175 *_modules.txt | awk -F'\t' '$9 == 1.0' | cut -f 1,2,9,11,12
 ```
 
 Your output should look like this:
-
-N06-contigs_modules.txt:45627 | c_000000000414 | 1.0 | K02586,K02591,K02588 | 35075,35076,35074
-N07-contigs_modules.txt:7413 | c_000000004049 | 1.0 | K02586,K02591,K02588 | 94224,94225,94223
-N07-contigs_modules.txt:31467 | c_000000000073 | 1.0 | K02586,K02591,K02588 | 14638,14637,14639
-N22-contigs_modules.txt:44057 | c_000000000122 | 1.0 | K02586,K02591,K02588 | 16856,16857,16855
-N25-contigs_modules.txt:11798 | c_000000000104 | 1.0 | K02586,K02591,K02588 | 13919,13920,13918
+N06_modules.txt:7398 | c_000000000415 | 1.0 | K02586,K02588,K02591 | 35121,35120,35122
+N07_modules.txt:7413 | c_000000004049 | 1.0 | K02586,K02591,K02588 | 94224,94225,94223
+N07_modules.txt:31467 | c_000000000073 | 1.0 | K02586,K02591,K02588 | 14638,14637,14639
+N22_modules.txt:44057 | c_000000000122 | 1.0 | K02586,K02591,K02588 | 16856,16857,16855
+N25_modules.txt:11798 | c_000000000104 | 1.0 | K02586,K02591,K02588 | 13919,13920,13918
 
 These are promising results! The complete M00175 module was found in 4 different Arctic Ocean samples (there are two different instances in sample N07).
 
@@ -162,7 +161,7 @@ unique_id | contig_name | ko | gene_caller_id | modules_with_ko | ko_definition
 70352 | c_000000000415 | K02592 | 35137 | None | nitrogenase molybdenum-iron protein NifN
 82427 | c_000000001170 | K02585 | 58423 | None | nitrogen fixation protein NifB
 
-In sample N06, we previously found a complete M00175 module on contig `c_000000000414`. From the `kofam_hits` output, we can see that _nifE_ and _nifN_ are on a different contig, `c_000000000415`, while _nifB_ is on yet another (contig `c_000000001170`). This arrangement makes sense based on the _A. vinelandii_ genome we looked at earlier. It is too bad that they are not all on the same contig, but since all six of the required _nif_ genes are present, it seems likely that this metagenome contains a legitimate nitrogen-fixing population!
+In sample N06, we previously found a complete M00175 module on contig `c_000000000415`. From the `kofam_hits` output, we can see that _nifE_ and _nifN_ are on the same contig, while _nifB_ is on a different one (contig `c_000000001170`). This arrangement makes sense based on the _A. vinelandii_ genome we looked at earlier, in which _nifB_ was the farthest gene from the start of the _nifHDK_ operon. Since all six of the required _nif_ genes are present, it seems likely that this metagenome contains a legitimate nitrogen-fixing population!
 
 If we use the same code to search in file `N07_kofam_hits.txt`, we get:
 
