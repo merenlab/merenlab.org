@@ -197,4 +197,30 @@ At this point, we can be fairly confident that there are nitrogen-fixing populat
 
 Since we are working with individual contigs and not full genomes right now, a good strategy to figure out what these populations could be is to use [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome) to see if there is anything similar to these contigs in the NCBI database.
 
-Well, because I am nice, I extracted the relevant contig sequences from these metagenome assemblies for you. You will find them in the [TODO MAKE FILE] file in the datapack.
+I extracted the relevant contig sequences from these 4 metagenome assemblies for you. You will find them in the `contigs_of_interest.fa` file in the datapack. Each contig name is prefixed by the name of the sample it came from, as in `N06_c_000000000415`.
+
+You do not have to BLAST every sequence that is in that file (unless you want to). I recommend at least looking at the contig that contains the most _nif_ genes in each metagenome, namely: `N06_c_000000000415`, `N07_c_000000000073`, `N22_c_000000000122`, and `N25_c_000000000104`
+
+Go ahead and BLAST those contigs. I'll wait :)
+
+Did you do it? Great. Your results will of course depend on what is currently in the NCBI database at the time you are BLASTing, but I will show you what I got at the time I was writing this post. I used the `blastn` suite with all default parameters, which searches the NR/NT databases using Megablast.
+
+First, let's look at contig `c_000000000415` from sample N06, which had 5/6 of the _nif_ genes we were looking for.
+
+{% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/N06_BLAST_results.png" width="100" %}
+
+There are not too many good hits here. The best one covers only 55% of the contig sequence (though it does so with a decently-high percent identity). If we look at the graphical alignments, you will see that the alignment is sporadic.
+
+{% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/N06_BLAST_graphic_summary.png" width="100" %}
+
+Possibly, the top hit is matching only to the genes of this contig. According to [this paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5817195/), _Immundisolibacter cernigliae_ is a soil microbe, so we wouldn't really expect to find it in the ocean. Based on these results, it seems like this nitrogen-fixing population in N06 is a novel microbe!
+
+Next, we will view contig `c_000000000073` from sample N07. This contig had all 6 of our _nif_ genes on it.
+
+{% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/N07_BLAST_results.png" width="100" %}
+
+This contig has a much better hit in the NCBI database than the previous one. _Atelocyanobacterium thalassa_ is actually a well-known cyanobacterial marine diazotroph. Judging by the alignment, N07's nitrogen-fixing population is extremely similar to this one:
+
+{% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/N07_BLAST_graphic_summary.png" width="100" %}
+
+This does not necessarily mean that the N07 population resolves to the same taxonomy as _A. thalassa_ - we would need to bin the population and look at the entire genome's similarity to verify that.
