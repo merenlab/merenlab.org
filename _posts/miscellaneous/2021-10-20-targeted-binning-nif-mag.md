@@ -93,7 +93,7 @@ But before we dive into our search, let's quickly discuss what the nitrogen fixa
 
 The KEGG module for nitrogen fixation is [M00175](https://www.genome.jp/module/M00175), and it looks like this:
 
-[TODO: Insert M00175 screenshot]
+{% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/M00175.png" width="100" %}
 
 You need a nitrogenase enzyme complex to convert nitrogen gas to ammonia, and there are only two possible versions of this complex: the "molybdenum-dependent nitrogenase" protein complex encoded by genes _nifH_ (K02588), _nifD_ (K02586), and _nifK_ (K02591) of the _nif_ operon; or the "vanadium-dependent nitrogenase" protein complex encoded by genes _vnfD_ (K22896), _vnfK_ (K22897), _vnfG_ (K22898), and _vnfH_ (K22899), of the (you guessed it) _vnf_ operon. The latter complex has been isolated from soil bacteria and is known to be an alternative nitrogenase that is expressed when molybdenum is not available ([Lee et al 2009](https://doi.org/10.1073/pnas.0904408106), [Bishop et al 1980](https://doi.org/10.1073/pnas.77.12.7342)). We're just going to ignore it, because I have yet to see it in any ocean samples.
 
