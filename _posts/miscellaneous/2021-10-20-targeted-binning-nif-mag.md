@@ -394,6 +394,16 @@ blastn -db all_Cao_MAGs -query N25-c_000000000104.fa -evalue 1e-10 -outfmt 6 -ou
 
 If you look at the tabular output file, you will see that there is really only one good match for contig `N25_c_000000000104`, and that is a hit against `Genome_122_000000000019` (or, contig 19 from `Genome_122`. The reformat report for this MAG indicates that contig 19 was originally named `k141_74885`. In case that matters to anyone.). It has almost 100% identity over nearly the entire contig (you can see the alignment in the standard output file, if you are curious about that).
 
-It seems like `Genome_122` is the nitrogen-fixing MAG that we have been looking for. In fact, [supplementary table S5](https://static-content.springer.com/esm/art%3A10.1186%2Fs40168-020-00826-9/MediaObjects/40168_2020_826_MOESM6_ESM.xlsx) from the Cao _et al_ paper indicates that (according to GTDB-Tk) this MAG belongs to the _Immundisolibacter_ genus. Well, we have seen enough of the alignments to know that this taxonomy is probably _not_ true, but it is the closest match on NCBI. This is enough to verify that we found the correct MAG.
-It's time for some targeted binning. :)
+It seems like `Genome_122` is the nitrogen-fixing MAG that we have been looking for. In fact, [supplementary table S5](https://static-content.springer.com/esm/art%3A10.1186%2Fs40168-020-00826-9/MediaObjects/40168_2020_826_MOESM6_ESM.xlsx) from the Cao _et al_ paper indicates that (according to GTDB-Tk) this MAG belongs to the _Immundisolibacter_ genus. Well, we have seen enough of the alignments to know that this taxonomy is probably _not_ correct, but it was the closest match on NCBI. This is enough to verify that we found the correct MAG.
 
+## Distribution of `Genome_122` in the global oceans
+
+Thus far, we've 1) identified a nitrogen-fixing population in the Arctic Ocean, 2) inferred its novelty from the lack of matches to NCBI and a vast collection of known _nifH_ genes, and 3) found its corresponding MAG in the Cao _et al_ data. Our next question is - where does this population occur across the world? Can it be found only in the Arctic, or is it a globally-distributed population (that for some reason has not yet been characterized in temperate oceans)? Is it limited to the surface ocean, or can it live in the deep?
+
+To answer this question, I mapped four different datasets of ocean metagenomes to the `Genome_122` MAG using the anvi'o metagenomic workflow. Those datasets are: the current one from Cao et al, the ACE dataset of Southern Ocean metagenomes, and the vast global ocean sampling efforts TARA and TARA2 [TODO citations]. We're going to look at these mapping results. You will find the profile dataset in your datapack.
+
+[TODO: prep profiles and anvi-interactive commands]
+
+We've seen above that the `Genome_122` MAG appears to have some contamination, which is a normal thing to see in MAGs (particularly automatically-generated ones), because binning is hard. But since we have time on our hands, a particular interest in just one nitrogen-fixing population, and the knowledge of certain _nif_ gene-containing contigs that belong to this population, we can make a better MAG. It's time for some targeted binning. :)
+
+## Targeted binning of the nitrogen-fixing population
