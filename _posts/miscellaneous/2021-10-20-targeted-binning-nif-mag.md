@@ -254,3 +254,23 @@ There is a pattern emerging here. Three of the contigs that we've looked at thus
 
 To verify their similarity, let's align the contig sequences to each other.
 
+### Aligning `N06_c_000000000415` and `N25_c_000000000104`
+
+The BLAST results for the contigs from N22 and N25 were so similar that we don't really need to align these two sequences, but the contig from N06 was somewhat different, with only 55% query coverage to the _I. cernigliae_ genome. Let's align `c_000000000415` from N06 and `c_000000000104` from N25 to see whether they are similar enough to belong to the same population genome.
+
+I again used the BLAST web service for this, just so I could show you the nice graphical alignment, but feel free to use whatever local sequence alignment program you want. If you _are_ using the online `blastn` suite, however, you should check the box that says 'Align two or more sequences' on the input form so that it will do this instead of aligning your sequences to the NCBI database.
+
+Here is the BLAST hit that I got when I aligned `N25_c_000000000104` (the longer contig) to `N06_c_000000000415`.
+
+{% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/N25_v_N06_alignment.png" width="100" %}
+
+The contigs are _extremely_ similar, with near-100% identity! And the graphical summary shows a long, unbroken alignment of continuously high percent identity:
+
+{% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/N25_v_N06_graphic_alignment.png" width="100" %}
+
+If you were to flip the order of the alignment (aligning the shorter contig from N06 to the longer one from N25), you would get a smaller query coverage value but a similar percent identity. I think these sequences are likely coming from the same microbial population, after all.
+
+This means that at least three of our samples (N06, N22, and N25) have the same novel, nitrogen-fixing microbial population in them. Therefore, if we do read-recruitment of the metagenomes against any one of these samples, we'll be able to use differential coverage to bin this population.
+
+It's time for some targeted binning. :)
+
