@@ -205,6 +205,8 @@ Go ahead and BLAST those contigs. I'll wait :)
 
 Did you do it? Great. Your results will of course depend on what is currently in the NCBI database at the time you are BLASTing, but I will show you what I got at the time I was writing this post. I used the `blastn` suite with all default parameters, which searches the NR/NT databases using Megablast.
 
+### Sample N06
+
 First, let's look at contig `c_000000000415` from sample N06, which had 5/6 of the _nif_ genes we were looking for.
 
 {% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/N06_BLAST_results.png" width="100" %}
@@ -215,7 +217,9 @@ There aren't any good hits here. The best one covers only 55% of the contig sequ
 
 Possibly, the top hit is matching only to the genes of this contig. According to [this paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5817195/), _Immundisolibacter cernigliae_ is a soil microbe, so we wouldn't really expect to find it in the ocean. Based on these results, it seems like this nitrogen-fixing population in N06 could be a novel microbe! At the very least, it is not similar to anything in this database. We are drawing this conclusion based on only one contig sequence from its genome, but even if the rest of its (yet unbinned) genome was similar to that of another microbe in the NCBI database, the fact that this population contains a contig with a near-complete set of _nif_ genes means that it is already substantially different from that hypothetical similar population.
 
-Next, we will view contig `c_000000000073` from sample N07. This contig had all 6 of our _nif_ genes on it.
+### Sample N07
+
+Next, we will view the BLAST results for contig `c_000000000073` from sample N07. This contig had all 6 of our _nif_ genes on it.
 
 {% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/N07_BLAST_results.png" width="100" %}
 
@@ -224,3 +228,8 @@ This contig has a much better hit in the NCBI database than the previous one. _A
 {% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/N07_BLAST_graphic_summary.png" width="100" %}
 
 This does not necessarily mean that the N07 population resolves to the same taxonomy as _A. thalassa_ - we would need to bin the population and look at the entire genome's similarity to verify that.
+### Sample N22
+
+
+
+### Sample N25
