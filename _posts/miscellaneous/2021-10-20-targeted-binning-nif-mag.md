@@ -217,7 +217,7 @@ There aren't any good hits here. The best one covers only 55% of the contig sequ
 
 Possibly, the top hit is matching only to the genes of this contig. According to [this paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5817195/), _Immundisolibacter cernigliae_ is a soil microbe, so we wouldn't really expect to find it in the ocean. Based on these results, it seems like this nitrogen-fixing population in N06 could be a novel microbe! At the very least, it is not similar to anything in this database. We are drawing this conclusion based on only one contig sequence from its genome, but even if the rest of its (yet unbinned) genome was similar to that of another microbe in the NCBI database, the fact that this population contains a contig with a near-complete set of _nif_ genes means that it is already substantially different from that hypothetical similar population.
 
-### Sample N07
+### BLAST results for sample N07
 
 Next, we will view the BLAST results for contig `c_000000000073` from sample N07. This contig had all 6 of our _nif_ genes on it.
 
