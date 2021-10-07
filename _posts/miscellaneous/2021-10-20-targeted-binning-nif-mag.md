@@ -326,9 +326,24 @@ c_000000000104 | NODE_20_length_33832_cov_39.6157 | 82.974 | 417 | 51 | 12 | 728
 
 While their _nifH_ genes may be very similar, this is certainly not the same population as the one we found.
 
+There is one more set of genes that we should check. In July 2021, [Karlusich et al](https://www.nature.com/articles/s41467-021-24299-y) published a paper containing, among other things, a set of 10 novel _nifH_ genes. You will find these genes in the datapack, in the file `Karlusich_novel_nifH.fa`. Make a blast database out of the contig from N25 (which you extracted above), and align these _nifH_ genes against that database.
+
+```bash
+makeblastdb -in N25-c_000000000104.fa -dbtype nucl -title N25-c_000000000104 -out N25-c_000000000104
+blastn -db N25-c_000000000104 -query Karlusich_novel_nifH.fa -evalue 1e-10 -out novel_NifH-N25_c_000000000104-6.txt -outfmt 6
+```
+
+There are only three hits in the resulting file, and their maximum percent identity is about 86%, so none of them originate from our Arctic Ocean diazotroph.
+
+qseqid | sseqid | pident | length | mismatch | gapopen | qstart | qend | sstart | send | evalue | bitscore
+:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
+ENA|MW590317|MW590317.1 | c_000000000104 | 85.000 | 320 | 45 | 2 | 1 | 320 | 4700 | 5016 | 1.97e-90 | 322
+ENA|MW590318|MW590318.1 | c_000000000104 | 84.211 | 323 | 51 | 0 | 1 | 323 | 4700 | 5022 | 3.26e-88 | 315
+ENA|MW590319|MW590319.1 | c_000000000104 | 85.802 | 324 | 46 | 0 | 1 | 324 | 4700 | 5023 | 4.16e-97 | 344
+
 ## Identifying the associated Cao _et al_ MAG
 
-Our novel nitrogen-fixing population is present in multiple samples from the Cao _et al_ paper, so it is extremely likely that the authors have already binned it in some form. They did their binning iteratively by running first [MaxBin2](https://academic.oup.com/bioinformatics/article/32/4/605/1744462) and then [MetaBAT](https://peerj.com/articles/1165/) on the contigs of individual [MEGAHIT](https://academic.oup.com/bioinformatics/article/31/10/1674/177884) assemblies of these samples, and they got 214 MAGs out of this process.
+At this point, we've verified (to the best of our current knowledge), that we've identified an uncharacterized diazotrophic population in these Arctic Ocean metagenomes. Since this novel nitrogen-fixing population is present in multiple samples from the Cao _et al_ paper, it is extremely likely that the authors have already binned it in some form. Cao _et al_ did their binning iteratively by running first [MaxBin2](https://academic.oup.com/bioinformatics/article/32/4/605/1744462) and then [MetaBAT](https://peerj.com/articles/1165/) on the contigs of individual [MEGAHIT](https://academic.oup.com/bioinformatics/article/31/10/1674/177884) assemblies of these samples, and they got 214 MAGs out of this process.
 
 We're going to find out which one of those MAGs represents the nitrogen-fixing population that we have identified in samples N06, N22, and N25. First, download their MAG set, which is hosted on [FigShare](https://figshare.com/s/fd5f60b5da7a63aaa74b). You'll need to unzip the folder, and probably re-name it something sensible (I called the folder `Cao_et_al_MAGs`, and you'll see it referred to this way in the code snippets below).
 
