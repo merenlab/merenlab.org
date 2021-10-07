@@ -278,9 +278,51 @@ If you are curious about where these samples are located geographically, here is
 
 Clearly, this microbial population is widespread in the Arctic Ocean since is found in both the Eastern and Western hemispheres. It also makes sense that the sequences from N22 and N25 are more similar to each other than to the one from N06, since those two samples are geographically closer together.
 
-### Placement on a _nifH_ phylogeny
+### Comparison of _nifH_ genes
 
-[TODO this section???]
+We've found a nitrogen-fixing population that appears to be novel, based on its lack of good matches in NCBI. But NCBI is by no means the only source of publicly-available genomic data, so this perhaps does not mean as much as we want it to. To further verify the novelty of this population (while keeping the workload reasonably easy for us), we're going to check its alignment against known _nifH_ genes.
+
+When I was doing this analysis, I got a great deal of help from [Dr. Tom Delmont](http://twitter.com/tomodelmont) from [Genoscope](https://www.genoscope.cns.fr/), an expert on marine diazotrophs and veritable collector of _nifH_ sequences. He kindly took the _nifH_ gene from contig `N25_c_000000000104` and placed it on a phylogeny of known _nifH_ sequences from all around the world (most of them, as you may tell from the phylogeny, come from the TARA Oceans dataset):
+
+{% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/nifH_phylogeny.png" width="100" %}
+
+It was most closely related to _nifH_ genes from the north Atlantic Ocean. Furthermore, he found that it was most similar (with 95% identity) to the _nifH_ gene from the genome of "_Candidatus_ Macondimonas diazotrophica", a crude-oil degrader isolated from a beach contaminated by the Deepwater Horizon oil spill ([Karthikeyan 2019](https://www.nature.com/articles/s41396-019-0400-5)).
+
+We're going to check how similar our population is to this "Ca. M. diazotrophica" genome by aligning the `N25_c_000000000104` contig against it.
+
+```bash
+# download the genome
+wget http://enve-omics.ce.gatech.edu/data/public_macondimonas/Macon_spades_assembly.fasta.gz
+gunzip Macon_spades_assembly.fasta.gz
+
+# extract N25_c_000000000104 sequence into its own file (if you haven't done this already)
+grep -A 1 "N25_c_000000000104" contigs_of_interest.fa > N25-c_000000000104.fa
+
+# make a blast database for the genome
+makeblastdb -in Macon_spades_assembly.fasta -dbtype nucl -title M_diazotrophica -out M_diazotrophica
+
+# run the alignment
+blastn -db M_diazotrophica -query N25-c_000000000104.fa -evalue 1e-10 -outfmt 6 -out c_000000000104-M_diazotrophica-6.txt
+```
+
+Looking at the `c_000000000104-M_diazotrophica-6.txt` file, you should see that the alignments are not very long (the contigs are far longer) and that the percent identities, while high, are not _that_ high.
+
+Here are the top 10 hits in this file:
+
+qseqid | sseqid | pident | length | mismatch | gapopen | qstart | qend | sstart | send | evalue | bitscore
+:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
+c_000000000104 | NODE_14_length_74635_cov_31.4532 | 90.375 | 3761 | 313 | 37 | 19256 | 22978 | 20209 | 23958 | 0.0 | 4894
+c_000000000104 | NODE_14_length_74635_cov_31.4532 | 97.212 | 1578 | 43 | 1 | 28370 | 29947 | 63748 | 62172 | 0.0 | 2669
+c_000000000104 | NODE_14_length_74635_cov_31.4532 | 77.627 | 3902 | 763 | 93 | 37011 | 40854 | 58320 | 54471 | 0.0 | 2268
+c_000000000104 | NODE_14_length_74635_cov_31.4532 | 78.256 | 814 | 141 | 25 | 26446 | 27253 | 67539 | 66756 | 4.59e-137 | 490
+c_000000000104 | NODE_14_length_74635_cov_31.4532 | 96.970 | 264 | 8 | 0 | 27955 | 28218 | 64008 | 63745 | 3.62e-123 | 444
+c_000000000104 | NODE_14_length_74635_cov_31.4532 | 87.831 | 189 | 23 | 0 | 14301 | 14489 | 72993 | 72805 | 1.85e-56 | 222
+c_000000000104 | NODE_11_length_97838_cov_34.3382 | 92.602 | 2379 | 163 | 7 | 4577 | 6948 | 8342 | 5970 | 0.0 | 3406
+c_000000000104 | NODE_11_length_97838_cov_34.3382 | 93.967 | 1558 | 92 | 2 | 7018 | 8574 | 5870 | 4314 | 0.0 | 2355
+c_000000000104 | NODE_11_length_97838_cov_34.3382 | 81.016 | 748 | 130 | 12 | 13461 | 14203 | 1950 | 1210 | 2.05e-165 | 584
+c_000000000104 | NODE_20_length_33832_cov_39.6157 | 82.974 | 417 | 51 | 12 | 72822 | 73221 | 11136
+
+While their _nifH_ genes may be very similar, this is certainly not the same population as the one we found.
 
 ## Identifying the associated Cao _et al_ MAG
 
@@ -323,7 +365,7 @@ makeblastdb -in all_Cao_MAGs.fa -dbtype nucl -title all_Cao_MAGs -out all_Cao_MA
 Since we know that contigs `N06_c_000000000415`, `N22_c_000000000122`, and `N25_c_000000000104` are all similar, we only need to BLAST one of them against this database. I chose `N25_c_000000000104` arbitrarily, but feel free to try one of the other if you'd like.
 
 ```bash
-# extract N25_c_000000000104 sequence into its own file
+# extract N25_c_000000000104 sequence into its own file (if you haven't done this already)
 grep -A 1 "N25_c_000000000104" contigs_of_interest.fa > N25-c_000000000104.fa
 
 # blast this contig against all Cao et al MAGs
