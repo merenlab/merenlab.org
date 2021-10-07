@@ -264,7 +264,7 @@ Here is the BLAST hit that I got when I aligned `N25_c_000000000104` (the longer
 
 {% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/N25_v_N06_alignment.png" width="100" %}
 
-The contigs are _extremely_ similar, with near-100% identity! And the graphical summary shows a long, unbroken alignment of continuously high percent identity:
+The contigs are _extremely_ similar, with near-100% identity! And the graphical summary shows a long, unbroken alignment:
 
 {% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/N25_v_N06_graphic_alignment.png" width="100" %}
 
