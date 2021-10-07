@@ -278,5 +278,9 @@ If you are curious about where these samples are located geographically, here is
 
 Clearly, this microbial population is widespread in the Arctic Ocean since is found in both the Eastern and Western hemispheres. It also makes sense that the sequences from N22 and N25 are more similar to each other than to the one from N06, since those two samples are geographically closer together.
 
+### Placement on a _nifH_ phylogeny
+
+[TODO this section???]
+
 It's time for some targeted binning. :)
 
