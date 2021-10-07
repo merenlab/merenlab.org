@@ -282,5 +282,59 @@ Clearly, this microbial population is widespread in the Arctic Ocean since is fo
 
 [TODO this section???]
 
+## Identifying the associated Cao _et al_ MAG
+
+Our novel nitrogen-fixing population is present in multiple samples from the Cao _et al_ paper, so it is extremely likely that the authors have already binned it in some form. They did their binning iteratively by running first [MaxBin2](https://academic.oup.com/bioinformatics/article/32/4/605/1744462) and then [MetaBAT](https://peerj.com/articles/1165/) on the contigs of individual [MEGAHIT](https://academic.oup.com/bioinformatics/article/31/10/1674/177884) assemblies of these samples, and they got 214 MAGs out of this process.
+
+We're going to find out which one of those MAGs represents the nitrogen-fixing population that we have identified in samples N06, N22, and N25. First, download their MAG set, which is hosted on [FigShare](https://figshare.com/s/fd5f60b5da7a63aaa74b). You'll need to unzip the folder, and probably re-name it something sensible (I called the folder `Cao_et_al_MAGs`, and you'll see it referred to this way in the code snippets below).
+
+{:.notice}
+If you don't want to download all of these MAGs, you can still run an alignment against them using the BLAST database that is in the datapack.
+
+Each MAG is in a FASTA file that is named according to the MAG number. We will run BLAST against all of these MAGs at the same time, so each MAG's contig sequences need to have the corresponding MAG number in the contig name. That way we will be able to determine which MAG each BLAST hit belongs to. %{anvi-script-reformat-fasta}s is the perfect tool for this job.
+
+The following loop learns the MAG number from its FASTA file name and runs `anvi-script-reformat-fasta`, which will simplify the contig names and make sure each one is prefixed with the MAG number. The reformatted FASTA files will end in `*reformat.fa` and the text file matching the original contig name to its new one will end in `*reformat_report.txt`.
+
+```bash
+# reformat contig names to contain MAG number
+for g in Cao_et_al_MAGs/*.fasta; do \
+  mag=$(basename $g | sed 's/.fasta//g'); \
+  filename=$(echo $g | sed 's/.fasta//g'); \
+  anvi-script-reformat-fasta  -o ${filename}_reformat.fa --simplify-names --prefix $mag -r ${mag}_reformat_report.txt $g; \
+done
+
+# organize the resulting files into sensible folders
+mkdir REFORMAT_REPORTS
+mv *reformat_report.txt REFORMAT_REPORTS/
+mkdir CAO_MAGS_REFORMATTED
+mv Cao_et_al_MAGs/Genome*reformat.fa CAO_MAGS_REFORMATTED/
+```
+
+After that finishes, you can concatenate all of the MAG FASTAs into one big FASTA file, and make a BLAST database out of it:
+
+```bash
+# concatenate all MAG contigs into one file
+cat CAO_MAGS_REFORMATTED/*.fa > all_Cao_MAGs.fa
+
+# make database for mapping against these contigs
+makeblastdb -in all_Cao_MAGs.fa -dbtype nucl -title all_Cao_MAGs -out all_Cao_MAGs
+```
+
+Since we know that contigs `N06_c_000000000415`, `N22_c_000000000122`, and `N25_c_000000000104` are all similar, we only need to BLAST one of them against this database. I chose `N25_c_000000000104` arbitrarily, but feel free to try one of the other if you'd like.
+
+```bash
+# extract N25_c_000000000104 sequence into its own file
+grep -A 1 "N25_c_000000000104" contigs_of_interest.fa > N25-c_000000000104.fa
+
+# blast this contig against all Cao et al MAGs
+    # standard output format
+blastn -db all_Cao_MAGs -query N25-c_000000000104.fa -evalue 1e-10 -out c_000000000104-all_Cao_MAGs-0.txt
+    # tabular output format
+blastn -db all_Cao_MAGs -query N25-c_000000000104.fa -evalue 1e-10 -outfmt 6 -out c_000000000104-all_Cao_MAGs-6.txt
+```
+
+If you look at the tabular output file, you will see that there is really only one good match for contig `N25_c_000000000104`, and that is a hit against `Genome_122_000000000019` (or, contig 19 from `Genome_122`. The reformat report for this MAG indicates that contig 19 was originally named `k141_74885`. In case that matters to anyone.). It has almost 100% identity over nearly the entire contig (you can see the alignment in the standard output file, if you are curious about that).
+
+It seems like `Genome_122` is the nitrogen-fixing MAG that we have been looking for. In fact, [supplementary table S5](https://static-content.springer.com/esm/art%3A10.1186%2Fs40168-020-00826-9/MediaObjects/40168_2020_826_MOESM6_ESM.xlsx) from the Cao _et al_ paper indicates that (according to GTDB-Tk) this MAG belongs to the _Immundisolibacter_ genus. Well, we have seen enough of the alignments to know that this taxonomy is probably _not_ true, but it is the closest match on NCBI. This is enough to verify that we found the correct MAG.
 It's time for some targeted binning. :)
 
