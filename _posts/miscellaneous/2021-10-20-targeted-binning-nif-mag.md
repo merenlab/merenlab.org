@@ -270,7 +270,13 @@ The contigs are _extremely_ similar, with near-100% identity! And the graphical 
 
 If you were to flip the order of the alignment (aligning the shorter contig from N06 to the longer one from N25), you would get a smaller query coverage value but a similar percent identity. I think these sequences are likely coming from the same microbial population, after all.
 
-This means that at least three of our samples (N06, N22, and N25) have the same novel, nitrogen-fixing microbial population in them. Therefore, if we do read-recruitment of the metagenomes against any one of these samples, we'll be able to use differential coverage to bin this population.
+This means that at least three of our samples (N06, N22, and N25) have the same nitrogen-fixing microbial population in them. Therefore, if we do read-recruitment of the metagenomes against any one of these samples, we'll be able to use differential coverage to bin this population.
+
+If you are curious about where these samples are located geographically, here is the sampling map from Figure 1 of the Cao _et al_ paper, with our three samples highlighted and labeled in purple:
+
+{% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/Cao_Fig_1_annotated.png" width="100" %}
+
+Clearly, this microbial population is widespread in the Arctic Ocean since is found in both the Eastern and Western hemispheres. It also makes sense that the sequences from N22 and N25 are more similar to each other than to the one from N06, since those two samples are geographically closer together.
 
 It's time for some targeted binning. :)
 
