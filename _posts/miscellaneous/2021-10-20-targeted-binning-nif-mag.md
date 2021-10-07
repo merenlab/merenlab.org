@@ -223,11 +223,14 @@ Next, we will view the BLAST results for contig `c_000000000073` from sample N07
 
 {% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/N07_BLAST_results.png" width="100" %}
 
-This contig has a much better hit in the NCBI database than the previous one. _Atelocyanobacterium thalassa_ is actually a well-known cyanobacterial marine diazotroph. Judging by the alignment, N07's nitrogen-fixing population is extremely similar to this one:
+It has a much better hit in the NCBI database than the previous contig - 85% query coverage with 88% identity. _Atelocyanobacterium thalassa_ is actually a well-known cyanobacterial marine diazotroph. Judging by the alignment, N07's nitrogen-fixing population is extremely similar to this one:
 
 {% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/N07_BLAST_graphic_summary.png" width="100" %}
 
-This does not necessarily mean that the N07 population resolves to the same taxonomy as _A. thalassa_ - we would need to bin the population and look at the entire genome's similarity to verify that.
+This does not mean that the N07 population resolves to the same taxonomy as _A. thalassa_ - we would need to bin the population and look at the whole genome average nucleotide identity (ANI) as well as other evidence to verify that. But it is similar enough to indicate that this population is not entirely novel.
+
+You might recall that sample N07 had another set of these genes split across a few different contigs. I wonder what you would find if you blasted those? ;)
+
 ### Sample N22
 
 
