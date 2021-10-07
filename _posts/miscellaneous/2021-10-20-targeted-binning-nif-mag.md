@@ -203,9 +203,9 @@ You do not have to BLAST every sequence that is in that file (unless you want to
 
 Go ahead and BLAST those contigs. I'll wait :)
 
-Did you do it? Great. Your results will of course depend on what is currently in the NCBI database at the time you are BLASTing, but I will show you what I got at the time I was writing this post. I used the `blastn` suite with all default parameters, which searches the NR/NT databases using Megablast.
+Did you do it? Great. Your results will of course depend on what is currently in the NCBI database at the time you are BLASTing (or the version of that database that you have on your computer, if you are running it locally instead of on their web service), but I will show you what I got at the time I was writing this post. I used the [`blastn` suite](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE=MegaBlast&PROGRAM=blastn&PAGE_TYPE=BlastSearch&BLAST_SPEC=) with all default parameters, which searches the NR/NT databases using Megablast.
 
-### Sample N06
+### BLAST results for sample N06
 
 First, let's look at contig `c_000000000415` from sample N06, which had 5/6 of the _nif_ genes we were looking for.
 
