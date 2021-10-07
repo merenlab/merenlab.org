@@ -231,8 +231,26 @@ This does not mean that the N07 population resolves to the same taxonomy as _A. 
 
 You might recall that sample N07 had another set of these genes split across a few different contigs. I wonder what you would find if you blasted those? ;)
 
-### Sample N22
+### BLAST results for sample N22
 
+In sample N22, the contig with the most _nif_ genes was `c_000000000122`. The BLAST results for this contig are below.
 
+{% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/N22_BLAST_results.png" width="100" %}
 
-### Sample N25
+And here is the alignment:
+
+{% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/N22_BLAST_graphic_summary.png" width="100"
+
+Huh. Just like in N06, the best hit is to the _I. cernigliae_ genome, with somewhat sporadic alignment.
+
+### BLAST results for sample N25
+
+The contig from sample N25 gives us extremely similar BLAST results as the one from sample N22:
+
+{% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/N25_BLAST_results.png" width="100" %}
+{% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/N25_BLAST_graphic_summary.png" width="100"}
+
+There is a pattern emerging here. Three of the contigs that we've looked at thus far have hits to _I. cernigliae_ with similar alignment coverage and identity. It is possible that these three sequences could belong to the same microbial population, in different samples.
+
+To verify their similarity, let's align the contig sequences to each other.
+
