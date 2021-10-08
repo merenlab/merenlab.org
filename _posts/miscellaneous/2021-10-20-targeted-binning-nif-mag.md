@@ -21,6 +21,7 @@ If you are interested in learning about how to leverage anvi'o's metabolism esti
 This post also doubles as a reproducible workflow. Feel free to download the associated datapack at [FIXME INSERT DATAPACK LINK]() and follow along with the commands. (Or, go your own way and explore the data yourself!) The commands below were written for anvi'o `v7.1`. If you have a newer version of anvi'o and find a command that is not working - sorry. We don't always retroactively update these posts as anvi'o evolves. Please send us a message and we'll see if we can fix it.  
 
 [TODO: change docs links to v7.1 instead of main]
+[TODO: migrate databases if necessary for v7.1]
 
 ## A focus on nitrogen fixation
 
