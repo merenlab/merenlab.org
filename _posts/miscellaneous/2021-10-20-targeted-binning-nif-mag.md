@@ -480,4 +480,13 @@ The samples are color-coded in the same way as before. You should be able to see
 
 ## Targeted binning of the nitrogen-fixing population
 
-We've seen above that the `Genome_122` MAG appears to have some contamination, which is a normal thing to see in MAGs (particularly automatically-generated ones), because binning is hard. But since we have time on our hands, a particular interest in just one nitrogen-fixing population, and the knowledge of the _nif_ gene-containing contigs that belong to this population, we can make a better MAG. It's time for some targeted binning. :)
+We've seen above that the `Genome_122` MAG appears to have some contamination, which is a normal thing to see in MAGs (particularly automatically-generated ones), because binning is hard. We've also seen that it does not contain the _nif_ genes that belong to this nitrogen-fixing population. But since we have time on our hands, a particular interest in just this one nitrogen-fixing population, and the knowledge of which _nif_ gene-containing contigs belong to this population, we can make a better MAG. It's time for some targeted binning. :)
+
+We know that our population of interest is present in samples N06, N07, N22, and N25. We could use any of these assemblies for binning, though N07 is not the best choice because the _nif_ genes are split across multiple contigs in that one. I once again made the completely arbitrary choice to use sample N25 for this. I ran a read recruitment workflow to map all 60 Cao _et al_ metagenomes against our assembly of N25 - our population of interest should only be present in the Arctic Ocean samples, but we will be able to use its absence from the Antarctic samples to help guide our binning.
+
+You'll find the contigs database for the N25 assembly and the profile database containing these mapping results in the datapack (in the `N25_DBS` folder). You can open them up in `anvi-interactive`:
+
+```bash
+cd ../N25_DBS/
+anvi-interactive -c N25-contigs.db -p PROFILE.db --title "Cao et al Read Recruitment to N25"
+```
