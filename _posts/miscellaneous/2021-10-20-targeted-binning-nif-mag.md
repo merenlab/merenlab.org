@@ -401,10 +401,38 @@ It seems like `Genome_122` is the nitrogen-fixing MAG that we have been looking 
 
 Thus far, we've 1) identified a nitrogen-fixing population in the Arctic Ocean, 2) inferred its novelty from the lack of matches to NCBI and a vast collection of known _nifH_ genes, and 3) found its corresponding MAG in the Cao _et al_ data. Our next question is - where does this population occur across the world? Can it be found only in the Arctic, or is it a globally-distributed population (that for some reason has not yet been characterized in temperate oceans)? Is it limited to the surface ocean, or can it live in the deep?
 
-To answer this question, I mapped four different datasets of ocean metagenomes to the `Genome_122` MAG using the anvi'o metagenomic workflow. Those datasets are: the current one from Cao et al, the ACE dataset of Southern Ocean metagenomes, and the vast global ocean sampling efforts TARA and TARA2 [TODO citations]. We're going to look at these mapping results. You will find the profile dataset in your datapack.
+To answer this question, I mapped four different datasets of ocean metagenomes to the `Genome_122` MAG using the anvi'o metagenomic workflow. Those datasets are: the current one from Cao _et al_ (including all samples, from the Arctic and Antarctic), the ACE dataset of Southern Ocean metagenomes, and the vast global ocean sampling efforts TARA and TARA2 [TODO citations]. We're going to look at these mapping results. You will find the profile dataset in your datapack.
 
-[TODO: prep profiles and anvi-interactive commands]
+First, take a look at the distribution of this MAG in the surface ocean (which includes metagenomes sampled at depths 0-100m from these four datasets):
 
-We've seen above that the `Genome_122` MAG appears to have some contamination, which is a normal thing to see in MAGs (particularly automatically-generated ones), because binning is hard. But since we have time on our hands, a particular interest in just one nitrogen-fixing population, and the knowledge of certain _nif_ gene-containing contigs that belong to this population, we can make a better MAG. It's time for some targeted binning. :)
+```bash
+anvi-interactive -c Genome_122-contigs.db -p SURFACE/SURFACE_PROFILE.db --title "Genome_122 in Surface Ocean"
+```
+
+You should see something like the following:
+
+{% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/Genome_122_in_Surface_Ocean.png" width="100" %}
+
+The default view in the interface should show log-normalized detection of this MAG in all of the ocean metagenomes. Samples from Cao et al have been marked in light blue to distinguish them from the rest. You can hover over the 'Source' layer to see which dataset each sample comes from, and the 'Location' layer to see which ocean region it was sampled from.
+
+There are a few things we can immediately see from the mapping results. First, it is clear that this population is geographically isolated, as it is detected only in the Arctic Ocean samples from the Cao _et al_ dataset. There are some Arctic Ocean samples from TARA2 (the darkest green in the 'Location' layer), but this population is not detected in these (there are several possible reasons for this, such as different sampling locations). Second, this MAG must have been binned from their assembly of sample N07, since that sample has the highest proportion of mapping reads. Though we didn't discuss it earlier, this nitrogen-fixing population is also present in sample N07 (which you may already have deduced if you took a look at the BLAST results for the second set of _nif_ contigs in N07).
+
+Finally, there are several splits in `Genome_122` that appear to be contamination. For instance, look at these three splits that have  different detection values across samples than the rest of the MAG:
+
+{% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/Genome_122_Surface_contamination_1.png" width="100" %}
+
+One of those splits is missing detection in samples N22 and N25 (where we know our population exists). The other two are detected in a variety of samples from the other datasets as well as a different detection pattern across the other Cao _et al_ Arctic Ocean samples. There are also a couple more splits at the top of the circlular phylogram that seem problematic.
+
+The next thing to view is the distribution of this MAG in deeper samples (100m < depth <= 3800 m).
+
+```bash
+anvi-interactive -c Genome_122-contigs.db -p DEEP/DEEP_PROFILE.db --title "Genome_122 in Deep Ocean"
+```
+
+The samples are color-coded in the same way as before. You should be able to see that this MAG _is_ present in deeper waters (even those as deep as 3800m), though it is still geographically limited to the Arctic Ocean. And once again, there are several splits that just don't seem to fit with the rest and most likely represent contamination.
+
+{% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/Genome_122_in_Deep_Ocean.png" width="100" %}
 
 ## Targeted binning of the nitrogen-fixing population
+
+We've seen above that the `Genome_122` MAG appears to have some contamination, which is a normal thing to see in MAGs (particularly automatically-generated ones), because binning is hard. But since we have time on our hands, a particular interest in just one nitrogen-fixing population, and the knowledge of the _nif_ gene-containing contigs that belong to this population, we can make a better MAG. It's time for some targeted binning. :)
