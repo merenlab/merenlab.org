@@ -401,13 +401,14 @@ It seems like `Genome_122` is the nitrogen-fixing MAG that we have been looking 
 
 Thus far, we've 1) identified a nitrogen-fixing population in the Arctic Ocean, 2) inferred its novelty from the lack of matches to NCBI and a vast collection of known _nifH_ genes, and 3) found its corresponding MAG in the Cao _et al_ data. Our next question is - where does this population occur across the world? Can it be found only in the Arctic, or is it a globally-distributed population (that for some reason has not yet been characterized in temperate oceans)? Is it limited to the surface ocean, or can it live in the deep?
 
-To answer this question, I mapped four different datasets of ocean metagenomes to the `Genome_122` MAG using the anvi'o metagenomic workflow. Those datasets are: the current one from Cao _et al_ (including all samples, from the Arctic and Antarctic), the ACE dataset of Southern Ocean metagenomes, and the vast global ocean sampling efforts TARA and TARA2 [TODO citations]. We're going to look at these mapping results. You will find the profile dataset in your datapack.
+To answer this question, I mapped four different datasets of ocean metagenomes to the `Genome_122` MAG using the anvi'o metagenomic workflow. Those datasets are: the current one from Cao _et al_ (including all samples, from the Arctic and Antarctic), the ACE dataset of Southern Ocean metagenomes, and the vast global ocean sampling efforts TARA and TARA2 [TODO citations]. We're going to look at these mapping results. You will find the relevant databases in your datapack, in the `GENOME_122_DBS` folder.
 
 ### Surface ocean distribution
 
 First, take a look at the distribution of this MAG in the surface ocean (which includes metagenomes sampled at depths 0-100m from these four datasets):
 
 ```bash
+cd GENOME_122_DBS/
 anvi-interactive -c Genome_122-contigs.db -p SURFACE/SURFACE_PROFILE.db --title "Genome_122 in Surface Ocean"
 ```
 
@@ -438,6 +439,9 @@ Furthermore, we now know that `Genome_122` was binned from sample N07. In N07, t
 You can check this, if you want, by blasting those three N07 contigs against the Cao _et al_ MAGs:
 
 ```bash
+# go back to the previous folder
+cd ..
+
 # extract just these 3 contigs from N07 into a separate file
 for c in c_000000004049 c_000000000256 c_000000000095; \
 do \
@@ -466,6 +470,7 @@ The long story short is that our _nif_ genes of interest were not binned into th
 The next thing to view is the distribution of this MAG in deeper samples (100m < depth <= 3800 m).
 
 ```bash
+cd GENOME_122_DBS/
 anvi-interactive -c Genome_122-contigs.db -p DEEP/DEEP_PROFILE.db --title "Genome_122 in Deep Ocean"
 ```
 
