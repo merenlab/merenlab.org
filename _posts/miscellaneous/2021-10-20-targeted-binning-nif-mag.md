@@ -403,6 +403,8 @@ Thus far, we've 1) identified a nitrogen-fixing population in the Arctic Ocean, 
 
 To answer this question, I mapped four different datasets of ocean metagenomes to the `Genome_122` MAG using the anvi'o metagenomic workflow. Those datasets are: the current one from Cao _et al_ (including all samples, from the Arctic and Antarctic), the ACE dataset of Southern Ocean metagenomes, and the vast global ocean sampling efforts TARA and TARA2 [TODO citations]. We're going to look at these mapping results. You will find the profile dataset in your datapack.
 
+### Surface ocean distribution
+
 First, take a look at the distribution of this MAG in the surface ocean (which includes metagenomes sampled at depths 0-100m from these four datasets):
 
 ```bash
@@ -415,13 +417,51 @@ You should see something like the following:
 
 The default view in the interface should show log-normalized detection of this MAG in all of the ocean metagenomes. Samples from Cao et al have been marked in light blue to distinguish them from the rest. You can hover over the 'Source' layer to see which dataset each sample comes from, and the 'Location' layer to see which ocean region it was sampled from.
 
-There are a few things we can immediately see from the mapping results. First, it is clear that this population is geographically isolated, as it is detected only in the Arctic Ocean samples from the Cao _et al_ dataset. There are some Arctic Ocean samples from TARA2 (the darkest green in the 'Location' layer), but this population is not detected in these (there are several possible reasons for this, such as different sampling locations). Second, this MAG must have been binned from their assembly of sample N07, since that sample has the highest proportion of mapping reads. Though we didn't discuss it earlier, this nitrogen-fixing population is also present in sample N07 (which you may already have deduced if you took a look at the BLAST results for the second set of _nif_ contigs in N07).
+There are a few things we can immediately see from the mapping results. First, it is clear that this population is geographically isolated, as it is detected only in the Arctic Ocean samples from the Cao _et al_ dataset. There are some Arctic Ocean samples from TARA2 (the darkest green in the 'Location' layer), but this population is not detected in these (there are several possible reasons for this, such as different sampling locations). Second, this MAG must have been binned from their assembly of sample N07, since that sample has the highest proportion of mapping reads. Though we didn't discuss it earlier, our nitrogen-fixing population is also present in sample N07 (which you may already have deduced if you took a look at the BLAST results for the second set of _nif_ contigs in N07).
 
 Finally, there are several splits in `Genome_122` that appear to be contamination. For instance, look at these three splits that have  different detection values across samples than the rest of the MAG:
 
 {% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/Genome_122_Surface_contamination_1.png" width="100" %}
 
 One of those splits is missing detection in samples N22 and N25 (where we know our population exists). The other two are detected in a variety of samples from the other datasets as well as a different detection pattern across the other Cao _et al_ Arctic Ocean samples. There are also a couple more splits at the top of the circlular phylogram that seem problematic.
+
+### A quick aside to look for _nif_ genes
+
+Recall that contig 19 from this MAG is the one most similar to the contig from sample N25 that we blasted earlier, which means it should be the contig containing most of the _nif_ genes we were looking for. Can you find this contig and/or the _nif_ genes (hint: use the 'Search' tab)?
+
+Well, I'm sure you found contig 19. But you couldn't find our _nif_ genes, could you? In fact, if you search for functions with "nitrogen fixation", you will find several annotated _nif_ genes but not the ones that we were looking for - except for _nifB_, which is not on contig 19 (as expected) but on contig 27. This is extremely curious. How could this happen? Previously, contig `N25_c_000000000104`, which contains 5 out of 6 of our _nif_ genes, matched with almost 100% identity against the entirety of contig 19 - so what is missing?
+
+It turns out that contig 19 is quite a bit shorter - only 51626 bp - compared to `N25_c_000000000104`'s length of 73221 bp. You might have noticed this if you checked the standard output file from BLAST. Clearly, the part of contig 104 that contains those 5 _nif_ genes was _not_ the part that matched to contig 19. We are working with different assemblies of these metagenomes than the ones created by Cao _et al_, so some differences are to be expected.
+
+Furthermore, we now know that `Genome_122` was binned from sample N07. In N07, the second set of _nif_ genes was split across 3 contigs (`c_000000004049`, `c_000000000256`, and `c_000000000095`), so it is likely that a similar situation occurred in the Cao _et al_ assembly of this sample. Which means it is certainly possible that only the contig containing _nifB_ was binned into this MAG. Contig 27 from `Genome_122` is probably the counterpart to `c_000000000095` from our assembly.
+
+You can check this, if you want, by blasting those three N07 contigs against the Cao _et al_ MAGs:
+
+```bash
+# extract just these 3 contigs from N07 into a separate file
+for c in c_000000004049 c_000000000256 c_000000000095; \
+do \
+  grep -A 1 $c contigs_of_interest.fa >> N07_second_set.fa; \
+done
+
+# align against the MAG set
+blastn -db all_Cao_MAGs -query N07_second_set.fa -evalue 1e-10 -outfmt 6 -out N07_second_set-all_Cao_MAGs-6.txt
+```
+
+I'll paste the relevant hits from the output below. These are the best hits for each contig query (meaning that they have the highest percent identity, the longest alignment lengths, and the smallest e-value of all hits from that contig):
+
+qseqid | sseqid | pident | length | mismatch | gapopen | qstart | qend | sstart | send | evalue | bitscore
+:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
+N07_c_000000000095 | Genome_122_000000000027 | 99.982 | 116075 | 5 | 5 | 1 | 116072 | 116114 | 43 | 0.0 | 2.142e+05
+N07_c_000000004049 | Genome_022_000000000007 | 99.729 | 7751 | 20 | 1 | 92 | 7841 | 14062 | 6312 | 0.0 | 14196
+N07_c_000000004049 | Genome_022_000000000007 | 99.203 | 753 | 6 | 0 | 7824 | 8576 | 2534 | 1782 | 0.0 | 1358
+N07_c_000000000256 | Genome_122_000000000019 | 99.992 | 51584 | 4 | 0 | 13380 | 64963 | 51626 | 43 | 0.0 | 95236
+
+First of all, contig `N07_c_000000000095` (the one with the _nifB_ gene) indeed matches extremely well to contig 27 from `Genome_122`, as expected. Contig `N07_c_000000004049`, which contained a copy of the M00175 module, does _not_ match to anything in `Genome_122` at all (which explains why those three genes were missing from the MAG). Instead it matches to a contig from the MAG named `Genome_022_000000000007`, but the alignment length is rather small. However, contig `N07_c_000000000256`, which contained _nifE_ and _nifN_ in our assembly, matches to contig 19 of `Genome_122`! It is 64963 bp long, so here we have the same situation as contig 104 from sample N25 - it is a much longer sequence than contig 19, and the _nifE_ and _nifN_ genes must be on the part that does not match to contig 19. (Indeed, if you blast `N07_c_000000000256` against `N25_c_000000000104`, it will match to one end of that contig.)
+
+The long story short is that our _nif_ genes of interest were not binned into the `Genome_122` MAG, but we have plenty of evidence that they do belong to this population, considering that those genes were assembled together in other samples. Sadly, that means that `Genome_122` is incomplete, and it is missing the genes we care most about. But more on this later.
+
+### Deep ocean distribution
 
 The next thing to view is the distribution of this MAG in deeper samples (100m < depth <= 3800 m).
 
