@@ -482,11 +482,29 @@ The samples are color-coded in the same way as before. You should be able to see
 
 We've seen above that the `Genome_122` MAG appears to have some contamination, which is a normal thing to see in MAGs (particularly automatically-generated ones), because binning is hard. We've also seen that it does not contain the _nif_ genes that belong to this nitrogen-fixing population. But since we have time on our hands, a particular interest in just this one nitrogen-fixing population, and the knowledge of which _nif_ gene-containing contigs belong to this population, we can make a better MAG. It's time for some targeted binning. :)
 
-We know that our population of interest is present in samples N06, N07, N22, and N25. We could use any of these assemblies for binning, though N07 is not the best choice because the _nif_ genes are split across multiple contigs in that one. I once again made the completely arbitrary choice to use sample N25 for this. I ran a read recruitment workflow to map all 60 Cao _et al_ metagenomes against our assembly of N25 - our population of interest should only be present in the Arctic Ocean samples, but we will be able to use its absence from the Antarctic samples to help guide our binning.
+We know that our population of interest is present in samples N06, N07, N22, and N25. We could use any of these assemblies for binning, though N07 is not the best choice because the _nif_ genes are split across more contigs in that one. I once again made the completely arbitrary choice to use sample N25 for this. I ran a read recruitment workflow to map all 60 Cao _et al_ metagenomes against our assembly of N25 - our population of interest should only be present in the Arctic Ocean samples, but we will be able to use its absence from the Antarctic samples to help guide our binning.
 
 You'll find the contigs database for the N25 assembly and the profile database containing these mapping results in the datapack (in the `N25_DBS` folder). You can open them up in `anvi-interactive`:
 
 ```bash
 cd ../N25_DBS/
-anvi-interactive -c N25-contigs.db -p PROFILE.db --title "Cao et al Read Recruitment to N25"
+anvi-interactive -c N25-contigs.db -p PROFILE.db --title "Cao et al Read Recruitment to N25" --state-autoload binning
 ```
+
+The databases are rather large, and may take some time to load, but once they do you should see the following display:
+
+{% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/N25_mapping_results.png" width="100" %}
+
+The Arctic Ocean samples are green, and the four samples we expect to find our population in are the outermost, darker green layers so that we can more easily focus on those. The blue samples are the Antarctic ones.
+
+We will start our binning with the contig that contains the most _nif_ genes in N25, which is `000000000104`. You can search for this contig in the 'Search' tab of the 'Settings' panel, and add its splits to a bin.
+
+The contigs in this assembly are clustered according to their sequence composition and their differential coverage (across all Cao _et al_ samples), so the other contigs that belong to our nitrogen-fixing population should be located next to contig `000000000104` in the circular phylogram. These contigs should also appear in all four of our samples of interest (dark green), have zero coverage in the Antarctic samples (blue), and have similar GC content (the green layer below the Antarctic samples). If you zoom to the location of the splits you just binned, you should see a set of splits that fit this criteria.
+
+Did you find it? Here are the splits I am talking about, so you can check your work:
+
+{% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/MAG_binning.png" width="100" %}
+
+These were the splits that I binned (there are 168 of them). You can bin them yourself, or just load the collection called `Nif_MAG` to see the same bin on your own screen. The anvi'o estimates of completion and redundancy (based on bacterial single-copy core genes) for this bin are 100% and 0%, respectively, which is great news. Furthermore, if you check the box for real-time taxonomy estimation on the "Bins" tab, you will see that this bin is labeled as _Immundisolibacter cernigliae_, the same microbe that we kept getting BLAST hits to previously. So we've certainly binned the correct population, and it is a high-quality MAG at that.
+
+Bonus activity: Recall that there were 3 copies of the _NifB_ in sample N25, on three separate contigs. Which one belongs to this population?
