@@ -508,3 +508,82 @@ Did you find it? Here are the splits I am talking about, so you can check your w
 These were the splits that I binned (there are 168 of them). You can bin them yourself, or just load the collection called `Nif_MAG` to see the same bin on your own screen. The anvi'o estimates of completion and redundancy (based on bacterial single-copy core genes) for this bin are 100% and 0%, respectively, which is great news. Furthermore, if you check the box for real-time taxonomy estimation on the "Bins" tab, you will see that this bin is labeled as _Immundisolibacter cernigliae_, the same microbe that we kept getting BLAST hits to previously. So we've certainly binned the correct population, and it is a high-quality MAG at that.
 
 Bonus activity: Recall that there were 3 copies of the _NifB_ in sample N25, on three separate contigs. Which one belongs to this population?
+
+## Estimating metabolism for our new MAG
+
+Now that we have a complete MAG for our nitrogen-fixing population, let's see what else it can do. We are going to run metabolism estimation on this population.
+
+There are a couple of different ways we can go about this. Since the bin is saved as a collection, you can directly estimate its metabolism from the current set of databases for the entire N25 assembly, just like this:
+
+```bash
+anvi-estimate-metabolism -c N25-contigs.db -p PROFILE.db -C Nif_MAG -O Nif_MAG --kegg-output-modes kofam_hits,modules
+```
+
+You could also split this MAG into its own set of (smaller) contig/profile databases, and then run metabolism estimation in genome mode:
+
+```bash
+anvi-split -c N25-contigs.db -p PROFILE.db -C Nif_MAG -o Nif_MAG
+anvi-estimate-metabolism -c Nif_MAG/Nif_MAG/CONTIGS.db -O Nif_MAG --kegg-output-modes kofam_hits,modules
+```
+
+You can pick whichever path you like. I went with the latter option because I wanted a stand-alone database for the MAG so I could do other things with it, but the former is less work for you (and for your computer). Regardless of how you do it, you should end up with a `Nif_MAG_modules.txt` file containing the module completeness scores for this population, and a `Nif_MAG_kofam_hits.txt` file containing its KOfam hits.
+
+You are free to explore these results according to your interests, but one of my remaining questions about this population is whether it is a cyanobacteria or a heterotroph. Cyanobacteria have photosynthetic and carbon fixation capabilities, while heterotrophs have ABC transporters for carbohydrate uptake ([Cheung 2021](https://doi.org/10.1111/1462-2920.15604)). I looked for modules related to each of these things and checked their completeness scores.
+
+Here is my search code. I once again clipped the output so that it shows only relevant fields.
+```bash
+head -n 1 Nif_MAG_modules.txt | cut -f 3,4,7,9; \
+grep -i "carbon fixation" Nif_MAG_modules.txt | cut -f 3,4,7,9
+```
+
+kegg_module | module_name | module_subcategory | module_completeness
+:---|:---|:---|:---|
+M00165 | Reductive pentose phosphate cycle (Calvin cycle) | Carbon fixation | 0.8181818181818182
+M00166 | Reductive pentose phosphate cycle, ribulose-5P => glyceraldehyde-3P | Carbon fixation | 0.75
+M00167 | Reductive pentose phosphate cycle, glyceraldehyde-3P => ribulose-5P | Carbon fixation | 0.8571428571428571
+M00168 | CAM (Crassulacean acid metabolism), dark | Carbon fixation | 0.5
+M00173 | Reductive citrate cycle (Arnon-Buchanan cycle) | Carbon fixation | 0.8
+M00376 | 3-Hydroxypropionate bi-cycle | Carbon fixation | 0.4423076923076923
+M00375 | Hydroxypropionate-hydroxybutylate cycle | Carbon fixation | 0.14285714285714285
+M00374 | Dicarboxylate-hydroxybutyrate cycle | Carbon fixation | 0.38461538461538464
+M00377 | Reductive acetyl-CoA pathway (Wood-Ljungdahl pathway) | Carbon fixation | 0.2857142857142857
+M00579 | Phosphate acetyltransferase-acetate kinase pathway, acetyl-CoA => acetate | Carbon fixation | 0.5
+M00620 | Incomplete reductive citrate cycle, acetyl-CoA => oxoglutarate | Carbon fixation | 0.35714285714285715
+
+Several of the reductive pentose phosphate cycle pathways look near-complete. However, these results must be taken with a grain of salt because many of these pathways share a large number of their KOs with other pathways. We can confirm whether or not this is a cyanobacteria by looking for photosynthesis capabilities:
+
+```bash
+head -n 1 Nif_MAG_modules.txt | cut -f 3,4,7,9; \
+grep -i "photo" Nif_MAG_modules.txt | cut -f 3,4,7,9
+```
+
+kegg_module | module_name | module_subcategory | module_completeness
+:---|:---|:---|:---|
+M00532 | Photorespiration | Other carbohydrate metabolism | 0.475
+M00611 | Oxygenic photosynthesis in plants and cyanobacteria | Metabolic capacity | 0.4090909090909091
+M00612 | Anoxygenic photosynthesis in purple bacteria | Metabolic capacity | 0.4090909090909091
+M00613 | Anoxygenic photosynthesis in green nonsulfur bacteria | Metabolic capacity | 0.22115384615384615
+M00614 | Anoxygenic photosynthesis in green sulfur bacteria | Metabolic capacity | 0.4
+
+As you can see, none of these modules are complete (including the pathway specifically for cyanobacteria), so this doesn't appear to be a cyanobacterial population. A huge caveat here is that our MAG could simply be missing the genes relevant to this pathway (or, it has them, but they are not homologous enough to their corresponding KO families to be annotated). This is a possibility with any MAG. But if we choose to trust these estimations (given the high completeness score of our bin), the current evidence points to this population being heterotrophic.
+
+There is no module for carbohydrate transporters, since these are individual proteins rather than a metabolic pathway, but we can look for KOfam hits that are annotated as transporters instead.
+
+```bash
+head -n 1 Nif_MAG_kofam_hits.txt | cut -f 3-5,7; \
+grep -i 'transport' Nif_MAG_kofam_hits.txt | cut -f 3-5,7
+```
+
+There are plenty of hits, including several specifically for carbohydrates:
+
+ko | gene_caller_id | contig | ko_definition
+:---|:---|:---|:---|
+K16554 | 16040 | N25_000000000138 | polysaccharide biosynthesis transport protein
+K02027 | 21931 | N25_000000000271 | multiple sugar transport system substrate-binding protein
+K02026 | 21933 | N25_000000000271 | multiple sugar transport system permease protein
+K02025 | 21932 | N25_000000000271 | multiple sugar transport system permease protein
+K10237 | 21932 | N25_000000000271 | trehalose/maltose transport system permease protein
+K10236 | 21931 | N25_000000000271 | trehalose/maltose transport system substrate-binding protein
+K10238 | 21933 | N25_000000000271 | trehalose/maltose transport system permease protein
+
+So it looks like this microbe is indeed a heterotroph, which would make it a heterotrophic bacterial diazotroph, or [HBD](https://www.biorxiv.org/content/10.1101/2021.03.24.436778v1).
