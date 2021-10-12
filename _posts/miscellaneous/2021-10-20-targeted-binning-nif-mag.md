@@ -102,7 +102,7 @@ So that means we effectively care about only _nifHDK_ in this module. But wait. 
 
 Just so you have a picture of what this should look like, here is a diagram of the _nif_ operon in the _Azotobacter vinelandii_ genome sequence, from [Dos Santos 2012](https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-13-162)).
 
-[TODO: insert Fig 1 from https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-13-162)]
+{% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/Dos_Santos_Fig1.png" width="100" %}
 
 The catalytic genes - all the ones from module M00175 - are located next to each other on the bacterial chromosome. The other required biosynthetic genes are located farther along, with _nifE_ and _nifN_ expressed under the same promoter and _nifB_ isolated from the rest of the genes and expressed under its own promoter.
 
