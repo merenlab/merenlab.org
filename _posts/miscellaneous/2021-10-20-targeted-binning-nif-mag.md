@@ -280,7 +280,7 @@ If you were to flip the order of the alignment (aligning the shorter contig from
 
 This means that at least three of our samples (N06, N22, and N25) have the same nitrogen-fixing microbial population in them. Therefore, if we do read-recruitment of the metagenomes against any one of these samples, we'll be able to use differential coverage to bin this population.
 
-If you are curious about where these samples are located geographically, here is the sampling map from Figure 1 of the Cao _et al_ paper, with our three samples highlighted and labeled in purple:
+If you are curious about where these samples are located geographically, here is the sampling map from Figure 1 of the [Cao _et al_ paper](https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-020-00826-9), with our three samples highlighted and labeled in purple:
 
 {% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/Cao_Fig_1_annotated.png" width="100" %}
 
