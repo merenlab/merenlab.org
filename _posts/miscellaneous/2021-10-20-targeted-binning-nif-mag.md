@@ -136,9 +136,9 @@ N07_modules.txt:31467 | c_000000000073 | 1.0 | K02586,K02591,K02588 | 14638,1463
 N22_modules.txt:44057 | c_000000000122 | 1.0 | K02586,K02591,K02588 | 16856,16857,16855
 N25_modules.txt:11798 | c_000000000104 | 1.0 | K02586,K02591,K02588 | 13919,13920,13918
 
-These are promising results! The complete M00175 module was found in 4 different Arctic Ocean samples (there are two different instances in sample N07).
+These are promising results! The complete M00175 module was found in 4 different Arctic Ocean samples (there are two instances in sample N07).
 
-I encourage you to look through the other instances of this module in the output files. If you do this, you will see that some metagenomes appear to have all three of these genes split across multiple contigs (could they be contigs from the same genome?). For instance, here is a pair of contigs from sample N22:
+I encourage you to look through the other, less complete instances of this module in the output files. If you do this, you will see that some metagenomes appear to have all 3 of these genes split across multiple contigs (could they be contigs from the same genome?). For instance, here is a pair of contigs from sample N22:
 
 N22-contigs_modules.txt:35879 | c_000000000861 | 0.3333333333333333 | K02588 | 43430
 N22-contigs_modules.txt:49457 | c_000000003717 | 0.6666666666666666 | K02591,K02586 | 84130,84129
@@ -151,7 +151,7 @@ Of course, as we discussed earlier, there are 3 other genes that we need to find
 
 ### Using kofam_hits mode output to find the other _nif_ genes
 
-We will focus on the five samples that contain _nifHDK_, which are N06, N07, N22, N25, and N38. Let's look at their `kofam_hits` output files one at a time, starting with sample N06.
+We will focus on the 5 samples that contain _nifHDK_, which are N06, N07, N22, N25, and N38. Let's look at their `kofam_hits` output files one at a time, starting with sample N06.
 
 ```
 # print the header line, then run a search loop
@@ -161,7 +161,7 @@ do \
   grep $k N06_kofam_hits.txt; \
 done
 ```
-The loop above searches for the KO of each of _nifENB_ in this file. When you run it, you should see output that looks like this:
+The loop above searches for each KO of _nifENB_ in this file. When you run it, you should see output that looks like this:
 
 unique_id | contig_name | ko | gene_caller_id | modules_with_ko | ko_definition
 |:---|:---|:---|:---|:---|:---|
@@ -219,7 +219,7 @@ First, let's look at contig `c_000000000415` from sample N06, which had 5/6 of t
 
 {% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/N06_BLAST_results.png" width="100" %}
 
-There aren't any good hits here. The best one covers only 55% of the contig sequence (though it does so with a decently-high percent identity). If we look at the graphical alignments, you will see that the alignment is sporadic.
+There aren't any good hits here. The best one covers only 55% of the contig sequence (though it does so with a decently-high percent identity). If we look at the graphic summary, you will see that the alignment is sporadic.
 
 {% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/N06_BLAST_graphic_summary.png" width="100" %}
 
@@ -266,7 +266,7 @@ To verify their similarity, let's align the contig sequences to each other.
 
 The BLAST results for the contigs from N22 and N25 were so similar that we don't really need to align these two sequences, but the contig from N06 was somewhat different, with only 55% query coverage to the _I. cernigliae_ genome. Let's align `c_000000000415` from N06 and `c_000000000104` from N25 to see whether they are similar enough to belong to the same population genome.
 
-I again used the BLAST web service for this, just so I could show you the nice graphical alignment, but feel free to use whatever local sequence alignment program you want. If you _are_ using the online `blastn` suite, however, you should check the box that says 'Align two or more sequences' on the input form so that it will do this instead of aligning your sequences to the NCBI database.
+I again used the BLAST web service for this, just so I could show you the nice graphical alignment, but feel free to use whatever local sequence alignment program you want. If you _are_ using the online `blastn` suite, however, you should check the box that says 'Align two or more sequences' on the input form so that it will do this instead of searching for your sequences in the NCBI database.
 
 Here is the BLAST hit that I got when I aligned `N25_c_000000000104` (the longer contig) to `N06_c_000000000415`.
 
