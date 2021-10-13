@@ -301,11 +301,14 @@ However, Tom (FIXME: was it Tom?) found that it was most similar (with 95% ident
 We're going to check how similar our population is to this "Ca. M. diazotrophica" genome by aligning the `N25_c_000000000104` contig against it.
 
 ```bash
+# go to proper directory (from METABOLISM_ESTIMATION_TXT folder)
+cd ../FASTA
+
 # download the genome
 wget http://enve-omics.ce.gatech.edu/data/public_macondimonas/Macon_spades_assembly.fasta.gz
 gunzip Macon_spades_assembly.fasta.gz
 
-# extract N25_c_000000000104 sequence into its own file (if you haven't done this already)
+# extract N25_c_000000000104 sequence into its own file
 grep -A 1 "N25_c_000000000104" contigs_of_interest.fa > N25-c_000000000104.fa
 
 # make a blast database for the genome
