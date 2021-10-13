@@ -205,7 +205,7 @@ At this point, we can be fairly confident that there are nitrogen-fixing populat
 
 Since we are working with individual contigs and not full genomes right now, a good strategy to figure out what these populations could be is to use [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome) to see if there is anything similar to these contigs in the NCBI database.
 
-I extracted the relevant contig sequences from these 4 metagenome assemblies for you. You will find them in the `contigs_of_interest.fa` file in the datapack. Each contig name is prefixed by the name of the sample it came from, as in `N06_c_000000000415`.
+I extracted the relevant contig sequences from these 4 metagenome assemblies for you. You will find them in the `FASTA/contigs_of_interest.fa` file in the datapack. Each contig name is prefixed by the name of the sample it came from, as in `N06_c_000000000415`.
 
 You do not have to BLAST every sequence that is in that file (unless you want to). I recommend at least looking at the contig that contains the most _nif_ genes in each metagenome, namely: `N06_c_000000000415`, `N07_c_000000000073`, `N22_c_000000000122`, and `N25_c_000000000104`
 
