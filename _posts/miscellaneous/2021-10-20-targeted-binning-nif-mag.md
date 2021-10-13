@@ -70,8 +70,10 @@ What this loop does is read each line of the `metagenomes.txt` file, except for 
 
 It _is_ possible to run `anvi-estimate-metabolism` on more than one contigs database at a time, using multi-mode, which you can read about on the %{anvi-estimate-metabolism}s help page. However, I did not do this here because I wanted the output for each sample to be printed to a separate output file, for purely organizational purposes.
 
-You can download the resulting output files from [FIXME FIGSHARE LINK](FIXME FIGSHARE LINK). Once you do that, you will notice that there are 32 text files, two for each metagenome assembly. Let's take a look at the first few lines of the `modules` file for sample N02:
+You can download the resulting output files from [FIXME FIGSHARE LINK](FIXME FIGSHARE LINK). Once you do that, you will notice that there are 32 text files, two for each metagenome assembly, in the `METABOLISM_ESTIMATION_TXT` folder. Let's take a look at the first few lines of the `modules` file for sample N02:
+
 ```bash
+cd METABOLISM_ESTIMATION_TXT/
 head -n 4 N02_modules.txt
 ```
 
