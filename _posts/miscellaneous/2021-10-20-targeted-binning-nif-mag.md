@@ -46,7 +46,7 @@ To start, we need metagenome assemblies of the Arctic Ocean samples from Cao _et
 We won't look at all 60 samples from the Cao _et al_ paper, only 16 of their surface Arctic Ocean samples (taken from a depth of 0 m).
 
 {:.notice}
-You do not need the metagenome assemblies to follow the rest of this blog post, but you would like to have access to the 16 assemblies I am talking about, you can download their contigs databases [here](FIXME FIGSHARE LINK). But be warned - they will take up 6.5 GB of space on your computer.
+You do not need the metagenome assemblies to follow the rest of this blog post, but you would like to have access to the 16 assemblies I am talking about, you can download their contigs databases [FIXME FIGSHARE LINK](FIXME FIGSHARE LINK). But be warned - they will take up 6.5 GB of space on your computer.
 
 {:.warning}
 When we downloaded these samples, we assigned different (shorter) names to them, so the sample names I will discuss below are different from the ones in the Cao _et al_ paper. If you want to know the correspondence between our sample names and those in the paper, check out the `sample_metadata.txt` file in the datapack. You will find their sample names in the `sample_name_cao_et_al` column.
