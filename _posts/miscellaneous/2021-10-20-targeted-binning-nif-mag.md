@@ -62,6 +62,7 @@ do \
     --kegg-output-modes modules,kofam_hits; \
 done < <(tail -n+2 metagenomes.txt)
 ```
+
 {:.notice}
 If you are determined to run this loop yourself, it is probably only possible on a high-performance computing cluster, in which case you will almost certainly have to modify the command to give each `anvi-estimate-metabolism` job more memory.
 
