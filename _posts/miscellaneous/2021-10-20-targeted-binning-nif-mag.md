@@ -337,7 +337,7 @@ c_000000000104 | NODE_20_length_33832_cov_39.6157 | 82.974 | 417 | 51 | 12 | 728
 
 While their _nifH_ genes may be very similar, this is certainly not the same population as the one we found.
 
-There is one more set of genes that we should check. In July 2021, [Karlusich et al](https://www.nature.com/articles/s41467-021-24299-y) published a paper containing, among other things, a set of 10 novel _nifH_ genes. You will find these genes in the datapack, in the file `Karlusich_novel_nifH.fa`. Make a blast database out of the contig from N25 (which you extracted above), and align these _nifH_ genes against that database.
+There is one more set of genes that we should check. In July 2021, [Karlusich et al](https://www.nature.com/articles/s41467-021-24299-y) published a paper containing, among other things, a set of 10 novel _nifH_ genes. You will find these genes in the datapack, in the file `FASTA/Karlusich_novel_nifH.fa`. Make a blast database out of the contig from N25 (which you extracted above), and align these _nifH_ genes against that database.
 
 ```bash
 makeblastdb -in N25-c_000000000104.fa -dbtype nucl -title N25-c_000000000104 -out N25-c_000000000104
@@ -359,13 +359,21 @@ At this point, we've verified (to the best of our current knowledge), that we've
 We're going to find out which one of those MAGs represents the nitrogen-fixing population that we have identified in samples N06, N22, and N25. First, download their MAG set, which is hosted on [FigShare](https://figshare.com/s/fd5f60b5da7a63aaa74b). You'll need to unzip the folder, and probably re-name it something sensible (I called the folder `Cao_et_al_MAGs`, and you'll see it referred to this way in the code snippets below).
 
 {:.notice}
-If you don't want to download all of these MAGs, you can still run an alignment against them using the BLAST database that is in the datapack.
+If you don't want to download all of these MAGs, you can still run an alignment against them using the BLAST database that is in the datapack. You'll find those files in the `CAO_BLAST_DB/` folder (and will either need to move them or change the path to them in the code snippets below).
 
 Each MAG is in a FASTA file that is named according to the MAG number. We will run BLAST against all of these MAGs at the same time, so each MAG's contig sequences need to have the corresponding MAG number in the contig name. That way we will be able to determine which MAG each BLAST hit belongs to. %{anvi-script-reformat-fasta}s is the perfect tool for this job.
 
 The following loop learns the MAG number from its FASTA file name and runs `anvi-script-reformat-fasta`, which will simplify the contig names and make sure each one is prefixed with the MAG number. The reformatted FASTA files will end in `*reformat.fa` and the text file matching the original contig name to its new one will end in `*reformat_report.txt`.
 
 ```bash
+# navigate out of the FASTA/ folder
+cd ..
+
+# download Cao et al MAG set
+wget https://figshare.com/ndownloader/articles/10302425?private_link=fd5f60b5da7a63aaa74b
+unzip 10302425\?private_link\=fd5f60b5da7a63aaa74b -d Cao_et_al_MAGs
+rm 10302425\?private_link\=fd5f60b5da7a63aaa74b
+
 # reformat contig names to contain MAG number
 for g in Cao_et_al_MAGs/*.fasta; do \
   mag=$(basename $g | sed 's/.fasta//g'); \
