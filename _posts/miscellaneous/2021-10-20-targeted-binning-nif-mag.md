@@ -288,9 +288,9 @@ Clearly, this microbial population is widespread in the Arctic Ocean since is fo
 
 ### Comparison of _nifH_ genes
 
-We've found a nitrogen-fixing population that appears to be novel, based on its lack of good matches in NCBI. But NCBI is by no means the only source of publicly-available genomic data, so this perhaps does not mean as much as we want it to. To further verify the novelty of this population (while keeping the workload reasonably easy for us), we're going to check its alignment against known _nifH_ genes.
+We've found a nitrogen-fixing population that appears to be novel, based on its lack of good matches in NCBI. But NCBI is by no means the only source of publicly-available genomic data, so this perhaps does not mean as much as we want it to. To further verify the novelty of this population (while keeping the workload reasonably easy for us), we're going to check its _nifH_ alignment against other known _nifH_ genes.
 
-When I was doing this analysis, I got a great deal of help from [Dr. Tom Delmont](http://twitter.com/tomodelmont) from [Genoscope](https://www.genoscope.cns.fr/), an expert on marine diazotrophs and veritable collector of _nifH_ sequences. He kindly took the _nifH_ gene from contig `N25_c_000000000104` and placed it on a phylogeny of known _nifH_ sequences from all around the world (most of them, as you may tell from the phylogeny, come from the TARA Oceans dataset):
+When I was doing this analysis, I got a great deal of help from [Dr. Tom Delmont](http://twitter.com/tomodelmont) from [Genoscope](https://www.genoscope.cns.fr/), an expert on marine diazotrophs and veritable collector of _nifH_ sequences (as well as other ocean datasets). He kindly took the _nifH_ gene from contig `N25_c_000000000104` and placed it on a phylogeny of known _nifH_ sequences from all around the world (most of them, as you may tell from the phylogeny, come from the [TARA Oceans](https://www.science.org/doi/10.1126/science.1261359) dataset):
 
 {% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/nifH_phylogeny.png" width="100" %}
 
