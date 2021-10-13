@@ -610,6 +610,6 @@ So it looks like this microbe is indeed a heterotroph, which would make it a het
 
 ## Final Words
 
-So there you have it - a novel, heterotrophic nitrogen-fixing population from the Arctic Ocean, binned directly from public metagenomes with a bit of guidance from `anvi-estimate-metabolism`. We went fishing, and we caught something interesting. And we got to make use of an awesome public dataset, to boot. :)
+So there you have it - a novel, heterotrophic nitrogen-fixing population from the Arctic Ocean, binned directly from public metagenomes with a bit of guidance from `anvi-estimate-metabolism`. We went fishing, and we caught something interesting. And we got to make use of an awesome public dataset to boot. :)
 
 If you ever have to look for a microbe of interest in metagenomic data, and you know it has something unique in terms of its metabolic capabilities, you can try out this technique in your search. Perhaps you'll get lucky, too!
