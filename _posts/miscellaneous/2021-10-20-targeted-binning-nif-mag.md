@@ -51,7 +51,7 @@ You do not need the metagenome assemblies to follow the rest of this blog post, 
 {:.warning}
 When we downloaded these samples, we assigned different (shorter) names to them, so the sample names I will discuss below are different from the ones in the Cao _et al_ paper. If you want to know the correspondence between our sample names and those in the paper, check out the `cao_sample_metadata.txt` file in the datapack. You will find their sample names in the `sample_name_cao_et_al` column.
 
-The first thing that I did with those 16 assemblies was run %{ include PROGRAM name="anvi-estimate-metabolism" %} in metagenome mode. I will show you the commands that I used to do this, but I won't ask you to do it yourself, because it takes quite a long time (and currently requires an obscene amount of memory, for which I deeply apologize). I created a %{ include ARTIFACT name="metagenomes" %} file called `metagenomes.txt` which contains the names and %{ include ARTIFACT name="contigs-db" text=contigs database %} paths of each sample, and I wrote a bash loop to estimate metabolism individually on each sample:
+The first thing that I did with those 16 assemblies was run %{ include PROGRAM name="anvi-estimate-metabolism" %} in metagenome mode. I will show you the commands that I used to do this, but I won't ask you to do it yourself, because it takes quite a long time (and currently requires an obscene amount of memory, for which I deeply apologize). I created a %{ include ARTIFACT name="metagenomes" %} file called `metagenomes.txt` which contains the names and %{ include ARTIFACT name="contigs-db" text="contigs database" %} paths of each sample, and I wrote a bash loop to estimate metabolism individually on each sample:
 
 ```bash
 while read name path; \
