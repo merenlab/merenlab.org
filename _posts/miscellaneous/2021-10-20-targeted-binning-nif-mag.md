@@ -398,17 +398,17 @@ cat CAO_MAGS_REFORMATTED/*.fa > all_Cao_MAGs.fa
 makeblastdb -in all_Cao_MAGs.fa -dbtype nucl -title all_Cao_MAGs -out all_Cao_MAGs
 ```
 
-Since we know that contigs `N06_c_000000000415`, `N22_c_000000000122`, and `N25_c_000000000104` are all similar, we only need to BLAST one of them against this database. I chose `N25_c_000000000104` arbitrarily, but feel free to try one of the other if you'd like.
+Since we know that contigs `N06_c_000000000415`, `N22_c_000000000122`, and `N25_c_000000000104` are all similar, we only need to BLAST one of them against this database. I chose `N25_c_000000000104` arbitrarily, but feel free to try one of the others if you'd like.
 
 ```bash
-# extract N25_c_000000000104 sequence into its own file (if you haven't done this already)
-grep -A 1 "N25_c_000000000104" contigs_of_interest.fa > N25-c_000000000104.fa
+# extract sequence into its own file (if you haven't done this already)
+grep -A 1 "N25_c_000000000104" FASTA/contigs_of_interest.fa > FASTA/N25-c_000000000104.fa
 
 # blast this contig against all Cao et al MAGs
     # standard output format
-blastn -db all_Cao_MAGs -query N25-c_000000000104.fa -evalue 1e-10 -out c_000000000104-all_Cao_MAGs-0.txt
+blastn -db all_Cao_MAGs -query FASTA/N25-c_000000000104.fa -evalue 1e-10 -out c_000000000104-all_Cao_MAGs-0.txt
     # tabular output format
-blastn -db all_Cao_MAGs -query N25-c_000000000104.fa -evalue 1e-10 -outfmt 6 -out c_000000000104-all_Cao_MAGs-6.txt
+blastn -db all_Cao_MAGs -query FASTA/N25-c_000000000104.fa -evalue 1e-10 -outfmt 6 -out c_000000000104-all_Cao_MAGs-6.txt
 ```
 
 If you look at the tabular output file, you will see that there is really only one good match for contig `N25_c_000000000104`, and that is a hit against `Genome_122_000000000019` (or, contig 19 from `Genome_122`. The reformat report for this MAG indicates that contig 19 was originally named `k141_74885`. In case that matters to anyone.). It has almost 100% identity over nearly the entire contig (you can see the alignment in the standard output file, if you are curious about that).
