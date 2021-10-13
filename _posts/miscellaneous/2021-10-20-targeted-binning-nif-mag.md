@@ -114,7 +114,7 @@ Without further ado, let's take a look at the data.
 
 Though M00175 only contains the catalytic portion of our required _nif_ gene set, it is a good starting point for our search. If we look for this module in our metabolism estimation results, we can find out which contig(s) it is located on and use that to guide our search for the remaining genes.
 
-### Using `modules` mode output to find M00175
+### Using modules mode output to find M00175
 
 You can use the following `bash` code to search for lines describing M00175 in all metabolism estimation `modules` mode outputs. The code filters the output so that it contains only those lines which have a score of 1.0 in the `module_completeness` column, meaning that all 3 _nifHDK_ genes are located on the same contig. It further filters the output to contain only the columns describing 1) the file name and line of file where M00175 was found, 2) the contig name, 9) the completeness score, 11) the list of KO hits that we found from this module, and 12) the corresponding gene caller IDs of these hits.
 
@@ -142,7 +142,7 @@ All in all, as you examine the estimation results for these 16 metagenomes, you 
 
 Of course, as we discussed earlier, there are 3 other genes that we need to find alongside _nifHDK_ in order to be sure that we have a microbial population capable of fixing nitrogen. KEGG may not have put these genes in M00175, but it does have a KOfam profile for each one of _nifENB_ - those KOs are K02587, K02592, and K02585. To search for these, we turn to our [`kofam_hits` mode](https://merenlab.org/software/anvio/help/main/artifacts/kegg-metabolism/#kofam-hits-mode) output files.
 
-### Using `kofam_hits` mode output to find the other _nif_ genes
+### Using kofam_hits mode output to find the other _nif_ genes
 
 We will focus on the five samples that contain _nifHDK_, which are N06, N07, N22, N25, and N38. Let's look at their `kofam_hits` output files one at a time, starting with sample N06.
 
@@ -255,7 +255,7 @@ There is a pattern emerging here. Three of the contigs that we've looked at thus
 
 To verify their similarity, let's align the contig sequences to each other.
 
-### Aligning `N06_c_000000000415` and `N25_c_000000000104`
+### Aligning N06_c_000000000415 and N25_c_000000000104
 
 The BLAST results for the contigs from N22 and N25 were so similar that we don't really need to align these two sequences, but the contig from N06 was somewhat different, with only 55% query coverage to the _I. cernigliae_ genome. Let's align `c_000000000415` from N06 and `c_000000000104` from N25 to see whether they are similar enough to belong to the same population genome.
 
@@ -397,7 +397,7 @@ If you look at the tabular output file, you will see that there is really only o
 
 It seems like `Genome_122` is the nitrogen-fixing MAG that we have been looking for. In fact, [supplementary table S5](https://static-content.springer.com/esm/art%3A10.1186%2Fs40168-020-00826-9/MediaObjects/40168_2020_826_MOESM6_ESM.xlsx) from the Cao _et al_ paper indicates that (according to GTDB-Tk) this MAG belongs to the _Immundisolibacter_ genus. Well, we have seen enough of the alignments to know that this taxonomy is probably _not_ correct, but it was the closest match on NCBI. This is enough to verify that we found the correct MAG.
 
-## Distribution of `Genome_122` in the global oceans
+## Distribution of Genome_122 in the global oceans
 
 Thus far, we've 1) identified a nitrogen-fixing population in the Arctic Ocean, 2) inferred its novelty from the lack of matches to NCBI and a vast collection of known _nifH_ genes, and 3) found its corresponding MAG in the Cao _et al_ data. Our next question is - where does this population occur across the world? Can it be found only in the Arctic, or is it a globally-distributed population (that for some reason has not yet been characterized in temperate oceans)? Is it limited to the surface ocean, or can it live in the deep?
 
