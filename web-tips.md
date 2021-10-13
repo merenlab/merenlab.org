@@ -57,19 +57,27 @@ An intersting quote.
 Never load your images directly, and always use this notation, which will enable lazy loading and will standardize all images:
 
 ``` html
+{% raw %}
 {% include IMAGE path="/path/to/image.png" width=50 %}
+{% endraw %}
 ```
 
 Here are some examples:
 
 ``` html
+{% raw %}
 {% include IMAGE path="https://merenlab.org/logo.png" %}
+{% endraw %}
 ```
 
 ``` html
+{% raw %}
 {% include IMAGE path="some_folder/store_c.gif" width=50 %}
+{% endraw %}
 ```
 
 ``` html
+{% raw %}
 {% include IMAGE path="/images/ref_bg.gif" title="Changing the background color of a layer" width=90 %}
+{% endraw %}
 ```
