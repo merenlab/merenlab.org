@@ -118,9 +118,7 @@ This is a [modules mode](https://merenlab.org/software/anvio/help/main/artifacts
 
 If right now you are thinking, "But wait... if we only focus on the genes within the same contig, many metabolic pathways will have completeness scores that are too low," then you are exactly correct. It is likely that most metabolic pathways from the same genome will be split across multiple contigs, and their components will therefore end up in different lines of this file. In the example above, contig `c_000000008738` contains 50% of the KOs required for the purine degradation module `M00546`, but perhaps the other KOs in the pathway (such as `K01477`) also belong to whatever microbial population this is, just on a different contig. Putting many contigs together to match up the different parts of the pathway, while making sure that you are not producing a chimeric population, is a task that would require careful binning.
 
-Luckily for us, the nitrogen fixation module from KEGG has a couple of helpful characteristics. First, it contains only 3 genes, and second, it is encoded in an operon, so those genes are located close together in any given genome sequence. These two things make it much more likely that the entire module will end up within a single contig in our metagenome assemblies, which means it will be relatively easier to find a complete nitrogen fixation module in our metabolism estimation output files.
-
-But before we dive into our search, let's quickly discuss what the nitrogen fixation operon, and its corresponding KEGG module, look like.
+Luckily for us, the nitrogen fixation module from KEGG (as described earlier in the post) has a couple of helpful characteristics. First, it contains only the 3 catalytic genes, and second, it is encoded in an operon, so those genes are located close together in any given genome sequence. These two things make it much more likely that the entire module will end up within a single contig in our metagenome assemblies, which means it will be relatively easier to find a complete nitrogen fixation module in our metabolism estimation output files.
 
 ## Looking for evidence of a nitrogen-fixing population
 
