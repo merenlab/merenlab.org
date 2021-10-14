@@ -316,10 +316,17 @@ gunzip Macon_spades_assembly.fasta.gz
 grep -A 1 "N25_c_000000000104" contigs_of_interest.fa > N25-c_000000000104.fa
 
 # make a blast database for the genome
-makeblastdb -in Macon_spades_assembly.fasta -dbtype nucl -title M_diazotrophica -out M_diazotrophica
+makeblastdb -in Macon_spades_assembly.fasta \
+            -dbtype nucl \
+            -title M_diazotrophica \
+            -out M_diazotrophica
 
 # run the alignment
-blastn -db M_diazotrophica -query N25-c_000000000104.fa -evalue 1e-10 -outfmt 6 -out c_000000000104-M_diazotrophica-6.txt
+blastn -db M_diazotrophica \
+       -query N25-c_000000000104.fa \
+       -evalue 1e-10 \
+       -outfmt 6 \
+       -out c_000000000104-M_diazotrophica-6.txt
 ```
 
 Looking at the `c_000000000104-M_diazotrophica-6.txt` file, you should see that the alignments are not very long (the contigs are far longer) and that the percent identities, while high, are not _that_ high.
@@ -344,8 +351,15 @@ While their _nifH_ genes may be very similar, this is certainly not the same pop
 There is one more set of genes that we should check. In July 2021, [Karlusich et al](https://www.nature.com/articles/s41467-021-24299-y) published a paper containing, among other things, a set of 10 novel _nifH_ genes. You will find these genes in the datapack, in the file `FASTA/Karlusich_novel_nifH.fa`. Make a blast database out of the contig from N25 (which you extracted above), and align these _nifH_ genes against that database.
 
 ```bash
-makeblastdb -in N25-c_000000000104.fa -dbtype nucl -title N25-c_000000000104 -out N25-c_000000000104
-blastn -db N25-c_000000000104 -query Karlusich_novel_nifH.fa -evalue 1e-10 -out novel_NifH-N25_c_000000000104-6.txt -outfmt 6
+makeblastdb -in N25-c_000000000104.fa \
+            -dbtype nucl \
+            -title N25-c_000000000104 \
+            -out N25-c_000000000104
+blastn -db N25-c_000000000104 \
+       -query Karlusich_novel_nifH.fa \
+       -evalue 1e-10 \
+       -outfmt 6 \
+       -out novel_NifH-N25_c_000000000104-6.txt
 ```
 
 There are only three hits in the resulting file, and their maximum percent identity is about 86%, so none of them originate from our Arctic Ocean diazotroph.
@@ -399,7 +413,10 @@ After that finishes, you can concatenate all of the MAG FASTAs into one big FAST
 cat CAO_MAGS_REFORMATTED/*.fa > all_Cao_MAGs.fa
 
 # make database for mapping against these contigs
-makeblastdb -in all_Cao_MAGs.fa -dbtype nucl -title all_Cao_MAGs -out all_Cao_MAGs
+makeblastdb -in all_Cao_MAGs.fa \
+            -dbtype nucl \
+            -title all_Cao_MAGs \
+            -out all_Cao_MAGs
 ```
 
 Since we know that contigs `N06_c_000000000415`, `N22_c_000000000122`, and `N25_c_000000000104` are all similar, we only need to BLAST one of them against this database. I chose `N25_c_000000000104` arbitrarily, but feel free to try one of the others if you'd like.
@@ -410,9 +427,16 @@ grep -A 1 "N25_c_000000000104" FASTA/contigs_of_interest.fa > FASTA/N25-c_000000
 
 # blast this contig against all Cao et al MAGs
     # standard output format
-blastn -db all_Cao_MAGs -query FASTA/N25-c_000000000104.fa -evalue 1e-10 -out c_000000000104-all_Cao_MAGs-0.txt
+blastn -db all_Cao_MAGs \
+       -query FASTA/N25-c_000000000104.fa \
+       -evalue 1e-10 \
+       -out c_000000000104-all_Cao_MAGs-0.txt
     # tabular output format
-blastn -db all_Cao_MAGs -query FASTA/N25-c_000000000104.fa -evalue 1e-10 -outfmt 6 -out c_000000000104-all_Cao_MAGs-6.txt
+blastn -db all_Cao_MAGs \
+       -query FASTA/N25-c_000000000104.fa \
+       -evalue 1e-10 \
+       -outfmt 6 \
+       -out c_000000000104-all_Cao_MAGs-6.txt
 ```
 
 If you look at the tabular output file, you will see that there is really only one good match for contig `N25_c_000000000104`, and that is a hit against `Genome_122_000000000019` (or, contig 19 from `Genome_122`. The reformat report for this MAG indicates that contig 19 was originally named `k141_74885`. In case that matters to anyone.). It has almost 100% identity over nearly the entire contig (you can see the alignment in the standard output file, if you are curious about that).
@@ -431,7 +455,9 @@ First, take a look at the distribution of this MAG in the surface ocean (which i
 
 ```bash
 cd GENOME_122_DBS/
-anvi-interactive -c Genome_122-contigs.db -p SURFACE/SURFACE_PROFILE.db --title "Genome_122 in Surface Ocean"
+anvi-interactive -c Genome_122-contigs.db \
+                 -p SURFACE/SURFACE_PROFILE.db \
+                 --title "Genome_122 in Surface Ocean"
 ```
 
 You should see something like the following:
@@ -471,7 +497,11 @@ do \
 done
 
 # align against the MAG set
-blastn -db all_Cao_MAGs -query FASTA/N07_second_set.fa -evalue 1e-10 -outfmt 6 -out N07_second_set-all_Cao_MAGs-6.txt
+blastn -db all_Cao_MAGs \
+       -query FASTA/N07_second_set.fa \
+       -evalue 1e-10 \
+       -outfmt 6 \
+       -out N07_second_set-all_Cao_MAGs-6.txt
 ```
 
 I'll paste the relevant hits from the output below. These are the best hits for each contig query (meaning that they have the highest percent identity, the longest alignment lengths, and the smallest e-value of all hits from that contig):
@@ -495,7 +525,9 @@ The next thing to view is the distribution of this MAG in deeper samples (100m <
 
 ```bash
 cd GENOME_122_DBS/
-anvi-interactive -c Genome_122-contigs.db -p DEEP/DEEP_PROFILE.db --title "Genome_122 in Deep Ocean"
+anvi-interactive -c Genome_122-contigs.db \
+                 -p DEEP/DEEP_PROFILE.db \
+                 --title "Genome_122 in Deep Ocean"
 ```
 
 The samples are color-coded in the same way as before. You should be able to see that this MAG _is_ present in deeper waters (even those as deep as 3800m), though it is still geographically limited to the Arctic Ocean. And once again, there are several splits that just don't seem to fit with the rest and most likely represent contamination.
@@ -512,7 +544,10 @@ You'll find the contigs database for the N25 assembly and the profile database c
 
 ```bash
 cd ../N25_DBS/
-anvi-interactive -c N25-contigs.db -p PROFILE.db --title "Cao et al Read Recruitment to N25" --state-autoload binning
+anvi-interactive -c N25-contigs.db \
+                 -p PROFILE.db \
+                 --title "Cao et al Read Recruitment to N25" \
+                 --state-autoload binning
 ```
 
 The databases are rather large, and may take some time to load, but once they do you should see the following display:
@@ -540,14 +575,23 @@ Now that we have a complete MAG for our nitrogen-fixing population, let's see wh
 There are a couple of different ways we can go about this. Since the bin is saved as a collection, you can directly estimate its metabolism from the current set of databases for the entire N25 assembly, just like this:
 
 ```bash
-anvi-estimate-metabolism -c N25-contigs.db -p PROFILE.db -C Nif_MAG -O Nif_MAG --kegg-output-modes kofam_hits,modules
+anvi-estimate-metabolism -c N25-contigs.db \
+                         -p PROFILE.db \
+                         -C Nif_MAG \
+                         -O Nif_MAG \
+                         --kegg-output-modes kofam_hits,modules
 ```
 
 You could also split this MAG into its own set of (smaller) contig/profile databases, and then run metabolism estimation in genome mode:
 
 ```bash
-anvi-split -c N25-contigs.db -p PROFILE.db -C Nif_MAG -o Nif_MAG
-anvi-estimate-metabolism -c Nif_MAG/Nif_MAG/CONTIGS.db -O Nif_MAG --kegg-output-modes kofam_hits,modules
+anvi-split -c N25-contigs.db \
+           -p PROFILE.db \
+           -C Nif_MAG \
+           -o Nif_MAG
+anvi-estimate-metabolism -c Nif_MAG/Nif_MAG/CONTIGS.db \
+                         -O Nif_MAG \
+                         --kegg-output-modes kofam_hits,modules
 ```
 
 You can pick whichever path you like. I went with the latter option because I wanted a stand-alone database for the MAG so I could do other things with it, but the former is less work for you (and for your computer). Regardless of how you do it, you should end up with a `Nif_MAG_modules.txt` file containing the module completeness scores for this population, and a `Nif_MAG_kofam_hits.txt` file containing its KOfam hits.
