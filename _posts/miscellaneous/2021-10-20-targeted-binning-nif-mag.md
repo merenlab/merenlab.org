@@ -302,7 +302,7 @@ When I was doing this analysis, I got a great deal of help from [Dr. Tom Delmont
 
 It was most closely related to _nifH_ genes from the north Atlantic Ocean, but on its own branch, indicating that there are no _nifH_ genes in Tom's collection that are exactly like it.
 
-However, Tom (FIXME: was it Tom?) found that it was most similar (with 95% identity) to the _nifH_ gene from the genome of "_Candidatus_ Macondimonas diazotrophica", a crude-oil degrader isolated from a beach contaminated by the Deepwater Horizon oil spill ([Karthikeyan 2019](https://www.nature.com/articles/s41396-019-0400-5)).
+However, Tom found that it was most similar (with 95% identity) to the _nifH_ gene from the genome of "_Candidatus_ Macondimonas diazotrophica", a crude-oil degrader isolated from a beach contaminated by the Deepwater Horizon oil spill ([Karthikeyan 2019](https://www.nature.com/articles/s41396-019-0400-5)).
 
 We're going to check how similar our population is to this "Ca. M. diazotrophica" genome by aligning the `N25_c_000000000104` contig against it.
 
