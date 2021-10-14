@@ -610,10 +610,10 @@ K10237 | 21932 | N25_000000000271 | trehalose/maltose transport system permease 
 K10236 | 21931 | N25_000000000271 | trehalose/maltose transport system substrate-binding protein
 K10238 | 21933 | N25_000000000271 | trehalose/maltose transport system permease protein
 
-So it looks like this microbe is indeed a heterotroph, which would make it a heterotrophic bacterial diazotroph, or [HBD](https://www.biorxiv.org/content/10.1101/2021.03.24.436778v1).
+So it looks like this microbe is indeed a heterotroph, which would make it a heterotrophic bacterial diazotroph, or HBD. It can join its temperate ocean relatives in Tom's [hard-earned collection](https://www.biorxiv.org/content/10.1101/2021.03.24.436778v1).
 
 ## Final Words
 
-So there you have it - a novel, heterotrophic nitrogen-fixing population from the Arctic Ocean, binned directly from public metagenomes with a bit of guidance from `anvi-estimate-metabolism`. We went fishing, and we caught something interesting. And we got to make use of an awesome public dataset to boot. :)
+So there you have it - a novel, heterotrophic nitrogen-fixing population from the Arctic Ocean, binned directly from public metagenomes with a bit of guidance from `anvi-estimate-metabolism`. We went fishing, and we caught something interesting. And it wasn't all that hard. :)
 
-If you ever have to look for a microbe of interest in metagenomic data, and you know it has something unique in terms of its metabolic capabilities, you can try out this technique in your search. Perhaps you'll get lucky, too!
+If you ever have to look for a microbe of interest in metagenomic data, and you know it has something unique in terms of its metabolic capabilities, you can try out this technique in your search. Perhaps you'll find what you are looking for!
