@@ -447,6 +447,8 @@ If you look at the tabular output file, you will see that there is really only o
 
 It seems like `Genome_122` is the nitrogen-fixing MAG that we have been looking for. In fact, [supplementary table S5](https://static-content.springer.com/esm/art%3A10.1186%2Fs40168-020-00826-9/MediaObjects/40168_2020_826_MOESM6_ESM.xlsx) from the Cao _et al_ paper indicates that (according to GTDB-Tk) this MAG belongs to the _Immundisolibacter_ genus. Well, we have seen enough of the alignments to know that this taxonomy is probably _not_ correct, but it was the closest match on NCBI. This is enough to verify that we found the correct MAG.
 
+So a MAG of our population of interest has already been binned, which means we _might_ not have to bin it ourselves. But this MAG was binned automatically without any manual refinement, which as we know can [be problematic](https://merenlab.org/2020/01/02/visualizing-metagenomic-bins/). Is this MAG complete? Is it chimeric? As we investigate it further in the next section, keep these questions in mind (though I'm sure you already can predict the answers, considering that we _are_ going to bin this population ourselves before the end of this blog post).
+
 ## Distribution of Genome_122 in the global oceans
 
 Thus far, we've 1) identified a nitrogen-fixing population in the Arctic Ocean, 2) inferred its novelty from its lack of matches to NCBI and a collection of known _nifH_ genes, and 3) found its corresponding MAG in the Cao _et al_ data. Our next question is - where does this population occur across the world? Can it be found only in the Arctic, or is it a globally-distributed population (that for some reason has not yet been characterized in temperate oceans)? Is it limited to the surface ocean, or can it live in the deep?
