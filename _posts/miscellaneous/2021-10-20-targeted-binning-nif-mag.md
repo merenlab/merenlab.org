@@ -11,6 +11,16 @@ redirect_from:
   - /targeted-binning-nif-mag/
 ---
 
+In this blog post, I will demonstrate how to use {% include PROGRAM name="anvi-estimate-metabolism" %} to find and bin a novel, nitrogen-fixing population from a set of publicly-available Arctic Ocean metagenomes. Of course, nitrogen fixation is just an example here, and the same technique can be applied to survey metagenomic datasets for microbial populations with other characteristic metabolic capabilities. So if you are interested in learning about how to leverage anvi'o's metabolism estimation capabilities to go fishing through your data, or if you just can't get enough of cool marine nitrogen fixation stories, keep on reading!
+
+{:.notice}
+This post also doubles as a reproducible workflow. Feel free to download the associated datapack at [FIXME INSERT DATAPACK LINK]() and follow along with the commands (Or, go your own way and explore the data yourself). The commands below were written for anvi'o `v7.1`. If you have a newer version of anvi'o and find a command that is not working - sorry. We don't always retroactively update these posts as anvi'o evolves. Please let us know and we'll see if we can help.  
+
+[TODO: change docs links to v7.1 instead of main]
+[TODO: migrate databases if necessary for v7.1]
+
+## Setting up our story
+
 Exciting things are happening right now in the world of marine microbiology. Our friend and colleague [Tom Delmont](http://twitter.com/tomodelmont) is publishing a [cool story about heterotrophic bacterial diazotrophs](https://www.biorxiv.org/content/10.1101/2021.03.24.436778v1), or HBDs (the paper is currently in press at _The ISME Journal_).
 
 For anyone who doesn't know, a diazotroph is a microbe that fixes nitrogen. Nitrogen fixation is a very important process that supports all forms of life on Earth by yanking nitrogen atoms from one of the most recalcitrant molecules on earth, N<sub>2</sub> gas, and putting them into biologically-usable molecules such as ammonia. It happens quite a lot in the global oceans, so to marine microbiologists, nitrogen-fixing microbes - that is, marine diazotrophs - are a Big Deal.
@@ -25,13 +35,7 @@ One might suggest that we could automatically bin all genomes from metagenomes, 
 
 This is precisely what {% include PROGRAM name="anvi-estimate-metabolism" %} enables you to do. Without having to implement a lot of _ad hoc_ steps, you can identify contigs in your metagenomes - prior to binning - that may belong to a specific population of interest that encodes a desired metabolic capacity. {% include PROGRAM name="anvi-estimate-metabolism" %} is a program that predicts the metabolic capabilities of microbes from genomic or metagenomic data. It combines functional annotations from the [KOfam database](https://academic.oup.com/bioinformatics/article/36/7/2251/5631907) with [KEGG definitions of metabolic pathways](https://www.genome.jp/kegg/module.html) to estimate completeness of these pathways and produce {% include ARTIFACT name="kegg-metabolism" text="easily-parsable output" %}. If you are interested in finding a microbe that has a particular metabolic capability, it is much easier to find it using this output rather than parsing through annotations for individual genes.
 
-In this blog post, I will demonstrate how to use `anvi-estimate-metabolism` to find and bin a novel, nitrogen-fixing population from a set of publicly-available Arctic Ocean metagenomes. So if you are interested in learning about how to leverage anvi'o's metabolism estimation capabilities to go fishing through your data, or if you just can't get enough of cool marine nitrogen fixation stories, keep on reading!
-
-{:.notice}
-This post also doubles as a reproducible workflow. Feel free to download the associated datapack at [FIXME INSERT DATAPACK LINK]() and follow along with the commands (Or, go your own way and explore the data yourself). The commands below were written for anvi'o `v7.1`. If you have a newer version of anvi'o and find a command that is not working - sorry. We don't always retroactively update these posts as anvi'o evolves. Please let us know and we'll see if we can help.  
-
-[TODO: change docs links to v7.1 instead of main]
-[TODO: migrate databases if necessary for v7.1]
+And that is exactly how we are going to do it today. As I mentioned at the beginning of this post, we'll be using `anvi-estimate-metabolism` to look for a previously-uncharacterized marine diazotroph in a set of Arctic Ocean metagenomes.
 
 ## A bit of background
 
