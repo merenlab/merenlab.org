@@ -383,7 +383,7 @@ We're going to find out which one of those MAGs represents the nitrogen-fixing p
 {:.notice}
 If you don't want to download all of these MAGs, you can still run an alignment against them using the BLAST database that is in the datapack. You'll find those files in the `CAO_BLAST_DB/` folder (and will either need to move them or change the path to them in the code snippets below).
 
-Each MAG is in a FASTA file that is named according to the MAG number. We will run BLAST against all of these MAGs at the same time, so each MAG's contig sequences need to have the corresponding MAG number in the contig name. That way we will be able to determine which MAG each BLAST hit belongs to. %{anvi-script-reformat-fasta}s is the perfect tool for this job.
+Each MAG is in a FASTA file that is named according to the MAG number. We will run BLAST against all of these MAGs at the same time, so each MAG's contig sequences need to have the corresponding MAG number in the contig name. That way we will be able to determine which MAG each BLAST hit belongs to. {% include PROGRAM name="anvi-script-reformat-fasta" %} is the perfect tool for this job.
 
 The following loop learns the MAG number from its FASTA file name and runs `anvi-script-reformat-fasta`, which will simplify the contig names and make sure each one is prefixed with the MAG number. The reformatted FASTA files will end in `*reformat.fa` and the text file matching the original contig name to its new one will end in `*reformat_report.txt`.
 
