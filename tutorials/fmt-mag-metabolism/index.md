@@ -34,3 +34,41 @@ This dataset includes anvi'o {% include ARTIFACT name="contigs-db" text="contigs
 The "high-fitness" MAGs were labeled that way because we hypothesized that something about these populations increased their fitness such that they were able to survive the stress of being transplanted into new gut environments and become long-term colonizers (in comparison to the "low-fitness" populations that were unable to survive for long in the recipients). In our study, we sought to learn what distinguishes these two groups from each other - what enables one group to survive while the other does not? What do the "high-fitness" populations have that the "low-fitness" ones don't (or vice versa)?
 
 One way to answer this question is to look at the metabolic potential, or genomically-encoded metabolic capabilities, of these MAGs.
+
+## Estimating metabolism for these MAGs
+
+The program {% include PROGRAM name="anvi-estimate-metabolism" %} computes the completeness of metabolic pathways in genomes, MAGs, or metagenomes by matching gene annotations from the [KOfam database](https://academic.oup.com/bioinformatics/article/36/7/2251/5631907) against [KEGG definitions of metabolic modules](https://www.genome.jp/kegg/module.html). You can run it on all 40 MAGs in this dataset at once by utilizing the {% include ARTIFACT name="external-genomes" text="external genomes file" %} provided in the datapack, as shown below:
+
+```bash
+anvi-estimate-metabolism -e external-genomes.txt -O FMT_MAG_metabolism
+```
+
+This will give you one [modules mode](https://merenlab.org/software/anvio/help/main/artifacts/kegg-metabolism/#modules-mode) output file called `FMT_MAG_metabolism_modules.txt`, which describes the completeness of each KEGG Module in each MAG.
+
+You could look through this file manually to see what metabolisms are encoded in these genomes, but it will be difficult to tell which pathways best distinguish between our two groups of MAGs. For that task, we need the help of a statistical test.
+
+## Finding enriched metabolic pathways
+
+Anvi'o has a program for computing enrichment of metabolic modules in different groups of genomes, and that program is {% include PROGRAM name="anvi-compute-metabolic-enrichment" %}. It will compute an enrichment score and a list of associated groups for each module that is present in at least one genome (modules are considered 'present' in a genome if they have a high enough completeness score in that genome).
+
+To run this program, you must provide it with the modules mode output file we generated in the last section, as well as a {% include ARTIFACT name="groups-txt" %} file that matches each genome to its group name. The latter file is provided in the datapack, so you don't need to generate it yourself. Here is the code to run the enrichment program:
+
+```bash
+anvi-compute-metabolic-enrichment -M FMT_MAG_metabolism_modules.txt -G MAG_groups.txt -o metabolic-enrichment.txt
+```
+
+The result will be a {% include ARTIFACT name="functional-enrichment-txt" %} file describing the name, enrichment score, associated groups, and other information about each metabolic module.
+
+Here are the first 10 lines of this file:
+
+KEGG_MODULE | enrichment_score | unadjusted_p_value | adjusted_q_value | associated_groups | accession | sample_ids | p_LOW_FITNESS | N_LOW_FITNESS | p_HIG_FITNESS | N_HIG_FITNESS
+:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
+Isoleucine biosynthesis, threonine => 2-oxobutanoate => isoleucine | 22.556406615904528 | 2.0406287012176094e-6 | 1.018150573124383e-5 | HIG_FITNESS | M00570 | KC_MAG_00002,KC_MAG_00007,KC_MAG_00022,KC_MAG_00051,KC_MAG_00055,KC_MAG_00061,KC_MAG_00062,KC_MAG_00080,KC_MAG_00101,KC_MAG_00110,KC_MAG_00120,KC_MAG_00126,KC_MAG_00137,KC_MAG_00143,KC_MAG_00145,KC_MAG_00147,KC_MAG_00151,KC_MAG_00155,KC_MAG_00161,KC_MAG_00176,KC_MAG_00178 | 0.15 | 20 | 0.9 | 20
+Valine/isoleucine biosynthesis, pyruvate => valine / 2-oxobutanoate => isoleucine | 22.556406615904528 | 2.0406287012176094e-6 | 1.018150573124383e-5 | HIG_FITNESS | M00019 | KC_MAG_00002,KC_MAG_00007,KC_MAG_00022,KC_MAG_00051,KC_MAG_00055,KC_MAG_00061,KC_MAG_00062,KC_MAG_00080,KC_MAG_00101,KC_MAG_00110,KC_MAG_00120,KC_MAG_00126,KC_MAG_00137,KC_MAG_00143,KC_MAG_00145,KC_MAG_00147,KC_MAG_00151,KC_MAG_00155,KC_MAG_00161,KC_MAG_00176,KC_MAG_00178 | 0.15 | 20 | 0.9 | 20
+Adenine ribonucleotide biosynthesis, IMP => ADP,ATP | 21.53846258298333 | 3.4680278204806215e-6 | 1.1535577282062716e-5 | HIG_FITNESS | M00049 | KC_MAG_00002,KC_MAG_00007,KC_MAG_00022,KC_MAG_00051,KC_MAG_00055,KC_MAG_00057,KC_MAG_00061,KC_MAG_00062,KC_MAG_00080,KC_MAG_00093,KC_MAG_00101,KC_MAG_00110,KC_MAG_00116,KC_MAG_00120,KC_MAG_00121,KC_MAG_00126,KC_MAG_00137,KC_MAG_00143,KC_MAG_00145,KC_MAG_00147,KC_MAG_00151,KC_MAG_00155,KC_MAG_00161,KC_MAG_00162,KC_MAG_00176,KC_MAG_00178 | 0.3 | 20 | 1 | 20
+Pentose phosphate pathway, non-oxidative phase, fructose 6P => ribose 5P | 20.416675803269 | 6.22846903390889e-6 | 1.5538150847280372e-5 | HIG_FITNESS | M00007 | KC_MAG_00002,KC_MAG_00007,KC_MAG_00017,KC_MAG_00022,KC_MAG_00051,KC_MAG_00055,KC_MAG_00061,KC_MAG_00062,KC_MAG_00080,KC_MAG_00101,KC_MAG_00110,KC_MAG_00116,KC_MAG_00120,KC_MAG_00121,KC_MAG_00126,KC_MAG_00137,KC_MAG_00143,KC_MAG_00145,KC_MAG_00147,KC_MAG_00151,KC_MAG_00155,KC_MAG_00161,KC_MAG_00162,KC_MAG_00178 | 0.25 | 20 | 0.95 | 20
+C5 isoprenoid biosynthesis, non-mevalonate pathway | 18.026729736369713 | 2.178249150838522e-5 | 3.6227162410137385e-5 | HIG_FITNESS | M00096 | KC_MAG_00002,KC_MAG_00007,KC_MAG_00017,KC_MAG_00022,KC_MAG_00051,KC_MAG_00055,KC_MAG_00057,KC_MAG_00061,KC_MAG_00062,KC_MAG_00080,KC_MAG_00101,KC_MAG_00110,KC_MAG_00116,KC_MAG_00121,KC_MAG_00126,KC_MAG_00137,KC_MAG_00143,KC_MAG_00145,KC_MAG_00147,KC_MAG_00151,KC_MAG_00155,KC_MAG_00161,KC_MAG_00162,KC_MAG_00176,KC_MAG_00178 | 0.3 | 20 | 0.95 | 20
+Inosine monophosphate biosynthesis, PRPP + glutamine => IMP | 18.026729736369713 | 2.178249150838522e-5 | 3.6227162410137385e-5 | HIG_FITNESS | M00048 | KC_MAG_00002,KC_MAG_00007,KC_MAG_00022,KC_MAG_00051,KC_MAG_00055,KC_MAG_00057,KC_MAG_00061,KC_MAG_00062,KC_MAG_00080,KC_MAG_00093,KC_MAG_00101,KC_MAG_00110,KC_MAG_00116,KC_MAG_00120,KC_MAG_00121,KC_MAG_00126,KC_MAG_00137,KC_MAG_00143,KC_MAG_00147,KC_MAG_00151,KC_MAG_00155,KC_MAG_00161,KC_MAG_00162,KC_MAG_00176,KC_MAG_00178 | 0.3 | 20 | 0.95 | 20
+F-type ATPase, prokaryotes and chloroplasts | 17.289003389888027 | 3.210393689132397e-5 | 4.5765505959647144e-5 | HIG_FITNESS | M00157 | KC_MAG_00007,KC_MAG_00017,KC_MAG_00022,KC_MAG_00051,KC_MAG_00055,KC_MAG_00057,KC_MAG_00061,KC_MAG_00062,KC_MAG_00080,KC_MAG_00093,KC_MAG_00110,KC_MAG_00116,KC_MAG_00120,KC_MAG_00126,KC_MAG_00137,KC_MAG_00143,KC_MAG_00145,KC_MAG_00147,KC_MAG_00151,KC_MAG_00155,KC_MAG_00161,KC_MAG_00176,KC_MAG_00178 | 0.25 | 20 | 0.9 | 20
+Coenzyme A biosynthesis, pantothenate => CoA | 15.824346512060853 | 6.950242168239118e-5 | 8.669378513988786e-5 | HIG_FITNESS | M00120 | KC_MAG_00002,KC_MAG_00007,KC_MAG_00017,KC_MAG_00022,KC_MAG_00051,KC_MAG_00055,KC_MAG_00057,KC_MAG_00061,KC_MAG_00062,KC_MAG_00080,KC_MAG_00093,KC_MAG_00101,KC_MAG_00110,KC_MAG_00116,KC_MAG_00120,KC_MAG_00121,KC_MAG_00126,KC_MAG_00137,KC_MAG_00143,KC_MAG_00145,KC_MAG_00147,KC_MAG_00151,KC_MAG_00155,KC_MAG_00161,KC_MAG_00162,KC_MAG_00178 | 0.35 | 20 | 0.95 | 20
+Guanine ribonucleotide biosynthesis IMP => GDP,GTP | 15.172414714793092 | 9.812648253560582e-5 | 1.0728293795381548e-4 | HIG_FITNESS | M00050 | KC_MAG_00002,KC_MAG_00007,KC_MAG_00017,KC_MAG_00022,KC_MAG_00051,KC_MAG_00055,KC_MAG_00057,KC_MAG_00061,KC_MAG_00062,KC_MAG_00080,KC_MAG_00093,KC_MAG_00101,KC_MAG_00110,KC_MAG_00116,KC_MAG_00120,KC_MAG_00121,KC_MAG_00122,KC_MAG_00126,KC_MAG_00137,KC_MAG_00143,KC_MAG_00145,KC_MAG_00147,KC_MAG_00151,KC_MAG_00155,KC_MAG_00157,KC_MAG_00161,KC_MAG_00162,KC_MAG_00176,KC_MAG_00178 | 0.45 | 20 | 1 | 20
