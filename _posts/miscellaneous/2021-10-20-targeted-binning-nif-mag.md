@@ -488,7 +488,7 @@ One of those splits is missing detection in samples N22 and N25 (where we know o
 
 ### A quick aside to look for _nif_ genes
 
-Recall that contig 19 from this MAG is the one most similar to the contig from sample N25 that we blasted earlier, which means it should be the contig containing most of the _nif_ genes we were looking for. Can you find this contig and/or the _nif_ genes (hint: use the 'Search' tab)?
+Recall that contig 19 from this MAG is the one most similar to the contig from sample N25 that we blasted earlier, which means it should be the contig containing most of the _nif_ genes we were looking for. Can you find this contig and/or the _nif_ genes? (hint: use the 'Search' tab)
 
 Well, I'm sure you found contig 19. But you couldn't find our _nif_ genes, could you? In fact, if you search for functions with "nitrogen fixation", you will find several annotated _nif_ genes but not the ones that we were looking for - except for _nifB_, which is not on contig 19 (as expected) but on contig 27. This is extremely curious. How could this happen? Previously, contig `N25_c_000000000104`, which contains 5 out of 6 of our _nif_ genes, matched with almost 100% identity against the entirety of contig 19 - so what is missing?
 
@@ -594,7 +594,7 @@ anvi-estimate-metabolism -c N25-contigs.db \
                          --kegg-output-modes kofam_hits,modules
 ```
 
-You could also split this MAG into its own set of (smaller) contig/profile databases, and then run metabolism estimation in genome mode:
+Or, you could split this MAG into its own set of (smaller) contig/profile databases, and then run metabolism estimation in genome mode:
 
 ```bash
 anvi-split -c N25-contigs.db \
