@@ -16,8 +16,6 @@ In this blog post, I will demonstrate how to use {% include PROGRAM name="anvi-e
 {:.notice}
 This post also doubles as a reproducible workflow. Feel free to download the associated datapack from [this link](https://figshare.com/ndownloader/files/31119277) and follow along with the commands (or, go your own way and explore the data yourself). The commands below were written for anvi'o `v7.1`. If you have a newer version of anvi'o and find a command that is not working - sorry. We don't always retroactively update these posts as anvi'o evolves. Please let us know and we'll see if we can help.  
 
-[TODO: change docs links to v7.1 instead of main]
-
 ## Setting up our story
 
 Exciting things are happening right now in the world of marine microbiology. Our friend and colleague [Tom Delmont](http://twitter.com/tomodelmont) is publishing a [cool story about heterotrophic bacterial diazotrophs](https://www.biorxiv.org/content/10.1101/2021.03.24.436778v1), or HBDs (the paper is currently in press at _The ISME Journal_).
