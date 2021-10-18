@@ -56,7 +56,7 @@ You might have noticed that I left [K00531](https://www.genome.jp/dbget-bin/www_
 
 So that means we effectively care about only _nifHDK_ in this module. But wait. While _nifHDK_ represent the catalytic components of the nitrogenase enzyme, it turns out that there are a few other genes required to produce an essential FeMo-cofactor and incorporate it into this complex. At minimum, the extra genes required are _nifE_ ([K02587](https://www.genome.jp/dbget-bin/www_bget?ko:K02587)), _nifN_([K02592](https://www.genome.jp/dbget-bin/www_bget?ko:K02592)), and _nifB_ ([K02585](https://www.genome.jp/dbget-bin/www_bget?ko:K02585)) ([Dos Santos 2012](https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-13-162)).
 
-Just so you have a picture of what this should look like, here is a diagram of the _nif_ operon in the _Azotobacter vinelandii_ genome sequence, from [Dos Santos 2012](https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-13-162)):
+Just so you have a picture of what this should look like, here is a diagram of the _nif_ operon in the _Azotobacter vinelandii_ genome sequence, from [Dos Santos 2012](https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-13-162):
 
 {% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/Dos_Santos_Fig1.png" width="100" %}
 
