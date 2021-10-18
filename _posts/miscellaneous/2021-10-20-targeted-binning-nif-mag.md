@@ -457,7 +457,7 @@ To answer this question, I mapped four different datasets of ocean metagenomes t
 
 ### Surface ocean distribution
 
-First, take a look at the distribution of this MAG in the surface ocean (which includes metagenomes sampled at depths 0-100m from these four datasets):
+First, open up the {% include PROGRAM name="anvi-interactive" text="anvi'o interactive interface" %} and take a look at the distribution of this MAG in the surface ocean (which includes metagenomes sampled at depths 0-100m from these four datasets):
 
 ```bash
 cd GENOME_122_DBS/
@@ -470,7 +470,7 @@ You should see something like the following:
 
 {% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/Genome_122_in_Surface_Ocean.png" width="100" %}
 
-The default view in the interface should show log-normalized detection of this MAG in all of the ocean metagenomes. Samples from Cao _et al_ have been marked in light blue to distinguish them from the rest. You can hover over the 'Source' layer to see which dataset each sample comes from, and the 'Location' layer to see which ocean region it was sampled from.
+The default view in the interface should show log-normalized detection of this MAG in all of the ocean metagenomes. Each concentric circle in the figure is one metagenome sample, and each spoke of the wheel is a contig from `GENOME_122`. Samples from Cao _et al_ have been marked in light blue to distinguish them from the rest. You can hover over the 'Source' layer to see which dataset each sample comes from, and the 'Location' layer to see which ocean region it was sampled from.
 
 There are a few things we can immediately see from the mapping results. First, it is clear that this population is geographically isolated, as it is detected only in the Arctic Ocean samples from the Cao _et al_ dataset. There are some Arctic Ocean samples from TARA2 (the darkest green in the 'Location' layer), but this population is not detected in these. Second, this MAG must have been binned from the Cao _et al_ assembly of sample N07, since that sample has the highest proportion of mapping reads. Though we didn't discuss it earlier, our nitrogen-fixing population is also present in sample N07 (which you may already have deduced if you took a look at the BLAST results for the second set of _nif_ contigs in N07).
 
