@@ -403,10 +403,11 @@ The loop in the following code learns the MAG number from its FASTA file name an
 cd ..
 
 # download Cao et al MAG set
+mkdir Cao_et_al_MAGs
+cd Cao_et_al_MAGs/
 wget https://figshare.com/ndownloader/articles/10302425?private_link=fd5f60b5da7a63aaa74b -O Cao_et_al_MAGs.zip
 unzip Cao_et_al_MAGs.zip
-mkdir Cao_et_al_MAGs
-mv Genome* Cao_et_al_MAGs/
+cd ..
 
 # reformat contig names to contain MAG number
 for g in Cao_et_al_MAGs/*.fasta; do \
