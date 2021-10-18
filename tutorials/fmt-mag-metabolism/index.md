@@ -24,7 +24,7 @@ You can download the [datapack](FIXME FIGSHARE LINK) for this tutorial by runnin
 FIXME DOWNLOAD CODE
 ```
 
-This dataset includes 40 MAGs of gut microbes, labeled as either "high-fitness" or "low-fitness" according to their [colonization ability](https://merenlab.org/data/fmt-gut-colonization/#defining-colonization-success-and-failure) and prevalence in healthy gut metagenomes (there are 20 MAGs in each group). You can learn the full details of how and why we got them by reading the [study](https://doi.org/10.1101/2021.03.02.433653), but for the purposes of this mini-tutorial, here is what you need to know about these MAGs:
+This dataset includes anvi'o {% include ARTIFACT name="contigs-db" text="contigs databases" %} for 40 MAGs of gut microbes, labeled as either "high-fitness" or "low-fitness" according to their [colonization ability](https://merenlab.org/data/fmt-gut-colonization/#defining-colonization-success-and-failure) and prevalence in healthy gut metagenomes (there are 20 MAGs in each group). You can learn the full details of how and why we got them by reading the [study](https://doi.org/10.1101/2021.03.02.433653), but for the purposes of this mini-tutorial, here is what you need to know about these MAGs:
 
 - they were binned from a co-assembly of **longitudinally-sampled gut metagenomes** taken from a **healthy adult who donated stool for fecal microbiota transplantation (FMT)**
 - the **high-fitness MAGs** represent microbial **populations that were able to colonize all FMT recipients** who received stool from this donor. They were detected (with sufficient abundance) in recipient gut metagenomes at least 7 days (and up to 1 year) post-FMT
