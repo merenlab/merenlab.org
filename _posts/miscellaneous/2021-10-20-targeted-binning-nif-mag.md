@@ -478,7 +478,7 @@ Finally, there are several splits in `Genome_122` that appear to be contaminatio
 
 {% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/Genome_122_Surface_contamination_1.png" width="100" %}
 
-One of those splits is missing detection in samples N22 and N25 (where we know our population exists). The other two are detected in a variety of samples from the other datasets as well as a different detection pattern across the other Cao _et al_ Arctic Ocean samples. There are also a couple more splits at the top of the circlular phylogram that seem problematic.
+One of those splits is missing detection in samples N22 and N25 (where we know our population exists) - this split is marked with an arrow in the figure above. The other two are detected in a variety of samples from the other datasets as well as a different detection pattern across the other Cao _et al_ Arctic Ocean samples. There are also a couple more splits at the top of the circlular phylogram that seem problematic.
 
 ### A quick aside to look for _nif_ genes
 
