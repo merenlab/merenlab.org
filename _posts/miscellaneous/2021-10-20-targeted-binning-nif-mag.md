@@ -14,7 +14,15 @@ redirect_from:
 In this blog post, I will demonstrate how to use {% include PROGRAM name="anvi-estimate-metabolism" %} to find and bin a novel, nitrogen-fixing population from a set of publicly-available Arctic Ocean metagenomes. Of course, nitrogen fixation is just an example here, and the same technique can be applied to survey metagenomic datasets for microbial populations with other characteristic metabolic capabilities. So if you are interested in learning about how to leverage anvi'o's metabolism estimation capabilities to go fishing through your data, or if you just can't get enough of cool marine nitrogen fixation stories, keep on reading!
 
 {:.notice}
-This post also doubles as a reproducible workflow. Feel free to download the associated datapack from [this link](https://figshare.com/ndownloader/files/31119277) and follow along with the commands (or, go your own way and explore the data yourself). The commands below were written for anvi'o `v7.1`. If you have a newer version of anvi'o and find a command that is not working - sorry. We don't always retroactively update these posts as anvi'o evolves. Please let us know and we'll see if we can help.  
+This post also doubles as a reproducible workflow. Feel free to download the associated datapack from [this link](https://figshare.com/ndownloader/files/31119277) (or in the bash command below) and follow along with the commands (or, go your own way and explore the data yourself). The commands below were written for anvi'o `v7.1`. If you have a newer version of anvi'o and find a command that is not working - sorry. We don't always retroactively update these posts as anvi'o evolves. Please let us know and we'll see if we can help.  
+
+```bash
+# Download tutorial datapack
+wget -O NIF_MAG_DATAPACK.tar.gz wget https://figshare.com/ndownloader/files/31119277
+
+# unzip and cd into working directory
+tar -xvf NIF_MAG_DATAPACK.tar.gz && cd NIF_MAG_DATAPACK
+```
 
 ## Setting up our story
 
