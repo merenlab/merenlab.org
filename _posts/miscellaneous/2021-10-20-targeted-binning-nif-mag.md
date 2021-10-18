@@ -130,7 +130,7 @@ Though M00175 only contains the catalytic portion of our required _nif_ gene set
 
 ### Using modules mode output to find M00175
 
-You can use the following `bash` code to search for lines describing M00175 in all metabolism estimation `modules` mode outputs. The code filters the output so that it contains only those lines which have a score of 1.0 in the `module_completeness` column, meaning that all 3 _nifHDK_ genes are located on the same contig in the assembly. It further filters the output to contain only the columns describing 1) the file name and line of file where M00175 was found, 2) the contig name, 9) the completeness score, 11) the list of KO hits that we found from this module, and 12) the corresponding gene caller IDs of these hits.
+You can use the following `bash` code to search for lines describing M00175 in all metabolism estimation `modules` mode outputs. The code filters the output so that it contains only those lines which have a score of 1.0 in the `module_completeness` column, meaning that all 3 _nifHDK_ genes are located on the same contig in the assembly. It further filters the output to contain only the columns describing 1) the file name and line number in the file where M00175 was found, 2) the contig name, 9) the completeness score, 11) the list of KO hits that we found from this module, and 12) the corresponding gene caller IDs of these hits.
 
 ```bash
 grep M00175 *_modules.txt | awk -F'\t' '$9 == 1.0' | cut -f 1,2,9,11,12
@@ -231,7 +231,7 @@ There aren't any good hits here. The best one covers only 55% of the contig sequ
 
 {% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/N06_BLAST_graphic_summary.png" width="100" %}
 
-Possibly, the top hit is matching only to the genes of this contig. According to [this paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5817195/), _Immundisolibacter cernigliae_ is a soil microbe, so we wouldn't really expect to find it in the ocean. Based on these results, it seems like this nitrogen-fixing population in N06 could be a novel microbe! At the very least, it is not similar to anything in this database. We are drawing this conclusion based on only one contig sequence from its genome, but even if the rest of its (yet unbinned) genome was similar to that of another microbe in the NCBI database, the fact that this population contains a contig with a near-complete set of _nif_ genes means that it is already substantially different from that hypothetical similar population.
+Possibly, the top hit is matching only to the genes of this contig. According to [this paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5817195/), _Immundisolibacter cernigliae_ is a soil microbe, so we wouldn't really expect to find it in the ocean. Based on these results, it seems like this nitrogen-fixing population in N06 could be a novel microbe! At the very least, it is not that similar to anything in this database. We are drawing this conclusion based on only one contig sequence from its genome, but even if the rest of its (yet unbinned) genome was similar to that of another microbe in the NCBI database, the fact that this population contains a contig with a near-complete set of _nif_ genes means that it is already substantially different from that hypothetical similar population.
 
 ### BLAST results for sample N07
 
@@ -376,7 +376,9 @@ ENA|MW590319|MW590319.1 | c_000000000104 | 85.802 | 324 | 46 | 0 | 1 | 324 | 470
 
 ## Identifying the associated Cao _et al_ MAG
 
-At this point, we've verified (to the best of our current knowledge), that we've identified an uncharacterized diazotrophic population in these Arctic Ocean metagenomes. Since this novel nitrogen-fixing population is present in multiple samples from the Cao _et al_ paper, it is extremely likely that the authors have already binned it in some form. Cao _et al_ did their binning iteratively by running first [MaxBin2](https://academic.oup.com/bioinformatics/article/32/4/605/1744462) and then [MetaBAT](https://peerj.com/articles/1165/) on the contigs of individual [MEGAHIT](https://academic.oup.com/bioinformatics/article/31/10/1674/177884) assemblies of these samples, and they got 214 MAGs out of this process.
+At this point, we've verified (to the best of our current knowledge), that we've identified an uncharacterized diazotrophic population in these Arctic Ocean metagenomes. Since this novel nitrogen-fixing population is present in multiple samples from the Cao _et al_ paper, it is extremely likely that the authors have already binned it in some form. So before we bin this population ourselves, we are going to see what else we can learn about it from their data.
+
+Cao _et al_ did their binning iteratively by running first [MaxBin2](https://academic.oup.com/bioinformatics/article/32/4/605/1744462) and then [MetaBAT](https://peerj.com/articles/1165/) on the contigs of individual [MEGAHIT](https://academic.oup.com/bioinformatics/article/31/10/1674/177884) assemblies of these samples, and they got 214 MAGs out of this process.
 
 We're going to find out which one of those MAGs represents the nitrogen-fixing population that we have identified in samples N06, N22, and N25. First, download their MAG set, which is hosted on [FigShare](https://figshare.com/s/fd5f60b5da7a63aaa74b). You'll need to unzip the folder, and probably re-name it something sensible (I called the folder `Cao_et_al_MAGs`, and you'll see it referred to this way in the code snippets below).
 
