@@ -59,7 +59,7 @@ anvi-compute-metabolic-enrichment -M FMT_MAG_metabolism_modules.txt -G MAG_group
 
 The result will be a {% include ARTIFACT name="functional-enrichment-txt" %} file describing the name, enrichment score, associated groups, and other information about each metabolic module.
 
-Here are the first 10 lines of this file:
+Here are the first 10 lines of this file (scroll to the right to see more columns):
 
 KEGG_MODULE | enrichment_score | unadjusted_p_value | adjusted_q_value | associated_groups | accession | sample_ids | p_LOW_FITNESS | N_LOW_FITNESS | p_HIG_FITNESS | N_HIG_FITNESS
 :---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
@@ -72,3 +72,5 @@ Inosine monophosphate biosynthesis, PRPP + glutamine => IMP | 18.026729736369713
 F-type ATPase, prokaryotes and chloroplasts | 17.289003389888027 | 3.210393689132397e-5 | 4.5765505959647144e-5 | HIG_FITNESS | M00157 | KC_MAG_00007,KC_MAG_00017,KC_MAG_00022,KC_MAG_00051,KC_MAG_00055,KC_MAG_00057,KC_MAG_00061,KC_MAG_00062,KC_MAG_00080,KC_MAG_00093,KC_MAG_00110,KC_MAG_00116,KC_MAG_00120,KC_MAG_00126,KC_MAG_00137,KC_MAG_00143,KC_MAG_00145,KC_MAG_00147,KC_MAG_00151,KC_MAG_00155,KC_MAG_00161,KC_MAG_00176,KC_MAG_00178 | 0.25 | 20 | 0.9 | 20
 Coenzyme A biosynthesis, pantothenate => CoA | 15.824346512060853 | 6.950242168239118e-5 | 8.669378513988786e-5 | HIG_FITNESS | M00120 | KC_MAG_00002,KC_MAG_00007,KC_MAG_00017,KC_MAG_00022,KC_MAG_00051,KC_MAG_00055,KC_MAG_00057,KC_MAG_00061,KC_MAG_00062,KC_MAG_00080,KC_MAG_00093,KC_MAG_00101,KC_MAG_00110,KC_MAG_00116,KC_MAG_00120,KC_MAG_00121,KC_MAG_00126,KC_MAG_00137,KC_MAG_00143,KC_MAG_00145,KC_MAG_00147,KC_MAG_00151,KC_MAG_00155,KC_MAG_00161,KC_MAG_00162,KC_MAG_00178 | 0.35 | 20 | 0.95 | 20
 Guanine ribonucleotide biosynthesis IMP => GDP,GTP | 15.172414714793092 | 9.812648253560582e-5 | 1.0728293795381548e-4 | HIG_FITNESS | M00050 | KC_MAG_00002,KC_MAG_00007,KC_MAG_00017,KC_MAG_00022,KC_MAG_00051,KC_MAG_00055,KC_MAG_00057,KC_MAG_00061,KC_MAG_00062,KC_MAG_00080,KC_MAG_00093,KC_MAG_00101,KC_MAG_00110,KC_MAG_00116,KC_MAG_00120,KC_MAG_00121,KC_MAG_00122,KC_MAG_00126,KC_MAG_00137,KC_MAG_00143,KC_MAG_00145,KC_MAG_00147,KC_MAG_00151,KC_MAG_00155,KC_MAG_00157,KC_MAG_00161,KC_MAG_00162,KC_MAG_00176,KC_MAG_00178 | 0.45 | 20 | 1 | 20
+
+The modules are organized so that those with higher enrichment scores (and lower significance values) are at the top. You can filter the output using the `unadjusted_p_value` or `adjusted_q_value` columns to make sure you only keep the modules that are most enriched in one group or another (the `adjusted_q_value` column is arguably the best one to filter with as this significance value is adjusted for multiple hypothesis testing). For example, in our study we considered any metabolic module with a q-value less than 0.05 to be enriched in its associated group, as long as it was also at least 75% complete in at least 50% of the group members.
