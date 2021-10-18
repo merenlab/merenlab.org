@@ -111,7 +111,7 @@ conda install -y -c bioconda diamond
 conda install -y -c bioconda blast
 conda install -y -c bioconda megahit
 conda install -y -c bioconda spades
-conda install -y -c bioconda bowtie2=2.3.4.1 tbb=2019.8
+conda install -y -c bioconda bowtie2 tbb=2019.8
 conda install -y -c bioconda bwa
 conda install -y -c bioconda samtools=1.9
 conda install -y -c bioconda centrifuge
@@ -125,7 +125,6 @@ conda install -y -c bioconda r-magrittr
 conda install -y -c bioconda r-optparse
 conda install -y -c bioconda bioconductor-qvalue
 conda install -y -c bioconda fasttree
-conda install -y -c conda-forge h5py=2.8.0
 
 # this last one may cause some issues. if it doesn't install,
 # don't worry, you will still be fine:
