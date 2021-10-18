@@ -101,7 +101,7 @@ If you are determined to run this loop yourself, it is probably only possible on
 
 What this loop does is read each line of the `metagenomes.txt` file, except for the first one (the `tail -n+2` command skips the first line). Each non-header line in the file contains the name of the metagenome sample (which gets placed into the `$name` variable) and the path to its contigs database (which gets placed into the `$path` variable). Therefore, `anvi-estimate-metabolism` gets run on each contigs database in metagenome mode, and the resulting output files (two per sample) are prefixed with the sample name.
 
-It _is_ possible to run `anvi-estimate-metabolism` on more than one contigs database at a time, using multi-mode, which you can read about on the %{anvi-estimate-metabolism}s help page. However, I did not do this here because I wanted the output for each sample to be printed to a separate output file, for purely organizational purposes.
+It _is_ possible to run `anvi-estimate-metabolism` on more than one contigs database at a time, using multi-mode, which you can read about on the {% include PROGRAM name="anvi-estimate-metabolism" %} help page. However, I did not do this here because I wanted the output for each sample to be printed to a separate output file, for purely organizational purposes.
 
 You can download the resulting output files from [FIXME FIGSHARE LINK](FIXME FIGSHARE LINK). Once you do that, you will notice that there are 32 text files, two for each metagenome assembly, in the `METABOLISM_ESTIMATION_TXT` folder. Let's take a look at the first few lines of the `modules` file for sample N02:
 
