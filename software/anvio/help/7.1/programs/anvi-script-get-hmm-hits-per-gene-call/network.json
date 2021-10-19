@@ -1,0 +1,69 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "functions-txt",
+      "name": "functions-txt",
+      "provided_by_anvio": true,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "contigs-db",
+      "name": "contigs-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "hmm-source",
+      "name": "hmm-source",
+      "provided_by_anvio": false,
+      "type": "HMM"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "hmm-hits",
+      "name": "hmm-hits",
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 4,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-script-get-hmm-hits-per-gene-call",
+      "name": "anvi-script-get-hmm-hits-per-gene-call",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "source": 4,
+      "target": 0
+    },
+    {
+      "target": 4,
+      "source": 1
+    },
+    {
+      "target": 4,
+      "source": 2
+    },
+    {
+      "target": 4,
+      "source": 3
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}

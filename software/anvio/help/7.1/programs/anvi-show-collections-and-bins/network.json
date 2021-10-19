@@ -1,0 +1,43 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "pan-db",
+      "name": "pan-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "profile-db",
+      "name": "profile-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 2,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-show-collections-and-bins",
+      "name": "anvi-show-collections-and-bins",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "target": 2,
+      "source": 0
+    },
+    {
+      "target": 2,
+      "source": 1
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}

@@ -1,0 +1,30 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "bam-file",
+      "name": "bam-file",
+      "provided_by_anvio": false,
+      "type": "BAM"
+    },
+    {
+      "size": 1,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-get-tlen-dist-from-bam",
+      "name": "anvi-get-tlen-dist-from-bam",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "target": 1,
+      "source": 0
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}

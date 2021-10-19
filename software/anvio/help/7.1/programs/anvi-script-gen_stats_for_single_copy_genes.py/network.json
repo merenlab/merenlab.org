@@ -1,0 +1,43 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "genes-stats",
+      "name": "genes-stats",
+      "provided_by_anvio": true,
+      "type": "STATS"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "contigs-db",
+      "name": "contigs-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 2,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-script-gen_stats_for_single_copy_genes.py",
+      "name": "anvi-script-gen_stats_for_single_copy_genes.py",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "source": 2,
+      "target": 0
+    },
+    {
+      "target": 2,
+      "source": 1
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}

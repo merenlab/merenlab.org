@@ -43,10 +43,10 @@ We hope you find the tutorial useful, and generously share your opinions or crit
 
 ## Downloading the pre-packaged Infant Gut Dataset
 
-To download and unpack [the infant gut data-pack](https://ndownloader.figshare.com/files/26218961), copy-paste the following commands into your terminal:
+To download and unpack [the infant gut data-pack](https://figshare.com/ndownloader/files/31131400), copy-paste the following commands into your terminal:
 
 ``` bash
-curl -L https://ndownloader.figshare.com/files/26218961 -o INFANT-GUT-TUTORIAL.tar.gz
+curl -L https://figshare.com/ndownloader/files/31131400 -o INFANT-GUT-TUTORIAL.tar.gz
 tar -zxvf INFANT-GUT-TUTORIAL.tar.gz && cd INFANT-GUT-TUTORIAL
 ```
 
@@ -497,9 +497,9 @@ anvi-estimate-genome-completeness -p PROFILE.db \
 You can also get an idea about their taxonomy:
 
 ``` bash
-anvi-estimate-genome-taxonomy -p PROFILE.db \
-                              -c CONTIGS.db \
-                              -C CONCOCT
+anvi-estimate-scg-taxonomy -p PROFILE.db \
+                           -c CONTIGS.db \
+                           -C CONCOCT
 ```
 
 OK. Let's run the interactive interface again with the `CONCOCT` collection:
@@ -1358,17 +1358,17 @@ and see the new layer there that correspond to our clades:
 
 [![E. facealis pan](images/pan-clades.png)](images/pan-clades.png){:.center-img .width-70}
 
-Now we can ask anvi'o to identify and report functions that are enriched in either of these clades along with the gene clusters they are associated with:
+Now we can use the program {% include PROGRAM name="anvi-compute-functional-enrichment-in-pan" %} to ask anvi'o to identify and report functions that are enriched in either of these clades along with the gene clusters they are associated with:
 
 ``` bash
 anvi-compute-functional-enrichment-in-pan -p PAN/Enterococcus-PAN.db \
-                                   -g Enterococcus-GENOMES.db \
-                                   --category-variable clade \
-                                   --annotation-source COG20_FUNCTION \
-                                   -o functional-enrichment.txt
+                                          -g Enterococcus-GENOMES.db \
+                                          --category-variable clade \
+                                          --annotation-source COG20_FUNCTION \
+                                          -o functional-enrichment.txt
 ```
 
-Which would generate a new file, `functional-enrichment.txt`, in our work directory that is just filled with stuff like this:
+Which would generate a new file, `functional-enrichment.txt`, which is an anvi'o artifact called {% include ARTIFACT name="functional-enrichment-txt" %}, in our work directory that is just filled with stuff like this:
 
 | COG20_FUNCTION | enrichment_score | unadjusted_p_value | adjusted_q_value | associated_groups | accession | gene_clusters_ids | p_faecium |p_faecalis | N_faecium | N_faecalis |
 |:--|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
@@ -1387,16 +1387,13 @@ Which would generate a new file, `functional-enrichment.txt`, in our work direct
 
 So it turns out *killer toxin insensitivity* protein is only encoded by *E. faecium*... I am not surprised. One should expect anything from these microbes :(
 
-{:.notice}
-As of `v7` the script `anvi-get-enriched-functions-per-pan-group` (which used to be in this tutorial) was upgraded to the more general script {% include PROGRAM name="anvi-compute-functional-enrichment" %}.
-
 ### Binning gene clusters
 
 There are multiple ways to identify gene clusters that match to a given set of criteria. If you like, you can use a combination of filters that are available through the interface:
 
 [![E. faecalis pan](images/pan-filters.png)](images/pan-filters.png){:.center-img .width-50}
 
-The command line program {% include PROGRAM name="anvi-get-sequences-for-gene-clusters" text="`anvi-get-sequences-for-gene-clusters`" %} can also give you access to these filters and more to get very precise reports. Another option is the good'ol {% include ARTIFACT name="interactive" %} interface, and using the dendrogram it produces to organize gene clusters based on their distribution across genomes. From this display you can make manual selections of gene clusters. I already made some selections and stored them in a file for your convenience. If you {% include PROGRAM name="anvi-import-collection" text="import" %} them the following way,
+The command line program {% include PROGRAM name="anvi-get-sequences-for-gene-clusters" text="anvi-get-sequences-for-gene-clusters" %} can also give you access to these filters and more to get very precise reports. Another option is the good'ol {% include ARTIFACT name="interactive" %} interface, and using the dendrogram it produces to organize gene clusters based on their distribution across genomes. From this display you can make manual selections of gene clusters. I already made some selections and stored them in a file for your convenience. If you {% include PROGRAM name="anvi-import-collection" text="import" %} them the following way,
 
 ``` bash
 anvi-import-collection additional-files/pangenomics/pan-collection.txt \
@@ -1617,7 +1614,7 @@ And then we can run the visualization command yet again to see the heatmap with 
 
 Here is a (rotated) screenshot of the rightmost part, where we can see which pathways distinguish the two species:
 
-[![Enterococcus Heatmap](images/entero_heatmap_zoomed.png)](images/entero_heatmap_zoom.png){:.center-img }
+[![Enterococcus Heatmap](images/entero_heatmap_zoomed.png)](images/entero_heatmap_zoomed.png){:.center-img }
 
 The genome labels are not visible in this zoomed and rotated view, but if you look back at the full heatmap, you can see that *E. faecalis* genomes are on the left side and *E. faecium* ones are on the right. Based on the estimated metabolism, it looks like the two species differ in select energy metabolism, amino acid metabolism, and vitamin/cofactor metabolism pathways. Yet many of those are faint bands indicating a low completeness score, so perhaps these genomes share a select few KOs that contribute to several of the species-specific pathways. A particularly interesting observation is that all the *E. faecalis* genomes have near-complete pathways for Threonine Biosynthesis and Menaquinone Biosynthesis (the module completeness scores for these pathways are 80% and 78%, respectively, in each *E. faecalis* genome), while these pathways are partial in all the *E. faecium* genomes (the corresponding completeness is 20% and 11% in each *E. faecium*) genome. It would not be surprising if the same KOs from these pathways are present in each genome.
 
@@ -1711,8 +1708,8 @@ Just like we looked at functional enrichment in the pangenomics chapter, we can 
 And here is the command to run {%include PROGRAM name='anvi-compute-metabolic-enrichment' text='the enrichment script' %} on modules:
 ``` bash
 anvi-compute-metabolic-enrichment -M Enterococcus_metabolism_modules.txt \
-                                   -G additional-files/metabolism/entero_groups.txt \
-                                   -o Enterococcus_enriched_modules.txt
+                                  -G additional-files/metabolism/entero_groups.txt \
+                                  -o Enterococcus_enriched_modules.txt
 ```
 
 We get from this a file called `Enterococcus_enriched_modules.txt`, in which the modules are organized from highest to lowest enrichment score. So if we look at the top 10 or so rows in the file, we will see the metabolic pathways that are most enriched in either group:

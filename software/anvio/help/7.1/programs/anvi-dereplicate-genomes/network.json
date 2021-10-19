@@ -1,0 +1,73 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 2,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "fasta",
+      "name": "fasta",
+      "provided_by_anvio": false,
+      "type": "FASTA"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "external-genomes",
+      "name": "external-genomes",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "internal-genomes",
+      "name": "internal-genomes",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "genome-similarity",
+      "name": "genome-similarity",
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 5,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-dereplicate-genomes",
+      "name": "anvi-dereplicate-genomes",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "source": 4,
+      "target": 0
+    },
+    {
+      "target": 4,
+      "source": 0
+    },
+    {
+      "target": 4,
+      "source": 1
+    },
+    {
+      "target": 4,
+      "source": 2
+    },
+    {
+      "target": 4,
+      "source": 3
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}

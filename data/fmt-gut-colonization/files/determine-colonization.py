@@ -1,5 +1,13 @@
+#!/usr/bin/env python
+
+__author__ = "Andrea Watson <watson.arr@gmail.com>"
+__license__ = "GPL 3.0"
+__description__ = ("A program that computes whether a population we have reconstructed from "
+                   "gut metagenomes of FMT in https://doi.org/10.1101/2021.03.02.433653 "
+                   "colonized an FMT recipient. See https://merenlab.org/data/fmt-gut-colonization "
+                   "for more information.")
+
 import pandas as pd
-import os.path
 
 detection_cutoff = 0.25     # MAG detection greater than or equal to this value.
 coverage_cutoff = 10        # MAG coverage greater than or equal to this value.
@@ -19,37 +27,37 @@ for group in ['DA', 'DB']:
 
     donors_meta = donors_raw[donors_raw['Group'] == group]
     recipients_meta = recipients_raw[recipients_raw['Group'] == group]
-   
+
     # Make lists of samples used:
     recipient_samples = sorted(set(recipients_meta['Sample Name']))
     donor_samples = sorted(set(donors_meta['Sample Name']))
     all_samples = donor_samples + recipient_samples
-    
+
     recipients = sorted(set(recipients_meta['Recipient']))
-    
+
     # Make a list of all MAGs:
     MAGs_all = list(detection.index.values.tolist())
-    
+
     # Make a dictionary of PRE samples for each recipient:
     recipient_pre = {}
     for recipient in recipients:
-        pre_df = recipients_meta.loc[(recipients_meta['Recipient'] == recipient) & 
+        pre_df = recipients_meta.loc[(recipients_meta['Recipient'] == recipient) &
                          (recipients_meta['Days Relative to Transplant'] < 0)]
         pre_samples = list(pre_df['Sample Name'])
         recipient_pre[recipient] = pre_samples
-   
+
     # Make a dictionary of POST samples for each recipient:
     recipient_post = {}
     for recipient in recipients:
-        post_df = recipients_meta.loc[(recipients_meta['Recipient'] == recipient) & 
+        post_df = recipients_meta.loc[(recipients_meta['Recipient'] == recipient) &
                           (recipients_meta['Days Relative to Transplant'] > days_post_cutoff)]
         post_samples = list(post_df['Sample Name'])
         recipient_post[recipient] = post_samples
-   
+
     ####################################
     # THE MESS (FLOWCHART) STARTS HERE #
     ####################################
-      
+
     # TEST 1: the MAG SCGs must have a mean non-outlier cov >= cutoff in at least one donor sample.
 
     test1_passed = []   # MAGs with coverage above cutoff in any donor sample.
@@ -65,7 +73,7 @@ for group in ['DA', 'DB']:
         donor_test = scg_cov.loc[MAG, donor_samples]
         # Make a list of the donor samples with sufficient coverage:
         mag_covered_donor_samples = list(donor_test[donor_test >= coverage_cutoff].index)
-        
+
         if mag_covered_donor_samples != []:
             test1_passed.append(MAG)
             covered_donor_samples[MAG] = mag_covered_donor_samples
@@ -88,18 +96,18 @@ for group in ['DA', 'DB']:
         for recipient in recipients:
             # TEST 2: is the MAG detected in the transplant sample?
             transplant_sample = transplants_raw.loc[(transplants_raw['Group'] == group) &
-                                     (transplants_raw['Recipient'] == recipient), 'Sample Name']                                                                                                        
+                                     (transplants_raw['Recipient'] == recipient), 'Sample Name']
             transplant_sample = transplant_sample.to_string(index=False).strip()
             transplant_detec = detection.loc[MAG, transplant_sample]
             if transplant_detec >= detection_cutoff:
-                # passed test 2.                
+                # passed test 2.
 
                 # Is the MAG detected post-FMT?
                 post_detec = detection.loc[MAG, recipient_post[recipient]]
-                if (post_detec >= detection_cutoff).any():     
-                    
+                if (post_detec >= detection_cutoff).any():
+
                     # TEST 3: Is the MAG sufficiently covered in any post-FMT sample?
-                    post_cov = scg_cov.loc[MAG, recipient_post[recipient]] 
+                    post_cov = scg_cov.loc[MAG, recipient_post[recipient]]
                     if (post_cov >= coverage_cutoff).any():
                         # passed test 3.
 
@@ -113,17 +121,17 @@ for group in ['DA', 'DB']:
                             list_2 = filtered.columns.tolist()
                         else:
                             list_2 = ['subpop_1']
-                        
+
                         # Are any donor subpops in the recipient post-FMT?
                         if bool(set(list_1) & set(list_2)):
-                            
+
                             # LIST 3: subpops in donor and recipient post-FMT.
                             list_3 = (set(list_1) & set(list_2))
-            
+
                             # Is the MAG detected pre-FMT?
                             pre_detec = detection.loc[MAG, recipient_pre[recipient]]
                             if (pre_detec >= detection_cutoff).any():
-                                
+
                                 # TEST 4: Is the MAG sufficiently covered in any pre-FMT sample?
                                 pre_cov = scg_cov.loc[MAG, recipient_pre[recipient]]
                                 if (pre_cov >= coverage_cutoff).any():
@@ -138,8 +146,8 @@ for group in ['DA', 'DB']:
                                         filtered.dropna(axis='columns', how='all', inplace=True) # REMOVE THIS LINE?
                                         list_4 = filtered.columns.tolist()
                                     else:
-                                        list_4 = ['subpop_1']                                    
-                                    
+                                        list_4 = ['subpop_1']
+
                                     # TEST 5: are there any donor subpops in the recipient post-FMT
                                     # that aren't also in the recipient pre-FMT?
                                     if bool(set(list_3) - set(list_4)):
@@ -167,20 +175,20 @@ for group in ['DA', 'DB']:
                     else:
                         # failed test 3.
                         ambiguous.setdefault(MAG, []).append(recipient)
-                    
+
                 else:
                     # did not colonize!
                     did_not_colonize.setdefault(MAG, []).append(recipient)
-            
+
             else:
                 # failed test 2.
                 ambiguous.setdefault(MAG, []).append(recipient)
 
 
     # Write simple results to file:
-    file_colo = f'colonized-{group}.txt' 
+    file_colo = f'colonized-{group}.txt'
     file_no_colo = f'did-not-colonize-{group}.txt'
-    
+
     with open(file_colo, 'w') as filetowrite:
         filetowrite.write('MAG\trecipient\n')
         for MAG in colonized:
