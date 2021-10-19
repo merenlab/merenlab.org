@@ -1361,7 +1361,7 @@ and see the new layer there that correspond to our clades:
 Now we can ask anvi'o to identify and report functions that are enriched in either of these clades along with the gene clusters they are associated with:
 
 ``` bash
-anvi-compute-functional-enrichment -p PAN/Enterococcus-PAN.db \
+anvi-compute-functional-enrichment-in-pan -p PAN/Enterococcus-PAN.db \
                                    -g Enterococcus-GENOMES.db \
                                    --category-variable clade \
                                    --annotation-source COG20_FUNCTION \
@@ -1708,9 +1708,9 @@ Just like we looked at functional enrichment in the pangenomics chapter, we can 
 |E_faecium_6778|faecium|
 |E_faecium_6798|faecium|
 
-And here is the command to run {%include PROGRAM name='anvi-compute-functional-enrichment' text='the enrichment script' %} on modules:
+And here is the command to run {%include PROGRAM name='anvi-compute-metabolic-enrichment' text='the enrichment script' %} on modules:
 ``` bash
-anvi-compute-functional-enrichment -M Enterococcus_metabolism_modules.txt \
+anvi-compute-metabolic-enrichment -M Enterococcus_metabolism_modules.txt \
                                    -G additional-files/metabolism/entero_groups.txt \
                                    -o Enterococcus_enriched_modules.txt
 ```
