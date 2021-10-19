@@ -565,6 +565,10 @@ The samples are color-coded in the same way as before. You should be able to see
 
 {% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/Genome_122_in_Deep_Ocean.png" width="100" %}
 
+{:.notice}
+Are you interested in the taxonomy of this MAG? I bet you already have a guess as to what it is, considering what we've seen so far. :) But if you want to check it, you can run the following code to find out what anvi'o thinks its taxonomy is:
+`anvi-estimate-scg-taxonomy -c Genome_122-contigs.db`
+
 ```bash
 # we are done here, go back to parent directory
 cd ..
