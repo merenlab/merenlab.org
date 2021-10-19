@@ -18,10 +18,11 @@ This tutorial is tailored for anvi'o `v7.1` or later. You can learn the version 
 
 ## A dataset of high- and low-fitness MAGs
 
-You can download the [datapack](FIXME FIGSHARE LINK) for this tutorial by running the following code:
+You can download the [datapack](https://figshare.com/ndownloader/files/31120057) for this tutorial by running the following code:
 
 ```bash
-FIXME DOWNLOAD CODE
+wget https://figshare.com/ndownloader/files/31120057 -O FMT_MAGS_FOR_METABOLIC_ENRICHMENT.tar.gz
+tar -xvf FMT_MAGS_FOR_METABOLIC_ENRICHMENT.tar.gz && cd FMT_MAGS_FOR_METABOLIC_ENRICHMENT/
 ```
 
 This dataset includes anvi'o {% include ARTIFACT name="contigs-db" text="contigs databases" %} for 40 MAGs of gut microbes, labeled as either "high-fitness" or "low-fitness" according to their [colonization ability](https://merenlab.org/data/fmt-gut-colonization/#defining-colonization-success-and-failure) and prevalence in healthy gut metagenomes (there are 20 MAGs in each group). You can learn the full details of how and why we got them by reading the [study](https://doi.org/10.1101/2021.03.02.433653), but for the purposes of this mini-tutorial, here is what you need to know about these MAGs:
