@@ -1,0 +1,108 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "collection",
+      "name": "collection",
+      "provided_by_anvio": true,
+      "type": "COLLECTION"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "bin",
+      "name": "bin",
+      "provided_by_anvio": true,
+      "type": "BIN"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "interactive",
+      "name": "interactive",
+      "provided_by_anvio": true,
+      "type": "DISPLAY"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "svg",
+      "name": "svg",
+      "provided_by_anvio": true,
+      "type": "SVG"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "gene-cluster-inspection",
+      "name": "gene-cluster-inspection",
+      "provided_by_anvio": true,
+      "type": "DISPLAY"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "pan-db",
+      "name": "pan-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "genomes-storage-db",
+      "name": "genomes-storage-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 7,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-display-pan",
+      "name": "anvi-display-pan",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "source": 7,
+      "target": 0
+    },
+    {
+      "source": 7,
+      "target": 1
+    },
+    {
+      "source": 7,
+      "target": 2
+    },
+    {
+      "source": 7,
+      "target": 3
+    },
+    {
+      "source": 7,
+      "target": 4
+    },
+    {
+      "target": 7,
+      "source": 5
+    },
+    {
+      "target": 7,
+      "source": 6
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}

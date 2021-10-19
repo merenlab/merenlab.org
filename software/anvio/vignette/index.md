@@ -1,5 +1,5 @@
 ---
-layout: project-anvio-main
+layout: project-anvio-vignette
 title: All programs and scripts in anvi'o
 modified: 2018-01-01
 excerpt: "So you can't say you didn't know"

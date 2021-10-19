@@ -1,0 +1,69 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "trnaseq-seed-txt",
+      "name": "trnaseq-seed-txt",
+      "provided_by_anvio": true,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "modifications-txt",
+      "name": "modifications-txt",
+      "provided_by_anvio": true,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "trnaseq-contigs-db",
+      "name": "trnaseq-contigs-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "trnaseq-profile-db",
+      "name": "trnaseq-profile-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 4,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-tabulate-trnaseq",
+      "name": "anvi-tabulate-trnaseq",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "source": 4,
+      "target": 0
+    },
+    {
+      "source": 4,
+      "target": 1
+    },
+    {
+      "target": 4,
+      "source": 2
+    },
+    {
+      "target": 4,
+      "source": 3
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}
