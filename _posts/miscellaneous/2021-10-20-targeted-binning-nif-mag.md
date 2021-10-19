@@ -212,6 +212,11 @@ Since there is a K02587 and a K02592 on contig `c_000000000122`, 5 out of 6 _nif
 
 You can take a look at N25 and N38 yourself. N25 should have at least one copy of all six genes (and 5/6 on contig `c_000000000104`), but N38 should be missing _nifN_.
 
+```bash
+# we are done here, go back to parent directory
+cd ..
+```
+
 At this point, we can be fairly confident that there are nitrogen-fixing populations in samples N06, N07, N22, and N25. The natural question to ask next is - what are they (and are they worth binning)?
 
 ## Determining population identity
@@ -219,6 +224,14 @@ At this point, we can be fairly confident that there are nitrogen-fixing populat
 Since we are working with individual contigs and not full genomes right now, a good strategy to figure out what these populations could be is to use [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome) to see if there is anything similar to these contigs in the NCBI database.
 
 I extracted the relevant contig sequences from these 4 metagenome assemblies for you. You will find them in the `FASTA/contigs_of_interest.fa` file in the datapack. Each contig name is prefixed by the name of the sample it came from, as in `N06_c_000000000415`.
+
+```bash
+# go to folder with sequences:
+cd FASTA/
+
+# see what contigs are in this file
+grep '>' contigs_of_interest.fa
+```
 
 You do not have to BLAST every sequence that is in that file (unless you want to). I recommend at least looking at the contig that contains the most _nif_ genes in each metagenome, namely: `N06_c_000000000415`, `N07_c_000000000073`, `N22_c_000000000122`, and `N25_c_000000000104`
 
@@ -316,9 +329,6 @@ However, Tom found that it was most similar (with 95% identity) to the _nifH_ ge
 We're going to check how similar our population is to this "Ca. M. diazotrophica" genome by aligning the `N25_c_000000000104` contig against it.
 
 ```bash
-# go to proper directory (from METABOLISM_ESTIMATION_TXT folder)
-cd ../FASTA
-
 # download the genome
 wget http://enve-omics.ce.gatech.edu/data/public_macondimonas/Macon_spades_assembly.fasta.gz
 gunzip Macon_spades_assembly.fasta.gz
@@ -381,6 +391,11 @@ ENA|MW590317|MW590317.1 | c_000000000104 | 85.000 | 320 | 45 | 2 | 1 | 320 | 470
 ENA|MW590318|MW590318.1 | c_000000000104 | 84.211 | 323 | 51 | 0 | 1 | 323 | 4700 | 5022 | 3.26e-88 | 315
 ENA|MW590319|MW590319.1 | c_000000000104 | 85.802 | 324 | 46 | 0 | 1 | 324 | 4700 | 5023 | 4.16e-97 | 344
 
+```bash
+# navigate out of the FASTA/ folder
+cd ..
+```
+
 ## Identifying the associated Cao et al. MAG
 
 At this point, we've verified (to the best of our current knowledge), that we've identified an uncharacterized diazotrophic population in these Arctic Ocean metagenomes. Since this novel nitrogen-fixing population is present in multiple samples from the Cao et al. paper, it is extremely likely that the authors have already binned it in some form. So before we bin this population ourselves, we are going to see what else we can learn about it from their data.
@@ -397,9 +412,6 @@ Each MAG is in a FASTA file that is named according to the MAG number. We will r
 The loop in the following code learns the MAG number from its FASTA file name and runs `anvi-script-reformat-fasta`, which will simplify the contig names and make sure each one is prefixed with the MAG number. The reformatted FASTA files will end in `*reformat.fa` and the text file matching the original contig name to its new one will end in `*reformat_report.txt`.
 
 ```bash
-# navigate out of the FASTA/ folder
-cd ..
-
 # download Cao et al MAG set
 mkdir Cao_et_al_MAGs
 cd Cao_et_al_MAGs/
@@ -553,6 +565,11 @@ The samples are color-coded in the same way as before. You should be able to see
 
 {% include IMAGE path="/images/miscellaneous/targeted-binning-nif-mag/Genome_122_in_Deep_Ocean.png" width="100" %}
 
+```bash
+# we are done here, go back to parent directory
+cd ..
+```
+
 ## Targeted binning of the nitrogen-fixing population
 
 We've seen above that the `Genome_122` MAG appears to have some contamination, which is a normal thing to see in MAGs (particularly automatically-generated ones), because binning is hard. We've also seen that it does not contain the _nif_ genes that belong to this nitrogen-fixing population. But since we have time on our hands, a particular interest in just this one nitrogen-fixing population, and the knowledge of which _nif_ gene-containing contigs belong to this population, we can make a better MAG. It's time for some targeted binning. :)
@@ -562,7 +579,7 @@ We know that our population of interest is present in samples N06, N07, N22, and
 You'll find the contigs database for the N25 assembly and the profile database containing these mapping results in the datapack (in the `N25_DBS` folder). You can open them up in `anvi-interactive`:
 
 ```bash
-cd ../N25_DBS/
+cd N25_DBS/
 anvi-interactive -c N25-contigs.db \
                  -p PROFILE.db \
                  --title "Cao et al Read Recruitment to N25" \
