@@ -37,11 +37,11 @@ anvi-script-reformat-fasta GCF_009731575.1_ASM973157v1_genomic.fna \
 anvi-gen-contigs-database --contigs-fasta A_muciniphila.fa \
                           --project-name A_muciniphila \
                           --output-db-path A_muciniphila-CONTIGS.db \
-                          --num-threads 3
+                          --num-threads 2
 ```
 
 {:.warning}
-The command above sets the `--num-threads` parameter to 3 so that `anvi-gen-contigs-database` works a bit faster, but please take care that your computer has enough CPUs to accommodate this number of threads. This applies anytime you see the `--num-threads` or `-T` parameter in a command.
+The command above sets the `--num-threads` parameter to 2 so that `anvi-gen-contigs-database` works a bit faster, but please take care that your computer has enough CPUs to accommodate this number of threads. This applies anytime you see the `--num-threads` or `-T` parameter in a command.
 
 Now you have a contigs database for this genome, so we can start to work with it to estimate metabolism. There are 3 required steps in the metabolism estimation process (though the first step is only necessary the very first time you are doing this, so in general there are just 2 steps). Those steps are:
 
