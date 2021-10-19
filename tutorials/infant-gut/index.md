@@ -43,10 +43,10 @@ We hope you find the tutorial useful, and generously share your opinions or crit
 
 ## Downloading the pre-packaged Infant Gut Dataset
 
-To download and unpack [the infant gut data-pack](https://ndownloader.figshare.com/files/26218961), copy-paste the following commands into your terminal:
+To download and unpack [the infant gut data-pack](https://figshare.com/ndownloader/files/31131400), copy-paste the following commands into your terminal:
 
 ``` bash
-curl -L https://ndownloader.figshare.com/files/26218961 -o INFANT-GUT-TUTORIAL.tar.gz
+curl -L https://figshare.com/ndownloader/files/31131400 -o INFANT-GUT-TUTORIAL.tar.gz
 tar -zxvf INFANT-GUT-TUTORIAL.tar.gz && cd INFANT-GUT-TUTORIAL
 ```
 
