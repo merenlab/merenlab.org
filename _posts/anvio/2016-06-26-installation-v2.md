@@ -90,13 +90,13 @@ It is a good idea to **make sure you are not already in a conda environment** be
 First, create a new conda environment:
 
 ``` bash
-conda create -y --name anvio-7 python=3.6
+conda create -y --name anvio-7.1 python=3.6
 ```
 
 And activate it:
 
 ```
-conda activate anvio-7
+conda activate anvio-7.1
 ```
 
 Now you are in a pristine environment, in which you will install all conda packages that anvi'o will need to work properly. This looks scary, but it will work if you just copy paste it and press ENTER:
@@ -139,31 +139,25 @@ Now you can jump to "[Download and install anvi'o](#3-install-anvio)"!
 Here you will first download the Python source package for the official anvi'o release:
 
 ```
-curl -L https://github.com/merenlab/anvio/releases/download/v7/anvio-7.tar.gz \
-        --output anvio-7.tar.gz
+curl -L https://github.com/merenlab/anvio/releases/download/v7/anvio-7.1.tar.gz \
+        --output anvio-7.1.tar.gz
 ```
 
 And install it using `pip` like a boss:
 
 ```
-pip install anvio-7.tar.gz
+pip install anvio-7.1.tar.gz
 ```
 
 Some people have reported errors in the installation of `pysam` using `pip`, so if your installation also fails due to `pysam`, you can use the following two lines to first install this package via conda, and then install the anvi'o package via `pip`:
 
 ```
 conda install -y -c bioconda pysam
-pip install anvio-7.tar.gz
+pip install anvio-7.1.tar.gz
 ```
 
 {:.warning}
 Even after fixing the pysam problem, some packages installed by this command may still require a more up to date c-compiler on **Mac OSX**. If you're getting an error that contains `x86_64-apple-darwin13.4.0-clang` or similar keywords in the output message, please run `export CC=clang` in your terminal and try the command above again. If you are still unable to run the `pip install` command above, run both `export CC=/usr/bin/clang` and `export CXX=/usr/bin/clang++` before trying again. If the `pip` installation still doesn't work, please make an issue on the github page or let us know in the anvi'o slack channel about your problem and we will try to help you.
-
-After a successful installation of anvi'o via `pip`, run this command to make sure you have the right version of this one library [that changed its API](https://github.com/merenlab/anvio/issues/1692) recently:
-
-```
-pip install mistune==0.8.4
-```
 
 If everything went fine, you can jump to "[Check your anvi'o setup](#4-check-your-installation)" to see if things worked for you, and then you are free to go!
 
@@ -197,13 +191,21 @@ The screenshot above is from 2015 and will be vastly different from the [interac
 
 All fine? Perfect! Now you have a computer that can run anvi'o!
 
+---
+
+If you would like to **further prepare** your anvi'o installation for things you may need later, run the following programs in your terminal:
+
+* Run {% include PROGRAM name="anvi-setup-scg-taxonomy" %}, to setup SCG taxonomy data using GTDB genomes.
+* Run {% include PROGRAM name="anvi-setup-ncbi-cogs" %}, to setup NCBI's COG database for quick annotation of genes with functions,
+* Run {% include PROGRAM name="anvi-setup-kegg-kofams" %}, so {% include PROGRAM name="anvi-estimate-metabolism" %} finds the database of KEGG orthologs ready when you need it.
+
 ### Final words
 
 Here are some reminders we hope you can quickly go through before leaving this page:
 
 * **Your tests looked like they worked but your browser didn't pop-up?** OK. There may be to reasons for this. **If you are on your personal computer**, this may mean that the Python setup on your system is unable to find your default browser. Not a biggie. When an interactive interface is initiated successfully, you will see the address through which you can access to the interactive. Copy that address and paste it in your browser's address bar. **If you are connected to a remote computer**, it may take a bit more setup to make to use your local browser to access to an anvi'o interactive interactive interface running remotely. [Read this article]({% post_url anvio/2018-03-07-working-with-remote-interative %}) (or ask your systems administrator to read it) to learn how you can forward displays from servers to your personal computer. Finally, **Windows users may be greeted by a "This site can't be reached" error** even when their browsers show up :/ You can overcome this problem by copy-pastig the address you see in your terminal to your browser address bar (this is what happens when you bring a Microsoft Windows to an open-source fight).
 
-* **When you open a new terminal you get command not found error when you run anvi'o commands?**  Depending on your conda setup, you may need to activate the anvi'o conda environment every time you open a new terminal window. In these cases you will either need to run `source activate anvio-7` or `conda activate anvio-7` (this assumes you named your conda environment for anvio `anvio-7`, but you can always list your conda environments by typing `conda env list`.
+* **When you open a new terminal you get command not found error when you run anvi'o commands?**  Depending on your conda setup, you may need to activate the anvi'o conda environment every time you open a new terminal window. In these cases you will either need to run `source activate anvio-7.1` or `conda activate anvio-7.1` (this assumes you named your conda environment for anvio `anvio-7.1`, but you can always list your conda environments by typing `conda env list`.
 
 * **You are not using [Chrome](https://www.google.com/chrome/) as your default browser and anvi'o complains about it?** We hate the idea of asking you to change your browser preferences for anvi'o :( But currently, Chrome maintains the most efficient SVG engine among all browsers we tested as of 2021. For instance, Safari can run the anvi'o interactive interface, however it takes orders of magnitude more time and memory compared to Chrome. Firefox, on the other hand, doesn't even bother drawing anything at all. Long story short, the anvi'o interactive interface __will not perform optimally__ with anything but Chrome. So you need Chrome. Moreover, if Chrome is not your default browser, every time interactive interface pops up, you will need to copy-paste the address bar into a Chrome window. You can learn what is your default browser by running this command in your terminal:
 
@@ -414,8 +416,8 @@ init_anvio_7 () {
     conda deactivate &> /dev/null
     export PATH="$MY_MINICONDA_BASE/bin:$PATH"
     . $MY_MINICONDA_BASE/etc/profile.d/conda.sh
-    conda activate anvio-7
-    export PS1="\[\e[0m\e[47m\e[1;30m\] :: anvi'o v7 :: \[\e[0m\e[0m \[\e[1;32m\]\]\w\[\e[m\] \[\e[1;31m\]>>>\[\e[m\] \[\e[0m\]"
+    conda activate anvio-7.1
+    export PS1="\[\e[0m\e[47m\e[1;30m\] :: anvi'o v7.1 :: \[\e[0m\e[0m \[\e[1;32m\]\]\w\[\e[m\] \[\e[1;31m\]>>>\[\e[m\] \[\e[0m\]"
 }
 
 
@@ -425,36 +427,36 @@ init_anvio_dev () {
     export PATH="$MY_MINICONDA_BASE/bin:$PATH"
     . $MY_MINICONDA_BASE/etc/profile.d/conda.sh
     conda activate anvio-dev
-    export PS1="\[\e[0m\e[40m\e[1;30m\] :: anvi'o v7 dev :: \[\e[0m\e[0m \[\e[1;34m\]\]\w\[\e[m\] \[\e[1;31m\]>>>\[\e[m\] \[\e[0m\]"
+    export PS1="\[\e[0m\e[40m\e[1;30m\] :: anvi'o v7.1 dev :: \[\e[0m\e[0m \[\e[1;34m\]\]\w\[\e[m\] \[\e[1;31m\]>>>\[\e[m\] \[\e[0m\]"
 }
 
-alias anvio-7=init_anvio_7
+alias anvio-7.1=init_anvio_7
 alias anvio-dev=init_anvio_dev
 ```
 
-You can either open a new terminal window or run `source ~/.bash_profile` to make sure these changes take effect. Now you should be able to type `anvio-7` to initialize the stable anvi'o, and `anvio-dev` to initialize the development branch of the codebase.
+You can either open a new terminal window or run `source ~/.bash_profile` to make sure these changes take effect. Now you should be able to type `anvio-7.1` to initialize the stable anvi'o, and `anvio-dev` to initialize the development branch of the codebase.
 
-Here is what I see in my terminal for `anvio-7`:
+Here is what I see in my terminal for `anvio-7.1`:
 
 ```
 meren ~ $ anvi-self-test -v
 -bash: anvi-self-test: command not found
 
-meren ~ $ anvio-7
+meren ~ $ anvio-7.1
 
-:: anvi'o v7 :: ~ >>>
+:: anvi'o v7.1 :: ~ >>>
 
-:: anvi'o v7 :: ~ >>> anvi-self-test -v
-Anvi'o .......................................: hope (v7)
+:: anvi'o v7.1 :: ~ >>> anvi-self-test -v
+Anvi'o .......................................: hope (v7.1)
 
-Profile database .............................: 35
+Profile database .............................: 38
 Contigs database .............................: 20
-Pan database .................................: 14
+Pan database .................................: 15
 Genome data storage ..........................: 7
 Auxiliary data storage .......................: 2
 Structure database ...........................: 2
 Metabolic modules database ...................: 2
-tRNA-seq database ............................: 1
+tRNA-seq database ............................: 2
 ```
 
 Or for `anvio-dev`:
@@ -463,12 +465,12 @@ Or for `anvio-dev`:
 meren ~ $ anvi-self-test -v
 -bash: anvi-self-test: command not found
 
-:: anvi'o v7 :: ~ >>> anvio-dev
+:: anvi'o v7.1 :: ~ >>> anvio-dev
 
-:: anvi'o v7 dev :: ~ >>>
+:: anvi'o v7.1 dev :: ~ >>>
 
-:: anvi'o v7 dev :: ~ >>> anvi-self-test -v
-Anvi'o .......................................: hope (v7-dev)
+:: anvi'o v7.1 dev :: ~ >>> anvi-self-test -v
+Anvi'o .......................................: hope (v7.1-dev)
 
 Profile database .............................: 35
 Contigs database .............................: 20
