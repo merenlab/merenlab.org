@@ -3,7 +3,7 @@ layout: page
 title: anvi-gen-structure-database [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-gen-structure-database
+redirect_from: /7.1/anvi-gen-structure-database
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -43,7 +43,7 @@ Creates a database of protein structures. Predict protein structures using templ
 
 
 
-This program creates a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span> either by (a) attempting to solve for the 3D structures of proteins encoded by genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> using DIAMOND and MODELLER, or (b) importing pre-existing structures provided by the user using an <span class="artifact-n">[external-structures](/software/anvio/help/main/artifacts/external-structures)</span> file.
+This program creates a <span class="artifact-n">[structure-db](/software/anvio/help/7.1/artifacts/structure-db)</span> either by (a) attempting to solve for the 3D structures of proteins encoded by genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> using DIAMOND and MODELLER, or (b) importing pre-existing structures provided by the user using an <span class="artifact-n">[external-structures](/software/anvio/help/7.1/artifacts/external-structures)</span> file.
 
 ### The basics of the pipeline
 
@@ -51,28 +51,28 @@ This section covers option (a), where the user is interested in having structure
 
 DIAMOND first searches your sequence(s) against a database of proteins with a known structure.  This database is downloaded from the [Sali lab](https://salilab.org/modeller/supplemental.html), who created and maintain MODELLER, and contains all of the PDB sequences clustered at 95% identity.
 
-If any good hits are found, they are selected as templates, and their structures are nabbed either from [the RCSB directly](https://www.rcsb.org/), or from a local <span class="artifact-n">[pdb-db](/software/anvio/help/main/artifacts/pdb-db)</span> database which you can create yourself with <span class="artifact-n">[anvi-setup-pdb-database](/software/anvio/help/main/programs/anvi-setup-pdb-database)</span>. Then, anvi'o passes control over to MODELLER, which creates a 3D alignment for your sequence to the template structures, and makes final adjustments to it based off of empirical distributions of bond angles. For more information, check [this blogpost](http://merenlab.org/2018/09/04/getting-started-with-anvio-structure/#how-modeller-works).
+If any good hits are found, they are selected as templates, and their structures are nabbed either from [the RCSB directly](https://www.rcsb.org/), or from a local <span class="artifact-n">[pdb-db](/software/anvio/help/7.1/artifacts/pdb-db)</span> database which you can create yourself with <span class="artifact-n">[anvi-setup-pdb-database](/software/anvio/help/7.1/programs/anvi-setup-pdb-database)</span>. Then, anvi'o passes control over to MODELLER, which creates a 3D alignment for your sequence to the template structures, and makes final adjustments to it based off of empirical distributions of bond angles. For more information, check [this blogpost](http://merenlab.org/2018/09/04/getting-started-with-anvio-structure/#how-modeller-works).
 
-The output of this program is a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span>, which contains all of the modelled structures. Currently, the primary use of the <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span> is for interactive exploration with <span class="artifact-n">[anvi-display-structure](/software/anvio/help/main/programs/anvi-display-structure)</span>. You can also export your structures into external .pdb files with <span class="artifact-n">[anvi-export-structures](/software/anvio/help/main/programs/anvi-export-structures)</span>, or incorporate structural information in the <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span> with <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/main/programs/anvi-gen-variability-profile)</span>.
+The output of this program is a <span class="artifact-n">[structure-db](/software/anvio/help/7.1/artifacts/structure-db)</span>, which contains all of the modelled structures. Currently, the primary use of the <span class="artifact-n">[structure-db](/software/anvio/help/7.1/artifacts/structure-db)</span> is for interactive exploration with <span class="artifact-n">[anvi-display-structure](/software/anvio/help/7.1/programs/anvi-display-structure)</span>. You can also export your structures into external .pdb files with <span class="artifact-n">[anvi-export-structures](/software/anvio/help/7.1/programs/anvi-export-structures)</span>, or incorporate structural information in the <span class="artifact-n">[variability-profile-txt](/software/anvio/help/7.1/artifacts/variability-profile-txt)</span> with <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/7.1/programs/anvi-gen-variability-profile)</span>.
 
 ### Basic standard run
 
 Here is a simple run: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
                             &#45;&#45;gene&#45;caller&#45;ids 1,2,3 \
                             &#45;o STRUCTURE.db 
 </div>
 
 Following this, you will have the structures for genes 1, 2, and 3 stored in `STRUCTURE.db`, assuming reasonable templates were found. Alternatively, you can provide a file name with the gene caller IDs (one ID per line) with the flag `--genes-of-interest`.  
 
-If you have already run <span class="artifact-n">[anvi-setup-pdb-database](/software/anvio/help/main/programs/anvi-setup-pdb-database)</span> and therefore have a local copy of representative PDB structures, make sure you use it by providing the `--offline` flag. If you put it in a non-default location, provide the path to your <span class="artifact-n">[pdb-db](/software/anvio/help/main/artifacts/pdb-db)</span>: 
+If you have already run <span class="artifact-n">[anvi-setup-pdb-database](/software/anvio/help/7.1/programs/anvi-setup-pdb-database)</span> and therefore have a local copy of representative PDB structures, make sure you use it by providing the `--offline` flag. If you put it in a non-default location, provide the path to your <span class="artifact-n">[pdb-db](/software/anvio/help/7.1/artifacts/pdb-db)</span>: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
                             &#45;&#45;gene&#45;caller&#45;ids 1,2,3 \
-                            &#45;&#45;pdb&#45;database <span class="artifact&#45;n">[pdb&#45;db](/software/anvio/help/main/artifacts/pdb&#45;db)</span> \
+                            &#45;&#45;pdb&#45;database <span class="artifact&#45;n">[pdb&#45;db](/software/anvio/help/7.1/artifacts/pdb&#45;db)</span> \
                             &#45;o STRUCTURE.db 
 </div>
 
@@ -80,11 +80,11 @@ To quickly get a very rough estimate for your structures, you can run with the f
 
 ### Basic import run
 
-If you already possess structures and would like to create a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span> for downstream anvi'o uses such as <span class="artifact-n">[anvi-display-structure](/software/anvio/help/main/programs/anvi-display-structure)</span>, you should create a <span class="artifact-n">[external-structures](/software/anvio/help/main/artifacts/external-structures)</span> file. Then, create the database as follows:
+If you already possess structures and would like to create a <span class="artifact-n">[structure-db](/software/anvio/help/7.1/artifacts/structure-db)</span> for downstream anvi'o uses such as <span class="artifact-n">[anvi-display-structure](/software/anvio/help/7.1/programs/anvi-display-structure)</span>, you should create a <span class="artifact-n">[external-structures](/software/anvio/help/7.1/artifacts/external-structures)</span> file. Then, create the database as follows:
 
 <div class="codeblock" markdown="1">
-anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                            &#45;&#45;external&#45;structures <span class="artifact&#45;n">[external&#45;structures](/software/anvio/help/main/artifacts/external&#45;structures)</span> \
+anvi&#45;gen&#45;structure&#45;database &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
+                            &#45;&#45;external&#45;structures <span class="artifact&#45;n">[external&#45;structures](/software/anvio/help/7.1/artifacts/external&#45;structures)</span> \
                             &#45;o STRUCTURE.db 
 </div>
 
@@ -98,7 +98,7 @@ Here, we will go through a brief overview of the MODELLER parameters that you ar
 
 - The number of models to be simulated. The default is 1. 
 - The standard deviation of atomic perturbation of the initial structure (i.e. how much you change the position of the atoms before fine tuning with other analysis). The default is 4 angstroms.
-- The MODELLER database used. The default is `pdb_95`, which can be found [here](https://salilab.org/modeller/supplemental.html). This is the same database that is downloaded by <span class="artifact-n">[anvi-setup-pdb-database](/software/anvio/help/main/programs/anvi-setup-pdb-database)</span>.
+- The MODELLER database used. The default is `pdb_95`, which can be found [here](https://salilab.org/modeller/supplemental.html). This is the same database that is downloaded by <span class="artifact-n">[anvi-setup-pdb-database](/software/anvio/help/7.1/programs/anvi-setup-pdb-database)</span>.
 - The scoring function used to compare potential models. The default is `DOPE_score`.
 - The minimum percent identity cutoff for a template to be further considered.
 - The minimum alignment fraction that the sequence is covered by the template in order to be further considered.

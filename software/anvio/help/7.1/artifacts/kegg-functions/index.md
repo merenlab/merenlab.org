@@ -3,7 +3,7 @@ layout: page
 title: kegg-functions [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/kegg-functions
+redirect_from: /7.1/kegg-functions
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -35,9 +35,9 @@ A CONCEPT-type anvi'o artifact. This artifact is typically generated, used, and/
 
 [Kegg Orthology](https://www.genome.jp/kegg/ko.html) (KO) functional annotations, produced by finding HMM hits to the KEGG KOfam database.
 
-You can annotate a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> with these KEGG functions by running <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/main/programs/anvi-run-kegg-kofams)</span>. They will be added to the gene functions table under the source 'KOfam'.
+You can annotate a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> with these KEGG functions by running <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/7.1/programs/anvi-run-kegg-kofams)</span>. They will be added to the gene functions table under the source 'KOfam'.
 
-Another program that relies on these annotations is <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span>, which uses them to determine presence and completeness of metabolic pathways that are defined by KOs.
+Another program that relies on these annotations is <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/7.1/programs/anvi-estimate-metabolism)</span>, which uses them to determine presence and completeness of metabolic pathways that are defined by KOs.
 
 
 {:.notice}

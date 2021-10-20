@@ -3,7 +3,7 @@ layout: page
 title: blast-table [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/blast-table
+redirect_from: /7.1/blast-table
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -35,7 +35,7 @@ There are no anvi'o tools that generate this artifact, which means it is most li
 
 This describes the BLAST table that is outputted when you run [Protein BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE=Proteins) from the terminal. 
 
-When given to <span class="artifact-n">[anvi-script-filter-fasta-by-blast](/software/anvio/help/main/programs/anvi-script-filter-fasta-by-blast)</span>, which is currently the only program that uses this artifact, it expects output form 6. By default, this incldues the following data columns: 
+When given to <span class="artifact-n">[anvi-script-filter-fasta-by-blast](/software/anvio/help/7.1/programs/anvi-script-filter-fasta-by-blast)</span>, which is currently the only program that uses this artifact, it expects output form 6. By default, this incldues the following data columns: 
 
     qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore slen
     

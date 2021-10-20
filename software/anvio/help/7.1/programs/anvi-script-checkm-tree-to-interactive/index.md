@@ -3,7 +3,7 @@ layout: page
 title: anvi-script-checkm-tree-to-interactive [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-script-checkm-tree-to-interactive
+redirect_from: /7.1/anvi-script-checkm-tree-to-interactive
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,7 +42,7 @@ A helper script to convert CheckM trees into anvio interactive with taxonomy inf
 ## Usage
 
 
-A helper script to process CheckM tree output to generate files compatible with <span class="artifact-n">[anvi-interactive](/software/anvio/help/main/programs/anvi-interactive)</span>.
+A helper script to process CheckM tree output to generate files compatible with <span class="artifact-n">[anvi-interactive](/software/anvio/help/7.1/programs/anvi-interactive)</span>.
 
 An example use:
 

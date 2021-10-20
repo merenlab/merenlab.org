@@ -3,7 +3,7 @@ layout: page
 title: anvi-gen-variability-profile [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-gen-variability-profile
+redirect_from: /7.1/anvi-gen-variability-profile
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -47,7 +47,7 @@ Generate a table that comprehensively summarizes the variability of nucleotide, 
 
 
 
-This program takes the variability data stored within a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> and compiles it from across samples into a single matrix that comprehensively describes your SNVs, SCVs or SAAVs (a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span>).  
+This program takes the variability data stored within a <span class="artifact-n">[profile-db](/software/anvio/help/7.1/artifacts/profile-db)</span> and compiles it from across samples into a single matrix that comprehensively describes your SNVs, SCVs or SAAVs (a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/7.1/artifacts/variability-profile-txt)</span>).  
 
 This program is described on [this blog post](http://merenlab.org/2015/07/20/analyzing-variability/#the-anvio-way), so take a look at that for more details. 
 
@@ -56,22 +56,22 @@ This program is described on [this blog post](http://merenlab.org/2015/07/20/ana
 Here is a basic run with no bells or whisles: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
-                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \ 
+anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7.1/artifacts/profile&#45;db)</span> \
+                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \ 
                              &#45;C DEFAULT \
                              &#45;b EVERYTHING
 </div>
 
-Note that this program requires you to specify a subset of the databases that you want to focus on, so to focus on everything in the databases, run <span class="artifact-n">[anvi-script-add-default-collection](/software/anvio/help/main/programs/anvi-script-add-default-collection)</span> and use the resulting <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span> and <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span>, as shown above. 
+Note that this program requires you to specify a subset of the databases that you want to focus on, so to focus on everything in the databases, run <span class="artifact-n">[anvi-script-add-default-collection](/software/anvio/help/7.1/programs/anvi-script-add-default-collection)</span> and use the resulting <span class="artifact-n">[collection](/software/anvio/help/7.1/artifacts/collection)</span> and <span class="artifact-n">[bin](/software/anvio/help/7.1/artifacts/bin)</span>, as shown above. 
 
-You can add structural annotations by providing a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span>. 
+You can add structural annotations by providing a <span class="artifact-n">[structure-db](/software/anvio/help/7.1/artifacts/structure-db)</span>. 
 
 <div class="codeblock" markdown="1">
-anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
-                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7.1/artifacts/profile&#45;db)</span> \
+                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
                              &#45;C DEFAULT \
                              &#45;b EVERYTHING \
-                             &#45;s <span class="artifact&#45;n">[structure&#45;db](/software/anvio/help/main/artifacts/structure&#45;db)</span> 
+                             &#45;s <span class="artifact&#45;n">[structure&#45;db](/software/anvio/help/7.1/artifacts/structure&#45;db)</span> 
 </div>
 
 ### Focusing on a subset of the input 
@@ -81,46 +81,46 @@ Instead of focusing on everything (providing the collection `DEFAULT` and the bi
 1. Provide a list of gene caller IDs (as a parameter with the flag `--gene-caller-ids` as shown below, or as a file with the flag `--genes-of-interest`)
 
     <div class="codeblock" markdown="1">
-    anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
-                                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+    anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7.1/artifacts/profile&#45;db)</span> \
+                                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
                                  &#45;&#45;gene&#45;caller&#45;ids 1,2,3
     </div>
 
-2. Provide a <span class="artifact-n">[splits-txt](/software/anvio/help/main/artifacts/splits-txt)</span> to focus only on a specific set of splits. 
+2. Provide a <span class="artifact-n">[splits-txt](/software/anvio/help/7.1/artifacts/splits-txt)</span> to focus only on a specific set of splits. 
 
     <div class="codeblock" markdown="1">
-    anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
-                                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                                 &#45;&#45;splits&#45;of&#45;intest <span class="artifact&#45;n">[splits&#45;txt](/software/anvio/help/main/artifacts/splits&#45;txt)</span>
+    anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7.1/artifacts/profile&#45;db)</span> \
+                                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
+                                 &#45;&#45;splits&#45;of&#45;intest <span class="artifact&#45;n">[splits&#45;txt](/software/anvio/help/7.1/artifacts/splits&#45;txt)</span>
     </div>
     
-3. Provide some other <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span> and <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span>. 
+3. Provide some other <span class="artifact-n">[collection](/software/anvio/help/7.1/artifacts/collection)</span> and <span class="artifact-n">[bin](/software/anvio/help/7.1/artifacts/bin)</span>. 
 
     <div class="codeblock" markdown="1">
-    anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
-                                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \ 
-                                 &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span> \
-                                 &#45;b <span class="artifact&#45;n">[bin](/software/anvio/help/main/artifacts/bin)</span>
+    anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7.1/artifacts/profile&#45;db)</span> \
+                                 &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \ 
+                                 &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/7.1/artifacts/collection)</span> \
+                                 &#45;b <span class="artifact&#45;n">[bin](/software/anvio/help/7.1/artifacts/bin)</span>
     </div>
 
 ### Additional ways to focus the input 
 
-When providing a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span>, you can also limit your analysis to only genes that have structures in your database. 
+When providing a <span class="artifact-n">[structure-db](/software/anvio/help/7.1/artifacts/structure-db)</span>, you can also limit your analysis to only genes that have structures in your database. 
 
 <div class="codeblock" markdown="1">
-anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
-                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                             &#45;s <span class="artifact&#45;n">[structure&#45;db](/software/anvio/help/main/artifacts/structure&#45;db)</span> \
+anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7.1/artifacts/profile&#45;db)</span> \
+                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
+                             &#45;s <span class="artifact&#45;n">[structure&#45;db](/software/anvio/help/7.1/artifacts/structure&#45;db)</span> \
                              &#45;&#45;only&#45;if&#45;structure
 </div>
 
 You can also choose to look at only data from specific samples by providing a file with one sample name per line. For example
 
 <div class="codeblock" markdown="1">
-anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
-                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                             &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span> \
-                             &#45;b <span class="artifact&#45;n">[bin](/software/anvio/help/main/artifacts/bin)</span> \
+anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7.1/artifacts/profile&#45;db)</span> \
+                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
+                             &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/7.1/artifacts/collection)</span> \
+                             &#45;b <span class="artifact&#45;n">[bin](/software/anvio/help/7.1/artifacts/bin)</span> \
                              &#45;&#45;samples&#45;of&#45;interest my_samples.txt
 </div>
 
@@ -135,25 +135,25 @@ DAY_22A
 
 ### SNVs vs. SCVs vs. SAAVs 
 
-Which one you're analyzing depends entirely on the `engine` parameter, which you can set to `NT` (nucleotides), `CDN` (codons), or `AA` (amino acids). The default value is nucleotides. Note that to analyze SCVs or SAAVs, you'll have needed to use the flag `--profile-SCVs` when you ran <span class="artifact-n">[anvi-profile](/software/anvio/help/main/programs/anvi-profile)</span>.
+Which one you're analyzing depends entirely on the `engine` parameter, which you can set to `NT` (nucleotides), `CDN` (codons), or `AA` (amino acids). The default value is nucleotides. Note that to analyze SCVs or SAAVs, you'll have needed to use the flag `--profile-SCVs` when you ran <span class="artifact-n">[anvi-profile](/software/anvio/help/7.1/programs/anvi-profile)</span>.
 
 For example, to analyze SAAVs, run
 
 <div class="codeblock" markdown="1">
-anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
-                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                             &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span> \
-                             &#45;b <span class="artifact&#45;n">[bin](/software/anvio/help/main/artifacts/bin)</span> \
+anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7.1/artifacts/profile&#45;db)</span> \
+                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
+                             &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/7.1/artifacts/collection)</span> \
+                             &#45;b <span class="artifact&#45;n">[bin](/software/anvio/help/7.1/artifacts/bin)</span> \
                              &#45;&#45;engine AA
 </div>
 
 To analyze SCVs, run
 
 <div class="codeblock" markdown="1">
-anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
-                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                             &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span> \
-                             &#45;b <span class="artifact&#45;n">[bin](/software/anvio/help/main/artifacts/bin)</span> \
+anvi&#45;gen&#45;variability&#45;profile &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7.1/artifacts/profile&#45;db)</span> \
+                             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
+                             &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/7.1/artifacts/collection)</span> \
+                             &#45;b <span class="artifact&#45;n">[bin](/software/anvio/help/7.1/artifacts/bin)</span> \
                              &#45;&#45;engine CDN
 </div>
 

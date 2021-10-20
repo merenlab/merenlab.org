@@ -3,7 +3,7 @@ layout: page
 title: anvi-export-functions [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-export-functions
+redirect_from: /7.1/anvi-export-functions
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,18 +42,18 @@ Export functions of genes from an anvi&#x27;o contigs database for a given annot
 ## Usage
 
 
-This program **takes in a <span class="artifact-n">[functions](/software/anvio/help/main/artifacts/functions)</span> artifact to create a <span class="artifact-n">[functions-txt](/software/anvio/help/main/artifacts/functions-txt)</span>.** Basically, if you want to take the information in your <span class="artifact-n">[functions](/software/anvio/help/main/artifacts/functions)</span> artifact out of anvi'o or give it to a fellow anvi'o user (for them to [import it](http://merenlab.org/software/anvio/help/programs/anvi-import-functions/) into their own project), you get that information using this command. 
+This program **takes in a <span class="artifact-n">[functions](/software/anvio/help/7.1/artifacts/functions)</span> artifact to create a <span class="artifact-n">[functions-txt](/software/anvio/help/7.1/artifacts/functions-txt)</span>.** Basically, if you want to take the information in your <span class="artifact-n">[functions](/software/anvio/help/7.1/artifacts/functions)</span> artifact out of anvi'o or give it to a fellow anvi'o user (for them to [import it](http://merenlab.org/software/anvio/help/programs/anvi-import-functions/) into their own project), you get that information using this command. 
 
-Simply provide the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> that has been annotated with <span class="artifact-n">[functions](/software/anvio/help/main/artifacts/functions)</span>: 
+Simply provide the <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> that has been annotated with <span class="artifact-n">[functions](/software/anvio/help/7.1/artifacts/functions)</span>: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;functions &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> 
+anvi&#45;export&#45;functions &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> 
 </div>
 
 You can also get annotations for only a specific list of sources. For example:
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;functions &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;export&#45;functions &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
                       &#45;&#45;annotation&#45;sources source_1,source_2,source_3
 </div>
 

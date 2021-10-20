@@ -3,7 +3,7 @@ layout: page
 title: anvi-init-bam [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-init-bam
+redirect_from: /7.1/anvi-init-bam
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,14 +42,14 @@ Sort/Index BAM files.
 ## Usage
 
 
-This program sorts and indexes your BAM files, essentially converting a <span class="artifact-n">[raw-bam-file](/software/anvio/help/main/artifacts/raw-bam-file)</span> into a <span class="artifact-n">[bam-file](/software/anvio/help/main/artifacts/bam-file)</span>, which are ready to be used in anvi'o. 
+This program sorts and indexes your BAM files, essentially converting a <span class="artifact-n">[raw-bam-file](/software/anvio/help/7.1/artifacts/raw-bam-file)</span> into a <span class="artifact-n">[bam-file](/software/anvio/help/7.1/artifacts/bam-file)</span>, which are ready to be used in anvi'o. 
 
-If you're unsure what a BAM file is, check out the <span class="artifact-n">[bam-file](/software/anvio/help/main/artifacts/bam-file)</span> page or [this file](https://samtools.github.io/hts-specs/SAMv1.pdf), written by the developers of samtools. For a description of what indexing a BAM file does, check out the page for <span class="artifact-n">[raw-bam-file](/software/anvio/help/main/artifacts/raw-bam-file)</span>. 
+If you're unsure what a BAM file is, check out the <span class="artifact-n">[bam-file](/software/anvio/help/7.1/artifacts/bam-file)</span> page or [this file](https://samtools.github.io/hts-specs/SAMv1.pdf), written by the developers of samtools. For a description of what indexing a BAM file does, check out the page for <span class="artifact-n">[raw-bam-file](/software/anvio/help/7.1/artifacts/raw-bam-file)</span>. 
 
 To run this program, just provide a path to the bam files that you want to index. For example, 
 
 <div class="codeblock" markdown="1">
-anvi&#45;init&#45;bam <span class="artifact&#45;n">[raw&#45;bam&#45;file](/software/anvio/help/main/artifacts/raw&#45;bam&#45;file)</span> 
+anvi&#45;init&#45;bam <span class="artifact&#45;n">[raw&#45;bam&#45;file](/software/anvio/help/7.1/artifacts/raw&#45;bam&#45;file)</span> 
 </div>
 
 You can also multithread this to shorten runtime with the flag `-T` followed by the desired number of threads if your system is capable of this. 

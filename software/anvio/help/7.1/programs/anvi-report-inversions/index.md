@@ -3,7 +3,7 @@ layout: page
 title: anvi-report-inversions [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-report-inversions
+redirect_from: /7.1/anvi-report-inversions
 image:
   featurerelative: ../../../images/header.png
   display: true

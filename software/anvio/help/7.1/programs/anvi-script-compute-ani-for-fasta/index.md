@@ -3,7 +3,7 @@ layout: page
 title: anvi-script-compute-ani-for-fasta [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-script-compute-ani-for-fasta
+redirect_from: /7.1/anvi-script-compute-ani-for-fasta
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -44,12 +44,12 @@ Run ANI between contigs in a single FASTA file.
 
 This program computes the average nucleotide identity between reads in a single fasta file (using PyANI). 
 
-To compute the ANI (or other genome distance metrics) between two genomes in different fasta files, use <span class="artifact-n">[anvi-compute-genome-similarity](/software/anvio/help/main/programs/anvi-compute-genome-similarity)</span>. 
+To compute the ANI (or other genome distance metrics) between two genomes in different fasta files, use <span class="artifact-n">[anvi-compute-genome-similarity](/software/anvio/help/7.1/programs/anvi-compute-genome-similarity)</span>. 
 
 A default run of this program looks like this: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;compute&#45;ani&#45;for&#45;fasta &#45;f <span class="artifact&#45;n">[fasta](/software/anvio/help/main/artifacts/fasta)</span> \ 
+anvi&#45;script&#45;compute&#45;ani&#45;for&#45;fasta &#45;f <span class="artifact&#45;n">[fasta](/software/anvio/help/7.1/artifacts/fasta)</span> \ 
                                   &#45;o path/to/output \
                                   &#45;&#45;method ANIb
 </div>

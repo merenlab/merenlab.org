@@ -3,7 +3,7 @@ layout: page
 title: anvi-setup-pdb-database [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-setup-pdb-database
+redirect_from: /7.1/anvi-setup-pdb-database
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -45,10 +45,10 @@ This program seems to know what its doing. It needs no input material from its u
 
 ## Basic usage 
 
-This program creates a <span class="artifact-n">[pdb-db](/software/anvio/help/main/artifacts/pdb-db)</span> local database that holds PDB structures from [this sequence database](https://salilab.org/modeller/supplemental.html), which is hosted by the [Sali lab](https://salilab.org/).  Their database comprises all PDB RCSB sequences that have been clustered at 95% sequence similarity. They seem to update their database every couple of months (thank you guys!).
+This program creates a <span class="artifact-n">[pdb-db](/software/anvio/help/7.1/artifacts/pdb-db)</span> local database that holds PDB structures from [this sequence database](https://salilab.org/modeller/supplemental.html), which is hosted by the [Sali lab](https://salilab.org/).  Their database comprises all PDB RCSB sequences that have been clustered at 95% sequence similarity. They seem to update their database every couple of months (thank you guys!).
 
 
-The purpose of <span class="artifact-n">[anvi-setup-pdb-database](/software/anvio/help/main/programs/anvi-setup-pdb-database)</span> to have a local copy of reference structures that can be used to, for example, get template structures for homology modelling when <span class="artifact-n">[anvi-gen-structure-database](/software/anvio/help/main/programs/anvi-gen-structure-database)</span> is ran.
+The purpose of <span class="artifact-n">[anvi-setup-pdb-database](/software/anvio/help/7.1/programs/anvi-setup-pdb-database)</span> to have a local copy of reference structures that can be used to, for example, get template structures for homology modelling when <span class="artifact-n">[anvi-gen-structure-database](/software/anvio/help/7.1/programs/anvi-gen-structure-database)</span> is ran.
 
 
 Running this program is easy:
@@ -57,7 +57,7 @@ Running this program is easy:
 anvi&#45;setup&#45;pdb&#45;database &#45;&#45;just&#45;do&#45;it
 </div>
 
-If you already have a <span class="artifact-n">[pdb-db](/software/anvio/help/main/artifacts/pdb-db)</span> artifact and are trying to redownload this data, run 
+If you already have a <span class="artifact-n">[pdb-db](/software/anvio/help/7.1/artifacts/pdb-db)</span> artifact and are trying to redownload this data, run 
 
 <div class="codeblock" markdown="1">
 anvi&#45;setup&#45;pdb&#45;database &#45;&#45;reset
@@ -71,7 +71,7 @@ anvi&#45;setup&#45;pdb&#45;database &#45;&#45;update
 
 ## Notes
 
-The output <span class="artifact-n">[pdb-db](/software/anvio/help/main/artifacts/pdb-db)</span> database is ~20GB and its contents may take several hours to download.
+The output <span class="artifact-n">[pdb-db](/software/anvio/help/7.1/artifacts/pdb-db)</span> database is ~20GB and its contents may take several hours to download.
 
 
 

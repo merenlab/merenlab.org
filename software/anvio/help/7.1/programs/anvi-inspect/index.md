@@ -3,7 +3,7 @@ layout: page
 title: anvi-inspect [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-inspect
+redirect_from: /7.1/anvi-inspect
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,15 +42,15 @@ Start an anvi&#x27;o inspect interactive interface.
 ## Usage
 
 
-This lets you inspect a single split across your samples. This interface can also be opened from the <span class="artifact-n">[anvi-interactive](/software/anvio/help/main/programs/anvi-interactive)</span> interface by asking for details about a specific split.
+This lets you inspect a single split across your samples. This interface can also be opened from the <span class="artifact-n">[anvi-interactive](/software/anvio/help/7.1/programs/anvi-interactive)</span> interface by asking for details about a specific split.
 
 From this view, you can clearly see the coverage and detection across your split, all SNVs, and the genes identified within your split and their functional annotations. You can also  easily compare all of this data across all of the samples that this split is present in.  
 
-To run this program, just provide a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> and <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> pair and a single split name to inspect. 
+To run this program, just provide a <span class="artifact-n">[profile-db](/software/anvio/help/7.1/artifacts/profile-db)</span> and <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> pair and a single split name to inspect. 
 
 <div class="codeblock" markdown="1">
-anvi&#45;inspect &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
-             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \ 
+anvi&#45;inspect &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7.1/artifacts/profile&#45;db)</span> \
+             &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \ 
              &#45;&#45;split&#45;name Day17a_QCcontig9_split_00003
 </div>
 

@@ -3,7 +3,7 @@ layout: page
 title: anvi-get-pn-ps-ratio [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-get-pn-ps-ratio
+redirect_from: /7.1/anvi-get-pn-ps-ratio
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,7 +42,7 @@ FIXME.
 ## Usage
 
 
-This program **calculates the pN/pS ratio** for each gene in a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> and outputs it as a <span class="artifact-n">[pn-ps-data](/software/anvio/help/main/artifacts/pn-ps-data)</span> artifact.
+This program **calculates the pN/pS ratio** for each gene in a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> and outputs it as a <span class="artifact-n">[pn-ps-data](/software/anvio/help/7.1/artifacts/pn-ps-data)</span> artifact.
 
 ### What is the pN/pS ratio?
 
@@ -54,17 +54,17 @@ strains/species. We calculate pN/pS from allele frequency obtained through SCVs 
 
 ### Neat. How do I use this program?
 
-Firstly, you'll need to run <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/main/programs/anvi-gen-variability-profile)</span> using the flag `--engine CDN` to get a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span> for SCVs (single codon variants), which we'll name `SCVs.txt` in this example.
+Firstly, you'll need to run <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/7.1/programs/anvi-gen-variability-profile)</span> using the flag `--engine CDN` to get a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/7.1/artifacts/variability-profile-txt)</span> for SCVs (single codon variants), which we'll name `SCVs.txt` in this example.
 
 Then you can run this program like so:
 
 <div class="codeblock" markdown="1">
 anvi&#45;get&#45;pn&#45;ps&#45;ratio &#45;V SCVs.txt \
-                     &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+                     &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
                      &#45;o output_dir
 </div>
 
-A pN/pS value is calculated for each (gene, sample) combo. This will result in a directory called `output_dir` that contains several tables that describe each of your genes. See <span class="artifact-n">[pn-ps-data](/software/anvio/help/main/artifacts/pn-ps-data)</span> for more information.
+A pN/pS value is calculated for each (gene, sample) combo. This will result in a directory called `output_dir` that contains several tables that describe each of your genes. See <span class="artifact-n">[pn-ps-data](/software/anvio/help/7.1/artifacts/pn-ps-data)</span> for more information.
 
 ### Other parameters
 

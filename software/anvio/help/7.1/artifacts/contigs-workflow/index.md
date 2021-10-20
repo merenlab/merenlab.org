@@ -3,7 +3,7 @@ layout: page
 title: contigs-workflow [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/contigs-workflow
+redirect_from: /7.1/contigs-workflow
 image:
   featurerelative: ../../../images/header.png
   display: true

@@ -3,7 +3,7 @@ layout: page
 title: locus-fasta [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/locus-fasta
+redirect_from: /7.1/locus-fasta
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -33,11 +33,11 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-A locus-fasta is one of the outputs of <span class="artifact-n">[anvi-export-locus](/software/anvio/help/main/programs/anvi-export-locus)</span>, which creates exports specific regions of interest out of a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>. 
+A locus-fasta is one of the outputs of <span class="artifact-n">[anvi-export-locus](/software/anvio/help/7.1/programs/anvi-export-locus)</span>, which creates exports specific regions of interest out of a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>. 
 
-This artifact specifically describes the <span class="artifact-n">[fasta](/software/anvio/help/main/artifacts/fasta)</span> file that contains the sequence of one of the hits to the locus. 
+This artifact specifically describes the <span class="artifact-n">[fasta](/software/anvio/help/7.1/artifacts/fasta)</span> file that contains the sequence of one of the hits to the locus. 
 
-This file is contained within the directory specified by the `-o` parameter and is named with the prefix defined by the `-O` parameter, followed by a numerical identifier for this particular hit. The sequence in this fasta file is also contained in the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> of the same name. 
+This file is contained within the directory specified by the `-o` parameter and is named with the prefix defined by the `-O` parameter, followed by a numerical identifier for this particular hit. The sequence in this fasta file is also contained in the <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> of the same name. 
 
 
 {:.notice}

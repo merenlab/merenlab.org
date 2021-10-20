@@ -3,7 +3,7 @@ layout: page
 title: modifications-txt [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/modifications-txt
+redirect_from: /7.1/modifications-txt
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -35,13 +35,13 @@ A TXT-type anvi'o artifact. This artifact is typically generated, used, and/or e
 
 This tabular file contains data on predicted modifications in tRNA-seq seeds.
 
-This file is produced by <span class="artifact-n">[anvi-tabulate-trnaseq](/software/anvio/help/main/programs/anvi-tabulate-trnaseq)</span>. The artifact for that program describes this and related tables in detail.
+This file is produced by <span class="artifact-n">[anvi-tabulate-trnaseq](/software/anvio/help/7.1/programs/anvi-tabulate-trnaseq)</span>. The artifact for that program describes this and related tables in detail.
 
-This tab-delimited file can be easily manipulated by the user. It is required input for <span class="artifact-n">[anvi-plot-trnaseq](/software/anvio/help/main/programs/anvi-plot-trnaseq)</span>.
+This tab-delimited file can be easily manipulated by the user. It is required input for <span class="artifact-n">[anvi-plot-trnaseq](/software/anvio/help/7.1/programs/anvi-plot-trnaseq)</span>.
 
 ## Example
 
-The modifications shown in this table are from the seeds represented in the <span class="artifact-n">[seeds-specific-txt](/software/anvio/help/main/artifacts/seeds-specific-txt)</span> and <span class="artifact-n">[seeds-non-specific-txt](/software/anvio/help/main/artifacts/seeds-non-specific-txt)</span> example tables.
+The modifications shown in this table are from the seeds represented in the <span class="artifact-n">[seeds-specific-txt](/software/anvio/help/7.1/artifacts/seeds-specific-txt)</span> and <span class="artifact-n">[seeds-non-specific-txt](/software/anvio/help/7.1/artifacts/seeds-non-specific-txt)</span> example tables.
 
 | gene_callers_id | contig_name | anticodon | aa | domain | phylum | class | order | family | genus | species | taxon_percent_id | seed_position | ordinal_name | ordinal_position | canonical_position | reference | sample_name | A | C | G | T |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

@@ -3,7 +3,7 @@ layout: page
 title: anvi-run-interacdome [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-run-interacdome
+redirect_from: /7.1/anvi-run-interacdome
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -43,16 +43,16 @@ Run InteracDome on a contigs database.
 
 
 
-This program predicts per-residue binding scores for genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> via the [InteracDome](https://interacdome.princeton.edu/) database.
+This program predicts per-residue binding scores for genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> via the [InteracDome](https://interacdome.princeton.edu/) database.
 
 
 The full process is detailed in [this blog post](https://merenlab.org/2020/07/22/interacdome/). In fact, ideally, all of that information should really be in this very document, but because the blogpost has preceded this document, it hasn't been translated over yet. So really, you should really be reading that blogpost if you want to get into the nitty gritty details. Otherwise, the quick reference herein should be sufficient.
 
 
-In summary, this program runs an HMM search of the genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> to all the Pfam gene families that have been annotated with InteracDome binding frequencies. Then, it parses and filters results, associates binding frequencies of HMM match states to the user's genes of interest, and then stores the resulting per-residue binding frequencies for each gene into the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> as <span class="artifact-n">[misc-data-amino-acids](/software/anvio/help/main/artifacts/misc-data-amino-acids)</span>.
+In summary, this program runs an HMM search of the genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> to all the Pfam gene families that have been annotated with InteracDome binding frequencies. Then, it parses and filters results, associates binding frequencies of HMM match states to the user's genes of interest, and then stores the resulting per-residue binding frequencies for each gene into the <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> as <span class="artifact-n">[misc-data-amino-acids](/software/anvio/help/7.1/artifacts/misc-data-amino-acids)</span>.
 
 
-Before running this program, you'll have to run <span class="artifact-n">[anvi-setup-interacdome](/software/anvio/help/main/programs/anvi-setup-interacdome)</span> to set up a local copy of [InteracDome's tab-separated files](https://interacdome.princeton.edu/#tab-6136-4).
+Before running this program, you'll have to run <span class="artifact-n">[anvi-setup-interacdome](/software/anvio/help/7.1/programs/anvi-setup-interacdome)</span> to set up a local copy of [InteracDome's tab-separated files](https://interacdome.princeton.edu/#tab-6136-4).
 
 
 
@@ -61,10 +61,10 @@ Before running this program, you'll have to run <span class="artifact-n">[anvi-s
 A basic run of this program looks like this:
 
 <div class="codeblock" markdown="1">
-anvi&#45;run&#45;interacdome &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> &#45;T 4
+anvi&#45;run&#45;interacdome &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> &#45;T 4
 </div>
 
-In addition to storing per-residue binding frequencies as <span class="artifact-n">[misc-data-amino-acids](/software/anvio/help/main/artifacts/misc-data-amino-acids)</span> in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>, this also outputs additional files prefixed with `INTERACDOME` by default (the prefix can be changed with `-O`). These are provided as <span class="artifact-n">[binding-frequencies-txt](/software/anvio/help/main/artifacts/binding-frequencies-txt)</span> files named `INTERACDOME-match_state_contributors.txt` and `INTERACDOME-domain_hits.txt`. See <span class="artifact-n">[binding-frequencies-txt](/software/anvio/help/main/artifacts/binding-frequencies-txt)</span> for details.
+In addition to storing per-residue binding frequencies as <span class="artifact-n">[misc-data-amino-acids](/software/anvio/help/7.1/artifacts/misc-data-amino-acids)</span> in your <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>, this also outputs additional files prefixed with `INTERACDOME` by default (the prefix can be changed with `-O`). These are provided as <span class="artifact-n">[binding-frequencies-txt](/software/anvio/help/7.1/artifacts/binding-frequencies-txt)</span> files named `INTERACDOME-match_state_contributors.txt` and `INTERACDOME-domain_hits.txt`. See <span class="artifact-n">[binding-frequencies-txt](/software/anvio/help/7.1/artifacts/binding-frequencies-txt)</span> for details.
 
 
 ## Parameters
@@ -73,14 +73,14 @@ In addition to storing per-residue binding frequencies as <span class="artifact-
 
 
 <div class="codeblock" markdown="1">
-anvi&#45;run&#45;interacdome &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;run&#45;interacdome &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
                      &#45;&#45;interacdome&#45;dataset confident
 </div>
 
 This progarm is multi-threaded, so be sure to make use of it:
 
 <div class="codeblock" markdown="1">
-anvi&#45;run&#45;interacdome &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;run&#45;interacdome &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
                      &#45;&#45;interacdome&#45;dataset confident \
                      &#45;T 8
 </div>

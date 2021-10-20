@@ -3,7 +3,7 @@ layout: page
 title: anvi-compute-completeness [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-compute-completeness
+redirect_from: /7.1/anvi-compute-completeness
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,25 +42,25 @@ This program does not seem to provide any artifacts. Such programs usually print
 ## Usage
 
 
-This program tells you the completeness and redundency of single-copy gene sources available for your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>. 
+This program tells you the completeness and redundency of single-copy gene sources available for your <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>. 
 
 For example, some of the defaults are collections of single-copy core genes named  `Protista_83`, `Archaea_76`, and `Bacteria_71`. This program will give you a rough estimate of how many Protist, Archaeal, and Bacterial genomes are included in your dataset using these single-copy core genes. 
 
-You can use the following run to list available completeness sources in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>:
+You can use the following run to list available completeness sources in your <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>:
 
 <div class="codeblock" markdown="1">
-anvi&#45;compute&#45;completeness &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;compute&#45;completeness &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
                           &#45;&#45;list&#45;completeness&#45;sources
 </div>
                               
 Then you can run this program on a specifc source as folows:
 
 <div class="codeblock" markdown="1">
-anvi&#45;compute&#45;completeness &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;compute&#45;completeness &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
                           &#45;&#45;completeness&#45;source Bacteria_71
 </div>
                               
-You can also provide a <span class="artifact-n">[splits-txt](/software/anvio/help/main/artifacts/splits-txt)</span> to focus on a specific set of splits, or declare a minimum e-value for a gene to count as a hit. The default is `1e-15`.
+You can also provide a <span class="artifact-n">[splits-txt](/software/anvio/help/7.1/artifacts/splits-txt)</span> to focus on a specific set of splits, or declare a minimum e-value for a gene to count as a hit. The default is `1e-15`.
 
 
 {:.notice}

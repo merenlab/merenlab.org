@@ -3,7 +3,7 @@ layout: page
 title: anvi-export-locus [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-export-locus
+redirect_from: /7.1/anvi-export-locus
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -46,15 +46,15 @@ This program helps you cut a &#x27;locus&#x27; from a larger genetic context (e.
 ## Usage
 
 
-This program lets you export selections of your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> around all occurances of a user-defined anchor gene. 
+This program lets you export selections of your <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> around all occurances of a user-defined anchor gene. 
 
-The output of this is a folder that contains a separate <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> for the region around each hit of the anchor gene. (In fact, you'll get a FASTA file, <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>, <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span>, and a copy of the runlog).
+The output of this is a folder that contains a separate <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> for the region around each hit of the anchor gene. (In fact, you'll get a FASTA file, <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>, <span class="artifact-n">[profile-db](/software/anvio/help/7.1/artifacts/profile-db)</span>, and a copy of the runlog).
 
 For example, you could specify the recognition site for a specific enzyme and use this program to pull out all potential sites where that enzyme could bind. 
 
 ### Required Parameters
 
-You'll need to provide a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> (of course), as well as the name of the output directory and a prefix to use when naming all of the output databases. 
+You'll need to provide a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> (of course), as well as the name of the output directory and a prefix to use when naming all of the output databases. 
 
 You can define the region of interest either by defining the two flanking genes or by searching for an anchor gene and defining a number of genes around this gene that you want to look at. For example, if you set `num-genes` as 1, then each locus will contain the gene of interest, a gene upstream of it, and a gene downstream of it, for a total of three genes. 
 
@@ -62,10 +62,10 @@ You can define the region of interest either by defining the two flanking genes 
 
 There are four ways to indicate the desired anchor gene:
 
-1. Provide a search term in the functional annotations of all of your genes. (If you're trying to find a gene with a vague function, you might want to use <span class="artifact-n">[anvi-search-functions](/software/anvio/help/main/programs/anvi-search-functions)</span> to find out which genes will show up first. Alternatively, you can you <span class="artifact-n">[anvi-export-functions](/software/anvio/help/main/programs/anvi-export-functions)</span> to look at a full list of the functional annotaitons in this database). 
+1. Provide a search term in the functional annotations of all of your genes. (If you're trying to find a gene with a vague function, you might want to use <span class="artifact-n">[anvi-search-functions](/software/anvio/help/7.1/programs/anvi-search-functions)</span> to find out which genes will show up first. Alternatively, you can you <span class="artifact-n">[anvi-export-functions](/software/anvio/help/7.1/programs/anvi-export-functions)</span> to look at a full list of the functional annotaitons in this database). 
 
     <div class="codeblock" markdown="1">
-    anvi&#45;export&#45;locus &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+    anvi&#45;export&#45;locus &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
                       &#45;&#45;num&#45;genes 2 \
                       &#45;o GLYCO_DIRECTORY \
                       &#45;O Glyco \
@@ -77,7 +77,7 @@ There are four ways to indicate the desired anchor gene:
 2.  Provide a specific gene caller ID. 
 
     <div class="codeblock" markdown="1">
-    anvi&#45;export&#45;locus &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+    anvi&#45;export&#45;locus &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
                       &#45;&#45;num&#45;genes 2 \
                       &#45;o output_directory \
                       &#45;O GENE_1 \
@@ -87,7 +87,7 @@ There are four ways to indicate the desired anchor gene:
 3. Provide a search term for the HMM source annotations. To do this, you must also specify an hmm-source. (You can use the flag `--list-hmm-sources` to list the available sources). 
 
     <div class="codeblock" markdown="1">
-    anvi&#45;export&#45;locus &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+    anvi&#45;export&#45;locus &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
                       &#45;&#45;num&#45;genes 2 \
                       &#45;o Ribosomal_S20p \
                       &#45;O Ribosomal_S20p \
@@ -99,7 +99,7 @@ There are four ways to indicate the desired anchor gene:
     4. Run in `flank-mode` and provide two flanking genes that define the locus region.
     
     <div class="codeblock" markdown="1">
-    anvi&#45;export&#45;locus &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+    anvi&#45;export&#45;locus &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
                       &#45;&#45;flank&#45;mode \
                       &#45;o locus_output \
                       &#45;O gyclo_to_acyl \

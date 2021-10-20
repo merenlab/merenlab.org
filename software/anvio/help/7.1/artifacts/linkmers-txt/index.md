@@ -3,7 +3,7 @@ layout: page
 title: linkmers-txt [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/linkmers-txt
+redirect_from: /7.1/linkmers-txt
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -33,9 +33,9 @@ A TXT-type anvi'o artifact. This artifact is typically provided **by the user** 
 
 ## Description
 
-This is a tab-delimited table where each row represents a a short read that mapped to a specific position in a reference contig. This is the output of <span class="artifact-n">[anvi-report-linkmers](/software/anvio/help/main/programs/anvi-report-linkmers)</span>, where those reference positions are given by the user.
+This is a tab-delimited table where each row represents a a short read that mapped to a specific position in a reference contig. This is the output of <span class="artifact-n">[anvi-report-linkmers](/software/anvio/help/7.1/programs/anvi-report-linkmers)</span>, where those reference positions are given by the user.
 
-For instance, if <span class="artifact-n">[anvi-report-linkmers](/software/anvio/help/main/programs/anvi-report-linkmers)</span> was run on three samples (`SAMPLE-01.bam`, `SAMPLE-02.bam`, and `SAMPLE-03.bam`) with this contigs-and-positions file,
+For instance, if <span class="artifact-n">[anvi-report-linkmers](/software/anvio/help/7.1/programs/anvi-report-linkmers)</span> was run on three samples (`SAMPLE-01.bam`, `SAMPLE-02.bam`, and `SAMPLE-03.bam`) with this contigs-and-positions file,
 
 <table>
   <tbody>

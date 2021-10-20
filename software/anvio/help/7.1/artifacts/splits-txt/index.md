@@ -3,7 +3,7 @@ layout: page
 title: splits-txt [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/splits-txt
+redirect_from: /7.1/splits-txt
 image:
   featurerelative: ../../../images/header.png
   display: true

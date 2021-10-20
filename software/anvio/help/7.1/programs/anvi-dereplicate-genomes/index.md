@@ -3,7 +3,7 @@ layout: page
 title: anvi-dereplicate-genomes [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-dereplicate-genomes
+redirect_from: /7.1/anvi-dereplicate-genomes
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -45,16 +45,16 @@ Identify redundant (highly similar) genomes.
 
 
 
-This program uses the user's similarity metric of choice to identify genomes that are highly similar to each other, and groups them together into redundant clusters. The program finds representative sequences for each cluster and outputs them into <span class="artifact-n">[fasta](/software/anvio/help/main/artifacts/fasta)</span> files.
+This program uses the user's similarity metric of choice to identify genomes that are highly similar to each other, and groups them together into redundant clusters. The program finds representative sequences for each cluster and outputs them into <span class="artifact-n">[fasta](/software/anvio/help/7.1/artifacts/fasta)</span> files.
 
 
 #### Input Options 
 
 You have two options for the input to this program: 
 
-- the results of <span class="artifact-n">[anvi-compute-genome-similarity](/software/anvio/help/main/programs/anvi-compute-genome-similarity)</span> (a <span class="artifact-n">[genome-similarity](/software/anvio/help/main/artifacts/genome-similarity)</span> directory). If you used `fastANI` or `pyANI` when you ran <span class="artifact-n">[anvi-compute-genome-similarity](/software/anvio/help/main/programs/anvi-compute-genome-similarity)</span>, provide this using the parameter `--ani-dir`; if you used sourmash, use the parameter `--mash-dir`. 
+- the results of <span class="artifact-n">[anvi-compute-genome-similarity](/software/anvio/help/7.1/programs/anvi-compute-genome-similarity)</span> (a <span class="artifact-n">[genome-similarity](/software/anvio/help/7.1/artifacts/genome-similarity)</span> directory). If you used `fastANI` or `pyANI` when you ran <span class="artifact-n">[anvi-compute-genome-similarity](/software/anvio/help/7.1/programs/anvi-compute-genome-similarity)</span>, provide this using the parameter `--ani-dir`; if you used sourmash, use the parameter `--mash-dir`. 
 
-- an <span class="artifact-n">[internal-genomes](/software/anvio/help/main/artifacts/internal-genomes)</span>, <span class="artifact-n">[external-genomes](/software/anvio/help/main/artifacts/external-genomes)</span> or a series of <span class="artifact-n">[fasta](/software/anvio/help/main/artifacts/fasta)</span> files (each of which represents a genome), in which case anvi'o will run <span class="artifact-n">[anvi-compute-genome-similarity](/software/anvio/help/main/programs/anvi-compute-genome-similarity)</span> for you.  When providing these inputs, you can also provide any of the parameters that <span class="artifact-n">[anvi-compute-genome-similarity](/software/anvio/help/main/programs/anvi-compute-genome-similarity)</span> can take, including the `--program` you want to use (out of  [PyANI](https://github.com/widdowquinn/pyani), [fastANI](https://github.com/ParBLiSS/FastANI),  [sourmash](https://sourmash.readthedocs.io/en/latest/)) and their parameters. Details about all of this can be found in the help menu for <span class="artifact-n">[anvi-compute-genome-similarity](/software/anvio/help/main/programs/anvi-compute-genome-similarity)</span>.
+- an <span class="artifact-n">[internal-genomes](/software/anvio/help/7.1/artifacts/internal-genomes)</span>, <span class="artifact-n">[external-genomes](/software/anvio/help/7.1/artifacts/external-genomes)</span> or a series of <span class="artifact-n">[fasta](/software/anvio/help/7.1/artifacts/fasta)</span> files (each of which represents a genome), in which case anvi'o will run <span class="artifact-n">[anvi-compute-genome-similarity](/software/anvio/help/7.1/programs/anvi-compute-genome-similarity)</span> for you.  When providing these inputs, you can also provide any of the parameters that <span class="artifact-n">[anvi-compute-genome-similarity](/software/anvio/help/7.1/programs/anvi-compute-genome-similarity)</span> can take, including the `--program` you want to use (out of  [PyANI](https://github.com/widdowquinn/pyani), [fastANI](https://github.com/ParBLiSS/FastANI),  [sourmash](https://sourmash.readthedocs.io/en/latest/)) and their parameters. Details about all of this can be found in the help menu for <span class="artifact-n">[anvi-compute-genome-similarity](/software/anvio/help/7.1/programs/anvi-compute-genome-similarity)</span>.
 
 #### Output Format 
 
@@ -84,18 +84,18 @@ You can also choose to report all genome fasta files (including redundant genome
 
 You are required to set the threshold for two genomes to be considered redundant and put in the same cluster. 
 
-For example, if you had the results from an <span class="artifact-n">[anvi-compute-genome-similarity](/software/anvio/help/main/programs/anvi-compute-genome-similarity)</span> run where you had used `PyANI` and wanted the threshold to be 90 percent, you would run: 
+For example, if you had the results from an <span class="artifact-n">[anvi-compute-genome-similarity](/software/anvio/help/7.1/programs/anvi-compute-genome-similarity)</span> run where you had used `PyANI` and wanted the threshold to be 90 percent, you would run: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;dereplictate&#45;genomes &#45;&#45;ani&#45;dir <span class="artifact&#45;n">[genome&#45;similarity](/software/anvio/help/main/artifacts/genome&#45;similarity)</span> \ 
+anvi&#45;dereplictate&#45;genomes &#45;&#45;ani&#45;dir <span class="artifact&#45;n">[genome&#45;similarity](/software/anvio/help/7.1/artifacts/genome&#45;similarity)</span> \ 
                           &#45;o path/to/output \
                           &#45;&#45;similiarity&#45;threshold 0.90
 </div>
 
-If instead you hadn't yet run <span class="artifact-n">[anvi-compute-genome-similarity](/software/anvio/help/main/programs/anvi-compute-genome-similarity)</span> and instead wanted to cluster the genomes in your <span class="artifact-n">[external-genomes](/software/anvio/help/main/artifacts/external-genomes)</span> file with similarity 85 percent or more (no fasta files necessary) using sourmash, you could run: 
+If instead you hadn't yet run <span class="artifact-n">[anvi-compute-genome-similarity](/software/anvio/help/7.1/programs/anvi-compute-genome-similarity)</span> and instead wanted to cluster the genomes in your <span class="artifact-n">[external-genomes](/software/anvio/help/7.1/artifacts/external-genomes)</span> file with similarity 85 percent or more (no fasta files necessary) using sourmash, you could run: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;dereplictate&#45;genomes &#45;e <span class="artifact&#45;n">[external&#45;genomes](/software/anvio/help/main/artifacts/external&#45;genomes)</span> \ 
+anvi&#45;dereplictate&#45;genomes &#45;e <span class="artifact&#45;n">[external&#45;genomes](/software/anvio/help/7.1/artifacts/external&#45;genomes)</span> \ 
                           &#45;&#45;skip&#45;fasta&#45;report \
                           &#45;&#45;program sourmash \
                           &#45;o path/to/output \

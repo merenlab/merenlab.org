@@ -3,7 +3,7 @@ layout: page
 title: anvi-experimental-organization [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-experimental-organization
+redirect_from: /7.1/anvi-experimental-organization
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,7 +42,7 @@ Create an experimental clustering dendrogram..
 ## Usage
 
 
-This program can use an anvi'o <span class="artifact-n">[clustering-configuration](/software/anvio/help/main/artifacts/clustering-configuration)</span> file to access various data sources in anvi'o databases to produce a hierarchical clustering dendrogram for items.
+This program can use an anvi'o <span class="artifact-n">[clustering-configuration](/software/anvio/help/7.1/artifacts/clustering-configuration)</span> file to access various data sources in anvi'o databases to produce a hierarchical clustering dendrogram for items.
 
 It is especially powerful when the user wishes to create a hierarchical clustering of contigs or gene clusters using only a specific set of samples. If you would like to see an example usage of this program see the article on [combining metagenomics with metatranscriptomics](https://merenlab.org/2015/06/10/combining-omics-data/).
 

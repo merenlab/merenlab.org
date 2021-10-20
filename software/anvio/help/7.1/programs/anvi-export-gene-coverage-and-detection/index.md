@@ -3,7 +3,7 @@ layout: page
 title: anvi-export-gene-coverage-and-detection [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-export-gene-coverage-and-detection
+redirect_from: /7.1/anvi-export-gene-coverage-and-detection
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,15 +42,15 @@ Export gene coverage and detection data for all genes associated with contigs de
 ## Usage
 
 
-This program gives you the **coverage and detection data** for all of the genes found in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>, using the short reads data in your <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span>. 
+This program gives you the **coverage and detection data** for all of the genes found in your <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>, using the short reads data in your <span class="artifact-n">[profile-db](/software/anvio/help/7.1/artifacts/profile-db)</span>. 
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;gene&#45;coverage&#45;and&#45;detection &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                                        &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
+anvi&#45;export&#45;gene&#45;coverage&#45;and&#45;detection &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
+                                        &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7.1/artifacts/profile&#45;db)</span> \
                                         &#45;O MY_DATA
 </div>
 
-This will give you a <span class="artifact-n">[coverages-txt](/software/anvio/help/main/artifacts/coverages-txt)</span> and a <span class="artifact-n">[detection-txt](/software/anvio/help/main/artifacts/detection-txt)</span> whose file names will begin with `MY_DATA`
+This will give you a <span class="artifact-n">[coverages-txt](/software/anvio/help/7.1/artifacts/coverages-txt)</span> and a <span class="artifact-n">[detection-txt](/software/anvio/help/7.1/artifacts/detection-txt)</span> whose file names will begin with `MY_DATA`
 
 
 {:.notice}

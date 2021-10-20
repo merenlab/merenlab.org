@@ -3,7 +3,7 @@ layout: page
 title: anvi-split [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-split
+redirect_from: /7.1/anvi-split
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,26 +42,26 @@ Split an anvi&#x27;o pan or profile database into smaller, self-contained pieces
 ## Usage
 
 
-This program **creates smaller, self-contained anvi'o projects for each of the <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span>s in your project.** This is useful if you would like to share a subset of an anvi'o project. 
+This program **creates smaller, self-contained anvi'o projects for each of the <span class="artifact-n">[bin](/software/anvio/help/7.1/artifacts/bin)</span>s in your project.** This is useful if you would like to share a subset of an anvi'o project. 
 
-Simply provide either a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> and <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> pair or a <span class="artifact-n">[genomes-storage-db](/software/anvio/help/main/artifacts/genomes-storage-db)</span> and <span class="artifact-n">[pan-db](/software/anvio/help/main/artifacts/pan-db)</span> pair, as well as a <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span>, and it will create directories for each of your bins that contain their own databases and information. In other words, each of these directories will contain their own anvi'o projects that represent the contigs or genomes stored in that single bin. 
+Simply provide either a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> and <span class="artifact-n">[profile-db](/software/anvio/help/7.1/artifacts/profile-db)</span> pair or a <span class="artifact-n">[genomes-storage-db](/software/anvio/help/7.1/artifacts/genomes-storage-db)</span> and <span class="artifact-n">[pan-db](/software/anvio/help/7.1/artifacts/pan-db)</span> pair, as well as a <span class="artifact-n">[collection](/software/anvio/help/7.1/artifacts/collection)</span>, and it will create directories for each of your bins that contain their own databases and information. In other words, each of these directories will contain their own anvi'o projects that represent the contigs or genomes stored in that single bin. 
 
 ### An example run 
 
-For example, let's say a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> has a <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span> with three bins, which are (very creatively) called `BIN_1`, `BIN_2`, and `BIN_3`.  
+For example, let's say a <span class="artifact-n">[profile-db](/software/anvio/help/7.1/artifacts/profile-db)</span> has a <span class="artifact-n">[collection](/software/anvio/help/7.1/artifacts/collection)</span> with three bins, which are (very creatively) called `BIN_1`, `BIN_2`, and `BIN_3`.  
 
 If you ran the following code: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;split &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
-           &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-           &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span> \
+anvi&#45;split &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7.1/artifacts/profile&#45;db)</span> \
+           &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
+           &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/7.1/artifacts/collection)</span> \
            &#45;o MY_PATH
 </div>
 
-Then in the location `MY_PATH`, you would have three folders: `BIN_1`, `BIN_2`, and `BIN_3`.  Each one contains its own <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> and <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> that only contains the contigs from that bin. You can then give a fellow anvi'o user just the `BIN_1` directory and they can get to work. 
+Then in the location `MY_PATH`, you would have three folders: `BIN_1`, `BIN_2`, and `BIN_3`.  Each one contains its own <span class="artifact-n">[profile-db](/software/anvio/help/7.1/artifacts/profile-db)</span> and <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> that only contains the contigs from that bin. You can then give a fellow anvi'o user just the `BIN_1` directory and they can get to work. 
 
-Similarly, if you provide a <span class="artifact-n">[genomes-storage-db](/software/anvio/help/main/artifacts/genomes-storage-db)</span> and <span class="artifact-n">[pan-db](/software/anvio/help/main/artifacts/pan-db)</span> pair, the directories will contain their own smaller <span class="artifact-n">[genomes-storage-db](/software/anvio/help/main/artifacts/genomes-storage-db)</span> and <span class="artifact-n">[pan-db](/software/anvio/help/main/artifacts/pan-db)</span> pairs. 
+Similarly, if you provide a <span class="artifact-n">[genomes-storage-db](/software/anvio/help/7.1/artifacts/genomes-storage-db)</span> and <span class="artifact-n">[pan-db](/software/anvio/help/7.1/artifacts/pan-db)</span> pair, the directories will contain their own smaller <span class="artifact-n">[genomes-storage-db](/software/anvio/help/7.1/artifacts/genomes-storage-db)</span> and <span class="artifact-n">[pan-db](/software/anvio/help/7.1/artifacts/pan-db)</span> pairs. 
 
 ### Other options 
 

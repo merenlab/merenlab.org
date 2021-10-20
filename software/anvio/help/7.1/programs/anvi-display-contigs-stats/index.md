@@ -3,7 +3,7 @@ layout: page
 title: anvi-display-contigs-stats [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-display-contigs-stats
+redirect_from: /7.1/anvi-display-contigs-stats
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -46,7 +46,7 @@ Start the anvi&#x27;o interactive interactive for viewing or comparing contigs s
 ## Usage
 
 
-This program **helps you make sense of contigs in one or more <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>s**.
+This program **helps you make sense of contigs in one or more <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>s**.
 
 ### Working with single or multiple contigs databases
 
@@ -72,7 +72,7 @@ If you are comparing multiple, each contigs databse will become an individual co
 If you run this program on an anvi'o contigs database with default parameters,
 
 <div class="codeblock" markdown="1">
-anvi&#45;display&#45;contigs&#45;stats <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span>
+anvi&#45;display&#45;contigs&#45;stats <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span>
 </div>
 
 it will open an interactive interface that looks like this:
@@ -83,7 +83,7 @@ At the top of the page are two graphs:
 
 * The bars in the top graph represent every integer N and L statistic from 1 to 100. The y-axis is the respective N length and the x-axis is the percentage of the total dataset looked at (the exact L and N values can be seen by hovering over each bar). In other words, if you had sorted your contigs by length (from longest to shortest), and walked through each one, every time you had seen another 1 percent of your total dataset, you would add a bar to the graph showing the number of contigs that you had seen (the L statistic) and the length of the one you were looking at at the moment (the N statistic).
 
-* The lower part of the graph tells you about which HMM hits your contigs database has. Each column is a gene in a specific <span class="artifact-n">[hmm-source](/software/anvio/help/main/artifacts/hmm-source)</span>, and the graph tells you how many hits each gene has in your data. (Hover your mouse over the graph to see the specifics of each gene.) The sidebar shows you how many of the genes in this graph were seen exactly that many times. For example, in the graph above, for the Bacteria_71 <span class="artifact-n">[hmm-source](/software/anvio/help/main/artifacts/hmm-source)</span>, a lot of genes were detected 9-11 times, so those bars are longer. This helps you estimate about how many of these genomes there are in your contigs database (so here, there is likely around 9-11 bacteria genomes in this contigs database).
+* The lower part of the graph tells you about which HMM hits your contigs database has. Each column is a gene in a specific <span class="artifact-n">[hmm-source](/software/anvio/help/7.1/artifacts/hmm-source)</span>, and the graph tells you how many hits each gene has in your data. (Hover your mouse over the graph to see the specifics of each gene.) The sidebar shows you how many of the genes in this graph were seen exactly that many times. For example, in the graph above, for the Bacteria_71 <span class="artifact-n">[hmm-source](/software/anvio/help/7.1/artifacts/hmm-source)</span>, a lot of genes were detected 9-11 times, so those bars are longer. This helps you estimate about how many of these genomes there are in your contigs database (so here, there is likely around 9-11 bacteria genomes in this contigs database).
 
 Below the graphs are the **contigs stats** which are displayed in the following order:
 
@@ -94,16 +94,16 @@ Below the graphs are the **contigs stats** which are displayed in the following 
 - The number of genes in your contigs (as predicted by [Prodigal](https://github.com/hyattpd/Prodigal))
 - L50, L75, L90: If you ordered the contigs in your database from longest to shortest, these stats describe the *number of contigs* you would need to go through before you had looked at a certain percent of a genome. For example, L50 describes the number of contigs you would have to go through before you reached 50 percent of the entire dataset.
 - N50, N75, N90:  If you ordered the contigs in your database from longest to shortest, these stats describe the *length of the contig* you would be looking when you had looked at a certain percent of a genome. For example, N50 describes the length of contig you would be on when you reached 50 percent of the entire genome length.
-- The number of HMM hits in your contigs. This goes through every <span class="artifact-n">[hmm-source](/software/anvio/help/main/artifacts/hmm-source)</span> and gives the number of hits its genes had in all of your contigs. Basically, this is the number of hits that is given in the lower graph at the top of the page.
-- The number of genomes that anvi'o predicts are in your sample, based on how many hits the single copy core genes got from the various <span class="artifact-n">[hmm-source](/software/anvio/help/main/artifacts/hmm-source)</span>s. See the description of the lower graph above, or [this blog post](http://merenlab.org/2015/12/07/predicting-number-of-genomes/) for more information.
+- The number of HMM hits in your contigs. This goes through every <span class="artifact-n">[hmm-source](/software/anvio/help/7.1/artifacts/hmm-source)</span> and gives the number of hits its genes had in all of your contigs. Basically, this is the number of hits that is given in the lower graph at the top of the page.
+- The number of genomes that anvi'o predicts are in your sample, based on how many hits the single copy core genes got from the various <span class="artifact-n">[hmm-source](/software/anvio/help/7.1/artifacts/hmm-source)</span>s. See the description of the lower graph above, or [this blog post](http://merenlab.org/2015/12/07/predicting-number-of-genomes/) for more information.
 
 
 ### Text output
 
-If you wish to report <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> stats as a supplementary table, a text output will be much more appropriate. If you add the flag `--report-as-text` anvi'o will not attempt to initiate an interactive interface, and instead will report the stats as a TAB-delmited file:
+If you wish to report <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> stats as a supplementary table, a text output will be much more appropriate. If you add the flag `--report-as-text` anvi'o will not attempt to initiate an interactive interface, and instead will report the stats as a TAB-delmited file:
 
 <div class="codeblock" markdown="1">
-anvi&#45;display&#45;contigs&#45;stats <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;display&#45;contigs&#45;stats <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
                           &#45;&#45;report&#45;as&#45;text \
                           &#45;o OUTPUT_FILE_NAME.txt
 </div>
@@ -111,7 +111,7 @@ anvi&#45;display&#45;contigs&#45;stats <span class="artifact&#45;n">[contigs&#45
 There is also another flag you can add to get the output formatted as markdown, which makes it easier to copy-paste to GitHub or other markdown-friendly services. This is how you get a markdown output instead:
 
 <div class="codeblock" markdown="1">
-anvi&#45;display&#45;contigs&#45;stats <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;display&#45;contigs&#45;stats <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
                           &#45;&#45;report&#45;as&#45;text \
                           &#45;&#45;as&#45;markdown \
                           &#45;o OUTPUT_FILE_NAME.md

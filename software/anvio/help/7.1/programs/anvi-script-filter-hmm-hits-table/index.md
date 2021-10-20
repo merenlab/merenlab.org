@@ -3,7 +3,7 @@ layout: page
 title: anvi-script-filter-hmm-hits-table [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-script-filter-hmm-hits-table
+redirect_from: /7.1/anvi-script-filter-hmm-hits-table
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,12 +42,12 @@ Filter weak HMM hits from a given contigs database using a domain hits table rep
 ## Usage
 
 
-This program is for filtering a <span class="artifact-n">[hmm-source](/software/anvio/help/main/artifacts/hmm-source)</span> from a <span class="artifact-n">[hmm-hits](/software/anvio/help/main/artifacts/hmm-hits)</span> in a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> using HMM alignment parameters such as query-coverage and target-coverage. Briefly, the program will remove all records from an <span class="artifact-n">[hmm-source](/software/anvio/help/main/artifacts/hmm-source)</span> in the <span class="artifact-n">[hmm-hits](/software/anvio/help/main/artifacts/hmm-hits)</span>, then import a new <span class="artifact-n">[hmm-hits](/software/anvio/help/main/artifacts/hmm-hits)</span> table into the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> that was filtered to your specifications.
+This program is for filtering a <span class="artifact-n">[hmm-source](/software/anvio/help/7.1/artifacts/hmm-source)</span> from a <span class="artifact-n">[hmm-hits](/software/anvio/help/7.1/artifacts/hmm-hits)</span> in a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> using HMM alignment parameters such as query-coverage and target-coverage. Briefly, the program will remove all records from an <span class="artifact-n">[hmm-source](/software/anvio/help/7.1/artifacts/hmm-source)</span> in the <span class="artifact-n">[hmm-hits](/software/anvio/help/7.1/artifacts/hmm-hits)</span>, then import a new <span class="artifact-n">[hmm-hits](/software/anvio/help/7.1/artifacts/hmm-hits)</span> table into the <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> that was filtered to your specifications.
 
-For this, you first need to ask <span class="artifact-n">[anvi-run-hmms](/software/anvio/help/main/programs/anvi-run-hmms)</span> to ask HMMER to report a domain hits table by including `--domain-hits-table` flag in your command:
+For this, you first need to ask <span class="artifact-n">[anvi-run-hmms](/software/anvio/help/7.1/programs/anvi-run-hmms)</span> to ask HMMER to report a domain hits table by including `--domain-hits-table` flag in your command:
 
 <div class="codeblock" markdown="1">
-anvi&#45;run&#45;hmms &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;run&#45;hmms &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
               &#45;I Bacteria_71 \
               &#45;&#45;hmmer&#45;output&#45;dir path/to/DOMTABLE.txt
               &#45;&#45;domain&#45;hits&#45;table
@@ -58,7 +58,7 @@ At the end of this run, your HMM hits will be stored in your contigs database as
 For instance following the command above, the command below will remove HMM hits from your contigs database for genes that had less than 90% coverage of the target:
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;filter&#45;hmm&#45;hits&#45;table &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+anvi&#45;script&#45;filter&#45;hmm&#45;hits&#45;table &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
                                   &#45;&#45;hmm&#45;source Bacteria_71 \
                                   &#45;&#45;domain&#45;hits&#45;table path/to/DOMTABLE.txt \
                                   &#45;&#45;target&#45;coverage 0.9

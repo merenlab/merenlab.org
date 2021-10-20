@@ -3,7 +3,7 @@ layout: page
 title: anvi-script-merge-collections [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-script-merge-collections
+redirect_from: /7.1/anvi-script-merge-collections
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,7 +42,7 @@ This program does not seem to provide any artifacts. Such programs usually print
 ## Usage
 
 
-This program outputs a file that denotes which contigs and splits are part of which <span class="artifact-n">[collection-txt](/software/anvio/help/main/artifacts/collection-txt)</span> files. This just tells you which collections each of your contigs are a part of, which can be imported as  acategorical layer with <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/main/programs/anvi-import-misc-data)</span>. 
+This program outputs a file that denotes which contigs and splits are part of which <span class="artifact-n">[collection-txt](/software/anvio/help/7.1/artifacts/collection-txt)</span> files. This just tells you which collections each of your contigs are a part of, which can be imported as  acategorical layer with <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/7.1/programs/anvi-import-misc-data)</span>. 
 
 This is not super useful, but it is used in the Infant gut tutorial [here](http://merenlab.org/tutorials/infant-gut/#comparing-multiple-binning-approaches). 
 

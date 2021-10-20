@@ -3,7 +3,7 @@ layout: page
 title: pfams-data [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/pfams-data
+redirect_from: /7.1/pfams-data
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -35,7 +35,7 @@ A DATA-type anvi'o artifact. This artifact is typically generated, used, and/or 
 
 This basically stores **a local copy of the data from the EBI's [Pfam database](https://pfam.xfam.org/) for function annotation.** 
 
-It is required to run <span class="artifact-n">[anvi-run-pfams](/software/anvio/help/main/programs/anvi-run-pfams)</span> and is set up on your computer by the program <span class="artifact-n">[anvi-setup-pfams](/software/anvio/help/main/programs/anvi-setup-pfams)</span>. 
+It is required to run <span class="artifact-n">[anvi-run-pfams](/software/anvio/help/7.1/programs/anvi-run-pfams)</span> and is set up on your computer by the program <span class="artifact-n">[anvi-setup-pfams](/software/anvio/help/7.1/programs/anvi-setup-pfams)</span>. 
 
 
 {:.notice}

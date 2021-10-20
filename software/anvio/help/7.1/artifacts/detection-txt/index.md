@@ -3,7 +3,7 @@ layout: page
 title: detection-txt [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/detection-txt
+redirect_from: /7.1/detection-txt
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -33,7 +33,7 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-This is a text file containing **the detection value for each gene in each sample** that was in the <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> and <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> that you used when you ran  <span class="artifact-n">[anvi-export-gene-coverage-and-detection](/software/anvio/help/main/programs/anvi-export-gene-coverage-and-detection)</span>. 
+This is a text file containing **the detection value for each gene in each sample** that was in the <span class="artifact-n">[profile-db](/software/anvio/help/7.1/artifacts/profile-db)</span> and <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> that you used when you ran  <span class="artifact-n">[anvi-export-gene-coverage-and-detection](/software/anvio/help/7.1/programs/anvi-export-gene-coverage-and-detection)</span>. 
 
 This is a tab-delimited file where each row describes a specific gene and each column describes one of your samples. Each cell contains the detection of that gene in that sample. 
 

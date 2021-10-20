@@ -3,7 +3,7 @@ layout: page
 title: modules-db [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/modules-db
+redirect_from: /7.1/modules-db
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -35,7 +35,7 @@ A DB-type anvi'o artifact. This artifact is typically generated, used, and/or ex
 
 A database containing information from the [KEGG MODULE database](https://www.genome.jp/kegg/module.html) for use in metabolic reconstruction and functional annotation of KEGG Orthologs (KOs).
 
-This database is part of the <span class="artifact-n">[kegg-data](/software/anvio/help/main/artifacts/kegg-data)</span> directory. You can get it on your computer by running <span class="artifact-n">[anvi-setup-kegg-kofams](/software/anvio/help/main/programs/anvi-setup-kegg-kofams)</span>. Programs that rely on this database include <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/main/programs/anvi-run-kegg-kofams)</span> and <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span>.
+This database is part of the <span class="artifact-n">[kegg-data](/software/anvio/help/7.1/artifacts/kegg-data)</span> directory. You can get it on your computer by running <span class="artifact-n">[anvi-setup-kegg-kofams](/software/anvio/help/7.1/programs/anvi-setup-kegg-kofams)</span>. Programs that rely on this database include <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/7.1/programs/anvi-run-kegg-kofams)</span> and <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/7.1/programs/anvi-estimate-metabolism)</span>.
 
 Most users will never have to interact directly with this database. However, for the brave few who want to try this (or who are figuring out how anvi'o works under the hood), there is some relevant information below.
 
@@ -64,12 +64,12 @@ Finally, some rows of data originate from the same line in the original KEGG MOD
 
 ### The database hash value
 
-In the `self` table of this database, there is an entry called `hash`. This string is a hash of the contents of the database, and it allows us to identify the version of the data within the database. This value is important for ensuring that the same MODULES.db is used both for annotating a contigs database with <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/main/programs/anvi-run-kegg-kofams)</span> and for estimating metabolism on that contigs database with <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span>. 
+In the `self` table of this database, there is an entry called `hash`. This string is a hash of the contents of the database, and it allows us to identify the version of the data within the database. This value is important for ensuring that the same MODULES.db is used both for annotating a contigs database with <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/7.1/programs/anvi-run-kegg-kofams)</span> and for estimating metabolism on that contigs database with <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/7.1/programs/anvi-estimate-metabolism)</span>. 
 
 You can easily check the hash value by running the following:
 
 <div class="codeblock" markdown="1">
-anvi&#45;db&#45;info <span class="artifact&#45;n">[modules&#45;db](/software/anvio/help/main/artifacts/modules&#45;db)</span>
+anvi&#45;db&#45;info <span class="artifact&#45;n">[modules&#45;db](/software/anvio/help/7.1/artifacts/modules&#45;db)</span>
 </div>
 
 It will appear in the `DB Info` section of the output, like so:
@@ -82,10 +82,10 @@ creation_date ................................: 1608740335.30248
 hash .........................................: 45b7cc2e4fdc
 ```
 
-If you have annotated a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> using <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/main/programs/anvi-run-kegg-kofams)</span>, you would find that the corresponding hash in that contigs database matches to this one:
+If you have annotated a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> using <span class="artifact-n">[anvi-run-kegg-kofams](/software/anvio/help/7.1/programs/anvi-run-kegg-kofams)</span>, you would find that the corresponding hash in that contigs database matches to this one:
 
 <div class="codeblock" markdown="1">
-anvi&#45;db&#45;info <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span>
+anvi&#45;db&#45;info <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span>
 </div>
 
 ```

@@ -3,7 +3,7 @@ layout: page
 title: trna-taxonomy-db [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/trna-taxonomy-db
+redirect_from: /7.1/trna-taxonomy-db
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -33,12 +33,12 @@ A CONCEPT-type anvi'o artifact. This artifact is typically generated, used, and/
 
 ## Description
 
-This artifact represents the [GTDB](https://gtdb.ecogenomic.org/) data (from [Parks et al. 2018](https://doi.org/10.1038/nbt.4229)) downloaded by <span class="artifact-n">[anvi-setup-trna-taxonomy](/software/anvio/help/main/programs/anvi-setup-trna-taxonomy)</span>. This information is required to run <span class="artifact-n">[anvi-run-trna-taxonomy](/software/anvio/help/main/programs/anvi-run-trna-taxonomy)</span> and <span class="artifact-n">[anvi-estimate-trna-taxonomy](/software/anvio/help/main/programs/anvi-estimate-trna-taxonomy)</span>. 
+This artifact represents the [GTDB](https://gtdb.ecogenomic.org/) data (from [Parks et al. 2018](https://doi.org/10.1038/nbt.4229)) downloaded by <span class="artifact-n">[anvi-setup-trna-taxonomy](/software/anvio/help/7.1/programs/anvi-setup-trna-taxonomy)</span>. This information is required to run <span class="artifact-n">[anvi-run-trna-taxonomy](/software/anvio/help/7.1/programs/anvi-run-trna-taxonomy)</span> and <span class="artifact-n">[anvi-estimate-trna-taxonomy](/software/anvio/help/7.1/programs/anvi-estimate-trna-taxonomy)</span>. 
 
 {:.notice}
 If the results from this tRNA taxonomy search end up in a paper, make sure to cite [Parks et al. 2018](https://doi.org/10.1038/nbt.4229) for their information.
 
-By default, it is stored at `anvio/data/misc/TRNA-TAXONOMY`. This directory contains a few files for each anticodon, each forming a fancy search database so that you can associate tRNA reads in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> with taxonomy information. 
+By default, it is stored at `anvio/data/misc/TRNA-TAXONOMY`. This directory contains a few files for each anticodon, each forming a fancy search database so that you can associate tRNA reads in your <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> with taxonomy information. 
 
 
 {:.notice}

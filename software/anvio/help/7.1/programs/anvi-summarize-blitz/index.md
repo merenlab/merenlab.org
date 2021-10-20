@@ -3,7 +3,7 @@ layout: page
 title: anvi-summarize-blitz [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-summarize-blitz
+redirect_from: /7.1/anvi-summarize-blitz
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,20 +42,20 @@ FAST summary of many anvi&#x27;o single profile databases (without having to use
 ## Usage
 
 
-This program is a quicker, but less comprehensive, alternative to <span class="artifact-n">[anvi-summarize](/software/anvio/help/main/programs/anvi-summarize)</span>. It is used to summarize basic read recruitment statistics (like detection and coverage) from many single profiles that are all associated with the same <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>.
+This program is a quicker, but less comprehensive, alternative to <span class="artifact-n">[anvi-summarize](/software/anvio/help/7.1/programs/anvi-summarize)</span>. It is used to summarize basic read recruitment statistics (like detection and coverage) from many single profiles that are all associated with the same <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>.
 
 Given a list of samples (single profiles) and a collection, `anvi-summarize-blitz` will compute the per-sample weighted average of each statistic for each bin in the collection. This is an average of the statistic value over each split in the bin, _weighted by the split length_.
 
-The output will be a text file, and you can find details about its format by clicking on <span class="artifact-n">[quick-summary](/software/anvio/help/main/artifacts/quick-summary)</span>.
+The output will be a text file, and you can find details about its format by clicking on <span class="artifact-n">[quick-summary](/software/anvio/help/7.1/artifacts/quick-summary)</span>.
 
 ### Basic usage
 
-In addition to your list of <span class="artifact-n">[single-profile-db](/software/anvio/help/main/artifacts/single-profile-db)</span>s, you must provide this program with their corresponding contigs database and a collection name.
+In addition to your list of <span class="artifact-n">[single-profile-db](/software/anvio/help/7.1/artifacts/single-profile-db)</span>s, you must provide this program with their corresponding contigs database and a collection name.
 
 <div class="codeblock" markdown="1">
 anvi&#45;summarize&#45;blitz PROFILE_1.db PROFILE_2.db PROFILE_3.db [...] \
-                     &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                     &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span>
+                     &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
+                     &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/7.1/artifacts/collection)</span>
 </div>
 
 The program will summarize the same collection across all of your single profile databases. However, it will use only the first profile database in the argument list to learn about what is in the collection, so it is not exactly necessary to have this collection defined for all of the other profile databases (though one could argue that it is a good idea to do this regardless...). The collection name you provide to this program must be a collection that is present in at least the first profile database in the argument list. In the example above, only `PROFILE_1.db` is strictly required to include the collection you wish to summarize (though all other profiles must contain the same splits as this first profile, which should not be a problem if you generated them all in the same way).
@@ -66,8 +66,8 @@ If nothing is provided, the output file name will be the collection name, suffix
 
 <div class="codeblock" markdown="1">
 anvi&#45;summarize&#45;blitz PROFILE_1.db PROFILE_2.db PROFILE_3.db [...] \
-                     &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                     &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span> \
+                     &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
+                     &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/7.1/artifacts/collection)</span> \
                      &#45;o OUTPUT.txt
 </div>
 
@@ -77,8 +77,8 @@ The default statistics that will be summarized are detection and something calle
 
 <div class="codeblock" markdown="1">
 anvi&#45;summarize&#45;blitz PROFILE_1.db PROFILE_2.db PROFILE_3.db [...] \
-                     &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                     &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span> \
+                     &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
+                     &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/7.1/artifacts/collection)</span> \
                      &#45;S std_coverage,mean_coverage,detection
 </div>
 
@@ -115,7 +115,7 @@ Config Error: The database at [PROFILE.db] does not seem to have a table named
               [...]
 ```
 
-That means your profile databases are not the correct version. The tables we are accessing in this program were introduced in profile database version 36. So the solution to this error is to update your databases to at least that version, using <span class="artifact-n">[anvi-migrate](/software/anvio/help/main/programs/anvi-migrate)</span>. :)
+That means your profile databases are not the correct version. The tables we are accessing in this program were introduced in profile database version 36. So the solution to this error is to update your databases to at least that version, using <span class="artifact-n">[anvi-migrate](/software/anvio/help/7.1/programs/anvi-migrate)</span>. :)
 
 
 {:.notice}

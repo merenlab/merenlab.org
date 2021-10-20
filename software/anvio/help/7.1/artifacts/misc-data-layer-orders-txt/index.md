@@ -3,7 +3,7 @@ layout: page
 title: misc-data-layer-orders-txt [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/misc-data-layer-orders-txt
+redirect_from: /7.1/misc-data-layer-orders-txt
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -33,9 +33,9 @@ A TXT-type anvi'o artifact. This artifact can be generated, used, and/or exporte
 
 ## Description
 
-This a tab-delimited text file that describes information contained in a <span class="artifact-n">[misc-data-layer-orders](/software/anvio/help/main/artifacts/misc-data-layer-orders)</span>. 
+This a tab-delimited text file that describes information contained in a <span class="artifact-n">[misc-data-layer-orders](/software/anvio/help/7.1/artifacts/misc-data-layer-orders)</span>. 
 
-To import this information into a database, use <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/main/programs/anvi-import-misc-data)</span>. 
+To import this information into a database, use <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/7.1/programs/anvi-import-misc-data)</span>. 
 
 This table should contain trees formatted in either basic or newick form, where each branch represents the samples displayed by your layers. The order of the branches from left to right is the order they will be displayed in, from the center moving out. 
 

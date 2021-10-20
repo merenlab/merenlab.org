@@ -3,7 +3,7 @@ layout: page
 title: binding-frequencies-txt [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/binding-frequencies-txt
+redirect_from: /7.1/binding-frequencies-txt
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -33,7 +33,7 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-When the user runs <span class="artifact-n">[anvi-run-interacdome](/software/anvio/help/main/programs/anvi-run-interacdome)</span>, it stores binding frequencies directly into the <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> as <span class="artifact-n">[misc-data-amino-acids](/software/anvio/help/main/artifacts/misc-data-amino-acids)</span>. Yet <span class="artifact-n">[anvi-run-interacdome](/software/anvio/help/main/programs/anvi-run-interacdome)</span> also outputs tabular data directly accessible by the user--this data is what is meant by <span class="artifact-n">[binding-frequencies-txt](/software/anvio/help/main/artifacts/binding-frequencies-txt)</span>.
+When the user runs <span class="artifact-n">[anvi-run-interacdome](/software/anvio/help/7.1/programs/anvi-run-interacdome)</span>, it stores binding frequencies directly into the <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> as <span class="artifact-n">[misc-data-amino-acids](/software/anvio/help/7.1/artifacts/misc-data-amino-acids)</span>. Yet <span class="artifact-n">[anvi-run-interacdome](/software/anvio/help/7.1/programs/anvi-run-interacdome)</span> also outputs tabular data directly accessible by the user--this data is what is meant by <span class="artifact-n">[binding-frequencies-txt](/software/anvio/help/7.1/artifacts/binding-frequencies-txt)</span>.
 
 Specifically, this artifact refers to 2 files named `INTERACDOME-match_state_contributors.txt` and `INTERACDOME-domain_hits.txt` (the `INTERACDOME` prefix can be changed with `-O`). 
 
@@ -52,7 +52,7 @@ Specifically, this artifact refers to 2 files named `INTERACDOME-match_state_con
 |                 1 |                   187 | PF13692   |            27 | ADP      |      0.201761  |
 |                 1 |                   189 | PF00534   |            47 | ADP      |      0.0697656 |
 
-Each binding frequency is associated with both the exact residue of the user's gene sequences (from their <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>) and the exact match states (from the Pfam database) that contributed the binding frequency. 
+Each binding frequency is associated with both the exact residue of the user's gene sequences (from their <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>) and the exact match states (from the Pfam database) that contributed the binding frequency. 
 
 `INTERACDOME-match_state_contributors.txt` is a parsed summary of the `hmmsearch` output in the following format:
 

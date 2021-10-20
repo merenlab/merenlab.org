@@ -3,7 +3,7 @@ layout: page
 title: pangenomics-workflow [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/pangenomics-workflow
+redirect_from: /7.1/pangenomics-workflow
 image:
   featurerelative: ../../../images/header.png
   display: true

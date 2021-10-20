@@ -3,7 +3,7 @@ layout: page
 title: view-data [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/view-data
+redirect_from: /7.1/view-data
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -37,7 +37,7 @@ View data refers to a matrx where each column represents a specific sample and e
 
 For example, in the [pangenomics tutorial](http://merenlab.org/2016/11/08/pangenomics-v2/#creating-a-quick-pangenome-with-functions), the `PROCHLORO-functions-occurrence-frequency.txt` is a view-data. 
 
-You can use this to compute a distance matrix to generate a dendrogram (using <span class="artifact-n">[anvi-matrix-to-newick](/software/anvio/help/main/programs/anvi-matrix-to-newick)</span>) or direclty input it to <span class="artifact-n">[anvi-interactive](/software/anvio/help/main/programs/anvi-interactive)</span> to visualize the distribution of your items across samples. 
+You can use this to compute a distance matrix to generate a dendrogram (using <span class="artifact-n">[anvi-matrix-to-newick](/software/anvio/help/7.1/programs/anvi-matrix-to-newick)</span>) or direclty input it to <span class="artifact-n">[anvi-interactive](/software/anvio/help/7.1/programs/anvi-interactive)</span> to visualize the distribution of your items across samples. 
 
 
 {:.notice}

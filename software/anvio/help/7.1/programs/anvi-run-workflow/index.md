@@ -3,7 +3,7 @@ layout: page
 title: anvi-run-workflow [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-run-workflow
+redirect_from: /7.1/anvi-run-workflow
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -50,11 +50,11 @@ This program allows you to run [Snakemake](https://snakemake.readthedocs.io/en/s
 
 Essentially, an anvi'o workflow will run several anvi'o programs for you in quick succession (based on a standard set of intiial steps that will allow you to quickly get to a point where you can ask novel questions). 
 
-As of now, the available workflows are the <span class="artifact-n">[contigs-workflow](/software/anvio/help/main/artifacts/contigs-workflow)</span>, the <span class="artifact-n">[metagenomics-workflow](/software/anvio/help/main/artifacts/metagenomics-workflow)</span>, the <span class="artifact-n">[pangenomics-workflow](/software/anvio/help/main/artifacts/pangenomics-workflow)</span>, the <span class="artifact-n">[phylogenomics-workflow](/software/anvio/help/main/artifacts/phylogenomics-workflow)</span>, and the <span class="artifact-n">[trnaseq-workflow](/software/anvio/help/main/artifacts/trnaseq-workflow)</span>. 
+As of now, the available workflows are the <span class="artifact-n">[contigs-workflow](/software/anvio/help/7.1/artifacts/contigs-workflow)</span>, the <span class="artifact-n">[metagenomics-workflow](/software/anvio/help/7.1/artifacts/metagenomics-workflow)</span>, the <span class="artifact-n">[pangenomics-workflow](/software/anvio/help/7.1/artifacts/pangenomics-workflow)</span>, the <span class="artifact-n">[phylogenomics-workflow](/software/anvio/help/7.1/artifacts/phylogenomics-workflow)</span>, and the <span class="artifact-n">[trnaseq-workflow](/software/anvio/help/7.1/artifacts/trnaseq-workflow)</span>. 
 
 ### Before running the workflow
 
-Each workflow requires a <span class="artifact-n">[workflow-config](/software/anvio/help/main/artifacts/workflow-config)</span>: the file that details all of the parameters for the workflow. To get the <span class="artifact-n">[workflow-config](/software/anvio/help/main/artifacts/workflow-config)</span> with the default parameters, just run 
+Each workflow requires a <span class="artifact-n">[workflow-config](/software/anvio/help/7.1/artifacts/workflow-config)</span>: the file that details all of the parameters for the workflow. To get the <span class="artifact-n">[workflow-config](/software/anvio/help/7.1/artifacts/workflow-config)</span> with the default parameters, just run 
 
 <div class="codeblock" markdown="1">
 anvi&#45;run&#45;workflow &#45;w WORKFLOW&#45;NAME \

@@ -3,7 +3,7 @@ layout: page
 title: oligotypes [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/oligotypes
+redirect_from: /7.1/oligotypes
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -47,7 +47,7 @@ Although, Shannon entropy is not the only approach to identify highly variable n
 
 ### Applications to metagenomics
 
-This strategy also applies to metagenomic sequences that are mapped to a genomic context to describe the diversity of variable regions that are fully covered by short reads. In the context of metagenomic read recruitment, variable nucleotide positions can be chosen by the user from the positions of single-nucleotide variants [anvi'o recovers](https://merenlab.org/2015/07/20/analyzing-variability/) and presents through inspection pages in the interactive interface or through <span class="artifact-n">[variability-profile](/software/anvio/help/main/artifacts/variability-profile)</span>. An example application of oligotyping to metagenomics is demonstrated here:
+This strategy also applies to metagenomic sequences that are mapped to a genomic context to describe the diversity of variable regions that are fully covered by short reads. In the context of metagenomic read recruitment, variable nucleotide positions can be chosen by the user from the positions of single-nucleotide variants [anvi'o recovers](https://merenlab.org/2015/07/20/analyzing-variability/) and presents through inspection pages in the interactive interface or through <span class="artifact-n">[variability-profile](/software/anvio/help/7.1/artifacts/variability-profile)</span>. An example application of oligotyping to metagenomics is demonstrated here:
 
 * [An application of oligotyping in the metagenomic context: Oligotyping AmoC](https://merenlab.org/2015/12/09/musings-over-commamox/#an-application-of-oligotyping-in-the-metagenomic-context-oligotyping-amoc)
 

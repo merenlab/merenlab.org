@@ -3,7 +3,7 @@ layout: page
 title: contigs-fasta [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/contigs-fasta
+redirect_from: /7.1/contigs-fasta
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -33,11 +33,11 @@ A FASTA-type anvi'o artifact. This artifact can be generated, used, and/or expor
 
 ## Description
 
-A <span class="artifact-n">[contigs-fasta](/software/anvio/help/main/artifacts/contigs-fasta)</span> is a <span class="artifact-n">[fasta](/software/anvio/help/main/artifacts/fasta)</span> file that is suitable to be used by <span class="artifact-n">[anvi-gen-contigs-database](/software/anvio/help/main/programs/anvi-gen-contigs-database)</span> to create a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>.
+A <span class="artifact-n">[contigs-fasta](/software/anvio/help/7.1/artifacts/contigs-fasta)</span> is a <span class="artifact-n">[fasta](/software/anvio/help/7.1/artifacts/fasta)</span> file that is suitable to be used by <span class="artifact-n">[anvi-gen-contigs-database](/software/anvio/help/7.1/programs/anvi-gen-contigs-database)</span> to create a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>.
 
-The most critical requirement for this file is that **it must have simple deflines**. If your <span class="artifact-n">[fasta](/software/anvio/help/main/artifacts/fasta)</span> file doesn't have simple deflines, it is not a proper <span class="artifact-n">[contigs-fasta](/software/anvio/help/main/artifacts/contigs-fasta)</span>. If you intend to use this file with anvi'o, **you must fix your FASTA file prior to mapping**.
+The most critical requirement for this file is that **it must have simple deflines**. If your <span class="artifact-n">[fasta](/software/anvio/help/7.1/artifacts/fasta)</span> file doesn't have simple deflines, it is not a proper <span class="artifact-n">[contigs-fasta](/software/anvio/help/7.1/artifacts/contigs-fasta)</span>. If you intend to use this file with anvi'o, **you must fix your FASTA file prior to mapping**.
 
-Take a look at your deflines prior to mapping, and remove anything that is not a digit, an ASCII letter, an underscore, or a dash character. Here are some example deflines that are not suitable for a <span class="artifact-n">[fasta](/software/anvio/help/main/artifacts/fasta)</span> to be considered a <span class="artifact-n">[contigs-fasta](/software/anvio/help/main/artifacts/contigs-fasta)</span>
+Take a look at your deflines prior to mapping, and remove anything that is not a digit, an ASCII letter, an underscore, or a dash character. Here are some example deflines that are not suitable for a <span class="artifact-n">[fasta](/software/anvio/help/7.1/artifacts/fasta)</span> to be considered a <span class="artifact-n">[contigs-fasta](/software/anvio/help/7.1/artifacts/contigs-fasta)</span>
 
 ``` bash
 >Contig-123 length:4567 
@@ -53,7 +53,7 @@ And here are some OK ones:
 >gi_478446819_gb_JN117275_2
 ```
 
-The program <span class="artifact-n">[anvi-script-reformat-fasta](/software/anvio/help/main/programs/anvi-script-reformat-fasta)</span> can do this automatically for you.
+The program <span class="artifact-n">[anvi-script-reformat-fasta](/software/anvio/help/7.1/programs/anvi-script-reformat-fasta)</span> can do this automatically for you.
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/contigs-fasta.md) to update this information.

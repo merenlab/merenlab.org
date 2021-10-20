@@ -3,7 +3,7 @@ layout: page
 title: anvi-script-get-coverage-from-bam [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-script-get-coverage-from-bam
+redirect_from: /7.1/anvi-script-get-coverage-from-bam
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,30 +42,30 @@ Get nucleotide-level, contig-level, or bin-level coverage values from a BAM file
 ## Usage
 
 
-This program gets the coverage values from a <span class="artifact-n">[bam-file](/software/anvio/help/main/artifacts/bam-file)</span>, and puts them into a <span class="artifact-n">[coverages-txt](/software/anvio/help/main/artifacts/coverages-txt)</span>. 
+This program gets the coverage values from a <span class="artifact-n">[bam-file](/software/anvio/help/7.1/artifacts/bam-file)</span>, and puts them into a <span class="artifact-n">[coverages-txt](/software/anvio/help/7.1/artifacts/coverages-txt)</span>. 
 
 You must provide a BAM file, but there are three ways you can choose contigs to analyze within that file: 
 1. Give a contig name. Here, you can only report coverage per nucleotide position (In this example, the user is specifically asking for this anyway with the `-m` flag)
 
     <div class="codeblock" markdown="1">
-    anvi&#45;script&#45;get&#45;coverage&#45;from&#45;bam &#45;b <span class="artifact&#45;n">[bam&#45;file](/software/anvio/help/main/artifacts/bam&#45;file)</span> \ 
+    anvi&#45;script&#45;get&#45;coverage&#45;from&#45;bam &#45;b <span class="artifact&#45;n">[bam&#45;file](/software/anvio/help/7.1/artifacts/bam&#45;file)</span> \ 
                                      &#45;c NAME_OF_CONTIG \ 
                                      &#45;m pos
     </div>
 
-2. Give a file that contains a list of contigs (one per line; same format as the `--contigs-of-interest` tag for <span class="artifact-n">[anvi-profile](/software/anvio/help/main/programs/anvi-profile)</span>). Here, you can ask for the contig averages (as in this example) or nucleotide position coverage. 
+2. Give a file that contains a list of contigs (one per line; same format as the `--contigs-of-interest` tag for <span class="artifact-n">[anvi-profile](/software/anvio/help/7.1/programs/anvi-profile)</span>). Here, you can ask for the contig averages (as in this example) or nucleotide position coverage. 
 
     <div class="codeblock" markdown="1">
-    anvi&#45;script&#45;get&#45;coverage&#45;from&#45;bam &#45;b <span class="artifact&#45;n">[bam&#45;file](/software/anvio/help/main/artifacts/bam&#45;file)</span> \ 
+    anvi&#45;script&#45;get&#45;coverage&#45;from&#45;bam &#45;b <span class="artifact&#45;n">[bam&#45;file](/software/anvio/help/7.1/artifacts/bam&#45;file)</span> \ 
                                      &#45;l NAME_OF_FILE \
                                      &#45;m contig
     </div>
 
-3. Give a <span class="artifact-n">[collection-txt](/software/anvio/help/main/artifacts/collection-txt)</span> file for the program to determine the coverage for all contigs in those bins. Here, you can ask for the contig averages, nucleotide position coverage or coverage per bin (as in this example). 
+3. Give a <span class="artifact-n">[collection-txt](/software/anvio/help/7.1/artifacts/collection-txt)</span> file for the program to determine the coverage for all contigs in those bins. Here, you can ask for the contig averages, nucleotide position coverage or coverage per bin (as in this example). 
 
     <div class="codeblock" markdown="1">
-    anvi&#45;script&#45;get&#45;coverage&#45;from&#45;bam &#45;b <span class="artifact&#45;n">[bam&#45;file](/software/anvio/help/main/artifacts/bam&#45;file)</span> \ 
-                                     &#45;C <span class="artifact&#45;n">[collection&#45;txt](/software/anvio/help/main/artifacts/collection&#45;txt)</span> \
+    anvi&#45;script&#45;get&#45;coverage&#45;from&#45;bam &#45;b <span class="artifact&#45;n">[bam&#45;file](/software/anvio/help/7.1/artifacts/bam&#45;file)</span> \ 
+                                     &#45;C <span class="artifact&#45;n">[collection&#45;txt](/software/anvio/help/7.1/artifacts/collection&#45;txt)</span> \
                                      &#45;m bin
     </div>
 

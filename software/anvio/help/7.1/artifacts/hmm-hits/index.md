@@ -3,7 +3,7 @@ layout: page
 title: hmm-hits [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/hmm-hits
+redirect_from: /7.1/hmm-hits
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -33,9 +33,9 @@ A CONCEPT-type anvi'o artifact. This artifact is typically generated, used, and/
 
 ## Description
 
-The search results for an <span class="artifact-n">[hmm-source](/software/anvio/help/main/artifacts/hmm-source)</span> in a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>. Essentially, this is the part of a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> that handles the HMM data. In anvi'o, this is usually functional annotations, such as identifying specfic ribosomal RNAs, various single-copy core genes, and transfer RNAs, though the user can also define their own HMM sources. 
+The search results for an <span class="artifact-n">[hmm-source](/software/anvio/help/7.1/artifacts/hmm-source)</span> in a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>. Essentially, this is the part of a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> that handles the HMM data. In anvi'o, this is usually functional annotations, such as identifying specfic ribosomal RNAs, various single-copy core genes, and transfer RNAs, though the user can also define their own HMM sources. 
 
-Upon creation, a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> will not contain any HMM results. In order to populate it, users can run <span class="artifact-n">[anvi-run-hmms](/software/anvio/help/main/programs/anvi-run-hmms)</span> using any <span class="artifact-n">[hmm-source](/software/anvio/help/main/artifacts/hmm-source)</span>. The program <span class="artifact-n">[anvi-scan-trnas](/software/anvio/help/main/programs/anvi-scan-trnas)</span> also populates a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>'s hmm-hits with potential tranfer RNA hits.
+Upon creation, a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> will not contain any HMM results. In order to populate it, users can run <span class="artifact-n">[anvi-run-hmms](/software/anvio/help/7.1/programs/anvi-run-hmms)</span> using any <span class="artifact-n">[hmm-source](/software/anvio/help/7.1/artifacts/hmm-source)</span>. The program <span class="artifact-n">[anvi-scan-trnas](/software/anvio/help/7.1/programs/anvi-scan-trnas)</span> also populates a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>'s hmm-hits with potential tranfer RNA hits.
 
 
 {:.notice}

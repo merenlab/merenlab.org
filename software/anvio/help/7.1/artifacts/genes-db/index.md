@@ -3,7 +3,7 @@ layout: page
 title: genes-db [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/genes-db
+redirect_from: /7.1/genes-db
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -33,13 +33,13 @@ A DB-type anvi'o artifact. This artifact is typically generated, used, and/or ex
 
 ## Description
 
-An anvi'o genes database is a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span>-like database that contains statistics, such their coverage and detection across samples, rather than contigs in a given <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>.
+An anvi'o genes database is a <span class="artifact-n">[profile-db](/software/anvio/help/7.1/artifacts/profile-db)</span>-like database that contains statistics, such their coverage and detection across samples, rather than contigs in a given <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>.
 
-A gene database for a given <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span> stored in a <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span> will be automatically generated when <span class="artifact-n">[anvi-interactive](/software/anvio/help/main/programs/anvi-interactive)</span> is run in 'gene mode'. For details, see the [relevant section](../programs/anvi-interactive/#visualizing-genes-instead-of-contigs) in <span class="artifact-n">[anvi-interactive](/software/anvio/help/main/programs/anvi-interactive)</span>
+A gene database for a given <span class="artifact-n">[bin](/software/anvio/help/7.1/artifacts/bin)</span> stored in a <span class="artifact-n">[collection](/software/anvio/help/7.1/artifacts/collection)</span> will be automatically generated when <span class="artifact-n">[anvi-interactive](/software/anvio/help/7.1/programs/anvi-interactive)</span> is run in 'gene mode'. For details, see the [relevant section](../programs/anvi-interactive/#visualizing-genes-instead-of-contigs) in <span class="artifact-n">[anvi-interactive](/software/anvio/help/7.1/programs/anvi-interactive)</span>
 
-Alternatively, genes databases can be explicitly generated using the program <span class="artifact-n">[anvi-gen-gene-level-stats-databases](/software/anvio/help/main/programs/anvi-gen-gene-level-stats-databases)</span>. By default, this program will generate a gene database for each <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span> for a given <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span>. 
+Alternatively, genes databases can be explicitly generated using the program <span class="artifact-n">[anvi-gen-gene-level-stats-databases](/software/anvio/help/7.1/programs/anvi-gen-gene-level-stats-databases)</span>. By default, this program will generate a gene database for each <span class="artifact-n">[bin](/software/anvio/help/7.1/artifacts/bin)</span> for a given <span class="artifact-n">[collection](/software/anvio/help/7.1/artifacts/collection)</span>. 
 
-Due to the strucutral similarities between a <span class="artifact-n">[genes-db](/software/anvio/help/main/artifacts/genes-db)</span> and a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span>, many of the anvi'o programs that operate on profile databases will also run on genes databases. These programs include those that import/export states and import/export misc additional data.
+Due to the strucutral similarities between a <span class="artifact-n">[genes-db](/software/anvio/help/7.1/artifacts/genes-db)</span> and a <span class="artifact-n">[profile-db](/software/anvio/help/7.1/artifacts/profile-db)</span>, many of the anvi'o programs that operate on profile databases will also run on genes databases. These programs include those that import/export states and import/export misc additional data.
 
 
 {:.notice}

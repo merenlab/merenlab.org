@@ -3,7 +3,7 @@ layout: page
 title: anvi-get-short-reads-from-bam [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-get-short-reads-from-bam
+redirect_from: /7.1/anvi-get-short-reads-from-bam
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -44,7 +44,7 @@ Get short reads back from a BAM file with options for compression, splitting of 
 ## Usage
 
 
-This script get the short reads (in the form of a <span class="artifact-n">[short-reads-fasta](/software/anvio/help/main/artifacts/short-reads-fasta)</span>) out of a <span class="artifact-n">[bam-file](/software/anvio/help/main/artifacts/bam-file)</span>.  
+This script get the short reads (in the form of a <span class="artifact-n">[short-reads-fasta](/software/anvio/help/7.1/artifacts/short-reads-fasta)</span>) out of a <span class="artifact-n">[bam-file](/software/anvio/help/7.1/artifacts/bam-file)</span>.  
 
 A basic run of this program is as follows: 
 
@@ -57,13 +57,13 @@ This will get all of the short reads out of the provided bam files (`BAM_FILE_1.
 
 ### Narrowing the input 
 
-You can choose to only return the short reads that are contained within a <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span> or <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span>, as so:
+You can choose to only return the short reads that are contained within a <span class="artifact-n">[collection](/software/anvio/help/7.1/artifacts/collection)</span> or <span class="artifact-n">[bin](/software/anvio/help/7.1/artifacts/bin)</span>, as so:
 
 <div class="codeblock" markdown="1">
 anvi&#45;get&#45;short&#45;reads&#45;from&#45;bam &#45;o path/to/output \ 
-                              &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                              &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
-                              &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span> \
+                              &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
+                              &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7.1/artifacts/profile&#45;db)</span> \
+                              &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/7.1/artifacts/collection)</span> \
                               BAM_FILE_1.bam BAM_FILE_2.bam
 </div>
 

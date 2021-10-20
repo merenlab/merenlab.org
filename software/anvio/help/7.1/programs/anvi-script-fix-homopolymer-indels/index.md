@@ -3,7 +3,7 @@ layout: page
 title: anvi-script-fix-homopolymer-indels [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-script-fix-homopolymer-indels
+redirect_from: /7.1/anvi-script-fix-homopolymer-indels
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,7 +42,7 @@ Corrects homopolymer-region associated INDELs in a given genome based on a refer
 ## Usage
 
 
-This program takes an input <span class="artifact-n">[fasta](/software/anvio/help/main/artifacts/fasta)</span> file with one or more sequences, then **corrects INDELs associated with homopolymer regions given a reference <span class="artifact-n">[fasta](/software/anvio/help/main/artifacts/fasta)</span> file**, and reports edited sequences as a new <span class="artifact-n">[fasta](/software/anvio/help/main/artifacts/fasta)</span> file.
+This program takes an input <span class="artifact-n">[fasta](/software/anvio/help/7.1/artifacts/fasta)</span> file with one or more sequences, then **corrects INDELs associated with homopolymer regions given a reference <span class="artifact-n">[fasta](/software/anvio/help/7.1/artifacts/fasta)</span> file**, and reports edited sequences as a new <span class="artifact-n">[fasta](/software/anvio/help/7.1/artifacts/fasta)</span> file.
 
 {:.warning}
 You must be extremely careful with this program since it reports edited sequences.

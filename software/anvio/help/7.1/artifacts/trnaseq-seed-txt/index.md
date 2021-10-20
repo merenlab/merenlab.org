@@ -3,7 +3,7 @@ layout: page
 title: trnaseq-seed-txt [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/trnaseq-seed-txt
+redirect_from: /7.1/trnaseq-seed-txt
 image:
   featurerelative: ../../../images/header.png
   display: true

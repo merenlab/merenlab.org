@@ -3,7 +3,7 @@ layout: page
 title: contig-inspection [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/contig-inspection
+redirect_from: /7.1/contig-inspection
 image:
   featurerelative: ../../../images/header.png
   display: true

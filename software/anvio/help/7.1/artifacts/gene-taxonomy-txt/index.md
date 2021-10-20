@@ -3,7 +3,7 @@ layout: page
 title: gene-taxonomy-txt [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/gene-taxonomy-txt
+redirect_from: /7.1/gene-taxonomy-txt
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -33,9 +33,9 @@ There are no anvi'o tools that generate this artifact, which means it is most li
 
 ## Description
 
-This is a file containing **the taxonomy information for the genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>**. 
+This is a file containing **the taxonomy information for the genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>**. 
 
-You can use <span class="artifact-n">[anvi-import-taxonomy-for-genes](/software/anvio/help/main/programs/anvi-import-taxonomy-for-genes)</span> to integrate this information into your contigs database. See [this blog post](http://merenlab.org/2016/06/18/importing-taxonomy/) for a comprehensive tutorial. 
+You can use <span class="artifact-n">[anvi-import-taxonomy-for-genes](/software/anvio/help/7.1/programs/anvi-import-taxonomy-for-genes)</span> to integrate this information into your contigs database. See [this blog post](http://merenlab.org/2016/06/18/importing-taxonomy/) for a comprehensive tutorial. 
 
 In its simplest form, this file is a tab-delimited text file that lists gene caller IDs and their associated taxonomy information. However, anvi'o can also parse outputs from taxonomy-based software like [Kaiju](https://github.com/bioinformatics-centre/kaiju) or [Centrifuge](https://github.com/infphilo/centrifuge). 
 

@@ -3,7 +3,7 @@ layout: page
 title: anvi-script-gen-distribution-of-genes-in-a-bin [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-script-gen-distribution-of-genes-in-a-bin
+redirect_from: /7.1/anvi-script-gen-distribution-of-genes-in-a-bin
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,19 +42,19 @@ Quantify the detection of genes in genomes in metagenomes to identify the enviro
 ## Usage
 
 
-This program computes the detection of genes (inputted as a <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span>) across your samples, so that you can visualize them in the <span class="artifact-n">[interactive](/software/anvio/help/main/artifacts/interactive)</span> interface. 
+This program computes the detection of genes (inputted as a <span class="artifact-n">[bin](/software/anvio/help/7.1/artifacts/bin)</span>) across your samples, so that you can visualize them in the <span class="artifact-n">[interactive](/software/anvio/help/7.1/artifacts/interactive)</span> interface. 
 
 This program is used in [the metapangenomic workflow](https://merenlab.org/data/prochlorococcus-metapangenome/#classification-of-genes-as-ecgs-and-eags-by-the-distribution-of-genes-in-a-genome-across-metagenomes) on genes with metagenomes as samples to visually identify the environmental core genes and accessory genes. 
 
 ### Inputs  
 
-Essentially, you provide a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> and <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> pair, as well as the <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span> you want to look at, and this program will  search each gene in your bin against the samples denoted in your <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span>: 
+Essentially, you provide a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> and <span class="artifact-n">[profile-db](/software/anvio/help/7.1/artifacts/profile-db)</span> pair, as well as the <span class="artifact-n">[bin](/software/anvio/help/7.1/artifacts/bin)</span> you want to look at, and this program will  search each gene in your bin against the samples denoted in your <span class="artifact-n">[profile-db](/software/anvio/help/7.1/artifacts/profile-db)</span>: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;gen&#45;distribution&#45;of&#45;genes&#45;in&#45;a&#45;bin &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \ 
-                                               &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
-                                               &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span> \
-                                               &#45;b <span class="artifact&#45;n">[bin](/software/anvio/help/main/artifacts/bin)</span> 
+anvi&#45;script&#45;gen&#45;distribution&#45;of&#45;genes&#45;in&#45;a&#45;bin &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \ 
+                                               &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7.1/artifacts/profile&#45;db)</span> \
+                                               &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/7.1/artifacts/collection)</span> \
+                                               &#45;b <span class="artifact&#45;n">[bin](/software/anvio/help/7.1/artifacts/bin)</span> 
 </div>
 
 There are two other parameters that you can set to focus the genes that you're looking at: 
@@ -65,19 +65,19 @@ There are two other parameters that you can set to focus the genes that you're l
 
 This program will produce two outputs: 
 
-1. `[your bin name]-GENE-COVs.txt`, which is a <span class="artifact-n">[view-data](/software/anvio/help/main/artifacts/view-data)</span> artifact. This is a matrix where each row represents a gene, each column represents one of your samples, and the cells each contain a coverage value. 
-2. `[your bin name]-ENV-DETECTION.txt`, which is a <span class="artifact-n">[misc-data-layers](/software/anvio/help/main/artifacts/misc-data-layers)</span>. It is a two-column file, where each row is a gene and and the second column describes whether or not that gene is systematically detected in your samples. Thus, this can be added as an additional layer in the interface that describes describes which genes are detected in your samples. (as an example, see the outermost layer [here](https://merenlab.org/data/prochlorococcus-metapangenome/#classification-of-genes-as-ecgs-and-eags-by-the-distribution-of-genes-in-a-genome-across-metagenomes))
+1. `[your bin name]-GENE-COVs.txt`, which is a <span class="artifact-n">[view-data](/software/anvio/help/7.1/artifacts/view-data)</span> artifact. This is a matrix where each row represents a gene, each column represents one of your samples, and the cells each contain a coverage value. 
+2. `[your bin name]-ENV-DETECTION.txt`, which is a <span class="artifact-n">[misc-data-layers](/software/anvio/help/7.1/artifacts/misc-data-layers)</span>. It is a two-column file, where each row is a gene and and the second column describes whether or not that gene is systematically detected in your samples. Thus, this can be added as an additional layer in the interface that describes describes which genes are detected in your samples. (as an example, see the outermost layer [here](https://merenlab.org/data/prochlorococcus-metapangenome/#classification-of-genes-as-ecgs-and-eags-by-the-distribution-of-genes-in-a-genome-across-metagenomes))
 
 Thus, after running this program on a bin with name `BIN_NAME`, you can run 
 
 <div class="codeblock" markdown="1">
-<span class="artifact&#45;n">[anvi&#45;interactive](/software/anvio/help/main/programs/anvi&#45;interactive)</span> &#45;d BIN_NAME&#45;GENE&#45;COVs.txt \
+<span class="artifact&#45;n">[anvi&#45;interactive](/software/anvio/help/7.1/programs/anvi&#45;interactive)</span> &#45;d BIN_NAME&#45;GENE&#45;COVs.txt \
                  &#45;A BIN_NAME&#45;ENV&#45;DETECTION.txt \
                  &#45;&#45;manual \
-                 &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span>
+                 &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7.1/artifacts/profile&#45;db)</span>
 </div>                                                   
 
-This will visually show you the coverage and detection of your genes across your samples in the <span class="artifact-n">[interactive](/software/anvio/help/main/artifacts/interactive)</span> interface (simlarly to [this figure](https://merenlab.org/data/prochlorococcus-metapangenome/#classification-of-genes-as-ecgs-and-eags-by-the-distribution-of-genes-in-a-genome-across-metagenomes)). 
+This will visually show you the coverage and detection of your genes across your samples in the <span class="artifact-n">[interactive](/software/anvio/help/7.1/artifacts/interactive)</span> interface (simlarly to [this figure](https://merenlab.org/data/prochlorococcus-metapangenome/#classification-of-genes-as-ecgs-and-eags-by-the-distribution-of-genes-in-a-genome-across-metagenomes)). 
 
 
 {:.notice}

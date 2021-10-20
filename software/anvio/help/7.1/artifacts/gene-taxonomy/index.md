@@ -3,7 +3,7 @@ layout: page
 title: gene-taxonomy [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/gene-taxonomy
+redirect_from: /7.1/gene-taxonomy
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -33,13 +33,13 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-This describes **the taxonomy information for the genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>**. 
+This describes **the taxonomy information for the genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>**. 
 
-You can use <span class="artifact-n">[anvi-import-taxonomy-for-genes](/software/anvio/help/main/programs/anvi-import-taxonomy-for-genes)</span> to import this information through a <span class="artifact-n">[gene-taxonomy-txt](/software/anvio/help/main/artifacts/gene-taxonomy-txt)</span>, either from external data or by using software like [Kaiju](https://github.com/bioinformatics-centre/kaiju) or [Centrifuge](https://github.com/infphilo/centrifuge). See [this blog post](http://merenlab.org/2016/06/18/importing-taxonomy/) for a comprehensive tutorial. 
+You can use <span class="artifact-n">[anvi-import-taxonomy-for-genes](/software/anvio/help/7.1/programs/anvi-import-taxonomy-for-genes)</span> to import this information through a <span class="artifact-n">[gene-taxonomy-txt](/software/anvio/help/7.1/artifacts/gene-taxonomy-txt)</span>, either from external data or by using software like [Kaiju](https://github.com/bioinformatics-centre/kaiju) or [Centrifuge](https://github.com/infphilo/centrifuge). See [this blog post](http://merenlab.org/2016/06/18/importing-taxonomy/) for a comprehensive tutorial. 
 
-Once this information is populated, it will be displayed in most downstream interfaces, including <span class="artifact-n">[anvi-interactive](/software/anvio/help/main/programs/anvi-interactive)</span>. 
+Once this information is populated, it will be displayed in most downstream interfaces, including <span class="artifact-n">[anvi-interactive](/software/anvio/help/7.1/programs/anvi-interactive)</span>. 
 
-You can also add taxonomy information for the layers in your interface (most likely sections of your sample when analyzing a single sample) using <span class="artifact-n">[anvi-import-taxonomy-for-layers](/software/anvio/help/main/programs/anvi-import-taxonomy-for-layers)</span>, or at the genome or metagenome level using <span class="artifact-n">[anvi-estimate-scg-taxonomy](/software/anvio/help/main/programs/anvi-estimate-scg-taxonomy)</span>. 
+You can also add taxonomy information for the layers in your interface (most likely sections of your sample when analyzing a single sample) using <span class="artifact-n">[anvi-import-taxonomy-for-layers](/software/anvio/help/7.1/programs/anvi-import-taxonomy-for-layers)</span>, or at the genome or metagenome level using <span class="artifact-n">[anvi-estimate-scg-taxonomy](/software/anvio/help/7.1/programs/anvi-estimate-scg-taxonomy)</span>. 
 
 
 {:.notice}

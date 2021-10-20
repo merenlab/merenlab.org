@@ -3,7 +3,7 @@ layout: page
 title: anvi-setup-ncbi-cogs [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-setup-ncbi-cogs
+redirect_from: /7.1/anvi-setup-ncbi-cogs
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,14 +42,14 @@ This program seems to know what its doing. It needs no input material from its u
 ## Usage
 
 
-This program **downloads and organizes a local copy of the data from NCBI's [COGs database](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC102395/) for use in function annotation.** This program generates a <span class="artifact-n">[cogs-data](/software/anvio/help/main/artifacts/cogs-data)</span> artifact, which is required to run the program <span class="artifact-n">[anvi-run-ncbi-cogs](/software/anvio/help/main/programs/anvi-run-ncbi-cogs)</span>. 
+This program **downloads and organizes a local copy of the data from NCBI's [COGs database](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC102395/) for use in function annotation.** This program generates a <span class="artifact-n">[cogs-data](/software/anvio/help/7.1/artifacts/cogs-data)</span> artifact, which is required to run the program <span class="artifact-n">[anvi-run-ncbi-cogs](/software/anvio/help/7.1/programs/anvi-run-ncbi-cogs)</span>. 
 
 ### Set up COGs data
 <div class="codeblock" markdown="1">
 anvi&#45;setup&#45;ncbi&#45;cogs &#45;&#45;just&#45;do&#45;it
 </div>
 
-If you already have a <span class="artifact-n">[cogs-data](/software/anvio/help/main/artifacts/cogs-data)</span> artifact and are trying to redownload this data, run 
+If you already have a <span class="artifact-n">[cogs-data](/software/anvio/help/7.1/artifacts/cogs-data)</span> artifact and are trying to redownload this data, run 
 
 <div class="codeblock" markdown="1">
 anvi&#45;setup&#45;ncbi&#45;cogs &#45;&#45;reset

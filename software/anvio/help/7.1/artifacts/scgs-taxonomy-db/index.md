@@ -3,7 +3,7 @@ layout: page
 title: scgs-taxonomy-db [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/scgs-taxonomy-db
+redirect_from: /7.1/scgs-taxonomy-db
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -33,9 +33,9 @@ A CONCEPT-type anvi'o artifact. This artifact is typically generated, used, and/
 
 ## Description
 
-This describes the databases downloaded from [The Genome Taxonomy Database](https://gtdb.ecogenomic.org/) when you run <span class="artifact-n">[anvi-setup-scg-taxonomy](/software/anvio/help/main/programs/anvi-setup-scg-taxonomy)</span>. 
+This describes the databases downloaded from [The Genome Taxonomy Database](https://gtdb.ecogenomic.org/) when you run <span class="artifact-n">[anvi-setup-scg-taxonomy](/software/anvio/help/7.1/programs/anvi-setup-scg-taxonomy)</span>. 
 
-Once you have these databases, you'll want to search the single-copy core genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> against them. To do this, run <span class="artifact-n">[anvi-run-scg-taxonomy](/software/anvio/help/main/programs/anvi-run-scg-taxonomy)</span>. 
+Once you have these databases, you'll want to search the single-copy core genes in your <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> against them. To do this, run <span class="artifact-n">[anvi-run-scg-taxonomy](/software/anvio/help/7.1/programs/anvi-run-scg-taxonomy)</span>. 
 
 
 {:.notice}

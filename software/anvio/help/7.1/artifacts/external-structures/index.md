@@ -3,7 +3,7 @@ layout: page
 title: external-structures [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/external-structures
+redirect_from: /7.1/external-structures
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -33,7 +33,7 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-By default, anvi'o predicts protein structures using MODELLER when creating a <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span>. Yet, if the user provides an external structures file, then anvi'o does not perform template-based homology modelling, and instead uses this file to obtain the structure information for the <span class="artifact-n">[structure-db](/software/anvio/help/main/artifacts/structure-db)</span>.
+By default, anvi'o predicts protein structures using MODELLER when creating a <span class="artifact-n">[structure-db](/software/anvio/help/7.1/artifacts/structure-db)</span>. Yet, if the user provides an external structures file, then anvi'o does not perform template-based homology modelling, and instead uses this file to obtain the structure information for the <span class="artifact-n">[structure-db](/software/anvio/help/7.1/artifacts/structure-db)</span>.
 
 External structures is a user-provided TAB-delimited file that should follow this format:
 
@@ -47,7 +47,7 @@ External structures is a user-provided TAB-delimited file that should follow thi
 |8|path/to/gene6/structure.pdb|
 |(...)|(...)|
 
-Each path should point to a <span class="artifact-n">[protein-structure-txt](/software/anvio/help/main/artifacts/protein-structure-txt)</span>.
+Each path should point to a <span class="artifact-n">[protein-structure-txt](/software/anvio/help/7.1/artifacts/protein-structure-txt)</span>.
 
 {:.notice}
 Please note that anvi'o will try its best to test the integrity of each file, and work with any limitations, however ultimately the user may be subject to the strict requirements set forth by anvi'o. For example, if a structure has a missing residue, you will hear about it.

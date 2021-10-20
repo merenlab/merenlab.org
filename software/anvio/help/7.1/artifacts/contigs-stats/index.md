@@ -3,7 +3,7 @@ layout: page
 title: contigs-stats [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/contigs-stats
+redirect_from: /7.1/contigs-stats
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -33,7 +33,7 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-This artifact contains all of the information provided in the interface of <span class="artifact-n">[anvi-display-contigs-stats](/software/anvio/help/main/programs/anvi-display-contigs-stats)</span> in a series of tab-delimited files. See that page for more information. 
+This artifact contains all of the information provided in the interface of <span class="artifact-n">[anvi-display-contigs-stats](/software/anvio/help/7.1/programs/anvi-display-contigs-stats)</span> in a series of tab-delimited files. See that page for more information. 
 
 
 {:.notice}

@@ -3,7 +3,7 @@ layout: page
 title: raw-bam-file [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/raw-bam-file
+redirect_from: /7.1/raw-bam-file
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -33,7 +33,7 @@ There are no anvi'o tools that generate this artifact, which means it is most li
 
 ## Description
 
-This is a **<span class="artifact-n">[bam-file](/software/anvio/help/main/artifacts/bam-file)</span> (which contains aligned sequence data) that has not yet been indexed and sorted**. 
+This is a **<span class="artifact-n">[bam-file](/software/anvio/help/7.1/artifacts/bam-file)</span> (which contains aligned sequence data) that has not yet been indexed and sorted**. 
 
 ### What does being "indexed" mean? 
 
@@ -51,7 +51,7 @@ then you would still need to index `Lake_Michigan_Sample_2.bam`.
 
 ### How do you index a BAM file?
 
-You can either do this directly using samtools, or you can just run the anvi'o program <span class="artifact-n">[anvi-init-bam](/software/anvio/help/main/programs/anvi-init-bam)</span> (which uses samtools for you). 
+You can either do this directly using samtools, or you can just run the anvi'o program <span class="artifact-n">[anvi-init-bam](/software/anvio/help/7.1/programs/anvi-init-bam)</span> (which uses samtools for you). 
 
 
 {:.notice}

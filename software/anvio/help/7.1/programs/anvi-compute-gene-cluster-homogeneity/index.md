@@ -3,7 +3,7 @@ layout: page
 title: anvi-compute-gene-cluster-homogeneity [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-compute-gene-cluster-homogeneity
+redirect_from: /7.1/anvi-compute-gene-cluster-homogeneity
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,33 +42,33 @@ This program does not seem to provide any artifacts. Such programs usually print
 ## Usage
 
 
-This program **computes both the geometric homogeneity and functional homogeneity for the gene clusters in a <span class="artifact-n">[pan-db](/software/anvio/help/main/artifacts/pan-db)</span>.** 
+This program **computes both the geometric homogeneity and functional homogeneity for the gene clusters in a <span class="artifact-n">[pan-db](/software/anvio/help/7.1/artifacts/pan-db)</span>.** 
 
 *Geometric homogeneity* and *functional homogeneity* are anvi'o specific terms that describe how similar genes within a gene cluster are to each other in different ways. Briefly, geometric homogeneity compares the positions of gaps in the aligned residues without considering specific amino acids, and functional homogeneity examines point mutations to amino acids and compares how similar the resulting amino acids are chemically. See [this page](http://merenlab.org/2016/11/08/pangenomics-v2/#inferring-the-homogeneity-of-gene-clusters) for more details. 
 
 You can run this program as so: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;compute&#45;gene&#45;cluster&#45;homogeneity &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/main/artifacts/pan&#45;db)</span> \
-                                      &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
+anvi&#45;compute&#45;gene&#45;cluster&#45;homogeneity &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/7.1/artifacts/pan&#45;db)</span> \
+                                      &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/7.1/artifacts/genomes&#45;storage&#45;db)</span> \
                                       &#45;o path/to/output.txt \
                                       &#45;&#45;store&#45;in&#45;db
 </div>
 
 This run will put the output directly in the database, as well as provide it as a separate file as the specified output path. 
 
-You also have the option to calculate this information about only specific gene clusters, either by providing a gene cluster ID, list of gene cluster IDs, <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span> or <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span>. 
+You also have the option to calculate this information about only specific gene clusters, either by providing a gene cluster ID, list of gene cluster IDs, <span class="artifact-n">[collection](/software/anvio/help/7.1/artifacts/collection)</span> or <span class="artifact-n">[bin](/software/anvio/help/7.1/artifacts/bin)</span>. 
 
 To save on runtime, you can also enable `--quick-homogeneity`, which will not check for horizontal geometric homogenity (i.e. it will not look at alignments within a single gene). This will be less accurate for detailed analyses, but it will run faster. 
 
 Here is an example run that uses this flag and only looks at a specific collection: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;compute&#45;gene&#45;cluster&#45;homogeneity &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/main/artifacts/pan&#45;db)</span> \
-                                      &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/main/artifacts/genomes&#45;storage&#45;db)</span> \
+anvi&#45;compute&#45;gene&#45;cluster&#45;homogeneity &#45;p <span class="artifact&#45;n">[pan&#45;db](/software/anvio/help/7.1/artifacts/pan&#45;db)</span> \
+                                      &#45;g <span class="artifact&#45;n">[genomes&#45;storage&#45;db](/software/anvio/help/7.1/artifacts/genomes&#45;storage&#45;db)</span> \
                                       &#45;o path/to/output.txt \
                                       &#45;&#45;store&#45;in&#45;db \ 
-                                      &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/main/artifacts/collection)</span> \
+                                      &#45;C <span class="artifact&#45;n">[collection](/software/anvio/help/7.1/artifacts/collection)</span> \
                                       &#45;&#45;quick&#45;homogeneity 
 </div>
 

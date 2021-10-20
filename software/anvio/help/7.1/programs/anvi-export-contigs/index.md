@@ -3,7 +3,7 @@ layout: page
 title: anvi-export-contigs [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-export-contigs
+redirect_from: /7.1/anvi-export-contigs
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,20 +42,20 @@ Export contigs (or splits) from an anvi&#x27;o contigs database.
 ## Usage
 
 
-This program **exports the contig sequences from a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>**, outputting them as a <span class="artifact-n">[contigs-fasta](/software/anvio/help/main/artifacts/contigs-fasta)</span>. It also has the ability to output the sequences of your splits instead. 
+This program **exports the contig sequences from a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>**, outputting them as a <span class="artifact-n">[contigs-fasta](/software/anvio/help/7.1/artifacts/contigs-fasta)</span>. It also has the ability to output the sequences of your splits instead. 
 
 You can run this program as follows: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;contigs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                    &#45;o path/to/<span class="artifact&#45;n">[contigs&#45;fasta](/software/anvio/help/main/artifacts/contigs&#45;fasta)</span>
+anvi&#45;export&#45;contigs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
+                    &#45;o path/to/<span class="artifact&#45;n">[contigs&#45;fasta](/software/anvio/help/7.1/artifacts/contigs&#45;fasta)</span>
 </div>
 
-To run it on only a named subset of your contigs, you can provide a list of contigs as a separate file (in the same format as a <span class="artifact-n">[splits-txt](/software/anvio/help/main/artifacts/splits-txt)</span>). For example: 
+To run it on only a named subset of your contigs, you can provide a list of contigs as a separate file (in the same format as a <span class="artifact-n">[splits-txt](/software/anvio/help/7.1/artifacts/splits-txt)</span>). For example: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;contigs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                    &#45;o path/to/<span class="artifact&#45;n">[contigs&#45;fasta](/software/anvio/help/main/artifacts/contigs&#45;fasta)</span> \
+anvi&#45;export&#45;contigs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
+                    &#45;o path/to/<span class="artifact&#45;n">[contigs&#45;fasta](/software/anvio/help/7.1/artifacts/contigs&#45;fasta)</span> \
                     &#45;&#45;contigs&#45;of&#45;interest my_favorite_contigs.txt 
 </div>
 
@@ -70,8 +70,8 @@ where `my_favorite_contigs.txt` looks like this:
 Want to look at your splits instead of your contigs? Just run with the flag `splits-mode` attached. 
 
 <div class="codeblock" markdown="1">
-anvi&#45;export&#45;contigs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
-                    &#45;o path/to/<span class="artifact&#45;n">[contigs&#45;fasta](/software/anvio/help/main/artifacts/contigs&#45;fasta)</span> \
+anvi&#45;export&#45;contigs &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \
+                    &#45;o path/to/<span class="artifact&#45;n">[contigs&#45;fasta](/software/anvio/help/7.1/artifacts/contigs&#45;fasta)</span> \
                     &#45;&#45;splits&#45;mode
 </div>
 

@@ -3,7 +3,7 @@ layout: page
 title: anvi-script-filter-fasta-by-blast [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-script-filter-fasta-by-blast
+redirect_from: /7.1/anvi-script-filter-fasta-by-blast
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -46,23 +46,23 @@ Filter FASTA file according to BLAST table (remove sequences with bad BLAST alig
 ## Usage
 
 
-This program takes a <span class="artifact-n">[contigs-fasta](/software/anvio/help/main/artifacts/contigs-fasta)</span> and <span class="artifact-n">[blast-table](/software/anvio/help/main/artifacts/blast-table)</span> and removes sequences without BLAST hits of a certain level of confidence. 
+This program takes a <span class="artifact-n">[contigs-fasta](/software/anvio/help/7.1/artifacts/contigs-fasta)</span> and <span class="artifact-n">[blast-table](/software/anvio/help/7.1/artifacts/blast-table)</span> and removes sequences without BLAST hits of a certain level of confidence. 
 
 For example, you could use this program to filter out sequences that do not have high-confidence taxonomy assignments before running a phylogenomic analysis. 
 
-To run this program, you'll need to provide the <span class="artifact-n">[contigs-fasta](/software/anvio/help/main/artifacts/contigs-fasta)</span> that you're planning to filter, the <span class="artifact-n">[blast-table](/software/anvio/help/main/artifacts/blast-table)</span>, a list of the column headers in your <span class="artifact-n">[blast-table](/software/anvio/help/main/artifacts/blast-table)</span> (as given to BLAST by `-outfmt`), and a `proper_pident` threshold at which to remove the sequences. This threshold will remove sequences less than the given percent of the query amino acids that were identical to the corresponding matched amino acids. Note that this diffres from the `pident` blast parameter because it doesn't include unaligned regions. 
+To run this program, you'll need to provide the <span class="artifact-n">[contigs-fasta](/software/anvio/help/7.1/artifacts/contigs-fasta)</span> that you're planning to filter, the <span class="artifact-n">[blast-table](/software/anvio/help/7.1/artifacts/blast-table)</span>, a list of the column headers in your <span class="artifact-n">[blast-table](/software/anvio/help/7.1/artifacts/blast-table)</span> (as given to BLAST by `-outfmt`), and a `proper_pident` threshold at which to remove the sequences. This threshold will remove sequences less than the given percent of the query amino acids that were identical to the corresponding matched amino acids. Note that this diffres from the `pident` blast parameter because it doesn't include unaligned regions. 
 
 For example, if you ran 
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;filter&#45;fasta&#45;by&#45;blast &#45;f <span class="artifact&#45;n">[contigs&#45;fasta](/software/anvio/help/main/artifacts/contigs&#45;fasta)</span> \
-                                  &#45;o path/to/<span class="artifact&#45;n">[contigs&#45;fasta](/software/anvio/help/main/artifacts/contigs&#45;fasta)</span> \
-                                  &#45;b <span class="artifact&#45;n">[blast&#45;table](/software/anvio/help/main/artifacts/blast&#45;table)</span> \
+anvi&#45;script&#45;filter&#45;fasta&#45;by&#45;blast &#45;f <span class="artifact&#45;n">[contigs&#45;fasta](/software/anvio/help/7.1/artifacts/contigs&#45;fasta)</span> \
+                                  &#45;o path/to/<span class="artifact&#45;n">[contigs&#45;fasta](/software/anvio/help/7.1/artifacts/contigs&#45;fasta)</span> \
+                                  &#45;b <span class="artifact&#45;n">[blast&#45;table](/software/anvio/help/7.1/artifacts/blast&#45;table)</span> \
                                   &#45;s qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen \
                                   &#45;t 30
 </div>
         
-Then the output file would be a <span class="artifact-n">[contigs-fasta](/software/anvio/help/main/artifacts/contigs-fasta)</span> that contains only the sequences in your input file that have a hit in your blast table with more than 30 percent of the amino acids aligned. 
+Then the output file would be a <span class="artifact-n">[contigs-fasta](/software/anvio/help/7.1/artifacts/contigs-fasta)</span> that contains only the sequences in your input file that have a hit in your blast table with more than 30 percent of the amino acids aligned. 
 
 
 {:.notice}

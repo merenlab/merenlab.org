@@ -3,7 +3,7 @@ layout: page
 title: anvi-script-gen-pseudo-paired-reads-from-fastq [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-script-gen-pseudo-paired-reads-from-fastq
+redirect_from: /7.1/anvi-script-gen-pseudo-paired-reads-from-fastq
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,14 +42,14 @@ A script that takes a FASTQ file that is not paired-end (i.e., R1 alone) and con
 ## Usage
 
 
-This program takes in a <span class="artifact-n">[short-reads-fasta](/software/anvio/help/main/artifacts/short-reads-fasta)</span> file and tries to recreate what paired reads for the data in that fasta file might look like. 
+This program takes in a <span class="artifact-n">[short-reads-fasta](/software/anvio/help/7.1/artifacts/short-reads-fasta)</span> file and tries to recreate what paired reads for the data in that fasta file might look like. 
 
 An arbitrarily chosen half of the reads will be put into the R1 output, while the other half will be reverse complemented and put into the R2 output. 
 
 For example, if you ran 
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;gen&#45;pseudo&#45;paired&#45;reads&#45;from&#45;fastq &#45;f <span class="artifact&#45;n">[short&#45;reads&#45;fasta](/software/anvio/help/main/artifacts/short&#45;reads&#45;fasta)</span> \
+anvi&#45;script&#45;gen&#45;pseudo&#45;paired&#45;reads&#45;from&#45;fastq &#45;f <span class="artifact&#45;n">[short&#45;reads&#45;fasta](/software/anvio/help/7.1/artifacts/short&#45;reads&#45;fasta)</span> \
                                                &#45;O MY_READS 
 </div>
 

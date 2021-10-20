@@ -3,7 +3,7 @@ layout: page
 title: gene-cluster-inspection [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/gene-cluster-inspection
+redirect_from: /7.1/gene-cluster-inspection
 image:
   featurerelative: ../../../images/header.png
   display: true

@@ -3,7 +3,7 @@ layout: page
 title: misc-data-items-txt [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/misc-data-items-txt
+redirect_from: /7.1/misc-data-items-txt
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -33,9 +33,9 @@ A TXT-type anvi'o artifact. This artifact can be generated, used, and/or exporte
 
 ## Description
 
-This a tab-delimited text file that describes information contained in a <span class="artifact-n">[misc-data-items](/software/anvio/help/main/artifacts/misc-data-items)</span>. 
+This a tab-delimited text file that describes information contained in a <span class="artifact-n">[misc-data-items](/software/anvio/help/7.1/artifacts/misc-data-items)</span>. 
 
-To import this information into a database, use <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/main/programs/anvi-import-misc-data)</span>. 
+To import this information into a database, use <span class="artifact-n">[anvi-import-misc-data](/software/anvio/help/7.1/programs/anvi-import-misc-data)</span>. 
 
 In this table, the first column should match the names of the items that you're displaying, and the following columns can contain any categorical or numerical data of your choosing.  (You can even be fancy and display data as a stacked bar graph.)
 

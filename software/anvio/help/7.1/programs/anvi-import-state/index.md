@@ -3,7 +3,7 @@ layout: page
 title: anvi-import-state [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-import-state
+redirect_from: /7.1/anvi-import-state
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,17 +42,17 @@ Import an anvi&#x27;o state into a profile database.
 ## Usage
 
 
-This program allows you to import a <span class="artifact-n">[state](/software/anvio/help/main/artifacts/state)</span> from a <span class="artifact-n">[state-json](/software/anvio/help/main/artifacts/state-json)</span>.
+This program allows you to import a <span class="artifact-n">[state](/software/anvio/help/7.1/artifacts/state)</span> from a <span class="artifact-n">[state-json](/software/anvio/help/7.1/artifacts/state-json)</span>.
 
-You can run this program on a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/software/anvio/help/main/artifacts/pan-db)</span> like so: 
+You can run this program on a <span class="artifact-n">[profile-db](/software/anvio/help/7.1/artifacts/profile-db)</span> or <span class="artifact-n">[pan-db](/software/anvio/help/7.1/artifacts/pan-db)</span> like so: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;import&#45;state &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/main/artifacts/profile&#45;db)</span> \
-                  &#45;s <span class="artifact&#45;n">[state&#45;json](/software/anvio/help/main/artifacts/state&#45;json)</span> \
+anvi&#45;import&#45;state &#45;p <span class="artifact&#45;n">[profile&#45;db](/software/anvio/help/7.1/artifacts/profile&#45;db)</span> \
+                  &#45;s <span class="artifact&#45;n">[state&#45;json](/software/anvio/help/7.1/artifacts/state&#45;json)</span> \
                   &#45;n MY_STATE
 </div>
 
-This will import the state described in your <span class="artifact-n">[state-json](/software/anvio/help/main/artifacts/state-json)</span> into your <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span> with the name `MY_STATE`. 
+This will import the state described in your <span class="artifact-n">[state-json](/software/anvio/help/7.1/artifacts/state-json)</span> into your <span class="artifact-n">[profile-db](/software/anvio/help/7.1/artifacts/profile-db)</span> with the name `MY_STATE`. 
 
 
 {:.notice}

@@ -3,7 +3,7 @@ layout: page
 title: anvi-script-permute-trnaseq-seeds [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-script-permute-trnaseq-seeds
+redirect_from: /7.1/anvi-script-permute-trnaseq-seeds
 image:
   featurerelative: ../../../images/header.png
   display: true

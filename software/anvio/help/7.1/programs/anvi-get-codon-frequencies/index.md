@@ -3,7 +3,7 @@ layout: page
 title: anvi-get-codon-frequencies [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-get-codon-frequencies
+redirect_from: /7.1/anvi-get-codon-frequencies
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,21 +42,21 @@ Get amino acid or codon frequencies of genes in a contigs database.
 ## Usage
 
 
-This program **calculates the frequency of each codon or amino acid of every gene in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>**. 
+This program **calculates the frequency of each codon or amino acid of every gene in your <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>**. 
 
-To run with all standard parameters, simply provide a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> and path for the output file as follows: 
+To run with all standard parameters, simply provide a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> and path for the output file as follows: 
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;codon&#45;frequencies &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \ 
+anvi&#45;get&#45;codon&#45;frequencies &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \ 
                 &#45;o name/of/output_file.txt 
 </div>
 
-The output of this is a <span class="artifact-n">[codon-frequencies-txt](/software/anvio/help/main/artifacts/codon-frequencies-txt)</span> that counts the number of times each codon appears in all of your genes.
+The output of this is a <span class="artifact-n">[codon-frequencies-txt](/software/anvio/help/7.1/artifacts/codon-frequencies-txt)</span> that counts the number of times each codon appears in all of your genes.
 
 If instead you want to calculate the data for the amino acids, run 
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;codon&#45;frequencies &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \ 
+anvi&#45;get&#45;codon&#45;frequencies &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/7.1/artifacts/contigs&#45;db)</span> \ 
                 &#45;o name/of/output_file.txt  \
                 &#45;&#45;return&#45;AA&#45;frequencies&#45;instead \
                 &#45;&#45;gene&#45;caller&#45;id MY_FAVORITE_GENE

@@ -3,7 +3,7 @@ layout: page
 title: anvi-migrate [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-migrate
+redirect_from: /7.1/anvi-migrate
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -74,7 +74,7 @@ anvi-migrate --migrate-dbs-safely -t 15 CONTIGS.db
 ```
 Then anvi'o will update your database until it is whatever version you specified and stop. Of course, you cannot provide a version number that is higher than the highest available version. Nor can you provide a number that is lower than your database's current version (ie, backwards migration is not possible).
 
-Not sure what your database's current version is? Try <span class="artifact-n">[anvi-db-info](/software/anvio/help/main/programs/anvi-db-info)</span>.
+Not sure what your database's current version is? Try <span class="artifact-n">[anvi-db-info](/software/anvio/help/7.1/programs/anvi-db-info)</span>.
 Not sure what the highest available version is? Run any anvi'o command with the `-v` option to see the version information for all database types (we recommend `anvi-interactive -v` for no particular reason).
 
 

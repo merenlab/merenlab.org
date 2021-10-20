@@ -3,7 +3,7 @@ layout: page
 title: quick-summary [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/quick-summary
+redirect_from: /7.1/quick-summary
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -33,9 +33,9 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-The output of <span class="artifact-n">[anvi-summarize-blitz](/software/anvio/help/main/programs/anvi-summarize-blitz)</span>.
+The output of <span class="artifact-n">[anvi-summarize-blitz](/software/anvio/help/7.1/programs/anvi-summarize-blitz)</span>.
 
-<span class="artifact-n">[anvi-summarize-blitz](/software/anvio/help/main/programs/anvi-summarize-blitz)</span> summarizes read-recruitment statistics for a collection of bins across multiple samples. It produces long format output in which each row contains the (weighted) average statistics of a bin in a sample. Each statistic is summarized in a different column of the file.
+<span class="artifact-n">[anvi-summarize-blitz](/software/anvio/help/7.1/programs/anvi-summarize-blitz)</span> summarizes read-recruitment statistics for a collection of bins across multiple samples. It produces long format output in which each row contains the (weighted) average statistics of a bin in a sample. Each statistic is summarized in a different column of the file.
 
 Here is an example output file from this program, summarizing `detection` and `mean_coverage_Q2Q3` data (the default statistics) for 3 bins across multiple samples:
 
@@ -49,7 +49,7 @@ unique_id | bin_name | sample | detection | mean_coverage_Q2Q3
 5 | bin_3 | sample_2 | 0.001595914458984989 | 0.0
 [...] | [...] |[...] |[...] |[...]
 
-The `unique_id` column is just a unique index for each row. Each column after the `sample` column contains a different statistic (to learn how to include different or additional statistics in this output, read the <span class="artifact-n">[anvi-summarize-blitz](/software/anvio/help/main/programs/anvi-summarize-blitz)</span> page.)
+The `unique_id` column is just a unique index for each row. Each column after the `sample` column contains a different statistic (to learn how to include different or additional statistics in this output, read the <span class="artifact-n">[anvi-summarize-blitz](/software/anvio/help/7.1/programs/anvi-summarize-blitz)</span> page.)
 
 
 {:.notice}

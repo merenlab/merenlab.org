@@ -3,7 +3,7 @@ layout: page
 title: functions-txt [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/functions-txt
+redirect_from: /7.1/functions-txt
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -35,7 +35,7 @@ A TXT-type anvi'o artifact. This artifact can be generated, used, and/or exporte
 
 This artifact is a TAB-delimited file that **associates genes and functions**. 
 
-The user can generate this file to import gene functions into a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> via <span class="artifact-n">[anvi-import-functions](/software/anvio/help/main/programs/anvi-import-functions)</span> or can acquire this file by recovering it from a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> via <span class="artifact-n">[anvi-export-functions](/software/anvio/help/main/programs/anvi-export-functions)</span>. It is also the output of <span class="artifact-n">[anvi-search-functions](/software/anvio/help/main/programs/anvi-search-functions)</span> which searches for specific terms in your functional annotations.
+The user can generate this file to import gene functions into a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> via <span class="artifact-n">[anvi-import-functions](/software/anvio/help/7.1/programs/anvi-import-functions)</span> or can acquire this file by recovering it from a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> via <span class="artifact-n">[anvi-export-functions](/software/anvio/help/7.1/programs/anvi-export-functions)</span>. It is also the output of <span class="artifact-n">[anvi-search-functions](/software/anvio/help/7.1/programs/anvi-search-functions)</span> which searches for specific terms in your functional annotations.
 
 In general, this is the simplest way to get gene functions into anvi'o, and all downstream analyses, including pangenomics. For other ways to get gene functions into anvi'o you can take a look at [this page](http://merenlab.org/2016/06/18/importing-functions/). 
 
@@ -51,11 +51,11 @@ The TAB-delimited file for this artifact has five columns:
 4. `function`: Full name / description of the function.
 5. `e_value`: The significance score of this annotation, where zero is maximum significance. This information may be used by anvi'o in operations that require filtering of functions based on their significance.
 
-Through this file format **you can import functions from any source** into anvi'o, whether those sources are commonly used programs to annotate genes with functions or your ad hoc manual curations for genes of interest. But **please note while there are many ways to have your genes annotated with functions, there is only one way to make sure the gene caller ids anvi'o knows will match perfectly to the gene caller ids in your input file**. The best way to ensure that linkage is to export your gene DNA or amino acid sequences for your an <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span> using the anvi'o program `anvi-get-sequences-for-gene-calls`.
+Through this file format **you can import functions from any source** into anvi'o, whether those sources are commonly used programs to annotate genes with functions or your ad hoc manual curations for genes of interest. But **please note while there are many ways to have your genes annotated with functions, there is only one way to make sure the gene caller ids anvi'o knows will match perfectly to the gene caller ids in your input file**. The best way to ensure that linkage is to export your gene DNA or amino acid sequences for your an <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span> using the anvi'o program `anvi-get-sequences-for-gene-calls`.
 
 ## An example matrix
 
-Here is an example file that matches to this format that can be used with <span class="artifact-n">[anvi-import-functions](/software/anvio/help/main/programs/anvi-import-functions)</span> to import functions into a <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>:
+Here is an example file that matches to this format that can be used with <span class="artifact-n">[anvi-import-functions](/software/anvio/help/7.1/programs/anvi-import-functions)</span> to import functions into a <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>:
 
 |gene_callers_id|source|accession|function|e_value|
 |:--|:--:|:--:|:--|:--:|

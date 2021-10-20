@@ -3,7 +3,7 @@ layout: page
 title: interacdome-data [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/interacdome-data
+redirect_from: /7.1/interacdome-data
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -33,11 +33,11 @@ A DATA-type anvi'o artifact. This artifact is typically generated, used, and/or 
 
 ## Description
 
-This artifact stores the data downloaded by <span class="artifact-n">[anvi-setup-interacdome](/software/anvio/help/main/programs/anvi-setup-interacdome)</span> and is required to run <span class="artifact-n">[anvi-run-interacdome](/software/anvio/help/main/programs/anvi-run-interacdome)</span>.
+This artifact stores the data downloaded by <span class="artifact-n">[anvi-setup-interacdome](/software/anvio/help/7.1/programs/anvi-setup-interacdome)</span> and is required to run <span class="artifact-n">[anvi-run-interacdome](/software/anvio/help/7.1/programs/anvi-run-interacdome)</span>.
 
 As described in the [InteracDome blogpost](https://merenlab.org/2020/07/22/interacdome/#anvi-setup-interacdome), this data includes [the tab-separated files](https://interacdome.princeton.edu/#tab-6136-4) from [InteracDome](https://interacdome.princeton.edu/) and the Pfam 31.0 HMMs for the subset of Pfams found in the InteracDome dataset.
 
-By default, this data is stored in `anvio/data/misc/InteracDome`, but a custom path can be set when the user runs <span class="artifact-n">[anvi-setup-interacdome](/software/anvio/help/main/programs/anvi-setup-interacdome)</span> if desired.
+By default, this data is stored in `anvio/data/misc/InteracDome`, but a custom path can be set when the user runs <span class="artifact-n">[anvi-setup-interacdome](/software/anvio/help/7.1/programs/anvi-setup-interacdome)</span> if desired.
 
 
 

@@ -3,7 +3,7 @@ layout: page
 title: anvi-script-variability-to-vcf [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-script-variability-to-vcf
+redirect_from: /7.1/anvi-script-variability-to-vcf
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,16 +42,16 @@ A script to convert SNV output obtained from anvi-gen-variability-profile to the
 ## Usage
 
 
-This script **converts a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span> into <span class="artifact-n">[vcf](/software/anvio/help/main/artifacts/vcf)</span> (Variant Call Format).** 
+This script **converts a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/7.1/artifacts/variability-profile-txt)</span> into <span class="artifact-n">[vcf](/software/anvio/help/7.1/artifacts/vcf)</span> (Variant Call Format).** 
 
 It is very easy to run: just provide the input and output paths as so:
 
 <div class="codeblock" markdown="1">
-anvi&#45;script&#45;variability&#45;to&#45;vcf &#45;i <span class="artifact&#45;n">[variability&#45;profile&#45;txt](/software/anvio/help/main/artifacts/variability&#45;profile&#45;txt)</span> \ 
-                               &#45;o <span class="artifact&#45;n">[vcf](/software/anvio/help/main/artifacts/vcf)</span> 
+anvi&#45;script&#45;variability&#45;to&#45;vcf &#45;i <span class="artifact&#45;n">[variability&#45;profile&#45;txt](/software/anvio/help/7.1/artifacts/variability&#45;profile&#45;txt)</span> \ 
+                               &#45;o <span class="artifact&#45;n">[vcf](/software/anvio/help/7.1/artifacts/vcf)</span> 
 </div>
 
-Note that to run this, you'll need to have run <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/main/programs/anvi-gen-variability-profile)</span> with the default nucleotide engine. 
+Note that to run this, you'll need to have run <span class="artifact-n">[anvi-gen-variability-profile](/software/anvio/help/7.1/programs/anvi-gen-variability-profile)</span> with the default nucleotide engine. 
 
 
 {:.notice}

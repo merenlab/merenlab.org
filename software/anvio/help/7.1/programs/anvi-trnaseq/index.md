@@ -3,7 +3,7 @@ layout: page
 title: anvi-trnaseq [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-trnaseq
+redirect_from: /7.1/anvi-trnaseq
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -44,27 +44,27 @@ A program to process reads from a tRNA-seq dataset to generate an anvi&#x27;o tR
 
 This program **analyzes a tRNA-seq library, generating de novo predictions of tRNA sequences, structures, and modification positions**.
 
-A FASTA file of merged paired-end tRNA-seq reads is required as input. This file is produced by the initial steps of the <span class="artifact-n">[trnaseq-workflow](/software/anvio/help/main/artifacts/trnaseq-workflow)</span>, in which [Illumina-utils](https://github.com/merenlab/illumina-utils), merges paired-end reads and <span class="artifact-n">[anvi-script-reformat-fasta](/software/anvio/help/main/programs/anvi-script-reformat-fasta)</span> creates anvi'o-compliant deflines in the FASTA file.
+A FASTA file of merged paired-end tRNA-seq reads is required as input. This file is produced by the initial steps of the <span class="artifact-n">[trnaseq-workflow](/software/anvio/help/7.1/artifacts/trnaseq-workflow)</span>, in which [Illumina-utils](https://github.com/merenlab/illumina-utils), merges paired-end reads and <span class="artifact-n">[anvi-script-reformat-fasta](/software/anvio/help/7.1/programs/anvi-script-reformat-fasta)</span> creates anvi'o-compliant deflines in the FASTA file.
 
-The primary output of anvi-trnaseq is a <span class="artifact-n">[trnaseq-db](/software/anvio/help/main/artifacts/trnaseq-db)</span>. Supplemental outputs are also produced -- an analysis summary, a tabular file of unique sequences not identified as tRNA, an a tabular file of 5' and 3' extensions trimmed off mature tRNA.
+The primary output of anvi-trnaseq is a <span class="artifact-n">[trnaseq-db](/software/anvio/help/7.1/artifacts/trnaseq-db)</span>. Supplemental outputs are also produced -- an analysis summary, a tabular file of unique sequences not identified as tRNA, an a tabular file of 5' and 3' extensions trimmed off mature tRNA.
 
 The `anvi-trnaseq --help` menu provides detailed explanations of the parameters controlling the multifacted analyses performed by the program.
 
 ## Examples
 
-*Generate a <span class="artifact-n">[trnaseq-db](/software/anvio/help/main/artifacts/trnaseq-db)</span> from a sample using 16 cores.*
+*Generate a <span class="artifact-n">[trnaseq-db](/software/anvio/help/7.1/artifacts/trnaseq-db)</span> from a sample using 16 cores.*
 
 <div class="codeblock" markdown="1">
-anvi&#45;trnaseq &#45;f <span class="artifact&#45;n">[trnaseq&#45;fasta](/software/anvio/help/main/artifacts/trnaseq&#45;fasta)</span> \
+anvi&#45;trnaseq &#45;f <span class="artifact&#45;n">[trnaseq&#45;fasta](/software/anvio/help/7.1/artifacts/trnaseq&#45;fasta)</span> \
              &#45;S SAMPLE_NAME \
              &#45;o OUTPUT_DIRECTORY \
              &#45;T 16
 </div>
 
-*Generate a <span class="artifact-n">[trnaseq-db](/software/anvio/help/main/artifacts/trnaseq-db)</span> from a sample flagged as being treated with demethylase. The output directory is overwritten if it already exists.*
+*Generate a <span class="artifact-n">[trnaseq-db](/software/anvio/help/7.1/artifacts/trnaseq-db)</span> from a sample flagged as being treated with demethylase. The output directory is overwritten if it already exists.*
 
 <div class="codeblock" markdown="1">
-anvi&#45;trnaseq &#45;f <span class="artifact&#45;n">[trnaseq&#45;fasta](/software/anvio/help/main/artifacts/trnaseq&#45;fasta)</span> \
+anvi&#45;trnaseq &#45;f <span class="artifact&#45;n">[trnaseq&#45;fasta](/software/anvio/help/7.1/artifacts/trnaseq&#45;fasta)</span> \
              &#45;S SAMPLE_NAME \
              &#45;o OUTPUT_DIRECTORY \
              &#45;T 16 \

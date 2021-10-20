@@ -3,7 +3,7 @@ layout: page
 title: dendrogram [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/dendrogram
+redirect_from: /7.1/dendrogram
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -36,11 +36,11 @@ A NEWICK-type anvi'o artifact. This artifact can be generated, used, and/or expo
 This described a [NEWICK-formatted](https://en.wikipedia.org/wiki/Newick_format) tree that is not representative of the phylogenic relationships between your samples. 
 
 {:.notice}
-If you're looking for phylogenic trees, take a look at <span class="artifact-n">[phylogeny](/software/anvio/help/main/artifacts/phylogeny)</span> 
+If you're looking for phylogenic trees, take a look at <span class="artifact-n">[phylogeny](/software/anvio/help/7.1/artifacts/phylogeny)</span> 
 
-Instead, the dendrogram artifact most often describes the tree used as a <span class="artifact-n">[misc-data-items-order](/software/anvio/help/main/artifacts/misc-data-items-order)</span>: the order that the items in <span class="artifact-n">[anvi-interactive](/software/anvio/help/main/programs/anvi-interactive)</span> are displayed in (the central tree in the circular display). Often, these are the order of your contigs or genes based on their relatedness to each other (for example by tetranucleotide frequency or differencial coverage). These trees are also contained in <span class="artifact-n">[misc-data-layer-orders](/software/anvio/help/main/artifacts/misc-data-layer-orders)</span>.
+Instead, the dendrogram artifact most often describes the tree used as a <span class="artifact-n">[misc-data-items-order](/software/anvio/help/7.1/artifacts/misc-data-items-order)</span>: the order that the items in <span class="artifact-n">[anvi-interactive](/software/anvio/help/7.1/programs/anvi-interactive)</span> are displayed in (the central tree in the circular display). Often, these are the order of your contigs or genes based on their relatedness to each other (for example by tetranucleotide frequency or differencial coverage). These trees are also contained in <span class="artifact-n">[misc-data-layer-orders](/software/anvio/help/7.1/artifacts/misc-data-layer-orders)</span>.
 
-A dendrogram is also listed as the output of programs that are not necessarily related to phylogenetics (like <span class="artifact-n">[anvi-matrix-to-newick](/software/anvio/help/main/programs/anvi-matrix-to-newick)</span>).  
+A dendrogram is also listed as the output of programs that are not necessarily related to phylogenetics (like <span class="artifact-n">[anvi-matrix-to-newick](/software/anvio/help/7.1/programs/anvi-matrix-to-newick)</span>).  
 
 
 {:.notice}

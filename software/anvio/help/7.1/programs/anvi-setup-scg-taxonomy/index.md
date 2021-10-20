@@ -3,7 +3,7 @@ layout: page
 title: anvi-setup-scg-taxonomy [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-setup-scg-taxonomy
+redirect_from: /7.1/anvi-setup-scg-taxonomy
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -44,7 +44,7 @@ This program seems to know what its doing. It needs no input material from its u
 ## Usage
 
 
-This program **downloads and sets up the search databases used for the scg-taxonomy workflow** (from [GTDB](https://gtdb.ecogenomic.org/)) so that you can run <span class="artifact-n">[anvi-run-scg-taxonomy](/software/anvio/help/main/programs/anvi-run-scg-taxonomy)</span> and <span class="artifact-n">[anvi-estimate-scg-taxonomy](/software/anvio/help/main/programs/anvi-estimate-scg-taxonomy)</span>. This program generates a <span class="artifact-n">[scgs-taxonomy-db](/software/anvio/help/main/artifacts/scgs-taxonomy-db)</span> artifact, which is required to run both of those programs. 
+This program **downloads and sets up the search databases used for the scg-taxonomy workflow** (from [GTDB](https://gtdb.ecogenomic.org/)) so that you can run <span class="artifact-n">[anvi-run-scg-taxonomy](/software/anvio/help/7.1/programs/anvi-run-scg-taxonomy)</span> and <span class="artifact-n">[anvi-estimate-scg-taxonomy](/software/anvio/help/7.1/programs/anvi-estimate-scg-taxonomy)</span>. This program generates a <span class="artifact-n">[scgs-taxonomy-db](/software/anvio/help/7.1/artifacts/scgs-taxonomy-db)</span> artifact, which is required to run both of those programs. 
 
 For more information on that workflow, check out [this page](http://merenlab.org/2019/10/08/anvio-scg-taxonomy/)
 

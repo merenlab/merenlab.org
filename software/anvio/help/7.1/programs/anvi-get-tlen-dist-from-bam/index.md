@@ -3,7 +3,7 @@ layout: page
 title: anvi-get-tlen-dist-from-bam [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-get-tlen-dist-from-bam
+redirect_from: /7.1/anvi-get-tlen-dist-from-bam
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,14 +42,14 @@ This program does not seem to provide any artifacts. Such programs usually print
 ## Usage
 
 
-This program may be useful if you are interested in learning the insert size distribution in a given <span class="artifact-n">[bam-file](/software/anvio/help/main/artifacts/bam-file)</span>.
+This program may be useful if you are interested in learning the insert size distribution in a given <span class="artifact-n">[bam-file](/software/anvio/help/7.1/artifacts/bam-file)</span>.
 
 ## Example run
 
 The most straightforward way to run the program is the following:
 
 <div class="codeblock" markdown="1">
-anvi&#45;get&#45;tlen&#45;dist&#45;from&#45;bam <span class="artifact&#45;n">[bam&#45;file](/software/anvio/help/main/artifacts/bam&#45;file)</span>
+anvi&#45;get&#45;tlen&#45;dist&#45;from&#45;bam <span class="artifact&#45;n">[bam&#45;file](/software/anvio/help/7.1/artifacts/bam&#45;file)</span>
 </div>
 
 Here is an example output in the terminal:

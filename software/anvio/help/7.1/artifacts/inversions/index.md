@@ -3,7 +3,7 @@ layout: page
 title: inversions [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/inversions
+redirect_from: /7.1/inversions
 image:
   featurerelative: ../../../images/header.png
   display: true

@@ -3,7 +3,7 @@ layout: page
 title: trnaseq-plot [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/trnaseq-plot
+redirect_from: /7.1/trnaseq-plot
 image:
   featurerelative: ../../../images/header.png
   display: true

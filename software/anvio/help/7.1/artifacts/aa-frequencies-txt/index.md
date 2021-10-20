@@ -3,7 +3,7 @@ layout: page
 title: aa-frequencies-txt [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/aa-frequencies-txt
+redirect_from: /7.1/aa-frequencies-txt
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -33,11 +33,11 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 ## Description
 
-This file contains **the frequency of each amino acid for some reference context in your <span class="artifact-n">[contigs-db](/software/anvio/help/main/artifacts/contigs-db)</span>**.  
+This file contains **the frequency of each amino acid for some reference context in your <span class="artifact-n">[contigs-db](/software/anvio/help/7.1/artifacts/contigs-db)</span>**.  
 
-This is a tab-delimited table where each column represents an amino acid and each row represents a specific reference context (most often this will be a gene after running <span class="artifact-n">[anvi-get-codon-frequencies](/software/anvio/help/main/programs/anvi-get-codon-frequencies)</span>). The numbers will either refer to counts of each amino acid or precent normalizations depending on the parameters with which you ran <span class="artifact-n">[anvi-get-codon-frequencies](/software/anvio/help/main/programs/anvi-get-codon-frequencies)</span>. 
+This is a tab-delimited table where each column represents an amino acid and each row represents a specific reference context (most often this will be a gene after running <span class="artifact-n">[anvi-get-codon-frequencies](/software/anvio/help/7.1/programs/anvi-get-codon-frequencies)</span>). The numbers will either refer to counts of each amino acid or precent normalizations depending on the parameters with which you ran <span class="artifact-n">[anvi-get-codon-frequencies](/software/anvio/help/7.1/programs/anvi-get-codon-frequencies)</span>. 
 
-You can also use <span class="artifact-n">[anvi-get-aa-counts](/software/anvio/help/main/programs/anvi-get-aa-counts)</span> to get this information for a <span class="artifact-n">[bin](/software/anvio/help/main/artifacts/bin)</span>, <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span>, or <span class="artifact-n">[splits-txt](/software/anvio/help/main/artifacts/splits-txt)</span>. 
+You can also use <span class="artifact-n">[anvi-get-aa-counts](/software/anvio/help/7.1/programs/anvi-get-aa-counts)</span> to get this information for a <span class="artifact-n">[bin](/software/anvio/help/7.1/artifacts/bin)</span>, <span class="artifact-n">[collection](/software/anvio/help/7.1/artifacts/collection)</span>, or <span class="artifact-n">[splits-txt](/software/anvio/help/7.1/artifacts/splits-txt)</span>. 
 
 ### Example
 

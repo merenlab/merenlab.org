@@ -3,7 +3,7 @@ layout: page
 title: anvi-setup-trna-taxonomy [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-setup-trna-taxonomy
+redirect_from: /7.1/anvi-setup-trna-taxonomy
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,9 +42,9 @@ This program seems to know what its doing. It needs no input material from its u
 ## Usage
 
 
-This program downloads a local copy of a subset of the databases from [GTDB](https://gtdb.ecogenomic.org/) (stored in a <span class="artifact-n">[trna-taxonomy-db](/software/anvio/help/main/artifacts/trna-taxonomy-db)</span>), so that tRNA sequences in your dataset can be associated with taxonomy information. It is required to run this program before you can run <span class="artifact-n">[anvi-run-trna-taxonomy](/software/anvio/help/main/programs/anvi-run-trna-taxonomy)</span> or <span class="artifact-n">[anvi-estimate-trna-taxonomy](/software/anvio/help/main/programs/anvi-estimate-trna-taxonomy)</span>.
+This program downloads a local copy of a subset of the databases from [GTDB](https://gtdb.ecogenomic.org/) (stored in a <span class="artifact-n">[trna-taxonomy-db](/software/anvio/help/7.1/artifacts/trna-taxonomy-db)</span>), so that tRNA sequences in your dataset can be associated with taxonomy information. It is required to run this program before you can run <span class="artifact-n">[anvi-run-trna-taxonomy](/software/anvio/help/7.1/programs/anvi-run-trna-taxonomy)</span> or <span class="artifact-n">[anvi-estimate-trna-taxonomy](/software/anvio/help/7.1/programs/anvi-estimate-trna-taxonomy)</span>.
 
-Like other `anvi-setup-` programs, this only needs to be run once per anvi'o version. The default path is `anvio/data/misc/TRNA-TAXONOMY`. You can store the resulting <span class="artifact-n">[trna-taxonomy-db](/software/anvio/help/main/artifacts/trna-taxonomy-db)</span> in a custom location if desired), but then you'll need to provide the path to it whenever you run <span class="artifact-n">[anvi-run-trna-taxonomy](/software/anvio/help/main/programs/anvi-run-trna-taxonomy)</span>. 
+Like other `anvi-setup-` programs, this only needs to be run once per anvi'o version. The default path is `anvio/data/misc/TRNA-TAXONOMY`. You can store the resulting <span class="artifact-n">[trna-taxonomy-db](/software/anvio/help/7.1/artifacts/trna-taxonomy-db)</span> in a custom location if desired), but then you'll need to provide the path to it whenever you run <span class="artifact-n">[anvi-run-trna-taxonomy](/software/anvio/help/7.1/programs/anvi-run-trna-taxonomy)</span>. 
 
 To run this program, you can simply run
 

@@ -3,7 +3,7 @@ layout: page
 title: anvi-script-snvs-to-interactive [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-script-snvs-to-interactive
+redirect_from: /7.1/anvi-script-snvs-to-interactive
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,13 +42,13 @@ Take the output of anvi-gen-variability-profile, prepare an output for interacti
 ## Usage
 
 
-This programs takes a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span> and generates the information necessary to visualize its contents with <span class="artifact-n">[anvi-interactive](/software/anvio/help/main/programs/anvi-interactive)</span>. 
+This programs takes a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/7.1/artifacts/variability-profile-txt)</span> and generates the information necessary to visualize its contents with <span class="artifact-n">[anvi-interactive](/software/anvio/help/7.1/programs/anvi-interactive)</span>. 
 
-Specifically, this program outputs a directory that contains a <span class="artifact-n">[profile-db](/software/anvio/help/main/artifacts/profile-db)</span>, a <span class="artifact-n">[view-data](/software/anvio/help/main/artifacts/view-data)</span> artifact, and a <span class="artifact-n">[dendrogram](/software/anvio/help/main/artifacts/dendrogram)</span>. For example, if you ran this program like so: 
+Specifically, this program outputs a directory that contains a <span class="artifact-n">[profile-db](/software/anvio/help/7.1/artifacts/profile-db)</span>, a <span class="artifact-n">[view-data](/software/anvio/help/7.1/artifacts/view-data)</span> artifact, and a <span class="artifact-n">[dendrogram](/software/anvio/help/7.1/artifacts/dendrogram)</span>. For example, if you ran this program like so: 
 
 <div class="codeblock" markdown="1">
 anvi&#45;script&#45;snvs&#45;to&#45;interactive &#45;o OUTPUT_DIR \
-                                <span class="artifact&#45;n">[variability&#45;profile](/software/anvio/help/main/artifacts/variability&#45;profile)</span>
+                                <span class="artifact&#45;n">[variability&#45;profile](/software/anvio/help/7.1/artifacts/variability&#45;profile)</span>
 </div>
 
 Then, you can open the interactive interface by running 

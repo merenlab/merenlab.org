@@ -3,7 +3,7 @@ layout: page
 title: collection-txt [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/collection-txt
+redirect_from: /7.1/collection-txt
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -33,7 +33,7 @@ A TXT-type anvi'o artifact. This artifact can be generated, used, and/or exporte
 
 ## Description
 
-This is a two-column TAB-delimited file without a header that describes a <span class="artifact-n">[collection](/software/anvio/help/main/artifacts/collection)</span> by associating items with bin names. It can be used to import or export collections in and out of anvi'o databases, and/or transferring them between anvi'o projects. 
+This is a two-column TAB-delimited file without a header that describes a <span class="artifact-n">[collection](/software/anvio/help/7.1/artifacts/collection)</span> by associating items with bin names. It can be used to import or export collections in and out of anvi'o databases, and/or transferring them between anvi'o projects. 
 
 The first column in the file lists item names and the second column associates a given item with a bin. 
 
@@ -48,7 +48,7 @@ item_06    bin_3
 
 ### The optinal bins info file
 
-In addition to the essential file above, you can associate an optional TAB-delmited file with three columns with a collection to provide information about 'bins' in it, such as their source, and/or color to be used when they are displayed in <span class="artifact-n">[summary](/software/anvio/help/main/artifacts/summary)</span> outputs or anvi'o <span class="artifact-n">[interactive](/software/anvio/help/main/artifacts/interactive)</span> interfaces. Here is an example:
+In addition to the essential file above, you can associate an optional TAB-delmited file with three columns with a collection to provide information about 'bins' in it, such as their source, and/or color to be used when they are displayed in <span class="artifact-n">[summary](/software/anvio/help/7.1/artifacts/summary)</span> outputs or anvi'o <span class="artifact-n">[interactive](/software/anvio/help/7.1/artifacts/interactive)</span> interfaces. Here is an example:
 
 ```
 bin_1	N/A	 #c9d433
@@ -61,7 +61,7 @@ In this file format the first column is a bin name, the second column is a sourc
 {:.notice}
 The source is a free form text and can be anything. We often use `anvi-interactive` or `CONCOCT` or `anvi-refine` for our bins to track which ones were manually refined, and which ones were coming from an automated binning algorithm.
 
-You can provide this optional file to the program <span class="artifact-n">[anvi-import-collection](/software/anvio/help/main/programs/anvi-import-collection)</span> with the parameter `--bins-info`.
+You can provide this optional file to the program <span class="artifact-n">[anvi-import-collection](/software/anvio/help/7.1/programs/anvi-import-collection)</span> with the parameter `--bins-info`.
 
 {:.notice}
 Edit [this file](https://github.com/merenlab/anvio/tree/master/anvio/docs/artifacts/collection-txt.md) to update this information.

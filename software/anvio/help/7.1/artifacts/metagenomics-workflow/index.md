@@ -3,7 +3,7 @@ layout: page
 title: metagenomics-workflow [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/metagenomics-workflow
+redirect_from: /7.1/metagenomics-workflow
 image:
   featurerelative: ../../../images/header.png
   display: true

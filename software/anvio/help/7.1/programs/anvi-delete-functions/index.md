@@ -3,7 +3,7 @@ layout: page
 title: anvi-delete-functions [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-delete-functions
+redirect_from: /7.1/anvi-delete-functions
 image:
   featurerelative: ../../../images/header.png
   display: true

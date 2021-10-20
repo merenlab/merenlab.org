@@ -3,7 +3,7 @@ layout: page
 title: vcf [artifact]
 categories: [anvio]
 comments: false
-redirect_from: /m/vcf
+redirect_from: /7.1/vcf
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -35,7 +35,7 @@ There are no anvi'o tools that use or require this artifact directly, which mean
 
 This represents a file in the Variant Call Format, which is a standard format for storing sequence variations like SNVs. 
 
-You can convert the information in a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/main/artifacts/variability-profile-txt)</span> to <span class="artifact-n">[vcf](/software/anvio/help/main/artifacts/vcf)</span> with the program <span class="artifact-n">[anvi-script-variability-to-vcf](/software/anvio/help/main/programs/anvi-script-variability-to-vcf)</span>. 
+You can convert the information in a <span class="artifact-n">[variability-profile-txt](/software/anvio/help/7.1/artifacts/variability-profile-txt)</span> to <span class="artifact-n">[vcf](/software/anvio/help/7.1/artifacts/vcf)</span> with the program <span class="artifact-n">[anvi-script-variability-to-vcf](/software/anvio/help/7.1/programs/anvi-script-variability-to-vcf)</span>. 
 
 ### What's in this file? 
 

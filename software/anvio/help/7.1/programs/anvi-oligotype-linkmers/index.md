@@ -3,7 +3,7 @@ layout: page
 title: anvi-oligotype-linkmers [program]
 categories: [anvio]
 comments: false
-redirect_from: /m/anvi-oligotype-linkmers
+redirect_from: /7.1/anvi-oligotype-linkmers
 image:
   featurerelative: ../../../images/header.png
   display: true
@@ -42,14 +42,14 @@ Takes an anvi&#x27;o linkmers report, generates an oligotyping output.
 ## Usage
 
 
-This program converts a <span class="artifact-n">[linkmers-txt](/software/anvio/help/main/artifacts/linkmers-txt)</span> artifact into <span class="artifact-n">[oligotypes](/software/anvio/help/main/artifacts/oligotypes)</span> data.
+This program converts a <span class="artifact-n">[linkmers-txt](/software/anvio/help/7.1/artifacts/linkmers-txt)</span> artifact into <span class="artifact-n">[oligotypes](/software/anvio/help/7.1/artifacts/oligotypes)</span> data.
 
-A <span class="artifact-n">[linkmers-txt](/software/anvio/help/main/artifacts/linkmers-txt)</span> artifact describes each of your short reads that mapped to specific target nucleotide positions in a reference contig. This program counts the total occurance of each combination in those target positions within each of your samples. 
+A <span class="artifact-n">[linkmers-txt](/software/anvio/help/7.1/artifacts/linkmers-txt)</span> artifact describes each of your short reads that mapped to specific target nucleotide positions in a reference contig. This program counts the total occurance of each combination in those target positions within each of your samples. 
 
-For example, if your <span class="artifact-n">[linkmers-txt](/software/anvio/help/main/artifacts/linkmers-txt)</span> focused on two target positions, and you ran the following:
+For example, if your <span class="artifact-n">[linkmers-txt](/software/anvio/help/7.1/artifacts/linkmers-txt)</span> focused on two target positions, and you ran the following:
 
 <div class="codeblock" markdown="1">
-anvi&#45;oligotype&#45;linkmers &#45;i <span class="artifact&#45;n">[linkmers&#45;txt](/software/anvio/help/main/artifacts/linkmers&#45;txt)</span> 
+anvi&#45;oligotype&#45;linkmers &#45;i <span class="artifact&#45;n">[linkmers&#45;txt](/software/anvio/help/7.1/artifacts/linkmers&#45;txt)</span> 
 </div>
 
 The output (which by default is called `oligotype-counts-001.txt`) might look like the following:
