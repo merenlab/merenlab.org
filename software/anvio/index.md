@@ -30,11 +30,15 @@ We welcome you to join in our growing international community, and look forward 
 
 # Install
 
-**[Installing anvi'o](/install-anvio/)** is quite straightforward on Mac, Linux, or Windows operating systems. Following our installation tutorial you can install the latest stable version of anvi'o or tap into our master code repository to track the very latest changes. Alternatively, you can use one of our [Docker containers](/anvio-docker) without any installation.
+* Install a [**stable release**](/install-anvio/) of anvi'o on a Mac, Linux, or Windows running computer (best option for end users).
+* Use anvi'o from the [**active development branch**](/2016/06/26/installation-v2/#5-follow-the-active-development-youre-a-wizard-arry) (best option for developers).
+* Run anvi'o through its [**Docker containers**](/anvio-docker) without any installation (best option for the lazy).
 
-# Get Help
+# Resources
 
-See our [community resources](/software/anvio/getting-help), or browse [all anvi'o programs and artifacts](/software/anvio/help/main/).
+* All [**anvi'o programs and artifacts**](/software/anvio/help/main/) (arguably the most important resource of all).
+* Anvi'o program [**help menu** outputs](/software/anvio/vignette/) (to have a quick idea about what is in there and what does it do).
+* Our [**community resources**](/software/anvio/getting-help) for more.
 
 # Tutorials
 

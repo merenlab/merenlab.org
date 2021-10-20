@@ -1,0 +1,56 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "contigs-db",
+      "name": "contigs-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "splits-txt",
+      "name": "splits-txt",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "hmm-source",
+      "name": "hmm-source",
+      "provided_by_anvio": false,
+      "type": "HMM"
+    },
+    {
+      "size": 3,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-compute-completeness",
+      "name": "anvi-compute-completeness",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "target": 3,
+      "source": 0
+    },
+    {
+      "target": 3,
+      "source": 1
+    },
+    {
+      "target": 3,
+      "source": 2
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}
