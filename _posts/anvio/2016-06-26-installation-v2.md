@@ -139,7 +139,7 @@ Now you can jump to "[Download and install anvi'o](#3-install-anvio)"!
 Here you will first download the Python source package for the official anvi'o release:
 
 ```
-curl -L https://github.com/merenlab/anvio/releases/download/v7/anvio-7.1.tar.gz \
+curl -L https://github.com/merenlab/anvio/releases/download/v7.1/anvio-7.1.tar.gz \
         --output anvio-7.1.tar.gz
 ```
 
