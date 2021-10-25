@@ -50,7 +50,7 @@ Let's start.
 First, open your terminal, go to any directory you like, and download the data pack we have stored online for you:
 
 ``` bash
-curl -L https://figshare.com/ndownloader/files/31178323 \
+curl -L https://figshare.com/ndownloader/files/31180186 \
      -o metagenomic-read-recruitment-data-pack.tar.gz
 ```
 
