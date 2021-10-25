@@ -177,7 +177,7 @@ If you don't want anvi'o to show you a browser window at the end and quietly fin
 {:.warning}
 It is absolutely normal to see 'warning' messages. In general anvi'o is talkative as it would like to keep you informed. In an ideal world you should keep a careful eye on those warning messages, but in most cases they will not require action.
 
-{:warning}
+{:.warning}
 If `anvi-self-test` fails with an error message that looks something like `libcrypto.so.1.0.0: cannot open shared object file: no such file or directory`, it is likely that the `pysam` module installation failed. To fix this you should re-install this module by running `conda install -y -c bioconda pysam=0.15.3`, and then re-run the `pip install anvio-7.1.tar.gz` command. After that you should try the self-test again to make sure it worked.
 
 If everything goes smoothly, your browser should pop-up and show you an anvi'o {% include ARTIFACT name="interactive" %} interface that looks something like this once `anvi-self-test` is done running:
