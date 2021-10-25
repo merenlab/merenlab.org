@@ -2108,7 +2108,7 @@ OK.
 
 You just read about four different ways to visualize the single-nucleotide variability profiles with anvi'o. We are done here.
 
-## Chapter VI: Genes and genomes across metagenomes
+## Chapter VII: Genes and genomes across metagenomes
 
 In the previous sections of this tutorial we recovered an *E. faecalis* genome from an infant gut metagenome.
 
@@ -2259,7 +2259,7 @@ Including the inspection of a given gene in its context with upstream and downst
 
 [![E. facealis pan](images/gene-inspection.png)](images/gene-inspection.png){:.center-img .width-80}
 
-## Chapter VII: From single-amino acid variants to protein structures
+## Chapter VIII: From single-amino acid variants to protein structures
 
 {:.notice}
 This section of the tutorial uses the data described in the above section [Putting the E. faecalis
