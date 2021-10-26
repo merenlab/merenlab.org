@@ -55,7 +55,7 @@ Oxford Nanopore Technology, with sequencer like the MinION, offers no theoretica
 
 We chose to compare different HMW DNA extractions in the context of metagenomics analysis and using a low biomass and host contaminated type of sample: the human oral cavity.   
 
-## HMW DNA extraction protocolcs
+## HMW DNA extraction protocols
 We tested six HMW DNA extractions, but only three were able to generate enough DNA yield and purity to match the requirements for MinION sequencing. For these extraction methods, we had an original nomenclature (M#_#), which is different from the protocol's name in the manuscript. Here is a table to summarize the three HMW DNA extraction methods, their replicates, variants, and also the additional sample used for amplicon and short-read sequencing.
 
 DNA extractions sequenced with MinION (long-read metagenomes):
