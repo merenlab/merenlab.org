@@ -159,6 +159,25 @@ pip install anvio-7.1.tar.gz
 {:.warning}
 Even after fixing the pysam problem, some packages installed by this command may still require a more up to date c-compiler on **Mac OSX**. If you're getting an error that contains `x86_64-apple-darwin13.4.0-clang` or similar keywords in the output message, please run `export CC=clang` in your terminal and try the command above again. If you are still unable to run the `pip install` command above, run both `export CC=/usr/bin/clang` and `export CXX=/usr/bin/clang++` before trying again. If the `pip` installation still doesn't work (and especially if you see `clang-12: error: linker command failed with exit code 1` in the error message - we have often seen this error associated with the `Levenshtein` package), you can try updating your Xcode by following the instructions described in [this issue](https://github.com/merenlab/anvio/issues/1636) (in the "Solved it" section), and then try the `pip` command one more time. If you did all that and it is still not working, please make an issue on the github page or let us know in the anvi'o slack channel about your problem and we will try to help you.
 
+At this point, you should probably test your `samtools` installation by running `samtools --version`. If you see an error that looks similar to this:
+```
+dyld: Library not loaded: @rpath/libcrypto.1.0.0.dylib
+  Referenced from: /Users/iva/opt/miniconda3/envs/anvio-7.1/bin/samtools
+  Reason: image not found
+Abort trap: 6
+```
+then you should run the following to fix it:
+```
+conda remove -y samtools
+conda install -y -c bioconda samtools=1.9
+```
+Then try `samtools --version` again to make sure it is okay now. What you _should_ see is the following:
+```
+samtools 1.9
+Using htslib 1.9
+Copyright (C) 2018 Genome Research Ltd.
+```
+
 If everything went fine, you can jump to "[Check your anvi'o setup](#4-check-your-installation)" to see if things worked for you, and then you are free to go!
 
 ## (4) Check your installation
@@ -178,7 +197,7 @@ If you don't want anvi'o to show you a browser window at the end and quietly fin
 It is absolutely normal to see 'warning' messages. In general anvi'o is talkative as it would like to keep you informed. In an ideal world you should keep a careful eye on those warning messages, but in most cases they will not require action.
 
 {:.warning}
-If `anvi-self-test` fails with an error message that looks something like `libcrypto.so.1.0.0: cannot open shared object file: no such file or directory`, it is likely that the `pysam` module installation failed. To fix this you should re-install this module by running `conda install -y -c bioconda pysam=0.15.3`, and then re-run the `pip install anvio-7.1.tar.gz` command. After that you should try the self-test again to make sure it worked.
+If `anvi-self-test` fails with an error message that looks something like `libcrypto.so.1.0.0: cannot open shared object file: no such file or directory` coming from the `pysam` library, it is likely that the `pysam` module installation failed. To fix this you should re-install this module by running `conda install -y -c bioconda pysam=0.15.3`, and then re-run the `pip install anvio-7.1.tar.gz` command. After that you should try the self-test again to make sure it worked.
 
 If everything goes smoothly, your browser should pop-up and show you an anvi'o {% include ARTIFACT name="interactive" %} interface that looks something like this once `anvi-self-test` is done running:
 
