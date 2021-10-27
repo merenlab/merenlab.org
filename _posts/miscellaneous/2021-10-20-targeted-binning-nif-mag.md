@@ -26,7 +26,10 @@ tar -xvf NIF_MAG_DATAPACK.tar.gz && cd NIF_MAG_DATAPACK
 
 ## Setting up our story
 
-Exciting things are happening right now in the world of marine microbiology. Our friend and colleague [Tom Delmont](http://twitter.com/tomodelmont) is publishing a [cool story about heterotrophic bacterial diazotrophs](https://www.biorxiv.org/content/10.1101/2021.03.24.436778v1), or HBDs (the paper is currently in press at _The ISME Journal_).
+Exciting things are happening right now in the world of marine microbiology. Our friend and colleague [Tom Delmont](http://twitter.com/tomodelmont) is publishing a [cool story about heterotrophic bacterial diazotrophs](https://www.biorxiv.org/content/10.1101/2021.03.24.436778v1), or HBDs.
+
+{:.notice}
+Tom's paper is now published at _The ISME Journal_! You can find it [at this link](https://www.nature.com/articles/s41396-021-01135-1). Yay :)
 
 For anyone who doesn't know, a diazotroph is a microbe that fixes nitrogen. Nitrogen fixation is a very important process that supports all forms of life on Earth by yanking nitrogen atoms from one of the most recalcitrant molecules on earth, N<sub>2</sub> gas, and putting them into biologically-usable molecules such as ammonia. It happens quite a lot in the global oceans, so to marine microbiologists, nitrogen-fixing microbes - that is, marine diazotrophs - are a Big Deal.
 
