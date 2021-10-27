@@ -18,7 +18,7 @@ This post also doubles as a reproducible workflow. Feel free to download the ass
 
 ```bash
 # Download tutorial datapack (the unzipped datapack is 3.4 GB in size)
-wget -O NIF_MAG_DATAPACK.tar.gz wget https://figshare.com/ndownloader/files/31119277
+wget -O NIF_MAG_DATAPACK.tar.gz https://figshare.com/ndownloader/files/31119277
 
 # unzip and cd into working directory
 tar -xvf NIF_MAG_DATAPACK.tar.gz && cd NIF_MAG_DATAPACK
