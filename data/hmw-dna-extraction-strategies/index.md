@@ -328,7 +328,7 @@ This section is divided into three distinct parts which relate to three differen
 For each type of data, we have a different strategy to analysis their taxonomic composition. In brief, for the long-reads we recovered the 16S rRNA genes which we blasted against the Human Oral Microbiome Database (HOMD); for metagenomes, we followed anvi'o metagenomics workflow with the IDBA_UD assembler and used ribosomal protein with the Genome Taxonomy Database (GTDB) to compute taxonmic profiles; and for the 16S rRNA amplicon sequencing, we used Minimum Entropy Decomposition (MED) to generate oligotypes and the Silva database to assign taxonomy.
 
 ### MinION long-reads
-We can extract the 16S rRNA genes with the anvi'o command `anvi-get-sequences-for-hmm-hits` (not using the size-selection samples):
+We can extract the 16S rRNA genes with the anvi'o command {% include PROGRAM name="anvi-get-sequences-for-hmm-hits" %} (not using the size-selection samples):
 ```bash
 cd $WD
 
@@ -390,7 +390,7 @@ Here is a graph of that workflow:
 ![](images/workflow_metagenomics.png)
 
 
-Then we can use `anvi-estimate-scg-taxonomy` to get the taxonomic profile, using the most abundant ribosomal protein, here Ribosomal_S7.
+Then we can use {% include PROGRAM name="anvi-estimate-scg-taxonomy" %} to get the taxonomic profile, using the most abundant ribosomal protein, here Ribosomal_S7.
 To do that, we need a `metagenomes.txt` file with the path to the contigs.db and profile.db:
 ```
 name  contigs_db_path profile_db_path
@@ -811,7 +811,9 @@ And run the workflow:
 anvi-run-workflow -w contigs -c config.json
 ```
 
-Finally, you can get the summary (number of contigs, total length, N50, number of genes, single-copy core genes, number of expected genomes) with `anvi-display-contigs-stats`:
+Finally, you can get the summary (number of contigs, total length, N50, number of genes, single-copy core genes, number of expected genomes) with {% include PROGRAM name="anvi-display-contigs-stats" %}:
 ```bash
 anvi-display-contigs-stats -o 04_CONTIGS/contig_stats_assembly.txt 04_CONTIGS/*assembly*contigs.db
 ```
+
+![](images/assembly_contigs_stats.png)
