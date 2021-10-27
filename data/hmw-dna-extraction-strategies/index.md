@@ -31,7 +31,7 @@ If you have any questions and/or if you are unable to find an important piece of
 
 {% include _join-anvio-slack.html %}
 
-<div class="pub">
+<div class="pub_float">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2021.03.03.433801"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1101/2021.03.03.433801" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href=" https://doi.org/10.1101/2021.03.03.433801" target="_new">High molecular weight DNA extraction strategies for long-read sequencing of complex metagenomes</a></span>
