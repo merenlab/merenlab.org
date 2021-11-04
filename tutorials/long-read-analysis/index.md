@@ -111,13 +111,13 @@ But if we wish to investigate genomic differences between these closely related 
 
 <span class="extra-info-header">A few words on high molecular weight DNA extraction strategies</span>
 
-Oxford Nanopore Technology offers new opportunities with the sequencing of very long DNA fragments. In fact there are **no theoretical limit for the reads length**, but the real world is cruel and read lengths are rarely infinite. The major reason for that read length limitation lies in the DNA extraction, for which we can observe a great revival of interest. For years, DNA extraction protocols and commercial kits have been optimized to provided the best DNA yields and cope with sample specific limitations (matrix/inhibitors) without any considerations for the high molecular weight DNA fraction. Especially since most short-reads sequencing strategies use DNA fragmentation and size-selection to narrow the insert-size and facilitate downstream analysis.
+Oxford Nanopore Technology offers new opportunities with the sequencing of very long DNA fragments. In fact there is **no theoretical limit for the reads length**, but the real world is cruel and read lengths are rarely infinite. The major reason for that read length limitation lies in the DNA extraction, for which we can observe a great revival of interest. For years, DNA extraction protocols and commercial kits have been optimized to provided the best DNA yields and cope with sample specific limitations (matrix/inhibitors) without any considerations for the high molecular weight DNA fraction. Especially since most short-reads sequencing strategies use DNA fragmentation and size-selection to narrow the insert-size and facilitate downstream analysis.
 
 Now we are interested in DNA extraction methods to recover the longest DNA fragments, and one of the best methods is a good old phenol/chloroform extraction. Variations of this protocol are regularly used for isolate genome sequencing, and it generates the required read lengths to reconstruct complete and circular genomes.
 
 It was only a matter of time before people interested in more complex samples started to use long-read sequencing for metagenomics analysis. And naturally, they used the same DNA extraction methods as used for isolate genome sequencing. And it makes sense given the extra-long DNA fragments produced by this method. But should we only focus on maximum length possible when it comes to metagenomics?
 
-We conducted a study to compare different high molecular weight DNA extraction strategies, using relatively low biomass and host-contaminated sample: tongue scrapping.
+We conducted a study to compare different high molecular weight DNA extraction strategies, using relatively low biomass and host-contaminated sample: tongue scraping.
 
 <div class="pub_float">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2021.03.03.433801"></div>
@@ -161,17 +161,17 @@ We applied shotgun metagenomic long-read sequencing to three samples from Recipi
 {:.notice}
 In this part of the tutorial, we will go through the commands used to generate the long-read assembly. The raw reads are not provided here but these commands could be useful if you want to apply the same analysis with your own data
 
-Long-read assembly is quite different from short-read assembly simply due to the high error rate inherent to the Nanopore sequencing. As a result, a new field of long-read assembler emerged in the last decade, like miniasm, Canu, Flye, wtdbg2, Falcon or OPERA-MS. Unfortunately for us, they were designed for whole genome assembly and not really for metagenomics. The main difference is the ability for an assembler to deal with the multiple levels of coverage in metagenomes compared to samples with only one microbial population.
+Long-read assembly is quite different from short-read assembly simply due to the high error rate inherent to the Nanopore sequencing. As a result, a new field of long-read assemblers emerged in the last decade, like miniasm, Canu, Flye, wtdbg2, Falcon or OPERA-MS. Unfortunately for us, they were designed for whole genome assembly and not really for metagenomics. The main difference is the ability for an assembler to deal with the multiple levels of coverage in metagenomes compared to samples with only one microbial population.
 
-But as it was the case for short-read assembler, there are now a few options for metagenomic long-reads! For instance, Canu and wtdbg2 are able to deal with metagenomes with a few changes in the default parameters, but there is one assembler that was designed specifically for metagenomes: metaFlye (actually Flye for metagenomes). We are using the later with our dataset, but feel free to try different assemblers for your own dataset.
+But as was the case for short-read assemblers, there are now a few options for metagenomic long-reads! For instance, Canu and wtdbg2 are able to deal with metagenomes with a few changes in the default parameters, but there is one assembler that was designed specifically for metagenomes: metaFlye (actually Flye for metagenomes). We are using the latter with our dataset, but feel free to try different assemblers for your own dataset.
 
 <div class="extra-info" markdown="1">
 
 <span class="extra-info-header">metaFlye assembly</span>
 
-Using Flye is quite straightforward. It is a one command only and just requires your raw long-reads and the `--meta` flag.
+Using Flye is quite straightforward. It is one command only and just requires your raw long-reads and the `--meta` flag.
 While it looks simple, there are multiple steps that are run in the background.
-Briefly, it count and filters out erroneous k-mer and extends contigs using the "good k-mer". It then aligns the long reads with minimap2 to resolve repeats and a finally polishing step to corrects sequencing errors.
+Briefly, it counts and filters out erroneous k-mers and extends contigs using the "good k-mer". It then aligns the long reads with minimap2 to resolve repeats, and finally, runs a polishing step to correct sequencing errors.
 
 ```bash
 flye --nano-raw /path/to/your/long-reads/sample.fastq \
@@ -180,12 +180,12 @@ flye --nano-raw /path/to/your/long-reads/sample.fastq \
      -t 8
 ```
 
-Among the output files, you can find the fasta file with the contigs, the assembly graph file, and also a summary table for each contigs.
-That summary files contains the contig ID, length, coverage, circularity, presence of repetitions and a few other information.
+Among the output files, you can find the fasta file with the contigs, the assembly graph file, and also a summary table for each contig.
+That summary file contains the contig ID, length, coverage, circularity, presence of repetitions and a few other pieces of information.
 </div>
 
-We generated contigs databases with anvi'o workflow for each assemblies and used {% include PROGRAM name="anvi-estimate-scg-taxonomy" %} to get the taxonomy for each contig.
-Here are the summary tables for each of the three assembly (5 largest contigs):
+We generated contigs databases with anvi'o workflow for each assembly and used {% include PROGRAM name="anvi-estimate-scg-taxonomy" %} to get the taxonomy for each contig.
+Here are the summary tables for each of the three assemblies (5 largest contigs):
 
 W0 | length | cov. | circ. | taxonomy
 -- | -- | -- | -- | --
@@ -214,7 +214,7 @@ contig_13 | 2921266 | 60 | + | Faecalicatena torques
 
 ## _Akkermansia muciniphila_ genome correction
 
-We have identified three circular genomes of _Akkermansia muciniphila_ from three different sample. We will use the anvi'o pangenomics workflow to compare these genomes before and after two types of long-read assembly correction.
+We have identified three circular genomes of _Akkermansia muciniphila_ from three different samples. We will use the anvi'o pangenomics workflow to compare these genomes before and after two types of long-read assembly correction.
 
 ### Compare the raw genomes
 
@@ -272,9 +272,9 @@ anvi-display-pan -g 03_PAN/A_muciniphila_Raw-GENOMES.db -p 03_PAN/A_muciniphila_
 <details markdown="1"><summary>Show/hide Akkermansia muciniphila raw pangenome </summary>
 {% include IMAGE path="images/pan_raw_1.png" width=80 %}
 
-Homework: make your pangenome looks like this one. Here are the color code used for each layer:
+Homework: make your pangenome look like this one. Here are the color codes used for each layer:
 
-| Layer | Hexa color |
+| Layer | Hex color |
 | -- | -- |
 | W0 | 2e4552 |
 | W1 | 4b9b8f |
@@ -284,8 +284,8 @@ Homework: make your pangenome looks like this one. Here are the color code used 
 
 </details>
 
-There are 7,254 total gene cluster (GCs), of which 1,488 are single copy core genes.
-We can see that there is a large fraction of gene clusters unique to each genomes, suggesting that there are some difference between each of them. We can also compute the average nucleotide identity and add it as an additional table to the pangenome database and visualize it in the interactive interface:
+There are 7,254 total gene clusters (GCs), of which 1,488 are single-copy core genes.
+We can see that there is a large fraction of gene clusters unique to each genome, suggesting that there are some differences between each of them. We can also compute the average nucleotide identity and add it as an additional table to the pangenome database and visualize it in the interactive interface:
 
 ```bash
 anvi-compute-genome-similarity -p 03_PAN/A_muciniphila_Raw-PAN.db -e external-genomes.txt -o 04_ANI
@@ -324,8 +324,8 @@ anvi-display-pan -g 03_PAN/A_muciniphila_Raw-GENOMES.db \
 <details markdown="1"><summary>Show/hide Akkermansia muciniphila raw pangenome with ANI </summary>
 {% include IMAGE path="images/pan_raw_2.png" width=80 %}
 
-So, W0 is actually very different from W1 and W48. But the later genomes are practically identical according to the ANI. Most of the singleton GCs were fragmented genes which result from the low quality of the MinION reads and contigs. The most common errors are indels, which disrupt open reading frames.
-One solution is to polish the genomes, using high quality short-reads for example.
+So, W0 is actually very different from W1 and W48. But the later genomes are practically identical according to the ANI. Most of the singleton GCs were fragmented genes, which results from the low quality of the MinION reads and contigs. The most common errors are indels, which disrupt open reading frames.
+One solution is to polish the genomes, using high quality short-reads, for example.
 </details>
 
 ### Pilon: use short-reads to polish genomes
@@ -335,10 +335,10 @@ One solution is to polish the genomes, using high quality short-reads for exampl
 <span class="extra-info-header">Using Pilon</span>
 
 {:.notice}
-We used the short-read metagenomes from Watson et al. to polish the assemblies. These steps are quite resource intensive, so we directly provided you the polished genomes. Nevertheless, you can find all the commands used generate the polished version of the three _Akkermansia muciniphila_ genomes.
+We used the short-read metagenomes from Watson et al. to polish the assemblies. These steps are quite resource intensive, so we directly provided you with the polished genomes. Nevertheless, you can find all the commands used to generate the polished version of the three _Akkermansia muciniphila_ genomes here.
 
-We used [Pilon](https://github.com/broadinstitute/pilon) to correct the metagenomics contigs. It requires to map the short-reads to the long-reads contigs,  for which you can any of your favorite mapper. In this case, I used minimap2. Then, we need to sort and index the bam files and finally run pilon.
-In this example, I've used a for loop to polished the three genomes. Of course, you should replace the path to each genomes and the associated short-reads for the command to run. This is just an example:
+We used [Pilon](https://github.com/broadinstitute/pilon) to correct the metagenomics contigs. It requires you to map the short-reads to the long-reads contigs, for which you can use any of your favorite mapping software. In this case, I used minimap2. Then, we need to sort and index the bam files and finally, run pilon.
+In this example, I've used a for loop to polish the three genomes. Of course, you should replace the path to each genome and the associated short-reads for the command to run. This is just an example:
 
 ```bash
 # map the short-reads to the assembly
@@ -363,12 +363,12 @@ java -Xmx16G -jar path/to/pilon/pilon-1.24-0/pilon.jar \
 ```
 </div>
 
-Let't do another pangenome with the polished genomes now. Let's first make sure we are working in the right directory:
+Let's do another pangenome with the polished genomes now. Let's first make sure we are working in the right directory:
 ```bash
 cd $WD
 ```
 
-We are going to skip some steps here and use pan & genomes databases already generated. But the concept is the same as for the first pangenome, we are just using the polished genomes instead. If you want to do it yourself, the genomes are available here: `GENOMES/SR_POLISHED`.
+We are going to skip some steps here and use pan & genomes databases that were already generated. But the concept is the same as for the first pangenome, we are just using the polished genomes instead. If you want to make the pan & genomes databases yourself, the genomes are available here: `GENOMES/SR_POLISHED`.
 
 
 Anvi'o interactive interface:
@@ -379,11 +379,11 @@ anvi-display-pan -g ANVIO_DATABASES/02_SR_POLISHED/03_PAN/A_muciniphila-GENOMES.
 <details markdown="1"><summary>Show/hide Akkermansia muciniphila pangenome polished with Pilon </summary>
 {% include IMAGE path="images/pan_sr_polished.png" width=80 %}
 
-See anything different from the previous pangenome? The total number of GCs went from 7,254 to 2,756! The core is proportionally larger, which is more consistent with what we should expect from a species level pangenome. The geometrical homogeneity is also a lot higher, indicating better alignments.
-The polishing step dramatically imporved the quality of these genomes from the point of view of the gene calling, therefore improving our ability to compare them based on their gene content.
+See anything different from the previous pangenome? The total number of GCs went from 7,254 to 2,756! The core is proportionally larger, which is more consistent with what we should expect from a species-level pangenome. The geometric homogeneity is also a lot higher, indicating better alignments.
+The polishing step dramatically improved the quality of these genomes from the point of view of the gene calling, therefore improving our ability to compare them based on their gene content.
 </details>
 
-The only issue here is that you need to have the associated short-reads to be able to polished your long-read assemblies. If you don't have them, there is still a solution for you: proovframe. A tool to correct frameshift errors using a protein reference database.
+The only issue here is that you need to have the associated short-reads to be able to polish your long-read assemblies. If you don't have them, there is still a solution for you: proovframe. A tool to correct frameshift errors using a protein reference database.
 
 ### Proovframe: correct frameshift errors
 
