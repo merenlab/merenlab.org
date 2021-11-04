@@ -113,7 +113,7 @@ conda install -y -c bioconda megahit
 conda install -y -c bioconda spades
 conda install -y -c bioconda bowtie2 tbb=2019.8
 conda install -y -c bioconda bwa
-conda install -y -c bioconda samtools
+conda install -y -c bioconda samtools=1.9
 conda install -y -c bioconda centrifuge
 conda install -y -c bioconda trimal
 conda install -y -c bioconda iqtree
@@ -149,6 +149,12 @@ And install it using `pip` like a boss:
 pip install anvio-7.1.tar.gz
 ```
 
+**If you don't see any error messages**, then you are probably golden and can move on to test your to the section "[Check your anvi'o setup](#4-check-your-installation)" :)
+
+**If you do see error messages**, please know that you are not alone. We are as frustrated as you are. Please take a look at the problems people have reported and try these solutions, which will most likely address your issues.
+
+### Issues with pysam installation using pip
+
 Some people have reported errors in the installation of `pysam` using `pip`, so if your installation also fails due to `pysam`, you can use the following two lines to first install this package via conda, and then install the anvi'o package via `pip`:
 
 ```
@@ -156,29 +162,54 @@ conda install -y -c bioconda pysam
 pip install anvio-7.1.tar.gz
 ```
 
-{:.warning}
-Even after fixing the pysam problem, some packages installed by this command may still require a more up to date c-compiler on **Mac OSX**. If you're getting an error that contains `x86_64-apple-darwin13.4.0-clang` or similar keywords in the output message, please run `export CC=clang` in your terminal and try the command above again. If you are still unable to run the `pip install` command above, run both `export CC=/usr/bin/clang` and `export CXX=/usr/bin/clang++` before trying again. If the `pip` installation still doesn't work (and especially if you see `clang-12: error: linker command failed with exit code 1` in the error message - we have often seen this error associated with the `Levenshtein` package), you can try updating your Xcode by following the instructions described in [this issue](https://github.com/merenlab/anvio/issues/1636) (in the "Solved it" section), and then try the `pip` command one more time. If you did all that and it is still not working, please make an issue on the github page or let us know in the anvi'o slack channel about your problem and we will try to help you.
+### Compiler issues that includes clang errors
+
+We realized that on some **Mac OSX** systems, some packages installed by `pip` requires a more up-to-date C compiler. If you're getting an error that contains `x86_64-apple-darwin13.4.0-clang` or similar keywords in the output message, please run the following (which will set an environmental variable, and then try to install anvi'o via `pip` again):
+
+```bash
+export CC=clang
+pip install anvio-7.1.tar.gz
+```
+
+If this didn't work, try this more extensive solution:
+
+```bash
+export CC=/usr/bin/clang
+export CXX=/usr/bin/clang++
+pip install anvio-7.1.tar.gz
+```
+
+If the `pip` installation still doesn't work (and especially if you see something like "clang-12: error: linker command failed with exit code 1" in the error message (we have often seen this error associated with the `Levenshtein` package), then this may be related to Xcode on Mac OSX. In this case you can try updating your Xcode by following the instructions described in [this issue](https://github.com/merenlab/anvio/issues/1636) (in the "Solved it" section), and then try the `pip` command one more time.
+
+If you did all that and it is still not working, please make an issue on the github page or let us know in the anvi'o slack channel about your problem and we will try to help you.
+
+### Issues related to samtools
 
 At this point, you should probably test your `samtools` installation by running `samtools --version`. If you see an error that looks similar to this:
+
 ```
 dyld: Library not loaded: @rpath/libcrypto.1.0.0.dylib
   Referenced from: /Users/iva/opt/miniconda3/envs/anvio-7.1/bin/samtools
   Reason: image not found
 Abort trap: 6
 ```
-then you should run the following to fix it:
+
+This is happening because somehow you have the wrong version of the `samtools` :( The following commands should fix it:
+
 ```
 conda remove -y samtools
 conda install -y -c bioconda samtools=1.9
 ```
+
 Then try `samtools --version` again to make sure it is okay now. What you _should_ see is the following:
+
 ```
 samtools 1.9
 Using htslib 1.9
 Copyright (C) 2018 Genome Research Ltd.
 ```
 
-If everything went fine, you can jump to "[Check your anvi'o setup](#4-check-your-installation)" to see if things worked for you, and then you are free to go!
+If you have none of these issues, or have been able to address them, you can jump to "[Check your anvi'o setup](#4-check-your-installation)" and go back to your life.
 
 ## (4) Check your installation
 
