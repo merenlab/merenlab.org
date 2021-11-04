@@ -31,14 +31,8 @@ If you have any questions about this exercise, or have ideas to make it better, 
 ---
 To reproduce this exercise with your own dataset, you should first follow the instructions [here](/2016/06/26/installation-v2/) that will install anvi'o.
 
-Once you have anvi'o successfully installed, the following commands will help you install additional software you will need, [metaFlye](https://github.com/fenderglass/Flye), [minimap2](https://github.com/lh3/minimap2), [Pilon](https://github.com/broadinstitute/pilon) and [proovframe](https://github.com/thackl/proovframe):
+Once you have anvi'o successfully installed, you will need to install additional software (not needed to complete this tutorial): [metaFlye](https://github.com/fenderglass/Flye), [minimap2](https://github.com/lh3/minimap2), [Pilon](https://github.com/broadinstitute/pilon) and [proovframe](https://github.com/thackl/proovframe).
 
-```bash
-conda install -y -c bioconda flye
-conda install -y -c bioconda minimap2
-conda install -y -c bioconda pilon
-conda install -y -c bioconda proovframe
-```
 
 ## Downloading the data pack
 
@@ -73,7 +67,7 @@ export WD=`pwd`
 
 ## Watson et al. 2021: A Fecal Microbiota Transplantation
 
-This tutorial tutorial is based on a recent study on fecal microbiota transplantation (FMT), in which patients with _Clostridium difficile_ infection get a microbiota transfer from a healthy donor.
+This tutorial is based on a recent study on fecal microbiota transplantation (FMT), in which patients with _Clostridium difficile_ infection get a microbiota transfer from a healthy donor.
 
 <div class="pub_float">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2021.03.02.433653"></div>
