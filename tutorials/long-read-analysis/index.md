@@ -167,6 +167,9 @@ Using Flye is quite straightforward. It is one command only and just requires yo
 While it looks simple, there are multiple steps that are run in the background.
 Briefly, it counts and filters out erroneous k-mers and extends contigs using the "good k-mer". It then aligns the long reads with minimap2 to resolve repeats, and finally, runs a polishing step to correct sequencing errors.
 
+{:.notice}
+You should not run the commands displayed in these blue boxes. These commands are only here to illustrate the softwares used to generate the data provided for this tutorial.
+
 ```bash
 flye --nano-raw /path/to/your/long-reads/sample.fastq \
      --out-dir 01_ASSEMBLY_META \
