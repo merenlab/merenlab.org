@@ -523,3 +523,40 @@ Genomes in green represent whole genome from cultivars and they can only be foun
 How the donor's _Akkermansia muciniphila_ was able to over compete with a pre-existing population in a recipient's gut? That is a key question to better understand how microbial population colonize the human gut.
 
 We saw that the core genome of our three _Akkermansia muciniphila_ is quite large, and will not be informative for us. We need to investigate the content of the accessory genome to generate hypothesis as to how and why the donor's population replaced the recipient's one.
+
+Let's start the interactive interface again, with the most polished/corrected genomes:
+```bash
+anvi-display-pan -g ANVIO_DATABASES/04_SR_POLISHED_PF/03_PAN/A_muciniphila-GENOMES.db \
+                 -p ANVIO_DATABASES/04_SR_POLISHED_PF/03_PAN/A_muciniphila-PAN.db
+```
+
+We'll create bins for the accessory genomes which should look like this:
+
+{% include IMAGE path="images/pan_accessory_bins.png" width=80 %}
+
+Now we can use {% include PROGRAM name="anvi-summarize" %} to generate a table with all the gene calls, their functional annotations and their respective bins.
+```bash
+anvi-summarize -g ANVIO_DATABASES/04_SR_POLISHED_PF/03_PAN/A_muciniphila-GENOMES.db \
+               -p ANVIO_DATABASES/04_SR_POLISHED_PF/03_PAN/A_muciniphila-PAN.db \
+               -C default \
+               -o SUMMARY_PANGENOME
+```
+
+Now let's have a look at the summary table:
+```bash
+cd SUMMARY_PANGENOME
+gunzip A_muciniphila_gene_clusters_summary.txt.gz
+```
+
+Extract the gene annotations (COGs) from the pre_FMT collection (W0):
+```bash
+awk -F "\t" '{if($3=="pre_FMT" && $4~/W0/){print $24 "\t" $18}}' A_muciniphila_gene_clusters_summary.txt | sort | uniq -c > pre_FMT_functions.txt
+```
+
+And also for post_FMT (focusing on W1, but it is the same for W48):
+```bash
+awk -F "\t" '{if($3=="post_FMT" && $4~/W1/){print $24 "\t" $18}}' A_muciniphila_gene_clusters_summary.txt | sort | uniq -c > post_FMT_functions.txt
+```
+
+One should be careful when looking at the functions found in an accessory genome as there might be redundant functions in the core genome. In this case, there was an iron III transport system that was only found in the post-FMT _Akkermansia muciniphila_. This feature, in addition to the presence of putative antibiotic resistance genes are probably the most interesting functions that could explain how the donor's _Akkermansia muciniphila_ was able to overcome the recipient's population.
+
