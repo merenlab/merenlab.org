@@ -65,7 +65,7 @@ ANVIO_DATABASES  FILES  GENOMES
 
 These are the directories that include databases for anvio pangeomes (i.e., [anvi'o artifacts](/software/anvio/help/main/#anvio-artifacts) called {% include ARTIFACT name="pan-db" %} and {% include ARTIFACT name="genomes-storage-db" %}), config files, as well as FASTA files for genomes.
 
-Let's first create an environmental variable to be able to access to the working directory path rapidly:
+Let's first create an environmental variable to be able to access the working directory path rapidly:
 
 ```
 export WD=`pwd`
@@ -99,13 +99,13 @@ We performed a co-assembly of each donor metagenome, and used a combination of a
 
 {% include IMAGE path="images/watson_et_al_heatmap.png" width=100 %}
 
-Here we are particularly interested in a population from the phylum Verrucomicrobia that resolves to the species _Akkermansia muciniphila_. We detected the MAG for this population both in many samples from the donor as well as in many recipients post-FMT. But for the second recipient, we noticed that the donor MAG recruited reads from also pre-FMT metagenomes, sugesting the presence of a similar population in this recipient prior to FMT:
+Here we are particularly interested in a population from the phylum Verrucomicrobia that resolves to the species _Akkermansia muciniphila_. We detected the MAG for this population both in many samples from the donor as well as in many recipients post-FMT. But for the second recipient, we noticed that the donor MAG recruited reads also from pre-FMT metagenomes, suggesting the presence of a similar population in this recipient prior to FMT:
 
 {% include IMAGE path="images/watson_et_al_heatmap_akkermansia.png" width=30 style="float: right; margin-right: 1em;" %}
 
-Given this interesting dynamic, a question that has a lot of value for a study that investigates microbial colonization begs an answer: did the donor _Akkermansia muciniphila_ population replaced the recipient population, or the recipient population that existed pre-FMT managed to persist and fend off the donor population? We could answer this question very rapidly using single-nucleotide variants. This would have been quite straightforward given the program {% include PROGRAM name="anvi-gen-variability-profile" %} which gives access to a comprehensive [microbial population genetics framework](https://merenlab.org/2015/07/20/analyzing-variability/) in anvi'o.
+Given this interesting dynamic, a question that has a lot of value for a study that investigates microbial colonization begs an answer: did the donor _Akkermansia muciniphila_ population replace the recipient population, or did the recipient population that existed pre-FMT manage to persist and fend off the donor population? We could answer this question very rapidly using single-nucleotide variants. This would have been quite straightforward given the program {% include PROGRAM name="anvi-gen-variability-profile" %} which gives access to a comprehensive [microbial population genetics framework](https://merenlab.org/2015/07/20/analyzing-variability/) in anvi'o.
 
-But if we wish to investigate genomic differences between these closely related pre-FMT and post-FMT populations that may explain some of the determinants of their success over one another, we would need more than SNVs. Preferrably, complete genomes! So to achieve that, we decided to use long-read sequencing (MinION) to characterize metagenomes that may help us in the quest of recovering complete _Akkermansia muciniphila_ genomes.
+But if we wish to investigate genomic differences between these closely related pre-FMT and post-FMT populations that may explain some of the determinants of their success over one another, we would need more than SNVs. Preferably, complete genomes! So to achieve that, we decided to use long-read sequencing (MinION) to characterize metagenomes that may help us in the quest of recovering complete _Akkermansia muciniphila_ genomes.
 
 <div class="extra-info" markdown="1">
 
@@ -399,7 +399,7 @@ The only issue here is that you need to have the associated short-reads to be ab
 >It can be used as an additional polishing step on top of classic consensus-polishing approaches for assemblies.
 >It can be used on raw reads directly, which means it can be used on data lacking sequencing depth for consensus polishing - a common problem for a lot of rare things from environmental metagenomic samples, for example.
 
-Like for the Pilon short-read polishing, this steps can take some time and the database is quite large ([uniref90](https://www.uniprot.org/help/uniref)), so we won't run the commands.
+Like for the Pilon short-read polishing, this step can take some time and the database is quite large ([uniref90](https://www.uniprot.org/help/uniref)), so we won't run the commands.
 But for reproducibility, here are the steps we performed to correct the _Akkermansia muciniphila_ genomes:
 
 ```bash
@@ -520,6 +520,6 @@ Genomes in green represent whole genome from cultivars and they can only be foun
 
 
 ### Compare pre-FMT and post-FMT _Akkermansia muciniphila_
-How the donor's _Akkermansia muciniphila_ was able to over compete with a pre-existing population in a recipient's gut? That is a key question to better understand how microbial population colonize the human gut.
+How was the donor's _Akkermansia muciniphila_ able to out-compete a pre-existing population in a recipient's gut? That is a key question to better understand how microbial populations colonize the human gut.
 
-We saw that the core genome of our three _Akkermansia muciniphila_ is quite large, and will not be informative for us. We need to investigate the content of the accessory genome to generate hypothesis as to how and why the donor's population replaced the recipient's one.
+We saw that the core genome of our three _Akkermansia muciniphila_ is quite large, and will not be informative for us. We need to investigate the content of the accessory genome to generate hypotheses as to how and why the donor's population replaced the recipient's one.
