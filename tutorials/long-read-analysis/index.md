@@ -4,6 +4,7 @@ title: An Akkermansia story with MinION long-reads
 modified: 2022-10-26
 excerpt: "A worklfow using long-read sequencing to investigate Akkermansia muciniphila in an FMT study"
 categories: [anvio]
+authors: [florian]
 comments: true
 redirect_from: /long-read-analysis/
 ---
@@ -28,22 +29,20 @@ If you have any questions about this exercise, or have ideas to make it better, 
 </div>
 
 ---
-To reproduce this exercise with your own dataset, you should first follow the instructions [here](/2016/06/26/installation-v2/) that will install anvi'o on your computer along, and also install [metaFlye](https://github.com/fenderglass/Flye), [minimap2](https://github.com/lh3/minimap2), [Pilon](https://github.com/broadinstitute/pilon) and [proovframe](https://github.com/thackl/proovframe)
+To reproduce this exercise with your own dataset, you should first follow the instructions [here](/2016/06/26/installation-v2/) that will install anvi'o.
 
-If you followed anvi'o installation instructions and have a conda environment, you can run these commands to install the above software:
+Once you have anvi'o successfully installed, the following commands will help you install additional software you will need, [metaFlye](https://github.com/fenderglass/Flye), [minimap2](https://github.com/lh3/minimap2), [Pilon](https://github.com/broadinstitute/pilon) and [proovframe](https://github.com/thackl/proovframe):
+
 ```bash
 conda install -y -c bioconda flye
 conda install -y -c bioconda minimap2
 conda install -y -c bioconda pilon
 conda install -y -c bioconda proovframe
 ```
----
-
-
 
 ## Downloading the data pack
 
-First, open your terminal, go to any directory you like, and download the data pack we have stored online for you:
+First, open your terminal, go to a work directory, and download the data pack we have stored online for you:
 
 ``` bash
 curl -L https://figshare.com/ndownloader/files/31313737 \
@@ -53,27 +52,28 @@ curl -L https://figshare.com/ndownloader/files/31313737 \
 Then unpack it, and go into the data pack directory:
 
 ``` bash
-  tar -zxvf LONG_READ_METAGENOMICS.tar.gz
+tar -zxvf LONG_READ_METAGENOMICS.tar.gz
 
-  cd LONG_READ_METAGENOMICS
+cd LONG_READ_METAGENOMICS
 ```
 
 At this point, if you type `ls` in your terminal, this is what you should be seeing:
 
 ```
-ANVIO_DATABASES FILES           GENOMES
+ANVIO_DATABASES  FILES  GENOMES
 ```
-We have a directory of anvio pangeome databases, another with config files, and a directory with fasta files of genomes.
 
-Let's create a variable that will store the path to the working directory:
+These are the directories that include databases for anvio pangeomes (i.e., [anvi'o artifacts](/software/anvio/help/main/#anvio-artifacts) called {% include ARTIFACT name="pan-db" %} and {% include ARTIFACT name="genomes-storage-db" %}), config files, as well as FASTA files for genomes.
+
+Let's first create an environmental variable to be able to access to the working directory path rapidly:
+
 ```
 export WD=`pwd`
 ```
 
-
 ## Watson et al. 2021: A Fecal Microbiota Transplantation
 
-The following tutorial is based on a recent study about fecal microbiota transplantation (FMT), in which patients with _Clostridium difficile_ infection get a microbiota transfer from a healthy donor.
+This tutorial tutorial is based on a recent study on fecal microbiota transplantation (FMT), in which patients with _Clostridium difficile_ infection get a microbiota transfer from a healthy donor.
 
 <div class="pub_float">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2021.03.02.433653"></div>
@@ -91,27 +91,25 @@ The following tutorial is based on a recent study about fecal microbiota transpl
     <span class="pub-journal"><b>bioRxiv</b> <a href="https://doi.org/10.1101/2021.03.02.433653" target="_blank">🔗</a></span>
 </div>
 
-An objective of this study is to better understand the **how microbes are able to colonize the human gut**, using the FMT as a very valuable system as we can track which microbial populations are able to colonize a recipient's gut, and with the time-series we can interrogate the long-term outcome of such colonization. In brief, the data consists of metagenomes from the donors and the FMT's recipients, including samples taken before the FMT:
+An objective of this study was to better understand **determinants of microbial colonization in the human gut**. FMT is a powerful framework to study such questions since it enables precise tracking of donor microbial populations and colonization events in recipient guts. With the time-series data we have generated for our study, we could also interrogate long-term outcomes of such colonization events (or lack thereof). In brief, the data consists of shotgun metagenomic sequencing of poop samples collected from the donors and the FMT recipients before and after FMT:
 
 {% include IMAGE path="images/watson_et_al_time_series.png" width=100 %}
 
-We did a co-assembly of the donor's samples and with some manual binning, we obtained 128 metagenome-assembled genomes (MAGs) from one of the donors (Donor A). Here is a heatmap representing the detection of these MAGs in the donor's and recipient's metagenomes:
+We performed a co-assembly of each donor metageomes and using a combination of automatic and manual binning, we obtained 128 high-qualiy metagenome-assembled genomes (MAGs) from Donor A, one of the donors that we will focus on in this tutorial. Here is a heatmap representing the detection of these 128 MAGs in the donor and recipient metagenomes:
 
 {% include IMAGE path="images/watson_et_al_heatmap.png" width=100 %}
 
-We are particularly interested in a Verrucomicrobia: _Akkermansia muciniphila_. This MAGs is detected both in many donor's samples and also in many recipients. In the second recipient, we can noticed that the MAG is detected both prior and post FMT.
+Here we are particularly interested in a population from the phylum Verrucomicrobia that resolves to the species _Akkermansia muciniphila_. We detected the MAG for this population both in many samples from the donor as well as in many recipients post-FMT. But for the second recipient, we noticed that the donor MAG recruited reads from also pre-FMT metagenomes, sugesting the presence of a similar population in this recipient prior to FMT:
 
 {% include IMAGE path="images/watson_et_al_heatmap_akkermansia.png" width=30 style="float: right; margin-right: 1em;" %}
 
-From this detection heatmap we can see that there was an _Akkermansia muciniphila_ population already present in that recipient's gut before the FMT. The question is: did the donor _Akkermansia muciniphila_ replaced the previous population? To answer such question, we can do a strain analysis and and the answer is yes! And the donor's _Akkermansia muciniphila_ not only replace the existing one, it stayed for almost a year in that recipient's gut.
+Given this interesting dynamic, a question that has a lot of value for a study that investigates microbial colonization begs an answer: did the donor _Akkermansia muciniphila_ population replaced the recipient population, or the recipient population that existed pre-FMT managed to persist and fend off the donor population? We could answer this question very rapidly using single-nucleotide variants. This would have been quite straightforward given the program {% include PROGRAM name="anvi-gen-variability-profile" %} which gives access to a comprehensive [microbial population genetics framework](https://merenlab.org/2015/07/20/analyzing-variability/) in anvi'o.
 
-With such a system, we can address two questions regarding _Akkermansia muciniphila_'s ability to colonize the human gut: (1) what are the genomic differences between the pre-FMT and post-FMT population? And (2) did the post-FMT population evolved to adapt to a new host?
-
-To answer these question, we need to obtain and compare genomes. We only have a MAGs reconstructed from the donor's samples and we are missing the pre-FMT _Akkermansia muciniphila_ from recipient 2. So we decided to use long-reads metagenomics sequencing (MinION) using three samples from recipient 2: just before FMT (-1), right after FMT (+5 days) and almost a year post-FMT (+334 days).
+But if we wish to investigate genomic differences between these closely related pre-FMT and post-FMT populations that may explain some of the determinants of their success over one another, we would need more than SNVs. Preferrably, complete genomes! So to achieve that, we decided to use long-read sequencing (MinION) to characterize metagenomes that may help us in the quest of recovering complete _Akkermansia muciniphila_ genomes.
 
 <div class="extra-info" markdown="1">
 
-<span class="extra-info-header">High Molecular Weight DNA Extraction Strategies</span>
+<span class="extra-info-header">A few words on high molecular weight DNA extraction strategies</span>
 
 Oxford Nanopore Technology offers new opportunities with the sequencing of very long DNA fragments. In fact there are **no theoretical limit for the reads length**, but the real world is cruel and read lengths are rarely infinite. The major reason for that read length limitation lies in the DNA extraction, for which we can observe a great revival of interest. For years, DNA extraction protocols and commercial kits have been optimized to provided the best DNA yields and cope with sample specific limitations (matrix/inhibitors) without any considerations for the high molecular weight DNA fraction. Especially since most short-reads sequencing strategies use DNA fragmentation and size-selection to narrow the insert-size and facilitate downstream analysis.
 
@@ -138,7 +136,6 @@ We conducted a study to compare different high molecular weight DNA extraction s
     <span class="pub-journal"><b>bioRxiv</b> <a href="https://doi.org/10.1101/2021.03.03.433801" target="_blank">🔗</a></span>
 </div>
 
-
 We compared the read length distribution and their downstream consequences from a metagenomics point of view (microbial diversity recovered, amount of host contamination, assembly metrics).
 
 {% include IMAGE path="images/size_distribution.png" width=80 %}
@@ -149,7 +146,7 @@ Phenol-chloroform extraction is frequently endorsed for its ability to produce e
 
 </div>
 
-We extracted and sequenced the DNA from the three samples and here are the statistics for these MinION runs:
+We applied shotgun metagenomic long-read sequencing to three samples from Recipient 2: before FMT (-1), right after FMT (+5 days), and almost a year post-FMT (+334 days). The table below shows some brief statistics for each MinION run:
 
 | Sample |  W0 | W1 | W48
 | -- | -- | -- | --
@@ -157,7 +154,6 @@ We extracted and sequenced the DNA from the three samples and here are the stati
 | Sequencing yield (Mbp) | 10,499 | 4,282 | 10,596
 | Number of reads | 6,292,659 | 3,964,054 | 6,263,555
 | N50 (bp) | 3,156 | 1,465 | 4,177
-
 
 
 ## Metagenomics Long-Read Assembly
