@@ -95,7 +95,7 @@ An objective of this study was to better understand **determinants of microbial 
 
 {% include IMAGE path="images/watson_et_al_time_series.png" width=100 %}
 
-We performed a co-assembly of each donor metageomes and using a combination of automatic and manual binning, we obtained 128 high-qualiy metagenome-assembled genomes (MAGs) from Donor A, one of the donors that we will focus on in this tutorial. Here is a heatmap representing the detection of these 128 MAGs in the donor and recipient metagenomes:
+We performed a co-assembly of each donor metagenome, and used a combination of automatic and manual binning strategies to obtain 128 high-quality metagenome-assembled genomes (MAGs) from Donor A, one of the donors that we will focus on in this tutorial. Here is a heatmap representing the detection of these 128 MAGs in the donor and recipient metagenomes:
 
 {% include IMAGE path="images/watson_et_al_heatmap.png" width=100 %}
 
