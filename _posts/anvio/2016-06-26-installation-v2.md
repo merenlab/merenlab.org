@@ -162,7 +162,7 @@ conda install -y -c bioconda pysam
 pip install anvio-7.1.tar.gz
 ```
 
-### Compiler issues that includes clang errors
+### Issues with the C compiler
 
 We realized that on some **Mac OSX** systems, some packages installed by `pip` requires a more up-to-date C compiler. If you're getting an error that contains `x86_64-apple-darwin13.4.0-clang` or similar keywords in the output message, please run the following (which will set an environmental variable, and then try to install anvi'o via `pip` again):
 
@@ -215,7 +215,7 @@ If you have none of these issues, or have been able to address them, you can jum
 
 If you are here, you are ready to check if everything is working on your system.
 
-The easiest way to do it is to run the anvi'o program `anvi-self-test` and see if everything is in order:
+The easiest way to do it is to run the anvi'o program {% include PROGRAM name="anvi-self-test"%} and see if everything is in order:
 
 ``` bash
 anvi-self-test --suite mini
@@ -224,56 +224,68 @@ anvi-self-test --suite mini
 {:.notice}
 If you don't want anvi'o to show you a browser window at the end and quietly finish testing if everything is OK, add `--no-interactive` flag to the command above. Another note, `anvi-self-test` is run in `--suite mini` mode, which tests the absolute minimal features of your anvi'o installation. If you run it without any parameters, it will tests many more things.
 
-{:.warning}
-It is absolutely normal to see 'warning' messages. In general anvi'o is talkative as it would like to keep you informed. In an ideal world you should keep a careful eye on those warning messages, but in most cases they will not require action.
-
-{:.warning}
-If `anvi-self-test` fails with an error message that looks something like `libcrypto.so.1.0.0: cannot open shared object file: no such file or directory` coming from the `pysam` library, it is likely that the `pysam` module installation failed. To fix this you should re-install this module by running `conda install -y -c bioconda pysam=0.15.3`, and then re-run the `pip install anvio-7.1.tar.gz` command. After that you should try the self-test again to make sure it worked.
-
 If everything goes smoothly, your browser should pop-up and show you an anvi'o {% include ARTIFACT name="interactive" %} interface that looks something like this once `anvi-self-test` is done running:
 
 <div class="centerimg">
 <a href="{{ site.url }}/images/anvio/misc/mini-test-screenshot.png"><img src="{{ site.url }}/images/anvio/misc/mini-test-screenshot.png" width="50%" /></a>
 </div>
 
-{:.warning}
-If your browser does not show up, or does show up but can't show anything due to a 'network problem', you may also want to visit the address [http://localhost:8080](http://localhost:8080) by entering this address to your browser address bar manually. On some systems the default network interface anvi'o uses to connect to its own server causes issues. You may also find the help page for {% include PROGRAM name="anvi-interactive" %} useful for future references.
-
 {:.notice}
 The screenshot above is from 2015 and will be vastly different from the [interactive interface]({% post_url anvio/2016-02-27-the-anvio-interactive-interface %}) you should see in your browser. It is still here so we remember where we came from 😇
 
-All fine? Perfect! Now you have a computer that can run anvi'o!
-
----
-
-If you would like to **further prepare** your anvi'o installation for things you may need later, run the following programs in your terminal:
+If you are seeing the interactive interface, it means you now have a computer that can run anvi'o! If you would like to **further prepare** your anvi'o installation for things you may need later, run the following programs in your terminal, and then leave this page:
 
 * Run {% include PROGRAM name="anvi-setup-scg-taxonomy" %}, to setup SCG taxonomy data using GTDB genomes.
 * Run {% include PROGRAM name="anvi-setup-ncbi-cogs" %}, to setup NCBI's COG database for quick annotation of genes with functions,
 * Run {% include PROGRAM name="anvi-setup-kegg-kofams" %}, so {% include PROGRAM name="anvi-estimate-metabolism" %} finds the database of KEGG orthologs ready when you need it.
 
-### Final words
-
-Here are some reminders we hope you can quickly go through before leaving this page:
-
-* **Your tests looked like they worked but your browser didn't pop-up?** OK. There may be to reasons for this. **If you are on your personal computer**, this may mean that the Python setup on your system is unable to find your default browser. Not a biggie. When an interactive interface is initiated successfully, you will see the address through which you can access to the interactive. Copy that address and paste it in your browser's address bar. **If you are connected to a remote computer**, it may take a bit more setup to make to use your local browser to access to an anvi'o interactive interactive interface running remotely. [Read this article]({% post_url anvio/2018-03-07-working-with-remote-interative %}) (or ask your systems administrator to read it) to learn how you can forward displays from servers to your personal computer. Finally, **Windows users may be greeted by a "This site can't be reached" error** even when their browsers show up :/ You can overcome this problem by copy-pastig the address you see in your terminal to your browser address bar (this is what happens when you bring a Microsoft Windows to an open-source fight).
-
-* **When you open a new terminal you get command not found error when you run anvi'o commands?**  Depending on your conda setup, you may need to activate the anvi'o conda environment every time you open a new terminal window. In these cases you will either need to run `source activate anvio-7.1` or `conda activate anvio-7.1` (this assumes you named your conda environment for anvio `anvio-7.1`, but you can always list your conda environments by typing `conda env list`.
-
-* **You are not using [Chrome](https://www.google.com/chrome/) as your default browser and anvi'o complains about it?** We hate the idea of asking you to change your browser preferences for anvi'o :( But currently, Chrome maintains the most efficient SVG engine among all browsers we tested as of 2021. For instance, Safari can run the anvi'o interactive interface, however it takes orders of magnitude more time and memory compared to Chrome. Firefox, on the other hand, doesn't even bother drawing anything at all. Long story short, the anvi'o interactive interface __will not perform optimally__ with anything but Chrome. So you need Chrome. Moreover, if Chrome is not your default browser, every time interactive interface pops up, you will need to copy-paste the address bar into a Chrome window. You can learn what is your default browser by running this command in your terminal:
-
-<div markdown="1" style="margin-top: -32px; margin-left: 80px;">
-``` bash
-python -c 'import webbrowser as w; w.open_new("http://")'
-```
-</div>
-
-If you are here, you are done! Congratulations, and thank you very much for your patience!
-
-Now you can take a look up some anvi'o resources [here]({{ site.url }}/software/anvio), or come say hi to us on Slack.
+Don't forget to come say hi to us on anvi'o Slack:
 
 {% include _join-anvio-slack.html %}
 
+If your **browser didn't show up**, or **testing stopped with errors**, please take a look at the common problems others have reported and try these solutions.
+
+### I see a lot of warning messages
+
+It is absolutely normal to see 'warning' messages. In general anvi'o is talkative as it would like to keep you informed. In an ideal world you should keep a careful eye on those warning messages, but in most cases they will not require action.
+
+### Tests fail with an error related to libcrypto
+
+If {% include PROGRAM name="anvi-self-test"%} fails with an error message that looks something like this,
+
+```
+libcrypto.so.1.0.0: cannot open shared object file: no such file or directory
+```
+
+it is likely that the `pysam` module installation failed. To fix this you should revisit the installation instructions, especially the part that says "[Issues related to samtools](#issues-related-to-samtools)", and then come back to testing.
+
+### My browser didn't show up
+
+If your browser does not show up, or does show up but can't show anything due to a 'network problem', you may also want to visit the address [http://localhost:8080](http://localhost:8080) by manually entering this address to your browser's address bar, which should work on your **local computer**. On some systems the default network interface anvi'o uses to connect to its own server causes issues. You may also find the help page for {% include PROGRAM name="anvi-interactive" %} useful for future references.
+
+If your browser does not show up while you are **connected to a remote computer**, it is quite normal. In some cases a text-based browser may show up instead of your graphical browser, too. This is becasue you are running anvi'o on another computer, and it tries to open a browser __there__. You can set things up for anvi'o to use your local browser to access to an anvi'o interactive interactive interface running remotely. For that, you can [read this article]({% post_url anvio/2018-03-07-working-with-remote-interative %}) (or ask your systems administrator to read it) to learn how you can forward displays from servers to your personal computer.
+
+### Browser shows up, but anvi'o complains about Chrome
+
+If **you are not using [Chrome](https://www.google.com/chrome/) as your default browser**, anvi'o will complain about it :/ We hate the idea of asking you to change your browser preferences for anvi'o :( But currently, Chrome maintains the most efficient SVG engine among all browsers we tested as of 2021. For instance, Safari can run the anvi'o interactive interface, however it takes orders of magnitude more time and memory compared to Chrome. Firefox, on the other hand, doesn't even bother drawing anything at all. Long story short, the anvi'o interactive interface __will not perform optimally__ with anything but Chrome. So you need Chrome. Moreover, if Chrome is not your default browser, every time interactive interface pops up, you will need to copy-paste the address bar into a Chrome window.
+
+You can learn what is your default browser by running this command in your terminal:
+
+``` bash
+python -c 'import webbrowser as w; w.open_new("http://")'
+```
+
+### Everything is fine, but I can't find anvi'o commands in a new terminal
+
+If you open a new terminal and get __command not found__ error when you run anvi'o commands, it means you need to activate anvi'o conda environment by running the following command (assuming that you named your conda environment for anvio as `anvio-7.1`, but you can always list your conda environments by running `conda env list`):
+
+```
+conda activate anvio-7.1
+```
+
+Now you can take a look up some anvi'o resources [here](/software/anvio), or come say hi to us on Slack.
+
+{% include _join-anvio-slack.html %}
 
 ## (5) Follow the active development (you're a wizard, arry)
 
