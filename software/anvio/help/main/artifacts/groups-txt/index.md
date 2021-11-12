@@ -47,7 +47,7 @@ Here is an example <span class="artifact-n">[groups-txt](/software/anvio/help/ma
 |(...)|(...)|
 
 {:.warning}
-If you are passing this file to the program <span class="artifact-n">[anvi-compute-functional-enrichment](/software/anvio/help/main/programs/anvi-compute-functional-enrichment)</span> with the "INPUT OPTION #2: ESTIMATED METABOLISM", the names in the `sample` column must match those in the "modules" mode output file that you provide to the <span class="artifact-n">[anvi-compute-functional-enrichment](/software/anvio/help/main/programs/anvi-compute-functional-enrichment)</span> program via the `--modules-txt` parameter. If you know that the sample names match but you are still getting errors, you might need to specify which column in the "modules" mode output contains those sample names using the `--sample-header` parameter of <span class="artifact-n">[anvi-compute-functional-enrichment](/software/anvio/help/main/programs/anvi-compute-functional-enrichment)</span>.
+If you are passing this file to the program <span class="artifact-n">[anvi-compute-metabolic-enrichment](/software/anvio/help/main/programs/anvi-compute-metabolic-enrichment)</span>, the names in the `sample` column must match those in the "modules" mode output file that you provide to the program via the `--modules-txt` parameter. If you know that the sample names match but you are still getting errors, you might need to specify which column in the "modules" mode output contains those sample names using the `--sample-header` parameter.
 
 
 {:.notice}
