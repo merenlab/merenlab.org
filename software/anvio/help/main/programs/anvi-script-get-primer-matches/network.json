@@ -20,7 +20,16 @@
       "type": "TXT"
     },
     {
-      "size": 2,
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "primers-txt",
+      "name": "primers-txt",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 3,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-script-get-primer-matches",
@@ -30,12 +39,16 @@
   ],
   "links": [
     {
-      "source": 2,
+      "source": 3,
       "target": 0
     },
     {
-      "target": 2,
+      "target": 3,
       "source": 1
+    },
+    {
+      "target": 3,
+      "source": 2
     }
   ],
   "directed": false,
