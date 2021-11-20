@@ -1,3 +1,8 @@
+// this file was created as an ad-hoc solution to a problem stemming from an inability to rebuild the scripts.min.js file via Grunt. It circumvents the
+// minified js file and connects directly with the _toc.html file in the _includes directory. while this
+// probably isn't a 'worst practice', it's definitely not a best practice, so tread lightly down similar paths!
+
+
 $(document).ready(function() {
     var screenHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 
