@@ -2,7 +2,7 @@
 layout: page
 title: A primer on anvi'o
 modified: 2018-08-08
-authors: [meren,iva,evan,tom]
+authors: [meren,iva,evan,tom,matt]
 excerpt: "Binning, benchmarking binning approaches, refining poorly identified bins, and other Anvi'o tutorial for metagenomics using the Infant Gut Dataset by Sharon *et al*"
 categories: [anvio,anvio-structure]
 comments: true
@@ -18,18 +18,20 @@ This tutorial is tailored for anvi'o `v6` or later. You can learn the version of
 
 * [**Chapter I**: Genome-resolved Metagenomics](#chapter-i-genome-resolved-metagenomics)
 * [**Chapter II**: Automatic Binning](#chapter-ii-automatic-binning)
-* [**Chapter III**: Phylogenomics](#chapter-iii-phylogenomics)
-* [**Chapter IV**: Pangenomics](#chapter-iv-pangenomics)
-* [**Chapter V**: Metabolism Prediction](#chapter-v-metabolism-prediction)
-* [**Chapter VI**: Microbial Population Genetics](#chapter-vi-microbial-population-genetics)
-* [**Chapter VII**: Genes and genomes across metagenomes](#chapter-vii-genes-and-genomes-across-metagenomes)
-* [**Chapter VIII**: From single-amino acid variants to protein structures](#chapter-viii-from-single-amino-acid-variants-to-protein-structures)
+* [**Chapter III**: EcoPhylo workflow](#chapter-iii-ecophylo-workflow)
+* [**Chapter IV**: Phylogenomics](#chapter-iv-phylogenomics)
+* [**Chapter V**: Pangenomics](#chapter-v-pangenomics)
+* [**Chapter VI**: Metabolism Prediction](#chapter-vi-metabolism-prediction)
+* [**Chapter VII**: Microbial Population Genetics](#chapter-vii-microbial-population-genetics)
+* [**Chapter VIII**: Genes and genomes across metagenomes](#chapter-viii-genes-and-genomes-across-metagenomes)
+* [**Chapter IX**: From single-amino acid variants to protein structures](#chapter-ix-from-single-amino-acid-variants-to-protein-structures)
 
 
 **At the end of this tutorial, you should be able to**
 
 * Characterize high-quality genomes from metagenomes and manually curate them,
 * Incorporate automatic binning results into your metagenomes,
+* Investigate how well your bins represent the biodiversity of a given metagenome
 * Perform phylogenomic analyses to learn about their approximate location in the tree of life,
 * Determine core and accessory genes they contain compared to closely related genomes through pangenomics,
 * Explore within population genomic diversity through single-nuleotide variants,
@@ -878,7 +880,55 @@ We all just have to continue working, and enjoy this revolution.
 
 </details>
 
-## Chapter III: Phylogenomics
+
+## Chapter III: EcoPhylo workflow
+
+A common problem in microbiology is understanding how well your genome collection represents the biodiversity and ecology of a given environment. Is there an entire branch of life in your environment of interest that you did not know about? To quickly assess this, we developed an [anvi'o Snakemake Workflow](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/) called the EcoPhylo Workflow which leverages Single-Copy Core genes (SCGs) to explore the phylogenetic breadth and ecological signals of ALL genomes captured in metagenomic data. This could be an informative next step after binning genomes!
+
+Briefly, the workflow relies on the *de novo* extraction (no reference database) of an SCG of your choice (e.g. Ribosomal_L16) from your genome collection (e.g. isolates, MAGs, SAGs) and metagenomic assemblies. Next, the workflow will use the extracted SCGs to calculate a phylogenetic tree and perform metagenomic read recruitment yielding a final interactive figure to explore. In other words, the EcoPhylo workflow will put SCGs from your genomes into context with all SCGs from the environment.
+
+
+{:.notice}
+The EcoPhylo workflow is NOT a phylogenomic analysis. It only analyses on SCG at a time.
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Why SCGs?</span>
+
+SCGs are a great way to simultaneously explore both phylogenetic breadth and ecology of the biodiversity found within metagenomes. This is because SCGs intrinsically occur in one copy per genome, thus are a proxy for the presence of an entire genome in a samples. Furthermore, SCGs are are proteins (unlike other marker genes e.g. 16S rRNA). This means that SCG are good references for metagenomic read recruitment to detect the presence of a genome in an environment and to investigate sub-population structure using single-nucleotide variance. Finally, SCGs are great candidates to make phylogenetic inferences because they are conserved across entire domains of life.
+</div>
+
+Let's explore how representative the MAGs we binned in the previous sections are in the Infant-Gut metagenomes. We've already run the workflow for you so all you need to do is visualize it the EcoPhylo interactive interface.
+
+#FIXME: My gameplan now is to run the contigs workflow on all of the bin fasta files (`SUMMARY/bin_by_bin/*-contigs.fa`) that come from `anvi-summarize` then include them into the `external-genomes.txt` file as input for the EcoPhylo Workflow. Is it possible that anvi-summarize could also provide contigsDBs in the `bin_by_bin/` and an `external-genomes.txt`? This would streamline the process of integrating new bins into the EcoPhylo workflow for users.
+
+
+We'll explore the co-assembly using the SCG Ribosomal_L16:
+
+``` bash
+anvi-interactive -c additional-files/echophylo/Ribosomal_L16-contigs.db \
+                 -p additional-files/echophylo/PROFILE.db \
+                 --state-autoload Ribosomal_L16
+```
+
+The {% include PROGRAM name="anvi-interactive" %} should give you an interface that looks like this: 
+
+[![images/ecophylo_infantgut_dendrogram](images/ecophylo_infantgut_dendrogram.png)](images/ecophylo_infantgut_dendrogram.png){:.center-img .width-80}
+
+This interface is the default output for the EcoPhylo Workflow. Each tip of the dendrogram on the top of the interface represents a Ribosomal_L16 SCGs that was extracted from the Enterococcus isolate collection or the Infant-Gut metagenomic assemblies. The dendrogram is clustered by the information in the heatmap below which represents the detection of each genome in the Infant-Gut metagenomes. The closer the dendrogram tree tips are the more often the genomes co-occur. Each Ribosomal_L16 also comes with metadata such as taxonomy and `cluster size` (the size of the SCG cluster formed during the workflow). Why are there two Ribosomal_L16 without taxonomy data? Well it turns out those sequences are coming from a yeast called Candida albicans and {% include PROGRAM name="anvi-estimate-scg-taxonomy" %} only works with Bacteria and Archaea sequences.
+
+{:.notice}
+A more in depth tutorial on the EcoPhylo workflow will be coming soon with detailed descriptions of the workflow, interface, and metadata!
+
+
+Another way to visualize the EcoPhylo interface is by the genome's evolutionary relationships. To do this, go to the `Main` tab in `settings` and click on the `Items order` dropdown menu to select `Ribosomal_L16`. Now the Ribosomal_L16 sequences have been reorganized by a phylogenetic tree! 
+
+[![images/ecophylo_infantgut_phylogenetic_tree](images/ecophylo_infantgut_phylogenetic_tree.png)](images/ecophylo_infantgut_phylogenetic_tree.png){:.center-img .width-80}
+
+Interestingly, the individual assemblies recover 34 Ribosomal_L16's and collapses them to 10 while the co-assembly finds only 10 Ribosomal_L16's and is unable to collapse them.
+
+
+## Chapter IV: Phylogenomics
 
 {:.notice}
 This is more of a practical tutorial to do phylogenomic analyses on metagenome-assembled genomes described in anvi'o {% include ARTIFACT name="collection" text="collections" %}. For a more abstract tutorial on phylogenomics, please consider first reading '[An anvi'o workflow for phylogenomics]({% post_url anvio/2017-06-07-phylogenomics %}){:target="_blank"}'.
@@ -1120,7 +1170,7 @@ The tree in the middle shows the phylogenomic organization of bins we identified
 Now you know how to organize distantly related genomes using universally conserved genes.
 
 
-## Chapter IV: Pangenomics
+## Chapter V: Pangenomics
 
 Both phylogenomics and pangenomics are strategies under the umbrella of comparative genomics, and they are inherently very similar despite their key differences. In this chapter we will discuss pangenomics and use anvi'o to have a small pangenomic analysis using our famous *E. faecalis* {% include ARTIFACT name="bin" %} we recovered from the infant gut dataset and a bunch of others from the interwebs.
 
@@ -1481,7 +1531,7 @@ unique_id | gene_cluster_id | bin_name | genome_name | gene_callers_id | num_gen
 
 I'm sure you need no help to know what to do with this file.
 
-## Chapter V: Metabolism Prediction
+## Chapter VI: Metabolism Prediction
 
 {:.notice}
 **If you haven't followed the previous sections of the tutorial**, you will need the anvi'o {% include ARTIFACT name="contigs-db" text="contigs databases" %} for the *E. faecalis* and *E. faecium* genomes used in the pangenomics chapter of the tutorial. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
@@ -1734,7 +1784,7 @@ Well, it seems like there are only a few modules that are truly enriched, consid
 
 If you are interested in learning more details about this enrichment analysis and its output, the tutorial for it is [here]({% post_url anvio/2016-11-08-pangenomics-v2 %}/#making-sense-of-functions-in-your-pangenome).
 
-## Chapter VI: Microbial Population Genetics
+## Chapter VII: Microbial Population Genetics
 
 Here we will profile the single-nucleotide variations (SNVs) in the *E. faecalis* bin found in Sharon et al.'s Infant Gut Dataset (IGD).
 
@@ -2111,7 +2161,7 @@ OK.
 
 You just read about four different ways to visualize the single-nucleotide variability profiles with anvi'o. We are done here.
 
-## Chapter VI: Genes and genomes across metagenomes
+## Chapter VIII: Genes and genomes across metagenomes
 
 In the previous sections of this tutorial we recovered an *E. faecalis* genome from an infant gut metagenome.
 
@@ -2262,7 +2312,7 @@ Including the inspection of a given gene in its context with upstream and downst
 
 [![E. facealis pan](images/gene-inspection.png)](images/gene-inspection.png){:.center-img .width-80}
 
-## Chapter VII: From single-amino acid variants to protein structures
+## Chapter IX: From single-amino acid variants to protein structures
 
 {:.notice}
 This section of the tutorial uses the data described in the above section [Putting the E. faecalis
