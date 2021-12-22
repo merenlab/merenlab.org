@@ -810,7 +810,7 @@ So we can fix crappy bins to an extent since [we know more or less how things sh
 
 This is a problem that likely happens quite often, and very hard to deal with once the bins are identified. But we *can* recover from that.
 
-#### From fragmentation to conflation error: A Meren Lab Heuristic to fight back
+**From fragmentation to conflation error: A Meren Lab Heuristic to fight back**
 
 One of the heuristics we recently started using in our lab to avoid fragmentation error is to confine CONCOCT's clustering space to a much smaller number of clusters than the expected number of bacterial genomes in a given dataset, and then curate resulting contaminated bins manually. Let's say we expect to find `n` bacterial genomes, so we run CONCOCT with a maximum number of clusters of about `n/2` (no judging! I told you it was a heuristic!).
 
