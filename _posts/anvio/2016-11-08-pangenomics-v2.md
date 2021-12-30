@@ -179,7 +179,7 @@ When you run {% include PROGRAM name="anvi-pan-genome" %}, the program will,
 
 * Use `euclidean` distance and `ward` linkage to organize gene clusters and genomes. You can change those using `--distance` and `--linkage` parameters.
 
-* Try to utilize previous search results if there is already a directory. This way you can play with the `--minbit`, `--mcl-inflation`, or `--min-occurrence` parameters without having to re-do the amino acid sequence search.  However, if you have changed something, either you need to remove the output directory, or use the `--overwrite-output-destinations` flag to redo the search.
+* Try to utilize previous search results if there is already a directory. This way you can play with the `--minbit`, `--mcl-inflation`, or `--min-occurrence` parameters without having to re-do the amino acid sequence search to gain time. If you are having hard time making anvi'o use the existing output files, please see the explanation in [this issue](https://github.com/merenlab/anvio/issues/1865). If you are not interested in using the previous search results, you can remove the output directory, or use the `--overwrite-output-destinations` flag to redo the search from scratch.
 
 {:.notice}
 You need another parameter? Well, of course you do! Let us know, and let's have a discussion. We love parameters.
