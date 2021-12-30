@@ -1,3 +1,13 @@
+# Contributions welcome!
+
+If you want to contribute to the web page, whether it is to fix something somewhere, or to write a blog post, there are two things you need to do.
+
+The first is to be able to run the web page locally so you can see how things are rendered and how they will look online when you finally commit your changes to this repository. The remainder of this document will help you run the web site locally.
+
+The second is to take a look at these tips which will help you to be able to use all the little toys we have for content developers:
+
+https://merenlab.org/web-tips/
+
 # How to run a copy of this website locally
 
 Installing ruby on Mac is always a pain. But you can start with this (newer versions of ruby may cause you trouble with some of the gems):
