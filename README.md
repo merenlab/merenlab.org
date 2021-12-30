@@ -90,39 +90,3 @@ git push origin master
 ```
 
 Congratulations!
-
-# Notes
-
-If you want to show/hide content, you can use this notation in your markdown files:
-
-```
-<details markdown="1"><summary>Show/Hide SOME CONTENT</summary>
-
-SOME CONTENT GOES HERE
-
-</details>
-```
-
-If you want to show summary sections with a different background color, you can use this notation:
-
-```
-<div class="extra-info" markdown="1">
-
-<span class="extra-info-header">Smart title for extra info</span>
-
-EXTRA INFO GOES HERE
-
-</div>
-```
-
-You should feel free to use warning and notice statements:
-
-```
-{:.warning}
-A warning messages goes here.
-
-{:.notice}
-A notice statement goes here.
-```
-
-When naming new posts, make sure the are not **POST-DATED**!
