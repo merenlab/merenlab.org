@@ -92,7 +92,16 @@
       "type": "TXT"
     },
     {
-      "size": 10,
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "user-modules-data",
+      "name": "user-modules-data",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 11,
       "score": 0.1,
       "color": "#AAAA00",
       "id": "anvi-estimate-metabolism",
@@ -102,44 +111,48 @@
   ],
   "links": [
     {
-      "source": 10,
+      "source": 11,
       "target": 0
     },
     {
-      "target": 10,
+      "target": 11,
       "source": 1
     },
     {
-      "target": 10,
+      "target": 11,
       "source": 2
     },
     {
-      "target": 10,
+      "target": 11,
       "source": 3
     },
     {
-      "target": 10,
+      "target": 11,
       "source": 4
     },
     {
-      "target": 10,
+      "target": 11,
       "source": 5
     },
     {
-      "target": 10,
+      "target": 11,
       "source": 6
     },
     {
-      "target": 10,
+      "target": 11,
       "source": 7
     },
     {
-      "target": 10,
+      "target": 11,
       "source": 8
     },
     {
-      "target": 10,
+      "target": 11,
       "source": 9
+    },
+    {
+      "target": 11,
+      "source": 10
     }
   ],
   "directed": false,

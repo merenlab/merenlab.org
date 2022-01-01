@@ -93,6 +93,17 @@ anvi&#45;run&#45;hmms &#45;c <span class="artifact&#45;n">[contigs&#45;db](/soft
 
 See the relevant section in the artifact <span class="artifact-n">[hmm-source](/software/anvio/help/main/artifacts/hmm-source)</span> for details.
 
+### Adding HMM hits as a functional annotation source
+
+By default, HMM hits are not considered functional annotations and are kept in a distinct table (the 'hmm_hits' table) in the contigs database. However, there are certain cases when you may want them to be considered as functions instead. For instance, if you want to run <span class="artifact-n">[anvi-estimate-metabolism](/software/anvio/help/main/programs/anvi-estimate-metabolism)</span> on a set of user-defined metabolic pathways and you have a set of custom HMMs for their enzymes.
+
+To treat the HMM hits as functional annotations and add them to the 'gene_functions' table in your database, you must use the `--add-to-functions-table` flag:
+
+<div class="codeblock" markdown="1">
+anvi&#45;run&#45;hmms &#45;c <span class="artifact&#45;n">[contigs&#45;db](/software/anvio/help/main/artifacts/contigs&#45;db)</span> \
+              &#45;H MY_HMM_PROFILE \
+              &#45;&#45;add&#45;to&#45;functions&#45;table
+</div>
 
 ### Changing the HMMER program
 
@@ -146,7 +157,6 @@ Please note that this output **won't be used to filter hits to be added to the c
 ### Other things anvi-run-hmms can do
 
 * Add the tag `--also-scan-trnas` to basically run <span class="artifact-n">[anvi-scan-trnas](/software/anvio/help/main/programs/anvi-scan-trnas)</span> for you at the same time. It's very convenient. (But it only works if you are not using the `-I` or `-H` flags at the same time because reasons.)
-
 
 
 {:.notice}
