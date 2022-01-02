@@ -153,9 +153,19 @@ Here are some examples:
 {% endraw %}
 ```
 
+You can add title text for your figures, which will appear as a tiny text when people hover their mouse pointers:
+
 ``` html
 {% raw %}
 {% include IMAGE path="/images/ref_bg.gif" title="Changing the background color of a layer" width=90 %}
+{% endraw %}
+```
+
+You can also add captions to your figures, which will appear as italicized text closer to your figure:
+
+``` html
+{% raw %}
+{% include IMAGE path="/images/some_image.gif" caption="A descriptive short paragraph to explain what this figure is showing" %}
 {% endraw %}
 ```
 
