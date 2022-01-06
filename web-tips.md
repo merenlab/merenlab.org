@@ -83,6 +83,11 @@ A warning messages goes here.
 {:.notice}
 A notice statement goes here.
 
+## Turning TAB-delmited files to markdown notation
+
+Tutorial writers often need to display contents of TAB-delimited files. One easy way to do that is to use the program `{% include PROGRAM name="anvi-script-as-markdown" %}`. See examples on the program page.
+
+
 ## Marking anvi'o artifacts and programs
 
 You can use this notation to link anvi'o programs and artifacts to their documentation with fancy looking links. If you are a `vim` user, you can automatize this conversion. Please see the section in this file called "A useful shortcut for vim users".
