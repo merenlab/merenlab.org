@@ -14,7 +14,7 @@ image:
 
 <a href="/software/anvio/network/" target="_blank"><img src="/images/anvio-network.png" width="100%" /></a>
 
-Anvi'o is an **[open-source](http://github.com/meren/anvio)**, **community-driven** analysis and visualization platform for **microbial 'omics**. It brings together many aspects of today's cutting-edge strategies including **genomics**, **metagenomics**, **metatranscriptomics**, **pangenomics**, **metapangenomics**, **phylogenomics**, and **microbial population genetics** in an *integrated* and *easy-to-use* fashion through extensive **interactive visualization** capabilities.
+Anvi'o is an **[open-source](http://github.com/merenlab/anvio)**, **community-driven** analysis and visualization platform for **microbial 'omics**. It brings together many aspects of today's cutting-edge strategies including **genomics**, **metagenomics**, **metatranscriptomics**, **pangenomics**, **metapangenomics**, **phylogenomics**, and **microbial population genetics** in an *integrated* and *easy-to-use* fashion through extensive **interactive visualization** capabilities.
 
 Anvi'o currently stands on **more than 80,000 lines of Python and JavaScript code** that follow modern software development paradigms thanks to the voluntary contributions of **more than [30 developers](https://github.com/merenlab/anvio/blob/master/AUTHORS.txt)** from the academia and industry, [empowering microbiologists](/testimonials/) for their [complex needs](https://github.com/merenlab/anvio/releases) through an architecture that [enables reproducible science](http://merenlab.org/2016/11/21/bacteroides-genome-variants/) and simple interfaces for data access.
 
