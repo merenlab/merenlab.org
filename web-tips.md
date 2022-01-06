@@ -85,7 +85,7 @@ A notice statement goes here.
 
 ## Turning TAB-delmited files to markdown notation
 
-Tutorial writers often need to display contents of TAB-delimited files. One easy way to do that is to use the program `{% include PROGRAM name="anvi-script-as-markdown" %}`. See examples on the program page.
+Tutorial writers often need to display contents of TAB-delimited files. One easy way to do that is to use the program {% include PROGRAM name="anvi-script-as-markdown" %}. See examples on the program page.
 
 
 ## Marking anvi'o artifacts and programs
