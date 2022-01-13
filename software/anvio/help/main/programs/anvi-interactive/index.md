@@ -60,7 +60,7 @@ Here, we'll go through *some* things that the anvi'o interactive interface is ca
 
 Please makes sure you are familiar with the terminology that describes various parts of a given display, which are **explained in the <span class="artifact-n">[interactive](/software/anvio/help/main/artifacts/interactive)</span> artifact**:
 
-![an anvi'o display](../../images/anvio_display_template.png){:.center-img}
+![an anvi'o display](../../images/interactive_interface/anvio_display_template.png){:.center-img}
 
 
 ## Running anvi-interactive on a profile database
@@ -74,7 +74,7 @@ anvi&#45;interactive &#45;p <span class="artifact&#45;n">[profile&#45;db](/softw
 
 For the central tree to display correctly, you'll need to have run hierarchical clustering at some point while making your profile database (either during <span class="artifact-n">[anvi-merge](/software/anvio/help/main/programs/anvi-merge)</span>, or, if this is a <span class="artifact-n">[single-profile-db](/software/anvio/help/main/artifacts/single-profile-db)</span>, while running <span class="artifact-n">[anvi-profile](/software/anvio/help/main/programs/anvi-profile)</span>). It is also possible to provide a phylogenetic tree or a clustering dendrogram from the command line using the `--tree` parameter.
 
-If you do not have a <span class="artifact-n">[state](/software/anvio/help/main/artifacts/state)</span> stored in your profile database named `default`, you will need to click the "Draw" button for anvi'o to provide you with an <span class="artifact-n">[interactive](/software/anvio/help/main/artifacts/interactive)</span> display of your data. 
+If you do not have a <span class="artifact-n">[state](/software/anvio/help/main/artifacts/state)</span> stored in your profile database named `default`, you will need to click the "Draw" button for anvi'o to provide you with an <span class="artifact-n">[interactive](/software/anvio/help/main/artifacts/interactive)</span> display of your data.
 
 ### How to visualize things when you don't have a hierarchical clustering of your contigs?
 

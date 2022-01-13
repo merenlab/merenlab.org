@@ -83,6 +83,11 @@ A warning messages goes here.
 {:.notice}
 A notice statement goes here.
 
+## Turning TAB-delmited files to markdown notation
+
+Tutorial writers often need to display contents of TAB-delimited files. One easy way to do that is to use the program {% include PROGRAM name="anvi-script-as-markdown" %}. See examples on the program page.
+
+
 ## Marking anvi'o artifacts and programs
 
 You can use this notation to link anvi'o programs and artifacts to their documentation with fancy looking links. If you are a `vim` user, you can automatize this conversion. Please see the section in this file called "A useful shortcut for vim users".
@@ -153,9 +158,19 @@ Here are some examples:
 {% endraw %}
 ```
 
+You can add title text for your figures, which will appear as a tiny text when people hover their mouse pointers:
+
 ``` html
 {% raw %}
 {% include IMAGE path="/images/ref_bg.gif" title="Changing the background color of a layer" width=90 %}
+{% endraw %}
+```
+
+You can also add captions to your figures, which will appear as italicized text closer to your figure:
+
+``` html
+{% raw %}
+{% include IMAGE path="/images/some_image.gif" caption="A descriptive short paragraph to explain what this figure is showing" %}
 {% endraw %}
 ```
 

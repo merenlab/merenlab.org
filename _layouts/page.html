@@ -16,8 +16,12 @@
 {% include _imagewrap.html %}
 
 <div id="main" role="main">
+
   <div class="article-author-side">
+    {% if page.noleftpanel == true %}
+    {% else %}
     {% include _left-panel.html %}
+    {% endif %}
   </div>
 
   {% if page.categories contains "anvio" %}
@@ -37,11 +41,14 @@
 
      <div id="articlecontent">
 
+    {% if page.notoc == true %}
+    {% else %}
      <section id="markdown-toc" class="toc">
         <header><h3 id="toc-header"><i class="fa fa-book"></i> Table of Contents</h3></header>
 
         <div id="drawer">{% include _toc.html html=content %}</div>
     </section>
+    {% endif %}
 
     {{ content }}
 
