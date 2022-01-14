@@ -18,7 +18,7 @@ redirect_from: /long-read-analysis/
 * High molecular weight DNA extraction, for metagenomics applications,
 * Assembly of long-read metagenome and the recovery of circular genomes,
 * How to correct long-reads contigs, with or without short-reads,
-* Use anvi'o pangenomics worflow to assess long-read correction,
+* Use anvi'o pangenomics workflow to assess long-read correction,
 * Compare long-read assembled genomes with reference genomes.
 
 
