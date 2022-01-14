@@ -147,7 +147,7 @@ Bonus blog post: [Fantastic Data and How to Share Them: A Plea to Journal Editor
     <a href="../images/pubs/shaiber_eren_MAG_refinement.png"><img src="../images/pubs/shaiber_eren_MAG_refinement.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
     </div>
     <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- A letter that stresses that the composite metagenome-assembled genomes influence phylogenomic, pangenomic, and ecological insights (<a href="../files/Shaiber_Eren_2019_reviewer_response.pdf" target="_blank">peer reviews and responses</a>).</span><br><span style="display: inline-block; padding-bottom: 5px;">-  <a href="http://merenlab.org/data/refining-espinoza-mags/" target="_blank">A reproducible workflow</a> to detail the steps of genome refinement and make available the refined versions of some key genomes.</span>
+    <span style="display: inline-block; padding-bottom: 5px;">- A letter that stresses that the composite metagenome-assembled genomes influence phylogenomic, pangenomic, and ecological insights (<a href="../files/Shaiber_Eren_2019_reviewer_response.pdf" target="_blank">peer reviews and responses</a>).</span><br><span style="display: inline-block; padding-bottom: 5px;">-  <a href="http://merenlab.org/data/refining-mags/" target="_blank">A reproducible workflow</a> to detail the steps of genome refinement and make available the refined versions of some key genomes.</span>
     </div>
     </div>
     <span class="pub-journal"><i>mBio</i>. <b>10(3) e00725-19</b></span>
