@@ -6,6 +6,7 @@
 names_to_highlight = {'Eren AM': None,
                       'Delmont TO': range(2015, 2020),
                       'Esen ÖC': range(2015, 2021),
+                      'Yu MK': None,
                       'Lee STM': None,
                       'Shaiber A': None,
                       'Kiefl E': None,

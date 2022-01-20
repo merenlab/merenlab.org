@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2021-09-04
+modified: 2022-01-20
 comments: false
 ---
 
@@ -9,20 +9,72 @@ comments: false
 <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
 
 <div class="category-box">
-<a href="#2021"><span class="category-item">2021</span></a><a href="#2020"><span class="category-item">2020</span></a><a href="#2019"><span class="category-item">2019</span></a><a href="#2018"><span class="category-item">2018</span></a><a href="#2017"><span class="category-item">2017</span></a><a href="#2016"><span class="category-item">2016</span></a><a href="#2015"><span class="category-item">2015</span></a><a href="#2014"><span class="category-item">2014</span></a><a href="#2013"><span class="category-item">2013</span></a>
+<a href="#2022"><span class="category-item">2022</span></a><a href="#2021"><span class="category-item">2021</span></a><a href="#2020"><span class="category-item">2020</span></a><a href="#2019"><span class="category-item">2019</span></a><a href="#2018"><span class="category-item">2018</span></a><a href="#2017"><span class="category-item">2017</span></a><a href="#2016"><span class="category-item">2016</span></a><a href="#2015"><span class="category-item">2015</span></a><a href="#2014"><span class="category-item">2014</span></a><a href="#2013"><span class="category-item">2013</span></a>
 </div>
 
 {:.notice}
 
 This page lists publications that are most reflective of our interests. For a complete list, please see <a href='https://scholar.google.com/citations?user=GtLLuxoAAAAJ&view_op=list_works&sortby=pubdate' target='_blank'>Meren's Google Scholar page</a>.
 
+## 2022
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2020.11.01.361691"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1101/2020.11.01.361691" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href=" https://doi.org/10.1101/2020.11.01.361691" target="_new">The genetic and ecological landscape of plasmids in the human gut</a></span>
+    <span class="pub-authors"><span class="pub-member-author">Yu MK<sup>☯</sup></span>, <span class="pub-member-author">Fogarty EC<sup>☯</sup></span>, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="../images/pubs/plasmid_systems.png"><img src="../images/pubs/plasmid_systems.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A study that aims to shed light on the ecology and evolution of one of the most critical yet poorly studied aspects of microbial life: naturally occurring plasmids.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Uses state-of-the-art machine learning strategies to identify over 60,000 plasmids from human gut metagenomes, which represents a 200-fold increase in the number of known plasmids to date that were detectable in healthy humans.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  Defines hundreds of 'plasmid systems', and demonstrates that naturally occurring plasmids are not static entities, but their ecology and evolution is driven by the need to respond to the environment, and their ecology cannot be simply explained by bacterial taxonomy.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><b>bioRxiv</b> <a href="https://doi.org/10.1101/2020.11.01.361691" target="_blank">🔗</a></span>
+</div>
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1016/j.molcel.2021.12.007"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1016/j.molcel.2021.12.007" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href=" https://doi.org/10.1016/j.molcel.2021.12.007" target="_new">tRNA modification dynamics from individual organisms to metaepitranscriptomics of microbiomes</a></span>
+    <span class="pub-authors">Zhang W, Foo M, <span class="pub-member-author">Eren AM</span>, Pan T</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/zhang_et_al_2022.png"><img src="/images/pubs/zhang_et_al_2022.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A <a href="/files/Zhang_et_al_2022.pdf">review</a> that summarizes recent advances in the studies of tRNA modification dynamics in biological processes</span><br><span style="display: inline-block; padding-bottom: 5px;">- Defines 'metaepitranscriptomics' as a strategy to study modification dynamics in complex environmental populations.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><b>Molecular Cell</b> <a href="https://doi.org/10.1016/j.molcel.2021.12.007" target="_blank">🔗</a></span>
+</div>
+
+
 ## 2021
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41564-020-00834-3"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1038/s41564-020-00834-3" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href=" https://doi.org/10.1038/s41564-020-00834-3" target="_new">Community-led, integrated, reproducible multi-omics with anvi'o</a></span>
+    <span class="pub-authors"><span class="pub-member-author">Eren AM</span>, <span class="pub-member-author">Kiefl E</span>, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Veseli I</span>, <span class="pub-member-author">Miller SE</span>, <span class="pub-member-author">Schechter MS</span>, <span class="pub-member-author">Fink I</span>, <span class="pub-member-author">Pan JN</span>, <span class="pub-member-author">Yousef M</span>, <span class="pub-member-author">Fogarty EC</span>, <span class="pub-member-author">Trigodet F</span>, <span class="pub-member-author">Watson AR</span>, Esen ÖC, Moore RM, Clayssen Q, Lee MD, Kivenson V, Graham ED, Merrill BD, Karkman A, Blankenberg D, Eppley JM, Sjödin A, Scott JJ, Vázquez-Campos X, McKay LJ, McDaniel EA, Stevens SLR, Anderson RE, Fuessel J, Fernandez-Guerra A, Maignien L, Delmont TO, Willis AD</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/anvio-integrated-omics.png"><img src="/images/pubs/anvio-integrated-omics.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A summary of the progress of <a href="/software/anvio" target="_blank">anvi'o</a> during the past five years.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><b>Nature Microbiology</b>, 6(1):3:6 <a href="https://doi.org/10.1038/s41564-020-00834-3" target="_blank">🔗</a></span>
+</div>
 
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2021.03.02.433653"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1101/2021.03.02.433653" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href=" https://doi.org/10.1101/2021.03.02.433653" target="_new">Adaptive ecological processes and metabolic independence drive microbial colonization and resilience in the human gut</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Watson AR</span>, Füssel J, <span class="pub-member-author">Veseli I</span>, DeLongchamp JZ, Silva M, <span class="pub-member-author">Trigodet F</span>, <span class="pub-member-author">Lolans K</span>, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Fogarty EC</span>, Quince C, Yu MK, Söylev A, Morrison HG, Lee ST, Rubin DT, Jabri B, Louie T, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-authors"><span class="pub-member-author">Watson AR</span>, Füssel J, <span class="pub-member-author">Veseli I</span>, DeLongchamp JZ, Silva M, <span class="pub-member-author">Trigodet F</span>, <span class="pub-member-author">Lolans K</span>, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Fogarty EC</span>, Quince C, <span class="pub-member-author">Yu MK</span>, Söylev A, Morrison HG, Lee ST, Rubin DT, Jabri B, Louie T, <span class="pub-member-author">Eren AM</span></span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/pubs/watson_et_al_fmt.jpeg"><img src="/images/pubs/watson_et_al_fmt.jpeg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -45,7 +97,7 @@ This page lists publications that are most reflective of our interests. For a co
     <a href="/images/pubs/Trigodet_and_Lolans_et_al_HMW.png"><img src="/images/pubs/Trigodet_and_Lolans_et_al_HMW.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
     </div>
     <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- A study that <b>benchmarks six high molecular weight DNA extraction strategies</b> (commercially available kits, phenol-chloroform extraction, and agarose encasement followed by agarase digestion) <b>for long-read sequencing of metagenomes</b> with MinION.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  It turns out the protocol that works best for sequencing DNA from microbial isolates may not be the most effetive method for long-read sequencing of metagenomes ¯\_(ツ)_/¯</span><br><span style="display: inline-block; padding-bottom: 5px;">-  A reproducible bioinformatics workflow is available <a href="http://merenlab.org/data/hmw-dna-extraction-strategies/" target="_blank">here</a>.</span>
+    <span style="display: inline-block; padding-bottom: 5px;">- A study that <b>benchmarks six high molecular weight DNA extraction strategies</b> (commercially available kits, phenol-chloroform extraction, and agarose encasement followed by agarase digestion) <b>for long-read sequencing of metagenomes</b> with MinION.</span><br><span style="display: inline-block; padding-bottom: 5px;">-  It turns out the protocol that works best for sequencing DNA from microbial isolates may not be the most effetive method for long-read sequencing of metagenomes ¯\_(ツ)_/¯</span>
     </div>
     </div>
     <span class="pub-journal"><b>bioRxiv</b> <a href="https://doi.org/10.1101/2021.03.03.433801" target="_blank">🔗</a></span>
@@ -53,22 +105,6 @@ This page lists publications that are most reflective of our interests. For a co
 
 
 ## 2020
-
-<div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41564-020-00834-3"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.1038/s41564-020-00834-3" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <span class="pub-title"><a href=" https://doi.org/10.1038/s41564-020-00834-3" target="_new">Community-led, integrated, reproducible multi-omics with anvi'o</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Eren AM</span>, <span class="pub-member-author">Kiefl E</span>, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Veseli I</span>, <span class="pub-member-author">Miller SE</span>, <span class="pub-member-author">Schechter MS</span>, <span class="pub-member-author">Fink I</span>, <span class="pub-member-author">Pan JN</span>, <span class="pub-member-author">Yousef M</span>, <span class="pub-member-author">Fogarty EC</span>, <span class="pub-member-author">Trigodet F</span>, <span class="pub-member-author">Watson AR</span>, <span class="pub-member-author">Esen ÖC</span>, Moore RM, Clayssen Q, Lee MD, Kivenson V, Graham ED, Merrill BD, Karkman A, Blankenberg D, Eppley JM, Sjödin A, Scott JJ, Vázquez-Campos X, McKay LJ, McDaniel EA, Stevens SLR, Anderson RE, Fuessel J, Fernandez-Guerra A, Maignien L, Delmont TO, Willis AD</span>
-    <div class="pub-info">
-    <div class="pub-featured-image">
-    <a href="/images/pubs/anvio-integrated-omics.png"><img src="/images/pubs/anvio-integrated-omics.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
-    </div>
-    <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- A summary of the progress of <a href="/software/anvio" target="_blank">anvi'o</a> during the past five years.</span>
-    </div>
-    </div>
-    <span class="pub-journal"><b>Nature Microbiology</b>, 6(1):3:6 <a href="https://doi.org/10.1038/s41564-020-00834-3" target="_blank">🔗</a></span>
-</div>
 
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s13059-020-02195-w"></div>
