@@ -18,8 +18,36 @@ Please do not hesitate to get in touch if something is missing. You can send [us
 {:.notice}
 Bonus blog post: [Fantastic Data and How to Share Them: A Plea to Journal Editors and Reviewers](/sharing-data/).
 
-## Metabolic competency of gut microbes in health and disease
+## The genetic and ecological landscape of plasmids in the human gut
 
+<div class="pub_float">
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1101/2020.11.01.361691"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1101/2020.11.01.361691" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href=" https://doi.org/10.1101/2020.11.01.361691" target="_new">The genetic and ecological landscape of plasmids in the human gut</a></span>
+    <span class="pub-authors"><span class="pub-member-author">Yu MK<sup>☯</sup></span>, <span class="pub-member-author">Fogarty EC<sup>☯</sup></span>, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="../images/pubs/plasmid_systems.png"><img src="../images/pubs/plasmid_systems.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);" /></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A study that aims to shed light on <b>the ecology and evolution of one of the most critical yet poorly studied aspects of microbial life: naturally occurring plasmids</b>.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- Uses state-of-the-art machine learning strategies to identify <b>over 60,000 plasmids</b> from human gut metagenomes, which represents a <b>200-fold increase</b> in the number of known plasmids to date that were detectable in healthy humans.</span><br /><span style="display: inline-block; padding-bottom: 5px;">-  Defines hundreds of '<b>plasmid systems</b>', and demonstrates that naturally occurring plasmids are not static entities, but <b>their evolution is driven by the need to respond to the environment, and their ecology cannot be simply explained by bacterial taxonomy and distribution patterns of their putative hosts</b>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><b>bioRxiv</b> <a href="https://doi.org/10.1101/2020.11.01.361691" target="_blank">🔗</a></span>
+</div>
+
+### Raw and/or reproducible data items
+
+* [doi:10.5281/zenodo.5732024](https://doi.org/10.5281/zenodo.5732024) gives access to reference plasmids and chromosomes used for training as well as the annotations of genes that are identified in them.
+* [doi:10.5281/zenodo.5732447](https://doi.org/10.5281/zenodo.5732447) gives access to the PlasX model, data for known as well as predicted plasmids, plasmid systems, and other key intermediate data files such as plasmid pairwise alignments and MMSeqs clusters.
+* [doi:10.5281/zenodo.5730607](https://doi.org/10.5281/zenodo.5730607) serves information on all metagenomes used in our study to predict plasmids, including assembled contigs per metagenome as well as estimated abundances of taxa in them.
+* [doi:10.5281/zenodo.5730987](https://doi.org/10.5281/zenodo.5730987) serves every gene call in contigs from publicly available gut metagenomes we used. Annotations of these genes based on COGs, PFAM domains, and MMseqs clusters are also available at [doi:10.5281/zenodo.5731658](https://doi.org/10.5281/zenodo.5731658).
+* We deposited the long- and short-read sequencing data from __Bacteroides fragilis__ isolates under the NCBI BioProject [PRJNA782184](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA782184).
+* The source code for PlasX, the machine learning algorithm to perform plasmid prediction is available through its GitHub repository [here](https://github.com/michaelkyu/plasx), and the source code for MobMess, the software tool for mobile element seqeuence dereplication is availble through its GitHub repository [here](https://github.com/michaelkyu/mobmess).
+
+
+## Metabolic competency of gut microbes in health and disease
 
 <div class="pub_float">
 <div class="altmetric-embed" data-badge-type="donut" data-doi="10.1101/2021.03.02.433653"></div>
