@@ -98,22 +98,6 @@
       inst: Committee on Microbiology at the University of Chicago
       inst_link: https://biomedsciences.uchicago.edu/page/microbiology
 
-- alias: karen
-  lab_member: True
-  name: Karen Lolans
-  tenure_start: 07/2018
-  role: Senior Research Technician
-  email: klolans@medicine.bsd.uchicago.edu
-  linkedin: karen-lolans-b39ab0
-  orcid: 0000-0003-1903-756X
-  avatar: bio-karen.jpg
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  bio: "As a molecular microbiologist, I am interested in the potential that interwoven wet lab and computational strategies play in elucidating complex microbial interactions and processes."
-  affiliations:
-    - title: Senior Research Technician
-      inst: The University of Chicago Section of Gastroenterology, Hepatology and Nutrition
-      inst_link: https://medicine.uchicago.edu/sections/gastroenterology-hepatology-nutrition/
-
 - alias: iva
   lab_member: True
   name: Iva Veseli
@@ -217,6 +201,26 @@
 ####################################################################################
 # Lab Alumni.
 ####################################################################################
+
+- alias: karen
+  lab_member: True
+  name: Karen Lolans
+  nick_name: Karen
+  tenure_start: 07/2018
+  tenure_end: 10/2021
+  role: Senior Research Technician
+  current_info: a Senior Technician at the University of Chicago
+  contributions: Karen has made significant contributons to the wet-lab branch of our group at the University of Chicago by creating and benchmarking protocols for tRNA sequencing and high molecular weight DNA extraction for long-read sequencing even from most challenging samples of low-biomass and host contamination.
+  email: klolans@medicine.bsd.uchicago.edu
+  linkedin: karen-lolans-b39ab0
+  orcid: 0000-0003-1903-756X
+  avatar: bio-karen.jpg
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  bio: "As a molecular microbiologist, I am interested in the potential that interwoven wet lab and computational strategies play in elucidating complex microbial interactions and processes."
+  affiliations:
+    - title: Senior Research Technician
+      inst: The University of Chicago Section of Gastroenterology, Hepatology and Nutrition
+      inst_link: https://medicine.uchicago.edu/sections/gastroenterology-hepatology-nutrition/
 
 - alias: andrea
   lab_member: True
