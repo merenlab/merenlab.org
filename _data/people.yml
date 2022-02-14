@@ -152,22 +152,6 @@
       inst: Computer Science
       inst_link: http://collegecatalog.uchicago.edu/thecollege/computerscience/
 
-- alias: ibrahim
-  lab_member: True
-  name: Ibrahim Mohamed
-  tenure_start: 07/2020
-  role: Undergraduate Researcher
-  email: ibrahimemohamed33@gmail.com
-  github: ibrahimmohamed33
-  avatar: bio-ibrahim.png
-  orcid: 0000-0002-1130-5454
-  bio: “I am a student researcher interested in applying concepts from mathematics and computer science to understand and analyze metagenomes.”
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  affiliations:
-    - title: Undergraduate Student
-      inst: Mathematics
-      inst_link: http://collegecatalog.uchicago.edu/thecollege/mathematics/
-
 - alias: matthew
   lab_member: True
   name: Matthew Lawrence Klein
