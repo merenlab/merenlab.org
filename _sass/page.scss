@@ -1516,3 +1516,20 @@ $button-size: 1.5rem;
     margin-right: 6px;
     margin-top: -3px;
 }
+
+
+.tags {
+    border: 1px solid #d7d7d7;
+    padding: 0px 3px;
+    border-radius: 3px;
+    margin-left: 5px;
+    font-size: 10px;
+}
+
+#current-affiliation {
+    color: green;
+}
+
+#past-affiliation {
+    color: red;
+}
