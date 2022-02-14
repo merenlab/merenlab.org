@@ -63,7 +63,7 @@
           {% if person.affiliations %}
           <ul class="person-affiliations">
           {% for affiliation in person.affiliations %}
-          <li>{% if affiliation.title_link %}<a id="aff-link" target="_blank" href="{{ affiliation.title_link }}">{% endif %}{{ affiliation.title }}{% if affiliation.title_link %}</a>{% endif %}{% if affiliation.inst %}, <a href="{{ affiliation.inst_link }}" id="aff-link" target="_blank">{{ affiliation.inst }}</a>{% endif %}.</li>
+          <li>{% if affiliation.current == false %}<code class="tags" id="past-affiliation">past</code>{% else %}<code class="tags" id="current-affiliation">current</code>{% endif %} {% if affiliation.title_link %}<a id="aff-link" target="_blank" href="{{ affiliation.title_link }}">{% endif %}<b>{{ affiliation.title }}</b>{% if affiliation.title_link %}</a>{% endif %}{% if affiliation.inst %}, <a href="{{ affiliation.inst_link }}" id="aff-link" target="_blank">{{ affiliation.inst }}</a>{% endif %}.</li>
           {% endfor %}
           </ul>
           {% endif %}
