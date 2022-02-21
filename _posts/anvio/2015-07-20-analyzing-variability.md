@@ -7,7 +7,9 @@ modified: 2016-07-21
 tags: []
 categories: [anvio]
 comments: true
-redirect_from: /mpg/
+redirect_from:
+ - /mpg/
+ - /analyzing-genetic-varaibility/
 ---
 
 {:.notice}
