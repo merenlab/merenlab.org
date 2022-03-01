@@ -12,6 +12,9 @@ redirect_from:
 {% capture images %}{{site.url}}/data/anvio-structure/images{% endcapture %}
 {% capture command_style %}background: #D7484822; border: 4px solid #D74848;{% endcapture %}
 
+{:.notice}
+This document is **UNDER CONSTRUCTION**. It is not in a state where you can yet reproduce our work. We anticipate this workflow will be finalized by late March, and will remove this message when it is complete.
+
 ## Introduction
 
 This multi-part document details the story of how our paper came to be. It includes step-by-step procedures for reproducing our study, in-depth explanations of our analysis decisions, and technical details that were not suitable for the main text or supplemental info.
