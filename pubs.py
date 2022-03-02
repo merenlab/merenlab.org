@@ -6,6 +6,7 @@
 names_to_highlight = {'Eren AM': None,
                       'Delmont TO': range(2015, 2020),
                       'Esen ÖC': range(2015, 2021),
+                      'Esen OC': range(2015, 2021),
                       'Yu MK': None,
                       'Lee STM': None,
                       'Shaiber A': None,
@@ -81,6 +82,22 @@ class Publications:
         return ', '.join(authors_str)
 
 
+    def get_abbreviated_name_from_full_name(self, author_name):
+        """Takes full name (First Middle Last), return abbreviated name (Last FM)"""
+
+        names = author_name.replace('.', '').split()
+
+        abbreviated_name = f"{names[-1]} {''.join([n[0] for n in names[:-1]])}"
+
+        if '*' in abbreviated_name:
+            abbreviated_name = abbreviated_name.replace('*', '') + '*'
+
+        if '+' in abbreviated_name:
+            abbreviated_name = abbreviated_name.replace('+', '') + '+'
+
+        return abbreviated_name
+
+
     def parse_pubs_txt(self):
         self.pubs = u.get_yaml_as_dict('pubs.yaml')
 
@@ -104,17 +121,25 @@ class Publications:
             pub['co_first_authors'] = []
             pub['co_senior_authors'] = []
 
-            pub['authors'] = [a.strip() for a in pub['authors'].split(',')]
+            # turn author names from "FIRST M LAST" form to "LAST FM" form.
+            pub['authors'] = [self.get_abbreviated_name_from_full_name(a.strip()) for a in pub['authors'].split(',')]
+
             for author_name in pub['authors']:
                 if author_name.endswith('*'):
-                    pub['co_first_authors'].append(author_name)
+                    pub['co_first_authors'].append(author_name[:-1])
                 elif  author_name.endswith('+'):
-                    pub['co_senior_authors'].append(author_name)
+                    pub['co_senior_authors'].append(author_name[:-1])
 
-            if pub['number']:
-                pub['issue'] = '%s(%s):%s' % (pub['volume'], pub['number'], pub['pages'])
+            pub['authors'] = [a[:-1] if (a.endswith('*') or a.endswith('+')) else a for a in pub['authors']]
+
+            if pub['volume'] and pub['number'] and pub['pages']:
+                pub['issue'] = f"{pub['volume']}({pub['number']}):{pub['pages']}"
+            elif pub['volume'] and pub['number']:
+                pub['issue'] = f"{pub['volume']}({pub['number']})"
             elif pub['volume'] and pub['pages']:
-                pub['issue'] = '%s:%s' % (pub['volume'], pub['pages'])
+                pub['issue'] = f"{pub['volume']}:{pub['pages']}"
+            elif pub['volume']:
+                pub['issue'] = f"{pub['volume']}"
             else:
                 pub['issue'] = None
 
@@ -173,8 +198,7 @@ class Publications:
 
 
     def store_markdown_output_for_pubs(self, output_file_path):
-        # years = ''.join(['<a href="#%s"><span class="category-item">%s <small>(%d)</small></span></a>' % (y, y, len(self.pubs_dict[y])) for y in sorted(list(self.pubs_dict.keys()), reverse=True)])
-        years = ''.join(['<a href="#%s"><span class="category-item">%s</span></a>' % (y, y) for y in sorted(list(self.pubs_dict.keys()), reverse=True)])
+        #years = ''.join(['<a href="#%s"><span class="category-item">%s</span></a>' % (y, y) for y in sorted(list(self.pubs_dict.keys()), reverse=True)])
 
         output_file = open(output_file_path, 'w')
         W = lambda s: output_file.write(s + '\n')
@@ -188,7 +212,7 @@ class Publications:
         W('''<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>\n''')
         W('''<script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>\n''')
 
-        W('<div class="category-box">\n%s\n</div>\n' % years)
+        #W('<div class="category-box">\n%s\n</div>\n' % years)
 
         W('{:.notice}\n')
         W("This page lists publications that are most reflective of our interests. For a complete list, please see <a href='https://scholar.google.com/citations?user=GtLLuxoAAAAJ&view_op=list_works&sortby=pubdate' target='_blank'>Meren's Google Scholar page</a>.\n")

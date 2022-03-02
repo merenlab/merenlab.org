@@ -834,7 +834,7 @@
       - The first successful attempt to assemble multiple near-complete bacterial genomes directly from a soil sample.
       - The abundance of reconstructed genomes ranged from rare (<0.0001%) to relatively abundant (>0.01%) in pristine soil metagenomes.
     featured_image:
-      - /images/pubs/delmont_rare_soil_genomes.png
+      /images/pubs/delmont_rare_soil_genomes.png
 
 - doi:
     10.1038/ajg.2015.357
