@@ -13,6 +13,30 @@
 #     featured_image:
 
 - doi:
+    10.1186/s13100-022-00262-6
+  title:
+    "Eco-evolutionary significance of domesticated retroelements in microbial genomes"
+  authors:
+    Blair G. Paul, A. Murat Eren
+  journal:
+    Mobile DNA
+  year:
+    2022
+  volume:
+    13
+  number:
+    6
+  pages:
+  additional_info:
+    highlights:
+      - A short review on retrons and diversity-generating retro elements, some of the most beautiful and mysterious ways for life to beat the boring means of evolution and skip ahead.
+      - Demonstrates a workflow that gives access to the extent intra-population hypervariability of DGRs and their ecology through the analysis of metagenomes.
+      - A complete bioinformatics workflow that uses anvi'o and oligotyping to study DGR activity in metageomes is <a href="https://merenlab.org/tutorials/dgrs-in-metagenomes/" target="_blank">available here</a>.
+    featured_image:
+      /images/pubs/dgrs-in-metagenomes.png
+
+
+- doi:
     10.1101/2020.11.01.361691
   title:
     "The genetic and ecological landscape of plasmids in the human gut"
