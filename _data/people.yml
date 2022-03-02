@@ -446,25 +446,20 @@
       inst: Toyota Technological Institute at Chicago
       inst_link: https://www.ttic.edu/
 
-- alias: amy
+- alias: blair
   collaborator: True
   role: Partner in Science / Collaborator
-  avatar: bio-amy.jpg
-  name: Amy D. Willis
-  email: adwillis@uw.edu
-  web: http://statisticaldiversitylab.com/team/amy-willis
-  linkedin: none
-  twitter: AmyDWillis
-  orcid: 0000-0002-2802-4317
-  github: adw96
-  bio: "My lab and I develop statistical and computational methods for the analysis of biodiversity data, with a particular focus on the microbiome. Like the Meren lab, I'm passionate about reproducible science, meaningful data analysis, ecosystem and host health, outreach and education, and collaborating with scientists who share these values."
+  avatar: bio-blair.jpg
+  name: Blair G. Paul
+  email: bgpaul@mbl.edu
+  web: https://www.mbl.edu/jbpc/staff/bgpaul/
+  twitter: gnome_science
+  orcid: 0000-0002-5738-5568
+  bio: "Our lab investigates the influence of genetic variation on physical and chemical interactions among microorganisms, with additional interest in microbe-virus dynamics."
   affiliations:
-    - title: Principal Investigator
-      inst: Statistical Diversity Lab, University of Washington
-      inst_link: http://statisticaldiversitylab.com/
-    - title: Assistant Professor
-      inst: Department of Biostatistics, University of Washington
-      inst_link: https://www.biostat.washington.edu/
+    - title: Assistant Scientist
+      inst: Marine Biological Laboratory
+      inst_link: http://mbl.edu
 
 - alias: antonio
   collaborator: True
@@ -479,6 +474,40 @@
     - title: Assistant Professor
       inst: Lundbeck Foundation GeoGenetics Centre, The GLOBE Institute, University of Copenhagen
       inst_link: https://globe.ku.dk/research/geogenetics/
+
+- alias: jessika
+  collaborator: True
+  role: Partner in Science / Collaborator
+  avatar: bio-jessika.jpg
+  name: Jessika Fuessel
+  email: ju.fuessel@gmail.com
+  twitter: FuesselJessika
+  orcid: 0000-0002-4210-2318
+  github: jessika-fuessel
+  bio: "My aim is to understand the production and fate of microbial metabolites within the context of changing environmental conditions using a multi-omics approaches."
+  affiliations:
+    - title: Post-doctoral Scientist
+      inst: Department of Medicine, University of Chicago
+      inst_link: https://medicine.uchicago.edu/
+
+- alias: amy
+  collaborator: True
+  role: Partner in Science / Collaborator
+  avatar: bio-amy.jpg
+  name: Amy D. Willis
+  email: adwillis@uw.edu
+  web: http://statisticaldiversitylab.com/team/amy-willis
+  twitter: AmyDWillis
+  orcid: 0000-0002-2802-4317
+  github: adw96
+  bio: "My lab and I develop statistical and computational methods for the analysis of biodiversity data, with a particular focus on the microbiome. Like the Meren lab, I'm passionate about reproducible science, meaningful data analysis, ecosystem and host health, outreach and education, and collaborating with scientists who share these values."
+  affiliations:
+    - title: Principal Investigator
+      inst: Statistical Diversity Lab, University of Washington
+      inst_link: http://statisticaldiversitylab.com/
+    - title: Assistant Professor
+      inst: Department of Biostatistics, University of Washington
+      inst_link: https://www.biostat.washington.edu/
 
 - alias: arda
   collaborator: True
@@ -496,20 +525,6 @@
       inst: Konya Food and Agriculture University
       inst_link: https://mmf.gidatarim.edu.tr/
 
-- alias: jessika
-  collaborator: True
-  role: Partner in Science / Collaborator
-  avatar: bio-jessika.jpg
-  name: Jessika Fuessel
-  email: ju.fuessel@gmail.com
-  twitter: FuesselJessika
-  orcid: 0000-0002-4210-2318
-  github: jessika-fuessel
-  bio: "My aim is to understand the production and fate of microbial metabolites within the context of changing environmental conditions using a multi-omics approaches."
-  affiliations:
-    - title: Post-doctoral Scientist
-      inst: Department of Medicine, University of Chicago
-      inst_link: https://medicine.uchicago.edu/
 
 ####################################################################################
 # Community Guests & Contributors
