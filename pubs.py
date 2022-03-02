@@ -32,7 +32,6 @@ journal_name_fixes = [('The ISME journal', 'ISME J'),
 keep_pubs_after_year = 2009
 ##################################################################################
 
-import os
 import sys
 from datetime import datetime
 
@@ -45,27 +44,8 @@ except:
 
 
 class Publications:
-    def __init__(self, pubs_file_path='pubs.txt', pubs_info_file_path='pubs_info.txt'):
-        """Takes an EndNote library exported a TXT file (`pubs_file_path`), and an optional\
-           TAB-delimited info file path with DOI identifiers (`pubs_info_file_path`), and\
-           generates some Markdown formatted output.
-
-           Here is an info line from the EndNote:
-
-                Winterberg, K. M., and Reznikoff, W. S. (2007). "Screening transposon mutant libraries using full-genome oligonucleotide microarrays." Methods Enzymol, 421, 110-25.
-
-           Absolute matching to this format is required.
-
-           Expected headers in the TAB-delimited pubs info file are 'doi', 'highlights',\
-           and 'featured_image'.
-
-                - doi: The DOI of the pub matching to a pubs file path entry.
-                - highlights: Brief bullet points about the work. Each pont must be separated\
-                              from the rest with a ';' character. HTML tags are OK.
-                - featured_image: A URL to an image.
-
-           If things are not working, feel free to write to meren at uchicago.edu
-        """
+    def __init__(self, pubs_file_path='pubs.yaml'):
+        """Takes a YAML file, generates pubs output"""
 
         self.info = {}
 
@@ -76,7 +56,6 @@ class Publications:
         self.author_links = {}
 
         self.pubs_file_path = pubs_file_path
-        self.pubs_info_file_path = pubs_info_file_path
 
 
     def get_author_highlights(self, pub, year):
@@ -103,69 +82,50 @@ class Publications:
 
 
     def parse_pubs_txt(self):
-        if os.path.exists(self.pubs_info_file_path):
-            self.info = u.get_TAB_delimited_file_as_dictionary(self.pubs_info_file_path)
+        self.pubs = u.get_yaml_as_dict('pubs.yaml')
 
-        pubs_header = u.get_columns_of_TAB_delim_file(self.pubs_file_path, include_first_column=True)
-        headers_expected = ['Authors', 'Title', 'Publication', 'Volume', 'Number', 'Pages', 'Year', 'doi']
-        missing_headers = [h for h in pubs_header if h not in headers_expected]
-        if len(missing_headers):
-            raise ConfigError("Sorry, the pubs.txt seems to be missing some of the headers that are mandatory. Each of \
-                               the columns in the following list must be present in this file: %s (hint: yours do not have\
-                               the following: %s)." % (', '.join(headers_expected), ', '.join(missing_headers)))
+        # {'doi': '10.1101/2020.11.01.361691',
+        #  'title': 'The genetic and ecological landscape of plasmids in the human gut',
+        #  'authors': 'Michael K Yu*, Emily C Fogarty*, A. Murat Eren',
+        #  'journal': 'bioRxiv',
+        #  'year': 2022,
+        #  'volume': None,
+        #  'number': None,
+        #  'pages': None,
+        #  'additional_info': {
+        #       'highlights': ['A study that aims to shed light on <b>the ecology and evolution of one of the most critical yet poorly studied aspects of microbial life -- naturally occurring plasmids</b>.',
+        #                      'Uses state-of-the-art machine learning strategies to identify <b>over 60,000 plasmids</b> from human gut metagenomes, which represents a <b>200-fold increase</b> in the number of known plasmids to date that were detectable in healthy humans.',
+        #                      "Defines hundreds of '<b>plasmid systems</b>', and demonstrates that naturally occurring plasmids are not static entities, but <b>their evolution is driven by the need to respond to the environment, and their ecology cannot be simply explained by bacterial taxonomy and distribution patterns of their putative hosts</b>."],
+        #       'featured_image': '/images/pubs/plasmid_systems.png'
+        #  }
+        # }
 
-        self.pubs_txt = u.get_TAB_delimited_file_as_dictionary(self.pubs_file_path, indexing_field=pubs_header.index('doi'))
+        for pub in self.pubs:
+            pub['co_first_authors'] = []
+            pub['co_senior_authors'] = []
 
-        for doi in self.pubs_txt:
-            authors = []
-            co_first_authors = []
-            co_senior_authors = []
-            p = self.pubs_txt[doi]
+            pub['authors'] = [a.strip() for a in pub['authors'].split(',')]
+            for author_name in pub['authors']:
+                if author_name.endswith('*'):
+                    pub['co_first_authors'].append(author_name)
+                elif  author_name.endswith('+'):
+                    pub['co_senior_authors'].append(author_name)
 
-            for author in [_.strip() for _ in p['Authors'].split(';')]:
-                if not len(author):
-                    continue
-
-                author_last_name, author_first_name_raw = [_.strip() for _ in author.split(',')]
-                author_first_name = ''.join([n[0] for n in author_first_name_raw.split()])
-                author_final_name = '%s %s' % (author_last_name, author_first_name)
-
-                if author_first_name_raw.endswith('*'):
-                    co_first_authors.append(author_final_name)
-                elif  author_first_name_raw.endswith('+'):
-                    co_senior_authors.append(author_final_name)
-
-                authors.append(author_final_name)
-
-            if p['Number']:
-                issue = '%s(%s):%s' % (p['Volume'], p['Number'], p['Pages'])
-            elif p['Volume'] and p['Pages']:
-                issue = '%s:%s' % (p['Volume'], p['Pages'])
+            if pub['number']:
+                pub['issue'] = '%s(%s):%s' % (pub['volume'], pub['number'], pub['pages'])
+            elif pub['volume'] and pub['pages']:
+                pub['issue'] = '%s:%s' % (pub['volume'], pub['pages'])
             else:
-                issue = None
+                pub['issue'] = None
 
-            year = p['Year'].strip()
-            pub_entry = {'authors': authors, 'title': p['Title'], 'journal': p['Publication'], 'issue': issue, 'doi': doi, 'year': year, 'co_first_authors': co_first_authors, 'co_senior_authors': co_senior_authors}
-
+            year = pub['year']
             if year not in self.pubs_dict:
-                self.pubs_dict[year] = [pub_entry]
+                self.pubs_dict[year] = [pub]
             else:
-                self.pubs_dict[year].append(pub_entry)
+                self.pubs_dict[year].append(pub)
 
 
     def get_markdown_text_for_pub(self, pub):
-        """Gets a dictionary `pub`, returns a markdown formatted text.
-
-           An example pub:
-
-                {'authors': 'McLellan, S. L., and Eren, A. M.',
-                 'doi': '10.1016/j.tim.2014.08.002',
-                 'issue': '22(12), 697-706',
-                 'title': 'Discovering new indicators of fecal pollution.',
-                 'journal': 'Trends Microbiol',
-                 'year': 2014}
-        """
-
         pub_md = []
 
         A = lambda s: pub_md.append(s)
@@ -186,19 +146,19 @@ class Publications:
         elif pub['co_senior_authors'] and not pub['co_first_authors']:
             A('    <span class="pub-co-first-authors"><sup>‡</sup>Co-senior authors</span>')
 
-        if pub['doi'] in self.info:
-            info = self.info[pub['doi']]
-            A('    <div class="%s">' % ('pub-info' if info['featured_image'] else 'pub-info-no-image'))
+        # add the publication highlights:
+        if 'additional_info' in pub and pub['additional_info']['highlights']:
+            I = pub['additional_info']
+            A('    <div class="%s">' % ('pub-info' if pub['additional_info']['featured_image'] else 'pub-info-no-image'))
 
-            if info['featured_image']:
+            if I['featured_image']:
                 A('    <div class="pub-featured-image">')
-                A('    <a href="%s"><img src="%s" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%%);"/></a>' % (info['featured_image'], info['featured_image']))
+                A('    <a href="%s"><img src="%s" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%%);"/></a>' % (I['featured_image'], I['featured_image']))
                 A('    </div>')
 
-            highlights = info['highlights'].split(';') if info['highlights'] else None
-            if highlights:
-                A('    <div class="%s">' % ('pub-highlights' if info['featured_image'] else 'pub-highlights-no-image'))
-                A('    %s' % '<br>'.join(['<span style="display: inline-block; padding-bottom: 5px;">- %s</span>' % h for h in highlights]))
+            if I['highlights']:
+                A('    <div class="%s">' % ('pub-highlights' if I['featured_image'] else 'pub-highlights-no-image'))
+                A('    %s' % '<br>'.join(['<span style="display: inline-block; padding-bottom: 5px;">- %s</span>' % h for h in I['highlights']]))
                 A('    </div>')
 
             A('    </div>')
