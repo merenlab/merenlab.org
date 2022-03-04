@@ -45,21 +45,6 @@ As stated, this document is a co-mingling of step-by-step reproducibility, and i
 4. Let's face it: there isn't enough space in the Methods section for all relevant details. Beyond what's required for reproducibility, this document houses information about methods that didn't make the cut, but are important nonetheless.
 5. In my opinion, this document sets a standard for what transparency in computational science means, and why that's so valuable. This analysis is completely laid bare, so that it may be openly challenged, criticized, riffed on, and hopefully improved upon in the process. It likely contains errors--but that's okay. I didn't make this document to prove everything I did was right. I made this document to be educational.
 
-### Summary
-
-What can you expect to find in this document? Perhaps you're here for something specific. The following provides a summary of the analyses performed in this document, so you may jump around on a whim.
-
-(FIXME insert a table of contents, like this one used for infant gut)
-
-* [**Chapter I**: Genome-resolved Metagenomics](#chapter-i-genome-resolved-metagenomics)
-* [**Chapter II**: Automatic Binning](#chapter-ii-automatic-binning)
-* [**Chapter III**: Phylogenomics](#chapter-iii-phylogenomics)
-* [**Chapter IV**: Pangenomics](#chapter-iv-pangenomics)
-* [**Chapter V**: Metabolism Prediction](#chapter-v-metabolism-prediction)
-* [**Chapter VI**: Microbial Population Genetics](#chapter-vi-microbial-population-genetics)
-* [**Chapter VII**: Genes and genomes across metagenomes](#chapter-vii-genes-and-genomes-across-metagenomes)
-* [**Chapter VIII**: From single-amino acid variants to protein structures](#chapter-viii-from-single-amino-acid-variants-to-protein-structures)
-
 ### Requirements
 
 There are some skill and hardware requirements for following this workflow. There are also software requirements, however after completing the first step in this workflow, it is guaranteed that all of your software requirements are met.
