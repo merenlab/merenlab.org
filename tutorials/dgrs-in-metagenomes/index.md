@@ -7,7 +7,7 @@ redirect_from:
   - /dgrs-in-metagenomes
   - /dgrs-in-metagenomes/
 comments: true
-authors: [meren]
+authors: [meren, blair]
 ---
 
 
@@ -19,11 +19,11 @@ The purpose of this tutorial is to demonstrate a **bioinformatics workflow** tha
 
 While this tutorial uses **diversity-generating retroelements (DGRs)** as an example and focuses on the activity of a particular DGR in a *Trichodesmium* genome, the strategies covered in this document are applicable to **any other context in which rampant hypervariability or subtle microdiversity is of interest**.
 
-The tutorial also serves as a **reproducible bioinformatics workflow** for the recent review [Blair Paul](https://www.mbl.edu/jbpc/staff/bgpaul/) and I wrote on the **eco-evolutionary significance of domesticated retroelements in microbial genomes**. The organization of the document will follow the organization of Figure 3 in that work, and will demonstrate the key analysis steps that led to its emergence.
+The tutorial also serves as a **reproducible bioinformatics workflow** for the recent review [Blair Paul](https://www.mbl.edu/jbpc/staff/bgpaul/) and I wrote on some of the most beautiful and mysterious ways for life to beat the boring means of evolution and skip ahead:
 
-* [Link to the review TBD](#)
+* [Eco-evolutionary significance of domesticated retroelements in microbial genomes](https://doi.org/10.1186/s13100-022-00262-6)
 
-We hope that this workflow will inspire you to keep in mind,
+The organization of the document will follow the organization of Figure 3 in that work, and will demonstrate the key analysis steps that led to its emergence. We hope that this workflow will inspire you to keep in mind,
 
 * The importance of **studying metagenomic coverage data** more carefully,
 * The utility of **single-nucleotide variants (SNVs)** to recognize biological phenomena,

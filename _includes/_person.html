@@ -82,7 +82,7 @@
 
 <p class="notice">Our partners in science who work closely and actively with our group. Undoubtedly, this list will forever be incomplete. We collaborate with many more scientists and we benefit from the guidance of many of our senior colleagues. This dynamic list is meant to mention our most active collaborators with whom we interact almost daily to weekly (sorted by name, please edit <a href="https://github.com/merenlab/web/blob/master/_data/people.yml" style="color:red;">this</a> file if updates necessary).
 
-{% for person in people_sorted %}
+{% for person in site.data.people %}
     {% if person.collaborator %}
     <div class="person">
         <div class="person-photo">

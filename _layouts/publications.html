@@ -16,9 +16,20 @@
     {% include _left-panel.html %}
   </div>
 
-  <article class="page">
+  <article class="post">
+
+    <h1>Publications</h1>
+
     <div class="article-wrap">
-     <div id="articlecontent">{{ content }}</div> 
+     <div id="articlecontent">
+
+         <section id="markdown-toc" class="toc">
+            <header><h3 id="toc-header"><i class="fa fa-book"></i> Years</h3></header>
+            <div id="drawer">{% include _toc.html html=content %}</div>
+        </section>
+
+        {{ content }}
+     </div> 
     </div><!-- /.article-wrap -->
   </article>
 
