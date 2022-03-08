@@ -72,7 +72,7 @@ If you are interested in reproducing this tutorial, please consider [installing 
 
 First things first: the genome. We downloaded a genome for the *T. erythraeum* IMS101 strain through [this page on NCBI](https://www.ncbi.nlm.nih.gov/datasets/genomes/?taxon=203124). Just for posterity, here is the FASTA file that we ended up working with:
 
-* [https://merenlab.org/data/dgrs-in-metagenomes/files/T_erythraeum_IMS101.fa.gz](https://merenlab.org/data/dgrs-in-metagenomes/files/T_erythraeum_IMS101.fa.gz)
+* [https://merenlab.org/tutorials/dgrs-in-metagenomes/files/T_erythraeum_IMS101.fa.gz](https://merenlab.org/tutorials/dgrs-in-metagenomes/files/T_erythraeum_IMS101.fa.gz)
 
 ## Downloading the metagenomes
 
