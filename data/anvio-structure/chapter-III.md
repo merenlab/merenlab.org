@@ -2,7 +2,7 @@
 layout: page
 title: Chapter III - Reproducing Kiefl et al, 2022
 modified: 2021-10-21
-excerpt: "A complete reproducible workflow of the manuscript 'FIXME' by Kiefl et al"
+excerpt: "A complete reproducible workflow of the manuscript 'Structure-informed microbial population genetics elucidate selective pressures that shape protein evolution' by Kiefl et al"
 comments: true
 authors: [evan]
 redirect_from:
@@ -11,6 +11,19 @@ redirect_from:
 
 {% capture images %}{{site.url}}/data/anvio-structure/images{% endcapture %}
 {% capture command_style %}background: #D7484822; border: 4px solid #D74848;{% endcapture %}
+{% capture analysis_style %}background: #E6DBE4{% endcapture %}
+
+{:.warning}
+This document is **UNDER CONSTRUCTION**. It is not in a state where you can yet reproduce our work. We anticipate this workflow will be finalized by late March, and will remove this message when it is complete.
+
+## Quick Navigation
+
+- [Chapter I: The prologue]({{ site.url }}/data/anvio-structure/chapter-I)
+- [Chapter II: Configure your system]({{ site.url }}/data/anvio-structure/chapter-II)
+- [Chapter III: Build the data]({{ site.url }}/data/anvio-structure/chapter-III) ← _you are here_
+- [Chapter IV: Analyze the data]({{ site.url }}/data/anvio-structure/chapter-IV)
+- [Chapter V: Reproduce every number]({{ site.url }}/data/anvio-structure/chapter-V)
+
 
 ## Step X: Creating a fresh directory
 
@@ -3162,9 +3175,82 @@ And as you would expect, you can also find $pN^{(site)}$, $pS^{(site)}$, and $pN
 
 ## Step X: Codon properties
 
-In the paper, we measured how codon usage varies from gene-to-gene and from sample-to-sample, ultimately illustrating that rare codons are preferred in structurally/functionally noncritical residues. For a mathematical definition of codon rarity, see the Methods section of the paper.
+In the paper, we measured how codon usage varies from sample-to-sample, ultimately illustrating that rare codons are preferred in structurally/functionally noncritical sites. First, let's go through the different definitions of rarity.
 
-To calculate codon metrics such as rarity for each of the 64 codons, I created the script `ZZ_SCRIPTS/get_codon_trna_composition.sh`.
+
+### Definitions of rarity
+
+First and foremost, when the paper discusses rarity, it is always, always, always referring to **synonymous codon rarity**, which I'll define in just a second. I mention this because in the files and scripts below, you will find other definitions of rarity that I experimented with during the exploratory phase of this study. Since they are interesting in their own right, I have kept them here so that you too can experiment with them. However, the paper is concerned specifically with synonymous codon rarity.
+
+#### Synonymous codon rarity
+
+Synonymous codon rarity, or **s-codon rarity**, describes how rare a codon is in the HIMB83 genome relative to other codons that encode the same amino acid. Mathematically, the synonymous codon rarity of codon $i$ is
+
+$$
+R_{i} = 1 - \frac {f_i} {\sum_j S(i, j) f_j}
+$$
+
+where f_{i} is the proportion of codons in the HIMB83 sequence that are the $i$th codon, and where $S(i, j)$ is the indicator function
+
+$$
+S(i, j) = 1 \, if \, synonymous(i, j) \, else \, 0
+$$
+
+(Mathematically, we are assuming codon $i$ is synonymous with itself $i$)
+
+As an example, what is the synonymous codon rarity of GCC, which encodes the amino acid alanine? First, we count all of the instances of GCC in the codons of HIMB83 (all 1470 coding genes) and divide it by the number of codon in HIMB83. That number is $f_{GCC}$. Then we do the same thing for all alanine codons, GCA, GCC, GCG, and GCT. We are thus left with
+
+$$
+\displaylines{f_{GCA} = 0.02553 \\ f_{GCC} = 0.00329 \\ f_{GCG} = 0.00294 \\ f_{GCT} = 0.0232}
+$$
+
+What we are looking at here are the frequencies of alanine codons relative to all codons. For example, this says that 0.329% of codons in the HIMB83 genome are GCC. To calculate synonymous codon rarity, we apply the above formula:
+
+$$
+R_{GCC} = 1 - \frac {0.00329} {0.02553 + 0.00329 + 0.00294 + 0.0232} = 0.94
+$$
+
+Since GCC occurs much less frequently than its synonymous counterparts GCA and GCT, it gets a high synonymous codon rarity score of 0.94.
+
+#### Codon rarity
+
+Codon rarity is similar to synonymous codon rarity, except values are not normalized by codons sharing the same amino acid. It is calculated in two parts. First, I calculated the unnormalized codon rarity for each codon $i$, which we defined as
+
+$$
+R'_{i}=1-f_i
+$$
+
+where $f_i$ is the frequency that a codon was observed in the HIMB83 genome sequence. Then, we normalized the values such that the codons with the lowest and highest values get rarity scores of 0 and 1, respectively:
+
+$$
+R_i = \frac{(R'_i-\min(R')}{\max(R'_{i})-\min(R')},
+$$
+
+where $\min(R')$ and $\max(R')$ correspond to the smallest and largest unnormalized rarity scores.
+
+This metric can be useful for assessing how rare a codon is relative to all codons, not just relative to those it is synonymous with.
+
+#### Amino acid rarity
+
+Amino acid rarity is just the same as amino acid rarity, except instead of comparing amino acids, we are comparing amino acids. It is calculated very similarly to amino acid rarity. First, I calculated the unnormalized amino acid rarity for each amino acid $i$, which we defined as
+
+$$
+R'_{i}=1-f_i
+$$
+
+where $f_i$ is the frequency that an amino acid was observed in the HIMB83 genome sequence. Then, we normalized the values such that the amino acids with the lowest and highest values get rarity scores of 0 and 1, respectively:
+
+$$
+R_i = \frac{(R'_i-\min(R')}{\max(R'_{i})-\min(R')},
+$$
+
+where $\min(R')$ and $\max(R')$ correspond to the smallest and largest unnormalized rarity scores.
+
+This metric can be useful for assessing how rare amino acids are relative to each other.
+
+### Calculating rarity
+
+To calculate metrics such as rarity for codons and amino acids, I created the script `ZZ_SCRIPTS/get_codon_trna_composition.sh`.
 
 <details markdown="1"><summary>Show/Hide Script</summary>
 
@@ -3179,7 +3265,7 @@ anvi-get-codon-frequencies -c CONTIGS.db \
                            --percent-normalize
 
 anvi-get-codon-frequencies -c CONTIGS.db \
-                           -o codon_freqs_per_aa.txt \
+                           -o codon_freqs_synonymous.txt \
                            --collapse \
                            --merens-codon-normalization
 
@@ -3195,7 +3281,7 @@ anvi-get-sequences-for-hmm-hits -c CONTIGS.db --hmm-source Transfer_RNAs -o trna
 python ZZ_SCRIPTS/get_codon_trna_composition.py
 ```
 
-Here is the script `ZZ_SCRIPTS/get_codon_trna_composition.py`, which it calls upon. FIXME update and rewrite what this produces
+Here is the script `ZZ_SCRIPTS/get_codon_trna_composition.py`, which it calls upon.
 
 ```python
 #! /usr/bin/env python
@@ -3225,17 +3311,58 @@ while next(fasta):
 
 df = pd.DataFrame(codon_count)
 
+# ------------------------------------------------------------------------------------------------------
+# Calculate codon rarity. This is calculated from codon frequencies that sum to 1
+# ------------------------------------------------------------------------------------------------------
+
 codon_freq = pd.read_csv('codon_freqs.txt', sep='\t').T.reset_index().tail(-1).rename(columns={0: 'freq', 'index': 'codon'})
 codon_freq['amino_acid'] = codon_freq['codon'].map(lambda codon: codon_count['amino_acid'][codon_count['codon'].index(codon)])
 codon_freq['rarity'] = 100-codon_freq['freq']
-
 # normalize rarity between 0 and 1
 M, m = codon_freq['rarity'].max(), codon_freq['rarity'].min()
 codon_freq['rarity'] = (codon_freq['rarity'] - m) / (M - m)
 
+# ------------------------------------------------------------------------------------------------------
+# Calculate codon rarity per AA. This is calculated from codon frequencies that sum to 1 for each AA
+# and is called "synonymous rarity"
+# ------------------------------------------------------------------------------------------------------
+
+codon_freq_per_aa = pd.read_csv('codon_freqs_synonymous.txt', sep='\t').T.reset_index().tail(-1).rename(columns={0: 'freq_per_aa'})
+codon_freq_per_aa[['amino_acid', 'codon']] = codon_freq_per_aa['index'].str.split('-', expand=True)
+codon_freq_per_aa.drop('index', axis=1, inplace=True)
+codon_freq_per_aa['syn_rarity'] = (100-codon_freq_per_aa['freq_per_aa'])/100
+
+# ------------------------------------------------------------------------------------------------------
+# Calculate amino acid rarity. This is calculated from amino acid frequencies that sum to 1
+# ------------------------------------------------------------------------------------------------------
+
+aa_freq = pd.read_csv('aa_freqs.txt', sep='\t').T.reset_index().tail(-1).rename(columns={0: 'aa_freq', 'index': 'amino_acid'})
+aa_freq['aa_rarity'] = 100-aa_freq['aa_freq']
+# normalize rarity between 0 and 1
+M, m = aa_freq['aa_rarity'].max(), aa_freq['aa_rarity'].min()
+aa_freq['aa_rarity'] = (aa_freq['aa_rarity'] - m) / (M - m)
+
+# ------------------------------------------------------------------------------------------------------
+# Merge
+# ------------------------------------------------------------------------------------------------------
+
 df = df.\
     merge(codon_freq, how='left', on=['codon', 'amino_acid']).\
+    merge(codon_freq_per_aa, how='left', on=['codon', 'amino_acid']).\
+    merge(aa_freq, how='left', on=['amino_acid']).\
     sort_values(by='amino_acid')
+
+# ------------------------------------------------------------------------------------------------------
+# Add the atomic composition
+# ------------------------------------------------------------------------------------------------------
+
+atoms = constants.AA_atomic_composition
+atoms['STP'] = Counter()
+
+df['N'] = df['amino_acid'].map(lambda x: atoms[x]['N'])
+df['C'] = df['amino_acid'].map(lambda x: atoms[x]['C'])
+df['O'] = df['amino_acid'].map(lambda x: atoms[x]['O'])
+df['S'] = df['amino_acid'].map(lambda x: atoms[x]['S'])
 
 # based on the available tRNA genes we construct this putative association between codons and the
 # the tRNA anticodons that decode them. This was done by hand.
@@ -3326,37 +3453,46 @@ This script utilizes {% include PROGRAM name="anvi-get-codon-frequencies" %}, {%
 
 ```
 codon_freqs.txt
-codon_trna_composition_per_gene.txt
+codon_freqs_synonymous.txt
+codon_trna_composition.txt
 ```
 
-`codon_freqs.txt` is produced by {% include PROGRAM name="anvi-get-codon-frequencies" %} and compiles the percentage of total codons found in the HIMB83 genome that correspond to each codon:
+`codon_freqs.txt` and is produced by {% include PROGRAM name="anvi-get-codon-frequencies" %} and compiles the percentage of total codons found in the HIMB83 genome that correspond to each codon:
 
 |**gene_callers_id**|**GCA**|**GCC**|**GCG**|**GCT**|**AGA**|**AGG**|**CGA**|**CGC**|**CGG**|**CGT**|**AAC**|**AAT**|**GAC**|**GAT**|**TGC**|**TGT**|**CAA**|**CAG**|**GAA**|**GAG**|**GGA**|**GGC**|**GGG**|**GGT**|**CAC**|**CAT**|**ATA**|**ATC**|**ATT**|**CTA**|**CTC**|**CTG**|**CTT**|**TTA**|**TTG**|**AAA**|**AAG**|**ATG**|**TTC**|**TTT**|**CCA**|**CCC**|**CCG**|**CCT**|**TAA**|**TAG**|**TGA**|**AGC**|**AGT**|**TCA**|**TCC**|**TCG**|**TCT**|**ACA**|**ACC**|**ACG**|**ACT**|**TGG**|**TAC**|**TAT**|**GTA**|**GTC**|**GTG**|**GTT**|
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
 |all|2.553|0.329|0.294|2.32|2.606|0.243|0.174|0.015|0.017|0.144|1.269|5.375|0.872|4.344|0.193|0.771|2.235|0.404|4.811|1.337|2.685|0.497|0.373|2.628|0.362|1.239|3.073|0.887|5.51|0.928|0.169|0.193|1.641|5.397|1.039|9.209|1.243|2.203|0.667|4.684|1.695|0.16|0.133|1.259|0.242|0.041|0.043|0.457|1.455|2.39|0.223|0.23|2.053|2.114|0.375|0.212|2.019|0.938|0.735|2.721|1.88|0.303|0.419|2.973|
 
-This frequency data is what's used to calculate codon rarity. Speaking of which, `codon_trna_composition.txt` summarizes several pieces of information about each codon, such as the corresponding amino acid, the number of cognate tRNA genes found in HIMB83, as well as metrics like the frequency that its found in the genome, including the **codon rarity** metric used in the paper. Here it is:
+These can be used to calculate codon rarity.
 
-|**codon**|**anticodon**|**amino_acid**|**GC_fraction**|**trna_copy_number**|**freq**|**rarity**|**trna**|**trna_abundance**|**trna_abundance_per_aa**|
-|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-|GCC|GGC|Ala|1.0|0|0.32899999999999996|0.9658472917119868|TGC|2.8|1.0|
-|GCT|AGC|Ala|0.6666666666666666|0|2.32|0.7492930171851216|TGC|2.8|1.0|
-|GCG|CGC|Ala|1.0|0|0.294|0.9696541222536441|TGC|2.8|1.0|
-|GCA|TGC|Ala|0.6666666666666666|1|2.553|0.723950402436372|TGC|2.8|1.0|
-|AGA|TCT|Arg|0.3333333333333333|1|2.6060000000000003|0.7181857733304337|TCT|1.7043478260869565|0.4336283185840708|
-|CGC|GCG|Arg|1.0|0|0.015|1.0|TCG|2.226086956521739|0.5663716814159292|
-|CGA|TCG|Arg|0.6666666666666666|1|0.174|0.9827061126821833|TCG|2.226086956521739|0.5663716814159292|
-|CGG|CCG|Arg|1.0|0|0.017|0.9997824668261915|TCG|2.226086956521739|0.5663716814159292|
-|CGT|ACG|Arg|0.6666666666666666|1|0.14400000000000002|0.9859691102893186|TCG|2.226086956521739|0.5663716814159292|
-|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
+Similary, `codon_freqs_synonymous.txt` is also produced by {% include PROGRAM name="anvi-get-codon-frequencies" %} but compiles the relative percentages of codons for a given amino acid. It looks like this:
+
+|**gene_callers_id**|**Ala-GCA**|**Ala-GCC**|**Ala-GCG**|**Ala-GCT**|**Arg-AGA**|**Arg-AGG**|**Arg-CGA**|**Arg-CGC**|**Arg-CGG**|**Arg-CGT**|**Asn-AAC**|**Asn-AAT**|**Asp-GAC**|**Asp-GAT**|**Cys-TGC**|**Cys-TGT**|**Gln-CAA**|**Gln-CAG**|**Glu-GAA**|**Glu-GAG**|**Gly-GGA**|**Gly-GGC**|**Gly-GGG**|**Gly-GGT**|**His-CAC**|**His-CAT**|**Ile-ATA**|**Ile-ATC**|**Ile-ATT**|**Leu-CTA**|**Leu-CTC**|**Leu-CTG**|**Leu-CTT**|**Leu-TTA**|**Leu-TTG**|**Lys-AAA**|**Lys-AAG**|**Met-ATG**|**Phe-TTC**|**Phe-TTT**|**Pro-CCA**|**Pro-CCC**|**Pro-CCG**|**Pro-CCT**|**STP-TAA**|**STP-TAG**|**STP-TGA**|**Ser-AGC**|**Ser-AGT**|**Ser-TCA**|**Ser-TCC**|**Ser-TCG**|**Ser-TCT**|**Thr-ACA**|**Thr-ACC**|**Thr-ACG**|**Thr-ACT**|**Trp-TGG**|**Tyr-TAC**|**Tyr-TAT**|**Val-GTA**|**Val-GTC**|**Val-GTG**|**Val-GTT**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|all|46.46|5.98|5.345|42.215|81.442|7.591|5.445|0.479|0.535|4.508|19.093|80.907|16.72|83.28|19.995|80.005|84.685|15.315|78.259|21.741|43.425|8.044|6.027|42.504|22.631|77.369|32.448|9.364|58.188|9.907|1.808|2.057|17.516|57.62|11.091|88.111|11.889|100.0|12.457|87.543|52.21|4.94|4.085|38.764|74.268|12.457|13.274|6.717|21.379|35.105|3.274|3.372|30.153|44.792|7.941|4.49|42.777|100.0|21.256|78.744|33.724|5.437|7.509|53.33|
+
+These can be used to calculated synonymous codon rarity, which in the paper we oftentimes refer to it simply as 'rarity'.
+
+The third output, `codon_trna_composition.txt`, summarizes several pieces of information about each codon, such as the corresponding amino acid, the number of cognate tRNA genes found in HIMB83, as well as metrics like the frequency that its found in the genome, including the **synonymous codon rarity** metric used in the paper. Here it is:
+
+|**codon**|**anticodon**|**amino_acid**|**GC_fraction**|**trna_copy_number**|**freq**|**rarity**|**freq_per_aa**|**syn_rarity**|**aa_freq**|**aa_rarity**|**N**|**C**|**O**|**S**|**trna**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|GCC|GGC|Ala|1.0|0|0.32899999999999996|0.9658472917119868|5.98|0.9401999999999999|5.496|0.48938271604938255|1|3|2|0|TGC|
+|GCT|AGC|Ala|0.6666666666666666|0|2.32|0.7492930171851216|42.215|0.57785|5.496|0.48938271604938255|1|3|2|0|TGC|
+|GCG|CGC|Ala|1.0|0|0.294|0.9696541222536441|5.345|0.94655|5.496|0.48938271604938255|1|3|2|0|TGC|
+|GCA|TGC|Ala|0.6666666666666666|1|2.553|0.723950402436372|46.46|0.5354|5.496|0.48938271604938255|1|3|2|0|TGC|
+|AGA|TCT|Arg|0.3333333333333333|1|2.6060000000000003|0.7181857733304337|81.442|0.18558000000000008|3.199|0.7162469135802465|4|6|2|0|TCT|
+|CGC|GCG|Arg|1.0|0|0.015|1.0|0.479|0.99521|3.199|0.7162469135802465|4|6|2|0|TCG|
+|CGA|TCG|Arg|0.6666666666666666|1|0.174|0.9827061126821833|5.445|0.9455500000000001|3.199|0.7162469135802465|4|6|2|0|TCG|
+|CGG|CCG|Arg|1.0|0|0.017|0.9997824668261915|0.535|0.99465|3.199|0.7162469135802465|4|6|2|0|TCG|
+|CGT|ACG|Arg|0.6666666666666666|1|0.14400000000000002|0.9859691102893186|4.508|0.95492|3.199|0.7162469135802465|4|6|2|0|TCG|
+|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 
 As you can see, it is basically a one-stop shop for all your codon property needs.
 
-### Adding codon rarity to SCV data
+### Adding synonymous codon rarity to SCV data
 
-Just like RSA and DTL, codon rarity is a metric that benefits most from being associated to each SCV (row) in the {% include ARTIFACT name="variability-profile" %}, `11_SCVs.txt`. This is the last piece of information we'll add to the `11_SCVs.txt`.
-
-FIXME update script
+Just like RSA and DTL, codon rarity is a metric that we definitely want associated to each SCV (row) in the {% include ARTIFACT name="variability-profile" %}, `11_SCVs.txt`. This is the last piece of information we'll add to the `11_SCVs.txt`.
 
 <details markdown="1"><summary>Show/Hide Script</summary>
 ```python
@@ -3365,6 +3501,30 @@ import pandas as pd
 import argparse
 import anvio.constants as constants
 import anvio.variabilityops as vops
+
+aa_variability_profile = '10_SAAVs.txt'
+print('loading saavs table')
+aa_var = vops.VariabilityData(argparse.Namespace(variability_profile=aa_variability_profile))
+print('converting table to frequencies')
+aa_var.convert_counts_to_frequencies(retain_counts=True)
+
+amino_acids = constants.amino_acids
+col_names = [aa + '_freq' for aa in amino_acids]
+
+df = pd.read_csv('codon_trna_composition.txt', sep='\t').sort_values('amino_acid')
+aa_rarity_array = df[['aa_rarity', 'amino_acid']].drop_duplicates()['aa_rarity'].values
+
+print('calculating aa_rarity')
+aa_var.data['aa_rarity'] = np.sum(aa_var.data[col_names].values*aa_rarity_array, axis=1)
+
+print('dropping frequency columns')
+# Do not hold onto the frequency columns
+aa_var.data.drop(col_names, axis=1, inplace=True)
+
+print('saving aa table')
+aa_var.data.to_csv(aa_variability_profile, sep='\t', index=False)
+
+# -----------------------------------
 
 variability_profile = '11_SCVs.txt'
 print('loading table')
@@ -3379,12 +3539,20 @@ coding_col_names = [codon + '_freq' for codon in coding_codons]
 
 df = pd.read_csv('codon_trna_composition.txt', sep='\t').sort_values('codon')
 rarity_array = df.rarity.values
+syn_rarity_array = df.syn_rarity.values
+aa_rarity = df.aa_rarity.values
 GC_fraction = df.GC_fraction.values
 
-print('calculating codon_rarity_per_aa')
+print('calculating codon_rarity')
 var.data['codon_rarity'] = np.sum(var.data[col_names].values*rarity_array, axis=1)
+print('calculating syn_codon_rarity')
+var.data['syn_codon_rarity'] = np.sum(var.data[col_names].values*syn_rarity_array, axis=1)
+print('calculating aa_rarity')
+var.data['aa_rarity'] = np.sum(var.data[col_names].values*aa_rarity, axis=1)
 print('calculating GC_fraction')
 var.data['GC_fraction'] = np.sum(var.data[col_names].values*GC_fraction, axis=1)
+
+# -----------------------------------
 
 print('dropping frequency columns')
 # Do not hold onto the frequency columns
@@ -3405,6 +3573,7 @@ python ZZ_SCRIPTS/append_codon_trna_composition.py
 ‣ **Storage:** 750 Mb  
 </div>
 
+This script does a bit more than I'm letting on, because it adds codon rarity, synonymous codon rarity, and amino acid rarity as columns to our {% include ARTIFACT name="variability-profile" %} `11_SCVs.txt`, as well as amino acid rarity as a column to our {% include ARTIFACT name="variability-profile" %} `10_SAAVs.txt`.
 
 ## Step X: Breathe
 

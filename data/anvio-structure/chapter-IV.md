@@ -2,7 +2,7 @@
 layout: page
 title: Chapter IV - Reproducing Kiefl et al, 2022
 modified: 2021-10-21
-excerpt: "A complete reproducible workflow of the manuscript 'FIXME' by Kiefl et al"
+excerpt: "A complete reproducible workflow of the manuscript 'Structure-informed microbial population genetics elucidate selective pressures that shape protein evolution' by Kiefl et al"
 comments: true
 authors: [evan]
 redirect_from:
@@ -11,6 +11,18 @@ redirect_from:
 
 {% capture images %}{{site.url}}/data/anvio-structure/images{% endcapture %}
 {% capture command_style %}background: #D7484822; border: 4px solid #D74848;{% endcapture %}
+{% capture analysis_style %}background: #E6DBE4{% endcapture %}
+
+{:.warning}
+This document is **UNDER CONSTRUCTION**. It is not in a state where you can yet reproduce our work. We anticipate this workflow will be finalized by late March, and will remove this message when it is complete.
+
+## Quick Navigation
+
+- [Chapter I: The prologue]({{ site.url }}/data/anvio-structure/chapter-I)
+- [Chapter II: Configure your system]({{ site.url }}/data/anvio-structure/chapter-II)
+- [Chapter III: Build the data]({{ site.url }}/data/anvio-structure/chapter-III)
+- [Chapter IV: Analyze the data]({{ site.url }}/data/anvio-structure/chapter-IV) ← _you are here_
+- [Chapter V: Reproduce every number]({{ site.url }}/data/anvio-structure/chapter-V)
 
 ## Analysis X: Setting the stage
 
@@ -1483,8 +1495,6 @@ display(
 
 Running the following creates Figure S_SHUFF_COMP under the filename `YY_PLOTS/FIG_S_SHUFF_COMP/fig.png`:
 
-```
-</details> 
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #X</span>

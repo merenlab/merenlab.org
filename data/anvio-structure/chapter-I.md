@@ -2,7 +2,7 @@
 layout: page
 title: Chapter I - Reproducing Kiefl et al, 2022
 modified: 2021-10-21
-excerpt: "A complete reproducible workflow of the manuscript 'FIXME' by Kiefl et al"
+excerpt: "A complete reproducible workflow of the manuscript 'Structure-informed microbial population genetics elucidate selective pressures that shape protein evolution' by Kiefl et al"
 comments: true
 authors: [evan]
 redirect_from:
@@ -11,9 +11,19 @@ redirect_from:
 
 {% capture images %}{{site.url}}/data/anvio-structure/images{% endcapture %}
 {% capture command_style %}background: #D7484822; border: 4px solid #D74848;{% endcapture %}
+{% capture analysis_style %}background: #E6DBE4{% endcapture %}
 
-{:.notice}
+{:.warning}
 This document is **UNDER CONSTRUCTION**. It is not in a state where you can yet reproduce our work. We anticipate this workflow will be finalized by late March, and will remove this message when it is complete.
+
+## Quick Navigation
+
+- [Chapter I: The prologue]({{ site.url }}/data/anvio-structure/chapter_I) ← _you are here_
+- [Chapter II: Configure your system]({{ site.url }}/data/anvio-structure/chapter-II)
+- [Chapter III: Build the data]({{ site.url }}/data/anvio-structure/chapter-III)
+- [Chapter IV: Analyze the data]({{ site.url }}/data/anvio-structure/chapter-IV)
+- [Chapter V: Reproduce every number]({{ site.url }}/data/anvio-structure/chapter-V)
+
 
 ## Introduction
 
@@ -37,10 +47,10 @@ With this in mind, this document aims to explain both the _how_ and the _why_ of
 
 ### Goals
 
-As stated, this document is a co-mingling of step-by-step reproducibility, and in-depth commentary. In my opinion (some of this is subjective), the document satisfies all of the following goals:
+As stated, this document is a co-mingling of step-by-step reproducibility, and in-depth commentary. With that in mind, I set forth the following goals, which in my opinion are all satisfied by this document:
 
 1. Step-by-step command-line instructions are provided for generating all raw, intermediate, and final data used in the paper, including all figures, tables, and numbers in the main and supplemental text.
-2. There exists many 'checkpoint files', so that one may download intermediate data if they can't or don't want to follow the entirety of the workflow. This is especially important for steps requiring significant computational resources. For example, this workflow involves downloading roughly 4Tb of metagenomic and metatranscriptomic sequence data for a read recruitment experiment. Yet those unable or uninterested in allotting this amount of storage space can instead download the anvi'o databases (a few Gb) that result from this read recruitment experiment and continue with the more interesting aspects of the analysis.
+2. There exists several 'checkpoint files', so that one may download intermediate data if they can't or don't want to follow the entirety of the workflow. This is especially important for steps requiring significant computational resources. For example, this workflow involves downloading roughly 4Tb of metagenomic and metatranscriptomic sequence data for a read recruitment experiment. Yet those unable or uninterested in allotting this amount of storage space can instead download the anvi'o databases (a few Gb) that result from this read recruitment experiment and continue with the more interesting aspects of the analysis.
 3. I've avoided common pitfalls of replicability by paying extra attention to **(a)** creating isolated installation environments, **(b)** meticulous control over program versioning, **(c)** cross-platform compatibility, and **(d)** prohibited use of environmental variables that are specific to my personal environment.
 4. Let's face it: there isn't enough space in the Methods section for all relevant details. Beyond what's required for reproducibility, this document houses information about methods that didn't make the cut, but are important nonetheless.
 5. In my opinion, this document sets a standard for what transparency in computational science means, and why that's so valuable. This analysis is completely laid bare, so that it may be openly challenged, criticized, riffed on, and hopefully improved upon in the process. It likely contains errors--but that's okay. I didn't make this document to prove everything I did was right. I made this document to be educational.
@@ -53,9 +63,7 @@ There are some skill and hardware requirements for following this workflow. Ther
 
 This study makes primary use of some large datasets. If you want to reproduce this study from scratch, you will need access to a high performance computing (HPC) cluster.
 
-But if you don't have access to such a resource, don't worry. All of the computationally intensive steps in this study occur near the beginning of the workflow. Past Step FIXME, **all of the subsequent analysis is achievable on a laptop with FIXME Gb RAM and ~FIXME Gb storage space**.
-
-I created several checkpoint data packs that you can download in order to jump into the remainder of the analysis without having completed earlier steps.
+But if you don't have access to such a resource, don't worry. All of the computationally intensive steps in this study occur near the beginning of the workflow. Past Step X, **I achieved all of the subsequent analyses on a laptop with 16 Gb of RAM and <75Gb of free storage (unless otherwise stated)**.
 
 #### Skillset
 
@@ -65,19 +73,30 @@ That means you know the basics of navigating to different files on your computer
 
 If you don't fall into this category of people, I would suggest checking out this great learning resource, [Happy Belly Bioinformatics](https://astrobiomike.github.io/unix/), which teaches you the basics of UNIX command-line computing.
 
-If you are concerned whether your skills are up to snuff, don't worry. My suggestion would be to take a look at [Step FIXME: Setting up the required environment](FIXME). This is by far the hardest part of the workflow, so if you're able to complete this step and pass all the tests, the rest is child's play.
+If you are concerned whether your skills are up to snuff, don't worry. My suggestion would be to briefly peruse [Chapter II: Configure your system]({{ site.url }}/data/anvio-structure/chapter-II). This is by far the hardest part of the workflow, so if you think you can follow the steps within, the rest will be child's play.
 
 As you learned in the hardware requirements, recreating this study from scratch requires access to a high-performance computing cluster. If you plan to go this route instead of downloading some of the checkpoint data packs, you will need to know how to submit commands as jobs to your HPC cluster.
 
 ### Format
 
-I tried to adopt a consistent "language" throughout the document, so please take the time to learn it.
+I tried to adopt a consistent terminology throughout the document, so please take the time to learn it below.
 
-#### Steps
+#### Workflow anatomy
 
-FIXME I still need to figure out how I'm going to do this.
+The meat of the workflow is composed of **steps** and **analyses**.
 
-This workflow is composed of **steps** and **commands**. Each step is series of commands.
+[![anatomy]({{images}}/anatomy.jpg)]( {{images}}/anatomy.jpg){:.center-img .width-70}
+
+In the simplest terms, steps build up the data, and analyses utilize the data.
+
+[Chapter III: Build the data]({{ site.url }}/data/anvio-structure/chapter-III) (and [Chapter II: Configure your system]({{ site.url }}/data/anvio-structure/chapter-II)) is composed of a series of **steps** which are to be completed in order. Each step tackles a discrete task such as "_downloading the metagenomes_" or "_annotating genes with functions_". Once the last step has been completed, you will possess all of the necessary data structures to carry out the analyses in the paper.
+
+In contrast, [Chapter IV: Analyze the Data]({{ site.url }}/data/anvio-structure/chapter-IV) is composed of **analyses** which can be completed independently of one another (unless otherwise stated). Each analysis represents a discrete analysis like "_calculating codon usage between SAR11 genes_" or "_comparing AlphaFold to MODELLER_". Each analysis uses the data structures built from Chapter II, and thus all of the steps must be completed before analysis can be completed.
+Now let's talk more about the formatting for each step and analysis.
+
+#### Step
+
+FIXME step and analysis need proper examples
 
 At the start of each step is a blue box that specifies the prerequisite steps and files needed to start the step. Alternatively, any checkpoint data packs will also be provided here, if one wants to jump into the section without having completed all previous sections. An example looks like this:
 
@@ -87,11 +106,21 @@ At the start of each step is a blue box that specifies the prerequisite steps an
 ‣ **Checkpoint datapack:** None  
 </div>
 
-#### Commands
+#### Analysis
 
-Each step contains commands that you should ideally be able to run in succession by copy-pasting them into your terminal prompt.
+Similar to steps, at the start of each analyis is a purple box specifying prerequisite steps, analyses, and/or files.
 
-To distinguish these commands from all other commmentary and code, I have put each command inside a red (FIXME match description to final CSS) box. In addition to the command itself, each red box contains the time and storage requirements for running the command. If the command requires internet, I add the flag: '**Internet**: Yes'. If the command should be submitted as a job due to high memory/storage/time requirements, I add the flag: '**Cluster**: Yes'. Here is an example command:
+<div class="extra-info" style="{{ analysis_style  }}" markdown="1">
+<span class="extra-info-header">Analysis X Info</span>
+‣ **Prerequisite steps/analyses:** None  
+‣ **Checkpoint datapack:** None  
+</div> 
+
+#### Command
+
+Each step and analysis is composed of a series of **commands**. Ideally, you should be able to run these commands in succession by copy-pasting them into your terminal prompt.
+
+To distinguish these commands from all other commmentary and code, I have put each command inside a red (FIXME match description to final CSS) box. In addition to the command itself, each red box contains the time and storage requirements for running the command. If the command requires internet, I add the flag: '‣ **Internet**: Yes'. If the command should be submitted as a job due to high memory/storage/time requirements, I add the flag: '‣ **Cluster**: Yes'. Here is an example command:
 
 <div class="extra-info" style="{{ command_style }}" markdown="1">
 <span class="extra-info-header">Command #X</span>
@@ -127,7 +156,7 @@ In this case, `<A_DIRECTORY_YOU_LIKE>` refers to a directory you decide. For exa
 
 **Green keywords refer to anvi'o programs that have help pages**. For example, {% include PROGRAM name="anvi-gen-contigs-database" %} refers to an anvi'o program that can create an anvi'o contigs database.
 
-The links within these documents lead to other anvi'o concepts, which lead to other anvi'o concepts. It's kind of like Wikipedia--you can get lost in it. Because many concepts already have rich documentation, I often forego in depth explanations, assuming you will click the link to learn more. 
+The links within these documents lead to other anvi'o concepts, which lead to other anvi'o concepts. It's kind of like Wikipedia--you can get lost in it. Because many concepts already have rich documentation, I often forego in-depth explanations, assuming you will click the link to learn more.
 
 ## Directory
 
