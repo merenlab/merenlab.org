@@ -2709,13 +2709,16 @@ These DTL values were calculated from 11 putative ligands: [BEF](https://www.rcs
 
 This is reflected in the observed distribution of nonsynonymous variation. In blue spheres are residues in which the sample-averaged amino acid allele frequencies exceeded a departure from consensus >10%. In other words, when pooling across samples, of all the reads that aligned to these positions, >10% of them resolved to amino acids different from the dominant amino acid. The radius of the spheres is proportional to their departure from consensus. Given that we know the binding site is on the left-hand side of the protein, it is therefore of no surprise that the distribution of these positions is heavily favored towards the right-hand side (high DTL) of the protein, since nonsynonymous variation on the left-hand side (low DTL) is far more likely to be purified.
 
-### DTL for SHMT
+### DTL for a custom gene-ligand pair
+
+{:.notice}
+There are no commands in this section, just some general guidance for if you want to calculate DTL for specific gene-ligand pairs.
 
 When calculating DTL at the scale of hundreds of genes, defining DTL agnostically in terms of the distance to _any_ predicted ligand is the best we can do. This obviously will lead to inaccuracies due to incorrect/missing ligand predictions, although it is clear from the trends in our paper (and even in the example shown with Gene #1248 above) that biology prevails and these inaccuracies do not muddy the signal beyond recognition.
 
-In more targeted instances where you are interested in a single gene, and may have prior knowledge of the binding site, it may make more sense to define DTL with respect to that particular ligand. Such is the case in our case study of Gene #1326, a Serine hydroxymethyltransferase (SHMT) that has a primary binding site where glycine and serine are interconverted.
+In more targeted instances where you are interested in a single gene, and may have prior knowledge of the binding site, it may make more sense to define DTL with respect to that particular ligand. For example, gene #1326, a Serine hydroxymethyltransferase (SHMT) has a primary binding site where glycine and serine are interconverted.
 
-In this case, since we know _a priori_ what SHMT does, so we opted to define DTL specifically in terms of the distance to predicted serine-binding residues, _aka_ residues with ligand-binding scores >0.5 to the ligand SER.
+In this case, since we know _a priori_ what SHMT does, one could define DTL specifically in terms of the distance to predicted serine-binding residues, _aka_ residues with ligand-binding scores >0.5 to the ligand SER.
 
 If you're curious which residues these are, you can run the following python script:
 
@@ -2757,8 +2760,6 @@ I've displayed the sidechains of the reference at these 5 positions.
 
 Anyways, for downstream analyses it will be extremely useful to annotate all of the entries in `11_SCVs.txt` pertaining to Gene #1326 with their own special DTL. `ZZ_SCRIPTS/append_dist_to_lig.py`, the script you just ran, is capable of doing just that after adjusting its runtime parameters slightly:
 
-<div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
 ```bash
 python ZZ_SCRIPTS/append_dist_to_lig.py --gene 1326 \
                                         --ligand SER \
@@ -2767,29 +2768,10 @@ anvi-import-misc-data -c CONTIGS.db \
                       -t amino_acids \
                       SER_dist_1326_misc_data.txt
 ```
-‣ **Time:** 32 min  
-‣ **Storage:** 300 Mb  
-</div> 
 
 Like before, this generates a {% include ARTIFACT name="misc-data-amino-acids-txt" %} that I imported just for safe keeping.
 
-### DTL for Glutamine Synthetase (GS)
-
-For just the same reasons as SHMT, we calculated DTL for its ligand glutamate.
-
-<div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
-```bash
-python ZZ_SCRIPTS/append_dist_to_lig.py --gene 2602 \
-                                        --ligand GLU \
-                                        --save-as-misc-data
-anvi-import-misc-data -c CONTIGS.db \
-                      -t amino_acids \
-                      GLU_dist_2602_misc_data.txt
-```
-‣ **Time:** 32 min  
-‣ **Storage:** 300 Mb  
-</div> 
+If you have custom gene-ligand combos you would like to calculate DTL for, you could follow the procedure I just outlined.
 
 
 ## Step X: Calculating pN and pS
@@ -2805,7 +2787,7 @@ If you're here for a **mathematical description** of pN and pS--whether it be fo
 
 ### Per-site
 
-As mentioned in step FIXME, all per-site pN and pS values are appended as columns to the {% include ARTIFACT name="variability-profile" %}, `11_SCVs.txt`. That means this data is readily available for you.
+As mentioned in Step FIXME, all per-site pN and pS values are appended as columns to the {% include ARTIFACT name="variability-profile" %}, `11_SCVs.txt`. That means this data is readily available for you.
 
 If you want to see the underlying code for calculating per-site pN and pS, it can be found in the anvi'o codebase here ([click here](https://github.com/merenlab/anvio/blob/258991a5bc0f483c958040a55d339e1f447429ac/anvio/variabilityops.py#L2639)).
 
@@ -3184,21 +3166,21 @@ First and foremost, when the paper discusses rarity, it is always, always, alway
 
 #### Synonymous codon rarity
 
-Synonymous codon rarity, or **s-codon rarity**, describes how rare a codon is in the HIMB83 genome relative to other codons that encode the same amino acid. Mathematically, the synonymous codon rarity of codon $i$ is
+Synonymous codon rarity describes how rare a codon is in the HIMB83 genome relative to other codons that encode the same amino acid. Mathematically, the synonymous codon rarity of codon $i$ is
 
 $$
 R_{i} = 1 - \frac {f_i} {\sum_j S(i, j) f_j}
 $$
 
-where f_{i} is the proportion of codons in the HIMB83 sequence that are the $i$th codon, and where $S(i, j)$ is the indicator function
+where $f_{i}$ is the proportion of codons in the HIMB83 genome that are the $i$th codon, and where $S(i, j)$ is the indicator function
 
 $$
 S(i, j) = 1 \, if \, synonymous(i, j) \, else \, 0
 $$
 
-(Mathematically, we are assuming codon $i$ is synonymous with itself $i$)
+(Mathematically, we are assuming codon $i$ is synonymous with itself)
 
-As an example, what is the synonymous codon rarity of GCC, which encodes the amino acid alanine? First, we count all of the instances of GCC in the codons of HIMB83 (all 1470 coding genes) and divide it by the number of codon in HIMB83. That number is $f_{GCC}$. Then we do the same thing for all alanine codons, GCA, GCC, GCG, and GCT. We are thus left with
+As an example, what is the synonymous codon rarity of GCC, which encodes the amino acid alanine? First, we count all of the instances of GCC in the codons of HIMB83 (all 1470 coding genes) and divide it by the number of codons in HIMB83. That number is $f_{GCC}$. Then we do the same thing for all alanine codons, GCA, GCC, GCG, and GCT. We are thus left with
 
 $$
 \displaylines{f_{GCA} = 0.02553 \\ f_{GCC} = 0.00329 \\ f_{GCG} = 0.00294 \\ f_{GCT} = 0.0232}
@@ -3214,16 +3196,16 @@ Since GCC occurs much less frequently than its synonymous counterparts GCA and G
 
 #### Codon rarity
 
-Codon rarity is similar to synonymous codon rarity, except values are not normalized by codons sharing the same amino acid. It is calculated in two parts. First, I calculated the unnormalized codon rarity for each codon $i$, which we defined as
+Codon rarity is similar to synonymous codon rarity, except values are not normalized by codons sharing the same amino acid. It is calculated in two parts. First, the unnormalized codon rarity for each codon $i$ is calculated as
 
 $$
 R'_{i}=1-f_i
 $$
 
-where $f_i$ is the frequency that a codon was observed in the HIMB83 genome sequence. Then, we normalized the values such that the codons with the lowest and highest values get rarity scores of 0 and 1, respectively:
+where $f_i$ is the frequency that a codon was observed in the HIMB83 genome sequence. Then, $R'_{i}$ is normalized such that the codons with the lowest and highest values get rarity scores of 0 and 1, respectively:
 
 $$
-R_i = \frac{(R'_i-\min(R')}{\max(R'_{i})-\min(R')},
+R_i = \frac{R'_i-\min(R')}{\max(R'_{i})-\min(R')},
 $$
 
 where $\min(R')$ and $\max(R')$ correspond to the smallest and largest unnormalized rarity scores.
@@ -3232,16 +3214,16 @@ This metric can be useful for assessing how rare a codon is relative to all codo
 
 #### Amino acid rarity
 
-Amino acid rarity is just the same as amino acid rarity, except instead of comparing amino acids, we are comparing amino acids. It is calculated very similarly to amino acid rarity. First, I calculated the unnormalized amino acid rarity for each amino acid $i$, which we defined as
+Amino acid rarity is just the same as codon rarity, except instead of comparing amino acids, we are comparing amino acids. First, the unnormalized codon rarity for each codon $i$ is calculated as
 
 $$
 R'_{i}=1-f_i
 $$
 
-where $f_i$ is the frequency that an amino acid was observed in the HIMB83 genome sequence. Then, we normalized the values such that the amino acids with the lowest and highest values get rarity scores of 0 and 1, respectively:
+where $f_i$ is the frequency that a codon was observed in the HIMB83 genome sequence. Then, $R'_{i}$ is normalized such that the codons with the lowest and highest values get rarity scores of 0 and 1, respectively:
 
 $$
-R_i = \frac{(R'_i-\min(R')}{\max(R'_{i})-\min(R')},
+R_i = \frac{R'_i-\min(R')}{\max(R'_{i})-\min(R')},
 $$
 
 where $\min(R')$ and $\max(R')$ correspond to the smallest and largest unnormalized rarity scores.

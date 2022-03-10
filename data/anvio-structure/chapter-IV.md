@@ -1724,20 +1724,37 @@ This section requires you to first complete Auxiliary Step X, please complete th
 
 In this section we calculate the dN/dS of homologous genes shared between HIMB83 and HIMB122, a related SAR11 genome. In the paper, the rationale for doing this was to validate our approach of pN/pS$^{(gene)}$ by averaging across samples and comparing the sample-averaged pN/pS$^{(gene)}$ values to dN/dS$^{(gene)}$ between HIMB83 and HIMB122, with the expectation that these should be qualitatively similar to one another given the evolutionary relatedness of HIMB122 to HIMB83.
 
-## Analysis X: Glutamine synthetase
+## Analysis X: Glutamine synthetase (GS)
 
-(FIXME consider whether the above section on calculating GLU_2602_dist is necessary--instinct at 2am: it is not)
+<div class="extra-info" style="{{ analysis_style  }}" markdown="1">
+<span class="extra-info-header">Analysis X Info</span>
+‣ **Prerequisite steps/analyses:** None  
+‣ **Checkpoint datapack:** None  
+</div> 
+
+### Dodecameric RSA & DTL
+
+In the study we focus on glutamine synthetase for a case study, and when dealing with its structure we make the following point in the text:
+
+<blockquote>
+Since the native quaternary structure of GS is a dodecameric complex (12 monomers), our monomeric estimates of RSA and DTL are unrepresentative of the active state of GS. We addressed this by aligning 12 copies of the predicted structure to a solved dodecameric complex of GS in Salmonella typhimurium (PDB ID 1FPY), which HIMB83 GS shares 61% amino acid similarity with (Figure 3a). From this stitched quaternary structure we recalculated RSA and DTL, and as expected, this yielded lower average RSA and DTL estimates due to the presence of adjacent monomers (0.17 versus 0.24 for RSA and 17.8Å versus 21.2Å for DTL).
+<div class="blockquote-author">
+  <b>Kiefl et al. 2022, pre-print</b>
+</div>
+</blockquote>
+
+FIXME
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #X</span>
 ```bash
-pymol -c 21_GS_COMPLEX/create_neighor_complex.pml
-python 21_GS_COMPLEX/get_complex_RSA.py
-python 21_GS_COMPLEX/get_complex_DTL.py
+mkdir -p 21_GS_COMPLEX
+pymol -c ZZ_SCRIPTS/GS_neighor_complex.pml
+python ZZ_SCRIPTS/GS_complex_DTL.py
+python ZZ_SCRIPTS/GS_complex_RSA.py
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
+‣ **Time:** <1 min  
+‣ **Storage:** 4 Mb  
 </div> 
 
 ### How similar to HIMB122 to HIMB83?
@@ -1755,7 +1772,6 @@ anvi-display-pan -p 07_PANGENOME_COMP_TO_HIMB122/PANGENOME/SAR11-PAN.db -g 07_PA
 Clearly there is a lot of overlapping gene content. We consider HIMB122 to share a homolog with HIMB83 based on the clustering results of this pangenome. If two genes are clustered into the same gene cluster, they are considered homologs. For example, here is a randomly chosen gene cluster, where we can see the corresponding protein sequences of the two genes:
 
 [![himb122_gc]({{images}}/himb122_gc.png)]({{images}}/himb122_gc.png){:.center-img .width-100} 
-
 On a nucleotide level, we can assess the overall similarity between HIMB122 and HIMB83 using average nucleotide identity (ANI) calculated by pyANI using {% include PROGRAM name="anvi-compute-genome-similarity" %}.
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
