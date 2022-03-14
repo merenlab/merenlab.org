@@ -24,6 +24,43 @@ This document is **UNDER CONSTRUCTION**. It is not in a state where you can yet 
 - [Chapter IV: Analyze the data]({{ site.url }}/data/anvio-structure/chapter-IV) ← _you are here_
 - [Chapter V: Reproduce every number]({{ site.url }}/data/anvio-structure/chapter-V)
 
+
+## Important information
+
+Welcome to Chapter IV. In this chapter you'll find all of the analyses in the paper. If you haven't completed Chapter III (or equivalently downloaded the required datapack), you won't be able to reproduce these analyses but you still might find some some useful information in here that got cut from the paper. Before you begin, there are a couple of important points you need to be clear on.
+
+### Directory
+
+Unless otherwise stated, each analysis can be run independently from the others, so **completing analyses in order is not required**.
+
+As such, you should feel free to jump around this document, rather than reading it top down. To help you navigate to the analyses you are interested in, here is a directory of all figures and tables in the main text and supplementary information, along with the analysis in which it is produced.
+
+[Figure S1 - Analysis X]({{ page.url }}/#analysis-x-comparing-sequence-similarity-regimes)
+
+
+### Global R environment (GRE)
+
+There is a lot of data to contend with. For example, there are ~18M single codon variants (SCVs) across ~250K residues and 74 samples. There are codon allele frequencies and pN & pS for each SCV, RSA and DTL values for each residue, a structure and pN/pS for each gene in each sample. It is really a lot of data and it is all scattered throughout your working directory in the form of TAB-separated data and anvi'o databases. To unify all of this data into one global environment, I opted to create what I'm calling a _Global R environment_ (GRE). This interactive R environment is what I used while developing this study, and it is the same environment you will use when performing the analyses in this chapter.
+
+While the GRE may seem needless, trust me, it's very worthwhile, and you won't get far without it. The primary reason is that some of the data structures, such as the SCV data, are massive, and take a very long time to load. Since many analyses require the SCV data, you will be waiting for **hours and hours** if you are continually loading up the SCV data as a dataframe in R or Python. It is a much better strategy to instead load the SCV data once, and then use it repeatedly for different analyses. The same goes for many other data that are shared between analyses. The GRE is designed to do exactly that.
+
+#### Build
+
+Unless you know how to do otherwise, you should create the GRE by opening RStudio. You should open it via the command-line:
+
+```bash
+rstudio
+```
+
+What this means is that you'll be
+`ZZ_SCRIPTS/load_data.R`, which loads up all of the data once, so that it can be used subsequently for all analyses you're interested in.
+
+#### Explore
+
+
+
+
+
 ## Analysis X: Setting the stage
 
 From here on out, you won't find any more 'steps' to complete, but rather, 'analyses' you may _choose_ to complete. There is no longer an order to the workflow. Instead, run around and carry out any analyses you deem interesting. You have all the data prepared and ready to tackle any of the following analyses, in whichever order you like.

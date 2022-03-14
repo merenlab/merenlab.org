@@ -59,6 +59,7 @@ Notes to self:
 - pymol
 - conda install -y -c salilab dssp
 - conda install -c bioconda paml
+- conda install -c r rstudio
 - pip install xlrd==1.2.0
 - pip install openpyxl==3.0.9
 - pip install prody==2.0.1

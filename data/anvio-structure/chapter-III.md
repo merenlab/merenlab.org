@@ -3169,7 +3169,7 @@ First and foremost, when the paper discusses rarity, it is always, always, alway
 Synonymous codon rarity describes how rare a codon is in the HIMB83 genome relative to other codons that encode the same amino acid. Mathematically, the synonymous codon rarity of codon $i$ is
 
 $$
-R_{i} = 1 - \frac {f_i} {\sum_j S(i, j) f_j}
+R_{i} = 1 - \frac {f_i} {\sum_j S(i, j) \, f_j}
 $$
 
 where $f_{i}$ is the proportion of codons in the HIMB83 genome that are the $i$th codon, and where $S(i, j)$ is the indicator function
@@ -3559,10 +3559,10 @@ This script does a bit more than I'm letting on, because it adds codon rarity, s
 
 ## Step X: Breathe
 
-Okay. If you've made it this far, this marks the _end_ of the data processing workflow. We started from nothing but the internet, and we have built up the totality of data we will need for all subsequent analyses. It reminds me of a Newton quote, "_If I have seen further than others, it is because I have stood on the shoulders of giants_", in reference to the sum of knowledge created by his scientific forefathers. Similarly, we have just invested an enormous amount of work and forethought that we will now be able to stand upon in order to harvest the fruits of our labour.
+Okay. If you've made it this far, this marks the _end_ of this chapter, and subsequently the end of the data processing workflow. We started from nothing but the internet, and we have built up the totality of data we will need for all subsequent analyses, which are carried out in the next chapter. We have just invested an enormous amount of work and forethought that we will now be able to stand upon in order to harvest the fruits of our labour.
 
 Unless of course you simply download this checkpoint datapack. Then you can harvest the fruits of _my_ labour.
 
 FIXME datapack here
 
-
+See you in the next chapter.
