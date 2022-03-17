@@ -197,7 +197,7 @@ There is a lot to discuss here, so let's take a moment and try to make sense of 
 
 This is not necessarily a standard step of turning FASTA files to contigs databases, but when we need to work with a bunch of contigs databases in anvi'o, we use a special file called {% include ARTIFACT name="external-genomes" %} to describe them all together in one place as a logically relevant group of contigs databases (in case you are curious, yes there also is an {% include ARTIFACT name="internal-genomes" %} file format). So let's create one here so we can use it for our downstream analyses.
 
-The structure of the {% include ARTIFACT name="external-genomes" %} file is simple: it is a two-column TAB-delimited file. One can easily create it using EXCEL or any kind of text editor. But anvi'o comes with a script, {% include ARTIFACT name="anvi-script-gen-genomes-file" %} to create one from all the contigs databases found in a directory. So let's use that to generate an external genomes file:
+The structure of the {% include ARTIFACT name="external-genomes" %} file is simple: it is a two-column TAB-delimited file. One can easily create it using EXCEL or any kind of text editor. But anvi'o comes with a script, {% include PROGRAM name="anvi-script-gen-genomes-file" %} to create one from all the contigs databases found in a directory. So let's use that to generate an external genomes file:
 
 ```
 anvi-script-gen-genomes-file --input-dir . \
