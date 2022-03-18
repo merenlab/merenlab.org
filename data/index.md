@@ -4,6 +4,9 @@ title: Public Data and Reproducible Bioinformatics
 modified: 2015-07-30
 excerpt: "Publicly available data and other information on publications from our lab"
 comments: true
+image:
+   display: true
+   feature: header-01.png
 ---
 
 This page serves **public (and often reproducible) data items that underlie key findings in our publications**.

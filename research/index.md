@@ -5,7 +5,8 @@ modified: 2015-02-02T20:53:07.573882-04:00
 comments: false
 excerpt: "An overview of research interests and directions in our lab."
 image:
-   thumb: holistic-flow.png
+   display: true
+   feature: header-02.png
 ---
 
 {% include _toc.html %}
