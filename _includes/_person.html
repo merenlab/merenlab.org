@@ -60,16 +60,20 @@
 
           <p>{{ person.bio }}</p>
 
-          {% if person.affiliations %}
-          <ul class="person-affiliations">
-          {% for affiliation in person.affiliations %}
-          <li>{% if affiliation.current == false %}<code class="tags" id="past-affiliation">past</code>{% else %}<code class="tags" id="current-affiliation">current</code>{% endif %} {% if affiliation.title_link %}<a id="aff-link" target="_blank" href="{{ affiliation.title_link }}">{% endif %}<b>{{ affiliation.title }}</b>{% if affiliation.title_link %}</a>{% endif %}{% if affiliation.inst %}, <a href="{{ affiliation.inst_link }}" id="aff-link" target="_blank">{{ affiliation.inst }}</a>{% endif %}.</li>
-          {% endfor %}
-          </ul>
-          {% endif %}
+            <div class="person-affiliations-papers-posts">
+                {% if person.affiliations %}
+                <span style="font-variant: all-small-caps;">Affiliations</span>
+                <ul class="person-affiliations">
+                {% for affiliation in person.affiliations %}
+                <li>{% if affiliation.current == false %}<code class="tags" id="past-affiliation">past</code>{% else %}<code class="tags" id="current-affiliation">current</code>{% endif %} {% if affiliation.title_link %}<a id="aff-link" target="_blank" href="{{ affiliation.title_link }}">{% endif %}<b>{{ affiliation.title }}</b>{% if affiliation.title_link %}</a>{% endif %}{% if affiliation.inst %}, <a href="{{ affiliation.inst_link }}" id="aff-link" target="_blank">{{ affiliation.inst }}</a>{% endif %}.</li>
+                {% endfor %}
+                </ul>
+                {% endif %}
 
-          {% include _person_posts.html %}
+                {% include _person_pubs.html %}
 
+                {% include _person_posts.html %}
+            </div>
         </div>
     </div>
     {% endif %}
@@ -104,15 +108,19 @@
 
           <p>{{ person.bio }}</p>
 
-          {% if person.affiliations %}
-          <ul class="person-affiliations">
-          {% for affiliation in person.affiliations %}
-          <li>{% if affiliation.title_link %}<a id="aff-link" target="_blank" href="{{ affiliation.title_link }}">{% endif %}{{ affiliation.title }}{% if affiliation.title_link %}</a>{% endif %}{% if affiliation.inst %}, <a href="{{ affiliation.inst_link }}" id="aff-link" target="_blank">{{ affiliation.inst }}</a>{% endif %}.</li>
-          {% endfor %}
-          </ul>
-          {% endif %}
+          <div class="person-affiliations-papers-posts">
+              {% if person.affiliations %}
+              <ul class="person-affiliations">
+              {% for affiliation in person.affiliations %}
+              <li>{% if affiliation.title_link %}<a id="aff-link" target="_blank" href="{{ affiliation.title_link }}">{% endif %}{{ affiliation.title }}{% if affiliation.title_link %}</a>{% endif %}{% if affiliation.inst %}, <a href="{{ affiliation.inst_link }}" id="aff-link" target="_blank">{{ affiliation.inst }}</a>{% endif %}.</li>
+              {% endfor %}
+              </ul>
+              {% endif %}
 
-          {% include _person_posts.html %}
+              {% include _person_pubs.html %}
+
+              {% include _person_posts.html %}
+        </div>
 
         </div>
     </div>
@@ -152,7 +160,11 @@
              {{ person.contributions }}.{% if person.current_info %} The last time we checked, {{ person.nick_name }} was <span class="person-current-info">{{ person.current_info }}</span>.{% endif %}
           </p>
 
-          {% include _person_posts.html %}
+          <div class="person-affiliations-papers-posts">
+              {% include _person_pubs.html %}
+
+              {% include _person_posts.html %}
+        </div>
 
         </div>
     </div>
@@ -192,22 +204,19 @@
 
           <p>{{ person.bio }}</p>
 
-          {% if person.affiliations %}
-          <ul class="person-affiliations">
-          {% for affiliation in person.affiliations %}
-          <li>{% if affiliation.title_link %}<a id="aff-link" target="_blank" href="{{ affiliation.title_link }}">{% endif %}{{ affiliation.title }}{% if affiliation.title_link %}</a>{% endif %}{% if affiliation.inst %}, <a href="{{ affiliation.inst_link }}" id="aff-link" target="_blank">{{ affiliation.inst }}</a>{% endif %}.</li>
-          {% endfor %}
-          </ul>
-          {% endif %}
+          <div class="person-affiliations-papers-posts">
+              {% if person.affiliations %}
+              <ul class="person-affiliations">
+              {% for affiliation in person.affiliations %}
+              <li>{% if affiliation.title_link %}<a id="aff-link" target="_blank" href="{{ affiliation.title_link }}">{% endif %}{{ affiliation.title }}{% if affiliation.title_link %}</a>{% endif %}{% if affiliation.inst %}, <a href="{{ affiliation.inst_link }}" id="aff-link" target="_blank">{{ affiliation.inst }}</a>{% endif %}.</li>
+              {% endfor %}
+              </ul>
+              {% endif %}
 
-          <ul class="person-contributions">
-          {% for post in site.posts %}
-                {% if post.authors contains person.alias %}
-                    <li><a id="contrib-link" href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <small>({{ post.date | date: "%a, %b %d, %Y" }})</small></li>
-                {% endif %}
-          {% endfor %}
-          </ul>
+              {% include _person_pubs.html %}
 
+              {% include _person_posts.html %}
+        </div>
         </div>
     </div>
     {% endif %}
