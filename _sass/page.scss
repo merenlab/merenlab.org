@@ -662,7 +662,7 @@ th, td {
     color: #1111AA;
 }
 
-.person-contributions {
+.person-blogs {
   list-style-type: none;
   margin-left: 0px;
   padding-left: 20px;
@@ -675,9 +675,10 @@ th, td {
   background-color: #f1fbfb;
 }
 
-.person-contributions li:before {
+.person-blogs li:before {
     content: "✍️";
-    padding-right: 5px;
+    padding-right: 8px;
+}
 }
 
 #contrib-link {
