@@ -14,6 +14,7 @@ This page lists publications that are most reflective of our interests. For a co
 
 ## 2022
 
+<a id="10.1101/2022.03.02.482602">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2022.03.02.482602"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1101/2022.03.02.482602" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -30,6 +31,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>bioRxiv</b> <a href="https://doi.org/10.1101/2022.03.02.482602" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1186/s13100-022-00262-6">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s13100-022-00262-6"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1186/s13100-022-00262-6" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -46,6 +48,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>Mobile DNA</b>, 13(6) <a href="https://doi.org/10.1186/s13100-022-00262-6" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1101/2020.11.01.361691">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2020.11.01.361691"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1101/2020.11.01.361691" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -63,6 +66,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>bioRxiv</b> <a href="https://doi.org/10.1101/2020.11.01.361691" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1016/j.molcel.2021.12.007">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1016/j.molcel.2021.12.007"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1016/j.molcel.2021.12.007" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -82,6 +86,7 @@ This page lists publications that are most reflective of our interests. For a co
 
 ## 2021
 
+<a id="10.1038/s41564-020-00834-3">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41564-020-00834-3"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41564-020-00834-3" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -98,11 +103,12 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>Nature Microbiology</b>, 6(1):186 <a href="https://doi.org/10.1038/s41564-020-00834-3" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1101/2021.03.02.433653">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2021.03.02.433653"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1101/2021.03.02.433653" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href=" https://doi.org/10.1101/2021.03.02.433653" target="_new">Adaptive ecological processes and metabolic independence drive microbial colonization and resilience in the human gut</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Watson AR</span>, Füssel J, <span class="pub-member-author">Veseli I</span>, DeLongchamp JZ, Silva M, <span class="pub-member-author">Trigodet F</span>, <span class="pub-member-author">Lolans K</span>, <span class="pub-member-author">Shaiber A</span>, Fogarty E, Runde JM, Quince C, <span class="pub-member-author">Yu MK</span>, Söylev A, Morrison HG, Lee ST, Kao D, Rubin DT, Jabri B, Louie T, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-authors"><span class="pub-member-author">Watson AR</span>, Füssel J, <span class="pub-member-author">Veseli I</span>, DeLongchamp JZ, Silva M, <span class="pub-member-author">Trigodet F</span>, <span class="pub-member-author">Lolans K</span>, <span class="pub-member-author">Shaiber A</span>, Fogarty E, Runde JM, Quince C, <span class="pub-member-author">Yu MK</span>, Söylev A, Morrison HG, <span class="pub-member-author">Lee STM</span>, Kao D, Rubin DT, Jabri B, Louie T, <span class="pub-member-author">Eren AM</span></span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/pubs/watson_et_al_fmt.jpeg"><img src="/images/pubs/watson_et_al_fmt.jpeg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -114,6 +120,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>bioRxiv</b> <a href="https://doi.org/10.1101/2021.03.02.433653" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1101/2021.03.03.433801">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2021.03.03.433801"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1101/2021.03.03.433801" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -133,6 +140,7 @@ This page lists publications that are most reflective of our interests. For a co
 
 ## 2020
 
+<a id="10.1186/s13059-020-02195-w">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s13059-020-02195-w"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1186/s13059-020-02195-w" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -150,6 +158,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>Genome Biology</b>, 21(292) <a href="https://doi.org/10.1186/s13059-020-02195-w" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1186/s13059-020-02200-2">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s13059-020-02200-2"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1186/s13059-020-02200-2" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -166,6 +175,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>Genome Biology</b>, 21(293) <a href="https://doi.org/10.1186/s13059-020-02200-2" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.7554/eLife.56998">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.7554/eLife.56998"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.7554/eLife.56998" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -182,6 +192,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>eLife</b>, 9(e56998) <a href="https://doi.org/10.7554/eLife.56998" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1101/gr.258640.119">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/gr.258640.119"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1101/gr.258640.119" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -202,6 +213,7 @@ This page lists publications that are most reflective of our interests. For a co
 
 ## 2019
 
+<a id="10.7554/eLife.46497">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.7554/eLife.46497"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.7554/eLife.46497" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -218,6 +230,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>eLife</b>, 8(e46497) <a href="https://doi.org/10.7554/eLife.46497" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1128/mBio.00725-19">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1128/mBio.00725-19"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1128/mBio.00725-19" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -234,11 +247,12 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>mBio</b>, 10(3):e00725-19 <a href="https://doi.org/10.1128/mBio.00725-19" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1038/s41467-019-08973-w">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41467-019-08973-w"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41467-019-08973-w" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href=" https://doi.org/10.1038/s41467-019-08973-w" target="_new">The Wolbachia mobilome in Culex pipiens includes a putative plasmid</a></span>
-    <span class="pub-authors">Reveillaud J, Bordenstein SR, Cruaud C, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Esen ÖC</span>, Weill M, Makoundou P, <span class="pub-member-author">Lolans K</span>, <span class="pub-member-author">Watson AR</span>, Rakotoarivony I, Bordenstein SR, Ere AM</span>
+    <span class="pub-authors">Reveillaud J, Bordenstein SR, Cruaud C, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Esen ÖC</span>, Weill M, Makoundou P, <span class="pub-member-author">Lolans K</span>, <span class="pub-member-author">Watson AR</span>, Rakotoarivony I, Bordenstein SR, <span class="pub-member-author">Eren AM</span></span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/miscellaneous/2019-03-05-wolbachia-plasmid/minion-metagenomics.png"><img src="/images/miscellaneous/2019-03-05-wolbachia-plasmid/minion-metagenomics.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -250,6 +264,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>Nature Communications</b>, 10(1):1051 <a href="https://doi.org/10.1038/s41467-019-08973-w" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.7717/peerj.7548">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.7717/peerj.7548"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.7548" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -266,6 +281,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>PeerJ</b>, 7(e7548) <a href="https://doi.org/10.7717/peerj.7548" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1038/s41564-019-0494-6">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41564-019-0494-6"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41564-019-0494-6" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -282,6 +298,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>Nature Microbiology</b>, 4(10):1727 <a href="https://doi.org/10.1038/s41564-019-0494-6" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1038/s41564-019-0362-4">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41564-019-0362-4"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41564-019-0362-4" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -298,6 +315,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>Nature Microbiology</b>, 4(4):614-622 <a href="https://doi.org/10.1038/s41564-019-0362-4" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1038/s41422-018-0127-2">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41422-018-0127-2"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41422-018-0127-2" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -314,6 +332,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>Cell Research</b>, 29:167–170 <a href="https://doi.org/10.1038/s41422-018-0127-2" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1126/scitranslmed.aau9356">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1126/scitranslmed.aau9356"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1126/scitranslmed.aau9356" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -325,6 +344,7 @@ This page lists publications that are most reflective of our interests. For a co
 
 ## 2018
 
+<a id="10.1038/s41467-018-07675-z">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41467-018-07675-z"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41467-018-07675-z" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -342,11 +362,12 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>Nature Communications</b>, 9(1):5353 <a href="https://doi.org/10.1038/s41467-018-07675-z" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1038/s41564-018-0176-9">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41564-018-0176-9"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41564-018-0176-9" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href=" https://doi.org/10.1038/s41564-018-0176-9" target="_new">Nitrogen-fixing populations of Planctomycetes and Proteobacteria are abundant in surface ocean metagenomes</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Delmont TO</span>, Quince C, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Esen ÖC</span>, Lee ST, Rappé MS, McLellan SL, Lücker S, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-authors"><span class="pub-member-author">Delmont TO</span>, Quince C, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Esen ÖC</span>, <span class="pub-member-author">Lee STM</span>, Rappé MS, McLellan SL, Lücker S, <span class="pub-member-author">Eren AM</span></span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="http://i.imgur.com/oFRefc4.jpg"><img src="http://i.imgur.com/oFRefc4.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -358,6 +379,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>Nature Microbiology</b>, 3(7):804-813 <a href="https://doi.org/10.1038/s41564-018-0176-9" target="_blank">🔗</a></span>
 </div>
 
+<a id="None">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="None"></div>
 <div class="__dimensions_badge_embed__" data-doi="None" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -374,6 +396,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>PeerJ</b>, 6(e4320) <a href="https://doi.org/None" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1186/s40168-018-0474-8">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s40168-018-0474-8"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1186/s40168-018-0474-8" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -388,6 +411,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>Microbiome</b>, 6(96) <a href="https://doi.org/10.1186/s40168-018-0474-8" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1038/s41586-018-0125-z">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41586-018-0125-z"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41586-018-0125-z" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -404,6 +428,7 @@ This page lists publications that are most reflective of our interests. For a co
 
 ## 2017
 
+<a id="10.1186/s40168-017-0270-x">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s40168-017-0270-x"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1186/s40168-017-0270-x" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -421,6 +446,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>Microbiome</b>, 5(50) <a href="https://doi.org/10.1186/s40168-017-0270-x" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1073/pnas.1712186114">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1073/pnas.1712186114"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1073/pnas.1712186114" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -437,6 +463,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>Proceedings of the National Academy of Sciences</b>, 114(43):E8947-E8949 <a href="https://doi.org/10.1073/pnas.1712186114" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1038/s41467-017-01228-6">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41467-017-01228-6"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41467-017-01228-6" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -445,6 +472,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>Nature Communications</b>, 8(1):1114 <a href="https://doi.org/10.1038/s41467-017-01228-6" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1186/s13059-017-1309-9">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s13059-017-1309-9"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1186/s13059-017-1309-9" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -453,6 +481,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>Genome Biology</b>, 18(1):181 <a href="https://doi.org/10.1186/s13059-017-1309-9" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1038/nbt.3893">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/nbt.3893"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/nbt.3893" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -461,6 +490,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>Nature biotechnology</b>, 35(8):725 <a href="https://doi.org/10.1038/nbt.3893" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1016/j.celrep.2017.06.060">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1016/j.celrep.2017.06.060"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1016/j.celrep.2017.06.060" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -480,11 +510,12 @@ This page lists publications that are most reflective of our interests. For a co
 
 ## 2016
 
+<a id="10.7717/peerj.1839">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.7717/peerj.1839"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.1839" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href=" https://doi.org/10.7717/peerj.1839" target="_new">Identifying contamination with advanced visualization and analysis practices: metagenomic approaches for eukaryotic genome assemblies</a></span>
-    <span class="pub-authors">Eren TODAM</span>
+    <span class="pub-authors"><span class="pub-member-author">Delmont TO</span>, <span class="pub-member-author">Eren AM</span></span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/pubs/delmont_tardigrade.png"><img src="/images/pubs/delmont_tardigrade.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -496,6 +527,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>PeerJ</b>, 4:e1839 <a href="https://doi.org/10.7717/peerj.1839" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1128/mBio.01713-16">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1128/mBio.01713-16"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1128/mBio.01713-16" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -504,6 +536,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>mBio</b>, 7(6):e01713-16 <a href="https://doi.org/10.1128/mBio.01713-16" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.3389/fmicb.2016.01318">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.3389/fmicb.2016.01318"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.3389/fmicb.2016.01318" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -512,6 +545,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>Frontiers in microbiology</b>, 7:1318 <a href="https://doi.org/10.3389/fmicb.2016.01318" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1093/femsre/fuw017">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1093/femsre/fuw017"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1093/femsre/fuw017" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -523,6 +557,7 @@ This page lists publications that are most reflective of our interests. For a co
 
 ## 2015
 
+<a id="10.7717/peerj.1319">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.7717/peerj.1319"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.1319" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -539,6 +574,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>PeerJ</b>, 3:e1319 <a href="https://doi.org/10.7717/peerj.1319" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1038/ismej.2014.195">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/ismej.2014.195"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/ismej.2014.195" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -547,6 +583,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>The ISME Journal</b>, 9(4):968 <a href="https://doi.org/10.1038/ismej.2014.195" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1038/ismej.2014.97">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/ismej.2014.97"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/ismej.2014.97" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -555,6 +592,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>The ISME Journal</b>, 9(1):90 <a href="https://doi.org/10.1038/ismej.2014.97" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.3389/fmicb.2015.00358">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.3389/fmicb.2015.00358"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.3389/fmicb.2015.00358" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -571,6 +609,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>Frontiers in microbiology</b>, 6:358 <a href="https://doi.org/10.3389/fmicb.2015.00358" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1038/ajg.2015.357">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/ajg.2015.357"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/ajg.2015.357" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -579,6 +618,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>The American journal of gastroenterology</b>, 110(12):1718 <a href="https://doi.org/10.1038/ajg.2015.357" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1128/mBio.02574-14">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1128/mBio.02574-14"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1128/mBio.02574-14" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -590,6 +630,7 @@ This page lists publications that are most reflective of our interests. For a co
 
 ## 2014
 
+<a id="10.1073/pnas.1409644111">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1073/pnas.1409644111"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1073/pnas.1409644111" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -598,6 +639,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>Proceedings of the National Academy of Sciences</b>, 111(28):E2875-E2884 <a href="https://doi.org/10.1073/pnas.1409644111" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1016/j.tim.2014.08.002">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1016/j.tim.2014.08.002"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1016/j.tim.2014.08.002" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -606,6 +648,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>Trends in Microbiology</b>, 22(12):697-706 <a href="https://doi.org/10.1016/j.tim.2014.08.002" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.3389/fmicb.2014.00568">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.3389/fmicb.2014.00568"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.3389/fmicb.2014.00568" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -614,6 +657,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>Frontiers in microbiology</b>, 5:568 <a href="https://doi.org/10.3389/fmicb.2014.00568" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1371/journal.pone.0090785">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1371/journal.pone.0090785"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1371/journal.pone.0090785" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -622,6 +666,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>PLoS One</b>, 9(3):e90785 <a href="https://doi.org/10.1371/journal.pone.0090785" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1038/ismej.2013.227">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/ismej.2013.227"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/ismej.2013.227" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -630,6 +675,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>The ISME Journal</b>, 8(6):1198-209 <a href="https://doi.org/10.1038/ismej.2013.227" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1128/mBio.00682-13">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1128/mBio.00682-13"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1128/mBio.00682-13" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -641,6 +687,7 @@ This page lists publications that are most reflective of our interests. For a co
 
 ## 2013
 
+<a id="10.1111/2041-210X.12114">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1111/2041-210X.12114"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1111/2041-210X.12114" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -649,6 +696,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>Methods in Ecology and Evolution</b>, 4(12):1111-1119 <a href="https://doi.org/10.1111/2041-210X.12114" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1371/journal.pone.0066643">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1371/journal.pone.0066643"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1371/journal.pone.0066643" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -657,6 +705,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>PLOS ONE</b>, 8(6):e66643 <a href="https://doi.org/10.1371/journal.pone.0066643" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1093/bib/bbt010">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1093/bib/bbt010"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1093/bib/bbt010" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
@@ -665,6 +714,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"><b>Briefings in Bioinformatics</b>, 15(5):783-787 <a href="https://doi.org/10.1093/bib/bbt010" target="_blank">🔗</a></span>
 </div>
 
+<a id="10.1111/1462-2920.12092">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1111/1462-2920.12092"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1111/1462-2920.12092" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
