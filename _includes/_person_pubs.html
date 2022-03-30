@@ -1,0 +1,26 @@
+{% assign person_has_pubs = 0 %}
+{% assign pubs_listed = 0 %}
+
+{% for pub in site.data.pubs %}
+    {% if pub.authors contains person.name_as_author %}
+        {% assign person_has_pubs = person_has_pubs | plus: 1 %}
+    {% endif %}
+{% endfor %}
+
+{% if person_has_pubs > 0 %}
+<span style="font-variant: all-small-caps;">Papers</span>
+<ul class="person-papers">
+{% for pub in site.data.pubs %}
+    {% if pub.authors contains person.name_as_author and pubs_listed < 5 %}
+        {% assign pubs_listed = pubs_listed | plus: 1 %}
+        <li><a id="contrib-link" href="/publications/#{{ pub.doi }}" title="{{ pub.title }}">{{ pub.title }}</a> <small>({{ pub.year }}, {{ pub.journal }})</small></li>
+    {% endif %}
+{% endfor %}
+
+{% if person_has_pubs > 5 %}
+    {% assign remaining_pubs = person_has_pubs | minus: 5 %}
+    <li>.. and {{ remaining_pubs }} more ..</li>
+{% endif %}
+
+</ul>
+{% endif %}

@@ -679,6 +679,23 @@ th, td {
     content: "✍️";
     padding-right: 8px;
 }
+
+.person-papers {
+  list-style-type: none;
+  margin-left: 0px;
+  padding-left: 20px;
+  padding: 5px;
+  font-size: 1em;
+  font-family: "PT Sans Narrow",sans-serif;
+  border: 1px dashed #e4e4e4;
+  border-radius: 5px;
+  margin-left: 10px;
+  background-color: #fbf1f1;
+}
+
+.person-papers li:before {
+    content: "📰";
+    padding-right: 8px;
 }
 
 #contrib-link {
