@@ -1,10 +1,7 @@
 ---
 layout: publications
-modified: 2022-03-02
+modified: 2022-03-30
 comments: false
-image:
-   display: true
-   feature: header-02.png
 ---
 
 <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
@@ -16,6 +13,22 @@ image:
 This page lists publications that are most reflective of our interests. For a complete list, please see <a href='https://scholar.google.com/citations?user=GtLLuxoAAAAJ&view_op=list_works&sortby=pubdate' target='_blank'>Meren's Google Scholar page</a>.
 
 ## 2022
+
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2022.03.02.482602"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1101/2022.03.02.482602" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href=" https://doi.org/10.1101/2022.03.02.482602" target="_new">Structure-informed microbial population genetics elucidate selective pressures that shape protein evolution</a></span>
+    <span class="pub-authors"><span class="pub-member-author">Kiefl E</span>, Esen ÖC, <span class="pub-member-author">Miller SE</span>, Kroll KL, Willis AD, Rappé MS, Pan T, <span class="pub-member-author">Eren AM</span></span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/kiefl_et_al_metagenomics_plus_protein_structures.png"><img src="/images/pubs/kiefl_et_al_metagenomics_plus_protein_structures.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A study that describes an approach to integrate <b>environmental microbiology</b> with recent advances in <b>protein structure prediction</b>, and illustrates the tight association between <b>intra-population genetic variants</b>, <b>environmental selective pressures</b>, and <b>structural properties of proteins</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Demonstrates a quantifiable link between (1) the magnitude of selective pressures over key metabolic <b>genes</b> (e.g., glutamine synthase of the central nitrogen metabolism), (2) the availability of key <b>nutrients</b> in the environment (e.g., nitrate), and (3) the maintenance of nonsynonymous <b>variants</b> near protein active sites.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Shows that the interplay between selective pressures and protein structures also maintains <b>synonymous variants</b> -- revealing a quantifiable link between <b>translational accuracy</b> and fluctuating <b>selective pressures</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Comes with a <a href="https://merenlab.org/data/anvio-structure/chapter-I/"><b>reproducible bioinformatics workflow</b></a> that offers detailed access to computational steps used in the study that spans from metagenomic read recruitment and profiling to the integration of environmental variants and predicted protein structures.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><b>bioRxiv</b> <a href="https://doi.org/10.1101/2022.03.02.482602" target="_blank">🔗</a></span>
+</div>
 
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s13100-022-00262-6"></div>
@@ -54,7 +67,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1016/j.molcel.2021.12.007"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1016/j.molcel.2021.12.007" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href=" https://doi.org/10.1016/j.molcel.2021.12.007" target="_new">tRNA modification dynamics from individual organisms to metaepitranscriptomics of microbiomes</a></span>
-    <span class="pub-authors">Zhang W, Foo M, <span class="pub-member-author">Eren AM</span>, TaoPan </span>
+    <span class="pub-authors">Zhang W, Foo M, <span class="pub-member-author">Eren AM</span>, Pan T</span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/pubs/zhang_et_al_2022.png"><img src="/images/pubs/zhang_et_al_2022.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
