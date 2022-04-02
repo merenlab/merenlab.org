@@ -45,7 +45,7 @@ except:
 
 
 class Publications:
-    def __init__(self, pubs_file_path='pubs.yaml'):
+    def __init__(self, pubs_file_path='_data/pubs.yaml'):
         """Takes a YAML file, generates pubs output"""
 
         self.info = {}
@@ -99,7 +99,7 @@ class Publications:
 
 
     def parse_pubs_txt(self):
-        self.pubs = u.get_yaml_as_dict('pubs.yaml')
+        self.pubs = u.get_yaml_as_dict(self.pubs_file_path)
 
         # {'doi': '10.1101/2020.11.01.361691',
         #  'title': 'The genetic and ecological landscape of plasmids in the human gut',
@@ -155,6 +155,7 @@ class Publications:
 
         A = lambda s: pub_md.append(s)
 
+        A('<a id="%s">&nbsp;</a>' % pub['doi'])
         A('<div class="pub">')
         A('''<div class='altmetric-embed' data-badge-type='donut' data-doi="%s"></div>''' % pub['doi'])
         A('''<div class="__dimensions_badge_embed__" data-doi="%s" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>''' % pub['doi'])

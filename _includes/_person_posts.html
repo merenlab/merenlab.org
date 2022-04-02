@@ -8,7 +8,8 @@
 {% endfor %}
 
 {% if person_has_posts > 0 %}
-<ul class="person-contributions">
+<span style="font-variant: all-small-caps;">Blog posts</span>
+<ul class="person-blogs">
 {% for post in site.posts %}
       {% if post.authors contains person.alias and posts_listed < 5 %}
           {% assign posts_listed = posts_listed | plus: 1 %}

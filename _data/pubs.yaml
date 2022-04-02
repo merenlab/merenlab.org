@@ -13,11 +13,33 @@
 #     featured_image:
 
 - doi:
+    10.1101/2022.03.02.482602
+  title:
+    Structure-informed microbial population genetics elucidate selective pressures that shape protein evolution
+  authors:
+    Evan Kiefl, Özcan C Esen, Samuel E Miller, Kourtney L Kroll, Amy D Willis, Michael S Rappé, Tao Pan, A Murat Eren
+  journal:
+    bioRxiv
+  year:
+    2022
+  volume:
+  number:
+  pages:
+  additional_info:
+    highlights:
+      - A study that describes an approach to integrate <b>environmental microbiology</b> with recent advances in <b>protein structure prediction</b>, and illustrates the tight association between <b>intra-population genetic variants</b>, <b>environmental selective pressures</b>, and <b>structural properties of proteins</b>.
+      - Demonstrates a quantifiable link between (1) the magnitude of selective pressures over key metabolic <b>genes</b> (e.g., glutamine synthase of the central nitrogen metabolism), (2) the availability of key <b>nutrients</b> in the environment (e.g., nitrate), and (3) the maintenance of nonsynonymous <b>variants</b> near protein active sites.
+      - Shows that the interplay between selective pressures and protein structures also maintains <b>synonymous variants</b> -- revealing a quantifiable link between <b>translational accuracy</b> and fluctuating <b>selective pressures</b>.
+      - Comes with a <a href="https://merenlab.org/data/anvio-structure/chapter-I/"><b>reproducible bioinformatics workflow</b></a> that offers detailed access to computational steps used in the study that spans from metagenomic read recruitment and profiling to the integration of environmental variants and predicted protein structures.
+    featured_image:
+      /images/pubs/kiefl_et_al_metagenomics_plus_protein_structures.png
+
+- doi:
     10.1186/s13100-022-00262-6
   title:
     "Eco-evolutionary significance of domesticated retroelements in microbial genomes"
   authors:
-    Blair G. Paul, A. Murat Eren
+    Blair G Paul, A Murat Eren
   journal:
     Mobile DNA
   year:
@@ -41,7 +63,7 @@
   title:
     "The genetic and ecological landscape of plasmids in the human gut"
   authors:
-    Michael K Yu*, Emily C Fogarty*, A. Murat Eren
+    Michael K Yu*, Emily C Fogarty*, A Murat Eren
   journal:
     bioRxiv
   year:
@@ -62,7 +84,7 @@
   title:
     "tRNA modification dynamics from individual organisms to metaepitranscriptomics of microbiomes"
   authors:
-    Wen Zhang, Marcus Foo, A. Murat Eren, TaoPan
+    Wen Zhang, Marcus Foo, A Murat Eren, Tao Pan
   journal:
     Molecular Cell
   year:
@@ -82,7 +104,7 @@
   title:
     "Community-led, integrated, reproducible multi-omics with anvi'o"
   authors:
-   A. Murat Eren, Evan Kiefl, Alon Shaiber, Iva Veseli, Samuel E. Miller, Matthew S. Schechter, Isaac Fink, Jessica N. Pan, Mahmoud Yousef, Emily C. Fogarty, Florian Trigodet, Andrea R. Watson, Özcan C. Esen, Ryan M. Moore, Quentin Clayssen, Michael D. Lee, Veronika Kivenson, Elaina D. Graham, Bryan D. Merrill, Antti Karkman, Daniel Blankenberg, John M. Eppley, Andreas Sjödin, Jarrod J. Scott, Xabier Vázquez-Campos, Luke J. McKay, Elizabeth A. McDaniel, Sarah L. R. Stevens, Rika E. Anderson, Jessika Fuessel, Antonio Fernandez-Guerra, Lois Maignien, Tom O. Delmont, Amy D. Willis
+   A Murat Eren, Evan Kiefl, Alon Shaiber, Iva Veseli, Samuel E Miller, Matthew S Schechter, Isaac Fink, Jessica N Pan, Mahmoud Yousef, Emily C Fogarty, Florian Trigodet, Andrea R Watson, Özcan C Esen, Ryan M Moore, Quentin Clayssen, Michael D Lee, Veronika Kivenson, Elaina D Graham, Bryan D Merrill, Antti Karkman, Daniel Blankenberg, John M Eppley, Andreas Sjödin, Jarrod J Scott, Xabier Vázquez-Campos, Luke J McKay, Elizabeth A McDaniel, Sarah L R Stevens, Rika E Anderson, Jessika Fuessel, Antonio Fernandez-Guerra, Lois Maignien, Tom O Delmont, Amy D Willis
   journal:
     Nature Microbiology
   year:
@@ -104,7 +126,7 @@
   title:
     "Adaptive ecological processes and metabolic independence drive microbial colonization and resilience in the human gut"
   authors:
-    Andrea R. Watson, Jessika Füssel, Iva Veseli, Johanna Zaal DeLongchamp, Marisela Silva, Florian Trigodet, Karen Lolans, Alon Shaiber, Emily Fogarty, Joseph M. Runde, Christopher Quince, Michael K. Yu, Arda Söylev, Hilary G. Morrison, Sonny T.M. Lee, Dina Kao, David T. Rubin, Bana Jabri, Thomas Louie, A. Murat Eren
+    Andrea R Watson, Jessika Füssel, Iva Veseli, Johanna Zaal DeLongchamp, Marisela Silva, Florian Trigodet, Karen Lolans, Alon Shaiber, Emily Fogarty, Joseph M Runde, Christopher Quince, Michael K Yu, Arda Söylev, Hilary G Morrison, Sonny T M Lee, Dina Kao, David T Rubin, Bana Jabri, Thomas Louie, A Murat Eren
   journal:
     bioRxiv
   year:
@@ -125,7 +147,7 @@
   title:
     "High molecular weight DNA extraction strategies for long-read sequencing of complex metagenomes"
   authors:
-    Florian Trigodet, Karen Lolans, Emily Fogarty, Alon Shaiber, Hilary G. Morrison, Luis Barreiro, Bana Jabri, A. Murat Eren
+    Florian Trigodet, Karen Lolans, Emily Fogarty, Alon Shaiber, Hilary G Morrison, Luis Barreiro, Bana Jabri, A Murat Eren
   journal:
     bioRxiv
   year:
@@ -287,7 +309,7 @@
   title:
     The Wolbachia mobilome in Culex pipiens includes a putative plasmid
   authors:
-    Julie Reveillaud, Sarah R Bordenstein, Corinne Cruaud, Alon Shaiber, Özcan C Esen, Mylène Weill, Patrick Makoundou, Karen Lolans, Andrea R Watson, Ignace Rakotoarivony, Seth R Bordenstein, A Murat Ere
+    Julie Reveillaud, Sarah R Bordenstein, Corinne Cruaud, Alon Shaiber, Özcan C Esen, Mylène Weill, Patrick Makoundou, Karen Lolans, Andrea R Watson, Ignace Rakotoarivony, Seth R Bordenstein, A Murat Eren
   journal:
     Nature Communications
   year:
@@ -311,7 +333,7 @@
   title:
     Genome-resolved insights into a novel Spiroplasma symbiont of the Wheat Stem Sawfly (Cephus cinctus)
   authors:
-   Carl J Yeoman, Laura M Brutscher, Özcan C Esen, Furkan Ibaoglu, Curtis Fowler, A Murat Eren, Kevin Wanner, David K Weaver
+    Carl J Yeoman, Laura M Brutscher, Özcan C Esen, Furkan Ibaoglu, Curtis Fowler, A Murat Eren, Kevin Wanner, David K Weaver
   journal:
     PeerJ
   year:
@@ -381,7 +403,7 @@
   title:
     "Transcriptome-wide reprogramming of N 6-methyladenosine modification by the mouse microbiome"
   authors:
-    Xiaoyun Wang, Yan Li, Wenjun Chen, Hailing Shi, A. Murat Eren, Aleksey Morozov, Chuan He, Guan-Zheng Luo, Tao Pan
+    Xiaoyun Wang, Yan Li, Wenjun Chen, Hailing Shi, A Murat Eren, Aleksey Morozov, Chuan He, Guan-Zheng Luo, Tao Pan
   journal:
     Cell Research
   year:
@@ -448,7 +470,7 @@
   title:
     "Nitrogen-fixing populations of Planctomycetes and Proteobacteria are abundant in surface ocean metagenomes"
   authors:
-    Tom O Delmont, Christopher Quince, Alon Shaiber, Özcan C Esen, Sonny TM Lee, Michael S Rappé, Sandra L McLellan, Sebastian Lücker, A Murat Eren
+    Tom O Delmont, Christopher Quince, Alon Shaiber, Özcan C Esen, Sonny T M Lee, Michael S Rappé, Sandra L McLellan, Sebastian Lücker, A Murat Eren
   journal:
     Nature Microbiology
   year:
@@ -672,8 +694,7 @@
   title:
     "Identifying contamination with advanced visualization and analysis practices: metagenomic approaches for eukaryotic genome assemblies"
   authors:
-    Tom O Delmont
-    A Murat Eren
+    Tom O Delmont, A Murat Eren
   journal:
     PeerJ
   year:
