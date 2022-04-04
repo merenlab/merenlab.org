@@ -377,9 +377,11 @@ Let's run it using all of the contigs dbs available in the datapack:
 anvi-display-contigs-stats --output-file stats.txt DATA/*contigs.db
 ```
 
-{% include IMAGE path="imgaes/display-contigs-stats.png" width=80 %}
+{% include IMAGE path="images/display-contigs-stats.png" width=80 %}
 
-At this point, the interactive interface includes a table with nearly 200 columns, which is a bit overwhelming. But with the `--output-file` flag, you can save that table as a TAB-delimited file and import it in your favorite table-eating software like R, Python and others (we also use Excel sometimes). You will be able to compute the total size distribution of all the SAGs, calculate the average number of contigs, and select SAGs based on your favorite metrics!
+At this point, the interactive interface includes a table with nearly 200 columns, which is a bit overwhelming. To make more sense of the numbers, you can click on `Colorify output` to visually appreciate high and low values in each row.
+
+With the `--output-file` flag, you will save that table as a TAB-delimited file and import it in your favorite table-eating software like R, Python and others (we also use Excel sometimes). You will be able to compute the total size distribution of all the SAGs, calculate the average number of contigs, and select SAGs based on your favorite metrics!
 
 
 ### Completeness and redundancy
