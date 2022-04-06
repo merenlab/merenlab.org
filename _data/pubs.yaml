@@ -13,6 +13,29 @@
 #     featured_image:
 
 - doi:
+    10.1038/s41564-022-01090-3
+  read_link:
+    https://rdcu.be/cKnTP
+  title:
+    Microbial metabolites in the marine carbon cycle
+  authors:
+    Mary Ann Moran+, Elizabeth B. Kujawinski+, William F. Schroer, Shady A. Amin, Nicholas R. Bates, Erin M. Bertrand, Rogier Braakman, C. Titus Brown, Markus W. Covert, Scott C. Doney, Sonya T. Dyhrman, Arthur S. Edison, A. Murat Eren, Naomi M. Levine, Liang Li, Avena C. Ross, Mak A. Saito, Alyson E. Santoro, Daniel Segrè, Ashley Shade, Matthew B. Sullivan, Assaf Vardi
+  journal:
+    Nature Microbiology
+  year:
+    2022
+  volume:
+    7
+  number:
+  pages:
+    508–523
+  additional_info:
+    highlights:
+      - "A review that happens to be <b>the study number 001</b> for the <a href='https://ccomp-stc.org/' target='_blank'>Center for Chemical Currencies of a Microbial Planet</a>, or C-CoMP, an NSF-funded Science and Technology Center that aims to promote 'a deeper understanding of chemicals and chemical processes that underpin ocean ecosystems and the global carbon cycle by leveraging recent advances in analytical and data sciences, incorporating new ocean sampling technologies, using an open-science framework, and engaging educators and policy-makers'."
+    featured_image:
+      /images/pubs/moran_et_al_carbon_cycle.png
+
+- doi:
     10.1101/2022.03.02.482602
   title:
     Structure-informed microbial population genetics elucidate selective pressures that shape protein evolution
@@ -101,6 +124,8 @@
 
 - doi:
     10.1038/s41564-020-00834-3
+  read_link:
+    https://rdcu.be/cKMmi
   title:
     "Community-led, integrated, reproducible multi-omics with anvi'o"
   authors:
@@ -117,7 +142,8 @@
     3:6
   additional_info:
     highlights:
-      - A summary of the progress of <a href="/software/anvio" target="_blank">anvi'o</a> during the past five years.
+      - A summary of the progress of <a href="https://anvio.org" target="_blank">anvi'o</a> during the past five years.
+      - "The <a href='https://anvio.org/files/anvio-2021.pdf'>PDF</a> of the publication (which was supposed to be open access, yet somehow the Nature Publishing Group was unable to do so, so here it is)."
     featured_image:
       /images/pubs/anvio-integrated-omics.png
 
