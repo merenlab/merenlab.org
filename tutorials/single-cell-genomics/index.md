@@ -15,7 +15,7 @@ redirect_from: /single-cell-genomics/
 
 **The purpose of this workflow** is to learn how to integrate single-cell genomics data into the anvi'o environment. Here is a list of topics that are covered here:
 
- * Create a {% include ARTIFACT name="contigs-db" %} with one single-cell amplified genome (SAG).
+ * Create a {% include ARTIFACT name="contigs-db" %} with one single amplified genome (SAG).
  * Use single-copy core genes to estimate completion and redundancy.
  * Assign taxonomy using [GTDB](https://gtdb.ecogenomic.org/).
  * Annotate open reading frames with function.
@@ -377,7 +377,11 @@ Let's run it using all of the contigs dbs available in the datapack:
 anvi-display-contigs-stats --output-file stats.txt DATA/*contigs.db
 ```
 
-At this point, the interactive interface includes a table with nearly 200 columns, which is a bit overwhelming. But with the `--output-file` flag, you can save that table as a TAB-delimited file and import it in your favorite table-eating software like R, Python and others (we also use Excel sometimes). You will be able to compute the total size distribution of all the SAGs, calculate the average number of contigs, and select SAGs based on your favorite metrics!
+{% include IMAGE path="images/display-contigs-stats.png" width=80 %}
+
+At this point, the interactive interface includes a table with nearly 200 columns, which is a bit overwhelming. To make more sense of the numbers, you can click on `Colorify output` to visually appreciate high and low values in each row.
+
+With the `--output-file` flag, you will save that table as a TAB-delimited file and import it in your favorite table-eating software like R, Python and others (we also use Excel sometimes). You will be able to compute the total size distribution of all the SAGs, calculate the average number of contigs, and select SAGs based on your favorite metrics!
 
 
 ### Completeness and redundancy
@@ -642,7 +646,7 @@ Homework for you: try to create a similar figure:
 {% include IMAGE path="images/phylogenetic-tree-annotated.png" width=80 %}
 
 {:.notice}
-If you open the 'mouse panel' on the right side and then hover your mouse over the figure, you can see the taxonomic annotation in the panel.
+If you open the `Mouse` panel on the right side and then hover your mouse over the figure, you can see the taxonomic annotation in the panel.
 
 From this phylogenetic tree (which only includes a subset of our SAGs), and the taxonomy output, we can see that there is a large proportion of Alphaproteobacteria with mostly Pelagibacterales and HIMB59 genomes.
 
@@ -752,7 +756,7 @@ anvi-import-misc-data -p PANGENOMICS/Pelagibacterales-HIMB59-PAN.db \
                       taxonomy.txt
 ```
 
-You can rerun {% include PROGRAM name="anvi-display-pan" %} and take some time to explore the 'main' and 'layer' panels to modify some aesthetics.
+You can rerun {% include PROGRAM name="anvi-display-pan" %} and take some time to explore the `Main` and `Layers` panels to modify some aesthetics.
 
 ```bash
 anvi-display-pan -g PANGENOMICS/Pelagibacterales-HIMB59-GENOMES.db \
@@ -776,7 +780,7 @@ A gene cluster can be part of the 'core' genome when it is shared by all the gen
 To create a bin, you can simply click on gene clusters and they will be added to the current bin. A more efficient way to add gene clusters to a bin is to click on branches in the central dendrogram.
 
 {:.notice}
-You can use the 'Bin' tab to select, rename, and create bins.
+You can use the `Bin` tab to select, rename, and create bins.
 
 Let's select the accessory genomes of GCA-002704185 sp902517865 and HIMB59, and also select the singleton gene clusters of AG-910-G11 to further inspect these genes and therefore the functions that make these genomes unique compared to the rest.
 
@@ -825,27 +829,27 @@ anvi-display-pan -g PANGENOMICS/Pelagibacterales-HIMB59-GENOMES.db \
                  -p PANGENOMICS/Pelagibacterales-HIMB59-PAN.db
 ```
 
-At first, there is nothing new. But if you go in the 'Layers' tab, you will see this:
+At first, there is nothing new. But if you go in the `Layers` tab, you will see this:
 
 {% include IMAGE path="images/pangenome-ani-select.png" width=60 %}
 
-Select `ANI_percentage_identity` and click on 'Redraw layer data'. Then you should see the ANI on the display.
+Select `ANI_percentage_identity` and click on `Redraw layer data`. Then you should see the ANI on the display.
 
 {:.notice}
 You probably want to change the `min` value from the interface to better appreciate the differences in the ANI heatmap across all the genomes.
 
 {% include IMAGE path="images/pangeome-ani-heatmap.png" width=80 %}
 
-You can now also organize the genomes based on the ANI value using the menu 'Order by' in the 'Layers' tab.
+You can now also organize the genomes based on the ANI value using the menu `Order by` in the `Layers` tab.
 We can learn a few things with this analysis so far. First of all, AG-910-D13 is quite closely related to the reference genome HIMB59. Second of all, AG-910-G11 is still part of the of the same cluster as all the other *Pelagibacter* genomes, but it is clearly more different with a low ANI compare to the other genomes.
 
 
 
 ### Exploratory analyses
 
-We know that single-cell amplified genomes are not complete. If a gene is absent from a SAG but present in a closely-related genome, we cannot exclude the possibility that it was simply lost during the assembly and therefore cannot prove its absence. However, if a gene or a set of genes is absent from a reference genome but present in SAGs, then we can do science and make some claims.
+We know that single amplified genomes are not complete. If a gene is absent from a SAG but present in a closely-related genome, we cannot exclude the possibility that it was simply lost during the assembly and therefore cannot prove its absence. However, if a gene or a set of genes is absent from a reference genome but present in SAGs, then we can do science and make some claims.
 
-If you zoom on this part of the pangenome, you will notice a gene cluster with no genes in HIMB083. You can right click on it and select 'Inspect gene cluster'.
+If you zoom on this part of the pangenome, you will notice a gene cluster with no genes in HIMB083. You can right click on it and select `Inspect gene cluster`.
 
 {% include IMAGE path="images/pangenome-zoom-inspect.png" width=100 %}
 {% include IMAGE path="images/pangenome-inspect-page.png" width=80 %}
@@ -854,13 +858,13 @@ Here you can see the gene alignment with color-coded amino acids (more informati
 
 {% include IMAGE path="images/K13693.png" width=80 %}
 
-A glycosyltransferase that is present in our SAGs but not in the reference genome - that's an interesting insight! But is it truly absent from the reference genome? What if we want to search for that function in all of the gene clusters? Well, it is possible to do with the search tab - select "Search functions" and type the COG accession for that function: COG1215. There are five gene clusters containing genes with the same COG annotation, and if you click on 'Highlight splits on tree' you will be able to see where these gene clusters are. And none of them are present in the HIMB083 reference. If you search for the corresponding KEGG accession, you will find out that the gene cluster we inspected was the _only one_ with that annotation! This is a strong evidence that this glycosyltransferase is unique to our set of *Pelagibacter* SAGs.
+A glycosyltransferase that is present in our SAGs but not in the reference genome - that's an interesting insight! But is it truly absent from the reference genome? What if we want to search for that function in all of the gene clusters? Well, it is possible to do with the search tab - select "Search functions" and type the COG accession for that function: COG1215. There are five gene clusters containing genes with the same COG annotation, and if you click on `Highlight splits on tree` you will be able to see where these gene clusters are. And none of them are present in the HIMB083 reference. If you search for the corresponding KEGG accession, you will find out that the gene cluster we inspected was the _only one_ with that annotation! This is a strong evidence that this glycosyltransferase is unique to our set of *Pelagibacter* SAGs.
 
 With a quick search on the glucosyl-3-phosphoglycerate synthase gene, we can learn that it should be associated with a glucosyl-3-phosphoglycerate phosphatase for the production of glucosylglycerate ([Costa et al., 2006](https://doi.org/10.1128/JB.188.3.1022-1030.2006)) and that marine cyanobacteria synthesize glucosylglycerate as a secondary compatible solute in nitrogen-poor environments ([Klähn et al., 2009](https://doi.org/10.1111/j.1462-2920.2009.02045.x)).
 
 Let's save our gene cluster of interest by clicking on it, which will add it to a bin.
 
-To further investigate if our SAGs are potentially able to synthesize glucosylglycerate, we need to find the second gene which should be either just before or after the glucosyl-3-phosphoglycerate synthase gene in the genome. For that, we can order the gene clusters by the synteny of one genome. To do this, you can use the 'item order' menu in the main tab and select 'Forced synteny <> AG 910 K02' and redraw the figure.
+To further investigate if our SAGs are potentially able to synthesize glucosylglycerate, we need to find the second gene which should be either just before or after the glucosyl-3-phosphoglycerate synthase gene in the genome. For that, we can order the gene clusters by the synteny of one genome. To do this, you can use the `Items order` menu in the main tab and select `Forced synteny <> AG 910 K02` and redraw the figure.
 
 If you zoom on the bin we just created, you can see that the neighbor genes are all absent in HIMB083:
 {% include IMAGE path="images/pangenome-synteny.png" width=80 %}
@@ -892,7 +896,7 @@ anvi-display-pan -g PANGENOMICS/Pelagibacterales-HIMB59-GENOMES.db \
                  -p PANGENOMICS/Pelagibacterales-HIMB59-PAN.db
 ```
 
-You can filter for specific gene clusters using the 'Search' tab and the 'Search gene clusters using filters' section:
+You can filter for specific gene clusters using the `Search` tab and the `Search gene clusters using filters` section:
 
 {% include IMAGE path="images/phylogenomics-filter.png" width=50 %}
 
@@ -904,11 +908,11 @@ If you search for them and highlight the results on the tree, you will see that 
 
 {% include IMAGE path="images/phylogenomics-correct-filters.png" width=50 %}
 
-You can now add these gene clusters to a bin (make sure you're using an empty bin or create a new one in the 'Bin' tab) by clicking on the button 'Append splits to selected bin'.
+You can now add these gene clusters to a bin (make sure you're using an empty bin or create a new one in the `Bin` tab) by clicking on the button `Append splits to selected bin`.
 
 ### Compute and display the phylogenomic tree
 
-Now to make the alignment _and_ the phylogenomic tree, you can simply navigate to the 'Layers' tab where you will see a button 'Generate a new phylogenetic tree'. When you click on it you can name your tree, select the bin you have just made, choose an aligner, and finally check the box to store the tree permanently.
+Now to make the alignment _and_ the phylogenomic tree, you can simply navigate to the `Layers` tab where you will see a button `Generate a new phylogenetic tree`. When you click on it you can name your tree, select the bin you have just made, choose an aligner, and finally check the box to store the tree permanently.
 
 {% include IMAGE path="images/phylogenomics-make-tree.png" width=50 %}
 
@@ -925,7 +929,7 @@ Notice how AG-910-G11 is now more outside of the *Pelagibacter* cluster than we 
 
 <span class="extra-info-header">Make a phylogenomic tree outside of the interactive interface</span>
 
-You don't need to use the interactive interface to extract, align, and compute a phylogenomic tree. Instead, you can use the program {% include PROGRAM name="anvi-get-sequences-for-gene-clusters" %}. It accepts a genome storage and a pan db, and you can use the same filters as the ones in the 'Search' tab of the interactive interface. For instance, this command would give you the same set of genes as a multiple sequence alignment:
+You don't need to use the interactive interface to extract, align, and compute a phylogenomic tree. Instead, you can use the program {% include PROGRAM name="anvi-get-sequences-for-gene-clusters" %}. It accepts a genome storage and a pan db, and you can use the same filters as the ones in the `Search` tab of the interactive interface. For instance, this command would give you the same set of genes as a multiple sequence alignment:
 
 ```bash
 anvi-get-sequences-for-gene-clusters -g PANGENOMICS/Pelagibacterales-HIMB59-GENOMES.db \
