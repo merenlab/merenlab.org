@@ -39,7 +39,7 @@ redirect_from: /single-cell-genomics/
 First, open your terminal, `cd` to a working directory, and download the data pack we have stored online for you:
 
 ``` bash
-curl -L https://figshare.com/ndownloader/files/34656020 \
+curl -L https://figshare.com/ndownloader/files/34713856 \
     -o SCG_workshop.tar.gz
 ```
 
@@ -54,8 +54,8 @@ cd SCG-workshop
 At this point, if you type `ls` in your terminal, this is what you should be seeing:
 
 ```
-ls
-MULTIPLE_SAGs SINGLE_SAG
+$ ls
+MULTIPLE_SAGs    READ_RECRUITMENT SINGLE_SAG
 ```
 
 Don't forget to activate your anvi'o envrionment:
@@ -65,7 +65,7 @@ conda activate anvio-7.1
 ```
 
 ## Inspecting a single SAG
-We start with the basics: we have a fasta file containing our assembled SAG.
+We start with the basics: we have a FASTA file containing our assembled SAG.
 We can do many things to it, like compute statistics, do gene calling, taxonomy assignment, functional annotation, etc.
 And we need to interact with this data and share it with collaborators/reviewers/editors/public.
 
@@ -117,6 +117,10 @@ anvi-run-hmms -c CONTIGS/AG-910-K02-contigs.db
 
 {:.notice}
 If you are interested in tRNAs, you can add the flag `--also-scan-trnas`. But if you don't do this, you can always use the program {% include PROGRAM name="anvi-scan-trnas" %} later.
+
+{:.notice}
+`Bacteria_71` and  `Archaea_76` are collections that anvi’o developers curated by taking [Mike Lee’s](https://twitter.com/AstrobioMike) bacterial single-copy core gene collection first released in [GToTree](https://academic.oup.com/bioinformatics/article/35/20/4162/5378708), which is an easy-to-use phylogenomics workflow.
+`Protista_83` is [a curated collection](http://merenlab.org/delmont-euk-scgs) of [BUSCO](https://busco.ezlab.org/) by [Tom Delmont](https://twitter.com/tomodelmont).
 
 
 ### Display the contigs' stats
@@ -345,8 +349,31 @@ And the output file should be a table that looks like this:
 |1210|COG20_FUNCTION|COG0719|Fe-S cluster assembly scaffold protein SufB (SufB) (PDB:1VH4)|2.2e-204|
 |1211|COG20_FUNCTION|COG3808|Na+ or H+-translocating membrane pyrophosphatase (OVP1) (PDB:4A01) (PUBMED:11342551)|7.7e-281|
 
-Now we have gone through all the basics of analyzing a single SAG in anvi'o. However, in real life we often have many SAGs that we want to analyze all at once. Now we will learn how to do this.
+### Estimate KEGG module completion
 
+What makes the KEGG database unique is its ability to contextualize annotations into functional modules and pathways. We can use the program {% include PROGRAM name="anvi-estimate-metabolism" %} to estimate the completion of KEGG modules for our SAG:
+```bash
+anvi-estimate-metabolism -c CONTIGS/AG-910-K02-contigs.db
+```
+
+It will generate a TAB-delimited file where each row represents a KEGG module, its name, the associated KOs, the completeness of the module in the SAG, and more:
+
+```
+unique_id	genome_name	kegg_module	module_name	module_class	module_category	module_subcategory	module_definition	module_completeness	module_is_complete	kofam_hits_in_module	gene_caller_ids_in_module	warnings
+0	AG_910_K02	M00001	Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate	Pathway modules	Carbohydrate metabolism	Central carbohydrate metabolism	"(K00844,K12407,K00845,K00886,K08074,K00918) (K01810,K06859,K13810,K15916) (K00850,K16370,K21071,K00918) (K01623,K01624,K11645,K16305,K16306) K01803 ((K00134,K00150) K00927,K11389) (K01834,K15633,K15634,K15635) K01689 (K00873,K12406)"	0.3	False	K00134,K00927,K01623	1045,1046,1047	None
+1	AG_910_K02	M00002	Glycolysis, core module involving three-carbon compounds	Pathway modules	Carbohydrate metabolism	Central carbohydrate metabolism	"K01803 ((K00134,K00150) K00927,K11389) (K01834,K15633,K15634,K15635) K01689 (K00873,K12406)"	0.3333333333333333	False	K00134,K00927	1045,1046	None
+2	AG_910_K02	M00003	Gluconeogenesis, oxaloacetate => fructose-6P	Pathway modules	Carbohydrate metabolism	Central carbohydrate metabolism	"(K01596,K01610) K01689 (K01834,K15633,K15634,K15635) K00927 (K00134,K00150) K01803 ((K01623,K01624,K11645) (K03841,K02446,K11532,K01086,K04041),K01622)"	0.375	False	K00134,K00927,K01623	1045,1046,1047	None
+3	AG_910_K02	M00307	Pyruvate oxidation, pyruvate => acetyl-CoA	Pathway modules	Carbohydrate metabolism	Central carbohydrate metabolism	"((K00163,K00161+K00162)+K00627+K00382-K13997),K00169+K00170+K00171+(K00172,K00189),K03737"	1.0	True	K00163,K00163,K00382,K00627	761,230,467,762	None
+4	AG_910_K02	M00009	Citrate cycle (TCA cycle, Krebs cycle)	Pathway modules	Carbohydrate metabolism	Central carbohydrate metabolism	"(K01647,K05942) (K01681,K01682) (K00031,K00030) (K00164+K00658+K00382,K00174+K00175-K00177-K00176) (K01902+K01903,K01899+K01900,K18118) (K00234+K00235+K00236+K00237,K00239+K00240+K00241-(K00242,K18859,K18860),K00244+K00245+K00246-K00247) (K01676,K01679,K01677+K01678) (K00026,K00025,K00024,K00116)"	0.875	True	K00024,K00031,K00164,K00239,K00240,K00241,K00242,K00382,K00658,K01679,K01681,K01902,K01903	472,390,469,475,474,477,476,467,468,369,156,470,471	None
+5	AG_910_K02	M00010	Citrate cycle, first carbon oxidation, oxaloacetate => 2-oxoglutarate	Pathway modules	Carbohydrate metabolism	Central carbohydrate metabolism	"(K01647,K05942) (K01681,K01682) (K00031,K00030)"	0.6666666666666666	False	K00031,K01681	390,156	None
+6	AG_910_K02	M00011	Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate	Pathway modules	Carbohydrate metabolism	Central carbohydrate metabolism	"(K00164+K00658+K00382,K00174+K00175-K00177-K00176) (K01902+K01903,K01899+K01900,K18118) (K00234+K00235+K00236+K00237,K00239+K00240+K00241-(K00242,K18859,K18860),K00244+K00245+K00246-K00247) (K01676,K01679,K01677+K01678) (K00026,K00025,K00024,K00116)"	1.0	True	K00024,K00164,K00239,K00240,K00241,K00242,K00382,K00658,K01679,K01902,K01903	472,469,475,474,477,476,467,468,369,470,471	None
+7	AG_910_K02	M00004	Pentose phosphate pathway (Pentose phosphate cycle)	Pathway modules	Carbohydrate metabolism	Central carbohydrate metabolism	"(K13937,((K00036,K19243) (K01057,K07404))) K00033 K01783 (K01807,K01808) K00615 K00616 (K01810,K06859,K13810,K15916)"	0.5714285714285714	False	K00615,K00616,K01783,K01808	1044,1053,550,601	None
+8	AG_910_K02	M00007	Pentose phosphate pathway, non-oxidative phase, fructose 6P => ribose 5P	Pathway modules	Carbohydrate metabolism	Central carbohydrate metabolism	"K00615 (K00616,K13810) K01783 (K01807,K01808)"	1.0	True	K00615,K00616,K01783,K01808	1044,1053,550,601	None
+```
+
+By default, anvi'o labels a module as 'present' if its completeness is > 0.75 (at least 3 out of 4 KOs must be present). We are using SAGs, which are inherently incomplete, so be very critical about this completeness threshold (which you can change using the flag `--module-completion-threshold`).
+
+Now we have gone through all the basics of analyzing a single SAG in anvi'o. However, in real life we often have many SAGs that we want to analyze all at once. Now we will learn how to do this.
 
 ## Working with multiple SAGs
 
@@ -359,7 +386,7 @@ cd ../MULTIPLE_SAGs
 
 And this is what you should see in it:
 ```bash
-ls
+$ ls
 ADDITIONAL_DATA DATA
 ```
 
@@ -416,7 +443,7 @@ anvi-script-gen-genomes-file --input-dir DATA \
 And here is how the file should look like:
 
 ```bash
-head -n 10 external-genomes.txt
+$ head -n 10 external-genomes.txt
 name	contigs_db_path
 AG_910_A01	/path/to/MULTIPLE_SAGs/DATA/AG_910_A01-contigs.db
 AG_910_A02	/path/to/MULTIPLE_SAGs/DATA/AG_910_A02-contigs.db
@@ -476,7 +503,7 @@ mkdir -p TAXONOMY
 
 # going through each SAGs at a time
 # it will take a few min
-time while read name path
+while read name path
 do
   if [ "$name" == "name" ]; then continue; fi
   anvi-estimate-scg-taxonomy -c $path -o TAXONOMY/$name.txt
@@ -502,7 +529,7 @@ done < external-genomes.txt
 Now you have the final taxonomy output for all your SAGs! Are you interested in *Pelagibacter*? You can search for all the SAGs with a *Pelagibacter* assignment:
 
 ```bash
-grep Pelagibacter taxonomy.txt
+$ grep Pelagibacter taxonomy.txt
 AG_910_A06	19	9	Bacteria	Proteobacteria	Alphaproteobacteria	Pelagibacterales	Pelagibacteraceae	Pelagibacter	Pelagibacter sp902567045
 AG_910_A11	1	1	Bacteria	Proteobacteria	Alphaproteobacteria	Pelagibacterales	Pelagibacteraceae	Pelagibacter	Pelagibacter sp902612325
 AG_910_A14	4	4	Bacteria	Proteobacteria	Alphaproteobacteria	Pelagibacterales	AG-422-B15	AG-422-B15	None
@@ -516,6 +543,79 @@ AG_910_A17	17	17	Bacteria	Proteobacteria	Alphaproteobacteria	Pelagibacterales	Pe
 
 Another way to investigate the taxonomic landscape of all these SAGs is to create a phylogenetic tree using a marker gene.
 You could use any gene in one of the HMM models that you ran earlier.
+
+For this tutorial, we will use the 16S rRNA gene and make a phylogenetic tree. The command {% include PROGRAM name="anvi-get-sequences-for-hmm-hits" %} will extract the DNA sequence of a given gene (or all sequences for a set of genes if you want to do some phylogenomics). It will also create an alignment when you use the flag `--concatenate-genes`.
+
+```bash
+# make a directory to store the results
+mkdir -p PHYLOGENETICS_16S_rRNA
+
+# run the command
+anvi-get-sequences-for-hmm-hits -e external-genomes.txt \
+                                --hmm-source Ribosomal_RNA_16S \
+                                --gene-names 16S_rRNA_bac \
+                                --concatenate-genes \
+                                --return-best-hit \
+                                -o PHYLOGENETICS_16S_rRNA/Ribosomal_RNA_16S_bac.fa
+```
+
+Well, there are only 61 bacterial 16S rRNA among the 226 SAGs:
+```
+Sources ......................................: Ribosomal_RNA_16S
+Hits .........................................: 67 HMM hits for 1 source(s)
+Genes of interest ............................: 16S_rRNA_bac
+Filtered hits ................................: 61 hits remain after filtering for 1 gene(s)
+```
+
+Keep in mind that no marker gene or single copy core gene was found in all SCGs and therefore the phylogenetic analysis will be limited to a subset of your dataset.
+
+Now that you have an aligned FASTA file of the bacterial 16S rRNA, you can use the command {% include PROGRAM name="anvi-gen-phylogenomic-tree" %} to genereate a Newick tree file. It uses [FastTree](http://www.microbesonline.org/fasttree/) by default, but you can always use your favorite phylogenetic tree software to make a Newick tree.
+
+The command is quite simple:
+```bash
+anvi-gen-phylogenomic-tree -f PHYLOGENETICS_16S_rRNA/Ribosomal_RNA_16S_bac.fa \
+                           -o PHYLOGENETICS_16S_rRNA/Ribosomal_RNA_16S_bac-tree.txt
+```
+
+It is now time to use the interactive interface of anvi'o! To do that, we will use the `--manual` mode of `anvi-interactive`. Anvi'o will automatically generate an empty {% include ARTIFACT name="profile-db" %} to store any settings that you change while working in the interface.
+
+```bash
+anvi-interactive -p PHYLOGENETICS_16S_rRNA/phylogenetic-profile-Ribosomal_RNA_16S_bac.db \
+                 -t PHYLOGENETICS_16S_rRNA/Ribosomal_RNA_16S_bac-tree.txt \
+                 --title "Ribosomal_RNA_16S_bac" \
+                 --manual
+```
+
+You should see this after clicking the `Draw` button:
+
+{% include IMAGE path="images/phylogenetic-tree-raw.png" width=80 %}
+
+{:.notice}
+Trees from FastTree are not rooted. You can use an external software to root your tree, or right-click a branch in the interactive interface and select "reroot the tree/dendrogram here".
+
+This tree is not very informative without the taxonomic assignment that you did earlier. Let's exit the interface by closing the browser tab and press `CTRL+C` in the terminal.
+
+To add additional data for each `item` in the interface (here the items are SAGs), you can use the flag `-A`:
+
+```bash
+anvi-interactive -p PHYLOGENETICS_16S_rRNA/phylogenetic-profile-Ribosomal_RNA_16S_bac.db \
+                 -t PHYLOGENETICS_16S_rRNA/Ribosomal_RNA_16S_bac-tree.txt \
+                 --title "Ribosomal_RNA_16S_bac" \
+                 --manual \
+                 -A taxonomy.txt
+```
+
+The interactive interface is quite modular and you can tinker around to make that tree look better.
+Homework for you: try to create a similar figure:
+
+{% include IMAGE path="images/phylogenetic-tree-annotated.png" width=80 %}
+
+{:.notice}
+If you open the `Mouse` panel on the right side and then hover your mouse over the figure, you can see the taxonomic annotation in the panel.
+
+From this phylogenetic tree (which only includes a subset of our SAGs), and the taxonomy output, we can see that there is a large proportion of Alphaproteobacteria with mostly Pelagibacterales and HIMB59 genomes.
+
+We have just started to understand the microbial diversity of all the SAGs from that one sample. Of course, if you wanted to do a more comprehensive analysis, you could include SAGs from other samples, or even some reference genomes. You could also use other marker genes.
 
 <div class="extra-info" markdown="1">
 
@@ -578,79 +678,6 @@ Ribosomal_L27	102
 Notice that the most abundant SCG is only found in 110/226 SAGs!
 
 </div>
-
-For this tutorial, we will use the 16S rRNA gene and make a phylogenetic tree. The command {% include PROGRAM name="anvi-get-sequences-for-hmm-hits" %} will extract the DNA sequence of a given gene (or all sequences for a set of genes if you want to do some phylogenomics). It will also create an alignment when you use the flag `--concatenate-genes`.
-
-```bash
-# make a directory to store the results
-mkdir -p PHYLOGENETICS_16S_rRNA
-
-# run the command
-anvi-get-sequences-for-hmm-hits -e external-genomes.txt \
-                                --hmm-source Ribosomal_RNA_16S \
-                                --gene-names 16S_rRNA_bac \
-                                --concatenate-genes \
-                                --return-best-hit \
-                                -o PHYLOGENETICS_16S_rRNA/Ribosomal_RNA_16S_bac.fa
-```
-
-Well, there are only 61 bacterial 16S rRNA among the 226 SAGs:
-```
-Sources ......................................: Ribosomal_RNA_16S
-Hits .........................................: 67 HMM hits for 1 source(s)
-Genes of interest ............................: 16S_rRNA_bac
-Filtered hits ................................: 61 hits remain after filtering for 1 gene(s)
-```
-
-Keep in mind that no marker gene or single copy core gene was found in all SCGs and therefore the phylogenetic analysis will be limited to a subset of your dataset.
-
-Now that you have an aligned FASTA file of the bacterial 16S rRNA, you can use the command {% include PROGRAM name="anvi-gen-phylogenomic-tree" %} to genereate a Newick tree file. It uses [FastTree](http://www.microbesonline.org/fasttree/) by default, but you can always use your favorite phylogenetic tree software to make a Newick tree.
-
-The command is quite simple:
-```bash
-anvi-gen-phylogenomic-tree -f PHYLOGENETICS_16S_rRNA/Ribosomal_RNA_16S_bac.fa \
-                           -o PHYLOGENETICS_16S_rRNA/Ribosomal_RNA_16S_bac-tree.txt
-```
-
-It is now time to use the interactive interface of anvi'o! To do that, we will use the `--manual` mode of `anvi-interactive`. Anvi'o will automatically generate an empty {% include ARTIFACT name="profile-db" %} to store any settings that you change while working in the interface.
-
-```bash
-anvi-interactive -p PHYLOGENETICS_16S_rRNA/phylogenetic-profile-Ribosomal_RNA_16S_bac.db \
-                 -t PHYLOGENETICS_16S_rRNA/Ribosomal_RNA_16S_bac-tree.txt \
-                 --title "Ribosomal_RNA_16S_bac" \
-                 --manual
-```
-
-You should see this after clicking the `Draw` button:
-
-{% include IMAGE path="images/phylogenetic-tree-raw.png" width=80 %}
-
-{:.notice}
-Trees from Fasttree are not rooted. You can use an external software to root your tree, or right-click a branch in the interactive interface and select "reroot the tree/dendrogram here".
-
-This tree is not very informative without the taxonomic assignment that you did earlier. Let's exit the interface by closing the browser tab and press `CTRL+C` in the terminal.
-
-To add additional data for each `item` in the interface (here the items are SAGs), you can use the flag `-A`:
-
-```bash
-anvi-interactive -p PHYLOGENETICS_16S_rRNA/phylogenetic-profile-Ribosomal_RNA_16S_bac.db \
-                 -t PHYLOGENETICS_16S_rRNA/Ribosomal_RNA_16S_bac-tree.txt \
-                 --title "Ribosomal_RNA_16S_bac" \
-                 --manual \
-                 -A taxonomy.txt
-```
-
-The interactive interface is quite modular and you can tinker around to make that tree look better.
-Homework for you: try to create a similar figure:
-
-{% include IMAGE path="images/phylogenetic-tree-annotated.png" width=80 %}
-
-{:.notice}
-If you open the `Mouse` panel on the right side and then hover your mouse over the figure, you can see the taxonomic annotation in the panel.
-
-From this phylogenetic tree (which only includes a subset of our SAGs), and the taxonomy output, we can see that there is a large proportion of Alphaproteobacteria with mostly Pelagibacterales and HIMB59 genomes.
-
-We have just started to understand the microbial diversity of all the SAGs from that one sample. Of course, if you wanted to do a more comprehensive analysis, you could include SAGs from other samples, or even some reference genomes.
 
 A next step is to compare the SAGs to each other. In other words - we will do some comparative genomics by comparing their gene content (pangenomics), compute genome similarity, and more!
 
@@ -962,4 +989,132 @@ You can always import that tree into an existing pangenome with {% include PROGR
 
 
 ## Read recruitment
-Under construction.
+
+It is time to dive into the ecology of our SAGs and investigate where they occur! The set of SAGs we are using is coming from the Bermuda-Atlantic Time-series Study (BATS) Station in the Sargasso Sea and we can use the publicly available metagenomes from this region to recruit reads onto the SAGs. For this tutorial, we will focus on 20 metagenomes from samples collected approximately every month between 2003 and 2004. We will also use the metagenomes from the same sample used to generate the AG-910 SAGs that we have been working on (sample collected in July 2009). [Here](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA385855) is a link to the NCBI BioProject for the relevant samples.
+
+The list of SRA accessions that we will use is:
+```
+SRR5720233 SRR5720238 SRR5720327 SRR5720283 SRR5720235 SRR5720286 SRR5720332
+SRR5720276 SRR5720262 SRR5720338 SRR5720322 SRR5720337 SRR5720256 SRR5720257
+SRR5720260 SRR5720321 SRR5720251 SRR5720307 SRR5720278 SRR5720342 SRR6507279
+```
+
+{:.notice}
+The read recruitment analysis can be quite computationally intensive and and can generate relatively large files. The datapack only includes the final files generated with anvi'o and we will focus on the visualization of the results in this tutorial.
+
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Generate the profile database in anvi'o</span>
+This is a short summary of the workflow used to generate the {% include ARTIFACT name="profile-db" %} that stores the read recruitment results and can be used by {% include PROGRAM name="anvi-interactive" %} to visualize these results.
+
+To download the metagenomes, you can use `fastq-dump` from the [sra toolkit](https://hpc.nih.gov/apps/sratoolkit.html).
+
+Briefly, the analysis consists of using bowtie to map short reads onto our contigs. Then we use samtools to convert SAM files into BAM files and remove any unmapped reads. Then we create a {% include ARTIFACT name="single-profile-db" %} for every sample. _Single_ profile databases contain the key information about the read mapping from a _single_ sample to your contigs: coverage, abundance, single nucleotide variants, single codon variants, single amino acid variants, and insertions/deletions (indels) per nucleotide position. Finally, we merge all the {% include ARTIFACT name="single-profile-db" text="single profile databases" %} into a _merged_ {% include ARTIFACT name="profile-db" %} (which contains the combined information from all samples that were mapped to the same contigs database).
+
+You can run all these steps manually, as described in this [comprehensive step-by-step exercise on read recruitment](https://merenlab.org/momics/exercises/read-recruitment/). But the {% include ARTIFACT name="profile-db" %} in our datapack was automatically generated using the 'metagenomics' snakemake workflow integrated in the command {% include PROGRAM name="anvi-run-workflow" %}.
+
+This workflow requires a {% include ARTIFACT name="fasta-txt" %} file with the list of SAGs onto which you want to do the read recruitment; a {% include ARTIFACT name="samples-txt" %} file including the path to each metagenome's short reads; and a {% include ARTIFACT name="workflow-config" %} file that describes the steps and parameters considered by {% include PROGRAM name="anvi-run-workflow" %}.
+
+You can create a default {% include ARTIFACT name="workflow-config" %} file using the following command:
+```bash
+anvi-run-workflow --workflow metagenomics \
+                  --get-default-config config.json
+```
+
+You can modify the `config.json` and choose all the steps that you want to be run on your samples during the workflow, but also the number of threads for each command, output directory names, and more. To visualize the workflow steps, you can generate a workflow graph by using the flag `--save-workflow-graph` when running {% include PROGRAM name="anvi-run-workflow" %}.
+
+Here is the graph for the workflow used to generate the {% include ARTIFACT name="profile-db" %} in the datapack:
+
+{% include IMAGE path="images/metagenomics-workflow.png" width=90 %}
+
+</div>
+
+### The interactive interface
+
+First, let's change to the right directory:
+
+```bash
+cd ../READ_RECRUITMENT
+```
+
+To start the interactive interface, you can use this command:
+```bash
+anvi-interactive -c CONTIGS/AG_910_O03-contigs.db -p PROFILE/PROFILE.db
+```
+
+If you click on the `Draw` button, you should see this:
+
+{% include IMAGE path="images/read-recruitment-raw.png" width=80 %}
+
+The central dendrogram represents contigs, or more precisely, 'splits' - as anvi'o splits large contigs into smaller (~20,000bp) sequences for a better visualization experience. Every layer represents a metagenome and the bar plot represents the mean coverage of a 'split' in a given metagenome.
+
+{:.notice}
+By default the central dendrogram is computed using differential coverage and the sequence composition of the contigs (kmer composition, default k=4). You can also use only differential coverage, or only sequence composition with the `View` menu in the `Main` tab. Don't forget to re-draw the figure to see the new contig organization.
+
+You can polish the figure a little bit, especially by highlighting the percent of reads mapping to appreciate the seasonality pattern of *Pelagibacter*.
+
+{% include IMAGE path="images/read-recruitment-polished.png" width=80 %}
+
+You probably immediately notice that three splits don't have any coverage in all of the metagenomes! To check if it is contamination, you can select or 'bin' these splits with no coverage and open the `Bin` tab. You will see that these three splits only add up to ~42 kbp, nothing close to a full genome. You can also check for the presence of single-copy core genes present in these splits compared to the rest of the genome; you will see that there are none.
+
+Another interesting observation is that one of the splits is actually part of a large contig containing an rRNA operon, so unless there is a misassembly, this split is definitely part of the genome.
+
+
+### The inspection page
+To further investigate the content of splits, you can right click on one split and select `Inspect split`. It will open another tab on your browser with a more detailed view of the coverage. Using the `Settings` panel, you can choose to display SNVs and indels, overlay GC content, and color genes by their COG category or KEGG class.
+
+{% include IMAGE path="images/read-recruitment-inspect.png" width=80 %}
+
+If you select a gene, you will see its functional annotation (if any) and you will be able to get its DNA and amino acid sequences. You can also directly start various BLAST jobs against NCBI nucleotide collection (nr) or the RefSeq genome database, using either `blastn` for the nucleotide sequence or `blastx` for the translated amino acid sequence.
+
+Try inspecting the two splits with no coverage and have a look at the gene annotations (or lack thereof) to better understand why it is not detected in the environment. You will see that they contain genes associated with the cell wall and membrane!
+
+### Summarizing the read recruitment
+
+Similar to the pangenomic analysis, we can summarize the results of the read recruitment using {% include PROGRAM name="anvi-summarize" %}.
+To summarize the whole SAG, you need to tell anvi'o that you want everything in that contigs db, not just a subset of contigs. To do that, we can create a 'bin' which contains all of the contigs. You could do it in the interactive interface and save it in a collection of your choice, or you can use the program {% include PROGRAM name="anvi-script-add-default-collection" %}:
+
+```bash
+anvi-script-add-default-collection -c CONTIGS/AG_910_O03-contigs.db -p PROFILE/PROFILE.db
+```
+
+And summarize the collection called 'DEFAULT' (or whatever name you gave it):
+```bash
+anvi-summarize -c CONTIGS/AG_910_O03-contigs.db \
+               -p PROFILE/PROFILE.db \
+               -C DEFAULT \
+               -o SUMMARY
+```
+
+Here are all the files generated for this SAG ('EVERYTHING' is the default bin name created by {% include PROGRAM name="anvi-script-add-default-collection" %}; it could be different if you named your bin in the interactive interface):
+
+```bash
+$ ls SUMMARY/bin_by_bin/EVERYTHING/
+EVERYTHING-Archaea_76-hmm-sequences.txt        EVERYTHING-Ribosomal_RNA_18S-hmm-hits.txt      EVERYTHING-Transfer_RNAs-hmm-sequences.txt     EVERYTHING-percent_completion.txt
+EVERYTHING-Bacteria_71-hmm-sequences.txt       EVERYTHING-Ribosomal_RNA_18S-hmm-sequences.txt EVERYTHING-abundance.txt                       EVERYTHING-percent_redundancy.txt
+EVERYTHING-GC_content.txt                      EVERYTHING-Ribosomal_RNA_23S-hmm-hits.txt      EVERYTHING-contigs.fa                          EVERYTHING-scg_domain.txt
+EVERYTHING-N50.txt                             EVERYTHING-Ribosomal_RNA_23S-hmm-sequences.txt EVERYTHING-detection.txt                       EVERYTHING-scg_domain_confidence.txt
+EVERYTHING-Protista_83-hmm-sequences.txt       EVERYTHING-Ribosomal_RNA_28S-hmm-hits.txt      EVERYTHING-gene_calls.txt                      EVERYTHING-scg_taxonomy_details.txt
+EVERYTHING-Ribosomal_RNA_12S-hmm-hits.txt      EVERYTHING-Ribosomal_RNA_28S-hmm-sequences.txt EVERYTHING-mean_coverage.txt                   EVERYTHING-std_coverage.txt
+EVERYTHING-Ribosomal_RNA_12S-hmm-sequences.txt EVERYTHING-Ribosomal_RNA_5S-hmm-hits.txt       EVERYTHING-mean_coverage_Q2Q3.txt              EVERYTHING-total_length.txt
+EVERYTHING-Ribosomal_RNA_16S-hmm-hits.txt      EVERYTHING-Ribosomal_RNA_5S-hmm-sequences.txt  EVERYTHING-num_contigs.txt                     EVERYTHING-variability.txt
+EVERYTHING-Ribosomal_RNA_16S-hmm-sequences.txt EVERYTHING-Transfer_RNAs-hmm-hits.txt          EVERYTHING-original_split_names.txt
+```
+
+If you were interested in only a part of the genome, like the contigs with no coverage, you can always bin these contigs to create a different collection and then summarize that collection. This would give you the contigs' sequences, gene calls, functional annotations, and more.
+
+{:.notice}
+In this example, we have only used one SAG for read recruitment. One of the drawbacks with this is the large amount of non-specific mapping (from different populations in the environment) to conserved genes/operons. You could recruit reads like this to every single SAG, one by one. But a better strategy to reduce non-specific mapping would be to concatenate all SAGs (or a subset of them) into a single FASTA file and map short-reads onto all of them at the same time. In that case, the read mapping would be competitive and you would be able to appreciate the variation of coverage between SAGs in the same sample. In order to reconcile which contigs in the contigs db belong to which SAG, you can import a collection listing all of the contigs and their associated SAG with {% include PROGRAM name="anvi-import-collection" %}.
+
+## Other anvi'o resources
+
+Thanks for following this tutorial which shows you how to integrate single-cell genomics in anvi'o. There are many possible analysis that you can perform and we have just scratched the surface here. In the end, it is up to you to choose what you want to do with your data and what question you want to address.
+
+There are many more tutorials and examples analysis with anvi'o and here is a list of some of them which could be relevant for your science:
+- [The infant gut tutorial](https://merenlab.org/tutorials/infant-gut/) is an all in one tutorial using a small set of metagenomes. I covers genome-resolved metagenomics, binning, phylogenomics, pangenomics, metabolism prediction, population genetics and protein structure variation.
+- [Studying microbial population genetics with anvi'o](https://merenlab.org/2015/07/20/analyzing-variability/), an insight into SNVs, SCVs (codon) and SAAVs (amino acid) variation analysis.
+- [A simple read recruitment exercise](https://merenlab.org/tutorials/read-recruitment/).
+- [An exercise on metabolic reconstruction](https://merenlab.org/tutorials/fmt-mag-metabolism/).
+- [A tutorial on the anvi'o interactive interface](https://merenlab.org/tutorials/interactive-interface/).
+
+And more at [https://anvio.org/#learn](https://anvio.org/#learn).
