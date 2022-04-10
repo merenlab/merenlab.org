@@ -12,24 +12,23 @@ comments: true
 
 {% include _project-anvio-version.html %}
 
-{: .notice}
-This tutorial is tailored for anvi'o <b>version 2.2.2, or later</b>. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal. The tutorial for older anvi'o releases from v1 family is [here]({% post_url anvio/2015-05-02-anvio-tutorial-v1 %}) (but **v1** is so 2015, and you should never use it ever again).
-
 The goal of this tutorial is to provide a brief overview of the anvi'o workflow for the analysis of assembly-based shotgun metagenomic data. Throughout this tutorial you will primarily learn about the following topics:
 
 * Process your contigs,
 
-* Profile your metagenomic samples and merge them, 
+* Profile your metagenomic samples and merge them,
 
 * Visualize your data, identify and/or refine genome bins interactively, and create summaries of your results.
 
 If we are missing things, or parts of the tutorial is not clear, please let us know, and we will do our best to improve it.
 
-You should also feel free to contact us if you are not sure whether anvi'o is the platform to go after a certain question. 
+Metagenomics is extremely rich, and this tutorial will not prepare you to be able to unlock the potential of your data. It will only give you an initial steps into the anvi'o software ecosystem and its philosophy dealing with data. Please feel free to come to anvi'o Slack and tell us about your project, and ask for best practices given your needs.
+
+{% include _join-anvio-slack.html %}
 
 ---
 
-If you are here, you must have already [installed]({% post_url anvio/2016-06-26-installation-v2 %}) the platform (hopefully without much trouble), and have run the infamous ["mini test"]({% post_url anvio/2016-06-26-installation-v2 %}#running-the-mini-test) successfully.
+If you are here, you must have already [installed]({% post_url anvio/2016-06-26-installation-v2 %}) the platform (hopefully without much trouble).
 
 It is always a good idea to stick with stable versions of the platform, as the snapshots from [the codebase](http://github.com/meren/anvio) can be very unstable and/or broken. However we also need people who like to live at the edge, and who would follow the development, test new features, join discussions, and push us to do better.
 
@@ -57,7 +56,7 @@ For the contigs and BAM files for your *real data*, there is one more thing you 
 **Your FASTA file must have simple deflines**, and if it doesn't have simple deflines, **you must fix your FASTA file prior to mapping**. This is necessary, because the names in `contigs.fa` **must** match the names in your BAM files. Unfortunately, different mapping software behave differently when they find a space character, or say a `|` character in your FASTA file, and they proceed to change those characters in arbitrary ways. Therefore it is essential to keep the sequence IDs in your FASTA file **as simple as possible** before mapping. To avoid any problems later, take a look at your deflines prior to mapping now, and remove anything that is not a digit, an ASCII letter, an underscore, or a dash character. Here are some bad deflines:
 
 ``` bash
->Contig-123 length:4567 
+>Contig-123 length:4567
 >Another defline 42
 >gi|478446819|gb|JN117275.2|
 ```
@@ -95,11 +94,11 @@ $ mv contigs-fixed.fa contigs.fa
 
 ## Creating an anvi'o contigs database
 
-An anvi'o contigs database will keep all the information related to your contigs: positions of open reading frames, k-mer frequencies for each contigs, where splits start and end, functional and taxonomic annotation of genes, etc. The contigs database is an essential component of everything related to anvi'o metagenomic workflow.
+An anvi'o {% include ARTIFACT name="contigs-db" text="contigs database" %} will keep all the information related to your contigs: positions of open reading frames, k-mer frequencies for each contigs, where splits start and end, functional and taxonomic annotation of genes, etc. The contigs database is an essential component of everything related to anvi'o metagenomic workflow.
 
 ### anvi-gen-contigs-database
 
-The following is the simplest way of creating a contigs database:
+We turn FASTA files into {% include ARTIFACT name="contigs-db" %} files using the anvi'o program {% include PROGRAM name="anvi-gen-contigs-database" %}. Here is the simplest way of creating a contigs database:
 
 ``` bash
 $ anvi-gen-contigs-database -f contigs.fa -o contigs.db -n 'An example contigs database'
@@ -123,7 +122,7 @@ Once you have your contigs database, you can start importing things into it, or 
 
 ### anvi-run-hmms
 
-Although this is absolutely optional, you shouldn't skip this step. Anvi'o can do a lot with hidden Markov models ([HMMs](https://en.wikipedia.org/wiki/Hidden_Markov_model) provide statistical means to model complex data in probabilistic terms that can be used to search for patterns, which works beautifully in bioinformatics where we create models from known sequences, and then search for those patterns rapidly in a pool of unknown sequences to recover hits). To decorate your contigs database with hits from HMM models that ship with the platform (which, at this point, constitute multiple published bacterial single-copy gene collections), run this command:
+Although this is absolutely optional, you shouldn't skip this step and run the program {% include PROGRAM name="anvi-run-hmms" %} on any {% include ARTIFACT name="contigs-db" %} you generate. Anvi'o can do a lot with hidden Markov models ([HMMs](https://en.wikipedia.org/wiki/Hidden_Markov_model) provide statistical means to model complex data in probabilistic terms that can be used to search for patterns, which works beautifully in bioinformatics where we create models from known sequences, and then search for those patterns rapidly in a pool of unknown sequences to recover hits). To decorate your contigs database with hits from HMM models that ship with the platform (which, at this point, constitute multiple published bacterial single-copy gene collections), run this command:
 
 ``` bash
 $ anvi-run-hmms -c contigs.db
@@ -137,7 +136,7 @@ When you run this command (without any other parameters),
 
 ### anvi-display-contigs-stats
 
-Once you have your contigs database ready, and optionally your HMMs are run, you can take a quick look at it using the program `anvi-display-contigs-stats` program. 
+Once you have your contigs database ready, and optionally your HMMs are run, you can take a quick look at it using the program {% include PROGRAM name="anvi-display-contigs-stats" %}:
 
 ``` bash
 $ anvi-display-contigs-stats contigs.db
@@ -150,7 +149,7 @@ This program accepts multiple anvi'o contigs databases to compare to each other.
 
 ### anvi-run-ncbi-cogs
 
-Yet another optional step is to run the program `anvi-run-ncbi-cogs` to annotate genes in your contigs database with functions from the NCBI's [Clusters of Orthologus Groups](https://www.ncbi.nlm.nih.gov/COG/). You will be glad that you did it later!
+Yet another optional step is to run the program {% include PROGRAM name="anvi-run-ncbi-cogs" %} to annotate genes in your {% include ARTIFACT name="contigs-db" %} with {% include ARTIFACT name="functions" %} from the NCBI's [Clusters of Orthologus Groups](https://www.ncbi.nlm.nih.gov/COG/). You will be glad that you did it later!
 
 Do not forget to use `--num-threads` to specify how many cores you wish to use for that. See the help menu for other available options.
 
@@ -159,10 +158,7 @@ If you are running COGs for the first time, you will need to set them up on your
 
 ### anvi-import-functions
 
-Anvi'o also can make good use of functional annotations you already have for your genes. The following post describes multiple ways to import functions into anvi'o:
-
-- [**Importing functions into anvi'o**]({% post_url anvio/2016-06-18-importing-functions %}).
-
+Anvi'o also can make good use of functional annotations you already have for your genes using the program {% include PROGRAM name="anvi-import-functions" %}.
 
 ### anvi-import-taxonomy
 
@@ -170,17 +166,19 @@ Annotating genes with taxonomy can make things downstream more meaningful, and i
 
 - [**Importing taxonomy into anvi'o**]({% post_url anvio/2016-06-18-importing-taxonomy %}).
 
-However, gene-level taxonomy is not reliable for making sense of the taxonomy of the resulting metagenome-assembled genomes.
+However, gene-level taxonomy is not reliable for making sense of the taxonomy of the resulting metagenome-assembled genomes. But you will also have {% include PROGRAM name="anvi-estimate-scg-taxonomy" %} under your belt to assing extremely quick taxonomy to your genomes and metagenomes. See this article for more information:
+
+- [**Genome / metagenome / MAG taxonomy with anvi'o**](https://merenlab.org/2019/10/08/anvio-scg-taxonomy/)
 
 ## Profiling BAM files
 
-If you are here, you must be done with your contigs database, and have your BAM files ready. Good! It is time to initialize your BAM file, and create an *anvi'o profile* for your sample.
+If you are here, you must be done with your contigs database, and have your BAM files ready. Good! It is time to initialize your BAM file, and create an anvi'o single-{% include ARTIFACT name="profile-db" text="profile database" %} for your sample.
 
 ### anvi-init-bam
 
-Anvi'o requires BAM files to be sorted and indexed. In most cases the BAM file you get back from your mapping software will not be sorted and indexed. This is why we named the BAM file for our mock samples as `SAMPLE-01-RAW.bam`, instead of `SAMPLE-01.bam`.
+Anvi'o requires {% include ARTIFACT name="raw-bam-file" text="raw BAM files" %} to be turned into a sorted and indexed {% include ARTIFACT name="bam-file" %}. In most cases the BAM file you get back from your mapping software will not be sorted and indexed. This is why we named the BAM file for our mock samples as `SAMPLE-01-RAW.bam`, instead of `SAMPLE-01.bam`.
 
-If your BAM files already sorted and indexed (i.e., for each `.bam` file you have, there also is a `.bam.bai` file in the same directory), you can skip this step. Otherwise, you need to initialize your BAM files:
+If your BAM files already sorted and indexed (i.e., for each `.bam` file you have, there also is a `.bam.bai` file in the same directory), you can skip this step. Otherwise, you need to initialize your BAM files using the program {% include PROGRAM name="anvi-init-bam" %}:
 
 ``` bash
 $ anvi-init-bam SAMPLE-01-RAW.bam -o SAMPLE-01.bam
@@ -205,13 +203,13 @@ for sample in `cat SAMPLE_IDs`; do anvi-init-bam $sample-RAW.bam -o $sample.bam;
 
 Of course, if you have a way to cluster your runs, you already know what to do.
 
-One last note, `anvi-init-bam` uses [samtools](https://github.com/samtools/samtools) in the background to do sorting and indexing. While clearly a big thanks and all the credit go to samtools developers, this is also a reminder that you can get your BAM files sorted and indexed using the samtools command line client without using `anvi-init-bam`.
+One last note, {% include PROGRAM name="anvi-init-bam" %} uses [samtools](https://github.com/samtools/samtools) in the background to do sorting and indexing. While clearly a big thanks and all the credit go to samtools developers, this is also a reminder that you can get your BAM files sorted and indexed using the samtools command line client without using `anvi-init-bam`.
 
 OK. Good.
 
 ### anvi-profile
 
-In contrast to the contigs database, an anvi'o profile database stores sample-specific information about contigs. Profiling a BAM file with anvi'o using `anvi-profile` creates a single profile that reports properties for each contig in a single sample based on mapping results. Each profile database links to a contigs database, and anvi’o can merge single profiles that link to the same contigs database into merged profiles (which will be covered later).
+In contrast to the {% include ARTIFACT name="contigs-db" %}, an anvi'o {% include ARTIFACT name="single-profile-db" %} stores sample-specific information about contigs. Profiling a BAM file with anvi'o using {% include PROGRAM name="anvi-profile" %} creates a single profile that reports properties for each contig in a single sample based on mapping results. Each {% include ARTIFACT name="single-profile-db" %} links to a single {% include ARTIFACT name="contigs-db" %}, and anvi’o can merge single profiles that link to the **same** contigs database into {% include ARTIFACT name="profile-db" text="merged profile database"%} (which will be covered later).
 
 In other words, the profiling step makes sense of each BAM file separately by utilizing the information stored in the contigs database. It is one of the most critical (and also most complex and computationally demanding) steps of the metagenomic workflow.
 
@@ -221,7 +219,7 @@ The simplest form of the command that starts the profiling looks like this:
 $ anvi-profile -i SAMPLE-01.bam -c contigs.db
 ```
 
-When you run `anvi-profile` it will,
+When you run {% include PROGRAM name="anvi-profile" %} it will,
 
 * Process each contig that is longer than `2,500 nts` by default. You can change this value by using the `--min-contig-length` flag. But you should remember that the minimum contig length should be long enough for tetra-nucleotide frequencies to have enough meaningful signal. There is no way to define a golden number for minimum length that would be applicable to genomes found in all environments. We empirically chose the default to be 2,500, and have been happy with it. You are welcome to experiment, but we advise you to never go below 1,000. You also should remember that the lower you go, the more time it will take to analyze all contigs. You can use the --list-contigs parameter to have an idea how many contigs would be discarded for a given `--min-contig-length` parameter. If you have an arbitrary list of contigs you want to profile, you can use the flag `--contigs-of-interest` to ignore the rest.
 
@@ -231,7 +229,7 @@ Processing of contigs will include,
 
 * The recovery of mean coverage, standard deviation of coverage, and the average coverage for the inner quartiles (Q1 and Q3) for a given contig. Profiling will also create an HD5 file where the coverage value for *each nucleotide position* will be kept for each contig for later use. While the profiling recovers all the coverage information, it can discard some contigs with very low coverage declared by `--min-mean-coverage` parameter (the default is 0, so everything is kept).
 
-* The characterization of single-nucleotide variants (SNVs) for every nucleotide position, unless you use `--skip-SNV-profiling` flag to skip it altogether (you will definitely gain a lot of time if you do that, but then, you know, maybe you shouldn't). By default, the profiler will not pay attention to any nucleotide position with less than `10X` coverage. You can change this behavior via `--min-coverage-for-variability` flag. Anvi'o uses a conservative heuristic to not report every position with variation: i.e., if you have 200X coverage in a position, and only one of the bases disagree with the reference or consensus nucleotide, it is very likely that this is due to a mapping or sequencing error, and anvi'o tries to avoid those positions. If you want anvi'o to report everything, you can use `--report-variability-full` flag. We encourage you to experiment with it, maybe with a small set of contigs, but in general you should refrain reporting everything (it will make your databases grow larger and larger, and everything will take longer for -99% of the time- no good reason). 
+* The characterization of single-nucleotide variants (SNVs) for every nucleotide position, unless you use `--skip-SNV-profiling` flag to skip it altogether (you will definitely gain a lot of time if you do that, but then, you know, maybe you shouldn't). By default, the profiler will not pay attention to any nucleotide position with less than `10X` coverage. You can change this behavior via `--min-coverage-for-variability` flag. Anvi'o uses a conservative heuristic to not report every position with variation: i.e., if you have 200X coverage in a position, and only one of the bases disagree with the reference or consensus nucleotide, it is very likely that this is due to a mapping or sequencing error, and anvi'o tries to avoid those positions. If you want anvi'o to report everything, you can use `--report-variability-full` flag. We encourage you to experiment with it, maybe with a small set of contigs, but in general you should refrain reporting everything (it will make your databases grow larger and larger, and everything will take longer for -99% of the time- no good reason).
 
 * Finally, because single profiles are rarely used for genome binning or visualization, and since the clustering step increases the profiling runtime for no good reason, the default behavior of profiling is to *not cluster* contigs automatically. However, if you are planning to work with single profiles, and if you would like to visualize them using the interactive interface without any merging, you can use the `--cluster-contigs` flag to initiate clustering of contigs. In this case anvi'o would use [default clustering configurations for single profiles](https://github.com/meren/anvio/tree/master/anvio/data/clusterconfigs/single), and store resulting trees in the profile database. You *do not* need to use this flag if you are planning to merge multiple profiles (i.e., if you have more than one BAM file to work with, which will be the case for most people).
 
@@ -245,7 +243,7 @@ You have all your BAM files profiled! Did it take forever? Well, sorry about tha
 
 ### anvi-merge
 
-The next step in the workflow is to to merge all anvi'o profiles.
+The next step in the workflow is to to merge all anvi'o profiles using the program {% include PROGRAM name="anvi-merge" %}.
 
 This is the simplest form of the `anvi-merge` command:
 
@@ -269,46 +267,48 @@ When you run `anvi-merge`,
 * It will attempt to create multiple clusterings of your splits using the default _clustering configurations_. Please take a quick look at the default [clustering configurations for merged profiles](https://github.com/meren/anvio/tree/master/anvio/data/clusterconfigs/merged) --they are pretty easy to understand. By default, anvi'o will use euclidean distance and ward linkage algorithm to organize contigs; however, you can change those default values with the `--distance` and `--linkage` parameters (available options for distance metrics and linkage algorithms are listed in [this release note](https://github.com/meren/anvio/releases/tag/v2.0.2)). Hierarchical clustering results are necessary for comprehensive visualization and human guided binning; therefore, by default, anvi'o attempts to cluster your contigs using default configurations. You can skip this step by using `--skip-hierarchical-clustering` flag. But even if you don't skip it, anvi'o will skip it for you if you have more than 20,000 splits, since the computational complexity of this process will get less and less feasible with increasing number of splits. That's OK, though. There are many ways to recover from this. On the other hand, if you want to teach everyone who is the boss, you can force anvi'o try to cluster your splits regardless of how many of them are there by using `--enforce-hierarchical-clustering` flag. You have the power.
 
 {:.notice}
-As of version 6+, anvi'o no longer runs a default binning program with `anvi-merge`. Binning within anvi'o is now handled with [`anvi-cluster-contigs`](http://merenlab.org/software/anvio/vignette/#anvi-cluster-contigs), and/or external binning results can be imported as described in the next section.  
+As of version 6+, anvi'o no longer runs a default binning program with `anvi-merge`. Binning within anvi'o is now handled with [`anvi-cluster-contigs`](http://merenlab.org/software/anvio/vignette/#anvi-cluster-contigs), and/or external binning results can be imported as described in the next section.
 
 ### anvi-import-collection
 
-If you have your own binning of your contigs, you can easily import those results into the merged profile database as a collection:
+If you have your own binning of your contigs, you can easily import those results into the merged profile database using the program {% include PROGRAM name="anvi-import-collection" %} as a {% include ARTIFACT name="collection" %}:
 
 ``` bash
 $ anvi-import-collection binning_results.txt -p SAMPLES-MERGED/PROFILE.db -c contigs.db --source "SOURCE_NAME"
 ```
+
+A collection is a very special and powerful concept in anvi'o, and you should read more about it by following the {% include ARTIFACT name="collection" %} link.
 
 The file format for `binning_results.txt` is very simple. This is supposed to be a TAB-delimited file that contains information about which contig belongs to what bin. So each line of this TAB-delimited file should contain a contig name (or split name, see below), and the bin name it belongs to. If you would like to see some example files, you can find them [here](https://github.com/meren/anvio/tree/master/anvio/tests/sandbox/example_files_for_external_binning_results). They will help you see the difference between input files for splits and contigs after reading the following bullet points, and demonstrate the structure of the optional "bins information" file.
 
 
 Two points:
 
-* It is common that we use `anvi-export-splits-and-coverages` to export coverage and sequence composition information to bin our contigs with software that can work with coverage and sequence composition information. In this case, our `binning_results.txt` contains *split names*. But if you have contig names, you can import them using `anvi-import-collection` with the flag `--contigs-mode`. 
+* It is common that we use {% include PROGRAM name="anvi-export-splits-and-coverages" %} to export coverage and sequence composition information to bin our contigs with software that can work with coverage and sequence composition information. In this case, our `binning_results.txt` contains *split names*. But if you have contig names, you can import them using `anvi-import-collection` with the flag `--contigs-mode`.
 
 * You can also use an information file with the `--bins-info` parameter to describe the source of your bins (and even assign them some colors to have some specific visual identifiers for any type of visualization downstream).
 
 {:.notice}
-You can use `anvi-export-collection` to export collection information and import into other profiles. It becomes very handy when you are doing [benchmarking between different approaches](% post_url anvio/2015-06-23-comparing-different-mapping-software %).
+You can use {% include PROGRAM name="anvi-export-collection" %} to export {% include ARTIFACT name="collection" %} information and import into other {% include ARTIFACT name="profile-db" %} files. It becomes very handy when you are doing [benchmarking between different approaches](% post_url anvio/2015-06-23-comparing-different-mapping-software %).
 
 {:.notice}
-You can use `anvi-show-collections-and-bins` to see all available collections and bins in an anvi'o profile or pan database.
+You can use {% include PROGRAM name="anvi-show-collections-and-bins" %} to see all available collection and bins in an anvi'o {% include ARTIFACT name="profile-db" %} or {% include ARTIFACT name="pan-db" %}.
 
 {:.notice}
-You can use `anvi-script-get-collection-info` to see completion and redundancy estimates for all bins in a given anvi'o collection.
+You can use {% include PROGRAM name="anvi-script-get-collection-info" %} to see completion and redundancy estimates for all bins in a given anvi'o collection.
 
 
 ### anvi-interactive
 
-Anvi'o interactive interface is one of the most sophisticated parts of anvi'o. In the context of the metagenomic workflow, the interactive interface allows you to browse your data in an intuitive way as it shows multiple aspects of your data, visualize the results of unsupervised binning, perform supervised binning, or refine existing bins.
+Anvi'o {% include ARTIFACT name="interactive" %} interface is one of the most sophisticated parts of anvi'o. In the context of the metagenomic workflow, the interactive interface allows you to browse your data in an intuitive way as it shows multiple aspects of your data, visualize the results of unsupervised binning, perform supervised binning, or refine existing bins.
 
 {:.notice}
 The interactive interface of anvi'o is written from scratch, and can do much more than what is mentioned above. In fact, you don't even need anvi'o profiles to visualize your data using the interactive interface. But since this is a tutorial for the metagenomic workflow, we will save you from these details. If you are interested in learning more, we have other resources that provide **detailed descriptions of [the anvi'o interactive interface and data formats it works with]({% post_url anvio/2016-02-27-the-anvio-interactive-interface %})**.
 
 {:.notice}
-Most things you did so far (creating a contigs database, profiling your BAM files, merging them, etc) required you to work on a server. But `anvi-interactive` will require you to download the merged directory and your contigs databases to your own computer, because `anvi-interactive` uses a browser to interact with you. If you don't want to download anything, you can dig an SSH tunnel to use your server to run `anvi-interactive`, and the browser on your computer to interact with it. See the post on **[visualizing from a server]({% post_url anvio/2015-11-28-visualizing-from-a-server %})**.
+Most things you did so far (creating a contigs database, profiling your BAM files, merging them, etc) may have required you to work on a server. But {% include PROGRAM name="anvi-interactive" %} will be most useful if you to download the merged directory and your contigs databases to your own computer, because `anvi-interactive` uses a browser to interact with you. If you don't want to download anything, you can use an SSH tunnel to use your server to run {% include PROGRAM name="anvi-interactive" %}, and the browser on your computer to interact with it. See the post on **[visualizing from a server]({% post_url anvio/2015-11-28-visualizing-from-a-server %})**.
 
-This is the simplest way to run the interactive interface on your merged anvi'o profile: 
+This is the simplest way to run the interactive interface on your merged {% include ARTIFACT name="profile-db" %}:
 
 ``` bash
 $ anvi-interactive -p SAMPLES-MERGED/PROFILE.db -c contigs.db
@@ -320,7 +320,7 @@ This will work perfectly **if your merged profile has its own trees** (i.e., the
 
 <span class="extra-info-header">Collection mode</span>
 
-If there are no clusterings available in your profile database `anvi-interactive` will complain about the fact that it can't visualize your profile. But if you have an anvi'o collection stored in your profile database, you can run the interactive interface in **collection mode**. If you are not sure whether you have a collection or not, you can see all available collections using this command:
+If there are no clusterings available in your profile database `anvi-interactive` will complain about the fact that it can't visualize your profile. But if you have an anvi'o collection stored in your profile database, you can run the interactive interface in **collection mode**. If you are not sure whether you have a collection or not, you can see all available collections using the program {% include PROGRAM name="anvi-script-get-collection-info" %}:
 
 ``` bash
 $ anvi-script-get-collection-info -p SAMPLES-MERGED/PROFILE.db -c contigs.db --list-collections
@@ -335,7 +335,7 @@ $ anvi-interactive -p SAMPLES-MERGED/PROFILE.db -c contigs.db -C CONCOCT
 When you run `anvi-interactive` with a collection name, it will compute various characteristics of each bin on-the-fly, i.e., their mean coverage, variability, completion and redundancy estimates, and generate anvi'o views for them to display their distribution across your samples in the interactive interface. Briefly, each *leaf* of the anvi'o central dendrogram will represent a "bin" in your collection, instead of a "contig" in your metagenomic assembly. A dendrogram for bins will be generated for each view using euclidean distance and ward linkage automatically. When running the interactive interface in collection mode, you can change those defaults using the `--distance` and/or `--linkage` parameters. If you have run `anvi-merge` with the `--skip-hierarchical-clustering` parameter due to the large number of contigs you had, but you have binning results available to you from an external resource, you can import those bins as described in the previous section, and run the interactive interface with that collection id to immediately see the distribution of bins across your samples.
 
 {:.notice}
-In this mode each leaf of the tree will be a bin, along with the distribution of each bin across samples with their completion and redundancy estimates in the most outer layers. In this mode, the interface runs in reduced functionality, and selections will not have completion and contamination estimates. If you are interested in visualizing a specific bin with, say, high redundancy, then you can use the program `anvi-refine` with that bin.
+In this mode each leaf of the tree will be a bin, along with the distribution of each bin across samples with their completion and redundancy estimates in the most outer layers. In this mode, the interface runs in reduced functionality, and selections will not have completion and contamination estimates. If you are interested in visualizing a specific bin with, say, high redundancy, then you can use the program {% include PROGRAM name="anvi-refine" %} with that {% include ARTIFACT name="bin" %}.
 
 </div>
 
@@ -350,23 +350,23 @@ Here is some additional information about the interactive interface (please see 
 
 ### anvi-[import|export|show|delete]-misc-data
 
-Anvi'o profile databases allow you to add or remove additional data for your items or layers. This is a very important functionality for better data exploration and communication. Please see [this post]({% post_url anvio/2017-12-11-additional-data-tables %}) for more information and to familiarize yourself with it.
+Anvi'o profile databases allow you to add or remove additional data for your items or layers through a program {% include PROGRAM name="anvi-import-misc-data" %} and its sister programs. This is a very important functionality for better data exploration and communication. Please see [this post]({% post_url anvio/2017-12-11-additional-data-tables %}) for more information and to familiarize yourself with it.
 
 {:.notice}
 This functionality will not be available to you if you are using anvi'o `v3` or earlier. Please make sure you are using the latest stable version of anvi'o, which is `v{% include _project-anvio-version-number.html %}`.
 
 ### anvi-summarize
 
-A *collection* represents one or more bins with one or more contigs. Collections are stored in anvi'o databases can be imported from the results of external binning software, or saved through the anvi-interactive interface after a human-guided binning effort. Once you have a collection, you can *summarize* it using `anvi-summarize`.
+A {% include ARTIFACT name="collection" %} represents one or more bins with one or more contigs. Collections are stored in anvi'o databases can be imported from the results of external binning software, or saved through the anvi'o {% include ARTIFACT name="interactive" %} after a human-guided binning effort. Once you have a collection, you can *summarize* it using the program {% include PROGRAM name="anvi-summarize" %}.
 
 {:.notice}
-If you don't know what collections and bins are available in a profile database, you can use the program `anvi-show-collections-and-bins`, and if you would like to get a very quick list of completion estimates for your bins in a collection, you can use the program `anvi-script-get-collection-info`.
+If you don't know what collections and bins are available in a {% include ARTIFACT name="profile-db" %}, you can use the program {% include PROGRAM name="anvi-show-collections-and-bins" %}, and if you would like to get a very quick list of completion estimates for your bins in a collection, you can use the program {% include PROGRAM name="anvi-estimate-genome-completeness" %}, or if you would like to learn mor about their taxonomy, you can use the program {% include PROGRAM name="anvi-estimate-scg-taxonomy" %}.
 
-The result of `anvi-summarize` is a static HTML output that you can visualize in your browser, send to your colleagues, put on your web page (an example from one of our papers is [here](http://anvio.org/data/INFANT-CLC-SUMMARY-SUPERVISED/)), or attach to your submission as a supplementary data for review. When you run `anvi-summarize`,
+The result of {% include PROGRAM name="anvi-summarize" %} is a {% include ARTIFACT name="summary" %}, which essentially is a static HTML output that you can visualize in your browser, send to your colleagues, put on your web page or attach to your submission as a supplementary data for review, since studying this summary does not require an anvi'o installation. When you run {% include PROGRAM name="anvi-summarize" %}, 
 
 * All your splits will be merged back to contigs and stored as FASTA files,
 
-* Completion and redundancy estimates for each bin in a collection will be computed and stored in the output,
+* {% include ARTIFACT name="completion" %} estimates for each bin in a collection will be computed and stored in the output,
 
 * TAB-delimited matrix files will be generated for genome bins across your samples with respect to their mean coverage, variability, etc.
 
@@ -382,14 +382,14 @@ If you are not sure which collections are available to you, you can always see a
 anvi-summarize -p SAMPLES-MERGED/PROFILE.db -c contigs.db --list-collections
 ```
 
-The summary process can take a lot of time. If you want to take a quick look to identify which bins need to be refined, you can run `anvi-summarize` with `--quick-summary` flag.
+The summary process can take a lot of time. If you want to take a quick look to identify which bins need to be refined, you can run `anvi-summarize` with `--quick-summary` flag to generate a {% include ARTIFACT name="quick-summary" %}.
 
 
 ### anvi-refine
 
-After running `anvi-summarize`, you may realize that you are not happy with one or more of your bins. This often is the case when you are working with very large datasets and when you are forced to skip the human guided binning step. `anvi-refine` gives you the ability to make finer adjustments to a bin that may be contaminated.
+After running {% include PROGRAM name="anvi-summarize" %}, you may realize that you are not happy with one or more of your bins. This often is the case when you are working with very large datasets and when you are forced to skip the human guided binning step. The program {% include PROGRAM name="anvi-refine" %} gives you the ability to make finer adjustments to a bin that may be contaminated.
 
-After you refine bins that need attention, you can re-generate your static summary.
+After you refine bins that need attention, you can re-generate your {% include ARTIFACT name="summary" %}.
 
 {:.notice}
 Speaking of which, please take a look at this post where Meren talks about [assessing completion and contamination of metagenome-assembled genomes]({% post_url miscellaneous/2016-06-09-assessing-completion-and-contamination-of-MAGs %}).
@@ -397,19 +397,15 @@ Speaking of which, please take a look at this post where Meren talks about [asse
 Please read **[this article]({% post_url anvio/2015-05-11-anvi-refine %})** for a comprehensive introduction to the refinement capacity of anvi'o. Plus, there are the following articles from Tom Delmont and Veronika Kivenson that you may consider reading:
 
 * [Notes on genome refinement with anvi'o]({% post_url anvio/2017-05-11-anvi-refine-by-veronika %})
-* [Inspecting the genomic link between Archaea and Eukaryota]({% post_url miscellaneous/2017-01-03-loki-the-link-archaea-eukaryota %}) 
+* [Inspecting the genomic link between Archaea and Eukaryota]({% post_url miscellaneous/2017-01-03-loki-the-link-archaea-eukaryota %})
 
 
 ---
 
-## FAQ
+## Final words
+
+This is JUST a beginning to getting yourself familiarized to anvi'o software ecosystem, and what this tutorial covers is by no means comprehensive or complete. If you would like to get some inspiration regarding all the things you can do with anvi'o, please browse the learning material and tutorials listed at [https://anvio.org](https://anvio.org). Feel free to find us on Slack if you run into issues, or have questions regarding 'omics analyses, or wish to understand if anvi'o is the right choice for your needs.
 
 {% include _join-anvio-slack.html %}
-
-### I ran into an issue, whose fault is it?
-
-It is Tom's. But you can always enter a [bug report](https://github.com/meren/anvio/issues) if you are certain that it needs to be fixed in the anvi'o code base. If you are not sure, please use the button above to [join our Slack group]({% post_url anvio/2019-10-07-getting-help %}/#non-technical-anvio-slack), or come to the [anvi'o discussion group]({% post_url anvio/2019-10-07-getting-help %}/#non-technical-google-groups), and let's talk about it!
-
-### There is something in this tutorial I want to fix
 
 {% include _fixthispage.html source="_posts/anvio/2016-06-22-anvio-tutorial-v2.md" %}
