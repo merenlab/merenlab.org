@@ -21,6 +21,31 @@ Please do not hesitate to get in touch if something is missing. You can send [us
 {:.notice}
 Bonus blog post: [Fantastic Data and How to Share Them: A Plea to Journal Editors and Reviewers](/sharing-data/).
 
+## Studying hypervariability in genomes through metagenomes
+
+<div class="pub_float">
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1186/s13100-022-00262-6" data-uuid="36f28780-8674-c2ed-e790-8b8750eca598"><a target="_self" href="https://www.altmetric.com/details.php?domain=merenlab.org&amp;citation_id=123594737" style="display:inline-block;">
+        <img alt="Article has an altmetric score of 38" src="https://badges.altmetric.com/?size=128&amp;score=38&amp;types=tttttttt" width="64" height="64" style="border:0; margin:0; max-width: none;">
+</a></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1186/s13100-022-00262-6" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1186/s13100-022-00262-6" target="_new">Eco-evolutionary significance of domesticated retroelements in microbial genomes</a></span>
+    <span class="pub-authors">Paul BG, <span class="pub-member-author">Eren AM</span></span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/dgrs-in-metagenomes.png" class="image-popup"><img src="/images/pubs/dgrs-in-metagenomes.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A short review on retrons and diversity-generating retro elements, some of the most beautiful and mysterious ways for life to beat the boring means of evolution and skip ahead.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Demonstrates a workflow that gives access to the extent intra-population hypervariability of DGRs and their ecology through the analysis of metagenomes.</span><br><span style="display: inline-block; padding-bottom: 5px;">- A complete bioinformatics workflow that uses anvi'o and oligotyping to study DGR activity in metageomes is <a href="https://merenlab.org/tutorials/dgrs-in-metagenomes/" target="_blank">available here</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>Mobile DNA</b>, 13(6) | 🔍 <a href="http://scholar.google.com/scholar?hl=en&amp;q=Eco-evolutionary+significance+of+domesticated+retroelements+in+microbial+genomes" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1186/s13100-022-00262-6" target="_blank">doi:10.1186/s13100-022-00262-6</a></span>
+</div>
+
+### Reproducible bioinformatics workflow
+
+[https://merenlab.org/tutorials/dgrs-in-metagenomes/](/tutorials/dgrs-in-metagenomes) gives access to our **bioinformatics workflow**.
+
+
 ## The genetic and ecological landscape of plasmids in the human gut
 
 <div class="pub_float">

@@ -323,7 +323,7 @@
   nick_name: Alon
   tenure_start: 10/2016
   tenure_end: 02/2020
-  current_info: a Genomics Data Scientist at <a href="https://weill.cornell.edu/">Weill Cornell Medicine</a>
+  current_info: a Senior Computational Biologist at <a href="https://www.immunai.com/">Immunai</a>
   contributions: Throughout his studies of the human oral cavity microbiome and its enigmatic members via genome-resolved metagenomics, he served the community with his open code and tutorials. Alon, <a href="https://twitter.com/merenbey/status/1223038960789872646" target="_blank">the very first graduate student to join our group</a>, dramatically influenced the trajectory of our science
   lab_member: True
   name: Alon Shaiber
@@ -336,7 +336,7 @@
   linkedin: alon-shaiber
   skype: alon.shaiber
   avatar: bio-alon.jpg
-  bio: "I'm a graduate student in the Bio Physical Sciences Program at UChicago. I'm fascinated by the complexity of microbial ecology and interested in applying and developing computational tools to explore it."
+  bio: "I'm fascinated by the complexity of biological systems and interested in applying and developing computational tools to explore it."
   affiliations:
     - title: Graduate Student
       inst: The Biophysical Sciences Program at the University of Chicago

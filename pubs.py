@@ -155,16 +155,19 @@ class Publications:
 
         A = lambda s: pub_md.append(s)
 
-        A('<a id="%s">&nbsp;</a>' % pub['doi'])
-        A('<div class="pub">')
-        A('''<div class='altmetric-embed' data-badge-type='donut' data-doi="%s"></div>''' % pub['doi'])
-        A('''<div class="__dimensions_badge_embed__" data-doi="%s" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>''' % pub['doi'])
-        if pub['doi']:
-            A('    <span class="pub-title"><a href="%s" target="_new">%s</a></span>' % (' https://doi.org/%s' % (pub['doi']), pub['title']))
+        if 'read_link' in pub:
+            read_link = pub['read_link']
         else:
-            A('    <span class="pub-title"><a href="http://scholar.google.com/scholar?hl=en&q=%s" target="_new">%s</a></span>' % ('http://scholar.google.com/scholar?hl=en&q=%s' % (pub['title'].replace(' ', '+')), pub['title']))
-        A('    <span class="pub-authors">%s</span>' % self.get_author_highlights(pub, pub['year']))
+            read_link = f"https://doi.org/{pub['doi']}"
 
+        A(f'''<a id="{pub['doi']}">&nbsp;</a>''')
+        A('<div class="pub">')
+        A(f'''<div class='altmetric-embed' data-badge-type='donut' data-doi="{pub['doi']}"></div>''')
+        A(f'''<div class="__dimensions_badge_embed__" data-doi="{pub['doi']}" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>''')
+        A(f'''    <span class="pub-title"><a href="{read_link}" target="_new">{pub['title']}</a></span>''')
+        A(f'''    <span class="pub-authors">{self.get_author_highlights(pub, pub['year'])}</span>''')
+
+        # take care of co-first / co-senior authors
         if pub['co_first_authors'] and not pub['co_senior_authors']:
             A('    <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors</span>')
         elif pub['co_first_authors'] and pub['co_senior_authors']:
@@ -189,10 +192,14 @@ class Publications:
 
             A('    </div>')
 
+
+        scholar_link = f'''http://scholar.google.com/scholar?hl=en&q={pub['title'].replace(' ', '+')}'''
+        additional_links = f'''| 🔍 <a href="{scholar_link}" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/{pub['doi']}" target="_blank">doi:{pub['doi']}</a>'''
+
         if pub['issue']:
-            A('    <span class="pub-journal"><b>%s</b>, %s <a href="https://doi.org/%s" target="_blank">🔗</a></span>' % (pub['journal'], pub['issue'], pub['doi']))
+            A(f'''    <span class="pub-journal"> 📚 <b>{pub['journal']}</b>, {pub['issue']} {additional_links}</span>''')
         else:
-            A('    <span class="pub-journal"><b>%s</b> <a href="https://doi.org/%s" target="_blank">🔗</a></span>' % (pub['journal'], pub['doi']))
+            A(f'''    <span class="pub-journal"> 📚 <b>{pub['journal']}</b> {additional_links}</span>''')
         A('</div>\n')
 
         return '\n'.join(pub_md)
