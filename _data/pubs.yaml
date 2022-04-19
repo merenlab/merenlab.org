@@ -513,9 +513,10 @@
       - Nearly 1,000 non-redundant, high-quality bacterial, archaeal, and eukaryotic population genomes from TARA Oceans metagenomes.
       - A "behind the paper" <a href="https://naturemicrobiologycommunity.nature.com/users/113363-a-murat-eren-meren/posts/34040-microbiologists-vs-shotgun-metagenomes-surface-ocean" target="_blank">blog post</a> by Meren, a <a href="http://www.mbl.edu/blog/large-scale-study-indicates-novel-and-abundant-nitrogen-fixing-microbes-in-the-surface-ocean/" target="_blank">press release</a> by the MBL, and an extensive description of <a href="http://merenlab.org/data/2017_Delmont_et_al_HBDs/" target="_blank">the bioinformatics workflow</a>.
     featured_image:
-      http://i.imgur.com/oFRefc4.jpg
+      /images/pubs/delmont_et_al_HBDs.png
 
 - doi:
+    10.7717/peerj.4320
   title:
     "Linking pangenomes and metagenomes -- the Prochlorococcus metapangenome"
   authors:
@@ -535,7 +536,7 @@
       - Metapangenomes reveal to what extent genes that may be linked to the ecology and fitness of microbes are conserved within a phylogenetic clade.
       - <a href="http://merenlab.org/data/prochlorococcus-metapangenome" target="_blank">Reproducible bioinformatics workflow</a>.
     featured_image:
-      https://i.imgur.com/gzDpEU5.jpg
+      /images/pubs/delmont_eren_metapangenomics.jpeg
 
 - doi:
     10.1186/s40168-018-0474-8
@@ -604,7 +605,7 @@
       - MAGs with the same taxonomy showed different colonization properties, highlighting the importance of high-resolution analyses.
       - Populations colonized both recipients were also prevalent in the HMP cohort (and the ones that did not, distribute sporadically across the HMP cohort).
     featured_image:
-      http://i.imgur.com/4e4Ic4u.jpg
+      /images/pubs/lee_fmt.png
 
 - doi:
     10.1073/pnas.1712186114
@@ -713,7 +714,7 @@
       - Antibiotic-perturbed maternal microbiota likely contribute to neonatal gut dysbiosis.
       - <a href="https://sciencelife.uchospitals.edu/2017/07/11/antibiotics-taken-late-in-pregnancy-can-increase-risk-for-inflammatory-bowel-diseases-in-offspring/" target="_blank">Press release</a>.
     featured_image:
-      http://i.imgur.com/jvmaUfV.png
+      /images/pubs/miyoshi_et_al_anvio_16S.png
 
 - doi:
     10.7717/peerj.1839
@@ -818,7 +819,7 @@
       - Demonstrating its abilities in genome-resolved metagenomics, and microbial populatio genetics via single-nucleotide variant analyses across metagenomes.
       - Re-analysis of cultivar genomes, metagenomes, and metatranscriptomes associated with the Deepwater Horizon oil spill.
     featured_image:
-      http://i.imgur.com/d1c7bUY.png
+      /images/pubs/eren_et_al_anvio.jpeg
 
 - doi:
     10.1038/ismej.2014.195

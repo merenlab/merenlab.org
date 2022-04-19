@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2022-04-06
+modified: 2022-04-19
 comments: false
 ---
 
@@ -388,7 +388,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-authors"><span class="pub-member-author">Delmont TO</span>, Quince C, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Esen ÖC</span>, <span class="pub-member-author">Lee STM</span>, Rappé MS, McLellan SL, Lücker S, <span class="pub-member-author">Eren AM</span></span>
     <div class="pub-info">
     <div class="pub-featured-image">
-    <a href="http://i.imgur.com/oFRefc4.jpg"><img src="http://i.imgur.com/oFRefc4.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    <a href="/images/pubs/delmont_et_al_HBDs.png"><img src="/images/pubs/delmont_et_al_HBDs.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
     </div>
     <div class="pub-highlights">
     <span style="display: inline-block; padding-bottom: 5px;">- First genomic evidence for abundant and widespread non-cyanobacterial nitrogen-fixing populations in the surface ocean.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Nearly 1,000 non-redundant, high-quality bacterial, archaeal, and eukaryotic population genomes from TARA Oceans metagenomes.</span><br><span style="display: inline-block; padding-bottom: 5px;">- A "behind the paper" <a href="https://naturemicrobiologycommunity.nature.com/users/113363-a-murat-eren-meren/posts/34040-microbiologists-vs-shotgun-metagenomes-surface-ocean" target="_blank">blog post</a> by Meren, a <a href="http://www.mbl.edu/blog/large-scale-study-indicates-novel-and-abundant-nitrogen-fixing-microbes-in-the-surface-ocean/" target="_blank">press release</a> by the MBL, and an extensive description of <a href="http://merenlab.org/data/2017_Delmont_et_al_HBDs/" target="_blank">the bioinformatics workflow</a>.</span>
@@ -397,21 +397,21 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"> 📚 <b>Nature Microbiology</b>, 3(7):804-813 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Nitrogen-fixing+populations+of+Planctomycetes+and+Proteobacteria+are+abundant+in+surface+ocean+metagenomes" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1038/s41564-018-0176-9" target="_blank">doi:10.1038/s41564-018-0176-9</a></span>
 </div>
 
-<a id="None">&nbsp;</a>
+<a id="10.7717/peerj.4320">&nbsp;</a>
 <div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="None"></div>
-<div class="__dimensions_badge_embed__" data-doi="None" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <span class="pub-title"><a href="https://doi.org/None" target="_new">Linking pangenomes and metagenomes -- the Prochlorococcus metapangenome</a></span>
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.7717/peerj.4320"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.4320" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.7717/peerj.4320" target="_new">Linking pangenomes and metagenomes -- the Prochlorococcus metapangenome</a></span>
     <span class="pub-authors"><span class="pub-member-author">Delmont TO</span>, <span class="pub-member-author">Eren AM</span></span>
     <div class="pub-info">
     <div class="pub-featured-image">
-    <a href="https://i.imgur.com/gzDpEU5.jpg"><img src="https://i.imgur.com/gzDpEU5.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    <a href="/images/pubs/delmont_eren_metapangenomics.jpeg"><img src="/images/pubs/delmont_eren_metapangenomics.jpeg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
     </div>
     <div class="pub-highlights">
     <span style="display: inline-block; padding-bottom: 5px;">- A big-data study in which a pangenome of 31 <i>Prochlorococcus</i> isolates meets 31 billion Tara Oceans metagenomic sequences (<a href="https://peerj.com/articles/4320/reviews/">Peer-review history</a>).</span><br><span style="display: inline-block; padding-bottom: 5px;">- Metapangenomes reveal to what extent genes that may be linked to the ecology and fitness of microbes are conserved within a phylogenetic clade.</span><br><span style="display: inline-block; padding-bottom: 5px;">- <a href="http://merenlab.org/data/prochlorococcus-metapangenome" target="_blank">Reproducible bioinformatics workflow</a>.</span>
     </div>
     </div>
-    <span class="pub-journal"> 📚 <b>PeerJ</b>, 6(e4320) | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Linking+pangenomes+and+metagenomes+--+the+Prochlorococcus+metapangenome" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/None" target="_blank">doi:None</a></span>
+    <span class="pub-journal"> 📚 <b>PeerJ</b>, 6(e4320) | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Linking+pangenomes+and+metagenomes+--+the+Prochlorococcus+metapangenome" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.7717/peerj.4320" target="_blank">doi:10.7717/peerj.4320</a></span>
 </div>
 
 <a id="10.1186/s40168-018-0474-8">&nbsp;</a>
@@ -455,7 +455,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors</span>
     <div class="pub-info">
     <div class="pub-featured-image">
-    <a href="http://i.imgur.com/4e4Ic4u.jpg"><img src="http://i.imgur.com/4e4Ic4u.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    <a href="/images/pubs/lee_fmt.png"><img src="/images/pubs/lee_fmt.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
     </div>
     <div class="pub-highlights">
     <span style="display: inline-block; padding-bottom: 5px;">- An FMT study with metagenome-assembled genomes (see <a href="http://merenlab.org/data/#lee-et-al-2017--fecal-transplants" target="_blank">public data</a>).</span><br><span style="display: inline-block; padding-bottom: 5px;">- Bacteroidales: high-colonization rate. Clostridiales: low colonization rate. Colonization success is negatively correlated with the number of genes related to sporulation.</span><br><span style="display: inline-block; padding-bottom: 5px;">- MAGs with the same taxonomy showed different colonization properties, highlighting the importance of high-resolution analyses.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Populations colonized both recipients were also prevalent in the HMP cohort (and the ones that did not, distribute sporadically across the HMP cohort).</span>
@@ -516,7 +516,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-authors">Miyoshi J, Bobe AM, Miyoshi S, Huang Y, Hubert N, <span class="pub-member-author">Delmont TO</span>, <span class="pub-member-author">Eren AM</span>, Leone V, Chang EB</span>
     <div class="pub-info">
     <div class="pub-featured-image">
-    <a href="http://i.imgur.com/jvmaUfV.png"><img src="http://i.imgur.com/jvmaUfV.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    <a href="/images/pubs/miyoshi_et_al_anvio_16S.png"><img src="/images/pubs/miyoshi_et_al_anvio_16S.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
     </div>
     <div class="pub-highlights">
     <span style="display: inline-block; padding-bottom: 5px;">- Antibiotics during pregnancy promote offspring gut dysbiosis, immune dysfunction, and IBD.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Antibiotics given after the developmental period do not increase IBD.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Antibiotic-perturbed maternal microbiota likely contribute to neonatal gut dysbiosis.</span><br><span style="display: inline-block; padding-bottom: 5px;">- <a href="https://sciencelife.uchospitals.edu/2017/07/11/antibiotics-taken-late-in-pregnancy-can-increase-risk-for-inflammatory-bowel-diseases-in-offspring/" target="_blank">Press release</a>.</span>
@@ -583,7 +583,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-authors"><span class="pub-member-author">Eren AM</span>, <span class="pub-member-author">Esen ÖC</span>, Quince C, Vineis JH, Morrison HG, Sogin ML, <span class="pub-member-author">Delmont TO</span></span>
     <div class="pub-info">
     <div class="pub-featured-image">
-    <a href="http://i.imgur.com/d1c7bUY.png"><img src="http://i.imgur.com/d1c7bUY.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    <a href="/images/pubs/eren_et_al_anvio.jpeg"><img src="/images/pubs/eren_et_al_anvio.jpeg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
     </div>
     <div class="pub-highlights">
     <span style="display: inline-block; padding-bottom: 5px;">- The very first description of <a href="http://anvio.org/" target="_blank">anvi'o</a>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Demonstrating its abilities in genome-resolved metagenomics, and microbial populatio genetics via single-nucleotide variant analyses across metagenomes.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Re-analysis of cultivar genomes, metagenomes, and metatranscriptomes associated with the Deepwater Horizon oil spill.</span>
