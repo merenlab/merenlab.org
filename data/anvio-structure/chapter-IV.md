@@ -33,31 +33,163 @@ Welcome to Chapter IV. In this chapter you'll find all of the analyses in the pa
 
 Unless otherwise stated, each analysis can be run independently from the others, so **completing analyses in order is not required**.
 
-As such, you should feel free to jump around this document, rather than reading it top down. To help you navigate to the analyses you are interested in, here is a directory of all figures and tables in the main text and supplementary information, along with the analysis in which it is produced.
+As such, you should feel free to jump around this document, rather than reading it top down. To help you navigate to the analyses you are interested in, here is a directory of all figures and tables in the main text and supplementary information, and clicking any figure/table will redirect you to the analysis where it is produced.
 
 [Figure S1 - Analysis X]({{ page.url }}/#analysis-x-comparing-sequence-similarity-regimes)
+
+FIXME
 
 
 ### Global R environment (GRE)
 
-There is a lot of data to contend with. For example, there are ~18M single codon variants (SCVs) across ~250K residues and 74 samples. There are codon allele frequencies and pN & pS for each SCV, RSA and DTL values for each residue, a structure and pN/pS for each gene in each sample. It is really a lot of data and it is all scattered throughout your working directory in the form of TAB-separated data and anvi'o databases. To unify all of this data into one global environment, I opted to create what I'm calling a _Global R environment_ (GRE). This interactive R environment is what I used while developing this study, and it is the same environment you will use when performing the analyses in this chapter.
+There is a lot of data to contend with. For example, there are ~18M single codon variants (SCVs) across ~250K residues and 74 samples. There are codon allele frequencies and pN & pS for each SCV, RSA and DTL values for each residue, a structure and pN/pS for each gene in each sample. **It is really a lot of data** and it is all scattered throughout your working directory in the form of TAB-separated data and anvi'o databases. To unify all of this data into one global environment, I opted to create what I'm calling a **_Global R environment_ (GRE)**. This interactive R environment is what I used while developing this study, and it is the same environment you will use when performing the analyses in this chapter.
 
 While the GRE may seem needless, trust me, it's very worthwhile, and you won't get far without it. The primary reason is that some of the data structures, such as the SCV data, are massive, and take a very long time to load. Since many analyses require the SCV data, you will be waiting for **hours and hours** if you are continually loading up the SCV data as a dataframe in R or Python. It is a much better strategy to instead load the SCV data once, and then use it repeatedly for different analyses. The same goes for many other data that are shared between analyses. The GRE is designed to do exactly that.
 
 #### Build
 
-Unless you know how to do otherwise, you should create the GRE by opening RStudio. You should open it via the command-line:
+Unless you are confident about doing it your own way, you should create the GRE using the following steps.
+
+**(1)** Open RStudio. You should open it via the command-line:
 
 ```bash
 rstudio
 ```
 
-What this means is that you'll be
-`ZZ_SCRIPTS/load_data.R`, which loads up all of the data once, so that it can be used subsequently for all analyses you're interested in.
+
+**(2)** Change the directory to `ZZ_SCRIPTS`.
+
+Your RStudio environment may look different, but here is what mine looks like.
+
+[![rstudio1]({{images}}/rstudio1.png)]( {{images}}/rstudio1.png){:.center-img .width-90}
+
+Navigate to the _Console_ tab. This is where you will issue R commands in the GRE.
+
+Now set the working directory to the `ZZ_SCRIPTS` folder, where all of the project scripts exist. You should do this with the R function `setwd()`. In the screenshot I first ran `getwd()` to verify I was in the root directory (`<WHERE_YOU_CREATED_THE_ROOT_DIECTORY>/kiefl_2021`) and then safely navigated into `ZZ_SCRIPTS` with `setwd('ZZ_SCRIPTS')`.
+
+Did you encounter an error like so?
+
+```
+> setwd('ZZ_SCRIPTS')
+Error in setwd("ZZ_SCRIPTS") : cannot change working directory
+```
+
+If so, you're in the wrong place. Try providing the full path to `ZZ_SCRIPTS`:
+
+```R
+setwd('<WHERE_YOU_CREATED_THE_ROOT_DIECTORY>/kiefl_2021/ZZ_SCRIPTS')
+```
+
+At this point, the GRE is built, which is all that's required to begin running analyses. However, it is also empty, and by that I mean there is no data loaded into the environment. Most analyses, unless otherwise stated, automatically load the data they need into the environment.
+
+#### Running an analysis
+
+With the GRE built, you can run analyses from the _Console_ tab. All the required data will be loaded into the GRE. For example, generating Figure X is as simple as running the following command:
+
+```R
+> source('figure_s_env.R')
+```
+
+This produces the following figure in `YY_PLOTS/FIG_S_ENV/` as a .pdf and .png formatted image.
+
+[![s_env]({{images}}/s_env.png)]( {{images}}/s_env.png){:.center-img .width-90}
+
+To see what's happening under the hood, you can view the contents of `ZZ_SCRIPTS/figure_s_env.R`:
+
+<details markdown="1"><summary>Show/Hide Script</summary>
+```R
+#! /usr/bin/env Rscript
+
+source("utils.R")
+
+args <- list()
+args$output <- "../YY_PLOTS/FIG_S_ENV"
+args$meta <- "../TARA_metadata.txt"
+args$soi <- "../soi"
+
+library(tidyverse)
+
+dir.create(args$output, showWarnings=F, recursive=T)
+
+# -----------------------------------------------------------------------------
+# Reading in the data
+# -----------------------------------------------------------------------------
+
+soi <- read_tsv(args$soi, col_names = F)
+
+set.seed(4323)
+get_pallette <- function(size) {
+    colors <- list()
+    for (i in 1:size) {
+        colors[[i]] <- paste("#", paste(rep(sample(c("3", "4", "5", "6", "7", "8", "9", "A", "B"), 1), 6), collapse=""), sep="")
+    }
+    colors
+}
+cbPalette <- get_pallette(10)
+
+df <- read_tsv(args$meta) %>%
+    rename(sample_id=`Sample Id`) %>%
+    pivot_longer(cols=c(
+        `Depth (m)`,
+        `Chlorophyll Sensor s`,
+        `Temperature (deg C)`,
+        `Salinity (PSU)`,
+        `Oxygen (umol/kg)`,
+        `Nitrates (umol/L)`,
+        `PO4 (umol/L)`,
+        `SI (umol/L)`
+    ))
+
+# -----------------------------------------------------------------------------
+# Plot the thing
+# -----------------------------------------------------------------------------
+
+g <- ggplot(data = df, aes(x=value)) +
+    geom_histogram(aes(fill=name)) +
+    facet_wrap(~ name, ncol=3, scales="free", strip.position="bottom") +
+    scale_fill_manual(values=cbPalette) +
+    labs(
+        x="",
+        y="Number of Metagenomes"
+    ) +
+    theme_classic(base_size=12) +
+    theme(
+        legend.position = "none",
+        text=element_text(size=12, family="Helvetica", face="bold"),
+        strip.background = element_blank(),
+        strip.placement="outside"
+    ) +
+    scale_y_continuous(limits = c(0,NA), expand = c(0.005, 0))
+display(g, file.path(args$output, "meta.png"), width=6.5, height=5, as.png=TRUE)
+display(g, file.path(args$output, "meta.pdf"), width=6.5, height=5, as.png=FALSE)
+```
+</details> 
+
 
 #### Explore
 
 
+
+The GRE is built by running the R script `ZZ_SCRIPTS/load_data.R`. There are a few considerations to this that I'll explain soon, but for the time being load up the data with the following command:
+
+```R
+source('load_data.R')
+```
+
+This should take around 10 seconds to run. Afterwards, a wealth of common data is now available in the GRE as different variables, which can be viewed from the _Environment_ pane:
+
+[![rstudio2]({{images}}/rstudio2.png)]( {{images}}/rstudio2.png){:.center-img .width-90}
+
+For example, the above screenshot shows how you could access and view the $pN/pS^{(\text{gene})}$ data, which has been given the variable name `pnps`. In Step X we calculated $pN/pS^{(\text{gene})}$ for each gene in each sample, and stored the data in the file `17_PNPS/pNpS.txt`. Well, `ZZ_SCRIPTS/load_data.R` has loaded this data into the GRE under the variable name `pnps`.
+
+This is useful for _you_, because you can very quickly query this data using R (_e.g._ `pnps %>% filter(gene_callers_id == 1326)`), but it is also useful for all of the downstream analysis scripts which will be ran from within the GRE.
+
+However, not _all_ of the data has been loaded by default. This is because some data takes a very long time to load. If you want to create the full GRE, you should request the SCV and regression data with the following console commands and then re-source `ZZ_SCRIPTS/load_data.R`:
+
+```R
+> request_scvs <- TRUE
+> request_regs <- TRUE
+```
 
 
 
