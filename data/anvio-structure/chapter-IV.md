@@ -222,7 +222,7 @@ Assuming you haven't already loaded all the data, this will take around 30 minut
 {:.notice}
 Most, but not all of the analyses use the GRE. This is one that doesn't.
 
-In this analysis, we create Table S_RR, which provides summary-level recruitment information about each of the 21 SAR11 genomes that were used in the read recruitment experiment, including HIMB83.
+In this analysis, we create Table S1, which provides summary-level recruitment information about each of the 21 SAR11 genomes that were used in the read recruitment experiment, including HIMB83.
 
 As a reminder, we used Bowtie2 to recruit reads from each metagenome/metatranscriptome to each of the 21 SAR11 genomes in a competitive manner. The complete mapping information is stored in a series of {% include ARTIFACT name="bam-file" text="bam-files" %} present in `04_MAPPING/`, and the pertinent information from all samples and all genomes has been summarized into the {% include ARTIFACT name="profile-db" %} in `06_MERGED/`. To retrieve recruitment statistics for each genome, we can use the program {% include PROGRAM name="anvi-summarize" %}.
 
@@ -243,7 +243,7 @@ By default, {% include PROGRAM name="anvi-summarize" %} calculates coverage stat
 
 When finished, {% include PROGRAM name="anvi-summarize" %} produces a {% include ARTIFACT name="summary" %}, that offers some extensive reporting with tab-delimited files that you can open in Excel or Python/R. Here is the directory structure:
 
-Quite simply, Table S_RR is a copy-paste job of a selection of these files. To create the Excel table, run the script `ZZ_SCRIPTS/gen_table_rr.py`.
+Quite simply, Table S1 is a copy-paste job of a selection of these files. To create the Excel table, run the script `ZZ_SCRIPTS/gen_table_rr.py`.
 
 <details markdown="1"><summary>Show/Hide Script</summary>
 ```python
@@ -423,6 +423,20 @@ python ZZ_SCRIPTS/analysis_gene_percent_id.py --bams mgx_bam_paths \
 </div> 
 
 This creates the file `18_PERCENT_ID.txt` which is a table quantifying the average percent identity of reads for each gene in each sample.
+
+Various depictions of this raw data are provided in Table S2, which can be created via the following command.
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```bash
+python ZZ_SCRIPTS/table_pid.py
+```
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
+</div> 
+
+This outputs Table S2 under the filename `WW_TABLES/PID.xlsx`.
 
 ### (2) SAR11 pangenome sequence similarity
 
@@ -866,6 +880,9 @@ cd ..
 </div> 
 
 
+[![fig_gnm_cdn]({{images}}/fig_gnm_cdn.png)]({{images}}/fig_gnm_cdn.png){:.center-img .width-100} 
+
+
 ## Analysis X: Distributions of environmental parameters
 
 This is how I created Figure S_ENV.
@@ -956,7 +973,7 @@ The output image is `YY_PLOTS/FIG_S_ENV/meta.png`.
 
 ## Analysis X: $\text{pN}^{(\text{site})}$ and $\text{pS}^{(\text{site})}$ variation across genes and samples
 
-I did some summary analyses to describe how per-site pN$^{(\text{site})}$ and pS$^{(\text{site})}$ vary within and between genes and samples. The output of these data are Figure S_PN_HIST and Table PNPS_SUMS.
+I did some summary analyses to describe how per-site pN$^{(\text{site})}$ and pS$^{(\text{site})}$ vary within and between genes and samples. The output of these data are Figure S_PN_HIST and Table S3.
 
 I created Figure S_PN_HIST with `ZZ_SCRIPTS/figure_s_pn_hist.R`:
 
@@ -1033,7 +1050,7 @@ The output image is `YY_PLOTS/FIG_S_PN_HIST/fig.png`.
 
 [![pn_hist]({{images}}/pn_hist.png)]( {{images}}/pn_hist.png){:.center-img .width-90}
 
-Now for Table PNPS_SUMS. Quite simply, the table data in Table PNPS_SUMS were calculated by loading up the pN$^{(\text{site})}$ and pS$^{(\text{site})}$ data found in `11_SCVs.txt`, making some summary tables, and writing each to different sheet in the Excel table `WW_TABLES/PNPS_SUMS.xlsx`. Here is the responsible script:
+Now for Table S3. Quite simply, the table data in Table S3 were calculated by loading up the pN$^{(\text{site})}$ and pS$^{(\text{site})}$ data found in `11_SCVs.txt`, making some summary tables, and writing each to different sheet in the Excel table `WW_TABLES/PNPS_SUMS.xlsx`. Here is the responsible script:
 
 <details markdown="1"><summary>Show/Hide Script</summary>
 ```python
@@ -1536,7 +1553,7 @@ python ZZ_SCRIPTS/comp_struct_preds.py
 ‣ **Storage:** Minimal  
 </div>
 
-This creates the files `09_STRUCTURE_comparison.txt` and `WW_TABLES/STRUCT_COMP.xlsx`, which are otherwise known as Table S_FIXME. Using this table, I created Figure S_FIXME with the script `ZZ_SCRIPTS/figure_s_comp.R`.
+This creates the files `09_STRUCTURE_comparison.txt` and `WW_TABLES/STRUCT_COMP.xlsx`, which are otherwise known as Table S4. Using this table, I created Figure S4 with the script `ZZ_SCRIPTS/figure_s_comp.R`.
 
 <details markdown="1"><summary>Show/Hide Script</summary>
 ```R
@@ -2649,9 +2666,9 @@ lm_rsa_gene_sample_pn.RDS
 lm_rsa_gene_sample_ps.RDS
 ```
 
-As well as Table S6 under the filename `WW_TABLES/MODELS.txt`.
+As well as Table S6 under the filename `WW_TABLES/MODELS.txt`, which summarizes these models.
 
-## Analysis X: Gene-sample paired models
+## Analysis X: Gene-sample pair linear models
 
 The previous Analysis details the linear models we ran on the per-site polymorphism rate data aggegrated across genes and samples. To complement this analysis, we also created linear models _for each_ gene-sample pair, which resulted in tens of thousands of models. The Pearson coefficients for these models are shown in Figure 1, which we created as a means of visually illustrating that RSA and DTL are rather effective at predicting per-site pN (red), as compared to per-site pS (blue):
 
@@ -2802,8 +2819,7 @@ source('figure_2.R')
 
 This will create Figures 2c and 2d (as well as the rest of the plots in Figure 2), and plop the results into `YY_PLOTS/FIG_2`. But more importantly, your GRE will now contain a dataframe called `poly_corr`, which summarizes the statistics of each model:
 
-
-FIXME
+[![poly_corr]({{images}}/poly_corr.png)]( {{images}}/poly_corr.png){:.center-img .width-100}
 
 If you want to get fancy and run the code without producing the whole of Figure 2, another option is to source `ZZ_SCRIPTS/load_data.R` after requesting that SCVs are loaded (`request_scvs <- TRUE`) and the models are calculated (`request_regs <- TRUE`):
 
@@ -2815,7 +2831,329 @@ withRestarts(source("load_data.R"), terminate=function() message('load_data.R: d
 
 This equivalently creates the `poly_corr` dataframe.
 
-## Analysis X: Per-group models
+For each gene-sample pair, we fit 6 models, and the statistics of each model are found in the columns of `poly_corr`.
+
+The first four models are 1D regressions on either RSA or DTL:
+
+$$
+\log_{10}(\text{pN}^{\text{(site)}}) \sim \text{RSA}
+$$
+
+- `pn_r_rsa` is the Pearson correlation coefficient of the model
+- `pn_rsq_rsa` is the $R^2$
+
+$$
+\log_{10}(\text{pS}^{\text{(site)}}) \sim \text{RSA}
+$$
+
+- `ps_r_rsa` is the Pearson correlation coefficient of the model
+- `ps_rsq_rsa` is the $R^2$
+
+$$
+\log_{10}(\text{pN}^{\text{(site)}}) \sim \text{DTL}
+$$
+
+- `pn_r_dist` is the Pearson correlation coefficient of the model
+- `pn_rsq_dist` is the $R^2$
+
+$$
+\log_{10}(\text{pS}^{\text{(site)}}) \sim \text{DTL}
+$$
+
+- `ps_r_dist` is the Pearson correlation coefficient of the model
+- `ps_rsq_dist` is the $R^2$
+
+The last two models are 2D regressions on both RSA and DTL:
+
+$$
+\log_{10}(\text{pN}^{\text{(site)}}) \sim \text{RSA} + \text{DTL}
+$$
+
+- `pn_rsq` is the $R^2$
+- `pn_adj_rsq` is the adjusted $R^2$
+- `pn_b0` is the estimate for the constant coefficient
+- `pn_b0_err` is the error estimate for the constant coefficient
+- `pn_bRSA` is the estimate for the RSA coefficient
+- `pn_bRSA_err` is the error estimate for the RSA coefficient
+- `pn_bDTL` is the estimate for the DTL coefficient
+- `pn_bDTL_err` is the error estimate for the DTL coefficient
+- `pn_model_rsa_d` is the model object itself, so you can introspect to your heart's content
+
+$$
+\log_{10}(\text{pS}^{\text{(site)}}) \sim \text{RSA} + \text{DTL}
+$$
+
+- `ps_rsq` is the $R^2$
+- `ps_adj_rsq` is the adjusted $R^2$
+- `ps_b0` is the estimate for the constant coefficient
+- `ps_b0_err` is the error estimate for the constant coefficient
+- `ps_bRSA` is the estimate for the RSA coefficient
+- `ps_bRSA_err` is the error estimate for the RSA coefficient
+- `ps_bDTL` is the estimate for the DTL coefficient
+- `ps_bDTL_err` is the error estimate for the DTL coefficient
+- `ps_model_rsa_d` is the model object itself, so you can introspect to your heart's content
+
+If you haven't already done so, create Figures 2c and 2d by running
+
+```R
+source('figure_2.R')
+```
+
+Quite simply, the responsible code creates histograms of the columns `pn_r_rsa`, `ps_r_rsa`, `pn_r_dist`, and `ps_r_dist`:
+
+```R
+# -----------------------------------------------------------------------------
+# Correlation histograms
+# -----------------------------------------------------------------------------
+
+col1 <- ns_col
+col2 <- s_col
+RSA_pearson <- ggplot(poly_corr) +
+    geom_histogram(aes(ps_r_rsa, y=..density..), fill=s_col,  alpha=0.7, bins=100) +
+    geom_histogram(aes(pn_r_rsa, y=..density..), fill=ns_col, alpha=0.7, bins=100) +
+    geom_vline(xintercept = (poly_corr$ps_r_rsa %>% mean(na.rm=TRUE)), color=s_col,  size=1.0, linetype='dashed') +
+    geom_vline(xintercept = (poly_corr$pn_r_rsa %>% mean(na.rm=TRUE)), color=ns_col, size=1.0, linetype='dashed') +
+    theme_classic() +
+    scale_x_continuous(limits=c(-1,1), expand=c(0,0)) +
+    my_theme(9) +
+    scale_y_continuous(limits=c(0,NA), expand=c(0,0))
+DTL_pearson <- ggplot(poly_corr) +
+    geom_histogram(aes(ps_r_dist, y=..density..), fill=s_col,  alpha=0.7, bins=100) +
+    geom_histogram(aes(pn_r_dist, y=..density..), fill=ns_col, alpha=0.7, bins=100) +
+    geom_vline(xintercept = (poly_corr$ps_r_dist %>% mean(na.rm=TRUE)), color=s_col,  size=1.0, linetype='dashed') +
+    geom_vline(xintercept = (poly_corr$pn_r_dist %>% mean(na.rm=TRUE)), color=ns_col, size=1.0, linetype='dashed') +
+    theme_classic() +
+    scale_x_continuous(limits=c(-1,1), expand=c(0,0)) +
+    my_theme(9) +
+    scale_y_continuous(limits=c(0,NA), expand=c(0,0))
+
+display(RSA_pearson, output=file.path(args$output, "RSA_pearson.pdf"),  width=f*w, height=w*0.7, as.png=F)
+display(DTL_pearson, output=file.path(args$output, "DTL_pearson.pdf"), width=f*w, height=w*0.7, as.png=F)
+```
+
+Similarly, distributions of the 2D regression model parameters can be visualized by running
+
+```R
+source('figure_s_reg_stats.R')
+```
+
+Yielding the following plot in `YY_PLOTS/FIG_S_REG_STATS`.
+
+[![reg_stats]({{images}}/reg_stats.png)]( {{images}}/reg_stats.png){:.center-img .width-100}
+
+This is essentially histograms of the various columns in `poly_corr`. See `ZZ_SCRIPTS/figure_s_reg_stats.R` for details.
+
+If you haven't noticed, `poly_corr` is essentially Table S7. To export `poly_corr` into the tab-delimited file format that is Table S7, run the following from your GRE:
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```R
+source('table_poly_corr.R')
+```
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
+</div> 
+
+### Visualizing gene-sample scatterplots
+
+If you want to visualize polymorphism rates within a specific gene-sample pair, as I did in Figures S7 and S8, you're in the right place.
+
+
+[![fig_examples_rsa]({{images}}/fig_examples_rsa.png)]( {{images}}/fig_examples_rsa.png){:.center-img .width-70}
+
+[![fig_examples_dtl]({{images}}/fig_examples_dtl.png)]( {{images}}/fig_examples_dtl.png){:.center-img .width-70}
+
+`poly_corr` summarizes the models that were fit to the polymorphism rate data, but doesn't contain the polymorphism rate data itself. This information is housed in the SCV table, _i.e._ the variable `scvs`.
+
+If `scvs` is not already in your GRE, load it up (there is no harm in running this command if you're unsure):
+
+```R
+request_scvs <- TRUE
+withRestarts(source("load_data.R"), terminate=function() message('load_data.R: data already loaded. Nice.'))
+```
+
+As an example, let's say you're interested in Gene ID 2264 in sample ION_42_80M. You could subset the SCV table with the following R code:
+
+```R
+df <- scvs %>% filter(gene_callers_id == 2264, sample_id == 'ION_42_80M')
+```
+
+And to access the polymorphism rate data and the RSA and DTL of these sites, you could subset the columns:
+
+```R
+# ANY_dist = DTL
+# rel_solvent_acc = RSA
+df <- df %>% select(codon_order_in_gene, rel_solvent_acc, ANY_dist, pN_popular_consensus, pS_popular_consensus)
+```
+
+Finally, you could make a scatter plot showing the relationship between pN (or pS) and RSA (or DTL):
+
+```R
+g <- ggplot(df, aes(rel_solvent_acc, log10(pN_popular_consensus))) + geom_point() + geom_smooth(method='lm')
+print(g)
+```
+
+[![fig_pn_rsa]({{images}}/fig_pn_rsa.png)]({{images}}/fig_pn_rsa.png){:.center-img .width-70} 
+
+Really, this is no different to how I created the plots in Figures S7 and S8. For the full reproducible scripts, check out `ZZ_SCRIPTS/figure_s_examples_RSA.R` and `ZZ_SCRIPTS/figure_s_examples_DTL.R`, and when you're ready, run the scripts like so:
+
+```R
+source('figure_s_examples_RSA.R')
+source('figure_s_examples_DTL.R')
+```
+
+You can find the resultant plots under `YY_PLOTS/FIG_EXAMPLES_RSA` and `YY_PLOTS/FIG_EXAMPLES_DTL`.
+
+
+## Analysis X: per-group pN and pS
+
+This analysis encompasses everything related to per-group pN and pS values, _i.e._ the values visualized in the heatmaps of Figure 2e.
+
+[![fig_2e]({{images}}/fig_2e.png)]( {{images}}/fig_2e.png){:.center-img .width-70}
+
+### Heatmaps
+
+You calculated the per-group pN and pS values in [this step](FIXME) in Chapter III, and you can find the resultant data in `17_PNPS_RSA_AND_DTL`.
+
+As a quick aside, the tabular data found in this folder are no more or less than the Excel sheets that comprise Table S8. To produce Table S8, run `ZZ_SCRIPTS/table_group.py`:
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```bash
+python ZZ_SCRIPTS/table_group.py
+```
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+</div> 
+
+You can find the result at `WW_TABLES/GROUP.xlsx`.
+
+Anways. This data can be accessed within the GRE under the variable names `pn_group` and `ps_group`. If you don't have these variables, the quickest way to get them would be
+
+```R
+request_scvs <- FALSE
+request_regs <- FALSE
+withRestarts(source("load_data.R"), terminate=function() message('load_data.R: data already loaded. Nice.'))
+```
+
+Here is what `pn_group` looks like, for example:
+
+```
+> pn_group
+# A tibble: 195 × 9
+   DTL_group RSA_group      pn       DTL DTL_range       RSA RSA_range   s_sites ns_sites
+       <dbl>     <dbl>   <dbl>     <dbl> <chr>         <dbl> <chr>         <dbl>    <dbl>
+ 1         0         0 0.00147 -2.22e-16 [0.0,5.0) -2.22e-16 [0.0,0.01)    1487.    4570.
+ 2         0         1 0.00152 -2.22e-16 [0.0,5.0)  9.95e- 3 [0.01,0.03)    581.    2233.
+ 3         0         2 0.00124 -2.22e-16 [0.0,5.0)  2.88e- 2 [0.03,0.06)    763.    2729.
+ 4         0         3 0.00145 -2.22e-16 [0.0,5.0)  5.81e- 2 [0.06,0.1)     713.    2614.
+ 5         0         4 0.00169 -2.22e-16 [0.0,5.0)  9.82e- 2 [0.1,0.15)     580.    2132.
+ 6         0         5 0.00154 -2.22e-16 [0.0,5.0)  1.45e- 1 [0.15,0.2)     506.    1816.
+ 7         0         6 0.00214 -2.22e-16 [0.0,5.0)  2.01e- 1 [0.2,0.26)     421.    1553.
+ 8         0         7 0.00257 -2.22e-16 [0.0,5.0)  2.62e- 1 [0.26,0.32)    321.    1221.
+ 9         0         8 0.00292 -2.22e-16 [0.0,5.0)  3.23e- 1 [0.32,0.39)    254.     964.
+10         0         9 0.00469 -2.22e-16 [0.0,5.0)  3.90e- 1 [0.39,0.46)    199.     809.
+# … with 185 more rows
+```
+
+This is the data used to create the red heatmap in Figure 2e, which is created whenever you run
+
+```R
+source('figure_2.R')
+```
+
+and the results are found in `YY_PLOTS/FIG_2`. If you dig into `ZZ_SCRIPTS/figure_2.R`, you'll see that the heatmaps are drawn using the function `plot_group_histogram`, which can be found in `ZZ_SCRIPTS/utils.R`:
+
+<details markdown="1"><summary>Show/Hide plot_group_histogram</summary>
+```R
+# -----------------------------------------------------------------------------
+# Group pN & pS & pN/pS histograms
+# -----------------------------------------------------------------------------
+
+plot_group_histogram <- function(dataframe, name, scaling, bins=15, smooth=T) {
+    name_for_color <- strsplit(name, "_") %>% .[[1]] %>% .[[1]]
+    low_c <- low_cs[[name_for_color]]
+    high_c <- high_cs[[name_for_color]]
+    if (smooth) {
+        dataframe$smooth <- smooth_it(dataframe, name=name, scaling=scaling)
+    }
+    RSA_labels <- as.character(dataframe$RSA_range %>% unique())
+    RSA_labels[c(TRUE,FALSE)] <- ""
+    names(RSA_labels) <- as.character(dataframe$RSA_group %>% unique())
+    DTL_labels <- as.character(dataframe$DTL_range %>% unique())
+    DTL_labels[c(FALSE,TRUE)] <- ""
+    names(DTL_labels) <- as.character(dataframe$DTL_group %>% unique())
+    g <- ggplot(data = dataframe) +
+        geom_tile(aes_string(x="RSA_group", y="DTL_group", fill=name)) +
+        labs(
+            x="RSA",
+            y="d [Å]"
+        ) +
+        theme_classic(base_size=12) +
+        scale_fill_gradient(
+            guide=guide_colorbar(ticks=FALSE),
+            low=low_c,
+            high=high_c,
+            limits=c(min(dataframe[[name]]), max(dataframe[[name]])),
+            breaks=c(min(dataframe[[name]]), max(dataframe[[name]])),
+            labels=c(round(min(dataframe[[name]]), 3), round(max(dataframe[[name]]), 3))
+        ) +
+        theme(
+            text=element_text(size=18, family="Helvetica", face="bold"),
+            legend.position="bottom",
+            legend.key.width = unit(1, 'cm'),
+            legend.text=element_text(size=14),
+            axis.text.x = element_text(size=16, angle=30, hjust=1),
+            axis.text.y = element_text(size=16, angle=30, hjust=1)
+        ) +
+        scale_y_continuous(expand=c(0,0), breaks = seq(min(dataframe$DTL_group),max(dataframe$DTL_group), length.out = length(DTL_labels)), labels=DTL_labels) +
+        scale_x_continuous(expand=c(0,0), breaks = seq(min(dataframe$RSA_group),max(dataframe$RSA_group), length.out = length(RSA_labels)), labels=RSA_labels)
+    if (smooth) {
+        g <- g + geom_contour(
+            aes(x=RSA_group, y=DTL_group, z=smooth),
+            bins = bins,
+            size=1.0,
+            alpha=0.5,
+            color='white'
+        )
+    }
+    g
+}
+```
+</details> 
+
+### Linear fits
+
+At the time `pn_group` and `ps_group` are loaded into the GRE (`ZZ_SCRIPTS/load_data.R`), linear models with respect to `RSA_group` and `DTL_group` are fit to the data. If you want the pleasure of running these models yourself, run the following code:
+
+```R
+ps_group_model <- ps_group %>%
+    lm(ps ~ RSA_group + DTL_group, data = .)
+pn_group_model <- pn_group %>%
+    lm(pn ~ RSA_group + DTL_group, data = .)
+```
+
+However, this code has already been run, so you already have `ps_group_model` and `pn_group_model` in your GRE.
+
+It is with these linear models that Figure SI3 is constructed. To create Figure SI3, run
+
+```R
+source('figure_s_group_fits.R')
+```
+
+This outputs the componenets of the following figure into `YY_PLOTS/FIG_S_GROUP_FITS`.
+
+[![fig_group_fits]({{images}}/fig_group_fits.png)]( {{images}}/fig_group_fits.png){:.center-img .width-90}
+
+### Bin number sensitivity
+
+How sensitive are these findings to bin size? So far we have dealt with the RSA and DTL domains being split into 15 segments each, totaling 15x15=225 total groups. How arbitrary is this choice?
+
+I addressed this by repeating the fits in the previous section for various group numbers, and the results are shown in Figure SI4.
+
+[![fig_bin_size]({{images}}/fig_bin_size.png)]( {{images}}/fig_bin_size.png){:.center-img .width-50}
+
+To reproduce this analysis, you'll need to calculate per-group pN and pS for various bin numbers. In Step X we utilized the script `ZZ_SCRIPTS/analysis_pnps_d_and_rsa.py` to calculate per-group pN and pS for a bin number of 15 (what I mean by this is RSA and DTL are each split into 15 segments), and we can repeat that process for several bin numbers using the following bash command.
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #X</span>
@@ -2829,6 +3167,45 @@ done
 ‣ **Storage:** Minimal  
 </div> 
 
+This will take around 30 minutes per loop, and will store all of the results in `17_PNPS_RSA_AND_DTL`.
+
+When the script finally finishes, you should have the following files in `17_PNPS_RSA_AND_DTL`:
+
+```
+counts_10.txt counts_26.txt counts_8.txt  pN_22.txt     pN_6.txt      pNpS_2.txt    pNpS_4.txt    pS_18.txt     pS_38.txt
+counts_14.txt counts_30.txt pN_10.txt     pN_26.txt     pN_8.txt      pNpS_22.txt   pNpS_6.txt    pS_2.txt      pS_4.txt
+counts_15.txt counts_34.txt pN_14.txt     pN_30.txt     pNpS_10.txt   pNpS_26.txt   pNpS_8.txt    pS_22.txt     pS_6.txt
+counts_18.txt counts_38.txt pN_15.txt     pN_34.txt     pNpS_14.txt   pNpS_30.txt   pS_10.txt     pS_26.txt     pS_8.txt
+counts_2.txt  counts_4.txt  pN_18.txt     pN_38.txt     pNpS_15.txt   pNpS_34.txt   pS_14.txt     pS_30.txt
+counts_22.txt counts_6.txt  pN_2.txt      pN_4.txt      pNpS_18.txt   pNpS_38.txt   pS_15.txt     pS_34.txt
+```
+
+To reproduce the figure, run
+
+```R
+source('figure_s_bin_effect.R')
+```
+
+And to check out the code, dig into `ZZ_SCRIPTS/figure_s_bin_effect.R`.
+
+
+## Analysis X: Correlatedness of RSA and DTL
+
+A necessary concern when fitting linear models to multiple variables, is understanding how correlated the variables are with each other. Statistical interpretations are most straightforward if the variables are _independent_ from one another, however in practice observation variables are rarely independent, and so we must deal in the realm of [multicollinearity](https://en.wikipedia.org/wiki/Multicollinearity).
+
+Since many of the above analyses regress polymorphism rates against RSA and DTL, I did my due diligence in verifying that RSA and DTL are not crazy-correlated to each other. The result is shown in Figure SI1.
+
+Running the analysis is simple from your GRE:
+
+```R
+source('figure_s_multicolin.R')
+```
+
+Which results in Figure SI1, stored under the filename `YY_PLOTS/FIG_S_MULTICOLIN/RSA_vs_dist.png`
+
+[![RSA_vs_dist]({{images}}/RSA_vs_dist.png)]( {{images}}/RSA_vs_dist.png){:.center-img .width-50}
+
+
 ## Analysis X: dN/dS$^{(gene)}$ between HIMB83 and HIMB122
 
 <div class="extra-info" markdown="1">
@@ -2840,40 +3217,8 @@ This section requires you to first complete Auxiliary Step X, please complete th
 
 In this section we calculate the dN/dS of homologous genes shared between HIMB83 and HIMB122, a related SAR11 genome. In the paper, the rationale for doing this was to validate our approach of pN/pS$^{(gene)}$ by averaging across samples and comparing the sample-averaged pN/pS$^{(gene)}$ values to dN/dS$^{(gene)}$ between HIMB83 and HIMB122, with the expectation that these should be qualitatively similar to one another given the evolutionary relatedness of HIMB122 to HIMB83.
 
-## Analysis X: Glutamine synthetase (GS)
 
-<div class="extra-info" style="{{ analysis_style  }}" markdown="1">
-<span class="extra-info-header">Analysis X Info</span>
-‣ **Prerequisite steps/analyses:** None  
-‣ **Checkpoint datapack:** None  
-</div> 
-
-### Dodecameric RSA & DTL
-
-In the study we focus on glutamine synthetase for a case study, and when dealing with its structure we make the following point in the text:
-
-<blockquote>
-Since the native quaternary structure of GS is a dodecameric complex (12 monomers), our monomeric estimates of RSA and DTL are unrepresentative of the active state of GS. We addressed this by aligning 12 copies of the predicted structure to a solved dodecameric complex of GS in Salmonella typhimurium (PDB ID 1FPY), which HIMB83 GS shares 61% amino acid similarity with (Figure 3a). From this stitched quaternary structure we recalculated RSA and DTL, and as expected, this yielded lower average RSA and DTL estimates due to the presence of adjacent monomers (0.17 versus 0.24 for RSA and 17.8Å versus 21.2Å for DTL).
-<div class="blockquote-author">
-  <b>Kiefl et al. 2022, pre-print</b>
-</div>
-</blockquote>
-
-FIXME
-
-<div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
-```bash
-mkdir -p 21_GS_COMPLEX
-pymol -c ZZ_SCRIPTS/GS_neighor_complex.pml
-python ZZ_SCRIPTS/GS_complex_DTL.py
-python ZZ_SCRIPTS/GS_complex_RSA.py
-```
-‣ **Time:** <1 min  
-‣ **Storage:** 4 Mb  
-</div> 
-
-### How similar to HIMB122 to HIMB83?
+### How similar is HIMB122 to HIMB83?
 
 First, let's determine how similar HIMB122 is to HIMB83. Here is a genome content comparison between HIMB83 and HIMB122
 
@@ -3186,6 +3531,38 @@ cd ..
 
 Since it is much more common for slightly negative polymorphisms to drift to observable frequencies than it is for them to fixate, it is expected that in the majority of cases sample-averaged pN/pS exceeds dN/dS, and it is indeed what we see (most genes are above the black line $y = x$). Interestingly, there are a select number of genes that have quite high rates of polymorphim, despite dN/dS being very low. I think there is probably an interesting story involving all of the genes with high polymorphism rates but low substitution rates (left side of plot).
 
+## Analysis X: Glutamine synthetase (GS)
+
+<div class="extra-info" style="{{ analysis_style  }}" markdown="1">
+<span class="extra-info-header">Analysis X Info</span>
+‣ **Prerequisite steps/analyses:** None  
+‣ **Checkpoint datapack:** None  
+</div> 
+
+### Dodecameric RSA & DTL
+
+In the study we focus on glutamine synthetase for a case study, and when dealing with its structure we make the following point in the text:
+
+<blockquote>
+Since the native quaternary structure of GS is a dodecameric complex (12 monomers), our monomeric estimates of RSA and DTL are unrepresentative of the active state of GS. We addressed this by aligning 12 copies of the predicted structure to a solved dodecameric complex of GS in Salmonella typhimurium (PDB ID 1FPY), which HIMB83 GS shares 61% amino acid similarity with (Figure 3a). From this stitched quaternary structure we recalculated RSA and DTL, and as expected, this yielded lower average RSA and DTL estimates due to the presence of adjacent monomers (0.17 versus 0.24 for RSA and 17.8Å versus 21.2Å for DTL).
+<div class="blockquote-author">
+  <b>Kiefl et al. 2022, pre-print</b>
+</div>
+</blockquote>
+
+FIXME
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```bash
+mkdir -p 21_GS_COMPLEX
+pymol -c ZZ_SCRIPTS/GS_neighor_complex.pml
+python ZZ_SCRIPTS/GS_complex_DTL.py
+python ZZ_SCRIPTS/GS_complex_RSA.py
+```
+‣ **Time:** <1 min  
+‣ **Storage:** 4 Mb  
+</div> 
 ## Aux. Step X: Pangenome detour
 
 <div class="extra-info" markdown="1">
