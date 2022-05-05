@@ -29,6 +29,9 @@ This document is **UNDER CONSTRUCTION**. It is not in a state where you can yet 
 
 Welcome to Chapter IV. In this chapter you'll find all of the analyses in the paper. If you haven't completed Chapter III (or equivalently downloaded the required datapack), you won't be able to reproduce these analyses but you still might find some some useful information in here that got cut from the paper. Before you begin, there are a couple of important points you need to be clear on.
 
+Throughout the lifespan of this paper, my strategy for carrying out analyses was to create a global R environment that would be loaded for any and all figure generation. FIXME
+
+
 ### Directory
 
 Unless otherwise stated, each analysis can be run independently from the others, so **completing analyses in order is not required**.
@@ -42,11 +45,13 @@ FIXME
 
 ### Global R environment (GRE)
 
-There is a lot of data to contend with. For example, there are ~18M single codon variants (SCVs) across ~250K residues and 74 samples. There are codon allele frequencies and pN & pS for each SCV, RSA and DTL values for each residue, a structure and pN/pS for each gene in each sample. **It is really a lot of data** and it is all scattered throughout your working directory in the form of TAB-separated data and anvi'o databases. To unify all of this data into one global environment, I opted to create what I'm calling a **_Global R environment_ (GRE)**. This interactive R environment is what I used while developing this study, and it is the same environment you will use when performing the analyses in this chapter.
+How did I organize my analyses? One option would be to create everything in isolation. Each analysis starts from a blank slate, and builds up all of the data it needs for the analysis. This approach would be favored if the analyses are relatively independent of one another, and the associated datasets were small.
 
-While the GRE may seem needless, trust me, it's very worthwhile, and you won't get far without it. The primary reason is that some of the data structures, such as the SCV data, are massive, and take a very long time to load. Since many analyses require the SCV data, you will be waiting for **hours and hours** if you are continually loading up the SCV data as a dataframe in R or Python. It is a much better strategy to instead load the SCV data once, and then use it repeatedly for different analyses. The same goes for many other data that are shared between analyses. The GRE is designed to do exactly that.
+The other approach--which is the approach I took--is to create a shared environment where all of the data can be shared. This is a necessary evil when the datasets reach a certain size. For example, many of the analyses require access to the _full_ set of single codon variants (SCVs), which is an 18M row dataset. Loading this dataset for every analysis, and performing the required `join` operations takes around 30 minutes, which is impractical to do repeatedly. As such, I opted to unify all of the data into one global environment, in a computational workspace I call the **_Global R environment_ (GRE)**.
 
-#### Build
+The GRE is what I used while developing this study, and it is the same environment you will use when performing the analyses in this chapter. The GRE will provides the workspace where you will carry out analyses.
+
+#### How to build it
 
 Unless you are confident about doing it your own way, you should create the GRE using the following steps.
 
@@ -56,12 +61,11 @@ Unless you are confident about doing it your own way, you should create the GRE 
 rstudio
 ```
 
-
 **(2)** Change the directory to `ZZ_SCRIPTS`.
 
 Your RStudio environment may look different, but here is what mine looks like.
 
-[![rstudio1]({{images}}/rstudio1.png)]( {{images}}/rstudio1.png){:.center-img .width-90}
+[![rstudio1]({{images}}/rstudio1.png)]( {{images}}/rstudio1.png){:.center-img .width-100}
 
 Navigate to the _Console_ tab. This is where you will issue R commands in the GRE.
 
@@ -80,9 +84,11 @@ If so, you're in the wrong place. Try providing the full path to `ZZ_SCRIPTS`:
 setwd('<WHERE_YOU_CREATED_THE_ROOT_DIECTORY>/kiefl_2021/ZZ_SCRIPTS')
 ```
 
-At this point, the GRE is built, which is all that's required to begin running analyses. However, it is also empty, and by that I mean there is no data loaded into the environment. Most analyses, unless otherwise stated, automatically load the data they need into the environment.
+Congrats. You have built the GRE, which is all that's required to begin running analyses. 
 
 #### Running an analysis
+
+Unless otherwise stated, **most analyses automatically load the data they need into the GRE**.
 
 With the GRE built, you can run analyses from the _Console_ tab. All the required data will be loaded into the GRE. For example, generating Figure X is as simple as running the following command:
 
@@ -92,9 +98,9 @@ With the GRE built, you can run analyses from the _Console_ tab. All the require
 
 This produces the following figure in `YY_PLOTS/FIG_S_ENV/` as a .pdf and .png formatted image.
 
-[![s_env]({{images}}/s_env.png)]( {{images}}/s_env.png){:.center-img .width-90}
+[![s_env]({{images}}/s_env.png)]( {{images}}/s_env.png){:.center-img .width-70}
 
-To see what's happening under the hood, you can view the contents of `ZZ_SCRIPTS/figure_s_env.R`:
+To see what's happening under the hood, you can view the contents of `ZZ_SCRIPTS/figure_s_env.R`, the R script that we called `source()` on:
 
 <details markdown="1"><summary>Show/Hide Script</summary>
 ```R
@@ -166,40 +172,55 @@ display(g, file.path(args$output, "meta.pdf"), width=6.5, height=5, as.png=FALSE
 </details> 
 
 
-#### Explore
+#### Data is loaded as needed
 
+The above analysis runs very quickly because its data requirements are low. It just needs to load the `TARA_metadata.txt` file and it's ready to rock. But if the analysis requires the SCV data, that's another story. As I mentioned, it takes a long time to load the SCV data.
 
+To avoid loading the SCV table twice, or any other data that takes significant time to load/manipulate, any analysis that requires SCVs will first check whether SCVs have already been loaded. If already present, no time will be wasted loading it a second time. This saves hours and hours of time if you plan on doing many of these analyses.
 
-The GRE is built by running the R script `ZZ_SCRIPTS/load_data.R`. There are a few considerations to this that I'll explain soon, but for the time being load up the data with the following command:
+So the bad news is that loading the complete set of data shared between analyses takes anywhere from 30-60 minutes. But the good news is that this only has to be done once per GRE you build.
+
+All of this logic is carried out by the script `ZZ_SCRIPTS/load_data.R`, which is ran at the start of each analysis. `ZZ_SCRIPTS/load_data.R` essentially loads all the data that is used by many analyses.
+
+<div class="extra-info" markdown="1">
+<span class="extra-info-header">More about load_data.R</span>
+Each analysis will typically start by running `ZZ_scripts/load_data.R`, which is done with the following command:
 
 ```R
 source('load_data.R')
 ```
 
-This should take around 10 seconds to run. Afterwards, a wealth of common data is now available in the GRE as different variables, which can be viewed from the _Environment_ pane:
+At any time, you can run this command from within the _Console_. Afterwards, a wealth of common data is now available in the GRE as different variables, which can be viewed from the _Environment_ pane:
 
 [![rstudio2]({{images}}/rstudio2.png)]( {{images}}/rstudio2.png){:.center-img .width-90}
 
-For example, the above screenshot shows how you could access and view the $pN/pS^{(\text{gene})}$ data, which has been given the variable name `pnps`. In Step X we calculated $pN/pS^{(\text{gene})}$ for each gene in each sample, and stored the data in the file `17_PNPS/pNpS.txt`. Well, `ZZ_SCRIPTS/load_data.R` has loaded this data into the GRE under the variable name `pnps`.
+For example, the above screenshot shows how you could access and view the $\text{pN/pS}^{(\text{gene})}$ data, which has been given the variable name `pnps`. In Step X we calculated $\text{pN/pS}^{(\text{gene})}$ for each gene in each sample, and stored the data in the file `17_PNPS/pNpS.txt`. Well, `ZZ_SCRIPTS/load_data.R` has loaded this data into the GRE under the variable name `pnps`.
 
 This is useful for _you_, because you can very quickly query this data using R (_e.g._ `pnps %>% filter(gene_callers_id == 1326)`), but it is also useful for all of the downstream analysis scripts which will be ran from within the GRE.
 
-However, not _all_ of the data has been loaded by default. This is because some data takes a very long time to load. If you want to create the full GRE, you should request the SCV and regression data with the following console commands and then re-source `ZZ_SCRIPTS/load_data.R`:
+However, not _all_ of the data has been loaded by default. This is because some data takes a very long time to load, like the SCV data. Analyses that require the SCV data first request the SCV data before running `ZZ_SCRIPTS/load_data.R` by setting the following R-variable to `TRUE`:
+
+```R
+> request_scvs <- TRUE
+```
+
+This is fundamentally how data is only loaded if required.
+
+With this in mind, if you want to create the full GRE, you should set the following R-variables and then source `ZZ_SCRIPTS/load_data.R`:
 
 ```R
 > request_scvs <- TRUE
 > request_regs <- TRUE
+> source('load_data.R')
 ```
 
-
-
-## Analysis X: Setting the stage
-
-From here on out, you won't find any more 'steps' to complete, but rather, 'analyses' you may _choose_ to complete. There is no longer an order to the workflow. Instead, run around and carry out any analyses you deem interesting. You have all the data prepared and ready to tackle any of the following analyses, in whichever order you like.
-
-Throughout the lifespan of this paper, my strategy for carrying out analyses was to create a global R environment that would be loaded for any and all figure generation. FIXME
+Assuming you haven't already loaded all the data, this will take around 30 minutes.
+</div>
 
 ## Analysis X: Read recruitment summary (21 genomes)
+
+{:.notice}
+Most, but not all of the analyses use the GRE. This is one that doesn't.
 
 In this analysis, we create Table S_RR, which provides summary-level recruitment information about each of the 21 SAR11 genomes that were used in the read recruitment experiment, including HIMB83.
 
@@ -933,9 +954,11 @@ The output image is `YY_PLOTS/FIG_S_ENV/meta.png`.
 
 [![s_env]({{images}}/s_env.png)]( {{images}}/s_env.png){:.center-img .width-90}
 
-## Analysis X: pN$^{(site)}$ variation across genes and samples
+## Analysis X: $\text{pN}^{(\text{site})}$ and $\text{pS}^{(\text{site})}$ variation across genes and samples
 
-This is how I created Figure S_PN_HIST.
+I did some summary analyses to describe how per-site pN$^{(\text{site})}$ and pS$^{(\text{site})}$ vary within and between genes and samples. The output of these data are Figure S_PN_HIST and Table PNPS_SUMS.
+
+I created Figure S_PN_HIST with `ZZ_SCRIPTS/figure_s_pn_hist.R`:
 
 <details markdown="1"><summary>Show/Hide Script</summary>
 ```R
@@ -995,12 +1018,12 @@ display(g, file.path(args$output, "fig.png"), width=s*3.5, height=s*2.4)
 ```
 </details> 
 
+It can be ran with the following:
+
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #X</span>
 ```bash
-cd ZZ_SCRIPTS/
-Rscript figure_s_pn_hist.R
-cd ..
+source('figure_s_pn_hist.R')
 ```
 ‣ **Time:** FIXME  
 ‣ **Storage:** Minimal  
@@ -1009,6 +1032,101 @@ cd ..
 The output image is `YY_PLOTS/FIG_S_PN_HIST/fig.png`.
 
 [![pn_hist]({{images}}/pn_hist.png)]( {{images}}/pn_hist.png){:.center-img .width-90}
+
+Now for Table PNPS_SUMS. Quite simply, the table data in Table PNPS_SUMS were calculated by loading up the pN$^{(\text{site})}$ and pS$^{(\text{site})}$ data found in `11_SCVs.txt`, making some summary tables, and writing each to different sheet in the Excel table `WW_TABLES/PNPS_SUMS.xlsx`. Here is the responsible script:
+
+<details markdown="1"><summary>Show/Hide Script</summary>
+```python
+#! /usr/bin/env python
+
+import pandas as pd
+from pathlib import Path
+
+tables_dir = Path('WW_TABLES')
+tables_dir.mkdir(exist_ok=True)
+
+# ---------------------------------------------------------
+
+df = pd.read_csv("11_SCVs.txt", sep='\t')
+
+per_gene_per_sample = df.\
+    groupby(['corresponding_gene_call', 'sample_id'])\
+    [['pN_popular_consensus', 'pS_popular_consensus']].\
+    mean().\
+    reset_index().\
+    rename(columns={'pN_popular_consensus':'mean(pN_site)', 'pS_popular_consensus':'mean(pS_site)'})
+
+per_gene = df.\
+    groupby(['corresponding_gene_call'])\
+    [['pN_popular_consensus', 'pS_popular_consensus']].\
+    mean().\
+    reset_index().\
+    rename(columns={'pN_popular_consensus':'mean(pN_site)', 'pS_popular_consensus':'mean(pS_site)'})
+
+per_sample = df.\
+    groupby(['sample_id'])\
+    [['pN_popular_consensus', 'pS_popular_consensus']].\
+    mean().\
+    reset_index().\
+    rename(columns={'pN_popular_consensus':'mean(pN_site)', 'pS_popular_consensus':'mean(pS_site)'})
+
+overall = df\
+    [['pN_popular_consensus', 'pS_popular_consensus']].\
+    mean().\
+    reset_index().\
+    rename(columns={'index':'rate', 0:'value'})
+overall['rate'] = overall['rate'].map({'pN_popular_consensus': 'mean(pN_site)', 'pS_popular_consensus': 'mean(pS_site)'})
+
+with pd.ExcelWriter(tables_dir/'PNPS_SUMS.xlsx') as writer:
+    overall.to_excel(writer, sheet_name='Overall average per site rates')
+    per_gene_per_sample.to_excel(writer, sheet_name='Averaged each gene-sample pair')
+    per_gene.to_excel(writer, sheet_name='Averaged for each gene')
+    per_sample.to_excel(writer, sheet_name='Averaged for each sample')
+
+```
+</details> 
+
+Which can be ran from the command line:
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```bash
+python ZZ_SCRIPTS/table_pnps_sums.py
+```
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
+</div>
+
+## Analysis X: Creating the anvi'o structure workflow diagram
+
+Since Figure 1 is merely a diagrammatic workflow, there is no real data. Consequently, there is not much value in reproducing this figure. But that didn't stop me. You can reproduce the protein images by running `ZZ_SCRIPTS/figure_1.sh`, which runs a bunch of PyMOL scripts (`.pml` file extensions).
+
+<details markdown="1"><summary>Show/Hide Script</summary>
+```bash
+#! /usr/bin/env bash
+
+pymol -c ZZ_SCRIPTS/figure_1_worker1.pml
+pymol -c ZZ_SCRIPTS/figure_1_worker2.pml
+pymol -c ZZ_SCRIPTS/figure_1_worker3.pml
+pymol -c ZZ_SCRIPTS/figure_1_worker4.pml
+pymol -c ZZ_SCRIPTS/figure_1_worker6.pml
+```
+</details>
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```bash
+source ZZ_SCRIPTS/figure_1.sh # FIXME I had to source because `pymol` is set as alias
+```
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
+</div> 
+
+This places a bunch of PyMOL-generated images in the folder `YY_PLOTS/FIG_1`, such as this one.
+
+[![dtl_with_ligand]({{images}}/dtl_with_ligand.png)]( {{images}}/dtl_with_ligand.png){:.center-img .width-50}
 
 ## Analysis X: Comparing AlphaFold to MODELLER
 
@@ -1514,9 +1632,7 @@ display(g, file.path(args$output, "fig.png"), width=6, height=5, as.png=T)
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #X</span>
 ```bash
-cd ZZ_SCRIPTS/
-Rscript figure_s_comp.R
-cd -
+source('figure_s_comp.R')
 ```
 ‣ **Time:** Minimal  
 ‣ **Storage:** Minimal  
@@ -1526,18 +1642,184 @@ Running this creates Figure S_COMP under the filename `YY_PLOTS/FIG_S_COMP/fig.p
 
 [![s_comp]({{images}}/s_comp.png)]( {{images}}/s_comp.png){:.center-img .width-70}
 
-## Analysis X: pN- and pS-weighted RSA and DTL null distributions
+
+## Analysis X: Predicting ligand-binding sites
+
+All of the heavy-lifting for binding site prediction has already been accomplished during Step X. If you're looking for descriptions, implementation details, and the like, you're likely to find it over there. But what remains to be done, is creating Table S5. This table summarizes all of the ligand-binding predictions and reproducing it is the subject of this brief Analysis.
+
+`ZZ_SCRIPTS/table_lig.py` is the script that creates Table S5 under the filename `WW_TABLES/LIG.xlsx`:
+
+<details markdown="1"><summary>Show/Hide Script</summary>
+```python
+#! /usr/bin/env python
+
+import anvio
+import pandas as pd
+import anvio.structureops as sops
+
+from pathlib import Path
+
+tables_dir = Path('WW_TABLES')
+tables_dir.mkdir(exist_ok=True)
+
+# ------------------------------------------------------------
+# Load up all of the dataframes
+# ------------------------------------------------------------
+
+sheet1 = pd.read_csv("08_INTERACDOME-binding_frequencies.txt", sep='\t')
+sheet2 = pd.read_csv("08_INTERACDOME-domain_hits.txt", sep='\t')
+sheet3 = pd.read_csv("08_INTERACDOME-match_state_contributors.txt", sep='\t')
+sheet4 = pd.read_csv(Path(anvio.__file__).parent / 'data/misc/Interacdome/representable_interactions.txt', sep='\t', comment='#')
+
+# ------------------------------------------------------------
+# Save the excel sheets
+# ------------------------------------------------------------
+
+with pd.ExcelWriter(tables_dir/'LIG.xlsx') as writer:
+    sheet1.to_excel(writer, sheet_name='Ligand binding frequencies')
+    sheet2.to_excel(writer, sheet_name='Domain hits')
+    sheet3.to_excel(writer, sheet_name='Match state contributions')
+    sheet4.to_excel(writer, sheet_name='Representable interactions')
+```
+</details> 
+
+Rather boringly, this script packages up a bunch of tabular data you already had, and creates an Excel table, where each sheet is a different table. You can run this script like so:
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```bash
+python ZZ_SCRIPTS/table_lig.py
+```
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
+</div> 
+
+
+## Analysis X: Genome-wide pN- and pS-weighted RSA and DTL distributions
+
+In this analysis, I discuss everything related to how pN and pS distribution relative to RSA and DTL on a genome-wide scale. This means I'll cover topics related to Figures 2a, 2b, S5, and S6.
+
+### Distributions (Figures 2a, 2b)
 
 In Figure 1, we calculated how per-site pN and pS distribute with respect to the variables RSA and DTL. That data looks like this:
 
 [![fig1ab]({{images}}/fig1ab.png)]({{images}}/fig1ab.png){:.center-img .width-70}
 
-For the purposes of explanation, let's just focus on RSA (left) and pN (red) for the time being. This is a weighted distribution calculated by weighting each residue's RSA by the pN observed at each sample. To gauge how this distribution should look if pN was completely uncorrelated with RSA, we shuffled the data, so that each residue (in each sample) was given the RSA of a randomly chosen residue (in a randomly chosen sample). To avoid biases introduced from a single shuffle, we calculated 10 null distributions and the one displayed in Figure 1 is the average of all 10.
+For the purposes of explanation, let's just focus on RSA (left) and pN (red) for the time being. This is a weighted distribution calculated by weighting each site's RSA by the pN observed at each sample. Conceptually, this means that for each sample, the RSA of every site contributes to this distribution. The amount that each site contributes is equal to the pN observed at that site in that sample. Similarly, the blue distribution is created by weighting each RSA value by the observed pS at that site in that sample. The grey distributions represent null distributions (see next section).
+
+These histograms are created using the script `ZZ_SCRIPTS/figure_2.R`. As the name suggests, this creates _all_ of the plots in Figure 2, not just the per-site distributions described. Here is the relevant section of the script:
+
+<details markdown="1"><summary>Show/Hide Script</summary>
+```R
+# -----------------------------------------------------------------------------
+# Per site histograms
+# -----------------------------------------------------------------------------
+
+make_plot <- function(variable, col_shuffle="#AA99AA", xlim=NA, ylim=NA,
+                              sqrty=FALSE, replicates=10, shuffle=T) {
+    type <- 'pS_popular_consensus'
+    plot_data <- scvs %>%
+        select((!!sym(variable)), (!!sym(type))) %>%
+        filter(!is.na((!!sym(type))), !is.na((!!sym(variable))))
+    count_method <- "density"
+    g <- ggplot()
+    bin_count <- 50
+    type_frac <- c()
+    type_var <- c()
+    for (i in 1:replicates) {
+        shuffle_plot_data <- plot_data %>%
+            sample_n(size=plot_data %>% dim() %>% .[[1]], replace=F)
+        type_frac <- append(type_frac, shuffle_plot_data[,type] %>% .[[1]])
+        type_var <- append(type_var, plot_data[,variable] %>% .[[1]])
+        plot_data$shuffled <- shuffle_plot_data %>% .[[2]]
+    }
+    mean_shuffle <- data.frame(type_frac, type_var)
+    g <- g +
+        geom_histogram(
+            data = mean_shuffle,
+            mapping=aes_string(x="type_var", weight="type_frac", y=paste("..", count_method, "..", sep="")),
+            origin=0,
+            fill=col_shuffle,
+            alpha=1.0,
+            bins=bin_count
+        )
+    g <- g +
+        stat_bin(
+            data = plot_data,
+            mapping=aes_string(x=variable, weight=type, y=paste("..", count_method, "..", sep="")),
+            geom="step",
+            center=0.0,
+            color=s_col,
+            size=1.0,
+            bins=bin_count
+        )
+    type <- 'pN_popular_consensus'
+    plot_data <- scvs %>%
+        select((!!sym(variable)), (!!sym(type))) %>%
+        filter(!is.na((!!sym(type))), !is.na((!!sym(variable))))
+    g <- g +
+        stat_bin(
+            data = plot_data,
+            mapping=aes_string(x=variable, weight=type, y=paste("..", count_method, "..", sep="")),
+            geom="step",
+            center=0.0,
+            color=ns_col,
+            size=1.0,
+            bins=bin_count
+        )
+    g <- g +
+        labs(y=count_method, x=variable) +
+        theme_classic() +
+        my_theme(9) +
+        scale_x_continuous(limits = xlim, expand = c(0, 0))
+    if (sqrty) {
+        g <- g + scale_y_continuous(limits = c(NA, ylim), trans='sqrt', expand = c(0.005, 0))
+    } else {
+        g <- g + scale_y_continuous(limits = c(NA, ylim), expand = c(0.005, 0))
+    }
+    g
+}
+N <- 10
+shuffle_color <- "#E1E2E4"
+DTL_pN <- make_plot(variable='ANY_dist', xlim=c(0,40), ylim=0.0625, sqrty=FALSE, replicates=N, col_shuffle=shuffle_color)
+RSA_pN <- make_plot(variable='rel_solvent_acc', xlim=c(0,1.0), ylim=11.0, sqrty=TRUE, replicates=N, col_shuffle=shuffle_color)
+plots <- cowplot::align_plots(DTL_pN, RSA_pN, ncol=1, align='v', axis='l')
+w <- 2.322
+f <- 0.939
+display(
+    plots[[1]],
+    output=file.path(args$output, "DTL_hist.pdf"), width=w, height=0.7*w, as.png=F
+)
+display(
+    plots[[2]],
+    output=file.path(args$output, "RSA_hist.pdf"), width=w, height=0.7*w, as.png=F
+)
+```
+</details> 
+
+You can generate Figures 2a and 2b (as well as the rest of the plots in Figure 2) from the GRE:
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```R
+source('figure_2.R')
+```
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
+</div> 
+
+Since this is an aggregation of a rather large amount of data, this will take some time. However, patience is a virtue, and afterwards you can see the resultant plots in `YY_PLOTS/FIG_2`.
+
+### Null distributions (Figure S5)
+
+Let's consider how pN distributes with respect to RSA. One could ask how we would expect pN to distribute with respect to RSA if they were completely uncorrelated, that is, if pN paid no mind to RSA. This is what I call the null distribution. And I calculated the null distribution by shuffling the data, so that the RSA of each site (in each sample) was weighted not by the pN that it deserved, but rather by the pN of a randomly chosen site.  And to avoid biases introduced from a single shuffle, we calculated 10 null distributions and the one displayed in Figure 1 is the average of all 10. This is carried out in `ZZ_SCRIPTS/figure_2.R`.
 
 The null distribution for pS-weighted RSA is created just the same way... Yet you should be asking yourself, why is there only one null distribution displayed in Figure 1a? The reason is purely aesthetic. As it turns out, the null distributions of pS-weighted and pN-weighted RSA are nearly identical, and so increase visual clarity I only displayed one, as is mentioned in the figure caption:
 
 <blockquote>
-Since the null distribution for pS(site) so closely resembles the null distribution for pN(site), it has been excluded for visual clarity, but can be seen in Figure S_SHUFF_COMP
+Since the null distribution for pS$^{(site)}$ so closely resembles the null distribution for pN$^{(site)}$, it has been excluded for visual clarity, but can be seen in Figure S_SHUFF_COMP
 <div class="blockquote-author">
   <b>Kiefl et al., February 2022 draft</b>
 </div>
@@ -1667,10 +1949,8 @@ Running the following creates Figure S_SHUFF_COMP under the filename `YY_PLOTS/F
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #X</span>
-```bash
-cd ZZ_SCRIPTS/
-Rscript figure_s_shuff_comp.R
-cd -
+```R
+source('figure_s_shuff_comp.R')
 ```
 ‣ **Time:** ~1 hour  
 ‣ **Storage:** Minimal  
@@ -1678,7 +1958,7 @@ cd -
 
 [![shuff_comp]({{images}}/shuff_comp.png)]({{images}}/shuff_comp.png){:.center-img .width-70}
 
-## Analysis X: An alternative 1D definition for DTL
+### An alternative 1D definition for DTL
 
 Besides our Euclidean distance definition of DTL, we also considered a much more primitive distance metric, which was defined not in 3D space but by the distance in sequence. For example, if a gene had only one ligand-binding residue, which occurred at the fifth residue, then the 25th residue would have a DTL of 20. In Figure S_1D_DTL we demonstrate how this metric performs.
 
@@ -1820,10 +2100,8 @@ which can be ran like so:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #X</span>
-```bash
-cd ZZ_SCRIPTS/
-Rscript figure_s_1d_DTL.R
-cd -
+```R
+source('figure_s_1d_DTL.R')
 ```
 ‣ **Time:** FIXME  
 ‣ **Storage:** Minimal  
@@ -1831,22 +2109,522 @@ cd -
 
 ## Analysis X: Comparison to BioLiP and DTL cutoff
 
-### DTL cutoff
+As discussed in _Proteomic trends in purifying selection are explained by RSA and DTL_ of the manuscript, missed binding sites leads to instances where we predict a high DTL for sites that are in actuality _close_ to a binding site--a binding site that was not predicted.
 
+We assessed the extent that we may be overestimating DTL due to missed ligand sites by comparing of predicted DTL values in the 1a.3.V core to that found in [BioLiP](https://zhanggroup.org/BioLiP/), an extensive database of semi-manually curated ligand-protein complexes. This database is created from experimentally solved structures that have co-complexed with their ligands, and is by no means a complete characterization of ligand binding sites. Nevertheless, these experimentally observed ligands provide an upper bound for how we expect the distribution of DTL, which led to Figure S9.
+
+### BioLiP DTL distribution
+
+To get the BioLiP database, we downloaded it directly from the [Zhang Group](https://zhanggroup.org/):
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
 ```bash
 mkdir 20_BIOLIP
 cd 20_BIOLIP
 wget http://zhanglab.ccmb.med.umich.edu/BioLiP/download/BioLiP.tar.bz2
 tar -zxvf BioLiP.tar.bz2
 cd -
-python ZZ_SCRIPTS/biolip_dtl_dist.py
-cd ZZ_SCRIPTS/
-Rscript figure_s_biolip.R
-cd -
-# Output is YY_PLOTS/FIG_S_BIOLIP
 ```
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
+</div> 
+
+This downloads the first version of the database, as it were in 2013. They update this database every once in a while, but even the database from 2013 is plenty big enough for our purposes. Feel free to peruse the data at `20_BIOLIP/BioLiP_2013-03-6.txt`.
+
+With knowledge of all the binding sites, I wrote a script that downloads each protein in the database, and loops through each site, calculating its Euclidean distance to the ligands. That script is `ZZ_SCRIPTS/biolip_dtl_dist.py`:
+
+<details markdown="1"><summary>Show/Hide Script</summary>
+```python
+#! /usr/bin/env python
+
+import anvio.utils as utils
+import anvio.terminal as terminal
+import anvio.structureops as sops
+import anvio.filesnpaths as filesnpaths
+
+import numpy as np
+import pandas as pd
+
+from pathlib import Path
+
+progress = terminal.Progress()
+
+TOTAL = 5000
+
+# --------------------------------------------------------------------------------------------------
+# define function to calculate DTL
+# --------------------------------------------------------------------------------------------------
+
+def get_min_dist_to_lig(structure, lig_positions, var_pos):
+    d = {}
+    var_res = None
+
+    for lig_pos in lig_positions:
+        if structure.pairwise_distances[var_pos, lig_pos] == 0 and var_pos != lig_pos:
+            # This distance hasn't been calculated yet. Calculate it
+            if var_res is None:
+                var_res = structure.get_residue(var_pos)
+            lig_res = structure.get_residue(lig_pos)
+            structure.pairwise_distances[var_pos, lig_pos] = structure.get_residue_to_residue_distance(var_res, lig_res, 'COM')
+
+        d[lig_pos] = structure.pairwise_distances[var_pos, lig_pos]
+
+    closest = min(d, key = lambda x: d.get(x))
+    return closest, d[closest], structure
+
+# --------------------------------------------------------------------------------------------------
+# Go through every BioLiP entry and calculate the max DTL
+# --------------------------------------------------------------------------------------------------
+
+output = dict(
+    pdb_id = [],
+    chain_id = [],
+    codon_order_in_gene = [],
+    dtl = [],
+)
+
+biolip = pd.read_csv(Path('20_BIOLIP') / 'BioLiP_2013-03-6.txt', sep='\t', header=None)[[0,1,7,19]].rename(columns={0: 'pdb_id', 1: 'chain_id', 7: 'residues', 19: 'length'})
+tmp_file = filesnpaths.get_temp_file_path()
+
+progress.new('Calculating max DTL', progress_total_items = TOTAL)
+progress.update('...')
+
+counter = 0
+last_pdb = None
+for (pdb_id, chain_id), biolip_data in biolip.groupby(['pdb_id', 'chain_id']):
+    try:
+        if pdb_id == last_pdb:
+            # Probe 1 chain from an ID, since due to symmetry we get a lot of repeat measurements
+            continue
+        else:
+            last_pdb = pdb_id
+
+        # Download and load the structure
+        utils.download_protein_structure(pdb_id, chain=chain_id, output_path=tmp_file, raise_if_fail=True)
+        structure = sops.Structure(tmp_file)
+        structure_length = len(biolip_data['length'].iloc[0])
+        structure.pairwise_distances = np.zeros((structure_length, structure_length))
+
+        # Get all of the ligand positions
+        lig_positions = set()
+        for residues in biolip_data['residues']:
+            some_lig_positions = set([int(x[1:]) for x in biolip_data.residues.iloc[0].split(' ')])
+            lig_positions = lig_positions.union(some_lig_positions)
+
+        # subtract starting residue ID
+        offset = structure.structure.get_list()[0].id[1]
+        lig_positions = [pos - offset for pos in lig_positions]
+
+        # Calculate the DTL
+        for pos in range(structure_length):
+            _, dtl, structure = get_min_dist_to_lig(structure, lig_positions, pos)
+
+            # Append results
+            output['pdb_id'].append(pdb_id)
+            output['chain_id'].append(chain_id)
+            output['dtl'].append(dtl)
+            output['codon_order_in_gene'].append(pos)
+
+        # Store results
+        if counter % 1000 == 0:
+            pd.DataFrame(output).to_csv(Path('20_BIOLIP') / 'dtl_dist.txt', sep='\t', index=False)
+
+        counter += 1
+        progress.update(f'Iteration {counter} | PDB {pdb_id}{chain_id} | length {structure_length}')
+        progress.increment()
+
+        if counter == TOTAL:
+            break
+    except:
+        pass
+
+pd.DataFrame(output).to_csv(Path('20_BIOLIP') / 'dtl_dist.txt', sep='\t', index=False)
+
+```
+</details> 
+
+Since this script takes such a long time to run, I ended up subsetting the dataset to only 5000 structures. You can modify the variable `TOTAL` at the top of the script if you want to change this number. When ready, run it:
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```bash
+python ZZ_SCRIPTS/biolip_dtl_dist.py
+```
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
+</div> 
+
+
+### Creating a DTL cutoff
+
+Finally, from within the GRE you can run `ZZ_SCRIPTS/figure_s_biolip.R` to create Figure S9, which is output to `YY_PLOTS/FIG_S_BIOLIP`:
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```R
+source('figure_s_biolip.R')
+```
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
+</div> 
+
+
+[![fig_s_biolip]({{images}}/fig_s_biolip.png)]( {{images}}/fig_s_biolip.png){:.center-img .width-70}
+
+Figure S9 shows that we found the 1a.3.V DTL distribution had a much higher proportion of values >40 Å, suggesting these likely result from incomplete characterization of binding sites (Figure S9). To mitigate the influence of this inevitable error source, we conservatively excluded DTL values >40 Å (8.0% of sites) in all analyses after Figure 2b. This cutoff is shown as the vertical dashed line.
 
 ## Analysis X: Big linear models
+
+What percent of variation in per-site polymorphism rates can be explained by RSA and DTL? To answer this question, we created Table S6:
+
+|**Name**|**Model**|**RSA**|**DTL**|**Gene**|**Sample**|**Residuals**|
+|:--|:--|:--|:--|:--|:--|:--|
+|s #1|log10(pS(site))~RSA+gene+sample|0.12|NA|4.05|1.01|94.83|
+|ns #1|log10(pN(site))~RSA+gene+sample|11.83|NA|10.61|6.71|70.85|
+|s #2|log10(pS(site))~DTL+gene+sample|NA|0.3|4.07|1|94.63|
+|ns #2|log10(pN(site))~DTL+gene+sample|NA|6.89|12.08|7.1|73.93|
+|s #3|log10(pS(site))~RSA+DTL+gene+sample|0.03|0.3|4.05|1|94.62|
+|ns #3|log10(pN(site))~RSA+DTL+gene+sample|7.23|6.89|10.83|6.42|68.62|
+
+As a broad summary, this table was constructed by fitting per-site pS and pN (aggregated across genes and samples) to a series of linear models, where the independent variables were one or both of RSA and DTL, as well as the gene the site belongs to and the sample the polymorphism was observed in. Including gene and sample data enabled us to account for inherent gene-to-gene differences, _i.e._ variance in conservation between genes, and to account for inherent sample-to-sample differences, _i.e._ different samples harbor different degrees of diversity. After constructing the models, we performed an [ANOVA](https://en.wikipedia.org/wiki/Analysis_of_variance#:~:text=Analysis%20of%20variance%20(ANOVA)%20is,analyze%20the%20differences%20among%20means.) analysis to attribute the fraction of variance in the polymorphism data that can be explained by each of the variables.
+
+The nitty gritty of the implementation was all carried out with the script `ZZ_SCRIPTS/analysis_big_linear_models.R`.
+
+<details markdown="1"><summary>Show/Hide Script</summary>
+```R
+#! /usr/bin/env Rscript
+
+library(tidyverse)
+
+# ------------------------------------------------------------------------------------
+# If any of the linear model don't exist, load the SCV table so they may be calculated
+# ------------------------------------------------------------------------------------
+
+get_scvs <- function() {
+    genes_w_structure <- read_tsv("../12_GENES_WITH_GOOD_STRUCTURES", col_names=F) %>%
+        rename(gene_callers_id=X1) %>%
+        .$gene_callers_id
+    scvs <- read_tsv("../11_SCVs.txt", col_types = cols(`ANY_dist` = col_double())) %>%
+        rename(gene_callers_id = corresponding_gene_call) %>%
+        select(
+            gene_callers_id,
+            sample_id,
+            codon_order_in_gene,
+            ANY_dist,
+            rel_solvent_acc,
+            pN_popular_consensus,
+            pS_popular_consensus
+        ) %>%
+        filter(
+            gene_callers_id %in% genes_w_structure, # genes that have structure
+            ANY_dist < 40 # genes that have at least 1 predicted ligand-binding residue, and residues with <40 DTL
+        ) %>%
+        group_by(gene_callers_id) %>%
+        mutate(ANY_dist = ANY_dist / max(ANY_dist)) %>% # Since DTL values vary from gene-to-gene differences, we normalized DTL for each gene
+        ungroup()
+    return(scvs)
+}
+
+scvs_are_loaded <- F
+if (!file.exists("../lm_rsa_gene_sample_pn.RDS") | !file.exists("../lm_rsa_gene_sample_pn.RDS") | !file.exists("../lm_dtl_gene_sample_pn.RDS") | !file.exists("../lm_dtl_gene_sample_pn.RDS") | !file.exists("../lm_rsa_dtl_gene_sample_ps.RDS") | !file.exists("../lm_rsa_dtl_gene_sample_pn.RDS")) {
+    if (!scvs_are_loaded) {
+        scvs_regression <- get_scvs()
+        scvs_are_loaded <- T
+    }
+}
+
+# ------------------------------------------------------------------------------------
+# If any of the linear model don't exist, calculate them
+# ------------------------------------------------------------------------------------
+
+if (!file.exists("../lm_rsa_gene_sample_pn.RDS")) {
+    lm_rsa_gene_sample_pn <- scvs_regression %>%
+        mutate(gene_callers_id = as.factor(gene_callers_id)) %>%
+        filter(pN_popular_consensus > 0) %>%
+        mutate(log10_pn = log10(pN_popular_consensus)) %>%
+        lm(log10_pn ~ rel_solvent_acc + gene_callers_id + sample_id, data = .)
+    saveRDS(object=lm_rsa_gene_sample_pn, "../lm_rsa_gene_sample_pn.RDS")
+    rm(lm_rsa_gene_sample_pn)
+}
+
+if (!file.exists("../lm_rsa_gene_sample_ps.RDS")) {
+    lm_rsa_gene_sample_ps <- scvs_regression %>%
+        mutate(gene_callers_id = as.factor(gene_callers_id)) %>%
+        filter(pS_popular_consensus > 0) %>%
+        mutate(log10_ps = log10(pS_popular_consensus)) %>%
+        lm(log10_ps ~ rel_solvent_acc + gene_callers_id + sample_id, data = .)
+    saveRDS(object=lm_rsa_gene_sample_ps, "../lm_rsa_gene_sample_ps.RDS")
+    rm(lm_rsa_gene_sample_ps)
+}
+
+if (!file.exists("../lm_dtl_gene_sample_pn.RDS")) {
+    lm_dtl_gene_sample_pn <- scvs_regression %>%
+        mutate(gene_callers_id = as.factor(gene_callers_id)) %>%
+        filter(pN_popular_consensus > 0) %>%
+        mutate(log10_pn = log10(pN_popular_consensus)) %>%
+        lm(log10_pn ~ ANY_dist + gene_callers_id + sample_id, data = .)
+    saveRDS(object=lm_dtl_gene_sample_pn, "../lm_dtl_gene_sample_pn.RDS")
+    rm(lm_dtl_gene_sample_pn)
+}
+
+if (!file.exists("../lm_dtl_gene_sample_ps.RDS")) {
+    lm_dtl_gene_sample_ps <- scvs_regression %>%
+        mutate(gene_callers_id = as.factor(gene_callers_id)) %>%
+        filter(pS_popular_consensus > 0) %>%
+        mutate(log10_ps = log10(pS_popular_consensus)) %>%
+        lm(log10_ps ~ ANY_dist + gene_callers_id + sample_id, data = .)
+    saveRDS(object=lm_dtl_gene_sample_ps, "../lm_dtl_gene_sample_ps.RDS")
+    rm(lm_dtl_gene_sample_ps)
+}
+
+if (!file.exists("../lm_rsa_dtl_gene_sample_pn.RDS")) {
+    lm_rsa_dtl_gene_sample_pn <- scvs_regression %>%
+        mutate(gene_callers_id = as.factor(gene_callers_id)) %>%
+        filter(pN_popular_consensus > 0) %>%
+        mutate(log10_pn = log10(pN_popular_consensus)) %>%
+        lm(log10_pn ~ ANY_dist + rel_solvent_acc + gene_callers_id + sample_id, data = .)
+    saveRDS(object=lm_rsa_dtl_gene_sample_pn, "../lm_rsa_dtl_gene_sample_pn.RDS")
+    rm(lm_rsa_dtl_gene_sample_pn)
+}
+
+if (!file.exists("../lm_rsa_dtl_gene_sample_ps.RDS")) {
+    lm_rsa_dtl_gene_sample_ps <- scvs_regression %>%
+        mutate(gene_callers_id = as.factor(gene_callers_id)) %>%
+        filter(pS_popular_consensus > 0) %>%
+        mutate(log10_ps = log10(pS_popular_consensus)) %>%
+        lm(log10_ps ~ ANY_dist + rel_solvent_acc + gene_callers_id + sample_id, data = .)
+    saveRDS(object=lm_rsa_dtl_gene_sample_ps, "../lm_rsa_dtl_gene_sample_ps.RDS")
+    rm(lm_rsa_dtl_gene_sample_ps)
+}
+
+rm(scvs_regression)
+scvs_are_loaded <- F
+
+# ------------------------------------------------------------------------------------
+# Do the analysis
+# ------------------------------------------------------------------------------------
+
+lm_rsa_gene_sample_pn <- readRDS("../lm_rsa_gene_sample_pn.RDS")
+lm_rsa_gene_sample_ps <- readRDS("../lm_rsa_gene_sample_ps.RDS")
+lm_dtl_gene_sample_pn <- readRDS("../lm_dtl_gene_sample_pn.RDS")
+lm_dtl_gene_sample_ps <- readRDS("../lm_dtl_gene_sample_ps.RDS")
+lm_rsa_dtl_gene_sample_pn <- readRDS("../lm_rsa_dtl_gene_sample_pn.RDS")
+lm_rsa_dtl_gene_sample_ps <- readRDS("../lm_rsa_dtl_gene_sample_ps.RDS")
+
+# Anovas
+
+formatted_anova_pn_rsa <- (100*(lm_rsa_gene_sample_pn %>% anova)$"Sum Sq"/sum((lm_rsa_gene_sample_pn %>% anova)$"Sum Sq")) 
+names(formatted_anova_pn_rsa) <- rownames(lm_rsa_gene_sample_pn %>% anova)
+
+formatted_anova_ps_rsa <- (100*(lm_rsa_gene_sample_ps %>% anova)$"Sum Sq"/sum((lm_rsa_gene_sample_ps %>% anova)$"Sum Sq")) %>% round(2)
+names(formatted_anova_ps_rsa) <- rownames(lm_rsa_gene_sample_ps %>% anova)
+
+formatted_anova_pn_dtl <- (100*(lm_dtl_gene_sample_pn %>% anova)$"Sum Sq"/sum((lm_dtl_gene_sample_pn %>% anova)$"Sum Sq")) 
+names(formatted_anova_pn_dtl) <- rownames(lm_dtl_gene_sample_pn %>% anova)
+
+formatted_anova_ps_dtl <- (100*(lm_dtl_gene_sample_ps %>% anova)$"Sum Sq"/sum((lm_dtl_gene_sample_ps %>% anova)$"Sum Sq")) 
+names(formatted_anova_ps_dtl) <- rownames(lm_dtl_gene_sample_ps %>% anova)
+
+formatted_anova_pn_rsa_dtl <- (100*(lm_rsa_dtl_gene_sample_pn %>% anova)$"Sum Sq"/sum((lm_rsa_dtl_gene_sample_pn %>% anova)$"Sum Sq")) 
+names(formatted_anova_pn_rsa_dtl) <- rownames(lm_rsa_dtl_gene_sample_pn %>% anova)
+
+formatted_anova_ps_rsa_dtl <- (100*(lm_rsa_dtl_gene_sample_ps %>% anova)$"Sum Sq"/sum((lm_rsa_dtl_gene_sample_ps %>% anova)$"Sum Sq")) 
+names(formatted_anova_ps_rsa_dtl) <- rownames(lm_rsa_dtl_gene_sample_ps %>% anova)
+
+# Signifance levels
+
+max_rsa_pval <- max(10^-100, 
+                    (lm_rsa_gene_sample_ps %>% summary %>% coef)["rel_solvent_acc", "Pr(>|t|)"], 
+                    (lm_rsa_gene_sample_pn %>% summary %>% coef)["rel_solvent_acc", "Pr(>|t|)"])
+
+max_dtl_pval <- max(10^-100, 
+                    (lm_dtl_gene_sample_ps %>% summary %>% coef)["ANY_dist", "Pr(>|t|)"], 
+                    (lm_dtl_gene_sample_pn %>% summary %>% coef)["ANY_dist", "Pr(>|t|)"])
+
+# ------------------------------------------------------------------------------------
+# Summarize the RSA results
+# ------------------------------------------------------------------------------------
+
+# Percent of per-site <NON-SYNONYMOUS> polymorphism rate variation that can be explained by <RSA>
+print(formatted_anova_pn_rsa["rel_solvent_acc"] %>% round(2))
+
+# Percent of per-site <NON-SYNONYMOUS> polymorphism rate variation that can be explained by <RSA>
+# after adjusting for gene-to-gene and sample-to-sample differences
+print(100*formatted_anova_pn_rsa["rel_solvent_acc"] / (formatted_anova_pn_rsa["rel_solvent_acc"] + formatted_anova_pn_rsa["Residuals"]) %>% round(2))
+
+# Percent of per-site <SYNONYMOUS> polymorphism rate variation that can be explained by <RSA>
+print(formatted_anova_ps_rsa["rel_solvent_acc"] %>% round(2))
+
+# Percent of per-site <SYNONYMOUS> polymorphism rate variation that can be explained by <RSA>
+# after adjusting for gene-to-gene and sample-to-sample differences
+print(100*formatted_anova_ps_rsa["rel_solvent_acc"] / (formatted_anova_ps_rsa["rel_solvent_acc"] + formatted_anova_ps_rsa["Residuals"]) %>% round(2))
+
+# For each 1% increase in <RSA>, per-site <NON-SYNONYMOUS> polymorphism rate <INCREASES> by
+print(round(100*(exp((lm_rsa_gene_sample_pn %>% summary %>% coef)["rel_solvent_acc","Estimate"] * 0.01) - 1), 2))
+
+# For each 1% increase in <RSA>, per-site <SYNONYMOUS> polymorphism rate <DECREASES> by
+print(round(100*(exp((lm_rsa_gene_sample_ps %>% summary %>% coef)["rel_solvent_acc","Estimate"] * 0.01) - 1), 2))
+
+# both <NON-SYNONYMOUS> and <SYNONYMOUS> findings are signifcant at the following significance
+print(format(max_rsa_pval, scientific=TRUE))
+
+# ------------------------------------------------------------------------------------
+# Summarize the DTL results
+# ------------------------------------------------------------------------------------
+
+# Percent of per-site <NON-SYNONYMOUS> polymorphism rate variation that can be explained by <DTL>
+print(formatted_anova_pn_dtl["ANY_dist"] %>% round(2))
+
+# Percent of per-site <NON-SYNONYMOUS> polymorphism rate variation that can be explained by <DTL>
+# after adjusting for gene-to-gene and sample-to-sample differences
+print(100*formatted_anova_pn_dtl["ANY_dist"] / (formatted_anova_pn_dtl["ANY_dist"] + formatted_anova_pn_dtl["Residuals"]) %>% round(2))
+
+# Percent of per-site <SYNONYMOUS> polymorphism rate variation that can be explained by <DTL>
+print(formatted_anova_ps_dtl["ANY_dist"] %>% round(2))
+
+# Percent of per-site <SYNONYMOUS> polymorphism rate variation that can be explained by <DTL>
+# after adjusting for gene-to-gene and sample-to-sample differences
+print(100*formatted_anova_ps_dtl["ANY_dist"] / (formatted_anova_ps_dtl["ANY_dist"] + formatted_anova_ps_dtl["Residuals"]) %>% round(2))
+
+# For each 1% increase in <DTL>, per-site <NON-SYNONYMOUS> polymorphism rate <INCREASES> by
+print(round(100*(exp((lm_dtl_gene_sample_pn %>% summary %>% coef)["ANY_dist","Estimate"] * 0.01) - 1), 2))
+
+# For each 1% increase in <DTL>, per-site <SYNONYMOUS> polymorphism rate <DECREASES> by
+print(round(100*(exp((lm_dtl_gene_sample_ps %>% summary %>% coef)["ANY_dist","Estimate"] * 0.01) - 1), 2))
+
+# both <NON-SYNONYMOUS> and <SYNONYMOUS> findings are signifcant at the following significance
+print(format(max_dtl_pval, scientific=TRUE))
+
+# ------------------------------------------------------------------------------------
+# Summarize the joint DTL-RSA results
+# ------------------------------------------------------------------------------------
+
+combined <- sum(formatted_anova_pn_rsa_dtl["ANY_dist"], formatted_anova_pn_rsa_dtl["rel_solvent_acc"])
+
+# Percent of per-site <NON-SYNONYMOUS> polymorphism rate variation that can be explained by <DTL> and <RSA>
+print(combined %>% round(2))
+
+# Percent of per-site <NON-SYNONYMOUS> polymorphism rate variation that can be explained by <DTL>
+# and <RSA> after adjusting for gene-to-gene and sample-to-sample-differences
+print(100*combined / (combined + formatted_anova_pn_rsa_dtl["Residuals"]) %>% round(2))
+
+combined_ps <- sum(formatted_anova_ps_rsa_dtl["ANY_dist"], formatted_anova_ps_rsa_dtl["rel_solvent_acc"])
+
+# Percent of per-site <NON-SYNONYMOUS> polymorphism rate variation that can be explained by <DTL> and <RSA>
+print(combined_ps %>% round(2))
+
+# Percent of per-site <NON-SYNONYMOUS> polymorphism rate variation that can be explained by <DTL>
+# and <RSA> after adjusting for gene-to-gene and sample-to-sample-differences
+print(100*combined_ps / (combined_ps + formatted_anova_ps_rsa_dtl["Residuals"]) %>% round(2))
+
+# ------------------------------------------------------------------------------------
+# Create Table MODELS
+# ------------------------------------------------------------------------------------
+
+table_models <- data.frame(
+    Name = c("s #1", "ns #1", "s #2", "ns #2", "s #3", "ns #3"),
+    Model = c("log10(pS(site))~RSA+gene+sample", "log10(pN(site))~RSA+gene+sample", "log10(pS(site))~DTL+gene+sample", "log10(pN(site))~DTL+gene+sample", "log10(pS(site))~RSA+DTL+gene+sample", "log10(pN(site))~RSA+DTL+gene+sample"),
+    RSA = c(
+        formatted_anova_ps_rsa["rel_solvent_acc"] %>% round(2) %>% .[[1]],
+        formatted_anova_pn_rsa["rel_solvent_acc"] %>% round(2) %>% .[[1]],
+        formatted_anova_ps_dtl["rel_solvent_acc"] %>% round(2) %>% .[[1]],
+        formatted_anova_pn_dtl["rel_solvent_acc"] %>% round(2) %>% .[[1]],
+        formatted_anova_ps_rsa_dtl["rel_solvent_acc"] %>% round(2) %>% .[[1]],
+        formatted_anova_pn_rsa_dtl["rel_solvent_acc"] %>% round(2) %>% .[[1]]
+    ),
+    DTL = c(
+        formatted_anova_ps_rsa["ANY_dist"] %>% round(2) %>% .[[1]],
+        formatted_anova_pn_rsa["ANY_dist"] %>% round(2) %>% .[[1]],
+        formatted_anova_ps_dtl["ANY_dist"] %>% round(2) %>% .[[1]],
+        formatted_anova_pn_dtl["ANY_dist"] %>% round(2) %>% .[[1]],
+        formatted_anova_ps_rsa_dtl["ANY_dist"] %>% round(2) %>% .[[1]],
+        formatted_anova_pn_rsa_dtl["ANY_dist"] %>% round(2) %>% .[[1]]
+    ),
+    Gene = c(
+        formatted_anova_ps_rsa["gene_callers_id"] %>% round(2) %>% .[[1]],
+        formatted_anova_pn_rsa["gene_callers_id"] %>% round(2) %>% .[[1]],
+        formatted_anova_ps_dtl["gene_callers_id"] %>% round(2) %>% .[[1]],
+        formatted_anova_pn_dtl["gene_callers_id"] %>% round(2) %>% .[[1]],
+        formatted_anova_ps_rsa_dtl["gene_callers_id"] %>% round(2) %>% .[[1]],
+        formatted_anova_pn_rsa_dtl["gene_callers_id"] %>% round(2) %>% .[[1]]
+    ),
+    Sample = c(
+        formatted_anova_ps_rsa["sample_id"] %>% round(2) %>% .[[1]],
+        formatted_anova_pn_rsa["sample_id"] %>% round(2) %>% .[[1]],
+        formatted_anova_ps_dtl["sample_id"] %>% round(2) %>% .[[1]],
+        formatted_anova_pn_dtl["sample_id"] %>% round(2) %>% .[[1]],
+        formatted_anova_ps_rsa_dtl["sample_id"] %>% round(2) %>% .[[1]],
+        formatted_anova_pn_rsa_dtl["sample_id"] %>% round(2) %>% .[[1]]
+    ),
+    Residuals = c(
+        formatted_anova_ps_rsa["Residuals"] %>% round(2) %>% .[[1]],
+        formatted_anova_pn_rsa["Residuals"] %>% round(2) %>% .[[1]],
+        formatted_anova_ps_dtl["Residuals"] %>% round(2) %>% .[[1]],
+        formatted_anova_pn_dtl["Residuals"] %>% round(2) %>% .[[1]],
+        formatted_anova_ps_rsa_dtl["Residuals"] %>% round(2) %>% .[[1]],
+        formatted_anova_pn_rsa_dtl["Residuals"] %>% round(2) %>% .[[1]]
+    )
+)
+
+dir.create('../WW_TABLES', showWarnings=F, recursive=T)
+write_tsv(table_models, '../WW_TABLES/MODELS.txt')
+
+```
+</details> 
+
+First of all, this script loads up the SCV table and tidies up the data so its ready to be regressed. Only data from genes with a predicted structure and at least one predicted ligand are kept. Sites with DTL > 40 angstroms are discarded, as discussed in the previous Analysis. Monomorphic sites (pS = 0 for synonymous models and pN = 0 for nonsynonymous models) are also excluded. Finally, since each protein has a characteristic size which scales the range of expected DTL values, we normalized DTL in each protein by the maximum DTL observed.
+
+Once the data has been prepared, the script creates the linear models in Table S6. For example, here is the code that carries out the linear regression for the model _ns #3_:
+
+```R
+if (!file.exists("../lm_rsa_dtl_gene_sample_pn.RDS")) {
+    lm_rsa_dtl_gene_sample_pn <- scvs_regression %>%
+        mutate(gene_callers_id = as.factor(gene_callers_id)) %>%
+        filter(pN_popular_consensus > 0) %>%
+        mutate(log10_pn = log10(pN_popular_consensus)) %>%
+        lm(log10_pn ~ ANY_dist + rel_solvent_acc + gene_callers_id + sample_id, data = .)
+    saveRDS(object=lm_rsa_dtl_gene_sample_pn, "../lm_rsa_dtl_gene_sample_pn.RDS")
+    rm(lm_rsa_dtl_gene_sample_pn)
+}
+```
+
+If the model doesn't yet exist, it trains the linear model and saves the results under the filename `lm_rsa_dtl_gene_sample_pn.RDS`.
+
+Further down the script, the model is loaded and an ANOVA analysis is performed:
+
+```R
+lm_rsa_dtl_gene_sample_pn <- readRDS("../lm_rsa_dtl_gene_sample_pn.RDS")
+
+(...)
+
+formatted_anova_pn_rsa_dtl <- (100*(lm_rsa_dtl_gene_sample_pn %>% anova)$"Sum Sq"/sum((lm_rsa_dtl_gene_sample_pn %>% anova)$"Sum Sq")) 
+names(formatted_anova_pn_rsa_dtl) <- rownames(lm_rsa_dtl_gene_sample_pn %>% anova)
+```
+
+And yet further down is a commented introspection of the ANOVA results:
+
+```R
+# ------------------------------------------------------------------------------------
+# Summarize the joint DTL-RSA results
+# ------------------------------------------------------------------------------------
+
+combined <- sum(formatted_anova_pn_rsa_dtl["ANY_dist"], formatted_anova_pn_rsa_dtl["rel_solvent_acc"])
+
+# Percent of per-site <NON-SYNONYMOUS> polymorphism rate variation that can be explained by <DTL> and <RSA>
+print(combined %>% round(2))
+
+# Percent of per-site <NON-SYNONYMOUS> polymorphism rate variation that can be explained by <DTL>
+# and <RSA> after adjusting for gene-to-gene and sample-to-sample-differences
+print(100*combined / (combined + formatted_anova_pn_rsa_dtl["Residuals"]) %>% round(2))
+```
+
+The same thing is done with all of the other models, and the ANOVA results are compiled into Table S6, which is stored as `WW_TABLES/MODELS.txt`.
+
+Before this, I used to think of regressions as some basic line fitting routine that takes a fraction of a second. Probably this falsehood stems from the toy examples I learned in basic statistics classes on the subject. But these are pretty big linear models--about 10M datapoints in each. And we didn't do any parallelization or fancy tricks, so it takes considerable memory and time for this script to complete. As such, this is the one instance where **I recommend you _close_ your GRE before running this script**, because your computer (especially if its a laptop) will need all of the memory it can get. Instead of running this in RStudio, just run it from the command line:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #X</span>
@@ -1860,13 +2638,182 @@ cd ..
 ‣ **Memory:** Minimal  
 </div> 
 
-Creates `table_models.txt`.
+After a long wait, you should have the following linear models in your working directory:
+
+```
+lm_dtl_gene_sample_pn.RDS
+lm_dtl_gene_sample_ps.RDS
+lm_rsa_dtl_gene_sample_pn.RDS
+lm_rsa_dtl_gene_sample_ps.RDS
+lm_rsa_gene_sample_pn.RDS
+lm_rsa_gene_sample_ps.RDS
+```
+
+As well as Table S6 under the filename `WW_TABLES/MODELS.txt`.
 
 ## Analysis X: Gene-sample paired models
 
-In Figure 1 we show distributions of Pearson coefficients thousands of different models. What are these models and how were they created? Let's dive into that.
+The previous Analysis details the linear models we ran on the per-site polymorphism rate data aggegrated across genes and samples. To complement this analysis, we also created linear models _for each_ gene-sample pair, which resulted in tens of thousands of models. The Pearson coefficients for these models are shown in Figure 1, which we created as a means of visually illustrating that RSA and DTL are rather effective at predicting per-site pN (red), as compared to per-site pS (blue):
 
 [![fig1cd]({{images}}/fig1cd.png)]({{images}}/fig1cd.png){:.center-img .width-70} 
+
+What are these models and how were they created? Let's dive into that.
+
+### Running the models
+
+Since these models are visualized in Figure 2, they are calculated on-the-fly whenever the script `ZZ_SCRIPTS/figure_2.R` is ran. However, since they may be useful for purposes other than creating Figures 2c and 2d, the actual calculation takes place in `ZZ_SCRIPTS/load_data.R`, which `ZZ_SCRIPTS/figure_2.R` calls upon.
+
+Inside `ZZ_SCRIPTS/load_data.R` you will find the following section of (messy) code which calculates the models:
+
+<details markdown="1"><summary>Show/Hide Script</summary>
+```R
+if (request_regs & !regs_loaded) {
+    if (!scvs_loaded) {
+        print("SCVs are not loaded. Regression analysis will fail.")
+    }
+    goi <- read_tsv(args$genes_with_good_structures, col_names=F) %>% pull(X1)
+    temp <- scvs %>%
+        select(
+            gene_callers_id,
+            pN_popular_consensus,
+            pS_popular_consensus,
+            rel_solvent_acc,
+            ANY_dist,
+            sample_id,
+        ) %>%
+        filter(
+            gene_callers_id %in% goi,
+            pN_popular_consensus > 0,
+            ANY_dist <= 40
+        ) %>%
+        mutate(
+            log_pN = log10(pN_popular_consensus)
+        ) %>%
+        group_by(gene_callers_id, sample_id) %>%
+        mutate(num_rows = n()) %>%
+        ungroup() %>%
+        filter(num_rows >= 100)
+    # Create the linear regression model (pN ~ RSA + d)
+    pn_models <- temp %>%
+        group_by(gene_callers_id, sample_id) %>%
+        do(model = lm(log_pN ~ rel_solvent_acc + ANY_dist, data = .))
+    rsqs<-c();adj_rsqs<-c();b0<-c();b0_err<-c();bRSA<-c();bRSA_err<-c();bDTL<-c();bDTL_err<-c()
+    for (i in 1:(pn_models %>% nrow())) {
+        model <- summary(pn_models$model[[i]])
+        rsqs <- c(rsqs, model$r.squared)
+        adj_rsqs <- c(adj_rsqs, model$adj.r.squared)
+        b0 <- c(b0, model$coefficients[1,1])
+        b0_err <- c(b0_err, model$coefficients[1,2])
+        bRSA <- c(bRSA, model$coefficients[2,1])
+        bRSA_err <- c(bRSA_err, model$coefficients[2,2])
+        bDTL <- c(bDTL, model$coefficients[3,1])
+        bDTL_err <- c(bDTL_err, model$coefficients[3,2])
+    }
+    pn_models$pn_rsq <- rsqs
+    pn_models$pn_adj_rsq <- adj_rsqs
+    pn_models$pn_b0 <- b0
+    pn_models$pn_b0_err <- b0_err
+    pn_models$pn_bRSA <- bRSA
+    pn_models$pn_bRSA_err <- bRSA_err
+    pn_models$pn_bDTL <- bDTL
+    pn_models$pn_bDTL_err <- bDTL_err
+    # Create the 1D linear regression models (pN ~ RSA, pN ~ d)
+    pn_corr <- temp %>%
+        group_by(gene_callers_id, sample_id) %>%
+        summarise(
+            pn_r_rsa = cor(log10(pN_popular_consensus), rel_solvent_acc, use="pairwise.complete.obs", method='pearson'),
+            pn_r_dist = cor(log10(pN_popular_consensus), ANY_dist, use="pairwise.complete.obs", method='pearson'),
+            pn_rsq_rsa = pn_r_rsa^2,
+            pn_rsq_dist = pn_r_dist^2
+        ) %>%
+        left_join(pn_models, by=c('gene_callers_id', 'sample_id')) %>%
+        rename(pn_model_rsa_d = model)
+    # Synonymous polymorphism regressions
+    temp <- scvs %>%
+        select(
+            gene_callers_id,
+            pN_popular_consensus,
+            pS_popular_consensus,
+            rel_solvent_acc,
+            ANY_dist,
+            sample_id,
+        ) %>%
+        filter(
+            gene_callers_id %in% goi,
+            pS_popular_consensus > 0,
+            ANY_dist <= 40
+        ) %>%
+        mutate(
+            log_pS = log10(pS_popular_consensus)
+            #log_pS = (log_pS - mean(log_pS))/sd(log_pS) # This normalization doesn't change the fits
+            ) %>%
+        group_by(gene_callers_id, sample_id) %>%
+        mutate(num_rows = n()) %>%
+        ungroup() %>%
+        filter(num_rows >= 100)
+    # Create the linear regression model (pS ~ RSA + d)
+    ps_models <- temp %>%
+        group_by(gene_callers_id, sample_id) %>%
+        do(model = lm(log_pS ~ rel_solvent_acc + ANY_dist, data = .))
+    rsqs<-c();adj_rsqs<-c();b0<-c();b0_err<-c();bRSA<-c();bRSA_err<-c();bDTL<-c();bDTL_err<-c()
+    for (i in 1:(ps_models %>% nrow())) {
+        model <- summary(ps_models$model[[i]])
+        rsqs <- c(rsqs, model$r.squared)
+        adj_rsqs <- c(adj_rsqs, model$adj.r.squared)
+        b0 <- c(b0, model$coefficients[1,1])
+        b0_err <- c(b0_err, model$coefficients[1,2])
+        bRSA <- c(bRSA, model$coefficients[2,1])
+        bRSA_err <- c(bRSA_err, model$coefficients[2,2])
+        bDTL <- c(bDTL, model$coefficients[3,1])
+        bDTL_err <- c(bDTL_err, model$coefficients[3,2])
+    }
+    ps_models$ps_rsq <- rsqs
+    ps_models$ps_adj_rsq <- adj_rsqs
+    ps_models$ps_b0 <- b0
+    ps_models$ps_b0_err <- b0_err
+    ps_models$ps_bRSA <- bRSA
+    ps_models$ps_bRSA_err <- bRSA_err
+    ps_models$ps_bDTL <- bDTL
+    ps_models$ps_bDTL_err <- bDTL_err
+    # Create the 1D linear regression models (pS ~ RSA, pS ~ d)
+    ps_corr <- temp %>%
+        group_by(gene_callers_id, sample_id) %>%
+        summarise(
+            ps_r_rsa = cor(log10(pS_popular_consensus), rel_solvent_acc, use="pairwise.complete.obs", method='pearson'),
+            ps_r_dist = cor(log10(pS_popular_consensus), ANY_dist, use="pairwise.complete.obs", method='pearson'),
+            ps_rsq_rsa = ps_r_rsa^2,
+            ps_rsq_dist = ps_r_dist^2
+        ) %>%
+        left_join(ps_models, by=c('gene_callers_id', 'sample_id')) %>%
+        rename(ps_model_rsa_d = model)
+    poly_corr <- left_join(ps_corr, pn_corr, by=c('gene_callers_id', 'sample_id')) %>%
+        mutate(pair = paste('(', gene_callers_id, ',', sample_id, ')', sep=''))
+
+    regs_loaded <- TRUE
+}
+```
+</details> 
+
+To run this code and get access to the models, my recommendation is to simply source Figure 2, by issuing the following command in your GRE:
+
+```R
+source('figure_2.R')
+```
+
+This will create Figures 2c and 2d (as well as the rest of the plots in Figure 2), and plop the results into `YY_PLOTS/FIG_2`. But more importantly, your GRE will now contain a dataframe called `poly_corr`, which summarizes the statistics of each model:
+
+
+FIXME
+
+If you want to get fancy and run the code without producing the whole of Figure 2, another option is to source `ZZ_SCRIPTS/load_data.R` after requesting that SCVs are loaded (`request_scvs <- TRUE`) and the models are calculated (`request_regs <- TRUE`):
+
+```R
+request_scvs <- TRUE
+request_regs <- TRUE
+withRestarts(source("load_data.R"), terminate=function() message('load_data.R: data already loaded. Nice.'))
+```
+
+This equivalently creates the `poly_corr` dataframe.
 
 ## Analysis X: Per-group models
 
