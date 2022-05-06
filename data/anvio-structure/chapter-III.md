@@ -3566,3 +3566,79 @@ Unless of course you simply download this checkpoint datapack. Then you can harv
 FIXME datapack here
 
 See you in the next chapter.
+
+## Aux. Step X: Pangenome detour
+
+<div class="extra-info" markdown="1">
+<span class="extra-info-header">Step X Info</span>
+‣ **Prerequisite steps:** None  
+‣ **Checkpoint datapack:** None  
+‣ **Central:** No  
+</div> 
+
+This is the first **auxiliary** step, meaning it is not required for the central analyses of this paper. For this reason, you can skip this step if you want.
+
+But if you're reading this, you've more than likely beeen redirected to this section of the workflow, because the analysis you're interested in requires this step to be completed. In that case, you're in the right place.
+
+How does the gene content differ between HIMB83 and the other 20 genomes? What genes are present and absent, what is the percent similarity of the homologs? What is the average nucleotide identity (ANI) of these genomes to HIMB83?
+
+These questions all fall under the umbrella of [pangenomics](https://merenlab.org/momics/#pangenomics), and since we now have {% include ARTIFACT name="contigs-db" text="contigs-dbs" %} for each genome (in `07_SPLIT/`), we are in the perfect position for a quick detour into the land of pangenomics. While a detour, this is required for some supplemental figures down the road.
+
+In this paper I made 2 pangenomes. One compares all 21 SAR11 genomes to one another, and the other compares HIMB83 to its closest relative in this genome collection, HIMB122.
+
+To create this 2 pangenomes, I created a bash script called `ZZ_SCRIPTS/make_pangenomes.sh`.
+
+<details markdown="1"><summary>Show/Hide Script</summary>
+```bash
+#! /usr/bin/env bash
+
+# Delete all previous pangenomes
+rm -rf 07_PANGENOME*
+rm -rf 07_SUMMARY_PAN*
+
+mkdir 07_PANGENOME
+mkdir 07_PANGENOME_COMP_TO_HIMB122
+
+python ZZ_SCRIPTS/gen_external_genomes_file.py
+
+# Full pangeome
+anvi-gen-genomes-storage -e 07_EXTERNAL_GENOMES.txt -o 07_PANGENOME/SAR11-GENOMES.db
+anvi-pan-genome -g 07_PANGENOME/SAR11-GENOMES.db -n SAR11 -o 07_PANGENOME/PANGENOME -T $1
+anvi-script-add-default-collection -p 07_PANGENOME/PANGENOME/SAR11-PAN.db
+anvi-summarize -p 07_PANGENOME/PANGENOME/SAR11-PAN.db -g 07_PANGENOME/SAR11-GENOMES.db -C DEFAULT -o 07_SUMMARY_PAN
+gzip -d 07_SUMMARY_PAN/SAR11_gene_clusters_summary.txt.gz
+
+# HIMB122
+anvi-gen-genomes-storage -e 07_EXTERNAL_GENOMES_COMP_TO_HIMB122.txt -o 07_PANGENOME_COMP_TO_HIMB122/SAR11-GENOMES.db
+anvi-pan-genome -g 07_PANGENOME_COMP_TO_HIMB122/SAR11-GENOMES.db -n SAR11 -o 07_PANGENOME_COMP_TO_HIMB122/PANGENOME -T $1
+anvi-script-add-default-collection -p 07_PANGENOME_COMP_TO_HIMB122/PANGENOME/SAR11-PAN.db
+anvi-summarize -p 07_PANGENOME_COMP_TO_HIMB122/PANGENOME/SAR11-PAN.db -g 07_PANGENOME_COMP_TO_HIMB122/SAR11-GENOMES.db -C DEFAULT -o 07_SUMMARY_PAN_COMP_TO_HIMB122
+gzip -d 07_SUMMARY_PAN_COMP_TO_HIMB122/SAR11_gene_clusters_summary.txt.gz
+```
+</details> 
+
+First, a pair of {% include ARTIFACT name="external-genomes" %} files are made: `07_EXTERNAL_GENOMES.txt` and `07_EXTERNAL_GENOMES_COMP_TO_HIMB122.txt`. These are used by the program {% include PROGRAM name="anvi-gen-genomes-storage" %} to create {% include ARTIFACT name="genomes-storage-db" text="genomes-storage-dbs" %}, which are in turn used by the program {% include PROGRAM name="anvi-pan-genome" %} to create {% include ARTIFACT name="pan-db" text="pan-dbs" %}. The data within these databases are summarized with the program {% include PROGRAM name="anvi-summarize" %}, which creates two output directories: `07_SUMMARY_PAN_COMP_TO_HIMB122` and `07_SUMMARY_PAN`.
+
+When you're ready, run it:
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```bash
+bash ZZ_SCRIPTS/make_pangenomes.sh <NUM_THREADS>
+```
+‣ **Time:** ~(25/`<NUM_THREADS>`) min  
+‣ **Storage:** 259 Mb  
+</div> 
+
+Once its finished, feel free to explore whatever you want. For example, the `07_SUMMARY_PAN*` directories have tabular data you can open in Excel, as well as HTML files that can be opened and explored in your browser. You could also load up the interactive interface and explore this data interactively with {% include PROGRAM name="anvi-display-pan" %}:
+
+```
+anvi-display-pan -p 07_PANGENOME/PANGENOME/SAR11-PAN.db \
+                 -g 07_PANGENOME/SAR11-GENOMES.db
+```
+
+Which would present you with a plot like this, which you can interactively explore:
+
+[![pan_1]({{images}}/pan_1.png)]( {{images}}/pan_1.png){:.center-img .width-70}
+
+However, for the purposes of this study, we are done here. These pangenomes will be useful for some of the forthcoming analyses.
