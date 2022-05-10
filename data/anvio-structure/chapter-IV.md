@@ -88,12 +88,12 @@ Congrats. You have built the GRE, which is all that's required to begin running 
 
 #### Running an analysis
 
-Unless otherwise stated, **most analyses automatically load the data they need into the GRE**.
+Unless otherwise stated, **commands automatically load the data they need into the GRE**.
 
 With the GRE built, you can run analyses from the _Console_ tab. All the required data will be loaded into the GRE. For example, generating Figure X is as simple as running the following command:
 
 ```R
-> source('figure_s_env.R')
+source('figure_s_env.R')
 ```
 
 This produces the following figure in `YY_PLOTS/FIG_S_ENV/` as a .pdf and .png formatted image.
@@ -3727,23 +3727,241 @@ Something that in my opinion remains undersold in the main text is the fact that
 [![exp]({{images}}/exp.png)]({{images}}/exp.png){:.center-img .width-100}
 
 
-### Calculation and accessibility
+### Calculation & accessibility
 
 As a reminder, the read recruitment procedure included a number of metatranscriptomes. And of the 74 samples of interest determined in Step X, 50 had accompanying metatranscriptomes. For these 50 samples, we used the read recruitment results of the metatranscriptomes to establish a _transcript abundance_ (TA) measure for each gene (see Methods).
 
-- show the equation
-- show the relevant code
-- mention that the comments may help walk you through the exact steps taken
-- talk about TA and TA_sample_averaged
+Taken from the Methods section, here is the definition for TA:
+
+$$
+\text{TA} = \frac{C^{\text{(MT)}}}{D^{\text{(MT)}}} / \frac{C^{\text{(MG)}}}{D^{\text{(MG)}}}
+$$
+
+Where $C^{\text{(MT)}}$ is the coverage of the gene in the metatranscriptome, $D^{\text{(MT)}}$ is the sequencing depth (total number of reads) of the metatranscriptome, $C^{\text{(MG)}}$ is the coverage of the gene in the metagenome, and $D^{\text{(MT)}}$ is the sequencing depth (total number of reads) of the metagenome.
+
+The calculation of TA for each gene in each relevant sample is done at the bottom of `ZZ_SCRIPTS/load_data.R`, and is shown below. I've added comments to try and be as explanatory as possible.
+
+
+<details markdown="1"><summary>Show/Hide TA Calculation</summary>
+```R
+# -----------------------------------------------------------------------------
+# Transcript abundance analysis
+# -----------------------------------------------------------------------------
+
+# Let's define our metagenomes and metatranscriptomes of interest. Here, `soi` refers to the
+# metagenomes that have corresponding metatranscriptomes `soi_MT`. There are 58 total
+# metatranscriptomes and 50 of them match to the 74 samples we're studying HIMB083 within. As such,
+# both `soi` and `soi_MT` are of length 50.
+soi <- read_tsv("../soi", col_names=FALSE)$X1
+soi_MT <- paste(soi, "_MT", sep="")
+soi_MT <- soi_MT[soi_MT %in% colnames(gene_cov)]
+soi <- soi_MT %>% substr(1, nchar(.) - 3)
+
+# Now let's load the coverage table, since we'll be making use of the gene coverages in both
+# metagenomes and metatranscriptomes to define transcript abundance (see Methods section entitled
+# "Calculating transcript abundance (TA)").
+goi <- read_tsv("../goi", col_names=F)$X1 # only care about the 799 core
+gene_cov <- read_tsv(args$summary) %>% filter(gene_callers_id %in% goi)
+
+# Now let's calculate the coverage for metatranscriptomes and metagenomes, storing them in separate
+# tibbles. For convenience, I'm going to cast them into a long format with the 3 columns:
+# 'gene_caller_id', 'sample_id', and 'MG/MT_coverage'
+MT_COV <- gene_cov %>% select(gene_callers_id, soi_MT) %>% pivot_longer(cols=soi_MT, names_to='sample_id', values_to='MT_coverage')
+MG_COV <- gene_cov %>% select(gene_callers_id, soi) %>% pivot_longer(cols=soi, names_to='sample_id', values_to='MG_coverage')
+
+# Okay, so our estimation of transcript abundance (TA) is calculated according to the equation
+# TA = [Cov(MT)/Depth(MT)] / [Cov(MG)/Depth(MG)]. Depth here is the number of reads in the sample,
+# which is already stored in ../07_SEQUENCE_DEPTH. Let's load up the depth data and append it as
+# columns to MT_COV and MG_COV
+SEQ_DEPTH <- read_tsv("../07_SEQUENCE_DEPTH")
+MT_COV_DEPTH <- MT_COV %>% left_join(SEQ_DEPTH) %>% rename(MT_depth=num_reads)
+MG_COV_DEPTH <- MG_COV %>% left_join(SEQ_DEPTH) %>% rename(MG_depth=num_reads)
+
+# Now we have Cov(MT), Depth(MT), Cov(MG), and Depth(MG). But the problem is they belong in two
+# separate tables, MT_COV_DEPTH and MG_COV_DEPTH. Let's merge these together.
+COV_DEPTH <- left_join(
+    MG_COV_DEPTH,
+    MT_COV_DEPTH %>% mutate(sample_id = substr(sample_id, 1, nchar(.$sample_id)-3)),
+    by = c('gene_callers_id', 'sample_id')
+)
+
+# Finally, we can calculate TA = [Cov(MT)/Depth(MT)] / [Cov(MG)/Depth(MG)] and merge it with the
+# pN/pS(gene) data.
+eps <- 0.01
+TA <- COV_DEPTH %>%
+    left_join(pnps %>% select(gene_callers_id, sample_id, pnps)) %>%
+    mutate(
+        TA = (MT_coverage/MT_depth) / (MG_coverage/MG_depth),
+        log_TA = log10(TA + eps),
+        log_pnps = log10(pnps)
+    )
+TA_sample_averaged <- TA %>%
+    group_by(gene_callers_id) %>%
+    summarise(
+        TA_mean = mean(TA, na.rm=T),
+        TA_median = median(TA, na.rm=T),
+        pnps_mean = mean(pnps, na.rm=T),
+        pnps_median = median(pnps, na.rm=T),
+    ) %>%
+    mutate(
+        log_TA_mean = log10(TA_mean + eps),
+        log_TA_median = log10(TA_median + eps),
+        log_pnps_mean = log10(pnps_mean),
+        log_pnps_median = log10(pnps_median),
+    )
+
+# Finally, we perform a bunch of correlation tests testing for signal between a given gene's TA and
+# pN/pS(gene) across samples.
+TA_sample_corr <- TA %>% 
+  nest(data = -gene_callers_id) %>%
+  mutate(cor = map(data, ~cor.test(.x$log_TA, .x$log_pnps, method="pearson", alternative="less"))) %>%
+  mutate(tidied = map(cor, tidy)) %>% 
+  unnest(tidied) %>% 
+  mutate(
+    significant = p.value <= 0.05,
+    negative = estimate < 0,
+    R2 = estimate^2
+  )
+TA_sample_corr$fdr <- p.adjust(TA_sample_corr$p.value, method="fdr")
+TA_sample_corr$fdr_10 <- TA_sample_corr$fdr <= 0.10
+TA_sample_corr$fdr_20 <- TA_sample_corr$fdr <= 0.20
+TA_sample_corr$fdr_25 <- TA_sample_corr$fdr <= 0.25
+```
+</details> 
+
+This code creates the tables `TA`, `TA_sample_averaged`, and `TA_sample_corr`, which you can access from within your GRE.
+
+Table S13 provides a view of TA values and how they relate to pN/pS(gene) on a per-gene, per-sample basis, and can be generated via
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```R
+source('table_ta.R')
+```
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
+</div> 
+
+It is output to `WW_TABLES/TA.txt`.
 
 ### Correlation with sample-averaged TA
 
-- start with top-left plot
+There exists a TA for each gene in each relevant sample. The distribution of log-transformed TA values is shown in Figure SI5a. To see the extent that inter-gene differences in TA could explain inter-gene differences in pN/pS(gene), I averaged the TA and pN/pS(gene) values of each gene across samples, yielding a sample-averaged TA and pN/pS(gene) value for each gene. The scatterplot between these values is shown in Figure SI5b. Actually, since there is so much variance in TA across samples, I opted to use the median rather than the average.
+
+Both the histogram and the scatterplot are generated with the following snippet from `ZZ_SCRIPTS/figure_s_exp.R`:
+
+
+<details markdown="1"><summary>Show/Hide Snippet</summary>
+```R
+# --------------------------------------------------------------------------
+# Sample-averaged analysis
+# --------------------------------------------------------------------------
+
+# Inverse correlation between normalized transcription level and pn/ps averaged across metagenomes
+print(lm(log_pnps_mean ~ log_TA_median, data=TA_sample_averaged) %>% summary() %>% .$r.squared %>% sqrt()) # r
+print(lm(log_pnps_mean ~ log_TA_median, data=TA_sample_averaged) %>% summary() %>% .$r.squared) # R2
+print(lm(log_pnps_mean ~ log_TA_median, data=TA_sample_averaged) %>% summary() %>% .$coefficients) # coefficients
+g1 <- ggplot(TA_sample_averaged, aes(x=log_TA_median, y=log_pnps_mean)) +
+    geom_point(alpha=0.4, size=2, color="#333333") +
+    theme_classic() +
+    stat_smooth(method="lm", color="#B66B77", fill="#B66B77") +
+    labs(
+        x=TeX("$log_{10}(median_s($TA) + $0.01)$", bold=T),
+        y=TeX("$log_{10}(mean_s($ pN/pS$^{(gene)}))$", bold=TRUE)
+    ) +
+    my_theme(10)
+w <- 2.9
+display(g1, output=file.path(args$output, "inverse_power_law.pdf"), width=w, height=w*0.8, as.png=F)
+
+g2 <- ggplot(data=TA) +
+    geom_histogram(aes(x=log_TA, y=..density..), fill="#666666", alpha=0.6) +
+    labs(
+        x=TeX("$log_{10}$(TA + $0.01$)", bold=T),
+        y="Density"
+    ) +
+    theme(legend.position="none") +
+    my_theme(10) +
+    scale_y_continuous(expand=c(0,NA)) +
+    scale_x_continuous(expand=c(0,NA))
+display(g2, output=file.path(args$output, "histogram.pdf"), width=w, height=w*0.8, as.png=F)
+```
+</details> 
+
+Impressively, a clear negative correlation is observed between these quantities. See Supplementary Information for the scientific explanation.
 
 ### Lack of correlation across samples
 
-- yeah there is correlation to track across samples
-- but the signal is very weak. only 11% using 25% FDR
+In a complementary analysis, I correlated TA with pN/pS(gene) across samples for individual genes to see whether inter-sample variance of pN/pS(gene) could be explained by measured TA. Taking a histogram of the resultant Pearson coefficients (Figure SI5c), you can see that more negative correlations exist than positive correlations, which fit our expectation, however the effect was very slight and statistically weak. Allowing for a very generous false discovery rate (FDR) of 25%, only 11% of the genes passed the test for significance (Figure SI5d).
+
+The code snippet responsible for Figures SI5c and SI5d is shown here:
+
+
+<details markdown="1"><summary>Show/Hide Snippet</summary>
+```R
+# --------------------------------------------------------------------------
+# Per gene correlations
+# --------------------------------------------------------------------------
+
+text_df <- data.frame(
+    x=c(0.15, 0.38),
+    y=0.92,
+    label=paste(round(c(TA_sample_corr %>% filter(fdr_25 == TRUE) %>% nrow(), TA_sample_corr %>% filter(fdr_25 == FALSE) %>% nrow()) / nrow(TA_sample_corr) * 100, 1), '%', sep="")
+)
+breaks <- -20:20/35
+g3 <- ggplot(data=TA_sample_corr) +
+    geom_histogram(aes(x=estimate, fill=negative), breaks=breaks, alpha=0.6) +
+    theme_classic(base_size=20) +
+    geom_vline(aes(xintercept=0), color='#666666', size=1.4) +
+    labs(
+        x="Pearson coefficient (r)",
+        y="Number of genes"
+    ) +
+    scale_fill_manual(values=c("#666666", off_color)) +
+    scale_y_continuous(expand=c(0,NA)) +
+    my_theme(10) +
+    theme(legend.position="none")
+display(g3, file.path(args$output, "per_gene_expression_corr.pdf"), width=7, height=5)
+
+g4 <- ggplot(data=TA_sample_corr) +
+    stat_ecdf(aes(x=fdr), geom='step', size=1.5, color="#666666") +
+    geom_vline(aes(xintercept=0.25), color=off_color, size=1.4, alpha=0.6) +
+    geom_text(data=text_df, aes(x=x, y=y, label=label), size=4) +
+    labs(
+        x="False discovery rate",
+        y="Fraction of genes"
+    ) +
+    scale_fill_manual(values=c()) +
+    theme(legend.position="none") +
+    my_theme(10)
+display(g4, file.path(args$output, "per_gene_fdr.pdf"), width=7, height=5)
+
+print("Percentage of genes with negative correlations:")
+print(TA_sample_corr %>% filter(estimate < 0) %>% nrow() / (TA_sample_corr %>% filter(estimate < 0) %>% nrow() + TA_sample_corr %>% filter(estimate >= 0) %>% nrow()) * 100)
+print("Percentage of genes passing 25% FDR")
+print(TA_sample_corr %>% filter(fdr_25 == TRUE) %>% nrow() / (TA_sample_corr %>% filter(fdr_25 == FALSE) %>% nrow() + TA_sample_corr %>% filter(fdr_25 == TRUE) %>% nrow()) * 100)
+
+g <- plot_grid(g2, g1, g3, g4, ncol=2)
+display(g, file.path(args$output, "fig.png"), width=7, height=5, as.png=T)
+display(g, file.path(args$output, "fig.pdf"), width=7, height=5, as.png=T)
+```
+</details> 
+
+### Generating Figure SI5
+
+To generate Figure SI5, run the following from your GRE.
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```R
+source('figure_s_exp.R')
+```
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
+</div> 
+
+Results are in `YY_PLOTS/FIG_S_EXP`.
 
 ## Analysis X: Environmental correlations with pN/pS(gene)
 
@@ -3824,9 +4042,135 @@ Which yields this.
 ‣ **Checkpoint datapack:** None  
 </div> 
 
+This rather lengthy Analysis details everything to do with the case study involving glutamine synthetase (GS). In essence, this means anything to do with Figure 4 is covered here.
+
+### GS is a dodecamer
+
+Proteins do not always function as individual monomers--in fact it is probably the minority of cases, and GS is no exception. GS forms a homo-dodecamer, meaning that 12 identical GS protein chains assemble to form a complex. For example, [1FPY](https://www.rcsb.org/structure/1FPY) and [1F52](https://www.rcsb.org/structure/1F52) are both crystal structures of a Salmonella typhimurium GS, which shares 61% amino acid similarity to the HIMB083 GS. In the 1FPY structure, phosphinothricin (which blocks glutamate binding) and ADP are bound in the active site, providing a visual proxy for where the glutamate is supposed to bind.
+
+Figure 3a is an image of 1FPY, and can be generated using PyMOL. If you don't know, PyMOL is an analysis and visualization software for molecules. It is a staple in the protein world and it has a scripting language, which is great for reproducibility. Go ahead and run the script `ZZ_SCRIPTS/structure_2602_1FPY.pml`:
+
+<details markdown="1"><summary>Show/Hide PyMOL Script</summary>
+```
+bg_color white
+
+fetch 1fpy
+hide everything, 1fpy
+
+sel prot_sel, 1fpy and not (resn ADP or resn PPQ or resn MN)
+sel adp_sel, 1fpy and (resn ADP)
+sel glu_sel, 1fpy and (resn PPQ)
+
+create prot, prot_sel
+create adp, adp_sel
+create glu, glu_sel
+
+sel chainA_sel, prot and chain A
+sel chainB_sel, prot and chain B
+sel chainC_sel, prot and chain C
+sel chainD_sel, prot and chain D
+sel chainE_sel, prot and chain E
+sel chainF_sel, prot and chain F
+sel chainG_sel, prot and chain G
+sel chainH_sel, prot and chain H
+sel chainI_sel, prot and chain I
+sel chainJ_sel, prot and chain J
+sel chainK_sel, prot and chain K
+sel chainL_sel, prot and chain L
+
+create chainA, chainA_sel
+create chainB, chainB_sel
+create chainC, chainC_sel
+create chainD, chainD_sel
+create chainE, chainE_sel
+create chainF, chainF_sel
+create chainG, chainG_sel
+create chainH, chainH_sel
+create chainI, chainI_sel
+create chainJ, chainJ_sel
+create chainK, chainK_sel
+create chainL, chainL_sel
+
+show surface, chainA
+show surface, chainB
+show surface, chainC
+show surface, chainD
+show surface, chainE
+show surface, chainF
+show surface, chainG
+show surface, chainH
+show surface, chainI
+show surface, chainJ
+show surface, chainK
+show surface, chainL
+show spheres, glu
+show spheres, adp
+
+color magenta, glu
+color magenta, adp
+
+set_color color_prot1, [0.78, 0.90, 0.96]
+set_color color_prot2, [0.90, 0.96, 0.78]
+
+set surface_color, color_prot2, chain A
+set surface_color, color_prot1, chain B
+set surface_color, color_prot2, chain C
+set surface_color, color_prot1, chain D
+set surface_color, color_prot2, chain E
+set surface_color, color_prot1, chain F
+set surface_color, color_prot1, chain G
+set surface_color, color_prot2, chain H
+set surface_color, color_prot1, chain I
+set surface_color, color_prot2, chain J
+set surface_color, color_prot1, chain K
+set surface_color, color_prot2, chain L
+
+rebuild
+
+if not os.path.exists("YY_PLOTS"): os.makedirs("YY_PLOTS")
+if not os.path.exists("YY_PLOTS/FIG_2"): os.makedirs("YY_PLOTS/FIG_2")
+cd YY_PLOTS/FIG_2
+
+set ray_trace_mode, 0
+set antialias, 2
+set ray_opaque_background, off
+
+set_view (\
+     0.331930995,    0.940376520,    0.074255198,\
+     0.943143487,   -0.329394072,   -0.044496641,\
+    -0.017384375,    0.084803127,   -0.996246159,\
+     0.000000000,    0.000000000, -473.991119385,\
+   -47.470947266,   -0.205673218,  -47.983573914,\
+   384.120666504,  563.861694336,  -20.000000000 )
+rotate z, 13
+
+ray 1000, 1000
+png 1fpy_1.png
+
+turn x, 90
+ray 1000, 1000
+png 1fpy_2.png
+
+cd ../..
+```
+</details> 
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```bash
+pymol -c ZZ_SCRIPTS/structure_2602_1FPY.pml
+```
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
+
+{:.notice}
+If you want to visualize 1FPY interactively in the PyMOL interface, remove the `-c`.
+</div> 
+
 ### Dodecameric RSA & DTL
 
-In the study we focus on glutamine synthetase for a case study, and when dealing with its structure we make the following point in the text:
+When dealing with the structure of GS, we make the following point in the text:
 
 <blockquote>
 Since the native quaternary structure of GS is a dodecameric complex (12 monomers), our monomeric estimates of RSA and DTL are unrepresentative of the active state of GS. We addressed this by aligning 12 copies of the predicted structure to a solved dodecameric complex of GS in Salmonella typhimurium (PDB ID 1FPY), which HIMB83 GS shares 61% amino acid similarity with (Figure 3a). From this stitched quaternary structure we recalculated RSA and DTL, and as expected, this yielded lower average RSA and DTL estimates due to the presence of adjacent monomers (0.17 versus 0.24 for RSA and 17.8Å versus 21.2Å for DTL).
@@ -3835,19 +4179,254 @@ Since the native quaternary structure of GS is a dodecameric complex (12 monomer
 </div>
 </blockquote>
 
-FIXME
+To summarize, monomeric estimates of RSA and DTL misrepresent the selective pressures experienced by individual residues, since the functional form of GS is a dodecameric complex. So RSA and DTL should really be calculated for the dodecamer.
+
+To recalculate RSA and DTL for the dodecamer, we need the dodecamer complex, which we have for Salmonella, but not for HIMB083. One option would be to use AlphaFold-Multimer, which can predict complexes. However, since the Salmonella tryphimurium GS shares such a high amino acid similarity, I opted to do something simpler: predict the monomeric GS with AlphaFold, then align 12 copies of the monomer to 1F52 structure. Well, due to symmetry its actually overkill to align 12 copies--its only actually necessary to focus on one protein in the complex, and its 3 nearest neighbors:
+
+[![neighbor]({{images}}/neighbor.png)]( {{images}}/neighbor.png){:.center-img .width-90}
+
+So in the above screen, the protein of focus is colored in yellow. To create this complex, I wrote the PyMOL script, `ZZ_SCRIPTS/GS_neighor_complex.pml`:
+
+```
+# Fetch the dimer of the closest sequence match (61% identify)
+fetch 1f52
+
+# Load in the AlphaFold (AF) predicted structure for GS four times
+load 09_STRUCTURES_AF/predictions/2602.pdb, 2602_C, partial=1
+load 09_STRUCTURES_AF/predictions/2602.pdb, 2602_D, partial=1
+load 09_STRUCTURES_AF/predictions/2602.pdb, 2602_E, partial=1
+load 09_STRUCTURES_AF/predictions/2602.pdb, 2602_J, partial=1
+
+# Align each copy of the AF structure to each chain of 1f52
+align 2602_C, 1f52 and chain C
+align 2602_D, 1f52 and chain D
+align 2602_E, 1f52 and chain E
+align 2602_J, 1f52 and chain J
+
+# Rename all of the chains
+sele 2602_C
+alter sele, chain='A'
+sele 2602_D
+alter sele, chain='B'
+sele 2602_E
+alter sele, chain='C'
+sele 2602_J
+alter sele, chain='D'
+
+# Save the neighbor complex
+sele 2602_C | 2602_D | 2602_E | 2602_J
+save 21_GS_COMPLEX/neighbor_complex.pdb, sele
+```
+
+When ready, run the following from the command-line:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #X</span>
 ```bash
 mkdir -p 21_GS_COMPLEX
 pymol -c ZZ_SCRIPTS/GS_neighor_complex.pml
+```
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
+</div> 
+
+When done, you can open up the resulting complex with `pymol 21_GS_COMPLEX/neighbor_complex.pdb`:
+
+[![neighbor2]({{images}}/neighbor2.png)]( {{images}}/neighbor2.png){:.center-img .width-90}
+
+From this pseudo-complex, I calculated the RSA and DTL of the central protein using two scripts, `ZZ_SCRIPTS/GS_complex_DTL.py` and `ZZ_SCRIPTS/GS_complex_RSA.py`. Check them out if you wish:
+
+<details markdown="1"><summary>Show/Hide DTL Script</summary>
+```python
+#! /usr/bin/env python
+
+import pandas as pd
+import argparse
+import anvio.dbops as dbops
+import anvio.terminal as terminal
+import anvio.structureops as sops
+
+from pathlib import Path
+from anvio.tables.miscdata import TableForAminoAcidAdditionalData
+
+stdout = terminal.Run()
+
+# ----------------------------------------------------------------------------------
+# This function calculates the minimum distance of a position in chain B to a ligand-binding
+# position by considering all 4 chains (pos chain B -> lig_pos chain B), (pos chain B -> lig_pos
+# chain A), (pos chain B -> lig_pos chain C), and (pos chain B -> lig_pos chain D)
+# ----------------------------------------------------------------------------------
+
+def get_min_dist_to_lig(chain_A, chain_B, chain_C, chain_D, lig_positions, pos):
+    d = {}
+    for lig_pos in lig_positions:
+        d_BA = chain_B.calc_COM_dist(chain_B.get_residue(pos), chain_A.get_residue(lig_pos))
+        d_BB = chain_B.calc_COM_dist(chain_B.get_residue(pos), chain_B.get_residue(lig_pos))
+        d_BC = chain_B.calc_COM_dist(chain_B.get_residue(pos), chain_C.get_residue(lig_pos))
+        d_BD = chain_B.calc_COM_dist(chain_B.get_residue(pos), chain_D.get_residue(lig_pos))
+        d[lig_pos] = min([d_BA, d_BB, d_BC, d_BD])
+
+    closest = min(d, key = lambda x: d.get(x))
+    return closest, d[closest]
+
+# ----------------------------------------------------------------------------------
+# Determine the ligand-binding residues
+# ----------------------------------------------------------------------------------
+
+min_bind_freq = 0.5
+amino_acid_additional_data = TableForAminoAcidAdditionalData(argparse.Namespace(contigs_db='CONTIGS.db'))
+lig_df = amino_acid_additional_data.get_gene_dataframe(2602, group_name='InteracDome')
+lig_df = lig_df.reset_index(drop=True).set_index('codon_order_in_gene')
+lig_df = lig_df[lig_df['LIG_GLU'].notnull()]
+lig_df = lig_df[lig_df['LIG_GLU'] >= min_bind_freq]
+lig_df = lig_df[['LIG_GLU']]
+lig_positions = lig_df.index.values
+
+# ----------------------------------------------------------------------------------
+# Load up chains within the complex
+# ----------------------------------------------------------------------------------
+
+complex_path = str(Path('21_GS_COMPLEX/neighbor_complex.pdb'))
+
+chain_A = sops.Structure(complex_path)
+chain_A._load_pdb_file(complex_path, chain_index=0)
+
+chain_B = sops.Structure(complex_path)
+chain_B._load_pdb_file(complex_path, chain_index=1)
+
+chain_C = sops.Structure(complex_path)
+chain_C._load_pdb_file(complex_path, chain_index=2)
+
+chain_D = sops.Structure(complex_path)
+chain_D._load_pdb_file(complex_path, chain_index=3)
+
+# ----------------------------------------------------------------------------------
+# Calculate the complex DTL (what is far from a ligand-binding residue in the monomer
+# may actually be close if the distance to another chain is considered)
+# ----------------------------------------------------------------------------------
+
+d = {
+    'codon_order_in_gene': [],
+    'DTL': [],
+}
+for codon_order_in_gene in range(len(chain_A.get_sequence())):
+    _, DTL = get_min_dist_to_lig(chain_A, chain_B, chain_C, chain_D, lig_positions, codon_order_in_gene)
+    d['codon_order_in_gene'].append(codon_order_in_gene)
+    d['DTL'].append(DTL)
+dtl = pd.DataFrame(d)
+
+# ----------------------------------------------------------------------------------
+# Write
+# ----------------------------------------------------------------------------------
+
+output = Path('21_GS_COMPLEX') / 'complex_DTL.txt'
+dtl.to_csv(output, sep='\t', index=False)
+
+
+```
+</details> 
+
+<details markdown="1"><summary>Show/Hide RSA Script</summary>
+```python
+#! /usr/bin/env python
+
+import numpy as np
+from anvio.terminal import Run
+from anvio.structureops import DSSPClass
+
+from pathlib import Path
+
+stdout = Run()
+dssp = DSSPClass()
+
+# Run DSSP on the complex structure and the AlphaFold monomer structure.
+GS_complex = dssp.run(str(Path('21_GS_COMPLEX/neighbor_complex.pdb')))
+GS_monomer = dssp.run(str(Path('09_STRUCTURES_AF/predictions/2602.pdb')))
+
+# Split the complex into chain A and chain B
+GS_length = GS_monomer.shape[0]
+GS_chain_A = GS_complex.iloc[:GS_length].reset_index()
+GS_chain_B = GS_complex.iloc[GS_length:2*GS_length].reset_index()
+GS_chain_C = GS_complex.iloc[2*GS_length:3*GS_length].reset_index()
+GS_chain_D = GS_complex.iloc[3*GS_length:].reset_index()
+
+GS_complex_RSA = GS_chain_B['rel_solvent_acc']
+stdout.info('Mean RSA of monomers in complex', GS_complex_RSA.mean())
+stdout.info('Mean RSA of monomers out of complex', GS_monomer['rel_solvent_acc'].mean())
+
+output = GS_complex_RSA.\
+    to_frame().\
+    reset_index().\
+    rename(columns={'index': 'codon_order_in_gene', 'rel_solvent_acc': 'RSA'})
+output.to_csv(Path('21_GS_COMPLEX/complex_RSA.txt'), sep='\t', index=False)
+```
+</details> 
+
+Run them with
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```bash
 python ZZ_SCRIPTS/GS_complex_DTL.py
 python ZZ_SCRIPTS/GS_complex_RSA.py
 ```
-‣ **Time:** <1 min  
-‣ **Storage:** 4 Mb  
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
 </div> 
+
+Afterwards, you'll have the files `21_GS_COMPLEX/complex_RSA.txt`:
+
+|**codon_order_in_gene**|**RSA**|
+|:--|:--|
+|0|0.5133928571428571|
+|1|0.36774193548387096|
+|2|0.05426356589147287|
+|3|0.3333333333333333|
+|4|0.37435897435897436|
+|5|0.0|
+|6|0.24378109452736318|
+|7|0.5211864406779662|
+|8|0.17083333333333334|
+|(...)|(...)|
+
+and `21_GS_COMPLEX/complex_DTL.txt`:
+
+|**codon_order_in_gene**|**DTL**|
+|:--|:--|
+|0|31.344873780070404|
+|1|32.18030518803351|
+|2|28.055919972000027|
+|3|31.572194235333864|
+|4|32.67016401084904|
+|5|26.203425021876164|
+|6|27.16896602862751|
+|7|33.79731076619324|
+|8|28.473864016483063|
+|(...)|(...)|
+
+When the SCV data is loaded into the GRE, these values are appended as columns with the following code snippet found in `ZZ_SCRIPTS/load_data.R`:
+
+```R
+# -----------------------------------------------------------------------------
+# Add glutamine synthetase dodecameric DTL and RSA estimates
+# -----------------------------------------------------------------------------
+
+complex_RSA <- read_tsv('../21_GS_COMPLEX/complex_RSA.txt') %>%
+    rename(complex_RSA=RSA)
+complex_DTL <- read_tsv('../21_GS_COMPLEX/complex_DTL.txt') %>%
+    rename(complex_DTL=DTL)
+complex_GS <- left_join(complex_RSA, complex_DTL) %>%
+    mutate(gene_callers_id = 2602)
+scvs <- scvs %>% left_join(complex_GS, by=c("codon_order_in_gene", "gene_callers_id"))
+```
+
+As a result of this, you could access these data and their associations with polymorphism rates with a command such as this:
+
+```R
+scvs %>% filter(gene_callers_id==2602) %>% select(codon_order_in_gene, sample_id, pN_popular_consensus, pS_popular_consensus, complex_RSA, complex_DTL)
+```
 
 ## Analysis X: Genome-wide ns-polymorphism avoidance of low RSA/DTL
 
