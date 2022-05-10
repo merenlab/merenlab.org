@@ -3236,6 +3236,151 @@ Which results in Figure SI1, stored under the filename `YY_PLOTS/FIG_S_MULTICOLI
 
 ## Analysis X: pN/pS$^{(gene)}$ across genes and samples
 
+Since pN/pS(gene) is such a central metric for the study, it is used in a lot of places. However in this specific Analysis I'll provide the steps to reproduce the general statistics about the pN/pS(gene) values observed, which come in the form of Table S9, Figure S11, and Figure S12.
+
+Throughout the manuscript, pN/pS(gene) is used as a proxy for the strength of purifying selection strength acting on a gene in a sample. A description and mathematical definition of pN/pS(gene) is found in the Methods section, and the reproducible implementation has already been provided in Step X.
+
+As a reminder, pN/pS(gene) values, which you already calculated, are found in the file `17_PNPS/pNpS.txt`.
+
+This data, along with pN(gene) and pS(gene), are presented as Table S9, which is created with `ZZ_SCRIPTS/`. Nothing fancy is happening here, the data you already have is just being fluffed up into a nice little Excel table.
+
+When ready, run the following and Table S9 will be output to the filename `WW_TABLES/GENE_PNPS.xlsx`:
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```bash
+python ZZ_SCRIPTS/table_gene_pnps.py
+```
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
+</div>
+
+From within the GRE, pN/pS(gene) data for each sample and gene is stored as the R-variable `pnps`, which you more than likely already have in your GRE. If you don't, you could always run the following (however I hope I've made it clear that any figures/tables that need `pnps` will load it automatically):
+
+```R
+request_scvs <- FALSE
+request_regs <- FALSE
+withRestarts(source("load_data.R"), terminate=function() message('load_data.R: data already loaded. Nice.'))
+```
+
+The real power of pN/pS(gene) is that values can be calculated across samples, effectively allowing one to track selection strength of a gene across samples. Because of this added dimension of fun, pN/pS(gene) is distributed across genes and samples. Understanding the variance in pN/pS(gene) across these two dimensions was the intention of Figure S11, which you can reproduce with `ZZ_SCRIPTS/figure_s_pnps_bw.R`.
+
+
+<details markdown="1"><summary>Show/Hide Script</summary>
+```R
+#! /usr/bin/env Rscript
+
+request_scvs <- FALSE
+request_regs <- FALSE
+withRestarts(source("load_data.R"), terminate=function() message('load_data.R: data already loaded. Nice.'))
+
+library(tidyverse)
+
+args <- list()
+args$output <- "../YY_PLOTS/FIG_S_PNPS_BW"
+
+dir.create(args$output, showWarnings=F, recursive=T)
+
+# -----------------------------------------------------------------------------
+# Just do it
+# -----------------------------------------------------------------------------
+
+my_anova <- pnps %>% mutate(gene_callers_id = as.factor(gene_callers_id)) %>% lm(pnps ~ gene_callers_id + sample_id, data = .) %>% anova()
+gene_explained <- my_anova$`Sum Sq`[1] / sum(my_anova$`Sum Sq`) * 100
+sample_explained <- my_anova$`Sum Sq`[2] / sum(my_anova$`Sum Sq`) * 100
+print(my_anova)
+print(gene_explained)
+print(sample_explained)
+
+col1 <- '#888888'
+col2 <- 'red'
+coeff <- 1.2
+g <- ggplot() +
+    geom_histogram(
+        data = pnps %>% group_by(sample_id) %>% summarize(x=sd(pnps, na.rm=T)) %>% mutate(group='group'),
+        mapping = aes(x=x, y=..density../coeff, fill=group),
+        fill = col2,
+        alpha = 0.5,
+        bins = 100
+    ) +
+    geom_histogram(
+        data = pnps %>% group_by(gene_callers_id) %>% summarize(x=sd(pnps)) %>% mutate(group='group'),
+        mapping = aes(x=x, y=..density.., fill=group),
+        fill = col1,
+        alpha = 0.5,
+        bins = 100
+    ) +
+    theme_classic() +
+    theme(
+        text=element_text(size=10, family="Helvetica", face="bold"),
+        axis.title.y = element_text(color = col1, size=13),
+        axis.title.y.right = element_text(color = col2, size=13)
+    ) +
+    annotate(
+        "rect",
+        xmin=0.07,
+        xmax=0.13,
+        ymin=75,
+        ymax=135,
+        alpha=0.2
+    ) +
+    annotate(
+        "text",
+        x=0.1,
+        y=105,
+        label=paste("% variance (ANOVA):\nsamples: ", round(sample_explained, 1), "%\ngenes: ", round(gene_explained, 1), "%", sep=''),
+        size=2,
+        family="Helvetica",
+    ) +
+    labs(
+        y="Density",
+        x="Standard deviation"
+    ) +
+    scale_y_continuous(
+      name = "Density",
+      sec.axis = sec_axis(~.*coeff, name="Density"),
+      expand = c(0, 0)
+    )
+s <- 0.9
+display(g, file.path(args$output, "fig.png"), width=s*3.5, height=s*2.4)
+display(g, file.path(args$output, "fig.pdf"), width=s*3.5, height=s*2.4)
+
+```
+</details> 
+
+The real statistics behind this figure is an ANOVA analysis, illustrating that a lot more variance in pN/pS(gene) is observed between genes, meaning that genes exhibit a lot of diversity in their pN/pS(gene). 'A lot' in this sense is relative to the variance in pN/pS(gene) observed within the same gene across samples. This is what I've tried to convey with Figure S11, which you can replicate via the GRE:
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```R
+source('figure_s_pnps_bw.R')
+```
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
+</div> 
+
+This plops Figure S11 in the directory `YY_PLOTS/FIG_S_PNPS_BW`.
+
+[![pnps_bw]({{images}}/pnps_bw.png)]( {{images}}/pnps_bw.png){:.center-img .width-90}
+
+Relatedly, Figure S12 represents the spread of variance in pN/pS(gene) more directly in the form of a few histograms, which is created with `ZZ_SCRIPTS/figure_s_g_pnps_hist.R`. Run it in the GRE with:
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```R
+source('figure_s_g_pnps_hist.R')
+```
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
+</div> 
+
+This plops Figure S12 in the directory `YY_PLOTS/FIG_S_G_PNPS_HIST`.
+
+[![gene_pnps]({{images}}/gene_pnps.png)]( {{images}}/gene_pnps.png){:.center-img .width-90}
+
 ## Analysis X: dN/dS$^{(gene)}$ between HIMB83 and HIMB122
 
 <div class="extra-info" markdown="1">
@@ -3575,9 +3720,101 @@ cd ..
 
 Since it is much more common for slightly negative polymorphisms to drift to observable frequencies than it is for them to fixate, it is expected that in the majority of cases sample-averaged pN/pS exceeds dN/dS, and it is indeed what we see (most genes are above the black line $y = x$). Interestingly, there are a select number of genes that have quite high rates of polymorphim, despite dN/dS being very low. I think there is probably an interesting story involving all of the genes with high polymorphism rates but low substitution rates (left side of plot).
 
-## Analysis X: Environmental correlations with pN/pS$^{(gene)}$
-
 ## Analysis X: Transcript abundance & Metatranscriptomics
+
+Something that in my opinion remains undersold in the main text is the fact that we used accompanying metatranscriptome datasets to compare transcript abundance to selection strength as measured with pN/pS(gene). This is an important evolutionary analysis, since it has been widely documented that transcription/expression levels strongly dictate the evolutionary conservancy of genes. If you are interested in that subject, I suggest you read the Supplementary Information file, as the text there explains what we did quite well. That resulted in the multi-panel Figure SI5, which is the topic of this Analysis.
+
+[![exp]({{images}}/exp.png)]({{images}}/exp.png){:.center-img .width-100}
+
+
+### Calculation and accessibility
+
+As a reminder, the read recruitment procedure included a number of metatranscriptomes. And of the 74 samples of interest determined in Step X, 50 had accompanying metatranscriptomes. For these 50 samples, we used the read recruitment results of the metatranscriptomes to establish a _transcript abundance_ (TA) measure for each gene (see Methods).
+
+- show the equation
+- show the relevant code
+- mention that the comments may help walk you through the exact steps taken
+- talk about TA and TA_sample_averaged
+
+### Correlation with sample-averaged TA
+
+- start with top-left plot
+
+### Lack of correlation across samples
+
+- yeah there is correlation to track across samples
+- but the signal is very weak. only 11% using 25% FDR
+
+## Analysis X: Environmental correlations with pN/pS(gene)
+
+One of the most exciting things that pN/pS(gene) enables is the tracking of selection strength of a single gene across samples. Thanks to the diverse geographical sampling in this study, each sample has a host of measured enviornmental parameters that the calculated pN/pS(gene) can be compared against.
+
+To expose the totality of this data, I correlated each measured environmental variable with each gene's pN/pS(gene), which resulted in Table S10. You can create this table from within the GRE:
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```R
+source('table_env_corr.R')
+```
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
+</div> 
+
+This creates Table S10 under the filename `WW_TABLES/ENV_CORR.txt`. If you follow the crumb trail of `table_env_corr.R` into `load_data.R`, you can find the responsible code:
+
+<details markdown="1"><summary>Show/Hide Code</summary>
+```R
+# Gene to environment correlations
+env_corr <- pnps %>%
+    group_by(gene_callers_id) %>%
+    summarise(
+        cor_nitrates=cor(pnps, nitrates, use="pairwise.complete.obs", method='pearson'),
+        cor_chlorophyll=cor(pnps, `Chlorophyll Sensor s`, use="pairwise.complete.obs", method='pearson'),
+        cor_temperature=cor(pnps, `temperature`, use="pairwise.complete.obs", method='pearson'),
+        cor_salinity=cor(pnps, `Salinity (PSU)`, use="pairwise.complete.obs", method='pearson'),
+        cor_phosphate=cor(pnps, `PO4 (umol/L)`, use="pairwise.complete.obs", method='pearson'),
+        cor_silicon=cor(pnps, `SI (umol/L)`, use="pairwise.complete.obs", method='pearson'),
+        cor_depth=cor(pnps, `Depth (m)`, use="pairwise.complete.obs", method='pearson'),
+        cor_oxygen=cor(pnps, `Oxygen (umol/kg)`, use="pairwise.complete.obs", method='pearson'),
+        pnps=mean(pnps, na.rm=TRUE)
+    ) %>%
+    left_join(fns %>% select(gene_callers_id, function_COG20_CATEGORY, function_COG20_FUNCTION, function_Pfam, function_KOfam, accession_Pfam))
+```
+</details> 
+
+Essentially, Table S10 is created from the GRE R-variable `env_corr`, which is quite a useful table if you want to search for potentially interesting genes. For example, suppose you want the genes with pN/pS(gene) values that most strongly anti-correlate with sample temperature. This means, or at least suggests, that temperature and/or its co-variables strongly affects the selection strength acting on these genes--specifically that increased temperature leads to increased selection strength. Finding the top 10 genes meeting this criteria, along with their functions from several annotation sources, is this easy.
+
+```R
+env_corr %>%
+    arrange(cor_temperature) %>%
+    select(
+        gene_callers_id,
+        cor_temperature,
+        function_COG20_FUNCTION,
+        function_Pfam,
+        function_KOfam
+    )
+```
+
+Which yields this.
+
+```
+# A tibble: 799 × 5
+   gene_callers_id cor_temperature function_COG20_FUNCT… function_Pfam    
+             <dbl>           <dbl> <chr>                 <chr>            
+ 1            1962        -0.75071 Cold shock protein, … 'Cold-shock' DNA…
+ 2            1309        -0.74748 Glycine/D-amino acid… FAD dependent ox…
+ 3            1589        -0.72689 Tripartite-type tric… Tripartite trica…
+ 4            1552        -0.71155 Bacterial nucleoid D… Bacterial DNA-bi…
+ 5            1825        -0.65728 ABC-type transport s… Bacterial extrac…
+ 6            2687        -0.63746 Ribosomal protein S4… Ribosomal protei…
+ 7            1316        -0.61160 (p)ppGpp synthase/hy… ACT domain;HD do…
+ 8            1832        -0.61039 Regulator of proteas… SPFH domain / Ba…
+ 9            1278        -0.61003 Ribosomal protein S5… Ribosomal protei…
+10            1855        -0.60929 Geranylgeranyl pyrop… Polyprenyl synth…
+# … with 789 more rows, and 1 more variable: function_KOfam <chr>
+```
 
 ## Analysis X: Glutamine synthetase (GS)
 
