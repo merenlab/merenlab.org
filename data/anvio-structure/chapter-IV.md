@@ -4428,6 +4428,177 @@ As a result of this, you could access these data and their associations with pol
 scvs %>% filter(gene_callers_id==2602) %>% select(codon_order_in_gene, sample_id, pN_popular_consensus, pS_popular_consensus, complex_RSA, complex_DTL)
 ```
 
+### pN/pS(gene) of GS
+
+Compared to other genes, GS has a very low sample-averaged pN/pS(gene) value. Yet even still, there is almost 3-fold variation in pN/pS(gene) observed between samples. This information comes strictly from the pN/pS(gene) data you calculated, which is represented in the GRE with the R-variable `pnps`. These observations are illustrated in Figure 3b, which was produced with the script `ZZ_SCRIPTS/figure_3.R`. Here is the relevant code:
+
+```R
+# -----------------------------------------------------------------------------
+# Glutamine synthetase pN/pS versus all others
+# -----------------------------------------------------------------------------
+
+g_pnps_sub <- ggplot() +
+    geom_histogram(data=pnps %>% filter(gene_callers_id==2602), aes(x=pnps, y=..count..), bins=30, fill=GS_color, alpha=1.) +
+    scale_y_continuous(expand = c(0,NA)) +
+    labs(
+        x=TeX("pN/pS$^{(gene)}$", bold=T),
+        y="Number of samples"
+    ) +
+    my_theme(7) +
+    theme(
+        axis.text.x = element_text(size=6)
+    ) +
+    scale_y_continuous(breaks = scales::pretty_breaks(n = 5), expand=c(0, NA))
+plot_data <- pnps %>% group_by(gene_callers_id) %>% summarise(pnps=mean(pnps, na.rm=T))
+g_pnps <- ggplot() +
+    geom_histogram(data = plot_data, aes(x=pnps, y=..count..), bins=100, fill="#666666", alpha=0.85) +
+    labs(
+        x=TeX("sample-averaged pN/pS$^{(gene)}$", bold=T),
+        y="Number of genes"
+    ) +
+    scale_x_continuous(breaks = scales::pretty_breaks(n = 10), limits=c(0, 0.30)) +
+    scale_y_continuous(expand = c(0,NA)) +
+    geom_vline(xintercept=plot_data %>% filter(gene_callers_id == 2602) %>% pull(pnps), col=GS_color, size=0.8) +
+    my_theme(8)
+plot2 <- ggdraw(g_pnps) +
+    draw_plot(g_pnps_sub, 0.45, 0.3, 0.50, 0.6)
+
+aligned <- align_plots(plot1, plot2, align='h')
+display(aligned[[1]], file.path(args$output, "GS_corr.pdf"), width=2.3, height=1.9)
+display(aligned[[2]], file.path(args$output, "GS_pnps.pdf"), width=2.3, height=1.9)
+```
+
+### pN/pS(gene) correlation with nitrates
+
+As was mentioned in Analysis X, `env_corr` is an R-variable in the GRE that is supremely useful for identifying which genes' pN/pS(gene) values correlate with which environmental parameters. GS has Gene ID 2602, so one can easily probe which environmental parameters GS correlates with:
+
+```R
+> env_corr %>% filter(gene_callers_id == 2602) %>% t()
+                        [,1]                                                                            
+gene_callers_id         "2602"                                                                          
+cor_nitrates            "0.3384655"                                                                     
+cor_chlorophyll         "0.006176131"                                                                   
+cor_temperature         "-0.1363972"                                                                    
+cor_salinity            "-0.2188335"                                                                    
+cor_phosphate           "0.4125989"                                                                     
+cor_silicon             "0.03814715"                                                                    
+cor_depth               "0.01050676"                                                                    
+cor_oxygen              "0.04476064"                                                                    
+pnps                    "0.02049047"                                                                    
+function_COG20_CATEGORY "RNA processing and modification"                                               
+function_COG20_FUNCTION "Glutamine synthetase (GlnA) (PDB:1F1H)"                                        
+function_Pfam           "Glutamine synthetase, catalytic domain;Glutamine synthetase, beta-Grasp domain"
+function_KOfam          "glutamine synthetase [EC:6.3.1.2]"                                             
+accession_Pfam          "PF00120.25;PF03951.20"                                                         
+```
+
+The degree to which GS correlates with nitrates is depicted in Figure 3c, which is created in `ZZ_SCRIPTS/figure_3.R`. Here is the relevant code:
+
+```R
+# -----------------------------------------------------------------------------
+# Glutamine synthetase pN/pS versus nitrates
+# -----------------------------------------------------------------------------
+
+GS_color <- "#A1C6B9"
+
+g_corr_sub <- ggplot(pnps %>% filter(gene_callers_id==2602), aes(pnps, nitrates)) +
+    geom_point(alpha=0.8, size=0.8, color=GS_color) +
+    geom_smooth(method='lm', color='#666666', fill=GS_color, size=0.6) +
+    labs(x=TeX("pN/pS$^{(gene)}$", bold=T), y="Nitrates (A.U.)") +
+    my_theme(7) +
+    theme(axis.text.x = element_text(size=6)) +
+    scale_y_continuous()
+g_corr <- ggplot(env_corr, aes(cor_nitrates)) +
+    geom_histogram(alpha=0.7, size=1.5, bins=100) +
+    geom_vline(
+        xintercept = env_corr %>% filter(gene_callers_id==2602) %>% pull(cor_nitrates),
+        color = GS_color,
+        size = 0.8
+    ) +
+    scale_x_continuous(limits=c(NA,1.3)) +
+    scale_y_continuous(expand=c(0,0)) +
+    labs(x=TeX("Nitrates correlation ($\\rho_{N}$)", bold=T), y="Number of genes") +
+    my_theme(8)
+plot1 <- ggdraw(g_corr) +
+    draw_plot(g_corr_sub, 0.525, 0.30, 0.465, 0.65)
+```
+
+### Visualizing polymorphism on structure
+
+In Figure 3d, I colored the surface of the HIMB083 GS monomer according to the sample-averaged s- and ns-polymorphism rates, for several different camera orientations. Although I only show a single monomer (for visual clarity), I also show the 3 ligands (pink) from the complex that lie closest to the monomer. If you take your time looking at this figure, you'll see how dramatically ns-polymorphism avoids all 3 of these binding regions.
+
+Reproducing Figure 3d affords an opportunity to see how anvi'o structure can work in conjunction with PyMOL. I'll give you a brief lesson on the workflow, then I'll show you how to reproduce Figure 3d.
+
+#### A brief lesson
+
+First, open the anvi'o structure interactive interface.
+
+```bash
+anvi-display-structure -c CONTIGS.db -p PROFILE.db -s 09_STRUCTURE.db --gene-caller-ids 2602 --SCVs-only --samples-of-interest soi
+```
+
+You'll be presented with this pimply mess.
+
+[![s1]({{images}}/s1.png)]( {{images}}/s1.png){:.center-img .width-100}
+
+We can remove the red spheres by setting the sphere size to a very small size.
+
+[![s2]({{images}}/s2.png)]( {{images}}/s2.png){:.center-img .width-100}
+
+{:.notice}
+This is my fault, but don't set the sphere size to exactly 0, or else I will punch you in the throat.
+
+Next up, let's make the surface less transparent, and color the surface dynamically according to log-transformed pN(site). Site the lower bound to -4 and the upper bound to -1, so that the color spectrum spans 3 orders of magnitude.
+
+[![s3]({{images}}/s3.png)]( {{images}}/s3.png){:.center-img .width-100}
+
+The result is pretty decent. If you wanted, you could take a screenshot of the resultant protein and pop it into your results section. But anvi'o structure is really not where you should be producing publication-quality figures. For this PyMOL is far superior. It is for this reason I developed an option to _Export to PyMOL_, which can be accessed in the _Output_ tab.
+
+[![s4]({{images}}/s4.png)]( {{images}}/s4.png){:.center-img .width-100}
+
+This creates a PyMOL script shown in the screenshot above that will (somewhat) faithfully reproduce the current anvi'o structure view in PyMOL, so that you can create more refined and beautiful figures, or to undertake more sophisticated analyses that are better suited for PyMOL.
+
+As an example, copy-paste the script produced by anvi'o structure into a file named `example.pml`. Save the file in your working directory.
+
+Now open PyMOL from your working directory:
+
+```bash
+pymol
+```
+
+Load in the GS structure.
+
+[![s5]({{images}}/s5.png)]( {{images}}/s5.png){:.center-img .width-100}
+
+At this point, you need to run the `example.pml` from within PyMOL, which can be done by typing `@example.pml` into the console.
+
+After some time, you should see a visualization that is relatively similar to the one you created in anvi'o structure.
+
+[![s6]({{images}}/s6.png)]( {{images}}/s6.png){:.center-img .width-100}
+
+To make it a bit prettier, type `ray` into the console ([https://pymolwiki.org/index.php/Ray](https://pymolwiki.org/index.php/Ray)).
+
+#### Reproducing Figure 3d
+
+Ok, so that's in essence how I created Figure 3d. I hope its helpful for your own workflows. What I'm going to show now is exactly how to reproduce the protein images seen in Figure 3d, using PyMOL scripts I wrote that are heavily based on the example I outlined above. One script, `ZZ_SCRIPTS/structure_2602_pN.pml`, creates the ns-polymorphism images, and the other, `ZZ_SCRIPTS/structure_2602_pS.pml`, creates the s-polymorphism images. Each script essentially runs the script generated by anvi'o structure, then does a photoshoot from 4 different angles.
+
+Running these scripts is as easy as
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```bash
+pymol -c ZZ_SCRIPTS/structure_2602_pN.pml
+pymol -c ZZ_SCRIPTS/structure_2602_pS.pml
+```
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
+</div> 
+
+These scripts will take a few minutes to run, because they produce high quality images, which will eventually be dumped into `YY_PLOTS/FIG_3`:
+
+[![pN_1]({{images}}/pN_1.png)]( {{images}}/pN_1.png){:.center-img .width-90}
+
 ## Analysis X: Genome-wide ns-polymorphism avoidance of low RSA/DTL
 
 ## Analysis X: Synonymous codon rarity
