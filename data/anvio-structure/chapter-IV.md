@@ -4627,11 +4627,13 @@ main_RSA <- get_dist_to_lig(gene=2602, lig="", variable="pnps", not_DTL="complex
     labs(y = "Mean RSA", x=TeX("pN/pS$^{(gene)}$", bold=T))
 ```
 
-This is exactly what is done in `ZZ_SCRIPTS/figure_3.R`. If you scroll to the last section in this Analysis, you can find the official command for producing Figures 3e and 3f (as well as the rest of Figure 3), though if you cannot wait, run this:
+To generate these plots, feel free to run
 
 ```R
 source('figure_3.R')
 ```
+
+The output will be in `YY_PLOTS/FIG_3`.
 
 ### Sites of interest
 
@@ -4711,7 +4713,7 @@ This snippet is taken from `ZZ_SCRIPTS/figure_3.R`
 
 ### Generating Figure 3
 
-To generate the plots in Figure 3, run the following from within your GRE
+If you haven't done so already, run the following from within your GRE to produce the plots from Figure 3.
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #X</span>
@@ -4726,9 +4728,249 @@ source('figure_3.R')
 This will output the Figures 3b, 3c, 3e, 3f, and 3g into `YY_PLOTS/FIG_3`. What's missing in that list is Figures 3a and 3d, which are absent because they contain images of proteins which are generated with PyMOL, not R. If you missed those, see the above analyses, which detail how those can be reproduced.
 
 ## Analysis X: Genome-wide ns-polymorphism avoidance of low RSA/DTL
+### This is a genome-wide trend
+
+Figures 3e and 3f are interesting because they illustrate that changes in selection strength lead to changes in the spatial distribution of ns-polymorphism towards high RSA and high DTL sites.
+
+Is this a cherry-picked result? After all, my choice to use GS was not because it had a _bad_ story. And not every gene I looked at had such a clear signal. So an important question I set out to answer was, "is this a genome-wide trend, or is it specific to GS?". My investigation into this subject matter led to Figures 4a, 4b, SI6, and Table S14.
+
+[![4ab]({{images}}/4ab.png)]( {{images}}/4ab.png){:.center-img .width-100}
+
+Figures 4a and 4b are essentially replicas of Figures 3e and 3f, except the data is coming from all sites of all genes, rather than just GS. Correspondingly, the x-axis has been changed to pN/pS(core), which quantifies the overall purifying selection strength across all of the 1a.3.V core genes, not just GS.
+
+From the Methods section, pN(core) and pS(core) can be expressed as weighted averages of pN(site) and pS(site). And pN/pS(core) = pN(core)/pS(core). This calculation is performed in `ZZ_SCRIPTS/load_data.R` with the following code:
+
+```R
+genome_pnps <- scvs %>%
+    group_by(sample_id) %>%
+    summarise(
+        pn = sum(nN_popular_consensus*pN_popular_consensus, na.rm=T)/sum(nN_popular_consensus, na.rm=T),
+        ps = sum(nN_popular_consensus*pS_popular_consensus, na.rm=T)/sum(nN_popular_consensus, na.rm=T),
+        genome_pnps=pn/ps
+    ) %>%
+    select(sample_id, genome_pnps)
+scvs <- scvs %>%
+    left_join(genome_pnps)
+```
+
+It's rather elegant. Each sample ends up with a pN/pS(core) value, which is added to the SCVs table as the column `genome_pnps`. With this data attached to the SCV table, it is now a straight shot to Figures 4a and 4b. The calculation and plotting is dealt with in `ZZ_SCRIPTS/figure_4.R`:
+
+<details markdown="1"><summary>Show/Hide Script</summary>
+```R
+#! /usr/bin/env Rscript
+
+source(file.path("utils.R"))
+
+request_scvs <- TRUE
+request_regs <- FALSE
+withRestarts(source("load_data.R"), terminate=function() message('load_data.R: data already loaded. Nice.'))
+
+library(tidyverse)
+library(latex2exp)
+library(cowplot)
+
+args <- list()
+args$output <- "../YY_PLOTS/FIG_4"
+
+dir.create(args$output, showWarnings=F, recursive=T)
+
+# -----------------------------------------------------------------------------
+# Analysis
+# -----------------------------------------------------------------------------
+
+temp <- scvs %>%
+    filter(
+        !is.na(pN_popular_consensus),
+        ANY_dist <= 40
+    ) %>%
+    group_by(sample_id) %>%
+    mutate(
+        pS_weighted_DTL = pS_popular_consensus/sum(pS_popular_consensus)*ANY_dist,
+        pN_weighted_DTL = pN_popular_consensus/sum(pN_popular_consensus)*ANY_dist,
+        pS_weighted_RSA = pS_popular_consensus/sum(pS_popular_consensus)*rel_solvent_acc,
+        pN_weighted_RSA = pN_popular_consensus/sum(pN_popular_consensus)*rel_solvent_acc,
+        rarity_weighted_DTL = syn_codon_rarity/sum(syn_codon_rarity)*ANY_dist,
+        rarity_weighted_RSA = syn_codon_rarity/sum(syn_codon_rarity)*rel_solvent_acc
+    ) %>%
+    summarise(
+        mean_pS_DTL=sum(pS_weighted_DTL),
+        mean_pN_DTL=sum(pN_weighted_DTL),
+        mean_pS_RSA=sum(pS_weighted_RSA),
+        mean_pN_RSA=sum(pN_weighted_RSA),
+        mean_rarity_DTL=sum(rarity_weighted_DTL),
+        mean_rarity_RSA=sum(rarity_weighted_RSA),
+        pnps=mean(genome_pnps),
+        temperature=mean(temperature)
+    )
+all_stats <- scvs %>%
+    filter(ANY_dist < 40, !is.na(pN_popular_consensus)) %>%
+    group_by(sample_id) %>%
+    summarise(
+        syn_codon_rarity=mean(syn_codon_rarity),
+        GC_fraction=mean(GC_fraction),
+    ) %>%
+    left_join(temp)
+
+# -----------------------------------------------------------------------------
+# pX distribution
+# -----------------------------------------------------------------------------
+
+g1 <- ggplot(data=all_stats) +
+    geom_point(aes(x=pnps, y=mean_pN_DTL), color=ns_col, fill=ns_col, alpha=0.7) +
+    geom_smooth(aes(x=pnps, y=mean_pN_DTL), color=ns_col, method='lm', fill=ns_col) +
+    labs(x=TeX('pN/pS$^{(core)}$', bold=T), y='mean DTL (Å)') +
+    my_theme(8)
+g2 <- ggplot(data=all_stats) +
+    geom_point(aes(x=pnps, y=mean_pS_DTL), color=s_col, fill=s_col, alpha=0.7) +
+    geom_smooth(aes(x=pnps, y=mean_pS_DTL), color=s_col, method='lm', fill=s_col) +
+    labs(x=TeX('pN/pS$^{(core)}$', bold=T), y='mean DTL (Å)') +
+    my_theme(8)
+g3 <- ggplot(data=all_stats) +
+    geom_point(aes(x=pnps, y=mean_pN_RSA), color=ns_col, fill=ns_col, alpha=0.7) +
+    geom_smooth(aes(x=pnps, y=mean_pN_RSA), color=ns_col, method='lm', fill=ns_col) +
+    labs(x=TeX('pN/pS$^{(core)}$', bold=T), y='mean RSA (Å)') +
+    my_theme(8)
+g4 <- ggplot(data=all_stats) +
+    geom_point(aes(x=pnps, y=mean_pS_RSA), color=s_col, fill=s_col, alpha=0.7) +
+    geom_smooth(aes(x=pnps, y=mean_pS_RSA), color=s_col, method='lm', fill=s_col) +
+    labs(x=TeX('pN/pS$^{(core)}$', bold=T), y='mean RSA (Å)') +
+    my_theme(8)
+display(
+    plot_grid(
+        g3, g1, g4, g2,
+        ncol=4, align='v'
+    ),
+    output = file.path(args$output, 'ABCD.pdf'),
+    as.png = T,
+    w = 6,
+    h = 2
+)
+
+# -----------------------------------------------------------------------------
+# Rarity sample-to-sample figures
+# -----------------------------------------------------------------------------
+
+pN_cutoff <- 0.0005
+
+# This is for codon rarity vs pnps
+plot_data <- scvs %>%
+    filter(pN_popular_consensus < pN_cutoff) %>%
+    group_by(sample_id) %>%
+    summarise(
+        syn_codon_rarity=mean(syn_codon_rarity),
+        pnps=mean(genome_pnps)
+    )
+g_rare_all <- ggplot(plot_data, aes(pnps, syn_codon_rarity)) +
+    geom_point(color='#333333', fill='#333333', alpha=0.7) +
+    geom_smooth(color='#333333', fill='#333333', method='lm') +
+    labs(
+        x = TeX("pN/pS$^{(core)}$", bold=T),
+        y = "Codon rarity"
+    ) +
+    my_theme(8)
+
+# This is for rarity-weighted RSA
+plot_data <- scvs %>%
+    filter(
+        pN_popular_consensus < pN_cutoff,
+        !is.na(rel_solvent_acc) # Filter out any genes without structures
+    ) %>%
+    group_by(sample_id) %>%
+    mutate(
+        rarity_weighted_RSA = syn_codon_rarity/sum(syn_codon_rarity)*rel_solvent_acc
+    ) %>%
+    summarise(
+        mean_rarity_RSA=sum(rarity_weighted_RSA),
+        pnps=mean(genome_pnps)
+    )
+g_rare_rsa_all <- ggplot(plot_data, aes(pnps, mean_rarity_RSA)) +
+    geom_point(color='#333333', fill='#333333', alpha=0.7) +
+    geom_smooth(color='#333333', fill='#333333', method='lm') +
+    labs(
+        x = TeX("pN/pS$^{(core)}$", bold=T),
+        y = "Rarity-weighted RSA"
+    ) +
+    my_theme(8)
+
+# This is for rarity-weighted DTL
+plot_data <- scvs %>%
+    filter(
+        pN_popular_consensus < pN_cutoff,
+        ANY_dist < 40 # Filter out any genes without ligand predictions and any residues >40 DTL
+    ) %>%
+    group_by(sample_id) %>%
+    mutate(
+        rarity_weighted_DTL = syn_codon_rarity/sum(syn_codon_rarity)*ANY_dist
+    ) %>%
+    summarise(
+        mean_rarity_DTL=sum(rarity_weighted_DTL),
+        pnps=mean(genome_pnps)
+    )
+g_rare_dtl_all <- ggplot(plot_data, aes(pnps, mean_rarity_DTL)) +
+    geom_point(color='#333333', fill='#333333', alpha=0.7) +
+    geom_smooth(color='#333333', fill='#333333', method='lm') +
+    labs(
+        x = TeX("pN/pS$^{(core)}$", bold=T),
+        y = "Rarity-weighted DTL (A)"
+    ) +
+    my_theme(8)
+
+display(
+    plot_grid(
+        g_rare_all, g_rare_rsa_all, g_rare_dtl_all,
+        ncol=3, align='v'
+    ),
+    output = file.path(args$output, 'DEF.pdf'),
+    w = 6,
+    h = 2.2
+)
+```
+</details> 
+
+If you want to generate Figures 4a and 4b (and all of Figure 4 for that matter), run the following.
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```R
+source('figure_4.R')
+```
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
+</div> 
 
 #### Robustness of results
 
-## Analysis X: Synonymous codon rarity
+Figures 4a and 4b show that the trends seen in the GS case study are a general feature of the genome. How robust are these results? One way to test this would be to remove some genes and recalculate whether a negative correlation is observed. If the removal of a few genes is enough to destroy the negative correlation, then a minority of genes are contributing a majority of the signal.
+
+Well, I tested this directly using a boostrapping method. Essentially, I repeatedly ran a linear regression on the data in Figures 4a and 4b, except instead of each of the 799 genes contributing once, I randomly picked 799 genes (_with replacement_). This effectively means that some genes would contribute multiple times, at the cost of some other genes not contributing at all. For each model I calculated the Pearson coefficient, and constructed a histogram (Figure SI6).
+
+Because this is such a slow process, the histograms are constructed from just 200 experiments, which required me to run it overnight. If you want to increase/decrease the number of experiments, modify `200` found in `ZZ_SCRIPTS/figure_s_gnm_rob.R`. Then when ready, run 
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```R
+source('figure_s_gnm_rob.R')
+```
+‣ **Time:** ~10 hours  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
+</div> 
+
+This will output Figure SI6 into the directory `YY_PLOTS/FIG_S_GNM_ROB`. It will also output a file `genome_robust.txt`, which can be wrapped into Table S14 via
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```bash
+python ZZ_SCRIPTS/table_rob.py
+```
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
+</div> 
+
+## Analysis X: Synonymous variation
+
+### s-polymorphism 
 
 
