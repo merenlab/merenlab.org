@@ -4969,8 +4969,139 @@ python ZZ_SCRIPTS/table_rob.py
 ‣ **Memory:** Minimal  
 </div> 
 
+The table will be written to `WW_TABLES/ROB.xlsx`.
+
 ## Analysis X: Synonymous variation
 
-### s-polymorphism 
+### s-polymorphism avoids low RSA and DTL
+
+We interestingly found that it is not just ns-polymorphism that avoids low RSA and DTL sites as a function of sample selection strength--s-polymorphim does, too!
+
+[![4cd]({{images}}/4cd.png)]( {{images}}/4cd.png){:.center-img .width-100}
+
+This is seen in Figures 4c and 4d, which are calculated the same way as Figures 4a and 4b, except where the RSA and DTL of sites are weighted by pS(site) instead of pN(site).
+
+If you haven't already done so, you can produce these plots via
+
+```R
+source('figure_4.R')
+```
+
+### Codon rarity
+
+This is a short analysis, thanks to all the preparation that occurred in Step X. As a brief reminder, that Step is dedicated to calculating various metrics for _codon rarity_, which involve counting the occurrence of codons in the HIMB083 genome, and calculating the rarity of each SCV.
+
+An intermediate data table from this Step is `codon_trna_composition.txt`, which I described as a 'one-stop-shop' for all your codon property needs. This is actually the exact contents of Table S11. To follow the convention of adding these tables to the `WW_TABLES` directory, run
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```R
+source('table_cdn_comp.R')
+```
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
+</div> 
+
+-----------------------------------
+
+What we found in the paper is that rare codons are purged from the population when selection is high (low pN/pS(core)), and those that remain do so in structurally/functionally less critical sites. This is shown with Figures 4e, 4f, and 4g.
+
+[![4gef]({{images}}/4gef.png)]( {{images}}/4gef.png){:.center-img .width-100}
+
+As a reminder, each SCV has both a synonymous and nonsyonymous contribution, which we quantify with pS(site) and pN(site), respectively. Since we were strictly interested in _synonymous_ variation, we needed to be careful about this calculation, and so  we opted to play things extremely conservatively and excluded any SCVs that had any significant pN(site) value. After a back-of-the-envelope calculation, we decided that 0.0005 would be a good cutoff: any SCV with a pN(site) > 0.0005 would be excluded.
+
+With that in mind, Figure 4e is produced quite simply. Each datapoint is a sample, where the x-axis is the sample's pN/pS(core) (see Methods) and the y-axis is the average per-site synonymous codon rarity. Here is the responsible snippet from `ZZ_SCRIPTS/figure_4.R`:
+
+```R
+pN_cutoff <- 0.0005
+
+# This is for codon rarity vs pnps
+plot_data <- scvs %>%
+    filter(pN_popular_consensus < pN_cutoff) %>%
+    group_by(sample_id) %>%
+    summarise(
+        syn_codon_rarity=mean(syn_codon_rarity),
+        pnps=mean(genome_pnps)
+    )
+g_rare_all <- ggplot(plot_data, aes(pnps, syn_codon_rarity)) +
+    geom_point(color='#333333', fill='#333333', alpha=0.7) +
+    geom_smooth(color='#333333', fill='#333333', method='lm') +
+    labs(
+        x = TeX("pN/pS$^{(core)}$", bold=T),
+        y = "Codon rarity"
+    ) +
+    my_theme(8)
+```
+
+Figures 4f and 4g measure where rare codons incorporate (on average) relative to RSA and DTL. These calculations are weighted averages. Let's take 4f, for example, which illustrates how rare codons associate with RSA. For each sample (data point), we weighted the RSA value of each SCV (that had pN(site) < 0.0005) by the synonymous codon rarity of the SCV. This gives a genome-wide measure of how codon rarity distributes relative to RSA, for a given sample. The same thing is done with DTL, which results in 4g. Here is the code from `ZZ_SCRIPTS/figure_4.R`:
+
+```R
+# This is for rarity-weighted RSA
+plot_data <- scvs %>%
+    filter(
+        pN_popular_consensus < pN_cutoff,
+        !is.na(rel_solvent_acc) # Filter out any genes without structures
+    ) %>%
+    group_by(sample_id) %>%
+    mutate(
+        rarity_weighted_RSA = syn_codon_rarity/sum(syn_codon_rarity)*rel_solvent_acc
+    ) %>%
+    summarise(
+        mean_rarity_RSA=sum(rarity_weighted_RSA),
+        pnps=mean(genome_pnps)
+    )
+g_rare_rsa_all <- ggplot(plot_data, aes(pnps, mean_rarity_RSA)) +
+    geom_point(color='#333333', fill='#333333', alpha=0.7) +
+    geom_smooth(color='#333333', fill='#333333', method='lm') +
+    labs(
+        x = TeX("pN/pS$^{(core)}$", bold=T),
+        y = "Rarity-weighted RSA"
+    ) +
+    my_theme(8)
+
+# This is for rarity-weighted DTL
+plot_data <- scvs %>%
+    filter(
+        pN_popular_consensus < pN_cutoff,
+        ANY_dist < 40 # Filter out any genes without ligand predictions and any residues >40 DTL
+    ) %>%
+    group_by(sample_id) %>%
+    mutate(
+        rarity_weighted_DTL = syn_codon_rarity/sum(syn_codon_rarity)*ANY_dist
+    ) %>%
+    summarise(
+        mean_rarity_DTL=sum(rarity_weighted_DTL),
+        pnps=mean(genome_pnps)
+    )
+g_rare_dtl_all <- ggplot(plot_data, aes(pnps, mean_rarity_DTL)) +
+    geom_point(color='#333333', fill='#333333', alpha=0.7) +
+    geom_smooth(color='#333333', fill='#333333', method='lm') +
+    labs(
+        x = TeX("pN/pS$^{(core)}$", bold=T),
+        y = "Rarity-weighted DTL (A)"
+    ) +
+    my_theme(8)
+```
+
+If you haven't already, you can reproduce Figure 4 as such:
+
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```R
+source('figure_4.R')
+```
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
+</div> 
+
+
+
+
+
+
+
+
 
 
