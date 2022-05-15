@@ -25,13 +25,7 @@ This document is **UNDER CONSTRUCTION**. It is not in a state where you can yet 
 - [Chapter V: Reproduce every number]({{ site.url }}/data/anvio-structure/chapter-V)
 
 
-## Step X: Creating a fresh directory
-
-<div class="extra-info" markdown="1">
-<span class="extra-info-header">Step X Info</span>
-‣ **Prerequisite steps:** None  
-‣ **Checkpoint datapack:** None  
-</div>
+## Step 1: Creating a fresh directory
 
 The entire workflow takes place in a single directory, a directory you'll make now.
 
@@ -91,13 +85,7 @@ wget -O SAR11-GENOME-COLLECTION.txt https://figshare.com/ndownloader/files/33117
 </div> 
 
 
-## Step X: Downloading metagenomes and metatranscriptomes
-
-<div class="extra-info" markdown="1">
-<span class="extra-info-header">Step X Info</span>
-‣ **Prerequisite steps:** Step FIXME  
-‣ **Checkpoint datapack:** None  
-</div>
+## Step 2: Downloading metagenomes and metatranscriptomes
 
 ### Warning
 
@@ -365,14 +353,8 @@ There are 58 FASTQs that need to be downloaded/redownloaded
 
 And the process of downloading them will continue. So in summary, check your internet connection, make sure you haven't run out of storage space, and repeatedly run `ZZ_SCRIPTS/download_fastqs.sh` until it says you're done :)
 
-## Step X: Downloading SAR11 reference genomes
+## Step 3: Downloading SAR11 reference genomes
 
-
-<div class="extra-info" markdown="1">
-<span class="extra-info-header">Step X Info</span>
-‣ **Prerequisite steps:** None  
-‣ **Checkpoint datapack:** None  
-</div> 
 
 In comparison to the last step, this is painless. And you deserve it.
 
@@ -400,13 +382,7 @@ rm contigs.fa.tar.gz # remove compressed version
 
 The downloaded file is named `contigs.fa`, and meets the anvi'o definition of a {% include ARTIFACT name="contigs-fasta" %} file.
 
-## Step X: anvi-run-workflow
-
-<div class="extra-info" markdown="1">
-<span class="extra-info-header">Step X Info</span>
-‣ **Prerequisite steps:** FIXME  
-‣ **Checkpoint datapack:** None  
-</div> 
+## Step 4: anvi-run-workflow
 
 {:.notice}
 If you opted not to do Step FIXME and Step FIXME, you don't have the prerequisite files for this step. That's okay though. You can still read along, or you can skip straight ahead to Step FIXME, where you can download the checkpoint data pack that contains all the files generated from this step, and used in all subsequent steps.
@@ -588,7 +564,7 @@ python ZZ_SCRIPTS/gen_samples_txt.py
 </div> 
 
 {:.notice}
-If you get hit with an error similar to `ValueError: 00_RAW/ERR3586728_1.fastq.gz does not exist`, I'm sure you can guess what's happened. Something went wrong during Step 2, leading to that file not existing. Go ahead and run `./ZZ_SCRIPTS/download_fastqs.sh` to see if the file can be downloaded.
+If you get hit with an error similar to `ValueError: 00_RAW/ERR3586728_1.fastq.gz does not exist`, I'm sure you can guess what's happened. Something went wrong during Step X, leading to that file not existing. Go ahead and run `./ZZ_SCRIPTS/download_fastqs.sh` to see if the file can be downloaded.
 
 Assuming things ran without error, this generates the file {% include ARTIFACT name="samples-txt" text="samples.txt" %}, which looks like this:
 
@@ -995,15 +971,9 @@ anvi-interactive -c 03_CONTIGS/SAR11_clade-contigs.db \
                  -p 06_MERGED/SAR11_clade/PROFILE.db
 ```
 
-## Step X: Exporting gene calls
+## Step 5: Exporting gene calls
 
 FIXME here I should explain that this is the end of the journey for analyses that require a compute cluster. If you've followed so far, feel free to transfer your files to your local laptop/desktop computer, where all of the remaining analyses can be accomplished. In particular, you will need `03_ONTIGS`, `06_CONTIGS`, `ZZ_SCRIPTS`, and that's it. Make sure the directory structure remains in tact.
-
-<div class="extra-info" markdown="1">
-<span class="extra-info-header">Step X Info</span>
-‣ **Prerequisite steps:** None  
-‣ **Checkpoint datapack:** None  
-</div> 
 
 All of the gene coordinates and sequences have been determined using Prodigal and stored in the {% include ARTIFACT name="contigs-db" %}, `03_CONTIGS/SAR11_clade-contigs.db`.
 
@@ -1022,7 +992,7 @@ anvi-export-gene-calls -c 03_CONTIGS/SAR11_clade-contigs.db \
 
 Great.
 
-## Step X: Function annotation
+## Step 6: Function annotation
 
 Next, I annotated the genes in this SAR11 genome collection using Pfam, NCBI COGs, and KEGG KOfam. Without these databases, we would have very little conception about what any of these SAR11 genes do.
 
@@ -1086,13 +1056,7 @@ anvi-export-functions -c 03_CONTIGS/SAR11_clade-contigs.db \
 
 `functions.txt` is a {% include ARTIFACT name="functions" %} file, and it will be very useful to quickly lookup the predicted functions of any genes of interest, using any of the above sources.
 
-## Step X: Isolating HIMB83
-
-<div class="extra-info" markdown="1">
-<span class="extra-info-header">Step X Info</span>
-‣ **Prerequisite steps:** Step FIXME  
-‣ **Checkpoint datapack:** None  
-</div> 
+## Step 7: Isolating HIMB83
 
 So far, this workflow has indiscriminately included 21 SAR11 genomes. Their sequences are in {% include ARTIFACT name="contigs-fasta" text="contigs.fa" %}, they all took part in the competitive read mapping, and consequently they are all in the the {% include ARTIFACT name="contigs-db" %} in `03_CONTIGS/` and the {% include ARTIFACT name="profile-db" %} in `06_MERGED/`.
 
@@ -1190,7 +1154,7 @@ Now you have fast access to these files in the main directory:
 ls AUXILIARY-DATA.db CONTIGS.db PROFILE.db
 ```
 
-## Step X: Genes and samples of interest
+## Step 8: Genes and samples of interest
 
 In our study we investigated single codon variants (SCVs) by using the HIMB83 reference genome to recruit reads from different metagenomes. The collection of reads recruited by HIMB83 represent a subclade we call 1a.3.V, and small differences in these reads form the basis of the SCVs we identify within 1a.3.V.
 
@@ -1375,7 +1339,7 @@ ANW_145_05M
 1258
 ```
 
-## Step X: Single codon variants
+## Step 9: Single codon variants
 
 Single codon variants (SCVs) are the meat of our analysis. Taken straight from a draft of this paper, here is our definition:
 
@@ -1601,13 +1565,7 @@ We can see that ribosomal proteins dominate the lower spectrum of nonsynonymous 
 
 I hope this small example has given you some inspiration for how you might explore this data yourself.
 
-## Step X: Single amino acid variants
-
-<div class="extra-info" markdown="1">
-<span class="extra-info-header">Step X Info</span>
-‣ **Prerequisite steps:** None  
-‣ **Checkpoint datapack:** None  
-</div> 
+## Step 10: Single amino acid variants
 
 We also make auxiliary use of single amino acid variants (SAAVs), which are just like SCVs, except the alleles are amino acids instead of codons. This means synonymous codon alleles are pooled together to create each amino acid allele. For more information about the distinction between SCVs and SAAVs, visit this [blog post]({{ site.url }}/2015/07/20/analyzing-variability/#an-intro-to-single-nucleotidecodonamino-acid-variation) as well as the Methods section.
 
@@ -1630,13 +1588,7 @@ anvi-gen-variability-profile -c CONTIGS.db \
 ‣ **Storage:** 2.9 Gb  
 </div> 
 
-## Step X: Structure prediction
-
-<div class="extra-info" markdown="1">
-<span class="extra-info-header">Step X Info</span>
-‣ **Prerequisite steps:** None  
-‣ **Checkpoint datapack:** None  
-</div> 
+## Step 11: Structure prediction
 
 ### AlphaFold
 
@@ -2007,13 +1959,7 @@ wc -l 12_GENES_WITH_GOOD_STRUCTURES
 
 Note that the script `ZZ_SCRIPTS/gen_genes_with_good_structures.py` doesn't actually filter `09_STRUCTURE.db`. All structures, good or bad, remain in the DB. But by using `12_GENES_WITH_GOOD_STRUCTURES`, we can subset `09_STRUCTURE.db`, `11_SCVs.txt`, and any other datasets we may generate, on a whim.
 
-## Step X: Relative solvent accessibility
-
-<div class="extra-info" markdown="1">
-<span class="extra-info-header">Step X Info</span>
-‣ **Prerequisite steps:** None  
-‣ **Checkpoint datapack:** None  
-</div> 
+## Step 12: Relative solvent accessibility
 
 ### Description
 
@@ -2192,13 +2138,7 @@ python ZZ_SCRIPTS/append_rel_solvent_acc.py
 </div> 
 
 
-## Step X: Ligand-binding residue prediction
-
-<div class="extra-info" markdown="1">
-<span class="extra-info-header">Step X Info</span>
-‣ **Prerequisite steps:** None  
-‣ **Checkpoint datapack:** None  
-</div> 
+## Step 13: Ligand-binding residue prediction
 
 In the paper, we predicted how likely certain residues were to be involved in binding to a ligand using the [InteracDome](https://interacdome.princeton.edu/) database. This resource was introduced by Shilpa Kobren and Mona Singh in their 2018 paper entitled "[_Systematic domain-based aggregation of protein structures highlights DNA-, RNA- and other ligand-binding positions_](https://academic.oup.com/nar/article/47/2/582/5232439)".
 
@@ -2345,12 +2285,6 @@ Here, I'm hovering my mouse over the exact residue that is highlighted blue in t
 {% include PROGRAM name="anvi-display-structure" %} was developed in conjunction with this study, and has been released as open source software so it may be utilized by the broader community.
 
 ### Calculating DTL
-
-<div class="extra-info" markdown="1">
-<span class="extra-info-header">Step X Info</span>
-‣ **Prerequisite steps:** None  
-‣ **Checkpoint datapack:** None  
-</div> 
 
 #### Definition
 
@@ -2774,13 +2708,7 @@ Like before, this generates a {% include ARTIFACT name="misc-data-amino-acids-tx
 If you have custom gene-ligand combos you would like to calculate DTL for, you could follow the procedure I just outlined.
 
 
-## Step X: Calculating pN and pS
-
-<div class="extra-info" markdown="1">
-<span class="extra-info-header">Step X Info</span>
-‣ **Prerequisite steps:** None  
-‣ **Checkpoint datapack:** None  
-</div> 
+## Step 14: Calculating pN and pS
 
 {:.notice}
 If you're here for a **mathematical description** of pN and pS--whether it be for per-site, per-group, per-gene calculations, you can find all that in the Methods section of the paper.
@@ -3155,7 +3083,7 @@ And as you would expect, you can also find $pN^{(site)}$, $pS^{(site)}$, and $pN
 |1|5|0.024905304363086384|3.860591173171997|[3.9,6.1)|0.15833333333333333|[0.16,0.22)|395.3333333333283|1455.6666666666717|
 |(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|(...)|
 
-## Step X: Codon properties
+## Step 15: Codon properties
 
 In the paper, we measured how codon usage varies from sample-to-sample, ultimately illustrating that rare codons are preferred in structurally/functionally noncritical sites. First, let's go through the different definitions of rarity.
 
@@ -3557,7 +3485,7 @@ python ZZ_SCRIPTS/append_codon_trna_composition.py
 
 This script does a bit more than I'm letting on, because it adds codon rarity, synonymous codon rarity, and amino acid rarity as columns to our {% include ARTIFACT name="variability-profile" %} `11_SCVs.txt`, as well as amino acid rarity as a column to our {% include ARTIFACT name="variability-profile" %} `10_SAAVs.txt`.
 
-## Step X: Breathe
+## Step 16: Breathe
 
 Okay. If you've made it this far, this marks the _end_ of this chapter, and subsequently the end of the data processing workflow. We started from nothing but the internet, and we have built up the totality of data we will need for all subsequent analyses, which are carried out in the next chapter. We have just invested an enormous amount of work and forethought that we will now be able to stand upon in order to harvest the fruits of our labour.
 
@@ -3567,14 +3495,7 @@ FIXME datapack here
 
 See you in the next chapter.
 
-## Aux. Step X: Pangenome detour
-
-<div class="extra-info" markdown="1">
-<span class="extra-info-header">Step X Info</span>
-‣ **Prerequisite steps:** None  
-‣ **Checkpoint datapack:** None  
-‣ **Central:** No  
-</div> 
+## Aux. Step 1: Pangenome detour
 
 This is the first **auxiliary** step, meaning it is not required for the central analyses of this paper. For this reason, you can skip this step if you want.
 

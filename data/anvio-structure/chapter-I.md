@@ -63,7 +63,7 @@ There are some skill and hardware requirements for following this workflow. Ther
 
 This study makes primary use of some large datasets. If you want to reproduce this study from scratch, you will need access to a high performance computing (HPC) cluster.
 
-But if you don't have access to such a resource, don't worry. All of the computationally intensive steps in this study occur near the beginning of the workflow. Past Step X, **I achieved all of the subsequent analyses on a laptop with 16 Gb of RAM and <75Gb of free storage (unless otherwise stated)**.
+But if you don't have access to such a resource, don't worry. All of the computationally intensive steps in this study occur near the beginning of the workflow. Past Step X, **I achieved all of the subsequent analyses on a laptop with 16 Gb of RAM**.
 
 #### Skillset
 
@@ -92,35 +92,13 @@ In the simplest terms, steps build up the data, and analyses utilize the data.
 [Chapter III: Build the data]({{ site.url }}/data/anvio-structure/chapter-III) (and [Chapter II: Configure your system]({{ site.url }}/data/anvio-structure/chapter-II)) is composed of a series of **steps** which are to be completed in order. Each step tackles a discrete task such as "_downloading the metagenomes_" or "_annotating genes with functions_". Once the last step has been completed, you will possess all of the necessary data structures to carry out the analyses in the paper.
 
 In contrast, [Chapter IV: Analyze the Data]({{ site.url }}/data/anvio-structure/chapter-IV) is composed of **analyses** which can be completed independently of one another (unless otherwise stated). Each analysis represents a discrete analysis like "_calculating codon usage between SAR11 genes_" or "_comparing AlphaFold to MODELLER_". Each analysis uses the data structures built from Chapter II, and thus all of the steps must be completed before analysis can be completed.
-Now let's talk more about the formatting for each step and analysis.
-
-#### Step
-
-FIXME step and analysis need proper examples
-
-At the start of each step is a blue box that specifies the prerequisite steps and files needed to start the step. Alternatively, any checkpoint data packs will also be provided here, if one wants to jump into the section without having completed all previous sections. An example looks like this:
-
-<div class="extra-info" markdown="1">
-<span class="extra-info-header">Step X Info</span>
-‣ **Prerequisite steps:** None FIXME add real example  
-‣ **Checkpoint datapack:** None  
-</div>
-
-#### Analysis
-
-Similar to steps, at the start of each analyis is a purple box specifying prerequisite steps, analyses, and/or files.
-
-<div class="extra-info" style="{{ analysis_style  }}" markdown="1">
-<span class="extra-info-header">Analysis X Info</span>
-‣ **Prerequisite steps/analyses:** None  
-‣ **Checkpoint datapack:** None  
-</div> 
+Now let's talk more about the formatting inside each step and analysis.
 
 #### Command
 
-Each step and analysis is composed of a series of **commands**. Ideally, you should be able to run these commands in succession by copy-pasting them into your terminal prompt.
+Each step and analysis is composed of a series of **commands**. Ideally, you should be able to run these commands in succession by copy-pasting them into your command-line.
 
-To distinguish these commands from all other commmentary and code, I have put each command inside a red (FIXME match description to final CSS) box. In addition to the command itself, each red box contains the time and storage requirements for running the command. If the command requires internet, I add the flag: '‣ **Internet**: Yes'. If the command should be submitted as a job due to high memory/storage/time requirements, I add the flag: '‣ **Cluster**: Yes'. Here is an example command:
+To distinguish these commands from all other commmentary and code, I have put each command inside a red box. In addition to the command itself, each red box contains the time and storage requirements for running the command. If the command requires internet, I add the flag: '‣ **Internet**: Yes'. If the command should be submitted as a job due to high memory/storage/time requirements, I add the flag: '‣ **Cluster**: Yes'. Here is an example command:
 
 <div class="extra-info" style="{{ command_style }}" markdown="1">
 <span class="extra-info-header">Command #X</span>
@@ -132,7 +110,6 @@ anvi-split -C GENOMES \
 ```
 ‣ **Time:** 90 min  
 ‣ **Storage:** 28.3 Gb  
-‣ **Cluster:** Yes (40 Gb)
 </div>
 
 If there are sections of commands that need to be edited manually by you, **required edits will be denoted within angular brackets (`<>`)**. For example,

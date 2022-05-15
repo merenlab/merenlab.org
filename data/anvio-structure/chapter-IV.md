@@ -38,6 +38,26 @@ Unless otherwise stated, each analysis can be run independently from the others,
 
 As such, you should feel free to jump around this document, rather than reading it top down. To help you navigate to the analyses you are interested in, here is a directory of all figures and tables in the main text and supplementary information, and clicking any figure/table will redirect you to the analysis where it is produced.
 
+[Figure 1 - Analysis X](#analysis-6-creating-the-anvio-structure-workflow-diagram)
+[Figure 2ab - Analysis X](#analysis-9-genome-wide-pn--and-ps-weighted-rsa-and-dtl-distributions)
+[Figure 2cd - Analysis X](#analysis-12-gene-sample-pair-linear-models)
+[Figure 2e - Analysis X](#analysis-13-per-group-pn-and-ps)
+[Figure 3 - Analysis X](#analysis-19-glutamine-synthetase-gs)
+[Figure 4ab - Analysis X](#analysis-20-genome-wide-ns-polymorphism-avoidance-of-low-rsadtl)
+[Figure 4cd - Analysis X](#analysis-21-synonymous-variation)
+[Figure 4efg - Analysis X](#analysis-21-synonymous-variation)
+
+[Figure S1 - Analysis X](#analysis-2-comparing-sequence-similarity-regimes)
+
+
+[Figure S1 - Analysis X]({{ page.url }}/#analysis-x-comparing-sequence-similarity-regimes)
+[Figure S1 - Analysis X]({{ page.url }}/#analysis-x-comparing-sequence-similarity-regimes)
+[Figure S1 - Analysis X]({{ page.url }}/#analysis-x-comparing-sequence-similarity-regimes)
+[Figure S1 - Analysis X]({{ page.url }}/#analysis-x-comparing-sequence-similarity-regimes)
+[Figure S1 - Analysis X]({{ page.url }}/#analysis-x-comparing-sequence-similarity-regimes)
+[Figure S1 - Analysis X]({{ page.url }}/#analysis-x-comparing-sequence-similarity-regimes)
+[Figure S1 - Analysis X]({{ page.url }}/#analysis-x-comparing-sequence-similarity-regimes)
+[Figure S1 - Analysis X]({{ page.url }}/#analysis-x-comparing-sequence-similarity-regimes)
 [Figure S1 - Analysis X]({{ page.url }}/#analysis-x-comparing-sequence-similarity-regimes)
 
 FIXME
@@ -245,7 +265,7 @@ source('load_data.R')
 Assuming you haven't already loaded all the data, this will take around 30 minutes.
 </div>
 
-## Analysis X: Read recruitment summary (21 genomes)
+## Analysis 1: Read recruitment summary (21 genomes)
 
 {:.notice}
 Most, but not all of the analyses use the GRE. This is one that doesn't.
@@ -310,9 +330,9 @@ python ZZ_SCRIPTS/gen_table_rr.py
 
 This creates the table from the paper and plops it into a directory `WW_TABLES`, which stores all tables from the paper.
 
-## Analysis X: Comparing sequence similarity regimes
+## Analysis 2: Comparing sequence similarity regimes
 
-This analysis is a behind-the-scenes of the supplemental information entitled "_Regimes of sequence similarity probed by metagenomics, SAR11 cultured geomes, and protein families_", and provides explicit reproducibility steps to create Figure S_PS. Basically, we need to estimate the percent similarity from read recruitment results, from pangenomic comparisons, and from the Pfams that HIMB83 genes match to. Given the eclectic data sources, this is a rather lengthy process that I'll break up into 3 parts: (1) read recruitment, (2) pangenome, and (3) Pfam. Each of these steps creates a file `18_PERCENT_ID*.txt` that forms the data for each of the 3 histograms in Figure S_PS.
+This analysis is a behind-the-scenes of the supplemental information entitled "_Regimes of sequence similarity probed by metagenomics, SAR11 cultured geomes, and protein families_", and provides explicit reproducibility steps to create Figure S1. Basically, we need to estimate the percent similarity from read recruitment results, from pangenomic comparisons, and from the Pfams that HIMB83 genes match to. Given the eclectic data sources, this is a rather lengthy process that I'll break up into 3 parts: (1) read recruitment, (2) pangenome, and (3) Pfam. Each of these steps creates a file `18_PERCENT_ID*.txt` that forms the data for each of the 3 histograms in Figure S1.
 
 ### (1) HIMB83 read recruitment
 
@@ -863,27 +883,23 @@ print(df %>% group_by(name) %>% summarise(mean=mean(value, na.rm=TRUE), median=m
 ```
 </details> 
 
-To run this script from the command line, you should do the following.
+To run this script, issue the following command from your GRE.
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #X</span>
 ```bash
-cd ZZ_SCRIPTS
-Rscript figure_s_ps.R
-cd ..
+source('figure_s_ps.R')
 ```
 ‣ **Time:** Minimal  
 ‣ **Storage:** Minimal  
 
-{:.notice}
-It is bizarre, yet necessary, to sandwich the `Rscript` command between the two `cd` commands. This is ultimately because I am untalented at R.
 </div> 
 
-The output image is `YY_PLOTS/FIG_S_PS/Figure_SPS.png`.
+The output image is Figure S1, stored at `YY_PLOTS/FIG_S_PS/Figure_SPS.png`.
 
 [![s_ps]({{images}}/s_ps.png)]( {{images}}/s_ps.png){:.center-img .width-90}
 
-## Analysis X: Codon usage between SAR11 genomes
+## Analysis 3: Codon usage between SAR11 genomes
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #X</span>
@@ -894,14 +910,12 @@ bash ZZ_SCRIPTS/codon_freqs_per_genome.sh
 ‣ **Storage:** Minimal  
 </div> 
 
-The above command generates `codon_freqs_per_genome.txt`. To generate Figure S_GNM_CDN_F, run
+The above command generates `codon_freqs_per_genome.txt`. To generate Figure S13, run
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #X</span>
 ```bash
-cd ZZ_SCRIPTS/
-Rscript figure_s_gnm_cdn_f.R
-cd ..
+source('figure_s_gnm_cdn_f.R')
 ```
 ‣ **Time:** Minimal  
 ‣ **Storage:** Minimal  
@@ -911,9 +925,9 @@ cd ..
 [![fig_gnm_cdn]({{images}}/fig_gnm_cdn.png)]({{images}}/fig_gnm_cdn.png){:.center-img .width-100} 
 
 
-## Analysis X: Distributions of environmental parameters
+## Analysis 4: Distributions of environmental parameters
 
-This is how I created Figure S_ENV.
+This is how I created Figure S2.
 
 
 <details markdown="1"><summary>Show/Hide Script</summary>
@@ -987,9 +1001,7 @@ display(g, file.path(args$output, "meta.png"), width=6.5, height=5, as.png=TRUE)
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #X</span>
 ```bash
-cd ZZ_SCRIPTS/
-Rscript figure_s_env.R
-cd ..
+source('figure_s_env.R')
 ```
 ‣ **Time:** Minimal  
 ‣ **Storage:** Minimal  
@@ -999,11 +1011,11 @@ The output image is `YY_PLOTS/FIG_S_ENV/meta.png`.
 
 [![s_env]({{images}}/s_env.png)]( {{images}}/s_env.png){:.center-img .width-90}
 
-## Analysis X: $\text{pN}^{(\text{site})}$ and $\text{pS}^{(\text{site})}$ variation across genes and samples
+## Analysis 5: $\text{pN}^{(\text{site})}$ and $\text{pS}^{(\text{site})}$ variation across genes and samples
 
-I did some summary analyses to describe how per-site pN$^{(\text{site})}$ and pS$^{(\text{site})}$ vary within and between genes and samples. The output of these data are Figure S_PN_HIST and Table S3.
+I did some summary analyses to describe how per-site pN$^{(\text{site})}$ and pS$^{(\text{site})}$ vary within and between genes and samples. The output of these data are Figure S3 and Table S3.
 
-I created Figure S_PN_HIST with `ZZ_SCRIPTS/figure_s_pn_hist.R`:
+I created Figure S3 with `ZZ_SCRIPTS/figure_s_pn_hist.R`:
 
 <details markdown="1"><summary>Show/Hide Script</summary>
 ```R
@@ -1143,7 +1155,7 @@ python ZZ_SCRIPTS/table_pnps_sums.py
 ‣ **Memory:** Minimal  
 </div>
 
-## Analysis X: Creating the anvi'o structure workflow diagram
+## Analysis 6: Creating the anvi'o structure workflow diagram
 
 Since Figure 1 is merely a diagrammatic workflow, there is no real data. Consequently, there is not much value in reproducing this figure. But that didn't stop me. You can reproduce the protein images by running this clump of PyMOL scripts (`.pml` extension)
 
@@ -1165,7 +1177,7 @@ This places a bunch of PyMOL-generated images in the folder `YY_PLOTS/FIG_1`, su
 
 [![dtl_with_ligand]({{images}}/dtl_with_ligand.png)]( {{images}}/dtl_with_ligand.png){:.center-img .width-50}
 
-## Analysis X: Comparing AlphaFold to MODELLER
+## Analysis 7: Comparing AlphaFold to MODELLER
 
 I started working on this study a few years before the exceedingly recent revolution in structure prediction that has been seeded by AlphaFold and its monumental success seen during the [CASP14](https://predictioncenter.org/casp14/) structure prediction competition. Back then, I developed a program {% include PROGRAM name="anvi-gen-structure-database" %} that predicted protein structures using template-based homology modeling with [MODELLER](https://salilab.org/modeller/).
 
@@ -1675,12 +1687,12 @@ source('figure_s_comp.R')
 ‣ **Storage:** Minimal  
 </div> 
 
-Running this creates Figure S_COMP under the filename `YY_PLOTS/FIG_S_COMP/fig.png`:
+Running this creates Figure S4 under the filename `YY_PLOTS/FIG_S_COMP/fig.png`:
 
 [![s_comp]({{images}}/s_comp.png)]( {{images}}/s_comp.png){:.center-img .width-70}
 
 
-## Analysis X: Predicting ligand-binding sites
+## Analysis 8: Predicting ligand-binding sites
 
 All of the heavy-lifting for binding site prediction has already been accomplished during Step X. If you're looking for descriptions, implementation details, and the like, you're likely to find it over there. But what remains to be done, is creating Table S5. This table summarizes all of the ligand-binding predictions and reproducing it is the subject of this brief Analysis.
 
@@ -1733,7 +1745,7 @@ python ZZ_SCRIPTS/table_lig.py
 </div> 
 
 
-## Analysis X: Genome-wide pN- and pS-weighted RSA and DTL distributions
+## Analysis 9: Genome-wide pN- and pS-weighted RSA and DTL distributions
 
 In this analysis, I discuss everything related to how pN and pS distribution relative to RSA and DTL on a genome-wide scale. This means I'll cover topics related to Figures 2a, 2b, S5, and S6.
 
@@ -1856,13 +1868,13 @@ Let's consider how pN distributes with respect to RSA. One could ask how we woul
 The null distribution for pS-weighted RSA is created just the same way... Yet you should be asking yourself, why is there only one null distribution displayed in Figure 1a? The reason is purely aesthetic. As it turns out, the null distributions of pS-weighted and pN-weighted RSA are nearly identical, and so increase visual clarity I only displayed one, as is mentioned in the figure caption:
 
 <blockquote>
-Since the null distribution for pS$^{(site)}$ so closely resembles the null distribution for pN$^{(site)}$, it has been excluded for visual clarity, but can be seen in Figure S_SHUFF_COMP
+Since the null distribution for pS$^{(site)}$ so closely resembles the null distribution for pN$^{(site)}$, it has been excluded for visual clarity, but can be seen in Figure S5
 <div class="blockquote-author">
   <b>Kiefl et al., February 2022 draft</b>
 </div>
 </blockquote>
 
-In Figure S_SHUFF_COMP I explicitly compare these null distributions to show there's no sleight of hand. Here is the script that creates Figure S_SHUFF_COMP.
+In Figure S5 I explicitly compare these null distributions to show there's no sleight of hand. Here is the script that creates Figure S5.
 
 <details markdown="1"><summary>Show/Hide Script</summary>
 ```R
@@ -1981,7 +1993,7 @@ display(
 ```
 </details> 
 
-Running the following creates Figure S_SHUFF_COMP under the filename `YY_PLOTS/FIG_S_SHUFF_COMP/fig.png`:
+Running the following creates Figure S5 under the filename `YY_PLOTS/FIG_S_SHUFF_COMP/fig.png`:
 
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
@@ -1997,11 +2009,11 @@ source('figure_s_shuff_comp.R')
 
 ### An alternative 1D definition for DTL
 
-Besides our Euclidean distance definition of DTL, we also considered a much more primitive distance metric, which was defined not in 3D space but by the distance in sequence. For example, if a gene had only one ligand-binding residue, which occurred at the fifth residue, then the 25th residue would have a DTL of 20. In Figure S_1D_DTL we demonstrate how this metric performs.
+Besides our Euclidean distance definition of DTL, we also considered a much more primitive distance metric, which was defined not in 3D space but by the distance in sequence. For example, if a gene had only one ligand-binding residue, which occurred at the fifth residue, then the 25th residue would have a DTL of 20. In Figure S6 we demonstrate how this metric performs.
 
 [![dtl_1d]({{images}}/dtl_1d.png)]({{images}}/dtl_1d.png){:.center-img .width-70} 
 
-Figure S_1D_DTL is generated with the script `ZZ_SCRIPTS/figure_s_1d_DTL.R`
+Figure S6 is generated with the script `ZZ_SCRIPTS/figure_s_1d_DTL.R`
 
 <details markdown="1"><summary>Show/Hide Script</summary>
 ```R
@@ -2144,7 +2156,7 @@ source('figure_s_1d_DTL.R')
 ‣ **Storage:** Minimal  
 </div> 
 
-## Analysis X: Comparison to BioLiP and DTL cutoff
+## Analysis 10: Comparison to BioLiP and DTL cutoff
 
 As discussed in _Proteomic trends in purifying selection are explained by RSA and DTL_ of the manuscript, missed binding sites leads to instances where we predict a high DTL for sites that are in actuality _close_ to a binding site--a binding site that was not predicted.
 
@@ -2314,7 +2326,7 @@ source('figure_s_biolip.R')
 
 Figure S9 shows that we found the 1a.3.V DTL distribution had a much higher proportion of values >40 Å, suggesting these likely result from incomplete characterization of binding sites (Figure S9). To mitigate the influence of this inevitable error source, we conservatively excluded DTL values >40 Å (8.0% of sites) in all analyses after Figure 2b. This cutoff is shown as the vertical dashed line.
 
-## Analysis X: Big linear models
+## Analysis 11: Big linear models
 
 What percent of variation in per-site polymorphism rates can be explained by RSA and DTL? To answer this question, we created Table S6:
 
@@ -2688,7 +2700,7 @@ lm_rsa_gene_sample_ps.RDS
 
 As well as Table S6 under the filename `WW_TABLES/MODELS.txt`, which summarizes these models.
 
-## Analysis X: Gene-sample pair linear models
+## Analysis 12: Gene-sample pair linear models
 
 The previous Analysis details the linear models we ran on the per-site polymorphism rate data aggegrated across genes and samples. To complement this analysis, we also created linear models _for each_ gene-sample pair, which resulted in tens of thousands of models. The Pearson coefficients for these models are shown in Figure 1, which we created as a means of visually illustrating that RSA and DTL are rather effective at predicting per-site pN (red), as compared to per-site pS (blue):
 
@@ -3038,7 +3050,7 @@ source('figure_s_examples_DTL.R')
 You can find the resultant plots under `YY_PLOTS/FIG_EXAMPLES_RSA` and `YY_PLOTS/FIG_EXAMPLES_DTL`.
 
 
-## Analysis X: per-group pN and pS
+## Analysis 13: per-group pN and pS
 
 This analysis encompasses everything related to per-group pN and pS values, _i.e._ the values visualized in the heatmaps of Figure 2e.
 
@@ -3232,7 +3244,7 @@ source('figure_s_bin_effect.R')
 
 And to check out the code, dig into `ZZ_SCRIPTS/figure_s_bin_effect.R`.
 
-## Analysis X: Correlatedness of RSA and DTL
+## Analysis 14: Correlatedness of RSA and DTL
 
 A necessary concern when fitting linear models to multiple variables, is understanding how correlated the variables are with each other. Statistical interpretations are most straightforward if the variables are _independent_ from one another, however in practice observation variables are rarely independent, and so we must deal in the realm of [multicollinearity](https://en.wikipedia.org/wiki/Multicollinearity).
 
@@ -3254,15 +3266,15 @@ Which results in Figure SI1, stored under the filename `YY_PLOTS/FIG_S_MULTICOLI
 
 [![RSA_vs_dist]({{images}}/RSA_vs_dist.png)]( {{images}}/RSA_vs_dist.png){:.center-img .width-50}
 
-## Analysis X: pN/pS$^{(gene)}$ across genes and samples
+## Analysis 15: pN/pS$^{\text{(gene)}}$ across genes and samples
 
-Since pN/pS(gene) is such a central metric for the study, it is used in a lot of places. However in this specific Analysis I'll provide the steps to reproduce the general statistics about the pN/pS(gene) values observed, which come in the form of Table S9, Figure S11, and Figure S12.
+Since pN/pS$^{\text{(gene)}}$ is such a central metric for the study, it is used in a lot of places. However in this specific Analysis I'll provide the steps to reproduce the general statistics about the pN/pS$^{\text{(gene)}}$ values observed, which come in the form of Table S9, Figure S11, and Figure S12.
 
-Throughout the manuscript, pN/pS(gene) is used as a proxy for the strength of purifying selection strength acting on a gene in a sample. A description and mathematical definition of pN/pS(gene) is found in the Methods section, and the reproducible implementation has already been provided in Step X.
+Throughout the manuscript, pN/pS$^{\text{(gene)}}$ is used as a proxy for the strength of purifying selection strength acting on a gene in a sample. A description and mathematical definition of pN/pS$^{\text{(gene)}}$ is found in the Methods section, and the reproducible implementation has already been provided in Step X.
 
-As a reminder, pN/pS(gene) values, which you already calculated, are found in the file `17_PNPS/pNpS.txt`.
+As a reminder, pN/pS$^{\text{(gene)}}$ values, which you already calculated, are found in the file `17_PNPS/pNpS.txt`.
 
-This data, along with pN(gene) and pS(gene), are presented as Table S9, which is created with `ZZ_SCRIPTS/`. Nothing fancy is happening here, the data you already have is just being fluffed up into a nice little Excel table.
+This data, along with pN$^{\text{(gene)}}$ and pS$^{\text{(gene)}}$, are presented as Table S9, which is created with `ZZ_SCRIPTS/`. Nothing fancy is happening here, the data you already have is just being fluffed up into a nice little Excel table.
 
 When ready, run the following and Table S9 will be output to the filename `WW_TABLES/GENE_PNPS.xlsx`:
 
@@ -3276,7 +3288,7 @@ python ZZ_SCRIPTS/table_gene_pnps.py
 ‣ **Memory:** Minimal  
 </div>
 
-From within the GRE, pN/pS(gene) data for each sample and gene is stored as the R-variable `pnps`, which you more than likely already have in your GRE. If you don't, you could always run the following (however I hope I've made it clear that any figures/tables that need `pnps` will load it automatically):
+From within the GRE, pN/pS$^{\text{(gene)}}$ data for each sample and gene is stored as the R-variable `pnps`, which you more than likely already have in your GRE. If you don't, you could always run the following (however I hope I've made it clear that any figures/tables that need `pnps` will load it automatically):
 
 ```R
 request_scvs <- FALSE
@@ -3284,7 +3296,7 @@ request_regs <- FALSE
 withRestarts(source("load_data.R"), terminate=function() message('load_data.R: data already loaded. Nice.'))
 ```
 
-The real power of pN/pS(gene) is that values can be calculated across samples, effectively allowing one to track selection strength of a gene across samples. Because of this added dimension of fun, pN/pS(gene) is distributed across genes and samples. Understanding the variance in pN/pS(gene) across these two dimensions was the intention of Figure S11, which you can reproduce with `ZZ_SCRIPTS/figure_s_pnps_bw.R`.
+The real power of pN/pS$^{\text{(gene)}}$ is that values can be calculated across samples, effectively allowing one to track selection strength of a gene across samples. Because of this added dimension of fun, pN/pS$^{\text{(gene)}}$ is distributed across genes and samples. Understanding the variance in pN/pS$^{\text{(gene)}}$ across these two dimensions was the intention of Figure S11, which you can reproduce with `ZZ_SCRIPTS/figure_s_pnps_bw.R`.
 
 
 <details markdown="1"><summary>Show/Hide Script</summary>
@@ -3369,7 +3381,7 @@ display(g, file.path(args$output, "fig.pdf"), width=s*3.5, height=s*2.4)
 ```
 </details> 
 
-The real statistics behind this figure is an ANOVA analysis, illustrating that a lot more variance in pN/pS(gene) is observed between genes, meaning that genes exhibit a lot of diversity in their pN/pS(gene). 'A lot' in this sense is relative to the variance in pN/pS(gene) observed within the same gene across samples. This is what I've tried to convey with Figure S11, which you can replicate via the GRE:
+The real statistics behind this figure is an ANOVA analysis, illustrating that a lot more variance in pN/pS$^{\text{(gene)}}$ is observed between genes, meaning that genes exhibit a lot of diversity in their pN/pS$^{\text{(gene)}}$. 'A lot' in this sense is relative to the variance in pN/pS$^{\text{(gene)}}$ observed within the same gene across samples. This is what I've tried to convey with Figure S11, which you can replicate via the GRE:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #X</span>
@@ -3385,7 +3397,7 @@ This plops Figure S11 in the directory `YY_PLOTS/FIG_S_PNPS_BW`.
 
 [![pnps_bw]({{images}}/pnps_bw.png)]( {{images}}/pnps_bw.png){:.center-img .width-90}
 
-Relatedly, Figure S12 represents the spread of variance in pN/pS(gene) more directly in the form of a few histograms, which is created with `ZZ_SCRIPTS/figure_s_g_pnps_hist.R`. Run it in the GRE with:
+Relatedly, Figure S12 represents the spread of variance in pN/pS$^{\text{(gene)}}$ more directly in the form of a few histograms, which is created with `ZZ_SCRIPTS/figure_s_g_pnps_hist.R`. Run it in the GRE with:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #X</span>
@@ -3401,16 +3413,12 @@ This plops Figure S12 in the directory `YY_PLOTS/FIG_S_G_PNPS_HIST`.
 
 [![gene_pnps]({{images}}/gene_pnps.png)]( {{images}}/gene_pnps.png){:.center-img .width-90}
 
-## Analysis X: dN/dS$^{(gene)}$ between HIMB83 and HIMB122
+## Analysis 16: dN/dS$^{\text{(gene)}}$ between HIMB83 and HIMB122
 
-<div class="extra-info" markdown="1">
-<span class="extra-info-header">Step X Info</span>
-‣ **Prerequisite steps:** Aux. Step X  
-</div> 
-
+{:.warning}
 This section requires you to first complete Auxiliary Step X, please complete that before continuing.
 
-In this section we calculate the dN/dS of homologous genes shared between HIMB83 and HIMB122, a related SAR11 genome. In the paper, the rationale for doing this was to validate our approach of pN/pS$^{(gene)}$ by averaging across samples and comparing the sample-averaged pN/pS$^{(gene)}$ values to dN/dS$^{(gene)}$ between HIMB83 and HIMB122, with the expectation that these should be qualitatively similar to one another given the evolutionary relatedness of HIMB122 to HIMB83.
+In this section we calculate the dN/dS$^{\text{(gene)}}$ of homologous genes shared between HIMB83 and HIMB122, a related SAR11 genome. In the paper, the rationale for doing this was to validate our approach of pN/pS$^{\text{(gene)}}$ by averaging across samples and comparing the sample-averaged pN/pS$^{\text{(gene)}}$ values to dN/dS$^{\text{(gene)}}$ between HIMB83 and HIMB122, with the expectation that these should be qualitatively similar to one another given the evolutionary relatedness of HIMB122 to HIMB83.
 
 
 ### How similar is HIMB122 to HIMB83?
@@ -3443,11 +3451,11 @@ anvi-compute-genome-similarity -e 07_EXTERNAL_GENOMES_COMP_TO_HIMB122.txt \
 ‣ **Storage:** Minimal  
 </div> 
 
-Looking at the output `07_ANI_HIMB122/ANIb_percentage_identity.txt`, we can see that the genome ANI of HIMB122 to HIMB83 is **82.6%**. Note that this only considers aligned segments of the genome. If the full sequences are considered this value drops to 63.7% similarity (`07_ANI_HIMB122/ANIb_full_percentage_identity.txt`), however since we are interested in calculating dN/dS$^{(gene)}$ between homologs, it is the former metric that is more relevant.
+Looking at the output `07_ANI_HIMB122/ANIb_percentage_identity.txt`, we can see that the genome ANI of HIMB122 to HIMB83 is **82.6%**. Note that this only considers aligned segments of the genome. If the full sequences are considered this value drops to 63.7% similarity (`07_ANI_HIMB122/ANIb_full_percentage_identity.txt`), however since we are interested in calculating dN/dS$^{\text{(gene)}}$ between homologs, it is the former metric that is more relevant.
 
-### Calculating dN/dS$^{(gene)}$ for 1 gene
+### Calculating dN/dS$^{\text{(gene)}}$ for 1 gene
 
-To calculate dN/dS$^{(gene)}$, I opted to use PAML's `yn00` program, which utilizes the [Yang and Nielson (2000)](https://pubmed.ncbi.nlm.nih.gov/10666704/) counting-based method for dN/dS. While dN/dS is a parameter that is estimated during the process of maximum-likelihood phylogenetic tree estimation, and while such estimates are typically considered higher accuracy and offer greater flexibility than counting-based methods since one can calculate branch-specific dN/dS values, in this simple pairwise case between HIMB83 and HIMB122 I did not see the necessity of such complexity.
+To calculate dN/dS$^{\text{(gene)}}$, I opted to use PAML's `yn00` program, which utilizes the [Yang and Nielson (2000)](https://pubmed.ncbi.nlm.nih.gov/10666704/) counting-based method for dN/dS. While dN/dS is a parameter that is estimated during the process of maximum-likelihood phylogenetic tree estimation, and while such estimates are typically considered higher accuracy and offer greater flexibility than counting-based methods since one can calculate branch-specific dN/dS values, in this simple pairwise case between HIMB83 and HIMB122 I did not see the necessity of such complexity.
 
 First I will walk through the steps required for calculating dN/dS using `yn00` for one homologous pair, and then I present the script that calculates them for all homologs shared between HIMB83 and HIMB122.
 
@@ -3465,7 +3473,7 @@ anvi-get-sequences-for-gene-clusters -p 07_PANGENOME_COMP_TO_HIMB122/PANGENOME/S
                                      -g 07_PANGENOME_COMP_TO_HIMB122/SAR11-GENOMES.db \
                                      --gene-cluster-id GC_00000017 \
                                      --max-num-genes-from-each-genome 1 \
-                                     -o GC_00000017.aln.fna \
+                                     -o GC_00000017.fna \
                                      --report-DNA
 ```
 
@@ -3514,6 +3522,10 @@ python ZZ_SCRIPTS/rename_for_paml.py -f GC_00000017.aln.faa
 
 You probably have noticed that the amino acid FASTA is labeled with `aln` in its name, that's because {% include PROGRAM name="anvi-get-sequences-for-gene-clusters" %} reports amino acid alignments of the protein sequence (_i.e._ there potentially exists gap characters so that the sequences align even if they are of different lengths). However, this alignment does not yet exist for the nucleotide sequence. To create this alignment, we use a program `ZZ_SCRIPTS/pal2nal.pl`, which has been floating around the internet since this [2006 paper](https://academic.oup.com/nar/article/34/suppl_2/W609/2505720) that converts protein alignments to codon alignments.
 
+```
+ZZ_SCRIPTS/pal2nal.pl GC_00000017.aln.faa GC_00000017.fna -output paml -nogap > GC_00000017.aln.fna
+```
+
 Using this ancient relic, we can create the codon alignment `GC_00000017.aln.fna` that PAML (`yn00`) so desires.
 
 ```
@@ -3555,7 +3567,7 @@ If you followed this exercise, make sure you clean up all of the files you made 
 rm GC_00000017.aln.faa GC_00000017.aln.fna GC_00000017.ctl GC_00000017.fna GC_00000017_output
 ```
 
-### Calculating dN/dS$^{(gene)}$ for all
+### Calculating dN/dS$^{\text{(gene)}}$ for all
 
 That is quite a bit of tedium to calculate dN/dS for one homologous pair, so I wrote a script that can calculate dN/dS for all of them called `ZZ_SCRIPTS/calculate_dnds.sh`
 
@@ -3645,7 +3657,7 @@ Config Error: Bad news: the combination of your filters resulted in zero gene cl
 
 This is actually desired behavior. We have set the parameter `--max-num-genes-from-each-genome 1` in {% include PROGRAM name="anvi-get-sequences-for-gene-clusters" %} in order to prevent circumstances where one gene cluster had multiple genes from a single genome. In such a scenario, we opt to ignore the cluster altogether, since it is ambiguous which homolog should be used for the comparison.
 
-This will take some time to run, but when it has finished the directory `19_DNDS_HIMB122` will be populated with all of the alignment information of each homologous comparison. But most important is the file `19_DNDS_HIMB122/dnds.txt`, which holds all of the dN/dS$^{(gene)}$ for each HIMB83 gene with respect to the homologous HIMB122 gene.
+This will take some time to run, but when it has finished the directory `19_DNDS_HIMB122` will be populated with all of the alignment information of each homologous comparison. But most important is the file `19_DNDS_HIMB122/dnds.txt`, which holds all of the dN/dS$^{\text{(gene)}}$ for each HIMB83 gene with respect to the homologous HIMB122 gene.
 
 To wrap up `19_DNDS_HIMB122/dnds.txt` into a cute little supplementary table (Table S12), run the following command from your GRE:
 
@@ -3663,7 +3675,7 @@ Which creates Table S12 under the filename `WW_TABLES/DNDS.txt`.
 
 ### Visualizing
 
-To summarize the results, I created a scatter plot between sample-averaged pN/pS and dN/dS which ended up being Figure S_DNDS.
+To summarize the results, I created a scatter plot between sample-averaged pN/pS and dN/dS which ended up being Figure S10.
 
 <details markdown="1"><summary>Show/Hide Script</summary>
 ```R
@@ -3723,14 +3735,12 @@ display(g2, file.path(args$output, "dnds_vs_pnps.png"), width=3.2, height=2.8)
 ```
 </details> 
 
-Running the following yields Figure S_DNDS under the filename `YY_PLOTS/FIG_S_DNDS/dnds_vs_pnps.png`
+Running the following yields Figure S10 under the filename `YY_PLOTS/FIG_S_DNDS/dnds_vs_pnps.png`
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #X</span>
 ```bash
-cd ZZ_SCRIPTS/
-Rscript figure_s_dnds.R
-cd ..
+source('figure_s_dnds.R')
 ```
 ‣ **Time:** <1 min  
 ‣ **Storage:** Minimal  
@@ -3740,9 +3750,9 @@ cd ..
 
 Since it is much more common for slightly negative polymorphisms to drift to observable frequencies than it is for them to fixate, it is expected that in the majority of cases sample-averaged pN/pS exceeds dN/dS, and it is indeed what we see (most genes are above the black line $y = x$). Interestingly, there are a select number of genes that have quite high rates of polymorphim, despite dN/dS being very low. I think there is probably an interesting story involving all of the genes with high polymorphism rates but low substitution rates (left side of plot).
 
-## Analysis X: Transcript abundance & Metatranscriptomics
+## Analysis 17: Transcript abundance & Metatranscriptomics
 
-Something that in my opinion remains undersold in the main text is the fact that we used accompanying metatranscriptome datasets to compare transcript abundance to selection strength as measured with pN/pS(gene). This is an important evolutionary analysis, since it has been widely documented that transcription/expression levels strongly dictate the evolutionary conservancy of genes. If you are interested in that subject, I suggest you read the Supplementary Information file, as the text there explains what we did quite well. That resulted in the multi-panel Figure SI5, which is the topic of this Analysis.
+Something that in my opinion remains undersold in the main text is the fact that we used accompanying metatranscriptome datasets to compare transcript abundance to selection strength as measured with pN/pS$^{\text{(gene)}}$. This is an important evolutionary analysis, since it has been widely documented that transcription/expression levels strongly dictate the evolutionary conservancy of genes. If you are interested in that subject, I suggest you read the Supplementary Information file, as the text there explains what we did quite well. That resulted in the multi-panel Figure SI5, which is the topic of this Analysis.
 
 [![exp]({{images}}/exp.png)]({{images}}/exp.png){:.center-img .width-100}
 
@@ -3851,7 +3861,7 @@ TA_sample_corr$fdr_25 <- TA_sample_corr$fdr <= 0.25
 
 This code creates the tables `TA`, `TA_sample_averaged`, and `TA_sample_corr`, which you can access from within your GRE.
 
-Table S13 provides a view of TA values and how they relate to pN/pS(gene) on a per-gene, per-sample basis, and can be generated via
+Table S13 provides a view of TA values and how they relate to pN/pS$^{\text{(gene)}}$ on a per-gene, per-sample basis, and can be generated via
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #X</span>
@@ -3867,7 +3877,7 @@ It is output to `WW_TABLES/TA.txt`.
 
 ### Correlation with sample-averaged TA
 
-There exists a TA for each gene in each relevant sample. The distribution of log-transformed TA values is shown in Figure SI5a. To see the extent that inter-gene differences in TA could explain inter-gene differences in pN/pS(gene), I averaged the TA and pN/pS(gene) values of each gene across samples, yielding a sample-averaged TA and pN/pS(gene) value for each gene. The scatterplot between these values is shown in Figure SI5b. Actually, since there is so much variance in TA across samples, I opted to use the median rather than the average.
+There exists a TA for each gene in each relevant sample. The distribution of log-transformed TA values is shown in Figure SI5a. To see the extent that inter-gene differences in TA could explain inter-gene differences in pN/pS$^{\text{(gene)}}$, I averaged the TA and pN/pS$^{\text{(gene)}}$ values of each gene across samples, yielding a sample-averaged TA and pN/pS$^{\text{(gene)}}$ value for each gene. The scatterplot between these values is shown in Figure SI5b. Actually, since there is so much variance in TA across samples, I opted to use the median rather than the average.
 
 Both the histogram and the scatterplot are generated with the following snippet from `ZZ_SCRIPTS/figure_s_exp.R`:
 
@@ -3912,7 +3922,7 @@ Impressively, a clear negative correlation is observed between these quantities.
 
 ### Lack of correlation across samples
 
-In a complementary analysis, I correlated TA with pN/pS(gene) across samples for individual genes to see whether inter-sample variance of pN/pS(gene) could be explained by measured TA. Taking a histogram of the resultant Pearson coefficients (Figure SI5c), you can see that more negative correlations exist than positive correlations, which fit our expectation, however the effect was very slight and statistically weak. Allowing for a very generous false discovery rate (FDR) of 25%, only 11% of the genes passed the test for significance (Figure SI5d).
+In a complementary analysis, I correlated TA with pN/pS$^{\text{(gene)}}$ across samples for individual genes to see whether inter-sample variance of pN/pS$^{\text{(gene)}}$ could be explained by measured TA. Taking a histogram of the resultant Pearson coefficients (Figure SI5c), you can see that more negative correlations exist than positive correlations, which fit our expectation, however the effect was very slight and statistically weak. Allowing for a very generous false discovery rate (FDR) of 25%, only 11% of the genes passed the test for significance (Figure SI5d).
 
 The code snippet responsible for Figures SI5c and SI5d is shown here:
 
@@ -3983,11 +3993,11 @@ source('figure_s_exp.R')
 
 Results are in `YY_PLOTS/FIG_S_EXP`.
 
-## Analysis X: Environmental correlations with pN/pS(gene)
+## Analysis 18: Environmental correlations with pN/pS$^{\text{(gene)}}$
 
-One of the most exciting things that pN/pS(gene) enables is the tracking of selection strength of a single gene across samples. Thanks to the diverse geographical sampling in this study, each sample has a host of measured enviornmental parameters that the calculated pN/pS(gene) can be compared against.
+One of the most exciting things that pN/pS$^{\text{(gene)}}$ enables is the tracking of selection strength of a single gene across samples. Thanks to the diverse geographical sampling in this study, each sample has a host of measured enviornmental parameters that the calculated pN/pS$^{\text{(gene)}}$ can be compared against.
 
-To expose the totality of this data, I correlated each measured environmental variable with each gene's pN/pS(gene), which resulted in Table S10. You can create this table from within the GRE:
+To expose the totality of this data, I correlated each measured environmental variable with each gene's pN/pS$^{\text{(gene)}}$, which resulted in Table S10. You can create this table from within the GRE:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #X</span>
@@ -4021,7 +4031,7 @@ env_corr <- pnps %>%
 ```
 </details> 
 
-Essentially, Table S10 is created from the GRE R-variable `env_corr`, which is quite a useful table if you want to search for potentially interesting genes. For example, suppose you want the genes with pN/pS(gene) values that most strongly anti-correlate with sample temperature. This means, or at least suggests, that temperature and/or its co-variables strongly affects the selection strength acting on these genes--specifically that increased temperature leads to increased selection strength. Finding the top 10 genes meeting this criteria, along with their functions from several annotation sources, is this easy.
+Essentially, Table S10 is created from the GRE R-variable `env_corr`, which is quite a useful table if you want to search for potentially interesting genes. For example, suppose you want the genes with pN/pS$^{\text{(gene)}}$ values that most strongly anti-correlate with sample temperature. This means, or at least suggests, that temperature and/or its co-variables strongly affects the selection strength acting on these genes--specifically that increased temperature leads to increased selection strength. Finding the top 10 genes meeting this criteria, along with their functions from several annotation sources, is this easy.
 
 ```R
 env_corr %>%
@@ -4054,15 +4064,9 @@ Which yields this.
 # … with 789 more rows, and 1 more variable: function_KOfam <chr>
 ```
 
-## Analysis X: Glutamine synthetase (GS)
+## Analysis 19: Glutamine synthetase (GS)
 
-<div class="extra-info" style="{{ analysis_style  }}" markdown="1">
-<span class="extra-info-header">Analysis X Info</span>
-‣ **Prerequisite steps/analyses:** None  
-‣ **Checkpoint datapack:** None  
-</div> 
-
-This rather lengthy Analysis details everything to do with the case study involving glutamine synthetase (GS). In essence, this means anything to do with Figure 4 is covered here.
+This rather lengthy Analysis details everything to do with the case study involving glutamine synthetase (GS). In essence, this means anything to do with Figure 3 is covered here.
 
 ### GS is a dodecamer
 
@@ -4451,9 +4455,9 @@ As a result of this, you could access these data and their associations with pol
 scvs %>% filter(gene_callers_id==2602) %>% select(codon_order_in_gene, sample_id, pN_popular_consensus, pS_popular_consensus, complex_RSA, complex_DTL)
 ```
 
-### pN/pS(gene) of GS
+### pN/pS$^{\text{(gene)}}$ of GS
 
-Compared to other genes, GS has a very low sample-averaged pN/pS(gene) value. Yet even still, there is almost 3-fold variation in pN/pS(gene) observed between samples. This information comes strictly from the pN/pS(gene) data you calculated, which is represented in the GRE with the R-variable `pnps`. These observations are illustrated in Figure 3b, which was produced with the script `ZZ_SCRIPTS/figure_3.R`. Here is the relevant code:
+Compared to other genes, GS has a very low sample-averaged pN/pS$^{\text{(gene)}}$ value. Yet even still, there is almost 3-fold variation in pN/pS$^{\text{(gene)}}$ observed between samples. This information comes strictly from the pN/pS$^{\text{(gene)}}$ data you calculated, which is represented in the GRE with the R-variable `pnps`. These observations are illustrated in Figure 3b, which was produced with the script `ZZ_SCRIPTS/figure_3.R`. Here is the relevant code:
 
 ```R
 # -----------------------------------------------------------------------------
@@ -4491,9 +4495,9 @@ display(aligned[[1]], file.path(args$output, "GS_corr.pdf"), width=2.3, height=1
 display(aligned[[2]], file.path(args$output, "GS_pnps.pdf"), width=2.3, height=1.9)
 ```
 
-### pN/pS(gene) correlation with nitrates
+### pN/pS$^{\text{(gene)}}$ correlation with nitrates
 
-As was mentioned in Analysis X, `env_corr` is an R-variable in the GRE that is supremely useful for identifying which genes' pN/pS(gene) values correlate with which environmental parameters. GS has Gene ID 2602, so one can easily probe which environmental parameters GS correlates with:
+As was mentioned in [Analysis X](#analysis-18-environmental-correlations-with-pnpstextgene), `env_corr` is an R-variable in the GRE that is supremely useful for identifying which genes' pN/pS$^{\text{(gene)}}$ values correlate with which environmental parameters. GS has Gene ID 2602, so one can easily probe which environmental parameters GS correlates with:
 
 ```R
 > env_corr %>% filter(gene_callers_id == 2602) %>% t()
@@ -4571,7 +4575,7 @@ We can remove the red spheres by setting the sphere size to a very small size.
 {:.notice}
 This is my fault, but don't set the sphere size to exactly 0, or else I will punch you in the throat.
 
-Next up, let's make the surface less transparent, and color the surface dynamically according to log-transformed pN(site). Site the lower bound to -4 and the upper bound to -1, so that the color spectrum spans 3 orders of magnitude.
+Next up, let's make the surface less transparent, and color the surface dynamically according to log-transformed pN$^{\text{(site)}}$. Site the lower bound to -4 and the upper bound to -1, so that the color spectrum spans 3 orders of magnitude.
 
 [![s3]({{images}}/s3.png)]( {{images}}/s3.png){:.center-img .width-100}
 
@@ -4628,13 +4632,13 @@ These scripts will take a few minutes to run, because they produce high quality 
 
 ### DTL and RSA polymorphism distribution across samples
 
-Each site of GS exhibits s- and ns-polymorphism rates that vary from sample-to-sample; in some samples a site may have a high rate of ns-polymorphism, whereas in others it may have a low rate. We were particularly interested in whether the spatial distribution of s- and ns-polymorphism with respect to RSA and DTL varied from sample to sample, and whether or not any differences in samples could be associated with the pN/pS(gene) observed in that sample. Our investigation into this ultimately led to Figures 3e and 3f.
+Each site of GS exhibits s- and ns-polymorphism rates that vary from sample-to-sample; in some samples a site may have a high rate of ns-polymorphism, whereas in others it may have a low rate. We were particularly interested in whether the spatial distribution of s- and ns-polymorphism with respect to RSA and DTL varied from sample to sample, and whether or not any differences in samples could be associated with the pN/pS$^{\text{(gene)}}$ observed in that sample. Our investigation into this ultimately led to Figures 3e and 3f.
 
 [![fig3ef]({{images}}/fig3ef.png)]( {{images}}/fig3ef.png){:.center-img .width-100}
 
-So what's going on with the scatter plots of Figures 3e and 3f? To paint the picture, consider just 3f for a moment. Each pair of red and blue datapoints, which I've connected by vertical lines, represent a single sample. The x-axis shows the sample’s calculated pN/pS, and y-axis is the average distance that polymorphism distributed from the active active site. This average distance is actually a weighted average, and is calculated by averaging the (dodecameric) DTL of each residue, except instead of each residue contributing equal weight, it instead contributes a weight in proportion with its ns-polymorphism rate (red) or s-polymorphism rate (blue). This means if a site has a pN(site) of 0, it's DTL does not contribute to the average DTL of ns-polymorphism. The scatter plot is calculated identically for 3e, except it is a weighted average of (dodecameric) RSA rather than DTL.
+So what's going on with the scatter plots of Figures 3e and 3f? To paint the picture, consider just 3f for a moment. Each pair of red and blue datapoints, which I've connected by vertical lines, represent a single sample. The x-axis shows the sample’s calculated pN/pS, and y-axis is the average distance that polymorphism distributed from the active active site. This average distance is actually a weighted average, and is calculated by averaging the (dodecameric) DTL of each residue, except instead of each residue contributing equal weight, it instead contributes a weight in proportion with its ns-polymorphism rate (red) or s-polymorphism rate (blue). This means if a site has a pN$^{\text{(site)}}$ of 0, it's DTL does not contribute to the average DTL of ns-polymorphism. The scatter plot is calculated identically for 3e, except it is a weighted average of (dodecameric) RSA rather than DTL.
 
-Though it is not the prettiest of functions, I wrote a rather general-purpose function that will create a scatter plot of the s/ns-polymorphism-weighted average of $Y$ of with respect to $X$ for a specific gene of interest. The calculation I've described fits perfectly into this mold, where $Y$ is either (dodecameric) DTL or (dodecameric) RSA and $X$ is pN/pS(gene). That function can be found in `ZZ_SCRIPTS/utils.R` and you should feel free to experiment with it. For example, here is a plot of mean RSA of s/ns-polymorphism with respect to sampling temperature for Gene ID 1326.
+Though it is not the prettiest of functions, I wrote a rather general-purpose function that will create a scatter plot of the s/ns-polymorphism-weighted average of $Y$ of with respect to $X$ for a specific gene of interest. The calculation I've described fits perfectly into this mold, where $Y$ is either (dodecameric) DTL or (dodecameric) RSA and $X$ is pN/pS$^{\text{(gene)}}$. That function can be found in `ZZ_SCRIPTS/utils.R` and you should feel free to experiment with it. For example, here is a plot of mean RSA of s/ns-polymorphism with respect to sampling temperature for Gene ID 1326.
 
 ```R
 g <- get_dist_to_lig(gene=1326, lig=NA, variable='temperature', not_DTL='rel_solvent_acc')
@@ -4664,7 +4668,7 @@ The output will be in `YY_PLOTS/FIG_3`.
 
 ### Sites of interest
 
-Figure 3g illustrates which sites exhibit minor (non-dominant) amino acid alleles that co-vary with pN/pS(gene). It is these sites that play a dominant role in shifting the spatial distribution of ns-polymorphism, which was our rationale for the analysis.
+Figure 3g illustrates which sites exhibit minor (non-dominant) amino acid alleles that co-vary with pN/pS$^{\text{(gene)}}$. It is these sites that play a dominant role in shifting the spatial distribution of ns-polymorphism, which was our rationale for the analysis.
 
 The caption explains things rather well, so I'll skip jump to the code, which looks like this.
 
@@ -4754,7 +4758,8 @@ source('figure_3.R')
 
 This will output the Figures 3b, 3c, 3e, 3f, and 3g into `YY_PLOTS/FIG_3`. What's missing in that list is Figures 3a and 3d, which are absent because they contain images of proteins which are generated with PyMOL, not R. If you missed those, see the above analyses, which detail how those can be reproduced.
 
-## Analysis X: Genome-wide ns-polymorphism avoidance of low RSA/DTL
+## Analysis 20: Genome-wide ns-polymorphism avoidance of low RSA/DTL
+
 ### This is a genome-wide trend
 
 Figures 3e and 3f are interesting because they illustrate that changes in selection strength lead to changes in the spatial distribution of ns-polymorphism towards high RSA and high DTL sites.
@@ -4763,9 +4768,9 @@ Is this a cherry-picked result? After all, my choice to use GS was not because i
 
 [![4ab]({{images}}/4ab.png)]( {{images}}/4ab.png){:.center-img .width-100}
 
-Figures 4a and 4b are essentially replicas of Figures 3e and 3f, except the data is coming from all sites of all genes, rather than just GS. Correspondingly, the x-axis has been changed to pN/pS(core), which quantifies the overall purifying selection strength across all of the 1a.3.V core genes, not just GS.
+Figures 4a and 4b are essentially replicas of Figures 3e and 3f, except the data is coming from all sites of all genes, rather than just GS. Correspondingly, the x-axis has been changed to pN/pS$^{\text{(core)}}$, which quantifies the overall purifying selection strength across all of the 1a.3.V core genes, not just GS.
 
-From the Methods section, pN(core) and pS(core) can be expressed as weighted averages of pN(site) and pS(site). And pN/pS(core) = pN(core)/pS(core). This calculation is performed in `ZZ_SCRIPTS/load_data.R` with the following code:
+From the Methods section, pN$^{\text{(core)}}$ and pS$^{\text{(core)}}$ can be expressed as weighted averages of pN$^{\text{(site)}}$ and pS$^{\text{(site)}}$. And pN/pS$^{\text{(core)}}$ = pN$^{\text{(core)}}$/pS$^{\text{(core)}}$. This calculation is performed in `ZZ_SCRIPTS/load_data.R` with the following code:
 
 ```R
 genome_pnps <- scvs %>%
@@ -4780,7 +4785,7 @@ scvs <- scvs %>%
     left_join(genome_pnps)
 ```
 
-It's rather elegant. Each sample ends up with a pN/pS(core) value, which is added to the SCVs table as the column `genome_pnps`. With this data attached to the SCV table, it is now a straight shot to Figures 4a and 4b. The calculation and plotting is dealt with in `ZZ_SCRIPTS/figure_4.R`:
+It's rather elegant. Each sample ends up with a pN/pS$^{\text{(core)}}$ value, which is added to the SCVs table as the column `genome_pnps`. With this data attached to the SCV table, it is now a straight shot to Figures 4a and 4b. The calculation and plotting is dealt with in `ZZ_SCRIPTS/figure_4.R`:
 
 <details markdown="1"><summary>Show/Hide Script</summary>
 ```R
@@ -4966,7 +4971,7 @@ source('figure_4.R')
 ‣ **Memory:** Minimal  
 </div> 
 
-#### Robustness of results
+### Robustness of results
 
 Figures 4a and 4b show that the trends seen in the GS case study are a general feature of the genome. How robust are these results? One way to test this would be to remove some genes and recalculate whether a negative correlation is observed. If the removal of a few genes is enough to destroy the negative correlation, then a minority of genes are contributing a majority of the signal.
 
@@ -4998,7 +5003,7 @@ python ZZ_SCRIPTS/table_rob.py
 
 The table will be written to `WW_TABLES/ROB.xlsx`.
 
-## Analysis X: Synonymous variation
+## Analysis 21: Synonymous variation
 
 ### s-polymorphism avoids low RSA and DTL
 
@@ -5006,7 +5011,7 @@ We interestingly found that it is not just ns-polymorphism that avoids low RSA a
 
 [![4cd]({{images}}/4cd.png)]( {{images}}/4cd.png){:.center-img .width-100}
 
-This is seen in Figures 4c and 4d, which are calculated the same way as Figures 4a and 4b, except where the RSA and DTL of sites are weighted by pS(site) instead of pN(site).
+This is seen in Figures 4c and 4d, which are calculated the same way as Figures 4a and 4b, except where the RSA and DTL of sites are weighted by pS$^{\text{(site)}}$ instead of pN$^{\text{(site)}}$.
 
 If you haven't already done so, you can produce these plots via
 
@@ -5032,13 +5037,13 @@ source('table_cdn_comp.R')
 
 -----------------------------------
 
-What we found in the paper is that rare codons are purged from the population when selection is high (low pN/pS(core)), and those that remain do so in structurally/functionally less critical sites. This is shown with Figures 4e, 4f, and 4g.
+What we found in the paper is that rare codons are purged from the population when selection is high (low pN/pS$^{\text{(core)}}$), and those that remain do so in structurally/functionally less critical sites. This is shown with Figures 4e, 4f, and 4g.
 
-[![4gef]({{images}}/4gef.png)]( {{images}}/4gef.png){:.center-img .width-100}
+[![4efg]({{images}}/4efg.png)]( {{images}}/4efg.png){:.center-img .width-100}
 
-As a reminder, each SCV has both a synonymous and nonsyonymous contribution, which we quantify with pS(site) and pN(site), respectively. Since we were strictly interested in _synonymous_ variation, we needed to be careful about this calculation, and so  we opted to play things extremely conservatively and excluded any SCVs that had any significant pN(site) value. After a back-of-the-envelope calculation, we decided that 0.0005 would be a good cutoff: any SCV with a pN(site) > 0.0005 would be excluded.
+As a reminder, each SCV has both a synonymous and nonsyonymous contribution, which we quantify with pS$^{\text{(site)}}$ and pN$^{\text{(site)}}$, respectively. Since we were strictly interested in _synonymous_ variation, we needed to be careful about this calculation, and so  we opted to play things extremely conservatively and excluded any SCVs that had any significant pN$^{\text{(site)}}$ value. After a back-of-the-envelope calculation, we decided that 0.0005 would be a good cutoff: any SCV with a pN$^{\text{(site)}}$ > 0.0005 would be excluded.
 
-With that in mind, Figure 4e is produced quite simply. Each datapoint is a sample, where the x-axis is the sample's pN/pS(core) (see Methods) and the y-axis is the average per-site synonymous codon rarity. Here is the responsible snippet from `ZZ_SCRIPTS/figure_4.R`:
+With that in mind, Figure 4e is produced quite simply. Each datapoint is a sample, where the x-axis is the sample's pN/pS$^{\text{(core)}}$ (see Methods) and the y-axis is the average per-site synonymous codon rarity. Here is the responsible snippet from `ZZ_SCRIPTS/figure_4.R`:
 
 ```R
 pN_cutoff <- 0.0005
@@ -5061,7 +5066,7 @@ g_rare_all <- ggplot(plot_data, aes(pnps, syn_codon_rarity)) +
     my_theme(8)
 ```
 
-Figures 4f and 4g measure where rare codons incorporate (on average) relative to RSA and DTL. These calculations are weighted averages. Let's take 4f, for example, which illustrates how rare codons associate with RSA. For each sample (data point), we weighted the RSA value of each SCV (that had pN(site) < 0.0005) by the synonymous codon rarity of the SCV. This gives a genome-wide measure of how codon rarity distributes relative to RSA, for a given sample. The same thing is done with DTL, which results in 4g. Here is the code from `ZZ_SCRIPTS/figure_4.R`:
+Figures 4f and 4g measure where rare codons incorporate (on average) relative to RSA and DTL. These calculations are weighted averages. Let's take 4f, for example, which illustrates how rare codons associate with RSA. For each sample (data point), we weighted the RSA value of each SCV (that had pN$^{\text{(site)}}$ < 0.0005) by the synonymous codon rarity of the SCV. This gives a genome-wide measure of how codon rarity distributes relative to RSA, for a given sample. The same thing is done with DTL, which results in 4g. Here is the code from `ZZ_SCRIPTS/figure_4.R`:
 
 ```R
 # This is for rarity-weighted RSA
