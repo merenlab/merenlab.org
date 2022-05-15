@@ -55,21 +55,52 @@ The GRE is what I used while developing this study, and it is the same environme
 
 Unless you are confident about doing it your own way, you should create the GRE using the following steps.
 
-**(1)** Open RStudio. You should open it via the command-line:
+**(1)** Open R. You should open it via the command-line:
 
 ```bash
-rstudio
+R
 ```
+
+This opens up a R-shell that you can pass R commands to:
+
+```R
+R version 3.6.1 (2019-07-05) -- "Action of the Toes"
+Copyright (C) 2019 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin13.4.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> print('This is R!')
+[1] "This is R!"
+```
+
+You can quit at any time with
+
+```
+q()
+```
+
+It will ask if you want to save your workspace. You should respond _no_ by typing `n`.
 
 **(2)** Change the directory to `ZZ_SCRIPTS`.
 
-Your RStudio environment may look different, but here is what mine looks like.
+Now set the working directory to the `ZZ_SCRIPTS` folder, where all of the project scripts exist. You should do this with the R function `setwd()`:
 
-[![rstudio1]({{images}}/rstudio1.png)]( {{images}}/rstudio1.png){:.center-img .width-100}
-
-Navigate to the _Console_ tab. This is where you will issue R commands in the GRE.
-
-Now set the working directory to the `ZZ_SCRIPTS` folder, where all of the project scripts exist. You should do this with the R function `setwd()`. In the screenshot I first ran `getwd()` to verify I was in the root directory (`<WHERE_YOU_CREATED_THE_ROOT_DIECTORY>/kiefl_2021`) and then safely navigated into `ZZ_SCRIPTS` with `setwd('ZZ_SCRIPTS')`.
+```R
+setwd('ZZ_SCRIPTS')
+```
 
 Did you encounter an error like so?
 
@@ -78,11 +109,7 @@ Did you encounter an error like so?
 Error in setwd("ZZ_SCRIPTS") : cannot change working directory
 ```
 
-If so, you're in the wrong place. Try providing the full path to `ZZ_SCRIPTS`:
-
-```R
-setwd('<WHERE_YOU_CREATED_THE_ROOT_DIECTORY>/kiefl_2021/ZZ_SCRIPTS')
-```
+If so, you're in the wrong place. Quit out with `q()`, `cd` into the root directory of this project, and then try again.
 
 Congrats. You have built the GRE, which is all that's required to begin running analyses. 
 
@@ -90,7 +117,7 @@ Congrats. You have built the GRE, which is all that's required to begin running 
 
 Unless otherwise stated, **commands automatically load the data they need into the GRE**.
 
-With the GRE built, you can run analyses from the _Console_ tab. All the required data will be loaded into the GRE. For example, generating Figure X is as simple as running the following command:
+With the GRE built, you can run analyses by issuing R commands. All the required data will be loaded into the GRE. For example, generating Figure X is as simple as running the following command:
 
 ```R
 source('figure_s_env.R')
@@ -99,6 +126,9 @@ source('figure_s_env.R')
 This produces the following figure in `YY_PLOTS/FIG_S_ENV/` as a .pdf and .png formatted image.
 
 [![s_env]({{images}}/s_env.png)]( {{images}}/s_env.png){:.center-img .width-70}
+
+{:.notice}
+If you used conda, it's likely that a graphical window will "pop up", displaying the plot. If you used Docker, that's unlikely. In either case, you can always navigate to the output directory `YY_PLOTS/FIG_S_ENV/` to see the plots.
 
 To see what's happening under the hood, you can view the contents of `ZZ_SCRIPTS/figure_s_env.R`, the R script that we called `source()` on:
 
@@ -190,11 +220,9 @@ Each analysis will typically start by running `ZZ_scripts/load_data.R`, which is
 source('load_data.R')
 ```
 
-At any time, you can run this command from within the _Console_. Afterwards, a wealth of common data is now available in the GRE as different variables, which can be viewed from the _Environment_ pane:
+At any time, you can run this command from within the R-shell. Afterwards, a wealth of common data is now available in the GRE as different variables
 
-[![rstudio2]({{images}}/rstudio2.png)]( {{images}}/rstudio2.png){:.center-img .width-90}
-
-For example, the above screenshot shows how you could access and view the $\text{pN/pS}^{(\text{gene})}$ data, which has been given the variable name `pnps`. In Step X we calculated $\text{pN/pS}^{(\text{gene})}$ for each gene in each sample, and stored the data in the file `17_PNPS/pNpS.txt`. Well, `ZZ_SCRIPTS/load_data.R` has loaded this data into the GRE under the variable name `pnps`.
+For example, the $\text{pN/pS}^{(\text{gene})}$ data across genes and samples has been loaded into the GRE under the variable name `pnps`. In Step X we calculated $\text{pN/pS}^{(\text{gene})}$ for each gene in each sample, and stored the data in the file `17_PNPS/pNpS.txt`. Well, `ZZ_SCRIPTS/load_data.R` has loaded this data into the GRE under the variable name `pnps`.
 
 This is useful for _you_, because you can very quickly query this data using R (_e.g._ `pnps %>% filter(gene_callers_id == 1326)`), but it is also useful for all of the downstream analysis scripts which will be ran from within the GRE.
 
@@ -1117,24 +1145,16 @@ python ZZ_SCRIPTS/table_pnps_sums.py
 
 ## Analysis X: Creating the anvi'o structure workflow diagram
 
-Since Figure 1 is merely a diagrammatic workflow, there is no real data. Consequently, there is not much value in reproducing this figure. But that didn't stop me. You can reproduce the protein images by running `ZZ_SCRIPTS/figure_1.sh`, which runs a bunch of PyMOL scripts (`.pml` file extensions).
+Since Figure 1 is merely a diagrammatic workflow, there is no real data. Consequently, there is not much value in reproducing this figure. But that didn't stop me. You can reproduce the protein images by running this clump of PyMOL scripts (`.pml` extension)
 
-<details markdown="1"><summary>Show/Hide Script</summary>
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
 ```bash
-#! /usr/bin/env bash
-
 pymol -c ZZ_SCRIPTS/figure_1_worker1.pml
 pymol -c ZZ_SCRIPTS/figure_1_worker2.pml
 pymol -c ZZ_SCRIPTS/figure_1_worker3.pml
 pymol -c ZZ_SCRIPTS/figure_1_worker4.pml
 pymol -c ZZ_SCRIPTS/figure_1_worker6.pml
-```
-</details>
-
-<div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
-```bash
-source ZZ_SCRIPTS/figure_1.sh # FIXME I had to source because `pymol` is set as alias
 ```
 ‣ **Time:** Minimal  
 ‣ **Storage:** Minimal  
@@ -2641,7 +2661,7 @@ print(100*combined / (combined + formatted_anova_pn_rsa_dtl["Residuals"]) %>% ro
 
 The same thing is done with all of the other models, and the ANOVA results are compiled into Table S6, which is stored as `WW_TABLES/MODELS.txt`.
 
-Before this, I used to think of regressions as some basic line fitting routine that takes a fraction of a second. Probably this falsehood stems from the toy examples I learned in basic statistics classes on the subject. But these are pretty big linear models--about 10M datapoints in each. And we didn't do any parallelization or fancy tricks, so it takes considerable memory and time for this script to complete. As such, this is the one instance where **I recommend you _close_ your GRE before running this script**, because your computer (especially if its a laptop) will need all of the memory it can get. Instead of running this in RStudio, just run it from the command line:
+Before this, I used to think of regressions as some basic line fitting routine that takes a fraction of a second. Probably this falsehood stems from the toy examples I learned in basic statistics classes on the subject. But these are pretty big linear models--about 10M datapoints in each. And we didn't do any parallelization or fancy tricks, so it takes considerable memory and time for this script to complete. As such, this is the one instance where **I recommend you _close_ your GRE before running this script**, because your computer (especially if its a laptop) will need all of the memory it can get. Instead of running this inside an R-shell, just run it from the command line:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #X</span>
@@ -4048,7 +4068,7 @@ This rather lengthy Analysis details everything to do with the case study involv
 
 Proteins do not always function as individual monomers--in fact it is probably the minority of cases, and GS is no exception. GS forms a homo-dodecamer, meaning that 12 identical GS protein chains assemble to form a complex. For example, [1FPY](https://www.rcsb.org/structure/1FPY) and [1F52](https://www.rcsb.org/structure/1F52) are both crystal structures of a Salmonella typhimurium GS, which shares 61% amino acid similarity to the HIMB083 GS. In the 1FPY structure, phosphinothricin (which blocks glutamate binding) and ADP are bound in the active site, providing a visual proxy for where the glutamate is supposed to bind.
 
-Figure 3a is an image of 1FPY, and can be generated using PyMOL. If you don't know, PyMOL is an analysis and visualization software for molecules. It is a staple in the protein world and it has a scripting language, which is great for reproducibility. Go ahead and run the script `ZZ_SCRIPTS/structure_2602_1FPY.pml`:
+Figure 3a is an image of 1FPY, and can be generated using PyMOL. If you don't know, PyMOL is an analysis and visualization software for molecules. It is a staple in the protein world _and_ it has a scripting language, which is great for reproducibility. Go ahead and run the script `ZZ_SCRIPTS/structure_2602_1FPY.pml`:
 
 <details markdown="1"><summary>Show/Hide PyMOL Script</summary>
 ```
@@ -4165,7 +4185,7 @@ pymol -c ZZ_SCRIPTS/structure_2602_1FPY.pml
 ‣ **Memory:** Minimal  
 
 {:.notice}
-If you want to visualize 1FPY interactively in the PyMOL interface, remove the `-c`.
+If you want to visualize 1FPY interactively in the PyMOL interface, remove the `-c`. However, if you're using Docker, it will be very difficult to convince Docker to render PyMOL's graphical interface. My suggestion is to download PyMOL on your local computer.
 </div> 
 
 ### Dodecameric RSA & DTL
@@ -4234,6 +4254,9 @@ pymol -c ZZ_SCRIPTS/GS_neighor_complex.pml
 When done, you can open up the resulting complex with `pymol 21_GS_COMPLEX/neighbor_complex.pdb`:
 
 [![neighbor2]({{images}}/neighbor2.png)]( {{images}}/neighbor2.png){:.center-img .width-90}
+
+{:.notice}
+If you're using Docker, it will be very difficult to convince Docker to render PyMOL's graphical interface. My suggestion is to download PyMOL on your local computer for any investigations that involve interactively visualizing with PyMOL.
 
 From this pseudo-complex, I calculated the RSA and DTL of the central protein using two scripts, `ZZ_SCRIPTS/GS_complex_DTL.py` and `ZZ_SCRIPTS/GS_complex_RSA.py`. Check them out if you wish:
 
@@ -4554,6 +4577,9 @@ Next up, let's make the surface less transparent, and color the surface dynamica
 
 The result is pretty decent. If you wanted, you could take a screenshot of the resultant protein and pop it into your results section. But anvi'o structure is really not where you should be producing publication-quality figures. For this PyMOL is far superior. It is for this reason I developed an option to _Export to PyMOL_, which can be accessed in the _Output_ tab.
 
+{:.notice}
+If you're using Docker, it will be very difficult to convince Docker to render PyMOL's graphical interface. My suggestion is to download PyMOL on your local computer for any investigations that involve interactively visualizing with PyMOL.
+
 [![s4]({{images}}/s4.png)]( {{images}}/s4.png){:.center-img .width-100}
 
 This creates a PyMOL script shown in the screenshot above that will (somewhat) faithfully reproduce the current anvi'o structure view in PyMOL, so that you can create more refined and beautiful figures, or to undertake more sophisticated analyses that are better suited for PyMOL.
@@ -4577,6 +4603,7 @@ After some time, you should see a visualization that is relatively similar to th
 [![s6]({{images}}/s6.png)]( {{images}}/s6.png){:.center-img .width-100}
 
 To make it a bit prettier, type `ray` into the console ([https://pymolwiki.org/index.php/Ray](https://pymolwiki.org/index.php/Ray)).
+
 
 #### Reproducing Figure 3d
 
