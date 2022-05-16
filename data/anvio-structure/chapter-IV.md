@@ -38,29 +38,95 @@ Unless otherwise stated, each analysis can be run independently from the others,
 
 As such, you should feel free to jump around this document, rather than reading it top down. To help you navigate to the analyses you are interested in, here is a directory of all figures and tables in the main text and supplementary information, and clicking any figure/table will redirect you to the analysis where it is produced.
 
-[Figure 1 - Analysis X](#analysis-6-creating-the-anvio-structure-workflow-diagram)
-[Figure 2ab - Analysis X](#analysis-9-genome-wide-pn--and-ps-weighted-rsa-and-dtl-distributions)
-[Figure 2cd - Analysis X](#analysis-12-gene-sample-pair-linear-models)
-[Figure 2e - Analysis X](#analysis-13-per-group-pn-and-ps)
-[Figure 3 - Analysis X](#analysis-19-glutamine-synthetase-gs)
-[Figure 4ab - Analysis X](#analysis-20-genome-wide-ns-polymorphism-avoidance-of-low-rsadtl)
-[Figure 4cd - Analysis X](#analysis-21-synonymous-variation)
-[Figure 4efg - Analysis X](#analysis-21-synonymous-variation)
+[Figure 1 - Analysis 6](#analysis-6-creating-the-anvio-structure-workflow-diagram)
 
-[Figure S1 - Analysis X](#analysis-2-comparing-sequence-similarity-regimes)
+[Figure 2ab - Analysis 9](#analysis-9-genome-wide-pn--and-ps-weighted-rsa-and-dtl-distributions)
 
+[Figure 2cd - Analysis 12](#analysis-12-gene-sample-pair-linear-models)
 
-[Figure S1 - Analysis X]({{ page.url }}/#analysis-x-comparing-sequence-similarity-regimes)
-[Figure S1 - Analysis X]({{ page.url }}/#analysis-x-comparing-sequence-similarity-regimes)
-[Figure S1 - Analysis X]({{ page.url }}/#analysis-x-comparing-sequence-similarity-regimes)
-[Figure S1 - Analysis X]({{ page.url }}/#analysis-x-comparing-sequence-similarity-regimes)
-[Figure S1 - Analysis X]({{ page.url }}/#analysis-x-comparing-sequence-similarity-regimes)
-[Figure S1 - Analysis X]({{ page.url }}/#analysis-x-comparing-sequence-similarity-regimes)
-[Figure S1 - Analysis X]({{ page.url }}/#analysis-x-comparing-sequence-similarity-regimes)
-[Figure S1 - Analysis X]({{ page.url }}/#analysis-x-comparing-sequence-similarity-regimes)
-[Figure S1 - Analysis X]({{ page.url }}/#analysis-x-comparing-sequence-similarity-regimes)
+[Figure 2e - Analysis 13](#analysis-13-per-group-pn-and-ps)
 
-FIXME
+[Figure 3 - Analysis 19](#analysis-19-glutamine-synthetase-gs)
+
+[Figure 4ab - Analysis 20](#analysis-20-genome-wide-ns-polymorphism-avoidance-of-low-rsadtl)
+
+[Figure 4cd - Analysis 21](#analysis-21-synonymous-variation)
+
+[Figure 4efg - Analysis 21](#analysis-21-synonymous-variation)
+
+--------------------------------------------------------------
+
+[Figure S1 - Analysis 2](#analysis-2-comparing-sequence-similarity-regimes)
+
+[Figure S2 - Analysis 4](#analysis-4-distributions-of-environmental-parameters)
+
+[Figure S3 - Analysis 5](#analysis-5-textpntextsite-and-textpstextsite-variation-across-genes-and-samples)
+
+[Figure S4 - Analysis 7](#analysis-7-comparing-alphafold-to-modeller)
+
+[Figure S5 - Analysis 9](#analysis-9-genome-wide-pn--and-ps-weighted-rsa-and-dtl-distributions)
+
+[Figure S6 - Analysis 9](#analysis-9-genome-wide-pn--and-ps-weighted-rsa-and-dtl-distributions)
+
+[Figure S7 - Analysis 12](#analysis-12-gene-sample-pair-linear-models)
+
+[Figure S8 - Analysis 12](#analysis-12-gene-sample-pair-linear-models)
+
+[Figure S9 - Analysis 10](#analysis-10-comparison-to-biolip-and-dtl-cutoff)
+
+[Figure S10 - Analysis 16](#analysis-16-dndstextgene-between-himb83-and-himb122)
+
+[Figure S11 - Analysis 15](#analysis-15-pnpstextgene-across-genes-and-samples)
+
+[Figure S12 - Analysis 15](#analysis-15-pnpstextgene-across-genes-and-samples)
+
+[Figure S13 - Analysis 3](#analysis-3-codon-usage-between-sar11-genomes)
+
+[Figure S14 - Analysis 21](#analysis-21-synonymous-variation)
+
+--------------------------------------------------------------
+
+[Figure SI1 - Analysis 14](#analysis-14-correlatedness-of-rsa-and-dtl)
+
+[Figure SI2 - Analysis 12](#analysis-12-gene-sample-pair-linear-models)
+
+[Figure SI3 - Analysis 13](#analysis-13-per-group-pn-and-ps)
+
+[Figure SI4 - Analysis 13](#analysis-13-per-group-pn-and-ps)
+
+[Figure SI5 - Analysis 17](#analysis-17-transcript-abundance--metatranscriptomics)
+
+[Figure SI6 - Analysis 20](#analysis-20-genome-wide-ns-polymorphism-avoidance-of-low-rsadtl)
+
+--------------------------------------------------------------
+
+[Table S1 - Analysis 1](#analysis-1-read-recruitment-summary-21-genomes)
+
+[Table S2 - Analysis 2](#analysis-2-comparing-sequence-similarity-regimes)
+
+[Table S3 - Analysis 5](#analysis-5-textpntextsite-and-textpstextsite-variation-across-genes-and-samples)
+
+[Table S4 - Analysis 7](#analysis-7-comparing-alphafold-to-modeller)
+
+[Table S5 - Analysis 8](#analysis-8-predicting-ligand-binding-sites)
+
+[Table S6 - Analysis 11](#analysis-11-big-linear-models)
+
+[Table S7 - Analysis 12](#analysis-12-gene-sample-pair-linear-models)
+
+[Table S8 - Analysis 13](#analysis-13-per-group-pn-and-ps)
+
+[Table S9 - Analysis 15](#analysis-15-pnpstextgene-across-genes-and-samples)
+
+[Table S10 - Analysis 18](#analysis-18-environmental-correlations-with-pnpstextgene)
+
+[Table S11 - Analysis 21](#analysis-21-synonymous-variation)
+
+[Table S12 - Analysis 16](#analysis-16-dndstextgene-between-himb83-and-himb122)
+
+[Table S13 - Analysis 17](#analysis-17-transcript-abundance--metatranscriptomics)
+
+[Table S14 - Analysis 20](#analysis-20-genome-wide-ns-polymorphism-avoidance-of-low-rsadtl)
 
 
 ### Global R environment (GRE)
@@ -2849,9 +2915,7 @@ To run this code and get access to the models, my recommendation is to simply so
 source('figure_2.R')
 ```
 
-This will create Figures 2c and 2d (as well as the rest of the plots in Figure 2), and plop the results into `YY_PLOTS/FIG_2`. But more importantly, your GRE will now contain a dataframe called `poly_corr`, which summarizes the statistics of each model:
-
-[![poly_corr]({{images}}/poly_corr.png)]( {{images}}/poly_corr.png){:.center-img .width-100}
+This will create Figures 2c and 2d (as well as the rest of the plots in Figure 2), and plop the results into `YY_PLOTS/FIG_2`. But more importantly, your GRE will now contain a dataframe called `poly_corr`, which summarizes the statistics of each model.
 
 If you want to get fancy and run the code without producing the whole of Figure 2, another option is to source `ZZ_SCRIPTS/load_data.R` after requesting that SCVs are loaded (`request_scvs <- TRUE`) and the models are calculated (`request_regs <- TRUE`):
 
@@ -2975,7 +3039,7 @@ source('figure_s_reg_stats.R')
 ‣ **Memory:** Minimal  
 </div> 
 
-Yielding the following plot in `YY_PLOTS/FIG_S_REG_STATS`.
+Yielding Figure SI2 in `YY_PLOTS/FIG_S_REG_STATS`.
 
 [![reg_stats]({{images}}/reg_stats.png)]( {{images}}/reg_stats.png){:.center-img .width-70}
 
