@@ -5192,12 +5192,21 @@ source('figure_4.R')
 ‣ **Memory:** Minimal  
 </div> 
 
+### Codon rarity per amino-acid
 
+Are there specific amino acids driving the trends observed in Figure 4e? We tested this by doing a per-amino acid analysis which revealed that all amino acids substitute rare codons with increased frequency when selection is low (Figure S14). The analysis is in `ZZ_SCRIPTS/figure_s_aa_rare.R`, and you can reproduce it with
 
+<div class="extra-info" style="{{ command_style  }}" markdown="1">
+<span class="extra-info-header">Command #X</span>
+```R
+source('figure_s_aa_rare.R')
+```
+‣ **Time:** Minimal  
+‣ **Storage:** Minimal  
+‣ **Memory:** Minimal  
+</div> 
 
+The results end up in `YY_PLOTS/FIG_S_AA_RARE`.
 
-
-
-
-
+[![s14]({{images}}/s14.png)]( {{images}}/s14.png){:.center-img .width-70}
 
