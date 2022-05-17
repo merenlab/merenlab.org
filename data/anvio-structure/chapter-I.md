@@ -49,8 +49,8 @@ With this in mind, this document aims to explain both the _how_ and the _why_ of
 
 As stated, this document is a co-mingling of step-by-step reproducibility, and in-depth commentary. With that in mind, I set forth the following goals, which in my opinion are all satisfied by this document:
 
-1. Step-by-step command-line instructions are provided for generating all raw, intermediate, and final data used in the paper, including all figures, tables, and numbers in the main and supplemental text.
-2. There exists several 'checkpoint files', so that one may download intermediate data if they can't or don't want to follow the entirety of the workflow. This is especially important for steps requiring significant computational resources. For example, this workflow involves downloading roughly 4Tb of metagenomic and metatranscriptomic sequence data for a read recruitment experiment. Yet those unable or uninterested in allotting this amount of storage space can instead download the anvi'o databases (a few Gb) that result from this read recruitment experiment and continue with the more interesting aspects of the analysis.
+1. Step-by-step command-line instructions are provided for generating all raw, intermediate, and final data used in the paper, including all figures, tables, and numbers in the main and supplemental text.nal
+2. There exists a 'data checkpoint', so that one may download intermediate data if they can't or don't want to follow the entirety of the workflow. This is especially important for steps requiring significant computational resources. For example, this workflow involves downloading roughly 4Tb of metagenomic and metatranscriptomic sequence data for a read recruitment experiment. Yet those unable or uninterested in allotting this amount of storage space can instead download the anvi'o databases (a few Gb) that result from this read recruitment experiment and continue with the more interesting aspects of the analysis.
 3. I've avoided common pitfalls of replicability by paying extra attention to **(a)** creating isolated installation environments, **(b)** meticulous control over program versioning, **(c)** cross-platform compatibility, and **(d)** prohibited use of environmental variables that are specific to my personal environment.
 4. Let's face it: there isn't enough space in the Methods section for all relevant details. Beyond what's required for reproducibility, this document houses information about methods that didn't make the cut, but are important nonetheless.
 5. In my opinion, this document sets a standard for what transparency in computational science means, and why that's so valuable. This analysis is completely laid bare, so that it may be openly challenged, criticized, riffed on, and hopefully improved upon in the process. It likely contains errors--but that's okay. I didn't make this document to prove everything I did was right. I made this document to be educational.
@@ -63,7 +63,7 @@ There are some skill and hardware requirements for following this workflow. Ther
 
 This study makes primary use of some large datasets. If you want to reproduce this study from scratch, you will need access to a high performance computing (HPC) cluster.
 
-But if you don't have access to such a resource, don't worry. All of the computationally intensive steps in this study occur near the beginning of the workflow. Past Step X, **I achieved all of the subsequent analyses on a laptop with 16 Gb of RAM**.
+But if you don't have access to such a resource, don't worry. All of the computationally intensive steps in this study occur near the beginning of the workflow. After Step 4, **I achieved all of the subsequent analyses on a laptop with 16 Gb of RAM**.
 
 #### Skillset
 
@@ -75,7 +75,7 @@ If you don't fall into this category of people, I would suggest checking out thi
 
 If you are concerned whether your skills are up to snuff, don't worry. My suggestion would be to briefly peruse [Chapter II: Configure your system]({{ site.url }}/data/anvio-structure/chapter-II). This is by far the hardest part of the workflow, so if you think you can follow the steps within, the rest will be child's play.
 
-As you learned in the hardware requirements, recreating this study from scratch requires access to a high-performance computing cluster. If you plan to go this route instead of downloading some of the checkpoint data packs, you will need to know how to submit commands as jobs to your HPC cluster.
+As you learned in the hardware requirements, recreating this study from scratch requires access to a high-performance computing cluster. If you plan to go this route instead of downloading the checkpoint datapack, you will need to know how to submit commands as jobs to your HPC cluster.
 
 ### Format
 

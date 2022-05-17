@@ -55,11 +55,12 @@ The output should look something like: `/some/path/that/ends/in/kiefl_2021`.
 
 Now that the directory exists, the first thing you'll populate it with is all of the scripts used in this reproducible workflow. Download them with
 
-
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #X</span>
 ```bash
-wget FIXME (use $d/HIMB084/ZZ_SCRIPTS + /project2/meren/PROJECTS/KIEFL_2021/ZZ_SCRIPTS) (they should have no intersection)
+wget -O ZZ_SCRIPTS.zip https://figshare.com/ndownloader/files/35134069
+unzip ZZ_SCRIPTS.zip
+rm ZZ_SCRIPTS.zip
 ```
 ‣ **Time:** Minimal  
 ‣ **Storage:** Minimal  
@@ -68,7 +69,7 @@ wget FIXME (use $d/HIMB084/ZZ_SCRIPTS + /project2/meren/PROJECTS/KIEFL_2021/ZZ_S
 
 This downloads all of the scripts and puts them in a folder called `ZZ_SCRIPTS`. If you're curious, go ahead and look at some or all of them, but don't get overwhelmed. Each script will be properly introduced when it becomes relevant to the workflow.
 
-Finally, there are some convience files that will be used, that can be downloaded like so:
+Finally, there are some convenience files that will be used, that can be downloaded like so:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #X</span>
@@ -84,7 +85,6 @@ wget -O SAR11-GENOME-COLLECTION.txt https://figshare.com/ndownloader/files/33117
 ‣ **Internet:** Yes
 </div> 
 
-
 ## Step 2: Downloading metagenomes and metatranscriptomes
 
 ### Warning
@@ -95,7 +95,7 @@ For those outside the field of metagenomics, the storage requirements of this st
 
 On the brightside, you don't have to perform this step if you don't want to. I suspect the majority of people have zero interest in downloading this dataset and subsequently performing the read recruitment experiment. Though the read recruitment is fundamental to our study, reproducing it isn't very fun or exciting.
 
-For people who fall into this camp, your next stop should be [Step X](FIXME), where you can download the first checkpoint data pack, which contains anvi'o databases that succinctly summarize the results of the read recruitment.
+For people who fall into this camp, your next stop should be [Step 5](#step-5-exporting-gene-calls), where you can download the checkpoint datapack, which contains anvi'o databases that succinctly summarize the results of the read recruitment.
 
 If you want to download the metagenomes/metatranscriptomes, or just want to peruse what I did, read on.
 
@@ -385,7 +385,7 @@ The downloaded file is named `contigs.fa`, and meets the anvi'o definition of a 
 ## Step 4: anvi-run-workflow
 
 {:.notice}
-If you opted not to do Step FIXME and Step FIXME, you don't have the prerequisite files for this step. That's okay though. You can still read along, or you can skip straight ahead to Step FIXME, where you can download the checkpoint data pack that contains all the files generated from this step, and used in all subsequent steps.
+If you opted not to do [Step 2](#step-2-downloading-metagenomes-and-metatranscriptomes) and [Step 3](#step-3-downloading-sar11-reference-genomes), you don't have the prerequisite files for this step. That's okay though. You can still read along, or you can skip straight ahead to [Step 5](#step-5-exporting-gene-calls), where you can download the checkpoint datapack that contains all the files generated from this step.
 
 ### Overview
 
@@ -564,7 +564,7 @@ python ZZ_SCRIPTS/gen_samples_txt.py
 </div> 
 
 {:.notice}
-If you get hit with an error similar to `ValueError: 00_RAW/ERR3586728_1.fastq.gz does not exist`, I'm sure you can guess what's happened. Something went wrong during Step X, leading to that file not existing. Go ahead and run `./ZZ_SCRIPTS/download_fastqs.sh` to see if the file can be downloaded.
+If you get hit with an error similar to `ValueError: 00_RAW/ERR3586728_1.fastq.gz does not exist`, I'm sure you can guess what's happened. Something went wrong during [Step 3](#step-3-downloading-sar11-reference-genomes), leading to that file not existing. Go ahead and run `./ZZ_SCRIPTS/download_fastqs.sh` to see if the file can be downloaded.
 
 Assuming things ran without error, this generates the file {% include ARTIFACT name="samples-txt" text="samples.txt" %}, which looks like this:
 
@@ -780,7 +780,7 @@ If you zoned out, the mapping results for each sample are stored in a {% include
 ```
 
 {:.notice}
-It is during {% include PROGRAM name="anvi-profile" %} that codon allele frequencies are calculated from mapped reads (single codon variants). I'll talk more in depth about that in Step FIXME, which is dedicated specifically to the topic of exporting single codon variant data from profile databases.
+It is during {% include PROGRAM name="anvi-profile" %} that codon allele frequencies are calculated from mapped reads (single codon variants). I'll talk more in depth about that in [Step 9](#step-9-single-codon-variants), which is dedicated specifically to the topic of exporting single codon variant data from profile databases.
 
 Since there are 285 samples, that's 285 {% include ARTIFACT name="single-profile-db" text="single-profile-dbs" %}. That's kind of a pain to deal with. To remedy this, the last instruction specified in {% include ARTIFACT name="workflow-config" text="config.json" %} is to merge all of the {% include ARTIFACT name="single-profile-db" text="single-profile-dbs" %} together in order to create a {% include ARTIFACT name="profile-db" %} (not a {% include ARTIFACT name="single-profile-db" %}) containing the information from all samples. This is done with the following item:
 
@@ -973,7 +973,35 @@ anvi-interactive -c 03_CONTIGS/SAR11_clade-contigs.db \
 
 ## Step 5: Exporting gene calls
 
-FIXME here I should explain that this is the end of the journey for analyses that require a compute cluster. If you've followed so far, feel free to transfer your files to your local laptop/desktop computer, where all of the remaining analyses can be accomplished. In particular, you will need `03_ONTIGS`, `06_CONTIGS`, `ZZ_SCRIPTS`, and that's it. Make sure the directory structure remains in tact.
+### Checkpoint datapack
+
+If you have been summoned here, its because you haven't completed all the previous steps. That's alright, you can jump in starting from here, assuming you have completed [Step 1](#step-1-creating-a-fresh-directory). Simply download these files, and it will be _as if_ you completed Steps 2 through 4.
+
+(If you completed Steps 2 through 4, don't run these commands!)
+
+```
+wget 03_CONTIGS
+wget 06_MERGED
+```
+
+### Carry on
+
+This marks the end of the journey for analyses that require a computing cluster. If you've followed so far, you can continue to work on your computing cluster, or you should feel free to transfer your files to your local laptop/desktop computer, where all of the remaining analyses can be accomplished. In particular, you will need `03_CONTIGS`, `06_MERGED`, `ZZ_SCRIPTS`, `TARA_metadata.txt`, `07_SEQUENCE_DEPTH`, and that's it. Make sure the directory structure remains in tact.
+
+{:.notice}
+If you decide to transfer files to your local computer and you want to complete [Analysis 2]({{ site.url }}/data/anvio-structure/chapter-IV/#analysis-2-comparing-sequence-similarity-regimes) (which is by no means central to the paper), you will either need to bring `04_MAPPING` to your local as well (not recommended), or perform Analysis 2 on your computing cluster.
+
+By whatever means you've done it, your project directory should have the following items:
+
+```
+./kiefl_2021
+├── 03_CONTIGS/
+├── 06_MERGED/
+├── ZZ_SCRIPTS/
+├── TARA_metadata.txt
+├── 07_SEQUENCE_DEPTH
+(...)
+```
 
 All of the gene coordinates and sequences have been determined using Prodigal and stored in the {% include ARTIFACT name="contigs-db" %}, `03_CONTIGS/SAR11_clade-contigs.db`.
 
@@ -1001,7 +1029,7 @@ Next, I annotated the genes in this SAR11 genome collection using Pfam, NCBI COG
 If you want to take a shortcut, download this {% include ARTIFACT name="functions" %} file, which contains all of the functions annotated _already_:
 
 ```bash
-wget FIXME (make sure its named functions.txt)
+wget -O functions.txt https://figshare.com/ndownloader/files/35134045
 ```
 
 Now import it with {% include PROGRAM name="anvi-import-functions" %}:
@@ -1027,6 +1055,9 @@ anvi-setup-ncbi-cogs --cog-version COG20
 ‣ **Time:** ~25 min  
 ‣ **Storage:** 18.7 Gb  
 ‣ **Internet:** Yes  
+
+{:.notice}
+If you are using Docker, you can skip this command :)
 </div> 
 
 Now anvi'o has databases that it can search your SAR11 genes against. To annotate from these different sources, run these programs:
@@ -1114,7 +1145,7 @@ anvi-split -C GENOMES \
 </div> 
 
 {:.notice}
-If you're doing this on your laptop, _after_ this program finishes, and are uninterested in completing Analysis FIXME, you can delete `06_MERGED`, freeing up around 28Gb of memory.
+If you're doing this on your laptop, _after_ this program finishes, and are uninterested in completing [Analysis 1]({{ site.url }}/data/anvio-structure/chapter-IV/#analysis-1-read-recruitment-summary-21-genomes), you can delete `06_MERGED`, freeing up around 28Gb of memory.
 
 The split databases can be found in the output directory `07_SPLIT/`, which has the following directory structure:
 
@@ -1592,7 +1623,7 @@ anvi-gen-variability-profile -c CONTIGS.db \
 
 ### AlphaFold
 
-In this section I detail how AlphaFold structures were calculated, and how you can access them. If you're curious about AlphaFold comparison to MODELLER, check out Analysis X.
+In this section I detail how AlphaFold structures were calculated, and how you can access them. If you're curious about AlphaFold comparison to MODELLER, check out [Analysis 7]({{ site.url }}/data/anvio-structure/chapter-IV/#analysis-7-comparing-alphafold-to-modeller).
 
 Running AlphaFold is extremely demanding: **(1)** you need to download terabytes of databases, **(2)** you realistically need GPUs if doing many predictions, **(3)** predictions can take several hours per protein, and **(4)** there doesn't yet exist (as of November 14, 2021) a proper, non-Dockerized release of the software from Deepmind (see [https://github.com/deepmind/alphafold/issues/10](https://github.com/deepmind/alphafold/issues/10)).
 
@@ -1877,9 +1908,9 @@ anvi-display-structure -c CONTIGS.db \
 {:.notice}
 Though there is no good reason for this, unfortunately {% include PROGRAM name="anvi-display-structure" %} requires an internet connection. This will be fixed in future (>v7.1) versions of anvi'o.
 
-It is through this interface you can really begin to explore the intersection between structural biology and metagenomics. (FIXME continue on this thread, mention the development with Ozcan)
+It is through this interface you can really begin to explore the intersection between structural biology and metagenomics.
 
-For example, here's Gene #1248, (FIXME)
+For example, here's Gene #1248, a Serine hydroxymethyltransferase that really doesn't look ns-polymorphism near its binding site.
 
 [![interactive_1]({{images}}/interactive_1.png)]({{images}}/interactive_1.png){:.center-img .width-100}
 
@@ -1891,7 +1922,7 @@ Here is Gene #1298, a putative Holiday junction resolvase. In this instance, I'v
 
 [![interactive_3]({{images}}/interactive_3.png)]({{images}}/interactive_3.png){:.center-img .width-100}
 
-(FIXME, this is just a small spattering of what can be explored. It was exactly an exploratory investigation enabled by this interface that yielded the primary story with serine hydroxymethyltransferase)
+This is obviously a drop in the bucket of what can be explored.
 
 {:.notice}
 {% include PROGRAM name="anvi-display-structure" %} was developed in conjunction with this study, and has been released as open source software so it may be utilized by the broader community.
@@ -2168,6 +2199,9 @@ anvi-setup-interacdome
 ‣ **Storage:** 730 Mb  
 ‣ **Internet:** Yes
 
+{:.notice}
+If you are using Docker, you can skip this command :)
+
 <div class="extra-info" markdown="1">
 <span class="extra-info-header">Not working? Plan B</span>
 This step downloads the v31.0 Pfam HMMs using EMBL-EBI's FTP server. Depending on when you try, your downloads may hang indefinitely. Or they may complete with no problems whatsoever. I have personally experienced both scenarios. Unfortunately, we are really at their mercy when downloading these files. If you try and fail several times, the alternative is to simply download my version of these files:
@@ -2338,7 +2372,7 @@ Anyways, since InteracDome doesn't predict the 3D coordinates of ligands, DTL ca
 
 One side effect of defining DTL with respect to the closest ligand-binding residue is that by definition, **any ligand-binding residue has a DTL of 0**.
 
-The last thing to discuss is how distance between residues is measured. We used the Euclidean distance between their side chain center of masses. We also considered a much more primitive distance metric, which was defined not in 3D space but by the distance in sequence. For example, if a gene had only one ligand-binding residue, which occurred at the fifth residue, then the 25th residue would have a DTL of 20. As expected, and as shown in Figure FIXME, this metric did not perform well.
+The last thing to discuss is how distance between residues is measured. We used the Euclidean distance between their side chain center of masses. We also considered a much more primitive distance metric, which was defined not in 3D space but by the distance in sequence. For example, if a gene had only one ligand-binding residue, which occurred at the fifth residue, then the 25th residue would have a DTL of 20. As expected, and as shown in Figure S6, this metric did not perform well.
 
 If you think our methodology for calculating DTL is full of assumptions stacked onto assumptions stacked onto assumptions, we completely agree. To get our full opinion on it, I ask you to please read the following quote from the Results section.
 
@@ -2715,7 +2749,7 @@ If you're here for a **mathematical description** of pN and pS--whether it be fo
 
 ### Per-site
 
-As mentioned in Step FIXME, all per-site pN and pS values are appended as columns to the {% include ARTIFACT name="variability-profile" %}, `11_SCVs.txt`. That means this data is readily available for you.
+As mentioned in [Step 9](#step-9-single-codon-variants), all per-site pN and pS values are appended as columns to the {% include ARTIFACT name="variability-profile" %}, `11_SCVs.txt`. That means this data is readily available for you.
 
 If you want to see the underlying code for calculating per-site pN and pS, it can be found in the anvi'o codebase here ([click here](https://github.com/merenlab/anvio/blob/258991a5bc0f483c958040a55d339e1f447429ac/anvio/variabilityops.py#L2639)).
 
@@ -3027,7 +3061,7 @@ python ZZ_SCRIPTS/analysis_pnps_d_and_rsa.py -b 15 \
 ‣ **Storage:** Minimal  
 </div> 
 
-`-b` indicates to the number of bins for each variable. I chose 15, but in Figure FIXME I do a whole range of bin values and show how the linear regressions of pN vary with respect to bin size.
+`-b` indicates to the number of bins for each variable. I chose 15, but in Figure SI4 I do a whole range of bin values and show how the linear regressions of pN vary with respect to bin size.
 
 The output for all of the results is in `17_PNPS_RSA_AND_DTL`.
 
@@ -3489,15 +3523,11 @@ This script does a bit more than I'm letting on, because it adds codon rarity, s
 
 Okay. If you've made it this far, this marks the _end_ of this chapter, and subsequently the end of the data processing workflow. We started from nothing but the internet, and we have built up the totality of data we will need for all subsequent analyses, which are carried out in the next chapter. We have just invested an enormous amount of work and forethought that we will now be able to stand upon in order to harvest the fruits of our labour.
 
-Unless of course you simply download this checkpoint datapack. Then you can harvest the fruits of _my_ labour.
-
-FIXME datapack here
-
 See you in the next chapter.
 
 ## Aux. Step 1: Pangenome detour
 
-This is the first **auxiliary** step, meaning it is not required for the central analyses of this paper. For this reason, you can skip this step if you want.
+This is the first (and potentially only) **auxiliary** step, meaning it is not required for the central analyses of this paper. For this reason, you can skip this step if you want.
 
 But if you're reading this, you've more than likely beeen redirected to this section of the workflow, because the analysis you're interested in requires this step to be completed. In that case, you're in the right place.
 

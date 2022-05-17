@@ -27,16 +27,17 @@ This document is **UNDER CONSTRUCTION**. It is not in a state where you can yet 
 
 ## Important information
 
-Welcome to Chapter IV. In this chapter you'll find all of the analyses in the paper. If you haven't completed Chapter III (or equivalently downloaded the required datapack), you won't be able to reproduce these analyses but you still might find some some useful information in here that got cut from the paper. Before you begin, there are a couple of important points you need to be clear on.
+Welcome to Chapter IV. In this chapter you'll find all of the analyses in the paper. If you haven't completed Chapter III, you won't be able to reproduce these analyses but you still might find some some useful information in here that got cut from the paper.
 
-Throughout the lifespan of this paper, my strategy for carrying out analyses was to create a global R environment that would be loaded for any and all figure generation. FIXME
-
+Before jumping into an analysis that interests you, its critical you read the information in this section.
 
 ### Directory
 
 Unless otherwise stated, each analysis can be run independently from the others, so **completing analyses in order is not required**.
 
 As such, you should feel free to jump around this document, rather than reading it top down. To help you navigate to the analyses you are interested in, here is a directory of all figures and tables in the main text and supplementary information, and clicking any figure/table will redirect you to the analysis where it is produced.
+
+#### Main figures
 
 [Figure 1 - Analysis 6](#analysis-6-creating-the-anvio-structure-workflow-diagram)
 
@@ -54,7 +55,7 @@ As such, you should feel free to jump around this document, rather than reading 
 
 [Figure 4efg - Analysis 21](#analysis-21-synonymous-variation)
 
---------------------------------------------------------------
+#### Supplementary figures
 
 [Figure S1 - Analysis 2](#analysis-2-comparing-sequence-similarity-regimes)
 
@@ -84,7 +85,7 @@ As such, you should feel free to jump around this document, rather than reading 
 
 [Figure S14 - Analysis 21](#analysis-21-synonymous-variation)
 
---------------------------------------------------------------
+#### Supplementary information figures
 
 [Figure SI1 - Analysis 14](#analysis-14-correlatedness-of-rsa-and-dtl)
 
@@ -98,7 +99,7 @@ As such, you should feel free to jump around this document, rather than reading 
 
 [Figure SI6 - Analysis 20](#analysis-20-genome-wide-ns-polymorphism-avoidance-of-low-rsadtl)
 
---------------------------------------------------------------
+#### Supplementary tables
 
 [Table S1 - Analysis 1](#analysis-1-read-recruitment-summary-21-genomes)
 
@@ -203,13 +204,13 @@ Congrats. You have built the GRE, which is all that's required to begin running 
 
 Unless otherwise stated, **commands automatically load the data they need into the GRE**.
 
-With the GRE built, you can run analyses by issuing R commands. All the required data will be loaded into the GRE. For example, generating Figure X is as simple as running the following command:
+With the GRE built, you can run analyses by issuing R commands. All the required data will be loaded into the GRE. For example, generating Figure S2 is as simple as running the following command:
 
 ```R
 source('figure_s_env.R')
 ```
 
-This produces the following figure in `YY_PLOTS/FIG_S_ENV/` as a .pdf and .png formatted image.
+This produces Figure S2 in `YY_PLOTS/FIG_S_ENV/` as a .pdf and .png formatted image.
 
 [![s_env]({{images}}/s_env.png)]( {{images}}/s_env.png){:.center-img .width-70}
 
@@ -308,7 +309,7 @@ source('load_data.R')
 
 At any time, you can run this command from within the R-shell. Afterwards, a wealth of common data is now available in the GRE as different variables
 
-For example, the $\text{pN/pS}^{(\text{gene})}$ data across genes and samples has been loaded into the GRE under the variable name `pnps`. In Step X we calculated $\text{pN/pS}^{(\text{gene})}$ for each gene in each sample, and stored the data in the file `17_PNPS/pNpS.txt`. Well, `ZZ_SCRIPTS/load_data.R` has loaded this data into the GRE under the variable name `pnps`.
+For example, the $\text{pN/pS}^{(\text{gene})}$ data across genes and samples has been loaded into the GRE under the variable name `pnps`. In [Step 14](http://localhost:4000/data/anvio-structure/chapter-III/#per-gene) we calculated $\text{pN/pS}^{(\text{gene})}$ for each gene in each sample, and stored the data in the file `17_PNPS/pNpS.txt`. Well, `ZZ_SCRIPTS/load_data.R` has loaded this data into the GRE under the variable name `pnps`.
 
 This is useful for _you_, because you can very quickly query this data using R (_e.g._ `pnps %>% filter(gene_callers_id == 1326)`), but it is also useful for all of the downstream analysis scripts which will be ran from within the GRE.
 
@@ -389,14 +390,14 @@ with pd.ExcelWriter(tables_dir/'RR.xlsx') as writer:
 ```bash
 python ZZ_SCRIPTS/gen_table_rr.py
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 This creates the table from the paper and plops it into a directory `WW_TABLES`, which stores all tables from the paper.
 
 ## Analysis 2: Comparing sequence similarity regimes
+
+{:.warning}
+This analysis is unavailable for those who did not complete Steps 2 through 4. This is because this analysis queries the BAM files from the read recruitment, which you only have if you completed Steps 2 through 4.
 
 This analysis is a behind-the-scenes of the supplemental information entitled "_Regimes of sequence similarity probed by metagenomics, SAR11 cultured geomes, and protein families_", and provides explicit reproducibility steps to create Figure S1. Basically, we need to estimate the percent similarity from read recruitment results, from pangenomic comparisons, and from the Pfams that HIMB83 genes match to. Given the eclectic data sources, this is a rather lengthy process that I'll break up into 3 parts: (1) read recruitment, (2) pangenome, and (3) Pfam. Each of these steps creates a file `18_PERCENT_ID*.txt` that forms the data for each of the 3 histograms in Figure S1.
 
@@ -496,7 +497,7 @@ pd.DataFrame(bam_paths).to_csv("mgx_bam_paths", sep='\t', index=False)
 ```
 </details> 
 
-There is nothing special about this script, it simply creates the following file, which points to each of the metagenomic {% include ARTIFACT name="bam-file" text="bam-files" %} corresponding to the samples of interest `soi` (generated from Step X).
+There is nothing special about this script, it simply creates the following file, which points to each of the metagenomic {% include ARTIFACT name="bam-file" text="bam-files" %} corresponding to the samples of interest `soi` (generated from [Step 8]({{ site.url }}/data/anvio-structure/chapter-III/#step-8-genes-and-samples-of-interest)).
 
 |**sample_id**|**path**|
 |:--|:--|
@@ -518,8 +519,6 @@ Ok, first, generate the file `mgx_bam_paths`:
 ```bash
 python ZZ_SCRIPTS/analysis_gen_mgx_bam_paths.py
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
 </div> 
 
 Then, run `ZZ_SCRIPTS/analysis_gene_percent_id.py`:
@@ -533,7 +532,6 @@ python ZZ_SCRIPTS/analysis_gene_percent_id.py --bams mgx_bam_paths \
                                               --output 18_PERCENT_ID.txt
 ```
 ‣ **Time:** 150 min  
-‣ **Storage:** Minimal  
 </div> 
 
 This creates the file `18_PERCENT_ID.txt` which is a table quantifying the average percent identity of reads for each gene in each sample.
@@ -545,9 +543,6 @@ Various depictions of this raw data are provided in Table S2, which can be creat
 ```bash
 python ZZ_SCRIPTS/table_pid.py
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 This outputs Table S2 under the filename `WW_TABLES/PID.xlsx`.
@@ -587,8 +582,6 @@ with open('gcoi', 'w') as f:
 ```bash
 python ZZ_SCRIPTS/get_HIMB83_gene_clusters.py
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
 </div> 
 
 Then, alignments of the DNA sequences for each gene cluster are created with `ZZ_SCRIPTS/get_HIMB83_gene_cluster_alignments.sh`, which uses MUSCLE to perform the alignments:
@@ -620,7 +613,6 @@ Go ahead and run this (it will take some time).
 bash ZZ_SCRIPTS/get_HIMB83_gene_cluster_alignments.sh
 ```
 ‣ **Time:** 100 min  
-‣ **Storage:** 16 Mb  
 </div> 
 
 This will populate the directory `18_HIMB83_CORE_COMPARED_TO_PANGENOME/` with a bunch of gene cluster multiple sequence alignments (MSAs), which will be used to calculate percent similarity of HIMB83 genes to all of the other orthologs. The final script for pangenomic comparisons looks at each of the MSAs in `18_HIMB83_CORE_COMPARED_TO_PANGENOME/` and calculates the percent of matches in non-gap regions between the HIMB83 gene and the orthologs. To parse the MSAs, I made use of [ProDy](http://prody.csb.pitt.edu/) in the script `ZZ_SCRIPTS/analysis_get_percent_id_from_msa.py`.
@@ -708,8 +700,6 @@ Give it a run when you're ready.
 ```bash
 python ZZ_SCRIPTS/analysis_get_percent_id_from_msa.py
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
 </div> 
 
 Finally, we get the file `18_PERCENT_ID_PANGENOME.txt` which quantifies how similar each HIMB83 gene is to the correspondingorthologs in the SAR11 pangeome.
@@ -868,7 +858,6 @@ This script downloads the seed sequence MSA of hundreds of Pfams, so an internet
 python ZZ_SCRIPTS/analysis_get_percent_id_from_pfam_msa.py --contigs-db CONTIGS.db --genome-name HIMB083
 ```
 ‣ **Time:** 30 min  
-‣ **Storage:** 75 Mb  
 ‣ **Internet::** Yes  
 </div> 
 
@@ -956,8 +945,6 @@ To run this script, issue the following command from your GRE.
 ```bash
 source('figure_s_ps.R')
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
 
 </div> 
 
@@ -972,8 +959,6 @@ The output image is Figure S1, stored at `YY_PLOTS/FIG_S_PS/Figure_SPS.png`.
 ```bash
 bash ZZ_SCRIPTS/codon_freqs_per_genome.sh
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
 </div> 
 
 The above command generates `codon_freqs_per_genome.txt`. To generate Figure S13, run
@@ -983,8 +968,6 @@ The above command generates `codon_freqs_per_genome.txt`. To generate Figure S13
 ```bash
 source('figure_s_gnm_cdn_f.R')
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
 </div> 
 
 
@@ -1069,8 +1052,6 @@ display(g, file.path(args$output, "meta.png"), width=6.5, height=5, as.png=TRUE)
 ```bash
 source('figure_s_env.R')
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
 </div> 
 
 The output image is `YY_PLOTS/FIG_S_ENV/meta.png`.
@@ -1148,8 +1129,6 @@ It can be ran with the following:
 ```bash
 source('figure_s_pn_hist.R')
 ```
-‣ **Time:** FIXME  
-‣ **Storage:** Minimal  
 </div> 
 
 The output image is `YY_PLOTS/FIG_S_PN_HIST/fig.png`.
@@ -1216,9 +1195,6 @@ Which can be ran from the command line:
 ```bash
 python ZZ_SCRIPTS/table_pnps_sums.py
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div>
 
 ## Analysis 6: Creating the anvi'o structure workflow diagram
@@ -1234,9 +1210,6 @@ pymol -c ZZ_SCRIPTS/figure_1_worker3.pml
 pymol -c ZZ_SCRIPTS/figure_1_worker4.pml
 pymol -c ZZ_SCRIPTS/figure_1_worker6.pml
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 This places a bunch of PyMOL-generated images in the folder `YY_PLOTS/FIG_1`, such as this one.
@@ -1269,9 +1242,6 @@ anvi-gen-structure-database -c CONTIGS.db -o 09_STRUCTURE_MOD.db -T <NUM_THREADS
 ‣ **Internet:** Maybe  
 
 {:.notice}
-Too lazy? Just download the resulting {% include ARTIFACT name="structure-db" %}: `wget FIXME` FIXME this will not work unless they also use the wget CONTIGS.db due to hash mismatch
-
-{:.notice}
 If you don't have internet, you'll need an offline database built ahead of time that you can generate with {% include PROGRAM name="anvi-setup-pdb-database" %} (which will itself require internet).
 
 </div>
@@ -1280,7 +1250,7 @@ Running the above command will produce a {% include ARTIFACT name="structure-db"
 
 ### Trustworthy MODELLER structures
 
-In Step X, we defined 'trustworthy' AlphaFold structures as those that maintain an average pLDDT score of >80, and we stored the corresponding gene IDs in the file `12_GENES_WITH_GOOD_STRUCTURES`.
+In [Step 11]({{ site.url }}/data/anvio-structure/chapter-III/#filtering-low-quality-structures), we defined 'trustworthy' AlphaFold structures as those that maintain an average pLDDT score of >80, and we stored the corresponding gene IDs in the file `12_GENES_WITH_GOOD_STRUCTURES`.
 
 Similarly, we take certain measures to try and define 'trustworthy' when using MODELLER structures that are outlined in the Methods section of the paper:
 
@@ -1369,7 +1339,6 @@ This should take about 5 minutes to complete, and outputs the file `12_GENES_WIT
 python ZZ_SCRIPTS/gen_genes_with_good_structures_modeller.py -s 09_STRUCTURE_MOD.db
 ```
 ‣ **Time:** 5 min  
-‣ **Storage:** Minimal  
 ‣ **Internet:** Yes  
 </div> 
 
@@ -1648,7 +1617,6 @@ with pd.ExcelWriter(tables_dir/'STRUCT_COMP.xlsx') as writer:
 python ZZ_SCRIPTS/comp_struct_preds.py
 ```
 ‣ **Time:** 15 min  
-‣ **Storage:** Minimal  
 </div>
 
 This creates the files `09_STRUCTURE_comparison.txt` and `WW_TABLES/STRUCT_COMP.xlsx`, which are otherwise known as Table S4. Using this table, I created Figure S4 with the script `ZZ_SCRIPTS/figure_s_comp.R`.
@@ -1749,8 +1717,6 @@ display(g, file.path(args$output, "fig.png"), width=6, height=5, as.png=T)
 ```bash
 source('figure_s_comp.R')
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
 </div> 
 
 Running this creates Figure S4 under the filename `YY_PLOTS/FIG_S_COMP/fig.png`:
@@ -1760,7 +1726,7 @@ Running this creates Figure S4 under the filename `YY_PLOTS/FIG_S_COMP/fig.png`:
 
 ## Analysis 8: Predicting ligand-binding sites
 
-All of the heavy-lifting for binding site prediction has already been accomplished during Step X. If you're looking for descriptions, implementation details, and the like, you're likely to find it over there. But what remains to be done, is creating Table S5. This table summarizes all of the ligand-binding predictions and reproducing it is the subject of this brief Analysis.
+All of the heavy-lifting for binding site prediction has already been accomplished during [Step 13]({{ site.url }}/data/anvio-structure/chapter-III/#step-13-ligand-binding-residue-prediction). If you're looking for descriptions, implementation details, and the like, you're likely to find it over there. But what remains to be done, is creating Table S5. This table summarizes all of the ligand-binding predictions and reproducing it is the subject of this brief Analysis.
 
 `ZZ_SCRIPTS/table_lig.py` is the script that creates Table S5 under the filename `WW_TABLES/LIG.xlsx`:
 
@@ -1805,9 +1771,6 @@ Rather boringly, this script packages up a bunch of tabular data you already had
 ```bash
 python ZZ_SCRIPTS/table_lig.py
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 
@@ -1920,9 +1883,6 @@ You can generate Figures 2a and 2b (as well as the rest of the plots in Figure 2
 ```R
 source('figure_2.R')
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 Since this is an aggregation of a rather large amount of data, this will take some time. However, patience is a virtue, and afterwards you can see the resultant plots in `YY_PLOTS/FIG_2`.
@@ -2068,7 +2028,6 @@ Running the following creates Figure S5 under the filename `YY_PLOTS/FIG_S_SHUFF
 source('figure_s_shuff_comp.R')
 ```
 ‣ **Time:** ~1 hour  
-‣ **Storage:** Minimal  
 </div> 
 
 [![shuff_comp]({{images}}/shuff_comp.png)]({{images}}/shuff_comp.png){:.center-img .width-70}
@@ -2218,8 +2177,6 @@ which can be ran like so:
 ```R
 source('figure_s_1d_DTL.R')
 ```
-‣ **Time:** FIXME  
-‣ **Storage:** Minimal  
 </div> 
 
 ## Analysis 10: Comparison to BioLiP and DTL cutoff
@@ -2241,9 +2198,7 @@ wget http://zhanglab.ccmb.med.umich.edu/BioLiP/download/BioLiP.tar.bz2
 tar -zxvf BioLiP.tar.bz2
 cd -
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
+‣ **Internet:** Yes  
 </div> 
 
 This downloads the first version of the database, as it were in 2013. They update this database every once in a while, but even the database from 2013 is plenty big enough for our purposes. Feel free to peruse the data at `20_BIOLIP/BioLiP_2013-03-6.txt`.
@@ -2367,9 +2322,6 @@ Since this script takes such a long time to run, I ended up subsetting the datas
 ```bash
 python ZZ_SCRIPTS/biolip_dtl_dist.py
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 
@@ -2382,9 +2334,6 @@ Finally, from within the GRE you can run `ZZ_SCRIPTS/figure_s_biolip.R` to creat
 ```R
 source('figure_s_biolip.R')
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 
@@ -2750,7 +2699,6 @@ cd ..
 ```
 ‣ **Time:** 8 hours  
 ‣ **Storage:** 10 Gb  
-‣ **Memory:** Minimal  
 </div> 
 
 After a long wait, you should have the following linear models in your working directory:
@@ -3034,9 +2982,6 @@ Similarly, distributions of the 2D regression model parameters can be visualized
 ```R
 source('figure_s_reg_stats.R')
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 Yielding Figure SI2 in `YY_PLOTS/FIG_S_REG_STATS`.
@@ -3052,9 +2997,6 @@ If you haven't noticed, `poly_corr` is essentially Table S7. To export `poly_cor
 ```R
 source('table_poly_corr.R')
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 ### Visualizing gene-sample scatterplots
@@ -3106,9 +3048,6 @@ Really, this is no different to how I created the plots in Figures S7 and S8. Fo
 source('figure_s_examples_RSA.R')
 source('figure_s_examples_DTL.R')
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 You can find the resultant plots under `YY_PLOTS/FIG_EXAMPLES_RSA` and `YY_PLOTS/FIG_EXAMPLES_DTL`.
@@ -3122,7 +3061,7 @@ This analysis encompasses everything related to per-group pN and pS values, _i.e
 
 ### Heatmaps
 
-You calculated the per-group pN and pS values in [this step](FIXME) in Chapter III, and you can find the resultant data in `17_PNPS_RSA_AND_DTL`.
+You calculated the per-group pN and pS values in [Step 14]({{ site.url }}/data/anvio-structure/chapter-III/#per-group-rsa--dtl) in Chapter III, and you can find the resultant data in `17_PNPS_RSA_AND_DTL`.
 
 As a quick aside, the tabular data found in this folder are no more or less than the Excel sheets that comprise Table S8. To produce Table S8, run `ZZ_SCRIPTS/table_group.py`:
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
@@ -3130,8 +3069,6 @@ As a quick aside, the tabular data found in this folder are no more or less than
 ```bash
 python ZZ_SCRIPTS/table_group.py
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
 </div> 
 
 You can find the result at `WW_TABLES/GROUP.xlsx`.
@@ -3250,9 +3187,6 @@ It is with these linear models that Figure SI3 is constructed. To create Figure 
 ```R
 source('figure_s_group_fits.R')
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 This outputs the componenets of the following figure into `YY_PLOTS/FIG_S_GROUP_FITS`.
@@ -3267,7 +3201,7 @@ I addressed this by repeating the fits in the previous section for various group
 
 [![fig_bin_size]({{images}}/fig_bin_size.png)]( {{images}}/fig_bin_size.png){:.center-img .width-70}
 
-To reproduce this analysis, you'll need to calculate per-group pN and pS for various bin numbers. In Step X we utilized the script `ZZ_SCRIPTS/analysis_pnps_d_and_rsa.py` to calculate per-group pN and pS for a bin number of 15 (what I mean by this is RSA and DTL are each split into 15 segments), and we can repeat that process for several bin numbers using the following bash command.
+To reproduce this analysis, you'll need to calculate per-group pN and pS for various bin numbers. In [Step 14]({{ site.url }}/data/anvio-structure/chapter-III/#per-group-rsa--dtl) we utilized the script `ZZ_SCRIPTS/analysis_pnps_d_and_rsa.py` to calculate per-group pN and pS for a bin number of 15 (what I mean by this is RSA and DTL are each split into 15 segments), and we can repeat that process for several bin numbers using the following bash command.
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #X</span>
@@ -3278,7 +3212,6 @@ for bin_number in 2 4 6 8 10 14 18 22 26 30 34 38; do
 done
 ```
 ‣ **Time:** 30 min per bin  
-‣ **Storage:** Minimal  
 </div> 
 
 This will take around 30 minutes per loop, and will store all of the results in `17_PNPS_RSA_AND_DTL`.
@@ -3301,9 +3234,6 @@ To reproduce the figure, run
 ```R
 source('figure_s_bin_effect.R')
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 And to check out the code, dig into `ZZ_SCRIPTS/figure_s_bin_effect.R`.
@@ -3321,9 +3251,6 @@ Running the analysis is simple from your GRE:
 ```R
 source('figure_s_multicolin.R')
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 Which results in Figure SI1, stored under the filename `YY_PLOTS/FIG_S_MULTICOLIN/RSA_vs_dist.png`
@@ -3334,7 +3261,7 @@ Which results in Figure SI1, stored under the filename `YY_PLOTS/FIG_S_MULTICOLI
 
 Since pN/pS$^{\text{(gene)}}$ is such a central metric for the study, it is used in a lot of places. However in this specific Analysis I'll provide the steps to reproduce the general statistics about the pN/pS$^{\text{(gene)}}$ values observed, which come in the form of Table S9, Figure S11, and Figure S12.
 
-Throughout the manuscript, pN/pS$^{\text{(gene)}}$ is used as a proxy for the strength of purifying selection strength acting on a gene in a sample. A description and mathematical definition of pN/pS$^{\text{(gene)}}$ is found in the Methods section, and the reproducible implementation has already been provided in Step X.
+Throughout the manuscript, pN/pS$^{\text{(gene)}}$ is used as a proxy for the strength of purifying selection strength acting on a gene in a sample. A description and mathematical definition of pN/pS$^{\text{(gene)}}$ is found in the Methods section, and the reproducible implementation has already been provided in [Step 14]({{ site.url }}/data/anvio-structure/chapter-III/#per-gene).
 
 As a reminder, pN/pS$^{\text{(gene)}}$ values, which you already calculated, are found in the file `17_PNPS/pNpS.txt`.
 
@@ -3347,9 +3274,6 @@ When ready, run the following and Table S9 will be output to the filename `WW_TA
 ```bash
 python ZZ_SCRIPTS/table_gene_pnps.py
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div>
 
 From within the GRE, pN/pS$^{\text{(gene)}}$ data for each sample and gene is stored as the R-variable `pnps`, which you more than likely already have in your GRE. If you don't, you could always run the following (however I hope I've made it clear that any figures/tables that need `pnps` will load it automatically):
@@ -3452,9 +3376,6 @@ The real statistics behind this figure is an ANOVA analysis, illustrating that a
 ```R
 source('figure_s_pnps_bw.R')
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 This plops Figure S11 in the directory `YY_PLOTS/FIG_S_PNPS_BW`.
@@ -3468,9 +3389,6 @@ Relatedly, Figure S12 represents the spread of variance in pN/pS$^{\text{(gene)}
 ```R
 source('figure_s_g_pnps_hist.R')
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 This plops Figure S12 in the directory `YY_PLOTS/FIG_S_G_PNPS_HIST`.
@@ -3480,7 +3398,7 @@ This plops Figure S12 in the directory `YY_PLOTS/FIG_S_G_PNPS_HIST`.
 ## Analysis 16: dN/dS$^{\text{(gene)}}$ between HIMB83 and HIMB122
 
 {:.warning}
-This section requires you to first complete Auxiliary Step X, please complete that before continuing.
+This section requires you to first complete [Auxiliary Step 1]({{ site.url }}/data/anvio-structure/chapter-III/#aux-step-1-pangenome-detour), please complete that before continuing.
 
 In this section we calculate the dN/dS$^{\text{(gene)}}$ of homologous genes shared between HIMB83 and HIMB122, a related SAR11 genome. In the paper, the rationale for doing this was to validate our approach of pN/pS$^{\text{(gene)}}$ by averaging across samples and comparing the sample-averaged pN/pS$^{\text{(gene)}}$ values to dN/dS$^{\text{(gene)}}$ between HIMB83 and HIMB122, with the expectation that these should be qualitatively similar to one another given the evolutionary relatedness of HIMB122 to HIMB83.
 
@@ -3511,8 +3429,6 @@ anvi-compute-genome-similarity -e 07_EXTERNAL_GENOMES_COMP_TO_HIMB122.txt \
                                --num-threads 6 \
                                -o 07_ANI_HIMB122
 ```
-‣ **Time:** <1 min  
-‣ **Storage:** Minimal  
 </div> 
 
 Looking at the output `07_ANI_HIMB122/ANIb_percentage_identity.txt`, we can see that the genome ANI of HIMB122 to HIMB83 is **82.6%**. Note that this only considers aligned segments of the genome. If the full sequences are considered this value drops to 63.7% similarity (`07_ANI_HIMB122/ANIb_full_percentage_identity.txt`), however since we are interested in calculating dN/dS$^{\text{(gene)}}$ between homologs, it is the former metric that is more relevant.
@@ -3730,9 +3646,6 @@ To wrap up `19_DNDS_HIMB122/dnds.txt` into a cute little supplementary table (Ta
 ```R
 source('table_dnds.R')
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 Which creates Table S12 under the filename `WW_TABLES/DNDS.txt`.
@@ -3806,8 +3719,6 @@ Running the following yields Figure S10 under the filename `YY_PLOTS/FIG_S_DNDS/
 ```bash
 source('figure_s_dnds.R')
 ```
-‣ **Time:** <1 min  
-‣ **Storage:** Minimal  
 </div> 
 
 [![dnds]({{images}}/dnds.png)]({{images}}/dnds.png){:.center-img .width-70} 
@@ -3823,7 +3734,7 @@ Something that in my opinion remains undersold in the main text is the fact that
 
 ### Calculation & accessibility
 
-As a reminder, the read recruitment procedure included a number of metatranscriptomes. And of the 74 samples of interest determined in Step X, 50 had accompanying metatranscriptomes. For these 50 samples, we used the read recruitment results of the metatranscriptomes to establish a _transcript abundance_ (TA) measure for each gene (see Methods).
+As a reminder, the read recruitment procedure included a number of metatranscriptomes. And of the 74 samples of interest determined in [Step 8]({{ site.url }}/data/anvio-structure/chapter-III/#step-8-genes-and-samples-of-interest), 50 had accompanying metatranscriptomes. For these 50 samples, we used the read recruitment results of the metatranscriptomes to establish a _transcript abundance_ (TA) measure for each gene (see Methods).
 
 Taken from the Methods section, here is the definition for TA:
 
@@ -3932,9 +3843,6 @@ Table S13 provides a view of TA values and how they relate to pN/pS$^{\text{(gen
 ```R
 source('table_ta.R')
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 It is output to `WW_TABLES/TA.txt`.
@@ -4050,9 +3958,6 @@ To generate Figure SI5, run the following from your GRE.
 ```R
 source('figure_s_exp.R')
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 Results are in `YY_PLOTS/FIG_S_EXP`.
@@ -4068,9 +3973,6 @@ To expose the totality of this data, I correlated each measured environmental va
 ```R
 source('table_env_corr.R')
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 This creates Table S10 under the filename `WW_TABLES/ENV_CORR.txt`. If you follow the crumb trail of `table_env_corr.R` into `load_data.R`, you can find the responsible code:
@@ -4248,9 +4150,6 @@ cd ../..
 ```bash
 pymol -c ZZ_SCRIPTS/structure_2602_1FPY.pml
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 
 {:.notice}
 If you want to visualize 1FPY interactively in the PyMOL interface, remove the `-c`. However, if you're using Docker, it will be very difficult to convince Docker to render PyMOL's graphical interface. My suggestion is to download PyMOL on your local computer.
@@ -4314,9 +4213,6 @@ When ready, run the following from the command-line:
 mkdir -p 21_GS_COMPLEX
 pymol -c ZZ_SCRIPTS/GS_neighor_complex.pml
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 When done, you can open up the resulting complex with `pymol 21_GS_COMPLEX/neighbor_complex.pdb`:
@@ -4462,9 +4358,6 @@ Run them with
 python ZZ_SCRIPTS/GS_complex_DTL.py
 python ZZ_SCRIPTS/GS_complex_RSA.py
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 Afterwards, you'll have the files `21_GS_COMPLEX/complex_RSA.txt`:
@@ -4561,7 +4454,7 @@ display(aligned[[2]], file.path(args$output, "GS_pnps.pdf"), width=2.3, height=1
 
 ### pN/pS$^{\text{(gene)}}$ correlation with nitrates
 
-As was mentioned in [Analysis X](#analysis-18-environmental-correlations-with-pnpstextgene), `env_corr` is an R-variable in the GRE that is supremely useful for identifying which genes' pN/pS$^{\text{(gene)}}$ values correlate with which environmental parameters. GS has Gene ID 2602, so one can easily probe which environmental parameters GS correlates with:
+As was mentioned in [Analysis 18](#analysis-18-environmental-correlations-with-pnpstextgene), `env_corr` is an R-variable in the GRE that is supremely useful for identifying which genes' pN/pS$^{\text{(gene)}}$ values correlate with which environmental parameters. GS has Gene ID 2602, so one can easily probe which environmental parameters GS correlates with:
 
 ```R
 > env_corr %>% filter(gene_callers_id == 2602) %>% t()
@@ -4685,9 +4578,6 @@ Running these scripts is as easy as
 pymol -c ZZ_SCRIPTS/structure_2602_pN.pml
 pymol -c ZZ_SCRIPTS/structure_2602_pS.pml
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 These scripts will take a few minutes to run, because they produce high quality images, which will eventually be dumped into `YY_PLOTS/FIG_3`:
@@ -4815,9 +4705,6 @@ If you haven't done so already, run the following from within your GRE to produc
 ```R
 source('figure_3.R')
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 This will output the Figures 3b, 3c, 3e, 3f, and 3g into `YY_PLOTS/FIG_3`. What's missing in that list is Figures 3a and 3d, which are absent because they contain images of proteins which are generated with PyMOL, not R. If you missed those, see the above analyses, which detail how those can be reproduced.
@@ -5030,9 +4917,6 @@ If you want to generate Figures 4a and 4b (and all of Figure 4 for that matter),
 ```R
 source('figure_4.R')
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 ### Robustness of results
@@ -5049,8 +4933,6 @@ Because this is such a slow process, the histograms are constructed from just 20
 source('figure_s_gnm_rob.R')
 ```
 ‣ **Time:** ~10 hours  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 This will output Figure SI6 into the directory `YY_PLOTS/FIG_S_GNM_ROB`. It will also output a file `genome_robust.txt`, which can be wrapped into Table S14 via
@@ -5060,9 +4942,6 @@ This will output Figure SI6 into the directory `YY_PLOTS/FIG_S_GNM_ROB`. It will
 ```bash
 python ZZ_SCRIPTS/table_rob.py
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 The table will be written to `WW_TABLES/ROB.xlsx`.
@@ -5085,7 +4964,7 @@ source('figure_4.R')
 
 ### Codon rarity
 
-This is a short analysis, thanks to all the preparation that occurred in Step X. As a brief reminder, that Step is dedicated to calculating various metrics for _codon rarity_, which involve counting the occurrence of codons in the HIMB083 genome, and calculating the rarity of each SCV.
+This is a short analysis, thanks to all the preparation that occurred in [Step 15]({{ site.url }}/data/anvio-structure/chapter-III/#step-15-codon-properties). As a brief reminder, that Step is dedicated to calculating various metrics for _codon rarity_, which involve counting the occurrence of codons in the HIMB083 genome, and calculating the rarity of each SCV.
 
 An intermediate data table from this Step is `codon_trna_composition.txt`, which I described as a 'one-stop-shop' for all your codon property needs. This is actually the exact contents of Table S11. To follow the convention of adding these tables to the `WW_TABLES` directory, run
 
@@ -5094,9 +4973,6 @@ An intermediate data table from this Step is `codon_trna_composition.txt`, which
 ```R
 source('table_cdn_comp.R')
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 -----------------------------------
@@ -5187,9 +5063,6 @@ If you haven't already, you can reproduce Figure 4 as such:
 ```R
 source('figure_4.R')
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 ### Codon rarity per amino-acid
@@ -5201,12 +5074,10 @@ Are there specific amino acids driving the trends observed in Figure 4e? We test
 ```R
 source('figure_s_aa_rare.R')
 ```
-‣ **Time:** Minimal  
-‣ **Storage:** Minimal  
-‣ **Memory:** Minimal  
 </div> 
 
 The results end up in `YY_PLOTS/FIG_S_AA_RARE`.
 
-[![s14]({{images}}/s14.png)]( {{images}}/s14.png){:.center-img .width-70}
+[![s14]({{images}}/s14.png)]( {{images}}/s14.png){:.center-img .width-100}
+
 

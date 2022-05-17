@@ -34,7 +34,7 @@ Each code block begins with a comment that specifies the programming language us
 
 If the language is either `python` or `bash`, it is assumed that your working directory is the root directory of the project, _i.e._ `/some/path/that/ends/in/kiefl_2021`.
 
-If the language is `R`, it is assumed that the commands are issued from a fully initialized [GRE](FIXME). Once you've built your GRE, you can ensure your GRE is fully initialized by issuing the following commands:
+If the language is `R`, it is assumed that the commands are issued from a fully initialized [GRE]({{ site.url }}/data/anvio-structure/chapter-IV/#global-r-environment-gre). Once you've built your GRE, you can ensure your GRE is fully initialized by issuing the following commands:
 
 ```R
 request_scvs <- TRUE
@@ -42,7 +42,7 @@ request_regs <- TRUE
 withRestarts(source("load_data.R"), terminate=function() message('load_data.R: data already loaded. Nice.'))
 ```
 
-Finally, it is assumed you have completed all [Steps](FIXME) from Chapter III (or equivalently downloaded the [last checkpoint datapack](FIXME)). Some code blocks may require you to complete specific [Analyses](FIXME) from Chapter IV. Such steps will specify, with a comment, which Analysis is a prerequisite.
+Finally, it is assumed you have completed all Steps from [Chapter III]({{ site.url }}/data/anvio-structure/chapter-III) (or equivalently downloaded the [last checkpoint datapack]({{ site.url }}/data/anvio-structure/chapter-III/#step-16-breathe)). Some code blocks may require you to complete specific Analyses from [Chapter IV]({{ site.url }}/data/anvio-structure/chapter-IV). Such steps will specify, with a comment, which Analysis is a prerequisite.
 
 Finally finally, some numbers that are repeatedly multiple times throughout the text. A code block is only provided for the first instance in which it appears.
 
@@ -57,7 +57,7 @@ Finally finally, some numbers that are repeatedly multiple times throughout the 
 
 ```R
 # R
-# Prerequisite: Analysis X
+# Prerequisite: Analysis 2
 args <- list()
 args$reads <- "../18_PERCENT_ID.txt"
 args$pfam <- "../18_PERCENT_ID_PFAM.txt"
@@ -373,7 +373,7 @@ scvs %>% filter(ANY_dist == 0) %>% pull(pN_popular_consensus) %>% mean(na.rm=T)
 
 ```R
 # R
-# Prerequisite: Analysis X
+# Prerequisite: Analysis 11
 df <- read_tsv('../WW_TABLES/MODELS.txt')
 df$RSA[[2]]
 ``` 
@@ -386,7 +386,7 @@ df$RSA[[2]]
 
 ```R
 # R
-# Prerequisite: Analysis X
+# Prerequisite: Analysis 11
 df <- read_tsv('../WW_TABLES/MODELS.txt')
 df$DTL[[4]]
 ``` 
@@ -400,7 +400,7 @@ df$DTL[[4]]
 
 ```R
 # R
-# Prerequisite: Analysis X
+# Prerequisite: Analysis 11
 lm_rsa_gene_sample_pn <- readRDS("../lm_rsa_gene_sample_pn.RDS")
 print(round(100*(exp((lm_rsa_gene_sample_pn %>% summary %>% coef)["rel_solvent_acc","Estimate"] * 0.01) - 1), 2))
 rm(lm_rsa_gene_sample_pn)
@@ -414,7 +414,7 @@ rm(lm_rsa_gene_sample_pn)
 
 ```R
 # R
-# Prerequisite: Analysis X
+# Prerequisite: Analysis 11
 lm_dtl_gene_sample_pn <- readRDS("../lm_dtl_gene_sample_pn.RDS")
 print(round(100*(exp((lm_dtl_gene_sample_pn %>% summary %>% coef)["ANY_dist","Estimate"] * 0.01) - 1), 2))
 history()
@@ -429,7 +429,7 @@ rm(lm_dtl_gene_sample_pn)
 
 ```R
 # R
-# Prerequisite: Analysis X
+# Prerequisite: Analysis 11
 lm_rsa_dtl_gene_sample_pn <- readRDS("../lm_rsa_dtl_gene_sample_pn.RDS")
 formatted_anova_pn_rsa_dtl <- (100*(lm_rsa_dtl_gene_sample_pn %>% anova)$"Sum Sq"/sum((lm_rsa_dtl_gene_sample_pn %>% anova)$"Sum Sq")) 
 names(formatted_anova_pn_rsa_dtl) <- rownames(lm_rsa_dtl_gene_sample_pn %>% anova)
@@ -446,7 +446,7 @@ rm(formatted_anova_pn_rsa_dtl)
 
 ```R
 # R
-# Prerequisite: Analysis X
+# Prerequisite: Analysis 11
 lm_rsa_dtl_gene_sample_pn <- readRDS("../lm_rsa_dtl_gene_sample_pn.RDS")
 formatted_anova_pn_rsa_dtl <- (100*(lm_rsa_dtl_gene_sample_pn %>% anova)$"Sum Sq"/sum((lm_rsa_dtl_gene_sample_pn %>% anova)$"Sum Sq")) 
 names(formatted_anova_pn_rsa_dtl) <- rownames(lm_rsa_dtl_gene_sample_pn %>% anova)
@@ -464,7 +464,7 @@ rm(formatted_anova_pn_rsa_dtl)
 
 ```R
 # R
-# Prerequisite: Analysis X
+# Prerequisite: Analysis 11
 lm_rsa_dtl_gene_sample_ps <- readRDS("../lm_rsa_dtl_gene_sample_ps.RDS")
 formatted_anova_ps_rsa_dtl <- (100*(lm_rsa_dtl_gene_sample_ps %>% anova)$"Sum Sq"/sum((lm_rsa_dtl_gene_sample_ps %>% anova)$"Sum Sq")) 
 names(formatted_anova_ps_rsa_dtl) <- rownames(lm_rsa_dtl_gene_sample_ps %>% anova)
@@ -516,7 +516,7 @@ pnps %>% dim() %>% .[[1]]
 
 ```python
 # python
-# Prerequisite: Aux. Step X
+# Prerequisite: Aux. Step 1
 import pandas as pd
 df = pd.read_csv("07_ANI_HIMB122/ANIb_percentage_identity.txt", sep='\t').set_index('key')
 print(df['HIMB083'].sort_values())
