@@ -975,13 +975,22 @@ anvi-interactive -c 03_CONTIGS/SAR11_clade-contigs.db \
 
 ### Checkpoint datapack
 
-If you have been summoned here, its because you haven't completed all the previous steps. That's alright, you can jump in starting from here, assuming you have completed [Step 1](#step-1-creating-a-fresh-directory). Simply download these files, and it will be _as if_ you completed Steps 2 through 4.
+If you have been summoned here, its because you haven't completed all the previous steps. That's alright, you can jump in starting from here, **assuming you have completed [Step 1](#step-1-creating-a-fresh-directory)**.
+
+Simply run the following commands, and it will be _as if_ you completed Steps 2 through 4.
 
 (If you completed Steps 2 through 4, don't run these commands!)
 
 ```
-wget 03_CONTIGS
-wget 06_MERGED
+# Downloads the profile database
+wget -O 06_MERGED.zip https://figshare.com/ndownloader/files/35160844
+unzip 06_MERGED.zip
+rm 06_MERGED.zip
+
+# Downloads the contigs database
+wget -O 03_CONTIGS.zip https://figshare.com/ndownloader/files/35160838
+unzip 03_CONTIGS.zip
+rm 03_CONTIGS.zip
 ```
 
 ### Carry on
