@@ -13,9 +13,6 @@ redirect_from:
 {% capture command_style %}background: #D7484822; border: 4px solid #D74848;{% endcapture %}
 {% capture analysis_style %}background: #E6DBE4{% endcapture %}
 
-{:.warning}
-This document is **UNDER CONSTRUCTION**. It is not in a state where you can yet reproduce our work. We anticipate this workflow will be finalized by late March, and will remove this message when it is complete.
-
 ## Quick Navigation
 
 - [Chapter I: The prologue]({{ site.url }}/data/anvio-structure/chapter-I)

@@ -13,9 +13,6 @@ redirect_from:
 {% capture command_style %}background: #D7484822; border: 4px solid #D74848;{% endcapture %}
 {% capture analysis_style %}background: #E6DBE4{% endcapture %}
 
-{:.warning}
-This document is **UNDER CONSTRUCTION**. It is not in a state where you can yet reproduce our work. We anticipate this workflow will be finalized by late March, and will remove this message when it is complete.
-
 ## Quick Navigation
 
 - [Chapter I: The prologue]({{ site.url }}/data/anvio-structure/chapter-I)
@@ -47,7 +44,7 @@ Fortunately, creating an environment identical to mine is _way_ easier than it s
 
 <div class="extra-info" markdown="1">
 <span class="extra-info-header">If Docker isn't right for you</span>
-As powerful as Docker is, there are some drawbacks that make its use unfeasible for certain circumstances. For example, if you 
+As powerful as Docker is, there are some drawbacks that make its use unfeasible for certain circumstances. If this is you, consider [Option #2](#conda-option-2), which uses conda.
 </div> 
 
 ### Installing Docker
@@ -210,35 +207,9 @@ Sometimes Docker isn't an option. See this succinct quote from [this](https://ww
 
 > The privilege needed to start docker containers is basically super-user level, making it inappropriate for shared computing environments with “ordinary” users who need access to the software there. Conda environments are basically able to do what the user can do, and importantly neither requires nor grants administrative privilege outside of the environment.
 
-If Docker is not an option for you, the next best thing is conda. Here I will provide as comprehensive instructions as I can, but I can't guarantee that things will run as smoothly as they do for the Docker solution. If you are relatively inexperienced, I would highly recommend sticking with Docker if at all possible.
+If Docker is not an option for you, the next best thing is conda. Here is a rough sketch of how you would create the computing environment using conda.
 
-### Run tests
-
-It is much, much better to figure out that something is misconfigured now, rather than later. Please take the time ensure you can make your way through all of these commands without error.
-
-#### anvi'o
-
-#### 
+{:.warning}
+If you're reading this, I ran short on time and never made conda installation instructions. Are you _really_ keen on creating the environment in conda? Docker just won't suffice? Please reach out and I'll consider adding some comprehensive installation instructions. Thanks for your patience.
 
 
-## Chicken scratch FIXME
-
-- list of required programs and a little description of why each is required (preface list with note that instructions are below)
-
-(
-Notes to self:
-- pymol
-- conda install -y -c salilab dssp
-- conda install -c bioconda paml
-- conda install -c r rstudio
-- pip install xlrd==1.2.0
-- pip install openpyxl==3.0.9
-- pip install prody==2.0.1
-- pip install tmscoring   # for TM score
-- pip install 'iminuit<2' # for TM score
-- run all required anvi-setup programs
-- install instructions (include all R packages)
-- install.packages("spatstat") # used for weighted KS test
-- must have perl for pal2nal.pl (dnds stuff)
-- run tests to make sure you got everything installed right
-)
