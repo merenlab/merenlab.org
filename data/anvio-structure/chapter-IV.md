@@ -342,7 +342,7 @@ In this analysis, we create Table S1, which provides summary-level recruitment i
 As a reminder, we used Bowtie2 to recruit reads from each metagenome/metatranscriptome to each of the 21 SAR11 genomes in a competitive manner. The complete mapping information is stored in a series of {% include ARTIFACT name="bam-file" text="bam-files" %} present in `04_MAPPING/`, and the pertinent information from all samples and all genomes has been summarized into the {% include ARTIFACT name="profile-db" %} in `06_MERGED/`. To retrieve recruitment statistics for each genome, we can use the program {% include PROGRAM name="anvi-summarize" %}.
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #40</span>
 ```bash
 anvi-summarize -p 06_MERGED/SAR11_clade/PROFILE.db \
                -c 03_CONTIGS/SAR11_clade-contigs.db \
@@ -386,7 +386,7 @@ with pd.ExcelWriter(tables_dir/'RR.xlsx') as writer:
 </details> 
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #41</span>
 ```bash
 python ZZ_SCRIPTS/gen_table_rr.py
 ```
@@ -515,7 +515,7 @@ There is nothing special about this script, it simply creates the following file
 Ok, first, generate the file `mgx_bam_paths`:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #42</span>
 ```bash
 python ZZ_SCRIPTS/analysis_gen_mgx_bam_paths.py
 ```
@@ -524,7 +524,7 @@ python ZZ_SCRIPTS/analysis_gen_mgx_bam_paths.py
 Then, run `ZZ_SCRIPTS/analysis_gene_percent_id.py`:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #43</span>
 ```bash
 python ZZ_SCRIPTS/analysis_gene_percent_id.py --bams mgx_bam_paths \
                                               --contigs-db 03_CONTIGS/SAR11_clade-contigs.db \
@@ -539,7 +539,7 @@ This creates the file `18_PERCENT_ID.txt` which is a table quantifying the avera
 Various depictions of this raw data are provided in Table S2, which can be created via the following command.
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #44</span>
 ```bash
 python ZZ_SCRIPTS/table_pid.py
 ```
@@ -578,7 +578,7 @@ with open('gcoi', 'w') as f:
 </details> 
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #45</span>
 ```bash
 python ZZ_SCRIPTS/get_HIMB83_gene_clusters.py
 ```
@@ -608,7 +608,7 @@ done
 Go ahead and run this (it will take some time).
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #46</span>
 ```bash
 bash ZZ_SCRIPTS/get_HIMB83_gene_cluster_alignments.sh
 ```
@@ -696,7 +696,7 @@ df.to_csv("18_PERCENT_ID_PANGENOME.txt", sep="\t", index=False)
 Give it a run when you're ready.
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #47</span>
 ```bash
 python ZZ_SCRIPTS/analysis_get_percent_id_from_msa.py
 ```
@@ -853,7 +853,7 @@ df.to_csv("18_PERCENT_ID_PFAM.txt", sep="\t", index=False)
 This script downloads the seed sequence MSA of hundreds of Pfams, so an internet connection and some patience is required. Run it like so:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #48</span>
 ```bash
 python ZZ_SCRIPTS/analysis_get_percent_id_from_pfam_msa.py --contigs-db CONTIGS.db --genome-name HIMB083
 ```
@@ -941,7 +941,7 @@ print(df %>% group_by(name) %>% summarise(mean=mean(value, na.rm=TRUE), median=m
 To run this script, issue the following command from your GRE.
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #49</span>
 ```bash
 source('figure_s_ps.R')
 ```
@@ -955,7 +955,7 @@ The output image is Figure S1, stored at `YY_PLOTS/FIG_S_PS/Figure_SPS.png`.
 ## Analysis 3: Codon usage between SAR11 genomes
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #50</span>
 ```bash
 bash ZZ_SCRIPTS/codon_freqs_per_genome.sh
 ```
@@ -964,7 +964,7 @@ bash ZZ_SCRIPTS/codon_freqs_per_genome.sh
 The above command generates `codon_freqs_per_genome.txt`. To generate Figure S13, run
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #51</span>
 ```bash
 source('figure_s_gnm_cdn_f.R')
 ```
@@ -1048,7 +1048,7 @@ display(g, file.path(args$output, "meta.png"), width=6.5, height=5, as.png=TRUE)
 </details> 
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #52</span>
 ```bash
 source('figure_s_env.R')
 ```
@@ -1125,7 +1125,7 @@ display(g, file.path(args$output, "fig.png"), width=s*3.5, height=s*2.4)
 It can be ran with the following:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #53</span>
 ```bash
 source('figure_s_pn_hist.R')
 ```
@@ -1191,7 +1191,7 @@ with pd.ExcelWriter(tables_dir/'PNPS_SUMS.xlsx') as writer:
 Which can be ran from the command line:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #54</span>
 ```bash
 python ZZ_SCRIPTS/table_pnps_sums.py
 ```
@@ -1202,7 +1202,7 @@ python ZZ_SCRIPTS/table_pnps_sums.py
 Since Figure 1 is merely a diagrammatic workflow, there is no real data. Consequently, there is not much value in reproducing this figure. But that didn't stop me. You can reproduce the protein images by running this clump of PyMOL scripts (`.pml` extension)
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #55</span>
 ```bash
 pymol -c ZZ_SCRIPTS/figure_1_worker1.pml
 pymol -c ZZ_SCRIPTS/figure_1_worker2.pml
@@ -1233,7 +1233,7 @@ In this document I'll detail (a) how to predict MODELLER structures using {% inc
 Calculating structures with MODELLER using {% include PROGRAM name="anvi-gen-structure-database" %} is exceedingly easy and in a rather extensive [blog post](https://merenlab.org/2018/09/04/getting-started-with-anvio-structure/), I go into all of the nitty gritty. The net result is that generating structures for genes within a {% include ARTIFACT name="contigs-db" %} has never been easier. It boils down to just one command, which you should feel free to run with as many threads as you can afford to shell out.
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #56</span>
 ```bash
 anvi-gen-structure-database -c CONTIGS.db -o 09_STRUCTURE_MOD.db -T <NUM_THREADS> --genes-of-interest goi
 ```
@@ -1334,7 +1334,7 @@ with open('12_GENES_WITH_GOOD_STRUCTURES_MODELLER', 'w') as f:
 This should take about 5 minutes to complete, and outputs the file `12_GENES_WITH_GOOD_STRUCTURES_MODELLER`.
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #57</span>
 ```bash
 python ZZ_SCRIPTS/gen_genes_with_good_structures_modeller.py -s 09_STRUCTURE_MOD.db
 ```
@@ -1612,7 +1612,7 @@ with pd.ExcelWriter(tables_dir/'STRUCT_COMP.xlsx') as writer:
 </details> 
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #58</span>
 ```bash
 python ZZ_SCRIPTS/comp_struct_preds.py
 ```
@@ -1713,7 +1713,7 @@ display(g, file.path(args$output, "fig.png"), width=6, height=5, as.png=T)
 </details> 
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #59</span>
 ```bash
 source('figure_s_comp.R')
 ```
@@ -1767,7 +1767,7 @@ with pd.ExcelWriter(tables_dir/'LIG.xlsx') as writer:
 Rather boringly, this script packages up a bunch of tabular data you already had, and creates an Excel table, where each sheet is a different table. You can run this script like so:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #60</span>
 ```bash
 python ZZ_SCRIPTS/table_lig.py
 ```
@@ -1879,7 +1879,7 @@ display(
 You can generate Figures 2a and 2b (as well as the rest of the plots in Figure 2) from the GRE:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #61</span>
 ```R
 source('figure_2.R')
 ```
@@ -2023,7 +2023,7 @@ Running the following creates Figure S5 under the filename `YY_PLOTS/FIG_S_SHUFF
 
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #62</span>
 ```R
 source('figure_s_shuff_comp.R')
 ```
@@ -2173,7 +2173,7 @@ display(
 which can be ran like so:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #63</span>
 ```R
 source('figure_s_1d_DTL.R')
 ```
@@ -2190,7 +2190,7 @@ We assessed the extent that we may be overestimating DTL due to missed ligand si
 To get the BioLiP database, we downloaded it directly from the [Zhang Group](https://zhanggroup.org/):
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #64</span>
 ```bash
 mkdir 20_BIOLIP
 cd 20_BIOLIP
@@ -2318,7 +2318,7 @@ pd.DataFrame(output).to_csv(Path('20_BIOLIP') / 'dtl_dist.txt', sep='\t', index=
 Since this script takes such a long time to run, I ended up subsetting the dataset to only 5000 structures. You can modify the variable `TOTAL` at the top of the script if you want to change this number. When ready, run it:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #65</span>
 ```bash
 python ZZ_SCRIPTS/biolip_dtl_dist.py
 ```
@@ -2330,7 +2330,7 @@ python ZZ_SCRIPTS/biolip_dtl_dist.py
 Finally, from within the GRE you can run `ZZ_SCRIPTS/figure_s_biolip.R` to create Figure S9, which is output to `YY_PLOTS/FIG_S_BIOLIP`:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #66</span>
 ```R
 source('figure_s_biolip.R')
 ```
@@ -2691,7 +2691,7 @@ The same thing is done with all of the other models, and the ANOVA results are c
 Before this, I used to think of regressions as some basic line fitting routine that takes a fraction of a second. Probably this falsehood stems from the toy examples I learned in basic statistics classes on the subject. But these are pretty big linear models--about 10M datapoints in each. And we didn't do any parallelization or fancy tricks, so it takes considerable memory and time for this script to complete. As such, this is the one instance where **I recommend you _close_ your GRE before running this script**, because your computer (especially if its a laptop) will need all of the memory it can get. Instead of running this inside an R-shell, just run it from the command line:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #67</span>
 ```bash
 cd ZZ_SCRIPTS
 Rscript analysis_big_linear_models.R
@@ -2978,7 +2978,7 @@ display(DTL_pearson, output=file.path(args$output, "DTL_pearson.pdf"), width=f*w
 Similarly, distributions of the 2D regression model parameters can be visualized by running
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #68</span>
 ```R
 source('figure_s_reg_stats.R')
 ```
@@ -2993,7 +2993,7 @@ This is essentially histograms of the various columns in `poly_corr`. See `ZZ_SC
 If you haven't noticed, `poly_corr` is essentially Table S7. To export `poly_corr` into the tab-delimited file format that is Table S7, run the following from your GRE:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #69</span>
 ```R
 source('table_poly_corr.R')
 ```
@@ -3043,7 +3043,7 @@ print(g)
 Really, this is no different to how I created the plots in Figures S7 and S8. For the full reproducible scripts, check out `ZZ_SCRIPTS/figure_s_examples_RSA.R` and `ZZ_SCRIPTS/figure_s_examples_DTL.R`, and when you're ready, run the scripts like so:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #70</span>
 ```R
 source('figure_s_examples_RSA.R')
 source('figure_s_examples_DTL.R')
@@ -3065,7 +3065,7 @@ You calculated the per-group pN and pS values in [Step 14]({{ site.url }}/data/a
 
 As a quick aside, the tabular data found in this folder are no more or less than the Excel sheets that comprise Table S8. To produce Table S8, run `ZZ_SCRIPTS/table_group.py`:
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #71</span>
 ```bash
 python ZZ_SCRIPTS/table_group.py
 ```
@@ -3183,7 +3183,7 @@ However, this code has already been run, so you already have `ps_group_model` an
 It is with these linear models that Figure SI3 is constructed. To create Figure SI3, run
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #72</span>
 ```R
 source('figure_s_group_fits.R')
 ```
@@ -3204,7 +3204,7 @@ I addressed this by repeating the fits in the previous section for various group
 To reproduce this analysis, you'll need to calculate per-group pN and pS for various bin numbers. In [Step 14]({{ site.url }}/data/anvio-structure/chapter-III/#per-group-rsa--dtl) we utilized the script `ZZ_SCRIPTS/analysis_pnps_d_and_rsa.py` to calculate per-group pN and pS for a bin number of 15 (what I mean by this is RSA and DTL are each split into 15 segments), and we can repeat that process for several bin numbers using the following bash command.
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #73</span>
 ```bash
 for bin_number in 2 4 6 8 10 14 18 22 26 30 34 38; do
     python ZZ_SCRIPTS/analysis_pnps_d_and_rsa.py -b $bin_number \
@@ -3230,7 +3230,7 @@ counts_22.txt counts_6.txt  pN_2.txt      pN_4.txt      pNpS_18.txt   pNpS_38.tx
 To reproduce the figure, run
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #74</span>
 ```R
 source('figure_s_bin_effect.R')
 ```
@@ -3247,7 +3247,7 @@ Since many of the above analyses regress polymorphism rates against RSA and DTL,
 Running the analysis is simple from your GRE:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #75</span>
 ```R
 source('figure_s_multicolin.R')
 ```
@@ -3270,7 +3270,7 @@ This data, along with pN$^{\text{(gene)}}$ and pS$^{\text{(gene)}}$, are present
 When ready, run the following and Table S9 will be output to the filename `WW_TABLES/GENE_PNPS.xlsx`:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #76</span>
 ```bash
 python ZZ_SCRIPTS/table_gene_pnps.py
 ```
@@ -3372,7 +3372,7 @@ display(g, file.path(args$output, "fig.pdf"), width=s*3.5, height=s*2.4)
 The real statistics behind this figure is an ANOVA analysis, illustrating that a lot more variance in pN/pS$^{\text{(gene)}}$ is observed between genes, meaning that genes exhibit a lot of diversity in their pN/pS$^{\text{(gene)}}$. 'A lot' in this sense is relative to the variance in pN/pS$^{\text{(gene)}}$ observed within the same gene across samples. This is what I've tried to convey with Figure S11, which you can replicate via the GRE:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #77</span>
 ```R
 source('figure_s_pnps_bw.R')
 ```
@@ -3385,7 +3385,7 @@ This plops Figure S11 in the directory `YY_PLOTS/FIG_S_PNPS_BW`.
 Relatedly, Figure S12 represents the spread of variance in pN/pS$^{\text{(gene)}}$ more directly in the form of a few histograms, which is created with `ZZ_SCRIPTS/figure_s_g_pnps_hist.R`. Run it in the GRE with:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #78</span>
 ```R
 source('figure_s_g_pnps_hist.R')
 ```
@@ -3421,7 +3421,7 @@ Clearly there is a lot of overlapping gene content. We consider HIMB122 to share
 On a nucleotide level, we can assess the overall similarity between HIMB122 and HIMB83 using average nucleotide identity (ANI) calculated by pyANI using {% include PROGRAM name="anvi-compute-genome-similarity" %}.
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #79</span>
 ```bash
 anvi-compute-genome-similarity -e 07_EXTERNAL_GENOMES_COMP_TO_HIMB122.txt \
                                -p 07_PANGENOME_COMP_TO_HIMB122/PANGENOME/SAR11-PAN.db \
@@ -3608,7 +3608,7 @@ done
 This script does exactly what we just did manually, except it wraps it up into a loop thats iterated for each homologous pair. It takes as input a file you generated earlier in this analysis, `goi_gcoi_COMP_TO_HIMB122`, which corresponds each gene cluster to the gene ID of HIMB83. The script should be ran like so:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #80</span>
 ```bash
 bash ZZ_SCRIPTS/calculate_dnds.sh goi_gcoi_COMP_TO_HIMB122 \
                                   07_PANGENOME_COMP_TO_HIMB122/PANGENOME/SAR11-PAN.db \
@@ -3642,7 +3642,7 @@ This will take some time to run, but when it has finished the directory `19_DNDS
 To wrap up `19_DNDS_HIMB122/dnds.txt` into a cute little supplementary table (Table S12), run the following command from your GRE:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #81</span>
 ```R
 source('table_dnds.R')
 ```
@@ -3715,7 +3715,7 @@ display(g2, file.path(args$output, "dnds_vs_pnps.png"), width=3.2, height=2.8)
 Running the following yields Figure S10 under the filename `YY_PLOTS/FIG_S_DNDS/dnds_vs_pnps.png`
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #82</span>
 ```bash
 source('figure_s_dnds.R')
 ```
@@ -3839,7 +3839,7 @@ This code creates the tables `TA`, `TA_sample_averaged`, and `TA_sample_corr`, w
 Table S13 provides a view of TA values and how they relate to pN/pS$^{\text{(gene)}}$ on a per-gene, per-sample basis, and can be generated via
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #83</span>
 ```R
 source('table_ta.R')
 ```
@@ -3954,7 +3954,7 @@ display(g, file.path(args$output, "fig.pdf"), width=7, height=5, as.png=T)
 To generate Figure SI5, run the following from your GRE.
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #84</span>
 ```R
 source('figure_s_exp.R')
 ```
@@ -3969,7 +3969,7 @@ One of the most exciting things that pN/pS$^{\text{(gene)}}$ enables is the trac
 To expose the totality of this data, I correlated each measured environmental variable with each gene's pN/pS$^{\text{(gene)}}$, which resulted in Table S10. You can create this table from within the GRE:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #85</span>
 ```R
 source('table_env_corr.R')
 ```
@@ -4146,7 +4146,7 @@ cd ../..
 </details> 
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #86</span>
 ```bash
 pymol -c ZZ_SCRIPTS/structure_2602_1FPY.pml
 ```
@@ -4208,7 +4208,7 @@ save 21_GS_COMPLEX/neighbor_complex.pdb, sele
 When ready, run the following from the command-line:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #87</span>
 ```bash
 mkdir -p 21_GS_COMPLEX
 pymol -c ZZ_SCRIPTS/GS_neighor_complex.pml
@@ -4353,7 +4353,7 @@ output.to_csv(Path('21_GS_COMPLEX/complex_RSA.txt'), sep='\t', index=False)
 Run them with
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #88</span>
 ```bash
 python ZZ_SCRIPTS/GS_complex_DTL.py
 python ZZ_SCRIPTS/GS_complex_RSA.py
@@ -4573,7 +4573,7 @@ Ok, so that's in essence how I created Figure 3d. I hope its helpful for your ow
 Running these scripts is as easy as
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #89</span>
 ```bash
 pymol -c ZZ_SCRIPTS/structure_2602_pN.pml
 pymol -c ZZ_SCRIPTS/structure_2602_pS.pml
@@ -4701,7 +4701,7 @@ This snippet is taken from `ZZ_SCRIPTS/figure_3.R`
 If you haven't done so already, run the following from within your GRE to produce the plots from Figure 3.
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #90</span>
 ```R
 source('figure_3.R')
 ```
@@ -4913,7 +4913,7 @@ display(
 If you want to generate Figures 4a and 4b (and all of Figure 4 for that matter), run the following.
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #91</span>
 ```R
 source('figure_4.R')
 ```
@@ -4928,7 +4928,7 @@ Well, I tested this directly using a boostrapping method. Essentially, I repeate
 Because this is such a slow process, the histograms are constructed from just 200 experiments, which required me to run it overnight. If you want to increase/decrease the number of experiments, modify `200` found in `ZZ_SCRIPTS/figure_s_gnm_rob.R`. Then when ready, run 
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #92</span>
 ```R
 source('figure_s_gnm_rob.R')
 ```
@@ -4938,7 +4938,7 @@ source('figure_s_gnm_rob.R')
 This will output Figure SI6 into the directory `YY_PLOTS/FIG_S_GNM_ROB`. It will also output a file `genome_robust.txt`, which can be wrapped into Table S14 via
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #93</span>
 ```bash
 python ZZ_SCRIPTS/table_rob.py
 ```
@@ -4969,7 +4969,7 @@ This is a short analysis, thanks to all the preparation that occurred in [Step 1
 An intermediate data table from this Step is `codon_trna_composition.txt`, which I described as a 'one-stop-shop' for all your codon property needs. This is actually the exact contents of Table S11. To follow the convention of adding these tables to the `WW_TABLES` directory, run
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #94</span>
 ```R
 source('table_cdn_comp.R')
 ```
@@ -5059,7 +5059,7 @@ g_rare_dtl_all <- ggplot(plot_data, aes(pnps, mean_rarity_DTL)) +
 If you haven't already, you can reproduce Figure 4 as such:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #95</span>
 ```R
 source('figure_4.R')
 ```
@@ -5070,7 +5070,7 @@ source('figure_4.R')
 Are there specific amino acids driving the trends observed in Figure 4e? We tested this by doing a per-amino acid analysis which revealed that all amino acids substitute rare codons with increased frequency when selection is low (Figure S14). The analysis is in `ZZ_SCRIPTS/figure_s_aa_rare.R`, and you can reproduce it with
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #96</span>
 ```R
 source('figure_s_aa_rare.R')
 ```

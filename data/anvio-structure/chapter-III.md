@@ -34,7 +34,7 @@ Open up your terminal and `cd` to a place in your filesystem that makes sense to
 Next, make the following directory, and then `cd` into it:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #1</span>
 ```bash
 mkdir kiefl_2021
 cd kiefl_2021
@@ -56,7 +56,7 @@ The output should look something like: `/some/path/that/ends/in/kiefl_2021`.
 Now that the directory exists, the first thing you'll populate it with is all of the scripts used in this reproducible workflow. Download them with
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #2</span>
 ```bash
 wget -O ZZ_SCRIPTS.zip https://figshare.com/ndownloader/files/35134069
 unzip ZZ_SCRIPTS.zip
@@ -72,7 +72,7 @@ This downloads all of the scripts and puts them in a folder called `ZZ_SCRIPTS`.
 Finally, there are some convenience files that will be used, that can be downloaded like so:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #3</span>
 ```bash
 wget -O TARA_metadata.txt https://figshare.com/ndownloader/files/33108791
 wget -O 00_RAW_CORRECT_SIZES https://figshare.com/ndownloader/files/33109079
@@ -167,7 +167,7 @@ In summary, it first downloads the file `00_SAMPLE_INFO_FULL.txt`, which is in f
 Go ahead and run this script (internet connection required):
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #4</span>
 ```bash
 ./ZZ_SCRIPTS/download_fastq_metadata.sh
 ```
@@ -309,7 +309,7 @@ Since downloading terabytes of data is going to take some time, you're likely ru
 When ready, go ahead and run the script:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #5</span>
 ```bash
 ./ZZ_SCRIPTS/download_fastqs.sh
 ```
@@ -328,7 +328,7 @@ This is currently a single-threaded script. If you end up parallelizing this scr
 I mentioned earlier that each time `ZZ_SCRIPTS/download_fastqs.sh` is ran, it checks the presence/absence of all expected files, as well as their expected file sizes. Therefore, you can easily verify the integrity of your downloads by simply running the script again:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #6</span>
 ```bash
 ./ZZ_SCRIPTS/download_fastqs.sh
 ```
@@ -368,7 +368,7 @@ We therefore need some reference SAR11 genomes. We used a genome collection used
 We have hosted this genome collection in FASTA format, which you can download with the following command.
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #7</span>
 ```bash
 # Download
 wget -O contigs.fa.tar.gz https://figshare.com/ndownloader/files/33114413
@@ -555,7 +555,7 @@ samples.to_csv('samples.txt', sep='\t', index=False)
 Run it with the following command:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #8</span>
 ```bash
 python ZZ_SCRIPTS/gen_samples_txt.py
 ```
@@ -638,7 +638,7 @@ with open('fasta.txt', 'w') as f:
 Run it like so:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #9</span>
 ```bash
 python ZZ_SCRIPTS/gen_fasta_txt.py
 ```
@@ -927,7 +927,7 @@ sbatch anvi_run_workflow.sbatch
 Of course, this information is specific to me. You'll have to submit your job your own way. However you decide to do it, here is once again the template for the command:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #10</span>
 ```bash
 anvi-run-workflow -w metagenomics \
                   -c config.json \
@@ -1008,7 +1008,7 @@ All of the gene coordinates and sequences have been determined using Prodigal an
 However, for downstream purposes it will be useful to have this gene information in a tabular format. Luckily, {% include PROGRAM name="anvi-export-gene-calls" %} can export this gene info into a {% include ARTIFACT name="gene-calls-txt" %} file. To generate such a file, which we will name `gene_calls.txt`, simply run the following:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #11</span>
 ```bash
 anvi-export-gene-calls -c 03_CONTIGS/SAR11_clade-contigs.db \
                        -o gene_calls.txt \
@@ -1046,7 +1046,7 @@ Then skip to the next step. Otherwise, continue on.
 First, you need to setup these databases:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #12</span>
 ```bash
 anvi-setup-kegg-kofams --kegg-snapshot v2020-12-23
 anvi-setup-pfams --pfam-version 33.1
@@ -1063,7 +1063,7 @@ If you are using Docker, you can skip this command :)
 Now anvi'o has databases that it can search your SAR11 genes against. To annotate from these different sources, run these programs:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #13</span>
 ```bash
 anvi-run-pfams -c 03_CONTIGS/SAR11_clade-contigs.db -T <NUM_THREADS>
 anvi-run-ncbi-cogs -c 03_CONTIGS/SAR11_clade-contigs.db -T <NUM_THREADS>
@@ -1076,7 +1076,7 @@ anvi-run-kegg-kofams -c 03_CONTIGS/SAR11_clade-contigs.db -T <NUM_THREADS>
 These functional annotations now live inside `03_CONTIGS/SAR11_clade-contigs.db`. To export these functions into a nice tabular output, use the program {% include PROGRAM name="anvi-export-functions" %}:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #14</span>
 ```bash
 anvi-export-functions -c 03_CONTIGS/SAR11_clade-contigs.db \
                       -o functions.txt
@@ -1118,7 +1118,7 @@ HIMB058_Contig_0003_split_00003 HIMB058
 This can be imported with {% include PROGRAM name="anvi-import-collection" %}:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #15</span>
 ```bash
 anvi-import-collection SAR11-GENOME-COLLECTION.txt \
                        -p 06_MERGED/SAR11_clade/PROFILE.db \
@@ -1132,7 +1132,7 @@ anvi-import-collection SAR11-GENOME-COLLECTION.txt \
 A {% include ARTIFACT name="collection" %} called `GENOMES` now exists in `03_CONTIGS/03_CONTIGS/SAR11_clade-contigs.db` and `06_MERGED/SAR11_clade/PROFILE.db`, which is perfect because this is the {% include ARTIFACT name="collection" %} that we'll use to run {% include PROGRAM name="anvi-split" %}. Here is the command:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #16</span>
 ```bash
 anvi-split -C GENOMES \
            -c 03_CONTIGS/SAR11_clade-contigs.db \
@@ -1169,7 +1169,7 @@ The split databases can be found in the output directory `07_SPLIT/`, which has 
 Since this study focuses on HIMB83, I wanted to make the database files in `07_SPLIT/HIMB083` more accessible, so I created symbolic links that are in the main directory:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #17</span>
 ```
 ln -s 07_SPLIT/HIMB083/AUXILIARY-DATA.db AUXILIARY-DATA.db
 ln -s 07_SPLIT/HIMB083/CONTIGS.db CONTIGS.db
@@ -1219,7 +1219,7 @@ Despite our displeasure with its oversimplification of a complex problem, and it
 To recapitulate this, I needed per-sample gene coverage data, so I ran {% include PROGRAM name="anvi-summarize" %}, a program that snoops around a {% include ARTIFACT name="contigs-db" %} and {% include ARTIFACT name="profile-db" %} in order to calculate exactly this information (and more):
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #18</span>
 ```bash
 anvi-summarize -c CONTIGS.db \
                -p PROFILE.db \
@@ -1316,7 +1316,7 @@ with open('goi', 'w') as f:
 Run it like so:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #19</span>
 ```bash
 python ZZ_SCRIPTS/gen_soi_and_goi.py
 ```
@@ -1484,7 +1484,7 @@ The ability for {% include PROGRAM name="anvi-gen-variability-profile" %} to exp
 {% include PROGRAM name="anvi-gen-variability-profile" %} generates a {% include ARTIFACT name="variability-profile" %} that this study makes extensive use of for nearly every figure in the paper. To create this {% include ARTIFACT name="variability-profile" %}, which will be named `11_SCVs.txt`, run the following command:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #20</span>
 ```bash
 anvi-gen-variability-profile -c CONTIGS.db \
                              -p PROFILE.db \
@@ -1602,10 +1602,10 @@ We also make auxiliary use of single amino acid variants (SAAVs), which are just
 
 ### Exporting
 
-Calculating SAAVs is just as easy as calculating SCVs. The command is mostly the same as Command FIXME, with the most critical change being the replacement of `--engine CDN` (codon) to `--engine AA` (amino acid).
+Calculating SAAVs is just as easy as calculating SCVs. The command is mostly the same as Command 20, with the most critical change being the replacement of `--engine CDN` (codon) to `--engine AA` (amino acid).
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #21</span>
 ```bash
 anvi-gen-variability-profile -c CONTIGS.db \
                              -p PROFILE.db \
@@ -1644,7 +1644,7 @@ But for the overwhelming majority, **I'm going to provide a download link to a f
 To save myself a 3.7 Tb upload, and you a 3.7 Tb download, I stripped down the AlphaFold output so that only the structures and their confidence scores remain. Go ahead and download the folder `09_STRUCTURES_AF`:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #22</span>
 ```bash
 wget -O 09_STRUCTURES_AF.tar.gz https://figshare.com/ndownloader/files/33125294
 tar -zxvf 09_STRUCTURES_AF.tar.gz
@@ -1772,7 +1772,7 @@ pd.DataFrame(external_structures).to_csv('external_structures.txt', sep='\t', in
 Go ahead and run the script like so:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #23</span>
 ```bash
 python ZZ_SCRIPTS/gen_external_structures.py
 ```
@@ -1801,7 +1801,7 @@ As you can see, its a very basic file. It just says, 'this gene ID corresponds t
 Then, to create a {% include ARTIFACT name="structure-db" %}, run {% include PROGRAM name="anvi-gen-structure-database" %} with the following settings.
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #24</span>
 ```bash
 anvi-gen-structure-database -c CONTIGS.db \
                             --external-structures external_structures.txt \
@@ -1868,7 +1868,7 @@ df[['item_name', 'plddt']].to_csv('plddt_misc_data.txt', sep='\t', index=False)
 Run it like so:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #25</span>
 ```bash
 python ZZ_SCRIPTS/gen_plddt_misc_data.py
 ```
@@ -1879,7 +1879,7 @@ python ZZ_SCRIPTS/gen_plddt_misc_data.py
 This creates creates a {% include ARTIFACT name="misc-data-amino-acids-txt" %} file called `plddt_misc_data.txt`, which meets anvi'o's demands. Finally, import this misc data into the `CONTIGS.db` with the following:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #26</span>
 ```bash
 anvi-import-misc-data -c CONTIGS.db \
                       -t amino_acids \
@@ -1973,7 +1973,7 @@ subset.to_csv('12_GENES_WITH_GOOD_STRUCTURES', header=False, index=False)
 If you want to be more or less conservative, feel free to modify `80` in the script to whatever you please. Then, run it:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #27</span>
 ```bash
 python ZZ_SCRIPTS/gen_genes_with_good_structures.py
 ```
@@ -2064,7 +2064,7 @@ This data is essentially what's stored in `residue_info`, except `residue_info` 
 You already have this data in `09_STRUCTURE.db`. However, for quick access, you should export the table using {% include PROGRAM name="anvi-export-table" %}. Here I am opting to use only a subset of the columns that I deemed useful:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #28</span>
 ```bash
 anvi-export-table 09_STRUCTURE.db \
                   --table residue_info \
@@ -2160,7 +2160,7 @@ df.to_csv(name, sep='\t', index=False)
 Make sure you run it:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #29</span>
 ```bash
 python ZZ_SCRIPTS/append_rel_solvent_acc.py
 ```
@@ -2191,7 +2191,7 @@ And applying it to metagenomics I did. In fact, that quoted blog post explains i
 To calculate per-residue ligand-binding scores, the first step is downloading the InteracDome dataset and the Pfam database that it references. This procedure is wrapped up into the simple program {% include PROGRAM name="anvi-setup-interacdome" %} which creates all of the necessary {% include ARTIFACT name="interacdome-data" %} files.
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #30</span>
 ```bash
 anvi-setup-interacdome
 ```
@@ -2247,7 +2247,7 @@ In the context of this study, here's what's going to happen when {% include PROG
 What a mouthful. Thankfully, running {% include PROGRAM name="anvi-run-interacdome" %} is easy:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #31</span>
 ```bash
 anvi-run-interacdome -c CONTIGS.db \
                      --min-binding-frequency 0.5 \
@@ -2623,7 +2623,7 @@ scvs.loc[original_order].to_csv(filepath, sep='\t', index=False)
 Go ahead and run it:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #32</span>
 ```bash
 python ZZ_SCRIPTS/append_dist_to_lig.py --all \
                                         --save-as-misc-data
@@ -2640,7 +2640,7 @@ After successfully running this program, DTL is now a column in `11_SCVs.txt` na
 Additionally, the {% include ARTIFACT name="misc-data-amino-acids-txt" %} file `DTL_misc_data.txt` has been created that you should import:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #33</span>
 ```bash
 anvi-import-misc-data -c CONTIGS.db \
                       -t amino_acids \
@@ -2791,7 +2791,7 @@ df.to_csv("11_SCVs.txt", sep='\t', index=False)
 </details> 
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #34</span>
 ```bash
 python ZZ_SCRIPTS/fix_nans.py
 ```
@@ -2809,7 +2809,7 @@ In the field of metagenomics, when people think of pN and pS, they typically thi
 {% include PROGRAM name="anvi-get-pn-ps-ratio" %} takes a SCV {% include ARTIFACT name="variability-profile" %} as input, and churns out a {% include ARTIFACT name="pn-ps-data" %} directory. I named the directory `17_PNPS`, and you can run the command as follows:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #35</span>
 ```bash
 anvi-get-pn-ps-ratio -V 11_SCVs.txt \
                      -c CONTIGS.db \
@@ -3052,7 +3052,7 @@ for bin_count in bins:
 Go ahead and run the thing.
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #36</span>
 ```bash
 python ZZ_SCRIPTS/analysis_pnps_d_and_rsa.py -b 15 \
                                              -o 17_PNPS_RSA_AND_DTL
@@ -3385,7 +3385,7 @@ df.to_csv("codon_trna_composition.txt", sep='\t', index=False)
 When you're ready (it just takes a couple seconds), run it:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #37</span>
 ```bash
 bash ZZ_SCRIPTS/get_codon_trna_composition.sh
 ```
@@ -3509,7 +3509,7 @@ var.data.to_csv(variability_profile, sep='\t', index=False)
 </details> 
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #38</span>
 ```bash
 python ZZ_SCRIPTS/append_codon_trna_composition.py
 ```
@@ -3573,7 +3573,7 @@ First, a pair of {% include ARTIFACT name="external-genomes" %} files are made: 
 When you're ready, run it:
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #X</span>
+<span class="extra-info-header">Command #39</span>
 ```bash
 bash ZZ_SCRIPTS/make_pangenomes.sh <NUM_THREADS>
 ```
