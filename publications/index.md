@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2022-04-19
+modified: 2022-05-27
 comments: false
 ---
 
@@ -236,7 +236,8 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.7554/eLife.46497"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.7554/eLife.46497" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.7554/eLife.46497" target="_new">Single-amino acid variants reveal evolutionary processes that shape the biogeography of a global SAR11 subclade</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Delmont TO</span>, <span class="pub-member-author">Kiefl E</span>, Kilinc O, <span class="pub-member-author">Esen OC</span>, Uysal I, Rappé MS, Giovannoni S, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-authors"><span class="pub-member-author">Delmont TO<sup>☯</sup></span>, <span class="pub-member-author">Kiefl E<sup>☯</sup></span>, Kilinc O, <span class="pub-member-author">Esen OC</span>, Uysal I, Rappé MS, Giovannoni S, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors</span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/pubs/delmond_and_kiefl_sar11_saavs.png"><img src="/images/pubs/delmond_and_kiefl_sar11_saavs.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
