@@ -53,7 +53,7 @@ Open your Terminal (if using OSX / Linux) or WSL (Ubuntu) prompt (if using Windo
 
 ```bash
 # 1) download the datapack from the internet (FigShare)
-curl -L https://figshare.com/ndownloader/files/34075571 -o DFI_ANVIO_WORKSHOP.tar.gz
+curl -L https://figshare.com/ndownloader/files/35843585 -o DFI_ANVIO_WORKSHOP.tar.gz
 
 # 2) unpack data and move into the datapack folder
 tar -zxvf DFI_ANVIO_WORKSHOP.tar.gz && cd DFI_ANVIO_WORKSHOP
