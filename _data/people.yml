@@ -62,26 +62,6 @@
       inst: The Department of Medicine at the University of Chicago
       inst_link: http://medicine.uchicago.edu/
 
-- alias: evan
-  lab_member: True
-  name: Evan Kiefl
-  name_as_author: Evan Kiefl
-  tenure_start: 04/2017
-  role: Graduate Student
-  twitter: evankiefl
-  github: ekiefl
-  linkedin: evan-kiefl-825985b7
-  web: https://ekiefl.github.io
-  orcid: 0000-0002-6473-0921
-  email: kiefl.evan@gmail.com
-  avatar: bio-evan.jpg
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  bio: "I am interested in uncovering how single nucleotide variants map to functional variation in the genes of naturally-occuring microbial populations."
-  affiliations:
-    - title: Graduate Student
-      inst: The Biophysical Sciences Program at the University of Chicago
-      inst_link: http://biophysics.uchicago.edu/
-
 - alias: matt
   lab_member: True
   name: Matthew Schechter
@@ -210,6 +190,34 @@
 # Lab Alumni.
 ####################################################################################
 
+- alias: evan
+  lab_member: True
+  name: Evan Kiefl
+  nick_name: Evan
+  name_as_author: Evan Kiefl
+  tenure_start: 04/2017
+  tenure_end: 06/2022
+  current_info: a Bioinformatician at <a href="https://www.abcellera.com">AbCellera</a>
+  contributions: Evan has made <a href="https://anvio.org/people/ekiefl/">technical</a> and <a href="https://www.youtube.com/watch?v=7_uBDyANpdk">intellectual</a> contributions that allowed us to interpret the genetic diversity within naturally occuring microbial populations in the context of their predicted protein structures
+  role: Graduate Student
+  twitter: evankiefl
+  github: ekiefl
+  linkedin: evan-kiefl-825985b7
+  web: https://ekiefl.github.io
+  orcid: 0000-0002-6473-0921
+  email: kiefl.evan@gmail.com
+  avatar: bio-evan.jpg
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  bio: "I am interested in uncovering how single nucleotide variants map to functional variation in the genes of naturally-occuring microbial populations."
+  affiliations:
+    - title: Graduate Student
+      inst: The Biophysical Sciences Program at the University of Chicago
+      inst_link: http://biophysics.uchicago.edu/
+    - title: Bioinformatician
+      inst: AbCellera
+      inst_link: https://www.abcellera.com/
+      current: true
+
 - alias: karen
   lab_member: True
   name: Karen Lolans
@@ -219,7 +227,7 @@
   tenure_end: 10/2021
   role: Senior Research Technician
   current_info: a Senior Technician at the University of Chicago
-  contributions: Karen has made significant contributons to the wet-lab branch of our group at the University of Chicago by creating and benchmarking protocols for tRNA sequencing and high molecular weight DNA extraction for long-read sequencing even from most challenging samples of low-biomass and host contamination.
+  contributions: Karen has made significant contributons to the wet-lab branch of our group at the University of Chicago by creating and benchmarking protocols for tRNA sequencing and high molecular weight DNA extraction for long-read sequencing even from most challenging samples of low-biomass and host contamination
   email: klolans@medicine.bsd.uchicago.edu
   linkedin: karen-lolans-b39ab0
   orcid: 0000-0003-1903-756X
