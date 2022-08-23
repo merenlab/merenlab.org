@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2022-05-27
+modified: 2022-08-23
 comments: false
 ---
 
@@ -125,7 +125,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2021.03.02.433653"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1101/2021.03.02.433653" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <span class="pub-title"><a href="https://doi.org/10.1101/2021.03.02.433653" target="_new">Adaptive ecological processes and metabolic independence drive microbial colonization and resilience in the human gut</a></span>
+    <span class="pub-title"><a href="https://doi.org/10.1101/2021.03.02.433653" target="_new">Metabolic independence drives gut microbial colonization and resilience in health and disease</a></span>
     <span class="pub-authors"><span class="pub-member-author">Watson AR</span>, Füssel J, <span class="pub-member-author">Veseli I</span>, DeLongchamp JZ, Silva M, <span class="pub-member-author">Trigodet F</span>, <span class="pub-member-author">Lolans K</span>, <span class="pub-member-author">Shaiber A</span>, Fogarty E, Runde JM, Quince C, <span class="pub-member-author">Yu MK</span>, Söylev A, Morrison HG, <span class="pub-member-author">Lee STM</span>, Kao D, Rubin DT, Jabri B, Louie T, <span class="pub-member-author">Eren AM</span></span>
     <div class="pub-info">
     <div class="pub-featured-image">
@@ -135,7 +135,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span style="display: inline-block; padding-bottom: 5px;">- A Fecal Microbiota Transplantation (FMT) study that reveals unexpected parallels between the <b>adaptive ecological processes</b> that shape the recipient gut <b>microbial composition after FMT</b> and those that influence <b>microbial diversity in patients with Inflammatory Bowel Disease (IBD)</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Includes an observation that links <b>the presence of superior metabolic competence in bacterial populations to their expansion in IBD</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Here is a <a href="https://twitter.com/merenbey/status/1369016402896695298" target="_blank">Twitter thread</a> that explains <b>key points</b> of the study.</span>
     </div>
     </div>
-    <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Adaptive+ecological+processes+and+metabolic+independence+drive+microbial+colonization+and+resilience+in+the+human+gut" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2021.03.02.433653" target="_blank">doi:10.1101/2021.03.02.433653</a></span>
+    <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Metabolic+independence+drives+gut+microbial+colonization+and+resilience+in+health+and+disease" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2021.03.02.433653" target="_blank">doi:10.1101/2021.03.02.433653</a></span>
 </div>
 
 <a id="10.1101/2021.03.03.433801">&nbsp;</a>
