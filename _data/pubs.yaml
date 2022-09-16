@@ -169,18 +169,21 @@
       /images/pubs/watson_et_al_fmt.jpeg
 
 - doi:
-    10.1101/2021.03.03.433801
+    10.1111/1755-0998.13588
   title:
     "High molecular weight DNA extraction strategies for long-read sequencing of complex metagenomes"
   authors:
     Florian Trigodet, Karen Lolans, Emily Fogarty, Alon Shaiber, Hilary G Morrison, Luis Barreiro, Bana Jabri, A Murat Eren
   journal:
-    bioRxiv
+    Molecular Ecology Resources
   year:
     2021
   volume:
+    22
   number:
+    5
   pages:
+    1786-1802
   additional_info:
     highlights:
       - A study that <b>benchmarks six high molecular weight DNA extraction strategies</b> (commercially available kits, phenol-chloroform extraction, and agarose encasement followed by agarase digestion) <b>for long-read sequencing of metagenomes</b> with MinION.

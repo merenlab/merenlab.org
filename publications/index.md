@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2022-08-23
+modified: 2022-09-16
 comments: false
 ---
 
@@ -138,11 +138,11 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Metabolic+independence+drives+gut+microbial+colonization+and+resilience+in+health+and+disease" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2021.03.02.433653" target="_blank">doi:10.1101/2021.03.02.433653</a></span>
 </div>
 
-<a id="10.1101/2021.03.03.433801">&nbsp;</a>
+<a id="10.1111/1755-0998.13588">&nbsp;</a>
 <div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2021.03.03.433801"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.1101/2021.03.03.433801" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <span class="pub-title"><a href="https://doi.org/10.1101/2021.03.03.433801" target="_new">High molecular weight DNA extraction strategies for long-read sequencing of complex metagenomes</a></span>
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1111/1755-0998.13588"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1111/1755-0998.13588" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1111/1755-0998.13588" target="_new">High molecular weight DNA extraction strategies for long-read sequencing of complex metagenomes</a></span>
     <span class="pub-authors"><span class="pub-member-author">Trigodet F</span>, <span class="pub-member-author">Lolans K</span>, Fogarty E, <span class="pub-member-author">Shaiber A</span>, Morrison HG, Barreiro L, Jabri B, <span class="pub-member-author">Eren AM</span></span>
     <div class="pub-info">
     <div class="pub-featured-image">
@@ -152,7 +152,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span style="display: inline-block; padding-bottom: 5px;">- A study that <b>benchmarks six high molecular weight DNA extraction strategies</b> (commercially available kits, phenol-chloroform extraction, and agarose encasement followed by agarase digestion) <b>for long-read sequencing of metagenomes</b> with MinION.</span><br><span style="display: inline-block; padding-bottom: 5px;">- It turns out the protocol that works best for sequencing DNA from microbial isolates may not be the most effetive method for long-read sequencing of metagenomes ¯\_(ツ)_/¯</span>
     </div>
     </div>
-    <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=High+molecular+weight+DNA+extraction+strategies+for+long-read+sequencing+of+complex+metagenomes" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2021.03.03.433801" target="_blank">doi:10.1101/2021.03.03.433801</a></span>
+    <span class="pub-journal"> 📚 <b>Molecular Ecology Resources</b>, 22(5):1786-1802 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=High+molecular+weight+DNA+extraction+strategies+for+long-read+sequencing+of+complex+metagenomes" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1111/1755-0998.13588" target="_blank">doi:10.1111/1755-0998.13588</a></span>
 </div>
 
 
