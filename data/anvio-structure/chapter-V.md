@@ -362,6 +362,23 @@ scvs %>% pull(pN_popular_consensus) %>% mean(na.rm=T)
 scvs %>% filter(ANY_dist == 0) %>% pull(pN_popular_consensus) %>% mean(na.rm=T)
 ``` 
 
+----------------------------
+
+<blockquote>
+(...) indicating significantly (left-tailed Z test, p-value < <span style="color:red"><1x10-300</span>) stronger purifying selection at ligand-binding sites (...)
+</blockquote>
+
+```R
+# R
+population_mean <- scvs %>% pull(pN_popular_consensus) %>% mean(na.rm=T)
+population_sd <- scvs %>% pull(pN_popular_consensus) %>% sd(na.rm=T)
+sample_mean <- scvs %>% filter(ANY_dist == 0) %>% pull(pN_popular_consensus) %>% mean(na.rm=T)
+sample_size <- scvs %>% filter(ANY_dist == 0) %>% pull(pN_popular_consensus) %>% length()
+Z <- (sample_mean - population_mean) / (population_sd / sqrt(sample_size))
+p_val <- pnorm(Z, lower.tail=T)
+print(p_val)
+``` 
+
 ### Proteomic trends in purifying selection are explained by RSA and DTL
 
 <blockquote>
