@@ -576,7 +576,7 @@ Need 55C heating block prior to beginning the procedure
 
 9. Refrigerate plug mold for 10-min.
 
-### Bacterial (Plug) Lysis, part I (Day 1/2)
+#### Bacterial (Plug) Lysis, part I (Day 1/2)
 
 1. Prepare fresh 1X LYSIS solution with enzymes. Prepare solution according to instructions in PFGE plug making worksheet (Appendix 1.)
 
@@ -590,7 +590,7 @@ Need 55C heating block prior to beginning the procedure
 
 6. Place tubes on rotator (65-80 RPM), and incubate at 35-37C for minimum 2 hours. This step can proceed overnight, if needed, to accommodate scheduling. Can use lab shaker/incubator for this step.
 
-### Bacterial (Plug) Lysis, part II (Day 2)
+#### Bacterial (Plug) Lysis, part II (Day 2)
 
 Ensure a 50-55C water bath is available & ready!
 
@@ -604,14 +604,14 @@ Ensure a 50-55C water bath is available & ready!
 
 6. Remove to room temp for about 5-min before continuing to next step. This time is necessary for the plug to solidify a bit otherwise there is great potential for breakage.
 
-### TE Wash #1 (Day#2)
+#### TE Wash #1 (Day#2)
 
 1. Decant ESP solution; leave plug in tube.
 2. Add ~4-ml TE to culture tube.
 3. Place in 50-55C water bath for 1-hr minimum.
 4. Remove to room temp for about 5-min before continuing to next step. This time is necessary for the plug to solidify a bit otherwise there is great potential for breakage.
 
-### F. TE Wash #2 (Day#2)
+#### F. TE Wash #2 (Day#2)
 
 1. Add ~25-ml of TE to a petri dish (1 dish per sample)
 
@@ -623,7 +623,7 @@ Ensure a 50-55C water bath is available & ready!
 
 5. Place on rotator (65-rpm) at 35C for 30-min minimum.
 
-### Beta-agarase I digestion
+#### Beta-agarase I digestion
 
 Agarose Digestion and DNA purification will be performed by the [NEB protocol](https://www.neb.com/protocols/0001/01/01/dna-purification-from-agarose-gels-using-beta-agarase-i-m0392) "DNA purification from agarose gels using Beta agarose I (NEB# M0392)".
 
