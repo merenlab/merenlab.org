@@ -46,6 +46,42 @@ Bonus blog post: [Fantastic Data and How to Share Them: A Plea to Journal Editor
 [https://merenlab.org/tutorials/dgrs-in-metagenomes/](/tutorials/dgrs-in-metagenomes) gives access to our **bioinformatics workflow**.
 
 
+## High molecular weight DNA extraction protocols
+
+<div class="pub_float">
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1111/1755-0998.13588"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1111/1755-0998.13588" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1111/1755-0998.13588" target="_new">High molecular weight DNA extraction strategies for long-read sequencing of complex metagenomes</a></span>
+    <span class="pub-authors"><span class="pub-member-author">Trigodet F</span>, <span class="pub-member-author">Lolans K</span>, Fogarty E, <span class="pub-member-author">Shaiber A</span>, Morrison HG, Barreiro L, Jabri B, <span class="pub-member-author">Eren AM</span></span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/Trigodet_and_Lolans_et_al_HMW.png"><img src="/images/pubs/Trigodet_and_Lolans_et_al_HMW.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);" /></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A study that <b>benchmarks six high molecular weight DNA extraction strategies</b> (commercially available kits, phenol-chloroform extraction, and agarose encasement followed by agarase digestion) <b>for long-read sequencing of metagenomes</b> with MinION.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- It turns out the protocol that works best for sequencing DNA from microbial isolates may not be the most effetive method for long-read sequencing of metagenomes ¯\_(ツ)_/¯</span><br /><span style="display: inline-block; padding-bottom: 5px;">- A reproducible <b>bioinformatics workflow</b> is available <a href="https://merenlab.org/data/hmw-dna-extraction-strategies/" target="_blank">here</a>. Detailed <b>lab protocols</b> for HMW DNA extraction methods mentioned in the study are <a href="https://merenlab.org/data/hmw-dna-extraction-strategies/protocol/" target="_blank">here</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>Molecular Ecology Resources</b>, 22(5):1786-1802 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&amp;q=High+molecular+weight+DNA+extraction+strategies+for+long-read+sequencing+of+complex+metagenomes" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1111/1755-0998.13588" target="_blank">doi:10.1111/1755-0998.13588</a></span>
+</div>
+
+### Reproducible bioinformatics workflow
+
+[https://merenlab.org/data/hmw-dna-extraction-strategies/](hmw-dna-extraction-strategies) gives access to our **bioinformatics workflow**.
+
+
+### Detailed lab protocol
+
+[https://merenlab.org/data/hmw-dna-extraction-strategies/protocol/](hmw-dna-extraction-strategies/protocol) gives access to detailed **lab protocols**.
+
+### Raw and/or reproducible data items
+
+* [PRJNA703035](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA703035): The **raw sequencing data**.
+* [doi:10.6084/m9.figshare.14141228](https://figshare.com/articles/dataset/Assembled_minION_long-reads/14141228): Data products that give reproducible access to **anvi’o contigs databases for assembled long-read sequences**.
+* [doi:10.6084/m9.figshare.14141414](https://figshare.com/articles/dataset/Unassembled_minION_long-reads/14141414): Data products that give reproducible access to **anvi’o contigs databases for unassembled long-read sequences**.
+* [doi:10.6084/m9.figshare.14141819](https://figshare.com/articles/dataset/Assembled_Illumina_Short_Reads/14141819): Data products that give reproducible access to **anvi’o contigs databases for assembled shotgun metagenomes**.
+* [doi:10.6084/m9.figshare.14141918](https://figshare.com/articles/dataset/Supplementary_Tables_and_Figures/14141918): Supplementary Tables and Figures
+
+
 ## The genetic and ecological landscape of plasmids in the human gut
 
 <div class="pub_float">

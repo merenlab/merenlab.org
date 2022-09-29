@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2022-09-16
+modified: 2022-09-29
 comments: false
 ---
 
@@ -149,7 +149,7 @@ This page lists publications that are most reflective of our interests. For a co
     <a href="/images/pubs/Trigodet_and_Lolans_et_al_HMW.png"><img src="/images/pubs/Trigodet_and_Lolans_et_al_HMW.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
     </div>
     <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- A study that <b>benchmarks six high molecular weight DNA extraction strategies</b> (commercially available kits, phenol-chloroform extraction, and agarose encasement followed by agarase digestion) <b>for long-read sequencing of metagenomes</b> with MinION.</span><br><span style="display: inline-block; padding-bottom: 5px;">- It turns out the protocol that works best for sequencing DNA from microbial isolates may not be the most effetive method for long-read sequencing of metagenomes ¯\_(ツ)_/¯</span>
+    <span style="display: inline-block; padding-bottom: 5px;">- A study that <b>benchmarks six high molecular weight DNA extraction strategies</b> (commercially available kits, phenol-chloroform extraction, and agarose encasement followed by agarase digestion) <b>for long-read sequencing of metagenomes</b> with MinION.</span><br><span style="display: inline-block; padding-bottom: 5px;">- It turns out the protocol that works best for sequencing DNA from microbial isolates may not be the most effetive method for long-read sequencing of metagenomes ¯\_(ツ)_/¯</span><br><span style="display: inline-block; padding-bottom: 5px;">- A reproducible <b>bioinformatics workflow</b> is available <a href="https://merenlab.org/data/hmw-dna-extraction-strategies/" target="_blank">here</a>. Detailed <b>lab protocols</b> for HMW DNA extraction methods mentioned in the study are <a href="https://merenlab.org/data/hmw-dna-extraction-strategies/protocol/" target="_blank">here</a>.</span>
     </div>
     </div>
     <span class="pub-journal"> 📚 <b>Molecular Ecology Resources</b>, 22(5):1786-1802 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=High+molecular+weight+DNA+extraction+strategies+for+long-read+sequencing+of+complex+metagenomes" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1111/1755-0998.13588" target="_blank">doi:10.1111/1755-0998.13588</a></span>
