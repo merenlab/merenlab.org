@@ -200,7 +200,7 @@ This procedure is based on the Qiagen protocol, 'Preparation of Gram-Negative an
 ## Phenol/Chloroform HMW DNA Extraction Procedure [aka, PC or M5]
 
 {:.notice}
-Per protocol outlined at: https://www.protocols.io/view/ultra-long-read-sequencing-protocol-for-rad004-mrxc57n *[downloaded Jan 2019]* and adapted from Molecular Cloning by Sambrook and Russell, 3rd edition.
+The protocol below is adapted from a protocol outlined [here](https://www.protocols.io/view/ultra-long-read-sequencing-protocol-for-rad004-mrxc57n) in Molecular Cloning by Sambrook and Russell, 3rd edition.
 
 <div class="extra-info" markdown="1">
 
@@ -216,7 +216,7 @@ Isolated DNA should be stored in the fridge. A good extraction will be stable fo
 
 ### Reagents
 
-#### Purchased Reagents:
+#### Purchased Reagents
 
 1. RNase, Sigma-Aldrich, Cat#: R6513 – 10mg [store @ -20°C]
 2. Proteinase K, Sigma-Aldrich, Cat#: P-2308-10mg  [store @ in -20C]
@@ -228,7 +228,7 @@ Isolated DNA should be stored in the fridge. A good extraction will be stable fo
 8. Phase-lock gel tubes [light], QuantaBio, VWR, cat#: 10847-800
 9. Ultrapure 0.5M EDTA, pH8.0, Fisher-Scientific, cat#: 15575020
 
-#### Prepared Reagents:
+#### Prepared Reagents
 
 * **RNase**: CAS: 9001-99-4. To prepare a 10-mg/mL stock, combine the following, then vortex, aliquot to 250-ul per tube, and store aliquots @ -20C:
 
@@ -254,108 +254,90 @@ Isolated DNA should be stored in the fridge. A good extraction will be stable fo
 
 * **EB** (Elution Buffer). Solution EB (10mM Tris-HCL, pH8.5, Qiagen) can be used here [or other similarly formulated solution].
 
-### General Procedural Notes:
-1) Starting material used:
-500-ul tongue dorsum sample
+### Sample-type Specific Initial Steps for Tongue Dorsum Samples
 
-2) Use alcohol-resistant marker when labelling Falcon tubes
+1. Starting material used: 500-ul tongue dorsum sample
+2. Use alcohol-resistant marker when labelling Falcon tubes
 
-### Prior to Beginning:
-1) If phase-lock gel is only available in 2-ml tubes, you will need to transfer it into 15-mL conical tubes
-{:.notice}
--- will need four (4) conical tubes per sample.
+### Procedure
 
-2) Transfer can be performed by cutting the lid off one 2-ml tube, stuff if lightly into a 15-ml conical and then centrifuge it [3000xg, 3 min] . Repeat so that three (3) 2-mL tubes are combined into each conical tube.
-{:.notice}
--- This is best done PRIOR to needing these.
+Before starting, please double-check the following notes:
 
-Additional notes:
-a. Spin green microfuge tubes 1st in microfuge to consolidate gel at tube bottom (2 min at max speed).
+* If phase-lock gel is only available in 2-ml tubes, you will need to transfer it into 15-mL conical tubes -- will need four (4) conical tubes per sample.
+* Transfer can be performed by cutting the lid off one 2-ml tube, stuff if lightly into a 15-ml conical and then centrifuge it [3000xg, 3 min]. Repeat so that three (3) 2-mL tubes are combined into each conical tube. This is best done PRIOR to needing these.
+* Spin green microfuge tubes 1st in microfuge to consolidate gel at tube bottom (2 min at max speed).
+* Cut phase lock tube at the hinge (close to lid part) so that a lip remains. This ensures the green tubes wedge into the conical tube and that they then don’t slide inside of the conical tube when further centrifuged.
 
-b. Cut phase lock tube at the hinge (close to lid part) so that a lip remains.
-{:.notice}
-This ensures the green tubes wedge into the conical tube and that they then don’t slide inside of the conical tube when further centrifuged.
+Here are the procedural steps, followed by notes, tips, or warnings:
 
-
-### Procedure:
 1. To each sample, add 10-ml TLB and vortex at full speed for 5 seconds.
 
--- **Hint**: ensure you have sufficient volume of TLB available (i.e. 10-ml TLB times the number of samples to be processed)
+    - Ensure you have sufficient volume of TLB available (i.e. 10-ml TLB times the number of samples to be processed)
+    - Make sure to add RNAse A to TLB before use. Add 20-ul of 10-mg/mL stock added to every 10-mL TLB needed
+    - The purpose of vortexing here is to thoroughly resuspend the cells to achieve a homogenous DNA solution; DNA will not be damaged as it is still packaged inside of the cell at this point.
 
-{:.warning}
--- Note#1: Make sure to add RNAse A to TLB before use
-> Add 20-ul of 10-mg/mL stock added to every 10-mL TLB needed
->
-{:.notice}
--- Note#2: The purpose of vortexing here is to thoroughly resuspend the cells to achieve a homogenous DNA solution; DNA will not be damaged as it is still packaged inside of the cell at this point.
-
-2. Incubate at 37°C for 1 hour.
--- Note: Solution will become transparent as the cells lyse.
+2. Incubate at 37°C for 1 hour. Solution will become transparent as the cells lyse.
 
 3. Add ProteinaseK (stock solution: 20-mg/mL) to a final concentration of 200-µg/ml.
-a. Add 100-ul of ProtK stock solution added
--- Note: check math if any volume changes
-b. Mix by slowly rotating end-over-end 3 times.
+
+    - Add 100-ul of ProtK stock solution added. check math if any volume changes
+    - Mix by slowly rotating end-over-end 3 times.
 
 4. Incubate at 50°C for 2 hours
-a. Mix every 30 minutes by slowly rotating end-over-end 3 times.
-b. Note: at end of incubation, the tongue dorsum still showed particulate matter.
+
+    - Mix every 30 minutes by slowly rotating end-over-end 3 times.
+    - sample-specific note: at end of incubation, the tongue dorsum still showed particulate matter.
 
 5. Add light phase-lock gel to 2 x 15 ml Falcons.
-a. If phase-lock gel is only available in 2 ml tubes, transfer it by cutting the lid off 3 x 2 ml tubes and spinning it out into each 15 ml Falcon.
 
-{:.notice}
-Note: 15 ml conicals are used as they are narrower -- thereby decreasing the surface area of the interface/gel. Using two tubes per sample means they balance each other in the centrifuge while also providing the phenol sufficent space to move which ultimately improves the emulsion.
+    - If phase-lock gel is only available in 2 ml tubes, transfer it by cutting the lid off 3 x 2 ml tubes and spinning it out into each 15 ml Falcon.
+    - 15 ml conicals are used as they are narrower -- thereby decreasing the surface area of the interface/gel. Using two tubes per sample means they balance each other in the centrifuge while also providing the phenol sufficent space to move which ultimately improves the emulsion.
 
 6. Split the viscous lysate (from step#4) into the two 15 ml phase-lock gel Falcon tubes (step#5).
-{:.notice}
-Note:  this is easiest using a 10 ml serological pipette and pipetting at slow speed.
-{:.notice}
-GO VERY SLOWLY—LYSATE IS VERY VISCOUS
+
+    - his is easiest using a 10 ml serological pipette and pipetting at slow speed.
+    - GO VERY SLOWLY -- LYSATE IS VERY VISCOUS
 
 7. Add 5-ml recently opened BioUltra TE-saturated phenol to each Falcon tube containing lysate.
-{:.notice}
-PERFORM THIS STEP IN CHEMICAL HOOD.
+
+    - PERFORM THIS STEP IN CHEMICAL HOOD.
 
 8. Place on a HulaMixer (or other gentle sample mixer) at 20 rpm for 10 minutes.
-a. Use 20 rpm for end-over-end rotation
 
-{:.notice}
-Note: if a fine emulsion has not formed after a minute, gradually increase the rotation speed.
+    - Use 20 rpm for end-over-end rotation
+    - Note: if a fine emulsion has not formed after a minute, gradually increase the rotation speed.
 
 9. Spin in a centrifuge at 3600 x g for 10 minutes.
 
 10. Pour the aqueous phases into two new 15 ml Falcon tubes containing phase-lock gel.
-{:.notice}
-a. Try to avoid transferring any protein which may form a white layer above the phase-lock gel.
-{:.notice}
-Note: It helps to have plenty of light when pouring off the aqueous phase; be aware that phenol may break through
--- will need to re-centrifuge if this happens.
+
+    - Try to avoid transferring any protein which may form a white layer above the phase-lock gel.
+    - Note: It helps to have plenty of light when pouring off the aqueous phase; be aware that phenol may break through -- will need to re-centrifuge if this happens.
 
 11. Add 2.5-ml buffer saturated phenol and 2.5-ml chloroform-isoamyl alcohol 24:1 to each tube.
-{:.notice}
---- MAKE SURE CAPS ARE TIGHT!!!!! ---
+
+    - MAKE SURE CAPS ARE TIGHT!!!!!
 
 12. Place on a HulaMixer (or other gentle sample mixer) at 20 rpm for 10 minutes.
-{:.notice}
--- if a fine emulsion has not formed after a minute gradually increase the rotation speed.
-{:.notice}
--- Note: make sure solutions of 100% ethanol are on ice as you will need in step#16 & beyond.
+
+    - If a fine emulsion has not formed after a minute gradually increase the rotation speed.
+    - Make sure solutions of 100% ethanol are on ice as you will need in step#16 & beyond.
 
 13. Centrifuge at (3600 x g) for 10 minutes.
 
 14. Combine the aqueous phases from the two tubes by pouring slowly into a new 50 ml Falcon tube.
-a. Work quickly at pouring as the phase lock will likely move.
+
+    - Work quickly at pouring as the phase lock will likely move.
 
 15. Add 4-ml 5 M ammonium acetate.
 
 16. Add 30 ml ice-cold ethanol (absolute ethanol, 100%) and watch the DNA precipitate.
-{:.notice}
--- Note: depending on amount of DNA -- you could see small bubbles that will, over time, pull the mass of DNA to the surface. This may appear to look like a small jellyfish with tentacles hanging down.
+
+    - Depending on amount of DNA -- you could see small bubbles that will, over time, pull the mass of DNA to the surface. This may appear to look like a small jellyfish with tentacles hanging down.
 
 17. Incubate at -20C for 30-min (or longer) before next step.
-{:.warning}
-a. Do not incubate at -80C as the extremely low temperature precipitates the salts and freezes the sample.
+
+    - **Do not** incubate at -80C as the extremely low temperature precipitates the salts and freezes the sample.
 
 18. Make 70% EtOH [1-mL needed per sample]. Store 70% EtOH at -20C.
 
@@ -366,7 +348,8 @@ a. Do not incubate at -80C as the extremely low temperature precipitates the sal
 21. GENTLY resuspend pelleted DNA in 1 ml ice-cold 70% ethanol & transfer to a microfuge tube. Transfer to microfuge with WIDE-BORE pipet tips.
 
 22. Spin down at 10,000 x g (10,600 RPM x 2min) in microcentrifuge,  then carefully remove as much of the ethanol as possible.
-a. Time is per Sambrook & Russell
+
+    - Time is per Sambrook & Russell
 
 23. Wash again with 1 ml 70% ethanol.
 
@@ -375,15 +358,14 @@ a. Time is per Sambrook & Russell
 25. Let the remaining ethanol evaporate by leaving open at room temperature (~22-25C) for 5-10 min.
 
 26. Add 85μl Buffer EB (Qiagen) and incubate without mixing at 4°C for 24-48hrs (TIME:_______) to allow the pellet to fully resuspend into a translucent viscous gel.
-{:.notice}
--- Modified from protocols.io version to NOT include detergents or surfactants as outlined (i.e. TritonX-100) as the nanopore protocol specifically stated to exclude these.
 
-{:.warning}
-Note: From this step forward, in subsequent downstream workflows, all pipetting steps must utilize wide bore or cut-off pipet tips.
+    - Modified from protocols.io version to NOT include detergents or surfactants as outlined (i.e. TritonX-100) as the nanopore protocol specifically stated to exclude these.
+    - Warning: From this step forward, in subsequent downstream workflows, all pipetting steps must utilize wide bore or cut-off pipet tips.
 
 ## Agarose Plug Encasement and Extraction HMW DNA Procedure [aka, AE or M6]
+
 {:.notice}
-Adapted from Pulsed-Field Gel Electrophoresis (PFGE) based DNA extraction Protocol of Matushek et al. 1996. Journal of Clinical Microbiology.
+The protocol below is adapted from Pulsed-Field Gel Electrophoresis (PFGE) based DNA extraction Protocol of Matushek et al. 1996. Journal of Clinical Microbiology.
 
 <div class="extra-info" markdown="1">
 
@@ -398,7 +380,9 @@ Isolated DNA should be stored in the fridge. A good extraction will be stable fo
 </div>
 
 ### Reagents
-#### Purchased Reagents:
+
+#### Purchased Reagents
+
 1. Sodium Chloride
 2. Trizma pre-set crystals, Sigma-Aldrich, cat#: T9743-100G
 3. 0.5M EDTA, pH8.0, Fisher Scientific, cat#: 15575020
@@ -413,159 +397,160 @@ Isolated DNA should be stored in the fridge. A good extraction will be stable fo
 12. Mutanolysin, Sigma-Aldrich, Cat#: SAE0092 - 10KU [store @ -20°C]
 13. β-Agarase I, Fisher Scientific, cat#: 50-811-726 [store @ -20°C]
 
-#### Reagent Preparation:
+#### Reagent Preparation
 
-##### A. Cell Lysis Chemicals
+Following sections describe chemicals for three classes.
+
+##### (1) Cell Lysis Chemicals
 
 1. 5M NaCl (CAS: 7647-14-15):
-- 146-gm NaCl
-- 400-ml MilliQ H20
 
->stir until dissolved.
-q.s. with water to 500-ml
-autoclave & store at room temp (RT)
+    - 146-gm NaCl
+    - 400-ml MilliQ H20
+
+    Stir until dissolved. q.s. with water to 500-ml. Autoclave & store at room temp (RT)
 
 2. 0.5M TRIS:
-- 37.25-gm TRIZMA preset crystals, pH 7.6
-- 400-ml MilliQ H20
 
->stir until dissolved.
-q.s. with water to 500ml
-autoclave & store at room temp (RT)
+    - 37.25-gm TRIZMA preset crystals, pH 7.6
+    - 400-ml MilliQ H20
 
-3) 0.5M EDTA, pH8.0: purchased commercially
+    Stir until dissolved. q.s. with water to 500ml. Autoclave & store at RT.
 
-4) 10% Deoxycholate (CAS:302-94-4):
-- 25-gm deoxycholate
-- 250-ml water
+3. 0.5M EDTA, pH8.0: purchased commercially
 
-filter sterilize (0.22uM)
-store at room temp (RT)
+4. 10% Deoxycholate (CAS:302-94-4):
 
-5) 10% Brij 58 (CAS:9004-95-9):
-25-gm Brij 58
-250-ml MilliQ water
+    - 25-gm deoxycholate
+    - 250-ml water
 
->stir overnight (note: stock is cloudy)
-do not sterilize.
-store at room temp (RT)
+    Filter sterilize (0.22uM). Store at RT.
 
-6) 20% SLS (Sodium-N-lauroyl sarcosine) (CAS: 137-16-6):
-50-gm SLS
-250-ml MilliQ water
+5. 10% Brij 58 (CAS:9004-95-9):
 
->stir overnight.
-filter sterilize (0.22uM)
-store at RT
+    - 25-gm Brij 58
+    - 250-ml MilliQ water
 
-7) 10% SDS (Sodium lauryl sulfate) (CAS: 151-21-3):
-25-gm SDS
-250-ml water
+    Stir overnight (note: stock is cloudy). Do not sterilize. Store at RT.
 
->stir overnight.
-filter sterilize (0.22uM)
-store at RT
+6. 20% SLS (Sodium-N-lauroyl sarcosine) (CAS: 137-16-6):
 
-#### B. Cell Lysis Enzymes
+    - 50-gm SLS
+    - 250-ml MilliQ water
+
+    Stir overnight. Filter sterilize (0.22uM). Store at RT
+
+7. 10% SDS (Sodium lauryl sulfate) (CAS: 151-21-3):
+
+    - 25-gm SDS
+    - 250-ml water
+
+    Stir overnight. Filter sterilize (0.22uM). Store at RT.
+
+##### (2) Cell Lysis Enzymes
+
 1. RNase: CAS: 9001-99-4
-To prepare a 10-mg/mL stock, combine the following:
+
+    To prepare a 10-mg/mL stock, combine the following:
+
     - 10-mg lyophilized powder
     - 75-ul 5M NaCl sterile stock
     - 100-ul 0.5M Tris-HCl, pH 7.6 sterile stock
     - add nuclease-free water to total volume of 1-ml
 
-> Vortex. Then aliquot to 250-ul per tube
-> Store aliquots @ -20C
+    Vortex. Then aliquot to 250-ul per tube. Store aliquots @ -20C
 
 2. Proteinase K: CAS: 39450-01-6
-To prepare a 20-mg/mL stock, combine the following:
+
+    To prepare a 20-mg/mL stock, combine the following:
+
     - 10-mg lyophilized powder
     - 500-ul nuclease-free H20
 
-> Vortex. Store aliquots @ -20C
+    Vortex. Store aliquots @ -20C
 
 3. Mutanolysin:
-To prepare a 10KU/mL stock, combine the following:
+
+    To prepare a 10KU/mL stock, combine the following:
+
     - 10KU lyophilized powder
     - 1000-ul molecular grade TE buffer
 
-> Vortex. Store aliquots @ -20C
+    Vortex. Store aliquots @ -20C
 
 4. Lysozyme: CAS 12850-88-3
-To prepare a 10-mg/mL stock, combine the following:
+
+    To prepare a 10-mg/mL stock, combine the following:
     - 20-mg powder
     - 2000-ul molecular grade TE buffer
 
->Vortex. Aliquot smaller volumes into tubes.
-> store @ -20C
+    Vortex. Aliquot smaller volumes into tubes. store @ -20C
 
 5. Lysostaphin:
-To prepare an 8-mg/mL (or 4000U/mL) stock, combine the following in the lysostaphin bottle:
+
+    To prepare an 8-mg/mL (or 4000U/mL) stock, combine the following in the lysostaphin bottle:
     - 2-mg powder (= entire bottle)
     - 250-ul nuclease-free H20
-> Vortex
-> Transfer to a single microfuge tube & store @ -20C
 
-#### C. Composite Solutions
-1) 2X Lysis Solution:
-250-ul 0.5M Tris
-4-ml 5M NaCl
-4-ml 0.5M EDTA
-500-ul 20% SLS
-1-ml 10% Brij
-1-ml 10% Deoxycholate
+    Vortex. Transfer to a single microfuge tube & store @ -20C
 
-{:.notice}
-The values above are to prepare a total volume of 10-mL. Extrapolate from this formula to prepare your desired volume.
+##### (3) Composite Solutions
 
+1. 2X Lysis Solution:
 
-2) 1X Lysis Solution:
-Perform 1:2 dilution of 2X Lysis solution with H20
-[i.e. 25-mL 2X lysis plus 25-mL sterile H20]
+    - 250-ul 0.5M Tris
+    - 4-ml 5M NaCl
+    - 4-ml 0.5M EDTA
+    - 500-ul 20% SLS
+    - 1-ml 10% Brij
+    - 1-ml 10% Deoxycholate
 
-{:.notice}
-*Note: Lytic enzymes [Lysozyme, Lysostaphin, etc] plus RNase will be added to both 2X Lysis and 1X Lysis on the day of plug-making (see appendix 1. worksheet)*
-
-3) ESP Stock Solution:
-10-ml 0.5M TRIS
-1-ml 0.5M EDTA
-
-> add water to 500-mL
-autoclave – store at room temp.
-
-{:.notice}
-Note: On day of use, we need 3-ml ESP solution per plug/sample; so combine the following for each mL total volume:
--- 100-ul 10% SDS
--- 5-ul Proteinase K (20 mg/ml stock)
--- 900-ul ESP stock solution
-
-4) TE Wash Solution:
-- 10-ml 0.5M TRIS
-- 100-ul 0.5M EDTA
-
->add water to 500-ml
-autoclave –store at room temp
+    The values above are to prepare a total volume of 10-mL. Extrapolate from this formula to prepare your desired volume.
 
 
-5) 1.6% LMP agarose:
-- 1.6g LMP (low melting point) agarose
-- 100-mL TE buffer (10mM tris, 1mM EDTA, pH8.0)
+2. 1X Lysis Solution: Perform 1:2 dilution of 2X Lysis solution with H20 [i.e. 25-mL 2X lysis plus 25-mL sterile H20].
 
->Microwave for 2-min (stop frequently to swirl solution)
+    *Note*: Lytic enzymes [Lysozyme, Lysostaphin, etc] plus RNase will be added to both 2X Lysis and 1X Lysis on the day of plug-making (see appendix 1. worksheet)
 
-{:.notice}
-Heating step is complete when no agarose particles are seen floating in solution.
+3. ESP Stock Solution:
 
->Temper to 55C before use
+    - 10-ml 0.5M TRIS
+    - 1-ml 0.5M EDTA
 
-### Sample Preparation Procedure
+    Add water to 500-mL. Autoclave – store at RT.
 
-Tongue Dorsum Samples:
-> Vortex sample until uniform suspension
-> Centrifuge, 10,000 RPM for 15min to pellet microbial cells to bottom of tube.
-> Carefully decant/remove supernatant from each of the tubes. Save pellet.
+    **On day of use**, we need 3-ml ESP solution per plug/sample; so combine the following for each mL total volume:
 
-### Plug Making Procedure (Day #1)
+    - 100-ul 10% SDS
+    - 5-ul Proteinase K (20 mg/ml stock)
+    - 900-ul ESP stock solution
+
+4. TE Wash Solution:
+
+    - 10-ml 0.5M TRIS
+    - 100-ul 0.5M EDTA
+
+    Add water to 500-ml. Autoclave. Store at RT.
+
+
+5. 1.6% LMP agarose:
+
+    - 1.6g LMP (low melting point) agarose
+    - 100-mL TE buffer (10mM tris, 1mM EDTA, pH8.0)
+
+    Microwave for 2-min (stop frequently to swirl solution). Heating step is complete when no agarose particles are seen floating in solution. Temper to 55C before use.
+
+### Sample-type Specific Initial Steps for Tongue Dorsum Samples
+
+* Vortex sample until uniform suspension
+* Centrifuge, 10,000 RPM for 15min to pellet microbial cells to bottom of tube.
+* Carefully decant/remove supernatant from each of the tubes. Save pellet.
+
+### Procedure
+
+The procedure covers multiple days and distinct steps.
+
+#### Plug Making (Day 1)
 
 {:.notice}
 Note: use PFGE plug making worksheet (Appendix 1.) to calculate how to prepare the various solutions based on your desired sample number.
@@ -585,154 +570,143 @@ Need 55C heating block prior to beginning the procedure
 
 6. Vortex 2-sec to completely mix solutions & return to heat block.
 
-7. Using 1-ml wide-bore pipette tips, use all solution to fill plug mold (~600-ul).
-
-{:.notice}
-Add sample slowly down plug mold side to minimize inclusion of air bubbles.
+7. Using 1-ml wide-bore pipette tips, use all solution to fill plug mold (~600-ul). Add sample slowly down plug mold side to minimize inclusion of air bubbles.
 
 8. Repeat steps #3 - #7 with any remaining cultures.
 
 9. Refrigerate plug mold for 10-min.
 
-### Bacterial (Plug) Lysis, part I (Day #1/2)
+### Bacterial (Plug) Lysis, part I (Day 1/2)
 
-1. Prepare fresh 1X LYSIS solution with enzymes
-{:.notice}
-Prepare 1X Lysis solution according to instructions in PFGE plug making worksheet (Appendix 1.)
+1. Prepare fresh 1X LYSIS solution with enzymes. Prepare solution according to instructions in PFGE plug making worksheet (Appendix 1.)
 
-2. Add 3-ml 1X LYSIS solution with enzymes to a new set of labeled tubes.
-{:.notice}
-If your tubes are labeled with a tape label, transfer of label from the initial culture tube to new culture tube is easy.
+2. Add 3-ml 1X LYSIS solution with enzymes to a new set of labeled tubes. If your tubes are labeled with a tape label, transfer of label from the initial culture tube to new culture tube is easy.
 
 3. Remove clips from plug mold.
 
-4. Gently slide mold apart
+4. Gently slide mold apart.
 
-5. With flamed spatula, transfer plugs into tubes with 1X LYSIS solution.
-{:.notice}
-14-mL culture tubes work well here.
+5. With flamed spatula, transfer plugs into tubes with 1X LYSIS solution. 14-mL culture tubes work well here.
 
-6. Place tubes on rotator (65-80 RPM), and incubate at 35-37C for minimum 2 hours.
-{:.notice}
-This step can proceed overnight, if needed, to accommodate scheduling.
+6. Place tubes on rotator (65-80 RPM), and incubate at 35-37C for minimum 2 hours. This step can proceed overnight, if needed, to accommodate scheduling. Can use lab shaker/incubator for this step.
 
-{:.notice}
-Can use lab shaker/incubator for this step.
+### Bacterial (Plug) Lysis, part II (Day 2)
 
-### Bacterial (Plug) Lysis, part II (Day#2)
-> ensure a 50-55C water bath is available & ready.
+Ensure a 50-55C water bath is available & ready!
 
-1. Prepare ESP solution with enzymes (need 3-mL per sample)
-{:.notice}
-Prepare ESP solution according to instructions in PFGE plug making worksheet (Appendix 1.)
+1. Prepare ESP solution with enzymes (need 3-mL per sample). Prepare ESP solution according to instructions in PFGE plug making worksheet (Appendix 1.)
 
 3. Decant 1X Lysis solution; leave plug in culture tube.
+
 4. Add 3-ml ESP with enzymes to tube.
+
 5. Place in 50-55C water bath for 1-hr minimum.
-6. Remove to room temp for about 5-min before continuing to next step.
-{:.notice}
-This time is necessary for the plug to solidify a bit otherwise there is great potential for breakage.
+
+6. Remove to room temp for about 5-min before continuing to next step. This time is necessary for the plug to solidify a bit otherwise there is great potential for breakage.
 
 ### TE Wash #1 (Day#2)
 
 1. Decant ESP solution; leave plug in tube.
 2. Add ~4-ml TE to culture tube.
 3. Place in 50-55C water bath for 1-hr minimum.
-4. Remove to room temp for about 5-min before continuing to next step.
-{:.notice}
-This time is necessary for the plug to solidify a bit otherwise there is great potential for breakage.
+4. Remove to room temp for about 5-min before continuing to next step. This time is necessary for the plug to solidify a bit otherwise there is great potential for breakage.
 
 ### F. TE Wash #2 (Day#2)
 
 1. Add ~25-ml of TE to a petri dish (1 dish per sample)
+
 2. Decant TE from culture tube (so that plug remains in tube)
+
 3. Gently knock plug into plastic petri dish.
+
 4. Transfer sample label to dish
+
 5. Place on rotator (65-rpm) at 35C for 30-min minimum.
 
 ### Beta-agarase I digestion
-{:.notice}
-Agarose Digestion and DNA purification will be performed by NEB protocol “DNA purification from agarose gels using Beta agarose I (NEB# M0392) : (https://www.neb.com/protocols/0001/01/01/dna-purification-from-agarose-gels-using-beta-agarase-i-m0392)
+
+Agarose Digestion and DNA purification will be performed by the [NEB protocol](https://www.neb.com/protocols/0001/01/01/dna-purification-from-agarose-gels-using-beta-agarase-i-m0392) "DNA purification from agarose gels using Beta agarose I (NEB# M0392)".
 
 {:.notice}
-*Before starting you will need to prepare 100% isopropanol and 70% isopropanol - store both at -20C until needed.*
+Before starting you will need to prepare 100% isopropanol and 70% isopropanol - store both at -20C until needed.
 
 1. With plugs still in the petri dish, aspirate off the TE with a sterile transfer pipette.
 
 2. Using a flamed spatula, cut the plug into 3 fragments (in the petri dish).
 
 3. Transfer the plug pieces to a sterile 1.5-mL microfuge tube.
-i. Push them as far down into the tube as possible.
-ii. When heating, pieces at the very bottom will melt most quickly.
+
+    - Push them as far down into the tube as possible.
+    - When heating, pieces at the very bottom will melt most quickly.
 
 4. Equilibrate the DNA-containing LMP agarose with 2 volumes (~1.0 to 1.5-ml) of 1X Beta-agarase I buffer on ice for 30-min.
-i. used 120-ul 10X B-agarase buffer into 1080-ul nuclease-free water.
+
+    - used 120-ul 10X B-agarase buffer into 1080-ul nuclease-free water.
 
 5. Repeat wash step 1X.
-i. used 60-ul 10X B-agarase buffer into 540-ul nuclease-free water
+
+    - used 60-ul 10X B-agarase buffer into 540-ul nuclease-free water
 
 6. Remove the buffer and melt the agarose by incubation at 65C for 10-min.
-- Swirl the tube(s) multiple times to ensure complete melting.
 
-{:.notice}
-- Note: Agarases digest denatured/melted agarose, not chunks of agarose
+    - Swirl the tube(s) multiple times to ensure complete melting.
+    - Note: Agarases digest denatured/melted agarose, not chunks of agarose
 
 7. Cool fully to 42C.
-{:.notice}
-Allow sufficient time for the molten agarose to fully equilibrate as the Beta-agarase enzyme is inactivated at temperatures above 45C.
+
+    - Allow sufficient time for the molten agarose to fully equilibrate as the Beta-agarase enzyme is inactivated at temperatures above 45C.
 
 8. Incubate the molten agarose with 6-ul Beta-agarase I enzyme (i.e. 3 units, 0.5U/ul) at 42C for 1-hour to overnight.
-- Use 1U of agarase per 200-ul gel slice
-- Mix end-over-end rotation 3X
+
+    - Use 1U of agarase per 200-ul gel slice
+    - Mix end-over-end rotation 3X
 
 9. Purify and Concentrate the DNA:
-- Add 303-ul 5M ammonium acetate [want 2.5M final concentration] & invert to mix.
 
-{:.notice}
-- Using ammonium acetate avoids co-precipitation of oligosaccharides.
-- This adjusts the salt concentration accordingly in preparation for isopropanol precipitation.
+    - Add 303-ul 5M ammonium acetate [want 2.5M final concentration] & invert to mix.
+    - Using ammonium acetate avoids co-precipitation of oligosaccharides.
+    - This adjusts the salt concentration accordingly in preparation for isopropanol precipitation.
 
-b. Chill on ice for 15 min.
+    * Chill on ice for 15 min.
 
-c. Centrifuge 10,000 x g for 15-min to pellet undigested carbohydrates, epithelial cells, etc.
+    * Centrifuge 10,000 x g for 15-min to pellet undigested carbohydrates, epithelial cells, etc (note: with only salt added, the DNA has not yet precipitated and will be present in the supernatant).
 
-> Note: With only salt added, the DNA has not yet precipitated and will be present in the supernatant.
+    * Transfer DNA-containing supernatant to new tube with wide-bore pipet tip & very slow pipetting.
 
-d. Transfer DNA-containing supernatant to new tube with wide-bore pipet tip & very slow pipetting.
-1. Split the supernatent into 2 microfuge tubes (500-ul and 250-ul) to accommodate 2 volumes of isopropanol in next steps.
-2. Noted white precipitate floating at the liquid surface which did not pellet.
+        - Split the supernatent into 2 microfuge tubes (500-ul and 250-ul) to accommodate 2 volumes of isopropanol in next steps.
+        - Noted white precipitate floating at the liquid surface which did not pellet.
 
-e. Add 2 volumes ice-cold 100% isopropanol – mix gently by end over end rotation.
+    * Add 2 volumes ice-cold 100% isopropanol – mix gently by end over end rotation.
 
-f.  Incubate at -20C for 20-min.
+    * Incubate at -20C for 20-min.
 
-g. Centrifuge 10,000 x g for 15-min to pellet DNA.
+    * Centrifuge 10,000 x g for 15-min to pellet DNA.
 
-h. Remove the supernatant (save pellet).
+    * Remove the supernatant (save pellet).
 
-i. Wash the pellet with 1-mL cold 70% isopropanol. Centrifuge 10,000 x g for 2-min. Remove supernatant.
+    * Wash the pellet with 1-mL cold 70% isopropanol. Centrifuge 10,000 x g for 2-min. Remove supernatant.
 
-j. Dry the pellet at room temperature for 5-10 min (keep the tubes in an inverted position).
-{:.notice}
-Overdrying the DNA will result in difficulty in resuspending it.
+    * Dry the pellet at room temperature for 5-10 min (keep the tubes in an inverted position). Overdrying the DNA will result in difficulty in resuspending it.
 
-k. Resuspend the sample:
-- If sample was split earlier, resuspend each tube in 50ul elution buffer (EB; 10 mM Tris-HCl pH 8.5) and then recombine into one sample tube. Use wide-bore pipet tips.
-- If sample was NOT split earlier, resuspend the pellet in 100ul elution buffer (EB; 10 mM Tris-HCl pH 8.5)
+    * Resuspend the sample:
+        - If sample was split earlier, resuspend each tube in 50ul elution buffer (EB; 10 mM Tris-HCl pH 8.5) and then recombine into one sample tube. Use wide-bore pipet tips.
+        - If sample was NOT split earlier, resuspend the pellet in 100ul elution buffer (EB; 10 mM Tris-HCl pH 8.5)
 
 ## Appendix 1. table
 
+{:.notice}
+Always prepare extra volumes!
+
 **2X Lysis Solution Component (need 1-mL per sample)**
+
 | Component | Stock Concentration | Final Concentration |Volume required per plug |
 | -------- | -------- | -------- |-------- |
 | 2X Lysis Solution    | 2X    | 2X    |1-mL    |
 | Lysozyme | 10-mg/mL | 1-mg/mL |100-ul |
 | RNase    | 10-mg/mL    | 30-mcg/mL     |3-ul    |
 
-{:.notice}
-always prepare extra volume
-
 **1X Lysis Solution Component (need 3-mL per sample)**
+
 | Component | Stock Concentration | Final Concentration |Volume required per plug |
 | -------- | -------- | -------- |-------- |
 | 1X Lysis Solution    | 1X    | 1X    |3-mL    |
@@ -741,16 +715,10 @@ always prepare extra volume
 | Lysostaphin    | 8-mg/mL (aka 4000U/mL)   | 50U/mL     |12.5-ul    |
 | Mutanolysin    | 10KU/mL    | 0.3KU/mL     |90-ul    |
 
-{:.notice}
-always prepare extra volume
-
 **ESP Solution Component (3-mL per sample)**
+
 | Component | Stock Concentration | Final Concentration |Volume required per plug |
 | -------- | -------- | -------- |-------- |
 | ESP sol'n w/o enzymes  | 1X    | 1X    |2.7-mL    |
 | 10% SDS | 10% soln | 1% soln |0.3-mL |
 |ProteinaseK   | 20-mg/mL    | 100-mcg/mL     |15-ul
-
-{:.notice}
-always prepare extra volume
-
