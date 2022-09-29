@@ -7,7 +7,7 @@ redirect_from: /projects/
 comments: false
 image:
    display: true
-   feature: header-03.png
+   feature: eel-pond.jpg
 ---
 
 ## Anvi'o

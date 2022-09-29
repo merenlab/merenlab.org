@@ -6,7 +6,7 @@ comments: false
 excerpt: "An overview of research interests and directions in our lab."
 image:
    display: true
-   feature: header-02.png
+   feature: nobska.jpg
 ---
 
 {% include _toc.html %}

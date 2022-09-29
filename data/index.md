@@ -6,7 +6,7 @@ excerpt: "Publicly available data and other information on publications from our
 comments: true
 image:
    display: true
-   feature: header-01.png
+   feature: eel-pond.jpg
 ---
 
 This page serves **public (and often reproducible) data items that underlie key findings in our publications**.

@@ -20,5 +20,11 @@
   {% if page.image.credit %}
     <span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
   {% endif %}
+
+  {% if page.image.nologo %}
+  {% else %}
+  <div id="group-name-big" style="width: auto; position: absolute; top: 20px; left: 20px; width: 50%;"><img src="/images/eds.svg" style="border: none"></div>
+  {% endif %}
+
   </div><!-- /.image-wrap -->
 {% endif %}

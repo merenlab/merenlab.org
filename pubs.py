@@ -215,6 +215,9 @@ class Publications:
         W('layout: publications')
         W('modified: %s' % datetime.today().strftime('%Y-%m-%d'))
         W('comments: false')
+        W('image:')
+        W('   display: true')
+        W('   feature: eel-pond.jpg')
         W('---\n')
 
         W('''<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>\n''')

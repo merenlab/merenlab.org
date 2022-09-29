@@ -2,6 +2,9 @@
 layout: publications
 modified: 2022-09-29
 comments: false
+image:
+   display: true
+   feature: eel-pond.jpg
 ---
 
 <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
