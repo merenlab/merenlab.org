@@ -16,6 +16,9 @@ image:
 
 **The purpose of this page** is to provide access to reproducible data products that underlie our key findings in the study "**[High molecular weight DNA extraction strategies for long-read sequencing of complex metagenomes](https://www.biorxiv.org/content/10.1101/2021.03.03.433801v2)**" by Trigodet & Lolans et al.
 
+{:.warning}
+Find the **lab protocols** of this work [here](/data/hmw-dna-extraction-strategies/protocol/).
+
 In addition to the following data items, on this page you will find command lines for important analyses, results of which are discussed in the paper:
 
 * [PRJNA703035](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA703035): The **raw sequencing data**.

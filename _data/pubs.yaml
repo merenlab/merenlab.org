@@ -188,6 +188,7 @@
     highlights:
       - A study that <b>benchmarks six high molecular weight DNA extraction strategies</b> (commercially available kits, phenol-chloroform extraction, and agarose encasement followed by agarase digestion) <b>for long-read sequencing of metagenomes</b> with MinION.
       - It turns out the protocol that works best for sequencing DNA from microbial isolates may not be the most effetive method for long-read sequencing of metagenomes ¯\_(ツ)_/¯
+      - A reproducible <b>bioinformatics workflow</b> is available <a href="https://merenlab.org/data/hmw-dna-extraction-strategies/" target="_blank">here</a>. Detailed <b>lab protocols</b> for HMW DNA extraction methods mentioned in the study are <a href="https://merenlab.org/data/hmw-dna-extraction-strategies/protocol/" target="_blank">here</a>.
     featured_image:
       /images/pubs/Trigodet_and_Lolans_et_al_HMW.png
 
