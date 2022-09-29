@@ -6,5 +6,5 @@ redirect_from:
   - /blog
 image:
    display: true
-   feature: header-02.png
+   feature: eel-pond.jpg
 ---
