@@ -355,7 +355,7 @@ By default, {% include PROGRAM name="anvi-summarize" %} calculates coverage stat
 
 When finished, {% include PROGRAM name="anvi-summarize" %} produces a {% include ARTIFACT name="summary" %}, that offers some extensive reporting with tab-delimited files that you can open in Excel or Python/R. Here is the directory structure:
 
-Quite simply, Table S1 is a copy-paste job of a selection of these files. To create the Excel table, run the script `ZZ_SCRIPTS/gen_table_rr.py`.
+Quite simply, Table S1 is a copy-paste job of a selection of these files, as well as some sample identifying information. To create the Excel table, run the script `ZZ_SCRIPTS/gen_table_rr.py`.
 
 <details markdown="1"><summary>Show/Hide Script</summary>
 ```python
@@ -367,6 +367,10 @@ from pathlib import Path
 tables_dir = Path('WW_TABLES')
 tables_dir.mkdir(exist_ok=True)
 
+sample_metadata = pd.read_csv("00_SAMPLE_INFO_FULL.txt", sep='\t')
+sample_metadata = sample_metadata[[col for col in sample_metadata if "Used_" not in col]]
+sample_metadata = sample_metadata[~sample_metadata["sample_id"].isnull()]
+ftp_links = pd.read_csv("00_FTP_LINKS", sep='\t', names=["link"])
 cov = pd.read_csv("07_SUMMARY_ALL/bins_across_samples/mean_coverage.txt", sep='\t')
 q2q3 = pd.read_csv("07_SUMMARY_ALL/bins_across_samples/mean_coverage_Q2Q3.txt", sep='\t')
 det = pd.read_csv("07_SUMMARY_ALL/bins_across_samples/detection.txt", sep='\t')
@@ -374,8 +378,10 @@ per = pd.read_csv("07_SUMMARY_ALL/bins_across_samples/bins_percent_recruitment.t
 himb083_genes = pd.read_csv("07_SUMMARY_ALL/bin_by_bin/HIMB083/HIMB083-gene_coverages.txt", sep='\t')
 
 with pd.ExcelWriter(tables_dir/'RR.xlsx') as writer:
+    sample_metadata.to_excel(writer, sheet_name='Sample identifiers')
+    ftp_links.to_excel(writer, sheet_name='Sample FTP links')
     cov.to_excel(writer, sheet_name='Coverage')
-    q2q3.to_excel(writer, sheet_name='Coverage Q2Q3 (inner quartiles)')
+    q2q3.to_excel(writer, sheet_name='Coverage Q2Q3')
     det.to_excel(writer, sheet_name='Detection')
     per.to_excel(writer, sheet_name='% recruitment')
     himb083_genes.to_excel(writer, sheet_name='HIMB083 gene coverages')
