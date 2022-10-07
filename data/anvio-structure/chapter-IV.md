@@ -371,7 +371,7 @@ cov = pd.read_csv("07_SUMMARY_ALL/bins_across_samples/mean_coverage.txt", sep='\
 q2q3 = pd.read_csv("07_SUMMARY_ALL/bins_across_samples/mean_coverage_Q2Q3.txt", sep='\t')
 det = pd.read_csv("07_SUMMARY_ALL/bins_across_samples/detection.txt", sep='\t')
 per = pd.read_csv("07_SUMMARY_ALL/bins_across_samples/bins_percent_recruitment.txt", sep='\t')
-himb083_genes = pd.read_csv("07_SUMMARY_ALL/bin_by_bin/HIMB083/HIMB083-mean_coverage.txt", sep='\t')
+himb083_genes = pd.read_csv("07_SUMMARY_ALL/bin_by_bin/HIMB083/HIMB083-gene_coverages.txt", sep='\t')
 
 with pd.ExcelWriter(tables_dir/'RR.xlsx') as writer:
     cov.to_excel(writer, sheet_name='Coverage')
