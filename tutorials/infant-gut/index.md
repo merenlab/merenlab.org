@@ -1568,12 +1568,12 @@ export ANVIO_MODULES_DB=`python -c "import anvio; import os; print(os.path.join(
 echo -e "module\tclass\tcategory\tsubcategory\tname" > modules_info.txt
 
 # get module classes:
-sqlite3 $ANVIO_MODULES_DB "select module, data_value from kegg_modules where data_name='CLASS'" | \
+sqlite3 $ANVIO_MODULES_DB "select module, data_value from modules where data_name='CLASS'" | \
     sed 's/; /|/g' | \
     tr '|' '\t' >> module_class.txt
 
 # get module names:
-sqlite3 $ANVIO_MODULES_DB "select module,data_value from kegg_modules where data_name='NAME'" | \
+sqlite3 $ANVIO_MODULES_DB "select module,data_value from modules where data_name='NAME'" | \
     tr '|' '\t' > module_names.txt
 
 # join everything
