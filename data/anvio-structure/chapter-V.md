@@ -262,6 +262,170 @@ goi_mod = set([int(x.strip()) for x in open('12_GENES_WITH_GOOD_STRUCTURES_MODEL
 len(goi_af.intersection(goi_mod))
 ``` 
 
+----------------------------
+
+<blockquote>
+(...) These data showed that pS(site) closely resembled the null distribution (two-sample Kolmogorov-Smirnov statistic = <span style="color:red">0.016</span>), which illustrates the lack of influence of RSA on s-polymorphism, while pN(site) deviated significantly and instead exhibited strong preference for sites with higher RSA (two-sample Kolmogorov-Smirnov statistic = 0.235). (...)
+</blockquote>
+
+```bash
+# R
+psRSA <- perform_ks_test("pS_popular_consensus", "rel_solvent_acc", trials=10)
+psRSA[["KS_Stat"]]
+```
+
+<details markdown="1"><summary>Show/Hide perform_ks_test</summary>
+`perform_ks_test` is already in the GRE. But for your reference, here it is alongside its helper function and a stackoverflow reference:
+
+```python
+# https://stackoverflow.com/questions/40044375/how-to-calculate-the-kolmogorov-smirnov-statistic-between-two-weighted-samples/55664242#55664242
+ks_weighted <- function(vector_1,vector_2,weights_1,weights_2){
+    F_vec_1 <- ewcdf(vector_1, weights = weights_1, normalise=FALSE)
+    F_vec_2 <- ewcdf(vector_2, weights = weights_2, normalise=FALSE)
+    xw <- c(vector_1,vector_2) 
+    d <- max(abs(F_vec_1(xw) - F_vec_2(xw)))
+
+    # P-VALUE EFFECTIVE SAMPLE SIZE as suggested by Monahan
+    n_vector_1 <- sum(weights_1)^2/sum(weights_1^2)
+    n_vector_2 <- sum(weights_2)^2/sum(weights_2^2)
+    n <- n_vector_1 * n_vector_2/(n_vector_1 + n_vector_2)
+
+    pkstwo <- function(x, tol = 1e-100) {
+                if (is.numeric(x)) 
+                    x <- as.double(x)
+                else stop("argument 'x' must be numeric")
+                p <- rep(0, length(x))
+                p[is.na(x)] <- NA
+                IND <- which(!is.na(x) & (x > 0))
+                if (length(IND)) 
+                    p[IND] <- .Call(stats:::C_pKS2, p = x[IND], tol)
+                p
+            }
+
+    pval <- 1 - pkstwo(sqrt(n) * d)
+
+    if (pval == 0) {
+        # R internals (stats:::C_pKS2) has returned 0 for the probability. But an order of the
+        # precision is useful, which I approximate by multiplying the one-sided hypothesis pval
+        # by 2.
+        one_sided <- exp(-2*n*d^2)
+        pval <- 2 * one_sided
+    }
+
+    if (pval == 0) {
+        # If pval is _still_ 0, then the value is <1e-300. I know this because I have observed the
+        # value 2.021712e-304 through experimentation.
+        pval <- 1e-300
+    }
+
+    out <- c(KS_Stat=d, P_value=pval)
+    return(out)
+}
+
+perform_ks_test <- function(weights, variable, trials=10) {
+    library(spatstat)
+    KS <- 1e100
+    p <- 0
+    d <- scvs %>%
+        select((!!sym(variable)), (!!sym(weights))) %>%
+        filter(!is.na((!!sym(weights))), !is.na((!!sym(variable))))
+    for (i in 1:trials) {
+        shuffle <- d %>% sample_n(size=d %>% dim() %>% .[[1]], replace=F) %>% .[2] %>% .[[1]]
+        d$shuffled_weights <- shuffle/sum(shuffle)
+        d$weights <- (d[,weights] / sum(d[,weights])) %>% .[[1]]
+        out <- ks_weighted(vector_1=d[1][[1]], vector_2=d[1][[1]], weights_1=d$weights, weights_2=d$shuffled_weights)
+        trial_KS <- out[1][[1]]
+        trial_p <- out[2][[1]]
+        if (trial_KS < KS) {KS <- trial_KS}
+        if (trial_p > p) {p <- trial_p}
+    }
+    return(c(KS_Stat=KS, P_value=p))
+}
+```
+</details> 
+
+----------------------------
+
+<blockquote>
+(...) These data showed that pS(site) closely resembled the null distribution (two-sample Kolmogorov-Smirnov statistic = 0.016), which illustrates the lack of influence of RSA on s-polymorphism, while pN(site) deviated significantly and instead exhibited strong preference for sites with higher RSA (two-sample Kolmogorov-Smirnov statistic = <span style="color:red">0.235</span>). (...)
+</blockquote>
+
+```bash
+# R
+pnRSA <- perform_ks_test("pN_popular_consensus", "rel_solvent_acc", trials=10)
+pnRSA[["KS_Stat"]]
+```
+
+<details markdown="1"><summary>Show/Hide perform_ks_test</summary>
+`perform_ks_test` is already in the GRE. But for your reference, here it is alongside its helper function and a stackoverflow reference:
+
+```python
+# https://stackoverflow.com/questions/40044375/how-to-calculate-the-kolmogorov-smirnov-statistic-between-two-weighted-samples/55664242#55664242
+ks_weighted <- function(vector_1,vector_2,weights_1,weights_2){
+    F_vec_1 <- ewcdf(vector_1, weights = weights_1, normalise=FALSE)
+    F_vec_2 <- ewcdf(vector_2, weights = weights_2, normalise=FALSE)
+    xw <- c(vector_1,vector_2) 
+    d <- max(abs(F_vec_1(xw) - F_vec_2(xw)))
+
+    # P-VALUE EFFECTIVE SAMPLE SIZE as suggested by Monahan
+    n_vector_1 <- sum(weights_1)^2/sum(weights_1^2)
+    n_vector_2 <- sum(weights_2)^2/sum(weights_2^2)
+    n <- n_vector_1 * n_vector_2/(n_vector_1 + n_vector_2)
+
+    pkstwo <- function(x, tol = 1e-100) {
+                if (is.numeric(x)) 
+                    x <- as.double(x)
+                else stop("argument 'x' must be numeric")
+                p <- rep(0, length(x))
+                p[is.na(x)] <- NA
+                IND <- which(!is.na(x) & (x > 0))
+                if (length(IND)) 
+                    p[IND] <- .Call(stats:::C_pKS2, p = x[IND], tol)
+                p
+            }
+
+    pval <- 1 - pkstwo(sqrt(n) * d)
+
+    if (pval == 0) {
+        # R internals (stats:::C_pKS2) has returned 0 for the probability. But an order of the
+        # precision is useful, which I approximate by multiplying the one-sided hypothesis pval
+        # by 2.
+        one_sided <- exp(-2*n*d^2)
+        pval <- 2 * one_sided
+    }
+
+    if (pval == 0) {
+        # If pval is _still_ 0, then the value is <1e-300. I know this because I have observed the
+        # value 2.021712e-304 through experimentation.
+        pval <- 1e-300
+    }
+
+    out <- c(KS_Stat=d, P_value=pval)
+    return(out)
+}
+
+perform_ks_test <- function(weights, variable, trials=10) {
+    library(spatstat)
+    KS <- 1e100
+    p <- 0
+    d <- scvs %>%
+        select((!!sym(variable)), (!!sym(weights))) %>%
+        filter(!is.na((!!sym(weights))), !is.na((!!sym(variable))))
+    for (i in 1:trials) {
+        shuffle <- d %>% sample_n(size=d %>% dim() %>% .[[1]], replace=F) %>% .[2] %>% .[[1]]
+        d$shuffled_weights <- shuffle/sum(shuffle)
+        d$weights <- (d[,weights] / sum(d[,weights])) %>% .[[1]]
+        out <- ks_weighted(vector_1=d[1][[1]], vector_2=d[1][[1]], weights_1=d$weights, weights_2=d$shuffled_weights)
+        trial_KS <- out[1][[1]]
+        trial_p <- out[2][[1]]
+        if (trial_KS < KS) {KS <- trial_KS}
+        if (trial_p > p) {p <- trial_p}
+    }
+    return(c(KS_Stat=KS, P_value=p))
+}
+```
+</details> 
+
 
 ### Nonsynonymous polymorphism avoids active sites
 
@@ -378,6 +542,170 @@ Z <- (sample_mean - population_mean) / (population_sd / sqrt(sample_size))
 p_val <- pnorm(Z, lower.tail=T)
 print(p_val)
 ``` 
+
+----------------------------
+
+<blockquote>
+(...) Sites neighboring ligand-binding regions also harbored disproportionately low rates of ns-polymorphism, as indicated by the significant deviation towards larger DTL values (two-sample Kolmogorov-Smirnov statistic = <span style="color:red">0.157</span>). (...)
+</blockquote>
+
+```R
+# R
+pnDTL <- perform_ks_test("pN_popular_consensus", "ANY_dist", trials=10)
+pnDTL[["KS_Stat"]]
+``` 
+
+<details markdown="1"><summary>Show/Hide perform_ks_test</summary>
+`perform_ks_test` is already in the GRE. But for your reference, here it is alongside its helper function and a stackoverflow reference:
+
+```python
+# https://stackoverflow.com/questions/40044375/how-to-calculate-the-kolmogorov-smirnov-statistic-between-two-weighted-samples/55664242#55664242
+ks_weighted <- function(vector_1,vector_2,weights_1,weights_2){
+    F_vec_1 <- ewcdf(vector_1, weights = weights_1, normalise=FALSE)
+    F_vec_2 <- ewcdf(vector_2, weights = weights_2, normalise=FALSE)
+    xw <- c(vector_1,vector_2) 
+    d <- max(abs(F_vec_1(xw) - F_vec_2(xw)))
+
+    # P-VALUE EFFECTIVE SAMPLE SIZE as suggested by Monahan
+    n_vector_1 <- sum(weights_1)^2/sum(weights_1^2)
+    n_vector_2 <- sum(weights_2)^2/sum(weights_2^2)
+    n <- n_vector_1 * n_vector_2/(n_vector_1 + n_vector_2)
+
+    pkstwo <- function(x, tol = 1e-100) {
+                if (is.numeric(x)) 
+                    x <- as.double(x)
+                else stop("argument 'x' must be numeric")
+                p <- rep(0, length(x))
+                p[is.na(x)] <- NA
+                IND <- which(!is.na(x) & (x > 0))
+                if (length(IND)) 
+                    p[IND] <- .Call(stats:::C_pKS2, p = x[IND], tol)
+                p
+            }
+
+    pval <- 1 - pkstwo(sqrt(n) * d)
+
+    if (pval == 0) {
+        # R internals (stats:::C_pKS2) has returned 0 for the probability. But an order of the
+        # precision is useful, which I approximate by multiplying the one-sided hypothesis pval
+        # by 2.
+        one_sided <- exp(-2*n*d^2)
+        pval <- 2 * one_sided
+    }
+
+    if (pval == 0) {
+        # If pval is _still_ 0, then the value is <1e-300. I know this because I have observed the
+        # value 2.021712e-304 through experimentation.
+        pval <- 1e-300
+    }
+
+    out <- c(KS_Stat=d, P_value=pval)
+    return(out)
+}
+
+perform_ks_test <- function(weights, variable, trials=10) {
+    library(spatstat)
+    KS <- 1e100
+    p <- 0
+    d <- scvs %>%
+        select((!!sym(variable)), (!!sym(weights))) %>%
+        filter(!is.na((!!sym(weights))), !is.na((!!sym(variable))))
+    for (i in 1:trials) {
+        shuffle <- d %>% sample_n(size=d %>% dim() %>% .[[1]], replace=F) %>% .[2] %>% .[[1]]
+        d$shuffled_weights <- shuffle/sum(shuffle)
+        d$weights <- (d[,weights] / sum(d[,weights])) %>% .[[1]]
+        out <- ks_weighted(vector_1=d[1][[1]], vector_2=d[1][[1]], weights_1=d$weights, weights_2=d$shuffled_weights)
+        trial_KS <- out[1][[1]]
+        trial_p <- out[2][[1]]
+        if (trial_KS < KS) {KS <- trial_KS}
+        if (trial_p > p) {p <- trial_p}
+    }
+    return(c(KS_Stat=KS, P_value=p))
+}
+```
+</details> 
+
+----------------------------
+
+<blockquote>
+(...) Comparatively, pS(site) deviated minimally from the null distribution (two-sample Kolmogorov-Smirnov statistic = <span style="color:red">0.013</span>). (...)
+</blockquote>
+
+```R
+# R
+psDTL <- perform_ks_test("pS_popular_consensus", "ANY_dist", trials=10)
+psDTL[["KS_Stat"]]
+``` 
+
+<details markdown="1"><summary>Show/Hide perform_ks_test</summary>
+`perform_ks_test` is already in the GRE. But for your reference, here it is alongside its helper function and a stackoverflow reference:
+
+```python
+# https://stackoverflow.com/questions/40044375/how-to-calculate-the-kolmogorov-smirnov-statistic-between-two-weighted-samples/55664242#55664242
+ks_weighted <- function(vector_1,vector_2,weights_1,weights_2){
+    F_vec_1 <- ewcdf(vector_1, weights = weights_1, normalise=FALSE)
+    F_vec_2 <- ewcdf(vector_2, weights = weights_2, normalise=FALSE)
+    xw <- c(vector_1,vector_2) 
+    d <- max(abs(F_vec_1(xw) - F_vec_2(xw)))
+
+    # P-VALUE EFFECTIVE SAMPLE SIZE as suggested by Monahan
+    n_vector_1 <- sum(weights_1)^2/sum(weights_1^2)
+    n_vector_2 <- sum(weights_2)^2/sum(weights_2^2)
+    n <- n_vector_1 * n_vector_2/(n_vector_1 + n_vector_2)
+
+    pkstwo <- function(x, tol = 1e-100) {
+                if (is.numeric(x)) 
+                    x <- as.double(x)
+                else stop("argument 'x' must be numeric")
+                p <- rep(0, length(x))
+                p[is.na(x)] <- NA
+                IND <- which(!is.na(x) & (x > 0))
+                if (length(IND)) 
+                    p[IND] <- .Call(stats:::C_pKS2, p = x[IND], tol)
+                p
+            }
+
+    pval <- 1 - pkstwo(sqrt(n) * d)
+
+    if (pval == 0) {
+        # R internals (stats:::C_pKS2) has returned 0 for the probability. But an order of the
+        # precision is useful, which I approximate by multiplying the one-sided hypothesis pval
+        # by 2.
+        one_sided <- exp(-2*n*d^2)
+        pval <- 2 * one_sided
+    }
+
+    if (pval == 0) {
+        # If pval is _still_ 0, then the value is <1e-300. I know this because I have observed the
+        # value 2.021712e-304 through experimentation.
+        pval <- 1e-300
+    }
+
+    out <- c(KS_Stat=d, P_value=pval)
+    return(out)
+}
+
+perform_ks_test <- function(weights, variable, trials=10) {
+    library(spatstat)
+    KS <- 1e100
+    p <- 0
+    d <- scvs %>%
+        select((!!sym(variable)), (!!sym(weights))) %>%
+        filter(!is.na((!!sym(weights))), !is.na((!!sym(variable))))
+    for (i in 1:trials) {
+        shuffle <- d %>% sample_n(size=d %>% dim() %>% .[[1]], replace=F) %>% .[2] %>% .[[1]]
+        d$shuffled_weights <- shuffle/sum(shuffle)
+        d$weights <- (d[,weights] / sum(d[,weights])) %>% .[[1]]
+        out <- ks_weighted(vector_1=d[1][[1]], vector_2=d[1][[1]], weights_1=d$weights, weights_2=d$shuffled_weights)
+        trial_KS <- out[1][[1]]
+        trial_p <- out[2][[1]]
+        if (trial_KS < KS) {KS <- trial_KS}
+        if (trial_p > p) {p <- trial_p}
+    }
+    return(c(KS_Stat=KS, P_value=p))
+}
+```
+</details> 
 
 ### Proteomic trends in purifying selection are explained by RSA and DTL
 
