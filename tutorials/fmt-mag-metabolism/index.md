@@ -12,7 +12,7 @@ redirect_from: /fmt-metabolism/
 This is a **mini-tutorial for the metabolism suite of programs** in anvi'o. First, we will learn how to estimate metabolism for a single bacterial isolate, starting from its genome sequence and ending with a file of metabolic module completeness scores. Afterwards, we'll be applying this to a larger, real-world dataset of metagenome-assembled genomes from [our recent FMT study](ttps://doi.org/10.1101/2021.03.02.433653), to learn how to estimate metabolism in a more high-throughput manner as well as how to compute enrichment scores for metabolic modules.
 
 {:.notice}
-This tutorial is tailored for anvi'o `v7.1` or later. You can learn the version of your installation by running `anvi-interactive -v` in your terminal.
+This tutorial is tailored for anvi'o `v7.1` or later. You can learn the version of your installation by running `anvi-interactive -v` in your terminal. If you are using the development branch of anvi'o, look for the Show/Hide boxes.
 
 ## Running the metabolism suite of programs - a single-genome example
 
@@ -134,12 +134,27 @@ anvi-estimate-metabolism -c A_muciniphila-CONTIGS.db \
                          --kegg-output-modes kofam_hits
 ```
 
+<details markdown="1"><summary>Show/hide anvi'o development version </summary>
+```bash
+anvi-estimate-metabolism -c A_muciniphila-CONTIGS.db \
+                         -O A_muciniphila \
+                         --output-modes hits
+```
+</details>
+
 And we can search for the sialidase KO by running the following code:
 
 ```bash
 head -n 1 A_muciniphila_kofam_hits.txt; \
 grep K01186 A_muciniphila_kofam_hits.txt
 ```
+
+<details markdown="1"><summary>Show/hide anvi'o development version </summary>
+```bash
+head -n 1 A_muciniphila_hits.txt; \
+grep K01186 A_muciniphila_hits.txt
+```
+</details>
 
 You should see the following output:
 
@@ -155,6 +170,9 @@ We already know that this organism can degrade mucin, so it is not surprising th
 Now that we know how to work with this suite of programs, let's apply them to a larger set of genomes.
 
 The data we'll be using for this is a real dataset from one of our recent studies, ["Metabolic competency drives microbial colonization and resilience in health and disease”](https://doi.org/10.1101/2021.03.02.433653) by Watson et al. In fact, this post is doing double-duty as a reproducible workflow for one of the analyses in that study. :) The rest of the reproducible workflow can be found [here](https://merenlab.org/data/fmt-gut-colonization/) for anyone who is interested in how we did the other analyses discussed in the paper.
+
+{:.notice}
+This part of the tutorial **only** works with anvio-7.1 and not with the current dev version of anvi'o. The reason is KEGG database version compatibility. When you run `anvi-setup-kegg-kofams` with v7.1, anvi'o will download the latest snapshot of KEGG at the time of v7.1 release (v2020-12-23). But if you are using the development version of anvi'o, every user *could* have different version of the KEGG database depending on when you ran `anvi-setup-kegg-kofams`. This makes it more difficult to share annotated contigs.db between collaborators. More information [here](https://anvio.org/help/main/programs/anvi-setup-kegg-kofams/#how-do-i-share-this-data).
 
 ### A dataset of high- and low-fitness MAGs
 
