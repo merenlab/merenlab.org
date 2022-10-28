@@ -38,20 +38,20 @@ The [doi:10.1128/mBio.00725-19](http://doi.org/10.1128/mBio.00725-19) serves the
 In addition to demonstrate a step-by-step MAG refinement, we wish to contribute to Espinoza et al.'s study by reporting **cleaned verisons of some of their key MAGs that will likely be of great interest to the oral microbiome community due to their originality**. The following list reports the FASTA files for the refined Espinoza et al. MAGs that belong to candidate phyla radiation:
 
 * **Gracilibacteria (formerly GN02)**: [GN02 MAG.IV.B.1](/data/refining-mags/files/GN02_MAG_IV_B_1-contigs.fa) and [GN02 MAG.IV.B.2](/data/refining-mags/files/GN02_MAG_IV_B_2-contigs.fa) (*refined from Espinoza et al. MAG IV.B*).
-* **Saccharibacteria (formerly TM7)**: [TM7 MAG.III.A.1](/data/refining-mags/files/TM7_MAG_III_A_1-contigs.fa) and [TM7 MAG.III.A.2](/data/refining-mags/files/TM7_MAG_III_A_2-contigs.fa) (*refined from Espinoza et al. MAG III.A*); [TM7 MAG III.B.1](/data/refining-mags/files/TM7_MAG_III_B_1-contigs.fa) (*refined from Espinoza et al. MAG III.B*). [TM7 MAG.III.C.1](/data/refining-mags/files/TM7_MAG_III_C_1-contigs.fa) (*refined from Espinoza et al. MAG III.C*). 
+* **Saccharibacteria (formerly TM7)**: [TM7 MAG.III.A.1](/data/refining-mags/files/TM7_MAG_III_A_1-contigs.fa) and [TM7 MAG.III.A.2](/data/refining-mags/files/TM7_MAG_III_A_2-contigs.fa) (*refined from Espinoza et al. MAG III.A*); [TM7 MAG III.B.1](/data/refining-mags/files/TM7_MAG_III_B_1-contigs.fa) (*refined from Espinoza et al. MAG III.B*). [TM7 MAG.III.C.1](/data/refining-mags/files/TM7_MAG_III_C_1-contigs.fa) (*refined from Espinoza et al. MAG III.C*).
 * **Absconditabacteria (formerly SR1)**: [SR1 MAG.IV.A.1](/data/refining-mags/files/SR1_MAG_IV_A_1-contigs.fa) and [SR1 MAG.IV.A.2](/data/refining-mags/files/SR1_MAG_IV_A_2-contigs.fa) (*refined from Espinoza et al. MAG IV.A; **Note:** MAG IV.A was annotated as GN2 although a phylogenomic analysis using ribosomal proteins affiliates it with SR1*).
 
 </div>
 
 
-If you have any questions, please feel free to leave a comment down below, send an e-mail to [us]({{ site.url }}/people/), or get in touch with other anvians through Slack:
+If you have any questions, please feel free to leave a comment down below, send an e-mail to [us]({{ site.url }}/people/), or get in touch with other anvians through Disord:
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 
 ## Introduction
 
-So you’ve constructed MAGs, and would like to see if there are opportunities for refinement. Great. This tutorial will walk you through an example. We will demonstrate steps that we commonly take to manually refine MAGs we report. Even if refinement of *every* MAG is not possible, as you will see this is a labor-intensive process, refining critical MAGs may help you and others to prevent misleading insights. 
+So you’ve constructed MAGs, and would like to see if there are opportunities for refinement. Great. This tutorial will walk you through an example. We will demonstrate steps that we commonly take to manually refine MAGs we report. Even if refinement of *every* MAG is not possible, as you will see this is a labor-intensive process, refining critical MAGs may help you and others to prevent misleading insights.
 
 We will walk through this analysis using a specific set of **genomes** and **metagenomes**, but you can simply replace these data with yours and follow the same workflow. All you need is this: one or more FASTA files and one or more metagenomes.
 
@@ -462,7 +462,7 @@ wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/638/805/GCA_003638805.1_ASM3
      -O 01_FASTA/GN02_MAG_IV_B.fa.gz
 ```
 
---- 
+---
 
 Before we go into refining we wish to take a look at the individual fasta files. To do that we use the contigs database, which allows us to annotate each fasta file and compute some basic statistics such as redundancy and completion based on single-copy core genes.
 

@@ -24,7 +24,7 @@ and its utility. For a more practical tutorial that demonstrates some of the sam
 thorough walkthrough of the [anvi'o structure]({{ anviostructure }}) interactive interface, please visit
 [the Infant Gut Tutorial]({{ site.url }}/tutorials/infant-gut/#chapter-vii-from-single-amino-acid-variants-to-protein-structures).
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 To me, the most fascinating thing about proteins is how specifically they associate with their
 ligands to carry out their function, and yet how they all kinda look the same. An alpha helix here,
@@ -470,5 +470,5 @@ when the table was generated now persist in the following visualizations.
 We hope that this tutorial has been useful for you. If you have any suggestions or questions please
 post an issue on [GitHub](https://github.com/merenlab/anvio) or join our Slack channel.
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 

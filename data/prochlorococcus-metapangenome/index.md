@@ -31,7 +31,7 @@ This reproducible bioinformatics workflow  describes program names and exact par
 </div>
 
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 {:.notice}
 Please find the published study along with its review history here: [https://peerj.com/articles/4320/](https://peerj.com/articles/4320/){:target="_blank"}

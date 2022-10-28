@@ -27,7 +27,7 @@ The purpose of this post is to,
 It contains about 3,000 words and will take little more than 15 minutes to read.
 </div>
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 ## Introduction
 
@@ -92,7 +92,7 @@ Something appropriately complex and realistic?
 
 Every corner of microbial ecology is filled with data. But **the best data are the data that are in the progress of being analyzed** so playing with it could end up being useful to its rightful owner as they go through it.
 
-Enter [a spontaneous thread in anvi'o Slack channel](https://anvio.slack.com/archives/C8SFMGYF3/p1576677417097800) by Jarrod Scott (who currently is a post-doctoral scientist at the [Smithsonian Tropical Research Institute](https://stri.si.edu/), Panama), which made it clear that he has been testing {% include PROGRAM name="anvi-cluster-contigs" %} on his ocean metagenomes.
+Enter [a spontaneous thread in anvi'o Slack channel](https://anvio.slack.com/archives/C8SFMGYF3/p1576677417097800) (which probably is not accessible anymore since we recently switched to Discord) by Jarrod Scott (who currently is a post-doctoral scientist at the [Smithsonian Tropical Research Institute](https://stri.si.edu/), Panama), which made it clear that he has been testing {% include PROGRAM name="anvi-cluster-contigs" %} on his ocean metagenomes.
 
 The dataset contains 28 shallow water marine samples collected within a 20km radius around [Isla Coiba](https://goo.gl/maps/VUkiZGPSa5yucjWN9) in the Eastern Pacific Ocean. The data was co-assembled with [MEGAHIT](https://academic.oup.com/bioinformatics/article/31/10/1674/177884). Here is the output of {% include PROGRAM name="anvi-display-contigs-stats" %} for that assembly:
 
@@ -292,7 +292,7 @@ Science moves on despite all these difficulties, and moves on fast. We are thank
 And thank *you* for reading all the way down here.
 
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 ---
 

@@ -16,9 +16,9 @@ In February 2022, the Microbiome Center and Duchossois Family Institute at the U
 You'll learn about some anvi'o basics like how to work with anvi'o databases, how to annotate genes, and how to estimate genome completeness and taxonomy. Then, you'll do some read recruitment and visualize the results in the interactive interface. Finally, you'll practice estimating metabolism from gene annotations.
 
 {:.notice}
-Matt Schechter and Iva Veseli taught this workshop with the help of the fearless Matthew Klein, who graciously served as teaching assistant. Feel free to reach out to any of them if you have questions about the materials. You can find their contact info [on this page](https://merenlab.org/people/), or you can send them a message on the anvi'o Slack channel:
+Matt Schechter and Iva Veseli taught this workshop with the help of the fearless Matthew Klein, who graciously served as teaching assistant. Feel free to reach out to any of them if you have questions about the materials. You can find their contact info [on this page](https://merenlab.org/people/), or you can send them a message on the anvi'o Discord server:
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 ## The Microbiome Center Metagenomics Workshop
 

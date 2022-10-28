@@ -17,7 +17,7 @@ Besides all the amazing things long-read sequencers offer, they also come with m
 
 There is not much on our end to talk about yet. Yet with this post we will start simple, and maybe we will have a series of tutorials regarding how to play with MinION data in anvi'o in the long run hopefully with your suggestions and/or questions. Do you have a clear idea what anvi'o could do for you to make sense of your MinION data? Let us know! Also feel free to drop a line if you are curious about the run time, input DNA concentration, size selection, etc.
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 ---
 

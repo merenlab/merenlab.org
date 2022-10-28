@@ -57,13 +57,13 @@ p {
     font-style: italic;
 }
 
-.slack-button-img {
+.discord-button-img {
     height: 12px;
     margin-bottom: 4px;
     margin-left: 1px;
 }
 
-.slack-button-img-big {
+.discord-button-img-big {
     height: 20px;
     margin-bottom: 4px;
 }
@@ -210,7 +210,7 @@ details {
     box-shadow: 8px 8px 21px rgba(0, 0, 0, 0.3);
 }
 
-.slack-button {
+.discord-button {
     box-shadow: 0px 0px 25px 3px #d8d8d8;
     border-radius: 8px;
     /* padding: 5px; */
@@ -223,7 +223,7 @@ details {
     padding-left: 9px;
 }
 
-.slack-invitation {
+.discord-invitation {
     position: relative;
     top: -3px;
     font-family: -webkit-body;

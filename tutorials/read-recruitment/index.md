@@ -20,9 +20,9 @@ redirect_from: /read-recruitment/
 * Familiarize yourself with downstream steps of the analysis of recruited reads.
 
 {:.notice}
-If you have any questions about this exercise, or have ideas to make it better, please feel free to get in touch with the anvi'o community through our Slack channel:
+If you have any questions about this exercise, or have ideas to make it better, please feel free to get in touch with the anvi'o community through our Discord server:
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 </div>
 
 To follow this exercise, you should first follow the instructions [here](/2016/06/26/installation-v2/) that will install anvi'o on your computer along with its dependencies.

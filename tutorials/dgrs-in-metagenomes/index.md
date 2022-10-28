@@ -42,9 +42,9 @@ Microbiology is drowning in publicly available 'omics data from any habitat. Yet
 
 If you wish to conduct similar analyses to those you will see in this document, all you need is a genome of your favorite organism, and some metagenomes in which you expect populations that match to your organism to be relatively abundant. If any of the following sections confuse you, please feel free to leave a comment down below or get in touch with [Blair Paul](https://www.mbl.edu/jbpc/staff/bgpaul/) or [Meren](http://merenlab.org/people) to bounce ideas.
 
-Most of the bioinformatics on this page will use anvi'o, a [community-led, integrated, reproducible software platform for multi-omics](https://www.nature.com/articles/s41564-020-00834-3). If you have everything you need and interested in using anvi'o, but you are not sure which [anvi'o programs and artifacts](https://merenlab.org/software/anvio/help/main/) would help you best conduct your investigation, please reach out to the anvi'o community via Slack:
+Most of the bioinformatics on this page will use anvi'o, a [community-led, integrated, reproducible software platform for multi-omics](https://www.nature.com/articles/s41564-020-00834-3). If you have everything you need and interested in using anvi'o, but you are not sure which [anvi'o programs and artifacts](https://merenlab.org/software/anvio/help/main/) would help you best conduct your investigation, please reach out to the anvi'o community via Discord:
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 As I mentioned, one of the major goals of this tutorial is to share the bioinformatics steps that led to the emergence of this figure,
 

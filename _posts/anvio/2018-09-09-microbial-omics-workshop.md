@@ -13,7 +13,7 @@ categories: [anvio]
 {% capture files %}{{site.url}}/files/2018_BPHS_WORKSHOP{% endcapture %}
 
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 {:.notice}
 This workshop was developed as part of the BRI class for the University of Chicago Biophysical Sciences Graduate Program first year students in the fall quarter of 2018. The workshop was planned for 20 hours in-class, and the students were expected to do additional work on assignment outside of class hours.

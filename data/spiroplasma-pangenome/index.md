@@ -23,9 +23,9 @@ The purpose of this document is to provide a reproducible workflow for the pange
 </div>
 
 
-If you have any questions, please feel free to leave a comment down below, send an e-mail to [us]({{ site.url }}/people/), or get in touch with other anvians through Slack:
+If you have any questions, please feel free to leave a comment down below, send an e-mail to [us]({{ site.url }}/people/), or get in touch with other anvians through Discord:
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 
 ## Introduction
@@ -107,7 +107,7 @@ echo -e "Entomoplasmatales_EntAcro1\t`pwd`/MAGs/Entomoplasmatales_EntAcro1-min1K
                           >> Spiroplasma-fasta.txt
 ```
 
-After editing this file to make sure names look human-readable (a copy of the final input file is [here](files/Spiroplasma-fasta.txt)), we generated a configuration that looked like this (a copy of it is [here](files/pan-config.json)), 
+After editing this file to make sure names look human-readable (a copy of the final input file is [here](files/Spiroplasma-fasta.txt)), we generated a configuration that looked like this (a copy of it is [here](files/pan-config.json)),
 
 ``` json
 {
@@ -200,7 +200,7 @@ Which opened an interactive interface with the pangenome.
 
 ## Polishing the pangenome
 
-We find it critical to properly visualize complex data, and often put the extra effort to prepare and polish our visualizations for publication. 
+We find it critical to properly visualize complex data, and often put the extra effort to prepare and polish our visualizations for publication.
 
 This figure shows the initial/raw display of the pangenome:
 
@@ -236,9 +236,9 @@ We then used the **Save SVG** button that is located in the Settings panel (bott
 {:.warning}
 [doi:10.6084/m9.figshare.8201852](https://doi.org/10.6084/m9.figshare.8201852) gives access to anvi'o files to visualize, update, and edit the *Spiroplasma* pangenome.
 
-If you have any questions, please feel free to leave a comment down below, send an e-mail to [us]({{ site.url }}/people/), or get in touch with other anvians through Slack:
+If you have any questions, please feel free to leave a comment down below, send an e-mail to [us]({{ site.url }}/people/), or get in touch with other anvians through Discord:
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 <div style="display: block; height: 200px;">&nbsp;</div>
 

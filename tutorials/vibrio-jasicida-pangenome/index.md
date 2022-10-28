@@ -16,9 +16,9 @@ Thanks to the generosity of the Microbial Diversity Course at the MBL, all the n
 
 The following material starts with a very brief introduction to the isolates, and work its way through the steps of computing a pangenome using anvi'o. I hope this material will be useful not only to those of you who sat through the workshop at the MBL with me in-person, but also to those of you who run into this material later.
 
-Please feel free to leave a comment at the end of the page or find us on Slack.
+Please feel free to leave a comment at the end of the page or find us on Discord.
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 
 {:.notice}
@@ -513,4 +513,4 @@ Another option, especially if you would like to feel like the year 2021 has fina
 
 Thank you for your time! Please let me or others know if you have any suggestions!
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}

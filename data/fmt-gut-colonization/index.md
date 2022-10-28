@@ -27,9 +27,9 @@ In addition to the following data items, un this page you will find command line
 </div>
 
 {:.notice}
-If you have any questions and/or if you are unable to find an important piece of information here, please feel free to leave a comment down below, send an e-mail to [us]({{ site.url }}/people/), or get in touch with us through Slack:
+If you have any questions and/or if you are unable to find an important piece of information here, please feel free to leave a comment down below, send an e-mail to [us]({{ site.url }}/people/), or get in touch with us through Discord:
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 <div class="pub_float">
 <div class="altmetric-embed" data-badge-type="donut" data-doi="10.1101/2021.03.02.433653"></div>

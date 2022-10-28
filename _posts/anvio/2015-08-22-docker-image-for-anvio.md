@@ -23,7 +23,7 @@ Special thanks go to [Çağlar Onur](https://twitter.com/caglar10ur) for forcing
 {:.warning}
 **Our latest docker images are quite big** (>5 Gb), because images after `v6` come with lots of bells and whistles such as assemblers, mapping software, binning tools (that seems to be quite hard to install in general), on other useful tools. Installing them is pain, so we go through it once to create you working recipes, and storage is cheap. But if you need a minimal anvi'o image for your specific needs, please let us know, and we can help you with that.
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 ## Check your docker installation
 
@@ -125,4 +125,4 @@ In the name `7.1_main_0522`, `7.1` indicates the latest stable release from this
 
 Don't hesitate to get in touch if you have any questions!
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}

@@ -23,9 +23,9 @@ redirect_from: /long-read-analysis/
 
 
 {:.notice}
-If you have any questions about this exercise, or have ideas to make it better, please feel free to get in touch with the anvi'o community through our Slack channel:
+If you have any questions about this exercise, or have ideas to make it better, please feel free to get in touch with the anvi'o community through our Discord server:
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 </div>
 
 ---

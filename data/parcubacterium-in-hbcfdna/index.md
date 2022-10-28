@@ -18,9 +18,9 @@ The acronym **HBCFDNA** serves as a reminder that this one is coming from **h**u
 </div>
 
 
-If you have any questions, please feel free to leave a comment down below, send an e-mail to [us]({{ site.url }}/people/), or get in touch with other anvians through Slack:
+If you have any questions, please feel free to leave a comment down below, send an e-mail to [us]({{ site.url }}/people/), or get in touch with other anvians through Discord:
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 Findings on this page are now published in the following peer-reviewed study:
 

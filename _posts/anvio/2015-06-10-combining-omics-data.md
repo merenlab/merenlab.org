@@ -14,7 +14,7 @@ authors: [meren]
 
 If the recipe doesn't work for you, or you need more from it, please feel free to reach out to us:
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 ## Context
 
@@ -169,9 +169,9 @@ $ sqlite3 MERGED/PROFILE.db 'select value from self where key="num_splits";'
     22155
 ```
 
-If you have more than 25,000, you are in trouble. Ask us on Slack how to solve this problem:
+If you have more than 25,000, you are in trouble. Ask us on Discord how to solve this problem:
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 ## Using the new clustering in the interactive interface with the new clustering
 

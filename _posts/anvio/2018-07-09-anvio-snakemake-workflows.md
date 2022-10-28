@@ -19,7 +19,7 @@ The contents of this post will only work with anvi'o `v5` and snakemake `v4` or 
 {:.warning}
 {% include _fixthispage.html source="_posts/anvio/2018-07-09-anvio-snakemake-workflows.md" %}
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 [Snakemake](https://snakemake.readthedocs.io/en/stable/) is a robust language to create computational workflows. We recently have started using it extensively with our anvi'o workflows, which provided us with better reproducibility and documentation of our work.
 
@@ -167,7 +167,7 @@ cd WORKFLOW_TUTORIAL_DATA
 Now you can follow the steps in this tutorial and run everything on your machine (assuming you have anvi'o and other programs are installed).
 
 {:.warning}
-Examples throughout this tutorial will use simpler forms of `anvi-run-workflow` commands for the sake of clarity, which will result in processes that can run on a single computer with a single thread. This is almost never a good idea (unless you know what you are doing), and you should keep an eye on relevant notes and sections in this document that clarify how to work with clusters, and tailor your additional parameters based on your system's requirements for real-world applications. Do you think you are lost? Please get in touch with your system administrator, they will know what to do. Are you the system administrator and feeling lost? Please get in touch with us through anvi'o [Slack](https://anvio.slack.com/) or [Google Groups](https://groups.google.com/forum/#!forum/anvio)!
+Examples throughout this tutorial will use simpler forms of `anvi-run-workflow` commands for the sake of clarity, which will result in processes that can run on a single computer with a single thread. This is almost never a good idea (unless you know what you are doing), and you should keep an eye on relevant notes and sections in this document that clarify how to work with clusters, and tailor your additional parameters based on your system's requirements for real-world applications. Do you think you are lost? Please get in touch with your system administrator, they will know what to do. Are you the system administrator and feeling lost? Please get in touch with us through anvi'o Discord.
 
 
 # Workflows
@@ -1344,4 +1344,4 @@ As of anvi'o `v5.3` [metaSPAdes](http://cab.spbu.ru/software/spades/) has been a
 metaSPAdes has two outputs, `contigs.fasta`, and `scaffolds.fasta`. By default anvi'o will use `contigs.fasta` for the rest of the workflow, but if you want to use `scaffolds.fasta`, then set `use_scaffolds: true` in your config file. In any case, anvi'o will save the one you don't use as well (i.e. by default you will find in your `02_FASTA` directory the `scaffold.fasta` file, and if you choose to use the scaffolds, then you will still find `contigs.fasta`).
 
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}

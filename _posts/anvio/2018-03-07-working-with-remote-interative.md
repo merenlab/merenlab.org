@@ -163,5 +163,5 @@ With this setup we can type `barhali` on our laptops to connect to our server ma
 
 Try it, and let us know how it went for you.
 
-If you have any questions find us on Slack, or send a comment down below.
+If you have any questions find us on Discord, or send a comment down below.
 

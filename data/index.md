@@ -13,9 +13,9 @@ This page serves **public (and often reproducible) data items that underlie key 
 
 If you would like to interactively explore any of the data items, you may need to install [anvi'o](https://merenlab.org/software/anvio/) or use it via our [Docker containers](https://hub.docker.com/r/meren/anvio/tags?page=1&ordering=last_updated) without installation. See [anvi'o programs and artifacts](/software/anvio/help/main/) that can be used to further explore reproducible data items below.
 
-Please do not hesitate to get in touch if something is missing. You can send [us](/people/) an e-mail, or find us on Slack:
+Please do not hesitate to get in touch if something is missing. You can send [us](/people/) an e-mail, or find us on Discord:
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 
 {:.notice}

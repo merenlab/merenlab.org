@@ -245,6 +245,6 @@ You will see that all 9 of the above modules are enriched in the "high-fitness" 
 
 This metabolism estimation and enrichment analysis allowed us to form a clear hypothesis as to why some microbial populations were able to colonize FMT recipients while others weren't. For a much more robust discussion of the analysis and our conclusions, please read our [study](https://doi.org/10.1101/2021.03.02.433653).
 
-We hope the mini-tutorial above helped you to learn how to run metabolism analyses in anvi'o on your own data. If anything was not clear, please feel free to comment below or reach out to us on Slack with questions. Thanks for reading!
+We hope the mini-tutorial above helped you to learn how to run metabolism analyses in anvi'o on your own data. If anything was not clear, please feel free to comment below or reach out to us on Discord with questions. Thanks for reading!
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}

@@ -22,9 +22,9 @@ The goal of this tutorial is to provide a brief overview of the anvi'o workflow 
 
 If we are missing things, or parts of the tutorial is not clear, please let us know, and we will do our best to improve it.
 
-Metagenomics is extremely rich, and this tutorial will not prepare you to be able to unlock the potential of your data. It will only give you an initial steps into the anvi'o software ecosystem and its philosophy dealing with data. Please feel free to come to anvi'o Slack and tell us about your project, and ask for best practices given your needs.
+Metagenomics is extremely rich, and this tutorial will not prepare you to be able to unlock the potential of your data. It will only give you an initial steps into the anvi'o software ecosystem and its philosophy dealing with data. Please feel free to come to anvi'o Discord and tell us about your project, and ask for best practices given your needs.
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 ---
 
@@ -404,8 +404,8 @@ Please read **[this article]({% post_url anvio/2015-05-11-anvi-refine %})** for 
 
 ## Final words
 
-This is JUST a beginning to getting yourself familiarized to anvi'o software ecosystem, and what this tutorial covers is by no means comprehensive or complete. If you would like to get some inspiration regarding all the things you can do with anvi'o, please browse the learning material and tutorials listed at [https://anvio.org](https://anvio.org). Feel free to find us on Slack if you run into issues, or have questions regarding 'omics analyses, or wish to understand if anvi'o is the right choice for your needs.
+This is JUST a beginning to getting yourself familiarized to anvi'o software ecosystem, and what this tutorial covers is by no means comprehensive or complete. If you would like to get some inspiration regarding all the things you can do with anvi'o, please browse the learning material and tutorials listed at [https://anvio.org](https://anvio.org). Feel free to find us on Discord if you run into issues, or have questions regarding 'omics analyses, or wish to understand if anvi'o is the right choice for your needs.
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 {% include _fixthispage.html source="_posts/anvio/2016-06-22-anvio-tutorial-v2.md" %}

@@ -311,6 +311,6 @@ In their paper, they suggest that this plasmid is nearly identical between all o
 
 Thank you very much if you made it all the way to the bottom and if you still have questions about [anvi-inspect](/vignette/#anvi-inspect) or `anvi-script-visualize-split-coverages` feel free to reach out to us.
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 Happy inspecting!

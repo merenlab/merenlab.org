@@ -246,6 +246,6 @@ You now now have KEGG functions in your anvi'o contigs database!
 
 Hopefully (in the near future) we can find a better way to do this without us having to do all the convuluted steps with GhostKOALA.
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 <div style="margin:50px">&nbsp;</div>
