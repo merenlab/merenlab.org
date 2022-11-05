@@ -1231,6 +1231,22 @@ With that in mind, the usage of MODELLER in this study is somewhat historical. B
 
 In this document I'll detail (a) how to predict MODELLER structures using {% include PROGRAM name="anvi-gen-structure-database" %} and (b) how I compared MODELLER structures to AlphaFold structures.
 
+### Download links to the structures
+
+If you're here because you just want access to either the MODELLER structures, the AlphaFold structures, or both, here are the download links:
+
+```bash
+# MODELLER
+wget -O 09_STRUCTURES_MOD.tar.gz https://figshare.com/ndownloader/files/38105496
+tar -zxvf 09_STRUCTURES_MOD.tar.gz
+rm 09_STRUCTURES_MOD.tar.gz
+
+# AlphaFold
+wget -O 09_STRUCTURES_AF.tar.gz https://figshare.com/ndownloader/files/33125294
+tar -zxvf 09_STRUCTURES_AF.tar.gz
+rm 09_STRUCTURES_AF.tar.gz
+```
+
 ### Calculating MODELLER structures
 
 Calculating structures with MODELLER using {% include PROGRAM name="anvi-gen-structure-database" %} is exceedingly easy and in a rather extensive [blog post](https://merenlab.org/2018/09/04/getting-started-with-anvio-structure/), I go into all of the nitty gritty. The net result is that generating structures for genes within a {% include ARTIFACT name="contigs-db" %} has never been easier. It boils down to just one command, which you should feel free to run with as many threads as you can afford to shell out.
@@ -1359,7 +1375,7 @@ which indicate which structure predictions are considered trustworthy by each me
 **Alignment metrics**. These are calculated by first aligning the structures determined from each method. Obviously, these metrics are only suitable in the subset of protein sequences where a trustworthy structure was determined via both methods.
 
 1. RMSD - The [root-mean-square deviation](https://en.wikipedia.org/wiki/Root-mean-square_deviation_of_atomic_positions) of alpha carbon (backbone) atoms. The units are angstroms.
-2. TM score - The [template modeling score](https://en.wikipedia.org/wiki/Template_modeling_score). This is a popular metric designed to outperform other metrics of global similarity such as RMSD.
+2. TM score - The [template modeling score](https://en.wikipedia.org/wiki/Template_modeling_score). This is a popular global similarity metric that unlike RMSD, is designed specifically for protein structure comparison.
 2. Contact map MAE - The [mean-absolute-error](https://en.wikipedia.org/wiki/Mean_absolute_error) between residue center-of-mass contact maps. This isn't a widely _used_ metric, just something I made up to de-emphasize RMSD losses introduced by loose linkers between domains. The units are angstroms.
 
 **Structure metrics**. These are calculated directly from the protein structures and are calculated for each structure.

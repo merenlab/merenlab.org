@@ -733,7 +733,6 @@ df <- read_tsv('../WW_TABLES/MODELS.txt')
 df$DTL[[4]]
 ``` 
 
-
 ----------------------------
 
 <blockquote>
