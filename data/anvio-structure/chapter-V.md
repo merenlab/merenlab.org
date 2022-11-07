@@ -230,6 +230,78 @@ print(df.pS_popular_consensus.sum()/df.pN_popular_consensus.sum())
 ### Nonsynonymous polymorphism avoids buried sites
 
 <blockquote>
+(...) pN(site) values varied significantly from site-to-site and from sample-to-sample, but overall, site-to-site variance was more explanatory than sample-to-sample variance (<span style="color:red">79.74</span>% ± <span style="color:red">0.11</span>% versus <span style="color:red">0.42</span>% ± <span style="color:red">0.01</span>% of total variance, ANOVA) (Figure S3) (...)
+</blockquote>
+
+```bash
+# R
+scvs <- read_tsv("../11_SCVs.txt") %>%
+    select(
+        sample_id,
+        unique_pos_identifier,
+        pN_popular_consensus,
+        pS_popular_consensus
+    ) %>%
+    filter(
+        pS_popular_consensus > 0
+    ) %>%
+    mutate(
+        unique_pos_identifier = as.factor(unique_pos_identifier)
+    )
+
+N <- 1000
+exps <- 500
+pN_site_vars <- c()
+pN_sample_vars <- c()
+pS_site_vars <- c()
+pS_sample_vars <- c()
+
+sites <- scvs %>% pull(unique_pos_identifier) %>% unique()
+
+# This will take hours
+for (i in 1:exps) {
+    print(i)
+
+    subset_sites <- sites %>% sample(N)
+    scvs_subset <- scvs %>% filter(unique_pos_identifier %in% subset_sites)
+
+    pN_anova <- scvs_subset %>%
+        lm(pN_popular_consensus ~ unique_pos_identifier + sample_id, data = .) %>%
+        anova()
+
+    pS_anova <- scvs_subset %>%
+        lm(pS_popular_consensus ~ unique_pos_identifier + sample_id, data = .) %>%
+        anova()
+
+    pN_site_explained <- pN_anova$`Sum Sq`[1] / sum(pN_anova$`Sum Sq`) * 100
+    pN_sample_explained <- pN_anova$`Sum Sq`[2] / sum(pN_anova$`Sum Sq`) * 100
+    pS_site_explained <- pS_anova$`Sum Sq`[1] / sum(pS_anova$`Sum Sq`) * 100
+    pS_sample_explained <- pS_anova$`Sum Sq`[2] / sum(pS_anova$`Sum Sq`) * 100
+
+    pN_site_vars <- c(pN_site_vars, pN_site_explained)
+    pN_sample_vars <- c(pN_sample_vars, pN_sample_explained)
+    pS_site_vars <- c(pS_site_vars, pS_site_explained)
+    pS_sample_vars <- c(pS_sample_vars, pS_sample_explained)
+}
+
+pN_site_mean <- pN_site_vars %>% mean()
+pN_site_stderr <- pN_site_vars %>% sd() / sqrt(exps)
+pS_site_mean <- pS_site_vars %>% mean()
+pS_site_stderr <- pS_site_vars %>% sd() / sqrt(exps)
+pN_sample_mean <- pN_sample_vars %>% mean()
+pN_sample_stderr <- pN_sample_vars %>% sd() / sqrt(exps)
+pS_sample_mean <- pS_sample_vars %>% mean()
+pS_sample_stderr <- pS_sample_vars %>% sd() / sqrt(exps)
+
+print(paste("% pN(site) explained by site:", pN_site_mean, "+-", pN_site_stderr))
+print(paste("% pN(site) explained by sample:", pN_sample_mean, "+-", pN_sample_stderr))
+print(paste("% pS(site) explained by site:", pS_site_mean, "+-", pS_site_stderr))
+print(paste("% pS(site) explained by sample:", pS_sample_mean, "+-", pS_sample_stderr))
+```
+
+----------------------------
+
+<blockquote>
 (...) We used two independent methods to predict protein structures for the 799 core genes of 1a.3.V: (1) a template-based homology modeling approach with MODELLER (Webb and Sali 2016), which predicted <span style="color:red">346</span> structures, and (2) a transformer-like deep learning approach with AlphaFold (Jumper et al. 2021), which predicted 754 (...)
 </blockquote>
 
