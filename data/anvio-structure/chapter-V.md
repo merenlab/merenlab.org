@@ -1234,8 +1234,6 @@ scvs %>% filter(gene_callers_id==2602) %>% group_by(sample_id) %>% mutate(pN_wei
 N <- 10
 pN_RSA_R2s <- c()
 pS_RSA_R2s <- c()
-pN_DTL_R2s <- c()
-pS_DTL_R2s <- c()
 gs <- scvs %>%
     filter(gene_callers_id == 2602)
 for (i in 1:N) {
@@ -1243,21 +1241,12 @@ for (i in 1:N) {
         group_by(sample_id) %>%
         mutate(
             shuffled_RSA = sample(complex_RSA),
-            shuffled_DTL = sample(complex_DTL),
-            pS_weighted_DTL = pS_popular_consensus/sum(pS_popular_consensus, na.rm=T)*complex_DTL,
-            pS_weighted_DTL_shuff = pS_popular_consensus/sum(pS_popular_consensus, na.rm=T)*shuffled_DTL,
-            pN_weighted_DTL = pN_popular_consensus/sum(pN_popular_consensus, na.rm=T)*complex_DTL,
-            pN_weighted_DTL_shuff = pN_popular_consensus/sum(pN_popular_consensus, na.rm=T)*shuffled_DTL,
             pS_weighted_RSA = pS_popular_consensus/sum(pS_popular_consensus, na.rm=T)*complex_RSA,
             pS_weighted_RSA_shuff = pS_popular_consensus/sum(pS_popular_consensus, na.rm=T)*shuffled_RSA,
             pN_weighted_RSA = pN_popular_consensus/sum(pN_popular_consensus, na.rm=T)*complex_RSA,
             pN_weighted_RSA_shuff = pN_popular_consensus/sum(pN_popular_consensus, na.rm=T)*shuffled_RSA,
         ) %>%
         summarize(
-            mean_pS_DTL=sum(pS_weighted_DTL, na.rm=T),
-            mean_pS_DTL_shuff=sum(pS_weighted_DTL_shuff, na.rm=T),
-            mean_pN_DTL=sum(pN_weighted_DTL, na.rm=T),
-            mean_pN_DTL_shuff=sum(pN_weighted_DTL_shuff, na.rm=T),
             mean_pS_RSA=sum(pS_weighted_RSA, na.rm=T),
             mean_pS_RSA_shuff=sum(pS_weighted_RSA_shuff, na.rm=T),
             mean_pN_RSA=sum(pN_weighted_RSA, na.rm=T),
@@ -1265,18 +1254,12 @@ for (i in 1:N) {
             pnps = as.numeric(names(which.max(table(pnps))))
         )
     pN_RSA_R2s <- c(sample_averaged %>% lm(mean_pN_RSA_shuff~pnps, data=.) %>% summary() %>% .$r.squared, pN_RSA_R2s)
-    pN_DTL_R2s <- c(sample_averaged %>% lm(mean_pN_DTL_shuff~pnps, data=.) %>% summary() %>% .$r.squared, pN_DTL_R2s)
     pS_RSA_R2s <- c(sample_averaged %>% lm(mean_pS_RSA_shuff~pnps, data=.) %>% summary() %>% .$r.squared, pS_RSA_R2s)
-    pS_DTL_R2s <- c(sample_averaged %>% lm(mean_pS_DTL_shuff~pnps, data=.) %>% summary() %>% .$r.squared, pS_DTL_R2s)
 }
 pN_RSA_R2_mean <- mean(pN_RSA_R2s)
 pN_RSA_R2_stderr <- sd(pN_RSA_R2s) / sqrt(N)
-pN_DTL_R2_mean <- mean(pN_DTL_R2s)
-pN_DTL_R2_stderr <- sd(pN_DTL_R2s) / sqrt(N)
 pS_RSA_R2_mean <- mean(pS_RSA_R2s)
 pS_RSA_R2_stderr <- sd(pS_RSA_R2s) / sqrt(N)
-pS_DTL_R2_mean <- mean(pS_DTL_R2s)
-pS_DTL_R2_stderr <- sd(pS_DTL_R2s) / sqrt(N)
 print(paste("% pN(site) weighted RSA R2:", pN_RSA_R2_mean, "+-", pN_RSA_R2_stderr))
 ``` 
 
@@ -1301,8 +1284,6 @@ scvs %>% filter(gene_callers_id==2602) %>% group_by(sample_id) %>% mutate(pN_wei
 ```R
 # R
 N <- 10
-pN_RSA_R2s <- c()
-pS_RSA_R2s <- c()
 pN_DTL_R2s <- c()
 pS_DTL_R2s <- c()
 gs <- scvs %>%
@@ -1311,39 +1292,24 @@ for (i in 1:N) {
     sample_averaged <- gs %>%
         group_by(sample_id) %>%
         mutate(
-            shuffled_RSA = sample(complex_RSA),
             shuffled_DTL = sample(complex_DTL),
             pS_weighted_DTL = pS_popular_consensus/sum(pS_popular_consensus, na.rm=T)*complex_DTL,
             pS_weighted_DTL_shuff = pS_popular_consensus/sum(pS_popular_consensus, na.rm=T)*shuffled_DTL,
             pN_weighted_DTL = pN_popular_consensus/sum(pN_popular_consensus, na.rm=T)*complex_DTL,
             pN_weighted_DTL_shuff = pN_popular_consensus/sum(pN_popular_consensus, na.rm=T)*shuffled_DTL,
-            pS_weighted_RSA = pS_popular_consensus/sum(pS_popular_consensus, na.rm=T)*complex_RSA,
-            pS_weighted_RSA_shuff = pS_popular_consensus/sum(pS_popular_consensus, na.rm=T)*shuffled_RSA,
-            pN_weighted_RSA = pN_popular_consensus/sum(pN_popular_consensus, na.rm=T)*complex_RSA,
-            pN_weighted_RSA_shuff = pN_popular_consensus/sum(pN_popular_consensus, na.rm=T)*shuffled_RSA,
         ) %>%
         summarize(
             mean_pS_DTL=sum(pS_weighted_DTL, na.rm=T),
             mean_pS_DTL_shuff=sum(pS_weighted_DTL_shuff, na.rm=T),
             mean_pN_DTL=sum(pN_weighted_DTL, na.rm=T),
             mean_pN_DTL_shuff=sum(pN_weighted_DTL_shuff, na.rm=T),
-            mean_pS_RSA=sum(pS_weighted_RSA, na.rm=T),
-            mean_pS_RSA_shuff=sum(pS_weighted_RSA_shuff, na.rm=T),
-            mean_pN_RSA=sum(pN_weighted_RSA, na.rm=T),
-            mean_pN_RSA_shuff=sum(pN_weighted_RSA_shuff, na.rm=T),
             pnps = as.numeric(names(which.max(table(pnps))))
         )
-    pN_RSA_R2s <- c(sample_averaged %>% lm(mean_pN_RSA_shuff~pnps, data=.) %>% summary() %>% .$r.squared, pN_RSA_R2s)
     pN_DTL_R2s <- c(sample_averaged %>% lm(mean_pN_DTL_shuff~pnps, data=.) %>% summary() %>% .$r.squared, pN_DTL_R2s)
-    pS_RSA_R2s <- c(sample_averaged %>% lm(mean_pS_RSA_shuff~pnps, data=.) %>% summary() %>% .$r.squared, pS_RSA_R2s)
     pS_DTL_R2s <- c(sample_averaged %>% lm(mean_pS_DTL_shuff~pnps, data=.) %>% summary() %>% .$r.squared, pS_DTL_R2s)
 }
-pN_RSA_R2_mean <- mean(pN_RSA_R2s)
-pN_RSA_R2_stderr <- sd(pN_RSA_R2s) / sqrt(N)
 pN_DTL_R2_mean <- mean(pN_DTL_R2s)
 pN_DTL_R2_stderr <- sd(pN_DTL_R2s) / sqrt(N)
-pS_RSA_R2_mean <- mean(pS_RSA_R2s)
-pS_RSA_R2_stderr <- sd(pS_RSA_R2s) / sqrt(N)
 pS_DTL_R2_mean <- mean(pS_DTL_R2s)
 pS_DTL_R2_stderr <- sd(pS_DTL_R2s) / sqrt(N)
 print(paste("% pN(site) weighted DTL R2:", pN_DTL_R2_mean, "+-", pN_DTL_R2_stderr))
