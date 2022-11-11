@@ -1484,7 +1484,7 @@ summarise(
 codon_rarity=mean(codon_rarity),
 pnps=mean(genome_pnps)
 )
-print(cor.test(plot_data$codon_rarity, temp$pnps, alternative='greater') %>% .$p.val)
+print(cor.test(plot_data$codon_rarity, plot_data$pnps, alternative='greater') %>% .$p.val)
 
 # F
 plot_data <- scvs %>%
@@ -1500,7 +1500,7 @@ summarise(
 mean_rarity_RSA=sum(rarity_weighted_RSA),
 pnps=mean(genome_pnps)
 )
-print(cor.test(plot_data$mean_rarity_RSA, temp$pnps, alternative='less') %>% .$p.val)
+print(cor.test(plot_data$mean_rarity_RSA, plot_data$pnps, alternative='less') %>% .$p.val)
 
 # G
 plot_data <- scvs %>%
@@ -1516,7 +1516,7 @@ summarise(
 mean_rarity_DTL=sum(rarity_weighted_DTL),
 pnps=mean(genome_pnps)
 )
-print(cor.test(plot_data$mean_rarity_DTL, temp$pnps, alternative='less') %>% .$p.val)
+print(cor.test(plot_data$mean_rarity_DTL, plot_data$pnps, alternative='less') %>% .$p.val)
 ``` 
 
 ### Synonymous but not silent: selection against rare codons at critical sites
