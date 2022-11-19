@@ -115,7 +115,6 @@ As such, you should feel free to jump around this document, rather than reading 
 [Table S12 - Analysis 17](#analysis-17-transcript-abundance--metatranscriptomics)
 
 
-
 ### Global R environment (GRE)
 
 How did I organize my analyses? One option would be to create everything in isolation. Each analysis starts from a blank slate, and builds up all of the data it needs for the analysis. This approach would be favored if the analyses are relatively independent of one another, and the associated datasets were small.
@@ -4694,6 +4693,45 @@ source('figure_3.R')
 </div> 
 
 This will output the Figures 3b, 3c, 3e, 3f, and 3g into `YY_PLOTS/FIG_3`. What's missing in that list is Figures 3a and 3d, which are absent because they contain images of proteins which are generated with PyMOL, not R. If you missed those, see the above analyses, which detail how those can be reproduced.
+
+### Why this glutamine synthetase?
+
+During the review process it was noted that there are several glutamine synthetases, and one (gene #1736) has pN/pS values that correlate with nitrate concentrations more strongly than does gene #2602 (the one the case study is about). While gene #1736 no doubt would have been a candidate while we were exploring the data for a case study, we ignored genes that exhibited high coverage variation, since this has the potential to be caused by several nonidealities, both biological and non-biological in nature (for more info on this subject see [here](https://merenlab.org/2016/12/14/coverage-variation/)). Unfortunately, gene #1736 had high coverage variation and so was discarded.
+
+This is how we calculated the coefficient of variation of nucleotide coverage for genes #1736 and #2602 during the review process:
+
+```python
+import pandas as pd
+from anvio.auxiliarydataops import AuxiliaryDataForSplitCoverages as aux
+
+aux_data = aux(db_path='AUXILIARY-DATA.db', db_hash='none', ignore_hash=True)
+
+soi = [x.strip() for x in open("soi").readlines()]
+
+gene_1736 = pd.DataFrame(aux_data.get("HIMB083_Contig_0001_split_00023"))
+gene_1736 = gene_1736.iloc[17572:19042, :][soi].reset_index(drop=True)
+
+mu_1736 = gene_1736.mean(axis=0)
+sd_1736 = gene_1736.std(axis=0)
+coeff_1736 = sd_1736 / mu_1736
+
+gene_2602 = pd.DataFrame(aux_data.get("HIMB083_Contig_0001_split_00065"))
+gene_2602 = gene_2602.iloc[15472:16879, :][soi].reset_index(drop=True)
+
+mu_2602 = gene_2602.mean(axis=0)
+sd_2602 = gene_2602.std(axis=0)
+coeff_2602 = sd_2602 / mu_2602
+
+print(f"mean coeff. variation for gene #1736: {coeff_1736.mean():.3f}")
+print(f"mean coeff. variation for gene #2602: {coeff_2602.mean():.3f}")
+```
+
+This yields
+
+```
+mean coeff. variation for gene #1736: 0.608
+mean coeff. variation for gene #2602: 0.300
+```
 
 ## Analysis 20: Genome-wide ns-polymorphism avoidance of low RSA/DTL
 
