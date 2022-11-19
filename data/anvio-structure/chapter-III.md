@@ -3125,8 +3125,10 @@ And as you would expect, you can also find $pN^{(site)}$, $pS^{(site)}$, and $pN
 
 ## Step 15: Codon properties
 
-In the paper, we measured how codon usage varies from sample-to-sample, ultimately illustrating that rare codons are preferred in structurally/functionally noncritical sites. First, let's go through the different definitions of rarity.
+{:.notice}
+You should follow this step to ensure reproducibility for any downstream steps that expect this data to be present, but during revisions we've lost confidence in our codon rarity analysis and have removed it from the paper.
 
+In the paper, we measured how codon usage varies from sample-to-sample, ultimately illustrating that rare codons are preferred in structurally/functionally noncritical sites. First, let's go through the different definitions of rarity.
 
 ### Definitions of rarity
 
