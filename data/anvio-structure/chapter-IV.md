@@ -46,11 +46,7 @@ As such, you should feel free to jump around this document, rather than reading 
 
 [Figure 3 - Analysis 19](#analysis-19-glutamine-synthetase-gs)
 
-[Figure 4ab - Analysis 20](#analysis-20-genome-wide-ns-polymorphism-avoidance-of-low-rsadtl)
-
-[Figure 4cd - Analysis 21](#analysis-21-synonymous-variation)
-
-[Figure 4efg - Analysis 21](#analysis-21-synonymous-variation)
+[Figure 4abcd - Analysis 20](#analysis-20-genome-wide-ns-polymorphism-avoidance-of-low-rsadtl)
 
 #### Supplementary figures
 
@@ -77,10 +73,6 @@ As such, you should feel free to jump around this document, rather than reading 
 [Figure S11 - Analysis 15](#analysis-15-pnpstextgene-across-genes-and-samples)
 
 [Figure S12 - Analysis 15](#analysis-15-pnpstextgene-across-genes-and-samples)
-
-[Figure S13 - Analysis 3](#analysis-3-codon-usage-between-sar11-genomes)
-
-[Figure S14 - Analysis 21](#analysis-21-synonymous-variation)
 
 #### Supplementary information figures
 
@@ -118,13 +110,9 @@ As such, you should feel free to jump around this document, rather than reading 
 
 [Table S10 - Analysis 18](#analysis-18-environmental-correlations-with-pnpstextgene)
 
-[Table S11 - Analysis 21](#analysis-21-synonymous-variation)
+[Table S11 - Analysis 16](#analysis-16-dndstextgene-between-himb83-and-himb122)
 
-[Table S12 - Analysis 16](#analysis-16-dndstextgene-between-himb83-and-himb122)
-
-[Table S13 - Analysis 17](#analysis-17-transcript-abundance--metatranscriptomics)
-
-[Table S14 - Analysis 20](#analysis-20-genome-wide-ns-polymorphism-avoidance-of-low-rsadtl)
+[Table S12 - Analysis 17](#analysis-17-transcript-abundance--metatranscriptomics)
 
 
 ### Global R environment (GRE)
@@ -355,7 +343,7 @@ By default, {% include PROGRAM name="anvi-summarize" %} calculates coverage stat
 
 When finished, {% include PROGRAM name="anvi-summarize" %} produces a {% include ARTIFACT name="summary" %}, that offers some extensive reporting with tab-delimited files that you can open in Excel or Python/R. Here is the directory structure:
 
-Quite simply, Table S1 is a copy-paste job of a selection of these files. To create the Excel table, run the script `ZZ_SCRIPTS/gen_table_rr.py`.
+Quite simply, Table S1 is a copy-paste job of a selection of these files, as well as some sample identifying information. To create the Excel table, run the script `ZZ_SCRIPTS/gen_table_rr.py`.
 
 <details markdown="1"><summary>Show/Hide Script</summary>
 ```python
@@ -367,15 +355,21 @@ from pathlib import Path
 tables_dir = Path('WW_TABLES')
 tables_dir.mkdir(exist_ok=True)
 
+sample_metadata = pd.read_csv("00_SAMPLE_INFO_FULL.txt", sep='\t')
+sample_metadata = sample_metadata[[col for col in sample_metadata if "Used_" not in col]]
+sample_metadata = sample_metadata[~sample_metadata["sample_id"].isnull()]
+ftp_links = pd.read_csv("00_FTP_LINKS", sep='\t', names=["link"])
 cov = pd.read_csv("07_SUMMARY_ALL/bins_across_samples/mean_coverage.txt", sep='\t')
 q2q3 = pd.read_csv("07_SUMMARY_ALL/bins_across_samples/mean_coverage_Q2Q3.txt", sep='\t')
 det = pd.read_csv("07_SUMMARY_ALL/bins_across_samples/detection.txt", sep='\t')
 per = pd.read_csv("07_SUMMARY_ALL/bins_across_samples/bins_percent_recruitment.txt", sep='\t')
-himb083_genes = pd.read_csv("07_SUMMARY_ALL/bin_by_bin/HIMB083/HIMB083-mean_coverage.txt", sep='\t')
+himb083_genes = pd.read_csv("07_SUMMARY_ALL/bin_by_bin/HIMB083/HIMB083-gene_coverages.txt", sep='\t')
 
 with pd.ExcelWriter(tables_dir/'RR.xlsx') as writer:
+    sample_metadata.to_excel(writer, sheet_name='Sample identifiers')
+    ftp_links.to_excel(writer, sheet_name='Sample FTP links')
     cov.to_excel(writer, sheet_name='Coverage')
-    q2q3.to_excel(writer, sheet_name='Coverage Q2Q3 (inner quartiles)')
+    q2q3.to_excel(writer, sheet_name='Coverage Q2Q3')
     det.to_excel(writer, sheet_name='Detection')
     per.to_excel(writer, sheet_name='% recruitment')
     himb083_genes.to_excel(writer, sheet_name='HIMB083 gene coverages')
@@ -949,28 +943,6 @@ The output image is Figure S1, stored at `YY_PLOTS/FIG_S_PS/Figure_SPS.png`.
 
 [![s_ps]({{images}}/s_ps.png)]( {{images}}/s_ps.png){:.center-img .width-90}
 
-## Analysis 3: Codon usage between SAR11 genomes
-
-<div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #50</span>
-```bash
-bash ZZ_SCRIPTS/codon_freqs_per_genome.sh
-```
-</div> 
-
-The above command generates `codon_freqs_per_genome.txt`. To generate Figure S13, run
-
-<div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #51</span>
-```bash
-source('figure_s_gnm_cdn_f.R')
-```
-</div> 
-
-
-[![fig_gnm_cdn]({{images}}/fig_gnm_cdn.png)]({{images}}/fig_gnm_cdn.png){:.center-img .width-100} 
-
-
 ## Analysis 4: Distributions of environmental parameters
 
 This is how I created Figure S2.
@@ -1225,6 +1197,22 @@ With that in mind, the usage of MODELLER in this study is somewhat historical. B
 
 In this document I'll detail (a) how to predict MODELLER structures using {% include PROGRAM name="anvi-gen-structure-database" %} and (b) how I compared MODELLER structures to AlphaFold structures.
 
+### Download links to the structures
+
+If you're here because you just want access to either the MODELLER structures, the AlphaFold structures, or both, here are the download links:
+
+```bash
+# MODELLER
+wget -O 09_STRUCTURES_MOD.tar.gz https://figshare.com/ndownloader/files/38105496
+tar -zxvf 09_STRUCTURES_MOD.tar.gz
+rm 09_STRUCTURES_MOD.tar.gz
+
+# AlphaFold
+wget -O 09_STRUCTURES_AF.tar.gz https://figshare.com/ndownloader/files/33125294
+tar -zxvf 09_STRUCTURES_AF.tar.gz
+rm 09_STRUCTURES_AF.tar.gz
+```
+
 ### Calculating MODELLER structures
 
 Calculating structures with MODELLER using {% include PROGRAM name="anvi-gen-structure-database" %} is exceedingly easy and in a rather extensive [blog post](https://merenlab.org/2018/09/04/getting-started-with-anvio-structure/), I go into all of the nitty gritty. The net result is that generating structures for genes within a {% include ARTIFACT name="contigs-db" %} has never been easier. It boils down to just one command, which you should feel free to run with as many threads as you can afford to shell out.
@@ -1353,7 +1341,7 @@ which indicate which structure predictions are considered trustworthy by each me
 **Alignment metrics**. These are calculated by first aligning the structures determined from each method. Obviously, these metrics are only suitable in the subset of protein sequences where a trustworthy structure was determined via both methods.
 
 1. RMSD - The [root-mean-square deviation](https://en.wikipedia.org/wiki/Root-mean-square_deviation_of_atomic_positions) of alpha carbon (backbone) atoms. The units are angstroms.
-2. TM score - The [template modeling score](https://en.wikipedia.org/wiki/Template_modeling_score). This is a popular metric designed to outperform other metrics of global similarity such as RMSD.
+2. TM score - The [template modeling score](https://en.wikipedia.org/wiki/Template_modeling_score). This is a popular global similarity metric that unlike RMSD, is designed specifically for protein structure comparison.
 2. Contact map MAE - The [mean-absolute-error](https://en.wikipedia.org/wiki/Mean_absolute_error) between residue center-of-mass contact maps. This isn't a widely _used_ metric, just something I made up to de-emphasize RMSD losses introduced by loose linkers between domains. The units are angstroms.
 
 **Structure metrics**. These are calculated directly from the protein structures and are calculated for each structure.
@@ -3833,7 +3821,7 @@ TA_sample_corr$fdr_25 <- TA_sample_corr$fdr <= 0.25
 
 This code creates the tables `TA`, `TA_sample_averaged`, and `TA_sample_corr`, which you can access from within your GRE.
 
-Table S13 provides a view of TA values and how they relate to pN/pS$^{\text{(gene)}}$ on a per-gene, per-sample basis, and can be generated via
+Table S12 provides a view of TA values and how they relate to pN/pS$^{\text{(gene)}}$ on a per-gene, per-sample basis, and can be generated via
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #83</span>
@@ -4706,13 +4694,52 @@ source('figure_3.R')
 
 This will output the Figures 3b, 3c, 3e, 3f, and 3g into `YY_PLOTS/FIG_3`. What's missing in that list is Figures 3a and 3d, which are absent because they contain images of proteins which are generated with PyMOL, not R. If you missed those, see the above analyses, which detail how those can be reproduced.
 
+### Why this glutamine synthetase?
+
+During the review process it was noted that there are several glutamine synthetases, and one (gene #1736) has pN/pS values that correlate with nitrate concentrations more strongly than does gene #2602 (the one the case study is about). While gene #1736 no doubt would have been a candidate while we were exploring the data for a case study, we ignored genes that exhibited high coverage variation, since this has the potential to be caused by several nonidealities, both biological and non-biological in nature (for more info on this subject see [here](https://merenlab.org/2016/12/14/coverage-variation/)). Unfortunately, gene #1736 had high coverage variation and so was discarded.
+
+This is how we calculated the coefficient of variation of nucleotide coverage for genes #1736 and #2602 during the review process:
+
+```python
+import pandas as pd
+from anvio.auxiliarydataops import AuxiliaryDataForSplitCoverages as aux
+
+aux_data = aux(db_path='AUXILIARY-DATA.db', db_hash='none', ignore_hash=True)
+
+soi = [x.strip() for x in open("soi").readlines()]
+
+gene_1736 = pd.DataFrame(aux_data.get("HIMB083_Contig_0001_split_00023"))
+gene_1736 = gene_1736.iloc[17572:19042, :][soi].reset_index(drop=True)
+
+mu_1736 = gene_1736.mean(axis=0)
+sd_1736 = gene_1736.std(axis=0)
+coeff_1736 = sd_1736 / mu_1736
+
+gene_2602 = pd.DataFrame(aux_data.get("HIMB083_Contig_0001_split_00065"))
+gene_2602 = gene_2602.iloc[15472:16879, :][soi].reset_index(drop=True)
+
+mu_2602 = gene_2602.mean(axis=0)
+sd_2602 = gene_2602.std(axis=0)
+coeff_2602 = sd_2602 / mu_2602
+
+print(f"mean coeff. variation for gene #1736: {coeff_1736.mean():.3f}")
+print(f"mean coeff. variation for gene #2602: {coeff_2602.mean():.3f}")
+```
+
+This yields
+
+```
+mean coeff. variation for gene #1736: 0.608
+mean coeff. variation for gene #2602: 0.300
+```
+
 ## Analysis 20: Genome-wide ns-polymorphism avoidance of low RSA/DTL
 
 ### This is a genome-wide trend
 
 Figures 3e and 3f are interesting because they illustrate that changes in selection strength lead to changes in the spatial distribution of ns-polymorphism towards high RSA and high DTL sites.
 
-Is this a cherry-picked result? After all, my choice to use GS was not because it had a _bad_ story. And not every gene I looked at had such a clear signal. So an important question I set out to answer was, "is this a genome-wide trend, or is it specific to GS?". My investigation into this subject matter led to Figures 4a, 4b, SI6, and Table S14.
+Is this a cherry-picked result? After all, my choice to use GS was not because it had a _bad_ story. And not every gene I looked at had such a clear signal. So an important question I set out to answer was, "is this a genome-wide trend, or is it specific to GS?". My investigation into this subject matter led to Figures 4a, 4b, 4c, 4d, SI6, and Table S13.
 
 [![4ab]({{images}}/4ab.png)]( {{images}}/4ab.png){:.center-img .width-100}
 
@@ -4907,7 +4934,7 @@ display(
 ```
 </details> 
 
-If you want to generate Figures 4a and 4b (and all of Figure 4 for that matter), run the following.
+If you want to generate Figures 4a, 4b, 4c, and 4d (and all of Figure 4 for that matter), run the following.
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #91</span>
@@ -4932,7 +4959,7 @@ source('figure_s_gnm_rob.R')
 ‣ **Time:** ~10 hours  
 </div> 
 
-This will output Figure SI6 into the directory `YY_PLOTS/FIG_S_GNM_ROB`. It will also output a file `genome_robust.txt`, which can be wrapped into Table S14 via
+This will output Figure SI6 into the directory `YY_PLOTS/FIG_S_GNM_ROB`. It will also output a file `genome_robust.txt`, which can be wrapped into Table S13 via
 
 <div class="extra-info" style="{{ command_style  }}" markdown="1">
 <span class="extra-info-header">Command #93</span>
@@ -4942,139 +4969,4 @@ python ZZ_SCRIPTS/table_rob.py
 </div> 
 
 The table will be written to `WW_TABLES/ROB.xlsx`.
-
-## Analysis 21: Synonymous variation
-
-### s-polymorphism avoids low RSA and DTL
-
-We interestingly found that it is not just ns-polymorphism that avoids low RSA and DTL sites as a function of sample selection strength--s-polymorphim does, too!
-
-[![4cd]({{images}}/4cd.png)]( {{images}}/4cd.png){:.center-img .width-100}
-
-This is seen in Figures 4c and 4d, which are calculated the same way as Figures 4a and 4b, except where the RSA and DTL of sites are weighted by pS$^{\text{(site)}}$ instead of pN$^{\text{(site)}}$.
-
-If you haven't already done so, you can produce these plots via
-
-```R
-source('figure_4.R')
-```
-
-### Codon rarity
-
-This is a short analysis, thanks to all the preparation that occurred in [Step 15]({{ site.url }}/data/anvio-structure/chapter-III/#step-15-codon-properties). As a brief reminder, that Step is dedicated to calculating various metrics for _codon rarity_, which involve counting the occurrence of codons in the HIMB083 genome, and calculating the rarity of each SCV.
-
-An intermediate data table from this Step is `codon_trna_composition.txt`, which I described as a 'one-stop-shop' for all your codon property needs. This is actually the exact contents of Table S11. To follow the convention of adding these tables to the `WW_TABLES` directory, run
-
-<div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #94</span>
-```R
-source('table_cdn_comp.R')
-```
-</div> 
-
------------------------------------
-
-What we found in the paper is that rare codons are purged from the population when selection is high (low pN/pS$^{\text{(core)}}$), and those that remain do so in structurally/functionally less critical sites. This is shown with Figures 4e, 4f, and 4g.
-
-[![4efg]({{images}}/4efg.png)]( {{images}}/4efg.png){:.center-img .width-100}
-
-As a reminder, each SCV has both a synonymous and nonsyonymous contribution, which we quantify with pS$^{\text{(site)}}$ and pN$^{\text{(site)}}$, respectively. Since we were strictly interested in _synonymous_ variation, we needed to be careful about this calculation, and so  we opted to play things extremely conservatively and excluded any SCVs that had any significant pN$^{\text{(site)}}$ value. After a back-of-the-envelope calculation, we decided that 0.0005 would be a good cutoff: any SCV with a pN$^{\text{(site)}}$ > 0.0005 would be excluded.
-
-With that in mind, Figure 4e is produced quite simply. Each datapoint is a sample, where the x-axis is the sample's pN/pS$^{\text{(core)}}$ (see Methods) and the y-axis is the average per-site synonymous codon rarity. Here is the responsible snippet from `ZZ_SCRIPTS/figure_4.R`:
-
-```R
-pN_cutoff <- 0.0005
-
-# This is for codon rarity vs pnps
-plot_data <- scvs %>%
-    filter(pN_popular_consensus < pN_cutoff) %>%
-    group_by(sample_id) %>%
-    summarise(
-        syn_codon_rarity=mean(syn_codon_rarity),
-        pnps=mean(genome_pnps)
-    )
-g_rare_all <- ggplot(plot_data, aes(pnps, syn_codon_rarity)) +
-    geom_point(color='#333333', fill='#333333', alpha=0.7) +
-    geom_smooth(color='#333333', fill='#333333', method='lm') +
-    labs(
-        x = TeX("pN/pS$^{(core)}$", bold=T),
-        y = "Codon rarity"
-    ) +
-    my_theme(8)
-```
-
-Figures 4f and 4g measure where rare codons incorporate (on average) relative to RSA and DTL. These calculations are weighted averages. Let's take 4f, for example, which illustrates how rare codons associate with RSA. For each sample (data point), we weighted the RSA value of each SCV (that had pN$^{\text{(site)}}$ < 0.0005) by the synonymous codon rarity of the SCV. This gives a genome-wide measure of how codon rarity distributes relative to RSA, for a given sample. The same thing is done with DTL, which results in 4g. Here is the code from `ZZ_SCRIPTS/figure_4.R`:
-
-```R
-# This is for rarity-weighted RSA
-plot_data <- scvs %>%
-    filter(
-        pN_popular_consensus < pN_cutoff,
-        !is.na(rel_solvent_acc) # Filter out any genes without structures
-    ) %>%
-    group_by(sample_id) %>%
-    mutate(
-        rarity_weighted_RSA = syn_codon_rarity/sum(syn_codon_rarity)*rel_solvent_acc
-    ) %>%
-    summarise(
-        mean_rarity_RSA=sum(rarity_weighted_RSA),
-        pnps=mean(genome_pnps)
-    )
-g_rare_rsa_all <- ggplot(plot_data, aes(pnps, mean_rarity_RSA)) +
-    geom_point(color='#333333', fill='#333333', alpha=0.7) +
-    geom_smooth(color='#333333', fill='#333333', method='lm') +
-    labs(
-        x = TeX("pN/pS$^{(core)}$", bold=T),
-        y = "Rarity-weighted RSA"
-    ) +
-    my_theme(8)
-
-# This is for rarity-weighted DTL
-plot_data <- scvs %>%
-    filter(
-        pN_popular_consensus < pN_cutoff,
-        ANY_dist < 40 # Filter out any genes without ligand predictions and any residues >40 DTL
-    ) %>%
-    group_by(sample_id) %>%
-    mutate(
-        rarity_weighted_DTL = syn_codon_rarity/sum(syn_codon_rarity)*ANY_dist
-    ) %>%
-    summarise(
-        mean_rarity_DTL=sum(rarity_weighted_DTL),
-        pnps=mean(genome_pnps)
-    )
-g_rare_dtl_all <- ggplot(plot_data, aes(pnps, mean_rarity_DTL)) +
-    geom_point(color='#333333', fill='#333333', alpha=0.7) +
-    geom_smooth(color='#333333', fill='#333333', method='lm') +
-    labs(
-        x = TeX("pN/pS$^{(core)}$", bold=T),
-        y = "Rarity-weighted DTL (A)"
-    ) +
-    my_theme(8)
-```
-
-If you haven't already, you can reproduce Figure 4 as such:
-
-<div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #95</span>
-```R
-source('figure_4.R')
-```
-</div> 
-
-### Codon rarity per amino-acid
-
-Are there specific amino acids driving the trends observed in Figure 4e? We tested this by doing a per-amino acid analysis which revealed that all amino acids substitute rare codons with increased frequency when selection is low (Figure S14). The analysis is in `ZZ_SCRIPTS/figure_s_aa_rare.R`, and you can reproduce it with
-
-<div class="extra-info" style="{{ command_style  }}" markdown="1">
-<span class="extra-info-header">Command #96</span>
-```R
-source('figure_s_aa_rare.R')
-```
-</div> 
-
-The results end up in `YY_PLOTS/FIG_S_AA_RARE`.
-
-[![s14]({{images}}/s14.png)]( {{images}}/s14.png){:.center-img .width-100}
-
 

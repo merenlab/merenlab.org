@@ -230,6 +230,78 @@ print(df.pS_popular_consensus.sum()/df.pN_popular_consensus.sum())
 ### Nonsynonymous polymorphism avoids buried sites
 
 <blockquote>
+(...) pN(site) values varied significantly from site-to-site and from sample-to-sample, but overall, site-to-site variance was more explanatory than sample-to-sample variance (<span style="color:red">79.74</span>% ± <span style="color:red">0.11</span>% versus <span style="color:red">0.42</span>% ± <span style="color:red">0.01</span>% of total variance, ANOVA) (Figure S3) (...)
+</blockquote>
+
+```bash
+# R
+scvs <- read_tsv("../11_SCVs.txt") %>%
+    select(
+        sample_id,
+        unique_pos_identifier,
+        pN_popular_consensus,
+        pS_popular_consensus
+    ) %>%
+    filter(
+        pS_popular_consensus > 0
+    ) %>%
+    mutate(
+        unique_pos_identifier = as.factor(unique_pos_identifier)
+    )
+
+N <- 1000
+exps <- 500
+pN_site_vars <- c()
+pN_sample_vars <- c()
+pS_site_vars <- c()
+pS_sample_vars <- c()
+
+sites <- scvs %>% pull(unique_pos_identifier) %>% unique()
+
+# This will take hours
+for (i in 1:exps) {
+    print(i)
+
+    subset_sites <- sites %>% sample(N)
+    scvs_subset <- scvs %>% filter(unique_pos_identifier %in% subset_sites)
+
+    pN_anova <- scvs_subset %>%
+        lm(pN_popular_consensus ~ unique_pos_identifier + sample_id, data = .) %>%
+        anova()
+
+    pS_anova <- scvs_subset %>%
+        lm(pS_popular_consensus ~ unique_pos_identifier + sample_id, data = .) %>%
+        anova()
+
+    pN_site_explained <- pN_anova$`Sum Sq`[1] / sum(pN_anova$`Sum Sq`) * 100
+    pN_sample_explained <- pN_anova$`Sum Sq`[2] / sum(pN_anova$`Sum Sq`) * 100
+    pS_site_explained <- pS_anova$`Sum Sq`[1] / sum(pS_anova$`Sum Sq`) * 100
+    pS_sample_explained <- pS_anova$`Sum Sq`[2] / sum(pS_anova$`Sum Sq`) * 100
+
+    pN_site_vars <- c(pN_site_vars, pN_site_explained)
+    pN_sample_vars <- c(pN_sample_vars, pN_sample_explained)
+    pS_site_vars <- c(pS_site_vars, pS_site_explained)
+    pS_sample_vars <- c(pS_sample_vars, pS_sample_explained)
+}
+
+pN_site_mean <- pN_site_vars %>% mean()
+pN_site_stderr <- pN_site_vars %>% sd() / sqrt(exps)
+pS_site_mean <- pS_site_vars %>% mean()
+pS_site_stderr <- pS_site_vars %>% sd() / sqrt(exps)
+pN_sample_mean <- pN_sample_vars %>% mean()
+pN_sample_stderr <- pN_sample_vars %>% sd() / sqrt(exps)
+pS_sample_mean <- pS_sample_vars %>% mean()
+pS_sample_stderr <- pS_sample_vars %>% sd() / sqrt(exps)
+
+print(paste("% pN(site) explained by site:", pN_site_mean, "+-", pN_site_stderr))
+print(paste("% pN(site) explained by sample:", pN_sample_mean, "+-", pN_sample_stderr))
+print(paste("% pS(site) explained by site:", pS_site_mean, "+-", pS_site_stderr))
+print(paste("% pS(site) explained by sample:", pS_sample_mean, "+-", pS_sample_stderr))
+```
+
+----------------------------
+
+<blockquote>
 (...) We used two independent methods to predict protein structures for the 799 core genes of 1a.3.V: (1) a template-based homology modeling approach with MODELLER (Webb and Sali 2016), which predicted <span style="color:red">346</span> structures, and (2) a transformer-like deep learning approach with AlphaFold (Jumper et al. 2021), which predicted 754 (...)
 </blockquote>
 
@@ -261,6 +333,170 @@ goi_af = set([int(x.strip()) for x in open('12_GENES_WITH_GOOD_STRUCTURES').read
 goi_mod = set([int(x.strip()) for x in open('12_GENES_WITH_GOOD_STRUCTURES_MODELLER').readlines()])
 len(goi_af.intersection(goi_mod))
 ``` 
+
+----------------------------
+
+<blockquote>
+(...) These data showed that pS(site) closely resembled the null distribution (two-sample Kolmogorov-Smirnov statistic = <span style="color:red">0.016</span>), which illustrates the lack of influence of RSA on s-polymorphism, while pN(site) deviated significantly and instead exhibited strong preference for sites with higher RSA (two-sample Kolmogorov-Smirnov statistic = 0.235). (...)
+</blockquote>
+
+```bash
+# R
+psRSA <- perform_ks_test("pS_popular_consensus", "rel_solvent_acc", trials=10)
+psRSA[["KS_Stat"]]
+```
+
+<details markdown="1"><summary>Show/Hide perform_ks_test</summary>
+`perform_ks_test` is already in the GRE. But for your reference, here it is alongside its helper function and a stackoverflow reference:
+
+```python
+# https://stackoverflow.com/questions/40044375/how-to-calculate-the-kolmogorov-smirnov-statistic-between-two-weighted-samples/55664242#55664242
+ks_weighted <- function(vector_1,vector_2,weights_1,weights_2){
+    F_vec_1 <- ewcdf(vector_1, weights = weights_1, normalise=FALSE)
+    F_vec_2 <- ewcdf(vector_2, weights = weights_2, normalise=FALSE)
+    xw <- c(vector_1,vector_2) 
+    d <- max(abs(F_vec_1(xw) - F_vec_2(xw)))
+
+    # P-VALUE EFFECTIVE SAMPLE SIZE as suggested by Monahan
+    n_vector_1 <- sum(weights_1)^2/sum(weights_1^2)
+    n_vector_2 <- sum(weights_2)^2/sum(weights_2^2)
+    n <- n_vector_1 * n_vector_2/(n_vector_1 + n_vector_2)
+
+    pkstwo <- function(x, tol = 1e-100) {
+                if (is.numeric(x)) 
+                    x <- as.double(x)
+                else stop("argument 'x' must be numeric")
+                p <- rep(0, length(x))
+                p[is.na(x)] <- NA
+                IND <- which(!is.na(x) & (x > 0))
+                if (length(IND)) 
+                    p[IND] <- .Call(stats:::C_pKS2, p = x[IND], tol)
+                p
+            }
+
+    pval <- 1 - pkstwo(sqrt(n) * d)
+
+    if (pval == 0) {
+        # R internals (stats:::C_pKS2) has returned 0 for the probability. But an order of the
+        # precision is useful, which I approximate by multiplying the one-sided hypothesis pval
+        # by 2.
+        one_sided <- exp(-2*n*d^2)
+        pval <- 2 * one_sided
+    }
+
+    if (pval == 0) {
+        # If pval is _still_ 0, then the value is <1e-300. I know this because I have observed the
+        # value 2.021712e-304 through experimentation.
+        pval <- 1e-300
+    }
+
+    out <- c(KS_Stat=d, P_value=pval)
+    return(out)
+}
+
+perform_ks_test <- function(weights, variable, trials=10) {
+    library(spatstat)
+    KS <- 1e100
+    p <- 0
+    d <- scvs %>%
+        select((!!sym(variable)), (!!sym(weights))) %>%
+        filter(!is.na((!!sym(weights))), !is.na((!!sym(variable))))
+    for (i in 1:trials) {
+        shuffle <- d %>% sample_n(size=d %>% dim() %>% .[[1]], replace=F) %>% .[2] %>% .[[1]]
+        d$shuffled_weights <- shuffle/sum(shuffle)
+        d$weights <- (d[,weights] / sum(d[,weights])) %>% .[[1]]
+        out <- ks_weighted(vector_1=d[1][[1]], vector_2=d[1][[1]], weights_1=d$weights, weights_2=d$shuffled_weights)
+        trial_KS <- out[1][[1]]
+        trial_p <- out[2][[1]]
+        if (trial_KS < KS) {KS <- trial_KS}
+        if (trial_p > p) {p <- trial_p}
+    }
+    return(c(KS_Stat=KS, P_value=p))
+}
+```
+</details> 
+
+----------------------------
+
+<blockquote>
+(...) These data showed that pS(site) closely resembled the null distribution (two-sample Kolmogorov-Smirnov statistic = 0.016), which illustrates the lack of influence of RSA on s-polymorphism, while pN(site) deviated significantly and instead exhibited strong preference for sites with higher RSA (two-sample Kolmogorov-Smirnov statistic = <span style="color:red">0.235</span>). (...)
+</blockquote>
+
+```bash
+# R
+pnRSA <- perform_ks_test("pN_popular_consensus", "rel_solvent_acc", trials=10)
+pnRSA[["KS_Stat"]]
+```
+
+<details markdown="1"><summary>Show/Hide perform_ks_test</summary>
+`perform_ks_test` is already in the GRE. But for your reference, here it is alongside its helper function and a stackoverflow reference:
+
+```python
+# https://stackoverflow.com/questions/40044375/how-to-calculate-the-kolmogorov-smirnov-statistic-between-two-weighted-samples/55664242#55664242
+ks_weighted <- function(vector_1,vector_2,weights_1,weights_2){
+    F_vec_1 <- ewcdf(vector_1, weights = weights_1, normalise=FALSE)
+    F_vec_2 <- ewcdf(vector_2, weights = weights_2, normalise=FALSE)
+    xw <- c(vector_1,vector_2) 
+    d <- max(abs(F_vec_1(xw) - F_vec_2(xw)))
+
+    # P-VALUE EFFECTIVE SAMPLE SIZE as suggested by Monahan
+    n_vector_1 <- sum(weights_1)^2/sum(weights_1^2)
+    n_vector_2 <- sum(weights_2)^2/sum(weights_2^2)
+    n <- n_vector_1 * n_vector_2/(n_vector_1 + n_vector_2)
+
+    pkstwo <- function(x, tol = 1e-100) {
+                if (is.numeric(x)) 
+                    x <- as.double(x)
+                else stop("argument 'x' must be numeric")
+                p <- rep(0, length(x))
+                p[is.na(x)] <- NA
+                IND <- which(!is.na(x) & (x > 0))
+                if (length(IND)) 
+                    p[IND] <- .Call(stats:::C_pKS2, p = x[IND], tol)
+                p
+            }
+
+    pval <- 1 - pkstwo(sqrt(n) * d)
+
+    if (pval == 0) {
+        # R internals (stats:::C_pKS2) has returned 0 for the probability. But an order of the
+        # precision is useful, which I approximate by multiplying the one-sided hypothesis pval
+        # by 2.
+        one_sided <- exp(-2*n*d^2)
+        pval <- 2 * one_sided
+    }
+
+    if (pval == 0) {
+        # If pval is _still_ 0, then the value is <1e-300. I know this because I have observed the
+        # value 2.021712e-304 through experimentation.
+        pval <- 1e-300
+    }
+
+    out <- c(KS_Stat=d, P_value=pval)
+    return(out)
+}
+
+perform_ks_test <- function(weights, variable, trials=10) {
+    library(spatstat)
+    KS <- 1e100
+    p <- 0
+    d <- scvs %>%
+        select((!!sym(variable)), (!!sym(weights))) %>%
+        filter(!is.na((!!sym(weights))), !is.na((!!sym(variable))))
+    for (i in 1:trials) {
+        shuffle <- d %>% sample_n(size=d %>% dim() %>% .[[1]], replace=F) %>% .[2] %>% .[[1]]
+        d$shuffled_weights <- shuffle/sum(shuffle)
+        d$weights <- (d[,weights] / sum(d[,weights])) %>% .[[1]]
+        out <- ks_weighted(vector_1=d[1][[1]], vector_2=d[1][[1]], weights_1=d$weights, weights_2=d$shuffled_weights)
+        trial_KS <- out[1][[1]]
+        trial_p <- out[2][[1]]
+        if (trial_KS < KS) {KS <- trial_KS}
+        if (trial_p > p) {p <- trial_p}
+    }
+    return(c(KS_Stat=KS, P_value=p))
+}
+```
+</details> 
 
 
 ### Nonsynonymous polymorphism avoids active sites
@@ -362,6 +598,187 @@ scvs %>% pull(pN_popular_consensus) %>% mean(na.rm=T)
 scvs %>% filter(ANY_dist == 0) %>% pull(pN_popular_consensus) %>% mean(na.rm=T)
 ``` 
 
+----------------------------
+
+<blockquote>
+(...) indicating significantly (left-tailed Z test, p-value < <span style="color:red"><1x10-300</span>) stronger purifying selection at ligand-binding sites (...)
+</blockquote>
+
+```R
+# R
+population_mean <- scvs %>% pull(pN_popular_consensus) %>% mean(na.rm=T)
+population_sd <- scvs %>% pull(pN_popular_consensus) %>% sd(na.rm=T)
+sample_mean <- scvs %>% filter(ANY_dist == 0) %>% pull(pN_popular_consensus) %>% mean(na.rm=T)
+sample_size <- scvs %>% filter(ANY_dist == 0) %>% pull(pN_popular_consensus) %>% length()
+Z <- (sample_mean - population_mean) / (population_sd / sqrt(sample_size))
+p_val <- pnorm(Z, lower.tail=T)
+print(p_val)
+``` 
+
+----------------------------
+
+<blockquote>
+(...) Sites neighboring ligand-binding regions also harbored disproportionately low rates of ns-polymorphism, as indicated by the significant deviation towards larger DTL values (two-sample Kolmogorov-Smirnov statistic = <span style="color:red">0.157</span>). (...)
+</blockquote>
+
+```R
+# R
+pnDTL <- perform_ks_test("pN_popular_consensus", "ANY_dist", trials=10)
+pnDTL[["KS_Stat"]]
+``` 
+
+<details markdown="1"><summary>Show/Hide perform_ks_test</summary>
+`perform_ks_test` is already in the GRE. But for your reference, here it is alongside its helper function and a stackoverflow reference:
+
+```python
+# https://stackoverflow.com/questions/40044375/how-to-calculate-the-kolmogorov-smirnov-statistic-between-two-weighted-samples/55664242#55664242
+ks_weighted <- function(vector_1,vector_2,weights_1,weights_2){
+    F_vec_1 <- ewcdf(vector_1, weights = weights_1, normalise=FALSE)
+    F_vec_2 <- ewcdf(vector_2, weights = weights_2, normalise=FALSE)
+    xw <- c(vector_1,vector_2) 
+    d <- max(abs(F_vec_1(xw) - F_vec_2(xw)))
+
+    # P-VALUE EFFECTIVE SAMPLE SIZE as suggested by Monahan
+    n_vector_1 <- sum(weights_1)^2/sum(weights_1^2)
+    n_vector_2 <- sum(weights_2)^2/sum(weights_2^2)
+    n <- n_vector_1 * n_vector_2/(n_vector_1 + n_vector_2)
+
+    pkstwo <- function(x, tol = 1e-100) {
+                if (is.numeric(x)) 
+                    x <- as.double(x)
+                else stop("argument 'x' must be numeric")
+                p <- rep(0, length(x))
+                p[is.na(x)] <- NA
+                IND <- which(!is.na(x) & (x > 0))
+                if (length(IND)) 
+                    p[IND] <- .Call(stats:::C_pKS2, p = x[IND], tol)
+                p
+            }
+
+    pval <- 1 - pkstwo(sqrt(n) * d)
+
+    if (pval == 0) {
+        # R internals (stats:::C_pKS2) has returned 0 for the probability. But an order of the
+        # precision is useful, which I approximate by multiplying the one-sided hypothesis pval
+        # by 2.
+        one_sided <- exp(-2*n*d^2)
+        pval <- 2 * one_sided
+    }
+
+    if (pval == 0) {
+        # If pval is _still_ 0, then the value is <1e-300. I know this because I have observed the
+        # value 2.021712e-304 through experimentation.
+        pval <- 1e-300
+    }
+
+    out <- c(KS_Stat=d, P_value=pval)
+    return(out)
+}
+
+perform_ks_test <- function(weights, variable, trials=10) {
+    library(spatstat)
+    KS <- 1e100
+    p <- 0
+    d <- scvs %>%
+        select((!!sym(variable)), (!!sym(weights))) %>%
+        filter(!is.na((!!sym(weights))), !is.na((!!sym(variable))))
+    for (i in 1:trials) {
+        shuffle <- d %>% sample_n(size=d %>% dim() %>% .[[1]], replace=F) %>% .[2] %>% .[[1]]
+        d$shuffled_weights <- shuffle/sum(shuffle)
+        d$weights <- (d[,weights] / sum(d[,weights])) %>% .[[1]]
+        out <- ks_weighted(vector_1=d[1][[1]], vector_2=d[1][[1]], weights_1=d$weights, weights_2=d$shuffled_weights)
+        trial_KS <- out[1][[1]]
+        trial_p <- out[2][[1]]
+        if (trial_KS < KS) {KS <- trial_KS}
+        if (trial_p > p) {p <- trial_p}
+    }
+    return(c(KS_Stat=KS, P_value=p))
+}
+```
+</details> 
+
+----------------------------
+
+<blockquote>
+(...) Comparatively, pS(site) deviated minimally from the null distribution (two-sample Kolmogorov-Smirnov statistic = <span style="color:red">0.013</span>). (...)
+</blockquote>
+
+```R
+# R
+psDTL <- perform_ks_test("pS_popular_consensus", "ANY_dist", trials=10)
+psDTL[["KS_Stat"]]
+``` 
+
+<details markdown="1"><summary>Show/Hide perform_ks_test</summary>
+`perform_ks_test` is already in the GRE. But for your reference, here it is alongside its helper function and a stackoverflow reference:
+
+```python
+# https://stackoverflow.com/questions/40044375/how-to-calculate-the-kolmogorov-smirnov-statistic-between-two-weighted-samples/55664242#55664242
+ks_weighted <- function(vector_1,vector_2,weights_1,weights_2){
+    F_vec_1 <- ewcdf(vector_1, weights = weights_1, normalise=FALSE)
+    F_vec_2 <- ewcdf(vector_2, weights = weights_2, normalise=FALSE)
+    xw <- c(vector_1,vector_2) 
+    d <- max(abs(F_vec_1(xw) - F_vec_2(xw)))
+
+    # P-VALUE EFFECTIVE SAMPLE SIZE as suggested by Monahan
+    n_vector_1 <- sum(weights_1)^2/sum(weights_1^2)
+    n_vector_2 <- sum(weights_2)^2/sum(weights_2^2)
+    n <- n_vector_1 * n_vector_2/(n_vector_1 + n_vector_2)
+
+    pkstwo <- function(x, tol = 1e-100) {
+                if (is.numeric(x)) 
+                    x <- as.double(x)
+                else stop("argument 'x' must be numeric")
+                p <- rep(0, length(x))
+                p[is.na(x)] <- NA
+                IND <- which(!is.na(x) & (x > 0))
+                if (length(IND)) 
+                    p[IND] <- .Call(stats:::C_pKS2, p = x[IND], tol)
+                p
+            }
+
+    pval <- 1 - pkstwo(sqrt(n) * d)
+
+    if (pval == 0) {
+        # R internals (stats:::C_pKS2) has returned 0 for the probability. But an order of the
+        # precision is useful, which I approximate by multiplying the one-sided hypothesis pval
+        # by 2.
+        one_sided <- exp(-2*n*d^2)
+        pval <- 2 * one_sided
+    }
+
+    if (pval == 0) {
+        # If pval is _still_ 0, then the value is <1e-300. I know this because I have observed the
+        # value 2.021712e-304 through experimentation.
+        pval <- 1e-300
+    }
+
+    out <- c(KS_Stat=d, P_value=pval)
+    return(out)
+}
+
+perform_ks_test <- function(weights, variable, trials=10) {
+    library(spatstat)
+    KS <- 1e100
+    p <- 0
+    d <- scvs %>%
+        select((!!sym(variable)), (!!sym(weights))) %>%
+        filter(!is.na((!!sym(weights))), !is.na((!!sym(variable))))
+    for (i in 1:trials) {
+        shuffle <- d %>% sample_n(size=d %>% dim() %>% .[[1]], replace=F) %>% .[2] %>% .[[1]]
+        d$shuffled_weights <- shuffle/sum(shuffle)
+        d$weights <- (d[,weights] / sum(d[,weights])) %>% .[[1]]
+        out <- ks_weighted(vector_1=d[1][[1]], vector_2=d[1][[1]], weights_1=d$weights, weights_2=d$shuffled_weights)
+        trial_KS <- out[1][[1]]
+        trial_p <- out[2][[1]]
+        if (trial_KS < KS) {KS <- trial_KS}
+        if (trial_p > p) {p <- trial_p}
+    }
+    return(c(KS_Stat=KS, P_value=p))
+}
+```
+</details> 
+
 ### Proteomic trends in purifying selection are explained by RSA and DTL
 
 <blockquote>
@@ -387,7 +804,6 @@ df$RSA[[2]]
 df <- read_tsv('../WW_TABLES/MODELS.txt')
 df$DTL[[4]]
 ``` 
-
 
 ----------------------------
 
@@ -810,12 +1226,93 @@ scvs %>% filter(gene_callers_id==2602) %>% group_by(sample_id) %>% mutate(pN_wei
 ----------------------------
 
 <blockquote>
+(...) This correlation disappeared when the sites were shuffled (Pearson correlation, R2 = <span style="color:red">0.014</span>, standard error <span style="color:red">0.006</span> from 10 trials) (...)
+</blockquote>
+
+```R
+# R
+N <- 10
+pN_RSA_R2s <- c()
+pS_RSA_R2s <- c()
+gs <- scvs %>%
+    filter(gene_callers_id == 2602)
+for (i in 1:N) {
+    sample_averaged <- gs %>%
+        group_by(sample_id) %>%
+        mutate(
+            shuffled_RSA = sample(complex_RSA),
+            pS_weighted_RSA = pS_popular_consensus/sum(pS_popular_consensus, na.rm=T)*complex_RSA,
+            pS_weighted_RSA_shuff = pS_popular_consensus/sum(pS_popular_consensus, na.rm=T)*shuffled_RSA,
+            pN_weighted_RSA = pN_popular_consensus/sum(pN_popular_consensus, na.rm=T)*complex_RSA,
+            pN_weighted_RSA_shuff = pN_popular_consensus/sum(pN_popular_consensus, na.rm=T)*shuffled_RSA,
+        ) %>%
+        summarize(
+            mean_pS_RSA=sum(pS_weighted_RSA, na.rm=T),
+            mean_pS_RSA_shuff=sum(pS_weighted_RSA_shuff, na.rm=T),
+            mean_pN_RSA=sum(pN_weighted_RSA, na.rm=T),
+            mean_pN_RSA_shuff=sum(pN_weighted_RSA_shuff, na.rm=T),
+            pnps = as.numeric(names(which.max(table(pnps))))
+        )
+    pN_RSA_R2s <- c(sample_averaged %>% lm(mean_pN_RSA_shuff~pnps, data=.) %>% summary() %>% .$r.squared, pN_RSA_R2s)
+    pS_RSA_R2s <- c(sample_averaged %>% lm(mean_pS_RSA_shuff~pnps, data=.) %>% summary() %>% .$r.squared, pS_RSA_R2s)
+}
+pN_RSA_R2_mean <- mean(pN_RSA_R2s)
+pN_RSA_R2_stderr <- sd(pN_RSA_R2s) / sqrt(N)
+pS_RSA_R2_mean <- mean(pS_RSA_R2s)
+pS_RSA_R2_stderr <- sd(pS_RSA_R2s) / sqrt(N)
+print(paste("% pN(site) weighted RSA R2:", pN_RSA_R2_mean, "+-", pN_RSA_R2_stderr))
+``` 
+
+----------------------------
+
+<blockquote>
 (...) ns-polymorphism distributions with respect to DTL were equally governed by selection strength, where <span style="color:red">80.4</span>% of variance could be explained by pN/pS(GS) (Pearson correlation, p-value <span style="color:red">1x10-16</span>, R2 = <span style="color:red">0.804</span>, Figure 3f) (...)
 </blockquote>
 
 ```R
 # R
 scvs %>% filter(gene_callers_id==2602) %>% group_by(sample_id) %>% mutate(pN_weighted_DTL = pN_popular_consensus/sum(pN_popular_consensus, na.rm=T)*complex_DTL) %>% summarize(mean_DTL = sum(pN_weighted_DTL, na.rm=T), pnps=mean(pnps, na.rm=T)) %>% lm(mean_DTL~pnps, data=.) %>% summary() %>% .$r.squared
+``` 
+
+----------------------------
+
+
+<blockquote>
+(...) This correlation disappeared when the sites were shuffled (Pearson correlation, R2 = <span style="color:red">0.011</span>, standard error <span style="color:red">0.004</span> from 10 trials) (...)
+</blockquote>
+
+```R
+# R
+N <- 10
+pN_DTL_R2s <- c()
+pS_DTL_R2s <- c()
+gs <- scvs %>%
+    filter(gene_callers_id == 2602)
+for (i in 1:N) {
+    sample_averaged <- gs %>%
+        group_by(sample_id) %>%
+        mutate(
+            shuffled_DTL = sample(complex_DTL),
+            pS_weighted_DTL = pS_popular_consensus/sum(pS_popular_consensus, na.rm=T)*complex_DTL,
+            pS_weighted_DTL_shuff = pS_popular_consensus/sum(pS_popular_consensus, na.rm=T)*shuffled_DTL,
+            pN_weighted_DTL = pN_popular_consensus/sum(pN_popular_consensus, na.rm=T)*complex_DTL,
+            pN_weighted_DTL_shuff = pN_popular_consensus/sum(pN_popular_consensus, na.rm=T)*shuffled_DTL,
+        ) %>%
+        summarize(
+            mean_pS_DTL=sum(pS_weighted_DTL, na.rm=T),
+            mean_pS_DTL_shuff=sum(pS_weighted_DTL_shuff, na.rm=T),
+            mean_pN_DTL=sum(pN_weighted_DTL, na.rm=T),
+            mean_pN_DTL_shuff=sum(pN_weighted_DTL_shuff, na.rm=T),
+            pnps = as.numeric(names(which.max(table(pnps))))
+        )
+    pN_DTL_R2s <- c(sample_averaged %>% lm(mean_pN_DTL_shuff~pnps, data=.) %>% summary() %>% .$r.squared, pN_DTL_R2s)
+    pS_DTL_R2s <- c(sample_averaged %>% lm(mean_pS_DTL_shuff~pnps, data=.) %>% summary() %>% .$r.squared, pS_DTL_R2s)
+}
+pN_DTL_R2_mean <- mean(pN_DTL_R2s)
+pN_DTL_R2_stderr <- sd(pN_DTL_R2s) / sqrt(N)
+pS_DTL_R2_mean <- mean(pS_DTL_R2s)
+pS_DTL_R2_stderr <- sd(pS_DTL_R2s) / sqrt(N)
+print(paste("% pN(site) weighted DTL R2:", pN_DTL_R2_mean, "+-", pN_DTL_R2_stderr))
 ``` 
 
 ----------------------------
@@ -987,7 +1484,7 @@ summarise(
 codon_rarity=mean(codon_rarity),
 pnps=mean(genome_pnps)
 )
-print(cor.test(plot_data$codon_rarity, temp$pnps, alternative='greater') %>% .$p.val)
+print(cor.test(plot_data$codon_rarity, plot_data$pnps, alternative='greater') %>% .$p.val)
 
 # F
 plot_data <- scvs %>%
@@ -1003,7 +1500,7 @@ summarise(
 mean_rarity_RSA=sum(rarity_weighted_RSA),
 pnps=mean(genome_pnps)
 )
-print(cor.test(plot_data$mean_rarity_RSA, temp$pnps, alternative='less') %>% .$p.val)
+print(cor.test(plot_data$mean_rarity_RSA, plot_data$pnps, alternative='less') %>% .$p.val)
 
 # G
 plot_data <- scvs %>%
@@ -1019,7 +1516,7 @@ summarise(
 mean_rarity_DTL=sum(rarity_weighted_DTL),
 pnps=mean(genome_pnps)
 )
-print(cor.test(plot_data$mean_rarity_DTL, temp$pnps, alternative='less') %>% .$p.val)
+print(cor.test(plot_data$mean_rarity_DTL, plot_data$pnps, alternative='less') %>% .$p.val)
 ``` 
 
 ### Synonymous but not silent: selection against rare codons at critical sites

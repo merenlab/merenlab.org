@@ -17,7 +17,6 @@ Please do not hesitate to get in touch if something is missing. You can send [us
 
 {% include _join-anvio-discord.html %}
 
-
 {:.notice}
 Bonus blog post: [Fantastic Data and How to Share Them: A Plea to Journal Editors and Reviewers](/sharing-data/).
 
