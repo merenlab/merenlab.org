@@ -354,7 +354,7 @@
     highlights:
       - The first report of a <i>Wolbachia</i> plasmid through genome-resolved metagenomics on microsurgically removed individual mosquito ovary samples (<a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-019-08973-w/MediaObjects/41467_2019_8973_MOESM2_ESM.pdf">peer reviews and responses</a>).
       - Yet another application of <a href="https://doi.org/10.7717/peerj.4320">metapangenomics</a> and an applicatoin of minION long-read sequencing on extremely low-biomass samples.
-      - <a href="http://merenlab.org/data/wolbachia-plasmid">Reproducible bioinformatics workflow</a> with all data items, a 'behind the paper' <a href="http://merenlab.org/2019/03/05/wolbachia-plasmid/">blog post</a> by <a href="https://twitter.com/JulieReve">Julie Reveillaud</a>, and a <a href="https://www.mbl.edu/blog/new-mobile-element-found-in-mosquito-parasite-has-potential-for-disease-control/">press release</a> from the Marine Biological Laboratory.
+      - <a href="http://merenlab.org/data/wolbachia-plasmid">Reproducible bioinformatics workflow</a> with all data items, a 'behind the paper' <a href="http://merenlab.org/2019/03/05/wolbachia-plasmid/">blog post</a> by <a href="https://twitter.com/JulieReve">Julie Reveillaud</a>, and a <a href="https://www.mbl.edu/news/mobile-dna-element-found-mosquito-parasite-has-potential-infectious-disease-control">press release</a> from the Marine Biological Laboratory.
     featured_image:
       /images/miscellaneous/2019-03-05-wolbachia-plasmid/minion-metagenomics.png
 
@@ -515,7 +515,7 @@
     highlights:
       - First genomic evidence for abundant and widespread non-cyanobacterial nitrogen-fixing populations in the surface ocean.
       - Nearly 1,000 non-redundant, high-quality bacterial, archaeal, and eukaryotic population genomes from TARA Oceans metagenomes.
-      - A "behind the paper" <a href="https://naturemicrobiologycommunity.nature.com/users/113363-a-murat-eren-meren/posts/34040-microbiologists-vs-shotgun-metagenomes-surface-ocean" target="_blank">blog post</a> by Meren, a <a href="http://www.mbl.edu/blog/large-scale-study-indicates-novel-and-abundant-nitrogen-fixing-microbes-in-the-surface-ocean/" target="_blank">press release</a> by the MBL, and an extensive description of <a href="http://merenlab.org/data/2017_Delmont_et_al_HBDs/" target="_blank">the bioinformatics workflow</a>.
+      - A "behind the paper" <a href="https://naturemicrobiologycommunity.nature.com/users/113363-a-murat-eren-meren/posts/34040-microbiologists-vs-shotgun-metagenomes-surface-ocean" target="_blank">blog post</a> by Meren, a <a href="https://www.mbl.edu/news/large-scale-study-indicates-novel-abundant-nitrogen-fixing-microbes-surface-ocean" target="_blank">press release</a> by the MBL, and an extensive description of <a href="http://merenlab.org/data/2017_Delmont_et_al_HBDs/" target="_blank">the bioinformatics workflow</a>.
     featured_image:
       /images/pubs/delmont_et_al_HBDs.png
 
