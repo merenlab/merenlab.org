@@ -20,6 +20,28 @@ Please do not hesitate to get in touch if something is missing. You can send [us
 {:.notice}
 Bonus blog post: [Fantastic Data and How to Share Them: A Plea to Journal Editors and Reviewers](/sharing-data/).
 
+## Structure-informed microbial population genetics
+
+<div class="pub_float">
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1126/sciadv.abq4632"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1126/sciadv.abq4632" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1126/sciadv.abq4632" target="_new">Structure-informed microbial population genetics elucidate selective pressures that shape protein evolution</a></span>
+    <span class="pub-authors"><span class="pub-member-author">Kiefl E</span>, Esen ÖC, <span class="pub-member-author">Miller SE</span>, Kroll KL, Willis AD, Rappé MS, Pan T, <span class="pub-member-author">Eren AM</span></span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/kiefl_et_al_metagenomics_plus_protein_structures.png"><img src="/images/pubs/kiefl_et_al_metagenomics_plus_protein_structures.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);" /></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A study that describes an approach to integrate <b>environmental microbiology</b> with recent advances in <b>protein structure prediction</b>, and illustrates the tight association between <b>intra-population genetic variants</b>, <b>environmental selective pressures</b>, and <b>structural properties of proteins</b>.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- Demonstrates a quantifiable link between (1) the magnitude of selective pressures over key metabolic <b>genes</b> (e.g., glutamine synthase of the central nitrogen metabolism), (2) the availability of key <b>nutrients</b> in the environment (e.g., nitrate), and (3) the maintenance of nonsynonymous <b>variants</b> near protein active sites.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- Shows that the interplay between selective pressures and protein structures also maintains <b>synonymous variants</b> -- revealing a quantifiable link between <b>translational accuracy</b> and fluctuating <b>selective pressures</b>.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- Comes with a <a href="https://merenlab.org/data/anvio-structure/chapter-I/"><b>reproducible bioinformatics workflow</b></a> that offers detailed access to computational steps used in the study that spans from metagenomic read recruitment and profiling to the integration of environmental variants and predicted protein structures.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>Science Advances</b>, 9(8):eabq4632 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&amp;q=Structure-informed+microbial+population+genetics+elucidate+selective+pressures+that+shape+protein+evolution" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1126/sciadv.abq4632" target="_blank">doi:10.1126/sciadv.abq4632</a></span>
+</div>
+
+### Reproducible bioinformatics workflow
+
+[https://merenlab.org/data/anvio-structure](/data/anvio-structure) gives access to our **bioinformatics workflow**.
+
 ## Studying hypervariability in genomes through metagenomes
 
 <div class="pub_float">
