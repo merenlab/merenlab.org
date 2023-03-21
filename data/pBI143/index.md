@@ -1,31 +1,176 @@
 ---
 layout: page
-title: Ecology of a cryptic plasmid of the human gut microbiome, pBI143
+title: Ecology of a cryptic plasmid, pBI143
 modified: 2021-10-21
 excerpt: "by Fogarty et al, 2023"
 comments: true
 authors: [meren, emily]
 ---
 
-<div class="extra-info" markdown="1">
-
-<span class="extra-info-header">Summary</span>
-
-**The purpose of this page** is to provide access to reproducible data products that underlie our key findings in the study "**XX**" by Fogarty et al:
-
-* (ALL THE REPRODUCIBLE ITEMS) // SEE https://merenlab.org/data/hmw-dna-extraction-strategies/ FOR EXAMPLES
-
-
-</div>
+**The purpose of this page** is to provide access to reproducible data products that underlie our key findings in the study "**A highly conserved and globally prevalent cryptic plasmid is among the most numerous mobile genetic elements in the human gut**" by [Emily Fogarty](https://twitter.com/emily_fogarty11) et al.
 
 {:.notice}
 If you have any questions and/or if you are unable to find an important piece of information here, please feel free to leave a comment down below, send an e-mail to [us]({{ site.url }}/people/), or get in touch with us through Discord:
 
 {% include _join-anvio-discord.html %}
 
+## Reproducible / Reusable Data Products
+
+The following data items are compatible with [anvi'o](https://anvio.org) version `v7.1` or later. The anvi'o {% include ARTIFACT name="contigs-db" text="contigs databases" %} and {% include ARTIFACT name="profile-db" text="profile databases' " %} in them can be further analyzed using any program in the anvi'o ecosystem, or they can be used to report summary data in flat-text files to be imported into other analysis environments.
+
+* [doi:10.6084/m9.figshare.22308949](https://doi.org/10.6084/m9.figshare.22308949): Metagenomic read recruitment results from 4,515 global gut metagenomes from healthy individuals using **pBI143 Version 1**.
+* [doi:10.6084/m9.figshare.22308964](https://doi.org/10.6084/m9.figshare.22308964): Metagenomic read recruitment results from 4,515 global gut metagenomes from healthy individuals using **pBI143 Version 2**.
+* [doi:10.6084/m9.figshare.22308967](https://doi.org/10.6084/m9.figshare.22308967): Metagenomic read recruitment results from 4,515 global gut metagenomes from healthy individuals using **pBI143 Version 3**.
+* [doi:10.6084/m9.figshare.22308991](https://doi.org/10.6084/m9.figshare.22308991): Metagenomic read recruitment results from 1,419 gut metagenomes from individuals who were diagnosed with IBD using **pBI143 Version 1**.
+* [doi:10.6084/m9.figshare.22309003](https://doi.org/10.6084/m9.figshare.22309003): Metagenomic read recruitment results from 1,419 gut metagenomes from individuals who were diagnosed with IBD using **pBI143 Version 2**.
+* [doi:10.6084/m9.figshare.22309006](https://doi.org/10.6084/m9.figshare.22309006): Metagenomic read recruitment results from 1,419 gut metagenomes from individuals who were diagnosed with IBD using **pBI143 Version 3**.
+* [doi:10.6084/m9.figshare.22309015](https://doi.org/10.6084/m9.figshare.22309015): Anvi'o single-copy core gene taxonomy for healthy gut metagenomes. Each file in this data pack represents the output of {% include PROGRAM name="anvi-estimate-scg-taxonomy" %} for a given ribosomal protein run on **3,036 gut metagenomes generated from healthy individuals** across the globe.
+* [doi:10.6084/m9.figshare.22309033](https://doi.org/10.6084/m9.figshare.22309033): Anvi'o single-copy core gene taxonomy for healthy gut metagenomes. Each file in this data pack represents the output of {% include PROGRAM name="anvi-estimate-scg-taxonomy" %} for a given ribosomal protein run on on **1,419 gut metagenomes generated from individuals who were diagnosed with IBD**.
+* [doi:10.6084/m9.figshare.22309105](https://doi.org/10.6084/m9.figshare.22309105): Metagenomic read recruitment results from **936 non-human gut metagenomes** using the **pBI143 version 1**. Metagenomes used for this analysis include open and coastal marine metagenomes from the Tara Oceans and Ocean Sampling Day projects, human oral and skin metagenomes from the Human Microbiota Project, primate gut metagenomes, dog metagenomes, and sewage metagenomes around the globe. Their accession numbers are available via the Supplementary Table 1 (alternative_environment tab) of the study.
+* [doi:10.6084/m9.figshare.22309114](https://doi.org/10.6084/m9.figshare.22309114): Metagenomic read recruitment results from 4,515 global gut metagenomes from healthy individuals using **the crAssphage genome**.
+* [doi:10.6084/m9.figshare.22298215](https://doi.org/10.6084/m9.figshare.22298215): Metagenomic read recruitment results from four mother-infant datasets from Finland, Italy, Sweden, and the United States. These data enabled us to study the population genetics of pBI143 in mothers and their infants to establish an understanding of the vertical transmission of the cryptic plasmid. A reproducible bioinformatics workflow for the analysis that rely upon these files is below.
+
+
+
+## Sequences of the cryptic plasmid pBI143
+
+In our study we identified three sequence-discreet version of pBI143 across human gut metagenomes. We used all three versions extensively for our analyses, and the summary figure below shows the distribution of the pBI143 and its versions across the globe:
+
+{% include IMAGE path="images/pBI143_across_the_globe.png" width=80 caption="The draft Figure 1 from our study that depicts pBI143 prevalence and abundance in globally distributed human populations." %}
+
+
+### pBI143 Version 1
+
+Assembled from a metagenome internally labeled as `CHI0054` (NCBI accession: [SRX023606](https://www.ncbi.nlm.nih.gov/sra/SRX023606%5Baccn%5D)):
+
+```
+>pBI143_V1
+AAAGCCGCTGGAGATGTCGGATGTCCGTCAATTAACTCCAGCGGCTTGTATTTTGGTAACTCTCCCGTATCGGTCGGCTA
+CCGTTTGGTCAGCAACAAAGGTAGTACTTTATTGTCGCAAATCCAAATGTTTTCCCCTTTATTTGTGCATTTACAGAACA
+TTTGCTAACTTCGCACCTATGCAGTATGGTGATAGCACACTAGCACCCTAAAGGGTGCGTGTGTAAGGGGACAAGCCCCC
+TTAACCCCCTGTCAGCCGGCTGTCACCGGCTGTTATCGATTGTCACAAAAATGTTAACTTATGGGAGCAACAAGTATTCA
+TGTACAAGCAGTGAAGCCGGGGAGTGAGATTCACAACTTTAGGGAAAAAGAGTTGGACTATGTTCGTCCCGAACTTAGTC
+ATTTGAATGAAAGCTGGGTTGGAGATAGCATCTCCCATCGGCTGGAAAGTGCGAAACAAAGATATCTCGATACGGTTGGG
+CAGAAGATGCAGGCTAAAGCCGCACCCATACGAGAGGGAGTAATAGTAATCAAACAAGAAACCACCATGCAGGAACTCCA
+GCAGTTTGCCACGGTCTGCAAAGAACGTTTCGGTATCGAAGCATTTCAAATCCATATACACAAGGACGAAGGATACATGA
+ACGCAAAGCAATGGACACCTAACCTTCATGCCCATGTAGTTTTCGATTGGACGCAGCCGAATGGGAAAAGTGTGCGTTTA
+TCGCGTGATGACATGGCAGAACTCCAAACCATAGCATCTGAAACACTGGGCATGGAACGTGGCGTTTCTTCTGACCGCAA
+ACACTTATCGGCTATGCAGTACAAGACCGAATGTGCGAAAGAACAGCTTCAGGAACTATCAAACGATATATCCAGTGCAT
+TAGACAAACACAAGGACGTACAAAACCAGCTTCTTCAGCTTCAGAAAGAACTACGTTCCATTGAAACAAAGAAGAACGTC
+CAAAAACTCATTTCTAAGGCTTCAGAGAAGTTTTACGGCTTGATTGGAAAAACAGTCAACGATAGGGAAAAGGATGCCTT
+AAAAGCCAAAGTAAAGGCTTTAGAGGGGGAAAATGAACAGCTATCCGATAGACTGGGAAAGGCTATACTTGAAAAAGAGC
+AAAACGGCACAAAGGCATTCAAAGCCGAGAATGACAAGGAGTATTATAGACAACAAATGGACAACGCAAGGACAACCAGT
+AACCGATTAAGGACGGAGAACCAAGAACTAAAGACCGAAACCAAGGAATTGAAAAAAGAACTTGGTAAGATGAAAGACTT
+GTTCAATTCCGAACAACTGGAGGCTTTAAGGCATCATTTCCCAAACATATCAAAAGCTATGGAAGAGGGGAAAGACCTAC
+TCAAGCAAATCACCAGAAGCAGAGGTTTCGGTATGGGTATGTAACCCCCCCCCGCCCCCAAAGGGGGAGCGACCAAACGG
+CAGCCTCTCTCAATGGAGTGTTACGTCGTTCGGATTCGGAAGAAATTTTGCAGGGTTCGGAAAACGGTTGTGTGCTTATT
+CTAAAAAAAGTTTATGGTGTGGCGCTCGTCGGGACGGGTGGTCCCGCCCCTTGCCGCTGGGCGCTCCCCGACCGATGATT
+TTTAAGTGACTGATTTTGTGCTGTTTTGGGGGTATATTAAGAATAGAAGAAATAGAATAAGTTAAGTACTTGATACACAA
+TATAGGGCATTTTCCATATTGGAAATTCTCATTTTCCAATCTAGAAAATACTGATTTCCTAATATAATACTAAACAGGAA
+AATAATATTTCCCTTAATATTGTTTTTATGGAAAATAATAGTTTACTTTGTGGAGAATAATATTTCCCAAAAACACATCA
+AAATGGAAAATAAAAAAGCAGTTAAGTTAACCGATTTTCAAAAGAACGAAGAAAATCCTTTTATGAAACAAGCTATAGAA
+GGTATTGAAAATCATGTTGTTAAAAAGTATAAGAGTAATAGTGGTGGCGATAAGAGAGCCGTAGTAGCTTTAGCCGACAC
+TGAAACTGGAGAAGTGTTTAAGACTTCGTTTATCCGTCAAATAGAAGTAGATGAAGAACAATTCACTAAATTGTATCTTT
+CTAACTTTGCTGCATTCTTTGACCTATCACAAGCAGCTATTCGGGTTTTTGGTTACTTTATGACCTGCATGAAACCCAAA
+AATGATTTAATCATCTTCAATAGAAAAAAATGCCTAGAATATACCAAATACAAAACAGACAAAGCCGTTTATAAAGGACT
+TGCAGAACTTGTAAAAGCTGAAATCATAGCCCGAGGACCAGCCGATAATCTTTGGTTTATTAATCCTCTGATAGTATTCA
+ATGGTGACCGAGTGACATTTGCTAAAACATACGTTCGGAAAAAGACTTTAGCTGCCCAAAAGAAAGAAGAAGCAGAGAAA
+CGACAATTATCACTTGGCTTTGATGAACAGTAACACTCCATTGAGTGAAGCTGCCGTTTGGTCGCTCCCCCTTTGGGGGC
+GGGGGGGGGATAGATAAAGTTCCTCTATGTAAAGTTATAATGGGGGATGAAAGGCAAGGTTCGCTAACCTTACCCCGATT
+GTTTATGCTTCCCAGCATTCAATCTATCCCCGTTTATGGGTTTCTCTTTCACCCTACAAAGATAACCTCATGGGGGAAAA
+ATGTCCAAGAATATGGGGTAAAAACTATCAAGTCGGTAGAAAATAAGTATCTTTGAAGTACATTTTTAGTAGAGGTACTG
+GTATGCCTAGACGAAGCAGATAGGCAAAAAT
+```
+
+### pBI143 Version 2
+
+Assembled from a metagenome internally labeled as `ISR0084` (NCBI accession: [SRR341705](https://www.ncbi.nlm.nih.gov/sra/?term=SRR341705)):
+
+```
+>pBI143_V2
+AAAGCCGCTGGGGATGTCGGATGTCCGTCAATTAACTCCAGCGGCTTGTATTTTGGTAACTCTCCCGTATCGGTCAGCTA
+CCGTTTGGTCAGCAACAAAGGTAGTACTTTATTGTCGCAAATCCAAATGTTTTCCCCTTTATTTGTGCATTTACAAAACA
+TTCACTAACTTCGCACCTATGCAGTATGGTGATAGCACACTAGCACCCTAAAGGGTACGTGTGTAAGGGGACAAGCCCCC
+TTAACCCCCTGTCAGCCGGCTGTCACCGGCTGTTATCGATTGTCACAAAAATGTTAACTTATGGGAGCAACAAGTATTCA
+TGTACAAGCAGTGAAGCCGGGGAGCGAGATTCACAACTTTAGGGAAAAAGAGTTGGACTATGTTCGTCCGGAACTTAGTC
+ATTTGAATGAAAGCTGGGTTGGAGATAGCATCTCCCATCGGCTGGAGAGTGCGAAACAGAGATATTTCGATACGGTTGGG
+CAGAAGATGCAGACTAAAGCAGCACCCATACGGGAGGGGGTAATAGTAATCAAGCAAGAAACCACCATGCAGGAACTCCA
+GCAATTCGCTGCGGTCTGCAAGGAACGTTTCGGTATTGAAGCGTTTCAAATCCATATACACAAGGACGAAGGATACATGA
+ACGCAAAGCAATGGACACCTAACCTTCACGCCCATGTAGTTTTCGATTGGACGCAGCCGAACGGGAAGAGTGTGCGTTTA
+TCGCGTGATGACATGGCAGAACTCCAAACCATAGCATCTGAAGCACTGGGCATGGAACGTGGTGTTTCTTCTGATCGCAA
+ACACTTATCGGCTATGCAGTACAAGACCGAATGTGCGAAAGAACAGCTTCAGGAACTATCCAACGATATATCCAGTGCGT
+TAGACAAGCACAAGGACGTGCAAAACCAGCTTCTTCAGCTTCAGAAAGAACTACGTTCCATTGAAACAAAGAAAAACGTC
+CAAAAACTCATTTCTAAGGCTTCAGAGAAGTTTTACGGCTTGATAGGGAAAACGGTTAACGATAGGGAAAAAGATGCCTT
+AAAAGCCAAAATAAAGGCTTTAGAGGGGGAAAATGAACAGCTATCCGATAGACTGGGAAAGGCTATACTTGAAAAAGAGC
+GAAACGGCACAAAGGTATTCAAAGCCGAGAACGACAAGGAGTATTATAGACAGCAAATGGACAATGCAAGGACAACCAGT
+AACCGACTAAGAACGGAGAACCAAGAACTAAAGACCGAAACCAAGGAATTGAAAAAAGAACTTGGTAAGATGAAAGACTT
+GTTCAATTCCGAACAACTGGAGGCTTTAAGGCATCATTTCCCAAACATATCAAAAGCTATGGAAGAGGGGAAAGACCTAC
+TCAAGCAAATCACCAGAAGCAGAGGTTTCGGCATGGGTATGTAACCCCCCCCCGCCCCCAAAGGGGGAGCGACCAAACGG
+CAGCTTCACTCAATGGAGTGTTACGCCGTTCGGGTTCGGAAGAAATTTTGCAGGGTTCGAAAAACGGTTGTGTGCTTATT
+CGAAAAAAAGTTTATGGTGTGGGCGCTCGTCGGGACGGGTGGTCCCGCCCCTTGCCGCTGGGCGCTCCCCGACCGATGAT
+TTTTTAAGTAGTTGATTATATGCCGTTTTTAGGGTATAATAAGAACTTAAGAAATAGAATAAGTTAAGTAGTTGATACTC
+AATATAGGGTATTTTCCATATTGGAAAATCTGATTTTCCATATTAGAAAGTCACTCTTTCCTATTAGATGTTAAAAAGGA
+AAATATATTTTGCTTTTTTATTGTATTAATGGAAATTTAAATATTCCTTTGTGGAAAATCAAATTATACTTTTTCACCGA
+TATATAGAAAGTCAAATTTGCCTAAATAGAATGTTTATGGAAAATAAGAAAGTACTCAAATTAACCGATTTTCAAAAAAA
+CGAAGAAAACCCCTTTATGAAACAAGCAATTGAAGGGATTGAAAATCACGTTGTTAAGAAATACAAAAGTAGTACGGGAA
+GTGATAAAAAAGCTGTAGTTGCTGTTGCTGATACAGATACAGGAGAAGTATTCAAAACCTCGTTTATCCGACAAATAGAA
+GTAGATGAAGAGCAATTTGCAAAACTATACCTTGCGAATTTTGCCGCTTTTTTCAATCTATCACAATCAGCTATTCGGGT
+TTTCGGGTATATTCTAACTTGCATGAAGCCTAAGAATGATATGATAATTTTCGATAGGCGAAAATGCTTAGAATACACCC
+AATACAAATCAGACAAAGCCATATACAAAGGATTGGCAGAGCTCGTACAAAGTGAAATCATAGCAAGAGGTCCAAACGAA
+TATAATTGGTTCATTAATCCGTTGATTGTCTTTAATGGGGATAGGGTTTCATTTACAAAAACATACGTTCGGAAAAAGAC
+TTTAGCTGCCCAAAAGAAAGAAGAAGCAGAGAAACGACAGTTATCACTTGGTTTTGATGAACTGTAACACTCCATTGAGT
+GAAGCTGCCGTTTGGTCGCTCCCCCTTTGGGGGCGGGGGGGGATAGATAAAGTTCCTCTATGTAAAGTTATAATGGGGGA
+TGAAAGGCAAGGTTCGCTAACCTTACCCCGATAGTTTATGCTTCCCAGCATTCAATCTATCCCCGTTTATGGGTTTCTCT
+TTCACCCTACAAAGATAACCTCATGGGGGAAAAATGTCCAAGAATATGGGGTAAAAACTATCAAGTCGGTAGAAAATAAG
+TATCTTTGAAGTACATTTTTAGTAGAGGTACTGGTATGCCTAGACGAAGCAGATAGGCAAAAAT
+```
+
+### pBI143 Version 3
+
+Assembled from a metagenome internally labeled as `ISR0084` (NCBI accession: [ERR1136776](https://www.ncbi.nlm.nih.gov/sra/?term=ERR1136776)):
+
+```
+>pBI143_V3
+AAAGCCGCTGGAGATGTCGGATATCCGTCAATTAACTCCAGCGGCTTGTATTTTGGTAACTCTCCCGTATCGGTCAGCTA
+CCGTTTGGTCAGCAACAAAGGTAATGCTTTATCATCGCAATTCCAAATGTTTTTCCCTTTATTTGTGCATTTACAAAACA
+TTCACTAACTTCGCACCTATGCAGTATGGTGATAGCGCACTAGCACCCTAAAGGGTGCGTGTGTAAGGGGACAAGCCCCC
+TTAACCCCCTGTCAGCCGGCTGTCACCGGCTGTTATCGATTGTCACAAAATGTTAACTTATGGGAGCAACAAGTATTCAT
+GTACAAGCAGTGAAGCCGGGGAGCGAGATTCACAACTTTAGGGAAAAAGAGTTGGACTATGTTCGTCCGGAACTTAGTCA
+TTTGAATGAAAGCTGGGTTGGAGATAGCATCTCCCATCGGCTGGAGAGTGCGAAACAGAGATATTTCGATACGGTTGGGC
+AGAAGATGCAGACTAAAGCAGCACCCATACGGGAGGGGGTAATAGTAATCAAGCAAGAAACCACCATGCAGGAACTCCAG
+CAATTCGCTGCGGTCTGCAAGGAACGTTTCGGTATTGAAGCGTTTCAAATCCATATACACAAGGACGAAGGATACATGAA
+CGCAAAGCAATGGACACCTAACCTTCACGCCCATGTAGTTTTCGATTGGACGCAGCCGAACGGGAAGAGTGTGCGCTTAT
+CGCGTGATGACATGGCAGAACTCCAAACCATAGCATCTGAAGCACTGGGCATGGAACGTGGTGTTTCTTCTGACCGCAAA
+CACTTATCGGCTATGCAGTACAAGACCGAATGTGCGAAAGAACAGCTTCAGGAACTATCCAACGATATATCCAGTGCGTT
+AGACAAGCACAAGGACGTGCAAAACCAGCTTCTTCAGCTTCAGAAAGAACTACGTTCCATTGAAACAAAGAAAAACGTCC
+AAAAACTCATTTCTAAGGCTTCAGAGAAGTTTTACGGCTTGATAGGGAAAACGGTTAACGATAGGGAAAAAGATGCCTTA
+AAAGCCAAAATAAAGGCTTTAGAGGGGGAAAATGAACAGCTATCCGATAGACTGGGAAAGGCTATACTTGAAAAAGAGCG
+AAACGGCACAAAGGTATTCAAAGCCGAGAACGACAAAGAGTATTATAGACAGCAAATGGACAATGCAAGGACAACCAGTA
+ACCGACTAAGAACGGAGAACCAAGAACTAAAGACCGAAACCAAGGAATTGAAAAAAGAACTTGGTAAAATGAAAGACTTG
+TTCAATTCCGAACAACTGGAGACTTTAAGACATCATTTCCCGAACATATCGAAAGCTATGGAAGAGGGGAAAGACCTACT
+CAAGCAAATCACCAAAAGCAGGGGTTTCGGCATGGGTATGTAACCCCCCCCGCCCCCAAAGGGGGAGCGACCAAACGGCA
+GCTTCACTCAATGGAGTGTTACGCCGTTCGGATTCAGAAACTTCACTCAATGGAGTGTTACGCCGTTCGGATTCAGAAAA
+CATTTTGCAGGGTTCGAAAAACGGTTGTGTGCTTATCCGAAAAAAAGTTTATGGTGTGGGCGCTCGTCGGGACGGGTGGT
+CCCGCCCCTTGCCGCTGGGCGCTCCCCGACCGATGATTTTTAAGTGGCTGATTTTGTGCTGTTTTGGGGGTGTATTAAGA
+ACTATAAGAAACAACATAAGCTAAGTAATTGATAATCAATATAGGCTAGTTCACACTGTATGAACTGCCAGTTCAATCTA
+GCTTGAACTCAGAGTTCAATAAATCATGTTAAAAATCGAACTGTGTGTTTATTTTTGTTGGACTGATAGTCTATATTTGT
+AGGCGAAAAATCGAACTAATAGAATAATATACCATGGCAAAAAACGAACTAAAATTATCCGACTTCCAAAGGAATAAGGA
+AAATCCATTCATGAAGCAAGCAATAGAAGATATTGAAAATCATGTTGTTAAAAAATATAAGAGCAGTACAGGAAGTGACA
+AAAAAGCAGTTGTTGCCGTTGCTGATACAGATACAGGAGAAGTGTTCCGAACTTCCTTTATTCGACAGATAGAAGTAGAT
+GAAGAACAATTTGCAAAACTCTATCTGAACAATTTTGCTGCATTTTTTGACCTTTCACAAGCCGCAATAAGGGTATTTGG
+CTATATCATGACTTGTATGAAACCCAAGAATGATATGATAATGTTTATCCTAGAAGATTGTCTTGAATATACGAAATATA
+CAAGCAAAGGTACAGTTTATCGAGGGCTTGCAGAACTGGTTAAAGCGGAGATTATAGCCAGAGGTATAAACGAGAACTTA
+TGGTTCATCAATCCCCTTATAGTTTTCAATGGGGATAGAGTTTCTTTTACCAAAACATACGTTCGGAAAAAATCTCTATC
+AACTAAAAAGAAAGCTGAAGAAGATGAACGCCAGCTATCTTTAGGTTTCAGTTCAGAGTAACACTCCATTGAGCGAAGCT
+GCCGTTTGGTCGCTTCCCCCCTTGGGGGACGGGAGGGGGATAGGATAAAGTTCCTCTATGTAAAGTTATAATGGGGGATA
+AAGGCAAGGTTCGCTAACCTTACCCCGATTGTCTATGCTTCCCAGCATCCAATCTACCCCCGTTTATGGGTTTCTCTTTC
+ACTTTACAAAGATAACCTCATGGGGGAAAAATGTCCAAGAATATGGGGGAAAATCTATCAAATCAGTAGAAAATTAGTAT
+CTTTGGGGGACACTTCTAATGGGGGTACTGGTATAGCCTAGACGAAGCGGATAGGCGAAAAT
+```
+
 ## Analyzing mother-infant metagenomes to find evidence for plasmid transfer through single-nucleotide variants (SNVs)
 
-The purpose of the following workflow is to use read recruitment results obtained from multiple mother-infant gut metagenomes using pBI143 Version 1 sequence to investigate whether unqiue SNVs occur primarily between family members.
+The purpose of the following workflow is to use read recruitment results obtained from multiple mother-infant gut metagenomes using pBI143 Version 1 sequence to investigate whether unique SNVs occur primarily between family members.
 
 If you are planning to reproduce this workflow, I would suggest you to download [this jupyter notebook](files/pBI143_SNVs.ipynb) file on your computer, and follow it from within your local jupyter environment. If you wish to do that, all you need to do is the following, assuming you are in an `anvio-dev` installed environment (the installation instructions for anvio-dev is [here](https://anvio.org/install/)):
 
@@ -37,7 +182,7 @@ Alternatively, you can read through the following steps and look at the output f
 
 ### Acquiring the data pack
 
-The primary input for this analysis is anvi'o project files for four mother-infant datasets from Finalnd, Italy, Sweeden, and the United Stats. The generation of these project files is very straightforward with the program {% include PROGRAM name="anvi-run-workflow" %}, to which we essentially provided the plasmid sequence and a list of metagenomes of interest. The program {% include PROGRAM name="anvi-run-workflow" %} simply (1) recruited reads using the plasmid sequence from each metagenome it was given, (2) profiled each read recruitment result using the program {% include PROGRAM name="anvi-profile" %}, and finally (3) merged all single profile databases using the program {% include PROGRAM name="anvi-merge" %}. We then moved these final anvi'o project files into four directories (which we will download for reproducibility in a second), where each directory contained a single {% include ARTIFACT name="contigs-db" %} and a single merged {% include ARTIFACT name="profile-db" %} that will enable us to perform the analyses down below.
+The primary input for this analysis is anvi'o project files for four mother-infant datasets from Finland, Italy, Sweden, and the United States. The generation of these project files is very straightforward with the program {% include PROGRAM name="anvi-run-workflow" %}, to which we essentially provided the plasmid sequence and a list of metagenomes of interest. The program {% include PROGRAM name="anvi-run-workflow" %} simply (1) recruited reads using the plasmid sequence from each metagenome it was given, (2) profiled each read recruitment result using the program {% include PROGRAM name="anvi-profile" %}, and finally (3) merged all single profile databases using the program {% include PROGRAM name="anvi-merge" %}. We then moved these final anvi'o project files into four directories (which we will download for reproducibility in a second), where each directory contained a single {% include ARTIFACT name="contigs-db" %} and a single merged {% include ARTIFACT name="profile-db" %} that will enable us to perform the analyses down below.
 
 Let's start with downloading the data pack, which is at [doi:10.6084/m9.figshare.22298215](https://doi.org/10.6084/m9.figshare.22298215). In this jupyter notebook environment, I will use an anvi'o function to directly download it to my work directory:
 
@@ -72,7 +217,7 @@ ls
     MOTHER_INFANT_pBI143_POP_GEN/
 
 
-Where the datapack directory should contain four folders as promised:
+Where the data pack directory should contain four folders as promised:
 
 
 ```python
@@ -119,9 +264,9 @@ Unlike the vast majority of data analyses we do with anvi'o using [anvi'o progra
 
 But by accessing anvi'o libraries directly, we get to apply filtering rules that are dependent on sample names, such as removing infants from the dataset whose mother does not have a metagenome and vice versa. One could indeed implement those steps after getting the necessary output files from {% include PROGRAM name="anvi-gen-variability-profile" %} using R, EXCEL or by manually selecting samples to be considered for the analysis. But a Pythonic approach helps with reproducibility, and reduces human error.
 
-The actual bottom line is the following: these analyses can be done with anvi'o without writing a single line of Python code, too. In addition to reproducibilty, a side purpose of this workflow is to show those who might be interested in exploring anvi'o deeper what else can be done with it. So here we are.
+The actual bottom line is the following: these analyses can be done with anvi'o without writing a single line of Python code, too. In addition to reproducibility, a side purpose of this workflow is to show those who might be interested in exploring anvi'o deeper what else can be done with it. So here we are.
 
-Our analysis starts with importing some libraries that will be necessary later (of course, at the beginnign of the analysis we didn't know which libraries were necessary, but we expanded this section as we made progress with the code):
+Our analysis starts with importing some libraries that will be necessary later (of course, at the beginning of the analysis we didn't know which libraries were necessary, but we expanded this section as we made progress with the code):
 
 
 ```python
@@ -217,7 +362,7 @@ def mother_infant_pair_summary(udf, drop_incomplete_families=False):
 
 Now it is time to get single-nucleotide variant data for the mother-infant pairs from Finland, Sweden, USA, and Italy using the anvi'o project files we downloaded using the data pack before, using the fancy function `get_snvs` we defined above.
 
-It is important to note that the resulting data frames will contain information only for samples that include at least one SNV in the mobA gene of the plasmid. This means, samples that have no SNVs will not be reported in the following dataframes even though they were in the original dataset.
+It is important to note that the resulting data frames will contain information only for samples that include at least one SNV in the mobA gene of the plasmid. This means, samples that have no SNVs will not be reported in the following data frames even though they were in the original dataset.
 
 
 ```python
@@ -237,7 +382,7 @@ df = pd.concat([df_fin, df_swe, df_usa, df_ita])
 df['entry_id'] = range(0, len(df))
 ```
 
-Now we take a quick look at the resulting dataframe that combines all data from all samples by simply sending this dataframe to the function `mother_infant_pair_summary` implemented above, so you can appreciate its true utility:
+Now we take a quick look at the resulting data frame that combines all data from all samples by simply sending this data frame to the function `mother_infant_pair_summary` implemented above, so you can appreciate its true utility:
 
 
 ```python
@@ -250,7 +395,7 @@ mother_infant_pair_summary(df)
        w/both members ..........: 57 / {'FIN': 3, 'SWE': 36, 'USA': 16, 'ITA': 2}
 
 
-The dataframe `df` is quite a comprehensive one, as anvi'o generates an extremely rich output file to describe variants observed in metagenomes. We can take a very quick look, and go through the columns to have an idea (they scroll right):
+The data frame `df` is quite a comprehensive one, as anvi'o generates an extremely rich output file to describe variants observed in metagenomes. We can take a very quick look, and go through the columns to have an idea (they scroll right):
 
 
 ```python
@@ -729,9 +874,9 @@ df
 
 
 
-While this is our raw dataframe that contains all variants from all samples that had at least one variable nucleotide position in the mobA gene, it needs some cleaning.
+While this is our raw data frame that contains all variants from all samples that had at least one variable nucleotide position in the mobA gene, it needs some cleaning.
 
-For instance, in some samples the mobA gene will have a pretty low coverage to perform a robus analysis of SNV patterns, and such samples should be removed first. Here are some of the samples that have the lowest coverage values:
+For instance, in some samples the mobA gene will have a pretty low coverage to perform a robust analysis of SNV patterns, and such samples should be removed first. Here are some of the samples that have the lowest coverage values:
 
 
 ```python
@@ -760,14 +905,14 @@ sorted(df.gene_coverage.unique())[:20]
      10.72463768115942]
 
 
-For a very stringent analysis, here we can drop samples from our dataframe where the mobA gene has less than 50X coverage:
+For a very stringent analysis, here we can drop samples from our data frame where the mobA gene has less than 50X coverage:
 
 
 ```python
 dfx = df.drop(df[df.gene_coverage < 50].index)
 ```
 
-The new dataframe `dfx` only contains samples that have enough reads to cover mobA at 50X or more. But as you can imagine, this removal step does not include any logic to 'maintain' families in the dataset. Following the removal of samples based on the coverage of mobA, now there will be some infants without mother samples, and some mother samples with no infants. Since the purpose of this analysis to investigate plasmid transfer through SNVs, we don't need those samples.
+The new data frame `dfx` only contains samples that have enough reads to cover mobA at 50X or more. But as you can imagine, this removal step does not include any logic to 'maintain' families in the dataset. Following the removal of samples based on the coverage of mobA, now there will be some infants without mother samples, and some mother samples with no infants. Since the purpose of this analysis to investigate plasmid transfer through SNVs, we don't need those samples.
 
 And `mother_infant_pair_summary` comes to our rescue once again, as we request this function to further drop samples from `dfx` that belong to 'incomplete' families:
 
@@ -784,7 +929,7 @@ dfx = mother_infant_pair_summary(dfx, drop_incomplete_families=True)
 
 In our final dataset, we have 49 families for which at least one mother metagenome and one infant metagenome was present.
 
-At this point we can report this final dataframe as a TAB-delmited file, an output that will be identical to an output {% include PROGRAM name="anvi-gen-variability-profile" %} would have generated:
+At this point we can report this final data frame as a TAB-delimited file, an output that will be identical to an output {% include PROGRAM name="anvi-gen-variability-profile" %} would have generated:
 
 
 ```python
@@ -958,12 +1103,12 @@ You can now open the resulting XML file, [`pBI143_SNVs.gexf`](files/pBI143_SNVs.
 
 {% include IMAGE path="images/pBI143-SNVs-Gephi-01.png" width=80 caption="Upon opening the GEXF file of mother-infant variants in Gephi" %}
 
-Then we run the ForceAtlas2 algorithm with the options to dissuade hubs and LinLog mode with non-overlapping nodes while partitoning all nodes into 'family' bins (a piece of information that was available to Gephi thanks to the `sample_information_dict` we passed to the class `VariabiltyNetwork`) so we can see which samlpes belong to the same family:
+Then we run the ForceAtlas2 algorithm with the options to dissuade hubs and LinLog mode with non-overlapping nodes while partitioning all nodes into 'family' bins (a piece of information that was available to Gephi thanks to the `sample_information_dict` we passed to the class `VariabiltyNetwork`) so we can see which samples belong to the same family:
 
 {% include IMAGE path="images/pBI143-SNVs-Gephi-02.png" width=80 caption="Following the convergence of ForceAtlas2 with some minor adjustments" %}
 
 We then switched to the Preview panel to export an SVG,
 
-{% include IMAGE path="images/pBI143-SNVs-Gephi-03.png" width=80 caption="Jumping to the Preview panel to get an SVG with desired visual qualities (such as keeping hte sample names big on the figure so we can later identify which sample was the mother sample for a given family, etc)" %}
+{% include IMAGE path="images/pBI143-SNVs-Gephi-03.png" width=80 caption="Jumping to the Preview panel to get an SVG with desired visual qualities (such as keeping the sample names big on the figure so we can later identify which sample was the mother sample for a given family, etc)" %}
 
 And we finalized this image for publication using Inkscape.
