@@ -422,7 +422,6 @@ df
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
       <th>entry_id</th>
       <th>sample_id</th>
       <th>split_name</th>
@@ -461,10 +460,9 @@ df
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
       <td>0</td>
       <td>FIN_0018M_000A</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001...</td>
+      <td>pBI143_V1</td>
       <td>569</td>
       <td>569</td>
       <td>0</td>
@@ -484,10 +482,10 @@ df
       <td>60</td>
       <td>0</td>
       <td>90</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001...</td>
+      <td>pBI143_V1</td>
       <td>1104</td>
       <td>0</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001</td>
+      <td>pBI143_V1</td>
       <td>T</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -498,10 +496,9 @@ df
       <td>1.109808</td>
     </tr>
     <tr>
-      <th>1</th>
       <td>1</td>
       <td>FIN_0072M_000A</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001...</td>
+      <td>pBI143_V1</td>
       <td>344</td>
       <td>344</td>
       <td>0</td>
@@ -521,10 +518,10 @@ df
       <td>6</td>
       <td>0</td>
       <td>15</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001...</td>
+      <td>pBI143_V1</td>
       <td>1104</td>
       <td>1</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001</td>
+      <td>pBI143_V1</td>
       <td>C</td>
       <td>0.052174</td>
       <td>0.055046</td>
@@ -535,10 +532,9 @@ df
       <td>0.874103</td>
     </tr>
     <tr>
-      <th>2</th>
       <td>2</td>
       <td>FIN_0072M_000A</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001...</td>
+      <td>pBI143_V1</td>
       <td>389</td>
       <td>389</td>
       <td>0</td>
@@ -558,10 +554,10 @@ df
       <td>0</td>
       <td>0</td>
       <td>30</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001...</td>
+      <td>pBI143_V1</td>
       <td>1104</td>
       <td>2</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001</td>
+      <td>pBI143_V1</td>
       <td>G</td>
       <td>0.044444</td>
       <td>0.046512</td>
@@ -572,10 +568,9 @@ df
       <td>1.026121</td>
     </tr>
     <tr>
-      <th>3</th>
       <td>3</td>
       <td>FIN_0072M_000A</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001...</td>
+      <td>pBI143_V1</td>
       <td>446</td>
       <td>446</td>
       <td>0</td>
@@ -595,10 +590,10 @@ df
       <td>0</td>
       <td>0</td>
       <td>49</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001...</td>
+      <td>pBI143_V1</td>
       <td>1104</td>
       <td>3</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001</td>
+      <td>pBI143_V1</td>
       <td>G</td>
       <td>0.029197</td>
       <td>0.030075</td>
@@ -609,10 +604,9 @@ df
       <td>1.041323</td>
     </tr>
     <tr>
-      <th>4</th>
       <td>4</td>
       <td>FIN_0072M_000A</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001...</td>
+      <td>pBI143_V1</td>
       <td>458</td>
       <td>458</td>
       <td>0</td>
@@ -632,10 +626,10 @@ df
       <td>0</td>
       <td>0</td>
       <td>53</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001...</td>
+      <td>pBI143_V1</td>
       <td>1104</td>
       <td>4</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001</td>
+      <td>pBI143_V1</td>
       <td>G</td>
       <td>0.043860</td>
       <td>0.045872</td>
@@ -646,7 +640,6 @@ df
       <td>0.866502</td>
     </tr>
     <tr>
-      <th>...</th>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -683,10 +676,9 @@ df
       <td>...</td>
     </tr>
     <tr>
-      <th>257</th>
       <td>8178</td>
       <td>ITA_006C_001D</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001...</td>
+      <td>pBI143_V1</td>
       <td>1400</td>
       <td>1400</td>
       <td>0</td>
@@ -706,10 +698,10 @@ df
       <td>0</td>
       <td>0</td>
       <td>367</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001...</td>
+      <td>pBI143_V1</td>
       <td>1104</td>
       <td>89</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001</td>
+      <td>pBI143_V1</td>
       <td>A</td>
       <td>0.040000</td>
       <td>0.041667</td>
@@ -720,10 +712,9 @@ df
       <td>0.185764</td>
     </tr>
     <tr>
-      <th>258</th>
       <td>8179</td>
       <td>ITA_024M_000D</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001...</td>
+      <td>pBI143_V1</td>
       <td>782</td>
       <td>782</td>
       <td>0</td>
@@ -743,10 +734,10 @@ df
       <td>5</td>
       <td>0</td>
       <td>161</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001...</td>
+      <td>pBI143_V1</td>
       <td>1104</td>
       <td>29</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001</td>
+      <td>pBI143_V1</td>
       <td>C</td>
       <td>0.238095</td>
       <td>0.312500</td>
@@ -757,10 +748,9 @@ df
       <td>1.553679</td>
     </tr>
     <tr>
-      <th>259</th>
       <td>8180</td>
       <td>ITA_024M_000D</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001...</td>
+      <td>pBI143_V1</td>
       <td>860</td>
       <td>860</td>
       <td>0</td>
@@ -780,10 +770,10 @@ df
       <td>0</td>
       <td>0</td>
       <td>187</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001...</td>
+      <td>pBI143_V1</td>
       <td>1104</td>
       <td>34</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001</td>
+      <td>pBI143_V1</td>
       <td>A</td>
       <td>0.185185</td>
       <td>0.227273</td>
@@ -794,10 +784,9 @@ df
       <td>1.997587</td>
     </tr>
     <tr>
-      <th>260</th>
       <td>8181</td>
       <td>ITA_024M_000D</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001...</td>
+      <td>pBI143_V1</td>
       <td>1050</td>
       <td>1050</td>
       <td>0</td>
@@ -817,10 +806,10 @@ df
       <td>0</td>
       <td>0</td>
       <td>251</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001...</td>
+      <td>pBI143_V1</td>
       <td>1104</td>
       <td>47</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001</td>
+      <td>pBI143_V1</td>
       <td>G</td>
       <td>0.266667</td>
       <td>0.363636</td>
@@ -831,10 +820,9 @@ df
       <td>1.109771</td>
     </tr>
     <tr>
-      <th>261</th>
       <td>8182</td>
       <td>ITA_017C_003D</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001...</td>
+      <td>pBI143_V1</td>
       <td>654</td>
       <td>654</td>
       <td>0</td>
@@ -854,10 +842,10 @@ df
       <td>0</td>
       <td>0</td>
       <td>119</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001...</td>
+      <td>pBI143_V1</td>
       <td>1104</td>
       <td>90</td>
-      <td>USA0006_updated_plasmid_May_08_18_000000000001</td>
+      <td>pBI143_V1</td>
       <td>A</td>
       <td>0.089552</td>
       <td>0.098361</td>
