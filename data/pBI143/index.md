@@ -18,18 +18,18 @@ If you have any questions and/or if you are unable to find an important piece of
 
 The following data items are compatible with [anvi'o](https://anvio.org) version `v7.1` or later. The anvi'o {% include ARTIFACT name="contigs-db" text="contigs databases" %} and {% include ARTIFACT name="profile-db" text="profile databases' " %} in them can be further analyzed using any program in the anvi'o ecosystem, or they can be used to report summary data in flat-text files to be imported into other analysis environments.
 
-* [doi:10.6084/m9.figshare.22308949](https://doi.org/10.6084/m9.figshare.22308949): Metagenomic read recruitment results from 4,515 global gut metagenomes from healthy individuals using **pBI143 Version 1**.
-* [doi:10.6084/m9.figshare.22308964](https://doi.org/10.6084/m9.figshare.22308964): Metagenomic read recruitment results from 4,515 global gut metagenomes from healthy individuals using **pBI143 Version 2**.
-* [doi:10.6084/m9.figshare.22308967](https://doi.org/10.6084/m9.figshare.22308967): Metagenomic read recruitment results from 4,515 global gut metagenomes from healthy individuals using **pBI143 Version 3**.
+* [doi:10.6084/m9.figshare.22308949](https://doi.org/10.6084/m9.figshare.22308949): Metagenomic read recruitment results from 4,516 global gut metagenomes from healthy individuals using **pBI143 Version 1**.
+* [doi:10.6084/m9.figshare.22308964](https://doi.org/10.6084/m9.figshare.22308964): Metagenomic read recruitment results from 4,516 global gut metagenomes from healthy individuals using **pBI143 Version 2**.
+* [doi:10.6084/m9.figshare.22308967](https://doi.org/10.6084/m9.figshare.22308967): Metagenomic read recruitment results from 4,516 global gut metagenomes from healthy individuals using **pBI143 Version 3**.
 * [doi:10.6084/m9.figshare.22308991](https://doi.org/10.6084/m9.figshare.22308991): Metagenomic read recruitment results from 1,419 gut metagenomes from individuals who were diagnosed with IBD using **pBI143 Version 1**.
 * [doi:10.6084/m9.figshare.22309003](https://doi.org/10.6084/m9.figshare.22309003): Metagenomic read recruitment results from 1,419 gut metagenomes from individuals who were diagnosed with IBD using **pBI143 Version 2**.
 * [doi:10.6084/m9.figshare.22309006](https://doi.org/10.6084/m9.figshare.22309006): Metagenomic read recruitment results from 1,419 gut metagenomes from individuals who were diagnosed with IBD using **pBI143 Version 3**.
 * [doi:10.6084/m9.figshare.22309015](https://doi.org/10.6084/m9.figshare.22309015): Anvi'o single-copy core gene taxonomy for healthy gut metagenomes. Each file in this data pack represents the output of {% include PROGRAM name="anvi-estimate-scg-taxonomy" %} for a given ribosomal protein run on **3,036 gut metagenomes generated from healthy individuals** across the globe.
 * [doi:10.6084/m9.figshare.22309033](https://doi.org/10.6084/m9.figshare.22309033): Anvi'o single-copy core gene taxonomy for healthy gut metagenomes. Each file in this data pack represents the output of {% include PROGRAM name="anvi-estimate-scg-taxonomy" %} for a given ribosomal protein run on on **1,419 gut metagenomes generated from individuals who were diagnosed with IBD**.
 * [doi:10.6084/m9.figshare.22309105](https://doi.org/10.6084/m9.figshare.22309105): Metagenomic read recruitment results from **936 non-human gut metagenomes** using the **pBI143 version 1**. Metagenomes used for this analysis include open and coastal marine metagenomes from the Tara Oceans and Ocean Sampling Day projects, human oral and skin metagenomes from the Human Microbiota Project, primate gut metagenomes, dog metagenomes, and sewage metagenomes around the globe. Their accession numbers are available via the Supplementary Table 1 (alternative_environment tab) of the study.
-* [doi:10.6084/m9.figshare.22309114](https://doi.org/10.6084/m9.figshare.22309114): Metagenomic read recruitment results from 4,515 global gut metagenomes from healthy individuals using **the crAssphage genome**.
+* [doi:10.6084/m9.figshare.22309114](https://doi.org/10.6084/m9.figshare.22309114): Metagenomic read recruitment results from 4,516 global gut metagenomes from healthy individuals using **the crAssphage genome**.
 * [doi:10.6084/m9.figshare.22298215](https://doi.org/10.6084/m9.figshare.22298215): Metagenomic read recruitment results from four mother-infant datasets from Finland, Italy, Sweden, and the United States. These data enabled us to study the population genetics of pBI143 in mothers and their infants to establish an understanding of the vertical transmission of the cryptic plasmid. A reproducible bioinformatics workflow for the analysis that rely upon these files is below.
-
+* [doi:10.6084/m9.figshare.22336666](https://doi.org/10.6084/m9.figshare.22336666): Supplementary Tables and Supplementary Information files.
 
 
 ## Sequences of the cryptic plasmid pBI143
@@ -41,7 +41,7 @@ In our study we identified three sequence-discreet version of pBI143 across huma
 
 ### pBI143 Version 1
 
-Assembled from a metagenome internally labeled as `CHI0054` (NCBI accession: [SRX023606](https://www.ncbi.nlm.nih.gov/sra/SRX023606%5Baccn%5D)):
+Assembled from a metagenome internally labeled as `USA0006` (NCBI accession: [SRX023606](https://www.ncbi.nlm.nih.gov/sra/SRX023606%5Baccn%5D)):
 
 ```
 >pBI143_V1
@@ -84,7 +84,7 @@ GTATGCCTAGACGAAGCAGATAGGCAAAAAT
 
 ### pBI143 Version 2
 
-Assembled from a metagenome internally labeled as `ISR0084` (NCBI accession: [SRR341705](https://www.ncbi.nlm.nih.gov/sra/?term=SRR341705)):
+Assembled from a metagenome internally labeled as `CHI0054` (NCBI accession: [SRR341705](https://www.ncbi.nlm.nih.gov/sra/?term=SRR341705)):
 
 ```
 >pBI143_V2
