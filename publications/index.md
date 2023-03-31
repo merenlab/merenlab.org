@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2023-02-24
+modified: 2023-03-31
 comments: false
 image:
    display: true
@@ -17,6 +17,23 @@ This page lists publications that are most reflective of our interests. For a co
 
 ## 2023
 
+<a id="10.1101/2023.03.25.534219">&nbsp;</a>
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2023.03.25.534219"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1101/2023.03.25.534219" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1101/2023.03.25.534219" target="_new">A highly conserved and globally prevalent cryptic plasmid is among the most numerous mobile genetic elements in the human gut</a></span>
+    <span class="pub-authors"><span class="pub-member-author">Fogarty EC</span>, <span class="pub-member-author">Schechter MS</span>, <span class="pub-member-author">Lolans K</span>, Sheahan ML, <span class="pub-member-author">Veseli I</span>, Moore R, <span class="pub-member-author">Kiefl E</span>, Moody T, Rice PA, <span class="pub-member-author">Yu MK</span>, Mimee M, Chang EB, Mclellan SL, Willis AD, Comstock LE, <span class="pub-member-author">Eren AM</span></span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/data/pBI143/images/pBI143_across_the_globe.png"><img src="/data/pBI143/images/pBI143_across_the_globe.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A study that describes one of the <b>most prevalent and numerous cryptic plasmid</b> in the gut microbiomes of people who live in the industrialized world that is composed of only two genes (for its own replication and mobilization) in its native form.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Here is <a href="https://twitter.com/merenbey/status/1641557495725293570" target="_blank">a Twitter thread</a> that explains some of the interesting aspects of pBI143 ecology as well as the practical implications having <b>a human gut-specific and highly conserved genetic entity, copy-number of which responds to stress</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- You can find the <b>reproducible data items</b> and bioinformatics workflows <a href="/data/pBI143">here</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=A+highly+conserved+and+globally+prevalent+cryptic+plasmid+is+among+the+most+numerous+mobile+genetic+elements+in+the+human+gut" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2023.03.25.534219" target="_blank">doi:10.1101/2023.03.25.534219</a></span>
+</div>
+
 <a id="10.1126/sciadv.abq4632">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1126/sciadv.abq4632"></div>
@@ -28,7 +45,7 @@ This page lists publications that are most reflective of our interests. For a co
     <a href="/images/pubs/kiefl_et_al_metagenomics_plus_protein_structures.png"><img src="/images/pubs/kiefl_et_al_metagenomics_plus_protein_structures.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
     </div>
     <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- A study that describes an approach to integrate <b>environmental microbiology</b> with recent advances in <b>protein structure prediction</b>, and illustrates the tight association between <b>intra-population genetic variants</b>, <b>environmental selective pressures</b>, and <b>structural properties of proteins</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Demonstrates a quantifiable link between (1) the magnitude of selective pressures over key metabolic <b>genes</b> (e.g., glutamine synthase of the central nitrogen metabolism), (2) the availability of key <b>nutrients</b> in the environment (e.g., nitrate), and (3) the maintenance of nonsynonymous <b>variants</b> near protein active sites.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Shows that the interplay between selective pressures and protein structures also maintains <b>synonymous variants</b> -- revealing a quantifiable link between <b>translational accuracy</b> and fluctuating <b>selective pressures</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Comes with a <a href="https://merenlab.org/data/anvio-structure/chapter-I/"><b>reproducible bioinformatics workflow</b></a> that offers detailed access to computational steps used in the study that spans from metagenomic read recruitment and profiling to the integration of environmental variants and predicted protein structures.</span>
+    <span style="display: inline-block; padding-bottom: 5px;">- A study that describes an approach to integrate <b>environmental microbiology</b> with recent advances in <b>protein structure prediction</b>, and illustrates the tight association between <b>intra-population genetic variants</b>, <b>environmental selective pressures</b>, and <b>structural properties of proteins</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Demonstrates a quantifiable link between (1) the magnitude of selective pressures over key metabolic <b>genes</b> (e.g., glutamine synthase of the central nitrogen metabolism), (2) the availability of key <b>nutrients</b> in the environment (e.g., nitrate), and (3) the maintenance of nonsynonymous <b>variants</b> near protein active sites.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Comes with a <a href="https://merenlab.org/data/anvio-structure/chapter-I/"><b>reproducible bioinformatics workflow</b></a> that offers detailed access to computational steps used in the study that spans from metagenomic read recruitment and profiling to the integration of environmental variants and predicted protein structures.</span>
     </div>
     </div>
     <span class="pub-journal"> 📚 <b>Science Advances</b>, 9(8):eabq4632 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Structure-informed+microbial+population+genetics+elucidate+selective+pressures+that+shape+protein+evolution" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1126/sciadv.abq4632" target="_blank">doi:10.1126/sciadv.abq4632</a></span>

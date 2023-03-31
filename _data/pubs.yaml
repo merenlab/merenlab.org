@@ -13,13 +13,34 @@
 #     featured_image:
 
 - doi:
+    10.1101/2023.03.25.534219
+  title:
+    A highly conserved and globally prevalent cryptic plasmid is among the most numerous mobile genetic elements in the human gut
+  authors:
+    Emily C Fogarty, Matthew S Schechter, Karen Lolans, Madeline L Sheahan, Iva Veseli, Ryan Moore, Evan Kiefl, Thomas Moody, Phoebe A Rice, Michael K Yu, Mark Mimee, Eugene B Chang, Sandra L Mclellan, Amy D Willis, Laurie E Comstock, A Murat Eren
+  journal:
+    bioRxiv
+  year:
+    2023
+  volume:
+  number:
+  pages:
+  additional_info:
+    highlights:
+      - A study that describes one of the <b>most prevalent and numerous cryptic plasmid</b> in the gut microbiomes of people who live in the industrialized world that is composed of only two genes (for its own replication and mobilization) in its native form.
+      - Here is <a href="https://twitter.com/merenbey/status/1641557495725293570" target="_blank">a Twitter thread</a> that explains some of the interesting aspects of pBI143 ecology as well as the practical implications having <b>a human gut-specific and highly conserved genetic entity, copy-number of which responds to stress</b>.
+      - You can find the plasmid sequences, reproducible data items to re-investigate metagenomic read recruitment results, and bioinformatics workflows for population genetics of pBI143 <a href="/data/pBI143">here</a>.
+    featured_image:
+      /data/pBI143/images/pBI143_across_the_globe.png
+
+- doi:
     10.1038/s41564-022-01090-3
   read_link:
     https://rdcu.be/cKnTP
   title:
     Microbial metabolites in the marine carbon cycle
   authors:
-    Mary Ann Moran+, Elizabeth B. Kujawinski+, William F. Schroer, Shady A. Amin, Nicholas R. Bates, Erin M. Bertrand, Rogier Braakman, C. Titus Brown, Markus W. Covert, Scott C. Doney, Sonya T. Dyhrman, Arthur S. Edison, A. Murat Eren, Naomi M. Levine, Liang Li, Avena C. Ross, Mak A. Saito, Alyson E. Santoro, Daniel Segrè, Ashley Shade, Matthew B. Sullivan, Assaf Vardi
+    Mary Ann Moran+, Elizabeth B Kujawinski+, William F Schroer, Shady A Amin, Nicholas R Bates, Erin M Bertrand, Rogier Braakman, C Titus Brown, Markus W Covert, Scott C Doney, Sonya T Dyhrman, Arthur S Edison, A Murat Eren, Naomi M Levine, Liang Li, Avena C Ross, Mak A Saito, Alyson E Santoro, Daniel Segrè, Ashley Shade, Matthew B Sullivan, Assaf Vardi
   journal:
     Nature Microbiology
   year:
