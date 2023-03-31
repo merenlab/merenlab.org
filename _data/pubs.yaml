@@ -29,7 +29,7 @@
     highlights:
       - A study that describes one of the <b>most prevalent and numerous cryptic plasmid</b> in the gut microbiomes of people who live in the industrialized world that is composed of only two genes (for its own replication and mobilization) in its native form.
       - Here is <a href="https://twitter.com/merenbey/status/1641557495725293570" target="_blank">a Twitter thread</a> that explains some of the interesting aspects of pBI143 ecology as well as the practical implications having <b>a human gut-specific and highly conserved genetic entity, copy-number of which responds to stress</b>.
-      - You can find the plasmid sequences, reproducible data items to re-investigate metagenomic read recruitment results, and bioinformatics workflows for population genetics of pBI143 <a href="/data/pBI143">here</a>.
+      - You can find the plasmid sequences to look for pBI143 in your metagenomes, reproducible data items to re-investigate metagenomic read recruitment results, and bioinformatics workflows to elucidate population genetics of pBI143 <a href="/data/pBI143">here</a>.
     featured_image:
       /data/pBI143/images/pBI143_across_the_globe.png
 
