@@ -9,7 +9,6 @@ categories: [miscellaneous]
 comments: true
 ---
 
-{% include _toc.html %}
 
 The study [Hug](https://twitter.com/LAHug_) et al. published last week puts the genomic discoveries [Banfield group](http://geomicrobiology.berkeley.edu/) made during the last years into a striking contex with a beautiful title, ["A new view of the tree of life"](http://www.nature.com/articles/nmicrobiol201648):
 

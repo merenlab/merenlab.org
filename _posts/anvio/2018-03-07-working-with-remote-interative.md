@@ -10,7 +10,6 @@ authors: [ozcan]
 ---
 
 
-{% include _toc.html %}
 
 
 We had decided to use web browsers for our visualization needs in anvi'o from the get go. Which served us very well. Thanks to that decision, and our follow up decision to implement our visualization library from scratch, we were able to interactively work with tens of thousands of SVG objects even on a laptop computer. Kudos to all web browser developers out there who put a lot of effort into making browsers perform well, even for extreme cases of stress like the one anvi'o creates.
@@ -164,5 +163,5 @@ With this setup we can type `barhali` on our laptops to connect to our server ma
 
 Try it, and let us know how it went for you.
 
-If you have any questions find us on Slack, or send a comment down below.
+If you have any questions find us on Discord, or send a comment down below.
 

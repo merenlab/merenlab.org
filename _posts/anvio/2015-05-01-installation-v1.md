@@ -11,7 +11,6 @@ comments: true
 {: .notice}
 This installation manual is tailored for anvi'o <b>v1 branch</b>. We strongly urge you to <b>[install anvi'o v2]({% post_url anvio/2016-06-26-installation-v2 %})</b> instead.
 
-{% include _toc.html %}
 
 There are multiple ways to install anvi'o.
 

@@ -9,7 +9,6 @@ comments: true
 authors: [meren]
 ---
 
-{% include _toc.html %}
 
 
 {:.notice}

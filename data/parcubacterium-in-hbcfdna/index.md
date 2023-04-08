@@ -6,7 +6,6 @@ excerpt: "A re-analysis effort on Kowarsky et al study"
 comments: true
 ---
 
-{% include _toc.html %}
 
 <div class="extra-info" markdown="1">
 
@@ -19,9 +18,9 @@ The acronym **HBCFDNA** serves as a reminder that this one is coming from **h**u
 </div>
 
 
-If you have any questions, please feel free to leave a comment down below, send an e-mail to [us]({{ site.url }}/people/), or get in touch with other anvians through Slack:
+If you have any questions, please feel free to leave a comment down below, send an e-mail to [us]({{ site.url }}/people/), or get in touch with other anvians through Discord:
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 Findings on this page are now published in the following peer-reviewed study:
 
@@ -359,8 +358,7 @@ We then downloaded anvi'o contigs databases for all CPR genomes published in the
 
 ``` bash
 # downlaod the archive
-wget https://ndownloader.figshare.com/files/9337477 \
-     -O ANVIO_CONTIG_DBs_for_BROWN_et_al_CPRs.tar.gz
+curl -L https://ndownloader.figshare.com/files/9337477 -o ANVIO_CONTIG_DBs_for_BROWN_et_al_CPRs.tar.gz
 
 # unpack it
 tar -zxvf ANVIO_CONTIG_DBs_for_BROWN_et_al_CPRs.tar.gz

@@ -6,6 +6,9 @@ comments: false
 excerpt: "A guide for new and current members of our group"
 ---
 
+{:.warning}
+**A note from around September 2022**: This document took its shape while our group was at the University of Chicago, United States. Now we are in Germany, and living through the infamous COVID times, it needs an update. But the update will wait for our group in Germany to reach a critical mass. It is still available on this page since it should still be able to give those who are interested some insights into our values and practices.
+
 {% include _toc.html %}The purpose of this document is to serve future members of our group about its professional inner dynamics, and offer a resource for its current members to remember the important professional things we care about.
 <blockquote>
 Study hard what interests you the most, in the most undisciplined, irreverent, and original manner possible.

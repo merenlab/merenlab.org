@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Refining Metagenome-Assembled Genomes
-modified: 2019-01-15
+modified: 2020-04-15
 excerpt: "Refining oral MAGs from Espinoza et al 2018"
 comments: true
 redirect_from:
@@ -10,7 +10,6 @@ redirect_from:
 
 ---
 
-{% include _toc.html %}
 
 
 <div class="extra-info" markdown="1">
@@ -38,21 +37,21 @@ The [doi:10.1128/mBio.00725-19](http://doi.org/10.1128/mBio.00725-19) serves the
 
 In addition to demonstrate a step-by-step MAG refinement, we wish to contribute to Espinoza et al.'s study by reporting **cleaned verisons of some of their key MAGs that will likely be of great interest to the oral microbiome community due to their originality**. The following list reports the FASTA files for the refined Espinoza et al. MAGs that belong to candidate phyla radiation:
 
-* **Gracilibacteria (formerly GN02)**: [GN02 MAG.IV.B.1](/data/refining-espinoza-mags/files/GN02_MAG_IV_B_1-contigs.fa) and [GN02 MAG.IV.B.2](/data/refining-espinoza-mags/files/GN02_MAG_IV_B_2-contigs.fa) (*refined from Espinoza et al. MAG IV.B*).
-* **Saccharibacteria (formerly TM7)**: [TM7 MAG.III.A.1](/data/refining-espinoza-mags/files/TM7_MAG_III_A_1-contigs.fa) and [TM7 MAG.III.A.2](/data/refining-espinoza-mags/files/TM7_MAG_III_A_2-contigs.fa) (*refined from Espinoza et al. MAG III.A*); [TM7 MAG III.B.1](/data/refining-espinoza-mags/files/TM7_MAG_III_B_1-contigs.fa) (*refined from Espinoza et al. MAG III.B*). [TM7 MAG.III.C.1](/data/refining-espinoza-mags/files/TM7_MAG_III_C_1-contigs.fa) (*refined from Espinoza et al. MAG III.C*). 
-* **Absconditabacteria (formerly SR1)**: [SR1 MAG.IV.A.1](/data/refining-espinoza-mags/files/SR1_MAG_IV_A_1-contigs.fa) and [SR1 MAG.IV.A.2](/data/refining-espinoza-mags/files/SR1_MAG_IV_A_2-contigs.fa) (*refined from Espinoza et al. MAG IV.A; **Note:** MAG IV.A was annotated as GN2 although a phylogenomic analysis using ribosomal proteins affiliates it with SR1*).
+* **Gracilibacteria (formerly GN02)**: [GN02 MAG.IV.B.1](/data/refining-mags/files/GN02_MAG_IV_B_1-contigs.fa) and [GN02 MAG.IV.B.2](/data/refining-mags/files/GN02_MAG_IV_B_2-contigs.fa) (*refined from Espinoza et al. MAG IV.B*).
+* **Saccharibacteria (formerly TM7)**: [TM7 MAG.III.A.1](/data/refining-mags/files/TM7_MAG_III_A_1-contigs.fa) and [TM7 MAG.III.A.2](/data/refining-mags/files/TM7_MAG_III_A_2-contigs.fa) (*refined from Espinoza et al. MAG III.A*); [TM7 MAG III.B.1](/data/refining-mags/files/TM7_MAG_III_B_1-contigs.fa) (*refined from Espinoza et al. MAG III.B*). [TM7 MAG.III.C.1](/data/refining-mags/files/TM7_MAG_III_C_1-contigs.fa) (*refined from Espinoza et al. MAG III.C*).
+* **Absconditabacteria (formerly SR1)**: [SR1 MAG.IV.A.1](/data/refining-mags/files/SR1_MAG_IV_A_1-contigs.fa) and [SR1 MAG.IV.A.2](/data/refining-mags/files/SR1_MAG_IV_A_2-contigs.fa) (*refined from Espinoza et al. MAG IV.A; **Note:** MAG IV.A was annotated as GN2 although a phylogenomic analysis using ribosomal proteins affiliates it with SR1*).
 
 </div>
 
 
-If you have any questions, please feel free to leave a comment down below, send an e-mail to [us]({{ site.url }}/people/), or get in touch with other anvians through Slack:
+If you have any questions, please feel free to leave a comment down below, send an e-mail to [us]({{ site.url }}/people/), or get in touch with other anvians through Disord:
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 
 ## Introduction
 
-So you’ve constructed MAGs, and would like to see if there are opportunities for refinement. Great. This tutorial will walk you through an example. We will demonstrate steps that we commonly take to manually refine MAGs we report. Even if refinement of *every* MAG is not possible, as you will see this is a labor-intensive process, refining critical MAGs may help you and others to prevent misleading insights. 
+So you’ve constructed MAGs, and would like to see if there are opportunities for refinement. Great. This tutorial will walk you through an example. We will demonstrate steps that we commonly take to manually refine MAGs we report. Even if refinement of *every* MAG is not possible, as you will see this is a labor-intensive process, refining critical MAGs may help you and others to prevent misleading insights.
 
 We will walk through this analysis using a specific set of **genomes** and **metagenomes**, but you can simply replace these data with yours and follow the same workflow. All you need is this: one or more FASTA files and one or more metagenomes.
 
@@ -240,7 +239,7 @@ So here are the final bins (now with nicer names too. You can change the names o
 [![refine_final](images/refine_final.png)](images/refine_final.png){:.center-img .width-60}
 
 
-We repeated this refinement process for the rest of the Espinoza et al. CPR bins (GN02 MAG IV.A TM7 MAG III.A TM7 MAG III.B TM7 MAG III.C), to get refined MAGs (to get these refinement results go to [the section below](http://localhost:4000/data/refining-espinoza-mags/#getting-finalized-views-and-statistics-for-the-genomes-we-refined)).
+We repeated this refinement process for the rest of the Espinoza et al. CPR bins (GN02 MAG IV.A TM7 MAG III.A TM7 MAG III.B TM7 MAG III.C), to get refined MAGs (to get these refinement results go to [the section below](/data/refining-mags/#getting-finalized-views-and-statistics-for-the-genomes-we-refined)).
 
 But we don't stop here. Next, we will discuss the various ways in which we scrutinize our MAGs.
 
@@ -417,7 +416,7 @@ Alternatively, you can skip this part, and apply the approach we describe to you
 You can download raw Illumina paired-end seqeuncing data files for the 88 supragingival plaque samples into your work directory the following way:
 
 ``` bash
-wget http://merenlab.org/data/refining-espinoza-mags/files/SRR_list.txt
+wget http://merenlab.org/data/refining-mags/files/SRR_list.txt
 
 for SRR_accession in `cat SRR_list.txt`; do
     fastq-dump --outdir 01_RAW_FASTQ \
@@ -463,7 +462,7 @@ wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/003/638/805/GCA_003638805.1_ASM3
      -O 01_FASTA/GN02_MAG_IV_B.fa.gz
 ```
 
---- 
+---
 
 Before we go into refining we wish to take a look at the individual fasta files. To do that we use the contigs database, which allows us to annotate each fasta file and compute some basic statistics such as redundancy and completion based on single-copy core genes.
 
@@ -484,7 +483,7 @@ In order to create a merged FASTA file, we first wish to rename the headers in e
 You can download this file by running the following command:
 
 ```bash
-wget http://merenlab.org/data/refining-espinoza-mags/files/ESPINOZA-MAGS-FASTA.txt
+wget http://merenlab.org/data/refining-mags/files/ESPINOZA-MAGS-FASTA.txt
 ```
 
 Here is a look into this file:
@@ -513,7 +512,7 @@ In addition, we used the following config file CONTIGS-CONFIG.json:
 You can download this file by running the following command:
 
 ```bash
-wget http://merenlab.org/data/refining-espinoza-mags/files/CONTIGS-CONFIG.json
+wget http://merenlab.org/data/refining-mags/files/CONTIGS-CONFIG.json
 ```
 
 We used the contigs workflow to just re-format these FASTA files:
@@ -609,7 +608,7 @@ We named our `collections_txt` ESPINOZA-COLLECTIONS-FILE.txt.
 You can download this file to your work directory:
 
 ```bash
-wget http://merenlab.org/data/refining-espinoza-mags/files/ESPINOZA-COLLECTIONS-FILE.txt
+wget http://merenlab.org/data/refining-mags/files/ESPINOZA-COLLECTIONS-FILE.txt
 ```
 
 ```bash
@@ -631,7 +630,7 @@ First we will describe all the necesary files for the workflow.
 One of the key input files to start the run is the `samples.txt`. You can downlaod our `samples.txt` file into your work directory:
 
 ``` bash
-wget http://merenlab.org/data/refining-espinoza-mags/files/samples.txt
+wget http://merenlab.org/data/refining-mags/files/samples.txt
 ```
 
 Here is a glimpse at its contents:
@@ -668,7 +667,7 @@ And edited it to instruct the workflow manager to,
 You can download our config file `ESPINOZA-METAGENOMICS-CONFIG.json` into your work directory:
 
 ``` bash
-wget http://merenlab.org/data/refining-espinoza-mags/files/ESPINOZA-METAGENOMICS-CONFIG.json
+wget http://merenlab.org/data/refining-mags/files/ESPINOZA-METAGENOMICS-CONFIG.json
 ```
 
 The content of which should look like this:
@@ -820,8 +819,8 @@ You can get the collection files in the following way:
 
 ```bash
 for g in GN02_MAG_IV_A GN02_MAG_IV_B TM7_MAG_III_A TM7_MAG_III_B TM7_MAG_III_C; do
-    wget http://merenlab.org/data/refining-espinoza-mags/files/$g-default-collection.txt
-    wget http://merenlab.org/data/refining-espinoza-mags/files/$g-default-collection-info.txt
+    wget http://merenlab.org/data/refining-mags/files/$g-default-collection.txt
+    wget http://merenlab.org/data/refining-mags/files/$g-default-collection-info.txt
 done
 ```
 
@@ -843,7 +842,7 @@ You can download the default states in the following way:
 
 ```bash
 for g in GN02_MAG_IV_A GN02_MAG_IV_B TM7_MAG_III_A TM7_MAG_III_B TM7_MAG_III_C; do
-    wget http://merenlab.org/data/refining-espinoza-mags/files/$g-default-state.json
+    wget http://merenlab.org/data/refining-mags/files/$g-default-state.json
 done
 ```
 
@@ -973,7 +972,7 @@ TM7x_GCA_000803625_1 | GCA_000803625.1 | ftp://ftp.ncbi.nlm.nih.gov/genomes/all/
 You can downloade this table:
 
 ```bash
-wget http://merenlab.org/data/refining-espinoza-mags/files/ref-genomes.txt
+wget http://merenlab.org/data/refining-mags/files/ref-genomes.txt
 ```
 
 And then to download the genomes simply run:
@@ -1028,7 +1027,7 @@ We used the following config file PHYLOGENY-CONFIG.json:
 You can download it:
 
 ```bash
-wget http://merenlab.org/data/refining-espinoza-mags/files/PHYLOGENY-CONFIG.json
+wget http://merenlab.org/data/refining-mags/files/PHYLOGENY-CONFIG.json
 ```
 
 The external and internal genomes files are used for anvi-get-sequences-for-hmms-hits. The external genomes file will be generated automatically by the workflow, but we need to provide the internal genomes file.
@@ -1036,7 +1035,7 @@ The external and internal genomes files are used for anvi-get-sequences-for-hmms
 You can download the external genomes file:
 
 ```bash
-wget http://merenlab.org/data/refining-espinoza-mags/files/INTERNAL-GENOMES-PHYLOGENOMICS.txt
+wget http://merenlab.org/data/refining-mags/files/INTERNAL-GENOMES-PHYLOGENOMICS.txt
 ```
 
 And this is what it look like:
@@ -1068,12 +1067,12 @@ The purpose of this section is to provide the steps to generate the pangenomes t
 To download the internal genomes files that we used:
 
 ```bash
-wget http://merenlab.org/data/refining-espinoza-mags/files/SR1_UNREFINED-GENOMES.txt
-wget http://merenlab.org/data/refining-espinoza-mags/files/SR1_REFINED-GENOMES.txt
-wget http://merenlab.org/data/refining-espinoza-mags/files/GN02_UNREFINED-GENOMES.txt
-wget http://merenlab.org/data/refining-espinoza-mags/files/GN02_REFINED-GENOMES.txt
-wget http://merenlab.org/data/refining-espinoza-mags/files/TM7_UNREFINED-GENOMES.txt
-wget http://merenlab.org/data/refining-espinoza-mags/files/TM7_REFINED-GENOMES.txt
+wget http://merenlab.org/data/refining-mags/files/SR1_UNREFINED-GENOMES.txt
+wget http://merenlab.org/data/refining-mags/files/SR1_REFINED-GENOMES.txt
+wget http://merenlab.org/data/refining-mags/files/GN02_UNREFINED-GENOMES.txt
+wget http://merenlab.org/data/refining-mags/files/GN02_REFINED-GENOMES.txt
+wget http://merenlab.org/data/refining-mags/files/TM7_UNREFINED-GENOMES.txt
+wget http://merenlab.org/data/refining-mags/files/TM7_REFINED-GENOMES.txt
 ```
 
 Let's look at two of these for example:

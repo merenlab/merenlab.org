@@ -13,7 +13,6 @@ image:
     feature: export-locus-sketch.png
 ---
 
-{% include _toc.html %}
 
 {:.warning}
 This tutorial is for `v6` and later versions of anvi'o. You can identify which version you have on your computer by typing `anvi-self-test --version` in your terminal.
@@ -37,7 +36,7 @@ If you are using [external gene calls](https://github.com/merenlab/anvio/issues/
 </div>
 
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 ## Downloading _E. coli_ genomes
 
@@ -163,4 +162,4 @@ Here is a visual representation of how `flank-mode` cuts out a locus using flank
 
 We hope you find amazing applications for this tool. If you have a suggestion or question please do not hesitate to contact us. Also, please report any bugs as an issue on the anvi'o [Github repository](https://github.com/merenlab/anvio).
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}

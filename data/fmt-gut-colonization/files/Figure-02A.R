@@ -1,9 +1,6 @@
 library(tidyverse)
 library(cowplot)
 
-
-setwd("/Users/andrea/github/web/data/fmt-gut-colonization/files")
-
 # THEME -------------------------------------------------------------------
 
 my_theme <- function () {
@@ -64,6 +61,15 @@ plot_detection_vs_prevalence <- function(df_path) {
 A_DA <- plot_detection_vs_prevalence("mean-detection-vs-prevalence-DA.txt")
 A_DB <- plot_detection_vs_prevalence("mean-detection-vs-prevalence-DB.txt")
 
-A <- plot_grid(A_DA, A_DB, nrow=1)
+# make column titles
+title1 <- ggdraw() + draw_label("Donor A", fontface='bold')
+title2 <- ggdraw() + draw_label("Donor B", fontface='bold')
+
+# make columns
+col1 <- plot_grid(title1, A_DA, ncol=1, rel_heights = c(0.1,1))
+col2 <- plot_grid(title2, A_DB, ncol=1, rel_heights = c(0.1,1))
+
+# put together
+A <- plot_grid(col1, col2, nrow=1)
 
 ggsave("Figure_02A.pdf", A, width=6, height=3, units="in")

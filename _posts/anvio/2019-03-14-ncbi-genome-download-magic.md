@@ -8,7 +8,6 @@ comments: true
 authors: [alon, meren]
 ---
 
-{% include _toc.html %}
 
 {:.notice}
 This tutorial was written using anvi'o `v5.4`.
@@ -17,7 +16,7 @@ We often need to mix new genomes (whether they are isolate, single-cell, or meta
 
 The purpose of this tutorial is to describe a flexible workflow to download genomes from the NCBI and process them with anvi'o. If you have any questions, please get in touch with us and/or other anvians:
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 The tutorial will primarily walk you through the steps of downloading genomes of interest from the NCBI (using [ncbi-genome-download](https://github.com/kblin/ncbi-genome-download) by [Kai Blin](https://twitter.com/kaiblin)), processing NCBI GenBank files (using [anvi-script-process-genbank-metadata](http://merenlab.org/software/anvio/vignette/#anvi-script-process-genbank-metadata)) to get anvi'o compatible files, and running anvi'o [contigs workflow](http://merenlab.org/2018/07/09/anvio-snakemake-workflows/#contigs-workflow) to generate a contigs database for each of these genomes (using [anvi-run-workflow](http://merenlab.org/software/anvio/vignette/#anvi-run-workflow)).
 

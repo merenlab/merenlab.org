@@ -5,7 +5,8 @@ modified: 2015-02-02T20:53:07.573882-04:00
 comments: false
 excerpt: "An overview of research interests and directions in our lab."
 image:
-   thumb: holistic-flow.png
+   display: true
+   feature: nobska.jpg
 ---
 
 {% include _toc.html %}
@@ -136,6 +137,21 @@ Some vocabulary we try to use, and promote as much as we can (for more, see our 
 
 - *Anything else* to describe microbes that are not yet characterized, *instead of* "**microbial dark matter**". [Just stop it]({% post_url miscellaneous/2017-06-22-microbial-dark-matter %}). [Please](https://twitter.com/merenbey/status/907708177403322368).
 
-
 If you believe we need corrections, please don't hesitate to [write to us]({{site.url}}/people/) :)
 
+## Thanks
+
+Since the inception of our group at the University of Chicago, we were supported by the University start-up funds, private donors, foundations, and government agencies. We are very thankful for their trust.
+
+<div style="text-align: center;">
+<a href="http://uchicago.edu/"><img src="/images/uchicago-mbl.png" id="funding-logo" /></a>
+<a href="http://wmkeck.org/"><img src="{{ site.url }}/images/funding/keck_foundation.png" id="funding-logo"></a>
+<a href="https://www.simonsfoundation.org/"><img src="{{ site.url }}/images/funding/simons_foundation.png" id="funding-logo"></a> 
+<a href="https://sloan.org/"><img src="{{ site.url }}/images/funding/alfred_p_sloan_foundation.png" id="funding-logo"></a> 
+<a href="https://giresearchfoundation.org/"><img src="{{ site.url }}/images/funding/girf.png" id="funding-logo"></a> 
+<a href="http://nih.gov"><img src="{{ site.url }}/images/funding/nih.png" id="funding-logo"></a>
+<img src="{{ site.url }}/images/funding/mutchnik.png" id="funding-logo"> 
+<a href="https://dfi.uchicago.edu/"><img src="{{ site.url }}/images/funding/dfi.png" id="funding-logo"></a>
+<a href="https://cdac.uchicago.edu/"><img src="{{ site.url }}/images/funding/cdac.png" id="funding-logo"></a> 
+<a href="http://face-foundation.org/thomas-jefferson-fund/"><img src="{{ site.url }}/images/funding/thomas_jefferson.gif" id="funding-logo"></a> 
+<a href="https://fcc.uchicago.edu/"><img src="{{ site.url }}/images/funding/faccts.png" id="funding-logo"></a></div>

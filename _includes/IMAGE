@@ -1,0 +1,2 @@
+<p><a href="{{ include.path }}" class="center-img {% if include.width %}width-{{ include.width }}{% else %}width-60{% endif %} image-popup"><img src="{{ include.path }}" alt="{% if include.title %}{{ include.title }}{% else %}{% endif %}" title="{% if include.title %}{{ include.title }}{% else %}{% endif %}" loading="lazy"></a></p>
+{% if include.caption %}<p class="center-img figure-caption" style="width:{% if include.width %}{{ include.width }}{% else %}60{% endif %}%" markdown="1">{{ include.caption }}</p>{% else %}{% endif %}

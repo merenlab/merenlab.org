@@ -12,7 +12,6 @@ image:
   display: false
 ---
 
-{% include _toc.html %}
 
 {% capture images %}{{site.url}}/images/miscellaneous/2017-08-23-CPR-in-blood{% endcapture %}
 

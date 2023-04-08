@@ -14,7 +14,6 @@ image:
 
 {% capture images %}{{site.url}}/images/miscellaneous/2017-01-03-loki-the-link-archaea-eukaryota{% endcapture %}
 
-{% include _toc.html %}
 
 It has been in my to-do list for many months now, but I just finally was able to take the time to explore the composite genome *Lokiarchaeum* sp. GC14_75.
 

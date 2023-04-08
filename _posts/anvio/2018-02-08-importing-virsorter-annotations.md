@@ -11,7 +11,6 @@ authors: [bryan]
 
 {% capture images %}{{site.url}}/images/anvio/2018-02-08-working-with-VirSorter{% endcapture %}
 
-{% include _toc.html %}
 
 {:.notice}
 **A note from the Meren Lab**: We are very thankful to Bryan for sharing his expertise on behalf of all anvi’o users who wished to know more about the phages lurking in their metagenomes using [VirSorter](https://doi.org/10.7717/peerj.985). Bryan is currently a PhD Candidate in the [Sonnenburg Lab](http://sonnenburglab.stanford.edu/), Stanford University School of Medicine.
@@ -179,8 +178,8 @@ This will generate an output file called `splits_basic_info.txt` file, which we 
 If you want to also generate gene-level annotations for hallmark genes and import those into anvi'o (think capsid proteins, terminases, etc.) then you'll need to also run this command to export your gene calls from your anvi'o contigs database:
 
 ``` bash
-anvi-anvi-export-gene-calls -c CONTIGS.db \
-                  -o all_gene_calls.txt
+anvi-export-gene-calls -c CONTIGS.db \
+                       -o all_gene_calls.txt
 ```
 
 

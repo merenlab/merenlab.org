@@ -10,7 +10,6 @@ redirect_from:
 
 ---
 
-{% include _toc.html %}
 
 {% capture images %}{{site.url}}/data/sar11-saavs/images{% endcapture %}
 

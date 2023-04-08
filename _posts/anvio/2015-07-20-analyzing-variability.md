@@ -7,7 +7,9 @@ modified: 2016-07-21
 tags: []
 categories: [anvio]
 comments: true
-redirect_from: /mpg/
+redirect_from:
+ - /mpg/
+ - /analyzing-genetic-varaibility/
 ---
 
 {:.notice}
@@ -25,7 +27,6 @@ gain insight into ecologically-linked patterns of micro-diversity on a global sc
 {:.notice}
 We thank [Rika Anderson](https://twitter.com/RikaEAnderson) for carefully reading this tutorial, and embarrassing us by fixing our mistakes multiple times.
 
-{% include _toc.html %}
 
 We use the term "**population**" to describe an assemblage of co-existing microbial genomes in an environment that are similar enough to map to the context of the same reference genome.
 

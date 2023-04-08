@@ -9,8 +9,6 @@ image:
   feature: feature-infant-gut-tutorial.png
 ---
 
-{% include _toc.html %}
-
 {:.notice}
 The version number of this tutorial is `1.0`, and for now it is tailored for Illumina paired-end shotgun sequencing with large inserts (i.e., no substantial overlap between two reads in a given pair).
 

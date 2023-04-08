@@ -9,7 +9,6 @@ categories: [miscellaneous]
 comments: true
 ---
 
-{% include _toc.html %}
 
 ## Completion and redundancy
 

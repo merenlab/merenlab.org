@@ -19,25 +19,27 @@ image:
 {: .notice}
 This feature is available in anvi'o <b>`v2.3.3` or later</b>. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal.
 
-{% include _toc.html %}
+# TL;DR
 
-In most cases, getting ribosomal RNA genes out of isolate or metagneome-assembled genomes is not as straightforward as one would like. Gene callers usually don't perform well when it comes to identifying 16S or 23S rRNA genes, and using primer sequences for these regions is not exactly 2017. We added a new feature in anvi'o that reduces down all these to two command lines:
+In most cases, getting ribosomal RNA genes out of isolate or metagneome-assembled genomes is not as straightforward as one would like. Gene callers usually don't perform well when it comes to identifying 16S or 23S rRNA genes, and using primer sequences to find these regions in genomes is too 2005. Luckily in anvi'o you can accomplish exactly that using these three anvi'o programs that work in tandem: {% include PROGRAM name="anvi-gen-contigs-database" %}, {% include PROGRAM name="anvi-run-hmms" %}, and {% include PROGRAM name="anvi-get-sequences-for-hmm-hits" %}. For any given FASTA file, it will work like this:
 
 ``` bash
-anvi-script-FASTA-to-contigs-db GENOME.fa
-anvi-get-sequences-for-hmm-hits -c GENOME.db --hmm-source Ribosomal_RNAs
+anvi-gen-contigs-database -f GENOME.fa -o GENOME.db
+anvi-run-hmms -c GENOME.db
+anvi-get-sequences-for-hmm-hits -c GENOME.db --hmm-source Ribosomal_RNA_16S
 ```
 
 So you can spend more time on the next thing on your bottomless TODO list.
 
+Please note that you can use the program {% include PROGRAM name="anvi-db-info" %} on any {% include ARTIFACT name="contigs-db" %} to learn about different "HMM sources" to go with the `--hmm-source` parameter.
 
-## Preface
+## TL
 
-We always wanted to be able to show rRNA genes in our anvi'o displays. 
+We always wanted to be able to show rRNA genes in our anvi'o displays.
 
 Although genes with many conserved regions such as the 16S rRNA gene often fail to remain in our assemblies, some of our bins did contain these genes occasionally. In those cases, while you work with your bins, of course it would have been lovely to see contigs that happen to contain rRNA genes, and maybe get those sequences and quickly BLAST them, etc.
 
-Thanks to [Torsten Seemann](https://twitter.com/torstenseemann){:target="_blank"}'s previous efforts for [Barrnap](https://github.com/tseemann/barrnap/tree/master/db){:target="_blank"}, we now have an operational HMM collection for rRNA genes.
+Thanks to [Torsten Seemann](https://twitter.com/torstenseemann){:target="_blank"}'s previous efforts for [Barrnap](https://github.com/tseemann/barrnap/tree/master/db){:target="_blank"}, we now have an operational HMM collection for rRNA genes (not perfect, but muuuuch better than nothing).
 
 You will find in this post how to work with the HMM profile Ribosomal RNAs in anvi'o to get rRNA genes from a single FASTA file, or from anvi'o projects. There is also some technical blurb at the end of the post if you have too much time in your hands.
 
@@ -63,35 +65,6 @@ Fine. Now we have a contigs database. The next step is to run HMM profiles, whic
 
 ``` bash
 $ anvi-run-hmms -c B_fragilis.db --num-threads 10
-(...)
-HMM Profiling for Ribosomal_RNAs
-===============================================
-Reference ....................................: Seeman T, https://github.com/tseemann/barrnap
-Kind .........................................: Ribosomal_RNAs
-Alphabet .....................................: RNA
-Context ......................................: CONTIG
-Domain .......................................: N\A
-HMM model path ...............................: /Users/meren/github/anvio/anvio/data/hmm/Ribosomal_RNAs/genes.hmm.gz
-Number of genes ..............................: 12
-Number of CPUs will be used for search .......: 10
-Temporary work dir ...........................: /var/folders/x5/gt4031w53fs63csv1fp0r_3w0000gn/T/tmpbf6ur4j2
-HMM scan output ..............................: /var/folders/x5/gt4031w53fs63csv1fp0r_3w0000gn/T/tmpbf6ur4j2/hmm.output
-HMM scan hits ................................: /var/folders/x5/gt4031w53fs63csv1fp0r_3w0000gn/T/tmpbf6ur4j2/hmm.hits
-Log file .....................................: /var/folders/x5/gt4031w53fs63csv1fp0r_3w0000gn/T/tmpbf6ur4j2/00_log.txt
-Number of raw hits ...........................: 18
-
-Psst. Your fancy HMM profile 'Ribosomal_RNAs' speaking
-===============================================
-Alright! You just called an HMM profile that runs on contigs. Becuse it is not
-working with anvio gene calls directly, the resulting hits will need tobe added
-as 'new gene calls' into the contigs database. This is a new feature, and if it
-starts screwing things up for you please let us know. Other than that you are
-pretty much golden. Carry on.
-
-Contigs with at least one gene call ..........: 2 of 2 (100.0%)
-Gene calls added to db .......................: 18 (from source "Ribosomal_RNAs")
-
-(...)
 ```
 
 Done! Now you can do all sorts of fancy stuff. Let's get the 16S rRNA gene sequences:
@@ -101,38 +74,36 @@ Done! Now you can do all sorts of fancy stuff. Let's get the 16S rRNA gene seque
 $ anvi-get-sequences-for-hmm-hits -c B_fragilis.db \
                                   --list-hmm-sources
                                   
-* Campbell_et_al [type: singlecopy] [num genes: 139]
-* Ribosomal_RNAs [type: Ribosomal_RNAs] [num genes: 12]
-* Rinke_et_al [type: singlecopy] [num genes: 162]
-
-# taking a look at the available gene names in Ribosomal_RNAs
-$ anvi-get-sequences-for-hmm-hits -c B_fragilis.db \
-                                  --hmm-source Ribosomal_RNAs \
-                                  --list-available-gene-names
-                                  
-* Ribosomal_RNAs [type: Ribosomal_RNAs]: Archaeal_23S_rRNA, Archaeal_5S_rRNA,
-Archaeal_5_8S_rRNA, Bacterial_16S_rRNA, Bacterial_23S_rRNA, Bacterial_5S_rRNA,
-Eukaryotic_28S_rRNA, Eukaryotic_5S_rRNA, Eukaryotic_5_8S_rRNA,
-Mitochondrial_12S_rRNA, Mitochondrial_16S_rRNA, Archaeal_16S_rRNA
+AVAILABLE HMM SOURCES
+===============================================
+* 'Archaea_76' (76 models with 70 hits)
+* 'Bacteria_71' (71 models with 147 hits)
+* 'Protista_83' (83 models with 116 hits)
+* 'Ribosomal_RNA_12S' (1 model with 0 hits)
+* 'Ribosomal_RNA_16S' (3 models with 7 hits)
+* 'Ribosomal_RNA_18S' (1 model with 0 hits)
+* 'Ribosomal_RNA_23S' (2 models with 7 hits)
+* 'Ribosomal_RNA_28S' (1 model with 0 hits)
+* 'Ribosomal_RNA_5S' (5 models with 0 hits)
 
 # getting back sequences for 16S rRNA genes
 $ anvi-get-sequences-for-hmm-hits -c B_fragilis.db \
-                                  --hmm-source Ribosomal_RNAs \
-                                  --gene Bacterial_16S_rRNA \
+                                  --hmm-source Ribosomal_RNA_16S \
                                   -o sequences.fa
-Auxiliary Data ...............................: Found: B_fragilis.db (v. 1)
-Contigs DB ...................................: Initialized: B_fragilis.db (v. 8)
-Hits .........................................: 18 hits for 1 source(s)
-Filtered hits ................................: 6 hits remain after filtering for 1 gene(s)
-Mode .........................................: DNA seqeunces
+
+Contigs DB ...................................: Initialized: B_fragilis.db (v. 20)
+Sources ......................................: Ribosomal_RNA_16S
+Hits .........................................: 2 HMM hits for 1 source(s)
+Genes of interest ............................: None
+Mode .........................................: DNA sequences
 Genes are concatenated .......................: False
 Output .......................................: sequences.fa
 ```
- 
+
 So far so good. One of the sequences in the file is this:
 
 ```
->Bacterial_16S_rRNA___Ribosomal_RNAs___823984|bin_id:B_fragilis|source:Ribosomal_RNAs|e_value:0|contig:c_000000000001|gene_callers_id:4360|start:3205534|stop:3207058|length:1524
+>16S_rRNA_arc___Ribosomal_RNA_16S___299d9f bin_id:B_fragilis|source:Ribosomal_RNA_16S|e_value:1.3e-239|contig:c_000000000001|gene_callers_id:10291|start:3137169|stop:3138643|length:1474
 AGGAGGTGTTCCAGCCGCACCTTCCGGTACGGCTACCTTGTTACGACTTAGCCCCAGTCACCAGTTTTACCCTAGGACGATCCTTGCGGTTACGTACTTCAGGTACCCCCGGCTCCCATG
 GCTTGACGGGCGGTGTGTACAAGGCCCGGGAACGTATTCACCGCGCCGTGGCTGATGCGCGATTACTAGCGAATCCAGCTTCACGAAGTCGGGTTGCAGACTTCGATCCGAACTGAGAGA
 GGATTTTGGGATTAGCATACGGTCACCCGCTAGCTGCCTTCTGTACCCCCCATTGTAACACGTGTGTAGCCCCGGACGTAAGGGCCGTGCTGATTTGACGTCATCCCCACCTTCCTCACA
@@ -166,10 +137,10 @@ tar -zxvf INFANT-GUT-TUTORIAL.tar.gz
 cd INFANT-GUT-TUTORIAL
 
 # run HMMs for the new profile
-anvi-run-hmms -c CONTIGS.db --installed-hmm-profile Ribosomal_RNAs
+anvi-run-hmms -c CONTIGS.db
 ```
 
-Alright! 
+Alright!
 
 Now we run the interactive interface,
 
@@ -196,15 +167,13 @@ We hope this is useful to you, and please feel free to send any questions to our
 
 Here are some technical stuff for archival purposes. You clearly don't need to read this if you are not interested.
 
-### Why not before?
+### Torsten HMMs to anvi'o HMMs
 
-We always wanted to report rRNA genes in contigs, but our major problem was not being able to identify them as proper gene calls (even when they were assembled properly, which is quite problematic within itself). For instance, if you have a 16S rRNA gene somewhere, Prodigal often reports multiple short and inaccurate gene fragments for it. Which makes it impossible to annotate those fragments accurately, or use them for anything.
-
-In his [Barrnap repository](https://github.com/tseemann/barrnap/tree/master/db){:target="_blank"}, [Torsten Seemann](https://twitter.com/torstenseemann){:target="_blank"} has a nice collection of HMMs for rRNAs for bacteria, archaea, and eukarya (thank you very much for putting these together, Torsten!). So we could essentially use his collections to extend anvi'o's HMM profiles, which is quite flexible. We did it, and [added the new profile into our repository](https://github.com/merenlab/anvio/tree/master/anvio/data/hmm/Ribosomal_RNAs){:target="_blank"}, but there were multiple other problems along the way.
+For posterity, [this file](https://github.com/merenlab/anvio/blob/master/anvio/data/Ribosomal_RNA_HMMs_README.md) how we reformatted HMMs from the Barrnap repository.
 
 ### Design issues
 
-We had designed anvi'o's HMM framework to work with gene calls. For instance, when a new contigs database is generated, first Prodigal identifies all the gene calls (unless the user has used `--external-gene-calls` directive to provide their own gene calls), and then AA sequences for gene calls are handed over to another anvi'o module `anvi-run-hmms` uses to search for HMM profiles, say, to identify single-copy core genes. When we wanted to work with rRNA HMMs, we run into three major problems;
+We had designed the anvi'o framework for HMMs to work with gene calls. For instance, when a new contigs database is generated, first Prodigal identifies all the gene calls (unless the user has used `--external-gene-calls` directive to provide their own gene calls), and then AA sequences for gene calls are handed over to another anvi'o module `anvi-run-hmms` uses to search for HMM profiles, say, to identify single-copy core genes. When we wanted to work with rRNA HMMs, we run into three major problems;
 
 1. Torsten's HMM profiles for rRNAs were obviously in RNA alphabet, so we needed to hand over sequences in RNA alphabet to the anvi'o module that was used to working with AA sequences,
 
@@ -219,68 +188,3 @@ First, we added a new property to the standard anvi'o HMM profile files: `target
 We also extended our design to do create new gene calls in the contigs db based on results that are returned from an HMM profile that uses contig sequences. These additions are fully extensible, so if you come up with your own collection of, say, antibiotic-resistance genes, they should work seamlessly. All you need to do is to mimic one of the already-working HMM profiles in the database.
 
 Then we decided to display rRNA gene calls in 'red', instad of 'green' or 'gray', in the inspection pages of the interactive interface. These take some serious coding, but anvi'o is very flexible, and adding features more fun than a nightmare.
-
-### Torsten HMMs to anvi'o HMMs
-
-Just for archival purposes, these are the steps I used to reformat Torsten's files to convert them into a proper anvi'o HMM profile on my Mac computer:
-
-
-``` bash
-# checkout the repo, and make sure you are on the right time
-# and right place for everything to work:
-cd /tmp
-git clone https://github.com/tseemann/barrnap.git
-git checkout ebfdc202842b4ec16ac6b3a380b17f2e00ab6b68
-
-
-# Go into the databases directory. You can double check
-# every change that will follow with `git diff`:
-cd barrnap/db
-
-# Remove all DESC lines. HMMER converts those spaces
-# into TABs, extending number of TAB characters arbitrarily:
-sed -i '' '/^DESC / d' *.hmm
-
-# Make those names look better and distinguishable:
-sed -i '' 's/NAME  /NAME  Bacterial_/g' bac.hmm
-sed -i '' 's/NAME  /NAME  Archaeal_/g' arc.hmm
-sed -i '' 's/NAME  /NAME  Mitochondrial_/g' mito.hmm
-sed -i '' 's/NAME  /NAME  Eukaryotic_/g' euk.hmm
-
-# Add noise cutoffs. totally arbitrary :/ maybe at some 
-# point we will fix this behavior and the HMM framework
-# in anvi'o will be able to use HMM profiles without any
-# model noise cutoffs. but for now, this is it:
-sed -i '' '/CKSUM /a \
-GA    750 750;\
-TC    750 750;\
-NC    750 750;\
-' *.hmm
-
-# create a new directory (which will become all the anvi'o data):
-mkdir Ribosomal_RNAs
-
-# concatenate all into one file:
-cat *.hmm > Ribosomal_RNAs/genes.hmm
-
-# Create a `genes.txt` file:
-echo "gene accession hmmsource" > Ribosomal_RNAs/genes.txt
-
-for i in `grep NAME Ribosomal_RNAs/genes.hmm | awk '{print $2}'`
-do
-    echo "$i None barrnap"
-done >> Ribosomal_RNAs/genes.txt
-
-perl -p -i -e 's/ /\t/g' Ribosomal_RNAs/genes.txt
-
-gzip Ribosomal_RNAs/genes.hmm
-
-# create other necessary files:
-echo "Ribosomal_RNAs" > Ribosomal_RNAs/kind.txt
-echo "Seeman T, https://github.com/tseemann/barrnap" > Ribosomal_RNAs/reference.txt
-echo "RNA:CONTIG" > Ribosomal_RNAs/target.txt
-
-# done!
-```
-
-We hope these are useful.

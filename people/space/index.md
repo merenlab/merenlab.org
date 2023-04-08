@@ -5,6 +5,9 @@ modified: 2019-07-26
 comments: false
 ---
 
+{:.warning}
+**A note from around September 2022**: This document is from the olden days of when our group was at the University of Chicago, United States. We are in Germany, and and as soon as the HIFMB has its new building completed, we will update all teh space information accordingly :) Thanks for your patience.
+
 Our lab is located at the following location in the UChicago campus:
 
 <p><center>

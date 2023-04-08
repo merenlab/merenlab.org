@@ -9,7 +9,6 @@ redirect_from:
   - /pm/
 ---
 
-{% include _toc.html %}
 
 {% capture images %}{{site.url}}/data/prochlorococcus-metapangenome/images{% endcapture %}
 
@@ -32,7 +31,7 @@ This reproducible bioinformatics workflow  describes program names and exact par
 </div>
 
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 {:.notice}
 Please find the published study along with its review history here: [https://peerj.com/articles/4320/](https://peerj.com/articles/4320/){:target="_blank"}
@@ -52,7 +51,7 @@ While our study was in review, we decided to stop using 'protein clusters' and s
 
 
 {:.notice}
-The URL [http://merenlab.org/data/prochlorococcus-metapangenome](prochlorococcus-metapangenome){:target="_blank"} serves the most up-to-date version of this document.
+The URL [https://merenlab.org/data/prochlorococcus-metapangenome](/data/prochlorococcus-metapangenome){:target="_blank"} serves the most up-to-date version of this document.
 
 
 <div class="extra-info" markdown="1">

@@ -11,7 +11,6 @@ redirect_from:
   - /scg-taxonomy/
 ---
 
-{% include _toc.html %}
 
 {% include _project-anvio-version.html %}
 
@@ -35,7 +34,7 @@ With the [anvi'o](https://peerj.com/articles/1319/) scg-taxonomy workflow you ca
 {:.notice}
 {% include _fixthispage.html source="_posts/anvio/2019-10-08-anvio-scg-taxonomy.md" %}
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 
 ## Thanks
@@ -785,7 +784,7 @@ Both for `anvi-run-scg-taxonomy` and `anvi-estimate-scg-taxonomy` programs accep
 
 This is an extremely new feature and we hope it will contribute to your journey in microbial 'omics and your anvi'o experience. Please keep in mind just like everything in anvi'o, the evolution of this feature will be heavily influenced by your feedback and suggestions. Please let us know if something doesn't work for you!
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 {:.notice}
 {% include _fixthispage.html source="_posts/anvio/2019-10-07-anvio-scg-taxonomy.md" %}

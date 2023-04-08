@@ -11,7 +11,6 @@ image:
   display: false
 ---
 
-{% include _toc.html %}
 
 {% capture images %}{{site.url}}/images/miscellaneous/2017-10-16-reply-to-probst-et-al{% endcapture %}
 

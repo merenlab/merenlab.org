@@ -1,27 +1,40 @@
+# Contributions welcome!
+
+If you want to contribute to the web page, whether it is to fix something somewhere, or to write a blog post, there are two things you need to do.
+
+The first is to be able to run the web page locally so you can see how things are rendered and how they will look online when you finally commit your changes to this repository. The remainder of this document will help you run the web site locally.
+
+The second is to take a look at these tips which will help you to be able to use all the little toys we have for content developers:
+
+https://merenlab.org/web-tips/
+
 # How to run a copy of this website locally
 
-You can run a local version of this website to see how your changes will look like when they are pushed. For this, you need to install `jekyll`, which can be doen the following way on a Mac OSX:
+Installing ruby on Mac is always a pain. But you can start with this (newer versions of ruby may cause you trouble with some of the gems):
 
 ```
-sudo gem install jekyll
+brew install ruby@2.7
 ```
 
-If the command `gem` is not found, or your Ruby version is outdated, try to install it the following way first:
+This step may ask you to add things to your `~/.bash_profile` to update your `$PATH`, which you should do, and then either open a new terminal, or run `source ~/.bash_profile`, so the output for `which ruby` looks something like this:
 
 ```
-brew install ruby
+/usr/local/opt/ruby@2.7/bin/ruby
 ```
 
-Once the installation is complete, you can get a copy of the web site from GitHub:
+Once you're done with these initial steps, you can get a copy of the web site from GitHub:
 
 ```
+mkdir -p ~/github
+cd ~/github/
+
 git clone https://github.com/merenlab/web.git
-cd web
 ```
 
 To make sure you have the necesary gems, run:
 
 ```
+cd web
 bundle install
 ```
 
@@ -77,38 +90,3 @@ git push origin master
 ```
 
 Congratulations!
-
-# Notes
-
-If you want to show/hide content, you can use this notation in your markdown files:
-
-```
-<details markdown="1"><summary>Show/Hide SOME CONTENT</summary>
-
-SOME CONTENT GOES HERE
-
-</details>
-```
-
-If you want to show summary sections with a different background color, you can use this notation:
-
-```
-<div class="extra-info" markdown="1">
-
-<span class="extra-info-header">Smart title for extra info</span>
-
-EXTRA INFO GOES HERE
-
-</div>
-```
-
-You should feel free to use warning and notice statements:
-
-```
-{:.warning}
-A warning messages goes here.
-
-{:.notice}
-A notice statement goes here.
-```
-

@@ -11,7 +11,6 @@ authors: [mahmoud]
 
 {% capture images %}{{site.url}}/images/anvio/2018-02-13-color-coding-aa-alignments{% endcapture %}
 
-{% include _toc.html %}
 
 {:.notice}
 **A note from the Meren Lab**: We are very thankful to Mahmoud for not only [implementing this](https://github.com/merenlab/anvio/pull/732) beautiful feature in anvi'o, but also taking the time to explain it in such great clarity. Mahmoud is currently a a second year Computer Science major pre-med student at the University of Chicago.

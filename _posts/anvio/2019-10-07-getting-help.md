@@ -11,7 +11,6 @@ redirect_from:
   - /software/anvio/getting-help
 ---
 
-{% include _toc.html %}
 
 {% capture images %}{{site.url}}/images/anvio/2019-10-07-getting-help{% endcapture %}
 
@@ -24,7 +23,7 @@ This post is for you if you would like to have a better idea about how to,
 * Ask usage questions and/or discuss scientific ideas and best-practices with the anvi'o community, and,
 * Report technical problems with the platform to its developers.
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 
 # Getting help from anvi'o
@@ -118,29 +117,11 @@ That's it. This is the only time you have a technical problem that requires you 
 
 The following resources are at your disposal to seek help:
 
-## Google groups [non-technical]
+## Anvi'o Discord [non-technical]
 
-We have a discussion group, served by Google Groups, wherein you can ask your anvi'o related questions and receive answers via e-mail. The nice thing about this group is that all messages are archived, so everyone can benefit from past discussions. The answers you seek may already be out there :)
+The anvi'o Discord channel (for which you can always find an up-to-date link on https://anvio.org) is the most effective way to get help from the community. While the conversations on Disord will not be cashed by search engines and will only be accessible to those who join the Discord server. But it is free to join, so that's that. Click the button below to get your invitation:
 
-Use [this address](https://groups.google.com/forum/#!forum/anvio/join) to join the discussion group. You do not need to have a GMail account to subscribe. 
-
-{:.notice}
-For some silly reason, Google Groups sets the "no e-mail" option for new members by default. Please change it to "all e-mail" from your member settings to get e-mails sent to the group.
-
-Messages from the group will have the word `[anvio]` in their subjects, based on which you can filter them in a directory in your e-mail client so they don't clutter your inbox. To send an e-mail, compose your message for this address: `anvio@googlegroups.com`.
-
-Every e-mail from the group will have enough information in its footer to help you leave the group. Alternatively you can send an e-mail to this address, and follow the instructions in the response e-mail: `anvio+unsubscribe@googlegroups.com`.
-
-
-## Anvi'o Slack [non-technical]
-
-For those of us who are into IM-ing (that's instant messaging for those who are not up on their old school internet slang), join our Slack channel (you will need to install the program [Slack](https://slack.com) if you don't have it already). It is pretty effective for real-time conversations. However, Slack is not archived, and discussions in Slack will not be accessible to the public. Click the button below to get your invitation:
-
-{% include _join-anvio-slack.html %}
-
-This is how Slack looks like in general:
-
-[![Slack]({{images}}/anvio-slack.png)]({{images}}/anvio-slack.png){:.center-img .width-90}
+{% include _join-anvio-discord.html %}
 
 We enjoy discussing concepts of microbial 'omics, so scientific discussions beyond anvi'o are most welcome there.
 
@@ -152,10 +133,9 @@ Most of our blog posts, tutorials, and other web pages have a comments section a
 
 If you are having a technical problem, please [submit an issue on GitHub](https://github.com/merenlab/anvio/issues) to contact developers.
 
-The only time it is appropriate to use GitHub is if you are having a technical issue, or a developer requested you to submit an issue for a non-technical concern. 
+The only time it is appropriate to use GitHub is if you are having a technical issue, or a developer requested you to submit an issue for a non-technical concern.
 
 When you are submitting a GitHub issue, it is extremely critical for you to read the issue template that appears when you click "New Issue", and remove the instructions once you have read them all before submission.
-
 
 # Educational resources
 
@@ -189,5 +169,4 @@ We periodically give workshops for hands-on training on anvi'o (and we would be 
 
 We are always searching for ways to make our field of science more accessible to everyone. For those who want to learn more about microbial 'omics in general, you can check out Meren's [classroom resources](http://merenlab.org/momics/) on the topic, and feel free to get in touch if you are an educator and wishes to use anvi'o for your course.
 
-
-Please let us know if there is a way to improve anything on this page. 
+Please let us know if there is a way to improve anything on this page.

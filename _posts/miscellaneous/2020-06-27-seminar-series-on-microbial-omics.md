@@ -12,7 +12,6 @@ image:
   feature: http://merenlab.org/images/miscellaneous/2020-06-27-seminar-series-on-microbial-omics/momics.png
 ---
 
-{% include _toc.html %}
 
 Welcome, and thank you for your interest! The microbial 'omics seminar series of 2020 is now over, but in this page you can find the recorded lectures.
 
@@ -110,9 +109,9 @@ The video of the lecture (please find timestamps for individual chapters and wri
 
 ## Future
 
-We are hoping to put together another seminar series later on bioinformatics approaches that give access to 'omics strategies covered in this introductory seminar series. Meanwhile, please use the comments section down below or find us on Slack if you have any comments or suggestions.
+We are hoping to put together another seminar series later on bioinformatics approaches that give access to 'omics strategies covered in this introductory seminar series. Meanwhile, please use the comments section down below or find us on Disord if you have any comments or suggestions.
 
-{% include _join-anvio-slack.html %}
+{% include _join-anvio-discord.html %}
 
 Thank you very much for your interest!
 

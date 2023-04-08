@@ -9,7 +9,6 @@ categories: [oligotyping]
 comments: true
 ---
 
-{% include _toc.html %}
 
 Oligotyping is a supervised method, which makes it a method that welcomes its users with a learning curve. To make things a little clearer, in this article you will find the flowchart of a generic oligotyping analysis and a realistic analysis of a mock dataset. If you don’t have oligotyping pipeline installed on your system yet, there is a separate article on [that topic]({% post_url oligotyping/2012-05-11-oligotyping-pipeline-explained %}).
 

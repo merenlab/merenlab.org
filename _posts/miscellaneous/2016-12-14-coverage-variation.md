@@ -14,7 +14,6 @@ image:
 
 {% capture images %}{{site.url}}/images/miscellaneous/2016-12-14-wavy-coverage-patterns{% endcapture %}
 
-{% include _toc.html %}
 
 Mapping short reads to a context is one of the essential steps of pretty much any 'omics workflow. We are often mapping something to somewhere.
 

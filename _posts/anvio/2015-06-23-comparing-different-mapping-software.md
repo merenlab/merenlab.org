@@ -9,7 +9,6 @@ categories: [anvio]
 comments: true
 ---
 
-{% include _toc.html %}
 
 Mapping short reads to contigs is one of the most critical steps of the assembly-based metagenomic workflow. Because the number of mapped reads define the mean coverage for each contig, mapping provides the crucial input for clustering algorithms that use coverage patterns of contigs across samples to identify genome bins. The appropriate mapping is important, therefore the mapping software, and the stringency.
 

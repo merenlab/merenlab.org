@@ -7,7 +7,6 @@ comments: true
 redirect_from: /data/2019_Reveillaud_and_Bordenstein_et_al_Wolbachia
 ---
 
-{% include _toc.html %}
 
 This document describes the reproducible bioinformatics workflow for our study titled "*The Wolbachia mobilome in Culex pipiens includes a putative plasmid*".
 

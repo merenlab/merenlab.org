@@ -11,7 +11,6 @@ authors: [meren]
 
 {% capture images %}{{site.url}}/images/{% endcapture %}
 
-{% include _toc.html %}
 
 If you are using anvi'o `v2.3.2` or later, the anvi'o interactive interface will have a 'news' tab for you on the right-hand side of your screen.
 

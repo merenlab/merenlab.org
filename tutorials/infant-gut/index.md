@@ -1,7 +1,8 @@
 ---
 layout: page
-modified: 2017-02-06
+title: A primer on anvi'o
 modified: 2018-08-08
+authors: [meren,iva,evan,tom]
 excerpt: "Binning, benchmarking binning approaches, refining poorly identified bins, and other Anvi'o tutorial for metagenomics using the Infant Gut Dataset by Sharon *et al*"
 categories: [anvio,anvio-structure]
 comments: true
@@ -9,8 +10,6 @@ redirect_from: /igd/
 image:
   feature: feature-infant-gut-tutorial.png
 ---
-
-{% include _toc.html %}
 
 {:.warning}
 This tutorial is tailored for anvi'o `v6` or later. You can learn the version of your installation by typing `anvi-interactive -v`. If you have an older version, some things will not work the way they should.
@@ -44,20 +43,14 @@ We hope you find the tutorial useful, and generously share your opinions or crit
 
 ## Downloading the pre-packaged Infant Gut Dataset
 
-To download the infant gut data-pack copy-paste the following commands into your terminal:
+To download and unpack [the infant gut data-pack](https://figshare.com/ndownloader/files/31131400), copy-paste the following commands into your terminal:
 
 ``` bash
-wget https://ndownloader.figshare.com/files/26218961 -O INFANT-GUT-TUTORIAL.tar.gz
+curl -L https://figshare.com/ndownloader/files/31131400 -o INFANT-GUT-TUTORIAL.tar.gz
 tar -zxvf INFANT-GUT-TUTORIAL.tar.gz && cd INFANT-GUT-TUTORIAL
 ```
 
-Alternatively (i.e., if you don't have `wget` installed on your system), you can download the same file using [this direct download link](https://ndownloader.figshare.com/files/26218961).
-
-When you click the link, it will start downloading a **210 Mb** compressed file automatically. Once it is done, go to the relevant directory that contains this file using your terminal, and unpack it the following way:
-
-``` bash
-tar -zxvf INFANTGUTTUTORIAL.tar.gz && cd INFANT-GUT-TUTORIAL
-```
+This will download a **210 Mb** compressed file, and unpack it, which will take an additional **490 Mb**.
 
 If you are using a newer version of anvi'o than was the one that was used to generate these databases (perhaps you are following the development branch), you may need to run {% include PROGRAM name="anvi-migrate" %} to get them up to date. If you are not sure whether you need this, do not worry - you could safely skip it and anvi'o would later remind you what exactly needs to be done.
 
@@ -166,7 +159,7 @@ Note that gene coordinates are displayed at the bottom and their inferred functi
 
 Anvi'o can work with gene-level taxonomic annotations, but gene-level taxonomy is not useful for anything beyond occasional help with manual binning. Once gene-level taxonomy is added into the contigs database, anvi'o will determine the taxonomy of each contig based on the taxonomic affiliation of genes they describe, and display them in the interface whenever possible.
 
-Centrifuge ([code](https://github.com/infphilo/centrifuge){:target="_blank"}, [pre-print](http://biorxiv.org/content/early/2016/05/25/054965.article-info){:target="_blank"}) is [one of the options]({% post_url anvio/2016-06-18-importing-taxonomy %}#centrifuge-output){:target="_blank"} to [import taxonomic annotations]({% post_url anvio/2016-06-18-importing-taxonomy %}){:target="_blank"} into an anvi'o contigs database. Centrifuge files for the IGD are already in the directory `additional-files/centrifuge-files`.
+Centrifuge ([code](https://github.com/DaehwanKimLab/centrifuge){:target="_blank"}, [paper](http://doi.org/10.1101/gr.210641.116){:target="_blank"}) is [one of the options]({% post_url anvio/2016-06-18-importing-taxonomy %}#centrifuge-output){:target="_blank"} to [import taxonomic annotations]({% post_url anvio/2016-06-18-importing-taxonomy %}){:target="_blank"} into an anvi'o contigs database. Centrifuge files for the IGD are already in the directory `additional-files/centrifuge-files`.
 
 If you import these files into the contigs database the following way,
 
@@ -389,10 +382,10 @@ Better.
 ### Refining individual MAGs: the curation step
 
 {:.warning}
-**Why do we need to curate bins?** Please see [this paper](https://doi.org/10.1128/mBio.00725-19) to see how poorly refined bins can influence ecological and evolutionary insights we gain from MAGs. There is also a step-by-step workflow to describe steps of manual curation [here](http://merenlab.org/data/refining-espinoza-mags/).
+**Why do we need to curate bins?** Please see [this paper](https://doi.org/10.1128/mBio.00725-19) to see how poorly refined bins can influence ecological and evolutionary insights we gain from MAGs. There is also a step-by-step workflow to describe steps of manual curation [here](https://merenlab.org/data/refining-mags/).
 
 {:.warning}
-**Why not relying only on single-copy core genes to estimate purity of a genome bin?** Let's think about this altogether. But once we are done with this, please see the relevant section in [this study](https://t.co/tlnQvIGsIw).
+**Why not relying only on single-copy core genes to estimate purity of a genome bin?** Let's think about this altogether. But once we are done with this, please see the relevant section in [this study](https://doi.org/10.1101/gr.258640.119).
 
 To straighten the quality of the `MAGs` collection, it is possible to visualize individual bins and if needed, refine them. For this we use the program {% include PROGRAM name="anvi-refine" %}. For instance, if you were to be interested in refining one of the bins in our current collection, you could run this command:
 
@@ -504,9 +497,9 @@ anvi-estimate-genome-completeness -p PROFILE.db \
 You can also get an idea about their taxonomy:
 
 ``` bash
-anvi-estimate-genome-taxonomy -p PROFILE.db \
-                              -c CONTIGS.db \
-                              -C CONCOCT
+anvi-estimate-scg-taxonomy -p PROFILE.db \
+                           -c CONTIGS.db \
+                           -C CONCOCT
 ```
 
 OK. Let's run the interactive interface again with the `CONCOCT` collection:
@@ -817,7 +810,7 @@ So we can fix crappy bins to an extent since [we know more or less how things sh
 
 This is a problem that likely happens quite often, and very hard to deal with once the bins are identified. But we *can* recover from that.
 
-#### From fragmentation to conflation error: A Meren Lab Heuristic to fight back
+**From fragmentation to conflation error: A Meren Lab Heuristic to fight back**
 
 One of the heuristics we recently started using in our lab to avoid fragmentation error is to confine CONCOCT's clustering space to a much smaller number of clusters than the expected number of bacterial genomes in a given dataset, and then curate resulting contaminated bins manually. Let's say we expect to find `n` bacterial genomes, so we run CONCOCT with a maximum number of clusters of about `n/2` (no judging! I told you it was a heuristic!).
 
@@ -1365,17 +1358,17 @@ and see the new layer there that correspond to our clades:
 
 [![E. facealis pan](images/pan-clades.png)](images/pan-clades.png){:.center-img .width-70}
 
-Now we can ask anvi'o to identify and report functions that are enriched in either of these clades along with the gene clusters they are associated with:
+Now we can use the program {% include PROGRAM name="anvi-compute-functional-enrichment-in-pan" %} to ask anvi'o to identify and report functions that are enriched in either of these clades along with the gene clusters they are associated with:
 
 ``` bash
-anvi-compute-functional-enrichment -p PAN/Enterococcus-PAN.db \
-                                   -g Enterococcus-GENOMES.db \
-                                   --category-variable clade \
-                                   --annotation-source COG20_FUNCTION \
-                                   -o functional-enrichment.txt
+anvi-compute-functional-enrichment-in-pan -p PAN/Enterococcus-PAN.db \
+                                          -g Enterococcus-GENOMES.db \
+                                          --category-variable clade \
+                                          --annotation-source COG20_FUNCTION \
+                                          -o functional-enrichment.txt
 ```
 
-Which would generate a new file, `functional-enrichment.txt`, in our work directory that is just filled with stuff like this:
+Which would generate a new file, `functional-enrichment.txt`, which is an anvi'o artifact called {% include ARTIFACT name="functional-enrichment-txt" %}, in our work directory that is just filled with stuff like this:
 
 | COG20_FUNCTION | enrichment_score | unadjusted_p_value | adjusted_q_value | associated_groups | accession | gene_clusters_ids | p_faecium |p_faecalis | N_faecium | N_faecalis |
 |:--|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
@@ -1394,16 +1387,13 @@ Which would generate a new file, `functional-enrichment.txt`, in our work direct
 
 So it turns out *killer toxin insensitivity* protein is only encoded by *E. faecium*... I am not surprised. One should expect anything from these microbes :(
 
-{:.notice}
-As of `v7` the script `anvi-get-enriched-functions-per-pan-group` (which used to be in this tutorial) was upgraded to the more general script {% include PROGRAM name="anvi-compute-functional-enrichment" %}.
-
 ### Binning gene clusters
 
 There are multiple ways to identify gene clusters that match to a given set of criteria. If you like, you can use a combination of filters that are available through the interface:
 
 [![E. faecalis pan](images/pan-filters.png)](images/pan-filters.png){:.center-img .width-50}
 
-The command line program {% include PROGRAM name="anvi-get-sequences-for-gene-clusters" text="`anvi-get-sequences-for-gene-clusters`" %} can also give you access to these filters and more to get very precise reports. Another option is the good'ol {% include ARTIFACT name="interactive" %} interface, and using the dendrogram it produces to organize gene clusters based on their distribution across genomes. From this display you can make manual selections of gene clusters. I already made some selections and stored them in a file for your convenience. If you {% include PROGRAM name="anvi-import-collection" text="import" %} them the following way,
+The command line program {% include PROGRAM name="anvi-get-sequences-for-gene-clusters" text="anvi-get-sequences-for-gene-clusters" %} can also give you access to these filters and more to get very precise reports. Another option is the good'ol {% include ARTIFACT name="interactive" %} interface, and using the dendrogram it produces to organize gene clusters based on their distribution across genomes. From this display you can make manual selections of gene clusters. I already made some selections and stored them in a file for your convenience. If you {% include PROGRAM name="anvi-import-collection" text="import" %} them the following way,
 
 ``` bash
 anvi-import-collection additional-files/pangenomics/pan-collection.txt \
@@ -1578,12 +1568,12 @@ export ANVIO_MODULES_DB=`python -c "import anvio; import os; print(os.path.join(
 echo -e "module\tclass\tcategory\tsubcategory\tname" > modules_info.txt
 
 # get module classes:
-sqlite3 $ANVIO_MODULES_DB "select module, data_value from kegg_modules where data_name='CLASS'" | \
+sqlite3 $ANVIO_MODULES_DB "select module, data_value from modules where data_name='CLASS'" | \
     sed 's/; /|/g' | \
     tr '|' '\t' >> module_class.txt
 
 # get module names:
-sqlite3 $ANVIO_MODULES_DB "select module,data_value from kegg_modules where data_name='NAME'" | \
+sqlite3 $ANVIO_MODULES_DB "select module,data_value from modules where data_name='NAME'" | \
     tr '|' '\t' > module_names.txt
 
 # join everything
@@ -1624,7 +1614,7 @@ And then we can run the visualization command yet again to see the heatmap with 
 
 Here is a (rotated) screenshot of the rightmost part, where we can see which pathways distinguish the two species:
 
-[![Enterococcus Heatmap](images/entero_heatmap_zoomed.png)](images/entero_heatmap_zoom.png){:.center-img }
+[![Enterococcus Heatmap](images/entero_heatmap_zoomed.png)](images/entero_heatmap_zoomed.png){:.center-img }
 
 The genome labels are not visible in this zoomed and rotated view, but if you look back at the full heatmap, you can see that *E. faecalis* genomes are on the left side and *E. faecium* ones are on the right. Based on the estimated metabolism, it looks like the two species differ in select energy metabolism, amino acid metabolism, and vitamin/cofactor metabolism pathways. Yet many of those are faint bands indicating a low completeness score, so perhaps these genomes share a select few KOs that contribute to several of the species-specific pathways. A particularly interesting observation is that all the *E. faecalis* genomes have near-complete pathways for Threonine Biosynthesis and Menaquinone Biosynthesis (the module completeness scores for these pathways are 80% and 78%, respectively, in each *E. faecalis* genome), while these pathways are partial in all the *E. faecium* genomes (the corresponding completeness is 20% and 11% in each *E. faecium*) genome. It would not be surprising if the same KOs from these pathways are present in each genome.
 
@@ -1715,11 +1705,11 @@ Just like we looked at functional enrichment in the pangenomics chapter, we can 
 |E_faecium_6778|faecium|
 |E_faecium_6798|faecium|
 
-And here is the command to run {%include PROGRAM name='anvi-compute-functional-enrichment' text='the enrichment script' %} on modules:
+And here is the command to run {%include PROGRAM name='anvi-compute-metabolic-enrichment' text='the enrichment script' %} on modules:
 ``` bash
-anvi-compute-functional-enrichment -M Enterococcus_metabolism_modules.txt \
-                                   -G additional-files/metabolism/entero_groups.txt \
-                                   -o Enterococcus_enriched_modules.txt
+anvi-compute-metabolic-enrichment -M Enterococcus_metabolism_modules.txt \
+                                  -G additional-files/metabolism/entero_groups.txt \
+                                  -o Enterococcus_enriched_modules.txt
 ```
 
 We get from this a file called `Enterococcus_enriched_modules.txt`, in which the modules are organized from highest to lowest enrichment score. So if we look at the top 10 or so rows in the file, we will see the metabolic pathways that are most enriched in either group:
@@ -2118,7 +2108,7 @@ OK.
 
 You just read about four different ways to visualize the single-nucleotide variability profiles with anvi'o. We are done here.
 
-## Chapter VI: Genes and genomes across metagenomes
+## Chapter VII: Genes and genomes across metagenomes
 
 In the previous sections of this tutorial we recovered an *E. faecalis* genome from an infant gut metagenome.
 
@@ -2269,7 +2259,7 @@ Including the inspection of a given gene in its context with upstream and downst
 
 [![E. facealis pan](images/gene-inspection.png)](images/gene-inspection.png){:.center-img .width-80}
 
-## Chapter VII: From single-amino acid variants to protein structures
+## Chapter VIII: From single-amino acid variants to protein structures
 
 {:.notice}
 This section of the tutorial uses the data described in the above section [Putting the E. faecalis

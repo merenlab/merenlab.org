@@ -9,7 +9,6 @@ categories: [oligotyping]
 comments: true
 ---
 
-{% include _toc.html %}
 
 {:.notice}
 We used to have a virtual box, but we no longer serve it.

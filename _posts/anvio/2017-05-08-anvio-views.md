@@ -8,7 +8,6 @@ comments: true
 authors: [mike]
 ---
 
-{% include _toc.html %}
 
 {% capture images %}{{site.url}}/images/anvio/2017-05-06-anvio-views{% endcapture %}
 

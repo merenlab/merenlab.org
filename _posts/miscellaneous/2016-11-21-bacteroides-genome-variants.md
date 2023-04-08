@@ -14,7 +14,6 @@ image:
 
 {% capture images %}{{site.url}}/images/miscellaneous/2016-11-21-bacteroides-genome-variants{% endcapture %}
 
-{% include _toc.html %}
 
 [Here is a study](http://mbio.asm.org/content/7/6/e01713-16.full){:target="_blank"} that came out just a couple of days ago:
 

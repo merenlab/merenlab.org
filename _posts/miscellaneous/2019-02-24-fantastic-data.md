@@ -7,12 +7,8 @@ tags: []
 authors: [meren]
 categories: [miscellaneous]
 comments: true
+redirect_from: /sharing-data/
 ---
-
-{% include _toc.html %}
-
-{:.notice}
-A version of this blog post [first appeared](https://researchdata.springernature.com/users/113363-a-murat-eren-meren/posts/44023-fantastic-data-and-how-to-share-them-a-plea-to-journal-editors-and-reviewers) at [the Research Data Blog at Springer Nature](https://researchdata.springernature.com/) as a part of the "[Love Data Week 2019](https://researchdata.springernature.com/users/184393-roza-sakellaropoulou/posts/44241-a-week-of-lovin-on-data-content-for-love-data-week-2019)". When I was asked to contribute why data sharing is important from our perspective, I thought it would be easy for me to write about some positive success stories, yet I couldn't steer away from writing one of the serious issues we have been recently struggling with instead: poorly shared data (unintentionally, or intentionally).
 
 Love for data comes naturally but sharing data can be tricky. Besides technical challenges, there are a lot of emotions involved. Imagine the journey of a scientist with their novel data. Creating with so much care something so unique, enjoying the privilege to be the first to interpret their sophisticated nature, constantly updating a trusted few about every surprising observation, but then finally having to let them go out to the world where the data can have their own adventures with others. With wisdom comes great data, with love comes great anxiety. I can’t be the only one who sees parallels between generating data and becoming a parent. Tough business. But while my mother gets no citations for who I am or any of the stories in which I partake, fortunately those who let their data roam the world freely are given a lot of credit: the data-mediated love is reciprocal between scientists. I for one remember every scientist whose public data helped me understand more and am thankful for their efforts.
 

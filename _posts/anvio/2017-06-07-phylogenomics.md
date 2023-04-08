@@ -19,7 +19,6 @@ If you are using the phylogenomics workflow with anvi'o version `v5.1` with inte
 {: .notice}
 This tutorial is tailored for anvi'o <b>`v4` or later</b>. You can learn which version you have on your computer by typing `anvi-profile --version` in your terminal.
 
-{% include _toc.html %}
 
 **The goal of this tutorial** is to walk you through some of the anvi'o capabilities that can help you study your data with phylogenomics. With the current anvi'o phylogenomics workflow,
 
@@ -59,7 +58,7 @@ If you want to follow this tutorial with the data I used here, you can type the 
 
 ``` bash
 # download the data pack
-wget https://ndownloader.figshare.com/files/8628361 -O AnvioPhylogenomicsTutorialDataPack.tar.gz
+wget https://ndownloader.figshare.com/files/28715136 -O AnvioPhylogenomicsTutorialDataPack.tar.gz
 
 # unpack it
 tar -zxvf AnvioPhylogenomicsTutorialDataPack.tar.gz
@@ -100,7 +99,7 @@ The first thing we need to do is to generate an anvi'o {% include ARTIFACT name=
 ``` bash
 for i in `ls *fa | awk 'BEGIN{FS=".fa"}{print $1}'`
 do
-    anvi-gen-contigs-database -f $i.fa -o $i.db
+    anvi-gen-contigs-database -f $i.fa -o $i.db -T 4
     anvi-run-hmms -c $i.db
 done
 ```

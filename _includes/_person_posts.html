@@ -1,0 +1,26 @@
+{% assign person_has_posts = 0 %}
+{% assign posts_listed = 0 %}
+
+{% for post in site.posts %}
+      {% if post.authors contains person.alias %}
+          {% assign person_has_posts = person_has_posts | plus: 1 %}
+      {% endif %}
+{% endfor %}
+
+{% if person_has_posts > 0 %}
+<span style="font-variant: all-small-caps;">Blog posts</span>
+<ul class="person-blogs">
+{% for post in site.posts %}
+      {% if post.authors contains person.alias and posts_listed < 5 %}
+          {% assign posts_listed = posts_listed | plus: 1 %}
+          <li><a id="contrib-link" href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <small>({{ post.date | date: "%a, %b %d, %Y" }})</small></li>
+      {% endif %}
+{% endfor %}
+
+{% if person_has_posts > 5 %}
+    {% assign remaining_posts = person_has_posts | minus: 5 %}
+    <li>.. and {{ remaining_posts }} more ..</li>
+{% endif %}
+
+</ul>
+{% endif %}

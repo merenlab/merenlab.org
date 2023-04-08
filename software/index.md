@@ -4,15 +4,16 @@ title: Software
 modified: 2015-02-05
 excerpt: "Software we develop"
 redirect_from: /projects/
-comments: true
+comments: false
+image:
+   display: true
+   feature: eel-pond.jpg
 ---
-
-{% include _toc.html %}
 
 ## Anvi'o
 
 <div class="quotable">
-<a href="{{ site.url }}/software/anvio/">Anvi'o</a> is an advanced analysis and visualization platform for ‘omics data. Its interactive interface facilitates the management of metagenomic contigs and associated data for automatic or human-guided identification of genome bins, and their curation. The extensible visualization approach distills multiple dimensions of information for each contig into a single, intuitive display, offering a dynamic and unified work environment for data exploration, manipulation and reporting. Beyond its easy-to-use interface, the advanced modular architecture of anvi’o as a platform allows users with programming skills to implement and test novel ideas with minimal effort. Please see the <a href="{{ site.url }}/software/anvio/">anvi'o project page</a> for details, and the <a href="http://github.com/meren/anvio">codebase</a> to follow the development and/or participate.
+<a href="https://anvio.org/">Anvi'o</a> is an advanced analysis and visualization platform for ‘omics data. Its interactive interface facilitates the management of metagenomic contigs and associated data for automatic or human-guided identification of genome bins, and their curation. The extensible visualization approach distills multiple dimensions of information for each contig into a single, intuitive display, offering a dynamic and unified work environment for data exploration, manipulation and reporting. Beyond its easy-to-use interface, the advanced modular architecture of anvi’o as a platform allows users with programming skills to implement and test novel ideas with minimal effort. Please see the <a href="https://anvio.org/">anvi'o project page</a> for details, and the <a href="http://github.com/merenlab/anvio">codebase</a> to follow the development and/or participate.
 </div>
 
 {% include _project-anvio-images.html %}

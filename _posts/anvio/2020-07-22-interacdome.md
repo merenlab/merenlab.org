@@ -15,7 +15,6 @@ image:
 
 {% capture images %}{{site.url}}/images/anvio/2020-07-22-interacdome{% endcapture %}
 
-{% include _toc.html %}
 
 {:.warning}
 This feature is implemented in anvi'o `v7` and later. You can identify which version you have on your computer by typing `anvi-self-test --version` in your terminal.

@@ -9,7 +9,6 @@ categories: [anvio]
 redirect_from: /2015/11/10/samples-db/
 ---
 
-{% include _toc.html %}
 
 {% capture images %}{{site.url}}/images/anvio/2017-12-11-additional-data-tables{% endcapture %}
 
