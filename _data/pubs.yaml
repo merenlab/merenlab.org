@@ -13,6 +13,29 @@
 #     featured_image:
 
 - doi:
+    10.1186/s13059-023-02924-x
+  title:
+    "Metabolic independence drives gut microbial colonization and resilience in health and disease"
+  authors:
+    Andrea R Watson*, Jessika Füssel*, Iva Veseli*, Johanna Zaal DeLongchamp, Marisela Silva, Florian Trigodet, Karen Lolans, Alon Shaiber, Emily Fogarty, Joseph M Runde, Christopher Quince, Michael K Yu, Arda Söylev, Hilary G Morrison, Sonny T M Lee, Dina Kao, David T Rubin, Bana Jabri, Thomas Louie, A Murat Eren
+  journal:
+    Genome Biology
+  year:
+    2023
+  volume:
+    24
+  number:
+    78
+  pages:
+  additional_info:
+    highlights:
+      - A Fecal Microbiota Transplantation (FMT) study that reveals unexpected parallels between the <b>adaptive ecological processes</b> that shape the recipient gut <b>microbial composition after FMT</b> and those that influence <b>microbial diversity in patients with Inflammatory Bowel Disease (IBD)</b>.
+      - Includes an observation that links <b>the presence of superior metabolic competence in bacterial populations to their expansion in IBD</b>.
+      - Here is a <a href="https://twitter.com/merenbey/status/1369016402896695298" target="_blank">Twitter thread</a> that explains <b>key points</b> of the study.
+    featured_image:
+      /images/pubs/watson_et_al_fmt.jpeg
+
+- doi:
     10.1101/2023.03.25.534219
   title:
     A highly conserved and globally prevalent cryptic plasmid is among the most numerous mobile genetic elements in the human gut
@@ -169,27 +192,6 @@
       - "The <a href='https://anvio.org/files/anvio-2021.pdf'>PDF</a> of the publication (which was supposed to be open access, yet somehow the Nature Publishing Group was unable to do so, so here it is)."
     featured_image:
       /images/pubs/anvio-integrated-omics.png
-
-- doi:
-    10.1101/2021.03.02.433653
-  title:
-    "Metabolic independence drives gut microbial colonization and resilience in health and disease"
-  authors:
-    Andrea R Watson, Jessika Füssel, Iva Veseli, Johanna Zaal DeLongchamp, Marisela Silva, Florian Trigodet, Karen Lolans, Alon Shaiber, Emily Fogarty, Joseph M Runde, Christopher Quince, Michael K Yu, Arda Söylev, Hilary G Morrison, Sonny T M Lee, Dina Kao, David T Rubin, Bana Jabri, Thomas Louie, A Murat Eren
-  journal:
-    bioRxiv
-  year:
-    2021
-  volume:
-  number:
-  pages:
-  additional_info:
-    highlights:
-      - A Fecal Microbiota Transplantation (FMT) study that reveals unexpected parallels between the <b>adaptive ecological processes</b> that shape the recipient gut <b>microbial composition after FMT</b> and those that influence <b>microbial diversity in patients with Inflammatory Bowel Disease (IBD)</b>.
-      - Includes an observation that links <b>the presence of superior metabolic competence in bacterial populations to their expansion in IBD</b>.
-      - Here is a <a href="https://twitter.com/merenbey/status/1369016402896695298" target="_blank">Twitter thread</a> that explains <b>key points</b> of the study.
-    featured_image:
-      /images/pubs/watson_et_al_fmt.jpeg
 
 - doi:
     10.1111/1755-0998.13588

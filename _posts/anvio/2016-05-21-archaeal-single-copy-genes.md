@@ -9,7 +9,7 @@ authors: [mike]
 ---
 
 {:.warning}
-**Meren's note on 2020**: If you are here to learn about how to create a user-defined HMM source for anvi'o, please find the most up-to-date documnetation for it [here](/software/anvio/help/artifacts/hmm-source).
+**Meren's note on 2020**: If you are here to learn about how to create a user-defined HMM source for anvi'o, please find the most up-to-date documentation for it [here](https://anvio.org/help/main/artifacts/hmm-source/#user-defined-hmm-sources).
 
 {:.notice}
 **Meren's note on September 2016**: Starting from `v2.0.3`, the archaeal single-copy core core gene collection released by [Rinke et al.](http://www.nature.com/nature/journal/v499/n7459/full/nature12352.html), and described in this post by [Mike Lee](https://twitter.com/AstrobioMike), is included in anvi'o. Details of this transition can be viewed [here](https://github.com/meren/anvio/pull/401). We thank Mike for helping us to improve anvi'o.
