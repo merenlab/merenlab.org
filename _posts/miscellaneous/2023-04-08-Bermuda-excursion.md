@@ -15,7 +15,10 @@ redirect_from: /bermuda-excursion/
 "Fair Winds and Following Seas" - Unknown
 </blockquote>
 
-[Elizabeth Kujawinski Ph.D.](https://www2.whoi.edu/site/molecular-environmental-science/?_gl=1%2A1sh2hju%2A_ga%2AMTEwMDIxMDY0Ny4xNjc1MTQyMTA3%2A_ga_HLKFZX9JZK%2AMTY4MTI1MDIxNy4xNC4xLjE2ODEyNTAyMTkuMC4wLjA.), the director of [C-CoMP](https://ccomp-stc.org/), wished us the phrase above as we began our journey to the remote island of Bermuda. The origin of the saying is unknown but it is essentially a nautical phrase of good luck ⚓️! Recently, I had the opportunity to train for a week at the [Bermuda Institute for Ocean Sciences](https://bios.edu/) (BIOS). This trip was designed for the C-CoMP [Bridge to PhD Fellowship](https://ccomp-stc.org/education-diversity/b2p/) students. Luckily, there were a few extra spots and invitations were extended to Ph.D. students who also wanted field work experience - more on this later.  
+[Elizabeth Kujawinski Ph.D.](https://www2.whoi.edu/site/molecular-environmental-science/?_gl=1%2A1sh2hju%2A_ga%2AMTEwMDIxMDY0Ny4xNjc1MTQyMTA3%2A_ga_HLKFZX9JZK%2AMTY4MTI1MDIxNy4xNC4xLjE2ODEyNTAyMTkuMC4wLjA.), the director of [C-CoMP](https://ccomp-stc.org/), wished us the phrase above before our journey to the remote island of Bermuda. The origin of the saying is unknown but it is essentially a nautical phrase for good luck ⚓️! 
+
+
+Recently, I had the opportunity to train for a week at the [Bermuda Institute for Ocean Sciences](https://bios.edu/) (BIOS). This trip was designed for the C-CoMP [Bridge to PhD Fellowship](https://ccomp-stc.org/education-diversity/b2p/) students (see note below), however, there were a few extra spots and invitations were extended to Ph.D. students who also wanted field work experience - more on this later.  
 
 <div class="extra-info" markdown="1">
 
