@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2023-04-18
+modified: 2023-04-20
 comments: false
 image:
    display: true
@@ -29,7 +29,7 @@ This page lists publications that are most reflective of our interests. For a co
     <a href="/images/pubs/watson_et_al_fmt.jpeg"><img src="/images/pubs/watson_et_al_fmt.jpeg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
     </div>
     <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- A Fecal Microbiota Transplantation (FMT) study that reveals unexpected parallels between the <b>adaptive ecological processes</b> that shape the recipient gut <b>microbial composition after FMT</b> and those that influence <b>microbial diversity in patients with Inflammatory Bowel Disease (IBD)</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Includes an observation that links <b>the presence of superior metabolic competence in bacterial populations to their expansion in IBD</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Here is a <a href="https://twitter.com/merenbey/status/1369016402896695298" target="_blank">Twitter thread</a> that explains <b>key points</b> of the study.</span>
+    <span style="display: inline-block; padding-bottom: 5px;">- A Fecal Microbiota Transplantation (FMT) study that reveals unexpected parallels between the <b>adaptive ecological processes</b> that shape the recipient gut <b>microbial composition after FMT</b> and those that influence <b>microbial diversity in patients with Inflammatory Bowel Disease (IBD)</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Includes an observation that links <b>the presence of superior metabolic competence in bacterial populations to their expansion in IBD</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Here is a <a href="https://twitter.com/awatsontxt/status/1648420614737371136">Twitter thread</a> by Andrea that explains the key points of the study, and here is <a href="https://twitter.com/merenbey/status/1648848404456390658">another one</a> by Meren that details what are the critical learnings from it.</span>
     </div>
     </div>
     <span class="pub-journal"> 📚 <b>Genome Biology</b>, 24(78) | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Metabolic+independence+drives+gut+microbial+colonization+and+resilience+in+health+and+disease" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1186/s13059-023-02924-x" target="_blank">doi:10.1186/s13059-023-02924-x</a></span>
