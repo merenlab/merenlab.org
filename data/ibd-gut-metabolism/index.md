@@ -199,7 +199,27 @@ However, this normalization only works if we can accurately estimate that number
 
 This section will cover how we estimate the number of populations in each metagenome assembly using single-copy core genes, our analysis of its relationship with sequencing depth, and the removal of low-depth samples to establish our final set of samples for analysis.
 
-### Generating Figure 1: 
+### Estimating number of populations per sample
+
+
+
+### Determining sequencing depth
+
+We used a BASH loop to count the number of reads in each metagenome sample. It counts the number of lines in each (gzipped) FASTQ file and divides by 4 (the number of lines per read) to get the number of reads, which is then stored in a tab-delimited file. R1 files and R2 are counted separately. For the Vineis et al. samples, the count of merged reads per sample is stored in the R1 column, and the R2 column is 0 (because there is only one FASTQ file for each of these samples).
+
+```bash
+echo -e "name\tnum_reads_r1\tnum_reads_r2" > OUTPUT/metagenome_num_reads.txt
+while read name r1 r2 db diagnosis study remainder; do \
+  numr1=$(echo $(zcat $r1 | wc -l) / 4 | bc); \
+  if [ "$study" = "Vineis_2016" ]; then \
+    numr2=0; \
+  else numr2=$(echo $(zcat $r2 | wc -l) / 4 | bc); \
+  fi;
+  echo -e "$name\t$numr1\t$numr2" >> OUTPUT/metagenome_num_reads.txt; \
+done < <(tail -n+2 TABLES/00_ALL_SAMPLES_INFO.txt)
+```
+
+Since the number of files to process is so large, this will take quite a while to run. We've already stored the resulting read counts in the `TABLES/00_ALL_SAMPLES_INFO.txt` file in case you don't want to wait.
 scatterplot of sequencing depth vs number of populations
 
 ### Removal of samples with low-sequencing depth
