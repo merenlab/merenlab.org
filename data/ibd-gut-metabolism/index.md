@@ -7,7 +7,23 @@ comments: true
 authors: [iva]
 ---
 
-FIXME: Introduction with link to pre-print and summary of figshare/zenodo links
+<div class="extra-info" markdown="1">
+
+<span class="extra-info-header">Summary</span>
+
+**The purpose of this page** is to provide access to reproducible data products and analyses for the study "**High metabolic independence is a determinant of microbial resilience in the face of gut stress**" by Veseli et al.
+
+Here is a list of links for quick access tohe data described in our manuscript and on this page:
+
+* [doi:10.6084/m9.figshare.22679080](https://doi.org/10.6084/m9.figshare.22679080): Supplementary Tables.
+
+
+</div>
+
+{:.notice}
+If you have any questions and/or if you are unable to find an important piece of information here, please feel free to leave a comment down below, send an e-mail to [us]({{ site.url }}/people/), or get in touch with us through Discord:
+
+{% include _join-anvio-discord.html %}
 
 
 ## Study description
