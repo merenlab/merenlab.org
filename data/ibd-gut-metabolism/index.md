@@ -52,6 +52,20 @@ cd
 
 We suggest working from within this datapack. Most of the commands and paths referenced below will assume that your working directory is the uppermost level of the datapack directory structure.
 
+Here is a quick overview of the datapack structure:
+
+```
+VESELI_2023_DATAPACK/
+  |
+  |- 00_FASTQ_FILES            ## this is where you can download metagenome FASTQ files
+  |- 01_ALL_METAGENOME_DBS     ## this is where you will generate contigs databases for the gut metagenome assemblies
+  |- 02_SUBSET_METAGENOME_DBS  ## this holds the contigs databases we generated for the subset of samples used in the primary analyses of this paper
+  |- TABLES                    ## this holds the important data tables
+  |- SCRIPTS                   ## this contains scripts that you can run to reproduce some of the work described below
+  |- MISC                      ## this holds miscellanous files
+  |- OUTPUT                    ## you will be generating some output in this directory
+```
+
 ## Computational environment details
 
 The bulk of analyses in this study were done using anvi'o version 7.1-dev (that is, the development version of anvi'o following the stable release v7.1). You can use anvi'o version 8.0 (once it is released) to reproduce our results, as all of the relevant code has been included as part of that stable release.
