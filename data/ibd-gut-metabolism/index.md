@@ -111,9 +111,14 @@ We note that we did not exclude samples from individuals with high BMI from the 
 
 ### Downloading the public metagenomes used in this study
 
-The SRA accession number of each sample is listed in [Supplementary Table 1c](https://doi.org/10.6084/m9.figshare.22679080). We downloaded the samples from each contributing study individually, over time, using the [NCBI SRA toolkit](https://github.com/ncbi/sra-tools) and particularly the [`fasterq-dump` program](https://github.com/ncbi/sra-tools/wiki/08.-prefetch-and-fasterq-dump) that will download the FASTQ files for each given SRA accession. If you want to download all of the samples we used in this work, we recommend a similar strategy (but please keep in mind that the storage requirements for almost 3,000 metagenomes will be huge). If you want help with this, feel free to reach out to us. For convenience, we've provided a plain-text version of Table 1c in our DATAPACK, which can be accessed at the path `TABLES/all_metagenomes.txt`. The last column of that file provides the SRA accessions that can be used for downloading each sample.
+The SRA accession number of each sample is listed in [Supplementary Table 1c](https://doi.org/10.6084/m9.figshare.22679080). We downloaded the samples from each contributing study individually, over time, using the [NCBI SRA toolkit](https://github.com/ncbi/sra-tools) and particularly the [`fasterq-dump` program](https://github.com/ncbi/sra-tools/wiki/08.-prefetch-and-fasterq-dump) that will download the FASTQ files for each given SRA accession. We then gzipped each read file to save on space (and you will see us refer to these gzipped FASTQ files later in the workflow). 
 
-There is one exception to this strategy, and that is the study by [Quince et al. 2015](https://doi.org/10.1038/ajg.2015.357). There are no deposited sequences under [the NCBI BioProject for this study](https://www.ncbi.nlm.nih.gov/bioproject/270985). The SRA accession column for these samples contains only the BioProject accession number (PRJEB7576), and these rows should be skipped when using `fasterq-dump` to download samples. We accessed these metagenomes directly from the study authors.
+If you want to download all of the samples we used in this work, we recommend a similar strategy (but please keep in mind that the storage requirements for almost 3,000 metagenomes will be huge). Feel free to reach out to us for help if you need it. For convenience, we've provided a plain-text version of Table 1c in our DATAPACK, which can be accessed at the path `TABLES/00_ALL_SAMPLES_INFO.txt`. The last column of that file provides the SRA accessions that can be used for downloading each sample. We recommend downloading each read file to the paths listed in the `r1` and `r2` columns for each sample (don't forget the gzip step), as this will keep the file organization consistent with what we expect later and will minimize the need to alter file paths. The `00_FASTQ_FILES/` directory referenced in those paths should already exist in the datapack, ready for you to add files to it.
+
+There is one exception to this strategy, and that is the study by [Quince et al. 2015](https://doi.org/10.1038/ajg.2015.357). There are no deposited sequences under [the NCBI BioProject for this study](https://www.ncbi.nlm.nih.gov/bioproject/270985). The SRA accession column for these samples in `TABLES/00_ALL_SAMPLES_INFO.txt` contains NaN values, and these rows should be skipped when using `fasterq-dump` to download samples. We accessed these metagenomes directly from the study authors.
+
+{:.notice}
+If you are paying close attention, you might notice that not all of the samples from each contributing study are included in our dataset. A few samples here and there were dropped due to errors during processing (i.e., failed assembly) or missing metadata.
 
 ### Metagenome processing: single assemblies and annotations
 
@@ -127,23 +132,30 @@ We used the [anvi'o metagenomic workflow](https://merenlab.org/2018/07/09/anvio-
 
 (the workflow has other steps, namely read recruitment of each sample against its assembly and the consolidation of the resulting read mapping data into anvi'o profile databases, but these are not crucial for our downstream analyses in this paper.)
 
-We provide an example configuration file (`MISC/config.json`) in the DATAPACK that can be used for reproducing our assemblies. To run the workflow, you simply create a 3-column `samples.txt` file containing the sample name, path to the R1 file, and path to the R2 file for each sample that you downloaded. An example file is described in our [workflow tutorial](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#samplestxt). Then, you can start the workflow with the following command (hopefully adapted for use on a high-performance computing cluster):
+We provide an example configuration file (`MISC/config.json`) in the DATAPACK that can be used for reproducing our assemblies. To run the workflow, you simply create a 3-column `samples.txt` file containing the sample name, path to the R1 file, and path to the R2 file for each sample that you downloaded. An example file is described in our [workflow tutorial](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#samplestxt). In fact, you can derive this file from `TABLES/00_ALL_SAMPLES_INFO.txt` (assuming you have either followed our file naming/organization recommendations or updated those paths to reflect the names/organization you decided upon):
 
 ```bash
-anvi-run-workflow -w metagenomics -c config.json
+grep -v Vineis_2016 TABLES/00_ALL_SAMPLES_INFO.txt | cut -f 1-3 > MISC/samples.txt
+```
+
+Then, you can start the workflow with the following command (hopefully adapted for use on a high-performance computing cluster):
+
+```bash
+anvi-run-workflow -w metagenomics -c MISC/config.json
 ```
 
 A few notes:
-* We renamed the samples from each study to incorporate information such as country of origin (for healthy samples) or host diagnosis (for IBD samples) for better readability and downstream sorting. To match our sample names, your `samples.txt` file should use the same sample names that are described in Supplementary Table 1c (or the first column of `TABLES/all_metagenomes.txt` in the DATAPACK)
+* We renamed the samples from each study to incorporate information such as country of origin (for healthy samples) or host diagnosis (for IBD samples) for better readability and downstream sorting. To match our sample names, your `samples.txt` file should use the same sample names that are described in Supplementary Table 1c (or the first column of `TABLES/00_ALL_SAMPLES_INFO.txt` in the DATAPACK). If you generated the `samples.txt` from that file, you are good to go.
 * We used the default snapshot of KEGG data associated with anvi'o v7.1-dev, which can be downloaded onto your computer by running `anvi-setup-kegg-kofams --kegg-snapshot  v2020-12-23`, as described earlier. To exactly replicate the results of this study, the metagenome samples need to be annotated with this KEGG version by changing the `--kegg-data-dir` parameter (in the `anvi_run_kegg_kofams` rule of the config file) to point to this snapshot wherever it located on your computer
 * The number of threads used for each rule is set in the config file. We conservatively set this number in the example `MISC/config.json` to be 1 for all rules, but you will certainly want to adjust these to take advantage of the resources of your particular system.
+* We set the output directory for contigs databases to be `01_ALL_METAGENOME_DBS` to be consistent with the file organization described in `TABLES/00_ALL_SAMPLES_INFO.txt`
 
 The steps in the workflow described above apply to all of the metagenome samples except for those from [Vineis et al. 2016](https://doi.org/10.1128/mBio.01713-16), which had to be processed differently since the downloaded samples contain merged reads (rather than paired-end reads described in R1 and R2 files, as in the other samples). Since the metagenomics workflow currently works only on paired-end reads, we had to run the assemblies manually. Aside from the lack of workflow, there are only two major differences in the processing of the 96 Vineis et al. samples:
 
-* no additional quality-filtering was run on the downloaded samples, because the merging of the sequencing reads as described in the paper's methods section already included a quality-filtering step
-* single assembly of the merged reads was done with [MEGAHIT](https://academic.oup.com/bioinformatics/article/31/10/1674/177884), using all default parameters except for a minimum contig length of 1000
+* No additional quality-filtering was run on the downloaded samples, because the merging of the sequencing reads as described in the paper's methods section already included a quality-filtering step
+* Single assembly of the merged reads was done with [MEGAHIT](https://academic.oup.com/bioinformatics/article/31/10/1674/177884), using all default parameters except for a minimum contig length of 1000
 
-We wrote a loop to run an individual assembly on each sample from [Vineis et al. 2016](https://doi.org/10.1128/mBio.01713-16), which makes use of a two-column tab-delimited file containing the name of each sample and the path to its merged read file (provided in the DATAPACK at `MISC/vineis_samples.txt`):
+We wrote a loop to run an individual assembly on each sample from [Vineis et al. 2016](https://doi.org/10.1128/mBio.01713-16). This loop makes use of the sample names and paths as established in the `TABLES/00_ALL_SAMPLES_INFO.txt` file:
 
 ```bash
 while read name path; do \
@@ -151,7 +163,7 @@ while read name path; do \
       --min-contig-len 1000 \
       -t 7 \
       -o ${name}_TMP; \
-done < <(tail -n+2 vineis_samples.txt)
+done < <(grep Vineis_2016 TABLES/00_ALL_SAMPLES_INFO.txt | cut -f 1-2 | tail -n+2)
 ```
 
 Once the assemblies were done, we extracted the final assembly files from each output directory, renamed them with the sample name, and put them all in one folder:
@@ -160,17 +172,24 @@ Once the assemblies were done, we extracted the final assembly files from each o
 mkdir -p VINEIS_ASSEMBLIES
 while read name path; do \
   mv ${name}_TMP/final.contigs.fa VINEIS_ASSEMBLIES/${name}.fasta
-done < <(tail -n+2 vineis_samples.txt)
+done < <(grep Vineis_2016 TABLES/00_ALL_SAMPLES_INFO.txt | cut -f 1-2 | tail -n+2)
 rm -r *TMP/
 ```
 
 Then, we were able to leverage the anvi'o contigs workflow to generate the contigs databases for each assembly and run the annotation steps. We've provided the relevant configuration file for this workflow (`MISC/vineis_config.json`) as well as the input file that lists the path to each assembly (`MISC/vineis_fasta.txt`) in the DATAPACK, and this is how you could run it for yourself:
 
 ```bash
-anvi-run-workflow -w contigs -c vineis_config.json
+anvi-run-workflow -w contigs -c MISC/vineis_config.json
 ```
 
 The same notes about setting the KEGG data version and the number of threads that we detailed for the metagenomics workflow apply to this workflow as well.
+
+### A final note on data organization
+
+If you've elected to reproduce the metagenome download and processing described in this section, you will have ended up with a lot of samples, assemblies, and contigs databases on your computer system. You may have noticed that so far, we've been relying a lot on the organization of files as described in the file `TABLES/00_ALL_SAMPLES_INFO.txt`, which includes the paths to each read file (`r1` and `r2`) and to each contigs database (`contigs_db_path`). We will continue to rely on that organization in subsequent sections, so now is a good time to double-check that all of the file paths are correct.
+
+If you decided to follow a different file naming and organization strategy, that is fine. Where the files are on your computer does not matter for following the remainder of this workflow, as long as you prepare a file for yourself that describes the correct paths to each sample's read files and contigs database, and you use that file in place of the `TABLES/00_ALL_SAMPLES_INFO.txt` file as needed.
+
 
 ## Selecting our final dataset of metagenomes
 
