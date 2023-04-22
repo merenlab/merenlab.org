@@ -97,6 +97,10 @@ We note that we did not exclude samples from individuals with high BMI from the 
 
 ### Downloading the public metagenomes used in this study
 
+The SRA accession number of each sample is listed in [Supplementary Table 1c](https://doi.org/10.6084/m9.figshare.22679080). We downloaded the samples from each contributing study individually, over time, using the [NCBI SRA toolkit](https://github.com/ncbi/sra-tools) and particularly the [`fasterq-dump` program](https://github.com/ncbi/sra-tools/wiki/08.-prefetch-and-fasterq-dump) that will download the FASTQ files for each given SRA accession. If you want to download all of the samples we used in this work, we recommend a similar strategy (but please keep in mind that the storage requirements for almost 3,000 metagenomes will be huge). If you want help with this, feel free to reach out to us. For convenience, we've provided a plain-text version of Table 1c in our DATAPACK, which can be accessed at the path `TABLES/all_metagenomes.txt`. The last column of that file provides the SRA accessions that can be used for downloading each sample.
+
+There is one exception to this strategy, and that is the study by [Quince et al. 2015](https://doi.org/10.1038/ajg.2015.357). There are no deposited sequences under [the NCBI BioProject for this study](https://www.ncbi.nlm.nih.gov/bioproject/270985). The SRA accession column for these samples contains only the BioProject accession number (PRJEB7576), and these rows should be skipped when using `fasterq-dump` to download samples. We accessed these metagenomes directly from the study authors.
+
 ### Metagenome processing: single assemblies and annotations
 
 
