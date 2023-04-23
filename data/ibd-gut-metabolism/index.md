@@ -238,6 +238,12 @@ scatterplot of sequencing depth vs number of populations
 
 ### Removal of samples with low-sequencing depth
 
+Running the following script will subset the samples with >= 25 million sequencing reads. It will generate a new table at `TABLES/00_SUBSET_SAMPLES_INFO.txt` containing the subset of 408 samples. You'll see some information about the resulting sample groups (and which studies contributed to them) in the output of the program.
+
+```bash
+python SCRIPTS/subset_metagenome_samples.py
+```
+
 ### Final set of samples and their contigs DBs
 
 
