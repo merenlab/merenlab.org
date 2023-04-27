@@ -234,9 +234,39 @@ done < <(tail -n+2 TABLES/00_ALL_SAMPLES_INFO.txt)
 ```
 
 Since the number of files to process is so large, this will take quite a while to run. We've already stored the resulting read counts in the `TABLES/00_ALL_SAMPLES_INFO.txt` file in case you don't want to wait.
-scatterplot of sequencing depth vs number of populations
 
-### Removal of samples with low-sequencing depth
+### Generating Supplementary Figure 1
+Supplementary Figure 1 is a scatterplot demonstrating the correlation betwen sequencing depth and the estimated number of populations in a metagenome assembly. The code to plot this figure can be found in the R script at `SCRIPTS/plot_figures.R` in the DATAPACK. Here is the relevant code taken from the script (note: this code snippet does not include some required setup, like loading packages and setting some global variables, and will not run on its own).
+
+```
+#### SUPP FIG 1 - SEQUENCING DEPTH SCATTERPLOT ####
+all_metagenomes = read.table(file=paste(data_dir, "00_ALL_SAMPLES_INFO.txt", sep=""), 
+                             header = TRUE, sep = "\t")
+gplt = all_metagenomes %>%
+  ggplot(aes(r1_num_reads/1e6, num_populations, color=group)) +
+  geom_point(alpha=0.5, size=2) +
+  labs(y="Estimated Number of Genomes", x="Number of Sequencing Reads (R1) * 10^6", subtitle="ALL Samples: Sequencing Depth vs # Genomes") +
+  geom_vline(xintercept = 25) +
+  scale_color_manual(values = c(HEALTHY_color, IBD_color, NONIBD_color)) +
+  scale_fill_manual(values = c(HEALTHY_color, IBD_color, NONIBD_color)) +
+  theme_bw() + 
+  theme(panel.grid.minor = element_blank()) +
+  stat_cor(data=subset(all_metagenomes, r1_num_reads < 25000000), method='spearman', label.x.npc = 'left', show.legend = FALSE) + 
+  geom_smooth(data=subset(all_metagenomes, r1_num_reads < 25000000), method='lm', aes(fill=group), alpha=.2) + 
+  stat_cor(data=subset(all_metagenomes, r1_num_reads >= 25000000), method='spearman', label.x.npc = 'center', show.legend = FALSE) +
+  geom_smooth(data=subset(all_metagenomes, r1_num_reads >= 25000000), method='lm', aes(fill=group), alpha=.2)
+gplt
+```
+
+This produces the following plot (which we cleaned up Inkscape to produce the final polished figure for the manuscript):
+
+[![Supplementary Figure 1. Scatterplot of sequencing depth vs estimated number of populations.](images/supp_fig_1.png)](images/supp_fig_1.png){:.center-img .width-50}
+
+As you can see, the correlation between a sample's sequencing depth and the estimated number of microbial populations it contains is fairly strong, particularly for lower depth samples. That correlation starts to weaken at higher sequencing depths. We selected our sequencing depth threshold to be 25 million reads as a compromise between the need for accurate estimates of microbiome richness and the need for enough samples for a robust and powerful analysis.
+
+The script at `SCRIPTS/plot_figures.R` contains code for most of the other figures in the manuscript (those that were generated from data). Not all of the code and figures will be highlighted in this workflow, but you can always find it in that file.
+
+### Removal of samples with low sequencing depth
 
 Running the following script will subset the samples with >= 25 million sequencing reads. It will generate a new table at `TABLES/00_SUBSET_SAMPLES_INFO.txt` containing the subset of 408 samples. You'll see some information about the resulting sample groups (and which studies contributed to them) in the output of the program.
 
