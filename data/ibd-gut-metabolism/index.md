@@ -276,6 +276,7 @@ python SCRIPTS/subset_metagenome_samples.py
 
 ### Final set of samples and their contigs DBs
 
+In the remainder of the analyses described in our manuscript, we utilized the subset of 408 samples with high sequencing depth described in `TABLES/00_SUBSET_SAMPLES_INFO.txt`. Since 408 is a much more reasonable number than 2,893 we have provided the contigs databases for our metagenome assemblies of these samples in the DATAPACK. You will find them in the directory called `02_SUBSET_METAGENOME_DBS`, and the table already contains the path to these samples (relative to the uppermost directory of the datapack). So, even if you didn't download and process all of the metagenome samples as described in the first section of this workflow, you can still continue with the subsequent sections.
 
 ## Metabolism analyses (metagenomes)
 
