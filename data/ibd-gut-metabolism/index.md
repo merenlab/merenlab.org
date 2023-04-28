@@ -315,6 +315,39 @@ We've included our version of this output file in the DATAPACK. You will find it
 
 ### Normalization of pathway copy numbers to PPCN
 
+We just calculated the pathway copy numbers, and we estimated the number of microbial populations in each metagenome assembly in the previous section. To normalize the former, we divide by the latter. It is that simple :) 
+
+The R script at `SCRIPTS/module_stats_and_medians.R` contains the code for computing PPCN values. It gets the module copy numbers and per-sample population estimates from the tables in the `TABLES/` folder, and generates a long-format data table at `OUTPUT/ALL_MODULES_NORMALIZED_DATA.txt` that includes the PPCN values in the `PPCN` column.
+
+You can see the full code in the script, but here are the most relevent lines for your quick perusal:
+
+```r
+## NORMALIZING FUNCTION
+normalize_values = function(matrix, normalizing_matrix, normalize_by_col){
+  # function that normalizes the 'value' column
+  # matrix: long-form dataframe containing the 'value' column and 'sample' column
+  # normalizing_matrix: dataframe containing the data with which to normalize. 'sample' column must match samples in matrix
+  # normalize_by_col: which column to normalize 'value' with. Must be passed in form normalizing_matrix$colname
+  matrix$normalize_with = normalize_by_col[match(matrix$sample, normalizing_matrix$sample)]
+  matrix$normalized_value = matrix$value / matrix$normalize_with
+  return(matrix)
+}
+
+#### COMPUTING PPCN VALUES (COPY NUMBER NORMALIZATION) ####
+## LOAD DATA
+metagenomes = read.table(file=paste(data_dir, "00_SUBSET_SAMPLES_INFO.txt", sep=""), 
+                         header = TRUE, sep = "\t")
+module_info = read.table(paste(data_dir, "ALL_MODULES_INFO.txt", sep=""), header = TRUE, sep="\t")
+
+## LOAD COPY NUMBER MATRIX AND NORMALIZE AND GROUP SAMPLES
+table_from_file = read.table(file=paste(data_dir, "METAGENOME_METABOLISM-module_stepwise_copy_number-MATRIX.txt", sep=""), 
+                             header = TRUE, sep = "\t")
+stepwise_matrix = melt(table_from_file)
+colnames(stepwise_matrix) = c('module', 'sample', 'value')
+normalized_df = normalize_values(stepwise_matrix, normalizing_matrix = metagenomes, normalize_by_col = metagenomes$num_populations)
+normalized_df$sample_group = metagenomes$group[match(normalized_df$sample, metagenomes$sample)]
+```
+
 ### Enrichment analysis for IBD-enriched pathways
 
 ### Generating Figure 2
