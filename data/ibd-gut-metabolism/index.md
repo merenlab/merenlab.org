@@ -47,23 +47,32 @@ We've pre-packaged a lot of the data and scripts that you need for this workflow
 
 ```bash
 FIXME download
-cd
+cd FIXME
 ```
 
 We suggest working from within this datapack. Most of the commands and paths referenced below will assume that your working directory is the uppermost level of the datapack directory structure.
+
+We also wanted to provide access to the main set of metagenome assemblies that we analyzed in the paper. This is a rather large dataset, so we separated it from the rest of the datapack to avoid overburdening your storage system unnecessarily. If you want to access these assemblies, you can download them into your datapack by running the following commands:
+
+{:.warning}
+The size of this metagenome dataset is **96 GB** (the archive alone is ~33 GB). Please make sure you have enough space to download it!
+
+```bash
+FIXME download
+```
 
 Here is a quick overview of the datapack structure:
 
 ```
 VESELI_2023_DATAPACK/
   |
-  |- 00_FASTQ_FILES            ## this is where you can download metagenome FASTQ files
-  |- 01_ALL_METAGENOME_DBS     ## this is where you will generate contigs databases for the gut metagenome assemblies
-  |- 02_SUBSET_METAGENOME_DBS  ## this holds the contigs databases we generated for the subset of samples used in the primary analyses of this paper
-  |- TABLES                    ## this holds the important data tables
-  |- SCRIPTS                   ## this contains scripts that you can run to reproduce some of the work described below
-  |- MISC                      ## this holds miscellanous files
-  |- OUTPUT                    ## you will be generating some output in this directory
+  |- 00_FASTQ_FILES                       ## this is where you can download metagenome FASTQ files
+  |- 01_ALL_METAGENOME_DBS                ## this is where you will generate contigs databases for the gut metagenome assemblies
+  |- VESELI_ET_AL_METAGENOME_CONTIGS_DBS  ## this holds the contigs databases we generated for the subset of samples used in the primary analyses of this paper
+  |- TABLES                               ## this holds the important data tables
+  |- SCRIPTS                              ## this contains scripts that you can run to reproduce some of the work described below
+  |- MISC                                 ## this holds miscellanous files
+  |- OUTPUT                               ## you will be generating some output in this directory
 ```
 
 ## Computational environment details
