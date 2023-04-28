@@ -406,7 +406,7 @@ This is because the module in question, [M00006](https://www.genome.jp/entry/M00
 
 ### Generating Figure 2
 
-Figure 2 includes several plots of both unnormalized copy numbers and PPCN values. We won't copy the code to generate these plots here, but just wanted to remind you that you can find it in the script `SCRIPTS/plot_figures.R`.
+Figure 2 includes several plots of both unnormalized copy numbers and PPCN values. We won't copy the code to generate these plots here, but just wanted to remind you that you can find it in the script `SCRIPTS/plot_figures.R`. The section of code for each plot was designed to be an independent as possible from the other sections of code, so that you need only run that section to get what you want. Most of them do require the packages, paths, and color variables set up at the top of the script, however.
 
 
 ## Obtaining a dataset of gut microbial genomes from the GTDB
