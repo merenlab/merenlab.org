@@ -289,7 +289,29 @@ In the remainder of the analyses described in our manuscript, we utilized the su
 
 ## Metabolism analyses (metagenomes)
 
+In this section, we will cover the analyses used to determine the set of metabolic pathways that are enriched in the IBD sample group. First, we calculated the copy numbers of all pathways in the KEGG modules database, in each metagenome assembly. Those numbers are made from the combined genes from all microbial populations represented in a given metagenome and thus quantify the community-level metabolic potential. To make them comparable across different gut communities of varying diversity, we normalized each copy number by the estimated number of populations in the same sample to obtain a 'per-population copy number', or PPCN. We then ran a statistical test on each module to determine which pathways were **the most different between the sample groups**, specifically looking for the ones that had **higher PPCN in IBD**.
+
 ### Metabolism estimation
+
+We used the program `anvi-estimate-metabolism` to compute copy numbers of KEGG modules in each sample. You can find details about that program and its calculation strategies on [this page](https://anvio.org/help/main/programs/anvi-estimate-metabolism/). To ensure that all annotated KOfams in the metagenome contributed to the calculations, we ran the program in 'genome mode' on each sample, and to do this in a high-throughput manner, we provided the program with an [external genomes file](https://anvio.org/help/main/artifacts/external-genomes/) containing the paths to all the samples' contigs databases at once. Here is the code to both generate that input file (from the table containing the sample information, including paths) and run the metabolism estimation code.
+
+```bash
+echo -e "name\tcontigs_db_path" > OUTPUT/METAGENOME_PATHS.txt    # header for the input file
+tail -n+2 TABLES/00_SUBSET_SAMPLES_INFO.txt | cut -f 1,4 >> OUTPUT/METAGENOME_PATHS.txt    # copy the sample names and paths over
+
+# run metabolism estimation
+anvi-estimate-metabolism -e OUTPUT/METAGENOME_PATHS.txt \
+                    -O OUTPUT/METAGENOME_METABOLISM \
+                    --kegg-data-dir KEGG_2020-12-23 \
+                    --add-copy-number \
+                    --matrix-format
+```
+
+Note the use of `--kegg-data-dir KEGG_2020-12-23`, which points the program to the version of KEGG data that we used for our analysis (which you should have downloaded when going through the 'Computational environment details' section). If the path to this data on your computer is different, you will have to change that in the command before you run it.
+
+Since we used the `--matrix-format` flag, the output of `anvi-estimate-metabolism` will be a set of matrices, each containing a different statistic summarized across all of the metagenomes and all of the pathways. The one that we want for downstream analysis is the one containing stepwise copy numbers, which can be found at the path `OUTPUT/METAGENOME_METABOLISM-module_stepwise_copy_number-MATRIX.txt`. 
+
+We've included our version of this output file in the DATAPACK. You will find it at `TABLES/METAGENOME_METABOLISM-module_stepwise_copy_number-MATRIX.txt` (and this table is referenced in the scripts below that depend on this data, just in case you don't run this step).
 
 ### Normalization of pathway copy numbers to PPCN
 
