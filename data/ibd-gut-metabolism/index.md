@@ -247,7 +247,7 @@ Since the number of files to process is so large, this will take quite a while t
 ### Generating Supplementary Figure 1
 Supplementary Figure 1 is a scatterplot demonstrating the correlation betwen sequencing depth and the estimated number of populations in a metagenome assembly. The code to plot this figure can be found in the R script at `SCRIPTS/plot_figures.R` in the DATAPACK. Here is the relevant code taken from the script (note: this code snippet does not include some required setup, like loading packages and setting some global variables, and will not run on its own).
 
-```
+```r
 #### SUPP FIG 1 - SEQUENCING DEPTH SCATTERPLOT ####
 all_metagenomes = read.table(file=paste(data_dir, "00_ALL_SAMPLES_INFO.txt", sep=""), 
                              header = TRUE, sep = "\t")
