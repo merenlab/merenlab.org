@@ -348,9 +348,65 @@ normalized_df = normalize_values(stepwise_matrix, normalizing_matrix = metagenom
 normalized_df$sample_group = metagenomes$group[match(normalized_df$sample, metagenomes$sample)]
 ```
 
+Later on, we will also make use of the median per-population copy number for each module in each sample group (for visualizing the data as boxplots). The script also generates these median values into the file `OUTPUT/ALL_MODULES_MEDIAN_PPCN.txt`. If you plan to reproduce our figures, you should run that section of code, too (it is clearly marked in the comments).
+
 ### Enrichment analysis for IBD-enriched pathways
 
+For each module, we used a one-sided Wilcoxon Rank-Sum test on its PPCN values to determine whether the module had significantly higher copy number in the IBD sample group compared to the healthy group. Here is the code we used to do that, which is coming from the script at `SCRIPTS/module_stats_and_medians.R`:
+
+```r
+#### PER-MODULE ENRICHMENT TEST ####
+## SELECT GROUPS OF INTEREST (HEALTHY, IBD)
+ibd_and_healthy = median_copy_num %>% filter(sample_group %in% c('HEALTHY', 'IBD'))
+
+## PER-MODULE STAT TEST (IBD vs HEALTHY)
+median_per_module = spread(ibd_and_healthy, key = sample_group, value = normalized_value)
+median_per_module[, "p_value"] = NA
+median_per_module[, "W_stat"] = NA
+for (mod in levels(normalized_df$module)){
+  ibd_norm_values = normalized_df %>% filter(sample_group == "IBD" & module == mod)
+  healthy_norm_values = normalized_df %>% filter(sample_group == "HEALTHY" & module == mod)
+  w2 = wilcox.test(ibd_norm_values$normalized_value, healthy_norm_values$normalized_value, alternative = 'greater')
+  median_per_module$p_value[median_per_module$module == mod] = w2$p.value
+  median_per_module$W_stat[median_per_module$module == mod] = w2$statistic
+}
+
+## FDR adjustment of p-value
+median_per_module$fdr_adjusted_p_value = p.adjust(median_per_module$p_value, method = "fdr")
+```
+
+The resulting p-values were used to filter the pathways for those that were most enriched in the IBD gut microbiome. To be even more conservative in what we considered to be 'enriched' in IBD, we also required the module to have a minimum difference in PPCN values between the two sample groups ('effect size'). We calculated this difference by taking the median of the pathway's PPCN values in each sample group, and subtracting the healthy median from the IBD median.
+
+```r
+## DETERMINE SET OF IBD-ENRICHED MODULES
+median_per_module$diff = median_per_module$IBD  - median_per_module$HEALTHY
+adj_p_value_threshold = 2e-10
+
+# check distribution of effect sizes after p-value filter
+over_adj_p = median_per_module %>% filter(fdr_adjusted_p_value <= adj_p_value_threshold)
+stripchart(over_adj_p$diff)
+mean(over_adj_p$diff)
+
+# set effect size threshold as mean of IBD-HEALTHY medians for modules over the p-value threshold
+diff_threshold = mean(over_adj_p$diff)
+over_adj_threshold = median_per_module %>% filter(fdr_adjusted_p_value <= adj_p_value_threshold & diff >= diff_threshold)
+```
+
+If you keep following the code in the script, you will see that it will generate a file with the statistical test results and a variety of other data for each module, including the enrichment status, at `OUTPUT/ALL_MODULES_MEDIANS_AND_STATS.txt`. It also prints a subset of this information for the IBD-enriched modules to the file at `OUTPUT/IBD_ENRICHED_MODULES.txt`.
+
+One more note - you may notice that we exclude one module from the automatically-generated IBD-enriched set:
+
+```r
+## FINAL LIST OF IBD-ENRICHED MODULES
+# exclude M00006 because it is the first part of M00004
+ibd_enriched = ordered_modules %>% filter(module != "M00006")
+```
+
+This is because the module in question, [M00006](https://www.genome.jp/entry/M00006), is the oxidative phase of the pentose phosphate cycle and overlaps completely with the module describing the entirety of the pentose phosphate cycle, [M00004](https://www.genome.jp/entry/M00004). We also considered removing module [M00007](https://www.genome.jp/entry/M00007) because it is the non-oxidative phase of this cycle; however, it has some enzymatic differences with module M00004, so we left it in.
+
 ### Generating Figure 2
+
+Figure 2 includes several plots of both unnormalized copy numbers and PPCN values. We won't copy the code to generate these plots here, but just wanted to remind you that you can find it in the script `SCRIPTS/plot_figures.R`.
 
 
 ## Obtaining a dataset of gut microbial genomes from the GTDB
