@@ -408,7 +408,15 @@ This is because the module in question, [M00006](https://www.genome.jp/entry/M00
 
 Figure 2 includes several plots of both unnormalized copy numbers and PPCN values. We won't copy the code to generate these plots here, but just wanted to remind you that you can find it in the script `SCRIPTS/plot_figures.R`. The section of code for each plot was designed to be an independent as possible from the other sections of code, so that you need only run that section to get what you want. Most of them do require the packages, paths, and color variables set up at the top of the script, however.
 
-We used Inkscape to polish up the resulting plots into a publication-ready figure. In particular, we had to adjust the background color opacity for the heatmaps in panels B and E to make the signal more visible, which is why you may notice a difference between the generated plots and the plots in the manuscript.
+We used Inkscape to polish up the resulting plots into a publication-ready figure. In particular, we adjusted the background color opacity for the heatmaps in panels B and E to make the signal more visible, which is why you may notice a difference between the generated plots and the plots in the manuscript.
+
+### Summary of metagenome results
+
+So far, we've analyzed gut metagenomes, using per-population copy number as our metric for the typical metabolic capacity of a microbial population in the community described by each metagenome. We obtained a list of metabolic pathways that are enriched in the IBD sample group, that largely overlap with the modules associated with metabolic independence from [our previous study](https://doi.org/10.1186/s13059-023-02924-x), and that are mostly biosynthesis pathways for important cellular metabolites. These 33 IBD-enriched pathways could be important to microbial survival in the depleted communities of the IBD gut environment, and represent a refined list of modules associated with high metabolic independence in this environment. 
+
+We've essentially confirmed [our previous observations](https://doi.org/10.1186/s13059-023-02924-x), but with a much more extensive dataset of publicly-available gut metagenomes than was used in that study. However, will these observations hold up at the genome level? That is going to be the topic of the next section.
+
+
 
 
 ## Obtaining a dataset of gut microbial genomes from the GTDB
