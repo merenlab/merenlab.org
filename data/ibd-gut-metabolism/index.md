@@ -551,6 +551,108 @@ python SCRIPTS/extract_ecophylo_gut_genomes.py
 
 It will produce a list of 836 genomes at `OUTPUT/gut_genome_list.txt`.
 
+### Read recruitment from our dataset of gut metagenomes to gut microbes
+
+Our next task was to recruit reads from our dataset of 408 deeply-sequenced gut metagenomes to the 836 GTDB genomes. To do this efficiently, we concatenated all of the genome sequences into the same FASTA file and used the anvi'o [metagenomics workflow in 'References Mode'](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#references-mode) to run the read mapping.
+
+#### Reformatting the genome FASTAs
+When making a FASTA file containing multple genomes, you need each contig sequence to be uniquely labeled, and you want to be able to easily identify which genome each contig sequence belongs to (in case you need to backtrack later). The easiest way to do that is to include the genome accession in each contig header. We acheived this by first running `anvi-script-reformat-fasta` on each of the individual GTDB genome FASTA files to get a version of the file with the genome accession prefixing each contig header.
+
+The loop below creates an external genomes file containing the name and path of each genome in our set of 836. To run this yourself, you will likely need to change the paths and/or filenames to the genome FASTA files, depending on where you stored them on your computer. Note that we used the naming convention of `${acc}.${ver}_genomic.fna.gz` (where `${acc}` is the genome accession and `${ver}` is its version number), and that we keep these files gzipped to reduce the storage requirement.
+
+```bash
+echo -e "name\tpath" > OUTPUT/GTDB_genomes_for_read_recruitment.txt
+while read g; do \
+  ver=$(echo $g | cut -d '_' -f 3); \
+  acc=$(echo $g |cut -d '_' -f 1,2); \
+  echo -e "${g}\t${acc}.${ver}_genomic.fna.gz" >> OUTPUT/GTDB_genomes_for_read_recruitment.txt; #may need to change path in this line \
+done < OUTPUT/gut_genome_list.txt
+```
+
+Then, to reformat the contig headers for each genome, we ran the following loop, which unzips the original genome FASTA file and runs the reformatting on it to produce a new file with the appropriate headers:
+
+```bash
+mkdir -p OUTPUT/01_GTDB_FASTA_REFORMAT
+while read genome path; do \
+  gunzip $path; \
+  newpath="${path%.*}"; # remove .gz extension \
+  outpath="OUTPUT/01_GTDB_FASTA_REFORMAT/${genome}.fasta"; \
+  reportpath="OUTPUT/01_GTDB_FASTA_REFORMAT/${genome}_reformat_report.txt"; \
+  anvi-script-reformat-fasta $newpath -o $outpath --simplify-names --prefix $genome --seq-type NT -r $reportpath; \
+done < <(tail -n+2 OUTPUT/GTDB_genomes_for_read_recruitment.txt)
+```
+
+Finally, we concatenated all of the reformatted sequences into one big FASTA file:
+
+```bash
+cat OUTPUT/01_GTDB_FASTA_REFORMAT/*.fasta >> OUTPUT/GTDB_GENOMES.fasta
+
+# make sure the number of contigs match
+grep ">" OUTPUT/01_GTDB_FASTA_REFORMAT/*.fasta | wc -l
+grep -c ">" OUTPUT/GTDB_GENOMES.fasta
+# 64280 in both cases 
+
+# remove the reformatted genomes to save space
+rm -r OUTPUT/01_GTDB_FASTA_REFORMAT/
+```
+
+The resulting file, `OUTPUT/GTDB_GENOMES.fasta` will be our reference for the mapping workflow.
+
+#### Running the read recruitment workflow
+
+The metagenomics workflow in 'References Mode' is slightly different from the previous workflows that we have discussed. It takes a [fasta.txt file](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#fastatxt) describing the reference(s) to map against, turns each reference into a contigs database, does read recruitment from each of the samples in the [samples.txt file](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#samplestxt) with [Bowtie2](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml), and summarizes the read-mapping results into individual profile databases.
+
+Unfortunately, once again we have to treat the [Vineis et al.](https://doi.org/10.1128/mBio.01713-16) differently, because the workflow only works with paired-end reads and not with merged reads. So, when generating the input files for the workflow (in the `MISC/` folder), we leave out these samples:
+
+```bash
+# fasta txt
+echo -e "name\tpath" > MISC/GTDB_GENOMES_fasta.txt
+echo -e "GTDB_GENOMES\tOUTPUT/GTDB_GENOMES.fasta" >> MISC/GTDB_GENOMES_fasta.txt
+
+# samples txt
+grep -v Vineis TABLES/00_SUBSET_SAMPLES_INFO.txt | cut -f 1-3 > GTDB_GENOMES_samples.txt
+```
+
+You'll find the configuration file for this workflow at `MISC/GTDB_GENOMES_config.json`. If you take a look, you will notice that most of the optional rules (i.e., gene annotation) are turned off (`"run": false`), and that references mode is turned on (`references_mode": true`). Here is how you can run the mapping workflow (after adjusting the config for your system, of course):
+
+```bash
+anvi-run-workflow -w metagenomics  -c MISC/GTDB_GENOMES_config.json
+```
+
+For us, it took a few days to run. We stopped the workflow just before it ran `anvi-merge` (because, as you will see, we run that later to incorporate all the samples, including the Vineis et al. ones). If you let it run that step, it is fine - you simply may have to overwrite the resulting merged profile database later when you run `anvi-merge`.
+
+#### Mapping the Vineis et al. samples separately
+
+To map the merged reads from the 64 [Vineis et al.](https://doi.org/10.1128/mBio.01713-16) samples, we created a script that replicates the steps of the snakemake workflow for one sample with single-read input. You can find it at `SCRIPTS/map_single_reads_to_GTDB.sh`. The script should be run after the previous workflow finishes because it makes use of the `bowtie` index and output directories generated by the previous workflow (so that all the results are stored in one location). If you changed the output directories before you ran that workflow, you should update the paths in this script before you run it.
+
+Here is the code to run the script (note that it uses 4 threads):
+
+```bash
+while read samp; do \
+  name=$(basename $samp | sed 's/.fastq.gz//')
+  SCRIPTS/map_single_reads_to_GTDB.sh $samp; \
+done < <(grep Vineis TABLES/00_SUBSET_SAMPLES_INFO.txt | cut -f 2)
+```
+
+Once those mapping jobs are done, you can summarize the read mapping results into a profile database for each sample. You can multithread the `anvi-profile` step by adding the `-T` parameter, if you wish. Note that these paths also make use of the output directories from the previous workflow:
+
+```bash
+while read samp; do \
+  name=$(basename $samp | sed 's/.fastq.gz//')
+  anvi-profile -c 03_CONTIGS/GTDB_GENOMES-contigs.db -i 04_MAPPING/GTDB_GENOMES/${name}.bam -o 05_ANVIO_PROFILE/GTDB_GENOMES/${name} -S $name
+done < <(grep Vineis TABLES/00_SUBSET_SAMPLES_INFO.txt | cut -f 2)
+```
+
+#### Putting it all together with `anvi-merge`
+
+Once all samples have been mapped and profiled, you can merge all of the mapping results into one big profile database containing all samples:
+
+```bash
+anvi-merge -c 03_CONTIGS/GTDB_GENOMES-contigs.db -o 06_MERGED 05_ANVIO_PROFILE/GTDB_GENOMES/*/PROFILE.db
+```
+
+The resulting database will hold all of the coverage and detection statistics for these genomes across the gut metagenome dataset.
+
 ### Subsetting gut genomes by detection in our sample groups
 
 ## Metabolism and distribution analyses (for genomes)
