@@ -417,9 +417,11 @@ So far, we've analyzed gut metagenomes, using per-population copy number as our 
 We've essentially confirmed [our previous observations](https://doi.org/10.1186/s13059-023-02924-x), but with a much more extensive dataset of publicly-available gut metagenomes than was used in that study. However, will these observations hold up at the genome level? That is going to be the topic of the next section.
 
 
+## Analyzing a dataset of gut microbial genomes from the GTDB
 
+We wanted to confirm our results at the genome level. The ideal way to do this would be to carefully bin metagenome-assembled genomes (MAGs) from each metagenome and individually analyze their metabolic capacity. However, binning those MAGs would take a really long time, and even if we automated the process, [automatic binning is difficult and not always conclusive](https://merenlab.org/2020/01/02/visualizing-metagenomic-bins/). Instead, we decided to leverage a high-quality set of reference genomes from the [Genome Taxonomy Database (GTDB)](https://gtdb.ecogenomic.org/) ([Parks et al. 2021](https://doi.org/10.1093/nar/gkab776)).
 
-## Obtaining a dataset of gut microbial genomes from the GTDB
+First, we determined which genomes represent typical gut microbes by running read recruitment and analyzing the resulting coverage information. Then, we analyzed the metabolic potential of each genome by calculating the stepwise completeness of each KEGG module. We used the completeness scores of our 33 IBD-enriched pathways to determine whether each genome represented a microbe with high metabolic independence (HMI) - that is, high average completenesss of all these pathways - or low metabolic independence (LMI). Finally, we used read recruitment results from the gut metagenome dataset to analyze the distribution of each group of genomes across healthy individuals and individuals with IBD.
 
 ### Genome processing: the (snakemake) contigs workflow
 
