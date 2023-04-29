@@ -524,7 +524,7 @@ The configuration file for the workflow can be found at `MISC/ecophylo_config.js
 anvi-run-workflow -w ecophylo -c MISC/ecophylo_config.json
 ```
 
-It took a few months to finish on our HPC cluster (with some stops and restarts for troubleshooting), which is still much faster than read recruitment to the full genome sequences would have taken. :)
+As always, please remember to change the thread counts appropriately for your system (we made sure the config files in the datapack doesn't assign more than 5 threads to any rule so it doesn't inadvertently overwhelm your computer, but you definitely want to increase those if you can). On our system, the workflow took a few months to finish (with some stops and restarts for troubleshooting), which is still much faster than read recruitment to the full genome sequences would have taken. :)
 
 ### Subsetting gut genomes by detection in our sample groups
 
