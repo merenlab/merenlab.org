@@ -443,7 +443,88 @@ anvi-run-workflow -w contigs -c MISC/GTDB_config.json
 Just please keep in mind that you will need a large amount of computational resources. The workflow took about 2 months to finish on our HPC (using 80 cores). Just the zipped fasta files for each of the ~31k representative genomes takes up about 33 GB of storage space, and that does not even consider the storage required for auxiliary files and for the files generated during processing.
 
 ### Using the EcoPhylo workflow for quick identification of relevant gut microbes
-starting from 3 phyla of gut microbes
+
+Once we had all of the GTDB representative genomes annotated, we had to figure out which of those species were relevant to the gut environment. We started by restricting the dataset to genomes assigned to the 3 most common phyla found in the human gut: Firmicutes, Proteobacteria, and Bacteroidetes (`Bacteroidota` in GTDB taxonomy). We simply read the metadata file describing the taxonomy of each representative genome and filtered for those 3 phyla:
+
+```bash
+for phylum in Firmicutes Proteobacteria Bacteroidota; do \
+  grep p__${phylum} bac120_taxonomy_r95.tsv | cut -f 1 | cut -d '_' -f 2,3
+done
+```
+
+In the above loop, the `bac120_taxonomy_r95.tsv` file is a metadata file that can be downloaded from [the GTDB FTP site here](https://data.gtdb.ecogenomic.org/releases/release95/95.0/). The `grep` command finds the lines with matching phyla, and the `cut` commands extract the genome accession from the line.
+
+That gives us 19,226 genomes to work with, which is a lot. We wanted to identify the gut microbes within this set by mapping sequencing reads from healthy human gut metagenomes - not the ones used in our study, but an external dataset of 150 gut metagenomes from the [Human Microbiome Project (HMP)](https://doi.org/10.1038/nature11209). However, with so many genomes to map against, a read recruitment workflow to the full genome sequences would have taken years to finish (even on our fancy HPC cluster). So instead we leveraged [Matt Schechter's](https://anvio.org/people/mschecht/) [EcoPhylo workflow](https://anvio.org/help/main/artifacts/ecophylo-workflow/) to do a much faster and less computationally-intensive analysis of the distribution of these genomes in the HMP samples. This workflow takes one gene of interest from each genome and each metagenome, clusters them and picks representative sequences with `mmseqs2` ([Steinegger and Söding 2017](https://doi.org/10.1038/nbt.3988)), and uses the representative sequences to rapidly summarize the distribution of each cluster across the metagenomic samples.
+
+#### Downloading the HMP gut metagenomes
+
+We used 150 gut metagenome samples from healthy people that were published in [this paper for the HMP](https://doi.org/10.1038/nature11209). We downloaded these samples from [the HMP data website](https://www.hmpdacc.org/hmp/resources/data_browser.php). The file at `MISC/HMP_metagenomes.txt` gives the accession numbers of the samples that we used, in case you want to download them for yourself.
+
+Before using them for analysis, we ran quality filtering on these samples using the illumina-utils program `iu-filter-quality-minoche ` and made single assemblies out of 100 of the samples (one per individual, since some people provided multiple stool samples in the HMP study). We used the anvi'o metagenomics workflow for this, as described in the 'Metagenome Processing' section above.
+
+#### Picking a gene to use for EcoPhylo
+
+We wanted to use a single-copy core gene for the EcoPhylo workflow because every genome should have one copy of the gene and because clustering SCG sequences can roughly resolve species-level differences (so not too many irrelevant genomes should end up in the same cluster as genomes from gut microbes). To select our gene of interest, we picked the SCG that was most frequently found across all 19,226 of the GTDB genomes and all 100 of the HMP metagenome assemblies.
+
+First, we obtained a matrix of SCG frequencies:
+```bash
+anvi-estimate-scg-taxonomy --metagenomes MISC/GTDB_genomes_and_metagenomes.txt \
+    --report-scg-frequencies OUTPUT/GTDB_SCG_MATRIX.txt \
+    -O GTDB_SCG
+```
+
+In the command above, the `GTDB_genomes_and_metagenomes.txt` is a [file describing the paths](https://anvio.org/help/main/artifacts/metagenomes/) to each of the GTDB genomes and HMP metagenomes. You will find it in the `MISC` directory of the datapack.
+
+Then, we used the following R code to list the total number of hits to each SCG within this dataset:
+
+```r
+library(tidyverse)
+
+SCG_frequencies <- read_tsv("OUTPUT/GTDB_SCG_MATRIX.txt")
+
+# look in all metagenomes and genomes
+SCG_frequencies %>%
+  pivot_longer(cols = starts_with("Ribosomal")) %>% 
+  dplyr::rename(SCG = "name") %>%
+  group_by(SCG) %>%
+  summarize(total = sum(value)) %>%
+  arrange(desc(total))
+
+# look in only the genomes
+SCG_frequencies %>%
+filter(!grepl("USA", genome)) %>%
+pivot_longer(cols = starts_with("Ribosomal")) %>% 
+dplyr::rename(SCG = "name") %>%
+group_by(SCG) %>%
+summarize(total = sum(value)) %>%
+arrange(desc(total))
+```
+
+The one that was most frequently identified across all the data (genomes and metagenome assemblies) was Ribosomal Protein S2, but the one that was most frequently present in the GTDB genomes was Ribosomal Protein S6 (`Ribosomal_S6`). We decided to use `Ribosomal_S6` for the EcoPhylo workflow so that we could include as many genomes as possible in our analysis.
+
+#### Running the EcoPhylo workflow
+
+To run the workflow, you need a file describing which gene to use, a file describing the paths to all of the GTDB genomes, a file describing the paths to all of the metagenome assemblies, and a file describing the paths to all of the HMP samples (quality-filtered sequencing reads) to be used for read recruitment. We show how to generate the first three files:
+
+```bash
+echo -e "name\tsource\tpath" > MISC/hmm_list.txt
+echo -e "Ribosomal_S6\tBacteria_71\tINTERNAL" >> MISC/hmm_list.txt
+
+grep -v USA MISC/GTDB_genomes_and_metagenomes.txt > MISC/GTDB_external-genomes.txt
+
+echo -e "name\tcontigs_db_path" > MISC/HMP_metagenome_assemblies.txt
+grep USA MISC/GTDB_genomes_and_metagenomes.txt >> MISC/HMP_metagenome_assemblies.txt
+```
+
+To generate the last file, make a [samples-txt](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#samplestxt) with the paths to the HMP samples, wherever they are on your computer (we called this file `GTDB_HMP_samples.txt`). You will probably also have to change the paths to the GTDB genomes and HMP assemblies in `GTDB_genomes_and_metagenomes.txt` and all derivative files.
+
+The configuration file for the workflow can be found at `MISC/ecophylo_config.json`. It contains the names of each of the input files from the `MISC/` folder. You can run the workflow using the following command:
+
+```bash
+anvi-run-workflow -w ecophylo -c MISC/ecophylo_config.json
+```
+
+It took a few months to finish on our HPC cluster (with some stops and restarts for troubleshooting), which is still much faster than read recruitment to the full genome sequences would have taken. :)
 
 ### Subsetting gut genomes by detection in our sample groups
 
