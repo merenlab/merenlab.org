@@ -423,7 +423,24 @@ We wanted to confirm our results at the genome level. The ideal way to do this w
 
 First, we determined which genomes represent typical gut microbes by running read recruitment and analyzing the resulting coverage information. Then, we analyzed the metabolic potential of each genome by calculating the stepwise completeness of each KEGG module. We used the completeness scores of our 33 IBD-enriched pathways to determine whether each genome represented a microbe with high metabolic independence (HMI) - that is, high average completenesss of all these pathways - or low metabolic independence (LMI). Finally, we used read recruitment results from the gut metagenome dataset to analyze the distribution of each group of genomes across healthy individuals and individuals with IBD.
 
-### Genome processing: the (snakemake) contigs workflow
+### Genome processing: the anvi'o contigs workflow
+
+You might remember the [contigs workflow](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#contigs-workflow) from the metagenome processing section above. This workflow, implemented using [snakemake](https://snakemake.readthedocs.io/en/stable/), can take a large number of genome sequences and convert each one into a contigs database. It can also run gene annotation from a variety of functional databases on these genomes.
+
+We used the contigs workflow on all of the representative genomes for species clusters in GTDB release 95.0. The two most critical steps for our downstream analyses were:
+
+* the identification of single-copy core genes (SCGs) in each genome using `anvi-run-hmms`
+* annotation of KEGG KOfams using `anvi-run-kegg-kofams` (with our `v2020-12-23` KEGG snapshot)
+
+If you want to see what other programs we ran, you can check the workflow configuration file at `MISC/GTDB_config.json`. 
+
+And if you want to run this for yourself, then you need to 1) download all representative genome sequences for GTDB release 95, 2) make a [fasta.txt](https://anvio.org/help/main/artifacts/fasta-txt/) file that includes the path to each genome, 3) update the config file for your computer system (i.e., changing the number of threads for each rule and possibly adding the path to the right version of KEGG data with `--kegg-data-dir`), and 4) running the following command (possibly modified to work with your HPC's scheduler):
+
+```bash
+anvi-run-workflow -w contigs -c MISC/GTDB_config.json
+```
+
+Just please keep in mind that you will need a large amount of computational resources. The workflow took about 2 months to finish on our HPC (using 80 cores). Just the zipped fasta files for each of the ~31k representative genomes takes up about 33 GB of storage space, and that does not even consider the storage required for auxiliary files and for the files generated during processing.
 
 ### Using the EcoPhylo workflow for quick identification of relevant gut microbes
 starting from 3 phyla of gut microbes
