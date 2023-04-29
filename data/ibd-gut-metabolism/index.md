@@ -287,7 +287,7 @@ python SCRIPTS/subset_metagenome_samples.py
 
 In the remainder of the analyses described in our manuscript, we utilized the subset of 408 samples with high sequencing depth described in `TABLES/00_SUBSET_SAMPLES_INFO.txt`. Since 408 is a much more reasonable number than 2,893 we have provided the contigs databases for our metagenome assemblies of these samples in [this datapack](FIXME LINK). If you elect to download this datapack via the instructions at the start of this workflow, you will find the assemblies in the directory called `VESELI_ET_AL_METAGENOME_CONTIGS_DBS/`, and the table already contains the path to these samples (relative to the uppermost directory of the datapack). So, even if you didn't download and process all of the metagenome samples as described in the first section of this workflow, you can still continue with the subsequent sections.
 
-## Metabolism analyses (metagenomes)
+## Metabolism analyses (for metagenomes)
 
 In this section, we will cover the analyses used to determine the set of metabolic pathways that are enriched in the IBD sample group. First, we calculated the copy numbers of all pathways in the KEGG modules database, in each metagenome assembly. Those numbers are made from the combined genes from all microbial populations represented in a given metagenome and thus quantify the community-level metabolic potential. To make them comparable across different gut communities of varying diversity, we normalized each copy number by the estimated number of populations in the same sample to obtain a 'per-population copy number', or PPCN. We then ran a statistical test on each module to determine which pathways were **the most different between the sample groups**, specifically looking for the ones that had **higher PPCN in IBD**.
 
@@ -417,11 +417,11 @@ So far, we've analyzed gut metagenomes, using per-population copy number as our 
 We've essentially confirmed [our previous observations](https://doi.org/10.1186/s13059-023-02924-x), but with a much more extensive dataset of publicly-available gut metagenomes than was used in that study. However, will these observations hold up at the genome level? That is going to be the topic of the next section.
 
 
-## Analyzing a dataset of gut microbial genomes from the GTDB
+## Obtaining a dataset of gut microbial genomes from the GTDB
 
 We wanted to confirm our results at the genome level. The ideal way to do this would be to carefully bin metagenome-assembled genomes (MAGs) from each metagenome and individually analyze their metabolic capacity. However, binning those MAGs would take a really long time, and even if we automated the process, [automatic binning is difficult and not always conclusive](https://merenlab.org/2020/01/02/visualizing-metagenomic-bins/). Instead, we decided to leverage a high-quality set of reference genomes from the [Genome Taxonomy Database (GTDB)](https://gtdb.ecogenomic.org/) ([Parks et al. 2021](https://doi.org/10.1093/nar/gkab776)).
 
-First, we determined which genomes represent typical gut microbes by running read recruitment and analyzing the resulting coverage information. Then, we analyzed the metabolic potential of each genome by calculating the stepwise completeness of each KEGG module. We used the completeness scores of our 33 IBD-enriched pathways to determine whether each genome represented a microbe with high metabolic independence (HMI) - that is, high average completenesss of all these pathways - or low metabolic independence (LMI). Finally, we used read recruitment results from the gut metagenome dataset to analyze the distribution of each group of genomes across healthy individuals and individuals with IBD.
+In this section, we show how we determined which genomes represent typical gut microbes by running read recruitment and analyzing the resulting coverage information. Those genomes will be the subject of the analyses described in the subsequent section.
 
 ### Genome processing: the anvi'o contigs workflow
 
@@ -464,7 +464,7 @@ Before using them for analysis, we ran quality filtering on these samples using 
 
 #### Picking a gene to use for EcoPhylo
 
-We wanted to use a single-copy core gene for the EcoPhylo workflow because every genome should have one copy of the gene and because clustering SCG sequences can roughly resolve species-level differences (so not too many irrelevant genomes should end up in the same cluster as genomes from gut microbes). To select our gene of interest, we picked the SCG that was most frequently found across all 19,226 of the GTDB genomes and all 100 of the HMP metagenome assemblies.
+We wanted to use a single-copy core gene, and specifically a ribosomal protein, for the EcoPhylo workflow because every genome should have one copy of the gene and because clustering ribosomal protein sequences can often roughly resolve species-level differences (they are often used for phylogenomics for this reason). To select our gene of interest, we picked the SCG that was most frequently found across all 19,226 of the GTDB genomes and all 100 of the HMP metagenome assemblies.
 
 First, we obtained a matrix of SCG frequencies:
 ```bash
@@ -553,7 +553,9 @@ It will produce a list of 836 genomes at `OUTPUT/gut_genome_list.txt`.
 
 ### Subsetting gut genomes by detection in our sample groups
 
-### Read recruitment from metagenome samples to gut microbes
+## Metabolism and distribution analyses (for genomes)
+
+This section covers the genome-level analyses that we ran on the set of gut microbes that was just estabolished. We analyzed the metabolic potential of each genome by calculating the stepwise completeness of each KEGG module. We then used the completeness scores of our 33 IBD-enriched pathways to determine whether each genome represented a microbe with high metabolic independence (HMI) - that is, high average completenesss of all these pathways - or low metabolic independence (LMI). Finally, we used our read recruitment results from the gut metagenome dataset to analyze the distribution of each group of genomes across healthy individuals and individuals with IBD.
 
 ### Percent abundance calculations
 
