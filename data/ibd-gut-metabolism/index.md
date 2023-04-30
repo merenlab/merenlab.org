@@ -653,6 +653,22 @@ anvi-merge -c 03_CONTIGS/GTDB_GENOMES-contigs.db -o 06_MERGED 05_ANVIO_PROFILE/G
 
 The resulting database will hold all of the coverage and detection statistics for these genomes across the gut metagenome dataset.
 
+#### Summarizing the read mapping data
+
+Once the coverage and detection data has been nicely calculated and stored in the merged profile database, we extracted the data into tabular text files for downstream processing. First, we created a collection matching each contig in the big FASTA file (which contains all 836 genomes) to its original GTDB genome. We imported that collection into the database, and then used the program `anvi-summarize` to summarize the coverage information across all contigs in a given genome.  Here is the code to do that:
+
+```bash
+grep "^>" OUTPUT/GTDB_GENOMES.fasta | sed 's/^>//g' > contigs.txt                       # extract all contig headers
+while read contig; do echo $contig | cut -d '_' -f 1-2 >> bins.txt; done < contigs.txt  # extract genome name from contig headers
+paste contigs.txt bins.txt > OUTPUT/GTDB_GENOMES_collection.txt
+rm contigs.txt bins.txt
+
+anvi-import-collection -c 03_CONTIGS/GTDB_GENOMES-contigs.db -p 06_MERGED/PROFILE.db -C GTDB_GENOMES --contigs-mode OUTPUT/GTDB_GENOMES_collection.txt
+anvi-summarize -c 03_CONTIGS/GTDB_GENOMES-contigs.db -p 06_MERGED/PROFILE.db -C GTDB_GENOMES"
+```
+
+The program produces a folder of various data tables, one of which is a matrix of detection of each genome in each gut metagenome. You will find this table in the DATAPACK at `TABLES/GTDB_GENOMES_detection.txt`.
+
 ### Subsetting gut genomes by detection in our sample groups
 
 ## Metabolism and distribution analyses (for genomes)
