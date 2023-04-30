@@ -141,7 +141,7 @@ We used the [anvi'o metagenomic workflow](https://merenlab.org/2018/07/09/anvio-
 
 (the workflow has other steps, namely read recruitment of each sample against its assembly and the consolidation of the resulting read mapping data into anvi'o profile databases, but these are not crucial for our downstream analyses in this paper.)
 
-We provide an example configuration file (`MISC/config.json`) in the DATAPACK that can be used for reproducing our assemblies. To run the workflow, you simply create a 3-column `samples.txt` file containing the sample name, path to the R1 file, and path to the R2 file for each sample that you downloaded. An example file is described in our [workflow tutorial](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#samplestxt). In fact, you can derive this file from `TABLES/00_ALL_SAMPLES_INFO.txt` (assuming you have either followed our file naming/organization recommendations or updated those paths to reflect the names/organization you decided upon):
+We provide an example configuration file (`MISC/metagenomes_config.json`) in the DATAPACK that can be used for reproducing our assemblies. To run the workflow, you simply create a 3-column `samples.txt` file containing the sample name, path to the R1 file, and path to the R2 file for each sample that you downloaded. An example file is described in our [workflow tutorial](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#samplestxt). In fact, you can derive this file from `TABLES/00_ALL_SAMPLES_INFO.txt` (assuming you have either followed our file naming/organization recommendations or updated those paths to reflect the names/organization you decided upon):
 
 ```bash
 grep -v Vineis_2016 TABLES/00_ALL_SAMPLES_INFO.txt | cut -f 1-3 > MISC/samples.txt
@@ -150,13 +150,13 @@ grep -v Vineis_2016 TABLES/00_ALL_SAMPLES_INFO.txt | cut -f 1-3 > MISC/samples.t
 Then, you can start the workflow with the following command (hopefully adapted for use on a high-performance computing cluster):
 
 ```bash
-anvi-run-workflow -w metagenomics -c MISC/config.json
+anvi-run-workflow -w metagenomics -c MISC/metagenomes_config.json
 ```
 
 A few notes:
 * We renamed the samples from each study to incorporate information such as country of origin (for healthy samples) or host diagnosis (for IBD samples) for better readability and downstream sorting. To match our sample names, your `samples.txt` file should use the same sample names that are described in Supplementary Table 1c (or the first column of `TABLES/00_ALL_SAMPLES_INFO.txt` in the DATAPACK). If you generated the `samples.txt` from that file, you are good to go.
 * We used the default snapshot of KEGG data associated with anvi'o v7.1-dev, which can be downloaded onto your computer by running `anvi-setup-kegg-kofams --kegg-snapshot  v2020-12-23`, as described earlier. To exactly replicate the results of this study, the metagenome samples need to be annotated with this KEGG version by changing the `--kegg-data-dir` parameter (in the `anvi_run_kegg_kofams` rule of the config file) to point to this snapshot wherever it located on your computer
-* The number of threads used for each rule is set in the config file. We conservatively set this number in the example `MISC/config.json` to be 1 for all rules, but you will certainly want to adjust these to take advantage of the resources of your particular system.
+* The number of threads used for each rule is set in the config file. We conservatively set this number in the example `MISC/metagenomes_config.json` to be 1 for all rules, but you will certainly want to adjust these to take advantage of the resources of your particular system.
 * We set the output directory for contigs databases to be `01_ALL_METAGENOME_DBS` to be consistent with the file organization described in `TABLES/00_ALL_SAMPLES_INFO.txt`
 
 The steps in the workflow described above apply to all of the metagenome samples except for those from [Vineis et al. 2016](https://doi.org/10.1128/mBio.01713-16), which had to be processed differently since the downloaded samples contain merged reads (rather than paired-end reads described in R1 and R2 files, as in the other samples). Since the metagenomics workflow currently works only on paired-end reads, we had to run the assemblies manually. Aside from the lack of workflow, there are only two major differences in the processing of the 96 Vineis et al. samples:
@@ -432,12 +432,12 @@ We used the contigs workflow on all of the representative genomes for species cl
 * the identification of single-copy core genes (SCGs) in each genome using `anvi-run-hmms`
 * annotation of KEGG KOfams using `anvi-run-kegg-kofams` (with our `v2020-12-23` KEGG snapshot)
 
-If you want to see what other programs we ran, you can check the workflow configuration file at `MISC/GTDB_config.json`. 
+If you want to see what other programs we ran, you can check the workflow configuration file at `MISC/GTDB_contigs_config.json`. 
 
 And if you want to run this for yourself, then you need to 1) download all representative genome sequences for GTDB release 95, 2) make a [fasta.txt](https://anvio.org/help/main/artifacts/fasta-txt/) file that includes the path to each genome, 3) update the config file for your computer system (i.e., changing the number of threads for each rule and possibly adding the path to the right version of KEGG data with `--kegg-data-dir`), and 4) running the following command (possibly modified to work with your HPC's scheduler):
 
 ```bash
-anvi-run-workflow -w contigs -c MISC/GTDB_config.json
+anvi-run-workflow -w contigs -c MISC/GTDB_contigs_config.json
 ```
 
 Just please keep in mind that you will need a large amount of computational resources. The workflow took about 2 months to finish on our HPC (using 80 cores). Just the zipped fasta files for each of the ~31k representative genomes takes up about 33 GB of storage space, and that does not even consider the storage required for auxiliary files and for the files generated during processing.
@@ -610,13 +610,13 @@ echo -e "name\tpath" > MISC/GTDB_GENOMES_fasta.txt
 echo -e "GTDB_GENOMES\tOUTPUT/GTDB_GENOMES.fasta" >> MISC/GTDB_GENOMES_fasta.txt
 
 # samples txt
-grep -v Vineis TABLES/00_SUBSET_SAMPLES_INFO.txt | cut -f 1-3 > GTDB_GENOMES_samples.txt
+grep -v Vineis TABLES/00_SUBSET_SAMPLES_INFO.txt | cut -f 1-3 > MISC/GTDB_GENOMES_samples.txt
 ```
 
-You'll find the configuration file for this workflow at `MISC/GTDB_GENOMES_config.json`. If you take a look, you will notice that most of the optional rules (i.e., gene annotation) are turned off (`"run": false`), and that references mode is turned on (`references_mode": true`). Here is how you can run the mapping workflow (after adjusting the config for your system, of course):
+You'll find the configuration file for this workflow at `MISC/GTDB_GENOMES_mapping_config.json`. If you take a look, you will notice that most of the optional rules (i.e., gene annotation) are turned off (`"run": false`), and that references mode is turned on (`references_mode": true`). Here is how you can run the mapping workflow (after adjusting the config for your system, of course):
 
 ```bash
-anvi-run-workflow -w metagenomics  -c MISC/GTDB_GENOMES_config.json
+anvi-run-workflow -w metagenomics  -c MISC/GTDB_GENOMES_mapping_config.json
 ```
 
 For us, it took a few days to run. We stopped the workflow just before it ran `anvi-merge` (because, as you will see, we run that later to incorporate all the samples, including the Vineis et al. ones). If you let it run that step, it is fine - you simply may have to overwrite the resulting merged profile database later when you run `anvi-merge`.
@@ -686,7 +686,7 @@ It will generate 2 files: a shortened list of GTDB genomes that pass the filter 
 
 ## Metabolism and distribution analyses (for genomes)
 
-This section covers the genome-level analyses that we ran on the set of 338 gut microbes that was just established. We analyzed the metabolic potential of each genome by calculating the stepwise completeness of each KEGG module. We then used the completeness scores of our 33 IBD-enriched pathways to determine whether each genome represented a microbe with high metabolic independence (HMI) - that is, high average completenesss of all these pathways - or low metabolic independence (LMI). Finally, we used our read recruitment results from the gut metagenome dataset to analyze the distribution of each group of genomes across healthy individuals and individuals with IBD.
+This section covers the genome-level analyses that we ran on the set of 338 gut microbes that was just established. We analyzed the metabolic potential of each genome by calculating the stepwise completeness of each KEGG module. We then used the completeness scores of our 33 IBD-enriched pathways to determine whether each genome represented a microbe with high metabolic independence (HMI) - that is, high average completenesss of all these pathways - or low metabolic independence (LMI). Finally, we used our read recruitment results from the gut metagenome dataset to analyze the distribution of each group of genomes across healthy individuals and individuals with IBD. These investigations culminated in Figure 3 of the manuscript.
 
 ### Metabolism estimation in gut genomes
 
