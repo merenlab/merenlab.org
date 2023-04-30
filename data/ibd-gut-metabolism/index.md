@@ -686,13 +686,13 @@ It will generate 2 files: a shortened list of GTDB genomes that pass the filter 
 
 ## Metabolism and distribution analyses (for genomes)
 
-This section covers the genome-level analyses that we ran on the set of 338 gut microbes that was just estabolished. We analyzed the metabolic potential of each genome by calculating the stepwise completeness of each KEGG module. We then used the completeness scores of our 33 IBD-enriched pathways to determine whether each genome represented a microbe with high metabolic independence (HMI) - that is, high average completenesss of all these pathways - or low metabolic independence (LMI). Finally, we used our read recruitment results from the gut metagenome dataset to analyze the distribution of each group of genomes across healthy individuals and individuals with IBD.
-
-### Percent abundance calculations
+This section covers the genome-level analyses that we ran on the set of 338 gut microbes that was just established. We analyzed the metabolic potential of each genome by calculating the stepwise completeness of each KEGG module. We then used the completeness scores of our 33 IBD-enriched pathways to determine whether each genome represented a microbe with high metabolic independence (HMI) - that is, high average completenesss of all these pathways - or low metabolic independence (LMI). Finally, we used our read recruitment results from the gut metagenome dataset to analyze the distribution of each group of genomes across healthy individuals and individuals with IBD.
 
 ### Metabolism estimation in gut genomes
 
 ### The 'HMI score': Classifying genomes by level of metabolic independence
+
+### Percent abundance calculations
 
 ### Generating the genome phylogeny
 
@@ -703,9 +703,11 @@ This section covers the genome-level analyses that we ran on the set of 338 gut 
 
 ### Classifying gut metagenomes as IBD vs Healthy
 
+### Generating Figure 4
+
 ### Classifying antibiotic time-series metagenomes from Palleja et al
 
-### Generating Figure 4
+### Generating Figure 5
 
 
 ## Supplementary Analyses
