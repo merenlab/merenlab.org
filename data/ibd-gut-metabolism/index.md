@@ -671,9 +671,22 @@ The program produces a folder of various data tables, one of which is a matrix o
 
 ### Subsetting gut genomes by detection in our sample groups
 
+One issue with filtering for gut microbes using read recruitment to just one gene is that some non-gut microbes can slip into the set. For some groups of microbes, the Ribosomal Protein S6 gene is similar enough across different populations that they all end up in the same gene cluster, and if the cluster representative has high-enough detection in the HMP metagenomes, all of those genomes will be included in our list even if only a few of them are actually gut microbes. We noticed this problem when we started to look at the read recruitment data produced in the previous subsection - a lot of the genomes were undetected in the healthy and IBD gut metagenomes. When we investigated further, we saw that many of the undetected genomes were coming from two very large `Ribosomal_S6` gene clusters: one cluster of 180 `Enterobacteriaceae` genomes and one cluster of 163 `Streptococcus` genomes.
+
+To mitigate this issue, we decided to take one more filtering step and remove any genomes that were irrelevant to our metagenome dataset based upon their low detection across those samples. We required the genomes to have at least 50% detection (of the entire genome sequence) in at least 2% of the healthy and IBD samples (which translates to at least 7 out of the 331 samples in those two groups). 
+
+You can find the script we used to subset the genomes at `SCRIPTS/subset_gut_genomes_by_detection.py`. Here is how you run it:
+
+```bash
+python SCRIPTS/subset_gut_genomes_by_detection.py
+```
+
+It will generate 2 files: a shortened list of GTDB genomes that pass the filter (`OUTPUT/genomes_detected_0.02_of_samples.txt`), and a subset of the detection matrix for just this set of genomes (`OUTPUT/genomes_detected_0.02_of_samples-detection.txt`). Ultimately, we ended up with a relatively small group of 338 gut microbial genomes from the GTDB that we used for downstream analyses.
+
+
 ## Metabolism and distribution analyses (for genomes)
 
-This section covers the genome-level analyses that we ran on the set of gut microbes that was just estabolished. We analyzed the metabolic potential of each genome by calculating the stepwise completeness of each KEGG module. We then used the completeness scores of our 33 IBD-enriched pathways to determine whether each genome represented a microbe with high metabolic independence (HMI) - that is, high average completenesss of all these pathways - or low metabolic independence (LMI). Finally, we used our read recruitment results from the gut metagenome dataset to analyze the distribution of each group of genomes across healthy individuals and individuals with IBD.
+This section covers the genome-level analyses that we ran on the set of 338 gut microbes that was just estabolished. We analyzed the metabolic potential of each genome by calculating the stepwise completeness of each KEGG module. We then used the completeness scores of our 33 IBD-enriched pathways to determine whether each genome represented a microbe with high metabolic independence (HMI) - that is, high average completenesss of all these pathways - or low metabolic independence (LMI). Finally, we used our read recruitment results from the gut metagenome dataset to analyze the distribution of each group of genomes across healthy individuals and individuals with IBD.
 
 ### Percent abundance calculations
 
