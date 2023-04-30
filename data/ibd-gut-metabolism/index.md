@@ -941,6 +941,36 @@ You can also find the scores and classifications in the `TABLES/01_GTDB_GENOMES_
 
 ### Percent abundance calculations
 
+To calculate the percent abundance of each genome in each sample, we used the following equation: 
+`% abundance = sum(num reads mapping to contigs in genome) / total reads in sample`
+
+The total number of reads in each sample was already calculated above (and can be found in the `r1_num_reads` column of `TABLES/00_SUBSET_SAMPLES_INFO.txt`). To calculate the number of reads mapping to each contig in each genome, we ran `samtools idxstats` on the indexed BAM files from the mapping workflow that we ran in the `04_GTDB_PROCESSING/GTDB_MAPPING_WORKFLOW/` folder. To replicate that (if you ran the mapping workflow), you can run the following code:
+
+```bash
+# go to the place where the workflow output lives
+cd 04_GTDB_PROCESSING/GTDB_MAPPING_WORKFLOW
+# make a folder to store the idxstats output
+mkdir 04_MAPPING/IDXSTATS
+
+# this is for the 344 non-pouchitis samples
+while read samp r1 r2; do \
+  samtools idxstats 04_MAPPING/GTDB_GENOMES/${samp}.bam > 04_MAPPING/IDXSTATS/${samp}.idxstats; \
+done < <(tail -n+2 GTDB_GENOMES_samples.txt)
+# this is for the 64 pouchitis samples
+while read samp; do \
+  name=$(basename $samp | sed 's/.fastq.gz//'); \
+  samtools idxstats 04_MAPPING/GTDB_GENOMES/${samp}.bam > 04_MAPPING/IDXSTATS/${samp}.idxstats; \
+done < vineis_samples.txt
+```
+
+This will generate a table for each sample in the `04_GTDB_PROCESSING/GTDB_MAPPING_WORKFLOW/04_MAPPING/IDXSTATS/` folder that describes each contig from the `GTDB_GENOMES.fasta` file, the contig length, the number of reads mapping to it, and the number of unmapped reads (which is always 0 because the mapping workflow parameters ignore any unmapped reads).
+
+Once that is done, you can run the following script to generate the percent abundance values, including the percent abundance ratio that we plot in Figure 3. The output files will be `percent_abundances.txt` and `percent_abundance_averages.txt`.
+
+```
+python ../../SCRIPTS/get_percent_abundance.py
+```
+
 ### Generating the genome phylogeny
 
 ### Generating Figure 3
