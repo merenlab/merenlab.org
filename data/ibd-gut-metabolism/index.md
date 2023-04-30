@@ -806,19 +806,24 @@ To map the merged reads from the 64 [Vineis et al.](https://doi.org/10.1128/mBio
 Here is the code to run the script (note that it uses 4 threads):
 
 ```bash
+# get a file of sample paths
 while read samp; do \
-  name=$(basename $samp | sed 's/.fastq.gz//')
-  SCRIPTS/map_single_reads_to_GTDB.sh $samp; \
-done < <(grep NaN ../../01_METAGENOME_DOWNLOAD/METAGENOME_SAMPLES.txt | cut -f 2)
+  grep $samp ../../01_METAGENOME_DOWNLOAD/METAGENOME_SAMPLES.txt | cut -f 2 >> vineis_samples.txt; \
+done < <(grep Vineis_2016 ../../TABLES/00_SUBSET_SAMPLES_INFO.txt | cut -f 1 | tail -n+2)
+
+while read samp; do \
+  name=$(basename $samp | sed 's/.fastq.gz//'); \
+  ../../SCRIPTS/map_single_reads_to_GTDB.sh $samp; \
+done < vineis_samples.txt
 ```
 
 Once those mapping jobs are done, you can summarize the read mapping results into a profile database for each sample. You can multithread the `anvi-profile` step by adding the `-T` parameter, if you wish. Note that these paths also make use of the output directories from the previous workflow:
 
 ```bash
 while read samp; do \
-  name=$(basename $samp | sed 's/.fastq.gz//')
-  anvi-profile -c 03_CONTIGS/GTDB_GENOMES-contigs.db -i 04_MAPPING/GTDB_GENOMES/${name}.bam -o 05_ANVIO_PROFILE/GTDB_GENOMES/${name} -S $name
-done < <(grep NaN ../../01_METAGENOME_DOWNLOAD/METAGENOME_SAMPLES.txt | cut -f 2)
+  name=$(basename $samp | sed 's/.fastq.gz//'); \
+  anvi-profile -c 03_CONTIGS/GTDB_GENOMES-contigs.db -i 04_MAPPING/GTDB_GENOMES/${name}.bam -o 05_ANVIO_PROFILE/GTDB_GENOMES/${name} -S $name; \
+done < vineis_samples.txt
 ```
 
 #### Putting it all together with `anvi-merge`
