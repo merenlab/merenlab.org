@@ -784,7 +784,10 @@ echo -e "name\tpath" > GTDB_GENOMES_fasta.txt
 echo -e "GTDB_GENOMES\tGTDB_GENOMES.fasta" >> GTDB_GENOMES_fasta.txt
 
 # samples txt
-grep -v NaN ../../01_METAGENOME_DOWNLOAD/METAGENOME_SAMPLES.txt > GTDB_GENOMES_samples.txt
+echo -e "sample\tr1\tr2" > GTDB_GENOMES_samples.txt
+while read samp; do \
+  grep $samp ../../01_METAGENOME_DOWNLOAD/METAGENOME_SAMPLES.txt >> GTDB_GENOMES_samples.txt; \
+done < <(grep -v Vineis_2016 ../../TABLES/00_SUBSET_SAMPLES_INFO.txt | cut -f 1 | tail -n+2)
 ```
 
 You'll find the configuration file for this workflow at `MISC/GTDB_GENOMES_mapping_config.json`. If you take a look, you will notice that most of the optional rules (i.e., gene annotation) are turned off (`"run": false`), and that references mode is turned on (`references_mode": true`). Here is how you can run the mapping workflow (after adjusting the config for your system, of course):
