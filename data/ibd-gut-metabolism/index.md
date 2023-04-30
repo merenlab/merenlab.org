@@ -971,7 +971,37 @@ Once that is done, you can run the following script to generate the percent abun
 python ../../SCRIPTS/get_percent_abundance.py
 ```
 
+After this, you should go back to the top-level directory.
+
+```bash
+cd ../..
+```
+
 ### Generating the genome phylogeny
+
+To generate the phylogenetic tree that organizes the genomes in Figure 3, we used a set of 10 ribosomal proteins that were annotated in at least 90% (n = 304) of the 338 GTDB genomes. We aligned each set of gene sequences, concatenated the alignments, removed any positions with too many gaps using [`trimal`](http://trimal.cgenomics.org/trimal), and built the tree with [IQ-Tree](http://www.iqtree.org/). Here is the code to do that:
+
+```bash
+# get aligned and concatenated ribo protein seqs
+anvi-get-sequences-for-hmm-hits -e GTDB_EXTERNAL_GENOMES.txt \
+                  --return-best-hit \
+                  --concatenate-genes \
+                  --get-aa-sequences \
+                  --hmm-sources Bacteria_71 \
+                  -o 05_GTDB_ANALYSES/genomes_hmm_hits_aligned_concatenated.txt \
+                  --gene-names Ribosomal_S6,Ribosomal_S16,Ribosomal_L19,Ribosomal_L27,Ribosomal_S15,Ribosomal_S20p,Ribosomal_L13,Ribosomal_L21p,Ribosomal_L20,Ribosomal_L9_C
+
+# remove positions with too many gaps
+trimal -in 05_GTDB_ANALYSES/genomes_hmm_hits_aligned_concatenated.txt \
+       -out 05_GTDB_ANALYSES/genomes_hmm_hits_aligned_concatenated_GAPS_REMOVED.fa \
+       -gt 0.50
+
+# make tree 
+iqtree -s  05_GTDB_ANALYSES/genomes_hmm_hits_aligned_concatenated_GAPS_REMOVED.fa \
+  -nt 10 -m WAG -B 1000 --prefix  05_GTDB_ANALYSES/GTDB_tree
+```
+
+This will produce a tree file at `05_GTDB_ANALYSES/GTDB_tree.contree`, which you can use in the next subsection to visualize all the data that we have generated in this section so far. You can also find our tree file at `MISC/GTDB_tree.contree`.
 
 ### Generating Figure 3
 
