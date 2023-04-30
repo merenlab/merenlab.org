@@ -41,34 +41,90 @@ This study is a follow-up to our [previous study](https://doi.org/10.1186/s13059
 
 This webpage offers access to the details of our computational methods (occasionally with helpful context not given in the methods section of the manuscript) for the steps outlined above as well as to the datasets needed to reproduce our work. The workflow is organized into several large sections, each of which covers a set of related steps.
 
-## Downloading the datapack for this reproducible workflow
+## Downloading the data for this reproducible workflow
 
 We've pre-packaged a lot of the data and scripts that you need for this workflow into a DATAPACK. To download it, run the following in your terminal:
 
 ```bash
+# download the datapack
 FIXME download
-cd FIXME
+# extract it 
+tar -xvzf VESELI_2023_DATAPACK.tar.gz
+
+# move inside the datapack
+cd VESELI_2023_DATAPACK/
 ```
 
-We suggest working from within this datapack. Most of the commands and paths referenced below will assume that your working directory is the uppermost level of the datapack directory structure.
+We suggest working from within this datapack. Most of the BASH commands in subsequent sections will assume that your starting working directory is the uppermost level of the datapack directory structure. To keep things organized, we'll have you generate a folder to work in for each major section of this workflow.
 
-We also wanted to provide access to the main set of metagenome assemblies that we analyzed in the paper. This is a rather large dataset, so we separated it from the rest of the datapack to avoid overburdening your storage system unnecessarily. If you want to access these assemblies, you can download them into your datapack by running the following commands:
+The following two subsections describe how to download the [contigs databases](https://anvio.org/help/main/artifacts/contigs-db/) that we generated for the metagenomes and genomes analyzed in the paper. They are pretty big, so keep their storage requirements in mind before you download them. You can still follow along with some parts of the workflow even if you don't download them.
+
+### Downloading our contigs databases for metagenome assemblies
+
+We provide access to the main set of metagenome assemblies that we analyzed in the paper [here](FIXME LINK). This is a rather large dataset, so we separated it from the rest of the datapack to avoid overburdening your storage system unnecessarily. If you want to access these assemblies, you can download them into your datapack by running the following commands:
 
 {:.warning}
 The size of this metagenome dataset is **96 GB** (the archive alone is ~33 GB). Please make sure you have enough space to download it!
 
 ```bash
+# download the metagenome data archive
 FIXME download
+# extract the metagenome data
+tar -xvzf VESELI_ET_AL_METAGENOME_CONTIGS_DBS.tar.gz
+
+# generate a table of sample names and paths
+echo -e "name\tcontigs_db_path" > METAGENOME_EXTERNAL_GENOMES.txt
+while read db; do \
+  sample=$(echo $db | sed 's/-contigs.db//'); \
+  path=$(ls -d $PWD/VESELI_ET_AL_METAGENOME_CONTIGS_DBS/${db}); \
+  echo -e "$sample\t$path" >> METAGENOME_EXTERNAL_GENOMES.txt; \
+done < <(ls VESELI_ET_AL_METAGENOME_CONTIGS_DBS/)
 ```
+
+Once you run the above code, you should see in the datapack a folder called `VESELI_ET_AL_METAGENOME_CONTIGS_DBS` that contains 408 database files, and a file called `METAGENOME_EXTERNAL_GENOMES.txt` that describes the name and absolute path to each sample on your computer. If everything looks good, you can delete the archive to get back some storage space:
+
+```
+# clean up the archive
+rm VESELI_ET_AL_METAGENOME_CONTIGS_DBS.tar.gz
+```
+
+### Downloading our contigs databases for GTDB genomes
+
+Likewise, there is [yet another link](FIXME link) to download the set of GTDB genomes that we analyzed in the paper. It takes up only **2 GB** of space. You can download it by running the following:
+
+```bash
+# download the genome data archive
+FIXME download
+# extract the genome data
+tar -xvzf VESELI_ET_AL_GENOME_CONTIGS_DBS.tar.gz
+
+# generate a table of genome names and paths
+echo -e "name\tcontigs_db_path" > GTDB_EXTERNAL_GENOMES.txt
+while read db; do \
+  acc=$(echo $db | cut -d '.' -f 1); \
+  ver=$(echo $db | sed 's/-contigs.db//' | cut -d '.' -f 2); \
+  genome="${acc}_${ver}"; \
+  path=$(ls -d $PWD/VESELI_ET_AL_GENOME_CONTIGS_DBS/${db}); \
+  echo -e "$genome\t$path" >> GTDB_EXTERNAL_GENOMES.txt; \
+done < <(ls VESELI_ET_AL_GENOME_CONTIGS_DBS/)
+```
+
+Once you run the above code, you should see in the datapack a folder called `VESELI_ET_AL_GENOME_CONTIGS_DBS` that contains 338 database files, and a file called `GTDB_EXTERNAL_GENOMES.txt` that describes the name and absolute path to each genome's database on your computer. If everything looks good, you can delete the archive:
+
+```
+# clean up the archive
+rm VESELI_ET_AL_GENOME_CONTIGS_DBS.tar.gz
+```
+
+### Datapack description
 
 Here is a quick overview of the datapack structure:
 
 ```
 VESELI_2023_DATAPACK/
   |
-  |- 00_FASTQ_FILES                       ## this is where you can download metagenome FASTQ files
-  |- 01_ALL_METAGENOME_DBS                ## this is where you will generate contigs databases for the gut metagenome assemblies
-  |- VESELI_ET_AL_METAGENOME_CONTIGS_DBS  ## this holds the contigs databases we generated for the subset of samples used in the primary analyses of this paper
+  |- VESELI_ET_AL_METAGENOME_CONTIGS_DBS  ## this holds the contigs databases we generated for the subset of samples we analyzed
+  |- VESELI_ET_AL_GENOME_CONTIGS_DBS      ## this holds the contigs databases we generated for the subset of GTDB genomes we analyzed
   |- TABLES                               ## this holds the important data tables
   |- SCRIPTS                              ## this contains scripts that you can run to reproduce some of the work described below
   |- MISC                                 ## this holds miscellanous files
@@ -86,7 +142,7 @@ anvi-setup-kegg-kofams --kegg-snapshot v2020-12-23 \
                        --kegg-data-dir KEGG_2020-12-23 
 ```
 
-Whenever KEGG-related programs are used, you can make them use the appropriate KEGG version by adding `--kegg-data-dir KEGG_2020-12-23` (replacing that path with wherever you decided to store the KEGG data on your computer).
+Whenever KEGG-related programs are used, you can make them use the appropriate KEGG version by adding `--kegg-data-dir KEGG_2020-12-23` (replacing that path with wherever you decided to store the KEGG data on your computer). In the workflows and commands on this page, we'll assume you followed the setup command exactly as written and add the directory name `KEGG_2020-12-23`.
 
 
 ## Obtaining our initial dataset of public fecal metagenomes
@@ -120,11 +176,64 @@ We note that we did not exclude samples from individuals with high BMI from the 
 
 ### Downloading the public metagenomes used in this study
 
-The SRA accession number of each sample is listed in [Supplementary Table 1c](https://doi.org/10.6084/m9.figshare.22679080). We downloaded the samples from each contributing study individually, over time, using the [NCBI SRA toolkit](https://github.com/ncbi/sra-tools) and particularly the [`fasterq-dump` program](https://github.com/ncbi/sra-tools/wiki/08.-prefetch-and-fasterq-dump) that will download the FASTQ files for each given SRA accession. We then gzipped each read file to save on space (and you will see us refer to these gzipped FASTQ files later in the workflow). 
+The SRA accession number of each sample is listed in [Supplementary Table 1c](https://doi.org/10.6084/m9.figshare.22679080). We downloaded the samples from each contributing study individually, over time, using the [NCBI SRA toolkit](https://github.com/ncbi/sra-tools) and particularly the [`fasterq-dump` program](https://github.com/ncbi/sra-tools/wiki/08.-prefetch-and-fasterq-dump) that will download the FASTQ files for each given SRA accession. We then gzipped each read file to save on space (and you will see us refer to these gzipped FASTQ files later in the workflow).
 
-If you want to download all of the samples we used in this work, we recommend a similar strategy (but please keep in mind that the storage requirements for almost 3,000 metagenomes will be huge). Feel free to reach out to us for help if you need it. For convenience, we've provided a plain-text version of Table 1c in our DATAPACK, which can be accessed at the path `TABLES/00_ALL_SAMPLES_INFO.txt`. The last column of that file provides the SRA accessions that can be used for downloading each sample. We recommend downloading each read file to the paths listed in the `r1` and `r2` columns for each sample (don't forget the gzip step), as this will keep the file organization consistent with what we expect later and will minimize the need to alter file paths. The `00_FASTQ_FILES/` directory referenced in those paths should already exist in the datapack, ready for you to add files to it.
+If you want to download all of the samples we used in this work (keeping in mind that the storage requirements for almost 3,000 metagenomes will be huge), here we show you how to download all of the samples with one script, into the same folder (for better organization and easier compatibility with the later sections of this workflow). But it truly doesn't matter how you decide to organize the samples as long as you can keep track of the paths to each sample on your computer. So if you want to do it differently, go for it (and feel free to reach out to us for help if you need it). 
+
+For convenience, we've provided a plain-text version of Table 1c in our DATAPACK, which can be accessed at the path `TABLES/00_ALL_SAMPLES_INFO.txt`. The last column of that file provides the SRA accessions that can be used for downloading each sample.
 
 There is one exception to this strategy, and that is the study by [Quince et al. 2015](https://doi.org/10.1038/ajg.2015.357). There are no deposited sequences under [the NCBI BioProject for this study](https://www.ncbi.nlm.nih.gov/bioproject/270985). The SRA accession column for these samples in `TABLES/00_ALL_SAMPLES_INFO.txt` contains NaN values, and these rows should be skipped when using `fasterq-dump` to download samples. We accessed these metagenomes directly from the study authors.
+
+Let's make a folder to work in for this section of the workflow:
+
+```bash
+mkdir 01_METAGENOME_DOWNLOAD
+cd 01_METAGENOME_DOWNLOAD/
+```
+
+And, let's make a folder in which you can download the samples:
+
+```bash
+mkdir 00_FASTQ_FILES
+```
+
+Now, we'll extract a list of the SRA accessions (for all except the Quince et al. samples) from the provided table.
+
+```bash
+grep -v Quince_2015 ../TABLES/00_ALL_SAMPLES_INFO.txt | cut -f 9 | tail -n+2 > sra_accessions_to_download.txt
+```
+
+There should be 2,824 accessions in that file. In the `SCRIPTS` folder of your datapack, there is a script called `download_sra.sh` that will download each sample with `prefetch`, unpack it with `fasterq-dump` into the `00_FASTQ_FILES` folder that you just created, gzip the resulting FASTQ files, and then delete the intermediate files. You can run it using the following command (we recommend running this on an HPC cluster, with plenty of threads):
+
+```bash
+../SCRIPTS/download_sra.sh sra_accessions_to_download.txt
+```
+
+Note that the script has no error-checking built in, so if any of the samples fail to download, you will have to manage those yourself. But once it is done, you should have the FASTQ files for all 2,824 samples in the `00_FASTQ_FILES` directory. You can add in the remaining Quince et al. samples however you acquire those (we'd be happy to pass them along).
+
+Once you have all the samples ready, you can generate a file called `METAGENOME_SAMPLES.txt` describing the path to each sample like this:
+
+```bash
+echo -e "sample\tr1\tr2" > METAGENOME_SAMPLES.txt
+while read sample diag study doi grp num1 num2 nump sra; do \
+  r1=$(ls -d $PWD/00_FASTQ_FILES/${sra}_1.fastq.gz) ;\
+  r2=$(ls -d $PWD/00_FASTQ_FILES/${sra}_2.fastq.gz) ;\
+  echo -e "$sample\t$r1\t$r2" >> METAGENOME_SAMPLES.txt ;\
+done < <(tail -n+2 ../TABLES/00_ALL_SAMPLES_INFO.txt | grep -v Vineis)
+while read sample diag study doi grp num1 num2 nump sra; do \
+  r1=$(ls -d $PWD/00_FASTQ_FILES/${sra}.fastq.gz) ;\
+  r2="NaN" ;\
+  echo -e "$sample\t$r1\t$r2" >> METAGENOME_SAMPLES.txt ;\
+done < <(grep Vineis ../TABLES/00_ALL_SAMPLES_INFO.txt)
+```
+
+We will use this file later to make input files for our workflows.
+
+Now that all the sequences are downloaded, let's go back to the top-level datapack directory in preparation for the next section.
+
+```bash
+cd ..
+```
 
 {:.notice}
 If you are paying close attention, you might notice that not all of the samples from each contributing study are included in our dataset. A few samples here and there were dropped due to errors during processing (i.e., failed assembly) or missing metadata.
@@ -141,30 +250,42 @@ We used the [anvi'o metagenomic workflow](https://merenlab.org/2018/07/09/anvio-
 
 (the workflow has other steps, namely read recruitment of each sample against its assembly and the consolidation of the resulting read mapping data into anvi'o profile databases, but these are not crucial for our downstream analyses in this paper.)
 
-We provide an example configuration file (`MISC/metagenomes_config.json`) in the DATAPACK that can be used for reproducing our assemblies. To run the workflow, you simply create a 3-column `samples.txt` file containing the sample name, path to the R1 file, and path to the R2 file for each sample that you downloaded. An example file is described in our [workflow tutorial](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#samplestxt). In fact, you can derive this file from `TABLES/00_ALL_SAMPLES_INFO.txt` (assuming you have either followed our file naming/organization recommendations or updated those paths to reflect the names/organization you decided upon):
+Let's run this workflow in a new folder:
 
 ```bash
-grep -v Vineis_2016 TABLES/00_ALL_SAMPLES_INFO.txt | cut -f 1-3 > MISC/samples.txt
+mkdir 02_METAGENOME_PROCESSING
+cd 02_METAGENOME_PROCESSING/
+```
+
+We provide an example configuration file (`MISC/metagenomes_config.json`) in the DATAPACK that can be used for reproducing our assemblies. Copy that file over to your current working directory:
+
+```bash
+cp ../MISC/metagenomes_config.json .
+```
+
+To run the workflow, you simply create a 3-column `samples.txt` file containing the sample name, path to the R1 file, and path to the R2 file for each sample that you downloaded. An example file is described in our [workflow tutorial](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#samplestxt). In fact, you can derive this file from `TABLES/00_ALL_SAMPLES_INFO.txt` (assuming you have either followed our file naming/organization recommendations or updated those paths to reflect the names/organization you decided upon):
+
+```bash
+grep -v NaN ../01_METAGENOME_DOWNLOAD/METAGENOME_SAMPLES.txt > samples.txt
 ```
 
 Then, you can start the workflow with the following command (hopefully adapted for use on a high-performance computing cluster):
 
 ```bash
-anvi-run-workflow -w metagenomics -c MISC/metagenomes_config.json
+anvi-run-workflow -w metagenomics -c metagenomes_config.json
 ```
 
 A few notes:
 * We renamed the samples from each study to incorporate information such as country of origin (for healthy samples) or host diagnosis (for IBD samples) for better readability and downstream sorting. To match our sample names, your `samples.txt` file should use the same sample names that are described in Supplementary Table 1c (or the first column of `TABLES/00_ALL_SAMPLES_INFO.txt` in the DATAPACK). If you generated the `samples.txt` from that file, you are good to go.
 * We used the default snapshot of KEGG data associated with anvi'o v7.1-dev, which can be downloaded onto your computer by running `anvi-setup-kegg-kofams --kegg-snapshot  v2020-12-23`, as described earlier. To exactly replicate the results of this study, the metagenome samples need to be annotated with this KEGG version by changing the `--kegg-data-dir` parameter (in the `anvi_run_kegg_kofams` rule of the config file) to point to this snapshot wherever it located on your computer
 * The number of threads used for each rule is set in the config file. We conservatively set this number in the example `MISC/metagenomes_config.json` to be 1 for all rules, but you will certainly want to adjust these to take advantage of the resources of your particular system.
-* We set the output directory for contigs databases to be `01_ALL_METAGENOME_DBS` to be consistent with the file organization described in `TABLES/00_ALL_SAMPLES_INFO.txt`
 
 The steps in the workflow described above apply to all of the metagenome samples except for those from [Vineis et al. 2016](https://doi.org/10.1128/mBio.01713-16), which had to be processed differently since the downloaded samples contain merged reads (rather than paired-end reads described in R1 and R2 files, as in the other samples). Since the metagenomics workflow currently works only on paired-end reads, we had to run the assemblies manually. Aside from the lack of workflow, there are only two major differences in the processing of the 96 Vineis et al. samples:
 
 * No additional quality-filtering was run on the downloaded samples, because the merging of the sequencing reads as described in the paper's methods section already included a quality-filtering step
 * Single assembly of the merged reads was done with [MEGAHIT](https://academic.oup.com/bioinformatics/article/31/10/1674/177884), using all default parameters except for a minimum contig length of 1000
 
-We wrote a loop to run an individual assembly on each sample from [Vineis et al. 2016](https://doi.org/10.1128/mBio.01713-16). This loop makes use of the sample names and paths as established in the `TABLES/00_ALL_SAMPLES_INFO.txt` file:
+We wrote a loop to run an individual assembly on each sample from [Vineis et al. 2016](https://doi.org/10.1128/mBio.01713-16). This loop makes use of the sample names and paths as established in the `01_METAGENOME_DOWNLOAD/METAGENOME_SAMPLES.txt` file:
 
 ```bash
 while read name path; do \
@@ -172,7 +293,7 @@ while read name path; do \
       --min-contig-len 1000 \
       -t 7 \
       -o ${name}_TMP; \
-done < <(grep Vineis_2016 TABLES/00_ALL_SAMPLES_INFO.txt | cut -f 1-2 | tail -n+2)
+done < <(grep NaN ../01_METAGENOME_DOWNLOAD/METAGENOME_SAMPLES.txt | cut -f 1-2)
 ```
 
 Once the assemblies were done, we extracted the final assembly files from each output directory, renamed them with the sample name, and put them all in one folder:
@@ -181,26 +302,43 @@ Once the assemblies were done, we extracted the final assembly files from each o
 mkdir -p VINEIS_ASSEMBLIES
 while read name path; do \
   mv ${name}_TMP/final.contigs.fa VINEIS_ASSEMBLIES/${name}.fasta
-done < <(grep Vineis_2016 TABLES/00_ALL_SAMPLES_INFO.txt | cut -f 1-2 | tail -n+2)
+done < <(grep NaN ../01_METAGENOME_DOWNLOAD/METAGENOME_SAMPLES.txt | cut -f 1-2)
 rm -r *TMP/
 ```
 
 Then, we were able to leverage the anvi'o contigs workflow to generate the contigs databases for each assembly and run the annotation steps. We've provided the relevant configuration file for this workflow (`MISC/vineis_config.json`) as well as the input file that lists the path to each assembly (`MISC/vineis_fasta.txt`) in the DATAPACK, and this is how you could run it for yourself:
 
 ```bash
-anvi-run-workflow -w contigs -c MISC/vineis_config.json
+cp ../MISC/vineis_* .
+anvi-run-workflow -w contigs -c vineis_config.json
 ```
 
 The same notes about setting the KEGG data version and the number of threads that we detailed for the metagenomics workflow apply to this workflow as well.
 
 ### A final note on data organization
 
-If you've elected to reproduce the metagenome download and processing described in this section, you will have ended up with a lot of samples, assemblies, and contigs databases on your computer system. You may have noticed that so far, we've been relying a lot on the organization of files as described in the file `TABLES/00_ALL_SAMPLES_INFO.txt`, which includes the paths to each read file (`r1` and `r2`) and to each contigs database (`contigs_db_path`). We will continue to rely on that organization in subsequent sections, so now is a good time to double-check that all of the file paths are correct.
+If you've elected to reproduce the metagenome download and processing described in this section, you will have ended up with a lot of samples, assemblies, and contigs databases on your computer system. You will need to access the databases several times later in the workflow, so you should generate an [external genomes file](https://anvio.org/help/main/artifacts/external-genomes/) containing the paths to each database:
 
-If you decided to follow a different file naming and organization strategy, that is fine. Where the files are on your computer does not matter for following the remainder of this workflow, as long as you prepare a file for yourself that describes the correct paths to each sample's read files and contigs database, and you use that file in place of the `TABLES/00_ALL_SAMPLES_INFO.txt` file as needed.
+```bash
+# generate a table of sample names and paths
+echo -e "name\tcontigs_db_path" > ALL_METAGENOME_DBS.txt
+while read db; do \
+  sample=$(echo $db | sed 's/-contigs.db//'); \
+  path=$(ls -d $PWD/03_CONTIGS/${db}); \
+  echo -e "$sample\t$path" >> ALL_METAGENOME_DBS.txt; \
+done < <(ls 03_CONTIGS/)
+```
 
+That file should have a line for all 2,893 samples in it (plus a line for the header), if everything went well in the workflows above.
+
+If you decided to follow a different file naming and organization strategy than the one used above, that is fine. Where the files are on your computer does not matter for following the remainder of this workflow, as long as you prepare a file for yourself that describes the correct paths to each sample's read files and contigs database.
+
+We'll stay in this directory for the next section.
 
 ## Selecting our final dataset of metagenomes
+
+{:.notice}
+You should be inside the `02_METAGENOME_PROCESSING` directory for this section of the workflow.
 
 Before we began analyzing metabolism within the large dataset we compiled, we discovered that we had to reduce our sample set to ensure accurate calculations. One of the critical steps in comparing community-level copy numbers of metabolic pathways between microbial communities of differing richness is **normalization of these data by the size of the community**. Pathway copy numbers will naturally tend to be higher in metagenome assemblies that describe larger communities, so comparing these values is not very meaningful when community sizes are vastly different. The gut microbiomes of people with IBD tend to harbor much less diversity than healthy gut microbiomes, so this is certainly a problem in our case. We therefore came up with a strategy of normalizing the pathway copy numbers calculated for a given sample with the number of microbial populations represented within that metagenome assembly.
 
@@ -218,10 +356,10 @@ Since we expect to find one copy of each SCG in each microbial population, we ca
 
 The anvi'o codebase includes a `NumGenomesEstimator` class that does exactly this: takes the mode of the number of copies of the SCGs for a particular domain, giving you an estimate of the number of bacteria, archaea, and protists in a given metagenome assembly. Those values can be added together to obtain the total number of microbial populations in the sample (for gut metagenomes, usually only bacterial species are found).
 
-We wrote a script that runs this estimation on each of our 2,893 samples. You can run it using the following command, and it will produce a table in the output directory (`OUTPUT/NUM_POPULATIONS_ALL_SAMPLES.txt`).
+We wrote a script that runs this estimation on each of our 2,893 samples. You can run it using the following command, and it will produce a table called (`NUM_POPULATIONS_ALL_SAMPLES.txt`). Provide the file indicating the location of all databases to the script:
 
 ```bash
-python SCRIPTS/estimate_num_genomes.py
+python ../SCRIPTS/estimate_num_genomes.py ALL_METAGENOME_DBS.txt
 ```
 
 If you didn't download all the metagenome samples, or you don't feel like running this part, you can access the estimates in the `num_populations` column of the `TABLES/00_ALL_SAMPLES_INFO.txt` file.
@@ -231,15 +369,15 @@ If you didn't download all the metagenome samples, or you don't feel like runnin
 We used a BASH loop to count the number of reads in each metagenome sample. It counts the number of lines in each (gzipped) FASTQ file and divides by 4 (the number of lines per read) to get the number of reads, which is then stored in a tab-delimited file. R1 files and R2 are counted separately. For the Vineis et al. samples, the count of merged reads per sample is stored in the R1 column, and the R2 column is 0 (because there is only one FASTQ file for each of these samples).
 
 ```bash
-echo -e "name\tnum_reads_r1\tnum_reads_r2" > OUTPUT/metagenome_num_reads.txt
-while read name r1 r2 db diagnosis study remainder; do \
+echo -e "name\tnum_reads_r1\tnum_reads_r2" > METAGENOME_NUM_READS.txt
+while read name r1 r2; do \
   numr1=$(echo $(zcat $r1 | wc -l) / 4 | bc); \
-  if [ "$study" = "Vineis_2016" ]; then \
+  if [ "$r2" = "NaN" ]; then \
     numr2=0; \
   else numr2=$(echo $(zcat $r2 | wc -l) / 4 | bc); \
   fi;
-  echo -e "$name\t$numr1\t$numr2" >> OUTPUT/metagenome_num_reads.txt; \
-done < <(tail -n+2 TABLES/00_ALL_SAMPLES_INFO.txt)
+  echo -e "$name\t$numr1\t$numr2" >> METAGENOME_NUM_READS.txt; \
+done < <(tail -n+2 ../01_METAGENOME_DOWNLOAD/METAGENOME_SAMPLES.txt)
 ```
 
 Since the number of files to process is so large, this will take quite a while to run. We've already stored the resulting read counts in the `TABLES/00_ALL_SAMPLES_INFO.txt` file in case you don't want to wait.
@@ -280,28 +418,35 @@ The script at `SCRIPTS/plot_figures.R` contains code for most of the other figur
 Running the following script will subset the samples with >= 25 million sequencing reads. It will generate a new table at `TABLES/00_SUBSET_SAMPLES_INFO.txt` containing the subset of 408 samples. You'll see some information about the resulting sample groups (and which studies contributed to them) in the output of the program.
 
 ```bash
+# first, go back to the parent directory
+cd ..
+
 python SCRIPTS/subset_metagenome_samples.py
 ```
 
 ### Final set of samples and their contigs DBs
 
-In the remainder of the analyses described in our manuscript, we utilized the subset of 408 samples with high sequencing depth described in `TABLES/00_SUBSET_SAMPLES_INFO.txt`. Since 408 is a much more reasonable number than 2,893 we have provided the contigs databases for our metagenome assemblies of these samples in [this datapack](FIXME LINK). If you elect to download this datapack via the instructions at the start of this workflow, you will find the assemblies in the directory called `VESELI_ET_AL_METAGENOME_CONTIGS_DBS/`, and the table already contains the path to these samples (relative to the uppermost directory of the datapack). So, even if you didn't download and process all of the metagenome samples as described in the first section of this workflow, you can still continue with the subsequent sections.
+In the remainder of the analyses described in our manuscript, we utilized the subset of 408 samples with high sequencing depth described in `TABLES/00_SUBSET_SAMPLES_INFO.txt`. Since 408 is a much more reasonable number than 2,893 we have provided the contigs databases for our metagenome assemblies of these samples in [this datapack](FIXME LINK). If you elected to download this datapack via the instructions at the start of this workflow, you will find the assemblies in the directory called `VESELI_ET_AL_METAGENOME_CONTIGS_DBS/`, and the table `METAGENOME_EXTERNAL_GENOMES.txt` contains the paths to these files. So, even if you didn't download and process all of the metagenome samples as described in the first section of this workflow, you can still continue with the subsequent sections.
+
 
 ## Metabolism analyses (for metagenomes)
 
 In this section, we will cover the analyses used to determine the set of metabolic pathways that are enriched in the IBD sample group. First, we calculated the copy numbers of all pathways in the KEGG modules database, in each metagenome assembly. Those numbers are made from the combined genes from all microbial populations represented in a given metagenome and thus quantify the community-level metabolic potential. To make them comparable across different gut communities of varying diversity, we normalized each copy number by the estimated number of populations in the same sample to obtain a 'per-population copy number', or PPCN. We then ran a statistical test on each module to determine which pathways were **the most different between the sample groups**, specifically looking for the ones that had **higher PPCN in IBD**.
+
+In this section, we will work from the top-level directory of the datapack, but we'll make a folder in which we can generate some output:
+
+```bash
+mkdir 03_METABOLISM_OUTPUT
+```
 
 ### Metabolism estimation
 
 We used the program `anvi-estimate-metabolism` to compute copy numbers of KEGG modules in each sample. You can find details about that program and its calculation strategies on [this page](https://anvio.org/help/main/programs/anvi-estimate-metabolism/). To ensure that all annotated KOfams in the metagenome contributed to the calculations, we ran the program in 'genome mode' on each sample, and to do this in a high-throughput manner, we provided the program with an [external genomes file](https://anvio.org/help/main/artifacts/external-genomes/) containing the paths to all the samples' contigs databases at once. Here is the code to both generate that input file (from the table containing the sample information, including paths) and run the metabolism estimation code.
 
 ```bash
-echo -e "name\tcontigs_db_path" > OUTPUT/METAGENOME_PATHS.txt    # header for the input file
-tail -n+2 TABLES/00_SUBSET_SAMPLES_INFO.txt | cut -f 1,4 >> OUTPUT/METAGENOME_PATHS.txt    # copy the sample names and paths over
-
 # run metabolism estimation
-anvi-estimate-metabolism -e OUTPUT/METAGENOME_PATHS.txt \
-                    -O OUTPUT/METAGENOME_METABOLISM \
+anvi-estimate-metabolism -e METAGENOME_EXTERNAL_GENOMES.txt \
+                    -O 03_METABOLISM_OUTPUT/METAGENOME_METABOLISM \
                     --kegg-data-dir KEGG_2020-12-23 \
                     --add-copy-number \
                     --matrix-format
@@ -309,7 +454,7 @@ anvi-estimate-metabolism -e OUTPUT/METAGENOME_PATHS.txt \
 
 Note the use of `--kegg-data-dir KEGG_2020-12-23`, which points the program to the version of KEGG data that we used for our analysis (which you should have downloaded when going through the 'Computational environment details' section). If the path to this data on your computer is different, you will have to change that in the command before you run it.
 
-Since we used the `--matrix-format` flag, the output of `anvi-estimate-metabolism` will be a set of matrices, each containing a different statistic summarized across all of the metagenomes and all of the pathways. The one that we want for downstream analysis is the one containing stepwise copy numbers, which can be found at the path `OUTPUT/METAGENOME_METABOLISM-module_stepwise_copy_number-MATRIX.txt`. 
+Since we used the `--matrix-format` flag, the output of `anvi-estimate-metabolism` will be a set of matrices, each containing a different statistic summarized across all of the metagenomes and all of the pathways. The one that we want for downstream analysis is the one containing stepwise copy numbers, which can be found at the path `03_METABOLISM_OUTPUT/METAGENOME_METABOLISM-module_stepwise_copy_number-MATRIX.txt`. 
 
 We've included our version of this output file in the DATAPACK. You will find it at `TABLES/METAGENOME_METABOLISM-module_stepwise_copy_number-MATRIX.txt` (and this table is referenced in the scripts below that depend on this data, just in case you don't run this step).
 
@@ -317,7 +462,7 @@ We've included our version of this output file in the DATAPACK. You will find it
 
 We just calculated the pathway copy numbers, and we estimated the number of microbial populations in each metagenome assembly in the previous section. To normalize the former, we divide by the latter. It is that simple :) 
 
-The R script at `SCRIPTS/module_stats_and_medians.R` contains the code for computing PPCN values. It gets the module copy numbers and per-sample population estimates from the tables in the `TABLES/` folder, and generates a long-format data table at `OUTPUT/ALL_MODULES_NORMALIZED_DATA.txt` that includes the PPCN values in the `PPCN` column.
+The R script at `SCRIPTS/module_stats_and_medians.R` contains the code for computing PPCN values. It gets the module copy numbers and per-sample population estimates from the tables in the `TABLES/` folder, and generates a long-format data table at `03_METABOLISM_OUTPUT/ALL_MODULES_NORMALIZED_DATA.txt` that includes the PPCN values in the `PPCN` column.
 
 You can see the full code in the script, but here are the most relevent lines for your quick perusal:
 
@@ -348,7 +493,7 @@ normalized_df = normalize_values(stepwise_matrix, normalizing_matrix = metagenom
 normalized_df$sample_group = metagenomes$group[match(normalized_df$sample, metagenomes$sample)]
 ```
 
-Later on, we will also make use of the median per-population copy number for each module in each sample group (for visualizing the data as boxplots). The script also generates these median values into the file `OUTPUT/ALL_MODULES_MEDIAN_PPCN.txt`. If you plan to reproduce our figures, you should run that section of code, too (it is clearly marked in the comments).
+Later on, we will also make use of the median per-population copy number for each module in each sample group (for visualizing the data as boxplots). The script also generates these median values into the file `03_METABOLISM_OUTPUT/ALL_MODULES_MEDIAN_PPCN.txt`. If you plan to reproduce our figures, you should run that section of code, too (it is clearly marked in the comments).
 
 ### Enrichment analysis for IBD-enriched pathways
 
@@ -392,7 +537,7 @@ diff_threshold = mean(over_adj_p$diff)
 over_adj_threshold = median_per_module %>% filter(fdr_adjusted_p_value <= adj_p_value_threshold & diff >= diff_threshold)
 ```
 
-If you keep following the code in the script, you will see that it will generate a file with the statistical test results and a variety of other data for each module, including the enrichment status, at `OUTPUT/ALL_MODULES_MEDIANS_AND_STATS.txt`. It also prints a subset of this information for the IBD-enriched modules to the file at `OUTPUT/IBD_ENRICHED_MODULES.txt`.
+If you keep following the code in the script, you will see that it will generate a file with the statistical test results and a variety of other data for each module, including the enrichment status, at `03_METABOLISM_OUTPUT/ALL_MODULES_MEDIANS_AND_STATS.txt`. It also prints a subset of this information for the IBD-enriched modules to the file at `03_METABOLISM_OUTPUT/IBD_ENRICHED_MODULES.txt`.
 
 One more note - you may notice that we exclude one module from the automatically-generated IBD-enriched set:
 
@@ -423,6 +568,13 @@ We wanted to confirm our results at the genome level. The ideal way to do this w
 
 In this section, we show how we determined which genomes represent typical gut microbes by running read recruitment and analyzing the resulting coverage information. Those genomes will be the subject of the analyses described in the subsequent section.
 
+This section includes several workflows, so we will start a new folder to keep everything organized:
+
+```bash
+mkdir 04_GTDB_PROCESSING
+cd 04_GTDB_PROCESSING/
+```
+
 ### Genome processing: the anvi'o contigs workflow
 
 You might remember the [contigs workflow](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#contigs-workflow) from the metagenome processing section above. This workflow, implemented using [snakemake](https://snakemake.readthedocs.io/en/stable/), can take a large number of genome sequences and convert each one into a contigs database. It can also run gene annotation from a variety of functional databases on these genomes.
@@ -434,13 +586,27 @@ We used the contigs workflow on all of the representative genomes for species cl
 
 If you want to see what other programs we ran, you can check the workflow configuration file at `MISC/GTDB_contigs_config.json`. 
 
-And if you want to run this for yourself, then you need to 1) download all representative genome sequences for GTDB release 95, 2) make a [fasta.txt](https://anvio.org/help/main/artifacts/fasta-txt/) file that includes the path to each genome, 3) update the config file for your computer system (i.e., changing the number of threads for each rule and possibly adding the path to the right version of KEGG data with `--kegg-data-dir`), and 4) running the following command (possibly modified to work with your HPC's scheduler):
+And if you want to run this for yourself, then you need to 1) download all representative genome sequences for GTDB release 95, 2) make a [fasta.txt](https://anvio.org/help/main/artifacts/fasta-txt/) file that includes the path to each genome, 3) update the config file for your computer system (i.e., changing the number of threads for each rule and possibly adding the path to the right version of KEGG data with `--kegg-data-dir`), and 4) running the following (hopefully, you will modify the workflow command to work with your HPC's scheduler):
 
 ```bash
-anvi-run-workflow -w contigs -c MISC/GTDB_contigs_config.json
+# first make a folder in which to run the workflow
+mkdir GTDB_CONTIGS_WORKFLOW
+cd GTDB_CONTIGS_WORKFLOW/
+
+# copy over the config file
+cp ../../MISC/GTDB_contigs_config.json .
+
+# workflow command
+anvi-run-workflow -w contigs -c GTDB_contigs_config.json
 ```
 
 Just please keep in mind that you will need a large amount of computational resources. The workflow took about 2 months to finish on our HPC (using 80 cores). Just the zipped fasta files for each of the ~31k representative genomes takes up about 33 GB of storage space, and that does not even consider the storage required for auxiliary files and for the files generated during processing.
+
+We'll start the next subsection from the parent directory (`04_GTDB_PROCESSING`):
+
+```bash
+cd ..
+```
 
 ### Using the EcoPhylo workflow for quick identification of relevant gut microbes
 
@@ -458,7 +624,7 @@ That gives us 19,226 genomes to work with, which is a lot. We wanted to identify
 
 #### Downloading the HMP gut metagenomes
 
-We used 150 gut metagenome samples from healthy people that were published in [this paper for the HMP](https://doi.org/10.1038/nature11209). We downloaded these samples from [the HMP data website](https://www.hmpdacc.org/hmp/resources/data_browser.php). The file at `MISC/HMP_metagenomes.txt` gives the accession numbers of the samples that we used, in case you want to download them for yourself.
+We used 150 gut metagenome samples from healthy people that were published in [this paper for the HMP](https://doi.org/10.1038/nature11209). We downloaded these samples from [the HMP data website](https://www.hmpdacc.org/hmp/resources/data_browser.php). The file at `MISC/HMP_metagenomes.txt` gives the accession numbers of the samples that we used (in the 3rd column), in case you want to download them for yourself (which you can do by re-using the `download_sra.sh` script).
 
 Before using them for analysis, we ran quality filtering on these samples using the illumina-utils program `iu-filter-quality-minoche ` and made single assemblies out of 100 of the samples (one per individual, since some people provided multiple stool samples in the HMP study). We used the anvi'o metagenomics workflow for this, as described in the 'Metagenome Processing' section above.
 
@@ -468,19 +634,19 @@ We wanted to use a single-copy core gene, and specifically a ribosomal protein, 
 
 First, we obtained a matrix of SCG frequencies:
 ```bash
-anvi-estimate-scg-taxonomy --metagenomes MISC/GTDB_genomes_and_metagenomes.txt \
-    --report-scg-frequencies OUTPUT/GTDB_SCG_MATRIX.txt \
+anvi-estimate-scg-taxonomy --metagenomes ../MISC/GTDB_genomes_and_metagenomes.txt \
+    --report-scg-frequencies GTDB_SCG_MATRIX.txt \
     -O GTDB_SCG
 ```
 
-In the command above, the `GTDB_genomes_and_metagenomes.txt` is a [file describing the paths](https://anvio.org/help/main/artifacts/metagenomes/) to each of the GTDB genomes and HMP metagenomes. You will find it in the `MISC` directory of the datapack.
+In the command above, the `GTDB_genomes_and_metagenomes.txt` is a [file describing the paths](https://anvio.org/help/main/artifacts/metagenomes/) to each of the GTDB genomes and HMP assemblies. You will find it in the `MISC` directory of the datapack. This file assumes that the GTDB genome databases are located in the output directory of the contigs workflow you ran in the folder `GTDB_CONTIGS_WORKFLOW`, and that the databases for the HMP samples are located in the current directory (so you'll have to change those paths to wherever those assemblies are located on your own computer).
 
 Then, we used the following R code to list the total number of hits to each SCG within this dataset:
 
 ```r
 library(tidyverse)
 
-SCG_frequencies <- read_tsv("OUTPUT/GTDB_SCG_MATRIX.txt")
+SCG_frequencies <- read_tsv("GTDB_SCG_MATRIX.txt")
 
 # look in all metagenomes and genomes
 SCG_frequencies %>%
@@ -507,28 +673,29 @@ The one that was most frequently identified across all the data (genomes and met
 To run the workflow, you need a file describing which gene to use, a file describing the paths to all of the GTDB genomes, a file describing the paths to all of the metagenome assemblies, and a file describing the paths to all of the HMP samples (quality-filtered sequencing reads) to be used for read recruitment. We show how to generate the first three files:
 
 ```bash
-echo -e "name\tsource\tpath" > MISC/hmm_list.txt
-echo -e "Ribosomal_S6\tBacteria_71\tINTERNAL" >> MISC/hmm_list.txt
+echo -e "name\tsource\tpath" > hmm_list.txt
+echo -e "Ribosomal_S6\tBacteria_71\tINTERNAL" >> hmm_list.txt
 
-grep -v USA MISC/GTDB_genomes_and_metagenomes.txt > MISC/GTDB_external-genomes.txt
+grep -v USA ../MISC/GTDB_genomes_and_metagenomes.txt > GTDB_external-genomes.txt
 
-echo -e "name\tcontigs_db_path" > MISC/HMP_metagenome_assemblies.txt
-grep USA MISC/GTDB_genomes_and_metagenomes.txt >> MISC/HMP_metagenome_assemblies.txt
+echo -e "name\tcontigs_db_path" > HMP_metagenome_assemblies.txt
+grep USA ../MISC/GTDB_genomes_and_metagenomes.txt >> HMP_metagenome_assemblies.txt
 ```
 
-To generate the last file, make a [samples-txt](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#samplestxt) with the paths to the HMP samples, wherever they are on your computer (we called this file `GTDB_HMP_samples.txt`). You will probably also have to change the paths to the GTDB genomes and HMP assemblies in `GTDB_genomes_and_metagenomes.txt` and all derivative files.
+To generate the last file, make a [samples-txt](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#samplestxt) with the paths to the HMP samples, wherever they are on your computer (we called this file `GTDB_HMP_samples.txt`). You will probably also have to change the paths to the HMP assemblies in `GTDB_genomes_and_metagenomes.txt` and all derivative files (if these are not in your current working directory).
 
-The configuration file for the workflow can be found at `MISC/ecophylo_config.json`. It contains the names of each of the input files from the `MISC/` folder. You can run the workflow using the following command:
+The configuration file for the workflow can be found at `MISC/ecophylo_config.json`. It contains the names of each of the input files from the `MISC/` folder. You can run the workflow using the following commands:
 
 ```bash
-anvi-run-workflow -w ecophylo -c MISC/ecophylo_config.json
+cp ../MISC/ecophylo_config.json .
+anvi-run-workflow -w ecophylo -c ecophylo_config.json
 ```
 
 As always, please remember to change the thread counts appropriately for your system (we made sure the config files in the datapack doesn't assign more than 5 threads to any rule so it doesn't inadvertently overwhelm your computer, but you definitely want to increase those if you can). On our system, the workflow took a few months to finish (with some stops and restarts for troubleshooting), which is still much faster than read recruitment to the full genome sequences would have taken. :)
 
 ### Subsetting gut genomes by Ribosomal Protein S6 detection in the HMP metagenomes
 
-Once the EcoPhylo workflow finished, we had access to the following data: 
+Once the EcoPhylo workflow finished (producing output within the `04_GTDB_PROCESSING/ECOPHYLO_WORKFLOW` directory), we had access to the following data: 
 
 * clusters of similar Ribosomal Protein S6 sequences (>94% nucleotide identity) from the GTDB genomes and HMP metagenome assemblies
 * read recruitment information from the HMP metagenome samples to each cluster's representative sequence
@@ -539,64 +706,71 @@ We considered a genome to be a gut microbe if its `Ribosomal_S6` sequence belong
 anvi-export-table PROFILE.db --table detection_splits -o Ribosomal_S6_detection.txt
 ```
 
-The profile database is not in the datapack (so you cannot run the code above unless you ask us for that database), but the resulting detection table is, and you can find it at `TABLES/Ribosomal_S6_detection.txt`.
+The profile database is not in the datapack (so you cannot run the code above unless you ran the EcoPhylo workflow), but the resulting detection table is, and you can find it at `TABLES/Ribosomal_S6_detection.txt`.
 
 In the datapack, you will also find a file at `TABLES/Ribosomal_S6-mmseqs_NR_cluster.tsv` which describes the clusters generated by `mmseqs2` during the workflow. The first column in that file includes the representative sequences, and the second column includes each genome belonging to the cluster with the corresponding representative.
 
 To extract a list of the genomes that fit our detection criteria in the HMP metagenomes, we used a Python script, which can be found in the datapack at `SCRIPTS/extract_ecophylo_gut_genomes.py`. It uses the two files just mentioned to find all the representative sequences with sufficient detection and extract all relevant genome accessions from the sequence names in their corresponding clusters. You can run it like so:
 
 ```bash
-python SCRIPTS/extract_ecophylo_gut_genomes.py
+python ../SCRIPTS/extract_ecophylo_gut_genomes.py
 ```
 
-It will produce a list of 836 genomes at `OUTPUT/gut_genome_list.txt`.
+It will produce a list of 836 genomes at `04_GTDB_PROCESSING/gut_genome_list.txt`.
 
 ### Read recruitment from our dataset of gut metagenomes to gut microbes
 
 Our next task was to recruit reads from our dataset of 408 deeply-sequenced gut metagenomes to the 836 GTDB genomes. To do this efficiently, we concatenated all of the genome sequences into the same FASTA file and used the anvi'o [metagenomics workflow in 'References Mode'](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#references-mode) to run the read mapping.
 
+Let's make a new folder for the read recruitment workflow.
+
+```bash
+mkdir GTDB_MAPPING_WORKFLOW
+cd GTDB_MAPPING_WORKFLOW/
+```
+
 #### Reformatting the genome FASTAs
 When making a FASTA file containing multple genomes, you need each contig sequence to be uniquely labeled, and you want to be able to easily identify which genome each contig sequence belongs to (in case you need to backtrack later). The easiest way to do that is to include the genome accession in each contig header. We acheived this by first running `anvi-script-reformat-fasta` on each of the individual GTDB genome FASTA files to get a version of the file with the genome accession prefixing each contig header.
 
-The loop below creates an external genomes file containing the name and path of each genome in our set of 836. To run this yourself, you will likely need to change the paths and/or filenames to the genome FASTA files, depending on where you stored them on your computer. Note that we used the naming convention of `${acc}.${ver}_genomic.fna.gz` (where `${acc}` is the genome accession and `${ver}` is its version number), and that we keep these files gzipped to reduce the storage requirement.
+The loop below creates an [external genomes file](https://anvio.org/help/main/artifacts/external-genomes/) containing the name and path of each genome in our set of 836. To run this yourself, you will likely need to change the paths and/or filenames to the genome FASTA files, depending on where you stored them on your computer. Note that we used the naming convention of `${acc}.${ver}_genomic.fna.gz` (where `${acc}` is the genome accession and `${ver}` is its version number), and that we keep these files gzipped to reduce the storage requirement.
 
 ```bash
-echo -e "name\tpath" > OUTPUT/GTDB_genomes_for_read_recruitment.txt
+echo -e "name\tpath" > GTDB_genomes_for_read_recruitment.txt
 while read g; do \
   ver=$(echo $g | cut -d '_' -f 3); \
   acc=$(echo $g |cut -d '_' -f 1,2); \
-  echo -e "${g}\t${acc}.${ver}_genomic.fna.gz" >> OUTPUT/GTDB_genomes_for_read_recruitment.txt; #may need to change path in this line \
-done < OUTPUT/gut_genome_list.txt
+  echo -e "${g}\t${acc}.${ver}_genomic.fna.gz" >> GTDB_genomes_for_read_recruitment.txt; #may need to change path in this line \
+done < ../gut_genome_list.txt
 ```
 
 Then, to reformat the contig headers for each genome, we ran the following loop, which unzips the original genome FASTA file and runs the reformatting on it to produce a new file with the appropriate headers:
 
 ```bash
-mkdir -p OUTPUT/01_GTDB_FASTA_REFORMAT
+mkdir -p 01_GTDB_FASTA_REFORMAT
 while read genome path; do \
   gunzip $path; \
   newpath="${path%.*}"; # remove .gz extension \
-  outpath="OUTPUT/01_GTDB_FASTA_REFORMAT/${genome}.fasta"; \
-  reportpath="OUTPUT/01_GTDB_FASTA_REFORMAT/${genome}_reformat_report.txt"; \
+  outpath="01_GTDB_FASTA_REFORMAT/${genome}.fasta"; \
+  reportpath="01_GTDB_FASTA_REFORMAT/${genome}_reformat_report.txt"; \
   anvi-script-reformat-fasta $newpath -o $outpath --simplify-names --prefix $genome --seq-type NT -r $reportpath; \
-done < <(tail -n+2 OUTPUT/GTDB_genomes_for_read_recruitment.txt)
+done < <(tail -n+2 GTDB_genomes_for_read_recruitment.txt)
 ```
 
 Finally, we concatenated all of the reformatted sequences into one big FASTA file:
 
 ```bash
-cat OUTPUT/01_GTDB_FASTA_REFORMAT/*.fasta >> OUTPUT/GTDB_GENOMES.fasta
+cat 01_GTDB_FASTA_REFORMAT/*.fasta >> GTDB_GENOMES.fasta
 
 # make sure the number of contigs match
-grep ">" OUTPUT/01_GTDB_FASTA_REFORMAT/*.fasta | wc -l
-grep -c ">" OUTPUT/GTDB_GENOMES.fasta
+grep ">" 01_GTDB_FASTA_REFORMAT/*.fasta | wc -l
+grep -c ">" GTDB_GENOMES.fasta
 # 64280 in both cases 
 
 # remove the reformatted genomes to save space
-rm -r OUTPUT/01_GTDB_FASTA_REFORMAT/
+rm -r 01_GTDB_FASTA_REFORMAT/
 ```
 
-The resulting file, `OUTPUT/GTDB_GENOMES.fasta` will be our reference for the mapping workflow.
+The resulting file, `GTDB_GENOMES.fasta` will be our reference for the mapping workflow.
 
 #### Running the read recruitment workflow
 
@@ -606,17 +780,18 @@ Unfortunately, once again we have to treat the [Vineis et al.](https://doi.org/1
 
 ```bash
 # fasta txt
-echo -e "name\tpath" > MISC/GTDB_GENOMES_fasta.txt
-echo -e "GTDB_GENOMES\tOUTPUT/GTDB_GENOMES.fasta" >> MISC/GTDB_GENOMES_fasta.txt
+echo -e "name\tpath" > GTDB_GENOMES_fasta.txt
+echo -e "GTDB_GENOMES\tGTDB_GENOMES.fasta" >> GTDB_GENOMES_fasta.txt
 
 # samples txt
-grep -v Vineis TABLES/00_SUBSET_SAMPLES_INFO.txt | cut -f 1-3 > MISC/GTDB_GENOMES_samples.txt
+grep -v NaN ../../01_METAGENOME_DOWNLOAD/METAGENOME_SAMPLES.txt > GTDB_GENOMES_samples.txt
 ```
 
 You'll find the configuration file for this workflow at `MISC/GTDB_GENOMES_mapping_config.json`. If you take a look, you will notice that most of the optional rules (i.e., gene annotation) are turned off (`"run": false`), and that references mode is turned on (`references_mode": true`). Here is how you can run the mapping workflow (after adjusting the config for your system, of course):
 
 ```bash
-anvi-run-workflow -w metagenomics  -c MISC/GTDB_GENOMES_mapping_config.json
+cp ../../MISC/GTDB_GENOMES_mapping_config.json .
+anvi-run-workflow -w metagenomics  -c GTDB_GENOMES_mapping_config.json
 ```
 
 For us, it took a few days to run. We stopped the workflow just before it ran `anvi-merge` (because, as you will see, we run that later to incorporate all the samples, including the Vineis et al. ones). If you let it run that step, it is fine - you simply may have to overwrite the resulting merged profile database later when you run `anvi-merge`.
@@ -631,7 +806,7 @@ Here is the code to run the script (note that it uses 4 threads):
 while read samp; do \
   name=$(basename $samp | sed 's/.fastq.gz//')
   SCRIPTS/map_single_reads_to_GTDB.sh $samp; \
-done < <(grep Vineis TABLES/00_SUBSET_SAMPLES_INFO.txt | cut -f 2)
+done < <(grep NaN ../../01_METAGENOME_DOWNLOAD/METAGENOME_SAMPLES.txt | cut -f 2)
 ```
 
 Once those mapping jobs are done, you can summarize the read mapping results into a profile database for each sample. You can multithread the `anvi-profile` step by adding the `-T` parameter, if you wish. Note that these paths also make use of the output directories from the previous workflow:
@@ -640,7 +815,7 @@ Once those mapping jobs are done, you can summarize the read mapping results int
 while read samp; do \
   name=$(basename $samp | sed 's/.fastq.gz//')
   anvi-profile -c 03_CONTIGS/GTDB_GENOMES-contigs.db -i 04_MAPPING/GTDB_GENOMES/${name}.bam -o 05_ANVIO_PROFILE/GTDB_GENOMES/${name} -S $name
-done < <(grep Vineis TABLES/00_SUBSET_SAMPLES_INFO.txt | cut -f 2)
+done < <(grep NaN ../../01_METAGENOME_DOWNLOAD/METAGENOME_SAMPLES.txt | cut -f 2)
 ```
 
 #### Putting it all together with `anvi-merge`
@@ -658,12 +833,12 @@ The resulting database will hold all of the coverage and detection statistics fo
 Once the coverage and detection data has been nicely calculated and stored in the merged profile database, we extracted the data into tabular text files for downstream processing. First, we created a collection matching each contig in the big FASTA file (which contains all 836 genomes) to its original GTDB genome. We imported that collection into the database, and then used the program `anvi-summarize` to summarize the coverage information across all contigs in a given genome.  Here is the code to do that:
 
 ```bash
-grep "^>" OUTPUT/GTDB_GENOMES.fasta | sed 's/^>//g' > contigs.txt                       # extract all contig headers
+grep "^>" GTDB_GENOMES.fasta | sed 's/^>//g' > contigs.txt                       # extract all contig headers
 while read contig; do echo $contig | cut -d '_' -f 1-2 >> bins.txt; done < contigs.txt  # extract genome name from contig headers
-paste contigs.txt bins.txt > OUTPUT/GTDB_GENOMES_collection.txt
+paste contigs.txt bins.txt > GTDB_GENOMES_collection.txt
 rm contigs.txt bins.txt
 
-anvi-import-collection -c 03_CONTIGS/GTDB_GENOMES-contigs.db -p 06_MERGED/PROFILE.db -C GTDB_GENOMES --contigs-mode OUTPUT/GTDB_GENOMES_collection.txt
+anvi-import-collection -c 03_CONTIGS/GTDB_GENOMES-contigs.db -p 06_MERGED/PROFILE.db -C GTDB_GENOMES --contigs-mode GTDB_GENOMES_collection.txt
 anvi-summarize -c 03_CONTIGS/GTDB_GENOMES-contigs.db -p 06_MERGED/PROFILE.db -C GTDB_GENOMES"
 ```
 
@@ -678,10 +853,23 @@ To mitigate this issue, we decided to take one more filtering step and remove an
 You can find the script we used to subset the genomes at `SCRIPTS/subset_gut_genomes_by_detection.py`. Here is how you run it:
 
 ```bash
-python SCRIPTS/subset_gut_genomes_by_detection.py
+# first, go back to the parent directory 04_GTDB_PROCESSING/
+cd ..
+
+python ../SCRIPTS/subset_gut_genomes_by_detection.py
 ```
 
-It will generate 2 files: a shortened list of GTDB genomes that pass the filter (`OUTPUT/genomes_detected_0.02_of_samples.txt`), and a subset of the detection matrix for just this set of genomes (`OUTPUT/genomes_detected_0.02_of_samples-detection.txt`). Ultimately, we ended up with a relatively small group of 338 gut microbial genomes from the GTDB that we used for downstream analyses.
+It will generate 2 files: a shortened list of GTDB genomes that pass the filter (`genomes_detected_0.02_of_samples.txt`), and a subset of the detection matrix for just this set of genomes (`genomes_detected_0.02_of_samples-detection.txt`). 
+
+### Final set of GTDB genomes and their contigs dbs
+
+Ultimately, we ended up with a relatively small group of 338 gut microbial genomes from the GTDB that we used for downstream analyses. If you elected to download these genomes via the instructions at the top of this page, you will find their contigs databases in the `VESELI_ET_AL_GENOME_CONTIGS_DBS` folder of the datapack. The file at `TABLES/01_GTDB_GENOMES_INFO.txt` describes each genome's taxonomy and also includes much of the data that we will generate in the next section.
+
+Go back to the top-level datapack directory before you start the next section.
+
+```bash
+cd ..
+```
 
 
 ## Metabolism and distribution analyses (for genomes)
