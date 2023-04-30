@@ -549,6 +549,16 @@ ibd_enriched = ordered_modules %>% filter(module != "M00006")
 
 This is because the module in question, [M00006](https://www.genome.jp/entry/M00006), is the oxidative phase of the pentose phosphate cycle and overlaps completely with the module describing the entirety of the pentose phosphate cycle, [M00004](https://www.genome.jp/entry/M00004). We also considered removing module [M00007](https://www.genome.jp/entry/M00007) because it is the non-oxidative phase of this cycle; however, it has some enzymatic differences with module M00004, so we left it in.
 
+### Computing proportion of shared enzymes in IBD-enriched pathways
+
+You may have noticed a few statements in our paper about how closely intertwined the IBD-enriched metabolic pathways are. They share a high proportion of enzymes and compounds. To get the data backing up that statement (which can be found in Supplementary Table 2 as well), you can run the following script:
+
+```bash
+python SCRIPTS/get_num_shared_enzymes_compounds.py KEGG_2020-12-23/MODULES.db
+```
+
+Note that it expects as input the path to the modules database (here `KEGG_2020-12-23/MODULES.db`). If you set up that data elsewhere, you'll need to change the path. The script will output a table at `03_METABOLISM_OUTPUT/IBD_ENRICHED_SHARED_ENZYMES_COMPOUNDS.txt`.
+
 ### Generating Figure 2
 
 Figure 2 includes several plots of both unnormalized copy numbers and PPCN values. We won't copy the code to generate these plots here, but just wanted to remind you that you can find it in the script `SCRIPTS/plot_figures.R`. The section of code for each plot was designed to be an independent as possible from the other sections of code, so that you need only run that section to get what you want. Most of them do require the packages, paths, and color variables set up at the top of the script, however.
