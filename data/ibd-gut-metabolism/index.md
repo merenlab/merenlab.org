@@ -874,11 +874,62 @@ cd ..
 
 ## Metabolism and distribution analyses (for genomes)
 
-This section covers the genome-level analyses that we ran on the set of 338 gut microbes that was just established. We analyzed the metabolic potential of each genome by calculating the stepwise completeness of each KEGG module. We then used the completeness scores of our 33 IBD-enriched pathways to determine whether each genome represented a microbe with high metabolic independence (HMI) - that is, high average completenesss of all these pathways - or low metabolic independence (LMI). Finally, we used our read recruitment results from the gut metagenome dataset to analyze the distribution of each group of genomes across healthy individuals and individuals with IBD. These investigations culminated in Figure 3 of the manuscript.
+This section covers the genome-level analyses that we ran on the set of 338 gut microbes that was just established. We analyzed the metabolic potential of each genome by calculating the stepwise completeness of each KEGG module. We then used the completeness scores of our 33 IBD-enriched pathways to determine whether each genome represented a microbe with high metabolic independence (HMI) - that is, high average completenesss of all these pathways - or not. Finally, we used our read recruitment results from the gut metagenome dataset to analyze the distribution of each group of genomes across healthy individuals and individuals with IBD. These investigations culminated in Figure 3 of the manuscript.
+
+Just like in the metagenome metabolism section, we will work from the top-level directory of the datapack, but we'll make a folder in which we can generate some output:
+
+```bash
+mkdir 05_GTDB_ANALYSES
+```
 
 ### Metabolism estimation in gut genomes
 
-### The 'HMI score': Classifying genomes by level of metabolic independence
+The file `GTDB_EXTERNAL_GENOMES.txt` holds all the paths to the genome databases in the `VESELI_ET_AL_GENOME_CONTIGS_DBS` folder (if you downloaded it at the start of the workflow). To estimate metabolism on all of these genomes and produce matrix-formatted output, run the following:
+
+```bash
+anvi-estimate-metabolism -e GTDB_EXTERNAL_GENOMES.txt \
+                  --matrix-format \
+                  -O 05_GTDB_ANALYSES/GTDB_METABOLISM
+```
+
+The output file that you want to look is the matrix of stepwise completeness scores, at `05_GTDB_ANALYSES/GTDB_METABOLISM-module_stepwise_completeness-MATRIX.txt`. It contains the completeness score for each KEGG module in each genome (completeness for an individual genome is analogous to PPCN for a metagenome). Later, we will use these data to make the completeness heatmap in Figure 3. Note that you can find this matrix in Supplementary Table 3b.
+
+### The 'HMI score': labeling genomes by level of metabolic independence
+
+In order to ask questions like "how many metabolically-independent genomes are there in IBD metagenomes?", we needed a way to determine whether a genome encodes high metabolic independence (HMI) or not. There is more than one way to be metabolically-independent, of course. In our [previous study of colonization after FMT](https://doi.org/10.1186/s13059-023-02924-x), we described one way. But in the current study, we care about the pathways that matter to microbial survival in the IBD gut environment. Therefore, our HMI genomes should have high completeness scores for the 33 IBD-enriched modules that we determined in a previous section.
+
+How high should those scores be? That's a good question, and it doesn't have an obvious 'correct' answer. We looked at the distribution of completeness scores from these 33 modules, and didn't see an obvious threshold separating genomes into clear 'high' and 'low' groups. But we had to draw the line somewhere, and we settled on the requirement that the 33 IBD-enriched pathways should be, on average, 80% complete in order for a genome to be labeled as 'HMI'. We calculated an 'HMI score' for each genome by adding up the completeness scores of each of these modules. since there are 33 IBD-enriched pathways with individual maximum completeness of 1.0, the maximum HMI score is 33. Applying our criteria leads to a threshold HMI score of 0.8 * 33 = 26.4, so any genome with a score above 26.4 was considered to be an 'HMI' genome, and all the others were labeled as 'non-HMI'.
+
+We used the program `anvi-script-estimate-metabolic-independence` (which you can read about [here](https://anvio.org/help/main/programs/anvi-script-estimate-metabolic-independence/)) to score each genome using the stepwise completeness scores of the 33 IBD-enriched pathways. In the code below, we run that program on each genome and parse the resulting output files to produce a table of scores and labels for each genome at `05_GTDB_ANALYSES/HMI_scores.txt`.
+
+```bash
+# get just the module accession numbers as input to the program
+tail -n+2 03_METABOLISM_OUTPUT/IBD_ENRICHED_MODULES.txt | cut -f 1 > 05_GTDB_ANALYSES/IBD_MODULE_ACC.txt
+
+# compute the HMI score for each genome
+mkdir 05_GTDB_ANALYSES/ESTIMATE_HMI
+while read g path; do \
+  anvi-script-estimate-metabolic-independence -c $path \
+      --use-stepwise-completeness \
+      --threshold 26.4 \
+      --module-list 05_GTDB_ANALYSES/IBD_MODULE_ACC.txt \
+      --kegg-data-dir KEGG_2020-12-23 > 05_GTDB_ANALYSES/ESTIMATE_HMI/${g}.txt; \
+done < <(tail -n+2 GTDB_EXTERNAL_GENOMES.txt)
+
+# parse the output files into a table
+echo -e "genome\tHMI_score\tclassification" > 05_GTDB_ANALYSES/HMI_scores.txt
+while read g path; do \
+  score=$(grep "Genome score" 05_GTDB_ANALYSES/ESTIMATE_HMI/${g}.txt | cut -d ' ' -f 4) ;\
+  label=$(grep "Metabolic independence" 05_GTDB_ANALYSES/ESTIMATE_HMI/${g}.txt | cut -d ' ' -f 4) ;\
+  if [[ "$label" = "High" ]]; then \
+    class="HMI"; \
+  else class="non-HMI"; \
+  fi; \
+  echo -e "${g}\t${score}\t${class}" >> 05_GTDB_ANALYSES/HMI_scores.txt; \
+done < <(tail -n+2 GTDB_EXTERNAL_GENOMES.txt)
+```
+
+You can also find the scores and classifications in the `TABLES/01_GTDB_GENOMES_INFO.txt` file.
 
 ### Percent abundance calculations
 
