@@ -95,7 +95,7 @@ Likewise, there is [yet another link](FIXME link) to download the set of GTDB ge
 
 ```bash
 # download the genome data archive
-FIXME download
+wget https://zenodo.org/record/7883421/files/VESELI_ET_AL_GENOME_CONTIGS_DBS.tar.gz
 # extract the genome data
 tar -xvzf VESELI_ET_AL_GENOME_CONTIGS_DBS.tar.gz
 
@@ -105,12 +105,12 @@ while read db; do \
   acc=$(echo $db | cut -d '.' -f 1); \
   ver=$(echo $db | sed 's/-contigs.db//' | cut -d '.' -f 2); \
   genome="${acc}_${ver}"; \
-  path=$(ls -d $PWD/VESELI_ET_AL_GENOME_CONTIGS_DBS/${db}); \
+  path=$(ls -d $PWD/SUBSET_GTDB_CONTIGS_DBS/${db}); \
   echo -e "$genome\t$path" >> GTDB_EXTERNAL_GENOMES.txt; \
-done < <(ls VESELI_ET_AL_GENOME_CONTIGS_DBS/)
+done < <(ls SUBSET_GTDB_CONTIGS_DBS/)
 ```
 
-Once you run the above code, you should see in the datapack a folder called `VESELI_ET_AL_GENOME_CONTIGS_DBS` that contains 338 database files, and a file called `GTDB_EXTERNAL_GENOMES.txt` that describes the name and absolute path to each genome's database on your computer. If everything looks good, you can delete the archive:
+Once you run the above code, you should see in the datapack a folder called `SUBSET_GTDB_CONTIGS_DBS` that contains 338 database files, and a file called `GTDB_EXTERNAL_GENOMES.txt` that describes the name and absolute path to each genome's database on your computer. If everything looks good, you can delete the archive:
 
 ```
 # clean up the archive
@@ -125,7 +125,7 @@ Here is a quick overview of the datapack structure:
 VESELI_2023_DATAPACK/
   |
   |- VESELI_ET_AL_METAGENOME_CONTIGS_DBS  ## this holds the contigs databases we generated for the subset of samples we analyzed
-  |- VESELI_ET_AL_GENOME_CONTIGS_DBS      ## this holds the contigs databases we generated for the subset of GTDB genomes we analyzed
+  |- SUBSET_GTDB_CONTIGS_DBS              ## this holds the contigs databases we generated for the subset of GTDB genomes we analyzed
   |- TABLES                               ## this holds the important data tables
   |- SCRIPTS                              ## this contains scripts that you can run to reproduce some of the work described below
   |- MISC                                 ## this holds miscellanous files
@@ -882,7 +882,7 @@ It will generate 2 files: a shortened list of GTDB genomes that pass the filter 
 
 ### Final set of GTDB genomes and their contigs dbs
 
-Ultimately, we ended up with a relatively small group of 338 gut microbial genomes from the GTDB that we used for downstream analyses. If you elected to download these genomes from [https://doi.org/10.5281/zenodo.7883421](https://doi.org/10.5281/zenodo.7883421) via the instructions at the top of this page, you will find their contigs databases in the `VESELI_ET_AL_GENOME_CONTIGS_DBS` folder of the datapack. The file at `TABLES/01_GTDB_GENOMES_INFO.txt` describes each genome's taxonomy and also includes much of the data that we will generate in the next section.
+Ultimately, we ended up with a relatively small group of 338 gut microbial genomes from the GTDB that we used for downstream analyses. If you elected to download these genomes from [https://doi.org/10.5281/zenodo.7883421](https://doi.org/10.5281/zenodo.7883421) via the instructions at the top of this page, you will find their contigs databases in the `SUBSET_GTDB_CONTIGS_DBS` folder of the datapack. The file at `TABLES/01_GTDB_GENOMES_INFO.txt` describes each genome's taxonomy and also includes much of the data that we will generate in the next section.
 
 Go back to the top-level datapack directory before you start the next section.
 
@@ -903,7 +903,7 @@ mkdir 05_GTDB_ANALYSES
 
 ### Metabolism estimation in gut genomes
 
-The file `GTDB_EXTERNAL_GENOMES.txt` holds all the paths to the genome databases in the `VESELI_ET_AL_GENOME_CONTIGS_DBS` folder (if you downloaded it at the start of the workflow). To estimate metabolism on all of these genomes and produce matrix-formatted output, run the following:
+The file `GTDB_EXTERNAL_GENOMES.txt` holds all the paths to the genome databases in the `SUBSET_GTDB_CONTIGS_DBS` folder (if you downloaded it at the start of the workflow). To estimate metabolism on all of these genomes and produce matrix-formatted output, run the following:
 
 ```bash
 anvi-estimate-metabolism -e GTDB_EXTERNAL_GENOMES.txt \
