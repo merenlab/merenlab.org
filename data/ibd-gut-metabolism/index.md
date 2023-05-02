@@ -950,6 +950,22 @@ done < <(tail -n+2 GTDB_EXTERNAL_GENOMES.txt)
 
 You can also find the scores and classifications in the `TABLES/01_GTDB_GENOMES_INFO.txt` file.
 
+### Detection calculations
+
+We wanted to quantify the distribution of each genome (and each class of genomes) across the healthy and IBD sample groups. To do this, we summarized the detection data from the mapping workflow by calculating the following proportions:
+
+* a per-genome ratio of detection in the _healthy_ sample group, calculated by dividing the number of healthy samples in which the genome was reliably (> 0.5x) detected by the total number of healthy samples (n = 229)
+* a per-genome ratio of detection in the _IBD_ sample group, calculated by dividing the number of IBD samples in which the genome was reliably (> 0.5x) detected by the total number of IBD samples (n = 101)
+* a _per-sample_ ratio of HMI genome detection, calculated by dividing the number of HMI genomes reliably (> 0.5x) detected in the sample by the total number of genomes (of any class) reliably (> 0.5x) detected in that sample
+
+The script at `SCRIPTS/summarize_GTDB_detection.py` calculates these proportions, using the detection matrix for the subset of 338 GTDB genomes that was generated earlier (at `04_GTDB_PROCESSING/genomes_detected_0.02_of_samples-detection.txt`). If you don't have that input file, you should go back to the previous section and generate it. Here is how to run the script for computing the proportions:
+
+```
+python SCRIPTS/summarize_GTDB_detection.py
+```
+
+It will generate two output files in the `05_GTDB_ANALYSES/` folder: `genome_proportions.txt`, which contains the two per-genome proportions, and `sample_proportions.txt` which contains the per-sample proportions. Note that you can also find these data in Supplementary Table 3e and 3f.
+
 ### Percent abundance calculations
 
 To calculate the percent abundance of each genome in each sample, we used the following equation: 
