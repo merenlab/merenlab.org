@@ -955,7 +955,7 @@ You can also find the scores and classifications in the `TABLES/01_GTDB_GENOMES_
 To calculate the percent abundance of each genome in each sample, we used the following equation: 
 `% abundance = sum(num reads mapping to contigs in genome) / total reads in sample`
 
-The total number of reads in each sample was already calculated above (and can be found in the `r1_num_reads` column of `TABLES/00_SUBSET_SAMPLES_INFO.txt`). To calculate the number of reads mapping to each contig in each genome, we ran `samtools idxstats` on the indexed BAM files from the mapping workflow that we ran in the `04_GTDB_PROCESSING/GTDB_MAPPING_WORKFLOW/` folder. To replicate that (if you ran the mapping workflow), you can run the following code:
+The total number of reads in each sample was already calculated above (and can be found in the `r1_num_reads` and `r2_num_reads` columns of `TABLES/00_SUBSET_SAMPLES_INFO.txt`). To calculate the number of reads mapping to each contig in each genome, we ran `samtools idxstats` on the indexed BAM files from the mapping workflow that we ran in the `04_GTDB_PROCESSING/GTDB_MAPPING_WORKFLOW/` folder. To replicate that (if you ran the mapping workflow), you can run the following code:
 
 ```bash
 # go to the place where the workflow output lives
