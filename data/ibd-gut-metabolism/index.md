@@ -16,6 +16,7 @@ authors: [iva]
 Here is a list of links for quick access to the data described in our manuscript and on this page:
 
 * [doi:10.6084/m9.figshare.22679080](https://doi.org/10.6084/m9.figshare.22679080): Supplementary Tables.
+* [doi:10.5281/zenodo.7883421](https://doi.org/10.5281/zenodo.7883421): Contigs databases for 338 GTDB genomes.
 
 
 </div>
@@ -576,7 +577,7 @@ We've essentially confirmed [our previous observations](https://doi.org/10.1186/
 
 We wanted to confirm our results at the genome level. The ideal way to do this would be to carefully bin metagenome-assembled genomes (MAGs) from each metagenome and individually analyze their metabolic capacity. However, binning those MAGs would take a really long time, and even if we automated the process, [automatic binning is difficult and not always conclusive](https://merenlab.org/2020/01/02/visualizing-metagenomic-bins/). Instead, we decided to leverage a high-quality set of reference genomes from the [Genome Taxonomy Database (GTDB)](https://gtdb.ecogenomic.org/) ([Parks et al. 2021](https://doi.org/10.1093/nar/gkab776)).
 
-In this section, we show how we determined which genomes represent typical gut microbes by running read recruitment and analyzing the resulting coverage information. Those genomes will be the subject of the analyses described in the subsequent section.
+In this section, we show how we determined which genomes represent typical gut microbes by running read recruitment and analyzing the resulting coverage information. Those genomes will be the subject of the analyses described in the subsequent section. The datapack at [https://doi.org/10.5281/zenodo.7883421](https://doi.org/10.5281/zenodo.7883421) provides the contigs databases for the final set of gut genomes selected in this section.
 
 This section includes several workflows, so we will start a new folder to keep everything organized:
 
@@ -881,7 +882,7 @@ It will generate 2 files: a shortened list of GTDB genomes that pass the filter 
 
 ### Final set of GTDB genomes and their contigs dbs
 
-Ultimately, we ended up with a relatively small group of 338 gut microbial genomes from the GTDB that we used for downstream analyses. If you elected to download these genomes via the instructions at the top of this page, you will find their contigs databases in the `VESELI_ET_AL_GENOME_CONTIGS_DBS` folder of the datapack. The file at `TABLES/01_GTDB_GENOMES_INFO.txt` describes each genome's taxonomy and also includes much of the data that we will generate in the next section.
+Ultimately, we ended up with a relatively small group of 338 gut microbial genomes from the GTDB that we used for downstream analyses. If you elected to download these genomes from [https://doi.org/10.5281/zenodo.7883421](https://doi.org/10.5281/zenodo.7883421) via the instructions at the top of this page, you will find their contigs databases in the `VESELI_ET_AL_GENOME_CONTIGS_DBS` folder of the datapack. The file at `TABLES/01_GTDB_GENOMES_INFO.txt` describes each genome's taxonomy and also includes much of the data that we will generate in the next section.
 
 Go back to the top-level datapack directory before you start the next section.
 
