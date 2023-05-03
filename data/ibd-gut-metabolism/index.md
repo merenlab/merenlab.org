@@ -1033,6 +1033,30 @@ iqtree -s  05_GTDB_ANALYSES/genomes_hmm_hits_aligned_concatenated_GAPS_REMOVED.f
 
 This will produce a tree file at `05_GTDB_ANALYSES/GTDB_tree.contree`, which you can use in the next subsection to visualize all the data that we have generated in this section so far. You can also find our tree file at `MISC/GTDB_tree.contree`.
 
+### A few more genome statistics
+
+To get the average genome length and number of genes of HMI genomes and non-HMI genomes, we ran the following Python code:
+
+```python
+import pandas as pd
+df = pd.read_csv("TABLES/01_GTDB_GENOMES_INFO.txt", sep="\t", index_col=0)
+
+df.groupby('classification').mean()
+```
+
+And to count the number of genomes in each family (and count the number of genomes with temporary code names in place of taxonomy), we ran the following BASH code:
+
+```bash
+echo -e "family\tcount" > 05_GTDB_ANALYSES/family_counts.txt; 
+while read family; do \
+  count=$(grep -c $family TABLES/01_GTDB_GENOMES_INFO.txt); \
+  echo -e "$family\t$count" >> 05_GTDB_ANALYSES/family_counts.txt; \
+done < <(cut -f 6 TABLES/01_GTDB_GENOMES_INFO.txt | sort -u)
+
+# count number of GTDB code name clades
+grep -E "CAG|UBA|QAN" 05_GTDB_ANALYSES/family_counts.txt | cut -f 2 | awk '{s+=$1} END {print s}'
+```
+
 ### Generating Figure 3
 
 
