@@ -995,7 +995,7 @@ done < vineis_samples.txt
 
 This will generate a table for each sample in the `04_GTDB_PROCESSING/GTDB_MAPPING_WORKFLOW/04_MAPPING/IDXSTATS/` folder that describes each contig from the `GTDB_GENOMES.fasta` file, the contig length, the number of reads mapping to it, and the number of unmapped reads (which is always 0 because the mapping workflow parameters ignore any unmapped reads).
 
-Once that is done, you can run the following script to generate the percent abundance values, including the percent abundance ratio that we plot in Figure 3. The output files will be `percent_abundances.txt` and `percent_abundance_averages.txt`. Note that Supplementary Table 3d stores the percent abundances.
+Once that is done, you can run the following script to generate the percent abundance values, including the percent abundance ratio that we plot in Figure 3. The output files will be `percent_abundances.txt` and `percent_abundance_averages.txt`. Note that Supplementary Table 3d stores the percent abundances, and if you elected not to run the mapping workflow, you can also find this data in the DATAPACK at `TABLES/GTDB_percent_abundance_averages.txt`.
 
 ```
 python ../../SCRIPTS/get_percent_abundance.py
@@ -1058,6 +1058,144 @@ grep -E "CAG|UBA|QAN" 05_GTDB_ANALYSES/family_counts.txt | cut -f 2 | awk '{s+=$
 ```
 
 ### Generating Figure 3
+
+Now comes the time to put all the data we just generated together into Figure 3. 
+
+Panel B of this figure was drawn using the anvi'o interactive interface. It includes the phylogenetic tree, taxonomy information, per-genome detection ratios, percent abundances, HMI score and class, and heatmap of completeness scores for each of the IBD-enriched pathways.
+
+To replicate this figure, you'll first draw the top of the panel, which contains all the data listed above except for the heatmap of module completeness. Combine the taxonomy information (taken from GTDB) with the HMI score and HMI/non-HMI genome label into one file, and then load it in the anvi'o interactive interface, using the genome phylogeny to organize the data for each genome:
+
+```bash
+# combine taxonomy with HMI data into one file
+cut -f 1-8 TABLES/01_GTDB_GENOMES_INFO.txt > taxa.txt # genome accession, domain thru species taxonomy
+cut -f 2,3 05_GTDB_ANALYSES/HMI_scores.txt > hmi.txt # HMI data
+paste taxa.txt hmi.txt > 05_GTDB_ANALYSES/tree_additional_data.txt # combine
+# note that this only works if the genomes are in the same order in both files (which should be the case, 
+# due to alphabetical ordering of the accessions). But if not, you need to use a smarter way to combine 
+# the data for each genome
+
+# load w/ interactive to create a profile db
+anvi-interactive -A 05_GTDB_ANALYSES/tree_additional_data.txt \
+                 -t MISC/GTDB_tree.contree \
+                 --title "Gut GTDB genomes classified as HMI" \
+                 -p 05_GTDB_ANALYSES/tree.db \
+                 --manual \
+                 --dry-run # remove the --dry-run flag if you want to see the visualization
+```
+
+In this command, the tree we generated (provided in the `MISC` folder) is used, but you can replace it with your tree file at `05_GTDB_ANALYSES/GTDB_tree.contree` if you wish. A profile database at `05_GTDB_ANALYSES/tree.db` will be created and can be used for saving visualization settings and storing additional data. Speaking of which, the next step is to import the per-genome detection ratios and percent abundance data:
+
+```bash
+# import detection ratios
+anvi-import-misc-data 05_GTDB_ANALYSES/genome_proportions.txt \
+                -p 05_GTDB_ANALYSES/tree.db \
+                -t items
+
+# import percent abundance
+anvi-import-misc-data TABLES/GTDB_percent_abundance_averages.txt \
+                -p 05_GTDB_ANALYSES/tree.db \
+                -t items
+```
+
+The command above uses our table of percent abundances, just in case you didn't run the mapping workflow yourself (but if you did, you can change the input file to yours, which should be at `04_GTDB_PROCESSING/GTDB_MAPPING_WORKFLOW/percent_abundance_averages.txt`). Here is the visualization command:
+
+```bash
+# visualize
+anvi-interactive -A 05_GTDB_ANALYSES/tree_additional_data.txt \
+                 -t MISC/GTDB_tree.contree \
+                 --title "Gut GTDB genomes classified as HMI" \
+                 -p 05_GTDB_ANALYSES/tree.db \
+                 --manual
+```
+
+Now all the data is imported, but if you ran the above command, the drawing in the interface would not look like the figure panel because we modified a lot of the visualization settings: changing colors, hiding unimportant data layers, putting layers in order, adding margin space, etc. We also re-rooted the phylogeny, so the tree that you supplied is a bit different from the one in the figure. However, we've provided the re-rooted phylogeny and a state file describing our visualization settings in the `MISC` folder of the datapack. To exactly replicate our figure, you can load this information into the database, and _then_ visualize:
+
+```bash
+# import our re-rooted phylogeny
+anvi-import-items-order -i MISC/fig_3b_rerooted_tree.txt \ 
+                -p 05_GTDB_ANALYSES/tree.db \
+                --name REROOTEDv2
+
+# import our visualization settings
+anvi-import-state -s MISC/fig_3b_tree_state.json \
+                -p 05_GTDB_ANALYSES/tree.db \
+                -n default
+
+anvi-interactive -A 05_GTDB_ANALYSES/tree_additional_data.txt \
+                 -t MISC/GTDB_tree.contree \
+                 --title "Gut GTDB genomes classified as HMI" \
+                 -p 05_GTDB_ANALYSES/tree.db \
+                 --manual
+```
+
+And now it will look like the top of Figure 3b. Since the command above still includes the tree file `-t MISC/GTDB_tree.contree`, you can also organize the data using that tree to see how it looked before re-rooting.
+
+To get the module completeness heatmap, you should first extract the completeness scores for just the 33 IBD-enriched modules from the matrix of all completeness scores that you generated earlier. Then, flip that matrix so that the genomes are in the rows and the modules are in the columns. Finally, you can load the resulting matrix in the interactive interface. Just like before, you'll initially use the phylogeny to organize the data for each genome, and later import the re-rooted tree:
+
+```bash
+# extract IBD-enriched modules' completeness scores
+head -n 1 05_GTDB_ANALYSES/GTDB_METABOLISM-module_stepwise_completeness-MATRIX.txt > 05_GTDB_ANALYSES/modules_additional_data.txt
+while read mod; do \
+  grep $mod 05_GTDB_ANALYSES/GTDB_METABOLISM-module_stepwise_completeness-MATRIX.txt >> 05_GTDB_ANALYSES/modules_additional_data.txt
+done < 05_GTDB_ANALYSES/IBD_MODULE_ACC.txt
+
+# flip the matrix
+anvi-script-transpose-matrix 05_GTDB_ANALYSES/modules_additional_data.txt -o 05_GTDB_ANALYSES/modules_additional_data-TRANSPOSED.txt
+
+# generate a profile database to store the settings and organization
+anvi-interactive --manual \
+        -d 05_GTDB_ANALYSES/modules_additional_data-TRANSPOSED.txt \
+        -t MISC/GTDB_tree.contree \
+        -p 05_GTDB_ANALYSES/modules_heatmap.db \
+        --dry-run
+
+# import our re-rooted phylogeny
+anvi-import-items-order -i MISC/fig_3b_rerooted_tree.txt \ 
+                -p 05_GTDB_ANALYSES/modules_heatmap.db \
+                --name REROOTEDv2
+```
+
+The re-rooted phylogeny you just imported will be used to organize the genomes in the same way as in the upper part of the panel, but you also need to organize the modules. You can do this by clustering the matrix to create a dendrogram organizing the modules so that those with more a similar set of completeness scores are closer together in the heatmap. That dendrogram can be imported into the profile database via the ['layer-orders' additional data table](https://merenlab.org/2017/12/11/additional-data-tables/#layer-orders-additional-data-table):
+
+```bash
+# generate a dendrogram to organize the modules
+anvi-matrix-to-newick 05_GTDB_ANALYSES/modules_additional_data.txt
+
+# import the resulting dendrogram into the profile db
+tree=$(<05_GTDB_ANALYSES/modules_additional_data.txt.newick)
+echo -e "item_name\tdata_type\tdata_value\nmodules_tree\tnewick\t$tree" > 05_GTDB_ANALYSES/module_layer_order.txt
+anvi-import-misc-data 05_GTDB_ANALYSES/module_layer_order.txt \
+             -p 05_GTDB_ANALYSES/modules_heatmap.db \
+             --target-data-table layer_orders
+
+# visualize
+anvi-interactive --manual \
+        -d 05_GTDB_ANALYSES/modules_additional_data-TRANSPOSED.txt \
+        -t MISC/GTDB_tree.contree \
+        -p 05_GTDB_ANALYSES/modules_heatmap.db
+```
+
+Once again, we changed a lot of the visualization settings, so the visualization from the last command won't look like the figure. You can import our changes using the files we provided in the `MISC` folder, just like you did before. This includes 1) importing a new version of the modules dendrogram in which we rotated some of the branches, and 2) importing the visualization settings that turn the drawing into a heatmap:
+
+```bash
+# import our rotated dendrogram
+anvi-import-misc-data MISC/fig_3b_heatmap_dendrogram.txt \
+                -p 05_GTDB_ANALYSES/modules_heatmap.db \
+                -t layer_orders
+
+# import our visualization settings
+anvi-import-state -s MISC/fig_3b_heatmap_state.json \
+                -p 05_GTDB_ANALYSES/modules_heatmap.db \
+                -n default
+
+# visualize
+anvi-interactive --manual \
+        -d 05_GTDB_ANALYSES/modules_additional_data-TRANSPOSED.txt \
+        -t MISC/GTDB_tree.contree \
+        -p 05_GTDB_ANALYSES/modules_heatmap.db
+```
+
+And now you are done with replicating panel B.
 
 
 ## Machine learning analyses
