@@ -995,7 +995,7 @@ done < vineis_samples.txt
 
 This will generate a table for each sample in the `04_GTDB_PROCESSING/GTDB_MAPPING_WORKFLOW/04_MAPPING/IDXSTATS/` folder that describes each contig from the `GTDB_GENOMES.fasta` file, the contig length, the number of reads mapping to it, and the number of unmapped reads (which is always 0 because the mapping workflow parameters ignore any unmapped reads).
 
-Once that is done, you can run the following script to generate the percent abundance values, including the percent abundance ratio that we plot in Figure 3. The output files will be `percent_abundances.txt` and `percent_abundance_averages.txt`.
+Once that is done, you can run the following script to generate the percent abundance values, including the percent abundance ratio that we plot in Figure 3. The output files will be `percent_abundances.txt` and `percent_abundance_averages.txt`. Note that Supplementary Table 3d stores the percent abundances.
 
 ```
 python ../../SCRIPTS/get_percent_abundance.py
