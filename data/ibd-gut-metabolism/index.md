@@ -412,7 +412,7 @@ This produces the following plot (which we cleaned up Inkscape to produce the fi
 
 As you can see, the correlation between a sample's sequencing depth and the estimated number of microbial populations it contains is fairly strong, particularly for lower depth samples. That correlation starts to weaken at higher sequencing depths. We selected our sequencing depth threshold to be 25 million reads as a compromise between the need for accurate estimates of microbiome richness and the need for enough samples for a robust and powerful analysis.
 
-The script at `SCRIPTS/plot_figures.R` contains code for most of the other figures in the manuscript (those that were generated from data). Not all of the code and figures will be highlighted in this workflow, but you can always find it in that file.
+The script at `SCRIPTS/plot_figures.R` contains code for most of the other figures in the manuscript (those that were generated from data). Not all of the code and figures will be highlighted in this workflow, but you can always find it in that file. Note that the working directory while running that script should be set to the `SCRIPTS/` folder in order for the relative paths to input files to be correct.
 
 ### Removal of samples with low sequencing depth
 
@@ -562,7 +562,7 @@ Note that it expects as input the path to the modules database (here `KEGG_2020-
 
 ### Generating Figure 2
 
-Figure 2 includes several plots of both unnormalized copy numbers and PPCN values. We won't copy the code to generate these plots here, but just wanted to remind you that you can find it in the script `SCRIPTS/plot_figures.R`. The section of code for each plot was designed to be an independent as possible from the other sections of code, so that you need only run that section to get what you want. Most of them do require the packages, paths, and color variables set up at the top of the script, however.
+Figure 2 includes several plots of both unnormalized copy numbers and PPCN values. We won't copy the code to generate these plots here, but just wanted to remind you that you can find it in the script `SCRIPTS/plot_figures.R`. The section of code for each plot was designed to be an independent as possible from the other sections of code, so that you need only run that section to get what you want. Most of them do require the packages, paths, and color variables set up at the top of the script, however (and your working directory should be the `SCRIPTS/` folder while running it).
 
 We used Inkscape to polish up the resulting plots into a publication-ready figure. In particular, we adjusted the background color opacity for the heatmaps in panels B and E to make the signal more visible, which is why you may notice a difference between the generated plots and the plots in the manuscript.
 
@@ -1061,6 +1061,8 @@ grep -E "CAG|UBA|QAN" 05_GTDB_ANALYSES/family_counts.txt | cut -f 2 | awk '{s+=$
 
 Now comes the time to put all the data we just generated together into Figure 3. 
 
+### Panel B
+
 Panel B of this figure was drawn using the anvi'o interactive interface. It includes the phylogenetic tree, taxonomy information, per-genome detection ratios, percent abundances, HMI score and class, and heatmap of completeness scores for each of the IBD-enriched pathways.
 
 To replicate this figure, you'll first draw the top of the panel, which contains all the data listed above except for the heatmap of module completeness. Combine the taxonomy information (taken from GTDB) with the HMI score and HMI/non-HMI genome label into one file, and then load it in the anvi'o interactive interface, using the genome phylogeny to organize the data for each genome:
@@ -1196,6 +1198,10 @@ anvi-interactive --manual \
 ```
 
 And now you are done with replicating panel B.
+
+### Remaining panels
+
+The other panels of Figure 3 can all be generated using the R script at `SCRIPTS/plot_figures.R`. Each one has its own section of the code that can be run independently (after loading the packages and variables at the top of the script). The code relies on the data files generated in this section, namely `05_GTDB_ANALYSES/genome_proportions.txt` and `05_GTDB_ANALYSES/sample_proportions.txt`, as well as on the data files from the mapping workflow which are provided in the `TABLES` directory. Note that the working directory should be set to the `SCRIPTS/` folder for the relative paths to these files to be correct.
 
 
 ## Machine learning analyses
