@@ -935,6 +935,9 @@ while read g path; do \
       --kegg-data-dir KEGG_2020-12-23 > 05_GTDB_ANALYSES/ESTIMATE_HMI/${g}.txt 2>&1; \
 done < <(tail -n+2 GTDB_EXTERNAL_GENOMES.txt)
 
+# clean up the modules files that were generated
+rm G*_modules.txt
+
 # parse the output files into a table
 echo -e "genome\tHMI_score\tclassification" > 05_GTDB_ANALYSES/HMI_scores.txt
 while read g path; do \
