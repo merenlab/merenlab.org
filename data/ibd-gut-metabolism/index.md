@@ -1206,9 +1206,300 @@ The other panels of Figure 3 can all be generated using the R script at `SCRIPTS
 
 ## Machine learning analyses
 
-### Classifying gut metagenomes as IBD vs Healthy
+Thus far, our analyses have shown that there is a clear difference in microbial metabolic capacity between the healthy gut environment and the IBD gut environment. We next wanted to determine if the PPCN data for IBD-enriched modules in a given metagenome sample is predictive of the sample's origin; that is, can we identify samples that come from people with IBD based on predicted metabolic capacity? We created a machine learning pipeline for classifying metagenomes using PPCN data and tested its performance in several cross-validation scenarios. Once we were confident that it performed well based on our compiled dataset of healthy and IBD gut metagenomes, we trained a final classifier using all of that data, and tested it on a completely different dataset: gut metagenomes from a time-series experiment in which a 4-day antibiotic treatment was given to healthy individuals and the response of the gut microbiome was tracked over time. Despite our classifier being trained to specifically identify IBD samples, its classifications of the antibiotic samples mirrored the decline and recovery of the gut communities in those samples over time!
+
+The Python Jupyter notebook at `SCRIPTS/metagenome_classifier.ipynb` contains all of the code for these analyses, as well as some code for generating figures. We'll explain the most important sections in this notebook below.
+
+### Cross-validation of metagenome classifier
+
+Our machine learning pipeline was designed to independently select IBD-enriched modules within a provided training dataset and train a new logistic regression classifier using the PPCNs of those modules (rather than always using the exact 33 modules that we identified previously as enriched in IBD). Therefore, the  tests of its performance evaluate 1) whether there is consistently a difference in metabolic capacity between the two sample groups (healthy and IBD) and 2) whether that difference is systematic enough to be used for classifying these samples. In each fold of cross-validation, we run the following steps:
+
+1. We split the samples into a training set and a testing set (we tried multple ways of splitting the data, as will be discussed below)
+2. We use the PPCN data _from the training samples only_ to run a Wilcoxon Rank-Sum test, calculate effect size, and identify a set of IBD-enriched modules
+3. We take the PPCN data for the set of IBD-enriched modules as features, and train a logistic regression classifier to predict the class ('healthy' or 'IBD') of a sample using those features
+4. We test the classifier on the testing set of samples and record its performance (with metrics like accuracy, area under the receiving operator characteristic curve, etc)
+
+In the notebook, we defined several functions to carry out these steps. For instance, here are the functions for step 2. You might notice the similarity with the code we used earlier to determine the overall set of IBD-enriched modules:
+
+```python
+def compute_group_medians_and_stats(train_data_x, train_data_y):
+    """Returns a dataframe of the group medians, group median differences, and Wilcoxon p-value 
+    for IBD PPCN > Healthy PPCN, for each KEGG module, in the training data.
+    """
+    
+    data = train_data_x
+    data['label'] = train_data_y
+    
+    # group medians
+    df = pd.melt(data, id_vars=['label'], ignore_index=False)
+    grouped_df = df.groupby(['module', 'label']).median().unstack()
+    
+    # median differences
+    grouped_df['DIFF'] = grouped_df['value']['IBD'] - grouped_df['value']['HEALTHY']
+    
+    # per-module Wilcoxon test for IBD PPCN > Healthy PPCN
+    grouped_df['P_VALUE'] = ""
+    for mod in grouped_df.index:
+        mod_data_ibd_samples = df[(df['module'] == mod) & (df['label'] == 'IBD')]['value']
+        mod_data_healthy_samples = df[(df['module'] == mod) & (df['label'] == 'HEALTHY')]['value']
+        stat, p_value = ranksums(mod_data_ibd_samples, mod_data_healthy_samples, 
+                         alternative='greater')
+        grouped_df.loc[mod, 'P_VALUE'] = p_value
+        
+    grouped_df.sort_values(by = ['P_VALUE', 'DIFF'], axis=0, ascending=[True, False], inplace=True)
+    
+    return grouped_df
+
+def get_ibd_enriched_modules(module_stats, pval_threshold = 1e-10, min_median_diff = 0):
+    """Uses per-module statistics obtained from compute_group_medians_and_stats() to compute 
+    IBD-enriched modules and return these as a list.
+    
+    Criteria for module selection:
+    - p-value from Wilcoxon rank-sums test <= pval_threshold
+    - group median difference (IBD - Healthy) >= mean(median differences) or min_median_diff, whichever is larger
+    """
+    
+    mean_median_diff = module_stats['DIFF'].mean()
+    diff_threshold = max(mean_median_diff, min_median_diff)
+    
+    ibd_enriched_mods = module_stats[(module_stats['DIFF'] >= diff_threshold) & 
+                                     (module_stats['P_VALUE'] <= pval_threshold)].index
+    
+    if not len(ibd_enriched_mods):
+        print(f"WARNING: no IBD-enriched modules in this dataset using p-value threshold of  <= {pval_threshold} "
+              f"and group median difference threshold of >= {diff_threshold}.")
+        
+    return ibd_enriched_mods, diff_threshold
+```
+
+And here is the function for steps 3 and 4, training and testing the classifier:
+
+```python
+def train_test_LR_model(train_x, train_y, test_x, test_y, model_name=0, random_state=323):
+    """Returns a trained model and its performance on the test set."""
+    
+    train_y_int = get_labels_as_integer(train_y)
+    test_y_int = get_labels_as_integer(test_y)
+    
+    model = LogisticRegression(penalty='none', max_iter=20000, random_state=random_state)
+    trained_model = model.fit(train_x, train_y_int)
+    
+    pred = trained_model.predict(test_x)
+    y_score = trained_model.predict_proba(test_x)
+    
+    # SCORE
+    accuracy = metrics.accuracy_score(test_y_int, pred)
+    roc_auc = metrics.roc_auc_score(test_y_int, pred)
+    f1 = metrics.f1_score(test_y_int, pred)
+    cm = metrics.confusion_matrix(test_y_int, pred)
+    fpr, tpr, thresholds = roc_curve(test_y_int, y_score[:, 1])
+    
+    results = {}
+    results["Accuracy"] = accuracy
+    results["ROC_AUC"] = roc_auc
+    results["F1_score"] = f1
+    results["True_Healthy"] = cm[0][0]
+    results["False_IBD"] = cm[0][1]
+    results["False_Healthy"] = cm[1][0]
+    results["True_IBD"] = cm[1][1]
+    results["FPR_ROC_curve_vals"] = fpr
+    results["TPR_ROC_curve_vals"] = tpr
+    
+    results_df = pd.DataFrame.from_dict(results, orient='index', columns=[model_name])
+    
+    return trained_model, results_df
+```
+
+Steps 2-4 in the pipeline were the same across all of the cross-validation tests that we did, but step 1 (how the data was split) differed. The `SCRIPTS/metagenome_classifier.ipynb` notebook starts with a Leave-Two-Studies-Out cross-validation, in which each fold of the cross-validation uses two cohorts from different studies (one providing healthy samples and one providing IBD samples) as test data, and the rest of the samples from the other studies provide the training data. This is actually an analysis that we only discuss in the Supplementary Information file for our manuscript. It was used to evaluate how robust our classification strategy was to differences across cohorts.
+
+The cross-validation analysis discussed in the main manuscript is the second one in the script. In each fold, the data was split randomly between the training set (80% of samples) and testing set (20%). Here is the function for splitting the data randomly:
+
+```python
+def split_data_random(samples_info, feature_data, target_data, num_splits=10, percent_test=0.2, random_seed=1452):
+    """Returns num_splits random train-test splits of the data.
+    
+    Returned as a dictionary of dictionaries, where the outer dictionary is keyed by integer (split number)
+    and the inner dictionary contains the following:
+    - train_x: features of training set
+    - train_y: labels of training set
+    - test_x: features of test set
+    - test_y: labels of test set
+    
+    We also return split_info, a DataFrame containing for each split
+        - num_test_samples: size of test set (set by percent_test)
+        - num_test_healthy: number of healthy samples in test set
+        - num_test_IBD: number of IBD samples in test set
+        - num_train_samples: size of training set
+        - num_train_healthy: number of healthy samples in training set
+        - num_train_IBD: number of IBD samples in training set
+    """
+    
+    split_info_rows = ["num_test_samples", "num_test_healthy", "num_test_IBD",
+                       "num_train_samples", "num_train_healthy", "num_train_IBD"]
+    split_info = pd.DataFrame(index=split_info_rows, columns=[x for x in range(num_splits)])
+    
+    cv_split = {}
+    for split_num in range(num_splits):
+        test_samples = target_data.sample(frac=percent_test, replace=False, random_state=random_seed * split_num).index
+        test_x = feature_data.loc[test_samples]
+        test_labels = target_data.loc[test_samples]
+
+        split_info.loc["num_test_samples", split_num] = len(test_samples)
+        split_info.loc["num_test_healthy", split_num] = len(test_labels[test_labels == 'HEALTHY'])
+        split_info.loc["num_test_IBD", split_num] = len(test_labels[test_labels == 'IBD'])
+
+        train_x = feature_data.drop(test_samples)
+        train_labels = target_data.drop(test_samples)
+        
+        split_info.loc["num_train_samples", split_num] = train_x.shape[0]
+        split_info.loc["num_train_healthy", split_num] = len(train_labels[train_labels == "HEALTHY"])
+        split_info.loc["num_train_IBD", split_num] = len(train_labels[train_labels == "IBD"])
+
+        # ensure features are in matching order as labels
+        train_x = train_x.loc[train_labels.index]
+        test_x = test_x.loc[test_labels.index]
+
+        cv_split[split_num] = {}
+        cv_split[split_num]["train_x"] = train_x
+        cv_split[split_num]["train_y"] = train_labels
+        cv_split[split_num]["test_x"] = test_x
+        cv_split[split_num]["test_y"] = test_labels
+
+        split_num += 1
+            
+    return cv_split, split_info
+```
+
+Once we defined all of these functions, we used them in series to run the cross-validation analyses. In each case, we created multple train-test splits of the data and wrote a loop to iterate over each split and call the functions for identifying features, training, and testing a model. Here is that code for the random cross-validation as an example:
+
+```python
+## from 2.2 Load Data section
+# labels
+samples = pd.read_csv(data_dir + "00_SUBSET_SAMPLES_INFO.txt", sep='\t', index_col=0)
+subset_samples = samples[samples['group'].isin(['HEALTHY', 'IBD'])]
+subset_target = subset_samples['group']
+
+# raw data
+## number of estimated populations
+num_pops_subset = subset_samples['num_populations']
+
+## stepwise copy number
+copy_num_matrix = pd.read_csv(data_dir + "METAGENOME_METABOLISM-module_stepwise_copy_number-MATRIX.txt", \
+                                     sep='\t', index_col=0)
+subset_copy_num_matrix = copy_num_matrix[subset_samples.index]
+
+# PPCN features
+subset_normalized = subset_copy_num_matrix / num_pops_subset
+subset_ppcn = subset_normalized.T
+# put samples in feature matrix in same order as target matrix
+subset_ppcn = subset_ppcn.loc[subset_target.index]
+
+## from 3.2  Run Random CV section
+split_data_dict, split_info_df = split_data_random(subset_samples, subset_ppcn, subset_target, 
+                                                   num_splits=25, percent_test=0.2, random_seed=15)
+performance_df_list = []
+for split_num, split in split_data_dict.items():
+    print(f"Training on split {split_num}")
+    train_features = split['train_x']
+    train_labels = split['train_y']
+    test_features = split['test_x']
+    test_labels = split['test_y']
+
+    medians = compute_group_medians_and_stats(train_features, train_labels)
+    ibd_enriched_modules, median_threshold = get_ibd_enriched_modules(medians)
+    split_info_df.loc["median_diff_threshold", split_num] = median_threshold
+    split_info_df.loc["num_IBD_enriched_mods", split_num] = len(ibd_enriched_modules)
+    if len(ibd_enriched_modules) == 0:
+        print(f"WARNING: no enriched modules found for split {split_num} of the data, skipping model training.")
+        continue
+
+    train_mods, test_mods = subset_mods(ibd_enriched_modules, train_features, test_features)
+    # below, we use the same random state for each fold to ensure changes in performance only come from changes
+    # in the data used for training and not from model initialization
+    LR_model, single_performance_df = train_test_LR_model(train_mods, train_labels, test_mods, test_labels, 
+                                                   model_name=split_num, random_state=711)
+    performance_df_list.append(single_performance_df)
+```
+
+Afterwards, we could take a look at the performance metrics, and use those to generate a plot of the Area under the Receiving Operator Characteristic Curve (AUROCC).
+
+Those are the important parts, but you can find (and run) the rest of the classification code in the Jupyter notebook. The code utilizes the data provided in the `TABLES` folder of the DATAPACK, as well as the list of IBD-enriched modules you generated at `03_METABOLISM_OUTPUT/IBD_ENRICHED_MODULES.txt`. It will produce output (AUROCC plots) in the `06_CLASSIFIER/` directory. In addition, we set a random seed wherever necessary to ensure reproducibility of the results, so the output should be the same every time you run the code.
 
 ### Generating Figure 4
+
+Figure 4a shows the results of our random cross-validation as an AUROCC plot. It includes an ROC curve for each fold, the mean ROC curve, and the confidence interval of that mean curve. We generated the plot using the matplotlib package, with some helpful [code that we found online](https://stats.stackexchange.com/questions/186337/average-roc-for-repeated-10-fold-cross-validation-with-probability-estimates) that is attributed to one Alexey Grigorev (thanks, Alexey, wherever you are). We put that code into the following function:
+
+```python
+def plot_ROC_curve_for_CV(all_FPRs_list, all_TPRs_list, path_to_save):
+    """Plots an ROC curve for each fold and an interpolated 'mean' curve"""
+    all_interpolated_tprs = []
+    base_fpr = np.linspace(0, 1, 101)
+
+    plt.figure(figsize=(10, 10))
+    plt.axes().set_aspect('equal', 'datalim')
+
+    for fpr,tpr in zip(all_FPRs_list, all_TPRs_list):
+        if not (isinstance(fpr, np.ndarray)) and np.isnan(fpr):
+            print("FPR list is NaN, skipping...")
+            continue
+
+        plt.plot(fpr, tpr, '#15616d', alpha=0.15)
+        interpolated_tpr = np.interp(base_fpr, fpr, tpr)
+        interpolated_tpr[0] = 0.0
+        all_interpolated_tprs.append(interpolated_tpr)
+
+    all_interpolated_tprs = np.array(all_interpolated_tprs)
+    mean_tprs = all_interpolated_tprs.mean(axis=0)
+    std = all_interpolated_tprs.std(axis=0)
+
+    tprs_upper = np.minimum(mean_tprs + std, 1)
+    tprs_lower = mean_tprs - std
+
+
+    plt.plot(base_fpr, mean_tprs, '#15616d', label="Mean performance")
+    plt.fill_between(base_fpr, tprs_lower, tprs_upper, color='grey', alpha=0.3, label="Confidence interval")
+
+    plt.plot([0, 1], [0, 1],'#cc998d',linestyle='dashed', label="Naive Classifier")
+    plt.xlim([-0.01, 1.01])
+    plt.ylim([-0.01, 1.01])
+    plt.ylabel('True Positive Rate')
+    plt.xlabel('False Positive Rate')
+    plt.legend(loc="lower right")
+    plt.savefig(path_to_save)
+    
+    plt.show()
+```
+
+And we ran that function on the true positive rate (TPR) and false positive rate (FPR) data that we obtained for each fold of the CV, like so:
+
+```python
+# extract info for ROC curve
+all_FPRs = RCV_results.loc["FPR_ROC_curve_vals"].to_list()
+all_TPRs = RCV_results.loc["TPR_ROC_curve_vals"].to_list()
+
+# make ROC curve
+plot_ROC_curve_for_CV(all_FPRs, all_TPRs, output_dir + "RANDOM_CV_ROC_curve.svg")
+```
+
+It will generate the plot in the `06_CLASSIFIER/` directory. If you ran the entire Jupyter notebook, you will see that we reuse this function several times to generate an AUROCC plot for each of our cross-validation analyses.
+
+Note that the confusion matrix in panel B of Figure 4 was drawn manually in Inkscape, using the per-fold performance data generated during the random cross-validation. See the `RCV_results` dataframe in the Jupyter notebook for this data.
+
+### Training the final classifier
+
+After we finished evaluating the classifier performance with cross-validation, we generated our final classifier model. We trained it on the PPCN data for the 33 IBD-enriched modules we initially obtained (i.e., those described in `03_METABOLISM_OUTPUT/IBD_ENRICHED_MODULES.txt`), from all 330 healthy and IBD gut metagenomes (no splitting the data this time). Here is the relevant section of code from the Jupyter notebook:
+
+```python
+final_target = subset_target
+final_features = ibd_ppcn.loc[final_target.index]
+
+final_y_int = get_labels_as_integer(final_target)
+    
+final_model = LogisticRegression(penalty='none', max_iter=20000, random_state=1511)
+final_trained_model = final_model.fit(final_features, final_y_int)
+```
+
+This was the model we used to classify the antibiotic time-series metagenomes, as described in the next subsection.
 
 ### Classifying antibiotic time-series metagenomes from Palleja et al
 
