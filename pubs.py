@@ -1,38 +1,6 @@
 # -*- coding: utf-8 -*-
 # an ugly hack to convert some stuff into other stuff...
 
-
-# EDIT THESE #####################################################################
-names_to_highlight = {'Eren AM': None,
-                      'Delmont TO': range(2015, 2020),
-                      'Esen ÖC': range(2015, 2021),
-                      'Esen OC': range(2015, 2021),
-                      'Yu MK': None,
-                      'Lee STM': None,
-                      'Shaiber A': None,
-                      'Kiefl E': None,
-                      'Cui S': None,
-                      'Watson AR': None,
-                      'Lolans K': None,
-                      'Schmid AC': None,
-                      'Yousef M': None,
-                      'Veseli I': None,
-                      'Miller SE': None,
-                      'Schechter MS': None,
-                      'Fink I': None,
-                      'Pan JN': None,
-                      'Yousef M': None,
-                      'Fogarty EC': None,
-                      'Trigodet F': None,}
-
-journal_name_fixes = [('The ISME journal', 'ISME J'),
-                      ('Proceedings of the National Academy of Sciences of the United States of America', 'Proc Natl Acad Sci U S A'),
-                      ('Proceedings of the National Academy of Sciences', 'Proc Natl Acad Sci U S A'),
-                      ('Frontiers in Microbiology', 'Front Microbiol')]
-
-keep_pubs_after_year = 2009
-##################################################################################
-
 import sys
 from datetime import datetime
 
@@ -45,22 +13,32 @@ except:
 
 
 class Publications:
-    def __init__(self, pubs_file_path='_data/pubs.yaml'):
+    def __init__(self, pubs_data_file_path='_data/pubs.yaml'):
         """Takes a YAML file, generates pubs output"""
 
         self.info = {}
 
-        self.pubs_dict = {}
+        # to be populated from the YAML input:
+        self.yaml_data = {}
+
+        # the final data structure to be populated from
+        # the parsin of the YAML input:
+        self.pubs_data = {}
+
         self.journals_list = []
         self.authors_list = []
         self.recent_authors_list = []
         self.author_links = {}
 
-        self.pubs_file_path = pubs_file_path
+        self.pubs_data_file_path = pubs_data_file_path
 
 
     def get_author_highlights(self, pub, year):
         authors_str = []
+
+        MEMBER_CLASS = """class="pub-member-author" title='An official member of the lab at the time of publication'"""
+        COLLAB_CLASS = """class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'"""
+
         for author in pub['authors']:
             if author in pub['co_first_authors']:
                 author_h = author + '<sup>☯</sup>'
@@ -69,13 +47,29 @@ class Publications:
             else:
                 author_h = author
 
-            if author in names_to_highlight:
-                if not names_to_highlight[author]:
-                    authors_str.append('<span class="pub-member-author">%s</span>' % (author_h))
-                elif int(year) in names_to_highlight[author]:
-                    authors_str.append('<span class="pub-member-author">%s</span>' % (author_h))
+            if author in self.yaml_data['people']:
+
+                # if we are here, `author` is an author name to highlight. but is it to be highlighted
+                # for a given range?
+                if 'tenure' in self.yaml_data['people'][author]:
+                    tenure = [int(i) for i in self.yaml_data['people'][author]['tenure'].split('-')]
+                    tenure_range = range(tenure[0], tenure[1])
+
+                    # the author was an official member in the year of publication?
+                    if int(year) in tenure_range:
+                        authors_str.append(f'<span {MEMBER_CLASS}>%s</span>' % (author_h))
+                    # if the author was not an offical member in the year of publication
+                    # but still was a collaborator?
+                    elif 'collaborator' in self.yaml_data['people'][author]:
+                        authors_str.append(f'<span {COLLAB_CLASS}>%s</span>' % (author_h))
+                    # neither?
+                    else:
+                        authors_str.append(author_h)
                 else:
-                    authors_str.append(author_h)
+                    if 'collaborator' in self.yaml_data['people'][author]:
+                        authors_str.append(f'<span {COLLAB_CLASS}>%s</span>' % (author_h))
+                    else:
+                        authors_str.append(f'<span {MEMBER_CLASS}>%s</span>' % (author_h))
             else:
                 authors_str.append(author_h)
 
@@ -99,7 +93,7 @@ class Publications:
 
 
     def parse_pubs_txt(self):
-        self.pubs = u.get_yaml_as_dict(self.pubs_file_path)
+        self.yaml_data = u.get_yaml_as_dict(self.pubs_data_file_path)
 
         # {'doi': '10.1101/2020.11.01.361691',
         #  'title': 'The genetic and ecological landscape of plasmids in the human gut',
@@ -117,7 +111,7 @@ class Publications:
         #  }
         # }
 
-        for pub in self.pubs:
+        for pub in self.yaml_data['publications']:
             pub['co_first_authors'] = []
             pub['co_senior_authors'] = []
 
@@ -144,10 +138,10 @@ class Publications:
                 pub['issue'] = None
 
             year = pub['year']
-            if year not in self.pubs_dict:
-                self.pubs_dict[year] = [pub]
+            if year not in self.pubs_data:
+                self.pubs_data[year] = [pub]
             else:
-                self.pubs_dict[year].append(pub)
+                self.pubs_data[year].append(pub)
 
 
     def get_markdown_text_for_pub(self, pub):
@@ -206,7 +200,7 @@ class Publications:
 
 
     def store_markdown_output_for_pubs(self, output_file_path):
-        #years = ''.join(['<a href="#%s"><span class="category-item">%s</span></a>' % (y, y) for y in sorted(list(self.pubs_dict.keys()), reverse=True)])
+        #years = ''.join(['<a href="#%s"><span class="category-item">%s</span></a>' % (y, y) for y in sorted(list(self.pubs_data.keys()), reverse=True)])
 
         output_file = open(output_file_path, 'w')
         W = lambda s: output_file.write(s + '\n')
@@ -228,10 +222,10 @@ class Publications:
         W('{:.notice}\n')
         W("This page lists publications that are most reflective of our interests. For a complete list, please see <a href='https://scholar.google.com/citations?user=GtLLuxoAAAAJ&view_op=list_works&sortby=pubdate' target='_blank'>Meren's Google Scholar page</a>.\n")
 
-        for year in sorted(list(self.pubs_dict.keys()), reverse=True):
+        for year in sorted(list(self.pubs_data.keys()), reverse=True):
             W('## %s\n' % (year))
 
-            for pub in self.pubs_dict[year]:
+            for pub in self.pubs_data[year]:
                 W(self.get_markdown_text_for_pub(pub))
 
             W('')
