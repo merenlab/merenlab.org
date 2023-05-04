@@ -60,7 +60,7 @@ people:
     full_name: Jessika Fuessel
     collaborator: True
   Reveillaud J:
-    full_name: Julie Reveillaud 
+    full_name: Julie Reveillaud
     collaborator: True
 
 publications:
@@ -69,7 +69,7 @@ publications:
     title:
       "Metabolic independence drives gut microbial colonization and resilience in health and disease"
     authors:
-      Andrea R Watson*, Jessika Fuessel*, Iva Veseli*, Johanna Zaal DeLongchamp, Marisela Silva, Florian Trigodet, Karen Lolans, Alon Shaiber, Emily C Fogarty, Joseph M Runde, Christopher Quince, Michael K Yu, Arda Söylev, Hilary G Morrison, Sonny T M Lee, Dina Kao, David T Rubin, Bana Jabri, Thomas Louie, A Murat Eren
+      Andrea R Watson*, Jessika Fuessel*, Iva Veseli*, Johanna Zaal DeLongchamp, Marisela Silva, Florian Trigodet, Karen Lolans, Alon Shaiber, Emily Fogarty, Joseph M Runde, Christopher Quince, Michael K Yu, Arda Söylev, Hilary G Morrison, Sonny T M Lee, Dina Kao, David T Rubin, Bana Jabri, Thomas Louie, A Murat Eren
     journal:
       Genome Biology
     year:
@@ -83,10 +83,10 @@ publications:
       highlights:
         - A Fecal Microbiota Transplantation (FMT) study that reveals unexpected parallels between the <b>adaptive ecological processes</b> that shape the recipient gut <b>microbial composition after FMT</b> and those that influence <b>microbial diversity in patients with Inflammatory Bowel Disease (IBD)</b>.
         - Includes an observation that links <b>the presence of superior metabolic competence in bacterial populations to their expansion in IBD</b>.
-        - Here is a <a href="https://twitter.com/merenbey/status/1369016402896695298" target="_blank">Twitter thread</a> that explains <b>key points</b> of the study.
+        - Here is a <a href="https://twitter.com/awatsontxt/status/1648420614737371136">Twitter thread</a> by Andrea that explains the key points of the study, and here is <a href="https://twitter.com/merenbey/status/1648848404456390658">another one</a> by Meren that details what are the critical learnings from it.
       featured_image:
         /images/pubs/watson_et_al_fmt.jpeg
-  
+
   - doi:
       10.1101/2023.03.25.534219
     title:
@@ -107,7 +107,7 @@ publications:
         - You can find the plasmid sequences to look for pBI143 in your metagenomes, reproducible data items to re-investigate metagenomic read recruitment results, and bioinformatics workflows to elucidate population genetics of pBI143 <a href="/data/pBI143">here</a>.
       featured_image:
         /data/pBI143/images/pBI143_across_the_globe.png
-  
+
   - doi:
       10.1038/s41564-022-01090-3
     read_link:
@@ -130,7 +130,7 @@ publications:
         - "A review that happens to be <b>the study number 001</b> for the <a href='https://ccomp-stc.org/' target='_blank'>Center for Chemical Currencies of a Microbial Planet</a>, or C-CoMP, an NSF-funded Science and Technology Center that aims to promote 'a deeper understanding of chemicals and chemical processes that underpin ocean ecosystems and the global carbon cycle by leveraging recent advances in analytical and data sciences, incorporating new ocean sampling technologies, using an open-science framework, and engaging educators and policy-makers'."
       featured_image:
         /images/pubs/moran_et_al_carbon_cycle.png
-  
+
   - doi:
       10.1126/sciadv.abq4632
     title:
@@ -154,7 +154,7 @@ publications:
         - Comes with a <a href="https://merenlab.org/data/anvio-structure/chapter-I/"><b>reproducible bioinformatics workflow</b></a> that offers detailed access to computational steps used in the study that spans from metagenomic read recruitment and profiling to the integration of environmental variants and predicted protein structures.
       featured_image:
         /images/pubs/kiefl_et_al_metagenomics_plus_protein_structures.png
-  
+
   - doi:
       10.1186/s13100-022-00262-6
     title:
@@ -177,8 +177,8 @@ publications:
         - A complete bioinformatics workflow that uses anvi'o and oligotyping to study DGR activity in metageomes is <a href="https://merenlab.org/tutorials/dgrs-in-metagenomes/" target="_blank">available here</a>.
       featured_image:
         /images/pubs/dgrs-in-metagenomes.png
-  
-  
+
+
   - doi:
       10.1101/2020.11.01.361691
     title:
@@ -199,7 +199,7 @@ publications:
         - Defines hundreds of '<b>plasmid systems</b>', and demonstrates that naturally occurring plasmids are not static entities, but <b>their evolution is driven by the need to respond to the environment, and their ecology cannot be simply explained by bacterial taxonomy and distribution patterns of their putative hosts</b>.
       featured_image:
         /images/pubs/plasmid_systems.png
-  
+
   - doi:
       10.1016/j.molcel.2021.12.007
     title:
@@ -219,7 +219,7 @@ publications:
         - Defines '<b>metaepitranscriptomics</b>' as a strategy to study modification dynamics in complex environmental populations.
       featured_image:
         /images/pubs/zhang_et_al_2022.png
-  
+
   - doi:
       10.1038/s41564-020-00834-3
     read_link:
@@ -244,7 +244,7 @@ publications:
         - "The <a href='https://anvio.org/files/anvio-2021.pdf'>PDF</a> of the publication (which was supposed to be open access, yet somehow the Nature Publishing Group was unable to do so, so here it is)."
       featured_image:
         /images/pubs/anvio-integrated-omics.png
-  
+
   - doi:
       10.1111/1755-0998.13588
     title:
@@ -268,7 +268,7 @@ publications:
         - A reproducible <b>bioinformatics workflow</b> is available <a href="https://merenlab.org/data/hmw-dna-extraction-strategies/" target="_blank">here</a>. Detailed <b>lab protocols</b> for HMW DNA extraction methods mentioned in the study are <a href="https://merenlab.org/data/hmw-dna-extraction-strategies/protocol/" target="_blank">here</a>.
       featured_image:
         /images/pubs/Trigodet_and_Lolans_et_al_HMW.png
-  
+
   - doi:
       10.1186/s13059-020-02195-w
     title:
@@ -292,7 +292,7 @@ publications:
         - <a href="/data/#niche-partitioning-in-the-human-oral-cavity" target="_blank">Public raw and intermediate data</a>. <a href="https://static-content.springer.com/esm/art%3A10.1186%2Fs13059-020-02195-w/MediaObjects/13059_2020_2195_MOESM13_ESM.docx" target="_blank">Reviewer comments and responses</a>.
       featured_image:
         /images/pubs/shaiber_et_al_tm7_phylogenomics.png
-  
+
   - doi:
       10.1186/s13059-020-02200-2
     title:
@@ -315,7 +315,7 @@ publications:
         - <a href="https://static-content.springer.com/esm/art%3A10.1186%2Fs13059-020-02200-2/MediaObjects/13059_2020_2200_MOESM7_ESM.pdf" target="_blank">Reviewer comments and responses</a>. <a href="https://dutter.github.io/projects/oral_metapan">Reproducible bioinformatics workflow</a>.
       featured_image:
         /images/pubs/utter_et_al_metapangenome.png
-  
+
   - doi:
       10.7554/eLife.56998
     title:
@@ -338,7 +338,7 @@ publications:
         - Demonstrates that <b>not detecting microbes in plate-based screening of antibiotic resistance may not mean that the original sample does not contain microbes resistant to antibiotics</b>.
       featured_image:
         /images/pubs/watterson_et_al_droplets.jpg
-  
+
   - doi:
       10.1101/gr.258640.119
     title:
@@ -363,7 +363,7 @@ publications:
         - Tutorial on <a href="https://ggkbase-help.berkeley.edu/genome_curation/scaffold-extension-and-gap-closing/" target="_blank">scaffold extension and gap closing</a>, reproducible workflow for <a href="http://merenlab.org/data/parcubacterium-in-hbcfdna/" target="_blank">binning and phylogenomics of a Parcubacterium genome from human blood metagenomes</a>.
       featured_image:
         /images/pubs/chen_accurate_genomes.png
-  
+
   - doi:
       10.7554/eLife.46497
     title:
@@ -387,7 +387,7 @@ publications:
         - Reproducible bioinformatics workflow is <a href="http://merenlab.org/data/sar11-saavs/" target="_blank">here</a>. <a href="https://doi.org/10.7554/eLife.46497.040" target="_blank">Reviewer criticism</a> and <a href="https://doi.org/10.7554/eLife.46497.041" target="_blank">our responses</a> are also available.
       featured_image:
         /images/pubs/delmond_and_kiefl_sar11_saavs.png
-  
+
   - doi:
       10.1128/mBio.00725-19
     title:
@@ -410,7 +410,7 @@ publications:
         - <a href="http://merenlab.org/data/refining-espinoza-mags/" target="_blank">A reproducible workflow</a> to detail the steps of genome refinement and make available the refined versions of some key genomes.
       featured_image:
         /images/pubs/shaiber_eren_MAG_refinement.png
-  
+
   - doi:
       10.1038/s41467-019-08973-w
     title:
@@ -434,7 +434,7 @@ publications:
         - <a href="http://merenlab.org/data/wolbachia-plasmid">Reproducible bioinformatics workflow</a> with all data items, a 'behind the paper' <a href="http://merenlab.org/2019/03/05/wolbachia-plasmid/">blog post</a> by <a href="https://twitter.com/JulieReve">Julie Reveillaud</a>, and a <a href="https://www.mbl.edu/news/mobile-dna-element-found-mosquito-parasite-has-potential-infectious-disease-control">press release</a> from the Marine Biological Laboratory.
       featured_image:
         /images/miscellaneous/2019-03-05-wolbachia-plasmid/minion-metagenomics.png
-  
+
   - doi:
       10.7717/peerj.7548
     title:
@@ -457,7 +457,7 @@ publications:
         - A fully reproducible bioinformatics workflow for this multi'omics analysis is <a href="http://merenlab.org/data/spiroplasma-pangenome/" target="_blank">here</a>. Anvi'o databases to interactively reproduce and explore the Spiroplasma pangenome is also <a href="http://doi.org/10.6084/m9.figshare.8201852" target="_blank">available</a>.
       featured_image:
         /images/pubs/spiroplasma-pangenome.png
-  
+
   - doi:
       10.1038/s41564-019-0494-6
     title:
@@ -480,7 +480,7 @@ publications:
         - A curated list of press coverage of this study is available <a href="https://edwards.sdsu.edu/research/press-about-global-phylogeography-of-crassphage/" target="_blank">on Rob Edwards' web site</a>.
       featured_image:
         /images/pubs/crAssphage.png
-  
+
   - doi:
       10.1038/s41564-019-0362-4
     title:
@@ -504,7 +504,7 @@ publications:
         - "A news article by Montana State University with the photographs of cools scientists: <a href='http://www.montana.edu/news/18471'>'An organism in Yellowstone hot spring potentially linked to earliest life on Earth'</a>"
       featured_image:
         /images/pubs/mckay_and_inskeep.jpg
-  
+
   - doi:
       10.1038/s41422-018-0127-2
     title:
@@ -526,7 +526,7 @@ publications:
         - Using liquid chromatography/mass spectrometry, this study shows differential occurrence of m<sup>6</sup>A modifications in brain, liver, and intestinal cells between germ-free and conventional mice, demonstrating that the microbiome has a strong effect on host m<sup>6</sup>A mRNA modification.
       featured_image:
         /images/pubs/wang_et_al_m6A.png
-  
+
   - doi:
       10.1126/scitranslmed.aau9356
     title:
@@ -546,7 +546,7 @@ publications:
     additional_info:
       highlights:
       featured_image:
-  
+
   - doi:
       10.1038/s41467-018-07675-z
     title:
@@ -571,7 +571,7 @@ publications:
         - <a href="https://www.news-medical.net/news/20181217/RNA-sequencing-offers-novel-insights-into-the-microbiome.aspx">RNA sequencing offers novel insights into the microbiome</a>, by <b>Liji Thomas</b>, MD, and <b>Kate Anderton</b>, B.Sc.
       featured_image:
         /images/pubs/schwartz_et_al_trna_seq.png
-  
+
   - doi:
       10.1038/s41564-018-0176-9
     title:
@@ -595,7 +595,7 @@ publications:
         - A "behind the paper" <a href="https://naturemicrobiologycommunity.nature.com/users/113363-a-murat-eren-meren/posts/34040-microbiologists-vs-shotgun-metagenomes-surface-ocean" target="_blank">blog post</a> by Meren, a <a href="https://www.mbl.edu/news/large-scale-study-indicates-novel-abundant-nitrogen-fixing-microbes-surface-ocean" target="_blank">press release</a> by the MBL, and an extensive description of <a href="http://merenlab.org/data/2017_Delmont_et_al_HBDs/" target="_blank">the bioinformatics workflow</a>.
       featured_image:
         /images/pubs/delmont_et_al_HBDs.png
-  
+
   - doi:
       10.7717/peerj.4320
     title:
@@ -618,7 +618,7 @@ publications:
         - <a href="http://merenlab.org/data/prochlorococcus-metapangenome" target="_blank">Reproducible bioinformatics workflow</a>.
       featured_image:
         /images/pubs/delmont_eren_metapangenomics.jpeg
-  
+
   - doi:
       10.1186/s40168-018-0474-8
     title:
@@ -641,7 +641,7 @@ publications:
         - These suggest that differences in 'resident microbiome' in healthy individuals <i>may</i> contribute to interpersonal variability in graft outcomes, and fecal microbiota transplantation <i>may</i> play a therapeutic role to reverse that phenotype.
         - Basically, "we do not have a mechanistic understanding, but this is definitely very interesting".
       featured_image:
-  
+
   - doi:
       10.1038/s41586-018-0125-z
     title:
@@ -663,7 +663,7 @@ publications:
         - TET2 deficiency ➡️  deteriorating small intestinal barrier ➡️  bacterial translocation ➡️  incrased IL-6 signalling ➡️  pre-leukemic myeloproliferation (a leukemia precursor).
         - "ScienceDaily: <a href='https://www.sciencedaily.com/releases/2018/05/180516131226.htm' target='_blank'>Under certain conditions, bacterial signals set the stage for leukemia</a>."
       featured_image:
-  
+
   - doi:
       10.1186/s40168-017-0270-x
     title:
@@ -687,7 +687,7 @@ publications:
         - Populations colonized both recipients were also prevalent in the HMP cohort (and the ones that did not, distribute sporadically across the HMP cohort).
       featured_image:
         /images/pubs/lee_fmt.png
-  
+
   - doi:
       10.1073/pnas.1712186114
     title:
@@ -711,7 +711,7 @@ publications:
         - Here is <a href="http://merenlab.org/2017/10/16/reply-to-probst-et-al/" target="_blank">our response to Probst et al.</a>, and <a href="http://merenlab.org/2017/11/25/DWH-O-desum-v2/" target="_blank">the recovery of DWH O. Desum v2</a>.
       featured_image:
         http://merenlab.org/images/miscellaneous/2017-10-16-reply-to-probst-et-al/Figure_01.png
-  
+
   - doi:
       10.1038/s41467-017-01228-6
     title:
@@ -731,7 +731,7 @@ publications:
     additional_info:
       highlights:
       featured_image:
-  
+
   - doi:
       10.1186/s13059-017-1309-9
     title:
@@ -751,7 +751,7 @@ publications:
     additional_info:
       highlights:
       featured_image:
-  
+
   - doi:
       10.1038/nbt.3893
     title:
@@ -771,7 +771,7 @@ publications:
     additional_info:
       highlights:
       featured_image:
-  
+
   - doi:
       10.1016/j.celrep.2017.06.060
     title:
@@ -796,7 +796,7 @@ publications:
         - <a href="https://sciencelife.uchospitals.edu/2017/07/11/antibiotics-taken-late-in-pregnancy-can-increase-risk-for-inflammatory-bowel-diseases-in-offspring/" target="_blank">Press release</a>.
       featured_image:
         /images/pubs/miyoshi_et_al_anvio_16S.png
-  
+
   - doi:
       10.7717/peerj.1839
     title:
@@ -819,7 +819,7 @@ publications:
         - A practical approach to estimate the number bacterial genomes in an assembly.
       featured_image:
         /images/pubs/delmont_tardigrade.png
-  
+
   - doi:
       10.1128/mBio.01713-16
     title:
@@ -839,7 +839,7 @@ publications:
     additional_info:
       highlights:
       featured_image:
-  
+
   - doi:
       10.3389/fmicb.2016.01318
     title:
@@ -858,7 +858,7 @@ publications:
     additional_info:
       highlights:
       featured_image:
-  
+
   - doi:
       10.1093/femsre/fuw017
     title:
@@ -878,7 +878,7 @@ publications:
     additional_info:
       highlights:
       featured_image:
-  
+
   - doi:
       10.7717/peerj.1319
     title:
@@ -901,7 +901,7 @@ publications:
         - Re-analysis of cultivar genomes, metagenomes, and metatranscriptomes associated with the Deepwater Horizon oil spill.
       featured_image:
         /images/pubs/eren_et_al_anvio.jpeg
-  
+
   - doi:
       10.1038/ismej.2014.195
     title:
@@ -921,7 +921,7 @@ publications:
     additional_info:
       highlights:
       featured_image:
-  
+
   - doi:
       10.1038/ismej.2014.97
     title:
@@ -941,7 +941,7 @@ publications:
     additional_info:
       highlights:
       featured_image:
-  
+
   - doi:
       10.3389/fmicb.2015.00358
     title:
@@ -964,7 +964,7 @@ publications:
         - The abundance of reconstructed genomes ranged from rare (<0.0001%) to relatively abundant (>0.01%) in pristine soil metagenomes.
       featured_image:
         /images/pubs/delmont_rare_soil_genomes.png
-  
+
   - doi:
       10.1038/ajg.2015.357
     title:
@@ -984,7 +984,7 @@ publications:
     additional_info:
       highlights:
       featured_image:
-  
+
   - doi:
       10.1128/mBio.02574-14
     title:
@@ -1001,7 +1001,7 @@ publications:
       2
     pages:
       e02574-14
-  
+
   - doi:
       10.1073/pnas.1409644111
     title:
@@ -1021,7 +1021,7 @@ publications:
     additional_info:
       highlights:
       featured_image:
-  
+
   - doi:
       10.1016/j.tim.2014.08.002
     title:
@@ -1041,7 +1041,7 @@ publications:
     additional_info:
       highlights:
       featured_image:
-  
+
   - doi:
       10.3389/fmicb.2014.00568
     title:
@@ -1055,13 +1055,13 @@ publications:
     volume:
       5
     number:
-  
+
     pages:
       568
     additional_info:
       highlights:
       featured_image:
-  
+
   - doi:
       10.1371/journal.pone.0090785
     title:
@@ -1081,7 +1081,7 @@ publications:
     additional_info:
       highlights:
       featured_image:
-  
+
   - doi:
       10.1038/ismej.2013.227
     title:
@@ -1101,7 +1101,7 @@ publications:
     additional_info:
       highlights:
       featured_image:
-  
+
   - doi:
       10.1128/mBio.00682-13
     title:
@@ -1121,7 +1121,7 @@ publications:
     additional_info:
       highlights:
       featured_image:
-  
+
   - doi:
       10.1111/2041-210X.12114
     title:
@@ -1141,7 +1141,7 @@ publications:
     additional_info:
       highlights:
       featured_image:
-  
+
   - doi:
       10.1371/journal.pone.0066643
     title:
@@ -1161,7 +1161,7 @@ publications:
     additional_info:
       highlights:
       featured_image:
-  
+
   - doi:
       10.1093/bib/bbt010
     title:
@@ -1181,7 +1181,7 @@ publications:
     additional_info:
       highlights:
       featured_image:
-  
+
   - doi:
       10.1111/1462-2920.12092
     title:
