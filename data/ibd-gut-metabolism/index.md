@@ -1201,7 +1201,7 @@ And now you are done with replicating panel B.
 
 ### Remaining panels
 
-The other panels of Figure 3 can all be generated using the R script at `SCRIPTS/plot_figures.R`. Each one has its own section of the code that can be run independently (after loading the packages and variables at the top of the script). The code relies on the data files generated in this section, namely `05_GTDB_ANALYSES/genome_proportions.txt` and `05_GTDB_ANALYSES/sample_proportions.txt`, as well as on the data files from the mapping workflow which are provided in the `TABLES` directory. Note that the working directory should be set to the `SCRIPTS/` folder for the relative paths to these files to be correct.
+The other panels of Figure 3 can all be generated using the R script at `SCRIPTS/plot_figures.R`. Each one has its own section of the code that can be run independently (after loading the packages and variables at the top of the script). For panels C and D, the associated statistical tests referenced in the manuscript are also included (after the figure code). The script relies on the data files generated in this section, namely `05_GTDB_ANALYSES/genome_proportions.txt` and `05_GTDB_ANALYSES/sample_proportions.txt`, as well as on the data files from the mapping workflow which are provided in the `TABLES` directory. Note that the working directory should be set to the `SCRIPTS/` folder for the relative paths to these files to be correct.
 
 
 ## Machine learning analyses
