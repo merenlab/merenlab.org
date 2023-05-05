@@ -357,7 +357,7 @@ Since we expect to find one copy of each SCG in each microbial population, we ca
 
 The anvi'o codebase includes a `NumGenomesEstimator` class that does exactly this: takes the mode of the number of copies of the SCGs for a particular domain, giving you an estimate of the number of bacteria, archaea, and protists in a given metagenome assembly. Those values can be added together to obtain the total number of microbial populations in the sample (for gut metagenomes, usually only bacterial species are found).
 
-We wrote a script that runs this estimation on each of our 2,893 samples. You can run it using the following command, and it will produce a table called (`NUM_POPULATIONS_ALL_SAMPLES.txt`). Provide the file indicating the location of all databases to the script:
+We wrote a script that runs this estimation on each of our 2,893 samples. You can run it using the following command, and it will produce a table called (`NUM_POPULATIONS.txt`). Provide the file indicating the location of all databases to the script:
 
 ```bash
 python ../SCRIPTS/estimate_num_genomes.py ALL_METAGENOME_DBS.txt
