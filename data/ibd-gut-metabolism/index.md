@@ -1590,7 +1590,7 @@ anvi-estimate-metabolism -e PALLEJA_EXTERNAL_GENOMES.txt \
 
 The resulting matrix of stepwise copy numbers will be called `antibiotics-module_stepwise_copy_number-MATRIX.txt`.
 
-4) The R script at `SCRIPTS/module_stats_and_medians.R` contains a section of code for normalizing the copy numbers of the Palleja et al. samples. It will look for the matrix you just generated, using a path relative to the script's location (so set the working directory to be the `SCRIPTS` folder before you run it). It will generate a file at `06_CLASSIFIER/PALLEJA_SAMPLES/ANTIBIOTICS_PPCN.txt` containing the PPCN values (which can be fed into the classifier Jupyter notebook).
+4) The R script at `SCRIPTS/module_stats_and_medians.R` contains a section of code for normalizing the copy numbers of the Palleja et al. samples. It will look for the matrix you just generated, using a path relative to the script's location (so set the working directory to be the `SCRIPTS` folder before you run it). It will generate a file at `06_CLASSIFIER/PALLEJA_SAMPLES/ANTIBIOTICS_PPCN.txt` containing the PPCN values.
 
 5) To determine the sequencing depth in each sample, use the following loop:
 
@@ -1609,6 +1609,42 @@ done < <(tail -n+2 PALLEJA_SAMPLES.txt)
 You can also find this data in the `TABLES/02_PALLEJA_SAMPLES_INFO.txt` file.
 
 #### Classifying the time-series metagenomes
+
+Once you have the data for these samples, you can go back to the Jupyter notebook at `SCRIPTS/metagenome_classifier.ipynb`, which has a section called "Test on Antibiotic Time-series Samples" for classifying them. Here is the relevant code:
+
+```python
+antibiotics_data_dir = "../06_CLASSIFIER/PALLEJA_SAMPLES/"
+antibiotics_module_matrix = pd.read_csv(antibiotics_data_dir + "antibiotics-module_stepwise_copy_number-MATRIX.txt", \
+                                        sep="\t", index_col=0)
+antibiotics_samples = pd.read_csv(data_dir + "02_PALLEJA_SAMPLES_INFO.txt", \
+                                        sep="\t", index_col=0)
+
+## number of estimated populations
+antibiotics_num_pops = antibiotics_samples['num_populations']
+
+# keep only IBD-enriched modules as features
+antibiotics_ibd = antibiotics_module_matrix.loc[ibd_enriched_modules]
+# compute PPCN
+antibiotics_normalized = antibiotics_ibd / antibiotics_num_pops
+antibiotics_ppcn = antibiotics_normalized.T
+
+# get number of reads per sample
+num_reads_matrix = antibiotics_samples[['r1_num_reads','r2_num_reads']]
+
+# classify
+pred = final_model.predict(antibiotics_ppcn)
+antibiotics_predictions = pd.DataFrame(pred, index=antibiotics_ppcn.index, columns=["class"])
+antibiotics_predictions[['Subject','Day']] = antibiotics_predictions.index.str.split("_").to_list()
+
+# identify samples with low sequencing depth
+antibiotics_predictions['Low_Seq_Depth'] = (num_reads_matrix['r1_num_reads'] < 25000000) | (num_reads_matrix['r2_num_reads'] < 25000000)
+
+# make labels readable
+antibiotics_predictions.loc[antibiotics_predictions['class'] == 1, 'class'] = 'IBD'
+antibiotics_predictions.loc[antibiotics_predictions['class'] == 0, 'class'] = 'HEALTHY'
+```
+
+If you continue to run the code after that section, you will see that the sample classifications get written to the file `CLASSIFIER_PREDICTIONS.txt`.
 
 ### Generating Figure 5
 
