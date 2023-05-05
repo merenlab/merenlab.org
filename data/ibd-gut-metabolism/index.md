@@ -1648,6 +1648,16 @@ If you continue to run the code after that section, you will see that the sample
 
 ### Generating Figure 5
 
+In the R script at `SCRIPTS/plot_figures.R`, you will find the code for generating panels B, C, and D of Figure 5. The code for panels C and D makes use of the data table of sample classifications that you just generated using the Jupyter notebook, `CLASSIFIER_PREDICTIONS.txt`. For panel C, we generated only a basic per-subject sample classification grid, which we then used to re-create a prettier grid in Inkscape (that grid was then re-used for panel A). 
+
+Panel B is a bit unusual because it doesn't use any of our own data, since it is a recreation of [Figure 1a (microbial richness boxplots) from the Palleja et al. paper](https://www-nature-com.proxy.uchicago.edu/articles/s41564-018-0257-9/figures/1). Producing this figure requires you to download their [Supplementary Data](http://arumugamlab.sund.ku.dk/SuppData/Palleja_et_al_2017_ABX/), because the script will make use of their mOTU abundance table:
+
+```bash
+wget http://arumugamlab.sund.ku.dk/SuppData/Palleja_et_al_2017_ABX/Supplementary_data.tar.gz
+tar -xvzf Supplementary_data.tar.gz
+```
+
+Make sure you run this download in the `06_CLASSIFIER/PALLEJA_SAMPLES/` directory, because the R script will expect to find the abundance table at the following path: `06_CLASSIFIER/PALLEJA_SAMPLES/Supplementary_data/annotated.mOTU.rel_abund.tsv`. And as always, if you're running this script for the first time, make sure to run the setup code at the start of the script to load all required packages and initialize important variables.
 
 ## Supplementary Analyses
 
