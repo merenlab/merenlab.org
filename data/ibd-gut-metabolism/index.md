@@ -17,6 +17,7 @@ Here is a list of links for quick access to the data described in our manuscript
 
 * [doi:10.6084/m9.figshare.22679080](https://doi.org/10.6084/m9.figshare.22679080): Supplementary Tables.
 * [doi:10.5281/zenodo.7883421](https://doi.org/10.5281/zenodo.7883421): Contigs databases for 338 GTDB genomes.
+* [doi:10.5281/zenodo.7897987](https://doi.org/10.5281/zenodo.7897987): Contigs databases for our assemblies of the gut metagenomes from [Palleja et al. 2018(https://doi.org/10.1038/s41564-018-0257-9)].
 
 
 </div>
@@ -1549,14 +1550,14 @@ anvi-run-workflow -w metagenomics -c metagenomes_config.json
 
 After the workflow is done, make yourself an external genomes file describing the path to each database. There were several examples of how to do this in the workflow already.
 
-If you don't have the computational resources or the time to run this workflow yourself, you can also just download our assemblies of these samples. Here is how you would do that, and afterwards make the external genomes file with paths specific to the downloaded databases:
+If you don't have the computational resources or the time to run this workflow yourself, you can also just download [our assemblies of these samples](https://doi.org/10.5281/zenodo.7897987). Here is how you would do that, and afterwards make the external genomes file with paths specific to the downloaded databases:
 
 :{warning}
 This set of contigs databases is **9.2 GB** in size (and the archive is 3.1 GB).
 
 ```bash
 # download the metagenome data archive
-FIXME download
+wget https://zenodo.org/record/7897987/files/VESELI_ET_AL_PALLEJA_CONTIGS_DBS.tar.gz
 # extract the metagenome data
 tar -xvzf VESELI_ET_AL_PALLEJA_CONTIGS_DBS.tar.gz
 
