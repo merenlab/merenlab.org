@@ -1696,6 +1696,11 @@ To get at that last question, we asked our colleagues to run [AGNOSTOS](https://
 
 ### Additional comparisons of metabolic pathways (Supplementary Figure 5)
 
+{.notice}
+This section is still in progress, as we are still refining our statistical tests. We will add the associated code for these tests as soon as we can.
+
+We created a bunch of boxplots comparing different sets of metabolic pathways across different sets of samples (you will find these in Supplementary Figure 5). Our favorite script, `SCRIPTS/plot_figures.R`, contains various sections of code for plotting these, using the data generated during metabolism estimation (in the `03_METABOLISM_OUTPUT/` folder).
+
 ### Examining cohort effect (Supplementary Figure 6)
 
 ### Testing classifier generalizability
