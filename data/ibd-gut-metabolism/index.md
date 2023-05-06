@@ -1690,6 +1690,10 @@ python ../SCRIPTS/get_num_genes.py ../02_METAGENOME_PROCESSING/ALL_METAGENOME_DB
 
 Speaking of which, you will find the code for making Supplementary Figure 4 in the usual script, `SCRIPTS/plot_figures.R`.
 
+You can find our hypothesis about the annotation bias in the Supplementary Information file of our paper. Long story short, there are some technical artifacts leading to annotation bias against healthy samples, but we think it is arising from our inability to effectively culture microbes of reduced metabolic capacity. If this is true, the reduced metabolic independence we noticed would actually be contributing to the technical annotation issues, so 1) the annotation bias does not disqualify our interpretation of our data, and 2) it is very difficult to quantify the exact contribution of technical artifacts vs biological signal. 
+
+To get at that last question, we asked our colleagues to run [AGNOSTOS](https://doi.org/10.7554/eLife.67667) to quantify the proportion of 'known unknown' genes and 'unknown unknown' genes in our metagenome assemblies, with the idea that a higher proportion of 'known unknown' genes would indicate a larger contribution of technical artifacts while a higher proportion of 'unknown unknown' genes would indicate that the biological signal is stronger. However, they haven't gotten back to us yet. :) 
+
 ### Additional comparisons of metabolic pathways (Supplementary Figure 5)
 
 ### Examining cohort effect (Supplementary Figure 6)
