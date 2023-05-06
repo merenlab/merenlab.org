@@ -1659,12 +1659,39 @@ tar -xvzf Supplementary_data.tar.gz
 
 Make sure you run this download in the `06_CLASSIFIER/PALLEJA_SAMPLES/` directory, because the R script will expect to find the abundance table at the following path: `06_CLASSIFIER/PALLEJA_SAMPLES/Supplementary_data/annotated.mOTU.rel_abund.tsv`. And as always, if you're running this script for the first time, make sure to run the setup code at the start of the script to load all required packages and initialize important variables.
 
+Afterwards, go back to the main directory.
+
+```bash
+cd ../../
+```
+
 ## Supplementary Analyses
 
-### Exploring annotation efficiency (SF 2)
+Now we have covered all of the analyses in the main manuscript, but there are still a few supplementary analyses to mention. You can make a new folder in which to run any code for these:
 
-### Additional comparisons of metabolic pathways (SF 3)
+```bash
+mkdir 07_SUPPLEMENTARY
+cd 07_SUPPLEMENTARY/
+```
 
-### Examining cohort effect (SF 4)
+### Exploring annotation bias (Supplementary Figure 4)
+
+One concern we had was that the observed trend of less metabolic independence in healthy samples could be due to technical artifacts rather than biological signal - that is, perhaps we are estimating lower copy numbers in these samples because we are systematically less able to annotate enzymes in these samples. This could happen if, for instance, our KOfam models do not appropriately capture the diversity of enzyme sequences in these samples. And indeed, we noticed that our (deeply-sequenced) healthy samples have a smaller proportion of genes annotated with KOfams than the IBD samples do. So we realized we needed to comprehensively characterize any potential annotation bias in our dataset.
+
+We already annotated our samples with KEGG KOfams, but to fully explore annotation bias, we had to check if the same trends exist with other annotation sources. So we also annotated all of the metagenomes with NCBI Clusters of Orthologous Groups (COGs), and with Pfams. If you want to replicate this analysis, you can add those annotations by going back to your metagenomics workflow config files, turning on the rules to run `anvi-run-ncbi-cogs` and `anvi-run-pfams`, and re-starting the workflows (with the same command used previously). If snakemake is working correctly, it should run only those additional annotation jobs rather than redoing the whole workflow. Note that the contigs databases of our assemblies that we shared should already be annotated with these additional function databases.
+
+Once we had all our samples annotated, we ran a script to count the number of annotations from each functional source as well as the total number of gene calls in each metagenome assembly. You will find this script at `SCRIPTS/get_num_genes.py`, and here is how you can run it on all the metagenome assemblies, using the external genomes file containing the paths to all their databases (at `02_METAGENOME_PROCESSING/ALL_METAGENOME_DBS.txt`):
+
+```bash
+python ../SCRIPTS/get_num_genes.py ../02_METAGENOME_PROCESSING/ALL_METAGENOME_DBS.txt
+```
+
+(If you don't have all the samples, you can also test this script on the set of assemblies you downloaded, i.e. `VESELI_ET_AL_METAGENOME_CONTIGS_DBS/`. Just change the input file to `../METAGENOME_EXTERNAL_GENOMES.txt`). The script will produce an output file at `07_SUPPLEMENTARY/NUM_GENES_AND_ANNOTATIONS.txt`. This data is also available in Supplementary Table 1d, and we've provided a tab-delimited version of that table at `/TABLES/NUM_GENES_AND_ANNOTATIONS.txt` which will be used by the R script for plotting Supplementary Figure 4.
+
+Speaking of which, you will find the code for making Supplementary Figure 4 in the usual script, `SCRIPTS/plot_figures.R`.
+
+### Additional comparisons of metabolic pathways (Supplementary Figure 5)
+
+### Examining cohort effect (Supplementary Figure 6)
 
 ### Testing classifier generalizability
