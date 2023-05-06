@@ -1058,6 +1058,38 @@ done < <(cut -f 6 TABLES/01_GTDB_GENOMES_INFO.txt | sort -u)
 grep -E "CAG|UBA|QAN" 05_GTDB_ANALYSES/family_counts.txt | cut -f 2 | awk '{s+=$1} END {print s}'
 ```
 
+Finally, to quantify the differences in metabolic capacity between HMI genomes and non-HMI genomes, we ran the following R code to compute the per-module mean difference in PPCN between genome groups. This allowed us to see which pathways were most different between the two types of genomes. Note that the code uses the top-level directory of the datapack as the working directory.
+
+```r
+gtdb_info = read.table(file="TABLES/01_GTDB_GENOMES_INFO.txt", 
+                                   header = TRUE, sep = "\t")
+completeness_matrix_all = read.table(file="05_GTDB_ANALYSES/GTDB_METABOLISM-module_stepwise_completeness-MATRIX.txt", 
+                                     sep="", header = TRUE)
+# subset modules
+ibd_enriched_modules = read.table(file="03_METABOLISM_OUTPUT/IBD_ENRICHED_MODULES.txt",
+                                  header = TRUE, sep="\t")
+completeness_ibd_enriched = completeness_matrix_all %>% filter(module %in% ibd_enriched_modules$module)
+rownames(completeness_ibd_enriched) = completeness_ibd_enriched$module
+completeness_ibd_enriched$module = NULL
+completeness_ibd_enriched = as.data.frame(t(completeness_ibd_enriched))
+
+# subset genomes
+completeness_subset = completeness_ibd_enriched %>% filter(rownames(completeness_ibd_enriched) %in% gtdb_info$genome)
+
+# add label info
+completeness_subset$label = gtdb_info$classification[match(rownames(completeness_subset), gtdb_info$genome)]
+
+# compute avg completeness in each group
+group_means = as.data.frame(completeness_subset %>% group_by(label) %>% summarise(across(everything(), mean)))
+rownames(group_means) = group_means$label
+group_means$label = NULL
+group_means = as.data.frame(t(group_means))
+group_means$diff = group_means$HMI - group_means$`non-HMI`
+
+# get modules with avg completeness difference above 40%
+group_means[group_means$diff > .40,]
+```
+
 ### Generating Figure 3
 
 Now comes the time to put all the data we just generated together into Figure 3. 
