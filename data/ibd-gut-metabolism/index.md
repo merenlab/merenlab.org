@@ -220,15 +220,35 @@ There should be 3,160 accessions in that file (some of the samples have their se
 
 Note that the script has no error-checking built in, so if any of the samples fail to download, you will have to manage those yourself. But once it is done, you should have the FASTQ files for all 2,824 samples in the `00_FASTQ_FILES` directory. You can add in the remaining Quince et al. samples however you acquire those (we'd be happy to pass them along).
 
-Once you have all the samples ready, you can generate a file called `METAGENOME_SAMPLES.txt` describing the path to each sample like this:
+Once you have all the samples ready, you can generate a file at `01_METAGENOME_DOWNLOAD/METAGENOME_SAMPLES.txt` describing the path to each sample like this:
 
 ```bash
 echo -e "sample\tr1\tr2" > METAGENOME_SAMPLES.txt
 while read sample diag study doi grp num1 num2 nump sra; do \
-  r1=$(ls -d $PWD/00_FASTQ_FILES/${sra}_1.fastq.gz) ;\
-  r2=$(ls -d $PWD/00_FASTQ_FILES/${sra}_2.fastq.gz) ;\
+  r1="";\
+  r2="";\
+  if [[ $study == "Quince_2015" ]]; then \
+    r1=""; # change this to obtain paths to Quince et al samples \
+    r2=""; # since these don't have individual SRA acc \
+  else 
+    if [[ $sra =~ "," ]]; then \
+      for i in ${sra//,/ }; do \
+        x1=$(ls -d $PWD/00_FASTQ_FILES/${i}_1.fastq.gz) ;\
+        x2=$(ls -d $PWD/00_FASTQ_FILES/${i}_2.fastq.gz) ;\
+        r1+="$x1,";\
+        r2+="$x2,";\
+      done; \
+      r1=${r1%,} ;\
+      r2=${r2%,} ;\
+    else \
+      r1=$(ls -d $PWD/00_FASTQ_FILES/${sra}_1.fastq.gz) ;\
+      r2=$(ls -d $PWD/00_FASTQ_FILES/${sra}_2.fastq.gz) ;\
+    fi;\
+  fi; \
   echo -e "$sample\t$r1\t$r2" >> METAGENOME_SAMPLES.txt ;\
 done < <(tail -n+2 ../TABLES/00_ALL_SAMPLES_INFO.txt | grep -v Vineis)
+
+# add Vineis et al. samples
 while read sample diag study doi grp num1 num2 nump sra; do \
   r1=$(ls -d $PWD/00_FASTQ_FILES/${sra}.fastq.gz) ;\
   r2="NaN" ;\
@@ -236,7 +256,7 @@ while read sample diag study doi grp num1 num2 nump sra; do \
 done < <(grep Vineis ../TABLES/00_ALL_SAMPLES_INFO.txt)
 ```
 
-We will use this file later to make input files for our workflows.
+We will use this file later to make input files for our workflows. Note that the paths to the sequences files for Quince et al. samples are left empty, since those don't have SRA accessions and won't be automatically downloaded. You can either modify the loop above to generate those paths, or change the `METAGENOME_SAMPLES.txt` file afterwards to hold the correct paths.
 
 Now that all the sequences are downloaded, let's go back to the top-level datapack directory in preparation for the next section.
 
