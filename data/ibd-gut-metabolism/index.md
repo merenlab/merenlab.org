@@ -96,7 +96,7 @@ rm VESELI_ET_AL_METAGENOME_CONTIGS_DBS.tar.gz
 
 ### Downloading our contigs databases for GTDB genomes
 
-Likewise, there is [yet another link](FIXME link) to download the set of GTDB genomes that we analyzed in the paper. It takes up only **2 GB** of space. You can download it by running the following:
+Likewise, there is [yet another link](https://doi.org/10.5281/zenodo.7883421) to download the set of GTDB genomes that we analyzed in the paper. It takes up only **2 GB** of space. You can download it by running the following:
 
 ```bash
 # download the genome data archive
