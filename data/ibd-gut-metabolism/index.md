@@ -744,7 +744,9 @@ Once the EcoPhylo workflow finished (producing output within the `04_GTDB_PROCES
 We considered a genome to be a gut microbe if its `Ribosomal_S6` sequence belonged to a cluster for which the representative had at least 50% 'detection' in at least 10% of the HMP metagenomes. Detection is the proportion of nucleotide positions in the sequence that are covered by at least one sequencing read, and its a value that anvi'o calculates automatically from read mapping data. We extracted a table of detection values (from each sample) for each cluster's representative from the profile database produced by the workflow:
 
 ```bash
-anvi-export-table PROFILE.db --table detection_splits -o Ribosomal_S6_detection.txt
+anvi-export-table ECOPHYLO_WORKFLOW/METAGENOMICS_WORKFLOW/06_MERGED/Ribosomal_S6/PROFILE.db \
+              --table detection_splits \
+              -o Ribosomal_S6_detection.txt
 ```
 
 The profile database is not in the datapack (so you cannot run the code above unless you ran the EcoPhylo workflow), but the resulting detection table is, and you can find it at `TABLES/Ribosomal_S6_detection.txt`.
