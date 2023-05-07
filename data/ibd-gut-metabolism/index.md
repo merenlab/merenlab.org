@@ -440,11 +440,11 @@ This produces the following plot (which we cleaned up in [Inkscape](https://inks
 
 As you can see, the correlation between a sample's sequencing depth and the estimated number of microbial populations it contains is fairly strong, particularly for lower depth samples. That correlation starts to weaken at higher sequencing depths. We selected our sequencing depth threshold to be 25 million reads as a compromise between the need for accurate estimates of microbiome richness and the need for enough samples for a robust and powerful analysis.
 
-The script at `SCRIPTS/plot_figures.R` contains code for most of the other figures in the manuscript (those that were generated from data). Not all of the code and figures will be highlighted in this workflow, but you can always find it in that file. Note that the working directory while running that script should be set to the `SCRIPTS/` folder in order for the relative paths to input files to be correct.
+The script at `SCRIPTS/plot_figures.R` contains code for most of the other figures in the manuscript (those that were generated from data). Not all of the code and figures will be highlighted in this workflow, but you can always find them in that file. Note that the working directory while running that script should be set to the `SCRIPTS/` folder in order for the relative paths to input files to be correct.
 
 ### Removal of samples with low sequencing depth
 
-Running the following script will subset the samples with >= 25 million sequencing reads. It will generate a new table at `TABLES/00_SUBSET_SAMPLES_INFO.txt` containing the subset of 408 samples. You'll see some information about the resulting sample groups (and which studies contributed to them) in the output of the program.
+Running the following script will subset the samples with >= 25 million sequencing reads. It will generate a table at `02_METAGENOME_PROCESSING/00_SUBSET_SAMPLES_INFO.txt` containing the subset of 408 samples. This table is equivalent to the `TABLES/00_SUBSET_SAMPLES_INFO.txt` file, except that the one at `02_METAGENOME_PROCESSING/00_SUBSET_SAMPLES_INFO.txt` also includes the `r1` and `r2` columns of sample paths. You'll see some information about the resulting sample groups (and which studies contributed to them) in the output of the program.
 
 ```bash
 # first, go back to the parent directory
