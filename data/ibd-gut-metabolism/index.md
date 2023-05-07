@@ -24,7 +24,7 @@ Here is a list of links for quick access to the data described in our manuscript
 </div>
 
 {:.notice}
-If you have any questions and/or if you are unable to find an important piece of information here, please feel free to leave a comment down below, send an e-mail to [us]({{ site.url }}/people/), or get in touch with us through Discord:
+If you have any questions, notice an issue, and/or are unable to find an important piece of information here, please feel free to leave a comment down below, send an e-mail to [us]({{ site.url }}/people/), or get in touch with us through Discord:
 
 {% include _join-anvio-discord.html %}
 
