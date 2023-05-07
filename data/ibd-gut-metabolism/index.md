@@ -901,7 +901,7 @@ One issue with filtering for gut microbes using read recruitment to just one gen
 
 To mitigate this issue, we decided to take one more filtering step and remove any genomes that were irrelevant to our metagenome dataset based upon their low detection across those samples. We required the genomes to have at least 50% detection (of the entire genome sequence) in at least 2% of the healthy and IBD samples (which translates to at least 7 out of the 331 samples in those two groups). 
 
-You can find the script we used to subset the genomes at `SCRIPTS/subset_gut_genomes_by_detection.py`. Here is how you run it:
+You can find the script we used to subset the genomes at `SCRIPTS/subset_gut_genomes_by_detection.py`. It uses the detection matrix we provide at `TABLES/GTDB_GENOMES_detection.txt`. Here is how you run it:
 
 ```bash
 # first, go back to the parent directory 04_GTDB_PROCESSING/
