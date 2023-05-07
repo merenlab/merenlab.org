@@ -129,13 +129,16 @@ Here is a quick overview of the datapack structure:
 ```
 VESELI_2023_DATAPACK/
   |
-  |- VESELI_ET_AL_METAGENOME_CONTIGS_DBS  ## this holds the contigs databases we generated for the subset of samples we analyzed
-  |- SUBSET_GTDB_CONTIGS_DBS              ## this holds the contigs databases we generated for the subset of GTDB genomes we analyzed
-  |- TABLES                               ## this holds the important data tables
-  |- SCRIPTS                              ## this contains scripts that you can run to reproduce some of the work described below
-  |- MISC                                 ## this holds miscellanous files
-  |- OUTPUT                               ## you will be generating some output in this directory
+  |- TABLES/                               ## this holds the important data tables
+  |- SCRIPTS/                              ## this contains scripts that you can run to reproduce some of the work described below
+  |- MISC/                                 ## this holds miscellanous file
+  |- VESELI_ET_AL_METAGENOME_CONTIGS_DBS/  ## this holds the contigs databases we generated for the subset of samples we analyzed
+  |- METAGENOME_EXTERNAL_GENOMES.txt       ## file describing paths to metagenome contigs databases
+  |- SUBSET_GTDB_CONTIGS_DBS/              ## this holds the contigs databases we generated for the subset of GTDB genomes we analyzed
+  |- GTDB_EXTERNAL_GENOMES.txt             ## file describing paths to genome contigs databasess
 ```
+
+As you go through this webpage, you will be creating new folders and working within them to reproduce the computational analyses in our manuscript. We recommend going through the workflow in order, as some later analyses depend on the output of earlier analyses. That said, we tried to make it possible for you to skip sections (particularly the ones requiring a lot of computational resources) by pointing out where you can find the requisite data (either in the datapack or as part of our [Supplementary Tables](https://doi.org/10.6084/m9.figshare.22679080)).
 
 ## Computational environment details
 
