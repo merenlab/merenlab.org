@@ -379,7 +379,7 @@ This section will cover how we estimate the number of populations in each metage
 
 To estimate how many microbial populations are represented in a metagenome assembly, we can rely on the fact that all microbial genomes (with few exceptions) contain exactly one copy of each gene in a special set of essential genes called single-copy core genes (SCGs). These include ribosomal proteins and other housekeeping genes. Anvi'o ships with a few generic sets of SCGs that is each specific to a domain of microbial life (Bacteria, Archaea, and Protista) and these genes are annotated using the program `anvi-run-hmms` (which, you might recall, we ran earlier as part of our metagenome processing workflows).
 
-Since we expect to find one copy of each SCG in each microbial population, we can count the total number of copies of an SCG in a metagenome assembly and use that as the number of populations. However, using just one SCG for estimation would be error-prone due to missing SCG annotations in incomplete data (or the occasional duplication within one genome). Instead, we can use all of the SCGs for a given domain to make the estimate more robust to noise. The **mode of the number of SCGs** in the assembly gives us our estimate of the number of populations, in this case. The sketch below illustrates this process - each SCG is annotated in the metagenome assembly as indicated by the black boxes on the highlighted sequences on the bottom (shown for the first 3 SCGs only), these annotations are tallied (top histogram), and then the mode of the counts is computed:
+Since we expect to find one copy of each SCG in each microbial population, we can count the total number of copies of an SCG in a metagenome assembly and use that as the number of populations. However, using just one SCG for estimation would be error-prone due to missing SCG annotations in incomplete data (or the occasional duplication within a genome). Instead, we can use all of the SCGs for a given domain to make the estimate more robust to noise. The **mode of the number of SCGs** in the assembly gives us our estimate of the number of populations, in this case. The sketch below illustrates this process - each SCG is annotated in the metagenome assembly as indicated by the black boxes on the highlighted sequences on the bottom (shown for the first 3 SCGs only), these annotations are tallied (top histogram), and then the mode of the counts is computed:
 
 [![Estimating the number of microbial populations using the mode of single-copy core gene annotations](images/estimate_pops_with_SCGs.png)](images/estimate_pops_with_SCGs.png){:.center-img .width-50}
 
@@ -434,7 +434,7 @@ gplt = all_metagenomes %>%
 gplt
 ```
 
-This produces the following plot (which we cleaned up Inkscape to produce the final polished figure for the manuscript):
+This produces the following plot (which we cleaned up in [Inkscape](https://inkscape.org/) to produce the final polished figure for the manuscript):
 
 [![Supplementary Figure 1. Scatterplot of sequencing depth vs estimated number of populations.](images/supp_fig_1.png)](images/supp_fig_1.png){:.center-img .width-50}
 
