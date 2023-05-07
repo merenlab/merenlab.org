@@ -285,7 +285,7 @@ anvi-run-workflow -w metagenomics -c metagenomes_config.json
 ```
 
 A few notes:
-* We renamed the samples from each study to incorporate information such as country of origin (for healthy samples) or host diagnosis (for IBD samples) for better readability and downstream sorting. To match our sample names, your `samples.txt` file should use the same sample names that are described in Supplementary Table 1c (or the first column of `TABLES/00_ALL_SAMPLES_INFO.txt` in the DATAPACK). If you generated the `samples.txt` from that file, you are good to go.
+* We renamed the samples from each study to incorporate information such as country of origin (for healthy samples) or host diagnosis (for IBD samples) for better readability and downstream sorting. To match our sample names, your `samples.txt` file should use the same sample names that are described in [Supplementary Table 1c](https://doi.org/10.6084/m9.figshare.22679080) (or the first column of `TABLES/00_ALL_SAMPLES_INFO.txt` in the DATAPACK). If you generated the `samples.txt` from that file, you are good to go.
 * We used the default snapshot of KEGG data associated with anvi'o v7.1-dev, which can be downloaded onto your computer by running `anvi-setup-kegg-kofams --kegg-snapshot  v2020-12-23`, as described earlier. To exactly replicate the results of this study, the metagenome samples need to be annotated with this KEGG version by changing the `--kegg-data-dir` parameter (in the `anvi_run_kegg_kofams` rule of the config file) to point to this snapshot wherever it located on your computer
 * The number of threads used for each rule is set in the config file. We conservatively set this number in the example `MISC/metagenomes_config.json` to be 1 for all rules, but you will certainly want to adjust these to take advantage of the resources of your particular system.
 
@@ -560,7 +560,7 @@ This is because the module in question, [M00006](https://www.genome.jp/entry/M00
 
 ### Computing proportion of shared enzymes in IBD-enriched pathways
 
-You may have noticed a few statements in our paper about how closely intertwined the IBD-enriched metabolic pathways are. They share a high proportion of enzymes and compounds. To get the data backing up that statement (which can be found in Supplementary Table 2 as well), you can run the following script:
+You may have noticed a few statements in our paper about how closely intertwined the IBD-enriched metabolic pathways are. They share a high proportion of enzymes and compounds. To get the data backing up that statement (which can be found in [Supplementary Table 2](https://doi.org/10.6084/m9.figshare.22679080) as well), you can run the following script:
 
 ```bash
 python SCRIPTS/get_num_shared_enzymes_compounds.py KEGG_2020-12-23/MODULES.db
@@ -919,7 +919,7 @@ anvi-estimate-metabolism -e GTDB_EXTERNAL_GENOMES.txt \
                   -O 05_GTDB_ANALYSES/GTDB_METABOLISM
 ```
 
-The output file that you want to look at is the matrix of stepwise completeness scores, at `05_GTDB_ANALYSES/GTDB_METABOLISM-module_stepwise_completeness-MATRIX.txt`. It contains the completeness score for each KEGG module in each genome (completeness for an individual genome is analogous to PPCN for a metagenome). Later, we will use these data to make the completeness heatmap in Figure 3. Note that you can find this matrix in Supplementary Table 3b.
+The output file that you want to look at is the matrix of stepwise completeness scores, at `05_GTDB_ANALYSES/GTDB_METABOLISM-module_stepwise_completeness-MATRIX.txt`. It contains the completeness score for each KEGG module in each genome (completeness for an individual genome is analogous to PPCN for a metagenome). Later, we will use these data to make the completeness heatmap in Figure 3. Note that you can find this matrix in [Supplementary Table 3b](https://doi.org/10.6084/m9.figshare.22679080).
 
 ### The 'HMI score': labeling genomes by level of metabolic independence
 
@@ -975,7 +975,7 @@ The script at `SCRIPTS/summarize_GTDB_detection.py` calculates these proportions
 python SCRIPTS/summarize_GTDB_detection.py
 ```
 
-It will generate two output files in the `05_GTDB_ANALYSES/` folder: `genome_proportions.txt`, which contains the two per-genome proportions, and `sample_proportions.txt` which contains the per-sample proportions. Note that you can also find these data in Supplementary Table 3e and 3f.
+It will generate two output files in the `05_GTDB_ANALYSES/` folder: `genome_proportions.txt`, which contains the two per-genome proportions, and `sample_proportions.txt` which contains the per-sample proportions. Note that you can also find these data in [Supplementary Table 3e and 3f](https://doi.org/10.6084/m9.figshare.22679080).
 
 ### Percent abundance calculations
 
@@ -1003,7 +1003,7 @@ done < vineis_samples.txt
 
 This will generate a table for each sample in the `04_GTDB_PROCESSING/GTDB_MAPPING_WORKFLOW/04_MAPPING/IDXSTATS/` folder that describes each contig from the `GTDB_GENOMES.fasta` file, the contig length, the number of reads mapping to it, and the number of unmapped reads (which is always 0 because the mapping workflow parameters ignore any unmapped reads).
 
-Once that is done, you can run the following script to generate the percent abundance values, including the percent abundance ratio that we plot in Figure 3. The output files will be `percent_abundances.txt` and `percent_abundance_averages.txt`. Note that Supplementary Table 3d stores the percent abundances, and if you elected not to run the mapping workflow, you can also find this data in the DATAPACK at `TABLES/GTDB_percent_abundance_averages.txt`.
+Once that is done, you can run the following script to generate the percent abundance values, including the percent abundance ratio that we plot in Figure 3. The output files will be `percent_abundances.txt` and `percent_abundance_averages.txt`. Note that [Supplementary Table 3d](https://doi.org/10.6084/m9.figshare.22679080) stores the percent abundances, and if you elected not to run the mapping workflow, you can also find this data in the DATAPACK at `TABLES/GTDB_percent_abundance_averages.txt`.
 
 ```
 python ../../SCRIPTS/get_percent_abundance.py
@@ -1555,7 +1555,7 @@ mkdir PALLEJA_SAMPLES
 cd PALLEJA_SAMPLES/
 ```
 
-The SRA accession numbers for the Palleja et al. samples can be found in Supplementary Table 1e, and also in the datapack at `TABLES/02_PALLEJA_SAMPLES_INFO.txt`. You can use the same script to download these as you did for the other public metagenomes; simply extract the column of SRA accession numbers into a file, and pass that to the script:
+The SRA accession numbers for the Palleja et al. samples can be found in [Supplementary Table 1e](https://doi.org/10.6084/m9.figshare.22679080), and also in the datapack at `TABLES/02_PALLEJA_SAMPLES_INFO.txt`. You can use the same script to download these as you did for the other public metagenomes; simply extract the column of SRA accession numbers into a file, and pass that to the script:
 
 ```bash
 tail -n+2 ../../TABLES/02_PALLEJA_SAMPLES_INFO.txt | cut -f 2 > palleja_accessions.txt
@@ -1725,7 +1725,7 @@ Once we had all our samples annotated, we ran a script to count the number of an
 python ../SCRIPTS/get_num_genes.py ../02_METAGENOME_PROCESSING/ALL_METAGENOME_DBS.txt
 ```
 
-(If you don't have all the samples, you can also test this script on the set of assemblies you downloaded, i.e. `VESELI_ET_AL_METAGENOME_CONTIGS_DBS/`. Just change the input file to `../METAGENOME_EXTERNAL_GENOMES.txt`). The script will produce an output file at `07_SUPPLEMENTARY/NUM_GENES_AND_ANNOTATIONS.txt`. This data is also available in Supplementary Table 1d, and we've provided a tab-delimited version of that table at `/TABLES/NUM_GENES_AND_ANNOTATIONS.txt` which will be used by the R script for plotting Supplementary Figure 4.
+(If you don't have all the samples, you can also test this script on the set of assemblies you downloaded, i.e. `VESELI_ET_AL_METAGENOME_CONTIGS_DBS/`. Just change the input file to `../METAGENOME_EXTERNAL_GENOMES.txt`). The script will produce an output file at `07_SUPPLEMENTARY/NUM_GENES_AND_ANNOTATIONS.txt`. This data is also available in [Supplementary Table 1d](https://doi.org/10.6084/m9.figshare.22679080), and we've provided a tab-delimited version of that table at `/TABLES/NUM_GENES_AND_ANNOTATIONS.txt` which will be used by the R script for plotting Supplementary Figure 4.
 
 Speaking of which, you will find the code for making Supplementary Figure 4 in the usual script, `SCRIPTS/plot_figures.R`.
 
