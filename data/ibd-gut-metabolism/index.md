@@ -625,7 +625,7 @@ We used the contigs workflow on all of the representative genomes for species cl
 
 If you want to see what other programs we ran, you can check the workflow configuration file at `MISC/GTDB_contigs_config.json`. 
 
-And if you want to run this for yourself, then you need to 1) download all representative genome sequences for GTDB release 95, 2) make a [fasta.txt](https://anvio.org/help/main/artifacts/fasta-txt/) file that includes the path to each genome, 3) update the config file for your computer system (i.e., changing the number of threads for each rule and possibly adding the path to the right version of KEGG data with `--kegg-data-dir`), and 4) running the following (hopefully, you will modify the workflow command to work with your HPC's scheduler):
+And if you want to run this for yourself, then you need to 1) download all representative genome sequences for GTDB release 95, 2) make a [`fasta.txt`](https://anvio.org/help/main/artifacts/fasta-txt/) file that includes the path to each genome, 3) update the config file for your computer system (i.e., changing the number of threads for each rule and possibly adding the path to the right version of KEGG data with `--kegg-data-dir`), and 4) running the following (hopefully, you will modify the workflow command to work with your HPC's scheduler):
 
 ```bash
 # first make a folder in which to run the workflow
