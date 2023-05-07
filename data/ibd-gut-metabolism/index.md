@@ -1611,7 +1611,7 @@ Since everything is the same as before, we won't explain in detail the instructi
 
 ```bash
 cp ../../MISC/metagenomes_config.json .
-sed -i '' 's/samples\.txt/palleja_accessions.txt/' metagenomes_config.json
+sed -i '' 's/samples\.txt/PALLEJA_SAMPLES.txt/' metagenomes_config.json
 anvi-run-workflow -w metagenomics -c metagenomes_config.json
 ```
 
