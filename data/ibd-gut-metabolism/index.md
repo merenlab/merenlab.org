@@ -1221,8 +1221,7 @@ anvi-interactive --manual \
         --dry-run
 
 # import our re-rooted phylogeny
-anvi-import-items-order -i MISC/fig_3b_rerooted_tree.txt \ 
-                -p 05_GTDB_ANALYSES/modules_heatmap.db \
+anvi-import-items-order -i MISC/fig_3b_rerooted_tree.txt -p 05_GTDB_ANALYSES/modules_heatmap.db \
                 --name REROOTEDv2
 ```
 
