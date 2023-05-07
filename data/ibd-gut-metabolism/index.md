@@ -1134,13 +1134,14 @@ Now comes the time to put all the data we just generated together into Figure 3.
 
 Panel B of this figure was drawn using the anvi'o interactive interface. It includes the phylogenetic tree, taxonomy information, per-genome detection ratios, percent abundances, HMI score and class, and heatmap of completeness scores for each of the IBD-enriched pathways.
 
-To replicate this figure, you'll first draw the top of the panel, which contains all the data listed above except for the heatmap of module completeness. Combine the taxonomy information (taken from GTDB) with the HMI score and HMI/non-HMI genome label into one file, and then load it in the anvi'o interactive interface, using the genome phylogeny to organize the data for each genome:
+To replicate this figure, you'll first draw the top of the panel, which contains all the data listed above except for the heatmap of module completeness. Combine the taxonomy information (taken from GTDB) with the HMI score and HMI/non-HMI genome label (taken from the output you generated earlier, or alternatively `TABLES/01_GTDB_GENOMES_INFO.txt`) into one file, and then load it in the anvi'o interactive interface, using the genome phylogeny to organize the data for each genome:
 
 ```bash
 # combine taxonomy with HMI data into one file
 cut -f 1-8 TABLES/01_GTDB_GENOMES_INFO.txt > taxa.txt # genome accession, domain thru species taxonomy
 cut -f 2,3 05_GTDB_ANALYSES/HMI_scores.txt > hmi.txt # HMI data
 paste taxa.txt hmi.txt > 05_GTDB_ANALYSES/tree_additional_data.txt # combine
+rm taxa.txt hmi.txt
 # note that this only works if the genomes are in the same order in both files (which should be the case, 
 # due to alphabetical ordering of the accessions). But if not, you need to use a smarter way to combine 
 # the data for each genome
