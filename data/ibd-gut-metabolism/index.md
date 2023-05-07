@@ -16,6 +16,7 @@ authors: [iva]
 Here is a list of links for quick access to the data described in our manuscript and on this page:
 
 * [doi:10.6084/m9.figshare.22679080](https://doi.org/10.6084/m9.figshare.22679080): Supplementary Tables.
+* [doi:_Link coming soon!_](FIXME ADD LINK): Contigs databases for our assemblies of 408 deeply-sequenced gut metagenomes.
 * [doi:10.5281/zenodo.7883421](https://doi.org/10.5281/zenodo.7883421): Contigs databases for 338 GTDB genomes.
 * [doi:10.5281/zenodo.7897987](https://doi.org/10.5281/zenodo.7897987): Contigs databases for our assemblies of the gut metagenomes from [Palleja et al. 2018(https://doi.org/10.1038/s41564-018-0257-9)].
 
@@ -49,7 +50,7 @@ We've pre-packaged a lot of the data and scripts that you need for this workflow
 
 ```bash
 # download the datapack
-FIXME download
+wget # Link coming soon! 
 # extract it 
 tar -xvzf VESELI_2023_DATAPACK.tar.gz
 
@@ -70,7 +71,7 @@ The size of this metagenome dataset is **96 GB** (the archive alone is ~33 GB). 
 
 ```bash
 # download the metagenome data archive
-FIXME download
+wget # Link coming soon! 
 # extract the metagenome data
 tar -xvzf VESELI_ET_AL_METAGENOME_CONTIGS_DBS.tar.gz
 
