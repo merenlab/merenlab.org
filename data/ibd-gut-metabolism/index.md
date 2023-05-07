@@ -1619,7 +1619,7 @@ After the workflow is done, make yourself an external genomes file describing th
 
 If you don't have the computational resources or the time to run this workflow yourself, you can also just download [our assemblies of these samples](https://doi.org/10.5281/zenodo.7897987). Here is how you would do that, and afterwards make the external genomes file with paths specific to the downloaded databases:
 
-:{warning}
+{:.warning}
 This set of contigs databases is **9.2 GB** in size (and the archive is 3.1 GB).
 
 ```bash
