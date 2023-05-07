@@ -16,6 +16,7 @@ authors: [iva]
 Here is a list of links for quick access to the data described in our manuscript and on this page:
 
 * [doi:10.6084/m9.figshare.22679080](https://doi.org/10.6084/m9.figshare.22679080): Supplementary Tables.
+* [doi:10.6084/m9.figshare.22776701](https://doi.org/10.6084/m9.figshare.22776701): Datapack for this reproducible workflow.
 * [doi:_Link coming soon!_](FIXME ADD LINK): Contigs databases for our assemblies of 408 deeply-sequenced gut metagenomes.
 * [doi:10.5281/zenodo.7883421](https://doi.org/10.5281/zenodo.7883421): Contigs databases for 338 GTDB genomes.
 * [doi:10.5281/zenodo.7897987](https://doi.org/10.5281/zenodo.7897987): Contigs databases for our assemblies of the gut metagenomes from [Palleja et al. 2018(https://doi.org/10.1038/s41564-018-0257-9)].
@@ -46,11 +47,11 @@ This webpage offers access to the details of our computational methods (occasion
 
 ## Downloading the data for this reproducible workflow
 
-We've pre-packaged a lot of the data and scripts that you need for this workflow into a DATAPACK. To download it, run the following in your terminal:
+We've pre-packaged a lot of the data and scripts that you need for this workflow into a [datapack](https://doi.org/10.6084/m9.figshare.22776701). To download it, run the following in your terminal:
 
 ```bash
 # download the datapack
-wget FIXME # Link coming soon! 
+wget https://figshare.com/ndownloader/files/40468865 -O VESELI_2023_DATAPACK.tar.gz
 # extract it 
 tar -xvzf VESELI_2023_DATAPACK.tar.gz
 
@@ -189,7 +190,7 @@ The SRA accession number of each sample is listed in [Supplementary Table 1c](ht
 
 If you want to download all of the samples we used in this work (keeping in mind that the storage requirements for almost 3,000 metagenomes will be huge), here we show you how to download all of the samples with one script, into the same folder (for better organization and easier compatibility with the later sections of this workflow). But it truly doesn't matter how you decide to organize the samples as long as you can keep track of the paths to each sample on your computer. So if you want to do it differently, go for it (and feel free to reach out to us for help if you need it). 
 
-For convenience, we've provided a plain-text version of Table 1c in our DATAPACK, which can be accessed at the path `TABLES/00_ALL_SAMPLES_INFO.txt`. The last column of that file provides the SRA accessions that can be used for downloading each sample.
+For convenience, we've provided a plain-text version of Table 1c in our [datapack](https://doi.org/10.6084/m9.figshare.22776701), which can be accessed at the path `TABLES/00_ALL_SAMPLES_INFO.txt`. The last column of that file provides the SRA accessions that can be used for downloading each sample.
 
 There is one exception to this strategy, and that is the study by [Quince et al. 2015](https://doi.org/10.1038/ajg.2015.357). There are no deposited sequences under [the NCBI BioProject for this study](https://www.ncbi.nlm.nih.gov/bioproject/270985). The SRA accession column for these samples in `TABLES/00_ALL_SAMPLES_INFO.txt` contains NaN values, and these rows should be skipped when using `fasterq-dump` to download samples. We accessed these metagenomes directly from the study authors.
 
@@ -286,7 +287,7 @@ mkdir 02_METAGENOME_PROCESSING
 cd 02_METAGENOME_PROCESSING/
 ```
 
-We provide an example configuration file (`MISC/metagenomes_config.json`) in the DATAPACK that can be used for reproducing our assemblies. Copy that file over to your current working directory:
+We provide an example configuration file (`MISC/metagenomes_config.json`) in the [datapack](https://doi.org/10.6084/m9.figshare.22776701) that can be used for reproducing our assemblies. Copy that file over to your current working directory:
 
 ```bash
 cp ../MISC/metagenomes_config.json .
@@ -305,7 +306,7 @@ anvi-run-workflow -w metagenomics -c metagenomes_config.json
 ```
 
 A few notes:
-* We renamed the samples from each study to incorporate information such as country of origin (for healthy samples) or host diagnosis (for IBD samples) for better readability and downstream sorting. To match our sample names, your `samples.txt` file should use the same sample names that are described in [Supplementary Table 1c](https://doi.org/10.6084/m9.figshare.22679080) (or the first column of `TABLES/00_ALL_SAMPLES_INFO.txt` in the DATAPACK). If you generated the `samples.txt` using the code above, this should already be the case.
+* We renamed the samples from each study to incorporate information such as country of origin (for healthy samples) or host diagnosis (for IBD samples) for better readability and downstream sorting. To match our sample names, your `samples.txt` file should use the same sample names that are described in [Supplementary Table 1c](https://doi.org/10.6084/m9.figshare.22679080) (or the first column of `TABLES/00_ALL_SAMPLES_INFO.txt` in the [datapack](https://doi.org/10.6084/m9.figshare.22776701)). If you generated the `samples.txt` using the code above, this should already be the case.
 * We used the default snapshot of KEGG data associated with anvi'o `v7.1-dev`, which can be downloaded onto your computer by running `anvi-setup-kegg-kofams --kegg-snapshot  v2020-12-23`, as described earlier. To exactly replicate the results of this study, the metagenome samples need to be annotated with this KEGG version by setting the `--kegg-data-dir` parameter (in the `anvi_run_kegg_kofams` rule of the config file) to point to this snapshot wherever it located on your computer. We already set this parameter to point to the `KEGG_2020-12-23` directory, but if you stored that data in a different location, you will have to change it in the config file.
 * The number of threads used for each rule is set in the config file. We conservatively set this number to be 1 for all rules, but you will certainly want to adjust these to take advantage of the resources of your particular system.
 
@@ -335,7 +336,7 @@ done < <(grep NaN ../01_METAGENOME_DOWNLOAD/METAGENOME_SAMPLES.txt | cut -f 1-2)
 rm -r *TMP/
 ```
 
-Then, we were able to leverage the anvi'o contigs workflow to generate the contigs databases for each assembly and run the annotation steps. We've provided the relevant configuration file for this workflow (`MISC/vineis_config.json`) as well as the input file that lists the path to each assembly (`MISC/vineis_fasta.txt`) in the DATAPACK, and this is how you could run it for yourself:
+Then, we were able to leverage the anvi'o contigs workflow to generate the contigs databases for each assembly and run the annotation steps. We've provided the relevant configuration file for this workflow (`MISC/vineis_config.json`) as well as the input file that lists the path to each assembly (`MISC/vineis_fasta.txt`) in the [datapack](https://doi.org/10.6084/m9.figshare.22776701), and this is how you could run it for yourself:
 
 ```bash
 cp ../MISC/vineis_* .
@@ -412,7 +413,7 @@ done < <(tail -n+2 ../01_METAGENOME_DOWNLOAD/METAGENOME_SAMPLES.txt)
 Since the number of files to process is so large, this will take quite a while to run. We've already stored the resulting read counts in the `TABLES/00_ALL_SAMPLES_INFO.txt` file in case you don't want to wait.
 
 ### Generating Supplementary Figure 1
-Supplementary Figure 1 is a scatterplot demonstrating the correlation betwen sequencing depth and the estimated number of populations in a metagenome assembly. The code to plot this figure can be found in the R script at `SCRIPTS/plot_figures.R` in the DATAPACK. Here is the relevant code taken from the script (note: this code snippet does not include some required setup, like loading packages and setting some global variables, and will not run on its own).
+Supplementary Figure 1 is a scatterplot demonstrating the correlation betwen sequencing depth and the estimated number of populations in a metagenome assembly. The code to plot this figure can be found in the R script at `SCRIPTS/plot_figures.R` in the [datapack](https://doi.org/10.6084/m9.figshare.22776701). Here is the relevant code taken from the script (note: this code snippet does not include some required setup, like loading packages and setting some global variables, and will not run on its own).
 
 ```r
 #### SUPP FIG 1 - SEQUENCING DEPTH SCATTERPLOT ####
@@ -485,7 +486,7 @@ Note the use of `--kegg-data-dir KEGG_2020-12-23`, which points the program to t
 
 Since we used the `--matrix-format` flag, the output of `anvi-estimate-metabolism` will be a set of matrices, each containing a different statistic summarized across all of the metagenomes and all of the pathways. The one that we want for downstream analysis is the one containing stepwise copy numbers, which can be found at the path `03_METABOLISM_OUTPUT/METAGENOME_METABOLISM-module_stepwise_copy_number-MATRIX.txt`. 
 
-We've included our version of this output file in the DATAPACK. You will find it at `TABLES/METAGENOME_METABOLISM-module_stepwise_copy_number-MATRIX.txt` (and this table is referenced in the scripts below that depend on this data, just in case you don't run this step).
+We've included our version of this output file in the [datapack](https://doi.org/10.6084/m9.figshare.22776701). You will find it at `TABLES/METAGENOME_METABOLISM-module_stepwise_copy_number-MATRIX.txt` (and this table is referenced in the scripts below that depend on this data, just in case you don't run this step).
 
 ### Normalization of pathway copy numbers to PPCN
 
@@ -893,7 +894,7 @@ anvi-import-collection -c 03_CONTIGS/GTDB_GENOMES-contigs.db -p 06_MERGED/PROFIL
 anvi-summarize -c 03_CONTIGS/GTDB_GENOMES-contigs.db -p 06_MERGED/PROFILE.db -C GTDB_GENOMES"
 ```
 
-The program produces a folder of various data tables, one of which is a matrix of detection of each genome in each gut metagenome. You will find this table in the DATAPACK at `TABLES/GTDB_GENOMES_detection.txt`.
+The program produces a folder of various data tables, one of which is a matrix of detection of each genome in each gut metagenome. You will find this table in the [datapack](https://doi.org/10.6084/m9.figshare.22776701) at `TABLES/GTDB_GENOMES_detection.txt`.
 
 ### Subsetting gut genomes by detection in our sample groups
 
@@ -1028,7 +1029,7 @@ done < vineis_samples.txt
 
 This will generate a table for each sample in the `04_GTDB_PROCESSING/GTDB_MAPPING_WORKFLOW/04_MAPPING/IDXSTATS/` folder that describes each contig from the `GTDB_GENOMES.fasta` file, the contig length, the number of reads mapping to it, and the number of unmapped reads (which is always 0 because the mapping workflow parameters ignore any unmapped reads).
 
-Once that is done, you can run the following script to generate the percent abundance values, including the percent abundance ratio that we plot in Figure 3. The output files will be `percent_abundances.txt` and `percent_abundance_averages.txt`. Note that [Supplementary Table 3d](https://doi.org/10.6084/m9.figshare.22679080) stores the percent abundances, and if you elected not to run the mapping workflow, you can also find this data in the DATAPACK at `TABLES/GTDB_percent_abundance_averages.txt`.
+Once that is done, you can run the following script to generate the percent abundance values, including the percent abundance ratio that we plot in Figure 3. The output files will be `percent_abundances.txt` and `percent_abundance_averages.txt`. Note that [Supplementary Table 3d](https://doi.org/10.6084/m9.figshare.22679080) stores the percent abundances, and if you elected not to run the mapping workflow, you can also find this data in the [datapack](https://doi.org/10.6084/m9.figshare.22776701) at `TABLES/GTDB_percent_abundance_averages.txt`.
 
 ```
 python ../../SCRIPTS/get_percent_abundance.py
@@ -1491,7 +1492,7 @@ for split_num, split in split_data_dict.items():
 
 Afterwards, we could take a look at the performance metrics, and use those to generate a plot of the Area under the Receiving Operator Characteristic Curve (AUROCC).
 
-Those are the important parts, but you can find (and run) the rest of the classification code in the Jupyter notebook. The code utilizes the data provided in the `TABLES` folder of the DATAPACK, as well as the list of IBD-enriched modules you generated at `03_METABOLISM_OUTPUT/IBD_ENRICHED_MODULES.txt`. It will produce output (AUROCC plots) in the `06_CLASSIFIER/` directory. In addition, we set a random seed wherever necessary to ensure reproducibility of the results, so the output should be the same every time you run the code.
+Those are the important parts, but you can find (and run) the rest of the classification code in the Jupyter notebook. The code utilizes the data provided in the `TABLES` folder of the [datapack](https://doi.org/10.6084/m9.figshare.22776701), as well as the list of IBD-enriched modules you generated at `03_METABOLISM_OUTPUT/IBD_ENRICHED_MODULES.txt`. It will produce output (AUROCC plots) in the `06_CLASSIFIER/` directory. In addition, we set a random seed wherever necessary to ensure reproducibility of the results, so the output should be the same every time you run the code.
 
 ### Generating Figure 4
 
