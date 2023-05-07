@@ -142,16 +142,16 @@ As you go through this webpage, you will be creating new folders and working wit
 
 ## Computational environment details
 
-The bulk of analyses in this study were done using anvi'o version 7.1-dev (that is, the development version of anvi'o following the stable release v7.1). You can use anvi'o version 8.0 (once it is released) to reproduce our results, as all of the relevant code has been included as part of that stable release.
+The bulk of analyses in this study were done using anvi'o version `7.1-dev` (that is, the development version of anvi'o following the stable release `v7.1`). You can use anvi'o version `8.0` (once it is released) to reproduce our results, as all of the relevant code has been included as part of that stable release.
 
-The only relevant difference between v7.1-dev and v8.0 (with respect to reproducing our results) is the default KEGG snapshot, which is newer in v8.0 than the version we used for the analyses in this paper. The choice of KEGG version affects the results of `anvi-run-kegg-kofams` and `anvi-estimate-metabolism`. In order to use the same version we did, you should run the following code to download the appropriate snapshot onto your computer into the directory `./KEGG_2020-12-23/` (you can change that path if you want):
+The only relevant difference between `v7.1-dev` and `v8.0` (with respect to reproducing our results) is the default KEGG snapshot, which is newer in `v8.0` than the version we used for the analyses in this paper. The choice of KEGG version affects the results of `anvi-run-kegg-kofams` and `anvi-estimate-metabolism`. In order to use the same version we did, you should run the following code to download the appropriate snapshot onto your computer into the directory `KEGG_2020-12-23/` (you can change that path if you want):
 
 ```bash
 anvi-setup-kegg-kofams --kegg-snapshot v2020-12-23 \
                        --kegg-data-dir KEGG_2020-12-23 
 ```
 
-Whenever KEGG-related programs are used, you can make them use the appropriate KEGG version by adding `--kegg-data-dir KEGG_2020-12-23` (replacing that path with wherever you decided to store the KEGG data on your computer). In the workflows and commands on this page, we'll assume you followed the setup command exactly as written and add the directory name `KEGG_2020-12-23`.
+Whenever KEGG-related programs are used, you can make them use the appropriate KEGG version by adding `--kegg-data-dir KEGG_2020-12-23` (replacing that path with wherever you decided to store the KEGG data on your computer). In the code on this page (as well as in the scripts and files of the datapack), we'll assume you followed the setup command exactly as written and add the directory name `KEGG_2020-12-23`.
 
 
 ## Obtaining our initial dataset of public fecal metagenomes
