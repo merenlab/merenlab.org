@@ -179,7 +179,7 @@ Subjects not diagnosed with IBD based on endoscopic and histopathologic findings
 <div class="blockquote-author">Lloyd-Price et al. 2019</div>
 </blockquote>
 
-For the studies characterizing their controls as 'non-IBD' samples (there were 3), we applied the same grouping of their samples within our dataset in order to be consistent. We also decided to include samples from people with colorectal cancer (CRC) (from [Feng et al. 2015](https://doi.org/10.1038/ncomms7528)) in the 'non-IBD' group, since inflmmation in the GI tract (including from IBD) can promote the development of CRC ([Kraus and Arber, 2009](https://doi.org/10.1016/j.coph.2009.06.006)), though no IBD diagnoses were described for the individuals in the CRC study.
+For the studies characterizing their controls as 'non-IBD' samples (there were 3), we applied the same grouping of their samples within our dataset in order to be consistent. We also decided to include samples from people with colorectal cancer (CRC) (from [Feng et al. 2015](https://doi.org/10.1038/ncomms7528)) in the 'non-IBD' group, since inflmmation in the GI tract (including from IBD) can promote the development of CRC ([Kraus and Arber 2009](https://doi.org/10.1016/j.coph.2009.06.006)), though no IBD diagnoses were described for the individuals in the CRC study.
 
 We note that we did not exclude samples from individuals with high BMI from the healthy group, because the study that included such samples ([Le Chatelier et al. 2013](https://doi.org/10.1038/nature12506)) had already excluded individuals with GI disease, diabetes, and other such conditions.
 
@@ -209,10 +209,10 @@ mkdir 00_FASTQ_FILES
 Now, we'll extract a list of the SRA accessions (for all except the Quince et al. samples) from the provided table.
 
 ```bash
-grep -v Quince_2015 ../TABLES/00_ALL_SAMPLES_INFO.txt | cut -f 9 | tail -n+2 > sra_accessions_to_download.txt
+grep -v Quince_2015 ../TABLES/00_ALL_SAMPLES_INFO.txt | cut -f 9 | tr ',' '\n' | tail -n+2 > sra_accessions_to_download.txt
 ```
 
-There should be 2,824 accessions in that file. In the `SCRIPTS` folder of your datapack, there is a script called `download_sra.sh` that will download each sample with `prefetch`, unpack it with `fasterq-dump` into the `00_FASTQ_FILES` folder that you just created, gzip the resulting FASTQ files, and then delete the intermediate files. You can run it using the following command (we recommend running this on an HPC cluster, with plenty of threads):
+There should be 3,160 accessions in that file (some of the samples have their sequences split across multiple accessions). In the `SCRIPTS` folder of your datapack, there is a script called `download_sra.sh` that will download each sample with `prefetch`, unpack it with `fasterq-dump` into the `00_FASTQ_FILES` folder that you just created, gzip the resulting FASTQ files, and then delete the intermediate files. You can run it using the following command (we recommend running this on an HPC cluster, with plenty of threads):
 
 ```bash
 ../SCRIPTS/download_sra.sh sra_accessions_to_download.txt
