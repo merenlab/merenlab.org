@@ -819,7 +819,7 @@ The resulting file, `GTDB_GENOMES.fasta` will be our reference for the mapping w
 
 The metagenomics workflow in 'References Mode' is slightly different from the previous workflows that we have discussed. It takes a [fasta.txt file](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#fastatxt) describing the reference(s) to map against, turns each reference into a contigs database, does read recruitment from each of the samples in the [samples.txt file](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#samplestxt) with [Bowtie2](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml), and summarizes the read-mapping results into individual profile databases.
 
-Unfortunately, once again we have to treat the [Vineis et al.](https://doi.org/10.1128/mBio.01713-16) differently, because the workflow only works with paired-end reads and not with merged reads. So, when generating the input files for the workflow (in the `MISC/` folder), we leave out these samples:
+Unfortunately, once again we have to treat the [Vineis et al.](https://doi.org/10.1128/mBio.01713-16) samples differently, because the workflow only works with paired-end reads and not with merged reads. So, when generating the input files for the workflow (in the `MISC/` folder), we leave out these samples:
 
 ```bash
 # fasta txt
@@ -852,7 +852,7 @@ Here is the code to run the script (note that it uses 4 threads):
 # get a file of sample paths
 while read samp; do \
   grep $samp ../../01_METAGENOME_DOWNLOAD/METAGENOME_SAMPLES.txt | cut -f 2 >> vineis_samples.txt; \
-done < <(grep Vineis_2016 ../../TABLES/00_SUBSET_SAMPLES_INFO.txt | cut -f 1 | tail -n+2)
+done < <(grep Vineis_2016 ../../TABLES/00_SUBSET_SAMPLES_INFO.txt | cut -f 1 )
 
 while read samp; do \
   name=$(basename $samp | sed 's/.fastq.gz//'); \
