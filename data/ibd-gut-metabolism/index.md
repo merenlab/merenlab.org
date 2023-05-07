@@ -358,7 +358,7 @@ while read db; do \
 done < <(ls 03_CONTIGS/)
 ```
 
-That file should have a line for all 2,893 samples in it (plus a line for the header), if everything went well in the workflows above.
+Since both workflows should have deposited contigs databases in the folder at `02_METAGENOME_PROCESSING/03_CONTIGS/` (unless you changed the output directory in the config files), the above loop simply lists a path for every database in that folder. Ultimately, the external genomes file at `02_METAGENOME_PROCESSING/ALL_METAGENOME_DBS.txt` should have a line for all 2,893 samples in it (plus a line for the header), if everything went well (i.e., no unresolved errors in the workflows).
 
 If you decided to follow a different file naming and organization strategy than the one used above, that is fine. Where the files are on your computer does not matter for following the remainder of this workflow, as long as you prepare a file for yourself that describes the correct paths to each sample's read files and contigs database.
 
@@ -367,7 +367,7 @@ We'll stay in this directory for the next section.
 ## Selecting our final dataset of metagenomes
 
 {:.notice}
-You should be inside the `02_METAGENOME_PROCESSING` directory for this section of the workflow.
+You should be inside the `02_METAGENOME_PROCESSING/` directory for this section of the workflow.
 
 Before we began analyzing metabolism within the large dataset we compiled, we discovered that we had to reduce our sample set to ensure accurate calculations. One of the critical steps in comparing community-level copy numbers of metabolic pathways between microbial communities of differing richness is **normalization of these data by the size of the community**. Pathway copy numbers will naturally tend to be higher in metagenome assemblies that describe larger communities, so comparing these values is not very meaningful when community sizes are vastly different. The gut microbiomes of people with IBD tend to harbor much less diversity than healthy gut microbiomes, so this is certainly a problem in our case. We therefore came up with a strategy of normalizing the pathway copy numbers calculated for a given sample with the number of microbial populations represented within that metagenome assembly.
 
