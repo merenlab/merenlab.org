@@ -269,7 +269,7 @@ If you are paying close attention, you might notice that not all of the samples 
 
 ### Metagenome processing: single assemblies and annotations
 
-We used the [anvi'o metagenomic workflow](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#metagenomics-workflow), which makes use of the workflow management tool [snakemake](https://snakemake.readthedocs.io/en/stable/), for high-throughput assembly and annotation of our large dataset. The samples from each contributing study were processed using individual workflow runs with similar configurations. Here are the most important steps in the workflow that directly impact the downstream analyses: 
+We used the [anvi'o metagenomic workflow](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#metagenomics-workflow), which makes use of the workflow management tool [snakemake](https://snakemake.readthedocs.io/en/stable/), for high-throughput assembly and annotation of our large dataset. Here are the most important steps in the workflow that directly impact the downstream analyses: 
 
 * quality filtering of sequencing reads using the [Minoche et al. 2011](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2011-12-11-r112) guidelines via the [`illumina-utils` package](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0066643), specifically the program `iu-filter-quality-minoche`
 * single assembly with [IDBA-UD](https://academic.oup.com/bioinformatics/article/28/11/1420/266973). We used all default parameters except that we set the minimum contig length (`--min_contig`) to be 1000
@@ -305,22 +305,22 @@ anvi-run-workflow -w metagenomics -c metagenomes_config.json
 ```
 
 A few notes:
-* We renamed the samples from each study to incorporate information such as country of origin (for healthy samples) or host diagnosis (for IBD samples) for better readability and downstream sorting. To match our sample names, your `samples.txt` file should use the same sample names that are described in [Supplementary Table 1c](https://doi.org/10.6084/m9.figshare.22679080) (or the first column of `TABLES/00_ALL_SAMPLES_INFO.txt` in the DATAPACK). If you generated the `samples.txt` from that file, you are good to go.
-* We used the default snapshot of KEGG data associated with anvi'o v7.1-dev, which can be downloaded onto your computer by running `anvi-setup-kegg-kofams --kegg-snapshot  v2020-12-23`, as described earlier. To exactly replicate the results of this study, the metagenome samples need to be annotated with this KEGG version by changing the `--kegg-data-dir` parameter (in the `anvi_run_kegg_kofams` rule of the config file) to point to this snapshot wherever it located on your computer
-* The number of threads used for each rule is set in the config file. We conservatively set this number in the example `MISC/metagenomes_config.json` to be 1 for all rules, but you will certainly want to adjust these to take advantage of the resources of your particular system.
+* We renamed the samples from each study to incorporate information such as country of origin (for healthy samples) or host diagnosis (for IBD samples) for better readability and downstream sorting. To match our sample names, your `samples.txt` file should use the same sample names that are described in [Supplementary Table 1c](https://doi.org/10.6084/m9.figshare.22679080) (or the first column of `TABLES/00_ALL_SAMPLES_INFO.txt` in the DATAPACK). If you generated the `samples.txt` using the code above, this should already be the case.
+* We used the default snapshot of KEGG data associated with anvi'o `v7.1-dev`, which can be downloaded onto your computer by running `anvi-setup-kegg-kofams --kegg-snapshot  v2020-12-23`, as described earlier. To exactly replicate the results of this study, the metagenome samples need to be annotated with this KEGG version by setting the `--kegg-data-dir` parameter (in the `anvi_run_kegg_kofams` rule of the config file) to point to this snapshot wherever it located on your computer. We already set this parameter to point to the `KEGG_2020-12-23` directory, but if you stored that data in a different location, you will have to change it in the config file.
+* The number of threads used for each rule is set in the config file. We conservatively set this number to be 1 for all rules, but you will certainly want to adjust these to take advantage of the resources of your particular system.
 
 The steps in the workflow described above apply to all of the metagenome samples except for those from [Vineis et al. 2016](https://doi.org/10.1128/mBio.01713-16), which had to be processed differently since the downloaded samples contain merged reads (rather than paired-end reads described in R1 and R2 files, as in the other samples). Since the metagenomics workflow currently works only on paired-end reads, we had to run the assemblies manually. Aside from the lack of workflow, there are only two major differences in the processing of the 96 Vineis et al. samples:
 
 * No additional quality-filtering was run on the downloaded samples, because the merging of the sequencing reads as described in the paper's methods section already included a quality-filtering step
-* Single assembly of the merged reads was done with [MEGAHIT](https://academic.oup.com/bioinformatics/article/31/10/1674/177884), using all default parameters except for a minimum contig length of 1000
+* Single assembly of the merged reads was done with [MEGAHIT](https://academic.oup.com/bioinformatics/article/31/10/1674/177884) (since this assembler can work with merged reads), using all default parameters except for a minimum contig length of 1000
 
-We wrote a loop to run an individual assembly on each sample from [Vineis et al. 2016](https://doi.org/10.1128/mBio.01713-16). This loop makes use of the sample names and paths as established in the `01_METAGENOME_DOWNLOAD/METAGENOME_SAMPLES.txt` file:
+We wrote a loop to run an individual assembly on each sample from [Vineis et al. 2016](https://doi.org/10.1128/mBio.01713-16). This loop makes use of the sample names and paths as established in the `01_METAGENOME_DOWNLOAD/METAGENOME_SAMPLES.txt` file. Please feel free to increase the number of threads (`-t` parameter) if your system can handle it:
 
 ```bash
 while read name path; do \
   megahit -r $path  \
       --min-contig-len 1000 \
-      -t 7 \
+      -t 3 \
       -o ${name}_TMP; \
 done < <(grep NaN ../01_METAGENOME_DOWNLOAD/METAGENOME_SAMPLES.txt | cut -f 1-2)
 ```
@@ -330,7 +330,7 @@ Once the assemblies were done, we extracted the final assembly files from each o
 ```bash
 mkdir -p VINEIS_ASSEMBLIES
 while read name path; do \
-  mv ${name}_TMP/final.contigs.fa VINEIS_ASSEMBLIES/${name}.fasta
+  mv ${name}_TMP/final.contigs.fa VINEIS_ASSEMBLIES/${name}.fasta ;\
 done < <(grep NaN ../01_METAGENOME_DOWNLOAD/METAGENOME_SAMPLES.txt | cut -f 1-2)
 rm -r *TMP/
 ```
@@ -342,7 +342,7 @@ cp ../MISC/vineis_* .
 anvi-run-workflow -w contigs -c vineis_config.json
 ```
 
-The same notes about setting the KEGG data version and the number of threads that we detailed for the metagenomics workflow apply to this workflow as well.
+The notes about setting the KEGG data version and the number of threads apply to this workflow as well.
 
 ### A final note on data organization
 
