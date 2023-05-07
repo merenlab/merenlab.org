@@ -1093,6 +1093,10 @@ grep -E "CAG|UBA|QAN" 05_GTDB_ANALYSES/family_counts.txt | cut -f 2 | awk '{s+=$
 Finally, to quantify the differences in metabolic capacity between HMI genomes and non-HMI genomes, we ran the following R code to compute the per-module mean difference in PPCN between genome groups. This allowed us to see which pathways were most different between the two types of genomes. Note that the code uses the top-level directory of the datapack as the working directory.
 
 ```r
+library(dplyr)
+library(tidyr)
+library(tidyverse)
+
 gtdb_info = read.table(file="TABLES/01_GTDB_GENOMES_INFO.txt", 
                                    header = TRUE, sep = "\t")
 completeness_matrix_all = read.table(file="05_GTDB_ANALYSES/GTDB_METABOLISM-module_stepwise_completeness-MATRIX.txt", 
