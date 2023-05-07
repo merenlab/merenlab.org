@@ -940,7 +940,8 @@ The file `GTDB_EXTERNAL_GENOMES.txt` holds all the paths to the genome databases
 ```bash
 anvi-estimate-metabolism -e GTDB_EXTERNAL_GENOMES.txt \
                   --matrix-format \
-                  -O 05_GTDB_ANALYSES/GTDB_METABOLISM
+                  -O 05_GTDB_ANALYSES/GTDB_METABOLISM \
+                  --kegg-data-dir KEGG_2020-12-23
 ```
 
 The output file that you want to look at is the matrix of stepwise completeness scores, at `05_GTDB_ANALYSES/GTDB_METABOLISM-module_stepwise_completeness-MATRIX.txt`. It contains the completeness score for each KEGG module in each genome (completeness for an individual genome is analogous to PPCN for a metagenome). Later, we will use these data to make the completeness heatmap in Figure 3. Note that you can find this matrix in [Supplementary Table 3b](https://doi.org/10.6084/m9.figshare.22679080).
