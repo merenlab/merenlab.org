@@ -58,9 +58,12 @@ tar -xvzf VESELI_2023_DATAPACK.tar.gz
 cd VESELI_2023_DATAPACK/
 ```
 
-We suggest working from within this datapack. Most of the BASH commands in subsequent sections will assume that your starting working directory is the uppermost level of the datapack directory structure. To keep things organized, we'll have you generate a folder to work in for each major section of this workflow.
+We suggest working from within this datapack. To keep things organized, we'll have you generate a folder to work in for each major section of this workflow, and we'll tell you when and how to move between folders. To reference files in the datapack, we try to stick to the following conventions:
 
-The following two subsections describe how to download the [contigs databases](https://anvio.org/help/main/artifacts/contigs-db/) that we generated for the metagenomes and genomes analyzed in the paper. They are pretty big, so keep their storage requirements in mind before you download them. You can still follow along with some parts of the workflow even if you don't download them.
+* In code blocks, we give the path to the file relative to your current working directory (so that the command should work in the terminal without modification of the path)
+* In the text of the workflow, we give the path to the file relative to the top-level directory of the datapack; that is, `VESELI_2023_DATAPACK/`.
+
+The following two subsections describe how to download the [contigs databases](https://anvio.org/help/main/artifacts/contigs-db/) that we generated for the metagenomes and genomes analyzed in the paper. They are pretty big, so keep their storage requirements in mind before you download them. You can still follow along with some parts of the workflow even if you don't download them, since the datapack includes much of the data that we generated from these (meta)genomes.
 
 ### Downloading our contigs databases for metagenome assemblies
 
