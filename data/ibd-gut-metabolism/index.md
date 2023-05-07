@@ -1655,7 +1655,7 @@ anvi-estimate-metabolism -e PALLEJA_EXTERNAL_GENOMES.txt \
                     --matrix-format
 ```
 
-The resulting matrix of stepwise copy numbers will be called `antibiotics-module_stepwise_copy_number-MATRIX.txt`.
+The resulting matrix of stepwise copy numbers will be called `antibiotics-module_stepwise_copy_number-MATRIX.txt`. Note that we put our version of this file into the datapack, and you can find it at `TABLES/antibiotics-module_stepwise_copy_number-MATRIX.txt` (the classifier Jupyter notebook will use that file later).
 
 4) The R script at `SCRIPTS/module_stats_and_medians.R` contains a section of code for normalizing the copy numbers of the Palleja et al. samples. It will look for the matrix you just generated, using a path relative to the script's location (so set the working directory to be the `SCRIPTS` folder before you run it). It will generate a file at `06_CLASSIFIER/PALLEJA_SAMPLES/ANTIBIOTICS_PPCN.txt` containing the PPCN values.
 
@@ -1677,11 +1677,11 @@ You can also find this data in the `TABLES/02_PALLEJA_SAMPLES_INFO.txt` file.
 
 #### Classifying the time-series metagenomes
 
-Once you have the data for these samples, you can go back to the Jupyter notebook at `SCRIPTS/metagenome_classifier.ipynb`, which has a section called "Test on Antibiotic Time-series Samples" for classifying them. Here is the relevant code:
+Once you have the data for these samples, you can go back to the Jupyter notebook at `SCRIPTS/metagenome_classifier.ipynb`, which has a section called "Test on Antibiotic Time-series Samples" for classifying them. It uses the metabolism estimation matrix that we generated at `TABLES/antibiotics-module_stepwise_copy_number-MATRIX.txt`. Here is the relevant code:
 
 ```python
-antibiotics_data_dir = "../06_CLASSIFIER/PALLEJA_SAMPLES/"
-antibiotics_module_matrix = pd.read_csv(antibiotics_data_dir + "antibiotics-module_stepwise_copy_number-MATRIX.txt", \
+antibiotics_data_dir = "../06_CLASSIFIER/"
+antibiotics_module_matrix = pd.read_csv(data_dir + "antibiotics-module_stepwise_copy_number-MATRIX.txt", \
                                         sep="\t", index_col=0)
 antibiotics_samples = pd.read_csv(data_dir + "02_PALLEJA_SAMPLES_INFO.txt", \
                                         sep="\t", index_col=0)
@@ -1711,7 +1711,7 @@ antibiotics_predictions.loc[antibiotics_predictions['class'] == 1, 'class'] = 'I
 antibiotics_predictions.loc[antibiotics_predictions['class'] == 0, 'class'] = 'HEALTHY'
 ```
 
-If you continue to run the code after that section, you will see that the sample classifications get written to the file `CLASSIFIER_PREDICTIONS.txt`.
+If you continue to run the code after that section, you will see that the sample classifications get written to the file `06_CLASSIFIER/CLASSIFIER_PREDICTIONS.txt`.
 
 ### Generating Figure 5
 
