@@ -1184,8 +1184,7 @@ Now all the data is imported, but if you ran the above command, the drawing in t
 
 ```bash
 # import our re-rooted phylogeny
-anvi-import-items-order -i MISC/fig_3b_rerooted_tree.txt \ 
-                -p 05_GTDB_ANALYSES/tree.db \
+anvi-import-items-order -i MISC/fig_3b_rerooted_tree.txt -p 05_GTDB_ANALYSES/tree.db \
                 --name REROOTEDv2
 
 # import our visualization settings
