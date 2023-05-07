@@ -491,7 +491,7 @@ We've included our version of this output file in the DATAPACK. You will find it
 
 We just calculated the pathway copy numbers, and we estimated the number of microbial populations in each metagenome assembly in the previous section. To normalize the former, we divide by the latter. It is that simple :) 
 
-The R script at `SCRIPTS/module_stats_and_medians.R` contains the code for computing PPCN values. It gets the module copy numbers and per-sample population estimates from the tables in the `TABLES/` folder, and generates a long-format data table at `03_METABOLISM_OUTPUT/ALL_MODULES_NORMALIZED_DATA.txt` that includes the PPCN values in the `PPCN` column.
+The R script at `SCRIPTS/module_stats_and_medians.R` contains the code for computing PPCN values. It gets the module copy numbers and per-sample population estimates from the tables in the `TABLES/` folder, and generates a long-format data table at `03_METABOLISM_OUTPUT/ALL_MODULES_NORMALIZED_DATA.txt` that includes the PPCN values in the `PPCN` column. When you run the script, make sure the working directory is set to the `SCRIPTS/` folder so that the relative paths to the input files will be correct.
 
 You can see the full code in the script, but here are the most relevent lines for your quick perusal:
 
