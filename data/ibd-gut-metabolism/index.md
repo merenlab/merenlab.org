@@ -124,7 +124,7 @@ rm VESELI_ET_AL_GENOME_CONTIGS_DBS.tar.gz
 
 ### Datapack description
 
-Here is a quick overview of the datapack structure:
+Here is a quick overview of the datapack structure (assuming you downloaded the additional datapacks in the previous two subsections):
 
 ```
 VESELI_2023_DATAPACK/
