@@ -495,7 +495,7 @@ anvi-estimate-metabolism -e METAGENOME_EXTERNAL_GENOMES.txt \
 ```
 
 {:.notice}
-The use of `--kegg-data-dir KEGG_2020-12-23`, which points the program to the version of KEGG data that we used for our analysis (which you should have downloaded when going through the 'Computational environment details' section). If the path to this data on your computer is different, you will have to change that in the command before you run it.
+The use of `--kegg-data-dir KEGG_2020-12-23` points the program to the version of KEGG data that we used for our analysis (which you should have downloaded when going through the 'Computational environment details' section). If the path to this data on your computer is different, you will have to change that in the command before you run it.
 
 Since we used the `--matrix-format` flag, the output of {% include PROGRAM name="anvi-estimate-metabolism" %} will be a set of matrices, each containing a different statistic summarized across all of the metagenomes and all of the pathways. The one that we want for downstream analysis is the one containing stepwise copy numbers, which can be found at the path,
 
