@@ -19,13 +19,13 @@ Here is a list of links for quick access to the data described in our manuscript
 * [doi:10.6084/m9.figshare.22776701](https://doi.org/10.6084/m9.figshare.22776701): Datapack for this reproducible workflow.
 * [doi:_Link coming soon!_](FIXME ADD LINK): Contigs databases for our assemblies of 408 deeply-sequenced gut metagenomes.
 * [doi:10.5281/zenodo.7883421](https://doi.org/10.5281/zenodo.7883421): Contigs databases for 338 GTDB genomes.
-* [doi:10.5281/zenodo.7897987](https://doi.org/10.5281/zenodo.7897987): Contigs databases for our assemblies of the gut metagenomes from [Palleja et al. 2018](https://doi.org/10.1038/s41564-018-0257-9)].
+* [doi:10.5281/zenodo.7897987](https://doi.org/10.5281/zenodo.7897987): Contigs databases for our assemblies of the gut metagenomes from [Palleja et al. 2018](https://doi.org/10.1038/s41564-018-0257-9).
 
 
 </div>
 
 {:.notice}
-If you have any questions, notice an issue, and/or are unable to find an important piece of information here, please feel free to leave a comment down below, send an e-mail to [us]({{ site.url }}/people/), or get in touch with us through Discord:
+If you have any questions, notice an issue, and/or are unable to find an important piece of information here, please feel free to leave a comment down below, send an e-mail to [us](/people/), or get in touch with us through Discord:
 
 {% include _join-anvio-discord.html %}
 
@@ -34,14 +34,14 @@ If you have any questions, notice an issue, and/or are unable to find an importa
 
 This study is a follow-up to our [previous study](https://doi.org/10.1186/s13059-023-02924-x) on microbial colonization of the gut following fecal microbiota transplant, in which we introduced the concept of high metabolic independence as a determinant of microbial resilience for populations colonizing new individuals or living in individuals with inflammatory bowel disease (IBD). In the current work, we sought to (1) confirm our prior observations in a high-throughput comparative analysis of the gut microbiomes of healthy individuals and individuals with IBD, and (2) demonstrate that high metabolic independence is a robust marker of general stress experienced by the gut microbiome. To do this, we
 
-* created single assemblies of a large dataset of **publicly-available fecal metagenomes**
-* computed the **community-level** copy numbers of metabolic pathways in each sample, and **normalized these copy numbers** with the estimated number of populations in each sample to obtain **per-population copy numbers (PPCNs)**
-* determined which **metabolic pathways are enriched** in the IBD sample group
-* identified **bacterial reference genomes** associated with the human gut environment
-* characterized which reference genomes have **high metabolic independence (HMI)** based upon completeness scores of the IBD-enriched metabolic pathways in each genome
-* analyzed the **distribution of each group of genomes** within the healthy fecal metagenomes and those from individuals with IBD
-* **trained a machine learning classifier** with the IBD-enriched pathway PPCN data to differentiate between metagenome samples from individuals with IBD and those from healthy individuals
-* tested the classifier on an independent time-series dataset **tracking decline and recovery of the gut microbiome following antibiotic treatment** (it worked quite well!)
+* Created single assemblies of a large dataset of **publicly-available fecal metagenomes**
+* Computed the **community-level** copy numbers of metabolic pathways in each sample, and **normalized these copy numbers** with the estimated number of populations in each sample to obtain **per-population copy numbers (PPCNs)**
+* Determined which **metabolic pathways are enriched** in the IBD sample group
+* Identified **bacterial reference genomes** associated with the human gut environment
+* Characterized which reference genomes have **high metabolic independence (HMI)** based upon completeness scores of the IBD-enriched metabolic pathways in each genome
+* Analyzed the **distribution of each group of genomes** within the healthy fecal metagenomes and those from individuals with IBD
+* **Trained a machine learning classifier** with the IBD-enriched pathway PPCN data to differentiate between metagenome samples from individuals with IBD and those from healthy individuals
+* Tested the classifier on an independent time-series dataset **tracking decline and recovery of the gut microbiome following antibiotic treatment** (it worked quite well!)
 
 This webpage offers access to the details of our computational methods (occasionally with helpful context not given in the methods section of the manuscript) for the steps outlined above as well as to the datasets needed to reproduce our work. The workflow is organized into several large sections, each of which covers a set of related steps.
 
@@ -52,7 +52,8 @@ We've pre-packaged a lot of the data and scripts that you need for this workflow
 ```bash
 # download the datapack
 wget https://figshare.com/ndownloader/files/40468865 -O VESELI_2023_DATAPACK.tar.gz
-# extract it 
+
+# extract it
 tar -xvzf VESELI_2023_DATAPACK.tar.gz
 
 # move inside the datapack
@@ -64,7 +65,7 @@ We suggest working from within this datapack. To keep things organized, we'll ha
 * In code blocks, we give the path to the file relative to your current working directory (so that the command should work in the terminal without modification of the path)
 * In the text of the workflow, we give the path to the file relative to the top-level directory of the datapack; that is, `VESELI_2023_DATAPACK/`.
 
-The following two subsections describe how to download the [contigs databases](https://anvio.org/help/main/artifacts/contigs-db/) that we generated for the metagenomes and genomes analyzed in the paper. They are pretty big, so keep their storage requirements in mind before you download them. You can still follow along with some parts of the workflow even if you don't download them, since the datapack includes much of the data that we generated from these (meta)genomes.
+The following two subsections describe how to download the {% include ARTIFACT name="contigs-db" text="anvi'o contigs databases" %} that we generated for the metagenomes and genomes analyzed in the paper. They are pretty big, so keep their storage requirements in mind before you download them. You can still follow along with some parts of the workflow even if you don't download them, since the datapack includes much of the data that we generated from these (meta)genomes.
 
 ### Downloading our contigs databases for metagenome assemblies
 
@@ -75,7 +76,8 @@ The size of this metagenome dataset is **96 GB** (the archive alone is ~33 GB). 
 
 ```bash
 # download the metagenome data archive
-wget FIXME # Link coming soon! 
+wget FIXME # Link coming soon!
+
 # extract the metagenome data
 tar -xvzf VESELI_ET_AL_METAGENOME_CONTIGS_DBS.tar.gz
 
@@ -102,6 +104,7 @@ Likewise, there is [yet another link](https://doi.org/10.5281/zenodo.7883421) to
 ```bash
 # download the genome data archive
 wget https://zenodo.org/record/7883421/files/VESELI_ET_AL_GENOME_CONTIGS_DBS.tar.gz
+
 # extract the genome data
 tar -xvzf VESELI_ET_AL_GENOME_CONTIGS_DBS.tar.gz
 
@@ -116,7 +119,7 @@ while read db; do \
 done < <(ls SUBSET_GTDB_CONTIGS_DBS/)
 ```
 
-Once you run the above code, you should see in the datapack a folder called `SUBSET_GTDB_CONTIGS_DBS` that contains 338 database files, and a file called `GTDB_EXTERNAL_GENOMES.txt` that describes the name and absolute path to each genome's database on your computer. If everything looks good, you can delete the archive:
+Once you run the above code, you should see in the datapack a folder called `SUBSET_GTDB_CONTIGS_DBS` that contains 338 {% include ARTIFACT name="contigs-db" %} files, and a file called `GTDB_EXTERNAL_GENOMES.txt`, which is an anvi'o {% include ARTIFACT name="external-genomes" %} file that describes the name and absolute path to each genome's database on your computer. If everything looks good, you can delete the archive:
 
 ```
 # clean up the archive
@@ -127,16 +130,16 @@ rm VESELI_ET_AL_GENOME_CONTIGS_DBS.tar.gz
 
 Here is a quick overview of the datapack structure (assuming you downloaded the additional datapacks in the previous two subsections):
 
-```
+``` bash
 VESELI_2023_DATAPACK/
   |
-  |- TABLES/                               ## this holds the important data tables
-  |- SCRIPTS/                              ## this contains scripts that you can run to reproduce some of the work described below
-  |- MISC/                                 ## this holds miscellanous file
-  |- VESELI_ET_AL_METAGENOME_CONTIGS_DBS/  ## this holds the contigs databases we generated for the subset of samples we analyzed
-  |- METAGENOME_EXTERNAL_GENOMES.txt       ## file describing paths to metagenome contigs databases
-  |- SUBSET_GTDB_CONTIGS_DBS/              ## this holds the contigs databases we generated for the subset of GTDB genomes we analyzed
-  |- GTDB_EXTERNAL_GENOMES.txt             ## file describing paths to genome contigs databasess
+  |- TABLES/                               # important data tables
+  |- SCRIPTS/                              # scripts that you can run to reproduce some of the work described below
+  |- MISC/                                 # miscellanous data
+  |- VESELI_ET_AL_METAGENOME_CONTIGS_DBS/  # contigs databases we generated for the subset of samples we analyzed
+  |- METAGENOME_EXTERNAL_GENOMES.txt       # paths to metagenome contigs databases
+  |- SUBSET_GTDB_CONTIGS_DBS/              # contigs databases we generated for the subset of GTDB genomes we analyzed
+  |- GTDB_EXTERNAL_GENOMES.txt             # paths to genome contigs databasess
 ```
 
 As you go through this webpage, you will be creating new folders and working within them to reproduce the computational analyses in our manuscript. We recommend going through the workflow in order, as some later analyses depend on the output of earlier analyses. That said, we tried to make it possible for you to skip sections (particularly the ones requiring a lot of computational resources) by pointing out where you can find the requisite data (either in the datapack or as part of our [Supplementary Tables](https://doi.org/10.6084/m9.figshare.22679080)).
@@ -145,11 +148,11 @@ As you go through this webpage, you will be creating new folders and working wit
 
 The bulk of analyses in this study were done using anvi'o version `7.1-dev` (that is, the development version of anvi'o following the stable release `v7.1`). You can use anvi'o version `8.0` (once it is released) to reproduce our results, as all of the relevant code has been included as part of that stable release.
 
-The only relevant difference between `v7.1-dev` and `v8.0` (with respect to reproducing our results) is the default KEGG snapshot, which is newer in `v8.0` than the version we used for the analyses in this paper. The choice of KEGG version affects the results of `anvi-run-kegg-kofams` and `anvi-estimate-metabolism`. In order to use the same version we did, you should run the following code to download the appropriate snapshot onto your computer into the directory `KEGG_2020-12-23/` (you can change that path if you want):
+The only relevant difference between `v7.1-dev` and `v8.0` (with respect to reproducing our results) is the default KEGG snapshot, which is newer in `v8.0` than the version we used for the analyses in this paper. The choice of KEGG version affects the results of {% include PROGRAM name="anvi-run-kegg-kofams" %} and {% include PROGRAM name="anvi-estimate-metabolism" %}. In order to use the same version we did, you should run the following code to download the appropriate snapshot onto your computer into the directory `KEGG_2020-12-23/` (you can change that path if you want):
 
 ```bash
 anvi-setup-kegg-kofams --kegg-snapshot v2020-12-23 \
-                       --kegg-data-dir KEGG_2020-12-23 
+                       --kegg-data-dir KEGG_2020-12-23
 ```
 
 Whenever KEGG-related programs are used, you can make them use the appropriate KEGG version by adding `--kegg-data-dir KEGG_2020-12-23` (replacing that path with wherever you decided to store the KEGG data on your computer). In the code on this page (as well as in the scripts and files of the datapack), we'll assume you followed the setup command exactly as written and add the directory name `KEGG_2020-12-23`.
@@ -157,10 +160,10 @@ Whenever KEGG-related programs are used, you can make them use the appropriate K
 
 ## Obtaining our initial dataset of public fecal metagenomes
 
-This section covers the steps for acquiring and processing our initial set of publicly-available gut metagenomes. We downloaded, assembled and annotated 2,893 samples from 13 different studies. We wanted a large number of samples from various sources in order to evaluate our metabolic competency hypothesis across a wide diversity of cohorts from different geographical locations, age groups, hospital systems, and degress of healthiness. Note that this extensive dataset was later filtered to remove samples with low-sequencing depth (as described in the next section), and as a result, not all of these samples were utilized for the main analyses in our study. However, you can access the full list of the 2,893 samples that we considered in sheet (c) of [Supplementary Table 1](https://doi.org/10.6084/m9.figshare.22679080). 
+This section covers the steps for acquiring and processing our initial set of publicly-available gut metagenomes. We downloaded, assembled and annotated 2,893 samples from 13 different studies. We wanted a large number of samples from various sources in order to evaluate our metabolic competency hypothesis across a wide diversity of cohorts from different geographical locations, age groups, hospital systems, and degress of healthiness. Note that this extensive dataset was later filtered to remove samples with low-sequencing depth (as described in the next section), and as a result, not all of these samples were utilized for the main analyses in our study. However, you can access the full list of the 2,893 samples that we considered in sheet (c) of [Supplementary Table 1](https://doi.org/10.6084/m9.figshare.22679080).
 
 {:.warning}
-This section is computationally intensive and requires a lot of storage resources. If you want to reproduce this section, you should make sure that your high-performance computing system is prepared to shoulder the burden. Note that the large dataset covered here is only relevant to a few of the analyses described later, so there may not even be a need for you to go through this section at all. If you are only interested in reproducing the main analyses of the paper, the datapack at [LINK COMING SOON](FIXME LINK) provides the final contigs databases for the relevant subset of samples, so you can skip this part. :)
+This section is computationally intensive and requires a lot of storage resources. If you want to reproduce this section, you should make sure that your high-performance computing system is prepared to shoulder the burden. Note that the large dataset covered here is only relevant to a few of the analyses described later, so there may not even be a need for you to go through this section at all. If you are only interested in reproducing the main analyses of the paper, the datapack at [LINK COMING SOON](FIXME LINK) provides the final {% include ARTIFACT name="contigs-db" %} files for the relevant subset of samples, so you can skip this part :)
 
 ### Criteria for sample selection and sample groups
 We sought to obtain a large number of fecal metagenomes from healthy individuals and from individuals with IBD. We used the following criteria to search for studies offering such samples:
@@ -188,7 +191,7 @@ We note that we did not exclude samples from individuals with high BMI from the 
 
 The SRA accession number of each sample is listed in [Supplementary Table 1c](https://doi.org/10.6084/m9.figshare.22679080). We downloaded the samples from each contributing study individually, over time, using the [NCBI SRA toolkit](https://github.com/ncbi/sra-tools) and particularly the [`fasterq-dump` program](https://github.com/ncbi/sra-tools/wiki/08.-prefetch-and-fasterq-dump) that will download the FASTQ files for each given SRA accession. We then gzipped each read file to save on space (and you will see us refer to these gzipped FASTQ files later in the workflow).
 
-If you want to download all of the samples we used in this work (keeping in mind that the storage requirements for almost 3,000 metagenomes will be huge), here we show you how to download all of the samples with one script, into the same folder (for better organization and easier compatibility with the later sections of this workflow). But it truly doesn't matter how you decide to organize the samples as long as you can keep track of the paths to each sample on your computer. So if you want to do it differently, go for it (and feel free to reach out to us for help if you need it). 
+If you want to download all of the samples we used in this work (keeping in mind that the storage requirements for almost 3,000 metagenomes will be huge), here we show you how to download all of the samples with one script, into the same folder (for better organization and easier compatibility with the later sections of this workflow). But it truly doesn't matter how you decide to organize the samples as long as you can keep track of the paths to each sample on your computer. So if you want to do it differently, go for it (and feel free to reach out to us for help if you need it).
 
 For convenience, we've provided a plain-text version of Table 1c in our [datapack](https://doi.org/10.6084/m9.figshare.22776701), which can be accessed at the path `TABLES/00_ALL_SAMPLES_INFO.txt`. The last column of that file provides the SRA accessions that can be used for downloading each sample.
 
@@ -231,7 +234,7 @@ while read sample diag study doi grp num1 num2 nump sra; do \
   if [[ $study == "Quince_2015" ]]; then \
     r1=""; # change this to obtain paths to Quince et al samples \
     r2=""; # since these don't have individual SRA acc \
-  else 
+  else
     if [[ $sra =~ "," ]]; then \
       for i in ${sra//,/ }; do \
         x1=$(ls -d $PWD/00_FASTQ_FILES/${i}_1.fastq.gz) ;\
@@ -270,13 +273,13 @@ If you are paying close attention, you might notice that not all of the samples 
 
 ### Metagenome processing: single assemblies and annotations
 
-We used the [anvi'o metagenomic workflow](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#metagenomics-workflow), which makes use of the workflow management tool [snakemake](https://snakemake.readthedocs.io/en/stable/), for high-throughput assembly and annotation of our large dataset. Here are the most important steps in the workflow that directly impact the downstream analyses: 
+We used the [anvi'o metagenomic workflow](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#metagenomics-workflow), which makes use of the workflow management tool [snakemake](https://snakemake.readthedocs.io/en/stable/), for high-throughput assembly and annotation of our large dataset. Here are the most important steps in the workflow that directly impact the downstream analyses:
 
-* quality filtering of sequencing reads using the [Minoche et al. 2011](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2011-12-11-r112) guidelines via the [`illumina-utils` package](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0066643), specifically the program `iu-filter-quality-minoche`
-* single assembly with [IDBA-UD](https://academic.oup.com/bioinformatics/article/28/11/1420/266973). We used all default parameters except that we set the minimum contig length (`--min_contig`) to be 1000
-* generation of an anvi'o contigs database (and gene-calling) for each assembly with `anvi-gen-contigs-database`
-* annotation of single-copy core genes with `anvi-run-hmms`
-* annotation of KEGG KOfams with `anvi-run-kegg-kofams`
+* Quality filtering of sequencing reads using the [Minoche et al. 2011](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2011-12-11-r112) guidelines via the [`illumina-utils` package](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0066643), specifically the program `iu-filter-quality-minoche`
+* Single assembly with [IDBA-UD](https://academic.oup.com/bioinformatics/article/28/11/1420/266973). We used all default parameters except that we set the minimum contig length (`--min_contig`) to be 1000
+* Generation of an anvi'o {% include ARTIFACT name="contigs-db" %} (and gene-calling) for each assembly with {% include PROGRAM name="anvi-gen-contigs-database" %}
+* Annotation of single-copy core genes with {% include PROGRAM name="anvi-run-hmms" %}
+* Annotation of KEGG KOfams with {% include PROGRAM name="anvi-run-kegg-kofams" %}
 
 (the workflow has other steps, namely read recruitment of each sample against its assembly and the consolidation of the resulting read mapping data into anvi'o profile databases, but these are not crucial for our downstream analyses in this paper.)
 
@@ -302,12 +305,21 @@ grep -v NaN ../01_METAGENOME_DOWNLOAD/METAGENOME_SAMPLES.txt > samples.txt
 Then, you can start the workflow with the following command (hopefully adapted for use on a high-performance computing cluster):
 
 ```bash
-anvi-run-workflow -w metagenomics -c metagenomes_config.json
+anvi-run-workflow -w metagenomics \
+                  -c metagenomes_config.json
 ```
 
 A few notes:
+
 * We renamed the samples from each study to incorporate information such as country of origin (for healthy samples) or host diagnosis (for IBD samples) for better readability and downstream sorting. To match our sample names, your `samples.txt` file should use the same sample names that are described in [Supplementary Table 1c](https://doi.org/10.6084/m9.figshare.22679080) (or the first column of `TABLES/00_ALL_SAMPLES_INFO.txt` in the [datapack](https://doi.org/10.6084/m9.figshare.22776701)). If you generated the `samples.txt` using the code above, this should already be the case.
-* We used the default snapshot of KEGG data associated with anvi'o `v7.1-dev`, which can be downloaded onto your computer by running `anvi-setup-kegg-kofams --kegg-snapshot  v2020-12-23`, as described earlier. To exactly replicate the results of this study, the metagenome samples need to be annotated with this KEGG version by setting the `--kegg-data-dir` parameter (in the `anvi_run_kegg_kofams` rule of the config file) to point to this snapshot wherever it located on your computer. We already set this parameter to point to the `KEGG_2020-12-23` directory, but if you stored that data in a different location, you will have to change it in the config file.
+* We used the default snapshot of KEGG data associated with anvi'o `v7.1-dev`, which can be downloaded onto your computer by running the following command as described earlier:
+
+  ```
+  anvi-setup-kegg-kofams --kegg-snapshot v2020-12-23
+  ```
+
+  To exactly replicate the results of this study, the metagenome samples need to be annotated with this KEGG version by setting the `--kegg-data-dir` parameter (in the `anvi_run_kegg_kofams` rule of the config file) to point to this snapshot wherever it located on your computer. We already set this parameter to point to the `KEGG_2020-12-23` directory, but if you stored that data in a different location, you will have to change it in the config file.
+
 * The number of threads used for each rule is set in the config file. We conservatively set this number to be 1 for all rules, but you will certainly want to adjust these to take advantage of the resources of your particular system.
 
 The steps in the workflow described above apply to all of the metagenome samples except for those from [Vineis et al. 2016](https://doi.org/10.1128/mBio.01713-16), which had to be processed differently since the downloaded samples contain merged reads (rather than paired-end reads described in R1 and R2 files, as in the other samples). Since the metagenomics workflow currently works only on paired-end reads, we had to run the assemblies manually. Aside from the lack of workflow, there are only two major differences in the processing of the 96 Vineis et al. samples:
@@ -336,7 +348,7 @@ done < <(grep NaN ../01_METAGENOME_DOWNLOAD/METAGENOME_SAMPLES.txt | cut -f 1-2)
 rm -r *TMP/
 ```
 
-Then, we were able to leverage the anvi'o contigs workflow to generate the contigs databases for each assembly and run the annotation steps. We've provided the relevant configuration file for this workflow (`MISC/vineis_config.json`) as well as the input file that lists the path to each assembly (`MISC/vineis_fasta.txt`) in the [datapack](https://doi.org/10.6084/m9.figshare.22776701), and this is how you could run it for yourself:
+Then, we were able to leverage the [anvi'o contigs workflow](https://anvio.org/help/main/workflows/contigs/) to generate the {% include ARTIFACT name="contigs-db" %} files for each assembly and run the annotation steps. We've provided the relevant {% include ARTIFACT name="workflow-config" %} file for this workflow (`MISC/vineis_config.json`) as well as the input file that lists the path to each assembly (`MISC/vineis_fasta.txt`) in the [datapack](https://doi.org/10.6084/m9.figshare.22776701), and this is how you could run it for yourself:
 
 ```bash
 cp ../MISC/vineis_* .
@@ -347,7 +359,7 @@ The notes about setting the KEGG data version and the number of threads apply to
 
 ### A final note on data organization
 
-If you've elected to reproduce the metagenome download and processing described in this section, you will have ended up with a lot of samples, assemblies, and contigs databases on your computer system. You will need to access the databases several times later in the workflow, so you should generate an [external genomes file](https://anvio.org/help/main/artifacts/external-genomes/) containing the paths to each database:
+If you've elected to reproduce the metagenome download and processing described in this section, you will have ended up with a lot of samples, assemblies, and {% include ARTIFACT name="contigs-db" %} files on your computer system. You will need to access the databases several times later in the workflow, so you should generate an {% include ARTIFACT name="external-genomes" %} file containing the paths to each database:
 
 ```bash
 # generate a table of sample names and paths
@@ -359,7 +371,7 @@ while read db; do \
 done < <(ls 03_CONTIGS/)
 ```
 
-Since both workflows should have deposited contigs databases in the folder at `02_METAGENOME_PROCESSING/03_CONTIGS/` (unless you changed the output directory in the config files), the above loop simply lists a path for every database in that folder. Ultimately, the external genomes file at `02_METAGENOME_PROCESSING/ALL_METAGENOME_DBS.txt` should have a line for all 2,893 samples in it (plus a line for the header), if everything went well (i.e., no unresolved errors in the workflows).
+Since both workflows should have deposited {% include ARTIFACT name="contigs-db" %} files in the folder at `02_METAGENOME_PROCESSING/03_CONTIGS/` (unless you changed the output directory in the config files), the above loop simply lists a path for every database in that folder. Ultimately, the {% include ARTIFACT name="external-genomes" %} file at `02_METAGENOME_PROCESSING/ALL_METAGENOME_DBS.txt` should have a line for all 2,893 samples in it (plus a line for the header), if everything went well (i.e., no unresolved errors in the workflows).
 
 If you decided to follow a different file naming and organization strategy than the one used above, that is fine. Where the files are on your computer does not matter for following the remainder of this workflow, as long as you prepare a file for yourself that describes the correct paths to each sample's read files and contigs database.
 
@@ -378,7 +390,7 @@ This section will cover how we estimate the number of populations in each metage
 
 ### Estimating number of populations per sample
 
-To estimate how many microbial populations are represented in a metagenome assembly, we can rely on the fact that all microbial genomes (with few exceptions) contain exactly one copy of each gene in a special set of essential genes called single-copy core genes (SCGs). These include ribosomal proteins and other housekeeping genes. Anvi'o ships with a few generic sets of SCGs that is each specific to a domain of microbial life (Bacteria, Archaea, and Protista) and these genes are annotated using the program `anvi-run-hmms` (which, you might recall, we ran earlier as part of our metagenome processing workflows).
+To estimate how many microbial populations are represented in a metagenome assembly, we can rely on the fact that all microbial genomes (with few exceptions) contain exactly one copy of each gene in a special set of essential genes called single-copy core genes (SCGs). These include ribosomal proteins and other housekeeping genes. Anvi'o ships with a few generic sets of SCGs that is each specific to a domain of microbial life (Bacteria, Archaea, and Protista) and these genes are annotated using the program {% include PROGRAM name="anvi-run-hmms" %} (which, you might recall, we ran earlier as part of our metagenome processing workflows).
 
 Since we expect to find one copy of each SCG in each microbial population, we can count the total number of copies of an SCG in a metagenome assembly and use that as the number of populations. However, using just one SCG for estimation would be error-prone due to missing SCG annotations in incomplete data (or the occasional duplication within a genome). Instead, we can use all of the SCGs for a given domain to make the estimate more robust to noise. The **mode of the number of SCGs** in the assembly gives us our estimate of the number of populations, in this case. The sketch below illustrates this process - each SCG is annotated in the metagenome assembly as indicated by the black boxes on the highlighted sequences on the bottom (shown for the first 3 SCGs only), these annotations are tallied (top histogram), and then the mode of the counts is computed:
 
@@ -417,7 +429,7 @@ Supplementary Figure 1 is a scatterplot demonstrating the correlation betwen seq
 
 ```r
 #### SUPP FIG 1 - SEQUENCING DEPTH SCATTERPLOT ####
-all_metagenomes = read.table(file=paste(data_dir, "00_ALL_SAMPLES_INFO.txt", sep=""), 
+all_metagenomes = read.table(file=paste(data_dir, "00_ALL_SAMPLES_INFO.txt", sep=""),
                              header = TRUE, sep = "\t")
 gplt = all_metagenomes %>%
   ggplot(aes(r1_num_reads/1e6, num_populations, color=group)) +
@@ -426,10 +438,10 @@ gplt = all_metagenomes %>%
   geom_vline(xintercept = 25) +
   scale_color_manual(values = c(HEALTHY_color, IBD_color, NONIBD_color)) +
   scale_fill_manual(values = c(HEALTHY_color, IBD_color, NONIBD_color)) +
-  theme_bw() + 
+  theme_bw() +
   theme(panel.grid.minor = element_blank()) +
-  stat_cor(data=subset(all_metagenomes, r1_num_reads < 25000000), method='spearman', label.x.npc = 'left', show.legend = FALSE) + 
-  geom_smooth(data=subset(all_metagenomes, r1_num_reads < 25000000), method='lm', aes(fill=group), alpha=.2) + 
+  stat_cor(data=subset(all_metagenomes, r1_num_reads < 25000000), method='spearman', label.x.npc = 'left', show.legend = FALSE) +
+  geom_smooth(data=subset(all_metagenomes, r1_num_reads < 25000000), method='lm', aes(fill=group), alpha=.2) +
   stat_cor(data=subset(all_metagenomes, r1_num_reads >= 25000000), method='spearman', label.x.npc = 'center', show.legend = FALSE) +
   geom_smooth(data=subset(all_metagenomes, r1_num_reads >= 25000000), method='lm', aes(fill=group), alpha=.2)
 gplt
@@ -471,26 +483,35 @@ mkdir 03_METABOLISM_OUTPUT
 
 ### Metabolism estimation
 
-We used the program `anvi-estimate-metabolism` to compute copy numbers of KEGG modules in each sample. You can find details about that program and its calculation strategies on [this page](https://anvio.org/help/main/programs/anvi-estimate-metabolism/). To ensure that all annotated KOfams in the metagenome contributed to the calculations, we ran the program in 'genome mode' on each sample, and to do this in a high-throughput manner, we provided the program with an [external genomes file](https://anvio.org/help/main/artifacts/external-genomes/) containing the paths to all the samples' contigs databases at once. Here is the code to both generate that input file (from the table containing the sample information, including paths) and run the metabolism estimation code.
+We used the program {% include PROGRAM name="anvi-estimate-metabolism" %} to compute copy numbers of KEGG modules in each sample. You can find details about that program and its calculation strategies on [this page](https://anvio.org/help/main/programs/anvi-estimate-metabolism/). To ensure that all annotated KOfams in the metagenome contributed to the calculations, we ran the program in 'genome mode' on each sample, and to do this in a high-throughput manner, we provided the program with an {% include ARTIFACT name="external-genomes" %} file containing the paths to all the samples' contigs databases at once. Here is the code to both generate that input file (from the table containing the sample information, including paths) and run the metabolism estimation code.
 
 ```bash
 # run metabolism estimation
 anvi-estimate-metabolism -e METAGENOME_EXTERNAL_GENOMES.txt \
-                    -O 03_METABOLISM_OUTPUT/METAGENOME_METABOLISM \
-                    --kegg-data-dir KEGG_2020-12-23 \
-                    --add-copy-number \
-                    --matrix-format
+                         -O 03_METABOLISM_OUTPUT/METAGENOME_METABOLISM \
+                         --kegg-data-dir KEGG_2020-12-23 \
+                         --add-copy-number \
+                         --matrix-format
 ```
 
-Note the use of `--kegg-data-dir KEGG_2020-12-23`, which points the program to the version of KEGG data that we used for our analysis (which you should have downloaded when going through the 'Computational environment details' section). If the path to this data on your computer is different, you will have to change that in the command before you run it.
+{:.notice}
+The use of `--kegg-data-dir KEGG_2020-12-23`, which points the program to the version of KEGG data that we used for our analysis (which you should have downloaded when going through the 'Computational environment details' section). If the path to this data on your computer is different, you will have to change that in the command before you run it.
 
-Since we used the `--matrix-format` flag, the output of `anvi-estimate-metabolism` will be a set of matrices, each containing a different statistic summarized across all of the metagenomes and all of the pathways. The one that we want for downstream analysis is the one containing stepwise copy numbers, which can be found at the path `03_METABOLISM_OUTPUT/METAGENOME_METABOLISM-module_stepwise_copy_number-MATRIX.txt`. 
+Since we used the `--matrix-format` flag, the output of {% include PROGRAM name="anvi-estimate-metabolism" %} will be a set of matrices, each containing a different statistic summarized across all of the metagenomes and all of the pathways. The one that we want for downstream analysis is the one containing stepwise copy numbers, which can be found at the path,
 
-We've included our version of this output file in the [datapack](https://doi.org/10.6084/m9.figshare.22776701). You will find it at `TABLES/METAGENOME_METABOLISM-module_stepwise_copy_number-MATRIX.txt` (and this table is referenced in the scripts below that depend on this data, just in case you don't run this step).
+```
+03_METABOLISM_OUTPUT/METAGENOME_METABOLISM-module_stepwise_copy_number-MATRIX.txt
+```
+
+We've included our version of this output file in the [datapack](https://doi.org/10.6084/m9.figshare.22776701) just to ensure that if you haven't run this step, the scripts below that depend on this output will continue to run regardless. You can find it at,
+
+```
+TABLES/METAGENOME_METABOLISM-module_stepwise_copy_number-MATRIX.txt
+```
 
 ### Normalization of pathway copy numbers to PPCN
 
-We just calculated the pathway copy numbers, and we estimated the number of microbial populations in each metagenome assembly in the previous section. To normalize the former, we divide by the latter. It is that simple :) 
+We just calculated the pathway copy numbers, and we estimated the number of microbial populations in each metagenome assembly in the previous section. To normalize the former, we divide by the latter. It is that simple :)
 
 The R script at `SCRIPTS/module_stats_and_medians.R` contains the code for computing PPCN values. It gets the module copy numbers and per-sample population estimates from the tables in the `TABLES/` folder, and generates a long-format data table at `03_METABOLISM_OUTPUT/ALL_MODULES_NORMALIZED_DATA.txt` that includes the PPCN values in the `PPCN` column. When you run the script, make sure the working directory is set to the `SCRIPTS/` folder so that the relative paths to the input files will be correct.
 
@@ -510,12 +531,12 @@ normalize_values = function(matrix, normalizing_matrix, normalize_by_col){
 
 #### COMPUTING PPCN VALUES (COPY NUMBER NORMALIZATION) ####
 ## LOAD DATA
-metagenomes = read.table(file=paste(data_dir, "00_SUBSET_SAMPLES_INFO.txt", sep=""), 
+metagenomes = read.table(file=paste(data_dir, "00_SUBSET_SAMPLES_INFO.txt", sep=""),
                          header = TRUE, sep = "\t")
 module_info = read.table(paste(data_dir, "ALL_MODULES_INFO.txt", sep=""), header = TRUE, sep="\t")
 
 ## LOAD COPY NUMBER MATRIX AND NORMALIZE AND GROUP SAMPLES
-table_from_file = read.table(file=paste(data_dir, "METAGENOME_METABOLISM-module_stepwise_copy_number-MATRIX.txt", sep=""), 
+table_from_file = read.table(file=paste(data_dir, "METAGENOME_METABOLISM-module_stepwise_copy_number-MATRIX.txt", sep=""),
                              header = TRUE, sep = "\t")
 stepwise_matrix = melt(table_from_file)
 colnames(stepwise_matrix) = c('module', 'sample', 'value')
@@ -597,7 +618,7 @@ We used Inkscape to polish up the resulting plots into a publication-ready figur
 
 ### Summary of metagenome results
 
-So far, we've analyzed gut metagenomes, using per-population copy number as our metric for the typical metabolic capacity of a microbial population in the community described by each metagenome. We obtained a list of metabolic pathways that are enriched in the IBD sample group, that largely overlap with the modules associated with metabolic independence from [our previous study](https://doi.org/10.1186/s13059-023-02924-x), and that are mostly biosynthesis pathways for important cellular metabolites. These 33 IBD-enriched pathways could be important to microbial survival in the depleted communities of the IBD gut environment, and represent a refined list of modules associated with high metabolic independence in this environment. 
+So far, we've analyzed gut metagenomes, using per-population copy number as our metric for the typical metabolic capacity of a microbial population in the community described by each metagenome. We obtained a list of metabolic pathways that are enriched in the IBD sample group, that largely overlap with the modules associated with metabolic independence from [our previous study](https://doi.org/10.1186/s13059-023-02924-x), and that are mostly biosynthesis pathways for important cellular metabolites. These 33 IBD-enriched pathways could be important to microbial survival in the depleted communities of the IBD gut environment, and represent a refined list of modules associated with high metabolic independence in this environment.
 
 We've essentially confirmed our previous observations, but with a much more extensive dataset of publicly-available gut metagenomes than was used in that study. However, will these observations hold up at the genome level? That is going to be the topic of the next section.
 
@@ -617,16 +638,16 @@ cd 04_GTDB_PROCESSING/
 
 ### Genome processing: the anvi'o contigs workflow
 
-You might remember the [contigs workflow](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#contigs-workflow) from the metagenome processing section above. This workflow, implemented using [snakemake](https://snakemake.readthedocs.io/en/stable/), can take a large number of genome sequences and convert each one into a contigs database. It can also run gene annotation from a variety of functional databases on these genomes.
+You might remember the [contigs workflow](https://anvio.org/help/main/workflows/contigs/) from the metagenome processing section above. This workflow, implemented using [snakemake](https://snakemake.readthedocs.io/en/stable/), can take a large number of genome sequences and convert each one into a contigs database. It can also run gene annotation from a variety of functional databases on these genomes.
 
 We used the contigs workflow on all of the representative genomes for species clusters in GTDB release 95.0. The two most critical steps for our downstream analyses were:
 
-* the identification of single-copy core genes (SCGs) in each genome using `anvi-run-hmms`
-* annotation of KEGG KOfams using `anvi-run-kegg-kofams` (with our `v2020-12-23` KEGG snapshot)
+* The identification of single-copy core genes (SCGs) in each genome using {% include PROGRAM name="anvi-run-hmms" %}
+* Annotation of KEGG KOfams using {% include PROGRAM name="anvi-run-kegg-kofams" %} (with our `v2020-12-23` KEGG snapshot)
 
-If you want to see what other programs we ran, you can check the workflow configuration file at `MISC/GTDB_contigs_config.json`. 
+If you want to see what other programs we ran, you can check the workflow configuration file at `MISC/GTDB_contigs_config.json`.
 
-And if you want to run this for yourself, then you need to 1) download all representative genome sequences for GTDB release 95, 2) make a [`fasta.txt`](https://anvio.org/help/main/artifacts/fasta-txt/) file that includes the path to each genome, 3) update the config file for your computer system (i.e., changing the number of threads for each rule and possibly adding the path to the right version of KEGG data with `--kegg-data-dir`), and 4) running the following (hopefully, you will modify the workflow command to work with your HPC's scheduler):
+And if you want to run this for yourself, then you need to 1) download all representative genome sequences for GTDB release 95, 2) make a {% include ARTIFACT name="fasta-txt" %} file that includes the path to each genome, 3) update the config file for your computer system (i.e., changing the number of threads for each rule and possibly adding the path to the right version of KEGG data with `--kegg-data-dir`), and 4) running the following (hopefully, you will modify the workflow command to work with your HPC's scheduler):
 
 ```bash
 # first make a folder in which to run the workflow
@@ -677,8 +698,8 @@ We wanted to use a single-copy core gene, and specifically a ribosomal protein, 
 First, we obtained a matrix of SCG frequencies:
 ```bash
 anvi-estimate-scg-taxonomy --metagenomes ../MISC/GTDB_genomes_and_metagenomes.txt \
-    --report-scg-frequencies GTDB_SCG_MATRIX.txt \
-    -O GTDB_SCG
+                           --report-scg-frequencies GTDB_SCG_MATRIX.txt \
+                           -O GTDB_SCG
 ```
 
 In the command above, the `GTDB_genomes_and_metagenomes.txt` is a [file describing the paths](https://anvio.org/help/main/artifacts/metagenomes/) to each of the GTDB genomes and HMP assemblies. You will find it in the `MISC` directory of the datapack. This file assumes that the GTDB genome databases are located in the output directory of the contigs workflow you ran in the folder `GTDB_CONTIGS_WORKFLOW`, and that the databases for the HMP samples are located in the current directory (so you'll have to change those paths to wherever those assemblies are located on your own computer).
@@ -692,7 +713,7 @@ SCG_frequencies <- read_tsv("GTDB_SCG_MATRIX.txt")
 
 # look in all metagenomes and genomes
 SCG_frequencies %>%
-  pivot_longer(cols = starts_with("Ribosomal")) %>% 
+  pivot_longer(cols = starts_with("Ribosomal")) %>%
   dplyr::rename(SCG = "name") %>%
   group_by(SCG) %>%
   summarize(total = sum(value)) %>%
@@ -701,7 +722,7 @@ SCG_frequencies %>%
 # look in only the genomes
 SCG_frequencies %>%
 filter(!grepl("USA", genome)) %>%
-pivot_longer(cols = starts_with("Ribosomal")) %>% 
+pivot_longer(cols = starts_with("Ribosomal")) %>%
 dplyr::rename(SCG = "name") %>%
 group_by(SCG) %>%
 summarize(total = sum(value)) %>%
@@ -724,7 +745,7 @@ echo -e "name\tcontigs_db_path" > HMP_metagenome_assemblies.txt
 grep USA ../MISC/GTDB_genomes_and_metagenomes.txt >> HMP_metagenome_assemblies.txt
 ```
 
-To generate the last file, make a [samples-txt](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#samplestxt) with the paths to the HMP samples, wherever they are on your computer (we called this file `GTDB_HMP_samples.txt`). You will probably also have to change the paths to the HMP assemblies in `GTDB_genomes_and_metagenomes.txt` and all derivative files (if these are not in your current working directory).
+To generate the last file, make a {% include ARTIFACT name="samples-txt" %} file with the paths to the HMP samples, wherever they are on your computer (we called this file `GTDB_HMP_samples.txt`). You will probably also have to change the paths to the HMP assemblies in `GTDB_genomes_and_metagenomes.txt` and all derivative files (if these are not in your current working directory).
 
 The configuration file for the workflow can be found at `MISC/ecophylo_config.json`. It contains the names of each of the input files from the `MISC/` folder. You can run the workflow using the following commands:
 
@@ -737,7 +758,7 @@ As always, please remember to change the thread counts appropriately for your sy
 
 ### Subsetting gut genomes by Ribosomal Protein S6 detection in the HMP metagenomes
 
-Once the EcoPhylo workflow finished (producing output within the `04_GTDB_PROCESSING/ECOPHYLO_WORKFLOW` directory), we had access to the following data: 
+Once the EcoPhylo workflow finished (producing output within the `04_GTDB_PROCESSING/ECOPHYLO_WORKFLOW` directory), we had access to the following data:
 
 * clusters of similar Ribosomal Protein S6 sequences (>94% nucleotide identity) from the GTDB genomes and HMP metagenome assemblies
 * read recruitment information from the HMP metagenome samples to each cluster's representative sequence
@@ -746,8 +767,8 @@ We considered a genome to be a gut microbe if its `Ribosomal_S6` sequence belong
 
 ```bash
 anvi-export-table ECOPHYLO_WORKFLOW/METAGENOMICS_WORKFLOW/06_MERGED/Ribosomal_S6/PROFILE.db \
-              --table detection_splits \
-              -o Ribosomal_S6_detection.txt
+                  --table detection_splits \
+                  -o Ribosomal_S6_detection.txt
 ```
 
 The profile database is not in the datapack (so you cannot run the code above unless you ran the EcoPhylo workflow), but the resulting detection table is, and you can find it at `TABLES/Ribosomal_S6_detection.txt`.
@@ -774,7 +795,8 @@ cd GTDB_MAPPING_WORKFLOW/
 ```
 
 #### Reformatting the genome FASTAs
-When making a FASTA file containing multple genomes, you need each contig sequence to be uniquely labeled, and you want to be able to easily identify which genome each contig sequence belongs to (in case you need to backtrack later). The easiest way to do that is to include the genome accession in each contig header. We acheived this by first running `anvi-script-reformat-fasta` on each of the individual GTDB genome FASTA files to get a version of the file with the genome accession prefixing each contig header.
+
+When making a FASTA file containing multple genomes, you need each contig sequence to be uniquely labeled, and you want to be able to easily identify which genome each contig sequence belongs to (in case you need to backtrack later). The easiest way to do that is to include the genome accession in each contig header. We acheived this by first running {% include PROGRAM name="anvi-script-reformat-fasta" %} on each of the individual GTDB genome FASTA files to get a version of the file with the genome accession prefixing each contig header.
 
 The loop below creates an [external genomes file](https://anvio.org/help/main/artifacts/external-genomes/) containing the name and path of each genome in our set of 836. To run this yourself, you will likely need to change the paths and/or filenames to the genome FASTA files, depending on where you stored them on your computer. Note that we used the naming convention of `${acc}.${ver}_genomic.fna.gz` (where `${acc}` is the genome accession and `${ver}` is its version number), and that we keep these files gzipped to reduce the storage requirement.
 
@@ -808,7 +830,7 @@ cat 01_GTDB_FASTA_REFORMAT/*.fasta >> GTDB_GENOMES.fasta
 # make sure the number of contigs match
 grep ">" 01_GTDB_FASTA_REFORMAT/*.fasta | wc -l
 grep -c ">" GTDB_GENOMES.fasta
-# 64280 in both cases 
+# 64280 in both cases
 
 # remove the reformatted genomes to save space
 rm -r 01_GTDB_FASTA_REFORMAT/
@@ -841,7 +863,7 @@ cp ../../MISC/GTDB_GENOMES_mapping_config.json .
 anvi-run-workflow -w metagenomics  -c GTDB_GENOMES_mapping_config.json
 ```
 
-For us, it took a few days to run. We stopped the workflow just before it ran `anvi-merge` (because, as you will see, we run that later to incorporate all the samples, including the Vineis et al. ones). If you let it run that step, it is fine - you simply may have to overwrite the resulting merged profile database later when you run `anvi-merge`.
+For us, it took a few days to run. We stopped the workflow just before it ran {% include PROGRAM name="anvi-merge" %} (because, as you will see, we run that later to incorporate all the samples, including the Vineis et al. ones). If you let it run that step, it is fine - you simply may have to overwrite the resulting merged profile database later when you run {% include PROGRAM name="anvi-merge" %}.
 
 #### Mapping the Vineis et al. samples separately
 
@@ -861,7 +883,7 @@ while read samp; do \
 done < vineis_samples.txt
 ```
 
-Once those mapping jobs are done, you can summarize the read mapping results into a profile database for each sample. You can multithread the `anvi-profile` step by adding the `-T` parameter, if you wish. Note that these paths also make use of the output directories from the previous workflow:
+Once those mapping jobs are done, you can summarize the read mapping results into a profile database for each sample. You can multithread the {% include PROGRAM name="anvi-profile" %} step by adding the `-T` parameter, if you wish. Note that these paths also make use of the output directories from the previous workflow:
 
 ```bash
 while read samp; do \
@@ -882,16 +904,31 @@ The resulting database will hold all of the coverage and detection statistics fo
 
 #### Summarizing the read mapping data
 
-Once the coverage and detection data has been nicely calculated and stored in the merged profile database, we extracted the data into tabular text files for downstream processing. First, we created a collection matching each contig in the big FASTA file (which contains all 836 genomes) to its original GTDB genome. We imported that collection into the database, and then used the program `anvi-summarize` to summarize the coverage information across all contigs in a given genome.  Here is the code to do that:
+Once the coverage and detection data has been nicely calculated and stored in the merged profile database, we extracted the data into tabular text files for downstream processing. First, we created a collection matching each contig in the big FASTA file (which contains all 836 genomes) to its original GTDB genome. We imported that collection into the database, and then used the program {% include PROGRAM name="anvi-summarize" %} to summarize the coverage information across all contigs in a given genome.  Here is the code to do that:
 
 ```bash
-grep "^>" GTDB_GENOMES.fasta | sed 's/^>//g' > contigs.txt                       # extract all contig headers
-while read contig; do echo $contig | cut -d '_' -f 1-2 >> bins.txt; done < contigs.txt  # extract genome name from contig headers
+# extract all contig headers
+grep "^>" GTDB_GENOMES.fasta | sed 's/^>//g' > contigs.txt
+
+# extract genome name from contig headers
+while read contig; do echo $contig | cut -d '_' -f 1-2 >> bins.txt; done < contigs.txt
+
+# combine them together in a single file
 paste contigs.txt bins.txt > GTDB_GENOMES_collection.txt
+
+# remove temporary files
 rm contigs.txt bins.txt
 
-anvi-import-collection -c 03_CONTIGS/GTDB_GENOMES-contigs.db -p 06_MERGED/PROFILE.db -C GTDB_GENOMES --contigs-mode GTDB_GENOMES_collection.txt
-anvi-summarize -c 03_CONTIGS/GTDB_GENOMES-contigs.db -p 06_MERGED/PROFILE.db -C GTDB_GENOMES"
+# import it as a collection
+anvi-import-collection -c 03_CONTIGS/GTDB_GENOMES-contigs.db \
+                       -p 06_MERGED/PROFILE.db \
+                       -C GTDB_GENOMES \
+                       --contigs-mode GTDB_GENOMES_collection.txt
+
+# run summarize
+anvi-summarize -c 03_CONTIGS/GTDB_GENOMES-contigs.db \
+               -p 06_MERGED/PROFILE.db \
+               -C GTDB_GENOMES"
 ```
 
 The program produces a folder of various data tables, one of which is a matrix of detection of each genome in each gut metagenome. You will find this table in the [datapack](https://doi.org/10.6084/m9.figshare.22776701) at `TABLES/GTDB_GENOMES_detection.txt`.
@@ -900,7 +937,7 @@ The program produces a folder of various data tables, one of which is a matrix o
 
 One issue with filtering for gut microbes using read recruitment to just one gene is that some non-gut microbes can slip into the set. For some groups of microbes, the Ribosomal Protein S6 gene is similar enough across different populations that they all end up in the same gene cluster, and if the cluster representative has high-enough detection in the HMP metagenomes, all of those genomes will be included in our list even if only a few of them are actually gut microbes. We noticed this problem when we started to look at the read recruitment data produced in the previous subsection - a lot of the genomes were undetected in the healthy and IBD gut metagenomes. When we investigated further, we saw that many of the undetected genomes were coming from two very large `Ribosomal_S6` gene clusters: one cluster of 180 `Enterobacteriaceae` genomes and one cluster of 163 `Streptococcus` genomes.
 
-To mitigate this issue, we decided to take one more filtering step and remove any genomes that were irrelevant to our metagenome dataset based upon their low detection across those samples. We required the genomes to have at least 50% detection (of the entire genome sequence) in at least 2% of the healthy and IBD samples (which translates to at least 7 out of the 331 samples in those two groups). 
+To mitigate this issue, we decided to take one more filtering step and remove any genomes that were irrelevant to our metagenome dataset based upon their low detection across those samples. We required the genomes to have at least 50% detection (of the entire genome sequence) in at least 2% of the healthy and IBD samples (which translates to at least 7 out of the 331 samples in those two groups).
 
 You can find the script we used to subset the genomes at `SCRIPTS/subset_gut_genomes_by_detection.py`. It uses the detection matrix we provide at `TABLES/GTDB_GENOMES_detection.txt`. Here is how you run it:
 
@@ -911,7 +948,7 @@ cd ..
 python ../SCRIPTS/subset_gut_genomes_by_detection.py
 ```
 
-It will generate 2 files: a shortened list of GTDB genomes that pass the filter (`genomes_detected_0.02_of_samples.txt`), and a subset of the detection matrix for just this set of genomes (`genomes_detected_0.02_of_samples-detection.txt`). 
+It will generate 2 files: a shortened list of GTDB genomes that pass the filter (`genomes_detected_0.02_of_samples.txt`), and a subset of the detection matrix for just this set of genomes (`genomes_detected_0.02_of_samples-detection.txt`).
 
 ### Final set of GTDB genomes and their contigs dbs
 
@@ -940,12 +977,18 @@ The file `GTDB_EXTERNAL_GENOMES.txt` holds all the paths to the genome databases
 
 ```bash
 anvi-estimate-metabolism -e GTDB_EXTERNAL_GENOMES.txt \
-                  --matrix-format \
-                  -O 05_GTDB_ANALYSES/GTDB_METABOLISM \
-                  --kegg-data-dir KEGG_2020-12-23
+                         --matrix-format \
+                         -O 05_GTDB_ANALYSES/GTDB_METABOLISM \
+                         --kegg-data-dir KEGG_2020-12-23
 ```
 
-The output file that you want to look at is the matrix of stepwise completeness scores, at `05_GTDB_ANALYSES/GTDB_METABOLISM-module_stepwise_completeness-MATRIX.txt`. It contains the completeness score for each KEGG module in each genome (completeness for an individual genome is analogous to PPCN for a metagenome). Later, we will use these data to make the completeness heatmap in Figure 3. Note that you can find this matrix in [Supplementary Table 3b](https://doi.org/10.6084/m9.figshare.22679080).
+The output file that you want to look at is the matrix of stepwise completeness scores, which you will find here:
+
+```
+05_GTDB_ANALYSES/GTDB_METABOLISM-module_stepwise_completeness-MATRIX.txt
+```
+
+This file contains the completeness score for each KEGG module in each genome (completeness for an individual genome is analogous to PPCN for a metagenome). Later, we will use these data to make the completeness heatmap in Figure 3. Note that you can find this matrix in [Supplementary Table 3b](https://doi.org/10.6084/m9.figshare.22679080).
 
 ### The 'HMI score': labeling genomes by level of metabolic independence
 
@@ -953,7 +996,7 @@ In order to ask questions like "how many metabolically-independent genomes are t
 
 How high should those scores be? That's a good question, and it doesn't have an obvious 'correct' answer. We looked at the distribution of completeness scores from these 33 modules, and didn't see an obvious threshold separating genomes into clear 'high' and 'low' groups. But we had to draw the line somewhere, and we settled on the requirement that the 33 IBD-enriched pathways should be, **on average, 80% complete** in order for a genome to be labeled as 'HMI'. We calculated an 'HMI score' for each genome by adding up the completeness scores of each of these modules. Since there are 33 IBD-enriched pathways each with a theoretical maximum completeness of 1.0, the maximum possible HMI score is 33. Applying our criteria leads to a threshold HMI score of 0.8 * 33 = 26.4, so **any genome with a score above 26.4 was considered to be an 'HMI' genome**, and all the others were labeled as 'non-HMI'.
 
-We used the program `anvi-script-estimate-metabolic-independence` (which you can read about [here](https://anvio.org/help/main/programs/anvi-script-estimate-metabolic-independence/)) to score each genome using the stepwise completeness scores of the 33 IBD-enriched pathways. In the code below, we run that program on each genome and parse the resulting output files to produce a table of scores and labels for each genome at `05_GTDB_ANALYSES/HMI_scores.txt`.
+We used the program {% include PROGRAM name="anvi-script-estimate-metabolic-independence" %} to score each genome using the stepwise completeness scores of the 33 IBD-enriched pathways. In the code below, we run that program on each genome and parse the resulting output files to produce a table of scores and labels for each genome at `05_GTDB_ANALYSES/HMI_scores.txt`.
 
 ```bash
 # get just the module accession numbers as input to the program
@@ -991,9 +1034,9 @@ You can also find the scores and classifications in the `TABLES/01_GTDB_GENOMES_
 
 We wanted to quantify the distribution of each genome (and each class of genomes) across the healthy and IBD sample groups. To do this, we summarized the detection data from the mapping workflow by calculating the following proportions:
 
-* a per-genome ratio of detection in the _healthy_ sample group, calculated by dividing the number of healthy samples in which the genome was reliably (> 0.5x) detected by the total number of healthy samples (n = 229)
-* a per-genome ratio of detection in the _IBD_ sample group, calculated by dividing the number of IBD samples in which the genome was reliably (> 0.5x) detected by the total number of IBD samples (n = 101)
-* a _per-sample_ ratio of HMI genome detection, calculated by dividing the number of HMI genomes reliably (> 0.5x) detected in the sample by the total number of genomes (of any class) reliably (> 0.5x) detected in that sample
+* A per-genome ratio of detection in the _healthy_ sample group, calculated by dividing the number of healthy samples in which the genome was reliably (> 0.5x) detected by the total number of healthy samples (n = 229)
+* A per-genome ratio of detection in the _IBD_ sample group, calculated by dividing the number of IBD samples in which the genome was reliably (> 0.5x) detected by the total number of IBD samples (n = 101)
+* A _per-sample_ ratio of HMI genome detection, calculated by dividing the number of HMI genomes reliably (> 0.5x) detected in the sample by the total number of genomes (of any class) reliably (> 0.5x) detected in that sample
 
 The script at `SCRIPTS/summarize_GTDB_detection.py` calculates these proportions, using the detection matrix for the subset of 338 GTDB genomes that was generated earlier (at `04_GTDB_PROCESSING/genomes_detected_0.02_of_samples-detection.txt`). If you don't have that input file, you should go back to the previous section and generate it. Here is how to run the script for computing the proportions:
 
@@ -1005,8 +1048,11 @@ It will generate two output files in the `05_GTDB_ANALYSES/` folder: `genome_pro
 
 ### Percent abundance calculations
 
-To calculate the percent abundance of each genome in each sample, we used the following equation: 
-`% abundance = sum(num reads mapping to contigs in genome) / total reads in sample`
+To calculate the percent abundance of each genome in each sample, we used the following equation:
+
+```
+% abundance = sum(num reads mapping to contigs in genome) / total reads in sample
+```
 
 The total number of reads in each sample was already calculated above (and can be found in the `r1_num_reads` and `r2_num_reads` columns of `TABLES/00_SUBSET_SAMPLES_INFO.txt`). To calculate the number of reads mapping to each contig in each genome, we ran `samtools idxstats` on the indexed BAM files from the mapping workflow that we ran in the `04_GTDB_PROCESSING/GTDB_MAPPING_WORKFLOW/` folder. To replicate that (if you ran the mapping workflow), you can run the following code:
 
@@ -1048,21 +1094,24 @@ To generate the phylogenetic tree that organizes the genomes in Figure 3, we use
 ```bash
 # get aligned and concatenated ribo protein seqs
 anvi-get-sequences-for-hmm-hits -e GTDB_EXTERNAL_GENOMES.txt \
-                  --return-best-hit \
-                  --concatenate-genes \
-                  --get-aa-sequences \
-                  --hmm-sources Bacteria_71 \
-                  -o 05_GTDB_ANALYSES/genomes_hmm_hits_aligned_concatenated.txt \
-                  --gene-names Ribosomal_S6,Ribosomal_S16,Ribosomal_L19,Ribosomal_L27,Ribosomal_S15,Ribosomal_S20p,Ribosomal_L13,Ribosomal_L21p,Ribosomal_L20,Ribosomal_L9_C
+                                --return-best-hit \
+                                --concatenate-genes \
+                                --get-aa-sequences \
+                                --hmm-sources Bacteria_71 \
+                                -o 05_GTDB_ANALYSES/genomes_hmm_hits_aligned_concatenated.txt \
+                                --gene-names Ribosomal_S6,Ribosomal_S16,Ribosomal_L19,Ribosomal_L27,Ribosomal_S15,Ribosomal_S20p,Ribosomal_L13,Ribosomal_L21p,Ribosomal_L20,Ribosomal_L9_C
 
 # remove positions with too many gaps
 trimal -in 05_GTDB_ANALYSES/genomes_hmm_hits_aligned_concatenated.txt \
        -out 05_GTDB_ANALYSES/genomes_hmm_hits_aligned_concatenated_GAPS_REMOVED.fa \
        -gt 0.50
 
-# make tree 
-iqtree -s  05_GTDB_ANALYSES/genomes_hmm_hits_aligned_concatenated_GAPS_REMOVED.fa \
-  -nt 10 -m WAG -B 1000 --prefix  05_GTDB_ANALYSES/GTDB_tree
+# make tree
+iqtree -s 05_GTDB_ANALYSES/genomes_hmm_hits_aligned_concatenated_GAPS_REMOVED.fa \
+       -nt 10 \
+       -m WAG \
+       -B 1000 \
+       --prefix 05_GTDB_ANALYSES/GTDB_tree
 ```
 
 This will produce a tree file at `05_GTDB_ANALYSES/GTDB_tree.contree`, which you can use in the next subsection to visualize all the data that we have generated in this section so far. You can also find our tree file at `MISC/GTDB_tree.contree`.
@@ -1081,7 +1130,7 @@ df.groupby('classification').mean()
 And to count the number of genomes in each family (and count the number of genomes with temporary code names in place of taxonomy), we ran the following BASH code:
 
 ```bash
-echo -e "family\tcount" > 05_GTDB_ANALYSES/family_counts.txt; 
+echo -e "family\tcount" > 05_GTDB_ANALYSES/family_counts.txt;
 while read family; do \
   count=$(grep -c $family TABLES/01_GTDB_GENOMES_INFO.txt); \
   echo -e "$family\t$count" >> 05_GTDB_ANALYSES/family_counts.txt; \
@@ -1098,9 +1147,9 @@ library(dplyr)
 library(tidyr)
 library(tidyverse)
 
-gtdb_info = read.table(file="TABLES/01_GTDB_GENOMES_INFO.txt", 
+gtdb_info = read.table(file="TABLES/01_GTDB_GENOMES_INFO.txt",
                                    header = TRUE, sep = "\t")
-completeness_matrix_all = read.table(file="05_GTDB_ANALYSES/GTDB_METABOLISM-module_stepwise_completeness-MATRIX.txt", 
+completeness_matrix_all = read.table(file="05_GTDB_ANALYSES/GTDB_METABOLISM-module_stepwise_completeness-MATRIX.txt",
                                      sep="", header = TRUE)
 # subset modules
 ibd_enriched_modules = read.table(file="03_METABOLISM_OUTPUT/IBD_ENRICHED_MODULES.txt",
@@ -1129,13 +1178,13 @@ group_means[group_means$diff > .40,]
 
 ### Generating Figure 3
 
-Now comes the time to put all the data we just generated together into Figure 3. 
+Now comes the time to put all the data we just generated together into Figure 3.
 
 ### Panel B
 
 Panel B of this figure was drawn using the anvi'o interactive interface. It includes the phylogenetic tree, taxonomy information, per-genome detection ratios, percent abundances, HMI score and class, and heatmap of completeness scores for each of the IBD-enriched pathways.
 
-To replicate this figure, you'll first draw the top of the panel, which contains all the data listed above except for the heatmap of module completeness. Combine the taxonomy information (taken from GTDB) with the HMI score and HMI/non-HMI genome label (taken from the output you generated earlier, or alternatively `TABLES/01_GTDB_GENOMES_INFO.txt`) into one file, and then load it in the anvi'o interactive interface, using the genome phylogeny to organize the data for each genome:
+To replicate this figure, you'll first draw the top of the panel, which contains all the data listed above except for the heatmap of module completeness. Combine the taxonomy information (taken from GTDB) with the HMI score and HMI/non-HMI genome label (taken from the output you generated earlier, or alternatively `TABLES/01_GTDB_GENOMES_INFO.txt`) into one file, and then run the program {% include PROGRAM name="anvi-interactive" %} with the inclusion of genome phylogeny to bring everything together in the anvi'o intearctive interface:
 
 ```bash
 # combine taxonomy with HMI data into one file
@@ -1143,8 +1192,9 @@ cut -f 1-8 TABLES/01_GTDB_GENOMES_INFO.txt > taxa.txt # genome accession, domain
 cut -f 2,3 05_GTDB_ANALYSES/HMI_scores.txt > hmi.txt # HMI data
 paste taxa.txt hmi.txt > 05_GTDB_ANALYSES/tree_additional_data.txt # combine
 rm taxa.txt hmi.txt
-# note that this only works if the genomes are in the same order in both files (which should be the case, 
-# due to alphabetical ordering of the accessions). But if not, you need to use a smarter way to combine 
+
+# note that this only works if the genomes are in the same order in both files (which should be the case,
+# due to alphabetical ordering of the accessions). But if not, you need to use a smarter way to combine
 # the data for each genome
 
 # load w/ interactive to create a profile db
@@ -1216,10 +1266,10 @@ anvi-script-transpose-matrix 05_GTDB_ANALYSES/modules_additional_data.txt -o 05_
 
 # generate a profile database to store the settings and organization
 anvi-interactive --manual \
-        -d 05_GTDB_ANALYSES/modules_additional_data-TRANSPOSED.txt \
-        -t MISC/GTDB_tree.contree \
-        -p 05_GTDB_ANALYSES/modules_heatmap.db \
-        --dry-run
+                 -d 05_GTDB_ANALYSES/modules_additional_data-TRANSPOSED.txt \
+                 -t MISC/GTDB_tree.contree \
+                 -p 05_GTDB_ANALYSES/modules_heatmap.db \
+                 --dry-run
 
 # import our re-rooted phylogeny
 anvi-import-items-order -i MISC/fig_3b_rerooted_tree.txt -p 05_GTDB_ANALYSES/modules_heatmap.db \
@@ -1236,14 +1286,14 @@ anvi-matrix-to-newick 05_GTDB_ANALYSES/modules_additional_data.txt
 tree=$(<05_GTDB_ANALYSES/modules_additional_data.txt.newick)
 echo -e "item_name\tdata_type\tdata_value\nmodules_tree\tnewick\t$tree" > 05_GTDB_ANALYSES/module_layer_order.txt
 anvi-import-misc-data 05_GTDB_ANALYSES/module_layer_order.txt \
-             -p 05_GTDB_ANALYSES/modules_heatmap.db \
-             --target-data-table layer_orders
+                      -p 05_GTDB_ANALYSES/modules_heatmap.db \
+                      --target-data-table layer_orders
 
 # visualize
 anvi-interactive --manual \
-        -d 05_GTDB_ANALYSES/modules_additional_data-TRANSPOSED.txt \
-        -t MISC/GTDB_tree.contree \
-        -p 05_GTDB_ANALYSES/modules_heatmap.db
+                 -d 05_GTDB_ANALYSES/modules_additional_data-TRANSPOSED.txt \
+                 -t MISC/GTDB_tree.contree \
+                 -p 05_GTDB_ANALYSES/modules_heatmap.db
 ```
 
 Once again, we changed a lot of the visualization settings, so the visualization from the last command won't look like the figure. You can import our changes using the files we provided in the `MISC` folder, just like you did before. This includes 1) importing a new version of the modules dendrogram in which we rotated some of the branches, and 2) importing the visualization settings that turn the drawing into a heatmap:
@@ -1251,19 +1301,19 @@ Once again, we changed a lot of the visualization settings, so the visualization
 ```bash
 # import our rotated dendrogram
 anvi-import-misc-data MISC/fig_3b_heatmap_dendrogram.txt \
-                -p 05_GTDB_ANALYSES/modules_heatmap.db \
-                -t layer_orders
+                      -p 05_GTDB_ANALYSES/modules_heatmap.db \
+                      -t layer_orders
 
 # import our visualization settings
 anvi-import-state -s MISC/fig_3b_heatmap_state.json \
-                -p 05_GTDB_ANALYSES/modules_heatmap.db \
-                -n default
+                  -p 05_GTDB_ANALYSES/modules_heatmap.db \
+                  -n default
 
 # visualize
 anvi-interactive --manual \
-        -d 05_GTDB_ANALYSES/modules_additional_data-TRANSPOSED.txt \
-        -t MISC/GTDB_tree.contree \
-        -p 05_GTDB_ANALYSES/modules_heatmap.db
+                 -d 05_GTDB_ANALYSES/modules_additional_data-TRANSPOSED.txt \
+                 -t MISC/GTDB_tree.contree \
+                 -p 05_GTDB_ANALYSES/modules_heatmap.db
 ```
 
 And now you are done with replicating panel B.
@@ -1292,52 +1342,52 @@ In the notebook, we defined several functions to carry out these steps. For inst
 
 ```python
 def compute_group_medians_and_stats(train_data_x, train_data_y):
-    """Returns a dataframe of the group medians, group median differences, and Wilcoxon p-value 
+    """Returns a dataframe of the group medians, group median differences, and Wilcoxon p-value
     for IBD PPCN > Healthy PPCN, for each KEGG module, in the training data.
     """
-    
+
     data = train_data_x
     data['label'] = train_data_y
-    
+
     # group medians
     df = pd.melt(data, id_vars=['label'], ignore_index=False)
     grouped_df = df.groupby(['module', 'label']).median().unstack()
-    
+
     # median differences
     grouped_df['DIFF'] = grouped_df['value']['IBD'] - grouped_df['value']['HEALTHY']
-    
+
     # per-module Wilcoxon test for IBD PPCN > Healthy PPCN
     grouped_df['P_VALUE'] = ""
     for mod in grouped_df.index:
         mod_data_ibd_samples = df[(df['module'] == mod) & (df['label'] == 'IBD')]['value']
         mod_data_healthy_samples = df[(df['module'] == mod) & (df['label'] == 'HEALTHY')]['value']
-        stat, p_value = ranksums(mod_data_ibd_samples, mod_data_healthy_samples, 
+        stat, p_value = ranksums(mod_data_ibd_samples, mod_data_healthy_samples,
                          alternative='greater')
         grouped_df.loc[mod, 'P_VALUE'] = p_value
-        
+
     grouped_df.sort_values(by = ['P_VALUE', 'DIFF'], axis=0, ascending=[True, False], inplace=True)
-    
+
     return grouped_df
 
 def get_ibd_enriched_modules(module_stats, pval_threshold = 1e-10, min_median_diff = 0):
-    """Uses per-module statistics obtained from compute_group_medians_and_stats() to compute 
+    """Uses per-module statistics obtained from compute_group_medians_and_stats() to compute
     IBD-enriched modules and return these as a list.
-    
+
     Criteria for module selection:
     - p-value from Wilcoxon rank-sums test <= pval_threshold
     - group median difference (IBD - Healthy) >= mean(median differences) or min_median_diff, whichever is larger
     """
-    
+
     mean_median_diff = module_stats['DIFF'].mean()
     diff_threshold = max(mean_median_diff, min_median_diff)
-    
-    ibd_enriched_mods = module_stats[(module_stats['DIFF'] >= diff_threshold) & 
+
+    ibd_enriched_mods = module_stats[(module_stats['DIFF'] >= diff_threshold) &
                                      (module_stats['P_VALUE'] <= pval_threshold)].index
-    
+
     if not len(ibd_enriched_mods):
         print(f"WARNING: no IBD-enriched modules in this dataset using p-value threshold of  <= {pval_threshold} "
               f"and group median difference threshold of >= {diff_threshold}.")
-        
+
     return ibd_enriched_mods, diff_threshold
 ```
 
@@ -1346,23 +1396,23 @@ And here is the function for steps 3 and 4, training and testing the classifier:
 ```python
 def train_test_LR_model(train_x, train_y, test_x, test_y, model_name=0, random_state=323):
     """Returns a trained model and its performance on the test set."""
-    
+
     train_y_int = get_labels_as_integer(train_y)
     test_y_int = get_labels_as_integer(test_y)
-    
+
     model = LogisticRegression(penalty='none', max_iter=20000, random_state=random_state)
     trained_model = model.fit(train_x, train_y_int)
-    
+
     pred = trained_model.predict(test_x)
     y_score = trained_model.predict_proba(test_x)
-    
+
     # SCORE
     accuracy = metrics.accuracy_score(test_y_int, pred)
     roc_auc = metrics.roc_auc_score(test_y_int, pred)
     f1 = metrics.f1_score(test_y_int, pred)
     cm = metrics.confusion_matrix(test_y_int, pred)
     fpr, tpr, thresholds = roc_curve(test_y_int, y_score[:, 1])
-    
+
     results = {}
     results["Accuracy"] = accuracy
     results["ROC_AUC"] = roc_auc
@@ -1373,9 +1423,9 @@ def train_test_LR_model(train_x, train_y, test_x, test_y, model_name=0, random_s
     results["True_IBD"] = cm[1][1]
     results["FPR_ROC_curve_vals"] = fpr
     results["TPR_ROC_curve_vals"] = tpr
-    
+
     results_df = pd.DataFrame.from_dict(results, orient='index', columns=[model_name])
-    
+
     return trained_model, results_df
 ```
 
@@ -1386,14 +1436,14 @@ The cross-validation analysis discussed in the main manuscript is the second one
 ```python
 def split_data_random(samples_info, feature_data, target_data, num_splits=10, percent_test=0.2, random_seed=1452):
     """Returns num_splits random train-test splits of the data.
-    
+
     Returned as a dictionary of dictionaries, where the outer dictionary is keyed by integer (split number)
     and the inner dictionary contains the following:
     - train_x: features of training set
     - train_y: labels of training set
     - test_x: features of test set
     - test_y: labels of test set
-    
+
     We also return split_info, a DataFrame containing for each split
         - num_test_samples: size of test set (set by percent_test)
         - num_test_healthy: number of healthy samples in test set
@@ -1402,11 +1452,11 @@ def split_data_random(samples_info, feature_data, target_data, num_splits=10, pe
         - num_train_healthy: number of healthy samples in training set
         - num_train_IBD: number of IBD samples in training set
     """
-    
+
     split_info_rows = ["num_test_samples", "num_test_healthy", "num_test_IBD",
                        "num_train_samples", "num_train_healthy", "num_train_IBD"]
     split_info = pd.DataFrame(index=split_info_rows, columns=[x for x in range(num_splits)])
-    
+
     cv_split = {}
     for split_num in range(num_splits):
         test_samples = target_data.sample(frac=percent_test, replace=False, random_state=random_seed * split_num).index
@@ -1419,7 +1469,7 @@ def split_data_random(samples_info, feature_data, target_data, num_splits=10, pe
 
         train_x = feature_data.drop(test_samples)
         train_labels = target_data.drop(test_samples)
-        
+
         split_info.loc["num_train_samples", split_num] = train_x.shape[0]
         split_info.loc["num_train_healthy", split_num] = len(train_labels[train_labels == "HEALTHY"])
         split_info.loc["num_train_IBD", split_num] = len(train_labels[train_labels == "IBD"])
@@ -1435,7 +1485,7 @@ def split_data_random(samples_info, feature_data, target_data, num_splits=10, pe
         cv_split[split_num]["test_y"] = test_labels
 
         split_num += 1
-            
+
     return cv_split, split_info
 ```
 
@@ -1464,7 +1514,7 @@ subset_ppcn = subset_normalized.T
 subset_ppcn = subset_ppcn.loc[subset_target.index]
 
 ## from 3.2  Run Random CV section
-split_data_dict, split_info_df = split_data_random(subset_samples, subset_ppcn, subset_target, 
+split_data_dict, split_info_df = split_data_random(subset_samples, subset_ppcn, subset_target,
                                                    num_splits=25, percent_test=0.2, random_seed=15)
 performance_df_list = []
 for split_num, split in split_data_dict.items():
@@ -1485,7 +1535,7 @@ for split_num, split in split_data_dict.items():
     train_mods, test_mods = subset_mods(ibd_enriched_modules, train_features, test_features)
     # below, we use the same random state for each fold to ensure changes in performance only come from changes
     # in the data used for training and not from model initialization
-    LR_model, single_performance_df = train_test_LR_model(train_mods, train_labels, test_mods, test_labels, 
+    LR_model, single_performance_df = train_test_LR_model(train_mods, train_labels, test_mods, test_labels,
                                                    model_name=split_num, random_state=711)
     performance_df_list.append(single_performance_df)
 ```
@@ -1535,7 +1585,7 @@ def plot_ROC_curve_for_CV(all_FPRs_list, all_TPRs_list, path_to_save):
     plt.xlabel('False Positive Rate')
     plt.legend(loc="lower right")
     plt.savefig(path_to_save)
-    
+
     plt.show()
 ```
 
@@ -1563,7 +1613,7 @@ final_target = subset_target
 final_features = ibd_ppcn.loc[final_target.index]
 
 final_y_int = get_labels_as_integer(final_target)
-    
+
 final_model = LogisticRegression(penalty='none', max_iter=20000, random_state=1511)
 final_trained_model = final_model.fit(final_features, final_y_int)
 ```
@@ -1604,7 +1654,7 @@ done < <(tail -n+2 ../../TABLES/02_PALLEJA_SAMPLES_INFO.txt)
 
 #### Processing the time-series metagenomes
 
-We processed these samples in the same was as we did the other metagenomes. That is, we 1) assembled and annotated the samples using the anvi'o metagenomics workflow; 2) estimated the number of microbial populations represented within each sample using single-copy core genes annotations; 3) estimated stepwise copy number of each KEGG module with `anvi-estimate-metabolism`; and 4) normalized the copy numbers into PPCNs. We also 5) determined the sequencing depth of each sample so that we could ignore any samples with insufficient depth for accurate estimations.
+We processed these samples in the same was as we did the other metagenomes. That is, we 1) assembled and annotated the samples using the anvi'o metagenomics workflow; 2) estimated the number of microbial populations represented within each sample using single-copy core genes annotations; 3) estimated stepwise copy number of each KEGG module with {% include PROGRAM name="anvi-estimate-metabolism" %}; and 4) normalized the copy numbers into PPCNs. We also 5) determined the sequencing depth of each sample so that we could ignore any samples with insufficient depth for accurate estimations.
 
 Since everything is the same as before, we won't explain in detail the instructions for each step. Basically, you will adapt the code shared in the previous sections to work on these samples:
 
@@ -1716,7 +1766,7 @@ If you continue to run the code after that section, you will see that the sample
 
 ### Generating Figure 5
 
-In the R script at `SCRIPTS/plot_figures.R`, you will find the code for generating panels B, C, and D of Figure 5. The code for panels C and D makes use of the data table of sample classifications that you just generated using the Jupyter notebook, `CLASSIFIER_PREDICTIONS.txt`. For panel C, we generated only a basic per-subject sample classification grid, which we then used to re-create a prettier grid in Inkscape (that grid was then re-used for panel A). 
+In the R script at `SCRIPTS/plot_figures.R`, you will find the code for generating panels B, C, and D of Figure 5. The code for panels C and D makes use of the data table of sample classifications that you just generated using the Jupyter notebook, `CLASSIFIER_PREDICTIONS.txt`. For panel C, we generated only a basic per-subject sample classification grid, which we then used to re-create a prettier grid in Inkscape (that grid was then re-used for panel A).
 
 Panel B is a bit unusual because it doesn't use any of our own data, since it is a recreation of [Figure 1a (microbial richness boxplots) from the Palleja et al. paper](https://www-nature-com.proxy.uchicago.edu/articles/s41564-018-0257-9/figures/1). Producing this figure requires you to download their [Supplementary Data](http://arumugamlab.sund.ku.dk/SuppData/Palleja_et_al_2017_ABX/), because the script will make use of their mOTU abundance table:
 
@@ -1746,7 +1796,7 @@ cd 07_SUPPLEMENTARY/
 
 One concern we had was that the observed trend of less metabolic independence in healthy samples could be due to technical artifacts rather than biological signal - that is, perhaps we are estimating lower copy numbers in these samples because we are systematically less able to annotate enzymes in these samples. This could happen if, for instance, our KOfam models do not appropriately capture the diversity of enzyme sequences in these samples. And indeed, we noticed that our (deeply-sequenced) healthy samples have a smaller proportion of genes annotated with KOfams than the IBD samples do. So we realized we needed to comprehensively characterize any potential annotation bias in our dataset.
 
-We already annotated our samples with KEGG KOfams, but to fully explore annotation bias, we had to check if the same trends exist with other annotation sources. So we also annotated all of the metagenomes with NCBI Clusters of Orthologous Groups (COGs), and with Pfams. If you want to replicate this analysis, you can add those annotations by going back to your metagenomics workflow config files, turning on the rules to run `anvi-run-ncbi-cogs` and `anvi-run-pfams`, and re-starting the workflows (with the same command used previously). If snakemake is working correctly, it should run only those additional annotation jobs rather than redoing the whole workflow. Note that the contigs databases of our assemblies that we shared should already be annotated with these additional function databases.
+We already annotated our samples with KEGG KOfams, but to fully explore annotation bias, we had to check if the same trends exist with other annotation sources. So we also annotated all of the metagenomes with NCBI Clusters of Orthologous Groups (COGs), and with Pfams. If you want to replicate this analysis, you can add those annotations by going back to your metagenomics workflow config files, turning on the rules to run {% include PROGRAM name="anvi-run-ncbi-cogs" %} and {% include PROGRAM name="anvi-run-pfams" %}, and re-starting the workflows (with the same command used previously). If snakemake is working correctly, it should run only those additional annotation jobs rather than redoing the whole workflow. Note that the contigs databases of our assemblies that we shared should already be annotated with these additional function databases.
 
 Once we had all our samples annotated, we ran a script to count the number of annotations from each functional source as well as the total number of gene calls in each metagenome assembly. You will find this script at `SCRIPTS/get_num_genes.py`, and here is how you can run it on all the metagenome assemblies, using the external genomes file containing the paths to all their databases (at `02_METAGENOME_PROCESSING/ALL_METAGENOME_DBS.txt`):
 
@@ -1758,9 +1808,9 @@ python ../SCRIPTS/get_num_genes.py ../02_METAGENOME_PROCESSING/ALL_METAGENOME_DB
 
 Speaking of which, you will find the code for making Supplementary Figure 4 in the usual script, `SCRIPTS/plot_figures.R`.
 
-You can find our hypothesis about the annotation bias in the Supplementary Information file of our paper. Long story short, there are some technical artifacts leading to annotation bias against healthy samples, but we think it is arising from our inability to effectively culture microbes of reduced metabolic capacity. If this is true, the reduced metabolic independence we noticed would actually be contributing to the technical annotation issues, so 1) the annotation bias does not disqualify our interpretation of our data, and 2) it is very difficult to quantify the exact contribution of technical artifacts vs biological signal. 
+You can find our hypothesis about the annotation bias in the Supplementary Information file of our paper. Long story short, there are some technical artifacts leading to annotation bias against healthy samples, but we think it is arising from our inability to effectively culture microbes of reduced metabolic capacity. If this is true, the reduced metabolic independence we noticed would actually be contributing to the technical annotation issues, so 1) the annotation bias does not disqualify our interpretation of our data, and 2) it is very difficult to quantify the exact contribution of technical artifacts vs biological signal.
 
-To get at that last question, we asked our colleagues to run [AGNOSTOS](https://doi.org/10.7554/eLife.67667) to quantify the proportion of 'known unknown' genes and 'unknown unknown' genes in our metagenome assemblies, with the idea that a higher proportion of 'known unknown' genes would indicate a larger contribution of technical artifacts while a higher proportion of 'unknown unknown' genes would indicate that the biological signal is stronger. However, they haven't gotten back to us yet. :) 
+To get at that last question, we asked our colleagues to run [AGNOSTOS](https://doi.org/10.7554/eLife.67667) to quantify the proportion of 'known unknown' genes and 'unknown unknown' genes in our metagenome assemblies, with the idea that a higher proportion of 'known unknown' genes would indicate a larger contribution of technical artifacts while a higher proportion of 'unknown unknown' genes would indicate that the biological signal is stronger. However, they haven't gotten back to us yet. :)
 
 ### Additional comparisons of metabolic pathways (Supplementary Figure 5)
 
@@ -1779,7 +1829,7 @@ In both of those figures, we ordered the studies according to relative cohort he
 
 In the machine learning section above, we briefly mentioned one of our efforts to test if our classification strategy was generalizable across all of the studies in our meta-anlysis: our Leave-Two-Studies-Out cross-validation, which analyzes the performance of our model on every possible pair of studies (with one of the pair contributing healthy samples and the other contributing IBD samples). It is the first section of code in the `SCRIPTS/metagenome_classifier.ipynb` notebook. In the Leave-Two-Studies-Out analysis, we were able to evaluate performance on each study pair except for one. When the two dominant studies (i.e., the studies providing the largest number of samples to our deeply-sequenced subset) [Le Chatelier et al. 2013](https://doi.org/10.1038/nature12506) and [Vineis et al. 2016](https://doi.org/10.1128/mBio.01713-16) were left out, no modules had a low enough p-value to be considered enriched in the IBD sample group according to our thresholds. We think this is because these two studies 1) provide the majority of samples, so taking them out drastically reduces the power of the analyses; and 2) represent individuals at the extremes of the health gradient - the healthiest of the healthy group and the most unhealthy of the IBD group - so naturally the difference between the sample groups is much less.
 
-Since we found no IBD-enriched modules in that fold, a classifier could not be trained. Which is fine, because we already know the classifier would do well on these two studies (if we could train one using our usual set of 33 IBD-enriched modules computed from the full dataset), since they make up such a large proportion of the dataset. But this raised another question - if we didn't have any samples from these two studies, would our classification strategy still work? 
+Since we found no IBD-enriched modules in that fold, a classifier could not be trained. Which is fine, because we already know the classifier would do well on these two studies (if we could train one using our usual set of 33 IBD-enriched modules computed from the full dataset), since they make up such a large proportion of the dataset. But this raised another question - if we didn't have any samples from these two studies, would our classification strategy still work?
 
 To test this, we ran yet another cross-validation test. This time, we removed all the samples from [Le Chatelier et al. 2013](https://doi.org/10.1038/nature12506) and [Vineis et al. 2016](https://doi.org/10.1128/mBio.01713-16) to leave 115 samples (37 IBD, 78 healthy) from the other studies. We ran 10-fold cross validation on those 115 samples, in each fold using 80% of the data (randomly selected) for training and the other 20% for testing. All folds were successful in finding IBD-enriched modules and training classifiers. When we plotted the performance, it was not as good as our initial performance using the full dataset, but it was better than a random guess:
 
