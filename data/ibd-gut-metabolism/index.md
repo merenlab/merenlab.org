@@ -17,7 +17,7 @@ Here is a list of links for quick access to the data described in our manuscript
 
 * [doi:10.6084/m9.figshare.22679080](https://doi.org/10.6084/m9.figshare.22679080): Supplementary Tables.
 * [doi:10.6084/m9.figshare.22776701](https://doi.org/10.6084/m9.figshare.22776701): Datapack for this reproducible workflow.
-* [doi:_Link coming soon!_](FIXME ADD LINK): Contigs databases for our assemblies of 408 deeply-sequenced gut metagenomes.
+* [doi:10.5281/zenodo.7872967](https://doi.org/10.5281/zenodo.7872967): Contigs databases for our assemblies of 408 deeply-sequenced gut metagenomes.
 * [doi:10.5281/zenodo.7883421](https://doi.org/10.5281/zenodo.7883421): Contigs databases for 338 GTDB genomes.
 * [doi:10.5281/zenodo.7897987](https://doi.org/10.5281/zenodo.7897987): Contigs databases for our assemblies of the gut metagenomes from [Palleja et al. 2018](https://doi.org/10.1038/s41564-018-0257-9)].
 
@@ -68,14 +68,14 @@ The following two subsections describe how to download the [contigs databases](h
 
 ### Downloading our contigs databases for metagenome assemblies
 
-We provide access to the main set of metagenome assemblies that we analyzed in the paper [here](FIXME LINK). This is a rather large dataset, so we separated it from the rest of the datapack to avoid overburdening your storage system unnecessarily. If you want to access these assemblies, you can download them into your datapack by running the following commands:
+We provide access to the main set of metagenome assemblies that we analyzed in the paper [here](https://doi.org/10.5281/zenodo.7872967). This is a rather large dataset, so we separated it from the rest of the datapack to avoid overburdening your storage system unnecessarily. If you want to access these assemblies, you can download them into your datapack by running the following commands:
 
 {:.warning}
 The size of this metagenome dataset is **96 GB** (the archive alone is ~33 GB). Please make sure you have enough space to download it!
 
 ```bash
 # download the metagenome data archive
-wget FIXME # Link coming soon! 
+wget https://zenodo.org/record/7872967/files/VESELI_ET_AL_METAGENOME_CONTIGS_DBS.tar.gz 
 # extract the metagenome data
 tar -xvzf VESELI_ET_AL_METAGENOME_CONTIGS_DBS.tar.gz
 
@@ -160,7 +160,7 @@ Whenever KEGG-related programs are used, you can make them use the appropriate K
 This section covers the steps for acquiring and processing our initial set of publicly-available gut metagenomes. We downloaded, assembled and annotated 2,893 samples from 13 different studies. We wanted a large number of samples from various sources in order to evaluate our metabolic competency hypothesis across a wide diversity of cohorts from different geographical locations, age groups, hospital systems, and degress of healthiness. Note that this extensive dataset was later filtered to remove samples with low-sequencing depth (as described in the next section), and as a result, not all of these samples were utilized for the main analyses in our study. However, you can access the full list of the 2,893 samples that we considered in sheet (c) of [Supplementary Table 1](https://doi.org/10.6084/m9.figshare.22679080). 
 
 {:.warning}
-This section is computationally intensive and requires a lot of storage resources. If you want to reproduce this section, you should make sure that your high-performance computing system is prepared to shoulder the burden. Note that the large dataset covered here is only relevant to a few of the analyses described later, so there may not even be a need for you to go through this section at all. If you are only interested in reproducing the main analyses of the paper, the datapack at [LINK COMING SOON](FIXME LINK) provides the final contigs databases for the relevant subset of samples, so you can skip this part. :)
+This section is computationally intensive and requires a lot of storage resources. If you want to reproduce this section, you should make sure that your high-performance computing system is prepared to shoulder the burden. Note that the large dataset covered here is only relevant to a few of the analyses described later, so there may not even be a need for you to go through this section at all. If you are only interested in reproducing the main analyses of the paper, the datapack at [https://doi.org/10.5281/zenodo.7872967](https://doi.org/10.5281/zenodo.7872967) provides the final contigs databases for the relevant subset of samples, so you can skip this part. :)
 
 ### Criteria for sample selection and sample groups
 We sought to obtain a large number of fecal metagenomes from healthy individuals and from individuals with IBD. We used the following criteria to search for studies offering such samples:
@@ -456,7 +456,7 @@ python SCRIPTS/subset_metagenome_samples.py
 
 ### Final set of samples and their contigs DBs
 
-In the remainder of the analyses described in our manuscript, we utilized the subset of 408 samples with high sequencing depth described in `TABLES/00_SUBSET_SAMPLES_INFO.txt`. Since 408 is a much more reasonable number than 2,893 we have provided the contigs databases for our metagenome assemblies of these samples in [this datapack](FIXME LINK). If you elected to download this datapack via the instructions at the start of this workflow, you will find the assemblies in the directory called `VESELI_ET_AL_METAGENOME_CONTIGS_DBS/`, and the table `METAGENOME_EXTERNAL_GENOMES.txt` contains the paths to these files. So, even if you didn't download and process all of the metagenome samples as described in the first section of this workflow, you can still continue with the subsequent sections.
+In the remainder of the analyses described in our manuscript, we utilized the subset of 408 samples with high sequencing depth described in `TABLES/00_SUBSET_SAMPLES_INFO.txt`. Since 408 is a much more reasonable number than 2,893 we have provided the contigs databases for our metagenome assemblies of these samples in [this datapack](https://doi.org/10.5281/zenodo.7872967). If you elected to download this datapack via the instructions at the start of this workflow, you will find the assemblies in the directory called `VESELI_ET_AL_METAGENOME_CONTIGS_DBS/`, and the table `METAGENOME_EXTERNAL_GENOMES.txt` contains the paths to these files. So, even if you didn't download and process all of the metagenome samples as described in the first section of this workflow, you can still continue with the subsequent sections.
 
 
 ## Metabolism analyses (for metagenomes)
