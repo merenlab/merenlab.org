@@ -1821,10 +1821,12 @@ To get at that last question, we asked our colleagues to run [AGNOSTOS](https://
 
 ### Additional comparisons of metabolic pathways (Supplementary Figure 5)
 
-{.notice}
-This section is still in progress, as we are still refining our statistical tests. We will add the associated code for these tests as soon as we can.
-
 We created a bunch of boxplots comparing different sets of metabolic pathways across different sets of samples (you will find these in Supplementary Figure 5). Our favorite script, `SCRIPTS/plot_figures.R`, contains various sections of code for plotting these, using the data generated during metabolism estimation (in the `03_METABOLISM_OUTPUT/` folder).
+
+In addition, we ran various statistical tests on the per-population copy number data; for instance, to characterize the proportion of biosynthesis pathways in our set of IBD-enriched modules, to evaluate the overlap between our IBD-enriched modules and the HMI-enriched pathways from [Watson et al.](https://doi.org/10.1186/s13059-023-02924-x), and to compute per-module Wilcoxon Rank Sum test p-values not just between the IBD and healthy samples, but also between the IBD and non-IBD groups and between the non-IBD and healthy groups. Some of these are described in our study, and some only live in this reproducible workflow (for now, at least). You can find and run these tests using the R script at `SCRIPTS/stats_tests_for_modules.R`. 
+
+{.warning}
+Please note that the R script `SCRIPTS/stats_tests_for_modules.R` requires R version >4.1.
 
 ### Examining cohort-specific signal (Supplementary Figure 6)
 
@@ -1843,3 +1845,7 @@ To test this, we ran yet another cross-validation test. This time, we removed al
 [![Random Cross-validation on dataset without samples from Le Chatelier et al. 2013 or Vineis et al. 2016](images/random_cv_supplementary.png)](images/random_cv_supplementary.png){:.center-img .width-50}
 
 If you want to see the code for that cross-validation, check out `SCRIPTS/metagenome_classifier.ipynb`. And we have one extra boxplot (Supplementary Figure 6c) showing the differences in per-module median PPCN in this reduced dataset of 115 samples, which you can find code for in `SCRIPTS/plot_figures.R`.
+
+### Testing sensitivity of the IBD-enrichment analysis
+
+ To verify that our IBD-enrichment analysis captures generic signals across all studies despite the dominance of two studies ([Le Chatelier et al. 2013](https://doi.org/10.1038/nature12506) and [Vineis et al. 2016](https://doi.org/10.1128/mBio.01713-16)) in our dataset, we repeated our IBD-enrichment analysis using (1) only samples from those two dominating studies and (2) the 115 samples excluding the two dominating studies. You will find the code for this analysis, as well as the code to plot Supplementary Figure 7, in the R script at `SCRIPTS/stats_tests_for_modules.R`. The relevant section is titled 'TEST SENSITIVITY OF ANALYSIS TO STUDY'.
