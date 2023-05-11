@@ -1117,13 +1117,21 @@ This will produce a tree file at `05_GTDB_ANALYSES/GTDB_tree.contree`, which you
 
 ### A few more genome statistics
 
-To get the average genome length and number of genes of HMI genomes and non-HMI genomes, we ran the following Python code:
+To get the average genome length, number of genes, and metabolic independence score of HMI genomes and non-HMI genomes, we ran the following Python code:
 
 ```python
 import pandas as pd
 df = pd.read_csv("TABLES/01_GTDB_GENOMES_INFO.txt", sep="\t", index_col=0)
 
 df.groupby('classification').mean()
+
+df.groupby('classification')['HMI score'].quantile([0,.25,.5,.75])
+
+# across all genomes
+df['HMI score'].quantile([.25,.5,.75])
+
+# what's the percentile of the threshold score?
+stats.percentileofscore(df['HMI score'], 26.4)
 ```
 
 And to count the number of genomes in each family (and count the number of genomes with temporary code names in place of taxonomy), we ran the following BASH code:
