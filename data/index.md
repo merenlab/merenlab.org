@@ -20,6 +20,28 @@ Please do not hesitate to get in touch if something is missing. You can send [us
 {:.notice}
 Bonus blog post: [Fantastic Data and How to Share Them: A Plea to Journal Editors and Reviewers](/sharing-data/).
 
+## Metabolic independence of the gut microbiome
+
+<div class="pub_float">
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1101/2023.05.10.540289"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1101/2023.05.10.540289" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1101/2023.05.10.540289" target="_new">Microbes with higher metabolic independence are enriched in human gut microbiomes under stress</a></span>
+    <span class="pub-authors"><span class="pub-member-author">Veseli I</span>, Chen YT, <span class="pub-member-author">Schechter MS</span>, Vanni C, <span class="pub-member-author">Fogarty EC</span>, Watson AR, Jabri B, Blekhman R, Willis AD, Yu MK, Fernàndez-Guerra A, Füssel J, <span class="pub-member-author">Eren AM</span></span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="images/pubs/veseli_et_al_ibd_metabolism.png"><img src="/images/pubs/veseli_et_al_ibd_metabolism.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);" /></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A study that describes a method to estimate <b>metabolic pathway redundancy</b> from metagenomes.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- Demonstrates <b>high metabolic independence</b> of the gut microbiome in individuals with inflammatory bowel disease via an analysis of hundreds of <b>publicly-available gut metagenomes and reference genomes</b>.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- Presents a <b>logistic regression classifier</b> that differentiates between individuals with IBD and healthy people using metabolic pathways associated with high metabolic independence.</span><br /><span style="display: inline-block; padding-bottom: 5px;">-Shows the relevance of high metabolic independence for <b>microbial resilience in general gut stress</b> via the application of the classifier to an antibiotic time-series.</span>
+    </div>
+    </div>
+    <span class="pub-journal"><b>bioRxiv</b> <a href="https://doi.org/10.1101/2023.05.10.540289" target="_blank">🔗</a></span>
+</div>
+
+### Reproducible bioinformatics workflow
+
+[https://merenlab.org/data/ibd-gut-metabolism/](/data/ibd-gut-metabolism) gives access to our **reproducible workflow**.
+
 ## Structure-informed microbial population genetics
 
 <div class="pub_float">
@@ -135,19 +157,20 @@ Bonus blog post: [Fantastic Data and How to Share Them: A Plea to Journal Editor
 ## Metabolic competency of gut microbes in health and disease
 
 <div class="pub_float">
-<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1101/2021.03.02.433653"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.1101/2021.03.02.433653" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <span class="pub-title"><a href=" https://doi.org/10.1101/2021.03.02.433653" target="_new">Adaptive ecological processes and metabolic independence drive microbial colonization and resilience in the human gut</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Watson AR</span>, Füssel J, <span class="pub-member-author">Veseli I</span>, DeLongchamp JZ, Silva M, <span class="pub-member-author">Trigodet F</span>, <span class="pub-member-author">Lolans K</span>, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Fogarty EC</span>, Quince C, Yu MK, Söylev A, Morrison HG, Lee ST, Rubin DT, Jabri B, Louie T, <span class="pub-member-author">Eren AM</span></span>
+<div class="altmetric-embed" data-badge-type="donut" data-doi="10.1186/s13059-023-02924-x"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1186/s13059-023-02924-x" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1186/s13059-023-02924-x" target="_new">Metabolic independence drives gut microbial colonization and resilience in health and disease</a></span>
+    <span class="pub-authors"><span class="pub-member-author" title="An official member of the lab at the time of publication">Watson AR<sup>☯</sup></span>, <span class="pub-collaborator-author" title="A key collaborator of the lab at the time of publication">Fuessel J<sup>☯</sup></span>, <span class="pub-member-author" title="An official member of the lab at the time of publication">Veseli I<sup>☯</sup></span>, DeLongchamp JZ, Silva M, <span class="pub-member-author" title="An official member of the lab at the time of publication">Trigodet F</span>, <span class="pub-member-author" title="An official member of the lab at the time of publication">Lolans K</span>, <span class="pub-member-author" title="An official member of the lab at the time of publication">Shaiber A</span>, Fogarty E, Runde JM, Quince C, <span class="pub-collaborator-author" title="A key collaborator of the lab at the time of publication">Yu MK</span>, Söylev A, Morrison HG, <span class="pub-member-author" title="An official member of the lab at the time of publication">Lee STM</span>, Kao D, Rubin DT, Jabri B, Louie T, <span class="pub-member-author" title="An official member of the lab at the time of publication">Eren AM</span></span>
+    <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors</span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/pubs/watson_et_al_fmt.jpeg"><img src="/images/pubs/watson_et_al_fmt.jpeg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);" /></a>
     </div>
     <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- A Fecal Microbiota Transplantation (FMT) study that reveals unexpected parallels between the <b>adaptive ecological processes</b> that shape the recipient gut <b>microbial composition after FMT</b> and those that influence <b>microbial diversity in patients with Inflammatory Bowel Disease (IBD)</b>.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- Includes an observation that links <b>the presence of superior metabolic competence in bacterial populations to their expansion in IBD</b>.</span><br /><span style="display: inline-block; padding-bottom: 5px;">-  Here is a <a href="https://twitter.com/merenbey/status/1369016402896695298" target="_blank">Twitter thread</a> that explains <b>key points</b> of the study.</span>
+    <span style="display: inline-block; padding-bottom: 5px;">- A Fecal Microbiota Transplantation (FMT) study that reveals unexpected parallels between the <b>adaptive ecological processes</b> that shape the recipient gut <b>microbial composition after FMT</b> and those that influence <b>microbial diversity in patients with Inflammatory Bowel Disease (IBD)</b>.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- Includes an observation that links <b>the presence of superior metabolic competence in bacterial populations to their expansion in IBD</b>.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- Here is a <a href="https://twitter.com/awatsontxt/status/1648420614737371136">Twitter thread</a> by Andrea that explains the key points of the study, and here is <a href="https://twitter.com/merenbey/status/1648848404456390658">another one</a> by Meren that details what are the critical learnings from it.</span>
     </div>
     </div>
-    <span class="pub-journal"><b>bioRxiv</b> <a href="https://doi.org/10.1101/2021.03.02.433653" target="_blank">🔗</a></span>
+    <span class="pub-journal"> 📚 <b>Genome Biology</b>, 24(78) | 🔍 <a href="http://scholar.google.com/scholar?hl=en&amp;q=Metabolic+independence+drives+gut+microbial+colonization+and+resilience+in+health+and+disease" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1186/s13059-023-02924-x" target="_blank">doi:10.1186/s13059-023-02924-x</a></span>
 </div>
 
 ### Reproducible bioinformatics workflow

@@ -4,7 +4,7 @@ title: HMW DNA extraction strategies for complex metagenomes
 modified: 2021-10-21
 excerpt: "by Trigodet and Lolans et al 2021"
 comments: true
-authors: [FlorianTrigodet]
+authors: [florian]
 image:
   featurerelative: images/header.png
   display: true

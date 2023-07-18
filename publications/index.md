@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2023-02-24
+modified: 2023-05-04
 comments: false
 image:
    display: true
@@ -17,18 +17,53 @@ This page lists publications that are most reflective of our interests. For a co
 
 ## 2023
 
+<a id="10.1186/s13059-023-02924-x">&nbsp;</a>
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s13059-023-02924-x"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1186/s13059-023-02924-x" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1186/s13059-023-02924-x" target="_new">Metabolic independence drives gut microbial colonization and resilience in health and disease</a></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Watson AR<sup>☯</sup></span>, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Fuessel J<sup>☯</sup></span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Veseli I<sup>☯</sup></span>, DeLongchamp JZ, Silva M, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Trigodet F</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Lolans K</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Shaiber A</span>, Fogarty E, Runde JM, Quince C, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Yu MK</span>, Söylev A, Morrison HG, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Lee STM</span>, Kao D, Rubin DT, Jabri B, Louie T, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
+    <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/watson_et_al_fmt.jpeg"><img src="/images/pubs/watson_et_al_fmt.jpeg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A Fecal Microbiota Transplantation (FMT) study that reveals unexpected parallels between the <b>adaptive ecological processes</b> that shape the recipient gut <b>microbial composition after FMT</b> and those that influence <b>microbial diversity in patients with Inflammatory Bowel Disease (IBD)</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Includes an observation that links <b>the presence of superior metabolic competence in bacterial populations to their expansion in IBD</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Here is a <a href="https://twitter.com/awatsontxt/status/1648420614737371136">Twitter thread</a> by Andrea that explains the key points of the study, and here is <a href="https://twitter.com/merenbey/status/1648848404456390658">another one</a> by Meren that details what are the critical learnings from it.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>Genome Biology</b>, 24(78) | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Metabolic+independence+drives+gut+microbial+colonization+and+resilience+in+health+and+disease" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1186/s13059-023-02924-x" target="_blank">doi:10.1186/s13059-023-02924-x</a></span>
+</div>
+
+<a id="10.1101/2023.03.25.534219">&nbsp;</a>
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2023.03.25.534219"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1101/2023.03.25.534219" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1101/2023.03.25.534219" target="_new">A highly conserved and globally prevalent cryptic plasmid is among the most numerous mobile genetic elements in the human gut</a></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Fogarty EC</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Schechter MS</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Lolans K</span>, Sheahan ML, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Veseli I</span>, Moore R, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Kiefl E</span>, Moody T, Rice PA, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Yu MK</span>, Mimee M, Chang EB, Mclellan SL, Willis AD, Comstock LE, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/data/pBI143/images/pBI143_across_the_globe.png"><img src="/data/pBI143/images/pBI143_across_the_globe.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A study that describes one of the <b>most prevalent and numerous cryptic plasmid</b> in the gut microbiomes of people who live in the industrialized world that is composed of only two genes (for its own replication and mobilization) in its native form.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Here is <a href="https://twitter.com/merenbey/status/1641557495725293570" target="_blank">a Twitter thread</a> that explains some of the interesting aspects of pBI143 ecology as well as the practical implications having <b>a human gut-specific and highly conserved genetic entity, copy-number of which responds to stress</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- You can find the plasmid sequences to look for pBI143 in your metagenomes, reproducible data items to re-investigate metagenomic read recruitment results, and bioinformatics workflows to elucidate population genetics of pBI143 <a href="/data/pBI143">here</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=A+highly+conserved+and+globally+prevalent+cryptic+plasmid+is+among+the+most+numerous+mobile+genetic+elements+in+the+human+gut" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2023.03.25.534219" target="_blank">doi:10.1101/2023.03.25.534219</a></span>
+</div>
+
 <a id="10.1126/sciadv.abq4632">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1126/sciadv.abq4632"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1126/sciadv.abq4632" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1126/sciadv.abq4632" target="_new">Structure-informed microbial population genetics elucidate selective pressures that shape protein evolution</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Kiefl E</span>, Esen ÖC, <span class="pub-member-author">Miller SE</span>, Kroll KL, Willis AD, Rappé MS, Pan T, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Kiefl E</span>, Esen ÖC, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Miller SE</span>, Kroll KL, Willis AD, Rappé MS, Pan T, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/pubs/kiefl_et_al_metagenomics_plus_protein_structures.png"><img src="/images/pubs/kiefl_et_al_metagenomics_plus_protein_structures.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
     </div>
     <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- A study that describes an approach to integrate <b>environmental microbiology</b> with recent advances in <b>protein structure prediction</b>, and illustrates the tight association between <b>intra-population genetic variants</b>, <b>environmental selective pressures</b>, and <b>structural properties of proteins</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Demonstrates a quantifiable link between (1) the magnitude of selective pressures over key metabolic <b>genes</b> (e.g., glutamine synthase of the central nitrogen metabolism), (2) the availability of key <b>nutrients</b> in the environment (e.g., nitrate), and (3) the maintenance of nonsynonymous <b>variants</b> near protein active sites.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Shows that the interplay between selective pressures and protein structures also maintains <b>synonymous variants</b> -- revealing a quantifiable link between <b>translational accuracy</b> and fluctuating <b>selective pressures</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Comes with a <a href="https://merenlab.org/data/anvio-structure/chapter-I/"><b>reproducible bioinformatics workflow</b></a> that offers detailed access to computational steps used in the study that spans from metagenomic read recruitment and profiling to the integration of environmental variants and predicted protein structures.</span>
+    <span style="display: inline-block; padding-bottom: 5px;">- A study that describes an approach to integrate <b>environmental microbiology</b> with recent advances in <b>protein structure prediction</b>, and illustrates the tight association between <b>intra-population genetic variants</b>, <b>environmental selective pressures</b>, and <b>structural properties of proteins</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Demonstrates a quantifiable link between (1) the magnitude of selective pressures over key metabolic <b>genes</b> (e.g., glutamine synthase of the central nitrogen metabolism), (2) the availability of key <b>nutrients</b> in the environment (e.g., nitrate), and (3) the maintenance of nonsynonymous <b>variants</b> near protein active sites.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Comes with a <a href="https://merenlab.org/data/anvio-structure/chapter-I/"><b>reproducible bioinformatics workflow</b></a> that offers detailed access to computational steps used in the study that spans from metagenomic read recruitment and profiling to the integration of environmental variants and predicted protein structures.</span>
     </div>
     </div>
     <span class="pub-journal"> 📚 <b>Science Advances</b>, 9(8):eabq4632 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Structure-informed+microbial+population+genetics+elucidate+selective+pressures+that+shape+protein+evolution" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1126/sciadv.abq4632" target="_blank">doi:10.1126/sciadv.abq4632</a></span>
@@ -42,7 +77,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41564-022-01090-3"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41564-022-01090-3" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://rdcu.be/cKnTP" target="_new">Microbial metabolites in the marine carbon cycle</a></span>
-    <span class="pub-authors">Moran MA<sup>‡</sup>, Kujawinski EB<sup>‡</sup>, Schroer WF, Amin SA, Bates NR, Bertrand EM, Braakman R, Brown CT, Covert MW, Doney SC, Dyhrman ST, Edison AS, <span class="pub-member-author">Eren AM</span>, Levine NM, Li L, Ross AC, Saito MA, Santoro AE, Segrè D, Shade A, Sullivan MB, Vardi A</span>
+    <span class="pub-authors">Moran MA<sup>‡</sup>, Kujawinski EB<sup>‡</sup>, Schroer WF, Amin SA, Bates NR, Bertrand EM, Braakman R, Brown CT, Covert MW, Doney SC, Dyhrman ST, Edison AS, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Levine NM, Li L, Ross AC, Saito MA, Santoro AE, Segrè D, Shade A, Sullivan MB, Vardi A</span>
     <span class="pub-co-first-authors"><sup>‡</sup>Co-senior authors</span>
     <div class="pub-info">
     <div class="pub-featured-image">
@@ -60,7 +95,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s13100-022-00262-6"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1186/s13100-022-00262-6" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1186/s13100-022-00262-6" target="_new">Eco-evolutionary significance of domesticated retroelements in microbial genomes</a></span>
-    <span class="pub-authors">Paul BG, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-authors">Paul BG, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/pubs/dgrs-in-metagenomes.png"><img src="/images/pubs/dgrs-in-metagenomes.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -77,7 +112,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2020.11.01.361691"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1101/2020.11.01.361691" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1101/2020.11.01.361691" target="_new">The genetic and ecological landscape of plasmids in the human gut</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Yu MK<sup>☯</sup></span>, <span class="pub-member-author">Fogarty EC<sup>☯</sup></span>, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-authors"><span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Yu MK<sup>☯</sup></span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Fogarty EC<sup>☯</sup></span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
     <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors</span>
     <div class="pub-info">
     <div class="pub-featured-image">
@@ -95,7 +130,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1016/j.molcel.2021.12.007"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1016/j.molcel.2021.12.007" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1016/j.molcel.2021.12.007" target="_new">tRNA modification dynamics from individual organisms to metaepitranscriptomics of microbiomes</a></span>
-    <span class="pub-authors">Zhang W, Foo M, <span class="pub-member-author">Eren AM</span>, Pan T</span>
+    <span class="pub-authors">Zhang W, Foo M, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Pan T</span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/pubs/zhang_et_al_2022.png"><img src="/images/pubs/zhang_et_al_2022.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -115,7 +150,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41564-020-00834-3"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41564-020-00834-3" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://rdcu.be/cKMmi" target="_new">Community-led, integrated, reproducible multi-omics with anvi'o</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Eren AM</span>, <span class="pub-member-author">Kiefl E</span>, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Veseli I</span>, <span class="pub-member-author">Miller SE</span>, <span class="pub-member-author">Schechter MS</span>, <span class="pub-member-author">Fink I</span>, <span class="pub-member-author">Pan JN</span>, <span class="pub-member-author">Yousef M</span>, <span class="pub-member-author">Fogarty EC</span>, <span class="pub-member-author">Trigodet F</span>, <span class="pub-member-author">Watson AR</span>, Esen ÖC, Moore RM, Clayssen Q, Lee MD, Kivenson V, Graham ED, Merrill BD, Karkman A, Blankenberg D, Eppley JM, Sjödin A, Scott JJ, Vázquez-Campos X, McKay LJ, McDaniel EA, Stevens SLR, Anderson RE, Fuessel J, Fernandez-Guerra A, Maignien L, Delmont TO, Willis AD</span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Kiefl E</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Shaiber A</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Veseli I</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Miller SE</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Schechter MS</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Fink I</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Pan JN</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Yousef M</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Fogarty EC</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Trigodet F</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Watson AR</span>, Esen ÖC, Moore RM, Clayssen Q, Lee MD, Kivenson V, Graham ED, Merrill BD, Karkman A, Blankenberg D, Eppley JM, Sjödin A, Scott JJ, Vázquez-Campos X, McKay LJ, McDaniel EA, Stevens SLR, Anderson RE, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Fuessel J</span>, Fernandez-Guerra A, Maignien L, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Delmont TO</span>, Willis AD</span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/pubs/anvio-integrated-omics.png"><img src="/images/pubs/anvio-integrated-omics.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -127,29 +162,12 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"> 📚 <b>Nature Microbiology</b>, 6(1):186 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Community-led,+integrated,+reproducible+multi-omics+with+anvi'o" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1038/s41564-020-00834-3" target="_blank">doi:10.1038/s41564-020-00834-3</a></span>
 </div>
 
-<a id="10.1101/2021.03.02.433653">&nbsp;</a>
-<div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2021.03.02.433653"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.1101/2021.03.02.433653" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <span class="pub-title"><a href="https://doi.org/10.1101/2021.03.02.433653" target="_new">Metabolic independence drives gut microbial colonization and resilience in health and disease</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Watson AR</span>, Füssel J, <span class="pub-member-author">Veseli I</span>, DeLongchamp JZ, Silva M, <span class="pub-member-author">Trigodet F</span>, <span class="pub-member-author">Lolans K</span>, <span class="pub-member-author">Shaiber A</span>, Fogarty E, Runde JM, Quince C, <span class="pub-member-author">Yu MK</span>, Söylev A, Morrison HG, <span class="pub-member-author">Lee STM</span>, Kao D, Rubin DT, Jabri B, Louie T, <span class="pub-member-author">Eren AM</span></span>
-    <div class="pub-info">
-    <div class="pub-featured-image">
-    <a href="/images/pubs/watson_et_al_fmt.jpeg"><img src="/images/pubs/watson_et_al_fmt.jpeg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
-    </div>
-    <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- A Fecal Microbiota Transplantation (FMT) study that reveals unexpected parallels between the <b>adaptive ecological processes</b> that shape the recipient gut <b>microbial composition after FMT</b> and those that influence <b>microbial diversity in patients with Inflammatory Bowel Disease (IBD)</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Includes an observation that links <b>the presence of superior metabolic competence in bacterial populations to their expansion in IBD</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Here is a <a href="https://twitter.com/merenbey/status/1369016402896695298" target="_blank">Twitter thread</a> that explains <b>key points</b> of the study.</span>
-    </div>
-    </div>
-    <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Metabolic+independence+drives+gut+microbial+colonization+and+resilience+in+health+and+disease" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2021.03.02.433653" target="_blank">doi:10.1101/2021.03.02.433653</a></span>
-</div>
-
 <a id="10.1111/1755-0998.13588">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1111/1755-0998.13588"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1111/1755-0998.13588" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1111/1755-0998.13588" target="_new">High molecular weight DNA extraction strategies for long-read sequencing of complex metagenomes</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Trigodet F</span>, <span class="pub-member-author">Lolans K</span>, Fogarty E, <span class="pub-member-author">Shaiber A</span>, Morrison HG, Barreiro L, Jabri B, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Trigodet F</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Lolans K</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Fogarty EC</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Shaiber A</span>, Morrison HG, Barreiro L, Jabri B, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/pubs/Trigodet_and_Lolans_et_al_HMW.png"><img src="/images/pubs/Trigodet_and_Lolans_et_al_HMW.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -169,7 +187,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s13059-020-02195-w"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1186/s13059-020-02195-w" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1186/s13059-020-02195-w" target="_new">Functional and genetic markers of niche partitioning among enigmatic members of the human oral microbiome</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Shaiber A</span>, Willis AD, Delmont TO, Roux S, Chen L, <span class="pub-member-author">Schmid AC</span>, <span class="pub-member-author">Yousef M</span>, <span class="pub-member-author">Watson AR</span>, <span class="pub-member-author">Lolans K</span>, <span class="pub-member-author">Esen ÖC</span>, <span class="pub-member-author">Lee STM</span>, Downey N, Morrison HG, Dewhirst FE, Welch JLM<sup>‡</sup>, <span class="pub-member-author">Eren AM<sup>‡</sup></span></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Shaiber A</span>, Willis AD, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Delmont TO</span>, Roux S, Chen L, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Schmid AC</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Yousef M</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Watson AR</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Lolans K</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Esen ÖC</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Lee STM</span>, Downey N, Morrison HG, Dewhirst FE, Welch JLM<sup>‡</sup>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM<sup>‡</sup></span></span>
     <span class="pub-co-first-authors"><sup>‡</sup>Co-senior authors</span>
     <div class="pub-info">
     <div class="pub-featured-image">
@@ -187,7 +205,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s13059-020-02200-2"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1186/s13059-020-02200-2" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1186/s13059-020-02200-2" target="_new">Metapangenomics of the oral microbiome provides insights into habitat adaptation and cultivar diversity</a></span>
-    <span class="pub-authors">Utter DR, Borisy GG, <span class="pub-member-author">Eren AM</span>, Cavanaugh CM, Welch JLM</span>
+    <span class="pub-authors">Utter DR, Borisy GG, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Cavanaugh CM, Welch JLM</span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/pubs/utter_et_al_metapangenome.png"><img src="/images/pubs/utter_et_al_metapangenome.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -204,7 +222,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.7554/eLife.56998"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.7554/eLife.56998" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.7554/eLife.56998" target="_new">Droplet-based high-throughput cultivation for accurate screening of antibiotic resistant gut microbes</a></span>
-    <span class="pub-authors">Watterson WJ, Tanyeri M, <span class="pub-member-author">Watson AR</span>, Cham CM, Shan Y, Chang EB, <span class="pub-member-author">Eren AM</span>, Tay S</span>
+    <span class="pub-authors">Watterson WJ, Tanyeri M, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Watson AR</span>, Cham CM, Shan Y, Chang EB, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Tay S</span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/pubs/watterson_et_al_droplets.jpg"><img src="/images/pubs/watterson_et_al_droplets.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -221,7 +239,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/gr.258640.119"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1101/gr.258640.119" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1101/gr.258640.119" target="_new">Accurate and complete genomes from metagenomes</a></span>
-    <span class="pub-authors">Chen L, Anantharaman K, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Eren AM<sup>‡</sup></span>, Banfield JF<sup>‡</sup></span>
+    <span class="pub-authors">Chen L, Anantharaman K, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Shaiber A</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM<sup>‡</sup></span>, Banfield JF<sup>‡</sup></span>
     <span class="pub-co-first-authors"><sup>‡</sup>Co-senior authors</span>
     <div class="pub-info">
     <div class="pub-featured-image">
@@ -242,7 +260,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.7554/eLife.46497"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.7554/eLife.46497" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.7554/eLife.46497" target="_new">Single-amino acid variants reveal evolutionary processes that shape the biogeography of a global SAR11 subclade</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Delmont TO<sup>☯</sup></span>, <span class="pub-member-author">Kiefl E<sup>☯</sup></span>, Kilinc O, <span class="pub-member-author">Esen OC</span>, Uysal I, Rappé MS, Giovannoni S, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Delmont TO<sup>☯</sup></span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Kiefl E<sup>☯</sup></span>, Kilinc O, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Esen ÖC</span>, Uysal I, Rappé MS, Giovannoni S, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
     <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors</span>
     <div class="pub-info">
     <div class="pub-featured-image">
@@ -260,7 +278,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1128/mBio.00725-19"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1128/mBio.00725-19" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1128/mBio.00725-19" target="_new">Composite Metagenome-Assembled Genomes Reduce the Quality of Public Genome Repositories</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Shaiber A</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/pubs/shaiber_eren_MAG_refinement.png"><img src="/images/pubs/shaiber_eren_MAG_refinement.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -277,7 +295,8 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41467-019-08973-w"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41467-019-08973-w" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1038/s41467-019-08973-w" target="_new">The Wolbachia mobilome in Culex pipiens includes a putative plasmid</a></span>
-    <span class="pub-authors">Reveillaud J, Bordenstein SR, Cruaud C, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Esen ÖC</span>, Weill M, Makoundou P, <span class="pub-member-author">Lolans K</span>, <span class="pub-member-author">Watson AR</span>, Rakotoarivony I, Bordenstein SR, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-authors"><span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Reveillaud J<sup>☯</sup></span>, Bordenstein SR<sup>☯</sup>, Cruaud C, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Shaiber A</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Esen ÖC</span>, Weill M, Makoundou P, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Lolans K</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Watson AR</span>, Rakotoarivony I, Bordenstein SR<sup>☯</sup>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
+    <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors</span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/miscellaneous/2019-03-05-wolbachia-plasmid/minion-metagenomics.png"><img src="/images/miscellaneous/2019-03-05-wolbachia-plasmid/minion-metagenomics.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -294,7 +313,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.7717/peerj.7548"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.7548" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.7717/peerj.7548" target="_new">Genome-resolved insights into a novel Spiroplasma symbiont of the Wheat Stem Sawfly (Cephus cinctus)</a></span>
-    <span class="pub-authors">Yeoman CJ, Brutscher LM, <span class="pub-member-author">Esen ÖC</span>, Ibaoglu F, Fowler C, <span class="pub-member-author">Eren AM</span>, Wanner K, Weaver DK</span>
+    <span class="pub-authors">Yeoman CJ, Brutscher LM, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Esen ÖC</span>, Ibaoglu F, Fowler C, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Wanner K, Weaver DK</span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/pubs/spiroplasma-pangenome.png"><img src="/images/pubs/spiroplasma-pangenome.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -311,7 +330,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41564-019-0494-6"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41564-019-0494-6" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1038/s41564-019-0494-6" target="_new">Global phylogeography and ancient evolution of the widespread human gut virus crAssphage</a></span>
-    <span class="pub-authors">Edwards RA, Vega AA, Norman HM, Ohaeri M, Levi K, Dinsdale EA, Cinek O, Aziz RK, McNair K, Barr JJ, Bibby K, Brouns SJJ, Cazares A, Jonge PAd, Desnues C, Muñoz SLD, Fineran PC, Kurilshikov A, Lavigne R, Mazankova K, McCarthy DT, Nobrega FL, Muñoz AR, Tapia G, Trefault N, Tyakht AV, Vinuesa P, Wagemans J, Zhernakova A, Aarestrup FM, Ahmadov G, Alassaf A, Anton J, Asangba A, Billings EK, Cantu VA, Carlton JM, Cazares D, Cho G, Condeff T, Cortés P, Cranfield M, Cuevas DA, Iglesia RDl, Decewicz P, Doane MP, Dominy NJ, Dziewit L, Elwasila BM, <span class="pub-member-author">Eren AM</span>, Franz C, Fu J, Garcia-Aljaro C, Ghedin E, Gulino KM, Haggerty JM, Head SR, Hendriksen RS, Hill C, Hyöty H, Ilina EN, Irwin MT, Jeffries TC, Jofre J, Junge RE, Kelley ST, Mirzaei MK, Kowalewski M, Kumaresan D, Leigh SR, Lipson D, Lisitsyna ES, Llagostera M, Maritz JM, Marr LC, McCann A, Molshanski-Mor S, Monteiro S, Moreira-Grez B, Morris M, Mugisha L, Muniesa M, Neve H, Nguyen N, Nigro OD, Nilsson AS, O’Connell T, Odeh R, Oliver A, Piuri M, II AJP, Qimron U, Quan Z, Rainetova P, Ramírez-Rojas A, Raya R, Reasor K, Rice GAO, Rossi A, Santos R, Shimashita J, Stachler EN, Stene LC, Strain R, Stumpf R, Torres PJ, Twaddle A, Ibekwe MU, Villagra N, Wandro S, White B, Whiteley A, Whiteson KL, Wijmenga C, Zambrano MM, Zschach H, Dutilh BE</span>
+    <span class="pub-authors">Edwards RA, Vega AA, Norman HM, Ohaeri M, Levi K, Dinsdale EA, Cinek O, Aziz RK, McNair K, Barr JJ, Bibby K, Brouns SJJ, Cazares A, Jonge PAd, Desnues C, Muñoz SLD, Fineran PC, Kurilshikov A, Lavigne R, Mazankova K, McCarthy DT, Nobrega FL, Muñoz AR, Tapia G, Trefault N, Tyakht AV, Vinuesa P, Wagemans J, Zhernakova A, Aarestrup FM, Ahmadov G, Alassaf A, Anton J, Asangba A, Billings EK, Cantu VA, Carlton JM, Cazares D, Cho G, Condeff T, Cortés P, Cranfield M, Cuevas DA, Iglesia RDl, Decewicz P, Doane MP, Dominy NJ, Dziewit L, Elwasila BM, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Franz C, Fu J, Garcia-Aljaro C, Ghedin E, Gulino KM, Haggerty JM, Head SR, Hendriksen RS, Hill C, Hyöty H, Ilina EN, Irwin MT, Jeffries TC, Jofre J, Junge RE, Kelley ST, Mirzaei MK, Kowalewski M, Kumaresan D, Leigh SR, Lipson D, Lisitsyna ES, Llagostera M, Maritz JM, Marr LC, McCann A, Molshanski-Mor S, Monteiro S, Moreira-Grez B, Morris M, Mugisha L, Muniesa M, Neve H, Nguyen N, Nigro OD, Nilsson AS, O’Connell T, Odeh R, Oliver A, Piuri M, II AJP, Qimron U, Quan Z, Rainetova P, Ramírez-Rojas A, Raya R, Reasor K, Rice GAO, Rossi A, Santos R, Shimashita J, Stachler EN, Stene LC, Strain R, Stumpf R, Torres PJ, Twaddle A, Ibekwe MU, Villagra N, Wandro S, White B, Whiteley A, Whiteson KL, Wijmenga C, Zambrano MM, Zschach H, Dutilh BE</span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/pubs/crAssphage.png"><img src="/images/pubs/crAssphage.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -328,7 +347,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41564-019-0362-4"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41564-019-0362-4" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1038/s41564-019-0362-4" target="_new">Co-occurring genomic capacity for anaerobic methane and dissimilatory sulfur metabolisms discovered in the Korarchaeota</a></span>
-    <span class="pub-authors">McKay LJ, Dlakić M, Fields MW, <span class="pub-member-author">Delmont TO</span>, <span class="pub-member-author">Eren AM</span>, Jay ZJ, Klingelsmith KB, Rusch DB, Inskeep WP</span>
+    <span class="pub-authors">McKay LJ, Dlakić M, Fields MW, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Delmont TO</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Jay ZJ, Klingelsmith KB, Rusch DB, Inskeep WP</span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/pubs/mckay_and_inskeep.jpg"><img src="/images/pubs/mckay_and_inskeep.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -345,7 +364,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41422-018-0127-2"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41422-018-0127-2" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1038/s41422-018-0127-2" target="_new">Transcriptome-wide reprogramming of N 6-methyladenosine modification by the mouse microbiome</a></span>
-    <span class="pub-authors">Wang X, Li Y, Chen W, Shi H, <span class="pub-member-author">Eren AM</span>, Morozov A, He C, Luo G, Pan T</span>
+    <span class="pub-authors">Wang X, Li Y, Chen W, Shi H, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Morozov A, He C, Luo G, Pan T</span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/pubs/wang_et_al_m6A.png"><img src="/images/pubs/wang_et_al_m6A.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -362,7 +381,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1126/scitranslmed.aau9356"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1126/scitranslmed.aau9356" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1126/scitranslmed.aau9356" target="_new">B cell superantigens in the human intestinal microbiota</a></span>
-    <span class="pub-authors">Bunker JJ, Drees C, <span class="pub-member-author">Watson AR</span>, Plunkett CH, Nagler CR, Schneewind O, <span class="pub-member-author">Eren AM</span>, Bendelac A</span>
+    <span class="pub-authors">Bunker JJ, Drees C, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Watson AR</span>, Plunkett CH, Nagler CR, Schneewind O, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Bendelac A</span>
     <span class="pub-journal"> 📚 <b>Science Translational Medicine</b>, 11(507):eaau9356 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=B+cell+superantigens+in+the+human+intestinal+microbiota" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1126/scitranslmed.aau9356" target="_blank">doi:10.1126/scitranslmed.aau9356</a></span>
 </div>
 
@@ -374,7 +393,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41467-018-07675-z"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41467-018-07675-z" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1038/s41467-018-07675-z" target="_new">Microbiome characterization by high-throughput transfer RNA sequencing and modification analysis</a></span>
-    <span class="pub-authors">Schwartz MH, Wang H, <span class="pub-member-author">Pan JN</span>, Clark WC, <span class="pub-member-author">Cui S</span>, Eckwahl MJ, Pan DW, Parisien M, Owens SM, Cheng BL, Martinez K, Xu J, Chang EB, Pan T<sup>‡</sup>, <span class="pub-member-author">Eren AM<sup>‡</sup></span></span>
+    <span class="pub-authors">Schwartz MH, Wang H, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Pan JN</span>, Clark WC, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Cui S</span>, Eckwahl MJ, Pan DW, Parisien M, Owens SM, Cheng BL, Martinez K, Xu J, Chang EB, Pan T<sup>‡</sup>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM<sup>‡</sup></span></span>
     <span class="pub-co-first-authors"><sup>‡</sup>Co-senior authors</span>
     <div class="pub-info">
     <div class="pub-featured-image">
@@ -392,7 +411,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41564-018-0176-9"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41564-018-0176-9" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1038/s41564-018-0176-9" target="_new">Nitrogen-fixing populations of Planctomycetes and Proteobacteria are abundant in surface ocean metagenomes</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Delmont TO</span>, Quince C, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Esen ÖC</span>, <span class="pub-member-author">Lee STM</span>, Rappé MS, McLellan SL, Lücker S, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Delmont TO</span>, Quince C, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Shaiber A</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Esen ÖC</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Lee STM</span>, Rappé MS, McLellan SL, Lücker S, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/pubs/delmont_et_al_HBDs.png"><img src="/images/pubs/delmont_et_al_HBDs.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -409,7 +428,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.7717/peerj.4320"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.4320" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.7717/peerj.4320" target="_new">Linking pangenomes and metagenomes -- the Prochlorococcus metapangenome</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Delmont TO</span>, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Delmont TO</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/pubs/delmont_eren_metapangenomics.jpeg"><img src="/images/pubs/delmont_eren_metapangenomics.jpeg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -426,7 +445,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s40168-018-0474-8"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1186/s40168-018-0474-8" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1186/s40168-018-0474-8" target="_new">Gut microbes contribute to variation in solid organ transplant outcomes in mice</a></span>
-    <span class="pub-authors">McIntosh CM, Chen L, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Eren AM<sup>‡</sup></span>, Alegre M<sup>‡</sup></span>
+    <span class="pub-authors">McIntosh CM, Chen L, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Shaiber A</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM<sup>‡</sup></span>, Alegre M<sup>‡</sup></span>
     <span class="pub-co-first-authors"><sup>‡</sup>Co-senior authors</span>
     <div class="pub-info-no-image">
     <div class="pub-highlights-no-image">
@@ -441,7 +460,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41586-018-0125-z"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41586-018-0125-z" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1038/s41586-018-0125-z" target="_new">Microbial signals drive pre-leukaemic myeloproliferation in a Tet2-deficient host</a></span>
-    <span class="pub-authors">Meisel M, Hinterleitner R, Pacis A, Chen L, Earley ZM, Mayassi T, Pierre JF, Ernest JD, Galipeau HJ, Thuille N, Bouziat R, Buscarlet M, Ringus DL, Wang Y, Li Y, Dinh V, Kim SM, McDonald BD, Zurenski MA, Musch MW, Furtado GC, Lira SA, Baier G, Chang EB, <span class="pub-member-author">Eren AM</span>, Weber CR, Busque L, Godley LA, Verdú EF, Barreiro LB, Jabri B</span>
+    <span class="pub-authors">Meisel M, Hinterleitner R, Pacis A, Chen L, Earley ZM, Mayassi T, Pierre JF, Ernest JD, Galipeau HJ, Thuille N, Bouziat R, Buscarlet M, Ringus DL, Wang Y, Li Y, Dinh V, Kim SM, McDonald BD, Zurenski MA, Musch MW, Furtado GC, Lira SA, Baier G, Chang EB, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Weber CR, Busque L, Godley LA, Verdú EF, Barreiro LB, Jabri B</span>
     <div class="pub-info-no-image">
     <div class="pub-highlights-no-image">
     <span style="display: inline-block; padding-bottom: 5px;">- TET2 deficiency ➡️  deteriorating small intestinal barrier ➡️  bacterial translocation ➡️  incrased IL-6 signalling ➡️  pre-leukemic myeloproliferation (a leukemia precursor).</span><br><span style="display: inline-block; padding-bottom: 5px;">- ScienceDaily: <a href='https://www.sciencedaily.com/releases/2018/05/180516131226.htm' target='_blank'>Under certain conditions, bacterial signals set the stage for leukemia</a>.</span>
@@ -458,7 +477,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s40168-017-0270-x"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1186/s40168-017-0270-x" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1186/s40168-017-0270-x" target="_new">Tracking microbial colonization in fecal microbiota transplantation experiments via genome-resolved metagenomics</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Lee STM<sup>☯</sup></span>, Kahn SA<sup>☯</sup>, <span class="pub-member-author">Delmont TO</span>, <span class="pub-member-author">Shaiber A</span>, <span class="pub-member-author">Esen ÖC</span>, Hubert NA, Morrison HG, Antonopoulos DA, Rubin DT, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Lee STM<sup>☯</sup></span>, Kahn SA<sup>☯</sup>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Delmont TO</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Shaiber A</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Esen ÖC</span>, Hubert NA, Morrison HG, Antonopoulos DA, Rubin DT, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
     <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors</span>
     <div class="pub-info">
     <div class="pub-featured-image">
@@ -476,7 +495,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1073/pnas.1712186114"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1073/pnas.1712186114" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1073/pnas.1712186114" target="_new">Simulations predict microbial responses in the environment? This environment disagrees retrospectively</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Delmont TO</span>, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Delmont TO</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="http://merenlab.org/images/miscellaneous/2017-10-16-reply-to-probst-et-al/Figure_01.png"><img src="http://merenlab.org/images/miscellaneous/2017-10-16-reply-to-probst-et-al/Figure_01.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -493,7 +512,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41467-017-01228-6"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/s41467-017-01228-6" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1038/s41467-017-01228-6" target="_new">Genomic variation in microbial populations inhabiting the marine subseafloor at deep-sea hydrothermal vents</a></span>
-    <span class="pub-authors">Anderson RE, Reveillaud J, Reddington E, <span class="pub-member-author">Delmont TO</span>, <span class="pub-member-author">Eren AM</span>, McDermott JM, Seewald JS, Huber JA</span>
+    <span class="pub-authors">Anderson RE, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Reveillaud J</span>, Reddington E, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Delmont TO</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, McDermott JM, Seewald JS, Huber JA</span>
     <span class="pub-journal"> 📚 <b>Nature Communications</b>, 8(1):1114 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Genomic+variation+in+microbial+populations+inhabiting+the+marine+subseafloor+at+deep-sea+hydrothermal+vents" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1038/s41467-017-01228-6" target="_blank">doi:10.1038/s41467-017-01228-6</a></span>
 </div>
 
@@ -502,7 +521,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1186/s13059-017-1309-9"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1186/s13059-017-1309-9" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1186/s13059-017-1309-9" target="_new">DESMAN: a new tool for de novo extraction of strains from metagenomes</a></span>
-    <span class="pub-authors">Quince C, <span class="pub-member-author">Delmont TO</span>, Raguideau S, Alneberg J, Darling AE, Collins G, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-authors">Quince C, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Delmont TO</span>, Raguideau S, Alneberg J, Darling AE, Collins G, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
     <span class="pub-journal"> 📚 <b>Genome Biology</b>, 18(1):181 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=DESMAN:+a+new+tool+for+de+novo+extraction+of+strains+from+metagenomes" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1186/s13059-017-1309-9" target="_blank">doi:10.1186/s13059-017-1309-9</a></span>
 </div>
 
@@ -511,7 +530,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/nbt.3893"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/nbt.3893" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1038/nbt.3893" target="_new">Minimum information about a single amplified genome (MISAG) and a metagenome-assembled genome (MIMAG) of bacteria and archaea</a></span>
-    <span class="pub-authors">Bowers RM, Kyrpides NC, Stepanauskas R, Harmon-Smith M, Doud D, Reddy TBK, Schulz F, Jarett J, Rivers AR, Eloe-Fadrosh EA, Tringe SG, Ivanova NN, Copeland A, Clum A, Becraft ED, Malmstrom RR, Birren B, Podar M, Bork P, Weinstock GM, Garrity GM, Dodsworth JA, Yooseph S, Sutton G, Glöckner FO, Gilbert JA, Nelson WC, Hallam SJ, Jungbluth SP, Ettema TJG, Tighe S, Konstantinidis KT, Liu W, Baker BJ, Rattei T, Eisen JA, Hedlund B, McMahon KD, Fierer N, Knight R, Finn R, Cochrane G, Karsch-Mizrachi I, Tyson GW, Rinke C, Consortium TGS, Lapidus A, Meyer F, Yilmaz P, Parks DH, <span class="pub-member-author">Eren AM</span>, Schriml L, Banfield JF, Hugenholtz P, Woyke T</span>
+    <span class="pub-authors">Bowers RM, Kyrpides NC, Stepanauskas R, Harmon-Smith M, Doud D, Reddy TBK, Schulz F, Jarett J, Rivers AR, Eloe-Fadrosh EA, Tringe SG, Ivanova NN, Copeland A, Clum A, Becraft ED, Malmstrom RR, Birren B, Podar M, Bork P, Weinstock GM, Garrity GM, Dodsworth JA, Yooseph S, Sutton G, Glöckner FO, Gilbert JA, Nelson WC, Hallam SJ, Jungbluth SP, Ettema TJG, Tighe S, Konstantinidis KT, Liu W, Baker BJ, Rattei T, Eisen JA, Hedlund B, McMahon KD, Fierer N, Knight R, Finn R, Cochrane G, Karsch-Mizrachi I, Tyson GW, Rinke C, Consortium TGS, Lapidus A, Meyer F, Yilmaz P, Parks DH, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Schriml L, Banfield JF, Hugenholtz P, Woyke T</span>
     <span class="pub-journal"> 📚 <b>Nature biotechnology</b>, 35(8):725 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Minimum+information+about+a+single+amplified+genome+(MISAG)+and+a+metagenome-assembled+genome+(MIMAG)+of+bacteria+and+archaea" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1038/nbt.3893" target="_blank">doi:10.1038/nbt.3893</a></span>
 </div>
 
@@ -520,7 +539,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1016/j.celrep.2017.06.060"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1016/j.celrep.2017.06.060" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1016/j.celrep.2017.06.060" target="_new">Peripartum antibiotics promote gut dysbiosis, loss of immune tolerance, and inflammatory bowel disease in genetically prone offspring</a></span>
-    <span class="pub-authors">Miyoshi J, Bobe AM, Miyoshi S, Huang Y, Hubert N, <span class="pub-member-author">Delmont TO</span>, <span class="pub-member-author">Eren AM</span>, Leone V, Chang EB</span>
+    <span class="pub-authors">Miyoshi J, Bobe AM, Miyoshi S, Huang Y, Hubert N, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Delmont TO</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Leone V, Chang EB</span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/pubs/miyoshi_et_al_anvio_16S.png"><img src="/images/pubs/miyoshi_et_al_anvio_16S.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -540,7 +559,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.7717/peerj.1839"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.1839" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.7717/peerj.1839" target="_new">Identifying contamination with advanced visualization and analysis practices: metagenomic approaches for eukaryotic genome assemblies</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Delmont TO</span>, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Delmont TO</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/pubs/delmont_tardigrade.png"><img src="/images/pubs/delmont_tardigrade.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -557,7 +576,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1128/mBio.01713-16"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1128/mBio.01713-16" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1128/mBio.01713-16" target="_new">Patient-specific bacteroides genome variants in pouchitis</a></span>
-    <span class="pub-authors">Vineis JH, Ringus DL, Morrison HG, <span class="pub-member-author">Delmont TO</span>, Dalal S, Raffals LH, Antonopoulos DA, Rubin DT, <span class="pub-member-author">Eren AM</span>, Chang EB, Sogin ML</span>
+    <span class="pub-authors">Vineis JH, Ringus DL, Morrison HG, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Delmont TO</span>, Dalal S, Raffals LH, Antonopoulos DA, Rubin DT, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Chang EB, Sogin ML</span>
     <span class="pub-journal"> 📚 <b>mBio</b>, 7(6):e01713-16 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Patient-specific+bacteroides+genome+variants+in+pouchitis" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1128/mBio.01713-16" target="_blank">doi:10.1128/mBio.01713-16</a></span>
 </div>
 
@@ -566,7 +585,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.3389/fmicb.2016.01318"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.3389/fmicb.2016.01318" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.3389/fmicb.2016.01318" target="_new">New insights into microbial ecology through subtle nucleotide variation</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Eren AM</span>, Sogin ML, Maignien L</span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Sogin ML, Maignien L</span>
     <span class="pub-journal"> 📚 <b>Frontiers in microbiology</b>, 7:1318 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=New+insights+into+microbial+ecology+through+subtle+nucleotide+variation" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.3389/fmicb.2016.01318" target="_blank">doi:10.3389/fmicb.2016.01318</a></span>
 </div>
 
@@ -575,7 +594,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1093/femsre/fuw017"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1093/femsre/fuw017" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1093/femsre/fuw017" target="_new">Millions of reads, thousands of taxa: microbial community structure and associations analyzed via marker genes</a></span>
-    <span class="pub-authors">Bálint M, Bahram M, <span class="pub-member-author">Eren AM</span>, Faust K, Fuhrman JA, Lindahl B, O'Hara RB, Öpik M, Sogin ML, Unterseher M, Tedersoo L</span>
+    <span class="pub-authors">Bálint M, Bahram M, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Faust K, Fuhrman JA, Lindahl B, O'Hara RB, Öpik M, Sogin ML, Unterseher M, Tedersoo L</span>
     <span class="pub-journal"> 📚 <b>FEMS Microbiology Reviews</b>, 40(5):686-700 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Millions+of+reads,+thousands+of+taxa:+microbial+community+structure+and+associations+analyzed+via+marker+genes" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1093/femsre/fuw017" target="_blank">doi:10.1093/femsre/fuw017</a></span>
 </div>
 
@@ -587,7 +606,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.7717/peerj.1319"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.7717/peerj.1319" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.7717/peerj.1319" target="_new">Anvi'o: an advanced analysis and visualization platform for ‘omics data</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Eren AM</span>, <span class="pub-member-author">Esen ÖC</span>, Quince C, Vineis JH, Morrison HG, Sogin ML, <span class="pub-member-author">Delmont TO</span></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Esen ÖC</span>, Quince C, Vineis JH, Morrison HG, Sogin ML, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Delmont TO</span></span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/pubs/eren_et_al_anvio.jpeg"><img src="/images/pubs/eren_et_al_anvio.jpeg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -604,7 +623,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/ismej.2014.195"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/ismej.2014.195" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1038/ismej.2014.195" target="_new">Minimum entropy decomposition: unsupervised oligotyping for sensitive partitioning of high-throughput marker gene sequences</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Eren AM</span>, Morrison HG, Lescault PJ, Reveillaud J, Vineis JH, Sogin ML</span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Morrison HG, Lescault PJ, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Reveillaud J</span>, Vineis JH, Sogin ML</span>
     <span class="pub-journal"> 📚 <b>The ISME Journal</b>, 9(4):968 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Minimum+entropy+decomposition:+unsupervised+oligotyping+for+sensitive+partitioning+of+high-throughput+marker+gene+sequences" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1038/ismej.2014.195" target="_blank">doi:10.1038/ismej.2014.195</a></span>
 </div>
 
@@ -613,7 +632,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/ismej.2014.97"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/ismej.2014.97" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1038/ismej.2014.97" target="_new">A single genus in the gut microbiome reflects host preference and specificity</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Eren AM</span>, Sogin ML, Morrison HG, Vineis JH, Fisher JC, Newton RJ, McLellan SL</span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Sogin ML, Morrison HG, Vineis JH, Fisher JC, Newton RJ, McLellan SL</span>
     <span class="pub-journal"> 📚 <b>The ISME Journal</b>, 9(1):90 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=A+single+genus+in+the+gut+microbiome+reflects+host+preference+and+specificity" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1038/ismej.2014.97" target="_blank">doi:10.1038/ismej.2014.97</a></span>
 </div>
 
@@ -622,7 +641,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.3389/fmicb.2015.00358"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.3389/fmicb.2015.00358" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.3389/fmicb.2015.00358" target="_new">Reconstructing rare soil microbial genomes using in situ enrichments and metagenomics</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Delmont TO</span>, <span class="pub-member-author">Eren AM</span>, Maccario L, Prestat E, <span class="pub-member-author">Esen ÖC</span>, Pelletier E, Paslier DL, Simonet P, Vogel TM</span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Delmont TO</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Maccario L, Prestat E, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Esen ÖC</span>, Pelletier E, Paslier DL, Simonet P, Vogel TM</span>
     <div class="pub-info">
     <div class="pub-featured-image">
     <a href="/images/pubs/delmont_rare_soil_genomes.png"><img src="/images/pubs/delmont_rare_soil_genomes.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
@@ -639,7 +658,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/ajg.2015.357"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/ajg.2015.357" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1038/ajg.2015.357" target="_new">Extensive modulation of the fecal metagenome in children with Crohn’s disease during exclusive enteral nutrition</a></span>
-    <span class="pub-authors">Quince C, Ijaz UZ, Loman N, <span class="pub-member-author">Eren AM</span>, Saulnier D, Russell J, Haig SJ, Calus ST, Quick J, Barclay A, Bertz M, Blaut M, Hansen R, McGrogan P, Russell RK, Edwards CA, Gerasimidis K</span>
+    <span class="pub-authors">Quince C, Ijaz UZ, Loman N, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Saulnier D, Russell J, Haig SJ, Calus ST, Quick J, Barclay A, Bertz M, Blaut M, Hansen R, McGrogan P, Russell RK, Edwards CA, Gerasimidis K</span>
     <span class="pub-journal"> 📚 <b>The American journal of gastroenterology</b>, 110(12):1718 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Extensive+modulation+of+the+fecal+metagenome+in+children+with+Crohn’s+disease+during+exclusive+enteral+nutrition" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1038/ajg.2015.357" target="_blank">doi:10.1038/ajg.2015.357</a></span>
 </div>
 
@@ -648,7 +667,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1128/mBio.02574-14"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1128/mBio.02574-14" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1128/mBio.02574-14" target="_new">Sewage reflects the microbiomes of human populations</a></span>
-    <span class="pub-authors">Newton RJ, McLellan SL, Dila DK, Vineis JH, Morrison HG, <span class="pub-member-author">Eren AM</span>, Sogin ML</span>
+    <span class="pub-authors">Newton RJ, McLellan SL, Dila DK, Vineis JH, Morrison HG, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Sogin ML</span>
     <span class="pub-journal"> 📚 <b>mBio</b>, 6(2):e02574-14 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Sewage+reflects+the+microbiomes+of+human+populations" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1128/mBio.02574-14" target="_blank">doi:10.1128/mBio.02574-14</a></span>
 </div>
 
@@ -660,7 +679,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1073/pnas.1409644111"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1073/pnas.1409644111" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1073/pnas.1409644111" target="_new">Oligotyping analysis of the human oral microbiome</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Eren AM</span>, Borisy GG, Huse SM, Welch aJLM</span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Borisy GG, Huse SM, Welch aJLM</span>
     <span class="pub-journal"> 📚 <b>Proceedings of the National Academy of Sciences</b>, 111(28):E2875-E2884 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Oligotyping+analysis+of+the+human+oral+microbiome" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1073/pnas.1409644111" target="_blank">doi:10.1073/pnas.1409644111</a></span>
 </div>
 
@@ -669,7 +688,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1016/j.tim.2014.08.002"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1016/j.tim.2014.08.002" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1016/j.tim.2014.08.002" target="_new">Discovering new indicators of fecal pollution</a></span>
-    <span class="pub-authors">McLellan SL, <span class="pub-member-author">Eren AM</span></span>
+    <span class="pub-authors">McLellan SL, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
     <span class="pub-journal"> 📚 <b>Trends in Microbiology</b>, 22(12):697-706 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Discovering+new+indicators+of+fecal+pollution" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1016/j.tim.2014.08.002" target="_blank">doi:10.1016/j.tim.2014.08.002</a></span>
 </div>
 
@@ -678,7 +697,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.3389/fmicb.2014.00568"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.3389/fmicb.2014.00568" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.3389/fmicb.2014.00568" target="_new">Dynamics of tongue microbial communities with single-nucleotide resolution using oligotyping</a></span>
-    <span class="pub-authors">Welch JLM, Utter DR, Rossetti BJ, Welch DBM, <span class="pub-member-author">Eren AM</span>, Borisy GG</span>
+    <span class="pub-authors">Welch JLM, Utter DR, Rossetti BJ, Welch DBM, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Borisy GG</span>
     <span class="pub-journal"> 📚 <b>Frontiers in microbiology</b>, 5:568 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Dynamics+of+tongue+microbial+communities+with+single-nucleotide+resolution+using+oligotyping" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.3389/fmicb.2014.00568" target="_blank">doi:10.3389/fmicb.2014.00568</a></span>
 </div>
 
@@ -687,7 +706,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1371/journal.pone.0090785"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1371/journal.pone.0090785" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1371/journal.pone.0090785" target="_new">Humpback whale populations share a core skin bacterial community: towards a health index for marine mammals?</a></span>
-    <span class="pub-authors">Apprill A, Robbins J, <span class="pub-member-author">Eren AM</span>, Pack AA, Reveillaud J, Mattila D, Moore M, Niemeyer M, Moore KMT, Mincer TJ</span>
+    <span class="pub-authors">Apprill A, Robbins J, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Pack AA, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Reveillaud J</span>, Mattila D, Moore M, Niemeyer M, Moore KMT, Mincer TJ</span>
     <span class="pub-journal"> 📚 <b>PLoS One</b>, 9(3):e90785 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Humpback+whale+populations+share+a+core+skin+bacterial+community:+towards+a+health+index+for+marine+mammals?" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1371/journal.pone.0090785" target="_blank">doi:10.1371/journal.pone.0090785</a></span>
 </div>
 
@@ -696,7 +715,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/ismej.2013.227"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/ismej.2013.227" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1038/ismej.2013.227" target="_new">Host-specificity among abundant and rare taxa in the sponge microbiome</a></span>
-    <span class="pub-authors">Reveillaud J, Maignien L, <span class="pub-member-author">Eren AM</span>, Huber JA, Apprill A, Sogin ML, Vanreusel A</span>
+    <span class="pub-authors"><span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Reveillaud J</span>, Maignien L, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Huber JA, Apprill A, Sogin ML, Vanreusel A</span>
     <span class="pub-journal"> 📚 <b>The ISME Journal</b>, 8(6):1198-209 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Host-specificity+among+abundant+and+rare+taxa+in+the+sponge+microbiome" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1038/ismej.2013.227" target="_blank">doi:10.1038/ismej.2013.227</a></span>
 </div>
 
@@ -705,7 +724,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1128/mBio.00682-13"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1128/mBio.00682-13" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1128/mBio.00682-13" target="_new">Ecological succession and stochastic variation in the assembly of Arabidopsis thaliana phyllosphere communities</a></span>
-    <span class="pub-authors">Maignien L, DeForce EA, Chafee ME, <span class="pub-member-author">Eren AM</span>, Simmons SL</span>
+    <span class="pub-authors">Maignien L, DeForce EA, Chafee ME, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Simmons SL</span>
     <span class="pub-journal"> 📚 <b>mBio</b>, 5(1):e00682-13 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Ecological+succession+and+stochastic+variation+in+the+assembly+of+Arabidopsis+thaliana+phyllosphere+communities" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1128/mBio.00682-13" target="_blank">doi:10.1128/mBio.00682-13</a></span>
 </div>
 
@@ -717,7 +736,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1111/2041-210X.12114"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1111/2041-210X.12114" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1111/2041-210X.12114" target="_new">Oligotyping: differentiating between closely related microbial taxa using 16S rRNA gene data</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Eren AM</span>, Maignien L, Sul WJ, Murphy LG, Grim SL, Morrison HG, Sogin ML</span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Maignien L, Sul WJ, Murphy LG, Grim SL, Morrison HG, Sogin ML</span>
     <span class="pub-journal"> 📚 <b>Methods in Ecology and Evolution</b>, 4(12):1111-1119 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Oligotyping:+differentiating+between+closely+related+microbial+taxa+using+16S+rRNA+gene+data" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1111/2041-210X.12114" target="_blank">doi:10.1111/2041-210X.12114</a></span>
 </div>
 
@@ -726,7 +745,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1371/journal.pone.0066643"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1371/journal.pone.0066643" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1371/journal.pone.0066643" target="_new">A filtering method to generate high quality short reads using Illumina paired-end technology</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Eren AM</span>, Vineis JH, Morrison HG, Sogin ML</span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Vineis JH, Morrison HG, Sogin ML</span>
     <span class="pub-journal"> 📚 <b>PLOS ONE</b>, 8(6):e66643 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=A+filtering+method+to+generate+high+quality+short+reads+using+Illumina+paired-end+technology" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1371/journal.pone.0066643" target="_blank">doi:10.1371/journal.pone.0066643</a></span>
 </div>
 
@@ -735,7 +754,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1093/bib/bbt010"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1093/bib/bbt010" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1093/bib/bbt010" target="_new">DRISEE overestimates errors in metagenomic sequencing data</a></span>
-    <span class="pub-authors"><span class="pub-member-author">Eren AM</span>, Morrison HG, Huse SM, Sogin ML</span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Morrison HG, Huse SM, Sogin ML</span>
     <span class="pub-journal"> 📚 <b>Briefings in Bioinformatics</b>, 15(5):783-787 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=DRISEE+overestimates+errors+in+metagenomic+sequencing+data" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1093/bib/bbt010" target="_blank">doi:10.1093/bib/bbt010</a></span>
 </div>
 
@@ -744,7 +763,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1111/1462-2920.12092"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1111/1462-2920.12092" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
     <span class="pub-title"><a href="https://doi.org/10.1111/1462-2920.12092" target="_new">Sewage reflects the distribution of human faecal Lachnospiraceae</a></span>
-    <span class="pub-authors">McLellan SL, Newton RJ, Vandewalle JL, Shanks OC, Huse SM, <span class="pub-member-author">Eren AM</span>, Sogin ML</span>
+    <span class="pub-authors">McLellan SL, Newton RJ, Vandewalle JL, Shanks OC, Huse SM, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Sogin ML</span>
     <span class="pub-journal"> 📚 <b>Environmental Microbiology</b>, 15(8):2213-2227 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Sewage+reflects+the+distribution+of+human+faecal+Lachnospiraceae" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1111/1462-2920.12092" target="_blank">doi:10.1111/1462-2920.12092</a></span>
 </div>
 

@@ -109,6 +109,9 @@ c. Carefully decant/remove supernatant from each of the tubes. Save pellet.
 
 d. Resuspend the pellet in 1-mL `Buffer B1`, into which 20-ul of `RNase (10mg/mL)` was added, and *vortex vigorously*.
 
+{:.warning}
+The purpose of vortexing here is to thoroughly resuspend the cells to achieve a homogenous DNA solution; DNA will not be damaged as it is still packaged inside of the cell at this point
+
 | Step when Added | Lytic Enzyme | Stock Conc. | Enzyme stock vol. to add to 1-mL Buffer B1 | Component Added? |
 | -------- | -------- | -------- | -------- | -------- |
 | sample-specific protocol    | RNaseA    | 10-mg/mL     |20-uL     |     |

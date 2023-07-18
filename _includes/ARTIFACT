@@ -1,5 +1,5 @@
 {%- if include.text -%}
-    <span class="artifact-r"><a href="/software/anvio/help/main/artifacts/{{include.name}}">{{include.text}}</a></span>
+    <span class="artifact-r"><a href="https://anvio.org/help/main/artifacts/{{include.name}}">{{include.text}}</a></span>
 {%- else -%}
-    <span class="artifact-r"><a href="/software/anvio/help/main/artifacts/{{ include.name }}">{{ include.name }}</a></span>
+    <span class="artifact-r"><a href="https://anvio.org/help/main/artifacts/{{ include.name }}">{{ include.name }}</a></span>
 {%- endif -%}

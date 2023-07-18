@@ -598,8 +598,8 @@
   bio: "My aim is to understand the production and fate of microbial metabolites within the context of changing environmental conditions using a multi-omics approaches."
   affiliations:
     - title: Post-doctoral Scientist
-      inst: Department of Medicine, University of Chicago
-      inst_link: https://medicine.uchicago.edu/
+      inst: Institute for Chemistry and Biology of the Marine Environment, University of Oldenburg
+      inst_link: https://uol.de/en/icbm
 
 - alias: amy
   collaborator: True
