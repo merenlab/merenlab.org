@@ -41,7 +41,29 @@ Here we will analyze genomes of seven _Vibrio jascida_ populations isolated from
 
 ## Finalizing the list of genomes
 
-Before we start, we can already think about how to make our analysis a bit more inclusive. Since we are going to be analyzing genomes of a bunch of novel _Vibrio jascida_ populations, we can include into our collection at least one reference genome to have an anchor in everyone else's reality. Indeed, searching on the NCBI for _Vibrio jascida_ does return some *complete* genomes:
+Please note that the following few sections will take you through the steps of gathering the FASTA files for genomes we are intersted in and turning them into anvi'o {% include ARTIFACT name="contigs-db" text="contigs-db" %} files prior to our pangenomic analysis. If you would like to skip these steps completely and start with a collection of contigs-db files directly, please first run the following command to download the pre-packaged data,
+
+``` bash
+# download the data pack for contigs-db files
+curl -L https://figshare.com/ndownloader/files/41600745 -o V_jascida_contigs_dbs.tar.gz
+
+# unpack it
+tar -zxvf V_jascida_contigs_dbs.tar.gz
+
+# go into the new directory
+cd V_jascida_contigs_dbs
+
+# take a look at the list of files, you know, as one should always do
+ls
+```
+
+Once you are done with them, from here you can [jump here](#taking-a-quick-look-at-genome-stats) to follow the rest of the tutorial.
+
+---
+
+If you are still here, it means you want to go through each step one by one to go from FASTA files to anvi'o contigs-db files. You are a gem among people.
+
+Before we start, we will already find a way to make our analysis a bit more inclusive. Since we are going to be analyzing genomes of a bunch of novel _Vibrio jascida_ populations, we can include into our collection at least one reference genome to have an anchor in everyone else's reality. Indeed, searching on the NCBI for _Vibrio jascida_ does return some *complete* genomes:
 
 {% include IMAGE path="images/ncbi_search_results.png" %}
 
@@ -54,7 +76,7 @@ Unzipping the compressed file NCBI sends resulted in a directory with a lot of t
 ```
 mv ~/Downloads/V_jasicida_NCBI/ncbi_dataset/data/GCF_002887615.1/GCF_002887615.1_ASM288761v1_genomic.fna ref_scaffolds.fasta
 ```
- 
+
 After this, I have the following FASTA files in my work directory:
 
 ```
@@ -181,7 +203,7 @@ done
 
 ### Taking a quick look at genome stats
 
-Since we have our contigs databases ready, let's take a look at their simple features using the program {% include PROGRAM name="anvi-display-contigs-stats" %}:
+If you are here, it means you have your contigs-db files ready and you are ready to jump into the pangenomics. But first, let's take a look at the simple features of these genomes we have using the program {% include PROGRAM name="anvi-display-contigs-stats" %}:
 
 ```
 anvi-display-contigs-stats *db
