@@ -55,7 +55,7 @@ This will download a **210 Mb** compressed file, and unpack it, which will take 
 If you are using a newer version of anvi'o than was the one that was used to generate these databases (perhaps you are following the development branch), you may need to run {% include PROGRAM name="anvi-migrate" %} to get them up to date. If you are not sure whether you need this, do not worry - you could safely skip it and anvi'o would later remind you what exactly needs to be done.
 
 ``` bash
-anvi-migrate --migrate-dbs-safely *.db
+anvi-migrate --migrate-safely *.db
 ```
 
 {:.notice}
@@ -1842,7 +1842,7 @@ gzip -d TARA_ANW_MAG_00006/AUXILIARY-DATA.h5.gz
 
 # if you are not using anvi'o v2.3.0, you need to migrate
 # anvi'o databases to your version:
-ANVIO_SAMPLES_DB=SKIP anvi-migrate TARA_ANW_MAG_00006/*.db --migrate-dbs-safely
+ANVIO_SAMPLES_DB=SKIP anvi-migrate TARA_ANW_MAG_00006/*.db --migrate-safely
 
 
 anvi-interactive -p TARA_ANW_MAG_00006/PROFILE.db \
