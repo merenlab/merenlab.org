@@ -63,7 +63,26 @@ Once you are done with them, from here you can [jump here](#taking-a-quick-look-
 
 If you are still here, it means you want to go through each step one by one to go from FASTA files to anvi'o contigs-db files. You are a gem among people.
 
-Before we start, we will already find a way to make our analysis a bit more inclusive. Since we are going to be analyzing genomes of a bunch of novel _Vibrio jascida_ populations, we can include into our collection at least one reference genome to have an anchor in everyone else's reality. Indeed, searching on the NCBI for _Vibrio jascida_ does return some *complete* genomes:
+We will start by downloading the FASTA files for the Vibrio genomes:
+
+```bash
+# download the pack
+curl -L https://ndownloader.figshare.com/files/28965090 -o V_jascida_genomes.tar.gz
+
+# unpack it
+tar -zxvf V_jascida_genomes.tar.gz
+
+# go into the new directory
+cd V_jascida_genomes
+
+# take a look at what we have in our hands
+ls
+```
+
+{:.warning}
+Please remember these novel genomes are public thanks to the generosity of the Microbial Diversity Course at the MBL and its 2018 participants, Peggy Lai, Danielle Campbell, Brittni Bertolet, Sarah Schwenck, and Monica E. McCallum.
+
+Now we have all the FASTA files for our 'novel' _Vibrio jascida_ genomes and in theory we are good to go. But it is always good to try to be a little more inclusive. For instance, to our collection of _Vibrio jascida_ genomes we can include at least one reference genome for this taxon to anchor our pangenome in everyone else's reality. Indeed, searching on the NCBI for _Vibrio jascida_ does return some *complete* genomes:
 
 {% include IMAGE path="images/ncbi_search_results.png" %}
 
@@ -71,13 +90,15 @@ Let's download the first one:
 
 {% include IMAGE path="images/ncbi_download.png" %}
 
-Unzipping the compressed file NCBI sends resulted in a directory with a lot of things in it, but we simply want the FASTA file, and this is how I moved that FASTA file into my work directory where all the FASTA files for other _Vibrio jascida_ isolates were living:
+Unzipping the compressed file NCBI sends resulted in a directory with a lot of things in it, but we simply want the FASTA file. This is how I moved that FASTA file of interest into my work directory where all the FASTA files for other _Vibrio jascida_ isolates were living:
 
 ```
 mv ~/Downloads/V_jasicida_NCBI/ncbi_dataset/data/GCF_002887615.1/GCF_002887615.1_ASM288761v1_genomic.fna ref_scaffolds.fasta
 ```
 
-After this, I have the following FASTA files in my work directory:
+Please note that the command above may differ for you as a function of a number of things, so please try to figure out where things are if you get an error at this stage. All you want to do is to download a reference genome for our taxon from the NCBI, and move the FASTA file for it into your work directory as `ref_scaffolds.fasta`.
+
+If you were successful, your work directory should look like this:
 
 ```
 ls *fasta
@@ -92,31 +113,7 @@ ls *fasta
 ref_scaffolds.fasta
 ```
 
-OK. We are good to go.
-
-### Downloading the genomes to follow this workshop
-
-You can download the genomes to follow this workshop:
-
-```bash
-# download the pack
-curl -L https://ndownloader.figshare.com/files/28965090 -o V_jascida_genomes.tar.gz
-
-# unpack it
-tar -zxvf V_jascida_genomes.tar.gz
-
-# go into the new directory
-cd V_jascida_genomes
-
-# take a look at the list of files to make sure they're identical
-# to what I showed above
-ls
-```
-
-{:.warning}
-Please remember these novel genomes are public thanks to the generosity of the Microbial Diversity Course at the MBL and its 2018 participants, Peggy Lai, Danielle Campbell, Brittni Bertolet, Sarah Schwenck, and Monica E. McCallum.
-
-Moving on.
+OK. Now we have all the FASTA files, and we are good to go.
 
 ## FASTA files to Contigs DBs
 
