@@ -326,7 +326,6 @@ specific_scientific_names_for_bioprojets = {'PRJNA781406': 'water/sediment metag
                                             'PRJEB28237': 'human gut metagenome', # this includes also culture-enriched microbiota metagenomes :/
                                             'PRJEB22973': 'laboratory rat gut metagenome',
                                             'PRJEB42363': 'infant gut metagenome',
-                                            'PRJNA407583': 'panda gut metagenome',
                                             'PRJNA686265': 'human gut metagenome',
                                             'PRJEB28097': 'human gut metagenome',
                                             'PRJEB38669;PRJEB44815': 'marine metagenome'
@@ -491,6 +490,14 @@ for entry_id in anvi_profile_blitz_results:
             if keyword in sample_metadata[metagenome]['sample_alias'].lower():
                 entry['biome'] = biome
 
+    if bioproject == 'PRJNA407583':
+        if sample_metadata[metagenome]['sample_alias'] in ['BR1', 'BR2', 'BR3', 'BR4']:
+            entry['biome'] = 'bamboo rat gut metagenome'
+        elif sample_metadata[metagenome]['sample_alias'] in ['CB1.', 'CB3.', 'CB7', 'CB9']:
+            entry['biome'] = 'black bear gut metagenome'
+        else:
+            entry['biome'] = 'panda gut metagenome'
+
     if bioproject == 'PRJEB45799':
         if 'saliva' in sample_metadata[metagenome]['sample_description']:
             entry['biome'] = 'human oral metagenome'
@@ -633,7 +640,7 @@ for entry_id in anvi_profile_blitz_results:
 ############################################################################################
 store_dict_as_TAB_delimited_file(anvi_profile_blitz_results,
                                  'read-recuritment-results.txt',
-                                 headers=['bioproject', 'biosample', 'biome', 'num_reads_in_metagenome',
+                                 headers=['entry', 'bioproject', 'biosample', 'biome', 'num_reads_in_metagenome',
                                           'best_detected_pBI143_version', 'num_mapped_reads_to_pBI143',
                                           'percent_reads_recruited', 'detection', 'mean_cov', 'q2q3_cov',
                                           'median_cov', 'min_cov', 'max_cov', 'std_cov'])
@@ -676,8 +683,9 @@ human_gut_environment <- c("human gut metagenome")infant_gut_environment <- c(
                                        "plastisphere metagenome", "water/sediment metagenome", "aquatic metagenome",
                                        "peat metagenome", "coral reef metagenome", "hydrothermal vent metagenome",
                                        "coral metagenome", "glacier metagenome","bioreactor metagenome")non_human_hosts <- c("pig gut metagenome", "chicken gut metagenome", "cow gut metagenome", "mouse gut metagenome",
-                     "panda gut metagenome", "goat gut metagenome", "cat gut metagenome", "various wild animals",
-                     "vole gut metagenome", "whale gut metagenome", "buffalo gut metagenome", "wild boar gut metagenome",
+                     "panda gut metagenome", "black bear gut metagenome", "bamboo rat gut metagenome",
+                     "goat gut metagenome", "cat gut metagenome", "various wild animals", "vole gut metagenome",
+                     "whale gut metagenome", "buffalo gut metagenome", "wild boar gut metagenome",
                      "deer gut metagenome", "sheep gut metagenome", "yak gut metagenome", "sponge metagenome",
                      "cow rumen metagenome", "dog gut metagenome", "deer rumen metagenome", "sheep rumen metagenome",
                      "fish gut metagenome", "insect gut metagenome", "zebu gut metagenome", "bovine gut metagenome",
