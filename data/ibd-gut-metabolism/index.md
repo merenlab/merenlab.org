@@ -20,6 +20,7 @@ Here is a list of links for quick access to the data described in our manuscript
 * [doi:10.5281/zenodo.7872967](https://doi.org/10.5281/zenodo.7872967): Contigs databases for our assemblies of 408 deeply-sequenced gut metagenomes.
 * [doi:10.5281/zenodo.7883421](https://doi.org/10.5281/zenodo.7883421): Contigs databases for 338 GTDB genomes.
 * [doi:10.5281/zenodo.7897987](https://doi.org/10.5281/zenodo.7897987): Contigs databases for our assemblies of the gut metagenomes from [Palleja et al. 2018](https://doi.org/10.1038/s41564-018-0257-9).
+* [doi:10.6084/m9.figshare.24042288](https://doi.org/10.6084/m9.figshare.24042288): AGNOSTOS gene clustering and classification data for genes from our assemblies of 330 deeply-sequenced healthy and IBD gut metagenomes.
 
 
 </div>
