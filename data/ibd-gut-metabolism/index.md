@@ -1816,9 +1816,60 @@ python ../SCRIPTS/get_num_genes.py ../02_METAGENOME_PROCESSING/ALL_METAGENOME_DB
 
 Speaking of which, you will find the code for making Supplementary Figure 4 in the usual script, `SCRIPTS/plot_figures.R`.
 
-You can find our hypothesis about the annotation bias in the Supplementary Information file of our paper. Long story short, there are some technical artifacts leading to annotation bias against healthy samples, but we think it is arising from our inability to effectively culture microbes of reduced metabolic capacity. If this is true, the reduced metabolic independence we noticed would actually be contributing to the technical annotation issues, so 1) the annotation bias does not disqualify our interpretation of our data, and 2) it is very difficult to quantify the exact contribution of technical artifacts vs biological signal.
+You can find our hypothesis about the annotation bias in the Supplementary Information file of our paper. Long story short, one possibility is that we cannot effectively annotate the genomes of LMI microbes due to our inability to effectively culture microbes of reduced metabolic capacity and incorporate their genes into annotation models. If this is true, the reduced metabolic independence we noticed would actually be contributing to the technical annotation issues, so 1) the annotation bias does not disqualify our interpretation of our data, and 2) it is very difficult to quantify the exact contribution of technical artifacts vs biological signal.
 
-To get at that last question, we asked our colleagues to run [AGNOSTOS](https://doi.org/10.7554/eLife.67667) to quantify the proportion of 'known unknown' genes and 'unknown unknown' genes in our metagenome assemblies, with the idea that a higher proportion of 'known unknown' genes would indicate a larger contribution of technical artifacts while a higher proportion of 'unknown unknown' genes would indicate that the biological signal is stronger. However, they haven't gotten back to us yet. :)
+To get at that last question, we asked our co-authors [Chiara Vanni](https://www.marum.de/en/Dr.-chiara-vanni.html) and [Antonio Fernandez-Guerra](https://anvio.org/people/genomewalker/) to run [AGNOSTOS](https://doi.org/10.7554/eLife.67667) to quantify the proportion of 'known unknown' genes and 'unknown unknown' genes in our metagenome assemblies for the 330 deeply-sequenced samples from healthy people and those with IBD. To see the resulting gene clustering and classification data, you can download it by running the following code (WARNING: you will need 3.5 GB of space on your computer for these additional files):
+
+```bash
+wget https://figshare.com/ndownloader/files/42157545 -O AGNOSTOS_DATA.tar.gz
+tar -xvzf AGNOSTOS_DATA.tar.gz
+```
+
+And you can then summarize and plot this data in R using the following code (which is also a section in the `SCRIPTS/plot_figures.R` file):
+
+```r
+#### SUPP FIG 4g - AGNOSTOS BARPLOT ####
+# to run this section, you need to have downloaded and unzipped the data from
+# https://doi.org/10.6084/m9.figshare.24042288
+agnostos_data_dir = "../07_SUPPLEMENTARY/AGNOSTOS_DATA/"
+genes_in_clusters = read.table(file=paste(agnostos_data_dir,"GUT_gene_clustering_summary_info.tsv", sep=""), 
+                               header = TRUE, sep = "\t")
+genes_in_samples = read.table(file=paste(agnostos_data_dir,"GUT_gene_categories_sample_info.tsv", sep=""), 
+                              header = TRUE, sep = "\t")
+
+# filter out genes from discarded gene clusters (ie, spurious or shadow sequences)
+genes_in_samples$cluster_class = genes_in_clusters$class[match(genes_in_samples$gene, genes_in_clusters$gene)]
+filtered = genes_in_samples %>% filter(cluster_class != "DISCARD")
+
+group_counts = filtered %>% group_by(group, cat) %>% summarize(count=n()) %>% mutate(proportion = count / sum(count) * 100)
+
+# rename and set order of categories
+group_counts$cat = recode_factor(group_counts$cat, known = "Known", 
+                                 known_unknown = "Genomic Unknown",
+                                 unknown_unknown = "Environmental Unknown")
+KNOWN_COLOR = "#478D76"
+GU_COLOR = "#AA7D39"
+EU_COLOR = "#320913"
+category_colors = c(KNOWN_COLOR, GU_COLOR, EU_COLOR)
+
+gplt = ggplot(group_counts, aes(fill=cat, y=proportion, x=group)) + 
+  geom_bar(width=0.75, position=position_dodge(0.8), stat="identity") +
+  geom_text(aes(label = sprintf("%1.2f%%", proportion)), vjust = -0.3, position=position_dodge(0.8), size=2.5) +
+  scale_fill_manual(values = category_colors, name = "Group") +
+  theme_bw() +
+  theme(panel.grid.minor = element_blank())
+gplt
+```
+
+If you run the above, you will see that even AGNOSTOS, which has very sophisticated methodology for clustering distant homologs, identifies more unknown genes in the healthy samples than in the IBD samples. It goes one step farther and classifies most of these as 'known unknown' genes - hypothetical proteins that are present in reference genomes - which suggests that the unannotated genes in the healthy samples are not missing annotations due to technical artifacts, but rather because those genes have not been biochemically characterized yet (which made us all breathe a big sigh of relief).
+
+Wondering how the AGNOSTOS classification data compares to simply counting the proportion of genes with and without any sort of functional annotation? The annotation ratio data from earlier is not exactly comparable to the AGNOSTOS proportions, so we obtained the data to do this comparison by running yet another script, `SCRIPTS/get_num_annotated_genes.sh`. 
+
+```bash
+../SCRIPTS/get_num_annotated_genes.sh
+```
+
+In case you don't want to run it for yourself, the resulting data is available at `TABLES/NUM_ANNOTATED_GENES_SUBSET_SAMPLES.txt`. You can run the subsequent section of code in `SCRIPTS/plot_figures.R` to replicate Supplementary Figure 4h using that data, and you will see that the difference in proportion of unknown/unannotated genes between the healthy and IBD sample groups is the same using both methods. However, AGNOSTOS provides the additional (and very helpful) context of categorizing the unknowns, which is what really convinced us that we are not dealing with a technical annotation bias.
 
 ### Additional comparisons of metabolic pathways (Supplementary Figure 5)
 
