@@ -1,7 +1,7 @@
 ---
 layout: page
 title: A reproducible workflow for Veseli et al, 2023
-modified: 2023-04-15
+modified: 2023-08-28
 excerpt: "A bioinformatics workflow for our study on microbial metabolism in the IBD gut environment."
 comments: true
 authors: [iva]
