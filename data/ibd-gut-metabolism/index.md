@@ -1812,7 +1812,7 @@ Once we had all our samples annotated, we ran a script to count the number of an
 python ../SCRIPTS/get_num_genes.py ../02_METAGENOME_PROCESSING/ALL_METAGENOME_DBS.txt
 ```
 
-(If you don't have all the samples, you can also test this script on the set of assemblies you downloaded, i.e. `VESELI_ET_AL_METAGENOME_CONTIGS_DBS/`. Just change the input file to `../METAGENOME_EXTERNAL_GENOMES.txt`). The script will produce an output file at `07_SUPPLEMENTARY/NUM_GENES_AND_ANNOTATIONS.txt`. This data is also available in [Supplementary Table 1d](https://doi.org/10.6084/m9.figshare.22679080), and we've provided a tab-delimited version of that table at `/TABLES/NUM_GENES_AND_ANNOTATIONS.txt` which will be used by the R script for plotting Supplementary Figure 4.
+(If you don't have all the samples, you can also test this script on the set of assemblies you downloaded, i.e. `VESELI_ET_AL_METAGENOME_CONTIGS_DBS/`. Just change the input file to `../METAGENOME_EXTERNAL_GENOMES.txt`). The script will produce an output file at `07_SUPPLEMENTARY/NUM_GENES_AND_ANNOTATIONS.txt`. This data is also available in [Supplementary Table 1d](https://doi.org/10.6084/m9.figshare.22679080), and we've provided a tab-delimited version of that table at `TABLES/NUM_GENES_AND_ANNOTATIONS.txt` which will be used by the R script for plotting Supplementary Figure 4.
 
 Speaking of which, you will find the code for making Supplementary Figure 4 in the usual script, `SCRIPTS/plot_figures.R`.
 
