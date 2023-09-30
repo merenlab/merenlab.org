@@ -50,7 +50,7 @@ curl -L https://figshare.com/ndownloader/files/31131400 -o INFANT-GUT-TUTORIAL.t
 tar -zxvf INFANT-GUT-TUTORIAL.tar.gz && cd INFANT-GUT-TUTORIAL
 ```
 
-This will download a **210 Mb** compressed file, and unpack it, which will take an additional **490 Mb**.
+This will download a **224 Mb** compressed file, and unpack it, which will take an additional **502 Mb**.
 
 If you are using a newer version of anvi'o than was the one that was used to generate these databases (perhaps you are following the development branch), you may need to run {% include PROGRAM name="anvi-migrate" %} to get them up to date. If you are not sure whether you need this, do not worry - you could safely skip it and anvi'o would later remind you what exactly needs to be done.
 
