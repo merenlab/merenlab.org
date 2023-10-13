@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2023-10-06
+modified: 2023-10-13
 comments: false
 image:
    display: true
@@ -16,6 +16,23 @@ image:
 This page lists publications that are most reflective of our interests. For a complete list, please see <a href='https://scholar.google.com/citations?user=GtLLuxoAAAAJ&view_op=list_works&sortby=pubdate' target='_blank'>Meren's Google Scholar page</a>.
 
 ## 2023
+
+<a id="10.1126/sciadv.abq4632">&nbsp;</a>
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1126/sciadv.abq4632"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1126/sciadv.abq4632" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1126/sciadv.abq4632" target="_new">Structure-informed microbial population genetics elucidate selective pressures that shape protein evolution</a></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Kiefl E</span>, Esen ÖC, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Miller SE</span>, Kroll KL, Willis AD, Rappé MS, Pan T, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/kiefl_et_al_metagenomics_plus_protein_structures.png"><img src="/images/pubs/kiefl_et_al_metagenomics_plus_protein_structures.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A study that describes an approach to integrate <b>environmental microbiology</b> with recent advances in <b>protein structure prediction</b>, and illustrates the tight association between <b>intra-population genetic variants</b>, <b>environmental selective pressures</b>, and <b>structural properties of proteins</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Demonstrates a quantifiable link between (1) the magnitude of selective pressures over key metabolic <b>genes</b> (e.g., glutamine synthase of the central nitrogen metabolism), (2) the availability of key <b>nutrients</b> in the environment (e.g., nitrate), and (3) the maintenance of nonsynonymous <b>variants</b> near protein active sites.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Comes with a <a href="https://merenlab.org/data/anvio-structure/chapter-I/"><b>reproducible bioinformatics workflow</b></a> that offers detailed access to computational steps used in the study that spans from metagenomic read recruitment and profiling to the integration of environmental variants and predicted protein structures.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>Science Advances</b>, 9(8):eabq4632 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Structure-informed+microbial+population+genetics+elucidate+selective+pressures+that+shape+protein+evolution" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1126/sciadv.abq4632" target="_blank">doi:10.1126/sciadv.abq4632</a></span>
+</div>
 
 <a id="10.7554/eLife.89862">&nbsp;</a>
 <div class="pub">
@@ -52,6 +69,23 @@ This page lists publications that are most reflective of our interests. For a co
     <span class="pub-journal"> 📚 <b>Genome Biology</b>, 24(78) | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Metabolic+independence+drives+gut+microbial+colonization+and+resilience+in+health+and+disease" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1186/s13059-023-02924-x" target="_blank">doi:10.1186/s13059-023-02924-x</a></span>
 </div>
 
+<a id="10.1038/s41592-023-02025-4">&nbsp;</a>
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41592-023-02025-4"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1038/s41592-023-02025-4" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://rdcu.be/dopGM" target="_new">Microbial-enrichment method enables high-throughput metagenomic characterization from host-rich samples</a></span>
+    <span class="pub-authors">Wu-Woods NJ, Barlow JT, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Trigodet F</span>, Shaw DG, Romano AE, Jabri B, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Ismagilov RF</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/wo-woods_et_al_mem.png"><img src="/images/pubs/wo-woods_et_al_mem.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- <b>A microbial-enrichment protocol</b> that removes nucleic acids from complex samples that belong to the eukaryotic host, while not substantially perturbing the host associated microbial community composition.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Reduce host DNA from a wide range of sample types (including human saliva, stool, intestinal scrapings, and intestinal mucosal biopsies) <b>more than 1,000 fold</b> with negligible changes in microbial community structures.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Enables comprehensive surveys of microbial populations using shotgun metagenomics even in samples that have been extremely challenging to study due to extensive host contamination.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>Nature Methods</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Microbial-enrichment+method+enables+high-throughput+metagenomic+characterization+from+host-rich+samples" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1038/s41592-023-02025-4" target="_blank">doi:10.1038/s41592-023-02025-4</a></span>
+</div>
+
 <a id="10.1101/2023.03.25.534219">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2023.03.25.534219"></div>
@@ -67,23 +101,6 @@ This page lists publications that are most reflective of our interests. For a co
     </div>
     </div>
     <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=A+highly+conserved+and+globally+prevalent+cryptic+plasmid+is+among+the+most+numerous+mobile+genetic+elements+in+the+human+gut" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2023.03.25.534219" target="_blank">doi:10.1101/2023.03.25.534219</a></span>
-</div>
-
-<a id="10.1126/sciadv.abq4632">&nbsp;</a>
-<div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1126/sciadv.abq4632"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.1126/sciadv.abq4632" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <span class="pub-title"><a href="https://doi.org/10.1126/sciadv.abq4632" target="_new">Structure-informed microbial population genetics elucidate selective pressures that shape protein evolution</a></span>
-    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Kiefl E</span>, Esen ÖC, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Miller SE</span>, Kroll KL, Willis AD, Rappé MS, Pan T, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
-    <div class="pub-info">
-    <div class="pub-featured-image">
-    <a href="/images/pubs/kiefl_et_al_metagenomics_plus_protein_structures.png"><img src="/images/pubs/kiefl_et_al_metagenomics_plus_protein_structures.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
-    </div>
-    <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- A study that describes an approach to integrate <b>environmental microbiology</b> with recent advances in <b>protein structure prediction</b>, and illustrates the tight association between <b>intra-population genetic variants</b>, <b>environmental selective pressures</b>, and <b>structural properties of proteins</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Demonstrates a quantifiable link between (1) the magnitude of selective pressures over key metabolic <b>genes</b> (e.g., glutamine synthase of the central nitrogen metabolism), (2) the availability of key <b>nutrients</b> in the environment (e.g., nitrate), and (3) the maintenance of nonsynonymous <b>variants</b> near protein active sites.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Comes with a <a href="https://merenlab.org/data/anvio-structure/chapter-I/"><b>reproducible bioinformatics workflow</b></a> that offers detailed access to computational steps used in the study that spans from metagenomic read recruitment and profiling to the integration of environmental variants and predicted protein structures.</span>
-    </div>
-    </div>
-    <span class="pub-journal"> 📚 <b>Science Advances</b>, 9(8):eabq4632 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Structure-informed+microbial+population+genetics+elucidate+selective+pressures+that+shape+protein+evolution" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1126/sciadv.abq4632" target="_blank">doi:10.1126/sciadv.abq4632</a></span>
 </div>
 
 

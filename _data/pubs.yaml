@@ -65,6 +65,30 @@ people:
 
 publications:
   - doi:
+      10.1126/sciadv.abq4632
+    title:
+      Structure-informed microbial population genetics elucidate selective pressures that shape protein evolution
+    authors:
+      Evan Kiefl, Özcan C Esen, Samuel E Miller, Kourtney L Kroll, Amy D Willis, Michael S Rappé, Tao Pan, A Murat Eren
+    journal:
+      Science Advances
+    year:
+      2023
+    volume:
+      9
+    number:
+      8
+    pages:
+      eabq4632
+    additional_info:
+      highlights:
+        - A study that describes an approach to integrate <b>environmental microbiology</b> with recent advances in <b>protein structure prediction</b>, and illustrates the tight association between <b>intra-population genetic variants</b>, <b>environmental selective pressures</b>, and <b>structural properties of proteins</b>.
+        - Demonstrates a quantifiable link between (1) the magnitude of selective pressures over key metabolic <b>genes</b> (e.g., glutamine synthase of the central nitrogen metabolism), (2) the availability of key <b>nutrients</b> in the environment (e.g., nitrate), and (3) the maintenance of nonsynonymous <b>variants</b> near protein active sites.
+        - Comes with a <a href="https://merenlab.org/data/anvio-structure/chapter-I/"><b>reproducible bioinformatics workflow</b></a> that offers detailed access to computational steps used in the study that spans from metagenomic read recruitment and profiling to the integration of environmental variants and predicted protein structures.
+      featured_image:
+        /images/pubs/kiefl_et_al_metagenomics_plus_protein_structures.png
+
+  - doi:
       10.7554/eLife.89862
     title:
       "Microbes with higher metabolic independence are enriched in human gut microbiomes under stress"
@@ -112,6 +136,29 @@ publications:
         /images/pubs/watson_et_al_fmt.jpeg
 
   - doi:
+      10.1038/s41592-023-02025-4
+    read_link:
+      https://rdcu.be/dopGM
+    title:
+      Microbial-enrichment method enables high-throughput metagenomic characterization from host-rich samples
+    authors:
+      Natalie J Wu-Woods, Jacob T Barlow, Florian Trigodet, Dustin G Shaw, Anna E Romano, Bana Jabri, A Murat Eren, Rustem F. Ismagilov
+    journal:
+      Nature Methods
+    year:
+      2023
+    volume:
+    number:
+    pages:
+    additional_info:
+      highlights:
+        - "<b>A microbial-enrichment protocol</b> that removes nucleic acids from complex samples that belong to the eukaryotic host, while not substantially perturbing the host associated microbial community composition."
+        - "Reduce host DNA from a wide range of sample types (including human saliva, stool, intestinal scrapings, and intestinal mucosal biopsies) <b>more than 1,000 fold</b> with negligible changes in microbial community structures."
+        - "Enables comprehensive surveys of microbial populations using shotgun metagenomics even in samples that have been extremely challenging to study due to extensive host contamination."
+      featured_image:
+        /images/pubs/wo-woods_et_al_mem.png
+
+  - doi:
       10.1101/2023.03.25.534219
     title:
       A highly conserved and globally prevalent cryptic plasmid is among the most numerous mobile genetic elements in the human gut
@@ -154,30 +201,6 @@ publications:
         - "A review that happens to be <b>the study number 001</b> for the <a href='https://ccomp-stc.org/' target='_blank'>Center for Chemical Currencies of a Microbial Planet</a>, or C-CoMP, an NSF-funded Science and Technology Center that aims to promote 'a deeper understanding of chemicals and chemical processes that underpin ocean ecosystems and the global carbon cycle by leveraging recent advances in analytical and data sciences, incorporating new ocean sampling technologies, using an open-science framework, and engaging educators and policy-makers'."
       featured_image:
         /images/pubs/moran_et_al_carbon_cycle.png
-
-  - doi:
-      10.1126/sciadv.abq4632
-    title:
-      Structure-informed microbial population genetics elucidate selective pressures that shape protein evolution
-    authors:
-      Evan Kiefl, Özcan C Esen, Samuel E Miller, Kourtney L Kroll, Amy D Willis, Michael S Rappé, Tao Pan, A Murat Eren
-    journal:
-      Science Advances
-    year:
-      2023
-    volume:
-      9
-    number:
-      8
-    pages:
-      eabq4632
-    additional_info:
-      highlights:
-        - A study that describes an approach to integrate <b>environmental microbiology</b> with recent advances in <b>protein structure prediction</b>, and illustrates the tight association between <b>intra-population genetic variants</b>, <b>environmental selective pressures</b>, and <b>structural properties of proteins</b>.
-        - Demonstrates a quantifiable link between (1) the magnitude of selective pressures over key metabolic <b>genes</b> (e.g., glutamine synthase of the central nitrogen metabolism), (2) the availability of key <b>nutrients</b> in the environment (e.g., nitrate), and (3) the maintenance of nonsynonymous <b>variants</b> near protein active sites.
-        - Comes with a <a href="https://merenlab.org/data/anvio-structure/chapter-I/"><b>reproducible bioinformatics workflow</b></a> that offers detailed access to computational steps used in the study that spans from metagenomic read recruitment and profiling to the integration of environmental variants and predicted protein structures.
-      featured_image:
-        /images/pubs/kiefl_et_al_metagenomics_plus_protein_structures.png
 
   - doi:
       10.1186/s13100-022-00262-6
