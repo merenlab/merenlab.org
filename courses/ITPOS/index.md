@@ -253,7 +253,7 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
 * *Discussion Leaders*:
 
   * Iva
-  * Meren
+  * Jessika
 
 * *Learning Objectives*:
 
@@ -341,19 +341,25 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
   * Schwarz MY, et al (2018). [Microbiome characterization by high-throughput transfer RNA sequencing and modification analysis](https://www.nature.com/articles/s41467-018-07675-z). *Nature Communications*.
   * Orellana EA, et al (2022). [tRNA dysregulation and disease](https://doi.org/10.1038/s41576-022-00501-9). *Nature Reviews Genetics*.
 
-### 22/01/24 :: **Metabolomics**: making sense of the chemical currencies of life
+### 22/01/24 :: Linking **metabolomics and (meta)genomics**: opportunities and limitations
 
 * *Discussion Leaders*:
 
   * Jessika
+  * Meren
 
 * *Learning Objectives*:
 
-  * TBD
+  * Recognizing how measurements of metabolites from the environment are linked to metabolic pathways in genomes
+  * Understanding the limitations of combining metagenomics and metabolomics in simple and complex environments
+  * Identifying the limitations of metagenomics to gain insights into the chemical currencies of life
 
 * *Suggested Reading*:
 
   * Moran MA and Kujawinski EB, et al (2022). [Microbial metabolites in the marine carbon cycle](https://rdcu.be/cKnTP). *Nature Microbiology*.
+  * Kujawinski EB, et al (2023). [Metabolite diversity among representatives of divergent *Prochlorococcus* ecotypes](https://doi.org/10.1128/msystems.01261-22). *mSystems*.
+  * Wienhausen G, et al (2017). [The exometabolome of two model strains of the *Roseobacter* group: a marketplace of microbial metabolites](https://www.frontiersin.org/articles/10.3389/fmicb.2017.01985/full). *Frontiers in Microbiology*.
+  * Noriega-Ortega BE, et al (2019). [Does the chemodiversity of bacterial exometabolomes sustain the chemodiversity of marine dissolved organic matter?](https://doi.org/10.3389/fmicb.2019.00215). *Frontiers in microbiology*.
 
 ### 29/01/24 :: Course wrap-up: **final discussions and feedback**
 
