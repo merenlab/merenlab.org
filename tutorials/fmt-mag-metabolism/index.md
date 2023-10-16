@@ -12,7 +12,10 @@ redirect_from: /fmt-metabolism/
 This is a **mini-tutorial for the metabolism suite of programs** in anvi'o. First, we will learn how to estimate metabolism for a single bacterial isolate, starting from its genome sequence and ending with a file of metabolic module completeness scores. Afterwards, we'll be applying this to a larger, real-world dataset of metagenome-assembled genomes from [our recent FMT study](ttps://doi.org/10.1101/2021.03.02.433653), to learn how to estimate metabolism in a more high-throughput manner as well as how to compute enrichment scores for metabolic modules.
 
 {:.notice}
-This tutorial is tailored for anvi'o `v7.1` or later. You can learn the version of your installation by running `anvi-interactive -v` in your terminal. If you are using the development branch of anvi'o, look for the Show/Hide boxes.
+This tutorial is tailored for anvi'o `v7.1`. You can learn the version of your installation by running `anvi-interactive -v` in your terminal. If you are using the development branch of anvi'o, look for the Show/Hide boxes.
+
+{:.notice}
+There is a [more up-to-date version of this tutorial](https://anvio.org/tutorials/fmt-mag-metabolism/) which may interest users of anvi'o `v8` or later. However, we maintain this page for historical purposes, and because the "real-world" section also serves as a reproducible workflow for the metabolism analyses in [one of our recent papers](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-023-02924-x).
 
 ## Running the metabolism suite of programs - a single-genome example
 
