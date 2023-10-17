@@ -109,7 +109,7 @@ The best class citizenship emails are those that are brief, genuine, and insight
 
 ## Course Plan
 
-Please note that each lecture takes place on **Mondays**, between **10:00 - 12:00**, at **W32 1-112**.
+Please note that each lecture takes place on **Mondays**, between **10:15 - 12:00**, at **W32 1-112**.
 
 ### 16/10/23 :: Course logistics
 
@@ -148,8 +148,7 @@ Please note that each lecture takes place on **Mondays**, between **10:00 - 12:0
   * [Seeing the Invisible](https://www.youtube.com/watch?v=mTzHxNMK0bU), Op-Docs, The New York Times (a short and cute video on microbial life for a lay audience).
   * [Meet Your Microbes](https://www.ted.com/talks/jonathan_eisen_meet_your_microbes), Jonathan Eisen, TED Talk (an easy-to-follow introduction to microbes for a lay audience).
   * [How Giant Tube Worms Survive at Hydrothermal Vents](https://www.youtube.com/watch?v=8W_ywzhkR90), Ed Yong, PBS Digital Studies (Ed Yong is a very successful science journalist, who talks about hydrothermal vent microbes with Colleen Cavanaugh, who made significant contributions to our understanding of microbial symbioses).
-  * [Overview of Illumina Sequencing by Synthesis Workflow](https://www.youtube.com/watch?v=fCd6B5HRaZ8), Illumina (some insights into how we are able to accomplish the high-throughput sequencing of nucleic acids).
-  * [Overview of PacBio long-read Sequencing](https://www.youtube.com/watch?v=_lD8JyAbwEo), PacBio (an overview of how the long-read sequencing works).
+  * [Overview of how next-generation sequencing works](https://www.youtube.com/watch?v=mI0Fo9kaWqo), Eric Chow (a very useful and easy-to-follow lecture on the general principles of sequencing with Illumina, Oxford Nanopore, and PacBio).
 
 ### 30/10/23 :: An overview of **data-driven strategies** to survey environmental microbiomes
 
@@ -159,7 +158,7 @@ Please note that each lecture takes place on **Mondays**, between **10:00 - 12:0
 
 * *Learning Objectives*:
 
-  * Recognize currently available &#39;omics data types (such as metagenomics, and metatranscriptomics), approaches (such as pangenomics, and phylogenomics), and questions they can *and* can’t answer
+  * Recognize currently available &#39;omics data types (such as metagenomics, and metatranscriptomics), approaches (such as pangenomics, and phylogenomics), and questions they can *and* can not answer
   * Recognize the available computational solutions to gain insights into fundamental questions in microbiology and their brief history
   * Explain the power of **metagenomic read recruitment** and interpret ecological and evolutionary insights we can infer through this strategy
 

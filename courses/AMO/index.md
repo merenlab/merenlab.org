@@ -134,7 +134,7 @@ Please also consider the following formatting guidelines for your reports:
 
 ## Course Plan
 
-Please note that each lecture takes place on **Wednesdays** (bi-weekly), between **10:00 - 12:00**, at **W32 1-112**.
+Please note that each lecture takes place on **Wednesdays** (bi-weekly), between **10:15 - 12:00**, at **W32 1-112**.
 
 Each session below is 
 
@@ -149,7 +149,7 @@ We will also **discuss anvi'o and its features**, and will make sure everyone ha
   * Eren AM, et al (2021). [Community-led, integrated, reproducible multi-omics with anvi'o](https://rdcu.be/cKMmi). *Nature Microbiology*.
 
 
-### 08/11/23 :: EX 01: A genome across marine metagenome
+### 08/11/23 :: EX 01: A genome across metagenomes
 
 The purpose of this exercise is to help you have a direct exposure to individual analysis steps and tools that enables one to recruit reads from metagenomes (essentials of which is covered extensively on the 30/10/23 lecture in the companion course), and profile the read recruitment results to investigate gene distribution patterns of a given population.
 
