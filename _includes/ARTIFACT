@@ -1,5 +1,13 @@
 {%- if include.text -%}
-    <span class="artifact-r"><a href="https://anvio.org/help/main/artifacts/{{include.name}}">{{include.text}}</a></span>
+    {%- if include.version -%}
+        <span class="artifact-p"><a href="/help/{{include.version}}/artifacts/{{include.name}}">{{include.text}}</a></span>
+    {%- else -%}
+        <span class="artifact-p"><a href="/help/main/artifacts/{{include.name}}">{{include.text}}</a></span>
+    {%- endif -%}
 {%- else -%}
-    <span class="artifact-r"><a href="https://anvio.org/help/main/artifacts/{{ include.name }}">{{ include.name }}</a></span>
+    {%- if include.version -%}
+        <span class="artifact-p"><a href="/help/{{include.version}}/artifacts/{{include.name}}">{{ include.name }}</a></span>
+    {%- else -%}
+        <span class="artifact-p"><a href="/help/main/artifacts/{{ include.name }}">{{ include.name }}</a></span>
+    {%- endif -%}
 {%- endif -%}
