@@ -45,7 +45,8 @@ The following is the list of docker containers available on Docker Hub anvi'o re
 
 |**Version**|**Date**|**Size**|
 |:--|:--|:--|
-|latest|2022/05|2.81 GB|
+|latest|2023/10|8.38 GB|
+|8|2023/10|8.38 GB|
 |7.1_structure|2022/05|11.62 GB|
 |7.1_main_0522|2022/05|2.81 GB|
 |7|2021/01|6.31 GB|
@@ -65,19 +66,19 @@ docker images
 For instance, to pull the latest version, you can run the following:
 
 ```
-docker pull meren/anvio:7.1_main_0522
+docker pull meren/anvio:8
 ```
 
 And then you can start an anvi'o instance using this command (which will mount your current working directory into the container, so you will have seamless access to your files):
 
 ``` bash
-docker run --rm -it -v `pwd`:`pwd` -w `pwd` -p 8080:8080 meren/anvio:7.1_main_0522
+docker run --rm -it -v `pwd`:`pwd` -w `pwd` -p 8080:8080 meren/anvio:8
 ```
 
 Following this command, you should see a new command line like this one:
 
 ``` bash
-:: anvi'o v7.1_main_0522 :: /WORK/DIR/PATH >>>
+:: anvi'o v8 :: /WORK/DIR/PATH >>>
 ```
 
 You're done! If you type `anvi-` and press `TAB` twice, you see all the anvi'o programs available to you.
@@ -117,11 +118,8 @@ cd anvio/Dockerfiles/anvio/main
 In theory, at any given time you should be able to rebuild a docker image for the most current state of the development branch of anvi'o the following way:
 
 ```
-docker build -t meren/anvio:7.1_main_0522
+docker build -t meren/anvio:8
 ```
-
-{:.warning}
-In the name `7.1_main_0522`, `7.1` indicates the latest stable release from this evolving branch, `main` indicates that this is a snapshot of the main branch, and `0522` means the snapshot was generated on the May 2022.
 
 Don't hesitate to get in touch if you have any questions!
 
