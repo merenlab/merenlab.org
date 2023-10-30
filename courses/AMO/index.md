@@ -149,18 +149,15 @@ We will also **discuss anvi'o and its features**, and will make sure everyone ha
   * Eren AM, et al (2021). [Community-led, integrated, reproducible multi-omics with anvi'o](https://rdcu.be/cKMmi). *Nature Microbiology*.
 
 
-### 08/11/23 :: EX 01: A genome across metagenomes
+### 08/11/23 :: EX 01: A read recruitment exercise to warm up
 
-The purpose of this exercise is to help you have a direct exposure to individual analysis steps and tools that enables one to recruit reads from metagenomes (essentials of which is covered extensively on the 30/10/23 lecture in the companion course), and profile the read recruitment results to investigate gene distribution patterns of a given population.
+Please try to accomplish this exercise by **07/11/23**. You will not need to return a report for this particular week:
 
-Please read the assignment below carefully, and **return your reports by 07/11/23**:
-
-> TBD
-
-* *Key Resources*:
-
-  * [A simple read recruitment exercise](https://merenlab.org/tutorials/read-recruitment/). The purpose of this tutorial is to walk you through a simple read recruitment experiment. Throughout this exercise you will use a mock dataset to (1) familiarize yourself with commonly used file formats such as FASTA, FASTQ, SAM, and BAM, (2) learn the basic steps of read recruitment through Bowtie2 and samtools, (3) learn how to profile read recruitment results using anvi’o, and (4) familiarize yourself with downstream steps of the analysis of recruited reads that will be very helpful to apply to the assignment above.
-
+> The purpose of this exercise is to help you have a direct exposure to individual analysis steps and tools that enables one to recruit reads from metagenomes (essentials of which is covered on the 30/10/23 lecture in the companion course), and profile the read recruitment results to investigate gene distribution patterns of a given population.
+> 
+> Throughout this exercise you will use a mock dataset to (1) familiarize yourself with commonly used file formats such as FASTA, FASTQ, SAM, and BAM, (2) learn the basic steps of read recruitment through Bowtie2 and samtools, (3) learn how to profile read recruitment results using anvi’o, and (4) familiarize yourself with downstream steps of the analysis of recruited reads. Please try to be mindful about individual steps, make notes of those steps that did not make much sense to you so we can discuss them further during our session 08/11/23.
+> 
+> You will find the exercise here: [https://merenlab.org/tutorials/read-recruitment/](https://merenlab.org/tutorials/read-recruitment/)
 
 ### 22/11/23 :: EX 02: Refining metagenome-assemled genomes
 
