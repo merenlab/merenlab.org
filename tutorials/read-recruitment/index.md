@@ -164,7 +164,7 @@ Please note that the name `magdalena` is not included below since we already hav
 ``` bash
 for person in batuhan alejandra jonas jessika
 do
-    "Working on ${person} ..."
+    echo "Working on ${person} ..."
     bowtie2 -x genome -1 metagenomes/${person}-R1.fastq -2 metagenomes/${person}-R2.fastq -S ${person}.sam
     samtools view -F 4 -bS ${person}.sam -o ${person}-RAW.bam
     samtools sort ${person}-RAW.bam -o ${person}.bam
