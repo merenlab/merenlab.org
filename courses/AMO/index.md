@@ -159,35 +159,47 @@ Please try to accomplish this exercise by **07/11/23**. You will not need to ret
 > 
 > You will find the exercise here: [https://merenlab.org/tutorials/read-recruitment/](https://merenlab.org/tutorials/read-recruitment/)
 
-### 22/11/23 :: EX 02: Refining metagenome-assemled genomes
+### 22/11/23 :: EX 02: Pangenomic analysis of a bacterial genus
 
 Please read the assignment below carefully, and **return your reports by 21/11/23**:
 
-> TBD
+> This is a small exercise with pangenomics. Please find the data pack for this exercise on stud.IP, or using [this Dropbox link](https://www.dropbox.com/scl/fi/4mx04ye5j08xpiilir0qj/Bifidobacterium_genomes.tar.gz?rlkey=fuu5t7i79meztpkyvxu20dbzw&dl=0).
+> 
+> This data pack contains 15 genomes for you to work with. While each genome belongs to the bacterial genus *Bifidobacterium*, you don't know which species they assign. Please take a look at the [anvi'o pangenomics tutorial](https://merenlab.org/2016/11/08/pangenomics-v2/) and/or the [pangenomics exercise](https://merenlab.org/tutorials/vibrio-jasicida-pangenome/) to find out how to create a pangenome for all these 15 genomes using the program `anvi-pan-genome` with default parameters, and answer the following questions in your short report:
+> 
+> * How many **single-copy core genes** did you find?
+> * When you organize genomes based on gene cluster frequencies, how many **main groupings of genomes** do you observe?
+> * Which **'species' name** would you annotate these genomes with?
+> * According to gene clusters, which two species of *Bifidobacterium* in this mixture are **most closely related**?
+> 
+> Please include a screenshot of your final display you achieved through `anvi-display-pan`, and get cookie points for your pretty displays :)
+>
+> Some opetional questions for the overly enthusiastic:
+> 
+> * What are some of **common features of the genomic islands** that seem to be variable across individual genomes in this pangenome? Tip: you can have quick insights into genomic islands that occur only in some genomes by organizing gene clusters based on enforced synteny per genome.
+> * What **functions seem to differ between the main groups of genomes**? Tip: you can use functional enrichemnt analyses to figure out if there are functions that systematically occur in one clade of Bifidobacterum but not the other.
 
-### 06/12/23 :: EX 03: Pangenomic analysis of Prochlorococcus
+### 06/12/23 :: EX 03: Phylogenomic placement of an unknown microbe
 
 Please read the assignment below carefully, and **return your reports by 05/12/23**:
 
 > TBD
 
-### 20/12/23 :: EX 04: Phylogenomic placement of an unknown microbe
+### 20/12/23 :: EX 04: Comparative microbial metabolism
 
 Please read the assignment below carefully, and **return your reports by 19/12/23**:
 
 > TBD
 
-### 17/01/24 :: EX 05: Comparative microbial metabolism
+### 17/01/24 :: EX 05: Population genetics of a plasmid
 
 Please read the assignment below carefully, and **return your reports by 17/01/23**:
 
 > TBD
 
-### 31/01/24 :: EX 06: Population genetics of a plasmid
+### 31/01/24 :: EX 06: Proposal Discussion
 
-Please read the assignment below carefully, and **return your reports by 30/01/23**:
-
-> TBD
+During this session we will overview everything we have covered and discuss how you integrate your learnings into your final proposal for the module.
 
 ## Evaluation and Grading
 
