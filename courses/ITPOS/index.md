@@ -21,7 +21,7 @@ This course is a part of the module "**Applied Molecular Ecology**" (**mar260**)
 |Course Details||
 |:---|:---|
 |Name|**Introduction to Popular ‘Omics Strategies**|
-|Meeting Location|**W32 1-112**|
+|Meeting Location|**PLEASE SEE INDIVIDUAL WEEKS**|
 |Number|5.12.262|
 |Type|Lecture|
 |Credits|2|
@@ -109,7 +109,7 @@ The best class citizenship emails are those that are brief, genuine, and insight
 
 ## Course Plan
 
-Please note that each lecture takes place on **Mondays**, between **10:15 - 12:00**, at **W32 1-112**.
+Please note that each lecture takes place on **Mondays**, between **10:15 - 12:00**, at **VARIOUS LOCATIONS** (see below).
 
 ### 16/10/23 :: Course logistics
 
@@ -224,6 +224,10 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
 
 ### 27/11/23 :: **Phylogenomics**: inferring evolutionary relationships between microorganisms
 
+* *Meeting Location*:
+
+  * **W15 0-027**
+
 * *Discussion Leaders*:
 
   * Meren
@@ -249,6 +253,10 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
 
 ### 04/12/23 :: Inferring **microbial metabolism** in genomes and metagenomes
 
+* *Meeting Location*:
+
+  * **W15 0-027**
+
 * *Discussion Leaders*:
 
   * Iva
@@ -268,11 +276,15 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
 
 ### 11/12/23 :: **Microbial population genetics**: tools, terminology, and open questions
 
+* *Meeting Location*:
+
+  * **W15 1-112**
+
 * *Discussion Leaders*:
 
   * Meren
 
-* *Learning Objectives*: 
+* *Learning Objectives*:
 
   * Learn ecological and evolutionary implications of clonality and heterogeneity within environmental populations
   * Identify approaches to study single-nucleotide variants, and methods to reconstruct *haplotypes*
@@ -287,6 +299,11 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
   * Delmont TO, et al (2019). [Single-amino acid variants reveal evolutionary processes that shape the biogeography of a global SAR11 subclade](https://doi.org/10.7554/eLife.46497). *eLife*.
 
 ### 18/12/23 :: **Structure-informed** interpretations of microbial population genetics
+
+* *Meeting Location*:
+
+  * **W15 0-027**
+
 * *Discussion Leaders*:
 
   * Meren
@@ -304,6 +321,10 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
   * Kiefl E, et al (2023). [Structure-informed microbial population genetics elucidate selective pressures that shape protein evolution](https://www.science.org/doi/full/10.1126/sciadv.abq4632). *Science Advances*.
 
 ### 08/01/24 :: **Genomic dynamism**: inversions, diversity generating retroelements, and more
+
+* *Meeting Location*:
+
+  * **TO BE DETERMINED**
 
 * *Discussion Leaders*:
 
@@ -325,6 +346,10 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
 
 ### 15/01/24 :: **Metaepitranscriptomics**: translational regulation and its ecological implications
 
+* *Meeting Location*:
+
+  * **W15 0-027**
+
 * *Discussion Leaders*:
 
   * Meren
@@ -341,6 +366,10 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
   * Orellana EA, et al (2022). [tRNA dysregulation and disease](https://doi.org/10.1038/s41576-022-00501-9). *Nature Reviews Genetics*.
 
 ### 22/01/24 :: Linking **metabolomics and (meta)genomics**: opportunities and limitations
+
+* *Meeting Location*:
+
+  * **W15 0-027**
 
 * *Discussion Leaders*:
 
@@ -361,6 +390,10 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
   * Noriega-Ortega BE, et al (2019). [Does the chemodiversity of bacterial exometabolomes sustain the chemodiversity of marine dissolved organic matter?](https://doi.org/10.3389/fmicb.2019.00215). *Frontiers in microbiology*.
 
 ### 29/01/24 :: Course wrap-up: **final discussions and feedback**
+
+* *Meeting Location*:
+
+  * **W15 0-027**
 
 * *Discussion Leaders*:
 

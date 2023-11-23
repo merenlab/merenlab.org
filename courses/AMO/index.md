@@ -22,7 +22,7 @@ This course is a part of the module "**Applied Molecular Ecology**" (**mar260**)
 |Course Details||
 |:---|:---|
 |Name|**Applied Microbial &#39;Omics**|
-|Meeting Location|**W32 1-112**|
+|Meeting Location|**PLEASE SEE INDIVIDUAL WEEKS**|
 |Number|5.12.263|
 |Type|Seminar/Exercise|
 |Credits|1|
@@ -134,9 +134,7 @@ Please also consider the following formatting guidelines for your reports:
 
 ## Course Plan
 
-Please note that each lecture takes place on **Wednesdays** (bi-weekly), between **10:15 - 12:00**, at **W32 1-112**.
-
-Each session below is 
+Please note that each lecture takes place on **Wednesdays** (bi-weekly), between **10:15 - 12:00**, at **VARIOUS LOCATIONS** (see below).
 
 ### 25/10/23 :: Introduction to anvi'o and installation check
 
@@ -181,11 +179,19 @@ Please read the assignment below carefully, and **return your reports by 21/11/2
 
 ### 06/12/23 :: EX 03: Phylogenomic placement of an unknown microbe
 
+* *Meeting Location*:
+
+  * **W15 2-234**
+
 Please read the assignment below carefully, and **return your reports by 05/12/23**:
 
 > TBD
 
 ### 20/12/23 :: EX 04: Comparative microbial metabolism
+
+* *Meeting Location*:
+
+  * **W15 1-112**
 
 Please read the assignment below carefully, and **return your reports by 19/12/23**:
 
@@ -193,11 +199,19 @@ Please read the assignment below carefully, and **return your reports by 19/12/2
 
 ### 17/01/24 :: EX 05: Population genetics of a plasmid
 
+* *Meeting Location*:
+
+  * **W15 2-234**
+
 Please read the assignment below carefully, and **return your reports by 17/01/23**:
 
 > TBD
 
 ### 31/01/24 :: EX 06: Proposal Discussion
+
+* *Meeting Location*:
+
+  * **W15 1-112**
 
 During this session we will overview everything we have covered and discuss how you integrate your learnings into your final proposal for the module.
 
