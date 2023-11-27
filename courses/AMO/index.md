@@ -177,7 +177,7 @@ Please read the assignment below carefully, and **return your reports by 21/11/2
 > * What are some of **common features of the genomic islands** that seem to be variable across individual genomes in this pangenome? Tip: you can have quick insights into genomic islands that occur only in some genomes by organizing gene clusters based on enforced synteny per genome.
 > * What **functions seem to differ between the main groups of genomes**? Tip: you can use functional enrichemnt analyses to figure out if there are functions that systematically occur in one clade of Bifidobacterum but not the other.
 
-### 06/12/23 :: EX 03: Phylogenomic placement of an unknown microbe
+### 06/12/23 :: EX 03: Phylogenomic analysis of a bacterial genus
 
 * *Meeting Location*:
 
@@ -185,7 +185,13 @@ Please read the assignment below carefully, and **return your reports by 21/11/2
 
 Please read the assignment below carefully, and **return your reports by 05/12/23**:
 
-> TBD
+> This is a small exercise in phylogenomics. Please use the same data pack from the pangenomics exercise to complete this one. Since you already have your contigs-db files for the genomes in that data pack, this should be extremely fast for you. But please start early to avoid any last minute challenges :)
+>
+> To solve this exercise, please apply phylogenomics principles to calculate a tree for the Bifidobacterium clade.
+>
+> You can benefit from the tutorial on [anvi'o phylogenomics workflow](https://merenlab.org/2017/06/07/phylogenomics/) and see examples on how to get the necessary genes from genomes for phylogenomics. Reconstructing a final tree for these genomes with phylogenomics, and being able to explain why you have made certain choices to generate it, is the answer to this exercise.
+>
+> Once you are done, please compare your phylogenomic tree to the dendrogram you have obtained from the pangenomic analysis. If you want to get fancy, feel free to include 'additional' Bifidobacterium genomes from other species in this genus :)
 
 ### 20/12/23 :: EX 04: Comparative microbial metabolism
 
