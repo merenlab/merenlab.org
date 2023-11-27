@@ -192,6 +192,31 @@
     inst_link: https://www.cs.duke.edu/
     current: false
 
+- alias: katy
+  lab_member: True
+  name: Kathryn Lambert-Slosarska (Katy)
+  name_as_author: Kathryn Lambert-Slosarska
+  tenure_start: 09/2023
+  role: Master's Student
+  twitter: Katy_LS_
+  github: ktl21
+  avatar: bio-katy.jpg
+  email: klambert@mpi-bremen.de
+  twitter: Katy_LS_
+  github: ktl21
+  orcid: 0000-0003-1612-6794
+  address: Helmholtz Institute for Functional Marine Biodiversity (HIFMB), Ammerländer Heerstraße 231, 26129 Oldenburg, Germany
+  bio: "I am a marine (micro)biologist trying to utilise computational approaches to understand the dynamism and impact of diversity generating retroelements in microbial lifestyles in changing marine ecosystems."
+  affiliations:
+    - title: Master's Student
+      inst: Helmholtz Institute for Functional Marine Biodiversity at Oldenburg
+      inst_link: https://hifmb.de
+      current: true
+    - title: MarMic Master's Student
+      inst: Max Planck Institute for Marine Microbiology
+      inst_link: https://www.mpi-bremen.de/en/Home.html
+      current: true
+
 - alias: kiki
   lab_member: True
   name: Kiki Füßel
