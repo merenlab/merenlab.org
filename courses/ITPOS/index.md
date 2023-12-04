@@ -251,11 +251,26 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
   * Da Cunha V, et al (2017). [Lokiarchaea are close relatives of Euryarchaeota, not bridging the gap between prokaryotes and eukaryotes](https://doi.org/10.1371/journal.pgen.1006810). *PLOS Genetics*.
   * Spang A, et al (2018). [Asgard archaea are the closest prokaryotic relatives of eukaryotes](https://doi.org/10.1371/journal.pgen.1007080). *PLOS Genetics*.
 
-### 04/12/23 :: Inferring **microbial metabolism** in genomes and metagenomes
+### 04/12/23 :: A Group Discussion Over Course Proposals
 
 * *Meeting Location*:
 
   * **W15 0-027**
+
+* *Discussion Leaders*:
+
+  * Meren
+
+* *Learning Objectives*:
+
+  * Learn how to write a compelling proposal
+
+
+### 11/12/23 :: Inferring **microbial metabolism** in genomes and metagenomes
+
+* *Meeting Location*:
+
+  * **W15 1-112**
 
 * *Discussion Leaders*:
 
@@ -274,11 +289,12 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
   * van Kessel MAHJ, et al (2015). [Complete nitrification by a single microorganism](https://doi.org/10.1038/nature16459). *Nature*.
   * Liu R, et al (2022). [Novel Chloroflexi genomes from the deepest ocean reveal metabolic strategies for the adaptation to deep-sea habitats](https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-022-01263-6). *Microbiome*.
 
-### 11/12/23 :: **Microbial population genetics**: tools, terminology, and open questions
+### 18/12/23 :: **Microbial population genetics**: tools, terminology, and open questions
 
 * *Meeting Location*:
 
-  * **W15 1-112**
+  * **W15 0-027**
+
 
 * *Discussion Leaders*:
 
@@ -298,11 +314,11 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
   * Denef VJ (2018). [Peering into the genetic make up of natural microbial populations using metagenomics](https://doi.org/10.1007/13836_2018_14). *Springer Publishing*.
   * Delmont TO, et al (2019). [Single-amino acid variants reveal evolutionary processes that shape the biogeography of a global SAR11 subclade](https://doi.org/10.7554/eLife.46497). *eLife*.
 
-### 18/12/23 :: **Structure-informed** interpretations of microbial population genetics
+### 08/01/24 :: **Structure-informed** interpretations of microbial population genetics
 
 * *Meeting Location*:
 
-  * **W15 0-027**
+  * **TO BE DETERMINED**
 
 * *Discussion Leaders*:
 
@@ -320,11 +336,11 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
   * Robinson SL (2023). [Structure-guided metagenome mining to tap microbial functional diversity](https://doi.org/10.1016/j.mib.2023.102382). *Current Opinion in Microbiology*.
   * Kiefl E, et al (2023). [Structure-informed microbial population genetics elucidate selective pressures that shape protein evolution](https://www.science.org/doi/full/10.1126/sciadv.abq4632). *Science Advances*.
 
-### 08/01/24 :: **Genomic dynamism**: inversions, diversity generating retroelements, and more
+### 15/01/24 :: **Genomic dynamism**: inversions, diversity generating retroelements, and more
 
 * *Meeting Location*:
 
-  * **TO BE DETERMINED**
+  * **W15 0-027**
 
 * *Discussion Leaders*:
 
@@ -344,11 +360,12 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
   * Paul BG, Eren AM (2022). [Eco-evolutionary significance of domesticated retroelements in microbial genomes](https://mobilednajournal.biomedcentral.com/articles/10.1186/s13100-022-00262-6). *Mobile DNA*.
   * Roux S, et al (2021). [Ecology and molecular targets of hypermutation in the global microbiome](https://www.nature.com/articles/s41467-021-23402-7). *Nature Communications*.
 
-### 15/01/24 :: **Metaepitranscriptomics**: translational regulation and its ecological implications
+### 22/01/24 :: **Metaepitranscriptomics**: translational regulation and its ecological implications
 
 * *Meeting Location*:
 
   * **W15 0-027**
+
 
 * *Discussion Leaders*:
 
@@ -365,11 +382,13 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
   * Schwarz MY, et al (2018). [Microbiome characterization by high-throughput transfer RNA sequencing and modification analysis](https://www.nature.com/articles/s41467-018-07675-z). *Nature Communications*.
   * Orellana EA, et al (2022). [tRNA dysregulation and disease](https://doi.org/10.1038/s41576-022-00501-9). *Nature Reviews Genetics*.
 
-### 22/01/24 :: Linking **metabolomics and (meta)genomics**: opportunities and limitations
+### 29/01/24 :: Linking **metabolomics and (meta)genomics**: opportunities and limitations
 
 * *Meeting Location*:
 
   * **W15 0-027**
+
+
 
 * *Discussion Leaders*:
 
@@ -388,19 +407,6 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
   * Kujawinski EB, et al (2023). [Metabolite diversity among representatives of divergent *Prochlorococcus* ecotypes](https://doi.org/10.1128/msystems.01261-22). *mSystems*.
   * Wienhausen G, et al (2017). [The exometabolome of two model strains of the *Roseobacter* group: a marketplace of microbial metabolites](https://www.frontiersin.org/articles/10.3389/fmicb.2017.01985/full). *Frontiers in Microbiology*.
   * Noriega-Ortega BE, et al (2019). [Does the chemodiversity of bacterial exometabolomes sustain the chemodiversity of marine dissolved organic matter?](https://doi.org/10.3389/fmicb.2019.00215). *Frontiers in microbiology*.
-
-### 29/01/24 :: Course wrap-up: **final discussions and feedback**
-
-* *Meeting Location*:
-
-  * **W15 0-027**
-
-* *Discussion Leaders*:
-
-  * Meren
-  * Iva
-  * Jessika
-  * Florian
 
 
 ## Evaluation and Grading
