@@ -201,7 +201,30 @@ Please read the assignment below carefully, and **return your reports by 05/12/2
 
 Please read the assignment below carefully, and **return your reports by 19/12/23**:
 
-> TBD
+> This is a small exercise in microbial metabolism analysis. Please find the data pack for this exercise on stud.IP, or using [this Dropbox link](https://www.dropbox.com/scl/fi/083ci71gz8x8udppo2zpl/AMO_Metabolism_Datapack.tar.gz?rlkey=tm32w37sqtsb9wlrf797152f4&dl=).
+>
+> The data pack contains four microbial genomes, and your task is to investigate which of these organisms (if any) are capable of nitrogen cycling. Please use anvi'o to annotate these genomes with KOfams, and then run `anvi-estimate-metabolism` to calculate the completeness of metabolic pathways in the KEGG MODULE database. You should examine the output of that program to identify the completeness scores for nitrogen cycling pathways in each genome. You will find a list of all KEGG modules for nitrogen metabolism [at this link](https://www.genome.jp/entry/pathway+map00910). This list contains seven pathways for nitrogen fixation, nitrate reduction, denitrification, and nitrification.
+>
+> Your short report should answer the following questions:
+>
+>- Which nitrogen metabolism pathways are 'complete' in each genome? Please include in your answer their pathwise completeness scores and the score threshold that you are using (ie, the value of the `--module-completion-threshold` parameter).
+>
+>- For the nitrifying organisms, which of the two nitrification reactions -- the first conversion from ammonia to nitrite, or the second conversion from nitrite to nitrate -- can they do? What evidence supports this?
+>- When you've analyzed all of the genomes, please summarize your findings with a few sentences describing the following points: 
+>  - which part(s) of the nitrogen cycle you found to be complete, and which part(s) were missing across all genomes
+>  - which genome(s) were capable of carrying out multiple nitrogen metabolism pathways, and which genome(s) had no nitrogen metabolism capabilities at all
+>  - other observations or hypotheses (if you have any) about these nitrogen cycle pathways, or the enzymes/gene annotations in these pathways, or why these genomes might >have these capabilities or not, etc
+>
+> And here are some optional things to include in your report, if you have the time or interest :)
+>
+>- Determine the taxonomic identity of each genome. Does the genome's metabolic capacity match to what you would expect, based on known research about its taxonomic clade?
+>- Visualize the metabolism estimation results across the four genomes as a heatmap, and add a screenshot of the heatmap to your report. You can find examples of how to create the heatmap in the tutorials linked below (but feel free to use a different way to do it, too)
+>
+> You might find some of the resources below helpful as you do this exercise:
+>
+>- [A recent tutorial on metabolism estimation in anvi'o](https://anvio.org/tutorials/fmt-mag-metabolism/)
+>- [Documentation for anvi-estimate-metabolism](https://anvio.org/help/8/programs/anvi-estimate-metabolism/)
+>- [An older (and much simpler) tutorial on metabolism estimation](https://merenlab.org/tutorials/infant-gut/#chapter-v-metabolism-prediction)
 
 ### 17/01/24 :: EX 05: Population genetics of a plasmid
 
