@@ -318,7 +318,7 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
 
 * *Meeting Location*:
 
-  * **TO BE DETERMINED**
+  * **W02 1-146**
 
 * *Discussion Leaders*:
 
