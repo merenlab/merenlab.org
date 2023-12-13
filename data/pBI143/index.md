@@ -168,17 +168,18 @@ ACTTTACAAAGATAACCTCATGGGGGAAAAATGTCCAAGAATATGGGGGAAAATCTATCAAATCAGTAGAAAATTAGTAT
 CTTTGGGGGACACTTCTAATGGGGGTACTGGTATAGCCTAGACGAAGCGGATAGGCGAAAAT
 ```
 
-## Investigating pBI143 across 100K metagenomes
+## Characterizing pBI143 biogeography across 100K metagenomes
 
-Our initial investigations of the distribution of pBI143 indicated that this cryptic plasmid is largely exclusive to the human gut environment, and it did not occur in terrestrial, marine, or other host-associated habitats except cats (really -- it was absent everywhere, including dogs or cows or sheep, but our PCR assays did detect pBI143 in cats). To quantify the ecology of pBI143 much more broadly, we performed a large-scale read recruitment analysis for pBI143 across over 100,000 metagenomes and quantified its distribution patterns across a very large number of habitats.
+Our initial investigations of the distribution of pBI143 indicated that this cryptic plasmid is largely exclusive to the human gut environment, and it did not occur in terrestrial, marine, or other host-associated habitats except cats (really -- it was absent everywhere, including dogs or cows or sheep, but our PCR assays did detect pBI143 in cats, more on this later).
 
-This investigation was consisted of multiple steps, including,
+To quantify the ecology of pBI143 much more broadly, we performed a large-scale read recruitment analysis for pBI143 across over 100,000 metagenomes and quantified its distribution patterns across a very large number of habitats. This investigation was consisted of multiple steps, including,
 
 * Using all three versions of the pBI143 to recruit reads from a collection of 100,000+ metagenomes and profiling the resulting BAM files.
 * Resolving the biome information for each metagenome and identifying which pBI143 version best represents the pBI143 population found in each metagenome.
 * Visualizing pBI143 detection patterns across biomes and environments.
 
-The following subsections detail these steps.
+The following sections detail each step, followed by a brief discussion over these results, in addition to those that appear in our paper.
+
 
 ### The read recruitment from 100K+ metagenomes
 
@@ -716,6 +717,18 @@ human_gut_environment <- GET_ORDERED_AVERAGES(df[df$biome %in% human_gut_environ
 The polishing of the output image looked like this,
 
 {% include IMAGE path="images/read_recruitment_supplementary_polished.png" width=50 caption="Read recruitment results per biome (after polishing in Inkscape)" %}
+
+### Additional insights into read recruitment results
+
+Overall, pBI143 was indeed absent in all non-host environmental samples, save those impacted by humans. For example, in open ocean samples, pBI143 is virtually absent (0.0000021% of reads on average, ~0.05X coverage), but in metagenomes collected close to a seawall pBI143 is convincingly present (0.002% of reads on average, ~7.3X coverage). Given the high presence of pBI143 in sewage, the seawall metagenomes almost certainly contain sewage and other wastewater. pBI143 is also convincingly present on hospital surfaces, another environment likely to contain trace amounts of human feces (0.002% of reads on average, ~8.7X coverage).
+
+In addition to humans, this analysis comprehensively addressed whether pBI143 was present in other animals using gut metagenomes from buffalo, cat, chicken, cow, deer, dog, elk, fish, goat, insect, macaques, mouse, panda, pig, rat, sheep, termite, vole, whale, boar, yak, and zebu. Aside from humans, all meaningful signal was absent from other animals except cats and rats. Datasets surveyed here include metagenomes from human skin and oral cavity, which enabled us to understand if pBI143 was present in human microbiomes besides the gut microbiome. Unlike the extremely high presence of pBI143 in the human gut (0.1% of reads on average, ~1600X coverage), pBI143 was poorly detected both in samples from skin (0.002% of reads on average, ~4.6X coverage) and the oral cavity (0.0000003% of reads on average, ~0.006X coverage), which overall highlights the human gut-specific nature of pBI143.
+
+So, what about the curious case of pBI143 in cats and rats? The absence of any meaningful signal for pBI143 from all host-associated gut environments except cats and rats sounds intriguing, but it is important to keep in mind that the coverage signal for pBI143 in these animals were 2 orders of magnitude less than in humans, and we found the non-spurious detection of pBI143 across all of the animals in these cohorts suspicious. We do not have a clear answer to the question why a plasmid that is completely absent in dogs, primates, pigs, or mice would be in cats and rats. One reasonable hypothesis to explain this anomaly could be that the presence of pBI143 in the cat and rat cohorts is due to contamination associated with sample preparation. The contamination hypothesis can further explain occasional occurrences of pBI143 in only one of many samples in a single animal species or its occasional occurrence in only one of many samples from marine or lake systems. But this hypothesis poorly applies to the case of cats, since unlike any other animal species tested, our qPCR assay did amplify trace levels of pBI143 from cat samples. So it is a high possibility that pBI143 is indeed present at extremely low abundances in cats. We further investigated cat and rat metagenomes and asked whether we observe the same level of genetic heterogeneity of pBI143 we observe in humans. Interestingly, upon a closer inspection of the individual coverage plots of pBI143 and single nucleotide variants, we found that virtually every sample within our cohort of 88 cats had identical SNVs and coverage plots. The same was true in rats:
+
+{% include IMAGE path="images/cats_and_rats.png" width=50 caption="Coverage plots for pBI143-positive cat and rat cohorts" %}
+
+The complete lack of variation in pBI143 sequences and sequence coverage patterns in cat and rat metagenomes is extremely unexpected and suggests that it is unlikely that pBI143 is a naturally occurring member of cat gut metagenomes. While all these data suggest that low levels of a single version pBI143 may have been accidentally introduced to samples during the extraction or sequencing process, the faint yet positive qPCR signal from a different cohort of cats indicate that the route by which pBI143 ends up in cats may be much more complicated than contamination from humans during sample preparation.
 
 ## Analyzing mother-infant metagenomes to find evidence for plasmid transfer through single-nucleotide variants (SNVs)
 
