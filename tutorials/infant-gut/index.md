@@ -46,7 +46,7 @@ We hope you find the tutorial useful, and generously share your opinions or crit
 To download and unpack [the infant gut data-pack](https://figshare.com/ndownloader/files/31131400), copy-paste the following commands into your terminal:
 
 ``` bash
-curl -L https://figshare.com/ndownloader/files/31131400 -o INFANT-GUT-TUTORIAL.tar.gz
+curl -L https://figshare.com/ndownloader/files/43616010 -o INFANT-GUT-TUTORIAL.tar.gz
 tar -zxvf INFANT-GUT-TUTORIAL.tar.gz && cd INFANT-GUT-TUTORIAL
 ```
 
