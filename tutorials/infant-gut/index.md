@@ -1676,26 +1676,36 @@ Turns out everyone has got K02548, the second-to-last step in the module definit
 
 Let's see what these KOs are by checking out the second file, `Enterococcus_metabolism_hits.txt`. That file looks like this:
 
-unique_id | genome_name | db_name | ko | gene_caller_id | contig | modules_with_ko | ko_definition
-0 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K00845 | 1608 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00001,M00549,M00892,M00909 | glucokinase [EC:2.7.1.2]
-1 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K01810 | 600 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00001,M00004,M00892,M00909 | glucose-6-phosphate isomerase [EC:5.3.1.9]
-2 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K00850 | 225 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00001,M00345 | 6-phosphofructokinase 1 [EC:2.7.1.11]
+|**enzyme**|**genome_name**|**db_name**|**gene_caller_id**|**contig**|**modules_with_enzyme**|**enzyme_definition**|
+|:--|:--|:--|:--|:--|:--|:--|
+|K25026|Enterococcus_faecalis_6240|E_faecalis_6240|1608|Enterococcus_faecalis_6240_contig_00003_chromosome|M00001,M00549,M00909|glucokinase [EC:2.7.1.2]|
+|K01810|Enterococcus_faecalis_6240|E_faecalis_6240|600|Enterococcus_faecalis_6240_contig_00003_chromosome|M00001,M00004,M00892,M00909|glucose-6-phosphate isomerase [EC:5.3.1.9]|
+|K00850|Enterococcus_faecalis_6240|E_faecalis_6240|225|Enterococcus_faecalis_6240_contig_00003_chromosome|M00001,M00345|6-phosphofructokinase 1 [EC:2.7.1.11]|
+|K01624|Enterococcus_faecalis_6240|E_faecalis_6240|348|Enterococcus_faecalis_6240_contig_00003_chromosome|M00001,M00003,M00165,M00167,M00345,M00344,M00611,M00612|fructose-bisphosphate aldolase, class II [EC:4.1.2.13]|
 
-In this file, each row is a KO hit in one genome. The columns are hopefully self-explanatory from the headers. :)  Most of the KO information is the same across every genome, with the exception of the gene caller id and the contig that the gene is located on. Now, if we look specifically for K00133 (using the following code to get only the first instance of K00133 in the file),
-``` bash
-grep K00133 Enterococcus_metabolism_kofam_hits.txt | head -n 1
+In this file, each row is an annotation in one genome. The columns are hopefully self-explanatory from the headers. :)  Most of the enzyme-related information will be the same across every genome, with the exception of the gene caller ID and the contig that the gene is located on. Let's look for each of the KOs in module M00116. For simplicity, we'll only look for the annotations in one of the *E. faecalis* genomes. Here is a loop to do the search for each KO number in this file:
+```
+for ko in K02552 K02551 K08680 K02549 K01911 K01661 K19222 K02548 K03183; do \
+  grep $ko Enterococcus_metabolism_hits.txt | grep Enterococcus_faecalis_6255; \
+done
 ```
 then we see the following:
 
-139 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K00133 | 358 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00018,M00033,M00017,M00016,M00525,M00526,M00527 | aspartate-semialdehyde dehydrogenase [EC:1.2.1.11]
+|**enzyme**|**genome_name**|**db_name**|**gene_caller_id**|**contig**|**modules_with_enzyme**|**enzyme_definition**|
+|:--|:--|:--|:--|:--|:--|:--|
+|K02552|Enterococcus_faecalis_6255|E_faecalis_6255|400|Enterococcus_faecalis_6255_contig_00001_chromosome|M00116,M00932|menaquinone-specific isochorismate synthase [EC:5.4.4.2]|
+|K02551|Enterococcus_faecalis_6255|E_faecalis_6255|401|Enterococcus_faecalis_6255_contig_00001_chromosome|M00116,M00932|2-succinyl-5-enolpyruvyl-6-hydroxy-3-cyclohexene-1-carboxylate synthase [EC:2.2.1.9]|
+|K08680|Enterococcus_faecalis_6255|E_faecalis_6255|402|Enterococcus_faecalis_6255_contig_00001_chromosome|M00116,M00932|2-succinyl-6-hydroxy-2,4-cyclohexadiene-1-carboxylate synthase [EC:4.2.99.20]|
+|K02549|Enterococcus_faecalis_6255|E_faecalis_6255|403|Enterococcus_faecalis_6255_contig_00001_chromosome|M00116,M00932|o-succinylbenzoate synthase [EC:4.2.1.113]|
+|K01911|Enterococcus_faecalis_6255|E_faecalis_6255|399|Enterococcus_faecalis_6255_contig_00001_chromosome|M00116,M00932|o-succinylbenzoate---CoA ligase [EC:6.2.1.26]|
+|K01661|Enterococcus_faecalis_6255|E_faecalis_6255|398|Enterococcus_faecalis_6255_contig_00001_chromosome|M00116,M00932|naphthoate synthase [EC:4.1.3.36]|
+|K19222|Enterococcus_faecalis_6255|E_faecalis_6255|397|Enterococcus_faecalis_6255_contig_00001_chromosome|M00116,M00932|1,4-dihydroxy-2-naphthoyl-CoA hydrolase [EC:3.1.2.28]|
+|K02548|Enterococcus_faecalis_6255|E_faecalis_6255|2825|Enterococcus_faecalis_6255_contig_00001_chromosome|M00116|1,4-dihydroxy-2-naphthoate polyprenyltransferase [EC:2.5.1.74]|
+|K02548|Enterococcus_faecalis_6255|E_faecalis_6255|1966|Enterococcus_faecalis_6255_contig_00001_chromosome|M00116|1,4-dihydroxy-2-naphthoate polyprenyltransferase [EC:2.5.1.74]|
 
-So K00133 is an aspartate-semialdehyde dehydrogenase, and it is part of several modules, which is likely why it is present in all of these genomes. In fact, if we use the same strategy to look for the other 3 KOs that were present in the *E. faecalis* genomes, we will see that they are specific to this pathway (or, in the case of K00003, it is also in a closely related pathway - M00017, Methionine biosynthesis).
+You can see that most of these enzymes are actually useful for two different metabolic pathways: M00116 and M00932. In fact, out of all of these KOs, only K02548 (which is also present in the *E. faecium* genomes) is unique to the menaquinone biosynthesis pathway. M00932 is the phylloquinone biosynthesis pathway that we also noticed earlier when looking at the heatmap.
 
-141 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K00872 | 1295 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00018 | homoserine kinase [EC:2.7.1.39]
-140 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K00003 | 1297 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00018,M00017 | homoserine dehydrogenase [EC:1.1.1.3]
-142 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K01733 | 1296 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00018 | threonine synthase [EC:4.2.3.1]
-
-So, are these *E. faecalis* populations capable of producing threonine? It appears likely, considering the 80% completeness score of the threonine biosynthesis module. However, we cannot know for sure given the absence of an enzyme required for the first step of the pathway. It is entirely possible that we failed to annotate this enzyme for some reason, and perhaps a more thorough search for K00928, K12524, K12525, or K12526 would turn up something. Or perhaps threonine-producing capabilities have already been confirmed in these organisms, and a literature search would turn up evidence for this. In fact, KEGG's own reference pathway for [M00018 in *E. faecalis*](https://www.genome.jp/kegg-bin/show_module?efa_M00018) indicates that a complete threonine biosynthesis pathway, including K00928, is present.
+So, are these *E. faecalis* populations capable of producing menaquinone? It appears likely, considering the 88% completeness score of the menaquinone biosynthesis module. However, we cannot know for sure given the absence of the enzyme required for the last step of the pathway. It is entirely possible that we failed to annotate this enzyme for some reason, and perhaps a more thorough search for K03183, would turn up something. Or perhaps menaquinone-producing capabilities have already been confirmed in these organisms, and a literature search would turn up evidence for this. However, KEGG's own reference pathway for [M00116 in *E. faecalis*](https://www.genome.jp/kegg-bin/show_module?efa_M00116) indicates that this pathway is incomplete (their reference genome is actually missing two enzymes -- K19222 and K03183. It is likely that we were able to annotate K19222 because {% include PROGRAM name="anvi-run-kegg-kofams" version="8" %} has a heuristic for finding missing annotations, which you can read about in the documentation).
 
 But, as often happens in science, every scientist must decide for themself at what point they feel comfortable accepting results and at what point they need to go deeper to confirm them. And it is of course important to keep in mind that while genomically-encoded metabolic pathways are the first requirement for an organism to be able to perform some metabolism, even that does not necessarily mean the organism is doing so in all environments or stages of life. Perhaps `anvi-estimate-metabolism` is thus most reliable as a hypothesis-generating tool used to inform wet-lab experiments or to guide literature searches. It is up to you, and your science. :)
 
