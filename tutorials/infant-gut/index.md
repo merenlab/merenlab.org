@@ -1523,17 +1523,17 @@ When this program runs, it will look at the KOfam annotations within each genome
 A module is considered 'complete' or 'present' in a genome, bin, or contig (the level of resolution depends on your input type) if its completeness score is above the a certain threshold, which can be set with the `--module-completion-threshold` parameter. A static threshold such as this is not the most ideal metric, especially since metabolic modules have variable numbers of genes - for example, with the default threshold of 0.75 (75%), a module with 3 KOs in it would only be considered complete if all 3 of those KOs were found in a genome, while a module with 5 KOs could be considered complete if only 4 of its KOs were found. This problem is exacerbated in metagenomes since bins (or contigs) are more likely to be incomplete than isolate genomes. Therefore, the completeness score threshold only exists as a quick-and-dirty way for you to filter through modules that might be of interest, and we urge you to always double-check the data to avoid false negatives as much as possible. :)
 </div>
 
-We can use anvi'o to visualize the module completeness matrix as a heatmap. First, we generate a newick tree from the matrix with the program {% include PROGRAM name="anvi-matrix-to-newick" text='anvi-matrix-to-newick:' %}
+We can use anvi'o to visualize the pathwise completeness matrix as a heatmap. First, we generate a newick tree from the matrix with the program {% include PROGRAM name="anvi-matrix-to-newick" text='anvi-matrix-to-newick:' version="8" %}
 
 ``` bash
-anvi-matrix-to-newick Enterococcus-completeness-MATRIX.txt
+anvi-matrix-to-newick Enterococcus-module_pathwise_completeness-MATRIX.txt
 ```
 
 And then we use the `--dry-run` flag to ask `anvi-interactive` to give us a new profile database, import our state in it, and THEN run anvi'o interactive interface to visualize the distribution of modules across the *Enterococcus* genomes:
 
 ``` bash
 # dry run to get the profile db:
-anvi-interactive -d Enterococcus-completeness-MATRIX.txt \
+anvi-interactive -d Enterococcus-module_pathwise_completeness-MATRIX.txt \
                  -p Enterococcus_metabolism_PROFILE.db \
                  --manual-mode \
                  --dry-run
@@ -1545,8 +1545,8 @@ anvi-import-state -s additional-files/state-files/state-metabolism.json \
 
 # run for reals:
 anvi-interactive --manual-mode \
-                 -d Enterococcus-completeness-MATRIX.txt \
-                 -t Enterococcus-completeness-MATRIX.txt.newick \
+                 -d Enterococcus-module_pathwise_completeness-MATRIX.txt \
+                 -t Enterococcus-module_pathwise_completeness-MATRIX.txt.newick \
                  -p Enterococcus_metabolism_PROFILE.db \
                  --title "Enterococcus Metabolism Heatmap"
 ```
