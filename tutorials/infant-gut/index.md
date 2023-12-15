@@ -1555,7 +1555,7 @@ Which should give us this display:
 
 [![Enterococcus Heatmap](images/entero_heatmap_unlabeled.png)](images/entero_heatmap_unlabeled.png){:.center-img }
 
-Excellent. We can already see that the *E. faecalis* and *E. faecium* genomes form two distinct groups, with the distinguishing metabolic pathways on the rightmost side of the heatmap. But what exactly are those pathways? The module numbers, which are IDs from the KEGG MODULE database, aren't very informative. We can fix that by adding additional layers of text data describing each metabolic module. Let's first generate a useful {% include ARTIFACT name='misc-data-items-txt' text='miscellaneous data file' %} to import into our profile database:
+Excellent. We can already see that the *E. faecalis* and *E. faecium* genomes form two distinct groups, with the distinguishing metabolic pathways on the rightmost side of the heatmap. But what exactly are those pathways? The module numbers, which are IDs from the KEGG MODULE database, aren't very informative. We can fix that by adding additional layers of text data describing each metabolic module. Let's first generate a useful {% include ARTIFACT name='misc-data-items-txt' text='miscellaneous data file' version="8" %} to import into our profile database:
 
 ``` bash
 # learn where the MODULES.db is:
@@ -1580,7 +1580,7 @@ paste module_class.txt <(cut -f 2 module_names.txt ) >> modules_info.txt
 rm module_names.txt module_class.txt
 ```
 
-Throughout these steps we essentially have used the program `sqlite3` and some terminal magic for a bit of text manipulation to generate a tab-delimited file from anvi'o modules database that looks like this:
+Throughout these steps we essentially have used the program `sqlite3` and some terminal magic for a bit of text manipulation to generate a tab-delimited file from the anvi'o {% include ARTIFACT name='modules-db' text='modules database' version="8" %} that looks like this:
 
 module | class | category | subcategory | name
 :----|:----|:----|:-----|:----
@@ -1590,7 +1590,7 @@ M00003 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabo
 M00307 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | Pyruvate oxidation, pyruvate => acetyl-CoA
 M00009 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | Citrate cycle (TCA cycle, Krebs cycle)
 
-We can now import this file into the established profile database using the {% include PROGRAM name='anvi-import-misc-data' text='following program' %}:
+We can now import this file into the established profile database using the {% include PROGRAM name='anvi-import-misc-data' text='following program' version="8" %}:
 
 ```bash
 anvi-import-misc-data additional-files/metabolism/modules_info.txt \
@@ -1604,16 +1604,26 @@ anvi-import-state -s additional-files/metabolism/metabolism_state.json \
                   -p Enterococcus_metabolism_PROFILE.db \
                   -n default
 ```
+All this command does is save some settings for the interactive interface to the profile database. The settings will be automatically loaded the next time you run {% include PROGRAM name="anvi-interactive" version="8" %} so that you don't have to manually change the settings yourself to get the same figure that you see in the screenshots.
 
-And then we can run the visualization command yet again to see the heatmap with labels.
+Now we can run the interface command yet again to visualize the heatmap with labels. Here is the same command from above, copied here for your convenience:
+```
+anvi-interactive --manual-mode \
+                 -d Enterococcus-module_pathwise_completeness-MATRIX.txt \
+                 -t Enterococcus-module_pathwise_completeness-MATRIX.txt.newick \
+                 -p Enterococcus_metabolism_PROFILE.db \
+                 --title "Enterococcus Metabolism Heatmap"
+```
 
 [![Enterococcus Heatmap](images/entero_heatmap_labeled.png)](images/entero_heatmap_labeled.png){:.center-img }
 
-Here is a (rotated) screenshot of the rightmost part, where we can see which pathways distinguish the two species:
+And here is a (rotated) screenshot of the leftmost part, where we can see which pathways distinguish the two species:
 
 [![Enterococcus Heatmap](images/entero_heatmap_zoomed.png)](images/entero_heatmap_zoomed.png){:.center-img }
 
-The genome labels are not visible in this zoomed and rotated view, but if you look back at the full heatmap, you can see that *E. faecalis* genomes are on the left side and *E. faecium* ones are on the right. Based on the estimated metabolism, it looks like the two species differ in select energy metabolism, amino acid metabolism, and vitamin/cofactor metabolism pathways. Yet many of those are faint bands indicating a low completeness score, so perhaps these genomes share a select few KOs that contribute to several of the species-specific pathways. A particularly interesting observation is that all the *E. faecalis* genomes have near-complete pathways for Threonine Biosynthesis and Menaquinone Biosynthesis (the module completeness scores for these pathways are 80% and 78%, respectively, in each *E. faecalis* genome), while these pathways are partial in all the *E. faecium* genomes (the corresponding completeness is 20% and 11% in each *E. faecium*) genome. It would not be surprising if the same KOs from these pathways are present in each genome.
+You can see that *E. faecalis* genomes are on the left side and *E. faecium* ones are on the right. Based on the estimated pathwise completeness scores, it looks like the two species differ in select energy metabolism, amino acid metabolism, and vitamin/cofactor metabolism pathways. Yet many of those are faint bands indicating a low completeness score, so perhaps these genomes share a select few KOs that contribute to several of the species-specific pathways. 
+
+If you open the 'Settings' on the left side of the interface and choose the 'Data' panel, then you can hover your mouse over any part of the heatmap and see the underlying data. For example, one interesting observation is that all the *E. faecalis* genomes have near-complete pathways for Menaquinone Biosynthesis, Molybdenum Cofactor Biosynthesis, and Phylloquinone Biosynthesis (the completeness scores for these pathways are 88%, 80%, and 70%, respectively, in each *E. faecalis* genome), while these pathways are incomplete in all the *E. faecium* genomes (the corresponding completeness scores are 11%, 0%, and 0% in each *E. faecium*) genome. It would not be surprising if the same KOs from these pathways are present in each genome.
 
 So now that we know what to look for, let's get some more detailed metabolism estimation output. We'll run the metabolism estimation again, but this time we will get long-format output - specifically 'modules' mode output, which will print information about each module in each genome, and 'kofam_hits' mode output, which will print information about each KO. 'modules' mode is the default, so if that was all we wanted we wouldn't need to specify it on the command line, but since we are also asking for 'kofam_hits' mode here we pass both of them, in a comma-separated list, to the `--kegg-output-modes` parameter. (Side note: you can find more details about the possible outputs of `anvi-estimate-metabolism` {% include ARTIFACT name='kegg-metabolism' text='here'%}).
 
