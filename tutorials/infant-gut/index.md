@@ -1483,6 +1483,9 @@ I'm sure you need no help to know what to do with this file.
 {:.notice}
 **If you haven't followed the previous sections of the tutorial**, you will need the anvi'o {% include ARTIFACT name="contigs-db" text="contigs databases" %} for the *E. faecalis* and *E. faecium* genomes used in the pangenomics chapter of the tutorial. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
 
+{:.notice}
+A more comprehensive standalone tutorial for metabolism prediction in anvi'o can be found [here](https://anvio.org/tutorials/fmt-mag-metabolism/). It covers more features than this chapter does, so check it out if you want more. :)
+
 Microbiologists care a lot about what microbes are doing, and for this reason we spend a lot of time looking at functional annotations in our 'omics data. But what if we told you that you could go a step further than that, and look at functional annotations in the larger context of metabolism? This chapter is about how to leverage known, structured information on metabolic pathways to predict the metabolic capacity encoded by microbial genomes, MAGs, or metagenomes.
 
 In the pangenomics chapter, we explored functions in two species of *Enterococcus*. To demonstrate the utility of metabolism reconstruction in anvi'o, we are now going to predict the metabolic potential of these organisms.
