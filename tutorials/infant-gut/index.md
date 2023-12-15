@@ -1515,7 +1515,7 @@ anvi-estimate-metabolism -e additional-files/pangenomics/external-genomes.txt \
                          --matrix-format
 ```
 
-When this program runs, it will look at the KOfam annotations within each genome, match them up to the KEGG module definitions to estimate the completeness of each module, and produce multiple output matrices. For simplicity, we'll use only the matrix containing pathwise completeness scores (what is pathwise completeness, you ask? Check out {% include PROGRAM name="anvi-estimate-metabolism" text="the technical documentation here" version="8" %}).
+When this program runs, it will look at the KOfam annotations (for KEGG Orthologs, or KOs) within each genome, match them up to the KEGG module definitions to estimate the completeness of each module, and produce multiple output matrices. For simplicity, we'll use only the matrix containing pathwise completeness scores (what is pathwise completeness, you ask? Check out {% include PROGRAM name="anvi-estimate-metabolism" text="the technical documentation here" version="8" %}).
 
 <div class="extra-info" markdown="1">
 
@@ -1625,51 +1625,56 @@ You can see that *E. faecalis* genomes are on the left side and *E. faecium* one
 
 If you open the 'Settings' on the left side of the interface and choose the 'Data' panel, then you can hover your mouse over any part of the heatmap and see the underlying data. For example, one interesting observation is that all the *E. faecalis* genomes have near-complete pathways for Menaquinone Biosynthesis, Molybdenum Cofactor Biosynthesis, and Phylloquinone Biosynthesis (the completeness scores for these pathways are 88%, 80%, and 70%, respectively, in each *E. faecalis* genome), while these pathways are incomplete in all the *E. faecium* genomes (the corresponding completeness scores are 11%, 0%, and 0% in each *E. faecium*) genome. It would not be surprising if the same KOs from these pathways are present in each genome.
 
-So now that we know what to look for, let's get some more detailed metabolism estimation output. We'll run the metabolism estimation again, but this time we will get long-format output - specifically 'modules' mode output, which will print information about each module in each genome, and 'kofam_hits' mode output, which will print information about each KO. 'modules' mode is the default, so if that was all we wanted we wouldn't need to specify it on the command line, but since we are also asking for 'kofam_hits' mode here we pass both of them, in a comma-separated list, to the `--kegg-output-modes` parameter. (Side note: you can find more details about the possible outputs of `anvi-estimate-metabolism` {% include ARTIFACT name='kegg-metabolism' text='here'%}).
+So now that we know what to look for, let's get some more detailed metabolism estimation output. We'll run the metabolism estimation again, but this time we will get long-format output - specifically 'modules' mode output, which will print information about each module in each genome, and 'hits' mode output, which will print information about each KEGG Ortholog that was annotated in each genome. 'modules' mode is the default, so if that was all we wanted, we wouldn't need to specify it on the command line, but since we are also asking for 'hits' mode here we pass both of them, in a comma-separated list, to the `--output-modes` parameter. (Side note: you can find more details about the possible outputs of `anvi-estimate-metabolism` {% include ARTIFACT name='kegg-metabolism' text='here' version="8" %}).
 
 ``` bash
 anvi-estimate-metabolism -e additional-files/pangenomics/external-genomes.txt \
                          -O Enterococcus_metabolism \
-                         --kegg-output-modes modules,kofam_hits
+                         --output-modes modules,hits
 ```
 
-This produces two output files: `Enterococcus_metabolism_modules.txt`, and `Enterococcus_metabolism_kofam_hits.txt`. Here is a sample from the top of the modules file:
+This produces two output files: `Enterococcus_metabolism_modules.txt`, and `Enterococcus_metabolism_hits.txt`. Here is a sample from the top of the modules file:
 
-unique_id | genome_name | db_name | kegg_module | module_name | module_class | module_category | module_subcategory | module_definition | module_completeness | module_is_complete | kofam_hits_in_module | gene_caller_ids_in_module
-:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---
-0 | Enterococcus_faecalis_6240 | E_faecalis_6240 | M00001 | Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | "(K00844,K12407,K00845,K00886,K08074,K00918) (K01810,K06859,K13810,K15916) (K00850,K16370,K21071,K00918) (K01623,K01624,K11645,K16305,K16306) K01803 ((K00134,K00150) K00927,K11389) (K01834,K15633,K15634,K15635) K01689 (K00873,K12406)" | 1.0 | True | K00134,K00873,K01624,K00850,K01810,K01689,K01803,K00927,K01834,K00845 | 642,226,348,225,600,1044,1041,1042,1043,2342,2646,1608
-1 | Enterococcus_faecalis_6240 | E_faecalis_6240 | M00002 | Glycolysis, core module involving three-carbon compounds | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | "K01803 ((K00134,K00150) K00927,K11389) (K01834,K15633,K15634,K15635) K01689 (K00873,K12406)" | 1.0 | True | K00134,K00873,K01689,K01803,K00927,K01834 | 642,226,1044,1041,1042,1043,2342,2646
-2 | Enterococcus_faecalis_6240 | E_faecalis_6240 | M00003 | Gluconeogenesis, oxaloacetate => fructose-6P | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | "(K01596,K01610) K01689 (K01834,K15633,K15634,K15635) K00927 (K00134,K00150) K01803 ((K01623,K01624,K11645) (K03841,K02446,K11532,K01086,K04041),K01622)" | 0.875 | True | K00134,K04041,K01624,K01689,K01803,K00927,K01834 | 642,617,348,1044,1041,1042,1043,2342,2646
-3 | Enterococcus_faecalis_6240 | E_faecalis_6240 | M00307 | Pyruvate oxidation, pyruvate => acetyl-CoA | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | "((K00163,K00161+K00162)+K00627+K00382-K13997),K00169+K00170+K00171+(K00172,K00189),K03737" | 1.0 | True | K00382,K00627,K03737 | 539,538,771,1117,1396
+|**module**|**genome_name**|**db_name**|**module_name**|**module_class**|**module_category**|**module_subcategory**|**module_definition**|**stepwise_module_completeness**|**stepwise_module_is_complete**|**pathwise_module_completeness**|**pathwise_module_is_complete**|**proportion_unique_enzymes_present**|**enzymes_unique_to_module**|**unique_enzymes_hit_counts**|**enzyme_hits_in_module**|**gene_caller_ids_in_module**|**warnings**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|M00001|Enterococcus_faecalis_6240|E_faecalis_6240|Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate|Pathway modules|Carbohydrate metabolism|Central carbohydrate metabolism|"(K00844,K12407,K00845,K25026,K00886,K08074,K00918) (K01810,K06859,K13810,K15916) (K00850,K16370,K21071,K00918) (K01623,K01624,K11645,K16305,K16306) K01803 ((K00134,K00150) K00927,K11389) (K01834,K15633,K15634,K15635) K01689 (K00873,K12406)"|1.0|True|1.0|True|NA|No enzymes unique to module|NA|K00134,K00134,K00850,K00873,K00927,K01624,K01689,K01803,K01810,K01834,K01834,K25026|642,1044,225,226,1043,348,1041,1042,600,2342,2646,1608|K01803 is present in multiple modules: M00001/M00002/M00003,K01689 is present in multiple modules: M00001/M00002/M00003/M00346,K01834 is present in multiple modules: M00001/M00002/M00003,K25026 is present in multiple modules: M00001/M00549/M00909,K00873 is present in multiple modules: M00001/M00002,K01624 is present in multiple modules: M00001/M00003/M00165/M00167/M00345/M00344/M00611/M00612,K01810 is present in multiple modules: M00001/M00004/M00892/M00909,K00134 is present in multiple modules: M00001/M00002/M00003/M00308/M00552/M00165/M00166/M00611/M00612,K00850 is present in multiple modules: M00001/M00345,K00927 is present in multiple modules: M00001/M00002/M00003/M00308/M00552/M00165/M00166/M00611/M00612|
+|M00002|Enterococcus_faecalis_6240|E_faecalis_6240|Glycolysis, core module involving three-carbon compounds|Pathway modules|Carbohydrate metabolism|Central carbohydrate metabolism|"K01803 ((K00134,K00150) K00927,K11389) (K01834,K15633,K15634,K15635) K01689 (K00873,K12406)"|1.0|True|1.0|True|NA|No enzymes unique to module|NA|K00134,K00134,K00873,K00927,K01689,K01803,K01834,K01834|642,1044,226,1043,1041,1042,2342,2646|K01803 is present in multiple modules: M00001/M00002/M00003,K01689 is present in multiple modules: M00001/M00002/M00003/M00346,K01834 is present in multiple modules: M00001/M00002/M00003,K00873 is present in multiple modules: M00001/M00002,K00134 is present in multiple modules: M00001/M00002/M00003/M00308/M00552/M00165/M00166/M00611/M00612,K00927 is present in multiple modules: M00001/M00002/M00003/M00308/M00552/M00165/M00166/M00611/M00612|
+|M00003|Enterococcus_faecalis_6240|E_faecalis_6240|Gluconeogenesis, oxaloacetate => fructose-6P|Pathway modules|Carbohydrate metabolism|Central carbohydrate metabolism|"(K01596,K01610) K01689 (K01834,K15633,K15634,K15635) K00927 (K00134,K00150) K01803 ((K01623,K01624,K11645) (K03841,K02446,K11532,K01086,K04041),K01622)"|0.8571428571428571|True|0.875|True|NA|No enzymes unique to module|NA|K00134,K00134,K00927,K01624,K01689,K01803,K01834,K01834,K04041|642,1044,1043,348,1041,1042,2342,2646,617|K01803 is present in multiple modules: M00001/M00002/M00003,K01689 is present in multiple modules: M00001/M00002/M00003/M00346,K01834 is present in multiple modules: M00001/M00002/M00003,K04041 is present in multiple modules: M00003/M00611/M00612,K01624 is present in multiple modules: M00001/M00003/M00165/M00167/M00345/M00344/M00611/M00612,K00134 is present in multiple modules: M00001/M00002/M00003/M00308/M00552/M00165/M00166/M00611/M00612,K00927 is present in multiple modules: M00001/M00002/M00003/M00308/M00552/M00165/M00166/M00611/M00612|
+|M00307|Enterococcus_faecalis_6240|E_faecalis_6240|Pyruvate oxidation, pyruvate => acetyl-CoA|Pathway modules|Carbohydrate metabolism|Central carbohydrate metabolism|"((K00163,K00161+K00162)+K00627+K00382-K13997),K00169+K00170+K00171+(K00172,K00189),K03737"|1.0|True|1.0|True|1.0|K00627|1|K00382,K00382,K00627,K03737,K03737|539,771,538,1117,1396|K00382 is present in multiple modules: M00307/M00009/M00011/M00532/M00621/M00036/M00032,K03737 is present in multiple modules: M00307/M00173/M00614|
+
 
 As you can see, each row contains one metabolic module in one genome, and includes for that module:
-- some details about its name, categorization, and definition (all of which are sourced from KEGG)
+- some details about its name, categorization, and definition (all of which are sourced from KEGG, in this case)
 - followed by information specific to this genome:
-  - the completeness score
-  - whether or not that score is above the completeness score threshold
-  - which KO genes were found that contribute to this module
-  - and the gene caller IDs of those genes
+  - completeness score (two types, depending on how you interpret the module definition)
+  - whether or not each score is above the completeness score threshold
+  - how many enzymes (and which ones) were annotated that are unique to the current module
+  - which enzymes (here, KEGG Orthologs) were annotated that contribute to this module
+  - the gene caller IDs of those genes
+  - some caveats to be aware of (in the 'warnings' column)
 
-Let's take a look at the Threonine Biosynthesis pathway that was differentially present between the two species. This is module M00018, so we can search for that. Since we are specifically interested in which genes from this pathway were present in each genome, we will filter the output so that we only see the genome name, module number, module definition, completeness score, KOs, and gene caller ids (scroll right to see the latter columns):
+Let's take a look at the Menaquinone Biosynthesis pathway that was differentially present between the two species. This is module M00116, so we can search for that ID number in the first column. Since we are specifically interested in which genes from this pathway were present in each genome, we will filter the output so that we only see the module number, genome name (2nd column), module definition (8th column), pathwise completeness score (11th column), list of annotated KOs (16th), and gene caller ids (17th) (scroll right to see the latter columns). Here is the command to do that search and filter from your terminal:
 ``` bash
-grep 'M00018' Enterococcus_metabolism_modules.txt | cut -f 2,4,9,10,12,13
+grep '^M00116' Enterococcus_metabolism_modules.txt | cut -f 1,2,8,11,16,17
 ```
 
-Enterococcus_faecalis_6240 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.8 | K00133,K00872,K00003,K01733 | 358,1295,1297,1296
-Enterococcus_faecalis_6250 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.8 | K00872,K00003,K01733,K00133 | 2184,2186,2185,1100
-Enterococcus_faecalis_6255 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.8 | K00872,K00003,K01733,K00133 | 2160,2162,2161,1198
-Enterococcus_faecalis_6512 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.8 | K00872,K00003,K01733,K00133 | 1837,1839,1838,948
-Enterococcus_faecalis_6557 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.8 | K00872,K00003,K01733,K00133 | 2489,2491,2490,1290
-Enterococcus_faecalis_6563 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.8 | K00872,K00003,K01733,K00133 | 1952,1954,1953,1006
-Enterococcus_faecium_6589 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.2 | K00133 | 552
-Enterococcus_faecium_6590 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.2 | K00133 | 723
-Enterococcus_faecium_6601 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.2 | K00133 | 867
-Enterococcus_faecium_6778 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.2 | K00133 | 683
-Enterococcus_faecium_6798 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.2 | K00133 | 511
+|**module**|**genome_name**|**module_definition**|**pathwise_module_completeness**|**enzyme_hits_in_module**|**gene_caller_ids_in_module**|
+|:--|:--|:--|:--|:--|:--|
+|M00116|Enterococcus_faecalis_6240|"K02552 K02551 K08680 K02549 K01911 K01661 K19222 K02548 K03183"|0.8888888888888888|K01661,K01911,K02548,K02548,K02549,K02551,K02552,K08680,K19222|2534,2535,1077,2087,2539,2537,2536,2538,2533|
+|M00116|Enterococcus_faecalis_6250|"K02552 K02551 K08680 K02549 K01911 K01661 K19222 K02548 K03183"|0.8888888888888888|K01661,K01911,K02548,K02548,K02549,K02551,K02552,K08680,K19222|475,476,1837,2963,480,478,477,479,474|
+|M00116|Enterococcus_faecalis_6255|"K02552 K02551 K08680 K02549 K01911 K01661 K19222 K02548 K03183"|0.8888888888888888|K01661,K01911,K02548,K02548,K02549,K02551,K02552,K08680,K19222|398,399,1966,2825,403,401,400,402,397|
+|M00116|Enterococcus_faecalis_6512|"K02552 K02551 K08680 K02549 K01911 K01661 K19222 K02548 K03183"|0.8888888888888888|K01661,K01911,K02548,K02548,K02549,K02551,K02552,K08680,K19222|323,324,1649,2482,328,326,325,327,322|
+|M00116|Enterococcus_faecalis_6557|"K02552 K02551 K08680 K02549 K01911 K01661 K19222 K02548 K03183"|0.8888888888888888|K01661,K01911,K02548,K02548,K02549,K02551,K02552,K08680,K19222|569,570,2137,3277,574,572,571,573,568|
+|M00116|Enterococcus_faecalis_6563|"K02552 K02551 K08680 K02549 K01911 K01661 K19222 K02548 K03183"|0.8888888888888888|K01661,K01911,K02548,K02548,K02549,K02551,K02552,K08680,K19222|321,322,1727,2667,326,324,323,325,320|
+|M00116|Enterococcus_faecium_6589|"K02552 K02551 K08680 K02549 K01911 K01661 K19222 K02548 K03183"|0.1111111111111111|K02548|3003|
+|M00116|Enterococcus_faecium_6590|"K02552 K02551 K08680 K02549 K01911 K01661 K19222 K02548 K03183"|0.1111111111111111|K02548|3286|
+|M00116|Enterococcus_faecium_6601|"K02552 K02551 K08680 K02549 K01911 K01661 K19222 K02548 K03183"|0.1111111111111111|K02548|3026|
+|M00116|Enterococcus_faecium_6778|"K02552 K02551 K08680 K02549 K01911 K01661 K19222 K02548 K03183"|0.1111111111111111|K02548|2795|
+|M00116|Enterococcus_faecium_6798|"K02552 K02551 K08680 K02549 K01911 K01661 K19222 K02548 K03183"|0.1111111111111111|K02548|2617|
 
-Turns out everyone has got K00133, the second step in the module definition. What's more, all the *E. faecalis* genomes have the same set of 4 KOs to make this module 80% complete: K00872, K00003, K01733, and K00133. It also looks like the 3 KOs that are not shared with *E. faecium* are always right next to each other in the genome, because the gene caller ids for those 3 KOs have a range of 3. All genomes are missing enzymes for the first step in the pathway, as far as we can tell.
+Turns out everyone has got K02548, the second-to-last step in the module definition. What's more, all the *E. faecalis* genomes have the same set of 8 KOs to make this module 88% complete (and they all have two copies of K02548). It also looks like the several of these KOs that are not shared with *E. faecium* are always right next to each other in the genome, because their gene caller ids are off-by-one from each other (this means that, for instance, these enzymes seem to be encoded in an operon with the following order: K19222, K01661, K01911, K02552, K02551, K08680, and K02549). All genomes are missing the enzyme for the last step in the pathway (K03183).
 
-Let's see what these KOs are by checking out the second file, `Enterococcus_metabolism_kofam_hits.txt`. That file looks like this:
+Let's see what these KOs are by checking out the second file, `Enterococcus_metabolism_hits.txt`. That file looks like this:
 
 unique_id | genome_name | db_name | ko | gene_caller_id | contig | modules_with_ko | ko_definition
 0 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K00845 | 1608 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00001,M00549,M00892,M00909 | glucokinase [EC:2.7.1.2]
