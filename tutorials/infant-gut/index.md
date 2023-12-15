@@ -1483,12 +1483,6 @@ I'm sure you need no help to know what to do with this file.
 {:.notice}
 **If you haven't followed the previous sections of the tutorial**, you will need the anvi'o {% include ARTIFACT name="contigs-db" text="contigs databases" %} for the *E. faecalis* and *E. faecium* genomes used in the pangenomics chapter of the tutorial. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
 
-{:.notice}
-Metabolism prediction in anvi'o is a new feature and still under ongoing development as of `v7`. We appreciate your patience and feedback on any issues you might run into, and we welcome suggestions for improvement. Thank you very much!
-
-{:.notice}
-This project was supported by the National Science Foundation Graduate Research Fellowship Program under Grant No. 1746045.
-
 Microbiologists care a lot about what microbes are doing, and for this reason we spend a lot of time looking at functional annotations in our 'omics data. But what if we told you that you could go a step further than that, and look at functional annotations in the larger context of metabolism? This chapter is about how to leverage known, structured information on metabolic pathways to predict the metabolic capacity encoded by microbial genomes, MAGs, or metagenomes.
 
 In the pangenomics chapter, we explored functions in two species of *Enterococcus*. To demonstrate the utility of metabolism reconstruction in anvi'o, we are now going to predict the metabolic potential of these organisms.
@@ -1496,12 +1490,12 @@ In the pangenomics chapter, we explored functions in two species of *Enterococcu
 ### Some obligatory background on metabolism prediction
 Metabolism prediction, also known as metabolic reconstruction, is the practice of guessing (estimating) what metabolic pathways an organism can use to build or break down molecules, based on the proteins it encodes in its genome. It typically involves integrating knowledge about metabolic pathways from well-curated, publically-available databases such as [KEGG](https://www.genome.jp/kegg/) or [MetaCyc](https://metacyc.org/).
 
-In some cases, metabolic reconstruction is a modeling approach that uses fancy math to compute a metabolic network from a genome and refine it based on experimental data in a process called [Flux Balance Analysis](https://www.nature.com/articles/nbt.1614). You cannot currently do this type of metabolic reconstruction in anvi'o, but if you are interested in it we refer you to a [2019 review](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1769-1) of tools that do FBA as a starting point for that adventure.
+In some cases, metabolic reconstruction is a modeling approach that uses fancy math to compute a metabolic network from a genome and refine it based on experimental data in a process called [Flux Balance Analysis (FBA)](https://www.nature.com/articles/nbt.1614). You cannot currently do FBA in anvi'o, but you *can* generate metabolic models for use with your favorite FBA tool with the program {% include PROGRAM name="anvi-get-metabolic-model-file" version="8" %}.
 
-In anvi'o, metabolism estimation involves collecting gene annotations and matching them to defined metabolic pathways to compute a 'completeness' score for each pathway. Statistics about each pathway and the genes that contribute to them are then summarized in a variety of output files that can be analyzed either by reading them directly or by using them as input to downstream programs/scripts.
+Here in this tutorial, we will cover a type of metabolism estimation called pathway prediction, which involves collecting gene annotations and matching them to defined metabolic pathways to compute a 'completeness' score for each pathway. Statistics about each pathway and the genes that contribute to them are then summarized in a variety of output files that can be analyzed either by reading them directly or by using them as input to downstream programs/scripts.
 
 {:.notice}
-As of `v7`, anvi'o uses [KEGG](https://www.genome.jp/kegg/) as the source of metabolism information for estimation purposes. It is an amazing resource with nicely structured data, including HMM profiles for functional annotation in the [KEGG KOfam](https://academic.oup.com/bioinformatics/article/36/7/2251/5631907) database and definitions of metabolic pathways in the [KEGG MODULE](https://www.genome.jp/kegg/module.html) database. However, we plan to expand from this in the future, and in particular one of our goals is to allow users to include their own custom definitions of metabolic pathways in the metabolism data used for estimation. So stay tuned!
+As of `v8`, anvi'o can use either [KEGG](https://www.genome.jp/kegg/) or {% include ARTIFACT name="user-modules-data" text="user-defined metabolic pathways" version="8" %} as the source of metabolism information for estimation purposes. Our examples below will show how to use KEGG data, which is the default. But you can find instructions on user-defined pathways elsewhere. In particular, we recommend [this tutorial](https://anvio.org/tutorials/fmt-mag-metabolism/) as a starting point.
 
 ### Estimating metabolism in the *Enterococcus* genomes
 
