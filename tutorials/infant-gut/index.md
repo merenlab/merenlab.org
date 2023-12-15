@@ -1481,7 +1481,7 @@ I'm sure you need no help to know what to do with this file.
 ## Chapter V: Metabolism Prediction
 
 {:.notice}
-**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o {% include ARTIFACT name="contigs-db" text="contigs databases" %} for the *E. faecalis* and *E. faecium* genomes used in the pangenomics chapter of the tutorial. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
+**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o {% include ARTIFACT name="contigs-db" text="contigs databases" version="8" %} for the *E. faecalis* and *E. faecium* genomes used in the pangenomics chapter of the tutorial. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
 
 {:.notice}
 A more comprehensive standalone tutorial for metabolism prediction in anvi'o can be found [here](https://anvio.org/tutorials/fmt-mag-metabolism/). It covers more features than this chapter does, so check it out if you want more. :)
@@ -1727,7 +1727,7 @@ Just like we looked at functional enrichment in the pangenomics chapter, we can 
 |E_faecium_6778|faecium|
 |E_faecium_6798|faecium|
 
-And here is the command to run {%include PROGRAM name='anvi-compute-metabolic-enrichment' text='the enrichment script' %} on modules:
+And here is the command to run {%include PROGRAM name='anvi-compute-metabolic-enrichment' text='the enrichment script' version="8" %} on modules:
 ``` bash
 anvi-compute-metabolic-enrichment -M Enterococcus_metabolism_modules.txt \
                                   -G additional-files/metabolism/entero_groups.txt \
