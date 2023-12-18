@@ -2016,35 +2016,39 @@ For instance while I was on this page, I selected two SNV positions that showed 
 
 [![E. faecalis SNVs](images/e-faecalis-SNVs-anvio-state-clustered-selected.png)](images/e-faecalis-SNVs-anvio-state-clustered-selected.png){:.center-img .width-50}
 
-Position 80 (the selection towards the right) shows variability only in odd days, position 686 shows variability only in even days. This will probably at some point will become a right-click menu function, but even now we can do some tricks to explore the context of these SNVs. Because that is what anvi'o is all about. Exploring, sometimes to disturbing depths. Well, here are two tiny AWK one-liner to get some specific information about these positions from our files. This is for the one on the left:
+Position 80 (the selection towards the right) shows variability only in odd days, position 686 shows variability only in even days. This will probably at some point will become a right-click menu function, but even now we can do some tricks to explore the context of these SNVs. Because that is what anvi'o is all about. Exploring, sometimes to disturbing depths. Well, here are two tiny AWK one-liner to get some specific information about these positions from our files. Just to have a bit more insights into these SNVs, here is one nucleotide position that is varible only in odd days:
 
 ``` bash
-awk '{if(NR == 1 || $2 == 686) print $2 " " $3 " " $4 " " $6 " " $14 " " $15 " " $25}' E-faecalis-SNVs.txt | column -t
-unique_pos  sample_id  pos   gene_call  departure_from_ref  competing_nts  split_name
-686         DAY_18     6333  1826       0.0617647058824     CT             Day17a_QCcontig4_split_00022
-686         DAY_22A    6333  1826       0.0697674418605     CT             Day17a_QCcontig4_split_00022
-686         DAY_16     6333  1826       0.0805369127517     CT             Day17a_QCcontig4_split_00022
-686         DAY_24     6333  1826       0.0863636363636     CT             Day17a_QCcontig4_split_00022
-686         DAY_17B    6333  1826       0                   CC             Day17a_QCcontig4_split_00022
-686         DAY_19     6333  1826       0                   CC             Day17a_QCcontig4_split_00022
-686         DAY_15B    6333  1826       0                   CC             Day17a_QCcontig4_split_00022
-686         DAY_23     6333  1826       0                   CC             Day17a_QCcontig4_split_00022
+awk '{if(NR == 1 || $2 == 142) print $2 "\t" $6 "\t" $14 "\t" $22 "\t" $17 "\t" $18 "\t" $19 "\t" $21 "\t" $23 "\t" $24}' E-faecalis-SNVs.txt | anvi-script-as-markdown
 ```
 
-And this is for the one on the right:
+|**unique_pos_identifier**|**sample_id**|**coverage**|**reference**|**A**|**C**|**G**|**T**|**consensus**|**competing_nts**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|142|DAY_15B|269|A|245|0|23|1|A|AG|
+|142|DAY_16|244|A|244|0|0|0|A|AA|
+|142|DAY_17B|483|A|436|0|43|4|A|AG|
+|142|DAY_18|251|A|251|0|0|0|A|AA|
+|142|DAY_19|419|A|391|0|27|1|A|AG|
+|142|DAY_22A|292|A|292|0|0|0|A|AA|
+|142|DAY_23|173|A|164|0|9|0|A|AG|
+|142|DAY_24|179|A|179|0|0|0|A|AA|
+
+And here is another one that is only variable in even days:
 
 ``` bash
-awk '{if(NR == 1 || $2 == 80) print $2 " " $3 " " $4 " " $6 " " $14 " " $15 " " $25}' E-faecalis-SNVs.txt | column -t
-unique_pos  sample_id  pos   gene_call  departure_from_ref  competing_nts  split_name
-80          DAY_17B    7955  233        0.122591943958      GT             Day17a_QCcontig1_split_00012
-80          DAY_19     7955  233        0.0752688172043     GT             Day17a_QCcontig1_split_00012
-80          DAY_15B    7955  233        0.109271523179      GT             Day17a_QCcontig1_split_00012
-80          DAY_23     7955  233        0.11377245509       GT             Day17a_QCcontig1_split_00012
-80          DAY_18     7955  233        0                   TT             Day17a_QCcontig1_split_00012
-80          DAY_22A    7955  233        0                   TT             Day17a_QCcontig1_split_00012
-80          DAY_16     7955  233        0                   TT             Day17a_QCcontig1_split_00012
-80          DAY_24     7955  233        0                   TT             Day17a_QCcontig1_split_00012
+awk '{if(NR == 1 || $2 == 186) print $2 "\t" $6 "\t" $14 "\t" $22 "\t" $17 "\t" $18 "\t" $19 "\t" $21 "\t" $23 "\t" $24}' E-faecalis-SNVs.txt | anvi-script-as-markdown
 ```
+
+|**unique_pos_identifier**|**sample_id**|**coverage**|**reference**|**A**|**C**|**G**|**T**|**consensus**|**competing_nts**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|186|DAY_15B|421|T|0|0|0|421|T|TT|
+|186|DAY_16|382|T|0|350|0|32|C|CT|
+|186|DAY_17B|700|T|0|0|0|700|T|TT|
+|186|DAY_18|471|T|0|436|0|35|C|CT|
+|186|DAY_19|540|T|0|0|0|540|T|TT|
+|186|DAY_22A|369|T|0|346|1|22|C|CT|
+|186|DAY_23|226|T|0|0|0|226|T|TT|
+|186|DAY_24|318|T|0|286|0|32|C|CT|
 
 Good, everything checks out. Now since we know the split names and positions in splits, we can in fact see where they actually are using the interactive interface to visualize the merged profile database again, and look at the wider context using the 'inspect' option. Which I have already done for you:
 
