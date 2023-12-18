@@ -513,7 +513,7 @@ anvi-interactive -p PROFILE.db \
 {:.notice}
 Alternatively you could load the interface without the `--collection-autoload` flag, and click `Bins > Load bin collection > CONCOCT > Load` to load the CONCOCT collection.
 
-To turn off text annotation, go to `Main > Display > Additional Settings > Selections` and then uncheck `Show names`. You will then see something like this:
+To turn off text annotation, go to `Settings > Options > Bins Selection` and then uncheck `Show names`. You will then see something like this:
 
 [![Infant gut merged](images/infant-gut-concoct.png)](images/infant-gut-concoct.png){:.center-img .width-50}
 
@@ -623,6 +623,9 @@ Please note that the algorithms we have used here may have been improved since t
 Just a reminder, once you have the interactive interface in front of you, you can in fact investigate the taxonomy of contigs by BLASTing them against various NCBI collections using the right-click menu to have a second opinion about what do public databases think they are:
 
 [![Infant gut merged](images/infant-gut-split.gif)](images/infant-gut-split.gif){:.center-img .width-50}
+
+{:.notice}
+Mouse section moved under `Settings > Data`, after version 7.0.0. 
 
 {:.notice}
 We recently have added an option to quickly run them on [BIGSI](http://www.bigsi.io/). Sometimes it takes a split second, sometimes (especially when you are in France) it takes minutes. So, no promises, but try it for sure! It is an [excellent algorithm](http://dx.doi.org/10.1038/s41587-018-0010-1).
@@ -1095,7 +1098,7 @@ Which should give you this (after clicking `Draw`):
 
 [![phylogenomics](images/phylogenomics-manual-mode.png)](images/phylogenomics-manual-mode.png){:.center-img .width-50}
 
-You can replace the colors with the bin names by selecting `Text` from `Main > Layers > bin_name` and re-clicking `Draw`:
+You can replace the colors with the bin names by selecting `Text` from `Main > Legends > Item Names > bin_name` and re-clicking `Draw`:
 
 [![phylogenomics](images/phylogenomics-manual-mode-text.png)](images/phylogenomics-manual-mode-text.png){:.center-img .width-50}
 
@@ -2029,7 +2032,7 @@ This time you will get this display:
 
 [![E. faecalis SNVs](images/e-faecalis-SNVs-anvio-state.png)](images/e-faecalis-SNVs-anvio-state.png){:.center-img .width-50}
 
-As we've seen before, occurrence of SNVs follow a bi-daily fashion. Not that it needs any further convincing, but just to show off here, if you were to click `Samples > Sample order > view_data > Draw`, you can see that even days and odd days nicely separate from each other:
+As we've seen before, occurrence of SNVs follow a bi-daily fashion. Not that it needs any further convincing, but just to show off here, if you were to click `Main > Layers > Order by > Default(tree) > Draw`, you can see that even days and odd days nicely separate from each other:
 
 [![E. faecalis SNVs](images/e-faecalis-SNVs-anvio-state-clustered.png)](images/e-faecalis-SNVs-anvio-state-clustered.png){:.center-img .width-50}
 
