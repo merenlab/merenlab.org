@@ -8,7 +8,7 @@ geometry: "left=3cm,right=3cm,top=2cm,bottom=2cm"
 output: syllabus.pdf
 colorlinks: true
 urlcolor: blue
-monofont: DejaVuSansMono.ttf 
+monofont: DejaVuSansMono.ttf
 ---
 
 ## Preface
@@ -152,9 +152,9 @@ We will also **discuss anvi'o and its features**, and will make sure everyone ha
 Please try to accomplish this exercise by **07/11/23**. You will not need to return a report for this particular week:
 
 > The purpose of this exercise is to help you have a direct exposure to individual analysis steps and tools that enables one to recruit reads from metagenomes (essentials of which is covered on the 30/10/23 lecture in the companion course), and profile the read recruitment results to investigate gene distribution patterns of a given population.
-> 
+>
 > Throughout this exercise you will use a mock dataset to (1) familiarize yourself with commonly used file formats such as FASTA, FASTQ, SAM, and BAM, (2) learn the basic steps of read recruitment through Bowtie2 and samtools, (3) learn how to profile read recruitment results using anvi’o, and (4) familiarize yourself with downstream steps of the analysis of recruited reads. Please try to be mindful about individual steps, make notes of those steps that did not make much sense to you so we can discuss them further during our session 08/11/23.
-> 
+>
 > You will find the exercise here: [https://merenlab.org/tutorials/read-recruitment/](https://merenlab.org/tutorials/read-recruitment/)
 
 ### 22/11/23 :: EX 02: Pangenomic analysis of a bacterial genus
@@ -162,18 +162,18 @@ Please try to accomplish this exercise by **07/11/23**. You will not need to ret
 Please read the assignment below carefully, and **return your reports by 21/11/23**:
 
 > This is a small exercise with pangenomics. Please find the data pack for this exercise on stud.IP, or using [this Dropbox link](https://www.dropbox.com/scl/fi/4mx04ye5j08xpiilir0qj/Bifidobacterium_genomes.tar.gz?rlkey=fuu5t7i79meztpkyvxu20dbzw&dl=0).
-> 
+>
 > This data pack contains 15 genomes for you to work with. While each genome belongs to the bacterial genus *Bifidobacterium*, you don't know which species they assign. Please take a look at the [anvi'o pangenomics tutorial](https://merenlab.org/2016/11/08/pangenomics-v2/) and/or the [pangenomics exercise](https://merenlab.org/tutorials/vibrio-jasicida-pangenome/) to find out how to create a pangenome for all these 15 genomes using the program `anvi-pan-genome` with default parameters, and answer the following questions in your short report:
-> 
+>
 > * How many **single-copy core genes** did you find?
 > * When you organize genomes based on gene cluster frequencies, how many **main groupings of genomes** do you observe?
 > * Which **'species' name** would you annotate these genomes with?
 > * According to gene clusters, which two species of *Bifidobacterium* in this mixture are **most closely related**?
-> 
+>
 > Please include a screenshot of your final display you achieved through `anvi-display-pan`, and get cookie points for your pretty displays :)
 >
 > Some opetional questions for the overly enthusiastic:
-> 
+>
 > * What are some of **common features of the genomic islands** that seem to be variable across individual genomes in this pangenome? Tip: you can have quick insights into genomic islands that occur only in some genomes by organizing gene clusters based on enforced synteny per genome.
 > * What **functions seem to differ between the main groups of genomes**? Tip: you can use functional enrichemnt analyses to figure out if there are functions that systematically occur in one clade of Bifidobacterum but not the other.
 
@@ -210,7 +210,7 @@ Please read the assignment below carefully, and **return your reports by 19/12/2
 >- Which nitrogen metabolism pathways are 'complete' in each genome? Please include in your answer their pathwise completeness scores and the score threshold that you are using (ie, the value of the `--module-completion-threshold` parameter).
 >
 >- For the nitrifying organisms, which of the two nitrification reactions -- the first conversion from ammonia to nitrite, or the second conversion from nitrite to nitrate -- can they do? What evidence supports this?
->- When you've analyzed all of the genomes, please summarize your findings with a few sentences describing the following points: 
+>- When you've analyzed all of the genomes, please summarize your findings with a few sentences describing the following points:
 >  - which part(s) of the nitrogen cycle you found to be complete, and which part(s) were missing across all genomes
 >  - which genome(s) were capable of carrying out multiple nitrogen metabolism pathways, and which genome(s) had no nitrogen metabolism capabilities at all
 >  - other observations or hypotheses (if you have any) about these nitrogen cycle pathways, or the enzymes/gene annotations in these pathways, or why these genomes might >have these capabilities or not, etc
@@ -234,7 +234,26 @@ Please read the assignment below carefully, and **return your reports by 19/12/2
 
 Please read the assignment below carefully, and **return your reports by 17/01/23**:
 
-> TBD
+> This is a small exercise on microbial population genetics. The exercise aims to help you familiarize yourself with the population genetic signal recovered from metagenomes through single nucleotide avariants, and sharpen your ability to answer some key questions using such data. You can download the datapack from [here](https://www.dropbox.com/scl/fi/nq7axbmiilylgtfyx7qxa/AMO_Population_Genetics_Datapack.tar.gz?rlkey=xn3nnzxvz988ssrpeoydtvdsp&dl=0), in which you will find an anvi'o profile database and a contigs database that contains all the data you will need to be able to solve the following puzzle.
+>
+> The contigs database is generated from a single plasmid, and the merged profile database contains the metagenomic read recruitment data that puts this plasmid in the context of 12 human gut metagenomes. The gut metagenomes are a subset of the data published in [this study](https://www.sciencedirect.com/science/article/pii/S1931312815001626) in case you are interested to take a look. But briefly, the subset of the data that is profiled here includes <strong>6 gut metagenomes from mothers</strong>, and <strong>6 gut metagenomes from their infants</strong>. But you don't know the real infant-mother pairs :)
+>
+> Your task is to investigate single-nucleotide variants (SNVs) found in read recruitment results to and answer the following questions:
+>
+> - As far as this dataset goes, would one argue that the plasmid is acquired from random sources upon birth, or is there evidence to suggest it is vertically transmitted from mothers to infants?
+> - If it is vertically transferred, can one identify mother infant pairs confidently?
+>
+> To answer these questions you can get inspiration from strategies mentioned in [this tutorial](http://merenlab.org/tutorials/infant-gut/#chapter-v-microbial-population-genetics). If you want a refresher on SNVs, you may want to take a look at [this blog post](http://merenlab.org/2015/07/20/analyzing-variability/).
+>
+> You can (and should) inspect the coverage plots for all of the mothers and infants (using the program `anvi-interactive`), but if you determine that the plasmid is vertically transmitted and you think you can identify mother-infant pairs, you are invited to create a final figure that summarizes the evidence for it.
+>
+> Please make sure your reoprt includes,
+>
+>  - A list that describes which mother matches which infant, if there is signal to determine that.</li>
+>  - A screenshot of your final visualization with a brief description of how you interpreted it.</li>
+>  - And a summary of your workflow with commands you have used.</li>
+>
+> Thank you and good luck!
 
 ### 31/01/24 :: EX 06: Proposal Discussion
 
