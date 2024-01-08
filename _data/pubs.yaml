@@ -65,6 +65,56 @@ people:
 
 publications:
   - doi:
+      10.1038/s41564-023-01560-2
+    read_link:
+      https://rdcu.be/du8Up
+    title:
+      Dietary- and host-derived metabolites are used by diverse gut bacteria for anaerobic respiration
+    authors:
+      Alexander S Little, Isaac T Younker, Matthew S Schechter, Paola Nol Bernardino, Raphaël Méheust, Joshua Stemczynski, Kaylie Scorza, Michael W. Mullowney, Deepti Sharan, Emily Waligurski, Rita Smith, Ramanujam Ramanswamy, William Leiter, David Moran, Mary McMillin, Matthew A Odenwald, Anthony T Iavarone, Ashley M Sidebottom, Anitha Sundararajan, Eric G Pamer, A Murat Eren, Samuel H Light
+    journal:
+      Nature Microbiology
+    year:
+      2024
+    volume:
+      9
+    number:
+    pages:
+      55-69
+    additional_info:
+      highlights:
+        - A study that discovers three distinct taxa that encode over 50 respiratory reductases per genome that enable the use of a diverse array of metabolites as electron acceptors, establishing a respiratory strategy that utilizes the metabolite pool of the anaerobic human gut environment.
+        - An application of <a href="https://anvio.org/help/main/workflows/ecophylo/" target="_blank">EcoPhylo</a> to recover reductases from genomes and explain their phylogeny.
+        - A news article on this work from Matt Wood is also available <a href="https://biologicalsciences.uchicago.edu/news/surprisingly-resourceful-ways-bacteria-thrive-human-gut" target="_blank">here</a>.
+      featured_image:
+        /images/pubs/little_et_al_2024.png
+
+  - doi:
+      10.7554/eLife.89862
+    title:
+      "Microbes with higher metabolic independence are enriched in human gut microbiomes under stress"
+    authors:
+      Iva Veseli, Yiqun T Chen, Matthew S Schechter, Chiara Vanni, Emily C Fogarty, Andrea R Watson, Bana Jabri, Ran Blekhman, Amy D Willis, Michael K Yu, Antonio Fernàndez-Guerra, Jessika Füssel, A Murat Eren
+    journal:
+      eLife
+    year:
+      2023
+    volume:
+      12
+    number:
+      RP89862
+    pages:
+    additional_info:
+      highlights:
+        - A study of microbial metabolic enrichment in human gut metagenomes that shows high metabolic independence (HMI) is a distinguishing characteristic of microbial communities associated with individuals diagnosed with IBD.
+        - Furthermore, it shows that the enrichment of metabolic features that are predictive of HMI and that were enriched in IBD were also enriched in gut microbiome following antibiotic treatment, suggesting that HMI is a hallmark of microbial communities in stressed gut environments.
+        - An insight article written by Vanessa Rossetto Marcelino, <a href="https://elifesciences.org/articles/92319">Gut Health&#58; The value of connections</a>, accompanies this work with additional perspectives.
+        - <a href="https://elifesciences.org/reviewed-preprints/89862/reviews">Peer reviews</a>. <a href="https://merenlab.org/data/ibd-gut-metabolism/">Reproducible bioinformatics workflow</a>.
+      featured_image:
+        /images/pubs/veseli_et_al_ibd_metabolism.png
+
+
+  - doi:
       10.1126/sciadv.abq4632
     title:
       Structure-informed microbial population genetics elucidate selective pressures that shape protein evolution
