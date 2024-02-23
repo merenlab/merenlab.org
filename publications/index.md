@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2024-01-08
+modified: 2024-02-23
 comments: false
 image:
    display: true
@@ -17,6 +17,24 @@ This page lists publications that are most reflective of our interests. For a co
 
 ## 2024
 
+<a id="10.1101/2024.01.16.575828">&nbsp;</a>
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2024.01.16.575828"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1101/2024.01.16.575828" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1101/2024.01.16.575828" target="_new">Digital Microbe: A genome-informed data integration framework for collaborative research on emerging model organisms</a></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Veseli I<sup>☯</sup></span>, Cooper ZS<sup>☯</sup>, DeMers MA<sup>☯</sup>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Schechter MS</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Miller SE</span>, Weber L, Smith CB, Rodriguez LT, Schroer WF, McIlvin MR, Lopez PZ, Saito M, Dyhrman S, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM<sup>‡</sup></span>, Moran MA<sup>‡</sup>, Braakman R<sup>‡</sup></span>
+    <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors; <sup>‡</sup>Co-senior authors</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/veseli_cooper_demers_et_al_2024.png"><img src="/images/pubs/veseli_cooper_demers_et_al_2024.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- Description of a data-driven concept, 'Digital Microbe', that offers decentralized, reproducible, and interoperable means for multi-investigator teams to work on the same model organism collaboratively.</span><br><span style="display: inline-block; padding-bottom: 5px;">- The need and solution emerged as a funciton of our collaborative reserach in <a href="https://ccomp-stc.org/" target="_blank">C-CoMP</a>, the NSF-funded Science and Technology Center for Currencies of a Microbial Planet, and this publication aims to communicate our experience in this front to the community.</span><br><span style="display: inline-block; padding-bottom: 5px;">- The current implementation of this concept is simply a set of citable <a href="https://anvio.org">anvi'o</a> data products, such as <a href="https://anvio.org/help/main/artifacts/contigs-db/" target="_blank">contigs-db</a> and <a href="https://anvio.org/help/main/artifacts/pan-db/" target="_blank">pan-db</a> files, shared on public repositories, such as Zeonodo or FigShare.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Reproducible bioinformatics workflows are available for the <a href="https://github.com/C-CoMP-STC/digital-microbe/blob/main/R_pom_reproducible_workflow.md">generation of the <i>Ruegeria pomeroyi</i> digital microbe</a> and <a href="https://github.com/C-CoMP-STC/digital-microbe/tree/main/alteromonas/pangenomeCuration">curation of the <i>Altermonas</i> pangenome</a> as examples covered in the paper.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Digital+Microbe:+A+genome-informed+data+integration+framework+for+collaborative+research+on+emerging+model+organisms" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2024.01.16.575828" target="_blank">doi:10.1101/2024.01.16.575828</a></span>
+</div>
+
 <a id="10.1038/s41564-023-01560-2">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41564-023-01560-2"></div>
@@ -28,7 +46,7 @@ This page lists publications that are most reflective of our interests. For a co
     <a href="/images/pubs/little_et_al_2024.png"><img src="/images/pubs/little_et_al_2024.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
     </div>
     <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- A study that discovers three distinct taxa that encode over 50 respiratory reductases per genome that enable the use of a diverse array of metabolites as electron acceptors, establishing a respiratory strategy that utilizes the metabolite pool of the anaerobic human gut environment.</span><br><span style="display: inline-block; padding-bottom: 5px;">- An application of <a href="https://anvio.org/help/main/workflows/ecophylo/" target="_blank">EcoPhylo</a> to recover reductases from genomes and explain their phylogeny.</span><br><span style="display: inline-block; padding-bottom: 5px;">- A news article on this work from Matt Wood is also available <a href="https://biologicalsciences.uchicago.edu/news/surprisingly-resourceful-ways-bacteria-thrive-human-gut" target="_blank">here</a>.</span>
+    <span style="display: inline-block; padding-bottom: 5px;">- A study that discovers three distinct taxa that encode over fifty respiratory reductases per genome that enable the use of a diverse array of metabolites as electron acceptors, establishing a respiratory strategy that utilizes the metabolite pool of the anaerobic human gut environment.</span><br><span style="display: inline-block; padding-bottom: 5px;">- An application of <a href="https://anvio.org/help/main/workflows/ecophylo/" target="_blank">EcoPhylo</a> to recover reductases from genomes and explain their phylogeny.</span><br><span style="display: inline-block; padding-bottom: 5px;">- A news article on this work from Matt Wood is also available <a href="https://biologicalsciences.uchicago.edu/news/surprisingly-resourceful-ways-bacteria-thrive-human-gut" target="_blank">here</a>.</span>
     </div>
     </div>
     <span class="pub-journal"> 📚 <b>Nature Microbiology</b>, 9:55-69 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Dietary-+and+host-derived+metabolites+are+used+by+diverse+gut+bacteria+for+anaerobic+respiration" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1038/s41564-023-01560-2" target="_blank">doi:10.1038/s41564-023-01560-2</a></span>
@@ -36,23 +54,6 @@ This page lists publications that are most reflective of our interests. For a co
 
 
 ## 2023
-
-<a id="10.7554/eLife.89862">&nbsp;</a>
-<div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.7554/eLife.89862"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.7554/eLife.89862" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <span class="pub-title"><a href="https://doi.org/10.7554/eLife.89862" target="_new">Microbes with higher metabolic independence are enriched in human gut microbiomes under stress</a></span>
-    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Veseli I</span>, Chen YT, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Schechter MS</span>, Vanni C, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Fogarty EC</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Watson AR</span>, Jabri B, Blekhman R, Willis AD, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Yu MK</span>, Fernàndez-Guerra A, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Füssel J</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
-    <div class="pub-info">
-    <div class="pub-featured-image">
-    <a href="/images/pubs/veseli_et_al_ibd_metabolism.png"><img src="/images/pubs/veseli_et_al_ibd_metabolism.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
-    </div>
-    <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- A study of microbial metabolic enrichment in human gut metagenomes that shows high metabolic independence (HMI) is a distinguishing characteristic of microbial communities associated with individuals diagnosed with IBD.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Furthermore, it shows that the enrichment of metabolic features that are predictive of HMI and that were enriched in IBD were also enriched in gut microbiome following antibiotic treatment, suggesting that HMI is a hallmark of microbial communities in stressed gut environments.</span><br><span style="display: inline-block; padding-bottom: 5px;">- An insight article written by Vanessa Rossetto Marcelino, <a href="https://elifesciences.org/articles/92319">Gut Health&#58; The value of connections</a>, accompanies this work with additional perspectives.</span><br><span style="display: inline-block; padding-bottom: 5px;">- <a href="https://elifesciences.org/reviewed-preprints/89862/reviews">Peer reviews</a>. <a href="https://merenlab.org/data/ibd-gut-metabolism/">Reproducible bioinformatics workflow</a>.</span>
-    </div>
-    </div>
-    <span class="pub-journal"> 📚 <b>eLife</b>, 12(RP89862) | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Microbes+with+higher+metabolic+independence+are+enriched+in+human+gut+microbiomes+under+stress" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.7554/eLife.89862" target="_blank">doi:10.7554/eLife.89862</a></span>
-</div>
 
 <a id="10.1126/sciadv.abq4632">&nbsp;</a>
 <div class="pub">
