@@ -55,6 +55,34 @@
       inst_link: https://biomedsciences.uchicago.edu/
       current: false
 
+- alias: avril
+  lab_member: True
+  name: Avril von Hoyningen-Huene
+  name_as_author: Avril Jean Elisabeth von Hoyningen-Huene
+  tenure_start: 02/2024
+  role: Post-doctoral Scientist, <a href="https://hifmb.de/hipp/" target="_blank">HIPP</a>
+  email: avril.hoyningen@hifmb.de
+  twitter: avihuene
+  orcid: 0000-0002-1928-3560
+  github: AviHuene
+  linkedin: avril-von-hoyningen-huene
+  avatar: bio-avril.jpg
+  address: Helmholtz Institute for Functional Marine Biodiversity (HIFMB), Ammerländer Heerstraße 231, 26129 Oldenburg, Germany
+  bio: "I am a microbiologist and bioinformatician delving into the dynamics of phytoplankton communities in response to environmental changes."
+  affiliations:
+    - title: Post-doctoral Scientist
+      inst: Helmholtz Institute for Functional Marine Biodiversity at the University of Oldenburg
+      inst_link: https://hifmb.de
+      current: true
+    - title: Post-doctoral Scientist
+      inst: Institute for General Microbiology at Kiel University (CAU)
+      inst_link: https://www.mikrobio.uni-kiel.de/de
+      current: false
+    - title: PhD Student
+      inst: General and Applied Microbiology at the University of Göttingen
+      inst_link: http://appmibio.uni-goettingen.de/
+      current: false
+
 - alias: xixi
   lab_member: True
   name: Xi Chen (Xixi <a href=https://www.howtopronounce.com/xixi target=_blank>🔊</a>)
