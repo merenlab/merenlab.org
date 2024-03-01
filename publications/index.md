@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2024-02-23
+modified: 2024-03-01
 comments: false
 image:
    display: true
@@ -16,6 +16,23 @@ image:
 This page lists publications that are most reflective of our interests. For a complete list, please see <a href='https://scholar.google.com/citations?user=GtLLuxoAAAAJ&view_op=list_works&sortby=pubdate' target='_blank'>Meren's Google Scholar page</a>.
 
 ## 2024
+
+<a id="10.1016/j.cell.2024.01.039">&nbsp;</a>
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1016/j.cell.2024.01.039"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1016/j.cell.2024.01.039" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1016/j.cell.2024.01.039" target="_new">A cryptic plasmid is among the most numerous genetic elements in the human gut</a></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Fogarty EC</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Schechter MS</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Lolans K</span>, Sheahan ML, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Veseli I</span>, Moore RM, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Kiefl E</span>, Moody T, Rice PA, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Yu MK</span>, Mimee M, Chang EB, Ruscheweyh H, Sunagawa S, Mclellan SL, Willis AD, Comstock LE, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/data/pBI143/images/pBI143_across_the_globe.png"><img src="/data/pBI143/images/pBI143_across_the_globe.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A study that describes one of the <b>most prevalent and numerous cryptic plasmid</b> in the gut microbiomes of people who live in the industrialized world that is composed of only two genes (for its own replication and mobilization) in its native form.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Here is <a href="https://twitter.com/merenbey/status/1763282323309490546" target="_blank">a Twitter thread</a> that explains some of the interesting aspects of pBI143 ecology as well as the practical implications having <b>a human gut-specific and highly conserved genetic entity, copy-number of which responds to stress</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- You can find the plasmid sequences to look for pBI143 in your metagenomes, reproducible data items to re-investigate metagenomic read recruitment results, and bioinformatics workflows to elucidate population genetics of pBI143 <a href="/data/pBI143">here</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>Cell</b>, 187(5):1206-1222.e16 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=A+cryptic+plasmid+is+among+the+most+numerous+genetic+elements+in+the+human+gut" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1016/j.cell.2024.01.039" target="_blank">doi:10.1016/j.cell.2024.01.039</a></span>
+</div>
 
 <a id="10.1101/2024.01.16.575828">&nbsp;</a>
 <div class="pub">
@@ -122,23 +139,6 @@ This page lists publications that are most reflective of our interests. For a co
     </div>
     </div>
     <span class="pub-journal"> 📚 <b>Nature Methods</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Microbial-enrichment+method+enables+high-throughput+metagenomic+characterization+from+host-rich+samples" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1038/s41592-023-02025-4" target="_blank">doi:10.1038/s41592-023-02025-4</a></span>
-</div>
-
-<a id="10.1101/2023.03.25.534219">&nbsp;</a>
-<div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2023.03.25.534219"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.1101/2023.03.25.534219" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <span class="pub-title"><a href="https://doi.org/10.1101/2023.03.25.534219" target="_new">A highly conserved and globally prevalent cryptic plasmid is among the most numerous mobile genetic elements in the human gut</a></span>
-    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Fogarty EC</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Schechter MS</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Lolans K</span>, Sheahan ML, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Veseli I</span>, Moore R, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Kiefl E</span>, Moody T, Rice PA, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Yu MK</span>, Mimee M, Chang EB, Mclellan SL, Willis AD, Comstock LE, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
-    <div class="pub-info">
-    <div class="pub-featured-image">
-    <a href="/data/pBI143/images/pBI143_across_the_globe.png"><img src="/data/pBI143/images/pBI143_across_the_globe.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
-    </div>
-    <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- A study that describes one of the <b>most prevalent and numerous cryptic plasmid</b> in the gut microbiomes of people who live in the industrialized world that is composed of only two genes (for its own replication and mobilization) in its native form.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Here is <a href="https://twitter.com/merenbey/status/1641557495725293570" target="_blank">a Twitter thread</a> that explains some of the interesting aspects of pBI143 ecology as well as the practical implications having <b>a human gut-specific and highly conserved genetic entity, copy-number of which responds to stress</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- You can find the plasmid sequences to look for pBI143 in your metagenomes, reproducible data items to re-investigate metagenomic read recruitment results, and bioinformatics workflows to elucidate population genetics of pBI143 <a href="/data/pBI143">here</a>.</span>
-    </div>
-    </div>
-    <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=A+highly+conserved+and+globally+prevalent+cryptic+plasmid+is+among+the+most+numerous+mobile+genetic+elements+in+the+human+gut" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2023.03.25.534219" target="_blank">doi:10.1101/2023.03.25.534219</a></span>
 </div>
 
 
