@@ -66,6 +66,29 @@ people:
 
 publications:
   - doi:
+      10.1101/2024.01.16.575828
+    title:
+      "Digital Microbe: A genome-informed data integration framework for collaborative research on emerging model organisms"
+    authors:
+      Iva Veseli*, Zachary S Cooper*, Michelle A DeMers*, Matthew S Schechter, Samuel E Miller, Laura Weber, Christa B Smith, Lidimarie T Rodriguez, William F Schroer, Matthew R McIlvin, Paloma Z Lopez, Makoto Saito, Sonya Dyhrman, A Murat Eren+, Mary Ann Moran+, Rogier Braakman+
+    journal:
+      bioRxiv
+    year:
+      2024
+    volume:
+    number:
+    pages:
+    additional_info:
+      highlights:
+        - Description of a data-driven concept, 'Digital Microbe', that offers decentralized, reproducible, and interoperable means for multi-investigator teams to work on the same model organism collaboratively.
+        - The need and solution emerged as a funciton of our collaborative reserach in <a href="https://ccomp-stc.org/" target="_blank">C-CoMP</a>, the NSF-funded Science and Technology Center for Currencies of a Microbial Planet, and this publication aims to communicate our experience in this front to the community.
+        - The current implementation of this concept is simply a set of citable <a href="https://anvio.org">anvi'o</a> data products, such as <a href="https://anvio.org/help/main/artifacts/contigs-db/" target="_blank">contigs-db</a> and <a href="https://anvio.org/help/main/artifacts/pan-db/" target="_blank">pan-db</a> files, shared on public repositories, such as Zeonodo or FigShare.
+        - Reproducible bioinformatics workflows are available for the <a href="https://github.com/C-CoMP-STC/digital-microbe/blob/main/R_pom_reproducible_workflow.md">generation of the <i>Ruegeria pomeroyi</i> digital microbe</a> and <a href="https://github.com/C-CoMP-STC/digital-microbe/tree/main/alteromonas/pangenomeCuration">curation of the <i>Altermonas</i> pangenome</a> as examples covered in the paper.
+      featured_image:
+        /images/pubs/veseli_cooper_demers_et_al_2024.png
+
+
+  - doi:
       10.1016/j.cell.2024.01.039
     title:
       A cryptic plasmid is among the most numerous genetic elements in the human gut
@@ -90,13 +113,13 @@ publications:
         /data/pBI143/images/pBI143_across_the_globe.png
 
   - doi:
-      10.1101/2024.01.16.575828
+      10.1038/s41564-024-01610-3
     title:
-      "Digital Microbe: A genome-informed data integration framework for collaborative research on emerging model organisms"
+      "Diverse plasmid systems and their ecology across human gut metagenomes revealed by PlasX and MobMess"
     authors:
-      Iva Veseli*, Zachary S Cooper*, Michelle A DeMers*, Matthew S Schechter, Samuel E Miller, Laura Weber, Christa B Smith, Lidimarie T Rodriguez, William F Schroer, Matthew R McIlvin, Paloma Z Lopez, Makoto Saito, Sonya Dyhrman, A Murat Eren+, Mary Ann Moran+, Rogier Braakman+
+      Michael K Yu*, Emily C Fogarty*, A Murat Eren
     journal:
-      bioRxiv
+      Nature Microbiology
     year:
       2024
     volume:
@@ -104,12 +127,12 @@ publications:
     pages:
     additional_info:
       highlights:
-        - Description of a data-driven concept, 'Digital Microbe', that offers decentralized, reproducible, and interoperable means for multi-investigator teams to work on the same model organism collaboratively.
-        - The need and solution emerged as a funciton of our collaborative reserach in <a href="https://ccomp-stc.org/" target="_blank">C-CoMP</a>, the NSF-funded Science and Technology Center for Currencies of a Microbial Planet, and this publication aims to communicate our experience in this front to the community.
-        - The current implementation of this concept is simply a set of citable <a href="https://anvio.org">anvi'o</a> data products, such as <a href="https://anvio.org/help/main/artifacts/contigs-db/" target="_blank">contigs-db</a> and <a href="https://anvio.org/help/main/artifacts/pan-db/" target="_blank">pan-db</a> files, shared on public repositories, such as Zeonodo or FigShare.
-        - Reproducible bioinformatics workflows are available for the <a href="https://github.com/C-CoMP-STC/digital-microbe/blob/main/R_pom_reproducible_workflow.md">generation of the <i>Ruegeria pomeroyi</i> digital microbe</a> and <a href="https://github.com/C-CoMP-STC/digital-microbe/tree/main/alteromonas/pangenomeCuration">curation of the <i>Altermonas</i> pangenome</a> as examples covered in the paper.
+        - A study that aims to shed light on <b>the ecology and evolution of one of the most critical yet poorly studied aspects of microbial life -- naturally occurring plasmids</b>.
+        - Uses state-of-the-art machine learning strategies to identify <b>over 60,000 plasmids</b> from human gut metagenomes, which represents a <b>200-fold increase</b> in the number of known plasmids to date that were detectable in healthy humans.
+        - Defines hundreds of '<b>plasmid systems</b>', and demonstrates that naturally occurring plasmids are not static entities, but <b>their evolution is driven by the need to respond to the environment, and their ecology cannot be simply explained by bacterial taxonomy and distribution patterns of their putative hosts</b>.
+        - Here is <a href="https://twitter.com/merenbey/status/1764675816204513473" target="_blank">a Twitter thread</a> that goes through some of the interesting aspects if this work.
       featured_image:
-        /images/pubs/veseli_cooper_demers_et_al_2024.png
+        /images/pubs/plasmid_systems.png
 
   - doi:
       10.1038/s41564-023-01560-2
@@ -276,28 +299,6 @@ publications:
         - A complete bioinformatics workflow that uses anvi'o and oligotyping to study DGR activity in metageomes is <a href="https://merenlab.org/tutorials/dgrs-in-metagenomes/" target="_blank">available here</a>.
       featured_image:
         /images/pubs/dgrs-in-metagenomes.png
-
-
-  - doi:
-      10.1101/2020.11.01.361691
-    title:
-      "The genetic and ecological landscape of plasmids in the human gut"
-    authors:
-      Michael K Yu*, Emily C Fogarty*, A Murat Eren
-    journal:
-      bioRxiv
-    year:
-      2022
-    volume:
-    number:
-    pages:
-    additional_info:
-      highlights:
-        - A study that aims to shed light on <b>the ecology and evolution of one of the most critical yet poorly studied aspects of microbial life -- naturally occurring plasmids</b>.
-        - Uses state-of-the-art machine learning strategies to identify <b>over 60,000 plasmids</b> from human gut metagenomes, which represents a <b>200-fold increase</b> in the number of known plasmids to date that were detectable in healthy humans.
-        - Defines hundreds of '<b>plasmid systems</b>', and demonstrates that naturally occurring plasmids are not static entities, but <b>their evolution is driven by the need to respond to the environment, and their ecology cannot be simply explained by bacterial taxonomy and distribution patterns of their putative hosts</b>.
-      featured_image:
-        /images/pubs/plasmid_systems.png
 
   - doi:
       10.1016/j.molcel.2021.12.007
