@@ -1,5 +1,6 @@
 ---
 layout: publications
+title: Publications
 modified: 2024-03-04
 comments: false
 image:

@@ -1,5 +1,6 @@
 ---
 layout: people
+title: People
 modified: 2015-02-05
 comments: false
 image:

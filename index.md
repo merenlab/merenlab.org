@@ -1,5 +1,6 @@
 ---
 layout: home
+title: Home
 excerpt: "On microbial ecology, and bioinformatics"
 tags: [microbial ecology, microbial omics, metagenomics, metatranscriptomics, metaepitranscriptomics]
 image:
