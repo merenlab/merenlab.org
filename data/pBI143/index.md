@@ -170,7 +170,7 @@ CTTTGGGGGACACTTCTAATGGGGGTACTGGTATAGCCTAGACGAAGCGGATAGGCGAAAAT
 
 ## Figuring out which version of pBI143 is in a given metagenome
 
-To precisely identify which version of pBI143 is in a given meagenome, we implemented a Python program that would consdier coverage ratios between mobA and repA genes based on metagenomic read recruitment results for each version of the plasmid.
+To precisely identify which version of pBI143 is in a given metagenome, we implemented a Python program that would consider coverage ratios between mobA and repA genes based on metagenomic read recruitment results for each version of the plasmid.
 
 The following steps describe our workflow that resulted in the determination of the appropriate version of pBI143 in a given metagenome:
 
@@ -183,7 +183,7 @@ The following steps describe our workflow that resulted in the determination of 
 python choose-plasmid-version-based-on-coverage-ratios.py M_v1 M_v2 M_v3
 ```
 
-This will generate a 2-column TAB-delmited file called `ALTERNATIVES.txt` in your work directory, where each line will represent a metagenome `M` and which version of the plasmid is the version it contains (e.g., `M_v3`), if the metagenome does contain pBI143 and if the version could be resolved confidently. Instances where a robust conclusion could not be made by the program will be clearly marked in the output file as well. For posterity, this is the source code for [choose-plasmid-version-based-on-coverage-ratios.py](files/choose-plasmid-version-based-on-coverage-ratios.py):
+This will generate a 2-column TAB-delimted file called `ALTERNATIVES.txt` in your work directory, where each line will represent a metagenome `M` and which version of the plasmid is the version it contains (e.g., `M_v3`), if the metagenome does contain pBI143 and if the version could be resolved confidently. Instances where a robust conclusion could not be made by the program will be clearly marked in the output file as well. For posterity, this is the source code for [choose-plasmid-version-based-on-coverage-ratios.py](files/choose-plasmid-version-based-on-coverage-ratios.py):
 
 ```python
 #!/usr/bin/env python
