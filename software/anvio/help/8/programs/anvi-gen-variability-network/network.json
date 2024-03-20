@@ -1,0 +1,43 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "variability-profile-xml",
+      "name": "variability-profile-xml",
+      "provided_by_anvio": true,
+      "type": "XML"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "variability-profile-txt",
+      "name": "variability-profile-txt",
+      "provided_by_anvio": true,
+      "type": "TXT"
+    },
+    {
+      "size": 2,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-gen-variability-network",
+      "name": "anvi-gen-variability-network",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "source": 2,
+      "target": 0
+    },
+    {
+      "target": 2,
+      "source": 1
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}

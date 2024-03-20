@@ -1,0 +1,43 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "paired-end-fastq",
+      "name": "paired-end-fastq",
+      "provided_by_anvio": true,
+      "type": "FASTQ"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "short-reads-fasta",
+      "name": "short-reads-fasta",
+      "provided_by_anvio": true,
+      "type": "FASTA"
+    },
+    {
+      "size": 2,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-script-gen-pseudo-paired-reads-from-fastq",
+      "name": "anvi-script-gen-pseudo-paired-reads-from-fastq",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "source": 2,
+      "target": 0
+    },
+    {
+      "target": 2,
+      "source": 1
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}

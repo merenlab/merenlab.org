@@ -1,0 +1,186 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "kegg-metabolism",
+      "name": "kegg-metabolism",
+      "provided_by_anvio": true,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "user-metabolism",
+      "name": "user-metabolism",
+      "provided_by_anvio": true,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "contigs-db",
+      "name": "contigs-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "kegg-data",
+      "name": "kegg-data",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "kegg-functions",
+      "name": "kegg-functions",
+      "provided_by_anvio": true,
+      "type": "CONCEPT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "profile-db",
+      "name": "profile-db",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "collection",
+      "name": "collection",
+      "provided_by_anvio": true,
+      "type": "COLLECTION"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "bin",
+      "name": "bin",
+      "provided_by_anvio": true,
+      "type": "BIN"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "external-genomes",
+      "name": "external-genomes",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "internal-genomes",
+      "name": "internal-genomes",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "metagenomes",
+      "name": "metagenomes",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "user-modules-data",
+      "name": "user-modules-data",
+      "provided_by_anvio": true,
+      "type": "DB"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "enzymes-txt",
+      "name": "enzymes-txt",
+      "provided_by_anvio": false,
+      "type": "TXT"
+    },
+    {
+      "size": 13,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-estimate-metabolism",
+      "name": "anvi-estimate-metabolism",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "source": 13,
+      "target": 0
+    },
+    {
+      "source": 13,
+      "target": 1
+    },
+    {
+      "target": 13,
+      "source": 2
+    },
+    {
+      "target": 13,
+      "source": 3
+    },
+    {
+      "target": 13,
+      "source": 4
+    },
+    {
+      "target": 13,
+      "source": 5
+    },
+    {
+      "target": 13,
+      "source": 6
+    },
+    {
+      "target": 13,
+      "source": 7
+    },
+    {
+      "target": 13,
+      "source": 8
+    },
+    {
+      "target": 13,
+      "source": 9
+    },
+    {
+      "target": 13,
+      "source": 10
+    },
+    {
+      "target": 13,
+      "source": 11
+    },
+    {
+      "target": 13,
+      "source": 12
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}

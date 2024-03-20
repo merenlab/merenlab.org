@@ -1,0 +1,43 @@
+{
+  "graph": [],
+  "nodes": [
+    {
+      "size": 1,
+      "score": 0.5,
+      "color": "#00AA00",
+      "id": "workflow",
+      "name": "workflow",
+      "provided_by_anvio": true,
+      "type": "WORKFLOW"
+    },
+    {
+      "size": 1,
+      "score": 1,
+      "color": "#AA0000",
+      "id": "workflow-config",
+      "name": "workflow-config",
+      "provided_by_anvio": false,
+      "type": "JSON"
+    },
+    {
+      "size": 2,
+      "score": 0.1,
+      "color": "#AAAA00",
+      "id": "anvi-run-workflow",
+      "name": "anvi-run-workflow",
+      "type": "PROGRAM"
+    }
+  ],
+  "links": [
+    {
+      "source": 2,
+      "target": 0
+    },
+    {
+      "target": 2,
+      "source": 1
+    }
+  ],
+  "directed": false,
+  "multigraph": false
+}
