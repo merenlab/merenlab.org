@@ -43,7 +43,7 @@ We hope you find the tutorial useful, and generously share your opinions or crit
 
 ## Downloading the pre-packaged Infant Gut Dataset
 
-To download and unpack [the infant gut data-pack](https://figshare.com/ndownloader/files/31131400), copy-paste the following commands into your terminal:
+To download and unpack [the infant gut data-pack](https://figshare.com/ndownloader/files/45076909), copy-paste the following commands into your terminal:
 
 ``` bash
 curl -L https://figshare.com/ndownloader/files/45076909 -o INFANT-GUT-TUTORIAL.tar.gz
@@ -513,7 +513,7 @@ anvi-interactive -p PROFILE.db \
 {:.notice}
 Alternatively you could load the interface without the `--collection-autoload` flag, and click `Bins > Load bin collection > CONCOCT > Load` to load the CONCOCT collection.
 
-To turn off text annotation, go to `Main > Display > Additional Settings > Selections` and then uncheck `Show names`. You will then see something like this:
+To turn off text annotation, go to `Settings > Options > Bins Selection` and then uncheck `Show names`. You will then see something like this:
 
 [![Infant gut merged](images/infant-gut-concoct.png)](images/infant-gut-concoct.png){:.center-img .width-50}
 
@@ -623,6 +623,9 @@ Please note that the algorithms we have used here may have been improved since t
 Just a reminder, once you have the interactive interface in front of you, you can in fact investigate the taxonomy of contigs by BLASTing them against various NCBI collections using the right-click menu to have a second opinion about what do public databases think they are:
 
 [![Infant gut merged](images/infant-gut-split.gif)](images/infant-gut-split.gif){:.center-img .width-50}
+
+{:.notice}
+Mouse section moved under `Settings > Data`, after version 7.0.0. 
 
 {:.notice}
 We recently have added an option to quickly run them on [BIGSI](http://www.bigsi.io/). Sometimes it takes a split second, sometimes (especially when you are in France) it takes minutes. So, no promises, but try it for sure! It is an [excellent algorithm](http://dx.doi.org/10.1038/s41587-018-0010-1).
@@ -1095,7 +1098,7 @@ Which should give you this (after clicking `Draw`):
 
 [![phylogenomics](images/phylogenomics-manual-mode.png)](images/phylogenomics-manual-mode.png){:.center-img .width-50}
 
-You can replace the colors with the bin names by selecting `Text` from `Main > Layers > bin_name` and re-clicking `Draw`:
+You can replace the colors with the bin names by selecting `Text` from `Main > Legends > Item Names > bin_name` and re-clicking `Draw`:
 
 [![phylogenomics](images/phylogenomics-manual-mode-text.png)](images/phylogenomics-manual-mode-text.png){:.center-img .width-50}
 
@@ -1481,13 +1484,10 @@ I'm sure you need no help to know what to do with this file.
 ## Chapter V: Metabolism Prediction
 
 {:.notice}
-**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o {% include ARTIFACT name="contigs-db" text="contigs databases" %} for the *E. faecalis* and *E. faecium* genomes used in the pangenomics chapter of the tutorial. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
+**If you haven't followed the previous sections of the tutorial**, you will need the anvi'o {% include ARTIFACT name="contigs-db" text="contigs databases" version="8" %} for the *E. faecalis* and *E. faecium* genomes used in the pangenomics chapter of the tutorial. Before you continue, please [click here](#downloading-the-pre-packaged-infant-gut-dataset), do everything mentioned there, and come back right here to continue following the tutorial from the next line when you read the directive **go back**.
 
 {:.notice}
-Metabolism prediction in anvi'o is a new feature and still under ongoing development as of `v7`. We appreciate your patience and feedback on any issues you might run into, and we welcome suggestions for improvement. Thank you very much!
-
-{:.notice}
-This project was supported by the National Science Foundation Graduate Research Fellowship Program under Grant No. 1746045.
+A more comprehensive standalone tutorial for metabolism prediction in anvi'o can be found [here](https://anvio.org/tutorials/fmt-mag-metabolism/). It covers more features than this chapter does, so check it out if you want more. :)
 
 Microbiologists care a lot about what microbes are doing, and for this reason we spend a lot of time looking at functional annotations in our 'omics data. But what if we told you that you could go a step further than that, and look at functional annotations in the larger context of metabolism? This chapter is about how to leverage known, structured information on metabolic pathways to predict the metabolic capacity encoded by microbial genomes, MAGs, or metagenomes.
 
@@ -1496,19 +1496,19 @@ In the pangenomics chapter, we explored functions in two species of *Enterococcu
 ### Some obligatory background on metabolism prediction
 Metabolism prediction, also known as metabolic reconstruction, is the practice of guessing (estimating) what metabolic pathways an organism can use to build or break down molecules, based on the proteins it encodes in its genome. It typically involves integrating knowledge about metabolic pathways from well-curated, publically-available databases such as [KEGG](https://www.genome.jp/kegg/) or [MetaCyc](https://metacyc.org/).
 
-In some cases, metabolic reconstruction is a modeling approach that uses fancy math to compute a metabolic network from a genome and refine it based on experimental data in a process called [Flux Balance Analysis](https://www.nature.com/articles/nbt.1614). You cannot currently do this type of metabolic reconstruction in anvi'o, but if you are interested in it we refer you to a [2019 review](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1769-1) of tools that do FBA as a starting point for that adventure.
+In some cases, metabolic reconstruction is a modeling approach that uses fancy math to compute a metabolic network from a genome and refine it based on experimental data in a process called [Flux Balance Analysis (FBA)](https://www.nature.com/articles/nbt.1614). You cannot currently do FBA in anvi'o, but you *can* generate metabolic models for use with your favorite FBA tool with the program {% include PROGRAM name="anvi-get-metabolic-model-file" version="8" %}.
 
-In anvi'o, metabolism estimation involves collecting gene annotations and matching them to defined metabolic pathways to compute a 'completeness' score for each pathway. Statistics about each pathway and the genes that contribute to them are then summarized in a variety of output files that can be analyzed either by reading them directly or by using them as input to downstream programs/scripts.
+Here in this tutorial, we will cover a type of metabolism estimation called pathway prediction, which involves collecting gene annotations and matching them to defined metabolic pathways to compute a 'completeness' score for each pathway. Statistics about each pathway and the genes that contribute to them are then summarized in a variety of output files that can be analyzed either by reading them directly or by using them as input to downstream programs/scripts.
 
 {:.notice}
-As of `v7`, anvi'o uses [KEGG](https://www.genome.jp/kegg/) as the source of metabolism information for estimation purposes. It is an amazing resource with nicely structured data, including HMM profiles for functional annotation in the [KEGG KOfam](https://academic.oup.com/bioinformatics/article/36/7/2251/5631907) database and definitions of metabolic pathways in the [KEGG MODULE](https://www.genome.jp/kegg/module.html) database. However, we plan to expand from this in the future, and in particular one of our goals is to allow users to include their own custom definitions of metabolic pathways in the metabolism data used for estimation. So stay tuned!
+As of `v8`, anvi'o can use either [KEGG](https://www.genome.jp/kegg/) or {% include ARTIFACT name="user-modules-data" text="user-defined metabolic pathways" version="8" %} as the source of metabolism information for estimation purposes. Our examples below will show how to use KEGG data, which is the default. But you can find instructions on user-defined pathways elsewhere. In particular, we recommend [this tutorial](https://anvio.org/tutorials/fmt-mag-metabolism/) as a starting point.
 
 ### Estimating metabolism in the *Enterococcus* genomes
 
 {:.notice}
-We've already prepped the Infant Gut Dataset to be ready for the metabolism estimation commands below, but in case you are working on your own dataset, please note that before you can run metabolism estimation on a fresh contigs database, you would need to first set up KEGG data on your computer using {% include PROGRAM name="anvi-setup-kegg-kofams" %} and then annotate your database using {% include PROGRAM name="anvi-run-kegg-kofams" %}.
+We've already prepped the Infant Gut Dataset to be ready for the metabolism estimation commands below, but in case you are working on your own dataset, please note that before you can run metabolism estimation on a fresh contigs database, you would need to first set up KEGG data on your computer using {% include PROGRAM name="anvi-setup-kegg-data" version="8" %} and then annotate your database using {% include PROGRAM name="anvi-run-kegg-kofams" version="8" %}.
 
-Let's get to it. To start off, we want an overview picture of what metabolisms are encoded in the *Enterococcus* genomes. We could visualize this nicely if we had a matrix of the completeness scores for each metabolic module (from the KEGG MODULE database) in each bin. {% include PROGRAM name="anvi-estimate-metabolism" %} can provide output files in matrix format if we run it in "multi-mode", which means we will need an {% include ARTIFACT name="external-genomes" text="external genomes file" %}. Luckily, there is already one in the datapack - the same one that is described above in the pangenomics chapter - in the `additional-files/pangenomics` folder.
+Let's get to it. To start off, we want an overview picture of what metabolisms are encoded in the *Enterococcus* genomes. We could visualize this nicely if we had a matrix of the completeness scores for each metabolic module (from the KEGG MODULE database) in each bin. {% include PROGRAM name="anvi-estimate-metabolism" version="8" %} can provide output files in matrix format if we run it in "multi-mode", which means we will need an {% include ARTIFACT name="external-genomes" text="external genomes file" version="8" %}. Luckily, there is already one in the datapack - the same one that is described above in the pangenomics chapter - in the `additional-files/pangenomics` folder.
 
 Here is the command to run metabolism estimation on each bin, and produce matrix-formatted output:
 
@@ -1518,25 +1518,25 @@ anvi-estimate-metabolism -e additional-files/pangenomics/external-genomes.txt \
                          --matrix-format
 ```
 
-When this program runs, it will look at the KOfam annotations within each genome, match them up to the KEGG module definitions to estimate the completeness of each module, and produce 3 output matrices. One of these matrices will contain module completeness scores, one will be a binary matrix indicating presence (1) or absence (0) of each module in each genome, and the last will be a matrix counting the number of hits to each KO in each genome.
+When this program runs, it will look at the KOfam annotations (for KEGG Orthologs, or KOs) within each genome, match them up to the KEGG module definitions to estimate the completeness of each module, and produce multiple output matrices. For simplicity, we'll use only the matrix containing pathwise completeness scores (what is pathwise completeness, you ask? Check out {% include PROGRAM name="anvi-estimate-metabolism" text="the technical documentation here" version="8" %}).
 
 <div class="extra-info" markdown="1">
 
-<span class="extra-info-header">Presence/absence of modules</span>
-A module is considered 'present' in a genome, bin, or metagenomic contig (the level of resolution depends on your input type) if its completeness score is above the a certain threshold, which can be set with the `--module-completion-threshold` parameter. A static threshold such as this is not the most ideal metric, especially since metabolic modules have variable numbers of genes - for example, with the default threshold of 0.75 (75%), a module with 3 KOs in it would only be considered present if all 3 of those KOs were found in a genome, while a module with 5 KOs could be considered present if only 4 of its KOs were found. This problem is exacerbated in metagenomes since bins are more likely to be incomplete than isolate genomes. Therefore, module presence/absence only exists as a quick-and-dirty way for you to filter through modules that might be of interest, and we urge you to always double-check the data to avoid false negatives as much as possible. :)
+<span class="extra-info-header">The completeness threshold and presence/absence of modules</span>
+A module is considered 'complete' or 'present' in a genome, bin, or contig (the level of resolution depends on your input type) if its completeness score is above the a certain threshold, which can be set with the `--module-completion-threshold` parameter. A static threshold such as this is not the most ideal metric, especially since metabolic modules have variable numbers of genes - for example, with the default threshold of 0.75 (75%), a module with 3 KOs in it would only be considered complete if all 3 of those KOs were found in a genome, while a module with 5 KOs could be considered complete if only 4 of its KOs were found. This problem is exacerbated in metagenomes since bins (or contigs) are more likely to be incomplete than isolate genomes. Therefore, the completeness score threshold only exists as a quick-and-dirty way for you to filter through modules that might be of interest, and we urge you to always double-check the data to avoid false negatives as much as possible. :)
 </div>
 
-We can use anvi'o to visualize the module completeness matrix as a heatmap. First, we generate a newick tree from the matrix with the program {% include PROGRAM name="anvi-matrix-to-newick" text='anvi-matrix-to-newick:' %}
+We can use anvi'o to visualize the pathwise completeness matrix as a heatmap. First, we generate a newick tree from the matrix with the program {% include PROGRAM name="anvi-matrix-to-newick" text='anvi-matrix-to-newick:' version="8" %}
 
 ``` bash
-anvi-matrix-to-newick Enterococcus-completeness-MATRIX.txt
+anvi-matrix-to-newick Enterococcus-module_pathwise_completeness-MATRIX.txt
 ```
 
 And then we use the `--dry-run` flag to ask `anvi-interactive` to give us a new profile database, import our state in it, and THEN run anvi'o interactive interface to visualize the distribution of modules across the *Enterococcus* genomes:
 
 ``` bash
 # dry run to get the profile db:
-anvi-interactive -d Enterococcus-completeness-MATRIX.txt \
+anvi-interactive -d Enterococcus-module_pathwise_completeness-MATRIX.txt \
                  -p Enterococcus_metabolism_PROFILE.db \
                  --manual-mode \
                  --dry-run
@@ -1548,8 +1548,8 @@ anvi-import-state -s additional-files/state-files/state-metabolism.json \
 
 # run for reals:
 anvi-interactive --manual-mode \
-                 -d Enterococcus-completeness-MATRIX.txt \
-                 -t Enterococcus-completeness-MATRIX.txt.newick \
+                 -d Enterococcus-module_pathwise_completeness-MATRIX.txt \
+                 -t Enterococcus-module_pathwise_completeness-MATRIX.txt.newick \
                  -p Enterococcus_metabolism_PROFILE.db \
                  --title "Enterococcus Metabolism Heatmap"
 ```
@@ -1558,7 +1558,7 @@ Which should give us this display:
 
 [![Enterococcus Heatmap](images/entero_heatmap_unlabeled.png)](images/entero_heatmap_unlabeled.png){:.center-img }
 
-Excellent. We can already see that the *E. faecalis* and *E. faecium* genomes form two distinct groups, with the distinguishing metabolic pathways on the rightmost side of the heatmap. But what exactly are those pathways? The module numbers, which are IDs from the KEGG MODULE database, aren't very informative. We can fix that by adding additional layers of text data describing each metabolic module. Let's first generate a useful {% include ARTIFACT name='misc-data-items-txt' text='miscellaneous data file' %} to import into our profile database:
+Excellent. We can already see that the *E. faecalis* and *E. faecium* genomes form two distinct groups, with the distinguishing metabolic pathways on the rightmost side of the heatmap. But what exactly are those pathways? The module numbers, which are IDs from the KEGG MODULE database, aren't very informative. We can fix that by adding additional layers of text data describing each metabolic module. Let's first generate a useful {% include ARTIFACT name='misc-data-items-txt' text='miscellaneous data file' version="8" %} to import into our profile database:
 
 ``` bash
 # learn where the MODULES.db is:
@@ -1583,7 +1583,7 @@ paste module_class.txt <(cut -f 2 module_names.txt ) >> modules_info.txt
 rm module_names.txt module_class.txt
 ```
 
-Throughout these steps we essentially have used the program `sqlite3` and some terminal magic for a bit of text manipulation to generate a tab-delimited file from anvi'o modules database that looks like this:
+Throughout these steps we essentially have used the program `sqlite3` and some terminal magic for a bit of text manipulation to generate a tab-delimited file from the anvi'o {% include ARTIFACT name='modules-db' text='modules database' version="8" %} that looks like this:
 
 module | class | category | subcategory | name
 :----|:----|:----|:-----|:----
@@ -1593,7 +1593,7 @@ M00003 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabo
 M00307 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | Pyruvate oxidation, pyruvate => acetyl-CoA
 M00009 | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | Citrate cycle (TCA cycle, Krebs cycle)
 
-We can now import this file into the established profile database using the {% include PROGRAM name='anvi-import-misc-data' text='following program' %}:
+We can now import this file into the established profile database using the {% include PROGRAM name='anvi-import-misc-data' text='following program' version="8" %}:
 
 ```bash
 anvi-import-misc-data additional-files/metabolism/modules_info.txt \
@@ -1607,89 +1607,114 @@ anvi-import-state -s additional-files/metabolism/metabolism_state.json \
                   -p Enterococcus_metabolism_PROFILE.db \
                   -n default
 ```
+All this command does is save some settings for the interactive interface to the profile database. The settings will be automatically loaded the next time you run {% include PROGRAM name="anvi-interactive" version="8" %} so that you don't have to manually change the settings yourself to get the same figure that you see in the screenshots.
 
-And then we can run the visualization command yet again to see the heatmap with labels.
+Now we can run the interface command yet again to visualize the heatmap with labels. Here is the same command from above, copied here for your convenience:
+```
+anvi-interactive --manual-mode \
+                 -d Enterococcus-module_pathwise_completeness-MATRIX.txt \
+                 -t Enterococcus-module_pathwise_completeness-MATRIX.txt.newick \
+                 -p Enterococcus_metabolism_PROFILE.db \
+                 --title "Enterococcus Metabolism Heatmap"
+```
 
 [![Enterococcus Heatmap](images/entero_heatmap_labeled.png)](images/entero_heatmap_labeled.png){:.center-img }
 
-Here is a (rotated) screenshot of the rightmost part, where we can see which pathways distinguish the two species:
+And here is a (rotated) screenshot of the leftmost part, where we can see which pathways distinguish the two species:
 
 [![Enterococcus Heatmap](images/entero_heatmap_zoomed.png)](images/entero_heatmap_zoomed.png){:.center-img }
 
-The genome labels are not visible in this zoomed and rotated view, but if you look back at the full heatmap, you can see that *E. faecalis* genomes are on the left side and *E. faecium* ones are on the right. Based on the estimated metabolism, it looks like the two species differ in select energy metabolism, amino acid metabolism, and vitamin/cofactor metabolism pathways. Yet many of those are faint bands indicating a low completeness score, so perhaps these genomes share a select few KOs that contribute to several of the species-specific pathways. A particularly interesting observation is that all the *E. faecalis* genomes have near-complete pathways for Threonine Biosynthesis and Menaquinone Biosynthesis (the module completeness scores for these pathways are 80% and 78%, respectively, in each *E. faecalis* genome), while these pathways are partial in all the *E. faecium* genomes (the corresponding completeness is 20% and 11% in each *E. faecium*) genome. It would not be surprising if the same KOs from these pathways are present in each genome.
+You can see that *E. faecalis* genomes are on the left side and *E. faecium* ones are on the right. Based on the estimated pathwise completeness scores, it looks like the two species differ in select energy metabolism, amino acid metabolism, and vitamin/cofactor metabolism pathways. Yet many of those are faint bands indicating a low completeness score, so perhaps these genomes share a select few KOs that contribute to several of the species-specific pathways. 
 
-So now that we know what to look for, let's get some more detailed metabolism estimation output. We'll run the metabolism estimation again, but this time we will get long-format output - specifically 'modules' mode output, which will print information about each module in each genome, and 'kofam_hits' mode output, which will print information about each KO. 'modules' mode is the default, so if that was all we wanted we wouldn't need to specify it on the command line, but since we are also asking for 'kofam_hits' mode here we pass both of them, in a comma-separated list, to the `--kegg-output-modes` parameter. (Side note: you can find more details about the possible outputs of `anvi-estimate-metabolism` {% include ARTIFACT name='kegg-metabolism' text='here'%}).
+If you open the 'Settings' on the left side of the interface and choose the 'Data' panel, then you can hover your mouse over any part of the heatmap and see the underlying data. For example, one interesting observation is that all the *E. faecalis* genomes have near-complete pathways for Menaquinone Biosynthesis, Molybdenum Cofactor Biosynthesis, and Phylloquinone Biosynthesis (the completeness scores for these pathways are 88%, 80%, and 70%, respectively, in each *E. faecalis* genome), while these pathways are incomplete in all the *E. faecium* genomes (the corresponding completeness scores are 11%, 0%, and 0% in each *E. faecium*) genome. It would not be surprising if the same KOs from these pathways are present in each genome.
+
+So now that we know what to look for, let's get some more detailed metabolism estimation output. We'll run the metabolism estimation again, but this time we will get long-format output - specifically 'modules' mode output, which will print information about each module in each genome, and 'hits' mode output, which will print information about each KEGG Ortholog that was annotated in each genome. 'modules' mode is the default, so if that was all we wanted, we wouldn't need to specify it on the command line, but since we are also asking for 'hits' mode here we pass both of them, in a comma-separated list, to the `--output-modes` parameter. (Side note: you can find more details about the possible outputs of `anvi-estimate-metabolism` {% include ARTIFACT name='kegg-metabolism' text='here' version="8" %}).
 
 ``` bash
 anvi-estimate-metabolism -e additional-files/pangenomics/external-genomes.txt \
                          -O Enterococcus_metabolism \
-                         --kegg-output-modes modules,kofam_hits
+                         --output-modes modules,hits
 ```
 
-This produces two output files: `Enterococcus_metabolism_modules.txt`, and `Enterococcus_metabolism_kofam_hits.txt`. Here is a sample from the top of the modules file:
+This produces two output files: `Enterococcus_metabolism_modules.txt`, and `Enterococcus_metabolism_hits.txt`. Here is a sample from the top of the modules file:
 
-unique_id | genome_name | db_name | kegg_module | module_name | module_class | module_category | module_subcategory | module_definition | module_completeness | module_is_complete | kofam_hits_in_module | gene_caller_ids_in_module
-:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---
-0 | Enterococcus_faecalis_6240 | E_faecalis_6240 | M00001 | Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | "(K00844,K12407,K00845,K00886,K08074,K00918) (K01810,K06859,K13810,K15916) (K00850,K16370,K21071,K00918) (K01623,K01624,K11645,K16305,K16306) K01803 ((K00134,K00150) K00927,K11389) (K01834,K15633,K15634,K15635) K01689 (K00873,K12406)" | 1.0 | True | K00134,K00873,K01624,K00850,K01810,K01689,K01803,K00927,K01834,K00845 | 642,226,348,225,600,1044,1041,1042,1043,2342,2646,1608
-1 | Enterococcus_faecalis_6240 | E_faecalis_6240 | M00002 | Glycolysis, core module involving three-carbon compounds | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | "K01803 ((K00134,K00150) K00927,K11389) (K01834,K15633,K15634,K15635) K01689 (K00873,K12406)" | 1.0 | True | K00134,K00873,K01689,K01803,K00927,K01834 | 642,226,1044,1041,1042,1043,2342,2646
-2 | Enterococcus_faecalis_6240 | E_faecalis_6240 | M00003 | Gluconeogenesis, oxaloacetate => fructose-6P | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | "(K01596,K01610) K01689 (K01834,K15633,K15634,K15635) K00927 (K00134,K00150) K01803 ((K01623,K01624,K11645) (K03841,K02446,K11532,K01086,K04041),K01622)" | 0.875 | True | K00134,K04041,K01624,K01689,K01803,K00927,K01834 | 642,617,348,1044,1041,1042,1043,2342,2646
-3 | Enterococcus_faecalis_6240 | E_faecalis_6240 | M00307 | Pyruvate oxidation, pyruvate => acetyl-CoA | Pathway modules | Carbohydrate metabolism | Central carbohydrate metabolism | "((K00163,K00161+K00162)+K00627+K00382-K13997),K00169+K00170+K00171+(K00172,K00189),K03737" | 1.0 | True | K00382,K00627,K03737 | 539,538,771,1117,1396
+|**module**|**genome_name**|**db_name**|**module_name**|**module_class**|**module_category**|**module_subcategory**|**module_definition**|**stepwise_module_completeness**|**stepwise_module_is_complete**|**pathwise_module_completeness**|**pathwise_module_is_complete**|**proportion_unique_enzymes_present**|**enzymes_unique_to_module**|**unique_enzymes_hit_counts**|**enzyme_hits_in_module**|**gene_caller_ids_in_module**|**warnings**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|M00001|Enterococcus_faecalis_6240|E_faecalis_6240|Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate|Pathway modules|Carbohydrate metabolism|Central carbohydrate metabolism|"(K00844,K12407,K00845,K25026,K00886,K08074,K00918) (K01810,K06859,K13810,K15916) (K00850,K16370,K21071,K00918) (K01623,K01624,K11645,K16305,K16306) K01803 ((K00134,K00150) K00927,K11389) (K01834,K15633,K15634,K15635) K01689 (K00873,K12406)"|1.0|True|1.0|True|NA|No enzymes unique to module|NA|K00134,K00134,K00850,K00873,K00927,K01624,K01689,K01803,K01810,K01834,K01834,K25026|642,1044,225,226,1043,348,1041,1042,600,2342,2646,1608|K01803 is present in multiple modules: M00001/M00002/M00003,K01689 is present in multiple modules: M00001/M00002/M00003/M00346,K01834 is present in multiple modules: M00001/M00002/M00003,K25026 is present in multiple modules: M00001/M00549/M00909,K00873 is present in multiple modules: M00001/M00002,K01624 is present in multiple modules: M00001/M00003/M00165/M00167/M00345/M00344/M00611/M00612,K01810 is present in multiple modules: M00001/M00004/M00892/M00909,K00134 is present in multiple modules: M00001/M00002/M00003/M00308/M00552/M00165/M00166/M00611/M00612,K00850 is present in multiple modules: M00001/M00345,K00927 is present in multiple modules: M00001/M00002/M00003/M00308/M00552/M00165/M00166/M00611/M00612|
+|M00002|Enterococcus_faecalis_6240|E_faecalis_6240|Glycolysis, core module involving three-carbon compounds|Pathway modules|Carbohydrate metabolism|Central carbohydrate metabolism|"K01803 ((K00134,K00150) K00927,K11389) (K01834,K15633,K15634,K15635) K01689 (K00873,K12406)"|1.0|True|1.0|True|NA|No enzymes unique to module|NA|K00134,K00134,K00873,K00927,K01689,K01803,K01834,K01834|642,1044,226,1043,1041,1042,2342,2646|K01803 is present in multiple modules: M00001/M00002/M00003,K01689 is present in multiple modules: M00001/M00002/M00003/M00346,K01834 is present in multiple modules: M00001/M00002/M00003,K00873 is present in multiple modules: M00001/M00002,K00134 is present in multiple modules: M00001/M00002/M00003/M00308/M00552/M00165/M00166/M00611/M00612,K00927 is present in multiple modules: M00001/M00002/M00003/M00308/M00552/M00165/M00166/M00611/M00612|
+|M00003|Enterococcus_faecalis_6240|E_faecalis_6240|Gluconeogenesis, oxaloacetate => fructose-6P|Pathway modules|Carbohydrate metabolism|Central carbohydrate metabolism|"(K01596,K01610) K01689 (K01834,K15633,K15634,K15635) K00927 (K00134,K00150) K01803 ((K01623,K01624,K11645) (K03841,K02446,K11532,K01086,K04041),K01622)"|0.8571428571428571|True|0.875|True|NA|No enzymes unique to module|NA|K00134,K00134,K00927,K01624,K01689,K01803,K01834,K01834,K04041|642,1044,1043,348,1041,1042,2342,2646,617|K01803 is present in multiple modules: M00001/M00002/M00003,K01689 is present in multiple modules: M00001/M00002/M00003/M00346,K01834 is present in multiple modules: M00001/M00002/M00003,K04041 is present in multiple modules: M00003/M00611/M00612,K01624 is present in multiple modules: M00001/M00003/M00165/M00167/M00345/M00344/M00611/M00612,K00134 is present in multiple modules: M00001/M00002/M00003/M00308/M00552/M00165/M00166/M00611/M00612,K00927 is present in multiple modules: M00001/M00002/M00003/M00308/M00552/M00165/M00166/M00611/M00612|
+|M00307|Enterococcus_faecalis_6240|E_faecalis_6240|Pyruvate oxidation, pyruvate => acetyl-CoA|Pathway modules|Carbohydrate metabolism|Central carbohydrate metabolism|"((K00163,K00161+K00162)+K00627+K00382-K13997),K00169+K00170+K00171+(K00172,K00189),K03737"|1.0|True|1.0|True|1.0|K00627|1|K00382,K00382,K00627,K03737,K03737|539,771,538,1117,1396|K00382 is present in multiple modules: M00307/M00009/M00011/M00532/M00621/M00036/M00032,K03737 is present in multiple modules: M00307/M00173/M00614|
+
 
 As you can see, each row contains one metabolic module in one genome, and includes for that module:
-- some details about its name, categorization, and definition (all of which are sourced from KEGG)
+- some details about its name, categorization, and definition (all of which are sourced from KEGG, in this case)
 - followed by information specific to this genome:
-  - the completeness score
-  - whether or not that score is above the completeness score threshold
-  - which KO genes were found that contribute to this module
-  - and the gene caller IDs of those genes
+  - completeness score (two types, depending on how you interpret the module definition)
+  - whether or not each score is above the completeness score threshold
+  - how many enzymes (and which ones) were annotated that are unique to the current module
+  - which enzymes (here, KEGG Orthologs) were annotated that contribute to this module
+  - the gene caller IDs of those genes
+  - some caveats to be aware of (in the 'warnings' column)
 
-Let's take a look at the Threonine Biosynthesis pathway that was differentially present between the two species. This is module M00018, so we can search for that. Since we are specifically interested in which genes from this pathway were present in each genome, we will filter the output so that we only see the genome name, module number, module definition, completeness score, KOs, and gene caller ids (scroll right to see the latter columns):
+Let's take a look at the Menaquinone Biosynthesis pathway that was differentially present between the two species. This is module M00116, so we can search for that ID number in the first column. Since we are specifically interested in which genes from this pathway were present in each genome, we will filter the output so that we only see the module number, genome name (2nd column), module definition (8th column), pathwise completeness score (11th column), list of annotated KOs (16th), and gene caller ids (17th) (scroll right to see the latter columns). Here is the command to do that search and filter from your terminal:
 ``` bash
-grep 'M00018' Enterococcus_metabolism_modules.txt | cut -f 2,4,9,10,12,13
+grep '^M00116' Enterococcus_metabolism_modules.txt | cut -f 1,2,8,11,16,17
 ```
 
-Enterococcus_faecalis_6240 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.8 | K00133,K00872,K00003,K01733 | 358,1295,1297,1296
-Enterococcus_faecalis_6250 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.8 | K00872,K00003,K01733,K00133 | 2184,2186,2185,1100
-Enterococcus_faecalis_6255 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.8 | K00872,K00003,K01733,K00133 | 2160,2162,2161,1198
-Enterococcus_faecalis_6512 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.8 | K00872,K00003,K01733,K00133 | 1837,1839,1838,948
-Enterococcus_faecalis_6557 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.8 | K00872,K00003,K01733,K00133 | 2489,2491,2490,1290
-Enterococcus_faecalis_6563 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.8 | K00872,K00003,K01733,K00133 | 1952,1954,1953,1006
-Enterococcus_faecium_6589 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.2 | K00133 | 552
-Enterococcus_faecium_6590 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.2 | K00133 | 723
-Enterococcus_faecium_6601 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.2 | K00133 | 867
-Enterococcus_faecium_6778 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.2 | K00133 | 683
-Enterococcus_faecium_6798 | M00018 | "(K00928,K12524,K12525,K12526) K00133 (K00003,K12524,K12525) (K00872,K02204,K02203) K01733" | 0.2 | K00133 | 511
+|**module**|**genome_name**|**module_definition**|**pathwise_module_completeness**|**enzyme_hits_in_module**|**gene_caller_ids_in_module**|
+|:--|:--|:--|:--|:--|:--|
+|M00116|Enterococcus_faecalis_6240|"K02552 K02551 K08680 K02549 K01911 K01661 K19222 K02548 K03183"|0.8888888888888888|K01661,K01911,K02548,K02548,K02549,K02551,K02552,K08680,K19222|2534,2535,1077,2087,2539,2537,2536,2538,2533|
+|M00116|Enterococcus_faecalis_6250|"K02552 K02551 K08680 K02549 K01911 K01661 K19222 K02548 K03183"|0.8888888888888888|K01661,K01911,K02548,K02548,K02549,K02551,K02552,K08680,K19222|475,476,1837,2963,480,478,477,479,474|
+|M00116|Enterococcus_faecalis_6255|"K02552 K02551 K08680 K02549 K01911 K01661 K19222 K02548 K03183"|0.8888888888888888|K01661,K01911,K02548,K02548,K02549,K02551,K02552,K08680,K19222|398,399,1966,2825,403,401,400,402,397|
+|M00116|Enterococcus_faecalis_6512|"K02552 K02551 K08680 K02549 K01911 K01661 K19222 K02548 K03183"|0.8888888888888888|K01661,K01911,K02548,K02548,K02549,K02551,K02552,K08680,K19222|323,324,1649,2482,328,326,325,327,322|
+|M00116|Enterococcus_faecalis_6557|"K02552 K02551 K08680 K02549 K01911 K01661 K19222 K02548 K03183"|0.8888888888888888|K01661,K01911,K02548,K02548,K02549,K02551,K02552,K08680,K19222|569,570,2137,3277,574,572,571,573,568|
+|M00116|Enterococcus_faecalis_6563|"K02552 K02551 K08680 K02549 K01911 K01661 K19222 K02548 K03183"|0.8888888888888888|K01661,K01911,K02548,K02548,K02549,K02551,K02552,K08680,K19222|321,322,1727,2667,326,324,323,325,320|
+|M00116|Enterococcus_faecium_6589|"K02552 K02551 K08680 K02549 K01911 K01661 K19222 K02548 K03183"|0.1111111111111111|K02548|3003|
+|M00116|Enterococcus_faecium_6590|"K02552 K02551 K08680 K02549 K01911 K01661 K19222 K02548 K03183"|0.1111111111111111|K02548|3286|
+|M00116|Enterococcus_faecium_6601|"K02552 K02551 K08680 K02549 K01911 K01661 K19222 K02548 K03183"|0.1111111111111111|K02548|3026|
+|M00116|Enterococcus_faecium_6778|"K02552 K02551 K08680 K02549 K01911 K01661 K19222 K02548 K03183"|0.1111111111111111|K02548|2795|
+|M00116|Enterococcus_faecium_6798|"K02552 K02551 K08680 K02549 K01911 K01661 K19222 K02548 K03183"|0.1111111111111111|K02548|2617|
 
-Turns out everyone has got K00133, the second step in the module definition. What's more, all the *E. faecalis* genomes have the same set of 4 KOs to make this module 80% complete: K00872, K00003, K01733, and K00133. It also looks like the 3 KOs that are not shared with *E. faecium* are always right next to each other in the genome, because the gene caller ids for those 3 KOs have a range of 3. All genomes are missing enzymes for the first step in the pathway, as far as we can tell.
+Turns out everyone has got K02548, the second-to-last step in the module definition. What's more, all the *E. faecalis* genomes have the same set of 8 KOs to make this module 88% complete (and they all have two copies of K02548). It also looks like the several of these KOs that are not shared with *E. faecium* are always right next to each other in the genome, because their gene caller ids are off-by-one from each other (this means that, for instance, these enzymes seem to be encoded in an operon with the following order: K19222, K01661, K01911, K02552, K02551, K08680, and K02549). All genomes are missing the enzyme for the last step in the pathway (K03183).
 
-Let's see what these KOs are by checking out the second file, `Enterococcus_metabolism_kofam_hits.txt`. That file looks like this:
+Let's see what these KOs are by checking out the second file, `Enterococcus_metabolism_hits.txt`. That file looks like this:
 
-unique_id | genome_name | db_name | ko | gene_caller_id | contig | modules_with_ko | ko_definition
-0 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K00845 | 1608 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00001,M00549,M00892,M00909 | glucokinase [EC:2.7.1.2]
-1 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K01810 | 600 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00001,M00004,M00892,M00909 | glucose-6-phosphate isomerase [EC:5.3.1.9]
-2 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K00850 | 225 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00001,M00345 | 6-phosphofructokinase 1 [EC:2.7.1.11]
+|**enzyme**|**genome_name**|**db_name**|**gene_caller_id**|**contig**|**modules_with_enzyme**|**enzyme_definition**|
+|:--|:--|:--|:--|:--|:--|:--|
+|K25026|Enterococcus_faecalis_6240|E_faecalis_6240|1608|Enterococcus_faecalis_6240_contig_00003_chromosome|M00001,M00549,M00909|glucokinase [EC:2.7.1.2]|
+|K01810|Enterococcus_faecalis_6240|E_faecalis_6240|600|Enterococcus_faecalis_6240_contig_00003_chromosome|M00001,M00004,M00892,M00909|glucose-6-phosphate isomerase [EC:5.3.1.9]|
+|K00850|Enterococcus_faecalis_6240|E_faecalis_6240|225|Enterococcus_faecalis_6240_contig_00003_chromosome|M00001,M00345|6-phosphofructokinase 1 [EC:2.7.1.11]|
+|K01624|Enterococcus_faecalis_6240|E_faecalis_6240|348|Enterococcus_faecalis_6240_contig_00003_chromosome|M00001,M00003,M00165,M00167,M00345,M00344,M00611,M00612|fructose-bisphosphate aldolase, class II [EC:4.1.2.13]|
 
-In this file, each row is a KO hit in one genome. The columns are hopefully self-explanatory from the headers. :)  Most of the KO information is the same across every genome, with the exception of the gene caller id and the contig that the gene is located on. Now, if we look specifically for K00133 (using the following code to get only the first instance of K00133 in the file),
-``` bash
-grep K00133 Enterococcus_metabolism_kofam_hits.txt | head -n 1
+In this file, each row is an annotation in one genome. The columns are hopefully self-explanatory from the headers. :)  Most of the enzyme-related information will be the same across every genome, with the exception of the gene caller ID and the contig that the gene is located on. Let's look for each of the KOs in module M00116. For simplicity, we'll only look for the annotations in one of the *E. faecalis* genomes. Here is a loop to do the search for each KO number in this file:
+```
+for ko in K02552 K02551 K08680 K02549 K01911 K01661 K19222 K02548 K03183; do \
+  grep $ko Enterococcus_metabolism_hits.txt | grep Enterococcus_faecalis_6255; \
+done
 ```
 then we see the following:
 
-139 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K00133 | 358 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00018,M00033,M00017,M00016,M00525,M00526,M00527 | aspartate-semialdehyde dehydrogenase [EC:1.2.1.11]
+|**enzyme**|**genome_name**|**db_name**|**gene_caller_id**|**contig**|**modules_with_enzyme**|**enzyme_definition**|
+|:--|:--|:--|:--|:--|:--|:--|
+|K02552|Enterococcus_faecalis_6255|E_faecalis_6255|400|Enterococcus_faecalis_6255_contig_00001_chromosome|M00116,M00932|menaquinone-specific isochorismate synthase [EC:5.4.4.2]|
+|K02551|Enterococcus_faecalis_6255|E_faecalis_6255|401|Enterococcus_faecalis_6255_contig_00001_chromosome|M00116,M00932|2-succinyl-5-enolpyruvyl-6-hydroxy-3-cyclohexene-1-carboxylate synthase [EC:2.2.1.9]|
+|K08680|Enterococcus_faecalis_6255|E_faecalis_6255|402|Enterococcus_faecalis_6255_contig_00001_chromosome|M00116,M00932|2-succinyl-6-hydroxy-2,4-cyclohexadiene-1-carboxylate synthase [EC:4.2.99.20]|
+|K02549|Enterococcus_faecalis_6255|E_faecalis_6255|403|Enterococcus_faecalis_6255_contig_00001_chromosome|M00116,M00932|o-succinylbenzoate synthase [EC:4.2.1.113]|
+|K01911|Enterococcus_faecalis_6255|E_faecalis_6255|399|Enterococcus_faecalis_6255_contig_00001_chromosome|M00116,M00932|o-succinylbenzoate---CoA ligase [EC:6.2.1.26]|
+|K01661|Enterococcus_faecalis_6255|E_faecalis_6255|398|Enterococcus_faecalis_6255_contig_00001_chromosome|M00116,M00932|naphthoate synthase [EC:4.1.3.36]|
+|K19222|Enterococcus_faecalis_6255|E_faecalis_6255|397|Enterococcus_faecalis_6255_contig_00001_chromosome|M00116,M00932|1,4-dihydroxy-2-naphthoyl-CoA hydrolase [EC:3.1.2.28]|
+|K02548|Enterococcus_faecalis_6255|E_faecalis_6255|2825|Enterococcus_faecalis_6255_contig_00001_chromosome|M00116|1,4-dihydroxy-2-naphthoate polyprenyltransferase [EC:2.5.1.74]|
+|K02548|Enterococcus_faecalis_6255|E_faecalis_6255|1966|Enterococcus_faecalis_6255_contig_00001_chromosome|M00116|1,4-dihydroxy-2-naphthoate polyprenyltransferase [EC:2.5.1.74]|
 
-So K00133 is an aspartate-semialdehyde dehydrogenase, and it is part of several modules, which is likely why it is present in all of these genomes. In fact, if we use the same strategy to look for the other 3 KOs that were present in the *E. faecalis* genomes, we will see that they are specific to this pathway (or, in the case of K00003, it is also in a closely related pathway - M00017, Methionine biosynthesis).
+You can see that most of these enzymes are actually useful for two different metabolic pathways: M00116 and M00932. In fact, out of all of these KOs, only K02548 (which is also present in the *E. faecium* genomes) is unique to the menaquinone biosynthesis pathway. M00932 is the phylloquinone biosynthesis pathway that we also noticed earlier when looking at the heatmap.
 
-141 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K00872 | 1295 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00018 | homoserine kinase [EC:2.7.1.39]
-140 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K00003 | 1297 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00018,M00017 | homoserine dehydrogenase [EC:1.1.1.3]
-142 | Enterococcus_faecalis_6240 | E_faecalis_6240 | K01733 | 1296 | Enterococcus_faecalis_6240_contig_00003_chromosome | M00018 | threonine synthase [EC:4.2.3.1]
-
-So, are these *E. faecalis* populations capable of producing threonine? It appears likely, considering the 80% completeness score of the threonine biosynthesis module. However, we cannot know for sure given the absence of an enzyme required for the first step of the pathway. It is entirely possible that we failed to annotate this enzyme for some reason, and perhaps a more thorough search for K00928, K12524, K12525, or K12526 would turn up something. Or perhaps threonine-producing capabilities have already been confirmed in these organisms, and a literature search would turn up evidence for this. In fact, KEGG's own reference pathway for [M00018 in *E. faecalis*](https://www.genome.jp/kegg-bin/show_module?efa_M00018) indicates that a complete threonine biosynthesis pathway, including K00928, is present.
+So, are these *E. faecalis* populations capable of producing menaquinone? It appears likely, considering the 88% completeness score of the menaquinone biosynthesis module. However, we cannot know for sure given the absence of the enzyme required for the last step of the pathway. It is entirely possible that we failed to annotate this enzyme for some reason, and perhaps a more thorough search for K03183, would turn up something. Or perhaps menaquinone-producing capabilities have already been confirmed in these organisms, and a literature search would turn up evidence for this. However, KEGG's own reference pathway for [M00116 in *E. faecalis*](https://www.genome.jp/kegg-bin/show_module?efa_M00116) indicates that this pathway is incomplete (their reference genome is actually missing two enzymes -- K19222 and K03183. It is likely that we were able to annotate K19222 because {% include PROGRAM name="anvi-run-kegg-kofams" version="8" %} has a heuristic for finding missing annotations, which you can read about in the documentation).
 
 But, as often happens in science, every scientist must decide for themself at what point they feel comfortable accepting results and at what point they need to go deeper to confirm them. And it is of course important to keep in mind that while genomically-encoded metabolic pathways are the first requirement for an organism to be able to perform some metabolism, even that does not necessarily mean the organism is doing so in all environments or stages of life. Perhaps `anvi-estimate-metabolism` is thus most reliable as a hypothesis-generating tool used to inform wet-lab experiments or to guide literature searches. It is up to you, and your science. :)
 
 ### Metabolism Enrichment
 
-Just like we looked at functional enrichment in the pangenomics chapter, we can look for enriched metabolic modules in the two Enterococcus species. In fact, we can use the same program, and it will run the same statistical tests - except that instead of functional annotations, it will use modules which have a completeness score above the threshold that the user sets (by default, 0.75). All we need is the 'modules' mode output, and a file indicating which group each genome belongs to. We already have the modules file from before. Here is the groups file (which is also in the datapack):
+Just like we looked at functional enrichment in the pangenomics chapter, we can look for enriched metabolic modules in the two *Enterococcus* species. In fact, we can use a program that will run the same statistical tests - except that instead of functional annotations, it will use modules which have a completeness score above the threshold that the user sets (by default, 0.75). All we need is the 'modules' mode output, and a file indicating which group each genome belongs to. We already have the modules file from before. Here is the {% include ARTIFACT name="groups-txt" text=" groups file" version="8" %} (which is also in the datapack):
 
 |sample|group|
 |:--|:--:|
@@ -1705,7 +1730,7 @@ Just like we looked at functional enrichment in the pangenomics chapter, we can 
 |E_faecium_6778|faecium|
 |E_faecium_6798|faecium|
 
-And here is the command to run {%include PROGRAM name='anvi-compute-metabolic-enrichment' text='the enrichment script' %} on modules:
+And here is the command to run {%include PROGRAM name='anvi-compute-metabolic-enrichment' text='the enrichment script' version="8" %} on modules:
 ``` bash
 anvi-compute-metabolic-enrichment -M Enterococcus_metabolism_modules.txt \
                                   -G additional-files/metabolism/entero_groups.txt \
@@ -1714,20 +1739,19 @@ anvi-compute-metabolic-enrichment -M Enterococcus_metabolism_modules.txt \
 
 We get from this a file called `Enterococcus_enriched_modules.txt`, in which the modules are organized from highest to lowest enrichment score. So if we look at the top 10 or so rows in the file, we will see the metabolic pathways that are most enriched in either group:
 
-KEGG_MODULE | enrichment_score | unadjusted_p_value | adjusted_q_value | associated_groups | accession | sample_ids | p_faecalis | N_faecalis | p_faecium | N_faecium
----|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-D-Galacturonate degradation (bacteria), D-galacturonate => pyruvate + D-glyceraldehyde 3P | 11.00004247343848 | 9.110979983090492e-4 | 0.006681385320933027 | faecium | M00631 | E_faecium_6589,E_faecium_6590,E_faecium_6601,E_faecium_6778,E_faecium_6798 | 0 | 6 | 1 | 5
-D-Glucuronate degradation, D-glucuronate => pyruvate + D-glyceraldehyde 3P | 11.00004247343848 | 9.110979983090492e-4 | 0.006681385320933027 | faecium | M00061 | E_faecium_6589,E_faecium_6590,E_faecium_6601,E_faecium_6778,E_faecium_6798 | 0 | 6 | 1 | 5
-Lysine biosynthesis, acetyl-DAP pathway, aspartate => lysine | 11.00004247343848 | 9.110979983090492e-4 | 0.006681385320933027 | faecalis | M00525 | E_faecalis_6240,E_faecalis_6250,E_faecalis_6255,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563 | 1 | 6 | 0 | 5
-Menaquinone biosynthesis, chorismate (+ polyprenyl-PP) => menaquinol | 11.00004247343848 | 9.110979983090492e-4 | 0.006681385320933027 | faecalis | M00116 | E_faecalis_6240,E_faecalis_6250,E_faecalis_6255,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563 | 1 | 6 | 0 | 5
-Tetrahydrofolate biosynthesis, GTP => THF | 11.00004247343848 | 9.110979983090492e-4 | 0.006681385320933027 | faecalis | M00126 | E_faecalis_6240,E_faecalis_6250,E_faecalis_6255,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563 | 1 | 6 | 0 | 5
-Threonine biosynthesis, aspartate => homoserine => threonine | 11.00004247343848 | 9.110979983090492e-4 | 0.006681385320933027 | faecalis | M00018 | E_faecalis_6240,E_faecalis_6250,E_faecalis_6255,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563 | 1 | 6 | 0 | 5
-Thiamine salvage pathway, HMP/HET => TMP | 7.542898979759332 | 0.006024703126062904 | 0.03786956250668111 | faecalis | M00899 | E_faecalis_6240,E_faecalis_6250,E_faecalis_6255,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563,E_faecium_6798 | 1 | 6 | 0.2 | 5
-Cysteine biosynthesis, serine => cysteine | 1.3200000268467633 | 0.2505920458675303 | 1 | faecalis | M00021 | E_faecalis_6240,E_faecalis_6250,E_faecalis_6255,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563,E_faecium_6589,E_faecium_6590,E_faecium_6778,E_faecium_6798 | 1 | 6 | 0.8 | 5
-Formaldehyde assimilation, ribulose monophosphate pathway | 1.3200000268467615 | 0.2505920458675306 | 1 | faecium | M00345 | E_faecium_6778 | 0 | 60.2 | 5
-Pantothenate biosynthesis, valine/L-aspartate => pantothenate | 1.060714286668624 | 0.30305232927257136 | 1 | faecalis | M00119 | E_faecalis_6240,E_faecalis_6255,E_faecalis_6557,E_faecium_6601 | 0.5 | 6 | 0.2 | 5
+|**MODULE**|**enrichment_score**|**unadjusted_p_value**|**adjusted_q_value**|**associated_groups**|**accession**|**sample_ids**|**p_faecalis**|**N_faecalis**|**p_faecium**|**N_faecium**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|D-Galacturonate degradation (bacteria), D-galacturonate => pyruvate + D-glyceraldehyde 3P|11.00004247343848|9.110979983090494e-4|0.006637999701965931|faecium|M00631|E_faecium_6589,E_faecium_6590,E_faecium_6601,E_faecium_6778,E_faecium_6798|0|6|1|5|
+|D-Glucuronate degradation, D-glucuronate => pyruvate + D-glyceraldehyde 3P|11.00004247343848|9.110979983090494e-4|0.006637999701965931|faecium|M00061|E_faecium_6589,E_faecium_6590,E_faecium_6601,E_faecium_6778,E_faecium_6798|0|6|1|5|
+|Menaquinone biosynthesis, chorismate (+ polyprenyl-PP) => menaquinol|11.00004247343848|9.110979983090494e-4|0.006637999701965931|faecalis|M00116|E_faecalis_6240,E_faecalis_6250,E_faecalis_6255,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563|1|6|0|5|
+|Methionine biosynthesis, aspartate => homoserine => methionine|11.00004247343848|9.110979983090494e-4|0.006637999701965931|faecalis|M00017|E_faecalis_6240,E_faecalis_6250,E_faecalis_6255,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563|1|6|0|5|
+|Molybdenum cofactor biosynthesis, GTP => molybdenum cofactor|11.00004247343848|9.110979983090494e-4|0.006637999701965931|faecalis|M00880|E_faecalis_6240,E_faecalis_6250,E_faecalis_6255,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563|1|6|0|5|
+|Tetrahydrofolate biosynthesis, GTP => THF|11.00004247343848|9.110979983090494e-4|0.006637999701965931|faecalis|M00126|E_faecalis_6240,E_faecalis_6250,E_faecalis_6255,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563|1|6|0|5|
+|Threonine biosynthesis, aspartate => homoserine => threonine|11.00004247343848|9.110979983090494e-4|0.006637999701965931|faecalis|M00018|E_faecalis_6240,E_faecalis_6250,E_faecalis_6255,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563|1|6|0|5|
+|Thiamine salvage pathway, HMP/HET => TMP|7.542898979759332|0.006024703126062904|0.03840748242865102|faecalis|M00899|E_faecalis_6240,E_faecalis_6250,E_faecalis_6255,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563,E_faecium_6798|1|6|0.2|5|
+|Adenine ribonucleotide degradation, AMP => Urate|5.238112468277843|0.02209723642085117|0.11269590574634096|faecalis|M00958|E_faecalis_6240,E_faecalis_6512,E_faecalis_6557,E_faecalis_6563|0.6666666666666666|6|0|5|
 
-Well, it seems like there are only a few modules that are truly enriched, considering that the p-value and adjusted q-value jump to high, non-significant values starting with the Cysteine biosynthesis module. But of the 6-7 modules with high enrichment scores and low p/q-values, it seems that the *E. faecium* genomes are enriched with a couple of sugar degradation pathways while the *E. faecalis* genomes are enriched with several biosynthesis pathways - including the Threonine and Menaquinone Biosynthesis pathways that we found earlier when looking at the heatmap. In fact, if you look back at the zoomed heatmap you can find a few more of these enriched modules and visualize the difference in completeness score between the two clades. The enrichment script is a good way to quantify these differences and assign a significance value to them.  
+Well, it seems like there are only a few modules that could be enriched in either group, considering that the p-value and adjusted q-value jump to high, non-significant values (ie, q < 0.01) starting with the Thiamine salvage pathway. But of the 6-7 modules with high enrichment scores and low p/q-values, it seems that the *E. faecium* genomes are enriched with a couple of sugar degradation pathways while the *E. faecalis* genomes are enriched with several biosynthesis pathways - including the Menaquinone and Molybdenum cofactor biosynthesis pathways that we found earlier when looking at the heatmap. In fact, if you look back at the zoomed heatmap you can find a few more of these enriched modules and visualize the difference in completeness score between the two clades. The enrichment script is a good way to quantify these differences and assign a significance value to them.  
 
 If you are interested in learning more details about this enrichment analysis and its output, the tutorial for it is [here]({% post_url anvio/2016-11-08-pangenomics-v2 %}/#making-sense-of-functions-in-your-pangenome).
 
@@ -2008,7 +2032,7 @@ This time you will get this display:
 
 [![E. faecalis SNVs](images/e-faecalis-SNVs-anvio-state.png)](images/e-faecalis-SNVs-anvio-state.png){:.center-img .width-50}
 
-As we've seen before, occurrence of SNVs follow a bi-daily fashion. Not that it needs any further convincing, but just to show off here, if you were to click `Samples > Sample order > view_data > Draw`, you can see that even days and odd days nicely separate from each other:
+As we've seen before, occurrence of SNVs follow a bi-daily fashion. Not that it needs any further convincing, but just to show off here, if you were to click `Main > Layers > Order by > Default(tree) > Draw`, you can see that even days and odd days nicely separate from each other:
 
 [![E. faecalis SNVs](images/e-faecalis-SNVs-anvio-state-clustered.png)](images/e-faecalis-SNVs-anvio-state-clustered.png){:.center-img .width-50}
 
