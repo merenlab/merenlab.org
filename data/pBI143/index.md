@@ -7,7 +7,7 @@ comments: true
 authors: [meren, emily]
 ---
 
-**The purpose of this page** is to provide access to reproducible data products that underlie our key findings in the study "**A highly conserved and globally prevalent cryptic plasmid is among the most numerous mobile genetic elements in the human gut**" by [Emily Fogarty](https://twitter.com/emily_fogarty11) et al.
+**The purpose of this page** is to provide access to reproducible data products that underlie our key findings in the study "**[A highly conserved and globally prevalent cryptic plasmid is among the most numerous mobile genetic elements in the human gut](https://www.cell.com/cell/fulltext/S0092-8674(24)00107-7)**" by [Emily Fogarty](https://twitter.com/emily_fogarty11) et al.
 
 {:.notice}
 If you have any questions and/or if you are unable to find an important piece of information here, please feel free to leave a comment down below, send an e-mail to [us]({{ site.url }}/people/), or get in touch with us through Discord:
