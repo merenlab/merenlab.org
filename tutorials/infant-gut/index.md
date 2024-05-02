@@ -673,7 +673,7 @@ All previous interactive displays were at the contig-level (each leaf in the cen
 {:.notice}
 Please read this post to learn more about completion and redundancy estimates: [Assessing completion and contamination of metagenome-assembled genomes]({% post_url miscellaneous/2016-06-09-assessing-completion-and-contamination-of-MAGs %}){:target="_blank"}
 
-It is clear that some bins are not as well-resolved as others. For instance, bins `maxbin_007` and `maxbin_008` have redundancy estimates of 22% and 91%, respectively, which suggests each of them describe multiple distinct populations. Well, clearly we would have preferred those bins to *behave*.
+It is clear that some bins are not as well-resolved as others. For instance, bins `maxbin_007` and `maxbin_008` have redundancy estimates of 18% and 90%, respectively, which suggests each of them describe multiple distinct populations. Well, clearly we would have preferred those bins to *behave*.
 
 If you order bins based on their detection across metagenomes (by changing the 'Items order' to 'detection' from the menu in the Main tab), you can also see that  bins `maxbin_007` and `maxbin_008` are right next to each other. This suggests that it may be a good idea to simply merge these bins first, and then use the program {% include PROGRAM name="anvi-refine" %} to avoid issues of over-splitting populations of interest. Let's use the program {% include PROGRAM name="anvi-merge-bins" %} to merge them into a single bin first:
 
@@ -695,25 +695,27 @@ anvi-estimate-genome-completeness -p PROFILE.db \
 ```
 Bins in collection "MAXBIN"
 ===============================================
-╒════════════════════╤══════════╤══════════════╤════════════════╤════════════════╤══════════════╤════════════════╕
-│ bin name           │ domain   │   confidence │   % completion │   % redundancy │   num_splits │   total length │
-╞════════════════════╪══════════╪══════════════╪════════════════╪════════════════╪══════════════╪════════════════╡
-│ maxbin_001         │ BACTERIA │            1 │            100 │           4.23 │          148 │        2969341 │
-├────────────────────┼──────────┼──────────────┼────────────────┼────────────────┼──────────────┼────────────────┤
-│ maxbin_002         │ BACTERIA │          0.9 │          94.37 │              0 │           88 │        1801068 │
-├────────────────────┼──────────┼──────────────┼────────────────┼────────────────┼──────────────┼────────────────┤
-│ maxbin_003         │ BACTERIA │          0.7 │          81.69 │           2.82 │          144 │        2764617 │
-├────────────────────┼──────────┼──────────────┼────────────────┼────────────────┼──────────────┼────────────────┤
-│ maxbin_004         │ BACTERIA │          0.9 │          97.18 │           1.41 │          188 │        2571878 │
-├────────────────────┼──────────┼──────────────┼────────────────┼────────────────┼──────────────┼────────────────┤
-│ maxbin_005         │ BACTERIA │            1 │          98.59 │              0 │          151 │        2555414 │
-├────────────────────┼──────────┼──────────────┼────────────────┼────────────────┼──────────────┼────────────────┤
-│ maxbin_006         │ BACTERIA │          0.6 │          78.87 │           5.63 │          305 │        2901149 │
-├────────────────────┼──────────┼──────────────┼────────────────┼────────────────┼──────────────┼────────────────┤
-│ maxbin_009         │ EUKARYA  │          0.7 │          83.13 │           7.23 │         1379 │       13915165 │
-├────────────────────┼──────────┼──────────────┼────────────────┼────────────────┼──────────────┼────────────────┤
-│ maxbin_007_and_008 │ BACTERIA │            1 │          95.77 │         154.93 │         2381 │        6287535 │
-╘════════════════════╧══════════╧══════════════╧════════════════╧════════════════╧══════════════╧════════════════╛
++------------+----------+--------------+----------------+----------------+--------------+----------------+
+| bin name   | domain   |   confidence |   % completion |   % redundancy |   num_splits |   total length |
++============+==========+==============+================+================+==============+================+
+| maxbin_001 | BACTERIA |            1 |            100 |           4.23 |          148 |        2969341 |
++------------+----------+--------------+----------------+----------------+--------------+----------------+
+| maxbin_002 | BACTERIA |            1 |          94.37 |              0 |           88 |        1801068 |
++------------+----------+--------------+----------------+----------------+--------------+----------------+
+| maxbin_003 | BACTERIA |          0.7 |          81.69 |           2.82 |          144 |        2764617 |
++------------+----------+--------------+----------------+----------------+--------------+----------------+
+| maxbin_004 | BACTERIA |            1 |          97.18 |           1.41 |          188 |        2571878 |
++------------+----------+--------------+----------------+----------------+--------------+----------------+
+| maxbin_005 | BACTERIA |            1 |          98.59 |              0 |          151 |        2555414 |
++------------+----------+--------------+----------------+----------------+--------------+----------------+
+| maxbin_006 | BACTERIA |          0.7 |          78.87 |           5.63 |          305 |        2901149 |
++------------+----------+--------------+----------------+----------------+--------------+----------------+
+| maxbin_007 | BACTERIA |          0.4 |          54.93 |          18.31 |          724 |        3230717 |
++------------+----------+--------------+----------------+----------------+--------------+----------------+
+| maxbin_008 | BACTERIA |          0.8 |          87.32 |          90.14 |         1657 |        3056818 |
++------------+----------+--------------+----------------+----------------+--------------+----------------+
+| maxbin_009 | EUKARYA  |          0.8 |          83.13 |           7.23 |         1379 |       13915165 |
++------------+----------+--------------+----------------+----------------+--------------+----------------+
 ```
 
 Fine. Let's refine that bin:
