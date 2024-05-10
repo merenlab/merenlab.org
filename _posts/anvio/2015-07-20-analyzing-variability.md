@@ -3,7 +3,7 @@ layout: post
 authors: [meren,tom,evan]
 title: "Studying microbial population genetics with anvi'o"
 excerpt: "Exploring micro-diversity patterns using for deeper insights into ecology"
-modified: 2016-07-21
+modified: 2024-05-10
 tags: []
 categories: [anvio]
 comments: true
@@ -217,7 +217,7 @@ entry_id  |  unique_pos_identifier  |  pos    |  pos_in_contig  |  sample_id  | 
 
 10. **in_complete_gene_call** indicates the gene completion status. `1` for complete, `0` if incomplete, or if the position is not in a gene.
 
-11. **base_pos_in_codon** refers to the position of the nucleotide in a codon. `1`, `2` or `3` for codon positions, `-1` if the position is not in a detected gene.
+11. **base_pos_in_codon** refers to the position of the nucleotide in a codon. `1`, `2` or `3` for codon positions,`0` if the position is not in a detected gene (or if the gene is not translated, i.e. ribosomal proteins).
 
 12. **codon_order_in_gene / codon_index** refers to the order of the codon in the gene call, counting from 0 as the start position. For example, the starting methionine in a translated gene has a **codon_order_in_gene** value of 0. In anvi'o version 5 and greater, this has been renamed **codon_index**. `-1` if the position is not in a called gene. 
 
