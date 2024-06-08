@@ -251,7 +251,7 @@ The day of metabolism.
 
 ### Day 5, Thursday (13/06/24)
 
-The day of genome metapangenomics (building on what we discussed the day before) and phylogenomics.
+The day of genome microbial population genetics.
 
 **The location for Day 5 is V03 0-C002**.
 

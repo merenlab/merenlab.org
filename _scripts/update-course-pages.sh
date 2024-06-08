@@ -36,3 +36,10 @@ process ~/github/merenlab.org/courses/ITPOS \
 process ~/github/merenlab.org/courses/AMO \
         ~/github/courses/applied-microbial-omics/00_SYLLABUS/applied-microbial-omics.md \
         ~/github/courses/applied-microbial-omics/00_SYLLABUS/applied-microbial-omics.pdf
+
+# Ecology of Marine Microbes
+process ~/github/merenlab.org/courses/EMM \
+        ~/github/courses/ecology-of-marine-microbes/00_SYLLABUS/ecology-of-marine-microbes.md \
+        ~/github/courses/ecology-of-marine-microbes/00_SYLLABUS/ecology-of-marine-microbes.pdf
+
+
