@@ -318,7 +318,7 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
 
 * *Meeting Location*:
 
-  * **W02 1-146** (more like [here](https://mbl.zoom.us/j/93516927819?pwd=L2Q2SVl0WWxRdWFkSHJZRWNjQjZmZz09))
+  * **W02 1-146**
 
 * *Discussion Leaders*:
 
@@ -364,7 +364,7 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
 
 * *Meeting Location*:
 
-  * **Zoom** ([click here to join](https://uchicago.zoom.us/j/95059886143?pwd=a0MyMjBRYzdhc1ZmNVRuendFZmxSQT09))
+  * **W15 0-027**
 
 
 * *Discussion Leaders*:

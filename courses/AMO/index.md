@@ -230,7 +230,7 @@ Please read the assignment below carefully, and **return your reports by 19/12/2
 
 * *Meeting Location*:
 
-  * **[Zoom](https://uchicago.zoom.us/j/98925013168?pwd=K3Z4Zml2VmNCWXpobW4vYSswNGsvZz09)**
+  * **W15 2-234**
 
 Please read the assignment below carefully, and **return your reports by 17/01/23**:
 

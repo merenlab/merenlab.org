@@ -77,9 +77,9 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
 
 #### 15:00 - 17:00: A **read recruitment exercise** to warm up
 
-> The purpose of this exercise is to help you have a direct exposure to individual analysis steps and tools that enables one to recruit reads from metagenomes (essentials of which is covered on the 30/10/23 lecture in the companion course), and profile the read recruitment results to investigate gene distribution patterns of a given population.
+> The purpose of this exercise is to help you have a direct exposure to individual analysis steps and tools that enables one to recruit reads from metagenomes, and profile the read recruitment results to investigate gene distribution patterns of a given population.
 >
-> Throughout this exercise you will use a mock dataset to (1) familiarize yourself with commonly used file formats such as FASTA, FASTQ, SAM, and BAM, (2) learn the basic steps of read recruitment through Bowtie2 and samtools, (3) learn how to profile read recruitment results using anvi’o, and (4) familiarize yourself with downstream steps of the analysis of recruited reads. Please try to be mindful about individual steps, make notes of those steps that did not make much sense to you so we can discuss them further during our session 08/11/23.
+> Throughout this exercise you will use a mock dataset to (1) familiarize yourself with commonly used file formats such as FASTA, FASTQ, SAM, and BAM, (2) learn the basic steps of read recruitment through Bowtie2 and samtools, (3) learn how to profile read recruitment results using anvi’o, and (4) familiarize yourself with downstream steps of the analysis of recruited reads. Please try to be mindful about individual steps, make notes of those steps that did not make much sense to you so we can discuss them further if we have time.
 >
 > You will find the exercise here: [https://merenlab.org/tutorials/read-recruitment/](https://merenlab.org/tutorials/read-recruitment/)
 
@@ -249,7 +249,7 @@ The day of metabolism.
 >- [An older (and much simpler) tutorial on metabolism estimation](https://merenlab.org/tutorials/infant-gut/#chapter-v-metabolism-prediction)
 
 
-### Day 5, Thursday (13/06/24)
+### Day 5, Thursday (14/06/24)
 
 The day of genome microbial population genetics.
 
