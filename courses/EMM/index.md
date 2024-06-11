@@ -107,6 +107,10 @@ The day of genome resolved metagenomics, and pangenomics.
   * Shaiber A, Eren AM (2019). [Composite metagenome-assembled genomes reduce the quality of public genome repositories](https://doi.org/10.1128/mBio.00725-19). *mBio*.
   * Meren and Scott JJ (2020). [Visualizing the fate of contigs across metagenomic binning algorithms](https://merenlab.org/2020/01/02/visualizing-metagenomic-bins/). *A blog post on merenlab.org*.
 
+* *Even further material to understand assembly*:
+
+  * Assembly is always a difficult topic that we don't cover extensively during our lectures. But here is a [VERY short lecture](https://www.youtube.com/watch?v=OY9Q_rUCGDw) on de Bruijn graphs, and here is a [slightly lengthier one](https://www.youtube.com/watch?v=TNYZZKrjCSk). Even watching these, please remember that they are not covering the assembly of shotgun metagenomes. Even though the same principles apply, it is a much more difficult case.
+
 
 #### 11:00 - 12:00: Open lab
 
