@@ -11,7 +11,7 @@ authors: [iva]
 
 <span class="extra-info-header">Summary</span>
 
-**The purpose of this page** is to provide access to reproducible data products and analyses for the study "**High metabolic independence is a determinant of microbial resilience in the face of gut stress**" by Veseli et al.
+**The purpose of this page** is to provide access to reproducible data products and analyses for the study "**Microbes with higher metabolic independence are enriched in human gut microbiomes under stress**" by Veseli et al.
 
 Here is a list of links for quick access to the data described in our manuscript and on this page:
 
@@ -33,7 +33,7 @@ If you have any questions, notice an issue, and/or are unable to find an importa
 
 ## Study description
 
-This study is a follow-up to our [previous study](https://doi.org/10.1186/s13059-023-02924-x) on microbial colonization of the gut following fecal microbiota transplant, in which we introduced the concept of high metabolic independence as a determinant of microbial resilience for populations colonizing new individuals or living in individuals with inflammatory bowel disease (IBD). In the current work, we sought to (1) confirm our prior observations in a high-throughput comparative analysis of the gut microbiomes of healthy individuals and individuals with IBD, and (2) demonstrate that high metabolic independence is a robust marker of general stress experienced by the gut microbiome. To do this, we
+This study (which is now published in eLife [here](https://doi.org/10.7554/eLife.89862.1)) is a follow-up to our [previous study](https://doi.org/10.1186/s13059-023-02924-x) on microbial colonization of the gut following fecal microbiota transplant, in which we introduced the concept of high metabolic independence as a determinant of microbial resilience for populations colonizing new individuals or living in individuals with inflammatory bowel disease (IBD). In the current work, we sought to (1) confirm our prior observations in a high-throughput comparative analysis of the gut microbiomes of healthy individuals and individuals with IBD, and (2) demonstrate that high metabolic independence is a robust marker of general stress experienced by the gut microbiome. To do this, we
 
 * Created single assemblies of a large dataset of **publicly-available fecal metagenomes**
 * Computed the **community-level** copy numbers of metabolic pathways in each sample, and **normalized these copy numbers** with the estimated number of populations in each sample to obtain **per-population copy numbers (PPCNs)**
