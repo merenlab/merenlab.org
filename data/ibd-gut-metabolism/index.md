@@ -1986,7 +1986,7 @@ while read name path; do \
 done < <(tail -n+2 synth_metagenomes.txt)
 ```
 
-## Computing a 'typical' relative abundance curve for healthy human gut metagenomes
+### Computing a 'typical' relative abundance curve for healthy human gut metagenomes
 
 We downloaded Supplementary File 5 from [Beghini et al. 2021](https://doi.org/10.7554/eLife.65088), and saved it as a tab-delimited file called `supp5.txt`. Then we extracted only the species-level relative abundance values:
 
@@ -2049,7 +2049,7 @@ df_subset['coverage_values'].to_csv("coverages.txt", sep="\t", index=False, head
 
 The two output files generated in this section are included in the datapack. The coverage values that follow the typical relative abundance curve will be used in the next section for generating 'realistic' synthetic metagenomes.
 
-## Generating and annotating synthetic metagenomes from each community for the 'realistic' test cases
+### Generating and annotating synthetic metagenomes from each community for the 'realistic' test cases
 
 We only generated 'realistic' synthetic metagenomes for the genome size test case, because the results of our analysis were very similar to what we observed in the corresponding ideal case. We took the 189 synthetic communities for this test case and randomly assigned a coverage value from the list computed in the previous section to each genome using the following script, which also creates configuration files for the short read simulation program `gen-paired-end-reads` from [this Github repository](https://github.com/merenlab/reads-for-assembly):
 
@@ -2119,7 +2119,7 @@ info_df.to_csv(new_path, sep="\t")
 
 The code above relies on an input 3-column text file, `samples.txt`, that contains the sample name, path to the R1 FASTQ file, and path to the R2 FASTQ file on our server for each synthetic metagenome.
 
-## Computing PPCN values for metabolic pathways in each test case
+### Computing PPCN values for metabolic pathways in each test case
 
 To compute per-population copy numbers in the synthetic metagenomes (in all test cases), we followed almost exactly the same approach as described in the above reproducible workflow for our main analysis. We [estimated the number of populations](https://merenlab.org/data/ibd-gut-metabolism/#estimating-number-of-populations-per-sample) present in each sample based on annotations of single-copy core genes, we [estimated copy numbers](https://merenlab.org/data/ibd-gut-metabolism/#metabolism-estimation) of metabolic pathways in the KEGG database, and we [normalized the copy numbers](https://merenlab.org/data/ibd-gut-metabolism/#normalization-of-pathway-copy-numbers-to-ppcn) by the number of estimated populations to get PPCN values.
 
@@ -2127,7 +2127,7 @@ The only difference in our commands compared to the previous workflow was the in
 
 You can find the relevant output files in the *_SYNTHETIC_METAGENOMES.tar.gz archives in the datapack.
 
-## Estimating metabolism for component genomes
+### Estimating metabolism for component genomes
 
 We ran `anvi-estimate-metabolism` on each genome used to create the synthetic communities. Within the directory for each test case, we generated an external genomes file describing the name and path to the contigs database for every genome involved in the synthetic metagenomes for that test case, and then we obtained matrices of pathway prediction values with `anvi-estimate-metabolism`:
 
@@ -2138,7 +2138,7 @@ anvi-estimate-metabolism -e external_genomes_GTDB.txt -O GENOMES --include-zeros
 
 The metabolism output files can be found in the *_SYNTHETIC_METAGENOMES.tar.gz archives in the datapack. 
 
-## Comparison of metagenomic PPCN to average genomic completeness and copy number
+### Comparison of metagenomic PPCN to average genomic completeness and copy number
 
 We used a custom script to compare the PPCN values in the synthetic metagenomes to either 1) the average completeness score of the corresponding pathway in the genomes used to create the synthetic metagenome, or 2) the average copy number of the corresponding pathway in the genomes used to create the synthetic metagenome. We ran this script for each test case. The input argument to the script is the directory containing the synthetic metagenomes, component genomes, a file describing the estimated number of populations in each synthetic metagenome, and the output files from `anvi-estimate-metabolism` for both the genomes and metagenomes.
 
@@ -2156,7 +2156,7 @@ python analyze_synthetic_metagenomes_metabolism.py DIFF_PHYLA_SYNTHETIC_METAGENO
 
 The script produces three output files (per test case) that summarize the metagenomic/genomic results and their comparisons: `synth_metagenomes_comparison_table.txt`, `synth_metagenomes_comparison_table-no_zeros.txt`, and `population_differences.txt`. You can find these files in the *_SYNTHETIC_METAGENOMES.tar.gz archives in the datapack.
 
-## Analysis of PPCN estimation accuracy and robustness to sample parameters
+### Analysis of PPCN estimation accuracy and robustness to sample parameters
 
 We used a custom R script (`plot_simulation_results.R`) to analyze the accuracy and robustness of our PPCN approach. This script includes the code to plot the figures in our Supplementary File 2, run Spearman's correlations with sample parameters, and compute statistics. It relies upon the output files produced in the previous section for each test case (which can be found in the *_SYNTHETIC_METAGENOMES.tar.gz archives in the datapack). 
 
