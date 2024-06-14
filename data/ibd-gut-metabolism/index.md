@@ -1907,7 +1907,13 @@ If you want to see the code for that cross-validation, check out `SCRIPTS/metage
 
 We validated our methodology for computing metagenomic PPCN values using synthetic metagenomic data. To summarize, we created synthetic metagenomic communities by combining individual bacterial and archaeal genomes from the GTDB. We then were able to compare the PPCN values computed for these metagenomes to the metabolism estimation data from the component genomes to assess PPCN accuracy, and its relationship to various metagenomic parameters like sample diversity, community size, and distribution of genome sizes in the synthetic community. We also evaluated the accuracy of estimating the number of populations using single-copy core gene annotations. The validation results are detailed in Supplementary File 2, and below you will find our reproducible workflow for generating the synthetic metagenomes and doing the validation analysis.
 
-The datapack for this section is available [here](https://doi.org/10.6084/m9.figshare.26038018). It contains most of the scripts and input/output files mentioned below (if you find that something is missing, please let us know).
+The datapack for this section is available [here](https://doi.org/10.6084/m9.figshare.26038018). It contains most of the scripts and input/output files mentioned below (if you find that something is missing, please let us know). You can download it as follows:
+
+```bash
+wget https://figshare.com/ndownloader/files/47047309 -O SUPPLEMENTARY_REPRODUCIBLE_SCRIPTS_VESELI_ET_AL.tar.gz
+tar -xvf SUPPLEMENTARY_REPRODUCIBLE_SCRIPTS_VESELI_ET_AL.tar.gz
+cd SUPPLEMENTARY_REPRODUCIBLE_SCRIPTS_VESELI_ET_AL
+```
 
 ### Grouping GTDB genomes into size categories
 
