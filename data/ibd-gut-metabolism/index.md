@@ -11,7 +11,7 @@ authors: [iva]
 
 <span class="extra-info-header">Summary</span>
 
-**The purpose of this page** is to provide access to reproducible data products and analyses for the study "**High metabolic independence is a determinant of microbial resilience in the face of gut stress**" by Veseli et al.
+**The purpose of this page** is to provide access to reproducible data products and analyses for the study "**Microbes with higher metabolic independence are enriched in human gut microbiomes under stress**" by Veseli et al.
 
 Here is a list of links for quick access to the data described in our manuscript and on this page:
 
@@ -21,6 +21,7 @@ Here is a list of links for quick access to the data described in our manuscript
 * [doi:10.5281/zenodo.7883421](https://doi.org/10.5281/zenodo.7883421): Contigs databases for 338 GTDB genomes.
 * [doi:10.5281/zenodo.7897987](https://doi.org/10.5281/zenodo.7897987): Contigs databases for our assemblies of the gut metagenomes from [Palleja et al. 2018](https://doi.org/10.1038/s41564-018-0257-9).
 * [doi:10.6084/m9.figshare.24042288](https://doi.org/10.6084/m9.figshare.24042288): AGNOSTOS gene clustering and classification data for genes from our assemblies of 330 deeply-sequenced healthy and IBD gut metagenomes.
+* [doi:10.6084/m9.figshare.26038018](https://doi.org/10.6084/m9.figshare.26038018): Datapack for reproducible workflow for validation of our methodology (see [Addendum](#addendum-using-synthetic-metagenomes-to-validate-our-method-of-computing-per-population-copy-numbers)).
 
 
 </div>
@@ -33,7 +34,7 @@ If you have any questions, notice an issue, and/or are unable to find an importa
 
 ## Study description
 
-This study is a follow-up to our [previous study](https://doi.org/10.1186/s13059-023-02924-x) on microbial colonization of the gut following fecal microbiota transplant, in which we introduced the concept of high metabolic independence as a determinant of microbial resilience for populations colonizing new individuals or living in individuals with inflammatory bowel disease (IBD). In the current work, we sought to (1) confirm our prior observations in a high-throughput comparative analysis of the gut microbiomes of healthy individuals and individuals with IBD, and (2) demonstrate that high metabolic independence is a robust marker of general stress experienced by the gut microbiome. To do this, we
+This study (which is now published in eLife [here](https://doi.org/10.7554/eLife.89862.1)) is a follow-up to our [previous study](https://doi.org/10.1186/s13059-023-02924-x) on microbial colonization of the gut following fecal microbiota transplant, in which we introduced the concept of high metabolic independence as a determinant of microbial resilience for populations colonizing new individuals or living in individuals with inflammatory bowel disease (IBD). In the current work, we sought to (1) confirm our prior observations in a high-throughput comparative analysis of the gut microbiomes of healthy individuals and individuals with IBD, and (2) demonstrate that high metabolic independence is a robust marker of general stress experienced by the gut microbiome. To do this, we
 
 * Created single assemblies of a large dataset of **publicly-available fecal metagenomes**
 * Computed the **community-level** copy numbers of metabolic pathways in each sample, and **normalized these copy numbers** with the estimated number of populations in each sample to obtain **per-population copy numbers (PPCNs)**
@@ -1901,3 +1902,266 @@ If you want to see the code for that cross-validation, check out `SCRIPTS/metage
 ### Testing sensitivity of the IBD-enrichment analysis
 
  To verify that our IBD-enrichment analysis captures generic signals across all studies despite the dominance of two studies ([Le Chatelier et al. 2013](https://doi.org/10.1038/nature12506) and [Vineis et al. 2016](https://doi.org/10.1128/mBio.01713-16)) in our dataset, we repeated our IBD-enrichment analysis using (1) only samples from those two dominating studies and (2) the 115 samples excluding the two dominating studies. You will find the code for this analysis, as well as the code to plot Supplementary Figure 7, in the R script at `SCRIPTS/stats_tests_for_modules.R`. The relevant section is titled 'TEST SENSITIVITY OF ANALYSIS TO STUDY'.
+
+## Addendum: Using synthetic metagenomes to validate our method of computing per-population copy numbers
+
+We validated our methodology for computing metagenomic PPCN values using synthetic metagenomic data. To summarize, we created synthetic metagenomic communities by combining individual bacterial and archaeal genomes from the GTDB. We then were able to compare the PPCN values computed for these metagenomes to the metabolism estimation data from the component genomes to assess PPCN accuracy, and its relationship to various metagenomic parameters like sample diversity, community size, and distribution of genome sizes in the synthetic community. We also evaluated the accuracy of estimating the number of populations using single-copy core gene annotations. The validation results are detailed in Supplementary File 2, and below you will find our reproducible workflow for generating the synthetic metagenomes and doing the validation analysis.
+
+The datapack for this section is available [here](https://doi.org/10.6084/m9.figshare.26038018). It contains most of the scripts and input/output files mentioned below (if you find that something is missing, please let us know). You can download it as follows:
+
+```bash
+wget https://figshare.com/ndownloader/files/47047309 -O SUPPLEMENTARY_REPRODUCIBLE_SCRIPTS_VESELI_ET_AL.tar.gz
+tar -xvf SUPPLEMENTARY_REPRODUCIBLE_SCRIPTS_VESELI_ET_AL.tar.gz
+cd SUPPLEMENTARY_REPRODUCIBLE_SCRIPTS_VESELI_ET_AL
+```
+
+### Grouping GTDB genomes into size categories
+
+The following Python code shows how we divided genomes from GTDB v95 into size groups. It utilizes metadata files that were downloaded from the GTDB and slightly modified to split the original taxonomy string into individual columns.
+
+```python
+import pandas as pd
+import numpy as np
+
+# INPUT: our modified versions of the GTDB metadata files that have split taxonomy columns
+bact = pd.read_csv("bac120_metadata_r95_ed.tsv", sep="\t", index_col=2)
+arc = pd.read_csv("ar122_metadata_r95_ed.tsv", sep="\t", index_col=2)
+
+columns_of_interest = ['genome_size', 'domain', 'phylum', 'class', 'order', 'family', 'genus', 'species']
+rep_genomes =  list(bact.loc[bact.gtdb_representative].index) + list(arc.loc[arc.gtdb_representative].index)
+meta = pd.concat([bact,arc]);
+subset = meta.loc[rep_genomes, columns_of_interest]
+
+small = subset.loc[subset.genome_size < 2000000]
+medium = subset.loc[(subset.genome_size >= 2000000) & (subset.genome_size < 5000000)]
+large = subset.loc[(subset.genome_size >= 5000000) & (subset.genome_size < 20000000)]
+huge = subset.loc[subset.genome_size >= 20000000]
+
+# OUTPUT: tables of species cluster representative genomes and their taxonomy, in each size category
+small.to_csv("GTDB_small_genomes.txt", sep="\t")
+medium.to_csv("GTDB_medium_genomes.txt", sep="\t")
+large.to_csv("GTDB_large_genomes.txt", sep="\t")
+huge.to_csv("GTDB_huge_genomes.txt", sep="\t")
+```
+
+The output tables describing genomes of each size category are included in the datapack.
+
+### Generating synthetic communities
+
+We randomly combined the GTDB genomes into synthetic communities using our custom scripts, which generated metagenomes along gradients of sample parameters (genome size proportions, community sizes, and diversity). Here are the commands to run these scripts:
+
+```bash
+python generate_diff_genome_size_synthetic_metagenomes.py
+python generate_diff_community_size_synthetic_metagenomes.py 40
+python generate_diff_phyla_synthetic_metagenomes.py
+```
+
+The argument for `generate_diff_community_size_synthetic_metagenomes` specifies how many synthetic communities for each genome size category (small, medium, and large) to generate (in this case, we chose to create 40 per category for a total of 120 samples). The output of each script is a folder containing tab-delimited text files, one per synthetic community, that indicates which genomes from the GTDB are included in the community.
+
+### Generating and annotating synthetic metagenomes from each community for the 'ideal' test cases
+
+For each test case, we had a set of synthetic communities that we had to convert into synthetic metagenomes. For the 'ideal' test cases (which don't include metagenomic assembly, but simply assume that each component genome was assembled into the set of contigs downloaded from the GTDB), we simply concatenated the FASTA files of each individual genome in the community. We then created contigs databases from the combined sequences, and annotated these with both KEGG KOfams and single-copy core genes.
+
+Within each output folder from the scripts in the previous section, we ran the following loop to process each synthetic community:
+
+```bash
+for file in *-genomes.txt; do
+  ../make_dbs_for_synth_metagenomes.sh $file
+done
+```
+
+The loop runs a custom script (included in the datapack) that does the concatenation, creates the contigs database, and annotates genes in the synthetic metagenome with KEGG KOfams. Note that the script includes some variables for system-specific paths to gzipped genome FASTA files that were downloaded from GTDB v95, and it will fail if those variables are not updated to match the paths to these files on your system.
+
+After this step, we generated an external genomes file describing the name and path to each synthetic metagenome's contigs database:
+
+```bash
+anvi-script-gen-genomes-file -o synth_metagenomes.txt --input-dir 02_CONTIGS/
+```
+
+And then we ran the following code to annotate each synthetic metagenome with single-copy core genes.
+
+```bash
+while read name path; do \
+  anvi-run-hmms -c $path -T 5 > 00_LOGS/anvi_run_hmms_${name}.log \
+done < <(tail -n+2 synth_metagenomes.txt)
+```
+
+### Computing a 'typical' relative abundance curve for healthy human gut metagenomes
+
+We downloaded Supplementary File 5 from [Beghini et al. 2021](https://doi.org/10.7554/eLife.65088), and saved it as a tab-delimited file called `supp5.txt`. Then we extracted only the species-level relative abundance values:
+
+```bash
+cut -f 1 supp5.txt | grep 's__' > species_rows_supp5.txt
+head -n 1 supp5.txt > supp5_species_level.txt
+grep -F -f species_rows_supp5.txt supp5.txt >> supp5_species_level.txt
+```
+
+We then downloaded Supplementary File 10 from [the same paper](https://doi.org/10.7554/eLife.65088), saved it as a tab-delimited file called `supp10.txt`, and used it to identify the sample IDs for all healthy controls:
+
+```bash
+grep 'control' supp10.txt | cut -f 2 > healthy_samples.txt
+```
+
+Then we filtered the matrix of species-level relative abundance values to keep only the relative abundance values from healthy controls.
+
+```bash
+# transpose into one row per sample
+anvi-script-transpose-matrix supp5_species_level.txt -o supp5_transposed.txt
+
+# delete top two rows (taxonomic labels) to keep only the sample ID and relative abundance values
+tail -n+3 supp5_transposed.txt > new; mv new supp5_transposed.txt
+
+# keep only healthy controls
+grep -f healthy_samples.txt supp5_transposed.txt > supp5_healthy.txt
+
+# transpose back into one column per sample
+anvi-script-transpose-matrix supp5_healthy.txt -o supp5_healthy_transposed.txt
+```
+
+Finally, we used Python to compute the average relative abundance for the top 20 most abundant populations in a given sample:
+
+```python
+import pandas as pd
+df = pd.read_csv("supp5_healthy_transposed.txt", sep="\t")
+
+# independent column sorting strategy from https://stackoverflow.com/questions/24171511/pandas-sort-each-column-individually
+for col in df:
+     df[col] = df[col].sort_values(ignore_index=True, ascending=False)
+
+df_subset = df.head(20) # keep only top 20 values in each curve
+df_subset.loc[:, df_subset.min() == 0] # there are three samples with 0 vals in the top 20 abundances, get rid of these
+cols_to_drop = df_subset.loc[:, df_subset.min() == 0].columns
+df_subset.drop(cols_to_drop, axis=1, inplace=True)
+
+# scale to same maximum
+maximum_value = max(df_subset.max())
+for col in df_subset:
+  scale_value = maximum_value / max(df_subset[col])
+  df_subset[col] = df_subset[col] * scale_value
+
+df_subset['average_abundance'] = df_subset.mean(axis=1) # get the average curve
+df_subset['average_abundance_scaled'] = df_subset['average_abundance'] * 1 / min(df_subset['average_abundance']) # set min abundance to 1x coverage
+df_subset['coverage_values'] = df_subset['average_abundance_scaled'].astype('int') * 20 # get integer coverage values
+
+df_subset.to_csv("typical_rank_abundance_data.txt", sep="\t", index=False)
+df_subset['coverage_values'].to_csv("coverages.txt", sep="\t", index=False, header=False)
+```
+
+The two output files generated in this section are included in the datapack. The coverage values that follow the typical relative abundance curve will be used in the next section for generating 'realistic' synthetic metagenomes.
+
+### Generating and annotating synthetic metagenomes from each community for the 'realistic' test cases
+
+We only generated 'realistic' synthetic metagenomes for the genome size test case, because the results of our analysis were very similar to what we observed in the corresponding ideal case. We took the 189 synthetic communities for this test case and randomly assigned a coverage value from the list computed in the previous section to each genome using the following script, which also creates configuration files for the short read simulation program `gen-paired-end-reads` from [this Github repository](https://github.com/merenlab/reads-for-assembly):
+
+```bash
+python generate_configs_for_short_reads.py FIXED_SIZE_SYNTHETIC_METAGENOMES
+```
+
+Note that this script also includes variables for system-specific paths to individual compressed genome FASTA files from GTDB v95, and will not work unless updated to match your system. It generates an output folder containing the configuration files for `gen-paired-end-reads`.
+
+We then reformatted each input genome's FASTA file to keep only the contigs of at least 1000 bp:
+
+```bash
+for fasta in REALISTIC_CASE_SYNTHETIC_METAGENOMES/GTDB_FASTA/*.fa; do \
+  anvi-script-reformat-fasta --min-len 1000 --overwrite-input $fasta
+done
+```
+
+After which we ran the following script, which is a simple loop that calls the `gen-paired-end-reads` program on each synthetic community to generate the short reads from its input genomes:
+
+```bash
+./run_gen_PE_reads.sh
+```
+
+We ran the metagenomics workflow in anvi'o to assemble the synthetic metagenomes with MEGAHIT.
+
+```bash
+anvi-run-workflow -w metagenomics -c metagenomics_config.json  --additional-params \
+            --until anvi_script_reformat_fasta
+```
+
+We then ran the contigs workflow to generate the contigs databases and run the annotation (both KOfams and single-copy core genes) for each assembly. 
+
+```bash
+anvi-run-workflow -w contigs -c contigs_config.json
+```
+
+The config files for both workflows are included in the datapack.
+
+Finally, we counted the number of reads in each synthetic metagenome so that we could later plot their sequencing depth. We used the following Python code to do the counting:
+
+```python
+import pandas as pd
+import os
+
+info_file = "samples.txt"
+info_df = pd.read_csv(info_file, sep="\t", index_col=0)
+
+info_df['r1_num_reads'] = 0
+info_df['r2_num_reads'] = 0
+for sample in info_df.index:
+    r1 = info_df.loc[sample]['r1']
+    r2 = info_df.loc[sample]['r2']
+    # get count of R1 reads
+    command = f"echo $(cat {r1} | wc -l) / 4 | bc"
+    stream = os.popen(command)
+    num_reads_r1 = int(stream.read().strip())
+    # get count of R2 reads
+    command = f"echo $(cat {r2} | wc -l) / 4 | bc"
+    stream = os.popen(command)
+    num_reads_r2 = int(stream.read().strip())
+    info_df.loc[sample, 'r1_num_reads'] = num_reads_r1
+    info_df.loc[sample, 'r2_num_reads'] = num_reads_r2
+
+new_path = "samples_num_reads.txt"
+info_df.to_csv(new_path, sep="\t")
+```
+
+The code above relies on an input 3-column text file, `samples.txt`, that contains the sample name, path to the R1 FASTQ file, and path to the R2 FASTQ file on our server for each synthetic metagenome.
+
+### Computing PPCN values for metabolic pathways in each test case
+
+To compute per-population copy numbers in the synthetic metagenomes (in all test cases), we followed almost exactly the same approach as described in the above reproducible workflow for our main analysis. We [estimated the number of populations](https://merenlab.org/data/ibd-gut-metabolism/#estimating-number-of-populations-per-sample) present in each sample based on annotations of single-copy core genes, we [estimated copy numbers](https://merenlab.org/data/ibd-gut-metabolism/#metabolism-estimation) of metabolic pathways in the KEGG database, and we [normalized the copy numbers](https://merenlab.org/data/ibd-gut-metabolism/#normalization-of-pathway-copy-numbers-to-ppcn) by the number of estimated populations to get PPCN values.
+
+The only difference in our commands compared to the previous workflow was the inclusion of the `--include-zeros` parameter when running `anvi-estimate-metabolism`, which ensured that pathways with 0% completeness were included in the output table.
+
+You can find the relevant output files in the *_SYNTHETIC_METAGENOMES.tar.gz archives in the datapack.
+
+### Estimating metabolism for component genomes
+
+We ran `anvi-estimate-metabolism` on each genome used to create the synthetic communities. Within the directory for each test case, we generated an external genomes file describing the name and path to the contigs database for every genome involved in the synthetic metagenomes for that test case, and then we obtained matrices of pathway prediction values with `anvi-estimate-metabolism`:
+
+```bash
+anvi-script-gen-genomes-file -o external_genomes_GTDB.txt --input-dir GTDB_FASTA/
+anvi-estimate-metabolism -e external_genomes_GTDB.txt -O GENOMES --include-zeros --matrix-format --add-copy-number
+```
+
+The metabolism output files can be found in the *_SYNTHETIC_METAGENOMES.tar.gz archives in the datapack. 
+
+### Comparison of metagenomic PPCN to average genomic completeness and copy number
+
+We used a custom script to compare the PPCN values in the synthetic metagenomes to either 1) the average completeness score of the corresponding pathway in the genomes used to create the synthetic metagenome, or 2) the average copy number of the corresponding pathway in the genomes used to create the synthetic metagenome. We ran this script for each test case. The input argument to the script is the directory containing the synthetic metagenomes, component genomes, a file describing the estimated number of populations in each synthetic metagenome, and the output files from `anvi-estimate-metabolism` for both the genomes and metagenomes.
+
+```bash
+# genome size test cases, ideal and realistic
+python analyze_synthetic_metagenomes_metabolism.py FIXED_SIZE_SYNTHETIC_METAGENOMES/
+python analyze_synthetic_metagenomes_metabolism.py REALISTIC_CASE_SYNTHETIC_METAGENOMES/
+
+# population size test case
+python analyze_synthetic_metagenomes_metabolism.py DIFF_COMMUNITY_SIZES_SYNTHETIC_METAGENOMES/
+
+# diversity test case
+python analyze_synthetic_metagenomes_metabolism.py DIFF_PHYLA_SYNTHETIC_METAGENOMES/
+```
+
+The script produces three output files (per test case) that summarize the metagenomic/genomic results and their comparisons: `synth_metagenomes_comparison_table.txt`, `synth_metagenomes_comparison_table-no_zeros.txt`, and `population_differences.txt`. You can find these files in the *_SYNTHETIC_METAGENOMES.tar.gz archives in the datapack.
+
+### Analysis of PPCN estimation accuracy and robustness to sample parameters
+
+We used a custom R script (`plot_simulation_results.R`) to analyze the accuracy and robustness of our PPCN approach. This script includes the code to plot the figures in our Supplementary File 2, run Spearman's correlations with sample parameters, and compute statistics. It relies upon the output files produced in the previous section for each test case (which can be found in the *_SYNTHETIC_METAGENOMES.tar.gz archives in the datapack). 
+
+To plot the size gradients for the genome size test case, we had to quantify the number of genomes in each genome size category within each synthetic metagenome. We did this with yet another custom script:
+
+```bash
+python categorize_genome_sizes_in_metagenomes.py FIXED_SIZE_SYNTHETIC_METAGENOMES/
+```
