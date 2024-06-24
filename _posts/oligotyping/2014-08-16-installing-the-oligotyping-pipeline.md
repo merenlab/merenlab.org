@@ -57,7 +57,7 @@ Please make sure you create a new conda environment oligotyping (you can make su
 Then, create a new environment for oligotyping:
 
 ``` bash
-conda create -y --name oligotyping python=3.6
+conda create -y --name oligotyping python=3.7
 ```
 
 Once it is ready, activate your new environment:
@@ -99,7 +99,7 @@ First, setup your environment for oligotyping:
 
 ``` bash
 conda update conda
-conda create -y --name oligotyping python=3.6
+conda create -y --name oligotyping python=3.7
 conda activate oligotyping
 ```
 
