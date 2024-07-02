@@ -15,7 +15,7 @@ authors: [iva]
 
 Here is a list of links for quick access to the data described in our manuscript and on this page:
 
-* [doi:10.6084/m9.figshare.22679080](https://doi.org/10.6084/m9.figshare.22679080): Supplementary Tables.
+* [doi:10.6084/m9.figshare.22679080](https://doi.org/10.6084/m9.figshare.22679080): Supplementary Tables and Supplementary Files.
 * [doi:10.6084/m9.figshare.22776701](https://doi.org/10.6084/m9.figshare.22776701): Datapack for this reproducible workflow.
 * [doi:10.5281/zenodo.7872967](https://doi.org/10.5281/zenodo.7872967): Contigs databases for our assemblies of 408 deeply-sequenced gut metagenomes.
 * [doi:10.5281/zenodo.7883421](https://doi.org/10.5281/zenodo.7883421): Contigs databases for 338 GTDB genomes.
