@@ -160,7 +160,7 @@ FIGURES/              OLIGOS.fasta          RUNINFO
 
 Although you will not find anything in the `FIGURES` directory (due to the use of thanks to the `--quick` flag), you can visualize your results in the simplest form by typing the following command:
 
-    o-stackbar.R  mock-env-aligned-c2-s1-a1.0-A0-M0/ENVIRONMENT.txt -o mock --title Mock
+    o-stackbar.R mock-env-aligned-c2-s1-a0.0-A0-M10/ENVIRONMENT.txt -o mock --title Mock
 
 As a result of this command a new file, `mock.pdf`, would be generated in the output directory, which would look like this:
 
