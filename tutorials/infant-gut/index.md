@@ -1069,6 +1069,9 @@ anvi-get-sequences-for-hmm-hits -c CONTIGS.db \
 
 If you look at the resulting file again, you will see how everything looks just so lovely. Congratulations. You did it.
 
+{:.warning}
+In `v8`, anvi'o forgets to tell you that two bins in the `default` collection, `P_acnes` and `S_lugdunensis`, have none of the 6 requested genes, and instead silently removes them from the analysis (bad anvi'o). This is fixed in the development version and will hopefully be updated in this tutorial at the time of the next stable release. But for now, just keep it in mind since the loss of those two bins will become relevant in the next section.
+
 ### Computing the phylogenomic tree
 
 Once you have your concatenated genes, which you now have them in `seqs-for-phylogenomics.fa` if you followed the previous section, it is time to perform the phylogenomic analysis.
@@ -1113,7 +1116,26 @@ anvi-interactive -p PROFILE.db \
                  --tree phylogenomic-tree.txt
 ```
 
-Which would give you the following display after selecting the 'Phylogenomic tree' from the 'orders' combo box in the 'Settings' tab.
+{:.warning}
+You will likely get an error from this command due to the loss of 2 bins that are missing the ribosomal proteins we asked for (see warning box at the end of the previous section). Those 2 bins never made it into the `seqs-for-phylogenomics.fa`, and therefore weren't included in the tree. We'll hopefully fix this section of the tutorial soon, but in the meantime please keep reading for the solution.
+
+If you got an error from the previous command saying something like "the 11 items in your tree file do not match to the 13 items the 'default' collection describes", then you can fix the mismatch between the two by making a new collection containing only the 11 genomes that made it into the phylogenomic tree. Here is how you can do that by exporting the original 'default' collection, removing the 2 bins missing from the tree (here done using the inverse `grep` command, but other strategies are possible), and importing the reduced collection back into the profile database:
+
+```bash
+anvi-export-collection -p PROFILE.db -C default
+grep -v P_acnes collection-default.txt | grep -v S_lugdunensis > collection-default-reduced.txt
+anvi-import-collection -c CONTIGS.db -p PROFILE.db -C default_reduced collection-default-reduced.txt
+```
+
+After this, you can visualize the tree like so:
+```
+anvi-interactive -p PROFILE.db \
+                 -c CONTIGS.db \
+                 -C default_reduced \
+                 --tree phylogenomic-tree.txt
+```
+
+Which would give you the following display after selecting the 'Phylogenomic tree' from the 'orders' combo box in the 'Settings' tab (note that the name of your collection might not match to the one in the screenshot).
 
 [![phylogenomics](images/phylogenomics-collection-mode.png)](images/phylogenomics-collection-mode.png){:.center-img .width-50}
 
