@@ -439,6 +439,10 @@
     - title: Bioinformatician
       inst: AbCellera
       inst_link: https://www.abcellera.com/
+      current: false
+    - title: Protein Bioinformatician
+      inst: Arcadia Science
+      inst_link: https://www.arcadiascience.com/
       current: true
 
 - alias: karen
