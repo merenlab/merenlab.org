@@ -41,12 +41,25 @@ Here we will analyze genomes of seven _Vibrio jascida_ populations isolated from
 
 ## Finalizing the list of genomes
 
-Please note that the following few sections will take you through the steps of gathering the FASTA files for genomes we are intersted in and turning them into anvi'o {% include ARTIFACT name="contigs-db" text="contigs-db" %} files prior to our pangenomic analysis. If you would like to skip these steps completely and start with a collection of contigs-db files directly, please first run the following command to download the pre-packaged data,
+Please note that the following few sections will take you through the steps of gathering the FASTA files for genomes we are intersted in and turning them into anvi'o {% include ARTIFACT name="contigs-db" text="contigs-db" %} files prior to our pangenomic analysis. If you would like to skip these steps completely and start with a collection of contigs-db files directly, please first run either of the following commands depending on which version of anvi'o you're using.
+
+If you are using `anvio-dev`, please use this command to download the pre-packaged data:
+
+``` bash
+# download the data pack for contigs-db files
+curl -L https://figshare.com/ndownloader/files/47966644 -o V_jascida_contigs_dbs.tar.gz
+```
+
+If you are using the stable `v8` version of anvi'o, use this command to download the pre-packaged data:
 
 ``` bash
 # download the data pack for contigs-db files
 curl -L https://figshare.com/ndownloader/files/41600745 -o V_jascida_contigs_dbs.tar.gz
+```
 
+OK. Now you have the pre-packaged data, you can continue with the following commands to unpack the archive:
+
+```
 # unpack it
 tar -zxvf V_jascida_contigs_dbs.tar.gz
 
