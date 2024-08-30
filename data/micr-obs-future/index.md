@@ -913,6 +913,8 @@ We will
    - `gzip_fastqs`
    - `anvi_script_reformat_fasta` (needs to be on for anvi'o not to complain but is not used here)
 
+---
+
 <details>
 <summary>Click here to see the content of the contigs file</summary>
 
@@ -1228,6 +1230,8 @@ We will
 ```
 
 </details>
+
+---
 
 We do a dry run to look at the stats.
 
