@@ -17,7 +17,7 @@ authors: [raissa]
 In this study, we 
 -  integrate metagenomics metadata and data from observatories (Hawaii Ocean Time Series and Bermuda Atlantic Time-series Study), sampling expeditions (Bio-GO-SHIP, bioGEOTRACES, Malaspina, and Tara Oceans), and citizen science initiatives (Ocean Sampling Day)
 -  generate an anvi'o contigs database describing 51 SAR11 isolate genomes (reference genomes)
--  recruite reads from the above listed projects' metagenomes to the SAR11 reference genomes, and profil the recruitment results
+-  recruite reads from the above listed projects' metagenomes to the SAR11 reference genomes, and profile the recruitment results
 -  investigate the patterns in genes across metagenomes recruited to the individual SAR11 reference genomes
 
 Sections in this document will detail all the steps of downloading and processing SAR11 genomes and metagenomes, mapping metagenomic reads onto the SAR11 genomes, as well as analysing and visualising the outcomes.
