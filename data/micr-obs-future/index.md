@@ -58,6 +58,8 @@ The isolate genomes available at the time of this analysis are included in `SAR1
 
 ---
 
+<details markdown="1"><summary>Click here to show/hide an overview of the reference genomes used</summary>
+
 <details>
 <summary>Click here to see an overview of the reference genomes used</summary>
 
