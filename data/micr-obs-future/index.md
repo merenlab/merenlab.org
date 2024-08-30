@@ -262,8 +262,8 @@ clusterize -j checkM -o checkm.log -n 1 "checkm lineage_wf -t 40 -x fa ./fastaOr
 
 ---
 
-<details>
-<summary>Click here to see the checkM output table</summary>
+<details markdown="1"><summary>Click here to show/hide the checkM output table</summary>
+
  
 | Bin Id    | Marker lineage             | # genomes | # markers | # marker sets | 0  | 1   | 2  | 3 | 4 | 5 | Completeness | Contamination | Strain heterogeneity |
 |-----------|----------------------------|-----------|-----------|---------------|----|-----|----|---|---|---|--------------|---------------|----------------------|
@@ -427,9 +427,7 @@ clusterize -j dRep_workflow \
 **51 genomes passed**
 
 ---
-
-<details>
-<summary>Click to see primary clustering dendrogram</summary>
+<details markdown="1"><summary>Click to show/hide primary clustering dendrogram</summary>
 
 blue and purple stars: representatives after my dRep
 
@@ -914,8 +912,7 @@ We will
 
 ---
 
-<details>
-<summary>Click here to see the content of the contigs file</summary>
+<details markdown="1"><summary>Click here to show/hide the content of the contigs file</summary>
 
 ```
 {
