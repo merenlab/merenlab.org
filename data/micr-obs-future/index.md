@@ -1440,7 +1440,9 @@ This workflow relies on much more than just anvi'o or snakemake, but many other 
 - samtools: Li et al., 2009
 - `anvi_run_kegg_kofams`: Anvi'o will annotate your database with the KEGG KOfam database, as described in Aramaki et al (doi:10.1093/bioinformatics/btz859)
 - `anvi_run_ncbi_cogs`: Anvi'o will set up the COG20 version of NCBI COGs from Galperin et al. 2021 (https://doi.org/10.1093/nar/gkaa1018)
-- 
+
+
+---
 
 <details>
 <summary>Click to see default-metagenomics-config.json</summary>
@@ -1757,6 +1759,7 @@ This workflow relies on much more than just anvi'o or snakemake, but many other 
 ```
 </details>
 
+---
 
 We, again, do a dry run
 ```
