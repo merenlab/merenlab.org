@@ -1803,3 +1803,1072 @@ clusterize -j metagenomics_workflow \
 
 
 
+## Filter samples based on coverage and detection
+
+In this section, we describe all the steps taken to filter the samples based on coverage and detection. Our cutoff will be to only keep samples, in which at least one of the metagenomes was detected with at least 0.5 detection and 10x coverage.
+
+It will include multiple substeps
+- Generating a genomic collection for `anvi-split`
+- use `anvi-split` to create individual, self-contained anvi’o projects for each reference genome and its recruited reads
+- use `anvi-profile-blitz` to profile the BAM files to get contig-level coverage and detection stats
+- filter the samples based on coverage and detection of SAR11 reference genomes
+
+### Generating a genomic collection
+
+At this point anvi’o still doesn’t know how to link scaffolds to each isolate genome. In anvi’o, this kind of knowledge is maintained through ‘collections’. In order to link scaffolds to genomes of origin, we will use the program `anvi-import-collection` to create an anvi’o collection in our merged profile database. This program, however, needs a contigs.txt artifact. 
+
+We will make that by:
+
+For this, we first create a `contigs.txt` (run this in the readRecruitment dir)
+```
+grep ">" ../refGenomesSAR11/fastaDrep/dereplicated_genomes/all_fasta.fa | sed "s/>//g" > contigs.txt
+```
+This removes the carrot ">" from the contig headers in our fasta file full of reference genomes by substituting it with nothing globally (not just once but anywhere it sees a ">" in the file) and parses the output into a file called `contigs.txt`. 
+
+These are the names by which the contigs are stored within anvio. 
+
+---
+
+<details>
+<summary>Click to see the head of the file</summary>
+
+```
+FZCC0015_000000000001
+HIMB058_000000000001
+HIMB058_000000000002
+HIMB058_000000000003
+HIMB058_000000000004
+HIMB058_000000000005
+HIMB058_000000000006
+HIMB058_000000000007
+HIMB058_000000000008
+HIMB058_000000000009
+```
+
+</details>
+
+---
+
+Next, we create a file called `bins.txt` which contains only the identifier for the genome.
+```
+grep ">" ../refGenomesSAR11/fastaDrep/dereplicated_genomes/all_fasta.fa | sed "s/>//g" | cut -d "_" -f 1 > bins.txt
+```
+This does the same as the command above PLUS it removes the suffix of "_000000000001" from the reference genome identifier: it cuts at the delimiter (`-d`) "_" and keeps the first field (`-f 1`), so the part in front of the delimiter)
+
+---
+
+<details>
+<summary>Click to see the head of the file</summary>
+
+```
+FZCC0015
+HIMB058
+HIMB058
+HIMB058
+HIMB058
+HIMB058
+HIMB058
+HIMB058
+HIMB058
+HIMB058
+HIMB058
+```
+
+</details>
+
+---
+
+Lastly, we combine the two into a single file and feed that into a new file called `collection.txt`, which is what we need. 
+```
+paste contigs.txt bins.txt > collection.txt
+```
+[`collection.txt`](https://anvio.org/help/main/artifacts/collection-txt/) is a two-column TAB-delimited file without a header that describes a [collection](https://anvio.org/help/main/artifacts/collection) by associating items with [bin](https://anvio.org/help/main/artifacts/bin) names.
+
+---
+<details>
+<summary>Click to see the first 104 lines of the file</summary>
+
+
+```
+FZCC0015_000000000001   FZCC0015
+HIMB058_000000000001    HIMB058
+HIMB058_000000000002    HIMB058
+HIMB058_000000000003    HIMB058
+HIMB058_000000000004    HIMB058
+HIMB058_000000000005    HIMB058
+HIMB058_000000000006    HIMB058
+HIMB058_000000000007    HIMB058
+HIMB058_000000000008    HIMB058
+HIMB058_000000000009    HIMB058
+HIMB058_000000000010    HIMB058
+HIMB058_000000000011    HIMB058
+HIMB058_000000000012    HIMB058
+HIMB058_000000000013    HIMB058
+HIMB058_000000000014    HIMB058
+HIMB058_000000000015    HIMB058
+HIMB058_000000000016    HIMB058
+HIMB058_000000000017    HIMB058
+HIMB058_000000000018    HIMB058
+HIMB058_000000000019    HIMB058
+HIMB058_000000000020    HIMB058
+HIMB058_000000000021    HIMB058
+HIMB058_000000000022    HIMB058
+HIMB058_000000000023    HIMB058
+HIMB058_000000000024    HIMB058
+HIMB058_000000000025    HIMB058
+HIMB058_000000000026    HIMB058
+HIMB058_000000000027    HIMB058
+HIMB058_000000000028    HIMB058
+HIMB058_000000000029    HIMB058
+HIMB058_000000000030    HIMB058
+HIMB058_000000000031    HIMB058
+HIMB058_000000000032    HIMB058
+HIMB058_000000000033    HIMB058
+HIMB058_000000000034    HIMB058
+HIMB058_000000000035    HIMB058
+HIMB058_000000000036    HIMB058
+HIMB058_000000000037    HIMB058
+HIMB058_000000000038    HIMB058
+HIMB058_000000000039    HIMB058
+HIMB058_000000000040    HIMB058
+HIMB058_000000000041    HIMB058
+HIMB058_000000000042    HIMB058
+HIMB058_000000000043    HIMB058
+HIMB058_000000000044    HIMB058
+HIMB058_000000000045    HIMB058
+HIMB058_000000000046    HIMB058
+HIMB058_000000000047    HIMB058
+HIMB058_000000000048    HIMB058
+HIMB058_000000000049    HIMB058
+HIMB058_000000000050    HIMB058
+HIMB058_000000000051    HIMB058
+HIMB058_000000000052    HIMB058
+HIMB058_000000000053    HIMB058
+HIMB058_000000000054    HIMB058
+HIMB058_000000000055    HIMB058
+HIMB058_000000000056    HIMB058
+HIMB058_000000000057    HIMB058
+HIMB058_000000000058    HIMB058
+HIMB058_000000000059    HIMB058
+HIMB114_000000000001    HIMB114
+HIMB123_000000000001    HIMB123
+HIMB123_000000000002    HIMB123
+HIMB123_000000000003    HIMB123
+HIMB123_000000000004    HIMB123
+HIMB123_000000000005    HIMB123
+HIMB123_000000000006    HIMB123
+HIMB123_000000000007    HIMB123
+HIMB123_000000000008    HIMB123
+HIMB123_000000000009    HIMB123
+HIMB123_000000000010    HIMB123
+HIMB123_000000000011    HIMB123
+HIMB123_000000000012    HIMB123
+HIMB123_000000000013    HIMB123
+HIMB123_000000000014    HIMB123
+HIMB123_000000000015    HIMB123
+HIMB123_000000000016    HIMB123
+HIMB123_000000000017    HIMB123
+HIMB123_000000000018    HIMB123
+HIMB123_000000000019    HIMB123
+HIMB123_000000000020    HIMB123
+HIMB123_000000000021    HIMB123
+HIMB123_000000000022    HIMB123
+HIMB123_000000000023    HIMB123
+HIMB123_000000000024    HIMB123
+HIMB123_000000000025    HIMB123
+HIMB123_000000000026    HIMB123
+HIMB123_000000000027    HIMB123
+HIMB123_000000000028    HIMB123
+HIMB123_000000000029    HIMB123
+HIMB123_000000000030    HIMB123
+HIMB123_000000000031    HIMB123
+HIMB123_000000000032    HIMB123
+HIMB123_000000000033    HIMB123
+HIMB123_000000000034    HIMB123
+HIMB123_000000000035    HIMB123
+HIMB123_000000000036    HIMB123
+HIMB123_000000000037    HIMB123
+HIMB123_000000000038    HIMB123
+HIMB123_000000000039    HIMB123
+HIMB123_000000000040    HIMB123
+HIMB123_000000000041    HIMB123
+HIMB1402_000000000001   HIMB1402
+HIMB1402_000000000002   HIMB1402
+```
+
+</details>
+
+---
+
+We then used the program [`anvi-import-collection`](https://anvio.org/help/main/programs/anvi-import-collection/) to import this collection into the anvi’o profile database by naming this collection `SAR11COLLECTION`:
+
+```
+anvi-import-collection collection.txt -p 06_MERGED/reference_genomes/PROFILE.db -c 03_CONTIGS/reference_genomes-contigs.db -C SAR11COLLECTION --contigs-mode
+```
+
+We are using `--contigs-mode` because our`collection.txt` describes contigs rather than split.
+
+The collection is not stored in a separate file, but in the PROFILE.db.
+
+### Creating individual, self-contained anvi’o projects for each reference genome and its recruited reads
+
+We will be using `anvi-split` to create individual, self-contained anvi’o projects for each reference genome and its recruited reads.
+
+We are, again, using clusterize to submit the job:
+```
+clusterize -j SAR11_split_job \
+           -o SAR11_split_job.log \
+           -n 8 \
+           -M 96000 \
+           --nodelist mpcs045 \
+           "anvi-split -p 06_MERGED/reference_genomes/PROFILE.db \
+                       -c 03_CONTIGS/reference_genomes-contigs.db \
+                       -C SAR11COLLECTION \
+                       -o SAR11SPLIT"
+
+```
+
+The output will be put into a directory called `SAR11SPLIT`, which will then contain individual directories with contig.db and profile.db for each reference genome and recruited reads. 
+
+### Determine which samples to continue working with
+
+
+#### get contig-level coverage and detection stats
+We will be using [`anvi-profile-blitz`](https://anvio.org/help/main/programs/anvi-profile-blitz/) to find out which samples are useful (e.g. cutoff of: my genomes should be covered 10x). 
+
+`anvi-profile-blitz` allows the fast profiling of BAM files to get contig- or gene-level coverage and detection stats.
+
+We will give it the `BAM file` that were created in the 04_MAPPING, the `CONTIGS.db` and specify what the output should look like.
+
+This is the base command
+```
+  
+anvi-profile-blitz *.bam \
+                   -c contigs-db \
+                   -o OUTPUT.txt
+```
+
+However, since we are doing it for each `split`, so 51 time (once per reference genome), we are adapting it a bit.
+
+
+
+#### combine outputs into one file
+Combine the BLITZ outputs into one dataframe
+```
+cd blitzOUTPUT/
+nano combineOutputs.py
+```
+content
+```
+import pandas as pd
+import glob
+import os
+
+# Directory containing the output files
+output_dir = "."
+
+# List to hold individual data frames
+dfs = []
+
+# Read each file and append to the list
+files = glob.glob(os.path.join(output_dir, "*.txt"))
+for file_path in files:
+    df = pd.read_csv(file_path, sep="\t")
+    reference_genome = os.path.basename(file_path).replace("blitzOUTPUT_", "").replace(".txt", "")
+    df['reference_genome'] = reference_genome
+    
+    # Extract project prefix from sample names (assuming prefix is before the first underscore)
+    df['project'] = df['sample'].str.split('_').str[0]
+    
+    dfs.append(df)
+
+# Combine all data frames
+combined_blitzOUTPUT = pd.concat(dfs, ignore_index=True)
+
+# Save the combined data frame as a .txt file
+combined_blitzOUTPUT.to_csv('./combined_blitzOUTPUT.txt', sep='\t', index=False)
+
+```
+run
+```
+python combineOutputs.py
+```
+
+
+#### Get weighted averages 
+Even though some reference genomes have multiple contigs, I want to know how much of each reference genomed was covered in a given sample / how much the entire reference genome was detected (so across contigs): ao the mean_cov and detection information for the collective reference genome. However, we cannot just take the information of all contigs from the same reference genome across a given sample and take the average, but have to take the length of each contig in respective to the length of the entire reference genome (length of its contigs combined). 
+
+```
+nano calculate_weighted_coverage.py
+```
+content
+```
+import pandas as pd
+
+# Load the data into a pandas DataFrame
+df = pd.read_csv('combined_blitzOUTPUT.txt', delim_whitespace=True)
+
+# Calculate total length for each reference genome within each sample
+df['total_length'] = df.groupby(['sample', 'reference_genome'])['length'].transform('sum')
+
+# Calculate weighted mean coverage and detection
+df['weighted_mean_cov'] = df['mean_cov'] * df['length'] / df['total_length']
+df['weighted_detection'] = df['detection'] * df['length'] / df['total_length']
+
+# Group by sample, reference_genome, and project to sum the weighted values
+result = df.groupby(['sample', 'reference_genome', 'project']).agg({
+    'weighted_mean_cov': 'sum',
+    'weighted_detection': 'sum',
+    'total_length': 'first'  # All values in the group should be the same, so just take the first one
+}).reset_index()
+
+# Save the results to a new tab-separated .txt file
+result.to_csv('weighted_results_with_length.txt', sep='\t', index=False)
+
+
+```
+run
+```
+calculate_weighted_coverage.py
+```
+
+
+
+#### get overview stats of how many samples per project would stay with different detection and coverage cut-offs
+
+How many samples per project make it if we only take the samples for which at least one reference genome has at least 10x coverage and at least 0.5 detection (both need to be true for a sample to pass)? And do that for different coverage and detection combos.
+
+```
+nano filter_samples_all_combinations.py
+```
+content
+```
+import pandas as pd
+
+# Load the data from the specified path
+file_path = './weighted_results_with_length.txt'
+combined_df = pd.read_csv(file_path, sep='\t')
+
+# Calculate the number of samples per project before applying any filters
+initial_stats = combined_df.groupby('project')['sample'].nunique().reset_index()
+initial_stats.columns = ['project', 'num_samples_initial']
+
+# List of coverage and detection thresholds
+coverage_thresholds = list(range(1, 11))  # 1x to 10x
+detection_thresholds = [0.25, 0.3, 0.4, 0.5]
+
+# Initialize a DataFrame to hold all statistics
+all_stats = initial_stats.copy()
+
+# Function to generate a filter criteria string
+def generate_filter_criteria(cov, det):
+    return f'{cov}x_{int(det*100)}'
+
+# Iterate through all combinations of coverage and detection thresholds
+for cov in coverage_thresholds:
+    for det in detection_thresholds:
+        # Apply the filtering criteria
+        filtered_df = combined_df[(combined_df['weighted_mean_cov'] >= cov) & (combined_df['weighted_detection'] >= det)]
+        # Calculate the number of samples per project for the current criteria
+        stats_filtered = filtered_df.groupby('project')['sample'].nunique().reset_index()
+        filter_criteria = generate_filter_criteria(cov, det)
+        stats_filtered.columns = ['project', f'num_samples_{filter_criteria}']
+        # Merge the statistics with the all_stats DataFrame
+        all_stats = pd.merge(all_stats, stats_filtered, on='project', how='outer')
+
+# Save the combined statistics to a single file
+output_combined_stats_path = './combined_stats_weighted_all_filters.txt'
+all_stats.to_csv(output_combined_stats_path, sep='\t', index=False)
+
+# Print the combined statistics
+print("Combined statistics for all filtering criteria:")
+print(all_stats)
+```
+run
+```
+python filter_samples_all_combinations.py
+```
+
+This gives you `combined_stats_weighted_all_filters.txt`
+
+```
+project num_samples_initial     num_samples_1x_25       num_samples_1x_30       num_samples_1x_40       num_samples_1x_50       num_samples_2x_25       num_samples_2x_30       num_samples_2x_40       num_samples_2x_50       num_samples_3x_25       num_samples_3x_30       num_samples_3x_40       num_samples_3x_50       num_samples_4x_25       num_samples_4x_30       num_samples_4x_40       num_samples_4x_50       num_samples_5x_25       num_samples_5x_30       num_samples_5x_40       num_samples_5x_50       num_samples_6x_25       num_samples_6x_30       num_samples_6x_40       num_samples_6x_50       num_samples_7x_25       num_samples_7x_30       num_samples_7x_40       num_samples_7x_50       num_samples_8x_25       num_samples_8x_30       num_samples_8x_40       num_samples_8x_50       num_samples_9x_25       num_samples_9x_30       num_samples_9x_40       num_samples_9x_50       num_samples_10x_25      num_samples_10x_30      num_samples_10x_40      num_samples_10x_50
+BATS    40      40      40      40      40      40      40      40      40      38      38      38      38      36      36      36      36      35      35      35      35      31      31      31      31      29      29      29      29      21      21      21      21      17      17      17      17      16      16      16      16
+BGS     969     941     941     938     907     828     828     828     828     691     691     691     691     579     579     579     579     485     485     485     485     408     408     408     408     335     335     335     335     286     286     286     286     236     236     236     236     201     201     201     201
+BGT     323     313     313     313     310     309     309     308     306     291     291     291     291     271     271     271     271     231     231     231     231     193     193     193     193     170     170     170     170     149     149     149     149     127     127     127     127     104     104     104     104
+HOT1    28      28      28      28      28      28      28      28      28      26      26      26      26      25      25      25      25      23      23      23      23      22      22      22      22      22      22      22      22      22      22      22      22      19      19      19      19      17      17      17      17
+HOT3    230     182     182     182     182     160     160     160     160     151     151     151     150     140     140     140     140     131     131     131     131     120     120     120     120     104     104     104     104     92      92      92      92      86      86      86      86      74      74      74      74
+MAL     16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16      16
+OSD     149     82      82      68      44      48      48      48      43      29      29      29      28      22      22      22      22      14      14      14      14      9       9       9       9       7       7       7       7       6       6       6       6       5       5       5       5       4       4       4       4
+TARA    95      95      94      94      94      95      94      94      94      94      94      94      94      94      94      94      94      94      94      94      94      94      94      94      94      94      94      94      94      94      94      94      94      94      94      94      94      94      94      94      94
+```
+
+
+#### Filter based on 0.5 detection and 10x coverage
+
+```
+nano filter_samples_detNcov.py
+```
+content
+```
+import pandas as pd
+
+# Load the data from the specified path
+file_path = './weighted_results_with_length.txt'
+combined_df = pd.read_csv(file_path, sep='\t')
+
+# Calculate the number of samples per project before applying any filters
+initial_stats = combined_df.groupby('project')['sample'].nunique().reset_index()
+initial_stats.columns = ['project', 'num_samples_initial']
+
+# Filter for samples with at least one reference genome having at least 0.5 weighted detection
+filter_05_detection = combined_df[combined_df['weighted_detection'] >= 0.5]
+
+# Filter for samples with at least one reference genome having at least 10x weighted mean coverage
+filter_10x = combined_df[combined_df['weighted_mean_cov'] >= 10]
+
+# Combine filters to get samples that passed both criteria
+combined_filters = filter_05_detection.merge(filter_10x, on=['sample', 'total_length', 'weighted_detection', 'weighted_mean_cov', 'reference_genome', 'project'])
+
+# Generate statistics for 0.5 weighted detection filter
+stats_05_detection = filter_05_detection.groupby('project')['sample'].nunique().reset_index()
+stats_05_detection.columns = ['project', 'num_samples_05_detection']
+
+# Generate statistics for 10x weighted mean coverage filter
+stats_10x = filter_10x.groupby('project')['sample'].nunique().reset_index()
+stats_10x.columns = ['project', 'num_samples_10x']
+
+# Print the statistics
+print("Initial statistics for samples per project:")
+print(initial_stats)
+
+print("\nStatistics for samples with at least 0.5 weighted detection:")
+print(stats_05_detection)
+
+print("\nStatistics for samples with at least 10x weighted mean coverage:")
+print(stats_10x)
+
+# Merge all statistics into a single DataFrame
+all_stats = initial_stats.merge(stats_05_detection, on='project', how='outer').merge(stats_10x, on='project', how='outer')
+
+# Save all statistics to a single .txt file
+output_stats_path = './filtered05N10x_stats.txt'
+all_stats.to_csv(output_stats_path, sep='\t', index=False)
+
+# Save the combined filtered DataFrame to a .txt file
+output_filtered_path = './filtered05N10x_combined_df.txt'
+combined_filters.to_csv(output_filtered_path, sep='\t', index=False)
+
+```
+run
+```
+python filter_samples_detNcov.py
+```
+
+This results in two files called `filtered05N10x_stats.txt` (containing the number of samples of each project that passed the filter criteria) and `filtered05N10x_combined_df.txt` (the sample_IDs, contigs, weighted_mean_cov, weighted_detection of the samples that passed the filtering)
+
+```
+sample  reference_genome        project weighted_mean_cov       weighted_detection      total_length
+BATS_SAMN07137064_10_2003_04_22 HIMB1436        BATS    17.363279079539108      0.8795767950849176      1208525
+BATS_SAMN07137064_10_2003_04_22 HIMB2187        BATS    13.489588372836309      0.8361808067690548      1188940
+BATS_SAMN07137064_10_2003_04_22 HIMB2226        BATS    12.678559899501952      0.8206248871785373      1193257
+BATS_SAMN07137064_10_2003_04_22 HTCC7211        BATS    21.92   0.9167  1456888
+BATS_SAMN07137064_10_2003_04_22 HTCC7214        BATS    11.12   0.7453  1375060
+BATS_SAMN07137064_10_2003_04_22 RS39    BATS    17.65   0.8745  1200090
+BATS_SAMN07137074_60_2004_03_23 FZCC0015        BATS    13.3    0.8425  1364101
+BATS_SAMN07137074_60_2004_03_23 HIMB123 BATS    10.71272055510127       0.8193143926122783      1271840
+BATS_SAMN07137074_60_2004_03_23 HIMB1456        BATS    11.999417281233908      0.8549003880194077      1353489
+```
+
+### Generate anvi'o PROFILE.db with selected samples
+
+Based on the information we have post-detection0.5-coverage10x-filtering, we know which samples to continue working with. In order to continue working with them, however, we need to generate a new anvi'o PROFILE.db with those samples only.
+
+We will create a .txt file which only lists the sample names (and only lists each once).
+```
+# Extract the first column (sample names), sort them, and keep only unique entries
+awk 'NR>1 {print $1}' ./blitzOUTPUT/filtered05N10x_combined_df.txt | sort | uniq > ./blitzOUTPUT/unique_samples.txt
+
+```
+
+#### Profile the mapping results with anvi’o
+First, that requires generating individual PROFILE.dbs for each .bam file of the samples we want. The .bam files are stored in `./04_MAPPING/reference_genomes/`.
+
+To generate these profile.dbs we are using anvi'o's [`anvi-profile`](https://anvio.org/help/7.1/programs/anvi-profile/) program. In its simplest form, that looks like:
+```
+anvi-profile -i SAMPLE-01.bam -c contigs.db
+```
+
+However, we will adapt it to our needs as such:
+
+Submit multiple anvi-profile jobs to a cluster using the clusterize tool. The script reads a list of sample names from a file, processes the corresponding BAM files, and submits the jobs in a controlled manner to avoid overwhelming the cluster scheduler. It includes functionality to stagger job submissions and limit the number of jobs running simultaneously.
+
+We are keeping the number of threads = 16, as described here: https://merenlab.org/2017/03/07/the-new-anvio-profiler/.
+
+
+```
+nano run_anvi_profile_cluster.sh
+```
+content
+```
+#!/bin/bash
+
+# Maximum number of jobs to submit at once
+max_jobs=10
+
+# Iterate over each line in the unique_samples.txt file
+while IFS=$'\t' read -r sample
+do
+    # Define the path to the BAM file
+    bam_file="./04_MAPPING/reference_genomes/${sample}.bam"
+
+    # Define the output directory
+    output_dir="./filteredPROFILEdb/$sample"
+
+    # Define the log file for each sample
+    log_file="./filteredPROFILEdb/${sample}_anvi_profile.log"
+
+    # Check if the BAM file exists
+    if [ -f "$bam_file" ]; then
+        # Define the command to run anvi-profile with 16 threads
+        cmd="anvi-profile -c 03_CONTIGS/reference_genomes-contigs.db \
+                          -i $bam_file \
+                          --num-threads 16 \
+                          -o $output_dir"
+
+        # Submit the job using clusterize
+        clusterize -j "anvi_profile_$sample" \
+                   -o "$log_file" \
+                   -n 16 \
+                   --mail-user raissa.meyer@awi.de \
+                   "$cmd"
+
+        # Check the number of jobs in the queue, and wait if too many are running
+        while [ $(squeue -u $USER | wc -l) -ge $max_jobs ]; do
+            sleep 60
+        done
+
+    else
+        echo "BAM file for sample $sample not found, skipping..."
+    fi
+
+done < ./blitzOUTPUT/unique_samples.txt
+
+```
+give it permission
+```
+chmod +x run_anvi_profile_cluster.sh
+```
+and run
+```
+./run_anvi_profile_cluster.sh
+```
+
+
+#### Generate a merged anvi’o profile
+
+Use [`anvi-merge`](https://anvio.org/help/7.1/programs/anvi-merge/) to convert multiple single-profile-dbs (of our selected samples) into a single profile-db (also called a merged profile database). Basically, this takes the alignment data from each sample (each contained in its own single-profile-db) and combines them into a single database that anvi’o can look through more easily.
+
+The basic command is:
+```
+anvi-merge -c cool_contigs.db \
+            Single_profile_db_1 Single_profile_db_2 \
+            -o cool_contigs_merge
+```
+
+We adjusted it to our directory structure and naming and ran it in `filteredPROFILEdb/`
+```
+clusterize -j merge_profile_db \
+-o merge_profile_db.log \
+-n 1 \
+"anvi-merge */PROFILE.db -o SAR11-MERGED -c ../03_CONTIGS/reference_genomes-contigs.db"
+
+```
+
+
+## Create self-contained anvi'o projects for my reference genomes and associated metagenomes, again
+
+We are again using `anvi-split`, but this time, we are using it on the collective PROFILE.db for the selected samples (for which at least one reference genome is above 10x coverage and 0.5 detection) only.
+
+### create COLLECTION, again
+First, we have to re-create a COLLECTION that will be stored in the PROFILE.db. For that, we can reuse the collection.txt that we used before, but have to re-create the COLLECTION in itself: specifying the new PROFILE.db.
+
+Here we go:
+```
+anvi-import-collection collection.txt \
+   -p filteredPROFILEdb/SAR11-MERGED/PROFILE.db \
+   -c 03_CONTIGS/reference_genomes-contigs.db \
+   -C SAR11COLLECTION \
+   --contigs-mode
+```
+
+### do the splits, again
+
+The output will go into a directory called `SAR11_postFilter`.
+
+```
+clusterize -j SAR11_split_post_filter_job \
+           -o SAR11_split_post_filter_job.log \
+           -n 8 \
+           -M 96000 \
+           --nodelist mpcs052 \
+           "anvi-split -p filteredPROFILEdb/SAR11-MERGED/PROFILE.db \
+                       -c 03_CONTIGS/reference_genomes-contigs.db \
+                       -C SAR11COLLECTION \
+                       -o SAR11SPLIT_postFilter"
+```
+
+
+
+## Visualise 
+
+In this section we will explain how we used `anvi-interactive` to visualise our metagenomes.
+
+For `anvi-interactive` to give us what we want, we need
+- to decide which reference genomes to focus on
+- a collection and bin to feed to `--gene-mode`
+- to prepare and import the metadata we want to order our layers (metagenomes) by in the interactive interface
+
+### decide which SAR11 reference genomes to viusalise
+
+To decide which SAR11 reference genomes to focus on, we will see which are found across most of the projects.
+
+We wrote a little script to output which projects each reference genome is found in:
+
+```
+nano countSamplesEachRefGenome.py
+```
+content
+```
+import pandas as pd
+
+# Load the data from the txt file into a DataFrame
+df = pd.read_csv('filtered05N10x_combined_df.txt', sep='\t')
+
+# Group by 'reference_genome' and aggregate the unique projects into a list
+genome_project_details = df.groupby('reference_genome').agg({
+    'project': lambda x: list(x.unique())
+}).reset_index()
+
+# Count the number of unique projects per reference genome
+genome_project_details['num_projects'] = genome_project_details['project'].apply(len)
+
+# Sort by the number of projects in descending order
+sorted_genomes = genome_project_details.sort_values(by='num_projects', ascending=False)
+
+# Determine the total number of unique projects
+total_projects = df['project'].nunique()
+
+# Check which genomes are found in all projects
+genomes_in_all_projects = sorted_genomes[sorted_genomes['num_projects'] == total_projects]
+
+# Display the results
+print("Genomes found in all projects:")
+print(genomes_in_all_projects)
+
+print("\nNumber of projects each genome is found in and the project names (sorted):")
+print(sorted_genomes)
+```
+output
+```
+Genomes found in all projects:
+Empty DataFrame
+Columns: [reference_genome, project, num_projects]
+Index: []
+
+Number of projects each genome is found in and the project names (sorted):
+   reference_genome                                  project  num_projects
+0          FZCC0015  [BATS, BGS, BGT, HOT1, HOT3, MAL, TARA]             7
+13         HIMB1483  [BATS, BGS, BGT, HOT1, HOT3, MAL, TARA]             7
+46             RS39  [BATS, BGS, BGT, HOT1, HOT3, MAL, TARA]             7
+37           HIMB83  [BATS, BGS, BGT, HOT1, HOT3, MAL, TARA]             7
+34         HIMB2305  [BATS, BGS, BGT, HOT1, HOT3, MAL, TARA]             7
+33         HIMB2250  [BATS, BGS, BGT, HOT1, HOT3, MAL, TARA]             7
+32         HIMB2226  [BATS, BGS, BGT, HOT1, HOT3, MAL, TARA]             7
+31         HIMB2204  [BATS, BGS, BGT, HOT1, HOT3, MAL, TARA]             7
+30         HIMB2201  [BATS, BGS, BGT, HOT1, HOT3, MAL, TARA]             7
+29         HIMB2200  [BATS, BGS, BGT, HOT1, HOT3, MAL, TARA]             7
+28         HIMB2187  [BATS, BGS, BGT, HOT1, HOT3, MAL, TARA]             7
+27         HIMB2104  [BATS, BGS, BGT, HOT1, HOT3, MAL, TARA]             7
+47             RS40  [BATS, BGS, BGT, HOT1, HOT3, MAL, TARA]             7
+12         HIMB1456  [BATS, BGS, BGT, HOT1, HOT3, MAL, TARA]             7
+7          HIMB1413  [BATS, BGS, BGT, HOT1, HOT3, MAL, TARA]             7
+10         HIMB1437  [BATS, BGS, BGT, HOT1, HOT3, MAL, TARA]             7
+11         HIMB1444  [BATS, BGS, BGT, HOT1, HOT3, MAL, TARA]             7
+6          HIMB1409  [BATS, BGS, BGT, HOT1, HOT3, MAL, TARA]             7
+5          HIMB1402  [BATS, BGS, BGT, HOT1, HOT3, MAL, TARA]             7
+3           HIMB123  [BATS, BGS, BGT, HOT1, HOT3, MAL, TARA]             7
+9          HIMB1436  [BATS, BGS, BGT, HOT1, HOT3, MAL, TARA]             7
+1           HIMB058        [BATS, BGS, BGT, HOT3, MAL, TARA]             6
+39         HTCC7211              [BATS, BGS, BGT, MAL, TARA]             5
+40         HTCC7214              [BATS, BGS, BGT, MAL, TARA]             5
+45              NP1               [BGS, BGT, MAL, OSD, TARA]             5
+38         HTCC1002               [BGS, BGT, MAL, OSD, TARA]             5
+41         HTCC8051                    [BGS, BGT, MAL, TARA]             4
+42         HTCC9022                    [BGS, BGT, MAL, TARA]             4
+43         HTCC9565                    [BGS, BGT, MAL, TARA]             4
+4           HIMB140                         [BGT, MAL, TARA]             3
+24         HIMB1685                         [BGT, MAL, TARA]             3
+14         HIMB1485                         [BGT, MAL, TARA]             3
+17         HIMB1509                         [BGT, MAL, TARA]             3
+25         HIMB1695                         [BGT, MAL, TARA]             3
+23         HIMB1573                         [BGT, MAL, TARA]             3
+16         HIMB1495                         [BGT, MAL, TARA]             3
+21         HIMB1559                         [BGT, MAL, TARA]             3
+26         HIMB1709                         [BGT, MAL, TARA]             3
+15         HIMB1488                              [BGT, TARA]             2
+44         IMCC9063                              [BGS, TARA]             2
+20         HIMB1556                              [BGT, TARA]             2
+18         HIMB1517                                   [TARA]             1
+19         HIMB1520                                   [TARA]             1
+22         HIMB1564                                   [TARA]             1
+36            HIMB5                                   [TARA]             1
+35            HIMB4                                   [TARA]             1
+2           HIMB114                                   [TARA]             1
+8          HIMB1427                                   [TARA]             1
+```
+
+> [!NOTE]
+OSD only included in NP1 and HTCC1002...
+
+We will focus on those metagenomes that are found in 7 of the 8 projects.
+
+
+We can also visualise the occurrence (above 10x cov and 0.5 detection) of reference genomes across samples in R
+
+```
+## visualise anvi-profile-blitz output
+
+library(ggplot2)
+library(dplyr)
+
+
+blitz_covNdet <- read.table("/Users/rameyer/Documents/_P3/P3dataAnalysis/P3_visualise/outputBLITZ/filtered05N10x_combined_df.txt", header = TRUE, sep = "\t")
+head(blitz_covNdet)
+
+
+
+# Convert reference_genome to a factor
+blitz_covNdet$reference_genome <- as.factor(blitz_covNdet$reference_genome)
+
+
+# Create a dataframe for project labels
+project_labels <- blitz_covNdet %>%
+  select(sample, project) %>%
+  distinct() %>%
+  arrange(sample)
+
+# Create a color palette for projects
+project_colors <- project_labels %>%
+  distinct(project) %>%
+  mutate(color = rainbow(n()))
+
+# Merge project colors back to project labels
+project_labels <- project_labels %>%
+  left_join(project_colors, by = "project")
+
+# Ensure samples are factors with levels matching the order in project_labels
+blitz_covNdet$sample <- factor(blitz_covNdet$sample, levels = project_labels$sample)
+
+# Create a named vector of colors for the samples
+sample_colors <- setNames(project_labels$color, project_labels$sample)
+
+# Create the ggplot object
+ggplot(blitz_covNdet, aes(x = sample, y = reference_genome, size = weighted_mean_cov, color = weighted_detection)) +
+  geom_point(alpha = 0.7) +
+  scale_color_viridis_c() +
+  scale_size_continuous(range = c(1, 10)) +
+  labs(title = "Reference Genomes Presence, Mean Coverage, and Detection in Samples",
+       x = "Sample",
+       y = "Reference Genome") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5, color = sample_colors))
+
+```
+![Uploading file..._ly99umh4u]()
+
+
+
+
+
+
+### get collection and bin for `--gene-mode`
+
+
+First, we start the anvio-dev conda environement
+```
+conda list env
+conda activate anvio-dev
+```
+
+Then we look at the [anvi-script-add-default-collection](https://anvio.org/help/main/programs/anvi-script-add-default-collection/) program, which can help us get a collection and bin.
+
+The basic command is:
+
+```
+anvi-script-add-default-collection -c [contigs-db](https://anvio.org/help/main/artifacts/contigs-db) \
+                                   -p [profile-db](https://anvio.org/help/main/artifacts/profile-db)
+```
+the program will add a new collection into the profile database named `DEFAULT`, which will contain a single bin that describes all items in the database named `EVERYTHING`. 
+
+I will need to do it by specifying every single PROFILE.db I have (one per ref genome).
+
+```
+anvi-script-add-default-collection -c SAR11SPLIT_postFilter/FZCC0015/CONTIGS.db \
+                                   -p SAR11SPLIT_postFilter/FZCC0015/PROFILE.db
+```
+
+To avoid doing this for every single reference genome manually, we will do it in a loop
+
+```
+for dir in SAR11SPLIT_postFilter/*/; do
+    contigs_db="${dir}CONTIGS.db"
+    profile_db="${dir}PROFILE.db"
+    anvi-script-add-default-collection -c "$contigs_db" -p "$profile_db"
+done
+
+```
+
+### get gene database
+
+To generate a gene database, anvi'o offers creating one when `anvi-interactive` is started in `--gene-mode`, or alternatively with the program `anvi-gen-gene-level-stats-databases`. We will use the latter here because we need it for many reference genomes.
+
+The basic command is
+```
+anvi-gen-gene-level-stats-databases -c contigs-db \
+                                    -p profile-db \
+                                    -C collection
+```
+
+Adapted to our data and aim, it is
+
+```
+for dir in SAR11SPLIT_postFilter/*/; do
+    contigs_db="${dir}CONTIGS.db"
+    profile_db="${dir}PROFILE.db"
+    anvi-gen-gene-level-stats-databases -c "$contigs_db" -p "$profile_db" -C DEFAULT
+done
+
+```
+
+The genes database will automatically be stored in the directory in which the PROFILE.db and CONTIGS.db are also in, but in its own subdirectory called `GENES/`, which contains the `DEFAULT-EVERYTHING.db` GENES database.
+
+
+### import the metadata we want to order our layers (metagenomes) by
+
+#### Prepare
+
+To visualise the metagenomes capturing each reference genome with their metadata in mind (here, following the latitudinal gradient), we can use `anvi-import-misc-data`.
+
+[`anvi-import-misc-data`](https://anvio.org/help/main/programs/anvi-import-misc-data/) is a program to populate additional data or order tables in pan or profile databases for items and layers, OR additional data in contigs databases for nucleotides and amino acids. We want to use it to propulate additinal data in profile databases for layers.
+
+This blog post gives some more information on this program: https://merenlab.org/2017/12/11/additional-data-tables/#layers-additional-data-table.
+
+
+Okay, so we need a table to give this program. A table that should look something like this:
+```
+samples numerical_01    numerical_02    categorical     stacked_bar!X   stacked_bar!Y   stacked_bar!Z
+c1      100     5       A       1       2       3
+c2      200     4       B       2       3       1
+c3      300     3       B       3       1       2
+```
+
+The first column of this file needs to be identical to our layer (sample) names, and every column describes a property of a given layer.
+
+The basic command is structured as follows: 
+- `layers_additional_data.txt` is the table we see above, containing any metadata on the layers we want to add
+- `-p profile.db` is the PROFILE.db containing all the information for how our metagenomes short reads map to the reference genome contigs (in our case the PROFILE.db made with only the samples that passed the filtering)
+- `--target-data-table layers` notes that what we are providing our extra metadata to is the `layers` object
+
+
+```
+anvi-import-misc-data layers_additional_data.txt \
+                         -p profile.db \
+                         --target-data-table layers
+```
+and if you want to delete it later 
+```
+anvi-delete-misc-data -p profile.db \
+                      --target-data-table layers 
+                      --just-do-it
+```
+So now we need to make sure that our metadata is following the format that this program expects. That means to use the sample names we used as part of this workflow, but also to subset the main metadata table we made in [public-marine-omics-metadata](https://github.com/merenlab/public-marine-omics-metadata/tree/main) to only keep info on the samples that passed our filtering based on coverage and detection here.
+
+Let's do it!
+
+Our metadata file (metagenomes.txt) currently still has metadata for more samples than the ones that passed the cov and det filtering. 
+
+We will first subset `metagenomes.txt` to only include those samples that passed the filtering and are thus listed in the `unique_samples.txt` we created earlier.
+
+Further, the `metagenomes.txt` file currently has multiple rows per sample if there are multiple runs associated with one sample. We will make it such that there is only one row per sample (so one row per layer that we want to associate this with in anvi'o). Of course, ensuring that any differing values across different runs from the same sample are concatenated, and identical values retained as they are.
+
+```
+nano filterMetagenomesTxt.py
+```
+content
+```
+import pandas as pd
+
+# Step 1: Read the unique samples file
+with open('../../../digital_sup/metadataForAnvio/unique_samples.txt', 'r') as f:
+    unique_samples = f.read().splitlines()
+
+# Step 2: Read the metagenomes file
+metagenomes_df = pd.read_csv('../data/metagenomes.txt', sep='\t')
+
+# Step 3: Create a dictionary to map `biosample` to the full sample name
+sample_mapping = {sample.split('_')[1]: sample for sample in unique_samples}
+
+# Step 4: Filter the metagenomes data where `biosample` matches the key in `sample_mapping`
+filtered_df = metagenomes_df[metagenomes_df['biosample'].isin(sample_mapping.keys())].copy()
+
+# Step 5: Add a new column `sample` with the full sample name
+filtered_df['sample'] = filtered_df['biosample'].map(sample_mapping)
+
+# Step 6: Group by the 'sample' column and aggregate each column by concatenating unique values
+aggregated_df = filtered_df.groupby('sample').agg(lambda x: ','.join(sorted(set(x.dropna().astype(str)))))
+
+# Step 7: Reset the index to make 'sample' a column again
+aggregated_df.reset_index(inplace=True)
+
+# Step 8: Reorder columns to make `sample` the first column
+cols = ['sample'] + [col for col in aggregated_df.columns if col != 'sample']
+aggregated_df = aggregated_df[cols]
+
+# Step 9: Write the resulting DataFrame to a new file
+aggregated_df.to_csv('../data/metagenomes_filtered.txt', sep='\t', index=False)
+```
+run
+```
+python3 filterMetagenomesTxt.py
+```
+
+Now only select the columns we want to bring into anvi'o
+
+```
+nano prepAnvioMetadata.py
+```
+content
+```
+import pandas as pd
+
+# Load the dataset
+file_path = '../data/metagenomes_filtered.txt'  # replace with your file path
+df = pd.read_csv(file_path, sep='\t')
+
+# Select only the desired columns
+columns_to_keep = ['sample', 'latitude', 'longitude', 'project', 'depth', 'temperature_degC', 'year', 'model', 'layer', 'season', 'sub_region_seavox', 'region_seavox', 'provdescr_longhurst', 'environment', 'env_biome', 'env_feature', 'env_material']
+filtered_df = df[columns_to_keep]
+
+# Save the filtered DataFrame to a new file
+filtered_df.to_csv('../data/metagenomes_filtered_anvio.txt', sep='\t', index=False)
+
+```
+
+#### Do it
+
+Since we are using `--gene-mode`, we need to import the metadata into the GENES database.
+
+This is the metadata file `metadata/metagenomes_filtered_anvio.txt` we prepared above.
+
+
+We will loop through the directories containing the `GENES.db`s for our reference genomes.
+```
+for dir in SAR11SPLIT_postFilter/*/; do
+    genes_db="${dir}GENES/DEFAULT-EVERYTHING.db"
+    anvi-import-misc-data metadata/metagenomes_filtered_anvio.txt -p "$genes_db" --target-data-table layers
+done
+```
+
+
+Since we want to also show it on the top of the circle (ah, indeed, my lady, I dare say I am most proficient in the distinguished tongue of `anvi'o`), we also need to import it into the PROFILE.db.
+
+We will, again, loop through the directories containing the `PROFILE.db`s for our reference genomes.
+```
+for dir in SAR11SPLIT_postFilter/*/; do
+    profile_db="${dir}PROFILE.db"
+    anvi-import-misc-data metadata/metagenomes_filtered_anvio.txt -p "$profile_db" --target-data-table layers
+done
+```
+
+```
+anvi-import-misc-data metadata/metagenomes_filtered_anvio.txt \
+                         -p SAR11SPLIT_postFilter/HIMB2204/PROFILE.db \
+                         --target-data-table layers
+
+```
+
+### Look at it
+
+To look at it, we are using the `anvi-interactive` command again. With all the prep we did above, it will now show the genes in the metagenomes and allow us to sort layers (metagenomes) based on the metadata keys we imported as well as adjust what will be visualised (coverage, detection, ...) how the genes will be ordered in the metagenomes (synteny, detection, ...) and so on.
+
+We are showing it here with the FZCC0015 reference genome.
+```
+anvi-interactive -c SAR11SPLIT_postFilter/FZCC0015/CONTIGS.db                  -p SAR11SPLIT_postFilter/FZCC0015/PROFILE.db                  -C DEFAULT                  -b EVERYTHING                  --gene-mode
+```
+
+Anvi'o allows us to define a state and export and import that state. 
+
+To do so, we will adjust any parameter we want to adjust and then click on `Save` under the mention of `State` in the left hand panel in the interactive interface. That prompts us to select a name: `visualise`. This will save the state in the GENES.db
+
+If we want to viualise the same project again, we can load that state with the `--state-autoload` flag.
+```
+anvi-interactive -c SAR11SPLIT_postFilter/FZCC0015/CONTIGS.db \
+   -p SAR11SPLIT_postFilter/FZCC0015/PROFILE.db \
+   -C DEFAULT \
+   -b EVERYTHING \
+   --gene-mode \
+   --state-autoload visualise
+```
+
+However, we can also use the same state with other projects. 
+
+To do so, we will use `anvi-export-state` on the GENES.db in which we defined the state and `anvi-import-state` on the GENES.db that we want to import the state to. After that, we can specify it in the `anvi-interactive` command as above.
+
+Export the state:
+```
+anvi-export-state -p SAR11SPLIT_postFilter/FZCC0015/GENES/DEFAULT-EVERYTHING.db \
+   -s visualise \
+   -o visualise.json
+```
+
+Import the state to a different project
+```
+anvi-import-state -p SAR11SPLIT_postFilter/HIMB140/GENES/DEFAULT-EVERYTHING.db \
+   -n visualise \
+   -s visualise.json 
+```
+
+And use `anvi-interactive` to look at it
+```
+anvi-interactive -c SAR11SPLIT_postFilter/HIMB140/CONTIGS.db \
+  -p SAR11SPLIT_postFilter/HIMB140/PROFILE.db \
+  -C DEFAULT \
+  -b EVERYTHING \
+  --gene-mode \
+  --state-autoload visualise
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
