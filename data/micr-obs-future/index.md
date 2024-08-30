@@ -1440,8 +1440,8 @@ This workflow relies on much more than just anvi'o or snakemake, but many other 
 
 ---
 
-<details>
-<summary>Click to see default-metagenomics-config.json</summary>
+<details markdown="1"><summary>Click to show/hide default-metagenomics-config.json</summary>
+
 
 ```
 {
@@ -1825,8 +1825,8 @@ These are the names by which the contigs are stored within anvio.
 
 ---
 
-<details>
-<summary>Click to see the head of the file</summary>
+<details markdown="1"><summary>Click to show/hide the head of the file</summary>
+
 
 ```
 FZCC0015_000000000001
@@ -1853,8 +1853,8 @@ This does the same as the command above PLUS it removes the suffix of "_00000000
 
 ---
 
-<details>
-<summary>Click to see the head of the file</summary>
+<details markdown="1"><summary>Click to show/hide the head of the file</summary>
+
 
 ```
 FZCC0015
@@ -1881,8 +1881,8 @@ paste contigs.txt bins.txt > collection.txt
 [`collection.txt`](https://anvio.org/help/main/artifacts/collection-txt/) is a two-column TAB-delimited file without a header that describes a [collection](https://anvio.org/help/main/artifacts/collection) by associating items with [bin](https://anvio.org/help/main/artifacts/bin) names.
 
 ---
-<details>
-<summary>Click to see the first 104 lines of the file</summary>
+
+<details markdown="1"><summary>Click to see the first 104 lines of the file</summary>
 
 
 ```
