@@ -60,9 +60,6 @@ The isolate genomes available at the time of this analysis are included in `SAR1
 
 <details markdown="1"><summary>Click here to show/hide an overview of the reference genomes used</summary>
 
-<details>
-<summary>Click here to see an overview of the reference genomes used</summary>
-
 | Genome name                         | Genus     | Species        | Type | Study                        | Source.Location             |
 |-------------------------------------|-----------|----------------|------|------------------------------|-----------------------------|
 | HIMB1321                            | Ia.3.III  | Ia.3.III       | No   | Brandon 2006                 | coastal, Oahu, Hawaii, USA  |
