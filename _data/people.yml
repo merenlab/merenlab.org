@@ -55,6 +55,31 @@
       inst_link: https://biomedsciences.uchicago.edu/
       current: false
 
+- alias: amy
+  lab_member: True
+  role: PI on Sabbatical
+  tenure_start: 09/2024
+  avatar: bio-amy.jpg
+  name: Amy D. Willis
+  name_as_author: Amy D Willis
+  email: adwillis@uw.edu
+  web: http://statisticaldiversitylab.com/team/amy-willis
+  twitter: AmyDWillis
+  orcid: 0000-0002-2802-4317
+  github: adw96
+  bio: "My lab and I develop statistical and computational methods for the analysis of biodiversity data, with a particular focus on the microbiome. Like the Meren lab, I'm passionate about reproducible science, meaningful data analysis, ecosystem and host health, outreach and education, and collaborating with scientists who share these values."
+  affiliations:
+    - title: Principal Investigator
+      inst: Statistical Diversity Lab, University of Washington
+      inst_link: http://statisticaldiversitylab.com/
+    - title: Associate Professor
+      inst: Department of Biostatistics, University of Washington
+      inst_link: https://www.biostat.washington.edu/
+    - title: Assistant Professor
+      inst: Department of Biostatistics, University of Washington
+      inst_link: https://www.biostat.washington.edu/
+      current: false
+
 - alias: sarah
   lab_member: True
   name: Sarah Tucker
@@ -766,26 +791,6 @@
     - title: Post-doctoral Scientist
       inst: Institute for Chemistry and Biology of the Marine Environment, University of Oldenburg
       inst_link: https://uol.de/en/icbm
-
-- alias: amy
-  collaborator: True
-  role: Partner in Science / Collaborator
-  avatar: bio-amy.jpg
-  name: Amy D. Willis
-  name_as_author: Amy D Willis
-  email: adwillis@uw.edu
-  web: http://statisticaldiversitylab.com/team/amy-willis
-  twitter: AmyDWillis
-  orcid: 0000-0002-2802-4317
-  github: adw96
-  bio: "My lab and I develop statistical and computational methods for the analysis of biodiversity data, with a particular focus on the microbiome. Like the Meren lab, I'm passionate about reproducible science, meaningful data analysis, ecosystem and host health, outreach and education, and collaborating with scientists who share these values."
-  affiliations:
-    - title: Principal Investigator
-      inst: Statistical Diversity Lab, University of Washington
-      inst_link: http://statisticaldiversitylab.com/
-    - title: Assistant Professor
-      inst: Department of Biostatistics, University of Washington
-      inst_link: https://www.biostat.washington.edu/
 
 ####################################################################################
 # Community Guests & Contributors
