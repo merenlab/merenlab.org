@@ -66,17 +66,19 @@ people:
 
 publications:
   - doi:
-      10.1101/2024.01.16.575828
+      10.1038/s41597-024-03778-z
     title:
       "Digital Microbe: A genome-informed data integration framework for collaborative research on emerging model organisms"
     authors:
       Iva Veseli*, Zachary S Cooper*, Michelle A DeMers*, Matthew S Schechter, Samuel E Miller, Laura Weber, Christa B Smith, Lidimarie T Rodriguez, William F Schroer, Matthew R McIlvin, Paloma Z Lopez, Makoto Saito, Sonya Dyhrman, A Murat Eren+, Mary Ann Moran+, Rogier Braakman+
     journal:
-      bioRxiv
+      Scientific Data
     year:
       2024
     volume:
+      11
     number:
+      967
     pages:
     additional_info:
       highlights:
@@ -87,6 +89,25 @@ publications:
       featured_image:
         /images/pubs/veseli_cooper_demers_et_al_2024.png
 
+  - doi:
+      10.1038/d41586-024-02661-6
+    title:
+      "Bioprospecting marine microbial genomes to improve biotechnology"
+    authors:
+      A Murat Eren, Tom O Delmont
+    journal:
+      Nature
+    year:
+      2024
+    volume:
+    number:
+    pages:
+    additional_info:
+      highlights:
+        - A Nature News & Views piece to discuss the implications of the article published byaChen, Jia, Sun, and Liu et al., "<a href='https://www.nature.com/articles/s41586-024-07891-2'>Global marine microbial diversity and its potential in bioprospecting</a>".
+        - We point out that the ever-increasing number of environmental genomes reported from marine systems are ready for bioprospecting efforts and to those who wish to push the boundaries of microbiology by connecting its classical and modern means.
+      featured_image:
+        /images/pubs/eren_and_delmont_et_al_2024.png
 
   - doi:
       10.1016/j.cell.2024.01.039
@@ -123,8 +144,10 @@ publications:
     year:
       2024
     volume:
+      9
     number:
     pages:
+      830-847
     additional_info:
       highlights:
         - A study that aims to shed light on <b>the ecology and evolution of one of the most critical yet poorly studied aspects of microbial life -- naturally occurring plasmids</b>.

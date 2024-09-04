@@ -1,7 +1,6 @@
 ---
 layout: publications
-title: Publications
-modified: 2024-03-04
+modified: 2024-09-04
 comments: false
 image:
    display: true
@@ -18,11 +17,11 @@ This page lists publications that are most reflective of our interests. For a co
 
 ## 2024
 
-<a id="10.1101/2024.01.16.575828">&nbsp;</a>
+<a id="10.1038/s41597-024-03778-z">&nbsp;</a>
 <div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2024.01.16.575828"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.1101/2024.01.16.575828" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <span class="pub-title"><a href="https://doi.org/10.1101/2024.01.16.575828" target="_new">Digital Microbe: A genome-informed data integration framework for collaborative research on emerging model organisms</a></span>
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41597-024-03778-z"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1038/s41597-024-03778-z" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1038/s41597-024-03778-z" target="_new">Digital Microbe: A genome-informed data integration framework for collaborative research on emerging model organisms</a></span>
     <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Veseli I<sup>☯</sup></span>, Cooper ZS<sup>☯</sup>, DeMers MA<sup>☯</sup>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Schechter MS</span>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Miller SE</span>, Weber L, Smith CB, Rodriguez LT, Schroer WF, McIlvin MR, Lopez PZ, Saito M, Dyhrman S, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM<sup>‡</sup></span>, Moran MA<sup>‡</sup>, Braakman R<sup>‡</sup></span>
     <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors; <sup>‡</sup>Co-senior authors</span>
     <div class="pub-info">
@@ -33,7 +32,24 @@ This page lists publications that are most reflective of our interests. For a co
     <span style="display: inline-block; padding-bottom: 5px;">- Description of a data-driven concept, 'Digital Microbe', that offers decentralized, reproducible, and interoperable means for multi-investigator teams to work on the same model organism collaboratively.</span><br><span style="display: inline-block; padding-bottom: 5px;">- The need and solution emerged as a funciton of our collaborative reserach in <a href="https://ccomp-stc.org/" target="_blank">C-CoMP</a>, the NSF-funded Science and Technology Center for Currencies of a Microbial Planet, and this publication aims to communicate our experience in this front to the community.</span><br><span style="display: inline-block; padding-bottom: 5px;">- The current implementation of this concept is simply a set of citable <a href="https://anvio.org">anvi'o</a> data products, such as <a href="https://anvio.org/help/main/artifacts/contigs-db/" target="_blank">contigs-db</a> and <a href="https://anvio.org/help/main/artifacts/pan-db/" target="_blank">pan-db</a> files, shared on public repositories, such as Zeonodo or FigShare.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Reproducible bioinformatics workflows are available for the <a href="https://github.com/C-CoMP-STC/digital-microbe/blob/main/R_pom_reproducible_workflow.md">generation of the <i>Ruegeria pomeroyi</i> digital microbe</a> and <a href="https://github.com/C-CoMP-STC/digital-microbe/tree/main/alteromonas/pangenomeCuration">curation of the <i>Altermonas</i> pangenome</a> as examples covered in the paper.</span>
     </div>
     </div>
-    <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Digital+Microbe:+A+genome-informed+data+integration+framework+for+collaborative+research+on+emerging+model+organisms" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2024.01.16.575828" target="_blank">doi:10.1101/2024.01.16.575828</a></span>
+    <span class="pub-journal"> 📚 <b>Scientific Data</b>, 11(967) | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Digital+Microbe:+A+genome-informed+data+integration+framework+for+collaborative+research+on+emerging+model+organisms" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1038/s41597-024-03778-z" target="_blank">doi:10.1038/s41597-024-03778-z</a></span>
+</div>
+
+<a id="10.1038/d41586-024-02661-6">&nbsp;</a>
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/d41586-024-02661-6"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1038/d41586-024-02661-6" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1038/d41586-024-02661-6" target="_new">Bioprospecting marine microbial genomes to improve biotechnology</a></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Delmont TO</span></span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/eren_and_delmont_et_al_2024.png"><img src="/images/pubs/eren_and_delmont_et_al_2024.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A Nature News & Views piece to discuss the implications of the article published byaChen, Jia, Sun, and Liu et al., "<a href='https://www.nature.com/articles/s41586-024-07891-2'>Global marine microbial diversity and its potential in bioprospecting</a>".</span><br><span style="display: inline-block; padding-bottom: 5px;">- We point out that the ever-increasing number of environmental genomes reported from marine systems are ready for bioprospecting efforts and to those who wish to push the boundaries of microbiology by connecting its classical and modern means.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>Nature</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Bioprospecting+marine+microbial+genomes+to+improve+biotechnology" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1038/d41586-024-02661-6" target="_blank">doi:10.1038/d41586-024-02661-6</a></span>
 </div>
 
 <a id="10.1016/j.cell.2024.01.039">&nbsp;</a>
@@ -68,7 +84,7 @@ This page lists publications that are most reflective of our interests. For a co
     <span style="display: inline-block; padding-bottom: 5px;">- A study that aims to shed light on <b>the ecology and evolution of one of the most critical yet poorly studied aspects of microbial life -- naturally occurring plasmids</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Uses state-of-the-art machine learning strategies to identify <b>over 60,000 plasmids</b> from human gut metagenomes, which represents a <b>200-fold increase</b> in the number of known plasmids to date that were detectable in healthy humans.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Defines hundreds of '<b>plasmid systems</b>', and demonstrates that naturally occurring plasmids are not static entities, but <b>their evolution is driven by the need to respond to the environment, and their ecology cannot be simply explained by bacterial taxonomy and distribution patterns of their putative hosts</b>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Here is <a href="https://twitter.com/merenbey/status/1764675816204513473" target="_blank">a Twitter thread</a> that goes through some of the interesting aspects if this work.</span>
     </div>
     </div>
-    <span class="pub-journal"> 📚 <b>Nature Microbiology</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Diverse+plasmid+systems+and+their+ecology+across+human+gut+metagenomes+revealed+by+PlasX+and+MobMess" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1038/s41564-024-01610-3" target="_blank">doi:10.1038/s41564-024-01610-3</a></span>
+    <span class="pub-journal"> 📚 <b>Nature Microbiology</b>, 9:830-847 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Diverse+plasmid+systems+and+their+ecology+across+human+gut+metagenomes+revealed+by+PlasX+and+MobMess" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1038/s41564-024-01610-3" target="_blank">doi:10.1038/s41564-024-01610-3</a></span>
 </div>
 
 <a id="10.1038/s41564-023-01560-2">&nbsp;</a>
