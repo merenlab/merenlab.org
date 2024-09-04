@@ -11,3 +11,4 @@ gem 'unidecode'
 gem 'rouge'
 gem 'jekyll-redirect-from'
 gem 'jekyll-gist'
+gem "rexml", ">= 3.3.6"
