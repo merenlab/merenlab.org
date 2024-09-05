@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2024-09-04
+modified: 2024-09-05
 comments: false
 image:
    display: true
@@ -39,7 +39,7 @@ This page lists publications that are most reflective of our interests. For a co
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/d41586-024-02661-6"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1038/d41586-024-02661-6" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <span class="pub-title"><a href="https://doi.org/10.1038/d41586-024-02661-6" target="_new">Bioprospecting marine microbial genomes to improve biotechnology</a></span>
+    <span class="pub-title"><a href="https://rdcu.be/dSZVz" target="_new">Bioprospecting marine microbial genomes to improve biotechnology</a></span>
     <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, <span class="pub-collaborator-author" title='A key collaborator of the lab at the time of publication'>Delmont TO</span></span>
     <div class="pub-info">
     <div class="pub-featured-image">
