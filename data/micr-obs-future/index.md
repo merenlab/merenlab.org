@@ -18,7 +18,7 @@ authors: [raissa]
 
 
 In this study, we 
--  integrate metagenomics metadata and data from observatories (Hawaii Ocean Time Series and Bermuda Atlantic Time-series Study), sampling expeditions (Bio-GO-SHIP, bioGEOTRACES, Malaspina, and Tara Oceans), and citizen science initiatives (Ocean Sampling Day)
+-  integrate metagenomics metadata and data from observatories (Hawaii Ocean Time-Series and Bermuda Atlantic Time-series Study), sampling expeditions (Bio-GO-SHIP, bioGEOTRACES, Malaspina, and Tara Oceans), and citizen science initiatives (Ocean Sampling Day)
 -  generate an anvi'o contigs database describing 51 SAR11 isolate genomes (reference genomes)
 -  recruite reads from the above listed projects' metagenomes to the SAR11 reference genomes, and profile the recruitment results
 -  investigate the patterns in genes across metagenomes recruited to the individual SAR11 reference genomes
@@ -47,7 +47,8 @@ Information for the projects included in this analysis (information only for dep
 
 </div>
 
-
+{:.notice}
+You will see that many of the commands utlize the SLURM wrapper clusterize. Cluserize was developed by Evan Kiefl and is described here: https://github.com/ekiefl/clusterize. Thank you Evan!
 
 
 ## Metadata
@@ -58,7 +59,7 @@ Remember, team: Data without metadata is like a recipe without ingredients liste
 ## SAR11 cultivar genomes
 This section explains how to prepare the set of SAR11 isolate genomes, ending up with 51 reference genomes. 
 
-The isolate genomes available at the time of this analysis are included in `SAR11_June2024_bycontig.fa`. To see more information and the source of each isolate genome, expand the section below.
+The isolate genomes available at the time of this analysis are included in `SAR11_June2024_bycontig.fa`. To see more information and the source of each isolate genome, expand the section below. We would like to thank all researchers who have published these genomes, as well as Kelle Freel and Sarah J Tucker for sharing the sequences for any genomes from Freel et al. [in prep].
 
 ---
 
@@ -264,9 +265,13 @@ CheckM relies on several other software packages:
 
 
 run checkM on all files in the directory `fastaOriginal/` that end on .fa and add the ouput into a directoy called `check output/`. 
+
 ```
 clusterize -j checkM -o checkm.log -n 1 "checkm lineage_wf -t 40 -x fa ./fastaOriginal ./checkMoutput/ -f out_checkM.tab --tab_table"
 ```
+
+{:.notice}
+This was our first use of `clusterize`. It's that easy!
 
 ---
 
@@ -383,7 +388,7 @@ Besides HIMB123 (completness: 86.73), all isolate genomes have a completeness of
 
 The highest contamination value is HIMB1427 (4.29%), followed by HIMB1863 (3.32%), HIMB1517 (2,38%), HIMB4 (2.30%), and HIMB1748, HIMB1488, and HIMB123 (all 1.90%), HIMB1505 (1.43%) HIMB1509 and HIMB1506, HIMB1485 (all 1.42 %). All others are below 1% contamination.
 
-We are keeping all isolate genomes, since they are all above 80% completness and below 5% contamination.
+We are keeping all isolate genomes, since they are all above 80% completeness and below 5% contamination.
 
 ### Dereplicating isolate genomes
 
@@ -442,7 +447,7 @@ clusterize -j dRep_workflow \
 ---
 <details markdown="1"><summary>Click to show/hide primary clustering dendrogram</summary>
 
-blue and purple stars: representatives after my dRep
+blue and purple stars: representatives after dereplicating. These are the ones we will continue with.
 
 [![dRep]({{images}}/Primary_clustering_dendrogram.pdf)]({{images}}/Primary_clustering_dendrogram.pdf){:.center-img .width-70}
 
@@ -457,7 +462,7 @@ We are concatonating all FASTA files into one because we will, further down, be 
 
 In order to use anvio (which does not like special characters in the deflines of FASTA files) and in order to be able to tell which reference genome is which as we proceed with this analysis, we are simplifying the deflines using anvi'o's `anvi-script-reformat-fasta` program with the flags `--prefix` (for the name of the reference genome) and `--simplify-names` (removing any special characters and simplifying the names), as well as the `--report-file` which will show the mapping from input fasta file name to output fasta file name. In the last step we are concatenating all fasta files with the reformatted deflines into a single `all_fasta.fa`.
 
-do this in the dir in which the fasta files are 
+Make sure to do this in the directory in which the fasta files are. 
 ```
 # assuming each .fa file is named according to genome name
 
@@ -488,9 +493,9 @@ This section explains how to download and quality filter short metagenomic reads
 All metagenomes we analyzed are publicly available through the European Nucleotide Archive (ENA) repository and NCBI. The project accession numbers are given above in the Summary table.
 
 ### Downloading the metagenomes
-To download the metagenomes, we will use anvi'o's `[sra_download`](https://anvio.org/help/main/workflows/sra-download/). For this, we need a`SRA_accession_list.txt` for each project and a `download_config.json` config file.
+To download the metagenomes, we will use anvi'o's `[sra_download`](https://anvio.org/help/main/workflows/sra-download/). For this, we need a `SRA_accession_list.txt` for each project and a `download_config.json` config file.
 
-The SRA_accession_list.txt artifact should look like this: no headers, only a list of run accession numbers.
+The `SRA_accession_list.txt` artifact should look like this: no headers, only a list of run accession numbers.
 ```
 $ cat SRA_accession_list.txt
 ERR6450080
@@ -498,9 +503,9 @@ ERR6450081
 SRR5965623
 ```
 
-#### Prep the download
+#### Prepare the download
 
-To create it, we will utilize what we did on metadata curation in [public-marine-omics-metadata](https://github.com/merenlab/public-marine-omics-metadata/tree/main), part of which was the creation of the `SRA_accession_list.tx` artifacts for each project.
+The `SRA_accession_list.txt` were created as part of our work in the [public-marine-omics-metadata](https://github.com/merenlab/public-marine-omics-metadata/tree/main) GitHub repositories.
 
 For the different projects, they are called: 
 ```
@@ -515,7 +520,7 @@ SRA_accession_PRJNA656268_BGS.txt
 
 We created a directory for each of the observatories, with a `00_WORKFLOW_FILES` direcotry, to which these files were added.
 
-The `download_config.json` needed for the the `sra_download` we get by running
+In addition to the `SRA_accession_list.txt`, we need a `download_config.json` for the the `sra_download` function.
 ```
 anvi-run-workflow -w sra_download --get-default-config download_config.json
 ```
