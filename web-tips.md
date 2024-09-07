@@ -136,7 +136,7 @@ An intersting quote.
 
 ## Images
 
-Never load your images directly, and always use this notation, which will enable lazy loading and will standardize all images:
+Never load your images directly, and always use this notation, which will enable **lazy loading** and will standardize all images:
 
 ``` html
 {% raw %}
@@ -158,7 +158,7 @@ Here are some examples:
 {% endraw %}
 ```
 
-You can add title text for your figures, which will appear as a tiny text when people hover their mouse pointers:
+You can add **title text** for your figures, which will appear as a tiny text when people hover their mouse pointers:
 
 ``` html
 {% raw %}
@@ -166,13 +166,23 @@ You can add title text for your figures, which will appear as a tiny text when p
 {% endraw %}
 ```
 
-You can also add captions to your figures, which will appear as italicized text closer to your figure:
+You can also **add captions** to your figures, which will appear as italicized text closer to your figure:
 
 ``` html
 {% raw %}
 {% include IMAGE path="/images/some_image.gif" caption="A descriptive short paragraph to explain what this figure is showing" %}
 {% endraw %}
 ```
+
+If you don't want to have a **border around your figure**, you can also turn it off using the `noborder` parameter:
+
+``` html
+{% raw %}
+{% include IMAGE path="/images/some_image.gif" noborder="1" %}
+{% endraw %}
+```
+
+
 
 ## A useful shortcut for vim users
 
