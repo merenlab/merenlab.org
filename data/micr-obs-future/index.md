@@ -1433,20 +1433,20 @@ This section explains various steps to characterize the occurrence of each SAR11
 For that, we will make use of the anvi'o `metagenomics` snakemake workflow again.
 
 This time, that will include:
--  competitive read recruitment with anvi_run_hmms, anvi_run_kegg_kofams, anvi_run_ncbi_cogs, anvi_run_scg_taxonomy
+-  competitive read recruitment with `anvi_run_hmms`, `anvi_run_kegg_kofams`, `anvi_run_ncbi_cogs`, `anvi_run_scg_taxonomy`
 - convert SAM -> BAM
 - profile BAM file to get anvi'o profiles
 - merge into single anvi'o profile
 
-Since we now want to map our reads to the reference genomes, we need to now only specify the samples_qc.txt file, but also a `fasta.txt` file:
+Since we now want to map our reads to the reference genomes, we need to not only specify the samples_qc.txt file, but also a `fasta.txt` file:
 
-Create a fasta.txt with the parth to our `all_fasta.fa``file containing all SAR11 reference genomes.
+Create a `fasta.txt` with the paths to our `all_fasta.fa` file containing all SAR11 reference genomes. 
 ```
 name    path
 reference_genomes       ../refGenomesSAR11/fastaDrep/dereplicated_genomes/all_fasta.fa
 ```
 
-get config file
+We also need the `config file` for the metagenomics workflow.
 ```
 anvi-run-workflow -w metagenomics \
                   --get-default-config default-metagenomics-config.json
@@ -1462,7 +1462,7 @@ Importantly, we will
    -  [`anvi_run_ncbi_cogs`](https://merenlab.org/2016/06/22/anvio-tutorial-v2/#anvi-run-ncbi-cogs) - annotate genes in your [contigs-db](https://anvio.org/help/main/artifacts/contigs-db) with [functions](https://anvio.org/help/main/artifacts/functions) from the NCBI’s [Clusters of Orthologus Groups](https://www.ncbi.nlm.nih.gov/COG/)
    - [`anvi_run_scg_taxonomy`](https://merenlab.org/2016/06/22/anvio-tutorial-v2/#anvi-import-taxonomy)  - finds your single-copy core genes and assigns them taxonomy by searching them against GTDB
 
-Other parts of the config.json file do not have to be specifically turned on, but will run automatically:
+Other parts of the `config.json` file do not have to be specifically turned on, but will run automatically:
 - `anvi-gen-contigs-database` - profile all contigs for SAR11 isolate genomes, and generate an anvi’o contigs database that stores for each contig the DNA sequence, GC-content, tetranucleotide frequency, and open reading frames
 - `bowtie-build` - map short reads from the project metagenomes onto the scaffolds contained in fasta file containing the reference genomes using Bowtie2
 - `samtools_view` - store the recruited reads as BAM files using samtools
@@ -1474,11 +1474,11 @@ Other parts of the config.json file do not have to be specifically turned on, bu
 <span class="extra-info-header">Citations</span>
 
 This workflow relies on much more than just anvi'o or snakemake, but many other peoples' resources and work. Here are the citations to acknowledge that
-- `anvi-gen-contigs-database`: Anvi'o will use 'prodigal' by Hyatt et al. 2010 (doi:10.1186/1471-2105-11-119) to identify open reading frames in your data. 
-- Bowtie2: Langmead and Salzberg, 2012
-- samtools: Li et al., 2009
-- `anvi_run_kegg_kofams`: Anvi'o will annotate your database with the KEGG KOfam database, as described in Aramaki et al (doi:10.1093/bioinformatics/btz859)
-- `anvi_run_ncbi_cogs`: Anvi'o will set up the COG20 version of NCBI COGs from Galperin et al. 2021 (https://doi.org/10.1093/nar/gkaa1018)
+- `anvi-gen-contigs-database`: Anvi'o will use 'prodigal' by Hyatt et al. 2010 to identify open reading frames in your data. Hyatt, D., Chen, GL., LoCascio, P.F. et al. Prodigal: prokaryotic gene recognition and translation initiation site identification. BMC Bioinformatics 11, 119 (2010). https://doi.org/10.1186/1471-2105-11-119
+- Bowtie2: Langmead, B., Salzberg, S. Fast gapped-read alignment with Bowtie 2. Nat Methods 9, 357–359 (2012). https://doi.org/10.1038/nmeth.1923
+- samtools: Heng Li, Bob Handsaker, Alec Wysoker, Tim Fennell, Jue Ruan, Nils Homer, Gabor Marth, Goncalo Abecasis, Richard Durbin, 1000 Genome Project Data Processing Subgroup, The Sequence Alignment/Map format and SAMtools, Bioinformatics, Volume 25, Issue 16, August 2009, Pages 2078–2079, https://doi.org/10.1093/bioinformatics/btp352
+- `anvi_run_kegg_kofams`: Anvi'o will annotate your database with the KEGG KOfam database, as described in Aramaki et al. 2020: Takuya Aramaki, Romain Blanc-Mathieu, Hisashi Endo, Koichi Ohkubo, Minoru Kanehisa, Susumu Goto, Hiroyuki Ogata, KofamKOALA: KEGG Ortholog assignment based on profile HMM and adaptive score threshold, Bioinformatics, Volume 36, Issue 7, April 2020, Pages 2251–2252, https://doi.org/10.1093/bioinformatics/btz859
+- `anvi_run_ncbi_cogs`: Anvi'o will set up the COG20 version of NCBI COGs from Galperin et al. 2021: Michael Y Galperin, Yuri I Wolf, Kira S Makarova, Roberto Vera Alvarez, David Landsman, Eugene V Koonin, COG database update: focus on microbial diversity, model organisms, and widespread pathogens, Nucleic Acids Research, Volume 49, Issue D1, 8 January 2021, Pages D274–D281, https://doi.org/10.1093/nar/gkaa1018
 
 </div>
 
@@ -1855,7 +1855,7 @@ It will include multiple substeps
 
 ### Generating a genomic collection
 
-At this point anvi’o still doesn’t know how to link scaffolds to each isolate genome. In anvi’o, this kind of knowledge is maintained through ‘collections’. In order to link scaffolds to genomes of origin, we will use the program `anvi-import-collection` to create an anvi’o collection in our merged profile database. This program, however, needs a contigs.txt artifact. 
+At this point anvi’o still doesn’t know how to link scaffolds to each isolate genome. In anvi’o, this kind of knowledge is maintained through ‘collections’. In order to link scaffolds to genomes of origin, we will use the program [`anvi-import-collection`](https://anvio.org/help/main/programs/anvi-import-collection/) to create an anvi’o collection in our merged profile database. This program, however, needs a [`collection-txt`](https://anvio.org/help/main/artifacts/collection-txt/) artifact. 
 
 We will make that by:
 
@@ -2068,13 +2068,13 @@ clusterize -j SAR11_split_job \
 
 ```
 
-The output will be put into a directory called `SAR11SPLIT`, which will then contain individual directories with contig.db and profile.db for each reference genome and recruited reads. 
+The output will be put into a directory called `SAR11SPLIT`, which will then contain individual directories with `contig.db` and `profile.db` for each reference genome and recruited reads. 
 
 ### Determine which samples to continue working with
 
 
 #### Get contig-level coverage and detection stats
-We will be using [`anvi-profile-blitz`](https://anvio.org/help/main/programs/anvi-profile-blitz/) to find out which samples are useful (e.g. cutoff of: my genomes should be covered 10x). 
+We will be using [`anvi-profile-blitz`](https://anvio.org/help/main/programs/anvi-profile-blitz/) to find out which samples are useful (e.g. cutoff of: my genomes should be covered 10x and detected 0.5). 
 
 `anvi-profile-blitz` allows the fast profiling of BAM files to get contig- or gene-level coverage and detection stats.
 
@@ -2088,12 +2088,48 @@ anvi-profile-blitz *.bam \
                    -o OUTPUT.txt
 ```
 
-However, since we are doing it for each `split`, so 51 time (once per reference genome), we are adapting it a bit.
+However, since we are doing it for each `split`, so 51 time (once per reference genome), we will be adapting it a bit and doing it in a loop.
+
+```
+nano run_anvi_profile_blitz.sh
+```
+content
+```
+#!/bin/bash
+
+# Directory containing the subdirectories
+BASE_DIR="SAR11SPLIT"
+# Directory for the output files
+OUTPUT_DIR="blitzOUTPUT"
+
+# Create the output directory if it doesn't exist
+mkdir -p $OUTPUT_DIR
+
+# Loop through each subdirectory in BASE_DIR (checks if the current item is a directory)
+for DIR in $BASE_DIR/*; do
+  if [ -d "$DIR" ]; then
+    # Extract the directory name from the full path (to later name the output file)
+    DIR_NAME=$(basename $DIR)
+    # Construct the command
+    anvi-profile-blitz 04_MAPPING/reference_genomes/*.bam \
+                       -c $DIR/CONTIGS.db \
+                       -o $OUTPUT_DIR/blitzOUTPUT_$DIR_NAME.txt
+  fi
+done
+```
+make it executable
+```
+chmod +x run_anvi_profile_blitz.sh
+```
+submit job
+```
+clusterize "./run_anvi_profile_blitz.sh" -n 1 -j anvi_profile_blitz_job
+```
 
 
 
 #### Combine outputs into one file
-Combine the BLITZ outputs into one dataframe
+We will combine the BLITZ outputs into one dataframe. You can get the output [here](files/combined_blitzOUTPUT.txt.zip).
 ```
 cd blitzOUTPUT/
 nano combineOutputs.py
@@ -2136,7 +2172,9 @@ python combineOutputs.py
 
 
 #### Get weighted averages 
-Even though some reference genomes have multiple contigs, I want to know how much of each reference genomed was covered in a given sample / how much the entire reference genome was detected (so across contigs): ao the mean_cov and detection information for the collective reference genome. However, we cannot just take the information of all contigs from the same reference genome across a given sample and take the average, but have to take the length of each contig in respective to the length of the entire reference genome (length of its contigs combined). 
+Even though some reference genomes have multiple contigs, we want to know how much of each reference genomed was covered in a given sample / how much the entire reference genome was detected (so across contigs): so the mean_cov and detection information for the collective reference genome. However, we cannot just take the information of all contigs from the same reference genome across a given sample and take the average, but have to take the length of each contig in respective to the length of the entire reference genome (length of its contigs combined). 
+
+The output file is available [here](files/weighted_results_with_length.txt.zip).
 
 ```
 nano calculate_weighted_coverage.py
@@ -2176,7 +2214,7 @@ calculate_weighted_coverage.py
 
 #### Get overview stats of how many samples per project would stay with different detection and coverage cut-offs
 
-How many samples per project make it if we only take the samples for which at least one reference genome has at least 10x coverage and at least 0.5 detection (both need to be true for a sample to pass)? And do that for different coverage and detection combos.
+How many samples per project make it if we only take the samples for which at least one reference genome has at least 10x coverage and at least 0.5 detection (both need to be true for a sample to pass)? And do that for different coverage and detection combos. 
 
 ```
 nano filter_samples_all_combinations.py
@@ -2229,7 +2267,7 @@ run
 python filter_samples_all_combinations.py
 ```
 
-This gives you `combined_stats_weighted_all_filters.txt`
+This gives you `combined_stats_weighted_all_filters.txt`, which is available [here](files/combined_stats_weighted_all_filters.txt).
 
 ```
 project num_samples_initial     num_samples_1x_25       num_samples_1x_30       num_samples_1x_40       num_samples_1x_50       num_samples_2x_25       num_samples_2x_30       num_samples_2x_40       num_samples_2x_50       num_samples_3x_25       num_samples_3x_30       num_samples_3x_40       num_samples_3x_50       num_samples_4x_25       num_samples_4x_30       num_samples_4x_40       num_samples_4x_50       num_samples_5x_25       num_samples_5x_30       num_samples_5x_40       num_samples_5x_50       num_samples_6x_25       num_samples_6x_30       num_samples_6x_40       num_samples_6x_50       num_samples_7x_25       num_samples_7x_30       num_samples_7x_40       num_samples_7x_50       num_samples_8x_25       num_samples_8x_30       num_samples_8x_40       num_samples_8x_50       num_samples_9x_25       num_samples_9x_30       num_samples_9x_40       num_samples_9x_50       num_samples_10x_25      num_samples_10x_30      num_samples_10x_40      num_samples_10x_50
@@ -2246,6 +2284,7 @@ TARA    95      95      94      94      94      95      94      94      94      
 
 #### Filter based on 0.5 detection and 10x coverage
 
+We will now filter our samples to get the information which pass the filtering thresholds we set. This information will then be used to build a combined profile database.
 ```
 nano filter_samples_detNcov.py
 ```
@@ -2305,7 +2344,7 @@ run
 python filter_samples_detNcov.py
 ```
 
-This results in two files called `filtered05N10x_stats.txt` (containing the number of samples of each project that passed the filter criteria) and `filtered05N10x_combined_df.txt` (the sample_IDs, contigs, weighted_mean_cov, weighted_detection of the samples that passed the filtering)
+This results in two files called `filtered05N10x_stats.txt` (containing the number of samples of each project that passed the filter criteria, available [here](files/filtered05N10x_stats.txt)) and `filtered05N10x_combined_df.txt` (the sample_IDs, contigs, weighted_mean_cov, weighted_detection of the samples that passed the filtering, available [here](files/filtered05N10x_combined_df.txt)).
 
 ```
 sample  reference_genome        project weighted_mean_cov       weighted_detection      total_length
@@ -2322,7 +2361,7 @@ BATS_SAMN07137074_60_2004_03_23 HIMB1456        BATS    11.999417281233908      
 
 ### Generate anvi'o PROFILE.db with selected samples
 
-Based on the information we have post-detection0.5-coverage10x-filtering, we know which samples to continue working with. In order to continue working with them, however, we need to generate a new anvi'o PROFILE.db with those samples only.
+Based on the information we have post-detection0.5-coverage10x-filtering, we know which samples to continue working with. In order to continue working with them, however, we need to generate a new anvi'o `PROFILE.db` with those samples only.
 
 We will create a .txt file which only lists the sample names (and only lists each once).
 ```
@@ -2344,7 +2383,6 @@ However, we will adapt it to our needs as such:
 Submit multiple anvi-profile jobs to a cluster using the clusterize tool. The script reads a list of sample names from a file, processes the corresponding BAM files, and submits the jobs in a controlled manner to avoid overwhelming the cluster scheduler. It includes functionality to stagger job submissions and limit the number of jobs running simultaneously.
 
 We are keeping the number of threads = 16, as described here: [https://merenlab.org/2017/03/07/the-new-anvio-profiler/](https://merenlab.org/2017/03/07/the-new-anvio-profiler/).
-
 
 ```
 nano run_anvi_profile_cluster.sh
@@ -2407,7 +2445,7 @@ and run
 
 #### Generate a merged anvi’o profile
 
-Use [`anvi-merge`](https://anvio.org/help/7.1/programs/anvi-merge/) to convert multiple single-profile-dbs (of our selected samples) into a single profile-db (also called a merged profile database). Basically, this takes the alignment data from each sample (each contained in its own single-profile-db) and combines them into a single database that anvi’o can look through more easily.
+Use [`anvi-merge`](https://anvio.org/help/7.1/programs/anvi-merge/) to convert multiple single-`profile-db`s (of our selected samples) into a single `profile-db` (also called a merged profile database). Basically, this takes the alignment data from each sample (each contained in its own single-`profile-db`) and combines them into a single database that anvi’o can look through more easily.
 
 The basic command is:
 ```
@@ -2428,10 +2466,10 @@ clusterize -j merge_profile_db \
 
 ## Create self-contained anvi'o projects for my reference genomes and associated metagenomes, again
 
-We are again using `anvi-split`, but this time, we are using it on the collective PROFILE.db for the selected samples (for which at least one reference genome is above 10x coverage and 0.5 detection) only.
+We are again using `anvi-split`, but this time, we are using it on the collective `PROFILE.db` for the selected samples (for which at least one reference genome is above 10x coverage and 0.5 detection) only. This will give us an anvio project per reference genome.
 
 ### Create COLLECTION, again
-First, we have to re-create a COLLECTION that will be stored in the PROFILE.db. For that, we can reuse the collection.txt that we used before, but have to re-create the COLLECTION in itself: specifying the new PROFILE.db.
+First, we have to re-create a COLLECTION that will be stored in the PROFILE.db. For that, we can reuse the `collection.txt` that we used before, but have to re-create the COLLECTION in itself: specifying the new PROFILE.db.
 
 Here we go:
 ```
