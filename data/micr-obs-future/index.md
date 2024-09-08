@@ -47,8 +47,15 @@ Information for the projects included in this analysis (information only for dep
 
 </div>
 
+# General notices
+
 {:.notice}
-You will see that many of the commands utlize the SLURM wrapper clusterize. Cluserize was developed by Evan Kiefl and is described here: https://github.com/ekiefl/clusterize. Thank you Evan!
+All anvi'o analyses in this document are performed using the anvi'o developer version during the era of `v8`. Please see [the installation notes](https://anvio.org/install/) to download the appropriate version through PyPI, Docker, or GitHub.
+
+
+
+{:.notice}
+You will see that many of the commands utlize the SLURM wrapper clusterize to submit jobs to our HPC clusters. Clusterize was developed by Evan Kiefl and is described here: https://github.com/ekiefl/clusterize. Thank you Evan!
 
 
 ## Metadata
@@ -277,6 +284,8 @@ This was our first use of `clusterize`. It's that easy!
 
 <details markdown="1"><summary>Click here to show/hide the checkM output table</summary>
 
+If you would rather have the file itself, feel free to grab it [here](files/out_checkM.tsv).
+
  
 | Bin Id    | Marker lineage             | # genomes | # markers | # marker sets | 0  | 1   | 2  | 3 | 4 | 5 | Completeness | Contamination | Strain heterogeneity |
 |-----------|----------------------------|-----------|-----------|---------------|----|-----|----|---|---|---|--------------|---------------|----------------------|
@@ -447,10 +456,12 @@ clusterize -j dRep_workflow \
 
 **51 genomes passed**
 
+If you would like to see all output files, feel free to do so by clicking [here](files/output_dRep.zip) (zipped). 
+
 ---
 <details markdown="1"><summary>Click to show/hide primary clustering dendrogram</summary>
 
-We are showing the primary clustering dendrogram here because it gives a more digestable overview, for more accurate clustering information, please consult the secondary clustering dendrogram.
+We are showing the primary clustering dendrogram here because it gives a more digestable overview, for more accurate clustering information, please consult the secondary clustering dendrogram included in the dRep output folder linked above.
 
 blue and purple stars: representatives after dereplicating. These are the ones we will continue with.
 
@@ -463,11 +474,11 @@ blue and purple stars: representatives after dereplicating. These are the ones w
 
 ### Concatonate FASTAs of dereplicated reference genomes and simplify deflines
 
-We are concatonating all FASTA files into one because we will, further down, be performing competitive read recruitment. And for it to be competitive, all reference genomes need to be in a singular fasta file.
+We are combining all the FASTA files into a single file because, later on, we will be performing competitive read recruitment. For this process to work correctly, all reference genomes need to be in one unified FASTA file to ensure that the reads can be compared against all genomes in a competitive manner.
 
-In order to use anvio (which does not like special characters in the deflines of FASTA files) and in order to be able to tell which reference genome is which as we proceed with this analysis, we are simplifying the deflines using anvi'o's `anvi-script-reformat-fasta` program with the flags `--prefix` (for the name of the reference genome) and `--simplify-names` (removing any special characters and simplifying the names), as well as the `--report-file` which will show the mapping from input fasta file name to output fasta file name. In the last step we are concatenating all fasta files with the reformatted deflines into a single `all_fasta.fa`.
+To use anvi'o (which does not allow special characters in the deflines of FASTA files) and to easily identify each reference genome throughout the analysis, we are simplifying the deflines using anvi'o's `anvi-script-reformat-fasta` program. We are using the `--prefix` flage to include the reference genome name, and the `--simplify-names` flag to remove any special characters and standardize the names. Additionally, the `--report-file` flag will generate a file that maps the orignial deflines in the FASTA files to the reformatted ones. Finally, we will concatenate all FASTA files with these reformatted deflines into a single file named `all_fasta.fa`.
 
-Make sure to do this in the directory in which the fasta files are. 
+We are running the following commands in the directory in which the fasta files are. 
 ```
 # assuming each .fa file is named according to genome name
 
@@ -495,10 +506,13 @@ grep -c ">" all_fasta.fa
 This section explains how to download and quality filter short metagenomic reads from the Hawaii Ocean Time-Series ([Biller et al., 2018](https://doi.org/10.1038/sdata.2018.176), [Mende et al., 2017](https://doi.org/10.1038/s41564-017-0008-3)), the Bermuda Atlantic Time-series Study ([Biller et al. 2018](https://doi.org/10.1038/sdata.2018.176)) OceaTARA Oceans project ([Sunagawa et al., 2015](https://doi.org/10.1126/science.1261359)), the Malaspina Expedition ([Sánchez et al., 2024](https://doi.org/10.1038/s41597-024-02974-1)), the Bio-GO-SHIP project ([Larkin et al., 2021](https://doi.org/10.1038/s41597-021-00889-9)), the bioGEOTRACES project ([Biller et al. 2018](https://doi.org/10.1038/sdata.2018.176)), and the Ocean Sampling Day project ([Kopf et al., 2015](https://doi.org/10.1186/s13742-015-0066-5)).
 
 {:.notice}
-All metagenomes we analyzed are publicly available through the European Nucleotide Archive (ENA) repository and NCBI. The project accession numbers are given above in the Summary table.
+All metagenomes we analyzed are publicly available through the European Nucleotide Archive (ENA) repository and NCBI. The project accession numbers are given above in the Summary table at the top of this workflow.
 
 ### Downloading the metagenomes
+
 To download the metagenomes, we will use anvi'o's `[sra_download`](https://anvio.org/help/main/workflows/sra-download/). For this, we need a `SRA_accession_list.txt` for each project and a `download_config.json` config file.
+
+#### Prepare the download
 
 The `SRA_accession_list.txt` artifact should look like this: no headers, only a list of run accession numbers.
 ```
@@ -508,9 +522,7 @@ ERR6450081
 SRR5965623
 ```
 
-#### Prepare the download
-
-The `SRA_accession_list.txt` were created as part of our work in the [public-marine-omics-metadata](https://github.com/merenlab/public-marine-omics-metadata/tree/main) GitHub repositories.
+The `SRA_accession_list.txt` were created as part of our work in the [public-marine-omics-metadata](https://github.com/merenlab/public-marine-omics-metadata/tree/main) GitHub repositories. To get the files, click [here](files/SRA_accession-txt.zip).
 
 For the different projects, they are called: 
 ```
@@ -523,13 +535,13 @@ SRA_accession_PRJNA385855_PRJNA352737_HOT_combined.txt
 SRA_accession_PRJNA656268_BGS.txt
 ```
 
-We created a directory for each of the observatories, with a `00_WORKFLOW_FILES` direcotry, to which these files were added.
+FYI, we created a directory for each of the observatories, with a `00_WORKFLOW_FILES` direcotry, to which these files were added.
 
-In addition to the `SRA_accession_list.txt`, we need a `download_config.json` for the the `sra_download` function.
+In addition to the `SRA_accession_list.txt`, we need a `download_config.json` for the the `sra_download` function. To get this, run:
 ```
 anvi-run-workflow -w sra_download --get-default-config download_config.json
 ```
-In each of the `donwload_config.json` files, we exchanged the `"SRA_accession_list": SRA_accession_list,txt",` with `"SRA_accession_list": "00_WORKFLOW_FILES/SRA_accession_[PROJECT_ACCESSION_NO]_[PROJECT_ACRONYM].txt",` (of course adding the respective project accession number and project acronym).
+In each of the `donwload_config.json` files, we exchanged the `"SRA_accession_list": SRA_accession_list.txt",` with `"SRA_accession_list": "00_WORKFLOW_FILES/SRA_accession_[PROJECT_ACCESSION_NO]_[PROJECT_ACRONYM].txt",` (of course adding the respective project accession number and project acronym).
 ```
 {
     "SRA_accession_list": "00_WORKFLOW_FILES/SRA_accession_[PROJECT_ACCESSION_NO]_[PROJECT_ACRONYM].txt",
@@ -558,11 +570,11 @@ In each of the `donwload_config.json` files, we exchanged the `"SRA_accession_li
 
 We can now use this `download_config.json` in combination with anvi'o's `anvi-run-workflow` and the workflow `sra_download` and send it!
 
-do a dry run
+Do a dry run ...
 ```
 anvi-run-workflow -w sra_download -c 00_WORKFLOW_FILES/download_config.json -A -n -q
 ```
-and the real deal
+... and the real deal!
 ```
 clusterize -j sra_download_workflow \
                  -o sra_download.log \
@@ -576,13 +588,12 @@ clusterize -j sra_download_workflow \
    --keep-going"
 ```
 
-Check if there are any errors in the log files
+Following the download, we searched for the mention of any errors in the log files to see if everything went as expected.
 ```
 grep -i ERROR sra_download_*.log
 ```
 
-Check if there is a file for each accession number in the .txt
-
+We additionally used this script to check if there is a file for each accession number in the `SRA_accession_list.txt`s.
 ```
 nano check_fastq_files.sh
 ```
@@ -645,7 +656,7 @@ run script
 
 We used part of the anvi'o [`metagenomics` workflow](https://anvio.org/help/main/workflows/metagenomics/) to remove noise from raw reads prior to mapping. Namely, the `illumina-utils` program ([Eren et al., 2013](https://doi.org/10.1371/journal.pone.0066643)).
 
-For that, we need a samples-txt file following this structure (group is added bonus if one needs it):
+For that, we need a [`samples-txt`](https://anvio.org/help/main/artifacts/samples-txt/) file following this structure (group is added bonus if one needs it):
 ```
 column -t samples.txt
 sample     group  r1                                           r2
@@ -653,20 +664,21 @@ sample_01  G01    three_samples_example/sample-01-R1.fastq.gz  three_samples_exa
 sample_02  G02    three_samples_example/sample-02-R1.fastq.gz  three_samples_example/sample-02-R2.fastq.gz
 sample_03  G02    three_samples_example/sample-03-R1.fastq.gz  three_samples_example/sample-03-R2.fastq.gz
 ```
-It needs to note the sample name and the locations of raw paired-end reads for each sample.
+It needs to note the sample name and the locations of raw paired-end reads for each sample.`
+
 
 #### Prep QC
 
 Let us create one of those files in two steps
 
-**1. Create a more extensive mapping of biosample to run to project to fancy_sample_name**
+**1. Create a more extensive mapping of biosample to run to project to custom_sample_name**
 
-To create said fancy_sample_name, we created a a detailed mapping (which also has the Project accession, Real Sample accession and run accession, as well as the renamed sample names [added based on this schema: prefix: [PROJECT_ACRONYM], then the value sample_accession, then the value in depth, then the value in collection_date, all separated by underscores])
+We created a a detailed mapping (which also has the Project accession, real Sample accession and run accession, as well as a custom_sample_name [created based on this schema: prefix: [PROJECT_ACRONYM], then the value sample_accession, then the value in depth, then the value in collection_date, all separated by underscores]). These mapping files are accessible [here](files/BioSample_to_SRA_accession-csv.zip).
 
 {:.notice}
 Note, that we are again using files created as part of the [public-marine-omics-metadata](https://github.com/merenlab/public-marine-omics-metadata/tree/main) GitHub repository.
 
-This is what this looked like in practice:
+This is how they were created:
 
 ```
 nano sampleMapping.py
@@ -743,9 +755,11 @@ BioSample_to_SRA_accessions_TARA.csv
 
 **2. Create the sample-txt artifact from that and the files in our 02_FASTA directories**
 
-Now, we create the samples-txt artifact. For that we have to account for there being two `BioSample_to_SRA_accession_[PROJECT_ACRONYM].csv` files in the HOT directory. Further, anvi'o does not appreciate the use of '-' in sample names, so those will be substituted with '_'.
+Now, we create the `samples-txt` artifact. To get them, click [here](files/samples-txt.zip) and select the `samples_raw.txt` files.
 
-Create and run this in the directory above your project directories.
+For creating the `sampels-txt` files, we have to account for there being two `BioSample_to_SRA_accession_[PROJECT_ACRONYM].csv` files in the HOT directory. Further, anvi'o does not appreciate the use of '-' in sample names, so those will be substituted with '_'.
+
+We created and ran this script in the directory above our project directories.
 ```
 nano makeSamples-txt.py
 ```
@@ -920,13 +934,14 @@ print("Completed counting samples and runs in all directories.")
 ```
 
 #### Do QC
-Now, we are ready to get the config file we need:
+Now, we are ready to get the `config file` we need to perform the QC step.
 
+For that, we ran:
 ```
 anvi-run-workflow -w metagenomics --get-default-config QC_config.json 
 ```
 
-We will
+In this `config file`, we will
 - replace `"samples_txt": "samples.txt"` with `"samples_txt": "samples_raw.txt"` 
 - turn off everything besides 
    - `idba_ud` (needs to be on to trick snakemake, but we're not acually running it, because when submitting the job we tell it to stop after gzipping), 
@@ -1284,8 +1299,7 @@ grep -i ERROR QC_workflow_*.log
 
 #### Make samples_qc.txt
 
-Since we are splitting the metagenomics workflow in two, we are now creating samples_qc.txt, which we will use as the `samples-txt` artifact in the next steps.
-
+Since we are splitting the metagenomics workflow in two, we are now creating `samples_qc.txt`, which we will use as the `samples-txt` artifact in the next steps. The `samples_qc.txt` are also included in the [samples-txt folder](files/samples-txt.zip), in case you would like to have a peek.
 
 ```
 nano makeQCsample-txt.p`
@@ -1353,7 +1367,7 @@ print("samples_qc.txt has been created.")
 
 #### Create collective samples_qc.txt for all projects
 
-For the upcomming read recruitment, we no longer want to have the projects separated, so we are concatenating the individual samples_qc.txt files we just created into one.
+For the upcomming read recruitment, we no longer want to have the projects separated, so we are concatenating the individual samples_qc.txt files we just created into one. The collective `samples_qc.txt` is also included in the [samples-txt folder](files/samples-txt.zip).
 ```
 nano combine_and_check_samples_qc.py
 ```
