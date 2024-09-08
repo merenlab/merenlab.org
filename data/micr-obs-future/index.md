@@ -1296,6 +1296,7 @@ Once it is done, we grep for errors in the log file.
 ```
 grep -i ERROR QC_workflow_*.log
 ```
+The outputs of this workflow are available in the [QC_stats.zip](files/QC_stats.zip) archive.
 
 #### Make samples_qc.txt
 
