@@ -57,9 +57,9 @@ For the curation of metadata, please consult the [public-marine-omics-metadata](
 Remember, team: Data without metadata is like a recipe without ingredients listed - you know what you'd get out but not how you got there. Our data is only worth as much as our metadata can support it.
 
 ## SAR11 cultivar genomes
-This section explains how to prepare the set of SAR11 isolate genomes, ending up with 51 reference genomes. 
+This section explains how to prepare the set of SAR11 isolate genomes, ending up with 51 quality-checked and dereplicated reference genomes. 
 
-The isolate genomes available at the time of this analysis are included in `SAR11_June2024_bycontig.fa`. To see more information and the source of each isolate genome, expand the section below. We would like to thank all researchers who have published these genomes, as well as Kelle Freel and Sarah J Tucker for sharing the sequences for any genomes from Freel et al. [in prep].
+The isolate genomes available at the time of this analysis are included in a file called `SAR11_June2024_bycontig.fa`. We cannot make the file itself public yet, as it includes some unpublished isolate genomes (Thank you, Freel et al. [in prep] for sharing those with us!). To see more information and the source of each isolate genome, expand the section below. We would like to thank all researchers who have provided these genomes.
 
 ---
 
@@ -173,7 +173,7 @@ The isolate genomes available at the time of this analysis are included in `SAR1
 
 For the next steps, we need to separate `SAR11_June2024_bycontig.fa` into individual .fa files - one per reference genome.
 
-For that, use the following script, running it in the same directory as you have the `SAR11_June2024_bycontig.fa` file.
+For that, we use the following script and run it in the same directory as we have the `SAR11_June2024_bycontig.fa` file.
 ```
 nano separateFasta.py
 ```
@@ -238,11 +238,11 @@ run
 python3 separateFasta.py
 ```
 
-You should now hav 99 individual fasta files, ready to be evaluated.
+We now have 99 individual fasta files, ready to be evaluated.
 
 ### Use checkM to evaluate quality of isolate genomes
 
-We will use CheckM to evaluate the completeness and contamination of the isolate genomes. Since they are isolate genomes, we expect them to be of quite high completeness and low contamination.
+We will use `CheckM` to evaluate the completeness and contamination of the isolate genomes. Since they are isolate genomes, we expect them to be of quite high completeness and low contamination.
 
 {:.notice}
 There is also an option to include CheckM in the dRep step that is following, however, that does not seem to work for everyone, so we will do it separately.
@@ -264,7 +264,7 @@ CheckM relies on several other software packages:
 </div>
 
 
-run checkM on all files in the directory `fastaOriginal/` that end on .fa and add the ouput into a directoy called `check output/`. 
+We will run checkM on all files in the directory `fastaOriginal/` that end on .fa and add the ouput into a directoy called `check output/`. 
 
 ```
 clusterize -j checkM -o checkm.log -n 1 "checkm lineage_wf -t 40 -x fa ./fastaOriginal ./checkMoutput/ -f out_checkM.tab --tab_table"
@@ -402,7 +402,10 @@ Olm, M., Brown, C., Brooks, B. et al. dRep: a tool for fast and accurate genomic
 
 </div>
 
-To use dRep, let us first write a bash script telling it to dereplicate at 95% ANI (preclustering at 90% ANI) and then submit it with `clusterize`.
+To use `dRep`, let us first write a bash script telling it to dereplicate at 95% ANI (preclustering at 90% ANI) and then submit it with `clusterize`. 
+
+{:.notice}
+ANI stands for Average Nucleotide Identity. dRep uses this measure to cluster genomes before selecting a representative for each cluster. https://drep.readthedocs.io/en/latest/choosing_parameters.html
 
 ```
 nano drep_clusterize.sh
@@ -446,6 +449,8 @@ clusterize -j dRep_workflow \
 
 ---
 <details markdown="1"><summary>Click to show/hide primary clustering dendrogram</summary>
+
+We are showing the primary clustering dendrogram here because it gives a more digestable overview, for more accurate clustering information, please consult the secondary clustering dendrogram.
 
 blue and purple stars: representatives after dereplicating. These are the ones we will continue with.
 
