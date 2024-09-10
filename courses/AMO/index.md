@@ -134,7 +134,7 @@ Please also consider the following formatting guidelines for your reports:
 
 ## Course Plan
 
-Please note that each lecture takes place on **Wednesdays** (bi-weekly), between **10:15 - 12:00**, at **VARIOUS LOCATIONS** (see below).
+Please note that each lecture takes place on **Wednesdays** (bi-weekly), between **10:15 - 12:00**, at **W04 1-171**.
 
 ### 25/10/23 :: Introduction to anvi'o and installation check
 

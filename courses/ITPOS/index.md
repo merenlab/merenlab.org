@@ -109,7 +109,7 @@ The best class citizenship emails are those that are brief, genuine, and insight
 
 ## Course Plan
 
-Please note that each lecture takes place on **Mondays**, between **10:15 - 12:00**, at **VARIOUS LOCATIONS** (see below).
+Please note that each lecture takes place on **Mondays**, between **10:15 - 12:00**, at **W16A 010**.
 
 ### 16/10/23 :: Course logistics
 
