@@ -53,11 +53,11 @@ Throughout the semester (and beyond) you can reach out via email with any questi
 
 Every ecological niche our planet has to offer is home to an astonishing number of microbial cells that form complex communities. The last several years witnessed tremendous advances in molecular and computational approaches which now offer unprecedented access to these communities through new &#39;omics strategies. Developing an overall understanding of these strategies, including the ability to identify their appropriate applications and shortcomings, has quietly become a de facto necessity in the journey of an independent life scientist. **The primary aim of this course** is to empower its participants and enable them to study the ecology, evolution, and functioning of naturally occurring microbial populations and recognize the current **conceptual framework** that helps us wrap our collective mind around the most diverse form of life on our planet.
 
-**Introduction to Popular &#39;Omics Strategies** is a *lecture* with a companion *seminar*, **Applied Microbial &#39;Omics**. The lecture is designed to introduce its participants to the extent of microbial diversity on Earth and its impact on key biogeochemical processes, and strategies by which we characterize and study microbial life in naturally occurring systems to answer fundamental questions in microbial ecology and evolution. Participants will learn about the theoretical underpinnings of popular &#39;omics data types and their contemporary applications. These data types include **genomics**, **metagenomics**, **metatranscriptomics**, **metaepitranscriptomics**, as well as various &#39;omics data analysis approaches such as **metabolic reconstruction** in genomes and metagenomes, **metagenomic read recruitment**, **pangenomics**, **phylogenomics**, and **microbial population genetics**.
+**Introduction to Popular &#39;Omics Strategies** is a *lecture* with a companion *seminar*, **Applied Microbial &#39;Omics**. The lecture is designed to introduce its participants to the extent of microbial diversity on Earth and its impact on key biogeochemical processes, and strategies by which we characterize and study microbial life in naturally occurring systems to answer fundamental questions in microbial ecology and evolution. Participants will learn about the theoretical underpinnings of popular &#39;omics data types and their contemporary applications. These data types include **genomics** and **metagenomics** as well as various &#39;omics data analysis approaches such as **metabolic reconstruction** in genomes and metagenomes, **metagenomic read recruitment**, **pangenomics**, **phylogenomics**, and **microbial population genetics**.
 
 The learning objectives of the course includes the following:
 
-* To explain **microbial diversity** in naturally occurring systems and their **evolution**.
+* To explain **microbial diversity** in naturally occurring systems and recognize mechanisms and outcomes of microbial **evolution**.
 
 * To recognize data-enabled means to study **microbial ecosystems**.
 
@@ -68,7 +68,7 @@ The learning objectives of the course includes the following:
 
 ## Prerequisites
 
-To maximize benefit, the participants of this course are expected to be familiar with the [central dogma of molecular biology](https://en.wikipedia.org/wiki/Central_dogma_of_molecular_biology), and able to answer what is a **gene**, a **genome**, a **transcript**, or a **protein**, and have at least a **preliminary understanding of the principles in ecology and evolution**, such as the basics of **taxonomy** and broad ecological principles that maintain complex ecosystems.
+To maximize benefit, the participants of this course are expected to be familiar with the [central dogma of molecular biology](https://en.wikipedia.org/wiki/Central_dogma_of_molecular_biology), and be able to answer what is a **gene**, a **genome**, a **transcript**, or a **protein**, and have at least a **preliminary understanding of the principles in ecology and evolution**, such as the basics of **taxonomy** and broad ecological principles that maintain complex ecosystems.
 
 The course will require its participants to read and understand contemporary literature written in English.
 
