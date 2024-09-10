@@ -79,7 +79,7 @@ The course will require its participants to read and understand contemporary lit
 
 The primary mode of course content delivery will be through data analysis assignments and discussions during the class time related to their implementation. The vast majority of activities will be informed by the **core concepts**, **data types**, and **analysis strategies** explained in the companion lecture **Introduction to Popular &#39;Omics Strategies**. There will often be extensive discussions over best analysis practices, and the observations we can make through our analyses, to which participants will be encouraged to show **active, verbal participation**. Analysis tasks and data will be available on Stud.IP two weeks before the next session.
 
-Please note that **preparation** and **participation** will play a key role in your success as usual. For an effective learning experience please consider (1) taking a brief look at the new analysis assignment (~1 hour of study), (2) take time early on to try to complete it by yourself (~2-4 hours of study), and (3) ask questions to Meren or others before it is too late.
+Please note that **preparation** and **participation** will play a key role in your success as usual. For an effective learning experience please consider (1) taking a brief look at the new analysis assignment (~1 hour of study), (2) take time early on to try to complete it by yourself (~2-4 hours of study), and (3) ask questions to Iva or others before it is too late.
 
 ## Attendance Policy
 
@@ -114,7 +114,7 @@ where,
 pandoc Eren_AM.md --toc --pdf-engine=xelatex -o Eren_AM.pdf
 ```
 
-* `files` directory can include files necessary to share along with the report (they should be the absolute minimum list of files that are absolutely necessary to reproduce an analysis nicely curated together).
+* `files` directory can include files necessary to share along with the report (they should be the absolute minimum set of files that are  necessary to reproduce your nicely curated analysis workflow).
 * and `images` directory is to keep images cited from the report.
 
 Once the directory is ready, you can run the following command to compress it into a single archive file and submit the new file:
@@ -125,9 +125,9 @@ tar -zcf Eren_AM_EX_01.tar.gz Eren_AM_EX_01/
 
 Please also consider the following formatting guidelines for your reports:
 
-* Make sure your report is a stand-alone text, so that anyone who reads the report can understand its purpose without having to read the assignment itself.
-* Use headers and sub-headers to separate sections from each other -- make your report pretty and nicely formatted. For each section briefly explain your analysis strategy and reasoning behind it.
-* Use code blocks to separate command lines from free text (for which tEX_0here is a markdown syntax).
+* Make sure your report is a stand-alone text, so that anyone who reads the report can understand its purpose without having to read the assignment itself. For instance, this could mean writing a little introduction that summarizes the context of your analysis.
+* Use headers and sub-headers to separate sections from each other -- make your report pretty and nicely formatted. For each section, briefly explain your analysis strategy and reasoning behind it.
+* Use code blocks to separate command lines from free text (for which [here](https://www.markdownguide.org/extended-syntax/#fenced-code-blocks) is a markdown syntax).
 * Make your analyses reproducible. So if someone reads your report and runs every command line one by one, they should be able to reproduce your analysis if they are in a directory that contains the original input data.
 * Screenshots of key observations are encouraged :) Make sure you have figures to communicate your observations clearly.
 

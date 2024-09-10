@@ -74,7 +74,7 @@ The course will require its participants to read and understand contemporary lit
 
 ## Content Delivery
 
-The primary mode of course content delivery will be through slides, where Meren will explain **core concepts**, **data types**, and **analysis strategies**. There will often be extensive discussions over these slides, which will require **active, verbal participation** by the attendees. Slides will be available on Stud.IP after each lecture.
+The primary mode of course content delivery will be through slides, where Iva will explain **core concepts**, **data types**, and **analysis strategies**. There will often be extensive discussions over these slides, which will require **active, verbal participation** by the attendees. Slides will be available on Stud.IP after each lecture.
 
 After each lecture, the attendees will be given **suggested readings** from the recent literature that covers relevant topics and/or their real-world applications to contemporary questions in marine microbiology, oceanography, marine conservation, and beyond.
 
@@ -84,7 +84,7 @@ Please note that **preparation** and **participation** will play a key role in y
 
 Each participant is expected to attend each lecture in person (unless a legitimate reason for absence that is recognized by the University is in effect). The attendance will be recorded by a strategy that we call **class citizenship**, which aims to help the course director to have an overall understanding of the evolution of the course.
 
-The class citizenship demands every participant to send a **class citizenship** email to meren@hifmb.de at the end of **each lecture**. The class citizenship email must be composed of two parts:
+The class citizenship demands every participant to send a **class citizenship** email to iva.veseli@hifmb.de at the end of **each lecture**. The class citizenship email must be composed of two parts:
 
 * A **brief summary** of the main concepts discussed during the class, interpreted by the attendee in their own words.
 
@@ -92,13 +92,13 @@ The class citizenship demands every participant to send a **class citizenship** 
 
 **The last 5 minutes of every lecture will be dedicated to class citizenship emails**, therefore the attendees will leave the class without having to remember doing it later. The class citizenship emails that are sent after the end of the class will not be taken into consideration as a mark of attendance.
 
-The title of the class citizenship email must follow this pattern **word-by-word**:
+The subject of the class citizenship email must follow this pattern **word-by-word**:
 
 > **ITPOS Citizenship: DD/MM/YY**
 
 For instance, the following would be the appropriate title for this email for the first lecture:
 
-> **ITPOS Citizenship: 16/10/23**
+> **ITPOS Citizenship: 14/10/24**
 
 The best class citizenship emails are those that are brief, genuine, and insightful. In an ideal world the emails should be no less than 50 words, and no more than 150 words. Please do not send notes you take throughout the class. You should use the last 5 minutes of the lecture to gather your thoughts, and come up with a summary of what you can remember. Here is an example class citizenship email:
 
