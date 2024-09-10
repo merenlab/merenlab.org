@@ -3,7 +3,7 @@ layout: page
 noleftpanel: true
 title: "Introduction to Popular `Omics Strategies"
 author: "Course Plan"
-date: October, 2023
+date: October, 2024
 geometry: "left=3cm,right=3cm,top=2cm,bottom=2cm"
 output: syllabus.pdf
 colorlinks: true
@@ -16,12 +16,12 @@ The purpose of this document is to share the details of the course "**Introducti
 
 ## Course Details
 
-This course is a part of the module "**Applied Molecular Ecology**" (**mar260**) taught by [Prof. Dr. A. Murat Eren](https://merenlab.org) (Meren) and [Prof. Dr. Iliana Baums](https://www.baumslab.org/).
+This course is a part of the module "**Applied Molecular Ecology**" (**mar260**) taught by [Dr. Iva Veseli](https://hifmb.de/people/iva-veseli/) and [Prof. Dr. Iliana Baums](https://www.baumslab.org/).
 
 |Course Details||
 |:---|:---|
 |Name|**Introduction to Popular ‘Omics Strategies**|
-|Meeting Location|**PLEASE SEE INDIVIDUAL WEEKS**|
+|Meeting Location|**[W16A 010](https://www.openstreetmap.org/#map=19/53.15263/8.16827)**|
 |Number|5.12.262|
 |Type|Lecture|
 |Credits|2|
@@ -29,7 +29,7 @@ This course is a part of the module "**Applied Molecular Ecology**" (**mar260**)
 
 In addition to this course, the module **mar260** contains three additional components that each participant of this course is expected to also attend,
 
-* **Applied Microbial &#39;Omics** (5.12.263, Seminar / Exercise, Meren, Course Plan: [HTML](https://merenlab.org/courses/AMO/), [PDF](https://merenlab.org/courses/AMO/syllabus.pdf))
+* **Applied Microbial &#39;Omics** (5.12.263, Seminar / Exercise, Iva, Course Plan: [HTML](https://merenlab.org/courses/AMO/), [PDF](https://merenlab.org/courses/AMO/syllabus.pdf))
 * **Coastal Conservation in the &#39;Omics Age** (5.12.260, Lecture, Iliana Baums)
 * **Readings/Exercises in Coastal Conservation** (5.12.261, Seminar, Iliana Baums)
 
@@ -37,16 +37,16 @@ Please familiarize yourself with the details of the remaining courses using the 
 
 ## Faculty and Communication
 
-The lectures in the **Introduction to Popular &#39;Omics Strategies** will be primarily delivered by Meren. However, additional experts will take part in the design and/or delivery of various sections. The following table lists individuals who will be involved in the course, and their contact information:
+The lectures in the **Introduction to Popular &#39;Omics Strategies** will be primarily delivered by Iva. However, additional experts will take part in the design and/or delivery of various sections. The following table lists individuals who will be involved in the course, and their contact information:
 
 |Name|Role|Expertise|Contact information|
 |:---|:---|:---|:---|
+|**Iva Veseli**|Postdoc|Microbial Ecology, Computer Science|iva.veseli@hifmb.de|
 |**Meren**|Professor|Microbial Ecology, Computer Science|meren@hifmb.de|
-|**Iva Veseli**|Postdoc| Microbial Ecology, Computer Science|iva.veseli@hifmb.de|
 |**Jessika Füssel**|Postdoc|Microbial Metabolism, Biogeochemistry|jessika.fuessel@uol.de|
 |**Florian Trigodet**|Postdoc|Microbiology, Bioinformatics|florian.trigodet@hifmb.de|
 
-Throughout the semester (and beyond) you can reach out via email with any question to Meren, who should be your first contact for anything related to the course activities unless specified otherwise anytime throughout the semester.
+Throughout the semester (and beyond) you can reach out via email with any question to Iva, who should be your first contact for anything related to the course activities unless specified otherwise anytime throughout the semester.
 
 
 ## Description and Learning Objectives
