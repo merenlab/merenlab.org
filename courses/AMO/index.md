@@ -253,47 +253,15 @@ During this session we will overview everything we have covered and discuss how 
 
 ## Evaluation and Grading
 
-The evaluation of the attendee performance in this course (along with all the other three in the module "**Applied Molecular Ecology**" (**mar260**) will be based on two items to be returned by each attendee individually: (1) a **research pre-proposal** (which will provide the basis for the full proposals due at the end of class) and a final **research proposal**.
-
-Writing research proposals provide one with a critical skill that will be useful regardless of the profession one chooses to pursue after an undergraduate education. The primary purpose of a research proposal is to persuade others that *your* idea (in this case science) is worthy of committing resources to, and you are the best person to implement it. The final research proposals will be graded based on their ability to address the following questions:
-
-* Is the proposal contains **a novel research objective** that is relevant to the "**Applied Molecular Ecology**" (**mar260**) module content?
-* Does it make a **strong case** given what is **known** and what is **unknown**?
-* Does it adequately and accurately **cite the existing literature**?
-* Does it suggest the use of methods that are **relevant** and **effective** to address the research question?
-* Does the investigator demonstrate their **ability to use the proposed methods**?
-* Does the proposal includes a discussion of **expected outcomes**, **potential risks**, and how to **mitigate** risks?
-* Does it include a **reasonable budget** and a **meaningful timeline** to carry out the proposed research objectives?
-* Does the proposal written in a **clear**, **concise**, and **accurate** manner that is expected of scientific work?
-
-Upon the submission of the pre-proposal, smaller teams of students will serve as a "peer-review panel" and discuss each pre-proposal. The names of participants who wrote these proposals will not be known to the class. The panel will take place in class for all participants. The purpose of the panel is to provide feedback on how well the proposal was able to convey ideas. Participants are expected to improve their short pre-proposals based on the feedback they received from the peer-review panels and submit their full proposal as their final project.
-
-**The participants will be provided with detailed instructions on how to come up with a proposal idea, what resources are available to carry out the projects, how to format the pre-proposal and final proposals and how to evaluate them in panel.**
-
-It is challenging to think of a topic for research that can be done in a short amount of time with limited resources. Therefore, the course directors (Meren and Iliana) will meet with each of the course participants individually to discuss their proposal idea, tell them whether it is feasible, and help them with resources. To initiate this discussion, you will hand in a one-paragraph research idea early in the semester.
-
-The grading scale for this module is as follows:
-
-|Grade|Threshold|
-|:---|:---|
-|1.0	|95% |
-|1.3	|90% |
-|1.7	|85% |
-|2.0	|80% |
-|2.3	|75% |
-|2.7	|70% |
-|3.0	|65% |
-|3.3	|60% |
-|3.7	|55% |
-|4.0	|50% |
+The evaluation of the attendee performance in this course (along with all the other three in the module "**Applied Molecular Ecology**" (**mar260**) will be based on two items to be returned by each attendee individually: (1) a **research pre-proposal** (which will provide the basis for the full proposals due at the end of class) and a final **research proposal**. Please see the [Evaluation and Grading section for ITPOS](https://merenlab.org/courses/ITPOS/#evaluation-and-grading) for full details.
 
 ## Examination Policy
 
 Please find all relevant university policies here: https://uol.de/studiengang/pruefungen/umweltwissenschaften-fach-bachelor-136
 
 ## Academic Integrity
-All UOL policies regarding ethics and honorable behavior apply to this. Academic integrity is the pursuit of scholarly activity free from fraud and deception and is an educational objective of this class. All University policies regarding academic integrity apply to this course. Academic dishonesty includes, but is not limited to, cheating, plagiarizing, fabricating of information or citations, facilitating acts of academic dishonesty by others, having unauthorized possession of examinations, submitting work of another person or work previously used without informing the instructor, or tampering with the academic work of other students. For any material or ideas obtained from other sources, such as the text or things you see on the web, in the library, etc., a source reference must be given. Direct quotes from any source must be identified as such.
+**All University policies regarding academic integrity, ethics and honorable behavior apply to this course.** Academic integrity is the pursuit of scholarly activity free from fraud and deception and is an educational objective of this class. Academic dishonesty includes, but is not limited to, cheating, plagiarizing, fabricating of information or citations, facilitating acts of academic dishonesty by others, having unauthorized possession of examinations, submitting work of another person or work previously used without informing the instructor, or tampering with the academic work of other students. For any material or ideas obtained from other sources, such as the course reading materials or things you see on the web, in the library, etc., a source reference must be given. Direct quotes from any source must be identified as such.
 
 ## Disability Access Statement
 
-UOL welcomes students with disabilities and students with care obligations for their children or close relatives into the University's educational programs. In order to receive consideration for reasonable accommodations, you must contact the *Prüfungsausschuss*. Please let Meren and/or Iliana know at the beginning of the semester what accommodations were approved for you.
+UOL welcomes students with disabilities and students with care obligations for their children or close relatives into the University's educational programs. In order to receive consideration for reasonable accommodations, you must contact the *Prüfungsausschuss*. Please let Iva and/or Iliana know at the beginning of the semester what accommodations were approved for you.
