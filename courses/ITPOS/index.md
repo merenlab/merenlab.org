@@ -111,29 +111,28 @@ The best class citizenship emails are those that are brief, genuine, and insight
 
 Please note that each lecture takes place on **Mondays**, between **10:15 - 12:00**, at **W16A 010**.
 
-### 16/10/23 :: Course logistics
+### 14/10/24 :: Course logistics
 
 * *Discussion Leaders*:
 
-  * Meren
-  * Iliana
+  * Iva
 
-* *Discussion Topic*. **Course Logistics and Introductions with Meren and Iliana**. If we have time, we will start with **a brief introduction to microbial life on Earth**, and will continue next week.
+* *Discussion Topic*. **Course Logistics and Introductions**. We will meet each other and go over what to expect from the course. If we have time, we will start with **a brief introduction to microbial life on Earth**, and will continue next week.
 
 * *Suggested Reading*:
 
   * The Course Syllabus :)
 
 
-### 23/10/23 :: A brief introduction to **microbial life on Earth**
+### 21/10/24 :: A brief introduction to **microbial life on Earth**
 
 * *Discussion Leaders*:
 
-  * Meren
+  * Iva
 
 * *Learning Objectives*:
 
-  * Describe the extent of microbial diversity on Earth, their involvement in key biogeochemical processes, as well as human health and disease
+  * Describe the extent of microbial diversity on Earth and microbial involvement in key biogeochemical processes, as well as human health and disease
   * Remember seminal studies that contributed to our understanding of the diversity, functioning, and metabolic potential of naturally occurring microbial communities and approaches to study them
   * Explain the old and new intellectual and technical challenges that prevent us from defining fundamental units of microbial life, and the *art* of moving forward without any answers
 
@@ -143,41 +142,58 @@ Please note that each lecture takes place on **Mondays**, between **10:15 - 12:0
   * Pace NR (2018) [The small things can matter](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3000009). *PLoS Biology*.
   * Falkowski, PG, Fenchel T, Delong EF (2008). [The microbial engines that drive Earth's biogeochemical cycles](https://doi.org/10.1126/science.1153213). *Science*.
 
-* *Even More to Suggested Resources for the Ambitious*:
+* *Even More Suggested Resources for the Ambitious*:
 
   * [Seeing the Invisible](https://www.youtube.com/watch?v=mTzHxNMK0bU), Op-Docs, The New York Times (a short and cute video on microbial life for a lay audience).
   * [Meet Your Microbes](https://www.ted.com/talks/jonathan_eisen_meet_your_microbes), Jonathan Eisen, TED Talk (an easy-to-follow introduction to microbes for a lay audience).
   * [How Giant Tube Worms Survive at Hydrothermal Vents](https://www.youtube.com/watch?v=8W_ywzhkR90), Ed Yong, PBS Digital Studies (Ed Yong is a very successful science journalist, who talks about hydrothermal vent microbes with Colleen Cavanaugh, who made significant contributions to our understanding of microbial symbioses).
   * [Overview of how next-generation sequencing works](https://www.youtube.com/watch?v=mI0Fo9kaWqo), Eric Chow (a very useful and easy-to-follow lecture on the general principles of sequencing with Illumina, Oxford Nanopore, and PacBio).
 
-### 30/10/23 :: An overview of **data-driven strategies** to survey environmental microbiomes
+### 28/10/24 :: An introduction to the **command-line environment**
 
 * *Discussion Leaders*:
 
-  * Meren
+  * Iva
 
 * *Learning Objectives*:
 
-  * Recognize currently available &#39;omics data types (such as metagenomics, and metatranscriptomics), approaches (such as pangenomics, and phylogenomics), and questions they can *and* can not answer
-  * Recognize the available computational solutions to gain insights into fundamental questions in microbiology and their brief history
-  * Explain the power of **metagenomic read recruitment** and interpret ecological and evolutionary insights we can infer through this strategy
+  * Apply basic commands for navigating and working in the command-line environment, specifically in the **Unix shell (BASH)**
+  * Recognize **common vocabulary terms and errors** to make searching the Internet for help easier
+  * Practice useful programming structures like **loops and variables** and techniques like **file searching and editing** that will be helpful in our data analysis exercises
+  * Design a shell script to automate a practical task 
 
 * *Suggested Reading*:
 
-  * Franzosa EA, et al (2015). [Sequencing and beyond: integrating
-molecular ‘omics’ for microbial community profiling](https://www.nature.com/articles/nrmicro3451). *Nature Reviews Microbiology*.
+  * [Beginner's Guide to the Bash Terminal](https://www.youtube.com/watch?v=oxuRxtrO2Ag), Joe Collins, YouTube (a video introduction to the Linux command line environment).
+* [Learning the Shell](http://linuxcommand.org/lc3_learning_the_shell.php), William Shotts (a chapter from the open book "*The Linux Command Line*").
 
-### 06/11/23 :: **Genome-resolved metagenomics**: opportunities and pitfalls
+### 04/11/24 :: An overview of **data-driven strategies** to survey environmental microbiomes
 
 * *Discussion Leaders*:
 
-  * Meren
+  * Iva
+
+* *Learning Objectives*:
+
+  * Recognize currently available &#39;omics data types (such as metagenomics and metatranscriptomics), approaches (such as pangenomics and phylogenomics), and questions they can *and* can not answer
+  * Recognize the available computational solutions to gain insights into fundamental questions in microbiology and their brief history
+  * Explain the power of **metagenomic read recruitment** and interpret the ecological and evolutionary insights that we can infer through this strategy
+
+* *Suggested Reading*:
+
+  * Franzosa EA, et al (2015). [Sequencing and beyond: integrating molecular ‘omics’ for microbial community profiling](https://www.nature.com/articles/nrmicro3451). *Nature Reviews Microbiology*.
+
+### 11/11/24 :: **Genome-resolved metagenomics**: opportunities and pitfalls
+
+* *Discussion Leaders*:
+
+  * Iva
 
 * *Learning Objectives*:
 
   * Recognize the difference between microbial isolates, enrichments, single-cell amplified genomes, and metagenome-assembled genomes
   * Explain the importance of the ability to acquire genomic information from microbes we have not yet cultivated
-  * Tell the basics of algorithms and strategies to reconstruct microbial genomes directly from metagenomes
+  * Summarize the basics of algorithms and strategies to reconstruct microbial genomes directly from metagenomes
   * Appreciate the limitations and opportunities associated with genome-resolved workflows
 
 * *Suggested Reading*:
@@ -187,17 +203,17 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
   * Shaiber A, Eren AM (2019). [Composite metagenome-assembled genomes reduce the quality of public genome repositories](https://doi.org/10.1128/mBio.00725-19). *mBio*.
   * Meren and Scott JJ (2020). [Visualizing the fate of contigs across metagenomic binning algorithms](https://merenlab.org/2020/01/02/visualizing-metagenomic-bins/). *A blog post on merenlab.org*.
 
-### 13/11/23 :: **Pangenomics**: comparative genomics in the era of genomic explosion
+### 18/11/24 :: **Pangenomics**: comparative genomics in the era of genomic explosion
 
 * *Discussion Leaders*:
 
-  * Meren
+  * Iva
 
 * *Learning Objectives*:
 
   * Explain the concepts of core and accessory genome, as well as open and closed pangenomes
   * Define gene clusters in pangenomes through sequence homology
-  * Interpret ecological and evolutionary insights pangenomes offer
+  * Interpret the ecological and evolutionary insights that pangenomes offer
 
 * *Suggested Reading*:
 
@@ -205,32 +221,22 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
   * McInerney MO, et al (2017). [Why prokaryotes have pangenomes](https://doi.org/10.1038/nmicrobiol.2017.40). *Nature Microbiology*.
   * Zhou Z, et al (2018). [Pan-genome Analysis of Ancient and Modern Salmonella enterica Demonstrates Genomic Stability of the Invasive Para C Lineage for Millennia](https://doi.org/10.1016/j.cub.2018.05.058). *Current Biology*.
 
-### 20/11/23 :: **Metapangenomics**: integrated interpretations of pangenomes and metagenomes
+### 25/11/24 :: A Group Discussion Over Course Proposals
 
 * *Discussion Leaders*:
 
   * Meren
+  * Iva
 
 * *Learning Objectives*:
 
-  * Explain the emerging opportunities to investigate the functioning and the ecology of microbial populations by linking pangenomes and metagenomes
-  * Comprehend the power of characterizing a single genome across metagenomes
+  * Learn how to write a compelling proposal
 
-* *Suggested Reading*:
-
-  * Delmont TO, Eren AM (2018). [Linking pangenomes and metagenomes: the Prochlorococcus metapangenome](https://peerj.com/articles/4320/). *PeerJ*.
-  * Utter DR, et al (2020). [Metapangenomics of the oral microbiome provides insights into habitat adaptation and cultivar diversity](https://doi.org/10.1186/s13059-020-02200-2). *Genome Biology*.
-  * Boeuf D, et al (2021). [Metapangenomics reveals depth-dependent shifts in metabolic potential for the ubiquitous marine bacterial SAR324 lineage](https://doi.org/10.1186/s40168-021-01119-5). *Microbiome*.
-
-### 27/11/23 :: **Phylogenomics**: inferring evolutionary relationships between microorganisms
-
-* *Meeting Location*:
-
-  * **W15 0-027**
+### 02/12/24 :: **Phylogenomics**: inferring evolutionary relationships between microorganisms
 
 * *Discussion Leaders*:
 
-  * Meren
+  * Iva
 
 * *Learning Objectives*:
 
@@ -251,31 +257,11 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
   * Da Cunha V, et al (2017). [Lokiarchaea are close relatives of Euryarchaeota, not bridging the gap between prokaryotes and eukaryotes](https://doi.org/10.1371/journal.pgen.1006810). *PLOS Genetics*.
   * Spang A, et al (2018). [Asgard archaea are the closest prokaryotic relatives of eukaryotes](https://doi.org/10.1371/journal.pgen.1007080). *PLOS Genetics*.
 
-### 04/12/23 :: A Group Discussion Over Course Proposals
-
-* *Meeting Location*:
-
-  * **W15 0-027**
-
-* *Discussion Leaders*:
-
-  * Meren
-
-* *Learning Objectives*:
-
-  * Learn how to write a compelling proposal
-
-
-### 11/12/23 :: Inferring **microbial metabolism** in genomes and metagenomes
-
-* *Meeting Location*:
-
-  * **W15 1-112**
+### 09/12/24 :: Inferring **microbial metabolism** in genomes and metagenomes
 
 * *Discussion Leaders*:
 
   * Iva
-  * Jessika
 
 * *Learning Objectives*:
 
@@ -289,16 +275,48 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
   * van Kessel MAHJ, et al (2015). [Complete nitrification by a single microorganism](https://doi.org/10.1038/nature16459). *Nature*.
   * Liu R, et al (2022). [Novel Chloroflexi genomes from the deepest ocean reveal metabolic strategies for the adaptation to deep-sea habitats](https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-022-01263-6). *Microbiome*.
 
-### 18/12/23 :: **Microbial population genetics**: tools, terminology, and open questions
-
-* *Meeting Location*:
-
-  * **W15 0-027**
-
+### 16/12/24 :: Linking **metabolomics and (meta)genomics**: opportunities and limitations
 
 * *Discussion Leaders*:
 
-  * Meren
+  * Jessika
+  * Iva
+
+* *Learning Objectives*:
+
+  * Recognize how measurements of metabolites from the environment are linked to metabolic pathways in genomes
+  * Understand the limitations of combining metagenomics and metabolomics in simple and complex environments
+  * Identify the limitations of metagenomics to gain insights into the chemical currencies of life
+
+* *Suggested Reading*:
+
+  * Moran MA and Kujawinski EB, et al (2022). [Microbial metabolites in the marine carbon cycle](https://rdcu.be/cKnTP). *Nature Microbiology*.
+  * Kujawinski EB, et al (2023). [Metabolite diversity among representatives of divergent *Prochlorococcus* ecotypes](https://doi.org/10.1128/msystems.01261-22). *mSystems*.
+  * Wienhausen G, et al (2017). [The exometabolome of two model strains of the *Roseobacter* group: a marketplace of microbial metabolites](https://www.frontiersin.org/articles/10.3389/fmicb.2017.01985/full). *Frontiers in Microbiology*.
+  * Noriega-Ortega BE, et al (2019). [Does the chemodiversity of bacterial exometabolomes sustain the chemodiversity of marine dissolved organic matter?](https://doi.org/10.3389/fmicb.2019.00215). *Frontiers in microbiology*.
+
+### 06/01/25 :: **Metapangenomics**: integrated interpretations of pangenomes and metagenomes
+
+* *Discussion Leaders*:
+
+  * Iva
+
+* *Learning Objectives*:
+
+  * Explain the emerging opportunities to investigate the functioning and the ecology of microbial populations by linking pangenomes and metagenomes
+  * Comprehend the power of characterizing a single genome across metagenomes
+
+* *Suggested Reading*:
+
+  * Delmont TO, Eren AM (2018). [Linking pangenomes and metagenomes: the Prochlorococcus metapangenome](https://peerj.com/articles/4320/). *PeerJ*.
+  * Utter DR, et al (2020). [Metapangenomics of the oral microbiome provides insights into habitat adaptation and cultivar diversity](https://doi.org/10.1186/s13059-020-02200-2). *Genome Biology*.
+  * Boeuf D, et al (2021). [Metapangenomics reveals depth-dependent shifts in metabolic potential for the ubiquitous marine bacterial SAR324 lineage](https://doi.org/10.1186/s40168-021-01119-5). *Microbiome*.
+
+### 13/01/24 :: **Microbial population genetics**: tools, terminology, and open questions
+
+* *Discussion Leaders*:
+
+  * Iva
 
 * *Learning Objectives*:
 
@@ -307,22 +325,17 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
   * Comprehend differences and overlaps between population genetics approaches in animal populations and microbial populations
   * Characterize variation within a metagenomic sample and make use of it for exploratory analyses or hypothesis testing.
 
-
 * *Suggested Reading*:
 
   * Simmons SL and Dibartolo G, et al (2008). [Population genomic analysis of strain variation in Leptospirillum group II Bacteria involved in acid mine drainage formation](https://doi.org/10.1371/journal.pbio.0060177). *PLOS Biology*.
   * Denef VJ (2018). [Peering into the genetic make up of natural microbial populations using metagenomics](https://doi.org/10.1007/13836_2018_14). *Springer Publishing*.
   * Delmont TO, et al (2019). [Single-amino acid variants reveal evolutionary processes that shape the biogeography of a global SAR11 subclade](https://doi.org/10.7554/eLife.46497). *eLife*.
 
-### 08/01/24 :: **Structure-informed** interpretations of microbial population genetics
-
-* *Meeting Location*:
-
-  * **W02 1-146**
+### 20/01/25 :: **Structure-informed** interpretations of microbial population genetics
 
 * *Discussion Leaders*:
 
-  * Meren
+  * Iva
 
 * *Learning Objectives*:
 
@@ -336,16 +349,12 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
   * Robinson SL (2023). [Structure-guided metagenome mining to tap microbial functional diversity](https://doi.org/10.1016/j.mib.2023.102382). *Current Opinion in Microbiology*.
   * Kiefl E, et al (2023). [Structure-informed microbial population genetics elucidate selective pressures that shape protein evolution](https://www.science.org/doi/full/10.1126/sciadv.abq4632). *Science Advances*.
 
-### 15/01/24 :: **Genomic dynamism**: inversions, diversity generating retroelements, and more
-
-* *Meeting Location*:
-
-  * **W15 0-027**
+### 27/01/25 :: **Genomic dynamism**: inversions, diversity generating retroelements, and more
 
 * *Discussion Leaders*:
 
   * Florian
-  * Meren
+  * Iva
 
 * *Learning Objectives*:
 
@@ -359,54 +368,6 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
   * Jiang X and Hall AB, et al (2019). [Invertible promoters mediate bacterial phase variation, antibiotic resistance, and host adaptation in the gut](https://doi.org/10.1126%2Fscience.aau5238). *Science*.
   * Paul BG, Eren AM (2022). [Eco-evolutionary significance of domesticated retroelements in microbial genomes](https://mobilednajournal.biomedcentral.com/articles/10.1186/s13100-022-00262-6). *Mobile DNA*.
   * Roux S, et al (2021). [Ecology and molecular targets of hypermutation in the global microbiome](https://www.nature.com/articles/s41467-021-23402-7). *Nature Communications*.
-
-### 22/01/24 :: **Metaepitranscriptomics**: translational regulation and its ecological implications
-
-* *Meeting Location*:
-
-  * **W15 0-027**
-
-
-* *Discussion Leaders*:
-
-  * Meren
-
-* *Learning Objectives*:
-
-  * Identify limitations of DNA and RNA molecules to study microbial life.
-  * Recognize another aspect of life to regulate its fitness in shortest scales of time.
-
-* *Suggested Reading*:
-
-  * Chan C, et al (2018). [Lifestyle modifications: coordinating the tRNA epitranscriptome with codon bias to adapt translation during stress responses](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-018-1611-1). *Genome Biology*.
-  * Schwarz MY, et al (2018). [Microbiome characterization by high-throughput transfer RNA sequencing and modification analysis](https://www.nature.com/articles/s41467-018-07675-z). *Nature Communications*.
-  * Orellana EA, et al (2022). [tRNA dysregulation and disease](https://doi.org/10.1038/s41576-022-00501-9). *Nature Reviews Genetics*.
-
-### 29/01/24 :: Linking **metabolomics and (meta)genomics**: opportunities and limitations
-
-* *Meeting Location*:
-
-  * **W15 0-027**
-
-
-
-* *Discussion Leaders*:
-
-  * Jessika
-  * Meren
-
-* *Learning Objectives*:
-
-  * Recognizing how measurements of metabolites from the environment are linked to metabolic pathways in genomes
-  * Understanding the limitations of combining metagenomics and metabolomics in simple and complex environments
-  * Identifying the limitations of metagenomics to gain insights into the chemical currencies of life
-
-* *Suggested Reading*:
-
-  * Moran MA and Kujawinski EB, et al (2022). [Microbial metabolites in the marine carbon cycle](https://rdcu.be/cKnTP). *Nature Microbiology*.
-  * Kujawinski EB, et al (2023). [Metabolite diversity among representatives of divergent *Prochlorococcus* ecotypes](https://doi.org/10.1128/msystems.01261-22). *mSystems*.
-  * Wienhausen G, et al (2017). [The exometabolome of two model strains of the *Roseobacter* group: a marketplace of microbial metabolites](https://www.frontiersin.org/articles/10.3389/fmicb.2017.01985/full). *Frontiers in Microbiology*.
-  * Noriega-Ortega BE, et al (2019). [Does the chemodiversity of bacterial exometabolomes sustain the chemodiversity of marine dissolved organic matter?](https://doi.org/10.3389/fmicb.2019.00215). *Frontiers in microbiology*.
 
 
 ## Evaluation and Grading

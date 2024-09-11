@@ -138,30 +138,30 @@ Please also consider the following formatting guidelines for your reports:
 
 Please note that each lecture takes place on **Wednesdays** (bi-weekly), between **10:15 - 12:00**, at **W04 1-171**.
 
-### 25/10/23 :: Introduction to anvi'o and installation check
+### 23/10/24 :: Introduction to anvi'o and installation check
 
 The primary purpose of this session is to **discuss the course format**, future exercises, and how to return reports.
 
-We will also **discuss anvi'o and its features**, and will make sure everyone has a **working copy of anvi'o installed** on their computers. Towards the end of this first session those who have attempted yet not been able to install the platform will receive hands-on help. Please try to install the development version of anvi'o on your computers before you come to this exercise session. You will find the installation instructions on [https://anvio.org/install](https://anvio.org/install)
+We will also **discuss anvi'o and its features**, and will make sure everyone has a **working copy of anvi'o installed** on their computers. Towards the end of this first session those who have attempted yet not been able to install the platform will receive hands-on help. Please try to install the development version of anvi'o on your computers *before* you come to this exercise session. You will find the installation instructions on [https://anvio.org/install](https://anvio.org/install)
 
 * *Suggested Reading*:
 
   * Eren AM, et al (2021). [Community-led, integrated, reproducible multi-omics with anvi'o](https://rdcu.be/cKMmi). *Nature Microbiology*.
 
 
-### 08/11/23 :: EX 01: A read recruitment exercise to warm up
+### 06/11/24 :: EX 01: A read recruitment exercise to warm up
 
-Please try to accomplish this exercise by **07/11/23**. You will not need to return a report for this particular week:
+Please try to accomplish this exercise by midnight on **13/11/23**. You will not need to return a report for this particular week.
 
-> The purpose of this exercise is to help you have a direct exposure to individual analysis steps and tools that enables one to recruit reads from metagenomes (essentials of which is covered on the 30/10/23 lecture in the companion course), and profile the read recruitment results to investigate gene distribution patterns of a given population.
+> The purpose of this exercise is to help you have a direct exposure to individual analysis steps and tools that enables one to recruit reads from metagenomes (essentials of which are covered in the 04/11/24 lecture in the companion course), and profile the read recruitment results to investigate gene distribution patterns of a given population.
 >
-> Throughout this exercise you will use a mock dataset to (1) familiarize yourself with commonly used file formats such as FASTA, FASTQ, SAM, and BAM, (2) learn the basic steps of read recruitment through Bowtie2 and samtools, (3) learn how to profile read recruitment results using anvi’o, and (4) familiarize yourself with downstream steps of the analysis of recruited reads. Please try to be mindful about individual steps, make notes of those steps that did not make much sense to you so we can discuss them further during our session 08/11/23.
+> Throughout this exercise you will use a mock dataset to (1) familiarize yourself with commonly used file formats such as FASTA, FASTQ, SAM, and BAM, (2) learn the basic steps of read recruitment through Bowtie2 and samtools, (3) learn how to profile read recruitment results using anvi’o, and (4) familiarize yourself with downstream steps of the analysis of recruited reads. Please try to be mindful about individual steps, make notes of those steps that did not make much sense to you so that we can discuss them during class.
 >
 > You will find the exercise here: [https://merenlab.org/tutorials/read-recruitment/](https://merenlab.org/tutorials/read-recruitment/)
 
-### 22/11/23 :: EX 02: Pangenomic analysis of a bacterial genus
+### 20/11/24 :: EX 02: Pangenomic analysis of a bacterial genus
 
-Please read the assignment below carefully, and **return your reports by 21/11/23**:
+Please read the assignment below carefully, and **return your reports by midnight on 27/11/24**:
 
 > This is a small exercise with pangenomics. Please find the data pack for this exercise on stud.IP, or using [this Dropbox link](https://www.dropbox.com/scl/fi/4mx04ye5j08xpiilir0qj/Bifidobacterium_genomes.tar.gz?rlkey=fuu5t7i79meztpkyvxu20dbzw&dl=0).
 >
@@ -172,36 +172,30 @@ Please read the assignment below carefully, and **return your reports by 21/11/2
 > * Which **'species' name** would you annotate these genomes with?
 > * According to gene clusters, which two species of *Bifidobacterium* in this mixture are **most closely related**?
 >
-> Please include a screenshot of your final display you achieved through `anvi-display-pan`, and get cookie points for your pretty displays :)
+> Please include a screenshot of your final display you achieved through `anvi-display-pan`, and get cookie points for your pretty figures :)
 >
-> Some opetional questions for the overly enthusiastic:
+> Some optional questions for the extra enthusiastic:
 >
 > * What are some of **common features of the genomic islands** that seem to be variable across individual genomes in this pangenome? Tip: you can have quick insights into genomic islands that occur only in some genomes by organizing gene clusters based on enforced synteny per genome.
 > * What **functions seem to differ between the main groups of genomes**? Tip: you can use functional enrichemnt analyses to figure out if there are functions that systematically occur in one clade of Bifidobacterum but not the other.
 
-### 06/12/23 :: EX 03: Phylogenomic analysis of a bacterial genus
+### 04/12/24 :: EX 03: Phylogenomic analysis of a bacterial genus
 
-* *Meeting Location*:
-
-  * **W15 2-234**
-
-Please read the assignment below carefully, and **return your reports by 05/12/23**:
+Please read the assignment below carefully, and **return your reports by midnight on 11/12/24**:
 
 > This is a small exercise in phylogenomics. Please use the same data pack from the pangenomics exercise to complete this one. Since you already have your contigs-db files for the genomes in that data pack, this should be extremely fast for you. But please start early to avoid any last minute challenges :)
 >
-> To solve this exercise, please apply phylogenomics principles to calculate a tree for the Bifidobacterium clade.
+> To solve this exercise, please apply phylogenomics principles to calculate a tree for the *Bifidobacterium* clade.
 >
 > You can benefit from the tutorial on [anvi'o phylogenomics workflow](https://merenlab.org/2017/06/07/phylogenomics/) and see examples on how to get the necessary genes from genomes for phylogenomics. Reconstructing a final tree for these genomes with phylogenomics, and being able to explain why you have made certain choices to generate it, is the answer to this exercise.
 >
 > Once you are done, please compare your phylogenomic tree to the dendrogram you have obtained from the pangenomic analysis. If you want to get fancy, feel free to include 'additional' Bifidobacterium genomes from other species in this genus :)
 
-### 20/12/23 :: EX 04: Comparative microbial metabolism
+### 18/12/24 :: EX 04: Comparative microbial metabolism
 
-* *Meeting Location*:
+**Warning! This exercise has an off-pattern schedule and is due earlier than usual.** To avoid having an assignment due during the winter holiday, this exercise will be due on Friday 20/12/24, *two days after* our session on 18/12/24. To accommodate this, the corresponding theoretical lecture for this assignment will take place on 09/12/24, one week earlier than usual. Please get started on the assignment as early as you can.
 
-  * **W15 1-112**
-
-Please read the assignment below carefully, and **return your reports by 19/12/23**:
+Please read the assignment below carefully, and return your reports by midnight on **Friday, 20/12/24** (before the winter break):
 
 > This is a small exercise in microbial metabolism analysis. Please find the data pack for this exercise on stud.IP, or using [this Dropbox link](https://www.dropbox.com/scl/fi/083ci71gz8x8udppo2zpl/AMO_Metabolism_Datapack.tar.gz?rlkey=tm32w37sqtsb9wlrf797152f4&dl=).
 >
@@ -215,7 +209,7 @@ Please read the assignment below carefully, and **return your reports by 19/12/2
 >- When you've analyzed all of the genomes, please summarize your findings with a few sentences describing the following points:
 >  - which part(s) of the nitrogen cycle you found to be complete, and which part(s) were missing across all genomes
 >  - which genome(s) were capable of carrying out multiple nitrogen metabolism pathways, and which genome(s) had no nitrogen metabolism capabilities at all
->  - other observations or hypotheses (if you have any) about these nitrogen cycle pathways, or the enzymes/gene annotations in these pathways, or why these genomes might >have these capabilities or not, etc
+>  - other observations or hypotheses (if you have any) about these nitrogen cycle pathways, or the enzymes/gene annotations in these pathways, or why these genomes might have these capabilities or not, etc.
 >
 > And here are some optional things to include in your report, if you have the time or interest :)
 >
@@ -228,28 +222,24 @@ Please read the assignment below carefully, and **return your reports by 19/12/2
 >- [Documentation for anvi-estimate-metabolism](https://anvio.org/help/8/programs/anvi-estimate-metabolism/)
 >- [An older (and much simpler) tutorial on metabolism estimation](https://merenlab.org/tutorials/infant-gut/#chapter-v-metabolism-prediction)
 
-### 17/01/24 :: EX 05: Population genetics of a plasmid
+### 15/01/25 :: EX 05: Population genetics of a plasmid
 
-* *Meeting Location*:
-
-  * **[Zoom](https://uchicago.zoom.us/j/98925013168?pwd=K3Z4Zml2VmNCWXpobW4vYSswNGsvZz09)**
-
-Please read the assignment below carefully, and **return your reports by 17/01/23**:
+Please read the assignment below carefully, and **return your reports by midnight on 22/01/25**:
 
 > This is a small exercise on microbial population genetics. The exercise aims to help you familiarize yourself with the population genetic signal recovered from metagenomes through single nucleotide avariants, and sharpen your ability to answer some key questions using such data. You can download the datapack from [here](https://www.dropbox.com/scl/fi/nq7axbmiilylgtfyx7qxa/AMO_Population_Genetics_Datapack.tar.gz?rlkey=xn3nnzxvz988ssrpeoydtvdsp&dl=0), in which you will find an anvi'o profile database and a contigs database that contains all the data you will need to be able to solve the following puzzle.
 >
-> The contigs database is generated from a single plasmid, and the merged profile database contains the metagenomic read recruitment data that puts this plasmid in the context of 12 human gut metagenomes. The gut metagenomes are a subset of the data published in [this study](https://www.sciencedirect.com/science/article/pii/S1931312815001626) in case you are interested to take a look. But briefly, the subset of the data that is profiled here includes <strong>6 gut metagenomes from mothers</strong>, and <strong>6 gut metagenomes from their infants</strong>. But you don't know the real infant-mother pairs :)
+> The contigs database is generated from a single plasmid, and the merged profile database contains the metagenomic read recruitment data that puts this plasmid in the context of 12 human gut metagenomes. The gut metagenomes are a subset of the data published in [this study](https://www.sciencedirect.com/science/article/pii/S1931312815001626) in case you are interested to take a look. But briefly, the subset of the data that is profiled here includes <strong>6 gut metagenomes from mothers</strong>, and <strong>6 gut metagenomes from their infants</strong>. But you don't know the real mother-infant pairs :)
 >
 > Your task is to investigate single-nucleotide variants (SNVs) found in read recruitment results to and answer the following questions:
 >
 > - As far as this dataset goes, would one argue that the plasmid is acquired from random sources upon birth, or is there evidence to suggest it is vertically transmitted from mothers to infants?
-> - If it is vertically transferred, can one identify mother infant pairs confidently?
+> - If it is vertically transferred, can one identify the mother-infant pairs confidently?
 >
 > To answer these questions you can get inspiration from strategies mentioned in [this tutorial](http://merenlab.org/tutorials/infant-gut/#chapter-v-microbial-population-genetics). If you want a refresher on SNVs, you may want to take a look at [this blog post](http://merenlab.org/2015/07/20/analyzing-variability/).
 >
 > You can (and should) inspect the coverage plots for all of the mothers and infants (using the program `anvi-interactive`), but if you determine that the plasmid is vertically transmitted and you think you can identify mother-infant pairs, you are invited to create a final figure that summarizes the evidence for it.
 >
-> Please make sure your reoprt includes,
+> Please make sure your report includes,
 >
 >  - A list that describes which mother matches which infant, if there is signal to determine that.</li>
 >  - A screenshot of your final visualization with a brief description of how you interpreted it.</li>
@@ -257,11 +247,7 @@ Please read the assignment below carefully, and **return your reports by 17/01/2
 >
 > Thank you and good luck!
 
-### 31/01/24 :: EX 06: Proposal Discussion
-
-* *Meeting Location*:
-
-  * **W15 1-112**
+### 29/01/25 :: EX 06: Proposal Discussion
 
 During this session we will overview everything we have covered and discuss how you integrate your learnings into your final proposal for the module.
 
