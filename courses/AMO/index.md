@@ -89,7 +89,7 @@ Each participant is expected to attend each lecture in person (unless a legitima
 
 ## Analysis Report Submission Guidelines
 
-Please follow these guidelines carefully to format your reports. Each analysis report should be submitted as Markdown file as well as a PDF document in a single compressed directory. The directory structure and file names should look like this:
+Please follow these guidelines carefully to format your reports. You can submit your report by email to iva.veseli@hifmb.de before the deadline. Each analysis report should be submitted as Markdown file as well as a PDF document in a single compressed directory. The directory structure and file names should look like this:
 
 ```
 Eren_AM_EX_01/
