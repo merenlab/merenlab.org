@@ -20,19 +20,19 @@ authors: [raissa]
 In this study, we 
 -  integrate metagenomics metadata and data from observatories (Hawaii Ocean Time-Series and Bermuda Atlantic Time-series Study), sampling expeditions (Bio-GO-SHIP, bioGEOTRACES, Malaspina, and Tara Oceans), and citizen science initiatives (Ocean Sampling Day)
 -  generate an anvi'o contigs database describing 51 SAR11 isolate genomes (reference genomes)
--  recruite reads from the above listed projects' metagenomes to the SAR11 reference genomes, and profile the recruitment results
+-  competitively recruit reads from the above listed projects' metagenomes to the SAR11 reference genomes, and profile the recruitment results
 -  investigate the patterns in genes across metagenomes recruited to the individual SAR11 reference genomes
 
 Sections in this document will detail all the steps of downloading and processing SAR11 genomes and metagenomes, mapping metagenomic reads onto the SAR11 genomes, as well as analysing and visualising the outcomes.
 
-For the curation of metadata, please consult the [public-marine-omics-metadata](https://github.com/merenlab/public-marine-omics-metadata/tree/main) GitHub repository, where all steps of metadata gathering and standardisation are described in detail.
+For the curation of metadata, please consult the [public-marine-omics-metadata](https://github.com/merenlab/public-marine-omics-metadata/tree/main) GitHub repository, where all steps of metadata gathering, curation, and standardisation are described in detail.
 
 {:.notice}
 If you have any questions, notice an issue, and/or are unable to find an important piece of information here, please feel free to leave a comment down below, send an e-mail to [us](/people/), or get in touch with us through Discord:
 
 {% include _join-anvio-discord.html %}
 
-Information for the projects included in this analysis (information only for depth up to 100 m)
+Information for the projects included in this analysis (information for depth up to 100 m)
 
 | Project | Acronym | Accession | Years covered | # Samples |
 |:--|:--|:--|:--|:--|
@@ -59,12 +59,12 @@ You will see that many of the commands utlize the SLURM wrapper clusterize to su
 
 
 ## Metadata
-For the curation of metadata, please consult the [public-marine-omics-metadata](https://github.com/merenlab/public-marine-omics-metadata/tree/main) GitHub repository, where all steps of metadata gathering and standardisation are described in detail.
+For the curation of metadata, please consult the [public-marine-omics-metadata](https://github.com/merenlab/public-marine-omics-metadata/tree/main) GitHub repository, where all steps of metadata gathering, curation, and standardisation are described in detail.
 
 Remember, team: Data without metadata is like a recipe without ingredients listed - you know what you'd get out but not how you got there. Our data is only worth as much as our metadata can support it.
 
 ## SAR11 cultivar genomes
-This section explains how to prepare the set of SAR11 isolate genomes, ending up with 51 quality-checked and dereplicated reference genomes. 
+This section explains how to prepare the set of 99 SAR11 isolate genomes, ending up with 51 quality-checked and dereplicated reference genomes. 
 
 The isolate genomes available at the time of this analysis are included in a file called `SAR11_June2024_bycontig.fa`. We cannot make the file itself public yet, as it includes some unpublished isolate genomes (Thank you, Freel et al. [in prep] for sharing those with us!). To see more information and the source of each isolate genome, expand the section below. We would like to thank all researchers who have provided these genomes.
 
@@ -95,81 +95,81 @@ The isolate genomes available at the time of this analysis are included in a fil
 | HTCC7217                            | Ia.3.I    | Ia.3.I         | No   | Stingl et al., 2007          | Sargasso Sea, BATS          |
 | HTCC8051                            | Ia.3.IV   | Ia.3.IV        | Type | Stingl et al., 2007          | coastal Oregon, USA         |
 | FZCC0015                            | Ia.3.V    | Ia.3.V         | No   | Zhao et al., 2019            | coastal Pingtang, China     |
-| HIMB123                             | Ia.3.V    | Ia.3.V         | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1420                            | Ia.3.II   | Ia.3.II        | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
-| HIMB1427                            | Ia.3.II   | Ia.3.II        | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
-| HIMB1520                            | Ia.3.II   | Ia.3.II        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1564                            | Ia.3.II   | Ia.3.II        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1412                            | Ia.3.II   | Ia.3.II_1412   | Type | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
-| HIMB1505                            | Ia.3.III  | Ia.3.III       | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1527                            | Ia.3.III  | Ia.3.III       | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1549                            | Ia.3.III  | Ia.3.III       | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1409                            | Ia.3.V    | Ia.3.V         | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
-| HIMB1413                            | Ia.3.V    | Ia.3.V         | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
-| HIMB1444                            | Ia.3.V    | Ia.3.V         | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
-| HIMB1456                            | Ia.3.V    | Ia.3.V         | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
-| HIMB2201                            | Ia.3.V    | Ia.3.V         | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
-| HIMB2250                            | Ia.3.V    | Ia.3.V         | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
-| HIMB1430                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
-| HIMB1485                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1488                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1490                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1491                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1493                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1494                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1495                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1506                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1507                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1509                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1513                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1518                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1521                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1526                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1542                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1552                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1556                            | Ia.3.VI   | Ia.3.VI        | Type | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1559                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1573                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1577                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1587                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1593                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1597                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1611                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1623                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1631                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1636                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1641                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1662                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1685                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1695                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1701                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1702                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1709                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1710                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1715                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1723                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1746                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1748                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1758                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1765                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1770                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1782                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB2211                            | Ia.3.VI   | Ia.3.VI        | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
-| HIMB1483                            | Ia.4.1483 | Ia.4.1483      | Type | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
-| HIMB1402                            | Ia.4.II   | Ia.4.II        | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
-| HIMB1437                            | Ia.4.II   | Ia.4.II        | Type | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
-| HIMB1863                            | Ia.4.II   | Ia.4.II        | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
-| HIMB2104                            | Ia.4.II   | Ia.4.II        | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
-| HIMB2200                            | Ia.4.II   | Ia.4.II        | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
-| HIMB2204                            | Ia.4.II   | Ia.4.II        | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
-| HIMB2215                            | Ia.4.II   | Ia.4.II        | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
-| HIMB1436                            | Ia.4.RS39 | Ia.4.RS39      | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
-| HIMB2187                            | Ia.4.RS39 | Ia.4.RS39      | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
-| HIMB2226                            | Ia.4.RS39 | Ia.4.RS39      | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
-| HIMB2305                            | Ib.1      | Ib.1           | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
-| HIMB114                             | IIIa      | IIIa           | Type | Freel et al., in prep        |                             |
-| HIMB1517                            | IIIa      | IIIa           | No   | Freel et al., in prep        |                             |
-| HIMB1565                            | IIIa      | IIIa           | No   | Freel et al., in prep        |                             |
+| HIMB123                             | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1420                            | -  | -     | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
+| HIMB1427                            | -   | -        | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
+| HIMB1520                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1564                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1412                            | -   | -   | Type | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
+| HIMB1505                            | -  | -       | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1527                            | -  | -       | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1549                            | -  | -       | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1409                            | -    | -         | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
+| HIMB1413                            | -   | -         | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
+| HIMB1444                            | -   | -         | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
+| HIMB1456                            | -    | -         | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
+| HIMB2201                            | -   | -         | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
+| HIMB2250                            | -    | -        | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
+| HIMB1430                            | -   | -        | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
+| HIMB1485                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1488                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1490                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1491                            | -  | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1493                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1494                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1495                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1506                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1507                            | -  | -       | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1509                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1513                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1518                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1521                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1526                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1542                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1552                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1556                            | -   | -        | Type | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1559                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1573                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1577                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1587                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1593                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1597                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1611                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1623                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1631                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1636                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1641                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1662                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1685                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1695                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1701                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1702                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1709                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1710                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1715                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1723                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1746                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1748                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1758                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1765                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1770                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1782                            | -   | -        | No   | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB2211                            | -   | -        | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
+| HIMB1483                            | - | -      | Type | Freel et al., in prep        | coastal, Oahu, Hawaii, USA  |
+| HIMB1402                            | -   | -        | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
+| HIMB1437                            | -   | -        | Type | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
+| HIMB1863                            | -   | -        | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
+| HIMB2104                            | -   | -        | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
+| HIMB2200                            | -   | -        | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
+| HIMB2204                            | -   | -        | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
+| HIMB2215                            |    | -        | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
+| HIMB1436                            | - | -      | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
+| HIMB2187                            | - | -      | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
+| HIMB2226                            | - | -      | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
+| HIMB2305                            | -      | -           | No   | Freel et al., in prep        | offshore, Oahu, Hawaii, USA |
+| HIMB114                             | -      | -           | Type | Freel et al., in prep        |                             |
+| HIMB1517                            | -      | -           | No   | Freel et al., in prep        |                             |
+| HIMB1565                            | -      | -           | No   | Freel et al., in prep        |                             |
 | IMCC9063                            | IIIa      | IIIa           | No   | Oh et al., 2011              |                             |
 | LSUCC0530                           | IIIb      | IIIb           | Type | Henson et al., 2018          |                             |
 | HIMB58                              | IIa       | IIa            | Type | Brandon M.S. thesis (2006)   |                             |
