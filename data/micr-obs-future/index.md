@@ -469,7 +469,7 @@ If you would like to see all output files, feel free to do so by clicking [here]
 
 We are showing the primary clustering dendrogram here because it gives a more digestable overview, for more accurate clustering information, please consult the secondary clustering dendrogram included in the dRep output folder linked above.
 
-blue and purple stars: representatives after dereplicating. These are the ones we will continue with.
+blue and purple stars: representatives after dereplicating. These are the reference genomes we will continue with.
 
 [![dRep]({{images}}/Primary_clustering_dendrogram.pdf)]({{images}}/Primary_clustering_dendrogram.pdf){:.center-img .width-70}
 
@@ -480,11 +480,11 @@ blue and purple stars: representatives after dereplicating. These are the ones w
 
 ### Concatonate FASTAs of dereplicated reference genomes and simplify deflines
 
-We are combining all the FASTA files into a single file because, later on, we will be performing competitive read recruitment. For this process to work correctly, all reference genomes need to be in one unified FASTA file to ensure that the reads can be compared against all genomes in a competitive manner.
+We are combining all the FASTA files of the dereplicated reference genomes into a single file because, later on, we will be performing competitive read recruitment. For this process to work correctly, all reference genomes need to be in one unified FASTA file to ensure that the reads can be compared against all genomes in a competitive manner.
 
-To use anvi'o (which does not allow special characters in the deflines of FASTA files) and to easily identify each reference genome throughout the analysis, we are simplifying the deflines using anvi'o's `anvi-script-reformat-fasta` program. We are using the `--prefix` flage to include the reference genome name, and the `--simplify-names` flag to remove any special characters and standardize the names. Additionally, the `--report-file` flag will generate a file that maps the orignial deflines in the FASTA files to the reformatted ones. Finally, we will concatenate all FASTA files with these reformatted deflines into a single file named `all_fasta.fa`.
+To use anvi'o (which does not allow special characters in the deflines of FASTA files) and to easily identify each reference genome throughout the analysis, we are simplifying the deflines using anvi'o's [`anvi-script-reformat-fasta`](https://anvio.org/help/main/programs/anvi-script-reformat-fasta/) program. We are using the `--prefix` flage to include the reference genome name, and the `--simplify-names` flag to remove any special characters and standardize the names. Additionally, the `--report-file` flag will generate a file that maps the orignial deflines in the FASTA files to the reformatted ones. Finally, we will concatenate all FASTA files with these reformatted deflines into a single file named `all_fasta.fa`.
 
-We are running the following commands in the directory in which the fasta files are. 
+We are running the following commands in the directory in which the FASTA files are. 
 
 ```bash
 # assuming each .fa file is named according to genome name
@@ -496,10 +496,9 @@ done
 
 # afterwards, concatenate
 cat *_reformatted.fa > all_fasta.fa
-
 ```
 
-To check if it worked, we grep for the number of carrots across input files VS in the all_fasta.fa file. The values should match exactly.
+To check if it worked, we `grep` for the number of carrots (>) across input files VS in the all_fasta.fa file. The values should match exactly.
 
 ```bash
 grep -c ">" *reformatted.fa | awk -F: '{s+=$2} END {print s}'
@@ -511,10 +510,10 @@ grep -c ">" all_fasta.fa
 
 ## Metagenomes
 
-This section explains how to download and quality filter short metagenomic reads from the Hawaii Ocean Time-Series ([Biller et al., 2018](https://doi.org/10.1038/sdata.2018.176), [Mende et al., 2017](https://doi.org/10.1038/s41564-017-0008-3)), the Bermuda Atlantic Time-series Study ([Biller et al. 2018](https://doi.org/10.1038/sdata.2018.176)) OceaTARA Oceans project ([Sunagawa et al., 2015](https://doi.org/10.1126/science.1261359)), the Malaspina Expedition ([Sánchez et al., 2024](https://doi.org/10.1038/s41597-024-02974-1)), the Bio-GO-SHIP project ([Larkin et al., 2021](https://doi.org/10.1038/s41597-021-00889-9)), the bioGEOTRACES project ([Biller et al. 2018](https://doi.org/10.1038/sdata.2018.176)), and the Ocean Sampling Day project ([Kopf et al., 2015](https://doi.org/10.1186/s13742-015-0066-5)).
+This section explains how to download and quality filter short metagenomic reads from the Hawaii Ocean Time-Series ([Biller et al., 2018](https://doi.org/10.1038/sdata.2018.176), [Mende et al., 2017](https://doi.org/10.1038/s41564-017-0008-3)), the Bermuda Atlantic Time-series Study ([Biller et al. 2018](https://doi.org/10.1038/sdata.2018.176)) OceaTARA Oceans project ([Sunagawa et al., 2015](https://doi.org/10.1126/science.1261359)), the Malaspina Expedition ([Sánchez et al., 2024](https://doi.org/10.1038/s41597-024-02974-1)), the Bio-GO-SHIP project ([Larkin et al., 2021](https://doi.org/10.1038/s41597-021-00889-9)), the bioGEOTRACES project ([Biller et al. 2018](https://doi.org/10.1038/sdata.2018.176)), and the Ocean Sampling Day project ([Kopf et al., 2015](https://doi.org/10.1186/s13742-015-0066-5)), as used in this analysis.
 
 {:.notice}
-All metagenomes we analyzed are publicly available through the European Nucleotide Archive (ENA) repository and NCBI. The project accession numbers are given above in the Summary table at the top of this workflow.
+All metagenomes we analyzed are publicly available through the European Nucleotide Archive ([ENA](https://www.ebi.ac.uk/ena/browser/home)) and [NCBI](https://www.ncbi.nlm.nih.gov). The accession numbers to each project are given above in the Summary table at the top of this workflow.
 
 ### Downloading the metagenomes
 
@@ -523,17 +522,17 @@ To download the metagenomes, we will use anvi'o's `[sra_download`](https://anvio
 #### Prepare the download
 
 The `SRA_accession_list.txt` artifact should look like this: no headers, only a list of run accession numbers.
-```
+```bash
 $ cat SRA_accession_list.txt
 ERR6450080
 ERR6450081
 SRR5965623
 ```
 
-The `SRA_accession_list.txt` were created as part of our work in the [public-marine-omics-metadata](https://github.com/merenlab/public-marine-omics-metadata/tree/main) GitHub repositories. To get the files, click [here](files/SRA_accession-txt.zip).
+The `SRA_accession_list.txt` were created as part of our work in the [public-marine-omics-metadata](https://github.com/merenlab/public-marine-omics-metadata/tree/main) GitHub repository. To get the files, click [here](files/SRA_accession-txt.zip).
 
 For the different projects, they are called: 
-```
+```bash
 SRA_accession_PRJEB1787_TARA.txt
 SRA_accession_PRJEB8682_OSD.txt
 SRA_accession_PRJEB52452_MAL.txt
@@ -543,16 +542,16 @@ SRA_accession_PRJNA385855_PRJNA352737_HOT_combined.txt
 SRA_accession_PRJNA656268_BGS.txt
 ```
 
-FYI, we created a directory for each of the observatories, with a `00_WORKFLOW_FILES` direcotry, to which these files were added.
+FYI, we created a directory for each of the observatories, with a `00_WORKFLOW_FILES` directory, to which these files were added.
 
 In addition to the `SRA_accession_list.txt`, we need a `download_config.json` for the the `sra_download` function. To get this, run:
-```
+```bash
 anvi-run-workflow -w sra_download --get-default-config download_config.json
 ```
-In each of the `donwload_config.json` files, we exchanged the `"SRA_accession_list": SRA_accession_list.txt",` with `"SRA_accession_list": "00_WORKFLOW_FILES/SRA_accession_[PROJECT_ACCESSION_NO]_[PROJECT_ACRONYM].txt",` (of course adding the respective project accession number and project acronym).
-```
+In each of the `donwload_config.json` files, we exchanged the `"SRA_accession_list": SRA_accession_list.txt",` with `"SRA_accession_list": "00_WORKFLOW_FILES/SRA_accession_[PROJECT_ACCESSION_NUMBER]_[PROJECT_ACRONYM].txt",` (of course adding the respective project accession number and project acronym).
+```bash
 {
-    "SRA_accession_list": "00_WORKFLOW_FILES/SRA_accession_[PROJECT_ACCESSION_NO]_[PROJECT_ACRONYM].txt",
+    "SRA_accession_list": "00_WORKFLOW_FILES/SRA_accession_[PROJECT_ACCESSION_NUMER]_[PROJECT_ACRONYM].txt",
     "prefetch": {
         "--max-size": "40g",
         "threads": 2
@@ -576,14 +575,14 @@ In each of the `donwload_config.json` files, we exchanged the `"SRA_accession_li
 
 #### Download the metagenomes
 
-We can now use this `download_config.json` in combination with anvi'o's `anvi-run-workflow` and the workflow `sra_download` and send it!
+We can now use this `download_config.json` in combination with anvi'o's [`anvi-run-workflow`](https://anvio.org/help/main/programs/anvi-run-workflow/) and the workflow `sra_download` and send it!
 
 Do a dry run ...
-```
+```bash
 anvi-run-workflow -w sra_download -c 00_WORKFLOW_FILES/download_config.json -A -n -q
 ```
 ... and the real deal!
-```
+```bash
 clusterize -j sra_download_workflow \
                  -o sra_download.log \
                  -n 1 \
@@ -596,17 +595,17 @@ clusterize -j sra_download_workflow \
    --keep-going"
 ```
 
-Following the download, we searched for the mention of any errors in the log files to see if everything went as expected.
-```
+Following the download, we searched for the mention of any errors in the `.log` files to see if everything went as expected.
+```bash
 grep -i ERROR sra_download_*.log
 ```
 
 We additionally used this script to check if there is a file for each accession number in the `SRA_accession_list.txt`s.
-```
+```bash
 nano check_fastq_files.sh
 ```
 new script
-```
+```bash
 #!/bin/bash
 
 # Path to the file containing accession numbers
@@ -650,49 +649,49 @@ fi
 
 ```
 give permissions for executing the script
-```
+```bash
 chmod +x check_fastq_files.sh
 ```
 run script
-```
+```bash
 ./check_fastq_files.sh
 ```
-
+Everything is well.
 
 
 ### QC
 
 We used part of the anvi'o [`metagenomics` workflow](https://anvio.org/help/main/workflows/metagenomics/) to remove noise from raw reads prior to mapping. Namely, the `illumina-utils` program ([Eren et al., 2013](https://doi.org/10.1371/journal.pone.0066643)).
 
-For that, we need a [`samples-txt`](https://anvio.org/help/main/artifacts/samples-txt/) file following this structure (group is added bonus if one needs it):
-```
+For that, we need a [`samples-txt`](https://anvio.org/help/main/artifacts/samples-txt/) file following this structure (The group column is added as a bonus if one needs it, but not necessary):
+```bash
 column -t samples.txt
 sample     group  r1                                           r2
 sample_01  G01    three_samples_example/sample-01-R1.fastq.gz  three_samples_example/sample-01-R2.fastq.gz
 sample_02  G02    three_samples_example/sample-02-R1.fastq.gz  three_samples_example/sample-02-R2.fastq.gz
 sample_03  G02    three_samples_example/sample-03-R1.fastq.gz  three_samples_example/sample-03-R2.fastq.gz
 ```
-It needs to note the sample name and the locations of raw paired-end reads for each sample.`
+Generally, the file needs to include the sample name and the locations of raw paired-end reads for each sample.
 
 
 #### Prep QC
 
-Let us create one of those files in two steps
+In the following we will create one of those `samples.txt` files. We are doing it in two steps.
 
 **1. Create a more extensive mapping of biosample to run to project to custom_sample_name**
 
-We created a a detailed mapping (which also has the Project accession, real Sample accession and run accession, as well as a custom_sample_name [created based on this schema: prefix: [PROJECT_ACRONYM], then the value sample_accession, then the value in depth, then the value in collection_date, all separated by underscores]). These mapping files are accessible [here](files/BioSample_to_SRA_accession-csv.zip).
+We created a detailed mapping (which also has the Project accession, real Sample accession and Run accession, as well as a custom_sample_name [created based on this schema: prefix: [PROJECT_ACRONYM], then the value in `sample_accession`, then the value in `depth`, then the value in `collection_date`, all separated by underscores]) for each project. These mapping files are accessible [here](files/BioSample_to_SRA_accession-csv.zip).
 
 {:.notice}
 Note, that we are again using files created as part of the [public-marine-omics-metadata](https://github.com/merenlab/public-marine-omics-metadata/tree/main) GitHub repository.
 
 This is how they were created:
 
-```
+```bash
 nano sampleMapping.py
 ```
 script
-```
+```bash
 import pandas as pd
 import re
 import glob
@@ -763,16 +762,16 @@ BioSample_to_SRA_accessions_TARA.csv
 
 **2. Create the sample-txt artifact from that and the files in our 02_FASTA directories**
 
-Now, we create the `samples-txt` artifact. To get them, click [here](files/samples-txt.zip) and select the `samples_raw.txt` files.
+Now, we create the `samples-txt` artifact. To get the files, click [here](files/samples-txt.zip) and select the `samples_raw.txt` files.
 
 For creating the `sampels-txt` files, we have to account for there being two `BioSample_to_SRA_accession_[PROJECT_ACRONYM].csv` files in the HOT directory. Further, anvi'o does not appreciate the use of '-' in sample names, so those will be substituted with '_'.
 
 We created and ran this script in the directory above our project directories.
-```
+```bash
 nano makeSamples-txt.py
 ```
 script
-```
+```bash
 import pandas as pd
 import os
 import glob
@@ -888,11 +887,11 @@ print("Completed processing all directories.")
 ```
 
 At this step, we will also count how many samples and runs were downloaded
-```
+```bash
 nano countSamplesNruns.py
 ```
 script
-```
+```bash
 import pandas as pd
 import os
 import glob
@@ -938,14 +937,13 @@ for directory in directories:
     count_samples_and_runs(directory)
 
 print("Completed counting samples and runs in all directories.")
-
 ```
 
 #### Do QC
 Now, we are ready to get the `config file` we need to perform the QC step.
 
 For that, we ran:
-```
+```bash
 anvi-run-workflow -w metagenomics --get-default-config QC_config.json 
 ```
 
@@ -961,7 +959,7 @@ In this `config file`, we will
 
 <details markdown="1"><summary>Click here to show/hide the content of the contigs file</summary>
 
-```
+```bash
 {
     "anvi_gen_contigs_database": {
         "--project-name": "{group}",
@@ -1276,18 +1274,18 @@ In this `config file`, we will
 
 ---
 
-We do a dry run to look at the stats.
+We did a dry run to look at the stats.
 
 ```
 anvi-run-workflow -w metagenomics -c QC_config.json -A --until gzip_fastqs -n -q
 ```
 
-Assumuing the stats look good, we submit the job using clusterize.
+Assumuing the stats look good, we submitted the job using `clusterize`.
 
 {:.notice}
 Note that we are using the flag `--unil gzip-fastqs` so that we are not running the entire `metagenomics` workflow but only the quality control portion of that.
 
-```
+```bash
 clusterize -j QC_workflow \
                  -o QC_workflow.log \
                  -n 1 \
@@ -1301,7 +1299,7 @@ clusterize -j QC_workflow \
    --keep-going"
 ```
 Once it is done, we grep for errors in the log file.
-```
+```bash
 grep -i ERROR QC_workflow_*.log
 ```
 The outputs of this workflow are available in the [QC_stats.zip](files/QC_stats.zip) archive.
