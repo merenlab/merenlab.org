@@ -184,8 +184,10 @@ For that, we use the following script and run it in the same directory as we hav
 ```
 nano separateFasta.py
 ```
+
 content
-```
+
+``` python
 from collections import defaultdict
 
 def parse_fasta(file_path):
@@ -479,7 +481,8 @@ We are combining all the FASTA files into a single file because, later on, we wi
 To use anvi'o (which does not allow special characters in the deflines of FASTA files) and to easily identify each reference genome throughout the analysis, we are simplifying the deflines using anvi'o's `anvi-script-reformat-fasta` program. We are using the `--prefix` flage to include the reference genome name, and the `--simplify-names` flag to remove any special characters and standardize the names. Additionally, the `--report-file` flag will generate a file that maps the orignial deflines in the FASTA files to the reformatted ones. Finally, we will concatenate all FASTA files with these reformatted deflines into a single file named `all_fasta.fa`.
 
 We are running the following commands in the directory in which the fasta files are. 
-```
+
+```bash
 # assuming each .fa file is named according to genome name
 
 for g in *.fa; do
@@ -493,7 +496,8 @@ cat *_reformatted.fa > all_fasta.fa
 ```
 
 To check if it worked, we grep for the number of carrots across input files VS in the all_fasta.fa file. The values should match exactly.
-```
+
+```bash
 grep -c ">" *reformatted.fa | awk -F: '{s+=$2} END {print s}'
 grep -c ">" all_fasta.fa
 ```
