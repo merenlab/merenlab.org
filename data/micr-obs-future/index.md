@@ -178,10 +178,10 @@ The isolate genomes available at the time of this analysis are included in a fil
 
 --- 
 
-For the next steps, we need to separate `SAR11_June2024_bycontig.fa` into individual .fa files - one per reference genome.
+As we started with all genomes in a single file but now want to assess the quality of each, we need to separate `SAR11_June2024_bycontig.fa` into individual .fa files - one per reference genome.
 
-For that, we use the following script and run it in the same directory as we have the `SAR11_June2024_bycontig.fa` file.
-```
+For that, we used the following script and run it in the same directory as we have the `SAR11_June2024_bycontig.fa` file.
+```bash
 nano separateFasta.py
 ```
 
