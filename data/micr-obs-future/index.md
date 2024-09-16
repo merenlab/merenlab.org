@@ -691,7 +691,7 @@ This is how they were created:
 nano sampleMapping.py
 ```
 script
-```bash
+```python
 import pandas as pd
 import re
 import glob
@@ -771,7 +771,7 @@ We created and ran this script in the directory above our project directories.
 nano makeSamples-txt.py
 ```
 script
-```bash
+```python
 import pandas as pd
 import os
 import glob
@@ -891,7 +891,7 @@ At this step, we will also count how many samples and runs were downloaded
 nano countSamplesNruns.py
 ```
 script
-```bash
+```python
 import pandas as pd
 import os
 import glob
@@ -1312,7 +1312,7 @@ Since we are splitting the metagenomics workflow in two, we are now creating `sa
 nano makeQCsample-txt.p`
 ```
 script
-```
+```python
 import os
 import pandas as pd
 
@@ -1375,11 +1375,11 @@ print("samples_qc.txt has been created.")
 #### Create collective samples_qc.txt for all projects
 
 For the upcomming read recruitment, we no longer want to have the projects separated, so we are concatenating the individual samples_qc.txt files we just created into one. The collective `samples_qc.txt` is also included in the [samples-txt folder](files/samples-txt.zip).
-```
+```bash
 nano combine_and_check_samples_qc.py
 ```
 script
-```
+```python
 import os
 
 # Define the paths to the files
@@ -1440,21 +1440,21 @@ This section explains various steps to characterize the occurrence of each SAR11
 For that, we will make use of the anvi'o `metagenomics` snakemake workflow again.
 
 This time, that will include:
--  competitive read recruitment with `anvi_run_hmms`, `anvi_run_kegg_kofams`, `anvi_run_ncbi_cogs`, `anvi_run_scg_taxonomy`
+- competitive read recruitment with `anvi_run_hmms`, `anvi_run_kegg_kofams`, `anvi_run_ncbi_cogs`, `anvi_run_scg_taxonomy`
 - convert SAM -> BAM
 - profile BAM file to get anvi'o profiles
 - merge into single anvi'o profile
 
-Since we now want to map our reads to the reference genomes, we need to not only specify the samples_qc.txt file, but also a `fasta.txt` file:
+Since we now want to map our reads to the reference genomes, we need to not only specify the `samples_qc.txt` file, but also a `fasta.txt` file:
 
 Create a `fasta.txt` with the paths to our `all_fasta.fa` file containing all SAR11 reference genomes. 
-```
+```bash
 name    path
 reference_genomes       ../refGenomesSAR11/fastaDrep/dereplicated_genomes/all_fasta.fa
 ```
 
-We also need the `config file` for the metagenomics workflow.
-```
+We also need the `config file` for the metagenomics workflow. To get that, we run the following.
+```bash
 anvi-run-workflow -w metagenomics \
                   --get-default-config default-metagenomics-config.json
 ```
@@ -1809,11 +1809,11 @@ This workflow relies on much more than just anvi'o or snakemake, but many other 
 ---
 
 We, again, do a dry run
-```
+```bash
 anvi-run-workflow -w metagenomics -c default-metagenomics-config.json -A  -n -q
 ```
 The stats we are getting out reflect that we are working with 1850 metagenomes but only one fasta file containing the reference genomes.
-```
+```bash
 Job stats:
 job                                  count
 ---------------------------------  -------
@@ -1835,7 +1835,7 @@ total                                 9259
 ```
 
 As all is looking well, we submitted the job again using clusterize:
-```
+```bash
 clusterize -j metagenomics_workflow \
                  -o metagenomics_workflow.log \
                  -n 1 \
@@ -1867,7 +1867,7 @@ At this point anvi’o still doesn’t know how to link scaffolds to each isolat
 We will make that by:
 
 For this, we first create a `contigs.txt` (run this in the readRecruitment dir)
-```
+```bash
 grep ">" ../refGenomesSAR11/fastaDrep/dereplicated_genomes/all_fasta.fa | sed "s/>//g" > contigs.txt
 ```
 This removes the carrot ">" from the contig headers in our fasta file full of reference genomes by substituting it with nothing globally (not just once but anywhere it sees a ">" in the file) and parses the output into a file called `contigs.txt`. 
@@ -1879,7 +1879,7 @@ These are the names by which the contigs are stored within anvio.
 <details markdown="1"><summary>Click to show/hide the head of the file</summary>
 
 
-```
+```bash
 FZCC0015_000000000001
 HIMB058_000000000001
 HIMB058_000000000002
@@ -1897,7 +1897,7 @@ HIMB058_000000000009
 ---
 
 Next, we create a file called `bins.txt` which contains only the identifier for the genome.
-```
+```bash
 grep ">" ../refGenomesSAR11/fastaDrep/dereplicated_genomes/all_fasta.fa | sed "s/>//g" | cut -d "_" -f 1 > bins.txt
 ```
 This does the same as the command above PLUS it removes the suffix of "\_000000000001" from the reference genome identifier: it cuts at the delimiter (`-d`) "_" and keeps the first field (`-f 1`), so the part in front of the delimiter)
@@ -1907,7 +1907,7 @@ This does the same as the command above PLUS it removes the suffix of "\_0000000
 <details markdown="1"><summary>Click to show/hide the head of the file</summary>
 
 
-```
+```bash
 FZCC0015
 HIMB058
 HIMB058
@@ -1926,7 +1926,7 @@ HIMB058
 ---
 
 Lastly, we combine the two into a single file and feed that into a new file called `collection.txt`, which is what we need. 
-```
+```bash
 paste contigs.txt bins.txt > collection.txt
 ```
 [`collection.txt`](https://anvio.org/help/main/artifacts/collection-txt/) is a two-column TAB-delimited file without a header that describes a [collection](https://anvio.org/help/main/artifacts/collection) by associating items with [bin](https://anvio.org/help/main/artifacts/bin) names.
@@ -1936,7 +1936,7 @@ paste contigs.txt bins.txt > collection.txt
 <details markdown="1"><summary>Click to see the first 104 lines of the file</summary>
 
 
-```
+```bash
 FZCC0015_000000000001   FZCC0015
 HIMB058_000000000001    HIMB058
 HIMB058_000000000002    HIMB058
@@ -2049,7 +2049,7 @@ HIMB1402_000000000002   HIMB1402
 
 We then used the program [`anvi-import-collection`](https://anvio.org/help/main/programs/anvi-import-collection/) to import this collection into the anvi’o profile database by naming this collection `SAR11COLLECTION`:
 
-```
+```bash
 anvi-import-collection collection.txt -p 06_MERGED/reference_genomes/PROFILE.db -c 03_CONTIGS/reference_genomes-contigs.db -C SAR11COLLECTION --contigs-mode
 ```
 
@@ -2062,7 +2062,7 @@ The collection is not stored in a separate file, but in the `PROFILE.db`.
 We will be using `anvi-split` to create individual, self-contained anvi’o projects for each reference genome and its recruited reads.
 
 We are, again, using clusterize to submit the job:
-```
+```bash
 clusterize -j SAR11_split_job \
            -o SAR11_split_job.log \
            -n 8 \
@@ -2085,11 +2085,10 @@ We will be using [`anvi-profile-blitz`](https://anvio.org/help/main/programs/anv
 
 `anvi-profile-blitz` allows the fast profiling of BAM files to get contig- or gene-level coverage and detection stats.
 
-We will give it the `BAM file` that were created in the 04_MAPPING, the `CONTIGS.db` and specify what the output should look like.
+We will give it the `BAM file` that were created and are stored in the `04_MAPPING` directory, the `CONTIGS.db`, and specify what the output should look like.
 
 This is the base command
-```
-  
+```bash
 anvi-profile-blitz *.bam \
                    -c contigs-db \
                    -o OUTPUT.txt
@@ -2097,11 +2096,11 @@ anvi-profile-blitz *.bam \
 
 However, since we are doing it for each `split`, so 51 time (once per reference genome), we will be adapting it a bit and doing it in a loop.
 
-```
+```bash
 nano run_anvi_profile_blitz.sh
 ```
 content
-```
+```bash
 #!/bin/bash
 
 # Directory containing the subdirectories
@@ -2125,11 +2124,11 @@ for DIR in $BASE_DIR/*; do
 done
 ```
 make it executable
-```
+```bash
 chmod +x run_anvi_profile_blitz.sh
 ```
 submit job
-```
+```bash
 clusterize "./run_anvi_profile_blitz.sh" -n 1 -j anvi_profile_blitz_job
 ```
 
@@ -2137,12 +2136,12 @@ clusterize "./run_anvi_profile_blitz.sh" -n 1 -j anvi_profile_blitz_job
 
 #### Combine outputs into one file
 We will combine the BLITZ outputs into one dataframe. You can get the output [here](files/combined_blitzOUTPUT.txt.zip).
-```
+```bash
 cd blitzOUTPUT/
 nano combineOutputs.py
 ```
 content
-```
+```python
 import pandas as pd
 import glob
 import os
@@ -2173,7 +2172,7 @@ combined_blitzOUTPUT.to_csv('./combined_blitzOUTPUT.txt', sep='\t', index=False)
 
 ```
 run
-```
+```bash
 python combineOutputs.py
 ```
 
@@ -2183,11 +2182,11 @@ Even though some reference genomes have multiple contigs, we want to know how mu
 
 The output file is available [here](files/weighted_results_with_length.txt.zip).
 
-```
+```bash
 nano calculate_weighted_coverage.py
 ```
 content
-```
+```python
 import pandas as pd
 
 # Load the data into a pandas DataFrame
@@ -2209,11 +2208,9 @@ result = df.groupby(['sample', 'reference_genome', 'project']).agg({
 
 # Save the results to a new tab-separated .txt file
 result.to_csv('weighted_results_with_length.txt', sep='\t', index=False)
-
-
 ```
 run
-```
+```bash
 calculate_weighted_coverage.py
 ```
 
@@ -2223,11 +2220,11 @@ calculate_weighted_coverage.py
 
 How many samples per project make it if we only take the samples for which at least one reference genome has at least 10x coverage and at least 0.5 detection (both need to be true for a sample to pass)? And do that for different coverage and detection combos. 
 
-```
+```bash
 nano filter_samples_all_combinations.py
 ```
 content
-```
+```python
 import pandas as pd
 
 # Load the data from the specified path
@@ -2270,13 +2267,13 @@ print("Combined statistics for all filtering criteria:")
 print(all_stats)
 ```
 run
-```
+```bash
 python filter_samples_all_combinations.py
 ```
 
 This gives you `combined_stats_weighted_all_filters.txt`, which is available [here](files/combined_stats_weighted_all_filters.txt).
 
-```
+```bash
 project num_samples_initial     num_samples_1x_25       num_samples_1x_30       num_samples_1x_40       num_samples_1x_50       num_samples_2x_25       num_samples_2x_30       num_samples_2x_40       num_samples_2x_50       num_samples_3x_25       num_samples_3x_30       num_samples_3x_40       num_samples_3x_50       num_samples_4x_25       num_samples_4x_30       num_samples_4x_40       num_samples_4x_50       num_samples_5x_25       num_samples_5x_30       num_samples_5x_40       num_samples_5x_50       num_samples_6x_25       num_samples_6x_30       num_samples_6x_40       num_samples_6x_50       num_samples_7x_25       num_samples_7x_30       num_samples_7x_40       num_samples_7x_50       num_samples_8x_25       num_samples_8x_30       num_samples_8x_40       num_samples_8x_50       num_samples_9x_25       num_samples_9x_30       num_samples_9x_40       num_samples_9x_50       num_samples_10x_25      num_samples_10x_30      num_samples_10x_40      num_samples_10x_50
 BATS    40      40      40      40      40      40      40      40      40      38      38      38      38      36      36      36      36      35      35      35      35      31      31      31      31      29      29      29      29      21      21      21      21      17      17      17      17      16      16      16      16
 BGS     969     941     941     938     907     828     828     828     828     691     691     691     691     579     579     579     579     485     485     485     485     408     408     408     408     335     335     335     335     286     286     286     286     236     236     236     236     201     201     201     201
@@ -2292,11 +2289,11 @@ TARA    95      95      94      94      94      95      94      94      94      
 #### Filter based on 0.5 detection and 10x coverage
 
 We will now filter our samples to get the information which pass the filtering thresholds we set. This information will then be used to build a combined profile database.
-```
+```bash
 nano filter_samples_detNcov.py
 ```
 content
-```
+```python
 import pandas as pd
 
 # Load the data from the specified path
@@ -2347,13 +2344,13 @@ combined_filters.to_csv(output_filtered_path, sep='\t', index=False)
 
 ```
 run
-```
+```bash
 python filter_samples_detNcov.py
 ```
 
 This results in two files called `filtered05N10x_stats.txt` (containing the number of samples of each project that passed the filter criteria, available [here](files/filtered05N10x_stats.txt)) and `filtered05N10x_combined_df.txt` (the sample_IDs, contigs, weighted_mean_cov, weighted_detection of the samples that passed the filtering, available [here](files/filtered05N10x_combined_df.txt)).
 
-```
+```bash
 sample  reference_genome        project weighted_mean_cov       weighted_detection      total_length
 BATS_SAMN07137064_10_2003_04_22 HIMB1436        BATS    17.363279079539108      0.8795767950849176      1208525
 BATS_SAMN07137064_10_2003_04_22 HIMB2187        BATS    13.489588372836309      0.8361808067690548      1188940
@@ -2371,7 +2368,7 @@ BATS_SAMN07137074_60_2004_03_23 HIMB1456        BATS    11.999417281233908      
 Based on the information we have post-detection0.5-coverage10x-filtering, we know which samples to continue working with. In order to continue working with them, however, we need to generate a new anvi'o `PROFILE.db` with those samples only.
 
 We will create a .txt file which only lists the sample names (and only lists each once).
-```
+```bash
 # Extract the first column (sample names), sort them, and keep only unique entries
 awk 'NR>1 {print $1}' ./blitzOUTPUT/filtered05N10x_combined_df.txt | sort | uniq > ./blitzOUTPUT/unique_samples.txt
 
@@ -2381,7 +2378,7 @@ awk 'NR>1 {print $1}' ./blitzOUTPUT/filtered05N10x_combined_df.txt | sort | uniq
 First, that requires generating individual `PROFILE.db`s for each .bam file of the samples we want. The .bam files are stored in `./04_MAPPING/reference_genomes/`.
 
 To generate these profile.dbs we are using anvi'o's [`anvi-profile`](https://anvio.org/help/7.1/programs/anvi-profile/) program. In its simplest form, that looks like:
-```
+```bash
 anvi-profile -i SAMPLE-01.bam -c contigs.db
 ```
 
@@ -2391,11 +2388,11 @@ Submit multiple anvi-profile jobs to a cluster using the clusterize tool. The sc
 
 We are keeping the number of threads = 16, as described here: [https://merenlab.org/2017/03/07/the-new-anvio-profiler/](https://merenlab.org/2017/03/07/the-new-anvio-profiler/).
 
-```
+```bash
 nano run_anvi_profile_cluster.sh
 ```
 content
-```
+```bash
 #!/bin/bash
 
 # Maximum number of jobs to submit at once
@@ -2441,11 +2438,11 @@ done < ./blitzOUTPUT/unique_samples.txt
 
 ```
 give it permission
-```
+```bash
 chmod +x run_anvi_profile_cluster.sh
 ```
 and run
-```
+```bash
 ./run_anvi_profile_cluster.sh
 ```
 
@@ -2455,14 +2452,14 @@ and run
 Use [`anvi-merge`](https://anvio.org/help/7.1/programs/anvi-merge/) to convert multiple single-`profile-db`s (of our selected samples) into a single `profile-db` (also called a merged profile database). Basically, this takes the alignment data from each sample (each contained in its own single-`profile-db`) and combines them into a single database that anvi’o can look through more easily.
 
 The basic command is:
-```
+```bash
 anvi-merge -c cool_contigs.db \
             Single_profile_db_1 Single_profile_db_2 \
             -o cool_contigs_merge
 ```
 
 We adjusted it to our directory structure and naming and ran it in `filteredPROFILEdb/`
-```
+```bash
 clusterize -j merge_profile_db \
 -o merge_profile_db.log \
 -n 1 \
@@ -2479,7 +2476,7 @@ We are again using `anvi-split`, but this time, we are using it on the collectiv
 First, we have to re-create a COLLECTION that will be stored in the PROFILE.db. For that, we can reuse the `collection.txt` that we used before, but have to re-create the COLLECTION in itself: specifying the new PROFILE.db.
 
 Here we go:
-```
+```bash
 anvi-import-collection collection.txt \
    -p filteredPROFILEdb/SAR11-MERGED/PROFILE.db \
    -c 03_CONTIGS/reference_genomes-contigs.db \
@@ -2491,7 +2488,7 @@ anvi-import-collection collection.txt \
 
 The output will go into a directory called `SAR11_postFilter`.
 
-```
+```bash
 clusterize -j SAR11_split_post_filter_job \
            -o SAR11_split_post_filter_job.log \
            -n 8 \
@@ -2520,11 +2517,11 @@ To decide which SAR11 reference genomes to focus on, we will see which are found
 
 We wrote a little script to output which projects each reference genome is found in:
 
-```
+```bash
 nano countSamplesEachRefGenome.py
 ```
 content
-```
+```python
 import pandas as pd
 
 # Load the data from the txt file into a DataFrame
@@ -2555,7 +2552,7 @@ print("\nNumber of projects each genome is found in and the project names (sorte
 print(sorted_genomes)
 ```
 output
-```
+```bash
 Genomes found in all projects:
 Empty DataFrame
 Columns: [reference_genome, project, num_projects]
@@ -2621,7 +2618,7 @@ We will focus on those metagenomes that are found in 7 of the 8 projects.
 
 We can also visualise the occurrence (above 10x cov and 0.5 detection) of reference genomes across samples in R
 
-```
+```R
 ## Visualise anvi-profile-blitz output
 
 library(ggplot2)
@@ -2677,7 +2674,7 @@ ggplot(blitz_covNdet, aes(x = sample, y = reference_genome, size = weighted_mean
 
 
 First, we start the anvio-dev conda environement
-```
+```bash
 conda list env
 conda activate anvio-dev
 ```
@@ -2686,7 +2683,7 @@ Then we look at the [anvi-script-add-default-collection](https://anvio.org/help/
 
 The basic command is:
 
-```
+```bash
 anvi-script-add-default-collection -c [contigs-db](https://anvio.org/help/main/artifacts/contigs-db) \
                                    -p [profile-db](https://anvio.org/help/main/artifacts/profile-db)
 ```
@@ -2694,14 +2691,14 @@ the program will add a new collection into the profile database named `DEFAULT`,
 
 I will need to do it by specifying every single PROFILE.db I have (one per ref genome).
 
-```
+```bash
 anvi-script-add-default-collection -c SAR11SPLIT_postFilter/FZCC0015/CONTIGS.db \
                                    -p SAR11SPLIT_postFilter/FZCC0015/PROFILE.db
 ```
 
 To avoid doing this for every single reference genome manually, we will do it in a loop
 
-```
+```bash
 for dir in SAR11SPLIT_postFilter/*/; do
     contigs_db="${dir}CONTIGS.db"
     profile_db="${dir}PROFILE.db"
@@ -2715,7 +2712,7 @@ done
 To generate a gene database, anvi'o offers creating one when `anvi-interactive` is started in `--gene-mode`, or alternatively with the program `anvi-gen-gene-level-stats-databases`. We will use the latter here because we need it for many reference genomes.
 
 The basic command is
-```
+```bash
 anvi-gen-gene-level-stats-databases -c contigs-db \
                                     -p profile-db \
                                     -C collection
@@ -2723,7 +2720,7 @@ anvi-gen-gene-level-stats-databases -c contigs-db \
 
 Adapted to our data and aim, it is
 
-```
+```bash
 for dir in SAR11SPLIT_postFilter/*/; do
     contigs_db="${dir}CONTIGS.db"
     profile_db="${dir}PROFILE.db"
@@ -2747,7 +2744,7 @@ This blog post gives some more information on this program: [https://merenlab.or
 
 
 Okay, so we need a table to give this program. A table that should look something like this:
-```
+```bash
 samples numerical_01    numerical_02    categorical     stacked_bar!X   stacked_bar!Y   stacked_bar!Z
 c1      100     5       A       1       2       3
 c2      200     4       B       2       3       1
@@ -2762,13 +2759,13 @@ The basic command is structured as follows:
 - `--target-data-table layers` notes that what we are providing our extra metadata to is the `layers` object
 
 
-```
+```bash
 anvi-import-misc-data layers_additional_data.txt \
                          -p profile.db \
                          --target-data-table layers
 ```
 and if you want to delete it later 
-```
+```bash
 anvi-delete-misc-data -p profile.db \
                       --target-data-table layers 
                       --just-do-it
@@ -2783,11 +2780,11 @@ We will first subset `metagenomes.txt` to only include those samples that passed
 
 Further, the `metagenomes.txt` file currently has multiple rows per sample if there are multiple runs associated with one sample. We will make it such that there is only one row per sample (so one row per layer that we want to associate this with in anvi'o). Of course, ensuring that any differing values across different runs from the same sample are concatenated, and identical values retained as they are.
 
-```
+```bash
 nano filterMetagenomesTxt.py
 ```
 content
-```
+```python
 import pandas as pd
 
 # Step 1: Read the unique samples file
@@ -2826,11 +2823,11 @@ python3 filterMetagenomesTxt.py
 
 Now only select the columns we want to bring into anvi'o
 
-```
+```bash
 nano prepAnvioMetadata.py
 ```
 content
-```
+```python
 import pandas as pd
 
 # Load the dataset
@@ -2854,7 +2851,7 @@ This is the metadata file `metadata/metagenomes_filtered_anvio.txt` we prepared 
 
 
 We will loop through the directories containing the `GENES.db`s for our reference genomes.
-```
+```bash
 for dir in SAR11SPLIT_postFilter/*/; do
     genes_db="${dir}GENES/DEFAULT-EVERYTHING.db"
     anvi-import-misc-data metadata/metagenomes_filtered_anvio.txt -p "$genes_db" --target-data-table layers
@@ -2865,14 +2862,14 @@ done
 Since we want to also show it on the top of the circle (ah, indeed, my lady, I dare say I am most proficient in the distinguished tongue of `anvi'o`), we also need to import it into the PROFILE.db.
 
 We will, again, loop through the directories containing the `PROFILE.db`s for our reference genomes.
-```
+```bash
 for dir in SAR11SPLIT_postFilter/*/; do
     profile_db="${dir}PROFILE.db"
     anvi-import-misc-data metadata/metagenomes_filtered_anvio.txt -p "$profile_db" --target-data-table layers
 done
 ```
 
-```
+```bash
 anvi-import-misc-data metadata/metagenomes_filtered_anvio.txt \
                          -p SAR11SPLIT_postFilter/HIMB2204/PROFILE.db \
                          --target-data-table layers
@@ -2884,7 +2881,7 @@ anvi-import-misc-data metadata/metagenomes_filtered_anvio.txt \
 To look at it, we are using the `anvi-interactive` command again. With all the prep we did above, it will now show the genes in the metagenomes and allow us to sort layers (metagenomes) based on the metadata keys we imported as well as adjust what will be visualised (coverage, detection, ...) how the genes will be ordered in the metagenomes (synteny, detection, ...) and so on.
 
 We are showing it here with the FZCC0015 reference genome.
-```
+```bash
 anvi-interactive -c SAR11SPLIT_postFilter/FZCC0015/CONTIGS.db                  -p SAR11SPLIT_postFilter/FZCC0015/PROFILE.db                  -C DEFAULT                  -b EVERYTHING                  --gene-mode
 ```
 
@@ -2893,7 +2890,7 @@ Anvi'o allows us to define a state and export and import that state.
 To do so, we will adjust any parameter we want to adjust and then click on `Save` under the mention of `State` in the left hand panel in the interactive interface. That prompts us to select a name: `visualise`. This will save the state in the GENES.db
 
 If we want to viualise the same project again, we can load that state with the `--state-autoload` flag.
-```
+```bash
 anvi-interactive -c SAR11SPLIT_postFilter/FZCC0015/CONTIGS.db \
    -p SAR11SPLIT_postFilter/FZCC0015/PROFILE.db \
    -C DEFAULT \
@@ -2907,21 +2904,21 @@ However, we can also use the same state with other projects.
 To do so, we will use `anvi-export-state` on the GENES.db in which we defined the state and `anvi-import-state` on the GENES.db that we want to import the state to. After that, we can specify it in the `anvi-interactive` command as above.
 
 Export the state:
-```
+```bash
 anvi-export-state -p SAR11SPLIT_postFilter/FZCC0015/GENES/DEFAULT-EVERYTHING.db \
    -s visualise \
    -o visualise.json
 ```
 
 Import the state to a different project
-```
+```bash
 anvi-import-state -p SAR11SPLIT_postFilter/HIMB140/GENES/DEFAULT-EVERYTHING.db \
    -n visualise \
    -s visualise.json 
 ```
 
 And use `anvi-interactive` to look at it
-```
+```bash
 anvi-interactive -c SAR11SPLIT_postFilter/HIMB140/CONTIGS.db \
   -p SAR11SPLIT_postFilter/HIMB140/PROFILE.db \
   -C DEFAULT \
