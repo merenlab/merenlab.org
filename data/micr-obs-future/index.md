@@ -178,7 +178,7 @@ The isolate genomes available at the time of this analysis are included in a fil
 
 --- 
 
-As we started with all genomes in a single file but now want to assess the quality of each, we need to separate `SAR11_June2024_bycontig.fa` into individual .fa files - one per reference genome.
+As we started with all reference genome sequences in a single file but want to assess the quality of each in the next step, we need to separate `SAR11_June2024_bycontig.fa` into individual .fa files - one per reference genome.
 
 For that, we used the following script and run it in the same directory as we have the `SAR11_June2024_bycontig.fa` file.
 ``` bash
@@ -205,7 +205,7 @@ def parse_fasta(file_path):
         header = None  # Variable to hold the current header
         for line in file:
             line = line.strip()  # Remove any leading/trailing whitespace
-            if line.startswith('>'):  # Check if the line is a header
+            if line.startswith('>'):  # Check if the line is a header (would start with ">")
                 # Extract the sequence ID (part before the '-' character)
                 header = line.split('-')[0][1:]
             else:
@@ -242,8 +242,9 @@ if __name__ == "__main__":
     main()
 
 ```
+
 run
-```
+``` bash
 python3 separateFasta.py
 ```
 
@@ -254,7 +255,7 @@ We now have 99 individual fasta files, ready to be evaluated.
 We will use `CheckM` to evaluate the completeness and contamination of the isolate genomes. Since they are isolate genomes, we expect them to be of quite high completeness and low contamination.
 
 {:.notice}
-There is also an option to include CheckM in the dRep step that is following, however, that does not seem to work for everyone, so we will do it separately.
+There is also an option to include CheckM in the dRep step that is following, however, that does not seem to work for everyone, so we are doing it separately.
 
 <div class="extra-info" markdown="1">
 
@@ -275,18 +276,19 @@ CheckM relies on several other software packages:
 
 We will run checkM on all files in the directory `fastaOriginal/` that end on .fa and add the ouput into a directoy called `check output/`. 
 
-```
+``` bash
 clusterize -j checkM -o checkm.log -n 1 "checkm lineage_wf -t 40 -x fa ./fastaOriginal ./checkMoutput/ -f out_checkM.tab --tab_table"
 ```
 
 {:.notice}
 This was our first use of `clusterize`. It's that easy!
 
+If you would like to inspect the outpur file, feel free to grab it [here](files/out_checkM.tsv). Otherwise, we have also included its content in the expandable section below.
+
 ---
 
 <details markdown="1"><summary>Click here to show/hide the checkM output table</summary>
 
-If you would rather have the file itself, feel free to grab it [here](files/out_checkM.tsv).
 
  
 | Bin Id    | Marker lineage             | # genomes | # markers | # marker sets | 0  | 1   | 2  | 3 | 4 | 5 | Completeness | Contamination | Strain heterogeneity |
@@ -395,7 +397,7 @@ If you would rather have the file itself, feel free to grab it [here](files/out_
 
 ---
 
-Besides HIMB123 (completness: 86.73), all isolate genomes have a completeness of ≥96.00. However, even 86.73 is sufficient for our purposes.
+Besides HIMB123 (completeness: 86.73), all isolate genomes have a completeness of ≥96.00. However, even 86.73 is sufficient for our purposes.
 
 The highest contamination value is HIMB1427 (4.29%), followed by HIMB1863 (3.32%), HIMB1517 (2,38%), HIMB4 (2.30%), and HIMB1748, HIMB1488, and HIMB123 (all 1.90%), HIMB1505 (1.43%) HIMB1509 and HIMB1506, HIMB1485 (all 1.42 %). All others are below 1% contamination.
 
@@ -403,7 +405,9 @@ We are keeping all isolate genomes, since they are all above 80% completeness an
 
 ### Dereplicating isolate genomes
 
-To dereplicate the isolate genomes, we will be using `dRep`, a python program which performs rapid pair-wise comparison of genome sets.
+In this step, we are dereplicating the 99 reference genomes to retain a single representative genome from each group of highly similar genomes. Dereplication is useful for reducing redundancy, optimizing computational efficiency, and ensuring that downstream analyses focus on the unique diversity of the genome set. 
+
+To accomplish this, we will use `dRep`, a Python-based tool designed for rapid pair-wise comparison and clustering of genomes. By utilizing `dRep`, we can identify and retain one representative genome per cluster based on similarity thresholds, ensuring that only distinct genomes are preserved for further analysis.
 
 <div class="extra-info" markdown="1">
 
@@ -416,16 +420,16 @@ Olm, M., Brown, C., Brooks, B. et al. dRep: a tool for fast and accurate genomic
 To use `dRep`, let us first write a bash script telling it to dereplicate at 95% ANI (preclustering at 90% ANI) and then submit it with `clusterize`. 
 
 {:.notice}
-ANI stands for Average Nucleotide Identity. dRep uses this measure to cluster genomes before selecting a representative for each cluster. https://drep.readthedocs.io/en/latest/choosing_parameters.html
+ANI stands for Average Nucleotide Identity. `dRep` uses this measure to cluster genomes before selecting a representative for each cluster. https://drep.readthedocs.io/en/latest/choosing_parameters.html
 
-```
+``` bash
 nano drep_clusterize.sh
 ```
 content
-```
+``` bash
 #!/bin/bash 
 
-# Load necessary modules (if applicable)
+# Load necessary modules 
 # Make sure to load the dRep module if your environment uses module systems
 module load dRep
 
@@ -443,7 +447,8 @@ dRep dereplicate $OUTPUT_DIR -g $INPUT_DIR/*.fa -sa 0.95 -pa 0.9 --ignoreGenomeQ
 ```
 
 Submit the job with `clusterize`.
-```
+
+``` bash
 # clusterize command explanation:
 # -j dRep_workflow: Sets the job name to 'dRep_workflow'
 # -o dRep_workflow.log: Specifies the log file for the job output
@@ -453,7 +458,6 @@ clusterize -j dRep_workflow \
            -o dRep_workflow.log \
            -n 1 \
            "bash drep_clusterize.sh"
-
 ```
 
 **51 genomes passed**
