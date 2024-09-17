@@ -23,9 +23,9 @@ In this study, we
 -  competitively recruited reads from the above-listed projects' metagenomes to the SAR11 reference genomes, and profile the recruitment results
 -  investigated the patterns in genes across metagenomes recruited to the individual SAR11 reference genomes
 
-Sections in this document will detail all the steps of downloading and processing SAR11 genomes and metagenomes, mapping metagenomic reads onto the SAR11 genomes, as well as analysing and visualising the outcomes.
+Sections in this document will detail all the steps of downloading and processing SAR11 genomes and metagenomes, mapping metagenomic reads onto the SAR11 genomes, as well as analyzing and visualizing the outcomes.
 
-For the curation of metadata, please consult the [public-marine-omics-metadata](https://github.com/merenlab/public-marine-omics-metadata/tree/main) GitHub repository, where all steps of metadata gathering, curation, and standardisation are described in detail.
+For the curation of metadata, please consult the [public-marine-omics-metadata](https://github.com/merenlab/public-marine-omics-metadata/tree/main) GitHub repository, where all steps of metadata gathering, curation, and standardization are described in detail.
 
 {:.notice}
 If you have any questions, notice an issue, and/or are unable to find an important piece of information here, please feel free to leave a comment down below, send an e-mail to [us](/people/), or get in touch with us through Discord:
@@ -70,10 +70,10 @@ tRNA-seq database ............................: 2
 ```
 
 {:.notice}
-You will see that many of the commands utilise the SLURM wrapper `clusterize` to submit jobs to our HPC clusters. `Clusterize` was developed by Evan Kiefl and is described here: https://github.com/ekiefl/clusterize. Thank you, Evan! 
+You will see that many of the commands utilize the SLURM wrapper `clusterize` to submit jobs to our HPC clusters. `Clusterize` was developed by Evan Kiefl and is described here: https://github.com/ekiefl/clusterize. Thank you, Evan! 
 
 ## Metadata
-For the curation of metadata, please consult the [public-marine-omics-metadata](https://github.com/merenlab/public-marine-omics-metadata/tree/main) GitHub repository, where all steps of metadata gathering, curation, and standardisation are described in detail.
+For the curation of metadata, please consult the [public-marine-omics-metadata](https://github.com/merenlab/public-marine-omics-metadata/tree/main) GitHub repository, where all steps of metadata gathering, curation, and standardization are described in detail.
 
 Remember, team: Data without metadata is like a mystery dish - sure, it might look good, but you don't know what's in it, you don't know if you can and are allowed to eat it, you don't know where it came from, you don't know who made it, you don't even really know what it is, ... 😖. Our data is often only worth as much as our metadata can support it.
 
@@ -265,7 +265,7 @@ This resulted in 99 individual FASTA files, ready to be evaluated.
 
 ### Use checkM to evaluate the quality of isolate genomes
 
-Before moving on with any of the reference genomes, we used `CheckM` to evaluate the completeness and contamination of the isolate genomes. These metrics are sometimes also given in the databases hosting the publicly available reference genomes (e.g., see [https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_900177485.1/](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_900177485.1/)), but it is always better to double-check. And besides, we need the completeness and contamination metrics for the unpublished reference genomes anyhow. 
+Before moving on with any of the reference genomes, we used `CheckM` to evaluate the completeness and contamination of the isolate genomes. These metrics are sometimes also given in the databases hosting the publicly available reference genomes (e.g., see [https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_900177485.1/](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_900177485.1/)), but it is always better to double-check. Besides, we need the completeness and contamination metrics for the unpublished reference genomes anyhow. 
 
 Going into this, know that, since all these genomes are isolate genomes, we expect them to be of quite high completeness and low contamination (rightly so, as you'll see).
 
@@ -274,7 +274,7 @@ There is also an option to include `checkM` in the `dRep` step that is following
 
 <div class="extra-info" markdown="1">
 
-<span class="extra-info-header">Citations</span>
+<span class="extra-info-header">Citations and version</span>
 
 CheckM citation:
 
@@ -285,6 +285,8 @@ CheckM relies on several other software packages:
 - [pplacer](http://matsen.fhcrc.org/pplacer/): Matsen FA, Kodner RB, Armbrust EV. 2010. pplacer: linear time maximum-likelihood and Bayesian phylogenetic placement of sequences onto a fixed reference tree. BMC Bioinformatics 11: doi:10.1186/1471-2105-11-538.
 - [prodigal](http://prodigal.ornl.gov/): Hyatt D, Locascio PF, Hauser LJ, Uberbacher EC. 2012. Gene and translation initiation site prediction in metagenomic sequences. Bioinformatics 28: 2223–2230.
 - [HMMER](http://hmmer.org/): http://hmmer.org/
+
+We used CheckM version 1.2.2
 
 </div>
 
@@ -420,19 +422,21 @@ We kept all isolate genomes since they are all above 80% completeness and below 
 
 ### Dereplicating isolate genomes
 
-In this step, we dereplicated the 99 reference genomes to retain a single representative genome from each group of highly similar genomes. Dereplication is useful for reducing redundancy, optimizing computational efficiency, and ensuring that downstream analyses focus on the unique diversity of the genome set. 
+In the following section, we describe how we dereplicated the 99 reference genomes to retain a single representative genome from each group of highly similar genomes. Dereplication is useful for reducing redundancy, optimizing computational efficiency, and ensuring that downstream analyses focus on the unique diversity of the genome set. 
 
 To accomplish this, we used `dRep`, a Python-based tool designed for rapid pair-wise comparison and clustering of genomes. By utilizing `dRep`, one can identify and retain one representative genome per cluster based on similarity thresholds, ensuring that only distinct genomes are preserved for further analysis.
 
 <div class="extra-info" markdown="1">
 
-<span class="extra-info-header">dRep citation</span>
+<span class="extra-info-header">dRep citation and version</span>
 
 Olm, M., Brown, C., Brooks, B. et al. dRep: a tool for fast and accurate genomic comparisons that enables improved genome recovery from metagenomes through de-replication. ISME J 11, 2864–2868 (2017). https://doi.org/10.1038/ismej.2017.126
 
+We used dRep v3.5.0
+
 </div>
 
-To use `dRep`, we wrote a bash script telling it to dereplicate at 95% ANI (preclustering at 90% ANI) and then submit it with `clusterize`. 
+To use `dRep`, we wrote a bash script, telling it to dereplicate at 95% ANI (preclustering at 90% ANI) and then submit it with `clusterize`. 
 
 {:.notice}
 ANI stands for Average Nucleotide Identity. `dRep` uses this measure to cluster genomes before selecting a representative for each cluster. https://drep.readthedocs.io/en/latest/choosing_parameters.html
@@ -494,9 +498,9 @@ blue and purple stars: representatives after dereplicating. These are the refere
 
 ### Concatonate FASTAs of dereplicated reference genomes and simplify deflines
 
-We are combining all the FASTA files of the dereplicated reference genomes into a single file because, later on, we will be performing competitive read recruitment. For this process to work correctly, all reference genomes need to be in one unified FASTA file to ensure that the reads can be compared against all genomes in a competitive manner.
+We combined all the FASTA files of the dereplicated reference genomes into a single file because, later on, we performed competitive read recruitment. For this process to work correctly, all reference genomes needed to be in one unified FASTA file to ensure that the reads could be compared against all genomes in a competitive manner.
 
-To use anvi'o (which does not allow special characters in the deflines of FASTA files) and to easily identify each reference genome throughout the analysis, we are simplifying the deflines using anvi'o's [`anvi-script-reformat-fasta`](https://anvio.org/help/main/programs/anvi-script-reformat-fasta/) program. We are using the `--prefix` flag to include the reference genome name, and the `--simplify-names` flag to remove any special characters and standardize the names. Additionally, the `--report-file` flag will generate a file that maps the original deflines in the FASTA files to the reformatted ones. Finally, we will concatenate all FASTA files with these reformatted deflines into a single file named `all_fasta.fa`.
+To use anvi'o (which does not allow special characters in the deflines of FASTA files) and to easily identify each reference genome throughout the analysis, we simplified the deflines using anvi'o's [`anvi-script-reformat-fasta`](https://anvio.org/help/main/programs/anvi-script-reformat-fasta/) program. We used the `--prefix` flag to include the name of the reference genome, and the `--simplify-names` flag to remove any special characters and standardize the names. Additionally, the `--report-file` flag was used to generate a file that maps the original deflines in the FASTA files to the reformatted ones. Finally, we concatenated all FASTA files with these reformatted deflines into a single file named `all_fasta.fa`.
 
 We are running the following commands in the directory in which the FASTA files are. 
 
@@ -512,7 +516,7 @@ done
 cat *_reformatted.fa > all_fasta.fa
 ```
 
-To check if it worked, we `grep` for the number of carrots (>) across input files VS in the all_fasta.fa file. The values should match exactly.
+To check if it worked, we `grep`ed for the number of carrots (>) across input files VS in the all_fasta.fa file. The values should match exactly.
 
 ```bash
 grep -c ">" *reformatted.fa | awk -F: '{s+=$2} END {print s}'
@@ -527,14 +531,14 @@ grep -c ">" all_fasta.fa
 This section explains how to download and quality filter short metagenomic reads from the Hawaii Ocean Time-Series ([Biller et al., 2018](https://doi.org/10.1038/sdata.2018.176), [Mende et al., 2017](https://doi.org/10.1038/s41564-017-0008-3)), the Bermuda Atlantic Time-series Study ([Biller et al. 2018](https://doi.org/10.1038/sdata.2018.176)) OceaTARA Oceans project ([Sunagawa et al., 2015](https://doi.org/10.1126/science.1261359)), the Malaspina Expedition ([Sánchez et al., 2024](https://doi.org/10.1038/s41597-024-02974-1)), the Bio-GO-SHIP project ([Larkin et al., 2021](https://doi.org/10.1038/s41597-021-00889-9)), the bioGEOTRACES project ([Biller et al. 2018](https://doi.org/10.1038/sdata.2018.176)), and the Ocean Sampling Day project ([Kopf et al., 2015](https://doi.org/10.1186/s13742-015-0066-5)), as used in this analysis.
 
 {:.notice}
-All metagenomes we analyzed are publicly available through the European Nucleotide Archive ([ENA](https://www.ebi.ac.uk/ena/browser/home)) and [NCBI](https://www.ncbi.nlm.nih.gov). The accession numbers to each project are given above in the Summary table at the top of this workflow.
+All metagenomes we analyzed are publicly available through the European Nucleotide Archive ([ENA](https://www.ebi.ac.uk/ena/browser/home)) and [NCBI](https://www.ncbi.nlm.nih.gov). The accession numbers to each project are given in the Summary table at the top of this workflow.
 
 {:.notice}
-If you are reproducing this workflow, please note that we are downloading metagenomes from a total of **1826** samples. Make sure you have the storage and computational resources to handle them.
+If you are reproducing this workflow, please note that we are using metagenomes from a total of **1826** samples. Make sure you have the storage and computational resources to handle them.
 
 ### Downloading the metagenomes
 
-To download the metagenomes, we will use anvi'o's `[sra_download`](https://anvio.org/help/main/workflows/sra-download/). For this, we need a `SRA_accession_list.txt` for each project and a `download_config.json` config file.
+To download the metagenomes, we used anvi'o's [`sra_download`](https://anvio.org/help/main/workflows/sra-download/). For this, we needed a `SRA_accession_list.txt` for each project and a `download_config.json` config file.
 
 #### Prepare the download
 
@@ -546,7 +550,9 @@ ERR6450081
 SRR5965623
 ```
 
-The `SRA_accession_list.txt`s were created as part of our work in the [public-marine-omics-metadata](https://github.com/merenlab/public-marine-omics-metadata/tree/main) GitHub repository. To get the files, click [here](files/SRA_accession-txt.zip).
+We created multiple `SRA_accession_list.txt`s, one per project. Or more accurately, they were created as part of our work in the [public-marine-omics-metadata](https://github.com/merenlab/public-marine-omics-metadata/tree/main) GitHub repository. That way, they only include the accession numbers to the samples that are in accordance with our metadata requirements. 
+
+To get the files, click [here](files/SRA_accession-txt.zip) for a zipped folder including them.
 
 For the different projects, they are called: 
 ```bash
@@ -561,11 +567,12 @@ SRA_accession_PRJNA656268_BGS.txt
 
 FYI, we created a directory for each of the observatories, with a `00_WORKFLOW_FILES` directory, to which these files were added.
 
-In addition to the `SRA_accession_list.txt`, we need a `download_config.json` for the the `sra_download` function. To get this, run:
+In addition to the `SRA_accession_list.txt`s, we needed a `download_config.json` for the [`sra_download`](https://anvio.org/help/main/workflows/sra-download/) function. To get the config file, we ran:
 ```bash
 anvi-run-workflow -w sra_download --get-default-config download_config.json
 ```
-In each of the `donwload_config.json` files, we exchanged the `"SRA_accession_list": SRA_accession_list.txt",` with `"SRA_accession_list": "00_WORKFLOW_FILES/SRA_accession_[PROJECT_ACCESSION_NUMBER]_[PROJECT_ACRONYM].txt",` (of course adding the respective project accession number and project acronym).
+
+In each of the `donwload_config.json` files (again, one per project), we exchanged the `"SRA_accession_list": SRA_accession_list.txt",` with `"SRA_accession_list": "00_WORKFLOW_FILES/SRA_accession_[PROJECT_ACCESSION_NUMBER]_[PROJECT_ACRONYM].txt",` (of course adding the respective project accession number and project acronym).
 ```bash
 {
     "SRA_accession_list": "00_WORKFLOW_FILES/SRA_accession_[PROJECT_ACCESSION_NUMER]_[PROJECT_ACRONYM].txt",
@@ -592,13 +599,13 @@ In each of the `donwload_config.json` files, we exchanged the `"SRA_accession_li
 
 #### Download the metagenomes
 
-We can now use this `download_config.json` in combination with anvi'o's [`anvi-run-workflow`](https://anvio.org/help/main/programs/anvi-run-workflow/) and the workflow `sra_download` and send it!
+We then were ready to use this `download_config.json` in combination with anvi'o's [`anvi-run-workflow`](https://anvio.org/help/main/programs/anvi-run-workflow/) and the workflow [`sra_download`](https://anvio.org/help/main/workflows/sra-download/).
 
-Do a dry run ...
+We did a dry run ...
 ```bash
 anvi-run-workflow -w sra_download -c 00_WORKFLOW_FILES/download_config.json -A -n -q
 ```
-... and the real deal!
+... and then sent the real deal off to get us the metagenomes!
 ```bash
 clusterize -j sra_download_workflow \
                  -o sra_download.log \
@@ -617,11 +624,11 @@ Following the download, we searched for the mention of any errors in the `.log` 
 grep -i ERROR sra_download_*.log
 ```
 
-We additionally used this script to check if there is a file for each accession number in the `SRA_accession_list.txt`s.
+We additionally used the following script to check if there is a file for each accession number in the `SRA_accession_list.txt`s.
 ```bash
 nano check_fastq_files.sh
 ```
-new script
+script
 ```bash
 #!/bin/bash
 
@@ -669,18 +676,18 @@ give permissions for executing the script
 ```bash
 chmod +x check_fastq_files.sh
 ```
-run script
+run 
 ```bash
 ./check_fastq_files.sh
 ```
-Everything is well.
+Everything was well.
 
 
 ### QC
 
-We used part of the anvi'o [`metagenomics` workflow](https://anvio.org/help/main/workflows/metagenomics/) to remove noise from raw reads prior to mapping. Namely, the `illumina-utils` program ([Eren et al., 2013](https://doi.org/10.1371/journal.pone.0066643)).
+For QC, we used part of the anvi'o [`metagenomics` workflow](https://anvio.org/help/main/workflows/metagenomics/) to remove noise from raw reads prior to mapping. Namely, the `illumina-utils` program ([Eren et al., 2013](https://doi.org/10.1371/journal.pone.0066643)).
 
-For that, we need a [`samples-txt`](https://anvio.org/help/main/artifacts/samples-txt/) file following this structure (The group column is added as a bonus if one needs it, but not necessary):
+For that, we needed a [`samples-txt`](https://anvio.org/help/main/artifacts/samples-txt/) file following this structure (the group column is added as a bonus if one needs it, but not necessary):
 ```bash
 column -t samples.txt
 sample     group  r1                                           r2
@@ -693,16 +700,16 @@ Generally, the file needs to include the sample name and the locations of raw pa
 
 #### Prep QC
 
-In the following we will create one of those `samples.txt` files. We are doing it in two steps.
+In the following, we describe how we created one of those `samples.txt` files. We did it in two steps.
 
 **1. Create a more extensive mapping of biosample to run to project to custom_sample_name**
 
-We created a detailed mapping (which also has the Project accession, real Sample accession, and Run accession, as well as a custom_sample_name [created based on this schema: prefix: [PROJECT_ACRONYM], then the value in `sample_accession`, then the value in `depth`, then the value in `collection_date`, all separated by underscores]) for each project. These mapping files are accessible [here](files/BioSample_to_SRA_accession-csv.zip).
+We created a detailed mapping (which also has the Project accession, real Sample accession, and Run accession, as well as a custom_sample_name [created based on this schema: prefix: [PROJECT_ACRONYM], then the value in `sample_accession`, then the value in `depth`, then the value in `collection_date`, all separated by underscores]) for each project. These mapping files are accessible [here](files/BioSample_to_SRA_accession-csv.zip) (zipped).
 
 {:.notice}
-Note, that we are again using files created as part of the [public-marine-omics-metadata](https://github.com/merenlab/public-marine-omics-metadata/tree/main) GitHub repository.
+Note, that we are using files created as part of the [public-marine-omics-metadata](https://github.com/merenlab/public-marine-omics-metadata/tree/main) GitHub repository: the `_patch2.csv` files. 
 
-This is how they were created:
+From the `_patch2.csv` files, which contain metadata for each project, we used the following script to get the extensive mapping files.
 
 ```bash
 nano sampleMapping.py
@@ -762,7 +769,6 @@ def process_file(file):
 # Process each file
 for file in files:
     process_file(file)
-
 ```
 
 You will get the following files
@@ -779,9 +785,9 @@ BioSample_to_SRA_accessions_TARA.csv
 
 **2. Create the sample-txt artifact from that and the files in our 02_FASTA directories**
 
-Now, we create the `samples-txt` artifact. To get the files, click [here](files/samples-txt.zip) and select the `samples_raw.txt` files.
+Following Step 1., we created the `samples-txt` artifacts. To get those files, you can click [here](files/samples-txt.zip) (zipped) and select the `samples_raw.txt` files.
 
-For creating the `samples-txt` files, we have to account for there being two `BioSample_to_SRA_accession_[PROJECT_ACRONYM].csv` files in the HOT directory. Further, anvi'o does not appreciate the use of '-' in sample names, so those will be substituted with '_'.
+To create those `samples-txt` files, we had to account for there being two `BioSample_to_SRA_accession_[PROJECT_ACRONYM].csv` files in the HOT directory. Further, anvi'o does not appreciate the use of '-' in sample names (e.g., for the date portion of the sample name), so those had to be substituted with '_'.
 
 We created and ran this script in the directory above our project directories.
 ```bash
@@ -900,10 +906,9 @@ for directory in directories:
     process_samples_file(directory)
 
 print("Completed processing all directories.")
-
 ```
 
-At this step, we will also count how many samples and runs were downloaded
+After this step, we also counted how many samples and runs were downloaded.
 ```bash
 nano countSamplesNruns.py
 ```
@@ -955,18 +960,23 @@ for directory in directories:
 
 print("Completed counting samples and runs in all directories.")
 ```
+run
+```
+python3 countSamplesNruns.py
+```
+
 
 #### Do QC
-Now, we are ready to get the `config file` we need to perform the QC step.
+With that, we were ready to get the `config file` we needed to perform the QC step.
 
-For that, we ran:
+To get the `config file` needed to perfom the quality control step, we ran
 ```bash
 anvi-run-workflow -w metagenomics --get-default-config QC_config.json 
 ```
 
-In this `config file`, we will
-- replace `"samples_txt": "samples.txt"` with `"samples_txt": "samples_raw.txt"` 
-- turn off everything besides 
+In this `config file`, we
+- replaced `"samples_txt": "samples.txt"` with `"samples_txt": "samples_raw.txt"` 
+- turned off everything besides 
    - `idba_ud` (needs to be on to trick snakemake, but we're not actually running it, because when submitting the job we tell it to stop after gzipping), 
    - `iu_filter_quality_minoche` (and set threads to 4), and 
    - `gzip_fastqs`
@@ -1291,16 +1301,16 @@ In this `config file`, we will
 
 ---
 
-We did a dry run to look at the stats.
+We did a dry run to check the stats before letting it loose.
 
 ```
 anvi-run-workflow -w metagenomics -c QC_config.json -A --until gzip_fastqs -n -q
 ```
 
-Assuming the stats look good, we submitted the job using `clusterize`.
+Then, we submitted the job using `clusterize`.
 
 {:.notice}
-Note that we are using the flag `--unil gzip-fastqs` so that we are not running the entire `metagenomics` workflow but only the quality control portion of that.
+Note that we used the flag `--unil gzip-fastqs` so that we would not run the entire `metagenomics` workflow but only the quality control portion.
 
 ```bash
 clusterize -j QC_workflow \
@@ -1315,18 +1325,18 @@ clusterize -j QC_workflow \
    --rerun-incomplete \
    --keep-going"
 ```
-Once it is done, we grep for errors in the log file.
+Once it was done, we `grep`ed for errors in the log file.
 ```bash
 grep -i ERROR QC_workflow_*.log
 ```
-The outputs of this workflow are available in the [QC_stats.zip](files/QC_stats.zip) archive.
+All was well. The outputs of this workflow are available in the [QC_stats.zip](files/QC_stats.zip) archive.
 
 #### Make samples_qc.txt
 
-Since we are splitting the metagenomics workflow in two, we are now creating `samples_qc.txt`, which we will use as the `samples-txt` artifact in the next steps. The `samples_qc.txt` is also included in the [samples-txt folder](files/samples-txt.zip), in case you would like to have a peek.
+Since we split the metagenomics workflow in two (1. QC, 2. read recruitment), we then created `samples_qc.txt`s (again, one per project), which will be concatenated into one in the step after this, and then used as the `samples-txt` artifact in the steps following that. The projects' `samples_qc.txt`s are also included in the [samples-txt folder](files/samples-txt.zip), in case you would like to have a peek. 
 
 ```
-nano makeQCsample-txt.p`
+nano makeQCsample-txt.py
 ```
 script
 ```python
@@ -1386,12 +1396,11 @@ if missing_samples:
         print()
 
 print("samples_qc.txt has been created.")
-
 ```
 
 #### Create collective samples_qc.txt for all projects
 
-For the upcoming read recruitment, we no longer want to have the projects separated, so we are concatenating the individual samples_qc.txt files we just created into one. The collective `samples_qc.txt` is also included in the [samples-txt folder](files/samples-txt.zip).
+For the upcoming read recruitment, we no longer wanted to have the projects separated, so we concatenated the individual samples_qc.txt files we created above into one. The collective `samples_qc.txt` is also included in the [samples-txt folder](files/samples-txt.zip).
 ```bash
 nano combine_and_check_samples_qc.py
 ```
@@ -1449,44 +1458,46 @@ if os.path.exists(output_file_path):
 else:
     print("Failed to create the combined file.")
 ```
+run
+```
+python3 combine_and_check_samples_qc.py
+```
 
 ## Mapping metagenomic reads to SAR11 genomes (competitive read recruitment)
 
-This section explains various steps to characterize the occurrence of each SAR11 isolate genome in metagenomes.
+This section explains the steps we took to characterize the occurrence of each SAR11 isolate genome in metagenomes.
 
-For that, we will make use of the anvi'o `metagenomics` snakemake workflow again.
+For that, we again made use of the anvi'o `metagenomics` snakemake workflow.
 
-This time, that will include:
+This time, that included:
 - competitive read recruitment with `anvi_run_hmms`, `anvi_run_kegg_kofams`, `anvi_run_ncbi_cogs`, `anvi_run_scg_taxonomy`
 - convert SAM -> BAM
 - profile BAM file to get anvi'o profiles
 - merge into a single anvi'o profile
 
-Since we now want to map our reads to the reference genomes, we need to not only specify the `samples_qc.txt` file, but also a `fasta.txt` file:
-
-Create a `fasta.txt` with the paths to our `all_fasta.fa` file containing all SAR11 reference genomes. 
+Since we wanted to map our reads to the reference genomes, we needed not only had to specify the `samples_qc.txt` file, but also the `fasta.txt` file. Thus, we created one with the paths to our `all_fasta.fa` file containing all SAR11 reference genomes. 
 ```bash
 name    path
 reference_genomes       ../refGenomesSAR11/fastaDrep/dereplicated_genomes/all_fasta.fa
 ```
 
-We also need the `config file` for the metagenomics workflow. To get that, we run the following.
+We also needed a new `config file` for the metagenomics workflow. To get that, we ran the following:
 ```bash
 anvi-run-workflow -w metagenomics \
                   --get-default-config default-metagenomics-config.json
 ```
 
-Importantly, we will 
+Importantly, we  
 - set `"fasta_txt": "fasta.txt"` (this contains the path to the fasta file containing all reference genomes)
 - set `"samples_txt": "samples_qc.txt"` (this contains the paths to all QCed metagenomes)
 - put the `reference-mode` to `true` (this way, and by having all reference genomes in a single fasta file, we ensure that the read recruitment is competitive)
-- turn on 
+- turned on 
    - [`anvi_run_hmm`](https://merenlab.org/2016/06/22/anvio-tutorial-v2/#anvi-run-hmms) - searches for HMMs against a [contigs-db](https://anvio.org/help/main/artifacts/contigs-db) and stores that information into the contigs-db’s [hmm-hits](https://anvio.org/help/main/artifacts/hmm-hits). 
    - [`anvi_run_kegg_kofams`](https://anvio.org/help/main/programs/anvi-run-kegg-kofams/) - annotates a [contigs-db](https://anvio.org/help/main/artifacts/contigs-db) with HMM hits from KOfam, a database of KEGG Orthologs (KOs). 
    -  [`anvi_run_ncbi_cogs`](https://merenlab.org/2016/06/22/anvio-tutorial-v2/#anvi-run-ncbi-cogs) - annotate genes in your [contigs-db](https://anvio.org/help/main/artifacts/contigs-db) with [functions](https://anvio.org/help/main/artifacts/functions) from the NCBI’s [Clusters of Orthologus Groups](https://www.ncbi.nlm.nih.gov/COG/)
    - [`anvi_run_scg_taxonomy`](https://merenlab.org/2016/06/22/anvio-tutorial-v2/#anvi-import-taxonomy)  - finds your single-copy core genes and assigns them taxonomy by searching them against GTDB
 
-Other parts of the `config.json` file do not have to be specifically turned on, but will run automatically:
+Other parts of the `config.json` file did not have to be specifically turned on, but ran automatically:
 - `anvi-gen-contigs-database` - profile all contigs for SAR11 isolate genomes, and generate an anvi’o contigs database that stores for each contig the DNA sequence, GC-content, tetranucleotide frequency, and open reading frames
 - `bowtie-build` - map short reads from the project metagenomes onto the scaffolds contained in fasta file containing the reference genomes using Bowtie2
 - `samtools_view` - store the recruited reads as BAM files using samtools
@@ -1825,11 +1836,11 @@ This workflow relies on much more than just anvi'o or snakemake, but many other 
 
 ---
 
-We, again, do a dry run
+We, again, did a dry run
 ```bash
 anvi-run-workflow -w metagenomics -c default-metagenomics-config.json -A  -n -q
 ```
-The stats we are getting out reflect that we are working with 1850 metagenomes but only one fasta file containing the reference genomes.
+You were probably curious about what the dry run stats look like, so I included this one to appease your curiosity. It reflected that we are working with 1850 metagenomes but only have one fasta file containing the reference genomes. So all good.
 ```bash
 Job stats:
 job                                  count
@@ -1851,7 +1862,7 @@ samtools_view                         1850
 total                                 9259
 ```
 
-As all is looking well, we submitted the job again using clusterize:
+As all looked well, we submitted the job again using clusterize:
 ```bash
 clusterize -j metagenomics_workflow \
                  -o metagenomics_workflow.log \
@@ -1869,27 +1880,27 @@ clusterize -j metagenomics_workflow \
 
 ## Filter samples based on coverage and detection
 
-In this section, we describe all the steps taken to filter the samples based on coverage and detection. Our cutoff will be to only keep samples, in which at least one of the metagenomes was detected with at least 0.5 detection and 10x coverage.
+In this section, we describe all the steps taken to filter the samples based on coverage and detection. Our cutoff was be to only keep samples, in which at least one of the metagenomes was detected with at least 0.5 detection and 10x coverage.
 
-It will include multiple substeps
+The filtering included multiple substeps:
 - Generating a genomic collection for `anvi-split`
-- use `anvi-split` to create individual, self-contained anvi’o projects for each reference genome and its recruited reads
-- use `anvi-profile-blitz` to profile the BAM files to get contig-level coverage and detection stats
-- filter the samples based on coverage and detection of SAR11 reference genomes
+- using `anvi-split` to create individual, self-contained anvi’o projects for each reference genome and its recruited reads
+- using `anvi-profile-blitz` to profile the BAM files to get contig-level coverage and detection stats
+- filtering the samples based on coverage and detection of SAR11 reference genomes
 
 ### Generating a genomic collection
 
-At this point, anvi’o still doesn’t know how to link scaffolds to each isolate genome. In anvi’o, this kind of knowledge is maintained through ‘collections’. In order to link scaffolds to genomes of origin, we will use the program [`anvi-import-collection`](https://anvio.org/help/main/programs/anvi-import-collection/) to create an anvi’o collection in our merged profile database. This program, however, needs a [`collection-txt`](https://anvio.org/help/main/artifacts/collection-txt/) artifact. 
+At this point, anvi’o still did not know how to link scaffolds to each isolate genome. In anvi’o, this kind of knowledge is maintained through ‘collections’. In order to link scaffolds to genomes of origin, we used the program [`anvi-import-collection`](https://anvio.org/help/main/programs/anvi-import-collection/) to create an anvi’o collection in our merged profile database. This program, however, needed a [`collection-txt`](https://anvio.org/help/main/artifacts/collection-txt/) artifact. 
 
-We will make that by:
+We made that by:
 
-For this, we first create a `contigs.txt` (run this in the readRecruitment dir)
+For this, we first created a `contigs.txt` (ran this in the `readRecruitment` directory)
 ```bash
 grep ">" ../refGenomesSAR11/fastaDrep/dereplicated_genomes/all_fasta.fa | sed "s/>//g" > contigs.txt
 ```
-This removes the carrot ">" from the contig headers in our fasta file full of reference genomes by substituting it with nothing globally (not just once but anywhere it sees a ">" in the file) and parses the output into a file called `contigs.txt`. 
+This removed the carrot ">" from the contig headers in our fasta file full of reference genomes by substituting it with nothing globally (not just once but anywhere it sees a ">" in the file) and parsed the output into a file called `contigs.txt`. 
 
-These are the names by which the contigs are stored within anvi'o. 
+These are the names by which the contigs were stored within anvi'o. 
 
 ---
 
@@ -1913,7 +1924,7 @@ HIMB058_000000000009
 
 ---
 
-Next, we create a file called `bins.txt` which contains only the identifier for the genome.
+Next, we created a file called `bins.txt` which contained only the identifier for the genome.
 ```bash
 grep ">" ../refGenomesSAR11/fastaDrep/dereplicated_genomes/all_fasta.fa | sed "s/>//g" | cut -d "_" -f 1 > bins.txt
 ```
@@ -1942,7 +1953,7 @@ HIMB058
 
 ---
 
-Lastly, we combine the two into a single file and feed that into a new file called `collection.txt`, which is what we need. 
+Lastly, we combined the two outputs into a single file and fed that into a new file called `collection.txt`, which is what we needed (the two steps before were just for us to get here). 
 ```bash
 paste contigs.txt bins.txt > collection.txt
 ```
@@ -2070,15 +2081,15 @@ We then used the program [`anvi-import-collection`](https://anvio.org/help/main/
 anvi-import-collection collection.txt -p 06_MERGED/reference_genomes/PROFILE.db -c 03_CONTIGS/reference_genomes-contigs.db -C SAR11COLLECTION --contigs-mode
 ```
 
-We are using `--contigs-mode` because our `collection.txt` describes contigs rather than splits.
+We used the `--contigs-mode` because our `collection.txt` describes contigs rather than splits.
 
-The collection is not stored in a separate file but in the `PROFILE.db`.
+**Note:** The collection is not stored in a separate file but in the `PROFILE.db`.
 
 ### Creating individual, self-contained anvi’o projects for each reference genome and its recruited reads
 
-We will be using `anvi-split` to create individual, self-contained anvi’o projects for each reference genome and its recruited reads.
+We used `anvi-split` to create individual, self-contained anvi’o projects for each reference genome and its recruited reads.
 
-We are, again, using clusterize to submit the job:
+We, again, used clusterize to submit the job:
 ```bash
 clusterize -j SAR11_split_job \
            -o SAR11_split_job.log \
@@ -2089,20 +2100,17 @@ clusterize -j SAR11_split_job \
                        -c 03_CONTIGS/reference_genomes-contigs.db \
                        -C SAR11COLLECTION \
                        -o SAR11SPLIT"
-
 ```
 
-The output will be put into a directory called `SAR11SPLIT`, which will then contain individual directories with `contig.db` and `profile.db` for each reference genome and recruited reads. 
+The output was put into a directory called `SAR11SPLIT`, which then contained individual directories with `contig.db` and `profile.db` for each reference genome and recruited reads. 
 
 ### Determine which samples to continue working with
 
 
 #### Get contig-level coverage and detection stats
-We will be using [`anvi-profile-blitz`](https://anvio.org/help/main/programs/anvi-profile-blitz/) to find out which samples are useful (e.g. cutoff of: my genomes should be covered 10x and detected 0.5). 
+We used [`anvi-profile-blitz`](https://anvio.org/help/main/programs/anvi-profile-blitz/) to find out which samples met our filtering criteria if: my genomes should be covered 10x and detected 0.5). `anvi-profile-blitz` allows the fast profiling of BAM files to get contig- or gene-level coverage and detection stats.
 
-`anvi-profile-blitz` allows the fast profiling of BAM files to get contig- or gene-level coverage and detection stats.
-
-We will give it the `BAM file`s that were created and are stored in the `04_MAPPING` directory, the `CONTIGS.db`, and specify what the output should look like.
+We gave it the `BAM file`s that were created in the metagenomics workflow and were stored in the `04_MAPPING` directory, as well as the `CONTIGS.db`, and specified what the output should look like.
 
 This is the base command
 ```bash
@@ -2111,7 +2119,7 @@ anvi-profile-blitz *.bam \
                    -o OUTPUT.txt
 ```
 
-However, since we are doing it for each `split`, so 51 times (once per reference genome), we will be adapting it a bit and doing it in a loop.
+However, since we did it for each `split`, so 51 times (once per reference genome), we adapted the base command a bit to do it in a loop.
 
 ```bash
 nano run_anvi_profile_blitz.sh
@@ -2149,10 +2157,8 @@ submit job
 clusterize "./run_anvi_profile_blitz.sh" -n 1 -j anvi_profile_blitz_job
 ```
 
-
-
-#### Combine outputs into one file
-We will combine the BLITZ outputs into one dataframe. You can get the output [here](files/combined_blitzOUTPUT.txt.zip).
+#### Combine BLITZ outputs into one file
+We combined the BLITZ outputs into one dataframe. You can get the output [here](files/combined_blitzOUTPUT.txt.zip).
 ```bash
 cd blitzOUTPUT/
 nano combineOutputs.py
@@ -2194,11 +2200,10 @@ python combineOutputs.py
 ```
 
 
-#### Get weighted averages 
-Even though some reference genomes have multiple contigs, we want to know how much of each reference genome was covered in a given sample / how much the entire reference genome was detected (so across contigs): so the mean_cov and detection information for the collective reference genome. However, we cannot just take the information of all contigs from the same reference genome across a given sample and take the average but have to take the length of each contig with respect to the length of the entire reference genome (length of its contigs combined). 
+#### Get weighted averages of coverage and detection
+Even though some reference genomes had multiple contigs, we wanted to know how much of each reference genome was covered in a given sample / how much the entire reference genome was detected (so across contigs): so the mean_cov and detection information for the collective reference genome. However, we could not just take the information of all contigs from the same reference genome across a given sample and take the average but had to take the length of each contig compared to the length of the entire reference genome (length of its contigs combined) into consideration. 
 
-The output file is available [here](files/weighted_results_with_length.txt.zip).
-
+To calculate the weighted averages of both `mean_cov` and `detection`, we wrote the following script.
 ```bash
 nano calculate_weighted_coverage.py
 ```
@@ -2231,12 +2236,14 @@ run
 calculate_weighted_coverage.py
 ```
 
+The output file is available [here](files/weighted_results_with_length.txt.zip) (zipped).
 
 
 #### Get overview stats of how many samples per project would stay with different detection and coverage cut-offs
 
-How many samples per project make it if we only take the samples for which at least one reference genome has at least 10x coverage and at least 0.5 detection (both need to be true for a sample to pass)? And do that for different coverage and detection combos. 
+How many samples per project would make it if we only took the samples for which at least one reference genome has at least 10x coverage and at least 0.5 detection (both need to be true for a sample to pass)? 
 
+This is what we wanted to know for different coverage and detection combos. To find out we wrote the following script.
 ```bash
 nano filter_samples_all_combinations.py
 ```
@@ -2288,7 +2295,7 @@ run
 python filter_samples_all_combinations.py
 ```
 
-This gives you `combined_stats_weighted_all_filters.txt`, which is available [here](files/combined_stats_weighted_all_filters.txt).
+This gave us the `combined_stats_weighted_all_filters.txt` file, which is available [here](files/combined_stats_weighted_all_filters.txt) and gives the number of samples ber project given different detection and coverage cut-offs.
 
 ```bash
 project num_samples_initial     num_samples_1x_25       num_samples_1x_30       num_samples_1x_40       num_samples_1x_50       num_samples_2x_25       num_samples_2x_30       num_samples_2x_40       num_samples_2x_50       num_samples_3x_25       num_samples_3x_30       num_samples_3x_40       num_samples_3x_50       num_samples_4x_25       num_samples_4x_30       num_samples_4x_40       num_samples_4x_50       num_samples_5x_25       num_samples_5x_30       num_samples_5x_40       num_samples_5x_50       num_samples_6x_25       num_samples_6x_30       num_samples_6x_40       num_samples_6x_50       num_samples_7x_25       num_samples_7x_30       num_samples_7x_40       num_samples_7x_50       num_samples_8x_25       num_samples_8x_30       num_samples_8x_40       num_samples_8x_50       num_samples_9x_25       num_samples_9x_30       num_samples_9x_40       num_samples_9x_50       num_samples_10x_25      num_samples_10x_30      num_samples_10x_40      num_samples_10x_50
@@ -2305,7 +2312,7 @@ TARA    95      95      94      94      94      95      94      94      94      
 
 #### Filter based on 0.5 detection and 10x coverage
 
-We will now filter our samples to get the information on which of them pass the filtering thresholds we set. This information will then be used to build a combined profile database.
+Knowing the above, we set our filtering cutoff to 10x coverage and 0.5 detection. We wrote the following script to get the number of samples per project that pass that filtering  threshold, as well as their coverage and detection values.
 ```bash
 nano filter_samples_detNcov.py
 ```
@@ -2358,33 +2365,19 @@ all_stats.to_csv(output_stats_path, sep='\t', index=False)
 # Save the combined filtered DataFrame to a .txt file
 output_filtered_path = './filtered05N10x_combined_df.txt'
 combined_filters.to_csv(output_filtered_path, sep='\t', index=False)
-
 ```
 run
 ```bash
 python filter_samples_detNcov.py
 ```
 
-This results in two files called `filtered05N10x_stats.txt` (containing the number of samples of each project that passed the filter criteria, available [here](files/filtered05N10x_stats.txt)) and `filtered05N10x_combined_df.txt` (the sample_IDs, contigs, weighted_mean_cov, weighted_detection of the samples that passed the filtering, available [here](files/filtered05N10x_combined_df.txt)).
-
-```bash
-sample  reference_genome        project weighted_mean_cov       weighted_detection      total_length
-BATS_SAMN07137064_10_2003_04_22 HIMB1436        BATS    17.363279079539108      0.8795767950849176      1208525
-BATS_SAMN07137064_10_2003_04_22 HIMB2187        BATS    13.489588372836309      0.8361808067690548      1188940
-BATS_SAMN07137064_10_2003_04_22 HIMB2226        BATS    12.678559899501952      0.8206248871785373      1193257
-BATS_SAMN07137064_10_2003_04_22 HTCC7211        BATS    21.92   0.9167  1456888
-BATS_SAMN07137064_10_2003_04_22 HTCC7214        BATS    11.12   0.7453  1375060
-BATS_SAMN07137064_10_2003_04_22 RS39    BATS    17.65   0.8745  1200090
-BATS_SAMN07137074_60_2004_03_23 FZCC0015        BATS    13.3    0.8425  1364101
-BATS_SAMN07137074_60_2004_03_23 HIMB123 BATS    10.71272055510127       0.8193143926122783      1271840
-BATS_SAMN07137074_60_2004_03_23 HIMB1456        BATS    11.999417281233908      0.8549003880194077      1353489
-```
+This resulted in two files called `filtered05N10x_stats.txt` (containing the number of samples of each project that passed the filter criteria, available [here](files/filtered05N10x_stats.txt)) and `filtered05N10x_combined_df.txt` (the sample_IDs, contigs, weighted_mean_cov, weighted_detection of the samples that passed the filtering, available [here](files/filtered05N10x_combined_df.txt)).
 
 ### Generate anvi'o PROFILE.db with selected samples
 
-Based on the information we have post-detection0.5-coverage10x-filtering, we know which samples to continue working with. In order to continue working with them, however, we need to generate a new anvi'o `PROFILE.db` with those samples only.
+Based on the information we had post-detection0.5-coverage10x-filtering, we knew which samples to continue working with. To continue working with them, however, we needed to generate a new anvi'o `PROFILE.db` with those samples only.
 
-We will create a .txt file which only lists the sample names (and only lists each once).
+We created a .txt file that only lists the names of the samples that passed (and only lists each once).
 ```bash
 # Extract the first column (sample names), sort them, and keep only unique entries
 awk 'NR>1 {print $1}' ./blitzOUTPUT/filtered05N10x_combined_df.txt | sort | uniq > ./blitzOUTPUT/unique_samples.txt
@@ -2392,18 +2385,16 @@ awk 'NR>1 {print $1}' ./blitzOUTPUT/filtered05N10x_combined_df.txt | sort | uniq
 ```
 
 #### Profile the mapping results with anvi’o
-First, that requires generating individual `PROFILE.db`s for each .bam file of the samples we want. The .bam files are stored in `./04_MAPPING/reference_genomes/`.
+To profile the mapping results with anvi'o, we generated individual `PROFILE.db`s for each `.bam` file of the samples we want. The `.bam` files were stored in `./04_MAPPING/reference_genomes/`.
 
-To generate these `profile.db`s we are using anvi'o's [`anvi-profile`](https://anvio.org/help/7.1/programs/anvi-profile/) program. In its simplest form, that looks like:
+To generate these `profile.db`s we used anvi'o's [`anvi-profile`](https://anvio.org/help/7.1/programs/anvi-profile/) program. In its simplest form, it looks like this:
 ```bash
 anvi-profile -i SAMPLE-01.bam -c contigs.db
 ```
 
-However, we will adapt it to our needs as such:
+However, we adapted it to our needs as such: Submit multiple `anvi-profile` jobs to a cluster using the `clusterize` tool. The script reads a list of sample names from a file, processes the corresponding BAM files, and submits the jobs in a controlled manner to avoid overwhelming the cluster scheduler. It includes functionality to stagger job submissions and limit the number of jobs running simultaneously.
 
-Submit multiple `anvi-profile` jobs to a cluster using the `clusterize` tool. The script reads a list of sample names from a file, processes the corresponding BAM files, and submits the jobs in a controlled manner to avoid overwhelming the cluster scheduler. It includes functionality to stagger job submissions and limit the number of jobs running simultaneously.
-
-We are keeping the number of threads = 16, as described here: [https://merenlab.org/2017/03/07/the-new-anvio-profiler/](https://merenlab.org/2017/03/07/the-new-anvio-profiler/).
+We kept the number of threads = 16, as described here: [https://merenlab.org/2017/03/07/the-new-anvio-profiler/](https://merenlab.org/2017/03/07/the-new-anvio-profiler/).
 
 ```bash
 nano run_anvi_profile_cluster.sh
@@ -2466,7 +2457,7 @@ and run
 
 #### Generate a merged anvi’o profile
 
-Use [`anvi-merge`](https://anvio.org/help/7.1/programs/anvi-merge/) to convert multiple single-`profile-db`s (of our selected samples) into a single `profile-db` (also called a merged profile database). Basically, this takes the alignment data from each sample (each contained in its own single-`profile-db`) and combines them into a single database that anvi’o can look through more easily.
+To convert the sample-level `profile-db`s (of our selected samples) into a single `profile-db` (also called a merged profile database) we used [`anvi-merge`](https://anvio.org/help/7.1/programs/anvi-merge/). Basically, this takes the alignment data from each sample (each contained in its own sample-level `profile-db`) and combines them into a single database that anvi’o can look through more easily.
 
 The basic command is:
 ```bash
@@ -2481,12 +2472,10 @@ clusterize -j merge_profile_db \
 -o merge_profile_db.log \
 -n 1 \
 "anvi-merge */PROFILE.db -o SAR11-MERGED -c ../03_CONTIGS/reference_genomes-contigs.db"
-
 ```
 
-
 ## Create self-contained anvi'o projects for my reference genomes and associated metagenomes, again
-
+This may now seem like a repetition, but 
 We are again using `anvi-split`, but this time, we are using it on the collective `PROFILE.db` for the selected samples (for which at least one reference genome is above 10x coverage and 0.5 detection) only. This will give us an anvio project per reference genome.
 
 ### Create COLLECTION, again
