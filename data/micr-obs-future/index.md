@@ -18,10 +18,10 @@ authors: [raissa]
 
 
 In this study, we 
--  integrate metagenomics metadata and data from observatories (Hawaii Ocean Time-Series and Bermuda Atlantic Time-series Study), sampling expeditions (Bio-GO-SHIP, bioGEOTRACES, Malaspina, and Tara Oceans), and citizen science initiatives (Ocean Sampling Day)
--  generate an anvi'o contigs database describing 51 SAR11 isolate genomes (reference genomes)
--  competitively recruit reads from the above-listed projects' metagenomes to the SAR11 reference genomes, and profile the recruitment results
--  investigate the patterns in genes across metagenomes recruited to the individual SAR11 reference genomes
+-  integrated metagenomics metadata and data from observatories (Hawaii Ocean Time-Series and Bermuda Atlantic Time-series Study), sampling expeditions (Bio-GO-SHIP, bioGEOTRACES, Malaspina, and Tara Oceans), and citizen science initiatives (Ocean Sampling Day)
+-  generated an anvi'o contigs database describing 51 SAR11 isolate genomes (reference genomes)
+-  competitively recruited reads from the above-listed projects' metagenomes to the SAR11 reference genomes, and profile the recruitment results
+-  investigated the patterns in genes across metagenomes recruited to the individual SAR11 reference genomes
 
 Sections in this document will detail all the steps of downloading and processing SAR11 genomes and metagenomes, mapping metagenomic reads onto the SAR11 genomes, as well as analysing and visualising the outcomes.
 
@@ -32,7 +32,7 @@ If you have any questions, notice an issue, and/or are unable to find an importa
 
 {% include _join-anvio-discord.html %}
 
-Information for the projects included in this analysis (information for depth up to 100 m). Please note that 
+In the following table, we are giving a summary of the samples and their projects included in this analysis (information for depths up to 100 m). In total, we started this analysis with 1825 samples, so buckle up! 💺
 
 | Project | Acronym | Accession | Years sampled | # Samples |
 |:--|:--|:--|:--|:--|
@@ -41,8 +41,8 @@ Information for the projects included in this analysis (information for depth up
 | [Bio-GO-SHIP](https://biogoship.org) | BGS | PRJNA656268 | 2011, 2013, 2014, 2016 - 2018 2020 | 969 |
 | [Hawaii Ocean Time-series](http://hahana.soest.hawaii.edu/hot/hot_jgofs.html) | HOT1 \| HOT3 |  PRJNA385855 \| PRJNA352737 | 2003, 2004 \| 2014 - 2017 | 28 \| 230 |
 | [Malaspina](https://www.nature.com/articles/s41597-024-02974-1) | MAL | PRJEB52452 | 2011 | 16 |
-| [Ocean Sampling Day 2014](https://doi.org/10.1186/s13742-015-0066-5) | OSD | PRJEB8682 | 2014 | 149 |
-| [Tara Oceans](https://fondationtaraocean.org/en/home/) | TARA | PRJEB1787 | 2009 - 2012 | 93 |
+| [Ocean Sampling Day 2014](https://doi.org/10.1186/s13742-015-0066-5) | OSD | PRJEB8682 | 2014 | 127 |
+| [Tara Oceans](https://fondationtaraocean.org/en/home/) | TARA | PRJEB1787 | 2009 - 2012 | 92 |
 
 
 </div>
@@ -69,17 +69,13 @@ Metabolic modules database ...................: 4
 tRNA-seq database ............................: 2
 ```
 
-
-
-
 {:.notice}
-You will see that many of the commands utilise the SLURM wrapper clusterize to submit jobs to our HPC clusters. Clusterize was developed by Evan Kiefl and is described here: https://github.com/ekiefl/clusterize. Thank you, Evan!
-
+You will see that many of the commands utilise the SLURM wrapper `clusterize` to submit jobs to our HPC clusters. `Clusterize` was developed by Evan Kiefl and is described here: https://github.com/ekiefl/clusterize. Thank you, Evan! 
 
 ## Metadata
 For the curation of metadata, please consult the [public-marine-omics-metadata](https://github.com/merenlab/public-marine-omics-metadata/tree/main) GitHub repository, where all steps of metadata gathering, curation, and standardisation are described in detail.
 
-Remember, team: Data without metadata is like a recipe without ingredients listed - you know what you'd get out but not how you got there. Our data is only worth as much as our metadata can support it.
+Remember, team: Data without metadata is like a mystery dish - sure, it might look good, but you don't know what's in it, you don't know if you can and are allowed to eat it, you don't know where it came from, you don't know who made it, you don't even really know what it is, ... 😖. Our data is often only worth as much as our metadata can support it.
 
 ## SAR11 cultivar genomes
 This section explains how to prepare the set of 99 SAR11 isolate genomes, ending up with 51 quality-checked and dereplicated reference genomes. 
@@ -196,15 +192,14 @@ The isolate genomes available at the time of this analysis are included in a fil
 
 --- 
 
-As we started with all reference genome sequences in a single file but want to assess the quality of each in the next step, we need to separate `SAR11_June2024_bycontig.fa` into individual .fa files - one per reference genome.
+The first thing we did with these reference genomes in `SAR11_June2024_bycontig.fa`, is to separate them into individual .fa files - one per reference genome. We are doing this because we would like to assess the quality of each reference genome and dereplicate them in the next steps, and that requires them to be in separate files.
 
-For that, we used the following script and ran it in the same directory as we have the `SAR11_June2024_bycontig.fa` file.
+To perform that separation, we wrote the following script and ran it in the same directory that we have the `SAR11_June2024_bycontig.fa` file in (`fastaOriginal/`).
 ``` bash
 nano separateFasta.py
 ```
 
 content
-
 ``` python
 from collections import defaultdict
 
@@ -266,14 +261,16 @@ run
 python3 separateFasta.py
 ```
 
-We now have 99 individual fasta files, ready to be evaluated.
+This resulted in 99 individual FASTA files, ready to be evaluated.
 
 ### Use checkM to evaluate the quality of isolate genomes
 
-We will use `CheckM` to evaluate the completeness and contamination of the isolate genomes. Since they are isolate genomes, we expect them to be of quite high completeness and low contamination.
+Before moving on with any of the reference genomes, we used `CheckM` to evaluate the completeness and contamination of the isolate genomes. These metrics are sometimes also given in the databases hosting the publicly available reference genomes (e.g., see [https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_900177485.1/](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_900177485.1/)), but it is always better to double-check. And besides, we need the completeness and contamination metrics for the unpublished reference genomes anyhow. 
+
+Going into this, know that, since all these genomes are isolate genomes, we expect them to be of quite high completeness and low contamination (rightly so, as you'll see).
 
 {:.notice}
-There is also an option to include CheckM in the dRep step that is following, however, that does not seem to work for everyone, so we are doing it separately.
+There is also an option to include `checkM` in the `dRep` step that is following, however, that does not seem to work for everyone, so we are doing it separately.
 
 <div class="extra-info" markdown="1">
 
@@ -292,7 +289,7 @@ CheckM relies on several other software packages:
 </div>
 
 
-We will run checkM on all files in the directory `fastaOriginal/` that end on .fa and add the output into a directory called `check output/`. 
+We ran `checkM` on all files in the directory `fastaOriginal/` that end on `.fa` (so on the output files of the splitting we did above) and added the output into a directory called `check output/`. 
 
 ``` bash
 clusterize -j checkM -o checkm.log -n 1 "checkm lineage_wf -t 40 -x fa ./fastaOriginal ./checkMoutput/ -f out_checkM.tab --tab_table"
@@ -415,17 +412,17 @@ If you would like to inspect the output file, feel free to grab it [here](files/
 
 ---
 
-Besides HIMB123 (completeness: 86.73), all isolate genomes have a completeness of ≥96.00. However, even 86.73 is sufficient for our purposes.
+Looking at the output, this is what we see: 
+- Besides HIMB123 (completeness: 86.73), all isolate genomes have a completeness of ≥96.00. However, even 86.73 is sufficient for our purposes.
+- The highest contamination value is HIMB1427 (4.29%), followed by HIMB1863 (3.32%), HIMB1517 (2,38%), HIMB4 (2.30%), and HIMB1748, HIMB1488, and HIMB123 (all 1.90%), HIMB1505 (1.43%) HIMB1509 and HIMB1506, HIMB1485 (all 1.42 %). All others are below 1% contamination.
 
-The highest contamination value is HIMB1427 (4.29%), followed by HIMB1863 (3.32%), HIMB1517 (2,38%), HIMB4 (2.30%), and HIMB1748, HIMB1488, and HIMB123 (all 1.90%), HIMB1505 (1.43%) HIMB1509 and HIMB1506, HIMB1485 (all 1.42 %). All others are below 1% contamination.
-
-We are keeping all isolate genomes since they are all above 80% completeness and below 5% contamination.
+We kept all isolate genomes since they are all above 80% completeness and below 5% contamination.
 
 ### Dereplicating isolate genomes
 
-In this step, we are dereplicating the 99 reference genomes to retain a single representative genome from each group of highly similar genomes. Dereplication is useful for reducing redundancy, optimizing computational efficiency, and ensuring that downstream analyses focus on the unique diversity of the genome set. 
+In this step, we dereplicated the 99 reference genomes to retain a single representative genome from each group of highly similar genomes. Dereplication is useful for reducing redundancy, optimizing computational efficiency, and ensuring that downstream analyses focus on the unique diversity of the genome set. 
 
-To accomplish this, we will use `dRep`, a Python-based tool designed for rapid pair-wise comparison and clustering of genomes. By utilizing `dRep`, we can identify and retain one representative genome per cluster based on similarity thresholds, ensuring that only distinct genomes are preserved for further analysis.
+To accomplish this, we used `dRep`, a Python-based tool designed for rapid pair-wise comparison and clustering of genomes. By utilizing `dRep`, one can identify and retain one representative genome per cluster based on similarity thresholds, ensuring that only distinct genomes are preserved for further analysis.
 
 <div class="extra-info" markdown="1">
 
@@ -435,7 +432,7 @@ Olm, M., Brown, C., Brooks, B. et al. dRep: a tool for fast and accurate genomic
 
 </div>
 
-To use `dRep`, let us first write a bash script telling it to dereplicate at 95% ANI (preclustering at 90% ANI) and then submit it with `clusterize`. 
+To use `dRep`, we wrote a bash script telling it to dereplicate at 95% ANI (preclustering at 90% ANI) and then submit it with `clusterize`. 
 
 {:.notice}
 ANI stands for Average Nucleotide Identity. `dRep` uses this measure to cluster genomes before selecting a representative for each cluster. https://drep.readthedocs.io/en/latest/choosing_parameters.html
@@ -465,7 +462,6 @@ dRep dereplicate $OUTPUT_DIR -g $INPUT_DIR/*.fa -sa 0.95 -pa 0.9 --ignoreGenomeQ
 ```
 
 Submit the job with `clusterize`.
-
 ``` bash
 # clusterize command explanation:
 # -j dRep_workflow: Sets the job name to 'dRep_workflow'
@@ -478,9 +474,9 @@ clusterize -j dRep_workflow \
            "bash drep_clusterize.sh"
 ```
 
-**51 genomes passed**
+**51 genomes passed.** These are the ones we will continue with.
 
-If you would like to see all output files, feel free to do so by clicking [here](files/output_dRep.zip) (zipped). 
+If you would like to see all `dRep` output files, feel free to do so by clicking [here](files/output_dRep.zip) (zipped). 
 
 ---
 <details markdown="1"><summary>Click to show/hide primary clustering dendrogram</summary>
