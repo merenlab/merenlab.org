@@ -2703,9 +2703,9 @@ And checked for errors in the log file.
 grep -i "error" SAR11_split_post_filter_HIMB2204nHTCC1002_job_VibnNEZDgI.log
 ```
 
-## Visualising 
+## Visualising anvi'o phylograms
 
-In this section, we will explain how we used `anvi-interactive` to visualize our metagenomes.
+In this section, we will explain how we used `anvi-interactive` to visualize our metagenomes (Panels C and D of Figure 1 of the manuscript).
 
 For `anvi-interactive` to give us what we want, we needed
 - to decide which reference genomes to focus on (HIMB2203 and HTCC1002)
@@ -3012,9 +3012,9 @@ Let's do it!
 
 Our metadata file (metagenomes.txt) still had metadata for more samples than the ones that passed the cov and det filtering. 
 
-We first subseted `metagenomes.txt` to only include those samples that passed the filtering and were thus listed in the `unique_samples.txt` we created earlier.
+We first subsetted `metagenomes.txt` to **only include those samples that passed the filtering** and were thus listed in the `unique_samples.txt` we created earlier.
 
-Further, the `metagenomes.txt` file currently has multiple rows per sample if there are multiple runs associated with one sample. We will make it such that there is only one row per sample (so one row per layer that we want to associate this with in anvi'o). Of course, ensuring that any differing values across different runs from the same sample are concatenated, and identical values retained as they are.
+Further, the `metagenomes.txt` file currently has multiple rows per sample if there are multiple runs associated with one sample. We will make it such that there is **only one row per sample** (so one row per layer that we want to associate this with in anvi'o). Of course, ensuring that any differing values across different runs from the same sample are concatenated, and identical values retained as they are.
 
 ```bash
 nano filterMetagenomesTxt.py
@@ -3040,7 +3040,7 @@ filtered_df = metagenomes_df[metagenomes_df['biosample'].isin(sample_mapping.key
 filtered_df['sample'] = filtered_df['biosample'].map(sample_mapping)
 
 # Step 6: Group by the 'sample' column and aggregate each column by concatenating unique values
-aggregated_df = filtered_df.groupby('sample').agg(lambda x: ','.join(sorted(set(x.dropna().astype(str)))))
+aggregated_df = filtered_df.groupby('sample').agg(lambda x: '|'.join(sorted(set(x.dropna().astype(str)))))
 
 # Step 7: Reset the index to make 'sample' a column again
 aggregated_df.reset_index(inplace=True)
@@ -3057,7 +3057,7 @@ run
 python3 filterMetagenomesTxt.py
 ```
 
-We then selected only the columns we wanted to bring into anvi'o
+We then **selected only the columns we wanted to bring into anvi'o**.
 
 ```bash
 nano prepAnvioMetadata.py
@@ -3070,14 +3070,75 @@ import pandas as pd
 file_path = '../data/metagenomes_filtered.txt'  # replace with your file path
 df = pd.read_csv(file_path, sep='\t')
 
-# Select only the desired columns
-columns_to_keep = ['sample', 'latitude', 'longitude', 'project', 'depth', 'temperature_degC', 'year', 'model', 'layer', 'season', 'sub_region_seavox', 'region_seavox', 'provdescr_longhurst', 'environment', 'env_biome', 'env_feature', 'env_material']
-filtered_df = df[columns_to_keep]
+# Select only the desired columns and create a copy
+columns_to_keep = ['sample', 'run', 'latitude', 'longitude', 'bases', 'spots', 'distance_from_equator', 'project', 'depth', 'temperature_degC', 'year', 'model', 'layer', 'season', 'sub_region_seavox', 'region_seavox', 'provdescr_longhurst', 'environment', 'env_biome', 'env_feature', 'env_material', 'pressure_dbar', 'salinity_pss', 'oxygen_umolKg', 'phosphate_umolKg', 'silicate_umolKg', 'nitrate_umolKg', 'nitrite_umolKg', 'dic_umolKg', 'doc_umolKg', 'chlorophyll', 'chla_ngL', 'chlb_ngL', 'chlc_ngL']
+filtered_df = df[columns_to_keep].copy()
+
+# Convert the 'year' column to float
+filtered_df['year'] = filtered_df['year'].astype(float)
 
 # Save the filtered DataFrame to a new file
 filtered_df.to_csv('../data/metagenomes_filtered_anvio.txt', sep='\t', index=False)
-
 ```
+
+The output file `metagenomes_filtered_anvio.txt` still has metadata for all samples that somehow passed the filtering, but - for now - we **only wanted the metadata associated with the samples that are relevant to HIMB2204 and HTCC1002**. For that, we wrote another script.
+
+```python
+import pandas as pd
+
+# Load the weighted results file and metadata file
+weighted_results = pd.read_csv('../digital_sup/filter_covNdet/weighted_results_with_length.txt', sep='\t')
+metadata = pd.read_csv('metadata/metagenomes_filtered_anvio.txt', sep='\t')
+
+# Step 1: Filter the weighted results dataframe for both HIMB2204 and HTCC1002
+filtered_results = weighted_results[
+    ((weighted_results['reference_genome'] == 'HIMB2204') | 
+     (weighted_results['reference_genome'] == 'HTCC1002')) &
+    (weighted_results['weighted_mean_cov'] >= 10) &
+    (weighted_results['weighted_detection'] >= 0.5)
+]
+
+# Step 2: Extract the unique sample names for HIMB2204 and HTCC1002
+filtered_samples = filtered_results['sample'].unique()
+
+# Step 3: Filter the metadata dataframe using the filtered sample names
+filtered_metadata = metadata[metadata['sample'].isin(filtered_samples)]
+
+# Step 4: Save the filtered metadata to a new file
+filtered_metadata.to_csv('HIMB2204_HTCC1002_metagenomes_filtered_anvio.txt', sep='\t', index=False)
+```
+
+In addition to the metadata already included in the metadata file, we wanted to assign the samples to the different **climate zones**. To do so, we ran:
+```python
+import pandas as pd
+
+# Step 1: Load the data
+file_path = 'HIMB2204_HTCC1002_metagenomes_filtered_anvio.txt'
+data = pd.read_csv(file_path, sep='\t')  # Assuming tab-separated file
+
+# Step 2: Function to classify marine climate zone based on latitude
+def classify_marine_zone(lat, lon):
+    if abs(lat) <= 10:
+        return "A Equatorial"
+    elif 10 < abs(lat) <= 23.5:
+        return "B Tropical"
+    elif 23.5 < abs(lat) <= 40:
+        return "C Subtropical"
+    elif 40 < abs(lat) <= 60:
+        return "D Temperate"
+    else:
+        return "E Polar"
+
+# Step 3: Apply the function to each row
+data['Marine_Climate_Zone'] = data.apply(lambda row: classify_marine_zone(row['latitude'], row['longitude']), axis=1)
+
+# Step 4: Save the updated data to a new file
+output_file = 'HIMB2204_HTCC1002_metagenomes_with_marine_climate_zones.txt'
+data.to_csv(output_file, sep='\t', index=False)
+
+print(f"File saved as {output_file}")
+```
+
 
 #### Do it
 
@@ -3087,78 +3148,68 @@ This is the metadata file `metadata/HIMB2204_HTCC1002_metagenomes_filtered_anvio
 
 add metadata to genes db HIMB2204
 ```
-anvi-import-misc-data ../metadata/HIMB2204_HTCC1002_metagenomes_filtered_anvio.txt -p HIMB2204nHTCC1002_postFilter/HIMB2204/GENES/DEFAULT-EVERYTHING.db --target-data-table layers
+anvi-import-misc-data ../HIMB2204_HTCC1002_metagenomes_with_marine_climate_zones.txt -p HIMB2204nHTCC1002_postFilter/HIMB2204/GENES/DEFAULT-EVERYTHING.db --target-data-table layers
 ```
 
 add metadata to genes db HTCC1002
 ```
-anvi-import-misc-data ../metadata/HIMB2204_HTCC1002_metagenomes_filtered_anvio.txt -p HIMB2204nHTCC1002_postFilter/HTCC1002/GENES/DEFAULT-EVERYTHING.db --target-data-table layers
+anvi-import-misc-data ../HIMB2204_HTCC1002_metagenomes_with_marine_climate_zones.txt -p HIMB2204nHTCC1002_postFilter/HTCC1002/GENES/DEFAULT-EVERYTHING.db --target-data-table layers
 ```
 
 Since we wanted to also show it on the top of the phylogram, we also needed to import it into the PROFILE.db.
 
 add metadata to profile db HIMB2204
 ```
-anvi-import-misc-data ../HIMB2204_HTCC1002_metagenomes_filtered_anvio.txt -p HIMB2204nHTCC1002_postFilter/HIMB2204/PROFILE.db --target-data-table layers
+anvi-import-misc-data ../HIMB2204_HTCC1002_metagenomes_with_marine_climate_zones.txt -p HIMB2204nHTCC1002_postFilter/HIMB2204/PROFILE.db --target-data-table layers
 ```
 
 add metadata to genes db HTCC1002
 ```
-anvi-import-misc-data ../HIMB2204_HTCC1002_metagenomes_filtered_anvio.txt -p HIMB2204nHTCC1002_postFilter/HTCC1002/PROFILE.db --target-data-table layers
+anvi-import-misc-data ../HIMB2204_HTCC1002_metagenomes_with_marine_climate_zones.txt -p HIMB2204nHTCC1002_postFilter/HTCC1002/PROFILE.db --target-data-table layers
 ```
 
 ### Look at it
 
-To look at it, we are finally using the `anvi-interactive` command. With all the prep we did above, it will now show the genes in the metagenomes and allow us to sort layers (metagenomes) based on the metadata keys we imported as well as adjust what will be visualized (coverage, detection, ...) how the genes will be ordered in the metagenomes (synteny, detection, ...) and so on.
+To look at it, we finally used the long-awaited `anvi-interactive` command. With all the prep we did above, it was all set to show the genes in the metagenomes and allow us to sort layers (metagenomes) based on the metadata keys we imported as well as adjust what will be visualized (coverage, detection, ...) how the genes will be ordered in the metagenomes (synteny, detection, ...) and so on.
 
-We are showing it here with the FZCC0015 reference genome.
-```bash
-anvi-interactive -c SAR11SPLIT_postFilter/FZCC0015/CONTIGS.db                  -p SAR11SPLIT_postFilter/FZCC0015/PROFILE.db                  -C DEFAULT                  -b EVERYTHING                  --gene-mode
+
+Looked at it: HIMB2204
+```
+anvi-interactive -c HIMB2204nHTCC1002_postFilter/HIMB2204/CONTIGS.db -p HIMB2204nHTCC1002_postFilter/HIMB2204/PROFILE.db -C DEFAULT -b EVERYTHING --gene-mode
 ```
 
 Anvi'o allows us to define a state and export and import that state. 
 
-To do so, we will adjust any parameter we want to adjust and then click on `Save` under the mention of `State` in the left-hand panel in the interactive interface. That prompts us to select a name: `visualise`. This will save the state in the GENES.db
+To do so, we will adjust any parameter we want to adjust and then click on `Save` under the mention of `State` in the left-hand panel in the interactive interface. That prompts us to select a name: `default_HIMB2204nHTCC1002`. This will save the state in the GENES.db
 
-If we want to viualise the same project again, we can load that state with the `--state-autoload` flag.
-```bash
-anvi-interactive -c SAR11SPLIT_postFilter/FZCC0015/CONTIGS.db \
-   -p SAR11SPLIT_postFilter/FZCC0015/PROFILE.db \
-   -C DEFAULT \
-   -b EVERYTHING \
-   --gene-mode \
-   --state-autoload visualise
+We can also use the same state with other projects. To do so, we can use `anvi-export-state` on the GENES.db in which we defined the state and `anvi-import-state` on the GENES.db that we want to import the state to. 
+
+We exported the state defined in HIMB2204 and then exported it with:
+```
+anvi-export-state -s default_HIMB2204nHTCC1002_climate -p HIMB2204nHTCC1002_postFilter/HIMB2204/GENES/DEFAULT-EVERYTHING.db -o default_HIMB2204nHTCC1002_climate.json
 ```
 
-However, we can also use the same state with other projects. 
-
-To do so, we will use `anvi-export-state` on the GENES.db in which we defined the state and `anvi-import-state` on the GENES.db that we want to import the state to. After that, we can specify it in the `anvi-interactive` command as above.
-
-Export the state:
-```bash
-anvi-export-state -p SAR11SPLIT_postFilter/FZCC0015/GENES/DEFAULT-EVERYTHING.db \
-   -s visualise \
-   -o visualise.json
+Then imported it into HTCC1002
+```
+anvi-import-state -p HIMB2204nHTCC1002_postFilter/HTCC1002/GENES/DEFAULT-EVERYTHING.db -s default_HIMB2204nHTCC1002_climate.json -n default_HIMB2204nHTCC1002
 ```
 
-Import the state to a different project
-```bash
-anvi-import-state -p SAR11SPLIT_postFilter/HIMB140/GENES/DEFAULT-EVERYTHING.db \
-   -n visualise \
-   -s visualise.json 
+Looked at it: HTCC1002
+```
+anvi-interactive -c HIMB2204nHTCC1002_postFilter/HTCC1002/CONTIGS.db -p HIMB2204nHTCC1002_postFilter/HTCC1002/PROFILE.db -C DEFAULT -b EVERYTHING --gene-mode
 ```
 
-And use `anvi-interactive` to look at it
-```bash
-anvi-interactive -c SAR11SPLIT_postFilter/HIMB140/CONTIGS.db \
-  -p SAR11SPLIT_postFilter/HIMB140/PROFILE.db \
-  -C DEFAULT \
-  -b EVERYTHING \
-  --gene-mode \
-  --state-autoload visualise
-```
+{:.notice}
+The state `default_HIMB2204nHTCC1002_climate` was used to visualize both phylograms in Panel C. You can get the state file [here](files/default_HIMB2204nHTCC1002_climate.json).
+
+{:.notice}
+A different state, called `default_HIMB2204nHTCC1002_geneDet` was used to visualize the phylogram zoom-in in Panel D. You can get the state file [here](files/default_HIMB2204nHTCC1002_geneDet.json).
 
 
+
+## Visualising world maps
+
+For the world maps seen in Panels A and B of Figure 1, we used R.
 
 
 
