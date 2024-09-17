@@ -2454,7 +2454,6 @@ and run
 ./run_anvi_profile_cluster.sh
 ```
 
-
 #### Generating a merged anvi’o profile
 
 To convert the sample-level `profile-db`s (of our selected samples) into a single `profile-db` (also called a merged profile database) we used [`anvi-merge`](https://anvio.org/help/7.1/programs/anvi-merge/). Basically, this takes the alignment data from each sample (each contained in its own sample-level `profile-db`) and combines them into a single database that anvi’o can look through more easily.
@@ -2474,12 +2473,12 @@ clusterize -j merge_profile_db \
 "anvi-merge */PROFILE.db -o SAR11-MERGED -c ../03_CONTIGS/reference_genomes-contigs.db"
 ```
 
-## Creating self-contained anvi'o projects for my reference genomes and associated metagenomes, again
-This may now seem like a repetition, but 
-We are again using `anvi-split`, but this time, we are using it on the collective `PROFILE.db` for the selected samples (for which at least one reference genome is above 10x coverage and 0.5 detection) only. This will give us an anvio project per reference genome.
+## Creating self-contained anvi'o projects for my reference genomes and associated metagenomes, post-filtering
+
+We used `anvi-split` again, but this time, we used it on the collective `PROFILE.db` for the selected samples (for which at least one reference genome is above 10x coverage and 0.5 detection) only. This gave us an anvi'o project per reference genome.
 
 ### Creating a genomic collection, post-filtering
-First, we have to re-create a COLLECTION that will be stored in the PROFILE.db. For that, we can reuse the `collection.txt` that we used before, but have to re-create the COLLECTION in itself: specifying the new PROFILE.db.
+First, we had to re-create a COLLECTION that will be stored in the PROFILE.db. For that, we reused the `collection.txt` that we made before, but had to re-create the COLLECTION in itself: specifying the new PROFILE.db.
 
 Here we go:
 ```bash
@@ -2492,7 +2491,7 @@ anvi-import-collection collection.txt \
 
 ### Creating individual, self-contained anvi'o projects for each reference genome and its recruited reads, post-filtering 
 
-The output will go into a directory called `SAR11_postFilter`.
+The output went into a directory called `SAR11_postFilter`.
 
 ```bash
 clusterize -j SAR11_split_post_filter_job \
@@ -2505,6 +2504,11 @@ clusterize -j SAR11_split_post_filter_job \
                        -C SAR11COLLECTION \
                        -o SAR11SPLIT_postFilter"
 ```
+
+{:.notice}
+While we created these anvi'o projects to inspect each reference genome across the different samples, for the final visualization used in the manuscript, we actually did some extra steps focused on the `HTCC1002` and `HIMB2204` reference genomes.
+
+
 
 
 
