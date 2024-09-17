@@ -3843,14 +3843,14 @@ First for `HTCC1002` and `HIMB2204`
 fastANI -q fastaDrep/dereplicated_genomes/HTCC1002.fa -r fastaDrep/dereplicated_genomes/HIMB2204.fa --visualize -o output_fastANI_HTCC1002nhIMB2204.txt
 ```
 
-> fastaDrep/dereplicated_genomes/HTCC1002.fa      fastaDrep/dereplicated_genomes/HIMB2204.fa       78.0557 199     441
+**Output:** fastaDrep/dereplicated_genomes/HTCC1002.fa      fastaDrep/dereplicated_genomes/HIMB2204.fa       78.0557 199     441
 
 
 And second for `HTCC1002` and `HTCC7211`
 ```bash
 fastANI -q fastaDrep/dereplicated_genomes/HTCC1002.fa -r fastaDrep/dereplicated_genomes/HTCC7211.fa --visualize -o output_fastANI_HTCC1002nHTCC7211.txt
 ```
-> fastaDrep/dereplicated_genomes/HTCC1002.fa      fastaDrep/dereplicated_genomes/HTCC7211.fa       79.4378 241     441
+**Output:** fastaDrep/dereplicated_genomes/HTCC1002.fa      fastaDrep/dereplicated_genomes/HTCC7211.fa       79.4378 241     441
 
 To visualise them, we utilized the R script FastANI provides:
 
