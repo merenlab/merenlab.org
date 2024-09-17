@@ -32,13 +32,13 @@ If you have any questions, notice an issue, and/or are unable to find an importa
 
 {% include _join-anvio-discord.html %}
 
-Information for the projects included in this analysis (information for depth up to 100 m)
+Information for the projects included in this analysis (information for depth up to 100 m). Please note that 
 
 | Project | Acronym | Accession | Years covered | # Samples |
 |:--|:--|:--|:--|:--|
 | [Bermuda Atlantic Time-series Study](https://bats.bios.asu.edu/about/) | BATS | PRJNA385855 | 2003 - 2004, 2009 | 40 |
-| [Bio-GO-SHIP](https://biogoship.org) | BGS | PRJNA656268 | 2011, 2013, 2014, 2016 - 2018 | 969 |
 | [bioGEOTRACES](https://www.nature.com/articles/sdata2018176) | BGT | PRJNA385854 | 2010, 2011 | 323 |
+| [Bio-GO-SHIP](https://biogoship.org) | BGS | PRJNA656268 | 2011, 2013, 2014, 2016 - 2018 | 969 |
 | [Hawaii Ocean Time-series](http://hahana.soest.hawaii.edu/hot/hot_jgofs.html) | HOT1 \| HOT3 |  PRJNA385855 \| PRJNA352737 | 2003, 2004 \| 2014 - 2017 | 28 \| 230 |
 | [Malaspina](https://www.nature.com/articles/s41597-024-02974-1) | MAL | PRJEB52452 | 2011 | 16 |
 | [Ocean Sampling Day 2014](https://doi.org/10.1186/s13742-015-0066-5) | OSD | PRJEB8682 | 2014 | 149 |
@@ -51,6 +51,24 @@ Information for the projects included in this analysis (information for depth up
 
 {:.notice}
 All anvi'o analyses in this document are performed using the anvi'o developer version during the era of `v8`. Please see [the installation notes](https://anvio.org/install/) to download the appropriate version through PyPI, Docker, or GitHub.
+
+
+To check your version, you can use the `anvi-help -v` command. Here is mine:
+```bash
+$ anvi-help -v
+Anvi'o .......................................: marie (v8-dev)
+Python .......................................: 3.10.13
+
+Profile database .............................: 40
+Contigs database .............................: 24
+Pan database .................................: 20
+Genome data storage ..........................: 7
+Auxiliary data storage .......................: 2
+Structure database ...........................: 2
+Metabolic modules database ...................: 4
+tRNA-seq database ............................: 2
+```
+
 
 
 
