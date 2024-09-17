@@ -263,7 +263,7 @@ python3 separateFasta.py
 
 This resulted in 99 individual FASTA files, ready to be evaluated.
 
-### Use checkM to evaluate the quality of isolate genomes
+### Using checkM to evaluate the quality of isolate genomes
 
 Before moving on with any of the reference genomes, we used `CheckM` to evaluate the completeness and contamination of the isolate genomes. These metrics are sometimes also given in the databases hosting the publicly available reference genomes (e.g., see [https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_900177485.1/](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_900177485.1/)), but it is always better to double-check. Besides, we need the completeness and contamination metrics for the unpublished reference genomes anyhow. 
 
@@ -420,7 +420,7 @@ Looking at the output, this is what we see:
 
 We kept all isolate genomes since they are all above 80% completeness and below 5% contamination.
 
-### Dereplicate isolate genomes
+### Dereplicating the isolate genomes
 
 In the following section, we describe how we dereplicated the 99 reference genomes to retain a single representative genome from each group of highly similar genomes. Dereplication is useful for reducing redundancy, optimizing computational efficiency, and ensuring that downstream analyses focus on the unique diversity of the genome set. 
 
@@ -496,7 +496,7 @@ blue and purple stars: representatives after dereplicating. These are the refere
 
 ---
 
-### Concatonate FASTAs of dereplicated reference genomes and simplify deflines
+### Concatenating FASTA files of dereplicated reference genomes into one and simplifying deflines
 
 We combined all the FASTA files of the dereplicated reference genomes into a single file because, later on, we performed competitive read recruitment. For this process to work correctly, all reference genomes needed to be in one unified FASTA file to ensure that the reads could be compared against all genomes in a competitive manner.
 
@@ -540,7 +540,7 @@ If you are reproducing this workflow, please note that we are using metagenomes 
 
 To download the metagenomes, we used anvi'o's [`sra_download`](https://anvio.org/help/main/workflows/sra-download/). For this, we needed a `SRA_accession_list.txt` for each project and a `download_config.json` config file.
 
-#### Prepare the download
+#### Prep the download
 
 The `SRA_accession_list.txt` artifact should look like this: no headers, only a list of run accession numbers.
 ```bash
@@ -597,7 +597,7 @@ In each of the `donwload_config.json` files (again, one per project), we exchang
 }
 ```
 
-#### Download the metagenomes
+#### Do the download
 
 We then were ready to use this `download_config.json` in combination with anvi'o's [`anvi-run-workflow`](https://anvio.org/help/main/programs/anvi-run-workflow/) and the workflow [`sra_download`](https://anvio.org/help/main/workflows/sra-download/).
 
@@ -1331,7 +1331,7 @@ grep -i ERROR QC_workflow_*.log
 ```
 All was well. The outputs of this workflow are available in the [QC_stats.zip](files/QC_stats.zip) archive.
 
-#### Make samples_qc.txt
+#### Making a samples_qc.txt
 
 Since we split the metagenomics workflow in two (1. QC, 2. read recruitment), we then created `samples_qc.txt`s (again, one per project), which will be concatenated into one in the step after this, and then used as the `samples-txt` artifact in the steps following that. The projects' `samples_qc.txt`s are also included in the [samples-txt folder](files/samples-txt.zip), in case you would like to have a peek. 
 
@@ -1398,7 +1398,7 @@ if missing_samples:
 print("samples_qc.txt has been created.")
 ```
 
-#### Create collective samples_qc.txt for all projects
+#### Creating a collective samples_qc.txt for all projects
 
 For the upcoming read recruitment, we no longer wanted to have the projects separated, so we concatenated the individual samples_qc.txt files we created above into one. The collective `samples_qc.txt` is also included in the [samples-txt folder](files/samples-txt.zip).
 ```bash
@@ -1878,7 +1878,7 @@ clusterize -j metagenomics_workflow \
 
 
 
-## Filter samples based on coverage and detection
+## Filtering samples based on coverage and detection
 
 In this section, we describe all the steps taken to filter the samples based on coverage and detection. Our cutoff was be to only keep samples, in which at least one of the metagenomes was detected with at least 0.5 detection and 10x coverage.
 
@@ -2104,10 +2104,10 @@ clusterize -j SAR11_split_job \
 
 The output was put into a directory called `SAR11SPLIT`, which then contained individual directories with `contig.db` and `profile.db` for each reference genome and recruited reads. 
 
-### Determine which samples to continue working with
+### Determining which samples to continue working with
 
 
-#### Get contig-level coverage and detection stats
+#### Getting contig-level coverage and detection stats
 We used [`anvi-profile-blitz`](https://anvio.org/help/main/programs/anvi-profile-blitz/) to find out which samples met our filtering criteria if: my genomes should be covered 10x and detected 0.5). `anvi-profile-blitz` allows the fast profiling of BAM files to get contig- or gene-level coverage and detection stats.
 
 We gave it the `BAM file`s that were created in the metagenomics workflow and were stored in the `04_MAPPING` directory, as well as the `CONTIGS.db`, and specified what the output should look like.
@@ -2157,7 +2157,7 @@ submit job
 clusterize "./run_anvi_profile_blitz.sh" -n 1 -j anvi_profile_blitz_job
 ```
 
-#### Combine BLITZ outputs into one file
+#### Combining BLITZ outputs into one file
 We combined the BLITZ outputs into one dataframe. You can get the output [here](files/combined_blitzOUTPUT.txt.zip).
 ```bash
 cd blitzOUTPUT/
@@ -2200,7 +2200,7 @@ python combineOutputs.py
 ```
 
 
-#### Get weighted averages of coverage and detection
+#### Getting weighted averages of coverage and detection
 Even though some reference genomes had multiple contigs, we wanted to know how much of each reference genome was covered in a given sample / how much the entire reference genome was detected (so across contigs): so the mean_cov and detection information for the collective reference genome. However, we could not just take the information of all contigs from the same reference genome across a given sample and take the average but had to take the length of each contig compared to the length of the entire reference genome (length of its contigs combined) into consideration. 
 
 To calculate the weighted averages of both `mean_cov` and `detection`, we wrote the following script.
@@ -2239,7 +2239,7 @@ calculate_weighted_coverage.py
 The output file is available [here](files/weighted_results_with_length.txt.zip) (zipped).
 
 
-#### Get overview stats of how many samples per project would stay with different detection and coverage cut-offs
+#### Getting overview stats of how many samples per project would stay with different detection and coverage cut-offs
 
 How many samples per project would make it if we only took the samples for which at least one reference genome has at least 10x coverage and at least 0.5 detection (both need to be true for a sample to pass)? 
 
@@ -2310,7 +2310,7 @@ TARA    95      95      94      94      94      95      94      94      94      
 ```
 
 
-#### Filter based on 0.5 detection and 10x coverage
+#### Filtering based on 0.5 detection and 10x coverage
 
 Knowing the above, we set our filtering cutoff to 10x coverage and 0.5 detection. We wrote the following script to get the number of samples per project that pass that filtering  threshold, as well as their coverage and detection values.
 ```bash
@@ -2373,7 +2373,7 @@ python filter_samples_detNcov.py
 
 This resulted in two files called `filtered05N10x_stats.txt` (containing the number of samples of each project that passed the filter criteria, available [here](files/filtered05N10x_stats.txt)) and `filtered05N10x_combined_df.txt` (the sample_IDs, contigs, weighted_mean_cov, weighted_detection of the samples that passed the filtering, available [here](files/filtered05N10x_combined_df.txt)).
 
-### Generate anvi'o PROFILE.db with selected samples
+### Generating an anvi'o PROFILE.db with selected samples
 
 Based on the information we had post-detection0.5-coverage10x-filtering, we knew which samples to continue working with. To continue working with them, however, we needed to generate a new anvi'o `PROFILE.db` with those samples only.
 
@@ -2384,7 +2384,7 @@ awk 'NR>1 {print $1}' ./blitzOUTPUT/filtered05N10x_combined_df.txt | sort | uniq
 
 ```
 
-#### Profile the mapping results with anvi’o
+#### Profiling the mapping results with anvi’o
 To profile the mapping results with anvi'o, we generated individual `PROFILE.db`s for each `.bam` file of the samples we want. The `.bam` files were stored in `./04_MAPPING/reference_genomes/`.
 
 To generate these `profile.db`s we used anvi'o's [`anvi-profile`](https://anvio.org/help/7.1/programs/anvi-profile/) program. In its simplest form, it looks like this:
@@ -2455,7 +2455,7 @@ and run
 ```
 
 
-#### Generate a merged anvi’o profile
+#### Generating a merged anvi’o profile
 
 To convert the sample-level `profile-db`s (of our selected samples) into a single `profile-db` (also called a merged profile database) we used [`anvi-merge`](https://anvio.org/help/7.1/programs/anvi-merge/). Basically, this takes the alignment data from each sample (each contained in its own sample-level `profile-db`) and combines them into a single database that anvi’o can look through more easily.
 
@@ -2474,11 +2474,11 @@ clusterize -j merge_profile_db \
 "anvi-merge */PROFILE.db -o SAR11-MERGED -c ../03_CONTIGS/reference_genomes-contigs.db"
 ```
 
-## Create self-contained anvi'o projects for my reference genomes and associated metagenomes, again
+## Creating self-contained anvi'o projects for my reference genomes and associated metagenomes, again
 This may now seem like a repetition, but 
 We are again using `anvi-split`, but this time, we are using it on the collective `PROFILE.db` for the selected samples (for which at least one reference genome is above 10x coverage and 0.5 detection) only. This will give us an anvio project per reference genome.
 
-### Create COLLECTION, again
+### Creating a genomic collection, post-filtering
 First, we have to re-create a COLLECTION that will be stored in the PROFILE.db. For that, we can reuse the `collection.txt` that we used before, but have to re-create the COLLECTION in itself: specifying the new PROFILE.db.
 
 Here we go:
@@ -2490,7 +2490,7 @@ anvi-import-collection collection.txt \
    --contigs-mode
 ```
 
-### Do the splits, again 
+### Creating individual, self-contained anvi'o projects for each reference genome and its recruited reads, post-filtering 
 
 The output will go into a directory called `SAR11_postFilter`.
 
@@ -2508,7 +2508,7 @@ clusterize -j SAR11_split_post_filter_job \
 
 
 
-## Visualise 
+## Visualising 
 
 In this section, we will explain how we used `anvi-interactive` to visualise our metagenomes.
 
@@ -2517,7 +2517,7 @@ For `anvi-interactive` to give us what we want, we need
 - a collection and bin to feed to `--gene-mode`
 - to prepare and import the metadata we want to order our layers (metagenomes) by in the interactive interface
 
-### Decide which SAR11 reference genomes to visualise
+### Deciding which SAR11 reference genomes to visualise
 
 To decide which SAR11 reference genomes to focus on, we will see which are found across most of the projects.
 
@@ -2673,7 +2673,7 @@ ggplot(blitz_covNdet, aes(x = sample, y = reference_genome, size = weighted_mean
 [![blitz](images/anvi-profile-blitz.png)](images/){:.center-img .width-90}
 
 
-### Get collection and bin for `--gene-mode`
+### Getting collection and bin for `--gene-mode`
 
 
 First, we start the anvio-dev conda environment
