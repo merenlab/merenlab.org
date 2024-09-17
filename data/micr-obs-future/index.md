@@ -2614,38 +2614,107 @@ SAR11_split_post_filter_HIMB1420_job_oONSdvODyq.log:File/Path Error: No such fil
 SAR11_split_post_filter_LSUCC0530_job_qSABXiLKqv.log:File/Path Error: No such file: 'mergeSpecifics/LSUCC0530-profiles/LSUCC0530-MERGED/PROFILE.db' :/
 ```
 
-
-
-
 </details>
 
 ---
 
-#### Generating anvi'o projects for all samples that passed filtering (as done for manuscript figure) 
+#### Generating anvi'o projects for all samples that passed filtering for reference genomes HTCC1002 and HIMB2204 (as done for the manuscript figure) 
 
 {:.notice}
 This and the following steps will actually get you to the figure in the manuscript. So let's go!
 
-While we created  anvi'o projects to inspect each reference genome across the different samples, for the final visualization used in the manuscript, we focused on the `HTCC1002` and `HIMB2204` reference genomes.
+While above, we created anvi'o projects to inspect each reference genome across the different samples, for the final visualization used in the manuscript, we focused on the `HTCC1002` and `HIMB2204` reference genomes.
 
+Thus, we wanted anvi'o projects that only included the samples relevant to them. For that, we first had to identify which those samples were. To do so, we used the following script:
 
+```bash
+#!/bin/bash
 
+# Define the genomes of interest
+genomes=("HIMB2204" "HTCC1002")
 
+# Step 1: Create the directory for combined genomes if it doesn't exist
+mkdir -p "mergeSpecifics/HIMB2204_HTCC1002-profiles"
 
+# Step 2: Extract samples where the conditions are met for both HIMB2204 and HTCC1002
+awk '($2 == "HIMB2204" || $2 == "HTCC1002") && $4 >= 10 && $5 >= 0.5 {print $1}' ../blitzOUTPUT/weighted_results_with_length.txt | sort | uniq > "mergeSpecifics/HIMB2204_HTCC1002-profiles/matching_samples_HIMB2204_HTCC1002.txt"
 
+# Step 3: Remove land samples if they exist
+for sample in SAMEA2619802 SAMEA3275469 SAMEA3275484 SAMEA3275486 SAMEA3275509 SAMEA3275519 SAMEA3275520 SAMEA3275533 SAMEA3275581 SAMEA3275586; do
+    sed -i "/_${sample}_/d" "mergeSpecifics/HIMB2204_HTCC1002-profiles/matching_samples_HIMB2204_HTCC1002.txt"
+done
+
+# Step 4: Collect all PROFILE.db files in a variable
+profile_dbs=$(while read -r sample; do
+    find . -maxdepth 1 -type d -name "$sample" -exec find {} -name "PROFILE.db" \;
+done < "mergeSpecifics/HIMB2204_HTCC1002-profiles/matching_samples_HIMB2204_HTCC1002.txt" | tr '\n' ' ')
+
+# Step 5: Run the anvi-merge command with contigs-db and collected PROFILE.db files
+if [ -n "$profile_dbs" ]; then
+    clusterize -j merge_profile_db \
+        -o mergeSpecifics/HIMB2204_HTCC1002_merge_profile_db.log \
+        -n 1 \
+        --nodelist mpcs043 \
+        "anvi-merge $profile_dbs -o mergeSpecifics/HIMB2204_HTCC1002-profiles/HIMB2204_HTCC1002-MERGED -c ../03_CONTIGS/reference_genomes-contigs.db"
+else
+    echo "No PROFILE.db files found for HIMB2204 and HTCC1002"
+fi
+```
+
+Then, we created a collection with HTCC1002 and HIMB2204 samples and added it to their collective `PROFILE.db`. 
+
+For this, we started from the `collection.txt` we have been using throughout this workflow, but selected only the HIMB2204 and HTCC1002 entries:
+```
+grep -E "HIMB2204|HTCC1002" collection.txt > collection_HIMB2204_HTCC1002.txt
+```
+This resulted in the following file `collection_HIMB2204_HTCC1002.txt`. 
+```
+HIMB2204_000000000001   HIMB2204
+HIMB2204_000000000002   HIMB2204
+HTCC1002_000000000001   HTCC1002
+HTCC1002_000000000002   HTCC1002
+HTCC1002_000000000003   HTCC1002
+HTCC1002_000000000004   HTCC1002
+```
+This is what we then added to the `PROFILE-db` as a new collection.
+```
+anvi-import-collection collection_HIMB2204_HTCC1002.txt \
+    -p filteredPROFILEdb/mergeSpecifics/HIMB2204_HTCC1002-profiles/HIMB2204_HTCC1002-MERGED/PROFILE.db \
+    -c 03_CONTIGS/reference_genomes-contigs.db \
+    -C HIMB2204_HTCC1002_COLLECTION \
+    --contigs-mode
+```
+
+Once this was done, we used the `anvi-split` program again to get separate anvi'o projects for HTCC1002 and HIMB2204.
+```
+clusterize -j SAR11_split_post_filter_HIMB2204nHTCC1002_job \
+           -o SAR11_split_post_filter_HIMB2204nHTCC1002_job.log \
+           -n 8 \
+           -M 96000 \
+           --nodelist mpcs052 \
+           -t 04:00:00 \
+           "anvi-split -p filteredPROFILEdb/mergeSpecifics/HIMB2204_HTCC1002-profiles/HIMB2204_HTCC1002-MERGED/PROFILE.db \
+                       -c 03_CONTIGS/reference_genomes-contigs.db \
+                       -C HIMB2204_HTCC1002_COLLECTION \
+                       -o HIMB2204nHTCC1002_postFilter"
+```
+And checked for errors in the log file.
+```
+grep -i "error" SAR11_split_post_filter_HIMB2204nHTCC1002_job_VibnNEZDgI.log
+```
 
 ## Visualising 
 
-In this section, we will explain how we used `anvi-interactive` to visualise our metagenomes.
+In this section, we will explain how we used `anvi-interactive` to visualize our metagenomes.
 
-For `anvi-interactive` to give us what we want, we need
-- to decide which reference genomes to focus on
+For `anvi-interactive` to give us what we want, we needed
+- to decide which reference genomes to focus on (HIMB2203 and HTCC1002)
 - a collection and bin to feed to `--gene-mode`
 - to prepare and import the metadata we want to order our layers (metagenomes) by in the interactive interface
 
 ### Deciding which SAR11 reference genomes to visualise
 
-To decide which SAR11 reference genomes to focus on, we will see which are found across most of the projects.
+To decide which SAR11 reference genomes to focus on, we checked which are found across most of the projects.
 
 We wrote a little script to output which projects each reference genome is found in:
 
@@ -2743,25 +2812,30 @@ Number of projects each genome is found in and the project names (sorted):
 ```
 
 {:.notice}
-OSD is only included in NP1 and HTCC1002...
+This showed that OSD was only included in NP1 and HTCC1002. In the manuscript, we went with HTCC1002, as this was found in both OSD samples, while NP1 was only found in one OSD sample.
+HIMB2204 on the other hand is one of the reference genomes that was found in metagenomes from many different (7 of the 8) projects.
 
-We will focus on those metagenomes that are found in 7 of the 8 projects.
 
-
-We can also visualise the occurrence (above 10x cov and 0.5 detection) of reference genomes across samples in R
+We also visualised the occurrence (above 10x cov and 0.5 detection) of reference genomes across samples in R
 
 ```R
-## Visualise `anvi-profile-blitz` output
+## visualise anvi-profile-blitz output
 
 library(ggplot2)
 library(dplyr)
 
+# Load data
 blitz_covNdet <- read.table("/Users/rameyer/Documents/_P3/P3dataAnalysis/P3_visualise/outputBLITZ/filtered05N10x_combined_df.txt", header = TRUE, sep = "\t")
 head(blitz_covNdet)
 
 # Convert reference_genome to a factor
 blitz_covNdet$reference_genome <- as.factor(blitz_covNdet$reference_genome)
 
+# Define the custom color palette for projects
+custom_palette <- c(
+  "BATS" = "#2B5D9C", "BGS" = "#B13A8C", "BGT" = "#40B2B2", "HOT1" = "#875D9B",
+  "HOT3" = "#f15c40", "MAL" = "#fdb64e", "OSD" = "#fce84e", "TARA" = "#469F77"
+)
 
 # Create a dataframe for project labels
 project_labels <- blitz_covNdet %>%
@@ -2769,10 +2843,10 @@ project_labels <- blitz_covNdet %>%
   distinct() %>%
   arrange(sample)
 
-# Create a color palette for projects
+# Assign colors from the custom palette to projects
 project_colors <- project_labels %>%
   distinct(project) %>%
-  mutate(color = rainbow(n()))
+  mutate(color = custom_palette[seq_len(n())])
 
 # Merge project colors back to project labels
 project_labels <- project_labels %>%
@@ -2793,22 +2867,20 @@ ggplot(blitz_covNdet, aes(x = sample, y = reference_genome, size = weighted_mean
        x = "Sample",
        y = "Reference Genome") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5, color = sample_colors))
-
 ```
 
-[![blitz](images/anvi-profile-blitz.png)](images/){:.center-img .width-90}
+[![blitz](images/blitzOutputR.pdf)](images/){:.center-img .width-90}
 
 
 ### Getting collection and bin for `--gene-mode`
 
-
-First, we start the anvio-dev conda environment
+First, we started the anvio-dev conda environment on our local machine
 ```bash
 conda list env
 conda activate anvio-dev
 ```
 
-Then we look at the [anvi-script-add-default-collection](https://anvio.org/help/main/programs/anvi-script-add-default-collection/) program, which can help us get a collection and bin.
+Then we looked at the [anvi-script-add-default-collection](https://anvio.org/help/main/programs/anvi-script-add-default-collection/) program, which can help us get a collection and bin.
 
 The basic command is:
 
@@ -2816,29 +2888,24 @@ The basic command is:
 anvi-script-add-default-collection -c [contigs-db](https://anvio.org/help/main/artifacts/contigs-db) \
                                    -p [profile-db](https://anvio.org/help/main/artifacts/profile-db)
 ```
-the program will add a new collection into the profile database named `DEFAULT`, which will contain a single bin that describes all items in the database named `EVERYTHING`. 
+The program will add a new collection into the profile database named `DEFAULT`, which will contain a single bin that describes all items in the database named `EVERYTHING`. 
 
-I will need to do it by specifying every single PROFILE.db I have (one per ref genome).
 
-```bash
-anvi-script-add-default-collection -c SAR11SPLIT_postFilter/FZCC0015/CONTIGS.db \
-                                   -p SAR11SPLIT_postFilter/FZCC0015/PROFILE.db
+For HIMB2204 and HTCC1002, this is what we ran:
+
+Add default collection to HTCC1002
+```
+anvi-script-add-default-collection -c HIMB2204nHTCC1002_postFilter/HIMB2204/CONTIGS.db -p HIMB2204nHTCC1002_postFilter/HIMB2204/PROFILE.db 
+```
+ 
+Add default collection to HTCC1002
+```
+anvi-script-add-default-collection -c HIMB2204nHTCC1002_postFilter/HTCC1002/CONTIGS.db -p HIMB2204nHTCC1002_postFilter/HTCC1002/PROFILE.db 
 ```
 
-To avoid doing this for every single reference genome manually, we will do it in a loop
+### Getting genes databases
 
-```bash
-for dir in SAR11SPLIT_postFilter/*/; do
-    contigs_db="${dir}CONTIGS.db"
-    profile_db="${dir}PROFILE.db"
-    anvi-script-add-default-collection -c "$contigs_db" -p "$profile_db"
-done
-
-```
-
-### Get gene database
-
-To generate a gene database, anvi'o offers to create one when `anvi-interactive` is started in `--gene-mode`, or alternatively with the program `anvi-gen-gene-level-stats-databases`. We will use the latter here because we need it for many reference genomes.
+To generate a gene database, anvi'o offers to create one when `anvi-interactive` is started in `--gene-mode`, or alternatively with the program `anvi-gen-gene-level-stats-databases`. We used the latter.
 
 The basic command is
 ```bash
@@ -2849,17 +2916,57 @@ anvi-gen-gene-level-stats-databases -c contigs-db \
 
 Adapted to our data and aim, it is
 
-```bash
-for dir in SAR11SPLIT_postFilter/*/; do
-    contigs_db="${dir}CONTIGS.db"
-    profile_db="${dir}PROFILE.db"
-    anvi-gen-gene-level-stats-databases -c "$contigs_db" -p "$profile_db" -C DEFAULT
-done
+HIMB2204
+```
+anvi-gen-gene-level-stats-databases -c HIMB2204nHTCC1002_postFilter/HIMB2204/CONTIGS.db \
+                                    -p HIMB2204nHTCC1002_postFilter/HIMB2204/PROFILE.db  \
+                                    -C DEFAULT
+```
 
+HTCC1002
+```
+anvi-gen-gene-level-stats-databases -c HIMB2204nHTCC1002_postFilter/HTCC1002/CONTIGS.db \
+                                    -p HIMB2204nHTCC1002_postFilter/HTCC1002/PROFILE.db  \
+                                    -C DEFAULT
 ```
 
 The genes database will automatically be stored in the directory in which the PROFILE.db and CONTIGS.db are also in, but in its own subdirectory called `GENES/`, which contains the `DEFAULT-EVERYTHING.db` GENES database.
 
+---
+
+add metadata to them (in `P3_visualise`)
+
+```
+import pandas as pd
+
+# Load the weighted results file and metadata file
+weighted_results = pd.read_csv('../digital_sup/filter_covNdet/weighted_results_with_length.txt', sep='\t')
+metadata = pd.read_csv('metadata/metagenomes_filtered_anvio.txt', sep='\t')
+
+# Step 1: Filter the weighted results dataframe for both HIMB2204 and HTCC1002
+filtered_results = weighted_results[
+    ((weighted_results['reference_genome'] == 'HIMB2204') | 
+     (weighted_results['reference_genome'] == 'HTCC1002')) &
+    (weighted_results['weighted_mean_cov'] >= 10) &
+    (weighted_results['weighted_detection'] >= 0.5)
+]
+
+# Step 2: Extract the unique sample names for HIMB2204 and HTCC1002
+filtered_samples = filtered_results['sample'].unique()
+
+# Step 3: Filter the metadata dataframe using the filtered sample names
+filtered_metadata = metadata[metadata['sample'].isin(filtered_samples)]
+
+# Step 4: Save the filtered metadata to a new file
+filtered_metadata.to_csv('HIMB2204_HTCC1002_metagenomes_filtered_anvio.txt', sep='\t', index=False)
+
+```
+check
+```
+wc -l HIMB2204_HTCC1002_metagenomes_filtered_anvio.txt 
+     184 HIMB2204_HTCC1002_metagenomes_filtered_anvio.txt
+```
+good (1 line more than we have samples between them: header line)
 
 ### Import the metadata we want to order our layers (metagenomes) by
 
@@ -2899,13 +3006,13 @@ anvi-delete-misc-data -p profile.db \
                       --target-data-table layers 
                       --just-do-it
 ```
-So now we need to make sure that our metadata is following the format that this program expects. That means using the sample names we used as part of this workflow, but also to subset the main metadata table we made in [public-marine-omics-metadata](https://github.com/merenlab/public-marine-omics-metadata/tree/main) to only keep info on the samples that passed our filtering based on coverage and detection here.
+So now we needed to make sure that our metadata is following the format that this program expects. That means using the sample names we used as part of this workflow, but also to subset the main metadata table we made in [public-marine-omics-metadata](https://github.com/merenlab/public-marine-omics-metadata/tree/main) to only keep info on the samples that passed our filtering based on coverage and detection here.
 
 Let's do it!
 
-Our metadata file (metagenomes.txt) currently still has metadata for more samples than the ones that passed the cov and det filtering. 
+Our metadata file (metagenomes.txt) still had metadata for more samples than the ones that passed the cov and det filtering. 
 
-We will first subset `metagenomes.txt` to only include those samples that passed the filtering and are thus listed in the `unique_samples.txt` we created earlier.
+We first subseted `metagenomes.txt` to only include those samples that passed the filtering and were thus listed in the `unique_samples.txt` we created earlier.
 
 Further, the `metagenomes.txt` file currently has multiple rows per sample if there are multiple runs associated with one sample. We will make it such that there is only one row per sample (so one row per layer that we want to associate this with in anvi'o). Of course, ensuring that any differing values across different runs from the same sample are concatenated, and identical values retained as they are.
 
@@ -2950,7 +3057,7 @@ run
 python3 filterMetagenomesTxt.py
 ```
 
-Now only select the columns we want to bring into anvi'o
+We then selected only the columns we wanted to bring into anvi'o
 
 ```bash
 nano prepAnvioMetadata.py
@@ -2976,38 +3083,33 @@ filtered_df.to_csv('../data/metagenomes_filtered_anvio.txt', sep='\t', index=Fal
 
 Since we are using `--gene-mode`, we need to import the metadata into the GENES database.
 
-This is the metadata file `metadata/metagenomes_filtered_anvio.txt` we prepared above.
+This is the metadata file `metadata/HIMB2204_HTCC1002_metagenomes_filtered_anvio.txt` we prepared above.
 
-
-We will loop through the directories containing the `GENES.db`s for our reference genomes.
-```bash
-for dir in SAR11SPLIT_postFilter/*/; do
-    genes_db="${dir}GENES/DEFAULT-EVERYTHING.db"
-    anvi-import-misc-data metadata/metagenomes_filtered_anvio.txt -p "$genes_db" --target-data-table layers
-done
+add metadata to genes db HIMB2204
+```
+anvi-import-misc-data ../metadata/HIMB2204_HTCC1002_metagenomes_filtered_anvio.txt -p HIMB2204nHTCC1002_postFilter/HIMB2204/GENES/DEFAULT-EVERYTHING.db --target-data-table layers
 ```
 
-
-Since we want to also show it on the top of the circle (ah, indeed, my lady, I dare say I am most proficient in the distinguished tongue of `anvi'o`), we also need to import it into the PROFILE.db.
-
-We will, again, loop through the directories containing the `PROFILE.db`s for our reference genomes.
-```bash
-for dir in SAR11SPLIT_postFilter/*/; do
-    profile_db="${dir}PROFILE.db"
-    anvi-import-misc-data metadata/metagenomes_filtered_anvio.txt -p "$profile_db" --target-data-table layers
-done
+add metadata to genes db HTCC1002
+```
+anvi-import-misc-data ../metadata/HIMB2204_HTCC1002_metagenomes_filtered_anvio.txt -p HIMB2204nHTCC1002_postFilter/HTCC1002/GENES/DEFAULT-EVERYTHING.db --target-data-table layers
 ```
 
-```bash
-anvi-import-misc-data metadata/metagenomes_filtered_anvio.txt \
-                         -p SAR11SPLIT_postFilter/HIMB2204/PROFILE.db \
-                         --target-data-table layers
+Since we wanted to also show it on the top of the phylogram, we also needed to import it into the PROFILE.db.
 
+add metadata to profile db HIMB2204
+```
+anvi-import-misc-data ../HIMB2204_HTCC1002_metagenomes_filtered_anvio.txt -p HIMB2204nHTCC1002_postFilter/HIMB2204/PROFILE.db --target-data-table layers
+```
+
+add metadata to genes db HTCC1002
+```
+anvi-import-misc-data ../HIMB2204_HTCC1002_metagenomes_filtered_anvio.txt -p HIMB2204nHTCC1002_postFilter/HTCC1002/PROFILE.db --target-data-table layers
 ```
 
 ### Look at it
 
-To look at it, we are using the `anvi-interactive` command again. With all the prep we did above, it will now show the genes in the metagenomes and allow us to sort layers (metagenomes) based on the metadata keys we imported as well as adjust what will be visualised (coverage, detection, ...) how the genes will be ordered in the metagenomes (synteny, detection, ...) and so on.
+To look at it, we are finally using the `anvi-interactive` command. With all the prep we did above, it will now show the genes in the metagenomes and allow us to sort layers (metagenomes) based on the metadata keys we imported as well as adjust what will be visualized (coverage, detection, ...) how the genes will be ordered in the metagenomes (synteny, detection, ...) and so on.
 
 We are showing it here with the FZCC0015 reference genome.
 ```bash
