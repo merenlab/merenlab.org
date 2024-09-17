@@ -2373,7 +2373,7 @@ python filter_samples_detNcov.py
 
 This resulted in two files called `filtered05N10x_stats.txt` (containing the number of samples of each project that passed the filter criteria, available [here](files/filtered05N10x_stats.txt)) and `filtered05N10x_combined_df.txt` (the sample_IDs, contigs, weighted_mean_cov, weighted_detection of the samples that passed the filtering, available [here](files/filtered05N10x_combined_df.txt)).
 
-### Generating an anvi'o PROFILE.db with selected samples
+### Generating anvi'o projects for samples that passed the filtering
 
 Based on the information we had post-detection0.5-coverage10x-filtering, we knew which samples to continue working with. To continue working with them, however, we needed to generate a new anvi'o `PROFILE.db` with those samples only.
 
@@ -2443,7 +2443,6 @@ do
     fi
 
 done < ./blitzOUTPUT/unique_samples.txt
-
 ```
 give it permission
 ```bash
@@ -2454,9 +2453,18 @@ and run
 ./run_anvi_profile_cluster.sh
 ```
 
-#### Generating a merged anvi’o profile
+{:.notice}
+Following this, there are multiple avenues one can take. We will describe the one that led to the figure seen in the manuscript in detail. The other avenues we took on the way to get there were 1) generating anvi'o projects such that all samples that had any reference genome at the required ≥10x cov and ≥0.5 det were included and 2) generating anvi'o projects such that each reference genome project includes only those samples where the specific reference genome for that project was found at ≥10x cov and ≥0.5 det. They will be described a bit more briefly first (mainly, the scripts will all be collapsed but can be extended if you are interested).
 
-To convert the sample-level `profile-db`s (of our selected samples) into a single `profile-db` (also called a merged profile database) we used [`anvi-merge`](https://anvio.org/help/7.1/programs/anvi-merge/). Basically, this takes the alignment data from each sample (each contained in its own sample-level `profile-db`) and combines them into a single database that anvi’o can look through more easily.
+#### Generating anvi'o projects for all samples that passed filtering (inclusive) 
+
+Here, each reference genome project included all samples that had **any of the 51 reference genomes at ≥10x coverage and ≥0.5 detection, even if the sample met these thresholds for a different reference genome than the one the project is based on**.
+
+For this, we first generated a merged anvi’o profile db that combines all sample-level `profile-db`s (of our selected samples) into a single `profile-db` using [`anvi-merge`](https://anvio.org/help/7.1/programs/anvi-merge/). Basically, this takes the alignment data from each sample (each contained in its own sample-level `profile-db`) and combines them into a single database that anvi’o can look through more easily.
+
+---
+
+<details markdown="1"><summary>Click to see how we did that</summary>
 
 The basic command is:
 ```bash
@@ -2473,11 +2481,16 @@ clusterize -j merge_profile_db \
 "anvi-merge */PROFILE.db -o SAR11-MERGED -c ../03_CONTIGS/reference_genomes-contigs.db"
 ```
 
-## Creating self-contained anvi'o projects for my reference genomes and associated metagenomes, post-filtering
+</details>
 
-We used `anvi-split` again, but this time, we used it on the collective `PROFILE.db` for the selected samples (for which at least one reference genome is above 10x coverage and 0.5 detection) only. This gave us an anvi'o project per reference genome.
+---
 
-### Creating a genomic collection, post-filtering
+We then created self-contained anvi'o projects for our 51 reference genomes and associated metagenomes using `anvi-split` on this merged `PROFILE.db`, to which we first added a collection again. This gave us an anvi'o project per reference genome.
+
+---
+
+<details markdown="1"><summary>Click to see how we did that</summary>
+    
 First, we had to re-create a COLLECTION that will be stored in the PROFILE.db. For that, we reused the `collection.txt` that we made before, but had to re-create the COLLECTION in itself: specifying the new PROFILE.db.
 
 Here we go:
@@ -2489,7 +2502,7 @@ anvi-import-collection collection.txt \
    --contigs-mode
 ```
 
-### Creating individual, self-contained anvi'o projects for each reference genome and its recruited reads, post-filtering 
+Then the actual creation of the individual, self-contained anvi'o projects for each reference genome and its recruited reads can start. 
 
 The output went into a directory called `SAR11_postFilter`.
 
@@ -2505,8 +2518,117 @@ clusterize -j SAR11_split_post_filter_job \
                        -o SAR11SPLIT_postFilter"
 ```
 
+</details>
+
+---
+
+#### Generating anvi'o projects for all samples that passed filtering (exclusive)
+
+Here, each reference genome project included only the samples **where the specific reference genome for that project was found at ≥10x coverage and ≥0.5 detection**.
+
+Instead of creating a merged `PROFILE.db` with ALL samples and then splitting it into the different reference genomes later, we created individual merged `PROFILE.db`s, one per reference genome. We just had to know exactly which samples should be added for which reference genomes. We could get that information from the `weighted_results_with_legth.txt` that we got as part of the filtering above. We still have to perform a split at the end, but just to get the proper `CONTIGS.db`
+
+
+---
+
+<details markdown="1"><summary>Click to see how we did that</summary>
+
+To merge the sample-level `PROFILE.db`s into reference-genome-level-merged `PROFILE.db`s, we wrote this script:
+```
+#!/bin/bash
+
+# Loop through all unique reference genomes
+for genome in $(cut -f2 ../blitzOUTPUT/weighted_results_with_length.txt | tail -n +2 | sort | uniq); do
+    # Step 1: Create the directory if it doesn't exist
+    mkdir -p "mergeSpecifics/${genome}-profiles"
+
+    # Step 2: Extract samples where the conditions (0.5 det and 10x cov) are met
+    awk -v ref_genome="$genome" '$2 == ref_genome && $4 >= 10 && $5 >= 0.5 {print $1}' ../blitzOUTPUT/weighted_results_with_length.txt | sort | uniq > "mergeSpecifics/${genome}-profiles/matching_samples_${genome}.txt"
+
+    # Step 3: Remove land samples if they exist
+    for sample in SAMEA2619802 SAMEA3275469 SAMEA3275484 SAMEA3275486 SAMEA3275509 SAMEA3275519 SAMEA3275520 SAMEA3275533 SAMEA3275581 SAMEA3275586; do
+        sed -i "/_${sample}_/d" "mergeSpecifics/${genome}-profiles/matching_samples_${genome}.txt"
+    done
+
+    # Step 4: Collect all PROFILE.db files in a variable
+    # Restrict the search to the current directory only
+    profile_dbs=$(while read -r sample; do
+        find . -maxdepth 1 -type d -name "$sample" -exec find {} -name "PROFILE.db" \;
+    done < "mergeSpecifics/${genome}-profiles/matching_samples_${genome}.txt" | tr '\n' ' ')
+
+    # Step 5: Run the anvi-merge command with contigs-db and collected PROFILE.db files
+    clusterize -j merge_profile_db \
+        -o mergeSpecifics/${genome}_merge_profile_db.log \
+        -n 1 \
+        "anvi-merge $profile_dbs -o mergeSpecifics/${genome}-profiles/${genome}-MERGED -c ../03_CONTIGS/reference_genomes-contigs.db"
+
+done
+```
+
+checked for errors
+```
+$ grep -i "error" *.log
+HIMB1412_merge_profile_db_stdyhADzTp.log:anvi-merge: error: the following arguments are required: SINGLE_PROFILE(S)
+HIMB1420_merge_profile_db_sdAfWZpUKt.log:anvi-merge: error: the following arguments are required: SINGLE_PROFILE(S)
+LSUCC0530_merge_profile_db_nvSystbihu.log:anvi-merge: error: the following arguments are required: SINGLE_PROFILE(S)
+```
+These reference genomes did not work because none of the samples passed the filter criteria of ≥10x coverage and ≥ 0.5 detection. I removed their directories so as to not get confused later.
+```
+rm -r  HIMB1412-profiles/  HIMB1420-profiles/ LSUCC0530-profiles/
+```
+
+We built the collection and do splits with the following script
+
+```
+#!/bin/bash
+
+# Loop through all unique reference genomes
+for genome in $(cut -f2 ../blitzOUTPUT/weighted_results_with_length.txt | tail -n +2 | sort | uniq); do
+    
+    # Step 1: Create collection file and import collection
+    grep "$genome" ../collection.txt > "mergeSpecifics/${genome}-profiles/collection_${genome}.txt"
+    
+    anvi-import-collection "mergeSpecifics/${genome}-profiles/collection_${genome}.txt" \
+        -p "mergeSpecifics/${genome}-profiles/${genome}-MERGED/PROFILE.db" \
+        -c ../03_CONTIGS/reference_genomes-contigs.db \
+        -C "${genome}COLLECTION" \
+        --contigs-mode
+
+    # Step 2: Run anvi-split based on the collection
+    clusterize -j SAR11_split_post_filter_${genome}_job \
+        -o SAR11_split_post_filter_${genome}_job.log \
+        -n 8 \
+        -M 96000 \
+        "anvi-split -p mergeSpecifics/${genome}-profiles/${genome}-MERGED/PROFILE.db \
+                    -c ../03_CONTIGS/reference_genomes-contigs.db \
+                    -C ${genome}COLLECTION \
+                    -o mergeSpecifics/${genome}-profiles/${genome}_postFilter"
+
+done
+```
+We checked for errors again, and as expected, the directories I removed in the previous step came up. But that is no problem.
+```
+$ grep -i "error" *.log
+SAR11_split_post_filter_HIMB1412_job_hZBIlRsgLA.log:File/Path Error: No such file: 'mergeSpecifics/HIMB1412-profiles/HIMB1412-MERGED/PROFILE.db' :/
+SAR11_split_post_filter_HIMB1420_job_oONSdvODyq.log:File/Path Error: No such file: 'mergeSpecifics/HIMB1420-profiles/HIMB1420-MERGED/PROFILE.db' :/
+SAR11_split_post_filter_LSUCC0530_job_qSABXiLKqv.log:File/Path Error: No such file: 'mergeSpecifics/LSUCC0530-profiles/LSUCC0530-MERGED/PROFILE.db' :/
+```
+
+
+
+
+</details>
+
+---
+
+#### Generating anvi'o projects for all samples that passed filtering (as done for manuscript figure) 
+
 {:.notice}
-While we created these anvi'o projects to inspect each reference genome across the different samples, for the final visualization used in the manuscript, we actually did some extra steps focused on the `HTCC1002` and `HIMB2204` reference genomes.
+This and the following steps will actually get you to the figure in the manuscript. So let's go!
+
+While we created  anvi'o projects to inspect each reference genome across the different samples, for the final visualization used in the manuscript, we focused on the `HTCC1002` and `HIMB2204` reference genomes.
+
+
 
 
 
