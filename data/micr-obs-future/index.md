@@ -3859,12 +3859,15 @@ First for `HTCC1002` and `HIMB2204`
 Rscript visualizeFastANI.R ../../P3_refGenomes/FASTA_collection_used/HTCC1002.fa ../../P3_refGenomes/FASTA_collection_used/HIMB2204.fa output_fastANI_HTCC1002nhIMB2204.txt.visual
 ```
 
+[![dRep]({{images}}/output_fastANI_HTCC1002nhIMB2204.txt.visual.pdf)]({{images}}/output_fastANI_HTCC1002nhIMB2204.txt.visual.pdf){:.center-img .width-70}
 
 
 And second for `HTCC1002` and `HTCC7211`
 ```bash
 Rscript visualizeFastANI.R ../../P3_refGenomes/FASTA_collection_used/HTCC1002.fa ../../P3_refGenomes/FASTA_collection_used/HTCC7211.fa output_fastANI_HTCC1002nHTCC7211.txt.visual
 ```
+
+[![dRep]({{images}}/output_fastANI_HTCC1002nHTCC7211.txt.visual.pdf)]({{images}}/output_fastANI_HTCC1002nHTCC7211.txt.visual.pdf){:.center-img .width-70}
 
 
 
