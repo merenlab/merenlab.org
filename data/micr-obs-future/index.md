@@ -3209,7 +3209,664 @@ A different state, called `default_HIMB2204nHTCC1002_geneDet` was used to visual
 
 ## Visualising world maps
 
-For the world maps seen in Panels A and B of Figure 1, we used R.
+For the world maps seen in Panels A and B of Figure 1, we mainly relied on R.
+
+### Importing all the data we need into R
+
+First, we imported all relevant data into R and made sure the columns were understood correctly. This resulted in the script becoming quite long, so we will hide it here, but feel free to expand it if you are curious.
+
+The files we imported with were
+- metagenomes_filtered_anvio.txt (metadata)
+- weighted_results_with_length.txt (coverage and detection data)
+
+We then combined both into one dataframe.
+
+<details markdown="1"><summary>Click to see how we imported the data into R</summary>
+
+```
+# import metadata used for anvio
+
+# 1. metadata
+# 2. Coverage and detection data
+
+####################################
+## prep
+####################################
+
+# Set working directory
+setwd("/Users/rameyer/Documents/_P3/P3dataAnalysis/P3_metadata/public-marine-omics-metadata/")
+
+# Load necessary libraries
+library(readr)
+library(dplyr)
+
+####################################
+## go 1. metadata
+####################################
+
+
+# import metadata table for metagenomes that passed anvi'o filtering of
+# having at least one reference genome with 0.5 detection and 10x coverage
+
+# make sure all are understood properly
+
+# Read in the data
+metagenomes_filtered_anvio <- read_delim(
+  "data/metagenomes_filtered_anvio.txt", 
+  delim = "\t", 
+  escape_double = FALSE, 
+  col_types = cols(
+    latitude = col_number(), 
+    longitude = col_number(), 
+    distance_from_equator = col_number(), 
+    depth = col_number(), 
+    temperature_degC = col_number(), 
+    year = col_number(),
+    spots = col_character()
+  ), 
+  trim_ws = TRUE
+)
+
+# Use mutate() to adjust the factors
+metagenomes_filtered_anvio <- metagenomes_filtered_anvio %>%
+  mutate(
+    project = factor(project, levels = c("BATS", "HOT3", "HOT1", "MAL", "BGS", "BGT", "TARA", "OSD")),
+    model = factor(model, levels = c("NextSeq 500", "NextSeq 550", "Illumina HiSeq 2000", "Illumina HiSeq 4000", "Illumina NovaSeq 6000", "Illumina MiSeq", "Illumina Genome Analyzer IIx")),
+    layer = factor(layer, levels = c("surface water", "deep chlorophyll maximum")),
+    season = factor(season, levels = c("Spring", "Fall", "Summer", "Winter")),
+    sub_region_seavox = factor(sub_region_seavox, levels = c(
+      "NORTHWEST ATLANTIC OCEAN (40W)", "LABRADOR SEA", "CELTIC SEA", 
+      "NORTHEAST ATLANTIC OCEAN (40W)", "SOUTHWEST ATLANTIC OCEAN (20W)", 
+      "INDIAN OCEAN", "ARABIAN SEA", "BAY OF BENGAL", 
+      "NORTHEAST PACIFIC OCEAN (180W)", "SOUTHEAST PACIFIC OCEAN (140W)", 
+      "SOUTHERN OCEAN", "SOUTHEAST ATLANTIC OCEAN (20W)", 
+      "SOUTHWEST PACIFIC OCEAN (140W)", "CORAL SEA", "TASMAN SEA", 
+      "BASS STRAIT", "ICELAND SEA", "LILLEBAELT", "ADRIATIC SEA", 
+      "MEDITERRANEAN SEA, EASTERN BASIN", "STRAIT OF SICILY", "IONIAN SEA", 
+      "RED SEA", "LAKSHADWEEP SEA", "MOZAMBIQUE CHANNEL", "DRAKE PASSAGE", 
+      "WEDDELL SEA", "CARIBBEAN SEA", "GULF OF MEXICO")),
+    region_seavox = factor(region_seavox, levels = c(
+      "ATLANTIC OCEAN", "INDIAN OCEAN", "PACIFIC OCEAN", 
+      "SOUTHERN OCEAN", "ARCTIC OCEAN", "BALTIC SEA", 
+      "MEDITERRANEAN REGION")),
+    provdescr_longhurst = factor(provdescr_longhurst, levels = c(
+      "Westerlies - N. Atlantic Subtropical Gyral Province (West) (STGW)",
+      "Polar - Atlantic Arctic Province", 
+      "Westerlies - N. Atlantic Drift Province (WWDR)",
+      "Coastal - NW Atlantic Shelves Province", 
+      "Westerlies - Gulf Stream Province", 
+      "Coastal - NE Atlantic Shelves Province",
+      "Trades - N. Atlantic Tropical Gyral Province (TRPG)", 
+      "Trades - Western Tropical Atlantic Province",
+      "Trades - South Atlantic Gyral Province (SATG)", 
+      "Westerlies - S. Subtropical Convergence Province",
+      "Westerlies - Subantarctic Province", 
+      "Trades - Indian S. Subtropical Gyre Province",
+      "Trades - Indian Monsoon Gyres Province", 
+      "Coastal - NW Arabian Upwelling Province", 
+      "Trades - N. Pacific Tropical Gyre Province",
+      "Trades - N. Pacific Equatorial Countercurrent Province", 
+      "Trades - Pacific Equatorial Divergence Province",
+      "Westerlies - S. Pacific Subtropical Gyre Province", 
+      "Polar - Antarctic Province", 
+      "Polar - Austral Polar Province",
+      "Coastal - SW Atlantic Shelves Province", 
+      "Trades - Archipelagic Deep Basins Province", 
+      "Coastal - East Australian Coastal Province",
+      "Coastal - Benguela Current Coastal Province", 
+      "Coastal - E. Africa Coastal Province", 
+      "Westerlies - N. Atlantic Subtropical Gyral Province (East) (STGE)", 
+      "Westerlies - Mediterranean Sea, Black Sea Province", 
+      "Coastal - Canary Coastal Province (EACB)", 
+      "Coastal - Red Sea, Persian Gulf Province", 
+      "Coastal - Chile-Peru Current Coastal Province", 
+      "Coastal - California Upwelling Coastal Province", 
+      "Coastal - Central American Coastal Province", 
+      "Coastal - Guianas Coastal Province", 
+      "Trades - Caribbean Province")),
+    environment = factor(environment, levels = c("Westerlies", "Polar", "Coastal", "Trades"))
+  )
+
+#View(metagenomes_filtered_anvio)
+head(metagenomes_filtered_anvio)
+
+
+
+####################################
+## go 2. coverage and detection data
+####################################
+
+######
+# https://github.com/merenlab/world-map-r/blob/master/generate-PDFs.R expects 
+# relative abundance. I don't have that, so will use coverage or detection 
+# instead. Let's get those into R (from the blitz outputs)
+######
+
+# Step 1: Read the file into R
+weighted_results <- read.delim("/Users/rameyer/Documents/_P3/P3dataAnalysis/digital_sup/filter_covNdet/weighted_results_with_length.txt", sep="\t")
+
+# Step 2: Reshape the data for weighted_mean_cov
+# We want to create one column for each reference_genome and fill it with weighted_mean_cov values
+weighted_cov_reshaped <- weighted_results %>%
+  select(sample, reference_genome, weighted_mean_cov) %>%  # Select relevant columns
+  pivot_wider(names_from = reference_genome, values_from = weighted_mean_cov, names_prefix = "cov_")  # Pivot to wide format
+
+# Step 3: Reshape the data for weighted_detection
+weighted_detection_reshaped <- weighted_results %>%
+  select(sample, reference_genome, weighted_detection) %>%  # Select relevant columns
+  pivot_wider(names_from = reference_genome, values_from = weighted_detection, names_prefix = "det_")  # Pivot to wide format
+
+# Step 4: Merge the reshaped data with metagenomes_filtered_anvio
+# First, merge the cov_ columns
+metagenomes_filtered_anvio_cov <- metagenomes_filtered_anvio %>%
+  left_join(weighted_cov_reshaped, by = "sample")
+
+# Then, merge the det_ columns
+metagenomes_filtered_anvio_covNdev <- metagenomes_filtered_anvio_cov %>%
+  left_join(weighted_detection_reshaped, by = "sample")
+
+# Step 5: Check the result
+head(metagenomes_filtered_anvio_covNdev)
+colnames(metagenomes_filtered_anvio_covNdev)
+
+View(metagenomes_filtered_anvio_covNdev)
+```
+
+</details>
+
+
+### Normalising coverage data
+Then we went on to normalize the coverage data. The different projects had very different sequencing depth. This normalization was to avoid the inter-project differences visually overshadowing the ecological differences.
+
+The normalization simply was to divide the coverage by the number of reads in the sample (given as `spots` in the metadata). Projects with deeper sequencing had a much higher number of reads. In cases where multiple runs from the same sample were available, we first averaged the number of reads across runs. To make sure the resulting coverage numbers were not too tiny, we divided the average number of reads per sample by 1 million before using it to normalize the coverage data.
+
+```
+# normalize coverage data
+# Load the dplyr package for data manipulation
+
+library(dplyr)
+
+normalise_df <- metagenomes_filtered_anvio_covNdev
+
+# 1. Calculate `average_spots` if not already done
+calculate_average_spots <- function(spots) {
+  spot_values <- as.numeric(unlist(strsplit(spots, "\\|")))
+  return(mean(spot_values))
+}
+
+normalise_df$average_spots <- sapply(normalise_df$spots, calculate_average_spots)
+
+# Between 1 and 2: Sanity check
+### Get range by project 
+# Group by project and calculate the range of average_spots
+range_by_project <- normalise_df %>%
+  group_by(project) %>%
+  summarize(min_spots = min(average_spots, na.rm = TRUE), 
+            max_spots = max(average_spots, na.rm = TRUE))
+
+# View the range summary
+print(range_by_project)
+
+# 2. Scale `average_spots` by dividing by 1 million
+normalise_df$scaled_average_spots <- normalise_df$average_spots / 1e6
+
+# 3. Normalize the `cov_[REFERENCE_GENOME]` columns using the scaled `average_spots`
+cov_columns <- grep("^cov_", colnames(normalise_df), value = TRUE)
+
+# Create new normalized columns `norm_cov_[REFERENCE_GENOME]`
+for (cov_column in cov_columns) {
+  new_col_name <- paste0("norm_", cov_column)  # Create new column name
+  normalise_df[[new_col_name]] <- normalise_df[[cov_column]] / normalise_df$scaled_average_spots
+}
+
+# View the updated dataframe
+head(normalise_df)
+colnames(normalise_df)
+
+### Get range by project 
+
+# Group by project and calculate the range of norm_cov_HTCC7211
+range_by_project <- normalise_df %>%
+  group_by(project) %>%
+  summarize(min_spots = min(cov_HTCC7211, na.rm = TRUE), 
+            max_spots = max(cov_HTCC7211, na.rm = TRUE))
+
+print(range_by_project)
+
+# Group by project and calculate the range of norm_cov_HTCC7211
+range_by_project <- normalise_df %>%
+  group_by(project) %>%
+  summarize(min_spots = min(norm_cov_HTCC7211, na.rm = TRUE), 
+            max_spots = max(norm_cov_HTCC7211, na.rm = TRUE))
+
+print(range_by_project)
+```
+
+### Creating the global world maps
+
+We then went on to create the world maps for HTCC1002 and HIMB2204.
+
+What is important to note here is that we had any sample that passed the coverage and detection filtering for any reference genome in the background, while the samples from either HTCC1002 or HIMB2204 were highlighted. We also scaled the size of points between the two.
+```
+# make world maps for HTCC1002 and HIMB2204 where the size of the points 
+# (representing normalized coverage) is scaled the same between the two genomes
+
+# Set working directory (customize this as needed)
+setwd("/Users/rameyer/Documents/_P3/P3dataAnalysis/P3_visualise/")
+
+##############################
+# User Input Section
+##############################
+
+# Specify the cutoff values for coverage and detection
+coverage_cutoff <- 10
+detection_cutoff <- 0.5
+
+# Specify whether to use the highlight column (TRUE or FALSE)
+use_highlight <- TRUE  # Set to FALSE if you don't want to use highlight functionality
+
+# Option to save the plots as PDFs
+save_pdf <- TRUE  # Set to FALSE if you don't want to save the plots as PDFs
+
+# Specify the PDF file dimensions
+PDF_WIDTH <- 12
+PDF_HEIGHT <- 5.5
+
+dataframe <- normalise_df
+
+##############################
+# Data Preparation: Focus on HTCC1002 and HIMB2204
+##############################
+
+# Load necessary libraries
+library(ggplot2)
+library(scales)
+library(maps)
+
+# Define the specific reference genomes to loop over
+reference_genomes <- c("HTCC1002", "HIMB2204")
+
+# Calculate global min and max normalized coverage across both genomes for consistent scaling
+all_norm_coverage <- c()
+
+for (reference_genome in reference_genomes) {
+  norm_coverage_col <- paste0("norm_cov_", reference_genome)
+  all_norm_coverage <- c(all_norm_coverage, dataframe[[norm_coverage_col]])
+}
+
+global_min_norm_cov <- min(all_norm_coverage, na.rm = TRUE)
+global_max_norm_cov <- max(all_norm_coverage, na.rm = TRUE)
+
+# Loop through each reference genome
+for (reference_genome in reference_genomes) {
+  
+  # Define the name of the coverage, detection, and normalized coverage columns for the current reference genome
+  coverage_col <- paste0("cov_", reference_genome)
+  detection_col <- paste0("det_", reference_genome)
+  norm_coverage_col <- paste0("norm_cov_", reference_genome)  # New column for normalized coverage
+  
+  # Create a dynamic name for the new dataframe
+  new_df_name <- paste0("metagenomes_", reference_genome)
+  
+  # Assign the metagenomes_filtered_anvio_covNdev dataframe to the new dynamically named dataframe
+  assign(new_df_name, dataframe)
+  
+  # Now the dynamically named dataframe is accessible via its name
+  df <- get(new_df_name)
+  
+  ############################################
+  # Optional: Add Highlight Column if `use_highlight` is TRUE
+  if (use_highlight) {
+    # Highlight samples only if both coverage and detection values are above or equal to the cutoffs
+    df$highlight <- ifelse(
+      df[[coverage_col]] >= coverage_cutoff & df[[detection_col]] >= detection_cutoff, TRUE, FALSE
+    )
+  }
+  
+  ############################################
+  # Create the World Map Plot
+  ############################################
+  
+  # Basic world map data
+  world_map <- map_data("world")
+  
+  # Define custom color palettes (light, dark, and extralight) for different projects
+  custom_palette_extralight <- c(
+    "BATS" = "#D8EBF8", "BGS" = "#F6C2D5", "BGT" = "#D1ECEC", "HOT1" = "#E3D2E8",
+    "HOT3" = "#fdd2c1", "MAL" = "#ffeacd", "OSD" = "#FBEEC2", "TARA" = "#DCF1E0"
+  )
+  
+  custom_palette_light <- c(
+    "BATS" = "#B0D9F2", "BGS" = "#F19CBB", "BGT" = "#A8D8D8", "HOT1" = "#C9B2D6",
+    "HOT3" = "#f9a98e", "MAL" = "#ffd8a1", "OSD" = "#F9E29C", "TARA" = "#B9E3C6"
+  )
+  
+  custom_palette_dark <- c(
+    "BATS" = "#2B5D9C", "BGS" = "#B13A8C", "BGT" = "#40B2B2", "HOT1" = "#875D9B",
+    "HOT3" = "#f15c40", "MAL" = "#fdb64e", "OSD" = "#D8A600", "TARA" = "#469F77"
+  )
+  
+  # Ensure 'project' is a factor and the palettes have colors for each project
+  df$project <- factor(df$project, levels = names(custom_palette_light))
+  
+  # Assign colors based on whether we use highlight or not
+  if (use_highlight) {
+    # If using highlight, use different colors for highlighted and non-highlighted samples
+    df$outline_color <- ifelse(
+      df$highlight == TRUE,
+      custom_palette_dark[df$project],  # Darker outline for highlighted samples
+      custom_palette_extralight[df$project]  # Lighter outline for others
+    )
+    
+    # Assign fill colors based on whether the sample is highlighted
+    df$fill_color <- ifelse(
+      df$highlight == TRUE,
+      custom_palette_light[df$project],  # Light fill for highlighted samples
+      custom_palette_extralight[df$project]  # Extralight fill for non-highlighted samples
+    )
+  } else {
+    # If not using highlight, use the light palette for both fill and outline
+    df$fill_color <- custom_palette_light[df$project]
+    df$outline_color <- custom_palette_light[df$project]
+  }
+  
+  # Split data into highlighted and non-highlighted groups if highlight is used
+  if (use_highlight) {
+    df_no_highlight <- df[df$highlight == FALSE, ]
+    df_highlight <- df[df$highlight == TRUE, ]
+  }
+  
+  # Set outline size for all points
+  stroke_size <- 1.5  # Adjust this for thicker outlines
+  
+  # Create the base plot with the world map
+  p <- ggplot() +
+    geom_polygon(data = world_map, aes(x = long, y = lat, group = group),
+                 fill = "gray90", color = "white") +
+    coord_fixed(1.3)  # Maintains aspect ratio
+  
+  # Add non-highlighted points if `use_highlight` is TRUE, otherwise add all points
+  if (use_highlight) {
+    # First layer: plot non-highlighted samples with extralight fill colors
+    p <- p + geom_point(data = df_no_highlight,
+                        aes(x = longitude, y = latitude, 
+                            fill = fill_color,   # Use extralight fill for non-highlighted samples
+                            color = outline_color, 
+                            size = !!sym(norm_coverage_col)),
+                        shape = 21, stroke = stroke_size, alpha = 0.8)
+    
+    # Second layer: plot highlighted samples with light fill colors (these will appear on top)
+    p <- p + geom_point(data = df_highlight,
+                        aes(x = longitude, y = latitude, 
+                            fill = fill_color,   # Use light fill for highlighted samples
+                            color = outline_color, 
+                            size = !!sym(norm_coverage_col)),
+                        shape = 21, stroke = stroke_size, alpha = 0.8)
+  } else {
+    # Plot all samples in a single layer if no highlight is used
+    p <- p + geom_point(data = df,
+                        aes(x = longitude, y = latitude, 
+                            fill = fill_color,  # Default to light palette if not using highlight
+                            color = outline_color, 
+                            size = !!sym(norm_coverage_col)),
+                        shape = 21, stroke = stroke_size, alpha = 0.8)
+  }
+  
+  # Add color scale and other aesthetics
+  p <- p + scale_fill_identity() +  # Use the fill colors from the fill_color column
+    scale_color_identity() +         # Use the color from the outline_color column
+    scale_size_continuous(range = c(4, 10), limits = c(global_min_norm_cov, global_max_norm_cov), guide = guide_legend(title = "Normalized Coverage")) +  # Global normalized coverage for size scaling
+    theme_minimal() +
+    labs(
+      title = paste("Project Locations with", reference_genome, "Normalized Coverage"),
+      x = "Longitude", y = "Latitude",
+      fill = "Project", color = "Highlight", size = "Normalized Coverage per 1 mio reads"
+    ) +
+    theme(
+      legend.title = element_text(size = 12),
+      legend.text = element_text(size = 10),
+      legend.position = "right"
+    )
+  
+  # Show plot
+  print(p)
+  
+  ############################################
+  # Optionally Save the Plot as PDF
+  ############################################
+  
+  if (save_pdf) {
+    # Create the filename dynamically for each reference genome
+    pdf_filename <- paste0("maps_normalised_lighter_spec/Project_Locations_with_", reference_genome, "_Normalized_Coverage.pdf")
+    
+    # Save the plot as a PDF
+    ggsave(filename = pdf_filename, plot = p, width = PDF_WIDTH, height = PDF_HEIGHT)
+    cat(paste0("Plot saved as PDF: ", pdf_filename, "\n"))
+  }
+}
+
+```
+
+### Creating regional world maps
+
+For the regional biogeographical patterns, we focused on HTCC1002 and HTCC7221. To create the four different plots, the selection of `reference genome` (either `reference_genome <- "HTCC1002"` or `reference_genome <- "HTCC7211"`) and the zoom limits need to be manually adjusted (all options given in the script, just commented out).
+
+
+```
+# Zoom in and map for specific reference genome (e.g., HTCC7211)
+
+
+# Load necessary libraries
+library(ggplot2)
+library(scales)
+library(maps)
+
+# Set working directory (customize as needed)
+setwd("/Users/rameyer/Documents/_P3/P3dataAnalysis/P3_visualise/")
+
+# Define the reference genome for which you want to zoom in
+reference_genome <- "HTCC1002"
+
+# Define the specific reference genomes you want to consider for the point sizing
+reference_genomes <- c("HTCC1002", "HTCC7211")
+
+# Calculate global min and max normalized coverage across both genomes for consistent scaling
+all_norm_coverage <- c()
+
+for (reference_genome in reference_genomes) {
+  norm_coverage_col <- paste0("norm_cov_", reference_genome)
+  all_norm_coverage <- c(all_norm_coverage, dataframe[[norm_coverage_col]])
+}
+
+global_min_norm_cov <- min(all_norm_coverage, na.rm = TRUE)
+global_max_norm_cov <- max(all_norm_coverage, na.rm = TRUE)
+
+# Specify the cutoff values for coverage and detection
+coverage_cutoff <- 10
+detection_cutoff <- 0.5
+
+# Specify whether to use the highlight column (TRUE or FALSE)
+use_highlight <- TRUE  # Set to FALSE if you don't want to use highlight functionality
+
+# Option to save the zoomed plots as PDFs
+save_pdf <- TRUE  # Set to FALSE if you don't want to save the zoomed plots as PDFs
+
+# Specify the PDF file dimensions
+PDF_WIDTH <- 12
+PDF_HEIGHT <- 5.5
+
+#Specify zoom area for the map (longitude and latitude limits)
+zoom_limits <- list(
+  xlim = c(-70, -20),  # Set longitude limits for NORTH ATLANTIC
+  ylim = c(25, 70)      # Set latitude limits for NORTH ATLANTIC
+)
+
+# # Specify zoom area for the map (longitude and latitude limits)
+# zoom_limits <- list(
+#   xlim = c(-104, -40),  # Set longitude limits for south america
+#   ylim = c(-74, -28)      # Set latitude limits for south america
+# )
+
+# # Specify zoom area for the map (longitude and latitude limits)
+# zoom_limits <- list(
+#   xlim = c(-104, 15),  # Set longitude limits for south america and south africa
+#   ylim = c(-73, -29)      # Set latitude limits for south america and south africa 
+# )
+
+# Extract the relevant columns for the chosen reference genome
+coverage_col <- paste0("cov_", reference_genome)
+detection_col <- paste0("det_", reference_genome)
+norm_coverage_col <- paste0("norm_cov_", reference_genome)
+
+# Assign the metagenomes_filtered_anvio_covNdev dataframe to the new dynamically named dataframe
+df <- dataframe  # Assuming dataframe is already loaded
+
+# Optional: Add Highlight Column if `use_highlight` is TRUE
+if (use_highlight) {
+  df$highlight <- ifelse(
+    df[[coverage_col]] >= coverage_cutoff & df[[detection_col]] >= detection_cutoff, TRUE, FALSE
+  )
+}
+
+# Basic world map data
+world_map <- map_data("world")
+
+# Define custom color palettes (light, dark, and extralight) for different projects
+custom_palette_extralight <- c(
+  "BATS" = "#D8EBF8", "BGS" = "#ffe3edff", "BGT" = "#D1ECEC", "HOT1" = "#E3D2E8",
+  "HOT3" = "#fdd2c1", "MAL" = "#ffeacd", "OSD" = "#FBEEC2", "TARA" = "#DCF1E0"
+)
+
+custom_palette_light <- c(
+  "BATS" = "#B0D9F2", "BGS" = "#F19CBB", "BGT" = "#A8D8D8", "HOT1" = "#C9B2D6",
+  "HOT3" = "#f9a98e", "MAL" = "#ffd8a1", "OSD" = "#F9E29C", "TARA" = "#B9E3C6"
+)
+
+custom_palette_dark <- c(
+  "BATS" = "#2B5D9C", "BGS" = "#B13A8C", "BGT" = "#40B2B2", "HOT1" = "#875D9B",
+  "HOT3" = "#f15c40", "MAL" = "#fdb64e", "OSD" = "#D8A600", "TARA" = "#469F77"
+)
+
+# Ensure 'project' is a factor and the palettes have colors for each project
+df$project <- factor(df$project, levels = names(custom_palette_light))
+
+# Assign colors based on whether we use highlight or not
+if (use_highlight) {
+  df$outline_color <- ifelse(
+    df$highlight == TRUE,
+    custom_palette_dark[df$project],  # Darker outline for highlighted samples
+    custom_palette_extralight[df$project]  # Lighter outline for non-highlighted samples
+  )
+  df$fill_color <- ifelse(
+    df$highlight == TRUE,
+    custom_palette_light[df$project],  # Light fill for highlighted samples
+    custom_palette_extralight[df$project]  # Extralight fill for non-highlighted samples
+  )
+} else {
+  # If not using highlight, use the light palette for both fill and outline
+  df$fill_color <- custom_palette_light[df$project]
+  df$outline_color <- custom_palette_light[df$project]
+}
+
+# # Determine the minimum and maximum normalized coverage values for sizing
+# min_norm_cov <- min(df[[norm_coverage_col]], na.rm = TRUE)
+# max_norm_cov <- max(df[[norm_coverage_col]], na.rm = TRUE)
+
+# Split data into highlighted and non-highlighted groups if highlight is used
+if (use_highlight) {
+  df_no_highlight <- df[df$highlight == FALSE, ]
+  df_highlight <- df[df$highlight == TRUE, ]
+}
+
+# Set outline size for all points
+stroke_size <- 1.5  # Adjust this for thicker outlines
+
+# Create the base plot with the world map
+p <- ggplot() +
+  geom_polygon(data = world_map, aes(x = long, y = lat, group = group),
+               fill = "gray90", color = "white") +
+  coord_quickmap(xlim = zoom_limits$xlim, ylim = zoom_limits$ylim)  # Zoom into the specified area and maintain aspect ratio
+
+# Add non-highlighted points if `use_highlight` is TRUE, otherwise add all points
+if (use_highlight) {
+  p <- p + geom_point(data = df_no_highlight,
+                      aes(x = longitude, y = latitude, fill = fill_color, color = outline_color, size = !!sym(norm_coverage_col)),
+                      shape = 21, stroke = stroke_size, alpha = 0.8)
+  
+  p <- p + geom_point(data = df_highlight,
+                      aes(x = longitude, y = latitude, fill = fill_color, color = outline_color, size = !!sym(norm_coverage_col)),
+                      shape = 21, stroke = stroke_size, alpha = 0.8)
+} else {
+  p <- p + geom_point(data = df,
+                      aes(x = longitude, y = latitude, fill = fill_color, color = outline_color, size = !!sym(norm_coverage_col)),
+                      shape = 21, stroke = stroke_size, alpha = 0.8)
+}
+
+# Add color scale and other aesthetics
+p <- p + scale_fill_identity() +  # Use the fill colors from the fill_color column
+  scale_color_identity() +         # Use the outline colors from the outline_color column
+  scale_size_continuous(range = c(6, 12), limits = c(global_min_norm_cov, global_max_norm_cov), guide = guide_legend(title = "Normalized Coverage")) +
+  theme_minimal() +
+  labs(
+    title = paste("Zoomed Project Locations with", reference_genome, "Normalized Coverage"),
+    x = "Longitude", y = "Latitude",
+    fill = "Project", color = "Highlight", size = "Normalized Coverage"
+  ) +
+  theme(
+    legend.title = element_text(size = 12),
+    legend.text = element_text(size = 10),
+    legend.position = "right"
+  )
+
+# Show plot
+print(p)
+
+# Optionally Save the Zoomed Plot as PDF
+if (save_pdf) {
+  # Create the filename dynamically for the zoomed map
+  pdf_filename <- paste0("maps_normalised_lighter_zoom/Zoomed_Project_Locations_with_", reference_genome, "_Normalized_Coverage_north.pdf")
+  
+  # Save the plot as a PDF
+  ggsave(filename = pdf_filename, plot = p, width = PDF_WIDTH, height = PDF_HEIGHT)
+  cat(paste0("Zoomed plot saved as PDF: ", pdf_filename, "\n"))
+}
+```
+
+## Checking the ANI between the visualized reference genomes
+
+To understand how similar or dissimilar the reference genomes we show in Figure 1 are from one another, we - as the last step - checked their ANI using FastANI (https://github.com/ParBLiSS/FastANI) version 1.33.
+
+To do so, we specified the location of the fasta files of each reference genomes, as well as the output file. 
+
+First for `HTCC1002` and `HIMB2204`
+```
+fastANI -q fastaDrep/dereplicated_genomes/HTCC1002.fa -r fastaDrep/dereplicated_genomes/HIMB2204.fa --visualize -o output_fastANI_HTCC1002nhIMB2204.txt
+```
+
+> fastaDrep/dereplicated_genomes/HTCC1002.fa      fastaDrep/dereplicated_genomes/HIMB2204.fa       78.0557 199     441
+
+
+And second for `HTCC1002` and `HTCC7211`
+```bash
+fastANI -q fastaDrep/dereplicated_genomes/HTCC1002.fa -r fastaDrep/dereplicated_genomes/HTCC7211.fa --visualize -o output_fastANI_HTCC1002nHTCC7211.txt
+```
+> fastaDrep/dereplicated_genomes/HTCC1002.fa      fastaDrep/dereplicated_genomes/HTCC7211.fa       79.4378 241     441
+
+To visualise them, we utilized the R script FastANI provides:
+
+First for `HTCC1002` and `HIMB2204`
+```bash
+Rscript visualizeFastANI.R ../../P3_refGenomes/FASTA_collection_used/HTCC1002.fa ../../P3_refGenomes/FASTA_collection_used/HIMB2204.fa output_fastANI_HTCC1002nhIMB2204.txt.visual
+```
+
+
+
+And second for `HTCC1002` and `HTCC7211`
+```bash
+Rscript visualizeFastANI.R ../../P3_refGenomes/FASTA_collection_used/HTCC1002.fa ../../P3_refGenomes/FASTA_collection_used/HTCC7211.fa output_fastANI_HTCC1002nHTCC7211.txt.visual
+```
+
+
 
 
 
