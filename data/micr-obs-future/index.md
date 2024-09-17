@@ -420,7 +420,7 @@ Looking at the output, this is what we see:
 
 We kept all isolate genomes since they are all above 80% completeness and below 5% contamination.
 
-### Dereplicating isolate genomes
+### Dereplicate isolate genomes
 
 In the following section, we describe how we dereplicated the 99 reference genomes to retain a single representative genome from each group of highly similar genomes. Dereplication is useful for reducing redundancy, optimizing computational efficiency, and ensuring that downstream analyses focus on the unique diversity of the genome set. 
 
