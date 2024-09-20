@@ -1123,6 +1123,7 @@ To get the average genome length, number of genes, and metabolic independence sc
 
 ```python
 import pandas as pd
+import scipy.stats as stats
 df = pd.read_csv("TABLES/01_GTDB_GENOMES_INFO.txt", sep="\t", index_col=0)
 
 df.groupby('classification').mean()
