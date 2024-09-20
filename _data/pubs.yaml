@@ -66,6 +66,30 @@ people:
 
 publications:
   - doi:
+      10.1016/j.cell.2024.08.028
+    title:
+      "Modern microbiology: Embracing complexity through integration across scales"
+    authors:
+      A Murat Eren, Jillian F Banfield
+    journal:
+      Cell
+    year:
+      2024
+    volume:
+      187
+    number:
+      19
+    pages:
+      5151-5170
+    additional_info:
+      highlights:
+        - A review article that considers an inevitably incomplete list of emergent themes in microbiology and highlights those that are among the archetypes of its modern era.
+        - In which we claimed that <i>microbiology is arguably the most important science of the mid-21st century</i> and survived to tell the story.
+        - This paper was also the cover of <i>Cell</i>'s <a href="https://www.cell.com/cell/issue?pii=S0092-8674(23)X0020-8" target="_blank">anniversary focus issue</a> on microbes. See this <a href="https://merenlab.org/story-of-a-cover/" target="_blank">blog post</a> by Meren to see the evolution of the cover.
+      featured_image:
+        /images/pubs/eren-banfield-cell-cover.jpg
+
+  - doi:
       10.1038/s41597-024-03778-z
     title:
       "Digital Microbe: A genome-informed data integration framework for collaborative research on emerging model organisms"

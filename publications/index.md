@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2024-09-05
+modified: 2024-09-20
 comments: false
 image:
    display: true
@@ -16,6 +16,23 @@ image:
 This page lists publications that are most reflective of our interests. For a complete list, please see <a href='https://scholar.google.com/citations?user=GtLLuxoAAAAJ&view_op=list_works&sortby=pubdate' target='_blank'>Meren's Google Scholar page</a>.
 
 ## 2024
+
+<a id="10.1016/j.cell.2024.08.028">&nbsp;</a>
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1016/j.cell.2024.08.028"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1016/j.cell.2024.08.028" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1016/j.cell.2024.08.028" target="_new">Modern microbiology: Embracing complexity through integration across scales</a></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Banfield JF</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/eren-banfield-cell-cover.jpg"><img src="/images/pubs/eren-banfield-cell-cover.jpg" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A review article that considers an inevitably incomplete list of emergent themes in microbiology and highlights those that are among the archetypes of its modern era.</span><br><span style="display: inline-block; padding-bottom: 5px;">- In which we claimed that <i>microbiology is arguably the most important science of the mid-21st century</i> and survived to tell the story.</span><br><span style="display: inline-block; padding-bottom: 5px;">- This paper was also the cover of <i>Cell</i>'s <a href="https://www.cell.com/cell/issue?pii=S0092-8674(23)X0020-8" target="_blank">anniversary focus issue</a> on microbes. See this <a href="https://merenlab.org/story-of-a-cover/" target="_blank">blog post</a> by Meren to see the evolution of the cover.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>Cell</b>, 187(19):5151-5170 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Modern+microbiology:+Embracing+complexity+through+integration+across+scales" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1016/j.cell.2024.08.028" target="_blank">doi:10.1016/j.cell.2024.08.028</a></span>
+</div>
 
 <a id="10.1038/s41597-024-03778-z">&nbsp;</a>
 <div class="pub">
