@@ -1190,7 +1190,7 @@ group_means[group_means$diff > .40,]
 
 Now comes the time to put all the data we just generated together into Figure 3.
 
-### Panel B
+#### Panel B
 
 Panel B of this figure was drawn using the anvi'o interactive interface. It includes the phylogenetic tree, taxonomy information, per-genome detection ratios, percent abundances, HMI score and class, and heatmap of completeness scores for each of the IBD-enriched pathways.
 
@@ -1328,7 +1328,7 @@ anvi-interactive --manual \
 
 And now you are done with replicating panel B.
 
-### Remaining panels
+#### Remaining panels
 
 The other panels of Figure 3 can all be generated using the R script at `SCRIPTS/plot_figures.R`. Each one has its own section of the code that can be run independently (after loading the packages and variables at the top of the script). For panels C and D, the associated statistical tests referenced in the manuscript are also included (after the figure code). The script relies on the data files generated in this section, namely `05_GTDB_ANALYSES/genome_proportions.txt` and `05_GTDB_ANALYSES/sample_proportions.txt`, as well as on the data files from the mapping workflow which are provided in the `TABLES` directory. Note that the working directory should be set to the `SCRIPTS/` folder for the relative paths to these files to be correct.
 
