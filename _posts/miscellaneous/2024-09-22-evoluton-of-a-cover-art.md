@@ -1,8 +1,8 @@
 ---
 layout: post
 authors: [meren]
-title: "Evolution of a cover art"
-excerpt: "How did we turn a vague idea into a cover image for Cell"
+title: "Evolution of a cover"
+excerpt: "From a vague idea to a piece of art"
 modified: 2024-09-22
 tags: [publication]
 categories: [miscellaneous]
