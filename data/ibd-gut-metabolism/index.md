@@ -601,6 +601,8 @@ ibd_enriched = ordered_modules %>% filter(module != "M00006")
 
 This is because the module in question, [M00006](https://www.genome.jp/entry/M00006), is the oxidative phase of the pentose phosphate cycle and overlaps completely with the module describing the entirety of the pentose phosphate cycle, [M00004](https://www.genome.jp/entry/M00004). We also considered removing module [M00007](https://www.genome.jp/entry/M00007) because it is the non-oxidative phase of this cycle; however, it has some enzymatic differences with module M00004, so we left it in.
 
+We repeated the above enrichment analyis on the unnormalized (raw) copy number data as well, in order to obtain p-values and an effect size threshold for the plot in Figure 2a. These results are not reported anywhere since it's difficult to interpret differences in the unnormalized data. However, the code for generating them can be found in the same script at `SCRIPTS/module_stats_and_medians.R`.
+
 ### Computing proportion of shared enzymes in IBD-enriched pathways
 
 You may have noticed a few statements in our paper about how closely intertwined the IBD-enriched metabolic pathways are. They share a high proportion of enzymes and compounds. To get the data backing up that statement (which can be found in [Supplementary Table 2](https://doi.org/10.6084/m9.figshare.22679080) as well), you can run the following script:
