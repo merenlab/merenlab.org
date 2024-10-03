@@ -165,7 +165,7 @@ Please note that each lecture takes place on **Mondays**, between **10:15 - 12:0
 * *Suggested Reading*:
 
   * [Beginner's Guide to the Bash Terminal](https://www.youtube.com/watch?v=oxuRxtrO2Ag), Joe Collins, YouTube (a video introduction to the Linux command line environment).
-* [Learning the Shell](http://linuxcommand.org/lc3_learning_the_shell.php), William Shotts (a chapter from the open book "*The Linux Command Line*").
+  * [Learning the Shell](http://linuxcommand.org/lc3_learning_the_shell.php), William Shotts (a chapter from the open book "*The Linux Command Line*").
 
 ### 04/11/24 :: An overview of **data-driven strategies** to survey environmental microbiomes
 
@@ -331,7 +331,22 @@ Please note that each lecture takes place on **Mondays**, between **10:15 - 12:0
   * Denef VJ (2018). [Peering into the genetic make up of natural microbial populations using metagenomics](https://doi.org/10.1007/13836_2018_14). *Springer Publishing*.
   * Delmont TO, et al (2019). [Single-amino acid variants reveal evolutionary processes that shape the biogeography of a global SAR11 subclade](https://doi.org/10.7554/eLife.46497). *eLife*.
 
-### 20/01/25 :: **Structure-informed** interpretations of microbial population genetics
+### 20/01/25 :: Pre-proposal peer-review panel
+
+*Discussion Leaders*:
+
+  * Student peer review groups
+  * Iliana
+  * Iva
+
+* *Learning Objectives*:
+
+  * Discuss the strengths and potential areas of improvement for each course participant's (anonymous) pre-proposal 
+  * Summarize constructive feedback in a concise and considerate manner
+  * Understand and apply the real-world evaluation process for grant proposals
+
+
+### 27/01/25 :: **Structure-informed** interpretations of microbial population genetics
 
 * *Discussion Leaders*:
 
@@ -349,7 +364,9 @@ Please note that each lecture takes place on **Mondays**, between **10:15 - 12:0
   * Robinson SL (2023). [Structure-guided metagenome mining to tap microbial functional diversity](https://doi.org/10.1016/j.mib.2023.102382). *Current Opinion in Microbiology*.
   * Kiefl E, et al (2023). [Structure-informed microbial population genetics elucidate selective pressures that shape protein evolution](https://www.science.org/doi/full/10.1126/sciadv.abq4632). *Science Advances*.
 
-### 27/01/25 :: **Genomic dynamism**: inversions, diversity generating retroelements, and more
+### Bonus lecture :: **Genomic dynamism**: inversions, diversity generating retroelements, and more
+
+If there is interest in this topic from the class or it becomes necessary to rearrange the course schedule due to cancellations of other topics, this lecture can be swapped into the schedule.
 
 * *Discussion Leaders*:
 
