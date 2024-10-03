@@ -1946,7 +1946,7 @@ We validated our methodology for computing metagenomic PPCN values using synthet
 The datapack for this section is available [here](https://doi.org/10.6084/m9.figshare.26038018). It contains most of the scripts and input/output files mentioned below (if you find that something is missing, please let us know). You can download it as follows:
 
 ```bash
-wget https://figshare.com/ndownloader/files/47369359 -O SUPPLEMENTARY_REPRODUCIBLE_SCRIPTS_VESELI_ET_AL.tar.gz
+wget https://figshare.com/ndownloader/files/49589430 -O SUPPLEMENTARY_REPRODUCIBLE_SCRIPTS_VESELI_ET_AL.tar.gz
 tar -xvf SUPPLEMENTARY_REPRODUCIBLE_SCRIPTS_VESELI_ET_AL.tar.gz
 cd SUPPLEMENTARY_REPRODUCIBLE_SCRIPTS_VESELI_ET_AL
 ```
@@ -2195,6 +2195,9 @@ The script produces three output files (per test case) that summarize the metage
 ### Analysis of PPCN estimation accuracy and robustness to sample parameters
 
 We used a custom R script (`plot_simulation_results.R`) to analyze the accuracy and robustness of our PPCN approach. This script includes the code to plot the figures in our Supplementary File 2, run Spearman's correlations with sample parameters, and compute statistics. It relies upon the output files produced in the previous section for each test case (which can be found in the *_SYNTHETIC_METAGENOMES.tar.gz archives in the datapack). 
+
+{.warning}
+We're sorry if any of the figure numbering in this R script is off relative to the numbering of Supplementary File 2. Figures inevitably got reshuffled during the review process. We did our best to renumber the figures in the script to match, but we might have missed something.
 
 To plot the size gradients for the genome size test case, we had to quantify the number of genomes in each genome size category within each synthetic metagenome. We did this with yet another custom script:
 
