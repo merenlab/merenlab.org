@@ -1192,9 +1192,9 @@ group_means[group_means$diff > .40,]
 
 Now comes the time to put all the data we just generated together into Figure 3.
 
-#### Panel B
+#### Panel A
 
-Panel B of this figure was drawn using the anvi'o interactive interface. It includes the phylogenetic tree, taxonomy information, per-genome detection ratios, percent abundances, HMI score and class, and heatmap of completeness scores for each of the IBD-enriched pathways.
+Panel A of this figure was drawn using the anvi'o interactive interface. It includes the phylogenetic tree, taxonomy information, per-genome detection ratios, percent abundances, HMI score and class, and heatmap of completeness scores for each of the IBD-enriched pathways.
 
 To replicate this figure, you'll first draw the top of the panel, which contains all the data listed above except for the heatmap of module completeness. Combine the taxonomy information (taken from GTDB) with the HMI score and HMI/non-HMI genome label (taken from the output you generated earlier, or alternatively `TABLES/01_GTDB_GENOMES_INFO.txt`) into one file, and then run the program {% include PROGRAM name="anvi-interactive" %} with the inclusion of genome phylogeny to bring everything together in the anvi'o intearctive interface:
 
@@ -1247,11 +1247,11 @@ Now all the data is imported, but if you ran the above command, the drawing in t
 
 ```bash
 # import our re-rooted phylogeny
-anvi-import-items-order -i MISC/fig_3b_rerooted_tree.txt -p 05_GTDB_ANALYSES/tree.db \
+anvi-import-items-order -i MISC/fig_3a_rerooted_tree.txt -p 05_GTDB_ANALYSES/tree.db \
                 --name REROOTEDv2
 
 # import our visualization settings
-anvi-import-state -s MISC/fig_3b_tree_state.json \
+anvi-import-state -s MISC/fig_3a_tree_state.json \
                 -p 05_GTDB_ANALYSES/tree.db \
                 -n default
 
@@ -1262,7 +1262,7 @@ anvi-interactive -A 05_GTDB_ANALYSES/tree_additional_data.txt \
                  --manual
 ```
 
-And now it will look like the top of Figure 3b. Since the command above still includes the tree file `-t MISC/GTDB_tree.contree`, you can also organize the data using that tree to see how it looked before re-rooting.
+And now it will look like the top of Figure 3a. Since the command above still includes the tree file `-t MISC/GTDB_tree.contree`, you can also organize the data using that tree to see how it looked before re-rooting.
 
 To get the module completeness heatmap, you should first extract the completeness scores for just the 33 IBD-enriched modules from the matrix of all completeness scores that you generated earlier. Then, flip that matrix so that the genomes are in the rows and the modules are in the columns. Finally, you can load the resulting matrix in the interactive interface. Just like before, you'll initially use the phylogeny to organize the data for each genome, and later import the re-rooted tree:
 
@@ -1284,7 +1284,7 @@ anvi-interactive --manual \
                  --dry-run
 
 # import our re-rooted phylogeny
-anvi-import-items-order -i MISC/fig_3b_rerooted_tree.txt -p 05_GTDB_ANALYSES/modules_heatmap.db \
+anvi-import-items-order -i MISC/fig_3a_rerooted_tree.txt -p 05_GTDB_ANALYSES/modules_heatmap.db \
                 --name REROOTEDv2
 ```
 
@@ -1312,12 +1312,12 @@ Once again, we changed a lot of the visualization settings, so the visualization
 
 ```bash
 # import our rotated dendrogram
-anvi-import-misc-data MISC/fig_3b_heatmap_dendrogram.txt \
+anvi-import-misc-data MISC/fig_3a_heatmap_dendrogram.txt \
                       -p 05_GTDB_ANALYSES/modules_heatmap.db \
                       -t layer_orders
 
 # import our visualization settings
-anvi-import-state -s MISC/fig_3b_heatmap_state.json \
+anvi-import-state -s MISC/fig_3a_heatmap_state.json \
                   -p 05_GTDB_ANALYSES/modules_heatmap.db \
                   -n default
 
@@ -1328,11 +1328,11 @@ anvi-interactive --manual \
                  -p 05_GTDB_ANALYSES/modules_heatmap.db
 ```
 
-And now you are done with replicating panel B.
+And now you are done with replicating panel A.
 
 #### Remaining panels
 
-The other panels of Figure 3 can all be generated using the R script at `SCRIPTS/plot_figures.R`. Each one has its own section of the code that can be run independently (after loading the packages and variables at the top of the script). For panels C and D, the associated statistical tests referenced in the manuscript are also included (after the figure code). The script relies on the data files generated in this section, namely `05_GTDB_ANALYSES/genome_proportions.txt` and `05_GTDB_ANALYSES/sample_proportions.txt`, as well as on the data files from the mapping workflow which are provided in the `TABLES` directory. Note that the working directory should be set to the `SCRIPTS/` folder for the relative paths to these files to be correct.
+The other panels of Figure 3 (and the accompanying Supplementary Figure 8 of the EcoPhylo/read recruitment data) can all be generated using the R script at `SCRIPTS/plot_figures.R`. Each one has its own section of the code that can be run independently (after loading the packages and variables at the top of the script). For panels B and C, the associated statistical tests referenced in the manuscript are also included (after the figure code). The script relies on the data files generated in this section, namely `05_GTDB_ANALYSES/genome_proportions.txt` and `05_GTDB_ANALYSES/sample_proportions.txt`, as well as on the data files from the mapping workflow which are provided in the `TABLES` directory. Note that the working directory should be set to the `SCRIPTS/` folder for the relative paths to these files to be correct.
 
 
 ## Machine learning analyses
