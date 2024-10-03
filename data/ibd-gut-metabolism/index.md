@@ -21,7 +21,7 @@ Here is a list of links for quick access to the data described in our manuscript
 * [doi:10.5281/zenodo.7883421](https://doi.org/10.5281/zenodo.7883421): Contigs databases for 338 GTDB genomes.
 * [doi:10.5281/zenodo.7897987](https://doi.org/10.5281/zenodo.7897987): Contigs databases for our assemblies of the gut metagenomes from [Palleja et al. 2018](https://doi.org/10.1038/s41564-018-0257-9).
 * [doi:10.6084/m9.figshare.24042288](https://doi.org/10.6084/m9.figshare.24042288): AGNOSTOS gene clustering and classification data for genes from our assemblies of 330 deeply-sequenced healthy and IBD gut metagenomes.
-* [doi:10.6084/m9.figshare.26038018](https://doi.org/10.6084/m9.figshare.26038018): Datapack for reproducible workflow for validation of our methodology (see [Addendum](#addendum-using-synthetic-metagenomes-to-validate-our-method-of-computing-per-population-copy-numbers)).
+* [doi:10.6084/m9.figshare.26038018](https://doi.org/10.6084/m9.figshare.26038018): Datapack for reproducible workflow for validation of our methodology (see [Addendum 2](#addendum-2-using-synthetic-metagenomes-to-validate-our-method-of-computing-per-population-copy-numbers)).
 
 
 </div>
@@ -1334,7 +1334,7 @@ And now you are done with replicating panel A.
 
 The other panels of Figure 3 (and the accompanying Supplementary Figure 8 of the EcoPhylo/read recruitment data) can all be generated using the R script at `SCRIPTS/plot_figures.R`. Each one has its own section of the code that can be run independently (after loading the packages and variables at the top of the script). For panels B and C, the associated statistical tests referenced in the manuscript are also included (after the figure code). The script relies on the data files generated in this section, namely `05_GTDB_ANALYSES/genome_proportions.txt` and `05_GTDB_ANALYSES/sample_proportions.txt`, as well as on the data files from the mapping workflow which are provided in the `TABLES` directory. Note that the working directory should be set to the `SCRIPTS/` folder for the relative paths to these files to be correct.
 
-### Addendum: Testing different HMI score thresholds
+### Addendum 1: Testing different HMI score thresholds
 
 One of the things we were asked during the review process was, "What happens to the results if you use a different threshold for classifying genomes as HMI vs non-HMI?" That's a good question. So we tested a small range of different HMI score thresholds (75% to 85% average completeness of the 33 IBD-enriched modules) by re-computing the HMI vs non-HMI statistics at each threshold. The long story short is that the overall conclusions of this section of our paper stay largely the same regardless of which HMI score threshold is used. If you're interested in this analysis, you can read the new section of Supplementary File 1 and see the results reported in Supplementary Table 3h. And if you want to replicate this analysis, you can follow the steps in this section.
 
@@ -1939,7 +1939,7 @@ If you want to see the code for that cross-validation, check out `SCRIPTS/metage
 
  To verify that our IBD-enrichment analysis captures generic signals across all studies despite the dominance of two studies ([Le Chatelier et al. 2013](https://doi.org/10.1038/nature12506) and [Vineis et al. 2016](https://doi.org/10.1128/mBio.01713-16)) in our dataset, we repeated our IBD-enrichment analysis using (1) only samples from those two dominating studies and (2) the 115 samples excluding the two dominating studies. You will find the code for this analysis, as well as the code to plot Supplementary Figure 7, in the R script at `SCRIPTS/stats_tests_for_modules.R`. The relevant section is titled 'TEST SENSITIVITY OF ANALYSIS TO STUDY'.
 
-## Addendum: Using synthetic metagenomes to validate our method of computing per-population copy numbers
+## Addendum 2: Using synthetic metagenomes to validate our method of computing per-population copy numbers
 
 We validated our methodology for computing metagenomic PPCN values using synthetic metagenomic data. To summarize, we created synthetic metagenomic communities by combining individual bacterial and archaeal genomes from the GTDB. We then were able to compare the PPCN values computed for these metagenomes to the metabolism estimation data from the component genomes to assess PPCN accuracy, and its relationship to various metagenomic parameters like sample diversity, community size, and distribution of genome sizes in the synthetic community. We also evaluated the accuracy of estimating the number of populations using single-copy core gene annotations. The validation results are detailed in Supplementary File 2, and below you will find our reproducible workflow for generating the synthetic metagenomes and doing the validation analysis.
 
