@@ -53,7 +53,7 @@ We've pre-packaged a lot of the data and scripts that you need for this workflow
 
 ```bash
 # download the datapack
-wget https://figshare.com/ndownloader/files/40468865 -O VESELI_2023_DATAPACK.tar.gz
+wget https://figshare.com/ndownloader/files/49589250 -O VESELI_2023_DATAPACK.tar.gz
 
 # extract it
 tar -xvzf VESELI_2023_DATAPACK.tar.gz
