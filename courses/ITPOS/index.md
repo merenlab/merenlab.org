@@ -423,6 +423,13 @@ The grading scale for this module is as follows:
 |3.7	|55% |
 |4.0	|50% |
 
+### Summary of important deadlines
+
+* **10.12.24** :: one paragraph research idea is due
+* **07.01.25** :: pre-proposal is due
+* week of **20.01.25** :: peer-review panel takes place in class
+* **15.02.25** :: final proposal is due
+
 ## Examination Policy
 
 Please find all relevant university policies here: https://uol.de/studiengang/pruefungen/umweltwissenschaften-fach-bachelor-136
