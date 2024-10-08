@@ -138,6 +138,8 @@ config.yaml:
 anvi-run-workflow -w pangenomics -c config.yaml
 ```
 
+[![First pangenome]({{site.url}}/images/anvio/2024-07-10-pangenome-graphs/Figure_1.png)]({{site.url}}/images/anvio/2024-07-10-pangenome-graphs/Figure_1.png){:.center-img .width-80}
+
 /path/to/\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 00_LOGS\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── ...\
@@ -169,3 +171,7 @@ anvi-run-workflow -w pangenomics -c config.yaml
 anvi-pan-graph -p 03_PAN/SAR202_Group_1-PAN.db -g 03_PAN/SAR202_Group_1-GENOMES.db -e external-genomes.txt --output-file SAR202_Group_1-JSON.json
 anvi-display-pan-graph -p 03_PAN/SAR202_Group_1-PAN.db -g 03_PAN/SAR202_Group_1-GENOMES.db --pan-graph-json SAR202_Group_1-JSON.json
 ```
+
+[![First pangenome graph]({{site.url}}/images/anvio/2024-07-10-pangenome-graphs/Figure_2.png)]({{site.url}}/images/anvio/2024-07-10-pangenome-graphs/Figure_2.png){:.center-img .width-80}
+
+[![Final pangenome graph]({{site.url}}/images/anvio/2024-07-10-pangenome-graphs/Figure_3.png)]({{site.url}}/images/anvio/2024-07-10-pangenome-graphs/Figure_3.png){:.center-img .width-80}
