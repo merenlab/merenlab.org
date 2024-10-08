@@ -61,21 +61,32 @@ wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/029/532/165/GCF_029532165.1_AS
 gzip -d *.gz
 ```
 
-Current folder structure:
+The current folder structure should look like this.
 
-/path/to/
-├── GCF_029532145.fna
-├── GCF_029532165.fna
-├── GCF_029593895.fna
-└── GCF_029593915.fna
+/path/to/\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532145.fna\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532165.fna\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029593895.fna\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── GCF_029593915.fna
 
 ## Order and reorient the draft genomes
 
-/path/to/
-├── GCF_029532145.fna
-├── GCF_029532165.fna
-├── GCF_029593895.fna
-└── GCF_029593915.fna
+In the next step we have to order and reorient the draft genome contigs. We use the program {% include PROGRAM name="anvi-reorient-contigs" %} to order and reorient the contigs based on the longest complete genome present in our folder.
+
+``` bash
+anvi-reorient-fasta -f ./
+```
+
+The fasta files containing draft genomes are now ready to be used on the pangenomics workflow, if we see some blast result files in the folder.
+
+/path/to/\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532145.fna\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532145_blast\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532165.fna\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532165_blast\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029593895.fna\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029593895_blast\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── GCF_029593915.fna
 
 ## Running the anvi'o pangenomics workflow
 
@@ -84,17 +95,17 @@ From the workflow we will receive multiple databases that we need for further do
 ``` bash
 echo -e 'name\tpath' > fasta.txt
 for filename in *.fna; do
-    echo -e $(basename $filename)'\t'$(realpath $filename) >> fasta.txt
+    echo -e $(basename $filename | cut -d. -f1)'\t'$(realpath $filename) >> fasta.txt
 done
 ```
 
 fasta.txt:
 ``` txt
 name	path
-GCF_029532145.fna	/path/to/GCF_029532145.fna
-GCF_029532165.fna	/path/to/GCF_029532165.fna
-GCF_029593895.fna	/path/to/GCF_029593895.fna
-GCF_029593915.fna	/path/to/GCF_029593915.fna
+GCF_029532145	/path/to/GCF_029532145.fna
+GCF_029532165	/path/to/GCF_029532165.fna
+GCF_029593895	/path/to/GCF_029593895.fna
+GCF_029593915	/path/to/GCF_029593915.fna
 ```
 
 ```bash
@@ -106,7 +117,7 @@ For the sake of simplicity we will keep most values as they are. The only change
 config.yaml:
 ``` yaml
 {...}
-"project_name": "Candidatus_Lucifugimonas_marina",
+    "project_name": "Candidatus_Lucifugimonas_marina",
     "internal_genomes": "",
     "external_genomes": "external-genomes.txt",
     "sequence_source_for_phylogeny": "",
@@ -127,28 +138,28 @@ config.yaml:
 anvi-run-workflow -w pangenomics -c config.yaml
 ```
 
-/path/to/
-├── 00_LOGS
-│ └── ...
-├── 01_FASTA
-│ └── ...
-├── 02_CONTIGS
-│ ├── GCF_029532145-contigs.db
-│ ├── GCF_029532165-contigs.db
-│ ├── GCF_029593895-contigs.db
-│ ├── GCF_029593915-contigs.db
-│ └── ...
-├── 03_PAN
-| ├── Candidatus_Lucifugimonas_marina-GENOMES.db
-| ├── Candidatus_Lucifugimonas_marina-PAN.db
-| └── ...
-├── config.yaml
-├── external-genomes.txt
-├── fasta.txt
-├── GCF_029532145.fna
-├── GCF_029532165.fna
-├── GCF_029593895.fna
-└── GCF_029593915.fna
+/path/to/\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 00_LOGS\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── ...\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 01_FASTA\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── ...\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 02_CONTIGS\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532145-contigs.db\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532165-contigs.db\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029593895-contigs.db\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029593915-contigs.db\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── ...\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 03_PAN\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Candidatus_Lucifugimonas_marina-GENOMES.db\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Candidatus_Lucifugimonas_marina-PAN.db\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── ...\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── config.yaml\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── external-genomes.txt\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── fasta.txt\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532145.fna\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532165.fna\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029593895.fna\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── GCF_029593915.fna
 
 ## Decide on the genomes subset to use
 
