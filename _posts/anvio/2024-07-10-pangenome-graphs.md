@@ -213,20 +213,26 @@ After pressing the draw button again, the resulting pangenome should look like t
 
 [![Final pangenome]({{site.url}}/images/anvio/2024-07-10-pangenome-graphs/Figure_3.png)]({{site.url}}/images/anvio/2024-07-10-pangenome-graphs/Figure_3.png){:.center-img .width-80}
 
-In the newly added red squares we see the ANI between the genomes of the pangenome. Aside from the diagonal which contains a similarity of 100% due to comparing the same genomes with each other we see a second very high sqare on the top left. The complete genome GCF_029593915 shares a very high ANI with the draft genome GCF_029532145. Therefore our first step in creating a pangenome graph is to use those to genomes.
+In the newly added red squares we see the ANI between the genomes of the pangenome. Aside from the diagonal which contains a similarity of 100% due to comparing the same genomes with each other we see a second very high sqare on the top left. The complete genome GCF_029593915 shares a very high ANI with the draft genome GCF_029532145. Therefore our initial step in creating a pangenome graph is to use those two genomes.
 
 ## Create an anvi'o pangenome graph
 
-``` bash
-anvi-pan-graph -p 03_PAN/SAR202_Group_1-PAN.db \
-               -g 03_PAN/SAR202_Group_1-GENOMES.db \
-               -e external-genomes.txt \
-               -o SAR202_Group_1-JSON.json
-               -G 'GCF_029593915,GCF_029532145'
+```bash
+mkdir 05_PANGRAPH
+```
 
-anvi-display-pan-graph -p 03_PAN/SAR202_Group_1-PAN.db \
-                       -g 03_PAN/SAR202_Group_1-GENOMES.db \
-                       -i SAR202_Group_1-JSON.json
+``` bash
+anvi-pan-graph -e external-genomes.txt \
+               -p 03_PAN/Candidatus_Lucifugimonas_marina-PAN.db \
+               -g 03_PAN/Candidatus_Lucifugimonas_marina-GENOMES.db \
+               -o 05_PANGRAPH/Candidatus_Lucifugimonas_marina-JSON.json \
+               -G 'GCF_029593915,GCF_029532145'
+```
+
+```bash
+anvi-display-pan-graph -p 03_PAN/Candidatus_Lucifugimonas_marina-PAN.db \
+                       -g 03_PAN/Candidatus_Lucifugimonas_marina-GENOMES.db \
+                       -i 05_PANGRAPH/Candidatus_Lucifugimonas_marina-JSON.json
 ```
 
 [![First pangenome graph]({{site.url}}/images/anvio/2024-07-10-pangenome-graphs/Figure_4.png)]({{site.url}}/images/anvio/2024-07-10-pangenome-graphs/Figure_4.png){:.center-img .width-80}
@@ -235,8 +241,60 @@ anvi-display-pan-graph -p 03_PAN/SAR202_Group_1-PAN.db \
 
 [![second pangenome graph]({{site.url}}/images/anvio/2024-07-10-pangenome-graphs/Figure_6.png)]({{site.url}}/images/anvio/2024-07-10-pangenome-graphs/Figure_6.png){:.center-img .width-80}
 
+/path/to/\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 00_LOGS\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── ...\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 01_FASTA\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── ...\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 02_CONTIGS\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532145-contigs.db\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532165-contigs.db\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029593895-contigs.db\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029593915-contigs.db\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── ...\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 03_PAN\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Candidatus_Lucifugimonas_marina-GENOMES.db\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Candidatus_Lucifugimonas_marina-PAN.db\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── ...\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 04_ANI\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── ...\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 05_PANGRAPH\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── Candidatus_Lucifugimonas_marina-JSON.json \
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── config.yaml\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── external-genomes.txt\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── fasta.txt\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532145.fna\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029532165.fna\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GCF_029593895.fna\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── GCF_029593915.fna
+
+## Expanding the pangenome graph with the remaining genomes
+
+``` bash
+anvi-pan-graph -e external-genomes.txt \
+               -p 03_PAN/Candidatus_Lucifugimonas_marina-PAN.db \
+               -g 03_PAN/Candidatus_Lucifugimonas_marina-GENOMES.db \
+               -o 05_PANGRAPH/Candidatus_Lucifugimonas_marina-JSON_2.json
+```
+
+``` bash
+anvi-display-pan-graph -p 03_PAN/Candidatus_Lucifugimonas_marina-PAN.db \
+                       -g 03_PAN/Candidatus_Lucifugimonas_marina-GENOMES.db \
+                       -i 05_PANGRAPH/Candidatus_Lucifugimonas_marina-JSON_2.json
+```
+
 [![Third pangenome graph]({{site.url}}/images/anvio/2024-07-10-pangenome-graphs/Figure_7.png)]({{site.url}}/images/anvio/2024-07-10-pangenome-graphs/Figure_7.png){:.center-img .width-80}
 
 [![Settings third pangenome graph part 1]({{site.url}}/images/anvio/2024-07-10-pangenome-graphs/Figure_8_1.png)]({{site.url}}/images/anvio/2024-07-10-pangenome-graphs/Figure_8_1.png){:.width-40} [![Settings third pangenome graph part 2]({{site.url}}/images/anvio/2024-07-10-pangenome-graphs/Figure_8_2.png)]({{site.url}}/images/anvio/2024-07-10-pangenome-graphs/Figure_8_2.png){:.width-40}
 
 [![Final pangenome graph]({{site.url}}/images/anvio/2024-07-10-pangenome-graphs/Figure_9.png)]({{site.url}}/images/anvio/2024-07-10-pangenome-graphs/Figure_9.png){:.center-img .width-80}
+
+## Read from the graph - examples and explanaitions
+
+JUST SOME IDEAS:
+- What breaks an assembly? - Mobilome, Transposases
+- Why is subclustering GCs worth it? - POSCs, Enolases, Paralogs
+- Why do we need complex graphs? - Rearrangement (GCF_029593895)
+- Why is there so much similar stuff? - Synteny highly conserved
+- This circular view is ugly! - Linear view
+- What elso can we get from pangenome graphs? - Datatables and values
