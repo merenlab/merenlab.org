@@ -166,6 +166,7 @@ Please note that each lecture takes place on **Mondays**, between **10:15 - 12:0
 
   * [Beginner's Guide to the Bash Terminal](https://www.youtube.com/watch?v=oxuRxtrO2Ag), Joe Collins, YouTube (a video introduction to the Linux command line environment).
   * [Learning the Shell](http://linuxcommand.org/lc3_learning_the_shell.php), William Shotts (a chapter from the open book "*The Linux Command Line*").
+  * [The Unix Shell](https://swcarpentry.github.io/shell-novice/), Software Carpentry (an online tutorial)
 
 ### 04/11/24 :: An overview of **data-driven strategies** to survey environmental microbiomes
 

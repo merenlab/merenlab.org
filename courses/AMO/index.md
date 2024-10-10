@@ -72,6 +72,7 @@ Most of our work in this course will take place in the [UNIX shell](https://en.w
 
 * [Beginner's Guide to the Bash Terminal](https://www.youtube.com/watch?v=oxuRxtrO2Ag) (a video introduction to the Linux command line environment -- although Joe Collins is talking about Linux, the topics are relevant to anyone who uses a command line environment. It is strongly recommended to watch this in its entirety, and try to replicate the demonstrated commands).
 * [Learning the Shell](http://linuxcommand.org/lc3_learning_the_shell.php) (a chapter from the open book "*The Linux Command Line*" by William Shotts).
+* [The Unix Shell](https://swcarpentry.github.io/shell-novice/) (an online lesson on basic BASH skills designed by the Software Carpentry non-profit. You can download the data pack and follow along with the commands.)
 
 The course will require its participants to read and understand contemporary literature written in English.
 
