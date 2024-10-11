@@ -48,6 +48,7 @@ The lectures in the **Introduction to Popular &#39;Omics Strategies** will be pr
 
 Throughout the semester (and beyond) you can reach out via email with any question to Iva, who should be your first contact for anything related to the course activities unless specified otherwise anytime throughout the semester.
 
+Iva's office is **Room 2118** at the Helmholtz Institute for Functional Marine Biodiversity. If you need to meet with her here in person, please schedule an appointment by email first.
 
 ## Description and Learning Objectives
 

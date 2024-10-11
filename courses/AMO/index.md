@@ -49,6 +49,8 @@ Exercises throughout **Applied Microbial &#39;Omics** will be primarily delivere
 
 Throughout the semester (and beyond) you can reach out via email with any question to Iva, who should be your first contact for anything related to the course activities unless specified otherwise anytime throughout the semester.
 
+Iva's office is **Room 2118** at the Helmholtz Institute for Functional Marine Biodiversity. If you need to meet with her here in person, please schedule an appointment by email first.
+
 ## Description and Learning Objectives
 
 Generating hundreds of millions of sequences or tens of thousands of genomes to study naturally occurring microbial communities has become commonplace for many microbiologists. The ability to benefit from the ongoing data revolution demands the new generation of microbiologists to be familiar with the arsenal of &#39;omics tools that enable in-depth investigations of the new data streams that offer detailed snapshots of the microbial lifestyles. **The primary aim of this course** is to help its participants gain **hands-on experience** with some of the most popular data types and approaches in microbial &#39;omics and put some of the strategies detailed in the lecture **Introduction to Popular &#39;Omics Strategies** into practice.
