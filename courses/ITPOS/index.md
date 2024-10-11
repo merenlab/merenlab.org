@@ -81,6 +81,12 @@ After each lecture, the attendees will be given **suggested readings** from the 
 
 Please note that **preparation** and **participation** will play a key role in your success. For an effective learning experience please consider (1) taking a brief look at the suggested reading material of a given week in the course plan *before* coming to the lecture to familiarize yourself with the topic through online resources (~1 hour of study), (2) participate the lecture actively by asking questions and attending discussions, and (3) read the suggested material carefully soon after the lecture (~3 hours of study).
 
+### Suggested Readings: Sentence Highlights
+
+Reading academic literature can be tedious (even for those who are used to it), and it is easy to read it passively without retaining any information. To help maintain an active mode of reading, please do the following:
+
+Each time you read one of the suggested materials, highlight (or write down) **one sentence** that stands out to you. It can be something that intrigues you, confuses you, makes you excited, or raises a question. At the beginning of the next lecture, we will spend five minutes discussing one or two of these 'sentence highlights' together. Sharing your sentence highlights will be voluntary (but highly encouraged, as this will be an opportunity to clarify concepts and engage with the material in a way that follows your interests).
+
 ## Attendance Policy
 
 Each participant is expected to attend each lecture in person (unless a legitimate reason for absence that is recognized by the University is in effect). The attendance will be recorded by a strategy that we call **class citizenship**, which aims to help the course director to have an overall understanding of the evolution of the course.
