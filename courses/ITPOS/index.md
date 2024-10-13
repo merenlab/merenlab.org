@@ -433,12 +433,12 @@ The grading scale for this module is as follows:
 
 ### Summary of important deadlines
 
-* week of **26.11.24** :: individual meetings with Iliana and Iva to discuss proposal ideas
-* **10.12.24** :: one paragraph research idea is due
+* week of **26.11.24** :: we discuss the course proposals in class
+* **10.12.24** :: one paragraph research idea is due. Individual meetings with Iliana and Iva to discuss proposal ideas take place outside of class.
 * **07.01.25** :: pre-proposal is due
 * week of **20.01.25** :: peer-review panel takes place in class
 * **15.02.25** :: final proposal is due
-* **31.03.25** :: End of semester (grades are due)
+* **31.03.25** :: end of semester (grades are due)
 
 ## Examination Policy
 
