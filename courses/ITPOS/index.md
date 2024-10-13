@@ -442,7 +442,7 @@ The grading scale for this module is as follows:
 
 ## Examination Policy
 
-Please find all relevant university policies here: https://uol.de/studiengang/pruefungen/umweltwissenschaften-fach-bachelor-136
+Please find all relevant university policies here: [https://uol.de/studiengang/pruefungen/umweltwissenschaften-fach-bachelor-136](https://uol.de/studiengang/pruefungen/umweltwissenschaften-fach-bachelor-136)
 
 ## Academic Integrity
 **All University policies regarding academic integrity, ethics and honorable behavior apply to this course.** Academic integrity is the pursuit of scholarly activity free from fraud and deception and is an educational objective of this class. Academic dishonesty includes, but is not limited to, cheating, plagiarizing, fabricating of information or citations, facilitating acts of academic dishonesty by others, having unauthorized possession of examinations, submitting work of another person or work previously used without informing the instructor, or tampering with the academic work of other students. For any material or ideas obtained from other sources, such as the course reading materials or things you see on the web, in the library, etc., a source reference must be given. Direct quotes from any source must be identified as such.
