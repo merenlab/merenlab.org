@@ -79,7 +79,7 @@ The primary mode of course content delivery will be through slides, where Iva wi
 
 After each lecture, the attendees will be given **suggested readings** from the recent literature that covers relevant topics and/or their real-world applications to contemporary questions in marine microbiology, oceanography, marine conservation, and beyond.
 
-Please note that **preparation** and **participation** will play a key role in your success. For an effective learning experience please consider (1) taking a brief look at the suggested reading material of a given week in the course plan *before* coming to the lecture to familiarize yourself with the topic through online resources (~1 hour of study), (2) participate the lecture actively by asking questions and attending discussions, and (3) read the suggested material carefully soon after the lecture (~3 hours of study).
+Please note that **preparation** and **participation** will play a key role in your success. For an effective learning experience please consider (1) taking a brief look at the suggested reading material of a given week in the course plan *before* coming to the lecture to familiarize yourself with the topic through online resources (~1 hour of study), (2) participate in the lecture actively by asking questions and attending discussions, and (3) read the suggested material carefully soon after the lecture (~3 hours of study).
 
 ### Suggested Readings: Sentence Highlights
 
@@ -109,7 +109,7 @@ For instance, the following would be the appropriate title for this email for th
 
 The best class citizenship emails are those that are brief, genuine, and insightful. In an ideal world the emails should be no less than 50 words, and no more than 150 words. Please do not send notes you take throughout the class. You should use the last 5 minutes of the lecture to gather your thoughts, and come up with a summary of what you can remember. Here is an example class citizenship email:
 
-> Summary: Today we discussed what is phylogenomics, how phylogenomic trees are built, and why single-copy core genes are suitable for building phylogenomics trees. We also discussed the relationship between phylogenetics, phylogenomics, and pangenomics with respect to the fraction of genome used and the evolutionary distance that they can cover.
+> Summary: Today we discussed what is phylogenomics, how phylogenomic trees are built, and why single-copy core genes are suitable for building phylogenomic trees. We also discussed the relationship between phylogenetics, phylogenomics, and pangenomics with respect to the fraction of genome used and the evolutionary distance that they can cover.
 >
 > Question: Since phylogenomics and pangenomics are both useful for inferring evolutionary distances, it seems to me that integrating both methods in a systematic way would yield a more reliable tree. But it looks like the field only uses phylogenomics and pangenomics separately, is there a reason for that?
 
