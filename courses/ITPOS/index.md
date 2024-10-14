@@ -320,7 +320,7 @@ Please note that each lecture takes place on **Mondays**, between **10:15 - 12:0
   * Utter DR, et al (2020). [Metapangenomics of the oral microbiome provides insights into habitat adaptation and cultivar diversity](https://doi.org/10.1186/s13059-020-02200-2). *Genome Biology*.
   * Boeuf D, et al (2021). [Metapangenomics reveals depth-dependent shifts in metabolic potential for the ubiquitous marine bacterial SAR324 lineage](https://doi.org/10.1186/s40168-021-01119-5). *Microbiome*.
 
-### 13/01/24 :: **Microbial population genetics**: tools, terminology, and open questions
+### 13/01/25 :: **Microbial population genetics**: tools, terminology, and open questions
 
 * *Discussion Leaders*:
 
