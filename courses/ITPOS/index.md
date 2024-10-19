@@ -190,6 +190,7 @@ Please note that each lecture takes place on **Mondays**, between **10:15 - 12:0
 * *Suggested Reading*:
 
   * Franzosa EA, et al (2015). [Sequencing and beyond: integrating molecular ‘omics’ for microbial community profiling](https://www.nature.com/articles/nrmicro3451). *Nature Reviews Microbiology*.
+  * Eren AM and Banfield JF (2024). [Modern microbiology: Embracing complexity through integration across scales](https://www.cell.com/cell/fulltext/S0092-8674(24)00955-3). *Cell*.
 
 ### 11/11/24 :: **Genome-resolved metagenomics**: opportunities and pitfalls
 
@@ -389,7 +390,7 @@ If there is interest in this topic from the class or it becomes necessary to rea
 
 * *Suggested Reading*:
 
-  * Chanin RB and West PT, et al (2023). [Intragenic DNA inversions expand bacterial coding capacity](https://www.biorxiv.org/content/10.1101/2023.03.11.532203v2.full.pdf). *bioRxiv*.
+  * Chanin RB and West PT, et al (2024). [Intragenic DNA inversions expand bacterial coding capacity](https://www.nature.com/articles/s41586-024-07970-4). *Nature*.
   * Jiang X and Hall AB, et al (2019). [Invertible promoters mediate bacterial phase variation, antibiotic resistance, and host adaptation in the gut](https://doi.org/10.1126%2Fscience.aau5238). *Science*.
   * Paul BG, Eren AM (2022). [Eco-evolutionary significance of domesticated retroelements in microbial genomes](https://mobilednajournal.biomedcentral.com/articles/10.1186/s13100-022-00262-6). *Mobile DNA*.
   * Roux S, et al (2021). [Ecology and molecular targets of hypermutation in the global microbiome](https://www.nature.com/articles/s41467-021-23402-7). *Nature Communications*.
