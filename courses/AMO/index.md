@@ -154,7 +154,7 @@ We will also **discuss anvi'o and its features**, and will make sure everyone ha
 
 ### 06/11/24 :: EX 01: A read recruitment exercise to warm up
 
-Please try to accomplish this exercise by midnight on **13/11/23**. You will not need to return a report for this particular week.
+Please try to accomplish this exercise by midnight on **13/11/24**. You will not need to return a report for this particular week.
 
 > The purpose of this exercise is to help you have a direct exposure to individual analysis steps and tools that enables one to recruit reads from metagenomes (essentials of which are covered in the 04/11/24 lecture in the companion course), and profile the read recruitment results to investigate gene distribution patterns of a given population.
 >
