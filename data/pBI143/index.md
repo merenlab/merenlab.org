@@ -324,10 +324,9 @@ To quantify the ecology of pBI143 much more broadly, we performed a large-scale 
 
 The following sections detail each step, followed by a brief discussion over these results, in addition to those that appear in our paper.
 
-
 ### The read recruitment from 100K+ metagenomes
 
-This step of the analysis was completed with help from [the Sunagawa Lab](https://micro.biol.ethz.ch/research/sunagawa.html) at the ETH. They obtained BAM files from a read recruitment analysis using Bowtie2 with default parameters for all three versions of the plasmid across a large collection of metagenomes, and used the anvi'o program {% include PROGRAM name="anvi-profile-blitz" %} to generate a detailed output file with read recruitment statistics. This output is a file of type {% include ARTIFACT name="bam-stats-txt" %}, and you can see the standard headers in the output by visiting the artifact page.
+The anvi'o program {% include PROGRAM name="anvi-profile-blitz" %} profiled the BAM files samtools generated from Bowtie2 read recruitment results to report the distribution patterns of all three versions of pBI143 across all metagenomes. {% include PROGRAM name="anvi-profile-blitz" %} reports a detailed output for read recruitment statistics, called {% include ARTIFACT name="bam-stats-txt" %}, and you can see the standard headers in the output by visiting the artifact page.
 
 {:.warning}
 The raw output file from {% include PROGRAM name="anvi-profile-blitz" %} is available here: [anvi-profile-blitz.txt.gz](files/anvi-profile-blitz.txt.gz)
@@ -801,23 +800,319 @@ Next, we implemented an R script that takes in the [read-recruitment-results.txt
 Here is the data-independent bulk of our R code that implements some community functions:
 
 ```r
-library(ggplot2)library(ggpubr)library(grid)library(Gmisc)library(gridGraphics)GET_ORDERED_AVERAGES <- function(DF, VARIABLE, VALUE){  averages <- aggregate(DF[[VALUE]], list(DF[[VARIABLE]]), FUN=mean)  names(averages) <- c('name', 'value')  averages <-averages[order(averages$value), ]    return(averages)}GET_FREQ_TABLE <- function(DF, CATEGORY){  d <- data.frame(table(DF[[CATEGORY]]))  names(d) <- c('name', 'frequency')  d <-d[order(d$frequency), ]    return(d)}GET_DETECTION_IN_PERCENT_SAMPLES <- function(DF, MIN_DETECTION){    detection_averages = data.frame(name=character(), value=numeric(), stringsAsFactors = FALSE)        counter = 1    for(biome_name in unique(df$biome)) {      dfx = df[df$biome == biome_name, ]      pct <- nrow(dfx[dfx$detection > MIN_DETECTION, ]) / nrow(dfx)      detection_averages[counter, ] = c(biome_name, pct)      counter = counter + 1    }    detection_averages$value <- as.numeric(detection_averages$value)        detection_averages <- detection_averages[order(detection_averages$value), ]    return(detection_averages)}GET_PERCENT_SAMPLES_ABOVE_DETECTION <- function(DF, MIN_DETECTION){    detection_averages = data.frame(name=character(), value=numeric(), stringsAsFactors = FALSE)        counter = 1    for(biome_name in unique(DF$biome)) {      dfx = DF[DF$biome == biome_name, ]      pct <- 100 * nrow(dfx[dfx$detection > MIN_DETECTION, ]) / nrow(dfx)      detection_averages[counter, ] = c(biome_name, pct)      counter = counter + 1    }    detection_averages$value <- as.numeric(detection_averages$value)        detection_averages <- detection_averages[order(detection_averages$value), ]    return(detection_averages)}GET_PERCENT_SAMPLES_ABOVE_DETECTION_PER_BIOPROJECT <- function(DF, MIN_DETECTION){    detection_averages = data.frame(name=character(), value=numeric(), stringsAsFactors = FALSE)    counter = 1    for(bioproject in unique(DF$bioproject)) {      dfx = DF[DF$bioproject == bioproject, ]      pct <- 100 * nrow(dfx[dfx$detection > MIN_DETECTION, ]) / nrow(dfx)      detection_averages[counter, ] = c(bioproject, pct)      counter = counter + 1    }    detection_averages$value <- as.numeric(detection_averages$value)        detection_averages <- detection_averages[order(detection_averages$value), ]    return(detection_averages)}GET_MAX_DETECTION_ACROSS_BIOMES <- function(DF, MIN_DETECTION){  max_detection <- aggregate(DF$detection, list(DF$biome), FUN=max)  names(max_detection) <- c('name', 'value')  max_detection <- max_detection[order(max_detection$value), ]  if(nrow(max_detection[max_detection$value < MIN_DETECTION, ]) > 0)    max_detection[max_detection$value < MIN_DETECTION, ]$value <- 0  return(max_detection)}GET_MAX_PCT_READS_RECRUITED_ACROSS_BIOMES <- function(DF, MIN_PBI_PERCENTAGE_IN_AT_LEAST_ONE_SAMPLE_IN_BIOME){  percent_reads_recruited <- aggregate(DF$percent_reads_recruited, list(DF$biome), FUN=max)  names(percent_reads_recruited) <- c('name', 'value')  percent_reads_recruited <- percent_reads_recruited[order(percent_reads_recruited$value), ]  if(nrow(percent_reads_recruited[percent_reads_recruited$value < MIN_PBI_PERCENTAGE_IN_AT_LEAST_ONE_SAMPLE_IN_BIOME, ]) > 0)    percent_reads_recruited[percent_reads_recruited$value < MIN_PBI_PERCENTAGE_IN_AT_LEAST_ONE_SAMPLE_IN_BIOME, ]$value <- 0  return(percent_reads_recruited)}GET_PBI_VERSIONS_ACROSS_BIOMES <- function(DF, MIN_PBI_PERCENTAGE_IN_AT_LEAST_ONE_SAMPLE_IN_BIOME){  pBI143_versions_X_biomes = data.frame(biome=character(), pBI143_version=character(), freq=numeric(), stringsAsFactors = FALSE)  counter = 1  for(biome_name in unique(DF$biome)) {    dfx = DF[DF$biome == biome_name, ]    for(ver in c('V1', 'V2', 'V3')){      freq <- nrow(dfx[dfx$best_detected_pBI143_version == ver, ])      pBI143_versions_X_biomes[counter, ] = c(biome_name, ver, freq)      counter = counter + 1    }  }  pBI143_versions_X_biomes$freq <- as.numeric(pBI143_versions_X_biomes$freq)  max_pct_reads_recruited_x_biomes <- GET_MAX_PCT_READS_RECRUITED_ACROSS_BIOMES(df, MIN_PBI_PERCENTAGE_IN_AT_LEAST_ONE_SAMPLE_IN_BIOME)  if(nrow(max_pct_reads_recruited_x_biomes[max_pct_reads_recruited_x_biomes$value < MIN_PBI_PERCENTAGE_IN_AT_LEAST_ONE_SAMPLE_IN_BIOME, ]) > 0)    pBI143_versions_X_biomes[pBI143_versions_X_biomes$biome %in% max_pct_reads_recruited_x_biomes[max_pct_reads_recruited_x_biomes$value < MIN_PBI_PERCENTAGE_IN_AT_LEAST_ONE_SAMPLE_IN_BIOME, ]$name, ]$freq <- 0      return(pBI143_versions_X_biomes)}PLOT_DF <- function(DF, BIOMES_ORDER) {  thm <- function(){    theme_bw() +    theme(axis.text.x = element_text(face = "bold", angle = 90, hjust=1, vjust = 0.4),          axis.text.y = element_blank(),          axis.ticks.y = element_blank(),          axis.title.y = element_blank(),          axis.line.x = element_blank(),          legend.position='none')  }              p <- ggplot(DF, aes(biome, detection)) +        geom_violin(scale = "width") +        geom_jitter(colour='#222222', width = 0.35, height = 0.01, size=0.1, alpha=0.01) +        theme_bw() +        theme(axis.text.x = element_text(face = "bold", angle = 90, hjust=1, vjust = 0.4)) +        scale_x_discrete(limits = BIOMES_ORDER) +        labs(title="Detection of pBI143 across biomes") +        coord_flip()    num_metagenomes <- GET_FREQ_TABLE(DF, 'biome')  q <- ggplot(num_metagenomes, aes(name, frequency)) +        geom_bar(stat="identity") +        thm() +        scale_x_discrete(limits = BIOMES_ORDER) +        scale_y_sqrt() +        labs(title="Num MGs") +        coord_flip()    average_num_reds <- GET_ORDERED_AVERAGES(DF, 'biome', 'num_reads_in_metagenome')  r <- ggplot(average_num_reds, aes(name, value)) +        geom_bar(stat="identity") +        thm() +        scale_x_discrete(limits = BIOMES_ORDER) +        labs(title="Avg. num reads") +        coord_flip()    average_pct_pBI143 <- GET_ORDERED_AVERAGES(DF, 'biome', 'percent_reads_recruited')  s <- ggplot(average_pct_pBI143, aes(name, value)) +        geom_bar(stat="identity") +        thm() +        scale_x_discrete(limits = BIOMES_ORDER) +        labs(title="Avg. pBI143 Pct.") +        coord_flip()    pct_samples_above_detection <- GET_PERCENT_SAMPLES_ABOVE_DETECTION(DF, 0.25)  l <- ggplot(pct_samples_above_detection, aes(name, value)) +        geom_bar(stat="identity") +        thm() +        scale_x_discrete(limits = BIOMES_ORDER) +        labs(title="Pct. Above Det.") +        coord_flip()  b <- ggplot(GET_PBI_VERSIONS_ACROSS_BIOMES(DF, MIN_PBI_PERCENTAGE_IN_AT_LEAST_ONE_SAMPLE_IN_BIOME=0.0001), aes(fill=pBI143_version, y=freq, x=biome)) +        geom_bar(position=position_fill(reverse = TRUE), stat="identity") +  scale_fill_manual(values=c('#28478a', '#bf373c', '#39b286')) +        thm() +        labs(title="pBI143 versions") +        scale_x_discrete(limits = BIOMES_ORDER) +         coord_flip()      suppressWarnings(ggarrange(p, q, r, l, s, b, ncol=6, nrow=1, widths = c(8, 2, 2, 2, 6), align = 'h'))}GET_PERCENT_SAMPLES_ABOVE_DETECTION_ENVIRONMENT <- function(DF, MIN_DETECTION){    detection_averages = data.frame(name=character(), value=numeric(), stringsAsFactors = FALSE)        counter = 1    for(env_name in unique(DF$environment)) {      dfx = DF[DF$environment == env_name, ]      pct <- 100 * nrow(dfx[dfx$detection > MIN_DETECTION, ]) / nrow(dfx)      detection_averages[counter, ] = c(env_name, pct)      counter = counter + 1    }    detection_averages$value <- as.numeric(detection_averages$value)        detection_averages <- detection_averages[order(detection_averages$value), ]    return(detection_averages)}GET_PBI_VERSIONS_ACROSS_ENVIRONMENTS <- function(DF){  pBI143_versions_X_envs = data.frame(environment=character(), pBI143_version=character(), freq=numeric(), stringsAsFactors = FALSE)  counter = 1  for(env_name in unique(DF$environment)) {    dfx = DF[DF$environment == env_name, ]    for(ver in c('V1', 'V2', 'V3')){      freq <- nrow(dfx[dfx$best_detected_pBI143_version == ver, ])      pBI143_versions_X_envs[counter, ] = c(env_name, ver, freq)      counter = counter + 1    }  }  pBI143_versions_X_envs$freq <- as.numeric(pBI143_versions_X_envs$freq)  return(pBI143_versions_X_envs)}PLOT_DF_FOR_ENVIRONMENTS <- function(DF, ENVIRONMENTS_ORDER) {  thm <- function(){    theme_bw() +    theme(axis.text.x = element_text(face = "bold", angle = 90, hjust=1, vjust = 0.4),          axis.text.y = element_blank(),          axis.ticks.y = element_blank(),          axis.title.y = element_blank(),          axis.line.x = element_blank(),          legend.position = "none")  }              p <- ggplot(DF, aes(environment, detection)) +        geom_violin(scale = "width", aes(fill=environment)) +        geom_jitter(colour='#222222', width = 0.35, height = 0.05, size=0.1, alpha=0.04) +        theme_bw() +        scale_x_discrete(limits = ENVIRONMENTS_ORDER) +        theme(legend.position="none") +        theme(axis.text.x = element_text(face = "bold", angle = 90, hjust=1, vjust = 0.4)) +        labs(title="Detection of pBI143") +        coord_flip()    num_metagenomes <- GET_FREQ_TABLE(DF, 'environment')  q <- ggplot(num_metagenomes, aes(name, frequency)) +        geom_bar(stat="identity") +        thm() +        scale_x_discrete(limits = ENVIRONMENTS_ORDER) +        scale_y_sqrt() +        labs(title="Num MGs") +        coord_flip()    average_num_reds <- GET_ORDERED_AVERAGES(DF, 'environment', 'num_reads_in_metagenome')  r <- ggplot(average_num_reds, aes(name, value)) +        geom_bar(stat="identity") +        thm() +        scale_x_discrete(limits = ENVIRONMENTS_ORDER) +        labs(title="Avg. num reads") +        coord_flip()    average_pct_pBI143 <- GET_ORDERED_AVERAGES(DF, 'environment', 'percent_reads_recruited')  s <- ggplot(average_pct_pBI143, aes(name, value)) +        geom_bar(stat="identity") +        thm() +        scale_x_discrete(limits = ENVIRONMENTS_ORDER) +        labs(title="Avg. pBI143 Pct.") +        coord_flip()    pct_samples_above_detection <- GET_PERCENT_SAMPLES_ABOVE_DETECTION_ENVIRONMENT(DF, 0.25)  l <- ggplot(pct_samples_above_detection, aes(name, value)) +        geom_bar(stat="identity") +        thm() +        scale_x_discrete(limits = ENVIRONMENTS_ORDER) +        labs(title="Pct. Above Det.") +        coord_flip()  b <- ggplot(GET_PBI_VERSIONS_ACROSS_ENVIRONMENTS(DF), aes(fill=pBI143_version, y=freq, x=environment)) +         geom_bar(position=position_fill(reverse = TRUE), stat="identity") +         scale_fill_manual(values=c('#28478a', '#bf373c', '#39b286')) +         thm() +         scale_x_discrete(limits = ENVIRONMENTS_ORDER) +         labs(title="pBI143 versions") +         coord_flip()      suppressWarnings(ggarrange(p, q, r, l, s, b, ncol=6, nrow=1, widths = c(8, 2, 2, 2, 6), align = 'h'))}
+library(ggplot2)
+library(ggpubr)
+library(grid)
+library(Gmisc)
+library(gridGraphics)
+
+GET_ORDERED_AVERAGES <- function(DF, VARIABLE, VALUE){
+  averages <- aggregate(DF[[VALUE]], list(DF[[VARIABLE]]), FUN=mean)
+  names(averages) <- c('name', 'value')
+  averages <-averages[order(averages$value), ]
+
+  return(averages)
+}
+
+GET_FREQ_TABLE <- function(DF, CATEGORY){
+  d <- data.frame(table(DF[[CATEGORY]]))
+  names(d) <- c('name', 'frequency')
+  d <-d[order(d$frequency), ]
+
+  return(d)
+}
+
+
+GET_DETECTION_IN_PERCENT_SAMPLES <- function(DF, MIN_DETECTION){
+    detection_averages = data.frame(name=character(), value=numeric(), stringsAsFactors = FALSE)
+
+    counter = 1
+    for(biome_name in unique(df$biome)) {
+      dfx = df[df$biome == biome_name, ]
+      pct <- nrow(dfx[dfx$detection > MIN_DETECTION, ]) / nrow(dfx)
+      detection_averages[counter, ] = c(biome_name, pct)
+      counter = counter + 1
+    }
+
+    detection_averages$value <- as.numeric(detection_averages$value)
+
+    detection_averages <- detection_averages[order(detection_averages$value), ]
+
+    return(detection_averages)
+}
+
+GET_PERCENT_SAMPLES_ABOVE_DETECTION <- function(DF, MIN_DETECTION){
+    detection_averages = data.frame(name=character(), value=numeric(), stringsAsFactors = FALSE)
+
+    counter = 1
+    for(biome_name in unique(DF$biome)) {
+      dfx = DF[DF$biome == biome_name, ]
+      pct <- 100 * nrow(dfx[dfx$detection > MIN_DETECTION, ]) / nrow(dfx)
+      detection_averages[counter, ] = c(biome_name, pct)
+      counter = counter + 1
+    }
+
+    detection_averages$value <- as.numeric(detection_averages$value)
+
+    detection_averages <- detection_averages[order(detection_averages$value), ]
+
+    return(detection_averages)
+}
+
+
+GET_PERCENT_SAMPLES_ABOVE_DETECTION_PER_BIOPROJECT <- function(DF, MIN_DETECTION){
+    detection_averages = data.frame(name=character(), value=numeric(), stringsAsFactors = FALSE)
+    counter = 1
+    for(bioproject in unique(DF$bioproject)) {
+      dfx = DF[DF$bioproject == bioproject, ]
+      pct <- 100 * nrow(dfx[dfx$detection > MIN_DETECTION, ]) / nrow(dfx)
+      detection_averages[counter, ] = c(bioproject, pct)
+      counter = counter + 1
+    }
+
+    detection_averages$value <- as.numeric(detection_averages$value)
+
+    detection_averages <- detection_averages[order(detection_averages$value), ]
+
+    return(detection_averages)
+}
+
+GET_MAX_DETECTION_ACROSS_BIOMES <- function(DF, MIN_DETECTION){
+  max_detection <- aggregate(DF$detection, list(DF$biome), FUN=max)
+  names(max_detection) <- c('name', 'value')
+  max_detection <- max_detection[order(max_detection$value), ]
+
+  if(nrow(max_detection[max_detection$value < MIN_DETECTION, ]) > 0)
+    max_detection[max_detection$value < MIN_DETECTION, ]$value <- 0
+
+  return(max_detection)
+}
+
+GET_MAX_PCT_READS_RECRUITED_ACROSS_BIOMES <- function(DF, MIN_PBI_PERCENTAGE_IN_AT_LEAST_ONE_SAMPLE_IN_BIOME){
+  percent_reads_recruited <- aggregate(DF$percent_reads_recruited, list(DF$biome), FUN=max)
+  names(percent_reads_recruited) <- c('name', 'value')
+  percent_reads_recruited <- percent_reads_recruited[order(percent_reads_recruited$value), ]
+
+  if(nrow(percent_reads_recruited[percent_reads_recruited$value < MIN_PBI_PERCENTAGE_IN_AT_LEAST_ONE_SAMPLE_IN_BIOME, ]) > 0)
+    percent_reads_recruited[percent_reads_recruited$value < MIN_PBI_PERCENTAGE_IN_AT_LEAST_ONE_SAMPLE_IN_BIOME, ]$value <- 0
+
+  return(percent_reads_recruited)
+}
+
+GET_PBI_VERSIONS_ACROSS_BIOMES <- function(DF, MIN_PBI_PERCENTAGE_IN_AT_LEAST_ONE_SAMPLE_IN_BIOME){
+  pBI143_versions_X_biomes = data.frame(biome=character(), pBI143_version=character(), freq=numeric(), stringsAsFactors = FALSE)
+
+  counter = 1
+  for(biome_name in unique(DF$biome)) {
+    dfx = DF[DF$biome == biome_name, ]
+    for(ver in c('V1', 'V2', 'V3')){
+      freq <- nrow(dfx[dfx$best_detected_pBI143_version == ver, ])
+      pBI143_versions_X_biomes[counter, ] = c(biome_name, ver, freq)
+      counter = counter + 1
+    }
+  }
+
+  pBI143_versions_X_biomes$freq <- as.numeric(pBI143_versions_X_biomes$freq)
+
+  max_pct_reads_recruited_x_biomes <- GET_MAX_PCT_READS_RECRUITED_ACROSS_BIOMES(df, MIN_PBI_PERCENTAGE_IN_AT_LEAST_ONE_SAMPLE_IN_BIOME)
+
+  if(nrow(max_pct_reads_recruited_x_biomes[max_pct_reads_recruited_x_biomes$value < MIN_PBI_PERCENTAGE_IN_AT_LEAST_ONE_SAMPLE_IN_BIOME, ]) > 0)
+    pBI143_versions_X_biomes[pBI143_versions_X_biomes$biome %in% max_pct_reads_recruited_x_biomes[max_pct_reads_recruited_x_biomes$value < MIN_PBI_PERCENTAGE_IN_AT_LEAST_ONE_SAMPLE_IN_BIOME, ]$name, ]$freq <- 0
+
+  return(pBI143_versions_X_biomes)
+}
+
+PLOT_DF <- function(DF, BIOMES_ORDER) {
+
+  thm <- function(){
+    theme_bw() +
+    theme(axis.text.x = element_text(face = "bold", angle = 90, hjust=1, vjust = 0.4),
+          axis.text.y = element_blank(),
+          axis.ticks.y = element_blank(),
+          axis.title.y = element_blank(),
+          axis.line.x = element_blank(),
+          legend.position='none')
+  }
+
+  p <- ggplot(DF, aes(biome, detection)) +
+        geom_violin(scale = "width") +
+        geom_jitter(colour='#222222', width = 0.35, height = 0.01, size=0.1, alpha=0.01) +
+        theme_bw() +
+        theme(axis.text.x = element_text(face = "bold", angle = 90, hjust=1, vjust = 0.4)) +
+        scale_x_discrete(limits = BIOMES_ORDER) +
+        labs(title="Detection of pBI143 across biomes") +
+        coord_flip()
+
+  num_metagenomes <- GET_FREQ_TABLE(DF, 'biome')
+  q <- ggplot(num_metagenomes, aes(name, frequency)) +
+        geom_bar(stat="identity") +
+        thm() +
+        scale_x_discrete(limits = BIOMES_ORDER) +
+        scale_y_sqrt() +
+        labs(title="Num MGs") +
+        coord_flip()
+
+  average_num_reds <- GET_ORDERED_AVERAGES(DF, 'biome', 'num_reads_in_metagenome')
+  r <- ggplot(average_num_reds, aes(name, value)) +
+        geom_bar(stat="identity") +
+        thm() +
+        scale_x_discrete(limits = BIOMES_ORDER) +
+        labs(title="Avg. num reads") +
+        coord_flip()
+
+  average_pct_pBI143 <- GET_ORDERED_AVERAGES(DF, 'biome', 'percent_reads_recruited')
+  s <- ggplot(average_pct_pBI143, aes(name, value)) +
+        geom_bar(stat="identity") +
+        thm() +
+        scale_x_discrete(limits = BIOMES_ORDER) +
+        labs(title="Avg. pBI143 Pct.") +
+        coord_flip()
+
+  pct_samples_above_detection <- GET_PERCENT_SAMPLES_ABOVE_DETECTION(DF, 0.25)
+  l <- ggplot(pct_samples_above_detection, aes(name, value)) +
+        geom_bar(stat="identity") +
+        thm() +
+        scale_x_discrete(limits = BIOMES_ORDER) +
+        labs(title="Pct. Above Det.") +
+        coord_flip()
+
+  b <- ggplot(GET_PBI_VERSIONS_ACROSS_BIOMES(DF, MIN_PBI_PERCENTAGE_IN_AT_LEAST_ONE_SAMPLE_IN_BIOME=0.0001), aes(fill=pBI143_version, y=freq, x=biome)) +
+        geom_bar(position=position_fill(reverse = TRUE), stat="identity") +  scale_fill_manual(values=c('#28478a', '#bf373c', '#39b286')) +
+        thm() +
+        labs(title="pBI143 versions") +
+        scale_x_discrete(limits = BIOMES_ORDER) +
+        coord_flip()
+
+
+  suppressWarnings(ggarrange(p, q, r, l, s, b, ncol=6, nrow=1, widths = c(8, 2, 2, 2, 6), align = 'h'))
+}
+
+GET_PERCENT_SAMPLES_ABOVE_DETECTION_ENVIRONMENT <- function(DF, MIN_DETECTION){
+    detection_averages = data.frame(name=character(), value=numeric(), stringsAsFactors = FALSE)
+
+    counter = 1
+    for(env_name in unique(DF$environment)) {
+      dfx = DF[DF$environment == env_name, ]
+      pct <- 100 * nrow(dfx[dfx$detection > MIN_DETECTION, ]) / nrow(dfx)
+      detection_averages[counter, ] = c(env_name, pct)
+      counter = counter + 1
+    }
+
+    detection_averages$value <- as.numeric(detection_averages$value)
+
+    detection_averages <- detection_averages[order(detection_averages$value), ]
+
+    return(detection_averages)
+}
+
+GET_PBI_VERSIONS_ACROSS_ENVIRONMENTS <- function(DF){
+  pBI143_versions_X_envs = data.frame(environment=character(), pBI143_version=character(), freq=numeric(), stringsAsFactors = FALSE)
+
+  counter = 1
+  for(env_name in unique(DF$environment)) {
+    dfx = DF[DF$environment == env_name, ]
+    for(ver in c('V1', 'V2', 'V3')){
+      freq <- nrow(dfx[dfx$best_detected_pBI143_version == ver, ])
+      pBI143_versions_X_envs[counter, ] = c(env_name, ver, freq)
+      counter = counter + 1
+    }
+  }
+
+  pBI143_versions_X_envs$freq <- as.numeric(pBI143_versions_X_envs$freq)
+
+  return(pBI143_versions_X_envs)
+}
+
+PLOT_DF_FOR_ENVIRONMENTS <- function(DF, ENVIRONMENTS_ORDER) {
+  thm <- function(){
+    theme_bw() +
+    theme(axis.text.x = element_text(face = "bold", angle = 90, hjust=1, vjust = 0.4),
+          axis.text.y = element_blank(),
+          axis.ticks.y = element_blank(),
+          axis.title.y = element_blank(),
+          axis.line.x = element_blank(),
+          legend.position = "none")
+  }
+
+  p <- ggplot(DF, aes(environment, detection)) +
+        geom_violin(scale = "width", aes(fill=environment)) +
+        geom_jitter(colour='#222222', width = 0.35, height = 0.05, size=0.1, alpha=0.04) +
+        theme_bw() +
+        scale_x_discrete(limits = ENVIRONMENTS_ORDER) +
+        theme(legend.position="none") +
+        theme(axis.text.x = element_text(face = "bold", angle = 90, hjust=1, vjust = 0.4)) +
+        labs(title="Detection of pBI143") +
+        coord_flip()
+
+  num_metagenomes <- GET_FREQ_TABLE(DF, 'environment')
+  q <- ggplot(num_metagenomes, aes(name, frequency)) +
+        geom_bar(stat="identity") +
+        thm() +
+        scale_x_discrete(limits = ENVIRONMENTS_ORDER) +
+        scale_y_sqrt() +
+        labs(title="Num MGs") +
+        coord_flip()
+
+  average_num_reds <- GET_ORDERED_AVERAGES(DF, 'environment', 'num_reads_in_metagenome')
+  r <- ggplot(average_num_reds, aes(name, value)) +
+        geom_bar(stat="identity") +
+        thm() +
+        scale_x_discrete(limits = ENVIRONMENTS_ORDER) +
+        labs(title="Avg. num reads") +
+        coord_flip()
+
+  average_pct_pBI143 <- GET_ORDERED_AVERAGES(DF, 'environment', 'percent_reads_recruited')
+  s <- ggplot(average_pct_pBI143, aes(name, value)) +
+        geom_bar(stat="identity") +
+        thm() +
+        scale_x_discrete(limits = ENVIRONMENTS_ORDER) +
+        labs(title="Avg. pBI143 Pct.") +
+        coord_flip()
+
+  pct_samples_above_detection <- GET_PERCENT_SAMPLES_ABOVE_DETECTION_ENVIRONMENT(DF, 0.25)
+  l <- ggplot(pct_samples_above_detection, aes(name, value)) +
+        geom_bar(stat="identity") +
+        thm() +
+        scale_x_discrete(limits = ENVIRONMENTS_ORDER) +
+        labs(title="Pct. Above Det.") +
+        coord_flip()
+
+  b <- ggplot(GET_PBI_VERSIONS_ACROSS_ENVIRONMENTS(DF), aes(fill=pBI143_version, y=freq, x=environment)) +
+         geom_bar(position=position_fill(reverse = TRUE), stat="identity") +
+         scale_fill_manual(values=c('#28478a', '#bf373c', '#39b286')) +
+         thm() +
+         scale_x_discrete(limits = ENVIRONMENTS_ORDER) +
+         labs(title="pBI143 versions") +
+         coord_flip()
+
+
+  suppressWarnings(ggarrange(p, q, r, l, s, b, ncol=6, nrow=1, widths = c(8, 2, 2, 2, 6), align = 'h'))
+}
 ```
 
 Next, we read the [read-recruitment-results.txt](files/read-recruitment-results.txt.gz) with the curated biome information:
 
 ```r
 df <- read.table(file='/path/to/read-recuritment-results.txt', header = TRUE, sep = "\t")
+
 ```
 
 Next, we consolidate individual biomes into higher order environments for downstream visualizations:
 
 ```r
-human_gut_environment <- c("human gut metagenome")infant_gut_environment <- c("infant gut metagenome")non_gut_human_environments <- c("human oral metagenome", "human skin metagenome", "human nasopharyngeal metagenome",
+human_gut_environment <- c("human gut metagenome")
+
+infant_gut_environment <- c("infant gut metagenome")
+
+non_gut_human_environments <- c("human oral metagenome", "human skin metagenome", "human nasopharyngeal metagenome",
                                 "human ear metagenome", "human vaginal metagenome", "human lung metagenome",
                                 "human nose metagenome", "respiratory tract metagenome", "human airway-associated metagenome",
-                                "ancient human remains", "oral metagenome")human_impacted_environments <- c("wastewater metagenome", "hospital surfaces", "urban environment metagenome",
-                                 "activated sludge metagenome", "urban water/sediment metagenome")non_human_associated_environments <- c("marine metagenome", "various EMP metagenomes", "soil metagenome",
+                                "ancient human remains", "oral metagenome")
+
+human_impacted_environments <- c("wastewater metagenome", "hospital surfaces", "urban environment metagenome",
+                                 "activated sludge metagenome", "urban water/sediment metagenome")
+
+non_human_associated_environments <- c("marine metagenome", "various EMP metagenomes", "soil metagenome",
                                        "sediment metagenome", "desert sand metagenome", "air metagenome",
                                        "seawater metagenome", "seawall biofilm metagenome", "ice metagenome",
                                        "snow metagenome", "estuary metagenome", "subsurface metagenome",
@@ -827,21 +1122,45 @@ human_gut_environment <- c("human gut metagenome")infant_gut_environment <- c(
                                        "lake water/sediment metagenome", "viral metagenome", "cold seep metagenome",
                                        "plastisphere metagenome", "water/sediment metagenome", "aquatic metagenome",
                                        "peat metagenome", "coral reef metagenome", "hydrothermal vent metagenome",
-                                       "coral metagenome", "glacier metagenome","bioreactor metagenome")non_human_hosts <- c("pig gut metagenome", "chicken gut metagenome", "cow gut metagenome", "mouse gut metagenome",
+                                       "coral metagenome", "glacier metagenome","bioreactor metagenome")
+
+non_human_hosts <- c("pig gut metagenome", "chicken gut metagenome", "cow gut metagenome", "mouse gut metagenome",
                      "panda gut metagenome", "black bear gut metagenome", "bamboo rat gut metagenome",
                      "goat gut metagenome", "cat gut metagenome", "various wild animals", "vole gut metagenome",
                      "whale gut metagenome", "buffalo gut metagenome", "wild boar gut metagenome",
                      "deer gut metagenome", "sheep gut metagenome", "yak gut metagenome", "sponge metagenome",
                      "cow rumen metagenome", "dog gut metagenome", "deer rumen metagenome", "sheep rumen metagenome",
                      "fish gut metagenome", "insect gut metagenome", "zebu gut metagenome", "bovine gut metagenome",
-                     "elk gut metagenome", "termite gut metagenome", "plant metagenome", "laboratory rat gut metagenome")# some really useless or unreliable 'metagenomes' here:others <- c("synthetic or neg-control metagenome", "algae metagenome", "marine plankton metagenome",
-            "macroalgae metagenome", "rRNA amplicons", "human-associated bacterial culture wgs")df[ , 'environment'] = NAdf[df$biome %in% human_gut_environment, ]$environment <- 'human gut environment'df[df$biome %in% infant_gut_environment, ]$environment <- 'infant gut environment'df[df$biome %in% non_gut_human_environments, ]$environment <- 'other human body sites'df[df$biome %in% human_impacted_environments, ]$environment <- 'human impacted environments'df[df$biome %in% non_human_associated_environments, ]$environment <- 'non-human-associated environments'df[df$biome %in% non_human_hosts, ]$environment <- 'non-human hosts'df[df$biome %in% others, ]$environment <- 'others'
+                     "elk gut metagenome", "termite gut metagenome", "plant metagenome", "laboratory rat gut metagenome")
+
+# some really useless or unreliable 'metagenomes' here:
+others <- c("synthetic or neg-control metagenome", "algae metagenome", "marine plankton metagenome",
+            "macroalgae metagenome", "rRNA amplicons", "human-associated bacterial culture wgs")
+
+df[ , 'environment'] = NA
+
+df[df$biome %in% human_gut_environment, ]$environment <- 'human gut environment'
+df[df$biome %in% infant_gut_environment, ]$environment <- 'infant gut environment'
+df[df$biome %in% non_gut_human_environments, ]$environment <- 'other human body sites'
+df[df$biome %in% human_impacted_environments, ]$environment <- 'human impacted environments'
+df[df$biome %in% non_human_associated_environments, ]$environment <- 'non-human-associated environments'
+df[df$biome %in% non_human_hosts, ]$environment <- 'non-human hosts'
+df[df$biome %in% others, ]$environment <- 'others'
 ```
+
 
 We are finally ready for some visualization. Here is the main figure:
 
 ```r
-environments_order <- c("non-human-associated environments",                        "non-human hosts",                        "human impacted environments",                        "other human body sites",                        "infant gut environment",                        "human gut environment")dx <- df[!df$environment == 'others', ]PLOT_DF_FOR_ENVIRONMENTS(dx, environments_order)
+environments_order <- c("non-human-associated environments",
+                        "non-human hosts",
+                        "human impacted environments",
+                        "other human body sites",
+                        "infant gut environment",
+                        "human gut environment")
+
+dx <- df[!df$environment == 'others', ]
+PLOT_DF_FOR_ENVIRONMENTS(dx, environments_order)
 ```
 
 Which gave us this,
@@ -855,7 +1174,21 @@ And we polished it in Inkscape as our main figure:
 We then generated a more comprehensive visualization of the 100K metagenomes for each biome,
 
 ``` r
-human_gut_environment <- GET_ORDERED_AVERAGES(df[df$biome %in% human_gut_environment, ], 'biome', 'percent_reads_recruited')$nameinfant_gut_environment <- GET_ORDERED_AVERAGES(df[df$biome %in% infant_gut_environment, ], 'biome', 'percent_reads_recruited')$namenon_gut_human_environments <- GET_ORDERED_AVERAGES(df[df$biome %in% non_gut_human_environments, ], 'biome', 'percent_reads_recruited')$namehuman_impacted_environments_order <- GET_ORDERED_AVERAGES(df[df$biome %in% human_impacted_environments, ], 'biome', 'percent_reads_recruited')$namenon_human_associated_environments_order <- GET_ORDERED_AVERAGES(df[df$biome %in% non_human_associated_environments, ], 'biome', 'percent_reads_recruited')$namenon_human_hosts_order <- GET_ORDERED_AVERAGES(df[df$biome %in% non_human_hosts, ], 'biome', 'percent_reads_recruited')$namebiomes_order <- mergeLists(list(non_human_associated_environments_order),                           list(human_impacted_environments_order),                           list(non_human_hosts_order),                           list(non_gut_human_environments),                           list(infant_gut_environment),                           list(human_gut_environment))[[1]]PLOT_DF(df, biomes_order)
+human_gut_environment <- GET_ORDERED_AVERAGES(df[df$biome %in% human_gut_environment, ], 'biome', 'percent_reads_recruited')$name
+infant_gut_environment <- GET_ORDERED_AVERAGES(df[df$biome %in% infant_gut_environment, ], 'biome', 'percent_reads_recruited')$name
+non_gut_human_environments <- GET_ORDERED_AVERAGES(df[df$biome %in% non_gut_human_environments, ], 'biome', 'percent_reads_recruited')$name
+human_impacted_environments_order <- GET_ORDERED_AVERAGES(df[df$biome %in% human_impacted_environments, ], 'biome', 'percent_reads_recruited')$name
+non_human_associated_environments_order <- GET_ORDERED_AVERAGES(df[df$biome %in% non_human_associated_environments, ], 'biome', 'percent_reads_recruited')$name
+non_human_hosts_order <- GET_ORDERED_AVERAGES(df[df$biome %in% non_human_hosts, ], 'biome', 'percent_reads_recruited')$name
+
+biomes_order <- mergeLists(list(non_human_associated_environments_order),
+                           list(human_impacted_environments_order),
+                           list(non_human_hosts_order),
+                           list(non_gut_human_environments),
+                           list(infant_gut_environment),
+                           list(human_gut_environment))[[1]]
+
+PLOT_DF(df, biomes_order)
 ```
 
 The polishing of the output image looked like this,
@@ -866,7 +1199,10 @@ The polishing of the output image looked like this,
 
 Overall, pBI143 was indeed absent in all non-host environmental samples, save those impacted by humans. For example, in open ocean samples, pBI143 is virtually absent (0.0000021% of reads on average, ~0.05X coverage), but in metagenomes collected close to a seawall pBI143 is convincingly present (0.002% of reads on average, ~7.3X coverage). Given the high presence of pBI143 in sewage, the seawall metagenomes almost certainly contain sewage and other wastewater. pBI143 is also convincingly present on hospital surfaces, another environment likely to contain trace amounts of human feces (0.002% of reads on average, ~8.7X coverage).
 
+
 In addition to humans, this analysis comprehensively addressed whether pBI143 was present in other animals using gut metagenomes from buffalo, cat, chicken, cow, deer, dog, elk, fish, goat, insect, macaques, mouse, panda, pig, rat, sheep, termite, vole, whale, boar, yak, and zebu. Aside from humans, all meaningful signal was absent from other animals except cats and rats. Datasets surveyed here include metagenomes from human skin and oral cavity, which enabled us to understand if pBI143 was present in human microbiomes besides the gut microbiome. Unlike the extremely high presence of pBI143 in the human gut (0.1% of reads on average, ~1600X coverage), pBI143 was poorly detected both in samples from skin (0.002% of reads on average, ~4.6X coverage) and the oral cavity (0.0000003% of reads on average, ~0.006X coverage), which overall highlights the human gut-specific nature of pBI143.
+
+
 
 So, what about the curious case of pBI143 in cats and rats? The absence of any meaningful signal for pBI143 from all host-associated gut environments except cats and rats sounds intriguing, but it is important to keep in mind that the coverage signal for pBI143 in these animals were 2 orders of magnitude less than in humans, and we found the non-spurious detection of pBI143 across all of the animals in these cohorts suspicious. We do not have a clear answer to the question why a plasmid that is completely absent in dogs, primates, pigs, or mice would be in cats and rats. One reasonable hypothesis to explain this anomaly could be that the presence of pBI143 in the cat and rat cohorts is due to contamination associated with sample preparation. The contamination hypothesis can further explain occasional occurrences of pBI143 in only one of many samples in a single animal species or its occasional occurrence in only one of many samples from marine or lake systems. But this hypothesis poorly applies to the case of cats, since unlike any other animal species tested, our qPCR assay did amplify trace levels of pBI143 from cat samples. So it is a high possibility that pBI143 is indeed present at extremely low abundances in cats. We further investigated cat and rat metagenomes and asked whether we observe the same level of genetic heterogeneity of pBI143 we observe in humans. Interestingly, upon a closer inspection of the individual coverage plots of pBI143 and single nucleotide variants, we found that virtually every sample within our cohort of 88 cats had identical SNVs and coverage plots. The same was true in rats:
 
@@ -933,6 +1269,7 @@ ls MOTHER_INFANT_pBI143_POP_GEN
     README.txt  fin/  ita/	swe/  usa/
 
 
+
 With anvi'o contigs-db and profile-db files in them:
 
 
@@ -941,16 +1278,27 @@ ls MOTHER_INFANT_pBI143_POP_GEN/*/
 ```
 
     MOTHER_INFANT_pBI143_POP_GEN/fin/:
+
     AUXILIARY-DATA.db  CONTIGS.db  PROFILE.db
-    
+
+
+
     MOTHER_INFANT_pBI143_POP_GEN/ita/:
+
     AUXILIARY-DATA.db  CONTIGS.db  PROFILE.db
-    
+
+
+
     MOTHER_INFANT_pBI143_POP_GEN/swe/:
+
     AUXILIARY-DATA.db  CONTIGS.db  PROFILE.db
-    
+
+
+
     MOTHER_INFANT_pBI143_POP_GEN/usa/:
+
     AUXILIARY-DATA.db  CONTIGS.db  PROFILE.db
+
 
 
 Good. Now we have the raw recruitment results described as anvi'o project files. Now we will change our work directory to the root of the data pack, and start playing with these data:
