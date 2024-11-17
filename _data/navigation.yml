@@ -12,12 +12,12 @@
   url: /publications/
   style: "color: #c9a53c;"
 
-- title: Software
-  url: /software/
-  style: "color: #b8c477;"
-
 - title: Data
   url: /data/
+  style: "color: #b8c477;"
+
+- title: Code
+  url: https://github.com/merenlab
   style: "color: #99d594;"
 
 - title: Blog
