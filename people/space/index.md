@@ -3,6 +3,10 @@ layout: page
 title: Location and Space
 modified: 2019-07-26
 comments: false
+image:
+   display: true
+   feature: eel-pond.jpg
+   nologo: false
 ---
 
 {:.warning}

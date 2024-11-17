@@ -2,25 +2,24 @@
 
 - title: Research
   url: /research/
-  style: "color: #9e161a;"
+  style: "color: #d53e4f;"
 
 - title: People
   url: /people/
+  style: "color: #c5683d;"
 
 - title: Pubs
   url: /publications/
+  style: "color: #c9a53c;"
 
 - title: Software
   url: /software/
-  style: "color: #d64231;"
+  style: "color: #b8c477;"
 
 - title: Data
   url: /data/
-  style: "color: #ab5ba3;"
-
-#- title: Opportunities
-#  url: /opportunities/
+  style: "color: #99d594;"
 
 - title: Blog
   url: /posts/
-  style: "color: #5bab87;"
+  style: "color: #3288bd;"
