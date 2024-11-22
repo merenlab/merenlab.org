@@ -340,19 +340,25 @@ Please note that each lecture takes place on **Mondays**, between **10:15 - 12:0
   * Denef VJ (2018). [Peering into the genetic make up of natural microbial populations using metagenomics](https://doi.org/10.1007/13836_2018_14). *Springer Publishing*.
   * Delmont TO, et al (2019). [Single-amino acid variants reveal evolutionary processes that shape the biogeography of a global SAR11 subclade](https://doi.org/10.7554/eLife.46497). *eLife*.
 
-### 20/01/25 :: Pre-proposal peer-review panel
+### 20/01/25 :: **Genomic dynamism**: inversions, diversity generating retroelements, and more
 
-*Discussion Leaders*:
+* *Discussion Leaders*:
 
-  * Student peer review groups
-  * Iliana
+  * Florian
   * Iva
 
 * *Learning Objectives*:
 
-  * Discuss the strengths and potential areas of improvement for each course participant's (anonymous) pre-proposal 
-  * Summarize constructive feedback in a concise and considerate manner
-  * Understand and apply the real-world evaluation process for grant proposals
+  * Learn about the processes of genomic diversification that are driven by biology, as opposed to stochasticity
+  * Comprehend the site-specific nature of these processes and their associated mechanisms
+  * Describe the approaches to find and report the dynamics of genomes across metagenomic samples
+
+* *Suggested Reading*:
+
+  * Chanin RB and West PT, et al (2024). [Intragenic DNA inversions expand bacterial coding capacity](https://www.nature.com/articles/s41586-024-07970-4). *Nature*.
+  * Jiang X and Hall AB, et al (2019). [Invertible promoters mediate bacterial phase variation, antibiotic resistance, and host adaptation in the gut](https://doi.org/10.1126%2Fscience.aau5238). *Science*.
+  * Paul BG, Eren AM (2022). [Eco-evolutionary significance of domesticated retroelements in microbial genomes](https://mobilednajournal.biomedcentral.com/articles/10.1186/s13100-022-00262-6). *Mobile DNA*.
+  * Roux S, et al (2021). [Ecology and molecular targets of hypermutation in the global microbiome](https://www.nature.com/articles/s41467-021-23402-7). *Nature Communications*.
 
 
 ### 27/01/25 :: **Structure-informed** interpretations of microbial population genetics
@@ -372,28 +378,6 @@ Please note that each lecture takes place on **Mondays**, between **10:15 - 12:0
   * AlQuraishi M (2021). [Protein-structure prediction revolutionized](https://www.nature.com/articles/d41586-021-02265-4). *Nature News and Views*.
   * Robinson SL (2023). [Structure-guided metagenome mining to tap microbial functional diversity](https://doi.org/10.1016/j.mib.2023.102382). *Current Opinion in Microbiology*.
   * Kiefl E, et al (2023). [Structure-informed microbial population genetics elucidate selective pressures that shape protein evolution](https://www.science.org/doi/full/10.1126/sciadv.abq4632). *Science Advances*.
-
-### Bonus lecture :: **Genomic dynamism**: inversions, diversity generating retroelements, and more
-
-If there is interest in this topic from the class or it becomes necessary to rearrange the course schedule due to cancellations of other topics, this lecture can be swapped into the schedule.
-
-* *Discussion Leaders*:
-
-  * Florian
-  * Iva
-
-* *Learning Objectives*:
-
-  * Learn about the processes of genomic diversification that are driven by biology, as opposed to stochasticity
-  * Comprehend the site-specific nature of these processes and their associated mechanisms
-  * Describe the approaches to find and report the dynamics of genomes across metagenomic samples
-
-* *Suggested Reading*:
-
-  * Chanin RB and West PT, et al (2024). [Intragenic DNA inversions expand bacterial coding capacity](https://www.nature.com/articles/s41586-024-07970-4). *Nature*.
-  * Jiang X and Hall AB, et al (2019). [Invertible promoters mediate bacterial phase variation, antibiotic resistance, and host adaptation in the gut](https://doi.org/10.1126%2Fscience.aau5238). *Science*.
-  * Paul BG, Eren AM (2022). [Eco-evolutionary significance of domesticated retroelements in microbial genomes](https://mobilednajournal.biomedcentral.com/articles/10.1186/s13100-022-00262-6). *Mobile DNA*.
-  * Roux S, et al (2021). [Ecology and molecular targets of hypermutation in the global microbiome](https://www.nature.com/articles/s41467-021-23402-7). *Nature Communications*.
 
 
 ## Evaluation and Grading
