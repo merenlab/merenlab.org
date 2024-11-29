@@ -711,6 +711,42 @@
   avatar: bio-sonny.jpg
   bio: "I am a microbiologist studying the most interesting inhabitants of humans, coral reefs, and the ocean, and using big data to answer vexing problems of our future."
 
+- alias: steven
+  name: Steven Cui
+  name_as_author: Steven Cui
+  lab_member: True
+  nick_name: Steven
+  tenure_start: 07/2016
+  tenure_end: 10/2016
+  current_info: a Principal Associate and a Senior Software Engineer <a href="https://en.wikipedia.org/wiki/Capital_One">Capital One</a>
+  last_current_info_check: 2024
+  contributions: He contributed to the development of tRNA-seq tools, a project that bridged Meren's and <a href="https://scholar.google.com/citations?user=R5nkatMAAAAJ&hl=en">Tao Pan</a>'s interests
+  role: Summer Student
+  avatar: bio-steven.png
+  email: stevencui729@gmail.com
+  bio: "I am an undergraduate student at UChicago studying computer science. I look forward to tackling new and exciting computational problems in the field of bionformatics."
+
+
+####################################################################################
+# Collaborators and partners in science
+####################################################################################
+
+- alias: jessika
+  collaborator: True
+  role: Partner in Science / Collaborator
+  avatar: bio-jessika.jpg
+  name: Jessika Füssel
+  name_as_author: Jessika Füssel
+  email: ju.fuessel@gmail.com
+  twitter: FuesselJessika
+  orcid: 0000-0002-4210-2318
+  github: jessika-fuessel
+  bio: "My aim is to understand the production and fate of microbial metabolites within the context of changing environmental conditions using multi-omics approaches."
+  affiliations:
+    - title: Post-doctoral Scientist
+      inst: Institute for Chemistry and Biology of the Marine Environment, University of Oldenburg
+      inst_link: https://uol.de/en/icbm
+
 - alias: tom
   lab_member: True
   collaborator: True
@@ -733,28 +769,12 @@
        inst: Genoscope - Centre National de Séquençage
        inst_link: https://www.genoscope.cns.fr
 
-- alias: steven
-  name: Steven Cui
-  name_as_author: Steven Cui
-  lab_member: True
-  nick_name: Steven
-  tenure_start: 07/2016
-  tenure_end: 10/2016
-  current_info: a Principal Associate and a Senior Software Engineer <a href="https://en.wikipedia.org/wiki/Capital_One">Capital One</a>
-  last_current_info_check: 2024
-  contributions: He contributed to the development of tRNA-seq tools, a project that bridged Meren's and <a href="https://scholar.google.com/citations?user=R5nkatMAAAAJ&hl=en">Tao Pan</a>'s interests
-  role: Summer Student
-  avatar: bio-steven.png
-  email: stevencui729@gmail.com
-  bio: "I am an undergraduate student at UChicago studying computer science. I look forward to tackling new and exciting computational problems in the field of bionformatics."
-
-
 ####################################################################################
-# Collaborators and partners in science
+# Community Guests & Contributors
 ####################################################################################
 
 - alias: mikeyu
-  collaborator: True
+  community_member: True
   name: Michael Yu
   name_as_author: Michael K Yu
   avatar: bio-mikeyu.jpg
@@ -770,7 +790,7 @@
       inst_link: https://www.ttic.edu/
 
 - alias: blair
-  collaborator: True
+  community_member: True
   role: Partner in Science / Collaborator
   avatar: bio-blair.jpg
   name: Blair G. Paul
@@ -786,7 +806,7 @@
       inst_link: http://mbl.edu
 
 - alias: antonio
-  collaborator: True
+  community_member: True
   avatar: bio-antonio.png
   name: Antonio Fernandez-Guerra
   name_as_author: Antonio Fernandez-Guerra
@@ -799,26 +819,6 @@
     - title: Assistant Professor
       inst: Lundbeck Foundation GeoGenetics Centre, The GLOBE Institute, University of Copenhagen
       inst_link: https://globe.ku.dk/research/geogenetics/
-
-- alias: jessika
-  collaborator: True
-  role: Partner in Science / Collaborator
-  avatar: bio-jessika.jpg
-  name: Jessika Fuessel
-  name_as_author: Jessika Fuessel
-  email: ju.fuessel@gmail.com
-  twitter: FuesselJessika
-  orcid: 0000-0002-4210-2318
-  github: jessika-fuessel
-  bio: "My aim is to understand the production and fate of microbial metabolites within the context of changing environmental conditions using a multi-omics approaches."
-  affiliations:
-    - title: Post-doctoral Scientist
-      inst: Institute for Chemistry and Biology of the Marine Environment, University of Oldenburg
-      inst_link: https://uol.de/en/icbm
-
-####################################################################################
-# Community Guests & Contributors
-####################################################################################
 
 - alias: chiara
   community_member: True
@@ -972,3 +972,137 @@
     - title: Post-doctoral Scientist
       inst: Smithsonian Tropical Research Institute
       inst_link: https://stri.si.edu/
+
+####################################################################################
+# Visitors
+#
+# Use this template
+#
+# - name: 
+#   visitor: True
+#   arrival: 
+#   length_of_stay: 
+#   title: 
+#   department: 
+#   institute: 
+#   country_flag: (search for the matching flag emoji on google)
+#   dept_link: 
+#   pers_link: 
+#   photos:
+#     - caption: (some caption)
+#       url: /images/visitors/2024_meaningful_file_name_that_includes_last_name_of_the_visitor.jpg
+#     - caption: (another caption)
+#       url: /images/visitors/2024_meaningful_file_name_that_includes_last_name_of_the_visitor.jpg
+#
+####################################################################################
+
+- name: Eeva Eronen-Rasimus
+  visitor: True
+  arrival: 10/2024
+  length_of_stay: 10 days
+  title: Senior Researcher
+  department:  Marine Reserach Center
+  institute: Finnish Environmental Institute
+  country_flag: 🇫🇮
+  dept_link: https://www.syke.fi/en-US
+  pers_link: https://www.syke.fi/en-US/Experts/Eeva_EronenRasimus(66205)
+  photos:
+    - caption: Eeva, Igor, and Tommi during a lunch meeting with the rest of the group :)
+      url: /images/visitors/2024_pessi.jpg
+- name: Tommi Välikangas
+  visitor: True
+  arrival: 10/2024
+  length_of_stay: 10 days
+  title: Postdoctoral Scientist
+  institute: Natural Resources Institute Finland
+  country_flag: 🇫🇮
+  dept_link: https://www.luke.fi/en
+  pers_link: https://www.researchgate.net/profile/Tommi-Vaelikangas
+- name: Igor Pessi
+  visitor: True
+  arrival: 10/2024
+  length_of_stay: 10 days
+  title: Postdoctoral Scientist
+  institute: Finnish Environment Institute
+  country_flag: 🇫🇮
+  dept_link: https://www.syke.fi/en-US
+  pers_link: https://igorpessi.com/
+- name: Steve Giovannoni
+  visitor: True
+  pers_link: https://microbiology.oregonstate.edu/directory/stephen-j-giovannoni
+  title: Professor
+  department: Department of Microbiology
+  dept_link: https://microbiology.oregonstate.edu
+  institute: Oregon State University
+  country_flag: 🇺🇸
+  arrival: 07/2024
+  length_of_stay: "3 months"
+  notes: "Stayed at the HWK"
+  photos:
+    - caption: Journal Club with Steve.
+      url: /images/visitors/2024_journal_club_with_giovannoni.jpg
+- name: Arthur Cousson
+  visitor: True
+  arrival: 05/2024
+  length_of_stay: "8 weeks"
+  title: Graduate Student
+  department: EcoSols Joint Research Unit
+  institute: Institut Agro Montpellier
+  country_flag: 🇫🇷
+  dept_link: https://www.umr-ecosols.fr/en/
+  pers_link: https://github.com/ImagoXV
+  photos:
+    - caption: Arthur and others.
+      url: /images/visitors/2024_cousson_et_al.jpg
+- name: Oleg Vlasovets
+  visitor: True
+  arrival: 01/2024
+  length_of_stay: "3 months"
+  title: Graduate Student
+  institute: Helmholtz Zentrum München
+  country_flag: 🇩🇪
+  dept_link: https://www.helmholtz-munich.de/en/
+  pers_link: https://www.linkedin.com/in/oleg-vlasovets-b6a05813b/
+  photos:
+    - caption: Lunch meeting with Oleg (on the most left), Daan Speth, Tom Delmont, Sarahi Garcia, and others in the lab.
+      url: /images/visitors/2024_oleg_and_others.jpg
+- name: Mary Ann Moran
+  visitor: True
+  arrival: 10/2023
+  length_of_stay: "a week"
+  title: Professor
+  department: Department of Marine Sciences
+  institute: University of Georgia
+  country_flag: 🇺🇸
+  dept_link: https://www.marsci.uga.edu/
+  pers_link: https://moranresearch.org/
+  photos:
+    - caption: Sarahi Garcia, Sandra McLellan, Jessika Fuessel, Meren, and Mary Ann Moran in Bremen.
+      url: /images/visitors/2023_moran_mclellan_and_others.jpg
+- name: Sandra McLellan
+  visitor: True
+  arrival: 10/2023
+  length_of_stay: "a week"
+  title: Professor
+  department: School of Freshwater Sciences
+  institute: University of Wisconsin-Milwaukee
+  country_flag: 🇺🇸
+  dept_link: https://uwm.edu/freshwater/
+  pers_link: https://sites.uwm.edu/mclellanlab/
+- name: Jed Fuhrman
+  visitor: True
+  arrival: 09/2022
+  length_of_stay: "a week"
+  title: Professor
+  department: Wrigley Institute for Environmental Studies
+  institute:  University of Southern California
+  country_flag: 🇺🇸
+  dept_link: https://dornsife.usc.edu/wrigley/
+  pers_link: https://dornsife.usc.edu/fuhrmanlab/
+  photos:
+    - caption: Tom Delmont, Jed Fuhrman, Meren, and all the carboard boxes.
+      url: /images/visitors/2022_fuhrman_delmont.jpg
+
+
+
+
