@@ -200,7 +200,7 @@ Please read the assignment below carefully, and **return your reports by midnigh
 
 Please read the assignment below carefully, and return your reports by midnight on **Friday, 20/12/24** (before the winter break):
 
-> This is a small exercise in microbial metabolism analysis. Please find the data pack for this exercise on stud.IP, or using [this Dropbox link](https://www.dropbox.com/scl/fi/fzxjssxc3j27q34rgmc40/EX_04_Metabolism.tar.gz?rlkey=ywv6frawaxg6nx8wco0htc39h&st=4lp3d340&dl=0).
+> This is a small exercise in microbial metabolism analysis. Please find the data pack for this exercise on stud.IP, or using [this Dropbox link](https://www.dropbox.com/scl/fi/fzxjssxc3j27q34rgmc40/EX_04_Metabolism.tar.gz?rlkey=ywv6frawaxg6nx8wco0htc39h&st=ep19xhgy&dl=0).
 >
 > The data pack contains four microbial genomes, and your task is to investigate which of these organisms (if any) are capable of nitrogen cycling. Please use anvi'o to annotate these genomes with KOfams, and then run `anvi-estimate-metabolism` to calculate the completeness of metabolic pathways in the KEGG MODULE database. You should examine the output of that program to identify the completeness scores for nitrogen cycling pathways in each genome. You will find a list of all KEGG modules for nitrogen metabolism [at this link](https://www.genome.jp/entry/pathway+map00910). This list contains seven pathways for nitrogen fixation, nitrate reduction, denitrification, and nitrification.
 >
