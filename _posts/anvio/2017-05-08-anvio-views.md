@@ -6,6 +6,7 @@ modified: 2017-05-06
 categories: [anvio]
 comments: true
 authors: [mike]
+redirect_from: /anvio-views/
 ---
 
 
