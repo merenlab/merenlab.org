@@ -75,7 +75,7 @@ conda install -y r-base blast -c bioconda
 Once everything is done, install the following R libraries:
 
 ```
-conda install -y r-ggplot2 r-vegan r-gplots r-gtools r-reshape r-optparse r-pheatmap r-rcolorbrewer r-compute.es
+conda install -y -c r -c conda-forge r-ggplot2 r-vegan r-gplots r-gtools r-reshape r-optparse r-pheatmap r-rcolorbrewer r-compute.es
 ```
 
 If you came this far, it means you have installed everything necessary.
