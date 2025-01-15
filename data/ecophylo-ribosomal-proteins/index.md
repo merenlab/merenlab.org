@@ -7,7 +7,7 @@ comments: true
 authors: [matt]
 ---
 
-**The purpose of this page** is to provide access to reproducible data products that underlie our key findings in the study "**[Phylogeography of ribosomal proteins reveals missing genomes from genome collections]()**" by [Matt Schechter]() et al.
+**The purpose of this page** is to provide access to reproducible data products that underlie our key findings in the study "**Ribosomal protein phylogeography offers quantitative insights into the efficacy of genome-resolved surveys of microbial communities**" by Matt Schechter et al.
 
 {:.notice}
 If you have any questions and/or if you are unable to find an important piece of information here, please feel free to leave a comment down below, send an e-mail to [us]({{ site.url }}/people/), or get in touch with us through Discord:
