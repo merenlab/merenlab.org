@@ -227,9 +227,9 @@ Please read the assignment below carefully, and return your reports by midnight 
 
 ### 15/01/25 :: EX 05: Population genetics of a plasmid
 
-Please read the assignment below carefully, and **return your reports by midnight on 22/01/25**:
+Please read the assignment below carefully, and **return your reports by midnight on 25/01/25**:
 
-> This is a small exercise on microbial population genetics. The exercise aims to help you familiarize yourself with the population genetic signal recovered from metagenomes through single nucleotide avariants, and sharpen your ability to answer some key questions using such data. You can download the datapack from [here](https://www.dropbox.com/scl/fi/nq7axbmiilylgtfyx7qxa/AMO_Population_Genetics_Datapack.tar.gz?rlkey=xn3nnzxvz988ssrpeoydtvdsp&dl=0), in which you will find an anvi'o profile database and a contigs database that contains all the data you will need to be able to solve the following puzzle.
+> This is a small exercise on microbial population genetics. The exercise aims to help you familiarize yourself with the population genetic signal recovered from metagenomes through single nucleotide variants, and sharpen your ability to answer some key questions using such data. You can download the datapack from [here](https://www.dropbox.com/scl/fi/ro023yswwtm9k2fcr95z2/AMO_Population_Genetics_Datapack.tar.gz?rlkey=e920j6th4xbz6ufhztuy723kg&st=5o3ka0ps&dl=0), in which you will find an anvi'o profile database and a contigs database that contains all the data you will need to be able to solve the following puzzle.
 >
 > The contigs database is generated from a single plasmid, and the merged profile database contains the metagenomic read recruitment data that puts this plasmid in the context of 12 human gut metagenomes. The gut metagenomes are a subset of the data published in [this study](https://www.sciencedirect.com/science/article/pii/S1931312815001626) in case you are interested to take a look. But briefly, the subset of the data that is profiled here includes <strong>6 gut metagenomes from mothers</strong>, and <strong>6 gut metagenomes from their infants</strong>. But you don't know the real mother-infant pairs :)
 >
@@ -244,9 +244,9 @@ Please read the assignment below carefully, and **return your reports by midnigh
 >
 > Please make sure your report includes,
 >
->  - A list that describes which mother matches which infant, if there is signal to determine that.</li>
->  - A screenshot of your final visualization with a brief description of how you interpreted it.</li>
->  - And a summary of your workflow with commands you have used.</li>
+>  - A list that describes which mother matches which infant, if there is signal to determine that.
+>  - A screenshot of your final visualization with a brief description of how you interpreted it.
+>  - And a summary of your workflow with commands you have used.
 >
 > Thank you and good luck!
 
