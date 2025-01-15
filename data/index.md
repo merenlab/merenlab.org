@@ -20,6 +20,12 @@ Please do not hesitate to get in touch if something is missing. You can send [us
 {:.notice}
 Bonus blog post: [Fantastic Data and How to Share Them: A Plea to Journal Editors and Reviewers](/sharing-data/).
 
+## Phylogeography of ribosomal proteins with EcoPhylo
+
+### Reproducible bioinformatics workflow
+
+[https://merenlab.org/data/ecophylo-ribosomal-proteins/](/data/ecophylo-ribosomal-proteins) gives access to **reproducible bioinformatics analyses** that underlie our key findings.
+
 ## Ecology and evolution of a cryptic plasmid
 
 <div class="pub_float">
