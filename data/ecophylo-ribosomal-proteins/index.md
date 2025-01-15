@@ -40,17 +40,7 @@ packages <- c("tidyverse", "ggpubr", "fs", "ape", "treeio", "glue", "plotly", "r
 suppressWarnings(suppressMessages(lapply(packages, library, character.only = TRUE)))
 ```
 
-> The majority of commands using
-> {% include PROGRAM name="anvi-run-workflow" %}
-> were run on high performance compute clusters (HPC) leveraging the
-> powerful SLURM wrapper
-> [clusterize](https://github.com/ekiefl/clusterize). Without access to
-> compute nodes, these commands would take a VERY long time. Please
-> check out this blogpost for more information: [Running workflows on a
-> cluster](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#running-workflows-on-a-cluster).
-> All BASH commands in this reproducible workflow will need to be
-> modified to run on your own HPC system. See below for an example some
-> modifiable paramaters that might be helpful.
+> The majority of commands using {% include PROGRAM name="anvi-run-workflow" %} were run on high performance compute clusters (HPC) leveraging the powerful SLURM wrapper [clusterize](https://github.com/ekiefl/clusterize). Without access to compute nodes, these commands would take a VERY long time. Please check out this blogpost for more information: [Running workflows on a cluster](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#running-workflows-on-a-cluster). All BASH commands in this reproducible workflow will need to be modified to run on your own HPC system. See below for an example some modifiable paramaters that might be helpful.
 
 Here is an “example” of prototypical command with some basic descriptions of the various parameters. Make sure to fill in everything on your own :)
 
@@ -69,23 +59,11 @@ anvi-run-workflow -w ecophylo \ # anvio worklow name
 
 ## Distribution HMM alignment coverage and SCG detection across GTDB
 
-To identify a threshold to remove spurious {% include ARTIFACT name="hmm-hits" %} recruited by
-ribosomal protein HMMs in metagenomic assemblies, we examined the
-distribution of {% include ARTIFACT name="hmm-hits" %} alignment coverage across genomes across
-[GTDB](https://gtdb.ecogenomic.org/) [release
-95](https://data.ace.uq.edu.au/public/gtdb/data/releases/release95/) and
-decided to filter our {% include ARTIFACT name="hmm-hits" %} with less than 80% model coverage. The
-idea here was to improve our detection of high quality {% include ARTIFACT name="hmm-hits" %} in
-genomes in an effort to improve the detection of ribosomal proteins in
-the wild, metagenomic assemblies. The following steps describe our
-workflow:
+To identify a threshold to remove spurious {% include ARTIFACT name="hmm-hits" %} recruited by ribosomal protein HMMs in metagenomic assemblies, we examined the distribution of {% include ARTIFACT name="hmm-hits" %} alignment coverage across genomes across [GTDB](https://gtdb.ecogenomic.org/) [release 95](https://data.ace.uq.edu.au/public/gtdb/data/releases/release95/) and decided to filter our {% include ARTIFACT name="hmm-hits" %} with less than 80% model coverage. The idea here was to improve our detection of high quality {% include ARTIFACT name="hmm-hits" %} in genomes in an effort to improve the detection of ribosomal proteins in the wild, metagenomic assemblies. The following steps describe our workflow:
 
-**Step 1.** Run EcoPhylo over GTDB Bacteria and Archaea collections with
-the `Bacteria_71` and `Archaea_76` HMM collections respectively with NO
-HMM alignment coverage cutoff.
+**Step 1.** Run EcoPhylo over GTDB Bacteria and Archaea collections with the `Bacteria_71` and `Archaea_76` HMM collections respectively with NO HMM alignment coverage cutoff.
 
-To run this, you will need to make {% include ARTIFACT name="external-genomes" %} with paths to
-all {% include ARTIFACT name="contigs-db" %} for GTDB genomes.
+To run this, you will need to make {% include ARTIFACT name="external-genomes" %} with paths to all {% include ARTIFACT name="contigs-db" %} for GTDB genomes.
 
 ``` bash
 # get default config
@@ -121,12 +99,9 @@ alignment coverage:
 }
 ```
 
-**Step 2.** Extract `hmmsearch`
-[domtblout](http://eddylab.org/software/hmmer/Userguide.pdf) files
+**Step 2.** Extract `hmmsearch` [domtblout](http://eddylab.org/software/hmmer/Userguide.pdf) files
 
-Here we iterated through all of the `domtblout` files that were produced
-and concatenated them. They can be found in an EcoPhylo dir structure
-here: `01_REFERENCE_PROTEIN_DATA/*/*-dom-hmmsearch/hmm.domtable`
+Here we iterated through all of the `domtblout` files that were produced and concatenated them. They can be found in an EcoPhylo dir structure here: `01_REFERENCE_PROTEIN_DATA/*/*-dom-hmmsearch/hmm.domtable`
 
 ``` bash
 PROTEIN="" # replace with protein interest
@@ -189,10 +164,7 @@ GTDB_domtable_archaea_ed <- fix_domtblout_data(GTDB_domtable_archaea)
 
 **Step 4.** Plot the distribution of model and gene alignment coverages
 
-This is how we plotted the distribution of HMM alignment coverages to
-all the ORF hits across the genome data sets. The files
-`GTDB_domtable_ed.tsv` and `GTDB_domtable_archaea_ed.tsv` and saved in
-the datapack.
+This is how we plotted the distribution of HMM alignment coverages to all the ORF hits across the genome data sets. The files `GTDB_domtable_ed.tsv` and `GTDB_domtable_archaea_ed.tsv` and saved in the datapack.
 
 ``` r
 DIR_PATH <- "REPRODUCIBLE_WORKFLOW_DATA" 
@@ -266,11 +238,7 @@ ggarrange(plot_model_cov_archaea_76$plot_model_cov,
 
 ## Explore SCG HMM copy number across GTDB r95 RefSeq
 
-To identify ribosomal proteins that occurred in single-copy per genome,
-we searched the `Bacteria_71` and `Archaea_76` HMM collections across
-GTDB with 80% model alignment coverage (threshold identified in the
-previous analysis to filter out low quality HMM-hits in metagenomic
-assembles).
+To identify ribosomal proteins that occurred in single-copy per genome, we searched the `Bacteria_71` and `Archaea_76` HMM collections across GTDB with 80% model alignment coverage (threshold identified in the previous analysis to filter out low quality HMM-hits in metagenomic assembles).
 
 **Step 1.** Run EcoPhylo with 80% HMM alignment coverage cut-off
 
@@ -292,8 +260,7 @@ anvi-run-workflow -w ecophylo \
                   --rerun-incomplete
 ```
 
-Here is how you can adjust the `config.json` to filter for 80% HMM
-alignment coverage:
+Here is how you can adjust the `config.json` to filter for 80% HMM alignment coverage:
 
 ``` bash
 {
@@ -307,12 +274,8 @@ alignment coverage:
 
 **Step 2.** Extract matrix of {% include ARTIFACT name="hmm-hits" %} across genome data sets
 
-This is how we extracted a matrix of {% include ARTIFACT name="hmm-hits" %} for the HMM collections
-(`Bacteria_71` and `Archaea_76`) after running the EcoPhylo workflow
-over the GTDB representative genomes dataset. The script
-{% include PROGRAM name="anvi-script-gen-hmm-hits-matrix-across-genomes" %} is a convenient tool to
-extract an {% include ARTIFACT name="hmm-hits" %} count matrix from any set of genomes and/or
-metagenomes in anvi’o.
+This is how we extracted a matrix of {% include ARTIFACT name="hmm-hits" %} for the HMM collections (`Bacteria_71` and `Archaea_76`) after running the EcoPhylo workflow
+over the GTDB representative genomes dataset. The script {% include PROGRAM name="anvi-script-gen-hmm-hits-matrix-across-genomes" %} is a convenient tool to extract an {% include ARTIFACT name="hmm-hits" %} count matrix from any set of genomes and/or metagenomes in anvi’o.
 
 ``` bash
 # archaea
@@ -403,22 +366,13 @@ plot_final
 
 ## Benchmarking EcoPhylo workflow with Ribosomal proteins using CAMI synthetic metagenomes
 
-We explored different ribosomal protein clustering thresholds and their
-impact on \[non-specific read
-recruitment\](https://anvio.org/vocabulary/#non-specific-read-recruitment)
-in the EcoPhylo workflow. To do this, we used
-[CAMI](https://doi.org/10.1038/s41592-022-01431-4) and performed a grid
-search across ribosomal protein clustering thresholds from 95%-100%.
-Before we started, we identified the top 5 most frequent single-copy
-ribosomal proteins per CAMI genome dataset. Here is an example of how we
-performed the read recruitment experiment with the
+We explored different ribosomal protein clustering thresholds and their impact on [non-specific read recruitment](https://anvio.org/vocabulary/#non-specific-read-recruitment) in the EcoPhylo workflow. To do this, we used [CAMI](https://doi.org/10.1038/s41592-022-01431-4) and performed a grid search across ribosomal protein clustering thresholds from 95%-100%.
+Before we started, we identified the top 5 most frequent single-copy ribosomal proteins per CAMI genome dataset. Here is an example of how we performed the read recruitment experiment with the
 [CAMI](https://doi.org/10.1038/s41592-022-01431-4) marine dataset.
 
-**Step 1.** Make config files for ribosomal protein clustering grid
-search from 95%-100%
+**Step 1.** Make config files for ribosomal protein clustering grid search from 95%-100%
 
-Here we used the script [paramaterize_clustering_threshold.py](files/paramaterize_clustering_threshold.py) to
-iterate through the parameters we were testing and modify a default
+Here we used the script [paramaterize_clustering_threshold.py](files/paramaterize_clustering_threshold.py) to iterate through the parameters we were testing and modify a default
 `config.json` accordingly.
 
 ``` bash
@@ -444,9 +398,7 @@ done
 
 **Step 2.** Run EcoPhylo workflow over grid search
 
-This is how we ran EcoPhylo over the CAMI Marine dataset with multiple
-ribosomal proteins and at a 95% clustering threshold. We performed this
-over each CAMI dataset with all clustering thresholds from 95-100%.
+This is how we ran EcoPhylo over the CAMI Marine dataset with multiple ribosomal proteins and at a 95% clustering threshold. We performed this over each CAMI dataset with all clustering thresholds from 95-100%.
 
 ``` bash
 DATASET="MARINE"
@@ -459,8 +411,7 @@ done
 
 **Step 3.** Collect non-specific read recruitment data
 
-Here is how we iterated over the EcoPhylo directory structure to extract
-the non-specific read recruitment data.
+Here is how we iterated over the EcoPhylo directory structure to extract the non-specific read recruitment data.
 
 ``` bash
 # Collect mismapping data
@@ -491,8 +442,7 @@ done
 
 **Step 4.** Plot the percent of non-specific read recruitment per sample
 
-This script will plot the percent of non-specific read recruitment per
-protein per metagenomes in all three CAMI datasets.
+This script will plot the percent of non-specific read recruitment per protein per metagenomes in all three CAMI datasets.
 
 ``` r
 plot_theme_2 <- theme_light() +
@@ -543,41 +493,21 @@ missmapping_p
 
 ## Removing genomes that are not detected in metagenomic samples
 
-When contextualizing a genomic collection from multiple genome recovery
-methods, some genomes will inherently be undetected in the underlying
-metagenomes. It’s best practice to remove these from the EcoPhylo
-interface so that every branch in the phylogenetic tree is relevant to
-the analysis and the detection heatmap doesn’t have a bunch of zeros.
-For example, in this manuscript we augmented Shaiber et al. (2020) MAGs
-with HOMD isolate genomes. Many HOMD isolate genomes were isolated from
-other samples and thus not detected in the Shaiber et al. (2020)
-metagenomes.
+When contextualizing a genomic collection from multiple genome recovery methods, some genomes will inherently be undetected in the underlying metagenomes. It’s best practice to remove these from the EcoPhylo interface so that every branch in the phylogenetic tree is relevant to the analysis and the detection heatmap doesn’t have a bunch of zeros. For example, in this manuscript we augmented Shaiber et al. (2020) MAGs with HOMD isolate genomes. Many HOMD isolate genomes were isolated from other samples and thus not detected in the Shaiber et al. (2020) metagenomes.
 
-EcoPhylo offers an efficient way to see if genomes are detected in a
-metagenomes because read recruitment to ribosomal proteins is much
-faster than to whole genomes. We used this feature to quickly filter out
-genomes that are not detected in any metagenomes we analyzed.
-Subsequently, we re-run the workflow with the a filtered
-`external-genomes` file containing only genomes that are detected in the
-data. Here is an outline we did this in the paper:
+EcoPhylo offers an efficient way to see if genomes are detected in a metagenomes because read recruitment to ribosomal proteins is much faster than to whole genomes. We used this feature to quickly filter out genomes that are not detected in any metagenomes we analyzed. Subsequently, we re-run the workflow with the a filtered `external-genomes` file containing only genomes that are detected in the data. Here is an outline we did this in the paper:
 
 **Step 1.** Run the EcoPhylo workflow with the entire genome collection
 
 **Step 2.** Export the detection of each ribosomal protein
 
-This program will extract a matrix of read recruitment detection data
-from each ribosomal protein homologue across the dataset of metagenomes
-using EcoPhylo:
+This program will extract a matrix of read recruitment detection data from each ribosomal protein homologue across the dataset of metagenomes using EcoPhylo:
 
 ``` bash
 anvi-export-table PROFILE.db --table detection_splits -o detection_splits.txt
 ```
 
-Here is a function we used to filter for undetected genomes in the
-metagenomic dataset. We defined detected as 90% coverage of a ribosomal
-protein sequence representative in at least one metagenome. The exported
-list of genomes were undetected and can be used to filter out genomes
-from your `exteral-genomes.txt`.
+Here is a function we used to filter for undetected genomes in the metagenomic dataset. We defined detected as 90% coverage of a ribosomal protein sequence representative in at least one metagenome. The exported list of genomes were undetected and can be used to filter out genomes from your `exteral-genomes.txt`.
 
 ``` r
 detect_and_write_genomes <- function(DIR_PATH, SCG, DETECTION_SPLITS, DETECTION_VALUE) {
@@ -603,42 +533,21 @@ SCG <- "Ribosomal_L19" # Here you can plug in your ribosomal protein name you ha
 genomes_NOT_detected_Ribosomal_L19 <- detect_and_write_genomes(DIR_PATH, SCG, DETECTION_VALUE = 0.9)
 ```
 
-**NOTE**: In this paper we employed a conservative detection statistic
-for ribosomal proteins in metagenomic data: 90% [anvi’o
-detection](https://merenlab.org/2017/05/08/anvio-views/#detection). This
-could in theory filter out some ribosomal proteins that originated from
-the metagenomic assembly. However, we decided to keep these sequences
-since they were assembled from the underlying metagenomes. This line of
-the function is a great place to ONLY external genomes from other genome
-recovery method, such as isolate genomes and SAGs.
+**NOTE**: In this paper we employed a conservative detection statistic for ribosomal proteins in metagenomic data: 90% [anvi’o detection](https://merenlab.org/2017/05/08/anvio-views/#detection). This could in theory filter out some ribosomal proteins that originated from the metagenomic assembly. However, we decided to keep these sequences since they were assembled from the underlying metagenomes. This line of the function is a great place to ONLY external genomes from other genome recovery method, such as isolate genomes and SAGs.
 
-**Step 3.** Re-run EcoPhylo with a filtered {% include ARTIFACT name="external-genomes" %} file
-with only genomes that were detected in the metagenomic dataset.
+**Step 3.** Re-run EcoPhylo with a filtered {% include ARTIFACT name="external-genomes" %} file with only genomes that were detected in the metagenomic dataset.
 
 ## Identifying the most frequent ribosomal proteins in a genomic collection
 
-Selecting which ribosomal protein or gene family to analyze in EcoPhylo
-is a critical decision that must align with your specific scientific
-questions. For this study, we prioritized ribosomal proteins that
-supported our goal of examining genome recovery rates. Specifically, we
-chose ribosomal proteins that (1) were present as single-copy genes
-across the majority of genome collections in the oral, ocean, and human
-gut metagenomic datasets, providing broad contextualization, and (2)
-exhibited balanced assembly rates in metagenomic assemblies, ensuring
-they were neither over- nor under-assembled.
+Selecting which ribosomal protein or gene family to analyze in EcoPhylo is a critical decision that must align with your specific scientific questions. For this study, we prioritized ribosomal proteins that supported our goal of examining genome recovery rates. Specifically, we chose ribosomal proteins that (1) were present as single-copy genes across the majority of genome collections in the oral, ocean, and human gut metagenomic datasets, providing broad contextualization, and (2) exhibited balanced assembly rates in metagenomic assemblies, ensuring they were neither over- nor under-assembled.
 
-Here is an example of how we identified the top three proteins to
-contextualize MAGs and HOMD isolates in Shaiber et al.(2020)
-metagenomes.
+Here is an example of how we identified the top three proteins to contextualize MAGs and HOMD isolates in Shaiber et al.(2020) metagenomes.
 
-**Step 1.** Run EcoPhylo workflow to annotate HOMD with Bacteria_71 SCG
-collection
+**Step 1.** Run EcoPhylo workflow to annotate HOMD with Bacteria_71 SCG collection
 
 **Step 2.** Find SCGs that detect the majority of the genomic dataset
 
-Here we used {% include PROGRAM name="anvi-script-gen-hmm-hits-matrix-across-genomes" %} to extract
-the matrix of {% include ARTIFACT name="hmm-hits" %} from both the metagenomic assemblies and genome
-collection.
+Here we used {% include PROGRAM name="anvi-script-gen-hmm-hits-matrix-across-genomes" %} to extract the matrix of {% include ARTIFACT name="hmm-hits" %} from both the metagenomic assemblies and genome collection.
 
 ``` bash
 # Exctract SCGs across metagenome dataset
@@ -746,25 +655,13 @@ ggarrange(plot_bacteria_SCG_frequency_per_HOMD_MAGs_50, plot_metagenome_SCGs_fre
 
 ## Make genome-type and miscellaneous data
 
-EcoPhylo provides some basic miscellaneous information about each of the
-ribosomal proteins detected in your data including: representative
-sequence length, cluster size, and taxonomic assignment for ribosomal
-proteins. In this paper, we needed to add more miscellaneous data to
-each EcoPhylo interface, specifically the source of each ribosomal
-protein (MAG, SAG, isolate genome) to calculate genome recovery rates.
-Luckily, anvi’o makes it easy to enrich the interface with extra data to
-get more insights.
+EcoPhylo provides some basic miscellaneous information about each of the ribosomal proteins detected in your data including: representative sequence length, cluster size, and taxonomic assignment for ribosomal proteins. In this paper, we needed to add more miscellaneous data to each EcoPhylo interface, specifically the source of each ribosomal protein (MAG, SAG, isolate genome) to calculate genome recovery rates. Luckily, anvi’o makes it easy to enrich the interface with extra data to get more insights.
 
-There are some key files you will need to create miscellaneous data for
-every sequence cluster in the EcoPhylo interactive interface:
+There are some key files you will need to create miscellaneous data for every sequence cluster in the EcoPhylo interactive interface:
 
-- `collection-DEFAULT.txt`: This file contains all the names of the splits in the EcoPhylo
-interactive interface.
+- `collection-DEFAULT.txt`: This file contains all the names of the splits in the EcoPhylo interactive interface.
 
-- `02_NR_FASTAS/PROTEIN-mmseqs_NR_cluster.tsv`: This file contains all of the cluster representatives and cluster
-members. This file is critical because most of the time you want to
-annotate aspects of the clusters not just the representative sequences
-:)
+- `02_NR_FASTAS/PROTEIN-mmseqs_NR_cluster.tsv`: This file contains all of the cluster representatives and cluster members. This file is critical because most of the time you want to annotate aspects of the clusters not just the representative sequences :)
 
 Leveraging a combination of files should allow you to make miscellaneous data about any EcoPhylo sequence cluster! Here are the steps to make a miscellaneous data table with the genome-type composition for each cluster:
 
@@ -777,11 +674,7 @@ anvi-export-collection -p PROFILE.db -C DEFAULT
 
 **Step 2.** Create genome type metadata
 
-Here is an example of how I made a genome-types file for the Oral
-Microbiome data analysis. Please note that the code is not generalizable to any
-miscellaneous data scenario, but rather extremely specific to what we did in
-the paper. Here is how we created a miscellaneous data table containing the genomic source
-of each sequence in an EcoPhylo analysis:
+Here is an example of how I made a genome-types file for the Oral Microbiome data analysis. Please note that the code is not generalizable to any miscellaneous data scenario, but rather extremely specific to what we did in the paper. Here is how we created a miscellaneous data table containing the genomic source of each sequence in an EcoPhylo analysis:
 
 <details markdown="1"><summary>Show/Hide code to reproduce `genome-types.txt` file Oral microbiome dataset</summary>
 ``` r
@@ -859,21 +752,13 @@ anvi-import-misc-data genome_types.txt \
 
 ## Calculating genome recovery rate
 
-To calculate genome recovery rates for any given taxon with EcoPhylo, we
-divided the number of sequence clusters that contained a sequence from a
-given genome recovery method by the total number of representative
-sequences EcoPhylo reported for that taxon. EcoPhylo taxonomically
-annotated ribosomal sequences with the program
-[anvi-estimate-scg-taxonomy](https://anvio.org/help/main/programs/anvi-estimate-scg-taxonomy/).
-You can extract this miscellaneous data along with a few other tables
-and calculate genome recovery rates like this:
+To calculate genome recovery rates for any given taxon with EcoPhylo, we divided the number of sequence clusters that contained a sequence from a given genome recovery method by the total number of representative sequences EcoPhylo reported for that taxon. EcoPhylo taxonomically annotated ribosomal sequences with the program [anvi-estimate-scg-taxonomy](https://anvio.org/help/main/programs/anvi-estimate-scg-taxonomy/). You can extract this miscellaneous data along with a few other tables and calculate genome recovery rates like this:
 
 ### anvi-estimate-scg-taxonomy
 
 **Step 1.** Export items miscellaneous from EcoPhylo
 
-This table will include all metadata from each representative ribosomal
-sequence and associated sequence cluster
+This table will include all metadata from each representative ribosomal sequence and associated sequence cluster
 
 ``` bash
 anvi-export-misc-data -p PROFILE.db --target-data-table items -o items.tsv
@@ -883,16 +768,9 @@ anvi-export-misc-data -p PROFILE.db --target-data-table items -o items.tsv
 [anvi-estimate-scg-taxonomy](https://anvio.org/help/main/programs/anvi-estimate-scg-taxonomy/)
 taxonomic annotations.
 
-A caveat of
-[anvi-estimate-scg-taxonomy](https://anvio.org/help/main/programs/anvi-estimate-scg-taxonomy/)
-is that it will not annotate ribosomal sequences that are x \< 90% amino
-acid percent identity to it’s marker gene database. This will result in
-divergent ribosomal protein sequences not receiving a taxonomic
-annotation.
+A caveat of [anvi-estimate-scg-taxonomy](https://anvio.org/help/main/programs/anvi-estimate-scg-taxonomy/) is that it will not annotate ribosomal sequences that are x \< 90% amino acid percent identity to it’s marker gene database. This will result in divergent ribosomal protein sequences not receiving a taxonomic annotation.
 
-Here is an example of a function that will calculate the genome recovery
-rate if there is only one external genome type (e.g. MAGs) in your
-analysis.
+Here is an example of a function that will calculate the genome recovery rate if there is only one external genome type (e.g. MAGs) in your analysis.
 
 ``` r
 find_MAG_recovery_rate <- function(item_additional_data, taxonomic_rank) {
@@ -926,19 +804,11 @@ Genome_recovery_rates_SCG_taxonomy <- bind_rows(genome_recovery_rates_SCG_taxono
 
 ### Taxonomic binning
 
-To account for divergent ribosomal proteins that did not get a taxonomic
-assignment from `anvi-estimate-scg-taxonomy`, we used the ribosomal
-protein amino acid phylogenetic tree to group sequences with their
-surrounding clade members of the same taxa in the `anvi-interactive`
-interface and transferred their taxonomic annotation to the sequences
-with unknown classification - We call this taxonomic binning.
+To account for divergent ribosomal proteins that did not get a taxonomic assignment from `anvi-estimate-scg-taxonomy`, we used the ribosomal protein amino acid phylogenetic tree to group sequences with their surrounding clade members of the same taxa in the `anvi-interactive` interface and transferred their taxonomic annotation to the sequences with unknown classification - We call this taxonomic binning.
 
-To recalculate genome recovery rates with taxonomic bins made from the
-EcoPhylo interactive interface the first step is to export the new
-collection of bins.
+To recalculate genome recovery rates with taxonomic bins made from the EcoPhylo interactive interface the first step is to export the new collection of bins.
 
-**Step 1.** Bin taxa of interest in the interactive interface and export
-the collections
+**Step 1.** Bin taxa of interest in the interactive interface and export the collections
 
 **Step 2.** Export bins and items
 
@@ -971,23 +841,13 @@ RP_S15_Bacteria_Archaea_recovery <- item_additional_data_S15 %>%
 
 ## Manually curate EcoPhylo tree
 
-In our study, we calculated phylogenetic trees of large collections of
-ribosomal proteins (in the surface ocean microbiome, thousands!) which
-included sequences from all domains of life, including plastids and
-mitochondria. Due to the high-throughput nature of the workflow and the
-chance of recruiting assembly artifacts, we manually inspected and
-removed unusually long branches and recalculated the tree. Additionally,
-in some scenarios, we removed the entire mitochondria signal to improve
-the topology of the tree. Here are the basic steps to do this:
+In our study, we calculated phylogenetic trees of large collections of ribosomal proteins (in the surface ocean microbiome, thousands!) which included sequences from all domains of life, including plastids and mitochondria. Due to the high-throughput nature of the workflow and the chance of recruiting assembly artifacts, we manually inspected and removed unusually long branches and recalculated the tree. Additionally, in some scenarios, we removed the entire mitochondria signal to improve the topology of the tree. Here are the basic steps to do this:
 
 **Step 1.** Make collection of bad branches
 
-In this step we manually examined the resulting phylogenetic trees for
-any branches that seemed suspicious then added them to a bin in the
-interactive interface.
+In this step we manually examined the resulting phylogenetic trees for any branches that seemed suspicious then added them to a bin in the interactive interface.
 
-**Step 2.** Export collection and remove those sequences from the
-ribosomal protein fasta file
+**Step 2.** Export collection and remove those sequences from the ribosomal protein fasta file
 
 ``` bash
 HOME_DIR="ECOPHYLO" # Replace with EcoPhylo home directory
@@ -1042,8 +902,7 @@ anvi-split -C curated \
            --output-dir SUBSET_TREE/"${PROTEIN}"_curated
 ```
 
-**Step 4.** Add the string “\_split_00001” to each tree leaf so we can
-import it back into the interface
+**Step 4.** Add the string “\_split_00001” to each tree leaf so we can import it back into the interface
 
 ``` r
 add_split_string_to_tree <- function(IN_PATH, OUT_PATH) {
@@ -1133,8 +992,7 @@ $ tree
         └── PROFILE.db
 ```
 
-Loading them up is really easy! Please note that the `default` state
-will automatically load the interfaces used in this paper.
+Loading them up is really easy! Please note that the `default` state will automatically load the interfaces used in this paper.
 
 ### *rpL19* phylogeography in the human oral cavity
 
