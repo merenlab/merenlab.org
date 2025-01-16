@@ -22,8 +22,15 @@ people:
     full_name: Tom O. Delmont
     tenure: 2015-2020
     collaborator: True
+  Klein ML:
+    full_name: Matthew Lawrence Klein
+  Sever M:
+    full_name: Metehan Sever
   Yu MK:
     full_name: Mike Yu
+    collaborator: True
+  Willis AD:
+    full_name: Amy D Willis
     collaborator: True
   Esen ÖC:
     full_name: Özcan Esen
@@ -72,7 +79,7 @@ publications:
     title:
       "Ribosomal protein phylogeography offers quantitative insights into the efficacy of genome-resolved surveys of microbial communities"
     authors:
-       Matthew S Schechter,  Florian Trigodet,  Iva A Veseli,  Samuel E Miller, Matthew L Klein,  Metehan Sever,  Lois Maignien,  Tom O Delmont,  Samuel H Light+,  A. Murat Eren+
+       Matthew S Schechter,  Florian Trigodet,  Iva Veseli,  Samuel E Miller, Matthew L Klein,  Metehan Sever,  Lois Maignien,  Tom O Delmont,  Samuel H Light+,  A. Murat Eren+
     journal:
       bioRxiv
     year:
@@ -150,7 +157,7 @@ publications:
     additional_info:
       highlights:
         - A study that investigates the ecological differentiation within SAR11, the most abundant group of heterotrophic bacteria in the global ocean, through genomic analysis of 71 newly isolated SAR11 strains from the tropical Pacific.
-        - Integrates comparative genomics and environmental population genetics to show that habitat-specific distribution patterns among SAR11 subclades islinked to specific metabolic traits and these traits experience high selective pressures.
+        - Integrates comparative genomics and environmental population genetics to show that habitat-specific distribution patterns among SAR11 subclades are linked to a handful of metabolic traits, and genes that encode them experience higher levels of selective pressures compared to most other genes in the same genome.
       featured_image:
         /images/pubs/tucker_et_al_SAR11_2024.png
 
@@ -169,6 +176,9 @@ publications:
     pages:
     additional_info:
       highlights:
+        - Demonstrates how functional annotations in and metabolic insights from microbial genomes can be substantially improved with adaptive tuning of hidden Markov model threshold while maintaining the accuracy of calls.
+        - An application of this strategy to annotate genes in genomes from a wide range of microbial clades showed 3% to 20% increase in function annotation rates without having to change or update the models themselves.
+        - Key scripts and the workflow are available on <a href="https://github.com/pbradleylab/2023-anvio-comparison" target="_blank">GitHub</a>.
       featured_image:
         /images/pubs/kananen_veseli_et_al_2024.png
 
