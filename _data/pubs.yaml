@@ -16,6 +16,8 @@ people:
   Eren AM:
     full_name: A. Murat Eren
     web_link: https://twitter.com/merenbey
+  Tucker SJ:
+    full_name: Sarah J. Tucker
   Delmont TO:
     full_name: Tom O. Delmont
     tenure: 2015-2020
@@ -66,6 +68,27 @@ people:
 
 publications:
   - doi:
+      10.1101/2025.01.15.633187
+    title:
+      "Ribosomal protein phylogeography offers quantitative insights into the efficacy of genome-resolved surveys of microbial communities"
+    authors:
+       Matthew S Schechter,  Florian Trigodet,  Iva A Veseli,  Samuel E Miller, Matthew L Klein,  Metehan Sever,  Lois Maignien,  Tom O Delmont,  Samuel H Light+,  A. Murat Eren+
+    journal:
+      bioRxiv
+    year:
+      2025
+    volume:
+    number:
+    pages:
+    additional_info:
+      highlights:
+        - Describes the anvi'o <a href="https://anvio.org/help/main/workflows/ecophylo/" target="_blank">EcoPhylo workflow</a>, a computational workflow that gives access to the phylogeography of any gene family.
+        - In which we show the application of EcoPhylo to ribosomal proteins to be able to investigate the genome recovery rates from metagenomes and demonstrate its efficacy across three biomes using genomes and metagenomes from the human gut, human oral cavity, and surface ocean.
+        - A reproducible bioinformatics workflow for the study is availabe <a href="https://merenlab.org/data/ecophylo-ribosomal-proteins" target="_blank">here</a>.
+      featured_image:
+        /images/pubs/schechter_et_al_2025.png
+
+  - doi:
       10.1016/j.cell.2024.08.028
     title:
       "Modern microbiology: Embracing complexity through integration across scales"
@@ -88,6 +111,66 @@ publications:
         - This paper was also the cover of <i>Cell</i>'s <a href="https://www.cell.com/cell/issue?pii=S0092-8674(23)X0020-8" target="_blank">anniversary focus issue</a> on microbes. See this <a href="https://merenlab.org/story-of-a-cover/" target="_blank">blog post</a> by Meren to see the evolution of the cover.
       featured_image:
         /images/pubs/eren-banfield-cell-cover.jpg
+
+
+  - doi:
+      10.1101/2024.12.24.630191
+    title:
+      "New isolate genomes and global marine metagenomes resolve ecologically relevant units of SAR11"
+    authors:
+      Kelle C Freel, Sarah J Tucker, Evan B Freel, Stephen J Giovannoni, A Murat Eren, Michael S Rappe
+    journal:
+      bioRxiv
+    year:
+      2024
+    volume:
+    number:
+    pages:
+    additional_info:
+      highlights:
+        - Describes 81 new SAR11 cultures, which increase the total number of SAR11 cultures from the last 40 years four-fold.
+        - Uses the new high-quality SAR11 genomes to propose a taxonomic framework for SAR11 by introducing 24 genera within the family Pelagibacteraceae along with formal names for each one of them, bringing a much-needed order to SAR11 taxonomy and opens the door for community-wide discussions to resolve the nomenclature of this clade.
+        - You can find a little write-up by Meren on LinkedIn <a href="https://www.linkedin.com/posts/meren_sar11-bacteria-are-among-the-most-numerous-activity-7277647851445256192-kh5r">here</a>.
+      featured_image:
+        /images/pubs/freel_et_al_SAR11_2024.jpg
+
+  - doi:
+      10.1101/2024.12.23.630198
+    title:
+      "Habitat-specificity in SAR11 is associated with a handful of genes under high selection"
+    authors:
+      Sarah J Tucker, Kelle C Freel, Michael S Rappé+, A Murat Eren+
+    journal:
+      bioRxiv
+    year:
+      2024
+    volume:
+    number:
+    pages:
+    additional_info:
+      highlights:
+        - A study that investigates the ecological differentiation within SAR11, the most abundant group of heterotrophic bacteria in the global ocean, through genomic analysis of 71 newly isolated SAR11 strains from the tropical Pacific.
+        - Integrates comparative genomics and environmental population genetics to show that habitat-specific distribution patterns among SAR11 subclades islinked to specific metabolic traits and these traits experience high selective pressures.
+      featured_image:
+        /images/pubs/tucker_et_al_SAR11_2024.png
+
+  - doi:
+      10.1101/2024.07.03.601779
+    title:
+      "Adaptive adjustment of significance thresholds produces large gains in microbial gene annotations and metabolic insights"
+    authors:
+      Kathryn Kananen*, Iva Veseli*, Christian J Quiles Pérez, Samuel Miller, A Murat Eren, Patrick H Bradley
+    journal:
+      bioRxiv
+    year:
+      2024
+    volume:
+    number:
+    pages:
+    additional_info:
+      highlights:
+      featured_image:
+        /images/pubs/kananen_veseli_et_al_2024.png
 
   - doi:
       10.1038/s41597-024-03778-z
