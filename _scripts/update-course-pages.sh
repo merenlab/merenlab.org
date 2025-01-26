@@ -33,19 +33,44 @@ process () {
     fi
 }
 
+########################################################################################################################
 # Introduction to Popular `Omics Strategies
-process ~/github/merenlab.org/courses/ITPOS \
-        ~/github/courses/introduction-to-popular-omics-strategies/00_SYLLABUS/introduction-to-popular-omics-strategies-syllabus.md \
-        ~/github/courses/introduction-to-popular-omics-strategies/00_SYLLABUS/introduction-to-popular-omics-strategies-syllabus.pdf
+#######################################################################################################################
+course_token="courses/ITPOS"
+course_input_dir="$courses_repo_dir/introduction-to-popular-omics-strategies/00_SYLLABUS"
+course_web_dir="$web_repo_dir/$course_token"
 
+echo "Rendering $course_token ..."
+
+process $course_web_dir \
+        $course_input_dir/introduction-to-popular-omics-strategies-syllabus.md \
+        $course_input_dir/introduction-to-popular-omics-strategies-syllabus.pdf
+
+######################################################################################################################
 # Applied Microbial `Omics
-process ~/github/merenlab.org/courses/AMO \
-        ~/github/courses/applied-microbial-omics/00_SYLLABUS/applied-microbial-omics.md \
-        ~/github/courses/applied-microbial-omics/00_SYLLABUS/applied-microbial-omics.pdf
+#######################################################################################################################
+course_token="courses/AMO"
+course_input_dir="$courses_repo_dir/applied-microbial-omics/00_SYLLABUS"
+course_web_dir="$web_repo_dir/$course_token"
 
+echo "Rendering $course_token ..."
+
+process $course_web_dir \
+        $course_input_dir/applied-microbial-omics.md \
+        $course_input_dir/applied-microbial-omics.pdf
+
+#######################################################################################################################
 # Ecology of Marine Microbes
-process ~/github/merenlab.org/courses/EMM \
-        ~/github/courses/ecology-of-marine-microbes/00_SYLLABUS/ecology-of-marine-microbes.md \
-        ~/github/courses/ecology-of-marine-microbes/00_SYLLABUS/ecology-of-marine-microbes.pdf
+#######################################################################################################################
+course_token="courses/EMM"
+course_input_dir="$courses_repo_dir/ecology-of-marine-microbes/00_SYLLABUS"
+course_web_dir="$web_repo_dir/$course_token"
+
+echo "Rendering $course_token ..."
+
+process $course_web_dir \
+        $course_input_dir/ecology-of-marine-microbes.md \
+        $course_input_dir/ecology-of-marine-microbes.pdf
+
 
 
