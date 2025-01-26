@@ -15,6 +15,10 @@ process () {
     #   - the markdown file for the course syllabus
     #   - the PDF output for the course syllabus
     #
+    #
+    if [ ! -d $1 ]; then
+        mkdir -p $1
+    fi
 
     echo '---' > $1/index.md
     echo 'layout: page' >> $1/index.md
