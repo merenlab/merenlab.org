@@ -22,12 +22,15 @@ process () {
 
     cat $2 | \
         sed 1,1d | \
+        sed 's/^#### /##### /g' | \
         sed 's/^### /#### /g' | \
         sed 's/^## /### /g' | \
         sed 's/^# /## /g' | \
         grep -v pagebreak >> $1/index.md
 
-    cp $3 $1/syllabus.pdf
+    if [ -n "$3" ]; then
+        cp $3 $1/syllabus.pdf
+    fi
 }
 
 # Introduction to Popular `Omics Strategies
