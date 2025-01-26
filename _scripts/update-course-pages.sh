@@ -5,6 +5,9 @@
 
 set -e
 
+web_repo_dir=~/github/merenlab.org
+courses_repo_dir=~/github/courses
+
 process () {
     # send this function three parameters in the following order:
     #
