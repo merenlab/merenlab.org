@@ -93,6 +93,22 @@ p {
     line-height: 1.5;
 }
 
+.codeblock-file-name {
+    font-family: Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
+    background-image: linear-gradient(to right, rgba(255, 0, 0, 0), #870f0f);
+    margin-top: -25px;
+    padding-top: 7px;
+    padding-bottom: 2px;
+    padding-right: 4px;
+    font-size: x-small;
+    margin-left: 10%;
+    margin-right: 10px;
+    margin-bottom: 13px;
+    border-radius: 5px;
+    color: white;
+    text-align: end;
+}
+
 .artifact-p {
     background:#cbe4d5;
     padding: 0px 3px 2px 3px;

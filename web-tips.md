@@ -31,6 +31,45 @@ SOME CONTENT GOES HERE
 
 </details>
 
+## Code file name
+
+When we show code, we usually use the standard markdown syntax and it looks like this:
+
+```sh
+echo "Script Name: $0"
+echo "First Argument: $1"
+echo "Number of Arguments: $#"
+echo "Exit Status of Last Command: $?"
+```
+
+You can use also indicate the code shown is the contents of a file.
+
+**Raw**:
+
+~~~
+{% raw %}
+```sh
+echo "Script Name: $0"
+echo "First Argument: $1"
+echo "Number of Arguments: $#"
+echo "Exit Status of Last Command: $?"
+```
+{% include CODEBLOCKFILENAME filename="variables-built-in.sh" %}
+{% endraw %}
+~~~
+
+**Rendered**:
+
+```sh
+echo "Script Name: $0"
+echo "First Argument: $1"
+echo "Number of Arguments: $#"
+echo "Exit Status of Last Command: $?"
+```
+{% include CODEBLOCKFILENAME filename="variables-built-in.sh" %}
+
+
+
 ## Information boxes
 
 If you want to show summary sections with a different background color, you can use this notation in your markdown files.
