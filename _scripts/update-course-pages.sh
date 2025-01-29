@@ -87,8 +87,7 @@ echo "Rendering $course_token ..."
 
 # Process the index
 process $course_web_dir \
-        $course_input_dir/programming-for-life-scientists.md \
-        $course_input_dir/programming-for-life-scientists.pdf
+        $course_input_dir/programming-for-life-scientists.md
 
 # NEXT, we process exercises by reading clear text, and encryptig them on the fly.
 # ~/github/courses/programming-for-life-scientists/00_SYLLABUS_AND_CONTENT/EXERCISES/README.md
@@ -131,8 +130,8 @@ do
         echo -n "."
         sleep 1
     done
-    echo " done! :)"
 done
+echo " done! :)"
 
 # This is the THIRD LOOP to encrypt the resulting files.
 echo -n "  - encrypting files for "
