@@ -54,7 +54,7 @@ The course is designed to be delivered within about two weeks (cross your finger
 
 The plan is that the **first week** will offer insights into the terminal environment, common UNIX tools, effective use of shell, and shell scripting in general. Depending on how we perform during the first week, we will use the **second week** to discuss AI-assisted problem solving, and learn about Python through hands-on problem solving sessions. there will be numerous exercises and a few assignments, and in-person attendance is extremely important.
 
-The following list offers a more detailed goals of the course:
+The following list offers a more detailed list of goals of the course:
 
 * UNIX basics & file navigation
 * File manipulation (`cat`, `less`, `cp`, `mv`, etc.)
@@ -91,7 +91,7 @@ We will make quite a heavy use of the terminal environment (any terminal that gi
 
 If you are using Linux or Mac OSX, you have native access to a reasonable shell. Please take a moment to find out how to open your terminal now.
 
-If you are using Mac OSX, I would strongly recommend you to install [iTerm2](https://iterm2.com/) and use it instead of the default terminal application on Mac OSX. If you are using Windows, you need to install [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install) to access to a UNIX shell.
+If you are using Mac OSX, I would strongly recommend you to install [iTerm2](https://iterm2.com/) and use it instead of the default terminal application on Mac OSX. If you are using Windows, you need to install [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install) to have access to a UNIX shell.
 
 We will spend a lot of time learning about the UNIX shell, but here are a few resources if you would like to take a brief look ahead of the course:
 
@@ -113,7 +113,7 @@ The delivery of assignments will require you to use [Git](https://en.wikipedia.o
 
 Hands-on exercises and assignments throughout the course will make use of a previously prepared data package. You need to download this data package on your computer, and uncompress it. You will do it only once, and then every time you open your terminal, you will go into the data pack directory since all commands will assume that you are in that directory.
 
-Since at this point everyone have their terminals ready, all you need to do is to open a terminal, and paste the following commands in it:
+Since at this point everyone has their terminals ready, all you need to do is to open a terminal, and paste the following commands in it:
 
 ```sh
 ## download the package on your computer using 'curl'
@@ -134,12 +134,12 @@ If you got an error in any of the lines above, please do not continue before add
 
 This is time for Meren to make sure that every participant,
 
-* Has a access to a properly setup computer (with WSL for Windows users, etc),
+* Has access to a properly set up computer (with WSL for Windows users, etc),
 * Has a working terminal environment that runs BASH,
 * Has the data package downloaded and ready to go,
 * Is able to run `git`,
 * Has a GitHub account,
-* Is enthusiastic about this course and put their war paint on to deal with whatever it will bring into their life.
+* Is enthusiastic about this course and puts their war paint on to deal with whatever it will bring into their life.
 
 If we are all good to go, we can start now.
 
@@ -155,7 +155,7 @@ At the end of this section, you will have an understanding of the power of the c
 
 I think this is a good place to start because the shell is one of the most powerful yet underappreciated programs on your computer. In simplest terms, the shell is a command-line interface that sits between you and the operating system kernel —the hidden core of your system responsible for running program processes, executing their instructions on the CPU, managing memory, and handling storage and peripherals. At any given time, your computer runs a gazillion programs; from those that respond to your inputs through a keyboard and mouse to those that literally show where your cursor is on your screen or keeps track of all the windows you have opened, and all of them go through the kernel which allows your computer to run more programs than the number of available CPU cores, gives all programs the illusion of unlimited memory despite its physical limits, and takes care of priorities among them so all programs big and small can use the hardware resources on your computer in harmony to serve you. The shell is another program running on your computer. Like many others, it operates in what we call 'user space' and communicates with core processes running in 'kernel space' through system calls, ensuring that our commands and requests integrate smoothly into the operating system's workings without disrupting its stability. In many ways, the shell is your command center that gives you direct control over your system’s most powerful functions; in a way, it is the computer equivalent of an airplane cockpit or a nuclear reactor control room. On top of its abilities to run programs, modern shells come with scripting languages and control structures for us to run things even more efficiently.
 
-What happens when you type something in your terminal is a fascinating story, and have many many layers. Once you press Enter, the terminal sends your input to the shell, which parses the command, expands special characters and variables, and determines whether it is a built-in command or an external program. If it’s an external program, the shell searches the relevant directories to locate it, and if the program is found and has the right permissions, the shell creates a new process by invoking the kernel, and puts the target program into the driver seat, upon which the kernel loads the program's code into memory, registers it with the scheduler, and begins execution. Throughout its runtime the program interacts with the kernel via system calls until it either terminates normally (successful or not) or the kernel forcefully kills it due to a myriad of reasons such as unhandled fatal signals, resource exhaustion, or illegal memory access. Regardless of how it ends, the kernel cleans up the kitchen and notifies the shell, which retrieves the exit status and resumes its eternal wait for your next command, ready to start the cycle all over again.
+What happens when you type something in your terminal is a fascinating story, and has many many layers. Once you press Enter, the terminal sends your input to the shell, which parses the command, expands special characters and variables, and determines whether it is a built-in command or an external program. If it’s an external program, the shell searches the relevant directories to locate it, and if the program is found and has the right permissions, the shell creates a new process by invoking the kernel, and puts the target program into the driver seat, upon which the kernel loads the program's code into memory, registers it with the scheduler, and begins execution. Throughout its runtime the program interacts with the kernel via system calls until it either terminates normally (successful or not) or the kernel forcefully kills it due to a myriad of reasons such as unhandled fatal signals, resource exhaustion, or illegal memory access. Regardless of how it ends, the kernel cleans up the kitchen and notifies the shell, which retrieves the exit status and resumes its eternal wait for your next command, ready to start the cycle all over again.
 
 Shells are complex, and you don't need to learn any of these things, obviously. But as an undergraduate student of computer science I *did* implement a shell from scratch. My shell was neither as good nor as talented as any of the modern shells. But doing that, and forcing myself to go through that suffering created many new synapses in my brain that eventually afforded me the framework I needed to understand and solve more complex problems elsewhere. Which, in a big plot twist, brings me to the use of AI. One may argue that almost none of the things we will discuss throughout this course are necessary to learn. Indeed, you can solve the vast majority of programming challenges, including those that we will cover during our exercises, using popular LLM clients such as ChatGPT or DeepSeek almost instantaneously. But there are no cheat codes to life -- without going through the pain of truly understanding something, there is no way to achieve mastery, lead with confidence, or create something original.
 
@@ -196,12 +196,14 @@ Moves between directories.
 cd /home/meren/Documents  # Change to Documents folder
 cd ..                     # Go one level up
 cd /                      # Go to root directory
+
 cd -                      # Go back to the directory you were in
                           # right before this current one
-cd                        # And here is a little surprise -- if 
+
+cd                        # And here is a little surprise -- if
                           # you don't provide any parameters,
                           # cd will take you to your home
-                          # directory :))  
+                          # directory :))
 ```
 
 ---
@@ -273,20 +275,6 @@ touch newfile.txt  # Create an empty file called newfile.txt
 
 ---
 
-`find` – Search for files and directories
-
-Finds files in a directory hierarchy.
-
-```sh
-find /home -name "document.txt"  # Search for document.txt in /home
-find /var -size +100M            # Find files larger than 100MB in /var
-find . -type f -name "*.log"     # Find all .log files in current directory
-```
-
-The last command uses `*`, a special character (so-called 'wildcard') that is extremely useful to target multiple files that match to a particular pattern. This is not the only special character, and most shells will process user input commands and interpret a series of special characters when they are found. Before we continue with more fun programs, let's take a look at a list of commonly used special charaters first.
-
----
-
 `basename` - Strip directory and suffix from filenames
 
 Extremely useful when you have to deal with full paths for files.
@@ -310,6 +298,21 @@ echo "hello everyone!"
 ```
 
 `echo` simply prints things out for us. I know it looks dumb, but you will soon see its utility.
+
+---
+
+`find` – Search for files and directories
+
+Finds files in a directory hierarchy.
+
+```sh
+find /home -name "document.txt"  # Search for document.txt in /home
+find /var -size +100M            # Find files larger than 100MB in /var
+find . -type f -name "*.log"     # Find all .log files in current directory
+```
+
+The last command uses `*`, a special character (so-called 'wildcard') that is extremely useful to target multiple files that match to a particular pattern. This is not the only special character, and most shells will process user input commands and interpret a series of special characters when they are found. Before we continue with more fun programs, let's take a look at a list of commonly used special charaters first.
+
 
 #### Special Characters
 
@@ -639,9 +642,9 @@ diff -y file1.txt file2.txt # Show side-by-side comparison
 
 AWK is a data-driven language that excels in text processing, data extraction, and reporting, and it is one of the most amazing little tools you will find in the UNIX shell environment (fun fact, AWK is not a meaningful acronym since it simply comes from the names of the developers: Alfred **A**ho, Peter **W**einberger, and Brian **K**ernighan :)).
 
-In a nutshell, AWK scans a file line by line, splits input into fields based on a separator, enables pattern-based filtering, and allows users to perform actions on matching lines, and help produce highly formatted reports.
+In a nutshell, AWK scans a file line by line, splits input into fields based on a separator, enables pattern-based filtering, and allows users to perform actions on matching lines, and helps produce highly formatted reports.
 
-It is really difficult to demonstrate the utility of AWK without a few examples, so I put together the following file of all chancellors of Germany where the columns indicate (1) the name of the chancellor, (2) their education, (3) the age at which they became a chancellor of Germany, (4) the number of year they served at this position, and (5) the year they assumed this position. You can save the contents of this file as `german_chancellors.txt` in your working directory, and follow the examples below:
+It is really difficult to demonstrate the utility of AWK without a few examples, so I put together the following file of all chancellors of Germany where the columns indicate (1) the name of the chancellor, (2) their education, (3) the age at which they became a chancellor of Germany, (4) the number of years they served at this position, and (5) the year they assumed this position. You can save the contents of this file as `german_chancellors.txt` in your working directory, and follow the examples below:
 
 ```
 Konrad_Adenauer   Law          73   14   1876
@@ -696,7 +699,7 @@ but a more stylish way to do it in AWK would make use of patterns:
 awk '/Law/{print}' german_chancellors.txt
 ```
 
-where `/Law/` is a pattern and means "run the following statemnt on every line that contains the word Law".
+where `/Law/` is a pattern and means "run the following statement on every line that contains the word Law".
 
 To get the first letter of the first name and last name of each chancellor, we first need to get their names. So we can do it by printing the exact column where names appear:
 
@@ -704,7 +707,7 @@ To get the first letter of the first name and last name of each chancellor, we f
 awk '/Law/{print $1}' german_chancellors.txt
 ```
 
-We see where the first and the last names are, but how to access them separately? Well, one way to do it is to 'split' this field into fields. A special keyword in AWK is `FS`, which means field separator. By default, the field separator is whitespace, but we can replace it with anything BEFORE running AWK commands on anything by simply mentioning it to AWK at the very beginning of the process.
+We see where the first and the last names are, but how to access them separately? Well, one way to do it is to 'split' this text into fields. A special keyword in AWK is `FS`, which means field separator. By default, the field separator is whitespace, but we can replace it with anything BEFORE running AWK commands on anything by simply mentioning it to AWK at the very beginning of the process.
 
 Here is an example:
 
@@ -720,7 +723,7 @@ awk '/Law/{print $1}' german_chancellors.txt | awk 'BEGIN{FS="_"} {print(substr(
 
 ---
 
-OK. Here is a relatively difficult one: find the average age at which chancellors took office. This will take care of it, and let's brake it down to its individual components to discuss what we are looking at here:
+OK. Here is a relatively difficult one: find the average age at which chancellors took office. This will take care of it, and let's break it down to its individual components to discuss what we are looking at here:
 
 ```sh
 awk '{sum_age += $3; count++} END { print "Average age when becoming chancellor:", sum_age/count}' german_chancellors.txt
@@ -745,13 +748,16 @@ Where you will find a FASTA file. The FASTA file was generated by an anvi'o user
 
 Try your best, and it is OK if you can't answer each one of them. If you try your hardest, the solutions will make much more sense even if you fail.
 
-Once you are done, we will review the [solutions](solutions/EXC-001) together.
+{:.warning}
+**Please turn in your solutions the following way**: Copy-paste the qeustions above into your email client, under each qeustion write your final answers along with the command line that led to that answer, and send the email to _meren@hifmb.de_ **and** _sarahi.garcia@uol.de_. The subject line of your email must be `PFLS EXC-001` :)
+
+Once we are done, we will review the [solutions](solutions/EXC-001) together.
 
 ## Shell Scripting
 
-The last section focused on how the command line environment and the common tools that are accessible to us in the UNIX shell can empower its users to perform tasks that would have taken much longer to do manually. For instance, one could find how many genes in a given FASTA file by literally going throught it line by line in their text editor, but the ability to perform this task with a single command is a life saver. Using individual lines of instructions interactively is very powerful, but not suitable to complete repetitive tasks or implement complex ideas that require multiple instructions to be run one after another.
+The last section focused on how the command line environment and the common tools that are accessible to us in the UNIX shell can empower its users to perform tasks that would have taken much longer to do manually. For instance, one could find how many genes are in a given FASTA file by literally going through it line by line in their text editor, but the ability to perform this task with a single command is a life saver. Using individual lines of instructions interactively is very powerful, but not suitable to complete repetitive tasks or implement complex ideas that require multiple instructions to be run one after another.
 
-Let's talk more about what shell scripting is and where it comes handy through a realistic example. Consider the following.
+Let's talk more about what shell scripting is and where it comes in handy through a realistic example. Consider the following.
 
 You are interested in understanding the functional landscape of the *Wolbachia* genus. To do this, you downloaded all the representative genomes from the Genome Taxonomy Database (GTDB). Since there are no cultures of *Wolbachia*, most of the genomes will be reconstructed from metagenomes or will be single amplified, both of which can yield highly fragmented genomes. But for an appropriate analysis of functions, you need genomes that are relatively well put together. Ideally a single contig, but if not, let's say no more than 30 contigs. So after downloading these genomes, you will want to count the number of contigs in each one of them, and put aside the ones that you actually would like to use for your downstream analyses.
 
@@ -882,7 +888,7 @@ $x
 ```
 {% include CODEBLOCKFILENAME filename="variables-user-defined.sh" %}
 
-The second class of variables are **environmental varaibles**: previously defined variables by various processes, including those that are set everytime you open a terminal. You can see all of these variables by simply typing the command `env` in your terminal, and you can access to any of these variables from within your BASH scripts:
+The second class of variables are **environmental variables**: variables that were previously defined by various processes, including those that are set everytime you open a terminal. You can see all of these variables by simply typing the command `env` in your terminal, and you can access any of these variables from within your BASH scripts:
 
 ```sh
 echo "My username is '$USER'. There are $(ls $HOME | wc -l) files in my home folder, which is at '$HOME'."
@@ -996,7 +1002,7 @@ for number in numbers
 end
 ```
 
-OK. Going back to our exammple in shell, the items we wish to iterate over may come from another command. For instance, the following notation in BASH will give you numbers from 1 to 5 as a sequence (you can copy paste it in your terminal to see):
+OK. Going back to our example in shell, the items we wish to iterate over may come from another command. For instance, the following notation in BASH will give you numbers from 1 to 5 as a sequence (you can copy paste it in your terminal to see):
 
 ```sh
 echo {1..5}
@@ -1021,7 +1027,7 @@ do
 done
 ```
 
-Great. Do you remember our glorius first shell script we wrote to count the number of sequences in all FASTA files in that directory?
+Great. Do you remember our glorious first shell script we wrote to count the number of sequences in all FASTA files in that directory?
 
 ```sh
 grep '>' GCA_018224395.1_genomic.fna | wc -l
@@ -1059,7 +1065,7 @@ OK. There is one more topic to cover, and after that we will come back to these 
 
 ### Conditionals
 
-So far we discussed how to define and make use of variables, and how to build loops using `for` in our shell scripts. Our `for` loops run on all items, without having to make any decisions. But real-world tasks often require some sort of decision making and performing an operation only if a certain condition is, or a few of them are, met (or do other things if they don't!). Those conditions could include a variety of considerations such as doing something only if a file exists or absent, comparing variables and taking action depending on whether they are equal or not, and thus controlling the flow of our script based on our expectations from it.
+So far we discussed how to define and make use of variables, and how to build loops using `for` in our shell scripts. Our `for` loops run on all items, without having to make any decisions. But real-world tasks often require some sort of decision making and performing an operation only if a certain condition is, or a few of them are, met (or do other things if they don't!). Those conditions could include a variety of considerations such as doing something only if a file exists or is absent, comparing variables and taking action depending on whether they are equal or not, and thus controlling the flow of our script based on our expectations from it.
 
 Shell scripts can use `if` statements to check for conditions. The most general structure of an `if` statement is the following:
 
@@ -1094,7 +1100,7 @@ done
 ```
 {% include CODEBLOCKFILENAME filename="if-else-examples.sh" %}
 
-Here the *condition* is `$number -gt 2`, and the `-gt` operator, which means '*greater than*', does the heavy lifting of the entire opretion. When a number is truly greater than 2, that *condition* becomes a true statement, and it meets the criterion for the `if` statement to continue.
+Here the *condition* is `$number -gt 2`, and the `-gt` operator, which means '*greater than*', does the heavy lifting of the entire operation. When a number is truly greater than 2, that *condition* becomes a true statement, and it meets the criterion for the `if` statement to continue.
 
 If we wished to consider only the numbers that are *not* greater than 2, we could simply change this condition to become a true statement only when the `$number -gt 2` is false by UNO reversing the entire thing with an exclamation mark:
 
@@ -1111,7 +1117,7 @@ done
 
 What if we didn't want to use `!`? What is it we would need to do to get the numbers that are not greater than 2?
 
-This is a good time to have a look at all the operators that one can use wen they are forming their conditions:
+This is a good time to have a look at all the operators that one can use when they are forming their conditions:
 
 | Operator          | Description                                                                 | Example                          |
 |-------------------|-----------------------------------------------------------------------------|----------------------------------|
@@ -1144,7 +1150,7 @@ This is a good time to have a look at all the operators that one can use wen the
 | `\|\|`            | Logical OR (used between commands or conditions)                            | `if [ "$a" -eq 1 ] \|\| [ "$b" -eq 2 ]` |
 
 
-One can also extend `if` satements with additional conditions and `else` statements:
+One can also extend `if` statements with additional conditions and `else` statements:
 
 ```sh
 if [ condition ]; then
@@ -1184,23 +1190,26 @@ For this exercise, please go into the relevant exercise directory in the course 
 cd EXC-002
 ```
 
-You have 34 Wolbachia genomes downloaded from the GTDB, and a text file that shows which genome matches to which host organism Wolbachia infects. Please write a shell script that does the following tasks when it is run in the `EXC-002` directory:
+You have 34 *Wolbachia* genomes downloaded from the GTDB, and a text file that shows which genome matches to which host organism *Wolbachia* infects. Please write a shell script that does the following tasks when it is run in the `EXC-002` directory:
 
 * Creates a directory called `WOLBACHIA-GENOMES`,
-* Identifies Wolbachia genomes with less than x number of contigs, where x is sent to the shell script as a parameter,
-* Creates a copy of each genome that match to the maximum number of contigs condition in `WOLBACHIA-GENOMES`,
-* But uses the `wolbachia-hosts.txt` to rename each genome to match the host name from which the Wolbachia was recovered.
+* Identifies *Wolbachia* genomes with less than `x` number of contigs, where `x` is sent to the shell script as a parameter,
+* Creates a copy of each genome that matches to the above condition and puts it inside the `WOLBACHIA-GENOMES` directory,
+* But uses the `wolbachia-hosts.txt` to rename each genome file to match the host name from which the *Wolbachia* was recovered.
 
-We will go trough the [solution](solutions/EXC-002) together once you have given this exercise your best shot.
+{:.warning}
+**Please turn in your solutions the following way**: Save your script as `process-wolbachia-genomes.sh`, add it as an attachment to an email with the subject line `PFLS EXC002` and send your email to _meren@hifmb.de_ **and** _sarahi.garcia@uol.de_.
+
+We will go through the [solution](solutions/EXC-002) together once you have given this exercise your best shot.
 
 
 ## Working with Git
 
 ### Introduction to Version Control
 
-Probably everyone who is going through this document is familiar with the fact that scientific writing is not a linear process with a clear endpoint. If you have ever had multiple versions of the same document on your disk named like `final.doc`, `final_final.doc`, `really_final.doc`, `final_Jan292025,doc`, `final_Jan292025_final.doc`, you already know what I am talking about with firsthand experience. We often have multiple versions of the same document like that instead of changing the same file is simple: we want to make sure that if we ever need to go back in time to recall a version of the text we are working on, those earlier versions of the text will not be overwritten with the newer versions of it and be forever lost. But of course this leads to a lot of confusion and redundancy.
+Probably everyone who is going through this document is familiar with the fact that scientific writing is not a linear process with a clear endpoint. If you have ever had multiple versions of the same document on your disk named like `final.doc`, `final_final.doc`, `really_final.doc`, `final_Jan292025,doc`, `final_Jan292025_final.doc`, you already know what I am talking about with firsthand experience. The reason we often have multiple versions of the same document like that (instead of changing the same file) is simple: we want to make sure that if we ever need to go back in time to recall a version of the text we are working on, those earlier versions of the text will not be overwritten with the newer versions of it and be forever lost. But of course this leads to a lot of confusion and redundancy.
 
-The same happens when we write code, where the number of changes that occur in a single file can be very high. For instance, here is the top ten files in the anvi'o code based on how many times they were changed during the past 10 years.
+The same happens when we write code, where the number of changes that occur in a single file can be very high. For instance, here are the top ten files in the anvi'o code based on how many times they were changed during the past 10 years.
 
 |**Anvi'o file**|**Number of times it was changed**|
 |:--|:--|
@@ -1226,7 +1235,7 @@ This is precisely what version control systems do for you. They offer you means 
 
 As tracking changes through version control systems is not limited to code, it is particularly useful for scientists whose work requires them to write things, whether those things are experimental protocols, code, or text, and whether their priority is to track the evolution of their work, collaborate with others, and ensure reproducibility.
 
-In the past few sections of this course, we focused heavily on text-based communication with your computer. You wrote commands in your terminal, put a few of them in a file to run tasks in batch, implemented comprehensive shell scripts. Now that we have explored the benefits of version control in managing changes, let's look at how it integrates with text-based workflows and cloud services.
+In the past few sections of this course, we focused heavily on text-based communication with your computer. You wrote commands in your terminal, put a few of them in a file to run tasks in batch, and implemented comprehensive shell scripts. Now that we have explored the benefits of version control in managing changes, let's look at how it integrates with text-based workflows and cloud services.
 
 
 ### Introduction to Git
@@ -1242,14 +1251,14 @@ The history of version control systems is long and painful, and there are many o
 |Fossil|Distributed|Built-in issue tracker, single binary|Small projects needing integrated tools|Yes|Yes|Yes|No|2006|
 |CVS|Centralized|Very old, outdated branching|Legacy projects|Yes|No|No|No|1986|
 
-Luckily, Git comes as the clear choice for most of us as a version control system as a free and general purpose version control system supported by cloud solutions and suitable for academoc use. We all should thank [Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds) for it.
+Luckily, Git comes as the clear choice for most of us as a version control system as a free and general purpose version control system supported by cloud solutions and suitable for academic use. We all should thank [Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds) for it.
 
-Knowing about Git and being able to use it is already enough to manage your files, track your modifications, and maintain an organized history of your work, not only to manage workflows or shell scripting, but also for your papers, reproducible data analyses, and so on. If you combine Git with Markdown, there is nothing you can't do! For instance, this entire course was prepared using Git and [Markdown](https://www.markdownguide.org/basic-syntax/), a simple mark-up language to create well structured documents that can be ported into anything -- from web pages to PDF documents to Microsoft Word files using a tool like [pandoc](https://pandoc.org/) in the comfort of your terminal environment :)
+Knowing about Git and being able to use it is already enough to manage your files, track your modifications, and maintain an organized history of your work -- not only to manage workflows or shell scripting, but also for your papers, reproducible data analyses, and so on. If you combine Git with Markdown, there is nothing you can't do! For instance, this entire course was prepared using Git and [Markdown](https://www.markdownguide.org/basic-syntax/), a simple mark-up language to create well structured documents that can be ported into anything -- from web pages to PDF documents to Microsoft Word files using a tool like [pandoc](https://pandoc.org/) in the comfort of your terminal environment :)
 
 
 ### Introduction to GitHub
 
-Git is an open-source, stand-alone program that enables you to create local repositories for version control -- local repositories you store on your own computer or the University servers you can connect with your terminal.
+Git is an open-source, stand-alone program that enables you to create local repositories for version control -- local repositories you store on your own computer or the University servers, and that you can connect with your terminal.
 
 GitHub, on the other hand, is a platform that enables you to store your Git repositories on the 'cloud.' It is a proprietary and for-profit developer platform that has over 1 billion dollars in revenue while itself is not open-source. Unlike Git, which is one of us, GitHub is one of *them*, if you will. But even though Linus Torvalds [hates](https://news.ycombinator.com/item?id=36123124) GitHub for various technical reasons, and I personally hate it for the gargantuan enterprise it represents, GitHub has successfully captured the attention of millions of developers worldwide as it made software development more accessible, manageable, interactive, and fun by adding key features to their cloud-based hosting service such as (1) graphical user interfaces for repository management and code reviews, (2) a service for 'pull requests' that help team members to [review and discuss code changes](https://github.com/merenlab/anvio/pull/2155) before merging them, (3) providing a platform to [report issues and discuss them](https://github.com/merenlab/anvio/issues/1248), (4) [action and workflow](https://github.com/merenlab/anvio/actions) support for continuous integration or testing, and many, many more. GitHub is free unless you wish to have private repositories, in which case you are asked to pay a fee (which is about 4 Euros as of 2025).
 
@@ -1459,7 +1468,7 @@ Average sequence length: ______
 GC Content (%): ______
 ```
 
-Except where the blanks are, of course, which should be replaced with actual numbers your script will calculate for a given FASTA file. The GC-content
+Except where the blanks are, of course, which should be replaced with actual numbers your script will calculate for a given FASTA file. Most of the metrics should be self-explanatory, but for anyone who doesn't know, the GC-content is the proportion of 'G' and 'C' nucleotides in a set of sequences (represented as a percentage).
 
 Once you are done with your script, please commit it to a GitHub repository called `PFLS`, and put it in a directory called `EXC-003`, with the file name `fasta-file-processor.sh`.
 
@@ -1475,9 +1484,9 @@ and testing it on a FASTA file of my choosing using a command like this:
 bash PFLS/EXC-003/fasta-file-processor.sh test.fa
 ```
 
-You can use this information to make sure things will work on my end (if `cd ~/github && ls PFLS/EXC-003/fasta-file-processor.sh` does not produce an error, you're good). You can test your program using any FASTA file, incuding those that we have in the data package, but you do not know the *FASTA files* I will be using to test your script on my end.
+You can use this information to make sure things will work on my end (if `cd ~/github && ls PFLS/EXC-003/fasta-file-processor.sh` does not produce an error, you're good). You can test your program using any FASTA file, incuding those that we have in the data package, but you do not know the *FASTA files I will be using* to test your script on my end.
 
-If `git clone` step and the step of running your script on a FASTA file with works with the expected out works without a problem, you have a full grade for this exercise, *even if the numbers are not correct*.
+If the `git clone` step and the step of running your script on a FASTA file both work with the expected output format without a problem, you have a full grade for this exercise, *even if the numbers are not correct*.
 
 ---
 
@@ -1487,7 +1496,7 @@ A small tip! You can use the AWK function `gsub` to calculate the G and C bases 
 echo "ATCGATCGCG" | awk '{gc_count += gsub(/[GgCc]/, "", $1)} END {print gc_count}'
 ```
 
-But of course what you want is GC-content, which essentiall is the percentage of GC bases to _all_ bases.
+But of course what you want is GC-content, which essentially is the ratio of GC bases to _all_ bases.
 
 The solution is [here](solutions/EXC-003), and usual, we will go through it together once you are done.
 
@@ -1501,12 +1510,12 @@ This is the most realistic problem we are going to be working on so far, and Sar
 
 Please go into the `EXC-004` directory in your data pack, and take a look at the contents of it. You will realize that
 
-* There are multiple directories in `RAW-DATA` directory that goes like `DNA57`, `DNA58`, `DNA64`, etc. Each of these directories contains the results of a genome-resolved analysis of the metagenomic sequencing of a single culture generated from Lake Erken samples. Since each culture was started with just a few cells from the environment, the researches who conducted this study was able to recover one or more metagenomic bins. The directory names match to library names rather than sample names, and the actual names of these cultures are stored in the file `sample-translation.txt`. Each of these directories have identical structure, and contain the following two files and another directory:
+* There are multiple directories in `RAW-DATA` directory that goes like `DNA57`, `DNA58`, `DNA64`, etc. Each of these directories contains the results of a genome-resolved analysis of the metagenomic sequencing of a single culture generated from Lake Erken samples. Since each culture was started with just a few cells from the environment, the researchers who conducted this study were able to recover one or more metagenomic bins. The directory names match to library names rather than sample names, and the actual names of these cultures are stored in the file `sample-translation.txt`. Each of these directories has identical structure, and contain the following two files and another directory:
   - `bins/` -- Contains the FASTA files that emerged from the automatic binning of each sample.
   - `checkm.txt` -- Completion and redundancy estimates for the tentative genomes represented by individual FASTA files in the `bins/` directory based on bacterial and archaeal single-copy core genes.
-  - `gtdb.gtdbtk.tax` -- Taxonomy for each of them based on Genome Taxonomy Database.
+  - `gtdb.gtdbtk.tax` -- Taxonomy for each of them based on the Genome Taxonomy Database.
 
-One of the most critical next step is to estimate the actual abundances of individual genomes. But this particular organization of these data is not very useful for such downstream analyses, and we need a shell script that can help us combine these data into a more meaningful representation. The script needs to do the following things:
+One of the most critical next steps is to estimate the actual abundances of individual genomes. But this particular organization of these data is not very useful for such downstream analyses, and we need a shell script that can help us combine these data into a more meaningful representation. The script needs to do the following things:
 
 * Generate a new directory at the same level of `RAW-DATA` called `COMBINED-DATA`.
 * Process each FASTA file in individual directories to (1) copy each `bin-unbinned.fasta` into the to `COMBINED-DATA` directory as `XXX_UNBINNED.fa` and (2) copy every other FASTA file into the to `COMBINED-DATA` directory as `XXX_YYY_ZZZ.fa` where,
