@@ -871,14 +871,22 @@ Here are some examples:
 my_name="Meren"
 echo "My name is $my_name"
 
+echo "##############################"
+
 ## capture the output of a command, and put it into a variable:
-my_birthday="May 14 2002"
-seconds=$(date -d "$my_birthday" +%s)
-echo "It has been about $seconds seconds since I was born!"
+my_bd="2002-05-14 12:00:00"
+seconds_to_my_bd=$(date -d "$my_bd" +%s)
+seconds_to_now=$(date +%s)
+seconds_since_my_bd=$((seconds_to_now - seconds_to_my_bd))
+echo "It has been about $seconds_since_my_bd seconds since I was born!"
+
+echo "##############################"
 
 ## you can also define a variable that stores lists of things
 fasta_files=*.fna
 echo $fasta_files
+
+echo "##############################"
 
 ## the placeholder nature of variables can lead to creative
 ## applications! what do you think will happen when we run
