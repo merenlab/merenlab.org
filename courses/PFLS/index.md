@@ -1069,7 +1069,7 @@ GCF_025021925.1_genomic.fna 1
 (...)
 ```
 
-OK. There is one more topic to cover, and after that we will come back to these genomes, which will be your first assignment!
+OK. There is one more topic to cover, and after that we will come back to these genomes, which will serve as our next exercise!
 
 ### Conditionals
 
@@ -1576,6 +1576,8 @@ CO86_BIN_003.fa
 ```
 
 Once you are done, please commit your script to your GitHub repository for `PFLS`, and put it in a directory called `EXC-004`, with the file name `generate-combined-data.sh`.
+
+The solution is [here](solutions/EXC-004), and always, we will go through it together once you are done.
 
 ## Course Responsibilities
 
