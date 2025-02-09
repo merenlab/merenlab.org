@@ -1554,75 +1554,6 @@ echo "$output" | awk -v username="$username" '
 
 The code above includes some ideas we haven't discussed, such as the [tilde operator](https://www.gnu.org/software/gawk/manual/html_node/Regexp-Usage.html#index-_007e-_0028tilde_0029_002c-_007e-operator) (`~`) in AWK, which is used for *pattern matching* with regular expressions, or the use of 'arrays', which I will briefly describe during our writing session.
 
-### EXC-004
-
-We are rapidly moving to another exercise to immerse you into the joy of writing shell scripts for complex data tasks.
-
-This is the most realistic problem we are going to be working on so far, and Sarahi Garcia has all the background on this problem that we had to resolve last year for a study. She can help us better undertand its context, but here I will provide a very brief description of what is going on, and what needs to be done.
-
-Please go into the `EXC-004` directory in your data pack, and take a look at the contents of it. You will realize that
-
-* There are multiple directories in `RAW-DATA` directory that goes like `DNA57`, `DNA58`, `DNA64`, etc. Each of these directories contains the results of a genome-resolved analysis of the metagenomic sequencing of a single culture generated from Lake Erken samples. Since each culture was started with just a few cells from the environment, the researchers who conducted this study were able to recover one or more metagenomic bins. The directory names match to library names rather than sample names, and the actual names of these cultures are stored in the file `sample-translation.txt`. Each of these directories has identical structure, and contain the following two files and another directory:
-  - `bins/` -- Contains the FASTA files that emerged from the automatic binning of each sample.
-  - `checkm.txt` -- Completion and redundancy estimates for the tentative genomes represented by individual FASTA files in the `bins/` directory based on bacterial and archaeal single-copy core genes.
-  - `gtdb.gtdbtk.tax` -- Taxonomy for each of them based on the Genome Taxonomy Database.
-
-One of the most critical next steps is to estimate the actual abundances of individual genomes. But this particular organization of these data is not very useful for such downstream analyses, and we need a shell script that can help us combine these data into a more meaningful representation. The script needs to do the following things:
-
-* Generate a new directory at the same level of `RAW-DATA` called `COMBINED-DATA`.
-* Process each FASTA file in individual directories to (1) copy each `bin-unbinned.fasta` into the to `COMBINED-DATA` directory as `XXX_UNBINNED.fa` and (2) copy every other FASTA file into the to `COMBINED-DATA` directory as `XXX_YYY_ZZZ.fa` where,
-  * `XXX` is the culture name recovered from `sample-translation.txt`,
-  * `YYY` is `MAG` if the completion is 50% or more and contamination is 5% less according to the information in stored in the relevant `checkm.txt` file, otherwise `YYY` is `BIN`,
-  * `ZZZ` is `001`, `002`, and so on, where each `MAG` and each `BIN` for individual cultures have sequential numbering.
-* Ensure that each sequence in each FASTA file has a unique defline associated with the culture (`XXX`) -- pro tip: you can use {% include PROGRAM name="anvi-script-reformat-fasta" %} for this.
-* Copy `checkm.txt` and `gtdb.gtdbtk.tax` files in individual `bins/` directories into `COMBINED-DATA` as `XXX-CHECKM.txt` and `XXX-GTDB-TAX.txt`.
-
-Based on these instructions, when you run your script in the directory `EXC-004`,
-
-```sh
-bash generate-combined-data.sh
-```
-
-the contents of the newly generated `COMBINED-DATA` directory should look like this:
-
-```sh
-ls COMBINED-DATA/
-CO64-CHECKM.txt
-CO64-GTDB-TAX.txt
-CO64_BIN_001.fa
-CO64_BIN_002.fa
-CO64_BIN_003.fa
-CO64_BIN_004.fa
-CO64_BIN_005.fa
-CO64_MAG_001.fa
-CO64_UNBINNED.fa
-CO83-CHECKM.txt
-CO83-GTDB-TAX.txt
-CO83_BIN_001.fa
-CO83_BIN_002.fa
-CO83_BIN_003.fa
-CO83_BIN_004.fa
-CO83_BIN_005.fa
-CO83_BIN_006.fa
-CO83_BIN_007.fa
-CO83_BIN_008.fa
-CO83_BIN_009.fa
-CO83_BIN_010.fa
-CO83_MAG_001.fa
-CO83_MAG_002.fa
-CO83_UNBINNED.fa
-CO86-CHECKM.txt
-CO86-GTDB-TAX.txt
-CO86_BIN_001.fa
-CO86_BIN_002.fa
-CO86_BIN_003.fa
-(...)
-```
-
-Once you are done, please commit your script to your GitHub repository for `PFLS`, and put it in a directory called `EXC-004`, with the file name `generate-combined-data.sh`.
-
-The solution is [here](solutions/EXC-004), and always, we will go through it together once you are done.
-
 ## Introduction to Large Language Models (LLMs)
 
 LLMs like ChatGPT, DeepSeek, and [others](https://en.wikipedia.org/wiki/List_of_large_language_models) are AI systems trained on vast amounts of text data to understand and generate human-like text. They are based on transformer architectures, a breakthrough in deep learning that enables them to process and generate coherent and relevant text.
@@ -1662,19 +1593,171 @@ After the attention mechanism, the output is passed through a feed-forward neur
 
 Other steps that are even more machine learning heavy include *Layer Normalization* (ensuring the data through the model stable, such as ensuring that the puzzle pieces don't fall of the table), *Residual Connections* (ensuring model doesn't forget important things, such as keeping a reference picture of the puzzle to guide your efforts relevant), and *Stacking Layers* step to create a deep network to find complex patterns and relationships in the data, such as having multiple puzzle solving teams operate together to refine the solution further and further. In the first layer, the model might focus on understanding the task ("calculate GC content"), in the second layer it might focus on the context ("DNA sequence", in the third layer it might focus on the output format ("Python function"). By the final layer, the model may have a clear understanding of the prompt and be ready to generate the output.
 
+
 #### Output Generation
 
-For text generation tasks, the transformer uses a decoder architecture, which generates tokens one at a time, in a precise order and using previously generated tokens as context. For our prompt of "Write a Python function to calculate the GC content of a DNA sequence.", the model would start generating the first token, `def`. Then it would use `def` as context to generate the next token, `calculate_gc_content`, and this process would continue until the full function is generated and reported:
+LLM's ability to generate meaningful output is as complex as their ability to make sense of the input, and relies on similar principles such as keeping track of the context and making use of the learned patterns from existing text with which they were trained. Transformer uses a decoder architecture for text generation, precisely generating tokens one at a time using previously generated tokens as context. This is almost like you writing down something new: carefully considering each word in a sentence you are writing while keeping in mind what you have already written, and relying on your understanding of the language in which you are writing based on all the previous readings you have done before to benefit from patterns that look similar to what you are writing. So both the context and what is previously written play a role in your text generation, as do in LLMs.
 
-```py
+For our input **"Write a Python function to calculate the GC content of a DNA sequence."**, the model does not generate the entire output in one go. Instead, it uses linguistic properties of the Python programming language to establish that the first token must be `def`. Then, it considers `def` as a context to predict the next most probable token, e.g., a function name, such as `calculate_gc_content` given the task, and then the `(`, and so on, building the output token by token. As this program in its final form that is emerging as it is being generated likely does not exist anywhere, each step assigns probability scores to possible next tokens, during which the model selects the most likely option, and sometimes introduces controlled randomness for creativity, which is controlled by a parameter generally called 'temperature'. As a user of general-purpose services such as ChatGPT or DeepSeek you don't have access to parameters such as temperature, 'nucleus sampling', 'frequency penalty', or others, which are set to certain default values in these services. But if you were to use LLMs from within other programs through what we call 'application programmer interfaces' or APIs, then you would get to do a lot of prompt engineering to see the impact of these parameters on output generation. Here is [an amazing resource](https://www.promptingguide.ai/) on prompt engineering that can help you understand a lot of these concepts in greater detail if you are particularly interested in these things.
+
+At the end of the continuous generation of text that finds its way by choosing the most probable continuation after each token, the model reaches its stop condition with a complete result, which looks like this for our example prompt:
+
+```python
 def calculate_gc_content(sequence):
     gc_count = sequence.upper().count("G") + sequence.upper().count("C")
     total = len(sequence)
-    return (gc_count / total)  100
+    return (gc_count / total) * 100
 ```
 
-That is in part why, as far as LLMs and the transformers are concerned, there is no difference between writing a python code or translating from English to French except a few minor nuances.
+Depending on the key settings of the model, running the same question multiple times may not result in the same output, which is a desired feature of chatbots to give the impression of a level of dynamism that make them sound like jazz musicians rather than robots that read the same canned responses. 
 
+The same principles in output generation apply to code generation, translating from one language to another, creative writing, or generating arguments for or against certain ideas, scientific or not. Thus, as far as LLMs and the transformers that bring them to life are concerned, there is no difference between writing Python code or translating from English to French except a few minor nuances.
+
+
+## Using LLMs for Programming
+
+The emergence of LLMs has been one of the most fascinating developments in computation given their broad range of applications. One of the by-products of these powerful tools was to make computers write code for us. An ability now democratizes programming at scales hard to comprehend since even your uncle can use ChatGPT to generate computer code in any language.
+
+Making computers write code for humans has long been a dream of computer science, and it has a fascinating story with roots go way further back than you probably anticipate. For computers to generate code, first there had to be a way to formalize the rules of languages in which code can be written. In 1956 Noam Chomsky, a prominent linguist of that time and one of the most brilliant philosophers of our time, introduced formal grammars and the idea that grammars of languages can be formalized to understand the languages they generate. This concept, which is now known as [Chomsky Hierarchy](https://en.wikipedia.org/wiki/Chomsky_hierarchy), rapidly became a cornerstone of linguistics. Probably Chomsky had no such intentions at the time, but his mathematically rigorous effort to try to understand the underlying principles of human languages had enormous implications in computer science. The core idea captured by the Chomsky Hierarchy provided a classification of languages that would later influence how computers can parse and generate code, and led to the design of programming languages and compilers that could work with them. So in retrospect, we can say the human's desire to make machines write code goes as far back as 1950s. A lot has happened between then and now, and I wish I could talk more about UNCOL, PROLOG, biology-inspired genetic programming, and all the other exciting and inspiring history of our effort to bridge the gap between humans and computers. Perhaps another time.
+
+It is safe to say that compilers, which take instructions written by humans in a programming language and turn them into machine instructions that are almost impossible to understand by humans, is already a form of code generation capability. Before compilers, most programming was done by writing machine code, i.e., *literal* instructions for the processor, by directly invoking opcodes and memory addresses. Since you will never see it anywhere throughout your journey in programming, I wanted to show you an example. For instance, the following is what a machine code that would calculate the sum of a bunch of numbers in an array on Intel 8086 CPU that was introduced in 1978:
+
+```
+10111000 00000000 00000000  ; MOV  SI, 0       (Index SI = 0)
+10111011 00000000 00000000  ; MOV  BX, 0       (Sum BX = 0)
+10110000 00000101           ; MOV  AL, [SI]    (Load array value)
+00000011 11000000           ; ADD  BX, AX      (Add to sum)
+01000110                    ; INC  SI          (Next element)
+10000011 11110110           ; CMP  SI, 6       (Check end condition)
+01110100 11111000           ; JNE  loop        (Repeat if not done)
+```
+
+The first programming language for which we had a high-level compiler was FORTRAN. FORTRAN took away much of the pain you see above by generating that kind of machine-level code from a language that is much easier to read and understand (well, relatively speaking):
+
+```fortran
+PROGRAM SUM_ARRAY
+INTEGER :: SUM, NUMBERS(6)
+DATA NUMBERS /1, 2, 3, 4, 5, 6/
+
+SUM = 0
+DO I = 1, 6
+   SUM = SUM + NUMBERS(I)
+END DO
+
+PRINT *, "Sum is:", SUM
+END
+```
+
+In fact, the CPU technology has advanced so much from the days of relatively simpler architectures such as Intel's x86 processors (which had less than 100 opcodes in contrast to over 1,500 we have in modern CPUs), it is practically impossible to write machine code anymore as the difference between doing it back then and now is akin to the difference between flying a kite and flying an F16 figher jet. We depend on compilers that generate highly optimized, architecture specific code that can take advantage of a vast number of features new processing units entail.
+
+Compilers were our first successful attempt to write human-understandable instructions and generate code that computers could execute, which started this ball rolling. That said, given your fresh exposure to the syntax that is necessary to write shell scripts, you can tell that even the human-understandable instructions are not equally or easily understandable by all humans. To truly unlock the power of computers for everyone, our journey of generating code needed to go from generating code for machines from instructions written in programming languages to generating instructions written in programming languages from ideas explained in human languages.
+
+Before the advances in natural language processing that made it finally possible, there has been many many attempts to bridge that gap. These efforts included simplest imaginable solutions such as syntax highlighting or auto-completion and documentation lookups to slightly more advanced approaches such as boilerplate code generation in integrated development environments (which never really useful), tools that translated code from one programming language to another (which never really worked well), tools to create templates of common programming patterns (🤮), and even more sophisticated efforts in recent times with modern machine learning approaches that did not use LLMs. Perhaps one should look back fondly to those attempts since they were certainly helpful, but they did lack context awareness, had no abilities to understand human languages, could not adapt or learn, could not explain what they were doing, and they had very limited code generation capabilities. Needless to say our initial attempts to generate code never reached the transformative impact of coming up with compilers, and pale in comparison to what we have today with LLMs that deliver everything we wished for and more.
+
+Most life scientists are familiar with the power of molecular tools to generate data to address complex biological questions, and analyze, interpret, and visualize biological data. Programming is nothing more than that even though it can often feel intimidating to those without a background in computation. I hope throughout that course we addressed that to a degree, and you can recognize LLMs as powerful 'assistants' that can make programming more accessible and intuitive for you. But one must first understand advantages and disadvantages of using LLMs for programming, and aspects of it one should pay attention to when incorporating them into their daily work.
+
+### Advantages of using LLMs for programming
+
+Even though advantages are likely extremely clear, let's just mention a few of them.
+
+* LLMs lower the barrier to entry to programming. As they can generate code snippets and explain core concepts of programming in plain language, they make it easier to start writing code and troubleshoot code without extensive training.
+
+* They allow you to describe what you need in your own language, and produce code that accomplishes that. This is great for rapidly generating code to test ideas, and lower the burden of non-creative tasks (such as calculating the GC content of a piece of DNA or finding the longest sequences in a FASTA file, etc). In fact, everything we have done so far in this course can be done with an LLM effortlessly. This way they enable you to focus on science rather than programming best practices or learning about programming paradigms that require so much experience.
+
+* LLMs can also act as great trainers. You can copy-paste a piece of code, and ask for line-by-line explanations. It is not a useful practice for someone who has no idea about programming, but with a relatively low level of familiarity with programming concepts, interactively working with LLMs can be very helpful to learn more. The best aspect of all is that thanks to their extensive training on existing code, LLMs can help you write code that adheres to the highest standards of coding. 
+
+### Disadvantages of using LLMs for programming
+
+Nothing comes without their trade offs and LLMs are no exception. 
+
+* They will make you stupider if you are not careful. Relying on LLMs for everything will prevent you to develop programming skills that will rewire your brain to help it hold bigger and more complex ideas. You will likely fail to learn fundamentals of programming, which in return will prevent you from being able to troubleshoot issues and handle new challenges.
+
+* LLMs make a lot of mistakes. Generate code with them without fully undertanding the underlying principles will force you to blindly trust their outputs.
+
+These disadvantages can be mitigated with a mindful approach.
+
+* Learning the basics of programming like we attempted here and understanding the utility of variables, loops, conditionals, functions, etc will help you run, debug, update, and integrate code suggestions from LLMs.
+
+* Combining LLMs with old-school learning practices, and continue forcing yourself to come up with solutions or seek for answers in traditional ways (such as looking things up in help menus and tutorials) will help you maintain your control over the tasks you use LLMs for.
+
+LLMs are revolutionary, and by managing to born at the right time, you have the rare opportunity to witness this transformation firsthand. Imagine all the people who have lived and died without seeing what humans managed to create. But you have not been born in an era where it may be acceptable to let these advances make you redundant: use LLMs to support and advance your critical thinking, be thoughtful and responsible as you make them a part of your work, and turn them into your assistant, and not your guide.
+
+### EXC-004
+
+The next exercise is here to immerse you into the joy of writing code for real-world data tasks, and you are now free to use LLMs to do that.
+
+This is the most realistic problem we are going to be working on so far, and Sarahi Garcia has all the background on this problem that we had to resolve last year for a study. She can help us better undertand its context, but here I will provide a very brief description of what is going on, and what needs to be done.
+
+Please go into the `EXC-004` directory in your data pack, and take a look at the contents of it. You will realize that
+
+* There are multiple directories in `RAW-DATA` directory that goes like `DNA57`, `DNA58`, `DNA64`, etc. Each of these directories contains the results of a genome-resolved analysis of the metagenomic sequencing of a single culture generated from Lake Erken samples. Since each culture was started with just a few cells from the environment, the researchers who conducted this study were able to recover one or more metagenomic bins. The directory names match to library names rather than sample names, and the actual names of these cultures are stored in the file `sample-translation.txt`. Each of these directories has identical structure, and contain the following two files and another directory:
+  - `bins/` -- Contains the FASTA files that emerged from the automatic binning of each sample.
+  - `checkm.txt` -- Completion and redundancy estimates for the tentative genomes represented by individual FASTA files in the `bins/` directory based on bacterial and archaeal single-copy core genes.
+  - `gtdb.gtdbtk.tax` -- Taxonomy for each of them based on the Genome Taxonomy Database.
+
+One of the most critical next steps is to estimate the actual abundances of individual genomes. But this particular organization of these data is not very useful for such downstream analyses, and we need a shell script that can help us combine these data into a more meaningful representation. The script needs to do the following things:
+
+* Generate a new directory at the same level of `RAW-DATA` called `COMBINED-DATA`.
+* Process each FASTA file in individual directories to (1) copy each `bin-unbinned.fasta` into the to `COMBINED-DATA` directory as `XXX_UNBINNED.fa` and (2) copy every other FASTA file into the to `COMBINED-DATA` directory as `XXX_YYY_ZZZ.fa` where,
+  * `XXX` is the culture name recovered from `sample-translation.txt`,
+  * `YYY` is `MAG` if the completion is 50% or more and contamination is 5% less according to the information in stored in the relevant `checkm.txt` file, otherwise `YYY` is `BIN`,
+  * `ZZZ` is `001`, `002`, and so on, where each `MAG` and each `BIN` for individual cultures have sequential numbering.
+* Ensure that each sequence in each FASTA file has a unique defline associated with the culture (`XXX`) -- pro tip: you can use {% include PROGRAM name="anvi-script-reformat-fasta" %} for this.
+* Copy `checkm.txt` and `gtdb.gtdbtk.tax` files in individual `bins/` directories into `COMBINED-DATA` as `XXX-CHECKM.txt` and `XXX-GTDB-TAX.txt`.
+
+Based on these instructions, when you run your script in the directory `EXC-004`,
+
+```sh
+bash generate-combined-data.sh
+```
+
+or
+
+```sh
+python generate-combined-data.py
+```
+
+the contents of the newly generated `COMBINED-DATA` directory should look like this:
+
+```sh
+ls COMBINED-DATA/
+CO64-CHECKM.txt
+CO64-GTDB-TAX.txt
+CO64_BIN_001.fa
+CO64_BIN_002.fa
+CO64_BIN_003.fa
+CO64_BIN_004.fa
+CO64_BIN_005.fa
+CO64_MAG_001.fa
+CO64_UNBINNED.fa
+CO83-CHECKM.txt
+CO83-GTDB-TAX.txt
+CO83_BIN_001.fa
+CO83_BIN_002.fa
+CO83_BIN_003.fa
+CO83_BIN_004.fa
+CO83_BIN_005.fa
+CO83_BIN_006.fa
+CO83_BIN_007.fa
+CO83_BIN_008.fa
+CO83_BIN_009.fa
+CO83_BIN_010.fa
+CO83_MAG_001.fa
+CO83_MAG_002.fa
+CO83_UNBINNED.fa
+CO86-CHECKM.txt
+CO86-GTDB-TAX.txt
+CO86_BIN_001.fa
+CO86_BIN_002.fa
+CO86_BIN_003.fa
+(...)
+```
+
+Once you are done, please commit your script to your GitHub repository for `PFLS`, and put it in a directory called `EXC-004`, with the file name `generate-combined-data.sh` or `generate-combined-data.py`.
+
+The solution I wrote in BASH is [here](solutions/EXC-004), and as always, we will go through it together once you are done.
+
+---
 
 ## Course Responsibilities
 
