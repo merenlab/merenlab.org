@@ -1206,7 +1206,7 @@ You have 34 *Wolbachia* genomes downloaded from the GTDB, and a text file that s
 * But uses the `wolbachia-hosts.txt` to rename each genome file to match the host name from which the *Wolbachia* was recovered.
 
 {:.warning}
-**Please turn in your solutions the following way**: Save your script as `process-wolbachia-genomes.sh`, add it as an attachment to an email with the subject line `PFLS EXC002` and send your email to _meren@hifmb.de_ **and** _sarahi.garcia@uol.de_.
+**Please turn in your solutions the following way**: Save your script as `process-wolbachia-genomes.sh`, add it as an attachment to an email with the subject line `PFLS EXC-002` and send your email to _meren@hifmb.de_ **and** _sarahi.garcia@uol.de_.
 
 We will go through the [solution](solutions/EXC-002) together once you have given this exercise your best shot.
 
@@ -1506,9 +1506,53 @@ echo "ATCGATCGCG" | awk '{gc_count += gsub(/[GgCc]/, "", $1)} END {print gc_coun
 
 But of course what you want is GC-content, which essentially is the ratio of GC bases to _all_ bases.
 
-The solution is [here](solutions/EXC-003), and usual, we will go through it together once you are done.
+The solution is [here](solutions/EXC-003), and usual, we will go through it together once you are done. Good luck!
 
-Good luck!
+#### Evaluating EXC-003
+
+Since you are such experts of BASH programming at this point, we will have some fun and interactively write a BASH script altogeter to test whether *your* script produces an output that is exactly matching the output requested above. Our script will,
+
+* Get a copy of your repository from `https://github.com/$username/PFLS.git` where `$username` will be the GitHub username for each one of you,
+* Expect to find the directory `EXC-003/fasta-file-processor.sh` in the cloned repository,
+* Capture the output of your program when it is run on a test FASTA file, and finally,
+* Test whether the output produces matches to the output expected.
+
+For the last step, we will make use of the following logic:
+
+```sh
+echo "$output" | awk -v username="$username" '
+    BEGIN {
+        FS="\n";
+        output_is_correct = 1;
+        expected[1] = "FASTA File Statistics:";
+        expected[2] = "----------------------";
+        expected[3] = "Number of sequences: [0-9]+";
+        expected[4] = "Total length of sequences: [0-9]+";
+        expected[5] = "Length of the longest sequence: [0-9]+";
+        expected[6] = "Length of the shortest sequence: [0-9]+";
+        expected[7] = "Average sequence length: [0-9]+(\\.[0-9]+)?";
+        expected[8] = "GC Content \\(%\\): .*$";
+    }
+
+    {
+        if($0 !~ expected[NR]) {
+            output_is_correct = 0;
+            exit
+        }
+    }
+
+    END {
+        if (output_is_correct && NR == 8)
+            print("✅ \033[4m" username "\033[0m: The output is correct! 😊")
+        else if (output_is_correct && NR != 8)
+            print("❌ \033[4m" username "\033[0m: The number of lines in the output is wrong 😞")
+        else
+            print("❌ \033[4m" username "\033[0m: Line " NR " is wrong 😞")
+    }'
+```
+{% include CODEBLOCKFILENAME filename="check-exc-003-output.sh" %}
+
+The code above includes some ideas we haven't discussed, such as the [tilde operator](https://www.gnu.org/software/gawk/manual/html_node/Regexp-Usage.html#index-_007e-_0028tilde_0029_002c-_007e-operator) (`~`) in AWK, which is used for *pattern matching* with regular expressions, or the use of 'arrays', which I will briefly describe during our writing session.
 
 ### EXC-004
 
@@ -1578,6 +1622,59 @@ CO86_BIN_003.fa
 Once you are done, please commit your script to your GitHub repository for `PFLS`, and put it in a directory called `EXC-004`, with the file name `generate-combined-data.sh`.
 
 The solution is [here](solutions/EXC-004), and always, we will go through it together once you are done.
+
+## Introduction to Large Language Models (LLMs)
+
+LLMs like ChatGPT, DeepSeek, and [others](https://en.wikipedia.org/wiki/List_of_large_language_models) are AI systems trained on vast amounts of text data to understand and generate human-like text. They are based on transformer architectures, a breakthrough in deep learning that enables them to process and generate coherent and relevant text.
+
+LLMs are generally trained on very diverse datasets, including books, news articles, Wikipedia, open-access scientific literature, code repositories, and more. Large and diverse training data allows LLMs to generalize concepts across domains and make connections that may be elusive. For instance, you can ask a general LLM a question like "can you describe a critical phenomenon, best practice, or risk that is shared between software development and modern agricultural practices?", and you will get an answer that will mostly likely be more satisfactory than an answer you may get from a person who is only a computer scientist or only a farmer. Once a foundation model is trained on general data, it can be fine-tuned to perform specific tasks with high performance, such as generating images, videos, code, or creative writing. Then the users of these models (whether people, or other programs or models) can interact with LLMs through 'prompts', i.e., the input text that guides the model to generate relevant outputs. Even though an average person hears a lot of about OpenAI/GPT (due to its success and convenient online 'chat' interface) or DeepSeek (thanks to its surprising benchmarks and push towards open source), there are already [many many models](https://huggingface.co/models) for general or specific applications.
+
+### Transformers: How do they even?
+
+Transformers are the foundation of modern LLMs. As you can imagine, it is almost impossible to fully describe how they work here since truly understanding transformers require a substantial understanding of linear algebra, probability and statitics, and concenpts in machine learning for starters. But luckily we don't need to understand all the details here to have a general sense of what they do for us. You can drive a car without knowing anything about combustion engines, but knowing just a bit about the engines is the only way for one to understand why there is a nonlinear relationship between the speed of a given car and the fuel consumption, or why the fuel economy often drops significantly at very high speeds even if one ignores aerodynamic drag.The same applies to LLMs. You don’t need to grasp every technical detail, but without even a basic understanding, the behavior of LLMs will come across as a mystery rather than engineered solutions with predictable shortcomings and limitations.
+
+Transformers were first introduced in 2017 by a team of researchers affiliated with [Google Research](https://research.google/) through a seminal paper that was very aptly titled as "[Attention is All You Need](https://arxiv.org/pdf/1706.03762)". Prior to this architecture, modern NLP models were struggling with key limitations, such as difficulty capturing long-range dependencies in lengthy texts -- as they processed each word one after another, pre-transformer models struggled with tasks that required understanding relationships between words that were far from one another in a sentence. The transformer architecture changed all that by introducing self-attention, which allows the model to process all tokens in a sequence in parallel, unlike RNNs that process tokens one by one. This made it possible to fully utilize GPUs, which excel at parallel matrix operations. Even though the paper was published less than a decade ago, it is already cited over 150,000 times, which is meaningful metric in this case to understand how it revolutionized natural language processing (NLP). Here's a heavily watered down explanation of the core concepts of transformers with the hope that they provide you with some abstract ideas about the innerworkings of the transformer architecture that makes modern LLMs a reality.
+
+#### Input Representation
+
+Upon receiving an input prompt, transformers do three things:
+
+* Tokenization: The input is first broken into smaller units called tokens. These tokens could be words, subwords, waveforms, or pixels depending on whther the model works with text, sound, images, or video. Let's stick with words for the sake of simplicity here. Think of the tokenization process like cutting a sentence into individual puzzle pieces. For instance, if the input is "Write a Python function to calculate the GC content of a DNA sequence", the tokenization step will split it into tokens ["Write", "a", "Python", "function", "to", "calculate", "the", "GC", "content", "of", "a", "DNA", "sequence", "."] for further processing, where each of these elements will have a unique index that connects them to the word recognized by the model (just to note for my own sanity, in reality LLMs do not often tokenize words as whole words but as subwords; so Python in this example may be tokenized as "Py" and "thon" as they always try to properly handle rare words efficiently).
+
+{:.notice}
+For a given model, the term token is also used to describe the training data size used to generate the model (i.e., models process many many tokens to learn patterns) or the capacity of it (since models generate responses one token at a time and they are limited how many tokens they can handle at once). For instance, based on numbers I found online at the beginning of 2025, GPT-3 model was trained in 300 billion tokens and can work with 128 thousand tokens at a time. In contrast, DeepSeek R1 model was trained on 671 billion tokens. The tokens in tokenization and tokens in token counts of models are coming from the same underlying concept: a unit of processing for the model. But they are not identical.
+
+* Embeddings: Once the tokenization is done, each token is then converted into a numerical vector (a list of numbers) called an *embedding*. For instance, the word "Python" in the previous example might be represented as a vector that goes like [0.22, -0.3, 0.7, (so on)]. Each dimension here will be describing a linguistic feature of a given word, and the number of dimensions in the embedding, which is also called the embedding size, will depend on the model. For instance, in Google's BERT model the embedding size is 768 (i.e., there will be 768 numbers in that vector to describe the word "Python"), and in GPT-3 model the embedding size is 12,288. In a way, these vectors represent the meaning of the token in a way the computer can understand and work with it. You can think of this as translating a word from human language to model language by placing it at a unique coordinate in a hyper-dimensional universe of known tokens. These vectors make it possible to perform mathematical operations on words, or resolve the relationships between a given word and other words. Embeddings are learned during the model's training phase, where the model processes vast amounts of text to identify patterns and relationships between words. These initial embeddings remain fixed until a specific input sentence is processed, at which point self-attention dynamically refines them. So the initial embeddings associate each token with a value in that space, where the Python in our example does not know whether it is a programming language or a snake. This is where the self-attention mechanism comes in. As the model processes the full sentence, it updates each word's embedding dynamically using surrounding words. For example, since the phrase "write a function" strongly suggests programming, the embedding for "Python" shifts toward the region of the embedding space where programming-related terms like "Java" or "C++" are located. At this stage Python as a programming language and Python as a kind of snake will have entirely different vectors. This contextual adaptation is exactly how transformers revolutionized natural language processing, where meaning of words are dynamically refined based on context rather than a fixed dictionary-like mapping, and made it very similar to how you understand *Jrxaal must be a programming language* when you read the sentence "I need a Jrxaal function that could calculate Celcius from Fahrenheit". Even though you have never heard about Jrxaal before, and it doesn't exist. Refind embeddings following the self-attention step are not just used for meaning, but the new meaning they have gained influence the final outputs when they are passed to further layers of the Transformer to perform a task.
+
+* Positional Encodings: A step that takes word embeddings, and turn them into position-aware word embeddings. This is necessary since unlike its predecessors that worked with each embedding one by one, transformers take all embeddings all at once to process them, which improves their performance dramatically, but at the expense of losing the original order of words. The step of updating the embeddings with positional encodings ensure that the sequence of tokens, which may dramatically influence meaning, are preserved. Think of this like numbering the puzzle pieces so you know which piece comes first, second, etc. This is a step that is done so very elegantly in the papers that introduce transformers, and I had very hard time truly appreciating the nuances there until I saw [this excellent YouTube video](https://www.youtube.com/watch?v=dichIcUZfOw) (if you are really interested in better understanding this step). This is one of the two very big innovations in the transformer architecture since it doesn't increase the input data size while maintaining the order information for parallel processing that enable significant gains in speed.
+
+#### Self-Attention Mechanism
+
+Self-attention mechanism is one of the biggest innovations in the transformer architecture, which allows the model to focus on the most relevant words in a sentence when processing a specific word, and has become a central aspect of every modern deep learning model. In a sense, this is the stage where the model takes each puzzle piece one by one and compares it all the other pieces in each step to resolve which combination makes the most sense through mathematical operations. For instance, in the example prompt "Write a Python function to calculate the GC content of a DNA sequence", when the model is processing the word "GC", the self-attention procedure will help the model to focus on "calculate" to understand the task at hand, "DNA" to understand the context, and "Python" to know that it needs to generate code, and assign very high attention scores to "calculate" and "Python" since  they specify the task and output format, "DNA" might get a medium score since it provides context. At the end of this step, every token will have sets of attention scores, and thus have a contextualized representation with information incorporated from all other tokens before it is passed on to the next step. Here is [an excellent article](https://sebastianraschka.com/blog/2023/self-attention-from-scratch.html) to understand this mechanism better if you are interested.
+
+#### Multi-Head Attention
+
+If self-attention mechanism is a dynamical spotlight shining on a stage where the model focuses on different actors (i.e., tokens) based on their relevance, multi-head attention is an extension of it where multiple spotlights shining at the same time, each focusing on different aspects of the scene, helping the viewer (i.e., the model) to develop a more comprehensive understanding of what is happening. If it helps, you can also think of this as having multiple teams working on different parts of the puzzle simultaneously, each focusing on a different aspect (e.g., one team looks for edges, another looks for colors, et). In our example of "Write a Python function to calculate the GC content of a DNA sequence", one attention head might focus on the relationship between "GC" and "DNA" to resolve the biological context, another attention head might focus on the relationship between "Python", "function" and "calculate" to resolve the coding task. Combining outputs from these heads with multi-head attention, i.e., a coding task for a biological question, might represent a more nuanced understanding of the input task or data or more diverse relationships in them (Meren found [this blog post](https://sebastianraschka.com/blog/2023/self-attention-from-scratch.html) extremely helpful to better understand some aspects of multi-head attention).
+
+####  Feed-Forward Neural Networks, and other steps
+
+After the attention mechanism, the output is passed through a feed-forward neural network (FFN). This is like a second layer of processing that refines the information further. Imagine taking the assembled puzzle pieces and smoothing out the edges to make them fit perfectly. Going back to our example prompt of "Write a Python function to calculate the GC content of a DNA sequence", the FFN processes the combined output from the attention heads, refining the understanding of the task. For example in this stage it might be reinforced that "GC content" refers to the proportion of "G" and "C" nucleotides in a DNA sequence, and "function" refers to a Python function.
+
+Other steps that are even more machine learning heavy include *Layer Normalization* (ensuring the data through the model stable, such as ensuring that the puzzle pieces don't fall of the table), *Residual Connections* (ensuring model doesn't forget important things, such as keeping a reference picture of the puzzle to guide your efforts relevant), and *Stacking Layers* step to create a deep network to find complex patterns and relationships in the data, such as having multiple puzzle solving teams operate together to refine the solution further and further. In the first layer, the model might focus on understanding the task ("calculate GC content"), in the second layer it might focus on the context ("DNA sequence", in the third layer it might focus on the output format ("Python function"). By the final layer, the model may have a clear understanding of the prompt and be ready to generate the output.
+
+#### Output Generation
+
+For text generation tasks, the transformer uses a decoder architecture, which generates tokens one at a time, in a precise order and using previously generated tokens as context. For our prompt of "Write a Python function to calculate the GC content of a DNA sequence.", the model would start generating the first token, `def`. Then it would use `def` as context to generate the next token, `calculate_gc_content`, and this process would continue until the full function is generated and reported:
+
+```py
+def calculate_gc_content(sequence):
+    gc_count = sequence.upper().count("G") + sequence.upper().count("C")
+    total = len(sequence)
+    return (gc_count / total)  100
+```
+
+That is in part why, as far as LLMs and the transformers are concerned, there is no difference between writing a python code or translating from English to French except a few minor nuances.
+
 
 ## Course Responsibilities
 
