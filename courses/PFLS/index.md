@@ -19,18 +19,14 @@ The purpose of Programming for Life Scientists (PFLS) is to provide you with a g
 * Common tools in the UNIX shell and how they are used,
 * Shell scripting and its application to real-world problems,
 * General concepts and algorithmic thinking in programming through exercises,
-* The utility of Python programming language,
-* Large Language Models and AI-assisted program solving,
-* Orchestrating multiple of these tools to solve complex, daily tasks.
+* Basics of Large Language Models and AI-assisted program solving,
+* Orchestrating multiple of these tools to solve complex tasks.
 
-This document includes **everything** you need for this course.
-
-{:.warning}
-If you are taking this course as a part of your educational program with the expectation to be graded for it, please pay particular attention to the [Course Responsibilities](#course-responsibilities) and [Grading](#grading) sections.
+This document includes **everything** you will need for this course.
 
 ## Faculty and Communication
 
-The course is directed by [Prof. Dr. A. Murat Eren](https://merenlab.org), who goes by Meren, and [Prof. Dr. Sarahi Garcia](https://miint.org/). The lectures and exercises will be primarily delivered by Meren, but the following table lists individuals who were directly or indirectly involved in the contents of the course:
+The course is directed by [Prof. Dr. A. Murat Eren](https://merenlab.org), who goes by Meren, and [Prof. Dr. Sarahi Garcia](https://miint.org/), who goes by Sarahi. The lectures and exercises will be primarily delivered by Meren, but the following table lists individuals who were directly or indirectly involved in the contents of the course:
 
 |Name|Role|Expertise|Contact information|
 |:---|:---|:---|:---|
@@ -41,18 +37,23 @@ The course is directed by [Prof. Dr. A. Murat Eren](https://merenlab.org), who g
 
 Throughout the course (and beyond) you can reach out to Meren with questions, who should be your first contact for anything related to the activities that will follow.
 
-## Course Facts and Logistics
+
+## Course Responsibilities and Grading
 
 {:.notice}
-The course code at the University of Oldenburg is `5.13.622`.
+This section is relevant to you only if this is as a part of your coursework at the University of Oldenburg in a degree program and you wish to be graded for it.
 
-The design of the course assumes that you know *next to nothing* about any of these topics. High expectations poison everything: so please assume that you will unlikely become an expert of the tools and approaches that are covered here, but hopefully, our discussions will provide you with enough understanding of the fundamentals of programming, helping you think about how to make computers work for you, which will give you enough foundation to become an expert of everything here.If you’re taking this course in person, we’ll spend about 60 hours together. That’s not nothing, but it’s hardly enough time to become truly skilled at anything. In his book "*[Outliers: The Story of Success](https://en.wikipedia.org/wiki/Outliers_(book))*", Malcolm Gladwell, a Canadian author and thinker, argues that a person could become an expert in nearly any field as long as they were willing to devote the requisite 10,000 hours to studying and practicing the subject or skill. Reminiscing his own journey, he says, paraphrasing here from his book, "*I was completely overwhelmed at the beginning, but by the end, I felt like an expert. It took me 10 years—exactly that long*". You may feel overwhelmed at the start, throughout, and even at the end of this course, and that's OK. My goal is to help you recognize that bending computers to your will with freedom is something you can see yourself doing well if you were to invest time. That’s why I encourage you to ask questions, participate in discussions, and see this as more than just another course to get through.
+Course responsibilities, such as the *class citizenship* emails and the details of grading is in [this document](grading).
 
-While the course is designed for life scientists in mind, it should be useful for anyone to develop a sufficient understanding of the topics the course aims to communicate. But we will be using mock and real-world datasets and problems that convey typical characteristics of what researchers often encounter in the data-enabled era of life sciences.
+## Course Facts and Logistics
+
+The design of the course assumes that you know *next to nothing* about any of the topics covered. High expectations poison everything: so please assume that you will unlikely become an expert of the tools and approaches that are covered here, but hopefully, our discussions will provide you with enough understanding of the fundamentals of programming, helping you think about how to make computers work for you, which will give you enough *foundation* to become an expert of everything the course covers. If you’re taking this course in person, we’ll spend about 60 hours together. That’s not nothing, but it’s hardly enough time to become truly skilled at anything. In his book "*[Outliers: The Story of Success](https://en.wikipedia.org/wiki/Outliers_(book))*", Malcolm Gladwell, a Canadian author and thinker, argues that a person could become an expert in nearly any field as long as they were willing to devote the requisite 10,000 hours to studying and practicing the subject or skill. Reminiscing his own journey, he says, and I'm paraphrasing here from his book, "*I was completely overwhelmed at the beginning, but by the end, I felt like an expert. It took me 10 years—exactly that long*". You may feel overwhelmed at the start, throughout, and even at the end of this course, and that's OK. My goal is to help you recognize that bending computers to your will with freedom is something you can see yourself doing well if you were to invest time. That’s why I encourage you to ask questions, participate in discussions, and see this as more than just another course to get through.
+
+While the course is designed for life scientists and especially microbiologists in mind, it should be useful for anyone to develop a sufficient understanding of the topics the course aims to communicate. But we will be using mock and real-world datasets and problems that convey typical characteristics of what researchers often encounter in the data-enabled era of microbiology.
 
 The course is designed to be delivered within about two weeks (cross your fingers), and it will feel like a sprint rather than a marathon -- but I anticipate that each one of you will learn some new things and enjoy your experience (cross remaining fingers?).
 
-The plan is that the **first week** will offer insights into the terminal environment, common UNIX tools, effective use of shell, and shell scripting in general. Depending on how we perform during the first week, we will use the **second week** to discuss AI-assisted problem solving, and learn about Python through hands-on problem solving sessions. there will be numerous exercises and a few assignments, and in-person attendance is extremely important.
+The plan is that the **first week** will offer insights into the terminal environment, common UNIX tools, effective use of shell, and shell scripting in general. Throughout the **second week** to discuss version control, cloud-based solutions for collaborative coding, and AI-assisted problem solving through hands-on problem solving sessions. Throughout the course Meren will have this document open, as well as a terminal, and while following the content he will often go back to the terminal to demonstrate how things work and help you gain hands-on experience by helping you try and understand everything happening in his terminal window. In-person attendance is extremely important since those active discussions are much more important for your learning experience than this document alone.
 
 The following list offers a more detailed list of goals of the course:
 
@@ -71,15 +72,15 @@ The following list offers a more detailed list of goals of the course:
 * Gaining insights into reproducible reporting
 * And getting you to participate in lots and lots of discussions
 
-It may look like this course does not have a conventional structure and it is all over the place. You are correct, though this is intentional. I hope that this, if I may, 'modern structure' will work for most of you since it has multiple qualities:
+It may look like this course does not have a conventional structure and it is all over the place. You are correct, though this is intentional. I hope that this *modern structure* will work for most of you since it has multiple qualities:
 
-* **Balanced Approach**. Rather than focusing on a single topic in great depth, the course structure goes in and out of fundamentals of programming, UNIX tools, Git, BASH scripting, and Python in a structured way.
-* **AI Tools Introduction** – Placed at an optimal time to help you learn efficient debugging and script generation with ChatGPT or DeepSeek before diving into Python.
-* **Real-World Applications** – Assignments resemble real-world problems researchers often run into during their day-to-day workflows rather than unrelatable hypothetical programming tasks.
-* **Version Control & Reproducibility** – Introduction to Git and GitHub ensures that you will develop good coding habits early in your journey.
+* **Balanced Approach**. Rather than focusing on a single topic in great depth, the course structure goes in and out of fundamentals of programming, UNIX tools, BASH scripting, AWK programming language, Git, GitHub, and Large Language Models (LLMs) in a structured way.
+* **AI Tools Introduction** – Placed at an optimal time to help you learn efficient debugging and script generation with ChatGPT or DeepSeek before diving into difficult tasks.
+* **Real-World Applications** – Exercises resemble real-world problems researchers often run into during their day-to-day workflows rather than unrelateable hypothetical programming tasks.
+* **Version Control & Reproducibility** – Introduction to version control systems and cloud solutions for collaborative work ensures that you will develop good coding habits early in your journey.
 * **Quick and Comprehensive Recall**. You will get to apply everything you have learned to solve an actual problem (that literally happened and someone had to solve it in their daily work).
 
-We will see how everything goes, and you will tell me at the end what worked and what did not :)
+The last time the course was delivered to a group of students with no terminal exposure, we dynamically changed the direction of the course based on what is working and what is not working. For instance, revisiting some of the earlier concepts once the participants had a working vocabulary and familiarity with scripting proved to be extremely effective for deeper understanding of the topic, so active input from the participants regarding what they are struggling with is quite important.
 
 ## Technical Recommendations
 
@@ -100,20 +101,22 @@ We will spend a lot of time learning about the UNIX shell, but here are a few re
 
 ### Code Editors
 
-Throughout this course you will be writing and editing lots of code. Writing good code comfortably requires a good and comfortable text editor that is *designed* to write code, which excludes text editors such as Microsoft Word or NotePad which are more appropriate for daily writing tasks. While Meren exclusively uses [vim](https://www.youtube.com/watch?v=-txKSRn0qeA) for his everyday coding tasks, students are encouraged to consider using a **graphical code editor with syntax highlighting** that supports multiple programming languages.
+Throughout this course you will be writing and editing lots of code. Writing good code comfortably requires a good and comfortable editor that is *designed* to write code, which excludes text editors such as Microsoft Word or NotePad which are more appropriate for daily writing tasks. While Meren exclusively uses [vim](https://www.youtube.com/watch?v=-txKSRn0qeA) for his everyday coding tasks, students are encouraged to consider using a **graphical code editor with syntax highlighting** that supports multiple programming languages.
 
-You can consider [Sublime Text](https://www.sublimetext.com/), which works on Mac, [Geany](https://www.geany.org/), which works on Linux, or [Notepad++](https://notepad-plus-plus.org/) which works on Windows. These are all very nice lighthweight editors. Alternatively you can consider [VS Code](https://code.visualstudio.com/), which is a behemoth that works on Windows, Mac, and Linux (Meren doesn't like it, but promises to not judge anyone).
+You can consider [Sublime Text](https://www.sublimetext.com/), which works on Mac, [Geany](https://www.geany.org/), which works on Linux, or [Notepad++](https://notepad-plus-plus.org/) which works on Windows. These are all very nice lightweight editors. Alternatively you can consider [VS Code](https://code.visualstudio.com/), which is a behemoth that works on Windows, Mac, and Linux.
 
 ### Version Management System
+{:.notice}
+During our previous experience with this course, most Windows users found **VS Code** to be the most convenient way of following the course since it gives access to an editor as well as a terminal in the same window, and connects to the WSL environment which makes life very easy. Some of the remaining participants quickly learned basic commands in **vim**, and started using it with a combination of `CTRL+Z` (to go back to the terminal to test their script) and `fg` (to quickly come back to the editor to continue editing their script).
 
-The delivery of assignments will require you to use [Git](https://en.wikipedia.org/wiki/Git) version management system, and have an account on [GitHub](https://github.com), which is an online service built to store Git repositories in the cloud. We will discuss both git and GitHub in detail, but you should open an account on GitHub unless you already have one as soon as you read these sentences.
 
+The course will require you to use [Git](https://en.wikipedia.org/wiki/Git) version management system, and have an account on [GitHub](https://github.com), which is an online service built to store Git repositories in the cloud. We will discuss both git and GitHub in detail, but you should open an account on GitHub unless you already have one as soon as you read these sentences.
 
 ## Course Data Package
 
-Hands-on exercises and assignments throughout the course will make use of a previously prepared data package. You need to download this data package on your computer, and uncompress it. You will do it only once, and then every time you open your terminal, you will go into the data pack directory since all commands will assume that you are in that directory.
+Hands-on exercises throughout the course will make use of a previously prepared data package. You need to download this data package on your computer, and uncompress it. You will do it only once, and then every time you open your terminal, you will go into the data pack directory since everything we will do in the terminal environment will assume that you are in the data pack directory.
 
-Since at this point everyone has their terminals ready, all you need to do is to open a terminal, and paste the following commands in it:
+Since at this point everyone has their terminals ready, all you need to do is to open a terminal, and paste the following commands in it to get a copy of the course data pack:
 
 ```sh
 ## download the package on your computer using 'curl'
@@ -128,7 +131,7 @@ tar -zxvf PFLS-DATA-PACKAGE.tar.gz
 cd PFLS-DATA-PACKAGE
 ```
 
-If you got an error in any of the lines above, please do not continue before addressing the issue.
+If you got an error in any of the lines above, please do not continue before addressing the issue by working with Meren.
 
 ## Final Checks
 
@@ -141,7 +144,7 @@ This is time for Meren to make sure that every participant,
 * Has a GitHub account,
 * Is enthusiastic about this course and puts their war paint on to deal with whatever it will bring into their life.
 
-If we are all good to go, we can start now.
+If we are all good to go, let's start now with the course content.
 
 ## Course Content
 
@@ -153,11 +156,13 @@ At the end of this section, you will have an understanding of the power of the c
 
 #### What is shell, exactly?
 
-I think this is a good place to start because the shell is one of the most powerful yet underappreciated programs on your computer. In simplest terms, the shell is a command-line interface that sits between you and the operating system kernel —the hidden core of your system responsible for running program processes, executing their instructions on the CPU, managing memory, and handling storage and peripherals. At any given time, your computer runs a gazillion programs; from those that respond to your inputs through a keyboard and mouse to those that literally show where your cursor is on your screen or keeps track of all the windows you have opened, and all of them go through the kernel which allows your computer to run more programs than the number of available CPU cores, gives all programs the illusion of unlimited memory despite its physical limits, and takes care of priorities among them so all programs big and small can use the hardware resources on your computer in harmony to serve you. The shell is another program running on your computer. Like many others, it operates in what we call 'user space' and communicates with core processes running in 'kernel space' through system calls, ensuring that our commands and requests integrate smoothly into the operating system's workings without disrupting its stability. In many ways, the shell is your command center that gives you direct control over your system’s most powerful functions; in a way, it is the computer equivalent of an airplane cockpit or a nuclear reactor control room. On top of its abilities to run programs, modern shells come with scripting languages and control structures for us to run things even more efficiently.
+This is a good place to start because the shell is one of the most powerful yet under-appreciated programs on your computer. In simplest terms, the shell is a command-line interface that sits between you and the operating system kernel —the hidden core of your system responsible for running program processes, executing their instructions on the CPU, managing memory, and handling storage and peripherals. At any given time, your computer runs a gazillion programs; from those that respond to your inputs through a keyboard and mouse to those that literally show where your cursor is on your screen or keeps track of all the windows you have opened, and all of them go through the kernel which allows your computer to run more programs than the number of available CPU cores, gives all programs the illusion of unlimited memory despite its physical limits, and takes care of priorities among them so all programs big and small can use the hardware resources on your computer in harmony to serve you. The shell is another program running on your computer. Like many others, it operates in what we call 'user space' and communicates with core processes running in 'kernel space' through system calls, ensuring that our commands and requests integrate smoothly into the operating system's workings without disrupting its stability. In many ways, the shell is your command center that gives you direct control over your system’s most powerful functions; in a way, it is the computer equivalent of an airplane cockpit or a nuclear reactor control room. On top of its abilities to run programs, modern shells come with scripting languages and control structures for us to run things even more efficiently.
 
 What happens when you type something in your terminal is a fascinating story, and has many many layers. Once you press Enter, the terminal sends your input to the shell, which parses the command, expands special characters and variables, and determines whether it is a built-in command or an external program. If it’s an external program, the shell searches the relevant directories to locate it, and if the program is found and has the right permissions, the shell creates a new process by invoking the kernel, and puts the target program into the driver seat, upon which the kernel loads the program's code into memory, registers it with the scheduler, and begins execution. Throughout its runtime the program interacts with the kernel via system calls until it either terminates normally (successful or not) or the kernel forcefully kills it due to a myriad of reasons such as unhandled fatal signals, resource exhaustion, or illegal memory access. Regardless of how it ends, the kernel cleans up the kitchen and notifies the shell, which retrieves the exit status and resumes its eternal wait for your next command, ready to start the cycle all over again.
 
-Shells are complex, and you don't need to learn any of these things, obviously. But as an undergraduate student of computer science I *did* implement a shell from scratch. My shell was neither as good nor as talented as any of the modern shells. But doing that, and forcing myself to go through that suffering created many new synapses in my brain that eventually afforded me the framework I needed to understand and solve more complex problems elsewhere. Which, in a big plot twist, brings me to the use of AI. One may argue that almost none of the things we will discuss throughout this course are necessary to learn. Indeed, you can solve the vast majority of programming challenges, including those that we will cover during our exercises, using popular LLM clients such as ChatGPT or DeepSeek almost instantaneously. But there are no cheat codes to life -- without going through the pain of truly understanding something, there is no way to achieve mastery, lead with confidence, or create something original.
+Shells are complex, and you don't need to learn any of these things, obviously. But as an undergraduate student of computer science I *did* implement a shell from scratch. My shell was neither as good nor as talented as any of the modern shells. But doing that, and forcing myself to go through that suffering created many new synapses in my brain that eventually afforded me the framework I needed to understand and solve more complex problems elsewhere. Which, in a big plot twist, brings me to the use of AI.
+
+One may argue that almost none of the things we will discuss throughout this course are necessary to learn. Indeed, you can solve the vast majority of programming challenges, including those that we will cover during our exercises, using popular LLM clients such as ChatGPT or DeepSeek almost instantaneously. But there are no cheat codes to life -- without going through the pain of truly understanding something, there is no way to achieve mastery, lead with confidence, or create something original.
 
 <blockquote>
 There is a tide in the affairs of people,<br/>
@@ -168,11 +173,24 @@ Is bound in shallows and in miseries.
 <div class="blockquote-author">William Shakespeare (Julius Caesar, Act 4, Scene 3)</div>
 </blockquote>
 
-I am asking you to not use any AI tools unless I ask you to throughout this course. Do not prevent yourself from taking advantage of the tide that is rising in your academic life due to this course. Once you have some fundamental understanding of the topics we cover here, you will be much more efficient using AI-assistance for your dealings with shell and any other coding tasks.
+I am asking you to not use any AI tools until I ask you to do so. Do not prevent yourself from taking advantage of the tide that is rising in your academic life due to this course. Once you have some fundamental understanding of the topics we cover here, you will be much more efficient using AI-assistance for your dealings with shell and any other coding tasks.
 
 Now, please open your terminals and let's start with the simplest shell functions and most commonly used UNIX programs in it that help us navigate through files and directories, study their contents, and special characters that make life easier.
 
+{:.notice}
+As we go through these examples Meren will interactively demonstrate their utility in various ways, and he encourages you to also try them by literally typing them in your terminal since this activity will already help you develop a level of familiarity with the command line interface.
+
 #### Navigating files and directories
+
+`pwd` – Print working directory
+
+Displays the absolute path of the current directory.
+
+```sh
+pwd  # Show full path of the current directory
+```
+
+---
 
 `ls` – List directory contents
 
@@ -203,17 +221,7 @@ cd -                      # Go back to the directory you were in
 cd                        # And here is a little surprise -- if
                           # you don't provide any parameters,
                           # cd will take you to your home
-                          # directory :))
-```
-
----
-
-`pwd` – Print working directory
-
-Displays the absolute path of the current directory.
-
-```sh
-pwd  # Show full path of the current directory
+                          # directory
 ```
 
 ---
@@ -311,7 +319,7 @@ find /var -size +100M            # Find files larger than 100MB in /var
 find . -type f -name "*.log"     # Find all .log files in current directory
 ```
 
-The last command uses `*`, a special character (so-called 'wildcard') that is extremely useful to target multiple files that match to a particular pattern. This is not the only special character, and most shells will process user input commands and interpret a series of special characters when they are found. Before we continue with more fun programs, let's take a look at a list of commonly used special charaters first.
+The last command uses `*`, a special character (so-called 'wildcard') that is extremely useful to target multiple files that match to a particular pattern. This is not the only special character, and most shells will process user input commands and interpret a series of special characters when they are found. Before we continue with more fun programs, let's take a look at a list of commonly used special characters first.
 
 
 #### Special Characters
@@ -424,7 +432,7 @@ sort < unsorted.txt   # Reads unsorted.txt as input for the sort command
 Runs the second command **only if the first one succeeds**.
 
 ```sh
-mkdir newdir && cd newdir  # Creates and moves into newdir if successful
+mkdir new_dir && cd new_dir  # Creates and moves into `new_dir` *if* successful
 ```
 
 ---
@@ -434,7 +442,7 @@ mkdir newdir && cd newdir  # Creates and moves into newdir if successful
 Runs the second command **only if the first one fails**.
 
 ```sh
-mkdir mydir || echo "Directory creation failed"  # Prints message if mkdir fails
+mkdir my_dir || echo "Directory creation failed"  # Prints message *if* mkdir fails
 ```
 
 ---
@@ -690,7 +698,7 @@ Let's say we want to print the first letter of the first name and last name of e
 First we can filter this file for chancellors who studied law. There are multiple ways to do it. For instance, this is one way to do it:
 
 ```sh
-awk '{if ($2=="Law") print }' german_chancellors.txt
+awk '{if ($2=="Law") print}' german_chancellors.txt
 ```
 
 but a more stylish way to do it in AWK would make use of patterns:
@@ -723,7 +731,7 @@ awk '/Law/{print $1}' german_chancellors.txt | awk 'BEGIN{FS="_"} {print(substr(
 
 ---
 
-OK. Here is a relatively difficult one: find the average age at which chancellors took office. This will take care of it, and let's break it down to its individual components to discuss what we are looking at here:
+OK. Here is a relatively difficult one since it requires some level of algorithmic thinking: find the average age at which chancellors took office. This will take care of it, and let's break it down to its individual components to discuss what we are looking at here:
 
 ```sh
 awk '{sum_age += $3; count++} END { print "Average age when becoming chancellor:", sum_age/count}' german_chancellors.txt
@@ -731,7 +739,7 @@ awk '{sum_age += $3; count++} END { print "Average age when becoming chancellor:
 
 ### EXC-001
 
-Let's do an exercise using a few of the things we have learned so far. For this exercise, please go into the relevant exervise directory in the course data pack:
+Let's do an exercise using a few of the things we have learned so far. For this exercise, please go into the relevant exercise directory in the course data pack:
 
 ```sh
 cd EXC-001
@@ -746,10 +754,10 @@ Where you will find a FASTA file. The FASTA file was generated by an anvi'o user
 * What is the total number of genes in the top ten contigs with most genes?
 * Each gene sequence in this FASTA file can spread across multiple lines -- can you create a new FASTA file called `genes-one-line.fa` in which every gene sequence occupies a single line?
 
-Try your best, and it is OK if you can't answer each one of them. If you try your hardest, the solutions will make much more sense even if you fail.
+Try your best, and it is OK if you can't answer each one of them. If you try your hardest, the solutions we will go through and explain together will make much more sense even if you fail.
 
 {:.warning}
-**Please turn in your solutions the following way**: Copy-paste the qeustions above into your email client, under each qeustion write your final answers along with the command line that led to that answer, and send the email to _meren@hifmb.de_ **and** _sarahi.garcia@uol.de_. The subject line of your email must be `PFLS EXC-001` :)
+**Please turn in your solutions the following way**: Copy-paste the questions above into your email client, under each question write your final answers along with the command line that led to that answer, and send the email to _meren@hifmb.de_ **and** _sarahi.garcia@uol.de_. The subject line of your email must be `PFLS EXC-001` :)
 
 Once we are done, we will review the [solutions](solutions/EXC-001) together.
 
@@ -896,14 +904,14 @@ $x
 ```
 {% include CODEBLOCKFILENAME filename="variables-user-defined.sh" %}
 
-The second class of variables are **environmental variables**: variables that were previously defined by various processes, including those that are set everytime you open a terminal. You can see all of these variables by simply typing the command `env` in your terminal, and you can access any of these variables from within your BASH scripts:
+The second class of variables are **environmental variables**: variables that were previously defined by various processes, including those that are set every time you open a terminal. You can see all of these variables by simply typing the command `env` in your terminal, and you can access any of these variables from within your BASH scripts:
 
 ```sh
 echo "My username is '$USER'. There are $(ls $HOME | wc -l) files in my home folder, which is at '$HOME'."
 ```
 {% include CODEBLOCKFILENAME filename="variables-environmental.sh" %}
 
-The third class of variables are the **built-in variables** that are set everytime a command or script is run. If you have the following shell script,
+The third class of variables are the **built-in variables** that are set every time a command or script is run. If you have the following shell script,
 
 ```sh
 echo "Script Name ..................: $0"
@@ -1123,7 +1131,7 @@ done
 ```
 {% include CODEBLOCKFILENAME filename="if-else-examples.sh" %}
 
-What if we didn't want to use `!`? What is it we would need to do to get the numbers that are not greater than 2?
+What if we didn't want to use `!`? What is it we would need to do to get the numbers that are *not* greater than 2?
 
 This is a good time to have a look at all the operators that one can use when they are forming their conditions:
 
@@ -1263,6 +1271,226 @@ Luckily, Git comes as the clear choice for most of us as a version control syste
 
 Knowing about Git and being able to use it is already enough to manage your files, track your modifications, and maintain an organized history of your work -- not only to manage workflows or shell scripting, but also for your papers, reproducible data analyses, and so on. If you combine Git with Markdown, there is nothing you can't do! For instance, this entire course was prepared using Git and [Markdown](https://www.markdownguide.org/basic-syntax/), a simple mark-up language to create well structured documents that can be ported into anything -- from web pages to PDF documents to Microsoft Word files using a tool like [pandoc](https://pandoc.org/) in the comfort of your terminal environment :)
 
+### Frequently Used Git Commands
+
+Git has a very large number of commands and options, however, to begin using it effectively requires only a few. The following list describes some of the most essential and/or commonly used Git commands.
+
+Many of these commands will help us understand how to generate and maintain a local repository from scratch, but we will also get a copy of the anvi'o repository to demonstrate some functions that can be best demonstrated using a real repository with a colorful history.
+
+Let's talk about them a bit while demonstrating their purpose in the command line.
+
+---
+
+`clone` – Clones an existing repository from a remote server
+
+This command brings a copy of an already existing Git repository on your computer.
+
+```sh
+## you can clone a repository that is on the same computer
+## you are working on
+git clone file:///Users/meren/courses/PFLS
+
+## or you can clone a repository that is hosted at a remote
+## server (in this case GitHub, which we will talk about soon)
+git clone https://github.com/merenlab/anvio.git
+```
+ 
+---
+
+`init` – Initializes a new Git repository in the current directory
+
+Using this command you can turn any directory into a Git repository. Running this command will not do anything apart from than saying "I want this directory to be a Git repository".
+
+```sh
+git init
+```
+ 
+---
+
+`status` – Shows the current status of the working directory
+
+Running this command in any directory that is a Git repository will show you what is going on in it. This is one of the most frequently used commands in Git. Just like the way when you enter a new directory you typically enter `ls` to see what is in it, when you are working with Git you often check its status to see *modified*, *staged*, *unstaged*, or *untracked* files. It is extremely important for us to go through what you see in different scenarios since the output of this command will help us determine what is it we need to do next.
+
+```sh
+git status
+```
+
+---
+
+`add` – Stages a specific file for commit
+
+When you create a new file in a Git repository or make changes to an existing file, these actions are not recognized by Git immediately, for which you need to explicitly tell Git that the new file or the changes you've made to an existing file is intentional and you would like them to be a part of the history of your repository. Yes. Every. Single. Time.
+
+```sh
+## this will 'stage' changes in this file
+git add my_script.sh
+
+## this will 'stage' all changes in the work
+## directory and below -- which is not a good
+## idea unless you are CERTAIN that everything
+## you see in the git status output need to be
+## added to the repository.
+git add .
+```
+ 
+---
+
+`commit` – Commits staged changes with a descriptive message
+
+When you use `git add` to stage one or more files does not mean that these changes are committed to the repository. This command will finalize the staging process. Think of `git add` like selecting items for checkout at an online store. Think of this command as finalizing your purchase.
+
+```sh
+git commit -m "a meaningful message that describes the changes"
+
+## alternatively you can run it as the following, in which
+## case Git will show you a text editor to explain these
+## changes -- once you save and exit the editor Git will
+## complete the task, and store your staged changes
+## permanently to the repository and associate them with
+## your description to be kept in the logs
+git commit
+```
+
+Just like the way you can group different sets of items for purchase, you can use `git add` to stage some files prior to committing them to the repository with different messages. This is a good practice when working with large number of files and create logical groupings of changes.
+
+Every commit will be assigned a unique 'commit hash' which will enable going back to them if/when necessary. 
+You can see 'commit hash' values for each change in the output of `git log`.
+
+---
+
+`diff` – Shows the changes made since last commit
+
+This is another very important command that helps investigating what has changed in a given file since the last commit. Without looking at this output running `git add` or `git commit` on a given file often leads to problems, such as committing unintended changes to a repository.
+
+```sh
+## show all unstaged changes
+git diff
+
+## show unstaged changes in a single file
+git diff my_script.sh
+
+## show differences between two commits
+git diff <a commit hash> <another commit hash>
+```
+
+---
+
+`checkout` – Discards local changes in a file
+
+If you have changed the contents of a file and you are not happy with those changes, running this command will always bring you back to the last committed version of an unstaged file.
+
+```sh
+## this goes back to the last committed version of
+## one file
+git checkout my_script.sh
+
+## this one will do the same thing for all files in
+## an entire directory and subdirectories in it
+git checkout .
+```
+
+There is no going back from `checkout` and your uncommitted changes will be lost forever when you run it on a file. But there is a nice intermediary, which is `git stash` -- Meren shall demonstrate its utility for you.
+ 
+---
+
+`reset` – Unstages a file from the staging area
+
+This command will remove a file that you staged with `git add`. Your changes will not be lost, it will just be unstaged.
+
+```sh
+git reset my_script.sh
+```
+
+If you run this one, however, it will reset the working directory and staging area to the last commit:
+
+```sh
+git reset --hard
+```
+
+---
+
+`log` – Shows commit history
+
+This is a very useful command to see what has been happening in a given repository (and looking at its output demonstrates how important it is to put the effort to include meaningful messages to individual commits).
+
+```sh
+git log
+
+## this one will condense the output (great for `grep`):
+git log --oneline
+
+## and this one will show a fancy output with the inclusion
+## of 'branching' events that took place
+git log --graph --oneline --all
+```
+
+---
+
+`revert` – Creates a new commit that undoes the specified commit
+
+If you have committed changes to a repository and you are no longer happy with those changes, you can always go back to a specific time-point in the history of the repository.
+
+```sh
+git revert <commit hash>
+```
+
+---
+
+`branch` – Enables working with branches in the repository
+
+One of the most powerful Git commands that makes many many people work on the same repository without stepping on each others' toes. You can create branches in Git, and make changes in them without affecting other branches. Every time you change your branch, the latest committed versions of the files would be stored in your work directory. Better than magic. 
+
+```sh
+## this will list all branches in a repository
+git branch
+
+## this will create a new branch
+git branch a_new_feature
+
+## this will bring all the changes from another branch
+## into the active branch, essentially synchronizing
+## the active branch to the changes that happened in
+## another branch
+git merge main
+
+## this will go from one branch to another
+git switch main
+```
+ 
+---
+
+`blame` - Track who made changes to each line of a file
+
+Running this command on a file will show line-by-line changes to it along with who made that change and which commit brought that change into the repository. Blame is a harsh word, and it is actually often used to find out 'who broke things' in collaborative repositories, but in a more collegial and happy ways :)
+
+```sh
+git blame my_script.sh
+```
+
+---
+
+`pull` - Get the latest updates (if you are working with a remote repository)
+
+If you are working on a copy of a remote repository, running this command will bring into your local copy the latest changes committed to the remote.
+
+```sh
+git pull
+```
+
+If you also made changes to files that are changed in the remote repository, you will have to reconcile them. It is not fun (and we will do it now interactively).
+
+---
+
+`push` - Send your changes (if you are working with a remote repository)
+
+Running this command will send all the local changes you've made and committed to your local repository to its remote origin, essentially making your local changes available to everyone who is tracking the remote repository.
+
+```
+git push
+```
+
+If there has been changes in the remote repository since your last `git pull` you will have to re-run it to make sure you are not overwriting existing changes up there.
+
 
 ### Introduction to GitHub
 
@@ -1298,7 +1526,7 @@ A **repository** (repo) is a directory that Git tracks.
 
 ```sh
 ## First create a directory on your computer where you
-## will kep all your Git repositoies. I usually like to
+## will keep all your Git repositories. I usually like to
 ## keep them in a directory called `github` under my home
 ## directory, so let's create one for you:
 mkdir -p ~/github
@@ -1307,7 +1535,7 @@ mkdir -p ~/github
 cd ~/github
 
 ## now create a new project directory, which will keep
-## all our files that will be a part of this projet.
+## all our files that will be a part of this project.
 ## I will call it PFLS so you can store your exercises
 ## in it:
 mkdir PFLS && cd PFLS
@@ -1326,7 +1554,7 @@ At any given time you can see which files are being tracked, and what has change
 git status
 ```
 
-You will use this command over and over again. Just so you know, Git keeps system-wide settings in another hidden file in your home directory at `~/.gitconfig`. You can edit this file to add aliases for some commands. Here is how mine looks like jost for your reference:
+You will use this command over and over again. Just so you know, Git keeps system-wide settings in another hidden file in your home directory at `~/.gitconfig`. You can edit this file to add aliases for some commands. Here is how mine looks like just for your reference:
 
 ```ini
 [user]
@@ -1492,9 +1720,9 @@ and testing it on a FASTA file of my choosing using a command like this:
 bash PFLS/EXC-003/fasta-file-processor.sh test.fa
 ```
 
-You can use this information to make sure things will work on my end (if `cd ~/github && ls PFLS/EXC-003/fasta-file-processor.sh` does not produce an error, you're good). You can test your program using any FASTA file, incuding those that we have in the data package, but you do not know the *FASTA files I will be using* to test your script on my end.
+You can use this information to make sure things will work on my end (if `cd ~/github && ls PFLS/EXC-003/fasta-file-processor.sh` does not produce an error, you're good). You can test your program using any FASTA file, including those that we have in the data package, but you do not know the *FASTA files I will be using* to test your script on my end.
 
-If the `git clone` step and the step of running your script on a FASTA file both work with the expected output format without a problem, you have a full grade for this exercise, *even if the numbers are not correct*.
+If the `git clone` step and the step of running your script on a FASTA file both work with the expected output format without a problem, you shall get a full points for this exercise *even if the numbers are not correct*, but if your script produces an output that does not match to the template shown above, you shall get 0 points.
 
 ---
 
@@ -1510,14 +1738,14 @@ The solution is [here](solutions/EXC-003), and usual, we will go through it toge
 
 #### Evaluating EXC-003
 
-Since you are such experts of BASH programming at this point, we will have some fun and interactively write a BASH script altogeter to test whether *your* script produces an output that is exactly matching the output requested above. Our script will,
+Since you are such experts of BASH programming at this point, we will have some fun and interactively write a BASH script altogether to test whether *your* script produces an output that is exactly matching the output requested above. Our script will,
 
 * Get a copy of your repository from `https://github.com/$username/PFLS.git` where `$username` will be the GitHub username for each one of you,
 * Expect to find the directory `EXC-003/fasta-file-processor.sh` in the cloned repository,
 * Capture the output of your program when it is run on a test FASTA file, and finally,
 * Test whether the output produces matches to the output expected.
 
-For the last step, we will make use of the following logic:
+For the last step, we will make use of the following logic (the code is incomplete, but you *could* complete it to make sure it will give a green mark for your submission 😉):
 
 ```sh
 echo "$output" | awk -v username="$username" '
@@ -1552,7 +1780,7 @@ echo "$output" | awk -v username="$username" '
 ```
 {% include CODEBLOCKFILENAME filename="check-exc-003-output.sh" %}
 
-The code above includes some ideas we haven't discussed, such as the [tilde operator](https://www.gnu.org/software/gawk/manual/html_node/Regexp-Usage.html#index-_007e-_0028tilde_0029_002c-_007e-operator) (`~`) in AWK, which is used for *pattern matching* with regular expressions, or the use of 'arrays', which I will briefly describe during our writing session.
+The code above includes some ideas we haven't discussed, such as the [tilde operator](https://www.gnu.org/software/gawk/manual/html_node/Regexp-Usage.html#index-_007e-_0028tilde_0029_002c-_007e-operator) (`~`) in AWK, which is used for *pattern matching* with regular expressions, or the use of 'arrays', which I will describe while we are going to interactively turn this snippet into a complete program to will go through submissions from each one of you automatically.
 
 ## Introduction to Large Language Models (LLMs)
 
@@ -1562,20 +1790,20 @@ LLMs are generally trained on very diverse datasets, including books, news artic
 
 ### Transformers: How do they even?
 
-Transformers are the foundation of modern LLMs. As you can imagine, it is almost impossible to fully describe how they work here since truly understanding transformers require a substantial understanding of linear algebra, probability and statitics, and concenpts in machine learning for starters. But luckily we don't need to understand all the details here to have a general sense of what they do for us. You can drive a car without knowing anything about combustion engines, but knowing just a bit about the engines is the only way for one to understand why there is a nonlinear relationship between the speed of a given car and the fuel consumption, or why the fuel economy often drops significantly at very high speeds even if one ignores aerodynamic drag.The same applies to LLMs. You don’t need to grasp every technical detail, but without even a basic understanding, the behavior of LLMs will come across as a mystery rather than engineered solutions with predictable shortcomings and limitations.
+Transformers are the foundation of modern LLMs. As you can imagine, it is almost impossible to fully describe how they work here since truly understanding transformers require a substantial understanding of linear algebra, probability and statistics, and concepts in machine learning for starters. But luckily we don't need to understand all the details here to have a general sense of what they do for us. You can drive a car without knowing anything about combustion engines, but knowing just a bit about the engines is the only way for one to understand why there is a nonlinear relationship between the speed of a given car and the fuel consumption, or why the fuel economy often drops significantly at very high speeds even if one ignores aerodynamic drag.The same applies to LLMs. You don’t need to grasp every technical detail, but without even a basic understanding, the behavior of LLMs will come across as a mystery rather than engineered solutions with predictable shortcomings and limitations.
 
-Transformers were first introduced in 2017 by a team of researchers affiliated with [Google Research](https://research.google/) through a seminal paper that was very aptly titled as "[Attention is All You Need](https://arxiv.org/pdf/1706.03762)". Prior to this architecture, modern NLP models were struggling with key limitations, such as difficulty capturing long-range dependencies in lengthy texts -- as they processed each word one after another, pre-transformer models struggled with tasks that required understanding relationships between words that were far from one another in a sentence. The transformer architecture changed all that by introducing self-attention, which allows the model to process all tokens in a sequence in parallel, unlike RNNs that process tokens one by one. This made it possible to fully utilize GPUs, which excel at parallel matrix operations. Even though the paper was published less than a decade ago, it is already cited over 150,000 times, which is meaningful metric in this case to understand how it revolutionized natural language processing (NLP). Here's a heavily watered down explanation of the core concepts of transformers with the hope that they provide you with some abstract ideas about the innerworkings of the transformer architecture that makes modern LLMs a reality.
+Transformers were first introduced in 2017 by a team of researchers affiliated with [Google Research](https://research.google/) through a seminal paper that was very aptly titled as "[Attention is All You Need](https://arxiv.org/pdf/1706.03762)". Prior to this architecture, modern NLP models were struggling with key limitations, such as difficulty capturing long-range dependencies in lengthy texts -- as they processed each word one after another, pre-transformer models struggled with tasks that required understanding relationships between words that were far from one another in a sentence. The transformer architecture changed all that by introducing self-attention, which allows the model to process all tokens in a sequence in parallel, unlike RNNs that process tokens one by one. This made it possible to fully utilize GPUs, which excel at parallel matrix operations. Even though the paper was published less than a decade ago, it is already cited over 150,000 times, which is meaningful metric in this case to understand how it revolutionized natural language processing (NLP). Here's a heavily watered down explanation of the core concepts of transformers with the hope that they provide you with some abstract ideas about the inner-workings of the transformer architecture that makes modern LLMs a reality.
 
 #### Input Representation
 
 Upon receiving an input prompt, transformers do three things:
 
-* Tokenization: The input is first broken into smaller units called tokens. These tokens could be words, subwords, waveforms, or pixels depending on whther the model works with text, sound, images, or video. Let's stick with words for the sake of simplicity here. Think of the tokenization process like cutting a sentence into individual puzzle pieces. For instance, if the input is "Write a Python function to calculate the GC content of a DNA sequence", the tokenization step will split it into tokens ["Write", "a", "Python", "function", "to", "calculate", "the", "GC", "content", "of", "a", "DNA", "sequence", "."] for further processing, where each of these elements will have a unique index that connects them to the word recognized by the model (just to note for my own sanity, in reality LLMs do not often tokenize words as whole words but as subwords; so Python in this example may be tokenized as "Py" and "thon" as they always try to properly handle rare words efficiently).
+* Tokenization: The input is first broken into smaller units called tokens. These tokens could be words, subwords, waveforms, or pixels depending on whether the model works with text, sound, images, or video. Let's stick with words for the sake of simplicity here. Think of the tokenization process like cutting a sentence into individual puzzle pieces. For instance, if the input is "Write a Python function to calculate the GC content of a DNA sequence", the tokenization step will split it into tokens ["Write", "a", "Python", "function", "to", "calculate", "the", "GC", "content", "of", "a", "DNA", "sequence", "."] for further processing, where each of these elements will have a unique index that connects them to the word recognized by the model (just to note for my own sanity, in reality LLMs do not often tokenize words as whole words but as subwords; so Python in this example may be tokenized as "Py" and "thon" as they always try to properly handle rare words efficiently).
 
 {:.notice}
 For a given model, the term token is also used to describe the training data size used to generate the model (i.e., models process many many tokens to learn patterns) or the capacity of it (since models generate responses one token at a time and they are limited how many tokens they can handle at once). For instance, based on numbers I found online at the beginning of 2025, GPT-3 model was trained in 300 billion tokens and can work with 128 thousand tokens at a time. In contrast, DeepSeek R1 model was trained on 671 billion tokens. The tokens in tokenization and tokens in token counts of models are coming from the same underlying concept: a unit of processing for the model. But they are not identical.
 
-* Embeddings: Once the tokenization is done, each token is then converted into a numerical vector (a list of numbers) called an *embedding*. For instance, the word "Python" in the previous example might be represented as a vector that goes like [0.22, -0.3, 0.7, (so on)]. Each dimension here will be describing a linguistic feature of a given word, and the number of dimensions in the embedding, which is also called the embedding size, will depend on the model. For instance, in Google's BERT model the embedding size is 768 (i.e., there will be 768 numbers in that vector to describe the word "Python"), and in GPT-3 model the embedding size is 12,288. In a way, these vectors represent the meaning of the token in a way the computer can understand and work with it. You can think of this as translating a word from human language to model language by placing it at a unique coordinate in a hyper-dimensional universe of known tokens. These vectors make it possible to perform mathematical operations on words, or resolve the relationships between a given word and other words. Embeddings are learned during the model's training phase, where the model processes vast amounts of text to identify patterns and relationships between words. These initial embeddings remain fixed until a specific input sentence is processed, at which point self-attention dynamically refines them. So the initial embeddings associate each token with a value in that space, where the Python in our example does not know whether it is a programming language or a snake. This is where the self-attention mechanism comes in. As the model processes the full sentence, it updates each word's embedding dynamically using surrounding words. For example, since the phrase "write a function" strongly suggests programming, the embedding for "Python" shifts toward the region of the embedding space where programming-related terms like "Java" or "C++" are located. At this stage Python as a programming language and Python as a kind of snake will have entirely different vectors. This contextual adaptation is exactly how transformers revolutionized natural language processing, where meaning of words are dynamically refined based on context rather than a fixed dictionary-like mapping, and made it very similar to how you understand *Jrxaal must be a programming language* when you read the sentence "I need a Jrxaal function that could calculate Celcius from Fahrenheit". Even though you have never heard about Jrxaal before, and it doesn't exist. Refind embeddings following the self-attention step are not just used for meaning, but the new meaning they have gained influence the final outputs when they are passed to further layers of the Transformer to perform a task.
+* Embeddings: Once the tokenization is done, each token is then converted into a numerical vector (a list of numbers) called an *embedding*. For instance, the word "Python" in the previous example might be represented as a vector that goes like [0.22, -0.3, 0.7, (so on)]. Each dimension here will be describing a linguistic feature of a given word, and the number of dimensions in the embedding, which is also called the embedding size, will depend on the model. For instance, in Google's BERT model the embedding size is 768 (i.e., there will be 768 numbers in that vector to describe the word "Python"), and in GPT-3 model the embedding size is 12,288. In a way, these vectors represent the meaning of the token in a way the computer can understand and work with it. You can think of this as translating a word from human language to model language by placing it at a unique coordinate in a hyper-dimensional universe of known tokens. These vectors make it possible to perform mathematical operations on words, or resolve the relationships between a given word and other words. Embeddings are learned during the model's training phase, where the model processes vast amounts of text to identify patterns and relationships between words. These initial embeddings remain fixed until a specific input sentence is processed, at which point self-attention dynamically refines them. So the initial embeddings associate each token with a value in that space, where the Python in our example does not know whether it is a programming language or a snake. This is where the self-attention mechanism comes in. As the model processes the full sentence, it updates each word's embedding dynamically using surrounding words. For example, since the phrase "write a function" strongly suggests programming, the embedding for "Python" shifts toward the region of the embedding space where programming-related terms like "Java" or "C++" are located. At this stage Python as a programming language and Python as a kind of snake will have entirely different vectors. This contextual adaptation is exactly how transformers revolutionized natural language processing, where meaning of words are dynamically refined based on context rather than a fixed dictionary-like mapping, and made it very similar to how you understand *Jrxaal must be a programming language* when you read the sentence "I need a Jrxaal function that could calculate Celsius from Fahrenheit". Even though you have never heard about Jrxaal before, and it doesn't exist. Refined embeddings following the self-attention step are not just used for meaning, but the new meaning they have gained influence the final outputs when they are passed to further layers of the Transformer to perform a task.
 
 * Positional Encodings: A step that takes word embeddings, and turn them into position-aware word embeddings. This is necessary since unlike its predecessors that worked with each embedding one by one, transformers take all embeddings all at once to process them, which improves their performance dramatically, but at the expense of losing the original order of words. The step of updating the embeddings with positional encodings ensure that the sequence of tokens, which may dramatically influence meaning, are preserved. Think of this like numbering the puzzle pieces so you know which piece comes first, second, etc. This is a step that is done so very elegantly in the papers that introduce transformers, and I had very hard time truly appreciating the nuances there until I saw [this excellent YouTube video](https://www.youtube.com/watch?v=dichIcUZfOw) (if you are really interested in better understanding this step). This is one of the two very big innovations in the transformer architecture since it doesn't increase the input data size while maintaining the order information for parallel processing that enable significant gains in speed.
 
@@ -1648,7 +1876,7 @@ PRINT *, "Sum is:", SUM
 END
 ```
 
-In fact, the CPU technology has advanced so much from the days of relatively simpler architectures such as Intel's x86 processors (which had less than 100 opcodes in contrast to over 1,500 we have in modern CPUs), it is practically impossible to write machine code anymore as the difference between doing it back then and now is akin to the difference between flying a kite and flying an F16 figher jet. We depend on compilers that generate highly optimized, architecture specific code that can take advantage of a vast number of features new processing units entail.
+In fact, the CPU technology has advanced so much from the days of relatively simpler architectures such as Intel's x86 processors (which had less than 100 opcodes in contrast to over 1,500 we have in modern CPUs), it is practically impossible to write machine code anymore as the difference between doing it back then and now is akin to the difference between flying a kite and flying an F16 fighter jet. We depend on compilers that generate highly optimized, architecture specific code that can take advantage of a vast number of features new processing units entail.
 
 Compilers were our first successful attempt to write human-understandable instructions and generate code that computers could execute, which started this ball rolling. That said, given your fresh exposure to the syntax that is necessary to write shell scripts, you can tell that even the human-understandable instructions are not equally or easily understandable by all humans. To truly unlock the power of computers for everyone, our journey of generating code needed to go from generating code for machines from instructions written in programming languages to generating instructions written in programming languages from ideas explained in human languages.
 
@@ -1672,7 +1900,7 @@ Nothing comes without their trade offs and LLMs are no exception.
 
 * They will make you stupider if you are not careful. Relying on LLMs for everything will prevent you to develop programming skills that will rewire your brain to help it hold bigger and more complex ideas. You will likely fail to learn fundamentals of programming, which in return will prevent you from being able to troubleshoot issues and handle new challenges.
 
-* LLMs make a lot of mistakes. Generate code with them without fully undertanding the underlying principles will force you to blindly trust their outputs.
+* LLMs make a lot of mistakes. Generate code with them without fully understanding the underlying principles will force you to blindly trust their outputs.
 
 These disadvantages can be mitigated with a mindful approach.
 
@@ -1686,7 +1914,7 @@ LLMs are revolutionary, and by managing to born at the right time, you have the 
 
 The next exercise is here to immerse you into the joy of writing code for real-world data tasks, and you are now free to use LLMs to do that.
 
-This is the most realistic problem we are going to be working on so far, and Sarahi Garcia has all the background on this problem that we had to resolve last year for a study. She can help us better undertand its context, but here I will provide a very brief description of what is going on, and what needs to be done.
+This is the most realistic problem we are going to be working on so far, and Sarahi Garcia has all the background on this problem that we had to resolve last year for a study. She can help us better understand its context, but here I will provide a very brief description of what is going on, and what needs to be done.
 
 Please go into the `EXC-004` directory in your data pack, and take a look at the contents of it. You will realize that
 
@@ -1702,7 +1930,7 @@ One of the most critical next steps is to estimate the actual abundances of indi
   * `XXX` is the culture name recovered from `sample-translation.txt`,
   * `YYY` is `MAG` if the completion is 50% or more and contamination is 5% less according to the information in stored in the relevant `checkm.txt` file, otherwise `YYY` is `BIN`,
   * `ZZZ` is `001`, `002`, and so on, where each `MAG` and each `BIN` for individual cultures have sequential numbering.
-* Ensure that each sequence in each FASTA file has a unique defline associated with the culture (`XXX`) -- pro tip: you can use {% include PROGRAM name="anvi-script-reformat-fasta" %} for this.
+* Ensure that each sequence in each FASTA file has a unique *defline* associated with the culture (`XXX`) -- pro tip: you can use {% include PROGRAM name="anvi-script-reformat-fasta" %} for this.
 * Copy `checkm.txt` and `gtdb.gtdbtk.tax` files in individual `bins/` directories into `COMBINED-DATA` as `XXX-CHECKM.txt` and `XXX-GTDB-TAX.txt`.
 
 Based on these instructions, when you run your script in the directory `EXC-004`,
@@ -1757,65 +1985,6 @@ Once you are done, please commit your script to your GitHub repository for `PFLS
 
 The solution I wrote in BASH is [here](solutions/EXC-004), and as always, we will go through it together once you are done.
 
----
+## Closing Remarks and Final Discussions
 
-## Course Responsibilities
-
-The evaluation in this course will be based on **five parts** of a portfolio that we can divide into **two major components**:
-
-* The first major component is '**class citizenship**' emails, described below in the section **Part I** (20% of your grade).
-* The second major component is '**programming exercises**', described below in sections for **Part II, III, IV, and V** (80% of your grade).
-
-
-### Part I (20% of your grade) – Class Citizenship
-
-Class citizenship emails **will track your attendance and engagement to the course** and will help the course director to have an overall understanding of the evolution of the course.
-
-The class citizenship demands every participant to send a class citizenship email at the end of each day to _meren@hifmb.de_ **and** _sarahi.garcia@uol.de_ (*and* as in, sending the same email to both Meren and Sarahi).
-
-The class citizenship email must be composed of two parts:
-
-1. A brief summary of the main concepts discussed during the day, interpreted by the attendee in their own words.
-2. A short question that is relevant to a concept or idea discussed during the lecture.
-
-The last 10 minutes of every course day will be dedicated to writing the class citizenship emails, therefore the attendees will leave the class without having to remember doing it later. **The class citizenship emails that are sent after the end of the class will not be taken into consideration as a mark of attendance**.
-
-The title of the class citizenship email **must follow this pattern word-by-word** where you will need to replace DD/MM/YY with the date, month, and the year (despite the simplicity of this request many students have failed to follow these instructions, so you are our last hope):
-
-> PFLS Citizenship: DD/MM/YY
-
-The best class citizenship emails are those that are brief, genuine, and insightful. In an ideal world the emails should be no less than 50 words, and no more than 150 words. Please do not send notes you take throughout the class -- your notes are for you, not for us. You should use the last 10 minutes of the day to gather your thoughts, and come up with a summary of what you can remember.
-
-Here is an example class citizenship email:
-
-> Summary: Today we discussed what is phylogenomics, how phylogenomic trees are built, and why single-copy core genes are suitable for building phylogenomics trees. We also discussed the relationship between phylogenetics, phylogenomics, and pangenomics with respect to the fraction of
-genome used and the evolutionary distance that they can cover.
->
-> Question: Since phylogenomics and pangenomics are both useful for inferring evolutionary distances, it seems to me that integrating both methods in a systematic way would yield a more reliable tree. But it looks like the field only uses phylogenomics and pangenomics separately, is there a reason for that?
-
-### Part II, III, and IV (30% of your grade)
-
-This part will be composed of three mini programming exercises that you will have to implement and return. Each programming exercise will provide you with explicit instructions regarding the nature of the data and question, and what the program is expected to achieve. You will use your learnings in the course to complete the programming tasks and submit the resulting source code.
-
-### Part V (50% of your grade)
-
-This part will be composed of a single large programming exercise that will require you to orchestrate multiple programming tools and languages.
-
-## Grading
-
-Grading scale:
-
-|**Grade**|**Threshold**|
-|:--|:--|
-|1.0|95%|
-|1.3|90%|
-|1.7|85%|
-|2.0|80%|
-|2.3|75%|
-|2.7|70%|
-|3.0|65%|
-|3.3|60%|
-|3.7|55%|
-|4.0|50%|
-
-For all grading related questions, please consult with Sarahi Garcia.
+This brings us to the end of our 2-weeks journey. Thank you very much for your attention and participation, and I hope this was a useful experience for you.
