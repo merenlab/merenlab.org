@@ -89,6 +89,12 @@ echo "Rendering $course_token ..."
 process $course_web_dir \
         $course_input_dir/programming-for-life-scientists.md
 
+# Process the grading document
+grading_dir="$course_web_dir/grading"
+
+process $grading_dir \
+        $course_input_dir/grading.md
+
 # NEXT, we process exercises by reading clear text, and encryptig them on the fly.
 # ~/github/courses/programming-for-life-scientists/00_SYLLABUS_AND_CONTENT/EXERCISES/README.md
 # explains how this blackmagic works.
@@ -159,11 +165,11 @@ do
         --template-instructions "You shall not pass! Well, unless you have the password. Then you pass .. or <a href=\"/$course_token/#$exc_name_callback\">go back to where you came from</a>."
     cd - > /dev/null 2>&1
 
-    # now remove the non-rendered index.md from the courses output directory
-    rm -rf $rendered_output_dir/index.md
-
     # and replace it with the encrypted index.html so that in the web page that will be
     # committed to GitHub actually has the password protected pages.
     mv $rendered_output_dir/encrypted/index.html $exc_solution_dir/index.html
+
+    # now remove the non-rendered index.md from the courses output directory
+    rm -rf $exc_solution_dir/index.md
 done
 echo "done! :)"
