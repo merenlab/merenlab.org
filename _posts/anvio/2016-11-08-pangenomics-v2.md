@@ -20,17 +20,17 @@ redirect_from:
 
 {% capture images %}{{site.url}}/images/anvio/2016-11-08-pan-genomics{% endcapture %}
 
-With the [anvi'o pangenomic workflow](https://peerj.com/articles/1319/) you can,
+With the anvi'o pangenomics workflow you can,
 
-* **Identify gene clusters** across your genomes, by providing anvi'o with two or more FASTA files,
-* **Combine metagenome-assembled genomes** from your anvi'o projects genomes with genomes from other sources.
+* **Identify gene clusters** across your genomes, by providing anvi'o with two or more FASTA files (and/or {% include ARTIFACT name="contigs-db" text="anvi'o contigs databases" %}.
 * **Interactively visualize** your pangenomes,
 * **Estimate relationships** between your genomes based on gene clusters,
+* Visualize **rarefaction curves** and calculate **Heaps' Law** fit for your pangenomes,
 * Interactively (or programmatically) **partition gene clusters** into bins,
 * **Perform phylogenomic analyses** on-the-fly given a set of gene clusters,
 * **Annotate** your genes, and **inspect** amino acid alignments within your gene clusters,
 * Extend your pangenome with **contextual information** about your genomes or gene clusters,
-* Quantify **geometric and biochemical homogeneity** of your gene clusters,
+* Quantify within-gene cluster statistics with **geometric and biochemical homogeneity** indices,
 * Perform **functional enrichment analyses** on groups of genomes in your pangenome,
 * Compute and visualize **average nucleotide identity** scores between you genomes, and more.
 
@@ -374,14 +374,52 @@ And perform a quick-and dirty analysis on-the-fly to see how they would organize
 Or you could get the FASTA file with aligned and concatenated amino acid sequences for these gene clusters to do a more appropriate phylogenomic analysis:
 
 ``` bash
-$ anvi-get-sequences-for-gene-clusters -p PROCHLORO/Prochlorococcus_Pan-PAN.db \
-                                       -g PROCHLORO-GENOMES.db \
-                                       -C default -b Better_core \
-                                       --concatenate-gene-clusters \
-                                       -o better_core.fa
+anvi-get-sequences-for-gene-clusters -p PROCHLORO/Prochlorococcus_Pan-PAN.db \
+                                     -g PROCHLORO-GENOMES.db \
+                                     -C default -b Better_core \
+                                     --concatenate-gene-clusters \
+                                     -o better_core.fa
 ```
 
 Needless to say, estimates for homogeneity indices per gene cluster will also appear in your summary files from {% include PROGRAM name="anvi-summarize" %} to satisfy the statistician within you.
+
+## Calculating rarefaction curves and Heaps' Law parameters
+
+{:.notice}
+Please note that if you are reading these lines when the latest stable version of anvi'o is `v8`, it means this feature is still only available in `anvio-dev` branch. Apologies for the inconvenience.
+
+You can use the program {% include PROGRAM name="anvi-compute-rarefaction-curves" %} to calculate and report rarefaction curves and Heaps' Law fit for your pangenome.
+
+As described in the program help page, rarefaction curves are helpful in the analysis of pangenome as they help visualize the *discovery rate of new gene clusters* as a function of increasing number of genomes. While a steep curve suggests that many new gene clusters are still being discovered, indicating incomplete coverage of the potential gene cluster space, a curve that reaches a plateau suggests sufficient sampling of gene cluster diversity.
+
+However, rarefaction curves have inherent limitations. Because genome sampling is often biased and unlikely to fully capture the true genetic diversity of any taxon, rarefaction analysis provides only dataset-specific insights. Despite these limitations, rarefaction curves remain a popular tool for characterizing whether a pangenome is relatively 'open' (with continuous gene discovery) or 'closed' (where new genome additions contribute few or no new gene clusters). As long as you take such numerical summaries with a huge grain of salt, it is all fine.
+
+Fitting [Heaps' Law](https://en.wikipedia.org/wiki/Heaps'_law) to the rarefaction curve provides a quantitative measure of pangenome openness. The *alpha* value derived from Heaps' Law (sometimes referred to as *gamma* in the literature) reflects how the number of new gene clusters scales with increasing genome sampling. There is no science to define an absolute threshold for an open or a closed pangenome. However, pangenomes with alpha values below 0.3 tend to be relatively closed, and those above 0.3 tend to be relatively open. Higher alpha values will indicate increasingly open pangenomes and lower values will identify progressively closed ones.
+
+Running {% include PROGRAM name="anvi-compute-rarefaction-curves" %} on our Prochlorococcus pangenome the following way,
+
+``` bash
+anvi-compute-rarefaction-curves -p PROCHLORO/Prochlorococcus_Pan-PAN.db \
+                                --iterations 100 \
+                                -o rarefaction.svg
+```
+
+will result in the following output,
+
+
+```
+Number of genomes found ......................: 31
+Number of iterations to run ..................: 100
+Output file ..................................: rarefaction.svg
+Heap's Law parameters estimated ..............: K=2061.7563, alpha=0.3762
+```
+
+from which we will learn that our pangenome is relatively 'open', and obtain this figure to include in our reporting of this pangenome:
+
+[![rarefaction curves]({{images}}/rarefaction.png)]({{images}}/rarefaction.png){:.center-img .width-80}
+
+{:.notice}
+Always generate SVG or PDF outputs to be able to later edit in program such as Inkscape and fit these results into your final figures nicely.
 
 ## Splitting the pangenome
 
