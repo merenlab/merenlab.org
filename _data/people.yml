@@ -339,6 +339,7 @@
     - title: Graduate Student
       inst: Alfred Wegener Institute, Helmholtz Centre for Polar and Marine Research
       inst_link: https://www.awi.de/en/
+      current: false
     - title: Graduate Student
       inst: University of Bremen
       inst_link: https://www.uni-bremen.de/en/
@@ -346,7 +347,7 @@
     - title: Graduate Student
       inst: Max-Planck-Institute for Marine Microbiology
       inst_link: https://www.mpi-bremen.de/en/Home.html
-      current: false      
+      current: false
 
 - alias: kiki
   lab_member: True
