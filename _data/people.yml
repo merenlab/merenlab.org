@@ -317,6 +317,37 @@
       inst_link: https://www.mpi-bremen.de/en/Home.html
       current: false
 
+- alias: raïssa
+  lab_member: True
+  name: Raïssa Meyer
+  name_as_author: Raïssa Meyer
+  tenure_start: 03/2025
+  role: Post-doctoral Scientist
+  email: raissa.meyer@hifmb.de
+  twitter: raissameyer
+  orcid: 0000-0002-2996-719X
+  github: raissameyer
+  linkedin: raïssa-meyer-b97515206
+  avatar: bio-raissa.jpeg
+  address: Helmholtz Institute for Functional Marine Biodiversity (HIFMB), Im Technololgiepark 5, 26129 Oldenburg, Germany
+  bio: "I am a marine microbiologist interested in data interoperability. I work with (meta)data, people, and the systems and standards needed for global 'omics observing of marine microbes."
+  affiliations:
+    - title: Post-doctoral Scientist
+      inst: Helmholtz Institute for Functional Marine Biodiversity at the University of Oldenburg
+      inst_link: https://hifmb.de
+      current: true
+    - title: Graduate Student
+      inst: Alfred Wegener Institute, Helmholtz Centre for Polar and Marine Research
+      inst_link: https://www.awi.de/en/
+    - title: Graduate Student
+      inst: University of Bremen
+      inst_link: https://www.uni-bremen.de/en/
+      current: false
+    - title: Graduate Student
+      inst: Max-Planck-Institute for Marine Microbiology
+      inst_link: https://www.mpi-bremen.de/en/Home.html
+      current: false      
+
 - alias: kiki
   lab_member: True
   name: Kiki Füßel
