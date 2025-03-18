@@ -19,7 +19,7 @@
   bio: "I am a computer scientist with a deep appreciation for the complexity of life. I design algorithms and experiments to better understand microbes and their ecology. [photos: <a href='https://photos.app.goo.gl/5MiXqMyh1BmwaX9K9'>1</a>, <a href='https://photos.app.goo.gl/QXpHn8XJYG1gs9SGA'>2</a>, <a href='https://photos.app.goo.gl/12oTCyULisDNjibQ7'>3</a>]."
   affiliations:
     - title: Professor
-      inst: Helmholtz Institute for Functional Marine Biodiversity at Oldenburg
+      inst: Helmholtz Institute for Functional Marine Biodiversity
       inst_address: 26129 Oldenburg, Germany
       inst_link: https://hifmb.de
       current: true
@@ -129,7 +129,7 @@
   bio: "I am a microbiologist and bioinformatician delving into the dynamics of phytoplankton communities in response to environmental changes."
   affiliations:
     - title: Post-doctoral Scientist
-      inst: Helmholtz Institute for Functional Marine Biodiversity at the University of Oldenburg
+      inst: Helmholtz Institute for Functional Marine Biodiversity
       inst_link: https://hifmb.de
       current: true
     - title: Post-doctoral Scientist
@@ -156,7 +156,7 @@
   bio: "I am a bioinformatician and microbial ecologist. I enjoy tailoring computational methods to explore the diversity and dynamics of microbes. My current focus is on those that live in the ocean."
   affiliations:
     - title: Post-doctoral Scientist
-      inst: Helmholtz Institute for Functional Marine Biodiversity at Oldenburg
+      inst: Helmholtz Institute for Functional Marine Biodiversity
       inst_link: https://hifmb.de/
       current: true
     - title: PhD student
@@ -184,11 +184,11 @@
       inst_link: https://awi.de
       current: true
     - title: Senior Scientist
-      inst: Helmholtz Institute for Functional Marine Biodiversity at Oldenburg
+      inst: Helmholtz Institute for Functional Marine Biodiversity
       inst_link: https://hifmb.de
       current: true
     - title: Post-doctoral Scientist
-      inst: Helmholtz Institute for Functional Marine Biodiversity at Oldenburg
+      inst: Helmholtz Institute for Functional Marine Biodiversity
       inst_link: https://hifmb.de
       current: false
     - title: Post-doctoral Scientist
@@ -232,7 +232,7 @@
   bio: "I am a computer scientist/biologist who leverages computational methods to explore biological data. Currently, I am studying microbial metabolism in environmental metagenomes."
   affiliations:
     - title: Post-doctoral Scientist
-      inst: Helmholtz Institute for Functional Marine Biodiversity at Oldenburg
+      inst: Helmholtz Institute for Functional Marine Biodiversity
       inst_link: https://hifmb.de
       current: true
     - title: Graduate Student
@@ -262,7 +262,7 @@
   bio: "I am a computer scientist and UX designer who loves to design and develop user interfaces."
   affiliations:
     - title: Scientific Programmer
-      inst: Helmholtz Institute for Functional Marine Biodiversity at Oldenburg
+      inst: Helmholtz Institute for Functional Marine Biodiversity
       inst_link: https://hifmb.de
       current: true
 
@@ -280,7 +280,7 @@
   bio: "I am a biologist-turned-computer scientist interested in understanding the influence of the environmental change on the genetic composition of microbial populations."
   affiliations:
   - title: Graduate Student
-    inst: Helmholtz Institute for Functional Marine Biodiversity at Oldenburg
+    inst: Helmholtz Institute for Functional Marine Biodiversity
     inst_link: https://hifmb.de
     current: true
   - title: Graduate Student
@@ -305,7 +305,7 @@
   bio: "I am a marine (micro)biologist utilising computational approaches to understand the dynamism and impact of diversity-generating retroelements in microbial lifestyles within changing marine ecosystems."
   affiliations:
     - title: Graduate Student
-      inst: Helmholtz Institute for Functional Marine Biodiversity at Oldenburg
+      inst: Helmholtz Institute for Functional Marine Biodiversity
       inst_link: https://hifmb.de
       current: true
     - title: MarMic Graduate Student
@@ -333,7 +333,7 @@
   bio: "I am a marine microbiologist interested in data interoperability. I work with (meta)data, people, and the systems and standards needed for global 'omics observing of marine microbes."
   affiliations:
     - title: Post-doctoral Scientist
-      inst: Helmholtz Institute for Functional Marine Biodiversity at the University of Oldenburg
+      inst: Helmholtz Institute for Functional Marine Biodiversity
       inst_link: https://hifmb.de
       current: true
     - title: Graduate Student
@@ -387,7 +387,7 @@
       inst_link: http://biophysics.uchicago.edu/
       current: true
     - title: Fulbright Scholar
-      inst: Helmholtz Institute for Functional Marine Biodiversity at Oldenburg
+      inst: Helmholtz Institute for Functional Marine Biodiversity
       inst_link: https://hifmb.de
       current: false
     - title: Undergraduate Student
