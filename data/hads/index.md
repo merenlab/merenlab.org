@@ -25,7 +25,7 @@ HaDS is a collection of metagenomes, metatranscriptomes and metaepitransriptomes
 
 ## Data
 
-At both the coastal Kāneʻohe Bay station (HP1) and the adjacent offshore station (STO1), we sampled at 33 time-points across 48 hours, and subsequently produced 59 metatranscriptomes, 65 short-read metagenomes, 8 long-read metagenomes, and 66 metaepitranscriptomes. We also generated four deeply-sequenced short-read metagenomes from samples collected in the late fall and spring prior to HaDS through routine Kāneʻohe Bay Time-series sampling. The following data items give access to RAW sequencing results as well as processed data items that are reproducible with anvi'o v8.0 or later.
+At both the coastal Kāneʻohe Bay station (HP1) and the adjacent offshore station (STO1), we sampled at 33 time-points across 48 hours, and subsequently produced 59 metatranscriptomes, 65 short-read metagenomes, 8 long-read metagenomes, and 66 metaepitranscriptomes. We also generated four deeply-sequenced short-read metagenomes from samples collected in the late fall and spring prior to HaDS through routine Kāneʻohe Bay Time-series sampling. The following data items give access to RAW sequencing results  as well as processed data items through repositories at [FigShare](https://figshare.com/projects/Hawai_i_Diel_Sampling_HADS_/244907), BCO-DMO, and NCBI:
 
 * NCBI Project id PRJNA1201851 offers access to all raw data for short-read and long-read metagenomes, as well as metatranscriptomes and metaepitranscriptomes.
 * doi:(pending URL from BCO-DMO). Biogeochemical data that covers the sampling period.
