@@ -33,7 +33,218 @@ At both the coastal Kāneʻohe Bay station (HP1) and the adjacent offshore stati
 
 {% include IMAGE path="images/anvi-display-contigs-stats.png" width=80 caption="Sample processing next to the docks of Hawaiʻi Institute of Marine Biology (HIMB)." %}
 
-* doi:[10.6084/m9.figshare.28784762](https://doi.org/10.6084/m9.figshare.28784762) serves FASTA files for metagenome-assembled genomes (MAGs) we have reconstructed from short-read and long-read sequencing of the metagenomes. They are the outputs of quite a preliminary effort, thus secondary attempts to recover genomes from the co-assemblies are most welcome (and very much encouraged).
+* doi:[10.6084/m9.figshare.28784762](https://doi.org/10.6084/m9.figshare.28784762) serves FASTA files for metagenome-assembled genomes (MAGs) we have reconstructed from short-read and long-read sequencing of the metagenomes. They are the outputs of quite a preliminary effort, thus secondary attempts to recover genomes from the co-assemblies are most welcome (and very much encouraged). Please see the Supplementary Table for taxonomic annotaton and completion / redundancy estimates of the MAGs.
 * doi:[10.6084/m9.figshare.28784765](https://doi.org/10.6084/m9.figshare.28784765). The [EcoPhylo](https://anvio.org/help/main/workflows/ecophylo/) output that describes the phylogeography of ribosomal protein XXX
 
 Please feel free to reach out to us if you have any questions regarding access and/or processing of these datasets.
+
+## Bioinformatics
+
+The purpose of this section is to describe key steps of our data generation and formatting workflow, products of which are shared in the previous section. For all downstream analyses, we used long-read metagenomes, quality-filtered short-read metagenomes, and adapter-trimmed and quality-filtered short-read metatranscriptomes. tRNA seqeuncing data required custom steps of demultiplexing which we describe in greater detail later in this document.
+
+{:.notice}
+The primary purpose of the following commands is to give the reader an overall understanding of the bioinformatics steps rather than offering a truly reproducible recipe. In our analyses, we used our high-performance computing clusters to parallelize many of these steps. Please feel free to reach out to us if you have any questions.
+
+We then co-assembled short-read and long-read sequencing data from each station using IDBA-UD and hifiasm-meta, respectively.
+
+### Processing of co-assemblies, read mapping, and binning
+
+We generated the anvi'o {% include ARTIFACT name="contigs-db" %} files that are stored at doi:[10.6084/m9.figshare.28784717](https://doi.org/10.6084/m9.figshare.28784717) using the following commands:
+
+```bash
+num_threads="40"
+for station in xHP1 STO1
+do
+    for technology in SR LR
+    do
+        # generate contigs-db file
+        anvi-gen-contigs-database -f ${station}-${technology}-COASSEMBLY.fa -o ${station}-${technology}-COASSEMBLY.db -T ${num_threads}
+
+        # annotate genes
+        anvi-run-hmms -c ${station}-${technology}-COASSEMBLY.db -T ${num_threads}
+        anvi-scan-trnas -c ${station}-${technology}-COASSEMBLY.db -T ${num_threads}
+        anvi-run-ncbi-cogs -c ${station}-${technology}-COASSEMBLY.db -T ${num_threads}
+        anvi-run-scg-taxonomy -c ${station}-${technology}-COASSEMBLY.db -T ${num_threads}
+    done
+done
+```
+
+We then used Bowtie2 the following way to recruit short metagenomic and metatranscripomic reads, which were stored in a {% include ARTIFACT name="samples-txt" %} file called `samples-txt.txt` in our working directory, to all assemblies separately and profiled them using anvi'o:
+
+
+```bash
+num_threads="40"
+for station in xHP1 STO1
+do
+    for technology in SR LR
+    do
+        # generate a directory to store mapping results for each co-assemlby
+        mkdir ${station}-${technology}
+
+        # generate a bowtie index
+        bowtie2-build ${station}-${technology}-COASSEMBLY.fa ${station}-${technology}/${station}-${technology}-COASSEMBLY
+
+        while read sample r1 r2;
+        do
+            if [ "$sample" == "sample" ]; then continue; fi
+
+            # generate the SAM file
+            bowtie2 --threads {num_threads} \
+                    -x ${station}-${technology}/${station}-${technology}-COASSEMBLY \
+                    -1 $r1 \
+                    -2 $r2 \
+                    --no-unal \
+                    -S ${station}-${technology}/$sample.sam
+
+            # covert the resulting SAM file to a BAM file:
+            samtools view -F 4 -bS ${station-${technology}/$sample.sam > ${station}-${technology}/$sample-RAW.bam
+
+            # sort and index the BAM file:
+            samtools sort ${station}-${technology}/$sample-RAW.bam -o ${station}-${technology}/$sample.bam
+            samtools index ${station}-${technology}/$sample.bam
+
+            # remove temporary files:
+            rm ${station}-${technology}/$sample.sam ${station}-${technology}/$sample-RAW.bam
+        done < samples-txt.txt
+
+        # mapping for ${station}-${technology} is done, now we can profile the resulting
+        # BAM files
+        while read sample r1 r2;
+        do
+            if [ "$sample" == "sample" ]; then continue; fi
+
+            anvi-profile -c ${station}-${technology}-COASSEMBLY.db \
+                         -i ${station}-${technology}/$sample.bam \
+                         --profile-SCVs \
+                         -M 100 \
+                         --num-threads ${num_threads} \
+                         -o ${station}-${technology}/$sample
+        done < samples-txt.txt
+
+        # all single profiles are ready, and now we can merge them to get a
+        # merged anvio profile
+        anvi-merge ${station}-${technology}/*/PROFILE.db -o ${station}-${technology}-MERGED -c ${station}-${technology}-COASSEMBLY.db
+    done
+done
+```
+
+We used metabat2 to bin contigs and imported the resulting bins into anvi'o the anvi'o merged {% include ARTIFACT name="profile-db" %} as a {% include ARTIFACT name="collection" %}:
+
+```bash
+conda activate metabat2
+
+mkdir HADS-MAGs
+
+for station in xHP1 STO1
+do
+    # identify BAM files that belong to the diel sampling and describe short-read
+    # metagenomic read recruitment results
+    BAM_FILES=$(ls ${station}-SR/HADS_202108*MGX*.bam)
+
+    jgi_summarize_bam_contig_depths --outputDepth ${station}_depth.txt --pairedContigs ${station}_paired.txt $BAM_FILES
+
+    metabat2 -t ${num_threads} -i ${station}-SR-COASSEMBLY.fa -a ${station}_depth.txt -o HADS-MAGs/{station}-SR-COASSEMBLY-BIN -v
+
+    FILES=$(ls HADS-MAGs/{station}-SR-COASSEMBLY-BIN*.fa)
+    for f in $FILES
+    do
+        NAME=$(basename $f .fa)
+        grep ">" $f | sed 's/>//' | sed -e "s/$/\t$NAME/" | sed 's/\./_/' >> ${station}-collection.txt
+    done
+
+    # finally, import the collection into the merged profile:
+    anvi-import-collection ${station}-collection.txt -p ${station}-${technology}-MERGED/PROFILE.db -c ${station}-${technology}-COASSEMBLY.db
+done
+```
+
+### EcoPhylo analysis
+
+We followed the [EcoPhylo](https://anvio.org/help/main/workflows/ecophylo/) workflow to characterize the biogeography of ribosomal protein L14 sequences in our data, and to manually curate the ribosomal protein phylogeny by removing sequences that were not classified at the domain level and found in branches that primarily described chloroplast or mitochondrial genomes.
+
+### Demultiplexing of tRNA sequencing results
+
+The tRNA sequencing uses specific barcodes to multiplex samples during library preparation. We used the following script to demultiplex the raw sequencing data prior to uploading them to the NCBI:
+
+```python
+# -*- coding: utf-8 -*-
+
+import argparse
+import gzip
+import os
+
+
+def open_fastq(file_path):
+    """Open a FASTQ file, using gzip if necessary."""
+    return gzip.open(file_path, 'rt') if file_path.endswith('.gz') else open(file_path)
+
+
+def create_output_files(output_dir, samples, barcodes):
+    """Create output FASTQ files for each barcode-sample pair."""
+    r1_outputs = {}
+    r2_outputs = {}
+    for sample, barcode in zip(samples, barcodes):
+        r1_path = os.path.join(output_dir, f"{sample}.r1.fastq.gz")
+        r2_path = os.path.join(output_dir, f"{sample}.r2.fastq.gz")
+        r1_outputs[barcode] = gzip.open(r1_path, 'wt')
+        r2_outputs[barcode] = gzip.open(r2_path, 'wt')
+    return r1_outputs, r2_outputs
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(description='Demultiplex paired-end FASTQ files by barcode.')
+    parser.add_argument('--r1', required=True, help='Read 1 FASTQ file')
+    parser.add_argument('--r2', required=True, help='Read 2 FASTQ file')
+    parser.add_argument('--location', choices=('r1', 'r2'), required=True,
+                        help='Location of barcode: beginning of Read 1 or Read 2')
+    parser.add_argument('--barcodes', nargs='+', required=True, help='List of barcode sequences')
+    parser.add_argument('--samples', nargs='+', required=True, help='Sample names corresponding to barcodes')
+    parser.add_argument('--outdir', required=True, help='Directory for output files')
+    return parser.parse_args()
+
+
+def demultiplex(r1_file, r2_file, barcodes, r1_outputs, r2_outputs, barcode_location):
+    """Demultiplex the FASTQ read pairs based on barcodes."""
+    barcode_in_r1 = (barcode_location == 'r1')
+    seq_line_counter = 0
+    r1_block = []
+    r2_block = []
+    matched_barcode = None
+
+    for r1_line, r2_line in zip(r1_file, r2_file):
+        seq_line_counter += 1
+        r1_block.append(r1_line)
+        r2_block.append(r2_line)
+
+        if seq_line_counter == 2:
+            sequence_line = r1_line if barcode_in_r1 else r2_line
+            for barcode in barcodes:
+                if sequence_line.startswith(barcode):
+                    matched_barcode = barcode
+                    break
+
+        if seq_line_counter == 4:
+            if matched_barcode:
+                r1_outputs[matched_barcode].writelines(r1_block)
+                r2_outputs[matched_barcode].writelines(r2_block)
+            # Reset for next block
+            r1_block = []
+            r2_block = []
+            seq_line_counter = 0
+            matched_barcode = None
+
+
+def main():
+    args = parse_args()
+
+    with open_fastq(args.r1) as r1_file, open_fastq(args.r2) as r2_file:
+        r1_outputs, r2_outputs = create_output_files(args.outdir, args.samples, args.barcodes)
+        try:
+            demultiplex(r1_file, r2_file, args.barcodes, r1_outputs, r2_outputs, args.location)
+        finally:
+            for output_file in list(r1_outputs.values()) + list(r2_outputs.values()):
+                output_file.close()
+
+
+if __name__ == '__main__':
+    main()
+```
