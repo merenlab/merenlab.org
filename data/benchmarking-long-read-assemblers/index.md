@@ -4,7 +4,7 @@ title: A reproducible workflow for Trigodet et al., 2025
 modified: 2025-01-20
 excerpt: "A bioinformatics workflow for our study long-read assemblers"
 comments: true
-authors: [FlorianTrigodet]
+authors: [florian]
 ---
 
 <div class="extra-info" markdown="1">
@@ -13,11 +13,7 @@ authors: [FlorianTrigodet]
 
 **The purpose of this page** is to provide access to reproducible data products and analyses for the study "**Assemblies of long-read metagenomes suffer from diverse forms of errors**" by Trigodet et al., 2025.
 
-Here is a list of links for quick access to the data described in our manuscript and on this page:
-
-* [doi:](https://doisomething): ...
-
-We used anvi'o version `8-dev`, that is the development versions of anvi'o. Any later version should work just as well.
+We will soon update this page with reproducible data products and a link to the study.
 
 </div>
 
@@ -37,16 +33,14 @@ As we progressed in our investigation of assembly errors, we also notice a high 
 
 ## Downloading the data for this reproducible workflow
 
-For this reproducible workflow, we provide some key intermediate data products:
+This reproducible workflow describes all steps that start from raw seqeuncing data to intermediate data products we have generated, which supported all our analyses:
 
- - assembled contigs in the form of anvi'o contigs databases
- - mapping output in bam format, as well as the associated anvi'o profile databases.
+ - Assembled contigs in the form of anvi'o {% include ARTIFACT name='contigs-db' %} files.
+ - Read recruitment results as BAM files along with the anvi'o {% include ARTIFACT name='profile-db' %} files.
 
 ### Downloading metagenomes
 
-All the raw data used in this study are publicly available metagenomes. Here is the list of their accessions:
-
-You can use {% include PROGRAM name="anvi-run-workflow" %} to download all these metagenomes with the {% include WORKFLOW name="sra-download" %} workflow. All you need in a file with the run accessions, like this one:
+All the raw data used in this study are publicly available through the following SRA accession ids:
 
 ```
 SRR15214153
@@ -72,7 +66,7 @@ SRR31805817
 SRR31805816
 ```
 
-Make sure you get the {% include ARTIFACT name='workflow-config' %} file for the workflow, using the flag `--get-default-config`, and modify it to your liking. Then simply run the workflow:
+You can use the program {% include PROGRAM name="anvi-run-workflow" %} with the anvi'o workflow [sra-download](https://anvio.org/help/main/workflows/sra-download/) to download all of these metagenomes by simply including a path for the `SRA_accession_list` variable in the workflow config file to point to a text file (i.e., `SRA_accession_list.txt`) with accession IDs above after generating a default worklfow contig:
 
 ```bash
 anvi-run-workflow -w sra_download -c config.json
@@ -81,7 +75,7 @@ anvi-run-workflow -w sra_download -c config.json
 {:.notice}
 These metagenomes take a total disk space of 417.1 Gb
 
-🎉 you now have all 21 metagenomes. We wrote a *simile* {% include ARTIFACT name='samples-txt' %} files with the name and path to each metagenomes. It is a key file to be able to reproduce the work in this study, make sure it looks like this:
+After downloading all 21 metagenomes, you will need a {% include ARTIFACT name='samples-txt' %} file that contains the name and path for each metagenome. It is a two-column TAB delmited file that should look like this (where `/path/to/` is replaced with the appropriate path for these metagenomes on your system):
 
 ```
 sample    path
@@ -108,31 +102,20 @@ HADS_013    /path/to/HADS_013.fq.gz
 HADS_014    /path/to/HADS_014.fq.gz
 ```
 
-### Downloading assemblies, bam, contigs.db and profile.db
-
-All intermediary data product can be downloaded from their doi accession:
- - Assemblies:
- - bam files:
- - contigs.db and profile.db:
- - Output of {% include PROGRAM name='anvi-script-find-misassemblies' %}:
- - Pangenome of _Mehanothrix_:
- - Pangenome of _E. coli_:
- - Auxiliary data:
-
-## Computational environment details
+## Details fo the computational environment
 
 We used the anvi'o version `8-dev`, which is the development version following the `v8` stable release. We introduced the program {% include PROGRAM name='anvi-script-find-misassemblies' %} between `v8` and the next stable release `v9`. This reproducible workflow should work without a problem with more recent version of anvi'o. If that is not the case, please reach out to any of us.
 
 Besides anvi'o, another very useful software is [IGV](https://igv.org/doc/desktop/) (v2.17.4). We used it to manually inspect the results from {% include PROGRAM name='anvi-script-find-misassemblies' %} and to generate some the of figures in the paper.
 
-Assuming you want to reproduce part or all of this study, choose your favorite working directory and store it as a variable `$WD`:
+Assuming you want to reproduce a part or all of this study, choose your favorite working directory and store it as a variable `$WD`:
 
 ```bash
 cd /where/you/want/to/work
 WD=$PWD
 ```
 
-Great. Now some organization details. We assume that your {% include ARTIFACT name='samples-txt' %} file is in this directory, as well as sub-directories for each assembler. Here is the content of that working directory at this stage:
+The rest of the document will make use of the terminal variable `$WD`. We assume that your {% include ARTIFACT name='samples-txt' %} file is in `$WD`, along with an empty subdirectory for each assembler. Here is how the `$WD` should look like at this stage:
 
 ```
 .
@@ -147,8 +130,7 @@ Most of the work was carried out on an high performance computing cluster, using
 
 ## Metagenomic assembly
 
-The obvious first step to assess the quality of long-read assembly is to assembled them.
-We used [HiCanu v2.2](https://github.com/marbl/canu), [hifiasm-meta v0.3](https://github.com/xfengnefx/hifiasm-meta), [metaFlye v2.9.5](https://github.com/mikolmogorov/Flye) and [metaMDBG v0.3, v1 and v1.1](https://github.com/GaetanBenoitDev/metaMDBG). In the following sections, we share the detailed commands that we used for each assembler.
+We started our analysis by assembling each long-read sequencing dataset using [HiCanu v2.2](https://github.com/marbl/canu), [hifiasm-meta v0.3](https://github.com/xfengnefx/hifiasm-meta), [metaFlye v2.9.5](https://github.com/mikolmogorov/Flye) and [metaMDBG v0.3, v1 and v1.1](https://github.com/GaetanBenoitDev/metaMDBG). In the following sections, we share the detailed commands that we used for each assembler.
 
 
 #### HiCanu
@@ -229,9 +211,10 @@ done < ../../samples.txt
 
 We also ran metaMDBG v1.1 which was released after we started this analysis. We used the same command as for v1.
 
-## Reformat the contigs
+## Finalizing assembled FASTA files
 
 Not all assemblers create a fasta file and/or provide low level summaries table like contig lengths and circularity. But they all have that information store in various fashion.
+
 I also decided to rename all the contigs to make the downstream investigation a little bit easier. I wanted the name of the assembler, the name of the sample, whether the contig is circular or linear, and have the original contigs' name too. Here is the renaming structure I wanted:
 
 ```
@@ -362,7 +345,7 @@ done
 Retrospectively, what would I have done differently? I would make sure not to include `_` in the name of the assembler like I did for metaMDBG_v1 or hifi_meta. It creates an uneven number of fields between the assemblers. Beginner mistake. No cookies for me.
 
 
-## Long-read mapping
+## Mapping long reads back to assemblies
 
 {:.notice}
 In the following sections, you will see bash commands nested in a double loop (per assembler and per sample). These command would take a really long time if run sequentially. In reality I ran the nested command using slurm on an high-performance cluster.
@@ -446,7 +429,7 @@ done
 
 The script creates two output files: one for clipping events and one for contig regions with no coverage. Check out [the help page for this command](https://anvio.org/help/main/programs/anvi-script-find-misassemblies/) to learn more about clipping events, the outputs format and default parameters.
 
-## Making contigs and profile databases
+## Generating anvi'o contigs and profile databases
 
 Running {% include PROGRAM name='anvi-script-find-misassemblies' %} is only half the fun. Yes, it does tell us which contigs have clipping events and therefore likely contains an assembly error, but it does not tell us about the nature of these errors. To better understand the nature and consequence of these clipping events, we can use anvi'o to create and annotate contigs and profile database. This will allow us to compute (1) completion/redundancy estimate, (2) SNVs/INDELs profile, (3) import and summarize gene level taxonomy, ...
 
@@ -717,7 +700,7 @@ done
 
 We compute the actual number of unsupported SNVs/INDELs, or supported by a minority of long reads later when we compute the global summary. We also computed the number of genes impacted by these unexpected SNVs/INDELs.
 
-## Zero coverage blast
+## BLAST-searching assembled sequences that lack coverage
 
 From the output of {% include PROGRAM name='anvi-script-find-misassemblies' %}, we found many region with no apparent coverage. For these sequence, there are two possibilities: either the mapper failed to map the reads where they should, or the underlying sequence does not exist in the long reads. While the assembler is not responsible for mapping failure, it should not generate made-up sequence, and to check for them I simply blasted the region with no apparent coverage against the original long reads and counted the contig sequences with no hits.
 
@@ -768,7 +751,7 @@ done
 
 The output of this command can be found in the Supplementary Table 3.
 
-## Prematurely circular contigs
+## Characterizing prematurely circularized contigs
 
 One of the most dramatic errors a long-read assembler can make is to falsely report a contig as circular when part of a genome is missing. It is rather difficult to estimate the rate of this type of error because they can be hard to detect in the first place. We decided to compute the number of circular contigs under 500 kbp with at least three ribosomal proteins as a proxy for the rate of premature circularization and allow us to compare the different assemblers.
 
@@ -893,7 +876,7 @@ done
 ```
 
 
-## Find repeats
+## Finding repeats
 
 After inspecting multiple contigs with either no coverage or with clipping events, we noticed that some were covered in repeated sequences, notably in short contigs. So we decided to go after repeated sequence in all contigs under 50 kbp, with a particular focus on circular contigs.
 
@@ -1084,7 +1067,7 @@ The summary output has 7 columns: assembler, sample, number of unique repeats, m
 
 The extensive output contains information for each repeat. The 7 columns include the assembler, sample name, a unique id per repeat which consists of the contigs name with a number, the number of copies for that repeat, the alignment lengths between the repeats (including gaps when present), the average % identity between the repeats and a list of positions and % identity for each copy of the repeats. When no percent identity are reported ("NA"), it means that one copy of the repeat was found inside a large hit and therefore it is not possible to infer the % identity from the blast output alone.
 
-### Make dotplots
+### Generating dotplots
 
 Dotplot are a way to represent the alignment result of a query (x axis) vs a subject sequence (y sequence), and a line is drawn for every alignment using the start-stop coordinate from the query and subject. Simple and very useful to spot repeats when you plot the result of a reciprocal blast where the query is also the subject sequence.
 
@@ -1162,7 +1145,7 @@ P(df)
 
 [![07_repeats_dotplot](images/07_repeats_dotplot.png)](images/07_repeats_dotplot.png){:.center-img .width-90}
 
-## Summarize key stats
+## Summarizing key statistics
 
 To summarize all the assembly information in a single table, I have create the following monster bash script. In order, it extract information from the output of {% include PROGRAM name='anvi-display-contigs-stats' %} (number of contigs, total length, N50, shortest and longest contig, estimated number of genome, total number of genes) which was generate [here](summarize-the-contigs-databases), the number of circular contigs (from [here](#reformat-the-contigs)). It reports the number of repeats, their average length, average percent identity, maximum size and maximum number of copies generated in [the section above](#find_repeats). It also extract the number of prematurely circular contigs based on metrics discussed in [here](#prematurely-circular-contigs). Then, two `awk` commands extract the number of SNVs and INDELs either supported by a minority of long reads, or not supported at all by any long reads, as well as the number of unique genes impacted by these unexpected SNVs and INDELs. These `awk` command uses the outputs generated [here](#snvs-and-indels). The third `awk` command goes through the output of {% include PROGRAM name='anvi-script-find-misassemblies' %}, generated [here](#running-anvi-script-find-misassemblies), and reports many metrics related to clipping events and regions without coverage. Last but not least is an `awk` command that summarize the amount of contigs covered by at least 70% of repeats
 
@@ -1360,7 +1343,7 @@ sort -k3,2 summary-unsorted.txt >> summary.txt
 
 You can find the result of this summary in Supplementary Table 2.
 
-### Plotting various statistics
+### Visalizing various statistics
 
 From the output above, one can generate multiple summary plots just like we did in Figure 1, where we summarized and compared a few metrics per assembler. For that, we will need R.
 
@@ -1415,7 +1398,7 @@ df_long <- df_long %>%
   )
 ```
 
-#### Per assembler
+#### Statistics per assembler
 
 For each metric, we can aggregate the values per assembler just like in Figure 1, which is useful to easily compare the performance of the assembler across all samples. Here is the plot function:
 
@@ -1462,7 +1445,7 @@ Assembler_boxplot(df_long[!(df_long$group == "Zymo" | df_long$group == "ATCC"),]
 
 [![03_box_plot_figure_5](images/03_box_plot_figure_5.png)](images/03_box_plot_figure_5.png){:.center-img .width-40}
 
-#### Across sample type
+#### Statistics across sample type
 
 To better appreciate the difference that are sample specific, we can make similar boxpots per sample type. Here is the plot function:
 
@@ -1884,13 +1867,13 @@ The {% include ARTIFACT name='state-json' %}:
 ```
 
 
-## _Methanothrix_ pangenome
+## The _Methanothrix_ pangenome
 
 We wanted to highlight the dangers associated with the premature circularization of genomes and we found the perfect example with a contigs assembled by hifiasm-meta from the sample AD_sluge. The contigs was 1.26 Mbp long and the estimated completion based on archaeal SCGs were 22.37%. The taxonomy, estimated from ribosomal protein and GTDB, was matching the genus _Methanothrix_, a methanogenic archaea classically found in anaerobic digester.
 
 As you can imagine, the low completion estimation is already a very obvious clue that this so-called 'circular' genome is far from complete. One clipping event was reported for that contig but without clear evidence for the deletion of an entire part of a genome. But upon careful inspection of the read mapping, we found an unusual amount of mapping (not adding up to 100% and therefore not reported as a clipping event) surrounding a transposase gene (Figure 3D, Supplementary Figure 2). When the mapping software decide to clip a read, it will try to map the remainder of the read anywhere else and that information is reported in the bam file. I found out that all clipping reads had corresponding supplementary alignments to the same other contigs, which turns out to correspond to the remainder of the _Methanothrix_ genome.
 
-### Download publicly available _Methanothrix_ genomes
+### Downloading publicly available _Methanothrix_ genomes
 
 We created a pangenome using the incomplete 'circular' genome, the complementary contigs, a MAG of these two contigs (the complete _Methanothrix_ assembled from AD_sludge) and 36 _Methanothrix_ genomes from NCBI RefSeq. We used [ncbi-genome-download](https://github.com/kblin/ncbi-genome-download) to download all publicly available genome matching the genus _Methanothrix_ from RefSeq:
 
@@ -1926,7 +1909,7 @@ hifiasm_meta_AD_sludge_linear_s64_ctg000087l\t01_HIFIASM_CONTIGS/hifiasm_meta_AD
 hifiasm_meta_AD_sludge_Methanothrix_MAG\t01_HIFIASM_CONTIGS/hifiasm_meta_AD_sludge_Methanothrix_MAG.fasta" >> fasta.txt
 ```
 
-### Run the pangenomics workflow
+### Runing the anvi'o pangenomics workflow
 
 To generate a pangenome, we can use the build-in pangenomics workflow in {% include PROGRAM name='anvi-run-workflow' %}. Just like for [the contigs workflow](#contigs_database), we need to provide a {% include ARTIFACT name='workflow-config' %} file which specifies which rules and parameters we want to run. Here is my config file for this workflow:
 
@@ -1990,7 +1973,7 @@ anvi-run-workflow -w pangenomics -c config.json
 
 🎉 you now have a {% include ARTIFACT name='genome-storage-db' %} and a pan-db and you can use {% include PROGRAM name='anvi-display-pan' %} to visualize the pangenome. You will easily see that the so-called 'circular' _Methanothrix_ genome is missing a large fraction of the core genome shared by all other genome of that genus. Moreover, you can see that the complementary contigs perfectly complement the missing part of the core genomes. Finally, the MAGs containing the two contigs now perfectly fits in this pangenome of _Methanothrix_.
 
-### KEGG metabolic module completion
+### Estimating KEGG metabolic module completion
 
 If the previous pangenome was not convincing to you and you want more proof that the so-called 'circular' _Methanothrix_ contigs is incomplete, we can complete the completeness of KEGG metabolic module using {% include PROGRAM name='anvi-estimate-metabolism' %}.
 
@@ -2040,7 +2023,7 @@ anvi-interactive --manual -t module.tree -d matrix.txt -p PROFILE.d
 
 You will be able to easily notice the absence of notable metabolic module in the prematurely circularized _Methanothrix_ contig, like most metabolic module associated with methanogenesis. Modules associated with nucleotide metabolism, cofactor and vitamin metabolism and amino acid metabolism were also absent from the hifiasm-meta contig, despite begin present in every single other _Methanothrix_ genome.
 
-## _E. coli_ pangenome
+## The _E. coli_ pangenome
 
 In the last part of the paper, we discuss the relevance of mock communities in assessing the performance of long-read assembler. Particularly, we got interested in the Zymo mock community that contains five strains of _E. coli_ which is supposed to pose a challenge for the assembler. The author of both hifiasm-meta and metaMDBG both reported that they assembled a complete genome of one of the five _E. coli_ and we found out that HiCanu was also able to generate a complete _E. coli_ genome.
 
@@ -2055,7 +2038,7 @@ cd $WD
 mkdir -p E_coli && cd E_coli
 ```
 
-### Get the _E. coli_ genomes
+### Downloading the _E. coli_ genome
 
 You can download the reference genomes used to make the Zymo D6331 mock community by clicking on this link [here](https://s3.amazonaws.com/zymo-files/BioPool/D6331.refseq.zip). Or you can copy the following command:
 
@@ -2097,7 +2080,7 @@ E_coli_hifiasm-meta\t01_ASSEMBLED_E_COLI/E_coli_hifiasm-meta.fasta
 E_coli_metaMDBG\t01_ASSEMBLED_E_COLI/E_coli_metaMDBG.fasta" >> fasta.txt
 ```
 
-### Run the pangenomics workflow
+### Running the anvi'o pangenomics workflow
 
 Just like for the [_Methanothrix_ pangenome](#methanothrix-pangenome), we can use the build-in pangenomics workflow in anvi'o using {% include PROGRAM name='anvi-run-workflow' %}. For that, we need a {% include ARTIFACT name='workflow-config' %} file:
 
@@ -2162,7 +2145,8 @@ anvi-run-workflow -w pangenomics -c config.json
 ```
 
 Congratulation, you now have the same pangenome as the one in Supplementary Figure 3. You will see the two _E. coli_ genomes assembled by HiCanu and hifi-meta matches perfectly with _E. coli_ B3008 and B766 respectively. However, the "complete and circular" _E. coli_ genome assembled by metaMDBG does not match perfectly to any reference genome.
-### A smaller pangenome
+
+### Generating the smaller pangenome
 
 In the paper, we made another pangenome for Figure 6 that only include the reference genomes and the _E. coli_ from metaMDBG. To reproduce that pangenome, you can make another {% include ARTIFACT name='fasta-txt' %} and another workflow-config file with a different output directory.
 
@@ -2210,4 +2194,4 @@ The output of the blast command can be found in Supplementary Table 5.
 
 ## The END
 
-If you made it all the way down here: thank you very much for following my adventure into long-read assembler. May your contigs be real and trustworthy.
+If you made it all the way down here: thank you very much for following this adventure into the realm of long-read assemblers. May your contigs be real and trustworthy.
