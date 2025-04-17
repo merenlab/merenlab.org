@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Phylogeography of ribosomal proteins with EcoPhylo
-modified: 2021-10-21
+modified: 2024-10-21
 excerpt: "by Schechter et al, 2025"
 comments: true
 authors: [matt]
