@@ -19,13 +19,13 @@ Microbial communities experience environmental fluctuations across timescales ra
 
 Time-series studies in marine systems have largely focused on resolving changes in microbial community composition from seasonal ([Bunse and Pinhassi 2017](https://doi.org/10.1016/j.tim.2016.12.013); [Giovannoni and Vergin 2012](https://doi.org/10.1126/science.1198078)) to daily timescales ([Needham and Fuhrman 2016](https://doi.org/10.1038/nmicrobiol.2016.5)). While the physiological responses of individual microbial populations offer important insights into their ecology and evolution, such population level responses, especially at short timescales, are less well understood in complex environments. Responses to short-term fluctuations that occur on timescales that span from seconds to hours are mostly reflected in changes at the level of transcription and translational regulation without any immediate impact on community composition. We generated the HaDS dataset to contribute an interlinked 'omics resource that lends itself to studies of subtle and population-resolved responses of microbes to environmental variability.
 
-HaDS is a collection of metagenomes, metatranscriptomes and metaepitransriptomes generated over a 48 hour period at 90 minutes intervals at two sampling sites in Kāneʻohe Bay, Hawaiʻi. The spatiotemporal dynamics of the two surface water sampling stations (so-called HP1 and STO1) are well characterized through the Kāneʻohe Bay Time-series ([Tucker et al. 2021](https://doi.org/10.7717/peerj.12274)), an ongoing monthly time-series sampling program of surface ocean biogeochemistry and microbial communities. Our high-resolution multi-omics approach, combined with concurrent measurements of biogeochemical parameters (chlorophyll, temperature, and nutrient concentration) combined with long-term microbial community and biogeochemistry data at both sampling sites, enables the exploration of microbial population responses to environmental fluctuations and long-term change.
+HaDS is a collection of metagenomes, metatranscriptomes and metaepitranscriptomes generated over a 48 hour period at 90 minutes intervals at two sampling sites in Kāneʻohe Bay, Hawaiʻi. The spatiotemporal dynamics of the two surface water sampling stations (so-called HP1 and STO1) are well characterized through the Kāneʻohe Bay Time-series ([Tucker et al. 2021](https://doi.org/10.7717/peerj.12274)), an ongoing monthly time-series sampling program of surface ocean biogeochemistry and microbial communities. Our high-resolution multi-omics approach, paired with concurrent measurements of biogeochemical parameters (chlorophyll, temperature, and nutrient concentration) and contextualized by long-term microbial community and biogeochemistry data at both sampling sites, enables the exploration of microbial population responses to environmental fluctuations and long-term change.
 
 {% include IMAGE path="images/hawaii-diel-2021-80.jpg" width=80 caption="Sample processing next to the docks of Hawaiʻi Institute of Marine Biology (HIMB)." %}
 
 ## Data
 
-At both the coastal Kāneʻohe Bay station (HP1) and the adjacent offshore station (STO1), we sampled at 33 time-points across 48 hours, and subsequently produced 59 metatranscriptomes, 65 short-read metagenomes, 8 long-read metagenomes, and 66 metaepitranscriptomes. We also generated four deeply-sequenced short-read metagenomes from samples collected in the late fall and spring prior to HaDS through routine Kāneʻohe Bay Time-series sampling. The following data items give access to RAW sequencing results  as well as processed data items through repositories at [FigShare](https://figshare.com/projects/Hawai_i_Diel_Sampling_HADS_/244907), BCO-DMO, and NCBI:
+At both the coastal Kāneʻohe Bay station (HP1) and the adjacent offshore station (STO1), we sampled at 33 time-points across 48 hours. We subsequently produced 59 metatranscriptomes, 65 short-read metagenomes, 8 long-read metagenomes, and 66 metaepitranscriptomes. We also generated four deeply-sequenced short-read metagenomes from samples collected in the late fall and spring prior to HaDS through routine Kāneʻohe Bay Time-series sampling. The following data items give access to RAW sequencing results  as well as processed data items through repositories at [FigShare](https://figshare.com/projects/Hawai_i_Diel_Sampling_HADS_/244907), BCO-DMO, and NCBI:
 
 * NCBI Project ID [PRJNA1201851](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA1201851) offers access to [all raw data for short-read and long-read metagenomes, as well as metatranscriptomes and metaepitranscriptomes](https://www.ncbi.nlm.nih.gov/sra/?term=PRJNA1201851).
 * doi:(pending URL from BCO-DMO) provides access to all biogeochemical data that covers the sampling period.
@@ -78,7 +78,7 @@ for station in xHP1 STO1
 do
     for technology in SR LR
     do
-        # generate a directory to store mapping results for each co-assemlby
+        # generate a directory to store mapping results for each co-assembly
         mkdir ${station}-${technology}
 
         # generate a bowtie index
@@ -89,7 +89,7 @@ do
             if [ "$sample" == "sample" ]; then continue; fi
 
             # generate the SAM file
-            bowtie2 --threads {num_threads} \
+            bowtie2 --threads ${num_threads} \
                     -x ${station}-${technology}/${station}-${technology}-COASSEMBLY \
                     -1 $r1 \
                     -2 $r2 \
@@ -97,7 +97,7 @@ do
                     -S ${station}-${technology}/$sample.sam
 
             # covert the resulting SAM file to a BAM file:
-            samtools view -F 4 -bS ${station-${technology}/$sample.sam > ${station}-${technology}/$sample-RAW.bam
+            samtools view -F 4 -bS ${station}-${technology}/${sample}.sam > ${station}-${technology}/${sample}-RAW.bam
 
             # sort and index the BAM file:
             samtools sort ${station}-${technology}/$sample-RAW.bam -o ${station}-${technology}/$sample.bam
@@ -143,7 +143,7 @@ do
 
     jgi_summarize_bam_contig_depths --outputDepth ${station}_depth.txt --pairedContigs ${station}_paired.txt $BAM_FILES
 
-    metabat2 -t ${num_threads} -i ${station}-SR-COASSEMBLY.fa -a ${station}_depth.txt -o HADS-MAGs/{station}-SR-COASSEMBLY-BIN -v
+    metabat2 -t ${num_threads} -i ${station}-SR-COASSEMBLY.fa -a ${station}_depth.txt -o HADS-MAGs/${station}-SR-COASSEMBLY-BIN -v
 
     FILES=$(ls HADS-MAGs/{station}-SR-COASSEMBLY-BIN*.fa)
     for f in $FILES
@@ -153,7 +153,7 @@ do
     done
 
     # finally, import the collection into the merged profile:
-    anvi-import-collection ${station}-collection.txt -p ${station}-${technology}-MERGED/PROFILE.db -c ${station}-${technology}-COASSEMBLY.db
+    anvi-import-collection ${station}-collection.txt -p ${station}-SR-MERGED/PROFILE.db -c ${station}-SR-COASSEMBLY.db
 done
 ```
 
