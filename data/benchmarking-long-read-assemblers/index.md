@@ -11,10 +11,15 @@ authors: [florian]
 
 <span class="extra-info-header">Summary</span>
 
-**The purpose of this page** is to provide access to reproducible data products and analyses for the study "**Assemblies of long-read metagenomes suffer from diverse forms of errors**" by Trigodet et al., 2025.
+**The purpose of this page** is to provide access to our bioinfromatics workflow that generated the results for our study titled "**Assemblies of long-read metagenomes suffer from diverse forms of errors**" by Trigodet et al.
 
-We will soon update this page with reproducible data products and a link to the study.
+In addition to providing a level of transparency to clarify our findings, we are hoping that the workflow implemented on this page can be used to include additional assemblers or datasets to advance these benchmkarks.
 
+We will soon update this page with DOIs to reproducible and intermediate data products, and a link to the pre-print of the study.
+
+---
+
+**A quick note from Meren for those who made it all the way here**: _Evaluating the work of others and offering critical insights is a difficult task and a significant responsibility. Nevertheless, we committed ourselves to this endeavor with a sense of responsibility towards our community, and with the hope that a broader recognizing of these issues may serve as the first step towards addressing and ultimately eliminating most critical errors in long-read assembly outputs. We recognize that developing assembly algorithms, especially for metagenomes, is a notoriously complex and difficult task. Our investigations have only deepened our appreciation for those who dedicate their time and expertise to creating and maintaining these algorithms, which undoubtedly represent one of the pillars of modern microbiology. We remain grateful for their contributions and for sharing their talents with the scientific community._
 </div>
 
 {:.notice}
