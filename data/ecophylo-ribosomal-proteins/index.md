@@ -7,17 +7,22 @@ comments: true
 authors: [matt]
 ---
 
-**The purpose of this page** is to provide access to reproducible data products that underlie our key findings in the study "**Ribosomal protein phylogeography offers quantitative insights into the efficacy of genome-resolved surveys of microbial communities**" by Matt Schechter et al.
+**The purpose of this page** is to provide access to reproducible data products that underlie our key findings from two studies by Matt Schechter et al. including: "**Quantitative insights into the efficacy of genome-resolved surveys of microbial communities through ribosomal protein phylogeography and EcoPhylo**" and "**Contemporary genome collections massively under-represent microbial diversity in marine systems**".
+
+This reproducible workflow begins with "**Quantitative insights into the efficacy of genome-resolved surveys of microbial communities through ribosomal protein phylogeography and EcoPhylo**" which introduces the development and benchmarking of the [anvi'o EcoPhylo workflow](https://anvio.org/help/main/workflows/ecophylo/) using ribosomal proteins to evaluate genome recovery from microbial communities. The latter half of the document will document the reproducbile workflow for "**Contemporary genome collections massively under-represent microbial diversity in marine systems**" which applies the [EcoPhylo workflow](https://anvio.org/help/main/workflows/ecophylo/) and ribosomal proteins to the global surface ocean. If you would like to skip directly to "**Contemporary genome collections massively under-represent microbial diversity in marine systems**" then click [here](#contemporary-genome-collections-under-represent-microbial-diversity-in-marine-systems).
+
 
 {:.notice}
 If you have any questions and/or if you are unable to find an important piece of information here, please feel free to leave a comment down below, send an e-mail to [us]({{ site.url }}/people/), or get in touch with us through Discord:
 
 {% include _join-anvio-discord.html %}
 
+## Quantitative insights into the efficacy of genome-resolved surveys of microbial communities through ribosomal protein phylogeography and EcoPhylo 
+
 <div class="pub_float">
 <div class="altmetric-embed" data-badge-type="donut" data-doi="10.1101/2025.01.15.633187"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1101/2025.01.15.633187" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <span class="pub-title"><a href="https://doi.org/10.1101/2025.01.15.633187" target="_new">Ribosomal protein phylogeography offers quantitative insights into the efficacy of genome-resolved surveys of microbial communities</a></span>
+    <span class="pub-title"><a href="https://doi.org/10.1101/2025.01.15.633187" target="_new">Quantitative insights into the efficacy of genome-resolved surveys of microbial communities through ribosomal protein phylogeography and EcoPhylo </a></span>
     <span class="pub-authors"><span class="pub-member-author" title="An official member of the lab at the time of publication">Schechter MS</span>, <span class="pub-member-author" title="An official member of the lab at the time of publication">Trigodet F</span>, <span class="pub-member-author" title="An official member of the lab at the time of publication">Veseli I</span>, <span class="pub-member-author" title="An official member of the lab at the time of publication">Miller SE</span>, <span class="pub-member-author" title="An official member of the lab at the time of publication">Klein ML</span>, <span class="pub-member-author" title="An official member of the lab at the time of publication">Sever M</span>, Maignien L, <span class="pub-collaborator-author" title="A key collaborator of the lab at the time of publication">Delmont TO</span>, Light SH<sup>‡</sup>, <span class="pub-member-author" title="An official member of the lab at the time of publication">Eren AM<sup>‡</sup></span></span>
     <span class="pub-co-first-authors"><sup>‡</sup>Co-senior authors</span>
     <div class="pub-info">
@@ -31,13 +36,13 @@ If you have any questions and/or if you are unable to find an important piece of
     <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&amp;q=Ribosomal+protein+phylogeography+offers+quantitative+insights+into+the+efficacy+of+genome-resolved+surveys+of+microbial+communities" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2025.01.15.633187" target="_blank">doi:10.1101/2025.01.15.633187</a></span>
 </div>
 
-## Reproducible / Reusable Data Products
+### Reproducible / Reusable Data Products
 
-The following data items are compatible with anvi’o version v8 or later. The anvi’o {% include ARTIFACT name="contigs-db" %} and {% include ARTIFACT name="profile-db" %}’ in them can be further analyzed using any program in the anvi’o ecosystem, or they can be used to report summary data in flat-text files to be imported into other analysis environments.
+The following data items are compatible with anvi’o version v8 or later. The anvi’o {% include ARTIFACT name="contigs-db" %} and {% include ARTIFACT name="profile-db" %} in them can be further analyzed using any program in the anvi’o ecosystem, or they can be used to report summary data in flat-text files to be imported into other analysis environments.
 
-- [DOI:10.6084/m9.figshare.28207481](https://doi.org/10.6084/m9.figshare.28207481): ribosomal protein interactive interfaces for the human oral cavity (*rpL19*, *rpS15*, *rpS2*), human gut (*rpS16*, *rpS19*, *rpS15*), and surface ocean (*rpL14*, *rpS8*, *rpS11*). To directly load this data, skip to the section "EcoPhylo interactive interfaces"
+- [DOI:10.6084/m9.figshare.28207481.v2](https://doi.org/10.6084/m9.figshare.28207481.v2): Ribosomal protein {% include ARTIFACT name="interative" %} interfaces for the human oral cavity (*rpL19*, *rpS15*, *rpS2*) and human gut (*rpS16*, *rpS19*, *rpS15*). To directly load this data, skip to the section [EcoPhylo interactive interfaces](#ecophylo-interactive-interfaces)
 
-## Set up environment
+### Set up environment
 
 If you want to follow along and run each code block in the following reproducible, you will need to install anvi’o. Next you will need to download the associated data ([DOI:10.6084/m9.figshare.28208018](https://doi.org/10.6084/m9.figshare.28208018)) and open it up like this:
 
@@ -56,7 +61,8 @@ packages <- c("tidyverse", "ggpubr", "fs", "ape", "treeio", "glue", "plotly", "r
 suppressWarnings(suppressMessages(lapply(packages, library, character.only = TRUE)))
 ```
 
-> The majority of commands using {% include PROGRAM name="anvi-run-workflow" %} were run on high performance compute clusters (HPC) leveraging the powerful SLURM wrapper [clusterize](https://github.com/ekiefl/clusterize). Without access to compute nodes, these commands would take a VERY long time. Please check out this blogpost for more information: [Running workflows on a cluster](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#running-workflows-on-a-cluster). All BASH commands in this reproducible workflow will need to be modified to run on your own HPC system. See below for an example some modifiable paramaters that might be helpful.
+{:.notice}
+The majority of commands using {% include PROGRAM name="anvi-run-workflow" %} were run on high performance compute clusters (HPC) leveraging the powerful SLURM wrapper [clusterize](https://github.com/ekiefl/clusterize). Without access to compute nodes, these commands would take a VERY long time. Please check out this blogpost for more information: [Running workflows on a cluster](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#running-workflows-on-a-cluster). All BASH commands in this reproducible workflow will need to be modified to run on your own HPC system. See below for an example some modifiable paramaters that might be helpful.
 
 Here is an “example” of prototypical command with some basic descriptions of the various parameters. Make sure to fill in everything on your own :)
 
@@ -73,7 +79,7 @@ anvi-run-workflow -w ecophylo \ # anvio worklow name
 ```
 
 
-## Distribution HMM alignment coverage and SCG detection across GTDB
+### Distribution HMM alignment coverage and SCG detection across GTDB
 
 To identify a threshold to remove spurious {% include ARTIFACT name="hmm-hits" %} recruited by ribosomal protein HMMs in metagenomic assemblies, we examined the distribution of {% include ARTIFACT name="hmm-hits" %} alignment coverage across genomes across [GTDB](https://gtdb.ecogenomic.org/) [release 95](https://data.ace.uq.edu.au/public/gtdb/data/releases/release95/) and decided to filter our {% include ARTIFACT name="hmm-hits" %} with less than 80% model coverage. The idea here was to improve our detection of high quality {% include ARTIFACT name="hmm-hits" %} in genomes in an effort to improve the detection of ribosomal proteins in the wild, metagenomic assemblies. The following steps describe our workflow:
 
@@ -252,7 +258,7 @@ ggarrange(plot_model_cov_archaea_76$plot_model_cov,
 
 {% include IMAGE path="images/SCG_distribution_model_coverage.png" width=100 caption="" %}
 
-## Explore SCG HMM copy number across GTDB r95 RefSeq
+### Explore SCG HMM copy number across GTDB r95 RefSeq
 
 To identify ribosomal proteins that occurred in single-copy per genome, we searched the `Bacteria_71` and `Archaea_76` HMM collections across GTDB with 80% model alignment coverage (threshold identified in the previous analysis to filter out low quality HMM-hits in metagenomic assembles).
 
@@ -380,7 +386,7 @@ plot_final
 {% include IMAGE path="images/Figure_SI02.png" width=100 caption="" %}
 
 
-## Benchmarking EcoPhylo workflow with Ribosomal proteins using CAMI synthetic metagenomes
+### Benchmarking EcoPhylo workflow with Ribosomal proteins using CAMI synthetic metagenomes
 
 We explored different ribosomal protein clustering thresholds and their impact on [non-specific read recruitment](https://anvio.org/vocabulary/#non-specific-read-recruitment) in the EcoPhylo workflow. To do this, we used [CAMI](https://doi.org/10.1038/s41592-022-01431-4) and performed a grid search across ribosomal protein clustering thresholds from 95%-100%.
 Before we started, we identified the top 5 most frequent single-copy ribosomal proteins per CAMI genome dataset. Here is an example of how we performed the read recruitment experiment with the
@@ -507,7 +513,7 @@ missmapping_p
 
 {% include IMAGE path="images/Figure_SI04.png" width=100 caption="" %}
 
-## Removing genomes that are not detected in metagenomic samples
+### Removing genomes that are not detected in metagenomic samples
 
 When contextualizing a genomic collection from multiple genome recovery methods, some genomes will inherently be undetected in the underlying metagenomes. It’s best practice to remove these from the EcoPhylo interface so that every branch in the phylogenetic tree is relevant to the analysis and the detection heatmap doesn’t have a bunch of zeros. For example, in this manuscript we augmented Shaiber et al. (2020) MAGs with HOMD isolate genomes. Many HOMD isolate genomes were isolated from other samples and thus not detected in the Shaiber et al. (2020) metagenomes.
 
@@ -553,9 +559,9 @@ genomes_NOT_detected_Ribosomal_L19 <- detect_and_write_genomes(DIR_PATH, SCG, DE
 
 **Step 3.** Re-run EcoPhylo with a filtered {% include ARTIFACT name="external-genomes" %} file with only genomes that were detected in the metagenomic dataset.
 
-## Identifying the most frequent ribosomal proteins in a genomic collection
+### Identifying the most frequent ribosomal proteins in a genomic collection
 
-Selecting which ribosomal protein or gene family to analyze in EcoPhylo is a critical decision that must align with your specific scientific questions. For this study, we prioritized ribosomal proteins that supported our goal of examining genome recovery rates. Specifically, we chose ribosomal proteins that (1) were present as single-copy genes across the majority of genome collections in the oral, ocean, and human gut metagenomic datasets, providing broad contextualization, and (2) exhibited balanced assembly rates in metagenomic assemblies, ensuring they were neither over- nor under-assembled.
+Selecting which ribosomal protein or gene family to analyze in EcoPhylo is a critical decision that must align with your specific scientific questions. For this study, we prioritized ribosomal proteins that supported our goal of examining genome recovery rates. Specifically, we chose ribosomal proteins that (1) were present as single-copy genes across the majority of genome collections in the oral and human gut metagenomic datasets, providing broad contextualization, and (2) exhibited balanced assembly rates in metagenomic assemblies, ensuring they were neither over- nor under-assembled.
 
 Here is an example of how we identified the top three proteins to contextualize MAGs and HOMD isolates in Shaiber et al.(2020) metagenomes.
 
@@ -669,7 +675,7 @@ ggarrange(plot_bacteria_SCG_frequency_per_HOMD_MAGs_50, plot_metagenome_SCGs_fre
 {% include IMAGE path="images/Oral_SCG_frequency.png" width=100 caption="" %}
 
 
-## Make genome-type and miscellaneous data
+### Make genome-type and miscellaneous data
 
 EcoPhylo provides some basic miscellaneous information about each of the ribosomal proteins detected in your data including: representative sequence length, cluster size, and taxonomic assignment for ribosomal proteins. In this paper, we needed to add more miscellaneous data to each EcoPhylo interface, specifically the source of each ribosomal protein (MAG, SAG, isolate genome) to calculate genome recovery rates. Luckily, anvi’o makes it easy to enrich the interface with extra data to get more insights.
 
@@ -696,7 +702,7 @@ Here is an example of how I made a genome-types file for the Oral Microbiome dat
 ``` r
 DIR_PATH <- "REPRODUCIBLE_WORKFLOW_DATA" 
 
-# Import default collection to get split names
+# Im  port default collection to get split names
 DEFAULT_collection <- read_tsv(path(DIR_PATH, "collection-DEFAULT.txt"), col_names = c("representative", "collection")) %>%
   mutate(representative = str_replace(pattern = "_split_00001",replacement = "", representative))
 
@@ -766,11 +772,11 @@ anvi-import-misc-data genome_types.txt \
                       --just-do-it
 ```
 
-## Calculating genome recovery rate
+### Calculating genome recovery rate
 
 To calculate genome recovery rates for any given taxon with EcoPhylo, we divided the number of sequence clusters that contained a sequence from a given genome recovery method by the total number of representative sequences EcoPhylo reported for that taxon. EcoPhylo taxonomically annotated ribosomal sequences with the program [anvi-estimate-scg-taxonomy](https://anvio.org/help/main/programs/anvi-estimate-scg-taxonomy/). You can extract this miscellaneous data along with a few other tables and calculate genome recovery rates like this:
 
-### anvi-estimate-scg-taxonomy
+#### anvi-estimate-scg-taxonomy
 
 **Step 1.** Export items miscellaneous from EcoPhylo
 
@@ -818,7 +824,7 @@ genome_recovery_rates_SCG_taxonomy_list <- map(taxonomic_ranks_GTDB, ~find_MAG_r
 Genome_recovery_rates_SCG_taxonomy <- bind_rows(genome_recovery_rates_SCG_taxonomy_list)
 ```
 
-### Taxonomic binning
+#### Taxonomic binning
 
 To account for divergent ribosomal proteins that did not get a taxonomic assignment from `anvi-estimate-scg-taxonomy`, we used the ribosomal protein amino acid phylogenetic tree to group sequences with their surrounding clade members of the same taxa in the `anvi-interactive` interface and transferred their taxonomic annotation to the sequences with unknown classification - We call this taxonomic binning.
 
@@ -855,9 +861,9 @@ RP_S15_Bacteria_Archaea_recovery <- item_additional_data_S15 %>%
             MAG_recovery_rate = num_MAGs/total_detected) 
 ```
 
-## Manually curate EcoPhylo tree
+### Manually curate EcoPhylo tree
 
-In our study, we calculated phylogenetic trees of large collections of ribosomal proteins (in the surface ocean microbiome, thousands!) which included sequences from all domains of life, including plastids and mitochondria. Due to the high-throughput nature of the workflow and the chance of recruiting assembly artifacts, we manually inspected and removed unusually long branches and recalculated the tree. Additionally, in some scenarios, we removed the entire mitochondria signal to improve the topology of the tree. Here are the basic steps to do this:
+In our study, we constructed phylogenetic trees from large collections of ribosomal proteins, which in some cases included sequences from multiple domains of life. Additionally, many of these sequences originated from metagenomic assemblies, which are prone to artifacts. As a result, some of the phylogenetic trees displayed artificially long branches. Due to the high-throughput nature of the workflow and the potential for assembly artifacts, we manually inspected the trees, removed unusually long branches, and recalculated the phylogeny. Below are the basic steps to perform this process:
 
 **Step 1.** Make collection of bad branches
 
@@ -957,12 +963,16 @@ anvi-interactive -p "${SCG}"_curated/EVERYTHING_curated/PROFILE.db \
                  -c "${SCG}"_curated/EVERYTHING_curated/CONTIGS.db
 ```
 
-## EcoPhylo interactive interfaces
+### EcoPhylo interactive interfaces
 
 Here is how you can explore all of the EcoPhylo interactive interfaces created for this paper!
 
 ``` bash
-cd ECOPHYLO_INTERACTIVES
+wget -O ECOPHYLO_INTERACTIVES_METHODS.tar.gz https://figshare.com/ndownloader/files/53896007
+
+tar -xvzf ECOPHYLO_INTERACTIVES_METHODS.tar.gz
+
+cd ECOPHYLO_INTERACTIVES_METHODS
 
 $ tree
 .
@@ -980,20 +990,230 @@ $ tree
 │       ├── AUXILIARY-DATA.db
 │       ├── PROFILE.db
 │       └── Ribosomal_S16-contigs.db
-├── ORAL_CAVITY
-│   ├── ECOPHYLO_WORKFLOW_oral_cavity_RP_L19
-│   │   ├── AUXILIARY-DATA.db
-│   │   ├── PROFILE.db
-│   │   └── Ribosomal_L19-contigs.db
-│   ├── ECOPHYLO_WORKFLOW_oral_cavity_RP_S15
-│   │   ├── AUXILIARY-DATA.db
-│   │   ├── PROFILE.db
-│   │   └── Ribosomal_S15-contigs.db
-│   └── ECOPHYLO_WORKFLOW_oral_cavity_RP_S2
-│       ├── AUXILIARY-DATA.db
-│       ├── PROFILE.db
-│       └── Ribosomal_S2-contigs.db
-└── SURFACE_OCEAN
+└── ORAL_CAVITY
+    ├── ECOPHYLO_WORKFLOW_oral_cavity_RP_L19
+    │   ├── AUXILIARY-DATA.db
+    │   ├── PROFILE.db
+    │   └── Ribosomal_L19-contigs.db
+    ├── ECOPHYLO_WORKFLOW_oral_cavity_RP_S15
+    │   ├── AUXILIARY-DATA.db
+    │   ├── PROFILE.db
+    │   └── Ribosomal_S15-contigs.db
+    └── ECOPHYLO_WORKFLOW_oral_cavity_RP_S2
+        ├── AUXILIARY-DATA.db
+        ├── PROFILE.db
+        └── Ribosomal_S2-contigs.db
+```
+
+Loading them up is really easy! Please note that the `default` state will automatically load the interfaces used in this paper.
+
+{:.notice}
+Please note that the `default` EcoPhylo {% include ARTIFACT name="interative" %} states below were overwritten after manually adjusting dimensions and colors. The majority of the time, the raw output of EcoPhylo will requiring manually adjustments by the user in {% include PROGRAM name="anvi-interative" %} to create an informative, beautiful representation of the underlying data.
+
+#### *rpL19* phylogeography in the human oral cavity
+
+Here is an example for open the phylogeography of *rpL19* across Shaiber et al. (2020). We also performed this analysis with *rpS15*, and *rpS2*. For all of the ORAL_CAVITY EcoPhylo interactive interface the `default` state will automatically load the interfaces used in this paper.
+
+``` bash
+anvi-interactive -p ORAL_CAVITY/ECOPHYLO_WORKFLOW_oral_cavity_RP_L19/PROFILE.db \ 
+                 -c ORAL_CAVITY/ECOPHYLO_WORKFLOW_oral_cavity_RP_L19/Ribosomal_L19-contigs.db
+```
+{% include IMAGE path="images/ecophylo_oral_cavity.png" width=100 caption="EcoPhylo analysis of *rpL19* across the human oral cavity" %}
+
+#### *rpS15* phylogeography in the human gut
+
+Here is an example for open the phylogeography of *rpS15* across Carter et al. (2023). We also performed the analysis with *rpS16*, and *rpL19* which can be found in the figshare. For all of the ORAL_CAVITY EcoPhylo interactive interface the `default` state will automatically load the interfaces used in this paper.
+
+``` bash
+anvi-interactive -p HUMAN_GUT/ECOPHYLO_WORKFLOW_human_gut_RP_S15/PROFILE.db \
+                 -c HUMAN_GUT/ECOPHYLO_WORKFLOW_human_gut_RP_S15/CONTIGS.db
+```
+{% include IMAGE path="images/ecophylo_human_gut.png" width=100 caption="EcoPhylo analysis of *rpS15* across human gut microbiome samples from the Hadza tribe" %}
+
+## Contemporary genome collections massively under-represent microbial diversity in marine systems
+
+In our study, we examined the phylogeography of ribosomal proteins across the global surface ocean ocean and a representative genome collection ([MAGs](https://anvio.org/vocabulary/#metagenome-assembled-genome-mag), [SAGs](https://anvio.org/vocabulary/#single-amplified-genome-sag), and isolate genomes) to estimate genome recovery rates across this biome. We leveraged the [anvi'o EcoPhylo workflow](https://anvio.org/help/main/workflows/ecophylo/) which is described in the methods paper above.
+
+### Reproducible / Reusable Data Products
+
+The following data items are compatible with anvi’o version v8 or later. The anvi’o {% include ARTIFACT name="contigs-db" %} and {% include ARTIFACT name="profile-db" %} in them can be further analyzed using any program in the anvi’o ecosystem, or they can be used to report summary data in flat-text files to be imported into other analysis environments.
+
+- [DOI:10.6084/m9.figshare.28840841](https://doi.org/10.6084/m9.figshare.28840841): Ribosomal protein {% include ARTIFACT name="interative" %} profiling the open surface ocean (*rpL14*, *rpS8*, *rpS11*). To directly load this data, skip to the section [EcoPhylo interactive interface of the open surface ocean](#ecophylo-interactive-interface-of-the-open-surface-ocean)
+
+### Set up environment
+
+If you want to follow along and run each code block in the following reproducible, you will need to install anvi’o. Next you will need to download the associated data ([DOI:10.6084/m9.figshare.28840898](https://figshare.com/account/projects/234065/articles/28840898)) and you are ready to go!
+
+**Load packages**
+
+These are the `r` packages you will need to load and install before running the analysis:
+
+``` r
+packages <- c("tidyverse", "ggpubr", "fs", "ape", "treeio", "glue", "plotly", "readxl")
+suppressWarnings(suppressMessages(lapply(packages, library, character.only = TRUE)))
+```
+
+{:.notice}
+The majority of commands using {% include PROGRAM name="anvi-run-workflow" %} were run on high performance compute clusters (HPC) leveraging the powerful SLURM wrapper [clusterize](https://github.com/ekiefl/clusterize). Without access to compute nodes, these commands would take a VERY long time. Please check out this blogpost for more information: [Running workflows on a cluster](https://merenlab.org/2018/07/09/anvio-snakemake-workflows/#running-workflows-on-a-cluster). All BASH commands in this reproducible workflow will need to be modified to run on your own HPC system. See below for an example some modifiable paramaters that might be helpful.
+
+### Selecting ribosomal proteins
+
+Before running the EcoPhylo workflow, we selected a subset of ribosomal proteins—*rpL14*, *rpS8*, and *rpS11*—to profile the surface ocean. These proteins were chosen because they appeared in single-copy across the majority of genomes in our dataset. Sadly, genome types such as [metagenomc-assembled genomes](https://anvio.org/vocabulary/#metagenome-assembled-genome-mag) and [single amplified genomes](https://anvio.org/vocabulary/#single-amplified-genome-sag) are rarely completely reconstructed thus, we potentially cannot profile an entire genome collection at the same time. We next ensured these ribosomal proteins were not systematically over- or under-assembled relative to other ribosomal proteins across the surface ocean metagenomic assemblies.
+
+For more examples in our methods paper you can navigate here: [Identifying the most frequent ribosomal proteins in a genomic collection](#identifying-the-most-frequent-ribosomal-proteins-in-a-genomic-collection)
+
+To visualize these distributions, here is a code snippet:
+
+**Step 1.** Run EcoPhylo workflow to annotate surface ocean genome dataset with Bacteria_71 SCG collection
+
+Here is an “example” of prototypical command with some basic descriptions of the various parameters. Make sure to fill in everything on your own :)
+
+``` bash
+anvi-run-workflow -w ecophylo \ # anvio worklow name 
+                  -c config.json \ # workflow config file 
+                  --additional-params \ # extract parameters that go straight to snakemake
+                  --cluster "qsub {threads}" \ # example string to send jobs to HPC
+                  --jobs=120 \ # number of co-occuring jobs
+                  --resources nodes=120 \ # num. of nodes the workflow can use
+                  --latency-wait 100 \ # wait 100 sec. for output file to appear
+                  --keep-going \ # finish as many jobs as possible even if one job fails
+                  --rerun-incomplete # restart any jobs that failed
+```
+
+**Step 2.** Find SCGs that detect the majority of the genomic dataset
+
+Here we used {% include PROGRAM name="anvi-script-gen-hmm-hits-matrix-across-genomes" %} to extract the matrix of {% include ARTIFACT name="hmm-hits" %} from both the metagenomic assemblies and genome collection.
+
+``` bash
+# Extract SCGs across metagenome dataset
+anvi-script-gen-hmm-hits-matrix-across-genomes -e metagenomes.txt --hmm-source Bacteria_71 -o Bacteria_71_METAGENOME_MATRIX.txt
+
+# Extract SCGs genome collection dataset
+anvi-script-gen-hmm-hits-matrix-across-genomes -e external_genomes.txt --hmm-source Bacteria_71 -o Bacteria_71_GENOME_MATRIX.txt
+```
+
+**Step 3.** Plot ribosomal protein detection across metagenomic
+assemblies
+
+Here we imported the matrices produced in the previous step to visualize the copy number distribution: 
+
+```r
+DIR_PATH <- "" 
+
+Bacteria_71_GENOME_MATRIX <- read_tsv(path(DIR_PATH, "TABLES/Table_SI01.tsv"))
+
+# set up a pretty theme for the plots
+SCG_detection_plot_theme <- theme_light() +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, family = "Helvetica Neue Condensed Bold"),
+        axis.ticks.x = element_blank(),
+        legend.title = element_blank(),
+        axis.text = element_text(size = 6, family = "Helvetica Neue Condensed Bold"),
+        axis.title = element_text(size = 6, family = "Helvetica Neue Condensed Bold"),
+        text = element_text(size = 6,  family = "Helvetica Neue Condensed Bold"),
+        plot.title = element_text(hjust = 0.5, size = 8, family = "Helvetica Neue Condensed Bold"))
+
+plot_metagenome_SCGs <- function(X, YLAB, XLAB, TITLE) {
+  
+  X_long <- X %>%
+    pivot_longer(-genome_or_bin) %>%
+    rename(SCG = "name") %>%
+    group_by(SCG) %>%
+    summarize(total = sum(value))
+  
+  mean_SCG_count <- X_long$total %>% mean() %>% round()
+  
+  X_long %>%
+    ggplot(aes(x = total, y = fct_reorder(SCG, total))) + 
+    geom_point() +
+    scale_x_continuous(labels=scales::comma) +
+    geom_vline(xintercept = mean_SCG_count, color = "blue") +
+    SCG_detection_plot_theme + 
+    ylab(YLAB) +
+    xlab(XLAB) + 
+    ggtitle(glue("Single-copy core gene frequencies across {TITLE} (n = {X$genome_or_bin %>% length()}; mean = {mean_SCG_count})"))
+}
+
+plot_metagenome_SCGs_frequencies <- plot_metagenome_SCGs(Bacteria_71_METAGENOME_MATRIX, 
+                                                         YLAB = "Single-copy core genes (anvi'o Bacteria_71)",
+                                                         XLAB = "Total SCG counts",
+                                                         TITLE = "surface ocean metagenomes")
+```
+
+**Step 4.** Plot ribosomal protein detection across genome dataset
+
+```r
+DIR_PATH <- "" 
+
+Bacteria_71_GENOME_MATRIX <- read_tsv(path(DIR_PATH, "TABLES/Table_SI01.tsv"))
+
+plot_genome_SCGs <- function(X, TITLE, XLAB, YLAB) {
+  
+  SCG_MATRIX_long <- X %>% pivot_longer(-genome_or_bin) %>% rename(SCG = "name")
+  
+  # Get order of bar charts
+  percent_order <- X %>% 
+    pivot_longer(-genome_or_bin) %>% 
+    rename(SCG = "name") %>%
+    mutate(presence = case_when(value >= 1 ~ 1,
+                                value < 1  ~ 0)) %>%
+    group_by(SCG) %>%
+    summarize(total = sum(presence)) %>%
+    mutate(percent = (total/SCG_MATRIX_long$genome_or_bin %>% unique() %>% length())*100)
+  
+  
+  num_scgs <- SCG_MATRIX_long %>% .$SCG %>% unique() %>% length()
+  num_genomes <- SCG_MATRIX_long %>% .$genome_or_bin %>% unique() %>% length()
+  
+  SCG_MATRIX_long %>%
+    group_by(SCG) %>%
+    count(value) %>% 
+    mutate(percent_occ = n/sum(n)*100) %>%
+    mutate(value = as.character(value),
+           once = n[value == "1"]) %>%
+    left_join(percent_order) %>%
+    ggplot(aes(x =  fct_reorder(SCG, percent), y = percent_occ, fill = value)) +
+    geom_bar(stat="identity") +
+    SCG_detection_plot_theme + 
+    theme(legend.position="left") +
+    ylab(XLAB) +
+    xlab(YLAB) + 
+    ggtitle(glue("Single-copy core gene frequencies across {TITLE} (n = {X$genome_or_bin %>% length()})"))
+}
+
+plot_bacteria_SCG_frequency <- plot_genome_SCGs(Bacteria_71_GENOME_MATRIX, 
+                                                        YLAB = "Single-copy core genes (anvi'o Bacteria_71)",
+                                                        XLAB = "Percent of genome collection detected",
+                                                        TITLE = "surface ocean genomes")
+# Plot both plots at the same time!
+ggarrange(plot_bacteria_SCG_frequency, plot_metagenome_SCGs_frequencies, ncol = 2)
+```
+
+{% include IMAGE path="images/Figure_SI01.png" width=100 caption="Single-copy core genes detected across surface ocean genomic and metagenomic assembly datasets." %}
+
+### EcoPhylo interactive interface of the open surface ocean
+
+#### Post-processing EcoPhylo analysis
+
+Prior to investigating the results of phylogeography of ribosomal proteins across the surface ocean, we took multiple post-processing steps. Here are links to the methods paper described above which go into these steps in detail: 
+- [Removing genomes that are not detected in metagenomic samples](#removing-genomes-that-are-not-detected-in-metagenomic-samples)
+- [Calculating genome recovery rate](#calculating-genome-recovery-rate)
+- [Manually curate EcoPhylo tree](#manually-curate-ecophylo-tree): In this study, we calculated phylogenetic trees of large collections with thousands of ribosomal proteins which included sequences from all domains of life, including plastids and mitochondria, which in some cases yielded unusually long branches. This required manual curation, pruning, and tree recalculation to remove metagenome assembly artifacts and plastid/mitochondria ribosomal proteins, we manually inspected and removed  and recalculated the tree. You can read more details about this methodology here: [Manually curate EcoPhylo tree](#manually-curate-ecophylo-tree).
+
+#### Visualize ribosomal protein phylogeography with EcoPhylo
+
+Here is how you can explore all of the EcoPhylo interactive interfaces created for this paper!
+
+``` bash
+wget -O ECOPHYLO_INTERACTIVES_SURFACE_OCEAN.tar.gz https://figshare.com/ndownloader/files/53897114
+
+tar -xvzf ECOPHYLO_INTERACTIVES_SURFACE_OCEAN.tar.gz
+
+cd ECOPHYLO_INTERACTIVES_SURFACE_OCEAN
+
+$ tree
+.
+├── 00_README.md
+├── SURFACE_OCEAN
     ├── ECOPHYLO_WORKFLOW_surface_ocean_RP_L14
     │   ├── AUXILIARY-DATA.db
     │   ├── CONTIGS.db
@@ -1008,39 +1228,163 @@ $ tree
         └── PROFILE.db
 ```
 
-Loading them up is really easy! Please note that the `default` state will automatically load the interfaces used in this paper.
+{:.notice}
+Please note that the `default` EcoPhylo {% include ARTIFACT name="interative" %} states below were overwritten after manually adjusting dimensions and colors. The majority of the time, the raw output of EcoPhylo will requiring manually adjustments by the user in {% include PROGRAM name="anvi-interative" %} to create an informative, beautiful representation of the underlying data.
 
-### *rpL19* phylogeography in the human oral cavity
-
-Here is an example for open the phylogeography of *rpL19* across Shaiber et al. (2020). We also performed this analysis with *rpS15*, and *rpS2*. For all of the ORAL_CAVITY EcoPhylo interactive interface the `default` state will automatically load the interfaces used in this paper.
-
-``` bash
-anvi-interactive -p ORAL_CAVITY/ECOPHYLO_WORKFLOW_oral_cavity_RP_L19/PROFILE.db \ 
-                 -c ORAL_CAVITY/ECOPHYLO_WORKFLOW_oral_cavity_RP_L19/Ribosomal_L19-contigs.db
-```
-{% include IMAGE path="images/ecophylo_oral_cavity.png" width=100 caption="EcoPhylo analysis of *rpL19* across the human oral cavity" %}
-
-### *rpS15* phylogeography in the human gut
-
-Here is an example for open the phylogeography of *rpS15* across Carter et al. (2023). We also performed the analysis with *rpS16*, and *rpL19* which can be found in the figshare. For all of the ORAL_CAVITY EcoPhylo interactive interface the `default` state will automatically load the interfaces used in this paper.
-
-``` bash
-anvi-interactive -p HUMAN_GUT/ECOPHYLO_WORKFLOW_human_gut_RP_S15/PROFILE.db \
-                 -c HUMAN_GUT/ECOPHYLO_WORKFLOW_human_gut_RP_S15/CONTIGS.db
-```
-{% include IMAGE path="images/ecophylo_human_gut.png" width=100 caption="EcoPhylo analysis of *rpS15* across human gut microbiome samples from the Hadza tribe" %}
-
-### *rpL14* phylogeography across the surface ocean.
-
-Here is an example for open the phylogeography of *rpL14* across the surface ocean. We also performed the analysis with *rpS8*, and *rpS11* which can be found in the figshare directory. For all EcoPhylo interfaces, the `default` state will show all of the metagenomes used in the paper. If you would like to filter for only for only metagenomes with x \> 50 million reads to replicate the main figures in the text, please load the
-`deep_sequencing` state.
+Here is how to open main figure of the manuscript which represents the phylogeography of *rpL14* across the surface ocean. We also performed the analysis with *rpS8*, and *rpS11* which can be found in the figshare directory. For all EcoPhylo interfaces, the `default` state will show all of the metagenomes used in the paper. If you would like to filter for only for only metagenomes with x \> 50 million reads to replicate the main figures in the text, please load the `deep_sequencing` state.
 
 ``` bash
 anvi-interactive -p SURFACE_OCEAN/ECOPHYLO_WORKFLOW_surface_ocean_RP_L14/PROFILE.db \
                  -c SURFACE_OCEAN/ECOPHYLO_WORKFLOW_surface_ocean_RP_L14/CONTIGS.db
 ```
+
 {% include IMAGE path="images/ecophylo_ocean.png" width=100 caption="EcoPhylo analysis of *rpL14* across the global surface ocean" %}
 
 If you load the `deep_sequencing` state, you will reproduce the figure in the main text:
 
+``` bash
+anvi-interactive -p SURFACE_OCEAN/ECOPHYLO_WORKFLOW_surface_ocean_RP_L14/PROFILE.db \
+                 -c SURFACE_OCEAN/ECOPHYLO_WORKFLOW_surface_ocean_RP_L14/CONTIGS.db \
+                 --state-autoload deep_sequencing
+```
+
 {% include IMAGE path="images/ecophylo_ocean_deeply_sequenced.png" width=100 caption="EcoPhylo analysis of *rpL14* across the global surface ocean subsetted for metagenomes with x > 50 million reads" %}
+
+### Scatter plot of the number of SCGs recovered in assembled metagenomes vs sequencing depth from 237 surface ocean metagenomes.
+
+Metagenome sequencing depth can potentially impact the number of populations that can be assembled in genome-resolve metagenomics. To explore this, we looked at the relationship between sample read depths and the number of single-copy core genes detected in associated sample metagenomic assemblies.
+
+```r
+# load data
+DIR_PATH <- "" 
+reads_SCGs <- read_tsv(path(DIR_PATH, "TABLES/Table_SI04.tsv"))
+
+# Fit a linear model
+model <- lm(num_SCG ~ total_num_reads, data = reads_SCGs)
+summary(model)
+
+# Extract p-value and R-squared
+p_value <- summary(model)$coefficients[2, 4]  # p-value for the latitude term
+r_squared <- summary(model)$r.squared
+slope <- round(coef(model)[2], 5)  # Slope for abs_lat
+
+# Assign sample colors
+surface_ocean_project_colors <- c(TARA = "#E79B1B", TARA_arctic = "#9b00dd", BGEO = "#00c438", HOTS ="#ff0600", BATS = "#ff0600", Malaspina = "yellow", Pachiadaki = "Dark blue", Ross_Shelf = "Black") # Sample colors
+
+# plot lm
+num_SCG_sequencing_depth_lm_p <- reads_SCGs %>%
+  mutate(reads_millions = total_num_reads / 1e6) %>%
+  ggplot(aes(x = reads_millions, y = num_SCG, , group = interaction(Project, size_fraction))) +
+  geom_point(aes(shape = size_fraction, fill = Project), size = 4, color = "black") +
+  scale_shape_manual(values = c(21, 22, 24)) +
+  scale_fill_manual(name = "Project", values = surface_ocean_project_colors[!names(surface_ocean_project_colors) %in% c("Pachiadaki", "Ross_Shelf")]) +
+  geom_smooth(aes(group = 1), method = "lm", se = TRUE) +
+  annotate("text", x = 50, y = 20000, label = paste("p-value:", round(p_value, 3), "\nR²:", round(r_squared, 3), "\nSlope:", slope), 
+           hjust = 1, size = 5) +
+  xlab("Metagenomic sequencing depth (millions of reads)") +
+  ylab("Number of single-copy genes detected (Bacteria_71 marker set)") +
+  ggtitle("Recovery of Single-Copy Genes Scales with Metagenomic Sequencing Depth") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5),
+        legend.position="bottom") +
+  scale_y_continuous(labels = scales::comma)
+
+num_SCG_sequencing_depth_lm_p
+```
+{% include IMAGE path="images/Figure_SI03.png" width=100 caption="Scatter plot of the number of SCGs recovered in assembled metagenomes vs sequencing depth from 237 surface ocean metagenomes." %}
+
+### Regression analysis of latitude versus bacterial + archaeal *rpL14* richness from surface ocean metagenomes
+
+Here we examined the relationship between microbial community richness and latitude in the global surface ocean using ribosomal protein phylogeography. 
+
+```r
+DIR_PATH <- "" 
+
+data_deep_metagenomes <- read_tsv(path(DIR_PATH, "TABLES/Supplementary_Table_03.tsv"))
+
+model <- lm(richness ~ abs_lat, data = data_deep_metagenomes)
+summary(model)
+
+# Extract p-value and R-squared
+p_value <- summary(model)$coefficients[2, 4]  # p-value for the latitude term
+r_squared <- summary(model)$r.squared
+slope <- round(coef(model)[2], 2)  # Slope for abs_lat
+
+lat_richness_lm_p <- data_deep_metagenomes %>%
+  ggplot(aes(x = abs_lat, y = richness, fill = Project)) +
+    geom_point(shape = 21, size = 2) + 
+    geom_smooth(aes(group = 1), method = "lm", se = TRUE) +
+    annotate("text", x = 75, y = 800, label = paste("p-value:", round(p_value, 15), "\nR²:", round(r_squared, 3), "\nSlope:", slope), 
+             hjust = 1, size = 5) +
+    labs(x = "Absolute Latitude", y = "rpL14 Richness", title = "rpL14 richness vs. Absolute Latitude") +
+    theme_minimal() +
+    theme(legend.position="bottom")
+
+lat_richness_lm_p
+```
+
+{% include IMAGE path="images/Supplementary_Figure_03.png" width=100 caption="Regression analysis of latitude versus bacterial + archaeal rpL14 richness from surface ocean metagenomes" %}
+
+### Log mean Q2Q3 coverage of bacteria and archaea *rpL14* sequences by genome type across surface ocean.
+
+Relative abundance of a microbe can potentially impact it's ability to be recovered as a genome. We explore this relationship across metagenome-assembled genomes, single amplified genomes, and isolate genomes using *rpL14* phylogeography. 
+
+```r
+DIR_PATH <- "" 
+
+data <- read_tsv(path(DIR_PATH, "TABLES/Supplementary_Table_06.tsv"))
+
+data$log_mean_cov <- log10(data$mean_cov) # convert data to log10
+aov_model <- aov(log_mean_cov ~ genome_type, data = data)
+summary(aov_model)
+TukeyHSD(aov_model)
+
+box_plot_stats <- function(data, column, label.x, label.y, title, y_title){
+  
+  # Run ANOVA and Tukey HSD
+  formula <- as.formula(paste(column, "~ genome_type"))
+  aov_result <- aov(formula, data = data)
+  tukey_result <- TukeyHSD(aov_result)
+  
+  # Extract p-values from Tukey test
+  tukey_pvals <- tukey_result$genome_type[, "p adj"]
+  
+  # Create the basic plot
+  p <- ggboxplot(data, x = "genome_type", y = column,
+                # yscale = "log10",
+                add = "jitter", 
+                # fill = "genome_type", 
+                # palette = "jco"
+                ) +
+      # Global ANOVA p-value
+      stat_compare_means(method = "anova", label.x = label.x, label.y = label.y) +
+      theme(plot.title = element_text(hjust = 0.5),
+            legend.position="none") +
+      labs(title = title,
+           x = "Genome Recovery Method",
+           y = y_title)
+  
+  # Add annotations for Tukey HSD results
+  y_pos <- max(data[[column]], na.rm = TRUE) * c(1.2, 1.5, 1.8)  # Adjust these values
+
+  # Add brackets and p-values manually
+  p <- p +
+    geom_bracket(xmin = "MAG", xmax = "SAG", y.position = y_pos[1],
+                 label = paste("p =", round(tukey_pvals["SAG-MAG"], 15))) +
+    geom_bracket(xmin = "MAG", xmax = "NONE", y.position = y_pos[2],
+                 label = paste("p =", round(tukey_pvals["NONE-MAG"], 15))) +
+    geom_bracket(xmin = "SAG", xmax = "NONE", y.position = y_pos[3],
+                 label = paste("p =", round(tukey_pvals["SAG-NONE"], 15)))
+  
+  return(p)
+}
+
+box_plot_stats(data = data, 
+               column = "log_mean_cov", 
+               label.x = 3.8, 
+               label.y = 3,
+               title = "Log-MEAN Coverage by Genome Type (ANOVA and TukeyHSD)", 
+               y_title = "Mean Coverage (log10 scale)")
+```
+
+{% include IMAGE path="images/Supplementary_Figure_04.png" width=100 caption="Log mean Q2Q3 coverage of bacteria and archaea rpL14 sequences by genome type across surface ocean." %}
