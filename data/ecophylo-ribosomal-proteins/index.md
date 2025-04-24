@@ -302,12 +302,12 @@ over the GTDB representative genomes dataset. The script {% include PROGRAM name
 ``` bash
 # archaea
 anvi-script-gen-hmm-hits-matrix-across-genomes -e external-genomes-archaea.txt \
-                                                 --hmm-source Archaea_76 \
+                                               --hmm-source Archaea_76 \
                                                -o GTDB_representatives_refseq_external_genomes_archaea_GENOME_MATRIX.txt
 
 # bacteria
 anvi-script-gen-hmm-hits-matrix-across-genomes -e external-genomes-archaea.txt \
-                                                 --hmm-source Bacteria_71 \
+                                               --hmm-source Bacteria_71 \
                                                -o GTDB_representatives_refseq_external_genomes_bacteria_GENOME_MATRIX.txt
 ```
 
@@ -573,10 +573,14 @@ Here we used {% include PROGRAM name="anvi-script-gen-hmm-hits-matrix-across-gen
 
 ``` bash
 # Exctract SCGs across metagenome dataset
-anvi-script-gen-hmm-hits-matrix-across-genomes -e metagenomes.txt --hmm-source Bacteria_71 -o Bacteria_71_Oral_METAGENOME_MATRIX.txt
+anvi-script-gen-hmm-hits-matrix-across-genomes -e metagenomes.txt \
+                                               --hmm-source Bacteria_71 \
+                                               -o Bacteria_71_Oral_METAGENOME_MATRIX.txt
 
 # Exctract SCGs genome collection dataset
-anvi-script-gen-hmm-hits-matrix-across-genomes -e external_genomes_MAGs_HOMD.txt --hmm-source Bacteria_71 -o Bacteria_71_Oral_GENOME_MATRIX.txt
+anvi-script-gen-hmm-hits-matrix-across-genomes -e external_genomes_MAGs_HOMD.txt \
+                                               --hmm-source Bacteria_71 \
+                                               -o Bacteria_71_Oral_GENOME_MATRIX.txt
 ```
 
 **Step 3.** Plot ribosomal protein detection across metagenomic
@@ -973,7 +977,10 @@ wget -O ECOPHYLO_INTERACTIVES_METHODS.tar.gz https://figshare.com/ndownloader/fi
 tar -xvzf ECOPHYLO_INTERACTIVES_METHODS.tar.gz
 
 cd ECOPHYLO_INTERACTIVES_METHODS
+```
 
+Here is the content of that directory:
+``` bash
 $ tree
 .
 ├── 00_README.md
@@ -1086,10 +1093,14 @@ Here we used {% include PROGRAM name="anvi-script-gen-hmm-hits-matrix-across-gen
 
 ``` bash
 # Extract SCGs across metagenome dataset
-anvi-script-gen-hmm-hits-matrix-across-genomes -e metagenomes.txt --hmm-source Bacteria_71 -o Bacteria_71_METAGENOME_MATRIX.txt
+anvi-script-gen-hmm-hits-matrix-across-genomes -e metagenomes.txt \
+                                               --hmm-source Bacteria_71 \
+                                               -o Bacteria_71_METAGENOME_MATRIX.txt
 
 # Extract SCGs genome collection dataset
-anvi-script-gen-hmm-hits-matrix-across-genomes -e external_genomes.txt --hmm-source Bacteria_71 -o Bacteria_71_GENOME_MATRIX.txt
+anvi-script-gen-hmm-hits-matrix-across-genomes -e external_genomes.txt \
+                                               --hmm-source Bacteria_71 \
+                                               -o Bacteria_71_GENOME_MATRIX.txt
 ```
 
 **Step 3.** Plot ribosomal protein detection across metagenomic
@@ -1209,7 +1220,10 @@ wget -O ECOPHYLO_INTERACTIVES_SURFACE_OCEAN.tar.gz https://figshare.com/ndownloa
 tar -xvzf ECOPHYLO_INTERACTIVES_SURFACE_OCEAN.tar.gz
 
 cd ECOPHYLO_INTERACTIVES_SURFACE_OCEAN
+```
 
+Here are the contents of that directory:
+``` bash
 $ tree
 .
 ├── 00_README.md
