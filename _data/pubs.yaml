@@ -162,18 +162,21 @@ publications:
         /images/pubs/tucker_et_al_SAR11_2024.png
 
   - doi:
-      10.1101/2024.07.03.601779
+      10.1093/bioadv/vbaf039
     title:
-      "Adaptive adjustment of significance thresholds produces large gains in microbial gene annotations and metabolic insights"
+      "Adaptive adjustment of profile HMM significance thresholds improves functional and metabolic insights into microbial genomes"
     authors:
       Kathryn Kananen*, Iva Veseli*, Christian J Quiles Pérez, Samuel Miller, A Murat Eren, Patrick H Bradley
     journal:
-      bioRxiv
+      Bioinformatics Advances
     year:
-      2024
+      2025
     volume:
+      5
     number:
+      1
     pages:
+      vbaf039
     additional_info:
       highlights:
         - Demonstrates how functional annotations in and metabolic insights from microbial genomes can be substantially improved with adaptive tuning of hidden Markov model threshold while maintaining the accuracy of calls.

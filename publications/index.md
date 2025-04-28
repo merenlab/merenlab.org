@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2025-01-16
+modified: 2025-04-28
 comments: false
 image:
    display: true
@@ -33,6 +33,24 @@ This page lists publications that are most reflective of our interests. For a co
     </div>
     </div>
     <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Ribosomal+protein+phylogeography+offers+quantitative+insights+into+the+efficacy+of+genome-resolved+surveys+of+microbial+communities" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2025.01.15.633187" target="_blank">doi:10.1101/2025.01.15.633187</a></span>
+</div>
+
+<a id="10.1093/bioadv/vbaf039">&nbsp;</a>
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1093/bioadv/vbaf039"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1093/bioadv/vbaf039" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1093/bioadv/vbaf039" target="_new">Adaptive adjustment of profile HMM significance thresholds improves functional and metabolic insights into microbial genomes</a></span>
+    <span class="pub-authors">Kananen K<sup>☯</sup>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Veseli I<sup>☯</sup></span>, Pérez CJQ, Miller S, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Bradley PH</span>
+    <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors</span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/kananen_veseli_et_al_2024.png"><img src="/images/pubs/kananen_veseli_et_al_2024.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- Demonstrates how functional annotations in and metabolic insights from microbial genomes can be substantially improved with adaptive tuning of hidden Markov model threshold while maintaining the accuracy of calls.</span><br><span style="display: inline-block; padding-bottom: 5px;">- An application of this strategy to annotate genes in genomes from a wide range of microbial clades showed 3% to 20% increase in function annotation rates without having to change or update the models themselves.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Key scripts and the workflow are available on <a href="https://github.com/pbradleylab/2023-anvio-comparison" target="_blank">GitHub</a>.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>Bioinformatics Advances</b>, 5(1):vbaf039 | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Adaptive+adjustment+of+profile+HMM+significance+thresholds+improves+functional+and+metabolic+insights+into+microbial+genomes" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1093/bioadv/vbaf039" target="_blank">doi:10.1093/bioadv/vbaf039</a></span>
 </div>
 
 
@@ -84,28 +102,10 @@ This page lists publications that are most reflective of our interests. For a co
     <a href="/images/pubs/tucker_et_al_SAR11_2024.png"><img src="/images/pubs/tucker_et_al_SAR11_2024.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
     </div>
     <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- A study that investigates the ecological differentiation within SAR11, the most abundant group of heterotrophic bacteria in the global ocean, through genomic analysis of 71 newly isolated SAR11 strains from the tropical Pacific.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Integrates comparative genomics and environmental population genetics to show that habitat-specific distribution patterns among SAR11 subclades islinked to specific metabolic traits and these traits experience high selective pressures.</span>
+    <span style="display: inline-block; padding-bottom: 5px;">- A study that investigates the ecological differentiation within SAR11, the most abundant group of heterotrophic bacteria in the global ocean, through genomic analysis of 71 newly isolated SAR11 strains from the tropical Pacific.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Integrates comparative genomics and environmental population genetics to show that habitat-specific distribution patterns among SAR11 subclades are linked to a handful of metabolic traits, and genes that encode them experience higher levels of selective pressures compared to most other genes in the same genome.</span>
     </div>
     </div>
     <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Habitat-specificity+in+SAR11+is+associated+with+a+handful+of+genes+under+high+selection" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2024.12.23.630198" target="_blank">doi:10.1101/2024.12.23.630198</a></span>
-</div>
-
-<a id="10.1101/2024.07.03.601779">&nbsp;</a>
-<div class="pub">
-<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2024.07.03.601779"></div>
-<div class="__dimensions_badge_embed__" data-doi="10.1101/2024.07.03.601779" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <span class="pub-title"><a href="https://doi.org/10.1101/2024.07.03.601779" target="_new">Adaptive adjustment of significance thresholds produces large gains in microbial gene annotations and metabolic insights</a></span>
-    <span class="pub-authors">Kananen K<sup>☯</sup>, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Veseli I<sup>☯</sup></span>, Pérez CJQ, Miller S, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span>, Bradley PH</span>
-    <span class="pub-co-first-authors"><sup>☯</sup>Co-first authors</span>
-    <div class="pub-info">
-    <div class="pub-featured-image">
-    <a href="/images/pubs/kananen_veseli_et_al_2024.png"><img src="/images/pubs/kananen_veseli_et_al_2024.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
-    </div>
-    <div class="pub-highlights">
-    <span style="display: inline-block; padding-bottom: 5px;">- Demonstrates how functional annotations in and metabolic insights from microbial genomes can be substantially improved with adaptive tuning of hidden Markov model threshold while maintaining the accuracy of calls.</span><br><span style="display: inline-block; padding-bottom: 5px;">- An application of this strategy to annotate genes in genomes from a wide range of microbial clades showed 3% to 20% increase in function annotation rates without having to change or update the models themselves.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Key scripts and the workflow are available on <a href="https://github.com/pbradleylab/2023-anvio-comparison" target="_blank">GitHub</a>.</span>
-    </div>
-    </div>
-    <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Adaptive+adjustment+of+significance+thresholds+produces+large+gains+in+microbial+gene+annotations+and+metabolic+insights" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2024.07.03.601779" target="_blank">doi:10.1101/2024.07.03.601779</a></span>
 </div>
 
 <a id="10.1038/s41597-024-03778-z">&nbsp;</a>
