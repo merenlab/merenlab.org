@@ -17,6 +17,23 @@ This page lists publications that are most reflective of our interests. For a co
 
 ## 2025
 
+<a id="10.1101/2025.04.22.649783">&nbsp;</a>
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2025.04.22.649783"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1101/2025.04.22.649783" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1101/2025.04.22.649783" target="_new">Assemblies of long-read metagenomes suffer from diverse errors</a></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Trigodet F</span>, Sachdeva R, Banfield JF, <span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/trigodet_et_al_2025_assembly_errors.png"><img src="/images/pubs/trigodet_et_al_2025_assembly_errors.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A re-evaluation of the state-of-the-art long-read assembly algorithms, including metaMDBG, hiCanu, metaFlye, and hifiasm-meta, in which we observe and describe multi-domain chimeras, prematurely circularized sequences, haplotyping errors, excessive repeats, and phantom sequences in results 😬</span><br><span style="display: inline-block; padding-bottom: 5px;">- A reproducible bioinformatics workflow for the study is availabe <a href="https://merenlab.org/data/benchmarking-long-read-assemblers/" target="_blank">here</a>.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Also we have <a href="https://bsky.app/profile/floriantrigodet.bsky.social/post/3lnucr3jf322q" target="_blank">a BlueSky thread</a> by Florian Trigodet that includes a slightly more elaborate summary if you wish to join in the conversation.</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>bioRxiv</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Assemblies+of+long-read+metagenomes+suffer+from+diverse+errors" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1101/2025.04.22.649783" target="_blank">doi:10.1101/2025.04.22.649783</a></span>
+</div>
+
 <a id="10.1101/2025.01.15.633187">&nbsp;</a>
 <div class="pub">
 <div class='altmetric-embed' data-badge-type='donut' data-doi="10.1101/2025.01.15.633187"></div>
