@@ -510,7 +510,7 @@ do
     for sample in `sed 1d fasta.txt | cut -f1`
     do
         anvi-display-contigs-stats --report-as-text -o 05_CONTIGS_STATS/${sample}.txt 04_CONTIGS/${sample}-contigs.db
-  done
+    done
 done
 ```
 
@@ -531,7 +531,7 @@ do
     do
         if [ ${sample} = "name" ]; then continue; fi
         anvi-profile -i 02_MAPPING/${sample}/${sample}.bam -o 06_PROFILE/${sample} -T 60 -S ${sample} -c 04_CONTIGS/${sample}-contigs.db
-    done < ${assembler}/fasta.txt
+    done < fasta.txt
 done
 ```
 
@@ -561,7 +561,7 @@ do
 
         # collection for contig over 100 kbp
         awk 'NR>1{if($2>100000){print $1 "\t" $1}}' 01_ASSEMBLIES/${sample}/assembly_renamed_info.txt > 07_COLLECTION/${sample}-min100k.txt
-    done < ${assembler}/fasta.txt
+    done < fasta.txt
 done
 ```
 
@@ -738,7 +738,7 @@ do
         bedtools getfasta -fi 01_ASSEMBLIES/${sample}/assembly_renamed.fasta -bed 10_BLAST_ZERO_COVERAGE/${sample}/zero_cov_regions.bed > 10_BLAST_ZERO_COVERAGE/${sample}/zero_cov_regions.fa
 
         blastn -query 10_BLAST_ZERO_COVERAGE/${sample}/zero_cov_regions.fa -num_threads 5 -db $WD/LONG_READ_BLASTDB/${sample} -dust no -max_target_seqs 1 -outfmt 7 -out 10_BLAST_ZERO_COVERAGE/${sample}/zero_cov_regions_ouput.txt
-  done < fasta.txt
+    done < fasta.txt
 done
 ```
 
@@ -750,7 +750,7 @@ do
     grep -h -B2 "# 0 hits" ${assembler}/10_BLAST_ZERO_COVERAGE/*/zero_cov_regions_ouput.txt |\
         grep Query |\
         cut -d ' ' -f3 |\
-        awk -F ":" '{OFS="\t"; split($2, a, "-"); print $0, a[2]-a[1]}' > non_existing_sequence.txt
+        awk -F ":" '{OFS="\t"; split($2, a, "-"); print $0, a[2]-a[1]}' >> non_existing_sequence.txt
 done
 ```
 
@@ -870,13 +870,13 @@ And here is how I ran it:
 ```bash
 for assembler in HiCanu hifiasm-meta metaFlye metaMDBG-0.3 metaMDBG-1 metaMDBG-1-1
 do
-  for sample in `sed 1d samples.txt | cut -f1`
-  do
-    contig=${assembler}/04_CONTIGS/${sample}-contigs.db
-    profile=${assembler}/06_PROFILE/${sample}/PROFILE.db
-    echo -e "$assembler\t$sample\t$contig\t$profile" >> ${assembler}/input_prem_circular.txt
- done
-  ./circ_contigs_with_min_RPs.py --input-table ${assembler}/input_prem_circular.txt --min-RP 3 --output ${assembler}/circ_contigs_with_min_RPs.txt"
+    for sample in `sed 1d samples.txt | cut -f1`
+    do
+        contig=${assembler}/04_CONTIGS/${sample}-contigs.db
+        profile=${assembler}/06_PROFILE/${sample}/PROFILE.db
+        echo -e "$assembler\t$sample\t$contig\t$profile" >> ${assembler}/input_prem_circular.txt
+    done
+    ./circ_contigs_with_min_RPs.py --input-table ${assembler}/input_prem_circular.txt --min-RP 3 --output ${assembler}/circ_contigs_with_min_RPs.txt"
 done
 ```
 
