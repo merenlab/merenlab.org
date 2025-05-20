@@ -1104,7 +1104,7 @@ P <- function(df){
 }
 
 # Import the data
-blast <- read.table('dotplot.txt', sep = "\t")
+blast <- read.table('repeats_dotplot_all_assemblers', sep = "\t")
 colnames(blast) <- c('contig_id', 'xstart', 'xend', 'ystart', 'yend')
 
 # Select 50 random contigs per assembler
