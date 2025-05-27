@@ -15,14 +15,14 @@ monofont: "DejaVu Sans Mono"
 
 The purpose of this document is to share the details of the first week lectures and hands-on exercises for the  "**Ecology of marine microbes I (EMM)**". In the following sections you will find an hour-by-hour plan for our activities, learning objectives we will cover, as well as suggested reading material and datasets. All the other key information is at the very end of the page to ensure quick access to the schedule -- if this is the first time you are looking at this document, please take a look at those sections as well.
 
+{:.notice}
+Every lecture will take place in the main conference room of the new [HIFMB](https://hifmb.de) Building at [Im Technologiepark 526129 Oldenburg](https://g.co/kgs/1wRp7YP).
 
 ## Course Plan
 
 ### Day 1, Monday (02/06/25)
 
 The day of course logistics, discussions over microbial diversity, and a general overview of data-driven strategies to survey environmental microbiomes.
-
-**The location for Day 1 is V03 0-D001**.
 
 
 #### 09:00 - 09:30: Course Logistics
@@ -89,8 +89,6 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
 
 The day of genome resolved metagenomics, and pangenomics.
 
-**The location for Day 2 is V03 0-D001**.
-
 
 #### 09:00 - 11:00: **Genome-resolved metagenomics**: opportunities and pitfalls
 
@@ -156,8 +154,6 @@ So you can take a look at some of the papers linked above (or below), and/or ask
 
 The day of genome metapangenomics (building on what we discussed the day before) and phylogenomics.
 
-**The location for Day 3 is V03 0-D001 until 14:00, after which we will be at V03 0-C001 until 17:00**!
-
 #### 09:00 - 11:00: **Metapangenomics**: integrated interpretations of pangenomes and metagenomes
 
 * *Learning Objectives*:
@@ -209,8 +205,6 @@ The day of genome metapangenomics (building on what we discussed the day before)
 
 The day of metabolism.
 
-**The location for Day 4 is V03 0-D003 until noon, after which we will be at V03 0-C002 until 17:00**!
-
 #### 09:00 - 12:00: Inferring **microbial metabolism** in genomes and metagenomes
 
 * *Learning Objectives*:
@@ -257,8 +251,6 @@ The day of metabolism.
 ### Day 5, Friday (06/06/25)
 
 The day of genome microbial population genetics.
-
-**The location for Day 5 is V03 0-C002**.
 
 #### 09:00 - 10:30 **Microbial population genetics**: tools, terminology, and open questions
 
