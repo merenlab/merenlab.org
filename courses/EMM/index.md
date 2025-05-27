@@ -3,12 +3,12 @@ layout: page
 noleftpanel: true
 title: "Ecology of Marine Microbes (First Week)"
 author: "Course Plan"
-date: June, 2024
+date: May, 2025
 geometry: "left=3cm,right=3cm,top=2cm,bottom=2cm"
 output: syllabus.pdf
 colorlinks: true
 urlcolor: blue
-monofont: DejaVuSansMono.ttf
+monofont: "DejaVu Sans Mono"
 ---
 
 ## Preface
@@ -18,7 +18,7 @@ The purpose of this document is to share the details of the first week lectures 
 
 ## Course Plan
 
-### Day 1, Monday (10/06/24)
+### Day 1, Monday (02/06/25)
 
 The day of course logistics, discussions over microbial diversity, and a general overview of data-driven strategies to survey environmental microbiomes.
 
@@ -72,6 +72,7 @@ Please remember, we will have an activity break at 11:00.
 
 * *Suggested Reading*:
 
+  * Eren AM, Banfield JF (2024). [Modern microbiology: Embracing complexity through integration across scales](https://doi.org/10.1016/j.cell.2024.08.028). *Cell*.
   * Franzosa EA, et al (2015). [Sequencing and beyond: integrating
 molecular ‘omics’ for microbial community profiling](https://www.nature.com/articles/nrmicro3451). *Nature Reviews Microbiology*.
 
@@ -84,7 +85,7 @@ molecular ‘omics’ for microbial community profiling](https://www.nature.com/
 > You will find the exercise here: [https://merenlab.org/tutorials/read-recruitment/](https://merenlab.org/tutorials/read-recruitment/)
 
 
-### Day 2, Tuesday (11/06/24)
+### Day 2, Tuesday (03/06/25)
 
 The day of genome resolved metagenomics, and pangenomics.
 
@@ -151,7 +152,7 @@ So you can take a look at some of the papers linked above (or below), and/or ask
 > * What **functions seem to differ between the main groups of genomes**? Tip: you can use functional enrichment analyses to figure out if there are functions that systematically occur in one clade of *Bifidobacterum* but not the other.
 
 
-### Day 3, Wednesday (12/06/24)
+### Day 3, Wednesday (04/06/25)
 
 The day of genome metapangenomics (building on what we discussed the day before) and phylogenomics.
 
@@ -204,7 +205,7 @@ The day of genome metapangenomics (building on what we discussed the day before)
 > Once you are done, please compare your phylogenomic tree to the dendrogram you have obtained from the pangenomic analysis. If you want to get fancy, feel free to include 'additional' *Bifidobacterium* genomes from other species in this genus :)
 
 
-### Day 4, Thursday (13/06/24)
+### Day 4, Thursday (05/06/25)
 
 The day of metabolism.
 
@@ -253,7 +254,7 @@ The day of metabolism.
 >- [An older (and much simpler) tutorial on metabolism estimation](https://merenlab.org/tutorials/infant-gut/#chapter-v-metabolism-prediction)
 
 
-### Day 5, Thursday (14/06/24)
+### Day 5, Friday (06/06/25)
 
 The day of genome microbial population genetics.
 
