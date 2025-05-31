@@ -39,8 +39,6 @@ Making sure everyone who wishes to have anvi’o ([https://anvio.org](https://an
 
 #### 10:00 - 12:00: A brief introduction to **microbial life on Earth**
 
-Please remember, we will have an activity break at 11:00.
-
 * ***Learning Objectives***:
 
   * Describe the extent of microbial diversity on Earth, their involvement in key biogeochemical processes, as well as human health and disease
@@ -378,7 +376,7 @@ The title of the class citizenship email must follow this pattern **word-by-word
 
 For instance, the following would be the appropriate title for this email for the first day:
 
-> **EMM Class Citizenship: 10/06/24**
+> **EMM Class Citizenship: 02/06/25**
 
 The best class citizenship emails are those that are brief, genuine, and insightful. In an ideal world the emails should be no less than 50 words, and no more than 250 words. Please do not send notes you take throughout the class. You should use the last 15 minutes of the lecture to gather your thoughts, and come up with a summary of what you can remember. Here is an example class citizenship email:
 
