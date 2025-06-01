@@ -8,7 +8,7 @@ geometry: "left=3cm,right=3cm,top=2cm,bottom=2cm"
 output: syllabus.pdf
 colorlinks: true
 urlcolor: blue
-monofont: "DejaVu Sans Mono"
+monofont: "DejaVuSansMono.ttf"
 ---
 
 ## Preface
@@ -312,9 +312,8 @@ Lectures and exercises during this week will be led by [Prof. Dr. A. Murat Eren]
 |:---|:---|:---|:---|
 |**Meren**|Professor|Microbial Ecology, Computer Science|meren@hifmb.de|
 |**Sarahi**|Professor|Microbiology, Microbial Ecology|sarahi.garcia@uni-oldenburg.de|
-|**Iva Veseli**|Postdoc| Microbial Ecology, Computer Science|iva.veseli@hifmb.de|
 |**Jessika Füssel**|Postdoc|Microbial Metabolism, Biogeochemistry|jessika.fuessel@uol.de|
-|**Florian Trigodet**|Postdoc|Microbiology, Bioinformatics|florian.trigodet@hifmb.de|
+|**Florian Trigodet**|Senior Scientist|Microbiology, Bioinformatics|florian.trigodet@hifmb.de|
 
 Throughout the course (and beyond) you can reach out via email with any question to Meren, who should be your first contact for anything related to the course activities unless specified otherwise.
 
