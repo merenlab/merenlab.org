@@ -224,6 +224,12 @@ The day of metabolism.
 >
 > The data pack contains four microbial genomes, and your task is to investigate which of these organisms (if any) are capable of nitrogen cycling. Please use anvi'o to annotate these genomes with KOfams, and then run `anvi-estimate-metabolism` to calculate the completeness of metabolic pathways in the KEGG MODULE database. You should examine the output of that program to identify the completeness scores for nitrogen cycling pathways in each genome. You will find a list of all KEGG modules for nitrogen metabolism [at this link](https://www.genome.jp/entry/pathway+map00910). This list contains seven pathways for nitrogen fixation, nitrate reduction, denitrification, and nitrification.
 >
+> Please note that for the program `anvi-estimate-metabolism` to work on the contigs-db files in this data pack, you first need to run the following command to make sure you have the KEGG data to be set up on your computer:
+>
+> ```
+> anvi-setup-kegg-data --kegg-snapshot v2024-03-09
+> ```
+>
 > Your short report should answer the following questions:
 >
 >- Which nitrogen metabolism pathways are 'complete' in each genome? Please include in your answer their path-wise completeness scores and the score threshold that you are using (ie, the value of the `--module-completion-threshold` parameter).
