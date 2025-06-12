@@ -196,25 +196,6 @@
       inst_link: http://medicine.uchicago.edu/
       current: false
 
-- alias: matt
-  lab_member: True
-  name: Matthew Schechter
-  name_as_author: Matthew S Schechter
-  tenure_start: 10/2019
-  role: Graduate Student
-  email: mschechter@uchicago.edu
-  avatar: bio-matt.jpg
-  linkedin: matthewschechter
-  orcid: 0000-0002-8435-3203
-  twitter: mschecht_bio
-  github: mschecht
-  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
-  bio: "I am interested in combining comparative genomics and environmental metagenomics to identify genetic determinants of fitness in microbial populations in the human gut and ocean microbiome."
-  affiliations:
-    - title: Graduate Student
-      inst: Committee on Microbiology at the University of Chicago
-      inst_link: https://biomedsciences.uchicago.edu/page/microbiology
-
 - alias: iva
   lab_member: True
   name: Iva Veseli
@@ -366,6 +347,39 @@
 # Lab Alumni.
 ####################################################################################
 
+- alias: matt
+  lab_member: True
+  name: Matthew Schechter
+  name_as_author: Matthew S Schechter
+  nick_name: Matt
+  tenure_start: 10/2019
+  tenure_end: 02/2025
+  last_current_info_check: 2025
+  current_info: "A postdoctoral researcher in <a href='http://luis-barreirolab.org/' target='_blank'>Luis Barreiro's group</a> at UChicago"
+  contributions: "During his time with our gruop, he developed methods to leverage the growing number of environmental genomes and metagenomes to study the phylogeography of individual proteins. His work led to the creation of <a href='https://anvio.org/help/main/workflows/ecophylo/' target='_blank'>EcoPhylo</a>, an easy-to-use computational workflow that integrates ecological and evolutionary perspectives on gene families de novo."
+  role: Graduate Student
+  email: mschechter@uchicago.edu
+  avatar: bio-matt.jpg
+  linkedin: matthewschechter
+  orcid: 0000-0002-8435-3203
+  twitter: mschecht_bio
+  github: mschecht
+  address: Knapp Center for Biomedical Discovery, 900 E. 57th St., MB 9, RM 9148, Chicago, IL 60637 USA
+  bio: "I am interested in combining comparative genomics and environmental metagenomics to identify genetic determinants of fitness in microbial populations in the human gut and ocean microbiome."
+  affiliations:
+    - title: Post-doctoral Researcher
+      inst: Department of Medicine, University of Chicago
+      inst_link: http://uchicago.edu/
+      current: true
+    - title: Graduate Student
+      inst: Department of Medicine, University of Chicago
+      inst_link: http://uchicago.edu/
+      current: false
+    - title: Graduate Student
+      inst: Committee on Microbiology at the University of Chicago
+      inst_link: https://biomedsciences.uchicago.edu/page/microbiology
+      current: false
+
 - alias: cynthia
   lab_member: True
   name: Cynthia Wang
@@ -447,7 +461,7 @@
   tenure_start: 11/2019
   tenure_end: 9/2022
   nick_name: Sam
-  contributions: "Sam took on one of the most exciting challenges our group has to offer: taking advantage of the recent advances in high-throughput sequencing of short RNA molecules to make sense of microbial tRNA transcripts in complex habitats. Towards this goal, he developed novel and advanced open-source software tools to study all aspects of chemical modification and relative abundance analysis of tRNA transcripts, and combining them with tRNA genes, codons, and metabolisms found in genomes and metagenomes"
+  contributions: "Sam took on one of the most exciting challenges our group had to offer at that time: taking advantage of the recent advances in high-throughput sequencing of short RNA molecules to make sense of microbial tRNA transcripts in complex habitats. Towards this goal, he developed novel and advanced open-source software tools to study all aspects of chemical modification and relative abundance analysis of tRNA transcripts, and combining them with tRNA genes, codons, and metabolisms found in genomes and metagenomes"
   current_info: a Scientific Programmer for <a href="https://ccomp-stc.org/" target="_blank">the Center for Chemical Currencies of a Microbial Planet</a> at the <a href="https://mbl.edu" target="_blank">Marine Biological Laboratory</a>.
   last_current_info_check: 2024
   role: Post-doctoral Scientist
