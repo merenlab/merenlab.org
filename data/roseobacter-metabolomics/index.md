@@ -4,7 +4,7 @@ title: A reproducible workflow for Füssel et al. 2025
 modified: 2025-06-09
 excerpt: "A bioinformatics workflow for genomically constrained compound prediction in Roseobacter co-culture experiments"
 comments: true
-authors: [semiller10]
+authors: [sam]
 ---
 
 <div class="extra-info" markdown="1">
