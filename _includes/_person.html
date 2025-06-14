@@ -30,7 +30,7 @@
 
 {% include _group_photos_current.md %}
 
-<p class="persons-title" href="current" style="margin-top: 0px;">Current Members (sorted by name)<a name="current">&nbsp;</a></p>
+<h2 id="current" class="persons-title" style="margin-top: 0px;">Current Members (sorted by name)</h2>
 
 {% assign people_sorted = site.data.people | sort:"name" %}
 
@@ -46,7 +46,7 @@
         </div>
 
         <div class="person-info">
-          <h3>{{ person.name }} <span class="person-role"> ({{ person.role }})</span></h3>
+          <h3 id="{{ person.name | slugify }}">{{ person.name }} <span class="person-role"> ({{ person.role }})</span></h3>
             <div class="social-box">
               {% if person.web %}<a href="{{ person.web }}" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i> Web</a>{% endif %}
               {% if person.email %}<a href="mailto:{{ person.email }}" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a>{% endif %}
@@ -86,7 +86,7 @@
 
 <div class="collaborators">
 
-<p class="persons-title">Collaborators<a name="collaborators">&nbsp;</a></p>
+<h2 id="collaborators" class="persons-title" style="margin-top: 0px;">Collaborators</h2>
 
 <p class="notice">Those who work closely and actively with our group. It is a fact that we collaborate with many more researchers than what is shown below. The individuals below are those with whom we interact almost daily, who publish with our group very frequently, and with whom we always have something active. They are almost a member of our group with their contributions to our work, but they are just elsewhere.
 
@@ -102,7 +102,7 @@
         </div>
 
         <div class="person-info">
-          <h3>{{ person.name }}</h3>
+          <h3 id="{{ person.name | slugify }}">{{ person.name }}</h3>
 
             <div class="social-box">
               {% if person.web %}<a href="{{ person.web }}" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i> Web</a>{% endif %}
@@ -136,7 +136,7 @@
 
 <div class="alumni">
 
-<p class="persons-title">Alumni (sorted by date)<a name="alumni">&nbsp;</a></p>
+<h2 id="alumni" class="persons-title" style="margin-top: 0px;">Alumni (sorted by date)</h2>
 
 <p class="notice">Those who were officiallly affiliated with our group and continued their career elsewhere. If you see yourself or someone else below with outdated information, please edit <a href="https://github.com/merenlab/web/blob/master/_data/people.yml" style="color:red;">this</a> file.
 
@@ -152,7 +152,7 @@
         </div>
 
         <div class="person-info">
-          <h3>{{ person.name }}</h3>
+          <h3 id="{{ person.name | slugify }}">{{ person.name }}</h3>
 
             <div class="social-box">
               {% if person.web %}<a href="{{ person.web }}" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i> Web</a>{% endif %}
@@ -181,7 +181,7 @@
 
 <div class="community">
 
-<p class="persons-title">Community<a name="community">&nbsp;</a></p>
+<h2 id="community" class="persons-title" style="margin-top: 0px;">Community</h2>
 
 <p class="notice">Those who generously shared their experiences, opinions and/or computational expertise with us and others through blog posts that appeared on our web pages. If you see yourself or someone else below with outdated information, please edit <a href="https://github.com/merenlab/web/blob/master/_data/people.yml" style="color:red;">this</a> file.
 
@@ -197,7 +197,7 @@
         </div>
 
         <div class="person-info">
-          <h3>{{ person.name }}</h3>
+          <h3 id="{{ person.name | slugify }}">{{ person.name }}</h3>
             <div class="social-box">
               {% if person.web %}<a href="{{ person.web }}" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i> Web</a>{% endif %}
               {% if person.email %}<a href="mailto:{{ person.email }}" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a>{% endif %}
@@ -234,15 +234,14 @@
 
 <div class="visitors">
 
-<p class="persons-title">Visitors (sorted by arrival date)<a name="visitors">&nbsp;</a></p>
+<h2 id="visitors" class="persons-title" style="margin-top: 0px;">Visitors</h2>
 
 <p class="notice">Those who visited our laboratory for a period of a week or longer.
 
-<ul>
 {% for person in site.data.people %}
     {% if person.visitor %}
-    <li><u><a href="{{person.pers_link}}" id="aff-link" target="_blank">{{ person.name }}</a></u> (<i>{{ person.title }}</i>{% if person.department %}, <a href="{{person.dept_link}}" id="aff-link" target="_blank">{{ person.department }}</a>, {{ person.institute }}{% else %}, <a href="{{person.dept_link}}" id="aff-link" target="_blank">{{ person.institute }}</a>{% endif %} {{ person.country_flag }}) arrived on <b>{{ person.arrival }}</b> and stayed with us for about <b>{{ person.length_of_stay }}</b>. {% if person.notes %}{{ person.notes }}.{% endif %}{% if person.photos %}{% for photo in person.photos %}{% include IMAGE path=photo.url caption=photo.caption width='90' %}{% endfor %}{% endif %}</li>
+    <h3 id="{{ person.name | slugify }}">{{ person.name }}</h3>
+    <i>{{ person.title }}</i>{% if person.department %}, <a href="{{person.dept_link}}" id="aff-link" target="_blank">{{ person.department }}</a>, {{ person.institute }}{% else %}, <a href="{{person.dept_link}}" id="aff-link" target="_blank">{{ person.institute }}</a>{% endif %} {{ person.country_flag }}. Arrived on <b>{{ person.arrival }}</b> and stayed with us for about <b>{{ person.length_of_stay }}</b>. {% if person.notes %}{{ person.notes }}.{% endif %}{% if person.photos %}{% for photo in person.photos %}{% include IMAGE path=photo.url caption=photo.caption width='90' %}{% endfor %}{% endif %}</li>
     {% endif %}
 {% endfor %}
-</ul>
 </div>

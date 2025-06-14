@@ -18,8 +18,17 @@
     {% include _left-panel.html %}
   </div>
 
+  {% capture people_content %}
   {% include _person.html %}
+  {% endcapture %}
 
+   <section id="markdown-toc" class="toc">
+      <header><h3 id="toc-header"><i class="fa fa-book"></i> Table of Contents</h3></header>
+
+      <div id="drawer">{% include _toc.html html=people_content %}</div>
+  </section>
+
+ {{ people_content }}
 </div><!-- /#index -->
 
 <div class="footer-wrap">
