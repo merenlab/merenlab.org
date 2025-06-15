@@ -100,7 +100,7 @@
 {% for person in site.data.people %}
     {% if person.visitor %}
     <h3 id="{{ person.name | slugify }}">{{ person.name }}</h3>
-    <i>{{ person.title }}</i>{% if person.department %}, <a href="{{person.dept_link}}" id="aff-link" target="_blank">{{ person.department }}</a>, {{ person.institute }}{% else %}, <a href="{{person.dept_link}}" id="aff-link" target="_blank">{{ person.institute }}</a>{% endif %} {{ person.country_flag }}. Arrived on <b>{{ person.arrival }}</b> and stayed with us for about <b>{{ person.length_of_stay }}</b>. {% if person.notes %}{{ person.notes }}.{% endif %}{% if person.photos %}{% for photo in person.photos %}{% include IMAGE path=photo.url caption=photo.caption width='90' %}{% endfor %}{% endif %}</li>
+    {% if person.pers_link %}<a href="{{ person.pers_link }}" id="aff-link" target="_blank">{{ person.nick_name }}</a>{% else %}{{ person.nick_name }}{% endif %}, who was a {{ person.title }} at {% if person.department %}<a href="{{person.dept_link}}" id="aff-link" target="_blank">{{ person.department }}</a>, {{ person.institute }}{% else %}, <a href="{{person.dept_link}}" id="aff-link" target="_blank">{{ person.institute }}</a>{% endif %} {{ person.country_flag }}, arrived on <b>{{ person.arrival }}</b> and stayed with us for about <b>{{ person.length_of_stay }}</b>. {% if person.notes %}{{ person.notes }}.{% endif %}{% if person.photos %}{% for photo in person.photos %}{% include IMAGE path=photo.url caption=photo.caption width='90' %}{% endfor %}{% endif %}</li>
     {% endif %}
 {% endfor %}
 </div>

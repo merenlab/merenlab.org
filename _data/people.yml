@@ -1028,17 +1028,42 @@
 ####################################################################################
 
 - name: Amy D Willis
+  nick_name: Amy
   visitor: True
   arrival: 09/2024
   length_of_stay: "9 months"
   title: Professor
   department: Department of Biostatistics
   dept_link: https://www.biostat.washington.edu/
+  pers_link: https://statdivlab.github.io/
   institute: University of Washington
   country_flag: 🇺🇸
-  notes: "Amy's visit was more than a visit -- it was a true sabbatical during which we took advantage of the new genomes in public databases to investigate the codon variation landscape throughout the tree of life as a function of microbial ecology, evolution, and metabolism. Members of our group is forever thankful to the members of <a href='http://statisticaldiversitylab.com/'>Amy's own group</a> for sharing her with us."
+  notes: "Amy's visit was more than a visit -- it was a true sabbatical during which we took advantage of the new genomes in public databases to investigate the codon variation landscape throughout the tree of life as a function of microbial ecology, evolution, and metabolism. Members of our group is forever thankful to the members of <a href='https://statdivlab.github.io/' id='aff-link' target='_blank'>Amy's group</a> for sharing her with us"
+
+- name: Siyu Mei
+  nick_name: Mei
+  visitor: True
+  arrival: 03/2025
+  length_of_stay: 1 month
+  title: Graduate Student
+  department: Groningen Institute for Evolutionary Life Science
+  institute: University of Groningen
+  dept_link: https://www.rug.nl/research/gelifes/
+  country_flag: 🇳🇱
+
+- name: Chris Robinson
+  nick_name: Chris
+  visitor: True
+  arrival: 11/2024
+  length_of_stay: 6 weeks
+  title: Graduate Student
+  department: Department of Biology
+  institute: Indiana University
+  dept_link: https://bloomington.iu.edu/
+  country_flag: 🇺🇸
 
 - name: Eeva Eronen-Rasimus
+  nick_name: Eeva
   visitor: True
   arrival: 10/2024
   length_of_stay: 10 days
@@ -1053,6 +1078,7 @@
       url: /images/visitors/2024_pessi.jpg
 
 - name: Tommi Välikangas
+  nick_name: Tommi
   visitor: True
   arrival: 10/2024
   length_of_stay: 10 days
@@ -1063,6 +1089,7 @@
   pers_link: https://www.researchgate.net/profile/Tommi-Vaelikangas
 
 - name: Igor Pessi
+  nick_name: Igor
   visitor: True
   arrival: 10/2024
   length_of_stay: 10 days
@@ -1072,7 +1099,8 @@
   dept_link: https://www.syke.fi/en-US
   pers_link: https://igorpessi.com/
 
-- name: Steve Giovannoni
+- name: Stephen J Giovannoni
+  nick_name: Steve
   visitor: True
   pers_link: https://microbiology.oregonstate.edu/directory/stephen-j-giovannoni
   title: Professor
@@ -1088,6 +1116,7 @@
       url: /images/visitors/2024_journal_club_with_giovannoni.jpg
 
 - name: Arthur Cousson
+  nick_name: Arthur
   visitor: True
   arrival: 05/2024
   length_of_stay: "8 weeks"
@@ -1102,6 +1131,7 @@
       url: /images/visitors/2024_cousson_et_al.jpg
 
 - name: Oleg Vlasovets
+  nick_name: Oleg
   visitor: True
   arrival: 01/2024
   length_of_stay: "3 months"
@@ -1115,6 +1145,7 @@
       url: /images/visitors/2024_oleg_and_others.jpg
 
 - name: Mary Ann Moran
+  nick_name: Mary Ann
   visitor: True
   arrival: 10/2023
   length_of_stay: "a week"
@@ -1129,6 +1160,7 @@
       url: /images/visitors/2023_moran_mclellan_and_others.jpg
 
 - name: Sandra McLellan
+  nick_name: Sandra
   visitor: True
   arrival: 10/2023
   length_of_stay: "a week"
@@ -1140,6 +1172,8 @@
   pers_link: https://sites.uwm.edu/mclellanlab/
 
 - name: Jed Fuhrman
+  nick_name: Jed
+  visitor: True
   visitor: True
   arrival: 09/2022
   length_of_stay: "a week"
