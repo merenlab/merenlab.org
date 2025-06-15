@@ -36,55 +36,10 @@
 
 {% for person in people_sorted %}
     {% if person.lab_member and person.tenure_end == nil %}
-    <div class="person">
-        <div class="person-photo">
-        {% if person.avatar contains 'http' %}
-        	<img src="{{ person.avatar }}" class="person-photo-img" alt="{{ person.name }} bio photo">
-        {% else %}
-        	<img src="{{ site.url }}/images/{{ person.avatar }}" class="person-photo-img" alt="{{ person.name }} bio photo">
-        {% endif %}
-        </div>
-
-        <div class="person-info">
-          <h3 id="{{ person.name | slugify }}">{{ person.name }} <span class="person-role"> ({{ person.role }})</span></h3>
-            <div class="social-box">
-              {% if person.web %}<a href="{{ person.web }}" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i> Web</a>{% endif %}
-              {% if person.email %}<a href="mailto:{{ person.email }}" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a>{% endif %}
-              {% if person.twitter %}<a href="http://twitter.com/{{ person.twitter }}" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i> Twitter</a>{% endif %}
-              {% if person.google.plus %}<a href="http://plus.google.com/+{{ person.google.plus }}" class="person-social" target="_blank"><i class="fa fa-fw fa-google-plus-square"></i> Google+</a>{% endif %}
-              {% if person.linkedin %}<a href="http://linkedin.com/in/{{ person.linkedin }}" class="person-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a>{% endif %}
-              {% if person.github %}<a href="http://github.com/{{ person.github }}" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>{% endif %}
-              {% if person.stackoverflow %}<a href="http://stackoverflow.com/users/{{ person.stackoverflow }}" class="person-social" target="_blank"><i class="fa fa-fw fa-stack-overflow"></i> Stackoverflow</a>{% endif %}
-              {% if person.youtube %}<a href="https://youtube.com/user/{{ person.youtube }}" class="person-social" target="_blank"><i class="fa fa-fw fa-youtube-square"></i> Youtube</a>{% endif %}
-              {% if person.orcid %}<a href="https://orcid.org/{{ person.orcid }}" class="person-social" target="_blank"><i class="fa fa-fw fa-microphone"></i> ORCiD</a>{% endif %}
-              {% if person.address %}<br /><span class="person-social"><i class="fa fa-fw fa-map-marker"></i>Address: {{ person.address  }}</span>{% endif %}
-              {% if person.phone %}<br /><span class="person-social"><i class="fa fa-fw fa-phone"></i>Phone: {{ person.phone }}</span>{% endif %}
-              {% if person.fax %}<span class="person-social"><i class="fa fa-fw fa-fax"></i>Fax: {{ person.fax }}</span>{% endif %}
-
-            </div>
-
-          <p>{{ person.bio }}</p>
-
-            <div class="person-affiliations-papers-posts">
-                {% if person.affiliations %}
-                <span style="font-variant: all-small-caps;">Affiliations</span>
-                <ul class="person-affiliations">
-                {% for affiliation in person.affiliations %}
-                <li>{% if affiliation.current == false %}<code class="tags" id="past-affiliation">past</code>{% else %}<code class="tags" id="current-affiliation">current</code>{% endif %} {% if affiliation.title_link %}<a id="aff-link" target="_blank" href="{{ affiliation.title_link }}">{% endif %}<b>{{ affiliation.title }}</b>{% if affiliation.title_link %}</a>{% endif %}{% if affiliation.inst %}{% if affiliation.subtitle %} ({{ affiliation.subtitle}}){% endif %}. <a href="{{ affiliation.inst_link }}" id="aff-link" target="_blank">{{ affiliation.inst }}</a>{% endif %}{% if affiliation.inst_address %}, {{ affiliation.inst_address }}{% endif %}.</li>
-                {% endfor %}
-                </ul>
-                {% endif %}
-
-                {% include _person_pubs.html %}
-
-                {% include _person_posts.html %}
-            </div>
-        </div>
-    </div>
+        {% include _person.html current=true %}
     {% endif %}
 {% endfor %}
 
-<div class="collaborators">
 
 <h2 id="collaborators" class="persons-title" style="margin-top: 0px;">Collaborators</h2>
 
@@ -92,47 +47,9 @@
 
 {% for person in site.data.people %}
     {% if person.collaborator %}
-    <div class="person">
-        <div class="person-photo">
-        {% if person.avatar contains 'http' %}
-        	<img src="{{ person.avatar }}" class="person-photo-img" alt="{{ person.name }} bio photo">
-        {% else %}
-        	<img src="{{ site.url }}/images/{{ person.avatar }}" class="person-photo-img" alt="{{ person.name }} bio photo">
-        {% endif %}
-        </div>
-
-        <div class="person-info">
-          <h3 id="{{ person.name | slugify }}">{{ person.name }}</h3>
-
-            <div class="social-box">
-              {% if person.web %}<a href="{{ person.web }}" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i> Web</a>{% endif %}
-              {% if person.twitter %}<a href="http://twitter.com/{{ person.twitter }}" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i> Twitter</a>{% endif %}
-              {% if person.github %}<a href="http://github.com/{{ person.github }}" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>{% endif %}
-              {% if person.orcid %}<a href="https://orcid.org/{{ person.orcid }}" class="person-social" target="_blank"><i class="fa fa-fw fa-microphone"></i> ORCiD</a>{% endif %}
-            </div>
-
-          <p>{{ person.bio }}</p>
-
-          <div class="person-affiliations-papers-posts">
-              {% if person.affiliations %}
-              <ul class="person-affiliations">
-              {% for affiliation in person.affiliations %}
-              <li>{% if affiliation.title_link %}<a id="aff-link" target="_blank" href="{{ affiliation.title_link }}">{% endif %}{{ affiliation.title }}{% if affiliation.title_link %}</a>{% endif %}{% if affiliation.inst %}, <a href="{{ affiliation.inst_link }}" id="aff-link" target="_blank">{{ affiliation.inst }}</a>{% endif %}.</li>
-              {% endfor %}
-              </ul>
-              {% endif %}
-
-              {% include _person_pubs.html %}
-
-              {% include _person_posts.html %}
-        </div>
-
-        </div>
-    </div>
+        {% include _person.html collaborator=true %}
     {% endif %}
 {% endfor %}
-</div>
-
 
 <div class="alumni">
 
@@ -142,38 +59,7 @@
 
 {% for person in site.data.people %}
     {% if person.lab_member and person.tenure_end %}
-    <div class="person">
-        <div class="person-photo">
-        {% if person.avatar contains 'http' %}
-        	<img src="{{ person.avatar }}" class="person-photo-img" alt="{{ person.name }} bio photo">
-        {% else %}
-        	<img src="{{ site.url }}/images/{{ person.avatar }}" class="person-photo-img" alt="{{ person.name }} bio photo">
-        {% endif %}
-        </div>
-
-        <div class="person-info">
-          <h3 id="{{ person.name | slugify }}">{{ person.name }}</h3>
-
-            <div class="social-box">
-              {% if person.web %}<a href="{{ person.web }}" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i> Web</a>{% endif %}
-              {% if person.twitter %}<a href="http://twitter.com/{{ person.twitter }}" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i> Twitter</a>{% endif %}
-              {% if person.github %}<a href="http://github.com/{{ person.github }}" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>{% endif %}
-              {% if person.orcid %}<a href="https://orcid.org/{{ person.orcid }}" class="person-social" target="_blank"><i class="fa fa-fw fa-microphone"></i> ORCiD</a>{% endif %}
-            </div>
-
-          <p class="person-info-text">
-             {{ person.nick_name }} was a <b>{{ person.role }}</b> in our group between {{person.tenure_start}} and {{person.tenure_end}}.
-             {{ person.contributions }}.{% if person.current_info %} The last time we checked (which was in {{ person.last_current_info_check }}), {{ person.nick_name }} was <span class="person-current-info">{{ person.current_info }}</span>.{% endif %}
-          </p>
-
-          <div class="person-affiliations-papers-posts">
-              {% include _person_pubs.html %}
-
-              {% include _person_posts.html %}
-        </div>
-
-        </div>
-    </div>
+        {% include _person.html alumnus=true %}
     {% endif %}
 {% endfor %}
 </div>
@@ -187,45 +73,7 @@
 
 {% for person in site.data.people %}
     {% if person.community_member %}
-    <div class="person">
-        <div class="person-photo">
-        {% if person.avatar contains 'http' %}
-        	<img src="{{ person.avatar }}" class="person-photo-img" alt="{{ person.name }} bio photo">
-        {% else %}
-        	<img src="{{ site.url }}/images/{{ person.avatar }}" class="person-photo-img" alt="{{ person.name }} bio photo">
-        {% endif %}
-        </div>
-
-        <div class="person-info">
-          <h3 id="{{ person.name | slugify }}">{{ person.name }}</h3>
-            <div class="social-box">
-              {% if person.web %}<a href="{{ person.web }}" class="person-social" target="_blank"><i class="fa fa-fw fa-home"></i> Web</a>{% endif %}
-              {% if person.email %}<a href="mailto:{{ person.email }}" class="person-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i>Email</a>{% endif %}
-              {% if person.twitter %}<a href="http://twitter.com/{{ person.twitter }}" class="person-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i> Twitter</a>{% endif %}
-              {% if person.google.plus %}<a href="http://plus.google.com/+{{ person.google.plus }}" class="person-social" target="_blank"><i class="fa fa-fw fa-google-plus-square"></i> Google+</a>{% endif %}
-              {% if person.linkedin %}<a href="http://linkedin.com/in/{{ person.linkedin }}" class="person-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a>{% endif %}
-              {% if person.github %}<a href="http://github.com/{{ person.github }}" class="person-social" target="_blank"><i class="fa fa-fw fa-github"></i> Github</a>{% endif %}
-              {% if person.orcid %}<a href="https://orcid.org/{{ person.orcid }}" class="person-social" target="_blank"><i class="fa fa-fw fa-microphone"></i>ORCiD</a>{% endif %}
-
-            </div>
-
-          <p>{{ person.bio }}</p>
-
-          <div class="person-affiliations-papers-posts">
-              {% if person.affiliations %}
-              <ul class="person-affiliations">
-              {% for affiliation in person.affiliations %}
-              <li>{% if affiliation.title_link %}<a id="aff-link" target="_blank" href="{{ affiliation.title_link }}">{% endif %}{{ affiliation.title }}{% if affiliation.title_link %}</a>{% endif %}{% if affiliation.inst %}, <a href="{{ affiliation.inst_link }}" id="aff-link" target="_blank">{{ affiliation.inst }}</a>{% endif %}.</li>
-              {% endfor %}
-              </ul>
-              {% endif %}
-
-              {% include _person_pubs.html %}
-
-              {% include _person_posts.html %}
-        </div>
-        </div>
-    </div>
+        {% include _person.html community=true %}
     {% endif %}
 {% endfor %}
 </div>
