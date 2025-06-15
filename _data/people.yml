@@ -283,8 +283,13 @@
       inst_link: https://www.mpi-bremen.de/en/Home.html
       current: false
 
+####################################################################################
+# Honorary members
+####################################################################################
+
+
 - alias: kiki
-  lab_member: True
+  honorary_member: True
   name: Kiki Füßel
   web: https://twitter.com/merenbey/status/1196919880680914944
   tenure_start: 11/2019

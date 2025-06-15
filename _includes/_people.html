@@ -40,6 +40,17 @@
     {% endif %}
 {% endfor %}
 
+<h2 id="honorary" class="persons-title" style="margin-top: 0px;">Honorary Members</h2>
+
+{% assign people_sorted = site.data.people | sort:"name" %}
+
+{% for person in people_sorted %}
+    {% if person.honorary_member and person.tenure_end == nil %}
+        {% include _person.html current=true %}
+    {% endif %}
+{% endfor %}
+
+
 
 <h2 id="collaborators" class="persons-title" style="margin-top: 0px;">Collaborators</h2>
 
