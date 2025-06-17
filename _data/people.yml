@@ -300,6 +300,27 @@
   affiliations:
     - title: Therapy Dog
 
+- alias: juniper
+  honorary_member: True
+  name: Juniper Veseli
+  tenure_start: 11/2024
+  role: Food Safety Officer
+  avatar: bio-juniper.jpg
+  address: Helmholtz Institute for Functional Marine Biodiversity (HIFMB), Im Technologiepark 5, 26129 Oldenburg, Germany
+  bio: "When I'm not investigating biofilms on food and kitchen counters, I am a social scientist studying the efficacy of different human manipulation techniques. To participate in my research study on cuddling, please contact my study coordinator, Iva."
+  affiliations:
+    - title: Cat
+
+- alias: princess
+  honorary_member: True
+  name: Princess Peach Trigodet
+  tenure_start: 11/2024
+  role: Princess
+  avatar: bio-princess.jpg
+  address: Helmholtz Institute for Functional Marine Biodiversity (HIFMB), Im Technologiepark 5, 26129 Oldenburg, Germany
+  bio: "In addition to ruling over my domain (and my sister, Juniper), I dabble in materials research by investigating the durability of materials to dental stress. My specialty is cardboard and silicone. If you must be graced by my presence, you may arrange an audience through Florian."
+  affiliations:
+    - title: Her Majesty
 
 ####################################################################################
 # Lab Alumni.
