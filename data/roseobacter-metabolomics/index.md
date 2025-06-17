@@ -534,3 +534,42 @@ feature_table = feature_table[last_col_names + first_col_names]
 
 ### Add database isomers
 
+```python
+# Keys are (<formula>, <charge>), values are {<source of isomers>: [(<ModelSEED compound ID>, <ModelSEED compound name>)]}.
+compound_isomers: dict[tuple[str, int], dict[str, list[tuple[str, str]]]] = {}
+# Load the ModelSEED database from the default anvi'o installation location.
+modelseed_db = rn.ModelSEEDDatabase()
+compounds_table = modelseed_db.compounds_table
+
+# Subset compounds with KEGG aliases.
+compounds_with_kegg_alias_table = compounds_table[compounds_table['KEGG'].notna()]
+
+# Subset compounds that participate in KEGG reactions.
+kegg_reactions_table = modelseed_db.kegg_reactions_table
+kegg_reaction_compound_ids = []
+for compound_ids in kegg_reactions_table['compound_ids']:
+    if not isinstance(compound_ids, str):
+        continue
+    compound_ids: str
+    if compound_ids.strip() == '':
+        continue
+    for compound_id in compound_ids.split(';'):
+        kegg_reaction_compound_ids.append(compound_id)
+kegg_reaction_compound_ids = sorted(set(kegg_reaction_compound_ids))
+select_rows = []
+for row in compounds_with_kegg_alias_table.itertuples():
+    if row.Index in kegg_reaction_compound_ids:
+        select_rows.append(row)
+compounds_with_kegg_reaction_table = pd.DataFrame(select_rows).set_index('Index')
+
+for feature_row in feature_table.itertuples():
+    formula = feature_row.search_formula
+    charge = feature_row.search_charge
+    compound_isomers[(formula, charge)] = isomers = {'modelseed_isomers': [], 'kegg_isomers': [], 'kegg_isomers_with_reaction': []}
+    for compound_row in compounds_table[(compounds_table['formula'] == formula) & (compounds_table['charge'] == charge)].itertuples():
+        isomers['modelseed_isomers'].append((compound_row.Index, compound_row.name))
+    for compound_row in compounds_with_kegg_alias_table[(compounds_with_kegg_alias_table['formula'] == formula) & (compounds_with_kegg_alias_table['charge'] == charge)].itertuples():
+        isomers['kegg_isomers'].append((compound_row.Index, compound_row.name))
+    for compound_row in compounds_with_kegg_reaction_table[(compounds_with_kegg_reaction_table['formula'] == formula) & (compounds_with_kegg_reaction_table['charge'] == charge)].itertuples():
+        isomers['kegg_isomers_with_reaction'].append((row.Index, row.name))
+```
