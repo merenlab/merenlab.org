@@ -2,7 +2,7 @@
 layout: page
 title: A reproducible workflow for Füssel et al. 2025
 modified: 2025-06-09
-excerpt: "A bioinformatics workflow for genomically constrained compound prediction in Roseobacter co-culture experiments"
+excerpt: "A bioinformatics workflow for genomically guided compound prediction in Roseobacter co-culture experiments"
 comments: true
 authors: [sam]
 ---
@@ -13,7 +13,7 @@ authors: [sam]
 
 **The purpose of this page** is to provide access to our bioinformatics workflow that predicted compound identifications of molecular features in our study titled "**Bacterial interactions shape the molecular composition of dissolved organic matter**" by Füssel et al.
 
-In addition to providing transparency in our methods, this workflow can be used as the basis for genomically constrained compound prediction in other metabolomics experiments, which will also help refine and validate the approach.
+In addition to providing transparency in our methods, this workflow can be used as the basis for genomically guided compound prediction in other metabolomics experiments, which will also help refine and validate the approach.
 
 </div>
 
@@ -89,7 +89,7 @@ There is the possibility that the true compound represented by a formula is not 
 
 This workflow uses the development version of [anvi'o](https://anvio.org) (`8-dev`), which you can install and activate following [anvi'o installation instructions](https://anvio.org/install/#development-version). Any more recent version of anvi'o should also work successfully. Load the anvi'o conda environment before running the workflow. The ModelSEED database should be installed in the default location for the anvi'o environment by {% include PROGRAM name="anvi-setup-modelseed-database" %}.
 
-The computational demands of reproducing the workflow are minimal, all commands below should run within a few minutes or lesss on a modest laptop.
+The computational demands of reproducing the workflow are minimal, all commands below should run within a few minutes or less on a modest laptop.
 
 
 ### The data pack
@@ -113,7 +113,7 @@ tar -zxvf roseobacter-metabolomics.tar.gz
 cd roseobacter-metabolomics
 ```
 
-If you are here, you should be looking at a directory structure that looks like this:
+If you are here, you should be looking at a directory structure like this:
 
 ```
 .
@@ -126,7 +126,7 @@ If you are here, you should be looking at a directory structure that looks like 
 
 ### Genomes
 
-The files with the extension `.db` represent the four isolate genomes were sequenced with PacBio Hifi long reads. To include them in our cmputational workflows we used the anvi'o program {% include PROGRAM name="anvi-gen-contigs-database" %} to turn the FASTA files into so called {% include ARTIFACT name="contigs-db" %} files for downstream analyses. This file format contains much more information than a FASTA file, including gene coordinates, function annotations, and metabolic module membership of individual genes that will be essential to have in this workflow.
+The files with the extension `.db` represent the four isolate genomes sequenced with PacBio Hifi long reads. To include them in our computational workflows we used the anvi'o program {% include PROGRAM name="anvi-gen-contigs-database" %} to turn the FASTA files into so-called {% include ARTIFACT name="contigs-db" %} files for downstream analyses. This file format contains much more information than a FASTA file, including gene coordinates, function annotations, and metabolic module membership of individual genes that will be essential to have in this workflow.
 
 You can use the program {% include PROGRAM name="anvi-db-info" %} to learn more about the contents of a given {% include ARTIFACT name="contigs-db" %}:
 
@@ -218,7 +218,7 @@ anvi-export-contigs -c SH22-CONTIGS.db -o SH22.fa
 
 The other file in this data pack, `roseobacter-metabolomics-data.tsv`, contains the processed spectral data, including monoisotopic molecular formulas and sample abundances. This is the same file that appears in our publication by Füssel et al. as the SI Table 2b.
 
-This is how the first few lines of this table looks like, so you can browse individual colukns included:
+This is how the first few lines of this table looks like, so you can browse the individual columns that are included:
 
 |**`mz`**|**`diff`**|**`reference`**|**`formula`**|**`formula_isotopefree`**|**`formula_ion`**|**`homseries`**|**`totalc`**|**`HC`**|**`OC`**|**`C`**|**`H`**|**`O`**|**`N`**|**`S`**|**`P`**|**`MDL_3`**|**`ResPow`**|**`m1`**|**`SE`**|**`present_in`**|**`AI`**|**`AImod`**|**`DBE`**|**`Aromatic`**|**`AromaticO_rich`**|**`AromaticO_poor`**|**`Highlyunsaturated`**|**`HighlyunsaturatedO_rich`**|**`HighlyunsaturatedO_poor`**|**`Unsaturated`**|**`UnsaturatedO_rich`**|**`UnsaturatedO_poor`**|**`UnsaturatedwithN`**|**`Saturated`**|**`SaturatedO_rich`**|**`SaturatedO_poor`**|**`mean_signal_to_MDL`**|**`homnetworkmember`**|**`diff_filter`**|**`alternative_formula`**|**`SH4_Start`**|**`SH22_Start`**|**`SH24_Start`**|**`SH40_Start`**|**`SH22_SH4_Start`**|**`SH24_SH4_Start`**|**`SH4_SH40_Start`**|**`SH22_SH24_Start`**|**`SH22_SH40_Start`**|**`SH24_SH40_Start`**|**`SH22_SH24_SH4_Start`**|**`SH22_SH4_SH40_Start`**|**`SH24_SH4_SH40_Start`**|**`SH22_SH24_SH40_Start`**|**`SH22_SH24_SH4_SH40_Start`**|**`SH4_Final`**|**`SH22_Final`**|**`SH24_Final`**|**`SH40_Final`**|**`SH22_SH4_Final`**|**`SH24_SH4_Final`**|**`SH4_SH40_Final`**|**`SH22_SH24_Final`**|**`SH22_SH40_Final`**|**`SH24_SH40_Final`**|**`SH22_SH24_SH4_Final`**|**`SH22_SH4_SH40_Final`**|**`SH24_SH4_SH40_Final`**|**`SH22_SH24_SH40_Final`**|**`SH22_SH24_SH4_SH40_Final`**|
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
@@ -255,7 +255,6 @@ This is how the first few lines of this table looks like, so you can browse indi
 
 ## Creating the reaction networks
 
-
 The workflow was originally implemented in a Jupyter notebook that used anvi'o libraries that processed the anvi'o {% include ARTIFACT name="reaction-network" %}
 
 Python cells of the Jupyter notebook are split up into sections of this workflow document with accompanying explanations and analyses of the output. If you wish to follow along interactively in Python, you can enter `python3` in your terminal and run the code blocks sequentially. The following package imports are first required in the Python interactive shell.
@@ -274,7 +273,7 @@ from typing import Iterable
 from collections import defaultdict
 ```
 
-Imports from anvi'o will fail if the anvi'o package isn't in the Python module search path, a problem that can arise in Jupyter notebooks. If you have used the standard installation isntructions on anvi'o installation page, running this command should solve that issue:
+Imports from anvi'o will fail if the anvi'o package isn't in the Python module search path, a problem that can arise in Jupyter notebooks. If you have used the standard installation instructions on the anvi'o installation page, running this command should solve that issue:
 
 ```python
 sys.path.append('~/github/anvio')
@@ -290,7 +289,7 @@ import anvio.reactionnetwork as rn
 
 ### Genomic networks
 
-Th four {% include ARTIFACT name="contigs-db" %} files in our data pack for the four strains we have worked with contain gene calls with KO annotations and reaction networks based on the KOs. Genes were annotated with KOs using {% include PROGRAM name="anvi-run-kegg-kofams" %}, and networks were constructed with {% include PROGRAM name="anvi-reaction-network" %}.
+The four {% include ARTIFACT name="contigs-db" %} files in our data pack for the four strains we have worked with contain gene calls with KO annotations and reaction networks based on the KOs. Genes were annotated with KOs using {% include PROGRAM name="anvi-run-kegg-kofams" %}, and networks were constructed with {% include PROGRAM name="anvi-reaction-network" %}.
 
 List the strains and their database files. Load reaction networks into memory. The dictionary of reaction networks is keyed by a tuple, as co-culture "metagenomic" reaction networks keyed by tuples of strain IDs will be added to the dictionary.
 
@@ -443,7 +442,7 @@ On average 40.8% of compounds in the "EC+KEGG" network are removed ignoring high
 
 ## Prepare metabolomics data
 
-Load the metabolomics data table, SI Table 2b from the paper. Each row represents a monoisotopic molecular features.
+Load the metabolomics data table, SI Table 2b from the paper. Each row represents a monoisotopic molecular feature.
 
 ```python
 roseobacter_metabolomics_df = pd.read_csv('roseobacter-metabolomics-data.tsv', sep='\t', header=0)
