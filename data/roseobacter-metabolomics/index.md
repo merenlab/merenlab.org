@@ -333,44 +333,78 @@ len(si_table_2b) == si_table_2b['formula_isotopefree'].nunique()
 Add formulas for deprotonated versions of compounds as they may exist in the aqueous solution of cultures and the ModelSEED database used to populate compounds in reaction networks. Allow up to 2 hydrogens, 1 per oxygen, to be removed from each neutral formula. It does not make sense to remove 3 hydrogens in searching for common metabolites, since there are few with a -3 charge -- primarily the tricarboxylic acids citrate, isocitrate, and aconitate in the TCA cycle.
 
 ```python
-min_protons_subtracted = 1
-max_protons_subtracted = 2
-formula_data = si_table_2b[['formula', 'formula_isotopefree', 'O', 'H']]
+new_rows = []
+new_idx = 0
+for _, row in feature_table.iterrows():
+    new_row = row.drop(['formula_isotopefree_minus_1_H', 'formula_isotopefree_minus_2_H'])
+    new_row.name = new_idx
+    new_row['search_formula'] = row['formula_isotopefree']
+    new_row['search_charge'] = 0
+    new_rows.append(new_row)
+    new_idx += 1
+    break
 
-deprot_rows = []
-for _, row in formula_data.iterrows():
-    formula_isotopefree = row.formula_isotopefree
+    if not row['formula_isotopefree_minus_1_H']:
+        continue
+    new_row = row.drop(['formula_isotopefree_minus_1_H', 'formula_isotopefree_minus_2_H'])
+    new_row.name = new_idx
+    new_row['search_formula'] = row['formula_isotopefree_minus_1_H']
+    new_row['search_charge'] = -1
+    new_rows.append(new_row)
+    new_idx += 1
 
-    atom_count = {}
-    for atomic_entry in row.formula.split():
-        atom, count = atomic_entry.split('_')
-        count = int(count)
-        atom_count[atom] = count
+    if not row['formula_isotopefree_minus_2_H']:
+        continue
+    new_row = row.drop(['formula_isotopefree_minus_1_H', 'formula_isotopefree_minus_2_H'])
+    new_row.name = new_idx
+    new_row['search_formula'] = row['formula_isotopefree_minus_2_H']
+    new_row['search_charge'] = -2
+    new_rows.append(new_row)
+    new_idx += 1
 
-    deprot_row = []
-    for num_protons_subtracted in range(min_protons_subtracted, max_protons_subtracted + 1):
-        if num_protons_subtracted > row.O:
-            deprot_row.append('')
-            continue
+feature_table = pd.DataFrame(new_rows)
+last_col_names = ['search_formula', 'search_charge']
+first_col_names = feature_table.columns.tolist()[: -2]
+feature_table = feature_table[last_col_names + first_col_names]
+```
 
-        new_atom_count = atom_count.copy()
-        new_atom_count['H'] = atom_count['H'] - num_protons_subtracted
+Make a new version of the table with a row per formula protonation state.
 
-        new_formula_isotopefree = ''
-        for atom, count in new_atom_count.items():
-            new_formula_isotopefree += f'{atom}{count}' if count > 1 else atom
-        deprot_row.append(new_formula_isotopefree)
-    deprot_rows.append(deprot_row)
+```python
+new_rows = []
+new_idx = 0
+for _, row in feature_table.iterrows():
+    new_row = row.drop(['formula_isotopefree_minus_1_H', 'formula_isotopefree_minus_2_H'])
+    new_row.name = new_idx
+    new_row['search_formula'] = row['formula_isotopefree']
+    new_row['search_charge'] = 0
+    new_rows.append(new_row)
+    new_idx += 1
+    break
 
-header = [f'formula_isotopefree_minus_{num_protons_subtracted}_H' for num_protons_subtracted in range(min_protons_subtracted, max_protons_subtracted + 1)]
-deprot_table = pd.DataFrame(deprot_rows, columns=header)
+    if not row['formula_isotopefree_minus_1_H']:
+        continue
+    new_row = row.drop(['formula_isotopefree_minus_1_H', 'formula_isotopefree_minus_2_H'])
+    new_row.name = new_idx
+    new_row['search_formula'] = row['formula_isotopefree_minus_1_H']
+    new_row['search_charge'] = -1
+    new_rows.append(new_row)
+    new_idx += 1
 
-insert_after_col = 'formula_isotopefree'
-before = si_table_2b.loc[:, :insert_after_col]
-after = si_table_2b.loc[:, si_table_2b.columns > insert_after_col]
-feature_table = pd.concat([before, deprot_table, after], axis=1)
+    if not row['formula_isotopefree_minus_2_H']:
+        continue
+    new_row = row.drop(['formula_isotopefree_minus_1_H', 'formula_isotopefree_minus_2_H'])
+    new_row.name = new_idx
+    new_row['search_formula'] = row['formula_isotopefree_minus_2_H']
+    new_row['search_charge'] = -2
+    new_rows.append(new_row)
+    new_idx += 1
+
+feature_table = pd.DataFrame(new_rows)
+last_col_names = ['search_formula', 'search_charge']
+first_col_names = feature_table.columns.tolist()[: -2]
+feature_table = feature_table[last_col_names + first_col_names]
 ```
 
 ### Add database isomers
-
 
