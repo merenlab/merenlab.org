@@ -609,3 +609,20 @@ for feature_row in feature_table.itertuples():
     for compound_row in compounds_with_kegg_reaction_table[(compounds_with_kegg_reaction_table['formula'] == formula) & (compounds_with_kegg_reaction_table['charge'] == charge)].itertuples():
         isomers['kegg_isomers_with_reaction'].append((row.Index, row.name))
 ```
+
+A minority of molecular formulas match database compounds. A greater proportion of neutral formulas match database compounds than speculative deprotonated formulas with a -1 charge, and more -1 formulas match database compounds than -2 formulas.
+
+- 4522 formulas with a charge of 0 will be searched against reaction networks
+  - 667 match ModelSEED compounds, 3.4 isomers per formula on average
+  - 554 match KEGG compounds, 2.8 isomers per formula on average
+  - 280 match KEGG compounds in a reaction, 2.2 isomers per formula on average
+- 4414 formulas with a charge of -1 will be searched against reaction networks
+  - 243 match ModelSEED compounds, 2.7 isomers per formula on average
+  - 189 match KEGG compounds, 2.2 isomers per formula on average
+  - 130 match KEGG compounds in a reaction, 1.9 isomers per formula on average
+- 4181 formulas with a charge of -2 will be searched against reaction networks
+  - 73 match ModelSEED compounds, 2.1 isomers per formula on average
+  - 50 match KEGG compounds, 1.8 isomers per formula on average
+  - 40 match KEGG compounds in a reaction, 2.0 isomers per formula on average
+
+Since reaction network compounds must be in ModelSEED, these statistics also show the upper bound on the number of formulas that may be identified in the genomes.
