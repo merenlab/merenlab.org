@@ -566,7 +566,9 @@ first_col_names = feature_table.columns.tolist()[: -2]
 feature_table = feature_table[last_col_names + first_col_names]
 ```
 
-### Add database isomers
+### Find database isomers
+
+Find compounds in the ModelSEED Biochemistry database with molecular formulas, including deprotonated formulas. To help evaluate the number of possible biomolecular isomers that could exist as part of controlling false positive compound matches (see the section, [Known biological isomers](#known-biological-isomers)), subset isomeric compounds in the KEGG compound database, and those that participate in KEGG reactions.
 
 ```python
 # Keys are (<formula>, <charge>), values are {<source of isomers>: [(<ModelSEED compound ID>, <ModelSEED compound name>)]}.
