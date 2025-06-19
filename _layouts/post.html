@@ -11,7 +11,10 @@
 
 {% include _browser-upgrade.html %}
 
+{% if page.nonavigation == true %}
+{% else %}
 {% include _navigation.html %}
+{% endif %}
 
 {% include _imagewrap.html %}
 
