@@ -38,7 +38,7 @@ Growth in co-culture contrasted with growth in monoculture. Growth curves exceed
 
 ### Untargeted metabolomics
 
-Exometabolomes were measured in duplicate from the supernatant of each biological replicate at the beginning of the experiment and after 255 hours. DOM was extracted via Priority PolLutant SPE cartridges, which preferentially retain hydrophobic organic compounds. The analytes were then measured by FT-ICR-MS in negative ion mode using electrospray ionization. The mass error was <0.1 ppm for all samples following calibration to endogenous peaks. Only masses detected in all replicates of a culture and not present in blanks were retained. Molecular formulas were assigned to spectra by [ICBM-OCEAN](https://pubs.acs.org/doi/10.1021/acs.analchem.9b05659) software.
+Exometabolomes were measured in duplicate from the supernatant of each biological replicate at the beginning of the experiment and after 255 hours. DOM was extracted via Priority PolLutant (PPL) SPE cartridges, which preferentially retain hydrophobic organic compounds. The analytes were then measured by FT-ICR-MS in negative ion mode using electrospray ionization. The mass error was <0.1 ppm for all samples following calibration to endogenous peaks. Only masses detected in all replicates of a culture and not present in blanks were retained. Molecular formulas were assigned to spectra by [ICBM-OCEAN](https://pubs.acs.org/doi/10.1021/acs.analchem.9b05659) software.
 
 The fate of molecular formulas was tracked from pure culture to co-cultures. The fastest growing strain, SH4, yielded 2,216 formulas, or 89% of formulas found in pure cultures of the four strains. Across all co-cultures, 2,066 formulas were also found in pure cultures, while 2,508 were not. A majority of formulas novel to the co-cultures were unique to a single co-culture.
 
@@ -715,3 +715,661 @@ Here are the numbers of formulas of different charges that match reaction networ
 - 4181 formulas with a charge of -2 were searched against reaction networks
   - 15 match refined network compounds
   - 15 match KEGG network compounds
+
+## Evaluate compound matches
+
+Evaluate the strength of compound matches using the [criteria](#criteria) given earlier.
+
+### Detailed compound match report
+
+We generated a report for each compound match to evaluate the criteria. The report is structured like the reaction network, showing the genes, then KO annotations, then reaction annotations that are the basis of the inclusion of the compound in the network.
+
+```python
+# Filter the feature table to rows representing search formulas that match network compounds.
+matching_formulas: list[tuple[str, int]] = []
+for (search_formula, search_charge), culture_compounds in formula_culture_refined_compounds.items():
+    for compounds in culture_compounds.values():
+        if compounds:
+            matching_formulas.append((search_formula, search_charge))
+matching_feature_table = feature_table[feature_table[['search_formula', 'search_charge']].apply(tuple, axis=1).isin(matching_formulas)]
+
+indent_increment = 4
+for formula_isotopefree, group_table in matching_feature_table.groupby('formula_isotopefree'):
+    # Print neutral formulas that have at least one search formula match network compounds.
+    print(f"Feature neutral formula: {formula_isotopefree}")
+
+    group_matching_formulas: list[tuple[str, int]] = []
+    for group_row in group_table.itertuples():
+        group_matching_formulas.append((group_row.search_formula, group_row.search_charge))
+
+    for strain_combo in all_strain_combos:
+        formula_compounds = culture_formula_refined_compounds[strain_combo]
+        for group_matching_formula in group_matching_formulas:
+            if group_matching_formula in formula_compounds:
+                break
+        else:
+            continue
+        # Print cultures with a network compound matching a search formula.
+        print(f"{' ' * indent_increment}Culture: {'_'.join(strain_combo)}")
+
+        for group_matching_formula in group_matching_formulas:
+            try:
+                matching_compounds = formula_compounds[group_matching_formula]
+            except KeyError:
+                continue
+            # Print search formulas that match the culture network.
+            print(f"{' ' * indent_increment * 2}Search formula: {group_matching_formula[0]} [{group_matching_formula[1]}]")
+
+            isomers = compound_isomers[group_matching_formula]
+            modelseed_isomer_count = len(isomers['modelseed_isomers'])
+            kegg_isomer_count = len(isomers['kegg_isomers'])
+            kegg_with_reaction_isomer_count = len(isomers['kegg_isomers_with_reaction'])
+            # Print database isomer counts.
+            print(f"{' ' * indent_increment * 2}- ModelSEED database isomer count: {modelseed_isomer_count}")
+            print(f"{' ' * indent_increment * 2}- ModelSEED database KEGG compound isomer count: {kegg_isomer_count}")
+            print(f"{' ' * indent_increment * 2}- ModelSEED database KEGG compound in KEGG reaction isomer count: {kegg_with_reaction_isomer_count}")
+
+            formula_subnetwork = formula_culture_refined_subnetwork[group_matching_formula][strain_combo]
+            for compound in matching_compounds:
+                # Print compound matches.
+                print(f"{' ' * indent_increment * 3}ModelSEED {compound.modelseed_id} {compound.modelseed_name}")
+                print(f"{' ' * indent_increment * 3}- KEGG compound aliases: {' '.join(compound.kegg_aliases)}")
+
+                compound_subnetwork = formula_subnetwork.subset_network(metabolites_to_subset=[compound.modelseed_id])
+                for gcid, gene in compound_subnetwork.genes.items():
+                    # Print genes linked to the compound.
+                    print(f"{' ' * indent_increment * 4}Gene {gcid}")
+
+                    for ko_id in gene.ko_ids:
+                        # Print KO annotations of the gene. Print ModelSEED reactions associated
+                        # (via EC numbers and KEGG reactions) with the KO. Print all EC numbers and
+                        # KEGG reactions associated with the KO.
+                        ko = compound_subnetwork.kos[ko_id]
+                        print(f"{' ' * indent_increment * 5}KO {ko_id} {ko.name}")
+                        print(f"{' ' * indent_increment * 5}- KO-associated ModelSEED reaction IDs: {' '.join(ko.reaction_ids)}")
+                        message = ""
+                        for modelseed_reaction_id, kegg_reaction_ids in ko.kegg_reaction_aliases.items():
+                            message += f"{modelseed_reaction_id}: {' '.join([kegg_reaction_id for kegg_reaction_id in kegg_reaction_ids])} ; "
+                        message = message[: -3]
+                        print(f"{' ' * indent_increment * 5}- KO-associated ModelSEED reaction KEGG reaction aliases: {message}")
+                        message = ""
+                        for modelseed_reaction_id, ec_numbers in ko.ec_number_aliases.items():
+                            message += f"{modelseed_reaction_id}: {' '.join([ec_number for ec_number in ec_numbers])} ; "
+                        message = message[: -3]
+                        print(f"{' ' * indent_increment * 5}- KO-associated ModelSEED reaction EC number aliases: {message}")
+
+                        for reaction_id in ko.reaction_ids:
+                            # Print ModelSEED reactions involving the compound. Print all KEGG and
+                            # EC number aliases of the reaction.
+                            reaction = compound_subnetwork.reactions[reaction_id]
+                            print(f"{' ' * indent_increment * 6}ModelSEED reaction {reaction_id}")
+                            print(f"{' ' * indent_increment * 6}{equation}")
+                            print(f"{' ' * indent_increment * 6}- KEGG reaction aliases: {' '.join(reaction.kegg_aliases)}")
+                            print(f"{' ' * indent_increment * 6}- EC number aliases: {' '.join(reaction.ec_number_aliases)}")
+                            try:
+                                kegg_reaction_aliases = " ".join(ko.kegg_reaction_aliases[reaction_id])
+                            except KeyError:
+                                kegg_reaction_aliases = ""
+                            print(f"{' ' * indent_increment * 6}- KO KEGG reaction associations: {kegg_reaction_aliases}")
+                            try:
+                                ec_number_aliases = " ".join(ko.ec_number_aliases[reaction_id])
+                            except KeyError:
+                                ec_number_aliases = ""
+                            print(f"{' ' * indent_increment * 6}- KO EC number associations: {ec_number_aliases}")
+                            equation = rn.get_chemical_equation(
+                                reaction,
+                                use_compound_names=[compound_subnetwork.metabolites[compound_id].modelseed_name for compound_id in reaction.compound_ids],
+                                ignore_compartments=True
+                            )
+```
+
+Part of the report for the first match in the output is shown below. A feature was assigned the neutral molecular formula of C<sub>10</sub>H<sub>10</sub>O<sub>6</sub>. The deprotonated variants of the formula with a -1 and -2 charge were also searched against the reaction networks of the culture exhibiting a change in abundance of this feature. As shown, one network was from the pure culture of SH4, while another was from the co-culture of SH22 and SH4. The feature matched compounds in the SH4 network and all SH4 co-culture networks, suggesting that it was produced by SH4 but not taken up by SH22, SH24, and SH40 in co-culture. C<sub>10</sub>H<sub>8</sub>O<sub>6</sub><sup>-2</sup> was the only deprotonated formula that matched compounds in the networks. To evaluate the potential breadth of the match, we found all isomers with the formula in the ModelSEED Biochemistry compound database, and subsets of the database in KEGG. There were three isomers with the formula in each of the three references. These three compounds -- prephenate, chorismate, and isochorismate -- are also in the reaction networks (note that since they are in the SH4 network, they must be in the co-culture networks which are supersets of the SH4 network). The absence of other isomeric compounds in the ModelSEED database besides those in the reaction network reduces the likelihood of missing biological compounds that may actually represent the molecular feature.
+
+Prephenate and chorismate are related compounds in the shikimate pathway for biosynthesis of aromatic amino acids and other compounds, and isochorismate is formed from chorismate for biosynthesis of various compounds. The report presents genomic evidence for production of these compounds. The SH4 genome encodes chorismate mutase, the key enzyme responsible for prephenate biosynthesis from chorismate. The genome also encodes cyclohexadienyl dehydratase and prephenate dehydrogenase, enzymes which react prephenate to form the precursors of phenylalanine and tyrosine, respectively. Chorismate mutase (K04092) has KEGG reactions and an EC number linked to three ModelSEED reactions, entries with different IDs for the same chorismate mutase reaction of chorismate to prephenate.
+
+```
+Feature neutral formula: C10H10O6
+    Culture: SH4
+        Search formula: C10H8O6 [-2]
+        - ModelSEED database isomer count: 3
+        - ModelSEED database KEGG compound isomer count: 3
+        - ModelSEED database KEGG compound in KEGG reaction isomer count: 3
+            ModelSEED cpd00219 Prephenate
+            - KEGG compound aliases: C00254
+                Gene 30271
+                    KO K04092 chorismate mutase [EC:5.4.99.5]
+                    - KO-associated ModelSEED reaction IDs: rxn01256 rxn19309 rxn33299
+                    - KO-associated ModelSEED reaction KEGG reaction aliases: rxn01256: R01715 ; rxn19309: R01715 ; rxn33299: R01715
+                    - KO-associated ModelSEED reaction EC number aliases: rxn01256: 5.4.99.5 ; rxn19309: 5.4.99.5 ; rxn33299: 5.4.99.5
+                        ModelSEED reaction rxn01256
+                        1 Chorismate -> 1 Prephenate
+                        - KEGG reaction aliases: R01715
+                        - EC number aliases: 5.4.99.5
+                        - KO KEGG reaction associations: R01715
+                        - KO EC number associations: 5.4.99.5
+                        ModelSEED reaction rxn19309
+                        1 Chorismate -> 1 Prephenate
+                        - KEGG reaction aliases: R01715
+                        - EC number aliases: 5.4.99.5
+                        - KO KEGG reaction associations: R01715
+                        - KO EC number associations: 5.4.99.5
+                        ModelSEED reaction rxn33299
+                        1 Chorismate -> 1 Prephenate
+                        - KEGG reaction aliases: R01715
+                        - EC number aliases: 5.4.99.5
+                        - KO KEGG reaction associations: R01715
+                        - KO EC number associations: 5.4.99.5
+                Gene 34329
+                    KO K00220 cyclohexadieny/prephenate dehydrogenase [EC:1.3.1.43 1.3.1.12]
+                    - KO-associated ModelSEED reaction IDs: rxn01268 rxn28086 rxn33078
+                    - KO-associated ModelSEED reaction KEGG reaction aliases: rxn01268: R01728 ; rxn28086: R01728 ; rxn33078: R01728
+                    - KO-associated ModelSEED reaction EC number aliases: rxn01268: 1.3.1.12 ; rxn28086: 1.3.1.12 ; rxn33078: 1.3.1.12
+                        ModelSEED reaction rxn01268
+                        1 NAD + 1 Prephenate -> 1 NADH + 1 CO2 + 1 p-hydroxyphenylpyruvate
+                        - KEGG reaction aliases: R01728
+                        - EC number aliases: 1.3.1.12
+                        - KO KEGG reaction associations: R01728
+                        - KO EC number associations: 1.3.1.12
+                        ModelSEED reaction rxn28086
+                        1 NAD + 1 Prephenate -> 1 NADH + 1 CO2 + 1 p-hydroxyphenylpyruvate
+                        - KEGG reaction aliases: R01728
+                        - EC number aliases: 1.3.1.12
+                        - KO KEGG reaction associations: R01728
+                        - KO EC number associations: 1.3.1.12
+                        ModelSEED reaction rxn33078
+                        1 NAD + 1 Prephenate -> 1 NADH + 1 CO2 + 1 p-hydroxyphenylpyruvate
+                        - KEGG reaction aliases: R01728
+                        - EC number aliases: 1.3.1.12
+                        - KO KEGG reaction associations: R01728
+                        - KO EC number associations: 1.3.1.12
+                    KO K04517 prephenate dehydrogenase [EC:1.3.1.12]
+                    - KO-associated ModelSEED reaction IDs: rxn01268 rxn28086 rxn33078
+                    - KO-associated ModelSEED reaction KEGG reaction aliases: rxn01268: R01728 ; rxn28086: R01728 ; rxn33078: R01728
+                    - KO-associated ModelSEED reaction EC number aliases: rxn01268: 1.3.1.12 ; rxn28086: 1.3.1.12 ; rxn33078: 1.3.1.12
+                        ModelSEED reaction rxn01268
+                        1 NAD + 1 Prephenate -> 1 NADH + 1 CO2 + 1 p-hydroxyphenylpyruvate
+                        - KEGG reaction aliases: R01728
+                        - EC number aliases: 1.3.1.12
+                        - KO KEGG reaction associations: R01728
+                        - KO EC number associations: 1.3.1.12
+                        ModelSEED reaction rxn28086
+                        1 NAD + 1 Prephenate -> 1 NADH + 1 CO2 + 1 p-hydroxyphenylpyruvate
+                        - KEGG reaction aliases: R01728
+                        - EC number aliases: 1.3.1.12
+                        - KO KEGG reaction associations: R01728
+                        - KO EC number associations: 1.3.1.12
+                        ModelSEED reaction rxn33078
+                        1 NAD + 1 Prephenate -> 1 NADH + 1 CO2 + 1 p-hydroxyphenylpyruvate
+                        - KEGG reaction aliases: R01728
+                        - EC number aliases: 1.3.1.12
+                        - KO KEGG reaction associations: R01728
+                        - KO EC number associations: 1.3.1.12
+                Gene 32286
+                    KO K01713 cyclohexadienyl dehydratase [EC:4.2.1.51 4.2.1.91]
+                    - KO-associated ModelSEED reaction IDs: rxn01000 rxn28085 rxn33346 rxn33962
+                    - KO-associated ModelSEED reaction KEGG reaction aliases: rxn01000: R01373 ; rxn28085: R01373 ; rxn33346: R01373
+                    - KO-associated ModelSEED reaction EC number aliases: rxn01000: 4.2.1.51 4.2.1.91 ; rxn28085: 4.2.1.51 4.2.1.91 ; rxn33346: 4.2.1.51 4.2.1.91 ; rxn33962: 4.2.1.51
+                        ModelSEED reaction rxn01000
+                        1 H+ + 1 Prephenate -> 1 H2O + 1 CO2 + 1 Phenylpyruvate
+                        - KEGG reaction aliases: R01373
+                        - EC number aliases: 4.2.1.51 4.2.1.91
+                        - KO KEGG reaction associations: R01373
+                        - KO EC number associations: 4.2.1.51 4.2.1.91
+                        ModelSEED reaction rxn28085
+                        1 H+ + 1 Prephenate -> 1 H2O + 1 CO2 + 1 Phenylpyruvate
+                        - KEGG reaction aliases: R01373
+                        - EC number aliases: 4.2.1.51 4.2.1.91
+                        - KO KEGG reaction associations: R01373
+                        - KO EC number associations: 4.2.1.51 4.2.1.91
+                        ModelSEED reaction rxn33346
+                        1 H+ + 1 Prephenate -> 1 H2O + 1 CO2 + 1 Phenylpyruvate
+                        - KEGG reaction aliases: R01373
+                        - EC number aliases: 4.2.1.51 4.2.1.91
+                        - KO KEGG reaction associations: R01373
+                        - KO EC number associations: 4.2.1.51 4.2.1.91
+                        ModelSEED reaction rxn33962
+                        1 Prephenate <-> 1 H2O + 1 CO2 + 1 Chloroplast Phenylpyruvate
+                        - KEGG reaction aliases:
+                        - EC number aliases: 4.2.1.51
+                        - KO KEGG reaction associations:
+                        - KO EC number associations: 4.2.1.51
+                Gene 30738
+                    KO K04518 prephenate dehydratase [EC:4.2.1.51]
+                    - KO-associated ModelSEED reaction IDs: rxn01000 rxn28085 rxn33346 rxn33962
+                    - KO-associated ModelSEED reaction KEGG reaction aliases: rxn01000: R01373 ; rxn28085: R01373 ; rxn33346: R01373
+                    - KO-associated ModelSEED reaction EC number aliases: rxn01000: 4.2.1.51 ; rxn28085: 4.2.1.51 ; rxn33346: 4.2.1.51 ; rxn33962: 4.2.1.51
+                        ModelSEED reaction rxn01000
+                        1 H+ + 1 Prephenate -> 1 H2O + 1 CO2 + 1 Phenylpyruvate
+                        - KEGG reaction aliases: R01373
+                        - EC number aliases: 4.2.1.51 4.2.1.91
+                        - KO KEGG reaction associations: R01373
+                        - KO EC number associations: 4.2.1.51
+                        ModelSEED reaction rxn28085
+                        1 H+ + 1 Prephenate -> 1 H2O + 1 CO2 + 1 Phenylpyruvate
+                        - KEGG reaction aliases: R01373
+                        - EC number aliases: 4.2.1.51 4.2.1.91
+                        - KO KEGG reaction associations: R01373
+                        - KO EC number associations: 4.2.1.51
+                        ModelSEED reaction rxn33346
+                        1 H+ + 1 Prephenate -> 1 H2O + 1 CO2 + 1 Phenylpyruvate
+                        - KEGG reaction aliases: R01373
+                        - EC number aliases: 4.2.1.51 4.2.1.91
+                        - KO KEGG reaction associations: R01373
+                        - KO EC number associations: 4.2.1.51
+                        ModelSEED reaction rxn33962
+                        1 Prephenate <-> 1 H2O + 1 CO2 + 1 Chloroplast Phenylpyruvate
+                        - KEGG reaction aliases:
+                        - EC number aliases: 4.2.1.51
+                        - KO KEGG reaction associations:
+                        - KO EC number associations: 4.2.1.51
+            ModelSEED cpd00216 Chorismate
+            - KEGG compound aliases: C00251
+                Gene 32359
+                    KO K01657 anthranilate synthase component I [EC:4.1.3.27]
+                    - KO-associated ModelSEED reaction IDs: rxn00726 rxn00727 rxn27709 rxn32242 rxn33991 rxn35359 rxn38042 rxn38043
+                    - KO-associated ModelSEED reaction KEGG reaction aliases: rxn00726: R00985 ; rxn00727: R00986 ; rxn27709: R00986 ; rxn32242: R00985 ; rxn35359: R00985 ; rxn38042: R00986 ; rxn38043: R00986
+                    - KO-associated ModelSEED reaction EC number aliases: rxn00726: 4.1.3.27 ; rxn00727: 4.1.3.27 ; rxn27709: 4.1.3.27 ; rxn32242: 4.1.3.27 ; rxn33991: 4.1.3.27 ; rxn35359: 4.1.3.27 ; rxn38042: 4.1.3.27 ; rxn38043: 4.1.3.27
+                        ModelSEED reaction rxn00726
+                        1 NH3 + 1 Chorismate -> 1 H2O + 1 Pyruvate + 1 H+ + 1 Anthranilate
+                        - KEGG reaction aliases: R00985
+                        - EC number aliases: 4.1.3.27
+                        - KO KEGG reaction associations: R00985
+                        - KO EC number associations: 4.1.3.27
+                        ModelSEED reaction rxn00727
+                        1 L-Glutamine + 1 Chorismate -> 1 Pyruvate + 1 L-Glutamate + 1 H+ + 1 Anthranilate
+                        - KEGG reaction aliases: R00986
+                        - EC number aliases: 4.1.3.27
+                        - KO KEGG reaction associations: R00986
+                        - KO EC number associations: 4.1.3.27
+                        ModelSEED reaction rxn27709
+                        1 L-Glutamine + 1 Chorismate -> 1 Pyruvate + 1 L-Glutamate + 1 H+ + 1 Anthranilate
+                        - KEGG reaction aliases: R00986
+                        - EC number aliases: 4.1.3.27
+                        - KO KEGG reaction associations: R00986
+                        - KO EC number associations: 4.1.3.27
+                        ModelSEED reaction rxn32242
+                        1 NH3 + 1 Chorismate -> 1 H2O + 1 Pyruvate + 1 H+ + 1 Anthranilate
+                        - KEGG reaction aliases: R00985
+                        - EC number aliases: 4.1.3.27
+                        - KO KEGG reaction associations: R00985
+                        - KO EC number associations: 4.1.3.27
+                        ModelSEED reaction rxn33991
+                        1 PRPP + 1 Chorismate + 1 Glutamine -> 1 PPi + 1 Pyruvate + 1 L-Glutamate + 2 H+ + 1 N-5-phosphoribosyl-anthranilate
+                        - KEGG reaction aliases:
+                        - EC number aliases: 2.4.2.18 4.1.3.27
+                        - KO KEGG reaction associations:
+                        - KO EC number associations: 4.1.3.27
+                        ModelSEED reaction rxn35359
+                        1 NH3 + 1 Chorismate -> 1 H2O + 1 Pyruvate + 1 H+ + 1 Anthranilate
+                        - KEGG reaction aliases: R00985
+                        - EC number aliases: 4.1.3.27
+                        - KO KEGG reaction associations: R00985
+                        - KO EC number associations: 4.1.3.27
+                        ModelSEED reaction rxn38042
+                        1 L-Glutamine + 1 Chorismate -> 1 Pyruvate + 1 L-Glutamate + 1 H+ + 1 Anthranilate
+                        - KEGG reaction aliases: R00986
+                        - EC number aliases: 4.1.3.27
+                        - KO KEGG reaction associations: R00986
+                        - KO EC number associations: 4.1.3.27
+                        ModelSEED reaction rxn38043
+                        1 L-Glutamine + 1 Chorismate -> 1 Pyruvate + 1 L-Glutamate + 1 H+ + 1 Anthranilate
+                        - KEGG reaction aliases: R00986
+                        - EC number aliases: 4.1.3.27
+                        - KO KEGG reaction associations: R00986
+                        - KO EC number associations: 4.1.3.27
+                Gene 30271
+                    KO K04092 chorismate mutase [EC:5.4.99.5]
+                    - KO-associated ModelSEED reaction IDs: rxn01256 rxn19309 rxn33299
+                    - KO-associated ModelSEED reaction KEGG reaction aliases: rxn01256: R01715 ; rxn19309: R01715 ; rxn33299: R01715
+                    - KO-associated ModelSEED reaction EC number aliases: rxn01256: 5.4.99.5 ; rxn19309: 5.4.99.5 ; rxn33299: 5.4.99.5
+                        ModelSEED reaction rxn01256
+                        1 Chorismate -> 1 Prephenate
+                        - KEGG reaction aliases: R01715
+                        - EC number aliases: 5.4.99.5
+                        - KO KEGG reaction associations: R01715
+                        - KO EC number associations: 5.4.99.5
+                        ModelSEED reaction rxn19309
+                        1 Chorismate -> 1 Prephenate
+                        - KEGG reaction aliases: R01715
+                        - EC number aliases: 5.4.99.5
+                        - KO KEGG reaction associations: R01715
+                        - KO EC number associations: 5.4.99.5
+                        ModelSEED reaction rxn33299
+                        1 Chorismate -> 1 Prephenate
+                        - KEGG reaction aliases: R01715
+                        - EC number aliases: 5.4.99.5
+                        - KO KEGG reaction associations: R01715
+                        - KO EC number associations: 5.4.99.5
+                Gene 31901
+                    KO K00766 anthranilate phosphoribosyltransferase [EC:2.4.2.18]
+                    - KO-associated ModelSEED reaction IDs: rxn33991
+                    - KO-associated ModelSEED reaction KEGG reaction aliases:
+                    - KO-associated ModelSEED reaction EC number aliases: rxn33991: 2.4.2.18
+                        ModelSEED reaction rxn33991
+                        1 PRPP + 1 Chorismate + 1 Glutamine -> 1 PPi + 1 Pyruvate + 1 L-Glutamate + 2 H+ + 1 N-5-phosphoribosyl-anthranilate
+                        - KEGG reaction aliases:
+                        - EC number aliases: 2.4.2.18 4.1.3.27
+                        - KO KEGG reaction associations:
+                        - KO EC number associations: 2.4.2.18
+                Gene 31902
+                    KO K01658 anthranilate synthase component II [EC:4.1.3.27]
+                    - KO-associated ModelSEED reaction IDs: rxn00726 rxn00727 rxn27709 rxn32242 rxn33991 rxn35359 rxn38042 rxn38043
+                    - KO-associated ModelSEED reaction KEGG reaction aliases: rxn00726: R00985 ; rxn00727: R00986 ; rxn27709: R00986 ; rxn32242: R00985 ; rxn35359: R00985 ; rxn38042: R00986 ; rxn38043: R00986
+                    - KO-associated ModelSEED reaction EC number aliases: rxn00726: 4.1.3.27 ; rxn00727: 4.1.3.27 ; rxn27709: 4.1.3.27 ; rxn32242: 4.1.3.27 ; rxn33991: 4.1.3.27 ; rxn35359: 4.1.3.27 ; rxn38042: 4.1.3.27 ; rxn38043: 4.1.3.27
+                        ModelSEED reaction rxn00726
+                        1 NH3 + 1 Chorismate -> 1 H2O + 1 Pyruvate + 1 H+ + 1 Anthranilate
+                        - KEGG reaction aliases: R00985
+                        - EC number aliases: 4.1.3.27
+                        - KO KEGG reaction associations: R00985
+                        - KO EC number associations: 4.1.3.27
+                        ModelSEED reaction rxn00727
+                        1 L-Glutamine + 1 Chorismate -> 1 Pyruvate + 1 L-Glutamate + 1 H+ + 1 Anthranilate
+                        - KEGG reaction aliases: R00986
+                        - EC number aliases: 4.1.3.27
+                        - KO KEGG reaction associations: R00986
+                        - KO EC number associations: 4.1.3.27
+                        ModelSEED reaction rxn27709
+                        1 L-Glutamine + 1 Chorismate -> 1 Pyruvate + 1 L-Glutamate + 1 H+ + 1 Anthranilate
+                        - KEGG reaction aliases: R00986
+                        - EC number aliases: 4.1.3.27
+                        - KO KEGG reaction associations: R00986
+                        - KO EC number associations: 4.1.3.27
+                        ModelSEED reaction rxn32242
+                        1 NH3 + 1 Chorismate -> 1 H2O + 1 Pyruvate + 1 H+ + 1 Anthranilate
+                        - KEGG reaction aliases: R00985
+                        - EC number aliases: 4.1.3.27
+                        - KO KEGG reaction associations: R00985
+                        - KO EC number associations: 4.1.3.27
+                        ModelSEED reaction rxn33991
+                        1 PRPP + 1 Chorismate + 1 Glutamine -> 1 PPi + 1 Pyruvate + 1 L-Glutamate + 2 H+ + 1 N-5-phosphoribosyl-anthranilate
+                        - KEGG reaction aliases:
+                        - EC number aliases: 2.4.2.18 4.1.3.27
+                        - KO KEGG reaction associations:
+                        - KO EC number associations: 4.1.3.27
+                        ModelSEED reaction rxn35359
+                        1 NH3 + 1 Chorismate -> 1 H2O + 1 Pyruvate + 1 H+ + 1 Anthranilate
+                        - KEGG reaction aliases: R00985
+                        - EC number aliases: 4.1.3.27
+                        - KO KEGG reaction associations: R00985
+                        - KO EC number associations: 4.1.3.27
+                        ModelSEED reaction rxn38042
+                        1 L-Glutamine + 1 Chorismate -> 1 Pyruvate + 1 L-Glutamate + 1 H+ + 1 Anthranilate
+                        - KEGG reaction aliases: R00986
+                        - EC number aliases: 4.1.3.27
+                        - KO KEGG reaction associations: R00986
+                        - KO EC number associations: 4.1.3.27
+                        ModelSEED reaction rxn38043
+                        1 L-Glutamine + 1 Chorismate -> 1 Pyruvate + 1 L-Glutamate + 1 H+ + 1 Anthranilate
+                        - KEGG reaction aliases: R00986
+                        - EC number aliases: 4.1.3.27
+                        - KO KEGG reaction associations: R00986
+                        - KO EC number associations: 4.1.3.27
+                Gene 33798
+                    KO K01736 chorismate synthase [EC:4.2.3.5]
+                    - KO-associated ModelSEED reaction IDs: rxn01255 rxn32460
+                    - KO-associated ModelSEED reaction KEGG reaction aliases: rxn01255: R01714 ; rxn32460: R01714
+                    - KO-associated ModelSEED reaction EC number aliases: rxn01255: 4.2.3.5 ; rxn32460: 4.2.3.5
+                        ModelSEED reaction rxn01255
+                        1 5-O--1-Carboxyvinyl-3-phosphoshikimate -> 1 Phosphate + 1 Chorismate
+                        - KEGG reaction aliases: R01714
+                        - EC number aliases: 4.2.3.5
+                        - KO KEGG reaction associations: R01714
+                        - KO EC number associations: 4.2.3.5
+                        ModelSEED reaction rxn32460
+                        1 5-O--1-Carboxyvinyl-3-phosphoshikimate -> 1 Phosphate + 1 Chorismate
+                        - KEGG reaction aliases: R01714
+                        - EC number aliases: 4.2.3.5
+                        - KO KEGG reaction associations: R01714
+                        - KO EC number associations: 4.2.3.5
+            ModelSEED cpd00658 Isochorismate
+            - KEGG compound aliases: C00885
+                Gene 33754
+                    KO K04782 isochorismate pyruvate lyase [EC:4.2.99.21]
+                    - KO-associated ModelSEED reaction IDs: rxn04454
+                    - KO-associated ModelSEED reaction KEGG reaction aliases: rxn04454: R06602
+                    - KO-associated ModelSEED reaction EC number aliases: rxn04454: 4.2.99.21
+                        ModelSEED reaction rxn04454
+                        1 Isochorismate -> 1 Pyruvate + 1 SALC
+                        - KEGG reaction aliases: R06602
+                        - EC number aliases: 4.2.99.21
+                        - KO KEGG reaction associations: R06602
+                        - KO EC number associations: 4.2.99.21
+    Culture: SH22_SH4
+        Search formula: C10H8O6 [-2]
+        - ModelSEED database isomer count: 3
+        - ModelSEED database KEGG compound isomer count: 3
+        - ModelSEED database KEGG compound in KEGG reaction isomer count: 3
+            ModelSEED cpd00216 Chorismate
+            - KEGG compound aliases: C00251
+                Gene 11205
+                    KO K01657 anthranilate synthase component I [EC:4.1.3.27]
+                    - KO-associated ModelSEED reaction IDs: rxn00726 rxn00727 rxn27709 rxn32242 rxn33991 rxn35359 rxn38042 rxn38043
+                    - KO-associated ModelSEED reaction KEGG reaction aliases: rxn00726: R00985 ; rxn00727: R00986 ; rxn27709: R00986 ; rxn32242: R00985 ; rxn35359: R00985 ; rxn38042: R00986 ; rxn38043: R00986
+                    - KO-associated ModelSEED reaction EC number aliases: rxn00726: 4.1.3.27 ; rxn00727: 4.1.3.27 ; rxn27709: 4.1.3.27 ; rxn32242: 4.1.3.27 ; rxn33991: 4.1.3.27 ; rxn35359: 4.1.3.27 ; rxn38042: 4.1.3.27 ; rxn38043: 4.1.3.27
+                        ModelSEED reaction rxn00726
+                        1 NH3 + 1 Chorismate -> 1 H2O + 1 Pyruvate + 1 H+ + 1 Anthranilate
+                        - KEGG reaction aliases: R00985
+                        - EC number aliases: 4.1.3.27
+                        - KO KEGG reaction associations: R00985
+                        - KO EC number associations: 4.1.3.27
+                        ModelSEED reaction rxn00727
+                        1 L-Glutamine + 1 Chorismate -> 1 Pyruvate + 1 L-Glutamate + 1 H+ + 1 Anthranilate
+                        - KEGG reaction aliases: R00986
+                        - EC number aliases: 4.1.3.27
+                        - KO KEGG reaction associations: R00986
+                        - KO EC number associations: 4.1.3.27
+                        ModelSEED reaction rxn27709
+                        1 L-Glutamine + 1 Chorismate -> 1 Pyruvate + 1 L-Glutamate + 1 H+ + 1 Anthranilate
+                        - KEGG reaction aliases: R00986
+                        - EC number aliases: 4.1.3.27
+                        - KO KEGG reaction associations: R00986
+                        - KO EC number associations: 4.1.3.27
+                        ModelSEED reaction rxn32242
+                        1 NH3 + 1 Chorismate -> 1 H2O + 1 Pyruvate + 1 H+ + 1 Anthranilate
+                        - KEGG reaction aliases: R00985
+                        - EC number aliases: 4.1.3.27
+                        - KO KEGG reaction associations: R00985
+                        - KO EC number associations: 4.1.3.27
+                        ModelSEED reaction rxn33991
+                        1 PRPP + 1 Chorismate + 1 Glutamine -> 1 PPi + 1 Pyruvate + 1 L-Glutamate + 2 H+ + 1 N-5-phosphoribosyl-anthranilate
+                        - KEGG reaction aliases:
+                        - EC number aliases: 2.4.2.18 4.1.3.27
+                        - KO KEGG reaction associations:
+                        - KO EC number associations: 4.1.3.27
+                        ModelSEED reaction rxn35359
+                        1 NH3 + 1 Chorismate -> 1 H2O + 1 Pyruvate + 1 H+ + 1 Anthranilate
+                        - KEGG reaction aliases: R00985
+                        - EC number aliases: 4.1.3.27
+                        - KO KEGG reaction associations: R00985
+                        - KO EC number associations: 4.1.3.27
+                        ModelSEED reaction rxn38042
+                        1 L-Glutamine + 1 Chorismate -> 1 Pyruvate + 1 L-Glutamate + 1 H+ + 1 Anthranilate
+                        - KEGG reaction aliases: R00986
+                        - EC number aliases: 4.1.3.27
+                        - KO KEGG reaction associations: R00986
+                        - KO EC number associations: 4.1.3.27
+                        ModelSEED reaction rxn38043
+                        1 L-Glutamine + 1 Chorismate -> 1 Pyruvate + 1 L-Glutamate + 1 H+ + 1 Anthranilate
+                        - KEGG reaction aliases: R00986
+                        - EC number aliases: 4.1.3.27
+                        - KO KEGG reaction associations: R00986
+                        - KO EC number associations: 4.1.3.27
+...
+```
+
+### Pathway integration
+
+It is important to assess the connectivity of putative compounds in the metabolic network of an organism to evaluate the likelihood that compounds are actually in the culture. Pathway-level analysis using maps was performed for each matching compound. The genomic capacity of the four strains to cycle prephenate and chorismate in the shikimate pathway is displayed in a KEGG pathway map produced by {% include PROGRAM name="anvi-draw-kegg-pathways" %}. The possibility of prephenate and chorismate being erroneous matches is reduced by the extensive genomic evidence for production of these compounds by SH4.
+
+[![01_chorismate_prephenate_pathway_figure_1](images/01_chorismate_prephenate_pathway_figure_1.png)](images/01_chorismate_prephenate_pathway_figure_1.png){:.center-img .width-40}
+
+### Extraction and ionization chemistry
+
+Putative exometabolites are more likely when their structures are consistent with retention in the sample extract and the conditions of electrospray ionization. The PPL SPE cartridges used for DOM extraction in this study retain aromatic compounds well. The mass spectrometer was run in negative ion mode in this study, so compounds such as carboxylic and phenolic acids that can assume a -1 charge through a ready change in protonation state are easily ionized. Prephenate, chorismate, and isochorismate are aromatic carboxylates that are well-suited for extraction and ionization, increasing the likelihood that they are indeed exometabolites.
+
+```python
+# Here is the source on how to render molecules as a grid of SVG images in RDKit:
+# https://iwatobipen.wordpress.com/2020/05/01/draw-molecules-as-svg-in-horizontal-layout-drawing-rdkit-memo/
+
+class HorizontalDisplay:
+    def __init__(self, *args):
+        self.args = args
+
+    def _repr_html_(self):
+        template = '<div style="float:left;padding:10px;">{0}</div>'
+        return "\n".join(template.format(arg) for arg in self.args)
+
+def draw_structures(
+    compounds: list[rn.ModelSEEDCompound] = None,
+    panel_width: int = 250,
+    panel_height: int = 250
+) -> HorizontalDisplay:
+    drawing_texts = []
+
+    for compound in compounds:
+        mol: Chem.Mol = Chem.MolFromSmiles(compound.smiles)
+        mol.SetProp('_Name', compound.modelseed_name)
+        d2d = rdMolDraw2D.MolDraw2DSVG(panel_width, panel_height)
+        d2d.DrawMolecule(mol, legend=mol.GetProp('_Name'))
+        d2d.FinishDrawing()
+        text = d2d.GetDrawingText()
+        drawing_texts.append(text)
+
+    if not drawing_texts:
+        return
+    print(len(drawing_texts))
+
+    return HorizontalDisplay(*drawing_texts)
+```
+
+```python
+prephenate = all_refined_networks[('SH4', )].metabolites['cpd00219']
+chorismate = all_refined_networks[('SH4', )].metabolites['cpd00216']
+isochorismate = all_refined_networks[('SH4', )].metabolites['cpd00658']
+draw_structures([prephenate, chorismate, isochorismate])
+```
+
+[![02_chorismate_isochorismate_prephenate_structures_figure_2](images/02_chorismate_isochorismate_prephenate_structures_figure_2.png)](images/02_chorismate_isochorismate_prephenate_structures_figure_2.png){:.center-img .width-40}
+
+### Evaluation table
+
+The evaluation of formula matches to network compounds are summarized in the following table, with 1 signifying high evidence and 0 signifying low evidence.
+
+|**Neutral formula**|**Ionized formula**|**Database isomers**|**Compound match**|**KO annotation specificity**|**Reaction annotation specificity**|**Metabolic integration**|**Extractability**|**Ionizability**|**Overall evidence**|
+|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
+|C10H10O6|C10H8O6 -2|3,3,3|Prephenate|1|1|1|1|1|1
+|C10H10O6|C10H8O6 -2|3,3,3|Chorismate|1|1|1|1|1|1
+|C10H10O6|C10H8O6 -2|3,3,3|Isochorismate|1|1|0|||0
+|C10H11NO2|C10H11NO2|2,0,0|1H-indole-3-ethanol, 5-hydroxy-|0|||||0
+|C10H11NO2|C10H11NO2|2,0,0|indole-3-glycol|0|||||0
+|C10H11NO3|C10H11NO3|6,6,3|3-Carbamoyl-2-phenylpropionaldehyde|0|||||0
+|C10H11NO3|C10H11NO3|6,6,3|4-Hydroxy-5-phenyltetrahydro-1,3-oxazin-2-one|0|||||0
+|C10H12N4O5|C10H12N4O5|1,1,1|Inosine|1|1|1|1|1|1
+|C10H14N2O5|C10H14N2O5|3,2,1|Thymidine|1|1|1|1|1|1
+|C10H7NO2|C10H7NO2|3,2,1|3-indoleglyoxal|0|||||0
+|C10H7NO3|C10H7NO3|4,3,3|1-Nitronaphthalene-7,8-oxide|0|||||0
+|C10H7NO3|C10H7NO3|4,3,3|1-Nitronaphthalene-5,6-oxide|0|||||0
+|C10H8O|C10H8O|5,4,4|(1S,2R)-Naphthalene epoxide|0|||||0
+|C10H8O|C10H8O|5,4,4|(1R,2S)-Naphthalene epoxide|0|||||0
+|C10H9NO2|C10H9NO2|14,7,4|5-Hydroxyindoleacetaldehyde|0|||||0
+|C10H9NO2|C10H9NO2|14,7,4|indole-3-ketol|0|||||0
+|C10H9NO2|C10H9NO2|14,7,4|3-Indoleglycolaldehyde|0|||||0
+|C10H9NO3|C10H9NO3|3,2,2|5-Phenyl-1,3-oxazinane-2,4-dione|0|||||0
+|C11H10O|C11H10O|2,2,2|1-Naphthalenemethanol|0|||||0
+|C11H10O|C11H10O|2,2,2|(2-Naphthyl)methanol|0|||||0
+|C11H12N2O2|C11H12N2O2|7,6,3|L-Tryptophan|1|1|1|1|1|1
+|C11H12N2O2|C11H12N2O2|7,6,3|D-Tryptophan|1|1|0|||0
+|C11H12N2O5|C11H12N2O5|2,1,1|5-Hydroxy-N-formylkynurenine|1|1|1|1|1|1
+|C11H13NO6|C11H13NO6|1,1,1|Nicotinate D-ribonucleoside|1|1|1|1|1|1
+|C11H22N2O4S|C11H22N2O4S|3,1,1|Pantetheine|1|1|1|1|1|1
+|C12H22O11|C12H22O11|66,35,22|Maltose||||||0
+|C12H22O11|C12H22O11|66,35,22|Lactose||||||0
+|C12H22O11|C12H22O11|66,35,22|Cellobiose||||||0
+|C12H22O11|C12H22O11|66,35,22|Melibiose||||||0
+|C12H22O11|C12H22O11|66,35,22|Sucrose||||||0
+|C12H22O11|C12H22O11|66,35,22|Galactinol||||||0
+|C12H22O11|C12H22O11|66,35,22|Epimelibiose||||||0
+|C12H22O11|C12H22O11|66,35,22|Trehalose||||||0
+|C12H22O14S|C12H21O14S [-1]|3,0,0|2-O-sulfo-alpha,alpha-trehalose|1|1|0|||0
+|C12H24O2|C12H23O2 -1|1,1,1|Dodecanoic acid|1|1|1|1|1|1
+|C14H10O8|C14H9O8 -1|1,1,1|2-Protocatechoylphloroglucinolcarboxylate|1|1|1|1|1|1
+|C14H17NO7|C14H17NO7|4,4,2|Taxiphyllin|0|||||0
+|C14H18N2O4|C14H18N2O4|2,2,1|alpha-Ribazole|1|1|1|1|1|1
+|C14H26O2|C14H25O2 -1|2,1,0|Tetradecenoate|1|1|1|1|1|1
+|C15H10O7|C15H9O7 -1|13,13,3|Quercetin|1|1|0|||0
+|C16H30O2|C16H29O2 -1|9,1,1|Hexadecanoate|1|1|1|1|1|1
+|C17H12O7|C17H12O7|6,6,5|Aflatoxin B1-exo-8,9-epoxide|0|||||
+|C17H32O2|C17H31O2 -1|7,2,0|Fatty acid (Anteiso-C17:1)|1|1|0|||1
+|C17H32O2|C17H31O2 -1|7,2,0|Fatty acid (Iso-C17:1)|1|1|1|1|1|1
+|C18H26O3|C18H26O3|2,2,1|6-Methoxy-3-methyl-2-all-trans-polyprenyl-1,4-benzoquinol|1|1|0|||0
+|C18H32O16|C18H32O16|39,25,10|Manninotriose||||||0
+|C18H32O16|C18H32O16|39,25,10|Melitose||||||0
+|C18H32O16|C18H32O16|39,25,10|Amylotriose||||||0
+|C18H32O16|C18H32O16|39,25,10|Galactomannan||||||0
+|C18H32O16|C18H32O16|39,25,10|Glycan||||||0
+|C18H34O2|C18H33O2 -1|8,5,1|Oleate|1|1|1|1|1|1
+|C18H34O2|C18H33O2 -1|8,5,1|Octadecanoate|1|1|1|1|1|1
+|C18H37O7P|C18H36O7P -1|2,0,0|1-isopentadecanoyl-sn-glycerol 3-phosphate|1|1|1|1|1|1
+|C18H37O7P|C18H36O7P -1|2,0,0|1-anteisopentadecanoyl-sn-glycerol 3-phosphate|1|1|0|||0
+|C19H32O4|C19H32O4|1,1,1|Decylubiquinol|1|1|1|1|1|1
+|C21H20O11|C21H20O11|8,6,5|Cyanidin 3-O-glucoside|0|||||0
+|C23H46NO7P|C23H46NO7P|3,0,0|2-Acyl-sn-glycero-3-phosphoethanolamine octadec-11-enoyl|1|1|1|1|1|1
+|C23H46NO7P|C23H46NO7P|3,0,0|1-(9Z-octadecenoyl)-sn-glycero-3-phosphoethanolamine|1|1|1|1|1|1
+|C24H42O21|C24H42O21|26,11,8|Glycogen||||||0
+|C24H42O21|C24H42O21|26,11,8|Maltotetraose||||||0
+|C24H42O21|C24H42O21|26,11,8|6-alpha-D--1-4-alpha-D-Glucano--Glucan||||||0
+|C24H42O21|C24H42O21|26,11,8|Stachyose||||||0
+|C4H4O4|C4H2O4 -2|2,2,2|Fumarate|1|1|1|1|1|1
+|C4H4O4|C4H2O4 -2|2,2,2|Maleate|1|1|1|1|1|1
+|C4H6N4O|C4H6N4O|2,1,1|5-Amino-4-imidazolecarboxyamide|1|1|1|1|1|1
+|C4H6O3|C4H5O3 -1|8,6,5|4-Oxobutanoate||||||0
+|C4H6O3|C4H5O3 -1|8,6,5|Acetoacetate||||||0
+|C4H6O3|C4H5O3 -1|8,6,5|2-Oxobutyrate||||||0
+|C4H6O3|C4H5O3 -1|8,6,5|3-Oxo-2-methylpropanoate||||||0
+|C4H6O3|C4H5O3 -1|8,6,5|(S)-Methylmalonate semialdehyde||||||0
+|C4H7NO2|C4H7NO2|8,6,2|2-iminobutanoate/2-aminocrotonate|1|1|1|1|1|1
+|C4H8O2S|C4H7O2S -1|3,1,1|3-Methylthiopropionate|1|1|1|1|1|1
+|C4H8O3|C4H7O3 -1|12,6,6|3-hydroxybutanoate|1|1|1|1|1|1
+|C4H8O3|C4H7O3 -1|12,6,6|4-Hydroxybutanoate|1|1|1|1|1|1
+|C4H8O4|C4H8O4|6,4,1|D-Erythrose||||||0
+|C4H9NO2|C4H9NO2|19,12,7|GABA|1|1|1|1|1|1
+|C4H9NO2|C4H9NO2|19,12,7|Dimethylglycine|1|1|1|1|1|1
+|C4H9NO2|C4H9NO2|19,12,7|3-Aminoisobutanoate|1|1|0|||0
+|C4H9NO3|C4H9NO3|14,8,7|L-Threonine|1|1|1|1|1|1
+|C4H9NO3|C4H9NO3|14,8,7|L-Homoserine|1|1|1|1|1|1
+|C4H9NO3|C4H9NO3|14,8,7|L-Allothreonine|1|0||||0
+|C5H10N2O3S|C5H10N2O3S|2,1,1|Cys-Gly|1|1|1|1|1|1
+|C5H4O2|C5H4O2|3,2,2|Furfural|0|||||0
+|C5H4O2|C5H4O2|3,2,2|Protoanemonin|0|||||0
+|C5H6O2|C5H6O2|4,2,2|Furfuryl alcohol|0|||||0
+|C5H6O4|C5H5O4 -1|4,3,3|2,5-Dioxopentanoate|1|1|1|1|1|1
+|C5H6O4|C5H4O4 -2|4,4,4|Itaconate|0|||||0
+|C5H6O4|C5H4O4 -2|4,4,4|Citraconate|0|||||0
+|C5H6O5|C5H4O5 -2|4,2,2|2-Oxoglutarate|1|1|1|1|1|1
+|C5H8N2O2|C5H8N2O2|3,3,2|Dihydrothymine|1|1|1|1|1|1
+|C5H8O4|C5H7O4 -1|9,5,5|Acetolactate|1|1|1|1|1|1
+|C5H8O4|C5H6O4 -2|2,1,1|2-Oxo-3-hydroxyisovalerate|1|1|1|1|1|1
+|C5H8O4|C5H6O4 -2|2,1,1|Glutarate|1|1|1|1|1|1
+|C5H9NO2|C5H9NO2|7,4,3|L-Proline|1|1|1|1|1|1
+|C5H9NO3|C5H9NO3|15,11,10|L-Glutamate5-semialdehyde||||||0
+|C5H9NO3|C5H9NO3|15,11,10|L-Glutamate1-semialdehyde||||||0
+|C5H9NO3|C5H9NO3|15,11,10|5-Aminolevulinate||||||0
+|C5H9NO3|C5H9NO3|15,11,10|4-hydroxyproline||||||0
+|C5H9NO3|C5H9NO3|15,11,10|(2S,3S)-3-hydroxypyrrolidine-2-carboxylic acid||||||0
+|C5H9NO3|C5H9NO3|15,11,10|trans-4-Hydroxy-L-proline||||||0
+|C5H9NO3|C5H9NO3|15,11,10|trans-L-3-Hydroxyproline||||||0
+|C5H9NO3|C5H9NO3|15,11,10|cis-4-Hydroxy-D-proline||||||0
+|C5H9NO4|C5H9NO4|3,3,3|O-Acetyl-L-serine|1|1|1|1|1|1
+|C6H10O5|C6H10O5|24,10,5|L-Fucono-1,5-lactone|1|1|1|1|1|1
+|C6H10O5|C6H9O5 -1|4,4,3|2-Dehydro-3-deoxy-L-fuconate|1|1|1|1|1|1
+|C6H10O5|C6H9O5 -1|4,4,3|2-Dehydro-3-deoxy-L-rhamnonate|1|1|1|1|1|1
+|C6H11NO4|C6H11NO4|5,3,2|O-Acetyl-L-homoserine|1|1|1|1|1|1
+|C6H12O4|C6H11O4 -1|5,5,3|2,3-Dihydroxy-3-methylvalerate|1|1|1|1|1|1
+|C6H12O4|C6H11O4 -1|5,5,3|Pantoate|1|1|1|1|1|1
+|C6H13NO2|C6H13NO2|16,11,6|L-Isoleucine|1|1|1|1|1|1
+|C6H13NO2|C6H13NO2|16,11,6|L-Leucine|1|1|1|1|1|1
+|C6H6O4|C6H5O4 -1|7,6,6|2-Hydroxymuconic semialdehyde|1|1|1|1|1|1
+|C6H6O4|C6H5O4 -1|7,6,6|3-oxoadipate-enol-lactone|1|1|1|1|1|1
+|C6H6O5|C6H4O5 -2|12,5,5|2-Hydroxymuconate|1|1|1|1|1|1
+|C6H6O5|C6H4O5 -2|12,5,5|4-Oxalocrotonate|1|1|1|1|1|1
+|C6H8O5|C6H6O5 -2|5,3,3|2-Oxoadipate|1|1|1|1|1|1
