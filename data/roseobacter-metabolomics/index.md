@@ -566,6 +566,8 @@ first_col_names = feature_table.columns.tolist()[: -2]
 feature_table = feature_table[last_col_names + first_col_names]
 ```
 
+## Match formulas to compounds
+
 ### Find database isomers
 
 Find compounds in the ModelSEED Biochemistry database with molecular formulas, including deprotonated formulas. To help evaluate the number of possible biomolecular isomers that could exist as part of controlling false positive compound matches (see the section, [Known biological isomers](#known-biological-isomers)), subset isomeric compounds in the KEGG compound database, and those that participate in KEGG reactions.
@@ -626,3 +628,90 @@ A minority of molecular formulas match database compounds. A greater proportion 
   - 40 match KEGG compounds in a reaction, 2.0 isomers per formula on average
 
 Since reaction network compounds must be in ModelSEED, these statistics also show the upper bound on the number of formulas that may be identified in the genomes.
+
+### Search reaction network compounds
+
+Match molecular formulas to compounds predicted in the reaction networks. If a feature is observed in a particular culture, match it to that culture's network. Match to the "refined" network which ignores higher EC category annotations of KOs and the "KEGG" network which ignores EC number annotations altogether.
+
+```python
+def match_formulas(networks: dict[tuple[str], rn.GenomicNetwork]) -> tuple[
+    dict[tuple[str, int], dict[tuple[str], list[rn.ModelSEEDCompound]]],
+    dict[tuple[str, int], dict[tuple[str], rn.GenomicNetwork]],
+    dict[tuple[str], dict[tuple[str, int], list[rn.ModelSEEDCompound]]],
+    dict[tuple[str], dict[tuple[str, int], rn.GenomicNetwork]]
+]:
+    formula_culture_compounds: dict[tuple[str, int], dict[tuple[str], list[rn.ModelSEEDCompound]]] = {}
+    formula_culture_subnetwork: dict[tuple[str, int], dict[tuple[str], rn.GenomicNetwork]] = {}
+    culture_formula_compounds: dict[tuple[str], dict[tuple[str, int], list[rn.ModelSEEDCompound]]] = {}
+    culture_formula_subnetwork: dict[tuple[str], dict[tuple[str, int], rn.GenomicNetwork]] = {}
+    for row in feature_table.itertuples():
+        formula = row.search_formula
+        charge = row.search_charge
+        formula_culture_compounds[(formula, charge)] = culture_compounds = {}
+        formula_culture_subnetwork[(formula, charge)] = culture_subnetwork = {}
+        for strain_combo, network in networks.items():
+            final_abund = getattr(row, f"{'_'.join(strain_combo)}_Final")
+            start_abund = getattr(row, f"{'_'.join(strain_combo)}_Start")
+            if final_abund - start_abund == 0:
+                continue
+
+            matcher = rn.FormulaMatcher(network)
+            compounds, subnetwork = matcher.match_metabolites_network(formula, charge=charge)
+            culture_compounds[strain_combo] = compounds
+            culture_subnetwork[strain_combo] = subnetwork
+
+            try:
+                formula_compounds = culture_formula_compounds[strain_combo]
+            except KeyError:
+                culture_formula_compounds[strain_combo] = formula_compounds = {}
+            formula_compounds[(formula, charge)] = compounds
+
+            try:
+                formula_subnetwork = culture_formula_subnetwork[strain_combo]
+            except KeyError:
+                culture_formula_subnetwork[strain_combo] = formula_subnetwork = {}
+            formula_subnetwork[(formula, charge)] = subnetwork
+    return formula_culture_compounds, formula_culture_subnetwork, culture_formula_compounds, culture_formula_subnetwork
+```
+
+```python
+formula_culture_refined_compounds, formula_culture_refined_subnetwork, culture_formula_refined_compounds, culture_formula_refined_subnetwork = match_formulas(all_refined_networks)
+formula_culture_kegg_compounds, formula_culture_kegg_subnetwork, culture_formula_kegg_compounds, culture_formula_kegg_subnetwork = match_formulas(all_kegg_networks)
+```
+
+```python
+formula_count = len(feature_table[feature_table['search_charge'] == charge])
+charge_match_stats: dict[int, dict[str, int]] = {}
+for charge in [0, -1, -2]:
+    charge_match_stats[charge] = {'search_formulas': 0, 'refined': 0, 'kegg': 0}
+for (formula, charge), culture_compounds in formula_culture_refined_compounds.items():
+    match_stats = charge_match_stats[charge]
+    match_stats['search_formulas'] += 1
+    for compounds in culture_compounds.values():
+        if compounds:
+            match_stats['refined'] += 1
+            break
+for (formula, charge), culture_compounds in formula_culture_kegg_compounds.items():
+    match_stats = charge_match_stats[charge]
+    for compounds in culture_compounds.values():
+        if compounds:
+            match_stats['kegg'] += 1
+            break
+
+for charge, match_stats in charge_match_stats.items():
+    print(f"{match_stats['search_formulas']} formulas with a charge of {charge} were searched against reaction networks")
+    print(f"- {match_stats['refined']} match refined network compounds")
+    print(f"- {match_stats['kegg']} match KEGG network compounds")
+```
+
+Here are the numbers of formulas of different charges that match reaction network compounds.
+
+- 4522 formulas with a charge of 0 were searched against reaction networks
+  - 71 match refined network compounds
+  - 53 match KEGG network compounds
+- 4414 formulas with a charge of -1 were searched against reaction networks
+  - 29 match refined network compounds
+  - 20 match KEGG network compounds
+- 4181 formulas with a charge of -2 were searched against reaction networks
+  - 15 match refined network compounds
+  - 15 match KEGG network compounds
