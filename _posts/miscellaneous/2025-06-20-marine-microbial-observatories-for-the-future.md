@@ -23,10 +23,12 @@ As part of ongoing international efforts to advance 'omics-based observing of ma
 
 The workshop brings together a multidisciplinary group of experts in:
 
-* Long-term time-series observations
 * Environmental ‘omics
+* Time-series & ship-based ocean observations
+* Global coordination networks
+* Data users
 * Data and sample management
-* Policy and infrastructure development
+* Policy and governance
 
 Together, we will:
 
@@ -67,7 +69,7 @@ The current list of participants includes
 * Samantha Setta `UW/CICOES`
 
 ## Contact
-For questions contact Raïssa Meyer raissa.meyer@awi.de 
+For questions contact Raïssa Meyer `raissa.meyer@awi.de` 
 
 ## Acknowledgements
-
+We gratefully acknowledge the support of HIFMB (Helmholtz Institute for Functional Marine Biodiversity) for funding this workshop.
