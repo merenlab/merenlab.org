@@ -38,9 +38,6 @@ Together, we will:
 
 An expected outcome of the workshop is a synthesis paper that distills these discussions and outlines a collective vision for the future of microbial ocean observing.
 
-## Programme
-`TEXT`
-
 ## Logistics
 **Workshop dates**
 Tue, 30 Sept - Wed, 01 Oct 2025
@@ -49,6 +46,9 @@ Tue, 30 Sept - Wed, 01 Oct 2025
 Helmholtz Institute for Functional Marine Biodiversity at the University of Oldenburg (HIFMB) 
 Im Technologiepark 5, 26129 Oldenburg, Germany
 https://hifmb.de
+
+## Programme
+`TEXT`
 
 ## Participants
 
