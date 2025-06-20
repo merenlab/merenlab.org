@@ -16,7 +16,37 @@ image:
   nologo: true
 ---
 
-## Marine Microbial Observatories for the Future: From samples to data to legacy
+## About the Workshop
+_Marine Microbial Observatories for the Future_ is a two-day workshop, aimed at laying the groundwork for a lasting legacy of microbial observations in the ocean.
+
+As part of ongoing international efforts to advance 'omics-based observing of marine biodiversity, this workshop responds to a growing need to ensure that microbial observations, samples, and data are not only scientifically robust but also sustainable, reusable, and policy-relevant over time.
+
+The workshop brings together a multidisciplinary group of experts in:
+
+* Long-term time-series observations
+* Environmental ‘omics
+* Data and sample management
+* Policy and infrastructure development
+
+Together, we will:
+
+* Identify key challenges in observing marine microbes using 'omics approaches
+* Facilitate the exchange of lessons learned across observing efforts
+* Develop strategies and solutions for long-term coordination and impact
+
+An expected outcome of the workshop is a synthesis paper that distills these discussions and outlines a collective vision for the future of microbial ocean observing.
+
+## Programme
+`TEXT`
+
+## Logistics
+**Workshop dates**
+Tue, 30 Sept - Wed, 01 Oct 2025
+
+**Workshop location**
+Helmholtz Institute for Functional Marine Biodiversity at the University of Oldenburg (HIFMB) 
+Im Technologiepark 5, 26129 Oldenburg, Germany
+https://hifmb.de
 
 ## Participants
 
@@ -35,3 +65,9 @@ The current list of participants includes
 * Katie Pitz `Monterey Bay Aquarium Research Institute (MBARI)`
 * Michael S. Rappé `Hawaiʻi Marine Biology Institute`
 * Samantha Setta `UW/CICOES`
+
+## Contact
+For questions contact Raïssa Meyer raissa.meyer@awi.de 
+
+## Acknowledgements
+
