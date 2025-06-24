@@ -54,22 +54,22 @@ https://hifmb.de
 ## Participants
 
 The current list of participants (in alphabetical order) includes
-* Adam Martini `UC Irvine`
-* Chris Bowler `Insitut de Biologie de l'École Normale Supérieure (IBENS)`
-* Elisha Wood-Charlson `Lawrence Berkeley National Laboratory`
-* Enrique Montes `U. Miami Cooperative Institute for Marine and Atmospheric Studies (CIMAS) 
-* Ioulia Santi `European Marine Biological Resource Centre (EMBRC)`
-* Jed Fuhrman `University of Southern California (USC)`
-* Jodie van de Kamp `Commonwealth Scientific and Industrial Research Organisation (CSIRO)`
-* Julie Robidart `National Oceanography Centre
-* Katie Pitz `Monterey Bay Aquarium Research Institute (MBARI)`
-* Luke Thompson `Mississippi State University`
-* Michael S. Rappé `Hawaiʻi Marine Biology Institute`
-* Saara Suominen `Ocean Biodiversity Information System (OBIS)`
-* Sarah Tucker `Marine Biological Laboratory (MBL)`
-* Samantha Setta `UW/CICOES`
-* Thomas Stjernegaard-Jeppesen `Global Biodiversity Information Facility (GBIF)`
-* Tobias Guldberg Frøslev `Global Biodiversity Information Facility (GBIF)`
+* [Adam Martini](https://faculty.sites.uci.edu/martinylab/) `UC Irvine`
+* [Chris Bowler](https://www.embl.org/topics/tara/research/chris-bowler/) `Insitut de Biologie de l'École Normale Supérieure (IBENS)`
+* [Elisha Wood-Charlson](https://schmidtocean.org/person/elisha-wood-charlson/) `Lawrence Berkeley National Laboratory`
+* [Enrique Montes](https://www.aoml.noaa.gov/people/enrique-montes/) `U. Miami Cooperative Institute for Marine and Atmospheric Studies (CIMAS) 
+* [Ioulia Santi](https://www.embrc.eu/our-team/) `European Marine Biological Resource Centre (EMBRC)`
+* [Jed Fuhrman](https://dornsife.usc.edu/fuhrmanlab/__trashed-4/) `University of Southern California (USC)`
+* [Jodie van de Kamp](https://people.csiro.au/V/J/Jodie-Vandekamp) `Commonwealth Scientific and Industrial Research Organisation (CSIRO)`
+* [Julie Robidart](https://noc.ac.uk/n/Julie%20Robidart) `National Oceanography Centre
+* [Katie Pitz](https://www.mbari.org/person/kathleen-pitz/) `Monterey Bay Aquarium Research Institute (MBARI)`
+* [Luke Thompson](https://www.aoml.noaa.gov/luke-thompson/) `Mississippi State University`
+* [Michael S. Rappé](https://rappelab.wordpress.com/people/) `Hawaiʻi Marine Biology Institute`
+* [Saara Suominen](https://obis.org/2020/09/15/saara/) `Ocean Biodiversity Information System (OBIS)`
+* [Sarah Tucker](https://sarahjtucker.com) `Marine Biological Laboratory (MBL)`
+* [Samantha Setta](https://www.pmel.noaa.gov/people/dr-samantha-setta) `UW/CICOES`
+* [Thomas Stjernegaard-Jeppesen](https://dk.linkedin.com/in/thomas-stjernegaard-jeppesen-29b55011) `Global Biodiversity Information Facility (GBIF)`
+* [Tobias Guldberg Frøslev](https://globe.ku.dk/staff-list/?pure=en/persons/213201) `Global Biodiversity Information Facility (GBIF)`
 
 ## Contact
 For questions contact Raïssa Meyer `raissa.meyer@awi.de` 
