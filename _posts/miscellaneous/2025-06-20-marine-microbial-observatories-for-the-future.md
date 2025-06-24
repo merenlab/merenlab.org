@@ -53,21 +53,23 @@ https://hifmb.de
 
 ## Participants
 
-The current list of participants includes
-* Elisha Wood-Charlson `Lawrence Berkeley National Laboratory`
-* Luke Thompson `Mississippi State University`
-* Jed Fuhrman `University of Southern California (USC)`
-* Sarah Tucker `Marine Biological Laboratory (MBL)`
-* Enrique Montes `U. Miami Cooperative Institute for Marine and Atmospheric Studies (CIMAS) and NOAA’s Atlantic Oceanographic and Meteorological Laboratory (AOML)`
-* Ioulia Santi `European Marine Biological Resource Centre (EMBRC)`
-* Thomas Stjernegaard-Jeppesen `Global Biodiversity Information Facility (GBIF)`
-* Tobias Guldberg Frøslev `Global Biodiversity Information Facility (GBIF)`
+The current list of participants (in alphabetical order) includes
 * Adam Martini `UC Irvine`
 * Chris Bowler `Insitut de Biologie de l'École Normale Supérieure (IBENS)`
+* Elisha Wood-Charlson `Lawrence Berkeley National Laboratory`
+* Enrique Montes `U. Miami Cooperative Institute for Marine and Atmospheric Studies (CIMAS) 
+* Ioulia Santi `European Marine Biological Resource Centre (EMBRC)`
+* Jed Fuhrman `University of Southern California (USC)`
 * Jodie van de Kamp `Commonwealth Scientific and Industrial Research Organisation (CSIRO)`
+* Julie Robidart `National Oceanography Centre
 * Katie Pitz `Monterey Bay Aquarium Research Institute (MBARI)`
+* Luke Thompson `Mississippi State University`
 * Michael S. Rappé `Hawaiʻi Marine Biology Institute`
+* Saara Suominen `Ocean Biodiversity Information System (OBIS)`
+* Sarah Tucker `Marine Biological Laboratory (MBL)`
 * Samantha Setta `UW/CICOES`
+* Thomas Stjernegaard-Jeppesen `Global Biodiversity Information Facility (GBIF)`
+* Tobias Guldberg Frøslev `Global Biodiversity Information Facility (GBIF)`
 
 ## Contact
 For questions contact Raïssa Meyer `raissa.meyer@awi.de` 
