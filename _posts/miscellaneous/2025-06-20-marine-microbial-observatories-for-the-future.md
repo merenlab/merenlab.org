@@ -17,7 +17,7 @@ image:
 ---
 
 ## About the Workshop
-_Marine Microbial Observatories for the Future_ is a two-day workshop, aimed at laying the groundwork for a lasting legacy of microbial observations in the ocean.
+_Marine Microbial Observatories for the Future: From Samples to Data to Legacy Using Integrated Omics Strategies_ is a two-day workshop, aimed at laying the groundwork for a lasting legacy of microbial observations in the ocean.
 
 As part of ongoing international efforts to advance 'omics-based observing of marine biodiversity, this workshop responds to a growing need to ensure that microbial observations, samples, and data are not only scientifically robust but also sustainable, reusable, and policy-relevant over time.
 
