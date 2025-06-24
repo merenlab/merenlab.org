@@ -64,6 +64,7 @@ The current list of participants (in alphabetical order) includes
 * [Julie Robidart](https://noc.ac.uk/n/Julie%20Robidart) `National Oceanography Centre (NOC)`
 * [Katie Pitz](https://www.mbari.org/person/kathleen-pitz/) `Monterey Bay Aquarium Research Institute (MBARI)`
 * [Luke Thompson](https://www.aoml.noaa.gov/luke-thompson/) `Mississippi State University`
+* [Meren](https://merenlab.org/people/) `Helmholtz Insitute for Marine Functional Biodiversity (HIFMB)`
 * [Michael S. Rappé](https://rappelab.wordpress.com/people/) `Hawaiʻi Marine Biology Institute`
 * [Saara Suominen](https://obis.org/2020/09/15/saara/) `Ocean Biodiversity Information System (OBIS)`
 * [Sarah Tucker](https://sarahjtucker.com) `Marine Biological Laboratory (MBL)`
