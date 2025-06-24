@@ -69,6 +69,7 @@ The current list of participants (in alphabetical order) includes
 * [Saara Suominen](https://obis.org/2020/09/15/saara/) `Ocean Biodiversity Information System (OBIS)`
 * [Sarah Tucker](https://sarahjtucker.com) `Marine Biological Laboratory (MBL)`
 * [Samantha Setta](https://www.pmel.noaa.gov/people/dr-samantha-setta) `UW/CICOES`
+* [Teodor Georgiev](https://pensoft.net/teodor_georgiev) `Pensoft Publishers`
 * [Thomas Stjernegaard-Jeppesen](https://dk.linkedin.com/in/thomas-stjernegaard-jeppesen-29b55011) `Global Biodiversity Information Facility (GBIF)`
 * [Tobias Guldberg Frøslev](https://globe.ku.dk/staff-list/?pure=en/persons/213201) `Global Biodiversity Information Facility (GBIF)`
 
