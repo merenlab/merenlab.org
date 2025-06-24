@@ -23,12 +23,13 @@ As part of ongoing international efforts to advance 'omics-based observing of ma
 
 The workshop brings together a multidisciplinary group of experts in:
 
-* Environmental ‘omics
+* Environmental metagenomics
 * Time-series & ship-based ocean observations
 * Global coordination networks
 * Data users
 * Data and sample management
 * Policy and governance
+* Publishing
 
 Together, we will:
 
