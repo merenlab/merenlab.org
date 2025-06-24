@@ -49,7 +49,7 @@ Im Technologiepark 5, 26129 Oldenburg, Germany
 https://hifmb.de
 
 ## Programme
-`TEXT`
+`TBD`
 
 ## Participants
 
