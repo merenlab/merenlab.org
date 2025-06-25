@@ -54,7 +54,7 @@ https://hifmb.de
 ## Participants
 
 The current list of participants (in alphabetical order) includes
-* [Adam Martini](https://faculty.sites.uci.edu/martinylab/) `UC Irvine`
+* [Adam Martini](https://faculty.sites.uci.edu/martinylab/) `University of California, Irvine`
 * [Chris Bowler](https://www.embl.org/topics/tara/research/chris-bowler/) `Insitut de Biologie de l'École Normale Supérieure (IBENS)`
 * [Elisha Wood-Charlson](https://schmidtocean.org/person/elisha-wood-charlson/) `Lawrence Berkeley National Laboratory`
 * [Enrique Montes](https://www.aoml.noaa.gov/people/enrique-montes/) `U. Miami Cooperative Institute for Marine and Atmospheric Studies (CIMAS)` 
@@ -68,7 +68,7 @@ The current list of participants (in alphabetical order) includes
 * [Michael S. Rappé](https://rappelab.wordpress.com/people/) `Hawaiʻi Marine Biology Institute`
 * [Saara Suominen](https://obis.org/2020/09/15/saara/) `Ocean Biodiversity Information System (OBIS)`
 * [Sarah Tucker](https://sarahjtucker.com) `Marine Biological Laboratory (MBL)`
-* [Samantha Setta](https://www.pmel.noaa.gov/people/dr-samantha-setta) `UW/CICOES`
+* [Samantha Setta](https://www.pmel.noaa.gov/people/dr-samantha-setta) `University of Washington, Cooperative Institute for Climate, Ocean, & Ecosystem Studies (UW/CICOES)`
 * [Teodor Georgiev](https://pensoft.net/teodor_georgiev) `Pensoft Publishers`
 * [Thomas Stjernegaard-Jeppesen](https://dk.linkedin.com/in/thomas-stjernegaard-jeppesen-29b55011) `Global Biodiversity Information Facility (GBIF)`
 * [Tobias Guldberg Frøslev](https://globe.ku.dk/staff-list/?pure=en/persons/213201) `Global Biodiversity Information Facility (GBIF)`
