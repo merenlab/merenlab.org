@@ -66,7 +66,6 @@ The current list of participants (in alphabetical order) includes
 * [Luke Thompson](https://www.aoml.noaa.gov/luke-thompson/) `Mississippi State University`
 * [Meren](https://merenlab.org/people/) `Helmholtz Insitute for Marine Functional Biodiversity (HIFMB)`
 * [Michael S. Rappé](https://rappelab.wordpress.com/people/) `Hawaiʻi Marine Biology Institute`
-* [Saara Suominen](https://obis.org/2020/09/15/saara/) `Ocean Biodiversity Information System (OBIS)`
 * [Sarah Tucker](https://sarahjtucker.com) `Marine Biological Laboratory (MBL)`
 * [Samantha Setta](https://www.pmel.noaa.gov/people/dr-samantha-setta) `University of Washington, Cooperative Institute for Climate, Ocean, & Ecosystem Studies (UW/CICOES)`
 * [Teodor Georgiev](https://pensoft.net/teodor_georgiev) `Pensoft Publishers`
