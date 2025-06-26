@@ -1,5 +1,5 @@
 ---
-layout: workshops
+layout: page
 modified: 2025-06-26
 comments: false
 image:
