@@ -11,7 +11,7 @@ notoc: true
 noleftpanel: true
 nonavigation: true
 image:
-  feature: https://merenlab.org/images/miscellaneous/2025-06-20-marine-microbial-observatories-for-the-future/header.JPG
+  feature: https://merenlab.org/images/miscellaneous/2025-06-20-marine-microbial-observatories-for-the-future/header.png
   display: true
   nologo: true
 ---
