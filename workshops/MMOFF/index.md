@@ -11,7 +11,7 @@ notoc: true
 noleftpanel: true
 nonavigation: true
 image:
-  feature: eel-pond.jpg
+  feature: header_MMOFF.png
   display: true
   nologo: true
 ---
