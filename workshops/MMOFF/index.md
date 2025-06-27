@@ -6,7 +6,7 @@ excerpt: "A workshop for the future"
 modified: 2025-06-20
 tags: [workshop, gobal ocean observing]
 categories: [miscellaneous]
-comments: true
+comments: false
 notoc: true
 noleftpanel: true
 nonavigation: true
