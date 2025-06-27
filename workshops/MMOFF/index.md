@@ -11,7 +11,9 @@ notoc: true
 noleftpanel: true
 nonavigation: true
 image:
-  feature: https://merenlab.org/images/miscellaneous/2025-06-20-marine-microbial-observatories-for-the-future/header.png
+  feature: image:
+   display: true
+   feature: eel-pond.jpg
   display: true
   nologo: true
 ---
