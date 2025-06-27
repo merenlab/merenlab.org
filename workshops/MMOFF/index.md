@@ -11,9 +11,7 @@ notoc: true
 noleftpanel: true
 nonavigation: true
 image:
-  feature: image:
-   display: true
-   feature: eel-pond.jpg
+  feature: eel-pond.jpg
   display: true
   nologo: true
 ---
