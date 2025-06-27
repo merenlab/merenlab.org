@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 authors: [raissa]
 title: "Marine Microbial Observatories for the Future: From samples to data to legacy"
 excerpt: "A workshop for the future"
