@@ -48,6 +48,12 @@ Helmholtz Institute for Functional Marine Biodiversity at the University of Olde
 Im Technologiepark 5, 26129 Oldenburg, Germany
 https://hifmb.de
 
+Here is a map for you:
+
+<p><center>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2392.8755266399307!2d8.172422278515025!3d53.15406087223417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b6dfcd31a139a3%3A0xe17f26e2f76ff2c8!2sHelmholtz%20Institute%20for%20Functional%20Marine%20Biodiversity%20at%20the%20University%20of%20Oldenburg!5e0!3m2!1sen!2sde!4v1734100072289!5m2!1sen!2sde" width="600" height="450" style="border:0" allowfullscreen=""></iframe>
+</center></p>
+
 ## Programme
 `TBD`
 
