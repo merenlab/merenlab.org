@@ -80,7 +80,7 @@ The size of this metagenome dataset is **96 GB** (the archive alone is ~33 GB). 
 # download the metagenome data archive
 wget https://zenodo.org/record/7872967/files/VESELI_ET_AL_METAGENOME_CONTIGS_DBS.tar.gz 
 # extract the metagenome data
-tar -xvzf VESELI_ET_AL_METAGENOME_CONTIGS_DBS.tar.gz
+tar -xvzf VESELI_ET_AL_METAGENOME_CONTIGS_DBS.tar.gz && mv SUBSET_CONTIGS_DBS/ VESELI_ET_AL_METAGENOME_CONTIGS_DBS
 
 # generate a table of sample names and paths
 echo -e "name\tcontigs_db_path" > METAGENOME_EXTERNAL_GENOMES.txt
