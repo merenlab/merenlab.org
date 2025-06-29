@@ -484,7 +484,7 @@ mkdir 03_METABOLISM_OUTPUT
 
 ### Metabolism estimation
 
-We used the program {% include PROGRAM name="anvi-estimate-metabolism" %} to compute copy numbers of KEGG modules in each sample. You can find details about that program and its calculation strategies on [this page](https://anvio.org/help/main/programs/anvi-estimate-metabolism/). To ensure that all annotated KOfams in the metagenome contributed to the calculations, we ran the program in 'genome mode' on each sample, and to do this in a high-throughput manner, we provided the program with an {% include ARTIFACT name="external-genomes" %} file containing the paths to all the samples' contigs databases at once. Here is the code to both generate that input file (from the table containing the sample information, including paths) and run the metabolism estimation code.
+We used the program {% include PROGRAM name="anvi-estimate-metabolism" %} to compute copy numbers of KEGG modules in each sample. You can find details about that program and its calculation strategies on [this page](https://anvio.org/help/main/programs/anvi-estimate-metabolism/). To ensure that all annotated KOfams in the metagenome contributed to the calculations, we ran the program in 'genome mode' on each sample, and to do this in a high-throughput manner, we provided the program with an {% include ARTIFACT name="external-genomes" %} file containing the paths to all the samples' contigs databases at once. The external genomes file was generated above when you downloaded the metagenome datapack. Here is how to run the metabolism estimation code.
 
 ```bash
 # run metabolism estimation
