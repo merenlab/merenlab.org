@@ -151,6 +151,9 @@ The bulk of analyses in this study were done using anvi'o version `7.1-dev` (tha
 
 The only relevant difference between `v7.1-dev` and `v8.0` (with respect to reproducing our results) is the default KEGG snapshot, which is newer in `v8.0` than the version we used for the analyses in this paper. The choice of KEGG version affects the results of {% include PROGRAM name="anvi-run-kegg-kofams" %} and {% include PROGRAM name="anvi-estimate-metabolism" %}. In order to use the same version we did, you should run the following code to download the appropriate snapshot onto your computer into the directory `KEGG_2020-12-23/` (you can change that path if you want):
 
+{:.warning}
+The below command works in anvi'o v7.1, but if you are using a later version of anvi'o, you will need to use the program `anvi-setup-kegg-data` instead (we renamed it). The same parameters should work (we tested it as of anvi'o v8-dev).
+
 ```bash
 anvi-setup-kegg-kofams --kegg-snapshot v2020-12-23 \
                        --kegg-data-dir KEGG_2020-12-23
