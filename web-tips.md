@@ -189,7 +189,7 @@ An anvi'o {% include ARTIFACT name="pan-db" %} comes from {% include PROGRAM nam
 
 ``` html
 <blockquote>
-An intersting quote.
+An interesting quote.
 <div class="blockquote-author">Someone Interesting</div>
 </blockquote>
 ```
@@ -197,7 +197,7 @@ An intersting quote.
 **Rendered**:
 
 <blockquote>
-An intersting quote.
+An interesting quote.
 <div class="blockquote-author">Someone Interesting</div>
 </blockquote>
 
