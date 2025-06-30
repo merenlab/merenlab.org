@@ -63,24 +63,24 @@ Here is a map for you:
 ## Participants
 
 The current list of participants (in alphabetical order) includes
-* [Adam Martini](https://faculty.sites.uci.edu/martinylab/) _University of California, Irvine_
-* [Chris Bowler](https://www.embl.org/topics/tara/research/chris-bowler/) _Insitut de Biologie de l'École Normale Supérieure (IBENS)_
-* [Elisha Wood-Charlson](https://schmidtocean.org/person/elisha-wood-charlson/) _Lawrence Berkeley National Laboratory_
-* [Enrique Montes](https://www.aoml.noaa.gov/people/enrique-montes/) _U. Miami Cooperative Institute for Marine and Atmospheric Studies (CIMAS)_ 
-* [Ioulia Santi](https://www.embrc.eu/our-team/) _European Marine Biological Resource Centre (EMBRC)_
-* [Jed Fuhrman](https://dornsife.usc.edu/fuhrmanlab/__trashed-4/) _University of Southern California (USC)_
-* [Jesse McNichol](https://www.stfx.ca/faculty-staff/jesse-mcnichol) _St. Francis Xavier University_
-* [Jodie van de Kamp](https://people.csiro.au/V/J/Jodie-Vandekamp) _Commonwealth Scientific and Industrial Research Organisation (CSIRO)_
-* [Julie Robidart](https://noc.ac.uk/n/Julie%20Robidart) _National Oceanography Centre (NOC)_
-* [Katie Pitz](https://www.mbari.org/person/kathleen-pitz/) _Monterey Bay Aquarium Research Institute (MBARI)_
-* [Luke Thompson](https://www.aoml.noaa.gov/luke-thompson/) _Mississippi State University_
-* [Meren](https://merenlab.org/people/) _Helmholtz Insitute for Marine Functional Biodiversity (HIFMB)_
-* [Michael S. Rappé](https://rappelab.wordpress.com/people/) _Hawaiʻi Marine Biology Institute_
-* [Samantha Setta](https://www.pmel.noaa.gov/people/dr-samantha-setta) _University of Washington, Cooperative Institute for Climate, Ocean, & Ecosystem Studies (UW/CICOES)_
-* [Sarah Tucker](https://sarahjtucker.com) _Marine Biological Laboratory (MBL)_
-* [Teodor Georgiev](https://pensoft.net/teodor_georgiev) _Pensoft Publishers_
-* [Thomas Stjernegaard-Jeppesen](https://dk.linkedin.com/in/thomas-stjernegaard-jeppesen-29b55011) _Global Biodiversity Information Facility (GBIF)_
-* [Tobias Guldberg Frøslev](https://globe.ku.dk/staff-list/?pure=en/persons/213201) _Global Biodiversity Information Facility (GBIF)_
+* 🇺🇸 [Adam Martini](https://faculty.sites.uci.edu/martinylab/) _University of California, Irvine_
+* 🇫🇷 [Chris Bowler](https://www.embl.org/topics/tara/research/chris-bowler/) _Insitut de Biologie de l'École Normale Supérieure (IBENS)_
+* 🇺🇸 [Elisha Wood-Charlson](https://schmidtocean.org/person/elisha-wood-charlson/) _Lawrence Berkeley National Laboratory_
+* 🇺🇸 [Enrique Montes](https://www.aoml.noaa.gov/people/enrique-montes/) _U. Miami Cooperative Institute for Marine and Atmospheric Studies (CIMAS)_ 
+* 🇫🇷 [Ioulia Santi](https://www.embrc.eu/our-team/) _European Marine Biological Resource Centre (EMBRC)_
+* 🇺🇸 [Jed Fuhrman](https://dornsife.usc.edu/fuhrmanlab/__trashed-4/) _University of Southern California (USC)_
+* 🇨🇦 [Jesse McNichol](https://www.stfx.ca/faculty-staff/jesse-mcnichol) _St. Francis Xavier University_
+* 🇦🇺 [Jodie van de Kamp](https://people.csiro.au/V/J/Jodie-Vandekamp) _Commonwealth Scientific and Industrial Research Organisation (CSIRO)_
+* 🇬🇧 [Julie Robidart](https://noc.ac.uk/n/Julie%20Robidart) _National Oceanography Centre (NOC)_
+* 🇺🇸 [Katie Pitz](https://www.mbari.org/person/kathleen-pitz/) _Monterey Bay Aquarium Research Institute (MBARI)_
+* 🇺🇸 [Luke Thompson](https://www.aoml.noaa.gov/luke-thompson/) _Mississippi State University_
+* 🇩🇪 [Meren](https://merenlab.org/people/) _Helmholtz Insitute for Marine Functional Biodiversity (HIFMB)_
+* 🇺🇸 [Michael S. Rappé](https://rappelab.wordpress.com/people/) _Hawaiʻi Marine Biology Institute_
+* 🇺🇸 [Samantha Setta](https://www.pmel.noaa.gov/people/dr-samantha-setta) _University of Washington, Cooperative Institute for Climate, Ocean, & Ecosystem Studies (UW/CICOES)_
+* 🇺🇸 [Sarah Tucker](https://sarahjtucker.com) _Marine Biological Laboratory (MBL)_
+* 🇧🇬 [Teodor Georgiev](https://pensoft.net/teodor_georgiev) _Pensoft Publishers_
+* 🇩🇰 [Thomas Stjernegaard-Jeppesen](https://dk.linkedin.com/in/thomas-stjernegaard-jeppesen-29b55011) _Global Biodiversity Information Facility (GBIF)_
+* 🇩🇰 [Tobias Guldberg Frøslev](https://globe.ku.dk/staff-list/?pure=en/persons/213201) _Global Biodiversity Information Facility (GBIF)_
 
 ## Contact
 For questions contact Raïssa Meyer `raissa.meyer@awi.de` 
