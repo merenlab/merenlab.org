@@ -26,7 +26,7 @@ If you have any questions, notice an issue, and/or are unable to find an importa
 
 ### Background
 
-The carbon cycle in the surface ocean remineralizes the vast majority of fixed carbon on a time scale less than ~1 year, with the residual ~1% entering the longer-lived reservoir of dissolved organic matter (DOM) that is comparable in size to atmospheric carbon. The molecular composition of this DOM pool is similar in the surface and deep ocean and arises from the collective action of the microbiome. The exometabolomes of isolate cultures bear little resemblance to ocean DOM, which prompted us to study co-cultures of marine microbes to elucidate the process of DOM formation.
+The carbon cycle in the surface ocean remineralizes the vast majority of fixed carbon on a time scale less than ~1 year, with the residual ~1% entering the longer-lived reservoir of dissolved organic matter (DOM) that is comparable in size to atmospheric carbon. Microbial The molecular composition of this DOM pool is similar in the surface and deep ocean and arises from the collective action of the microbiome. The exometabolomes of isolate cultures bear little resemblance to ocean DOM, which prompted us to study co-cultures of marine microbes to elucidate the process of DOM formation.
 
 ### Cultures
 
