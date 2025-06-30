@@ -1,7 +1,7 @@
 ---
 layout: page
 authors: [raissa]
-title: "Marine Microbial Observatories for the Future: From samples to data to legacy"
+title: "Marine Microbial Observatories for the Future: From Samples to Data to Legacy"
 excerpt: "A workshop for the future"
 modified: 2025-06-20
 tags: [workshop, gobal ocean observing]
@@ -41,7 +41,7 @@ An expected outcome of the workshop is a synthesis paper that distills these dis
 
 ## Logistics
 **Workshop dates**
-Tue, 30 Sept - Wed, 01 Oct 2025
+Tue, 30 Sept - Wed, 01 Oct 2025 | Symposium Thu 02 Oct 2025
 
 **Workshop location**
 Helmholtz Institute for Functional Marine Biodiversity at the University of Oldenburg (HIFMB) 
@@ -66,14 +66,15 @@ The current list of participants (in alphabetical order) includes
 * [Enrique Montes](https://www.aoml.noaa.gov/people/enrique-montes/) `U. Miami Cooperative Institute for Marine and Atmospheric Studies (CIMAS)` 
 * [Ioulia Santi](https://www.embrc.eu/our-team/) `European Marine Biological Resource Centre (EMBRC)`
 * [Jed Fuhrman](https://dornsife.usc.edu/fuhrmanlab/__trashed-4/) `University of Southern California (USC)`
+* [Jesse McNichol](https://www.stfx.ca/faculty-staff/jesse-mcnichol) `St. Francis Xavier University`
 * [Jodie van de Kamp](https://people.csiro.au/V/J/Jodie-Vandekamp) `Commonwealth Scientific and Industrial Research Organisation (CSIRO)`
 * [Julie Robidart](https://noc.ac.uk/n/Julie%20Robidart) `National Oceanography Centre (NOC)`
 * [Katie Pitz](https://www.mbari.org/person/kathleen-pitz/) `Monterey Bay Aquarium Research Institute (MBARI)`
 * [Luke Thompson](https://www.aoml.noaa.gov/luke-thompson/) `Mississippi State University`
 * [Meren](https://merenlab.org/people/) `Helmholtz Insitute for Marine Functional Biodiversity (HIFMB)`
 * [Michael S. Rappé](https://rappelab.wordpress.com/people/) `Hawaiʻi Marine Biology Institute`
-* [Sarah Tucker](https://sarahjtucker.com) `Marine Biological Laboratory (MBL)`
 * [Samantha Setta](https://www.pmel.noaa.gov/people/dr-samantha-setta) `University of Washington, Cooperative Institute for Climate, Ocean, & Ecosystem Studies (UW/CICOES)`
+* [Sarah Tucker](https://sarahjtucker.com) `Marine Biological Laboratory (MBL)`
 * [Teodor Georgiev](https://pensoft.net/teodor_georgiev) `Pensoft Publishers`
 * [Thomas Stjernegaard-Jeppesen](https://dk.linkedin.com/in/thomas-stjernegaard-jeppesen-29b55011) `Global Biodiversity Information Facility (GBIF)`
 * [Tobias Guldberg Frøslev](https://globe.ku.dk/staff-list/?pure=en/persons/213201) `Global Biodiversity Information Facility (GBIF)`
