@@ -11,7 +11,7 @@ notoc: true
 noleftpanel: true
 nonavigation: true
 image:
-  feature: http://127.0.0.1:4000/images/anvio/2022-01-03-giant-viruses/header.png
+  feature: https://merenlab.org/images/anvio/2022-01-03-giant-viruses/header.png
   display: true
   nologo: true
 ---
