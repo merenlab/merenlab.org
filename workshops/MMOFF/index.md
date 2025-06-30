@@ -41,9 +41,15 @@ An expected outcome of the workshop is a synthesis paper that distills these dis
 
 ## Logistics
 **Workshop dates**
-Tue, 30 Sept - Wed, 01 Oct 2025 | Symposium Thu 02 Oct 2025
 
-**Workshop location**
+Tue, 30 Sept - Wed, 01 Oct 2025 
+
+**Symposium** 
+
+Thu 02 Oct 2025
+
+**Location**
+
 Helmholtz Institute for Functional Marine Biodiversity at the University of Oldenburg (HIFMB) 
 Im Technologiepark 5, 26129 Oldenburg, Germany
 https://hifmb.de
