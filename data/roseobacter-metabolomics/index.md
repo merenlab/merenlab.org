@@ -1228,85 +1228,95 @@ draw_structures([prephenate, chorismate, isochorismate])
 
 ### Evaluation table
 
-The evaluation of formula matches to network compounds are summarized in the following table, with 1 signifying high evidence and 0 signifying low evidence.
+The evaluation of formula matches to network compounds is summarized in the following table. Compound matches that were not found in **all** of the reaction networks of cultures containing the particular formula were first screened out and not included in the table (see [Compound consistency across cultures](#compound-consistency-across-cultures)). A molecular feature's "Neutral formula" in the table has an "Ionized formula" that was searched against the reaction networks to yield a "Compound match". "Database isomers" of the ionized formula are the numbers of isomeric ModelSEED Biochemistry database compounds, the subset aliasing KEGG compounds, and the subset aliasing KEGG compounds in reactions (see [Known biological isomers](#known-biological-isomers)).
 
-|**Neutral formula**|**Ionized formula**|**Database isomers**|**Compound match**|**KO annotation specificity**|**Reaction annotation specificity**|**Metabolic integration**|**Extractability**|**Ionizability**|**Overall evidence**|
+Subsequent columns after "Compound match" evaluate [criteria](#criteria) for compound assignment confidence. A value of 1 indicates that the compound passes the filter, and a value of 0 indicates removal by the filter. The last column, "Passes filters", has a value of 1 if the compound match has a value of 1 in each of the individual filter columns. To expedite the process of evaluating compounds, the series of filters was applied from left to right, and evaluation was stopped if a value of 0 was recorded: this is the reason for absent values in the individual filter columns to the right of a 0.
+
+Examples of compound matches that are retained and discarded illustrate the filters. As discussed above, C<sub>10</sub>H<sub>10</sub>O<sub>6</sub> matched three compounds in the culture reaction networks containing the formula: the deprotonated variant of the formula, C<sub>10</sub>H<sub>8</sub>O<sub>6</sub><sup>-2</sup>, matched prephenate, chorismate, and isochorismate. These represented the only three isomeric compounds recorded in the ModelSEED Biochemistry database and the two KEGG subsets (the value of "3,3,3" in the "Database isomers" column). We judged that this relatively low number allowed the compounds to pass the "Database isomer specificity" filter, with a value of 1. The "Annotation specificity" filter was passed because the compounds were populated in the reaction networks via KO enzyme annotations with KEGG reactions and EC numbers that always specifically involve the compounds. Isochorismate did not pass the next "Metabolic integration" filter since the compound was only included in reaction networks via isochorismate pyruvate lyase (K04782), which consumes but does not produce the compound. In contrast, chorismate and prephenate are well-integrated metabolites produced by enzymes of the genomically complete shikimate pathway. Chorismate and prephenate then passed the "Ionizability" filter, which accounts for plausible chemical properties that make a compound suitable for measurement. Finally, the compounds passed the "Metabolic similarity" filter since they have similar metabolic roles as adjacent isomers in the shikimate pathway.
+
+The next formula in the table, C<sub>10</sub>H<sub>11</sub>NO<sub>2</sub>, matches 5-hydroxy-1H-indole-3-ethanol and indole-3-glycol. Both compounds passed the "Database isomer specificity" filter but were removed by the next "Annotation specificity" filter due to the broadness of the enzyme annotations that resulted in the compounds' inclusion in the reaction networks. The compounds are involved in some of the numerous ModelSEED alcohol dehydrogenase reactions associated with EC 1.1.1.1, which annotates the enzymes S-(hydroxymethyl)glutathione dehydrogenase / alcohol dehydrogenase (K00121) and alcohol dehydrogenase, propanol-preferring (K13953). High uncertainty in the reaction specificity of the gene enzyme products reduces the likelihood that the particular compounds actually occur in the strains' metabolomes.
+
+Further down the table occurs C<sub>12</sub>H<sub>22</sub>O<sub>11</sub>, which matches a number of disaccharides in the reaction networks. Before reaching the "Ionizability" filter, which would discard sugar compound matches due to the lack of an acidic proton for straightforward negative ionization, the compounds are filtered out by "Database isomer specificity." A large number of possible compounds besides the matched disaccharides have the same formula in the reference databases (66 isomers in ModelSEED, 35 and 22 in the KEGG subsets), increasing the likelihood that other compounds produced by the strains actually represent the formula.
+
+From this table, 53 molecular formulas had compound matches that passed the filters. These comprise SI Table 2f in our Füssel et al. publication.
+
+|**Neutral formula**|**Ionized formula**|**Database isomers**|**Compound match**|**Database isomer specificity**|**Annotation specificity**|**Metabolic integration**|**Ionizability**|**Metabolic similarity**|**Passes filters**|
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
 |C10H10O6|C10H8O6 -2|3,3,3|Prephenate|1|1|1|1|1|1
 |C10H10O6|C10H8O6 -2|3,3,3|Chorismate|1|1|1|1|1|1
 |C10H10O6|C10H8O6 -2|3,3,3|Isochorismate|1|1|0|||0
-|C10H11NO2|C10H11NO2|2,0,0|1H-indole-3-ethanol, 5-hydroxy-|0|||||0
-|C10H11NO2|C10H11NO2|2,0,0|indole-3-glycol|0|||||0
-|C10H11NO3|C10H11NO3|6,6,3|3-Carbamoyl-2-phenylpropionaldehyde|0|||||0
-|C10H11NO3|C10H11NO3|6,6,3|4-Hydroxy-5-phenyltetrahydro-1,3-oxazin-2-one|0|||||0
+|C10H11NO2|C10H11NO2|2,0,0|1H-indole-3-ethanol, 5-hydroxy-|1|0||||0
+|C10H11NO2|C10H11NO2|2,0,0|indole-3-glycol|1|0||||0
+|C10H11NO3|C10H11NO3|6,6,3|3-Carbamoyl-2-phenylpropionaldehyde|1|0||||0
+|C10H11NO3|C10H11NO3|6,6,3|4-Hydroxy-5-phenyltetrahydro-1,3-oxazin-2-one|1|0||||0
 |C10H12N4O5|C10H12N4O5|1,1,1|Inosine|1|1|1|1|1|1
 |C10H14N2O5|C10H14N2O5|3,2,1|Thymidine|1|1|1|1|1|1
-|C10H7NO2|C10H7NO2|3,2,1|3-indoleglyoxal|0|||||0
-|C10H7NO3|C10H7NO3|4,3,3|1-Nitronaphthalene-7,8-oxide|0|||||0
-|C10H7NO3|C10H7NO3|4,3,3|1-Nitronaphthalene-5,6-oxide|0|||||0
-|C10H8O|C10H8O|5,4,4|(1S,2R)-Naphthalene epoxide|0|||||0
-|C10H8O|C10H8O|5,4,4|(1R,2S)-Naphthalene epoxide|0|||||0
-|C10H9NO2|C10H9NO2|14,7,4|5-Hydroxyindoleacetaldehyde|0|||||0
-|C10H9NO2|C10H9NO2|14,7,4|indole-3-ketol|0|||||0
-|C10H9NO2|C10H9NO2|14,7,4|3-Indoleglycolaldehyde|0|||||0
-|C10H9NO3|C10H9NO3|3,2,2|5-Phenyl-1,3-oxazinane-2,4-dione|0|||||0
-|C11H10O|C11H10O|2,2,2|1-Naphthalenemethanol|0|||||0
-|C11H10O|C11H10O|2,2,2|(2-Naphthyl)methanol|0|||||0
+|C10H7NO2|C10H7NO2|3,2,1|3-indoleglyoxal|1|0||||0
+|C10H7NO3|C10H7NO3|4,3,3|1-Nitronaphthalene-7,8-oxide|1|0||||0
+|C10H7NO3|C10H7NO3|4,3,3|1-Nitronaphthalene-5,6-oxide|1|0||||0
+|C10H8O|C10H8O|5,4,4|(1S,2R)-Naphthalene epoxide|1|0||||0
+|C10H8O|C10H8O|5,4,4|(1R,2S)-Naphthalene epoxide|1|0||||0
+|C10H9NO2|C10H9NO2|14,7,4|5-Hydroxyindoleacetaldehyde|1|0||||0
+|C10H9NO2|C10H9NO2|14,7,4|indole-3-ketol|1|0||||0
+|C10H9NO2|C10H9NO2|14,7,4|3-Indoleglycolaldehyde|1|0||||0
+|C10H9NO3|C10H9NO3|3,2,2|5-Phenyl-1,3-oxazinane-2,4-dione|1|0||||0
+|C11H10O|C11H10O|2,2,2|1-Naphthalenemethanol|1|0||||0
+|C11H10O|C11H10O|2,2,2|(2-Naphthyl)methanol|1|0||||0
 |C11H12N2O2|C11H12N2O2|7,6,3|L-Tryptophan|1|1|1|1|1|1
 |C11H12N2O2|C11H12N2O2|7,6,3|D-Tryptophan|1|1|0|||0
 |C11H12N2O5|C11H12N2O5|2,1,1|5-Hydroxy-N-formylkynurenine|1|1|1|1|1|1
 |C11H13NO6|C11H13NO6|1,1,1|Nicotinate D-ribonucleoside|1|1|1|1|1|1
 |C11H22N2O4S|C11H22N2O4S|3,1,1|Pantetheine|1|1|1|1|1|1
-|C12H22O11|C12H22O11|66,35,22|Maltose||||||0
-|C12H22O11|C12H22O11|66,35,22|Lactose||||||0
-|C12H22O11|C12H22O11|66,35,22|Cellobiose||||||0
-|C12H22O11|C12H22O11|66,35,22|Melibiose||||||0
-|C12H22O11|C12H22O11|66,35,22|Sucrose||||||0
-|C12H22O11|C12H22O11|66,35,22|Galactinol||||||0
-|C12H22O11|C12H22O11|66,35,22|Epimelibiose||||||0
-|C12H22O11|C12H22O11|66,35,22|Trehalose||||||0
-|C12H22O14S|C12H21O14S [-1]|3,0,0|2-O-sulfo-alpha,alpha-trehalose|1|1|0|||0
+|C12H22O11|C12H22O11|66,35,22|Maltose|0|||||0
+|C12H22O11|C12H22O11|66,35,22|Lactose|0|||||0
+|C12H22O11|C12H22O11|66,35,22|Cellobiose|0|||||0
+|C12H22O11|C12H22O11|66,35,22|Melibiose|0|||||0
+|C12H22O11|C12H22O11|66,35,22|Sucrose|0|||||0
+|C12H22O11|C12H22O11|66,35,22|Galactinol|0|||||0
+|C12H22O11|C12H22O11|66,35,22|Epimelibiose|0|||||0
+|C12H22O11|C12H22O11|66,35,22|Trehalose|0|||||0
+|C12H22O14S|C12H21O14S -1|3,0,0|2-O-sulfo-alpha,alpha-trehalose|1|1|0|||0
 |C12H24O2|C12H23O2 -1|1,1,1|Dodecanoic acid|1|1|1|1|1|1
-|C14H10O8|C14H9O8 -1|1,1,1|2-Protocatechoylphloroglucinolcarboxylate|1|1|1|1|1|1
-|C14H17NO7|C14H17NO7|4,4,2|Taxiphyllin|0|||||0
+|C14H10O8|C14H9O8 -1|1,1,1|2-Protocatechoylphloroglucinolcarboxylate|1|1|1|0||0
+|C14H17NO7|C14H17NO7|4,4,2|Taxiphyllin|1|0||||0
 |C14H18N2O4|C14H18N2O4|2,2,1|alpha-Ribazole|1|1|1|1|1|1
 |C14H26O2|C14H25O2 -1|2,1,0|Tetradecenoate|1|1|1|1|1|1
 |C15H10O7|C15H9O7 -1|13,13,3|Quercetin|1|1|0|||0
 |C16H30O2|C16H29O2 -1|9,1,1|Hexadecanoate|1|1|1|1|1|1
-|C17H12O7|C17H12O7|6,6,5|Aflatoxin B1-exo-8,9-epoxide|0|||||
-|C17H32O2|C17H31O2 -1|7,2,0|Fatty acid (Anteiso-C17:1)|1|1|0|||1
+|C17H12O7|C17H12O7|6,6,5|Aflatoxin B1-exo-8,9-epoxide|1|0||||0
+|C17H32O2|C17H31O2 -1|7,2,0|Fatty acid (Anteiso-C17:1)|1|1|0||1|1
 |C17H32O2|C17H31O2 -1|7,2,0|Fatty acid (Iso-C17:1)|1|1|1|1|1|1
 |C18H26O3|C18H26O3|2,2,1|6-Methoxy-3-methyl-2-all-trans-polyprenyl-1,4-benzoquinol|1|1|0|||0
-|C18H32O16|C18H32O16|39,25,10|Manninotriose||||||0
-|C18H32O16|C18H32O16|39,25,10|Melitose||||||0
-|C18H32O16|C18H32O16|39,25,10|Amylotriose||||||0
-|C18H32O16|C18H32O16|39,25,10|Galactomannan||||||0
-|C18H32O16|C18H32O16|39,25,10|Glycan||||||0
+|C18H32O16|C18H32O16|39,25,10|Manninotriose|0|||||0
+|C18H32O16|C18H32O16|39,25,10|Melitose|0|||||0
+|C18H32O16|C18H32O16|39,25,10|Amylotriose|0|||||0
+|C18H32O16|C18H32O16|39,25,10|Galactomannan|0|||||0
+|C18H32O16|C18H32O16|39,25,10|Glycan|0|||||0
 |C18H34O2|C18H33O2 -1|8,5,1|Oleate|1|1|1|1|1|1
 |C18H34O2|C18H33O2 -1|8,5,1|Octadecanoate|1|1|1|1|1|1
 |C18H37O7P|C18H36O7P -1|2,0,0|1-isopentadecanoyl-sn-glycerol 3-phosphate|1|1|1|1|1|1
 |C18H37O7P|C18H36O7P -1|2,0,0|1-anteisopentadecanoyl-sn-glycerol 3-phosphate|1|1|0|||0
 |C19H32O4|C19H32O4|1,1,1|Decylubiquinol|1|1|1|1|1|1
-|C21H20O11|C21H20O11|8,6,5|Cyanidin 3-O-glucoside|0|||||0
+|C21H20O11|C21H20O11|8,6,5|Cyanidin 3-O-glucoside|1|0||||0
 |C23H46NO7P|C23H46NO7P|3,0,0|2-Acyl-sn-glycero-3-phosphoethanolamine octadec-11-enoyl|1|1|1|1|1|1
 |C23H46NO7P|C23H46NO7P|3,0,0|1-(9Z-octadecenoyl)-sn-glycero-3-phosphoethanolamine|1|1|1|1|1|1
-|C24H42O21|C24H42O21|26,11,8|Glycogen||||||0
-|C24H42O21|C24H42O21|26,11,8|Maltotetraose||||||0
-|C24H42O21|C24H42O21|26,11,8|6-alpha-D--1-4-alpha-D-Glucano--Glucan||||||0
-|C24H42O21|C24H42O21|26,11,8|Stachyose||||||0
+|C24H42O21|C24H42O21|26,11,8|Glycogen|0|||||0
+|C24H42O21|C24H42O21|26,11,8|Maltotetraose|0|||||0
+|C24H42O21|C24H42O21|26,11,8|6-alpha-D--1-4-alpha-D-Glucano--Glucan|0|||||0
+|C24H42O21|C24H42O21|26,11,8|Stachyose|0|||||0
 |C4H4O4|C4H2O4 -2|2,2,2|Fumarate|1|1|1|1|1|1
 |C4H4O4|C4H2O4 -2|2,2,2|Maleate|1|1|1|1|1|1
 |C4H6N4O|C4H6N4O|2,1,1|5-Amino-4-imidazolecarboxyamide|1|1|1|1|1|1
-|C4H6O3|C4H5O3 -1|8,6,5|4-Oxobutanoate||||||0
-|C4H6O3|C4H5O3 -1|8,6,5|Acetoacetate||||||0
-|C4H6O3|C4H5O3 -1|8,6,5|2-Oxobutyrate||||||0
-|C4H6O3|C4H5O3 -1|8,6,5|3-Oxo-2-methylpropanoate||||||0
-|C4H6O3|C4H5O3 -1|8,6,5|(S)-Methylmalonate semialdehyde||||||0
+|C4H6O3|C4H5O3 -1|8,6,5|4-Oxobutanoate|1|1|1|1|0|0
+|C4H6O3|C4H5O3 -1|8,6,5|Acetoacetate|1|1|1|1|0|0
+|C4H6O3|C4H5O3 -1|8,6,5|2-Oxobutyrate|1|1|1|1|0|0
+|C4H6O3|C4H5O3 -1|8,6,5|3-Oxo-2-methylpropanoate|1|1|1|1|0|0
+|C4H6O3|C4H5O3 -1|8,6,5|(S)-Methylmalonate semialdehyde|1|1|1|1|0|0
 |C4H7NO2|C4H7NO2|8,6,2|2-iminobutanoate/2-aminocrotonate|1|1|1|1|1|1
 |C4H8O2S|C4H7O2S -1|3,1,1|3-Methylthiopropionate|1|1|1|1|1|1
 |C4H8O3|C4H7O3 -1|12,6,6|3-hydroxybutanoate|1|1|1|1|1|1
 |C4H8O3|C4H7O3 -1|12,6,6|4-Hydroxybutanoate|1|1|1|1|1|1
-|C4H8O4|C4H8O4|6,4,1|D-Erythrose||||||0
+|C4H8O4|C4H8O4|6,4,1|D-Erythrose|1|||||0
 |C4H9NO2|C4H9NO2|19,12,7|GABA|1|1|1|1|1|1
 |C4H9NO2|C4H9NO2|19,12,7|Dimethylglycine|1|1|1|1|1|1
 |C4H9NO2|C4H9NO2|19,12,7|3-Aminoisobutanoate|1|1|0|||0
@@ -1314,26 +1324,26 @@ The evaluation of formula matches to network compounds are summarized in the fol
 |C4H9NO3|C4H9NO3|14,8,7|L-Homoserine|1|1|1|1|1|1
 |C4H9NO3|C4H9NO3|14,8,7|L-Allothreonine|1|0||||0
 |C5H10N2O3S|C5H10N2O3S|2,1,1|Cys-Gly|1|1|1|1|1|1
-|C5H4O2|C5H4O2|3,2,2|Furfural|0|||||0
-|C5H4O2|C5H4O2|3,2,2|Protoanemonin|0|||||0
-|C5H6O2|C5H6O2|4,2,2|Furfuryl alcohol|0|||||0
+|C5H4O2|C5H4O2|3,2,2|Furfural|1|0||||0
+|C5H4O2|C5H4O2|3,2,2|Protoanemonin|1|0||||0
+|C5H6O2|C5H6O2|4,2,2|Furfuryl alcohol|1|0||||0
 |C5H6O4|C5H5O4 -1|4,3,3|2,5-Dioxopentanoate|1|1|1|1|1|1
-|C5H6O4|C5H4O4 -2|4,4,4|Itaconate|0|||||0
-|C5H6O4|C5H4O4 -2|4,4,4|Citraconate|0|||||0
+|C5H6O4|C5H4O4 -2|4,4,4|Itaconate|1|0||||0
+|C5H6O4|C5H4O4 -2|4,4,4|Citraconate|1|0||||0
 |C5H6O5|C5H4O5 -2|4,2,2|2-Oxoglutarate|1|1|1|1|1|1
 |C5H8N2O2|C5H8N2O2|3,3,2|Dihydrothymine|1|1|1|1|1|1
 |C5H8O4|C5H7O4 -1|9,5,5|Acetolactate|1|1|1|1|1|1
 |C5H8O4|C5H6O4 -2|2,1,1|2-Oxo-3-hydroxyisovalerate|1|1|1|1|1|1
 |C5H8O4|C5H6O4 -2|2,1,1|Glutarate|1|1|1|1|1|1
 |C5H9NO2|C5H9NO2|7,4,3|L-Proline|1|1|1|1|1|1
-|C5H9NO3|C5H9NO3|15,11,10|L-Glutamate5-semialdehyde||||||0
-|C5H9NO3|C5H9NO3|15,11,10|L-Glutamate1-semialdehyde||||||0
-|C5H9NO3|C5H9NO3|15,11,10|5-Aminolevulinate||||||0
-|C5H9NO3|C5H9NO3|15,11,10|4-hydroxyproline||||||0
-|C5H9NO3|C5H9NO3|15,11,10|(2S,3S)-3-hydroxypyrrolidine-2-carboxylic acid||||||0
-|C5H9NO3|C5H9NO3|15,11,10|trans-4-Hydroxy-L-proline||||||0
-|C5H9NO3|C5H9NO3|15,11,10|trans-L-3-Hydroxyproline||||||0
-|C5H9NO3|C5H9NO3|15,11,10|cis-4-Hydroxy-D-proline||||||0
+|C5H9NO3|C5H9NO3|15,11,10|L-Glutamate5-semialdehyde|1|1|1|1|0|0
+|C5H9NO3|C5H9NO3|15,11,10|L-Glutamate1-semialdehyde|1|1|1|1|0|0
+|C5H9NO3|C5H9NO3|15,11,10|5-Aminolevulinate|1|1|1|1|0|0
+|C5H9NO3|C5H9NO3|15,11,10|4-hydroxyproline|1|1|1|1|0|0
+|C5H9NO3|C5H9NO3|15,11,10|(2S,3S)-3-hydroxypyrrolidine-2-carboxylic acid|1|1|1|1|0|0
+|C5H9NO3|C5H9NO3|15,11,10|trans-4-Hydroxy-L-proline|1|1|1|1|0|0
+|C5H9NO3|C5H9NO3|15,11,10|trans-L-3-Hydroxyproline|1|1|1|1|0|0
+|C5H9NO3|C5H9NO3|15,11,10|cis-4-Hydroxy-D-proline|1|1|1|1|0|0
 |C5H9NO4|C5H9NO4|3,3,3|O-Acetyl-L-serine|1|1|1|1|1|1
 |C6H10O5|C6H10O5|24,10,5|L-Fucono-1,5-lactone|1|1|1|1|1|1
 |C6H10O5|C6H9O5 -1|4,4,3|2-Dehydro-3-deoxy-L-fuconate|1|1|1|1|1|1
@@ -1348,3 +1358,49 @@ The evaluation of formula matches to network compounds are summarized in the fol
 |C6H6O5|C6H4O5 -2|12,5,5|2-Hydroxymuconate|1|1|1|1|1|1
 |C6H6O5|C6H4O5 -2|12,5,5|4-Oxalocrotonate|1|1|1|1|1|1
 |C6H8O5|C6H6O5 -2|5,3,3|2-Oxoadipate|1|1|1|1|1|1
+|C6H8O6|C6H8O6|7,5,5|Glucurone|1|0||||0
+|C6H8O6|C6H6O6 -2|5,2,2|Parapyruvate|1|1|1|1|1|1
+|C6H9NO2|C6H9NO2|7,5,1|delta1-Piperideine-2-carboxylate|1|1|1|1|1|1
+|C7H10O6|C7H9O6 -1|3,1,1|5-Dehydroquinate|1|1|1|1|1|1
+|C7H10O6|C7H8O6 -2|3,3,2|4-Hydroxy-2-ketopimelate|1|0||||0
+|C7H11NO2|C7H11NO2|3,3,0|L-Hypoglycin|1|0||||0
+|C7H6O5|C7H5O5 -1|4,1,1|Gallate|1|1|0|||0
+|C7H7NO|C7H7NO|3,1,1|Benzamide|1|1|1|1|1|1
+|C7H8O|C7H8O|7,5,5|m-Cresol|1|0||||0
+|C7H8O|C7H8O|7,5,5|p-Cresol|1|0||||0
+|C7H8O|C7H8O|7,5,5|o-Cresol|1|0||||0
+|C7H8O4|C7H7O4 -1|13,9,9|2-hydroxy-5-methyl-6-oxohexa-2,4-dienoate|1|0||||0
+|C7H8O4|C7H7O4 -1|13,9,9|2-Hydroxy-6-oxo-hept-2,4-dienoate|1|0||||0
+|C7H8O4|C7H7O4 -1|13,9,9|4-Methyl-3-oxoadipate-enol-lactone|1|1|0|||0
+|C7H8O4|C7H7O4 -1|13,9,9|2-Hydroxy-5-methyl-cis,cis-muconic semialdehyde|1|0||||0
+|C7H8O4|C7H7O4 -1|13,9,9|2-hydroxy-6-oxohepta-2,4-dienoate|1|0||||0
+|C7H8O5|C7H7O5 -1|6,3,2|3-Dehydroshikimate|1|1|1|1|1|1
+|C7H8O6|C7H6O6 -2|5,2,2|(E)-3-(Methoxycarbonyl)pent-2-enedioate|1|1|1|1|1|1
+|C7H9NO3|C7H9NO3|4,2,2|trans-2,3-dihydro-3-hydroxyanthranilic acid|1|1|1|1|1|1
+|C7H9NO3|C7H9NO3|4,2,2|(1R,6S)-6-Amino-5-oxocyclohex-2-ene-1-carboxylate|1|1|1|1|1|1
+|C8H10O|C8H10O|14,10,7|2-phenylethanol|1|0||||0
+|C8H10O2|C8H10O2|14,7,5|Tyrosol|1|0||||0
+|C8H11NO|C8H11NO|7,5,2|N,N-Dimethylaniline N-oxide|1|1|0|||0
+|C8H11NO3|C8H11NO3|1,1,1|Pyridoxol|1|1|1|1|1|1
+|C8H12N2O3S|C8H12N2O3S|1,1,1|6-aminopenicillanate|1|1|0|||0
+|C8H15NO6|C8H15NO6|16,9,7|N-acetyl-beta-D-hexosamines|1|1|1|1|1|1
+|C8H8O|C8H8O|10,8,8|alpha-Tolualdehyde|1|0||||0
+|C8H8O4|C8H8O4|3,2,1|3,4-Dihydroxymandelaldehyde|1|0||||0
+|C8H8O4|C8H7O4 -1|16,11,10|Homogentisate|1|1|1|1|1|1
+|C8H8O4|C8H7O4 -1|16,11,10|Homoprotocatechuate|1|0||||0
+|C8H8O4|C8H7O4 -1|16,11,10|2-Hydroxy-6-oxoocta-2,4,7-trienoate|1|0||||0
+|C8H8O6|C8H6O6 -2|10,6,6|Fumarylacetoacetate|1|1|1|1|1|1
+|C8H8O6|C8H6O6 -2|10,6,6|4-Maleylacetoacetate|1|1|1|1|1|1
+|C8H8O6|C8H6O6 -2|10,6,6|5-Carboxymethyl-2-hydroxymuconic semialdehyde|1|1|1|1|1|1
+|C8H9NO|C8H9NO|9,5,5|2-Phenylacetamide|1|1|1|1|1|1
+|C8H9NO3|C8H9NO3|7,6,4|Pyridoxal|1|1|1|1|1|1
+|C9H10O5|C9H9O5 -1|8,3,3|Vanillylmandelic acid|1|0||||0
+|C9H11NO2|C9H11NO2|11,10,6|L-Phenylalanine|1|1|1|1|1|1
+|C9H11NO2|C9H11NO2|11,10,6|D-Phenylalanine|1|1|1|1|1|1
+|C9H11NO3|C9H11NO3|11,6,4|L-Tyrosine|1|1|0|||0
+|C9H11NO4|C9H11NO4|2,1,1|L-Dopa|1|0||||0
+|C9H12N2O5|C9H12N2O5|3,1,1|Deoxyuridine|1|1|1|1|1|1
+|C9H16O9|C9H15O9 -1|5,2,2|alpha-Mannosylglycerate|1|1|1|1|1|1
+|C9H7N|C9H7N|2,2,2|2-Benzazine|1|1|1|1|1|1
+|C9H7NO|C9H7NO|9,6,4|1(2H)-Isoquinolinone|1|1|1|1|1|1|
+
