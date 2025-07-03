@@ -445,40 +445,6 @@ Confirm that a unique molecular formula was assigned to each feature.
 len(roseobacter_metabolomics_df) == roseobacter_metabolomics_df['formula_isotopefree'].nunique()
 ```
 
-### Molecular feature production and consumption
-
-Most molecular features in the table were not initially present in the culture and produced over the course of the experiment.
-
-```python
-culture_feature_change_stats: dict[tuple[str], dict[str, int]] = {}
-sum_consumed_fraction = 0
-sum_produced_fraction = 0
-sum_produced_new_fraction = 0
-for strain_combo in all_strain_combos:
-    culture_feature_change_stats[strain_combo] = feature_change_stats = {}
-    feature_change_stats['changed'] = len(roseobacter_metabolomics_df[roseobacter_metabolomics_df[f"{'_'.join(strain_combo)}_Final"] - roseobacter_metabolomics_df[f"{'_'.join(strain_combo)}_Start"] != 0])
-    feature_change_stats['consumed'] = len(roseobacter_metabolomics_df[roseobacter_metabolomics_df[f"{'_'.join(strain_combo)}_Final"] - roseobacter_metabolomics_df[f"{'_'.join(strain_combo)}_Start"] < 0])
-    feature_change_stats['produced'] = len(roseobacter_metabolomics_df[roseobacter_metabolomics_df[f"{'_'.join(strain_combo)}_Final"] - roseobacter_metabolomics_df[f"{'_'.join(strain_combo)}_Start"] > 0])
-    feature_change_stats['produced_new'] = len(roseobacter_metabolomics_df[(roseobacter_metabolomics_df[f"{'_'.join(strain_combo)}_Final"] > 0) & (roseobacter_metabolomics_df[f"{'_'.join(strain_combo)}_Start"] == 0)])
-
-    sum_consumed_fraction += feature_change_stats['consumed'] / feature_change_stats['changed']
-    sum_produced_fraction += feature_change_stats['produced'] / feature_change_stats['changed']
-    sum_produced_new_fraction += feature_change_stats['produced_new'] / feature_change_stats['changed']
-
-mean_consumed_fraction = sum_consumed_fraction / len(all_strain_combos)
-mean_produced_fraction = sum_produced_fraction / len(all_strain_combos)
-mean_produced_new_fraction = sum_produced_new_fraction / len(all_strain_combos)
-
-print(f"On average {round(mean_consumed_fraction * 100, 1)}% of compounds measured per culture were consumed (initially present and decreased in abundance)")
-print(f"On average {round(mean_produced_fraction * 100, 1)}% of compounds measured per culture were produced (increased in abundance)")
-print(f"On average {round(mean_produced_new_fraction * 100, 1)}% of compounds measured per culture were newly produced (not initially present)")
-```
-
-On average:
-- 8.6% of features were consumed (initially present and decreased in abundance)
-- 91.4% of features were produced (increased in abundance)
-- 89.7% of features were newly produced (not initially present)
-
 ### Add deprotonated formulas
 
 Add formulas for deprotonated versions of compounds as they may exist in the aqueous solution of cultures and the ModelSEED database used to populate compounds in reaction networks. Allow up to 2 hydrogens, 1 per oxygen, to be removed from each neutral formula. It does not make sense to remove 3 hydrogens in searching for common metabolites, since there are few with a -3 charge -- primarily the tricarboxylic acids citrate, isocitrate, and aconitate in the TCA cycle.
