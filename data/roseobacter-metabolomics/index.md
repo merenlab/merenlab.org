@@ -1,7 +1,7 @@
 ---
 layout: page
 title: A reproducible workflow for Füssel et al. 2025
-modified: 2025-06-24
+modified: 2025-07-03
 excerpt: "A bioinformatics workflow for genomically guided compound prediction in Roseobacter co-culture experiments"
 comments: true
 authors: [sam]
@@ -26,7 +26,7 @@ If you have any questions, notice an issue, and/or are unable to find an importa
 
 ### Background
 
-Microorganisms in the surface ocean remineralize the vast majority (~84%) of photosynthetically fixed carbon within minutes to days and only ~16%  persist for weeks to years with < than 1% entering the long-lived reservoir of dissolved organic matter (DOM) that is comparable in size to the atmospheric carbon dioxide pool. The activity of microbial communities shapes the molecular composition of the marine DOM pool and drives the sequential transformtion of labile to persistent DOM. Gaining mechanistic insights into the microbially mediated processes is challenging in complex natural environments. Methodological and technological limitations such as genes without or with incomplete fucntional annotations or the selective and incomplete recovery of dissolved organic compounds from seawater complicate the effective, direct integration of biological and chemical data. To explore the nature of microbial interactions that drive DOM transformation, we used four bacterial isolates from the same North Sea water sample in a full factorial setup that enabled us to study and compare the fate of several thousand largely unknown molecular formulas across eleven microbial co-cultures. 
+Microorganisms in the surface ocean remineralize the majority (~84%) of photosynthetically fixed carbon within minutes to days, with ~16% persisting for weeks to years, and <1% entering the long-lived reservoir of dissolved organic matter (DOM) that is comparable in size to the atmospheric carbon dioxide pool. The activity of microbial communities shapes the molecular composition of the marine DOM pool and drives the sequential transformtion of labile to persistent DOM. It is challenging to gain mechanistic insights into these microbially mediated processes in complex natural environments. Methodological and technological limitations such as the incomplete functional annotation of genes and the selective and incomplete recovery of dissolved organic compounds from seawater complicate the effective, direct integration of biological and chemical data. To explore the nature of microbial interactions driving DOM transformation, we used four bacterial isolates from the same North Sea water sample in a fully factorial setup, allowing us to study and compare the fates of several thousand largely unknown molecular formulas across eleven microbial co-cultures.
 
 ### Cultures
 
