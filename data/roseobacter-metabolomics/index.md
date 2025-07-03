@@ -450,39 +450,41 @@ len(roseobacter_metabolomics_df) == roseobacter_metabolomics_df['formula_isotope
 Add formulas for deprotonated versions of compounds as they may exist in the aqueous solution of cultures and the ModelSEED database used to populate compounds in reaction networks. Allow up to 2 hydrogens, 1 per oxygen, to be removed from each neutral formula. It does not make sense to remove 3 hydrogens in searching for common metabolites, since there are few with a -3 charge -- primarily the tricarboxylic acids citrate, isocitrate, and aconitate in the TCA cycle.
 
 ```python
-new_rows = []
-new_idx = 0
-for _, row in feature_table.iterrows():
-    new_row = row.drop(['formula_isotopefree_minus_1_H', 'formula_isotopefree_minus_2_H'])
-    new_row.name = new_idx
-    new_row['search_formula'] = row['formula_isotopefree']
-    new_row['search_charge'] = 0
-    new_rows.append(new_row)
-    new_idx += 1
-    break
+formula_data = roseobacter_metabolomics_df[['formula', 'formula_isotopefree', 'O', 'H']]
 
-    if not row['formula_isotopefree_minus_1_H']:
-        continue
-    new_row = row.drop(['formula_isotopefree_minus_1_H', 'formula_isotopefree_minus_2_H'])
-    new_row.name = new_idx
-    new_row['search_formula'] = row['formula_isotopefree_minus_1_H']
-    new_row['search_charge'] = -1
-    new_rows.append(new_row)
-    new_idx += 1
+deprot_rows = []
+for _, row in formula_data.iterrows():
+    formula_isotopefree = row.formula_isotopefree
 
-    if not row['formula_isotopefree_minus_2_H']:
-        continue
-    new_row = row.drop(['formula_isotopefree_minus_1_H', 'formula_isotopefree_minus_2_H'])
-    new_row.name = new_idx
-    new_row['search_formula'] = row['formula_isotopefree_minus_2_H']
-    new_row['search_charge'] = -2
-    new_rows.append(new_row)
-    new_idx += 1
+    atom_count = {}
+    for atomic_entry in row.formula.split():
+        atom, count = atomic_entry.split('_')
+        count = int(count)
+        atom_count[atom] = count
 
-feature_table = pd.DataFrame(new_rows)
-last_col_names = ['search_formula', 'search_charge']
-first_col_names = feature_table.columns.tolist()[: -2]
-feature_table = feature_table[last_col_names + first_col_names]
+    deprot_row = []
+    for num_protons_subtracted in range(1, 3):
+        if num_protons_subtracted > row.O:
+            deprot_row.append('')
+            continue
+
+        new_atom_count = atom_count.copy()
+        new_atom_count['H'] = atom_count['H'] - num_protons_subtracted
+
+        new_formula_isotopefree = ''
+        for atom, count in new_atom_count.items():
+            new_formula_isotopefree += f'{atom}{count}' if count > 1 else atom
+        deprot_row.append(new_formula_isotopefree)
+    deprot_rows.append(deprot_row)
+
+header = [f'formula_isotopefree_minus_{num_protons_subtracted}_H' for num_protons_subtracted in range(1, 3)]
+deprot_table = pd.DataFrame(deprot_rows, columns=header)
+
+cols = roseobacter_metabolomics_df.columns.tolist()
+col_idx = cols.index('formula_isotopefree')
+before = roseobacter_metabolomics_df[cols[: col_idx + 1]]
+after = roseobacter_metabolomics_df[cols[col_idx + 1: ]]
+feature_table = pd.concat([before, deprot_table, after], axis=1)
 ```
 
 Make a new version of the table with a row per formula protonation state.
