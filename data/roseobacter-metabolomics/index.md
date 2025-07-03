@@ -1181,7 +1181,7 @@ It is important to assess the connectivity of putative compounds in the metaboli
 
 ### Extraction and ionization chemistry
 
-Putative exometabolites are more likely when their structures are consistent with retention in the sample extract and the conditions of electrospray ionization. The PPL SPE cartridges used for DOM extraction in this study retain aromatic compounds well. The mass spectrometer was run in negative ion mode in this study, so compounds such as carboxylic and phenolic acids that can assume a -1 charge through a ready change in protonation state are easily ionized. Prephenate, chorismate, and isochorismate are aromatic carboxylates that are well-suited for extraction and ionization, increasing the likelihood that they are indeed exometabolites.
+Putative exometabolites are more likely when their structures are consistent with retention in the sample extract and the conditions of electrospray ionization. The PPL SPE cartridges used for DOM extraction in this study retain aromatic compounds well. The mass spectrometer was run in negative ion mode in this study, so compounds such as carboxylic and phenolic acids that can assume a -1 charge through a ready change in protonation state are easily ionized. Prephenate and chorismate are aromatic carboxylates that are well-suited for extraction and ionization, increasing the likelihood that they are indeed exometabolites.
 
 ```python
 # Here is the source on how to render molecules as a grid of SVG images in RDKit:
@@ -1219,13 +1219,12 @@ def draw_structures(
 ```
 
 ```python
-prephenate = all_refined_networks[('SH4', )].metabolites['cpd00219']
 chorismate = all_refined_networks[('SH4', )].metabolites['cpd00216']
-isochorismate = all_refined_networks[('SH4', )].metabolites['cpd00658']
+prephenate = all_refined_networks[('SH4', )].metabolites['cpd00219']
 draw_structures([prephenate, chorismate, isochorismate])
 ```
 
-[![02_chorismate_isochorismate_prephenate_structures_figure_2](images/02_chorismate_isochorismate_prephenate_structures_figure_2.png)](images/02_chorismate_isochorismate_prephenate_structures_figure_2.png){:.center-img .width-40}
+[![02_chorismate_prephenate_structures_figure_2](images/02_chorismate_prephenate_structures_figure_2.png)](images/02_chorismate_prephenate_structures_figure_2.png){:.center-img .width-40}
 
 ### Evaluation table
 
