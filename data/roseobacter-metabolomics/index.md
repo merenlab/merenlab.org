@@ -82,12 +82,11 @@ There is the possibility that the true compound represented by a formula is not 
 
 This workflow uses the development version of [anvi'o](https://anvio.org) (`8-dev`), which you can install and activate following [anvi'o installation instructions](https://anvio.org/install/#development-version). Any more recent version of anvi'o should also work successfully. Load the anvi'o conda environment before running the workflow. The ModelSEED database should be installed in the default location for the anvi'o environment by {% include PROGRAM name="anvi-setup-modelseed-database" %}.
 
-The computational demands of reproducing the workflow are minimal, all commands below should run within a few minutes or less on a modest laptop.
-
+The computational demands of reproducing the workflow are minimal. All commands below should run within a few minutes or less on a modest laptop.
 
 ### The data pack
 
-Below you will find brief descriptions of individual files used in our downstream analyses, if you would like to follow this workflow, you can download the following data pack that includes the four Roseobacter genomes and the metabolomics table associated with each culture experiment. For this, please open a terminal, create a work directory, and type the following commands (or replace directory names manually):
+Below you will find brief descriptions of individual files used in our downstream analyses. If you would like to follow this workflow, you can download the following data pack that includes the four Roseobacter genomes and the metabolomics table associated with each culture experiment. For this, please open a terminal, create a work directory, and type the following commands (or replace directory names manually):
 
 ``` bash
 # make sure there is a Downloads directory at your home
@@ -201,7 +200,7 @@ AVAILABLE HMM SOURCES
 * 'Transfer_RNAs' (61 models with 45 hits)
 ```
 
-Or get a standard FASTA file for a given genome using the program {% include PROGRAM name="anvi-export-contigs" %}:
+You can get a standard FASTA file for a given genome using the program {% include PROGRAM name="anvi-export-contigs" %}:
 
 ``` bash
 anvi-export-contigs -c SH22-CONTIGS.db -o SH22.fa
@@ -209,9 +208,9 @@ anvi-export-contigs -c SH22-CONTIGS.db -o SH22.fa
 
 ### Metabolomics table
 
-The other file in this data pack, `roseobacter-metabolomics-data.tsv`, contains the processed spectral data, including monoisotopic molecular formulas and sample abundances. This is the same file that appears in our publication by Füssel et al. as the SI Table 2b.
+The other file in this data pack, `roseobacter-metabolomics-data.tsv`, contains the processed spectral data, including monoisotopic molecular formulas and sample abundances. This is the same file that appears in our Füssel et al. publication as SI Table 2b.
 
-This is how the first few lines of this table looks like, so you can browse the individual columns that are included:
+Here are the first few lines of this table, so you can browse the individual columns that are included:
 
 |**`mz`**|**`diff`**|**`reference`**|**`formula`**|**`formula_isotopefree`**|**`formula_ion`**|**`homseries`**|**`totalc`**|**`HC`**|**`OC`**|**`C`**|**`H`**|**`O`**|**`N`**|**`S`**|**`P`**|**`MDL_3`**|**`ResPow`**|**`m1`**|**`SE`**|**`present_in`**|**`AI`**|**`AImod`**|**`DBE`**|**`Aromatic`**|**`AromaticO_rich`**|**`AromaticO_poor`**|**`Highlyunsaturated`**|**`HighlyunsaturatedO_rich`**|**`HighlyunsaturatedO_poor`**|**`Unsaturated`**|**`UnsaturatedO_rich`**|**`UnsaturatedO_poor`**|**`UnsaturatedwithN`**|**`Saturated`**|**`SaturatedO_rich`**|**`SaturatedO_poor`**|**`mean_signal_to_MDL`**|**`homnetworkmember`**|**`diff_filter`**|**`alternative_formula`**|**`SH4_Start`**|**`SH22_Start`**|**`SH24_Start`**|**`SH40_Start`**|**`SH22_SH4_Start`**|**`SH24_SH4_Start`**|**`SH4_SH40_Start`**|**`SH22_SH24_Start`**|**`SH22_SH40_Start`**|**`SH24_SH40_Start`**|**`SH22_SH24_SH4_Start`**|**`SH22_SH4_SH40_Start`**|**`SH24_SH4_SH40_Start`**|**`SH22_SH24_SH40_Start`**|**`SH22_SH24_SH4_SH40_Start`**|**`SH4_Final`**|**`SH22_Final`**|**`SH24_Final`**|**`SH40_Final`**|**`SH22_SH4_Final`**|**`SH24_SH4_Final`**|**`SH4_SH40_Final`**|**`SH22_SH24_Final`**|**`SH22_SH40_Final`**|**`SH24_SH40_Final`**|**`SH22_SH24_SH4_Final`**|**`SH22_SH4_SH40_Final`**|**`SH24_SH4_SH40_Final`**|**`SH22_SH24_SH40_Final`**|**`SH22_SH24_SH4_SH40_Final`**|
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
@@ -248,7 +247,7 @@ This is how the first few lines of this table looks like, so you can browse the 
 
 ## Creating the reaction networks
 
-The workflow was originally implemented in a Jupyter notebook that used anvi'o libraries that processed the anvi'o {% include ARTIFACT name="reaction-network" %}
+The workflow was originally implemented in a Jupyter notebook that used anvi'o libraries to process the anvi'o {% include ARTIFACT name="reaction-network" %}.
 
 Python cells of the Jupyter notebook are split up into sections of this workflow document with accompanying explanations and analyses of the output. If you wish to follow along interactively in Python, you can enter `python3` in your terminal and run the code blocks sequentially. The following package imports are first required in the Python interactive shell.
 
@@ -279,12 +278,11 @@ import anvio
 import anvio.reactionnetwork as rn
 ```
 
-
 ### Genomic networks
 
 The four {% include ARTIFACT name="contigs-db" %} files in our data pack for the four strains we have worked with contain gene calls with KO annotations and reaction networks based on the KOs. Genes were annotated with KOs using {% include PROGRAM name="anvi-run-kegg-kofams" %}, and networks were constructed with {% include PROGRAM name="anvi-reaction-network" %}.
 
-List the strains and their database files. Load reaction networks into memory. The dictionary of reaction networks is keyed by a tuple, as co-culture "metagenomic" reaction networks keyed by tuples of strain IDs will be added to the dictionary.
+List the strains and their database files. Load reaction networks into memory. The dictionary of reaction networks is keyed by tuples, as co-culture "metagenomic" reaction networks keyed by tuples of strain IDs will be added to the dictionary.
 
 ```python
 all_strains = ['SH22', 'SH24', 'SH4', 'SH40']
@@ -332,9 +330,9 @@ for strain_combo, unrefined_network in all_networks.items():
 
 ### Networks based on KEGG reactions
 
-Compare the sizes of reaction networks constructed in two ways: first, using the default of both KEGG reaction and EC number annotations of KOs, and second, using just KEGG reaction annotations. KEGG reactions are more specific than EC numbers, which often map to a larger group of reactions in the ModelSEED database, as explained above in [Specificity of reaction annotations](#specificity-of-reaction-annotations). The "EC+KEGG" network is prone to more false positive formula-compound matches that must be evaluated and fewer false negatives, or missing formula-compound matches, than the "just KEGG" network.
+Compare the sizes of reaction networks constructed in two ways: first, using the default of both KEGG reaction and EC number annotations of KOs, and second, using just KEGG reaction annotations. KEGG reactions are more specific than EC numbers, which often map to a larger group of reactions in the ModelSEED database, as explained above in [KO annotation specificity](#ko-annotation-specificity). The "EC+KEGG" network is prone to more false positive formula-compound matches that must be evaluated and fewer false negatives, or missing formula-compound matches, than the "just KEGG" network.
 
-Although it would be useful to design a flag in {% include PROGRAM name="anvi-reaction-network" %} that allows a network to be constructed from KEGG reactions excluding EC numbers, for now we will remove the parts of the "EC+KEGG" networks that are based solely on EC numbers. This is achieved using the function that subsets networks by select items.
+Although it would be useful to design a flag in {% include PROGRAM name="anvi-reaction-network" %} that allows a network to be constructed from KEGG reactions excluding EC numbers, for now we will remove the parts of the "EC+KEGG" networks that are based solely on EC numbers. This is achieved using the function from the anvi'o library that subsets networks by select items.
 
 ```python
 all_kegg_networks: dict[tuple[str], rn.GenomicNetwork] = {}
@@ -350,7 +348,7 @@ for strain_combo, ec_kegg_network in all_networks.items():
 
 ### Co-culture "metagenomic" networks
 
-Merge genomic reaction networks to represent co-culture "metagenomic" reaction networks. The network merge function avoids duplicate entries, such as KOs or reactions shared by both networks. Genes with identical anvi'o gene caller IDs (GCIDs) in different genomes would be considered the same in merging, so the identity of the genes must be maintained by adjusting integer GCIDs to be non-overlapping. Since the number of genes in these genomes is less than 10,000, add 10,000 to SH22 genome GCIDs, 20,000 to SH24 GCIDs, 30,000 to SH4 GCIDs, and 40,000 to SH40 GCIDs. Each gene in the network can thereby be traced back to the source genome, with SH22 genes, for example, have GCIDs between 10,000 and 20,000.
+Merge genomic reaction networks to represent co-culture "metagenomic" reaction networks. The network merge function avoids duplicate entries, such as KOs or reactions shared by both networks. Genes with identical anvi'o gene caller IDs (GCIDs) in different genomes would be considered the same in merging, so the identity of the genes must be maintained by adjusting integer GCIDs to be non-overlapping. Since the number of genes in these genomes is less than 10,000, add 10,000 to SH22 genome GCIDs, 20,000 to SH24 GCIDs, 30,000 to SH4 GCIDs, and 40,000 to SH40 GCIDs. Each gene in the network can thereby be traced back to the source genome, with SH22 genes, for example, having GCIDs between 10,000 and 20,000.
 
 ```python
 def make_gcids_nonoverlapping(networks: dict[tuple[str], rn.GenomicNetwork], increment: int = 10000) -> None:
@@ -404,7 +402,7 @@ all_strain_combos = list(all_networks)
 
 ### Compare networks constructed with different KO annotations
 
-Compare the three types of networks constructed on the basis of varying KO annotations: KEGG reactions and all EC numbers (default networks), KEGG reactions and EC numbers but not higher EC categories ("refined networks"), and just KEGG reactions ("KEGG networks"). How many compounds are removed from the default networks excluding higher EC categories and EC numbers altogether?
+Compare the three types of networks constructed on the basis of varying KO annotations: KEGG reactions and all EC numbers ("default networks"), KEGG reactions and EC numbers but not higher EC categories ("refined networks"), and just KEGG reactions ("KEGG networks"). How many compounds are removed from the default networks excluding higher EC categories and EC numbers altogether?
 
 ```python
 header = ['strains', 'EC+KEGG_network_compounds', 'refined_network_compounds', 'KEGG_network_compounds']
@@ -431,7 +429,7 @@ print(f"An average of {round((1 - mean_refined_compound_fraction) * 100, 1)}% of
 print(f"{round((1 - mean_kegg_compound_fraction) * 100, 1)}% of compounds in the \"EC+KEGG\" network are removed ignoring EC numbers and only considering KEGG reactions in the \"KEGG\" network")
 ```
 
-On average 40.8% of compounds in the "EC+KEGG" network are removed ignoring higher EC categories in the "refined" network. On average 73.2% of compounds in the "EC+KEGG" network are removed ignoring EC numbers and only considering KEGG reactions in the "KEGG" network.
+On average 40.8% of compounds in the default "EC+KEGG" network are removed ignoring higher EC categories in the "refined" network. On average 73.2% of compounds in the default "EC+KEGG" network are removed ignoring EC numbers and only considering KEGG reactions in the "KEGG" network.
 
 ## Prepare metabolomics data
 
