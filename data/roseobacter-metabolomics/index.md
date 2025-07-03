@@ -607,7 +607,7 @@ Since reaction network compounds must be in ModelSEED, these statistics also sho
 
 ### Search reaction network compounds
 
-Match molecular formulas to compounds predicted in the reaction networks. If a feature is observed in a particular culture, match it to that culture's network. Match to the "refined" network which ignores higher EC category annotations of KOs and the "KEGG" network which ignores EC number annotations altogether.
+Match molecular formulas to compounds predicted in the reaction networks. If a feature is observed in a particular culture, match it to that culture's network. Match to the "refined" network, which ignores higher EC category annotations of KOs, and match to the "KEGG" network, which ignores EC number annotations altogether.
 
 ```python
 def match_formulas(networks: dict[tuple[str], rn.GenomicNetwork]) -> tuple[
