@@ -1404,3 +1404,6 @@ From this table, 53 molecular formulas had compound matches that passed the filt
 |C9H7N|C9H7N|2,2,2|2-Benzazine|1|1|1|1|1|1
 |C9H7NO|C9H7NO|9,6,4|1(2H)-Isoquinolinone|1|1|1|1|1|1|
 
+## The end
+
+If you made it all the way here, you now know how we developed a computational workflow for "genomically guided metabolomics" and how we applied it to an intricate microbial co-culture experiment. In the end is the beginning, because this is only a first foray into a promising approach for plucking molecular needles out of the mass spectral haystack. Next we are exploring tandem mass spectrometry datasets to match structures instead of just molecular formulas and targeted metabolomes to further validate our approach. Best of luck, to you and us.
