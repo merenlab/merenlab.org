@@ -80,7 +80,7 @@ The size of this metagenome dataset is **96 GB** (the archive alone is ~33 GB). 
 # download the metagenome data archive
 wget https://zenodo.org/record/7872967/files/VESELI_ET_AL_METAGENOME_CONTIGS_DBS.tar.gz 
 # extract the metagenome data
-tar -xvzf VESELI_ET_AL_METAGENOME_CONTIGS_DBS.tar.gz
+tar -xvzf VESELI_ET_AL_METAGENOME_CONTIGS_DBS.tar.gz && mv SUBSET_CONTIGS_DBS/ VESELI_ET_AL_METAGENOME_CONTIGS_DBS
 
 # generate a table of sample names and paths
 echo -e "name\tcontigs_db_path" > METAGENOME_EXTERNAL_GENOMES.txt
@@ -150,6 +150,9 @@ As you go through this webpage, you will be creating new folders and working wit
 The bulk of analyses in this study were done using anvi'o version `7.1-dev` (that is, the development version of anvi'o following the stable release `v7.1`). You can use anvi'o version `8.0` (once it is released) to reproduce our results, as all of the relevant code has been included as part of that stable release.
 
 The only relevant difference between `v7.1-dev` and `v8.0` (with respect to reproducing our results) is the default KEGG snapshot, which is newer in `v8.0` than the version we used for the analyses in this paper. The choice of KEGG version affects the results of {% include PROGRAM name="anvi-run-kegg-kofams" %} and {% include PROGRAM name="anvi-estimate-metabolism" %}. In order to use the same version we did, you should run the following code to download the appropriate snapshot onto your computer into the directory `KEGG_2020-12-23/` (you can change that path if you want):
+
+{:.warning}
+The below command works in anvi'o v7.1, but if you are using a later version of anvi'o, you will need to use the program `anvi-setup-kegg-data` instead (we renamed it). The same parameters should work (we tested it as of anvi'o v8-dev).
 
 ```bash
 anvi-setup-kegg-kofams --kegg-snapshot v2020-12-23 \
@@ -484,7 +487,7 @@ mkdir 03_METABOLISM_OUTPUT
 
 ### Metabolism estimation
 
-We used the program {% include PROGRAM name="anvi-estimate-metabolism" %} to compute copy numbers of KEGG modules in each sample. You can find details about that program and its calculation strategies on [this page](https://anvio.org/help/main/programs/anvi-estimate-metabolism/). To ensure that all annotated KOfams in the metagenome contributed to the calculations, we ran the program in 'genome mode' on each sample, and to do this in a high-throughput manner, we provided the program with an {% include ARTIFACT name="external-genomes" %} file containing the paths to all the samples' contigs databases at once. Here is the code to both generate that input file (from the table containing the sample information, including paths) and run the metabolism estimation code.
+We used the program {% include PROGRAM name="anvi-estimate-metabolism" %} to compute copy numbers of KEGG modules in each sample. You can find details about that program and its calculation strategies on [this page](https://anvio.org/help/main/programs/anvi-estimate-metabolism/). To ensure that all annotated KOfams in the metagenome contributed to the calculations, we ran the program in 'genome mode' on each sample, and to do this in a high-throughput manner, we provided the program with an {% include ARTIFACT name="external-genomes" %} file containing the paths to all the samples' contigs databases at once. The external genomes file was generated above when you downloaded the metagenome datapack. Here is how to run the metabolism estimation code.
 
 ```bash
 # run metabolism estimation

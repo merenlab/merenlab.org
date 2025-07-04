@@ -102,7 +102,7 @@ Bonus blog post: [Fantastic Data and How to Share Them: A Plea to Journal Editor
 <div class="pub_float">
 <div class="altmetric-embed" data-badge-type="donut" data-doi="10.1101/2023.05.10.540289"></div>
 <div class="__dimensions_badge_embed__" data-doi="10.1101/2023.05.10.540289" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
-    <span class="pub-title"><a href="https://doi.org/10.1101/2023.05.10.540289" target="_new">Microbes with higher metabolic independence are enriched in human gut microbiomes under stress</a></span>
+    <span class="pub-title"><a href="https://doi.org/10.7554/eLife.89862" target="_new">Microbes with higher metabolic independence are enriched in human gut microbiomes under stress</a></span>
     <span class="pub-authors"><span class="pub-member-author">Veseli I</span>, Chen YT, <span class="pub-member-author">Schechter MS</span>, Vanni C, <span class="pub-member-author">Fogarty EC</span>, Watson AR, Jabri B, Blekhman R, Willis AD, Yu MK, Fernàndez-Guerra A, Füssel J, <span class="pub-member-author">Eren AM</span></span>
     <div class="pub-info">
     <div class="pub-featured-image">
@@ -112,7 +112,7 @@ Bonus blog post: [Fantastic Data and How to Share Them: A Plea to Journal Editor
     <span style="display: inline-block; padding-bottom: 5px;">- A study that describes a method to estimate <b>metabolic pathway redundancy</b> from metagenomes.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- Demonstrates <b>high metabolic independence</b> of the gut microbiome in individuals with inflammatory bowel disease via an analysis of hundreds of <b>publicly-available gut metagenomes and reference genomes</b>.</span><br /><span style="display: inline-block; padding-bottom: 5px;">- Presents a <b>logistic regression classifier</b> that differentiates between individuals with IBD and healthy people using metabolic pathways associated with high metabolic independence.</span><br /><span style="display: inline-block; padding-bottom: 5px;">-Shows the relevance of high metabolic independence for <b>microbial resilience in general gut stress</b> via the application of the classifier to an antibiotic time-series.</span>
     </div>
     </div>
-    <span class="pub-journal"><b>bioRxiv</b> <a href="https://doi.org/10.1101/2023.05.10.540289" target="_blank">🔗</a></span>
+    <span class="pub-journal"><b>eLife</b> <a href="https://doi.org/10.7554/eLife.89862" target="_blank">🔗</a></span>
 </div>
 
 ### Reproducible bioinformatics workflow

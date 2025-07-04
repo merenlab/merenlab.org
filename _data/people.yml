@@ -16,7 +16,7 @@
   phone: +49-471-4831-2543
   skype: a.murat.eren
   address: Helmholtz Institute for Functional Marine Biodiversity (HIFMB), Im Technologiepark 5, 26129 Oldenburg, Germany
-  bio: "I am a computer scientist with a deep appreciation for the complexity of life. I design algorithms and experiments to better understand microbes and their ecology. [photos: <a href='https://photos.app.goo.gl/5MiXqMyh1BmwaX9K9'>1</a>, <a href='https://photos.app.goo.gl/QXpHn8XJYG1gs9SGA'>2</a>, <a href='https://photos.app.goo.gl/12oTCyULisDNjibQ7'>3</a>]."
+  bio: "I am a computer scientist with a deep appreciation for the complexity of life. I design algorithms and experiments to better understand microbes and their ecology."
   affiliations:
     - title: Professor
       inst: Helmholtz Institute for Functional Marine Biodiversity
@@ -53,31 +53,6 @@
       inst: The Biomedical Sciences Cluster at the University of Chicago
       inst_address: Chicago, IL 60637, United States
       inst_link: https://biomedsciences.uchicago.edu/
-      current: false
-
-- alias: amy
-  lab_member: True
-  role: PI on Sabbatical
-  tenure_start: 09/2024
-  avatar: bio-amy.jpg
-  name: Amy D. Willis
-  name_as_author: Amy D Willis
-  email: adwillis@uw.edu
-  web: http://statisticaldiversitylab.com/team/amy-willis
-  twitter: AmyDWillis
-  orcid: 0000-0002-2802-4317
-  github: adw96
-  bio: "My lab and I develop statistical and computational methods for the analysis of biodiversity data, with a particular focus on the microbiome. Like the Meren lab, I'm passionate about reproducible science, meaningful data analysis, ecosystem and host health, outreach and education, and collaborating with scientists who share these values."
-  affiliations:
-    - title: Principal Investigator
-      inst: Statistical Diversity Lab, University of Washington
-      inst_link: http://statisticaldiversitylab.com/
-    - title: Associate Professor
-      inst: Department of Biostatistics, University of Washington
-      inst_link: https://www.biostat.washington.edu/
-    - title: Assistant Professor
-      inst: Department of Biostatistics, University of Washington
-      inst_link: https://www.biostat.washington.edu/
       current: false
 
 - alias: sarah
@@ -118,7 +93,7 @@
   name: Avril von Hoyningen-Huene
   name_as_author: Avril Jean Elisabeth von Hoyningen-Huene
   tenure_start: 02/2024
-  role: Post-doctoral Scientist, <a href="https://hifmb.de/hipp/" target="_blank">HIPP</a>
+  role: Post-doctoral Scientist
   email: avril.hoyningen@hifmb.de
   twitter: avihuene
   orcid: 0000-0002-1928-3560
@@ -143,10 +118,10 @@
 
 - alias: xixi
   lab_member: True
-  name: Xi Chen (Xixi <a href=https://www.howtopronounce.com/xixi target=_blank>🔊</a>)
+  name: Xi Chen (Xixi)
   name_as_author: Xi Chen
   tenure_start: 02/2024
-  role: Post-doctoral Scientist, <a href="https://hifmb.de/hipp/" target="_blank">HIPP</a>
+  role: Post-doctoral Scientist
   email: chenxi1251@gmail.com
   orcid: 0009-0007-7692-9771
   github: u-xixi
@@ -224,28 +199,6 @@
       inst: NSF Graduate Research Fellowship Program
       inst_link: https://www.nsfgrfp.org/
       current: false
-
-- alias: mete
-  lab_member: True
-  name: Metehan Sever
-  name_as_author: Metehan Sever
-  tenure_start: 10/2022
-  role: Scientific Programmer
-  twitter: metehaansever
-  github: metehaansever
-  avatar: bio-mete.jpg
-  email: metehaansever@gmail.com
-  twitter: metehaansever
-  github: metehaansever
-  linkedin: metehaansever
-  orcid: 0000-0003-1043-4956
-  address: Helmholtz Institute for Functional Marine Biodiversity (HIFMB), Im Technologiepark 5, 26129 Oldenburg, Germany
-  bio: "I am a computer scientist and UX designer who loves to design and develop user interfaces."
-  affiliations:
-    - title: Scientific Programmer
-      inst: Helmholtz Institute for Functional Marine Biodiversity
-      inst_link: https://hifmb.de
-      current: true
 
 - alias: alex
   lab_member: True
@@ -330,8 +283,13 @@
       inst_link: https://www.mpi-bremen.de/en/Home.html
       current: false
 
+####################################################################################
+# Honorary members
+####################################################################################
+
+
 - alias: kiki
-  lab_member: True
+  honorary_member: True
   name: Kiki Füßel
   web: https://twitter.com/merenbey/status/1196919880680914944
   tenure_start: 11/2019
@@ -342,6 +300,27 @@
   affiliations:
     - title: Therapy Dog
 
+- alias: juniper
+  honorary_member: True
+  name: Juniper Veseli
+  tenure_start: 11/2024
+  role: Food Safety Officer
+  avatar: bio-juniper.jpg
+  address: Helmholtz Institute for Functional Marine Biodiversity (HIFMB), Im Technologiepark 5, 26129 Oldenburg, Germany
+  bio: "When I'm not investigating biofilms on food and kitchen counters, I am a social scientist studying the efficacy of different human manipulation techniques. To participate in my research study on cuddling, please contact my study coordinator, Iva."
+  affiliations:
+    - title: Cat
+
+- alias: princess
+  honorary_member: True
+  name: Princess Peach Trigodet
+  tenure_start: 11/2024
+  role: Princess
+  avatar: bio-princess.jpg
+  address: Helmholtz Institute for Functional Marine Biodiversity (HIFMB), Im Technologiepark 5, 26129 Oldenburg, Germany
+  bio: "In addition to ruling over my domain (and my sister, Juniper), I dabble in materials research by investigating the durability of materials to dental stress. My specialty is cardboard and silicone. If you must be graced by my presence, you may arrange an audience through Florian."
+  affiliations:
+    - title: Her Majesty
 
 ####################################################################################
 # Lab Alumni.
@@ -356,7 +335,7 @@
   tenure_end: 02/2025
   last_current_info_check: 2025
   current_info: "A postdoctoral researcher in <a href='http://luis-barreirolab.org/' target='_blank'>Luis Barreiro's group</a> at UChicago"
-  contributions: "During his time with our gruop, he developed methods to leverage the growing number of environmental genomes and metagenomes to study the phylogeography of individual proteins. His work led to the creation of <a href='https://anvio.org/help/main/workflows/ecophylo/' target='_blank'>EcoPhylo</a>, an easy-to-use computational workflow that integrates ecological and evolutionary perspectives on gene families de novo."
+  contributions: "During his time with our group, he developed methods to leverage the growing number of environmental genomes and metagenomes to study the phylogeography of individual proteins. His work led to the creation of <a href='https://anvio.org/help/main/workflows/ecophylo/' target='_blank'>EcoPhylo</a>, an easy-to-use computational workflow that integrates ecological and evolutionary perspectives on gene families de novo"
   role: Graduate Student
   email: mschechter@uchicago.edu
   avatar: bio-matt.jpg
@@ -380,6 +359,33 @@
       inst_link: https://biomedsciences.uchicago.edu/page/microbiology
       current: false
 
+- alias: mete
+  lab_member: True
+  name: Metehan Sever
+  name_as_author: Metehan Sever
+  nick_name: Mete
+  tenure_start: 10/2022
+  tenure_end: 02/2025
+  last_current_info_check: 2025
+  current_info: "A MSc student at the University of Oldenburg"
+  contributions: "Mete worked on improving anvi'o interactive interfaces by finetuning existing features or adding new ones. Some of his work, especially on how to display and work with phylogenetic trees made anvi'o much more suitable for such applications"
+  role: Scientific Programmer
+  twitter: metehaansever
+  github: metehaansever
+  avatar: bio-mete.jpg
+  email: metehaansever@gmail.com
+  twitter: metehaansever
+  github: metehaansever
+  linkedin: metehaansever
+  orcid: 0000-0003-1043-4956
+  address: Helmholtz Institute for Functional Marine Biodiversity (HIFMB), Im Technologiepark 5, 26129 Oldenburg, Germany
+  bio: "I am a computer scientist and UX designer who loves to design and develop user interfaces."
+  affiliations:
+    - title: Scientific Programmer
+      inst: Helmholtz Institute for Functional Marine Biodiversity
+      inst_link: https://hifmb.de
+      current: true
+
 - alias: cynthia
   lab_member: True
   name: Cynthia Wang
@@ -387,13 +393,13 @@
   name_as_author: Cynthia Wang
   tenure_start: 09/2022
   tenure_end: 07/2023
-  contributions: "She investigated computational means to study the interplay between codon composition in genomes and their metabolic priorities."
+  contributions: "She investigated computational means to study the interplay between codon composition in genomes and their metabolic priorities"
   role: Fulbright Scholar
   github: c-y-n-t-h-i-a
   avatar: bio-cynthia.jpg
   email: cynthia.wang2@duke.edu
   last_current_info_check: 2024
-  current_info: A graduate student at the Biophysical Sciences Graduate Program at the University of Chicago.
+  current_info: A graduate student at the Biophysical Sciences Graduate Program at the University of Chicago
   bio: "A computer scienctist exploring the association between sequence composition and metabolism."
   affiliations:
     - title: Graduate Student
@@ -417,7 +423,7 @@
   tenure_end: 06/2023
   nick_name: Emily
   contributions: "Emily put an effort into understanding the ecology and evolution of naturally occurring plasmids of the human gut microbiome. Her work described the ecology of pBI143, a cryptic plasmid that happens to be one of the most prevalent and numerous extrachromosomal circular elements of the human gut"
-  current_info: a Clinical Affairs Associate at the <a href="https://theralink.com/">Theralink Technologies, Inc.</a>.
+  current_info: a Clinical Affairs Associate at the <a href="https://theralink.com/">Theralink Technologies, Inc.</a>
   last_current_info_check: 2024
   role: Graduate Student
   email: efogarty@uchicago.edu
@@ -439,8 +445,8 @@
   tenure_start: 04/2020
   tenure_end: 01/2023
   nick_name: Isaac
-  contributions: "Isaac worked on implementing new capabilities for anvi'o to visualize genomic contexts interactively, and contributed code to improve interactive interfaces of anvi'o."
-  current_info: an Associate Software Engineer at <a href="https://www.veeva.com/" target="_blank">Veeva Systems</a>.
+  contributions: "Isaac worked on implementing new capabilities for anvi'o to visualize genomic contexts interactively, and contributed code to improve interactive interfaces of anvi'o"
+  current_info: an Associate Software Engineer at <a href="https://www.veeva.com/" target="_blank">Veeva Systems</a>
   last_current_info_check: 2024
   role: Undergraduate Researcher
   email: iafink@uchicago.edu
@@ -462,7 +468,7 @@
   tenure_end: 9/2022
   nick_name: Sam
   contributions: "Sam took on one of the most exciting challenges our group had to offer at that time: taking advantage of the recent advances in high-throughput sequencing of short RNA molecules to make sense of microbial tRNA transcripts in complex habitats. Towards this goal, he developed novel and advanced open-source software tools to study all aspects of chemical modification and relative abundance analysis of tRNA transcripts, and combining them with tRNA genes, codons, and metabolisms found in genomes and metagenomes"
-  current_info: a Scientific Programmer for <a href="https://ccomp-stc.org/" target="_blank">the Center for Chemical Currencies of a Microbial Planet</a> at the <a href="https://mbl.edu" target="_blank">Marine Biological Laboratory</a>.
+  current_info: a Scientific Programmer for <a href="https://ccomp-stc.org/" target="_blank">the Center for Chemical Currencies of a Microbial Planet</a> at the <a href="https://mbl.edu" target="_blank">Marine Biological Laboratory</a>
   last_current_info_check: 2024
   role: Post-doctoral Scientist
   email: samuelmiller@uchicago.edu
@@ -490,7 +496,7 @@
   tenure_end: 10/2022
   current_info: a Software Developer in Los Angeles
   last_current_info_check: 2024
-  contributions: Matthew focused on improving the anvi'o interactive interface. He has made numerous significant contributions to anvi'o that improved the responsiveness of the interactive interface, addressed many bugs, and added most needed features.
+  contributions: Matthew focused on improving the anvi'o interactive interface. He has made numerous significant contributions to anvi'o that improved the responsiveness of the interactive interface, addressed many bugs, and added most needed features
   role: Programmer
   email: mtt.l.kln@gmail.com
   avatar: bio-matthew_k.jpg
@@ -710,7 +716,7 @@
   tenure_end: 02/2020
   current_info: an MD/PhD student at the <a href="https://pritzker.uchicago.edu/">Pritzker School of Medicine</a>, University of Chicago
   last_current_info_check: 2024
-  contributions: Focusing on pangenomics, he developed functional and geometric homogeneity indices so we can interpret the heterogeneity within gene clusters.
+  contributions: Focusing on pangenomics, he developed functional and geometric homogeneity indices so we can interpret the heterogeneity within gene clusters
   avatar: bio-mahmoud.jpg
   role: Undergraduate Researcher
   email: mahmoudyousef@uchicago.edu
@@ -1042,7 +1048,43 @@
 #
 ####################################################################################
 
+- name: Amy D Willis
+  nick_name: Amy
+  visitor: True
+  arrival: 09/2024
+  length_of_stay: "9 months"
+  title: Professor
+  department: Department of Biostatistics
+  dept_link: https://www.biostat.washington.edu/
+  pers_link: https://statdivlab.github.io/
+  institute: University of Washington
+  country_flag: 🇺🇸
+  notes: "Amy's visit was more than a visit -- it was a true sabbatical during which we took advantage of the new genomes in public databases to investigate the codon variation landscape throughout the tree of life as a function of microbial ecology, evolution, and metabolism. Members of our group is forever thankful to the members of <a href='https://statdivlab.github.io/' id='aff-link' target='_blank'>Amy's group</a> for sharing her with us"
+
+- name: Siyu Mei
+  nick_name: Mei
+  visitor: True
+  arrival: 03/2025
+  length_of_stay: 1 month
+  title: Graduate Student
+  department: Groningen Institute for Evolutionary Life Science
+  institute: University of Groningen
+  dept_link: https://www.rug.nl/research/gelifes/
+  country_flag: 🇳🇱
+
+- name: Chris Robinson
+  nick_name: Chris
+  visitor: True
+  arrival: 11/2024
+  length_of_stay: 6 weeks
+  title: Graduate Student
+  department: Department of Biology
+  institute: Indiana University
+  dept_link: https://bloomington.iu.edu/
+  country_flag: 🇺🇸
+
 - name: Eeva Eronen-Rasimus
+  nick_name: Eeva
   visitor: True
   arrival: 10/2024
   length_of_stay: 10 days
@@ -1055,7 +1097,9 @@
   photos:
     - caption: Eeva, Igor, and Tommi during a lunch meeting with the rest of the group :)
       url: /images/visitors/2024_pessi.jpg
+
 - name: Tommi Välikangas
+  nick_name: Tommi
   visitor: True
   arrival: 10/2024
   length_of_stay: 10 days
@@ -1064,7 +1108,9 @@
   country_flag: 🇫🇮
   dept_link: https://www.luke.fi/en
   pers_link: https://www.researchgate.net/profile/Tommi-Vaelikangas
+
 - name: Igor Pessi
+  nick_name: Igor
   visitor: True
   arrival: 10/2024
   length_of_stay: 10 days
@@ -1073,7 +1119,9 @@
   country_flag: 🇫🇮
   dept_link: https://www.syke.fi/en-US
   pers_link: https://igorpessi.com/
-- name: Steve Giovannoni
+
+- name: Stephen J Giovannoni
+  nick_name: Steve
   visitor: True
   pers_link: https://microbiology.oregonstate.edu/directory/stephen-j-giovannoni
   title: Professor
@@ -1087,7 +1135,9 @@
   photos:
     - caption: Journal Club with Steve.
       url: /images/visitors/2024_journal_club_with_giovannoni.jpg
+
 - name: Arthur Cousson
+  nick_name: Arthur
   visitor: True
   arrival: 05/2024
   length_of_stay: "8 weeks"
@@ -1100,7 +1150,9 @@
   photos:
     - caption: Arthur and others.
       url: /images/visitors/2024_cousson_et_al.jpg
+
 - name: Oleg Vlasovets
+  nick_name: Oleg
   visitor: True
   arrival: 01/2024
   length_of_stay: "3 months"
@@ -1112,7 +1164,9 @@
   photos:
     - caption: Lunch meeting with Oleg (on the most left), Daan Speth, Tom Delmont, Sarahi Garcia, and others in the lab.
       url: /images/visitors/2024_oleg_and_others.jpg
+
 - name: Mary Ann Moran
+  nick_name: Mary Ann
   visitor: True
   arrival: 10/2023
   length_of_stay: "a week"
@@ -1125,7 +1179,9 @@
   photos:
     - caption: Sarahi Garcia, Sandra McLellan, Jessika Fuessel, Meren, and Mary Ann Moran in Bremen.
       url: /images/visitors/2023_moran_mclellan_and_others.jpg
+
 - name: Sandra McLellan
+  nick_name: Sandra
   visitor: True
   arrival: 10/2023
   length_of_stay: "a week"
@@ -1135,7 +1191,10 @@
   country_flag: 🇺🇸
   dept_link: https://uwm.edu/freshwater/
   pers_link: https://sites.uwm.edu/mclellanlab/
+
 - name: Jed Fuhrman
+  nick_name: Jed
+  visitor: True
   visitor: True
   arrival: 09/2022
   length_of_stay: "a week"

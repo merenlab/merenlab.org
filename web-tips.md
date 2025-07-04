@@ -31,6 +31,34 @@ SOME CONTENT GOES HERE
 
 </details>
 
+# Show/hide other stuff
+
+One can add to the header sections of Markdwon files (pages, posts, etc) served by the web page
+
+```
+noleftpanel: true
+```
+
+to remove the left panel with all the links;
+
+```
+nonavigation: true
+```
+
+to remove the navigation links shown at the top, and,
+
+```
+image:
+  feature: https://merenlab.org/images/the/image/you/want/to/display.png
+  display: true
+  nologo: true
+```
+
+To display a header image, but not the logo of the lab.
+
+[Here](https://merenlab.org/2022/01/03/giant-viruses/) is an example blog post where each of these parameters were used.
+
+
 ## Code file name
 
 When we show code, we usually use the standard markdown syntax and it looks like this:
@@ -161,7 +189,7 @@ An anvi'o {% include ARTIFACT name="pan-db" %} comes from {% include PROGRAM nam
 
 ``` html
 <blockquote>
-An intersting quote.
+An interesting quote.
 <div class="blockquote-author">Someone Interesting</div>
 </blockquote>
 ```
@@ -169,7 +197,7 @@ An intersting quote.
 **Rendered**:
 
 <blockquote>
-An intersting quote.
+An interesting quote.
 <div class="blockquote-author">Someone Interesting</div>
 </blockquote>
 

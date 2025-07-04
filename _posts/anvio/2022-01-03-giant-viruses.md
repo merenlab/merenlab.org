@@ -9,9 +9,11 @@ categories: [miscellaneous]
 comments: true
 notoc: true
 noleftpanel: true
+nonavigation: true
 image:
   feature: https://merenlab.org/images/anvio/2022-01-03-giant-viruses/header.png
   display: true
+  nologo: true
 ---
 
 ## Giant viruses
