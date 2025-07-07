@@ -1,7 +1,7 @@
 ---
-layout: page
+layout: post
 authors: [raissa]
-title: "Marine Microbial Observatories for the Future: From Samples to Data to Legacy"
+title: "Marine Microbial Observatories for the Future: From Samples to Data to Legacy Using Integrated 'Omics Strategies"
 excerpt: "A workshop for the future"
 modified: 2025-06-20
 tags: [workshop, gobal ocean observing]
@@ -17,7 +17,7 @@ image:
 ---
 
 ## About the Workshop
-_Marine Microbial Observatories for the Future: From Samples to Data to Legacy Using Integrated Omics Strategies_ is a two-day workshop, aimed at laying the groundwork for a lasting legacy of microbial observations in the ocean.
+_Marine Microbial Observatories for the Future: From Samples to Data to Legacy Using Integrated 'Omics Strategies_ is a two-day workshop, aimed at laying the groundwork for a lasting legacy of microbial observations in the ocean.
 
 As part of ongoing international efforts to advance 'omics-based observing of marine biodiversity, this workshop responds to a growing need to ensure that microbial observations, samples, and data are not only scientifically robust but also sustainable, reusable, and policy-relevant over time.
 
@@ -62,7 +62,7 @@ Here is a map for you:
 
 ## Participants
 
-The current list of participants (in alphabetical order) includes
+The current list of participants (in alphabetical order, with flags representing country of residence) includes
 * 🇺🇸 [Adam Martini](https://faculty.sites.uci.edu/martinylab/) _University of California, Irvine_
 * 🇫🇷 [Chris Bowler](https://www.embl.org/topics/tara/research/chris-bowler/) _Insitut de Biologie de l'École Normale Supérieure (IBENS)_
 * 🇺🇸 [Elisha Wood-Charlson](https://schmidtocean.org/person/elisha-wood-charlson/) _Lawrence Berkeley National Laboratory_
