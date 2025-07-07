@@ -67,7 +67,7 @@ The current list of participants (in alphabetical order, with flags representing
 * 🇫🇷 [Chris Bowler](https://www.embl.org/topics/tara/research/chris-bowler/) _Insitut de Biologie de l'École Normale Supérieure (IBENS)_
 * 🇺🇸 [Elisha Wood-Charlson](https://schmidtocean.org/person/elisha-wood-charlson/) _Lawrence Berkeley National Laboratory_
 * 🇺🇸 [Enrique Montes](https://www.aoml.noaa.gov/people/enrique-montes/) _U. Miami Cooperative Institute for Marine and Atmospheric Studies (CIMAS)_ 
-* 🇫🇷 [Ioulia Santi](https://www.embrc.eu/our-team/) _European Marine Biological Resource Centre (EMBRC)_
+* 🇬🇷 [Ioulia Santi](https://www.embrc.eu/our-team/) _European Marine Biological Resource Centre (EMBRC)_
 * 🇺🇸 [Jed Fuhrman](https://dornsife.usc.edu/fuhrmanlab/__trashed-4/) _University of Southern California (USC)_
 * 🇨🇦 [Jesse McNichol](https://www.stfx.ca/faculty-staff/jesse-mcnichol) _St. Francis Xavier University_
 * 🇦🇺 [Jodie van de Kamp](https://people.csiro.au/V/J/Jodie-Vandekamp) _Commonwealth Scientific and Industrial Research Organisation (CSIRO)_
