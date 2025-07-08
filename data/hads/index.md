@@ -21,7 +21,7 @@ Time-series studies in marine systems have largely focused on resolving changes 
 
 HaDS is a collection of metagenomes, metatranscriptomes and metaepitranscriptomes generated over a 48 hour period at 90 minutes intervals at two sampling sites in Kāneʻohe Bay, Hawaiʻi. The spatiotemporal dynamics of the two surface water sampling stations (so-called HP1 and STO1) are well characterized through the Kāneʻohe Bay Time-series ([Tucker et al. 2021](https://doi.org/10.7717/peerj.12274)), an ongoing monthly time-series sampling program of surface ocean biogeochemistry and microbial communities. Our high-resolution multi-omics approach, paired with concurrent measurements of biogeochemical parameters (chlorophyll, temperature, and nutrient concentration) and contextualized by long-term microbial community and biogeochemistry data at both sampling sites, enables the exploration of microbial population responses to environmental fluctuations and long-term change.
 
-{% include IMAGE path="images/hawaii-diel-2021-80.jpg" width=80 caption="Sample processing next to the docks of Hawaiʻi Institute of Marine Biology (HIMB)." %}
+{% include IMAGE path="images/hawaii-diel-2021-80.jpg" width=80 caption="Sample processing next to the docks of the Hawaiʻi Institute of Marine Biology (HIMB)." %}
 
 ## Data
 
