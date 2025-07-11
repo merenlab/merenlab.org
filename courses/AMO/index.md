@@ -3,7 +3,8 @@ layout: page
 noleftpanel: true
 title: "Applied Microbial `Omics"
 author: "Course Plan"
-date: October, 2024
+authors: [iva, meren]
+date: October, 2023
 geometry: "left=3cm,right=3cm,top=2cm,bottom=2cm"
 output: syllabus.pdf
 colorlinks: true

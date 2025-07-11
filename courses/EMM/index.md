@@ -3,12 +3,13 @@ layout: page
 noleftpanel: true
 title: "Ecology of Marine Microbes (First Week)"
 author: "Course Plan"
+authors: [meren]
 date: May, 2025
 geometry: "left=3cm,right=3cm,top=2cm,bottom=2cm"
 output: syllabus.pdf
 colorlinks: true
 urlcolor: blue
-monofont: "DejaVuSansMono.ttf"
+monofont: "DejaVu Sans Mono"
 ---
 
 ## Preface
@@ -38,6 +39,8 @@ Making sure everyone who wishes to have anvi’o ([https://anvio.org](https://an
 
 
 #### 10:00 - 12:00: A brief introduction to **microbial life on Earth**
+
+Please remember, we will have an activity break at 11:00.
 
 * ***Learning Objectives***:
 
@@ -224,12 +227,6 @@ The day of metabolism.
 >
 > The data pack contains four microbial genomes, and your task is to investigate which of these organisms (if any) are capable of nitrogen cycling. Please use anvi'o to annotate these genomes with KOfams, and then run `anvi-estimate-metabolism` to calculate the completeness of metabolic pathways in the KEGG MODULE database. You should examine the output of that program to identify the completeness scores for nitrogen cycling pathways in each genome. You will find a list of all KEGG modules for nitrogen metabolism [at this link](https://www.genome.jp/entry/pathway+map00910). This list contains seven pathways for nitrogen fixation, nitrate reduction, denitrification, and nitrification.
 >
-> Please note that for the program `anvi-estimate-metabolism` to work on the contigs-db files in this data pack, you first need to run the following command to make sure you have the KEGG data to be set up on your computer:
->
-> ```
-> anvi-setup-kegg-data --kegg-snapshot v2024-03-09
-> ```
->
 > Your short report should answer the following questions:
 >
 >- Which nitrogen metabolism pathways are 'complete' in each genome? Please include in your answer their path-wise completeness scores and the score threshold that you are using (ie, the value of the `--module-completion-threshold` parameter).
@@ -318,8 +315,9 @@ Lectures and exercises during this week will be led by [Prof. Dr. A. Murat Eren]
 |:---|:---|:---|:---|
 |**Meren**|Professor|Microbial Ecology, Computer Science|meren@hifmb.de|
 |**Sarahi**|Professor|Microbiology, Microbial Ecology|sarahi.garcia@uni-oldenburg.de|
+|**Iva Veseli**|Postdoc| Microbial Ecology, Computer Science|iva.veseli@hifmb.de|
 |**Jessika Füssel**|Postdoc|Microbial Metabolism, Biogeochemistry|jessika.fuessel@uol.de|
-|**Florian Trigodet**|Senior Scientist|Microbiology, Bioinformatics|florian.trigodet@hifmb.de|
+|**Florian Trigodet**|Postdoc|Microbiology, Bioinformatics|florian.trigodet@hifmb.de|
 
 Throughout the course (and beyond) you can reach out via email with any question to Meren, who should be your first contact for anything related to the course activities unless specified otherwise.
 
@@ -381,7 +379,7 @@ The title of the class citizenship email must follow this pattern **word-by-word
 
 For instance, the following would be the appropriate title for this email for the first day:
 
-> **EMM Class Citizenship: 02/06/25**
+> **EMM Class Citizenship: 10/06/24**
 
 The best class citizenship emails are those that are brief, genuine, and insightful. In an ideal world the emails should be no less than 50 words, and no more than 250 words. Please do not send notes you take throughout the class. You should use the last 15 minutes of the lecture to gather your thoughts, and come up with a summary of what you can remember. Here is an example class citizenship email:
 

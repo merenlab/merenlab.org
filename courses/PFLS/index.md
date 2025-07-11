@@ -3,6 +3,7 @@ layout: page
 noleftpanel: true
 title: "Programming for Life Scientists"
 author: Course Plan
+authors: [meren]
 date: February, 2025
 geometry: "left=3cm,right=3cm,top=2cm,bottom=2cm"
 output: syllabus.pdf
