@@ -103,6 +103,7 @@ GEM
     sequel (5.15.0)
     titlecase (0.1.1)
     unidecode (1.0.0)
+    webrick (1.9.1)
 
 PLATFORMS
   ruby
@@ -120,6 +121,7 @@ DEPENDENCIES
   rouge
   sequel
   unidecode
+  webrick
 
 BUNDLED WITH
    2.1.4
