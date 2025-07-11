@@ -64,7 +64,9 @@ Here is a map for you:
 
 The current list of participants (in alphabetical order, with flags representing country of residence) includes
 * 🇺🇸 [Adam Martini](https://faculty.sites.uci.edu/martinylab/) _University of California, Irvine_
+* 🇲🇽 [Alejandra Prieto-Davó](https://www.researchgate.net/profile/Alejandra-Prieto-Davo) _National Autonomous University of Mexico_
 * 🇫🇷 [Chris Bowler](https://www.embl.org/topics/tara/research/chris-bowler/) _Insitut de Biologie de l'École Normale Supérieure (IBENS)_
+* 🇩🇪 [David Needham](https://www.geomar.de/en/dneedham) _GEOMAR Helmholtz Centre for Ocean Research Kiel (GEOMAR)_
 * 🇺🇸 [Elisha Wood-Charlson](https://schmidtocean.org/person/elisha-wood-charlson/) _Lawrence Berkeley National Laboratory_
 * 🇺🇸 [Enrique Montes](https://www.aoml.noaa.gov/people/enrique-montes/) _U. Miami Cooperative Institute for Marine and Atmospheric Studies (CIMAS)_ 
 * 🇬🇷 [Ioulia Santi](https://www.embrc.eu/our-team/) _European Marine Biological Resource Centre (EMBRC)_
@@ -81,6 +83,7 @@ The current list of participants (in alphabetical order, with flags representing
 * 🇧🇬 [Teodor Georgiev](https://pensoft.net/teodor_georgiev) _Pensoft Publishers_
 * 🇩🇰 [Thomas Stjernegaard-Jeppesen](https://dk.linkedin.com/in/thomas-stjernegaard-jeppesen-29b55011) _Global Biodiversity Information Facility (GBIF)_
 * 🇩🇰 [Tobias Guldberg Frøslev](https://globe.ku.dk/staff-list/?pure=en/persons/213201) _Global Biodiversity Information Facility (GBIF)_
+* 🇮🇩 [Yosmina Tapilatu](https://www.researchgate.net/profile/Yosmina-Tapilatu) _Indonesian Institute of Sciences_
 
 ## Contact
 For questions contact Raïssa Meyer `raissa.meyer@awi.de` 
