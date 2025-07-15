@@ -159,7 +159,9 @@ If you do not have them, but still would like to reproduce the rest of the steps
 
 ``` bash
 # download the reproducible data pack
-curl -L https://figshare.com/ndownloader/files/32412086 -o TRICHO-DGRs.tar.gz
+curl -L https://figshare.com/ndownloader/files/32412086 \
+     -H "User-Agent: Chrome/115.0.0.0" \
+     -o TRICHO-DGRs.tar.gz
 
 # unpack the data pack
 tar -zxvf TRICHO-DGRs.tar.gz

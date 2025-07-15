@@ -51,6 +51,7 @@ First, open your terminal, go to any directory you like, and download the data p
 
 ``` bash
 curl -L https://figshare.com/ndownloader/files/31180186 \
+     -H "User-Agent: Chrome/115.0.0.0" \
      -o metagenomic-read-recruitment-data-pack.tar.gz
 ```
 

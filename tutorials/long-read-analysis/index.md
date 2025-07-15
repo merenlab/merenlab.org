@@ -40,6 +40,7 @@ First, open your terminal, go to a work directory, and download the data pack we
 
 ``` bash
 curl -L https://figshare.com/ndownloader/files/31313737 \
+     -H "User-Agent: Chrome/115.0.0.0" \
      -o LONG_READ_METAGENOMICS.tar.gz
 ```
 

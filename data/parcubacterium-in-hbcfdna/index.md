@@ -358,7 +358,9 @@ We then downloaded anvi'o contigs databases for all CPR genomes published in the
 
 ``` bash
 # downlaod the archive
-curl -L https://ndownloader.figshare.com/files/9337477 -o ANVIO_CONTIG_DBs_for_BROWN_et_al_CPRs.tar.gz
+curl -L https://ndownloader.figshare.com/files/9337477 \
+     -H "User-Agent: Chrome/115.0.0.0" \
+     -o ANVIO_CONTIG_DBs_for_BROWN_et_al_CPRs.tar.gz
 
 # unpack it
 tar -zxvf ANVIO_CONTIG_DBs_for_BROWN_et_al_CPRs.tar.gz

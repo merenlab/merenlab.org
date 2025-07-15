@@ -88,7 +88,9 @@ The TARA Oceans metagenomes we analyzed are publicly available through the Europ
 You can get a copy of the FASTA file containing all 31 _Prochlorococcus_ isolate genomes (and the 74 _Prochlorococcus_ SAGs incorporated in the study) into your working directory using these commands:
 
 ``` bash
-curl -L https://ndownloader.figshare.com/files/9416614 -o PROCHLOROCOCCUS-FASTA-FILES.tar.gz
+curl -L https://ndownloader.figshare.com/files/9416614 \
+     -H "User-Agent: Chrome/115.0.0.0" \
+     -o PROCHLOROCOCCUS-FASTA-FILES.tar.gz
 tar -xzvf PROCHLOROCOCCUS-FASTA-FILES.tar.gz
 ```
 

@@ -89,10 +89,12 @@ You can download either or both data packs for donor A (4.14 Gb compressed) and 
 ``` bash
 # download donor A data pack:
 curl -L https://ndownloader.figshare.com/files/27452192 \
+     -H "User-Agent: Chrome/115.0.0.0" \
      -o FMT_DONOR_A_AND_RECIPIENTS.tar.gz
 
 # download donor B data pack:
 curl -L https://ndownloader.figshare.com/files/27452216 \
+     -H "User-Agent: Chrome/115.0.0.0" \
      -o FMT_DONOR_B_AND_RECIPIENTS.tar.xz
 ```
 
@@ -203,12 +205,14 @@ Included in the resulting summary files is information about the detection of ea
 for file in detection-global-DA.txt \
             detection-global-DB.txt;
 do curl -L https://merenlab.org/data/fmt-gut-colonization/files/${file} \
+        -H "User-Agent: Chrome/115.0.0.0" \
         -o ${file};
 done
 
 # download the script
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/summarize-global-detection.py \
-      -o summarize-global-detection.py
+     -H "User-Agent: Chrome/115.0.0.0" \
+     -o summarize-global-detection.py
 
 # run the script and look at the output files:
 # detection-global-by-country-DA.txt and
@@ -249,6 +253,7 @@ anvi-summarize --pan-or-profile-db FMT_DONOR_A_AND_RECIPIENTS/PROFILE.db \
 
 # download script to get mean coverage of SCGs
 curl -L https://merenlab.org/data/fmt-gut-colonization/files/make-scg-cov-tables.py \
+     -H "User-Agent: Chrome/115.0.0.0" \
      -o make-scg-cov-tables.py
 
 # run script and note the output files:
@@ -446,6 +451,7 @@ The resulting contigs databases are publicly available. If you would like to rep
 
 ``` bash
 curl -L https://ndownloader.figshare.com/files/26842652 \
+     -H "User-Agent: Chrome/115.0.0.0" \
      -o WATSON_ET_AL_CONTIGS_DBS_FOR_METABOLIC_COMPARISON.tar.gz
 ```
 

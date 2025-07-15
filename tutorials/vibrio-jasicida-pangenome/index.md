@@ -47,14 +47,18 @@ If you are using `anvio-dev`, please use this command to download the pre-packag
 
 ``` bash
 # download the data pack for contigs-db files
-curl -L https://figshare.com/ndownloader/files/47966644 -o V_jascida_contigs_dbs.tar.gz
+curl -L https://figshare.com/ndownloader/files/47966644 \
+     -H "User-Agent: Chrome/115.0.0.0" \
+     -o V_jascida_contigs_dbs.tar.gz
 ```
 
 If you are using the stable `v8` version of anvi'o, use this command to download the pre-packaged data:
 
 ``` bash
 # download the data pack for contigs-db files
-curl -L https://figshare.com/ndownloader/files/41600745 -o V_jascida_contigs_dbs.tar.gz
+curl -L https://figshare.com/ndownloader/files/41600745 \
+     -H "User-Agent: Chrome/115.0.0.0" \
+     -o V_jascida_contigs_dbs.tar.gz
 ```
 
 OK. Now you have the pre-packaged data, you can continue with the following commands to unpack the archive:
@@ -80,7 +84,9 @@ We will start by downloading the FASTA files for the Vibrio genomes:
 
 ```bash
 # download the pack
-curl -L https://ndownloader.figshare.com/files/28965090 -o V_jascida_genomes.tar.gz
+curl -L https://ndownloader.figshare.com/files/28965090 \
+     -H "User-Agent: Chrome/115.0.0.0" \
+     -o V_jascida_genomes.tar.gz
 
 # unpack it
 tar -zxvf V_jascida_genomes.tar.gz
