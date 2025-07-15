@@ -83,6 +83,18 @@ course_token="courses/PFLS"
 course_input_dir="$courses_repo_dir/programming-for-life-scientists/00_SYLLABUS_AND_CONTENT"
 course_web_dir="$web_repo_dir/$course_token"
 
+echo -e "\nPLEASE NOTE: IF YOU ARE WAITING HERE FOREVER, IT MEANS SOMETHING IS NOT WORKING.\n \
+    The proper way to run this script is the following (and you need two terminal windows for this):\n \
+    In the first terminal window, execute 'rm -rf _site; bundle exec jekyll serve --incremental',\n \
+    and wait until you see the server is running. Only then execute '_scripts/update-course-pages.sh'\n \
+    in the second terminal window since the script relies upon the Jekyll's rendering capabitiles to\n \
+    to serve self-encrypted files instead of flat text files with solutions as clear text (for nerds: \n \
+    I know that this is a convoluted solution, but I couldn't find a reliable way to make this work; in\n \
+    theory, running 'jekyll build' in the script rather than waiting for a running server to render\n \
+    things would have been much more elegant, but jekyll build consistently produces files that cannot \n \
+    be decrypted later because fuck logic, I guess, so I gave up trying).\n"
+
+
 echo "Rendering $course_token ..."
 
 # Process the index
@@ -125,7 +137,6 @@ do
 done
 
 # This is the SECOND LOOP to wait all exercises to be rendered.
-echo -n "  - waiting for Jekyll to render all exercise files "
 for exc_path in $exc_paths
 do
     exc_name=`basename $exc_path`
@@ -173,3 +184,8 @@ do
     rm -rf $exc_solution_dir/index.md
 done
 echo "done! :)"
+
+echo
+echo "BEFORE COMMITTING ANY CHANGES, please make sure that there are no *.md files under \
+the solutions directories by running 'ls courses/PFLS/solutions/*'. If all you see are HTML \
+files, you're good to go :)"
