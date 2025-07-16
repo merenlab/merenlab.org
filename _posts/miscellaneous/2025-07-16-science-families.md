@@ -39,4 +39,4 @@ So. Back to my own reality.
 
 My plan is to think a little more about structures that enable breakthroughs, which of those structures we inherit, which ones we create, and which ones we influence.
 
-After that I will go back to my grant. But before doing that I wanted to post this online to contribute to the pool of material for those of us who are looking for things to procrastinate with things that are longer than a Tweet (speaking of Tweets, I also [am on BlueSky](https://bsky.app/profile/merenbey.bsky.social) :)).
+After that I will go back to my grant. But before doing that I wanted to post this online to contribute to the pool of material for those of us who are looking for things to procrastinate but will not accept material that are not longer than a Tweet (speaking of Tweets, I also [am on BlueSky](https://bsky.app/profile/merenbey.bsky.social) :)).
