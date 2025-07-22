@@ -75,6 +75,29 @@ people:
 
 publications:
   - doi:
+      10.1038/s41467-025-62138-6
+    title:
+      "Gifting future scientists the past through well-preserved specimens of modern microbial ecosystems"
+    authors:
+      A. Murat Eren
+    journal:
+      Nature Communications
+    year:
+      2025
+    volume:
+    number:
+      6669
+    pages:
+    additional_info:
+      highlights:
+        - A comment on why it is important to think about including 'microbial ecosystems' in modern efforts to generate archival samples for future study.
+        - Also makes the point that it is uncertain whether we can counteract the ongoing loss of biodiversity by resuscitating extinct organisms, and whether such organisms could survive without continuous human intervention.
+        - ALSO recognizes that our basic science, archival attempts, or efforts to resuscitate what is lost are unlikely to have lasting impact without transformative societal change that addresses the human drivers of biodiversity loss.
+        - But it conveniently passes the buck to the future generations to figure out (along with well-preserved samples that represent our time).
+      featured_image:
+        /images/pubs/eren_comment_2025.png
+
+  - doi:
       10.1101/2025.04.22.649783
     title:
       "Assemblies of long-read metagenomes suffer from diverse errors"

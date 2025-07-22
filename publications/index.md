@@ -1,6 +1,6 @@
 ---
 layout: publications
-modified: 2025-04-28
+modified: 2025-07-22
 comments: false
 image:
    display: true
@@ -16,6 +16,23 @@ image:
 This page lists publications that are most reflective of our interests. For a complete list, please see <a href='https://scholar.google.com/citations?user=GtLLuxoAAAAJ&view_op=list_works&sortby=pubdate' target='_blank'>Meren's Google Scholar page</a>.
 
 ## 2025
+
+<a id="10.1038/s41467-025-62138-6">&nbsp;</a>
+<div class="pub">
+<div class='altmetric-embed' data-badge-type='donut' data-doi="10.1038/s41467-025-62138-6"></div>
+<div class="__dimensions_badge_embed__" data-doi="10.1038/s41467-025-62138-6" data-hide-zero-citations="true" data-legend="hover-bottom" data-style="small_circle"></div>
+    <span class="pub-title"><a href="https://doi.org/10.1038/s41467-025-62138-6" target="_new">Gifting future scientists the past through well-preserved specimens of modern microbial ecosystems</a></span>
+    <span class="pub-authors"><span class="pub-member-author" title='An official member of the lab at the time of publication'>Eren AM</span></span>
+    <div class="pub-info">
+    <div class="pub-featured-image">
+    <a href="/images/pubs/eren_comment_2025.png"><img src="/images/pubs/eren_comment_2025.png" style="max-width: 100px; max-height: 80px; width: auto; border: none; height: auto; margin: 0 auto; display: block; transform: translateY(15%);"/></a>
+    </div>
+    <div class="pub-highlights">
+    <span style="display: inline-block; padding-bottom: 5px;">- A comment on why it is important to think about including 'microbial ecosystems' in modern efforts to generate archival samples for future study.</span><br><span style="display: inline-block; padding-bottom: 5px;">- Also makes the point that it is uncertain whether we can counteract the ongoing loss of biodiversity by resuscitating extinct organisms, and whether such organisms could survive without continuous human intervention.</span><br><span style="display: inline-block; padding-bottom: 5px;">- ALSO recognizes that our basic science, archival attempts, or efforts to resuscitate what is lost are unlikely to have lasting impact without transformative societal change that addresses the human drivers of biodiversity loss.</span><br><span style="display: inline-block; padding-bottom: 5px;">- But it conveniently passes the buck to the future generations to figure out (along with well-preserved samples that represent our time).</span>
+    </div>
+    </div>
+    <span class="pub-journal"> 📚 <b>Nature Communications</b> | 🔍 <a href="http://scholar.google.com/scholar?hl=en&q=Gifting+future+scientists+the+past+through+well-preserved+specimens+of+modern+microbial+ecosystems" target="_blank">Google Scholar</a> | 🔗 <a href="https://doi.org/10.1038/s41467-025-62138-6" target="_blank">doi:10.1038/s41467-025-62138-6</a></span>
+</div>
 
 <a id="10.1101/2025.04.22.649783">&nbsp;</a>
 <div class="pub">
