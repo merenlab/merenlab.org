@@ -5,6 +5,7 @@ modified: 2024-10-21
 excerpt: "by Schechter et al, 2025"
 comments: true
 authors: [matt]
+redirect_from: /data/ecophylo
 ---
 
 **The purpose of this page** is to provide access to reproducible data products that underlie our key findings from two studies by Matt Schechter et al. including: "**Quantitative insights into the efficacy of genome-resolved surveys of microbial communities through ribosomal protein phylogeography and EcoPhylo**" and "**Contemporary genome collections massively under-represent microbial diversity in marine systems**".
