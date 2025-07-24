@@ -256,7 +256,7 @@ ggarrange(plot_model_cov_archaea_76$plot_model_cov,
           nrow = 2)
 ``` 
 
-{% include IMAGE path="images/SCG_distribution_model_coverage.png" width=100 caption="" %}
+{% include IMAGE path="images/SCG_distribution_model_coverage.png" width=80 caption="" %}
 
 ### Explore SCG HMM copy number across GTDB r95 RefSeq
 
@@ -383,7 +383,7 @@ plot_final <- ggarrange(SCG_count_bacteria,
 plot_final
 ```
 
-{% include IMAGE path="images/Figure_SI02.png" width=100 caption="" %}
+{% include IMAGE path="images/Figure_SI02.png" width=80 caption="" %}
 
 
 ### Benchmarking EcoPhylo workflow with Ribosomal proteins using CAMI synthetic metagenomes
@@ -511,7 +511,7 @@ missmapping_p <- ggarrange(MARINE_missmapping,
 missmapping_p
 ```
 
-{% include IMAGE path="images/Figure_SI04.png" width=100 caption="" %}
+{% include IMAGE path="images/Figure_SI04.png" width=80 caption="" %}
 
 ### Removing genomes that are not detected in metagenomic samples
 
@@ -676,7 +676,7 @@ plot_bacteria_SCG_frequency_per_HOMD_MAGs_50 <- plot_genome_SCGs(Bacteria_71_GEN
 ggarrange(plot_bacteria_SCG_frequency_per_HOMD_MAGs_50, plot_metagenome_SCGs_frequencies, ncol = 2)
 ```
 
-{% include IMAGE path="images/Oral_SCG_frequency.png" width=100 caption="" %}
+{% include IMAGE path="images/Oral_SCG_frequency.png" width=80 caption="" %}
 
 
 ### Make genome-type and miscellaneous data
@@ -1025,7 +1025,7 @@ Here is an example for open the phylogeography of *rpL19* across Shaiber et al.Â
 anvi-interactive -p ORAL_CAVITY/ECOPHYLO_WORKFLOW_oral_cavity_RP_L19/PROFILE.db \ 
                  -c ORAL_CAVITY/ECOPHYLO_WORKFLOW_oral_cavity_RP_L19/Ribosomal_L19-contigs.db
 ```
-{% include IMAGE path="images/ecophylo_oral_cavity.png" width=100 caption="EcoPhylo analysis of *rpL19* across the human oral cavity" %}
+{% include IMAGE path="images/ecophylo_oral_cavity.png" width=80 caption="EcoPhylo analysis of *rpL19* across the human oral cavity" %}
 
 #### *rpS15* phylogeography in the human gut
 
@@ -1035,7 +1035,7 @@ Here is an example for open the phylogeography of *rpS15* across Carter et al.Â 
 anvi-interactive -p HUMAN_GUT/ECOPHYLO_WORKFLOW_human_gut_RP_S15/PROFILE.db \
                  -c HUMAN_GUT/ECOPHYLO_WORKFLOW_human_gut_RP_S15/CONTIGS.db
 ```
-{% include IMAGE path="images/ecophylo_human_gut.png" width=100 caption="EcoPhylo analysis of *rpS15* across human gut microbiome samples from the Hadza tribe" %}
+{% include IMAGE path="images/ecophylo_human_gut.png" width=80 caption="EcoPhylo analysis of *rpS15* across human gut microbiome samples from the Hadza tribe" %}
 
 ## Contemporary genome collections massively under-represent microbial diversity in marine systems
 
@@ -1199,7 +1199,7 @@ plot_bacteria_SCG_frequency <- plot_genome_SCGs(Bacteria_71_GENOME_MATRIX,
 ggarrange(plot_bacteria_SCG_frequency, plot_metagenome_SCGs_frequencies, ncol = 2)
 ```
 
-{% include IMAGE path="images/Figure_SI01.png" width=100 caption="Single-copy core genes detected across surface ocean genomic and metagenomic assembly datasets." %}
+{% include IMAGE path="images/Figure_SI01.png" width=80 caption="Single-copy core genes detected across surface ocean genomic and metagenomic assembly datasets." %}
 
 ### EcoPhylo interactive interface of the open surface ocean
 
@@ -1252,9 +1252,9 @@ anvi-interactive -p SURFACE_OCEAN/ECOPHYLO_WORKFLOW_surface_ocean_RP_L14/PROFILE
                  -c SURFACE_OCEAN/ECOPHYLO_WORKFLOW_surface_ocean_RP_L14/CONTIGS.db
 ```
 
-{% include IMAGE path="images/ecophylo_ocean.png" width=100 caption="EcoPhylo analysis of *rpL14* across the global surface ocean" %}
+{% include IMAGE path="images/ecophylo_ocean.png" width=80 caption="EcoPhylo analysis of *rpL14* across the global surface ocean" %}
 
-If you load the `deep_sequencing` state, you will reproduce the figure in the main text:
+If you load the `deep_sequencing` state, you will reproduce the figure in the main text before polishing, which will allow you to interactivel explore the dataset:
 
 ``` bash
 anvi-interactive -p SURFACE_OCEAN/ECOPHYLO_WORKFLOW_surface_ocean_RP_L14/PROFILE.db \
@@ -1262,7 +1262,11 @@ anvi-interactive -p SURFACE_OCEAN/ECOPHYLO_WORKFLOW_surface_ocean_RP_L14/PROFILE
                  --state-autoload deep_sequencing
 ```
 
-{% include IMAGE path="images/ecophylo_ocean_deeply_sequenced.png" width=100 caption="EcoPhylo analysis of *rpL14* across the global surface ocean subsetted for metagenomes with x > 50 million reads" %}
+{% include IMAGE path="images/ecophylo_ocean_deeply_sequenced.png" width=80 caption="EcoPhylo analysis of *rpL14* across the global surface ocean subsetted for metagenomes with x > 50 million reads" %}
+
+After acquiring the SVG version of the display shown above from anvi'o, we used Inkscape to polish it for publication, which gave us the following image:
+
+{% include IMAGE path="images/ecophylo_ocean_polished.png" width=80 caption="EcoPhylo analysis of *rpL14* across the global surface ocean, polished. If you would like to see this image in its full resolution, you can right-click [this link](images/ecophylo_ocean_polished.png) and open it in a new window." %}
 
 ### Scatter plot of the number of SCGs recovered in assembled metagenomes vs sequencing depth from 237 surface ocean metagenomes.
 
@@ -1305,7 +1309,7 @@ num_SCG_sequencing_depth_lm_p <- reads_SCGs %>%
 
 num_SCG_sequencing_depth_lm_p
 ```
-{% include IMAGE path="images/Figure_SI03.png" width=100 caption="Scatter plot of the number of SCGs recovered in assembled metagenomes vs sequencing depth from 237 surface ocean metagenomes." %}
+{% include IMAGE path="images/Figure_SI03.png" width=80 caption="Scatter plot of the number of SCGs recovered in assembled metagenomes vs sequencing depth from 237 surface ocean metagenomes." %}
 
 ### Regression analysis of latitude versus bacterial + archaeal *rpL14* richness from surface ocean metagenomes
 
@@ -1337,7 +1341,7 @@ lat_richness_lm_p <- data_deep_metagenomes %>%
 lat_richness_lm_p
 ```
 
-{% include IMAGE path="images/Supplementary_Figure_03.png" width=100 caption="Regression analysis of latitude versus bacterial + archaeal rpL14 richness from surface ocean metagenomes" %}
+{% include IMAGE path="images/Supplementary_Figure_03.png" width=80 caption="Regression analysis of latitude versus bacterial + archaeal rpL14 richness from surface ocean metagenomes" %}
 
 ### Log mean Q2Q3 coverage of bacteria and archaea *rpL14* sequences by genome type across surface ocean.
 
@@ -1401,4 +1405,4 @@ box_plot_stats(data = data,
                y_title = "Mean Coverage (log10 scale)")
 ```
 
-{% include IMAGE path="images/Supplementary_Figure_04.png" width=100 caption="Log mean Q2Q3 coverage of bacteria and archaea rpL14 sequences by genome type across surface ocean." %}
+{% include IMAGE path="images/Supplementary_Figure_04.png" width=80 caption="Log mean Q2Q3 coverage of bacteria and archaea rpL14 sequences by genome type across surface ocean." %}
