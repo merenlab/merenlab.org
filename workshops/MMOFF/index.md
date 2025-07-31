@@ -48,7 +48,6 @@ Tue, 30 Sept - Wed, 01 Oct 2025
 ##### Symposium
 Thu, 02 Oct 2025
 
-> [!NOTE]
 > This workshop will be followed by a one-day symposium featuring talks by Adam C. Martiny, Alejandra Prieto-Davó, Kathleen Pitz, Elisha Wood-Charlson, Enrique Montes, Jodie van de Kamp, and Jed Fuhrman.
 
 ##### Location
