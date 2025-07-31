@@ -48,7 +48,9 @@ Tue, 30 Sept - Wed, 01 Oct 2025
 ##### Symposium
 Thu, 02 Oct 2025
 
-> This workshop will be followed by a one-day symposium featuring talks by Adam C. Martiny, Alejandra Prieto-Davó, Kathleen Pitz, Elisha Wood-Charlson, Enrique Montes, Jodie van de Kamp, and Jed Fuhrman.
+{:.notice}
+This workshop will be followed by a one-day symposium featuring talks by Adam C. Martiny, Alejandra Prieto-Davó, Kathleen Pitz, Elisha Wood-Charlson, Enrique Montes, Jodie van de Kamp, and Jed Fuhrman (for information on each of them and on all other workshop participants, please see below).
+{% endraw %}
 
 ##### Location
 Helmholtz Institute for Functional Marine Biodiversity at the University of Oldenburg (HIFMB) 
