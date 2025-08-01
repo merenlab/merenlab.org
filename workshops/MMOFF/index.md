@@ -105,7 +105,9 @@ Elisha Wood-Charlson is a User Engagement Lead at the Lawrence Berkeley National
 🇺🇸 _Cooperative Institute for Marine and Atmospheric Studies (CIMAS), University of Miami_ \| [learn more](https://www.aoml.noaa.gov/people/enrique-montes/)
 
 <p>
-  <img src="/images/mmoff-2025/enrique1.jpeg" alt="Enrique Montes" style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px; border-radius: 50%;">
+  <img src="/images/mmoff-2025/enrique1.jpeg" alt="Enrique Montes"
+       style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
+              border-radius: 50%; border: 6px solid #eee;">
 </p>
 
 Enrique Montes is an Associate Scientist at the Cooperative Institute for Marine and Atmospheric Studies (CIMAS), University of Miami, in the US. Enrique is interested in physical and biological controls of carbon, nitrogen and oxygen cycling in the ocean, and how these cycles in turn drive marine ecosystems across time and space. Besides [his extensive body of work](https://scholar.google.com/citations?hl=de&user=iQn7B_QAAAAJ&view_op=list_works&sortby=pubdate) that spans from eDNA research to seascape biogeography, you may know Enrique from his contributions to the Marine Biodiversity Observatory Network (MBON) Pole to Pole in the Americas initiative and to NOAA’s Atlantic Oceanographic and Meteorological Laboratory (AOML).
@@ -173,6 +175,12 @@ Michael (Mike) S. Rappé is a Research Professor at the University of Hawaiʻi a
 ### Raïssa Meyer
 
 🇩🇪 _Helmholtz Institute for Marine Functional Biodiversity (HIFMB)_ \| [learn more](https://merenlab.org/people/)
+
+#<p>
+#  <img src="/images/mmoff-2025/raissa.jpeg" alt="Raïssa Meyer"
+#       style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
+#              border-radius: 50%; border: 6px solid #eee;">
+#</p>
 
 Raïssa Meyer is a postdoctoral researcher at the HIFMB in Germany. Raïssa is interested in marine microbial ecology and data interoperability. As part of her [work](https://scholar.google.com/citations?user=vDUP9z4AAAAJ&hl=de&oi=ao) with (meta)data, people, and the systems and standards needed for global 'omics observing of marine microbes, you may know Raïssa from her contributions to ([Omic BON](https://geobon.org/bons/thematic-bon/omic-bon/)) and the [Sustainable DarwinCore MIxS Interoperability TG](https://www.tdwg.org/community/gbwg/mixs/), or her involvement in [OBON](https://obon-ocean.org) and [BeBOP](https://bebop-obon.github.io). Raïssa is making this workshop happen because she wants to help shape a lasting foundation for marine ‘omics observations and is especially looking forward to learning from and exchanging ideas with everyone we’ve brought together for this conversation.
 
