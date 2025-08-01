@@ -251,7 +251,7 @@ Luke Thompson is an Associate Research Professor at the Mississippi State Univer
 🇩🇪 _Helmholtz Institute for Marine Functional Biodiversity (HIFMB)_ \| [learn more](https://merenlab.org/people/) 
 
 <p>
-  <img src="bio-meren.jpg" alt="A. Murat Eren"
+  <img src="images/bio-meren.jpg" alt="A. Murat Eren"
        style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
               border-radius: 50%; border: 6px solid #eee;">
 </p>
@@ -278,7 +278,7 @@ Michael (Mike) S. Rappé is a Research Professor at the University of Hawaiʻi a
 🇩🇪 _Helmholtz Institute for Marine Functional Biodiversity (HIFMB)_ \| [learn more](https://merenlab.org/people/)
 
 <p>
-  <img src="bio-raissa.jpeg" alt="Raïssa Meyer"
+  <img src="images/bio-raissa.jpeg" alt="Raïssa Meyer"
        style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
               border-radius: 50%; border: 6px solid #eee;">
 </p>
@@ -305,7 +305,7 @@ Samantha (Sam) Setta is a postdoctoral scientist at the University of Washington
 🇺🇸 _Marine Biological Laboratory (MBL)_ \| [learn more](https://sarahjtucker.com/) 
 
 <p>
-  <img src="bio-sarah.jpeg" alt="Sarah Tucker"
+  <img src="images/bio-sarah.jpeg" alt="Sarah Tucker"
        style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
               border-radius: 50%; border: 6px solid #eee;">
 </p>
