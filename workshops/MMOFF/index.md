@@ -104,6 +104,10 @@ Elisha Wood-Charlson is a User Engagement Lead at the Lawrence Berkeley National
 
 🇺🇸 _Cooperative Institute for Marine and Atmospheric Studies (CIMAS), University of Miami_ \| [learn more](https://www.aoml.noaa.gov/people/enrique-montes/)
 
+<p>
+  <img src="/images/mmoff-2025/enrique2.jpeg" alt="Enrique Montes" style="float: left; margin: 0 15px 10px 0; width: 150px; border-radius: 50%;">
+</p>
+
 Enrique Montes is an Associate Scientist at the Cooperative Institute for Marine and Atmospheric Studies (CIMAS), University of Miami, in the US. Enrique is interested in physical and biological controls of carbon, nitrogen and oxygen cycling in the ocean, and how these cycles in turn drive marine ecosystems across time and space. Besides [his extensive body of work](https://scholar.google.com/citations?hl=de&user=iQn7B_QAAAAJ&view_op=list_works&sortby=pubdate) that spans from eDNA research to seascape biogeography, you may know Enrique from his contributions to the Marine Biodiversity Observatory Network (MBON) Pole to Pole in the Americas initiative and to NOAA’s Atlantic Oceanographic and Meteorological Laboratory (AOML).
 
 ### Ioulia Santi
@@ -117,10 +121,14 @@ Ioulia Santi is a postdoctoral researcher at the Hellenic Center for Marine Rese
 🇺🇸 _University of Southern California (USC)_ \| [learn more](https://dornsife.usc.edu/fuhrmanlab/__trashed-4/)
 
 <p>
-  <img src="/images/mmoff-2025/jed.png" alt="Jed Fuhrman" style="float: left; margin: 0 15px 10px 0; width: 150px; border-radius: 8px;">
+  <img src="/images/mmoff-2025/jed.png" alt="Jed Fuhrman" style="float: left; margin: 0 15px 10px 0; width: 150px; border-radius: 50%;">
 </p>
 
 Jed Fuhrman is a Professor at University of Southern California in the US. Jed is interested in roles of microorganisms including viruses, prokaryotes, and protists in natural marine ecosystems and the cycling of matter in the ocean, from the microscopic scale to the global scale. Besides his [extensive body of work](https://scholar.google.com/citations?user=VjvupJUAAAAJ&hl=de&oi=ao), that spans from marine ecology to biological oceanography, you may know him from his leadership of the San Pedro Ocean Time-Series (SPOT), his lab’s validation of a set of universal 3-domain primers for microbial community analyses,  and recent work from his lab generating the global [GRUMP atlas](https://doi.org/10.1038/s41597-025-05423-9). We invited Jed because of his experience in studying marine microbial life and coordinating the ocean time-series measurements at SPOT.
+
+### Jesse McNichol
+
+🇨🇦 _St. Francis Xavier University_ \| [learn more](https://www.stfxmicroeco.ca/people/)
 
 ### Jesse McNichol
 
@@ -212,7 +220,3 @@ Yosmina Tapilatu is a Senior Research Scientist at the National Research and Inn
 
 ## Contact
 For questions contact Raïssa Meyer `raissa.meyer@awi.de` 
-
-## Acknowledgements
-We gratefully acknowledge the support of the HIFMB (Helmholtz Institute for Functional Marine Biodiversity), the AWI (Alfred Wegener Institute Helmholtz-Centre for Polar and Marine Research), and the DynaCom project at the University of Oldenburg for financially supporting this workshop.
-
