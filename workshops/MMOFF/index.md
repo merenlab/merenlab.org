@@ -104,9 +104,8 @@ Elisha Wood-Charlson is a User Engagement Lead at the Lawrence Berkeley National
 
 🇺🇸 _Cooperative Institute for Marine and Atmospheric Studies (CIMAS), University of Miami_ \| [learn more](https://www.aoml.noaa.gov/people/enrique-montes/)
 
-<div style="float: left; width: 150px; height: 150px; border-radius: 50%; overflow: hidden; margin: 0 15px 10px 0; border: 2px solid #ccc;">
-  <img src="/images/enrique2.jpeg" alt="Enrique Montes"
-       style="width: 100%; height: 100%; object-fit: cover; object-position: left;">
+<div style="float:left; width:130px; height:130px; border-radius:50%; overflow:hidden; margin: 0 15px 10px 0; border:1px solid #aaa;">
+  <img src="/images/enrique2.jpeg" alt="Enrique Montes" style="width:100%; height:100%; object-fit:cover; object-position:left;">
 </div>
 
 Enrique Montes is an Associate Scientist at the Cooperative Institute for Marine and Atmospheric Studies (CIMAS), University of Miami, in the US. Enrique is interested in physical and biological controls of carbon, nitrogen and oxygen cycling in the ocean, and how these cycles in turn drive marine ecosystems across time and space. Besides [his extensive body of work](https://scholar.google.com/citations?hl=de&user=iQn7B_QAAAAJ&view_op=list_works&sortby=pubdate) that spans from eDNA research to seascape biogeography, you may know Enrique from his contributions to the Marine Biodiversity Observatory Network (MBON) Pole to Pole in the Americas initiative and to NOAA’s Atlantic Oceanographic and Meteorological Laboratory (AOML).
