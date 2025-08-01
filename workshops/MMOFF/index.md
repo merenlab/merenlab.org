@@ -121,8 +121,11 @@ Ioulia Santi is a postdoctoral researcher at the Hellenic Center for Marine Rese
 🇺🇸 _University of Southern California (USC)_ \| [learn more](https://dornsife.usc.edu/fuhrmanlab/__trashed-4/)
 
 <p>
-  <img src="/images/mmoff-2025/jed.jpeg" alt="Jed Fuhrman" style="display: block; margin: 0 auto 10px auto; width: 150px; height: 150px; border-radius: 50%; border: 1px solid #aaa;">
+  <img src="/images/mmoff-2025/jed.jpeg" alt="Jed Fuhrman"
+       style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
+              border-radius: 50%; border: 6px solid #eee;">
 </p>
+
 Jed Fuhrman is a Professor at University of Southern California in the US. Jed is interested in roles of microorganisms including viruses, prokaryotes, and protists in natural marine ecosystems and the cycling of matter in the ocean, from the microscopic scale to the global scale. Besides his [extensive body of work](https://scholar.google.com/citations?user=VjvupJUAAAAJ&hl=de&oi=ao), that spans from marine ecology to biological oceanography, you may know him from his leadership of the San Pedro Ocean Time-Series (SPOT), his lab’s validation of a set of universal 3-domain primers for microbial community analyses,  and recent work from his lab generating the global [GRUMP atlas](https://doi.org/10.1038/s41597-025-05423-9). We invited Jed because of his experience in studying marine microbial life and coordinating the ocean time-series measurements at SPOT.
 
 ### Jesse McNichol
