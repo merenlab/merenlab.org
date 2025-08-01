@@ -188,7 +188,7 @@ Jed Fuhrman is a Professor at University of Southern California in the US. Jed i
               border-radius: 50%; border: 6px solid #eee;">
 </p>
 
-Jesse McNichol is a Professor at St. Francis Xavier University in Canada. Jesse is interested in how marine microbes interact with their physical environment and influence global biogeochemical cycles. Besides his [extensive body of work](https://scholar.google.com/citations?user=8aUVZB4AAAAJ&hl=de&oi=ao) that spans microbial ecology, oceanography, bioinformatics, and single-cell activity assays, you may know Jesse from is work with [SPOT](https://dornsife.usc.edu/spot/about/) and [BioGEOTRACES](https://www.geotraces.org) data, or from his contributions to the [GRUMP atlas](https://simonscmap.com/catalog/datasets/GRUMP). We invited Jesse because of his broad expertise in microbial oceanography and his innovative work connecting microbial diversity with ecosystem-scale processes.
+Jesse McNichol is a Professor at St. Francis Xavier University in Canada. Jesse is interested in how marine microbes interact with their physical environment and influence global biogeochemical cycles. Besides his [published work](https://scholar.google.com/citations?user=8aUVZB4AAAAJ&hl=de&oi=ao) that spans microbial ecology, oceanography, bioinformatics, and single-cell activity assays, you may know Jesse from is work with [SPOT](https://dornsife.usc.edu/spot/about/) and [BioGEOTRACES](https://www.geotraces.org) data, or from his contributions to the [GRUMP atlas](https://simonscmap.com/catalog/datasets/GRUMP). We invited Jesse because of his broad expertise in microbial oceanography and his innovative work connecting microbial diversity with ecosystem-scale processes.
 
 
 ### Jodie van de Kamp
