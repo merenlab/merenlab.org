@@ -176,11 +176,13 @@ Michael (Mike) S. Rappé is a Research Professor at the University of Hawaiʻi a
 
 🇩🇪 _Helmholtz Institute for Marine Functional Biodiversity (HIFMB)_ \| [learn more](https://merenlab.org/people/)
 
-#<p>
-#  <img src="/images/mmoff-2025/raissa.jpeg" alt="Raïssa Meyer"
-#       style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
-#              border-radius: 50%; border: 6px solid #eee;">
-#</p>
+<!--
+<p>
+  <img src="/images/mmoff-2025/raissa.jpeg" alt="Raïssa Meyer"
+       style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
+              border-radius: 50%; border: 6px solid #eee;">
+</p>
+-->
 
 Raïssa Meyer is a postdoctoral researcher at the HIFMB in Germany. Raïssa is interested in marine microbial ecology and data interoperability. As part of her [work](https://scholar.google.com/citations?user=vDUP9z4AAAAJ&hl=de&oi=ao) with (meta)data, people, and the systems and standards needed for global 'omics observing of marine microbes, you may know Raïssa from her contributions to ([Omic BON](https://geobon.org/bons/thematic-bon/omic-bon/)) and the [Sustainable DarwinCore MIxS Interoperability TG](https://www.tdwg.org/community/gbwg/mixs/), or her involvement in [OBON](https://obon-ocean.org) and [BeBOP](https://bebop-obon.github.io). Raïssa is making this workshop happen because she wants to help shape a lasting foundation for marine ‘omics observations and is especially looking forward to learning from and exchanging ideas with everyone we’ve brought together for this conversation.
 
