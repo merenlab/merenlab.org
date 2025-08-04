@@ -234,17 +234,15 @@ Julie Robidart is the Head of Ocean Technology and Engineering at NOC in the UK.
 Kathleen (Katie) Pitz is a Senior Research Technician at MBARI in the US. Katie is interested in combining molecular and acoustic techniques to study marine ecosystems, with a focus on characterizing microbial and biological diversity in relation to oceanographic processes. Besides her [extensive body of work](https://www.researchgate.net/scientific-contributions/Kathleen-Pitz-2166886137) that spans biological oceanography and environmental genomics, you may know Katie from her leadership of the Better Biomolecular Ocean Practices ([BeBOP](https://bebop-obon.github.io)) project and her involvement in [OBON](https://obon-ocean.org). We invited Katie because of her expertise in molecular ecology, her leadership in the BeBOP project, and her contributions to coordinating molecular approaches within the broader ocean observing community.
 
 ### Luke Thompson 
-🇺🇸 _Mississippi State University_ \| [learn more](https://www.aoml.noaa.gov/luke-thompson/) 
+🇺🇸 _Northern Gulf Institute (NGI), Mississippi State University_ \| [learn more](https://www.aoml.noaa.gov/luke-thompson/) 
 
-<!--
 <p>
   <img src="/images/mmoff-2025/luke.jpeg" alt="Luke Thompson"
        style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
               border-radius: 50%; border: 6px solid #eee;">
 </p>
--->
 
-Luke Thompson is an Associate Research Professor at the Mississippi State University in the US. Luke is interested in microbial ecology, eDNA and (meta)data stewardship. Besides his [extensive body of work](https://scholar.google.com/citations?user=kggNWsMAAAAJ) that spans from developing computational techniques to exploring microbial communities, you may know Luke from the Earth Microbiome Project ([EMP](https://earthmicrobiome.org)) or his contributions to the Atlantic Oceanographic & Meteorological Laboratory ([AOML](https://www.aoml.noaa.gov))'s omics program. We invited Luke because of his expertise in bimolecular observing and contributions to AOML.
+Luke Thompson is a Research Professor at the Northern Gulf Instutite, a NOAA Cooperative Institute through Mississippi State University, and based in Miami, Florida, USA. Luke is interested in microbial ecology, eDNA and (meta)data stewardship. Besides his [extensive body of work](https://scholar.google.com/citations?user=kggNWsMAAAAJ) that spans from developing computational techniques to exploring microbial communities, you may know Luke from the Earth Microbiome Project ([EMP](https://earthmicrobiome.org)) or his contributions to the Atlantic Oceanographic & Meteorological Laboratory ([AOML](https://www.aoml.noaa.gov))'s omics program. We invited Luke because of his expertise in bimolecular observing and contributions to omics data accessibility.
 
 
 ### A. Murat Eren (Meren)
