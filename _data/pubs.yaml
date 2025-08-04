@@ -909,28 +909,6 @@ publications:
       featured_image:
         /images/pubs/delmont_eren_metapangenomics.jpeg
 
-  - doi:
-      10.1186/s40168-018-0474-8
-    title:
-      "Gut microbes contribute to variation in solid organ transplant outcomes in mice"
-    authors:
-      Christine M McIntosh, Luqiu Chen, Alon Shaiber, A Murat Eren+, Maria-Luisa Alegre+
-    journal:
-      Microbiome
-    year:
-      2018
-    volume:
-      6
-    number:
-      96
-    pages:
-    additional_info:
-      highlights:
-        - "Two groups of genetically identical mice with different microbial community structures differ in their response to skin transplants from genetically identical sources: one group rejects the skin faster than the other."
-        - Transferring poop from slow-rejecting mice into fast-rejecting mice turns fast-rejecting mice into slow-rejecting mice.
-        - These suggest that differences in 'resident microbiome' in healthy individuals <i>may</i> contribute to interpersonal variability in graft outcomes, and fecal microbiota transplantation <i>may</i> play a therapeutic role to reverse that phenotype.
-        - Basically, "we do not have a mechanistic understanding, but this is definitely very interesting".
-      featured_image:
 
   - doi:
       10.1038/s41586-018-0125-z
@@ -1001,26 +979,6 @@ publications:
         - Here is <a href="http://merenlab.org/2017/10/16/reply-to-probst-et-al/" target="_blank">our response to Probst et al.</a>, and <a href="http://merenlab.org/2017/11/25/DWH-O-desum-v2/" target="_blank">the recovery of DWH O. Desum v2</a>.
       featured_image:
         http://merenlab.org/images/miscellaneous/2017-10-16-reply-to-probst-et-al/Figure_01.png
-
-  - doi:
-      10.1038/s41467-017-01228-6
-    title:
-      "Genomic variation in microbial populations inhabiting the marine subseafloor at deep-sea hydrothermal vents"
-    authors:
-      Rika E Anderson, Julie Reveillaud, Emily Reddington, Tom O Delmont, A Murat Eren, Jill M McDermott, Jeff S Seewald, Julie A Huber
-    journal:
-      Nature Communications
-    year:
-      2017
-    volume:
-      8
-    number:
-      1
-    pages:
-      1114
-    additional_info:
-      highlights:
-      featured_image:
 
   - doi:
       10.1186/s13059-017-1309-9
@@ -1111,26 +1069,6 @@ publications:
         /images/pubs/delmont_tardigrade.png
 
   - doi:
-      10.1128/mBio.01713-16
-    title:
-      "Patient-specific bacteroides genome variants in pouchitis"
-    authors:
-      Joseph H Vineis, Daina L Ringus, Hilary G Morrison, Tom O Delmont, Sushila Dalal, Laura H Raffals, Dionysios A Antonopoulos, David T Rubin, A Murat Eren, Eugene B Chang, Mitchell L Sogin
-    journal:
-      mBio
-    year:
-      2016
-    volume:
-      7
-    number:
-      6
-    pages:
-      e01713-16
-    additional_info:
-      highlights:
-      featured_image:
-
-  - doi:
       10.3389/fmicb.2016.01318
     title:
       "New insights into microbial ecology through subtle nucleotide variation"
@@ -1145,26 +1083,6 @@ publications:
     number:
     pages:
       1318
-    additional_info:
-      highlights:
-      featured_image:
-
-  - doi:
-      10.1093/femsre/fuw017
-    title:
-      "Millions of reads, thousands of taxa: microbial community structure and associations analyzed via marker genes"
-    authors:
-      Miklós Bálint, Mohammad Bahram, A Murat Eren, Karoline Faust, Jed A Fuhrman, Björn Lindahl, Robert B O'Hara, Maarja Öpik, Mitchell L Sogin, Martin Unterseher, Leho Tedersoo
-    journal:
-      FEMS Microbiology Reviews
-    year:
-      2016
-    volume:
-      40
-    number:
-      5
-    pages:
-      686-700
     additional_info:
       highlights:
       featured_image:
@@ -1233,66 +1151,6 @@ publications:
       featured_image:
 
   - doi:
-      10.3389/fmicb.2015.00358
-    title:
-      "Reconstructing rare soil microbial genomes using in situ enrichments and metagenomics"
-    authors:
-      Tom O Delmont, A Murat Eren, Lorrie Maccario, Emmanuel Prestat, Özcan C Esen, Eric Pelletier, Denis Le Paslier, Pascal Simonet, Timothy M Vogel
-    journal:
-      Frontiers in microbiology
-    year:
-      2015
-    volume:
-      6
-    number:
-    pages:
-      358
-    additional_info:
-      highlights:
-        - Application of <i>in situ</i> enrichments to shape the diversity of complex metagenomes prior to sequencing.
-        - The first successful attempt to assemble multiple near-complete bacterial genomes directly from a soil sample.
-        - The abundance of reconstructed genomes ranged from rare (<0.0001%) to relatively abundant (>0.01%) in pristine soil metagenomes.
-      featured_image:
-        /images/pubs/delmont_rare_soil_genomes.png
-
-  - doi:
-      10.1038/ajg.2015.357
-    title:
-      "Extensive modulation of the fecal metagenome in children with Crohn’s disease during exclusive enteral nutrition"
-    authors:
-      Christopher Quince, Umer Zeeshan Ijaz, Nick Loman, A Murat Eren, Delphine Saulnier, Julie Russell, Sarah J Haig, Szymon T Calus, Joshua Quick, Andrew Barclay, Martin Bertz, Michael Blaut, Richard Hansen, Paraic McGrogan, Richard K Russell, Christine A Edwards, Konstantinos Gerasimidis
-    journal:
-      The American journal of gastroenterology
-    year:
-      2015
-    volume:
-      110
-    number:
-      12
-    pages:
-      1718
-    additional_info:
-      highlights:
-      featured_image:
-
-  - doi:
-      10.1128/mBio.02574-14
-    title:
-      "Sewage reflects the microbiomes of human populations"
-    authors:
-      Ryan J Newton, Sandra L McLellan, Deborah K Dila, Joseph H Vineis, Hilary G Morrison, A Murat Eren, Mitchell L Sogin
-    journal:
-      mBio
-    year:
-      2015
-    volume:
-      6
-    number:
-      2
-    pages:
-      e02574-14
-
-  - doi:
       10.1073/pnas.1409644111
     title:
       "Oligotyping analysis of the human oral microbiome"
@@ -1308,106 +1166,6 @@ publications:
       28
     pages:
       E2875-E2884
-    additional_info:
-      highlights:
-      featured_image:
-
-  - doi:
-      10.1016/j.tim.2014.08.002
-    title:
-      "Discovering new indicators of fecal pollution"
-    authors:
-      Sandra L McLellan, A Murat Eren
-    journal:
-      Trends in Microbiology
-    year:
-      2014
-    volume:
-      22
-    number:
-      12
-    pages:
-      697-706
-    additional_info:
-      highlights:
-      featured_image:
-
-  - doi:
-      10.3389/fmicb.2014.00568
-    title:
-      "Dynamics of tongue microbial communities with single-nucleotide resolution using oligotyping"
-    authors:
-      Jessica L Mark Welch, Daniel R Utter, Blair J Rossetti, David B Mark Welch, A Murat Eren, Gary G Borisy
-    journal:
-      Frontiers in microbiology
-    year:
-      2014
-    volume:
-      5
-    number:
-
-    pages:
-      568
-    additional_info:
-      highlights:
-      featured_image:
-
-  - doi:
-      10.1371/journal.pone.0090785
-    title:
-      "Humpback whale populations share a core skin bacterial community: towards a health index for marine mammals?"
-    authors:
-      Amy Apprill, Jooke Robbins, A Murat Eren, Adam A Pack, Julie Reveillaud, David Mattila, Michael Moore, Misty Niemeyer, Kathleen M T Moore, Tracy J Mincer
-    journal:
-      PLoS One
-    year:
-      2014
-    volume:
-      9
-    number:
-      3
-    pages:
-      e90785
-    additional_info:
-      highlights:
-      featured_image:
-
-  - doi:
-      10.1038/ismej.2013.227
-    title:
-      "Host-specificity among abundant and rare taxa in the sponge microbiome"
-    authors:
-      Julie Reveillaud, Loïs Maignien, A Murat Eren, Julie A Huber, Amy Apprill, Mitchell L Sogin, Ann Vanreusel
-    journal:
-      The ISME Journal
-    year:
-      2014
-    volume:
-      8
-    number:
-      6
-    pages:
-      1198-209
-    additional_info:
-      highlights:
-      featured_image:
-
-  - doi:
-      10.1128/mBio.00682-13
-    title:
-      "Ecological succession and stochastic variation in the assembly of Arabidopsis thaliana phyllosphere communities"
-    authors:
-      Loïs Maignien, Emelia A DeForce, Meghan E Chafee, A Murat Eren, Sheri L Simmons
-    journal:
-      mBio
-    year:
-      2014
-    volume:
-      5
-    number:
-      1
-    pages:
-      e00682-13
     additional_info:
       highlights:
       featured_image:
@@ -1448,46 +1206,6 @@ publications:
       6
     pages:
       e66643
-    additional_info:
-      highlights:
-      featured_image:
-
-  - doi:
-      10.1093/bib/bbt010
-    title:
-      "DRISEE overestimates errors in metagenomic sequencing data"
-    authors:
-      A Murat Eren, Hilary G Morrison, Susan M Huse, Mitchell L Sogin
-    journal:
-      Briefings in Bioinformatics
-    year:
-      2013
-    volume:
-      15
-    number:
-      5
-    pages:
-      783-787
-    additional_info:
-      highlights:
-      featured_image:
-
-  - doi:
-      10.1111/1462-2920.12092
-    title:
-      "Sewage reflects the distribution of human faecal Lachnospiraceae"
-    authors:
-      Sandra L McLellan, Ryan J Newton,Jessica L Vandewalle, Orin C Shanks, Susan M Huse, A Murat Eren, Mitchell L Sogin
-    journal:
-      Environmental Microbiology
-    year:
-      2013
-    volume:
-      15
-    number:
-      8
-    pages:
-      2213-2227
     additional_info:
       highlights:
       featured_image:
