@@ -286,17 +286,15 @@ Raïssa Meyer is a postdoctoral researcher at the HIFMB in Germany. Raïssa is i
 
 ### Samantha (Sam) Setta
 
-🇺🇸 _University of Washington, Cooperative Institute for Climate, Ocean, & Ecosystem Studies (UW/CICOES)_ \| [learn more](https://www.pmel.noaa.gov/people/dr-samantha-setta) 
+🇺🇸 _University of Washington_ \| [learn more](https://www.pmel.noaa.gov/people/dr-samantha-setta) 
 
-<!--
 <p>
-  <img src="/images/mmoff-2025/samantha.jpeg" alt="Samantha Setta"
+  <img src="/images/mmoff-2025/sam.jpeg" alt="Samantha Setta"
        style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
               border-radius: 50%; border: 6px solid #eee;">
 </p>
--->
 
-Samantha (Sam) Setta is a postdoctoral scientist at the University of Washington, working in the Ocean Molecular Ecology (OME) lab in the US. Sam is interested in microbial eukaryotes and in improving the accuracy and reliability of taxonomy assignment in environmental sequencing data. Besides her [recent work](https://scholar.google.com/citations?user=qC_OAhcAAAAJ&hl=de&oi=ao) in biological oceanography, you may know Sam for her involvement in the Pacific Marine Environmental Laboratory ([PMEL](https://www.pmel.noaa.gov)). We invited Sam because of her involvement in ocean observing in PMEL. 
+Samantha (Sam) Setta is a postdoctoral scientist at the University of Washington, working in the Ocean Molecular Ecology (OME) lab in the US. Sam is interested in microbial eukaryotes and in improving the accuracy and reliability of taxonomy assignment in environmental sequencing data. Besides her [recent work](https://scholar.google.com/citations?user=qC_OAhcAAAAJ&hl=de&oi=ao) in biological oceanography, you may know Sam for her involvement in the Pacific Marine Environmental Laboratory ([PMEL](https://www.pmel.noaa.gov)) OME group's work to standardize 'omics methods across NOAA labs. We invited Sam because of her involvement in ocean observing in PMEL. 
 
 ### Sarah J. Tucker
 
