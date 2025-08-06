@@ -5,6 +5,8 @@ modified: 2025-07-03
 excerpt: "A bioinformatics workflow for genomically guided compound prediction in Roseobacter co-culture experiments"
 comments: true
 authors: [sam]
+redirect_from:
+  - /dom-molecular-comp
 ---
 
 <div class="extra-info" markdown="1">
