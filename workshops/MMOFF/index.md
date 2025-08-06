@@ -130,13 +130,12 @@ David Needham is a Junior Professor and Helmholtz Young Investigator Group Leade
 
 🇺🇸 _Lawrence Berkeley National Laboratory_ \| [learn more](https://schmidtocean.org/person/elisha-wood-charlson/)
 
-<!--
 <p>
   <img src="/images/mmoff-2025/elisha.jpeg" alt="Elisha Wood-Charlson"
        style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
               border-radius: 50%; border: 6px solid #eee;">
 </p>
--->
+
 
 Elisha Wood-Charlson is a User Engagement Lead at the Lawrence Berkeley National Laboratory in the US. Elisha is interested in marine microbial and viral ecology, as well as improving data discovery and interoperability. Besides her [extensive body of work](https://scholar.google.com/citations?user=qZG3RjAAAAAJ&hl=en) that ranges from the characterization of viral communities to the introduction of global data portals, you may know Elisha from her contributions to the [NMDC](https://microbiomedata.org) and [KBase](https://www.kbase.us). We invited Elisha because of her insight into data stewardship and her efforts to improve science communication and collaboration.
 
@@ -156,15 +155,16 @@ Enrique Montes is an Associate Scientist at the Cooperative Institute for Marine
 
 🇬🇷 _European Marine Biological Resource Centre (EMBRC)_ \| [learn more](https://www.embrc.eu/our-team/)
 
-<!--
+
 <p>
   <img src="/images/mmoff-2025/ioulia.jpeg" alt="Ioulia Santi"
        style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
               border-radius: 50%; border: 6px solid #eee;">
 </p>
--->
 
-Ioulia Santi is a postdoctoral researcher at the Hellenic Center for Marine Research. Ioulia is interested in the structure and composition of microbial communities in the marine environment with an emphasis on microbial planktonic eukaryotes. Besides her [body of work](https://scholar.google.com/citations?hl=en&user=66Y0TuIAAAAJ&view_op=list_works) that spans from marine plankton to ocean observing strategies, you may know her from here involvement in the [European Marine Omics Biodiversity Observation Network (EMO BON)](https://www.embrc.eu/emo-bon/). We invited Ioulia because of her insight into the European Observation landscape.
+
+Ioulia Santi is the Observation, Data and Service Development Officer at the Research Infrastructure [EMBRC](https://www.embrc.eu) (European Marine Biological Resource Centre) and a postdoctoral researcher at the Hellenic Center for Marine Research. Ioulia is interested in the structure and composition of microbial communities in the marine environment with an emphasis on microbial planktonic eukaryotes. Besides her [body of work](https://scholar.google.com/citations?hl=en&user=66Y0TuIAAAAJ&view_op=list_works) that spans from marine microorganisms to ocean observation strategies and data, you may know her from her involvement in the European Marine Omics Biodiversity Observation Network ([EMO BON](https://www.embrc.eu/emo-bon/)). We invited Ioulia because of her insight into the European Observation landscape.
+
 
 ### Jed Fuhrman
 
@@ -259,15 +259,15 @@ A. Murat Eren (Meren) is a Professor at the University of Oldenburg in Germany. 
 
 
 ### Michael (Mike) S. Rappé
-🇺🇸 _Hawaiʻi Marine Biology Institute_ \| [learn more](https://rappelab.wordpress.com/people/) 
+🇺🇸 _Hawai’i Institute of Marine Biology_ \| [learn more](https://rappelab.wordpress.com/people/) 
 
-<!--
+
 <p>
   <img src="/images/mmoff-2025/mike.jpeg" alt="Michael Rappé"
        style="float: left; margin: 0 15px 10px 0; width: 150px; height: 150px;
               border-radius: 50%; border: 6px solid #eee;">
 </p>
--->
+
 
 Michael (Mike) S. Rappé is a Research Professor at the University of Hawaiʻi at Mānoa in the US. Mike is interested in exploring the diversity, evolutionary history, ecology, and physiology of marine microbes through microbial cultivation, ocean observations, and 'omics. Besides Mike's [extensive body of work](https://scholar.google.com/citations?user=DptXjj8AAAAJ&hl=de&oi=ao) that explores microbial ecology and evolution in environments ranging from the surface ocean to the deep subseafloor biosphere, you may know Mike from his development of the Kāneʻohe Bay Time-series ([KByT](https://merenlab.slack.com/archives/D073RFUBZ0E/p1753794091622539)). We invited Mike because of his expertise in microbial ecology and insights into integrating field- and lab-based approaches for time-series observations.
 
